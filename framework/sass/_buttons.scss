@@ -1,0 +1,81 @@
+@mixin button-primary($buttonColor, $gradientColor, $buttonShadowColor) {
+  background-color: $buttonColor;
+  background-image: linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%);
+  background-repeat: no-repeat;
+  box-shadow: 0 -1px 0 $buttonShadowColor inset;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 24px;
+  color: $buttonPrimaryFontColor;
+  height: $buttonPrimaryHeight;
+  line-height: $buttonPrimaryHeight;
+  font-size: $buttonPrimaryFontSize;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 $buttonPrimaryHeight/2;
+  opacity: 1;
+  transition: background-position 0.3s ease-out, opacity 0.3s ease-out;
+  &:hover, &:focus {
+    background-color: $gradientColor;
+    background-position: 0 10px;
+    opacity: 0.8;
+    outline: none;
+  }
+  &:active {
+    color: rgba($buttonPrimaryFontColor, 0.8);
+    outline: none;
+  }
+}
+
+@mixin button-secondary($buttonColor) {
+  $borderSize: 2px;
+  background-color: transparent;
+  border: $borderSize solid $buttonColor;
+  color: $buttonColor;
+  display: inline-block;
+  border-radius: 24px;
+  height: $buttonSecondaryHeight;
+  line-height: $buttonSecondaryHeight - 2*$borderSize;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 $buttonSecondaryHeight/2;
+}
+// Primary buttons
+.button-primary {
+  @include button-primary($buttonColor, $buttonColorGradient, $buttonShadowColor);
+}
+
+.button-primary--alt {
+  @include button-primary($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+}
+
+// Secondary buttons
+.button-secondary {
+  @include button-secondary($buttonSecondaryColor);
+}
+
+.button-secondary--alt {
+
+}
+
+.button-secondary--dark {
+
+}
+
+// Small buttons
+.button-secondary-small {
+
+}
+
+.button-secondary-small--alt {
+
+}
+
+.button-secondary-small--dark {
+
+}
+
+
+
+

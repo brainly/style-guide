@@ -1,0 +1,16 @@
+.docs-block {
+  overflow: hidden;
+  margin: 50px 0 0;
+}
+
+.docs-block__header {
+  color: $grayPrimary;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.docs-block__info {
+  float: left;
+  width: 230px;
+}
