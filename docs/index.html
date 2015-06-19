@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol viewBox="0 0 36 36" id="svg-icons-comment"><path fill-rule="evenodd" clip-rule="evenodd" d="M31.5 25.6c.2 1.9.7 3.3 3.5 5.8-3.1.8-6.3-.3-8.8-2.8-2.5.9-5.3 1.5-8.2 1.5-9.9 0-18-5.9-18-13.2C0 9.6 8.1 3.7 18 3.7s18 5.9 18 13.2c0 3.3-1.7 6.3-4.5 8.7z"/></symbol><symbol viewBox="0 0 36 36" id="svg-icons-heart"><path d="M18 5.9c-6.3-7-18-3.3-18 6.6 0 9.9 10.7 14.7 18 21.8 7.3-7.1 18-11.9 18-21.8S24.3-1.1 18 5.9z"/></symbol></svg>
     <div class="data-container">
         <h1 class="main-header">Brain style guide</h1>
         <article>
@@ -141,8 +142,51 @@
             <h2 class="article-header">Button</h2>
             <section class="docs-block">
                 <button class="button-primary">Add question</button>
-                <button class="button-primary--alt">Search!</button>
+                <button class="button-primary button-primary--alt">Search!</button>
                 <button class="button-secondary">Search!</button>
+                <button class="button-secondary button-secondary--alt">Search!</button>
+                <button class="button-secondary button-secondary--dark">Search!</button>
+                <button class="button-secondary button-secondary--lav">Search!</button>
+                <button class="button-secondary button-secondary--small">Search!</button>
+                <button class="button-secondary button-secondary--small button-secondary--alt">Search!</button>
+                <button class="button-secondary button-secondary--small button-secondary--dark">Search!</button>
+
+                <a href="#" class="button-primary">Add question</a>
+                <a href="#" class="button-primary button-primary--alt">Search!</a>
+                <a href="#" class="button-secondary">Search!</a>
+                <a href="#" class="button-secondary button-secondary--alt">Search!</a>
+                <a href="#" class="button-secondary button-secondary--dark">Search!</a>
+                <a href="#" class="button-secondary button-secondary--lav">Search!</a>
+                <a href="#" class="button-secondary button-secondary--small">Search!</a>
+                <a href="#" class="button-secondary button-secondary--small button-secondary--alt">Search!</a>
+                <a href="#" class="button-secondary button-secondary--small button-secondary--dark">Search!</a>
+
+                <button class="button-secondary">
+                    <svg viewBox="0 0 100 100" class="button-secondary__icon">
+                        <use xlink:href="#svg-icons-comment"></use>
+                    </svg>
+                    <span class="button-secondary__text">Thank you</span>
+                    <span class="button-secondary__counter">34</span>
+                </button>
+                <button class="button-secondary  button-secondary--lav">
+                    <svg viewBox="0 0 100 100" class="button-secondary__icon">
+                        <use xlink:href="#svg-icons-heart"></use>
+                    </svg>
+                    <span class="button-secondary__text">Thank you</span>
+                    <span class="button-secondary__counter">34</span>
+                </button>
+                <button class="button-secondary button-secondary--dark button-secondary--small">
+                    <svg viewBox="0 0 100 100" class="button-secondary__icon">
+                        <use xlink:href="#svg-icons-heart"></use>
+                    </svg>
+                    <span class="button-secondary__text">Thank you</span>
+                    <span class="button-secondary__counter">34</span>
+                </button>
+                <button class="button-secondary">Search!</button>
+
+                <button class="button-secondary button-secondary--dark button-secondary--small">
+                    Thank you
+                </button>
             </section>
         </article>
     </div>
