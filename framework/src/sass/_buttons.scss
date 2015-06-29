@@ -26,15 +26,12 @@
 @mixin button-secondary-theme($buttonColor, $buttonTextColorHover) {
   border-color: $buttonColor;
   color: $buttonColor;
-  fill: $buttonColor;
   &:hover, &:focus {
     background-color: $buttonColor;
-    fill: $buttonTextColorHover;
     border-color: $buttonColor;
     color: $buttonTextColorHover;
   }
   &:active {
-    fill: rgba($buttonTextColorHover, 0.7);
     color: rgba($buttonTextColorHover, 0.7);
   }
 }
@@ -74,7 +71,7 @@
   border-style: solid;
   background-color: transparent;
   font-size: $buttonSecondaryFontSize;
-  transition: background-color 0.4s ease-out, color 0.4s ease-out, fill 0.4s ease-out;
+  transition: background-color 0.4s ease-out, color 0.4s ease-out;
   &:hover, &:focus {
     opacity: 0.8;
     outline: none;
@@ -83,14 +80,10 @@
     transition: background-color 0.4s ease-out;
     outline: none;
   }
-  .button-secondary__icon {
+  &:before {
     float: left;
     margin: 0 6px 0 -6px;
-    height: 50%;
-    position: relative;
-    vertical-align: top;
-    transform: translateY(50%);
-    width: $buttonSecondaryHeight/2;
+    line-height: ($buttonSecondaryHeight - 2*$borderSize);
   }
   .button-secondary__text {
     float: left;
@@ -118,8 +111,9 @@
   $borderSize: 2px;
   @include button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
   font-size: $buttonSecondarySmallFontSize;
-  .button-secondary__icon {
+  &:before {
     margin: 0 4px 0 -4px;
+    line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
   }
   .button-secondary__counter {
     margin: 0 -4px 0 8px;
