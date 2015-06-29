@@ -64,27 +64,23 @@
   width: $crInputSize;
   height: $crInputSize;
   font-size: $crInputFontSize;
-}
-
-.mint-checkbox__element,
-.mint-radio__element {
-  opacity: 0;
-  position: absolute;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.mint-checkbox__style,
-.mint-radio__style {
-  box-sizing: border-box;
-  background: $crInputColor;
-  width: 100%;
-  height: 100%;
-  border: 2px solid $crInputBorderColor;
-  display: inline-block;
+  &__element {
+    opacity: 0;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+  }
+  &__style {
+    box-sizing: border-box;
+    background: $crInputColor;
+    width: 100%;
+    height: 100%;
+    border: 2px solid $crInputBorderColor;
+    display: inline-block;
+  }
 }
 
 .mint-checkbox__style {
