@@ -1,0 +1,43 @@
+
+.icon-arrow_down:before,
+.icon-check:before,
+.icon-comment:before,
+.icon-excellent:before,
+.icon-friends:before,
+.icon-heart:before,
+.icon-menu:before,
+.icon-messages:before,
+.icon-notifications:before,
+.icon-pencil:before,
+.icon-profile:before,
+.icon-search:before,
+.icon-star:before,
+.icon-stream:before {
+  display: inline-block;
+  font-family: "brainly-icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-arrow_down:before { content: "\f100"; }
+.icon-check:before { content: "\f101"; }
+.icon-comment:before { content: "\f102"; }
+.icon-excellent:before { content: "\f103"; }
+.icon-friends:before { content: "\f104"; }
+.icon-heart:before { content: "\f105"; }
+.icon-menu:before { content: "\f106"; }
+.icon-messages:before { content: "\f107"; }
+.icon-notifications:before { content: "\f108"; }
+.icon-pencil:before { content: "\f109"; }
+.icon-profile:before { content: "\f10a"; }
+.icon-search:before { content: "\f10b"; }
+.icon-star:before { content: "\f10c"; }
+.icon-stream:before { content: "\f10d"; }
