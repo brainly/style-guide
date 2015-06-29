@@ -83,3 +83,26 @@ $tabHoverShadowColor: $blueSecondary;
 $tabHeight: 36px;
 $tabFontSize: 12px;
 
+// Inputs
+$selectBackground: $graySecondaryLight;
+$selectTextColor: $grayPrimary;
+$selectFontSize: 12px;
+$selectHeight: 32px;
+$selectHoverBackground: $graySecondary;
+
+$inputHeight: 32px;
+$inputBackground: $white;
+$inputBorderColor: #C8CACC;
+$inputTextColor: #C8CACC;
+$inputFontSize: 12px;
+$inputFocusBorderColor: #969799;
+$inputFocusTextColor: #969799;
+$inputValidBorderColor: $peachPrimary;
+
+// Checkbox/Radio
+$crInputSize: 16px;
+$crInputFontSize: 16px;
+$crInputColor: $white;
+$crInputBorderColor: #C8CACC;
+$crInputHoverBorderColor: $blueSecondaryLight;
+$crInputCheckedColor: $bluePrimary;

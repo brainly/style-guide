@@ -13,7 +13,7 @@ var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
 
 gulp.task('sass:docs', function () {
-    gulp.src('./docs/sass/**/*.scss')
+    return gulp.src('./docs/sass/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -26,7 +26,7 @@ gulp.task('sass:docs', function () {
 });
 
 gulp.task('sass:framework-build', function () {
-    gulp.src('./framework/src/sass/main.scss')
+    return gulp.src('./framework/src/sass/main.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
@@ -70,8 +70,7 @@ gulp.task('icons', function(done) {
     runSequence('icons:generate-fonts', 'icons:create-data-file', 'icons:inline-fonts', 'icons:cleanup', done);
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function(done) {
     livereload.listen();
-    gulp.watch('./docs/sass/**/*.scss', ['sass:docs']);
-    gulp.watch('./framework/src/sass/**/*.scss', ['sass:docs']);
+    return gulp.watch(['./docs/sass/**/*.scss', './framework/src/sass/**/*.scss'], ['sass:docs']);
 });
