@@ -25,44 +25,44 @@ gulp.task('sass:docs', function () {
         .pipe(livereload());
 });
 
-gulp.task('sass:framework-build', function () {
-    return gulp.src('./framework/src/sass/main.scss')
+gulp.task('sass:build', function () {
+    return gulp.src('./src/sass/main.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: false
         }))
         .pipe(rename('main.min.css'))
-        .pipe(gulp.dest('./framework/dist/css/'))
+        .pipe(gulp.dest('./dist/css/'))
 });
 
 
 gulp.task('icons:generate-fonts', function() {
-    return gulp.src("./framework/src/icons/*.svg")
+    return gulp.src("./src/icons/*.svg")
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
             templates: 'scss-rails'
         }))
-        .pipe(gulp.dest("./framework/src/sass/fonts"));
+        .pipe(gulp.dest("./src/sass/fonts"));
 });
 
 gulp.task('icons:create-data-file', function() {
-    var fontIconsContents = fs.readFileSync('./framework/src/sass/fonts/_brainly-icons-rails.scss'),
+    var fontIconsContents = fs.readFileSync('./src/sass/fonts/_brainly-icons-rails.scss'),
         splitByHeader = fontIconsContents.toString().split('[data-icon]:before,'),
         withoutHeader = splitByHeader[splitByHeader.length - 1];
 
-    fs.writeFileSync('./framework/src/sass/_icons-data.scss', withoutHeader);
+    fs.writeFileSync('./src/sass/_icons-data.scss', withoutHeader);
 });
 
 gulp.task('icons:inline-fonts', function() {
-    return gulp.src('./framework/src/sass/_icons-embed-template.scss')
+    return gulp.src('./src/sass/_icons-embed-template.scss')
         .pipe(base64())
         .pipe(rename('_icons-embed.scss'))
-        .pipe(gulp.dest('./framework/src/sass'));
+        .pipe(gulp.dest('./src/sass'));
 });
 
 gulp.task('icons:cleanup', function() {
-    return gulp.src(['./framework/src/sass/fonts/', './.fontcustom-manifest.json'], {read: false})
+    return gulp.src(['./src/sass/fonts/', './.fontcustom-manifest.json'], {read: false})
         .pipe(clean());
 });
 
@@ -72,5 +72,5 @@ gulp.task('icons', function(done) {
 
 gulp.task('watch', function(done) {
     livereload.listen();
-    return gulp.watch(['./docs/sass/**/*.scss', './framework/src/sass/**/*.scss'], ['sass:docs']);
+    return gulp.watch(['./docs/sass/**/*.scss', './src/sass/**/*.scss'], ['sass:docs']);
 });
