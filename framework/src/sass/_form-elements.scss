@@ -73,7 +73,7 @@
     cursor: pointer;
     z-index: 1;
   }
-  &__style {
+  &__ghost {
     box-sizing: border-box;
     background: $crInputColor;
     width: 100%;
@@ -83,7 +83,7 @@
   }
 }
 
-.mint-checkbox__style {
+.mint-checkbox__ghost {
   @extend .icon-check;
   border-radius: 25%;
   &:before {
@@ -95,7 +95,7 @@
   }
 }
 
-.mint-radio__style {
+.mint-radio__ghost {
   border-radius: 50%;
   &:before {
     content: '';
@@ -109,15 +109,15 @@
   }
 }
 
-.mint-checkbox__element:hover + .mint-checkbox__style,
-.mint-radio__element:hover + .mint-radio__style {
+.mint-checkbox__element:hover + .mint-checkbox__ghost,
+.mint-radio__element:hover + .mint-radio__ghost {
   border-color: $crInputHoverBorderColor;
 }
-.mint-checkbox__element:checked + .mint-checkbox__style,
-.mint-radio__element:checked + .mint-radio__style {
+.mint-checkbox__element:checked + .mint-checkbox__ghost,
+.mint-radio__element:checked + .mint-radio__ghost {
   border-color: $crInputCheckedColor;
   background: $crInputCheckedColor;
 }
-.mint-checkbox__element:checked:active + .mint-checkbox__style:before {
+.mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
   color: rgba($crInputColor, 0.7);
 }
