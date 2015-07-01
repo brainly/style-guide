@@ -123,7 +123,8 @@
 .button-secondary--with-icon {
   @include button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
   &:before {
-    font-size: $buttonSecondaryFontSize+4px;
+    $iconFontSize: $buttonSecondaryFontSize + $iconBoostValue;
+    font-size: $iconFontSize;
   }
   &:hover, &:focus {
     background-color: transparent;
@@ -161,10 +162,6 @@
   $borderSize: 2px;
   @include button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
   font-size: $buttonSecondarySmallFontSize;
-  &:before {
-    margin: 0 4px 0 -4px;
-    line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
-  }
   .button-secondary__counter {
     margin: 0 -4px 0 8px;
   }
@@ -174,33 +171,39 @@
     line-height: $buttonSecondarySmallHeight;
     position: relative;
   }
+  &.button-secondary--with-icon:before {
+    $iconFontSize: $buttonSecondarySmallFontSize + $iconBoostValue;
+    margin: 0 4px 0 -4px;
+    line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
+    font-size: $iconFontSize;
+  }
 }
 
 .rate-box {
   @include clearfix();
-  font-size: $rateStartFontSize;
+  font-size: $rateStarFontSize;
   &__star {
     @extend .icon-star;
-    color: $rateStartColor;
-    font-size: $rateStartStarSize;
+    color: $rateStarColor;
+    font-size: $rateStarFontSize + $iconBoostValue;
     padding: 0 1px;
     float: left;
     &--checked {
-      color: $rateStartCheckedColor;
+      color: $rateStarCheckedColor;
     }
     .rate-box &:hover ~ & {
-      color: $rateStartColor;
+      color: $rateStarColor;
     }
     .rate-box:active &:hover ~ & {
-      color: $rateStartActiveColor;
+      color: $rateStarActiveColor;
     }
   }
   &:hover &__star {
-    color: $rateStartCheckedColor;
+    color: $rateStarCheckedColor;
     transition: color 0.1s ease-in;
   }
   &:active:hover &__star {
-    color: $rateStartActiveCheckedColor;
+    color: $rateStarActiveCheckedColor;
     transition: none;
   }
   &__counter {
@@ -209,9 +212,9 @@
   }
 
   &--small {
-    font-size: $rateStartSmallFontSize;
+    font-size: $rateStarSmallFontSize;
     .rate-box__star {
-      font-size: $rateStartSmallStarSize;
+      font-size: $rateStarSmallFontSize + $iconBoostValue;
     }
     .rate-box__counter {
       margin-left: 6px;

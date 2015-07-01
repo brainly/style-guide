@@ -39,6 +39,8 @@ $grayPrimary: #BBBDBF;
 $graySecondary: #E1E3E5;
 $graySecondaryLight: #F0F2F5;
 
+// Icons
+$iconBoostValue: 4px;
 
 // Buttons
 $buttonPrimaryHeight: 44px;
@@ -117,11 +119,9 @@ $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputCheckedColor: $bluePrimary;
 
 // Rate box
-$rateStartColor: $graySecondary;
-$rateStartCheckedColor: $mustardPrimary;
-$rateStartActiveColor: $graySecondaryLight;
-$rateStartActiveCheckedColor: $mustardSecondary;
-$rateStartFontSize: 12px;
-$rateStartStarSize: 18px;
-$rateStartSmallFontSize: 10px;
-$rateStartSmallStarSize: 14px;
+$rateStarColor: $graySecondary;
+$rateStarCheckedColor: $mustardPrimary;
+$rateStarActiveColor: $graySecondaryLight;
+$rateStarActiveCheckedColor: $mustardSecondary;
+$rateStarFontSize: 12px;
+$rateStarSmallFontSize: 10px;
