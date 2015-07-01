@@ -120,7 +120,7 @@
   @include button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
 }
 
-.button-secondary--icon {
+.button-secondary--with-icon {
   @include button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
   &:before {
     font-size: $buttonSecondaryFontSize+4px;
@@ -135,8 +135,9 @@
   }
 }
 
-.button-secondary--thank-you {
+.button-secondary--with-heart-icon {
   @extend .icon-heart;
+  @extend .button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryThankYouColor
   }
@@ -145,8 +146,9 @@
   }
 }
 
-.button-secondary--comment {
+.button-secondary--with-comment-icon {
   @extend .icon-comment;
+  @extend .button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryCommentColor
   }
