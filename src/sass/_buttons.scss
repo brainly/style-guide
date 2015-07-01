@@ -124,6 +124,7 @@
   &:hover, &:focus {
     background-color: transparent;
     border-color: $buttonSecondaryIconBorderColorHover;
+    transition: border-color 0.1s ease-in;
   }
   &:active {
     color: rgba($buttonSecondaryIconColor, 0.7);
@@ -190,9 +191,11 @@
   }
   &:hover &__star {
     color: $rateStartCheckedColor;
+    transition: color 0.1s ease-in;
   }
   &:active:hover &__star {
     color: $rateStartActiveCheckedColor;
+    transition: none;
   }
   &__counter {
     float: left;
