@@ -116,6 +116,10 @@
   @include button-secondary-theme($buttonSecondaryLavColor, $buttonSecondaryLavTextColorHover);
 }
 
+.button-secondary--gray {
+  @include button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+}
+
 .button-secondary--icon {
   @include button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
   &:before {
