@@ -35,14 +35,14 @@ $mustardSecondaryLight: #FFF1D5;
 
 // Grey colors
 $white: #FFFFFF;
-$grayPrimary: #AFB1B3;
-$graySecondary: #DCDEE0;
+$grayPrimary: #BBBDBF;
+$graySecondary: #E1E3E5;
 $graySecondaryLight: #F0F2F5;
 
 
 // Buttons
-$buttonPrimaryHeight: 48px;
-$buttonSecondaryHeight: 36px;
+$buttonPrimaryHeight: 44px;
+$buttonSecondaryHeight: 32px;
 $buttonSecondarySmallHeight: 24px;
 
 $buttonPrimaryFontSize: 16px;
@@ -59,6 +59,10 @@ $buttonAltColor: $bluePrimary;
 $buttonAltColorGradient: #73C3FF;
 $buttonAltShadowColor: #57aff2;
 
+$buttonDarkColor: $black;
+$buttonDarkColorGradient: #262626;
+$buttonDarkShadowColor: $black;
+
 $buttonSecondaryColor: $mintPrimary;
 $buttonSecondaryTextColorHover: $white;
 $buttonSecondaryAltColor: $bluePrimary;
@@ -67,6 +71,14 @@ $buttonSecondaryDarkColor: $black;
 $buttonSecondaryDarkTextColorHover: $white;
 $buttonSecondaryLavColor: $lavenderPrimary;
 $buttonSecondaryLavTextColorHover: $white;
+$buttonSecondaryGrayColor: $grayPrimary;
+$buttonSecondaryGrayTextColorHover: $white;
+
+$buttonSecondaryIconColor: $grayPrimary;
+$buttonSecondaryIconBorderColorHover: $graySecondary;
+
+$buttonSecondaryThankYouColor: $peachPrimary;
+$buttonSecondaryCommentColor: $bluePrimary;
 
 // Tabs
 $tabBackground: $graySecondaryLight;
@@ -105,3 +117,13 @@ $crInputColor: $white;
 $crInputBorderColor: #C8CACC;
 $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputCheckedColor: $bluePrimary;
+
+// Rate box
+$rateStartColor: $graySecondary;
+$rateStartCheckedColor: $mustardPrimary;
+$rateStartActiveColor: $graySecondaryLight;
+$rateStartActiveCheckedColor: $mustardSecondary;
+$rateStartFontSize: 12px;
+$rateStartStarSize: 18px;
+$rateStartSmallFontSize: 10px;
+$rateStartSmallStarSize: 14px;
