@@ -17,7 +17,7 @@
     font-weight: inherit;
     height: $selectHeight;
     position: relative;
-    padding: 0 25px 0 10px;
+    padding: 0 24px 0 10px;
     outline: 0;
     appearance: none;
     &::-ms-expand {
@@ -31,9 +31,11 @@
     font-weight: inherit;
     position: absolute;
     right: 6px;
-    top: 11px;
+    top: 50%;
     pointer-events: none;
     z-index: 1;
+    margin-top: 2px;
+    transform: translateY(-50%);
   }
 }
 
