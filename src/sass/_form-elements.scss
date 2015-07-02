@@ -43,19 +43,34 @@
   box-sizing: border-box;
   background: $inputBackground;
   border: 2px solid $inputBorderColor;
-  border-radius: 18px;
+  border-radius: $inputHeight/2;
   color: $inputTextColor;
   font-size: $inputFontSize;
-  padding: 0 10px;
+  padding: 0 $inputHeight/2;
   height: $inputHeight;
-  line-height: $inputHeight/2;
+  line-height: $inputHeight;
   &:focus {
     outline: none;
     border-color: $inputFocusBorderColor;
-    color: $inputFocusTextColor;
+  }
+  &::placeholder {
+    color: $inputPlaceholderTextColor;
+    text-transform: uppercase;
   }
   &--valid {
     border-color:$inputValidBorderColor;
+    &:focus {
+      border-color:$inputValidBorderColor;
+    }
+  }
+  &--invalid {
+    border-color:$inputInvalidBorderColor;
+    &:focus {
+      border-color:$inputInvalidBorderColor;
+    }
+  }
+  &--spaced {
+    margin-bottom: $inputHeight/4;
   }
 }
 
@@ -111,9 +126,9 @@
   }
 }
 
-.mint-checkbox__element:hover + .mint-checkbox__ghost,
-.mint-radio__element:hover + .mint-radio__ghost {
-  border-color: $crInputHoverBorderColor;
+.mint-checkbox__element:active + .mint-checkbox__ghost,
+.mint-radio__element:active + .mint-radio__ghost {
+  border-color: $crInputActiveBorderColor;
 }
 .mint-checkbox__element:checked + .mint-checkbox__ghost,
 .mint-radio__element:checked + .mint-radio__ghost {
@@ -122,4 +137,22 @@
 }
 .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
   color: rgba($crInputColor, 0.7);
+}
+
+.mint-textarea {
+  background: $textareaBackground;
+  border: 2px solid $textareaBorderColor;
+  border-radius: $textareaBorderRadius;
+  color: $textareaTextColor;
+  font-size: $textareaFontSize;
+  padding: $textareaPadding;
+  resize: vertical;
+  &:focus {
+    border-color: $textareaFocusBorderColor;
+    outline: 0;
+  }
+  &::placeholder {
+    color: $textareaPlaceholderTextColor;
+    text-transform: uppercase;
+  }
 }
