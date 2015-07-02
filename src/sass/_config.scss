@@ -143,8 +143,20 @@ $rateStarActiveCheckedColor: $mustardSecondary;
 $rateStarFontSize: 12px;
 $rateStarSmallFontSize: 10px;
 
-// Text Bit
+// Heading
+
+$headerColor: $black;
+$headerPrimaryFontFamily: $fontFamilyEmphasized;
+$headerSecondaryFontFamily: $fontFamilySecondary;
+$headerPrimaryFontSize: 64px;
+$headerPrimarySmallFontSize: 48px;
+$headerSecondaryFontSize: 16px;
+$headerSecondarySmallFontSize: 12px;
+
+
+// Bit
 $textBitFontFamily: $fontFamilyEmphasized;
 $textBitFontSize: 58px;
 $textBitLineHeight: 0.8;
 $textBitColor: $mintSecondary;
+$textBitAltColor: $blueSecondary;

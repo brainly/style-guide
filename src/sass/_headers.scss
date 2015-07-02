@@ -1,0 +1,23 @@
+.header-primary {
+  color: $headerColor;
+  font-family: $headerPrimaryFontFamily;
+  font-size: $headerPrimaryFontSize;
+  line-height: 1;
+  margin: 0;
+}
+
+.header-primary--small {
+  font-size: $headerPrimarySmallFontSize;
+}
+.header-secondary {
+  color: $headerColor;
+  font-family: $headerSecondaryFontFamily;
+  font-size: $headerSecondaryFontSize;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.header-secondary--small {
+  font-size: $headerSecondarySmallFontSize;
+}
