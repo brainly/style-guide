@@ -39,6 +39,11 @@ $grayPrimary: #BBBDBF;
 $graySecondary: #E1E3E5;
 $graySecondaryLight: #F0F2F5;
 
+// Fonts
+$fontFamilyPrimary: 'ProximaNovaRegular', 'Helvetica', 'Arial', sans-serif;
+$fontFamilySecondary: 'ProximaNovaExtrabold', 'Helvetica', 'Arial', sans-serif;
+$fontFamilyEmphasized: 'ProximaNovaBlack', 'Helvetica', 'Arial', sans-serif;
+
 // Icons
 $iconBoostValue: 4px;
 
@@ -137,3 +142,9 @@ $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateStarFontSize: 12px;
 $rateStarSmallFontSize: 10px;
+
+// Text Bit
+$textBitFontFamily: $fontFamilyEmphasized;
+$textBitFontSize: 58px;
+$textBitLineHeight: 0.8;
+$textBitColor: $mintSecondary;
