@@ -101,22 +101,34 @@ $selectFontSize: 12px;
 $selectHeight: 44px;
 $selectHoverBackground: $graySecondary;
 
-$inputHeight: 32px;
+$inputHeight: 44px;
 $inputBackground: $white;
-$inputBorderColor: #C8CACC;
-$inputTextColor: #C8CACC;
+$inputBorderColor: $graySecondary;
+$inputTextColor: $black;
 $inputFontSize: 12px;
-$inputFocusBorderColor: #969799;
-$inputFocusTextColor: #969799;
-$inputValidBorderColor: $peachPrimary;
+$inputFocusBorderColor: $grayPrimary;
+$inputPlaceholderTextColor: $grayPrimary;
+$inputValidBorderColor: $mintPrimary;
+$inputInvalidBorderColor: $peachPrimary;
 
 // Checkbox/Radio
 $crInputSize: 16px;
 $crInputFontSize: 16px;
 $crInputColor: $white;
-$crInputBorderColor: #C8CACC;
+$crInputBorderColor: $graySecondary;
 $crInputHoverBorderColor: $blueSecondaryLight;
+$crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
+
+// Textarea
+$textareaBackground: $white;
+$textareaBorderColor: $graySecondary;
+$textareaBorderRadius: 12px;
+$textareaFontSize: 12px;
+$textareaTextColor: $black;
+$textareaPadding: 11px;
+$textareaFocusBorderColor: $grayPrimary;
+$textareaPlaceholderTextColor: $grayPrimary;
 
 // Rate box
 $rateStarColor: $graySecondary;
