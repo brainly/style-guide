@@ -1,0 +1,30 @@
+.text-bit {
+  color: $textBitColor;
+  font-family: $textBitFontFamily;
+  font-size: $textBitFontSize;
+  line-height: $textBitLineHeight;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.text-bit--alt {
+  color: $textBitAltColor;
+}
+
+.text-block {
+  font-family: $textBlockFontFamily;
+  font-size: $textBlockFontSize;
+  line-height: $textBlockLineHeight;
+  color: $textBlockColor;
+  &__link {
+    color: $textBlockLinkColor;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &--light {
+    color: $textBlockLightColor;
+  }
+}
