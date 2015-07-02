@@ -6,7 +6,6 @@
   border-radius: $selectHeight/2;
   font-size: $selectFontSize;
   color: $selectTextColor;
-  font-weight: bold;
   &__element {
     background: $selectBackground;
     border: 0;
@@ -14,12 +13,12 @@
     font-size: inherit;
     color: inherit;
     display: inline-block;
-    font-weight: inherit;
     height: $selectHeight;
     position: relative;
-    padding: 0 25px 0 10px;
+    padding: 0 $selectHeight 0 $selectHeight/2;
     outline: 0;
     appearance: none;
+    text-transform: uppercase;
     &::-ms-expand {
       display: none;
     }
@@ -28,12 +27,15 @@
     }
   }
   &:before {
-    font-weight: inherit;
+    $iconSize: $selectFontSize + $iconBoostValue;
+    font-size: $iconSize;
     position: absolute;
-    right: 6px;
-    top: 11px;
+    right: $selectHeight / 2 - $iconSize / 2;
+    top: 50%;
     pointer-events: none;
     z-index: 1;
+    margin-top: 1px;
+    transform: translateY(-50%);
   }
 }
 
