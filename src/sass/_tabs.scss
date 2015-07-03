@@ -11,7 +11,7 @@
     border-right: 1px solid $tabSeparatorColor;
     color: $tabTextColor;
     cursor: pointer;
-    font-family: sans-serif;
+    font-family: $fontFamilyEmphasized;
     float: left;
     padding: 0 $tabHeight/2;
     text-transform: uppercase;
