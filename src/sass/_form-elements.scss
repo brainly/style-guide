@@ -150,6 +150,7 @@
   font-size: $textareaFontSize;
   font-family: $fontFamilySecondary;
   font-weight: bold;
+  line-height: $textareaLineHeight;
   padding: $textareaPadding;
   resize: vertical;
   &:focus {
