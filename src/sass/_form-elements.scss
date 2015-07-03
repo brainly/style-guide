@@ -11,6 +11,8 @@
     border: 0;
     cursor: pointer;
     font-size: inherit;
+    font-family: $fontFamilyEmphasized;
+    font-weight: bold;
     color: inherit;
     display: inline-block;
     height: $selectHeight;
@@ -29,6 +31,7 @@
   &:before {
     $iconSize: $selectFontSize + $iconBoostValue;
     font-size: $iconSize;
+    font-weight: bold;
     position: absolute;
     right: $selectHeight / 2 - $iconSize / 2;
     top: 50%;
@@ -46,6 +49,8 @@
   border-radius: $inputHeight/2;
   color: $inputTextColor;
   font-size: $inputFontSize;
+  font-family: $fontFamilySecondary;
+  font-weight: bold;
   padding: 0 $inputHeight/2;
   height: $inputHeight;
   line-height: $inputHeight;
@@ -143,6 +148,8 @@
   border-radius: $textareaBorderRadius;
   color: $textareaTextColor;
   font-size: $textareaFontSize;
+  font-family: $fontFamilySecondary;
+  font-weight: bold;
   padding: $textareaPadding;
   resize: vertical;
   &:focus {
