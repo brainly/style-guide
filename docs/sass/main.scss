@@ -35,3 +35,21 @@ html, body {
 article {
   margin-bottom: 100px;
 }
+
+.icons-list {
+  list-style: none;
+  &__element {
+    float: left;
+    width: 25%;
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: $black;
+    &:before {
+      color: $mintPrimary;
+      font-size: 22px;
+      float: left;
+      margin: 0 10px 0 0;
+    }
+  }
+}
