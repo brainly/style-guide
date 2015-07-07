@@ -6,10 +6,20 @@
   text-transform: uppercase;
   word-wrap: break-word;
   margin: 0;
-}
-
-.text-bit--alt {
-  color: $textBitAltColor;
+  &--alt {
+    color: $textBitAltColor;
+  }
+  &--with-logo {
+    @extend .icon-logo;
+    position: relative;
+    padding: 30px 0 0;
+    &:before {
+      position: absolute;
+      top: 0;
+      font-size: 84px;
+      left: -13px;
+    }
+  }
 }
 
 .text-block {

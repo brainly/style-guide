@@ -1,3 +1,4 @@
-.icon-logo {
+.icon-logo:before {
   color: $logoColor;
+  background: linear-gradient(170deg, transparent 17%, $logoLettersColor 18%, $logoLettersColor 38%, transparent 39%) no-repeat;
 }
