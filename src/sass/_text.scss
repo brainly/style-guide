@@ -20,6 +20,20 @@
       left: -13px;
     }
   }
+  &--with-small-logo {
+    @extend .icon-logo;
+    position: relative;
+    padding: 25px 0 0;
+    &:before {
+      position: absolute;
+      top: 0;
+      font-size: 68px;
+      left: -10px;
+    }
+  }
+  &--small {
+    font-size: $textBitSmallFontSize;
+  }
 }
 
 .text-block {
