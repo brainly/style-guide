@@ -2,27 +2,29 @@
   display: block;
   overflow: hidden;
   margin: 50px 0 0;
-}
-
-.docs-block__header {
-  color: $grayPrimary;
-  display: block;
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0;
-}
-
-.docs-block__info {
-  box-sizing: border-box;
-  padding: 0 20px 0 0;
-  float: left;
-  width: 230px;
-}
-
-.docs-block__content {
-  float: left;
-  width: 730px;
-  &--logo-preview {
-    font-size: 150px;
+  &__header {
+    color: $grayPrimary;
+    display: block;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+  }
+  &__info {
+    box-sizing: border-box;
+    padding: 0 20px 0 0;
+    float: left;
+    width: 230px;
+  }
+  &__content {
+    float: left;
+    width: 730px;
+    &--logo-preview {
+      font-size: 150px;
+    }
+  }
+  &__contrast-box {
+    background-color: $grayPrimary;
+    padding: 10px;
+    display: inline-block;
   }
 }
