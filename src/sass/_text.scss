@@ -52,3 +52,18 @@
     color: $textBlockLightColor;
   }
 }
+
+.text-description {
+  font-family: $textDescriptionFontFamily;
+  font-size: $textDescriptionFontSize;
+  line-height: $textDescriptionLineHeight;
+  color: $textDescriptionColor;
+  &__link {
+    color: $textDescriptionLinkColor;
+    text-decoration: none;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
