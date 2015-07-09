@@ -145,10 +145,25 @@
   @extend .icon-heart;
   @extend .button-secondary--with-icon;
   &:before {
-    color: $buttonSecondaryThankYouColor
+    color: $buttonSecondaryThankYouColor;
   }
   &:active:before {
     color: rgba($buttonSecondaryThankYouColor, 0.7);
+  }
+}
+
+.button-secondary--with-crown-icon {
+  @extend .icon-excellent;
+  @extend .button-secondary--with-icon;
+  color: $buttonSecondaryBestTextColor;
+  &:hover, &:active, &:focus {
+    color: $buttonSecondaryBestTextColor;
+  }
+  &:before {
+    color: $buttonSecondaryBestIconColor;
+  }
+  &:active:before {
+    color: rgba($buttonSecondaryBestIconColor, 0.7);
   }
 }
 
@@ -156,7 +171,7 @@
   @extend .icon-comment;
   @extend .button-secondary--with-icon;
   &:before {
-    color: $buttonSecondaryCommentColor
+    color: $buttonSecondaryCommentColor;
   }
   &:active:before {
     color: rgba($buttonSecondaryCommentColor, 0.7);
