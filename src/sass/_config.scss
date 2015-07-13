@@ -56,9 +56,12 @@ $buttonPrimaryHeight: 44px;
 $buttonSecondaryHeight: 32px;
 $buttonSecondarySmallHeight: 24px;
 
-$buttonPrimaryFontSize: 16px;
+$buttonPrimaryFontSize: 15px;
 $buttonSecondaryFontSize: 12px;
 $buttonSecondarySmallFontSize: 10px;
+
+$buttonPrimaryFontFamily: $fontFamilyEmphasized;
+$buttonSecondaryFontFamily: $fontFamilySecondary;
 
 $buttonPrimaryFontColor: $white;
 
@@ -106,12 +109,14 @@ $tabHoverTextColor: $white;
 $tabHeight: 44px;
 $tabSmallHeight: 32px;
 $tabFontSize: 12px;
+$tabsFontFamily: $fontFamilySecondary;
 
 // Inputs
-$selectBackground: $graySecondaryLight;
-$selectTextColor: $grayPrimary;
+$selectBackground: #E9ECEE;
+$selectTextColor: #969799;
 $selectFontSize: 12px;
 $selectHeight: 44px;
+$selectFontFamily: $fontFamilySecondary;
 $selectHoverBackground: $graySecondary;
 
 $inputHeight: 44px;
@@ -158,7 +163,7 @@ $headerPrimaryFontFamily: $fontFamilyEmphasized;
 $headerSecondaryFontFamily: $fontFamilySecondary;
 $headerPrimaryFontSize: 64px;
 $headerPrimarySmallFontSize: 48px;
-$headerSecondaryFontSize: 16px;
+$headerSecondaryFontSize: 15px;
 $headerSecondarySmallFontSize: 12px;
 
 // Bit
