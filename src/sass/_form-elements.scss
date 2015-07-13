@@ -115,6 +115,19 @@
   }
 }
 
+.mint-checkbox-label,
+.mint-radio-label {
+  font-family: $crInputLabelFontFamily;
+  font-size: $crInputLabelFontSize;
+  line-height: $crInputLabelLineHeight;
+  height: $crInputLabelHeight;
+  color: $crInputLabelColor;
+  margin: 0 0 0 5px;
+  padding: 0;
+  vertical-align: top;
+  display: inline-block;
+}
+
 .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
   color: rgba($crInputColor, 0.7);
 }
@@ -138,10 +151,10 @@
     position: absolute;
     border-radius: 100%;
     background-color: $crInputColor;
-    width: 54%;
-    height: 54%;
-    top: 23%;
-    left: 23%;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
   }
 }
 
