@@ -297,11 +297,19 @@
             <aside class="docs-block__info">
                 <h3 class="docs-block__header">Dropdowns</h3>
             </aside>
-            <div class="mint-select">
-                <select class="mint-select__element">
-                    <option>Option 1</option>
-                    <option selected>Dropdown Selector</option>
-                </select>
+            <div class="docs-block__content">
+                <div class="mint-select">
+                    <select class="mint-select__element">
+                        <option>Option 1</option>
+                        <option selected>Dropdown Selector</option>
+                    </select>
+                </div>
+                <div class="mint-select mint-select--full">
+                    <select class="mint-select__element">
+                        <option>Option 1</option>
+                        <option selected>Dropdown Selector</option>
+                    </select>
+                </div>
             </div>
         </section>
         <section class="docs-block">
@@ -319,8 +327,9 @@
             <aside class="docs-block__info">
                 <h3 class="docs-block__header">Textarea</h3>
             </aside>
-            <div class="docs-block__data">
+            <div class="docs-block__content">
                 <textarea class="mint-textarea" placeholder="Placeholder"></textarea>
+                <textarea class="mint-textarea mint-textarea--full" placeholder="Placeholder"></textarea>
             </div>
         </section>
         <section class="docs-block">
@@ -341,6 +350,11 @@
                     <input class="mint-checkbox__element" type="checkbox" id="checkbox-3">
                     <label class="mint-checkbox__ghost" for="checkbox-3"></label>
                 </div><label class="mint-checkbox-label" for="checkbox-3">Check me!</label>
+                <br />
+                <div class="mint-checkbox">
+                    <input class="mint-checkbox__element" type="checkbox" id="checkbox-4">
+                    <label class="mint-checkbox__ghost" for="checkbox-4"></label>
+                </div><label class="mint-checkbox-label mint-checkbox-label--upper" for="checkbox-4">Check me!</label>
             </div>
         </section>
         <section class="docs-block">
@@ -361,6 +375,11 @@
                     <input class="mint-radio__element" type="checkbox" id="radio-3">
                     <label class="mint-radio__ghost" for="radio-3"></label>
                 </div><label class="mint-radio-label" for="radio-3">Check me!</label>
+                <br />
+                <div class="mint-radio">
+                    <input class="mint-radio__element" type="checkbox" id="radio-4">
+                    <label class="mint-radio__ghost" for="radio-4"></label>
+                </div><label class="mint-radio-label mint-radio-label--upper" for="radio-4">Check me!</label>
             </div>
         </section>
     </article>
