@@ -41,6 +41,8 @@
   font-size: $textBlockFontSize;
   line-height: $textBlockLineHeight;
   color: $textBlockColor;
+  margin: 0;
+  padding: 0;
   &__link {
     color: $textBlockLinkColor;
     text-decoration: none;
@@ -58,6 +60,8 @@
   font-size: $textDescriptionFontSize;
   line-height: $textDescriptionLineHeight;
   color: $textDescriptionColor;
+  margin: 0;
+  padding: 0;
   &__link {
     color: $textDescriptionLinkColor;
     text-decoration: none;
