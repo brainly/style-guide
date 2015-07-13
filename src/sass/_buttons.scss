@@ -66,6 +66,17 @@
   @include button-primary-theme($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
 }
 
+.button-primary--fb {
+  @include button-primary-theme($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+  @extend .icon-fb;
+  &:before {
+    line-height: 44px;
+    float: left;
+    margin: -1px 9px 0 -3px;
+    font-size: 20px;
+  }
+}
+
 // Secondary buttons
 .button-secondary {
   $borderSize: 2px;
