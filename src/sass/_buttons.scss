@@ -5,7 +5,6 @@
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-  font-family: $fontFamilyEmphasized;
 }
 
 @mixin button-basic-dimensions($height, $lineHeight) {
@@ -45,6 +44,7 @@
   border: 0;
   color: $buttonPrimaryFontColor;
   font-size: $buttonPrimaryFontSize;
+  font-family: $buttonPrimaryFontFamily;
   opacity: 1;
   transition: background-position 0.3s ease-out, opacity 0.3s ease-out;
   &:hover, &:focus {
@@ -76,6 +76,7 @@
   border-style: solid;
   background-color: transparent;
   font-size: $buttonSecondaryFontSize;
+  font-family: $buttonSecondaryFontFamily;
   transition: background-color 0.4s ease-out, color 0.4s ease-out;
   &:hover, &:focus {
     opacity: 0.8;
