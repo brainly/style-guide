@@ -41,6 +41,9 @@
     margin-top: 1px;
     transform: translateY(-50%);
   }
+  &--full {
+    width: 100%;
+  }
 }
 
 .mint-input {
@@ -50,8 +53,8 @@
   border-radius: $inputHeight/2;
   color: $inputTextColor;
   font-size: $inputFontSize;
-  font-family: $fontFamilySecondary;
-  font-weight: bold;
+  font-family: $inputFontFamily;
+  font-weight: normal;
   padding: 0 $inputHeight/2;
   height: $inputHeight;
   line-height: $inputHeight;
@@ -62,6 +65,9 @@
   &::placeholder {
     color: $inputPlaceholderTextColor;
     text-transform: uppercase;
+    font-family: $inputPlaceholderFontFamily;
+    font-size: $inputPlaceholderFontSize;
+    font-weight: bold;
   }
   &--valid {
     border-color:$inputValidBorderColor;
@@ -127,6 +133,9 @@
   padding: 0;
   vertical-align: top;
   display: inline-block;
+  &--upper {
+    text-transform: uppercase;
+  }
 }
 
 .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
@@ -160,13 +169,14 @@
 }
 
 .mint-textarea {
+  box-sizing: border-box;
   background: $textareaBackground;
   border: 2px solid $textareaBorderColor;
   border-radius: $textareaBorderRadius;
   color: $textareaTextColor;
   font-size: $textareaFontSize;
-  font-family: $fontFamilySecondary;
-  font-weight: bold;
+  font-family: $textareaFontFamily;
+  font-weight: normal;
   line-height: $textareaLineHeight;
   padding: $textareaPadding;
   resize: vertical;
@@ -177,5 +187,11 @@
   &::placeholder {
     color: $textareaPlaceholderTextColor;
     text-transform: uppercase;
+    font-family: $textareaPlaceholderFontFamily;
+    font-size: $textareaPlaceholderFontSize;
+    font-weight: bold;
+  }
+  &--full {
+    width: 100%;
   }
 }

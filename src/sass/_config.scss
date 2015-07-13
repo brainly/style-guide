@@ -60,7 +60,7 @@ $buttonPrimaryFontSize: 15px;
 $buttonSecondaryFontSize: 12px;
 $buttonSecondarySmallFontSize: 10px;
 
-$buttonPrimaryFontFamily: $fontFamilyEmphasized;
+$buttonPrimaryFontFamily: $fontFamilySecondary;
 $buttonSecondaryFontFamily: $fontFamilySecondary;
 
 $buttonPrimaryFontColor: $white;
@@ -127,11 +127,14 @@ $inputHeight: 44px;
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
-$inputFontSize: 12px;
+$inputFontSize: 15px;
+$inputFontFamily: $fontFamilyPrimary;
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
-$inputValidBorderColor: $mintPrimary;
-$inputInvalidBorderColor: $peachPrimary;
+$inputPlaceholderFontSize: 12px;
+$inputPlaceholderFontFamily: $fontFamilySecondary;
+$inputValidBorderColor: $mintSecondary;
+$inputInvalidBorderColor: $peachSecondary;
 
 // Checkbox/Radio
 $crInputSize: 16px;
@@ -151,13 +154,16 @@ $crInputLabelColor: $grayPrimary;
 // Textarea
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
-$textareaBorderRadius: 6px;
-$textareaFontSize: 12px;
-$textareaLineHeight: 16px;
+$textareaBorderRadius: 11px;
+$textareaFontSize: 15px;
+$textareaFontFamily: $fontFamilyPrimary;
+$textareaLineHeight: 19px;
 $textareaTextColor: $black;
 $textareaPadding: 11px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
+$textareaPlaceholderFontSize: 12px;
+$textareaPlaceholderFontFamily: $fontFamilySecondary;
 
 // Rate box
 $rateStarColor: $graySecondary;
@@ -182,7 +188,7 @@ $textBitFontSize: 58px;
 $textBitLineHeight: 0.9;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
-$textBitSmallFontSize: 46px;
+$textBitSmallFontSize: 44px;
 
 // Texts
 $textBlockFontFamily: $fontFamilySecondary;
@@ -194,7 +200,7 @@ $textBlockLinkColor: $bluePrimary;
 
 $textDescriptionFontFamily: $fontFamilyPrimary;
 $textDescriptionColor: $black;
-$textDescriptionFontSize: 18px;
-$textDescriptionLineHeight: 22px;
+$textDescriptionFontSize: 15px;
+$textDescriptionLineHeight: 19px;
 $textDescriptionLinkColor: $bluePrimary;
 

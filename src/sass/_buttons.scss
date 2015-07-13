@@ -88,13 +88,13 @@
   background-color: transparent;
   font-size: $buttonSecondaryFontSize;
   font-family: $buttonSecondaryFontFamily;
-  transition: background-color 0.4s ease-out, color 0.4s ease-out;
+  transition: background-color 0.3s ease-out, color 0.3s ease-out;
   &:hover, &:focus {
     opacity: 0.8;
     outline: none;
   }
   &:active {
-    transition: background-color 0.4s ease-out;
+    transition: background-color 0.3s ease-out;
     outline: none;
   }
   &:before {
@@ -113,6 +113,7 @@
     margin: -$borderSize (-$buttonSecondaryHeight/2 - $borderSize);
     height: $buttonSecondaryHeight;
     line-height: $buttonSecondaryHeight;
+    height: $buttonSecondaryHeight;
     position: relative;
   }
 }
@@ -201,6 +202,7 @@
     margin: -$borderSize (-$buttonSecondarySmallHeight/2 - $borderSize);
     height: $buttonSecondarySmallHeight;
     line-height: $buttonSecondarySmallHeight;
+    height: $buttonSecondarySmallHeight;
     position: relative;
   }
   &.button-secondary--with-icon:before {
