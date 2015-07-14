@@ -45,11 +45,9 @@
   color: $buttonPrimaryFontColor;
   font-size: $buttonPrimaryFontSize;
   font-family: $buttonPrimaryFontFamily;
-  opacity: 1;
-  transition: background-position 0.3s ease-out, opacity 0.3s ease-out;
+  transition: background-position 0.3s ease-out;
   &:hover, &:focus {
     background-position: 0 10px;
-    opacity: 0.7;
     outline: none;
   }
   &:active {
@@ -90,7 +88,6 @@
   font-family: $buttonSecondaryFontFamily;
   transition: background-color 0.3s ease-out, color 0.3s ease-out;
   &:hover, &:focus {
-    opacity: 0.8;
     outline: none;
   }
   &:active {
