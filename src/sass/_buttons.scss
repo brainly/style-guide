@@ -211,19 +211,24 @@
 }
 
 .icon-as-button {
-  padding: 2px 6px 2px 0;
   background: none;
   border: none;
   outline: none;
+  padding: 0;
   cursor: pointer;
-  width: 46px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   font-size: 0;
   line-height: 0;
 
   &:before {
+    color: $iconAsButtonColor;
     line-height: 40px;
     font-size: 22px;
+  }
+
+  &:active:before {
+    color: rgba($iconAsButtonColor, 0.7);
   }
 }
 

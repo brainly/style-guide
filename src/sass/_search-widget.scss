@@ -3,16 +3,7 @@
 
 	&__button {
 		position: absolute;
-		top: 0;
-		right: 0;
-
-		button {
-			&:before {
-				color: $searchWidgetIconColor;
-			}
-			&:active:before {
-				color: rgba($searchWidgetIconColor, 0.7);
-			}
-		}
+		top: 2px;
+		right: 6px;
 	}
 }
