@@ -4,10 +4,26 @@ $colorsListMaxWidth: 4*$colorBoxDimension + 10px;
   list-style: none;
   padding: 0;
   margin: 0;
-  float: right;
-  max-width: $colorsListMaxWidth;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+  height: $colorBoxDimension;
+
+  &--2rows {
+    height: 2 * $colorBoxDimension;
+  }
+
+  &--3rows {
+    height: 3 * $colorBoxDimension;
+  }
+
+
+
 }
 
 .colors-list--narrow {
-  max-width: $colorsListMaxWidth - 10px - $colorBoxDimension;
+
 }

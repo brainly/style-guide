@@ -2,19 +2,14 @@
   box-sizing: border-box;
   color: $black;
   display: inline-block;
-  width: $colorBoxDimension;
   height: $colorBoxDimension;
   position: relative;
-  float: left;
-}
-
-.color-box--separated {
-  margin: 0 10px 0 0;
+  flex: 0 1 auto;
+  width: 25%;
 }
 
 .color-box--tall {
-  height: $colorBoxDimension * 2;
-  margin: 0 10px 0 0;
+  flex: 0 1 100%;
 }
 
 .color-box__name {
