@@ -1,0 +1,50 @@
+$borderSize: 3px;
+$triangleSize: 12px;
+$innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
+
+.mint-bubble {
+  box-sizing: border-box;
+  background: $bubbleBackground;
+  border: $borderSize solid $bubbleBorderColor;
+  border-radius: $bubbleBorderRadius;
+  padding: 15px;
+  position: relative;
+  box-shadow: $shadow;
+  display: inline-block;
+
+  &:before {
+    content: "";
+    border: $triangleSize solid transparent;
+    border-bottom-color: $bubbleBorderColor;
+    position: absolute;
+    top: -(2 * $triangleSize);
+    right: 0;
+    left: 0;
+    width: 0;
+    margin: 0 auto;
+  }
+
+  &:after {
+    content: "";
+    border: $innerTriangleSize solid transparent;
+    border-bottom-color: $bubbleBackground;
+    position: absolute;
+    top: -(2 * $innerTriangleSize);
+    right: 0;
+    left: 0;
+    width: 0;
+    margin: 0 auto;
+  }
+
+  &--dark {
+    border-color: $bubbleBackgroundDark;
+    background: $bubbleBackgroundDark;
+
+    &:before {
+      border-bottom-color: $bubbleBackgroundDark;
+    }
+    &:after {
+      border-bottom-color: $bubbleBackgroundDark;
+    }
+  }
+}
