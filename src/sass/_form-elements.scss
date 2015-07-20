@@ -58,6 +58,7 @@
   padding: 0 $inputHeight/2;
   height: $inputHeight;
   line-height: $inputHeight;
+  appearance: none;
   &:focus {
     outline: none;
     border-color: $inputFocusBorderColor;
@@ -86,6 +87,12 @@
   }
   &--full {
     width: 100%;
+  }
+  &--transparent-border {
+    border-color: $inputTransparentBorderColor;
+  }
+  &--with-icon {
+    padding-right: 46px;
   }
 }
 

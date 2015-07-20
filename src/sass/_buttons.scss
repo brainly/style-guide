@@ -210,6 +210,28 @@
   }
 }
 
+.mint-icon-as-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  font-size: 0;
+  line-height: 0;
+
+  &:before {
+    color: $iconAsButtonColor;
+    line-height: 40px;
+    font-size: 22px;
+  }
+
+  &:active:before {
+    color: rgba($iconAsButtonColor, 0.7);
+  }
+}
+
 .rate-box {
   @include clearfix();
   font-size: $rateStarFontSize;
