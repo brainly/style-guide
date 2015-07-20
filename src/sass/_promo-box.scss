@@ -3,11 +3,37 @@
 	background: $promoBoxBackgroundColor;
 	border-radius: 22px;
 
-	h1 {
-		color: white;
+	&__header {
+		color: $promoBoxHeaderColor;
+		font-family: $promoBoxHeaderPrimaryFontFamily;
+		font-size: $promoBoxHeaderPrimaryFontSize;
+		line-height: 1;
+		margin: 0;
+		text-transform: uppercase;
+		letter-spacing: -1px;
 	}
 
-	p {
+	// content is user generated html,
+	// we can overwrite all basic tags related to styling user content
+	&__content {
+		font-size: $promoBoxTextSize;
+		line-height: $promoBoxLineHeight;
+		font-family: $promoBoxFontFamily;
+		padding: 5px 0 15px 0;
 
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li:before {
+				color: white;
+				content: '>';
+			}
+		}
+
+		strong {
+			font-family: $promoBoxStrongFontFamily;
+		}
 	}
 }
