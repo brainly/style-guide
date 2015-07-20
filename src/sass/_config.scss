@@ -138,6 +138,7 @@ $inputPlaceholderFontSize: 12px;
 $inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
 $inputInvalidBorderColor: $peachSecondary;
+$inputTransparentBorderColor: rgba($graySecondary, 0.7);
 
 // Checkbox/Radio
 $crInputSize: 16px;
@@ -212,3 +213,6 @@ $bubbleBackground: $white;
 $bubbleBackgroundDark: $graySecondaryLight;
 $bubbleBorderColor: $graySecondary;
 $bubbleBorderRadius: 5px;
+
+// Search widget
+$searchWidgetIconColor: $bluePrimary;

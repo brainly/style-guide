@@ -1,0 +1,13 @@
+.search-widget {
+	position: relative;
+
+	&__button {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		button:before {
+			color: $searchWidgetIconColor;
+		}
+	}
+}

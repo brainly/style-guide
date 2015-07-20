@@ -210,6 +210,23 @@
   }
 }
 
+.icon-as-button {
+  padding: 2px 6px 2px 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 46px;
+  height: 44px;
+  font-size: 0;
+  line-height: 0;
+
+  &:before {
+    line-height: 40px;
+    font-size: 22px;
+  }
+}
+
 .rate-box {
   @include clearfix();
   font-size: $rateStarFontSize;
