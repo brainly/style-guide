@@ -1,0 +1,42 @@
+.mint-header {
+  width: 100%;
+  height: 60px;
+  background-image: url('../images/header_background_wide.jpg');
+  background-repeat: repeat-x;
+  background-color: $headerDominantColor;
+  @include image-2x('../images/header_background_wide@2x.jpg', 1579px, 60px);
+
+  &__container {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    max-width: $layoutMaximumWidth;
+    padding: 0 $layoutDefaultPadding;
+    margin: auto;
+    align-items: center;
+  }
+
+  &__left {
+    & > * {
+      vertical-align: middle;
+    }
+  }
+
+  &__middle {
+    flex-grow: 1;
+    margin-left: 20px;
+
+    & > * {
+      vertical-align: middle;
+    }
+  }
+
+  &__right {
+    margin-left: 20px;
+
+    & > * {
+      vertical-align: middle;
+    }
+  }
+}

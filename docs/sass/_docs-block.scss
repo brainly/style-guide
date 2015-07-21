@@ -19,6 +19,13 @@
     &--logo-preview {
       font-size: 150px;
     }
+
+    &:hover {
+      .docs-highlight-placeholder {
+        outline: 2px dashed white;
+        box-shadow: black 0 0 10px 0;
+      }
+    }
   }
   &__contrast-box {
     background-color: $grayPrimary;

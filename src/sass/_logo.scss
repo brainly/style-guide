@@ -2,3 +2,13 @@
   color: $logoColor;
   background: linear-gradient(170deg, transparent 17%, $logoLettersColor 18%, $logoLettersColor 38%, transparent 39%) no-repeat;
 }
+
+.mint-logo {
+  height: 60px;
+
+  &__image {
+    position: relative;
+    bottom: -10px;
+    width: 134px;
+  }
+}

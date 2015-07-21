@@ -230,6 +230,16 @@
   &:active:before {
     color: rgba($iconAsButtonColor, 0.7);
   }
+
+  &--light {
+    &:before {
+      color: $iconAsButtonLightColor;
+    }
+
+    &:active:before {
+      color: rgba($iconAsButtonLightColor, 0.7);
+    }
+  }
 }
 
 .mint-rate-box {
