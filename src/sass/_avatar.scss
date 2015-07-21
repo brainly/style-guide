@@ -15,23 +15,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: $avatarMediumSize;
-
-    &--small {
-      width: $avatarSmallSize;
-    }
-
-    &--big {
-      width: $avatarBigSize;
-    }
+    width: 100%;
   }
 
   &:before {
     position: relative;
     top: 4px - $avatarMediumBorderWidth;
-    left: -$avatarMediumBorderWidth;
     color: $avatarDefaultPersonColor;
-    font-size: $avatarMediumSize;
+    font-size: $avatarMediumSize - $avatarMediumBorderWidth*2;
   }
 
   &--small {
@@ -42,8 +33,7 @@
 
     &:before {
       top: 3px - $avatarSmallBorderWidth;
-      left: -$avatarSmallBorderWidth;
-      font-size: $avatarSmallSize;
+      font-size: $avatarSmallSize - $avatarSmallBorderWidth*2;
     }
   }
 
@@ -55,8 +45,7 @@
 
     &:before {
       top: 5px - $avatarBigBorderWidth;
-      left: -$avatarBigBorderWidth;
-      font-size: $avatarBigSize;
+      font-size: $avatarBigSize - $avatarBigBorderWidth*2;
     }
   }
 }
