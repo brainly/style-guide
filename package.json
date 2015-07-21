@@ -4,11 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postcheckout": "gulp sass:docs",
+    "postmerge": "gulp sass:docs",
+    "postrebase": "gulp sass:docs"
   },
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
+  "private": true,
   "dependencies": {
+  },
+  "devDependencies": {
+    "husky": "brainly/husky",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-base64": "^0.1.3",
