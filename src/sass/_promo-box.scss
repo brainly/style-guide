@@ -20,17 +20,5 @@
     line-height: $promoBoxLineHeight;
     font-family: $promoBoxFontFamily;
     padding: 5px 0 15px 0;
-
-    & > ul {
-      @extend .mint-list;
-
-      & > li {
-        @extend .mint-list__element;
-      }
-    }
-
-    strong {
-      @extend .mint-text-emphasised;
-    }
   }
 }
