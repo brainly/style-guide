@@ -209,6 +209,10 @@ $textDescriptionColor: $black;
 $textDescriptionFontSize: 15px;
 $textDescriptionLineHeight: 19px;
 $textDescriptionLinkColor: $bluePrimary;
+$mintTextEmphasisedFontFamily: $fontFamilySecondary;
+
+// Lists
+$listDefaultFont: $fontFamilyPrimary;
 
 // Bubble
 $bubbleBackground: $white;
@@ -238,4 +242,3 @@ $promoBoxHeaderPrimaryFontSize: 50px;
 $promoBoxTextSize: 24px;
 $promoBoxLineHeight: 44px;
 $promoBoxFontFamily: $fontFamilyPrimary;
-$promoBoxStrongFontFamily: $fontFamilySecondary;

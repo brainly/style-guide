@@ -21,26 +21,16 @@
     font-family: $promoBoxFontFamily;
     padding: 5px 0 15px 0;
 
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+    & > ul {
+      @extend .mint-list;
 
-      li {
-        @extend .icon-arrow_down;
-
-        &:before {
-          font-family: "brainly-icons";
-          color: white;
-          transform: rotate(-90deg);
-          font-size: 38px;
-          vertical-align: -6px;
-        }
+      & > li {
+        @extend .mint-list__element;
       }
     }
 
     strong {
-      font-family: $promoBoxStrongFontFamily;
+      @extend .mint-text-emphasised;
     }
   }
 }
