@@ -209,6 +209,10 @@ $textDescriptionColor: $black;
 $textDescriptionFontSize: 15px;
 $textDescriptionLineHeight: 19px;
 $textDescriptionLinkColor: $bluePrimary;
+$mintTextEmphasisedFontFamily: $fontFamilySecondary;
+
+// Lists
+$listDefaultFont: $fontFamilyPrimary;
 
 // Bubble
 $bubbleBackground: $white;
@@ -229,3 +233,12 @@ $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
 $avatarBorderColor: $white;
+
+// Promo box
+$promoBoxBackgroundColor: $mintSecondary;
+$promoBoxHeaderColor: $white;
+$promoBoxHeaderPrimaryFontFamily: $fontFamilyEmphasized;
+$promoBoxHeaderPrimaryFontSize: 50px;
+$promoBoxTextSize: 24px;
+$promoBoxLineHeight: 44px;
+$promoBoxFontFamily: $fontFamilyPrimary;

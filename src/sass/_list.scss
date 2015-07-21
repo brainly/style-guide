@@ -1,0 +1,20 @@
+.mint-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: $listDefaultFont;
+  font-size: 24px;
+  line-height: 44px;
+
+  .mint-list__element {
+    @extend .icon-arrow_down;
+
+    &:before {
+      font-family: "brainly-icons";
+      color: white;
+      transform: rotate(-90deg);
+      font-size: 38px;
+      vertical-align: -6px;
+    }
+  }
+}
