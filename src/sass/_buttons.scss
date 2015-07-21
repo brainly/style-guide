@@ -1,4 +1,4 @@
-@mixin button-basic-styles() {
+@mixin mint-button-basic-styles() {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -7,14 +7,14 @@
   font-weight: bold;
 }
 
-@mixin button-basic-dimensions($height, $lineHeight) {
+@mixin mint-button-basic-dimensions($height, $lineHeight) {
   border-radius: $height/2;
   height: $height;
   padding: 0 $height/2;
   line-height: $lineHeight;
 }
 
-@mixin button-primary-theme($buttonColor, $gradientColor, $buttonShadowColor) {
+@mixin mint-button-primary-theme($buttonColor, $gradientColor, $buttonShadowColor) {
   background-color: $buttonColor;
   background: $gradientColor linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%) no-repeat;
   box-shadow: 0 -1px 0 $buttonShadowColor inset;
@@ -23,7 +23,7 @@
   }
 }
 
-@mixin button-secondary-theme($buttonColor, $buttonTextColorHover) {
+@mixin mint-button-secondary-theme($buttonColor, $buttonTextColorHover) {
   border-color: $buttonColor;
   color: $buttonColor;
   &:hover, &:focus {
@@ -37,10 +37,10 @@
 }
 
 // Primary buttons
-.button-primary {
-  @include button-basic-styles();
-  @include button-basic-dimensions($buttonPrimaryHeight, $buttonPrimaryHeight);
-  @include button-primary-theme($buttonColor, $buttonColorGradient, $buttonShadowColor);
+.mint-button-primary {
+  @include mint-button-basic-styles();
+  @include mint-button-basic-dimensions($buttonPrimaryHeight, $buttonPrimaryHeight);
+  @include mint-button-primary-theme($buttonColor, $buttonColorGradient, $buttonShadowColor);
   border: 0;
   color: $buttonPrimaryFontColor;
   font-size: $buttonPrimaryFontSize;
@@ -56,16 +56,16 @@
   }
 }
 
-.button-primary--alt {
-  @include button-primary-theme($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+.mint-button-primary--alt {
+  @include mint-button-primary-theme($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
 }
 
-.button-primary--dark {
-  @include button-primary-theme($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+.mint-button-primary--dark {
+  @include mint-button-primary-theme($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
 }
 
-.button-primary--fb {
-  @include button-primary-theme($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+.mint-button-primary--fb {
+  @include mint-button-primary-theme($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
   @extend .icon-fb;
   &:before {
     line-height: 44px;
@@ -76,11 +76,11 @@
 }
 
 // Secondary buttons
-.button-secondary {
+.mint-button-secondary {
   $borderSize: 2px;
-  @include button-basic-styles();
-  @include button-basic-dimensions($buttonSecondaryHeight, ($buttonSecondaryHeight - 2*$borderSize));
-  @include button-secondary-theme($buttonSecondaryColor, $buttonSecondaryTextColorHover);
+  @include mint-button-basic-styles();
+  @include mint-button-basic-dimensions($buttonSecondaryHeight, ($buttonSecondaryHeight - 2*$borderSize));
+  @include mint-button-secondary-theme($buttonSecondaryColor, $buttonSecondaryTextColorHover);
   border-width: $borderSize;
   border-style: solid;
   background-color: transparent;
@@ -115,28 +115,28 @@
   }
 }
 
-.button-secondary--alt {
-  @include button-secondary-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+.mint-button-secondary--alt {
+  @include mint-button-secondary-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
 }
 
-.button-secondary--dark {
-  @include button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+.mint-button-secondary--dark {
+  @include mint-button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
 }
 
-.button-secondary--lav {
-  @include button-secondary-theme($buttonSecondaryLavColor, $buttonSecondaryLavTextColorHover);
+.mint-button-secondary--lav {
+  @include mint-button-secondary-theme($buttonSecondaryLavColor, $buttonSecondaryLavTextColorHover);
 }
 
-.button-secondary--gray {
-  @include button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+.mint-button-secondary--gray {
+  @include mint-button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
 }
 
-.button-secondary--light {
-  @include button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+.mint-button-secondary--light {
+  @include mint-button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
 }
 
-.button-secondary--with-icon {
-  @include button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
+.mint-button-secondary--with-icon {
+  @include mint-button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
   &:before {
     $iconFontSize: $buttonSecondaryFontSize + $iconBoostValue;
     font-size: $iconFontSize;
@@ -151,9 +151,9 @@
   }
 }
 
-.button-secondary--with-heart-icon {
+.mint-button-secondary--with-heart-icon {
   @extend .icon-heart;
-  @extend .button-secondary--with-icon;
+  @extend .mint-button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryThankYouColor;
   }
@@ -162,9 +162,9 @@
   }
 }
 
-.button-secondary--with-crown-icon {
+.mint-button-secondary--with-crown-icon {
   @extend .icon-excellent;
-  @extend .button-secondary--with-icon;
+  @extend .mint-button-secondary--with-icon;
   color: $buttonSecondaryBestTextColor;
   &:hover, &:active, &:focus {
     color: $buttonSecondaryBestTextColor;
@@ -177,9 +177,9 @@
   }
 }
 
-.button-secondary--with-comment-icon {
+.mint-button-secondary--with-comment-icon {
   @extend .icon-comment;
-  @extend .button-secondary--with-icon;
+  @extend .mint-button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryCommentColor;
   }
@@ -188,21 +188,21 @@
   }
 }
 
-.button-secondary--small {
+.mint-button-secondary--small {
   $borderSize: 2px;
-  @include button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
+  @include mint-button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
   font-size: $buttonSecondarySmallFontSize;
-  .button-secondary__counter {
+  .mint-button-secondary__counter {
     margin: 0 -4px 0 8px;
   }
-  .button-secondary__full-size {
+  .mint-button-secondary__full-size {
     margin: -$borderSize (-$buttonSecondarySmallHeight/2 - $borderSize);
     height: $buttonSecondarySmallHeight;
     line-height: $buttonSecondarySmallHeight;
     height: $buttonSecondarySmallHeight;
     position: relative;
   }
-  &.button-secondary--with-icon:before {
+  &.mint-button-secondary--with-icon:before {
     $iconFontSize: $buttonSecondarySmallFontSize + $iconBoostValue;
     margin: 0 4px 0 -4px;
     line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
