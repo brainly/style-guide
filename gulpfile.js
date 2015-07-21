@@ -95,8 +95,7 @@ gulp.task('docker:icons', function(done) {
     exec('docker images | grep brainly/style-guide', function(err, stdout, stderr) {
         if(stdout.length === 0) {
             runSequence('docker:build', buildIcons.bind(null, done))
-        }
-        else {
+        } else {
             buildIcons(done);
         }
     });
