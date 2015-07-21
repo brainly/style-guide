@@ -11,6 +11,8 @@ var fontcustom = require('gulp-fontcustom');
 var base64 = require('gulp-base64');
 var clean = require('gulp-clean');
 var runSequence = require('run-sequence');
+var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 
 gulp.task('sass:docs', function () {
     return gulp.src('./docs/sass/**/*.scss')
@@ -68,6 +70,35 @@ gulp.task('icons:cleanup', function() {
 
 gulp.task('icons', function(done) {
     runSequence('icons:generate-fonts', 'icons:create-data-file', 'icons:inline-fonts', 'icons:cleanup', done);
+});
+
+gulp.task('docker:build', function(done) {
+    var build = spawn('docker', ['build', '-t', 'brainly/style-guide', '.']);
+
+    build.stdout.on('data', function(data) {
+        console.log(data.toString('utf8'));
+    });
+    build.stderr.on('data',  function(data) {
+        console.error(data.toString('utf8'));
+    });
+    build.on('exit', done);
+});
+
+gulp.task('docker:icons', function(done) {
+    var buildIcons = function(done) {
+        exec('docker run -t --rm -v ' + __dirname + '/src:/style-guide/src brainly/style-guide node_modules/.bin/gulp icons', function(err, stdout, stderr) {
+            console.error(stderr);
+            console.log(stdout);
+            done();
+        });
+    };
+    exec('docker images | grep brainly/style-guide', function(err, stdout, stderr) {
+        if(stdout.length === 0) {
+            runSequence('docker:build', buildIcons.bind(null, done))
+        } else {
+            buildIcons(done);
+        }
+    });
 });
 
 gulp.task('watch', function(done) {
