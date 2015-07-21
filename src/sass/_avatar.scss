@@ -1,0 +1,52 @@
+.mint-avatar {
+  @extend .icon-profile;
+
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  width: $avatarMediumSize;
+  height: $avatarMediumSize;
+  border-radius: $avatarMediumSize/2;
+  background: $avatarDefaultBackgroundColor;
+  overflow: hidden;
+  border: solid $avatarBorderColor $avatarMediumBorderWidth;
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &:before {
+    position: relative;
+    top: 4px - $avatarMediumBorderWidth;
+    color: $avatarDefaultPersonColor;
+    font-size: $avatarMediumSize - $avatarMediumBorderWidth*2;
+  }
+
+  &--small {
+    width: $avatarSmallSize;
+    height: $avatarSmallSize;
+    border-radius: $avatarSmallSize/2;
+    border-width: $avatarSmallBorderWidth;
+
+    &:before {
+      top: 3px - $avatarSmallBorderWidth;
+      font-size: $avatarSmallSize - $avatarSmallBorderWidth*2;
+    }
+  }
+
+  &--big {
+    width: $avatarBigSize;
+    height: $avatarBigSize;
+    border-radius: $avatarBigSize/2;
+    border-width: 2px;
+
+    &:before {
+      top: 5px - $avatarBigBorderWidth;
+      font-size: $avatarBigSize - $avatarBigBorderWidth*2;
+    }
+  }
+}
+
