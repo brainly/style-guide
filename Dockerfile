@@ -13,6 +13,6 @@ RUN mkdir /style-guide
 
 WORKDIR /style-guide
 ADD package.json package.json
-RUN npm install --production
+RUN npm install
 
 COPY . .

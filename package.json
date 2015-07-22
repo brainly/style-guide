@@ -11,19 +11,18 @@
   "author": "",
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "husky": "brainly/husky",
+    "del": "^1.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-base64": "^0.1.3",
-    "gulp-clean": "^0.3.1",
     "gulp-fontcustom": "^0.1.0",
     "gulp-livereload": "^3.8.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
+    "husky": "brainly/husky",
     "run-sequence": "^1.1.1"
   }
 }
