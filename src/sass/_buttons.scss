@@ -123,8 +123,8 @@
   @include mint-button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
 }
 
-.mint-button-secondary--lav {
-  @include mint-button-secondary-theme($buttonSecondaryLavColor, $buttonSecondaryLavTextColorHover);
+.mint-button-secondary--peach {
+  @include mint-button-secondary-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
 }
 
 .mint-button-secondary--gray {
