@@ -44,10 +44,10 @@ gulp.task('icons:generate-fonts', function() {
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
             templates: 'scss',
-            "css-selector": ".mint-icon-{{glyph}}"
+            'css-selector': 'mint-icon-{{glyph}}'
 
         }))
-        .pipe(gulp.dest("./src/sass/fonts"));
+        .pipe(gulp.dest('./src/sass/fonts'));
 });
 
 gulp.task('icons:create-data-file', function() {
@@ -87,10 +87,14 @@ gulp.task('docker:build', function(done) {
 
 gulp.task('docker:icons', function(done) {
     var buildIcons = function(done) {
-        exec('docker run -t --rm -v ' + __dirname + '/src:/style-guide/src brainly/style-guide node_modules/.bin/gulp icons', function(err, stdout, stderr) {
-            console.error(stderr);
-            console.log(stdout);
-            done();
+        exec('docker run -t --rm' +
+            ' -v ' + __dirname + '/src:/style-guide/src' +
+            ' -v ' + __dirname + '/gulpfile.js:/style-guide/gulpfile.js' +
+            ' brainly/style-guide node_modules/.bin/gulp icons',
+            function(err, stdout, stderr) {
+                console.error(stderr);
+                console.log(stdout);
+                done();
         });
     };
     exec('docker images | grep brainly/style-guide', function(err, stdout, stderr) {
