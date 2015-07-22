@@ -60,7 +60,8 @@ We have chosen BEM because it gives us these benefits:
   Elements only make sense in the context of the block that they belong to.
 * **Modifier** is used when we want to add a particular attribute/property/variant that will change our block or element.
 * **Container** is a compound block, which can contain other blocks.  
- The basic container defines "holes" (placeholders) where other blocks can be put.
+  The basic container defines "holes" (placeholders) where other blocks can be put.  
+  Containers only make sense only when they have actual blocks included.
 * **Hole** is a thin wrapper for a block used for changing position, offset, paddings and alignment of the contained components.  
 Holes only make sense in the context of the certain container.
 * **User content** is a dynamically added content, which lack BEM classes and contains mainly text formatting tags like `b`, `i`, `br`, `p`, `ul`, `ol`, etc.
