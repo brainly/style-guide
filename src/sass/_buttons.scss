@@ -232,7 +232,7 @@
   }
 }
 
-.rate-box {
+.mint-rate-box {
   @include clearfix();
   font-size: $rateStarFontSize;
   &__star {
@@ -244,10 +244,10 @@
     &--checked {
       color: $rateStarCheckedColor;
     }
-    .rate-box &:hover ~ & {
+    .mint-rate-box &:hover ~ & {
       color: $rateStarColor;
     }
-    .rate-box:active &:hover ~ & {
+    .mint-rate-box:active &:hover ~ & {
       color: $rateStarActiveColor;
     }
   }
@@ -266,29 +266,29 @@
 
   &--small {
     font-size: $rateStarSmallFontSize;
-    .rate-box__star {
+    .mint-rate-box__star {
       font-size: $rateStarSmallFontSize + $iconBoostValue;
     }
-    .rate-box__counter {
+    .mint-rate-box__counter {
       margin-left: 6px;
     }
   }
 
   &--nested {
-    .rate-box__star:first-child {
+    .mint-rate-box__star:first-child {
       padding-left: 12px;
     }
-    .rate-box__star:last-child,
-    .rate-box__counter:last-child {
+    .mint-rate-box__star:last-child,
+    .mint-rate-box__counter:last-child {
       padding-right: 12px;
     }
   }
-  &--small.rate-box--nested {
-    .rate-box__star:first-child {
+  &--small.mint-rate-box--nested {
+    .mint-rate-box__star:first-child {
       padding-left: 10px;
     }
-    .rate-box__star:last-child,
-    .rate-box__counter:last-child {
+    .mint-rate-box__star:last-child,
+    .mint-rate-box__counter:last-child {
       padding-right: 10px;
     }
   }
