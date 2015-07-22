@@ -141,7 +141,7 @@ Here is an example of overriding user content in a specific block:
     & > ul {
       @extend .mint-list;
     } 
-    & > li {
+    & > ul > li {
       @extend .mint-list__element;
     } 
   }
