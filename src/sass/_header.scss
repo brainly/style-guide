@@ -18,6 +18,8 @@
   }
 
   &__left {
+    @extend %hide-for-mobile;
+
     & > * {
       vertical-align: middle;
     }
@@ -34,6 +36,15 @@
 
   &__right {
     margin-left: 20px;
+    white-space: nowrap;
+
+    &--desktop {
+      @extend %hide-for-mobile;
+    }
+
+    &--mobile {
+      @extend %hide-for-desktop;
+    }
 
     & > * {
       vertical-align: middle;

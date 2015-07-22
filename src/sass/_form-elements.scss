@@ -59,6 +59,7 @@
   height: $inputHeight;
   line-height: $inputHeight;
   appearance: none;
+  text-overflow: ellipsis;
   &:focus {
     outline: none;
     border-color: $inputFocusBorderColor;
