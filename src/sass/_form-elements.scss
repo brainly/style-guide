@@ -1,5 +1,5 @@
 .mint-select {
-  @extend .icon-arrow_down;
+  @extend .mint-icon-arrow_down;
   position: relative;
   display: inline-block;
   overflow: hidden;
@@ -150,7 +150,7 @@
 }
 
 .mint-checkbox__ghost {
-  @extend .icon-check;
+  @extend .mint-icon-check;
   border-radius: 25%;
   &:before {
     font-size: 137.5%;

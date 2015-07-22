@@ -66,7 +66,7 @@
 
 .mint-button-primary--fb {
   @include mint-button-primary-theme($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
-  @extend .icon-fb;
+  @extend .mint-icon-fb;
   &:before {
     line-height: 44px;
     float: left;
@@ -152,7 +152,7 @@
 }
 
 .mint-button-secondary--with-heart-icon {
-  @extend .icon-heart;
+  @extend .mint-icon-heart;
   @extend .mint-button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryThankYouColor;
@@ -163,7 +163,7 @@
 }
 
 .mint-button-secondary--with-crown-icon {
-  @extend .icon-excellent;
+  @extend .mint-icon-excellent;
   @extend .mint-button-secondary--with-icon;
   color: $buttonSecondaryBestTextColor;
   &:hover, &:active, &:focus {
@@ -178,7 +178,7 @@
 }
 
 .mint-button-secondary--with-comment-icon {
-  @extend .icon-comment;
+  @extend .mint-icon-comment;
   @extend .mint-button-secondary--with-icon;
   &:before {
     color: $buttonSecondaryCommentColor;
@@ -236,7 +236,7 @@
   @include clearfix();
   font-size: $rateStarFontSize;
   &__star {
-    @extend .icon-star;
+    @extend .mint-icon-star;
     color: $rateStarColor;
     font-size: $rateStarFontSize + $iconBoostValue;
     padding: 0 1px;
