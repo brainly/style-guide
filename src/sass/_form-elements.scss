@@ -70,6 +70,12 @@
     font-size: $inputPlaceholderFontSize;
     font-weight: bold;
   }
+  &--low {
+    border-radius: $inputLowHeight/2;
+    padding: 0 $inputLowHeight/2;
+    height: $inputLowHeight;
+    line-height: $inputLowHeight;
+  }
   &--valid {
     border-color:$inputValidBorderColor;
     &:focus {
@@ -90,15 +96,10 @@
   }
   &--transparent-border {
     border-color: $inputTransparentBorderColor;
+    background-clip: padding-box;
   }
   &--with-icon {
     padding-right: 46px;
-  }
-  &--low {
-    border-radius: $inputHeight/2;
-    padding: 0 $inputHeight/2;
-    height: $inputLowHeight;
-    line-height: $inputLowHeight;
   }
 }
 
