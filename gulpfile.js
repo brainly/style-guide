@@ -9,7 +9,7 @@ var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var fontcustom = require('gulp-fontcustom');
 var base64 = require('gulp-base64');
-var clean = require('gulp-clean');
+var del = require('del');
 var runSequence = require('run-sequence');
 var spawn = require('child_process').spawn;
 var exec = require('child_process').exec;
@@ -40,16 +40,18 @@ gulp.task('sass:build', function () {
 
 
 gulp.task('icons:generate-fonts', function() {
-    return gulp.src("./src/icons/*.svg")
+    return gulp.src("./src/icons/arrow_down.svg")
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
-            templates: 'scss-rails'
+            templates: 'scss',
+            "css-selector": ".mint-icon-{{glyph}}"
+
         }))
         .pipe(gulp.dest("./src/sass/fonts"));
 });
 
 gulp.task('icons:create-data-file', function() {
-    var fontIconsContents = fs.readFileSync('./src/sass/fonts/_brainly-icons-rails.scss'),
+    var fontIconsContents = fs.readFileSync('./src/sass/fonts/_brainly-icons.scss'),
         splitByHeader = fontIconsContents.toString().split('[data-icon]:before,'),
         withoutHeader = splitByHeader[splitByHeader.length - 1];
 
@@ -63,9 +65,8 @@ gulp.task('icons:inline-fonts', function() {
         .pipe(gulp.dest('./src/sass'));
 });
 
-gulp.task('icons:cleanup', function() {
-    return gulp.src(['./src/sass/fonts/', './.fontcustom-manifest.json'], {read: false})
-        .pipe(clean());
+gulp.task('icons:cleanup', function(done) {
+    del(['./src/sass/fonts/', './.fontcustom-manifest.json'], done);
 });
 
 gulp.task('icons', function(done) {
