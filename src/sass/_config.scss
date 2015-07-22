@@ -143,6 +143,7 @@ $inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
+$inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
 // Checkbox/Radio
 $crInputSize: 16px;

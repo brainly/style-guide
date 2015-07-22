@@ -97,6 +97,10 @@
   &--transparent-border {
     border-color: $inputTransparentBorderColor;
     background-clip: padding-box;
+
+    &:focus {
+      border-color: $inputTransparentFocusBorderColor;
+    }
   }
   &--with-icon {
     padding-right: 46px;
