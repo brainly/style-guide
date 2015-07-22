@@ -1,25 +1,25 @@
 
-.icon-arrow_down:before,
-.icon-attachment:before,
-.icon-bold:before,
-.icon-check:before,
-.icon-comment:before,
-.icon-equation:before,
-.icon-excellent:before,
-.icon-fb:before,
-.icon-friends:before,
-.icon-heart:before,
-.icon-logo:before,
-.icon-menu:before,
-.icon-messages:before,
-.icon-notifications:before,
-.icon-pencil:before,
-.icon-profile:before,
-.icon-report_flag:before,
-.icon-search:before,
-.icon-star:before,
-.icon-stream:before,
-.icon-symbols:before {
+.mint-icon-arrow_down:before,
+.mint-icon-attachment:before,
+.mint-icon-bold:before,
+.mint-icon-check:before,
+.mint-icon-comment:before,
+.mint-icon-equation:before,
+.mint-icon-excellent:before,
+.mint-icon-fb:before,
+.mint-icon-friends:before,
+.mint-icon-heart:before,
+.mint-icon-logo:before,
+.mint-icon-menu:before,
+.mint-icon-messages:before,
+.mint-icon-notifications:before,
+.mint-icon-pencil:before,
+.mint-icon-profile:before,
+.mint-icon-report_flag:before,
+.mint-icon-search:before,
+.mint-icon-star:before,
+.mint-icon-stream:before,
+.mint-icon-symbols:before {
   display: inline-block;
   font-family: "brainly-icons";
   font-style: normal;
@@ -34,24 +34,46 @@
   font-smoothing: antialiased;
 }
 
-.icon-arrow_down:before { content: "\f100"; }
-.icon-attachment:before { content: "\f101"; }
-.icon-bold:before { content: "\f102"; }
-.icon-check:before { content: "\f103"; }
-.icon-comment:before { content: "\f104"; }
-.icon-equation:before { content: "\f105"; }
-.icon-excellent:before { content: "\f106"; }
-.icon-fb:before { content: "\f107"; }
-.icon-friends:before { content: "\f108"; }
-.icon-heart:before { content: "\f109"; }
-.icon-logo:before { content: "\f10a"; }
-.icon-menu:before { content: "\f10b"; }
-.icon-messages:before { content: "\f10c"; }
-.icon-notifications:before { content: "\f10d"; }
-.icon-pencil:before { content: "\f10e"; }
-.icon-profile:before { content: "\f10f"; }
-.icon-report_flag:before { content: "\f110"; }
-.icon-search:before { content: "\f111"; }
-.icon-star:before { content: "\f112"; }
-.icon-stream:before { content: "\f113"; }
-.icon-symbols:before { content: "\f114"; }
+.mint-icon-arrow_down:before { content: "\f100"; }
+.mint-icon-attachment:before { content: "\f101"; }
+.mint-icon-bold:before { content: "\f102"; }
+.mint-icon-check:before { content: "\f103"; }
+.mint-icon-comment:before { content: "\f104"; }
+.mint-icon-equation:before { content: "\f105"; }
+.mint-icon-excellent:before { content: "\f106"; }
+.mint-icon-fb:before { content: "\f107"; }
+.mint-icon-friends:before { content: "\f108"; }
+.mint-icon-heart:before { content: "\f109"; }
+.mint-icon-logo:before { content: "\f10a"; }
+.mint-icon-menu:before { content: "\f10b"; }
+.mint-icon-messages:before { content: "\f10c"; }
+.mint-icon-notifications:before { content: "\f10d"; }
+.mint-icon-pencil:before { content: "\f10e"; }
+.mint-icon-profile:before { content: "\f10f"; }
+.mint-icon-report_flag:before { content: "\f110"; }
+.mint-icon-search:before { content: "\f111"; }
+.mint-icon-star:before { content: "\f112"; }
+.mint-icon-stream:before { content: "\f113"; }
+.mint-icon-symbols:before { content: "\f114"; }
+
+$font-brainly-icons-arrow_down: "\f100";
+$font-brainly-icons-attachment: "\f101";
+$font-brainly-icons-bold: "\f102";
+$font-brainly-icons-check: "\f103";
+$font-brainly-icons-comment: "\f104";
+$font-brainly-icons-equation: "\f105";
+$font-brainly-icons-excellent: "\f106";
+$font-brainly-icons-fb: "\f107";
+$font-brainly-icons-friends: "\f108";
+$font-brainly-icons-heart: "\f109";
+$font-brainly-icons-logo: "\f10a";
+$font-brainly-icons-menu: "\f10b";
+$font-brainly-icons-messages: "\f10c";
+$font-brainly-icons-notifications: "\f10d";
+$font-brainly-icons-pencil: "\f10e";
+$font-brainly-icons-profile: "\f10f";
+$font-brainly-icons-report_flag: "\f110";
+$font-brainly-icons-search: "\f111";
+$font-brainly-icons-star: "\f112";
+$font-brainly-icons-stream: "\f113";
+$font-brainly-icons-symbols: "\f114";

@@ -7,7 +7,7 @@
   line-height: 44px;
 
   .mint-list__element {
-    @extend .icon-arrow_down;
+    @extend .mint-icon-arrow_down;
 
     &:before {
       font-family: "brainly-icons";

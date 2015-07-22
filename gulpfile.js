@@ -44,7 +44,7 @@ gulp.task('icons:generate-fonts', function() {
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
             templates: 'scss',
-            'css-selector': 'mint-icon-{{glyph}}'
+            'css-selector': '.mint-icon-{{glyph}}'
 
         }))
         .pipe(gulp.dest('./src/sass/fonts'));
