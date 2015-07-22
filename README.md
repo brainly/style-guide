@@ -29,7 +29,11 @@ Table of contents:
 ## Methodology
 
 We use BEM methodology to create and style our components. 
-You can find more details about BEM [here](https://en.bem.info/method/definitions/#what-is-bem).
+
+**Note**: we are using only BEM **naming convention**, but no additional tools or filesystem structure rules.
+
+You can find more details about "official" BEM [here](https://en.bem.info/method/definitions/#what-is-bem).
+[This article](https://css-tricks.com/bem-101/) can help you to get grasp on BEM as well.
 
 
 We have chosen BEM because it gives us these benefits:
@@ -61,7 +65,7 @@ We have chosen BEM because it gives us these benefits:
 * **Modifier** is used when we want to add a particular attribute/property/variant that will change our block or element.
 * **Container** is a compound block, which can contain other blocks.  
   The basic container defines "holes" (placeholders) where other blocks can be put.  
-  Containers only make sense only when they have actual blocks included.
+  Containers only make sense only when they have actual blocks included.	
 * **Hole** is a thin wrapper for a block used for changing position, offset, paddings and alignment of the contained components.  
 Holes only make sense in the context of the certain container.
 * **User content** is a dynamically added content, which lack BEM classes and contains mainly text formatting tags like `b`, `i`, `br`, `p`, `ul`, `ol`, etc.
