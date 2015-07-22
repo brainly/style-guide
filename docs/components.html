@@ -365,33 +365,33 @@
             <aside class="docs-block__info">
                 <h3 class="docs-block__header">Tabs</h3>
             </aside>
-            <ul class="tabs">
-                <li class="tabs__tab">text 1</li>
-                <li class="tabs__tab">text 2</li>
-                <li class="tabs__tab">text 3</li>
-                <li class="tabs__tab tabs__tab--active">text 4</li>
+            <ul class="mint-tabs">
+                <li class="mint-tabs__tab">text 1</li>
+                <li class="mint-tabs__tab">text 2</li>
+                <li class="mint-tabs__tab">text 3</li>
+                <li class="mint-tabs__tab mint-tabs__tab--active">text 4</li>
             </ul>
         </section>
         <section class="docs-block">
             <aside class="docs-block__info">
                 <h3 class="docs-block__header">Tabs small</h3>
             </aside>
-            <ul class="tabs tabs--small">
-                <li class="tabs__tab">text 1</li>
-                <li class="tabs__tab tabs__tab--active">text 2</li>
-                <li class="tabs__tab">text 3</li>
-                <li class="tabs__tab">text 4</li>
-                <li class="tabs__tab">text 5</li>
-                <li class="tabs__tab">text 6</li>
+            <ul class="mint-tabs mint-tabs--small">
+                <li class="mint-tabs__tab">text 1</li>
+                <li class="mint-tabs__tab mint-tabs__tab--active">text 2</li>
+                <li class="mint-tabs__tab">text 3</li>
+                <li class="mint-tabs__tab">text 4</li>
+                <li class="mint-tabs__tab">text 5</li>
+                <li class="mint-tabs__tab">text 6</li>
             </ul>
         </section>
     </article>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 <script>
-    $('.tabs').on('click', '.tabs__tab', function () {
-        $(this).siblings('.tabs__tab--active').removeClass('tabs__tab--active')
-                .end().addClass('tabs__tab--active');
+    $('.mint-tabs').on('click', '.mint-tabs__tab', function () {
+        $(this).siblings('.mint-tabs__tab--active').removeClass('mint-tabs__tab--active')
+                .end().addClass('mint-tabs__tab--active');
     });
 </script>
 </body>
