@@ -94,6 +94,12 @@
   &--with-icon {
     padding-right: 46px;
   }
+  &--low {
+    border-radius: $inputHeight/2;
+    padding: 0 $inputHeight/2;
+    height: $inputLowHeight;
+    line-height: $inputLowHeight;
+  }
 }
 
 .mint-checkbox,
