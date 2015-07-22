@@ -74,6 +74,48 @@ Holes only make sense in the context of the certain container.
 
 If you are a component author you should follow this guidelines on top of BEM.
 
+
+#### :exclamation: How to compose a modified block?
+
+The most often question related to BEM is "How do I actually **use** modifiers and elements?"
+
+Here is an example:
+
+```scss
+$blockFont: $fontFamilyPrimary;
+$tintedElementColor: $graySecondary;
+$blockLightColor: $white;
+
+.mint-block {
+
+  // this is an element of mint-block, note "__" separator
+  &__element {
+    width: 200px;
+    font-family: $blockFont;
+
+     // this is a modifier for element
+     &--tint {
+       color: $tintedElementColor;
+     }
+  }
+
+  // this is a modifier of the entire mint-block, note "--" separator
+  &--light {
+    background-color: $blockLightColor;
+  }
+}
+
+```
+
+You use the styles defined above like that:
+```html
+<div class="mint-block mint-block--light">
+  <div class="mint-block__element mint-block__element--tint">
+     Here goes some block content
+  </div>
+</div>
+```
+
 #### Base variables
 
 > All essential variables MUST reside in `sass/config.sass` file.
