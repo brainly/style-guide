@@ -245,6 +245,13 @@ Run `gulp docker:icons`.
 
 This command will transform all `svg` files from `icons` directory in a woff font.
 
+
+#### See holes in containers
+
+You can hover with mouse over the container in style guide to see the holes (white dashed border around the component):
+
+![Highlighted holes](http://i.gyazo.com/0cc138b81eb12cc518352c2d9c787f0b.png)
+
 ## Contribution
 
 To contribute, please read [Contributing file](CONTRIBUTING.md)
