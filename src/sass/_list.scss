@@ -28,13 +28,15 @@
   font-family: $listDefaultFont;
   &__element {
     box-sizing: border-box;
-    margin: 0 20px;
     height: 35px;
     line-height: 35px;
     border-bottom: 1px dashed $menuListBorderColor;
     font-family: inherit;
     &:last-child {
       border: 0;
+    }
+    &--flex {
+      height: auto;
     }
   }
   &__link {
@@ -47,6 +49,9 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+  &--side-spaced {
+    margin: 10px
   }
 }
 
