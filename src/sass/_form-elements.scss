@@ -186,7 +186,7 @@
   font-weight: normal;
   line-height: $textareaLineHeight;
   padding: $textareaPadding;
-  resize: vertical;
+  resize: none;
   &:focus {
     border-color: $textareaFocusBorderColor;
     outline: 0;
@@ -200,5 +200,20 @@
   }
   &--full {
     width: 100%;
+  }
+  &--valid {
+    border-color: $textareaValidBorderColor;
+    &:focus {
+      border-color: $textareaValidBorderColor;
+    }
+  }
+  &--invalid {
+    border-color: $textareaInvalidBorderColor;
+    &:focus {
+      border-color: $textareaInvalidBorderColor;
+    }
+  }
+  &--medium {
+    height: 178px;
   }
 }
