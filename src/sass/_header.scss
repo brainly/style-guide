@@ -4,7 +4,7 @@
   background-image: url('../images/header_background_wide.jpg');
   background-repeat: repeat-x;
   background-color: $headerDominantColor;
-  @include image-2x('../images/header_background_wide@2x.jpg', 1579px, 60px);
+  @include image-2x('../images/header_background_wide@2x.jpg', auto, 60px);
 
   &__container {
     box-sizing: border-box;
@@ -18,36 +18,21 @@
   }
 
   &__left {
-    @extend %hide-for-mobile;
-
-    & > * {
-      vertical-align: middle;
-    }
+    vertical-align: middle;
   }
 
   &__middle {
     flex-grow: 1;
-    margin-left: 20px;
+    vertical-align: middle;
 
-    & > * {
-      vertical-align: middle;
+    @media (min-width: $breakpointTablet) {
+      margin-left: 20px;
     }
   }
 
   &__right {
     margin-left: 20px;
     white-space: nowrap;
-
-    &--desktop {
-      @extend %hide-for-mobile;
-    }
-
-    &--mobile {
-      @extend %hide-for-desktop;
-    }
-
-    & > * {
-      vertical-align: middle;
-    }
+    vertical-align: middle;
   }
 }

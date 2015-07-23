@@ -37,3 +37,7 @@
     display: inline-block;
   }
 }
+
+.mint-bubble, .mint-promo-box__content, .mint-header__left, .mint-header__middle, .mint-header__right {
+  @extend .docs-highlight-placeholder;
+}

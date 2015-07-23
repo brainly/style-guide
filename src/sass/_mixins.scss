@@ -5,15 +5,3 @@
     background-size: $width $height;
   }
 }
-
-%hide-for-desktop {
-  @media (min-width: $breakpointTablet) {
-    display: none !important;
-  }
-}
-
-%hide-for-mobile {
-  @media (max-width: $breakpointTablet) {
-    display: none !important;
-  }
-}
