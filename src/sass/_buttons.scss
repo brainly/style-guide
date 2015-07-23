@@ -137,7 +137,7 @@
 .mint-button-secondary--alt {
   @include mint-button-secondary-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
 
-  &.mint-button-secondary--inverse {
+  &-inverse {
     @include mint-button-secondary-inverse-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
   }
 }
@@ -145,7 +145,7 @@
 .mint-button-secondary--dark {
   @include mint-button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
 
-  &.mint-button-secondary--inverse {
+  &-inverse {
     @include mint-button-secondary-inverse-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
   }
 }
@@ -153,7 +153,7 @@
 .mint-button-secondary--peach {
   @include mint-button-secondary-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
 
-  &.mint-button-secondary--inverse {
+  &-inverse {
     @include mint-button-secondary-inverse-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
   }
 }
@@ -161,7 +161,7 @@
 .mint-button-secondary--gray {
   @include mint-button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
 
-  &.mint-button-secondary--inverse {
+  &-inverse {
     @include mint-button-secondary-inverse-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
   }
 }
@@ -169,7 +169,7 @@
 .mint-button-secondary--light {
   @include mint-button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
 
-  &.mint-button-secondary--inverse {
+  &-inverse {
     @include mint-button-secondary-inverse-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
   }
 }
