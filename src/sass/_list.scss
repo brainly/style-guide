@@ -25,12 +25,14 @@
 
 .mint-menu-list {
   @include mint-list-basic-styles();
+  font-family: $listDefaultFont;
   &__element {
     box-sizing: border-box;
     margin: 0 20px;
     height: 35px;
     line-height: 35px;
     border-bottom: 1px dashed $menuListBorderColor;
+    font-family: inherit;
     &:last-child {
       border: 0;
     }
@@ -40,6 +42,7 @@
     text-decoration: none;
     display: block;
     font-size: $menuListFontSize;
+    font-family: inherit;
     white-space: nowrap;
     &:hover {
       text-decoration: underline;
