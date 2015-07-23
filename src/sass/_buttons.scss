@@ -170,6 +170,7 @@
 .mint-button-secondary--action {
   background-color: $buttonSecondaryActionColor;
   border: 0;
+  line-height: $height;
   color: $buttonSecondaryActionTextColor;
   &:hover, &:focus {
     background-color: $buttonSecondaryActionTextColor;
