@@ -22,7 +22,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
-    "husky": "brainly/husky",
+    "husky": "^0.9.1",
     "run-sequence": "^1.1.1"
   }
 }
