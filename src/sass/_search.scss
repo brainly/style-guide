@@ -3,7 +3,10 @@
 
   &__button {
     position: absolute;
-    top: 2px;
+    top: 0;
+    bottom: 0;
     right: 6px;
+    display: flex;
+    align-items: center;
   }
 }

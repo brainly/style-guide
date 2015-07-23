@@ -5,6 +5,7 @@
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
+  vertical-align: inherit;
 }
 
 @mixin mint-button-basic-dimensions($height, $lineHeight) {
@@ -272,6 +273,7 @@
   height: 40px;
   font-size: 0;
   line-height: 0;
+  vertical-align: inherit;
 
   &:before {
     color: $iconAsButtonColor;
@@ -281,6 +283,16 @@
 
   &:active:before {
     color: rgba($iconAsButtonColor, 0.7);
+  }
+
+  &--light {
+    &:before {
+      color: $iconAsButtonLightColor;
+    }
+
+    &:active:before {
+      color: rgba($iconAsButtonLightColor, 0.7);
+    }
   }
 }
 

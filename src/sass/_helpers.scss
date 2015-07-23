@@ -5,3 +5,15 @@
     clear: both;
   }
 }
+
+.mint-hide-for-desktop {
+  @media (min-width: $breakpointTablet) {
+    display: none !important;
+  }
+}
+
+.mint-hide-for-mobile {
+  @media (max-width: $breakpointTablet - 1px) {
+    display: none !important;
+  }
+}

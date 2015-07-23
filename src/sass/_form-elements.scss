@@ -67,6 +67,7 @@
   height: $inputHeight;
   line-height: $inputHeight;
   appearance: none;
+  text-overflow: ellipsis;
   &:focus {
     outline: none;
     border-color: $inputFocusBorderColor;
@@ -77,6 +78,12 @@
     font-family: $inputPlaceholderFontFamily;
     font-size: $inputPlaceholderFontSize;
     font-weight: bold;
+  }
+  &--low {
+    border-radius: $inputLowHeight/2;
+    padding: 0 $inputLowHeight/2;
+    height: $inputLowHeight;
+    line-height: $inputLowHeight;
   }
   &--valid {
     border-color:$inputValidBorderColor;
@@ -98,6 +105,11 @@
   }
   &--transparent-border {
     border-color: $inputTransparentBorderColor;
+    background-clip: padding-box;
+
+    &:focus {
+      border-color: $inputTransparentFocusBorderColor;
+    }
   }
   &--with-icon {
     padding-right: 46px;

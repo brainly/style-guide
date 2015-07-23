@@ -1,0 +1,7 @@
+@mixin image-2x($image, $width:"auto", $height:"auto") {
+  @media (min-resolution: 144dpi) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}

@@ -110,6 +110,7 @@ $buttonSecondaryBestIconColor: $mustardPrimary;
 $buttonSecondaryBestTextColor: $black;
 
 $iconAsButtonColor: $bluePrimary;
+$iconAsButtonLightColor: $white;
 
 // Tabs
 $tabBackground: $graySecondaryLight;
@@ -134,6 +135,7 @@ $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
 $inputHeight: 44px;
+$inputLowHeight: 36px;
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
@@ -146,6 +148,7 @@ $inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
+$inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
 // Checkbox/Radio
 $crInputSize: 16px;
@@ -254,3 +257,11 @@ $promoBoxFontFamily: $fontFamilyPrimary;
 $menuListColor: $bluePrimary;
 $menuListFontSize: 13px;
 $menuListBorderColor: $graySecondary;
+
+// Layout
+$layoutMaximumWidth: 960px;
+$layoutDefaultPadding: 5px;
+$breakpointTablet: 768px;
+
+// Header
+$headerDominantColor: #65A6A8;
