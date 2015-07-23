@@ -166,6 +166,19 @@
   }
 }
 
+.mint-button-secondary--action {
+  background-color: $buttonSecondaryActionColor;
+  border: 0;
+  color: $buttonSecondaryActionTextColor;
+  &:hover, &:focus {
+    background-color: $buttonSecondaryActionTextColor;
+    color: $buttonSecondaryActionTextColorHover;
+  }
+  &:active {
+    color: rgba($buttonSecondaryActionTextColorHover, 0.7);
+  }
+}
+
 .mint-button-secondary--light {
   @include mint-button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
 
