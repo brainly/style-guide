@@ -36,6 +36,21 @@
   }
 }
 
+@mixin mint-button-secondary-inverse-theme($buttonColor, $buttonTextColorHover) {
+  border-color: $buttonColor;
+  color: $buttonTextColorHover;
+  background-color: $buttonColor;
+  &:hover, &:focus {
+    background-color: $buttonTextColorHover;
+    border-color: $buttonColor;
+    color: $buttonColor;
+  }
+  &:active {
+    color: rgba($buttonColor, 0.7);
+  }
+}
+
+
 // Primary buttons
 .mint-button-primary {
   @include mint-button-basic-styles();
@@ -113,26 +128,50 @@
     height: $buttonSecondaryHeight;
     position: relative;
   }
+
+  &--inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryColor, $buttonSecondaryTextColorHover);
+  }
 }
 
 .mint-button-secondary--alt {
   @include mint-button-secondary-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+
+  &-inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+  }
 }
 
 .mint-button-secondary--dark {
   @include mint-button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+
+  &-inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+  }
 }
 
 .mint-button-secondary--peach {
   @include mint-button-secondary-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+
+  &-inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+  }
 }
 
 .mint-button-secondary--gray {
   @include mint-button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+
+  &-inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+  }
 }
 
 .mint-button-secondary--light {
   @include mint-button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+
+  &-inverse {
+    @include mint-button-secondary-inverse-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+  }
 }
 
 .mint-button-secondary--with-icon {
