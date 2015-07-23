@@ -40,12 +40,11 @@ gulp.task('sass:build', function () {
 
 
 gulp.task('icons:generate-fonts', function() {
-    return gulp.src("./src/icons/arrow_down.svg")
+    return gulp.src("./src/icons/")
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
             templates: 'scss',
             'css-selector': '.mint-icon-{{glyph}}'
-
         }))
         .pipe(gulp.dest('./src/sass/fonts'));
 });
