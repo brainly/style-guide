@@ -1,7 +1,11 @@
-.mint-list {
+@mixin mint-list-basic-styles() {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.mint-list {
+  @include mint-list-basic-styles();
   font-family: $listDefaultFont;
   font-size: 24px;
   line-height: 44px;
@@ -20,9 +24,7 @@
 }
 
 .mint-menu-list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+  @include mint-list-basic-styles();
   &__element {
     box-sizing: border-box;
     margin: 0 20px;
@@ -30,7 +32,7 @@
     line-height: 35px;
     border-bottom: 1px dashed $menuListBorderColor;
     &:last-child {
-      border :0;
+      border: 0;
     }
   }
   &__link {
@@ -41,6 +43,46 @@
     white-space: nowrap;
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+.mint-breadcrumb-list {
+  @include mint-list-basic-styles();
+  font-family: $menuBreadcrumbListFontFamily;
+  font-size: $menuBreadcrumbListFontSize;
+
+  &__element {
+    display: inline-block;
+
+    &:after {
+      content: '·';
+      display: inline-block;
+      color: $menuBreadcrumbListSeparatorColor;
+      padding: 0 2px;
+    }
+
+    &:last-child:after {
+      content: '';
+    }
+  }
+  &__link {
+    color: $menuBreadcrumbListColor;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--emphasised {
+      text-transform: uppercase;
+    }
+  }
+
+  &--alt {
+    .mint-breadcrumb-list__link {
+      color: $menuBreadcrumbListColorAlt;
     }
   }
 }
