@@ -1,11 +1,13 @@
 .mint-select {
   @extend .mint-icon-arrow_down;
+  box-sizing: border-box;
   position: relative;
   display: inline-block;
   overflow: hidden;
   border-radius: $selectHeight/2;
   font-size: $selectFontSize;
   color: $selectTextColor;
+  height: $selectHeight;
   &__element {
     background: $selectBackground;
     border: 0;
@@ -43,6 +45,12 @@
   }
   &--full {
     width: 100%;
+  }
+  &--invalid {
+    border: 2px solid $selectInvalidBorderColor;
+    .mint-select__element {
+      padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
+    }
   }
 }
 
