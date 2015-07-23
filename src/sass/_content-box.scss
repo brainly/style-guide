@@ -1,0 +1,22 @@
+.mint-content-box {
+  &__header {
+    vertical-align: middle;
+    margin-bottom: 3px;
+  }
+
+  &__content {
+    margin-bottom: 12px;
+  }
+
+  &__footer {
+    vertical-align: middle;
+  }
+
+  &--spaced {
+    .mint-content-box__content, .mint-content-box__footer {
+      @media (min-width: $breakpointTablet) {
+        padding-left: 38px;
+      }
+    }
+  }
+}
