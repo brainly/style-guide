@@ -49,8 +49,8 @@
 
 .mint-breadcrumb-list {
   @include mint-list-basic-styles();
-  font-family: $menuBreadcrumbListFontFamily;
-  font-size: $menuBreadcrumbListFontSize;
+  font-family: $breadcrumbListFontFamily;
+  font-size: $breadcrumbListFontSize;
 
   &__element {
     display: inline-block;
@@ -58,7 +58,7 @@
     &:after {
       content: '·';
       display: inline-block;
-      color: $menuBreadcrumbListSeparatorColor;
+      color: $breadcrumbListSeparatorColor;
       padding: 0 2px;
     }
 
@@ -67,7 +67,7 @@
     }
   }
   &__link {
-    color: $menuBreadcrumbListColor;
+    color: $breadcrumbListColor;
     text-decoration: none;
     display: inline-block;
     white-space: nowrap;
@@ -82,7 +82,7 @@
 
   &--alt {
     .mint-breadcrumb-list__link {
-      color: $menuBreadcrumbListColorAlt;
+      color: $breadcrumbListColorAlt;
     }
   }
 }
