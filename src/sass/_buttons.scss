@@ -15,7 +15,49 @@
   line-height: $lineHeight;
 }
 
-@mixin mint-button-primary-theme($buttonColor, $gradientColor, $buttonShadowColor) {
+@mixin mint-button-basic-colors($borderColor, $fontColor, $backgroundColor) {
+  border-color: $borderColor;
+  color: $fontColor;
+  background-color: $backgroundColor;
+}
+
+@mixin mint-button-primary-active($fontColor) {
+  transition: background-position 0.3s ease-out;
+  &:hover, &:focus {
+    background-position: 0 10px;
+    outline: none;
+  }
+  &:active {
+    color: rgba($fontColor, 0.7);
+    outline: none;
+  }
+}
+
+@mixin mint-button-secondary-active($borderColor, $fontColor, $backgroundColor) {
+  &:hover, &:focus {
+    border-color: $borderColor;
+    color: $fontColor;
+    background-color: $backgroundColor;
+  }
+  &:active {
+    color: rgba($fontColor, 0.7);
+    outline: none;
+  }
+}
+
+@mixin mint-button-secondary-with-icon-active($borderColor, $textColor) {
+  &:hover, &:focus {
+    color: $textColor;
+    background-color: transparent;
+    border-color: $borderColor;
+    transition: border-color 0.1s ease-in;
+  }
+  &:active {
+    color: rgba($textColor, 0.7);
+  }
+}
+
+@mixin mint-button-primary-three-color-variant($buttonColor, $gradientColor, $buttonShadowColor) {
   background-color: $buttonColor;
   background: $gradientColor linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%) no-repeat;
   box-shadow: 0 -1px 0 $buttonShadowColor inset;
@@ -24,64 +66,52 @@
   }
 }
 
-@mixin mint-button-secondary-theme($buttonColor, $buttonTextColorHover) {
-  border-color: $buttonColor;
-  color: $buttonColor;
-  &:hover, &:focus {
-    background-color: $buttonColor;
-    border-color: $buttonColor;
-    color: $buttonTextColorHover;
-  }
-  &:active {
-    color: rgba($buttonTextColorHover, 0.7);
+@mixin mint-button-secondary-two-color-variant($colorOne, $colorTwo) {
+  @include mint-button-basic-colors($colorOne, $colorOne, transparent);
+  @include mint-button-secondary-active($colorOne, $colorTwo, $colorOne);
+
+  &-inverse {
+    @include mint-button-basic-colors($colorOne, $colorTwo, $colorOne);
+    @include mint-button-secondary-active($colorOne, $colorOne, transparent);
   }
 }
 
-@mixin mint-button-secondary-inverse-theme($buttonColor, $buttonTextColorHover) {
-  border-color: $buttonColor;
-  color: $buttonTextColorHover;
-  background-color: $buttonColor;
-  &:hover, &:focus {
-    background-color: $buttonTextColorHover;
-    border-color: $buttonColor;
-    color: $buttonColor;
-  }
-  &:active {
-    color: rgba($buttonColor, 0.7);
+@mixin mint-button-secondary-three-color-variant($bgColor, $textColor, $hoverTextColor) {
+  border: 0;
+  padding: 0 $buttonSecondaryHeight /2 + 2px;
+  @include mint-button-basic-colors($bgColor, $textColor, $bgColor);
+  @include mint-button-secondary-active($textColor, $hoverTextColor, $textColor);
+
+  &-inverse {
+    border: 0;
+    padding: 0 $buttonSecondaryHeight /2 + 2px;
+    @include mint-button-basic-colors($textColor, $hoverTextColor, $textColor);
+    @include mint-button-secondary-active($bgColor, $textColor, $bgColor);
   }
 }
-
 
 // Primary buttons
 .mint-button-primary {
   @include mint-button-basic-styles();
   @include mint-button-basic-dimensions($buttonPrimaryHeight, $buttonPrimaryHeight);
-  @include mint-button-primary-theme($buttonColor, $buttonColorGradient, $buttonShadowColor);
+  @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
+  @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
   border: 0;
-  color: $buttonPrimaryFontColor;
   font-size: $buttonPrimaryFontSize;
   font-family: $buttonPrimaryFontFamily;
-  transition: background-position 0.3s ease-out;
-  &:hover, &:focus {
-    background-position: 0 10px;
-    outline: none;
-  }
-  &:active {
-    color: rgba($buttonPrimaryFontColor, 0.7);
-    outline: none;
-  }
+  @include mint-button-primary-active($buttonPrimaryFontColor);
 }
 
 .mint-button-primary--alt {
-  @include mint-button-primary-theme($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+  @include mint-button-primary-three-color-variant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
 }
 
 .mint-button-primary--dark {
-  @include mint-button-primary-theme($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+  @include mint-button-primary-three-color-variant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
 }
 
 .mint-button-primary--fb {
-  @include mint-button-primary-theme($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+  @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
   @extend .mint-icon-fb;
   &:before {
     line-height: 44px;
@@ -96,7 +126,9 @@
   $borderSize: 2px;
   @include mint-button-basic-styles();
   @include mint-button-basic-dimensions($buttonSecondaryHeight, ($buttonSecondaryHeight - 2*$borderSize));
-  @include mint-button-secondary-theme($buttonSecondaryColor, $buttonSecondaryTextColorHover);
+  @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+  @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+
   border-width: $borderSize;
   border-style: solid;
   background-color: transparent;
@@ -104,10 +136,6 @@
   font-family: $buttonSecondaryFontFamily;
   transition: background-color 0.3s ease-out, color 0.3s ease-out;
   &:hover, &:focus {
-    outline: none;
-  }
-  &:active {
-    transition: background-color 0.3s ease-out;
     outline: none;
   }
   &:before {
@@ -126,83 +154,49 @@
     margin: -$borderSize (-$buttonSecondaryHeight/2 - $borderSize);
     height: $buttonSecondaryHeight;
     line-height: $buttonSecondaryHeight;
-    height: $buttonSecondaryHeight;
     position: relative;
   }
 
   &--inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+    @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
   }
 }
 
 .mint-button-secondary--alt {
-  @include mint-button-secondary-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
-
-  &-inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
-  }
+  @include mint-button-secondary-two-color-variant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
 }
 
 .mint-button-secondary--dark {
-  @include mint-button-secondary-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
-
-  &-inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
-  }
+  @include mint-button-secondary-two-color-variant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
 }
 
 .mint-button-secondary--peach {
-  @include mint-button-secondary-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
-
-  &-inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
-  }
+  @include mint-button-secondary-two-color-variant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
 }
 
 .mint-button-secondary--gray {
-  @include mint-button-secondary-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
-
-  &-inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
-  }
-}
-
-.mint-button-secondary--action {
-  background-color: $buttonSecondaryActionColor;
-  border: 0;
-  line-height: $buttonSecondaryHeight;
-  color: $buttonSecondaryActionTextColor;
-  &:hover, &:focus {
-    background-color: $buttonSecondaryActionTextColor;
-    color: $buttonSecondaryActionTextColorHover;
-  }
-  &:active {
-    color: rgba($buttonSecondaryActionTextColorHover, 0.7);
-  }
+  @include mint-button-secondary-two-color-variant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
 }
 
 .mint-button-secondary--light {
-  @include mint-button-secondary-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+  @include mint-button-secondary-two-color-variant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+}
 
-  &-inverse {
-    @include mint-button-secondary-inverse-theme($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
-  }
+.mint-button-secondary--action {
+  @include mint-button-secondary-three-color-variant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
 }
 
 .mint-button-secondary--with-icon {
-  @include mint-button-secondary-theme($buttonSecondaryIconColor, $buttonSecondaryIconColor);
+  @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
+
+
   &:before {
     $iconFontSize: $buttonSecondaryFontSize + $iconBoostValue;
     font-size: $iconFontSize;
   }
-  &:hover, &:focus {
-    background-color: transparent;
-    border-color: $buttonSecondaryIconBorderColorHover;
-    transition: border-color 0.1s ease-in;
-  }
-  &:active {
-    color: rgba($buttonSecondaryIconColor, 0.7);
-  }
+
+  @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
 }
 
 .mint-button-secondary--with-heart-icon {
