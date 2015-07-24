@@ -1,0 +1,60 @@
+@mixin outline($color) {
+  // generated using http://owumaro.github.io/text-stroke-generator/
+  $color 2px 0px 0px,
+  $color 1.75516510009766px 0.958851099014282px 0px,
+  $color 1.08060455322266px 1.68294191360474px 0px,
+  $color 0.141474395990372px 1.99498999118805px 0px,
+  $color -0.832293689250946px 1.81859481334686px 0px,
+  $color -1.60228717327118px 1.19694423675537px 0px,
+  $color -1.979984998703px 0.282240003347397px 0px,
+  $color -1.8729133605957px -0.701566457748413px 0px,
+  $color -1.30728721618652px -1.51360499858856px 0px,
+  $color -0.421591609716415px -1.95506024360657px 0px,
+  $color 0.56732439994812px -1.91784858703613px 0px,
+  $color 1.41733956336975px -1.41108059883118px 0px,
+  $color 1.9203405380249px -0.558830976486206px 0px;
+}
+
+%icon-blue-white {
+  @include outline($stickerOutlineColor);
+  font-size: $stickerSize;
+  color: $stickerIconColor;
+}
+
+@mixin from-icon($name){
+  &--#{$name}:before {
+    @extend %icon-blue-white;
+    @extend .mint-icon-#{$name}:before;
+  }
+}
+
+
+
+.mint-sticker {
+  position: relative;
+  display: inline-block;
+
+  @include from-icon(arrow_down);
+  @include from-icon(attachment);
+  @include from-icon(bold);
+  @include from-icon(check);
+  @include from-icon(comment);
+  @include from-icon(equation);
+  @include from-icon(excellent);
+  @include from-icon(fb);
+  @include from-icon(friends);
+  @include from-icon(heart);
+  @include from-icon(logo);
+  @include from-icon(menu);
+  @include from-icon(messages);
+  @include from-icon(notifications);
+  @include from-icon(pencil);
+  @include from-icon(profile);
+  @include from-icon(report_flag);
+  @include from-icon(search);
+  @include from-icon(star);
+  @include from-icon(stream);
+  @include from-icon(symbol);
+
+
+}
