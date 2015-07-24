@@ -1,10 +1,10 @@
 .mint-header {
   width: 100%;
   height: 60px;
-  background-image: url('../images/header_background_wide.jpg');
+  background-image: url($mintImagesPath + 'header_background_wide.jpg');
   background-repeat: repeat-x;
   background-color: $headerDominantColor;
-  @include image-2x('../images/header_background_wide@2x.jpg', auto, 60px);
+  @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
 
   &__container {
     box-sizing: border-box;
