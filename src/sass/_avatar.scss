@@ -51,3 +51,15 @@
   }
 }
 
+.mint-overlayed-avatar {
+  position: relative;
+  display: inline-block;
+
+  &__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+
