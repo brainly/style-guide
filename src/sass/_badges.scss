@@ -1,7 +1,6 @@
 .mint-badge {
   @include component;
 
-  display: inline-block;
   border-radius: $badgeFontSize;
   line-height: $badgeFontSize;
   font-size: $badgeFontSize;
@@ -25,9 +24,7 @@
 
 .mint-overlayed-icon {
   @include component;
-  
-  position: relative;
-  display: inline-block;
+
   vertical-align: middle;
 
   &__overlay {
