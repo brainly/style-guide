@@ -1,0 +1,28 @@
+.mint-badge {
+  display: inline-block;
+  border-radius: $badgeFontSize;
+  line-height: $badgeFontSize;
+  font-size: $badgeFontSize;
+  font-family: $badgeFontFamily;
+  padding: 3px 6px;
+  vertical-align: inherit;
+
+  background-color: $badgeDefaultBackgroundColor;
+  color: $badgeDefaultColor;
+
+  &--light {
+    background-color: $badgeLightBackgroundColor;
+    color: $badgeLightColor;
+  }
+
+  &--with-animation {
+    transform: scale(0);
+    animation: mintBadgeAnimation .6s 2s forwards;
+  }
+}
+
+@keyframes mintBadgeAnimation {
+  0% {transform: scale(0);}
+  80% {transform: scale(1.2);}
+  100% {transform: scale(1);}
+}
