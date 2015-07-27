@@ -1,0 +1,12 @@
+.mint-overlayed-box {
+  @include component;
+
+  overflow: visible;
+  vertical-align: inherit;
+
+  &__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

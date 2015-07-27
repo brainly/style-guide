@@ -22,18 +22,6 @@
   }
 }
 
-.mint-overlayed-icon {
-  @include component;
-
-  vertical-align: middle;
-
-  &__overlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
-}
-
 @keyframes mintBadgeAnimation {
   0% {transform: scale(0);}
   80% {transform: scale(1.2);}
