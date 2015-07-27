@@ -137,6 +137,28 @@
         </section>
     </article>
     <article>
+        <h2 class="article-header">Badges</h2>
+        <section class="docs-block">
+            <aside class="docs-block__info">
+                <h3 class="docs-block__header">Default</h3>
+            </aside>
+            <div class="docs-block__content">
+                <div class="mint-badge">1</div>
+                <div class="docs-block__contrast-box">
+                    <div class="mint-badge mint-badge--light">4575</div>
+                </div>
+            </div>
+        </section>
+        <section class="docs-block">
+            <aside class="docs-block__info">
+                <h3 class="docs-block__header">With animation <small>(click to reload)</small></h3>
+            </aside>
+            <div class="docs-block__content">
+                <div class="mint-badge mint-badge--with-animation">1</div>
+            </div>
+        </section>
+    </article>
+    <article>
         <h2 class="article-header">Stickers</h2>
         <section class="docs-block">
             <aside class="docs-block__info">
@@ -611,6 +633,11 @@
     $('.mint-tabs').on('click', '.mint-tabs__tab', function () {
         $(this).siblings('.mint-tabs__tab--active').removeClass('mint-tabs__tab--active')
                 .end().addClass('mint-tabs__tab--active');
+    });
+
+    $(document).on('click', '.mint-badge--with-animation', function () {
+        var $clone = $(this).clone();
+        $(this).replaceWith($clone);
     });
 </script>
 </body>
