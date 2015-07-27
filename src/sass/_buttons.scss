@@ -161,6 +161,11 @@
     @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
     @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
   }
+
+  &--full {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .mint-button-secondary--alt {
