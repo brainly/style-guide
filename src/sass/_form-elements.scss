@@ -1,9 +1,6 @@
 .mint-select {
+  @include component;
   @extend .mint-icon-arrow_down;
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
   border-radius: $selectHeight/2;
   font-size: $selectFontSize;
   color: $selectTextColor;
@@ -55,7 +52,7 @@
 }
 
 .mint-input {
-  box-sizing: border-box;
+  @include component;
   background: $inputBackground;
   border: 2px solid $inputBorderColor;
   border-radius: $inputHeight/2;
@@ -67,7 +64,7 @@
   height: $inputHeight;
   line-height: $inputHeight;
   appearance: none;
-  text-overflow: ellipsis;
+
   &:focus {
     outline: none;
     border-color: $inputFocusBorderColor;
@@ -118,8 +115,7 @@
 
 .mint-checkbox,
 .mint-radio {
-  position: relative;
-  display: inline-block;
+  @include component;
   width: $crInputSize;
   height: $crInputSize;
   font-size: $crInputFontSize;
@@ -151,6 +147,7 @@
 
 .mint-checkbox-label,
 .mint-radio-label {
+  @include component;
   font-family: $crInputLabelFontFamily;
   font-size: $crInputLabelFontSize;
   line-height: $crInputLabelLineHeight;
@@ -159,7 +156,7 @@
   margin: 0 0 0 5px;
   padding: 0;
   vertical-align: top;
-  display: inline-block;
+
   &--upper {
     text-transform: uppercase;
   }
@@ -196,7 +193,7 @@
 }
 
 .mint-textarea {
-  box-sizing: border-box;
+  @include component;
   background: $textareaBackground;
   border: 2px solid $textareaBorderColor;
   border-radius: $textareaBorderRadius;

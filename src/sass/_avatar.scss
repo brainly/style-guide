@@ -1,14 +1,11 @@
 .mint-avatar {
+  @include component;
   @extend .mint-icon-profile;
 
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
   width: $avatarMediumSize;
   height: $avatarMediumSize;
   border-radius: $avatarMediumSize/2;
   background: $avatarDefaultBackgroundColor;
-  overflow: hidden;
   border: solid $avatarBorderColor $avatarMediumBorderWidth;
   vertical-align: inherit;
 

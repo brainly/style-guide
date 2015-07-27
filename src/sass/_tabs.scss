@@ -1,4 +1,5 @@
 .mint-tabs {
+  @include component;
   @include clearfix();
   list-style: none;
   padding: 0;

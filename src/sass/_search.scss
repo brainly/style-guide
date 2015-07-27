@@ -1,5 +1,6 @@
 .mint-search {
-  position: relative;
+  @include component;
+  width: 100%;
 
   &__button {
     position: absolute;
