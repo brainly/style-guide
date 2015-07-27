@@ -35,6 +35,8 @@
   position: relative;
   display: inline-block;
 
+  @include from-icon(answering);
+  @include from-icon(answered);
   @include from-icon(arrow_down);
   @include from-icon(attachment);
   @include from-icon(bold);
