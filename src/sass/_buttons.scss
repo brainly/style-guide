@@ -1,7 +1,7 @@
 @mixin mint-button-basic-styles() {
-  box-sizing: border-box;
+  @include component;
   cursor: pointer;
-  display: inline-block;
+
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
@@ -264,6 +264,7 @@
 }
 
 .mint-icon-as-button {
+  @include component;
   background: none;
   border: none;
   outline: none;

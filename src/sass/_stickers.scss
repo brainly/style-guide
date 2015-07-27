@@ -32,8 +32,8 @@
 
 
 .mint-sticker {
-  position: relative;
-  display: inline-block;
+  @include component;
+  overflow: visible;
 
   @include from-icon(answering);
   @include from-icon(answered);

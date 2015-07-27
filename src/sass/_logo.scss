@@ -4,6 +4,8 @@
 }
 
 .mint-logo {
+  @include component;
+  overflow: visible;
   height: 60px;
 
   &__image {

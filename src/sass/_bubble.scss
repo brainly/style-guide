@@ -3,14 +3,13 @@ $triangleSize: 12px;
 $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
 
 .mint-bubble {
-  box-sizing: border-box;
+  @include component;
+  overflow: visible;
   background: $bubbleBackground;
   border: $borderSize solid $bubbleBorderColor;
   border-radius: $bubbleBorderRadius;
   padding: 15px;
-  position: relative;
   box-shadow: $shadow;
-  display: inline-block;
 
   &:before {
     content: "";
