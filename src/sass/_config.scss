@@ -273,8 +273,15 @@ $breakpointTablet: 768px;
 // Header
 $headerDominantColor: #65A6A8;
 
-
 // Stickers
 $stickerSize: 18px;
 $stickerIconColor: $bluePrimary;
 $stickerOutlineColor: $white;
+
+// Badges
+$badgeFontFamily: $fontFamilySecondary;
+$badgeFontSize: 10px;
+$badgeDefaultBackgroundColor: $peachPrimary;
+$badgeDefaultColor: $white;
+$badgeLightBackgroundColor: $white;
+$badgeLightColor: $black;
