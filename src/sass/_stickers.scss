@@ -32,7 +32,7 @@
 
 
 .mint-sticker {
-  @include component();
+  @include component;
   overflow: visible;
 
   @include from-icon(answering);
