@@ -1,4 +1,5 @@
 .mint-header-primary {
+  @include component;
   color: $headerColor;
   font-family: $headerPrimaryFontFamily;
   font-size: $headerPrimaryFontSize;
@@ -9,6 +10,7 @@
   }
 }
 .mint-header-secondary {
+  @include component;
   color: $headerColor;
   font-family: $headerSecondaryFontFamily;
   font-size: $headerSecondaryFontSize;
