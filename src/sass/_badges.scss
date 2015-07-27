@@ -1,4 +1,6 @@
 .mint-badge {
+  @include component;
+
   display: inline-block;
   border-radius: $badgeFontSize;
   line-height: $badgeFontSize;
@@ -18,6 +20,20 @@
   &--with-animation {
     transform: scale(0);
     animation: mintBadgeAnimation .6s 2s forwards;
+  }
+}
+
+.mint-overlayed-icon {
+  @include component;
+  
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
 
