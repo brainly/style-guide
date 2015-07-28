@@ -19,6 +19,10 @@
     &--logo-preview {
       font-size: 150px;
     }
+    &--centered {
+      display: flex;
+      align-items: center
+    }
 
     &:hover {
       .docs-highlight-placeholder {

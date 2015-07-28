@@ -1,0 +1,24 @@
+$separatorColor: $grayPrimary;
+$separatorHeight: 18px;
+$separatorSpacing: 15px;
+$separatorHeightSmall: 10px;
+$separatorSpacingSmall: 10px;
+
+.mint-separator {
+  @include component;
+
+  margin-right: $separatorSpacing;
+  padding-right: $separatorSpacing;
+  border-right: solid $separatorColor 1px;
+
+  height: $separatorHeight;
+
+  &--small {
+    margin-right: $separatorSpacingSmall;
+    padding-right: $separatorSpacingSmall;
+    height: $separatorHeightSmall;
+  }
+}
+
+
+
