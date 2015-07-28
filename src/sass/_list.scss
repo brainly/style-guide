@@ -76,23 +76,4 @@
       content: '';
     }
   }
-  &__link {
-    color: $breadcrumbListColor;
-    text-decoration: none;
-    display: inline-block;
-    white-space: nowrap;
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &--emphasised {
-      text-transform: uppercase;
-    }
-  }
-
-  &--alt {
-    .mint-breadcrumb-list__link {
-      color: $breadcrumbListColorAlt;
-    }
-  }
 }

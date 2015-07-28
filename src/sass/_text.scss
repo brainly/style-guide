@@ -96,3 +96,31 @@
   font-weight: bold;
   font-family: $mintTextEmphasisedFontFamily;
 }
+
+.mint-link {
+  cursor: pointer;
+  color: $linkColor;
+  text-decoration: none;
+  font-family: $linkFontFamily;
+  font-size: 12px;
+
+  &:hover, &:active {
+    text-decoration: underline;
+  }
+
+  &--gray {
+    color: $linkGrayColor;
+  }
+
+  &--emphasised {
+    text-transform: uppercase;
+  }
+
+  &--disabled {
+    cursor: default;
+
+    &:hover, &:active {
+      text-decoration: none;
+    }
+  }
+}

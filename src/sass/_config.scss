@@ -51,6 +51,11 @@ $fontFamilyPrimary: 'ProximaNovaRegular', 'Helvetica', 'Arial', sans-serif;
 $fontFamilySecondary: 'ProximaNovaExtrabold', 'Helvetica', 'Arial', sans-serif;
 $fontFamilyEmphasized: 'ProximaNovaBlack', 'Helvetica', 'Arial', sans-serif;
 
+// Links
+$linkColor: $bluePrimary;
+$linkGrayColor: $grayPrimary;
+$linkFontFamily: $fontFamilyEmphasized;
+
 // Icons
 $iconBoostValue: 4px;
 
@@ -229,8 +234,6 @@ $listDefaultFont: $fontFamilyPrimary;
 $breadcrumbListFontFamily: $fontFamilySecondary;
 $breadcrumbListFontSize: 12px;
 $breadcrumbListSeparatorColor: $grayPrimary;
-$breadcrumbListColor: $bluePrimary;
-$breadcrumbListColorAlt: $grayPrimary;
 
 $menuListColor: $bluePrimary;
 $menuListFontSize: 13px;
