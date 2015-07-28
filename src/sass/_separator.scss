@@ -2,9 +2,8 @@
   @include component;
 
   margin-right: $separatorSpacing;
-  padding-right: $separatorSpacing;
   border-right: solid $separatorColor 1px;
-
+  padding-right: $separatorSpacing;
   height: $separatorHeight;
 
   &--small {
@@ -13,6 +12,3 @@
     height: $separatorHeightSmall;
   }
 }
-
-
-
