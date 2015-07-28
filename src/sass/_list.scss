@@ -59,6 +59,8 @@
 
 .mint-breadcrumb-list {
   @include mint-list-basic-styles();
+  display: inline-block;
+  vertical-align: inherit;
   font-family: $breadcrumbListFontFamily;
   font-size: $breadcrumbListFontSize;
 
