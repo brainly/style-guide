@@ -1,5 +1,6 @@
 .mint-header-primary {
   @include component;
+  display: block;
   color: $headerColor;
   font-family: $headerPrimaryFontFamily;
   font-size: $headerPrimaryFontSize;
@@ -11,6 +12,7 @@
 }
 .mint-header-secondary {
   @include component;
+  display: block;
   color: $headerColor;
   font-family: $headerSecondaryFontFamily;
   font-size: $headerSecondaryFontSize;
