@@ -76,4 +76,12 @@
       content: '';
     }
   }
+
+  &--blue {
+    .mint-breadcrumb-list__element {
+      &:after {
+        color: $breadcrumbListBlueSeparatorColor;
+      }
+    }
+  }
 }

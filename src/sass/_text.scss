@@ -73,6 +73,9 @@
   &--light {
     color: $textBlockLightColor;
   }
+  &--blue {
+    color: $textBlockBlueColor;
+  }
 }
 
 .mint-text-description {
@@ -110,6 +113,14 @@
 
   &--gray {
     color: $linkGrayColor;
+  }
+
+  &--blue {
+    color: $linkBlueColor;
+  }
+
+  &--light-blue  {
+    color: $linkLightBlueColor;
   }
 
   &--emphasised {
