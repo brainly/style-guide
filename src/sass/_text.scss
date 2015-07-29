@@ -76,6 +76,12 @@
   &--light {
     color: $textBlockLightColor;
   }
+  &--for-fine-print-light {
+    color: $textBlockLightBlueColor;
+  }
+  &--for-fine-print {
+    color: $textBlockBlueColor;
+  }
 }
 
 .mint-text-description {
@@ -113,6 +119,14 @@
 
   &--gray {
     color: $linkGrayColor;
+  }
+
+  &--for-fine-print {
+    color: $linkBlueColor;
+  }
+
+  &--for-fine-print-light {
+    color: $linkLightBlueColor;
   }
 
   &--emphasised {

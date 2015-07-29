@@ -63,6 +63,7 @@
   vertical-align: inherit;
   font-family: $breadcrumbListFontFamily;
   font-size: $breadcrumbListFontSize;
+  color: $breadcrumbListSeparatorColor;
 
   &__element {
     display: inline-block;
@@ -76,6 +77,24 @@
 
     &:last-child:after {
       content: '';
+    }
+  }
+
+  &--for-fine-print {
+    color: $breadcrumbListBlueSeparatorColor;
+    .mint-breadcrumb-list__element {
+      &:after {
+        color: $breadcrumbListBlueSeparatorColor;
+      }
+    }
+  }
+
+  &--for-fine-print-light {
+    color: $breadcrumbListLightBlueSeparatorColor;
+    .mint-breadcrumb-list__element {
+      &:after {
+        color: $breadcrumbListLightBlueSeparatorColor;
+      }
     }
   }
 }

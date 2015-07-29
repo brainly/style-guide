@@ -55,6 +55,8 @@ $fontFamilyEmphasized: 'ProximaNovaBlack', 'Helvetica', 'Arial', sans-serif;
 // Links
 $linkColor: $bluePrimary;
 $linkGrayColor: $grayPrimary;
+$linkBlueColor: $blueSecondary;
+$linkLightBlueColor: $blueSecondaryLight;
 $linkFontFamily: $fontFamilyEmphasized;
 
 // Icons
@@ -221,6 +223,8 @@ $textBlockFontSize: 12px;
 $textBlockLineHeight: 14px;
 $textBlockColor: $black;
 $textBlockLightColor: $grayPrimary;
+$textBlockBlueColor: $blueSecondary;
+$textBlockLightBlueColor: $blueSecondaryLight;
 $textBlockLinkColor: $bluePrimary;
 
 $textDescriptionFontFamily: $fontFamilyPrimary;
@@ -236,6 +240,8 @@ $listDefaultFont: $fontFamilyPrimary;
 $breadcrumbListFontFamily: $fontFamilySecondary;
 $breadcrumbListFontSize: 12px;
 $breadcrumbListSeparatorColor: $grayPrimary;
+$breadcrumbListBlueSeparatorColor: $blueSecondary;
+$breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
 
 $menuListColor: $bluePrimary;
 $menuListFontSize: 13px;
