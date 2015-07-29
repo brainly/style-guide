@@ -5,6 +5,7 @@
   border-right: solid $separatorColor 1px;
   padding-right: $separatorSpacing;
   height: $separatorHeight;
+  vertical-align: inherit;
 
   &--small {
     margin-right: $separatorSpacingSmall;
