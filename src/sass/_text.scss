@@ -73,6 +73,9 @@
       text-decoration: underline;
     }
   }
+  &--gray {
+    color: $textBlockGrayColor;
+  }
   &--light {
     color: $textBlockLightColor;
   }
