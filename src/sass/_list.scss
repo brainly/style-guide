@@ -78,7 +78,7 @@
     }
   }
 
-  &--blue {
+  &--for-fine-print {
     color: $breadcrumbListBlueSeparatorColor;
     .mint-breadcrumb-list__element {
       &:after {
@@ -87,7 +87,7 @@
     }
   }
 
-  &--light-blue {
+  &--for-fine-print-light {
     color: $breadcrumbListLightBlueSeparatorColor;
     .mint-breadcrumb-list__element {
       &:after {

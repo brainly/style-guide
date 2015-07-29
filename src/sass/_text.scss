@@ -73,10 +73,10 @@
   &--light {
     color: $textBlockLightColor;
   }
-  &--light-blue {
+  &--for-fine-print-light {
     color: $textBlockLightBlueColor;
   }
-  &--blue {
+  &--for-fine-print {
     color: $textBlockBlueColor;
   }
 }
@@ -118,11 +118,11 @@
     color: $linkGrayColor;
   }
 
-  &--blue {
+  &--for-fine-print {
     color: $linkBlueColor;
   }
 
-  &--light-blue  {
+  &--for-fine-print-light {
     color: $linkLightBlueColor;
   }
 
