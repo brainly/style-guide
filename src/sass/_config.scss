@@ -46,6 +46,7 @@ $shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.25);
 $logoColor: $black;
 $logoWhiteColor: $white;
 $logoLettersColor: $white;
+$logoDefaultHeight: 60px;
 
 // Fonts
 $fontFamilyPrimary: 'ProximaNovaRegular', 'Helvetica', 'Arial', sans-serif;
@@ -278,7 +279,7 @@ $promoBoxFontFamily: $fontFamilyPrimary;
 
 // Layout
 $layoutMaximumWidth: 960px;
-$layoutDefaultPadding: 5px;
+$layoutDefaultPadding: 24px;
 $breakpointTablet: 768px;
 
 // Header
@@ -303,3 +304,6 @@ $separatorHeight: 18px;
 $separatorSpacing: 15px;
 $separatorHeightSmall: 10px;
 $separatorSpacingSmall: 10px;
+
+// Footer
+$footerBackgroundColor: $bluePrimary;
