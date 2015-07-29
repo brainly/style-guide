@@ -1,0 +1,36 @@
+.mint-footer {
+  background-color: $footerBackgroundColor;
+
+  &__container {
+    position: relative;
+    box-sizing: border-box;
+    padding: $layoutDefaultPadding $layoutDefaultPadding;
+
+    @media (min-width: $breakpointTablet) {
+      max-width: $layoutMaximumWidth;
+      margin-left: auto;
+      margin-right: auto;
+
+      padding: 40px $layoutDefaultPadding;
+    }
+  }
+
+  &__line {
+    margin-bottom: 10px;
+
+    @media (min-width: $breakpointTablet) {
+      margin-bottom: 15px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    left: $layoutDefaultPadding;
+    top: -30px;
+  }
+
+}

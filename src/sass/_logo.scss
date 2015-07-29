@@ -16,11 +16,15 @@
 .mint-logo {
   @include component;
   overflow: visible;
-  height: 60px;
+  height: $logoDefaultHeight;
 
   &__image {
     position: relative;
     bottom: -10px;
-    width: 134px;
+    height: 100%;
+  }
+
+  &--small {
+    height: $logoDefaultHeight / 2;
   }
 }

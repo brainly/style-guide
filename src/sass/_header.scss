@@ -12,9 +12,13 @@
     width: 100%;
     height: 100%;
     max-width: $layoutMaximumWidth;
-    padding: 0 $layoutDefaultPadding;
+    padding: 0 10px;
     margin: auto;
     align-items: center;
+
+    @media (min-width: $breakpointTablet) {
+      padding: 0 $layoutDefaultPadding;
+    }
   }
 
   &__left {

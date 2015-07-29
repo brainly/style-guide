@@ -63,6 +63,7 @@
   vertical-align: inherit;
   font-family: $breadcrumbListFontFamily;
   font-size: $breadcrumbListFontSize;
+  line-height: $breadcrumbListFontSize * 1.5;
   color: $breadcrumbListSeparatorColor;
 
   &__element {
