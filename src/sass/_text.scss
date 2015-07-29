@@ -33,6 +33,9 @@
   &--alt {
     color: $textBitAltColor;
   }
+  &--light {
+    color: $textBitLightColor;
+  }
   &--with-logo {
     @extend .mint-icon-logo;
     &:before {
