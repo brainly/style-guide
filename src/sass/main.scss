@@ -1,4 +1,4 @@
-$mintImagesPath: '../images/' !default;
+$mintImagesPath: '../img/mint/' !default;
 $mintFontsPath: '../fonts/' !default;
 
 @import "config";
@@ -6,6 +6,9 @@ $mintFontsPath: '../fonts/' !default;
 @import "fonts";
 @import "icons-embed";
 @import "icons-data";
+@import "subjects-icons";
+@import "subject-icon";
+@import "subject-icon-box";
 @import "logo";
 @import "helpers";
 @import "buttons";

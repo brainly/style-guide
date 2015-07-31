@@ -48,11 +48,19 @@ article {
     font-size: 16px;
     line-height: 22px;
     color: $black;
+    &--wide {
+      width: 50%;
+    }
     &:before {
       color: $mintPrimary;
       font-size: 22px;
       float: left;
       margin: 0 10px 0 0;
     }
+  }
+  &__element-info {
+    display: inline-block;
+    vertical-align: top;
+    margin: 21px 0 0;
   }
 }

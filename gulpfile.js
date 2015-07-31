@@ -13,6 +13,8 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var spawn = require('child_process').spawn;
 var exec = require('child_process').exec;
+var replace = require('gulp-replace');
+var svgSprite = require('gulp-svg-sprite');
 
 gulp.task('sass:docs', function () {
     return gulp.src('./docs/sass/**/*.scss')
@@ -70,6 +72,30 @@ gulp.task('icons:cleanup', function(done) {
 
 gulp.task('icons', function(done) {
     runSequence('icons:generate-fonts', 'icons:create-data-file', 'icons:inline-fonts', 'icons:cleanup', done);
+});
+
+gulp.task('subjects', function(done) {
+    var config = {
+        mode: {
+            css: {
+                dest: '',
+                render: {
+                    scss: {
+                        dest: '_subjects-icons.scss'
+                    }
+                },
+                prefix: '.mint-subject-icon--',
+                bust: false,
+                sprite: '../images/subjects-icons.svg',
+                dimensions: true
+            }
+        }
+    };
+
+    return gulp.src('./src/images/subjects/*.svg')
+        .pipe(svgSprite(config))
+        .pipe(replace('url(../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
+        .pipe(gulp.dest('./src/sass'))
 });
 
 gulp.task('docker:build', function(done) {
