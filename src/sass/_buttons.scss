@@ -192,6 +192,10 @@
   @include mint-button-secondary-three-color-variant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
 }
 
+.mint-button-secondary--light-blue {
+  @include mint-button-secondary-two-color-variant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+}
+
 .mint-button-secondary--with-icon {
   @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
 
