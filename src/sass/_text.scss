@@ -107,6 +107,10 @@
     font-size: $textDescriptionLargeFontSize;
     line-height: $textDescriptionLargeLineHeight;
   }
+  &--small {
+    font-size: $textDescriptionSmallFontSize;
+    line-height: $textDescriptionSmallLineHeight;
+  }
 }
 
 .mint-text-emphasised {
