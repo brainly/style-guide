@@ -182,12 +182,6 @@
     float: left;
     margin: 0 -6px 0 12px;
   }
-  &__full-size {
-    margin: -$borderSize (-$buttonSecondaryHeight/2 - $borderSize);
-    height: $buttonSecondaryHeight;
-    line-height: $buttonSecondaryHeight;
-    position: relative;
-  }
 
   &--inverse {
     @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
@@ -281,16 +275,11 @@
   $borderSize: 2px;
   @include mint-button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
   font-size: $buttonSecondarySmallFontSize;
+
   .mint-button-secondary__counter {
     margin: 0 -4px 0 8px;
   }
-  .mint-button-secondary__full-size {
-    margin: -$borderSize (-$buttonSecondarySmallHeight/2 - $borderSize);
-    height: $buttonSecondarySmallHeight;
-    line-height: $buttonSecondarySmallHeight;
-    height: $buttonSecondarySmallHeight;
-    position: relative;
-  }
+
   &.mint-button-secondary--with-icon:before {
     $iconFontSize: $buttonSecondarySmallFontSize + $iconBoostValue;
     margin: 0 4px 0 -4px;

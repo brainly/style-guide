@@ -1,0 +1,53 @@
+.mint-rate-box {
+  @include component;
+  display: flex;
+  align-items: center;
+  font-size: $rateStarFontSize;
+
+  &--active {
+
+    .mint-rate-box__star:hover ~ .mint-rate-box__star {
+      color: $rateStarColor;
+    }
+
+    &:active .mint-rate-box__star:hover ~ .mint-rate-box__star {
+      color: $rateStarActiveColor;
+    }
+
+    &:hover .mint-rate-box__star {
+      color: $rateStarCheckedColor;
+      transition: color 0.1s ease-in;
+    }
+
+    &:active:hover .mint-rate-box__star {
+      color: $rateStarActiveCheckedColor;
+      transition: none;
+    }
+  }
+
+  &__star {
+    @extend .mint-icon-star;
+    color: $rateStarColor;
+    font-size: $rateStarFontSize + $iconBoostValue;
+    padding: 0 1px;
+    &--checked {
+      color: $rateStarCheckedColor;
+    }
+  }
+
+  &__counter {
+    font-family: $rateCounterFont;
+    color: $rateCounterColor;
+    margin: 0 0 0 $layoutDefaultPadding/2;
+  }
+
+  &--small {
+    font-size: $rateStarSmallFontSize;
+    .mint-rate-box__star {
+      font-size: $rateStarSmallFontSize + $iconBoostValue;
+    }
+    .mint-rate-box__counter {
+      margin-left: $layoutDefaultPadding/4;
+    }
+  }
+}
