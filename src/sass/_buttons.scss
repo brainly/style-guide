@@ -52,8 +52,8 @@
     border-color: $borderColor;
     transition: border-color 0.1s ease-in;
   }
-  &:active {
-    color: rgba($textColor, 0.7);
+  &:active * {
+    opacity: 0.7;
   }
 }
 
@@ -224,68 +224,12 @@
 
 .mint-button-secondary--with-icon {
   @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-
-
-  &:before {
-    $iconFontSize: $buttonSecondaryFontSize + $iconBoostValue;
-    font-size: $iconFontSize;
-  }
-
   @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
-}
-
-.mint-button-secondary--with-heart-icon {
-  @extend .mint-icon-heart;
-  @extend .mint-button-secondary--with-icon;
-  &:before {
-    color: $buttonSecondaryThankYouColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryThankYouColor, 0.7);
-  }
-}
-
-.mint-button-secondary--with-crown-icon {
-  @extend .mint-icon-excellent;
-  @extend .mint-button-secondary--with-icon;
-  color: $buttonSecondaryBestTextColor;
-  &:hover, &:active, &:focus {
-    color: $buttonSecondaryBestTextColor;
-  }
-  &:before {
-    color: $buttonSecondaryBestIconColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryBestIconColor, 0.7);
-  }
-}
-
-.mint-button-secondary--with-comment-icon {
-  @extend .mint-icon-comment;
-  @extend .mint-button-secondary--with-icon;
-  &:before {
-    color: $buttonSecondaryCommentColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryCommentColor, 0.7);
-  }
 }
 
 .mint-button-secondary--small {
   $borderSize: 2px;
   @include mint-button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
-  font-size: $buttonSecondarySmallFontSize;
-
-  .mint-button-secondary__counter {
-    margin: 0 -4px 0 8px;
-  }
-
-  &.mint-button-secondary--with-icon:before {
-    $iconFontSize: $buttonSecondarySmallFontSize + $iconBoostValue;
-    margin: 0 4px 0 -4px;
-    line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
-    font-size: $iconFontSize;
-  }
 }
 
 .mint-icon-as-button {

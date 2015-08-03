@@ -1,8 +1,14 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
 $labelFont: $fontFamilyEmphasized;
+$labelFontSizePrimary: 12px;
+$labelFontSizeSecondary: 10px;
+$labelIconSizePrimary: 16px;
+$labelIconSizeSecondary: 14px;
 
-@mixin from-icon($name){
+
+
+@mixin label-from-icon($name){
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;
   }
@@ -17,15 +23,11 @@ $labelFont: $fontFamilyEmphasized;
     vertical-align: middle;
     color: $labelPrimaryColor;
     font-family: $labelFont;
-    font-size: 12px;
+    font-size: $labelFontSizePrimary;
     text-transform: uppercase;
     margin-right: $layoutDefaultPadding/4;
     &:last-child {
       margin-right: 0;
-    }
-
-    &--secondary {
-      color: $labelSecondaryColor;
     }
   }
 
@@ -34,6 +36,7 @@ $labelFont: $fontFamilyEmphasized;
   }
 
   &__icon {
+    font-size: $labelIconSizePrimary;
     display: inline-block;
     vertical-align: middle;
     margin-right: $layoutDefaultPadding/4;
@@ -55,32 +58,54 @@ $labelFont: $fontFamilyEmphasized;
     }
 
 
-    @include from-icon(answering);
-    @include from-icon(answered);
-    @include from-icon(arrow_down);
-    @include from-icon(arrow_left);
-    @include from-icon(arrow_right);
-    @include from-icon(arrow_up);
-    @include from-icon(attachment);
-    @include from-icon(bold);
-    @include from-icon(check);
-    @include from-icon(comment);
-    @include from-icon(equation);
-    @include from-icon(excellent);
-    @include from-icon(fb);
-    @include from-icon(friends);
-    @include from-icon(heart);
-    @include from-icon(logo);
-    @include from-icon(menu);
-    @include from-icon(messages);
-    @include from-icon(notifications);
-    @include from-icon(pencil);
-    @include from-icon(profile);
-    @include from-icon(report_flag);
-    @include from-icon(search);
-    @include from-icon(star);
-    @include from-icon(stream);
-    @include from-icon(symbols);
+    @include label-from-icon(answering);
+    @include label-from-icon(answered);
+    @include label-from-icon(arrow_down);
+    @include label-from-icon(arrow_left);
+    @include label-from-icon(arrow_right);
+    @include label-from-icon(arrow_up);
+    @include label-from-icon(attachment);
+    @include label-from-icon(bold);
+    @include label-from-icon(check);
+    @include label-from-icon(comment);
+    @include label-from-icon(equation);
+    @include label-from-icon(excellent);
+    @include label-from-icon(fb);
+    @include label-from-icon(friends);
+    @include label-from-icon(heart);
+    @include label-from-icon(logo);
+    @include label-from-icon(menu);
+    @include label-from-icon(messages);
+    @include label-from-icon(notifications);
+    @include label-from-icon(pencil);
+    @include label-from-icon(profile);
+    @include label-from-icon(report_flag);
+    @include label-from-icon(search);
+    @include label-from-icon(star);
+    @include label-from-icon(stream);
+    @include label-from-icon(symbols);
+  }
+
+  &--secondary {
+    .mint-label__text, .mint-label__number {
+      color: $labelSecondaryColor;
+    }
+  }
+
+  &--small {
+    .mint-label__text, .mint-label__number {
+      font-size: $labelFontSizeSecondary;
+      margin-right: 2/3 * $layoutDefaultPadding/4;
+    }
+
+    .mint-label__text {
+      margin-right: 2/3 * $layoutDefaultPadding/2;
+    }
+
+    .mint-label__icon {
+      margin-right: 2/3 * $layoutDefaultPadding/4;
+      font-size: $labelIconSizeSecondary;
+    }
   }
 }
 
