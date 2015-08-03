@@ -1,0 +1,15 @@
+.mint-icon-arrow_right:before,
+.mint-icon-arrow_left:before,
+.mint-icon-arrow_up:before {
+  @extend .mint-icon-arrow_down:before;
+}
+
+.mint-icon-arrow_right:before {
+  transform: rotate(-90deg);
+}
+.mint-icon-arrow_left:before {
+  transform: rotate(90deg);
+}
+.mint-icon-arrow_up:before {
+  transform: rotate(180deg);
+}
