@@ -8,11 +8,10 @@
   vertical-align: inherit;
 }
 
-@mixin mint-button-basic-dimensions($height, $lineHeight) {
+@mixin mint-button-basic-dimensions($height) {
   border-radius: $height/2;
   height: $height;
   padding: 0 $height/2;
-  line-height: $lineHeight;
 }
 
 @mixin mint-button-basic-colors($borderColor, $fontColor, $backgroundColor) {
@@ -95,7 +94,7 @@
 // Primary buttons
 .mint-button-primary {
   @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonPrimaryHeight, $buttonPrimaryHeight);
+  @include mint-button-basic-dimensions($buttonPrimaryHeight);
   @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
   @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
   border: 0;
@@ -115,6 +114,7 @@
 .mint-button-primary--fb {
   @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
   @extend .mint-icon-fb;
+  line-height: 44px;
   &:before {
     line-height: 44px;
     float: left;
@@ -157,7 +157,7 @@
 .mint-button-secondary {
   $borderSize: 2px;
   @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonSecondaryHeight, ($buttonSecondaryHeight - 2*$borderSize));
+  @include mint-button-basic-dimensions($buttonSecondaryHeight);
   @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
   @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
 
@@ -229,7 +229,7 @@
 
 .mint-button-secondary--small {
   $borderSize: 2px;
-  @include mint-button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
+  @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
 }
 
 .mint-icon-as-button {
