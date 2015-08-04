@@ -16,6 +16,7 @@
 .mint-icon-messages:before,
 .mint-icon-notifications:before,
 .mint-icon-pencil:before,
+.mint-icon-plus:before,
 .mint-icon-profile:before,
 .mint-icon-report_flag:before,
 .mint-icon-search:before,
@@ -53,12 +54,13 @@
 .mint-icon-messages:before { content: "\f10e"; }
 .mint-icon-notifications:before { content: "\f10f"; }
 .mint-icon-pencil:before { content: "\f110"; }
-.mint-icon-profile:before { content: "\f111"; }
-.mint-icon-report_flag:before { content: "\f112"; }
-.mint-icon-search:before { content: "\f113"; }
-.mint-icon-star:before { content: "\f114"; }
-.mint-icon-stream:before { content: "\f115"; }
-.mint-icon-symbols:before { content: "\f116"; }
+.mint-icon-plus:before { content: "\f111"; }
+.mint-icon-profile:before { content: "\f112"; }
+.mint-icon-report_flag:before { content: "\f113"; }
+.mint-icon-search:before { content: "\f114"; }
+.mint-icon-star:before { content: "\f115"; }
+.mint-icon-stream:before { content: "\f116"; }
+.mint-icon-symbols:before { content: "\f117"; }
 
 $font-brainly-icons-answered: "\f100";
 $font-brainly-icons-answering: "\f101";
@@ -77,9 +79,10 @@ $font-brainly-icons-menu: "\f10d";
 $font-brainly-icons-messages: "\f10e";
 $font-brainly-icons-notifications: "\f10f";
 $font-brainly-icons-pencil: "\f110";
-$font-brainly-icons-profile: "\f111";
-$font-brainly-icons-report_flag: "\f112";
-$font-brainly-icons-search: "\f113";
-$font-brainly-icons-star: "\f114";
-$font-brainly-icons-stream: "\f115";
-$font-brainly-icons-symbols: "\f116";
+$font-brainly-icons-plus: "\f111";
+$font-brainly-icons-profile: "\f112";
+$font-brainly-icons-report_flag: "\f113";
+$font-brainly-icons-search: "\f114";
+$font-brainly-icons-star: "\f115";
+$font-brainly-icons-stream: "\f116";
+$font-brainly-icons-symbols: "\f117";
