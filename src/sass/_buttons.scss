@@ -129,27 +129,27 @@
   &:before {
     display: inline-block;
     @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient);
-    width: 50px;
-    height: 50px;
+    width: $buttonRoundAddSize;
+    height: $buttonRoundAddSize;
     border-radius: 50%;
-    line-height: 50px;
+    line-height: $buttonRoundAddSize;
     text-align: center;
-    color: white;
-    font-size: 18px;
+    color: $buttonRoundAddColor;
+    font-size: $buttonRoundAddFontSize;
     box-shadow: 0 3px 10px 0 rgba(0,0,0,0.3);
   }
   &__label {
     float: left;
-    font-family: $fontFamilySecondary;
-    font-size: 10px;
-    border-radius: 11px;
+    font-family: $buttonRoundLabelFontFamily;
+    font-size: $buttonRoundLabelFontSize;
+    border-radius: 4px;
     line-height: 12px;
-    background: $mintSecondaryLight;
-    border: 5px solid $white;
-    color: $black;
+    background: $buttonRoundLabelBackground;
+    color: $buttonRoundLabelColor;
     text-transform: uppercase;
     padding: 3px 5px;
-    margin: 11px 5px 0 0;
+    margin: 16px 10px 0 0;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   }
 }
 
