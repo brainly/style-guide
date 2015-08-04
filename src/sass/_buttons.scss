@@ -170,18 +170,6 @@
   &:hover, &:focus {
     outline: none;
   }
-  &:before {
-    float: left;
-    margin: 0 6px 0 -6px;
-    line-height: ($buttonSecondaryHeight - 2*$borderSize);
-  }
-  &__text {
-    float: left;
-  }
-  &__counter {
-    float: left;
-    margin: 0 -6px 0 12px;
-  }
 
   &--inverse {
     @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
