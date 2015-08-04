@@ -5,14 +5,12 @@
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
-  vertical-align: inherit;
 }
 
-@mixin mint-button-basic-dimensions($height, $lineHeight) {
+@mixin mint-button-basic-dimensions($height) {
   border-radius: $height/2;
   height: $height;
   padding: 0 $height/2;
-  line-height: $lineHeight;
 }
 
 @mixin mint-button-basic-colors($borderColor, $fontColor, $backgroundColor) {
@@ -43,6 +41,9 @@
     color: rgba($fontColor, 0.7);
     outline: none;
   }
+  &:active &__hole {
+    opacity: 0.7;
+  }
 }
 
 @mixin mint-button-secondary-with-icon-active($borderColor, $textColor) {
@@ -51,9 +52,6 @@
     background-color: transparent;
     border-color: $borderColor;
     transition: border-color 0.1s ease-in;
-  }
-  &:active {
-    color: rgba($textColor, 0.7);
   }
 }
 
@@ -95,7 +93,7 @@
 // Primary buttons
 .mint-button-primary {
   @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonPrimaryHeight, $buttonPrimaryHeight);
+  @include mint-button-basic-dimensions($buttonPrimaryHeight);
   @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
   @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
   border: 0;
@@ -115,8 +113,9 @@
 .mint-button-primary--fb {
   @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
   @extend .mint-icon-fb;
+  line-height: $buttonPrimaryHeight;
   &:before {
-    line-height: 44px;
+    line-height: $buttonPrimaryHeight;
     float: left;
     margin: -1px 9px 0 -3px;
     font-size: 20px;
@@ -157,7 +156,7 @@
 .mint-button-secondary {
   $borderSize: 2px;
   @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonSecondaryHeight, ($buttonSecondaryHeight - 2*$borderSize));
+  @include mint-button-basic-dimensions($buttonSecondaryHeight);
   @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
   @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
 
@@ -169,24 +168,6 @@
   transition: background-color 0.3s ease-out, color 0.3s ease-out;
   &:hover, &:focus {
     outline: none;
-  }
-  &:before {
-    float: left;
-    margin: 0 6px 0 -6px;
-    line-height: ($buttonSecondaryHeight - 2*$borderSize);
-  }
-  &__text {
-    float: left;
-  }
-  &__counter {
-    float: left;
-    margin: 0 -6px 0 12px;
-  }
-  &__full-size {
-    margin: -$borderSize (-$buttonSecondaryHeight/2 - $borderSize);
-    height: $buttonSecondaryHeight;
-    line-height: $buttonSecondaryHeight;
-    position: relative;
   }
 
   &--inverse {
@@ -230,73 +211,12 @@
 
 .mint-button-secondary--with-icon {
   @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-
-
-  &:before {
-    $iconFontSize: $buttonSecondaryFontSize + $iconBoostValue;
-    font-size: $iconFontSize;
-  }
-
   @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
-}
-
-.mint-button-secondary--with-heart-icon {
-  @extend .mint-icon-heart;
-  @extend .mint-button-secondary--with-icon;
-  &:before {
-    color: $buttonSecondaryThankYouColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryThankYouColor, 0.7);
-  }
-}
-
-.mint-button-secondary--with-crown-icon {
-  @extend .mint-icon-excellent;
-  @extend .mint-button-secondary--with-icon;
-  color: $buttonSecondaryBestTextColor;
-  &:hover, &:active, &:focus {
-    color: $buttonSecondaryBestTextColor;
-  }
-  &:before {
-    color: $buttonSecondaryBestIconColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryBestIconColor, 0.7);
-  }
-}
-
-.mint-button-secondary--with-comment-icon {
-  @extend .mint-icon-comment;
-  @extend .mint-button-secondary--with-icon;
-  &:before {
-    color: $buttonSecondaryCommentColor;
-  }
-  &:active:before {
-    color: rgba($buttonSecondaryCommentColor, 0.7);
-  }
 }
 
 .mint-button-secondary--small {
   $borderSize: 2px;
-  @include mint-button-basic-dimensions($buttonSecondarySmallHeight, $buttonSecondarySmallHeight - 2*$borderSize);
-  font-size: $buttonSecondarySmallFontSize;
-  .mint-button-secondary__counter {
-    margin: 0 -4px 0 8px;
-  }
-  .mint-button-secondary__full-size {
-    margin: -$borderSize (-$buttonSecondarySmallHeight/2 - $borderSize);
-    height: $buttonSecondarySmallHeight;
-    line-height: $buttonSecondarySmallHeight;
-    height: $buttonSecondarySmallHeight;
-    position: relative;
-  }
-  &.mint-button-secondary--with-icon:before {
-    $iconFontSize: $buttonSecondarySmallFontSize + $iconBoostValue;
-    margin: 0 4px 0 -4px;
-    line-height: ($buttonSecondarySmallHeight - 2*$borderSize);
-    font-size: $iconFontSize;
-  }
+  @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
 }
 
 .mint-icon-as-button {
@@ -310,7 +230,6 @@
   height: 40px;
   font-size: 0;
   line-height: 0;
-  vertical-align: inherit;
 
   &:before {
     color: $iconAsButtonColor;
@@ -356,68 +275,6 @@
 
     &:active:before {
       color: rgba($iconAsButtonGrayColor, 0.7);
-    }
-  }
-}
-
-.mint-rate-box {
-  @include clearfix();
-  font-size: $rateStarFontSize;
-  &__star {
-    @extend .mint-icon-star;
-    color: $rateStarColor;
-    font-size: $rateStarFontSize + $iconBoostValue;
-    padding: 0 1px;
-    float: left;
-    &--checked {
-      color: $rateStarCheckedColor;
-    }
-    .mint-rate-box &:hover ~ & {
-      color: $rateStarColor;
-    }
-    .mint-rate-box:active &:hover ~ & {
-      color: $rateStarActiveColor;
-    }
-  }
-  &:hover &__star {
-    color: $rateStarCheckedColor;
-    transition: color 0.1s ease-in;
-  }
-  &:active:hover &__star {
-    color: $rateStarActiveCheckedColor;
-    transition: none;
-  }
-  &__counter {
-    float: left;
-    margin: 0 0 0 12px;
-  }
-
-  &--small {
-    font-size: $rateStarSmallFontSize;
-    .mint-rate-box__star {
-      font-size: $rateStarSmallFontSize + $iconBoostValue;
-    }
-    .mint-rate-box__counter {
-      margin-left: 6px;
-    }
-  }
-
-  &--nested {
-    .mint-rate-box__star:first-child {
-      padding-left: 12px;
-    }
-    .mint-rate-box__star:last-child,
-    .mint-rate-box__counter:last-child {
-      padding-right: 12px;
-    }
-  }
-  &--small.mint-rate-box--nested {
-    .mint-rate-box__star:first-child {
-      padding-left: 10px;
-    }
-    .mint-rate-box__star:last-child,
-    .mint-rate-box__counter:last-child {
-      padding-right: 10px;
     }
   }
 }
