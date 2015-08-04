@@ -113,9 +113,9 @@
 .mint-button-primary--fb {
   @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
   @extend .mint-icon-fb;
-  line-height: 44px;
+  line-height: $buttonPrimaryHeight;
   &:before {
-    line-height: 44px;
+    line-height: $buttonPrimaryHeight;
     float: left;
     margin: -1px 9px 0 -3px;
     font-size: 20px;
