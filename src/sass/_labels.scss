@@ -1,0 +1,86 @@
+$labelPrimaryColor: $black;
+$labelSecondaryColor: $grayPrimary;
+$labelFont: $fontFamilyEmphasized;
+
+@mixin from-icon($name){
+  &--#{$name}:before {
+    @extend .mint-icon-#{$name}:before;
+  }
+}
+
+.mint-label {
+  @include component;
+  overflow: visible;
+
+  &__text, &__number {
+    display: inline-block;
+    vertical-align: middle;
+    color: $labelPrimaryColor;
+    font-family: $labelFont;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: $layoutDefaultPadding/4;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--secondary {
+      color: $labelSecondaryColor;
+    }
+  }
+
+  &__text {
+    margin-right: $layoutDefaultPadding/2;
+  }
+
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: $layoutDefaultPadding/4;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--heart {
+      color: $peachPrimary;
+    }
+
+    &--comment {
+      color: $lavenderPrimary;
+    }
+
+    &--star, &--excellent {
+      color: $mustardPrimary;
+    }
+
+
+    @include from-icon(answering);
+    @include from-icon(answered);
+    @include from-icon(arrow_down);
+    @include from-icon(arrow_left);
+    @include from-icon(arrow_right);
+    @include from-icon(arrow_up);
+    @include from-icon(attachment);
+    @include from-icon(bold);
+    @include from-icon(check);
+    @include from-icon(comment);
+    @include from-icon(equation);
+    @include from-icon(excellent);
+    @include from-icon(fb);
+    @include from-icon(friends);
+    @include from-icon(heart);
+    @include from-icon(logo);
+    @include from-icon(menu);
+    @include from-icon(messages);
+    @include from-icon(notifications);
+    @include from-icon(pencil);
+    @include from-icon(profile);
+    @include from-icon(report_flag);
+    @include from-icon(search);
+    @include from-icon(star);
+    @include from-icon(stream);
+    @include from-icon(symbols);
+  }
+}
+

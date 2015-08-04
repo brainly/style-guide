@@ -3,7 +3,7 @@
   cursor: pointer;
 
   text-transform: uppercase;
-  text-decoration: none;
+  text-decration: none;
   font-weight: bold;
   vertical-align: inherit;
 }
@@ -314,6 +314,7 @@
 
   &:before {
     color: $iconAsButtonColor;
+    line-height: 40px;
     font-size: 26px;
   }
 
@@ -356,68 +357,6 @@
 
     &:active:before {
       color: rgba($iconAsButtonGrayColor, 0.7);
-    }
-  }
-}
-
-.mint-rate-box {
-  @include clearfix();
-  font-size: $rateStarFontSize;
-  &__star {
-    @extend .mint-icon-star;
-    color: $rateStarColor;
-    font-size: $rateStarFontSize + $iconBoostValue;
-    padding: 0 1px;
-    float: left;
-    &--checked {
-      color: $rateStarCheckedColor;
-    }
-    .mint-rate-box &:hover ~ & {
-      color: $rateStarColor;
-    }
-    .mint-rate-box:active &:hover ~ & {
-      color: $rateStarActiveColor;
-    }
-  }
-  &:hover &__star {
-    color: $rateStarCheckedColor;
-    transition: color 0.1s ease-in;
-  }
-  &:active:hover &__star {
-    color: $rateStarActiveCheckedColor;
-    transition: none;
-  }
-  &__counter {
-    float: left;
-    margin: 0 0 0 12px;
-  }
-
-  &--small {
-    font-size: $rateStarSmallFontSize;
-    .mint-rate-box__star {
-      font-size: $rateStarSmallFontSize + $iconBoostValue;
-    }
-    .mint-rate-box__counter {
-      margin-left: 6px;
-    }
-  }
-
-  &--nested {
-    .mint-rate-box__star:first-child {
-      padding-left: 12px;
-    }
-    .mint-rate-box__star:last-child,
-    .mint-rate-box__counter:last-child {
-      padding-right: 12px;
-    }
-  }
-  &--small.mint-rate-box--nested {
-    .mint-rate-box__star:first-child {
-      padding-left: 10px;
-    }
-    .mint-rate-box__star:last-child,
-    .mint-rate-box__counter:last-child {
-      padding-right: 10px;
     }
   }
 }
