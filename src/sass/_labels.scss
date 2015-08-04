@@ -11,21 +11,26 @@ $labelIconSizeSecondary: 14px;
 @mixin label-from-icon($name){
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;
+    display: block;
   }
 }
 
 .mint-label {
   @include component;
   overflow: visible;
+  display: flex;
+  align-items: center;
 
   &__text, &__number {
-    display: inline-block;
+    display: block;
     vertical-align: middle;
     color: $labelPrimaryColor;
     font-family: $labelFont;
     font-size: $labelFontSizePrimary;
     text-transform: uppercase;
     margin-right: $layoutDefaultPadding/4;
+    height: $labelFontSizePrimary;
+
     &:last-child {
       margin-right: 0;
     }
@@ -37,7 +42,7 @@ $labelIconSizeSecondary: 14px;
 
   &__icon {
     font-size: $labelIconSizePrimary;
-    display: inline-block;
+    display: block;
     vertical-align: middle;
     margin-right: $layoutDefaultPadding/4;
 
@@ -96,6 +101,7 @@ $labelIconSizeSecondary: 14px;
     .mint-label__text, .mint-label__number {
       font-size: $labelFontSizeSecondary;
       margin-right: 2/3 * $layoutDefaultPadding/4;
+      height: $labelFontSizeSecondary;
     }
 
     .mint-label__text {
