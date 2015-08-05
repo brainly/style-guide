@@ -24,14 +24,13 @@ $labelScaleFactor: 2/3;
   height: $labelHeight;
 
   &__text, &__number {
+    @include fix-text($labelFontSizePrimary, 2px);
     display: block;
     vertical-align: middle;
     color: $labelPrimaryColor;
     font-family: $labelFont;
-    font-size: $labelFontSizePrimary;
     text-transform: uppercase;
     margin-right: $layoutDefaultPadding/4;
-    height: $labelFontSizePrimary;
 
     &:last-child {
       margin-right: 0;
@@ -103,9 +102,9 @@ $labelScaleFactor: 2/3;
     height: $labelScaleFactor * $labelHeight;
 
     .mint-label__text, .mint-label__number {
-      font-size: $labelFontSizeSecondary;
+      @include fix-text($labelFontSizeSecondary);
       margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
-      height: $labelFontSizeSecondary;
+
     }
 
     .mint-label__text {

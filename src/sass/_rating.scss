@@ -13,7 +13,6 @@ $rateScaleFactor: 2/3;
   @include component;
   display: flex;
   align-items: center;
-  font-size: $rateStarFontSize;
   height: $rateHeight;
 
   &--active {
@@ -49,6 +48,7 @@ $rateScaleFactor: 2/3;
   }
 
   &__counter {
+    @include fix-text($rateStarFontSize, 2px);
     font-family: $rateCounterFont;
     color: $rateCounterColor;
     margin: 0 0 0 $layoutDefaultPadding/2;
@@ -57,10 +57,13 @@ $rateScaleFactor: 2/3;
   &--small {
     height: $rateScaleFactor * $rateHeight;
     font-size: $rateStarSmallFontSize;
+
     .mint-rate-box__star {
       font-size: $rateStarSmallFontSize + $iconBoostValue;
     }
+
     .mint-rate-box__counter {
+      @include fix-text($rateStarSmallFontSize);
       margin-left: $layoutDefaultPadding/4;
     }
   }
