@@ -28,3 +28,10 @@
   height: $font-size;
   line-height: $font-size;
 }
+
+@mixin icon($name){
+  @extend .mint-icon-#{$name};
+  &:before {
+    display: block;
+  }
+}
