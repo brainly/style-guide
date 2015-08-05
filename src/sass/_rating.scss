@@ -38,7 +38,8 @@ $rateScaleFactor: 2/3;
   }
 
   &__star {
-    @extend .mint-icon-star;
+    @include icon(star);
+
     color: $rateStarColor;
     font-size: $rateStarFontSize + $iconBoostValue;
     padding: 0 1px;
