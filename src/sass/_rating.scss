@@ -1,8 +1,20 @@
+$rateHeight: $defaultComponentHeight;
+$rateStarColor: $graySecondary;
+$rateStarCheckedColor: $mustardPrimary;
+$rateStarActiveColor: $graySecondaryLight;
+$rateStarActiveCheckedColor: $mustardSecondary;
+$rateCounterColor: $grayPrimary;
+$rateCounterFont: $fontFamilyEmphasized;
+$rateStarFontSize: 12px;
+$rateStarSmallFontSize: 10px;
+$rateScaleFactor: 2/3;
+
 .mint-rate-box {
   @include component;
   display: flex;
   align-items: center;
   font-size: $rateStarFontSize;
+  height: $rateHeight;
 
   &--active {
 
@@ -42,6 +54,7 @@
   }
 
   &--small {
+    height: $rateScaleFactor * $rateHeight;
     font-size: $rateStarSmallFontSize;
     .mint-rate-box__star {
       font-size: $rateStarSmallFontSize + $iconBoostValue;
