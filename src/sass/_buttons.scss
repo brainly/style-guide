@@ -96,6 +96,8 @@
   @include mint-button-basic-dimensions($buttonPrimaryHeight);
   @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
   @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+  @include hole;
+
   border: 0;
   font-size: $buttonPrimaryFontSize;
   font-family: $buttonPrimaryFontFamily;
@@ -112,13 +114,14 @@
 
 .mint-button-primary--fb {
   @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
-  @extend .mint-icon-fb;
-  line-height: $buttonPrimaryHeight;
-  &:before {
-    line-height: $buttonPrimaryHeight;
-    float: left;
-    margin: -1px 9px 0 -3px;
-    font-size: 20px;
+
+  .mint-button-primary__hole {
+    @extend .mint-icon-fb;
+
+    &:before {
+      font-size: 20px;
+      margin-right: $layoutDefaultPadding / 2;
+    }
   }
 }
 
@@ -159,6 +162,7 @@
   @include mint-button-basic-dimensions($buttonSecondaryHeight);
   @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
   @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+  @include hole;
 
   border-width: $borderSize;
   border-style: solid;
