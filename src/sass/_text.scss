@@ -66,13 +66,7 @@
   color: $textBlockColor;
   margin: 0;
   padding: 0;
-  &__link {
-    color: $textBlockLinkColor;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+
   &--gray {
     color: $textBlockGrayColor;
   }
@@ -94,14 +88,6 @@
   color: $textDescriptionColor;
   margin: 0;
   padding: 0;
-  &__link {
-    color: $textDescriptionLinkColor;
-    text-decoration: none;
-    font-weight: bold;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 
   &--large {
     font-size: $textDescriptionLargeFontSize;
@@ -114,7 +100,6 @@
 }
 
 .mint-text-emphasised {
-  font-weight: bold;
   font-family: $mintTextEmphasisedFontFamily;
 }
 
@@ -123,7 +108,6 @@
   color: $linkColor;
   text-decoration: none;
   font-family: $linkFontFamily;
-  font-size: 12px;
 
   &:hover, &:active {
     text-decoration: underline;
