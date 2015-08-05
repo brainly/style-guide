@@ -204,6 +204,8 @@
   line-height: $textareaLineHeight;
   padding: $textareaPadding;
   resize: none;
+  height: 64px;
+
   &:focus {
     border-color: $textareaFocusBorderColor;
     outline: 0;
@@ -230,7 +232,7 @@
       border-color: $textareaInvalidBorderColor;
     }
   }
-  &--medium {
+  &--big {
     height: 178px;
   }
 }
