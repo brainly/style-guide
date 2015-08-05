@@ -23,16 +23,16 @@
       display: flex;
       align-items: center
     }
-
+    &--align-top {
+      & > * {
+        vertical-align: top;
+      }
+    }
     &:hover {
       .docs-highlight-placeholder {
         outline: 2px dashed white;
         box-shadow: black 0 0 10px 0;
       }
-    }
-
-    & > * {
-      vertical-align: top;
     }
   }
   &__contrast-box {
