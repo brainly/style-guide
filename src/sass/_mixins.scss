@@ -22,3 +22,9 @@
     height: 100%;
   }
 }
+
+@mixin fix-text($font-size){
+  font-size: $font-size;
+  height: $font-size;
+  line-height: $font-size;
+}
