@@ -25,10 +25,10 @@
 
 // $line-height-offset is a way to fix font issue with the baseline
 // the issue is visible when centering the text of at least 12px
-@mixin fixText($font-size, $line-height-offset: 0){
-  font-size: $font-size;
-  height: $font-size;
-  line-height: $font-size + $line-height-offset;
+@mixin fixText($fontSize, $lineHeightOffset: 0){
+  font-size: $fontSize;
+  height: $fontSize;
+  line-height: $fontSize + $lineHeightOffset;
 }
 
 @mixin icon($name){
