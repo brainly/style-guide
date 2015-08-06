@@ -52,7 +52,7 @@
     }
 
     .mint-rate-box__counter {
-      @include fixText($rateStarSmallFontSize, 2px);
+      @include fixText($rateStarSmallFontSize);
       margin-left: $layoutDefaultPadding/4;
     }
   }
