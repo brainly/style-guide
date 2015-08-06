@@ -2,7 +2,7 @@
   @include component;
   display: flex;
   align-items: center;
-  font-size: $rateStarFontSize;
+  height: $rateHeight;
 
   &--active {
 
@@ -26,7 +26,8 @@
   }
 
   &__star {
-    @extend .mint-icon-star;
+    @include icon(star);
+
     color: $rateStarColor;
     font-size: $rateStarFontSize + $iconBoostValue;
     padding: 0 1px;
@@ -36,17 +37,22 @@
   }
 
   &__counter {
+    @include fixText($rateStarFontSize, 2px);
     font-family: $rateCounterFont;
     color: $rateCounterColor;
     margin: 0 0 0 $layoutDefaultPadding/2;
   }
 
   &--small {
+    height: $rateScaleFactor * $rateHeight;
     font-size: $rateStarSmallFontSize;
+
     .mint-rate-box__star {
       font-size: $rateStarSmallFontSize + $iconBoostValue;
     }
+
     .mint-rate-box__counter {
+      @include fixText($rateStarSmallFontSize, 2px);
       margin-left: $layoutDefaultPadding/4;
     }
   }
