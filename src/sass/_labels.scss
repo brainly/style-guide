@@ -102,7 +102,7 @@ $labelScaleFactor: 2/3;
     height: $labelScaleFactor * $labelHeight;
 
     .mint-label__text, .mint-label__number {
-      @include fixText($labelFontSizeSecondary, 2px);
+      @include fixText($labelFontSizeSecondary);
       margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
 
     }
