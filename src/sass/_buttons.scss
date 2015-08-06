@@ -1,10 +1,14 @@
 @mixin mint-button-basic-styles() {
   @include component;
   cursor: pointer;
-
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 @mixin mint-button-basic-dimensions($height) {
