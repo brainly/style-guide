@@ -79,6 +79,9 @@
   &--for-fine-print {
     color: $textBlockBlueColor;
   }
+  &--emphasised {
+    text-transform: uppercase;
+  }
 }
 
 .mint-text-description {
