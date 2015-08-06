@@ -318,3 +318,15 @@ $footerBackgroundColor: $bluePrimary;
 // Subject icon box
 $subjectIconBoxBackground: $blueSecondary;
 $subjectIconBoxDarkerBackground: $bluePrimary;
+
+// Rating
+$rateHeight: $defaultComponentHeight;
+$rateStarColor: $graySecondary;
+$rateStarCheckedColor: $mustardPrimary;
+$rateStarActiveColor: $graySecondaryLight;
+$rateStarActiveCheckedColor: $mustardSecondary;
+$rateCounterColor: $grayPrimary;
+$rateCounterFont: $fontFamilyEmphasized;
+$rateStarFontSize: 12px;
+$rateStarSmallFontSize: 10px;
+$rateScaleFactor: 2/3;
