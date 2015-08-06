@@ -48,7 +48,7 @@ $rateScaleFactor: 2/3;
   }
 
   &__counter {
-    @include fix-text($rateStarFontSize, 2px);
+    @include fixText($rateStarFontSize, 2px);
     font-family: $rateCounterFont;
     color: $rateCounterColor;
     margin: 0 0 0 $layoutDefaultPadding/2;
@@ -63,7 +63,7 @@ $rateScaleFactor: 2/3;
     }
 
     .mint-rate-box__counter {
-      @include fix-text($rateStarSmallFontSize, 2px);
+      @include fixText($rateStarSmallFontSize, 2px);
       margin-left: $layoutDefaultPadding/4;
     }
   }
