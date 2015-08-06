@@ -63,7 +63,7 @@ $rateScaleFactor: 2/3;
     }
 
     .mint-rate-box__counter {
-      @include fix-text($rateStarSmallFontSize);
+      @include fix-text($rateStarSmallFontSize, 2px);
       margin-left: $layoutDefaultPadding/4;
     }
   }
