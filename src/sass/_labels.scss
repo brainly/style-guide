@@ -105,6 +105,9 @@ $labelScaleFactor: 2/3;
       @include fixText($labelFontSizeSecondary);
       margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
 
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
     .mint-label__text {
