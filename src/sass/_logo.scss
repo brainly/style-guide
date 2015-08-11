@@ -28,3 +28,16 @@
     height: $logoDefaultHeight / 2;
   }
 }
+
+.mint-logo-responsive {
+  @include component;
+  background-image: url($mintImagesPath + 'logo-mobile.png');
+  height: $logoMobileHeight;
+  width: $logoMobileHeight;
+  @media (min-width: $breakpointTablet) {
+    background-image: url($mintImagesPath + 'logo.svg');
+    height: $logoDefaultHeight;
+    width: $logoDefaultWidth;
+    top: 10px;
+  }
+}
