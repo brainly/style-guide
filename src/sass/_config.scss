@@ -38,6 +38,8 @@ $white: #FFFFFF;
 $grayPrimary: #BBBDBF;
 $graySecondary: #E1E3E5;
 $graySecondaryLight: #F0F2F5;
+$grayAlt: #969799;
+$grayAltLight: #E9ECEE;
 
 // Shadows
 $shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.25);
@@ -146,8 +148,8 @@ $tabFontSize: 12px;
 $tabsFontFamily: $fontFamilySecondary;
 
 // Inputs
-$selectBackground: #E9ECEE;
-$selectTextColor: #969799;
+$selectBackground: $grayAltLight;
+$selectTextColor: $grayAlt;
 $selectFontSize: 12px;
 $selectHeight: 44px;
 $selectFontFamily: $fontFamilySecondary;
