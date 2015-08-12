@@ -24,13 +24,20 @@
   &__left {
     display: flex;
     align-items: center;
+    margin-right: 10px;
+    @media (min-width: $breakpointTablet) {
+      margin-right: 20px;
+    }
   }
 
   &__middle {
     flex-grow: 1;
     display: flex;
     align-items: center;
+  }
 
+  &__right {
+    margin-left: 10px;
     @media (min-width: $breakpointTablet) {
       margin-left: 20px;
     }
