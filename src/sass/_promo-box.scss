@@ -1,3 +1,11 @@
+$promoBoxBackgroundColor: $mintSecondary;
+$promoBoxHeaderColor: $white;
+$promoBoxHeaderPrimaryFontFamily: $fontFamilyEmphasized;
+$promoBoxHeaderPrimaryFontSize: 50px;
+$promoBoxTextSize: 24px;
+$promoBoxLineHeight: 44px;
+$promoBoxFontFamily: $fontFamilyPrimary;
+
 .mint-promo-box {
   padding: 40px;
   background: $promoBoxBackgroundColor;

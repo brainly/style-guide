@@ -1,3 +1,66 @@
+$buttonPrimaryHeight: 44px;
+$buttonSecondaryHeight: 32px;
+$buttonSecondarySmallHeight: 24px;
+
+$buttonPrimaryFontSize: 15px;
+$buttonSecondaryFontSize: 12px;
+$buttonSecondarySmallFontSize: 10px;
+
+$buttonPrimaryFontFamily: $fontFamilySecondary;
+$buttonSecondaryFontFamily: $fontFamilySecondary;
+
+$buttonPrimaryFontColor: $white;
+
+$buttonColor: $mintPrimary;
+$buttonColorGradient: #84ddaf;
+$buttonShadowColor: #67c996;
+
+$buttonAltColor: $bluePrimary;
+$buttonAltColorGradient: #73C3FF;
+$buttonAltShadowColor: #57aff2;
+
+$buttonDarkColor: $black;
+$buttonDarkColorGradient: #262626;
+$buttonDarkShadowColor: $black;
+
+$buttonFbColor: #3b5997;
+$buttonFbColorGradient: #4668b2;
+$buttonFbShadowColor: #355088;
+
+$buttonSecondaryColor: $mintPrimary;
+$buttonSecondaryTextColorHover: $white;
+$buttonSecondaryAltColor: $bluePrimary;
+$buttonSecondaryAltTextColorHover: $white;
+$buttonSecondaryDarkColor: $black;
+$buttonSecondaryDarkTextColorHover: $white;
+$buttonSecondaryPeachColor: $peachPrimary;
+$buttonSecondaryPeachTextColorHover: $white;
+$buttonSecondaryGrayColor: $grayPrimary;
+$buttonSecondaryGrayTextColorHover: $white;
+$buttonSecondaryLightColor: $white;
+$buttonSecondaryLightTextColorHover: $black;
+$buttonSecondaryActionColor: $graySecondary;
+$buttonSecondaryActionTextColor: $black;
+$buttonSecondaryActionTextColorHover: $white;
+$buttonSecondaryLightBlueColor: $blueSecondary;
+$buttonSecondaryLightBlueTextColorHover: $white;
+
+$buttonSecondaryIconColor: $grayPrimary;
+$buttonSecondaryIconBorderColorHover: $graySecondary;
+
+$iconAsButtonColor: $bluePrimary;
+$iconAsButtonLightColor: $white;
+$iconAsButtonGrayColor: $grayPrimary;
+
+$buttonRoundAddSize: 50px;
+$buttonRoundAddFontSize: 18px;
+$buttonRoundAddColor: $white;
+$buttonRoundLabelFontFamily: $fontFamilySecondary;
+$buttonRoundLabelFontFamily: $fontFamilySecondary;
+$buttonRoundLabelFontSize: 10px;
+$buttonRoundLabelBackground: $mintSecondaryLight;
+$buttonRoundLabelColor: $black;
+
 @mixin mint-button-basic-styles() {
   @include component;
   cursor: pointer;
@@ -224,7 +287,7 @@
 }
 
 .mint-button-secondary--small {
-  $borderSize: 2px;
+  font-size: $buttonSecondarySmallFontSize;
   @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
 }
 

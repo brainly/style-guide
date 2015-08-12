@@ -1,3 +1,56 @@
+$selectBackground: $grayAltLight;
+$selectTextColor: $grayAlt;
+$selectFontSize: 12px;
+$selectHeight: 44px;
+$selectFontFamily: $fontFamilySecondary;
+$selectHoverBackground: $graySecondary;
+$selectInvalidBorderColor: $peachSecondary;
+
+$inputHeight: 44px;
+$inputLowHeight: 36px;
+$inputBackground: $white;
+$inputBorderColor: $graySecondary;
+$inputTextColor: $black;
+$inputFontSize: 15px;
+$inputFontFamily: $fontFamilyPrimary;
+$inputFocusBorderColor: $grayPrimary;
+$inputPlaceholderTextColor: $grayPrimary;
+$inputPlaceholderFontSize: 12px;
+$inputPlaceholderFontFamily: $fontFamilySecondary;
+$inputValidBorderColor: $mintSecondary;
+$inputInvalidBorderColor: $peachSecondary;
+$inputTransparentBorderColor: rgba($graySecondary, 0.7);
+$inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
+
+$crInputSize: 16px;
+$crInputFontSize: 16px;
+$crInputColor: $white;
+$crInputBorderColor: $graySecondary;
+$crInputHoverBorderColor: $blueSecondaryLight;
+$crInputActiveBorderColor: $bluePrimary;
+$crInputCheckedColor: $bluePrimary;
+
+$crInputLabelFontFamily: $fontFamilySecondary;
+$crInputLabelFontSize: 12px;
+$crInputLabelLineHeight: 18px;
+$crInputLabelHeight: 16px;
+$crInputLabelColor: $grayPrimary;
+
+$textareaBackground: $white;
+$textareaBorderColor: $graySecondary;
+$textareaBorderRadius: 11px;
+$textareaFontSize: 15px;
+$textareaFontFamily: $fontFamilyPrimary;
+$textareaLineHeight: 19px;
+$textareaTextColor: $black;
+$textareaPadding: 11px;
+$textareaFocusBorderColor: $grayPrimary;
+$textareaPlaceholderTextColor: $grayPrimary;
+$textareaPlaceholderFontSize: 12px;
+$textareaPlaceholderFontFamily: $fontFamilySecondary;
+$textareaValidBorderColor: $mintSecondary;
+$textareaInvalidBorderColor: $peachSecondary;
+
 .mint-select {
   @include component;
   @extend .mint-icon-arrow_down;

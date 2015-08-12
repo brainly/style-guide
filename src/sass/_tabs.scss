@@ -1,3 +1,15 @@
+$tabBackground: $graySecondaryLight;
+$tabTextColor: $grayPrimary;
+$tabSeparatorColor: $graySecondary;
+$tabActiveBackground: $bluePrimary;
+$tabActiveTextColor: $white;
+$tabHoverBackground: $blueSecondary;
+$tabHoverTextColor: $white;
+$tabHeight: 44px;
+$tabSmallHeight: 32px;
+$tabFontSize: 12px;
+$tabsFontFamily: $fontFamilySecondary;
+
 .mint-tabs {
   @include component;
   @include clearfix();

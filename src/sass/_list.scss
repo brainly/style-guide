@@ -1,3 +1,15 @@
+$listDefaultFont: $fontFamilyPrimary;
+
+$breadcrumbListFontFamily: $fontFamilySecondary;
+$breadcrumbListFontSize: 12px;
+$breadcrumbListSeparatorColor: $grayPrimary;
+$breadcrumbListBlueSeparatorColor: $blueSecondary;
+$breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
+
+$menuListColor: $bluePrimary;
+$menuListFontSize: 13px;
+$menuListBorderColor: $graySecondary;
+
 @mixin mint-list-basic-styles() {
   @include component;
   display: block;

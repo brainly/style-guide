@@ -1,3 +1,13 @@
+$avatarDefaultBackgroundColor: $grayPrimary;
+$avatarDefaultPersonColor: $graySecondary;
+$avatarSmallSize: 28px;
+$avatarMediumSize: 34px;
+$avatarBigSize: 40px;
+$avatarSmallBorderWidth: 1px;
+$avatarMediumBorderWidth: 1px;
+$avatarBigBorderWidth: 2px;
+$avatarBorderColor: $white;
+
 .mint-avatar {
   @include component;
   @extend .mint-icon-profile;
