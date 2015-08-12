@@ -1,3 +1,11 @@
+// Badges
+$badgeFontFamily: $fontFamilySecondary;
+$badgeFontSize: 10px;
+$badgeDefaultBackgroundColor: $peachPrimary;
+$badgeDefaultColor: $white;
+$badgeLightBackgroundColor: $white;
+$badgeLightColor: $black;
+
 .mint-badge {
   @include component;
 

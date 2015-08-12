@@ -1,3 +1,11 @@
+$headerColor: $black;
+$headerPrimaryFontFamily: $fontFamilyEmphasized;
+$headerSecondaryFontFamily: $fontFamilySecondary;
+$headerPrimaryFontSize: 64px;
+$headerPrimarySmallFontSize: 48px;
+$headerSecondaryFontSize: 15px;
+$headerSecondarySmallFontSize: 12px;
+
 .mint-header-primary {
   @include component;
   display: block;

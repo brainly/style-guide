@@ -1,3 +1,7 @@
+$stickerSize: 18px;
+$stickerIconColor: $bluePrimary;
+$stickerOutlineColor: $white;
+
 @mixin outline($color) {
   text-shadow:
   // generated using http://owumaro.github.io/text-stroke-generator/

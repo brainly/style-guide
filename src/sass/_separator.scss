@@ -1,3 +1,9 @@
+$separatorColor: $grayPrimary;
+$separatorHeight: 18px;
+$separatorSpacing: 15px;
+$separatorHeightSmall: 10px;
+$separatorSpacingSmall: 10px;
+
 .mint-separator {
   @include component;
 

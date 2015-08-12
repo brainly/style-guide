@@ -1,3 +1,43 @@
+// Links
+$linkColor: $bluePrimary;
+$linkGrayColor: $grayPrimary;
+$linkBlueColor: $blueSecondary;
+$linkLightBlueColor: $blueSecondaryLight;
+$linkFontFamily: $fontFamilySecondary;
+
+
+// Bit
+$textBitFontFamily: $fontFamilyEmphasized;
+$textBitFontSize: 58px;
+$textBitLineHeight: 0.9;
+$textBitColor: $mintSecondary;
+$textBitAltColor: $blueSecondary;
+$textBitLightColor: $white;
+$textBitSmallFontSize: 44px;
+$textBitLogoSize: 84px;
+$textBitSmallLogoSize: 68px;
+
+// Texts
+$textBlockFontFamily: $fontFamilySecondary;
+$textBlockFontSize: 12px;
+$textBlockLineHeight: 14px;
+$textBlockColor: $black;
+$textBlockBlueColor: $blueSecondary;
+$textBlockLightBlueColor: $blueSecondaryLight;
+$textBlockGrayColor: $grayPrimary;
+$textBlockLightColor: $white;
+
+$textDescriptionFontFamily: $fontFamilyPrimary;
+$textDescriptionColor: $black;
+$textDescriptionFontSize: 18px;
+$textDescriptionLineHeight: 21px;
+$textDescriptionLargeFontSize: 32px;
+$textDescriptionLargeLineHeight: 32px;
+$textDescriptionSmallFontSize: 15px;
+$textDescriptionSmallLineHeight: 19px;
+
+$textEmphasisedFontFamily: $fontFamilySecondary;
+
 .mint-text-bit {
   color: $textBitColor;
   font-family: $textBitFontFamily;
@@ -103,7 +143,7 @@
 }
 
 .mint-text-emphasised {
-  font-family: $mintTextEmphasisedFontFamily;
+  font-family: $textEmphasisedFontFamily;
 }
 
 .mint-link {

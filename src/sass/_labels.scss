@@ -8,7 +8,6 @@ $labelIconSizeSecondary: 14px;
 $labelHeight: $defaultComponentHeight;
 $labelScaleFactor: 2/3;
 
-
 @mixin label-from-icon($name){
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;

@@ -1,3 +1,10 @@
+// Bubble
+$bubbleBackground: $white;
+$bubbleBackgroundDark: $graySecondaryLight;
+$bubbleBorderColor: $graySecondary;
+$bubbleBorderRadius: 5px;
+$bubbleBoxShadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.25);
+
 $borderSize: 3px;
 $triangleSize: 12px;
 $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
@@ -9,7 +16,7 @@ $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
   border: $borderSize solid $bubbleBorderColor;
   border-radius: $bubbleBorderRadius;
   padding: 15px;
-  box-shadow: $shadow;
+  box-shadow: $bubbleBoxShadow;
 
   &:before {
     content: "";
