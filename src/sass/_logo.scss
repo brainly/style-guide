@@ -31,11 +31,13 @@
 
 .mint-logo-responsive {
   @include component;
-  background-image: url($mintImagesPath + 'logo-mobile.png');
+  background-image: url($mintImagesPath + 'logo-mobile.svg');
+  background-size: $logoMobileHeight $logoMobileHeight;
   height: $logoMobileHeight;
   width: $logoMobileHeight;
   @media (min-width: $breakpointTablet) {
     background-image: url($mintImagesPath + 'logo.svg');
+    background-size: $logoDefaultWidth $logoDefaultHeight;
     height: $logoDefaultHeight;
     width: $logoDefaultWidth;
     top: 10px;
