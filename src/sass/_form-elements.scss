@@ -44,6 +44,7 @@ $textareaFontFamily: $fontFamilyPrimary;
 $textareaLineHeight: 19px;
 $textareaTextColor: $black;
 $textareaPadding: 11px;
+$textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: 12px;
@@ -261,7 +262,7 @@ $textareaInvalidBorderColor: $peachSecondary;
   line-height: $textareaLineHeight;
   padding: $textareaPadding;
   resize: none;
-  height: 64px;
+  height: 100px;
 
   &:focus {
     border-color: $textareaFocusBorderColor;
@@ -288,6 +289,10 @@ $textareaInvalidBorderColor: $peachSecondary;
     &:focus {
       border-color: $textareaInvalidBorderColor;
     }
+  }
+  &--small {
+    height: 32px;
+    padding: $textareaSmallPadding $textareaPadding;
   }
   &--big {
     height: 178px;

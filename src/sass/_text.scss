@@ -43,6 +43,7 @@ $textEmphasisedFontFamily: $fontFamilySecondary;
   word-wrap: break-word;
   margin: 0;
   position: relative;
+  letter-spacing: -1px;
   &__logo {
     @extend .mint-icon-logo;
     text-decoration: none;
