@@ -50,7 +50,7 @@ $textareaPlaceholderFontSize: 12px;
 $textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
-$textareaScaleFactor: 4/7;
+$textareaScaleFactor: 2/3;
 
 
 .mint-select {
@@ -292,7 +292,7 @@ $textareaScaleFactor: 4/7;
     }
   }
   &--small {
-    height: 32px;
+    height: 36px;
     padding: $textareaPadding*$textareaScaleFactor $textareaPadding;
   }
   &--big {
