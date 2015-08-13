@@ -19,7 +19,7 @@ $headerDominantColor: #65A6A8;
     align-items: center;
 
     @media (min-width: $breakpointTablet) {
-      padding: 0 $layoutDefaultPadding;
+      padding: 0 $layoutDefaultPadding/2;
     }
   }
 
@@ -40,14 +40,10 @@ $headerDominantColor: #65A6A8;
 
   &__right {
     margin-left: 10px;
+    display: flex;
+    align-items: center;
     @media (min-width: $breakpointTablet) {
       margin-left: 20px;
     }
-  }
-
-  &__right {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
   }
 }

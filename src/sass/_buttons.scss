@@ -312,13 +312,20 @@ $buttonRoundLabelColor: $black;
     color: rgba($iconAsButtonColor, 0.7);
   }
 
-  &--small {
-    width: 24px;
-    height: 24px;
-
+  &--small, &--medium {
     &:before {
       font-size: 18px;
     }
+  }
+
+  &--medium {
+    width: 30px;
+    height: 30px;
+  }
+
+  &--small {
+    width: 24px;
+    height: 24px;
   }
 
   &--with-border {
