@@ -50,6 +50,8 @@ $textareaPlaceholderFontSize: 12px;
 $textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
+$textareaScaleFactor: 4/7;
+
 
 .mint-select {
   @include component;
@@ -164,6 +166,10 @@ $textareaInvalidBorderColor: $peachSecondary;
   &--with-icon {
     padding-right: 46px;
   }
+
+  &--with-small-icon {
+    padding-right: 36px;
+  }
 }
 
 .mint-checkbox,
@@ -257,7 +263,7 @@ $textareaInvalidBorderColor: $peachSecondary;
   line-height: $textareaLineHeight;
   padding: $textareaPadding;
   resize: none;
-  height: 64px;
+  height: 100px;
 
   &:focus {
     border-color: $textareaFocusBorderColor;
@@ -284,6 +290,10 @@ $textareaInvalidBorderColor: $peachSecondary;
     &:focus {
       border-color: $textareaInvalidBorderColor;
     }
+  }
+  &--small {
+    height: 32px;
+    padding: $textareaPadding*$textareaScaleFactor $textareaPadding;
   }
   &--big {
     height: 178px;
