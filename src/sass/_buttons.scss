@@ -4,7 +4,6 @@ $buttonSecondarySmallHeight: 24px;
 
 $buttonPrimaryFontSize: 15px;
 $buttonSecondaryFontSize: 12px;
-$buttonSecondarySmallFontSize: 10px;
 
 $buttonPrimaryFontFamily: $fontFamilySecondary;
 $buttonSecondaryFontFamily: $fontFamilySecondary;
@@ -287,7 +286,6 @@ $buttonRoundLabelColor: $black;
 }
 
 .mint-button-secondary--small {
-  font-size: $buttonSecondarySmallFontSize;
   @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
 }
 
