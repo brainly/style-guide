@@ -37,6 +37,15 @@ $listSmallIconColor: $graySecondary;
       vertical-align: -6px;
       margin-right: 10px;
     }
+
+    &--with-plus {
+      &:before {
+        font-size: 24px;
+        vertical-align: 0;
+        color: $listSmallIconColor;
+        @extend .mint-icon-plus;
+      }
+    }
   }
 
   &--small {
@@ -44,11 +53,19 @@ $listSmallIconColor: $graySecondary;
     line-height: 30px;
     font-family: $listSmallFontFamily;
 
-    .mint-list__element:before {
-      font-size: 14px;
-      vertical-align: 0;
-      color: $listSmallIconColor;
-      @extend .mint-icon-plus;
+    .mint-list__element {
+      &:before {
+        font-size: 24px;
+        vertical-align: -8px;
+        height: 15px;
+      }
+
+      &--with-plus {
+        &:before {
+          font-size: 14px;
+          vertical-align: 0;
+        }
+      }
     }
   }
 }
