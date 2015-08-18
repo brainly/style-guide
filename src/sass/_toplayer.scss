@@ -50,17 +50,26 @@ $toplayerShadow: $defaultBottomShadow;
   &--modal {
     z-index: $toplayerZIndex;
     position: fixed;
-    top: 10%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+
+    @media (min-width: $breakpointTablet) {
+      top: 10%;
+    }
   }
 
   &--centered-modal {
     z-index: $toplayerZIndex;
     position: fixed;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
+
+    @media (min-width: $breakpointTablet) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &--with-bugbox {
