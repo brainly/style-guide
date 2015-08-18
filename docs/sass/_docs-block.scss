@@ -57,6 +57,9 @@
 .mint-footer__line,
 .mint-content-box__header,
 .mint-content-box__footer,
-.mint-content-box__content {
+.mint-content-box__content,
+.mint-toplayer__heading,
+.mint-toplayer__content,
+.mint-toplayer__actions {
   @extend .docs-highlight-placeholder;
 }
