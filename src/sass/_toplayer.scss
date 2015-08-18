@@ -1,12 +1,15 @@
 $toplayerHeaderDominantColor: #65A6A8;
 $toplayerCrossColor: $white;
+$toplayerBackgroundColor: $white;
 $toplayerShadow: $defaultBottomShadow;
+$toplayerSmallWidth: 410px;
 
 .mint-toplayer {
   @include component;
   border-radius: 10px;
   width: 100%;
   box-shadow: $toplayerShadow;
+  background-color: $toplayerBackgroundColor;
 
   &--lead {
     .mint-toplayer__wrapper {
@@ -27,6 +30,22 @@ $toplayerShadow: $defaultBottomShadow;
 
   &--large {
     width: 700px;
+  }
+
+  &--modal {
+    z-index: $toplayerZIndex;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  &--centered-modal {
+    z-index: $toplayerZIndex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   &--with-bugbox {
