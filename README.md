@@ -1,4 +1,4 @@
-# Brainly Style Guide
+![Brainly Style Guide](https://i.imgur.com/8MMAa2J.png)
 
 This project is a reference style guide for all frontend components used in Brainly and styled with "Mint" theme.
 
