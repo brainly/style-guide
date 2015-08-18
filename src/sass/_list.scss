@@ -9,6 +9,8 @@ $breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
 $menuListColor: $bluePrimary;
 $menuListFontSize: 13px;
 $menuListBorderColor: $graySecondary;
+$listSmallFontFamily: $fontFamilySecondary;
+$listSmallIconColor: $graySecondary;
 
 @mixin mint-list-basic-styles() {
   @include component;
@@ -33,6 +35,37 @@ $menuListBorderColor: $graySecondary;
       transform: rotate(-90deg);
       font-size: 38px;
       vertical-align: -6px;
+      margin-right: 10px;
+    }
+
+    &--with-plus {
+      &:before {
+        font-size: 24px;
+        vertical-align: 0;
+        color: $listSmallIconColor;
+        @extend .mint-icon-plus;
+      }
+    }
+  }
+
+  &--small {
+    font-size: 15px;
+    line-height: 30px;
+    font-family: $listSmallFontFamily;
+
+    .mint-list__element {
+      &:before {
+        font-size: 24px;
+        vertical-align: -8px;
+        height: 15px;
+      }
+
+      &--with-plus {
+        &:before {
+          font-size: 14px;
+          vertical-align: 0;
+        }
+      }
     }
   }
 }
