@@ -12,7 +12,12 @@ $toplayerShadow: $defaultBottomShadow;
 
   &--lead {
     .mint-toplayer__wrapper {
-      margin: 2 * $layoutDefaultPadding;
+
+      @media (min-width: $breakpointTablet) {
+        margin: $layoutDefaultPadding;
+        padding: $layoutDefaultPadding;
+      }
+
     }
     .mint-toplayer__heading {
       margin-bottom: 2 * $layoutDefaultPadding;
@@ -20,15 +25,26 @@ $toplayerShadow: $defaultBottomShadow;
   }
 
   &--small {
-    width: 410px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 410px;
+    }
   }
 
   &--medium {
-    width: 550px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 600px;
+    }
+
   }
 
   &--large {
-    width: 700px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 700px;
+    }
+
   }
 
   &--modal {
@@ -50,10 +66,14 @@ $toplayerShadow: $defaultBottomShadow;
   &--with-bugbox {
 
     .mint-toplayer__wrapper {
-      background-image: url($mintImagesPath + 'bug_box.png');
-      background-repeat: no-repeat;
-      background-position: bottom right;
-      @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+
+      @media (min-width: $breakpointTablet) {
+        background-image: url($mintImagesPath + 'bug_box.png');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+      }
+
     }
 
   }
@@ -75,6 +95,10 @@ $toplayerShadow: $defaultBottomShadow;
     font-weight: bold;
     padding: 0 10px;
     cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   &__wrapper {
@@ -89,6 +113,14 @@ $toplayerShadow: $defaultBottomShadow;
     margin-bottom: $layoutDefaultPadding;
   }
 
+  &__list-title {
+    margin-bottom: 10px;
+  }
+
   &__actions {
+  }
+
+  &__button {
+    min-width: 140px;
   }
 }
