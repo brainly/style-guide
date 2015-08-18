@@ -168,6 +168,11 @@ $buttonRoundLabelColor: $black;
   font-size: $buttonPrimaryFontSize;
   font-family: $buttonPrimaryFontFamily;
   @include mint-button-primary-active($buttonPrimaryFontColor);
+
+  &--full {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .mint-button-primary--alt {
