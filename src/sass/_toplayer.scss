@@ -12,48 +12,81 @@ $toplayerShadow: $defaultBottomShadow;
 
   &--lead {
     .mint-toplayer__wrapper {
-      margin: 2 * $layoutDefaultPadding;
+
+      @media (min-width: $breakpointTablet) {
+        margin: $layoutDefaultPadding;
+        padding: $layoutDefaultPadding;
+      }
+
     }
     .mint-toplayer__heading {
-      margin-bottom: 2 * $layoutDefaultPadding;
+
+      @media (min-width: $breakpointTablet) {
+        margin-bottom: 2 * $layoutDefaultPadding;
+      }
+
     }
   }
 
   &--small {
-    width: 410px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 410px;
+    }
   }
 
   &--medium {
-    width: 550px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 600px;
+    }
+
   }
 
   &--large {
-    width: 700px;
+
+    @media (min-width: $breakpointTablet) {
+      width: 700px;
+    }
+
   }
 
   &--modal {
     z-index: $toplayerZIndex;
     position: fixed;
-    top: 10%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+
+    @media (min-width: $breakpointTablet) {
+      top: 10%;
+    }
   }
 
   &--centered-modal {
     z-index: $toplayerZIndex;
     position: fixed;
-    top: 50%;
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
+
+    @media (min-width: $breakpointTablet) {
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &--with-bugbox {
 
     .mint-toplayer__wrapper {
-      background-image: url($mintImagesPath + 'bug_box.png');
-      background-repeat: no-repeat;
-      background-position: bottom right;
-      @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+
+      @media (min-width: $breakpointTablet) {
+        background-image: url($mintImagesPath + 'bug_box.png');
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+      }
+
     }
 
   }
@@ -75,6 +108,10 @@ $toplayerShadow: $defaultBottomShadow;
     font-weight: bold;
     padding: 0 10px;
     cursor: pointer;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   &__wrapper {
@@ -87,6 +124,10 @@ $toplayerShadow: $defaultBottomShadow;
 
   &__content {
     margin-bottom: $layoutDefaultPadding;
+  }
+
+  &__list-title {
+    margin-bottom: 10px;
   }
 
   &__actions {
