@@ -20,7 +20,11 @@ $toplayerShadow: $defaultBottomShadow;
 
     }
     .mint-toplayer__heading {
-      margin-bottom: 2 * $layoutDefaultPadding;
+
+      @media (min-width: $breakpointTablet) {
+        margin-bottom: 2 * $layoutDefaultPadding;
+      }
+
     }
   }
 
