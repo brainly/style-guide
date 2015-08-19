@@ -264,7 +264,7 @@ $textareaScaleFactor: 2/3;
   padding: $textareaPadding;
   resize: none;
   height: 100px;
-
+  overflow-y: scroll;
   &:focus {
     border-color: $textareaFocusBorderColor;
     outline: 0;
