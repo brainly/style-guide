@@ -9,6 +9,7 @@ $textBitFontSize: 58px;
 $textBitLineHeight: 0.9;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
+$textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitSmallFontSize: 44px;
 $textBitLogoSize: 84px;
@@ -72,6 +73,9 @@ $textEmphasisedFontFamily: $fontFamilySecondary;
   }
   &--light {
     color: $textBitLightColor;
+  }
+  &--warning {
+    color: $textBitWarningColor;
   }
   &--with-logo {
     @extend .mint-icon-logo;
