@@ -15,6 +15,7 @@ var spawn = require('child_process').spawn;
 var exec = require('child_process').exec;
 var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
+var pkg = require('./package');
 
 gulp.task('sass:docs', function () {
     return gulp.src('./docs/sass/**/*.scss')
@@ -36,7 +37,7 @@ gulp.task('sass:build', function () {
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: false
         }))
-        .pipe(rename('main.min.css'))
+        .pipe(rename('main-'+ pkg.version + '.min.css'))
         .pipe(gulp.dest('./dist/css/'))
 });
 
