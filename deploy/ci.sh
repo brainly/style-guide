@@ -10,3 +10,4 @@ docker push $IMAGE_ARTIFACT
 # build stuff
 
 # deploy to s3
+# s3_website cfg apply --headless --autocreate-cloudfront-dist
