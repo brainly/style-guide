@@ -57,6 +57,7 @@ $rateScaleFactor: 2/3;
   &--small {
     height: $rateScaleFactor * $rateHeight;
     font-size: $rateStarSmallFontSize;
+    line-height: $rateStarSmallFontSize;
 
     .mint-rate-box__star {
       font-size: $rateStarSmallFontSize + $iconBoostValue;
