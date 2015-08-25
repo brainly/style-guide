@@ -1,4 +1,4 @@
-FROM mwallasch/docker-ruby-node:latest
+FROM shawnzhu/ruby-nodejs
 
 RUN apt-get update
 RUN apt-get install -y openjdk-7-jre-headless
@@ -16,11 +16,3 @@ RUN mkdir /style-guide
 WORKDIR /style-guide
 ADD package.json package.json
 RUN npm install
-
-ADD s3_website.yml s3_website.yml
-
-# simulating deployment to install all jars
-# RUN s3_website push --dry-run
-
-
-COPY . .
