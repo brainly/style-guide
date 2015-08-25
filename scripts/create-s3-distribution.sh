@@ -5,11 +5,10 @@
 #
 # Note: the process will update the s3_website.yml file with cloudnfront distribution ID
 
+DIR=`pwd`
+
 docker run -t --rm \
-  -v ${pwd}/src:/style-guide/src \
-  -v ${pwd}/gulpfile.js:/style-guide/gulpfile.js \
-  -v ${pwd}/dist:/style-guide/dist \
-  -v ${pwd}/docs:/style-guide/docs \
+  -v $DIR/s3_website.yml:/style-guide/s3_website.yml \
   -e AWS_ACCESS_KEY=$AWS_ACCESS_KEY \
   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-  brainly/style-guide s3_website cfg apply
+  brainly/style-guide s3_website cfg apply --headless --autocreate-cloudfront-dist
