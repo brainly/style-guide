@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script will run the watch process for source compilation
+# Useful for development
+
 DIR=`pwd`
 
 docker run -t --rm \

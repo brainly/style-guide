@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# This script rebuilds icon fonts from svg sources
+# It will generate the corresponding scss file
+
 DIR=`pwd`
 
 docker run -t --rm \

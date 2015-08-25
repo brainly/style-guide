@@ -247,6 +247,13 @@ Run `./scripts/build-fonts.sh`.
 
 This command will transform all `svg` files from `icons` directory in a woff font.
 
+#### Create/Recreate s3 distribution
+
+Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 distribution.
+
+**Note:** This should be done once when you setup the deployment pipeline of the project.
+*This step has already been applied for this repo.*
+
 
 #### See holes in containers
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# we do not have the server yet, files are static and served as file://
+# This script will run the project in server mode for preview
+# Note: We do not have the server yet, files are static and served as file://
+
 DIR=`pwd`
 
 docker run -t --rm \
