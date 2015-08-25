@@ -230,8 +230,8 @@ If you have a combination like `<input class="mint-block1 mint-block2">` it mean
 If you are trying to do it from scratch:
 
 1. Clone repo
-2. Run `npm install` in the root of the project
-3. Run `gulp sass:docs`
+2. Run `./scripts/bootstrap.sh` in the root of the project
+3. Run `./scripts/server.sh`
 4. Open corresponding files in the `docs` directory in your browser:
   * `docs/basics.html` for basic components
   * `docs/components.html` for complex components
@@ -241,7 +241,9 @@ If you are trying to do it from scratch:
 
 #### Rebuild fonts
 
-Run `gulp docker:icons`.
+If you haven't run `bootstrap.sh`, you should do it right now :)
+
+Run `./scripts/build-fonts.sh`.
 
 This command will transform all `svg` files from `icons` directory in a woff font.
 

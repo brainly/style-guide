@@ -99,39 +99,6 @@ gulp.task('subjects', function(done) {
         .pipe(gulp.dest('./src/sass'))
 });
 
-gulp.task('docker:build', function(done) {
-    var build = spawn('docker', ['build', '-t', 'brainly/style-guide', '.']);
-
-    build.stdout.on('data', function(data) {
-        console.log(data.toString('utf8'));
-    });
-    build.stderr.on('data',  function(data) {
-        console.error(data.toString('utf8'));
-    });
-    build.on('exit', done);
-});
-
-gulp.task('docker:icons', function(done) {
-    var buildIcons = function(done) {
-        exec('docker run -t --rm' +
-            ' -v ' + __dirname + '/src:/style-guide/src' +
-            ' -v ' + __dirname + '/gulpfile.js:/style-guide/gulpfile.js' +
-            ' brainly/style-guide node_modules/.bin/gulp icons',
-            function(err, stdout, stderr) {
-                console.error(stderr);
-                console.log(stdout);
-                done();
-        });
-    };
-    exec('docker images | grep brainly/style-guide', function(err, stdout, stderr) {
-        if(stdout.length === 0) {
-            runSequence('docker:build', buildIcons.bind(null, done))
-        } else {
-            buildIcons(done);
-        }
-    });
-});
-
 gulp.task('watch', function(done) {
     livereload.listen();
     return gulp.watch(['./docs/sass/**/*.scss', './src/sass/**/*.scss'], ['sass:docs']);
