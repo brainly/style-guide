@@ -1,7 +1,14 @@
 'use strict';
 
 var gulp = require('gulp');
+var argv = require('yargs').argv;
+var path = require('path');
 var fs = require('fs');
+var del = require('del');
+var runSequence = require('run-sequence');
+var pkg = require('./package');
+
+var gulpif = require('gulp-if');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var livereload = require('gulp-livereload');
@@ -9,90 +16,125 @@ var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
 var fontcustom = require('gulp-fontcustom');
 var base64 = require('gulp-base64');
-var del = require('del');
-var runSequence = require('run-sequence');
-var spawn = require('child_process').spawn;
-var exec = require('child_process').exec;
 var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
-var pkg = require('./package');
 var rev = require('gulp-rev');
 var fingerprint = require('gulp-fingerprint');
 
+var DEV_ENV = argv.production ? false : true;
+var PROD_ENV = !DEV_ENV;
+var VERSION = PROD_ENV ? pkg.version : 'dev';
+
+var SRC = path.join(__dirname, 'src');
+var DIST = path.join(__dirname, 'dist');
+var VERSIONED_DIST = path.join(DIST, VERSION);
+var DOCS = path.join(SRC, 'docs');
+var SASS = path.join(SRC, 'sass');
+
 gulp.task('sass:docs', function () {
-    return gulp.src('./docs/sass/**/*.scss')
-        .pipe(sourcemaps.init())
+    return gulp.src(path.join(DOCS, 'sass', '**', '*.scss'))
+        .pipe(gulpif(DEV_ENV, sourcemaps.init()))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: true
         }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./docs/css'))
-        .pipe(livereload());
+        .pipe(gulpif(DEV_ENV, sourcemaps.write()))
+        .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs', 'css')))
+        .pipe(gulpif(DEV_ENV, livereload()));
 });
 
 gulp.task('sass:build', function () {
-    return gulp.src('./src/sass/main.scss')
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+    var sassMain = path.join(SRC, 'sass', 'main.scss');
+
+    return gulp.src(sassMain)
+        .pipe(sass({outputStyle: 'compressed'})
+        .on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: false
         }))
-        .pipe(rename('style-guide-'+ pkg.version + '.min.css'))
-        .pipe(gulp.dest('./dist'))
+        .pipe(rename('style-guide.css'))
+        .pipe(gulp.dest(VERSIONED_DIST))
 });
 
+gulp.task('docs:copy', function(){
+    var allDocs = path.join(DOCS, '/**');
+
+    return gulp.src(allDocs, {base: SRC})
+        .pipe(gulp.dest(VERSIONED_DIST));
+});
 
 gulp.task('fingerprint', function () {
-    // by default, gulp would pick `assetscss` as the base,
+    var fonts = path.join(SRC, 'fonts', '*');
+    var images = path.join(SRC, 'images', '*');
+
+    // by default, gulp would pick `assets/css` as the base,
     // so we need to set it explicitly:
-    return gulp.src(['./src/fonts/*', './src/images/*'], {base: './src'})
+    return gulp.src([fonts, images], {base: './src'})
         .pipe(rev())
-        .pipe(gulp.dest('./dist'))  // write rev'd assets to build dir
+        .pipe(gulp.dest(DIST))  // write rev'd assets to build dir
         .pipe(rev.manifest())
-        .pipe(gulp.dest('./dist')); // write manifest to build dir
+        .pipe(gulp.dest(VERSIONED_DIST)); // write manifest to build dir
 });
 
 gulp.task('fingerprint-replace', function () {
-    var manifest = require('./dist/rev-manifest');
+    var manifest = require(path.join(VERSIONED_DIST, 'rev-manifest'));
+    var css = path.join(VERSIONED_DIST, 'style-guide.css');
 
-    return gulp.src('./dist/style-guide-'+ pkg.version + '.min.css')
-        .pipe(fingerprint(manifest))
-        .pipe(gulp.dest('./dist'));
+    var docsHtml = path.join(VERSIONED_DIST, 'docs', '*.html')
+
+    gulp.src(css)
+        .pipe(fingerprint(manifest, {prefix: '../'}))
+        .pipe(gulp.dest(VERSIONED_DIST));
+
+    return gulp.src(docsHtml)
+        .pipe(fingerprint(manifest, {prefix: '../../'}))
+        .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
 });
 
 gulp.task('icons:generate-fonts', function() {
-    return gulp.src("./src/icons/")
+    var icons = path.join(SRC, 'icons');
+    var fonts = path.join(SASS, 'fonts');
+
+    return gulp.src(icons)
         .pipe(fontcustom({
             font_name: 'brainly-icons', // defaults to 'fontcustom'
             templates: 'scss',
             'css-selector': '.mint-icon-{{glyph}}'
         }))
-        .pipe(gulp.dest('./src/sass/fonts'));
+        .pipe(gulp.dest(fonts));
 });
 
 gulp.task('icons:create-data-file', function() {
-    var fontIconsContents = fs.readFileSync('./src/sass/fonts/_brainly-icons.scss'),
+    var iconsScss = path.join(SASS, 'fonts', '_brainly-icons.scss');
+    var iconsDataScss = path.join(SASS, '_icons-data.scss');
+
+    var fontIconsContents = fs.readFileSync(iconsScss),
         splitByHeader = fontIconsContents.toString().split('[data-icon]:before,'),
         withoutHeader = splitByHeader[splitByHeader.length - 1];
 
-    fs.writeFileSync('./src/sass/_icons-data.scss', withoutHeader);
+    fs.writeFileSync(iconsDataScss, withoutHeader);
 });
 
 gulp.task('icons:inline-fonts', function() {
-    return gulp.src('./src/sass/_icons-embed-template.scss')
+    var iconsEmbedTemplate = path.join(SASS, '_icons-embed-template.scss');
+
+    return gulp.src(iconsEmbedTemplate)
         .pipe(base64())
         .pipe(rename('_icons-embed.scss'))
-        .pipe(gulp.dest('./src/sass'));
+        .pipe(gulp.dest(SASS));
 });
 
 gulp.task('icons:cleanup', function(done) {
-    del(['./src/sass/fonts/', './.fontcustom-manifest.json'], done);
+    var fonts = path.join(SASS, 'fonts');
+    var fontManifest = '.fontcustom-manifest.json';
+
+    del([fonts, fontManifest], done);
 });
 
 gulp.task('clean:dist', function(done){
-    del(['./dist'], done);
+    del([path.join(DIST, '**'), '!' + DIST], done);
 });
 
 gulp.task('icons', function(done) {
@@ -120,14 +162,21 @@ gulp.task('subjects', function(done) {
     return gulp.src('./src/images/subjects/*.svg')
         .pipe(svgSprite(config))
         .pipe(replace('url(../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
-        .pipe(gulp.dest('./src/sass'))
+        .pipe(gulp.dest(SASS))
 });
 
-gulp.task('watch', function(done) {
+gulp.task('watch:docs', function(done) {
+    var docsSassSources = path.join(DOCS, 'sass', '**', '*.scss');
     livereload.listen();
-    return gulp.watch(['./docs/sass/**/*.scss', './src/sass/**/*.scss'], ['sass:docs']);
+    return gulp.watch([docsSassSources], ['sass:docs']);
 });
 
-gulp.task('production', function(done){
-    runSequence('clean:dist', 'sass:build', 'fingerprint', 'fingerprint-replace', done);
+gulp.task('watch:docs', function(done) {
+    var sassSources = path.join(SASS, '**', '*.scss');
+    livereload.listen();
+    return gulp.watch([sassSources], ['sass:build']);
+});
+
+gulp.task('build', function(done){
+    runSequence('clean:dist', 'sass:build', 'docs:copy', 'sass:docs', 'fingerprint', 'fingerprint-replace', done);
 });
