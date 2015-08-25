@@ -37,7 +37,7 @@ gulp.task('sass:build', function () {
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: false
         }))
-        .pipe(rename('main-'+ pkg.version + '.min.css'))
+        .pipe(rename('styleguide-'+ pkg.version + '.min.css'))
         .pipe(gulp.dest('./dist/css/'))
 });
 
