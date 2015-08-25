@@ -16,6 +16,8 @@ var exec = require('child_process').exec;
 var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var pkg = require('./package');
+var rev = require('gulp-rev');
+var fingerprint = require('gulp-fingerprint');
 
 gulp.task('sass:docs', function () {
     return gulp.src('./docs/sass/**/*.scss')
@@ -37,10 +39,28 @@ gulp.task('sass:build', function () {
             browsers: ['last 2 versions', 'ie 8', 'ie 9'],
             cascade: false
         }))
-        .pipe(rename('styleguide-'+ pkg.version + '.min.css'))
-        .pipe(gulp.dest('./dist/css/'))
+        .pipe(rename('style-guide-'+ pkg.version + '.min.css'))
+        .pipe(gulp.dest('./dist'))
 });
 
+
+gulp.task('fingerprint', function () {
+    // by default, gulp would pick `assetscss` as the base,
+    // so we need to set it explicitly:
+    return gulp.src(['./src/fonts/*', './src/images/*'], {base: './src'})
+        .pipe(rev())
+        .pipe(gulp.dest('./dist'))  // write rev'd assets to build dir
+        .pipe(rev.manifest())
+        .pipe(gulp.dest('./dist')); // write manifest to build dir
+});
+
+gulp.task('fingerprint-replace', function () {
+    var manifest = require('./dist/rev-manifest');
+
+    return gulp.src('./dist/style-guide-'+ pkg.version + '.min.css')
+        .pipe(fingerprint(manifest))
+        .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('icons:generate-fonts', function() {
     return gulp.src("./src/icons/")
@@ -69,6 +89,10 @@ gulp.task('icons:inline-fonts', function() {
 
 gulp.task('icons:cleanup', function(done) {
     del(['./src/sass/fonts/', './.fontcustom-manifest.json'], done);
+});
+
+gulp.task('clean:dist', function(done){
+    del(['./dist'], done);
 });
 
 gulp.task('icons', function(done) {
@@ -102,4 +126,8 @@ gulp.task('subjects', function(done) {
 gulp.task('watch', function(done) {
     livereload.listen();
     return gulp.watch(['./docs/sass/**/*.scss', './src/sass/**/*.scss'], ['sass:docs']);
+});
+
+gulp.task('production', function(done){
+    runSequence('clean:dist', 'sass:build', 'fingerprint', 'fingerprint-replace', done);
 });
