@@ -232,12 +232,20 @@ If you are trying to do it from scratch:
 1. Clone repo
 2. Run `./scripts/bootstrap.sh` in the root of the project
 3. Run `./scripts/server.sh`
-4. Open corresponding files in the `docs` directory in your browser:
+4. Open corresponding files in the `docs` directory in your browser (e.g. `http://dockerhost:8181/dev/docs/basics.html`):
   * `docs/basics.html` for basic components
   * `docs/components.html` for complex components
   * `docs/containers.html` for containers
 
 **Note**: All changes for the styleguide will be rebuilt automatically on every merge/rebase/checkout.
+
+
+#### See holes in containers
+
+You can hover with mouse over the container in style guide to see the holes (white dashed border around the component):
+
+![Highlighted holes](http://i.gyazo.com/0cc138b81eb12cc518352c2d9c787f0b.png)
+
 
 #### Rebuild fonts
 
@@ -249,17 +257,30 @@ This command will transform all `svg` files from `icons` directory in a woff fon
 
 #### Create/Recreate s3 distribution
 
+To be able to work with AWS you need to have AWS-related keys defined in your environment:
+
+ * `AWS_ACCESS_KEY` should be available as environment variable
+ * `AWS_SECRET_ACCESS_KEY` should be available as environment variable
+
+Those keys will be passed to docker container on every interaction with s3 or cloudfront.
+
 Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 distribution.
 
 **Note:** This should be done once when you setup the deployment pipeline of the project.
 *This step has already been applied for this repo.*
 
+#### Bump release version
 
-#### See holes in containers
+This project has semver versioning.
 
-You can hover with mouse over the container in style guide to see the holes (white dashed border around the component):
+To bump the version correctly you should merge PRs like that:
 
-![Highlighted holes](http://i.gyazo.com/0cc138b81eb12cc518352c2d9c787f0b.png)
+1. `rebase` your PR on master
+2. `merge` your PR
+3. bump version in master as a separate commit (with tag)
+
+To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
+`mversion patch -m` will patch package.json and create a corresponding commit + tag
 
 ## Contribution
 
