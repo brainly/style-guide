@@ -10,6 +10,7 @@ RUN gem install fontcustom
 RUN gem install s3_website
 
 RUN npm install gulp -g
+RUN npm install http-server -g
 
 RUN mkdir /style-guide
 

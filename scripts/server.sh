@@ -12,4 +12,21 @@ docker run -t --rm \
   -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
   brainly/style-guide node_modules/.bin/gulp build
 
-echo "Now you can open docs/basic.html file in your browser and see the styleguide"
+# python -m webbrowser http://dockerhost:8181/dev/docs/basics.html
+
+echo "You can now open http://your_docker_ip:8181/dev/docs in web browser"
+
+docker run -t --rm \
+  -p 8181:8000 \
+  --name brainly-style-guide \
+  -v $PROJECT_DIR/docs:/style-guide/docs \
+  -v $PROJECT_DIR/dist:/style-guide/dist \
+  -v $PROJECT_DIR/src:/style-guide/src \
+  -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
+  brainly/style-guide http-server ./dist -p 8000
+
+
+# this will be executed when user hit CTRL+C
+echo "Stopping and removing container..."
+docker stop brainly-style-guide
+docker rm brainly-style-guide
