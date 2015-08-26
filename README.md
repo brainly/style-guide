@@ -288,4 +288,3 @@ To contribute, please read [Contributing file](CONTRIBUTING.md)
 
 ## TODO
 1. Add note about supported browser
-1. Host on s3 (auto-update on commit) for easy preview
