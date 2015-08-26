@@ -19,8 +19,6 @@ docker run -t --rm \
   -p 8181:8000 \
   --name brainly-style-guide \
   -v $PROJECT_DIR/dist:/style-guide/dist \
-  -v $PROJECT_DIR/src:/style-guide/src \
-  -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
   brainly/style-guide http-server ./dist -p 8000
 
 
