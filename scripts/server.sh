@@ -27,6 +27,7 @@ docker run -t --rm \
 
 
 # this will be executed when user hit CTRL+C
-echo "Stopping and removing container..."
+echo
+echo "Please, bear with me while I am stopping and removing container..."
 docker stop brainly-style-guide
 docker rm brainly-style-guide
