@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # This script creates an initial setup for the project
 
