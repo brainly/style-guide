@@ -3,8 +3,11 @@ set -e
 
 ./scripts/cibuild
 
+PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
+
 docker run -t --rm \
-  -v $(pwd)/dist:/style-guide/dist \
+  -v $PROJECT_DIR/dist:/style-guide/dist \
+  -v $PROJECT_DIR/s3_website.yml:/style-guide/s3_website.yml \
   -e AWS_ACCESS_KEY=$AWS_ACCESS_KEY \
   -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
-  brainly/style-guide s3_website push
+  $IMAGE_ARTIFACT s3_website push
