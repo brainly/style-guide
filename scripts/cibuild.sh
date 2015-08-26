@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 GIT_SHORT_COMMIT=${GIT_COMMIT:0:7}
 export IMAGE_ARTIFACT=brainly/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
