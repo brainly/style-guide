@@ -12,7 +12,7 @@ index_document: basics.html
 # error_document: error.html
 
 max_age:
-    "css/*": 31536000 #infinite cache
+    "*": 31536000 #infinite cache
 #   "assets/*": 6000
 #   "*": 300
 
