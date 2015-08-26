@@ -171,7 +171,7 @@ gulp.task('watch:docs', function(done) {
     return gulp.watch([docsSassSources], ['sass:docs']);
 });
 
-gulp.task('watch:docs', function(done) {
+gulp.task('watch:sass', function(done) {
     var sassSources = path.join(SASS, '**', '*.scss');
     livereload.listen();
     return gulp.watch([sassSources], ['sass:build']);
