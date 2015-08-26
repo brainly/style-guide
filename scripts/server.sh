@@ -6,7 +6,6 @@
 PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 
 docker run -t --rm \
-  -v $PROJECT_DIR/docs:/style-guide/docs \
   -v $PROJECT_DIR/dist:/style-guide/dist \
   -v $PROJECT_DIR/src:/style-guide/src \
   -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
@@ -19,7 +18,6 @@ echo "You can now open http://your_docker_ip:8181/dev/docs in web browser"
 docker run -t --rm \
   -p 8181:8000 \
   --name brainly-style-guide \
-  -v $PROJECT_DIR/docs:/style-guide/docs \
   -v $PROJECT_DIR/dist:/style-guide/dist \
   -v $PROJECT_DIR/src:/style-guide/src \
   -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
