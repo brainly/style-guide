@@ -1,15 +1,8 @@
 {
   "name": "style-guide",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "postcheckout": "gulp sass:docs",
-    "postmerge": "gulp sass:docs",
-    "postrebase": "gulp sass:docs"
-  },
-  "author": "",
-  "license": "UNLICENSED",
+  "description": "Brainly Front-End Style Guide",
+  "author": "Brainly",
   "private": true,
   "dependencies": {},
   "devDependencies": {
@@ -27,7 +20,6 @@
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-svg-sprite": "^1.2.7",
-    "husky": "^0.9.1",
     "run-sequence": "^1.1.1",
     "yargs": "^3.21.0"
   }
