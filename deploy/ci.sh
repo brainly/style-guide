@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-./scripts/cibuild
+./scripts/cibuild.sh
 
 PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
 
