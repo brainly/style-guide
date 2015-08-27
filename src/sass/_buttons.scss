@@ -305,6 +305,8 @@ $buttonRoundLabelColor: $black;
   height: 40px;
   font-size: 0;
   line-height: 0;
+  overflow: visible;
+  text-align: center;
 
   &:before {
     color: $iconAsButtonColor;
