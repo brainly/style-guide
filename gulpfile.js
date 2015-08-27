@@ -156,7 +156,7 @@ gulp.task('subjects', function(done) {
                 },
                 prefix: '.mint-subject-icon--',
                 bust: false,
-                sprite: '../images/subjects-icons.svg',
+                sprite: '../../images/subjects-icons.svg',
                 dimensions: true
             }
         }
@@ -166,7 +166,7 @@ gulp.task('subjects', function(done) {
 
     return gulp.src('./src/images/subjects/*.svg')
         .pipe(svgSprite(config))
-        .pipe(replace('url(../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
+        .pipe(replace('url(../../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
         .pipe(gulp.dest(subjectIconsComponentPath))
 });
 
