@@ -1,0 +1,29 @@
+$colorsListMaxWidth: 4*$colorBoxDimension + 10px;
+
+.colors-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: stretch;
+  align-items: flex-start;
+  height: $colorBoxDimension;
+
+  &--2rows {
+    height: 2 * $colorBoxDimension;
+  }
+
+  &--3rows {
+    height: 3 * $colorBoxDimension;
+  }
+
+
+
+}
+
+.colors-list--narrow {
+
+}

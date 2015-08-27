@@ -1,0 +1,7 @@
+# Site settings
+title: Brainly Style Guide
+description: Brainly Front-End Style Guide Documentation
+baseurl: "."
+
+# Build settings
+markdown: kramdown

@@ -1,0 +1,65 @@
+.docs-block {
+  margin: 50px 0 0;
+  display: flex;
+  &__header {
+    color: $grayPrimary;
+    display: block;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+  }
+  &__info {
+    flex: 0 1 auto;
+    box-sizing: border-box;
+    padding: 0 20px 0 0;
+    width: 230px;
+  }
+  &__content {
+    flex: 1 1 auto;
+    &--logo-preview {
+      font-size: 150px;
+    }
+    &--centered {
+      display: flex;
+      align-items: center
+    }
+    &--align-top {
+      & > * {
+        vertical-align: top;
+      }
+    }
+    &:hover {
+      .docs-highlight-placeholder {
+        outline: 2px dashed white;
+        box-shadow: black 0 0 10px 0;
+      }
+    }
+  }
+  &__contrast-box {
+    background-color: $grayPrimary;
+    padding: 10px;
+    display: inline-block;
+  }
+  &__content-box {
+    padding: 10px;
+    display: inline-block;
+  }
+
+}
+
+.mint-bubble,
+.mint-promo-box__content,
+.mint-header__left,
+.mint-header__middle,
+.mint-header__right,
+.mint-overlayed-box,
+.mint-overlayed-box__overlay,
+.mint-footer__line,
+.mint-content-box__header,
+.mint-content-box__footer,
+.mint-content-box__content,
+.mint-toplayer__heading,
+.mint-toplayer__content,
+.mint-toplayer__actions {
+  @extend .docs-highlight-placeholder;
+}

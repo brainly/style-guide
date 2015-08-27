@@ -32,19 +32,6 @@ var DOCS = path.join(SRC, 'docs');
 var SASS = path.join(SRC, 'sass');
 var COMPONENTS = path.join(SRC, 'components');
 
-gulp.task('sass:docs', function () {
-    return gulp.src(path.join(DOCS, 'sass', '**', '*.scss'))
-        .pipe(gulpif(DEV_ENV, sourcemaps.init()))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie 8', 'ie 9'],
-            cascade: true
-        }))
-        .pipe(gulpif(DEV_ENV, sourcemaps.write()))
-        .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs', 'css')))
-        .pipe(gulpif(DEV_ENV, livereload()));
-});
-
 gulp.task('sass:build', function () {
     var sassMain = path.join(SRC, 'sass', 'main.scss');
 
@@ -57,13 +44,6 @@ gulp.task('sass:build', function () {
         }))
         .pipe(rename('style-guide.css'))
         .pipe(gulp.dest(VERSIONED_DIST))
-});
-
-gulp.task('docs:copy', function(){
-    var allDocs = path.join(DOCS, '/**');
-
-    return gulp.src(allDocs, {base: SRC})
-        .pipe(gulp.dest(VERSIONED_DIST));
 });
 
 gulp.task('fingerprint', function () {
@@ -170,10 +150,19 @@ gulp.task('subjects', function(done) {
         .pipe(gulp.dest(subjectIconsComponentPath))
 });
 
+gulp.task('jekyll:docs', function (gulpCallBack) {
+    var spawn = require('child_process').spawn;
+    var docsOutputPath = path.join(VERSIONED_DIST, 'docs');
+    var jekyll = spawn('jekyll', ['build', '--config', 'src/docs/_config.yml', '--source', 'src/docs', '-d', docsOutputPath], {stdio: 'inherit'});
+    jekyll.on('exit', function (code) {
+        gulpCallBack(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
+    });
+});
+
 gulp.task('watch:docs', function(done) {
-    var docsSassSources = path.join(DOCS, 'sass', '**', '*.scss');
+    var docsSources = path.join(DOCS, '**', '*.{scss,html,yml}');
     livereload.listen();
-    return gulp.watch([docsSassSources], ['sass:docs']);
+    return gulp.watch([docsSources], ['jekyll:docs']);
 });
 
 gulp.task('watch:sass', function(done) {
@@ -185,5 +174,5 @@ gulp.task('watch:sass', function(done) {
 });
 
 gulp.task('build', function(done){
-    runSequence('clean:dist', 'sass:build', 'docs:copy', 'sass:docs', 'fingerprint', 'fingerprint-replace', done);
+    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', done);
 });

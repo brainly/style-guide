@@ -8,6 +8,7 @@ RUN wget http://people.mozilla.com/~jkew/woff/woff-code-latest.zip
 RUN unzip woff-code-latest.zip -d sfnt2woff && cd sfnt2woff && make && mv sfnt2woff /usr/local/bin/
 RUN gem install fontcustom
 RUN gem install s3_website
+RUN gem install jekyll
 
 RUN npm install gulp -g
 RUN npm install http-server -g
