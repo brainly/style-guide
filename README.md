@@ -276,30 +276,34 @@ This project has semver versioning.
 To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
 `mversion patch -m` will patch package.json and create a corresponding commit + tag
 
+**Note:** if there is no changes to resulting `style-guide.css`, then use `mversion pr -m`.
+  It will create a `prerelease` version instead of patch.
+
 To bump the version correctly you should merge PRs like that:
 
 1. Get the freshest master
-```
-git checkout master
-git pull
-```
+  ```
+  git checkout master
+  git pull
+  ```
 1. `rebase` your PR on master
-```
-git rebase master my-branch
-```
+  ```
+  git rebase master my-branch
+  ```
 1. `merge` your PR
-```
-git merge my-branch
-```
+  ```
+  git merge my-branch
+  ```
 1. bump version in master as a separate commit (with tag)
-```
-mversion patch -m
-```
+  ```
+  mversion patch -m
+  ```
 1. `push` changes to upstream
-```
-git push
-git push --tags
-```
+  ```
+  git push
+  git push --tags
+  ```
+
 
 ## Contribution
 
