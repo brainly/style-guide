@@ -68,7 +68,7 @@ $avatarBackgroundColor: $white;
     border-width: $avatarSmallBorderWidth;
 
     &:before {
-      left: -$avatarMediumBorderWidth;
+      left: -$avatarSmallBorderWidth;
     }
   }
 
