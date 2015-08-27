@@ -273,14 +273,29 @@ Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 dis
 
 This project has semver versioning.
 
-To bump the version correctly you should merge PRs like that:
-
-1. `rebase` your PR on master
-2. `merge` your PR
-3. bump version in master as a separate commit (with tag)
-
 To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
 `mversion patch -m` will patch package.json and create a corresponding commit + tag
+
+To bump the version correctly you should merge PRs like that:
+
+1. `rebase` your PR on master (while you are on your branch)
+```
+git rebase master
+```
+1. `merge` your PR
+```
+git checkout master
+git merge my-branch
+```
+1. bump version in master as a separate commit (with tag)
+```
+mversion patch -m
+```
+1. `push` changes to upstream
+```
+git push
+git push --tags
+```
 
 ## Contribution
 
