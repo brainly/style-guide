@@ -162,7 +162,9 @@ gulp.task('jekyll:docs', function (gulpCallBack) {
 gulp.task('watch:docs', function(done) {
     var docsSources = path.join(DOCS, '**', '*.{scss,html,yml}');
     livereload.listen();
-    return gulp.watch([docsSources], ['jekyll:docs', 'fingerprint-replace']);
+    return gulp.watch([docsSources], function() {
+        runSequence('jekyll:docs', 'fingerprint-replace');
+    });
 });
 
 gulp.task('watch:sass', function(done) {
