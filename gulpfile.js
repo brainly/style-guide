@@ -30,6 +30,7 @@ var DIST = path.join(__dirname, 'dist');
 var VERSIONED_DIST = path.join(DIST, VERSION);
 var DOCS = path.join(SRC, 'docs');
 var SASS = path.join(SRC, 'sass');
+var COMPONENTS = path.join(SRC, 'components');
 
 gulp.task('sass:docs', function () {
     return gulp.src(path.join(DOCS, 'sass', '**', '*.scss'))
@@ -95,7 +96,7 @@ gulp.task('fingerprint-replace', function () {
 
 gulp.task('icons:generate-fonts', function() {
     var icons = path.join(SRC, 'icons');
-    var fonts = path.join(SASS, 'fonts');
+    var iconsComponentPath = path.join(COMPONENTS, 'icons', 'font');
 
     return gulp.src(icons)
         .pipe(fontcustom({
@@ -103,12 +104,13 @@ gulp.task('icons:generate-fonts', function() {
             templates: 'scss',
             'css-selector': '.mint-icon-{{glyph}}'
         }))
-        .pipe(gulp.dest(fonts));
+        .pipe(gulp.dest(iconsComponentPath));
 });
 
 gulp.task('icons:create-data-file', function() {
-    var iconsScss = path.join(SASS, 'fonts', '_brainly-icons.scss');
-    var iconsDataScss = path.join(SASS, '_icons-data.scss');
+    var iconsComponentPath = path.join(COMPONENTS, 'icons');
+    var iconsScss = path.join(iconsComponentPath, 'font', '_brainly-icons.scss');
+    var iconsDataScss = path.join(iconsComponentPath, '_icons-data.scss');
 
     var fontIconsContents = fs.readFileSync(iconsScss),
         splitByHeader = fontIconsContents.toString().split('[data-icon]:before,'),
@@ -118,19 +120,20 @@ gulp.task('icons:create-data-file', function() {
 });
 
 gulp.task('icons:inline-fonts', function() {
-    var iconsEmbedTemplate = path.join(SASS, '_icons-embed-template.scss');
+    var iconsComponentPath = path.join(COMPONENTS, 'icons');
+    var iconsEmbedTemplate = path.join(iconsComponentPath, '_icons-embed-template.scss');
 
     return gulp.src(iconsEmbedTemplate)
         .pipe(base64())
         .pipe(rename('_icons-embed.scss'))
-        .pipe(gulp.dest(SASS));
+        .pipe(gulp.dest(iconsComponentPath));
 });
 
 gulp.task('icons:cleanup', function(done) {
-    var fonts = path.join(SASS, 'fonts');
+    var iconFont = path.join(COMPONENTS, 'icons', 'font');
     var fontManifest = '.fontcustom-manifest.json';
 
-    del([fonts, fontManifest], done);
+    del([iconFont, fontManifest], done);
 });
 
 gulp.task('clean:dist', function(done){
@@ -148,7 +151,7 @@ gulp.task('subjects', function(done) {
                 dest: '',
                 render: {
                     scss: {
-                        dest: '_subjects-icons.scss'
+                        dest: '_subjects-icons-embed.scss'
                     }
                 },
                 prefix: '.mint-subject-icon--',
@@ -159,10 +162,12 @@ gulp.task('subjects', function(done) {
         }
     };
 
+    var subjectIconsComponentPath = path.join(COMPONENTS, 'subject-icons');
+
     return gulp.src('./src/images/subjects/*.svg')
         .pipe(svgSprite(config))
         .pipe(replace('url(../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
-        .pipe(gulp.dest(SASS))
+        .pipe(gulp.dest(subjectIconsComponentPath))
 });
 
 gulp.task('watch:docs', function(done) {
@@ -172,9 +177,11 @@ gulp.task('watch:docs', function(done) {
 });
 
 gulp.task('watch:sass', function(done) {
-    var sassSources = path.join(SASS, '**', '*.scss');
+    var mainSassSources = path.join(SASS, '**', '*.scss');
+    var componentsSassSources = path.join(COMPONENTS, '**', '*.scss');
+
     livereload.listen();
-    return gulp.watch([sassSources], ['sass:build']);
+    return gulp.watch([mainSassSources, componentsSassSources], ['sass:build']);
 });
 
 gulp.task('build', function(done){
