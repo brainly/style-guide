@@ -131,7 +131,7 @@ gulp.task('subjects', function(done) {
                 dest: '',
                 render: {
                     scss: {
-                        dest: '_subjects-icons-embed.scss'
+                        dest: '_subject-icons-embed.scss'
                     }
                 },
                 prefix: '.mint-subject-icon--',
@@ -162,7 +162,7 @@ gulp.task('jekyll:docs', function (gulpCallBack) {
 gulp.task('watch:docs', function(done) {
     var docsSources = path.join(DOCS, '**', '*.{scss,html,yml}');
     livereload.listen();
-    return gulp.watch([docsSources], ['jekyll:docs']);
+    return gulp.watch([docsSources], ['jekyll:docs', 'fingerprint-replace']);
 });
 
 gulp.task('watch:sass', function(done) {

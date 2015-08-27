@@ -1,0 +1,14 @@
+<article>
+    <h2 class="article-header">Overlay</h2>
+    <section class="docs-block">
+        <aside class="docs-block__info">
+            <h3 class="docs-block__header">Default</h3>
+        </aside>
+        <div class="docs-block__content docs-block__content--centered">
+            {% capture iframe_content %}
+                {% include components/overlay/example.html %}
+            {% endcapture %}
+            <iframe width="600" height="400" srcdoc='{{ iframe_content | escape }}'></iframe>
+        </div>
+    </section>
+</article>
