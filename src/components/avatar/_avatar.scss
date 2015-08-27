@@ -1,12 +1,13 @@
 $avatarDefaultBackgroundColor: $grayPrimary;
 $avatarDefaultPersonColor: $graySecondary;
-$avatarSmallSize: 28px;
-$avatarMediumSize: 34px;
-$avatarBigSize: 40px;
+$avatarSmallSize: 24px;
+$avatarMediumSize: 32px;
+$avatarBigSize: 48px;
 $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
 $avatarBorderColor: $white;
+$avatarBackgroundColor: $white;
 
 .mint-avatar {
   @include component;
@@ -14,9 +15,8 @@ $avatarBorderColor: $white;
 
   width: $avatarMediumSize;
   height: $avatarMediumSize;
-  border-radius: $avatarMediumSize/2;
+  border-radius: 50%;
   background: $avatarDefaultBackgroundColor;
-  border: solid $avatarBorderColor $avatarMediumBorderWidth;
   vertical-align: inherit;
 
   &__image {
@@ -24,36 +24,60 @@ $avatarBorderColor: $white;
     top: 0;
     left: 0;
     width: 100%;
+    background-color: $avatarBackgroundColor;
   }
 
   &:before {
     position: relative;
     top: 4px - $avatarMediumBorderWidth;
     color: $avatarDefaultPersonColor;
-    font-size: $avatarMediumSize - $avatarMediumBorderWidth*2;
+    font-size: $avatarMediumSize;
   }
 
   &--small {
     width: $avatarSmallSize;
     height: $avatarSmallSize;
-    border-radius: $avatarSmallSize/2;
     border-width: $avatarSmallBorderWidth;
 
     &:before {
       top: 3px - $avatarSmallBorderWidth;
-      font-size: $avatarSmallSize - $avatarSmallBorderWidth*2;
+      font-size: $avatarSmallSize;
     }
   }
 
   &--big {
     width: $avatarBigSize;
     height: $avatarBigSize;
-    border-radius: $avatarBigSize/2;
-    border-width: 2px;
+    border-width: $avatarBigBorderWidth;
 
     &:before {
       top: 5px - $avatarBigBorderWidth;
-      font-size: $avatarBigSize - $avatarBigBorderWidth*2;
+      font-size: $avatarBigSize;
+    }
+  }
+
+  &--with-border {
+    border: solid $avatarBorderColor $avatarMediumBorderWidth;
+
+    &:before {
+      left: -$avatarMediumBorderWidth;
+    }
+  }
+
+  &--small-with-border {
+    @extend .mint-avatar--with-border;
+
+    &:before {
+      left: -$avatarMediumBorderWidth;
+    }
+  }
+
+  &--big-with-border {
+    @extend .mint-avatar--with-border;
+    border-width: $avatarBigBorderWidth;
+
+    &:before {
+      left: -$avatarBigBorderWidth;
     }
   }
 }
