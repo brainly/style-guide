@@ -278,13 +278,17 @@ To simplify version bumping you can use [mversion](https://www.npmjs.com/package
 
 To bump the version correctly you should merge PRs like that:
 
-1. `rebase` your PR on master (while you are on your branch)
+1. Get the freshest master
 ```
-git rebase master
+git checkout master
+git pull
+```
+1. `rebase` your PR on master
+```
+git rebase master my-branch
 ```
 1. `merge` your PR
 ```
-git checkout master
 git merge my-branch
 ```
 1. bump version in master as a separate commit (with tag)
