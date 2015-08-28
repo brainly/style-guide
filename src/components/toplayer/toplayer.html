@@ -210,10 +210,7 @@
             <h3 class="docs-block__header">Example usage (small screen)</h3>
         </aside>
         <div class="docs-block__content">
-            {% capture iframe_content %}
-                {% include components/toplayer/notlogged_toplayer.html %}
-            {% endcapture %}
-            <iframe height="568" width="320" srcdoc='{{ iframe_content | escape }}'></iframe>
+            <iframe height="568" width="320" src='components/toplayer/notlogged_toplayer.html'></iframe>
         </div>
     </section>
 
@@ -222,10 +219,7 @@
             <h3 class="docs-block__header">Example usage (modal)</h3>
         </aside>
         <div class="docs-block__content">
-            {% capture iframe_content %}
-                {% include components/toplayer/default_toplayer.html %}
-            {% endcapture %}
-            <iframe height="300" width="800" srcdoc='{{ iframe_content | escape }}'></iframe>
+            <iframe height="300" width="800" src='components/toplayer/default_toplayer.html'></iframe>
         </div>
     </section>
 
@@ -234,11 +228,7 @@
             <h3 class="docs-block__header">Example usage (centered-modal)</h3>
         </aside>
         <div class="docs-block__content">
-            {% capture iframe_content %}
-                {% include components/toplayer/centered_toplayer.html %}
-            {% endcapture %}
-            <iframe height="300" width="800" srcdoc='{{ iframe_content | escape }}'></iframe>
+            <iframe height="300" width="800" src='components/toplayer/centered_toplayer.html'></iframe>
         </div>
     </section>
-
 </article>

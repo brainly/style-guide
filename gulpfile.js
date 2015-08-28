@@ -159,11 +159,19 @@ gulp.task('jekyll:docs', function (gulpCallBack) {
     });
 });
 
+gulp.task('docs:copy-components', function(){
+    var componentsHtml = path.join(COMPONENTS, '/**/*.html');
+    var docsOutputPath = path.join(VERSIONED_DIST, 'docs');
+
+    return gulp.src(componentsHtml, {base: SRC})
+        .pipe(gulp.dest(docsOutputPath));
+});
+
 gulp.task('watch:docs', function(done) {
     var docsSources = path.join(DOCS, '**', '*.{scss,html,yml}');
     livereload.listen();
     return gulp.watch([docsSources], function() {
-        runSequence('jekyll:docs', 'fingerprint-replace');
+        runSequence('jekyll:docs', 'fingerprint-replace', 'docs:copy-components');
     });
 });
 
@@ -176,5 +184,5 @@ gulp.task('watch:sass', function(done) {
 });
 
 gulp.task('build', function(done){
-    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', done);
+    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', done);
 });

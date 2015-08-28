@@ -5,10 +5,7 @@
             <h3 class="docs-block__header">Default</h3>
         </aside>
         <div class="docs-block__content docs-block__content--centered">
-            {% capture iframe_content %}
-                {% include components/overlay/example.html %}
-            {% endcapture %}
-            <iframe width="600" height="400" srcdoc='{{ iframe_content | escape }}'></iframe>
+            <iframe width="600" height="400" src='components/overlay/example.html'></iframe>
         </div>
     </section>
 </article>
