@@ -265,6 +265,8 @@ $textareaScaleFactor: 2/3;
   resize: none;
   height: 100px;
   overflow-y: auto;
+  appearance: none;
+
   &:focus {
     border-color: $textareaFocusBorderColor;
     outline: 0;
