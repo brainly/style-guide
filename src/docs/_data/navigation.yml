@@ -1,0 +1,67 @@
+- name: Basics
+  location: basics
+  elements:
+    - name: Colors
+      location: colors/colors
+    - name: Text
+      location: text/text
+    - name: Icons
+      location: icons/icons
+    - name: Subject Icons
+      location: subject-icons/subject-icons
+    - name: Logo
+      location: logo/icon-logo
+
+- name: Components
+  location: components
+  elements:
+    - name: Text Bit
+      location: text/text-bit
+    - name: Lists
+      location: list/list
+    - name: Badges
+      location: badges/badges
+    - name: Stickers
+      location: stickers/stickers
+    - name: Avatars
+      location: avatar/avatar
+    - name: Labels
+      location: labels/labels
+    - name: Rating
+      location: rating/rating
+    - name: Buttons
+      location: buttons/buttons
+    - name: Form Elements
+      location: form-elements/form-elements
+    - name: Search
+      location: search/search
+    - name: Logo
+      location: logo/logo
+    - name: Home Button
+      location: home-button/home-button
+    - name: Subjects
+      location: subject-icons/subjects
+    - name: Tabs
+      location: tabs/tabs
+    - name: Separators
+      location: separators/separators
+    - name: Overlay
+      location: overlay/overlay
+
+- name: Containers
+  location: containers
+  elements:
+    - name: Bubble
+      location: bubble/bubble
+    - name: Overlayed Box
+      location: overlayed-box/overlayed-box
+    - name: Promo Box
+      location: promo-box/promo-box
+    - name: Header
+      location: header/header
+    - name: Footer
+      location: footer/footer
+    - name: Content Box
+      location: content-box/content-box
+    - name: Toplayer
+      location: toplayer/toplayer

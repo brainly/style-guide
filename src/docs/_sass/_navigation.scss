@@ -1,0 +1,72 @@
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $white;
+  padding: 5px;
+  z-index: 100;
+  box-shadow: $grayPrimary 0 0 10px -2px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: center center url(../img/favicon-hd.png) no-repeat;
+    background-size: contain;
+  }
+
+  ul {
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: $white;
+      border: solid $graySecondaryLight 1px;
+      padding: 0;
+
+      li {
+        float: none;
+        width: 200px;
+      }
+
+      a {
+        line-height: 120%;
+        padding: 10px 15px;
+      }
+    }
+
+    li {
+      position: relative;
+      float: left;
+      margin: 0;
+      padding: 0;
+
+      &:hover {
+        background: $graySecondary;
+
+        > ul {
+          display: block;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      color: $black;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 32px;
+      padding: 0 15px;
+    }
+  }
+}

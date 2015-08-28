@@ -6,12 +6,20 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
     <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" sizes="192x192" href="img/favicon-hd.png">
+    <meta name="theme-color" content="#6ED6A0">
+
     <link rel="stylesheet" href="../style-guide.css">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
 </head>
 <body>
+{% include navigation.html %}
 <div class="data-container">
-    {{ content }}
+    {% assign pageConfig=site.data.navigation[page.navigationIdx] %}
+    {% include page.html %}
 </div>
 </body>
 

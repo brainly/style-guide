@@ -8,12 +8,18 @@
 @import "../_sass/colors-list";
 @import "../_sass/color-box";
 @import "../_sass/docs-block";
+@import "../_sass/navigation";
 
 html, body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin-top: 50px; // space for the top navigation
 }
 
 .data-container {
@@ -35,6 +41,23 @@ html, body {
   padding: 0 0 60px;
   margin: 15px 0;
   border-bottom: 1px solid $grayPrimary;
+
+  &:hover {
+    .permalink {
+      display: inline-block;
+    }
+  }
+
+  .permalink {
+    display: none;
+    color: $grayPrimary;
+    text-decoration: none;
+    margin-left: 10px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 article {

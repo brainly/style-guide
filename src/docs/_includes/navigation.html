@@ -1,0 +1,15 @@
+<nav class="main-menu">
+    <ul>
+    {% for page in site.data.navigation %}
+        {% assign pageUrl = page.name | slugify | append:'.html' %}
+        <li>
+            <a href="{{ pageUrl }}">{{ page.name }}</a></h2>
+            <ul>
+            {% for element in page.elements %}
+                <li><a href="{{ pageUrl }}#{{ element.name | slugify }}">{{ element.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
