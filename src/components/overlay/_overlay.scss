@@ -6,4 +6,9 @@
   top: 0;
   left: 0;
   z-index: $overlayZIndex;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }

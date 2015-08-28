@@ -2,6 +2,8 @@ $toplayerHeaderDominantColor: #65A6A8;
 $toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
 $toplayerShadow: $defaultBottomShadow;
+$toplayerMarginTop: 65px;
+$toplayerMarginBottom: 30px;
 
 .mint-toplayer {
   @include component;
@@ -53,26 +55,11 @@ $toplayerShadow: $defaultBottomShadow;
 
   &--modal {
     z-index: $toplayerZIndex;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
+    position: relative;
+    margin-bottom: $toplayerMarginBottom;
 
     @media (min-width: $breakpointTablet) {
-      top: 10%;
-    }
-  }
-
-  &--centered-modal {
-    z-index: $toplayerZIndex;
-    position: fixed;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-
-    @media (min-width: $breakpointTablet) {
-      top: 50%;
-      transform: translate(-50%, -50%);
+      margin-top: $toplayerMarginTop;
     }
   }
 
