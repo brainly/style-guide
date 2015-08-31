@@ -47,7 +47,7 @@
         z-index: 1;
         content: '';
         background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) repeat-y;
-        background-size: 100% $baseline;
+        background-size: 100% 1rem;
         height: 100%;
         width: 100%;
         position: absolute;
@@ -69,7 +69,6 @@
     padding: $baseline;
     display: inline-block;
   }
-
 }
 
 .mint-bubble,
