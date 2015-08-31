@@ -2,7 +2,7 @@ $homeButtonMobileHeight: 44px;
 $homeButtonDefaultHeight: 60px;
 $homeButtonDefaultWidth: 134px;
 
-.home-button {
+.mint-home-button {
   @include component;
   background-image: url($mintImagesPath + 'logo-mobile.svg');
   background-size: $homeButtonMobileHeight $homeButtonMobileHeight;
