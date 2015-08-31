@@ -44,14 +44,13 @@ $textareaFontFamily: $fontFamilyPrimary;
 $textareaLineHeight: 19px;
 $textareaTextColor: $black;
 $textareaPadding: 11px;
+$textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: 12px;
 $textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
-$textareaScaleFactor: 2/3;
-
 
 .mint-select {
   @include component;
@@ -295,7 +294,7 @@ $textareaScaleFactor: 2/3;
   }
   &--small {
     height: 36px;
-    padding: $textareaPadding*$textareaScaleFactor $textareaPadding;
+    padding: $textareaSmallPadding $textareaPadding;
   }
   &--big {
     height: 178px;
