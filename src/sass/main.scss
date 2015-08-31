@@ -6,6 +6,7 @@ $mintFontsPath: 'fonts/' !default;
 @import "helpers";
 @import "fonts";
 @import "basics";
+@import "vendors/normalize";
 @import "../components/icons/icons";
 @import "../components/subject-icons/subject-icons";
 @import "../components/logo/logo";
