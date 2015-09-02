@@ -237,6 +237,23 @@ If you are trying to do it from scratch:
   * `docs/components.html` for complex components
   * `docs/containers.html` for containers
 
+### Create a new component
+1. Create a new folder in `/src/components`
+2. Add sass file
+  * use the following template
+  ```
+    // your components variables
+
+    $include-html-classes: true !default;
+
+    @if ($include-html-classes) {
+        // your code
+    }
+
+  ```
+3. Add html fle with example of usage
+4. Include in documentation (see readme in `/src/docs` folder)
+
 **Note**: All changes for the styleguide will be rebuilt automatically on every merge/rebase/checkout.
 
 
