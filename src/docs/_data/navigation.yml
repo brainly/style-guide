@@ -5,6 +5,8 @@
       location: colors/colors
     - name: Text
       location: text/text
+    - name: Text Bit
+      location: text/text-bit
     - name: Icons
       location: icons/icons
     - name: Subject Icons
@@ -15,8 +17,6 @@
 - name: Components
   location: components
   elements:
-    - name: Text Bit
-      location: text/text-bit
     - name: Lists
       location: list/list
     - name: Badges
