@@ -244,7 +244,7 @@ If you are trying to do it from scratch:
   ```
     // your components variables
 
-    $include-html-classes: true !default;
+    $include-html: false !default;
 
     @if ($include-html-classes) {
         // your code
