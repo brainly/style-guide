@@ -53,6 +53,8 @@
   elements:
     - name: Bubble
       location: bubble/bubble
+    - name: Box
+      location: box/box
     - name: Overlayed Box
       location: overlayed-box/overlayed-box
     - name: Promo Box

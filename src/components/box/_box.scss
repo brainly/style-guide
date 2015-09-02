@@ -1,0 +1,14 @@
+$boxBorderColor: $graySecondary;
+
+.mint-box {
+  @include component;
+
+  border-radius: 22px;
+  padding: $layoutDefaultPadding;
+  border: 2px solid $boxBorderColor;
+
+  &--full {
+    width: 100%;
+  }
+}
+
