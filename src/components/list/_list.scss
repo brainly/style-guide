@@ -12,7 +12,7 @@ $menuListBorderColor: $graySecondary;
 $listSmallFontFamily: $fontFamilySecondary;
 $listSmallIconColor: $graySecondary;
 
-$include-html-classes: true !default;
+$include-html: false !default;
 
 @mixin mint-list-basic-styles() {
   @include component;
@@ -22,7 +22,7 @@ $include-html-classes: true !default;
   list-style: none;
 }
 
-@if ($include-html-classes) {
+@if ($include-html) {
 
   .mint-list {
     @include mint-list-basic-styles();

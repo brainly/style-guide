@@ -2,7 +2,7 @@ $stickerSize: 18px;
 $stickerIconColor: $bluePrimary;
 $stickerOutlineColor: $white;
 
-$include-html-classes: true !default;
+$include-html: false !default;
 
 @mixin outline($color) {
   text-shadow:
@@ -35,7 +35,7 @@ $include-html-classes: true !default;
   }
 }
 
-@if ($include-html-classes) {
+@if ($include-html) {
 
   .mint-sticker {
     @include component;

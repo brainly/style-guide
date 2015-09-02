@@ -60,7 +60,7 @@ $buttonRoundLabelFontSize: 10px;
 $buttonRoundLabelBackground: $mintSecondaryLight;
 $buttonRoundLabelColor: $black;
 
-$include-html-classes: true !default;
+$include-html: false !default;
 
 @mixin mint-button-basic-styles() {
   @include component;
@@ -158,7 +158,7 @@ $include-html-classes: true !default;
   }
 }
 
-@if ($include-html-classes) {
+@if ($include-html) {
 
   // Primary buttons
   .mint-button-primary {
