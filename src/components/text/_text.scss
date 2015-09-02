@@ -11,6 +11,7 @@ $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
+$textBitDarkColor: $black;
 $textBitSmallFontSize: 44px;
 $textBitLogoSize: 84px;
 $textBitSmallLogoSize: 68px;
@@ -77,6 +78,9 @@ $include-html: false !default;
     }
     &--light {
       color: $textBitLightColor;
+    }
+    &--dark {
+      color: $textBitDarkColor;
     }
     &--warning {
       color: $textBitWarningColor;
