@@ -14,6 +14,9 @@ $include-html: false !default;
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: $base-font;
+    line-height: $baseline;
   }
 
 }
