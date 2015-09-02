@@ -8,48 +8,54 @@ $borderSize: 3px;
 $triangleSize: 12px;
 $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
 
-.mint-bubble {
-  @include component;
-  overflow: visible;
-  background: $bubbleBackground;
-  border: $borderSize solid $bubbleBorderColor;
-  border-radius: $bubbleBorderRadius;
-  padding: 15px;
-  box-shadow: $bubbleBoxShadow;
+$include-html-classes: true !default;
 
-  &:before {
-    content: "";
-    border: $triangleSize solid transparent;
-    border-bottom-color: $bubbleBorderColor;
-    position: absolute;
-    top: -(2 * $triangleSize);
-    right: 0;
-    left: 0;
-    width: 0;
-    margin: 0 auto;
-  }
+@if ($include-html-classes) {
 
-  &:after {
-    content: "";
-    border: $innerTriangleSize solid transparent;
-    border-bottom-color: $bubbleBackground;
-    position: absolute;
-    top: -(2 * $innerTriangleSize);
-    right: 0;
-    left: 0;
-    width: 0;
-    margin: 0 auto;
-  }
-
-  &--dark {
-    border-color: $bubbleBackgroundDark;
-    background: $bubbleBackgroundDark;
+  .mint-bubble {
+    @include component;
+    overflow: visible;
+    background: $bubbleBackground;
+    border: $borderSize solid $bubbleBorderColor;
+    border-radius: $bubbleBorderRadius;
+    padding: 15px;
+    box-shadow: $bubbleBoxShadow;
 
     &:before {
-      border-bottom-color: $bubbleBackgroundDark;
+      content: "";
+      border: $triangleSize solid transparent;
+      border-bottom-color: $bubbleBorderColor;
+      position: absolute;
+      top: -(2 * $triangleSize);
+      right: 0;
+      left: 0;
+      width: 0;
+      margin: 0 auto;
     }
+
     &:after {
-      border-bottom-color: $bubbleBackgroundDark;
+      content: "";
+      border: $innerTriangleSize solid transparent;
+      border-bottom-color: $bubbleBackground;
+      position: absolute;
+      top: -(2 * $innerTriangleSize);
+      right: 0;
+      left: 0;
+      width: 0;
+      margin: 0 auto;
+    }
+
+    &--dark {
+      border-color: $bubbleBackgroundDark;
+      background: $bubbleBackgroundDark;
+
+      &:before {
+        border-bottom-color: $bubbleBackgroundDark;
+      }
+      &:after {
+        border-bottom-color: $bubbleBackgroundDark;
+      }
     }
   }
+
 }

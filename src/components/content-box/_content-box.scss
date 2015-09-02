@@ -1,23 +1,29 @@
-.mint-content-box {
-  &__header {
-    vertical-align: middle;
-    margin-bottom: 3px;
-  }
+$include-html-classes: true !default;
 
-  &__content {
-    word-wrap: break-word;
-    margin-bottom: 12px;
-  }
+@if ($include-html-classes) {
 
-  &__footer {
-    vertical-align: middle;
-  }
+  .mint-content-box {
+    &__header {
+      vertical-align: middle;
+      margin-bottom: 3px;
+    }
 
-  &--spaced {
-    .mint-content-box__content, .mint-content-box__footer {
-      @media (min-width: $breakpointTablet) {
-        padding-left: 48px;
+    &__content {
+      word-wrap: break-word;
+      margin-bottom: 12px;
+    }
+
+    &__footer {
+      vertical-align: middle;
+    }
+
+    &--spaced {
+      .mint-content-box__content, .mint-content-box__footer {
+        @media (min-width: $breakpointTablet) {
+          padding-left: 48px;
+        }
       }
     }
   }
+
 }

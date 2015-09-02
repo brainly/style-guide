@@ -60,6 +60,8 @@ $buttonRoundLabelFontSize: 10px;
 $buttonRoundLabelBackground: $mintSecondaryLight;
 $buttonRoundLabelColor: $black;
 
+$include-html-classes: true !default;
+
 @mixin mint-button-basic-styles() {
   @include component;
   cursor: pointer;
@@ -156,209 +158,213 @@ $buttonRoundLabelColor: $black;
   }
 }
 
-// Primary buttons
-.mint-button-primary {
-  @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonPrimaryHeight);
-  @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
-  @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
-  @include hole;
+@if ($include-html-classes) {
 
-  border: 0;
-  font-size: $buttonPrimaryFontSize;
-  font-family: $buttonPrimaryFontFamily;
-  @include mint-button-primary-active($buttonPrimaryFontColor);
+  // Primary buttons
+  .mint-button-primary {
+    @include mint-button-basic-styles();
+    @include mint-button-basic-dimensions($buttonPrimaryHeight);
+    @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
+    @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+    @include hole;
 
-  &--full {
-    width: 100%;
-    text-align: center;
-  }
-}
+    border: 0;
+    font-size: $buttonPrimaryFontSize;
+    font-family: $buttonPrimaryFontFamily;
+    @include mint-button-primary-active($buttonPrimaryFontColor);
 
-.mint-button-primary--alt {
-  @include mint-button-primary-three-color-variant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
-}
-
-.mint-button-primary--dark {
-  @include mint-button-primary-three-color-variant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
-}
-
-.mint-button-primary--fb {
-  @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
-
-  .mint-button-primary__hole {
-    @extend .mint-icon-fb;
-
-    &:before {
-      font-size: 20px;
-      margin-right: $layoutDefaultPadding / 2;
+    &--full {
+      width: 100%;
+      text-align: center;
     }
   }
-}
 
-.mint-button-primary-round {
-  @extend .mint-icon-plus;
-  @include clearfix();
-  display: inline-block;
-  &:before {
+  .mint-button-primary--alt {
+    @include mint-button-primary-three-color-variant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+  }
+
+  .mint-button-primary--dark {
+    @include mint-button-primary-three-color-variant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+  }
+
+  .mint-button-primary--fb {
+    @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+
+    .mint-button-primary__hole {
+      @extend .mint-icon-fb;
+
+      &:before {
+        font-size: 20px;
+        margin-right: $layoutDefaultPadding / 2;
+      }
+    }
+  }
+
+  .mint-button-primary-round {
+    @extend .mint-icon-plus;
+    @include clearfix();
     display: inline-block;
-    @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient);
-    width: $buttonRoundAddSize;
-    height: $buttonRoundAddSize;
-    border-radius: 50%;
-    line-height: $buttonRoundAddSize;
-    text-align: center;
-    color: $buttonRoundAddColor;
-    font-size: $buttonRoundAddFontSize;
-    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.3);
+    &:before {
+      display: inline-block;
+      @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient);
+      width: $buttonRoundAddSize;
+      height: $buttonRoundAddSize;
+      border-radius: 50%;
+      line-height: $buttonRoundAddSize;
+      text-align: center;
+      color: $buttonRoundAddColor;
+      font-size: $buttonRoundAddFontSize;
+      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+    &__label {
+      float: left;
+      font-family: $buttonRoundLabelFontFamily;
+      font-size: $buttonRoundLabelFontSize;
+      border-radius: 4px;
+      line-height: 12px;
+      background: $buttonRoundLabelBackground;
+      color: $buttonRoundLabelColor;
+      text-transform: uppercase;
+      padding: 3px 5px;
+      margin: 16px 10px 0 0;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    }
   }
-  &__label {
-    float: left;
-    font-family: $buttonRoundLabelFontFamily;
-    font-size: $buttonRoundLabelFontSize;
-    border-radius: 4px;
-    line-height: 12px;
-    background: $buttonRoundLabelBackground;
-    color: $buttonRoundLabelColor;
-    text-transform: uppercase;
-    padding: 3px 5px;
-    margin: 16px 10px 0 0;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+
+  // Secondary buttons
+  .mint-button-secondary {
+    $borderSize: 2px;
+    @include mint-button-basic-styles();
+    @include mint-button-basic-dimensions($buttonSecondaryHeight);
+    @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+    @include hole;
+
+    border-width: $borderSize;
+    border-style: solid;
+    background-color: transparent;
+    font-size: $buttonSecondaryFontSize;
+    font-family: $buttonSecondaryFontFamily;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    &:hover, &:focus {
+      outline: none;
+    }
+
+    &--inverse {
+      @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+      @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    }
+
+    &--full {
+      width: 100%;
+      text-align: center;
+    }
   }
-}
 
-// Secondary buttons
-.mint-button-secondary {
-  $borderSize: 2px;
-  @include mint-button-basic-styles();
-  @include mint-button-basic-dimensions($buttonSecondaryHeight);
-  @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
-  @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-  @include hole;
+  .mint-button-secondary--alt {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+  }
 
-  border-width: $borderSize;
-  border-style: solid;
-  background-color: transparent;
-  font-size: $buttonSecondaryFontSize;
-  font-family: $buttonSecondaryFontFamily;
-  transition: background-color 0.3s ease-out, color 0.3s ease-out;
-  &:hover, &:focus {
+  .mint-button-secondary--dark {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+  }
+
+  .mint-button-secondary--peach {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+  }
+
+  .mint-button-secondary--gray {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+  }
+
+  .mint-button-secondary--light {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+  }
+
+  .mint-button-secondary--action {
+    @include mint-button-secondary-three-color-variant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
+  }
+
+  .mint-button-secondary--light-blue {
+    @include mint-button-secondary-two-color-variant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+  }
+
+  .mint-button-secondary--with-icon {
+    @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
+    @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
+  }
+
+  .mint-button-secondary--small {
+    @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
+  }
+
+  .mint-icon-as-button {
+    @include component;
+    background: none;
+    border: none;
     outline: none;
-  }
-
-  &--inverse {
-    @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-    @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
-  }
-
-  &--full {
-    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    font-size: 0;
+    line-height: 0;
+    overflow: visible;
     text-align: center;
-  }
-}
-
-.mint-button-secondary--alt {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
-}
-
-.mint-button-secondary--dark {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
-}
-
-.mint-button-secondary--peach {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
-}
-
-.mint-button-secondary--gray {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
-}
-
-.mint-button-secondary--light {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
-}
-
-.mint-button-secondary--action {
-  @include mint-button-secondary-three-color-variant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
-}
-
-.mint-button-secondary--light-blue {
-  @include mint-button-secondary-two-color-variant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
-}
-
-.mint-button-secondary--with-icon {
-  @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-  @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
-}
-
-.mint-button-secondary--small {
-  @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
-}
-
-.mint-icon-as-button {
-  @include component;
-  background: none;
-  border: none;
-  outline: none;
-  padding: 0;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  font-size: 0;
-  line-height: 0;
-  overflow: visible;
-  text-align: center;
-
-  &:before {
-    color: $iconAsButtonColor;
-    font-size: 26px;
-  }
-
-  &:active:before {
-    color: rgba($iconAsButtonColor, 0.7);
-  }
-
-  &--small, &--medium {
-    &:before {
-      font-size: 18px;
-    }
-  }
-
-  &--medium {
-    width: 30px;
-    height: 30px;
-  }
-
-  &--small {
-    width: 24px;
-    height: 24px;
-  }
-
-  &--with-border {
-    border: solid $iconAsButtonColor 2px;
-    border-radius: 50%;
-  }
-
-  &--light {
-    border-color: $iconAsButtonLightColor;
 
     &:before {
-      color: $iconAsButtonLightColor;
+      color: $iconAsButtonColor;
+      font-size: 26px;
     }
 
     &:active:before {
-      color: rgba($iconAsButtonLightColor, 0.7);
+      color: rgba($iconAsButtonColor, 0.7);
+    }
+
+    &--small, &--medium {
+      &:before {
+        font-size: 18px;
+      }
+    }
+
+    &--medium {
+      width: 30px;
+      height: 30px;
+    }
+
+    &--small {
+      width: 24px;
+      height: 24px;
+    }
+
+    &--with-border {
+      border: solid $iconAsButtonColor 2px;
+      border-radius: 50%;
+    }
+
+    &--light {
+      border-color: $iconAsButtonLightColor;
+
+      &:before {
+        color: $iconAsButtonLightColor;
+      }
+
+      &:active:before {
+        color: rgba($iconAsButtonLightColor, 0.7);
+      }
+    }
+
+    &--gray {
+      border-color: $iconAsButtonGrayColor;
+
+      &:before {
+        color: $iconAsButtonGrayColor;
+      }
+
+      &:active:before {
+        color: rgba($iconAsButtonGrayColor, 0.7);
+      }
     }
   }
 
-  &--gray {
-    border-color: $iconAsButtonGrayColor;
-
-    &:before {
-      color: $iconAsButtonGrayColor;
-    }
-
-    &:active:before {
-      color: rgba($iconAsButtonGrayColor, 0.7);
-    }
-  }
 }

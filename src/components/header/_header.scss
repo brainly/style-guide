@@ -1,50 +1,56 @@
 $headerDominantColor: #65A6A8;
 $headerHeight: 60px;
 
-.mint-header {
-  width: 100%;
-  height: $headerHeight;
-  background-image: url($mintImagesPath + 'header_background_wide.jpg');
-  background-repeat: repeat-x;
-  background-color: $headerDominantColor;
-  @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
+$include-html-classes: true !default;
 
-  &__container {
-    box-sizing: border-box;
-    display: flex;
+@if ($include-html-classes) {
+
+  .mint-header {
     width: 100%;
-    height: 100%;
-    max-width: $layoutMaximumWidth;
-    padding: 0 10px;
-    margin: auto;
-    align-items: center;
+    height: $headerHeight;
+    background-image: url($mintImagesPath + 'header_background_wide.jpg');
+    background-repeat: repeat-x;
+    background-color: $headerDominantColor;
+    @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
 
-    @media (min-width: $breakpointTablet) {
-      padding: 0 $layoutDefaultPadding/2;
+    &__container {
+      box-sizing: border-box;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      max-width: $layoutMaximumWidth;
+      padding: 0 10px;
+      margin: auto;
+      align-items: center;
+
+      @media (min-width: $breakpointTablet) {
+        padding: 0 $layoutDefaultPadding/2;
+      }
+    }
+
+    &__left {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      @media (min-width: $breakpointTablet) {
+        margin-right: 20px;
+      }
+    }
+
+    &__middle {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    &__right {
+      margin-left: 10px;
+      display: flex;
+      align-items: center;
+      @media (min-width: $breakpointTablet) {
+        margin-left: 20px;
+      }
     }
   }
 
-  &__left {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    @media (min-width: $breakpointTablet) {
-      margin-right: 20px;
-    }
-  }
-
-  &__middle {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  &__right {
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    @media (min-width: $breakpointTablet) {
-      margin-left: 20px;
-    }
-  }
 }

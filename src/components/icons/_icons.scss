@@ -1,3 +1,9 @@
-@import "icons-embed";
-@import "icons-data";
-@import "icons-transformed";
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  @import "icons-embed";
+  @import "icons-data";
+  @import "icons-transformed";
+  
+}

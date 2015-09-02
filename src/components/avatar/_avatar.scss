@@ -9,75 +9,82 @@ $avatarBigBorderWidth: 2px;
 $avatarBorderColor: $white;
 $avatarBackgroundColor: $white;
 
-.mint-avatar {
-  @include component;
-  @extend .mint-icon-profile;
 
-  width: $avatarMediumSize;
-  height: $avatarMediumSize;
-  border-radius: 50%;
-  background: $avatarDefaultBackgroundColor;
-  vertical-align: inherit;
+$include-html-classes: true !default;
 
-  &__image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: $avatarBackgroundColor;
-  }
+@if ($include-html-classes) {
 
-  &:before {
-    position: relative;
-    top: 4px - $avatarMediumBorderWidth;
-    color: $avatarDefaultPersonColor;
-    font-size: $avatarMediumSize;
-  }
+  .mint-avatar {
+    @include component;
+    @extend .mint-icon-profile;
 
-  &--small {
-    width: $avatarSmallSize;
-    height: $avatarSmallSize;
+    width: $avatarMediumSize;
+    height: $avatarMediumSize;
+    border-radius: 50%;
+    background: $avatarDefaultBackgroundColor;
+    vertical-align: inherit;
+
+    &__image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: $avatarBackgroundColor;
+    }
 
     &:before {
-      top: 3px - $avatarSmallBorderWidth;
-      font-size: $avatarSmallSize;
+      position: relative;
+      top: 4px - $avatarMediumBorderWidth;
+      color: $avatarDefaultPersonColor;
+      font-size: $avatarMediumSize;
+    }
+
+    &--small {
+      width: $avatarSmallSize;
+      height: $avatarSmallSize;
+
+      &:before {
+        top: 3px - $avatarSmallBorderWidth;
+        font-size: $avatarSmallSize;
+      }
+    }
+
+    &--big {
+      width: $avatarBigSize;
+      height: $avatarBigSize;
+
+      &:before {
+        top: 5px - $avatarBigBorderWidth;
+        font-size: $avatarBigSize;
+      }
+    }
+
+    &--with-border {
+      border: solid $avatarBorderColor $avatarMediumBorderWidth;
+      border-width: $avatarMediumBorderWidth;
+
+      &:before {
+        left: -$avatarMediumBorderWidth;
+      }
+    }
+
+    &--small-with-border {
+      @extend .mint-avatar--with-border;
+      border-width: $avatarSmallBorderWidth;
+
+      &:before {
+        left: -$avatarSmallBorderWidth;
+      }
+    }
+
+    &--big-with-border {
+      @extend .mint-avatar--with-border;
+      border-width: $avatarBigBorderWidth;
+
+      &:before {
+        left: -$avatarBigBorderWidth;
+      }
     }
   }
 
-  &--big {
-    width: $avatarBigSize;
-    height: $avatarBigSize;
-
-    &:before {
-      top: 5px - $avatarBigBorderWidth;
-      font-size: $avatarBigSize;
-    }
-  }
-
-  &--with-border {
-    border: solid $avatarBorderColor $avatarMediumBorderWidth;
-    border-width: $avatarMediumBorderWidth;
-
-    &:before {
-      left: -$avatarMediumBorderWidth;
-    }
-  }
-
-  &--small-with-border {
-    @extend .mint-avatar--with-border;
-    border-width: $avatarSmallBorderWidth;
-
-    &:before {
-      left: -$avatarSmallBorderWidth;
-    }
-  }
-
-  &--big-with-border {
-    @extend .mint-avatar--with-border;
-    border-width: $avatarBigBorderWidth;
-
-    &:before {
-      left: -$avatarBigBorderWidth;
-    }
-  }
 }

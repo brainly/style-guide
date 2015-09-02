@@ -9,62 +9,68 @@ $rateStarFontSize: 12px;
 $rateStarSmallFontSize: 10px;
 $rateScaleFactor: 2/3;
 
-.mint-rate-box {
-  @include component;
-  display: flex;
-  align-items: center;
-  height: $rateHeight;
+$include-html-classes: true !default;
 
-  &--active {
+@if ($include-html-classes) {
 
-    .mint-rate-box__star:hover ~ .mint-rate-box__star {
+  .mint-rate-box {
+    @include component;
+    display: flex;
+    align-items: center;
+    height: $rateHeight;
+
+    &--active {
+
+      .mint-rate-box__star:hover ~ .mint-rate-box__star {
+        color: $rateStarColor;
+      }
+
+      &:active .mint-rate-box__star:hover ~ .mint-rate-box__star {
+        color: $rateStarActiveColor;
+      }
+
+      &:hover .mint-rate-box__star {
+        color: $rateStarCheckedColor;
+        transition: color 0.1s ease-in;
+      }
+
+      &:active:hover .mint-rate-box__star {
+        color: $rateStarActiveCheckedColor;
+        transition: none;
+      }
+    }
+
+    &__star {
+      @include icon(star);
+
       color: $rateStarColor;
+      font-size: $rateStarFontSize + $iconBoostValue;
+      padding: 0 1px;
+      &--checked {
+        color: $rateStarCheckedColor;
+      }
     }
 
-    &:active .mint-rate-box__star:hover ~ .mint-rate-box__star {
-      color: $rateStarActiveColor;
+    &__counter {
+      @include fixText($rateStarFontSize, 2px);
+      font-family: $rateCounterFont;
+      color: $rateCounterColor;
+      margin: 0 0 0 $layoutDefaultPadding/2;
     }
 
-    &:hover .mint-rate-box__star {
-      color: $rateStarCheckedColor;
-      transition: color 0.1s ease-in;
-    }
-
-    &:active:hover .mint-rate-box__star {
-      color: $rateStarActiveCheckedColor;
-      transition: none;
-    }
-  }
-
-  &__star {
-    @include icon(star);
-
-    color: $rateStarColor;
-    font-size: $rateStarFontSize + $iconBoostValue;
-    padding: 0 1px;
-    &--checked {
-      color: $rateStarCheckedColor;
-    }
-  }
-
-  &__counter {
-    @include fixText($rateStarFontSize, 2px);
-    font-family: $rateCounterFont;
-    color: $rateCounterColor;
-    margin: 0 0 0 $layoutDefaultPadding/2;
-  }
-
-  &--small {
-    @include fixText($rateStarSmallFontSize);
-    height: $rateScaleFactor * $rateHeight;
-
-    .mint-rate-box__star {
-      font-size: $rateStarSmallFontSize + $iconBoostValue;
-    }
-
-    .mint-rate-box__counter {
+    &--small {
       @include fixText($rateStarSmallFontSize);
-      margin-left: $layoutDefaultPadding/4;
+      height: $rateScaleFactor * $rateHeight;
+
+      .mint-rate-box__star {
+        font-size: $rateStarSmallFontSize + $iconBoostValue;
+      }
+
+      .mint-rate-box__counter {
+        @include fixText($rateStarSmallFontSize);
+        margin-left: $layoutDefaultPadding/4;
+      }
     }
   }
+
 }

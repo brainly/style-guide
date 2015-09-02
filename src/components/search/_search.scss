@@ -1,13 +1,20 @@
-.mint-search {
-  @include component;
-  width: 100%;
 
-  &__button {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 6px;
-    display: flex;
-    align-items: center;
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-search {
+    @include component;
+    width: 100%;
+
+    &__button {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 6px;
+      display: flex;
+      align-items: center;
+    }
   }
+
 }

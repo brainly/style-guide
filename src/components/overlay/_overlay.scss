@@ -1,14 +1,20 @@
-.mint-overlay {
-  background-color: rgba(0,0,0,0.6);
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: $overlayZIndex;
-  overflow-x: hidden;
-  overflow-y: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: $overlayZIndex;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
 }

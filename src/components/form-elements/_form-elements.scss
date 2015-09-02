@@ -52,251 +52,258 @@ $textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
-.mint-select {
-  @include component;
-  @extend .mint-icon-arrow_down;
-  border-radius: $selectHeight/2;
-  font-size: $selectFontSize;
-  color: $selectTextColor;
-  height: $selectHeight;
-  &__element {
-    background: $selectBackground;
-    border: 0;
-    cursor: pointer;
-    font-size: inherit;
-    font-family: $selectFontFamily;
-    font-weight: bold;
-    color: inherit;
-    display: inline-block;
+
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-select {
+    @include component;
+    @extend .mint-icon-arrow_down;
+    border-radius: $selectHeight/2;
+    font-size: $selectFontSize;
+    color: $selectTextColor;
     height: $selectHeight;
-    position: relative;
-    padding: 0 $selectHeight/2+14px 0 $selectHeight/2;
-    outline: 0;
+    &__element {
+      background: $selectBackground;
+      border: 0;
+      cursor: pointer;
+      font-size: inherit;
+      font-family: $selectFontFamily;
+      font-weight: bold;
+      color: inherit;
+      display: inline-block;
+      height: $selectHeight;
+      position: relative;
+      padding: 0 $selectHeight/2+14px 0 $selectHeight/2;
+      outline: 0;
+      appearance: none;
+      text-transform: uppercase;
+      width: 100%;
+      &::-ms-expand {
+        display: none;
+      }
+      &:hover, &:focus, &:active {
+        background: $selectHoverBackground;
+      }
+    }
+    &:before {
+      $iconSize: $selectFontSize + $iconBoostValue;
+      font-size: $iconSize;
+      font-weight: bold;
+      position: absolute;
+      right: $selectHeight / 2 - $iconSize / 2;
+      top: 50%;
+      pointer-events: none;
+      z-index: 1;
+      margin-top: 1px;
+      transform: translateY(-50%);
+    }
+    &--full {
+      width: 100%;
+    }
+    &--invalid {
+      border: 2px solid $selectInvalidBorderColor;
+      .mint-select__element {
+        padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
+      }
+    }
+  }
+
+  .mint-input {
+    @include component;
+    background: $inputBackground;
+    border: 2px solid $inputBorderColor;
+    border-radius: $inputHeight/2;
+    color: $inputTextColor;
+    font-size: $inputFontSize;
+    font-family: $inputFontFamily;
+    font-weight: normal;
+    padding: 0 $inputHeight/2;
+    height: $inputHeight;
+    line-height: $inputHeight;
     appearance: none;
-    text-transform: uppercase;
-    width: 100%;
-    &::-ms-expand {
-      display: none;
-    }
-    &:hover, &:focus, &:active {
-      background: $selectHoverBackground;
-    }
-  }
-  &:before {
-    $iconSize: $selectFontSize + $iconBoostValue;
-    font-size: $iconSize;
-    font-weight: bold;
-    position: absolute;
-    right: $selectHeight / 2 - $iconSize / 2;
-    top: 50%;
-    pointer-events: none;
-    z-index: 1;
-    margin-top: 1px;
-    transform: translateY(-50%);
-  }
-  &--full {
-    width: 100%;
-  }
-  &--invalid {
-    border: 2px solid $selectInvalidBorderColor;
-    .mint-select__element {
-      padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
-    }
-  }
-}
-
-.mint-input {
-  @include component;
-  background: $inputBackground;
-  border: 2px solid $inputBorderColor;
-  border-radius: $inputHeight/2;
-  color: $inputTextColor;
-  font-size: $inputFontSize;
-  font-family: $inputFontFamily;
-  font-weight: normal;
-  padding: 0 $inputHeight/2;
-  height: $inputHeight;
-  line-height: $inputHeight;
-  appearance: none;
-
-  &:focus {
-    outline: none;
-    border-color: $inputFocusBorderColor;
-  }
-  &::placeholder {
-    color: $inputPlaceholderTextColor;
-    text-transform: uppercase;
-    font-family: $inputPlaceholderFontFamily;
-    font-size: $inputPlaceholderFontSize;
-    font-weight: bold;
-  }
-  &--low {
-    border-radius: $inputLowHeight/2;
-    padding: 0 $inputLowHeight/2;
-    height: $inputLowHeight;
-    line-height: $inputLowHeight;
-  }
-  &--valid {
-    border-color:$inputValidBorderColor;
-    &:focus {
-      border-color:$inputValidBorderColor;
-    }
-  }
-  &--invalid {
-    border-color:$inputInvalidBorderColor;
-    &:focus {
-      border-color:$inputInvalidBorderColor;
-    }
-  }
-  &--spaced {
-    margin-bottom: $inputHeight/4;
-  }
-  &--full {
-    width: 100%;
-  }
-  &--transparent-border {
-    border-color: $inputTransparentBorderColor;
-    background-clip: padding-box;
 
     &:focus {
-      border-color: $inputTransparentFocusBorderColor;
+      outline: none;
+      border-color: $inputFocusBorderColor;
+    }
+    &::placeholder {
+      color: $inputPlaceholderTextColor;
+      text-transform: uppercase;
+      font-family: $inputPlaceholderFontFamily;
+      font-size: $inputPlaceholderFontSize;
+      font-weight: bold;
+    }
+    &--low {
+      border-radius: $inputLowHeight/2;
+      padding: 0 $inputLowHeight/2;
+      height: $inputLowHeight;
+      line-height: $inputLowHeight;
+    }
+    &--valid {
+      border-color: $inputValidBorderColor;
+      &:focus {
+        border-color: $inputValidBorderColor;
+      }
+    }
+    &--invalid {
+      border-color: $inputInvalidBorderColor;
+      &:focus {
+        border-color: $inputInvalidBorderColor;
+      }
+    }
+    &--spaced {
+      margin-bottom: $inputHeight/4;
+    }
+    &--full {
+      width: 100%;
+    }
+    &--transparent-border {
+      border-color: $inputTransparentBorderColor;
+      background-clip: padding-box;
+
+      &:focus {
+        border-color: $inputTransparentFocusBorderColor;
+      }
+    }
+    &--with-icon {
+      padding-right: 46px;
+    }
+
+    &--with-small-icon {
+      padding-right: 36px;
     }
   }
-  &--with-icon {
-    padding-right: 46px;
+
+  .mint-checkbox,
+  .mint-radio {
+    @include component;
+    width: $crInputSize;
+    height: $crInputSize;
+    font-size: $crInputFontSize;
+    &__element {
+      opacity: 0;
+      position: absolute;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 1;
+    }
+    &__element:active + &__ghost {
+      border-color: $crInputActiveBorderColor;
+    }
+    &__element:checked + &__ghost {
+      border-color: $crInputCheckedColor;
+      background: $crInputCheckedColor;
+    }
+    &__ghost {
+      box-sizing: border-box;
+      background: $crInputColor;
+      width: 100%;
+      height: 100%;
+      border: 2px solid $crInputBorderColor;
+      display: inline-block;
+    }
   }
 
-  &--with-small-icon {
-    padding-right: 36px;
-  }
-}
+  .mint-checkbox-label,
+  .mint-radio-label {
+    @include component;
+    font-family: $crInputLabelFontFamily;
+    font-size: $crInputLabelFontSize;
+    line-height: $crInputLabelLineHeight;
+    height: $crInputLabelHeight;
+    color: $crInputLabelColor;
+    margin: 0 0 0 5px;
+    padding: 0;
+    vertical-align: top;
 
-.mint-checkbox,
-.mint-radio {
-  @include component;
-  width: $crInputSize;
-  height: $crInputSize;
-  font-size: $crInputFontSize;
-  &__element {
-    opacity: 0;
-    position: absolute;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    z-index: 1;
+    &--upper {
+      text-transform: uppercase;
+    }
   }
-  &__element:active + &__ghost {
-    border-color: $crInputActiveBorderColor;
-  }
-  &__element:checked + &__ghost {
-    border-color: $crInputCheckedColor;
-    background: $crInputCheckedColor;
-  }
-  &__ghost {
-    box-sizing: border-box;
-    background: $crInputColor;
-    width: 100%;
-    height: 100%;
-    border: 2px solid $crInputBorderColor;
-    display: inline-block;
-  }
-}
 
-.mint-checkbox-label,
-.mint-radio-label {
-  @include component;
-  font-family: $crInputLabelFontFamily;
-  font-size: $crInputLabelFontSize;
-  line-height: $crInputLabelLineHeight;
-  height: $crInputLabelHeight;
-  color: $crInputLabelColor;
-  margin: 0 0 0 5px;
-  padding: 0;
-  vertical-align: top;
-
-  &--upper {
-    text-transform: uppercase;
+  .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
+    color: rgba($crInputColor, 0.7);
   }
-}
 
-.mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
-  color: rgba($crInputColor, 0.7);
-}
+  .mint-checkbox__ghost {
+    @extend .mint-icon-check;
+    border-radius: 25%;
+    &:before {
+      font-size: 137.5%;
+      position: absolute;
+      left: -18.75%;
+      top: -18.75%;
+      color: $crInputColor;
+    }
+  }
 
-.mint-checkbox__ghost {
-  @extend .mint-icon-check;
-  border-radius: 25%;
-  &:before {
-    font-size: 137.5%;
-    position: absolute;
-    left: -18.75%;
-    top: -18.75%;
-    color: $crInputColor;
+  .mint-radio__ghost {
+    border-radius: 50%;
+    &:before {
+      content: '';
+      position: absolute;
+      border-radius: 100%;
+      background-color: $crInputColor;
+      width: 50%;
+      height: 50%;
+      top: 25%;
+      left: 25%;
+    }
   }
-}
 
-.mint-radio__ghost {
-  border-radius: 50%;
-  &:before {
-    content: '';
-    position: absolute;
-    border-radius: 100%;
-    background-color: $crInputColor;
-    width: 50%;
-    height: 50%;
-    top: 25%;
-    left: 25%;
-  }
-}
+  .mint-textarea {
+    @include component;
+    background: $textareaBackground;
+    border: 2px solid $textareaBorderColor;
+    border-radius: $textareaBorderRadius;
+    color: $textareaTextColor;
+    font-size: $textareaFontSize;
+    font-family: $textareaFontFamily;
+    font-weight: normal;
+    line-height: $textareaLineHeight;
+    padding: $textareaPadding;
+    resize: none;
+    height: 100px;
+    overflow-y: auto;
+    appearance: none;
 
-.mint-textarea {
-  @include component;
-  background: $textareaBackground;
-  border: 2px solid $textareaBorderColor;
-  border-radius: $textareaBorderRadius;
-  color: $textareaTextColor;
-  font-size: $textareaFontSize;
-  font-family: $textareaFontFamily;
-  font-weight: normal;
-  line-height: $textareaLineHeight;
-  padding: $textareaPadding;
-  resize: none;
-  height: 100px;
-  overflow-y: auto;
-  appearance: none;
-
-  &:focus {
-    border-color: $textareaFocusBorderColor;
-    outline: 0;
-  }
-  &::placeholder {
-    color: $textareaPlaceholderTextColor;
-    text-transform: uppercase;
-    font-family: $textareaPlaceholderFontFamily;
-    font-size: $textareaPlaceholderFontSize;
-    font-weight: bold;
-  }
-  &--full {
-    width: 100%;
-  }
-  &--valid {
-    border-color: $textareaValidBorderColor;
     &:focus {
+      border-color: $textareaFocusBorderColor;
+      outline: 0;
+    }
+    &::placeholder {
+      color: $textareaPlaceholderTextColor;
+      text-transform: uppercase;
+      font-family: $textareaPlaceholderFontFamily;
+      font-size: $textareaPlaceholderFontSize;
+      font-weight: bold;
+    }
+    &--full {
+      width: 100%;
+    }
+    &--valid {
       border-color: $textareaValidBorderColor;
+      &:focus {
+        border-color: $textareaValidBorderColor;
+      }
     }
-  }
-  &--invalid {
-    border-color: $textareaInvalidBorderColor;
-    &:focus {
+    &--invalid {
       border-color: $textareaInvalidBorderColor;
+      &:focus {
+        border-color: $textareaInvalidBorderColor;
+      }
+    }
+    &--small {
+      height: 36px;
+      padding: $textareaSmallPadding $textareaPadding;
+    }
+    &--big {
+      height: 178px;
     }
   }
-  &--small {
-    height: 36px;
-    padding: $textareaSmallPadding $textareaPadding;
-  }
-  &--big {
-    height: 178px;
-  }
+
 }

@@ -1,38 +1,43 @@
 $footerBackgroundColor: $bluePrimary;
 
-.mint-footer {
-  background-color: $footerBackgroundColor;
+$include-html-classes: true !default;
 
-  &__container {
-    position: relative;
-    box-sizing: border-box;
-    padding: $layoutDefaultPadding $layoutDefaultPadding;
+@if ($include-html-classes) {
 
-    @media (min-width: $breakpointTablet) {
-      max-width: $layoutMaximumWidth;
-      margin-left: auto;
-      margin-right: auto;
+  .mint-footer {
+    background-color: $footerBackgroundColor;
 
-      padding: 40px $layoutDefaultPadding;
-    }
-  }
+    &__container {
+      position: relative;
+      box-sizing: border-box;
+      padding: $layoutDefaultPadding $layoutDefaultPadding;
 
-  &__line {
-    margin-bottom: 10px;
+      @media (min-width: $breakpointTablet) {
+        max-width: $layoutMaximumWidth;
+        margin-left: auto;
+        margin-right: auto;
 
-    @media (min-width: $breakpointTablet) {
-      margin-bottom: 15px;
+        padding: 40px $layoutDefaultPadding;
+      }
     }
 
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+    &__line {
+      margin-bottom: 10px;
 
-  &__logo {
-    position: absolute;
-    left: $layoutDefaultPadding;
-    top: -30px;
+      @media (min-width: $breakpointTablet) {
+        margin-bottom: 15px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      left: $layoutDefaultPadding;
+      top: -30px;
+    }
   }
 
 }

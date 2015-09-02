@@ -5,118 +5,124 @@ $toplayerShadow: $defaultBottomShadow;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: 30px;
 
-.mint-toplayer {
-  @include component;
-  border-radius: 10px;
-  width: 100%;
-  box-shadow: $toplayerShadow;
-  background-color: $toplayerBackgroundColor;
+$include-html-classes: true !default;
 
-  &--lead {
-    .mint-toplayer__wrapper {
+@if ($include-html-classes) {
 
-      @media (min-width: $breakpointTablet) {
-        margin: $layoutDefaultPadding;
-        padding: $layoutDefaultPadding;
+  .mint-toplayer {
+    @include component;
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: $toplayerShadow;
+    background-color: $toplayerBackgroundColor;
+
+    &--lead {
+      .mint-toplayer__wrapper {
+
+        @media (min-width: $breakpointTablet) {
+          margin: $layoutDefaultPadding;
+          padding: $layoutDefaultPadding;
+        }
+
       }
+      .mint-toplayer__heading {
 
-    }
-    .mint-toplayer__heading {
+        @media (min-width: $breakpointTablet) {
+          margin-bottom: 2 * $layoutDefaultPadding;
+        }
 
-      @media (min-width: $breakpointTablet) {
-        margin-bottom: 2 * $layoutDefaultPadding;
       }
-
-    }
-  }
-
-  &--small {
-
-    @media (min-width: $breakpointTablet) {
-      width: 410px;
-    }
-  }
-
-  &--medium {
-
-    @media (min-width: $breakpointTablet) {
-      width: 600px;
     }
 
-  }
-
-  &--large {
-
-    @media (min-width: $breakpointTablet) {
-      width: 700px;
-    }
-
-  }
-
-  &--modal {
-    z-index: $toplayerZIndex;
-    position: relative;
-    margin-bottom: $toplayerMarginBottom;
-
-    @media (min-width: $breakpointTablet) {
-      margin-top: $toplayerMarginTop;
-    }
-  }
-
-  &--with-bugbox {
-
-    .mint-toplayer__wrapper {
+    &--small {
 
       @media (min-width: $breakpointTablet) {
-        background-image: url($mintImagesPath + 'bug_box.png');
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+        width: 410px;
+      }
+    }
+
+    &--medium {
+
+      @media (min-width: $breakpointTablet) {
+        width: 600px;
       }
 
     }
 
-  }
+    &--large {
 
-  &__header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 30px;
-    background-image: url($mintImagesPath + 'header_background_wide.jpg');
-    background-repeat: repeat-x;
-    background-color: $toplayerHeaderDominantColor;
-    @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
-  }
+      @media (min-width: $breakpointTablet) {
+        width: 700px;
+      }
 
-  &__close {
-    color: $toplayerCrossColor;
-    @include fixText(24px, -4px);
-    font-weight: bold;
-    padding: 0 10px;
-    cursor: pointer;
+    }
 
-    &:hover {
-      text-decoration: none;
+    &--modal {
+      z-index: $toplayerZIndex;
+      position: relative;
+      margin-bottom: $toplayerMarginBottom;
+
+      @media (min-width: $breakpointTablet) {
+        margin-top: $toplayerMarginTop;
+      }
+    }
+
+    &--with-bugbox {
+
+      .mint-toplayer__wrapper {
+
+        @media (min-width: $breakpointTablet) {
+          background-image: url($mintImagesPath + 'bug_box.png');
+          background-repeat: no-repeat;
+          background-position: bottom right;
+          @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+        }
+
+      }
+
+    }
+
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 30px;
+      background-image: url($mintImagesPath + 'header_background_wide.jpg');
+      background-repeat: repeat-x;
+      background-color: $toplayerHeaderDominantColor;
+      @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
+    }
+
+    &__close {
+      color: $toplayerCrossColor;
+      @include fixText(24px, -4px);
+      font-weight: bold;
+      padding: 0 10px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &__wrapper {
+      margin: $layoutDefaultPadding;
+    }
+
+    &__heading {
+      margin-bottom: $layoutDefaultPadding;
+    }
+
+    &__content {
+      margin-bottom: $layoutDefaultPadding;
+    }
+
+    &__list-title {
+      margin-bottom: 10px;
+    }
+
+    &__actions {
     }
   }
 
-  &__wrapper {
-    margin: $layoutDefaultPadding;
-  }
-
-  &__heading {
-    margin-bottom: $layoutDefaultPadding;
-  }
-
-  &__content {
-    margin-bottom: $layoutDefaultPadding;
-  }
-
-  &__list-title {
-    margin-bottom: 10px;
-  }
-
-  &__actions {
-  }
 }

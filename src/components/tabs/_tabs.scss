@@ -10,62 +10,69 @@ $tabSmallHeight: 32px;
 $tabFontSize: 12px;
 $tabsFontFamily: $fontFamilySecondary;
 
-.mint-tabs {
-  @include component;
-  @include clearfix();
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: $tabHeight;
-  line-height: $tabHeight;
-  font-size: $tabFontSize;
-  &__tab {
-    background: $tabBackground;
-    border-right: 1px solid $tabSeparatorColor;
-    color: $tabTextColor;
-    cursor: pointer;
-    font-family: $tabsFontFamily;
-    float: left;
-    padding: 0 $tabHeight/2;
-    text-transform: uppercase;
-    transition: all 0.3s ease-out;
-    &:first-child {
-      border-top-left-radius: $tabHeight/2;
-      border-bottom-left-radius: $tabHeight/2;
+
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-tabs {
+    @include component;
+    @include clearfix();
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: $tabHeight;
+    line-height: $tabHeight;
+    font-size: $tabFontSize;
+    &__tab {
+      background: $tabBackground;
+      border-right: 1px solid $tabSeparatorColor;
+      color: $tabTextColor;
+      cursor: pointer;
+      font-family: $tabsFontFamily;
+      float: left;
+      padding: 0 $tabHeight/2;
+      text-transform: uppercase;
+      transition: all 0.3s ease-out;
+      &:first-child {
+        border-top-left-radius: $tabHeight/2;
+        border-bottom-left-radius: $tabHeight/2;
+      }
+      &:last-child {
+        border-top-right-radius: $tabHeight/2;
+        border-bottom-right-radius: $tabHeight/2;
+        border-right: 0;
+      }
+      &:hover {
+        background: $tabHoverBackground;
+        color: $tabHoverTextColor;
+      }
+      &:active {
+        color: rgba($tabHoverTextColor, 0.7);
+        outline: none;
+      }
+      &--active {
+        background: $tabActiveBackground;
+        color: $tabActiveTextColor;
+      }
     }
-    &:last-child {
-      border-top-right-radius: $tabHeight/2;
-      border-bottom-right-radius: $tabHeight/2;
-      border-right: 0;
-    }
-    &:hover {
-      background: $tabHoverBackground;
-      color: $tabHoverTextColor;
-    }
-    &:active {
-      color: rgba($tabHoverTextColor, 0.7);
-      outline: none;
-    }
-    &--active {
-      background: $tabActiveBackground;
-      color: $tabActiveTextColor;
+
+    &--small {
+      height: $tabSmallHeight;
+      line-height: $tabSmallHeight;
+      & .tabs__tab {
+        padding: 0 $tabSmallHeight/2;
+        &:first-child {
+          border-top-left-radius: $tabSmallHeight/2;
+          border-bottom-left-radius: $tabSmallHeight/2;
+        }
+        &:last-child {
+          border-top-right-radius: $tabSmallHeight/2;
+          border-bottom-right-radius: $tabSmallHeight/2;
+          border-right: 0;
+        }
+      }
     }
   }
 
-  &--small {
-    height: $tabSmallHeight;
-    line-height: $tabSmallHeight;
-    & .tabs__tab {
-      padding: 0 $tabSmallHeight/2;
-      &:first-child {
-        border-top-left-radius: $tabSmallHeight/2;
-        border-bottom-left-radius: $tabSmallHeight/2;
-      }
-      &:last-child {
-        border-top-right-radius: $tabSmallHeight/2;
-        border-bottom-right-radius: $tabSmallHeight/2;
-        border-right: 0;
-      }
-    }
-  }
 }

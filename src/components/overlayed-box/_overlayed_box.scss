@@ -1,12 +1,18 @@
-.mint-overlayed-box {
-  @include component;
+$include-html-classes: true !default;
 
-  overflow: visible;
-  vertical-align: inherit;
+@if ($include-html-classes) {
 
-  &__overlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  .mint-overlayed-box {
+    @include component;
+
+    overflow: visible;
+    vertical-align: inherit;
+
+    &__overlay {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
   }
+
 }

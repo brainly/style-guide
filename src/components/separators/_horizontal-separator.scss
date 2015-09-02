@@ -1,14 +1,20 @@
 $horizontalSeparatorHeight: 1px;
 $horizontalSeparatorColor: $grayPrimary;
 
-.mint-horizontal-separator {
-  @include component();
-  display: block;
-  height: $horizontalSeparatorHeight;
-  border-bottom: $horizontalSeparatorHeight dotted $horizontalSeparatorColor;
-  width: 100%;
+$include-html-classes: true !default;
 
-  &--spaced {
-    margin: $layoutDefaultPadding - $horizontalSeparatorHeight 0 $layoutDefaultPadding 0;
+@if ($include-html-classes) {
+
+  .mint-horizontal-separator {
+    @include component();
+    display: block;
+    height: $horizontalSeparatorHeight;
+    border-bottom: $horizontalSeparatorHeight dotted $horizontalSeparatorColor;
+    width: 100%;
+
+    &--spaced {
+      margin: $layoutDefaultPadding - $horizontalSeparatorHeight 0 $layoutDefaultPadding 0;
+    }
   }
+
 }

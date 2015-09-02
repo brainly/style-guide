@@ -7,39 +7,45 @@ $headerPrimarySmallFontSize: 48px;
 $headerSecondaryFontSize: 16px;
 $headerSecondarySmallFontSize: 12px;
 
-.mint-header-primary {
-  @include component;
-  display: block;
-  color: $headerColor;
-  font-family: $headerPrimaryFontFamily;
-  font-size: $headerPrimaryFontSize;
-  line-height: 1;
-  margin: 0;
+$include-html-classes: true !default;
 
-  &--small {
-    font-size: $headerPrimarySmallFontSize;
+@if ($include-html-classes) {
+
+  .mint-header-primary {
+    @include component;
+    display: block;
+    color: $headerColor;
+    font-family: $headerPrimaryFontFamily;
+    font-size: $headerPrimaryFontSize;
+    line-height: 1;
+    margin: 0;
+
+    &--small {
+      font-size: $headerPrimarySmallFontSize;
+    }
+
+    &--light {
+      color: $headerColorLight;
+    }
+
+  }
+  .mint-header-secondary {
+    @include component;
+    display: block;
+    color: $headerColor;
+    font-family: $headerSecondaryFontFamily;
+    font-size: $headerSecondaryFontSize;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0;
+
+    &--small {
+      font-size: $headerSecondarySmallFontSize;
+    }
+
+    &--light {
+      color: $headerColorLight;
+    }
   }
 
-  &--light {
-    color: $headerColorLight;
-  }
-
-}
-.mint-header-secondary {
-  @include component;
-  display: block;
-  color: $headerColor;
-  font-family: $headerSecondaryFontFamily;
-  font-size: $headerSecondaryFontSize;
-  line-height: 1;
-  text-transform: uppercase;
-  margin: 0;
-
-  &--small {
-    font-size: $headerSecondarySmallFontSize;
-  }
-
-  &--light {
-    color: $headerColorLight;
-  }
 }

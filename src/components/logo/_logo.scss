@@ -3,33 +3,39 @@ $logoWhiteColor: $white;
 $logoLettersColor: $white;
 $logoDefaultHeight: 60px;
 
-.mint-icon-logo {
-  &:before {
-    font-size: 134px;
-    color: $logoColor;
-    background: linear-gradient(170deg, transparent 17%, $logoLettersColor 18%, $logoLettersColor 38%, transparent 39%) no-repeat;
-  }
+$include-html-classes: true !default;
 
-  &--white {
+@if ($include-html-classes) {
+
+  .mint-icon-logo {
     &:before {
-      color: $logoWhiteColor;
-      background: transparent;
+      font-size: 134px;
+      color: $logoColor;
+      background: linear-gradient(170deg, transparent 17%, $logoLettersColor 18%, $logoLettersColor 38%, transparent 39%) no-repeat;
+    }
+
+    &--white {
+      &:before {
+        color: $logoWhiteColor;
+        background: transparent;
+      }
     }
   }
-}
 
-.mint-logo {
-  @include component;
-  overflow: visible;
-  height: $logoDefaultHeight;
+  .mint-logo {
+    @include component;
+    overflow: visible;
+    height: $logoDefaultHeight;
 
-  &__image {
-    position: relative;
-    bottom: -10px;
-    height: 100%;
+    &__image {
+      position: relative;
+      bottom: -10px;
+      height: 100%;
+    }
+
+    &--small {
+      height: $logoDefaultHeight / 2;
+    }
   }
 
-  &--small {
-    height: $logoDefaultHeight / 2;
-  }
 }

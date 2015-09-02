@@ -8,6 +8,8 @@ $labelIconSizeSecondary: 14px;
 $labelHeight: $defaultComponentHeight;
 $labelScaleFactor: 2/3;
 
+$include-html-classes: true !default;
+
 @mixin label-from-icon($name){
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;
@@ -15,108 +17,111 @@ $labelScaleFactor: 2/3;
   }
 }
 
-.mint-label {
-  @include component;
-  overflow: visible;
-  display: flex;
-  align-items: center;
-  height: $labelHeight;
+@if ($include-html-classes) {
 
-  &__text, &__number {
-    @include fixText($labelFontSizePrimary, 2px);
-    display: block;
-    vertical-align: middle;
-    color: $labelPrimaryColor;
-    font-family: $labelFont;
-    text-transform: uppercase;
-    margin-right: $layoutDefaultPadding/4;
+  .mint-label {
+    @include component;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    height: $labelHeight;
 
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__text {
-    margin-right: $layoutDefaultPadding/2;
-  }
-
-  &__icon {
-    font-size: $labelIconSizePrimary;
-    display: block;
-    vertical-align: middle;
-    margin-right: $layoutDefaultPadding/4;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &--heart {
-      color: $peachPrimary;
-    }
-
-    &--comment {
-      color: $lavenderPrimary;
-    }
-
-    &--star, &--excellent {
-      color: $mustardPrimary;
-    }
-
-
-    @include label-from-icon(answering);
-    @include label-from-icon(answered);
-    @include label-from-icon(arrow_down);
-    @include label-from-icon(arrow_left);
-    @include label-from-icon(arrow_right);
-    @include label-from-icon(arrow_up);
-    @include label-from-icon(attachment);
-    @include label-from-icon(bold);
-    @include label-from-icon(check);
-    @include label-from-icon(comment);
-    @include label-from-icon(equation);
-    @include label-from-icon(excellent);
-    @include label-from-icon(fb);
-    @include label-from-icon(friends);
-    @include label-from-icon(heart);
-    @include label-from-icon(logo);
-    @include label-from-icon(menu);
-    @include label-from-icon(messages);
-    @include label-from-icon(notifications);
-    @include label-from-icon(pencil);
-    @include label-from-icon(profile);
-    @include label-from-icon(report_flag);
-    @include label-from-icon(search);
-    @include label-from-icon(star);
-    @include label-from-icon(stream);
-    @include label-from-icon(symbols);
-  }
-
-  &--secondary {
-    .mint-label__text, .mint-label__number {
-      color: $labelSecondaryColor;
-    }
-  }
-
-  &--small {
-    height: $labelScaleFactor * $labelHeight;
-
-    .mint-label__text, .mint-label__number {
-      @include fixText($labelFontSizeSecondary);
-      margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
+    &__text, &__number {
+      @include fixText($labelFontSizePrimary, 2px);
+      display: block;
+      vertical-align: middle;
+      color: $labelPrimaryColor;
+      font-family: $labelFont;
+      text-transform: uppercase;
+      margin-right: $layoutDefaultPadding/4;
 
       &:last-child {
         margin-right: 0;
       }
     }
 
-    .mint-label__text {
-      margin-right: $labelScaleFactor * $layoutDefaultPadding/2;
+    &__text {
+      margin-right: $layoutDefaultPadding/2;
     }
 
-    .mint-label__icon {
-      margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
-      font-size: $labelIconSizeSecondary;
+    &__icon {
+      font-size: $labelIconSizePrimary;
+      display: block;
+      vertical-align: middle;
+      margin-right: $layoutDefaultPadding/4;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &--heart {
+        color: $peachPrimary;
+      }
+
+      &--comment {
+        color: $lavenderPrimary;
+      }
+
+      &--star, &--excellent {
+        color: $mustardPrimary;
+      }
+
+      @include label-from-icon(answering);
+      @include label-from-icon(answered);
+      @include label-from-icon(arrow_down);
+      @include label-from-icon(arrow_left);
+      @include label-from-icon(arrow_right);
+      @include label-from-icon(arrow_up);
+      @include label-from-icon(attachment);
+      @include label-from-icon(bold);
+      @include label-from-icon(check);
+      @include label-from-icon(comment);
+      @include label-from-icon(equation);
+      @include label-from-icon(excellent);
+      @include label-from-icon(fb);
+      @include label-from-icon(friends);
+      @include label-from-icon(heart);
+      @include label-from-icon(logo);
+      @include label-from-icon(menu);
+      @include label-from-icon(messages);
+      @include label-from-icon(notifications);
+      @include label-from-icon(pencil);
+      @include label-from-icon(profile);
+      @include label-from-icon(report_flag);
+      @include label-from-icon(search);
+      @include label-from-icon(star);
+      @include label-from-icon(stream);
+      @include label-from-icon(symbols);
+    }
+
+    &--secondary {
+      .mint-label__text, .mint-label__number {
+        color: $labelSecondaryColor;
+      }
+    }
+
+    &--small {
+      height: $labelScaleFactor * $labelHeight;
+
+      .mint-label__text, .mint-label__number {
+        @include fixText($labelFontSizeSecondary);
+        margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .mint-label__text {
+        margin-right: $labelScaleFactor * $layoutDefaultPadding/2;
+      }
+
+      .mint-label__icon {
+        margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
+        font-size: $labelIconSizeSecondary;
+      }
     }
   }
+
 }
 

@@ -2,17 +2,23 @@ $homeButtonMobileHeight: 44px;
 $homeButtonDefaultHeight: 60px;
 $homeButtonDefaultWidth: 134px;
 
-.mint-home-button {
-  @include component;
-  background-image: url($mintImagesPath + 'logo-mobile.svg');
-  background-size: $homeButtonMobileHeight $homeButtonMobileHeight;
-  height: $homeButtonMobileHeight;
-  width: $homeButtonMobileHeight;
-  @media (min-width: $breakpointTablet) {
-    background-image: url($mintImagesPath + 'logo.svg');
-    background-size: $homeButtonDefaultWidth $homeButtonDefaultHeight;
-    height: $homeButtonDefaultHeight;
-    width: $homeButtonDefaultWidth;
-    top: 10px;
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-home-button {
+    @include component;
+    background-image: url($mintImagesPath + 'logo-mobile.svg');
+    background-size: $homeButtonMobileHeight $homeButtonMobileHeight;
+    height: $homeButtonMobileHeight;
+    width: $homeButtonMobileHeight;
+    @media (min-width: $breakpointTablet) {
+      background-image: url($mintImagesPath + 'logo.svg');
+      background-size: $homeButtonDefaultWidth $homeButtonDefaultHeight;
+      height: $homeButtonDefaultHeight;
+      width: $homeButtonDefaultWidth;
+      top: 10px;
+    }
   }
+
 }

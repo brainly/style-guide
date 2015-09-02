@@ -1,20 +1,26 @@
-@font-face {
-  font-family: 'ProximaNovaRegular';
-  src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+$include-html-classes: true !default;
 
-@font-face {
-  font-family: 'ProximaNovaExtrabold';
-  src: url($mintFontsPath + 'ProximaNova-Extrabold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
+@if ($include-html-classes) {
 
-@font-face {
-  font-family: 'ProximaNovaBlack';
-  src: url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
+  @font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ProximaNovaExtrabold';
+    src: url($mintFontsPath + 'ProximaNova-Extrabold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ProximaNovaBlack';
+    src: url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
 }

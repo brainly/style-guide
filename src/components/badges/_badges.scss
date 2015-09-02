@@ -5,31 +5,43 @@ $badgeDefaultColor: $white;
 $badgeLightBackgroundColor: $white;
 $badgeLightColor: $black;
 
-.mint-badge {
-  @include component;
+$include-html-classes: true !default;
 
-  border-radius: $badgeFontSize;
-  line-height: $badgeFontSize;
-  font-size: $badgeFontSize;
-  font-family: $badgeFontFamily;
-  padding: 3px 6px;
+@if ($include-html-classes) {
 
-  background-color: $badgeDefaultBackgroundColor;
-  color: $badgeDefaultColor;
+  .mint-badge {
+    @include component;
 
-  &--light {
-    background-color: $badgeLightBackgroundColor;
-    color: $badgeLightColor;
+    border-radius: $badgeFontSize;
+    line-height: $badgeFontSize;
+    font-size: $badgeFontSize;
+    font-family: $badgeFontFamily;
+    padding: 3px 6px;
+
+    background-color: $badgeDefaultBackgroundColor;
+    color: $badgeDefaultColor;
+
+    &--light {
+      background-color: $badgeLightBackgroundColor;
+      color: $badgeLightColor;
+    }
+
+    &--with-animation {
+      transform: scale(0);
+      animation: mintBadgeAnimation .6s 2s forwards;
+    }
   }
 
-  &--with-animation {
-    transform: scale(0);
-    animation: mintBadgeAnimation .6s 2s forwards;
+  @keyframes mintBadgeAnimation {
+    0% {
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
-}
 
-@keyframes mintBadgeAnimation {
-  0% {transform: scale(0);}
-  80% {transform: scale(1.2);}
-  100% {transform: scale(1);}
 }

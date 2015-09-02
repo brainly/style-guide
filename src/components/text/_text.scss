@@ -35,149 +35,155 @@ $textDescriptionSmallLineHeight: 19px;
 
 $textEmphasisedFontFamily: $fontFamilySecondary;
 
-.mint-text-bit {
-  color: $textBitColor;
-  font-family: $textBitFontFamily;
-  font-size: $textBitFontSize;
-  line-height: $textBitLineHeight;
-  text-transform: uppercase;
-  word-wrap: break-word;
-  margin: 0;
-  position: relative;
-  letter-spacing: -1px;
-  &__logo {
-    @extend .mint-icon-logo;
-    text-decoration: none;
-    display: block;
-    position: absolute;
-    overflow: hidden;
-    top: -30px;
-    left: -13px;
-    height: $textBitLogoSize/2;
-    width: $textBitLogoSize;
-    &:before {
-      font-size: $textBitLogoSize;
+$include-html-classes: true !default;
+
+@if ($include-html-classes) {
+
+  .mint-text-bit {
+    color: $textBitColor;
+    font-family: $textBitFontFamily;
+    font-size: $textBitFontSize;
+    line-height: $textBitLineHeight;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    margin: 0;
+    position: relative;
+    letter-spacing: -1px;
+    &__logo {
+      @extend .mint-icon-logo;
+      text-decoration: none;
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      top: -30px;
+      left: -13px;
+      height: $textBitLogoSize/2;
+      width: $textBitLogoSize;
+      &:before {
+        font-size: $textBitLogoSize;
+      }
+      &--small {
+        top: -25px;
+        left: -10px;
+        height: $textBitSmallLogoSize/2;
+        width: $textBitSmallLogoSize;
+        &:before {
+          font-size: $textBitSmallLogoSize;
+        }
+      }
+    }
+    &--alt {
+      color: $textBitAltColor;
+    }
+    &--light {
+      color: $textBitLightColor;
+    }
+    &--warning {
+      color: $textBitWarningColor;
+    }
+    &--with-logo {
+      @extend .mint-icon-logo;
+      &:before {
+        position: absolute;
+        top: -30px;
+        font-size: $textBitLogoSize;
+        left: -13px;
+      }
+    }
+    &--with-small-logo {
+      @extend .mint-icon-logo;
+      &:before {
+        position: absolute;
+        top: -25px;
+        font-size: $textBitSmallLogoSize;
+        left: -10px;
+      }
     }
     &--small {
-      top: -25px;
-      left: -10px;
-      height: $textBitSmallLogoSize/2;
-      width: $textBitSmallLogoSize;
-      &:before {
-        font-size: $textBitSmallLogoSize;
+      font-size: $textBitSmallFontSize;
+    }
+  }
+
+  .mint-text-block {
+    font-family: $textBlockFontFamily;
+    font-size: $textBlockFontSize;
+    line-height: $textBlockLineHeight;
+    color: $textBlockColor;
+    margin: 0;
+    padding: 0;
+
+    &--gray {
+      color: $textBlockGrayColor;
+    }
+    &--light {
+      color: $textBlockLightColor;
+    }
+    &--for-fine-print-light {
+      color: $textBlockLightBlueColor;
+    }
+    &--for-fine-print {
+      color: $textBlockBlueColor;
+    }
+    &--emphasised {
+      text-transform: uppercase;
+    }
+  }
+
+  .mint-text-description {
+    font-family: $textDescriptionFontFamily;
+    font-size: $textDescriptionFontSize;
+    line-height: $textDescriptionLineHeight;
+    color: $textDescriptionColor;
+    margin: 0;
+    padding: 0;
+
+    &--large {
+      font-size: $textDescriptionLargeFontSize;
+      line-height: $textDescriptionLargeLineHeight;
+    }
+    &--small {
+      font-size: $textDescriptionSmallFontSize;
+      line-height: $textDescriptionSmallLineHeight;
+    }
+  }
+
+  .mint-text-emphasised {
+    font-family: $textEmphasisedFontFamily;
+  }
+
+  .mint-link {
+    cursor: pointer;
+    color: $linkColor;
+    text-decoration: none;
+    font-family: $linkFontFamily;
+
+    &:hover, &:active {
+      text-decoration: underline;
+    }
+
+    &--gray {
+      color: $linkGrayColor;
+    }
+
+    &--for-fine-print {
+      color: $linkBlueColor;
+    }
+
+    &--for-fine-print-light {
+      color: $linkLightBlueColor;
+    }
+
+    &--emphasised {
+      text-transform: uppercase;
+    }
+
+    &--disabled {
+      cursor: default;
+
+      &:hover, &:active {
+        text-decoration: none;
       }
     }
   }
-  &--alt {
-    color: $textBitAltColor;
-  }
-  &--light {
-    color: $textBitLightColor;
-  }
-  &--warning {
-    color: $textBitWarningColor;
-  }
-  &--with-logo {
-    @extend .mint-icon-logo;
-    &:before {
-      position: absolute;
-      top: -30px;
-      font-size: $textBitLogoSize;
-      left: -13px;
-    }
-  }
-  &--with-small-logo {
-    @extend .mint-icon-logo;
-    &:before {
-      position: absolute;
-      top: -25px;
-      font-size: $textBitSmallLogoSize;
-      left: -10px;
-    }
-  }
-  &--small {
-    font-size: $textBitSmallFontSize;
-  }
-}
 
-.mint-text-block {
-  font-family: $textBlockFontFamily;
-  font-size: $textBlockFontSize;
-  line-height: $textBlockLineHeight;
-  color: $textBlockColor;
-  margin: 0;
-  padding: 0;
-
-  &--gray {
-    color: $textBlockGrayColor;
-  }
-  &--light {
-    color: $textBlockLightColor;
-  }
-  &--for-fine-print-light {
-    color: $textBlockLightBlueColor;
-  }
-  &--for-fine-print {
-    color: $textBlockBlueColor;
-  }
-  &--emphasised {
-    text-transform: uppercase;
-  }
-}
-
-.mint-text-description {
-  font-family: $textDescriptionFontFamily;
-  font-size: $textDescriptionFontSize;
-  line-height: $textDescriptionLineHeight;
-  color: $textDescriptionColor;
-  margin: 0;
-  padding: 0;
-
-  &--large {
-    font-size: $textDescriptionLargeFontSize;
-    line-height: $textDescriptionLargeLineHeight;
-  }
-  &--small {
-    font-size: $textDescriptionSmallFontSize;
-    line-height: $textDescriptionSmallLineHeight;
-  }
-}
-
-.mint-text-emphasised {
-  font-family: $textEmphasisedFontFamily;
-}
-
-.mint-link {
-  cursor: pointer;
-  color: $linkColor;
-  text-decoration: none;
-  font-family: $linkFontFamily;
-
-  &:hover, &:active {
-    text-decoration: underline;
-  }
-
-  &--gray {
-    color: $linkGrayColor;
-  }
-
-  &--for-fine-print {
-    color: $linkBlueColor;
-  }
-
-  &--for-fine-print-light {
-    color: $linkLightBlueColor;
-  }
-
-  &--emphasised {
-    text-transform: uppercase;
-  }
-
-  &--disabled {
-    cursor: default;
-
-    &:hover, &:active {
-      text-decoration: none;
-    }
-  }
 }
