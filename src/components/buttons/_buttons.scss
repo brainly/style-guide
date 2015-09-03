@@ -154,7 +154,7 @@ $include-html: false !default;
 }
 
 @if ($include-html) {
-
+  
   // Primary buttons
   .mint-button-primary {
     @include mint-button-basic-styles();
@@ -360,4 +360,5 @@ $include-html: false !default;
       }
     }
   }
+
 }
