@@ -1,7 +1,6 @@
 $headerColor: $black;
 $headerColorLight: $white;
-$headerPrimaryFontFamily: $fontFamilyEmphasized;
-$headerSecondaryFontFamily: $fontFamilySecondary;
+$headerPrimaryFontWeight: $fontWeightBlack;
 $headerPrimaryFontSize: 64px;
 $headerPrimarySmallFontSize: 48px;
 $headerSecondaryFontSize: 16px;
@@ -15,7 +14,7 @@ $include-html: false !default;
     @include component;
     display: block;
     color: $headerColor;
-    font-family: $headerPrimaryFontFamily;
+    font-weight: $headerPrimaryFontWeight;
     font-size: $headerPrimaryFontSize;
     line-height: 1;
     margin: 0;
@@ -33,7 +32,7 @@ $include-html: false !default;
     @include component;
     display: block;
     color: $headerColor;
-    font-family: $headerSecondaryFontFamily;
+    font-weight: bold;
     font-size: $headerSecondaryFontSize;
     line-height: 1;
     text-transform: uppercase;
@@ -47,5 +46,5 @@ $include-html: false !default;
       color: $headerColorLight;
     }
   }
-
+  
 }

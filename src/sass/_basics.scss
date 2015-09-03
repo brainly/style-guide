@@ -16,6 +16,7 @@ $include-html: false !default;
     -moz-osx-font-smoothing: grayscale;
 
     font-size: $base-font;
+    font-family: $fontFamilyPrimary;
     line-height: $baseline;
   }
 

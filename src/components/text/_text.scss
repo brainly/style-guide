@@ -2,9 +2,8 @@ $linkColor: $bluePrimary;
 $linkGrayColor: $grayPrimary;
 $linkBlueColor: $blueSecondary;
 $linkLightBlueColor: $blueSecondaryLight;
-$linkFontFamily: $fontFamilySecondary;
 
-$textBitFontFamily: $fontFamilyEmphasized;
+$textBitFontWeight: $fontWeightBlack;
 $textBitFontSize: 44px;
 $textBitLineHeight: 0.9;
 $textBitColor: $mintSecondary;
@@ -16,7 +15,6 @@ $textBitLargeFontSize: 62px;
 $textBitLargerTabletFontSize: 72px;
 $textBitLargerDesktopFontSize: 80px;
 
-$textBlockFontFamily: $fontFamilySecondary;
 $textBlockFontSize: 13px;
 $textBlockLineHeight: 14px;
 $textBlockColor: $black;
@@ -25,7 +23,6 @@ $textBlockLightBlueColor: $blueSecondaryLight;
 $textBlockGrayColor: $grayPrimary;
 $textBlockLightColor: $white;
 
-$textDescriptionFontFamily: $fontFamilyPrimary;
 $textDescriptionColor: $black;
 $textDescriptionFontSize: 18px;
 $textDescriptionLineHeight: 21px;
@@ -34,15 +31,13 @@ $textDescriptionLargeLineHeight: 32px;
 $textDescriptionSmallFontSize: 15px;
 $textDescriptionSmallLineHeight: 19px;
 
-$textEmphasisedFontFamily: $fontFamilySecondary;
-
 $include-html: false !default;
 
 @if ($include-html) {
 
   .mint-text-bit {
     color: $textBitColor;
-    font-family: $textBitFontFamily;
+    font-weight: $textBitFontWeight;
     font-size: $textBitFontSize;
     line-height: $textBitLineHeight;
     text-transform: uppercase;
@@ -92,7 +87,7 @@ $include-html: false !default;
   }
 
   .mint-text-block {
-    font-family: $textBlockFontFamily;
+    font-weight: bold;
     font-size: $textBlockFontSize;
     line-height: $textBlockLineHeight;
     color: $textBlockColor;
@@ -117,13 +112,12 @@ $include-html: false !default;
   }
 
   .mint-text-description {
-    font-family: $textDescriptionFontFamily;
     font-size: $textDescriptionFontSize;
     line-height: $textDescriptionLineHeight;
     color: $textDescriptionColor;
     margin: 0;
     padding: 0;
-
+  
     &--large {
       font-size: $textDescriptionLargeFontSize;
       line-height: $textDescriptionLargeLineHeight;
@@ -135,14 +129,14 @@ $include-html: false !default;
   }
 
   .mint-text-emphasised {
-    font-family: $textEmphasisedFontFamily;
+    font-weight: bold;
   }
 
   .mint-link {
     cursor: pointer;
     color: $linkColor;
     text-decoration: none;
-    font-family: $linkFontFamily;
+    font-weight: bold;
 
     &:hover, &:active {
       text-decoration: underline;
@@ -172,5 +166,5 @@ $include-html: false !default;
       }
     }
   }
-
+  
 }
