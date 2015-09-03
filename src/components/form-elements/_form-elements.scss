@@ -2,7 +2,6 @@ $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: 12px;
 $selectHeight: 44px;
-$selectFontFamily: $fontFamilySecondary;
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
@@ -12,11 +11,9 @@ $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: 15px;
-$inputFontFamily: $fontFamilyPrimary;
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
 $inputPlaceholderFontSize: 12px;
-$inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
@@ -30,7 +27,6 @@ $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
 
-$crInputLabelFontFamily: $fontFamilySecondary;
 $crInputLabelFontSize: 12px;
 $crInputLabelLineHeight: 18px;
 $crInputLabelHeight: 16px;
@@ -40,7 +36,6 @@ $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
 $textareaBorderRadius: 11px;
 $textareaFontSize: 15px;
-$textareaFontFamily: $fontFamilyPrimary;
 $textareaLineHeight: 19px;
 $textareaTextColor: $black;
 $textareaPadding: 11px;
@@ -48,10 +43,8 @@ $textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: 12px;
-$textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
-
 
 $include-html: false !default;
 
@@ -69,7 +62,6 @@ $include-html: false !default;
       border: 0;
       cursor: pointer;
       font-size: inherit;
-      font-family: $selectFontFamily;
       font-weight: bold;
       color: inherit;
       display: inline-block;
@@ -117,8 +109,6 @@ $include-html: false !default;
     border-radius: $inputHeight/2;
     color: $inputTextColor;
     font-size: $inputFontSize;
-    font-family: $inputFontFamily;
-    font-weight: normal;
     padding: 0 $inputHeight/2;
     height: $inputHeight;
     line-height: $inputHeight;
@@ -131,7 +121,6 @@ $include-html: false !default;
     &::placeholder {
       color: $inputPlaceholderTextColor;
       text-transform: uppercase;
-      font-family: $inputPlaceholderFontFamily;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
     }
@@ -142,8 +131,8 @@ $include-html: false !default;
       line-height: $inputLowHeight;
     }
     &--valid {
-      border-color: $inputValidBorderColor;
-      &:focus {
+      border-color:$inputValidBorderColor;
+        &:focus {
         border-color: $inputValidBorderColor;
       }
     }
@@ -211,7 +200,7 @@ $include-html: false !default;
   .mint-checkbox-label,
   .mint-radio-label {
     @include component;
-    font-family: $crInputLabelFontFamily;
+    font-weight: bold;
     font-size: $crInputLabelFontSize;
     line-height: $crInputLabelLineHeight;
     height: $crInputLabelHeight;
@@ -262,8 +251,6 @@ $include-html: false !default;
     border-radius: $textareaBorderRadius;
     color: $textareaTextColor;
     font-size: $textareaFontSize;
-    font-family: $textareaFontFamily;
-    font-weight: normal;
     line-height: $textareaLineHeight;
     padding: $textareaPadding;
     resize: none;
@@ -278,7 +265,6 @@ $include-html: false !default;
     &::placeholder {
       color: $textareaPlaceholderTextColor;
       text-transform: uppercase;
-      font-family: $textareaPlaceholderFontFamily;
       font-size: $textareaPlaceholderFontSize;
       font-weight: bold;
     }
@@ -305,5 +291,4 @@ $include-html: false !default;
       height: 178px;
     }
   }
-
 }
