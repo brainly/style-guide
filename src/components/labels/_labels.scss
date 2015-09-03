@@ -1,7 +1,7 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
 $labelInactiveColor: $grayAlt;
-$labelFont: $fontFamilySecondary;
+$labelFontWeight: $fontWeightBlack;
 $labelFontSizePrimary: 12px;
 $labelFontSizeSecondary: 10px;
 $labelIconSizePrimary: 16px;
@@ -32,7 +32,7 @@ $include-html: false !default;
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;
-      font-family: $labelFont;
+      font-weight: $labelFontWeight;
       text-transform: uppercase;
       margin-right: $layoutDefaultPadding/4;
 
@@ -43,7 +43,7 @@ $include-html: false !default;
 
     &__text {
       margin-right: $layoutDefaultPadding/2;
-      overflow: hidden;
+      overflow: hidden; /
     }
 
     &__icon {
@@ -139,6 +139,5 @@ $include-html: false !default;
       }
     }
   }
-
+  
 }
-

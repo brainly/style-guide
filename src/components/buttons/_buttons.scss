@@ -5,9 +5,6 @@ $buttonSecondarySmallHeight: 24px;
 $buttonPrimaryFontSize: 15px;
 $buttonSecondaryFontSize: 12px;
 
-$buttonPrimaryFontFamily: $fontFamilySecondary;
-$buttonSecondaryFontFamily: $fontFamilySecondary;
-
 $buttonPrimaryFontColor: $white;
 
 $buttonColor: $mintPrimary;
@@ -54,8 +51,7 @@ $iconAsButtonGrayColor: $grayPrimary;
 $buttonRoundAddSize: 50px;
 $buttonRoundAddFontSize: 18px;
 $buttonRoundAddColor: $white;
-$buttonRoundLabelFontFamily: $fontFamilySecondary;
-$buttonRoundLabelFontFamily: $fontFamilySecondary;
+
 $buttonRoundLabelFontSize: 10px;
 $buttonRoundLabelBackground: $mintSecondaryLight;
 $buttonRoundLabelColor: $black;
@@ -159,7 +155,7 @@ $include-html: false !default;
 }
 
 @if ($include-html) {
-
+  
   // Primary buttons
   .mint-button-primary {
     @include mint-button-basic-styles();
@@ -218,7 +214,7 @@ $include-html: false !default;
     }
     &__label {
       float: left;
-      font-family: $buttonRoundLabelFontFamily;
+      font-weight: bold;
       font-size: $buttonRoundLabelFontSize;
       border-radius: 4px;
       line-height: 12px;
@@ -244,7 +240,7 @@ $include-html: false !default;
     border-style: solid;
     background-color: transparent;
     font-size: $buttonSecondaryFontSize;
-    font-family: $buttonSecondaryFontFamily;
+    font-weight: bold;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
     &:hover, &:focus {
       outline: none;
@@ -366,5 +362,4 @@ $include-html: false !default;
       }
     }
   }
-
 }
