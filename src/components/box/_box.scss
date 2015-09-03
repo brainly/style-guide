@@ -1,9 +1,10 @@
 $boxBorderColor: $graySecondary;
+$boxBorderRadius: 22px;
 
 .mint-box {
   @include component;
 
-  border-radius: 22px;
+  border-radius: $boxBorderRadius;
   padding: $layoutDefaultPadding;
   border: 2px solid $boxBorderColor;
 
