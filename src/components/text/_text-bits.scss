@@ -1,0 +1,79 @@
+$textBitLogoSize: 84px;
+$textBitSmallLogoSize: 68px;
+
+.mint-text-bit {
+  color: $mintSecondary;
+  font-weight: $fontWeightBlack;
+  font-size: 3.625rem;
+  line-height: 2 * $baseline;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  margin: 0;
+  position: relative;
+  letter-spacing: -1px;
+
+  &__logo {
+    @extend .mint-icon-logo;
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    top: -30px;
+    left: -13px;
+    height: $textBitLogoSize/2;
+    width: $textBitLogoSize;
+
+    &:before {
+      font-size: $textBitLogoSize;
+    }
+
+    &--small {
+      top: -25px;
+      left: -10px;
+      height: $textBitSmallLogoSize/2;
+      width: $textBitSmallLogoSize;
+
+      &:before {
+        font-size: $textBitSmallLogoSize;
+      }
+    }
+  }
+
+  &--alt {
+    color: $blueSecondary;
+  }
+
+  &--light {
+    color: $white;
+  }
+
+  &--warning {
+    color: $peachPrimary;
+  }
+
+  &--with-logo {
+    @extend .mint-icon-logo;
+
+    &:before {
+      position: absolute;
+      top: -30px;
+      font-size: $textBitLogoSize;
+      left: -13px;
+    }
+  }
+
+  &--with-small-logo {
+    @extend .mint-icon-logo;
+
+    &:before {
+      position: absolute;
+      top: -25px;
+      font-size: $textBitSmallLogoSize;
+      left: -10px;
+    }
+  }
+
+  &--small {
+    font-size: 3rem;
+  }
+}
