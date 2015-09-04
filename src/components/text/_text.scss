@@ -1,169 +1,46 @@
-$linkColor: $bluePrimary;
-$linkGrayColor: $grayPrimary;
-$linkBlueColor: $blueSecondary;
-$linkLightBlueColor: $blueSecondaryLight;
-
-$textBitFontWeight: $fontWeightBlack;
-$textBitFontSize: 44px;
-$textBitLineHeight: 0.9;
-$textBitColor: $mintSecondary;
-$textBitAltColor: $blueSecondary;
-$textBitWarningColor: $peachPrimary;
-$textBitLightColor: $white;
-$textBitDarkColor: $black;
-$textBitLargeFontSize: 62px;
-$textBitLargerTabletFontSize: 72px;
-$textBitLargerDesktopFontSize: 80px;
-
-$textBlockFontSize: 13px;
-$textBlockLineHeight: 14px;
-$textBlockColor: $black;
-$textBlockBlueColor: $blueSecondary;
-$textBlockLightBlueColor: $blueSecondaryLight;
-$textBlockGrayColor: $grayPrimary;
-$textBlockLightColor: $white;
-
-$textDescriptionColor: $black;
-$textDescriptionFontSize: 18px;
-$textDescriptionLineHeight: 21px;
-$textDescriptionLargeFontSize: 32px;
-$textDescriptionLargeLineHeight: 32px;
-$textDescriptionSmallFontSize: 15px;
-$textDescriptionSmallLineHeight: 19px;
-
 $include-html: false !default;
 
 @if ($include-html) {
 
-  .mint-text-bit {
-    color: $textBitColor;
-    font-weight: $textBitFontWeight;
-    font-size: $textBitFontSize;
-    line-height: $textBitLineHeight;
-    text-transform: uppercase;
-    word-wrap: break-word;
-    margin: 0;
-    position: relative;
-    letter-spacing: -1px;
-    &__hole {
-      display: block;
-      position: absolute;
-      top: -22px;
-      left: -13px;
-      line-height: 0;
-      &--small {
-        top: -25px;
-        left: -10px;
-      }
-    }
-    &--alt {
-      color: $textBitAltColor;
-    }
-    &--light {
-      color: $textBitLightColor;
-    }
-    &--dark {
-      color: $textBitDarkColor;
-    }
-    &--warning {
-      color: $textBitWarningColor;
-    }
-    &--large {
-      font-size: $textBitLargeFontSize;
-    }
-    @media (min-width: $breakpointTablet) {
-      &:not(.mint-text-bit--not-responsive) {
-        font-size: $textBitLargeFontSize;
-      }
-    }
-    &--to-larger:not(.mint-text-bit--not-responsive) {
-      @media (min-width: $breakpointTablet) {
-        font-size: $textBitLargerTabletFontSize;
-      }
-      @media (min-width: $breakpointDesktop) {
-        font-size: $textBitLargerDesktopFontSize;
-      }
-    }
-  }
+  .mint-text {
+    @include type-variant(1, 1);
+    font-family: $fontFamilyPrimary;
+    color: $black;
 
-  .mint-text-block {
-    font-weight: bold;
-    font-size: $textBlockFontSize;
-    line-height: $textBlockLineHeight;
-    color: $textBlockColor;
-    margin: 0;
-    padding: 0;
-
-    &--gray {
-      color: $textBlockGrayColor;
-    }
-    &--light {
-      color: $textBlockLightColor;
-    }
-    &--for-fine-print-light {
-      color: $textBlockLightBlueColor;
-    }
-    &--for-fine-print {
-      color: $textBlockBlueColor;
-    }
-    &--emphasised {
-      text-transform: uppercase;
-    }
-  }
-
-  .mint-text-description {
-    font-size: $textDescriptionFontSize;
-    line-height: $textDescriptionLineHeight;
-    color: $textDescriptionColor;
-    margin: 0;
-    padding: 0;
-  
-    &--large {
-      font-size: $textDescriptionLargeFontSize;
-      line-height: $textDescriptionLargeLineHeight;
-    }
-    &--small {
-      font-size: $textDescriptionSmallFontSize;
-      line-height: $textDescriptionSmallLineHeight;
-    }
-  }
-
-  .mint-text-emphasised {
-    font-weight: bold;
-  }
-
-  .mint-link {
-    cursor: pointer;
-    color: $linkColor;
-    text-decoration: none;
-    font-weight: bold;
-
-    &:hover, &:active {
-      text-decoration: underline;
+    &--standout {
+      @include type-variant(1.125, 1);
+      font-size: 1.125rem;
     }
 
-    &--gray {
-      color: $linkGrayColor;
+    &--obscure {
+      @include type-variant(0.75, 1);
     }
 
-    &--for-fine-print {
-      color: $linkBlueColor;
-    }
-
-    &--for-fine-print-light {
-      color: $linkLightBlueColor;
+    &--headline {
+      @include type-variant(1.75, 1.334);
+      font-weight: normal;
+      margin: 0;
+      margin-bottom: $baseline;
     }
 
     &--emphasised {
-      text-transform: uppercase;
+      font-weight: bold;
     }
 
-    &--disabled {
-      cursor: default;
+    &--gray {
+      color: $grayPrimary;
+    }
 
-      &:hover, &:active {
-        text-decoration: none;
-      }
+    &--light {
+      color: $white;
+    }
+
+    &--for-fine-print-light {
+      color: $blueSecondaryLight;
+    }
+
+    &--for-fine-print {
+      color: $blueSecondary;
     }
   }
   

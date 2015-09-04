@@ -61,12 +61,12 @@
 
   &__contrast-box {
     background-color: $grayPrimary;
-    padding: 10px;
+    padding: $baseline;
     display: inline-block;
   }
 
   &__content-box {
-    padding: 10px;
+    padding: $baseline;
     display: inline-block;
   }
 
