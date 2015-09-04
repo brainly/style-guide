@@ -1,49 +1,39 @@
-$headerColor: $black;
-$headerColorLight: $white;
-$headerPrimaryFontWeight: $fontWeightBlack;
-$headerPrimaryFontSize: 64px;
-$headerPrimarySmallFontSize: 48px;
-$headerSecondaryFontSize: 16px;
-$headerSecondarySmallFontSize: 12px;
-
 $include-html: false !default;
 
 @if ($include-html) {
 
   .mint-header-primary {
     @include component;
+    @include type-variant(3, 2, 11/16, 37/16);
     display: block;
-    color: $headerColor;
-    font-weight: $headerPrimaryFontWeight;
-    font-size: $headerPrimaryFontSize;
-    line-height: 1;
-    margin: 0;
+    color: $black;
+    font-weight: $fontWeightBlack;
 
     &--small {
       font-size: $headerPrimarySmallFontSize;
     }
 
     &--light {
-      color: $headerColorLight;
+      color: $white;;
     }
 
   }
   .mint-header-secondary {
     @include component;
+    @include type-variant(1, 0.667, 12/16, 20/16);
     display: block;
-    color: $headerColor;
+    color: $black;
     font-weight: bold;
-    font-size: $headerSecondaryFontSize;
-    line-height: 1;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    margin: 0;
 
     &--small {
-      font-size: $headerSecondarySmallFontSize;
-    }
-
+      @include type-variant(0.8125, 0.667, 13/16, 19/16);
+      letter-spacing: 1px;
+      }
+  
     &--light {
-      color: $headerColorLight;
+      color: $white;;
     }
   }
   

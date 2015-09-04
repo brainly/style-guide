@@ -1,0 +1,70 @@
+$textBitFontWeight: $fontWeightBlack;
+$textBitFontSize: 44px;
+$textBitLineHeight: 2 * $baseline;
+$textBitColor: $mintSecondary;
+$textBitAltColor: $blueSecondary;
+$textBitWarningColor: $peachPrimary;
+$textBitLightColor: $white;
+$textBitDarkColor: $black;
+$textBitLargeFontSize: 62px;
+$textBitLargerTabletFontSize: 72px;
+$textBitLargerDesktopFontSize: 80px;
+
+.mint-text-bit {
+  color: $textBitColor;
+  font-weight: $textBitFontWeight;
+  font-size: $textBitFontSize;
+  line-height: $textBitLineHeight;
+  text-transform: uppercase;
+  word-wrap: break-word;
+  margin: 0;
+  position: relative;
+  letter-spacing: -1px;
+
+  &__hole {
+    display: block;
+    position: absolute;
+    top: -22px;
+    left: -13px;
+    line-height: 0;
+    &--small {
+      top: -25px;
+      left: -10px;
+    }
+  }
+
+  &--alt {
+    color: $textBitAltColor;
+  }
+
+  &--light {
+    color: $textBitLightColor;
+  }
+
+  &--dark {
+    color: $textBitDarkColor;
+  }
+
+  &--warning {
+    color: $textBitWarningColor;
+  }
+
+  &--large {
+    font-size: $textBitLargeFontSize;
+  }
+
+  @media (min-width: $breakpointTablet) {
+    &:not(.mint-text-bit--not-responsive) {
+      font-size: $textBitLargeFontSize;
+    }
+  }
+
+  &--to-larger:not(.mint-text-bit--not-responsive) {
+    @media (min-width: $breakpointTablet) {
+      font-size: $textBitLargerTabletFontSize;
+    }
+    @media (min-width: $breakpointDesktop) {
+      font-size: $textBitLargerDesktopFontSize;
+    }
+  }
+}
