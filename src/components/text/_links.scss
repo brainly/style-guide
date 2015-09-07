@@ -3,6 +3,7 @@
   color: $bluePrimary;
   text-decoration: none;
   font-weight: bold;
+  line-height: 0.75rem; // forbid descenders overflow line-height
 
   &:hover, &:active {
     text-decoration: underline;
@@ -21,7 +22,7 @@
   }
 
   &--emphasised {
-    @include type-variant(0.8125, 1);
+    @include type-variant(0.8125, 0.75);
     text-transform: uppercase;
     letter-spacing: 0.01em;
   }
