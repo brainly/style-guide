@@ -112,8 +112,10 @@ $include-html: false !default;
     &--full {
       width: 100%;
     }
+
     &--invalid {
       border: 2px solid $selectInvalidBorderColor;
+
       .mint-select__element {
         padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
       }
@@ -137,36 +139,45 @@ $include-html: false !default;
       outline: none;
       border-color: $inputFocusBorderColor;
     }
+
     &::placeholder {
       color: $inputPlaceholderTextColor;
       text-transform: uppercase;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--low {
       border-radius: $inputLowHeight/2;
       padding: 0 $inputLowHeight/2;
       height: $inputLowHeight;
       line-height: $inputLowHeight;
     }
+
     &--valid {
       border-color: $inputValidBorderColor;
+      
       &:focus {
         border-color: $inputFocusValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $inputInvalidBorderColor;
+
       &:focus {
-        border-color: $inputFocusInvalidBorderColor;
+        border-color: $inputInvalidBorderColor;
       }
     }
+
     &--spaced {
       margin-bottom: $inputHeight/4;
     }
+
     &--full {
       width: 100%;
     }
+    
     &--large {
       @media (min-width: $breakpointMedium) {
         height: $inputLargeHeight;
@@ -179,6 +190,7 @@ $include-html: false !default;
         }
       }
     }
+    
     &--subtle-border {
       border: none;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -188,6 +200,7 @@ $include-html: false !default;
         box-shadow: 0 0 10px rgba(0,0,0,0.4);
       }
     }
+
     &--transparent-border {
       border-color: $inputTransparentBorderColor;
       background-clip: padding-box;
@@ -211,6 +224,7 @@ $include-html: false !default;
     width: $crInputSize;
     height: $crInputSize;
     font-size: $crInputFontSize;
+
     &__element {
       opacity: 0;
       position: absolute;
@@ -219,13 +233,16 @@ $include-html: false !default;
       height: 100%;
       z-index: 1;
     }
+
     &__element:active + &__ghost {
       border-color: $crInputActiveBorderColor;
     }
+
     &__element:checked + &__ghost {
       border-color: $crInputCheckedColor;
       background: $crInputCheckedColor;
     }
+
     &__ghost {
       background: $crInputColor;
       width: 100%;
@@ -259,6 +276,7 @@ $include-html: false !default;
   .mint-checkbox__ghost {
     @extend .mint-icon-check;
     border-radius: 25%;
+
     &:before {
       font-size: 137.5%;
       position: absolute;
@@ -270,6 +288,7 @@ $include-html: false !default;
 
   .mint-radio__ghost {
     border-radius: 50%;
+
     &:before {
       content: '';
       position: absolute;
@@ -300,31 +319,37 @@ $include-html: false !default;
       border-color: $textareaFocusBorderColor;
       outline: 0;
     }
+
     &::placeholder {
       color: $textareaPlaceholderTextColor;
       text-transform: uppercase;
       font-size: $textareaPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--full {
       width: 100%;
     }
+
     &--valid {
       border-color: $textareaValidBorderColor;
       &:focus {
         border-color: $textareaValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $textareaInvalidBorderColor;
       &:focus {
         border-color: $textareaInvalidBorderColor;
       }
     }
+
     &--small {
       height: 36px;
       padding: $textareaSmallPadding $textareaPadding;
     }
+
     &--big {
       height: 178px;
     }

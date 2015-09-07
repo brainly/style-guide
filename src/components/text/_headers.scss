@@ -10,14 +10,14 @@ $include-html: false !default;
     font-weight: $fontWeightBlack;
 
     &--small {
-      font-size: $headerPrimarySmallFontSize;
+      @include type-variant(1.75, 2, 1, 8/16);
     }
 
     &--light {
       color: $white;;
     }
-
   }
+
   .mint-header-secondary {
     @include component;
     @include type-variant(1, 0.667, 12/16, 20/16);
@@ -30,11 +30,11 @@ $include-html: false !default;
     &--small {
       @include type-variant(0.8125, 0.667, 13/16, 19/16);
       letter-spacing: 1px;
-      }
-  
+    }
+
     &--light {
       color: $white;;
     }
   }
-  
+
 }
