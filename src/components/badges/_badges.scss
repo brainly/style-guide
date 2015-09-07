@@ -4,7 +4,6 @@ $badgeDefaultColor: $white;
 $badgeLightBackgroundColor: $white;
 $badgeLightColor: $black;
 
-
 $include-html: false !default;
 
 @if ($include-html) {
@@ -13,10 +12,10 @@ $include-html: false !default;
     @include component;
 
     border-radius: $badgeFontSize;
-  	line-height: $badgeFontSize;
-  	font-size: $badgeFontSize;
-  	font-weight: bold;
-  	padding: 3px 6px;
+    line-height: $badgeFontSize;
+    font-size: $badgeFontSize;
+    font-weight: bold;
+    padding: 3px 6px;
 
     background-color: $badgeDefaultBackgroundColor;
     color: $badgeDefaultColor;
