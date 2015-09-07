@@ -5,6 +5,7 @@ $include-html: false !default;
 
   .mint-search {
     @include component;
+    overflow: visible;
     width: 100%;
 
     &__button {

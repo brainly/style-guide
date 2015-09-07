@@ -8,17 +8,22 @@ $selectInvalidBorderColor: $peachSecondary;
 
 $inputHeight: 44px;
 $inputLowHeight: 36px;
+$inputLargeHeight: 64px;
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: 15px;
+$inputLargeFontSize: 19px;
 $inputFontFamily: $fontFamilyPrimary;
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
 $inputPlaceholderFontSize: 12px;
+$inputLargePlaceholderFontSize: 15px;
 $inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
+$inputFocusValidBorderColor: $mintPrimary;
 $inputInvalidBorderColor: $peachSecondary;
+$inputFocusInvalidBorderColor: $peachPrimary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
 $inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
@@ -123,6 +128,7 @@ $include-html: false !default;
     height: $inputHeight;
     line-height: $inputHeight;
     appearance: none;
+    transition: border 300ms;
 
     &:focus {
       outline: none;
@@ -144,13 +150,13 @@ $include-html: false !default;
     &--valid {
       border-color: $inputValidBorderColor;
       &:focus {
-        border-color: $inputValidBorderColor;
+        border-color: $inputFocusValidBorderColor;
       }
     }
     &--invalid {
       border-color: $inputInvalidBorderColor;
       &:focus {
-        border-color: $inputInvalidBorderColor;
+        border-color: $inputFocusInvalidBorderColor;
       }
     }
     &--spaced {
@@ -158,6 +164,27 @@ $include-html: false !default;
     }
     &--full {
       width: 100%;
+    }
+    &--large {
+      @media (min-width: $breakpointTablet) {
+        height: $inputLargeHeight;
+        font-size: $inputLargeFontSize;
+        border-radius: $inputLargeHeight / 2;
+        padding: 0 $inputLargeHeight / 2;
+
+        &::placeholder {
+          font-size: $inputLargePlaceholderFontSize;
+        }
+      }
+    }
+    &--subtle-border {
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: box-shadow 300ms;
+
+      &:focus {
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      }
     }
     &--transparent-border {
       border-color: $inputTransparentBorderColor;
