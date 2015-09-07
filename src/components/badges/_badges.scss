@@ -2,6 +2,8 @@ $badgeFontFamily: $fontFamilySecondary;
 $badgeFontSize: 10px;
 $badgeDefaultBackgroundColor: $peachPrimary;
 $badgeDefaultColor: $white;
+$badgeAltBackgroundColor: $mustardPrimary;
+$badgeAltColor: $white;
 $badgeLightBackgroundColor: $white;
 $badgeLightColor: $black;
 
@@ -12,14 +14,21 @@ $include-html: false !default;
   .mint-badge {
     @include component;
 
+    overflow: visible;
     border-radius: $badgeFontSize;
     line-height: $badgeFontSize;
     font-size: $badgeFontSize;
     font-family: $badgeFontFamily;
     padding: 3px 6px;
+    text-transform: uppercase;
 
     background-color: $badgeDefaultBackgroundColor;
     color: $badgeDefaultColor;
+
+    &--alt {
+      background-color: $badgeAltBackgroundColor;
+      color: $badgeAltColor;
+    }
 
     &--light {
       background-color: $badgeLightBackgroundColor;
