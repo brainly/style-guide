@@ -1,41 +1,25 @@
-$logoColor: $black;
-$logoWhiteColor: $white;
-$logoLettersColor: $white;
 $logoDefaultHeight: 60px;
-
+$logoDefaultWidth: 134px;
+$logoLargeHeight: 81px;
+$logoLargeWidth: 180px;
 $include-html: false !default;
 
 @if ($include-html) {
-
-  .mint-icon-logo {
-    &:before {
-      font-size: 134px;
-      color: $logoColor;
-      background: linear-gradient(170deg, transparent 17%, $logoLettersColor 18%, $logoLettersColor 38%, transparent 39%) no-repeat;
-    }
-
-    &--white {
-      &:before {
-        color: $logoWhiteColor;
-        background: transparent;
-      }
-    }
-  }
-
   .mint-logo {
     @include component;
-    overflow: visible;
+    background-image: url($mintImagesPath + 'logo.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
     height: $logoDefaultHeight;
-
-    &__image {
-      position: relative;
-      bottom: -10px;
-      height: 100%;
+    width: $logoDefaultWidth;
+    @media (min-width: $breakpointTablet) {
+      height: $logoLargeHeight;
+      width: $logoLargeWidth;
     }
-
     &--small {
       height: $logoDefaultHeight / 2;
+      width: $logoDefaultWidth / 2;
+      background-size: auto $logoDefaultHeight/2;
     }
   }
-
 }

@@ -50,27 +50,15 @@ $include-html: false !default;
     margin: 0;
     position: relative;
     letter-spacing: -1px;
-    &__logo {
-      @extend .mint-icon-logo;
-      text-decoration: none;
+    &__hole {
       display: block;
       position: absolute;
-      overflow: hidden;
-      top: -30px;
+      top: -22px;
       left: -13px;
-      height: $textBitLogoSize/2;
-      width: $textBitLogoSize;
-      &:before {
-        font-size: $textBitLogoSize;
-      }
+      line-height: 0;
       &--small {
         top: -25px;
         left: -10px;
-        height: $textBitSmallLogoSize/2;
-        width: $textBitSmallLogoSize;
-        &:before {
-          font-size: $textBitSmallLogoSize;
-        }
       }
     }
     &--alt {
@@ -84,24 +72,6 @@ $include-html: false !default;
     }
     &--warning {
       color: $textBitWarningColor;
-    }
-    &--with-logo {
-      @extend .mint-icon-logo;
-      &:before {
-        position: absolute;
-        top: -30px;
-        font-size: $textBitLogoSize;
-        left: -13px;
-      }
-    }
-    &--with-small-logo {
-      @extend .mint-icon-logo;
-      &:before {
-        position: absolute;
-        top: -25px;
-        font-size: $textBitSmallLogoSize;
-        left: -10px;
-      }
     }
     &--small {
       font-size: $textBitSmallFontSize;

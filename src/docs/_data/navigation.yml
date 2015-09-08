@@ -10,7 +10,7 @@
     - name: Subject Icons
       location: subject-icons/subject-icons
     - name: Logo
-      location: logo/icon-logo
+      location: logo/logo
 
 - name: Components
   location: components
@@ -35,8 +35,6 @@
       location: form-elements/form-elements
     - name: Search
       location: search/search
-    - name: Logo
-      location: logo/logo
     - name: Home Button
       location: home-button/home-button
     - name: Subjects
