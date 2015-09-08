@@ -1,11 +1,11 @@
 $badgeFontFamily: $fontFamilySecondary;
 $badgeFontSize: 10px;
-$badgeDefaultBackgroundColor: $peachPrimary;
-$badgeDefaultColor: $white;
-$badgeAltBackgroundColor: $mustardPrimary;
-$badgeAltColor: $white;
-$badgeLightBackgroundColor: $white;
-$badgeLightColor: $black;
+$badgeDefaultBackgroundColor: $white;
+$badgeDefaultColor: $black;
+$badgeErrorBackgroundColor: $peachPrimary;
+$badgeErrorColor: $white;
+$badgeWarningBackgroundColor: $mustardPrimary;
+$badgeWarningColor: $white;
 
 $include-html: false !default;
 
@@ -25,14 +25,14 @@ $include-html: false !default;
     background-color: $badgeDefaultBackgroundColor;
     color: $badgeDefaultColor;
 
-    &--alt {
-      background-color: $badgeAltBackgroundColor;
-      color: $badgeAltColor;
+    &--error {
+      background-color: $badgeErrorBackgroundColor;
+      color: $badgeErrorColor;
     }
-
-    &--light {
-      background-color: $badgeLightBackgroundColor;
-      color: $badgeLightColor;
+    
+    &--warning {
+      background-color: $badgeWarningBackgroundColor;
+      color: $badgeWarningColor;
     }
 
     &--with-animation {
