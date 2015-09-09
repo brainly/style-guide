@@ -1,8 +1,8 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
 $labelFontWeight: $fontWeightBlack;
-$labelFontSizePrimary: 12px;
-$labelFontSizeSecondary: 10px;
+$labelFontSizePrimary: fontSize(obscure);
+$labelFontSizeSecondary: fontSize(tiny);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
 $labelHeight: $defaultComponentHeight;
@@ -27,7 +27,7 @@ $include-html: false !default;
     height: $labelHeight;
 
     &__text, &__number {
-      @include fixText($labelFontSizePrimary, 2px);
+      @include fixText($labelFontSizePrimary, 2/16);
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;

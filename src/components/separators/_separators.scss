@@ -1,7 +1,7 @@
 $separatorColor: $grayPrimary;
-$separatorHeight: 18px;
+$separatorHeight: rhythm(0.75);
 $separatorSpacing: 15px;
-$separatorHeightSmall: 10px;
+$separatorHeightSmall: rhythm(0.417);
 $separatorSpacingSmall: 10px;
 
 $include-html: false !default;
@@ -10,6 +10,7 @@ $include-html: false !default;
 
   .mint-separator {
     @include component;
+    min-height: auto;
 
     margin-right: $separatorSpacing;
     border-right: solid $separatorColor 1px;
