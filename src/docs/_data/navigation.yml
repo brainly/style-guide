@@ -33,6 +33,8 @@
       location: buttons/buttons
     - name: Form Elements
       location: form-elements/form-elements
+    - name: Dropdowns
+      location: dropdowns/dropdowns
     - name: Search
       location: search/search
     - name: Home Button
