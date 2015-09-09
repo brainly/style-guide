@@ -13,6 +13,10 @@
     color: $grayPrimary;
   }
 
+  &--small {
+    @include type-variant(0.8125, 0.75);
+  }
+
   &--for-fine-print {
     color: $blueSecondary;
   }
@@ -22,7 +26,6 @@
   }
 
   &--emphasised {
-    @include type-variant(0.8125, 0.75);
     text-transform: uppercase;
     letter-spacing: 0.01em;
   }
