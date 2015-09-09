@@ -48,10 +48,12 @@ $include-html: false !default;
     }
 
     &__element {
+      color: $grayAlt;
       display: flex;
       align-items: center;
       height: 36px;
       padding: 0 16px;
+      text-decoration: none;
 
       &:hover,
       &:active {
