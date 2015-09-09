@@ -1,0 +1,27 @@
+// your components variables
+
+$include-html: false !default;
+
+@if ($include-html-classes) {
+  .mint-dropdown {
+    background-color: $grayAltLight;
+    box-sizing: border-box;
+    padding: 10px $layoutDefaultPadding/3*2;
+
+    &__label {
+
+    }
+
+    &__list {
+
+    }
+
+    &__element {
+
+      &--active {
+
+      }
+
+    }
+  }
+}
