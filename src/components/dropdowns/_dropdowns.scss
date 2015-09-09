@@ -21,8 +21,11 @@ $include-html: false !default;
     height: $dropdownHeight;
     text-transform: uppercase;
     font-family: $fontFamilySecondary;
-    box-shadow: 0 1px 0 $graySecondary;
     cursor: pointer;
+
+    &--full {
+      width: 100%;
+    }
 
     &:before {
       $iconSize: $dropdownFontSize + $iconBoostValue;
