@@ -52,10 +52,23 @@ $fontWeightBlack: 500;
 $iconBoostValue: 4px;
 
 // Vertical rhythm
-$base-font: 16px;
+$baseFont: 16px;
 $baseline: 1.5rem;
 
-// Layout
+// Typo
+$fontSizes: (
+  default: 1rem,      // 16px
+  tiny: 0.625rem,     // 10px
+  obscure: 0.75rem,   // 12px
+  small: 0.8125rem,   // 13px
+  large: 3.625rem,    // 58px
+  standout: 1.125rem, // 18px
+  headline: 1.75rem,  // 28px
+  header: 3rem        // 48px
+);
+
+
+  // Layout
 $layoutMaximumWidth: 960px;
 $layoutDefaultPadding: 24px;
 $breakpointTablet: 768px;

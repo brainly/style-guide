@@ -1,4 +1,4 @@
-$badgeFontSize: 10px;
+$badgeFontSize: fontSize(tiny);
 $badgeDefaultBackgroundColor: $white;
 $badgeDefaultColor: $black;
 $badgeErrorBackgroundColor: $peachPrimary;
@@ -6,20 +6,18 @@ $badgeErrorColor: $white;
 $badgeWarningBackgroundColor: $mustardPrimary;
 $badgeWarningColor: $white;
 
-
 $include-html: false !default;
 
 @if ($include-html) {
 
   .mint-badge {
     @include component;
+    @include fixText($badgeFontSize);
 
     overflow: visible;
     border-radius: $badgeFontSize;
-  	line-height: $badgeFontSize;
-  	font-size: $badgeFontSize;
-  	padding: 3px 6px;
     font-weight: bold;
+    padding: 3px 6px;
     text-transform: uppercase;
 
     background-color: $badgeDefaultBackgroundColor;

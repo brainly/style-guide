@@ -1,6 +1,5 @@
 $textBitFontWeight: $fontWeightBlack;
-$textBitFontSize: 44px;
-$textBitLineHeight: 2 * $baseline;
+$textBitFontSize: fontSize(header);
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
@@ -11,10 +10,10 @@ $textBitLargerTabletFontSize: 72px;
 $textBitLargerDesktopFontSize: 80px;
 
 .mint-text-bit {
+  @include typeVariant(large, 2);
+  
   color: $textBitColor;
   font-weight: $textBitFontWeight;
-  font-size: $textBitFontSize;
-  line-height: $textBitLineHeight;
   text-transform: uppercase;
   word-wrap: break-word;
   margin: 0;

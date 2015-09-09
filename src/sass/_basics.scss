@@ -6,7 +6,7 @@ $include-html: false !default;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-size: $base-font;
+    font-size: $baseFont;
     font-family: $fontFamilyPrimary;
     line-height: $baseline;
   }
