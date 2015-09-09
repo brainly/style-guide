@@ -10,7 +10,7 @@ $labelScaleFactor: 2/3;
 
 $include-html: false !default;
 
-@mixin label-from-icon($name) {
+@mixin label-from-icon($name){
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;
     display: block;

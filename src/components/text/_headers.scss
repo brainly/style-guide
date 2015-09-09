@@ -4,13 +4,13 @@ $include-html: false !default;
 
   .mint-header-primary {
     @include component;
-    @include type-variant(3, 2, 11/16, 37/16);
+    @include typeVariant(header, 2, 11/16, 37/16);
     display: block;
     color: $black;
     font-weight: $fontWeightBlack;
 
     &--small {
-      @include type-variant(1.75, 2, 1, 8/16);
+      @include typeVariant(headline, 2, 1, 8/16);
     }
 
     &--light {
@@ -20,7 +20,7 @@ $include-html: false !default;
 
   .mint-header-secondary {
     @include component;
-    @include type-variant(1, 0.667, 12/16, 20/16);
+    @include typeVariant(default, 0.667, 12/16, 20/16);
     display: block;
     color: $black;
     font-weight: bold;
@@ -28,7 +28,7 @@ $include-html: false !default;
     text-transform: uppercase;
 
     &--small {
-      @include type-variant(0.8125, 0.667, 13/16, 19/16);
+      @include typeVariant(small, 0.667, 13/16, 19/16);
       letter-spacing: 1px;
     }
 

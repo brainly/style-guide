@@ -3,24 +3,23 @@ $include-html: false !default;
 @if ($include-html) {
 
   .mint-text {
-    @include type-variant(1, 1);
+    @include typeVariant(default, 1);
     font-family: $fontFamilyPrimary;
     color: $black;
 
     &--standout {
-      @include type-variant(1.125, 1);
-      font-size: 1.125rem;
+      @include typeVariant(standout, 1);
     }
 
     &--obscure {
-      @include type-variant(0.75, 1);
+      @include typeVariant(obscure, 1);
     }
 
     &--headline {
-      @include type-variant(1.75, 1.334);
+      @include typeVariant(headline, 1.334);
       font-weight: normal;
       margin: 0;
-      margin-bottom: $baseline;
+      margin-bottom: rhythm(1);
     }
 
     &--emphasised {

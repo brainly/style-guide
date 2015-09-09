@@ -1,4 +1,4 @@
-$badgeFontSize: 10px;
+$badgeFontSize: fontSize(tiny);
 $badgeDefaultBackgroundColor: $peachPrimary;
 $badgeDefaultColor: $white;
 $badgeLightBackgroundColor: $white;
@@ -10,10 +10,9 @@ $include-html: false !default;
 
   .mint-badge {
     @include component;
+    @include fixText($badgeFontSize);
 
     border-radius: $badgeFontSize;
-    line-height: $badgeFontSize;
-    font-size: $badgeFontSize;
     font-weight: bold;
     padding: 3px 6px;
 

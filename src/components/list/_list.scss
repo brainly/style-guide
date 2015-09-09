@@ -22,7 +22,7 @@ $include-html: false !default;
 
   .mint-list {
     @include mint-list-basic-styles();
-    line-height: 2*$baseline;
+    line-height: rhythm(2);
 
     .mint-list__element {
       @extend .mint-icon-arrow_down;
@@ -47,7 +47,7 @@ $include-html: false !default;
     }
 
     &--small {
-      line-height: $baseline;
+      line-height: rhythm(1);
       .mint-list__element {
         &:before {
           font-size: 24px;
@@ -69,8 +69,8 @@ $include-html: false !default;
     @include mint-list-basic-styles();
     &__element {
       box-sizing: border-box;
-      height: 2 * $baseline;
-      line-height: 2 * $baseline;
+      height: rhythm(2);
+      line-height: rhythm(2);
       border-bottom: 1px dashed $menuListBorderColor;
 
       &:last-child {

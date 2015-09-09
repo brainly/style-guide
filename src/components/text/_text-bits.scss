@@ -2,10 +2,9 @@ $textBitLogoSize: 84px;
 $textBitSmallLogoSize: 68px;
 
 .mint-text-bit {
+  @include typeVariant(large, 2);
   color: $mintSecondary;
   font-weight: $fontWeightBlack;
-  font-size: 3.625rem;
-  line-height: 2 * $baseline;
   text-transform: uppercase;
   word-wrap: break-word;
   margin: 0;
@@ -74,6 +73,6 @@ $textBitSmallLogoSize: 68px;
   }
 
   &--small {
-    font-size: 3rem;
+    @include typeVariant(header);
   }
 }
