@@ -12,6 +12,7 @@
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 0.8 * $baseline; // take descenders into account for small inline-block elements
   margin: 0;
 }
 
