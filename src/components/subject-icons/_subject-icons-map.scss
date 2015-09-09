@@ -1,0 +1,141 @@
+.mint-subject-icon {
+  &--technology-electronics {
+    @extend .mint-subject-icon--technology;
+  }
+
+  &--all {
+    @extend .mint-subject-icon--wos;
+  }
+
+  &--greek {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+  &--polish,
+  &--russian-lit{
+    @extend .mint-subject-icon--literature;
+  }
+
+  &--po {
+    @extend .mint-subject-icon--health;
+  }
+
+  &--technique,
+  &--tec {
+    @extend .mint-subject-icon--skills;
+  }
+
+  &--other-lang,
+  &--others{
+    @extend .mint-subject-icon--otherlanguages;
+  }
+
+  &--enterprise {
+    @extend .mint-subject-icon--business;
+  }
+
+  &--math {
+    @extend .mint-subject-icon--mathematics;
+  }
+
+  &--deutsch {
+    @extend .mint-subject-icon--german;
+  }
+
+  &--euskera {
+    @extend .mint-subject-icon--euskara;
+  }
+
+  &--it {
+    @extend .mint-subject-icon--informatics;
+  }
+
+  &--port {
+    @extend .mint-subject-icon--literature;
+  }
+
+  &--sosyal{
+    @extend .mint-subject-icon--social;
+  }
+
+  &--geol {
+    @extend .mint-subject-icon--geology;
+  }
+
+  &--belarusian {
+    @extend .mint-subject-icon--belarus;
+  }
+
+  &--kazakh {
+    @extend .mint-subject-icon--kazach;
+  }
+
+  &--ukrain-lit {
+    @extend .mint-subject-icon--literature;
+  }
+
+  &--art-music {
+    @extend .mint-subject-icon--artmusic;
+  }
+
+  &--home-economics {
+    @extend .mint-subject-icon--others;
+  }
+
+  &--india-lang {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+
+  &--indonesian-lang {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+
+  &--nigerian-lang {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+  &--norwegian {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+  &--rpa-lang {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+
+  &--tamil {
+    @extend .mint-subject-icon--otherlanguages;
+  }
+
+  &--dkab {
+    @extend .mint-subject-icon--religion;
+  }
+
+  &--mantik {
+    @extend .mint-subject-icon--logic;
+  }
+
+  &--matury {
+    @extend .mint-subject-icon--egzam;
+  }
+
+  &--policy {
+    @extend .mint-subject-icon--politics;
+  }
+
+  &--saglik {
+    @extend .mint-subject-icon--health;
+  }
+
+  &--traffic {
+    @extend .mint-subject-icon--trafic;
+  }
+
+  &--other-subjects {
+    @extend .mint-subject-icon--others;
+  }
+
+  &--accounting {
+    @extend .mint-subject-icon--statistics;
+  }
+
+  &--administracao {
+    @extend .mint-subject-icon--administration;
+  }
+}
