@@ -5,9 +5,9 @@ $tabActiveBackground: $bluePrimary;
 $tabActiveTextColor: $white;
 $tabHoverBackground: $blueSecondary;
 $tabHoverTextColor: $white;
-$tabHeight: 44px;
-$tabSmallHeight: 32px;
-$tabFontSize: 12px;
+$tabHeight: rhythm(1.833);
+$tabSmallHeight: rhythm(1.5);
+$tabFontSize: fontSize(obscure);
 
 $include-html: false !default;
 
