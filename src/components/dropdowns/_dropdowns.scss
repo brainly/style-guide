@@ -32,17 +32,16 @@ $include-html: false !default;
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
-      top: $dropdownHeight/2 - 1;
+      top: $dropdownHeight/4 - 2;
       right: $dropdownHeight / 2 - $iconSize / 2;
       pointer-events: none;
       z-index: 1;
-      transform: translateY(-50%);
     }
 
     &__label {
       display: flex;
       align-items: center;
-      height: $dropdownHeight;
+      height: 100%;
       padding: 0 $dropdownHeight 0 $dropdownHeight/2;
     }
 
@@ -81,11 +80,12 @@ $include-html: false !default;
       height: auto;
 
       &:before {
-        transform: translateY(-50%) rotate(180deg);
+        transform: rotate(180deg);
       }
 
       .mint-dropdown__label {
         color: $black;
+        height: $dropdownHeight - 2;
       }
 
     }
