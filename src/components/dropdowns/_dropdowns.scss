@@ -1,25 +1,76 @@
 // your components variables
+$dropdownFontSize: 12px;
+$dropdownHeight: 32px;
 
 $include-html: false !default;
 
-@if ($include-html-classes) {
+@if ($include-html) {
+
   .mint-dropdown {
+    @include component;
+    @extend .mint-icon-arrow_down;
+
+    color: $grayAlt;
     background-color: $grayAltLight;
-    box-sizing: border-box;
-    padding: 10px $layoutDefaultPadding/3*2;
+    border: 2px solid $grayAltLight;
+    border-radius: 16px;
+    font-size: $dropdownFontSize;
+    line-height: 1;
+    height: $dropdownHeight;
+    text-transform: uppercase;
+    font-family: $fontFamilySecondary;
+    box-shadow: 0 1px 0 $graySecondary;
+    cursor: pointer;
+
+    &:before {
+      $iconSize: $dropdownFontSize + $iconBoostValue;
+      font-size: $iconSize;
+      font-weight: bold;
+      position: absolute;
+      top: $dropdownHeight/2 - 1;
+      right: $dropdownHeight / 2 - $iconSize / 2;
+      pointer-events: none;
+      z-index: 1;
+      transform: translateY(-50%);
+    }
 
     &__label {
-
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 32px 0 16px;
     }
 
     &__list {
-
+      list-style: none;
+      margin: 0;
+      padding: 0 0 10px;
     }
 
     &__element {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      padding: 0 16px;
 
-      &--active {
+      &:hover,
+      &:active {
+        background-color: $grayAltLight;
+        color: $black;
+      }
+    }
 
+    &--opened {
+      background-color: $white;
+      border-color: $grayPrimary;
+      height: auto;
+
+      &:before {
+        transform: translateY(-50%) rotate(180deg);
+      }
+
+      .mint-dropdown__label {
+        color: $black;
       }
 
     }
