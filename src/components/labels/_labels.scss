@@ -1,6 +1,6 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
-$labelAltColor: $grayAlt;
+$labelInactiveColor: $grayAlt;
 $labelFont: $fontFamilySecondary;
 $labelFontSizePrimary: 12px;
 $labelFontSizeSecondary: 10px;
@@ -101,9 +101,9 @@ $include-html: false !default;
       }
     }
 
-    &--alt {
+    &--inactive {
       .mint-label__text, .mint-label__number {
-        color: $labelAltColor;
+        color: $labelInactiveColor;
       }
     }
 
