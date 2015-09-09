@@ -61,11 +61,11 @@
   }
 
   @if $shift != null {
-    padding-top: $shift * 1rem;
+    padding-top: rhythm($shift);
   }
 
   @if $push != null {
-    margin-bottom: $push * 1rem;
+    margin-bottom: rhythm($push);
   }
 }
 
