@@ -5,16 +5,16 @@ $linkLightBlueColor: $blueSecondaryLight;
 $linkFontFamily: $fontFamilySecondary;
 
 $textBitFontFamily: $fontFamilyEmphasized;
-$textBitFontSize: 58px;
+$textBitFontSize: 44px;
 $textBitLineHeight: 0.9;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitDarkColor: $black;
-$textBitSmallFontSize: 44px;
-$textBitLogoSize: 84px;
-$textBitSmallLogoSize: 68px;
+$textBitLargeFontSize: 62px;
+$textBitLargerTabletFontSize: 72px;
+$textBitLargerDesktopFontSize: 80px;
 
 $textBlockFontFamily: $fontFamilySecondary;
 $textBlockFontSize: 13px;
@@ -73,8 +73,21 @@ $include-html: false !default;
     &--warning {
       color: $textBitWarningColor;
     }
-    &--small {
-      font-size: $textBitSmallFontSize;
+    &--large {
+      font-size: $textBitLargeFontSize;
+    }
+    @media (min-width: $breakpointTablet) {
+      &:not(.mint-text-bit--not-responsive) {
+        font-size: $textBitLargeFontSize;
+      }
+    }
+    &--to-larger:not(.mint-text-bit--not-responsive) {
+      @media (min-width: $breakpointTablet) {
+        font-size: $textBitLargerTabletFontSize;
+      }
+      @media (min-width: $breakpointDesktop) {
+        font-size: $textBitLargerDesktopFontSize;
+      }
     }
   }
 
