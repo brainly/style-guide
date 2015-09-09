@@ -5,6 +5,10 @@ $include-html: false !default;
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: $base-font;
+    font-family: $fontFamilyPrimary;
+    line-height: $baseline;
   }
 
 }

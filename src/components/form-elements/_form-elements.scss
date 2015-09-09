@@ -2,7 +2,6 @@ $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: 12px;
 $selectHeight: 44px;
-$selectFontFamily: $fontFamilySecondary;
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
@@ -12,11 +11,9 @@ $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: 15px;
-$inputFontFamily: $fontFamilyPrimary;
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
 $inputPlaceholderFontSize: 12px;
-$inputPlaceholderFontFamily: $fontFamilySecondary;
 $inputValidBorderColor: $mintSecondary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
@@ -30,7 +27,6 @@ $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
 
-$crInputLabelFontFamily: $fontFamilySecondary;
 $crInputLabelFontSize: 12px;
 $crInputLabelLineHeight: 18px;
 $crInputLabelHeight: 16px;
@@ -40,7 +36,6 @@ $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
 $textareaBorderRadius: 11px;
 $textareaFontSize: 15px;
-$textareaFontFamily: $fontFamilyPrimary;
 $textareaLineHeight: 19px;
 $textareaTextColor: $black;
 $textareaPadding: 11px;
@@ -48,10 +43,8 @@ $textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: 12px;
-$textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
-
 
 $include-html: false !default;
 
@@ -64,12 +57,12 @@ $include-html: false !default;
     font-size: $selectFontSize;
     color: $selectTextColor;
     height: $selectHeight;
+
     &__element {
       background: $selectBackground;
       border: 0;
       cursor: pointer;
       font-size: inherit;
-      font-family: $selectFontFamily;
       font-weight: bold;
       color: inherit;
       display: inline-block;
@@ -80,13 +73,16 @@ $include-html: false !default;
       appearance: none;
       text-transform: uppercase;
       width: 100%;
+
       &::-ms-expand {
         display: none;
       }
+
       &:hover, &:focus, &:active {
         background: $selectHoverBackground;
       }
     }
+
     &:before {
       $iconSize: $selectFontSize + $iconBoostValue;
       font-size: $iconSize;
@@ -99,11 +95,14 @@ $include-html: false !default;
       margin-top: 1px;
       transform: translateY(-50%);
     }
+
     &--full {
       width: 100%;
     }
+
     &--invalid {
       border: 2px solid $selectInvalidBorderColor;
+
       .mint-select__element {
         padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
       }
@@ -117,8 +116,6 @@ $include-html: false !default;
     border-radius: $inputHeight/2;
     color: $inputTextColor;
     font-size: $inputFontSize;
-    font-family: $inputFontFamily;
-    font-weight: normal;
     padding: 0 $inputHeight/2;
     height: $inputHeight;
     line-height: $inputHeight;
@@ -128,37 +125,45 @@ $include-html: false !default;
       outline: none;
       border-color: $inputFocusBorderColor;
     }
+
     &::placeholder {
       color: $inputPlaceholderTextColor;
       text-transform: uppercase;
-      font-family: $inputPlaceholderFontFamily;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--low {
       border-radius: $inputLowHeight/2;
       padding: 0 $inputLowHeight/2;
       height: $inputLowHeight;
       line-height: $inputLowHeight;
     }
+
     &--valid {
       border-color: $inputValidBorderColor;
+
       &:focus {
         border-color: $inputValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $inputInvalidBorderColor;
+
       &:focus {
         border-color: $inputInvalidBorderColor;
       }
     }
+
     &--spaced {
       margin-bottom: $inputHeight/4;
     }
+
     &--full {
       width: 100%;
     }
+
     &--transparent-border {
       border-color: $inputTransparentBorderColor;
       background-clip: padding-box;
@@ -182,6 +187,7 @@ $include-html: false !default;
     width: $crInputSize;
     height: $crInputSize;
     font-size: $crInputFontSize;
+
     &__element {
       opacity: 0;
       position: absolute;
@@ -191,13 +197,16 @@ $include-html: false !default;
       cursor: pointer;
       z-index: 1;
     }
+
     &__element:active + &__ghost {
       border-color: $crInputActiveBorderColor;
     }
+
     &__element:checked + &__ghost {
       border-color: $crInputCheckedColor;
       background: $crInputCheckedColor;
     }
+
     &__ghost {
       box-sizing: border-box;
       background: $crInputColor;
@@ -211,7 +220,7 @@ $include-html: false !default;
   .mint-checkbox-label,
   .mint-radio-label {
     @include component;
-    font-family: $crInputLabelFontFamily;
+    font-weight: bold;
     font-size: $crInputLabelFontSize;
     line-height: $crInputLabelLineHeight;
     height: $crInputLabelHeight;
@@ -232,6 +241,7 @@ $include-html: false !default;
   .mint-checkbox__ghost {
     @extend .mint-icon-check;
     border-radius: 25%;
+
     &:before {
       font-size: 137.5%;
       position: absolute;
@@ -243,6 +253,7 @@ $include-html: false !default;
 
   .mint-radio__ghost {
     border-radius: 50%;
+
     &:before {
       content: '';
       position: absolute;
@@ -262,8 +273,6 @@ $include-html: false !default;
     border-radius: $textareaBorderRadius;
     color: $textareaTextColor;
     font-size: $textareaFontSize;
-    font-family: $textareaFontFamily;
-    font-weight: normal;
     line-height: $textareaLineHeight;
     padding: $textareaPadding;
     resize: none;
@@ -275,35 +284,39 @@ $include-html: false !default;
       border-color: $textareaFocusBorderColor;
       outline: 0;
     }
+
     &::placeholder {
       color: $textareaPlaceholderTextColor;
       text-transform: uppercase;
-      font-family: $textareaPlaceholderFontFamily;
       font-size: $textareaPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--full {
       width: 100%;
     }
+
     &--valid {
       border-color: $textareaValidBorderColor;
       &:focus {
         border-color: $textareaValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $textareaInvalidBorderColor;
       &:focus {
         border-color: $textareaInvalidBorderColor;
       }
     }
+
     &--small {
       height: 36px;
       padding: $textareaSmallPadding $textareaPadding;
     }
+
     &--big {
       height: 178px;
     }
   }
-
 }

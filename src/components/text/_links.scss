@@ -1,0 +1,37 @@
+.mint-link {
+  cursor: pointer;
+  color: $bluePrimary;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 0.75rem; // forbid descenders overflow line-height
+
+  &:hover, &:active {
+    text-decoration: underline;
+  }
+
+  &--gray {
+    color: $grayPrimary;
+  }
+
+  &--for-fine-print {
+    color: $blueSecondary;
+  }
+
+  &--for-fine-print-light {
+    color: $blueSecondaryLight;
+  }
+
+  &--emphasised {
+    @include type-variant(0.8125, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  &--disabled {
+    cursor: default;
+
+    &:hover, &:active {
+      text-decoration: none;
+    }
+  }
+}

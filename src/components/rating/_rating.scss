@@ -4,7 +4,7 @@ $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $grayPrimary;
-$rateCounterFont: $fontFamilyEmphasized;
+$rateCounterFontWeight: $fontWeightBlack;
 $rateStarFontSize: 12px;
 $rateStarSmallFontSize: 10px;
 $rateScaleFactor: 2/3;
@@ -53,7 +53,7 @@ $include-html: false !default;
 
     &__counter {
       @include fixText($rateStarFontSize, 2px);
-      font-family: $rateCounterFont;
+      font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
       margin: 0 0 0 $layoutDefaultPadding/2;
     }

@@ -1,6 +1,7 @@
 .docs-block {
   margin: 50px 0 0;
   display: flex;
+
   &__header {
     color: $grayPrimary;
     display: block;
@@ -8,43 +9,66 @@
     font-weight: normal;
     margin: 0;
   }
+
   &__info {
     flex: 0 1 auto;
     box-sizing: border-box;
     padding: 0 20px 0 0;
     width: 230px;
   }
+
   &__content {
     flex: 1 1 auto;
+
     &--logo-preview {
       font-size: 150px;
     }
+
     &--centered {
       display: flex;
       align-items: center
     }
+
     &--align-top {
       & > * {
         vertical-align: top;
       }
     }
+
     &:hover {
+      position: relative;
+
       .docs-highlight-placeholder {
         outline: 2px dashed white;
         box-shadow: black 0 0 10px 0;
       }
+
+      &:before {
+        z-index: 1;
+        content: '';
+        background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) repeat-y;
+        background-size: 100% $baseline;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1px;
+      }
     }
+
   }
+
   &__contrast-box {
     background-color: $grayPrimary;
-    padding: 10px;
-    display: inline-block;
-  }
-  &__content-box {
-    padding: 10px;
+    padding: $baseline;
     display: inline-block;
   }
 
+  &__content-box {
+    padding: $baseline;
+    display: inline-block;
+  }
 }
 
 .mint-bubble,

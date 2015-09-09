@@ -1,6 +1,6 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
-$labelFont: $fontFamilyEmphasized;
+$labelFontWeight: $fontWeightBlack;
 $labelFontSizePrimary: 12px;
 $labelFontSizeSecondary: 10px;
 $labelIconSizePrimary: 16px;
@@ -10,7 +10,7 @@ $labelScaleFactor: 2/3;
 
 $include-html: false !default;
 
-@mixin label-from-icon($name){
+@mixin label-from-icon($name) {
   &--#{$name}:before {
     @extend .mint-icon-#{$name}:before;
     display: block;
@@ -31,7 +31,7 @@ $include-html: false !default;
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;
-      font-family: $labelFont;
+      font-weight: $labelFontWeight;
       text-transform: uppercase;
       margin-right: $layoutDefaultPadding/4;
 
@@ -124,4 +124,3 @@ $include-html: false !default;
   }
 
 }
-

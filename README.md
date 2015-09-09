@@ -82,7 +82,6 @@ The most often question related to BEM is "How do I actually **use** modifiers a
 Here is an example:
 
 ```scss
-$blockFont: $fontFamilyPrimary;
 $tintedElementColor: $graySecondary;
 $blockLightColor: $white;
 
