@@ -13,8 +13,8 @@ $include-html: false !default;
   .mint-badge {
     @include component;
     @include fixText($badgeFontSize);
+    min-height: auto;
 
-    overflow: visible;
     border-radius: $badgeFontSize;
     font-weight: bold;
     padding: 3px 6px;

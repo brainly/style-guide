@@ -49,7 +49,7 @@ $fontFamilyPrimary: 'ProximaNova', 'Helvetica', 'Arial', sans-serif;
 $fontWeightBlack: 500;
 
 // Icons
-$iconBoostValue: 4px;
+$iconBoostValue: 0.25rem;
 
 // Vertical rhythm
 $baseFont: 16px;
@@ -59,9 +59,10 @@ $baseline: 1.5rem;
 $fontSizes: (
   default: 1rem,      // 16px
   tiny: 0.625rem,     // 10px
-  obscure: 0.75rem,   // 12px
   small: 0.8125rem,   // 13px
+  medium: 0.9375rem,  // 15px
   large: 3.625rem,    // 58px
+  obscure: 0.75rem,   // 12px
   standout: 1.125rem, // 18px
   headline: 1.75rem,  // 28px
   header: 3rem        // 48px

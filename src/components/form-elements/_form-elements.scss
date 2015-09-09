@@ -1,21 +1,21 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
-$selectFontSize: 12px;
-$selectHeight: 44px;
+$selectFontSize: fontSize(obscure);
+$selectHeight: rhythm(1.833);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
-$inputHeight: 44px;
-$inputLowHeight: 36px;
-$inputLargeHeight: 64px;
+$inputHeight: rhythm(1.833);
+$inputLowHeight: rhythm(1.5);
+$inputLargeHeight: rhythm(2.666);
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
-$inputFontSize: 15px;
-$inputLargeFontSize: fontSize(outstanding);
+$inputFontSize: fontSize(medium);
+$inputLargeFontSize: fontSize(standout);
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
-$inputPlaceholderFontSize: 12px;
+$inputPlaceholderFontSize: fontSize(obscure);
 $inputLargePlaceholderFontSize: fontSize(medium);
 $inputValidBorderColor: $mintSecondary;
 $inputFocusValidBorderColor: $mintPrimary;
@@ -24,30 +24,30 @@ $inputFocusInvalidBorderColor: $peachPrimary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
 $inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
-$crInputSize: 16px;
-$crInputFontSize: 16px;
+$crInputSize: fontSize(default);
+$crInputFontSize: fontSize(default);
 $crInputColor: $white;
 $crInputBorderColor: $graySecondary;
 $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
 
-$crInputLabelFontSize: 12px;
-$crInputLabelLineHeight: 18px;
-$crInputLabelHeight: 16px;
+$crInputLabelFontSize: fontSize(obscure);
+$crInputLabelLineHeight: rhythm(0.9);
+$crInputLabelHeight: rhythm(0.666);
 $crInputLabelColor: $grayPrimary;
 
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
 $textareaBorderRadius: 11px;
-$textareaFontSize: 15px;
-$textareaLineHeight: 19px;
+$textareaFontSize: fontSize(default);
+$textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
 $textareaPadding: 11px;
 $textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
-$textareaPlaceholderFontSize: 12px;
+$textareaPlaceholderFontSize: fontSize(obscure);
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
@@ -62,6 +62,7 @@ $include-html: false !default;
     font-size: $selectFontSize;
     color: $selectTextColor;
     height: $selectHeight;
+
     &__element {
       background: $selectBackground;
       border: 0;
@@ -71,18 +72,21 @@ $include-html: false !default;
       display: inline-block;
       height: $selectHeight;
       position: relative;
-      padding: 0 $selectHeight/2+14px 0 $selectHeight/2;
+      padding: 0 $selectHeight/2 + rhythm(0.56) 0 $selectHeight/2;
       outline: 0;
       appearance: none;
       text-transform: uppercase;
       width: 100%;
+
       &::-ms-expand {
         display: none;
       }
+
       &:hover, &:focus, &:active {
         background: $selectHoverBackground;
       }
     }
+
     &:before {
       $iconSize: $selectFontSize + $iconBoostValue;
       font-size: $iconSize;
@@ -117,7 +121,7 @@ $include-html: false !default;
       border: 2px solid $selectInvalidBorderColor;
 
       .mint-select__element {
-        padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
+        padding: 0 $selectHeight/2 rhythm(0.5) 0 ($selectHeight/2 - rhythm(1/12));
       }
     }
   }
@@ -131,7 +135,6 @@ $include-html: false !default;
     font-size: $inputFontSize;
     padding: 0 $inputHeight/2;
     height: $inputHeight;
-    line-height: $inputHeight;
     appearance: none;
     transition: border 300ms;
 
@@ -221,8 +224,10 @@ $include-html: false !default;
   .mint-checkbox,
   .mint-radio {
     @include component;
+    overflow: visible;
     width: $crInputSize;
     height: $crInputSize;
+    min-height: $crInputSize;
     font-size: $crInputFontSize;
 
     &__element {
@@ -255,6 +260,7 @@ $include-html: false !default;
   .mint-checkbox-label,
   .mint-radio-label {
     @include component;
+    overflow: visible;
     font-weight: bold;
     font-size: $crInputLabelFontSize;
     line-height: $crInputLabelLineHeight;
@@ -278,10 +284,10 @@ $include-html: false !default;
     border-radius: 25%;
 
     &:before {
-      font-size: 137.5%;
+      font-size: 1.375rem;
       position: absolute;
-      left: -18.75%;
-      top: -18.75%;
+      left: -18%;
+      top: -8%;
       color: $crInputColor;
     }
   }
@@ -296,7 +302,7 @@ $include-html: false !default;
       background-color: $crInputColor;
       width: 50%;
       height: 50%;
-      top: 25%;
+      top: 35%;
       left: 25%;
     }
   }

@@ -1,4 +1,4 @@
-$horizontalSeparatorHeight: 1px;
+$horizontalSeparatorHeight: 0.0625rem;
 $horizontalSeparatorColor: $grayPrimary;
 
 $include-html: false !default;
@@ -7,13 +7,14 @@ $include-html: false !default;
 
   .mint-horizontal-separator {
     @include component();
+    min-height: auto;
     display: block;
     height: $horizontalSeparatorHeight;
     border-bottom: $horizontalSeparatorHeight dotted $horizontalSeparatorColor;
     width: 100%;
 
     &--spaced {
-      margin: $layoutDefaultPadding - $horizontalSeparatorHeight 0 $layoutDefaultPadding 0;
+      margin: rhythm(1) - $horizontalSeparatorHeight 0 rhythm(1) 0;
     }
   }
 
