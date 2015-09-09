@@ -14,7 +14,7 @@
   }
 
   &--small {
-    @include type-variant(0.8125, 0.75);
+    @include typeVariant(small, 0.75);
   }
 
   &--for-fine-print {

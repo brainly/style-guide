@@ -1,4 +1,4 @@
-@mixin image-2x($image, $width:"auto", $height:"auto") {
+@mixin image-2x($image, $width: "auto", $height: "auto") {
   @media (min-resolution: 144dpi) {
     /* on retina, use image that's scaled by 2 */
     background-image: url($image);
@@ -15,7 +15,7 @@
   margin: 0;
 }
 
-@mixin hole(){
+@mixin hole() {
   &__hole {
     display: flex;
     align-items: center;
@@ -24,38 +24,52 @@
   }
 }
 
-// $line-height-offset is a way to fix font issue with the baseline
+// $lineHeight-offset is a way to fix font issue with the baseline
 // the issue is visible when centering the text of at least 12px
-@mixin fixText($fontSize, $lineHeightOffset: 0){
+@mixin fixText($fontSize, $lineHeightOffset: 0) {
   font-size: $fontSize;
   height: $fontSize;
   line-height: $fontSize + $lineHeightOffset;
 }
 
-@mixin icon($name){
+@mixin icon($name) {
   @extend .mint-icon-#{$name};
   &:before {
     display: inline-block;
   }
 }
 
-// Used for messing with fonts and baseline
-// Sets the font size and line height
-// fontsize - rem
-// line-height - rem
-@mixin type-variant($fontsize, $line-height, $shift: 0, $push: 0){
-
-  $rem-fontsize: $fontsize * 1rem;
-  $rem-lineheight: $line-height * $baseline;
-
-  font-size: $rem-fontsize;
-  line-height: $rem-lineheight;
-  padding-top: $shift * 1rem;
-  margin-bottom: $push * 1rem;
+@function fontSize($fontsizeKey) {
+  @return map-get($fontSizes, $fontsizeKey);
 }
 
+// Used for messing with fonts and baseline
+// Sets the font size and line height
+// fontsizeName - string
+// lineHeight - int, number of baselines
+@mixin typeVariant($fontsizeName, $lineHeight: null, $shift: null, $push: null) {
+
+  $remFontsize: fontSize($fontsizeName);
+
+  @if $remFontsize != null {
+    font-size: $remFontsize;
+  }
+
+  @if $lineHeight != null {
+    $remLineHeight: rhythm($lineHeight);
+    line-height: $remLineHeight;
+  }
+
+  @if $shift != null {
+    padding-top: $shift * 1rem;
+  }
+
+  @if $push != null {
+    margin-bottom: $push * 1rem;
+  }
+}
 
 // set a value as a multiple of baselines
-@function rhythm($baselines){
+@function rhythm($baselines) {
   @return $baselines * $baseline;
 }
