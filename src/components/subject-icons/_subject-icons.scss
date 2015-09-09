@@ -3,7 +3,8 @@ $include-html: false !default;
 @if ($include-html) {
 
   @import "subject-icons-embed";
+  @import "subject-icons-map";
   @import "subject-icon";
   @import "subject-icon-box";
-  
+
 }
