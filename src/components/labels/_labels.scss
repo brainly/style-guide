@@ -1,6 +1,7 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
-$labelFont: $fontFamilyEmphasized;
+$labelAltColor: $grayAlt;
+$labelFont: $fontFamilySecondary;
 $labelFontSizePrimary: 12px;
 $labelFontSizeSecondary: 10px;
 $labelIconSizePrimary: 16px;
@@ -97,6 +98,12 @@ $include-html: false !default;
     &--secondary {
       .mint-label__text, .mint-label__number {
         color: $labelSecondaryColor;
+      }
+    }
+
+    &--alt {
+      .mint-label__text, .mint-label__number {
+        color: $labelAltColor;
       }
     }
 
