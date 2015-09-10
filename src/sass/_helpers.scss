@@ -8,12 +8,14 @@
 
 .mint-hide-for-desktop {
   @media (min-width: $breakpointTablet) {
+    // scss-lint:disable ImportantRule
     display: none !important;
   }
 }
 
 .mint-hide-for-mobile {
   @media (max-width: $breakpointTablet - 1px) {
+    // scss-lint:disable ImportantRule
     display: none !important;
   }
 }
