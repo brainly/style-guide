@@ -1,84 +1,147 @@
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Dropdowns</h3>
+        <h3 class="docs-block__header">Closed</h3>
     </aside>
     <div class="docs-block__content">
         <div class="mint-dropdown">
-            <div class="mint-dropdown__label">All options</div>
-            <ul class="mint-dropdown__list">
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 1</a>
-                </li>
-            </ul>
+            <div class="mint-dropdown__hole">
+                Text
+            </div>
         </div>
     </div>
     <div class="docs-block__content">
         <div class="mint-dropdown mint-dropdown--full">
-            <div class="mint-dropdown__label">All options</div>
-            <ul class="mint-dropdown__list">
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 1</a>
-                </li>
-            </ul>
+            <div class="mint-dropdown__hole">
+                Text
+            </div>
         </div>
     </div>
 </section>
+
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Dropdowns (opened)</h3>
+        <h3 class="docs-block__header">Opened</h3>
     </aside>
     <div class="docs-block__content">
         <div class="mint-dropdown mint-dropdown--opened">
-            <div class="mint-dropdown__label">All options</div>
-            <ul class="mint-dropdown__list">
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 1</a>
-                </li>
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 2</a>
-                </li>
-            </ul>
+            <div class="mint-dropdown__hole">
+                Text
+            </div>
+            <div class="mint-dropdown__items">
+                <div class="mint-dropdown__item-hole">
+                    Option
+                </div>
+                <div class="mint-dropdown__item-hole">
+                    Option
+                </div>
+            </div>
         </div>
     </div>
     <div class="docs-block__content">
         <div class="mint-dropdown mint-dropdown--full mint-dropdown--opened">
-            <div class="mint-dropdown__label">All options</div>
-            <ul class="mint-dropdown__list">
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 1</a>
-                </li>
-                <li>
-                    <a class="mint-dropdown__element" href="#">Option 2</a>
-                </li>
-            </ul>
+            <div class="mint-dropdown__hole">
+                Text
+            </div>
+            <div class="mint-dropdown__items">
+                <div class="mint-dropdown__item-hole">
+                    Option
+                </div>
+                <div class="mint-dropdown__item-hole">
+                    Option
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Dropdowns (opened) with subjects</h3>
+        <h3 class="docs-block__header">Example default usage (interactive)</h3>
     </aside>
     <div class="docs-block__content">
-        <div class="mint-dropdown mint-dropdown--opened">
-            <div class="mint-dropdown__label">All options</div>
-            <ul class="mint-dropdown__list">
-                <li>
-                    <a class="mint-dropdown__element mint-dropdown__element--with-subject" href="#">
-                        <div class="mint-subject-icon-box mint-dropdown__element-icon">
-                            <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
+        <div class="mint-dropdown js-mint-dropdown">
+            <div class="mint-dropdown__hole mint-dropdown__hole--inactive">
+                <div class="mint-label mint-label--inactive">
+                    <div class="mint-label__text">
+                        Default label
+                    </div>
+                </div>
+            </div>
+            <div class="mint-dropdown__hole  mint-dropdown__hole--active">
+                <div class="mint-label">
+                    <div class="mint-label__text">
+                        Choose option
+                    </div>
+                </div>
+            </div>
+            <div class="mint-dropdown__items">
+                <a href="#" class="mint-dropdown__item-hole">
+                    <div href="#" class="mint-label mint-label--inactive">
+                        <div class="mint-label__text">
+                            Option 1
                         </div>
-                        Option 1
-                    </a>
-                </li>
-                <li>
-                    <a class="mint-dropdown__element mint-dropdown__element--with-subject" href="#">
-                        <div class="mint-subject-icon-box mint-dropdown__element-icon">
-                            <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--physical_education"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="mint-dropdown__items">
+                <a href="#" class="mint-dropdown__item-hole">
+                    <div href="#" class="mint-label mint-label--inactive">
+                        <div class="mint-label__text">
+                            Option 2
                         </div>
-                        Option 2
-                    </a>
-                </li>
-            </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="docs-block__content">
+        <div class="mint-dropdown mint-dropdown--full js-mint-dropdown">
+            <div class="mint-dropdown__hole mint-dropdown__hole--inactive">
+                <div class="mint-label mint-label--inactive">
+                    <div class="mint-label__text">
+                        Default label
+                    </div>
+                </div>
+            </div>
+            <div class="mint-dropdown__hole  mint-dropdown__hole--active">
+                <div class="mint-label">
+                    <div class="mint-label__text">
+                        Choose option
+                    </div>
+                </div>
+            </div>
+            <div class="mint-dropdown__items">
+                <a href="#" class="mint-dropdown__item-hole">
+                    <div class="mint-label mint-label--inactive">
+                        <div class="mint-label__icon">
+                            <div class="mint-subject-icon-box mint-dropdown__element-icon">
+                                <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
+                            </div>
+                        </div>
+                        <div class="mint-label__text">
+                            Option 1
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="mint-dropdown__item-hole">
+                    <div class="mint-label mint-label--inactive">
+                        <div class="mint-label__icon">
+                            <div class="mint-subject-icon-box mint-dropdown__element-icon">
+                                <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
+                            </div>
+                        </div>
+                        <div class="mint-label__text">
+                            Option 2
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    $('.js-mint-dropdown').on('click', function () {
+        $(this).toggleClass('mint-dropdown--opened');
+    });
+</script>
