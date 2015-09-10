@@ -1,0 +1,25 @@
+$include-html: false !default;
+
+@if ($include-html) {
+
+  .mint-list-item {
+    display: flex;
+
+    &__avatar {
+      margin-right: $layoutDefaultPadding/2;
+    }
+
+    &__content {
+
+    }
+
+    &__header {
+
+    }
+
+    &__footer {
+
+    }
+  }
+
+}
