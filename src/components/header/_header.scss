@@ -11,7 +11,7 @@ $includeHtml: false !default;
     background-image: url($mintImagesPath + 'header_background_wide.jpg');
     background-repeat: repeat-x;
     background-color: $headerDominantColor;
-    @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
+    @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
 
     &__container {
       box-sizing: border-box;

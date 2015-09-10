@@ -1,4 +1,4 @@
-@mixin image-2x($image, $width:'auto', $height:'auto') {
+@mixin image2x($image, $width:'auto', $height:'auto') {
   @media (min-resolution: 144dpi) {
     /* on retina, use image that's scaled by 2 */
     background-image: url($image);
@@ -14,7 +14,7 @@
   text-overflow: ellipsis;
 }
 
-@mixin hole(){
+@mixin hole() {
   &__hole {
     display: flex;
     align-items: center;
@@ -25,14 +25,16 @@
 
 // $line-height-offset is a way to fix font issue with the baseline
 // the issue is visible when centering the text of at least 12px
-@mixin fixText($fontSize, $lineHeightOffset: 0){
+@mixin fixText($fontSize, $lineHeightOffset: 0) {
   font-size: $fontSize;
   height: $fontSize;
   line-height: $fontSize + $lineHeightOffset;
 }
 
-@mixin icon($name){
+@mixin icon($name) {
+  // scss-lint:disable PlaceholderInExtend
   @extend .mint-icon-#{$name};
+
   &:before {
     display: inline-block;
   }

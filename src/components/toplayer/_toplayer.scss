@@ -75,7 +75,7 @@ $includeHtml: false !default;
           background-image: url($mintImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
-          @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
+          @include image2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
         }
 
       }
@@ -90,7 +90,7 @@ $includeHtml: false !default;
       background-image: url($mintImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
       background-color: $toplayerHeaderDominantColor;
-      @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
+      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
     }
 
     &__close {
