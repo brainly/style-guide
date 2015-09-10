@@ -4,6 +4,10 @@ $include-html: false !default;
 
   .mint-list-item {
     display: flex;
+    background-color: $white;
+    padding: $layoutDefaultPadding/2;
+    border-radius: $layoutDefaultPadding/4;
+
 
     &__avatar {
       margin-right: $layoutDefaultPadding/2;

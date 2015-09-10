@@ -67,6 +67,10 @@ $includeHtml: false !default;
         border-bottom-color: $bubbleBackgroundDark;
       }
     }
+
+    &__header {
+      text-align: center;
+    }
   }
 
 }
