@@ -2,7 +2,7 @@
 $dropdownFontSize: 12px;
 $dropdownHeight: 32px;
 $dropdownElementHeight: 36px;
-$dropdownMargin: 10px;
+$dropdownBorderSize: 2px;
 
 $include-html: false !default;
 
@@ -11,20 +11,19 @@ $include-html: false !default;
   .mint-dropdown {
     @include component;
     @extend .mint-icon-arrow_down;
-
-    color: $grayAlt;
+    
     background-color: $grayAltLight;
-    border: 2px solid $grayAltLight;
+    border: $dropdownBorderSize solid $grayAltLight;
     border-radius: 16px;
-    font-size: $dropdownFontSize;
-    line-height: 1;
+    min-height: $dropdownHeight;;
     height: $dropdownHeight;
-    text-transform: uppercase;
-    font-family: $fontFamilySecondary;
     cursor: pointer;
+    @include hole;
 
-    &--full {
-      width: 100%;
+    &:hover,
+    &:active {
+      background-color: $graySecondary;
+      border-color: $graySecondary;
     }
 
     &:before {
@@ -35,43 +34,43 @@ $include-html: false !default;
       top: $dropdownHeight/4 - 2;
       right: $dropdownHeight / 2 - $iconSize / 2;
       pointer-events: none;
-      z-index: 1;
-    }
-
-    &__label {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 $dropdownHeight 0 $dropdownHeight/2;
-    }
-
-    &__list {
-      list-style: none;
-      margin: 0;
-      padding: 0 0 10px;
-    }
-
-    &__element {
       color: $grayAlt;
+      z-index: 1;
+      transition: transform 0.3s;
+    }
+
+    &--full {
+      width: 100%;
+    }
+
+    &__hole {
+      justify-content: flex-start;
+      min-height: $dropdownHeight - (2 * $dropdownBorderSize);
+      margin: 0 $dropdownHeight 0 $dropdownHeight/2;
+      
+      &--active {
+        display: none;
+      }
+    }
+
+    &__items {
+      visibility: hidden;
+      padding: 0;
+      margin: 0 0 $layoutDefaultPadding/2;
+    }
+
+    &__item-hole {
       display: flex;
       align-items: center;
-      height: $dropdownElementHeight;
-      padding: 0 $dropdownHeight/2;
+      justify-content: flex-start;
+      height: 100%;
+      padding: $layoutDefaultPadding/4 $dropdownHeight/2;
       text-decoration: none;
 
       &:hover,
       &:active {
         background-color: $grayAltLight;
-        color: $black;
       }
-
-      &--with-subject {
-        height: $dropdownElementHeight + $dropdownMargin;
-      }
-    }
-
-    &__element-icon {
-      margin-right: $dropdownMargin;
     }
 
     &--opened {
@@ -79,15 +78,30 @@ $include-html: false !default;
       border-color: $grayPrimary;
       height: auto;
 
+      &:hover,
+      &:active {
+        background-color: $white;
+        border-color: $grayPrimary;
+      }
+
       &:before {
         transform: rotate(180deg);
       }
 
-      .mint-dropdown__label {
-        color: $black;
-        height: $dropdownHeight - 2;
+      .mint-dropdown__hole {
+
+        &--inactive {
+          display: none;
+        }
+
+        &--active {
+          display: flex;
+        }
       }
 
+      .mint-dropdown__items {
+        visibility: visible;
+      }
     }
   }
 }

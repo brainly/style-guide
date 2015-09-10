@@ -25,7 +25,7 @@ $include-html: false !default;
     overflow: visible;
     display: flex;
     align-items: center;
-    height: $labelHeight;
+    min-height: $labelHeight;
 
     &__text, &__number {
       @include fixText($labelFontSizePrimary, 2px);
@@ -108,7 +108,7 @@ $include-html: false !default;
     }
 
     &--small {
-      height: $labelScaleFactor * $labelHeight;
+      min-height: $labelScaleFactor * $labelHeight;
 
       .mint-label__text, .mint-label__number {
         @include fixText($labelFontSizeSecondary);
