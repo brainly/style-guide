@@ -6,9 +6,9 @@ $promoBoxTextSize: 24px;
 $promoBoxLineHeight: 44px;
 $promoBoxFontFamily: $fontFamilyPrimary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-promo-box {
     padding: 40px;

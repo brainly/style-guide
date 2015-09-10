@@ -7,9 +7,9 @@ $badgeErrorColor: $white;
 $badgeWarningBackgroundColor: $mustardPrimary;
 $badgeWarningColor: $white;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-badge {
     @include component;

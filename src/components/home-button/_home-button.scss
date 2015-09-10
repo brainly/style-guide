@@ -2,9 +2,9 @@ $homeButtonMobileHeight: 44px;
 $homeButtonDefaultHeight: 60px;
 $homeButtonDefaultWidth: 134px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-home-button {
     @include component;

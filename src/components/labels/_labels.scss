@@ -9,7 +9,7 @@ $labelIconSizeSecondary: 14px;
 $labelHeight: $defaultComponentHeight;
 $labelScaleFactor: 2/3;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
 @mixin label-from-icon($name){
   &--#{$name}:before {
@@ -18,7 +18,7 @@ $include-html: false !default;
   }
 }
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-label {
     @include component;

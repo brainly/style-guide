@@ -7,9 +7,9 @@ $headerPrimarySmallFontSize: 48px;
 $headerSecondaryFontSize: 16px;
 $headerSecondarySmallFontSize: 12px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-header-primary {
     @include component;

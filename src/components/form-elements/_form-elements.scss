@@ -58,9 +58,9 @@ $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-select {
     @include component;

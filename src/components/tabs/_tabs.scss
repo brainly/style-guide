@@ -11,9 +11,9 @@ $tabFontSize: 12px;
 $tabsFontFamily: $fontFamilySecondary;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-tabs {
     @include component;

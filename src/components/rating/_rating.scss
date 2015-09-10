@@ -9,9 +9,9 @@ $rateStarFontSize: 12px;
 $rateStarSmallFontSize: 10px;
 $rateScaleFactor: 2/3;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-rate-box {
     @include component;

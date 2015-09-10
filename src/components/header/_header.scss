@@ -1,9 +1,9 @@
 $headerDominantColor: #65A6A8;
 $headerHeight: 60px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-header {
     width: 100%;

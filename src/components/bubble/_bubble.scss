@@ -8,9 +8,9 @@ $borderSize: 3px;
 $triangleSize: 12px;
 $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-bubble {
     @include component;

@@ -10,9 +10,9 @@ $avatarBorderColor: $white;
 $avatarBackgroundColor: $white;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-avatar {
     @include component;
