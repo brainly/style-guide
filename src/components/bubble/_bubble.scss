@@ -22,7 +22,7 @@ $includeHtml: false !default;
     box-shadow: $bubbleBoxShadow;
 
     &:before {
-      content: "";
+      content: '';
       border: $triangleSize solid transparent;
       border-bottom-color: $bubbleBorderColor;
       position: absolute;
@@ -34,7 +34,7 @@ $includeHtml: false !default;
     }
 
     &:after {
-      content: "";
+      content: '';
       border: $innerTriangleSize solid transparent;
       border-bottom-color: $bubbleBackground;
       position: absolute;

@@ -34,7 +34,7 @@ $includeHtml: false !default;
       @extend .mint-icon-arrow_down;
 
       &:before {
-        font-family: "brainly-icons";
+        font-family: 'brainly-icons';
         color: white;
         transform: rotate(-90deg);
         font-size: 38px;

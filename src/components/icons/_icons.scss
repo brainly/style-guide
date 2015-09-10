@@ -2,8 +2,8 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  @import "icons-embed";
-  @import "icons-data";
-  @import "icons-transformed";
+  @import 'icons-embed';
+  @import 'icons-data';
+  @import 'icons-transformed';
   
 }

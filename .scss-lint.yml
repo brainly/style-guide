@@ -1,5 +1,5 @@
 scss_files: 'src/**/*.scss'
-exclude: ['src/sass/vendors/**', 'src/docs/css/**']
+exclude: ['src/sass/vendors/**', 'src/docs/css/**', 'src/components/icons/_icons-data.scss']
 
 linters:
   # Only 1 BEM element in selector allowed
