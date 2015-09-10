@@ -1,9 +1,12 @@
+$listFontSize: fontSize(headline);
+$smallListFontSize: fontSize(default);
+
 $breadcrumbListSeparatorColor: $grayPrimary;
 $breadcrumbListBlueSeparatorColor: $blueSecondary;
 $breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
 
 $menuListColor: $bluePrimary;
-$menuListFontSize: 13px;
+$menuListFontSize: fontSize(small);
 $menuListBorderColor: $graySecondary;
 $listSmallIconColor: $graySecondary;
 
@@ -22,6 +25,7 @@ $include-html: false !default;
 
   .mint-list {
     @include mint-list-basic-styles();
+    font-size: $listFontSize;
     line-height: rhythm(2);
 
     .mint-list__element {
@@ -39,7 +43,7 @@ $include-html: false !default;
       &--with-plus {
         &:before {
           font-size: 24px;
-          vertical-align: -4px;
+          vertical-align: 0;
           color: $listSmallIconColor;
           @extend .mint-icon-plus;
         }
@@ -48,6 +52,9 @@ $include-html: false !default;
 
     &--small {
       line-height: rhythm(1);
+      font-weight: bold;
+      font-size: $smallListFontSize;
+
       .mint-list__element {
         &:before {
           font-size: 24px;
