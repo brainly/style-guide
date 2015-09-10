@@ -93,11 +93,6 @@ linters:
   # Reports when you use an unknown CSS property
   PropertySpelling:
     enabled: true
-  # Configure which units are allowed for property values.
-  PropertyUnits:
-    global: ['em', 'rem', '%', 'px'] # Allow relative units globally
-    properties:
-      font-size: ['rem']
   # Avoid qualifying elements in selectors (like ul.list ).
   QualifyingElement:
     enabled: true
