@@ -1,12 +1,15 @@
 $include-html: false !default;
 
 @if ($include-html) {
+  html {
+    font-size: $baseFont;
+  }
 
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-size: $baseFont;
+    font-size: fontSize(default);
     font-family: $fontFamilyPrimary;
     line-height: $baseline;
   }
