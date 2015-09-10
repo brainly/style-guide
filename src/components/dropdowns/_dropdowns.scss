@@ -1,7 +1,6 @@
 // your components variables
 $dropdownFontSize: 12px;
 $dropdownHeight: 32px;
-$dropdownElementHeight: 36px;
 $dropdownBorderSize: 2px;
 
 $include-html: false !default;
@@ -15,7 +14,7 @@ $include-html: false !default;
     background-color: $grayAltLight;
     border: $dropdownBorderSize solid $grayAltLight;
     border-radius: 16px;
-    min-height: $dropdownHeight;;
+    min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
     @include hole;
