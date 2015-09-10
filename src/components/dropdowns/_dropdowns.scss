@@ -32,7 +32,6 @@ $include-html: false !default;
       position: absolute;
       top: $dropdownHeight/4 - 2;
       right: $dropdownHeight / 2 - $iconSize / 2;
-      pointer-events: none;
       color: $grayAlt;
       z-index: 1;
       transition: transform 0.3s;
