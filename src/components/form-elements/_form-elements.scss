@@ -29,7 +29,9 @@ $inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
 $crInputSize: 16px;
 $crInputFontSize: 16px;
+$crInputIconSize: 137.5%;
 $crInputColor: $white;
+$crInputActiveColor: rgba($crInputColor, 0.7);
 $crInputBorderColor: $graySecondary;
 $crInputHoverBorderColor: $blueSecondaryLight;
 $crInputActiveBorderColor: $bluePrimary;
@@ -58,20 +60,22 @@ $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-select {
-    @include component;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-arrow_down;
-    border-radius: $selectHeight/2;
+    @include component;
+    border-radius: $selectHeight / 2;
     font-size: $selectFontSize;
     color: $selectTextColor;
     height: $selectHeight;
+
     &__element {
       background: $selectBackground;
-      border: 0;
+      border: none;
       cursor: pointer;
       font-size: inherit;
       font-family: $selectFontFamily;
@@ -80,18 +84,23 @@ $include-html: false !default;
       display: inline-block;
       height: $selectHeight;
       position: relative;
-      padding: 0 $selectHeight/2+14px 0 $selectHeight/2;
+      padding: 0 ($selectHeight / 2 + 14px) 0 ($selectHeight / 2);
       outline: 0;
       appearance: none;
       text-transform: uppercase;
       width: 100%;
+
       &::-ms-expand {
         display: none;
       }
-      &:hover, &:focus, &:active {
+
+      &:hover,
+      &:focus,
+      &:active {
         background: $selectHoverBackground;
       }
     }
+
     &:before {
       $iconSize: $selectFontSize + $iconBoostValue;
       font-size: $iconSize;
@@ -105,26 +114,30 @@ $include-html: false !default;
       transform: translateY(-50%);
     }
 
+
     &--small {
-      height: $layoutDefaultPadding/3*4;
+      height: $layoutDefaultPadding / 3 * 4;
 
       &:before {
-        right: $layoutDefaultPadding/3;
+        right: $layoutDefaultPadding / 3;
         margin-top: 0;
       }
+
       .mint-select__element {
-        height: $layoutDefaultPadding/3*4;
-        padding: 0 $layoutDefaultPadding/3*4 0 $layoutDefaultPadding/3*2;
+        height: $layoutDefaultPadding / 3 * 4;
+        padding: 0 ($layoutDefaultPadding / 3 * 4) 0 ($layoutDefaultPadding / 3 * 2);
       }
     }
 
     &--full {
       width: 100%;
     }
+
     &--invalid {
       border: 2px solid $selectInvalidBorderColor;
+
       .mint-select__element {
-        padding: 0 $selectHeight/2+12px 0 ($selectHeight/2 - 2px);
+        padding: 0 ($selectHeight / 2 + 12px) 0 ($selectHeight / 2 - 2px);
       }
     }
   }
@@ -133,12 +146,12 @@ $include-html: false !default;
     @include component;
     background: $inputBackground;
     border: 2px solid $inputBorderColor;
-    border-radius: $inputHeight/2;
+    border-radius: $inputHeight / 2;
     color: $inputTextColor;
     font-size: $inputFontSize;
     font-family: $inputFontFamily;
     font-weight: normal;
-    padding: 0 $inputHeight/2;
+    padding: 0 $inputHeight / 2;
     height: $inputHeight;
     line-height: $inputHeight;
     appearance: none;
@@ -148,6 +161,7 @@ $include-html: false !default;
       outline: none;
       border-color: $inputFocusBorderColor;
     }
+
     &::placeholder {
       color: $inputPlaceholderTextColor;
       text-transform: uppercase;
@@ -155,30 +169,38 @@ $include-html: false !default;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--low {
-      border-radius: $inputLowHeight/2;
-      padding: 0 $inputLowHeight/2;
+      border-radius: $inputLowHeight / 2;
+      padding: 0 $inputLowHeight / 2;
       height: $inputLowHeight;
       line-height: $inputLowHeight;
     }
+
     &--valid {
       border-color: $inputValidBorderColor;
+
       &:focus {
         border-color: $inputFocusValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $inputInvalidBorderColor;
+
       &:focus {
         border-color: $inputFocusInvalidBorderColor;
       }
     }
+
     &--spaced {
-      margin-bottom: $inputHeight/4;
+      margin-bottom: $inputHeight / 4;
     }
+
     &--full {
       width: 100%;
     }
+
     &--large {
       @media (min-width: $breakpointTablet) {
         height: $inputLargeHeight;
@@ -191,15 +213,17 @@ $include-html: false !default;
         }
       }
     }
+
     &--subtle-border {
       border: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       transition: box-shadow 300ms;
 
       &:focus {
-        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       }
     }
+
     &--transparent-border {
       border-color: $inputTransparentBorderColor;
       background-clip: padding-box;
@@ -208,6 +232,7 @@ $include-html: false !default;
         border-color: $inputTransparentFocusBorderColor;
       }
     }
+
     &--with-icon {
       padding-right: 46px;
     }
@@ -223,6 +248,7 @@ $include-html: false !default;
     width: $crInputSize;
     height: $crInputSize;
     font-size: $crInputFontSize;
+
     &__element {
       opacity: 0;
       position: absolute;
@@ -232,13 +258,16 @@ $include-html: false !default;
       cursor: pointer;
       z-index: 1;
     }
+
     &__element:active + &__ghost {
       border-color: $crInputActiveBorderColor;
     }
+
     &__element:checked + &__ghost {
       border-color: $crInputCheckedColor;
       background: $crInputCheckedColor;
     }
+
     &__ghost {
       box-sizing: border-box;
       background: $crInputColor;
@@ -267,14 +296,16 @@ $include-html: false !default;
   }
 
   .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
-    color: rgba($crInputColor, 0.7);
+    color: $crInputActiveColor;
   }
 
   .mint-checkbox__ghost {
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-check;
     border-radius: 25%;
+
     &:before {
-      font-size: 137.5%;
+      font-size: $crInputIconSize;
       position: absolute;
       left: -18.75%;
       top: -18.75%;
@@ -284,6 +315,7 @@ $include-html: false !default;
 
   .mint-radio__ghost {
     border-radius: 50%;
+
     &:before {
       content: '';
       position: absolute;
@@ -316,6 +348,7 @@ $include-html: false !default;
       border-color: $textareaFocusBorderColor;
       outline: 0;
     }
+
     &::placeholder {
       color: $textareaPlaceholderTextColor;
       text-transform: uppercase;
@@ -323,25 +356,32 @@ $include-html: false !default;
       font-size: $textareaPlaceholderFontSize;
       font-weight: bold;
     }
+
     &--full {
       width: 100%;
     }
+
     &--valid {
       border-color: $textareaValidBorderColor;
+
       &:focus {
         border-color: $textareaValidBorderColor;
       }
     }
+
     &--invalid {
       border-color: $textareaInvalidBorderColor;
+
       &:focus {
         border-color: $textareaInvalidBorderColor;
       }
     }
+
     &--small {
       height: 36px;
       padding: $textareaSmallPadding $textareaPadding;
     }
+
     &--big {
       height: 178px;
     }

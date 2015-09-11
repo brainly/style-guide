@@ -1,8 +1,8 @@
 $footerBackgroundColor: $bluePrimary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-footer {
     background-color: $footerBackgroundColor;
@@ -10,7 +10,7 @@ $include-html: false !default;
     &__container {
       position: relative;
       box-sizing: border-box;
-      padding: $layoutDefaultPadding $layoutDefaultPadding;
+      padding: $layoutDefaultPadding;
 
       @media (min-width: $breakpointTablet) {
         max-width: $layoutMaximumWidth;

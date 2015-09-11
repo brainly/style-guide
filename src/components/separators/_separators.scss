@@ -4,9 +4,9 @@ $separatorSpacing: 15px;
 $separatorHeightSmall: 10px;
 $separatorSpacingSmall: 10px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-separator {
     @include component;

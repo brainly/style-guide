@@ -1,13 +1,13 @@
-$toplayerHeaderDominantColor: #65A6A8;
+$toplayerHeaderDominantColor: #65a6a8;
 $toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
 $toplayerShadow: $defaultBottomShadow;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: 30px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-toplayer {
     @include component;
@@ -23,10 +23,9 @@ $include-html: false !default;
           margin: $layoutDefaultPadding;
           padding: $layoutDefaultPadding;
         }
-
       }
-      .mint-toplayer__heading {
 
+      .mint-toplayer__heading {
         @media (min-width: $breakpointTablet) {
           margin-bottom: 2 * $layoutDefaultPadding;
         }
@@ -68,34 +67,30 @@ $include-html: false !default;
     }
 
     &--with-bugbox {
-
       .mint-toplayer__wrapper {
-
         @media (min-width: $breakpointTablet) {
+          @include image2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
           background-image: url($mintImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
-          @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
         }
-
       }
-
     }
 
     &__header {
+      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
+      background-image: url($mintImagesPath + 'header_background_wide.jpg');
+      background-repeat: repeat-x;
+      background-color: $toplayerHeaderDominantColor;
       display: flex;
       justify-content: flex-end;
       align-items: center;
       height: 30px;
-      background-image: url($mintImagesPath + 'header_background_wide.jpg');
-      background-repeat: repeat-x;
-      background-color: $toplayerHeaderDominantColor;
-      @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
     }
 
     &__close {
-      color: $toplayerCrossColor;
       @include fixText(24px, -4px);
+      color: $toplayerCrossColor;
       font-weight: bold;
       padding: 0 10px;
       cursor: pointer;
@@ -120,9 +115,5 @@ $include-html: false !default;
     &__list-title {
       margin-bottom: 10px;
     }
-
-    &__actions {
-    }
   }
-
 }

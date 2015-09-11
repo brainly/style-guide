@@ -1,8 +1,9 @@
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   @font-face {
+    // scss-lint:disable VariableForProperty
     font-family: 'ProximaNovaRegular';
     src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
     font-weight: normal;
@@ -10,6 +11,7 @@ $include-html: false !default;
   }
 
   @font-face {
+    // scss-lint:disable VariableForProperty
     font-family: 'ProximaNovaExtrabold';
     src: url($mintFontsPath + 'ProximaNova-Extrabold.woff') format('woff');
     font-weight: bold;
@@ -17,6 +19,7 @@ $include-html: false !default;
   }
 
   @font-face {
+    // scss-lint:disable VariableForProperty
     font-family: 'ProximaNovaBlack';
     src: url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
     font-weight: bold;

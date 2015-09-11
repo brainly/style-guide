@@ -6,12 +6,14 @@ $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $grayPrimary;
 $rateCounterFont: $fontFamilyEmphasized;
 $rateStarFontSize: 12px;
+$rateStarIconFontSize: $rateStarFontSize + $iconBoostValue;
 $rateStarSmallFontSize: 10px;
-$rateScaleFactor: 2/3;
+$rateStarSmallIconFontSize: $rateStarSmallFontSize + $iconBoostValue;
+$rateScaleFactor: 2 / 3;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-rate-box {
     @include component;
@@ -44,8 +46,9 @@ $include-html: false !default;
       @include icon(star);
 
       color: $rateStarColor;
-      font-size: $rateStarFontSize + $iconBoostValue;
+      font-size: $rateStarIconFontSize;
       padding: 0 1px;
+
       &--checked {
         color: $rateStarCheckedColor;
       }
@@ -55,7 +58,7 @@ $include-html: false !default;
       @include fixText($rateStarFontSize, 2px);
       font-family: $rateCounterFont;
       color: $rateCounterColor;
-      margin: 0 0 0 $layoutDefaultPadding/2;
+      margin: 0 0 0 $layoutDefaultPadding / 2;
     }
 
     &--small {
@@ -63,12 +66,12 @@ $include-html: false !default;
       height: $rateScaleFactor * $rateHeight;
 
       .mint-rate-box__star {
-        font-size: $rateStarSmallFontSize + $iconBoostValue;
+        font-size: $rateStarSmallIconFontSize;
       }
 
       .mint-rate-box__counter {
         @include fixText($rateStarSmallFontSize);
-        margin-left: $layoutDefaultPadding/4;
+        margin-left: $layoutDefaultPadding / 4;
       }
     }
   }

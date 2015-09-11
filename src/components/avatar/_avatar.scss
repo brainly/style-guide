@@ -10,13 +10,14 @@ $avatarBorderColor: $white;
 $avatarBackgroundColor: $white;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-avatar {
-    @include component;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-profile;
+    @include component;
 
     width: $avatarMediumSize;
     height: $avatarMediumSize;

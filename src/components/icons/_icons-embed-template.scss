@@ -1,6 +1,7 @@
+$iconsFontFamily: 'brainly-icons';
 @font-face {
-  font-family: "brainly-icons";
-  src: url("font/brainly-icons.woff") format("woff");
+  font-family: $iconsFontFamily;
+  src: url('font/brainly-icons.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

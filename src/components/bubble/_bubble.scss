@@ -8,9 +8,9 @@ $borderSize: 3px;
 $triangleSize: 12px;
 $innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-bubble {
     @include component;
@@ -22,7 +22,7 @@ $include-html: false !default;
     box-shadow: $bubbleBoxShadow;
 
     &:before {
-      content: "";
+      content: '';
       border: $triangleSize solid transparent;
       border-bottom-color: $bubbleBorderColor;
       position: absolute;
@@ -34,7 +34,7 @@ $include-html: false !default;
     }
 
     &:after {
-      content: "";
+      content: '';
       border: $innerTriangleSize solid transparent;
       border-bottom-color: $bubbleBackground;
       position: absolute;
@@ -52,6 +52,7 @@ $include-html: false !default;
       &:before {
         border-bottom-color: $bubbleBackgroundDark;
       }
+
       &:after {
         border-bottom-color: $bubbleBackgroundDark;
       }

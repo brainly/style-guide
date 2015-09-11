@@ -1,3 +1,4 @@
+// scss-lint:disable PlaceholderInExtend
 .mint-subject-icon {
   &--technology-electronics {
     @extend .mint-subject-icon--technology;
@@ -10,8 +11,9 @@
   &--greek {
     @extend .mint-subject-icon--otherlanguages;
   }
+
   &--polish,
-  &--russian-lit{
+  &--russian-lit {
     @extend .mint-subject-icon--literature;
   }
 
@@ -25,7 +27,7 @@
   }
 
   &--other-lang,
-  &--others{
+  &--others {
     @extend .mint-subject-icon--otherlanguages;
   }
 
@@ -53,7 +55,7 @@
     @extend .mint-subject-icon--literature;
   }
 
-  &--sosyal{
+  &--sosyal {
     @extend .mint-subject-icon--social;
   }
 
@@ -92,9 +94,11 @@
   &--nigerian-lang {
     @extend .mint-subject-icon--otherlanguages;
   }
+
   &--norwegian {
     @extend .mint-subject-icon--otherlanguages;
   }
+
   &--rpa-lang {
     @extend .mint-subject-icon--otherlanguages;
   }

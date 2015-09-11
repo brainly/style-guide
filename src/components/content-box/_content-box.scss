@@ -1,6 +1,6 @@
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-content-box {
     &__header {
@@ -18,7 +18,8 @@ $include-html: false !default;
     }
 
     &--spaced {
-      .mint-content-box__content, .mint-content-box__footer {
+      .mint-content-box__content,
+      .mint-content-box__footer {
         @media (min-width: $breakpointTablet) {
           padding-left: 48px;
         }

@@ -3,21 +3,22 @@ $dropdownFontSize: 12px;
 $dropdownHeight: 32px;
 $dropdownBorderSize: 2px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-dropdown {
-    @include component;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-arrow_down;
-    
+    @include component;
+    @include hole;
+
     background-color: $grayAltLight;
     border: $dropdownBorderSize solid $grayAltLight;
     border-radius: 16px;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
-    @include hole;
 
     &:hover,
     &:active {
@@ -30,7 +31,7 @@ $include-html: false !default;
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
-      top: $dropdownHeight/4 - 2;
+      top: $dropdownHeight / 4 - 2;
       right: $dropdownHeight / 2 - $iconSize / 2;
       color: $grayAlt;
       z-index: 1;
@@ -44,10 +45,10 @@ $include-html: false !default;
     &__hole {
       justify-content: flex-start;
       min-height: $dropdownHeight - (2 * $dropdownBorderSize);
-      margin: 0 $dropdownHeight 0 $dropdownHeight/2;
+      margin: 0 $dropdownHeight 0 $dropdownHeight / 2;
       white-space: nowrap;
       overflow: hidden;
-      
+
       &--active {
         display: none;
       }
@@ -56,7 +57,7 @@ $include-html: false !default;
     &__items {
       visibility: hidden;
       padding: 0;
-      margin: 0 0 $layoutDefaultPadding/2;
+      margin: 0 0 $layoutDefaultPadding / 2;
     }
 
     &__item-hole {
@@ -64,7 +65,7 @@ $include-html: false !default;
       align-items: center;
       justify-content: flex-start;
       height: 100%;
-      padding: $layoutDefaultPadding/4 $dropdownHeight/2;
+      padding: ($layoutDefaultPadding / 4) ($dropdownHeight / 2);
       white-space: nowrap;
       overflow: hidden;
       text-decoration: none;

@@ -1,3 +1,6 @@
+$mainMenuBackgroundColor: #ffffff;
+$mainMenuFontSize: 12px;
+
 .main-menu {
   position: fixed;
   top: 0;
@@ -9,7 +12,7 @@
   flex-direction: row;
   align-items: center;
 
-  background-color: $white;
+  background-color: $mainMenuBackgroundColor;
   padding: 5px 10px;
   box-shadow: $grayPrimary 0 0 10px -2px;
 
@@ -19,7 +22,7 @@
     width: 30px;
     height: 30px;
     margin-right: 5px;
-    background: center center url(../img/favicon-hd.png) no-repeat;
+    background: center center url('../img/favicon-hd.png') no-repeat;
     background-size: contain;
   }
 
@@ -70,7 +73,7 @@
       color: $black;
       text-decoration: none;
       font-weight: 700;
-      font-size: 12px;
+      font-size: $mainMenuFontSize;
       line-height: 32px;
       padding: 0 15px;
     }
@@ -78,7 +81,7 @@
 
   .version {
     line-height: 32px;
-    font-size: 12px;
+    font-size: $mainMenuFontSize;
     color: $black;
     text-decoration: none;
 
