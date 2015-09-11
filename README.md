@@ -22,7 +22,6 @@ Bear in mind:
 Table of contents:
 
 * [Methodology](#methodology)
-* [Guidelines](#guidelines)
 * [How To](#howto)
 * [Contribution](#contribution)
 
@@ -69,10 +68,6 @@ We have chosen BEM because it gives us these benefits:
 * **Hole** is a thin wrapper for a block used for changing position, offset, paddings and alignment of the contained components.  
 Holes only make sense in the context of the certain container.
 * **User content** is a dynamically added content, which lack BEM classes and contains mainly text formatting tags like `b`, `i`, `br`, `p`, `ul`, `ol`, etc.
-
-## Guidelines
-
-If you are a component author you should follow this [guidelines](guidelines.md) on top of BEM.
 
 ## HowTo
 
@@ -177,7 +172,7 @@ To bump the version correctly you should merge PRs like that:
 
 ## Contribution
 
-To contribute, please read [Contributing file](CONTRIBUTING.md)
+If you are a component author you should follow this [guidelines](CONTRIBUTING.md) on top of BEM.
 
 ## TODO
 1. Add note about supported browser
