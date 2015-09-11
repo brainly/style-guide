@@ -1,39 +1,35 @@
-## Style Guide Development Guidelines
+# Style Guide Development Guidelines
 
 If you want to update Style Guide, you should follow the given guidelines and conventions.
 
-Contents:
-
 * [Design Conventions](#design-conventions)
+ - [Components](#components)
+    - [Composing A Modified Block](#exclamation-composing-a-modified-block)
+    - [Combined Classes](#combined-classes)
+    - [Base Variables](#base-variables)
+    - [Variables In Components](#variables-in-components)
+    - [User Content](#user-content)
+
+ - [Modifiers](#modifiers)
+    - [Modifier Dictionary](#modifier-dictionary)
+    - [Combine Effects](#combine-effects)
+
+ - [Containers](#containers)
+    - [How To Think About Containers And Holes](#how-to-think-about-containers-and-holes)
+    - [Parent-Child Relationship](#parent--child-relationship)
+
 * [Technical Discipline](#technical-discipline)
+ - [Bumping Release Version](#bumping-release-version)
+ - [Rebuilding Fonts](#rebuilding-fonts)
+ - [Create/Recreate s3 distribution](#createrecreate-s3-distribution)
 
-### Design Conventions
+
+## Design Conventions
 
 
-#### Modifier Dictionary
+### COMPONENTS
 
-We have standardized set of words you should use when adding modifiers to blocks.
-
-- If you component changes only in one dimension:
- - width:  `xnarrow` `narrow` `wide` `xwide` `full-width`
- - height: `xshort` `short` `tall` `xtall` `full-height`
-
-- If it changes in both sizes: `xsmall` `small` `large` `xlarge`
-
-- Behavior changes:
- - `non-responsive`
- - `obscured` vs `standout`
- - `disabled`
- - `active` vs `inactive`
-
-- Combinations of behaviors:
- - `padding-wide`
- - `padding-tall`
- - `paddind-large`
-
-All components are **responsive** by default, so there is no need for modifiers specific to responsiveness (exception: `non-responsive`)
-
-#### :exclamation: How to compose a modified block?
+#### :exclamation: Composing A Modified Block
 
 The most often question related to BEM is "How do I actually **use** modifiers and elements?"
 
@@ -74,7 +70,16 @@ You use the styles defined above like that:
 </div>
 ```
 
-#### Base variables
+#### Combined Classes
+
+> You MUST NOT combine several block classes on a single HTML element
+
+If you have a combination like `<input class="mint-block1 mint-block2">` it means that you have incorrectly separated responsibilities in your component hierarchy.
+
+> There MUST NOT be rules with combined classes selector, e.g. `.mint-block1 .mint-block2` is a bad thing.
+
+
+#### Base Variables
 
 > All essential variables MUST reside in `sass/config.sass` file.
 
@@ -97,7 +102,7 @@ $bubbleBorderRadius: 5px;
 ```
 This rule will help us track dependencies between components and theme and allow us to change tweak component styles in a more granular approach.
 
-#### Variables in components
+#### Variables In Components
 
 > Use component-level variables for all changeable parameters.
 
@@ -125,18 +130,6 @@ $myBlockWidth: 20px;
 }
 ```
 
-#### Containers
-
-Container is a **block** in BEM terminology. By default container consists of "holes" - thin wrapper elements where the blocks will be put by the component user.
-
-> Every container MUST define at least one hole.
-
-Holes are needed to achieve loose coupling between parents and children components.
-
-> Parent container MUST NOT override child component styles
-
-If you have some complex piece of UI and you are in doubt how to split it in blocks - *start with defining a container with holes first*.
-
 #### User content
 
 You can omit BEM rules only in the case when you need to style user content.
@@ -160,7 +153,64 @@ Here is an example of overriding user content in a specific block:
 
 > User content styles MUST be defined by component user in his specific stylesheet
 
-#### Parent-child relationship
+
+
+### MODIFIERS
+
+#### Modifier Dictionary
+
+We have standardized set of words you should use when adding modifiers to blocks.
+
+- If you component changes only in one dimension:
+ - width:  `xnarrow` `narrow` `wide` `xwide` `full-width`
+ - height: `xshort` `short` `tall` `xtall` `full-height`
+
+- If it changes in both sizes: `xsmall` `small` `large` `xlarge`
+
+- Behavior changes:
+ - `non-responsive`
+ - `obscured` vs `standout`
+ - `disabled`
+ - `active` vs `inactive`
+
+- Combinations of behaviors:
+ - `padding-wide`
+ - `padding-tall`
+ - `padding-large`
+
+All components are **responsive** by default, so there is no need for modifiers specific to responsiveness (exception: `non-responsive`)
+
+
+#### Combine Effects
+
+If you need to combine a certain effect from several modifiers, put those modifiers together in the HTML element class attribute.
+
+> There SHOULD NOT be CSS rules with selectors for several modifiers, e.g. `.mint-block--mod1 .mint-block--mod2` is a bad thing.
+
+If you need a special effect to be applied for a combination of modifiers, *which interfere with each other* - create a new modifier.
+
+
+
+
+
+### CONTAINERS
+
+#### How To Think About Containers And Holes
+
+Container is a **block** in BEM terminology. By default container consists of "holes" - thin wrapper elements where the blocks will be put by the component user.
+
+> Every container MUST define at least one hole.
+
+Holes are needed to achieve loose coupling between parents and children components.
+
+> Parent container MUST NOT override child component styles.
+
+If you have some complex piece of UI and you are in doubt how to split it in blocks - *start with defining a container with holes first*.
+
+
+
+
+#### Parent-Child Relationship
 Block is a reusable and self-contained entity with *high cohesion* with its elements.
 
 > Block MUST NOT override styles for other blocks elements.
@@ -175,21 +225,8 @@ There is a particular "code smell" when working with containers: *if parent cont
 
 > Containers SHOULD use "holes" to influence child blocks position, padding, offset.
 
-#### Modifiers
 
-If you need to combine a certain effect from several modifiers, put those modifiers together in the HTML element class attribute.
 
-> There SHOULD NOT be CSS rules with selectors for several modifiers, e.g. `.mint-block--mod1 .mint-block--mod2` is a bad thing.
-
-If you need a special effect to be applied for a combination of modifiers - create a new modifier.
-
-#### Combined classes
-
-> You MUST NOT combine several block classes on a single HTML element
-
-If you have a combination like `<input class="mint-block1 mint-block2">` it means that you have incorrectly separated responsibilities in your component hierarchy.
-
-> There MUST NOT be rules with combined classes selector, e.g. `.mint-block1 .mint-block2` is a bad thing.
 
 ### Technical Discipline
 
