@@ -43,6 +43,7 @@ $include-html: false !default;
 
     &__text {
       margin-right: $layoutDefaultPadding/2;
+      overflow: hidden;
     }
 
     &__icon {
@@ -111,7 +112,6 @@ $include-html: false !default;
       width: 100%;
 
       .mint-label__text {
-        overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
       }
