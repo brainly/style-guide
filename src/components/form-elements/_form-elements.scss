@@ -116,15 +116,16 @@ $includeHtml: false !default;
 
 
     &--small {
-      height: $layoutDefaultPadding/3*4;
+      height: $layoutDefaultPadding / 3 * 4;
 
       &:before {
-        right: $layoutDefaultPadding/3;
+        right: $layoutDefaultPadding / 3;
         margin-top: 0;
       }
+
       .mint-select__element {
-        height: $layoutDefaultPadding/3*4;
-        padding: 0 $layoutDefaultPadding/3*4 0 $layoutDefaultPadding/3*2;
+        height: $layoutDefaultPadding / 3 * 4;
+        padding: 0 ($layoutDefaultPadding / 3 * 4) 0 ($layoutDefaultPadding / 3 * 2);
       }
     }
 
