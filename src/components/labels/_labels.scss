@@ -107,6 +107,16 @@ $include-html: false !default;
       }
     }
 
+    &--full-width {
+      width: 100%;
+
+      .mint-label__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+    }
+
     &--small {
       min-height: $labelScaleFactor * $labelHeight;
 

@@ -45,6 +45,8 @@ $include-html: false !default;
       justify-content: flex-start;
       min-height: $dropdownHeight - (2 * $dropdownBorderSize);
       margin: 0 $dropdownHeight 0 $dropdownHeight/2;
+      white-space: nowrap;
+      overflow: hidden;
       
       &--active {
         display: none;
@@ -63,6 +65,8 @@ $include-html: false !default;
       justify-content: flex-start;
       height: 100%;
       padding: $layoutDefaultPadding/4 $dropdownHeight/2;
+      white-space: nowrap;
+      overflow: hidden;
       text-decoration: none;
 
       &:hover,
