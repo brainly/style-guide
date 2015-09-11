@@ -50,37 +50,46 @@ $includeHtml: false !default;
     margin: 0;
     position: relative;
     letter-spacing: -1px;
+
     &__hole {
       display: block;
       position: absolute;
       top: -22px;
       left: -13px;
       line-height: 0;
+
       &--small {
         top: -25px;
         left: -10px;
       }
     }
+
     &--alt {
       color: $textBitAltColor;
     }
+
     &--light {
       color: $textBitLightColor;
     }
+
     &--dark {
       color: $textBitDarkColor;
     }
+
     &--warning {
       color: $textBitWarningColor;
     }
+
     &--large {
       font-size: $textBitLargeFontSize;
     }
+
     @media (min-width: $breakpointTablet) {
       &:not(.mint-text-bit--not-responsive) {
         font-size: $textBitLargeFontSize;
       }
     }
+
     &--to-larger:not(.mint-text-bit--not-responsive) {
       @media (min-width: $breakpointTablet) {
         font-size: $textBitLargerTabletFontSize;
@@ -102,15 +111,19 @@ $includeHtml: false !default;
     &--gray {
       color: $textBlockGrayColor;
     }
+
     &--light {
       color: $textBlockLightColor;
     }
+
     &--for-fine-print-light {
       color: $textBlockLightBlueColor;
     }
+
     &--for-fine-print {
       color: $textBlockBlueColor;
     }
+
     &--emphasised {
       text-transform: uppercase;
     }
@@ -128,6 +141,7 @@ $includeHtml: false !default;
       font-size: $textDescriptionLargeFontSize;
       line-height: $textDescriptionLargeLineHeight;
     }
+
     &--small {
       font-size: $textDescriptionSmallFontSize;
       line-height: $textDescriptionSmallLineHeight;
@@ -144,7 +158,8 @@ $includeHtml: false !default;
     text-decoration: none;
     font-family: $linkFontFamily;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       text-decoration: underline;
     }
 
@@ -167,7 +182,8 @@ $includeHtml: false !default;
     &--disabled {
       cursor: default;
 
-      &:hover, &:active {
+      &:hover,
+      &:active {
         text-decoration: none;
       }
     }

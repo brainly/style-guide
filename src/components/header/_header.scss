@@ -1,4 +1,4 @@
-$headerDominantColor: #65A6A8;
+$headerDominantColor: #65a6a8;
 $headerHeight: 60px;
 
 $includeHtml: false !default;
@@ -6,12 +6,12 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-header {
+    @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
     width: 100%;
     height: $headerHeight;
     background-image: url($mintImagesPath + 'header_background_wide.jpg');
     background-repeat: repeat-x;
     background-color: $headerDominantColor;
-    @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
 
     &__container {
       box-sizing: border-box;
@@ -24,7 +24,7 @@ $includeHtml: false !default;
       align-items: center;
 
       @media (min-width: $breakpointTablet) {
-        padding: 0 $layoutDefaultPadding/2;
+        padding: 0 $layoutDefaultPadding / 2;
       }
     }
 

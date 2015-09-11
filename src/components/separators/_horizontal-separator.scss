@@ -13,7 +13,7 @@ $includeHtml: false !default;
     width: 100%;
 
     &--spaced {
-      margin: $layoutDefaultPadding - $horizontalSeparatorHeight 0 $layoutDefaultPadding 0;
+      margin: ($layoutDefaultPadding - $horizontalSeparatorHeight) 0 $layoutDefaultPadding;
     }
   }
 

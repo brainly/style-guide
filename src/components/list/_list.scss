@@ -1,4 +1,11 @@
 $listDefaultFont: $fontFamilyPrimary;
+$listIconColor: $white;
+$listFontSize: 24px;
+$listIconSize: 38px;
+$listPlusIconSize: 24px;
+$listSmallFontSize: 14px;
+$listSmallIconSize: 24px;
+$listSmallPlusIconSize: 14px;
 
 $breadcrumbListFontFamily: $fontFamilySecondary;
 $breadcrumbListFontSize: 13px;
@@ -12,9 +19,10 @@ $menuListBorderColor: $graySecondary;
 $listSmallFontFamily: $fontFamilySecondary;
 $listSmallIconColor: $graySecondary;
 
+
 $includeHtml: false !default;
 
-@mixin mint-list-basic-styles() {
+@mixin mintListBasicStyles() {
   @include component;
   display: block;
   margin: 0;
@@ -25,71 +33,73 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     font-family: $listDefaultFont;
-    font-size: 24px;
+    font-size: $listFontSize;
     line-height: 44px;
 
     .mint-list__element {
+      // scss-lint:disable PlaceholderInExtend
       @extend .mint-icon-arrow_down;
 
       &:before {
-        font-family: 'brainly-icons';
-        color: white;
+        color: $listIconColor;
         transform: rotate(-90deg);
-        font-size: 38px;
+        font-size: $listIconSize;
         vertical-align: -6px;
         margin-right: 10px;
       }
 
       &--with-plus {
         &:before {
-          font-size: 24px;
+          @extend .mint-icon-plus;
+          font-size: $listPlusIconSize;
           vertical-align: 0;
           color: $listSmallIconColor;
-          @extend .mint-icon-plus;
         }
       }
     }
 
     &--small {
-      font-size: 15px;
+      font-size: $listSmallFontSize;
       line-height: 30px;
       font-family: $listSmallFontFamily;
 
       .mint-list__element {
         &:before {
-          font-size: 24px;
+          font-size: $listSmallIconSize;
           vertical-align: -8px;
           height: 15px;
         }
 
-        &--with-plus {
-          &:before {
-            font-size: 14px;
-            vertical-align: 0;
-          }
+        &--with-plus:before {
+          font-size: $listSmallPlusIconSize;
+          vertical-align: 0;
         }
       }
     }
   }
 
   .mint-menu-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     font-family: $listDefaultFont;
+
     &__element {
       box-sizing: border-box;
       height: 35px;
       line-height: 35px;
       border-bottom: 1px dashed $menuListBorderColor;
       font-family: inherit;
+
       &:last-child {
-        border: 0;
+        border: none;
       }
+
       &--flex {
         height: auto;
       }
     }
+
     &__link {
       color: $menuListColor;
       text-decoration: none;
@@ -97,17 +107,19 @@ $includeHtml: false !default;
       font-size: $menuListFontSize;
       font-family: inherit;
       white-space: nowrap;
+
       &:hover {
         text-decoration: underline;
       }
     }
+
     &--side-spaced {
-      margin: 0 10px
+      margin: 0 10px;
     }
   }
 
   .mint-breadcrumb-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     display: inline-block;
     vertical-align: inherit;
     font-family: $breadcrumbListFontFamily;
@@ -132,6 +144,7 @@ $includeHtml: false !default;
 
     &--for-fine-print {
       color: $breadcrumbListBlueSeparatorColor;
+
       .mint-breadcrumb-list__element {
         &:after {
           color: $breadcrumbListBlueSeparatorColor;
@@ -141,6 +154,7 @@ $includeHtml: false !default;
 
     &--for-fine-print-light {
       color: $breadcrumbListLightBlueSeparatorColor;
+
       .mint-breadcrumb-list__element {
         &:after {
           color: $breadcrumbListLightBlueSeparatorColor;
@@ -148,5 +162,4 @@ $includeHtml: false !default;
       }
     }
   }
-
 }

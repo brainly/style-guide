@@ -10,7 +10,7 @@ $includeHtml: false !default;
     &__container {
       position: relative;
       box-sizing: border-box;
-      padding: $layoutDefaultPadding $layoutDefaultPadding;
+      padding: $layoutDefaultPadding;
 
       @media (min-width: $breakpointTablet) {
         max-width: $layoutMaximumWidth;

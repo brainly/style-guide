@@ -20,6 +20,7 @@ var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var rev = require('gulp-rev');
 var fingerprint = require('gulp-fingerprint');
+var soften = require('gulp-soften');
 
 var DEV_ENV = argv.production ? false : true;
 var PROD_ENV = !DEV_ENV;
@@ -146,6 +147,7 @@ gulp.task('subjects', function(done) {
 
     return gulp.src('./src/images/subjects/*.svg')
         .pipe(svgSprite(config))
+        .pipe(soften(2))
         .pipe(replace('url(../../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
         .pipe(gulp.dest(subjectIconsComponentPath))
 });

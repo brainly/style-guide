@@ -16,10 +16,11 @@ $includeHtml: false !default;
       height: $logoLargeHeight;
       width: $logoLargeWidth;
     }
+
     &--small {
       height: $logoDefaultHeight / 2;
       width: $logoDefaultWidth / 2;
-      background-size: auto $logoDefaultHeight/2;
+      background-size: auto $logoDefaultHeight / 2;
     }
   }
 }

@@ -15,7 +15,7 @@ $buttonColorGradient: #84ddaf;
 $buttonShadowColor: #67c996;
 
 $buttonAltColor: $bluePrimary;
-$buttonAltColorGradient: #73C3FF;
+$buttonAltColorGradient: #73c3ff;
 $buttonAltShadowColor: #57aff2;
 
 $buttonDarkColor: $black;
@@ -25,6 +25,7 @@ $buttonDarkShadowColor: $black;
 $buttonFbColor: #3b5997;
 $buttonFbColorGradient: #4668b2;
 $buttonFbShadowColor: #355088;
+$buttonFbIconSize: 20px;
 
 $buttonSecondaryColor: $mintPrimary;
 $buttonSecondaryTextColorHover: $white;
@@ -48,8 +49,14 @@ $buttonSecondaryIconColor: $graySecondary;
 $buttonSecondaryIconBorderColorHover: $grayPrimary;
 
 $iconAsButtonColor: $bluePrimary;
+$iconAsButtonActiveColor:  rgba($iconAsButtonColor, 0.7);
 $iconAsButtonLightColor: $white;
+$iconAsButtonLightActiveColor: rgba($iconAsButtonLightColor, 0.7);
 $iconAsButtonGrayColor: $grayPrimary;
+$iconAsButtonGrayActiveColor: rgba($iconAsButtonGrayColor, 0.7);
+$iconAsButtonFontSize: 0;
+$iconAsButtonIconFontSize: 26px;
+$iconAsButtonSmallIconFontSize: 18px;
 
 $buttonRoundAddSize: 50px;
 $buttonRoundAddFontSize: 18px;
@@ -62,12 +69,13 @@ $buttonRoundLabelColor: $black;
 
 $includeHtml: false !default;
 
-@mixin mint-button-basic-styles() {
+@mixin mintButtonBasicStyles() {
   @include component;
   cursor: pointer;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
+
   &:active,
   &:focus,
   &:hover {
@@ -75,47 +83,57 @@ $includeHtml: false !default;
   }
 }
 
-@mixin mint-button-basic-dimensions($height) {
-  border-radius: $height/2;
+@mixin mintButtonBasicDimensions($height) {
+  border-radius: $height / 2;
   height: $height;
-  padding: 0 $height/2;
+  padding: 0 $height / 2;
 }
 
-@mixin mint-button-basic-colors($borderColor, $fontColor, $backgroundColor) {
+@mixin mintButtonBasicColors($borderColor, $fontColor, $backgroundColor) {
   border-color: $borderColor;
   color: $fontColor;
   background-color: $backgroundColor;
 }
 
-@mixin mint-button-primary-active($fontColor) {
+@mixin mintButtonPrimaryActive($fontColor) {
+  $activeFontColor: rgba($fontColor, 0.7);
   transition: background-position 0.3s ease-out;
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     background-position: 0 10px;
     outline: none;
   }
+
   &:active {
-    color: rgba($fontColor, 0.7);
+    color: $activeFontColor;
     outline: none;
   }
 }
 
-@mixin mint-button-secondary-active($borderColor, $fontColor, $backgroundColor) {
-  &:hover, &:focus {
+@mixin mintButtonSecondaryActive($borderColor, $fontColor, $backgroundColor) {
+  $activeFontColor: rgba($fontColor, 0.7);
+
+  &:hover,
+  &:focus {
     border-color: $borderColor;
     color: $fontColor;
     background-color: $backgroundColor;
   }
+
   &:active {
-    color: rgba($fontColor, 0.7);
+    color: $activeFontColor;
     outline: none;
   }
+
   &:active &__hole {
     opacity: 0.7;
   }
 }
 
-@mixin mint-button-secondary-with-icon-active($borderColor, $textColor) {
-  &:hover, &:focus {
+@mixin mintButtonSecondaryWithIconActive($borderColor, $textColor) {
+  &:hover,
+  &:focus {
     color: $textColor;
     background-color: transparent;
     border-color: $borderColor;
@@ -123,38 +141,42 @@ $includeHtml: false !default;
   }
 }
 
-@mixin mint-button-primary-three-color-variant($buttonColor, $gradientColor, $buttonShadowColor: null) {
+@mixin mintButtonPrimaryThreeColorVariant($buttonColor, $gradientColor, $buttonShadowColor: null) {
   background-color: $buttonColor;
+  // scss-lint:disable NameFormat
   background: $gradientColor linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%) no-repeat;
+  // scss-lint:enable NameFormat
   @if($buttonShadowColor) {
     box-shadow: 0 -1px 0 $buttonShadowColor inset;
   }
-  &:hover, &:focus {
+
+  &:hover,
+  &:focus {
     background-color: $gradientColor;
   }
 }
 
-@mixin mint-button-secondary-two-color-variant($colorOne, $colorTwo) {
-  @include mint-button-basic-colors($colorOne, $colorOne, transparent);
-  @include mint-button-secondary-active($colorOne, $colorTwo, $colorOne);
+@mixin mintButtonSecondaryTwoColorVariant($colorOne, $colorTwo) {
+  @include mintButtonBasicColors($colorOne, $colorOne, transparent);
+  @include mintButtonSecondaryActive($colorOne, $colorTwo, $colorOne);
 
   &-inverse {
-    @include mint-button-basic-colors($colorOne, $colorTwo, $colorOne);
-    @include mint-button-secondary-active($colorOne, $colorOne, transparent);
+    @include mintButtonBasicColors($colorOne, $colorTwo, $colorOne);
+    @include mintButtonSecondaryActive($colorOne, $colorOne, transparent);
   }
 }
 
-@mixin mint-button-secondary-three-color-variant($bgColor, $textColor, $hoverTextColor) {
-  border: 0;
-  padding: 0 $buttonSecondaryHeight /2 + 2px;
-  @include mint-button-basic-colors($bgColor, $textColor, $bgColor);
-  @include mint-button-secondary-active($textColor, $hoverTextColor, $textColor);
+@mixin mintButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
+  border: none;
+  padding: 0 $buttonSecondaryHeight / 2 + 2px;
+  @include mintButtonBasicColors($bgColor, $textColor, $bgColor);
+  @include mintButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
 
   &-inverse {
-    border: 0;
-    padding: 0 $buttonSecondaryHeight /2 + 2px;
-    @include mint-button-basic-colors($textColor, $hoverTextColor, $textColor);
-    @include mint-button-secondary-active($bgColor, $textColor, $bgColor);
+    @include mintButtonBasicColors($textColor, $hoverTextColor, $textColor);
+    @include mintButtonSecondaryActive($bgColor, $textColor, $bgColor);
+    border: none;
+    padding: 0 $buttonSecondaryHeight / 2 + 2px;
   }
 }
 
@@ -162,16 +184,16 @@ $includeHtml: false !default;
 
   // Primary buttons
   .mint-button-primary {
-    @include mint-button-basic-styles();
-    @include mint-button-basic-dimensions($buttonPrimaryHeight);
-    @include mint-button-basic-colors('transparent', $buttonPrimaryFontColor, $buttonColor);
-    @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+    @include mintButtonBasicStyles();
+    @include mintButtonBasicDimensions($buttonPrimaryHeight);
+    @include mintButtonBasicColors('transparent', $buttonPrimaryFontColor, $buttonColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
     @include hole;
+    @include mintButtonPrimaryActive($buttonPrimaryFontColor);
 
-    border: 0;
+    border: none;
     font-size: $buttonPrimaryFontSize;
     font-family: $buttonPrimaryFontFamily;
-    @include mint-button-primary-active($buttonPrimaryFontColor);
 
     &--full {
       width: 100%;
@@ -180,33 +202,36 @@ $includeHtml: false !default;
   }
 
   .mint-button-primary--alt {
-    @include mint-button-primary-three-color-variant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
   }
 
   .mint-button-primary--dark {
-    @include mint-button-primary-three-color-variant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
   }
 
   .mint-button-primary--fb {
-    @include mint-button-primary-three-color-variant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
 
     .mint-button-primary__hole {
+      // scss-lint:disable PlaceholderInExtend
       @extend .mint-icon-fb;
 
       &:before {
-        font-size: 20px;
+        font-size: $buttonFbIconSize;
         margin-right: $layoutDefaultPadding / 2;
       }
     }
   }
 
   .mint-button-primary-round {
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-plus;
     @include clearfix();
     display: inline-block;
+
     &:before {
+      @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient);
       display: inline-block;
-      @include mint-button-primary-three-color-variant($buttonColor, $buttonColorGradient);
       width: $buttonRoundAddSize;
       height: $buttonRoundAddSize;
       border-radius: 50%;
@@ -216,6 +241,7 @@ $includeHtml: false !default;
       font-size: $buttonRoundAddFontSize;
       box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
     }
+
     &__label {
       float: left;
       font-family: $buttonRoundLabelFontFamily;
@@ -234,10 +260,10 @@ $includeHtml: false !default;
   // Secondary buttons
   .mint-button-secondary {
     $borderSize: 2px;
-    @include mint-button-basic-styles();
-    @include mint-button-basic-dimensions($buttonSecondaryHeight);
-    @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
-    @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+    @include mintButtonBasicStyles();
+    @include mintButtonBasicDimensions($buttonSecondaryHeight);
+    @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
     @include hole;
 
     border-width: $borderSize;
@@ -246,13 +272,15 @@ $includeHtml: false !default;
     font-size: $buttonSecondaryFontSize;
     font-family: $buttonSecondaryFontFamily;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
       outline: none;
     }
 
     &--inverse {
-      @include mint-button-basic-colors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-      @include mint-button-secondary-active($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+      @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+      @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
     }
 
     &--full {
@@ -262,40 +290,40 @@ $includeHtml: false !default;
   }
 
   .mint-button-secondary--alt {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
   }
 
   .mint-button-secondary--dark {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
   }
 
   .mint-button-secondary--peach {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
   }
 
   .mint-button-secondary--gray {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
   }
 
   .mint-button-secondary--light {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
   }
 
   .mint-button-secondary--action {
-    @include mint-button-secondary-three-color-variant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
+    @include mintButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
   }
 
   .mint-button-secondary--light-blue {
-    @include mint-button-secondary-two-color-variant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
   }
 
   .mint-button-secondary--with-icon {
-    @include mint-button-basic-colors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-    @include mint-button-secondary-with-icon-active($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
+    @include mintButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
+    @include mintButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
   }
 
   .mint-button-secondary--small {
-    @include mint-button-basic-dimensions($buttonSecondarySmallHeight);
+    @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
   }
 
   .mint-icon-as-button {
@@ -307,23 +335,24 @@ $includeHtml: false !default;
     cursor: pointer;
     width: 40px;
     height: 40px;
-    font-size: 0;
+    font-size: $iconAsButtonFontSize;
     line-height: 0;
     overflow: visible;
     text-align: center;
 
     &:before {
       color: $iconAsButtonColor;
-      font-size: 26px;
+      font-size: $iconAsButtonIconFontSize;
     }
 
     &:active:before {
-      color: rgba($iconAsButtonColor, 0.7);
+      color: $iconAsButtonActiveColor;
     }
 
-    &--small, &--medium {
+    &--small,
+    &--medium {
       &:before {
-        font-size: 18px;
+        font-size: $iconAsButtonSmallIconFontSize;
       }
     }
 
@@ -350,7 +379,7 @@ $includeHtml: false !default;
       }
 
       &:active:before {
-        color: rgba($iconAsButtonLightColor, 0.7);
+        color: $iconAsButtonLightActiveColor;
       }
     }
 
@@ -362,7 +391,7 @@ $includeHtml: false !default;
       }
 
       &:active:before {
-        color: rgba($iconAsButtonGrayColor, 0.7);
+        color: $iconAsButtonGrayActiveColor;
       }
     }
   }

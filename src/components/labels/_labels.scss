@@ -7,12 +7,13 @@ $labelFontSizeSecondary: 10px;
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
 $labelHeight: $defaultComponentHeight;
-$labelScaleFactor: 2/3;
+$labelScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
 
-@mixin label-from-icon($name){
+@mixin labelFromIcon($name) {
   &--#{$name}:before {
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-#{$name}:before;
     display: block;
   }
@@ -27,14 +28,15 @@ $includeHtml: false !default;
     align-items: center;
     min-height: $labelHeight;
 
-    &__text, &__number {
+    &__text,
+    &__number {
       @include fixText($labelFontSizePrimary, 2px);
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;
       font-family: $labelFont;
       text-transform: uppercase;
-      margin-right: $layoutDefaultPadding/4;
+      margin-right: $layoutDefaultPadding / 4;
 
       &:last-child {
         margin-right: 0;
@@ -42,15 +44,41 @@ $includeHtml: false !default;
     }
 
     &__text {
-      margin-right: $layoutDefaultPadding/2;
+      margin-right: $layoutDefaultPadding / 2;
       overflow: hidden;
     }
 
     &__icon {
+      @include labelFromIcon(answering);
+      @include labelFromIcon(answered);
+      @include labelFromIcon(arrow_down);
+      @include labelFromIcon(arrow_left);
+      @include labelFromIcon(arrow_right);
+      @include labelFromIcon(arrow_up);
+      @include labelFromIcon(attachment);
+      @include labelFromIcon(bold);
+      @include labelFromIcon(check);
+      @include labelFromIcon(comment);
+      @include labelFromIcon(equation);
+      @include labelFromIcon(excellent);
+      @include labelFromIcon(fb);
+      @include labelFromIcon(friends);
+      @include labelFromIcon(heart);
+      @include labelFromIcon(logo);
+      @include labelFromIcon(menu);
+      @include labelFromIcon(messages);
+      @include labelFromIcon(notifications);
+      @include labelFromIcon(pencil);
+      @include labelFromIcon(profile);
+      @include labelFromIcon(report_flag);
+      @include labelFromIcon(search);
+      @include labelFromIcon(star);
+      @include labelFromIcon(stream);
+      @include labelFromIcon(symbols);
       font-size: $labelIconSizePrimary;
       display: block;
       vertical-align: middle;
-      margin-right: $layoutDefaultPadding/4;
+      margin-right: $layoutDefaultPadding / 4;
 
       &:last-child {
         margin-right: 0;
@@ -64,46 +92,22 @@ $includeHtml: false !default;
         color: $lavenderPrimary;
       }
 
-      &--star, &--excellent {
+      &--star,
+      &--excellent {
         color: $mustardPrimary;
       }
-
-      @include label-from-icon(answering);
-      @include label-from-icon(answered);
-      @include label-from-icon(arrow_down);
-      @include label-from-icon(arrow_left);
-      @include label-from-icon(arrow_right);
-      @include label-from-icon(arrow_up);
-      @include label-from-icon(attachment);
-      @include label-from-icon(bold);
-      @include label-from-icon(check);
-      @include label-from-icon(comment);
-      @include label-from-icon(equation);
-      @include label-from-icon(excellent);
-      @include label-from-icon(fb);
-      @include label-from-icon(friends);
-      @include label-from-icon(heart);
-      @include label-from-icon(logo);
-      @include label-from-icon(menu);
-      @include label-from-icon(messages);
-      @include label-from-icon(notifications);
-      @include label-from-icon(pencil);
-      @include label-from-icon(profile);
-      @include label-from-icon(report_flag);
-      @include label-from-icon(search);
-      @include label-from-icon(star);
-      @include label-from-icon(stream);
-      @include label-from-icon(symbols);
     }
 
     &--secondary {
-      .mint-label__text, .mint-label__number {
+      .mint-label__text,
+      .mint-label__number {
         color: $labelSecondaryColor;
       }
     }
 
     &--inactive {
-      .mint-label__text, .mint-label__number {
+      .mint-label__text,
+      .mint-label__number {
         color: $labelInactiveColor;
       }
     }
@@ -120,9 +124,10 @@ $includeHtml: false !default;
     &--small {
       min-height: $labelScaleFactor * $labelHeight;
 
-      .mint-label__text, .mint-label__number {
+      .mint-label__text,
+      .mint-label__number {
         @include fixText($labelFontSizeSecondary);
-        margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
+        margin-right: $labelScaleFactor * $layoutDefaultPadding / 4;
 
         &:last-child {
           margin-right: 0;
@@ -130,11 +135,11 @@ $includeHtml: false !default;
       }
 
       .mint-label__text {
-        margin-right: $labelScaleFactor * $layoutDefaultPadding/2;
+        margin-right: $labelScaleFactor * $layoutDefaultPadding / 2;
       }
 
       .mint-label__icon {
-        margin-right: $labelScaleFactor * $layoutDefaultPadding/4;
+        margin-right: $labelScaleFactor * $layoutDefaultPadding / 4;
         font-size: $labelIconSizeSecondary;
       }
     }

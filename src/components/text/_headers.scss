@@ -27,8 +27,8 @@ $includeHtml: false !default;
     &--light {
       color: $headerColorLight;
     }
-
   }
+
   .mint-header-secondary {
     @include component;
     display: block;

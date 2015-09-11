@@ -1,5 +1,5 @@
 scss_files: 'src/**/*.scss'
-exclude: ['src/sass/vendors/**', 'src/docs/css/**', 'src/components/icons/_icons-data.scss']
+exclude: ['src/sass/vendors/**', 'src/docs/**', 'src/components/icons/_icons-data.scss']
 
 linters:
   # Only 1 BEM element in selector allowed
@@ -79,14 +79,14 @@ linters:
     convention: camel_case
   # Avoid nesting selectors too deeply.
   NestingDepth:
-    max_depth: 3
+    max_depth: 4
   # Always use placeholder selectors in @extend
   PlaceholderInExtend:
     enabled: true
   # Limit the number of properties in a rule set.
   PropertyCount:
     enabled: true
-    max_properties: 12
+    max_properties: 16
   # Sort properties in a strict order.
   PropertySortOrder:
     enabled: false
