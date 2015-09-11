@@ -104,6 +104,20 @@ $include-html: false !default;
       margin-top: 1px;
       transform: translateY(-50%);
     }
+
+    &--small {
+      height: $layoutDefaultPadding/3*4;
+
+      &:before {
+        right: $layoutDefaultPadding/3;
+        margin-top: 0;
+      }
+      .mint-select__element {
+        height: $layoutDefaultPadding/3*4;
+        padding: 0 $layoutDefaultPadding/3*4 0 $layoutDefaultPadding/3*2;
+      }
+    }
+
     &--full {
       width: 100%;
     }
