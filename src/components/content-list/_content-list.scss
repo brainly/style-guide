@@ -1,0 +1,25 @@
+$include-html: false !default;
+
+@if ($include-html) {
+
+  @import "content-list-item";
+
+  .mint-content-list {
+
+    &__header {
+      margin-bottom: $layoutDefaultPadding / 2;
+      text-align: center;
+    }
+
+    &__content {
+      overflow: auto;
+
+      &--limited {
+        max-height: 200px;
+      }
+    }
+
+    &__footer {}
+  }
+
+}
