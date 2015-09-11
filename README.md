@@ -110,64 +110,6 @@ You can hover with mouse over the container in style guide to see the holes (whi
 ![Highlighted holes](http://i.gyazo.com/0cc138b81eb12cc518352c2d9c787f0b.png)
 
 
-#### Rebuild fonts
-
-If you haven't run `bootstrap.sh`, you should do it right now :)
-
-Run `./scripts/build-fonts.sh`.
-
-This command will transform all `svg` files from `icons` directory in a woff font.
-
-#### Create/Recreate s3 distribution
-
-To be able to work with AWS you need to have AWS-related keys defined in your environment:
-
- * `AWS_ACCESS_KEY` should be available as environment variable
- * `AWS_SECRET_ACCESS_KEY` should be available as environment variable
-
-Those keys will be passed to docker container on every interaction with s3 or cloudfront.
-
-Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 distribution.
-
-**Note:** This should be done once when you setup the deployment pipeline of the project.
-*This step has already been applied for this repo.*
-
-#### Bump release version
-
-This project has semver versioning.
-
-To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
-`mversion patch -m` will patch package.json and create a corresponding commit + tag
-
-**Note:** if there is no changes to resulting `style-guide.css`, then use `mversion pr -m`.
-  It will create a `prerelease` version instead of patch.
-
-To bump the version correctly you should merge PRs like that:
-
-1. Get the freshest master  
-  ```
-  git checkout master
-
-  git pull
-  ```
-1. `rebase` your PR on master  
-  ```
-  git rebase master my-branch
-  ```
-1. `merge` your PR  
-  ```
-  git merge my-branch
-  ```
-1. bump version in master as a separate commit (with tag)  
-  ```
-  mversion patch -m
-  ```
-1. `push` changes to upstream  
-  ```
-  git push
-  
-  git push --tags
-  ```
 
 
 ## Contribution

@@ -2,6 +2,37 @@
 
 If you want to update Style Guide, you should follow the given guidelines and conventions.
 
+Contents:
+
+* [Design Conventions](#design-conventions)
+* [Technical Discipline](#technical-discipline)
+
+### Design Conventions
+
+
+#### Modifier Dictionary
+
+We have standardized set of words you should use when adding modifiers to blocks.
+
+- If you component changes only in one dimension:
+ - width:  `xnarrow` `narrow` `wide` `xwide` `full-width`
+ - height: `xshort` `short` `tall` `xtall` `full-height`
+
+- If it changes in both sizes: `xsmall` `small` `large` `xlarge`
+
+- Behavior changes:
+ - `non-responsive`
+ - `obscured` vs `standout`
+ - `disabled`
+ - `active` vs `inactive`
+
+- Combinations of behaviors:
+ - `padding-wide`
+ - `padding-tall`
+ - `paddind-large`
+
+All components are **responsive** by default, so there is no need for modifiers specific to responsiveness (exception: `non-responsive`)
+
 #### :exclamation: How to compose a modified block?
 
 The most often question related to BEM is "How do I actually **use** modifiers and elements?"
@@ -159,3 +190,64 @@ If you need a special effect to be applied for a combination of modifiers - crea
 If you have a combination like `<input class="mint-block1 mint-block2">` it means that you have incorrectly separated responsibilities in your component hierarchy.
 
 > There MUST NOT be rules with combined classes selector, e.g. `.mint-block1 .mint-block2` is a bad thing.
+
+### Technical Discipline
+
+#### Bumping Release Version
+
+This project has semver versioning.
+
+To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
+`mversion patch -m` will patch package.json and create a corresponding commit + tag
+
+**Note:** if there is no changes to resulting `style-guide.css`, then use `mversion pr -m`.
+  It will create a `prerelease` version instead of patch.
+
+To bump the version correctly you should merge PRs like that:
+
+1. Get the freshest master  
+  ```
+  git checkout master
+
+  git pull
+  ```
+1. `rebase` your PR on master  
+  ```
+  git rebase master my-branch
+  ```
+1. `merge` your PR  
+  ```
+  git merge my-branch
+  ```
+1. bump version in master as a separate commit (with tag)  
+  ```
+  mversion patch -m
+  ```
+1. `push` changes to upstream  
+  ```
+  git push
+  
+  git push --tags
+  ```
+
+#### Rebuilding Fonts
+
+If you haven't run `bootstrap.sh`, you should do it right now :)
+
+Run `./scripts/build-fonts.sh`.
+
+This command will transform all `svg` files from `icons` directory in a woff font.
+
+#### Create/Recreate s3 distribution
+
+To be able to work with AWS you need to have AWS-related keys defined in your environment:
+
+ * `AWS_ACCESS_KEY` should be available as environment variable
+ * `AWS_SECRET_ACCESS_KEY` should be available as environment variable
+
+Those keys will be passed to docker container on every interaction with s3 or cloudfront.
+
+Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 distribution.
+
+**Note:** This should be done once when you setup the deployment pipeline of the project.
+*This step has already been applied for this repo.*
