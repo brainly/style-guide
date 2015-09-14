@@ -16,13 +16,25 @@
   margin: 0;
 }
 
+// this mixin allows inserting inline-based components without concerns about vertical dimension
+@mixin components-container() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin hole() {
   &__hole {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include components-container();
     height: 100%;
   }
+}
+
+// this mixin remove additional space for ascenders/descenders
+// should be applied for inline-block elements with height < line-height
+@mixin remove-descenders() {
+  line-height: rhythm(0.66);
+  min-height: auto;
 }
 
 // $lineHeight-offset is a way to fix font issue with the baseline

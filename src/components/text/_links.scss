@@ -1,9 +1,9 @@
 .mint-link {
+  @include remove-descenders;
   cursor: pointer;
   color: $bluePrimary;
   text-decoration: none;
   font-weight: bold;
-  line-height: 0.75rem; // forbid descenders overflow line-height
 
   &:hover, &:active {
     text-decoration: underline;
