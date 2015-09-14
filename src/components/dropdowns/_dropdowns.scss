@@ -2,6 +2,10 @@
 $dropdownFontSize: 12px;
 $dropdownHeight: 32px;
 $dropdownBorderSize: 2px;
+$dropdownBackground: $white;
+$dropdownHoverColor: $graySecondary;
+$dropdownBorderColor: $grayAltLight;
+$dropdownOpenedBorderColor: $grayPrimary;
 
 $include-html: false !default;
 
@@ -13,8 +17,8 @@ $include-html: false !default;
     @extend .mint-icon-arrow_down;
     
     background-color: $grayAltLight;
-    border: $dropdownBorderSize solid $grayAltLight;
-    border-radius: 16px;
+    border: $dropdownBorderSize solid $dropdownBorderColor;
+    border-radius: $dropdownHeight / 2;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
@@ -22,8 +26,8 @@ $include-html: false !default;
 
     &:hover,
     &:active {
-      background-color: $graySecondary;
-      border-color: $graySecondary;
+      background-color: $dropdownHoverColor;
+      border-color: $dropdownHoverColor;
     }
 
     &:before {
@@ -45,7 +49,7 @@ $include-html: false !default;
     &__hole {
       justify-content: flex-start;
       min-height: $dropdownHeight - (2 * $dropdownBorderSize);
-      margin: 0 $dropdownHeight 0 $dropdownHeight/2;
+      margin: 0 $dropdownHeight 0 $dropdownHeight / 2;
       white-space: nowrap;
       overflow: hidden;
       
@@ -58,12 +62,13 @@ $include-html: false !default;
       position: absolute;
       top: $dropdownHeight - 2* $dropdownBorderSize;
       visibility: hidden;
+      overflow: hidden;
       padding: 0;
-      margin: 0 0 $layoutDefaultPadding/2;
-      background-color: $white;
-      border: $dropdownBorderSize solid $grayPrimary;;
+      margin: 0 0 $layoutDefaultPadding / 2;
+      background-color: $dropdownBackground;
+      border: $dropdownBorderSize solid $dropdownOpenedBorderColor;
       border-top: none;
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 $dropdownHeight / 2 $dropdownHeight / 2;
       left: -$dropdownBorderSize;
       right: -$dropdownBorderSize;
       z-index: 1;
@@ -74,28 +79,28 @@ $include-html: false !default;
       align-items: center;
       justify-content: flex-start;
       height: 100%;
-      padding: $layoutDefaultPadding/4 $dropdownHeight/2;
+      padding: $layoutDefaultPadding / 4 $dropdownHeight / 2;
       white-space: nowrap;
       overflow: hidden;
       text-decoration: none;
 
       &:hover,
       &:active {
-        background-color: $grayAltLight;
+        background-color: $dropdownBorderColor;
       }
     }
 
     &--opened {
-      background-color: $white;
-      border-color: $grayPrimary;
+      background-color: $dropdownBackground;
+      border-color: $dropdownOpenedBorderColor;
       overflow: visible;
       border-radius: 16px 16px 0 0;
       border-bottom-color: transparent;
 
       &:hover,
       &:active {
-        background-color: $white;
-        border-color: $grayPrimary;
+        background-color: $dropdownBackground;
+        border-color: $dropdownOpenedBorderColor;
         border-bottom-color: transparent;
       }
 
