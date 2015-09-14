@@ -13,6 +13,7 @@ $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: fontSize(medium);
 $inputLargeFontSize: fontSize(standout);
+$inputLargePlaceholderFontSize: fontSize(medium);
 $inputFocusBorderColor: $grayPrimary;
 $inputPlaceholderTextColor: $grayPrimary;
 $inputPlaceholderFontSize: fontSize(obscure);
@@ -47,7 +48,6 @@ $textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: fontSize(obscure);
-$textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
