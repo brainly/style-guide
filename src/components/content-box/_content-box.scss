@@ -3,24 +3,38 @@ $include-html: false !default;
 @if ($include-html) {
 
   .mint-content-box {
+
+    &__title {
+      min-height: rhythm(2);
+    }
+
+    &__title ~ &__title {
+      min-height: rhythm(1);
+    }
+
     &__header {
-      vertical-align: middle;
-      margin-bottom: 3px;
+      @include components-container;
+      height: rhythm(2);
+    }
+
+    &__title ~ &__header {
+      @include components-container;
+      height: rhythm(1);
     }
 
     &__content {
       word-wrap: break-word;
-      margin-bottom: 12px;
     }
 
     &__footer {
-      vertical-align: middle;
+      @include components-container;
+      min-height: rhythm(2);
     }
 
     &--spaced {
       .mint-content-box__content, .mint-content-box__footer {
         @media (min-width: $breakpointMedium) {
-          padding-left: 48px;
+          padding-left: 2 * $layoutDefaultPadding;
         }
       }
     }

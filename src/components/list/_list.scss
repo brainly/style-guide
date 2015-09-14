@@ -105,7 +105,6 @@ $include-html: false !default;
   .mint-breadcrumb-list {
     @include mint-list-basic-styles();
     display: inline-block;
-    vertical-align: inherit;
     color: $breadcrumbListSeparatorColor;
 
     &__element {
