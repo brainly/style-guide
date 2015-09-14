@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-@import "../../sass/config";
-//style guide variables
+@import "../../sass/config"; //style guide variables
+@import "../../sass/mixins";
 @import "../_sass/config";
 @import "../_sass/colors-list";
 @import "../_sass/color-box";
