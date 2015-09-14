@@ -94,7 +94,7 @@ $include-html: false !default;
       background-color: $dropdownBackground;
       border-color: $dropdownOpenedBorderColor;
       overflow: visible;
-      border-radius: 16px 16px 0 0;
+      border-radius: $dropdownHeight / 2 $dropdownHeight / 2 0 0;
       border-bottom-color: transparent;
 
       &:hover,
