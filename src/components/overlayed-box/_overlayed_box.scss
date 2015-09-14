@@ -9,6 +9,7 @@ $include-html: false !default;
     vertical-align: inherit;
 
     &__overlay {
+      @include components-container;
       position: absolute;
       right: 0;
       bottom: 0;
