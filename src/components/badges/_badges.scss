@@ -13,6 +13,7 @@ $include-html: false !default;
   .mint-badge {
     @include component;
     @include fixText($badgeFontSize);
+    overflow: visible; // allow badges align as text
     min-height: auto;
     height: auto;
 
