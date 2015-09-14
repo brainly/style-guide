@@ -1,7 +1,6 @@
-// your components variables
-$dropdownFontSize: 12px;
-$dropdownHeight: 32px;
-$dropdownBorderSize: 2px;
+$dropdownFontSize: fontSize(obscure);
+$dropdownHeight: rhythm(1.5);
+$dropdownBorderSize: rhythm(1/12);
 
 $include-html: false !default;
 
@@ -30,7 +29,7 @@ $include-html: false !default;
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
-      top: $dropdownHeight/4 - 2;
+      top: $dropdownHeight/4;
       right: $dropdownHeight / 2 - $iconSize / 2;
       color: $grayAlt;
       z-index: 1;
