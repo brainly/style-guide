@@ -13,10 +13,7 @@ $include-html: false !default;
 
     &__content {
       overflow: auto;
-
-      &--limited {
-        max-height: 200px;
-      }
+      max-height: 200px;
     }
 
     &__footer {}
