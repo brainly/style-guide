@@ -175,6 +175,7 @@
 
 <script>
     $('.js-mint-dropdown').on('click', function () {
-        $(this).toggleClass('mint-dropdown--opened');
+        $('.js-mint-dropdown').removeClass('mint-dropdown--opened');
+        $(this).addClass('mint-dropdown--opened');
     });
 </script>
