@@ -47,7 +47,8 @@ $textareaPadding: 11px;
 $textareaSmallPadding: 6px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
-$textareaPlaceholderFontSize: fontSize(obscure);
+$textareaPlaceholderFontSize: 12px;
+$textareaPlaceholderFontFamily: $fontFamilySecondary;
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
@@ -360,4 +361,5 @@ $include-html: false !default;
       height: 178px;
     }
   }
+
 }

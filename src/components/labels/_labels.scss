@@ -6,7 +6,6 @@ $labelFontSizePrimary: fontSize(obscure);
 $labelFontSizeSecondary: fontSize(tiny);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
-$labelHeight: $defaultComponentHeight;
 $labelScaleFactor: 2/3;
 
 $include-html: false !default;
@@ -25,7 +24,6 @@ $include-html: false !default;
     overflow: visible;
     display: flex;
     align-items: center;
-    min-height: $labelHeight;
 
     &__text, &__number {
       @include fixText($labelFontSizePrimary, 2/16);
@@ -43,7 +41,7 @@ $include-html: false !default;
 
     &__text {
       margin-right: $layoutDefaultPadding/2;
-      overflow: hidden; /
+      overflow: hidden;
     }
 
     &__icon {
@@ -118,8 +116,6 @@ $include-html: false !default;
     }
 
     &--small {
-      min-height: $labelScaleFactor * $labelHeight;
-
       .mint-label__text, .mint-label__number {
         @include fixText($labelFontSizeSecondary);
         margin-right: $labelScaleFactor * $layoutDefaultPadding/4;

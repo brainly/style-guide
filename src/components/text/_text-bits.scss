@@ -11,7 +11,7 @@ $textBitLargerDesktopFontSize: 80px;
 
 .mint-text-bit {
   @include typeVariant(large, 2);
-  
+
   color: $textBitColor;
   font-weight: $textBitFontWeight;
   text-transform: uppercase;

@@ -1,7 +1,6 @@
-// your components variables
-$dropdownFontSize: 12px;
-$dropdownHeight: 32px;
-$dropdownBorderSize: 2px;
+$dropdownFontSize: fontSize(obscure);
+$dropdownHeight: rhythm(1.5);
+$dropdownBorderSize: rhythm(1/12);
 $dropdownBackground: $white;
 $dropdownHoverColor: $graySecondary;
 $dropdownBorderColor: $grayAltLight;
@@ -21,7 +20,7 @@ $include-html: false !default;
     border-radius: $dropdownHeight / 2;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
-    cursor: pointer;
+    cursor: pointer;    
     user-select: none;
     z-index: 1;
 
@@ -36,7 +35,7 @@ $include-html: false !default;
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
-      top: $dropdownHeight/4 - 2;
+      top: $dropdownHeight/4;
       right: $dropdownHeight / 2 - $iconSize / 2;
       color: $grayAlt;
       z-index: 2;

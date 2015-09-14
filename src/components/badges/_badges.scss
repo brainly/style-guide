@@ -14,6 +14,7 @@ $include-html: false !default;
     @include component;
     @include fixText($badgeFontSize);
     min-height: auto;
+    height: auto;
 
     border-radius: $badgeFontSize;
     font-weight: bold;
@@ -27,7 +28,7 @@ $include-html: false !default;
       background-color: $badgeErrorBackgroundColor;
       color: $badgeErrorColor;
     }
-    
+
     &--warning {
       background-color: $badgeWarningBackgroundColor;
       color: $badgeWarningColor;
@@ -50,4 +51,5 @@ $include-html: false !default;
       transform: scale(1);
     }
   }
+
 }
