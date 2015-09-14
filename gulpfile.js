@@ -46,6 +46,21 @@ gulp.task('sass:build', function () {
         .pipe(gulp.dest(VERSIONED_DIST))
 });
 
+gulp.task('sass:docs-build', function () {
+    var sassMain = path.join(DOCS, '_sass', 'main.scss');
+    var outputFile = path.join(VERSIONED_DIST, 'docs', 'css');
+
+    return gulp.src(sassMain)
+        .pipe(sass({outputStyle: 'compressed'})
+        .on('error', sass.logError))
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+            cascade: false
+        }))
+        .pipe(rename('main.css'))
+        .pipe(gulp.dest(outputFile))
+});
+
 gulp.task('fingerprint', function () {
     var fonts = path.join(SRC, 'fonts', '*');
     var images = path.join(SRC, 'images', '*');
@@ -74,7 +89,7 @@ gulp.task('fingerprint-replace', function () {
         .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
 });
 
-gulp.task('icons:generate-fonts', function() {
+gulp.task('icons:generate-fonts', function () {
     var icons = path.join(SRC, 'icons');
     var iconsComponentPath = path.join(COMPONENTS, 'icons', 'font');
 
@@ -87,7 +102,7 @@ gulp.task('icons:generate-fonts', function() {
         .pipe(gulp.dest(iconsComponentPath));
 });
 
-gulp.task('icons:create-data-file', function() {
+gulp.task('icons:create-data-file', function () {
     var iconsComponentPath = path.join(COMPONENTS, 'icons');
     var iconsScss = path.join(iconsComponentPath, 'font', '_brainly-icons.scss');
     var iconsDataScss = path.join(iconsComponentPath, '_icons-data.scss');
@@ -99,7 +114,7 @@ gulp.task('icons:create-data-file', function() {
     fs.writeFileSync(iconsDataScss, withoutHeader);
 });
 
-gulp.task('icons:inline-fonts', function() {
+gulp.task('icons:inline-fonts', function () {
     var iconsComponentPath = path.join(COMPONENTS, 'icons');
     var iconsEmbedTemplate = path.join(iconsComponentPath, '_icons-embed-template.scss');
 
@@ -109,22 +124,22 @@ gulp.task('icons:inline-fonts', function() {
         .pipe(gulp.dest(iconsComponentPath));
 });
 
-gulp.task('icons:cleanup', function(done) {
+gulp.task('icons:cleanup', function (done) {
     var iconFont = path.join(COMPONENTS, 'icons', 'font');
     var fontManifest = '.fontcustom-manifest.json';
 
     del([iconFont, fontManifest], done);
 });
 
-gulp.task('clean:dist', function(done){
+gulp.task('clean:dist', function (done) {
     del([path.join(DIST, '**'), '!' + DIST], done);
 });
 
-gulp.task('icons', function(done) {
+gulp.task('icons', function (done) {
     runSequence('icons:generate-fonts', 'icons:create-data-file', 'icons:inline-fonts', 'icons:cleanup', done);
 });
 
-gulp.task('subjects', function(done) {
+gulp.task('subjects', function (done) {
     var config = {
         mode: {
             css: {
@@ -159,7 +174,7 @@ gulp.task('jekyll:docs', function (gulpCallBack) {
     });
 });
 
-gulp.task('docs:copy-components', function(){
+gulp.task('docs:copy-components', function () {
     var componentsHtml = path.join(COMPONENTS, '/**/*.html');
     var docsOutputPath = path.join(VERSIONED_DIST, 'docs');
 
@@ -167,22 +182,33 @@ gulp.task('docs:copy-components', function(){
         .pipe(gulp.dest(docsOutputPath));
 });
 
-gulp.task('watch:docs', function(done) {
-    var docsSources = path.join(DOCS, '**', '*.{scss,html,yml}');
-    livereload.listen();
-    return gulp.watch([docsSources], function() {
-        runSequence('jekyll:docs', 'fingerprint-replace', 'docs:copy-components');
-    });
-});
-
-gulp.task('watch:sass', function(done) {
+gulp.task('watch:sass', function (done) {
     var mainSassSources = path.join(SASS, '**', '*.scss');
     var componentsSassSources = path.join(COMPONENTS, '**', '*.scss');
 
     livereload.listen();
-    return gulp.watch([mainSassSources, componentsSassSources], ['sass:build']);
+    return gulp.watch([mainSassSources, componentsSassSources], function () {
+        runSequence('sass:build', 'fingerprint-replace');
+    });
 });
 
-gulp.task('build', function(done){
-    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', done);
+gulp.task('watch:docs-templates', function (done) {
+    var docsSources = path.join(DOCS, '**', '*.{html,yml}');
+    livereload.listen();
+    return gulp.watch([docsSources], function () {
+        runSequence('jekyll:docs', 'fingerprint-replace', 'docs:copy-components');
+    });
+});
+
+gulp.task('watch:docs-sass', function (done) {
+    var docsSassSources = path.join(DOCS, '**', '*.scss');
+
+    livereload.listen();
+    return gulp.watch([docsSassSources], ['sass:docs-build']);
+});
+
+gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
+
+gulp.task('build', function (done) {
+    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
 });
