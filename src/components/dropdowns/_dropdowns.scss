@@ -9,6 +9,7 @@ $include-html: false !default;
 
   .mint-dropdown {
     @include component;
+    @include hole;
     @extend .mint-icon-arrow_down;
     
     background-color: $grayAltLight;
@@ -17,7 +18,7 @@ $include-html: false !default;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
-    @include hole;
+    user-select: none;
 
     &:hover,
     &:active {
@@ -54,9 +55,18 @@ $include-html: false !default;
     }
 
     &__items {
+      position: absolute;
+      top: $dropdownHeight - 2* $dropdownBorderSize;
       visibility: hidden;
       padding: 0;
       margin: 0 0 $layoutDefaultPadding/2;
+      background-color: $white;
+      border: $dropdownBorderSize solid $grayPrimary;;
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      left: -$dropdownBorderSize;
+      right: -$dropdownBorderSize;
+      z-index: 1;
     }
 
     &__item-hole {
@@ -78,12 +88,15 @@ $include-html: false !default;
     &--opened {
       background-color: $white;
       border-color: $grayPrimary;
-      height: auto;
+      overflow: visible;
+      border-radius: 16px 16px 0 0;
+      border-bottom-color: transparent;
 
       &:hover,
       &:active {
         background-color: $white;
         border-color: $grayPrimary;
+        border-bottom-color: transparent;
       }
 
       &:before {
