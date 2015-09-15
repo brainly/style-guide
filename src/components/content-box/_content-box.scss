@@ -9,7 +9,8 @@ $include-html: false !default;
     }
 
     &__title ~ &__title {
-      min-height: rhythm(1);
+      margin-top: - rhythm(1/2);
+      margin-bottom: - rhythm(1/2);
     }
 
     &__header {
@@ -18,8 +19,8 @@ $include-html: false !default;
     }
 
     &__title ~ &__header {
-      @include components-container;
-      height: rhythm(1);
+      margin-top: - rhythm(1/2);
+      margin-bottom: rhythm(1/2);
     }
 
     &__content {
