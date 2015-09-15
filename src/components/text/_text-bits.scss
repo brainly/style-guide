@@ -1,16 +1,16 @@
 $textBitFontWeight: $fontWeightBlack;
-$textBitFontSize: fontSize(header);
+$textBitFontSize: header;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitDarkColor: $black;
-$textBitLargeFontSize: 62px;
-$textBitLargerTabletFontSize: 72px;
-$textBitLargerDesktopFontSize: 80px;
+$textBitLargeFontSize: fontSize(large);
+$textBitLargerTabletFontSize: fontSize(xlarge);
+$textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 .mint-text-bit {
-  @include typeVariant(large, 2);
+  @include typeVariant($textBitFontSize, 2);
 
   color: $textBitColor;
   font-weight: $textBitFontWeight;
