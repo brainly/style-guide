@@ -6,6 +6,9 @@ $boxBorderSize: rhythm(1/8);
 
   .mint-box {
     @include component;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
