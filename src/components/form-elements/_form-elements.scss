@@ -170,7 +170,7 @@ $include-html: false !default;
       border-color: $inputInvalidBorderColor;
 
       &:focus {
-        border-color: $inputInvalidBorderColor;
+        border-color: $inputFocusInvalidBorderColor;
       }
     }
 
