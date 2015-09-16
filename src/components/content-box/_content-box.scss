@@ -19,7 +19,7 @@ $include-html: false !default;
 
     &--spaced {
       .mint-content-box__content, .mint-content-box__footer {
-        @media (min-width: $breakpointTablet) {
+        @media (min-width: $breakpointMedium) {
           padding-left: 48px;
         }
       }

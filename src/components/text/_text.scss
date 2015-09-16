@@ -76,16 +76,16 @@ $include-html: false !default;
     &--large {
       font-size: $textBitLargeFontSize;
     }
-    @media (min-width: $breakpointTablet) {
+    @media (min-width: $breakpointMedium) {
       &:not(.mint-text-bit--not-responsive) {
         font-size: $textBitLargeFontSize;
       }
     }
     &--to-larger:not(.mint-text-bit--not-responsive) {
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         font-size: $textBitLargerTabletFontSize;
       }
-      @media (min-width: $breakpointDesktop) {
+      @media (min-width: $breakpointLarge) {
         font-size: $textBitLargerDesktopFontSize;
       }
     }
