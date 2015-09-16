@@ -1,13 +1,13 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: fontSize(obscure);
-$selectHeight: rhythm(1.833);
+$selectHeight: rhythm(1 + 5/6);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
-$inputHeight: rhythm(1.833);
+$inputHeight: rhythm(1 + 5/6);
 $inputLowHeight: rhythm(1.5);
-$inputLargeHeight: rhythm(2.666);
+$inputLargeHeight: rhythm(2 + 2/3);
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
@@ -73,7 +73,7 @@ $include-html: false !default;
       display: inline-block;
       height: $selectHeight;
       position: relative;
-      padding: 0 $selectHeight/2 + rhythm(0.56) 0 $selectHeight/2;
+      padding: 0 $selectHeight/2 + rhythm(1/2) 0 $selectHeight/2;
       outline: 0;
       appearance: none;
       text-transform: uppercase;
