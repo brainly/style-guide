@@ -1,12 +1,9 @@
-$buttonPrimaryHeight: 44px;
-$buttonSecondaryHeight: 32px;
-$buttonSecondarySmallHeight: 24px;
+$buttonPrimaryHeight: rhythm(1 + 5/6);
+$buttonSecondaryHeight: rhythm(1 + 1/3);
+$buttonSecondarySmallHeight: rhythm(1);
 
-$buttonPrimaryFontSize: 15px;
-$buttonSecondaryFontSize: 12px;
-
-$buttonPrimaryFontFamily: $fontFamilySecondary;
-$buttonSecondaryFontFamily: $fontFamilySecondary;
+$buttonPrimaryFontSize: fontSize(medium);
+$buttonSecondaryFontSize: fontSize(obscure);
 
 $buttonPrimaryFontColor: $white;
 
@@ -51,12 +48,10 @@ $iconAsButtonColor: $bluePrimary;
 $iconAsButtonLightColor: $white;
 $iconAsButtonGrayColor: $grayPrimary;
 
-$buttonRoundAddSize: 50px;
-$buttonRoundAddFontSize: 18px;
+$buttonRoundAddSize: rhythm(2 + 1/12);
+$buttonRoundAddFontSize: fontSize(standout);
 $buttonRoundAddColor: $white;
-$buttonRoundLabelFontFamily: $fontFamilySecondary;
-$buttonRoundLabelFontFamily: $fontFamilySecondary;
-$buttonRoundLabelFontSize: 10px;
+$buttonRoundLabelFontSize: fontSize(xsmall);
 $buttonRoundLabelBackground: $mintSecondaryLight;
 $buttonRoundLabelColor: $black;
 
@@ -126,7 +121,7 @@ $include-html: false !default;
 @mixin mint-button-primary-three-color-variant($buttonColor, $gradientColor, $buttonShadowColor: null) {
   background-color: $buttonColor;
   background: $gradientColor linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%) no-repeat;
-  @if($buttonShadowColor) {
+  @if ($buttonShadowColor) {
     box-shadow: 0 -1px 0 $buttonShadowColor inset;
   }
   &:hover, &:focus {
@@ -146,13 +141,13 @@ $include-html: false !default;
 
 @mixin mint-button-secondary-three-color-variant($bgColor, $textColor, $hoverTextColor) {
   border: 0;
-  padding: 0 $buttonSecondaryHeight /2 + 2px;
+  padding: 0 $buttonSecondaryHeight /2 + 0.125rem;
   @include mint-button-basic-colors($bgColor, $textColor, $bgColor);
   @include mint-button-secondary-active($textColor, $hoverTextColor, $textColor);
 
   &-inverse {
     border: 0;
-    padding: 0 $buttonSecondaryHeight /2 + 2px;
+    padding: 0 $buttonSecondaryHeight /2 + 0.125rem;
     @include mint-button-basic-colors($textColor, $hoverTextColor, $textColor);
     @include mint-button-secondary-active($bgColor, $textColor, $bgColor);
   }
@@ -170,7 +165,6 @@ $include-html: false !default;
 
     border: 0;
     font-size: $buttonPrimaryFontSize;
-    font-family: $buttonPrimaryFontFamily;
     @include mint-button-primary-active($buttonPrimaryFontColor);
 
     &--full {
@@ -218,10 +212,10 @@ $include-html: false !default;
     }
     &__label {
       float: left;
-      font-family: $buttonRoundLabelFontFamily;
+      font-weight: bold;
       font-size: $buttonRoundLabelFontSize;
       border-radius: 4px;
-      line-height: 12px;
+      line-height: rhythm(1/2);
       background: $buttonRoundLabelBackground;
       color: $buttonRoundLabelColor;
       text-transform: uppercase;
@@ -244,7 +238,7 @@ $include-html: false !default;
     border-style: solid;
     background-color: transparent;
     font-size: $buttonSecondaryFontSize;
-    font-family: $buttonSecondaryFontFamily;
+    font-weight: bold;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
     &:hover, &:focus {
       outline: none;

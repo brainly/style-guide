@@ -4,9 +4,9 @@ $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $grayPrimary;
-$rateCounterFont: $fontFamilyEmphasized;
-$rateStarFontSize: 12px;
-$rateStarSmallFontSize: 10px;
+$rateCounterFontWeight: $fontWeightBlack;
+$rateStarFontSize: fontSize(obscure);
+$rateStarSmallFontSize: fontSize(xsmall);
 $rateScaleFactor: 2/3;
 
 $include-html: false !default;
@@ -52,8 +52,8 @@ $include-html: false !default;
     }
 
     &__counter {
-      @include fixText($rateStarFontSize, 2px);
-      font-family: $rateCounterFont;
+      @include fixText($rateStarFontSize, 0.125rem);
+      font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
       margin: 0 0 0 $layoutDefaultPadding/2;
     }

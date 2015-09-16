@@ -4,9 +4,10 @@ $bubbleBorderColor: $graySecondary;
 $bubbleBorderRadius: 10px;
 $bubbleBoxShadow: $defaultBottomShadow;
 
-$borderSize: 3px;
-$triangleSize: 12px;
-$innerTriangleSize: $triangleSize - 2 * $borderSize + 1;
+$borderSize: rhythm(1/8);
+$triangleSize: rhythm(1/2);
+$innerTriangleSize: rhythm(0.366);     // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleOffset: rhythm(-0.666);  // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 
 $include-html: false !default;
 
@@ -14,12 +15,17 @@ $include-html: false !default;
 
   .mint-bubble {
     @include component;
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: rhythm(3);
     overflow: visible;
     background: $bubbleBackground;
     border: $borderSize solid $bubbleBorderColor;
     border-radius: $bubbleBorderRadius;
-    padding: 15px;
     box-shadow: $bubbleBoxShadow;
+    padding: (rhythm(1/2) - $borderSize) 0 (rhythm(1/2) - $borderSize) 1/2 * $layoutDefaultPadding;
+    margin-bottom: rhythm(1);
 
     &:before {
       content: "";
@@ -38,11 +44,15 @@ $include-html: false !default;
       border: $innerTriangleSize solid transparent;
       border-bottom-color: $bubbleBackground;
       position: absolute;
-      top: -(2 * $innerTriangleSize);
+      top: $innerTriangleOffset;
       right: 0;
       left: 0;
       width: 0;
       margin: 0 auto;
+    }
+
+    &__hole {
+      margin: rhythm(1/2) 1/2 * $layoutDefaultPadding rhythm(1/2) 0;
     }
 
     &--dark {

@@ -22,7 +22,6 @@ $include-html: false !default;
     height: $avatarMediumSize;
     border-radius: 50%;
     background: $avatarDefaultBackgroundColor;
-    vertical-align: inherit;
 
     &__image {
       position: absolute;

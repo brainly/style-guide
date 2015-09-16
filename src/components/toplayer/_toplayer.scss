@@ -3,7 +3,10 @@ $toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
 $toplayerShadow: $defaultBottomShadow;
 $toplayerMarginTop: 65px;
-$toplayerMarginBottom: 30px;
+$toplayerMarginBottom: rhythm(1);
+$toplayerHeaderHeight: rhythm(1.25);
+
+$toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
 $include-html: false !default;
 
@@ -20,15 +23,16 @@ $include-html: false !default;
       .mint-toplayer__wrapper {
 
         @media (min-width: $breakpointMedium) {
-          margin: $layoutDefaultPadding;
-          padding: $layoutDefaultPadding;
+
+          padding: ($toplayerFirstVerticalPadding + rhythm(1)) 2 * $layoutDefaultPadding rhythm(2) 2 * $layoutDefaultPadding;
         }
 
       }
+      
       .mint-toplayer__heading {
 
         @media (min-width: $breakpointMedium) {
-          margin-bottom: 2 * $layoutDefaultPadding;
+          margin-bottom: rhythm(2);
         }
 
       }
@@ -86,7 +90,7 @@ $include-html: false !default;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      height: 30px;
+      height: $toplayerHeaderHeight;
       background-image: url($mintImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
       background-color: $toplayerHeaderDominantColor;
@@ -106,7 +110,7 @@ $include-html: false !default;
     }
 
     &__wrapper {
-      margin: $layoutDefaultPadding;
+      padding: $toplayerFirstVerticalPadding $layoutDefaultPadding/2 rhythm(1) $layoutDefaultPadding/2;
     }
 
     &__heading {
@@ -118,10 +122,12 @@ $include-html: false !default;
     }
 
     &__list-title {
-      margin-bottom: 10px;
+      margin-bottom: rhythm(1);
     }
 
     &__actions {
+      @include components-container;
+      min-height: rhythm(2);
     }
   }
 

@@ -45,14 +45,33 @@ $grayAltLight: #E9ECEE;
 $defaultBottomShadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.25);
 
 // Fonts
-$fontFamilyPrimary: 'ProximaNovaRegular', 'Helvetica', 'Arial', sans-serif;
-$fontFamilySecondary: 'ProximaNovaExtrabold', 'Helvetica', 'Arial', sans-serif;
-$fontFamilyEmphasized: 'ProximaNovaBlack', 'Helvetica', 'Arial', sans-serif;
+$fontFamilyPrimary: 'ProximaNova', 'Helvetica', 'Arial', sans-serif;
+$fontWeightBlack: 500;
 
 // Icons
-$iconBoostValue: 4px;
+$iconBoostValue: 0.25rem;
 
-// Layout
+// Vertical rhythm
+$baseFont: 16px;
+$baseline: 1.5rem;
+
+// Typo
+$fontSizes: (
+  default: 1rem,      // 16px
+  xsmall: 0.625rem,     // 10px
+  small: 0.8125rem,   // 13px
+  medium: 0.9375rem,  // 15px
+  large: 3.625rem,    // 58px
+  xlarge: 4.5rem,     // 72px
+  xxlarge: 5rem,      // 80px
+  obscure: 0.75rem,   // 12px
+  standout: 1.125rem, // 18px
+  headline: 1.75rem,  // 28px
+  header: 3rem        // 48px
+);
+
+
+  // Layout
 $layoutMaximumWidth: 960px;
 $layoutDefaultPadding: 24px;
 $defaultComponentHeight: 20px;

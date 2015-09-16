@@ -1,14 +1,22 @@
 $boxBorderColor: $graySecondary;
 $boxBorderRadius: 22px;
+$boxBorderSize: rhythm(1/8);
 
 @if ($include-html) {
 
   .mint-box {
     @include component;
-
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: rhythm(3);
     border-radius: $boxBorderRadius;
-    padding: $layoutDefaultPadding;
-    border: 2px solid $boxBorderColor;
+    border: $boxBorderSize solid $boxBorderColor;
+    padding: (rhythm(1/2) - $borderSize) 0 (rhythm(1/2) - $borderSize) 1/2 * $layoutDefaultPadding;
+
+    &__hole {
+      margin: rhythm(1/2) 1/2 * $layoutDefaultPadding rhythm(1/2) 0;
+    }
 
     &--full {
       width: 100%;

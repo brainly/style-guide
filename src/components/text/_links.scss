@@ -1,0 +1,40 @@
+.mint-link {
+  @include remove-descenders;
+  cursor: pointer;
+  color: $bluePrimary;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover, &:active {
+    text-decoration: underline;
+  }
+
+  &--gray {
+    color: $grayPrimary;
+  }
+
+  &--small {
+    @include typeVariant(small, 0.75);
+  }
+
+  &--for-fine-print {
+    color: $blueSecondary;
+  }
+
+  &--for-fine-print-light {
+    color: $blueSecondaryLight;
+  }
+
+  &--emphasised {
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  &--disabled {
+    cursor: default;
+
+    &:hover, &:active {
+      text-decoration: none;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-@mixin image-2x($image, $width:"auto", $height:"auto") {
+@mixin image-2x($image, $width: "auto", $height: "auto") {
   @media (min-resolution: 144dpi) {
     /* on retina, use image that's scaled by 2 */
     background-image: url($image);
@@ -11,28 +11,79 @@
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: rhythm(1);
+  min-height: rhythm(1);
+  margin: 0;
 }
 
-@mixin hole(){
+// this mixin allows inserting inline-based components without concerns about vertical dimension
+@mixin components-container() {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@mixin hole() {
   &__hole {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include components-container();
     height: 100%;
+    justify-content: center;
   }
 }
 
-// $line-height-offset is a way to fix font issue with the baseline
+// this mixin remove additional space for ascenders/descenders
+// should be applied for inline-block elements with height < line-height
+@mixin remove-descenders() {
+  line-height: rhythm(0.66);
+  min-height: auto;
+}
+
+// $lineHeight-offset is a way to fix font issue with the baseline
 // the issue is visible when centering the text of at least 12px
-@mixin fixText($fontSize, $lineHeightOffset: 0){
+@mixin fixText($fontSize, $lineHeightOffset: 0) {
   font-size: $fontSize;
   height: $fontSize;
   line-height: $fontSize + $lineHeightOffset;
 }
 
-@mixin icon($name){
+@mixin icon($name) {
   @extend .mint-icon-#{$name};
   &:before {
     display: inline-block;
   }
+}
+
+@function fontSize($fontsizeKey) {
+  @return map-get($fontSizes, $fontsizeKey);
+}
+
+// Used for messing with fonts and baseline
+// Sets the font size and line height
+// fontsizeName - string
+// lineHeight - int, number of baselines
+@mixin typeVariant($fontsizeName, $lineHeight: null, $shift: null, $push: null) {
+
+  $remFontsize: fontSize($fontsizeName);
+
+  @if $remFontsize != null {
+    font-size: $remFontsize;
+  }
+
+  @if $lineHeight != null {
+    $remLineHeight: rhythm($lineHeight);
+    line-height: $remLineHeight;
+  }
+
+  @if $shift != null {
+    padding-top: rhythm($shift);
+  }
+
+  @if $push != null {
+    margin-bottom: rhythm($push);
+  }
+}
+
+// set a value as a multiple of baselines
+@function rhythm($baselines) {
+  @return $baselines * $baseline;
 }

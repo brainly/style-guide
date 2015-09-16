@@ -1,50 +1,39 @@
-$headerColor: $black;
-$headerColorLight: $white;
-$headerPrimaryFontFamily: $fontFamilyEmphasized;
-$headerSecondaryFontFamily: $fontFamilySecondary;
-$headerPrimaryFontSize: 64px;
-$headerPrimarySmallFontSize: 48px;
-$headerSecondaryFontSize: 16px;
-$headerSecondarySmallFontSize: 12px;
-
 $include-html: false !default;
 
 @if ($include-html) {
 
   .mint-header-primary {
     @include component;
+    @include typeVariant(header, 2);
     display: block;
-    color: $headerColor;
-    font-family: $headerPrimaryFontFamily;
-    font-size: $headerPrimaryFontSize;
-    line-height: 1;
-    margin: 0;
+    color: $black;
+    font-weight: $fontWeightBlack;
 
     &--small {
-      font-size: $headerPrimarySmallFontSize;
+      @include typeVariant(headline);
     }
 
     &--light {
-      color: $headerColorLight;
+      color: $white;
     }
-
   }
+
   .mint-header-secondary {
     @include component;
+    @include typeVariant(default, 0.667);
     display: block;
-    color: $headerColor;
-    font-family: $headerSecondaryFontFamily;
-    font-size: $headerSecondaryFontSize;
-    line-height: 1;
+    color: $black;
+    font-weight: bold;
+    letter-spacing: 0.03rem;
     text-transform: uppercase;
-    margin: 0;
 
     &--small {
-      font-size: $headerSecondarySmallFontSize;
+      @include typeVariant(small, 0.667);
+      letter-spacing: 0.0625rem;
     }
 
     &--light {
-      color: $headerColorLight;
+      color: $white;
     }
   }
 

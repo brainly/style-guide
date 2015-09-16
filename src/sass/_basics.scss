@@ -1,6 +1,9 @@
 $include-html: false !default;
 
 @if ($include-html) {
+  html {
+    font-size: $baseFont;
+  }
 
   * {
     box-sizing: border-box;
@@ -14,6 +17,10 @@ $include-html: false !default;
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    font-size: fontSize(default);
+    font-family: $fontFamilyPrimary;
+    line-height: rhythm(1);
   }
 
 }

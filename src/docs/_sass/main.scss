@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-@import "../../sass/config";
-//style guide variables
+@import "../../sass/config"; //style guide variables
+@import "../../sass/mixins";
 @import "../_sass/config";
 @import "../_sass/colors-list";
 @import "../_sass/color-box";
@@ -11,9 +11,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {

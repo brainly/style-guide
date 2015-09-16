@@ -1,5 +1,4 @@
-$badgeFontFamily: $fontFamilySecondary;
-$badgeFontSize: 10px;
+$badgeFontSize: fontSize(xsmall);
 $badgeDefaultBackgroundColor: $white;
 $badgeDefaultColor: $black;
 $badgeErrorBackgroundColor: $peachPrimary;
@@ -13,12 +12,13 @@ $include-html: false !default;
 
   .mint-badge {
     @include component;
+    @include fixText($badgeFontSize);
+    overflow: visible; // allow badges align as text
+    min-height: auto;
+    height: auto;
 
-    overflow: visible;
     border-radius: $badgeFontSize;
-    line-height: $badgeFontSize;
-    font-size: $badgeFontSize;
-    font-family: $badgeFontFamily;
+    font-weight: bold;
     padding: 3px 6px;
     text-transform: uppercase;
 
@@ -29,7 +29,7 @@ $include-html: false !default;
       background-color: $badgeErrorBackgroundColor;
       color: $badgeErrorColor;
     }
-    
+
     &--warning {
       background-color: $badgeWarningBackgroundColor;
       color: $badgeWarningColor;

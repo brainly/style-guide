@@ -1,10 +1,9 @@
 $promoBoxBackgroundColor: $mintSecondary;
 $promoBoxHeaderColor: $white;
-$promoBoxHeaderPrimaryFontFamily: $fontFamilyEmphasized;
-$promoBoxHeaderPrimaryFontSize: 50px;
+$promoBoxHeaderFontWeight: $fontWeightBlack;
+$promoBoxHeaderFontSize: 50px;
 $promoBoxTextSize: 24px;
 $promoBoxLineHeight: 44px;
-$promoBoxFontFamily: $fontFamilyPrimary;
 
 $include-html: false !default;
 
@@ -17,8 +16,8 @@ $include-html: false !default;
 
     &__header {
       color: $promoBoxHeaderColor;
-      font-family: $promoBoxHeaderPrimaryFontFamily;
-      font-size: $promoBoxHeaderPrimaryFontSize;
+      font-weight: $promoBoxHeaderFontWeight;
+      font-size: $promoBoxHeaderFontSize;
       line-height: 1;
       margin: 0;
       text-transform: uppercase;
@@ -30,9 +29,8 @@ $include-html: false !default;
     &__content {
       font-size: $promoBoxTextSize;
       line-height: $promoBoxLineHeight;
-      font-family: $promoBoxFontFamily;
       padding: 5px 0 15px 0;
     }
   }
-  
+
 }

@@ -39,7 +39,9 @@ $include-html: false !default;
 
   .mint-sticker {
     @include component;
+    @include remove-descenders;
     overflow: visible;
+
 
     @include from-icon(answering);
     @include from-icon(answered);
