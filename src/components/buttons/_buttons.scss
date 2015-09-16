@@ -1,6 +1,6 @@
-$buttonPrimaryHeight: 2.75rem; // 44px;
-$buttonSecondaryHeight: 2rem;
-$buttonSecondarySmallHeight: 1.5rem;
+$buttonPrimaryHeight: rhythm(1 + 5/6);
+$buttonSecondaryHeight: rhythm(1 + 1/3);
+$buttonSecondarySmallHeight: rhythm(1);
 
 $buttonPrimaryFontSize: fontSize(medium);
 $buttonSecondaryFontSize: fontSize(obscure);
@@ -48,7 +48,7 @@ $iconAsButtonColor: $bluePrimary;
 $iconAsButtonLightColor: $white;
 $iconAsButtonGrayColor: $grayPrimary;
 
-$buttonRoundAddSize: rhythm(2.083);
+$buttonRoundAddSize: rhythm(2 + 1/12);
 $buttonRoundAddFontSize: fontSize(standout);
 $buttonRoundAddColor: $white;
 $buttonRoundLabelFontSize: fontSize(tiny);
