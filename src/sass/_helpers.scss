@@ -6,19 +6,25 @@
   }
 }
 
-.mint-hide-for-desktop {
+.mint-hide-for-desktop-only {
   @media (min-width: $breakpointDesktop) {
     display: none !important;
   }
 }
 
-.mint-hide-for-tablet {
+.mint-hide-for-tablet-only {
+  @media (min-width: $breakpointTablet) and (max-width: $breakpointDesktop - 1px) {
+    display: none !important;
+  }
+}
+
+.mint-hide-for-tablet-up {
   @media (min-width: $breakpointTablet) {
     display: none !important;
   }
 }
 
-.mint-hide-for-mobile {
+.mint-hide-for-mobile-only {
   @media (max-width: $breakpointTablet - 1px) {
     display: none !important;
   }
