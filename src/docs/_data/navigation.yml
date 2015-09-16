@@ -57,6 +57,8 @@
       location: box/box
     - name: Overlayed Box
       location: overlayed-box/overlayed-box
+    - name: Popup Menu
+      location: popup-menu/popup-menu
     - name: Promo Box
       location: promo-box/promo-box
     - name: Header

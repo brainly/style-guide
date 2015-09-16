@@ -1,0 +1,38 @@
+$userPanelBackground: $blueSecondary;
+$userPanelPadding: $layoutDefaultPadding;
+
+$include-html: false !default;
+
+@if ($include-html) {
+  .mint-popup-menu {
+    position: relative;
+    width: 100%;
+    padding: $userPanelPadding/3 $userPanelPadding/2;
+    background-color: $userPanelBackground;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &:before {
+      content: "";
+      border: $userPanelPadding/2 solid transparent;
+      border-bottom-color: $userPanelBackground;
+      position: absolute;
+      top: -$userPanelPadding;
+      right: 18px;
+      width: 0;
+      margin: 0 auto;
+    }
+
+    @include hole();
+
+    &__hole {
+      flex-grow: 1;
+      margin-right: $userPanelPadding/2;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
