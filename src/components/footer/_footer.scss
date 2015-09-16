@@ -9,7 +9,6 @@ $include-html: false !default;
 
     &__container {
       position: relative;
-      box-sizing: border-box;
       padding: $layoutDefaultPadding $layoutDefaultPadding;
 
       @media (min-width: $breakpointTablet) {

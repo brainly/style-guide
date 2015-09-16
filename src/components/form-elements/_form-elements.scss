@@ -238,7 +238,6 @@ $include-html: false !default;
       background: $crInputCheckedColor;
     }
     &__ghost {
-      box-sizing: border-box;
       background: $crInputColor;
       width: 100%;
       height: 100%;

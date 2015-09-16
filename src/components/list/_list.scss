@@ -78,7 +78,6 @@ $include-html: false !default;
     @include mint-list-basic-styles();
     font-family: $listDefaultFont;
     &__element {
-      box-sizing: border-box;
       height: 35px;
       line-height: 35px;
       border-bottom: 1px dashed $menuListBorderColor;
