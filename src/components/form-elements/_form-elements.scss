@@ -179,7 +179,7 @@ $include-html: false !default;
       width: 100%;
     }
     &--large {
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
         border-radius: $inputLargeHeight / 2;

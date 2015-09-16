@@ -55,11 +55,12 @@ $iconBoostValue: 4px;
 // Layout
 $layoutMaximumWidth: 960px;
 $layoutDefaultPadding: 24px;
-$breakpointTablet: 768px;
-$breakpointDesktop: 1024px;
 $defaultComponentHeight: 20px;
 
 // Vertical stack
 $overlayZIndex: 999;
 $toplayerZIndex: 1000;
 
+// Breakpoints
+$breakpointMedium: 768px;
+$breakpointLarge: 1024px;

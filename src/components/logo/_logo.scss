@@ -12,7 +12,7 @@ $include-html: false !default;
     background-repeat: no-repeat;
     height: $logoDefaultHeight;
     width: $logoDefaultWidth;
-    @media (min-width: $breakpointTablet) {
+    @media (min-width: $breakpointMedium) {
       height: $logoLargeHeight;
       width: $logoLargeWidth;
     }

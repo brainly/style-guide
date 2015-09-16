@@ -19,7 +19,7 @@ $include-html: false !default;
     &--lead {
       .mint-toplayer__wrapper {
 
-        @media (min-width: $breakpointTablet) {
+        @media (min-width: $breakpointMedium) {
           margin: $layoutDefaultPadding;
           padding: $layoutDefaultPadding;
         }
@@ -27,7 +27,7 @@ $include-html: false !default;
       }
       .mint-toplayer__heading {
 
-        @media (min-width: $breakpointTablet) {
+        @media (min-width: $breakpointMedium) {
           margin-bottom: 2 * $layoutDefaultPadding;
         }
 
@@ -36,14 +36,14 @@ $include-html: false !default;
 
     &--small {
 
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         width: 410px;
       }
     }
 
     &--medium {
 
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         width: 600px;
       }
 
@@ -51,7 +51,7 @@ $include-html: false !default;
 
     &--large {
 
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         width: 700px;
       }
 
@@ -62,7 +62,7 @@ $include-html: false !default;
       position: relative;
       margin-bottom: $toplayerMarginBottom;
 
-      @media (min-width: $breakpointTablet) {
+      @media (min-width: $breakpointMedium) {
         margin-top: $toplayerMarginTop;
       }
     }
@@ -71,7 +71,7 @@ $include-html: false !default;
 
       .mint-toplayer__wrapper {
 
-        @media (min-width: $breakpointTablet) {
+        @media (min-width: $breakpointMedium) {
           background-image: url($mintImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
