@@ -123,7 +123,7 @@ $include-html: false !default;
     }
 
     &--for-fine-print {
-      font-size: 0.8125rem;
+      font-size: fontSize(small);
       color: $breadcrumbListBlueSeparatorColor;
       .mint-breadcrumb-list__element {
         &:after {
@@ -133,7 +133,7 @@ $include-html: false !default;
     }
 
     &--for-fine-print-light {
-      font-size: 0.8125rem;
+      font-size: fontSize(small);
       color: $breadcrumbListLightBlueSeparatorColor;
       .mint-breadcrumb-list__element {
         &:after {
