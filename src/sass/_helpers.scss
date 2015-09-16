@@ -7,6 +7,12 @@
 }
 
 .mint-hide-for-desktop {
+  @media (min-width: $breakpointDesktop) {
+    display: none !important;
+  }
+}
+
+.mint-hide-for-tablet {
   @media (min-width: $breakpointTablet) {
     display: none !important;
   }
