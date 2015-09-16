@@ -20,7 +20,7 @@ $include-html: false !default;
 
     font-size: fontSize(default);
     font-family: $fontFamilyPrimary;
-    line-height: $baseline;
+    line-height: rhythm(1);
   }
 
 }
