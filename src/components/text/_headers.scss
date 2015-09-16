@@ -24,12 +24,12 @@ $include-html: false !default;
     display: block;
     color: $black;
     font-weight: bold;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.03rem;
     text-transform: uppercase;
 
     &--small {
       @include typeVariant(small, 0.667);
-      letter-spacing: 1px;
+      letter-spacing: 0.0625rem;
     }
 
     &--light {
