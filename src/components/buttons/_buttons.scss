@@ -48,8 +48,8 @@ $iconAsButtonColor: $bluePrimary;
 $iconAsButtonLightColor: $white;
 $iconAsButtonGrayColor: $grayPrimary;
 
-$buttonRoundAddSize: 3.125rem;
-$buttonRoundAddFontSize: 1.125rem;
+$buttonRoundAddSize: rhythm(2.083);
+$buttonRoundAddFontSize: fontSize(standout);
 $buttonRoundAddColor: $white;
 $buttonRoundLabelFontSize: fontSize(tiny);
 $buttonRoundLabelBackground: $mintSecondaryLight;
