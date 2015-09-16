@@ -111,7 +111,7 @@ $include-html: false !default;
       display: inline-block;
 
       &:after {
-        content: '•';
+        content: '·';
         display: inline-block;
         color: $breadcrumbListSeparatorColor;
         padding: 0 2px;
