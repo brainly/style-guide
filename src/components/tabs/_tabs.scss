@@ -9,9 +9,9 @@ $tabHeight: rhythm(1.833);
 $tabSmallHeight: rhythm(1.5);
 $tabFontSize: fontSize(obscure);
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-tabs {
     @include component;

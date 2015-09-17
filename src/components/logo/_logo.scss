@@ -2,9 +2,9 @@ $logoDefaultHeight: 60px;
 $logoDefaultWidth: 134px;
 $logoLargeHeight: 81px;
 $logoLargeWidth: 180px;
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
   .mint-logo {
     @include component;
     background-image: url($mintImagesPath + 'logo.svg');

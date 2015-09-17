@@ -8,9 +8,9 @@ $toplayerHeaderHeight: rhythm(1.25);
 
 $toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-toplayer {
     @include component;

@@ -10,7 +10,7 @@ $menuListFontSize: fontSize(small);
 $menuListBorderColor: $graySecondary;
 $listSmallIconColor: $graySecondary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
 @mixin mint-list-basic-styles() {
   @include component;
@@ -21,7 +21,7 @@ $include-html: false !default;
   list-style: none;
 }
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-list {
     @include mint-list-basic-styles();

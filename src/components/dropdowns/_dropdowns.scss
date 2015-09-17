@@ -6,9 +6,9 @@ $dropdownHoverColor: $graySecondary;
 $dropdownBorderColor: $grayAltLight;
 $dropdownOpenedBorderColor: $grayPrimary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-dropdown {
     @include component;

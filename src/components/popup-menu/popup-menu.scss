@@ -1,9 +1,9 @@
 $userPanelBackground: $blueSecondary;
 $userPanelPadding: $layoutDefaultPadding;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
   .mint-popup-menu {
     position: relative;
     width: 100%;

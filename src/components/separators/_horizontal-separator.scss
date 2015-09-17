@@ -1,9 +1,9 @@
 $horizontalSeparatorHeight: 0.0625rem;
 $horizontalSeparatorColor: $grayPrimary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-horizontal-separator {
     @include component();

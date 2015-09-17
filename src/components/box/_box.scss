@@ -2,7 +2,9 @@ $boxBorderColor: $graySecondary;
 $boxBorderRadius: 22px;
 $boxBorderSize: rhythm(1/8);
 
-@if ($include-html) {
+$includeHtml: false !default;
+
+@if ($includeHtml) {
 
   .mint-box {
     @include component;

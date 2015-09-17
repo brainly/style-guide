@@ -5,9 +5,9 @@ $promoBoxHeaderFontSize: 50px;
 $promoBoxTextSize: 24px;
 $promoBoxLineHeight: 44px;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-promo-box {
     padding: 40px;

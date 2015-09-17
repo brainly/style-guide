@@ -9,9 +9,9 @@ $triangleSize: rhythm(1/2);
 $innerTriangleSize: rhythm(0.366);     // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 $innerTriangleOffset: rhythm(-0.666);  // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-bubble {
     @include component;
