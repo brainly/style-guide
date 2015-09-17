@@ -298,4 +298,4 @@ You can as well run code style check for specified file using command like:
 `./scripts/run-scss-lint.sh src/sass/_basics.scss`
 
 To simplify work with code style checking install plugin 'scss-lint' for WebStorm.
-To setup it set global path to file `scripts/ide-run-scss-lint-from-docker.sh` as `SCSS Lint exe` option.
+To setup it set global path to file `scripts/ide-scss-lint-exec.sh` as `SCSS Lint exe` option.

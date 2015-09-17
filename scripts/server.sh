@@ -18,7 +18,7 @@ echo "You can now open http://your_docker_ip:8181/dev/docs in web browser"
 
 docker run -t --rm \
   -p 8181:8000 \
-  --name brainly-style-guide \
+  --name brainly-style-guide-server \
   -v $PROJECT_DIR/dist:/style-guide/dist \
   brainly/style-guide http-server ./dist -p 8000
 
@@ -26,5 +26,5 @@ docker run -t --rm \
 # this will be executed when user hit CTRL+C
 echo
 echo "Please, bear with me while I am stopping and removing container..."
-docker stop brainly-style-guide
-docker rm brainly-style-guide
+docker stop brainly-style-guide-server
+docker rm brainly-style-guide-server
