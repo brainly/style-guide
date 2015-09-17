@@ -22,6 +22,7 @@ If you want to update Style Guide, you should follow the given guidelines and co
  - [Bumping Release Version](#bumping-release-version)
  - [Rebuilding Fonts](#rebuilding-fonts)
  - [Create/Recreate s3 distribution](#createrecreate-s3-distribution)
+ - [Code Style](#code-style)
 
 
 ## Design Conventions
@@ -286,3 +287,15 @@ Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 dis
 
 **Note:** This should be done once when you setup the deployment pipeline of the project.
 *This step has already been applied for this repo.*
+
+#### Code Style
+All code style details are located in `.scss-lint.yml` file.
+
+To check code style for project simply run:
+`./scripts/run-scss-lint.sh`
+
+You can as well run code style check for specified file using command like:
+`./scripts/run-scss-lint.sh src/sass/_basics.scss`
+
+To simplify work with code style checking install plugin 'scss-lint' for WebStorm.
+To setup it set global path to file `scripts/ide-run-scss-lint-from-docker.sh` as `SCSS Lint exe` option.
