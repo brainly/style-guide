@@ -87,3 +87,14 @@
 @function rhythm($baselines) {
   @return $baselines * $baseline;
 }
+
+@mixin mintBreakpoint($name) {
+  $media: map-get($breakpointsMap, $name);
+  @if($media) {
+    @media #{$media} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

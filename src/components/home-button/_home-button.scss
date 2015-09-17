@@ -12,7 +12,7 @@ $include-html: false !default;
     background-size: $homeButtonMobileHeight $homeButtonMobileHeight;
     height: $homeButtonMobileHeight;
     width: $homeButtonMobileHeight;
-    @media (min-width: $breakpointMedium) {
+    @include mintBreakpoint('medium-up') {
       background-image: url($mintImagesPath + 'logo.svg');
       background-size: $homeButtonDefaultWidth $homeButtonDefaultHeight;
       height: $homeButtonDefaultHeight;

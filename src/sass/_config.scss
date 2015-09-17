@@ -83,3 +83,10 @@ $toplayerZIndex: 1000;
 // Breakpoints
 $breakpointMedium: 768px;
 $breakpointLarge: 1024px;
+
+$breakpointsMap: (
+  'small-only': '(max-width: #{$breakpointMedium - 1px})',
+  'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
+  'medium-up': '(min-width: #{$breakpointMedium})',
+  'large-only': '(min-width: #{$breakpointLarge})'
+);
