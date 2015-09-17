@@ -3,24 +3,23 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   @font-face {
-    font-family: 'ProximaNova';
+    font-family: $fontFamilyProximaNova;
     src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'ProximaNova';
+    font-family: $fontFamilyProximaNova;
     src: url($mintFontsPath + 'ProximaNova-Extrabold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'ProximaNova';
+    font-family: $fontFamilyProximaNova;
     src: url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
   }
-  
 }

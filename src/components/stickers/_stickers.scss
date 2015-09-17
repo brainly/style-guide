@@ -39,7 +39,7 @@ $includeHtml: false !default;
 
   .mint-sticker {
     @include component;
-    @include remove-descenders;
+    @include removeDescenders;
     overflow: visible;
 
 

@@ -14,7 +14,7 @@ $includeHtml: false !default;
     }
 
     &__header {
-      @include components-container;
+      @include componentsContainer;
       height: rhythm(2);
     }
 
@@ -28,7 +28,7 @@ $includeHtml: false !default;
     }
 
     &__footer {
-      @include components-container;
+      @include componentsContainer;
       min-height: rhythm(2);
     }
 
