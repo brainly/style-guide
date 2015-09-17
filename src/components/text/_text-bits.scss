@@ -52,17 +52,17 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
     font-size: $textBitLargeFontSize;
   }
 
-  @include mintBreakpoint('medium-up') {
+  @include mintBreakpoint(medium-up) {
     &:not(.mint-text-bit--not-responsive) {
       font-size: $textBitLargeFontSize;
     }
   }
 
   &--to-larger:not(.mint-text-bit--not-responsive) {
-    @include mintBreakpoint('medium-up') {
+    @include mintBreakpoint(medium-up) {
       font-size: $textBitLargerTabletFontSize;
     }
-    @include mintBreakpoint('large-only') {
+    @include mintBreakpoint(large-only) {
       font-size: $textBitLargerDesktopFontSize;
     }
   }

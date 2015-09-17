@@ -12,7 +12,7 @@ $include-html: false !default;
     background-repeat: no-repeat;
     height: $logoDefaultHeight;
     width: $logoDefaultWidth;
-    @include mintBreakpoint('medium-up') {
+    @include mintBreakpoint(medium-up) {
       height: $logoLargeHeight;
       width: $logoLargeWidth;
     }

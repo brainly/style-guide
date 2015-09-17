@@ -95,6 +95,6 @@
       @content;
     }
   } @else {
-    @content;
+    @error 'Breakpoint "#{$name}" does not exist';
   }
 }
