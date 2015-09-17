@@ -22,7 +22,7 @@ If you want to update Style Guide, you should follow the given guidelines and co
  - [Bumping Release Version](#bumping-release-version)
  - [Rebuilding Fonts](#rebuilding-fonts)
  - [Create/Recreate s3 distribution](#createrecreate-s3-distribution)
- - [Cose Style](#code-style)
+ - [Code Style](#code-style)
 
 
 ## Design Conventions
