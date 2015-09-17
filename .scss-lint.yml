@@ -168,7 +168,6 @@ linters:
     properties:
       - color
       - font
-      - font-size
       - font-family
   # Avoid vendor prefixes. That is, don't write them yourself.
   VendorPrefix:
