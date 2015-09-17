@@ -183,7 +183,7 @@ $include-html: false !default;
     }
     
     &--large {
-      @media (min-width: $breakpointMedium) {
+      @include mintBreakpoint(medium-up) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
         border-radius: $inputLargeHeight / 2;

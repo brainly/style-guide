@@ -34,7 +34,7 @@ $include-html: false !default;
 
     &--spaced {
       .mint-content-box__content, .mint-content-box__footer {
-        @media (min-width: $breakpointMedium) {
+        @include mintBreakpoint(medium-up) {
           padding-left: 2 * $layoutDefaultPadding;
         }
       }
