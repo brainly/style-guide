@@ -14,7 +14,7 @@ $include-html: false !default;
     @include component;
     @include hole;
     @extend .mint-icon-arrow_down;
-    
+    overflow: visible;
     background-color: $grayAltLight;
     border: $dropdownBorderSize solid $dropdownBorderColor;
     border-radius: $dropdownHeight / 2;
@@ -93,7 +93,6 @@ $include-html: false !default;
     &--opened {
       background-color: $dropdownBackground;
       border-color: $dropdownOpenedBorderColor;
-      overflow: visible;
       border-radius: $dropdownHeight / 2 $dropdownHeight / 2 0 0;
       border-bottom-color: transparent;
 
