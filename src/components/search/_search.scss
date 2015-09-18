@@ -15,6 +15,7 @@ $includeHtml: false !default;
       right: 6px;
       display: flex;
       align-items: center;
+      padding-right: 1 / 4 * $layoutDefaultPadding;
     }
   }
 
