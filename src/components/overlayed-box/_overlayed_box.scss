@@ -1,6 +1,6 @@
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-overlayed-box {
     @include component;
@@ -9,7 +9,7 @@ $include-html: false !default;
     vertical-align: inherit;
 
     &__overlay {
-      @include components-container;
+      @include componentsContainer;
       position: absolute;
       right: 0;
       bottom: 0;

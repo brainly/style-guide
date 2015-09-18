@@ -1,15 +1,15 @@
 $footerBackgroundColor: $bluePrimary;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-footer {
     background-color: $footerBackgroundColor;
 
     &__container {
       position: relative;
-      padding: $layoutDefaultPadding $layoutDefaultPadding;
+      padding: $layoutDefaultPadding;
 
       @include mintBreakpoint(medium-up) {
         max-width: $layoutMaximumWidth;

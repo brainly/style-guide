@@ -1,4 +1,4 @@
-$toplayerHeaderDominantColor: #65A6A8;
+$toplayerHeaderDominantColor: #65a6a8;
 $toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
 $toplayerShadow: $defaultBottomShadow;
@@ -8,9 +8,9 @@ $toplayerHeaderHeight: rhythm(1.25);
 
 $toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-toplayer {
     @include component;
@@ -21,44 +21,34 @@ $include-html: false !default;
 
     &--lead {
       .mint-toplayer__wrapper {
-
         @include mintBreakpoint(medium-up) {
-
-          padding: ($toplayerFirstVerticalPadding + rhythm(1)) 2 * $layoutDefaultPadding rhythm(2) 2 * $layoutDefaultPadding;
+          padding: ($toplayerFirstVerticalPadding + rhythm(1)) (2 * $layoutDefaultPadding) rhythm(2);
         }
-
       }
-      
-      .mint-toplayer__heading {
 
+      .mint-toplayer__heading {
         @include mintBreakpoint(medium-up) {
           margin-bottom: rhythm(2);
         }
-
       }
     }
 
     &--small {
-
       @include mintBreakpoint(medium-up) {
         width: 410px;
       }
     }
 
     &--medium {
-
       @include mintBreakpoint(medium-up) {
         width: 600px;
       }
-
     }
 
     &--large {
-
       @include mintBreakpoint(medium-up) {
         width: 700px;
       }
-
     }
 
     &--modal {
@@ -72,21 +62,18 @@ $include-html: false !default;
     }
 
     &--with-bugbox {
-
       .mint-toplayer__wrapper {
-
         @include mintBreakpoint(medium-up) {
+          @include image2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
           background-image: url($mintImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
-          @include image-2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
         }
-
       }
-
     }
 
     &__header {
+      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -94,12 +81,11 @@ $include-html: false !default;
       background-image: url($mintImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
       background-color: $toplayerHeaderDominantColor;
-      @include image-2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
     }
 
     &__close {
-      color: $toplayerCrossColor;
       @include fixText(24px, -4px);
+      color: $toplayerCrossColor;
       font-weight: bold;
       padding: 0 10px;
       cursor: pointer;
@@ -110,7 +96,7 @@ $include-html: false !default;
     }
 
     &__wrapper {
-      padding: $toplayerFirstVerticalPadding $layoutDefaultPadding/2 rhythm(1) $layoutDefaultPadding/2;
+      padding: $toplayerFirstVerticalPadding ($layoutDefaultPadding / 2) rhythm(1);
     }
 
     &__heading {
@@ -126,7 +112,7 @@ $include-html: false !default;
     }
 
     &__actions {
-      @include components-container;
+      @include componentsContainer;
       min-height: rhythm(2);
     }
   }

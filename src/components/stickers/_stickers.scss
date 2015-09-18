@@ -2,24 +2,23 @@ $stickerSize: 18px;
 $stickerIconColor: $bluePrimary;
 $stickerOutlineColor: $white;
 
-$include-html: false !default;
+$includeHtml: false !default;
 
 @mixin outline($color) {
-  text-shadow:
   // generated using http://owumaro.github.io/text-stroke-generator/
-  $color 2px 0px 0px,
-  $color 1.75516510009766px 0.958851099014282px 0px,
-  $color 1.08060455322266px 1.68294191360474px 0px,
-  $color 0.141474395990372px 1.99498999118805px 0px,
-  $color -0.832293689250946px 1.81859481334686px 0px,
-  $color -1.60228717327118px 1.19694423675537px 0px,
-  $color -1.979984998703px 0.282240003347397px 0px,
-  $color -1.8729133605957px -0.701566457748413px 0px,
-  $color -1.30728721618652px -1.51360499858856px 0px,
-  $color -0.421591609716415px -1.95506024360657px 0px,
-  $color 0.56732439994812px -1.91784858703613px 0px,
-  $color 1.41733956336975px -1.41108059883118px 0px,
-  $color 1.9203405380249px -0.558830976486206px 0px;
+  text-shadow: $color 2px 0 0,
+    $color 1.75516510009766px 0.958851099014282px 0,
+    $color 1.08060455322266px 1.68294191360474px 0,
+    $color 0.141474395990372px 1.99498999118805px 0,
+    $color -0.832293689250946px 1.81859481334686px 0,
+    $color -1.60228717327118px 1.19694423675537px 0,
+    $color -1.979984998703px 0.282240003347397px 0,
+    $color -1.8729133605957px -0.701566457748413px 0,
+    $color -1.30728721618652px -1.51360499858856px 0,
+    $color -0.421591609716415px -1.95506024360657px 0,
+    $color 0.56732439994812px -1.91784858703613px 0,
+    $color 1.41733956336975px -1.41108059883118px 0,
+    $color 1.9203405380249px -0.558830976486206px 0;
 }
 
 %icon-blue-white {
@@ -28,45 +27,47 @@ $include-html: false !default;
   color: $stickerIconColor;
 }
 
-@mixin from-icon($name){
+@mixin fromIcon($name) {
   &--#{$name}:before {
     @extend %icon-blue-white;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-#{$name}:before;
+    // scss-lint:enable PlaceholderInExtend
   }
 }
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-sticker {
     @include component;
-    @include remove-descenders;
+    @include removeDescenders;
+
+    @include fromIcon(answering);
+    @include fromIcon(answered);
+    @include fromIcon(arrow_down);
+    @include fromIcon(arrow_left);
+    @include fromIcon(arrow_right);
+    @include fromIcon(arrow_up);
+    @include fromIcon(attachment);
+    @include fromIcon(bold);
+    @include fromIcon(check);
+    @include fromIcon(comment);
+    @include fromIcon(equation);
+    @include fromIcon(excellent);
+    @include fromIcon(fb);
+    @include fromIcon(friends);
+    @include fromIcon(heart);
+    @include fromIcon(menu);
+    @include fromIcon(messages);
+    @include fromIcon(notifications);
+    @include fromIcon(pencil);
+    @include fromIcon(profile);
+    @include fromIcon(report_flag);
+    @include fromIcon(search);
+    @include fromIcon(star);
+    @include fromIcon(stream);
+    @include fromIcon(symbols);
+
     overflow: visible;
-
-
-    @include from-icon(answering);
-    @include from-icon(answered);
-    @include from-icon(arrow_down);
-    @include from-icon(arrow_left);
-    @include from-icon(arrow_right);
-    @include from-icon(arrow_up);
-    @include from-icon(attachment);
-    @include from-icon(bold);
-    @include from-icon(check);
-    @include from-icon(comment);
-    @include from-icon(equation);
-    @include from-icon(excellent);
-    @include from-icon(fb);
-    @include from-icon(friends);
-    @include from-icon(heart);
-    @include from-icon(menu);
-    @include from-icon(messages);
-    @include from-icon(notifications);
-    @include from-icon(pencil);
-    @include from-icon(profile);
-    @include from-icon(report_flag);
-    @include from-icon(search);
-    @include from-icon(star);
-    @include from-icon(stream);
-    @include from-icon(symbols);
   }
 }

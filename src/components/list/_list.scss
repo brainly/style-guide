@@ -10,9 +10,11 @@ $menuListFontSize: fontSize(small);
 $menuListBorderColor: $graySecondary;
 $listSmallIconColor: $graySecondary;
 
-$include-html: false !default;
+$listIconColor: $white;
 
-@mixin mint-list-basic-styles() {
+$includeHtml: false !default;
+
+@mixin mintListBasicStyles() {
   @include component;
   overflow: visible; // move baseline from margin to the last line box
   display: block;
@@ -21,19 +23,21 @@ $include-html: false !default;
   list-style: none;
 }
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     font-size: $listFontSize;
     line-height: rhythm(2);
 
     .mint-list__element {
+      // scss-lint:disable PlaceholderInExtend
       @extend .mint-icon-arrow_down;
+      // scss-lint:enable PlaceholderInExtend
 
       &:before {
-        font-family: "brainly-icons";
-        color: white;
+        font-family: $fontFamilyIcons;
+        color: $listIconColor;
         transform: rotate(-90deg);
         font-size: 38px;
         vertical-align: -5px;
@@ -42,10 +46,12 @@ $include-html: false !default;
 
       &--with-plus {
         &:before {
+          // scss-lint:disable PlaceholderInExtend
+          @extend .mint-icon-plus;
+          // scss-lint:enable PlaceholderInExtend
           font-size: 24px;
           vertical-align: 0;
           color: $listSmallIconColor;
-          @extend .mint-icon-plus;
         }
       }
     }
@@ -62,18 +68,16 @@ $include-html: false !default;
           height: 15px;
         }
 
-        &--with-plus {
-          &:before {
-            font-size: 14px;
-            vertical-align: 1px;
-          }
+        &--with-plus:before {
+          font-size: 14px;
+          vertical-align: 1px;
         }
       }
     }
   }
 
   .mint-menu-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     &__element {
       box-sizing: border-box;
       height: rhythm(2);
@@ -81,29 +85,33 @@ $include-html: false !default;
       border-bottom: 1px dashed $menuListBorderColor;
 
       &:last-child {
-        border: 0;
+        border: none;
       }
+
       &--flex {
         height: auto;
       }
     }
+
     &__link {
       color: $menuListColor;
       text-decoration: none;
       display: block;
       font-size: $menuListFontSize;
       white-space: nowrap;
+
       &:hover {
         text-decoration: underline;
       }
     }
+
     &--side-spaced {
-      margin: 0 10px
+      margin: 0 10px;
     }
   }
 
   .mint-breadcrumb-list {
-    @include mint-list-basic-styles();
+    @include mintListBasicStyles();
     display: inline-block;
     color: $breadcrumbListSeparatorColor;
 
@@ -125,9 +133,11 @@ $include-html: false !default;
     &--for-fine-print {
       font-size: fontSize(small);
       color: $breadcrumbListBlueSeparatorColor;
+
       .mint-breadcrumb-list__element {
         &:after {
           color: $breadcrumbListBlueSeparatorColor;
+
         }
       }
     }
@@ -135,6 +145,7 @@ $include-html: false !default;
     &--for-fine-print-light {
       font-size: fontSize(small);
       color: $breadcrumbListLightBlueSeparatorColor;
+
       .mint-breadcrumb-list__element {
         &:after {
           color: $breadcrumbListLightBlueSeparatorColor;

@@ -10,13 +10,15 @@ $avatarBorderColor: $white;
 $avatarBackgroundColor: $white;
 
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-avatar {
-    @include component;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-profile;
+    // scss-lint:enable PlaceholderInExtend
+    @include component;
 
     width: $avatarMediumSize;
     height: $avatarMediumSize;
@@ -60,7 +62,6 @@ $include-html: false !default;
 
     &--with-border {
       border: solid $avatarBorderColor $avatarMediumBorderWidth;
-      border-width: $avatarMediumBorderWidth;
 
       &:before {
         left: -$avatarMediumBorderWidth;
@@ -68,8 +69,7 @@ $include-html: false !default;
     }
 
     &--small-with-border {
-      @extend .mint-avatar--with-border;
-      border-width: $avatarSmallBorderWidth;
+      border: solid $avatarBorderColor $avatarSmallBorderWidth;
 
       &:before {
         left: -$avatarSmallBorderWidth;
@@ -77,8 +77,7 @@ $include-html: false !default;
     }
 
     &--big-with-border {
-      @extend .mint-avatar--with-border;
-      border-width: $avatarBigBorderWidth;
+      border: solid $avatarBorderColor $avatarBigBorderWidth;
 
       &:before {
         left: -$avatarBigBorderWidth;

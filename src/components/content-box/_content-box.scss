@@ -1,26 +1,26 @@
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-content-box {
 
     &__title {
       min-height: rhythm(2);
-    }
 
-    &__title ~ &__title {
-      margin-top: - rhythm(1/2);
-      margin-bottom: - rhythm(1/2);
+      & ~ & {
+        margin-top: - rhythm(1 / 2);
+        margin-bottom: - rhythm(1 / 2);
+      }
+
+      ~ .mint-content-box__header {
+        margin-top: - rhythm(1 / 2);
+        margin-bottom: rhythm(1 / 2);
+      }
     }
 
     &__header {
-      @include components-container;
+      @include componentsContainer;
       height: rhythm(2);
-    }
-
-    &__title ~ &__header {
-      margin-top: - rhythm(1/2);
-      margin-bottom: rhythm(1/2);
     }
 
     &__content {
@@ -28,12 +28,13 @@ $include-html: false !default;
     }
 
     &__footer {
-      @include components-container;
+      @include componentsContainer;
       min-height: rhythm(2);
     }
 
     &--spaced {
-      .mint-content-box__content, .mint-content-box__footer {
+      .mint-content-box__content,
+      .mint-content-box__footer {
         @include mintBreakpoint(medium-up) {
           padding-left: 2 * $layoutDefaultPadding;
         }

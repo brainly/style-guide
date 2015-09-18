@@ -9,9 +9,9 @@ $tabHeight: rhythm(1.833);
 $tabSmallHeight: rhythm(1.5);
 $tabFontSize: fontSize(obscure);
 
-$include-html: false !default;
+$includeHtml: false !default;
 
-@if ($include-html) {
+@if ($includeHtml) {
 
   .mint-tabs {
     @include component;
@@ -22,6 +22,7 @@ $include-html: false !default;
     height: $tabHeight;
     line-height: $tabHeight;
     font-size: $tabFontSize;
+
     &__tab {
       background: $tabBackground;
       border-right: 1px solid $tabSeparatorColor;
@@ -29,26 +30,28 @@ $include-html: false !default;
       cursor: pointer;
       font-weight: bold;
       float: left;
-      padding: 0 $tabHeight/2;
+      padding: 0 $tabHeight / 2;
       text-transform: uppercase;
-      transition: all 0.3s ease-out;
+      transition: background 0.3s ease-out, color 0.3s ease-out;
+
       &:first-child {
-        border-top-left-radius: $tabHeight/2;
-        border-bottom-left-radius: $tabHeight/2;
+        border-top-left-radius: $tabHeight / 2;
+        border-bottom-left-radius: $tabHeight / 2;
       }
+
       &:last-child {
-        border-top-right-radius: $tabHeight/2;
-        border-bottom-right-radius: $tabHeight/2;
-        border-right: 0;
+        border-top-right-radius: $tabHeight / 2;
+        border-bottom-right-radius: $tabHeight / 2;
+        border-right: none;
       }
+
+      &:active,
       &:hover {
         background: $tabHoverBackground;
         color: $tabHoverTextColor;
-      }
-      &:active {
-        color: rgba($tabHoverTextColor, 0.7);
         outline: none;
       }
+
       &--active {
         background: $tabActiveBackground;
         color: $tabActiveTextColor;
@@ -58,19 +61,21 @@ $include-html: false !default;
     &--small {
       height: $tabSmallHeight;
       line-height: $tabSmallHeight;
-      & .tabs__tab {
-        padding: 0 $tabSmallHeight/2;
+
+      .tabs__tab {
+        padding: 0 $tabSmallHeight / 2;
+
         &:first-child {
-          border-top-left-radius: $tabSmallHeight/2;
-          border-bottom-left-radius: $tabSmallHeight/2;
+          border-top-left-radius: $tabSmallHeight / 2;
+          border-bottom-left-radius: $tabSmallHeight / 2;
         }
+
         &:last-child {
-          border-top-right-radius: $tabSmallHeight/2;
-          border-bottom-right-radius: $tabSmallHeight/2;
-          border-right: 0;
+          border-top-right-radius: $tabSmallHeight / 2;
+          border-bottom-right-radius: $tabSmallHeight / 2;
+          border-right: none;
         }
       }
     }
   }
-
 }
