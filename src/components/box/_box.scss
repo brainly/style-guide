@@ -14,7 +14,7 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(1 / 2) - $borderSize) 0 (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding;
+    padding: (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding (rhythm(1 / 2) - $borderSize) $layoutDefaultPadding;
 
     &__hole {
       margin: rhythm(1 / 2) 1 / 2 * $layoutDefaultPadding rhythm(1 / 2) 0;
