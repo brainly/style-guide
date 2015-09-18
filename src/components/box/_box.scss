@@ -14,10 +14,10 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding (rhythm(1 / 2) - $borderSize) $layoutDefaultPadding;
+    padding: (rhythm(1 / 2) - $borderSize) gutter(1 / 2) (rhythm(1 / 2) - $borderSize) gutter(1);
 
     &__hole {
-      margin: rhythm(1 / 2) 1 / 2 * $layoutDefaultPadding rhythm(1 / 2) 0;
+      margin: rhythm(1 / 2) gutter(1 / 2)  rhythm(1 / 2) 0;
     }
 
     &--full {

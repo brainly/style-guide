@@ -114,3 +114,8 @@
     @error 'Breakpoint "#{$name}" does not exist';
   }
 }
+
+// set a value as a multiple of default gutter
+@function gutter($size){
+  @return $size * $layoutDefaultPadding;
+}

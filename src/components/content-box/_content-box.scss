@@ -37,7 +37,7 @@ $includeHtml: false !default;
       .mint-content-box__content,
       .mint-content-box__footer {
         @include mintBreakpoint(medium-up) {
-          padding-left: 2 * $layoutDefaultPadding;
+          padding-left: gutter(2) ;
         }
       }
     }

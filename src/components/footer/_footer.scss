@@ -9,14 +9,14 @@ $includeHtml: false !default;
 
     &__container {
       position: relative;
-      padding: $layoutDefaultPadding;
+      padding: gutter(1);
 
       @include mintBreakpoint(medium-up) {
         max-width: $layoutMaximumWidth;
         margin-left: auto;
         margin-right: auto;
 
-        padding: rhythm(1) $layoutDefaultPadding;
+        padding: rhythm(1) gutter(1);
       }
     }
 
@@ -34,7 +34,7 @@ $includeHtml: false !default;
 
     &__logo {
       position: absolute;
-      left: $layoutDefaultPadding;
+      left: gutter(1);
       top: -20px;
     }
   }
