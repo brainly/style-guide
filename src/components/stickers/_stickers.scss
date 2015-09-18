@@ -5,6 +5,7 @@ $stickerOutlineColor: $white;
 $includeHtml: false !default;
 
 @mixin outline($color) {
+  // generated using http://owumaro.github.io/text-stroke-generator/
   text-shadow: $color 2px 0 0,
     $color 1.75516510009766px 0.958851099014282px 0,
     $color 1.08060455322266px 1.68294191360474px 0,
