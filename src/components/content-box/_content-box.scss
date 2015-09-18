@@ -5,7 +5,7 @@ $includeHtml: false !default;
   .mint-content-box {
 
     &__title {
-      @include components-container;
+      @include componentsContainer;
       min-height: rhythm(2);
 
       & ~ & {
