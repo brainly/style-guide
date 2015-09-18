@@ -13,6 +13,7 @@ $includeHtml: false !default;
   .mint-badge {
     @include component;
     @include fixText($badgeFontSize);
+    @include uppercase;
     overflow: visible; // allow badges align as text
     min-height: auto;
     height: auto;
@@ -20,7 +21,6 @@ $includeHtml: false !default;
     border-radius: $badgeFontSize;
     font-weight: bold;
     padding: 3px 6px;
-    text-transform: uppercase;
 
     background-color: $badgeDefaultBackgroundColor;
     color: $badgeDefaultColor;

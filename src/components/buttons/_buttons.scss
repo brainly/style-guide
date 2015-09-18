@@ -62,8 +62,8 @@ $includeHtml: false !default;
 
 @mixin mintButtonBasicStyles() {
   @include component;
+  @include uppercase;
   cursor: pointer;
-  text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
 
@@ -235,6 +235,7 @@ $includeHtml: false !default;
     }
 
     &__label {
+      @include uppercase;
       float: left;
       font-weight: bold;
       font-size: $buttonRoundLabelFontSize;
@@ -242,7 +243,6 @@ $includeHtml: false !default;
       line-height: rhythm(1 / 2);
       background: $buttonRoundLabelBackground;
       color: $buttonRoundLabelColor;
-      text-transform: uppercase;
       padding: 3px 5px;
       margin: 16px 10px 0 0;
       box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);

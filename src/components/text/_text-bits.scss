@@ -11,13 +11,12 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 .mint-text-bit {
   @include typeVariant($textBitFontSize, 2);
+  @include uppercase(-0.0625rem);
   color: $textBitColor;
   font-weight: $textBitFontWeight;
-  text-transform: uppercase;
   word-wrap: break-word;
   margin: 0;
   position: relative;
-  letter-spacing: -0.0625rem;
 
   @include mintBreakpoint(medium-up) {
     &:not(.mint-text-bit--not-responsive) {

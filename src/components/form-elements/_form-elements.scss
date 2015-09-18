@@ -70,6 +70,7 @@ $includeHtml: false !default;
     border: 2px solid $selectBackground;
 
     &__element {
+      @include uppercase;
       background: $selectBackground;
       border: none;
       font-size: inherit;
@@ -81,7 +82,6 @@ $includeHtml: false !default;
       padding: 0 ($selectHeight / 2 + rhythm(2 / 3)) 0 ($selectHeight / 2);
       outline: 0;
       appearance: none;
-      text-transform: uppercase;
       width: 100%;
 
       &::-ms-expand {
@@ -153,8 +153,8 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
+      @include uppercase;
       color: $inputPlaceholderTextColor;
-      text-transform: uppercase;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
       position: relative;
@@ -283,7 +283,7 @@ $includeHtml: false !default;
     vertical-align: top;
 
     &--upper {
-      text-transform: uppercase;
+      @include uppercase;
     }
   }
 
@@ -342,10 +342,10 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
+      @include uppercase;
       position: relative;
       top: rhythm(1 / 8);
       color: $textareaPlaceholderTextColor;
-      text-transform: uppercase;
       font-size: $textareaPlaceholderFontSize;
       font-weight: bold;
     }

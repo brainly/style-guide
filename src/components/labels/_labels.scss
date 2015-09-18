@@ -30,11 +30,11 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
+      @include uppercase;
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;
       font-weight: $labelFontWeight;
-      text-transform: uppercase;
       margin-right: $layoutDefaultPadding / 4;
 
       &:last-child {
