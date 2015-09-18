@@ -1,5 +1,5 @@
 $textBitFontWeight: $fontWeightBlack;
-$textBitFontSize: header;
+$textBitFontSize: subheader;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
@@ -61,10 +61,12 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
   &--to-larger:not(.mint-text-bit--not-responsive) {
     @include mintBreakpoint(medium-up) {
       font-size: $textBitLargerTabletFontSize;
+      line-height: rhythm(3);
     }
 
     @include mintBreakpoint(large-only) {
       font-size: $textBitLargerDesktopFontSize;
+      line-height: rhythm(3);
     }
   }
 }
