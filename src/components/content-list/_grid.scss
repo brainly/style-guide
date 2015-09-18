@@ -1,0 +1,25 @@
+$include-html: false !default;
+$defaultPadding: $layoutDefaultPadding / 2;
+
+@if ($include-html) {
+
+  .mint-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: $defaultPadding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .mint-col {
+    margin-right: $defaultPadding;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
