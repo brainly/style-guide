@@ -8,6 +8,7 @@ $includeHtml: false !default;
     display: block;
     color: $black;
     font-weight: $fontWeightBlack;
+    margin-bottom: rhythm(1);
 
     &--small {
       @include typeVariant(headline);
