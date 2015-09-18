@@ -37,7 +37,7 @@ $includeHtml: false !default;
 
     &--with-animation {
       transform: scale(0);
-      animation: mintBadgeAnimation .6s 2s forwards;
+      animation: mintBadgeAnimation 0.6s 2s forwards;
     }
   }
 
@@ -45,9 +45,11 @@ $includeHtml: false !default;
     0% {
       transform: scale(0);
     }
+
     80% {
       transform: scale(1.2);
     }
+
     100% {
       transform: scale(1);
     }

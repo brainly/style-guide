@@ -1,13 +1,13 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: fontSize(obscure);
-$selectHeight: rhythm(1 + 5/6);
+$selectHeight: rhythm(1 + 5 / 6);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
-$inputHeight: rhythm(1 + 5/6);
+$inputHeight: rhythm(1 + 5 / 6);
 $inputLowHeight: rhythm(1.5);
-$inputLargeHeight: rhythm(2 + 2/3);
+$inputLargeHeight: rhythm(2 + 2 / 3);
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
@@ -37,6 +37,7 @@ $crInputLabelFontSize: fontSize(obscure);
 $crInputLabelLineHeight: rhythm(0.933);
 $crInputLabelHeight: rhythm(0.666);
 $crInputLabelColor: $grayPrimary;
+$crInputActiveColor: rgba($crInputColor, 0.7);
 
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
@@ -57,23 +58,26 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-select {
-    @include component;
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-arrow_down;
-    border-radius: $selectHeight/2;
+    // scss-lint:enalbe PlaceholderInExtend
+    @include component;
+
+    border-radius: $selectHeight / 2;
     font-size: $selectFontSize;
     color: $selectTextColor;
     height: $selectHeight;
 
     &__element {
       background: $selectBackground;
-      border: 0;
+      border: none;
       font-size: inherit;
       font-weight: bold;
       color: inherit;
       display: inline-block;
       height: $selectHeight;
       position: relative;
-      padding: 0 $selectHeight/2 + rhythm(1/2) 0 $selectHeight/2;
+      padding: 0 ($selectHeight / 2 + rhythm(1 / 2)) 0 ($selectHeight / 2);
       outline: 0;
       appearance: none;
       text-transform: uppercase;
@@ -83,7 +87,9 @@ $includeHtml: false !default;
         display: none;
       }
 
-      &:hover, &:focus, &:active {
+      &:hover,
+      &:focus,
+      &:active {
         background: $selectHoverBackground;
       }
     }
@@ -102,15 +108,16 @@ $includeHtml: false !default;
     }
 
     &--small {
-      height: $layoutDefaultPadding/3*4;
+      height: $layoutDefaultPadding / 3 * 4;
 
       &:before {
-        right: $layoutDefaultPadding/3;
+        right: $layoutDefaultPadding / 3;
         margin-top: 0;
       }
+
       .mint-select__element {
-        height: $layoutDefaultPadding/3*4;
-        padding: 0 $layoutDefaultPadding/3*4 0 $layoutDefaultPadding/3*2;
+        height: $layoutDefaultPadding / 3 * 4;
+        padding: 0 ($layoutDefaultPadding / 3 * 4) 0 ($layoutDefaultPadding / 3 * 2);
       }
     }
 
@@ -122,7 +129,7 @@ $includeHtml: false !default;
       border: 2px solid $selectInvalidBorderColor;
 
       .mint-select__element {
-        padding: 0 $selectHeight/2 rhythm(1/2) 0 ($selectHeight/2 - rhythm(1/12));
+        padding: 0 ($selectHeight / 2) rhythm(1 / 2) 0 ($selectHeight / 2 - rhythm(1 / 12));
       }
     }
   }
@@ -131,10 +138,10 @@ $includeHtml: false !default;
     @include component;
     background: $inputBackground;
     border: 2px solid $inputBorderColor;
-    border-radius: $inputHeight/2;
+    border-radius: $inputHeight / 2;
     color: $inputTextColor;
     font-size: $inputFontSize;
-    padding: 0 $inputHeight/2;
+    padding: 0 $inputHeight / 2;
     height: $inputHeight;
     appearance: none;
     transition: border 300ms;
@@ -152,15 +159,15 @@ $includeHtml: false !default;
     }
 
     &--low {
-      border-radius: $inputLowHeight/2;
-      padding: 0 $inputLowHeight/2;
+      border-radius: $inputLowHeight / 2;
+      padding: 0 $inputLowHeight / 2;
       height: $inputLowHeight;
       line-height: $inputLowHeight;
     }
 
     &--valid {
       border-color: $inputValidBorderColor;
-      
+
       &:focus {
         border-color: $inputFocusValidBorderColor;
       }
@@ -175,13 +182,13 @@ $includeHtml: false !default;
     }
 
     &--spaced {
-      margin-bottom: $inputHeight/4;
+      margin-bottom: $inputHeight / 4;
     }
 
     &--full {
       width: 100%;
     }
-    
+
     &--large {
       @include mintBreakpoint(medium-up) {
         height: $inputLargeHeight;
@@ -194,14 +201,14 @@ $includeHtml: false !default;
         }
       }
     }
-    
+
     &--subtle-border {
       border: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       transition: box-shadow 300ms;
 
       &:focus {
-        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
       }
     }
 
@@ -213,6 +220,7 @@ $includeHtml: false !default;
         border-color: $inputTransparentFocusBorderColor;
       }
     }
+
     &--with-icon {
       padding-right: 46px;
     }
@@ -277,11 +285,13 @@ $includeHtml: false !default;
   }
 
   .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
-    color: rgba($crInputColor, 0.7);
+    color: $crInputActiveColor;
   }
 
   .mint-checkbox__ghost {
+    // scss-lint:disable PlaceholderInExtend
     @extend .mint-icon-check;
+    // scss-lint:enable PlaceholderInExtend
     border-radius: 25%;
 
     &:before {
@@ -340,6 +350,7 @@ $includeHtml: false !default;
 
     &--valid {
       border-color: $textareaValidBorderColor;
+
       &:focus {
         border-color: $textareaValidBorderColor;
       }
@@ -347,6 +358,7 @@ $includeHtml: false !default;
 
     &--invalid {
       border-color: $textareaInvalidBorderColor;
+
       &:focus {
         border-color: $textareaInvalidBorderColor;
       }

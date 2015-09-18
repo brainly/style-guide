@@ -11,7 +11,6 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 .mint-text-bit {
   @include typeVariant($textBitFontSize, 2);
-
   color: $textBitColor;
   font-weight: $textBitFontWeight;
   text-transform: uppercase;
@@ -20,12 +19,19 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
   position: relative;
   letter-spacing: -0.0625rem;
 
+  @include mintBreakpoint(medium-up) {
+    &:not(.mint-text-bit--not-responsive) {
+      font-size: $textBitLargeFontSize;
+    }
+  }
+
   &__hole {
     display: block;
     position: absolute;
     top: -22px;
     left: -13px;
     line-height: 0;
+
     &--small {
       top: -25px;
       left: -10px;
@@ -52,16 +58,11 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
     font-size: $textBitLargeFontSize;
   }
 
-  @include mintBreakpoint(medium-up) {
-    &:not(.mint-text-bit--not-responsive) {
-      font-size: $textBitLargeFontSize;
-    }
-  }
-
   &--to-larger:not(.mint-text-bit--not-responsive) {
     @include mintBreakpoint(medium-up) {
       font-size: $textBitLargerTabletFontSize;
     }
+
     @include mintBreakpoint(large-only) {
       font-size: $textBitLargerDesktopFontSize;
     }

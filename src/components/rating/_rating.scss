@@ -7,7 +7,7 @@ $rateCounterColor: $grayPrimary;
 $rateCounterFontWeight: $fontWeightBlack;
 $rateStarFontSize: fontSize(obscure);
 $rateStarSmallFontSize: fontSize(xsmall);
-$rateScaleFactor: 2/3;
+$rateScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
 
@@ -46,6 +46,7 @@ $includeHtml: false !default;
       color: $rateStarColor;
       font-size: $rateStarFontSize + $iconBoostValue;
       padding: 0 1px;
+
       &--checked {
         color: $rateStarCheckedColor;
       }
@@ -55,7 +56,7 @@ $includeHtml: false !default;
       @include fixText($rateStarFontSize, 0.125rem);
       font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
-      margin: 0 0 0 $layoutDefaultPadding/2;
+      margin: 0 0 0 $layoutDefaultPadding / 2;
     }
 
     &--small {
@@ -68,7 +69,7 @@ $includeHtml: false !default;
 
       .mint-rate-box__counter {
         @include fixText($rateStarSmallFontSize);
-        margin-left: $layoutDefaultPadding/4;
+        margin-left: $layoutDefaultPadding / 4;
       }
     }
   }

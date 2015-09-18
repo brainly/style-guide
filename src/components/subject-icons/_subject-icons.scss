@@ -2,9 +2,9 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  @import "subject-icons-embed";
-  @import "subject-icons-map";
-  @import "subject-icon";
-  @import "subject-icon-box";
+  @import 'subject-icons-embed';
+  @import 'subject-icons-map';
+  @import 'subject-icon';
+  @import 'subject-icon-box';
 
 }

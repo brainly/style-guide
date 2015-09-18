@@ -18,6 +18,7 @@
     "gulp-replace": "^0.5.3",
     "gulp-rev": "^6.0.0",
     "gulp-sass": "^2.0.1",
+    "gulp-soften": "0.0.1",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-svg-sprite": "^1.2.7",
     "run-sequence": "^1.1.1",

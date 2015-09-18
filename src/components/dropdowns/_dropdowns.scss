@@ -1,6 +1,6 @@
 $dropdownFontSize: fontSize(obscure);
 $dropdownHeight: rhythm(1.5);
-$dropdownBorderSize: rhythm(1/12);
+$dropdownBorderSize: rhythm(1 / 12);
 $dropdownBackground: $white;
 $dropdownHoverColor: $graySecondary;
 $dropdownBorderColor: $grayAltLight;
@@ -11,16 +11,19 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-dropdown {
+    // scss-lint:disable PlaceholderInExtend
+    @extend .mint-icon-arrow_down;
+    // scss-lint:enable PlaceholderInExtend
     @include component;
     @include hole;
-    @extend .mint-icon-arrow_down;
+
     overflow: visible;
     background-color: $grayAltLight;
     border: $dropdownBorderSize solid $dropdownBorderColor;
     border-radius: $dropdownHeight / 2;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
-    cursor: pointer;    
+    cursor: pointer;
     user-select: none;
     z-index: 1;
 
@@ -35,7 +38,7 @@ $includeHtml: false !default;
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
-      top: $dropdownHeight/4;
+      top: $dropdownHeight / 4;
       right: $dropdownHeight / 2 - $iconSize / 2;
       color: $grayAlt;
       z-index: 2;
@@ -52,7 +55,7 @@ $includeHtml: false !default;
       margin: 0 $dropdownHeight 0 $dropdownHeight / 2;
       white-space: nowrap;
       overflow: hidden;
-      
+
       &--active {
         display: none;
       }
@@ -60,7 +63,7 @@ $includeHtml: false !default;
 
     &__items {
       position: absolute;
-      top: $dropdownHeight - 2* $dropdownBorderSize;
+      top: $dropdownHeight - 2 * $dropdownBorderSize;
       visibility: hidden;
       overflow: hidden;
       padding: 0;

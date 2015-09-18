@@ -62,7 +62,6 @@ $includeHtml: false !default;
 
     &--with-border {
       border: solid $avatarBorderColor $avatarMediumBorderWidth;
-      border-width: $avatarMediumBorderWidth;
 
       &:before {
         left: -$avatarMediumBorderWidth;
@@ -70,8 +69,7 @@ $includeHtml: false !default;
     }
 
     &--small-with-border {
-      @extend .mint-avatar--with-border;
-      border-width: $avatarSmallBorderWidth;
+      border: solid $avatarBorderColor $avatarSmallBorderWidth;
 
       &:before {
         left: -$avatarSmallBorderWidth;
@@ -79,8 +77,7 @@ $includeHtml: false !default;
     }
 
     &--big-with-border {
-      @extend .mint-avatar--with-border;
-      border-width: $avatarBigBorderWidth;
+      border: solid $avatarBorderColor $avatarBigBorderWidth;
 
       &:before {
         left: -$avatarBigBorderWidth;

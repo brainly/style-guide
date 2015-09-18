@@ -9,7 +9,7 @@ $includeHtml: false !default;
 
     &__container {
       position: relative;
-      padding: $layoutDefaultPadding $layoutDefaultPadding;
+      padding: $layoutDefaultPadding;
 
       @include mintBreakpoint(medium-up) {
         max-width: $layoutMaximumWidth;

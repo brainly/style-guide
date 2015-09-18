@@ -5,17 +5,19 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .mint-popup-menu {
+    @include hole();
+
     position: relative;
     width: 100%;
-    padding: $userPanelPadding/3 $userPanelPadding/2;
+    padding: ($userPanelPadding / 3) ($userPanelPadding / 2);
     background-color: $userPanelBackground;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     &:before {
-      content: "";
-      border: $userPanelPadding/2 solid transparent;
+      content: '';
+      border: $userPanelPadding / 2 solid transparent;
       border-bottom-color: $userPanelBackground;
       position: absolute;
       top: -$userPanelPadding;
@@ -24,11 +26,9 @@ $includeHtml: false !default;
       margin: 0 auto;
     }
 
-    @include hole();
-
     &__hole {
       flex-grow: 1;
-      margin-right: $userPanelPadding/2;
+      margin-right: $userPanelPadding / 2;
 
       &:last-child {
         margin-right: 0;

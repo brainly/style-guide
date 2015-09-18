@@ -14,7 +14,7 @@ $includeHtml: false !default;
     width: 100%;
 
     &--spaced {
-      margin: rhythm(1) - $horizontalSeparatorHeight 0 rhythm(1) 0;
+      margin: (rhythm(1) - $horizontalSeparatorHeight) 0 rhythm(1);
     }
   }
 

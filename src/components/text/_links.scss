@@ -5,7 +5,8 @@
   text-decoration: none;
   font-weight: bold;
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     text-decoration: underline;
   }
 
@@ -33,7 +34,8 @@
   &--disabled {
     cursor: default;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       text-decoration: none;
     }
   }
