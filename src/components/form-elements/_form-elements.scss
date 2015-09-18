@@ -1,11 +1,11 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: fontSize(obscure);
-$selectHeight: rhythm(1 + 5 / 6);
+$selectHeight: rhythm(2);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
 
-$inputHeight: rhythm(1 + 5 / 6);
+$inputHeight: rhythm(2);
 $inputLowHeight: rhythm(1.5);
 $inputLargeHeight: rhythm(2 + 2 / 3);
 $inputBackground: $white;
@@ -67,6 +67,7 @@ $includeHtml: false !default;
     font-size: $selectFontSize;
     color: $selectTextColor;
     height: $selectHeight;
+    border: 2px solid $selectBackground;
 
     &__element {
       background: $selectBackground;
@@ -77,7 +78,7 @@ $includeHtml: false !default;
       display: inline-block;
       height: $selectHeight;
       position: relative;
-      padding: 0 ($selectHeight / 2 + rhythm(1 / 2)) 0 ($selectHeight / 2);
+      padding: 0 ($selectHeight / 2 + rhythm(2 / 3)) 0 ($selectHeight / 2);
       outline: 0;
       appearance: none;
       text-transform: uppercase;
@@ -156,6 +157,8 @@ $includeHtml: false !default;
       text-transform: uppercase;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
+      position: relative;
+      top: rhythm(1 / 12);
     }
 
     &--low {
@@ -331,6 +334,7 @@ $includeHtml: false !default;
     height: 100px;
     overflow-y: auto;
     appearance: none;
+    position: relative;
 
     &:focus {
       border-color: $textareaFocusBorderColor;
@@ -338,6 +342,8 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
+      position: relative;
+      top: rhythm(1 / 8);
       color: $textareaPlaceholderTextColor;
       text-transform: uppercase;
       font-size: $textareaPlaceholderFontSize;
