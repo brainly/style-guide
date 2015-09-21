@@ -67,5 +67,7 @@
       location: footer/footer
     - name: Content Box
       location: content-box/content-box
+    - name: Content List
+      location: content-list/content-list
     - name: Toplayer
       location: toplayer/toplayer
