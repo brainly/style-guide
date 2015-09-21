@@ -9,13 +9,13 @@ $includeHtml: false !default;
       min-height: rhythm(2);
 
       & ~ & {
-        margin-top: - rhythm(1 / 2);
-        margin-bottom: - rhythm(1 / 2);
+        margin-top: - rhythm(0.5);
+        margin-bottom: - rhythm(0.5);
       }
 
       ~ .mint-content-box__header {
-        margin-top: - rhythm(1 / 2);
-        margin-bottom: rhythm(1 / 2);
+        margin-top: - rhythm(0.5);
+        margin-bottom: rhythm(0.5);
       }
     }
 

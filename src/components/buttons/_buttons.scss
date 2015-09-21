@@ -1,5 +1,5 @@
 $buttonPrimaryHeight: rhythm(2);
-$buttonSecondaryHeight: rhythm(1 + 1 / 3);
+$buttonSecondaryHeight: rhythm(1.333);
 $buttonSecondarySmallHeight: rhythm(1);
 
 $buttonPrimaryFontSize: fontSize(default);
@@ -240,7 +240,7 @@ $includeHtml: false !default;
       font-weight: bold;
       font-size: $buttonRoundLabelFontSize;
       border-radius: 4px;
-      line-height: rhythm(1 / 2);
+      line-height: rhythm(0.5);
       background: $buttonRoundLabelBackground;
       color: $buttonRoundLabelColor;
       padding: 3px 5px;
