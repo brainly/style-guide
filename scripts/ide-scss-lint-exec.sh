@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
-# This is an scss-lint exec script for JetBrains-family IDEs
-SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source ${SCRIPT_DIR}/run-scss-lint.sh $1 -f JSON
+# This script will run scss-lint
+
+PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
+
+docker run --rm \
+  -v $PROJECT_DIR/src:/style-guide/src \
+  -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
+  brainly/style-guide scss-lint $1 --format JSON
