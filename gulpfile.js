@@ -8,9 +8,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var pkg = require('./package');
 
-var gulpif = require('gulp-if');
 var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
 var livereload = require('gulp-livereload');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
@@ -213,4 +211,13 @@ gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
 gulp.task('build', function (done) {
     runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
+});
+
+gulp.task('scss-lint', function() {
+    var scssLint = require('gulp-scss-lint');
+
+    return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
+        .pipe(scssLint({
+            'maxBuffer': 1024*1000
+        }));
 });

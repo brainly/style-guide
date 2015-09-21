@@ -12,16 +12,16 @@
     "gulp-base64": "^0.1.3",
     "gulp-fingerprint": "^0.3.2",
     "gulp-fontcustom": "0.1.1",
-    "gulp-if": "^1.2.5",
     "gulp-livereload": "^3.8.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-rev": "^6.0.0",
     "gulp-sass": "^2.0.1",
+    "gulp-scss-lint": "^0.3.0",
     "gulp-soften": "0.0.1",
-    "gulp-sourcemaps": "^1.5.2",
     "gulp-svg-sprite": "^1.2.7",
     "run-sequence": "^1.1.1",
-    "yargs": "^3.21.0"
+    "yargs": "^3.21.0",
+    "frontend-tools-configs": "brainly/frontend-tools-configs"
   }
 }
