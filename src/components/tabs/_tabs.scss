@@ -24,7 +24,7 @@ $includeHtml: false !default;
     font-size: $tabFontSize;
 
     &__tab {
-      @include uppercase;
+      @include uppercaseText;
       background: $tabBackground;
       border-right: 1px solid $tabSeparatorColor;
       color: $tabTextColor;

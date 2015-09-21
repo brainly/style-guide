@@ -15,7 +15,7 @@ $includeHtml: false !default;
     border-radius: 22px;
 
     &__header {
-      @include uppercase(-1px);
+      @include uppercaseText(-1px);
       color: $promoBoxHeaderColor;
       font-weight: $promoBoxHeaderFontWeight;
       font-size: $promoBoxHeaderFontSize;

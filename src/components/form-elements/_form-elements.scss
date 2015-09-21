@@ -70,7 +70,7 @@ $includeHtml: false !default;
     border: 2px solid $selectBackground;
 
     &__element {
-      @include uppercase;
+      @include uppercaseText;
       background: $selectBackground;
       border: none;
       font-size: inherit;
@@ -153,7 +153,7 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
-      @include uppercase;
+      @include uppercaseText;
       color: $inputPlaceholderTextColor;
       font-size: $inputPlaceholderFontSize;
       font-weight: bold;
@@ -283,7 +283,7 @@ $includeHtml: false !default;
     vertical-align: top;
 
     &--upper {
-      @include uppercase;
+      @include uppercaseText;
     }
   }
 
@@ -342,7 +342,7 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
-      @include uppercase;
+      @include uppercaseText;
       position: relative;
       top: rhythm(1 / 8);
       color: $textareaPlaceholderTextColor;

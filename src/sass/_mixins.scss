@@ -62,7 +62,7 @@
   // scss-lint:enable NameFormat
 }
 
-@mixin uppercase($letterSpacing: null){
+@mixin uppercaseText($letterSpacing: null){
   text-transform: uppercase;
   @if $letterSpacing != null {
     letter-spacing: $letterSpacing;

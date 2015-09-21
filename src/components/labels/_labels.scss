@@ -30,7 +30,7 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
-      @include uppercase;
+      @include uppercaseText;
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;

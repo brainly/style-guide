@@ -22,14 +22,14 @@ $includeHtml: false !default;
   .mint-header-secondary {
     @include component;
     @include typeVariant(default, 0.667);
-    @include uppercase;
+    @include uppercaseText;
     display: block;
     color: $black;
     font-weight: bold;
 
     &--small {
       @include typeVariant(small, 0.667);
-      @include uppercase(0.0625rem);
+      @include uppercaseText(0.0625rem);
     }
 
     &--light {

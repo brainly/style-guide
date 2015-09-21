@@ -27,7 +27,7 @@
   }
 
   &--emphasised {
-    @include uppercase(0.01rem);
+    @include uppercaseText(0.01rem);
   }
 
   &--disabled {
