@@ -1,4 +1,6 @@
 dist/
+.scss-lint.yml
+.editorconfig
 .idea
 .DS_Store
 node_modules
