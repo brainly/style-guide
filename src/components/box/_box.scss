@@ -1,6 +1,6 @@
 $boxBorderColor: $graySecondary;
 $boxBorderRadius: 22px;
-$boxBorderSize: rhythm(1 / 8);
+$boxBorderSize: rhythm(0.125);
 
 $includeHtml: false !default;
 
@@ -14,10 +14,10 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(1 / 2) - $borderSize) gutter(1 / 2) (rhythm(1 / 2) - $borderSize) gutter(1);
+    padding: (rhythm(0.5) - $borderSize) gutter(0.5) (rhythm(0.5) - $borderSize) gutter(1);
 
     &__hole {
-      margin: rhythm(1 / 2) gutter(1 / 2)  rhythm(1 / 2) 0;
+      margin: rhythm(0.5) gutter(0.5)  rhythm(0.5) 0;
     }
 
     &--full {

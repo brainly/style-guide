@@ -35,7 +35,7 @@ $includeHtml: false !default;
       vertical-align: middle;
       color: $labelPrimaryColor;
       font-weight: $labelFontWeight;
-      margin-right: gutter(1 / 4);
+      margin-right: gutter(0.25);
 
       &:last-child {
         margin-right: 0;
@@ -77,7 +77,7 @@ $includeHtml: false !default;
       font-size: $labelIconSizePrimary;
       display: block;
       vertical-align: middle;
-      margin-right: gutter(1 / 4);
+      margin-right: gutter(0.25);
 
       &:last-child {
         margin-right: 0;
@@ -124,7 +124,7 @@ $includeHtml: false !default;
       .mint-label__text,
       .mint-label__number {
         @include fixText($labelFontSizeSecondary);
-        margin-right: $labelScaleFactor * gutter(1 / 4);
+        margin-right: $labelScaleFactor * gutter(0.25);
 
         &:last-child {
           margin-right: 0;
@@ -132,7 +132,7 @@ $includeHtml: false !default;
       }
 
       .mint-label__icon {
-        margin-right: $labelScaleFactor * gutter(1 / 4);
+        margin-right: $labelScaleFactor * gutter(0.25);
         font-size: $labelIconSizeSecondary;
       }
     }

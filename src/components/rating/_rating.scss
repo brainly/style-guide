@@ -57,7 +57,7 @@ $includeHtml: false !default;
       @include uppercaseText;
       font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
-      margin: 0 0 0 gutter(1 / 4);
+      margin: 0 0 0 gutter(0.25);
     }
 
     &--small {
@@ -70,7 +70,7 @@ $includeHtml: false !default;
 
       .mint-rate-box__counter {
         @include fixText($rateStarSmallFontSize);
-        margin-left: gutter(1 / 4);
+        margin-left: gutter(0.25);
       }
     }
   }
