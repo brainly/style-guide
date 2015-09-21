@@ -62,7 +62,7 @@
   // scss-lint:enable NameFormat
 }
 
-@mixin uppercaseText($letterSpacing: null){
+@mixin uppercaseText($letterSpacing: null) {
   text-transform: uppercase;
   @if $letterSpacing != null {
     letter-spacing: $letterSpacing;
@@ -116,6 +116,6 @@
 }
 
 // set a value as a multiple of default gutter
-@function gutter($size){
+@function gutter($size) {
   @return $size * $layoutDefaultPadding;
 }
