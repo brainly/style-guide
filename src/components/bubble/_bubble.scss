@@ -24,7 +24,7 @@ $includeHtml: false !default;
     border: $borderSize solid $bubbleBorderColor;
     border-radius: $bubbleBorderRadius;
     box-shadow: $bubbleBoxShadow;
-    padding: (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding (rhythm(1 / 2) - $borderSize) $layoutDefaultPadding;
+    padding: (rhythm(1 / 2) - $borderSize) gutter(1 / 2)  (rhythm(1 / 2) - $borderSize) gutter(1);
     margin-bottom: rhythm(1);
 
     &:before {
@@ -52,7 +52,7 @@ $includeHtml: false !default;
     }
 
     &__hole {
-      margin: rhythm(1 / 2) 1 / 2 * $layoutDefaultPadding rhythm(1 / 2) 0;
+      margin: rhythm(1 / 2) gutter(1 / 2) rhythm(1 / 2) 0;
     }
 
     &--dark {

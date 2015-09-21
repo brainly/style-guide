@@ -23,7 +23,7 @@ $includeHtml: false !default;
       .mint-toplayer__wrapper {
         @include mintBreakpoint(medium-up) {
 
-          padding: ($toplayerFirstVerticalPadding + rhythm(1)) 2 * $layoutDefaultPadding rhythm(2) 2 * $layoutDefaultPadding;
+          padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2) gutter(2);
         }
       }
 
@@ -89,7 +89,7 @@ $includeHtml: false !default;
       font-size: 32px;
       height: 20px;
       font-weight: bold;
-      padding: 0 $layoutDefaultPadding / 4;
+      padding: 0 gutter (1 / 4);
       cursor: pointer;
 
       &:hover {
@@ -98,15 +98,15 @@ $includeHtml: false !default;
     }
 
     &__wrapper {
-      padding: $toplayerFirstVerticalPadding $layoutDefaultPadding rhythm(1) $layoutDefaultPadding;
+      padding: $toplayerFirstVerticalPadding gutter(1) rhythm(1) gutter(1);
     }
 
     &__heading {
-      margin-bottom: $layoutDefaultPadding;
+      margin-bottom: gutter(1);
     }
 
     &__content {
-      margin-bottom: $layoutDefaultPadding;
+      margin-bottom: gutter(1);
     }
 
     &__list-title {
