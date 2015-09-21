@@ -27,8 +27,7 @@
   }
 
   &--emphasised {
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
+    @include uppercaseText(0.01rem);
   }
 
   &--disabled {

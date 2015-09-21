@@ -1,5 +1,5 @@
 $textBitFontWeight: $fontWeightBlack;
-$textBitFontSize: header;
+$textBitFontSize: subheader;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
@@ -11,13 +11,12 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 .mint-text-bit {
   @include typeVariant($textBitFontSize, 2);
+  @include uppercaseText(-0.0625rem);
   color: $textBitColor;
   font-weight: $textBitFontWeight;
-  text-transform: uppercase;
   word-wrap: break-word;
   margin: 0;
   position: relative;
-  letter-spacing: -0.0625rem;
 
   @include mintBreakpoint(medium-up) {
     &:not(.mint-text-bit--not-responsive) {
@@ -61,10 +60,12 @@ $textBitLargerDesktopFontSize: fontSize(xxlarge);
   &--to-larger:not(.mint-text-bit--not-responsive) {
     @include mintBreakpoint(medium-up) {
       font-size: $textBitLargerTabletFontSize;
+      line-height: rhythm(3);
     }
 
     @include mintBreakpoint(large-only) {
       font-size: $textBitLargerDesktopFontSize;
+      line-height: rhythm(3);
     }
   }
 }

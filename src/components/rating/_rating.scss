@@ -54,9 +54,10 @@ $includeHtml: false !default;
 
     &__counter {
       @include fixText($rateStarFontSize, 0.125rem);
+      @include uppercaseText;
       font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
-      margin: 0 0 0 $layoutDefaultPadding / 2;
+      margin: 0 0 0 $layoutDefaultPadding / 4;
     }
 
     &--small {

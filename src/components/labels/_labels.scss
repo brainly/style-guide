@@ -30,11 +30,11 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
+      @include uppercaseText;
       display: block;
       vertical-align: middle;
       color: $labelPrimaryColor;
       font-weight: $labelFontWeight;
-      text-transform: uppercase;
       margin-right: $layoutDefaultPadding / 4;
 
       &:last-child {
@@ -43,7 +43,6 @@ $includeHtml: false !default;
     }
 
     &__text {
-      margin-right: $layoutDefaultPadding / 2;
       overflow: hidden;
     }
 
@@ -130,10 +129,6 @@ $includeHtml: false !default;
         &:last-child {
           margin-right: 0;
         }
-      }
-
-      .mint-label__text {
-        margin-right: $labelScaleFactor * $layoutDefaultPadding / 2;
       }
 
       .mint-label__icon {

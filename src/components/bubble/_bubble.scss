@@ -24,7 +24,7 @@ $includeHtml: false !default;
     border: $borderSize solid $bubbleBorderColor;
     border-radius: $bubbleBorderRadius;
     box-shadow: $bubbleBoxShadow;
-    padding: (rhythm(1 / 2) - $borderSize) 0 (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding;
+    padding: (rhythm(1 / 2) - $borderSize) 1 / 2 * $layoutDefaultPadding (rhythm(1 / 2) - $borderSize) $layoutDefaultPadding;
     margin-bottom: rhythm(1);
 
     &:before {

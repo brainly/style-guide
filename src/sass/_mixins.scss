@@ -62,6 +62,15 @@
   // scss-lint:enable NameFormat
 }
 
+@mixin uppercaseText($letterSpacing: null){
+  text-transform: uppercase;
+  @if $letterSpacing != null {
+    letter-spacing: $letterSpacing;
+  } @else {
+    letter-spacing: 0.03rem;
+  }
+}
+
 // Used for messing with fonts and baseline
 // Sets the font size and line height
 // fontsizeName - string

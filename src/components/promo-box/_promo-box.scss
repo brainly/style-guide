@@ -15,13 +15,12 @@ $includeHtml: false !default;
     border-radius: 22px;
 
     &__header {
+      @include uppercaseText(-1px);
       color: $promoBoxHeaderColor;
       font-weight: $promoBoxHeaderFontWeight;
       font-size: $promoBoxHeaderFontSize;
       line-height: 1;
       margin: 0;
-      text-transform: uppercase;
-      letter-spacing: -1px;
     }
 
     // content is user generated html,

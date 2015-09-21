@@ -1,5 +1,5 @@
 $headerDominantColor: #65a6a8;
-$headerHeight: 60px;
+$headerHeight:  rhythm(2.5); // 60px;
 
 $includeHtml: false !default;
 
@@ -12,6 +12,7 @@ $includeHtml: false !default;
     background-image: url($mintImagesPath + 'header_background_wide.jpg');
     background-repeat: repeat-x;
     background-color: $headerDominantColor;
+    margin-bottom: rhythm(3) - $headerHeight;
 
     &__container {
       display: flex;
