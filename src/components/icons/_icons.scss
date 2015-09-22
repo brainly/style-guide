@@ -17,6 +17,15 @@ $includeHtml: false !default;
     &--rotate-270 {
       transform: rotate(270deg);
     }
+
+    &--fluid {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--gray-alt {
+      fill: $grayAlt;
+    }
   }
 
   @import 'icons-embed';
