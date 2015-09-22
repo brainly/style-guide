@@ -1,7 +1,23 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
+  .mint-icon {
+    fill: $white;
+    width: 26px;
+    height: 26px;
 
+    &--rotate-90 {
+      transform: rotate(90deg);
+    }
+
+    &--rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    &--rotate-270 {
+      transform: rotate(270deg);
+    }
+  }
   @import 'icons-embed';
   @import 'icons-data';
   @import 'icons-transformed';
