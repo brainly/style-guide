@@ -222,3 +222,5 @@ gulp.task('scss-lint', function() {
         }))
         .pipe(scssLint.failReporter());
 });
+
+gulp.task('ci', ['scss-lint'])
