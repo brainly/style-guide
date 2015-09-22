@@ -4,8 +4,10 @@ $labelInactiveColor: $grayAlt;
 $labelFontWeight: $fontWeightBlack;
 $labelFontSizePrimary: fontSize(obscure);
 $labelFontSizeSecondary: fontSize(xsmall);
+$labelFontSizeLarge: fontSize(standout);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
+$labelIconSizeLarge: 24px;
 $labelScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
@@ -135,6 +137,24 @@ $includeHtml: false !default;
         margin-right: $labelScaleFactor * gutter(0.25);
         font-size: $labelIconSizeSecondary;
       }
+    }
+
+    &--large {
+      .mint-label__text,
+      .mint-label__number {
+        @include fixText($labelFontSizeLarge);
+        text-transform: none;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      .mint-label__icon {
+        font-size: $labelIconSizeLarge;
+        margin-right: gutter(0.5);
+      }
+
     }
   }
 
