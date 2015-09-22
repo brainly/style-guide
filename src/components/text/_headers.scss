@@ -23,6 +23,7 @@ $includeHtml: false !default;
     @include component;
     @include typeVariant(default, 0.667);
     @include uppercaseText;
+    min-height: rhythm(1.333);
     display: block;
     color: $black;
     font-weight: bold;
