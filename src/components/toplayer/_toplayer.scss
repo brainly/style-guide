@@ -23,7 +23,7 @@ $includeHtml: false !default;
       .mint-toplayer__wrapper {
         @include mintBreakpoint(medium-up) {
 
-          padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2) gutter(2);
+          padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
         }
       }
 
@@ -98,7 +98,7 @@ $includeHtml: false !default;
     }
 
     &__wrapper {
-      padding: $toplayerFirstVerticalPadding gutter(1) rhythm(1) gutter(1);
+      padding: $toplayerFirstVerticalPadding gutter(1) rhythm(1);
     }
 
     &__heading {
