@@ -8,6 +8,20 @@ $includeHtml: false !default;
       @include componentsContainer;
       min-height: rhythm(2);
 
+      &--large {
+        display: block;
+        margin-bottom: rhythm(1);
+
+        ~ .mint-content-box__actions--large {
+          margin-top: - rhythm(1);
+        }
+
+        ~ .mint-content-box__header {
+          margin-top: - rhythm(1.5);
+          margin-bottom: rhythm(0.5);
+        }
+      }
+
       & ~ & {
         margin-top: - rhythm(0.5);
         margin-bottom: - rhythm(0.5);
@@ -16,10 +30,6 @@ $includeHtml: false !default;
       ~ .mint-content-box__header {
         margin-top: - rhythm(0.5);
         margin-bottom: rhythm(0.5);
-      }
-
-      &--large ~ .mint-content-box__actions--large {
-        margin-top: - rhythm(1);
       }
     }
 
