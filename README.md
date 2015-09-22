@@ -1,5 +1,7 @@
 ![Brainly Style Guide](https://i.imgur.com/8MMAa2J.png)
 
+[![Build Status](https://travis-ci.org/brainly/style-guide.svg)](https://travis-ci.org/brainly/style-guide)
+
 This project is a reference style guide for all frontend components used in Brainly and styled with "Mint" theme.
 
 We have created this styleguide with this purposes in mind:
