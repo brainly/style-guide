@@ -119,3 +119,20 @@
 @function gutter($size) {
   @return $size * $layoutDefaultPadding;
 }
+
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function stripUnit($number) {
+  // scss-lint:disable NameFormat
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function toPx($rems) {
+  @return stripUnit($rems) * stripUnit($baseFont) * 1px;
+}
