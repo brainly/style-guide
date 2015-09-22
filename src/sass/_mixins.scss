@@ -120,6 +120,10 @@
   @return $size * $layoutDefaultPadding;
 }
 
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
 @function toPx($rems){
-  @return $rems / rhythm(1) * $baseFont;
+  @return strip-units($rems) * strip-units($baseFont) * 1px;
 }
