@@ -1,6 +1,6 @@
 $dropdownFontSize: fontSize(obscure);
-$dropdownHeight: rhythm(1.5);
-$dropdownBorderSize: rhythm(0.083);
+$dropdownHeight: toPx(rhythm(1.5));
+$dropdownBorderSize: 2px;
 $dropdownBackground: $white;
 $dropdownHoverColor: $graySecondary;
 $dropdownBorderColor: $grayAltLight;
@@ -34,7 +34,7 @@ $includeHtml: false !default;
     }
 
     &:before {
-      $iconSize: $dropdownFontSize + $iconBoostValue;
+      $iconSize: toPx($dropdownFontSize) + toPx($iconBoostValue);
       font-size: $iconSize;
       font-weight: bold;
       position: absolute;
