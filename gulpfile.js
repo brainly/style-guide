@@ -38,7 +38,7 @@ gulp.task('sass:build', function () {
         .pipe(sass({outputStyle: 'compressed'})
         .on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+            browsers: ['last 2 versions', 'op_mini'],
             cascade: false
         }))
         .pipe(rename('style-guide.css'))
@@ -53,7 +53,7 @@ gulp.task('sass:docs-build', function () {
         .pipe(sass({outputStyle: 'compressed'})
         .on('error', sass.logError))
         .pipe(autoprefixer({
-            browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+            browsers: ['last 2 versions', 'op_mini'],
             cascade: false
         }))
         .pipe(rename('main.css'))
