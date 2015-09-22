@@ -219,5 +219,6 @@ gulp.task('scss-lint', function() {
     return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
         .pipe(scssLint({
             'maxBuffer': 1024*1000
-        }));
+        }))
+        .pipe(scssLint.failReporter());
 });
