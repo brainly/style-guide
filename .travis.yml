@@ -9,3 +9,6 @@ before_install:
 
 script:
   - gulp ci
+
+notifications:
+  email: false
