@@ -120,10 +120,18 @@
   @return $size * $layoutDefaultPadding;
 }
 
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
 }
 
 @function toPx($rems){
-  @return strip-units($rems) * strip-units($baseFont) * 1px;
+  @return strip-unit($rems) * strip-unit($baseFont) * 1px;
 }
