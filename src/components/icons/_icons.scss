@@ -26,6 +26,10 @@ $includeHtml: false !default;
     &--gray-alt {
       fill: $grayAlt;
     }
+
+    &--gray-secondary {
+      fill: $graySecondary;
+    }
   }
 
   @import 'icons-embed';
