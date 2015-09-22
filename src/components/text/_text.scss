@@ -18,7 +18,7 @@ $includeHtml: false !default;
     &--headline {
       @include typeVariant(headline, 1.334);
       font-weight: normal;
-      margin: 0
+      margin: 0;
     }
 
     &--emphasised {
