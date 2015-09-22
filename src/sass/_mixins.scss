@@ -124,7 +124,8 @@
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
-@function strip-unit($number) {
+@function stripUnit($number) {
+  // scss-lint:disable NameFormat
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
@@ -132,6 +133,6 @@
   @return $number;
 }
 
-@function toPx($rems){
-  @return strip-unit($rems) * strip-unit($baseFont) * 1px;
+@function toPx($rems) {
+  @return stripUnit($rems) * stripUnit($baseFont) * 1px;
 }
