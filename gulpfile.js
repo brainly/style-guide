@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var argv = require('yargs').argv;
 var path = require('path');
-var fs = require('fs');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pkg = require('./package');
@@ -12,8 +11,6 @@ var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-var fontcustom = require('gulp-fontcustom');
-var base64 = require('gulp-base64');
 var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var rev = require('gulp-rev');
@@ -77,18 +74,19 @@ gulp.task('fingerprint-replace', function () {
     var manifest = require(path.join(VERSIONED_DIST, 'rev-manifest'));
     var css = path.join(VERSIONED_DIST, 'style-guide.css');
 
-    var docsHtml = path.join(VERSIONED_DIST, 'docs', '*.html')
+    var docsHtml = path.join(VERSIONED_DIST, 'docs', '*.html');
 
     gulp.src(css)
         .pipe(fingerprint(manifest, {prefix: '../'}))
         .pipe(gulp.dest(VERSIONED_DIST));
 
     return gulp.src(docsHtml)
-        .pipe(fingerprint(manifest, {prefix: '../../'}))
+        .pipe(fingerprint(manifest, {
+          prefix: '../../',
+          regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|xlink:href=['"](.*?)#|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
+        }))
         .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
 });
-
-
 
 gulp.task('clean:dist', function (done) {
     del([path.join(DIST, '**'), '!' + DIST], done);
@@ -124,7 +122,6 @@ gulp.task('subjects', function (done) {
 gulp.task('svg:icons', function (done) {
     var config = {
         mode: {
-            inline: true,     // Prepare for inline embedding
             symbol: {
                 sprite: '../icons.svg'
             }
@@ -133,7 +130,7 @@ gulp.task('svg:icons', function (done) {
 
     return gulp.src('./src/icons/*.svg')
         .pipe(svgSprite(config))
-        .pipe(gulp.dest('./dist/images'));
+        .pipe(gulp.dest('./src/images'));
 });
 
 gulp.task('jekyll:docs', function (gulpCallBack) {
@@ -178,20 +175,20 @@ gulp.task('watch:docs-sass', function (done) {
     return gulp.watch([docsSassSources], ['sass:docs-build']);
 });
 
+gulp.task('scss-lint', function() {
+  var scssLint = require('gulp-scss-lint');
+
+  return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
+    .pipe(scssLint({
+      'maxBuffer': 1024*1000
+    }))
+    .pipe(scssLint.failReporter());
+});
+
 gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
-});
-
-gulp.task('scss-lint', function() {
-    var scssLint = require('gulp-scss-lint');
-
-    return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
-        .pipe(scssLint({
-            'maxBuffer': 1024*1000
-        }))
-        .pipe(scssLint.failReporter());
+    runSequence('clean:dist', 'sass:build', 'svg:icons', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
 });
 
 gulp.task('ci', ['scss-lint']);
