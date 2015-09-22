@@ -21,43 +21,6 @@
     {% assign pageConfig=site.data.navigation[page.navigationIdx] %}
     {% include page.html %}
 </div>
-
-<script>
-    var showHolesCheckbox = document.getElementById('highlight-holes');
-    var showVRLinesCheckbox = document.getElementById('show-vr-lines');
-
-    function toggleHoles(value) {
-        if(value) {
-            document.body.classList.add('show-holes');
-        } else {
-            document.body.classList.remove('show-holes');
-        }
-
-        showHolesCheckbox.checked = value;
-        localStorage.showHoles = value;
-    }
-
-    function toggleVRLines(value) {
-        if(value) {
-            document.body.classList.add('show-vr-lines');
-        } else {
-            document.body.classList.remove('show-vr-lines');
-        }
-
-        showVRLinesCheckbox.checked = value;
-        localStorage.showVRLines = value;
-    }
-
-    showHolesCheckbox.addEventListener('change', function () {
-        toggleHoles(this.checked);
-    });
-    showVRLinesCheckbox.addEventListener('change', function () {
-        toggleVRLines(this.checked);
-    });
-
-    toggleHoles(localStorage.showHoles === 'true');
-    toggleVRLines(localStorage.showVRLines === 'true');
-</script>
 </body>
 
 </html>

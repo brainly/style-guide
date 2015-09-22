@@ -18,3 +18,30 @@
         <a href="https://github.com/brainly/style-guide" class="version">v{{ site.data.package.version }}</a>
     </aside>
 </nav>
+
+<script>
+    var showHolesCheckbox = document.getElementById('highlight-holes');
+    var showVRLinesCheckbox = document.getElementById('show-vr-lines');
+
+    function toggleHoles() {
+        document.body.classList.toggle('show-holes');
+        localStorage.showHoles = showHolesCheckbox.checked;
+    }
+
+    function toggleVRLines() {
+        document.body.classList.toggle('show-vr-lines');
+        localStorage.showVRLines = showVRLinesCheckbox.checked;
+    }
+
+    showHolesCheckbox.addEventListener('change', toggleHoles);
+    showVRLinesCheckbox.addEventListener('change', toggleVRLines);
+
+    if(localStorage.showHoles === 'true') {
+        showHolesCheckbox.checked = true;
+        toggleHoles();
+    }
+    if(localStorage.showVRLines === 'true') {
+        showVRLinesCheckbox.checked = true;
+        toggleVRLines();
+    }
+</script>
