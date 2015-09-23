@@ -1,7 +1,7 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  @import 'vendors/normalize';
+  @import '../../node_modules/normalize.scss/normalize';
 
   p,
   h1,
