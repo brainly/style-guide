@@ -30,6 +30,18 @@ $includeHtml: false !default;
     &--gray-secondary {
       fill: $graySecondary;
     }
+
+    &--mustard {
+      fill: $mustardPrimary;
+    }
+
+    &--lavender {
+      fill: $lavenderPrimary;
+    }
+
+    &--peach {
+      fill: $peachPrimary;
+    }
   }
 
   @import 'icons-embed';
