@@ -23,6 +23,10 @@ $includeHtml: false !default;
       height: 100%;
     }
 
+    &--adaptive {
+      fill: inherit;
+    }
+
     &--gray-alt {
       fill: $grayAlt;
     }
