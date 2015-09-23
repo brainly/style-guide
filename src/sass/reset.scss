@@ -18,4 +18,11 @@ $includeHtml: false !default;
     text-decoration: none;
   }
 
+  // overrides content-box from normalize
+  // scss-lint:disable QualifyingElement
+  input[type="search"] {
+    box-sizing: border-box;
+  }
+  // scss-lint:enable QualifyingElement
+
 }
