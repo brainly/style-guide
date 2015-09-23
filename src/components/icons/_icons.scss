@@ -6,6 +6,15 @@ $includeHtml: false !default;
     width: 26px;
     height: 26px;
 
+    &--small {
+      width: 20px;
+      height: 20px;
+    }
+
+    &--right-spaced {
+      margin-right: gutter(0.5);
+    }
+
     &--rotate-90 {
       transform: rotate(90deg);
     }
