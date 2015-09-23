@@ -2,7 +2,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+  /*! Based on normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
   /**
    * 1. Set default font family to sans-serif.
@@ -405,6 +405,21 @@ $includeHtml: false !default;
   td,
   th {
     padding: 0;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 
 }
