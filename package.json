@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "10.2.1",
+  "version": "12.0.2",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -22,6 +22,7 @@
     "gulp-soften": "0.0.1",
     "gulp-svg-sprite": "^1.2.7",
     "husky": "^0.10.1",
+    "normalize.scss": "^0.1.0",
     "run-sequence": "^1.1.1",
     "yargs": "^3.21.0"
   },

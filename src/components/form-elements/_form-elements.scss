@@ -104,7 +104,7 @@ $includeHtml: false !default;
     }
 
     &--small {
-      height: gutter(1.333);
+      height: rhythm(1.5);
 
       .mint-select__icon {
         top: rhythm(0.667) - $selectIconSize / 2;
@@ -112,7 +112,7 @@ $includeHtml: false !default;
       }
 
       .mint-select__element {
-        height: rhythm(1.333);
+        height: rhythm(1.5);
         padding: 0 rhythm(1.333) 0 rhythm(0.667);
       }
     }

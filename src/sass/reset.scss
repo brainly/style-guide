@@ -1,0 +1,28 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  @import '../../node_modules/normalize.scss/normalize';
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // overrides content-box from normalize
+  // scss-lint:disable QualifyingElement
+  input[type="search"] {
+    box-sizing: border-box;
+  }
+  // scss-lint:enable QualifyingElement
+
+}

@@ -202,35 +202,28 @@ $includeHtml: false !default;
   .mint-button-primary--fb {
     @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
 
-    .mint-button-primary__hole {
-      // scss-lint:disable PlaceholderInExtend
-      @extend .mint-icon-fb;
-      // scss-lint:enable PlaceholderInExtend
-
-      &:before {
-        font-size: 20px;
-        margin-right: gutter(0.5);
-      }
+    .mint-button-primary__icon {
+      margin-right: gutter(0.5);
+      width: 20px;
+      height: 20px;
     }
   }
 
   .mint-button-primary-round {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-plus;
-    // scss-lint:enable PlaceholderInExtend
     @include clearfix();
     display: inline-block;
 
-    &:before {
+    &__icon {
       @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient);
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: $buttonRoundAddSize;
       height: $buttonRoundAddSize;
       border-radius: 50%;
       line-height: $buttonRoundAddSize;
       text-align: center;
       color: $buttonRoundAddColor;
-      font-size: $buttonRoundAddFontSize;
       box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
     }
 
