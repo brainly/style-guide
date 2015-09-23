@@ -109,7 +109,7 @@ $includeHtml: false !default;
     }
 
     &--small {
-      height: gutter(1.333);
+      height: rhythm(1.5);
 
       &:before {
         right: gutter(0.333);
@@ -117,7 +117,7 @@ $includeHtml: false !default;
       }
 
       .mint-select__element {
-        height: gutter(1.333);
+        height: rhythm(1.5);
         padding: 0 gutter(1.333) 0 gutter(0.667);
       }
     }
