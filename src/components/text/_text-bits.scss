@@ -9,63 +9,69 @@ $textBitLargeFontSize: fontSize(large);
 $textBitLargerTabletFontSize: fontSize(xlarge);
 $textBitLargerDesktopFontSize: fontSize(xxlarge);
 
-.mint-text-bit {
-  @include typeVariant($textBitFontSize, 2);
-  @include uppercaseText(-0.0625rem);
-  color: $textBitColor;
-  font-weight: $textBitFontWeight;
-  word-wrap: break-word;
-  margin: 0;
-  position: relative;
+$includeHtml: false !default;
 
-  @include mintBreakpoint(medium-up) {
-    &:not(.mint-text-bit--not-responsive) {
+@if ($includeHtml) {
+
+  .mint-text-bit {
+    @include typeVariant($textBitFontSize, 2);
+    @include uppercaseText(-0.0625rem);
+    color: $textBitColor;
+    font-weight: $textBitFontWeight;
+    word-wrap: break-word;
+    margin: 0;
+    position: relative;
+
+    @include mintBreakpoint(medium-up) {
+      &:not(.mint-text-bit--not-responsive) {
+        font-size: $textBitLargeFontSize;
+      }
+    }
+
+    &__hole {
+      display: block;
+      position: absolute;
+      top: -22px;
+      left: -13px;
+      line-height: 0;
+
+      &--small {
+        top: -25px;
+        left: -10px;
+      }
+    }
+
+    &--alt {
+      color: $textBitAltColor;
+    }
+
+    &--light {
+      color: $textBitLightColor;
+    }
+
+    &--dark {
+      color: $textBitDarkColor;
+    }
+
+    &--warning {
+      color: $textBitWarningColor;
+    }
+
+    &--large {
       font-size: $textBitLargeFontSize;
     }
-  }
 
-  &__hole {
-    display: block;
-    position: absolute;
-    top: -22px;
-    left: -13px;
-    line-height: 0;
+    &--to-larger:not(.mint-text-bit--not-responsive) {
+      @include mintBreakpoint(medium-up) {
+        font-size: $textBitLargerTabletFontSize;
+        line-height: rhythm(3);
+      }
 
-    &--small {
-      top: -25px;
-      left: -10px;
+      @include mintBreakpoint(large-only) {
+        font-size: $textBitLargerDesktopFontSize;
+        line-height: rhythm(3);
+      }
     }
   }
 
-  &--alt {
-    color: $textBitAltColor;
-  }
-
-  &--light {
-    color: $textBitLightColor;
-  }
-
-  &--dark {
-    color: $textBitDarkColor;
-  }
-
-  &--warning {
-    color: $textBitWarningColor;
-  }
-
-  &--large {
-    font-size: $textBitLargeFontSize;
-  }
-
-  &--to-larger:not(.mint-text-bit--not-responsive) {
-    @include mintBreakpoint(medium-up) {
-      font-size: $textBitLargerTabletFontSize;
-      line-height: rhythm(3);
-    }
-
-    @include mintBreakpoint(large-only) {
-      font-size: $textBitLargerDesktopFontSize;
-      line-height: rhythm(3);
-    }
-  }
 }

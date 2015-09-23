@@ -1,41 +1,47 @@
-.mint-link {
-  @include removeDescenders;
-  cursor: pointer;
-  color: $bluePrimary;
-  text-decoration: none;
-  font-weight: bold;
+$includeHtml: false !default;
 
-  &:hover,
-  &:active {
-    text-decoration: underline;
-  }
+@if ($includeHtml) {
 
-  &--gray {
-    color: $grayPrimary;
-  }
-
-  &--small {
-    @include typeVariant(small, 0.75);
-  }
-
-  &--for-fine-print {
-    color: $blueSecondary;
-  }
-
-  &--for-fine-print-light {
-    color: $blueSecondaryLight;
-  }
-
-  &--emphasised {
-    @include uppercaseText(0.01rem);
-  }
-
-  &--disabled {
-    cursor: default;
+  .mint-link {
+    @include removeDescenders;
+    cursor: pointer;
+    color: $bluePrimary;
+    text-decoration: none;
+    font-weight: bold;
 
     &:hover,
     &:active {
-      text-decoration: none;
+      text-decoration: underline;
+    }
+
+    &--gray {
+      color: $grayPrimary;
+    }
+
+    &--small {
+      @include typeVariant(small, 0.75);
+    }
+
+    &--for-fine-print {
+      color: $blueSecondary;
+    }
+
+    &--for-fine-print-light {
+      color: $blueSecondaryLight;
+    }
+
+    &--emphasised {
+      @include uppercaseText(0.01rem);
+    }
+
+    &--disabled {
+      cursor: default;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
     }
   }
+
 }
