@@ -30,30 +30,13 @@ $includeHtml: false !default;
     font-size: $listFontSize;
     line-height: rhythm(2);
 
-    .mint-list__element {
-      // scss-lint:disable PlaceholderInExtend
-      @extend .mint-icon-arrow_down;
-      // scss-lint:enable PlaceholderInExtend
+    &__element {
+      display: flex;
+      align-items: center;
+    }
 
-      &:before {
-        font-family: $fontFamilyIcons;
-        color: $listIconColor;
-        transform: rotate(-90deg);
-        font-size: 38px;
-        vertical-align: -5px;
-        margin-right: 10px;
-      }
-
-      &--with-plus {
-        &:before {
-          // scss-lint:disable PlaceholderInExtend
-          @extend .mint-icon-plus;
-          // scss-lint:enable PlaceholderInExtend
-          font-size: 24px;
-          vertical-align: 0;
-          color: $listSmallIconColor;
-        }
-      }
+    &__icon {
+      display: flex;
     }
 
     &--small {
@@ -62,16 +45,7 @@ $includeHtml: false !default;
       font-size: $smallListFontSize;
 
       .mint-list__element {
-        &:before {
-          font-size: 24px;
-          vertical-align: -8px;
-          height: 15px;
-        }
 
-        &--with-plus:before {
-          font-size: 14px;
-          vertical-align: 1px;
-        }
       }
     }
   }
