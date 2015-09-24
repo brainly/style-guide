@@ -287,17 +287,15 @@ $includeHtml: false !default;
   }
 
   .mint-checkbox__ghost {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-check;
-    // scss-lint:enable PlaceholderInExtend
     border-radius: 25%;
 
-    &:before {
-      font-size: 1.375rem;
+    &-check {
+      width: 1.375rem;
+      height: 1.375rem;
       position: absolute;
       left: -18%;
       top: -8%;
-      color: $crInputColor;
+      fill: $crInputColor;
     }
   }
 
