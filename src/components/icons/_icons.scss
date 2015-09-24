@@ -1,5 +1,16 @@
 $includeHtml: false !default;
 
+// Icon sizes :(
+// 48
+// 32
+// 26
+// 24
+// 20
+// 18
+// 16
+// 14
+
+
 @if ($includeHtml) {
   .mint-icon {
     fill: $white;
