@@ -169,7 +169,7 @@ gulp.task('watch:docs-templates', function (done) {
 });
 
 gulp.task('watch:docs-sass', function (done) {
-    var docsSassSources = path.join(DOCS, '**', '*.scss');
+    var docsSassSources = path.join(DOCS, '_sass', '*.scss');
 
     livereload.listen();
     return gulp.watch([docsSassSources], ['sass:docs-build']);
