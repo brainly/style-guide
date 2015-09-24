@@ -8,6 +8,7 @@ $labelFontSizeLarge: fontSize(standout);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
 $labelIconSizeLarge: 24px;
+$labelIconSizePrimaryLarge: 32px;
 $labelScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
@@ -47,6 +48,10 @@ $includeHtml: false !default;
 
       &:last-child {
         margin-right: 0;
+      }
+      &--large {
+        width: $labelIconSizePrimaryLarge;
+        height: $labelIconSizePrimaryLarge;
       }
     }
 
@@ -103,8 +108,9 @@ $includeHtml: false !default;
       }
 
       .mint-label__icon {
-        font-size: $labelIconSizeLarge;
         margin-right: gutter(0.5);
+        width: $labelIconSizeLarge;
+        height: $labelIconSizeLarge;
       }
 
     }
