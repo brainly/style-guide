@@ -17,6 +17,8 @@
 - name: Components
   location: components
   elements:
+    - name: Breadcrumbs
+      location: breadcrumbs/breadcrumbs
     - name: Lists
       location: list/list
     - name: Badges
