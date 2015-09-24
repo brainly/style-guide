@@ -1,5 +1,16 @@
 $includeHtml: false !default;
 
+// Icon sizes :(
+// 48
+// 32
+// 26
+// 24
+// 20
+// 18
+// 16
+// 14
+
+
 @if ($includeHtml) {
   .mint-icon {
     fill: $white;
@@ -9,6 +20,16 @@ $includeHtml: false !default;
     &--small {
       width: 20px;
       height: 20px;
+    }
+
+    &--xsmall {
+      width: 18px;
+      height: 18px;
+    }
+
+    &--xxsmall {
+      width: 16px;
+      height: 16px;
     }
 
     &--right-spaced {
@@ -42,6 +63,10 @@ $includeHtml: false !default;
 
     &--gray-secondary {
       fill: $graySecondary;
+    }
+
+    &--blue {
+      fill: $bluePrimary;
     }
 
     &--mustard {
