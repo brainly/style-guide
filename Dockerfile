@@ -8,7 +8,7 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update
 RUN apt-get install -y openjdk-7-jre-headless
 RUN gem install s3_website --no-rdoc --no-ri
-RUN gem install scss_lint --no-rdoc --no-ri
+RUN gem install scss_lint -v 0.41.0 --no-rdoc --no-ri
 RUN gem install jekyll --no-rdoc --no-ri
 
 RUN npm install gulp -g
