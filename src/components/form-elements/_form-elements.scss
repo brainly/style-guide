@@ -95,7 +95,7 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      right: ($selectHeight / 4 + rhythm(0.334)) - $selectIconSize / 2;
+      right: ($selectHeight / 4 + rhythm(0.333)) - $selectIconSize / 2;
       top: $selectHeight / 2 - $selectIconSize / 2;
       height: $selectIconSize;
       width: $selectIconSize;
