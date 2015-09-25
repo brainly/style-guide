@@ -1,5 +1,3 @@
-$colorsListMaxWidth: 4*$colorBoxDimension + 10px;
-
 .colors-list {
   list-style: none;
   padding: 0;
@@ -19,9 +17,6 @@ $colorsListMaxWidth: 4*$colorBoxDimension + 10px;
   &--3rows {
     height: 3 * $colorBoxDimension;
   }
-
-
-
 }
 
 .colors-list--narrow {

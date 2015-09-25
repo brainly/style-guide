@@ -38,7 +38,7 @@
   min-height: auto;
 }
 
-// $lineHeight-offset is a way to fix font issue with the baseline
+// $lineHeightOffset is a way to fix font issue with the baseline
 // the issue is visible when centering the text of at least 12px
 @mixin fixText($fontSize, $lineHeightOffset: 0) {
   font-size: $fontSize;
