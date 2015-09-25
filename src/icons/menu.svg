@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve">
-<g id="XMLID_18_">
-	<g id="XMLID_41_">
-		<path id="XMLID_42_" fill-rule="evenodd" clip-rule="evenodd" d="M4,14h40c2.2,0,4-1.8,4-4s-1.8-4-4-4H4c-2.2,0-4,1.8-4,4
-			S1.8,14,4,14z M44,20H4c-2.2,0-4,1.8-4,4s1.8,4,4,4h40c2.2,0,4-1.8,4-4S46.2,20,44,20z M44,34H4c-2.2,0-4,1.8-4,4s1.8,4,4,4h40
-			c2.2,0,4-1.8,4-4S46.2,34,44,34z"/>
-	</g>
-</g>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 48 48">
+	<path d="M4,14h40c2.2,0,4-1.8,4-4s-1.8-4-4-4H4c-2.2,0-4,1.8-4,4
+		S1.8,14,4,14z M44,20H4c-2.2,0-4,1.8-4,4s1.8,4,4,4h40c2.2,0,4-1.8,4-4S46.2,20,44,20z M44,34H4c-2.2,0-4,1.8-4,4s1.8,4,4,4h40
+		c2.2,0,4-1.8,4-4S46.2,34,44,34z"/>
+
 </svg>

@@ -130,6 +130,7 @@ gulp.task('svg:icons', function (done) {
 
     return gulp.src('./src/icons/*.svg')
         .pipe(svgSprite(config))
+        .pipe(replace('<symbol', '<symbol style="visibility: visible;"'))
         .pipe(gulp.dest('./src/images'));
 });
 

@@ -37,6 +37,7 @@ $includeHtml: false !default;
 
     &__icon {
       display: flex;
+      margin-right: gutter(0.334);
     }
 
     &--small {
@@ -44,8 +45,8 @@ $includeHtml: false !default;
       font-weight: bold;
       font-size: $smallListFontSize;
 
-      .mint-list__element {
-
+      .mint-list__icon {
+        margin-right: gutter(0.167);
       }
     }
   }

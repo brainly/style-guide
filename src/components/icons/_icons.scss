@@ -2,6 +2,7 @@ $includeHtml: false !default;
 
 // Icon sizes :(
 // 48
+// 38 - list icons (arrow right)
 // 32
 // 26
 // 24
@@ -30,6 +31,11 @@ $includeHtml: false !default;
     &--xxsmall {
       width: 16px;
       height: 16px;
+    }
+
+    &--large {
+      width: 38px;
+      height: 38px;
     }
 
     &--right-spaced {
