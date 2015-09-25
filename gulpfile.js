@@ -92,7 +92,7 @@ gulp.task('clean:dist', function (done) {
     del([path.join(DIST, '**'), '!' + DIST], done);
 });
 
-gulp.task('subjects', function (done) {
+gulp.task('svg:subjects', function (done) {
     var config = {
         mode: {
             css: {
@@ -130,7 +130,7 @@ gulp.task('svg:icons', function (done) {
 
     return gulp.src('./src/icons/*.svg')
         .pipe(svgSprite(config))
-        .pipe(replace('<symbol', '<symbol style="visibility: visible;"'))
+        .pipe(replace('<symbol', '<symbol style="overflow: visible;"'))
         .pipe(gulp.dest('./src/images'));
 });
 
