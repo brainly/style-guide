@@ -1,32 +1,44 @@
 <section class="docs-block">
-    <div class="docs-block__content">
+    <div class="docs-block__content docs-block__contrast-box">
         <ul class="icons-list">
-            <li class="icons-list__element mint-icon-answered">- mint-icon-answered</li>
-            <li class="icons-list__element mint-icon-answering">- mint-icon-answering</li>
-            <li class="icons-list__element mint-icon-arrow_down">- mint-icon-arrow_down</li>
-            <li class="icons-list__element mint-icon-arrow_left">- mint-icon-arrow_left</li>
-            <li class="icons-list__element mint-icon-arrow_right">- mint-icon-arrow_right</li>
-            <li class="icons-list__element mint-icon-arrow_up">- mint-icon-arrow_up</li>
-            <li class="icons-list__element mint-icon-check">- mint-icon-check</li>
-            <li class="icons-list__element mint-icon-comment">- mint-icon-comment</li>
-            <li class="icons-list__element mint-icon-excellent">- mint-icon-excellent</li>
-            <li class="icons-list__element mint-icon-friends">- mint-icon-friends</li>
-            <li class="icons-list__element mint-icon-heart">- mint-icon-heart</li>
-            <li class="icons-list__element mint-icon-menu">- mint-icon-menu</li>
-            <li class="icons-list__element mint-icon-messages">- mint-icon-messages</li>
-            <li class="icons-list__element mint-icon-notifications">- mint-icon-notifications</li>
-            <li class="icons-list__element mint-icon-pencil">- mint-icon-pencil</li>
-            <li class="icons-list__element mint-icon-plus">- mint-icon-plus</li>
-            <li class="icons-list__element mint-icon-profile">- mint-icon-profile</li>
-            <li class="icons-list__element mint-icon-search">- mint-icon-search</li>
-            <li class="icons-list__element mint-icon-star">- mint-icon-star</li>
-            <li class="icons-list__element mint-icon-stream">- mint-icon-stream</li>
-            <li class="icons-list__element mint-icon-report_flag">- mint-icon-report_flag</li>
-            <li class="icons-list__element mint-icon-fb">- mint-icon-fb</li>
-            <li class="icons-list__element mint-icon-attachment">- mint-icon-attachment</li>
-            <li class="icons-list__element mint-icon-bold">- mint-icon-bold</li>
-            <li class="icons-list__element mint-icon-equation">- mint-icon-equation</li>
-            <li class="icons-list__element mint-icon-symbols">- mint-icon-symbols</li>
+            {% for item in site.data.icons %}
+                <li class="icons-list__element">
+                    <svg class="mint-icon"><use xlink:href="images/icons.svg#{{ item }}"></use></svg> - {{ item }}
+                </li>
+            {% endfor %}
         </ul>
     </div>
+</section>
+<section class="docs-block">
+    <aside class="docs-block__info">
+        <h3 class="docs-block__header">Rotated</h3>
+    </aside>
+    <div class="docs-block__content docs-block__contrast-box">
+        <ul class="icons-list">
+            <li class="icons-list__element">
+                <svg class="mint-icon mint-icon--rotate-90"><use xlink:href="images/icons.svg#arrow_down"></use></svg> - 90deg
+            </li>
+            <li class="icons-list__element">
+                <svg class="mint-icon  mint-icon--rotate-180"><use xlink:href="images/icons.svg#arrow_down"></use></svg> - 180deg
+            </li>
+            <li class="icons-list__element">
+                <svg class="mint-icon  mint-icon--rotate-270"><use xlink:href="images/icons.svg#arrow_down"></use></svg> - 270deg
+            </li>
+        </ul>
+    </div>
+</section>
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Colors</h3>
+  </aside>
+  <div class="docs-block__content">
+    <ul class="icons-list">
+      <li class="icons-list__element">
+        <svg class="mint-icon mint-icon--gray-alt"><use xlink:href="images/icons.svg#friends"></use></svg> - gray-alt
+      </li>
+      <li class="icons-list__element">
+        <svg class="mint-icon mint-icon--gray-secondary"><use xlink:href="images/icons.svg#friends"></use></svg> - gray-secondary
+      </li>
+    </ul>
+  </div>
 </section>

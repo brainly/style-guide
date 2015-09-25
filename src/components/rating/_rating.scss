@@ -5,8 +5,10 @@ $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $grayPrimary;
 $rateCounterFontWeight: $fontWeightBlack;
-$rateStarFontSize: fontSize(obscure);
-$rateStarSmallFontSize: fontSize(xsmall);
+$rateFontSize: fontSize(obscure);
+$rateIconSize: rhythm(0.75);
+$rateSmallFontSize: fontSize(xsmall);
+$rateSmallIconSize: rhythm(0.667);
 $rateScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
@@ -22,38 +24,38 @@ $includeHtml: false !default;
     &--active {
 
       .mint-rate-box__star:hover ~ .mint-rate-box__star {
-        color: $rateStarColor;
+        fill: $rateStarColor;
       }
 
       &:active .mint-rate-box__star:hover ~ .mint-rate-box__star {
-        color: $rateStarActiveColor;
+        fill: $rateStarActiveColor;
       }
 
       &:hover .mint-rate-box__star {
-        color: $rateStarCheckedColor;
-        transition: color 0.1s ease-in;
+        fill: $rateStarCheckedColor;
+        transition: fill 0.1s ease-in;
       }
 
       &:active:hover .mint-rate-box__star {
-        color: $rateStarActiveCheckedColor;
+        fill: $rateStarActiveCheckedColor;
         transition: none;
       }
     }
 
     &__star {
-      @include icon(star);
-
-      color: $rateStarColor;
-      font-size: $rateStarFontSize + $iconBoostValue;
+      fill: $rateStarColor;
+      width: $rateIconSize;
+      height: $rateIconSize;
       padding: 0 1px;
+      display: flex;
 
       &--checked {
-        color: $rateStarCheckedColor;
+        fill: $rateStarCheckedColor;
       }
     }
 
     &__counter {
-      @include fixText($rateStarFontSize, 0.125rem);
+      @include fixText($rateFontSize, 0.125rem);
       @include uppercaseText;
       font-weight: $rateCounterFontWeight;
       color: $rateCounterColor;
@@ -61,15 +63,16 @@ $includeHtml: false !default;
     }
 
     &--small {
-      @include fixText($rateStarSmallFontSize);
+      @include fixText($rateSmallFontSize);
       height: $rateScaleFactor * $rateHeight;
 
       .mint-rate-box__star {
-        font-size: $rateStarSmallFontSize + $iconBoostValue;
+        height: $rateSmallIconSize;
+        width: $rateSmallIconSize;
       }
 
       .mint-rate-box__counter {
-        @include fixText($rateStarSmallFontSize);
+        @include fixText($rateSmallFontSize);
         margin-left: gutter(0.25);
       }
     }

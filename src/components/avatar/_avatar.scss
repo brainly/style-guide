@@ -1,5 +1,4 @@
 $avatarDefaultBackgroundColor: $grayPrimary;
-$avatarDefaultPersonColor: $graySecondary;
 $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
@@ -7,17 +6,13 @@ $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
 $avatarBorderColor: $white;
-$avatarBackgroundColor: $white;
-
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .mint-avatar {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-profile;
-    // scss-lint:enable PlaceholderInExtend
+
     @include component;
 
     width: $avatarMediumSize;
@@ -26,27 +21,21 @@ $includeHtml: false !default;
     background: $avatarDefaultBackgroundColor;
 
     &__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: $avatarBackgroundColor;
-    }
-
-    &:before {
       position: relative;
-      top: 4px - $avatarMediumBorderWidth;
-      color: $avatarDefaultPersonColor;
-      font-size: $avatarMediumSize;
+      height: 100%;
+      width: 100%;
+
+      &--icon {
+        top: 3px;
+      }
     }
 
     &--small {
       width: $avatarSmallSize;
       height: $avatarSmallSize;
 
-      &:before {
-        top: 3px - $avatarSmallBorderWidth;
-        font-size: $avatarSmallSize;
+      .mint-avatar__image--icon {
+        top: 2px;
       }
     }
 
@@ -54,9 +43,8 @@ $includeHtml: false !default;
       width: $avatarBigSize;
       height: $avatarBigSize;
 
-      &:before {
-        top: 5px - $avatarBigBorderWidth;
-        font-size: $avatarBigSize;
+      .mint-avatar__image--icon {
+        top: 5px;
       }
     }
 

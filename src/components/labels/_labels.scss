@@ -8,18 +8,10 @@ $labelFontSizeLarge: fontSize(standout);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
 $labelIconSizeLarge: 24px;
+$labelIconSizePrimaryLarge: 32px;
 $labelScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
-
-@mixin labelFromIcon($name) {
-  &--#{$name}:before {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-#{$name}:before;
-    // scss-lint:enabled PlaceholderInExtend
-    display: block;
-  }
-}
 
 @if ($includeHtml) {
 
@@ -49,53 +41,18 @@ $includeHtml: false !default;
     }
 
     &__icon {
-      @include labelFromIcon(answering);
-      @include labelFromIcon(answered);
-      @include labelFromIcon(arrow_down);
-      @include labelFromIcon(arrow_left);
-      @include labelFromIcon(arrow_right);
-      @include labelFromIcon(arrow_up);
-      @include labelFromIcon(attachment);
-      @include labelFromIcon(bold);
-      @include labelFromIcon(check);
-      @include labelFromIcon(comment);
-      @include labelFromIcon(equation);
-      @include labelFromIcon(excellent);
-      @include labelFromIcon(fb);
-      @include labelFromIcon(friends);
-      @include labelFromIcon(heart);
-      @include labelFromIcon(logo);
-      @include labelFromIcon(menu);
-      @include labelFromIcon(messages);
-      @include labelFromIcon(notifications);
-      @include labelFromIcon(pencil);
-      @include labelFromIcon(profile);
-      @include labelFromIcon(report_flag);
-      @include labelFromIcon(search);
-      @include labelFromIcon(star);
-      @include labelFromIcon(stream);
-      @include labelFromIcon(symbols);
-
-      font-size: $labelIconSizePrimary;
-      display: block;
-      vertical-align: middle;
+      width: $labelIconSizePrimary;
+      height: $labelIconSizePrimary;
+      display: flex;
       margin-right: gutter(0.25);
 
       &:last-child {
         margin-right: 0;
       }
 
-      &--heart {
-        color: $peachPrimary;
-      }
-
-      &--comment {
-        color: $lavenderPrimary;
-      }
-
-      &--star,
-      &--excellent {
-        color: $mustardPrimary;
+      &--large {
+        width: $labelIconSizePrimaryLarge;
+        height: $labelIconSizePrimaryLarge;
       }
     }
 
@@ -135,7 +92,8 @@ $includeHtml: false !default;
 
       .mint-label__icon {
         margin-right: $labelScaleFactor * gutter(0.25);
-        font-size: $labelIconSizeSecondary;
+        width: $labelIconSizeSecondary;
+        height: $labelIconSizeSecondary;
       }
     }
 
@@ -151,8 +109,9 @@ $includeHtml: false !default;
       }
 
       .mint-label__icon {
-        font-size: $labelIconSizeLarge;
         margin-right: gutter(0.5);
+        width: $labelIconSizeLarge;
+        height: $labelIconSizeLarge;
       }
 
     }

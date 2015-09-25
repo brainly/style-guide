@@ -1,6 +1,92 @@
 $includeHtml: false !default;
 
+// Icon sizes :(
+// 48
+// 38 - list icons (arrow right)
+// 32
+// 26
+// 24
+// 20
+// 18
+// 16 tiny
+// 14 xtiny
+
+
 @if ($includeHtml) {
+  .mint-icon {
+    fill: $white;
+    width: 26px;
+    height: 26px;
+
+    &--small {
+      width: 20px;
+      height: 20px;
+    }
+
+    &--xsmall {
+      width: 18px;
+      height: 18px;
+    }
+
+    &--xxsmall {
+      width: 16px;
+      height: 16px;
+    }
+
+    &--large {
+      width: 38px;
+      height: 38px;
+    }
+
+    &--right-spaced {
+      margin-right: gutter(0.5);
+    }
+
+    &--rotate-90 {
+      transform: rotate(90deg);
+    }
+
+    &--rotate-180 {
+      transform: rotate(180deg);
+    }
+
+    &--rotate-270 {
+      transform: rotate(270deg);
+    }
+
+    &--fluid {
+      width: 100%;
+      height: 100%;
+    }
+
+    &--adaptive {
+      fill: inherit;
+    }
+
+    &--gray-alt {
+      fill: $grayAlt;
+    }
+
+    &--gray-secondary {
+      fill: $graySecondary;
+    }
+
+    &--blue {
+      fill: $bluePrimary;
+    }
+
+    &--mustard {
+      fill: $mustardPrimary;
+    }
+
+    &--lavender {
+      fill: $lavenderPrimary;
+    }
+
+    &--peach {
+      fill: $peachPrimary;
+    }
+  }
 
   @import 'icons-embed';
   @import 'icons-data';

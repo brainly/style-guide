@@ -11,9 +11,6 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-dropdown {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-arrow_down;
-    // scss-lint:enable PlaceholderInExtend
     @include component;
     @include hole;
 
@@ -33,14 +30,12 @@ $includeHtml: false !default;
       border-color: $dropdownHoverColor;
     }
 
-    &:before {
+    &__icon {
       $iconSize: toPx($dropdownFontSize) + toPx($iconBoostValue);
-      font-size: $iconSize;
-      font-weight: bold;
+      display: flex;
       position: absolute;
       top: $dropdownHeight / 4;
       right: $dropdownHeight / 2 - $iconSize / 2;
-      color: $grayAlt;
       z-index: 2;
       transition: transform 0.3s;
     }
@@ -106,7 +101,7 @@ $includeHtml: false !default;
         border-bottom-color: transparent;
       }
 
-      &:before {
+      .mint-dropdown__icon {
         transform: rotate(180deg);
       }
 

@@ -1,6 +1,7 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: fontSize(obscure);
+$selectIconSize: rhythm(0.667);
 $selectHeight: rhythm(2);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
@@ -58,9 +59,6 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-select {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-arrow_down;
-    // scss-lint:enalbe PlaceholderInExtend
     @include component;
 
     border-radius: $selectHeight / 2;
@@ -95,30 +93,27 @@ $includeHtml: false !default;
       }
     }
 
-    &:before {
-      $iconSize: $selectFontSize + $iconBoostValue;
-      font-size: $iconSize;
-      font-weight: bold;
+    &__icon {
       position: absolute;
-      right: $selectHeight / 2 - $iconSize / 2;
-      top: 50%;
+      right: ($selectHeight / 4 + rhythm(0.333)) - $selectIconSize / 2;
+      top: $selectHeight / 2 - $selectIconSize / 2;
+      height: $selectIconSize;
+      width: $selectIconSize;
       pointer-events: none;
       z-index: 1;
-      margin-top: 1px;
-      transform: translateY(-50%);
     }
 
     &--small {
       height: rhythm(1.5);
 
-      &:before {
-        right: gutter(0.333);
-        margin-top: 0;
+      .mint-select__icon {
+        top: rhythm(0.667) - $selectIconSize / 2;
+        right: rhythm(0.667) - $selectIconSize / 2;
       }
 
       .mint-select__element {
         height: rhythm(1.5);
-        padding: 0 gutter(1.333) 0 gutter(0.667);
+        padding: 0 rhythm(1.333) 0 rhythm(0.667);
       }
     }
 
@@ -292,17 +287,15 @@ $includeHtml: false !default;
   }
 
   .mint-checkbox__ghost {
-    // scss-lint:disable PlaceholderInExtend
-    @extend .mint-icon-check;
-    // scss-lint:enable PlaceholderInExtend
     border-radius: 25%;
 
-    &:before {
-      font-size: 1.375rem;
+    &-check {
+      width: 1.375rem;
+      height: 1.375rem;
       position: absolute;
       left: -18%;
       top: -8%;
-      color: $crInputColor;
+      fill: $crInputColor;
     }
   }
 

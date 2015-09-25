@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var argv = require('yargs').argv;
 var path = require('path');
-var fs = require('fs');
 var del = require('del');
 var runSequence = require('run-sequence');
 var pkg = require('./package');
@@ -12,8 +11,6 @@ var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-var fontcustom = require('gulp-fontcustom');
-var base64 = require('gulp-base64');
 var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var rev = require('gulp-rev');
@@ -77,68 +74,25 @@ gulp.task('fingerprint-replace', function () {
     var manifest = require(path.join(VERSIONED_DIST, 'rev-manifest'));
     var css = path.join(VERSIONED_DIST, 'style-guide.css');
 
-    var docsHtml = path.join(VERSIONED_DIST, 'docs', '*.html')
+    var docsHtml = path.join(VERSIONED_DIST, 'docs', '*.html');
 
     gulp.src(css)
         .pipe(fingerprint(manifest, {prefix: '../'}))
         .pipe(gulp.dest(VERSIONED_DIST));
 
     return gulp.src(docsHtml)
-        .pipe(fingerprint(manifest, {prefix: '../../'}))
-        .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
-});
-
-gulp.task('icons:generate-fonts', function () {
-    var icons = path.join(SRC, 'icons');
-    var iconsComponentPath = path.join(COMPONENTS, 'icons', 'font');
-
-    return gulp.src(icons)
-        .pipe(fontcustom({
-            font_name: 'brainly-icons', // defaults to 'fontcustom'
-            templates: 'scss',
-            'css-selector': '.mint-icon-{{glyph}}'
+        .pipe(fingerprint(manifest, {
+          prefix: '../../',
+          regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|xlink:href=['"](.*?)#|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
         }))
-        .pipe(gulp.dest(iconsComponentPath));
-});
-
-gulp.task('icons:create-data-file', function () {
-    var iconsComponentPath = path.join(COMPONENTS, 'icons');
-    var iconsScss = path.join(iconsComponentPath, 'font', '_brainly-icons.scss');
-    var iconsDataScss = path.join(iconsComponentPath, '_icons-data.scss');
-
-    var fontIconsContents = fs.readFileSync(iconsScss),
-        splitByHeader = fontIconsContents.toString().split('[data-icon]:before,'),
-        withoutHeader = splitByHeader[splitByHeader.length - 1];
-
-    fs.writeFileSync(iconsDataScss, withoutHeader);
-});
-
-gulp.task('icons:inline-fonts', function () {
-    var iconsComponentPath = path.join(COMPONENTS, 'icons');
-    var iconsEmbedTemplate = path.join(iconsComponentPath, '_icons-embed-template.scss');
-
-    return gulp.src(iconsEmbedTemplate)
-        .pipe(base64())
-        .pipe(rename('_icons-embed.scss'))
-        .pipe(gulp.dest(iconsComponentPath));
-});
-
-gulp.task('icons:cleanup', function (done) {
-    var iconFont = path.join(COMPONENTS, 'icons', 'font');
-    var fontManifest = '.fontcustom-manifest.json';
-
-    del([iconFont, fontManifest], done);
+        .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
 });
 
 gulp.task('clean:dist', function (done) {
     del([path.join(DIST, '**'), '!' + DIST], done);
 });
 
-gulp.task('icons', function (done) {
-    runSequence('icons:generate-fonts', 'icons:create-data-file', 'icons:inline-fonts', 'icons:cleanup', done);
-});
-
-gulp.task('subjects', function (done) {
+gulp.task('svg:subjects', function (done) {
     var config = {
         mode: {
             css: {
@@ -163,6 +117,21 @@ gulp.task('subjects', function (done) {
         .pipe(soften(2))
         .pipe(replace('url(../../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
         .pipe(gulp.dest(subjectIconsComponentPath))
+});
+
+gulp.task('svg:icons', function (done) {
+    var config = {
+        mode: {
+            symbol: {
+                sprite: '../icons.svg'
+            }
+        }
+    };
+
+    return gulp.src('./src/icons/*.svg')
+        .pipe(svgSprite(config))
+        .pipe(replace('<symbol', '<symbol style="overflow: visible;"'))
+        .pipe(gulp.dest('./src/images'));
 });
 
 gulp.task('jekyll:docs', function (gulpCallBack) {
@@ -201,26 +170,26 @@ gulp.task('watch:docs-templates', function (done) {
 });
 
 gulp.task('watch:docs-sass', function (done) {
-    var docsSassSources = path.join(DOCS, '**', '*.scss');
+    var docsSassSources = path.join(DOCS, '_sass', '*.scss');
 
     livereload.listen();
     return gulp.watch([docsSassSources], ['sass:docs-build']);
 });
 
+gulp.task('scss-lint', function() {
+  var scssLint = require('gulp-scss-lint');
+
+  return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
+    .pipe(scssLint({
+      'maxBuffer': 1024*1000
+    }))
+    .pipe(scssLint.failReporter());
+});
+
 gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
+    runSequence('clean:dist', 'sass:build', 'svg:icons', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
 });
 
-gulp.task('scss-lint', function() {
-    var scssLint = require('gulp-scss-lint');
-
-    return gulp.src(['src/**/*.scss', '!src/sass/vendors/**', '!src/docs/**', '!src/components/icons/_icons-data.scss'])
-        .pipe(scssLint({
-            'maxBuffer': 1024*1000
-        }))
-        .pipe(scssLint.failReporter());
-});
-
-gulp.task('ci', ['scss-lint'])
+gulp.task('ci', ['scss-lint']);

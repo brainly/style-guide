@@ -6,3 +6,7 @@ dist/
 node_modules
 *.css
 .sass-cache
+
+# Generated images
+/src/images/subjects-icons.svg
+/src/images/icons.svg

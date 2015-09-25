@@ -25,4 +25,8 @@ $includeHtml: false !default;
   }
   // scss-lint:enable QualifyingElement
 
+  // We want to have svg overflows visible
+  svg:not(:root) {
+    overflow: visible;
+  }
 }
