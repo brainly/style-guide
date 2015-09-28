@@ -33,8 +33,14 @@
       location: rating/rating
     - name: Buttons
       location: buttons/buttons
-    - name: Form Elements
-      location: form-elements/form-elements
+    - name: Checkbox & Radio
+      location: form-elements/checkbox-radio
+    - name: Text input
+      location: form-elements/text-input
+    - name: Selects
+      location: form-elements/select
+    - name: Textarea
+      location: form-elements/textarea
     - name: Dropdowns
       location: dropdowns/dropdowns
     - name: Search

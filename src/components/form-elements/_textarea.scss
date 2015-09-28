@@ -1,0 +1,76 @@
+$textareaBackground: $white;
+$textareaBorderColor: $graySecondary;
+$textareaBorderRadius: 11px;
+$textareaFontSize: fontSize(default);
+$textareaLineHeight: rhythm(0.792);
+$textareaTextColor: $black;
+$textareaPadding: 11px;
+$textareaSmallPadding: 6px;
+$textareaFocusBorderColor: $grayPrimary;
+$textareaPlaceholderTextColor: $grayPrimary;
+$textareaPlaceholderFontSize: fontSize(obscure);
+$textareaValidBorderColor: $mintSecondary;
+$textareaInvalidBorderColor: $peachSecondary;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .mint-textarea {
+    @include component;
+    background: $textareaBackground;
+    border: 2px solid $textareaBorderColor;
+    border-radius: $textareaBorderRadius;
+    color: $textareaTextColor;
+    font-size: $textareaFontSize;
+    line-height: $textareaLineHeight;
+    padding: $textareaPadding;
+    resize: none;
+    height: 100px;
+    overflow-y: auto;
+    appearance: none;
+    position: relative;
+
+    &:focus {
+      border-color: $textareaFocusBorderColor;
+      outline: 0;
+    }
+
+    &::placeholder {
+      @include uppercaseText;
+      position: relative;
+      top: rhythm(0.125);
+      color: $textareaPlaceholderTextColor;
+      font-size: $textareaPlaceholderFontSize;
+      font-weight: bold;
+    }
+
+    &--full {
+      width: 100%;
+    }
+
+    &--valid {
+      border-color: $textareaValidBorderColor;
+
+      &:focus {
+        border-color: $textareaValidBorderColor;
+      }
+    }
+
+    &--invalid {
+      border-color: $textareaInvalidBorderColor;
+
+      &:focus {
+        border-color: $textareaInvalidBorderColor;
+      }
+    }
+
+    &--small {
+      height: 36px;
+      padding: $textareaSmallPadding $textareaPadding;
+    }
+
+    &--big {
+      height: 178px;
+    }
+  }
+}

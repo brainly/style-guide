@@ -1,0 +1,103 @@
+$crInputSize: fontSize(default);
+$crInputFontSize: fontSize(default);
+$crInputColor: $white;
+$crInputBorderColor: $graySecondary;
+$crInputActiveBorderColor: $bluePrimary;
+$crInputCheckedColor: $bluePrimary;
+
+$crInputLabelFontSize: fontSize(obscure);
+$crInputLabelLineHeight: rhythm(0.933);
+$crInputLabelHeight: rhythm(0.666);
+$crInputLabelColor: $grayPrimary;
+$crInputActiveColor: rgba($crInputColor, 0.7);
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .mint-checkbox,
+  .mint-radio {
+    @include component;
+    overflow: visible;
+    width: $crInputSize;
+    height: $crInputSize;
+    min-height: $crInputSize;
+    font-size: $crInputFontSize;
+
+    &__element {
+      opacity: 0;
+      position: absolute;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    &__element:active + &__ghost {
+      border-color: $crInputActiveBorderColor;
+    }
+
+    &__element:checked + &__ghost {
+      border-color: $crInputCheckedColor;
+      background: $crInputCheckedColor;
+    }
+
+    &__ghost {
+      background: $crInputColor;
+      width: 100%;
+      height: 100%;
+      border: 2px solid $crInputBorderColor;
+      display: inline-block;
+    }
+  }
+
+  .mint-checkbox-label,
+  .mint-radio-label {
+    @include component;
+    overflow: visible;
+    font-weight: bold;
+    font-size: $crInputLabelFontSize;
+    line-height: $crInputLabelLineHeight;
+    height: $crInputLabelHeight;
+    color: $crInputLabelColor;
+    margin: 0 0 0 5px;
+    padding: 0;
+    vertical-align: top;
+
+    &--upper {
+      @include uppercaseText;
+    }
+  }
+
+  .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
+    color: $crInputActiveColor;
+  }
+
+  .mint-checkbox__ghost {
+    border-radius: 25%;
+
+    &-check {
+      width: 1.375rem;
+      height: 1.375rem;
+      position: absolute;
+      left: -18%;
+      top: -8%;
+      fill: $crInputColor;
+    }
+  }
+
+  .mint-radio__ghost {
+    border-radius: 50%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      border-radius: 100%;
+      background-color: $crInputColor;
+      width: 50%;
+      height: 50%;
+      top: 35%;
+      left: 25%;
+    }
+  }
+}
