@@ -1,0 +1,83 @@
+$selectBackground: $grayAltLight;
+$selectTextColor: $grayAlt;
+$selectFontSize: fontSize(obscure);
+$selectIconSize: rhythm(0.667);
+$selectHeight: rhythm(2);
+$selectHoverBackground: $graySecondary;
+$selectInvalidBorderColor: $peachSecondary;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .mint-select {
+    @include component;
+
+    border-radius: $selectHeight / 2;
+    font-size: $selectFontSize;
+    color: $selectTextColor;
+    height: $selectHeight;
+    border: 2px solid $selectBackground;
+
+    &__element {
+      @include uppercaseText;
+      background: $selectBackground;
+      border: none;
+      font-size: inherit;
+      font-weight: bold;
+      color: inherit;
+      display: inline-block;
+      height: $selectHeight;
+      position: relative;
+      padding: 0 ($selectHeight / 2 + rhythm(0.667)) 0 ($selectHeight / 2);
+      outline: 0;
+      appearance: none;
+      width: 100%;
+
+      &::-ms-expand {
+        display: none;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: $selectHoverBackground;
+      }
+    }
+
+    &__icon {
+      position: absolute;
+      right: ($selectHeight / 4 + rhythm(0.333)) - $selectIconSize / 2;
+      top: $selectHeight / 2 - $selectIconSize / 2;
+      height: $selectIconSize;
+      width: $selectIconSize;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    &--small {
+      height: rhythm(1.5);
+
+      .mint-select__icon {
+        top: rhythm(0.667) - $selectIconSize / 2;
+        right: rhythm(0.667) - $selectIconSize / 2;
+      }
+
+      .mint-select__element {
+        height: rhythm(1.5);
+        padding: 0 rhythm(1.333) 0 rhythm(0.667);
+      }
+    }
+
+    &--full {
+      width: 100%;
+    }
+
+    &--invalid {
+      border: 2px solid $selectInvalidBorderColor;
+
+      .mint-select__element {
+        padding: 0 ($selectHeight / 2) rhythm(0.5) 0 ($selectHeight / 2 - rhythm(0.083));
+      }
+    }
+  }
+}

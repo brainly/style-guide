@@ -1,0 +1,123 @@
+$inputHeight: rhythm(2);
+$inputLowHeight: rhythm(1.5);
+$inputLargeHeight: rhythm(2.667);
+$inputBackground: $white;
+$inputBorderColor: $graySecondary;
+$inputTextColor: $black;
+$inputFontSize: fontSize(medium);
+$inputLargeFontSize: fontSize(standout);
+$inputLargePlaceholderFontSize: fontSize(medium);
+$inputFocusBorderColor: $grayPrimary;
+$inputPlaceholderTextColor: $grayPrimary;
+$inputPlaceholderFontSize: fontSize(obscure);
+$inputLargePlaceholderFontSize: fontSize(medium);
+$inputValidBorderColor: $mintSecondary;
+$inputFocusValidBorderColor: $mintPrimary;
+$inputInvalidBorderColor: $peachSecondary;
+$inputFocusInvalidBorderColor: $peachPrimary;
+$inputTransparentBorderColor: rgba($graySecondary, 0.7);
+$inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
+
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .mint-input {
+    @include component;
+    background: $inputBackground;
+    border: 2px solid $inputBorderColor;
+    border-radius: $inputHeight / 2;
+    color: $inputTextColor;
+    font-size: $inputFontSize;
+    padding: 0 $inputHeight / 2;
+    height: $inputHeight;
+    appearance: none;
+    transition: border 300ms;
+
+    &:focus {
+      outline: none;
+      border-color: $inputFocusBorderColor;
+    }
+
+    &::placeholder {
+      @include uppercaseText;
+      color: $inputPlaceholderTextColor;
+      font-size: $inputPlaceholderFontSize;
+      font-weight: bold;
+      position: relative;
+      top: rhythm(0.083);
+    }
+
+    &--low {
+      border-radius: $inputLowHeight / 2;
+      padding: 0 $inputLowHeight / 2;
+      height: $inputLowHeight;
+      line-height: $inputLowHeight;
+    }
+
+    &--valid {
+      border-color: $inputValidBorderColor;
+
+      &:focus {
+        border-color: $inputFocusValidBorderColor;
+      }
+    }
+
+    &--invalid {
+      border-color: $inputInvalidBorderColor;
+
+      &:focus {
+        border-color: $inputFocusInvalidBorderColor;
+      }
+    }
+
+    &--spaced {
+      margin-bottom: $inputHeight / 4;
+    }
+
+    &--full {
+      width: 100%;
+    }
+
+    &--large {
+      @include mintBreakpoint(medium-up) {
+        height: $inputLargeHeight;
+        font-size: $inputLargeFontSize;
+        border-radius: $inputLargeHeight / 2;
+        padding: 0 $inputLargeHeight / 2;
+
+        &::placeholder {
+          font-size: $inputLargePlaceholderFontSize;
+        }
+      }
+    }
+
+    &--subtle-border {
+      border: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      transition: box-shadow 300ms;
+
+      &:focus {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    &--transparent-border {
+      border-color: $inputTransparentBorderColor;
+      background-clip: padding-box;
+
+      &:focus {
+        border-color: $inputTransparentFocusBorderColor;
+      }
+    }
+
+    &--with-icon {
+      padding-right: 46px;
+    }
+
+    &--with-small-icon {
+      padding-right: 36px;
+    }
+  }
+}
