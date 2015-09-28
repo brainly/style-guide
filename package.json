@@ -19,7 +19,6 @@
     "gulp-rev": "^6.0.0",
     "gulp-sass": "^2.0.1",
     "gulp-scss-lint": "^0.3.0",
-    "gulp-soften": "0.0.1",
     "gulp-svg-sprite": "^1.2.7",
     "husky": "^0.10.1",
     "normalize.scss": "^0.1.0",

@@ -3,66 +3,9 @@
         <h3 class="docs-block__header">Medium</h3>
     </aside>
     <div class="docs-block__content docs-block__contrast-box">
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--administration"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--agricultural"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--algebra"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--all"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--arabic"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--art"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--artmusic"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--belarus"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--biology"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--business"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--catala"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--chemistry"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--chinese"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--egzam"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--english"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--ethics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--euskara"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--french"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--galego"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--geography"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--geology"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--geometry"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--german"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--grammar"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--health"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--history"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--informatics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--italian"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--japanese"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--kazach"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--korean"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--language"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--latin"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--law"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--literature"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--logic"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--mathematics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--music"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--otherlanguages"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--others"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--pedagogics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--philosophy"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--physical-education"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--physics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--politics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--psychology"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--religion"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--russian"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--science"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--skills"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--social"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--sociology"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--spanish"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--statistics"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--technology"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--tourism"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--trafic"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--ukrainian"></i>
-        <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--wos"></i>
+        {% for item in site.data.subjects %}
+            <svg class="mint-subject-icon mint-subject-icon--medium"><use xlink:href="images/subjects-icons.svg#{{ item }}"></use></svg>
+        {% endfor %}
     </div>
 </section>
 <section class="docs-block">
@@ -70,66 +13,9 @@
         <h3 class="docs-block__header">Small</h3>
     </aside>
     <div class="docs-block__content docs-block__contrast-box">
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--administration"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--agricultural"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--algebra"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--all"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--arabic"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--art"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--artmusic"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--belarus"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--biology"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--business"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--catala"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--chemistry"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--chinese"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--egzam"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--english"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--ethics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--euskara"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--french"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--galego"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--geography"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--geology"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--geometry"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--german"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--grammar"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--health"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--history"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--informatics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--italian"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--japanese"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--kazach"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--korean"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--language"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--latin"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--law"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--life-science"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--literature"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--logic"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--mathematics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--music"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--otherlanguages"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--others"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--pedagogics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--philosophy"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--physical-education"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--physics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--politics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--psychology"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--religion"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--russian"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--science"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--skills"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--social"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--sociology"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--spanish"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--statistics"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--technology"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--tourism"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--trafic"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--ukrainian"></i>
-        <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--wos"></i>
+        {% for item in site.data.subjects %}
+            <svg class="mint-subject-icon mint-subject-icon--small"><use xlink:href="images/subjects-icons.svg#{{ item }}"></use></svg>
+        {% endfor %}
     </div>
 </section>
 <section class="docs-block">
@@ -138,24 +24,24 @@
     </aside>
     <div class="docs-block__content">
         <div class="mint-subject-icon-box">
-            <i class="mint-subject-icon mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
         <div class="mint-subject-icon-box">
-            <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon mint-subject-icon--medium"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
         <div class="mint-subject-icon-box">
-            <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon mint-subject-icon--small"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
         <br/>
 
         <div class="mint-subject-icon-box mint-subject-icon-box--darker">
-            <i class="mint-subject-icon mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
         <div class="mint-subject-icon-box mint-subject-icon-box--darker">
-            <i class="mint-subject-icon mint-subject-icon--medium mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon mint-subject-icon--medium"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
         <div class="mint-subject-icon-box mint-subject-icon-box--darker">
-            <i class="mint-subject-icon mint-subject-icon--small mint-subject-icon--life-science"></i>
+            <svg class="mint-subject-icon mint-subject-icon--small"><use xlink:href="images/subjects-icons.svg#life-science"></use></svg>
         </div>
     </div>
 </section>
