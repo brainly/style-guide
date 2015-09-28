@@ -38,10 +38,12 @@
       background: $white;
       border: solid $graySecondaryLight 1px;
       padding: 0;
+      flex-wrap: wrap;
+      width: 400px;
 
       li {
         float: none;
-        width: 200px;
+        width: 50%;
       }
 
       a {
@@ -60,7 +62,7 @@
         background: $graySecondary;
 
         > ul {
-          display: block;
+          display: flex;
         }
       }
     }
