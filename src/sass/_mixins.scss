@@ -115,6 +115,15 @@
   }
 }
 
+@mixin mintListBasicStyles() {
+  @include component;
+  overflow: visible; // move baseline from margin to the last line box
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 // set a value as a multiple of default gutter
 @function gutter($size) {
   @return $size * $layoutDefaultPadding;

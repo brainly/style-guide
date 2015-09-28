@@ -1,0 +1,51 @@
+$breadcrumbListSeparatorColor: $grayPrimary;
+$breadcrumbListBlueSeparatorColor: $blueSecondary;
+$breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .mint-breadcrumb-list {
+    @include mintListBasicStyles();
+    display: inline-block;
+    color: $breadcrumbListSeparatorColor;
+
+    &__element {
+      display: inline-block;
+
+      &:after {
+        content: '·';
+        display: inline-block;
+        color: $breadcrumbListSeparatorColor;
+        padding: 0 2px;
+      }
+
+      &:last-child:after {
+        content: '';
+      }
+    }
+
+    &--for-fine-print {
+      font-size: fontSize(small);
+      color: $breadcrumbListBlueSeparatorColor;
+
+      .mint-breadcrumb-list__element {
+        &:after {
+          color: $breadcrumbListBlueSeparatorColor;
+
+        }
+      }
+    }
+
+    &--for-fine-print-light {
+      font-size: fontSize(small);
+      color: $breadcrumbListLightBlueSeparatorColor;
+
+      .mint-breadcrumb-list__element {
+        &:after {
+          color: $breadcrumbListLightBlueSeparatorColor;
+        }
+      }
+    }
+  }
+}
