@@ -35,14 +35,12 @@
       location: buttons/buttons
     - name: Checkbox & Radio
       location: form-elements/checkbox-radio
-    - name: Input text
-      location: form-elements/input-text
+    - name: Text input
+      location: form-elements/text-input
     - name: Selects
       location: form-elements/select
     - name: Textarea
       location: form-elements/textarea
-    - name: Input text
-      location: form-elements/input-text
     - name: Dropdowns
       location: dropdowns/dropdowns
     - name: Search

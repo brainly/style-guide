@@ -3,7 +3,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   @import 'checkbox-radio';
-  @import 'input-text';
+  @import 'text-input';
   @import 'select';
   @import 'textarea';
 
