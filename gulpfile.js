@@ -15,7 +15,6 @@ var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var rev = require('gulp-rev');
 var fingerprint = require('gulp-fingerprint');
-var soften = require('gulp-soften');
 
 var DEV_ENV = argv.production ? false : true;
 var PROD_ENV = !DEV_ENV;
@@ -95,28 +94,16 @@ gulp.task('clean:dist', function (done) {
 gulp.task('svg:subjects', function (done) {
     var config = {
         mode: {
-            css: {
-                dest: '',
-                render: {
-                    scss: {
-                        dest: '_subject-icons-embed.scss'
-                    }
-                },
-                prefix: '.mint-subject-icon--',
-                bust: false,
-                sprite: '../../images/subjects-icons.svg',
-                dimensions: true
+            symbol: {
+                sprite: '../subjects-icons.svg'
             }
         }
     };
 
-    var subjectIconsComponentPath = path.join(COMPONENTS, 'subject-icons');
-
     return gulp.src('./src/images/subjects/*.svg')
         .pipe(svgSprite(config))
-        .pipe(soften(2))
-        .pipe(replace('url(../../images/subjects-icons.svg', 'url($mintImagesPath + \'subjects-icons.svg\''))
-        .pipe(gulp.dest(subjectIconsComponentPath))
+        .pipe(replace('<symbol', '<symbol style="overflow: visible;"'))
+        .pipe(gulp.dest('./src/images'))
 });
 
 gulp.task('svg:icons', function (done) {
@@ -189,7 +176,7 @@ gulp.task('scss-lint', function() {
 gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'svg:icons', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
+    runSequence('clean:dist', 'sass:build', 'svg:icons',  'svg:subjects', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
 });
 
 gulp.task('ci', ['scss-lint']);
