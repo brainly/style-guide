@@ -1,4 +1,4 @@
-$dropdownFontSize: fontSize(obscure);
+$dropdownIconSize: rhythm(0.333);
 $dropdownHeight: toPx(rhythm(1.5));
 $dropdownBorderSize: 2px;
 $dropdownBackground: $white;
@@ -31,11 +31,13 @@ $includeHtml: false !default;
     }
 
     &__icon {
-      $iconSize: toPx($dropdownFontSize) + toPx($iconBoostValue);
+      $iconSize: $dropdownIconSize;
+      width: $dropdownIconSize;
+      height: $dropdownIconSize;
       display: flex;
       position: absolute;
-      top: $dropdownHeight / 4;
-      right: $dropdownHeight / 2 - $iconSize / 2;
+      top: rhythm(0.667) - $selectIconSize / 2;
+      right: rhythm(0.667) - $selectIconSize / 2;
       z-index: 2;
       transition: transform 0.3s;
     }

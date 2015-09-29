@@ -47,7 +47,9 @@ $includeHtml: false !default;
       width: 100%;
       height: 100%;
       border: 2px solid $crInputBorderColor;
-      display: inline-block;
+      fill: $crInputColor;
+      display: flex;
+      padding: 2px;
     }
   }
 
@@ -75,15 +77,6 @@ $includeHtml: false !default;
 
   .mint-checkbox__ghost {
     border-radius: 25%;
-
-    &-check {
-      width: 1.375rem;
-      height: 1.375rem;
-      position: absolute;
-      left: -18%;
-      top: -8%;
-      fill: $crInputColor;
-    }
   }
 
   .mint-radio__ghost {
@@ -96,7 +89,7 @@ $includeHtml: false !default;
       background-color: $crInputColor;
       width: 50%;
       height: 50%;
-      top: 35%;
+      top: 25%;
       left: 25%;
     }
   }
