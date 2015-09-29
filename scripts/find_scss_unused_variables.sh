@@ -6,4 +6,12 @@
 
 VAR_NAME_CHARS='A-Za-z0-9_-'
 
-find "$1" -type f -name "*.scss" -exec grep -o "\$[$VAR_NAME_CHARS]*" {} ';' | sort | uniq -u
+OUTPUT=$(find "$1" -type f -name "*.scss" -exec grep -o "\$[$VAR_NAME_CHARS]*" {} ';' | sort | uniq -u)
+if [ -z "$OUTPUT" ]
+then
+    exit 0
+else
+    echo 'Unused variables:'
+    echo $OUTPUT
+    exit 1
+fi
