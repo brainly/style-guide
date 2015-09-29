@@ -4,11 +4,6 @@ $crInputColor: $white;
 $crInputBorderColor: $graySecondary;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
-
-$crInputLabelFontSize: fontSize(obscure);
-$crInputLabelLineHeight: rhythm(0.933);
-$crInputLabelHeight: rhythm(0.666);
-$crInputLabelColor: $grayPrimary;
 $crInputActiveColor: rgba($crInputColor, 0.7);
 
 $includeHtml: false !default;
@@ -50,24 +45,6 @@ $includeHtml: false !default;
       fill: $crInputColor;
       display: flex;
       padding: 2px;
-    }
-  }
-
-  .mint-checkbox-label,
-  .mint-radio-label {
-    @include component;
-    overflow: visible;
-    font-weight: $fontWeightBold;
-    font-size: $crInputLabelFontSize;
-    line-height: $crInputLabelLineHeight;
-    height: $crInputLabelHeight;
-    color: $crInputLabelColor;
-    margin: 0 0 0 5px;
-    padding: 0;
-    vertical-align: top;
-
-    &--upper {
-      @include uppercaseText;
     }
   }
 

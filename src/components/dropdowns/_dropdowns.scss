@@ -31,7 +31,6 @@ $includeHtml: false !default;
     }
 
     &__icon {
-      $iconSize: $dropdownIconSize;
       width: $dropdownIconSize;
       height: $dropdownIconSize;
       display: flex;
