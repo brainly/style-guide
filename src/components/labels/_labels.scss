@@ -24,9 +24,7 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
-      @include uppercaseText;
       display: block;
-      vertical-align: middle;
       color: $labelPrimaryColor;
       font-weight: $labelFontWeight;
       margin-right: gutter(0.25);
@@ -54,6 +52,14 @@ $includeHtml: false !default;
         width: $labelIconSizePrimaryLarge;
         height: $labelIconSizePrimaryLarge;
       }
+    }
+
+    &--lite {
+      font-weight: bold;
+    }
+
+    &--emphasised {
+      @include uppercaseText;
     }
 
     &--secondary {
@@ -101,7 +107,6 @@ $includeHtml: false !default;
       .mint-label__text,
       .mint-label__number {
         @include fixText($labelFontSizeLarge);
-        text-transform: none;
 
         &:last-child {
           margin-right: 0;
