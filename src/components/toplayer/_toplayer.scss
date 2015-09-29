@@ -88,7 +88,7 @@ $includeHtml: false !default;
       color: $toplayerCrossColor;
       font-size: 32px;
       height: 20px;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       padding: 0 gutter(0.25);
       cursor: pointer;
 

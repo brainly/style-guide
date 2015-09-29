@@ -29,7 +29,7 @@ $includeHtml: false !default;
       border-right: 1px solid $tabSeparatorColor;
       color: $tabTextColor;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       float: left;
       padding: 0 $tabHeight / 2;
       transition: background 0.3s ease-out, color 0.3s ease-out;

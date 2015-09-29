@@ -23,7 +23,7 @@ $includeHtml: false !default;
       background: $selectBackground;
       border: none;
       font-size: inherit;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       color: inherit;
       display: inline-block;
       height: $selectHeight;

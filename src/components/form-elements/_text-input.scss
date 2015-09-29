@@ -44,7 +44,7 @@ $includeHtml: false !default;
       @include uppercaseText;
       color: $inputPlaceholderTextColor;
       font-size: $inputPlaceholderFontSize;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       position: relative;
       top: rhythm(0.083);
     }

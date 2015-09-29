@@ -41,7 +41,7 @@ $includeHtml: false !default;
       top: rhythm(0.125);
       color: $textareaPlaceholderTextColor;
       font-size: $textareaPlaceholderFontSize;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
     }
 
     &--full {

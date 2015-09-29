@@ -17,12 +17,12 @@ $includeHtml: false !default;
 
     &--headline {
       @include typeVariant(headline, 1.334);
-      font-weight: normal;
+      font-weight: $fontWeightNormal;
       margin: 0;
     }
 
     &--emphasised {
-      font-weight: bold;
+      font-weight: $fontWeightBold;
     }
 
     &--gray {

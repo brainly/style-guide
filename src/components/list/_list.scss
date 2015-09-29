@@ -28,7 +28,7 @@ $includeHtml: false !default;
 
     &--small {
       line-height: rhythm(1);
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       font-size: $smallListFontSize;
 
       .mint-list__icon {

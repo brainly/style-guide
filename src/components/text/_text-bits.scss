@@ -1,4 +1,3 @@
-$textBitFontWeight: $fontWeightBlack;
 $textBitFontSize: subheader;
 $textBitColor: $mintSecondary;
 $textBitAltColor: $blueSecondary;
@@ -17,7 +16,7 @@ $includeHtml: false !default;
     @include typeVariant($textBitFontSize, 2);
     @include uppercaseText(-0.0625rem);
     color: $textBitColor;
-    font-weight: $textBitFontWeight;
+    font-weight: $fontWeightBlack;
     word-wrap: break-word;
     margin: 0;
     position: relative;
