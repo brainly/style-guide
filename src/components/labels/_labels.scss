@@ -54,7 +54,10 @@ $includeHtml: false !default;
     }
 
     &--lite {
-      font-weight: $fontWeightBold;
+      .mint-label__text,
+      .mint-label__number {
+        font-weight: $fontWeightBold;
+      }
     }
 
     &--emphasised {
