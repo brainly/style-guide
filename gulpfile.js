@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var gulp = require('gulp');
 var argv = require('yargs').argv;
 var path = require('path');
@@ -11,7 +12,6 @@ var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var rename = require('gulp-rename');
 var autoprefixer = require('gulp-autoprefixer');
-var replace = require('gulp-replace');
 var svgSprite = require('gulp-svg-sprite');
 var rev = require('gulp-rev');
 var fingerprint = require('gulp-fingerprint');
@@ -26,6 +26,8 @@ var VERSIONED_DIST = path.join(DIST, VERSION);
 var DOCS = path.join(SRC, 'docs');
 var SASS = path.join(SRC, 'sass');
 var COMPONENTS = path.join(SRC, 'components');
+
+var svgPolyfill = fs.readFileSync(path.join(SRC, 'svg-polyfill.js'), "utf8");
 
 gulp.task('sass:build', function () {
     var sassMain = path.join(SRC, 'sass', 'main.scss');
@@ -81,8 +83,8 @@ gulp.task('fingerprint-replace', function () {
 
     return gulp.src(docsHtml)
         .pipe(fingerprint(manifest, {
-          prefix: '../../',
-          regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|xlink:href=['"](.*?)#|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
+            prefix: '../../',
+            regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
         }))
         .pipe(gulp.dest(path.join(VERSIONED_DIST, 'docs')));
 });
@@ -91,33 +93,72 @@ gulp.task('clean:dist', function (done) {
     del([path.join(DIST, '**'), '!' + DIST], done);
 });
 
-gulp.task('svg:subjects', function (done) {
+function svgSymbolCleanUp(shape, sprite, callback) {
+    var symbol = shape.dom.documentElement;
+    var path = shape.dom.firstChild;
+
+    symbol.setAttribute('style', 'overflow: visible');
+    path.removeAttribute('class');
+    path.removeAttribute('fill');
+
+    callback(null);
+}
+
+function svgAddPolyfill(svg) {
+    return svg.replace('</svg>', '<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript">' + svgPolyfill + '</script></svg>');
+}
+
+gulp.task('svg:subjects', function () {
+    var subjectIconsPath = path.join(SRC, 'images', 'subjects', '*.svg');
+
     var config = {
         mode: {
             symbol: {
                 sprite: '../subjects-icons.svg'
             }
+        },
+        shape: {
+            id: {
+                generator: "icon-subject-%s"
+            },
+            transform: [{
+                custom: svgSymbolCleanUp
+            }]
+        },
+        svg: {
+            transform: [svgAddPolyfill]
         }
     };
 
-    return gulp.src('./src/images/subjects/*.svg')
+    return gulp.src(subjectIconsPath)
         .pipe(svgSprite(config))
-        .pipe(replace('<symbol', '<symbol style="overflow: visible;"'))
         .pipe(gulp.dest('./src/images'))
 });
 
-gulp.task('svg:icons', function (done) {
+gulp.task('svg:icons', function () {
+    var iconsPath = path.join(SRC, 'images', 'icons', '*.svg');
+
     var config = {
         mode: {
             symbol: {
                 sprite: '../icons.svg'
             }
+        },
+        shape: {
+            id: {
+                generator: "icon-%s"
+            },
+            transform: [{
+                custom: svgSymbolCleanUp
+            }]
+        },
+        svg: {
+            transform: [svgAddPolyfill]
         }
     };
 
-    return gulp.src('./src/icons/*.svg')
+    return gulp.src(iconsPath)
         .pipe(svgSprite(config))
-        .pipe(replace('<symbol', '<symbol style="overflow: visible;"'))
         .pipe(gulp.dest('./src/images'));
 });
 
