@@ -176,7 +176,7 @@ $includeHtml: false !default;
   .mint-button-primary {
     @include mintButtonBasicStyles();
     @include mintButtonBasicDimensions($buttonPrimaryHeight);
-    @include mintButtonBasicColors('transparent', $buttonPrimaryFontColor, $buttonColor);
+    @include mintButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
     @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
     @include mintButtonPrimaryActive($buttonPrimaryFontColor);
     @include hole;
