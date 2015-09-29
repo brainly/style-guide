@@ -1,7 +1,7 @@
 $selectBackground: $grayAltLight;
 $selectTextColor: $grayAlt;
 $selectFontSize: fontSize(obscure);
-$selectIconSize: rhythm(0.667);
+$selectIconSize: rhythm(0.333);
 $selectHeight: rhythm(2);
 $selectHoverBackground: $graySecondary;
 $selectInvalidBorderColor: $peachSecondary;
@@ -52,6 +52,7 @@ $includeHtml: false !default;
       width: $selectIconSize;
       pointer-events: none;
       z-index: 1;
+      display: flex;
     }
 
     &--small {
