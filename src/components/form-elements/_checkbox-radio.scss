@@ -57,7 +57,7 @@ $includeHtml: false !default;
   .mint-radio-label {
     @include component;
     overflow: visible;
-    font-weight: bold;
+    font-weight: $fontWeightBold;
     font-size: $crInputLabelFontSize;
     line-height: $crInputLabelLineHeight;
     height: $crInputLabelHeight;

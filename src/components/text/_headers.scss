@@ -26,7 +26,7 @@ $includeHtml: false !default;
     min-height: rhythm(1.333);
     display: block;
     color: $black;
-    font-weight: bold;
+    font-weight: $fontWeightBold;
 
     &--small {
       @include typeVariant(small, 0.667);

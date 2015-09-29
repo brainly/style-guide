@@ -1,7 +1,6 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
 $labelInactiveColor: $grayAlt;
-$labelFontWeight: $fontWeightBlack;
 $labelFontSizePrimary: fontSize(obscure);
 $labelFontSizeSecondary: fontSize(xsmall);
 $labelFontSizeLarge: fontSize(standout);
@@ -26,7 +25,7 @@ $includeHtml: false !default;
       @include fixText($labelFontSizePrimary, 2 / 16);
       display: block;
       color: $labelPrimaryColor;
-      font-weight: $labelFontWeight;
+      font-weight: $fontWeightBlack;
       margin-right: gutter(0.25);
 
       &:last-child {
@@ -55,7 +54,7 @@ $includeHtml: false !default;
     }
 
     &--lite {
-      font-weight: bold;
+      font-weight: $fontWeightBold;
     }
 
     &--emphasised {

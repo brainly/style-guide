@@ -19,7 +19,7 @@ $includeHtml: false !default;
     height: auto;
 
     border-radius: $badgeFontSize;
-    font-weight: bold;
+    font-weight: $fontWeightBold;
     padding: 3px 6px;
 
     background-color: $badgeDefaultBackgroundColor;

@@ -64,7 +64,7 @@ $includeHtml: false !default;
   @include uppercaseText;
   cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: $fontWeightBold;
 
   &:active,
   &:focus,
@@ -229,7 +229,7 @@ $includeHtml: false !default;
     &__label {
       @include uppercaseText;
       float: left;
-      font-weight: bold;
+      font-weight: $fontWeightBold;
       font-size: $buttonRoundLabelFontSize;
       border-radius: 4px;
       line-height: rhythm(0.5);
@@ -254,7 +254,7 @@ $includeHtml: false !default;
     border-style: solid;
     background-color: transparent;
     font-size: $buttonSecondaryFontSize;
-    font-weight: bold;
+    font-weight: $fontWeightBold;
     transition: background-color 0.3s ease-out, color 0.3s ease-out;
 
     &:hover,

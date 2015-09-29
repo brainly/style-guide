@@ -5,14 +5,14 @@ $includeHtml: false !default;
   @font-face {
     font-family: $fontFamilyProximaNova;
     src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
-    font-weight: normal;
+    font-weight: $fontWeightNormal;
     font-style: normal;
   }
 
   @font-face {
     font-family: $fontFamilyProximaNova;
     src: url($mintFontsPath + 'ProximaNova-Extrabold.woff') format('woff');
-    font-weight: bold;
+    font-weight: $fontWeightBold;
     font-style: normal;
   }
 

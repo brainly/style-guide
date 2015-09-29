@@ -1,6 +1,5 @@
 $promoBoxBackgroundColor: $mintSecondary;
 $promoBoxHeaderColor: $white;
-$promoBoxHeaderFontWeight: $fontWeightBlack;
 $promoBoxHeaderFontSize: 50px;
 $promoBoxTextSize: 24px;
 $promoBoxLineHeight: 44px;
@@ -17,7 +16,7 @@ $includeHtml: false !default;
     &__header {
       @include uppercaseText(-1px);
       color: $promoBoxHeaderColor;
-      font-weight: $promoBoxHeaderFontWeight;
+      font-weight: $fontWeightBlack;
       font-size: $promoBoxHeaderFontSize;
       line-height: 1;
       margin: 0;
