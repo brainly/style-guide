@@ -7,7 +7,7 @@ $includeHtml: false !default;
 
   .mint-horizontal-separator {
     @include component();
-    min-height: auto;
+    min-height: 0;
     display: block;
     height: $horizontalSeparatorHeight;
     border-bottom: $horizontalSeparatorHeight dotted $horizontalSeparatorColor;

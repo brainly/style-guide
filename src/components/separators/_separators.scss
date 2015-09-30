@@ -10,7 +10,7 @@ $includeHtml: false !default;
 
   .mint-separator {
     @include component;
-    min-height: auto;
+    min-height: 0;
 
     margin-right: $separatorSpacing;
     border-right: solid $separatorColor 1px;

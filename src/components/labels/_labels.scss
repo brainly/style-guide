@@ -88,6 +88,8 @@ $includeHtml: false !default;
     }
 
     &--small {
+      min-height: 0;
+
       .mint-label__text,
       .mint-label__number {
         @include fixText($labelFontSizeSecondary);
