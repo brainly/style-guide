@@ -95,12 +95,15 @@ gulp.task('clean:dist', function (done) {
 
 function svgSymbolCleanUp(shape, sprite, callback) {
     var symbol = shape.dom.documentElement;
-    var path = shape.dom.firstChild;
-
+    var childNodes = shape.dom.documentElement.childNodes;
     symbol.setAttribute('style', 'overflow: visible');
-    path.removeAttribute('class');
-    path.removeAttribute('fill');
 
+    for(var i = 0; i < childNodes.length; i++) {
+        if(childNodes[i].nodeType === 1) {
+            childNodes[i].removeAttribute('class');
+            childNodes[i].removeAttribute('fill');
+        }
+    }
     callback(null);
 }
 
