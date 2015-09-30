@@ -214,10 +214,25 @@ gulp.task('scss-lint', function() {
     .pipe(scssLint.failReporter());
 });
 
+gulp.task('scss-unused-variables', function(done) {
+    var cmd = path.join(__dirname, 'scripts', 'find_scss_unused_variables.sh')  + ' ' + SRC;
+    var gutil = require('gulp-util');
+    require('child_process').exec(cmd, function(error, stdout) {
+        if (error) {
+            error = new gutil.PluginError('scss-unused-variables', {
+                message: stdout,
+                showStack: false
+            });
+            return done(error);
+        } // return error
+        done();
+    });
+});
+
 gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
 gulp.task('build', function (done) {
     runSequence('clean:dist', 'sass:build', 'svg:icons',  'svg:subjects', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
 });
 
-gulp.task('ci', ['scss-lint']);
+gulp.task('ci', ['scss-lint', 'scss-unused-variables']);

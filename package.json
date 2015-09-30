@@ -20,12 +20,13 @@
     "gulp-sass": "^2.0.1",
     "gulp-scss-lint": "^0.3.0",
     "gulp-svg-sprite": "^1.2.7",
+    "gulp-util": "^3.0.6",
     "husky": "^0.10.1",
     "normalize.scss": "^0.1.0",
     "run-sequence": "^1.1.1",
     "yargs": "^3.21.0"
   },
   "scripts": {
-    "prepush": "./scripts/run-scss-lint.sh"
+    "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/"
   }
 }
