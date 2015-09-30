@@ -59,6 +59,10 @@ $includeHtml: false !default;
         }
       }
     }
+
+    &--full {
+      width: 100%;
+    }
   }
 
 }
