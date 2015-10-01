@@ -62,7 +62,7 @@ $includeHtml: false !default;
 
     &--small {
       height: rhythm(0.667);
-      min-height: rhythm(0.667);
+      min-height: 0;
 
       .mint-rate-box__star {
         height: $rateSmallIconSize;
@@ -71,7 +71,6 @@ $includeHtml: false !default;
 
       .mint-rate-box__counter {
         @include fixText($rateSmallFontSize, 0.125rem);
-        margin-left: gutter(0.25);
       }
     }
   }
