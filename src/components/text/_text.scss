@@ -40,6 +40,14 @@ $includeHtml: false !default;
     &--for-fine-print {
       color: $blueSecondary;
     }
+
+    &--warning {
+      color: $mustardPrimary;
+    }
+
+    &--error {
+      color: $peachPrimary;
+    }
   }
 
 }
