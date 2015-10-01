@@ -9,6 +9,7 @@ module.exports = function (gulp, plugins, consts) {
                 browsers: ['last 2 versions', 'ie 8', 'ie 9'],
                 cascade: false
             }))
+            .pipe(plugins.cleanCss())
             .pipe(plugins.rename('style-guide.css'))
             .pipe(gulp.dest(consts.VERSIONED_DIST))
     };
