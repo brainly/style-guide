@@ -15,7 +15,7 @@ $includeHtml: false !default;
     @include fixText($badgeFontSize);
     @include uppercaseText;
     overflow: visible; // allow badges align as text
-    min-height: auto;
+    min-height: 0;
     height: auto;
 
     border-radius: $badgeFontSize;

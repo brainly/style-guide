@@ -8,7 +8,6 @@ $rateFontSize: fontSize(obscure);
 $rateIconSize: rhythm(0.75);
 $rateSmallFontSize: fontSize(xsmall);
 $rateSmallIconSize: rhythm(0.667);
-$rateScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
 
@@ -62,8 +61,8 @@ $includeHtml: false !default;
     }
 
     &--small {
-      @include fixText($rateSmallFontSize);
-      height: $rateScaleFactor * $rateHeight;
+      height: rhythm(0.667);
+      min-height: 0;
 
       .mint-rate-box__star {
         height: $rateSmallIconSize;
@@ -71,8 +70,7 @@ $includeHtml: false !default;
       }
 
       .mint-rate-box__counter {
-        @include fixText($rateSmallFontSize);
-        margin-left: gutter(0.25);
+        @include fixText($rateSmallFontSize, 0.125rem);
       }
     }
   }

@@ -35,7 +35,7 @@
 // should be applied for inline-block elements with height < line-height
 @mixin removeDescenders() {
   line-height: rhythm(0.66);
-  min-height: auto;
+  min-height: 0;
 }
 
 // $lineHeightOffset is a way to fix font issue with the baseline
@@ -44,16 +44,6 @@
   font-size: $fontSize;
   height: $fontSize;
   line-height: $fontSize + $lineHeightOffset;
-}
-
-@mixin icon($name) {
-  // scss-lint:disable PlaceholderInExtend
-  @extend .mint-icon-#{$name};
-  // scss-lint:enable PlaceholderInExtends
-
-  &:before {
-    display: inline-block;
-  }
 }
 
 @function fontSize($fontsizeKey) {
