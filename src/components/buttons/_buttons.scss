@@ -44,13 +44,6 @@ $buttonSecondaryLightBlueTextColorHover: $white;
 $buttonSecondaryIconColor: $graySecondary;
 $buttonSecondaryIconBorderColorHover: $grayPrimary;
 
-$iconAsButtonColor: $bluePrimary;
-$iconAsButtonActiveColor: rgba($iconAsButtonColor, 0.7);
-$iconAsButtonLightColor: $white;
-$iconAsButtonLightActiveColor: rgba($iconAsButtonLightColor, 0.7);
-$iconAsButtonGrayColor: $grayPrimary;
-$iconAsButtonGrayActiveColor: rgba($iconAsButtonGrayColor, 0.7);
-
 $buttonRoundAddSize: rhythm(2);
 $buttonRoundAddColor: $white;
 $buttonRoundLabelFontSize: fontSize(xsmall);
@@ -309,57 +302,4 @@ $includeHtml: false !default;
   .mint-button-secondary--small {
     @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
   }
-
-  .mint-icon-as-button {
-    display: inline-flex;
-    align-content: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    overflow: visible;
-    fill: $iconAsButtonColor;
-
-    &:active {
-      fill: $iconAsButtonActiveColor;
-    }
-
-    &--small {
-      width: 30px;
-      height: 30px;
-    }
-
-    &--xsmall {
-      width: 24px;
-      height: 24px;
-    }
-
-    &--with-border {
-      border: solid $iconAsButtonColor 2px;
-      border-radius: 50%;
-    }
-
-    &--light {
-      border-color: $iconAsButtonLightColor;
-      fill: $iconAsButtonLightColor;
-
-      &:active {
-        fill: $iconAsButtonLightActiveColor;
-      }
-    }
-
-    &--gray {
-      border-color: $iconAsButtonGrayColor;
-      fill: $iconAsButtonGrayColor;
-
-      &:active {
-        fill: $iconAsButtonGrayActiveColor;
-      }
-    }
-  }
-
 }
