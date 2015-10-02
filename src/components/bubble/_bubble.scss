@@ -67,6 +67,14 @@ $includeHtml: false !default;
         border-bottom-color: $bubbleBackgroundDark;
       }
     }
+
+    &--full-width {
+      width: 100%;
+
+      .mint-bubble__hole {
+        width: 100%;
+      }
+    }
   }
 
 }
