@@ -13,11 +13,12 @@
     <link rel="stylesheet" href="../style-guide.css">
     <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
 
+    <script src="images/icons.js"></script>
+    <script src="images/subjects-icons.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 </head>
 <body>
-<object type="image/svg+xml" data="images/icons.svg" height="0"></object>
-<object type="image/svg+xml" data="images/subjects-icons.svg" height="0"></object>
 {% include navigation.html %}
 <div class="data-container">
     {% assign pageConfig=site.data.navigation[page.navigationIdx] %}

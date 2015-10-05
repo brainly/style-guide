@@ -13,7 +13,7 @@ function svgSymbolCleanUp(shape, sprite, callback) {
 }
 
 function svgAddPolyfill(svgPolyfill, svg) {
-    return svg.replace('</svg>', '<script xmlns="http://www.w3.org/2000/svg" type="text/ecmascript">' + svgPolyfill + '</script></svg>');
+    return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm,""));
 }
 
 module.exports = function (gulp, plugins, consts) {
@@ -27,7 +27,7 @@ module.exports = function (gulp, plugins, consts) {
         var subjectIconsConfig = {
             mode: {
                 symbol: {
-                    sprite: '../subjects-icons.svg'
+                    sprite: '../subjects-icons.js'
                 }
             },
             shape: {
@@ -46,7 +46,7 @@ module.exports = function (gulp, plugins, consts) {
         var iconsConfig = {
             mode: {
                 symbol: {
-                    sprite: '../icons.svg'
+                    sprite: '../icons.js'
                 }
             },
             shape: {
