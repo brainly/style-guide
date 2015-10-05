@@ -1,9 +1,10 @@
+$overlayBackgroundColor: rgba(0, 0, 0, 0.6);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .mint-overlay {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: $overlayBackgroundColor;
     position: fixed;
     height: 100%;
     width: 100%;

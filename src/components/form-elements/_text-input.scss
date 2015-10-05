@@ -94,12 +94,14 @@ $includeHtml: false !default;
     }
 
     &--subtle-border {
+      $boxShadowColor: rgba(0, 0, 0, 0.2);
+      $boxShadowColorFocus: rgba(0, 0, 0, 0.4);
       border: none;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px $boxShadowColor;
       transition: box-shadow 300ms;
 
       &:focus {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 10px $boxShadowColorFocus;
       }
     }
 

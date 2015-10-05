@@ -42,7 +42,8 @@ $grayAlt: #969799;
 $grayAltLight: #e9ecee;
 
 // Shadows
-$defaultBottomShadow: 0 3px 5px -1px rgba(0, 0, 0, 0.25);
+$defaultBottomShadowColor: rgba(0, 0, 0, 0.25);
+$defaultBottomShadow: 0 3px 5px -1px $defaultBottomShadowColor;
 
 // Fonts
 $fontFamilyProximaNova: 'ProximaNova';
@@ -68,9 +69,8 @@ $fontSizes: (
   standout: 1.125rem, // 18px
   headline: 1.75rem,  // 28px
   subheader: 2.75rem, // 44px
-  header: 3rem        // 48px
+  header: 3rem
 );
-
 
   // Layout
 $layoutMaximumWidth: 960px;

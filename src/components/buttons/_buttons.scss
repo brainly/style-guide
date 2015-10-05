@@ -84,7 +84,7 @@ $includeHtml: false !default;
 
   &:hover,
   &:focus {
-    background-position: 0 10px;
+    background-position: 0 0;
     outline: none;
   }
 
@@ -129,6 +129,9 @@ $includeHtml: false !default;
   // scss-lint:disable NameFormat
   background: $gradientColor linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%) no-repeat;
   // scss-lint:disable NameFormat
+  background-size: 100% 140%;
+  background-position: 0 -10px;
+
   @if ($buttonShadowColor) {
     box-shadow: 0 -1px 0 $buttonShadowColor inset;
   }
@@ -202,6 +205,7 @@ $includeHtml: false !default;
   }
 
   .mint-button-primary-round {
+    $boxShadowColor: rgba(0, 0, 0, 0.3);
     @include clearfix();
     display: inline-block;
 
@@ -216,7 +220,7 @@ $includeHtml: false !default;
       line-height: $buttonRoundAddSize;
       text-align: center;
       color: $buttonRoundAddColor;
-      box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 3px 10px 0 $boxShadowColor;
     }
 
     &__label {
@@ -230,7 +234,7 @@ $includeHtml: false !default;
       color: $buttonRoundLabelColor;
       padding: 3px 5px;
       margin: 16px 10px 0 0;
-      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 5px 0 $boxShadowColor;
     }
   }
 
