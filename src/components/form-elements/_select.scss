@@ -75,10 +75,6 @@ $includeHtml: false !default;
 
     &--invalid {
       border: 2px solid $selectInvalidBorderColor;
-
-      .mint-select__element {
-        padding: 0 ($selectHeight / 2) rhythm(0.5) 0 ($selectHeight / 2 - rhythm(0.083));
-      }
     }
   }
 }
