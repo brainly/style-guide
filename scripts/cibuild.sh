@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+IMAGE_ARTIFACT=${REGISTRY}/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
+PROJECT_DIR=$(pwd)
+
+echo "IMAGE_ARTIFACT=$IMAGE_ARTIFACT"
+
 docker build -t $IMAGE_ARTIFACT .
 
 docker run -t --rm \

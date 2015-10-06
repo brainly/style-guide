@@ -1,12 +1,7 @@
 #!/bin/bash
 set -e
 
-export IMAGE_ARTIFACT=${REGISTRY}/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
-export PROJECT_DIR=$(pwd)
-
-echo "IMAGE_ARTIFACT=$IMAGE_ARTIFACT"
-
-./scripts/cibuild.sh
+source ./scripts/cibuild.sh
 
 docker run -t --rm \
   -v $PROJECT_DIR/dist:/style-guide/dist \
