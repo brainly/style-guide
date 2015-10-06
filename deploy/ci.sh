@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-REGISTRY="registry.prod01.internal.eve-brainly.com:5000"
-
 export IMAGE_ARTIFACT=${REGISTRY}/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
 export PROJECT_DIR=$(pwd)
 
