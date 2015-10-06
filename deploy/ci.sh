@@ -1,10 +1,9 @@
 #!/bin/bash
 set -e
 
-./scripts/cibuild.sh
+source ./scripts/cibuild.sh
 
-PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
-IMAGE_ARTIFACT=brainly/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
+echo "Push site to S3"
 
 docker run -t --rm \
   -v $PROJECT_DIR/dist:/style-guide/dist \

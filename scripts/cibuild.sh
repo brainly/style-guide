@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-GIT_SHORT_COMMIT=${GIT_COMMIT:0:7}
-PROJECT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)
+IMAGE_ARTIFACT=${REGISTRY}/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
+PROJECT_DIR=$(pwd)
 
-export IMAGE_ARTIFACT=brainly/${JOB_NAME}:${BUILD_NUMBER}-${GIT_SHORT_COMMIT}
+echo "IMAGE_ARTIFACT=$IMAGE_ARTIFACT"
 
 docker build -t $IMAGE_ARTIFACT .
 
@@ -14,6 +14,6 @@ docker run -t --rm \
   -v $PROJECT_DIR/scripts:/style-guide/scripts \
   -v $PROJECT_DIR/package.json:/style-guide/package.json \
   -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
-  $IMAGE_ARTIFACT node_modules/.bin/gulp build --production
+  $IMAGE_ARTIFACT node_modules/.bin/gulp build --production --no-colors
 
 docker push $IMAGE_ARTIFACT
