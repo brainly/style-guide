@@ -12,10 +12,9 @@ $includeHtml: false !default;
       position: absolute;
       top: 0;
       bottom: 0;
-      right: 0;
+      right: gutter(0.5);
       display: flex;
       align-items: center;
-      padding-right: gutter(0.25);
     }
   }
 
