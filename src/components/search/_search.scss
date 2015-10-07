@@ -16,6 +16,10 @@ $includeHtml: false !default;
       display: flex;
       align-items: center;
     }
+
+    &--short &__button {
+      right: gutter(0.25);
+    }
   }
 
 }
