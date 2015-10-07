@@ -12,10 +12,13 @@ $includeHtml: false !default;
       position: absolute;
       top: 0;
       bottom: 0;
-      right: 6px;
+      right: gutter(0.5);
       display: flex;
       align-items: center;
-      padding-right: gutter(0.25);
+    }
+
+    &--short &__button {
+      right: gutter(0.25);
     }
   }
 
