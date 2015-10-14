@@ -23,9 +23,29 @@ Bear in mind:
 
 Table of contents:
 
+* [Supported Browsers](#supported-browsers)
 * [Methodology](#methodology)
 * [How To](#howto)
 * [Contribution](#contribution)
+
+## Supported Browsers
+
+We support the following browsers:
+
+| Browser | Versions  | Total share in global traffic |
+| ---- | ---- | ---- |
+| Google Chrome | 42+ | 44.69% |
+| Safari | 8+ | 10.22% |
+| Android Browser | 4.0+ | 9.19% |
+| Firefox | 40+ | 7.79% |
+| YaBrowser | 15+ | 6.47% |
+| Opera Mini | 7+ | 4.71% |
+| Opera | 31+ | 4.51% |
+| Internet Explorer | 11+ | 2.37% |
+
+Last updated: 14/10/2015
+
+Note: You can find all recent stats in [this document](https://docs.google.com/spreadsheets/d/1n0tGV042xnrcdaZjNi1UWFcp77FUf5RDgHrTBon7Kgk/) (only company accessible!)
 
 ## Methodology
 
@@ -117,6 +137,3 @@ You can hover with mouse over the container in style guide to see the holes (whi
 ## Contribution
 
 If you are a component author you should follow this [guidelines](CONTRIBUTING.md) on top of BEM.
-
-## TODO
-1. Add note about supported browser
