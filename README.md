@@ -23,19 +23,19 @@ Bear in mind:
 
 Table of contents:
 
-* [Browsers Support](#browsers-support)
+* [Supported Browsers](#supported-browsers)
 * [Methodology](#methodology)
 * [How To](#howto)
 * [Contribution](#contribution)
 
-## Browsers Support
+## Supported Browsers
 
 We support the following browsers:
 
 | Browser | Versions  | Total share in global traffic |
 | ---- | ---- | ---- |
 | Google Chrome | 42+ | 44.69% |
-| Safary | 8+ | 10.22% |
+| Safari | 8+ | 10.22% |
 | Android Browser | 4.0+ | 9.19% |
 | Firefox | 40+ | 7.79% |
 | YaBrowser | 15+ | 6.47% |
