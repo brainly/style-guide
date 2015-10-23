@@ -7,9 +7,6 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .mint-logo {
     @include component;
-    background-image: url($mintImagesPath + 'logo.svg');
-    background-size: 100%;
-    background-repeat: no-repeat;
     height: $logoDefaultHeight;
     width: $logoDefaultWidth;
 
@@ -21,7 +18,11 @@ $includeHtml: false !default;
     &--small {
       height: $logoDefaultHeight / 2;
       width: $logoDefaultWidth / 2;
-      background-size: auto $logoDefaultHeight / 2;
+    }
+
+    &__image {
+      width: 100%;
+      height: 100%;
     }
   }
 }
