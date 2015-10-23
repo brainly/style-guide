@@ -8,17 +8,34 @@ $includeHtml: false !default;
 
   .mint-home-button {
     @include component;
-    background-image: url($mintImagesPath + 'logo-mobile.svg');
-    background-size: $homeButtonMobileHeight $homeButtonMobileHeight;
     height: $homeButtonMobileHeight;
     width: $homeButtonMobileHeight;
 
     @include mintBreakpoint(medium-up) {
-      background-image: url($mintImagesPath + 'logo.svg');
-      background-size: $homeButtonDefaultWidth $homeButtonDefaultHeight;
       height: $homeButtonDefaultHeight;
       width: $homeButtonDefaultWidth;
       top: 10px;
+    }
+
+    &__logo_small {
+      border: none;
+      display: block;
+      width: $homeButtonMobileHeight;
+      height: $homeButtonMobileHeight;
+
+      @include mintBreakpoint(medium-up) {
+        display: none;
+      }
+    }
+
+    &__logo_big {
+      height: $homeButtonDefaultHeight;
+      width: $homeButtonDefaultWidth;
+      display: none;
+
+      @include mintBreakpoint(medium-up) {
+        display: block;
+      }
     }
   }
 
