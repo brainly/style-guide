@@ -17,7 +17,7 @@ $includeHtml: false !default;
       top: 10px;
     }
 
-    &__logo_small {
+    &__logo-small {
       border: none;
       display: block;
       width: $homeButtonMobileHeight;
@@ -28,7 +28,7 @@ $includeHtml: false !default;
       }
     }
 
-    &__logo_big {
+    &__logo-big {
       height: $homeButtonDefaultHeight;
       width: $homeButtonDefaultWidth;
       display: none;
