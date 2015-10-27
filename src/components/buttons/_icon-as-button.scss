@@ -16,7 +16,7 @@ $includeHtml: false !default;
     background: none;
     border: none;
     outline: none;
-    padding: 7px;
+    padding: 0;
     cursor: pointer;
     width: 40px;
     height: 40px;
@@ -28,55 +28,19 @@ $includeHtml: false !default;
       fill: $iconAsButtonActiveColor;
     }
 
-    &--small-icon {
-      padding: 13px;
-    }
-
     &--small {
       width: 30px;
       height: 30px;
-      padding: 6px;
-
-      &.mint-icon-as-button--with-border {
-        padding: 4px;
-      }
-
-      &.mint-icon-as-button--small-icon {
-        padding: 10px;
-
-        &.mint-icon-as-button--with-border {
-          padding: 8px;
-        }
-      }
-
     }
 
     &--xsmall {
       width: 24px;
       height: 24px;
-      padding: 3px;
-
-      &.mint-icon-as-button--with-border {
-        padding: 1px;
-      }
-
-      &.mint-icon-as-button--small-icon {
-        padding: 7px;
-
-        &.mint-icon-as-button--with-border {
-          padding: 5px;
-        }
-      }
     }
 
     &--with-border {
       border: solid $iconAsButtonColor 2px;
       border-radius: 50%;
-      padding: 5px;
-
-      &.mint-icon-as-button--small-icon {
-        padding: 11px;
-      }
     }
 
     &--light {
