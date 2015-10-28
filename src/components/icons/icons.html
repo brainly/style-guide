@@ -1,12 +1,12 @@
 <section class="docs-block">
   <div class="docs-block__content docs-block__contrast-box">
     <ul class="icons-list">
-      {% for item in site.data.icons %}
+      {% for name in site.data.icons.names %}
       <li class="icons-list__element">
         <svg class="mint-icon">
-          <use xlink:href="#icon-{{ item }}"></use>
+          <use xlink:href="#icon-{{ name }}"></use>
         </svg>
-        <span>&nbsp;&nbsp;-&nbsp;{{ item }}</span>
+        <span>&nbsp;&nbsp;-&nbsp;{{ name }}</span>
       </li>
       {% endfor %}
     </ul>
@@ -18,42 +18,14 @@
   </aside>
   <div class="docs-block__content">
     <ul class="icons-list">
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--gray-alt">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;gray-alt</span>
-      </li>
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--gray-secondary">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;gray-secondary</span>
-      </li>
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--blue">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;blue</span>
-      </li>
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--mustard">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;mustard</span>
-      </li>
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--lavender">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;lavender</span>
-      </li>
-      <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--peach">
-          <use xlink:href="#icon-friends"></use>
-        </svg>
-        <span>&nbsp;&nbsp;-&nbsp;peach</span>
-      </li>
+      {% for color in site.data.icons.colors %}
+        <li class="icons-list__element">
+          <svg class="mint-icon mint-icon--{{ color }}">
+            <use xlink:href="#icon-friends"></use>
+          </svg>
+          <span>&nbsp;&nbsp;-&nbsp;{{ color }}</span>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </section>
@@ -63,7 +35,7 @@
   </aside>
   <div class="docs-block__content">
     <ul class="icons-list">
-      {% for size in site.data.icons-sizes %}
+      {% for size in site.data.icons.sizes %}
         <li class="icons-list__element">
           <svg class="mint-icon mint-icon--x{{ size }} mint-icon--gray-alt">
             <use xlink:href="#icon-x"></use>

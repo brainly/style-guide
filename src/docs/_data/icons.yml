@@ -1,27 +1,50 @@
-- answered
-- answering
-- arrow_down
-- arrow_left
-- arrow_right
-- arrow_up
-- check
-- comment
-- excellent
-- friends
-- heart
-- menu
-- messages
-- notifications
-- pencil
-- plus
-- profile
-- search
-- star
-- stream
-- report_flag
-- fb
-- attachment
-- bold
-- equation
-- symbols
-- x
+names:
+  - answered
+  - answering
+  - arrow_down
+  - arrow_left
+  - arrow_right
+  - arrow_up
+  - check
+  - comment
+  - excellent
+  - friends
+  - heart
+  - menu
+  - messages
+  - notifications
+  - pencil
+  - plus
+  - profile
+  - search
+  - star
+  - stream
+  - report_flag
+  - fb
+  - attachment
+  - bold
+  - equation
+  - symbols
+  - x
+sizes:
+  - 48
+  - 44
+  - 38
+  - 32
+  - 30
+  - 26
+  - 24
+  - 22
+  - 20
+  - 18
+  - 16
+  - 14
+  - 10
+  - 8
+colors:
+  - gray-alt
+  - gray-secondary
+  - blue
+  - mustard
+  - lavender
+  - peach
