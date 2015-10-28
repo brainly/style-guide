@@ -4,6 +4,7 @@ $includeHtml: false !default;
 
   .mint-overlayed-box {
     @include component;
+    display: inline-flex;
 
     overflow: visible;
     vertical-align: inherit;
