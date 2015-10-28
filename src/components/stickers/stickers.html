@@ -5,10 +5,10 @@
 
   <div class="docs-block__content">
     <div class="docs-block__contrast-box">
-      {% for item in site.data.icons %}
+      {% for name in site.data.icons.names %}
         <svg class="mint-sticker">
-          <use class="mint-sticker__back" xlink:href="#icon-{{ item }}"></use>
-          <use class="mint-sticker__front" xlink:href="#icon-{{ item }}"></use>
+          <use class="mint-sticker__back" xlink:href="#icon-{{ name }}"></use>
+          <use class="mint-sticker__front" xlink:href="#icon-{{ name }}"></use>
         </svg>
       {% endfor %}
     </div>
