@@ -6,7 +6,7 @@
         <svg class="mint-icon">
           <use xlink:href="#icon-{{ item }}"></use>
         </svg>
-        - {{ item }}
+        <span>&nbsp;&nbsp;-&nbsp;{{ item }}</span>
       </li>
       {% endfor %}
     </ul>
@@ -22,38 +22,55 @@
         <svg class="mint-icon mint-icon--gray-alt">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - gray-alt
+        <span>&nbsp;&nbsp;-&nbsp;gray-alt</span>
       </li>
       <li class="icons-list__element">
         <svg class="mint-icon mint-icon--gray-secondary">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - gray-secondary
+        <span>&nbsp;&nbsp;-&nbsp;gray-secondary</span>
       </li>
       <li class="icons-list__element">
         <svg class="mint-icon mint-icon--blue">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - blue
+        <span>&nbsp;&nbsp;-&nbsp;blue</span>
       </li>
       <li class="icons-list__element">
         <svg class="mint-icon mint-icon--mustard">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - mustard
+        <span>&nbsp;&nbsp;-&nbsp;mustard</span>
       </li>
       <li class="icons-list__element">
         <svg class="mint-icon mint-icon--lavender">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - lavender
+        <span>&nbsp;&nbsp;-&nbsp;lavender</span>
       </li>
       <li class="icons-list__element">
         <svg class="mint-icon mint-icon--peach">
           <use xlink:href="#icon-friends"></use>
         </svg>
-        - peach
+        <span>&nbsp;&nbsp;-&nbsp;peach</span>
       </li>
+    </ul>
+  </div>
+</section>
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Sizes</h3>
+  </aside>
+  <div class="docs-block__content">
+    <ul class="icons-list">
+      {% for size in site.data.icons-sizes %}
+        <li class="icons-list__element">
+          <svg class="mint-icon mint-icon--x{{ size }} mint-icon--gray-alt">
+            <use xlink:href="#icon-x"></use>
+          </svg>
+          <span>&nbsp;&nbsp;-&nbsp;x{{ size }}</span>
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </section>
