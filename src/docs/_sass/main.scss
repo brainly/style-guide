@@ -66,16 +66,24 @@ article {
 
 .icons-list {
   list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
   &__element {
-    float: left;
     width: 25%;
     margin: 0 0 20px 0;
     font-size: 16px;
     line-height: 22px;
     color: $black;
+    display: flex;
+    align-items: center;
+
     &--wide {
       width: 50%;
     }
+
     &:before {
       color: $mintPrimary;
       font-size: 22px;
@@ -83,6 +91,7 @@ article {
       margin: 0 10px 0 0;
     }
   }
+
   &__element-info {
     display: inline-block;
     vertical-align: top;

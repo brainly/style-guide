@@ -7,6 +7,8 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .mint-sticker {
     position: relative;
+    max-width: $stickerDefaultSize;
+    max-height: $stickerDefaultSize;
     width: $stickerDefaultSize;
     height: $stickerDefaultSize;
 
