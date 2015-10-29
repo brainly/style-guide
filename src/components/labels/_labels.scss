@@ -94,6 +94,7 @@ $includeHtml: false !default;
       .mint-label__number {
         @include fixText($labelFontSizeSecondary);
         margin-right: $labelScaleFactor * gutter(0.25);
+        overflow: visible;
 
         &:last-child {
           margin-right: 0;
