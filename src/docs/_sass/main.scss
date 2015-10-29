@@ -80,6 +80,10 @@ article {
     display: flex;
     align-items: center;
 
+    &--wider {
+      width: 33%;
+    }
+
     &--wide {
       width: 50%;
     }
