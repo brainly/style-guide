@@ -20,6 +20,15 @@ gzip:
    - .html
    - .css
    - .md
+   - .js
+   - .svg
+   - .json
+   - .ico
+   - .eot
+   - .otf
+   - .ttf
+   # see https://www.fastly.com/blog/new-gzip-settings-and-deciding-what-to-compress
+
 # gzip_zopfli: true
 
 # See http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region for valid endpoints
