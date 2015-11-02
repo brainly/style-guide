@@ -23,6 +23,8 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
+      @include fixOperaMiniLabelText;
+
       display: block;
       color: $labelPrimaryColor;
       font-weight: $fontWeightBlack;
@@ -93,6 +95,8 @@ $includeHtml: false !default;
       .mint-label__text,
       .mint-label__number {
         @include fixText($labelFontSizeSecondary);
+        @include fixOperaMiniLabelText;
+
         margin-right: $labelScaleFactor * gutter(0.25);
         overflow: visible;
 
@@ -112,6 +116,7 @@ $includeHtml: false !default;
       .mint-label__text,
       .mint-label__number {
         @include fixText($labelFontSizeLarge);
+        @include fixOperaMiniLabelText;
 
         &:last-child {
           margin-right: 0;
