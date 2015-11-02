@@ -6,6 +6,11 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "express": "^4.13.3",
+    "webpack": "^1.12.2",
+    "webpack-dev-middleware": "^1.2.0",
+    "webpack-hot-middleware": "^2.4.1",
+
     "del": "^1.2.0",
     "frontend-tools-configs": "brainly/frontend-tools-configs",
     "gulp": "^3.9.0",
@@ -29,6 +34,7 @@
     "yargs": "^3.21.0"
   },
   "scripts": {
+    "start": "node tools/hot-reload-server.js",
     "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/"
   }
 }
