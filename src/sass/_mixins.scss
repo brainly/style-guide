@@ -38,14 +38,6 @@
   min-height: 0;
 }
 
-// $lineHeightOffset is a way to fix font issue with the baseline
-// the issue is visible when centering the text of at least 12px
-@mixin fixText($fontSize, $lineHeightOffset: 0) {
-  font-size: $fontSize;
-  height: $fontSize;
-  line-height: $fontSize + $lineHeightOffset;
-}
-
 @function fontSize($fontsizeKey) {
   // scss-lint:disable NameFormat
   @return map-get($fontSizes, $fontsizeKey);
