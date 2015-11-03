@@ -32,6 +32,13 @@ module.exports = {
       APP_VERSION: JSON.stringify(version)
     })
   ],
+  resolve : {
+    alias : {
+      'components' : root('src/components'),
+      'sass' : root('src/sass'),
+      'fonts': root('src/fonts')
+    }
+  },
   module: {
     loaders: [
       {
