@@ -19,7 +19,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../src/index_dev.html'));
+  res.sendFile(path.join(__dirname, '../src/docs/index_dev.html'));
 });
 
 app.listen(3000, 'localhost', function(err) {
