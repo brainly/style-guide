@@ -6,6 +6,9 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+
     "express": "^4.13.3",
     "webpack": "^1.12.2",
     "webpack-dev-middleware": "^1.2.0",
