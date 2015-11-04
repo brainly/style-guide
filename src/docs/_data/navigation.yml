@@ -5,6 +5,8 @@
       location: colors/colors
     - name: Text
       location: text/text
+    - name: Link
+      location: text/links
     - name: Text Bit
       location: text/text-bit
     - name: Icons

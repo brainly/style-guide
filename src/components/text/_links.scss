@@ -42,6 +42,23 @@ $includeHtml: false !default;
         text-decoration: none;
       }
     }
+
+    &--warning {
+      color: $mustardPrimary;
+    }
+
+    &--error {
+      color: $peachPrimary;
+    }
+
+    &--underlined {
+      text-decoration: underline;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
   }
 
 }
