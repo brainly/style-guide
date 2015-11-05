@@ -43,6 +43,7 @@ sizes:
   - 10
   - 8
 colors:
+  - gray
   - gray-alt
   - gray-secondary
   - blue
