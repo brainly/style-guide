@@ -25,6 +25,11 @@ $includeHtml: false !default;
       }
     }
 
+    &--short {
+      line-height: 1rem;
+      min-height: 1rem;
+    }
+
     &--for-fine-print {
       font-size: fontSize(small);
       color: $breadcrumbListBlueSeparatorColor;
