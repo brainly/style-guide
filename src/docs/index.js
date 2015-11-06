@@ -1,5 +1,5 @@
 import React from 'react';
-import MintButton from 'components/buttons';
+import MintButton from 'components/mint-button';
 
 export default (props) => {
   return <div>
