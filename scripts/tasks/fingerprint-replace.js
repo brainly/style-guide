@@ -4,6 +4,9 @@ module.exports = function (gulp, plugins, consts) {
         var cssPath = plugins.path.join(consts.VERSIONED_DIST, 'style-guide.css');
         var docsHtmlPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', '*.html');
         var componentsHtmlPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', 'components','**', '*.html');
+        var inlineReferencesReg = /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g;
+        var docsHtmlRootRelativePath = '../../';
+        var componentsHtmlRootRelativePath = '../../../../';
 
         gulp.src(cssPath)
             .pipe(plugins.fingerprint(manifest, {prefix: '../'}))
@@ -11,15 +14,15 @@ module.exports = function (gulp, plugins, consts) {
 
         gulp.src(docsHtmlPath)
             .pipe(plugins.fingerprint(manifest, {
-                prefix: '../../',
-                regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
+                prefix: docsHtmlRootRelativePath,
+                regex: inlineReferencesReg
             }))
             .pipe(gulp.dest(plugins.path.join(consts.VERSIONED_DIST, 'docs')));
 
         return gulp.src(componentsHtmlPath)
             .pipe(plugins.fingerprint(manifest, {
-                prefix: '../../../../',
-                regex: /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g
+                prefix: componentsHtmlRootRelativePath,
+                regex: inlineReferencesReg
             }))
             .pipe(gulp.dest(plugins.path.join(consts.VERSIONED_DIST, 'docs', 'components')));
     }

@@ -16,7 +16,7 @@ $includeHtml: false !default;
     &--spaced {
       margin: rhythm(0.333) 0 rhythm(0.667);
 
-      @include mintBreakpoint(medium-up){
+      @include mintBreakpoint(medium-up) {
         margin: (rhythm(1) - $horizontalSeparatorHeight) 0 rhythm(1);
       }
     }
