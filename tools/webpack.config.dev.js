@@ -12,7 +12,6 @@ function root(p){
 }
 
 var distPath = root('dist');
-var srcPath = root('src');
 
 module.exports = {
   entry: [
@@ -71,7 +70,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!sass'
+        loader: 'style!css!autoprefixer?browsers=last 2 versions!sass'
       },
       {
         test: /\.(png|jpg)$/,
@@ -85,9 +84,6 @@ module.exports = {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file'
       }
-    ],
-    postcss: function () {
-      return [autoprefixer({browsers: ['last 2 versions']})];
-    }
+    ]
   }
 };
