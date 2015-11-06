@@ -50,7 +50,6 @@
     "yargs": "^3.21.0"
   },
   "scripts": {
-    "start": "node tools/hot-reload-server.js",
-    "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/"
+    "start": "node tools/hot-reload-server.js"
   }
 }
