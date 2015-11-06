@@ -17,7 +17,6 @@ $includeHtml: false !default;
     @include uppercaseText(-0.0625rem);
     color: $textBitColor;
     font-weight: $fontWeightBlack;
-    word-wrap: break-word;
     margin: 0;
     position: relative;
 
