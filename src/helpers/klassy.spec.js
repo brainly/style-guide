@@ -1,4 +1,4 @@
-import klassy from './klassy';
+import klassy from 'helpers/klassy';
 
 
 describe('klassy', function (){

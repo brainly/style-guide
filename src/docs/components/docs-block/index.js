@@ -1,5 +1,6 @@
 import React from 'react';
-import klassy from '../klassy';
+import klassy from 'helpers/klassy';
+import './docs-block.scss';
 
 var cl = klassy('docs-block');
 
