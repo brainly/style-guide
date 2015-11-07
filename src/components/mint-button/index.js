@@ -1,17 +1,23 @@
 import React from 'react';
+import sizes from 'components/values/2dScale';
 import './mint-button.scss';
 import pj from './package.json';
 import klassy from 'helpers/klassy';
+import Hole from 'components/component-base/hole';
 
+export const availableSizes = {
+  small: sizes.small,
+  medium: sizes.medium
+};
 
-export default (props) => {
+export default ({ children, size }) => {
   const classes = klassy(pj, {
-    name: props.size === 'small' ? `${pj.name}-secondary` : `${pj.name}-primary`
+    name: size === sizes.small ? `${pj.name}-secondary` : `${pj.name}-primary`
   });
 
   return <a { ...classes() }>
-           <div { ...classes('hole') }>
-             { props.children }
-           </div>
+           <Hole { ...classes() }>
+             { children }
+           </Hole>
          </a>
 }
