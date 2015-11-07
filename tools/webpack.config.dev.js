@@ -11,6 +11,13 @@ function root(p){
   return path.join(rootPath, p);
 }
 
+var srcPath = root('src');
+var componentsPath = root('src/components');
+var sassPath = root('src/sass');
+var docsPath = root('src/docs');
+var fontsPath = root('src/fonts');
+
+
 var distPath = root('dist');
 
 module.exports = {
@@ -33,9 +40,9 @@ module.exports = {
   ],
   resolve : {
     alias : {
-      'components' : root('src/components'),
-      'sass' : root('src/sass'),
-      'fonts': root('src/fonts')
+      'components' : componentsPath,
+      'sass' : sassPath,
+      'fonts': fontsPath
     }
   },
   module: {
@@ -43,6 +50,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
+        include: srcPath,
         query: {
           stage: 2,
           optional: ['es7.classProperties'],
@@ -66,23 +74,28 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json',
+        include: [componentsPath, docsPath]
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!autoprefixer?browsers=last 2 versions!sass'
+        loader: 'style!css!autoprefixer?browsers=last 2 versions!sass',
+        include: [componentsPath, docsPath, sassPath]
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url?.[ext]&mimetype=image/png'
+        loader: 'url?.[ext]&mimetype=image/png',
+        include: srcPath
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff'
+        loader: 'url?limit=10000&mimetype=application/font-woff',
+        include: srcPath
       },
       {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file'
+        loader: 'file',
+        include: srcPath
       }
     ]
   }
