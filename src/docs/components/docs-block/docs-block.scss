@@ -1,0 +1,55 @@
+@import '~sass/config';
+
+.docs-block {
+  margin: 0 0 50px 0;
+  display: flex;
+
+  &__header {
+    color: $grayPrimary;
+    display: block;
+    font-size: 24px;
+    font-weight: $fontWeightNormal;
+    margin: 0;
+  }
+
+  &__info {
+    flex: 0 1 auto;
+    padding: 0 20px 0 0;
+    width: 230px;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+
+    &--centered {
+      display: flex;
+      align-items: center
+    }
+
+    &--align-top {
+      & > * {
+        vertical-align: top;
+      }
+    }
+
+    &:hover {
+      position: relative;
+
+      .docs-highlight-placeholder {
+        outline: 2px dashed white;
+        box-shadow: black 0 0 10px 0;
+      }
+    }
+  }
+
+  &__contrast-box {
+    background-color: $grayPrimary;
+    padding: $baseline;
+    display: inline-block;
+  }
+
+  &__content-box {
+    padding: $baseline;
+    display: inline-block;
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
+import './main.scss';
 import MintButton from 'components/mint-button';
-import DocsEntry from './docs-entry';
-import DocsBlock from './docs-block';
+import DocsEntry from '../docs-entry';
+import DocsBlock from '../docs-block';
 
 export default (props) => {
   return <DocsEntry title="Buttons">

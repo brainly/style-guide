@@ -1,7 +1,7 @@
 import React from 'react';
 import './mint-button.scss';
 import pj from './package.json';
-import klassy from '../../klassy';
+import klassy from 'helpers/klassy';
 
 
 export default (props) => {
