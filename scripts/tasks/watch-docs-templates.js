@@ -4,7 +4,7 @@ module.exports = function (gulp, plugins, consts) {
 
         plugins.livereload.listen();
         return gulp.watch([docsSources], function () {
-            plugins.runSequence('jekyll:docs', 'fingerprint-replace', 'docs:copy-components');
+            plugins.runSequence('jekyll:docs', 'docs:copy-components', 'fingerprint-replace');
         });
     }
 };

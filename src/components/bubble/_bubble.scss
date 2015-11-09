@@ -53,6 +53,18 @@ $includeHtml: false !default;
 
     &__hole {
       margin: rhythm(0.5) gutter(0.5) rhythm(0.5) 0;
+
+      &--full {
+        height: 100%;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      &--no-v-spacing {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
 
     &--dark {
@@ -75,6 +87,44 @@ $includeHtml: false !default;
         width: 100%;
       }
     }
+
+    &--full {
+      height: 100%;
+      width: 100%;
+
+      .mint-bubble__hole {
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+
+    &--full-and-grow {
+      min-height: 100%;
+      width: 100%;
+
+      .mint-bubble__hole {
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+
+    &--no-spacing {
+      margin: 0;
+    }
+
+    &--to-right {
+
+      &:before {
+        right: rhythm(1);
+        left: auto;
+      }
+
+      &:after {
+        right: rhythm(1) + $innerTriangleSize / 2;
+        left: auto;
+      }
+    }
+
   }
 
 }
