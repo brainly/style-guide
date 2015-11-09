@@ -28,6 +28,14 @@ $includeHtml: false !default;
       }
     }
 
+    &--fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: $mintHeaderZIndex;
+    }
+
     &__left {
       display: flex;
       align-items: center;
