@@ -60,5 +60,5 @@ gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
 gulp.task('ci', ['scss-lint', 'scss-unused-variables']);
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'svgs-generate', 'jekyll:docs', 'fingerprint', 'fingerprint-replace', 'docs:copy-components', 'sass:docs-build', done);
+    runSequence('clean:dist', 'sass:build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', 'sass:docs-build', done);
 });
