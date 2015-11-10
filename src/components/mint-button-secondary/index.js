@@ -5,17 +5,17 @@ import klassy from 'helpers/klassy';
 import Hole from 'components/component-base/hole';
 
 export const availableTypes = {
-  dark : 'dark',
-  fb : 'fb',
-  alt : 'alt'
+  dark: 'dark', alt: 'alt'
 };
 
-export default ({ children, type='' }) => {
-  const classes = klassy(pj);
+const classes = klassy(pj);
 
-  return <a { ...classes(null, type) }>
-           <Hole { ...classes() }>
-             { children }
-           </Hole>
-         </a>
-}
+export default React.createClass({
+  render () {
+    return <a { ...classes(null, this.props.type) }>
+      <Hole { ...classes() }>
+        { this.props.children }
+      </Hole>
+    </a>
+  }
+});
