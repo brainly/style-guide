@@ -8,7 +8,7 @@ module.exports = function (config) {
     files: [
       'tests.webpack.js'
     ],
-    frameworks: ['mocha', 'sinon-chai'],
+    frameworks: ['jasmine'],
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap']
     },

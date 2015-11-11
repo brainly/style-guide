@@ -7,7 +7,7 @@ describe('klassy', function (){
 
     const result = klassy(TEST_CLASS)();
 
-    expect(result.className).to.be.equal(TEST_CLASS)
+    expect(result.className).toEqual(TEST_CLASS)
   });
 
   it('should return class object with name from package.json', function(){
@@ -15,7 +15,7 @@ describe('klassy', function (){
 
     const result = klassy(json)();
 
-    expect(result.className).to.be.equal(json.name);
+    expect(result.className).toEqual(json.name);
   });
 
   it('should return class object with name overriden by opts param', function(){
@@ -24,7 +24,7 @@ describe('klassy', function (){
 
     const result = klassy(json, override)();
 
-    expect(result.className).to.be.equal(override.name);
-    expect(result.className).not.to.be.equal(json.name);
+    expect(result.className).toEqual(override.name);
+    expect(result.className).not.toEqual(json.name);
   });
 });
