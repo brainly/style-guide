@@ -1,4 +1,6 @@
-import { availableTypes as types } from './index';
+import React from 'react';
+import { availableTypes as types, default as Button} from './index';
+import $ from 'teaspoon';
 
 describe('mint-button-primary', () => {
   it('should have defaultTypes available', () => {
@@ -11,5 +13,9 @@ describe('mint-button-primary', () => {
 
   it('should have alt type available', () => {
     expect(types.alt).toBeDefined();
+  });
+
+  it('should have mint-button-primary class', () => {
+    expect($(<Button/>).render()).toHaveClass('mint-button-primary');
   });
 });
