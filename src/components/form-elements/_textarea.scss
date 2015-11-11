@@ -25,7 +25,7 @@ $includeHtml: false !default;
     line-height: $textareaLineHeight;
     padding: $textareaPadding;
     resize: none;
-    height: 100px;
+    height: rhythm(4);
     overflow-y: auto;
     appearance: none;
     position: relative;
@@ -65,12 +65,12 @@ $includeHtml: false !default;
     }
 
     &--small {
-      height: 36px;
+      height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
     }
 
     &--big {
-      height: 178px;
+      height: rhythm(7.5);
     }
   }
 }

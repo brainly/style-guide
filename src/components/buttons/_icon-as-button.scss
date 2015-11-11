@@ -106,5 +106,9 @@ $includeHtml: false !default;
         background: $iconAsButtonGrayColor;
       }
     }
+
+    &--rounded-square {
+      border-radius: 8px;
+    }
   }
 }

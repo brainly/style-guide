@@ -31,11 +31,23 @@ $includeHtml: false !default;
         margin-top: - rhythm(0.5);
         margin-bottom: rhythm(0.5);
       }
+
+      &--spaced {
+        @include mintBreakpoint(medium-up) {
+          padding-left: gutter(2);
+        }
+      }
     }
 
     &__header {
       @include componentsContainer;
       height: rhythm(2);
+
+      &--spaced {
+        @include mintBreakpoint(medium-up) {
+          padding-left: gutter(2);
+        }
+      }
     }
 
     &__content {
