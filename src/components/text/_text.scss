@@ -26,8 +26,8 @@ $includeHtml: false !default;
     }
 
     &--xemphasised {
-      font-weight: $fontWeightBold;
       @include uppercaseText;
+      font-weight: $fontWeightBold;
     }
 
     &--uppercase {
