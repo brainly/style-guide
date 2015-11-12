@@ -18,8 +18,16 @@ $includeHtml: false !default;
       color: $grayPrimary;
     }
 
-    &--small {
-      @include typeVariant(small, 0.75);
+    &--light {
+      color: $white;
+    }
+
+    &--warning {
+      color: $mustardPrimary;
+    }
+
+    &--error {
+      color: $peachPrimary;
     }
 
     &--for-fine-print {
@@ -30,8 +38,17 @@ $includeHtml: false !default;
       color: $blueSecondaryLight;
     }
 
+    &--unstyled {
+      color: inherit;
+      font-weight: inherit;
+    }
+
     &--emphasised {
       @include uppercaseText(0.01rem);
+    }
+
+    &--small {
+      @include typeVariant(small, 0.75);
     }
 
     &--disabled {
@@ -41,14 +58,6 @@ $includeHtml: false !default;
       &:active {
         text-decoration: none;
       }
-    }
-
-    &--warning {
-      color: $mustardPrimary;
-    }
-
-    &--error {
-      color: $peachPrimary;
     }
 
     &--underlined {
