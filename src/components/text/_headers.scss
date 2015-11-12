@@ -7,7 +7,7 @@ $includeHtml: false !default;
     @include typeVariant(header, 2);
     display: block;
     color: $black;
-    font-weight: $fontWeightBlack;
+    font-weight: $fontWeightBold;
     margin-bottom: rhythm(1);
 
     &--small {

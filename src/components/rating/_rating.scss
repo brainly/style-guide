@@ -57,7 +57,7 @@ $includeHtml: false !default;
       @include uppercaseText;
       @include fixOperaMiniLabelText;
 
-      font-weight: $fontWeightBlack;
+      font-weight: $fontWeightBold;
       color: $rateCounterColor;
       margin: 0 0 0 gutter(0.25);
     }
