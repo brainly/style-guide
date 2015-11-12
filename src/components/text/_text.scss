@@ -25,8 +25,21 @@ $includeHtml: false !default;
       font-weight: $fontWeightBold;
     }
 
+    &--xemphasised {
+      font-weight: $fontWeightBold;
+      @include uppercaseText;
+    }
+
+    &--uppercase {
+      @include uppercaseText;
+    }
+
     &--gray {
       color: $grayPrimary;
+    }
+
+    &--gray-alt {
+      color: $grayAlt;
     }
 
     &--light {
