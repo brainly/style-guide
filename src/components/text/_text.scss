@@ -15,6 +15,10 @@ $includeHtml: false !default;
       @include typeVariant(obscure, 1);
     }
 
+    &--small {
+      @include typeVariant(small, 0.75);
+    }
+
     &--headline {
       @include typeVariant(headline, 1.334);
       font-weight: $fontWeightNormal;
