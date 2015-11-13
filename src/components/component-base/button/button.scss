@@ -1,0 +1,77 @@
+$buttonPrimaryHeight: rhythm(2);
+$buttonSecondaryHeight: rhythm(1.333);
+$buttonSecondarySmallHeight: rhythm(1);
+
+$buttonPrimaryFontSize: fontSize(default);
+$buttonSecondaryFontSize: fontSize(obscure);
+
+$buttonPrimaryFontColor: $white;
+
+$buttonColor: $mintPrimary;
+$buttonColorGradient: #84ddaf;
+$buttonShadowColor: #67c996;
+
+$buttonAltColor: $bluePrimary;
+$buttonAltColorGradient: #73c3ff;
+$buttonAltShadowColor: #57aff2;
+
+$buttonDarkColor: $black;
+$buttonDarkColorGradient: #262626;
+$buttonDarkShadowColor: $black;
+
+$buttonFbColor: #3b5997;
+$buttonFbColorGradient: #4668b2;
+$buttonFbShadowColor: #355088;
+
+$buttonSecondaryColor: $mintPrimary;
+$buttonSecondaryTextColorHover: $white;
+$buttonSecondaryAltColor: $bluePrimary;
+$buttonSecondaryAltTextColorHover: $white;
+$buttonSecondaryDarkColor: $black;
+$buttonSecondaryDarkTextColorHover: $white;
+$buttonSecondaryPeachColor: $peachPrimary;
+$buttonSecondaryPeachTextColorHover: $white;
+$buttonSecondaryGrayColor: $grayPrimary;
+$buttonSecondaryGrayTextColorHover: $white;
+$buttonSecondaryLightColor: $white;
+$buttonSecondaryLightTextColorHover: $black;
+$buttonSecondaryActionColor: $graySecondary;
+$buttonSecondaryActionTextColor: $black;
+$buttonSecondaryActionTextColorHover: $white;
+$buttonSecondaryLightBlueColor: $blueSecondary;
+$buttonSecondaryLightBlueTextColorHover: $white;
+
+$buttonSecondaryIconColor: $graySecondary;
+$buttonSecondaryIconBorderColorHover: $grayPrimary;
+
+$buttonRoundAddSize: rhythm(2);
+$buttonRoundAddColor: $white;
+$buttonRoundLabelFontSize: fontSize(xsmall);
+$buttonRoundLabelBackground: $mintSecondaryLight;
+$buttonRoundLabelColor: $black;
+
+@mixin mintButtonBasicStyles() {
+  @include component;
+  @include uppercaseText;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: $fontWeightBold;
+
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin mintButtonBasicDimensions($height) {
+  border-radius: $height / 2;
+  height: $height;
+  padding: 0 $height / 2;
+}
+
+@mixin mintButtonBasicColors($borderColor, $fontColor, $backgroundColor) {
+  border-color: $borderColor;
+  color: $fontColor;
+  background-color: $backgroundColor;
+}
