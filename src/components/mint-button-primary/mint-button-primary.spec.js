@@ -22,4 +22,16 @@ describe('mint-button-primary', () => {
   it('should have mint-button-primary class', () => {
     expect($(<Button/>).render()).toHaveClass('mint-button-primary');
   });
+
+  it('should have mint-button--alt class', () => {
+    expect($(<Button type="alt"/>).render()).toHaveClass('mint-button-primary--alt');
+  });
+
+  it('should have mint-button--dark class', () => {
+    expect($(<Button type="dark"/>).render()).toHaveClass('mint-button-primary--dark');
+  });
+
+  it('should have mint-button-primary--full class', () => {
+    expect($(<Button width="full"/>).render()).toHaveClass('mint-button-primary--full');
+  });
 });
