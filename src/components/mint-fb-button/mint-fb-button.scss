@@ -1,0 +1,14 @@
+@import '~sass/main';
+// TODO: try to solve this dependency https://github.com/brainly/style-guide/issues/576
+@import '~components/mint-button-primary/mint-button-primary';
+@import '~components/component-base/button/button.scss';
+
+.mint-button-primary--fb {
+  @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+
+  .mint-button-primary__icon {
+    margin-right: gutter(0.5);
+    width: 20px;
+    height: 20px;
+  }
+}

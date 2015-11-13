@@ -1,3 +1,7 @@
+/*jslint sloppy:true, nomen:true */
+/*global jasmine, describe, xdescribe, it, xit,
+ expect, beforeEach, afterEach,
+ */
 import React from 'react';
 import { availableTypes as types, default as Button} from './index';
 import $ from 'teaspoon';

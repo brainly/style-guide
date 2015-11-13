@@ -2,6 +2,7 @@ import React from 'react';
 import './main.scss';
 import MintButton from 'components/mint-button-primary';
 import MintButtonSecondary from 'components/mint-button-secondary';
+import FacebookButton from 'components/mint-fb-button';
 import { availableTypes as btnTypes } from 'components/mint-button-primary';
 import DocsEntry from '../docs-entry';
 import DocsBlock from '../docs-block';
@@ -24,6 +25,9 @@ export default (props) => {
       <MintButton>Primary</MintButton>
       { renderAll(btnTypes, 'type', MintButton) }
 
+    </DocsBlock>
+    <DocsBlock title="Facebook Button">
+      <FacebookButton/>
     </DocsBlock>
     <DocsBlock title="Secondary Buttons">
 
