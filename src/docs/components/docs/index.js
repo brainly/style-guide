@@ -19,26 +19,29 @@ function renderAll(modifers, attr, Elt) {
 
 }
 
-export default (props) => {
-  return <DocsEntry title="Buttons">
-    <DocsBlock title="Primary Buttons">
+export default React.createClass({
+  render () {
+    return <DocsEntry title="Buttons">
+      <DocsBlock title="Primary Buttons">
 
-      <MintButton>Primary</MintButton>
-      { renderAll(btnTypes, 'type', MintButton) }
+        <MintButton>Primary</MintButton>
+        { renderAll(btnTypes, 'type', MintButton) }
 
-    </DocsBlock>
-    <DocsBlock title="Primary Button (full width)">
-      <MintButton width={ width.full }>
-        Full width example
-      </MintButton>
-    </DocsBlock>
-    <DocsBlock title="Facebook Button">
-      <FacebookButton/>
-    </DocsBlock>
-    <DocsBlock title="Secondary Buttons">
+      </DocsBlock>
+      <DocsBlock title="Primary Button (full width)">
+        <MintButton width={ width.full }>
+          Full width example
+        </MintButton>
+      </DocsBlock>
+      <DocsBlock title="Facebook Button">
+        <FacebookButton/>
+      </DocsBlock>
+      <DocsBlock title="Secondary Buttons">
 
-      <MintButtonSecondary>Secondary</MintButtonSecondary>
+        <MintButtonSecondary>Secondary</MintButtonSecondary>
 
-    </DocsBlock>
-  </DocsEntry>
-}
+      </DocsBlock>
+    </DocsEntry>
+  }
+});
+
