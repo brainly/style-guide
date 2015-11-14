@@ -3,21 +3,13 @@ import './main.scss';
 import MintButton from 'components/mint-button-primary';
 import MintButtonSecondary from 'components/mint-button-secondary';
 import FacebookButton from 'components/mint-fb-button';
-import { availableTypes as btnTypes, availableWidth as width } from 'components/mint-button-primary';
+import { availableTypes as btnPrimaryTypes, availableWidth as btnPrimaryWidth } from 'components/mint-button-primary';
+import { availableTypes as btnSecondaryTypes } from 'components/mint-button-secondary';
 import DocsEntry from '../docs-entry';
-import DocsBlock from '../docs-block';
+import { default as DocsBlock, ContrastBox} from '../docs-block';
+import renderAll from 'helpers/renderAll';
 
-function renderAll(modifers, attr, Elt) {
-  return Object.keys(modifers).map((mod, key) => {
-    let attrs = {
-      [attr]: mod,
-      key: key
-    };
-
-    return <Elt {...attrs }>Example</Elt>;
-  });
-
-}
+let renderAllTypes = renderAll('type');
 
 export default React.createClass({
   render () {
@@ -25,11 +17,11 @@ export default React.createClass({
       <DocsBlock title="Primary Buttons">
 
         <MintButton>Primary</MintButton>
-        { renderAll(btnTypes, 'type', MintButton) }
+        { renderAllTypes(btnPrimaryTypes, MintButton) }
 
       </DocsBlock>
       <DocsBlock title="Primary Button (full width)">
-        <MintButton width={ width.full }>
+        <MintButton width={ btnPrimaryWidth.full }>
           Full width example
         </MintButton>
       </DocsBlock>
@@ -39,6 +31,10 @@ export default React.createClass({
       <DocsBlock title="Secondary Buttons">
 
         <MintButtonSecondary>Secondary</MintButtonSecondary>
+        { renderAllTypes(btnSecondaryTypes, MintButtonSecondary, btnSecondaryTypes.light) }
+        <ContrastBox>
+          <MintButtonSecondary type={ btnSecondaryTypes.light }>Example</MintButtonSecondary>
+        </ContrastBox>
 
       </DocsBlock>
     </DocsEntry>

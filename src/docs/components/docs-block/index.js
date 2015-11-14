@@ -16,3 +16,11 @@ export default React.createClass({
     </section>
   }
 });
+
+export const ContrastBox = React.createClass({
+  render () {
+    return <div { ...cl('contrast-box') } >
+      { this.props.children }
+    </div>
+  }
+});
