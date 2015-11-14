@@ -5,7 +5,13 @@ import klassy from 'helpers/klassy';
 import Hole from 'components/component-base/hole';
 
 export const availableTypes = {
-  dark: 'dark', alt: 'alt'
+  alt: 'alt',
+  dark: 'dark',
+  light: 'light',
+  peach: 'peach',
+  gray: 'gray',
+  action: 'action',
+  lightBlue: 'light-blue'
 };
 
 const classes = klassy(pj);
