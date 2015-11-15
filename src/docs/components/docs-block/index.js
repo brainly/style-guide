@@ -6,21 +6,25 @@ var cl = klassy('docs-block');
 
 export default React.createClass({
   render () {
-    return <section { ...cl() } >
-      <aside { ...cl('info') } >
-        <h3 { ...cl('header') }> { this.props.title }</h3>
-      </aside>
-      <div { ...cl('content') }>
-        { this.props.children }
-      </div>
-    </section>
+    return (
+      <section { ...cl() } >
+        <aside { ...cl('info') } >
+          <h3 { ...cl('header') }> { this.props.title }</h3>
+        </aside>
+        <div { ...cl('content') }>
+          { this.props.children }
+        </div>
+      </section>
+    )
   }
 });
 
 export const ContrastBox = React.createClass({
   render () {
-    return <div { ...cl('contrast-box') } >
-      { this.props.children }
-    </div>
+    return (
+      <div { ...cl('contrast-box') } >
+        { this.props.children }
+      </div>
+    )
   }
 });
