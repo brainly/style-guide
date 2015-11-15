@@ -18,10 +18,12 @@ const classes = klassy(pj);
 
 export default React.createClass({
   render () {
-    return <a { ...classes(null, this.props.type) }>
-      <Hole { ...classes() }>
-        { this.props.children }
-      </Hole>
-    </a>
+    return (
+      <a { ...classes(null, this.props.type) }>
+        <Hole { ...classes() }>
+          { this.props.children }
+        </Hole>
+      </a>
+    )
   }
 });

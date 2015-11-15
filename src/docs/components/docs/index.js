@@ -13,31 +13,39 @@ let renderAllTypes = renderAll('type');
 
 export default React.createClass({
   render () {
-    return <DocsEntry title="Buttons">
-      <DocsBlock title="Primary Buttons">
+    return (
+      <DocsEntry title="Buttons">
+        <DocsBlock title="Primary Buttons">
 
-        <MintButton>Primary</MintButton>
-        { renderAllTypes(btnPrimaryTypes, MintButton) }
+          <MintButton>Primary</MintButton>
+          { renderAllTypes(btnPrimaryTypes, MintButton) }
 
-      </DocsBlock>
-      <DocsBlock title="Primary Button (full width)">
-        <MintButton width={ btnPrimaryWidth.full }>
-          Full width example
-        </MintButton>
-      </DocsBlock>
-      <DocsBlock title="Facebook Button">
-        <FacebookButton/>
-      </DocsBlock>
-      <DocsBlock title="Secondary Buttons">
+        </DocsBlock>
 
-        <MintButtonSecondary>Secondary</MintButtonSecondary>
-        { renderAllTypes(btnSecondaryTypes, MintButtonSecondary, btnSecondaryTypes.light) }
-        <ContrastBox>
-          <MintButtonSecondary type={ btnSecondaryTypes.light }>Example</MintButtonSecondary>
-        </ContrastBox>
+        <DocsBlock title="Primary Button (full width)">
 
-      </DocsBlock>
-    </DocsEntry>
+          <MintButton width={ btnPrimaryWidth.full }>
+            Full width example
+          </MintButton>
+
+        </DocsBlock>
+
+        <DocsBlock title="Facebook Button">
+          <FacebookButton/>
+        </DocsBlock>
+
+        <DocsBlock title="Secondary Buttons">
+
+          <MintButtonSecondary>Secondary</MintButtonSecondary>
+          { renderAllTypes(btnSecondaryTypes, MintButtonSecondary, btnSecondaryTypes.light) }
+
+          <ContrastBox>
+            <MintButtonSecondary type={ btnSecondaryTypes.light }>Example</MintButtonSecondary>
+          </ContrastBox>
+
+        </DocsBlock>
+      </DocsEntry>
+    )
   }
 });
 

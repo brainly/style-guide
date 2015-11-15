@@ -4,9 +4,11 @@ import React from 'react';
 
 export default React.createClass({
   render () {
-    return <MintButton type="fb">
-      Facebook
+    return (
+      <MintButton type="fb">
+        Facebook
       </MintButton>
+    )
   }
 });
 
