@@ -9,6 +9,7 @@ before_install:
 
 script:
   - gulp ci
+  - npm run ci
 
 notifications:
   email: false
