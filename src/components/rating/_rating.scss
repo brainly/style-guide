@@ -54,7 +54,7 @@ $includeHtml: false !default;
 
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
-      @include uppercaseText;
+      @include uppercaseText(0);
       @include fixOperaMiniLabelText;
 
       font-weight: $fontWeightBold;
