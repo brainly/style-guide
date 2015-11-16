@@ -8,7 +8,13 @@ $includeHtml: false !default;
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
+    letter-spacing: -1px;
     margin-bottom: rhythm(1);
+
+    @include mintBreakpoint('medium-up') {
+      font-weight: $fontWeightBlack;
+      letter-spacing: 0;
+    }
 
     &--small {
       @include typeVariant(headline);
