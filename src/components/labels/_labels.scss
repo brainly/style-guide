@@ -63,7 +63,7 @@ $includeHtml: false !default;
     }
 
     &--emphasised {
-      @include uppercaseText;
+      @include uppercaseText(0);
     }
 
     &--secondary {
