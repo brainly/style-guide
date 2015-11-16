@@ -38,10 +38,12 @@
     "karma-cli": "^0.1.1",
     "karma-jasmine": "^0.2.2",
     "karma-mocha-reporter": "^1.1.1",
+    "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.6",
     "karma-tap-reporter": "0.0.4",
     "karma-webpack": "^1.7.0",
     "normalize.scss": "^0.1.0",
+    "phantomjs": "^1.9.18",
     "postcss-loader": "^0.7.0",
     "react": "^0.14.2",
     "react-bem-helper": "^1.1.0",
@@ -62,6 +64,12 @@
   "scripts": {
     "start": "node tools/hot-reload-server.js",
     "test-watch": "NODE_ENV=test npm test",
-    "test": "karma start tools/karma.conf.js"
+    "test": "karma start tools/karma.conf.js",
+    "ci": "karma start tools/karma.conf.js --browsers PhantomJS"
+  },
+  "dependencies": {
+    "es5-shim": "^4.1.15",
+    "es6-shim": "^0.28.1",
+    "karma-es6-shim": "^0.1.3"
   }
 }
