@@ -3,8 +3,8 @@ function svgSymbolCleanUp(shape, sprite, callback) {
     var childNodes = shape.dom.documentElement.childNodes;
     symbol.setAttribute('style', 'overflow: visible');
 
-    for(var i = 0; i < childNodes.length; i++) {
-        if(childNodes[i].nodeType === 1) {
+    for (var i = 0; i < childNodes.length; i++) {
+        if (childNodes[i].nodeType === 1) {
             childNodes[i].removeAttribute('class');
             childNodes[i].removeAttribute('fill');
         }
@@ -13,13 +13,13 @@ function svgSymbolCleanUp(shape, sprite, callback) {
 }
 
 function svgAddPolyfill(svgPolyfill, svg) {
-    return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm,""));
+    return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm,''));
 }
 
 module.exports = function (gulp, plugins, consts) {
     return function () {
         var fs = require('fs');
-        var svgPolyfill = fs.readFileSync(plugins.path.join(consts.SRC, 'svg-polyfill.js'), "utf8");
+        var svgPolyfill = fs.readFileSync(plugins.path.join(consts.SRC, 'svg-polyfill.js'), 'utf8');
         var subjectIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects', '*.svg');
         var iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
         var destPath = plugins.path.join(consts.SRC, 'images');
@@ -32,7 +32,7 @@ module.exports = function (gulp, plugins, consts) {
             },
             shape: {
                 id: {
-                    generator: "icon-subject-%s"
+                    generator: 'icon-subject-%s'
                 },
                 transform: [{
                     custom: svgSymbolCleanUp
@@ -51,7 +51,7 @@ module.exports = function (gulp, plugins, consts) {
             },
             shape: {
                 id: {
-                    generator: "icon-%s"
+                    generator: 'icon-%s'
                 },
                 transform: [{
                     custom: svgSymbolCleanUp

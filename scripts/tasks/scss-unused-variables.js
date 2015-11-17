@@ -1,5 +1,5 @@
 module.exports = function (gulp, plugins, consts) {
-    return function(done) {
+    return function (done) {
         var cmd = plugins.path.join(consts.PROJECT_DIR, 'scripts', 'find_scss_unused_variables.sh')  + ' ' + consts.SRC;
 
         require('child_process').exec(cmd, function(error, stdout) {
