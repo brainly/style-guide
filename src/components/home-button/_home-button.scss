@@ -8,12 +8,8 @@ $includeHtml: false !default;
 
   .mint-home-button {
     @include component;
-    height: $homeButtonMobileHeight;
-    width: $homeButtonMobileHeight;
 
     @include mintBreakpoint(medium-up) {
-      height: $homeButtonDefaultHeight;
-      width: $homeButtonDefaultWidth;
       top: 10px;
     }
 
@@ -37,6 +33,21 @@ $includeHtml: false !default;
         display: block;
       }
     }
-  }
 
+    &--eodev &__logo-big {
+      width: 114px;
+    }
+
+    &--nosdevoirs &__logo-big {
+      width: 161px;
+    }
+
+    &--zadane &__logo-big {
+      width: 130px;
+    }
+
+    &--znanija &__logo-big {
+      width: 131px;
+    }
+  }
 }
