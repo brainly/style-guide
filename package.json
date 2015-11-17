@@ -68,7 +68,9 @@
     "start": "node tools/hot-reload-server.js",
     "test-watch": "NODE_ENV=test npm test",
     "test": "karma start tools/karma.conf.js",
-    "ci": "karma start tools/karma.conf.js --browsers PhantomJS"
+    "ci": "karma start tools/karma.conf.js --browsers PhantomJS",
+    "build:prod": "webpack --config tools/webpack.config.prod.js",
+    "build": "npm run build:prod"
   },
   "dependencies": {
     "is-falsy": "0.0.1",
