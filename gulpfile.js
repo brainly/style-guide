@@ -32,7 +32,7 @@ var consts = {
 };
 
 function getTask(task) {
-    return require(path.join(consts.PROJECT_DIR, 'scripts', 'tasks',  task))(gulp, plugins, consts);
+  return require(path.join(consts.PROJECT_DIR, 'scripts', 'tasks', task))(gulp, plugins, consts);
 }
 
 gulp.task('sass:build', getTask('sass-build'));
@@ -57,8 +57,12 @@ gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 gulp.task('scss-lint', getTask('scss-lint'));
 gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
 
-gulp.task('ci', ['scss-lint', 'scss-unused-variables']);
+gulp.task('eslint', getTask('eslint'));
+
+gulp.task('ci', ['scss-lint', 'scss-unused-variables', 'eslint']);
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', 'sass:docs-build', done);
+  runSequence('clean:dist', 'eslint', 'sass:build',
+              'svgs-generate', 'jekyll:docs', 'docs:copy-components',
+              'fingerprint', 'fingerprint-replace', 'sass:docs-build', done);
 });
