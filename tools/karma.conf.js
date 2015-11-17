@@ -17,7 +17,8 @@ module.exports = function (config) {
       devtool: 'inline-source-map'
     }),
     webpackServer: {
-      noInfo: true
+      noInfo: true,
+      quiet: true
     },
     webpackMiddleware: {
       noInfo: true
