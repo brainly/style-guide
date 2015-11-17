@@ -1,11 +1,13 @@
+{% for logo in site.data.logos %}
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Default</h3>
+        <h3 class="docs-block__header">{{ logo.name | capitalize }}{% if logo.default %} - default{% endif %}</h3>
     </aside>
     <div class="docs-block__content">
-        <a href="#" class="mint-home-button">
-          <img class="mint-home-button__logo-small" src="images/logo-mobile.svg" />
-          <img class="mint-home-button__logo-big" src="images/logo.svg" />
+        <a href="#" class="mint-home-button{% if logo.default != true %} mint-home-button--{{ logo.name }}{% endif %}">
+          <img class="mint-home-button__logo-small" src="images/logos/{{ logo.name }}-mobile.svg" />
+          <img class="mint-home-button__logo-big" src="images/logos/{{ logo.name }}.svg" />
         </a>
     </div>
 </section>
+{% endfor %}
