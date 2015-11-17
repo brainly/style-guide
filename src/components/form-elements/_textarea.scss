@@ -5,7 +5,7 @@ $textareaFontSize: fontSize(default);
 $textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
 $textareaPadding: 11px;
-$textareaSmallPadding: 6px;
+$textareaSmallPadding: 4px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: fontSize(obscure);
@@ -67,6 +67,7 @@ $includeHtml: false !default;
     &--small {
       height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
+      line-height: rhythm(5 / 6);
     }
 
     &--big {
