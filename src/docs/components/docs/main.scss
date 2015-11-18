@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+@import "~sass/config"; //style guide variables
+@import "~sass/mixins";
+@import "../../_sass/config";
+@import "../../_sass/colors-list";
+@import "../../_sass/color-box";
+@import "../../_sass/navigation";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 50px 10px;
+}
+
+iframe {
+  border: none;
+  box-shadow: black 0 0 0 4px;
+}
+
+.data-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.main-header {
+  margin: 20px 0 0;
+  font-size: 48px;
+  font-weight: $fontWeightBold;
+  color: $black;
+}
+
+.icons-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  &__element {
+    width: 25%;
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: $black;
+    display: flex;
+    align-items: center;
+
+    &--wider {
+      width: 33%;
+    }
+
+    &--wide {
+      width: 50%;
+    }
+
+    &:before {
+      color: $mintPrimary;
+      font-size: 22px;
+      float: left;
+      margin: 0 10px 0 0;
+    }
+  }
+
+  &__element-info {
+    display: inline-block;
+    vertical-align: top;
+    margin: 21px 0 0;
+  }
+}
+
+
+body.show-vr-lines {
+  .docs-block__content:hover {
+    &:before {
+      z-index: 1;
+      content: '';
+      background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) repeat-y;
+      background-size: 100% rhythm(1);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 1px;
+      pointer-events: none;
+    }
+  }
+}
+
+body.show-holes {
+  .mint-bubble__hole,
+  .mint-box__hole,
+  .mint-promo-box__content,
+  .mint-header__left,
+  .mint-header__middle,
+  .mint-header__right,
+  .mint-overlayed-box,
+  .mint-overlayed-box__overlay,
+  .mint-footer__line,
+  .mint-content-box__header,
+  .mint-content-box__title,
+  .mint-content-box__footer,
+  .mint-content-box__content,
+  .mint-toplayer__heading,
+  .mint-toplayer__content,
+  .mint-toplayer__actions,
+  .mint-dropdown__hole,
+  .mint-dropdown__item-hole,
+  .mint-popup-menu__hole,
+  .mint-text-bit__hole {
+    @extend .docs-highlight-placeholder;
+  }
+}

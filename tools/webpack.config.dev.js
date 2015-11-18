@@ -42,7 +42,8 @@ module.exports = {
     alias : {
       'components' : componentsPath,
       'sass' : sassPath,
-      'fonts': fontsPath
+      'fonts': fontsPath,
+      'helpers': root('src/helpers')
     }
   },
   module: {

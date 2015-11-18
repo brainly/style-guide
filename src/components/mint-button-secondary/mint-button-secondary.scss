@@ -1,0 +1,130 @@
+@import '~sass/main';
+@import '~components/component-base/button/button';
+
+$includeHtml: false !default;
+
+@mixin mintButtonSecondaryActive($borderColor, $fontColor, $backgroundColor) {
+  $activeFontColor: rgba($fontColor, 0.7);
+
+  &:hover,
+  &:focus {
+    border-color: $borderColor;
+    color: $fontColor;
+    background-color: $backgroundColor;
+  }
+
+  &:active {
+    color: $activeFontColor;
+    outline: none;
+  }
+
+  &:active &__hole {
+    opacity: 0.7;
+  }
+}
+
+@mixin mintButtonSecondaryWithIconActive($borderColor, $textColor) {
+  &:hover,
+  &:focus {
+    color: $textColor;
+    background-color: transparent;
+    border-color: $borderColor;
+    transition: border-color 0.1s ease-in;
+  }
+}
+
+
+@mixin mintButtonSecondaryTwoColorVariant($colorOne, $colorTwo) {
+  @include mintButtonBasicColors($colorOne, $colorOne, transparent);
+  @include mintButtonSecondaryActive($colorOne, $colorTwo, $colorOne);
+
+  &-inverse {
+    @include mintButtonBasicColors($colorOne, $colorTwo, $colorOne);
+    @include mintButtonSecondaryActive($colorOne, $colorOne, transparent);
+  }
+}
+
+@mixin mintButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
+  border: none;
+  padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
+  @include mintButtonBasicColors($bgColor, $textColor, $bgColor);
+  @include mintButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
+
+  &-inverse {
+    @include mintButtonBasicColors($textColor, $hoverTextColor, $textColor);
+    @include mintButtonSecondaryActive($bgColor, $textColor, $bgColor);
+    border: none;
+    padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
+  }
+}
+
+@if ($includeHtml) {
+  // Secondary buttons
+  .mint-button-secondary {
+    $borderSize: 2px;
+    @include mintButtonBasicStyles();
+    @include mintButtonBasicDimensions($buttonSecondaryHeight);
+    @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+    @include hole;
+
+    border-width: $borderSize;
+    border-style: solid;
+    background-color: transparent;
+    font-size: $buttonSecondaryFontSize;
+    font-weight: $fontWeightBold;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+
+    &--inverse {
+      @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+      @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    }
+
+    &--full {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .mint-button-secondary--alt {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+  }
+
+  .mint-button-secondary--dark {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+  }
+
+  .mint-button-secondary--peach {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+  }
+
+  .mint-button-secondary--gray {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+  }
+
+  .mint-button-secondary--light {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+  }
+
+  .mint-button-secondary--action {
+    @include mintButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
+  }
+
+  .mint-button-secondary--light-blue {
+    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+  }
+
+  .mint-button-secondary--with-icon {
+    @include mintButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
+    @include mintButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
+  }
+
+  .mint-button-secondary--small {
+    @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
+  }
+}

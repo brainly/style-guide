@@ -1,0 +1,105 @@
+@import '~sass/main';
+@import '~components/component-base/button/button';
+
+$includeHtml: false !default;
+
+@mixin mintButtonPrimaryActive($fontColor) {
+  $activeFontColor: rgba($fontColor, 0.7);
+  transition: background-position 0.3s ease-out;
+
+  &:hover,
+  &:focus {
+    background-position: 0 0;
+    outline: none;
+  }
+
+  &:active {
+    color: $activeFontColor;
+    outline: none;
+  }
+}
+
+
+@mixin mintButtonPrimaryThreeColorVariant($buttonColor, $gradientColor, $buttonShadowColor: null) {
+  background-color: $buttonColor;
+  // scss-lint:disable NameFormat
+  background-image: linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%);
+  // scss-lint:disable NameFormat
+  background-size: 100% 140%;
+  background-position: 0 -10px;
+  background-repeat: no-repeat;
+
+  @if ($buttonShadowColor) {
+    box-shadow: 0 -1px 0 $buttonShadowColor inset;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $gradientColor;
+  }
+}
+
+@if ($includeHtml) {
+
+  // Primary buttons
+  .mint-button-primary {
+    @include mintButtonBasicStyles();
+    @include mintButtonBasicDimensions($buttonPrimaryHeight);
+    @include mintButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+    @include mintButtonPrimaryActive($buttonPrimaryFontColor);
+    @include hole;
+
+    border: none;
+    font-size: $buttonPrimaryFontSize;
+
+    &--full {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .mint-button-primary--alt {
+    @include mintButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+  }
+
+  .mint-button-primary--dark {
+    @include mintButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+  }
+
+  .mint-button-primary-round {
+    $boxShadowColor: rgba(0, 0, 0, 0.3);
+    @include clearfix();
+    display: inline-block;
+
+    &__icon {
+      @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: $buttonRoundAddSize;
+      height: $buttonRoundAddSize;
+      border-radius: 50%;
+      line-height: $buttonRoundAddSize;
+      text-align: center;
+      color: $buttonRoundAddColor;
+      box-shadow: 0 3px 10px 0 $boxShadowColor;
+    }
+
+    &__label {
+      @include uppercaseText;
+      float: left;
+      font-weight: $fontWeightBold;
+      font-size: $buttonRoundLabelFontSize;
+      border-radius: 4px;
+      line-height: rhythm(0.5);
+      background: $buttonRoundLabelBackground;
+      color: $buttonRoundLabelColor;
+      padding: 3px 5px;
+      margin: 16px 10px 0 0;
+      box-shadow: 0 0 5px 0 $boxShadowColor;
+    }
+  }
+
+
+}

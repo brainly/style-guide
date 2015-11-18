@@ -8,24 +8,17 @@ module.exports = function (config) {
     files: [
       'tests.webpack.js'
     ],
-    frameworks: ['mocha', 'sinon-chai'],
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-mocha',
-      'karma-sinon-chai',
-      'karma-sourcemap-loader',
-      'karma-webpack',
-      'karma-tap-reporter'
-    ],
+    frameworks: ['jasmine', 'es6-shim'],
     preprocessors: {
       'tests.webpack.js': ['webpack', 'sourcemap']
     },
-    reporters: ['tap'],
+    reporters: ['mocha'],
     webpack: Object.assign(webpackConfig, {
       devtool: 'inline-source-map'
     }),
     webpackServer: {
-      noInfo: true
+      noInfo: true,
+      quiet: true
     },
     webpackMiddleware: {
       noInfo: true
