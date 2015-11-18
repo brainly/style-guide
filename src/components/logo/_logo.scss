@@ -24,6 +24,10 @@ $includeHtml: false !default;
     &--eodev {
       width: 114px;
 
+      @include mintBreakpoint(medium-up) {
+        width: 154px;
+      }
+
       &.mint-logo--small {
         width: 57px;
       }
@@ -31,6 +35,10 @@ $includeHtml: false !default;
 
     &--nosdevoirs {
       width: 161px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 217px;
+      }
 
       &.mint-logo--small {
         width: 81px;
@@ -40,6 +48,10 @@ $includeHtml: false !default;
     &--zadane {
       width: 130px;
 
+      @include mintBreakpoint(medium-up) {
+        width: 176px;
+      }
+
       &.mint-logo--small {
         width: 65px;
       }
@@ -47,6 +59,10 @@ $includeHtml: false !default;
 
     &--znanija {
       width: 131px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 176px;
+      }
 
       &.mint-logo--small {
         width: 65px;
