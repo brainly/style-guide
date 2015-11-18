@@ -1,8 +1,8 @@
 /* jslint sloppy:true, nomen:true */
+
 /* global jasmine, describe, xdescribe, it, xit,
  expect, beforeEach, afterEach,
  */
-import React from 'react';
 import { default as renderAll, contains } from './renderAll';
 import Button from 'components/mint-button-primary';
 

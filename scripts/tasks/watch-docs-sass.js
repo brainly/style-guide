@@ -1,5 +1,5 @@
 module.exports = function (gulp, plugins, consts) {
-    return function (done) {
+    return function () {
         var docsSassSources = plugins.path.join(consts.DOCS, '_sass', '*.scss');
 
         plugins.livereload.listen();

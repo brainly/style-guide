@@ -1,5 +1,5 @@
 module.exports = function (gulp, plugins, consts) {
-    return function (done) {
+    return function () {
         var docsSources = plugins.path.join(consts.DOCS, '**', '*.{html,yml}');
 
         plugins.livereload.listen();

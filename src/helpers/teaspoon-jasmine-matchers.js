@@ -1,5 +1,7 @@
 export default {
+  /* eslint-disable no-unused-vars*/
   toHaveClass (util, customEqualityTesters) {
+    /* eslint-enable no-unused-vars*/
     return {
       compare ($, expected) {
         let result = {

@@ -1,5 +1,5 @@
 module.exports = function (gulp, plugins, consts) {
-    return function (done) {
+    return function () {
         var mainSassSources = plugins.path.join(consts.SRC, 'sass', '**', '*.scss');
         var componentsSassSources = plugins.path.join(consts.COMPONENTS, '**', '*.scss');
 
