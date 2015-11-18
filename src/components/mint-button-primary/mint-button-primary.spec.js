@@ -23,7 +23,7 @@ describe('mint-button-primary', () => {
     expect($(<Button/>).render()).toHaveClass('mint-button-primary');
   });
 
-  it('should have mint-button--alt class', () => {
+  it('should have mint-button-primary--alt class', () => {
     expect($(<Button type="alt"/>).render()).toHaveClass('mint-button-primary--alt');
   });
 

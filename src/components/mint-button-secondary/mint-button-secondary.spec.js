@@ -11,12 +11,12 @@ describe('mint-button-secondary', () => {
     expect($(<Component/>).render()).toHaveClass('mint-button-secondary');
   });
 
-  it('should have class mint-button--alt', () => {
+  it('should have class mint-button-secondary--alt', () => {
     expect(types.alt).toBeDefined();
     expect($(<Component type="alt"/>).render()).toHaveClass('mint-button-secondary--alt');
   });
 
-  it('should have class mint-button--dark', () => {
+  it('should have class mint-button-secondary--dark', () => {
     expect(types.dark).toBeDefined();
     expect($(<Component type="dark"/>).render()).toHaveClass('mint-button-secondary--dark');
   });
