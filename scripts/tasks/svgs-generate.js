@@ -5,9 +5,9 @@ function svgSymbolCleanUp(shape, sprite, callback) {
 
   for (var i = 0; i < childNodes.length; i++) {
     if (childNodes[i].nodeType === 1) {
-        childNodes[i].removeAttribute('class');
-        childNodes[i].removeAttribute('fill');
-      }
+      childNodes[i].removeAttribute('class');
+      childNodes[i].removeAttribute('fill');
+    }
   }
   callback(null);
 }
@@ -25,42 +25,42 @@ module.exports = function (gulp, plugins, consts) {
     var destPath = plugins.path.join(consts.SRC, 'images');
 
     var subjectIconsConfig = {
-        mode: {
-            symbol: {
-                sprite: '../subjects-icons.js'
-              }
-          },
-        shape: {
-            id: {
-                generator: 'icon-subject-%s'
-              },
-            transform: [{
-                custom: svgSymbolCleanUp
-              }]
-          },
-        svg: {
-            transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      mode: {
+        symbol: {
+            sprite: '../subjects-icons.js'
           }
-      };
+      },
+      shape: {
+        id: {
+            generator: 'icon-subject-%s'
+          },
+        transform: [{
+            custom: svgSymbolCleanUp
+          }]
+      },
+      svg: {
+        transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      }
+    };
 
     var iconsConfig = {
-        mode: {
-            symbol: {
-                sprite: '../icons.js'
-              }
-          },
-        shape: {
-            id: {
-                generator: 'icon-%s'
-              },
-            transform: [{
-                custom: svgSymbolCleanUp
-              }]
-          },
-        svg: {
-            transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      mode: {
+        symbol: {
+            sprite: '../icons.js'
           }
-      };
+      },
+      shape: {
+        id: {
+            generator: 'icon-%s'
+          },
+        transform: [{
+            custom: svgSymbolCleanUp
+          }]
+      },
+      svg: {
+        transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      }
+    };
 
     gulp.src(subjectIconsPath)
             .pipe(plugins.svgSprite(subjectIconsConfig))

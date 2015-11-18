@@ -5,7 +5,7 @@ module.exports = function (gulp, plugins, consts) {
 
     plugins.livereload.listen();
     return gulp.watch([mainSassSources, componentsSassSources], function () {
-        return plugins.runSequence('sass:build', 'fingerprint-replace');
-      });
+      return plugins.runSequence('sass:build', 'fingerprint-replace');
+    });
   }
 };

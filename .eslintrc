@@ -59,7 +59,7 @@
     // Legacy
     "max-len": [
       2,
-      170
+      120
     ],
     // React
     // https://github.com/yannickcr/eslint-plugin-react
