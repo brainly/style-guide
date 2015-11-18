@@ -6,29 +6,29 @@ var path = require('path');
 var runSequence = require('run-sequence');
 var pkg = require('./package');
 var plugins = require('gulp-load-plugins')({
-    pattern: ['gulp-*', 'gulp.*', 'run\-sequence']
+  pattern: ['gulp-*', 'gulp.*', 'run\-sequence']
 });
 
 plugins.path = path;
 
 var consts = {
-    PROJECT_DIR: __dirname,
-    VERSION: argv.production ? pkg.version : 'dev',
-    get SRC() {
-        return path.join(this.PROJECT_DIR, 'src');
-    },
-    get DIST() {
-        return path.join(this.PROJECT_DIR, 'dist');
-    },
-    get DOCS() {
-        return path.join(this.SRC, 'docs');
-    },
-    get VERSIONED_DIST() {
-        return path.join(this.DIST, this.VERSION);
-    },
-    get COMPONENTS() {
-        return path.join(this.SRC, 'components');
-    }
+  PROJECT_DIR: __dirname,
+  VERSION: argv.production ? pkg.version : 'dev',
+  get SRC() {
+    return path.join(this.PROJECT_DIR, 'src');
+  },
+  get DIST() {
+    return path.join(this.PROJECT_DIR, 'dist');
+  },
+  get DOCS() {
+    return path.join(this.SRC, 'docs');
+  },
+  get VERSIONED_DIST() {
+    return path.join(this.DIST, this.VERSION);
+  },
+  get COMPONENTS() {
+    return path.join(this.SRC, 'components');
+  }
 };
 
 function getTask(task) {
