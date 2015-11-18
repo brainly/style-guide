@@ -1,0 +1,121 @@
+{
+  "rules": {
+    // ESLint Rules:
+    // http://eslint.org/docs/rules/
+
+    "react/jsx-uses-vars": 1,
+    "react/jsx-uses-react": 1,
+    // Possible Errors
+    "no-console": 0,
+    "block-scoped-var": 2,
+    // Best Practices
+    "complexity": [
+      1,
+      4
+    ],
+    "no-eq-null": 2,
+    "no-self-compare": 2,
+    // Strict Mode
+    "strict": 0,
+    // Since it's added automatically by strict-loader
+
+    // Stylistic issues
+        "indent": [
+          2,
+          2,
+          {
+            "SwitchCase": 1
+          }
+        ],
+    "no-mixed-spaces-and-tabs": [
+      2,
+      "smart-tabs"
+    ],
+    "consistent-this": [
+      2,
+      "self"
+    ],
+    "no-lonely-if": 2,
+    "no-unused-vars": [
+      1,
+      {
+        "vars": "local",
+        "args": "after-used",
+        "varsIgnorePattern": "[iI]gnored"
+      }
+    ],
+    "no-multiple-empty-lines": 2,
+    "no-nested-ternary": 2,
+    "no-underscore-dangle": 1,
+    "quotes": [
+      2,
+      "single",
+      "avoid-escape"
+    ],
+    "space-after-keywords": 2,
+    "space-before-blocks": 2,
+    "spaced-comment": 1,
+    "space-unary-ops": 2,
+    // Legacy
+    "max-len": [
+      2,
+      170
+    ],
+    // React
+    // https://github.com/yannickcr/eslint-plugin-react
+    "jsx-quotes": [
+      2,
+      "prefer-double"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "ecmaFeatures": {
+    "jsx": true,
+    "experimentalObjectRestSpread": true,
+    "arrowFunctions": true,
+    "binaryLiterals": true,
+    "blockBindings": true,
+    "defaultParams": true,
+    "forOf": true,
+    "generators": true,
+    "objectLiteralComputedProperties": true,
+    "objectLiteralDuplicateProperties": true,
+    "objectLiteralShorthandMethods": true,
+    "objectLiteralShorthandProperties": true,
+    "octalLiterals": true,
+    "regexUFlag": true,
+    "regexYFlag": true,
+    "superInFunctions": true,
+    "templateStrings": true,
+    "unicodeCodePointEscapes": true,
+    "modules": true
+  },
+  "globals": {
+    "module": true,
+    // CommonJS module
+    "require": true,
+    // CommonJS require
+    "React": true,
+    // ReactJs
+    "fetch": true,
+    // Fetch js
+    /* MOCHA */
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+    //Jasmine
+    "expect": false,
+    "jasmine": false
+  },
+  "plugins": [
+    "react"
+  ]
+}
