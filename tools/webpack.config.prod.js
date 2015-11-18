@@ -32,7 +32,11 @@ module.exports = {
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.DedupePlugin(), 
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      APP_VERSION: JSON.stringify(version)
+    }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
@@ -41,10 +45,6 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-      APP_VERSION: JSON.stringify(version)
-    })
   ],
   resolve : {
     alias : {
