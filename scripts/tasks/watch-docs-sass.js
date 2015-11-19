@@ -1,8 +1,8 @@
 module.exports = function (gulp, plugins, consts) {
-    return function (done) {
-        var docsSassSources = plugins.path.join(consts.DOCS, '_sass', '*.scss');
+  return function () {
+    var docsSassSources = plugins.path.join(consts.DOCS, '_sass', '*.scss');
 
-        plugins.livereload.listen();
-        return gulp.watch([docsSassSources], ['sass:docs-build']);
-    }
+    plugins.livereload.listen();
+    return gulp.watch([docsSassSources], ['sass:docs-build']);
+  }
 };
