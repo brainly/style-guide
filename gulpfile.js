@@ -8,6 +8,7 @@ var pkg = require('./package');
 var plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*', 'run\-sequence']
 });
+var ddescribeIit = require('gulp-acorn-ddescribe-iit');
 
 plugins.path = path;
 
@@ -57,12 +58,17 @@ gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 gulp.task('scss-lint', getTask('scss-lint'));
 gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
 
+gulp.task('ddescribe-iit', function() {
+  return gulp.src(['src/**/*.spec.ts', 'src/**/*_spec.ts']).
+  pipe(ddescribeIit({ allowDisabledTests: false }));
+});
+
 gulp.task('eslint', getTask('eslint'));
 
 gulp.task('ci', ['scss-lint', 'scss-unused-variables', 'eslint']);
 
 gulp.task('build', function (done) {
-  runSequence('clean:dist', 'eslint', 'sass:build',
+  runSequence('clean:dist', 'eslint', 'ddescribe-iit', 'sass:build',
               'svgs-generate', 'jekyll:docs', 'docs:copy-components',
               'fingerprint', 'fingerprint-replace', 'sass:docs-build', done);
 });
