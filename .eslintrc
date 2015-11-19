@@ -100,8 +100,6 @@
     // CommonJS module
     "require": true,
     // CommonJS require
-    "fetch": true,
-    // Fetch js
     /* MOCHA */
     "describe": false,
     "it": false,
