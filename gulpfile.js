@@ -59,13 +59,13 @@ gulp.task('scss-lint', getTask('scss-lint'));
 gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
 
 gulp.task('ddescribe-iit', function() {
-  return gulp.src(['src/**/*.spec.ts', 'src/**/*_spec.ts']).
+  return gulp.src([consts.SRC + '/**/*.spec.ts', consts.SRC + '/**/*_spec.ts']).
   pipe(ddescribeIit({ allowDisabledTests: false }));
 });
 
 gulp.task('eslint', getTask('eslint'));
 
-gulp.task('ci', ['scss-lint', 'scss-unused-variables', 'eslint']);
+gulp.task('ci', ['scss-lint', 'scss-unused-variables', 'eslint', 'ddescribe-iit']);
 
 gulp.task('build', function (done) {
   runSequence('clean:dist', 'eslint', 'ddescribe-iit', 'sass:build',
