@@ -5,9 +5,9 @@ module.exports = function (gulp, plugins, consts) {
     require('child_process').exec(cmd, function(error, stdout) {
       if (error) {
         error = new plugins.util.PluginError('scss-unused-variables', {
-            message: stdout,
-            showStack: false
-          });
+          message: stdout,
+          showStack: false
+        });
         return done(error);
       } // return error
       done();

@@ -27,16 +27,16 @@ module.exports = function (gulp, plugins, consts) {
     var subjectIconsConfig = {
       mode: {
         symbol: {
-            sprite: '../subjects-icons.js'
-          }
+          sprite: '../subjects-icons.js'
+        }
       },
       shape: {
         id: {
-            generator: 'icon-subject-%s'
-          },
+          generator: 'icon-subject-%s'
+        },
         transform: [{
-            custom: svgSymbolCleanUp
-          }]
+          custom: svgSymbolCleanUp
+        }]
       },
       svg: {
         transform: [svgAddPolyfill.bind(null, svgPolyfill)]
@@ -46,16 +46,16 @@ module.exports = function (gulp, plugins, consts) {
     var iconsConfig = {
       mode: {
         symbol: {
-            sprite: '../icons.js'
-          }
+          sprite: '../icons.js'
+        }
       },
       shape: {
         id: {
-            generator: 'icon-%s'
-          },
+          generator: 'icon-%s'
+        },
         transform: [{
-            custom: svgSymbolCleanUp
-          }]
+          custom: svgSymbolCleanUp
+        }]
       },
       svg: {
         transform: [svgAddPolyfill.bind(null, svgPolyfill)]
