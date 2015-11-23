@@ -35,10 +35,6 @@ $includeHtml: false !default;
       }
     }
 
-    &__text {
-      overflow: hidden;
-    }
-
     &__icon {
       width: $labelIconSizePrimary;
       height: $labelIconSizePrimary;
@@ -98,7 +94,6 @@ $includeHtml: false !default;
         @include fixOperaMiniLabelText;
 
         margin-right: $labelScaleFactor * gutter(0.25);
-        overflow: visible;
 
         &:last-child {
           margin-right: 0;
