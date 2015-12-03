@@ -4,9 +4,6 @@ $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitDarkColor: $black;
-$textBitLargeFontSize: fontSize(large);
-$textBitLargerTabletFontSize: fontSize(xlarge);
-$textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 $includeHtml: false !default;
 
@@ -22,7 +19,7 @@ $includeHtml: false !default;
 
     @include mintBreakpoint(medium-up) {
       &:not(.mint-text-bit--not-responsive) {
-        font-size: $textBitLargeFontSize;
+        font-size: fontSize(large);
       }
     }
 
@@ -56,24 +53,20 @@ $includeHtml: false !default;
     }
 
     &--large {
-      font-size: $textBitLargeFontSize;
+      font-size: fontSize(large);
     }
 
     &--xlarge {
-      @include typeVariant(xxlarge, 3);
-    }
-
-    &--to-larger:not(.mint-text-bit--not-responsive) {
-      @include mintBreakpoint(medium-up) {
-        font-size: $textBitLargerTabletFontSize;
-        line-height: rhythm(3);
-      }
+      @include typeVariant(large, 2);
+      width: 100%;
 
       @include mintBreakpoint(large-only) {
-        font-size: $textBitLargerDesktopFontSize;
-        line-height: rhythm(3);
+        @include typeVariant(xxlarge, 3);
       }
     }
-  }
 
+    &--xxlarge {
+      @include typeVariant(xxlarge, 3);
+    }
+  }
 }
