@@ -42,6 +42,7 @@
 
     // This is a hotfix for animation that is triggering
     // repaints of elements with border radius (avatars for example)
+    // Link to issue: http://crbug.com/157218
     &--animation-container {
       position: relative;
       z-index: 1;
