@@ -48,7 +48,7 @@ $includeHtml: false !default;
     &__hole {
       justify-content: flex-start;
       min-height: $dropdownHeight - (2 * $dropdownBorderSize);
-      margin: 0 $dropdownHeight 0 $dropdownHeight / 2;
+      padding: 0 rhythm(1.333) 0 rhythm(0.667);
       white-space: nowrap;
       overflow: hidden;
 

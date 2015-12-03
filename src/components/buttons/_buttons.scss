@@ -75,6 +75,7 @@ $includeHtml: false !default;
 @mixin mintButtonBasicColors($borderColor, $fontColor, $backgroundColor) {
   border-color: $borderColor;
   color: $fontColor;
+  fill: $fontColor;
   background-color: $backgroundColor;
 }
 
@@ -101,11 +102,13 @@ $includeHtml: false !default;
   &:focus {
     border-color: $borderColor;
     color: $fontColor;
+    fill: $fontColor;
     background-color: $backgroundColor;
   }
 
   &:active {
     color: $activeFontColor;
+    fill: $activeFontColor;
     outline: none;
   }
 
@@ -253,7 +256,7 @@ $includeHtml: false !default;
     background-color: transparent;
     font-size: $buttonSecondaryFontSize;
     font-weight: $fontWeightBold;
-    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, fill 0.3s ease-out;
 
     &:hover,
     &:focus {

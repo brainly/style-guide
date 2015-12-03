@@ -59,6 +59,10 @@ $includeHtml: false !default;
       font-size: $textBitLargeFontSize;
     }
 
+    &--xlarge {
+      @include typeVariant(xxlarge, 3);
+    }
+
     &--to-larger:not(.mint-text-bit--not-responsive) {
       @include mintBreakpoint(medium-up) {
         font-size: $textBitLargerTabletFontSize;

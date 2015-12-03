@@ -23,7 +23,7 @@ $includeHtml: false !default;
     border: $selectBorderWidth solid $selectBackground;
 
     &__element {
-      @include uppercaseText;
+      @include uppercaseText(0);
       background: $selectBackground;
       border: none;
       font-size: inherit;
@@ -45,6 +45,7 @@ $includeHtml: false !default;
       &:focus,
       &:active {
         background: $selectHoverBackground;
+        border-color: $selectHoverBackground;
       }
     }
 
