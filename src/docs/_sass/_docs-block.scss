@@ -1,5 +1,5 @@
 .docs-block {
-  margin: 0 0 50px 0;
+  margin: 0 0 50px;
   display: flex;
 
   &__header {
@@ -21,10 +21,11 @@
 
     &--centered {
       display: flex;
-      align-items: center
+      align-items: center;
     }
 
     &--align-top {
+
       & > * {
         vertical-align: top;
       }
@@ -37,6 +38,13 @@
         outline: 2px dashed white;
         box-shadow: black 0 0 10px 0;
       }
+    }
+
+    // This is a hotfix for animation that is triggering
+    // repaints of elements with border radius (avatars for example)
+    &--animation-container {
+      position: relative;
+      z-index: 1;
     }
   }
 

@@ -19,7 +19,6 @@ $includeHtml: false !default;
     height: $avatarMediumSize;
     border-radius: 50%;
     background: $avatarDefaultBackgroundColor;
-    z-index: 0;
 
     &__image {
       position: relative;
