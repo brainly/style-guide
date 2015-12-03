@@ -4,7 +4,7 @@ var friendlyFormatter = require('eslint-friendly-formatter');
 module.exports = function (gulp) {
   return function () {
     gulp.src(['**/*.js', '!node_modules/**', '!src/docs/**.js'])
-      .pipe(eslint({fix:true}))
+      .pipe(eslint({ fix: true }))
       .pipe(eslint.format(friendlyFormatter))
       .pipe(gulp.dest('.'))
       .pipe(eslint.failAfterError())

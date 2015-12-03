@@ -13,7 +13,7 @@ function svgSymbolCleanUp(shape, sprite, callback) {
 }
 
 function svgAddPolyfill(svgPolyfill, svg) {
-  return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm,''));
+  return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm, ''));
 }
 
 module.exports = function (gulp, plugins, consts) {
@@ -34,9 +34,10 @@ module.exports = function (gulp, plugins, consts) {
         id: {
           generator: 'icon-subject-%s'
         },
-        transform: [{
-          custom: svgSymbolCleanUp
-        }]
+        transform: [
+          {
+            custom: svgSymbolCleanUp
+          }]
       },
       svg: {
         transform: [svgAddPolyfill.bind(null, svgPolyfill)]
@@ -53,9 +54,10 @@ module.exports = function (gulp, plugins, consts) {
         id: {
           generator: 'icon-%s'
         },
-        transform: [{
-          custom: svgSymbolCleanUp
-        }]
+        transform: [
+          {
+            custom: svgSymbolCleanUp
+          }]
       },
       svg: {
         transform: [svgAddPolyfill.bind(null, svgPolyfill)]
@@ -63,11 +65,11 @@ module.exports = function (gulp, plugins, consts) {
     };
 
     gulp.src(subjectIconsPath)
-            .pipe(plugins.svgSprite(subjectIconsConfig))
-            .pipe(gulp.dest(destPath));
+      .pipe(plugins.svgSprite(subjectIconsConfig))
+      .pipe(gulp.dest(destPath));
 
     return gulp.src(iconsPath)
-            .pipe(plugins.svgSprite(iconsConfig))
-            .pipe(gulp.dest(destPath));
+      .pipe(plugins.svgSprite(iconsConfig))
+      .pipe(gulp.dest(destPath));
   }
 };

@@ -6,13 +6,18 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .mint-header {
-    @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
+    @include image2x($mintImagesPath + 'header_background@2x.jpg', auto, $headerHeight);
     width: 100%;
     height: $headerHeight;
-    background-image: url($mintImagesPath + 'header_background_wide.jpg');
+    background-image: url($mintImagesPath + 'header_background.jpg');
     background-repeat: repeat-x;
     background-color: $headerDominantColor;
     margin-bottom: rhythm(3) - $headerHeight;
+
+    @include mintBreakpoint(medium-up) {
+      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
+      background-image: url($mintImagesPath + 'header_background_wide.jpg');
+    }
 
     &__container {
       display: flex;
@@ -26,6 +31,14 @@ $includeHtml: false !default;
       @include mintBreakpoint(medium-up) {
         padding: 0 gutter(0.5);
       }
+    }
+
+    &--fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: $mintHeaderZIndex;
     }
 
     &__left {

@@ -27,16 +27,12 @@ $includeHtml: false !default;
 
       display: block;
       color: $labelPrimaryColor;
-      font-weight: $fontWeightBlack;
+      font-weight: $fontWeightBold;
       margin-right: gutter(0.25);
 
       &:last-child {
         margin-right: 0;
       }
-    }
-
-    &__text {
-      overflow: hidden;
     }
 
     &__icon {
@@ -63,7 +59,7 @@ $includeHtml: false !default;
     }
 
     &--emphasised {
-      @include uppercaseText;
+      @include uppercaseText(0);
     }
 
     &--secondary {
@@ -98,7 +94,6 @@ $includeHtml: false !default;
         @include fixOperaMiniLabelText;
 
         margin-right: $labelScaleFactor * gutter(0.25);
-        overflow: visible;
 
         &:last-child {
           margin-right: 0;

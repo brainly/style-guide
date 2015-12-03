@@ -2,6 +2,7 @@ $logoDefaultHeight: 60px;
 $logoDefaultWidth: 134px;
 $logoLargeHeight: 81px;
 $logoLargeWidth: 180px;
+
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -18,6 +19,54 @@ $includeHtml: false !default;
     &--small {
       height: $logoDefaultHeight / 2;
       width: $logoDefaultWidth / 2;
+    }
+
+    &--eodev {
+      width: 114px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 154px;
+      }
+
+      &.mint-logo--small {
+        width: 57px;
+      }
+    }
+
+    &--nosdevoirs {
+      width: 161px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 217px;
+      }
+
+      &.mint-logo--small {
+        width: 81px;
+      }
+    }
+
+    &--zadane {
+      width: 130px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 176px;
+      }
+
+      &.mint-logo--small {
+        width: 65px;
+      }
+    }
+
+    &--znanija {
+      width: 131px;
+
+      @include mintBreakpoint(medium-up) {
+        width: 176px;
+      }
+
+      &.mint-logo--small {
+        width: 65px;
+      }
     }
 
     &__image {

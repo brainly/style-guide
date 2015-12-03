@@ -1,5 +1,4 @@
 /* jslint sloppy:true, nomen:true */
-
 /* global jasmine, describe, xdescribe, it, xit,
  expect, beforeEach, afterEach,
  */

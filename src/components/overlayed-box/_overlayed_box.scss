@@ -12,8 +12,8 @@ $includeHtml: false !default;
     &__overlay {
       @include componentsContainer;
       position: absolute;
-      right: - gutter(0.25);
-      bottom: - gutter(0.25);
+      right: - gutter(0.125);
+      bottom: - gutter(0.125);
     }
   }
 
