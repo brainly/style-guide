@@ -21,7 +21,7 @@ $includeHtml: false !default;
       }
     }
 
-    &--small-spaced {
+    &--short-spaced {
       margin: (rhythm(0.5) - $horizontalSeparatorHeight) 0 rhythm(0.5);
     }
   }
