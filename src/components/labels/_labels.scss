@@ -58,6 +58,13 @@ $includeHtml: false !default;
       }
     }
 
+    &--unstyled {
+      .mint-label__text,
+      .mint-label__number {
+        color: inherit;
+      }
+    }
+
     &--emphasised {
       @include uppercaseText(0);
     }
