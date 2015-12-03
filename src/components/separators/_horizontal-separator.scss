@@ -20,6 +20,10 @@ $includeHtml: false !default;
         margin: (rhythm(1) - $horizontalSeparatorHeight) 0 rhythm(1);
       }
     }
+
+    &--small-spaced {
+      margin: (rhythm(0.5) - $horizontalSeparatorHeight) 0 rhythm(0.5);
+    }
   }
 
 }
