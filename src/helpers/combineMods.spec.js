@@ -1,5 +1,5 @@
-/*jslint sloppy:true, nomen:true */
-/*global jasmine, describe, xdescribe, it, xit,
+/* jslint sloppy:true, nomen:true */
+/* global jasmine, describe, xdescribe, it, xit,
  expect, beforeEach, afterEach,
  */
 import fn from './combineMods';

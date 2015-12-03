@@ -3,11 +3,10 @@
 var version = require('./../package.json').version;
 var path = require('path');
 var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
 
 var rootPath = path.join(__dirname, '..');
 
-function root(p){
+function root(p) {
   return path.join(rootPath, p);
 }
 
