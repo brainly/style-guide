@@ -4,9 +4,6 @@ $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitDarkColor: $black;
-$textBitLargeFontSize: fontSize(large);
-$textBitLargerTabletFontSize: fontSize(xlarge);
-$textBitLargerDesktopFontSize: fontSize(xxlarge);
 
 $includeHtml: false !default;
 
@@ -22,7 +19,7 @@ $includeHtml: false !default;
 
     @include mintBreakpoint(medium-up) {
       &:not(.mint-text-bit--not-responsive) {
-        font-size: $textBitLargeFontSize;
+        font-size: fontSize(large);
       }
     }
 
