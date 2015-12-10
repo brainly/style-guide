@@ -12,27 +12,23 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .mint-select {
-    $selectElementHeight: $selectHeight - 2 * $selectBorderWidth;
-
     @include component;
 
-    border-radius: $selectHeight / 2;
     font-size: $selectFontSize;
     color: $selectTextColor;
-    height: $selectHeight;
-    border: $selectBorderWidth solid $selectBackground;
 
     &__element {
       @include uppercaseText(0);
       background: $selectBackground;
-      border: none;
+      border: $selectBorderWidth solid $selectBackground;
+      border-radius: $selectHeight / 2;
       font-size: inherit;
       font-weight: $fontWeightBold;
       color: inherit;
       display: inline-block;
-      height: $selectElementHeight;
+      height: $selectHeight;
       position: relative;
-      padding: 0 ($selectElementHeight / 2 + rhythm(0.667)) 0 ($selectElementHeight / 2);
+      padding: 0 ($selectHeight / 2 + rhythm(0.667)) 0 ($selectHeight / 2);
       outline: 0;
       appearance: none;
       width: 100%;
@@ -51,8 +47,8 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      right: ($selectElementHeight / 4 + rhythm(0.333)) - $selectIconSize / 2;
-      top: $selectElementHeight / 2 - $selectIconSize / 2;
+      right: ($selectHeight / 4 + rhythm(0.333)) - $selectIconSize / 2;
+      top: $selectHeight / 2 - $selectIconSize / 2;
       height: $selectIconSize;
       width: $selectIconSize;
       pointer-events: none;
@@ -61,16 +57,13 @@ $includeHtml: false !default;
     }
 
     &--small {
-      $selectElementHeight: $selectSmallHeight - 2 * $selectBorderWidth;
-      height: $selectSmallHeight;
-
       .mint-select__icon {
-        top: $selectElementHeight / 2 - $selectIconSize / 2;
-        right: $selectElementHeight / 2 - $selectIconSize / 2;
+        top: $selectSmallHeight / 2 - $selectIconSize / 2;
+        right: $selectSmallHeight / 2 - $selectIconSize / 2;
       }
 
       .mint-select__element {
-        height: $selectElementHeight;
+        height: $selectSmallHeight;
         padding: 0 rhythm(1.333) 0 rhythm(0.667);
       }
     }
@@ -80,7 +73,9 @@ $includeHtml: false !default;
     }
 
     &--invalid {
-      border: $selectBorderWidth solid $selectInvalidBorderColor;
+      .mint-select__element {
+        border: $selectBorderWidth solid $selectInvalidBorderColor;
+      }
     }
   }
 }
