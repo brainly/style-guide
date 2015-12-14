@@ -49,6 +49,8 @@
       location: dropdowns/dropdowns
     - name: Search
       location: search/search
+    - name: Progressbar
+      location: progressbar/progressbar
     - name: Home Button
       location: home-button/home-button
     - name: Subjects
