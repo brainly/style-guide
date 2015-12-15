@@ -6,18 +6,15 @@ $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: fontSize(medium);
 $inputLargeFontSize: fontSize(standout);
-$inputLargePlaceholderFontSize: fontSize(medium);
 $inputFocusBorderColor: $grayPrimary;
-$inputPlaceholderTextColor: $grayPrimary;
-$inputPlaceholderFontSize: fontSize(obscure);
-$inputLargePlaceholderFontSize: fontSize(medium);
+$inputPlaceholderTextColor: $grayAlt;
+$inputPlaceholderFontSize: fontSize(medium);
 $inputValidBorderColor: $mintSecondary;
 $inputFocusValidBorderColor: $mintPrimary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputFocusInvalidBorderColor: $peachPrimary;
 $inputTransparentBorderColor: rgba($graySecondary, 0.7);
 $inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
-
 
 $includeHtml: false !default;
 
@@ -41,12 +38,9 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
-      @include uppercaseText;
       color: $inputPlaceholderTextColor;
       font-size: $inputPlaceholderFontSize;
-      font-weight: $fontWeightBold;
       position: relative;
-      top: rhythm(0.083);
     }
 
     &--low {
@@ -86,10 +80,6 @@ $includeHtml: false !default;
         font-size: $inputLargeFontSize;
         border-radius: $inputLargeHeight / 2;
         padding: 0 $inputLargeHeight / 2;
-
-        &::placeholder {
-          font-size: $inputLargePlaceholderFontSize;
-        }
       }
     }
 
