@@ -1,0 +1,46 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .mint-progressbar {
+    height: rhythm(1);
+    width: 100%;
+    border-radius: rhythm(1);
+    background-color: $graySecondary;
+    position: relative;
+    overflow: hidden;
+
+    &--mustard {
+      .mint-progressbar__value {
+        background-color: $mustardPrimary;
+      }
+    }
+
+    &--blue {
+      .mint-progressbar__value {
+        background-color: $bluePrimary;
+      }
+    }
+
+    &__value {
+      transition: width 1.5s 0.3s;
+      height: 100%;
+      max-width: 100%;
+      border-radius: rhythm(1);
+      background-color: $mintPrimary;
+    }
+
+    &__label {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-weight: $fontWeightBold;
+      color: $white;
+      font-size: fontSize(obscure);
+      text-transform: uppercase;
+    }
+  }
+
+}
