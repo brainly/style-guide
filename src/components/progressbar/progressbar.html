@@ -5,18 +5,34 @@
   <div class="docs-block__content">
     <div class="mint-progressbar">
       <div class="mint-progressbar__value" style="width: 60%"></div>
-      <div class="mint-progressbar__label">?/20 pushups</div>
+      <div class="mint-progressbar__label">60/100 pushups</div>
     </div>
 
     <script>
-      (function() {
+      (function () {
         var $barValue = document.querySelector('.mint-progressbar__value');
+        var $barLabel = document.querySelector('.mint-progressbar__label');
+        var newValue = 60;
+        var currentValue = 60;
 
-        function randomProgress() {
-          $barValue.style.width = Math.round(Math.random() * 100) + '%';
+        function updateLabel() {
+          if (newValue === currentValue) {
+            return;
+          }
+
+          currentValue = (newValue > currentValue) ? currentValue + 1 : currentValue - 1;
+          $barLabel.innerHTML = currentValue + '/100 pushups';
+          requestAnimationFrame(updateLabel);
         }
 
-        setInterval(randomProgress, 1500);
+        function randomProgress() {
+          newValue = Math.round(Math.random() * 100);
+          $barValue.style.width = newValue + '%';
+
+          requestAnimationFrame(updateLabel);
+        }
+
+        setInterval(randomProgress, 3000);
       })();
     </script>
 

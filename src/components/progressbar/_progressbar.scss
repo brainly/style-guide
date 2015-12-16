@@ -23,7 +23,9 @@ $includeHtml: false !default;
     }
 
     &__value {
-      transition: width 1.5s 0.3s;
+      // scss-lint:disable NameFormat
+      transition: width 1.5s 1.5s cubic-bezier(0.6, -0.01, 0.2, 1);
+      // scss-lint:enable NameFormat
       height: 100%;
       max-width: 100%;
       border-radius: rhythm(1);
