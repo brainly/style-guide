@@ -80,6 +80,10 @@ $includeHtml: false !default;
         font-size: $inputLargeFontSize;
         border-radius: $inputLargeHeight / 2;
         padding: 0 $inputLargeHeight / 2;
+
+        &::placeholder {
+          font-size: fontSize(standout);
+        }
       }
     }
 
