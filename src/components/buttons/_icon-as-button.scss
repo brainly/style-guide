@@ -4,6 +4,8 @@ $iconAsButtonLightColor: $white;
 $iconAsButtonLightActiveColor: rgba($iconAsButtonLightColor, 0.7);
 $iconAsButtonGrayColor: $grayPrimary;
 $iconAsButtonGrayActiveColor: rgba($iconAsButtonGrayColor, 0.7);
+$iconAsButtonDarkColor: $black;
+$iconAsButtonDarkActiveColor: rgba($iconAsButtonDarkColor, 0.7);
 $iconAsButtonActionColor: $white;
 
 $includeHtml: false !default;
@@ -79,6 +81,19 @@ $includeHtml: false !default;
       }
     }
 
+    &--dark {
+      fill: $iconAsButtonDarkColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonDarkActiveColor;
+      }
+
+      .mint-icon-as-button__hole {
+        border-color: $iconAsButtonDarkColor;
+      }
+    }
+
     &--action {
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
@@ -89,6 +104,10 @@ $includeHtml: false !default;
 
         &.mint-icon-as-button--gray {
           background: $iconAsButtonGrayColor;
+        }
+
+        &.mint-icon-as-button--dark {
+          background: $iconAsButtonDarkColor;
         }
       }
     }
@@ -104,6 +123,10 @@ $includeHtml: false !default;
 
       &.mint-icon-as-button--gray {
         background: $iconAsButtonGrayColor;
+      }
+
+      &.mint-icon-as-button--dark {
+        background: $iconAsButtonDarkColor;
       }
     }
 
