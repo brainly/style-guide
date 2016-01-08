@@ -37,6 +37,10 @@ $includeHtml: false !default;
       color: $white;
     }
 
+    &--blue {
+      color: $bluePrimary;
+    }
+
     &--for-fine-print-light {
       color: $blueSecondaryLight;
     }
