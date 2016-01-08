@@ -70,5 +70,9 @@ $iconSizes: 120, 48, 44, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8;
     &--peach {
       fill: $peachPrimary;
     }
+
+    &--dark {
+      fill: $black
+    }
   }
 }
