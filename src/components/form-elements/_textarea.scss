@@ -8,7 +8,7 @@ $textareaPadding: 11px;
 $textareaSmallPadding: 4px;
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
-$textareaPlaceholderFontSize: fontSize(obscure);
+$textareaPlaceholderFontSize: fontSize(medium);
 $textareaValidBorderColor: $mintSecondary;
 $textareaInvalidBorderColor: $peachSecondary;
 
@@ -36,12 +36,9 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
-      @include uppercaseText;
-      position: relative;
-      top: rhythm(0.125);
       color: $textareaPlaceholderTextColor;
       font-size: $textareaPlaceholderFontSize;
-      font-weight: $fontWeightBold;
+      position: relative;
     }
 
     &--full {
