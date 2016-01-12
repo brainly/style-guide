@@ -11,7 +11,7 @@ $includeHtml: false !default;
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($mintFontsPath + 'ProximaNova-Bold.woff') format('woff');
+    src: url($mintFontsPath + 'ProximaNova-SemiBold.woff') format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
   }
