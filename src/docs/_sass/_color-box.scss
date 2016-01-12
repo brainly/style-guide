@@ -204,15 +204,6 @@
     content: '$graySecondaryLight';
   }
 }
-.color-box--gray-alt {
-  background: $grayAlt;
-  .color-box__hex:after {
-    content: '#{$grayAlt}';
-  }
-  .color-box__variable:after {
-    content: '$grayAlt';
-  }
-}
 .color-box--gray-alt-light {
   background: $grayAltLight;
   .color-box__hex:after {
