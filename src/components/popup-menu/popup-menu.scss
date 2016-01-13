@@ -15,7 +15,7 @@ $includeHtml: false !default;
     justify-content: space-around;
     align-items: center;
 
-    &:before {
+    &::before {
       content: '';
       border: $userPanelPadding / 2 solid transparent;
       border-bottom-color: $userPanelBackground;

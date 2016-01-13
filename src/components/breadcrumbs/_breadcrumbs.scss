@@ -13,14 +13,14 @@ $includeHtml: false !default;
     &__element {
       display: inline-block;
 
-      &:after {
+      &::after {
         content: '·';
         display: inline-block;
         color: $breadcrumbListSeparatorColor;
         padding: 0 2px;
       }
 
-      &:last-child:after {
+      &:last-child::after {
         content: '';
       }
     }
@@ -35,7 +35,7 @@ $includeHtml: false !default;
       color: $breadcrumbListBlueSeparatorColor;
 
       .mint-breadcrumb-list__element {
-        &:after {
+        &::after {
           color: $breadcrumbListBlueSeparatorColor;
 
         }
@@ -47,7 +47,7 @@ $includeHtml: false !default;
       color: $breadcrumbListLightBlueSeparatorColor;
 
       .mint-breadcrumb-list__element {
-        &:after {
+        &::after {
           color: $breadcrumbListLightBlueSeparatorColor;
         }
       }
