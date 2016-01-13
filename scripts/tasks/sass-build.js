@@ -6,7 +6,7 @@ module.exports = function (gulp, plugins, consts) {
             .pipe(plugins.sass({outputStyle: 'compressed'})
                 .on('error', plugins.sass.logError))
             .pipe(plugins.autoprefixer({
-                browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+                browsers: ['last 2 versions', 'OperaMini >= 5', 'Android >= 4', 'Chrome >= 28', 'Safari >= 7'],
                 cascade: false
             }))
             .pipe(plugins.minifyCss())
