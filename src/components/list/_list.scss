@@ -71,5 +71,12 @@ $includeHtml: false !default;
     &--side-spaced {
       margin: 0 10px;
     }
+
+    &--small {
+      .mint-menu-list__element {
+        height: rhythm(1.5);
+        line-height: rhythm(1.5);
+      }
+    }
   }
 }
