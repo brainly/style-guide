@@ -215,7 +215,8 @@ $includeHtml: false !default;
 
     &__icon {
       @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient);
-      display: inline-flex;
+      display: flex;
+      float: right;
       align-items: center;
       justify-content: center;
       width: $buttonRoundAddSize;
