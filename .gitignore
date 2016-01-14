@@ -1,6 +1,8 @@
 dist/
 .scss-lint.yml
 .editorconfig
+.eslintrc-es5
+.eslintrc
 .idea
 .DS_Store
 node_modules

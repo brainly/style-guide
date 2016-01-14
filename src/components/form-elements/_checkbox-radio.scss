@@ -48,7 +48,7 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-checkbox__element:checked:active + .mint-checkbox__ghost:before {
+  .mint-checkbox__element:checked:active + .mint-checkbox__ghost::before {
     color: $crInputActiveColor;
   }
 
@@ -59,7 +59,7 @@ $includeHtml: false !default;
   .mint-radio__ghost {
     border-radius: 50%;
 
-    &:before {
+    &::before {
       content: '';
       border-radius: 50%;
       background-color: $crInputColor;

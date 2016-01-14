@@ -27,7 +27,7 @@ $includeHtml: false !default;
     padding: (rhythm(0.5) - $borderSize) gutter(0.5)  (rhythm(0.5) - $borderSize) gutter(1);
     margin-bottom: rhythm(1);
 
-    &:before {
+    &::before {
       content: '';
       border: $triangleSize solid transparent;
       border-bottom-color: $bubbleBorderColor;
@@ -39,7 +39,7 @@ $includeHtml: false !default;
       margin: 0 auto;
     }
 
-    &:after {
+    &::after {
       content: '';
       border: $innerTriangleSize solid transparent;
       border-bottom-color: $bubbleBackground;
@@ -71,11 +71,11 @@ $includeHtml: false !default;
       border-color: $bubbleBackgroundDark;
       background: $bubbleBackgroundDark;
 
-      &:before {
+      &::before {
         border-bottom-color: $bubbleBackgroundDark;
       }
 
-      &:after {
+      &::after {
         border-bottom-color: $bubbleBackgroundDark;
       }
     }
@@ -114,12 +114,12 @@ $includeHtml: false !default;
 
     &--to-right {
 
-      &:before {
+      &::before {
         right: rhythm(1);
         left: auto;
       }
 
-      &:after {
+      &::after {
         right: rhythm(1) + $innerTriangleSize / 2;
         left: auto;
       }

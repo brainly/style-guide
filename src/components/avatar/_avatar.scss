@@ -51,7 +51,7 @@ $includeHtml: false !default;
     &--with-border {
       border: solid $avatarBorderColor $avatarMediumBorderWidth;
 
-      &:before {
+      &::before {
         left: -$avatarMediumBorderWidth;
       }
     }
@@ -59,7 +59,7 @@ $includeHtml: false !default;
     &--small-with-border {
       border: solid $avatarBorderColor $avatarSmallBorderWidth;
 
-      &:before {
+      &::before {
         left: -$avatarSmallBorderWidth;
       }
     }
@@ -67,7 +67,7 @@ $includeHtml: false !default;
     &--big-with-border {
       border: solid $avatarBorderColor $avatarBigBorderWidth;
 
-      &:before {
+      &::before {
         left: -$avatarBigBorderWidth;
       }
     }
