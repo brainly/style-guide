@@ -9,7 +9,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-list{
+  .mint-list {
     @include mintListBasicStyles();
     font-size: $listFontSize;
     line-height: rhythm(2);
