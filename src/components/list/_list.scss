@@ -37,6 +37,14 @@ $includeHtml: false !default;
         height: 14px;
       }
     }
+
+    &--spaced-elements &__element {
+      margin-bottom: rhythm(0.5);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .mint-menu-list {
