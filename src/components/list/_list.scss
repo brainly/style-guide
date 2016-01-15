@@ -17,6 +17,14 @@ $includeHtml: false !default;
     &__element {
       display: flex;
       align-items: center;
+
+      &--spaced-bottom {
+        margin-bottom: rhythm(0.5);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &__icon {
