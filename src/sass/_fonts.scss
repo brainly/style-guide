@@ -4,21 +4,24 @@ $includeHtml: false !default;
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
+    src: url($mintFontsPath + 'ProximaNova-Regular.woff2') format('woff2'),
+      url($mintFontsPath + 'ProximaNova-Regular.woff') format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
   }
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($mintFontsPath + 'ProximaNova-SemiBold.woff') format('woff');
+    src: url($mintFontsPath + 'ProximaNova-SemiBold.woff2') format('woff2'),
+      url($mintFontsPath + 'ProximaNova-SemiBold.woff') format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
   }
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
+    src: url($mintFontsPath + 'ProximaNova-Black.woff2') format('woff2'),
+      url($mintFontsPath + 'ProximaNova-Black.woff') format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
   }
