@@ -4,7 +4,9 @@
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "normalize.scss": "^0.1.0"
+  },
   "devDependencies": {
     "del": "^1.2.0",
     "frontend-tools-configs": "brainly/frontend-tools-configs",
@@ -24,7 +26,6 @@
     "gulp-svg-sprite": "^1.2.7",
     "gulp-util": "^3.0.6",
     "husky": "^0.10.1",
-    "normalize.scss": "^0.1.0",
     "run-sequence": "^1.1.1",
     "yargs": "^3.21.0"
   },
