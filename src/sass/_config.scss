@@ -82,8 +82,8 @@ $overlayZIndex: 999;
 $toplayerZIndex: 1000;
 
 // Breakpoints
-$breakpointMedium: 768px;
-$breakpointLarge: 1024px;
+$breakpointMedium: 768px !default;
+$breakpointLarge: 1024px !default;
 
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
