@@ -84,16 +84,20 @@
   @return $baselines * $baseline;
 }
 
-@mixin mintBreakpoint($name) {
-  // scss-lint:disable NameFormat
-  $media: map-get($breakpointsMap, $name);
-  // scss-lint:enable NameFormat
-  @if($media) {
-    @media #{$media} {
-      @content;
+// scss-lint:disable NameFormat
+@if not mixin-exists(mintBreakpoint) {
+// scss-lint:enable NameFormat
+  @mixin mintBreakpoint($name) {
+    // scss-lint:disable NameFormat
+    $media: map-get($breakpointsMap, $name);
+    // scss-lint:enable NameFormat
+    @if($media) {
+      @media #{$media} {
+        @content;
+      }
+    } @else {
+      @error 'Breakpoint "#{$name}" does not exist';
     }
-  } @else {
-    @error 'Breakpoint "#{$name}" does not exist';
   }
 }
 
