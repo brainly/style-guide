@@ -2,6 +2,7 @@ $avatarDefaultBackgroundColor: $grayPrimary;
 $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
+$avatarXLargeSize: 120px;
 $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
@@ -69,6 +70,15 @@ $includeHtml: false !default;
 
       &::before {
         left: -$avatarBigBorderWidth;
+      }
+    }
+
+    &--xlarge {
+      width: $avatarXLargeSize;
+      height: $avatarXLargeSize;
+
+      .mint-avatar__image--icon {
+        top: 10px;
       }
     }
   }
