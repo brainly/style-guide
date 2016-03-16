@@ -13,14 +13,14 @@
   padding: 5px 10px;
   box-shadow: $grayPrimary 0 0 10px -2px;
 
-  &:before {
-    content: '';
+  &__home {
     display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    background: center center url(images/favicons/brainly/favicon-hd.png) no-repeat;
-    background-size: contain;
+    line-height: 0;
+
+    > img {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   ul {

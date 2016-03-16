@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+{% include head.html %}
+<body>
+{% include navigation.html %}
+<div class="data-container">
+    {% assign pageConfig=site.data.navigation[page.navigationIdx] %}
+
+    <h1 class="main-header">Brainly style guide - {{ pageConfig.name }}</h1>
+
+    {% for element in pageConfig.elements %}
+    {% assign elementPath = 'components/' | append:element.location | append:'.html' %}
+
+    <article>
+      <h2 class="article-header" id="{{element.name | slugify}}">
+        {{element.name}}
+        <a href="#{{element.name | slugify}}" class="permalink">#</a>
+      </h2>
+      {% include {{elementPath}} %}
+    </article>
+    {% endfor %}
+</div>
+</body>
+</html>
