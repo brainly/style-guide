@@ -44,6 +44,7 @@ gulp.task('sass:docs-build', getTask('sass-docs-build'));
 
 gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
+gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
 
 gulp.task('clean:dist', getTask('clean-dist'));
 
@@ -66,5 +67,5 @@ gulp.task('ci', ['scss-lint', 'scss-unused-variables']);
 gulp.task('deploy', getTask('deploy'));
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', done);
+    runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace', done);
 });
