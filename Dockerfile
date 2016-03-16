@@ -7,7 +7,7 @@ WORKDIR /style-guide
 ADD package.json package.json
 
 RUN apk add --no-cache git ruby python ruby-bundler build-base ruby-dev libffi-dev && \
-    gem install scss_lint jekyll --no-rdoc --no-ri && \ 
+    gem install scss_lint jekyll json --no-rdoc --no-ri && \ 
     npm install gulp http-server -g && \
     npm install && \
     apk del ruby-dev libffi-dev python build-base
