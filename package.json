@@ -32,6 +32,6 @@
   },
   "scripts": {
     "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/",
-    "deploy": "gulp deploy"
+    "deploy": "gulp build --production && gulp deploy"
   }
 }
