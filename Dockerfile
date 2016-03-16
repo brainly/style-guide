@@ -10,3 +10,5 @@ RUN gem install scss_lint jekyll --no-rdoc --no-ri \
 WORKDIR /style-guide
 ADD package.json package.json
 RUN npm install
+
+ADD . /style-guide
