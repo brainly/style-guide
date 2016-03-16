@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "24.0.0",
+  "version": "25.0.0",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -27,9 +27,11 @@
     "gulp-util": "^3.0.6",
     "husky": "^0.10.1",
     "run-sequence": "^1.1.1",
+    "s3": "^4.4.0",
     "yargs": "^3.21.0"
   },
   "scripts": {
-    "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/"
+    "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/",
+    "deploy": "gulp build --production && gulp deploy"
   }
 }

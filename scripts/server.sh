@@ -13,8 +13,6 @@ docker run -t --rm \
   -v $PROJECT_DIR/gulpfile.js:/style-guide/gulpfile.js \
   brainly/style-guide node_modules/.bin/gulp build
 
-# python -m webbrowser http://dockerhost:8181/dev/docs/basics.html
-
 echo "You can now open http://your_docker_ip:8181/dev/docs in web browser"
 
 docker run -t --rm \
