@@ -62,10 +62,12 @@ gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 gulp.task('scss-lint', getTask('scss-lint'));
 gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
 
+gulp.task('root-redirect-page', getTask('root-redirect-page'));
+
 gulp.task('ci', ['scss-lint', 'scss-unused-variables']);
 
 gulp.task('deploy', getTask('deploy'));
 
 gulp.task('build', function (done) {
-    runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace', done);
+    runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace', 'root-redirect-page', done);
 });
