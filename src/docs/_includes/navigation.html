@@ -1,4 +1,7 @@
 <nav class="main-menu">
+    <a href="./" class="main-menu__home">
+        <img src="images/logos/brainly-mobile.svg" />
+    </a>
     <ul>
     {% for page in site.data.navigation %}
         {% assign pageUrl = page.name | slugify | append:'.html' %}
