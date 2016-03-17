@@ -29,8 +29,16 @@ $includeHtml: false !default;
       font-weight: $fontWeightBold;
     }
 
+    &--no-wrap {
+      white-space: nowrap;
+    }
+
     &--gray {
       color: $grayPrimary;
+    }
+
+    &--mint {
+      color: $mintPrimary;
     }
 
     &--light {
