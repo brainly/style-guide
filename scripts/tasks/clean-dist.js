@@ -1,6 +1,6 @@
 module.exports = function (gulp, plugins, consts) {
-    return function (done) {
+    return function () {
         var del = require('del');
-        del([plugins.path.join(consts.DIST, '**'), '!' + consts.DIST], done);
+        return del([plugins.path.join(consts.DIST, '**'), '!' + consts.DIST]);
     }
 };

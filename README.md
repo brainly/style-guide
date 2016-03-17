@@ -1,6 +1,8 @@
 ![Brainly Style Guide](https://i.imgur.com/8MMAa2J.png)
 
 [![Build Status](https://travis-ci.org/brainly/style-guide.svg)](https://travis-ci.org/brainly/style-guide)
+[![Dependency Status](https://david-dm.org/brainly/style-guide.svg)](https://david-dm.org/brainly/style-guide)
+[![devDependency Status](https://david-dm.org/brainly/style-guide/dev-status.svg)](https://david-dm.org/brainly/style-guide#info=devDependencies)
 
 This project is a reference style guide for all frontend components used in Brainly and styled with "Mint" theme.
 
