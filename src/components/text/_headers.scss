@@ -10,6 +10,7 @@ $includeHtml: false !default;
     font-weight: $fontWeightBold;
     letter-spacing: -1px;
     margin-bottom: rhythm(1);
+    max-width: 100%;
 
     @include mintBreakpoint('medium-up') {
       font-weight: $fontWeightBlack;
