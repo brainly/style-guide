@@ -86,5 +86,12 @@ $includeHtml: false !default;
         line-height: rhythm(1.5);
       }
     }
+
+    &--large {
+      .mint-menu-list__element {
+        height: rhythm(2.5);
+        line-height: rhythm(2.5);
+      }
+    }
   }
 }
