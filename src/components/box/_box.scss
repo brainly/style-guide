@@ -1,4 +1,5 @@
 $boxBorderColor: $graySecondary;
+$boxBackgroundDark: $graySecondaryLight;
 $boxBorderRadius: 22px;
 $boxBorderSize: rhythm(0.125);
 
@@ -32,6 +33,11 @@ $includeHtml: false !default;
       .mint-box__hole {
         width: 100%;
       }
+    }
+
+    &--dark {
+      border-color: $boxBackgroundDark;
+      background: $boxBackgroundDark;
     }
 
     &--image-wrapper {
