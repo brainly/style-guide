@@ -3,7 +3,7 @@ $smallListFontSize: fontSize(default);
 
 $menuListColor: $bluePrimary;
 $menuListFontSize: fontSize(small);
-$menuListBorderColor: $graySecondary;
+$menuListBorderColor: $grayAltLight;
 
 $includeHtml: false !default;
 
@@ -53,7 +53,7 @@ $includeHtml: false !default;
       box-sizing: border-box;
       height: rhythm(2);
       line-height: rhythm(2);
-      border-bottom: 1px dashed $menuListBorderColor;
+      border-bottom: 1px solid $menuListBorderColor;
 
       &:last-child {
         border: none;

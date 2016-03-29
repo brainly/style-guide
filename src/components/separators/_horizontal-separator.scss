@@ -1,5 +1,5 @@
 $horizontalSeparatorHeight: 0.0625rem;
-$horizontalSeparatorColor: $grayPrimary;
+$horizontalSeparatorColor: $grayAltLight;
 
 $includeHtml: false !default;
 
@@ -10,7 +10,7 @@ $includeHtml: false !default;
     min-height: 0;
     display: block;
     height: $horizontalSeparatorHeight;
-    border-bottom: $horizontalSeparatorHeight dotted $horizontalSeparatorColor;
+    border-bottom: $horizontalSeparatorHeight solid $horizontalSeparatorColor;
     width: 100%;
 
     &--spaced {
