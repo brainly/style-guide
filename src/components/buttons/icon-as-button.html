@@ -1,187 +1,97 @@
+{% assign buttonVariants = "gray,dark,mint,light" | split: "," %}
 <section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Default</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="mint-icon-as-button">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-profile"></use>
-            </svg>
-          </div>
-        </button>
-      <button class="mint-icon-as-button mint-icon-as-button--dark">
-        <div class="mint-icon-as-button__hole">
-          <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-            <use xlink:href="#icon-heart"></use>
-          </svg>
-        </div>
-      </button>
-        <div class="docs-block__content docs-block__contrast-box">
-            <button class="mint-icon-as-button mint-icon-as-button--light">
-              <div class="mint-icon-as-button__hole">
-                <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
-                    <use xlink:href="#icon-arrow_right"></use>
-                </svg>
-              </div>
-            </button>
-        </div>
-    </div>
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Default</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="mint-icon-as-button">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-comment"></use>
+        </svg>
+      </div>
+    </button>
+    {% for variant in buttonVariants %}
+      {% if variant == 'light' %}<div class="docs-block__content docs-block__contrast-box">{% endif %}
+    <button class="mint-icon-as-button mint-icon-as-button--{{ variant }}">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-comment"></use>
+        </svg>
+      </div>
+    </button>
+      {% if variant == 'light' %}</div>{% endif %}
+    {% endfor %}
+  </div>
 </section>
 <section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">With Border</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="mint-icon-as-button mint-icon-as-button--with-border">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--with-border">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-profile"></use>
-            </svg>
-          </div>
-        </button>
-      <button class="mint-icon-as-button mint-icon-as-button--dark mint-icon-as-button--with-border">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-heart"></use>
-            </svg>
-          </div>
-        </button>
-        <div class="docs-block__content docs-block__contrast-box">
-            <button class="mint-icon-as-button mint-icon-as-button--light mint-icon-as-button--with-border">
-              <div class="mint-icon-as-button__hole">
-                <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
-                    <use xlink:href="#icon-arrow_right"></use>
-                </svg>
-              </div>
-            </button>
-        </div>
-    </div>
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">With Border</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="mint-icon-as-button mint-icon-as-button--with-border">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-profile"></use>
+        </svg>
+      </div>
+    </button>
+    {% for variant in buttonVariants %}
+      {% if variant == 'light' %}<div class="docs-block__content docs-block__contrast-box">{% endif %}
+    <button class="mint-icon-as-button mint-icon-as-button--with-border mint-icon-as-button--{{ variant }}">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-profile"></use>
+        </svg>
+      </div>
+    </button>
+      {% if variant == 'light' %}</div>{% endif %}
+    {% endfor %}
+  </div>
 </section>
 <section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">small</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="mint-icon-as-button mint-icon-as-button--small">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--small">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-profile"></use>
-            </svg>
-          </div>
-        </button>
-      <button class="mint-icon-as-button mint-icon-as-button--dark mint-icon-as-button--small">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-heart"></use>
-            </svg>
-          </div>
-        </button>
-        <div class="docs-block__content docs-block__contrast-box">
-            <button class="mint-icon-as-button mint-icon-as-button--small mint-icon-as-button--light mint-icon-as-button--with-border">
-              <div class="mint-icon-as-button__hole">
-                <svg class="mint-icon mint-icon--adaptive mint-icon--x10">
-                    <use xlink:href="#icon-arrow_right"></use>
-                </svg>
-              </div>
-            </button>
-        </div>
-    </div>
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Action</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="mint-icon-as-button mint-icon-as-button--action">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-heart"></use>
+        </svg>
+      </div>
+    </button>
+    {% for variant in buttonVariants %}
+      {% if variant != 'light' %}
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--{{ variant }}">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-heart"></use>
+        </svg>
+      </div>
+    </button>
+      {% endif %}
+    {% endfor %}
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--action-active">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-heart"></use>
+        </svg>
+      </div>
+    </button>
+    {% for variant in buttonVariants %}
+      {% if variant != 'light' %}
+    <button class="mint-icon-as-button mint-icon-as-button--action-active mint-icon-as-button--{{ variant }}">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
+          <use xlink:href="#icon-heart"></use>
+        </svg>
+      </div>
+    </button>
+      {% endif %}
+    {% endfor %}
+  </div>
 </section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">xsmall</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="mint-icon-as-button mint-icon-as-button--xsmall">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--xsmall">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-profile"></use>
-            </svg>
-          </div>
-        </button>
-      <button class="mint-icon-as-button mint-icon-as-button--dark mint-icon-as-button--xsmall">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
-                <use xlink:href="#icon-profile"></use>
-            </svg>
-          </div>
-        </button>
-        <div class="docs-block__content docs-block__contrast-box">
-            <button class="mint-icon-as-button mint-icon-as-button--xsmall mint-icon-as-button--light mint-icon-as-button--with-border">
-              <div class="mint-icon-as-button__hole">
-                <svg class="mint-icon mint-icon--adaptive mint-icon--x10">
-                    <use xlink:href="#icon-arrow_right"></use>
-                </svg>
-              </div>
-            </button>
-        </div>
-    </div>
-</section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Action</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="mint-icon-as-button mint-icon-as-button--action">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--action">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--dark mint-icon-as-button--action">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-        <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--action-active">
-          <div class="mint-icon-as-button__hole">
-            <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-                <use xlink:href="#icon-comment"></use>
-            </svg>
-          </div>
-        </button>
-    </div>
-</section>
-
 <section class="docs-block">
   <aside class="docs-block__info">
     <h3 class="docs-block__header">Action + square</h3>
@@ -190,30 +100,109 @@
     <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--rounded-square">
       <div class="mint-icon-as-button__hole">
         <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-          <use xlink:href="#icon-comment"></use>
+          <use xlink:href="#icon-check"></use>
         </svg>
       </div>
     </button>
-    <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--action mint-icon-as-button--rounded-square">
+    {% for variant in buttonVariants %}
+      {% if variant != 'light' %}
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--rounded-square mint-icon-as-button--{{ variant }}">
       <div class="mint-icon-as-button__hole">
         <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-          <use xlink:href="#icon-comment"></use>
+          <use xlink:href="#icon-check"></use>
         </svg>
       </div>
     </button>
-    <button class="mint-icon-as-button mint-icon-as-button--dark mint-icon-as-button--action mint-icon-as-button--rounded-square">
+      {% endif %}
+    {% endfor %}
+    <button class="mint-icon-as-button mint-icon-as-button--action-active mint-icon-as-button--rounded-square">
       <div class="mint-icon-as-button__hole">
         <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-          <use xlink:href="#icon-comment"></use>
+          <use xlink:href="#icon-check"></use>
         </svg>
       </div>
     </button>
-    <button class="mint-icon-as-button mint-icon-as-button--gray mint-icon-as-button--action-active mint-icon-as-button--rounded-square">
+    {% for variant in buttonVariants %}
+      {% if variant != 'light' %}
+    <button class="mint-icon-as-button mint-icon-as-button--action-active mint-icon-as-button--rounded-square mint-icon-as-button--{{ variant }}">
       <div class="mint-icon-as-button__hole">
         <svg class="mint-icon mint-icon--adaptive mint-icon--x26">
-          <use xlink:href="#icon-comment"></use>
+          <use xlink:href="#icon-check"></use>
         </svg>
       </div>
     </button>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">small</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="mint-icon-as-button mint-icon-as-button--small">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--with-border mint-icon-as-button--small">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--small">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--rounded-square mint-icon-as-button--small">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x18">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+  </div>
+</section>
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">xsmall</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="mint-icon-as-button mint-icon-as-button--xsmall">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--with-border mint-icon-as-button--xsmall">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--xsmall">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="mint-icon-as-button mint-icon-as-button--action mint-icon-as-button--rounded-square mint-icon-as-button--xsmall">
+      <div class="mint-icon-as-button__hole">
+        <svg class="mint-icon mint-icon--adaptive mint-icon--x14">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    </div>
   </div>
 </section>
