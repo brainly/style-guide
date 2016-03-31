@@ -65,7 +65,7 @@ $includeHtml: false !default;
       cursor: pointer;
     }
 
-    &--small {
+    &--short {
       height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
       line-height: rhythm(5 / 6);
