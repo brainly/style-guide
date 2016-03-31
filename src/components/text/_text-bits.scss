@@ -4,6 +4,7 @@ $textBitAltColor: $blueSecondary;
 $textBitWarningColor: $peachPrimary;
 $textBitLightColor: $white;
 $textBitDarkColor: $black;
+$textBitGrayColor: $graySecondary;
 
 $includeHtml: false !default;
 
@@ -46,6 +47,10 @@ $includeHtml: false !default;
 
     &--dark {
       color: $textBitDarkColor;
+    }
+
+    &--gray {
+      color: $textBitGrayColor;
     }
 
     &--warning {
