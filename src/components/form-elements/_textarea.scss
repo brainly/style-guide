@@ -16,11 +16,11 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .mint-textarea {
-    @include component;
     background: $textareaBackground;
     border: 2px solid $textareaBorderColor;
     border-radius: $textareaBorderRadius;
     color: $textareaTextColor;
+    display: block;
     font-size: $textareaFontSize;
     line-height: $textareaLineHeight;
     padding: $textareaPadding;
@@ -61,14 +61,14 @@ $includeHtml: false !default;
       }
     }
 
-    &--small {
+    &--short {
       height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
       line-height: rhythm(5 / 6);
     }
 
-    &--big {
-      height: rhythm(7.5);
+    &--tall {
+      height: rhythm(7);
     }
   }
 }
