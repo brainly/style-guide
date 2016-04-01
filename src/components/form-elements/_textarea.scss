@@ -68,6 +68,10 @@ $includeHtml: false !default;
     }
 
     &--tall {
+      height: rhythm(6);
+    }
+
+    &--xtall {
       height: rhythm(7);
     }
   }
