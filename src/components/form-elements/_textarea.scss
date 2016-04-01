@@ -61,10 +61,6 @@ $includeHtml: false !default;
       }
     }
 
-    &--clickable {
-      cursor: pointer;
-    }
-
     &--short {
       height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
