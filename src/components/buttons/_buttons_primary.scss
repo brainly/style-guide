@@ -1,0 +1,62 @@
+$buttonPrimaryHeight: rhythm(2);
+$buttonPrimaryFontSize: fontSize(default);
+$buttonPrimaryFontColor: $white;
+
+$buttonColor: $mintPrimary;
+$buttonColorGradient: #84ddaf;
+$buttonShadowColor: #67c996;
+
+$buttonAltColor: $bluePrimary;
+$buttonAltColorGradient: #73c3ff;
+$buttonAltShadowColor: #57aff2;
+
+$buttonDarkColor: $black;
+$buttonDarkColorGradient: #262626;
+$buttonDarkShadowColor: $black;
+
+$buttonFbColor: #3b5997;
+$buttonFbColorGradient: #4668b2;
+$buttonFbShadowColor: #355088;
+
+$includeHtml: false !default;
+
+
+@if ($includeHtml) {
+
+  // Primary buttons
+  .mint-button-primary {
+    @include mintButtonBasicStyles();
+    @include mintButtonBasicDimensions($buttonPrimaryHeight);
+    @include mintButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
+    @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+    @include mintButtonPrimaryActive($buttonPrimaryFontColor);
+    @include hole;
+
+    border: none;
+    font-size: $buttonPrimaryFontSize;
+
+    &--full {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .mint-button-primary--alt {
+    @include mintButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+  }
+
+  .mint-button-primary--dark {
+    @include mintButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+  }
+
+  .mint-button-primary--fb {
+    @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+
+    .mint-button-primary__icon {
+      margin-right: gutter(0.5);
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+

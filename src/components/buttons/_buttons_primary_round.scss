@@ -1,0 +1,46 @@
+$buttonRoundColor: $mintPrimary;
+$buttonRoundColorGradient: #84ddaf;
+$buttonRoundAddSize: rhythm(2);
+$buttonRoundAddColor: $white;
+$buttonRoundLabelFontSize: fontSize(xsmall);
+$buttonRoundLabelBackground: $mintSecondaryLight;
+$buttonRoundLabelColor: $black;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .mint-button-primary-round {
+    $boxShadowColor: rgba(0, 0, 0, 0.3);
+    @include clearfix();
+    display: inline-block;
+
+    &__icon {
+      @include mintButtonPrimaryThreeColorVariant($buttonRoundColor, $buttonRoundColorGradient);
+      display: flex;
+      float: right;
+      align-items: center;
+      justify-content: center;
+      width: $buttonRoundAddSize;
+      height: $buttonRoundAddSize;
+      border-radius: 50%;
+      line-height: $buttonRoundAddSize;
+      text-align: center;
+      color: $buttonRoundAddColor;
+      box-shadow: 0 3px 10px 0 $boxShadowColor;
+    }
+
+    &__label {
+      @include uppercaseText;
+      float: left;
+      font-weight: $fontWeightBold;
+      font-size: $buttonRoundLabelFontSize;
+      border-radius: 4px;
+      line-height: rhythm(0.5);
+      background: $buttonRoundLabelBackground;
+      color: $buttonRoundLabelColor;
+      padding: 3px 5px;
+      margin: 16px 10px 0 0;
+      box-shadow: 0 0 5px 0 $boxShadowColor;
+    }
+  }
+}
