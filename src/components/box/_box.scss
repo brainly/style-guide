@@ -2,6 +2,7 @@ $boxBorderColor: $graySecondary;
 $boxBackgroundDark: $graySecondaryLight;
 $boxBorderRadius: 22px;
 $boxBorderSize: rhythm(0.125);
+$boxSmallBorderSize: rhythm(2 / 24);
 
 $includeHtml: false !default;
 
@@ -16,11 +17,8 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(0.5) - $borderSize) gutter(0.5) (rhythm(0.5) - $borderSize) gutter(1);
-
-    &__hole {
-      margin: rhythm(0.5) gutter(0.5)  rhythm(0.5) 0;
-    }
+    padding: (rhythm(1) - $borderSize) gutter(1) (rhythm(1) - $borderSize) gutter(1);
+    overflow: visible;
 
     &__image {
       max-width: 100%;
@@ -33,6 +31,23 @@ $includeHtml: false !default;
       .mint-box__hole {
         width: 100%;
       }
+    }
+
+    &--no-border {
+      border: none;
+    }
+
+    &--small-border {
+      border-width: $boxSmallBorderSize;
+      padding: (rhythm(0.5) - $boxSmallBorderSize) gutter(0.5) (rhythm(0.5) - $boxSmallBorderSize) gutter(1);
+    }
+
+    &--blue-secondary-light {
+      background-color: $blueSecondaryLight;
+    }
+
+    &--lavendar {
+      background-color: $lavenderPrimary;
     }
 
     &--dark {
