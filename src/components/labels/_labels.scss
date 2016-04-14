@@ -39,6 +39,8 @@ $includeHtml: false !default;
       width: $labelIconSizePrimary;
       height: $labelIconSizePrimary;
       display: flex;
+      flex-shrink: 0;
+      align-items: center;
       margin-right: gutter(0.25);
 
       &:last-child {
