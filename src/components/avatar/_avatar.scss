@@ -81,6 +81,10 @@ $includeHtml: false !default;
         top: 10px;
       }
     }
+
+    &--spaced {
+      margin: 0 4px 4px 0;
+    }
   }
 
 }
