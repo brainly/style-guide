@@ -38,6 +38,10 @@ $includeHtml: false !default;
     &__actions {
       @include componentsContainer;
       min-height: rhythm(2);
+
+      &--with-elements-to-right {
+        justify-content: flex-end;
+      }
     }
 
     &--spaced {
@@ -51,6 +55,46 @@ $includeHtml: false !default;
 
     &--full {
       width: 100%;
+    }
+
+    &__title,
+    &__actions {
+      &--with-centered-elements {
+        justify-content: center;
+      }
+    }
+
+    &__content,
+    &__title,
+    &__actions {
+
+      &--spaced-bottom {
+        margin-bottom: rhythm(0.5);
+      }
+
+      &--spaced-bottom-large {
+        margin-bottom: rhythm(1);
+      }
+
+      &--spaced-bottom-xlarge {
+        margin-bottom: rhythm(1.5);
+      }
+
+      &--spaced-top {
+        margin-top: rhythm(0.5);
+      }
+
+      &--spaced-top-large {
+        margin-top: rhythm(1);
+      }
+
+      &--spaced-top-xlarge {
+        margin-top: rhythm(1.5);
+      }
+
+      &--spaced-top-xxlarge {
+        margin-top: rhythm(2);
+      }
     }
   }
 
