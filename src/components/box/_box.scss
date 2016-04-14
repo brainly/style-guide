@@ -17,7 +17,7 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(1) - $borderSize) gutter(1) (rhythm(1) - $borderSize) gutter(1);
+    padding: (rhythm(1) - $borderSize) gutter(1);
     overflow: visible;
 
     &__image {
@@ -35,6 +35,7 @@ $includeHtml: false !default;
 
     &--no-border {
       border: none;
+      padding: rhythm(1) gutter(1);
     }
 
     &--small-border {
