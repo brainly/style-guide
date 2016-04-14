@@ -6,6 +6,7 @@ $avatarXLargeSize: 120px;
 $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
+$avatarSpacedMargin: 4px;
 $avatarBorderColor: $white;
 
 $includeHtml: false !default;
@@ -80,6 +81,10 @@ $includeHtml: false !default;
       .mint-avatar__image--icon {
         top: 10px;
       }
+    }
+
+    &--spaced {
+      margin: 0 $avatarSpacedMargin $avatarSpacedMargin 0;
     }
   }
 
