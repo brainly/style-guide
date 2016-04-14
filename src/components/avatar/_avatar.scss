@@ -6,6 +6,7 @@ $avatarXLargeSize: 120px;
 $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
+$avatarSpacedMargin: 4px;
 $avatarBorderColor: $white;
 
 $includeHtml: false !default;
@@ -83,7 +84,7 @@ $includeHtml: false !default;
     }
 
     &--spaced {
-      margin: 0 4px 4px 0;
+      margin: 0 $avatarSpacedMargin $avatarSpacedMargin 0;
     }
   }
 
