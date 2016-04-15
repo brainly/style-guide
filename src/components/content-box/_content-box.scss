@@ -58,14 +58,17 @@ $includeHtml: false !default;
     }
 
     &__title,
+    &__header,
     &__actions {
       &--with-centered-elements {
         justify-content: center;
       }
     }
 
+    &,
     &__content,
     &__title,
+    &__header,
     &__actions {
 
       &--spaced-bottom {
