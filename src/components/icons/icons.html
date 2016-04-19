@@ -19,12 +19,12 @@
   <div class="docs-block__content">
     <ul class="icons-list">
       {% for color in site.data.icons.colors %}
-        <li class="icons-list__element">
-          <svg class="mint-icon mint-icon--{{ color }}">
-            <use xlink:href="#icon-friends"></use>
-          </svg>
-          <span>&nbsp;&nbsp;-&nbsp;{{ color }}</span>
-        </li>
+      <li class="icons-list__element">
+        <svg class="mint-icon mint-icon--{{ color }}">
+          <use xlink:href="#icon-friends"></use>
+        </svg>
+        <span>&nbsp;&nbsp;-&nbsp;{{ color }}</span>
+      </li>
       {% endfor %}
     </ul>
   </div>
@@ -36,12 +36,12 @@
   <div class="docs-block__content">
     <ul class="icons-list">
       {% for size in site.data.icons.sizes %}
-        <li class="icons-list__element icons-list__element--wider">
-          <svg class="mint-icon mint-icon--x{{ size }} mint-icon--gray">
-            <use xlink:href="#icon-x"></use>
-          </svg>
-          <span>&nbsp;&nbsp;-&nbsp;x{{ size }}</span>
-        </li>
+      <li class="icons-list__element icons-list__element--wider">
+        <svg class="mint-icon mint-icon--x{{ size }} mint-icon--gray">
+          <use xlink:href="#icon-x"></use>
+        </svg>
+        <span>&nbsp;&nbsp;-&nbsp;x{{ size }}</span>
+      </li>
       {% endfor %}
     </ul>
   </div>
