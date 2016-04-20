@@ -22,6 +22,10 @@ $includeHtml: false !default;
     height: $avatarMediumSize;
     border-radius: 50%;
     background: $avatarDefaultBackgroundColor;
+    // scss-lint:disable VendorPrefix
+    // workaround for the Chrome bug - crbug.com/157218
+    -webkit-perspective: 1px;
+    // scss-lint:enable VendorPrefix
 
     &__image {
       position: relative;
