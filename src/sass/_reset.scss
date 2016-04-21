@@ -1,8 +1,8 @@
+@import 'normalize';
+
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  @import 'normalize.scss/normalize';
-
   p,
   h1,
   h2,

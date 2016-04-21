@@ -4,9 +4,6 @@
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
-  "dependencies": {
-    "normalize.scss": "^0.1.0"
-  },
   "devDependencies": {
     "del": "^2.2.0",
     "frontend-tools-configs": "brainly/frontend-tools-configs",
