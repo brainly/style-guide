@@ -1,0 +1,17 @@
+<section class="docs-block">
+  <div class="docs-block__content docs-block__contrast-box">
+    <ul class="icons-list">
+      {% for name in site.data.ranks %}
+      <li class="icons-list__element">
+        <svg class="mint-icon">
+          <use xlink:href="#icon-rank-{{ name }}"></use>
+        </svg>
+        <svg class="mint-icon">
+          <use xlink:href="#icon-rank-{{ name }}_active"></use>
+        </svg>
+        <span>&nbsp;&nbsp;-&nbsp;{{ name }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
