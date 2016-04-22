@@ -1,13 +1,17 @@
 names:
-  - points
   - answered
   - arrow_down
   - arrow_left
   - arrow_right
   - arrow_up
+  - attachment
+  - bold
   - check
   - comment
+  - camera
+  - equation
   - excellent
+  - fb
   - friends
   - heart
   - menu
@@ -15,15 +19,12 @@ names:
   - notifications
   - pencil
   - plus
+  - points
   - profile
+  - report_flag
   - search
   - star
   - stream
-  - report_flag
-  - fb
-  - attachment
-  - bold
-  - equation
   - symbols
   - x
 sizes:
