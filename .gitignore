@@ -11,4 +11,5 @@ node_modules
 
 # Generated images
 /src/images/subjects-icons.js
+/src/images/rank-icons.js
 /src/images/icons.js

@@ -13,6 +13,8 @@
       location: icons/icons
     - name: Subject Icons
       location: subject-icons/subject-icons
+    - name: Ranks
+      location: rank-icons/rank-icons
     - name: Logo
       location: logo/logo
     - name: Helpers
