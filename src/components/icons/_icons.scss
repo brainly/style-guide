@@ -72,5 +72,9 @@ $iconSizes: 120, 64, 60, 48, 44, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8;
     &--dark {
       fill: $black;
     }
+
+    &--mint {
+      fill: $mintPrimary;
+    }
   }
 }
