@@ -1,12 +1,12 @@
 function svgSymbolCleanUp(shape, sprite, callback) {
   var symbol = shape.dom.documentElement;
-  var childNodes = shape.dom.documentElement.childNodes;
+  var allPaths = shape.dom.documentElement.getElementsByTagName('path');
   symbol.setAttribute('style', 'overflow: visible');
 
-  for (var i = 0; i < childNodes.length; i++) {
-    if (childNodes[i].nodeType === 1) {
-      childNodes[i].removeAttribute('class');
-      childNodes[i].removeAttribute('fill');
+  for (var i = 0; i < allPaths.length; i++) {
+    if (allPaths[i].nodeType === 1) {
+      allPaths[i].removeAttribute('class');
+      allPaths[i].removeAttribute('fill');
     }
   }
   callback(null);
@@ -68,9 +68,7 @@ module.exports = function (gulp, plugins, consts) {
         id: {
           generator: "icon-rank-%s"
         },
-        transform: [{
-          custom: svgSymbolCleanUp
-        }, 'svgo']
+        transform: ['svgo']
       },
       svg: {
         transform: [svgMoveDefs, svgAddPolyfill.bind(null, svgPolyfill)]
