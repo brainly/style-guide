@@ -3,7 +3,8 @@ $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
 $avatarXLargeSize: 64px;
-$avatarXXLargeSize: 120px;
+$avatarXXLargeSize: 96px;
+$avatarXXXLargeSize: 120px;
 $avatarSmallBorderWidth: 1px;
 $avatarMediumBorderWidth: 1px;
 $avatarBigBorderWidth: 2px;
@@ -91,6 +92,15 @@ $includeHtml: false !default;
     &--xxlarge {
       width: $avatarXXLargeSize;
       height: $avatarXXLargeSize;
+
+      .mint-avatar__image--icon {
+        top: 8px;
+      }
+    }
+
+    &--xxxlarge {
+      width: $avatarXXXLargeSize;
+      height: $avatarXXXLargeSize;
 
       .mint-avatar__image--icon {
         top: 10px;
