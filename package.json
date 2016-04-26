@@ -29,6 +29,7 @@
   },
   "scripts": {
     "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "postversion": "git push && git push --tags"
   }
 }
