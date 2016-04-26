@@ -193,7 +193,6 @@ If you need a special effect to be applied for a combination of modifiers, *whic
 
 
 
-
 ### CONTAINERS
 
 #### How To Think About Containers And Holes
@@ -235,11 +234,8 @@ There is a particular "code smell" when working with containers: *if parent cont
 
 This project has semver versioning.
 
-To simplify version bumping you can use [mversion](https://www.npmjs.com/package/mversion).
-`mversion patch -m` will patch package.json and create a corresponding commit + tag
-
-**Note:** if there is no changes to resulting `style-guide.css`, then use `mversion pr -m`.
-  It will create a `prerelease` version instead of patch.
+To simplify version bumping you can use `npm version` 
+it will patch package.json and create a corresponding commit + tag and push those to changes
 
 To bump the version correctly you should follow these steps:
 
@@ -247,49 +243,17 @@ To bump the version correctly you should follow these steps:
 
 1. Get :+1:s from two contributors
 
-1. Rebase and merge your branch
+1. Rebase your branch
 
-1. Get the freshest master  
   ```
-  git checkout master
-
-  git pull
+1. bump version in branch 
   ```
-1. bump version in master as a separate commit (with tag)  
+  npm version patch
   ```
-  mversion patch -m
-  ```
-1. `push` changes to upstream  
-  ```
-  git push
-  
-  git push --tags
-  ```
-
-#### Rebuilding Fonts
-
-If you haven't run `bootstrap.sh`, you should do it right now :)
-
-Run `./scripts/build-fonts.sh`.
-
-This command will transform all `svg` files from `icons` directory in a woff font.
-
-#### Create/Recreate s3 distribution
-
-To be able to work with AWS you need to have AWS-related keys defined in your environment:
-
- * `AWS_ACCESS_KEY` should be available as environment variable
- * `AWS_SECRET_ACCESS_KEY` should be available as environment variable
-
-Those keys will be passed to docker container on every interaction with s3 or cloudfront.
-
-Run `./scripts/create-s3-distribution.sh` to create the initial setup for s3 distribution.
-
-**Note:** This should be done once when you setup the deployment pipeline of the project.
-*This step has already been applied for this repo.*
+1. Merge PR to master
 
 #### Code Style
-All code style details are located in `.scss-lint.yml` file.
+All code style details are located in [`.scss-lint.yml`](https://github.com/brainly/frontend-tools-configs/blob/master/.scss-lint.yml) file.
 
 To check code style for project simply run:
 `./scripts/run-scss-lint.sh`

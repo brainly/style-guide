@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "28.0.1-0",
+  "version": "28.0.1-1",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -29,6 +29,7 @@
   },
   "scripts": {
     "prepush": "./scripts/run-scss-lint.sh && ./scripts/find_scss_unused_variables.sh src/",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "postversion": "git push && git push --tags"
   }
 }
