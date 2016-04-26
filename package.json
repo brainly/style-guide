@@ -6,7 +6,7 @@
   "private": true,
   "devDependencies": {
     "del": "^2.2.0",
-    "frontend-tools-configs": "brainly/frontend-tools-configs",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v2.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-base64": "^0.1.3",
