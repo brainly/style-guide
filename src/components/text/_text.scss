@@ -1,4 +1,5 @@
 $includeHtml: false !default;
+$mintTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
 
 @if ($includeHtml) {
 
@@ -43,6 +44,10 @@ $includeHtml: false !default;
 
     &--light {
       color: $white;
+    }
+
+    &--dark-semitransparent {
+      color: $mintTextDarkSemitransparentColor;
     }
 
     &--for-fine-print-light {
