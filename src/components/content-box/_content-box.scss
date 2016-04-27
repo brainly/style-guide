@@ -33,6 +33,10 @@ $includeHtml: false !default;
         width: 100%;
         height: 100%;
       }
+
+      &--with-centered-text {
+        text-align: center;
+      }
     }
 
     &__actions {
