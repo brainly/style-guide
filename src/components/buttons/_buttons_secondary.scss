@@ -114,6 +114,10 @@ $includeHtml: false !default;
       width: 100%;
       text-align: center;
     }
+
+    &__hole {
+      white-space: nowrap;
+    }
   }
 
   .mint-button-secondary--alt {
