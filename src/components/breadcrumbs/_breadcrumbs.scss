@@ -21,7 +21,7 @@ $includeHtml: false !default;
       }
 
       &:last-child::after {
-        content: '';
+        display: none;
       }
     }
 
