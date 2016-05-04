@@ -1,4 +1,5 @@
-$buttonSecondaryHeight: rhythm(1.333);
+$buttonSecondaryBorderSize: rhythm(1 / 12);
+$buttonSecondaryHeight: rhythm(4 / 3);
 $buttonSecondarySmallHeight: rhythm(1);
 $buttonSecondaryFontSize: fontSize(obscure);
 
@@ -86,14 +87,13 @@ $includeHtml: false !default;
 
   // Secondary buttons
   .mint-button-secondary {
-    $borderSize: 2px;
     @include mintButtonBasicStyles();
     @include mintButtonBasicDimensions($buttonSecondaryHeight);
     @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
     @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
     @include hole;
 
-    border-width: $borderSize;
+    border-width: $buttonSecondaryBorderSize;
     border-style: solid;
     background-color: transparent;
     font-size: $buttonSecondaryFontSize;
@@ -155,5 +155,6 @@ $includeHtml: false !default;
 
   .mint-button-secondary--small {
     @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
+    line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
   }
 }
