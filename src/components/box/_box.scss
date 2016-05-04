@@ -2,6 +2,7 @@ $boxBorderColor: $graySecondary;
 $boxBackgroundDark: $graySecondaryLight;
 $boxBorderRadius: 22px;
 $boxBorderSize: rhythm(0.125);
+$boxBorderSize: rhythm(0.125);
 $boxSmallBorderSize: rhythm(2 / 24);
 
 $includeHtml: false !default;
@@ -17,7 +18,7 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (rhythm(1) - $borderSize) gutter(1);
+    padding: (rhythm(1) - $boxBorderSize) gutter(1);
     overflow: visible;
 
     &__image {
@@ -59,7 +60,7 @@ $includeHtml: false !default;
     &--image-wrapper {
       height: rhythm(4);
       width: rhythm(4);
-      padding: (rhythm(0.5) - $borderSize);
+      padding: (rhythm(0.5) - $boxBorderSize);
       align-items: center;
       justify-content: center;
     }
