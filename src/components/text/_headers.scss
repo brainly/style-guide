@@ -9,7 +9,6 @@ $includeHtml: false !default;
     color: $black;
     font-weight: $fontWeightBold;
     letter-spacing: -1px;
-    margin-bottom: rhythm(1);
     max-width: 100%;
     overflow: visible;
 
@@ -20,6 +19,10 @@ $includeHtml: false !default;
 
     &--small {
       @include typeVariant(headline);
+    }
+
+    &--xsmall {
+      @include typeVariant(subheadline, 1);
     }
 
     &--light {
