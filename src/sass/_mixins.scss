@@ -118,6 +118,7 @@
 @function stripUnit($number) {
   // scss-lint:disable NameFormat
   @if type-of($number) == 'number' and not unitless($number) {
+  // scss-lint:enable NameFormat
     @return $number / ($number * 0 + 1);
   }
 
