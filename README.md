@@ -32,20 +32,20 @@ Table of contents:
 
 ## Supported Browsers
 
-We support the following browsers:
+We support the following browsers (90% of our traffic comes from these browsers):
 
 | Browser | Versions  | Total share in global traffic |
 | ---- | ---- | ---- |
-| Google Chrome | 28+ | 47.53% |
-| Safari | 7+ | 10.89% |
-| Android Browser | 4.0+ | 6.69% |
-| Firefox | 42+ | 6.92% |
-| YaBrowser | 15+ | 9.71% |
-| Opera Mini | 7+ | 2.22% |
-| Opera | 33+ | 4.27% |
-| Internet Explorer | 10+ | 3.42% |
+| Google Chrome | 28+ | 49.4% | 
+| Safari | 7+ | 12.6% |
+| Android Browser | 4.0+ | 5.46% |
+| Firefox | 42+ | 5% |
+| YaBrowser | 15+ | 9.85% |
+| Opera Mini | 7+ | 1.72% |
+| Opera | 33+ | 2.96% |
+| Internet Explorer | 11+ | 2.5% |
 
-Last updated: 13.01.2016
+Last updated: 11.05.2016
 
 Note: You can find all recent stats in [this document](https://docs.google.com/spreadsheets/d/1n0tGV042xnrcdaZjNi1UWFcp77FUf5RDgHrTBon7Kgk/) (only company accessible!)
 
