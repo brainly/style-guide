@@ -22,6 +22,10 @@ $includeHtml: false !default;
       color: $white;
     }
 
+    &--dark {
+      color: $black;
+    }
+
     &--warning {
       color: $mustardPrimary;
     }
