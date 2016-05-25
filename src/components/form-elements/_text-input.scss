@@ -23,7 +23,7 @@ $includeHtml: false !default;
   .mint-input {
     @include component;
     background: $inputBackground;
-    border: 2px solid $inputBorderColor;
+    border: 1px solid $inputBorderColor;
     border-radius: $inputHeight / 2;
     color: $inputTextColor;
     font-size: $inputFontSize;
