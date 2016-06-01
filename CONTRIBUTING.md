@@ -16,12 +16,10 @@ If you want to update Style Guide, you should follow the given guidelines and co
 
  - [Containers](#containers)
     - [How To Think About Containers And Holes](#how-to-think-about-containers-and-holes)
-    - [Parent-Child Relationship](#parent--child-relationship)
+    - [Parent-Child Relationship](#parent-child-relationship)
 
 * [Technical Discipline](#technical-discipline)
  - [Bumping Release Version](#bumping-release-version)
- - [Rebuilding Fonts](#rebuilding-fonts)
- - [Create/Recreate s3 distribution](#createrecreate-s3-distribution)
  - [Code Style](#code-style)
 
 
@@ -245,11 +243,12 @@ To bump the version correctly you should follow these steps:
 
 1. Rebase your branch
 
-  ```
 1. bump version in branch 
+
   ```
   npm version patch
   ```
+
 1. Merge PR to master
 
 #### Code Style
