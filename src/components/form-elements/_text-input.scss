@@ -43,7 +43,7 @@ $includeHtml: false !default;
       position: relative;
     }
 
-    &--low {
+    &--short {
       border-radius: $inputLowHeight / 2;
       padding: 0 $inputLowHeight / 2;
       height: $inputLowHeight;
