@@ -52,7 +52,7 @@ $includeHtml: false !default;
 
     &--with-border {
       .mint-icon-as-button__hole {
-        border: solid $iconAsButtonColor 2px;
+        border: solid $iconAsButtonColor 1px;
         border-radius: 50%;
       }
     }

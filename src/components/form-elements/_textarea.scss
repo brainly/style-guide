@@ -17,7 +17,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .mint-textarea {
     background: $textareaBackground;
-    border: 2px solid $textareaBorderColor;
+    border: 1px solid $textareaBorderColor;
     border-radius: $textareaBorderRadius;
     color: $textareaTextColor;
     display: block;
