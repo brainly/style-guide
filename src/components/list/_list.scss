@@ -24,6 +24,13 @@ $includeHtml: false !default;
       margin-right: gutter(0.333);
       width: 18px;
       height: 18px;
+
+      &--align-first-line {
+        align-self: flex-start;
+        height: rhythm(2);
+        display: flex;
+        align-items: center;
+      }
     }
 
     &--small {
@@ -35,6 +42,10 @@ $includeHtml: false !default;
         margin-right: gutter(0.167);
         width: 14px;
         height: 14px;
+
+        &--align-first-line {
+          height: rhythm(1);
+        }
       }
     }
 
