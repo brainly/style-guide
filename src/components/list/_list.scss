@@ -70,6 +70,8 @@ $includeHtml: false !default;
       display: block;
       font-size: $menuListFontSize;
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
 
       &:hover {
         text-decoration: underline;
