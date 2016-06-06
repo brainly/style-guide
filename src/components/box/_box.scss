@@ -17,7 +17,7 @@ $includeHtml: false !default;
     min-height: rhythm(3);
     border-radius: $boxBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
-    padding: (gutter(1) - $boxBorderSize) gutter(1);
+    padding: (gutter(1) - $boxBorderSize);
     overflow: visible;
 
     &__image {
@@ -38,9 +38,8 @@ $includeHtml: false !default;
       padding: rhythm(1) gutter(1);
     }
 
-    &--small-border {
-      border-width: $boxSmallBorderSize;
-      padding: (gutter(0.5) - $boxSmallBorderSize) gutter(0.5) (gutter(0.5) - $boxSmallBorderSize) gutter(1);
+    &--small-padding {
+      padding: (gutter(1 / 2) - $boxBorderSize);
     }
 
     &--blue-secondary-light {
