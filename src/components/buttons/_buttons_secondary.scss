@@ -1,6 +1,6 @@
-$buttonSecondaryBorderSize: rhythm(1 / 12);
+$buttonSecondaryBorderSize: 1px;
 $buttonSecondaryHeight: rhythm(4 / 3);
-$buttonSecondarySmallHeight: rhythm(1);
+$buttonSecondarySmallHeight: gutter(1);
 $buttonSecondaryFontSize: fontSize(obscure);
 
 $buttonSecondaryColor: $mintPrimary;
