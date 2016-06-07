@@ -1,0 +1,27 @@
+.mint-flash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &__message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bluePrimary;
+    min-height: rhythm(1);
+    width: 100%;
+
+    &--error {
+      background-color: $peachPrimary;
+    }
+
+    &--success {
+      background-color: $mintPrimary;
+    }
+
+    &--info {
+      background-color: $mustardPrimary;
+    }
+  }
+}
