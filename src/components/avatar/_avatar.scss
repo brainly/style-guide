@@ -5,10 +5,8 @@ $avatarBigSize: 48px;
 $avatarXLargeSize: 64px;
 $avatarXXLargeSize: 96px;
 $avatarXXXLargeSize: 120px;
-$avatarSmallBorderWidth: 1px;
-$avatarMediumBorderWidth: 1px;
-$avatarBigBorderWidth: 1px;
 $avatarSpacedMargin: 4px;
+$avatarBorderWidth: 1px;
 $avatarBorderColor: $white;
 
 $includeHtml: false !default;
@@ -57,27 +55,7 @@ $includeHtml: false !default;
     }
 
     &--with-border {
-      border: solid $avatarBorderColor $avatarMediumBorderWidth;
-
-      &::before {
-        left: -$avatarMediumBorderWidth;
-      }
-    }
-
-    &--small-with-border {
-      border: solid $avatarBorderColor $avatarSmallBorderWidth;
-
-      &::before {
-        left: -$avatarSmallBorderWidth;
-      }
-    }
-
-    &--large-with-border {
-      border: solid $avatarBorderColor $avatarBigBorderWidth;
-
-      &::before {
-        left: -$avatarBigBorderWidth;
-      }
+      border: solid $avatarBorderColor $avatarBorderWidth;
     }
 
     &--xlarge {
