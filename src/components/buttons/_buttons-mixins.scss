@@ -43,7 +43,9 @@
 
 @mixin mintButtonPrimaryThreeColorVariant($buttonColor, $gradientColor, $buttonShadowColor: null) {
   background-color: $buttonColor;
+  // scss-lint:disable NameFormat
   background-image: linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%);
+  // scss-lint:enable NameFormat
   background-size: 100% 140%;
   background-position: 0 -10px;
   background-repeat: no-repeat;

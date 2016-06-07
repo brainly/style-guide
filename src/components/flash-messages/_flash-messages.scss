@@ -3,18 +3,14 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
 
   &__message {
-    padding: 0 gutter(1);
-    line-height: rhythm(1);
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: $bluePrimary;
+    min-height: rhythm(1);
     width: 100%;
-    cursor: pointer;
 
     &--error {
       background-color: $peachPrimary;
@@ -22,6 +18,10 @@
 
     &--success {
       background-color: $mintPrimary;
+    }
+
+    &--info {
+      background-color: $mustardPrimary;
     }
   }
 }
