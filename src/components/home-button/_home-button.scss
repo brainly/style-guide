@@ -6,7 +6,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-home-button {
+  .sg-home-button {
     @include component;
 
     @include mintBreakpoint(medium-up) {

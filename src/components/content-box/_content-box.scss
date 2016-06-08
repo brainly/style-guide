@@ -2,7 +2,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-content-box {
+  .sg-content-box {
 
     &__title {
       @include componentsContainer;
@@ -49,8 +49,8 @@ $includeHtml: false !default;
     }
 
     &--spaced {
-      .mint-content-box__content,
-      .mint-content-box__actions {
+      .sg-content-box__content,
+      .sg-content-box__actions {
         @include mintBreakpoint(medium-up) {
           padding-left: gutter(2);
         }

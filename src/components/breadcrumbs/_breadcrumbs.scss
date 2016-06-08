@@ -5,7 +5,7 @@ $breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-breadcrumb-list {
+  .sg-breadcrumb-list {
     @include mintListBasicStyles();
     display: inline-block;
     color: $breadcrumbListSeparatorColor;
@@ -34,7 +34,7 @@ $includeHtml: false !default;
       font-size: fontSize(small);
       color: $breadcrumbListBlueSeparatorColor;
 
-      .mint-breadcrumb-list__element {
+      .sg-breadcrumb-list__element {
         &::after {
           color: $breadcrumbListBlueSeparatorColor;
 
@@ -46,7 +46,7 @@ $includeHtml: false !default;
       font-size: fontSize(small);
       color: $breadcrumbListLightBlueSeparatorColor;
 
-      .mint-breadcrumb-list__element {
+      .sg-breadcrumb-list__element {
         &::after {
           color: $breadcrumbListLightBlueSeparatorColor;
         }

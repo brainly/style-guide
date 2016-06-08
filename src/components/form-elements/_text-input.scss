@@ -20,7 +20,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-input {
+  .sg-input {
     @include component;
     background: $inputBackground;
     border: 1px solid $inputBorderColor;

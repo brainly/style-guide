@@ -14,7 +14,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-label {
+  .sg-label {
     @include component;
     overflow: visible;
     display: flex;
@@ -54,15 +54,15 @@ $includeHtml: false !default;
     }
 
     &--lite {
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         font-weight: $fontWeightBold;
       }
     }
 
     &--unstyled {
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         color: inherit;
       }
     }
@@ -72,15 +72,15 @@ $includeHtml: false !default;
     }
 
     &--secondary {
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         color: $labelSecondaryColor;
       }
     }
 
     &--inactive {
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         color: $labelInactiveColor;
       }
     }
@@ -88,7 +88,7 @@ $includeHtml: false !default;
     &--full-width {
       width: 100%;
 
-      .mint-label__text {
+      .sg-label__text {
         text-overflow: ellipsis;
         max-width: 100%;
       }
@@ -97,8 +97,8 @@ $includeHtml: false !default;
     &--small {
       min-height: 0;
 
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         @include fixText($labelFontSizeSecondary);
         @include fixOperaMiniLabelText;
 
@@ -109,7 +109,7 @@ $includeHtml: false !default;
         }
       }
 
-      .mint-label__icon {
+      .sg-label__icon {
         margin-right: $labelScaleFactor * gutter(0.25);
         width: $labelIconSizeSecondary;
         height: $labelIconSizeSecondary;
@@ -117,8 +117,8 @@ $includeHtml: false !default;
     }
 
     &--large {
-      .mint-label__text,
-      .mint-label__number {
+      .sg-label__text,
+      .sg-label__number {
         @include fixText($labelFontSizeLarge);
         @include fixOperaMiniLabelText;
 
@@ -127,7 +127,7 @@ $includeHtml: false !default;
         }
       }
 
-      .mint-label__icon {
+      .sg-label__icon {
         margin-right: gutter(0.5);
         width: $labelIconSizeLarge;
         height: $labelIconSizeLarge;

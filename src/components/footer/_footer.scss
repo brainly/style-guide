@@ -4,7 +4,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-footer {
+  .sg-footer {
     background-color: $footerBackgroundColor;
 
     &__container {

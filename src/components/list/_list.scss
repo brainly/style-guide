@@ -9,7 +9,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-list {
+  .sg-list {
     @include mintListBasicStyles();
     font-size: $listFontSize;
     line-height: rhythm(2);
@@ -38,7 +38,7 @@ $includeHtml: false !default;
       font-weight: $fontWeightBold;
       font-size: $smallListFontSize;
 
-      .mint-list__icon {
+      .sg-list__icon {
         margin-right: gutter(0.167);
         width: 14px;
         height: 14px;
@@ -58,7 +58,7 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-menu-list {
+  .sg-menu-list {
     @include mintListBasicStyles();
     &__element {
       box-sizing: border-box;
@@ -94,14 +94,14 @@ $includeHtml: false !default;
     }
 
     &--small {
-      .mint-menu-list__element {
+      .sg-menu-list__element {
         height: rhythm(1.5);
         line-height: rhythm(1.5);
       }
     }
 
     &--large {
-      .mint-menu-list__element {
+      .sg-menu-list__element {
         height: rhythm(2.5);
         line-height: rhythm(2.5);
       }

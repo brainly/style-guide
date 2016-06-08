@@ -13,7 +13,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-avatar {
+  .sg-avatar {
 
     @include component;
 
@@ -40,7 +40,7 @@ $includeHtml: false !default;
       width: $avatarSmallSize;
       height: $avatarSmallSize;
 
-      .mint-avatar__image--icon {
+      .sg-avatar__image--icon {
         top: 2px;
       }
     }
@@ -49,7 +49,7 @@ $includeHtml: false !default;
       width: $avatarBigSize;
       height: $avatarBigSize;
 
-      .mint-avatar__image--icon {
+      .sg-avatar__image--icon {
         top: 5px;
       }
     }
@@ -62,7 +62,7 @@ $includeHtml: false !default;
       width: $avatarXLargeSize;
       height: $avatarXLargeSize;
 
-      .mint-avatar__image--icon {
+      .sg-avatar__image--icon {
         top: 6px;
       }
     }
@@ -71,7 +71,7 @@ $includeHtml: false !default;
       width: $avatarXXLargeSize;
       height: $avatarXXLargeSize;
 
-      .mint-avatar__image--icon {
+      .sg-avatar__image--icon {
         top: 8px;
       }
     }
@@ -80,7 +80,7 @@ $includeHtml: false !default;
       width: $avatarXXXLargeSize;
       height: $avatarXXXLargeSize;
 
-      .mint-avatar__image--icon {
+      .sg-avatar__image--icon {
         top: 10px;
       }
     }

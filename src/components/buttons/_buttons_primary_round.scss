@@ -9,7 +9,7 @@ $buttonRoundLabelColor: $black;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-button-primary-round {
+  .sg-button-primary-round {
     $boxShadowColor: rgba(0, 0, 0, 0.3);
     @include clearfix();
     display: inline-block;

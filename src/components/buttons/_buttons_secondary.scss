@@ -86,7 +86,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   // Secondary buttons
-  .mint-button-secondary {
+  .sg-button-secondary {
     @include mintButtonBasicStyles();
     @include mintButtonBasicDimensions($buttonSecondaryHeight);
     @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
@@ -120,40 +120,40 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-button-secondary--alt {
+  .sg-button-secondary--alt {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
   }
 
-  .mint-button-secondary--dark {
+  .sg-button-secondary--dark {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
   }
 
-  .mint-button-secondary--peach {
+  .sg-button-secondary--peach {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
   }
 
-  .mint-button-secondary--gray {
+  .sg-button-secondary--gray {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
   }
 
-  .mint-button-secondary--light {
+  .sg-button-secondary--light {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
   }
 
-  .mint-button-secondary--action {
+  .sg-button-secondary--action {
     @include mintButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
   }
 
-  .mint-button-secondary--light-blue {
+  .sg-button-secondary--light-blue {
     @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
   }
 
-  .mint-button-secondary--with-icon {
+  .sg-button-secondary--with-icon {
     @include mintButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
     @include mintButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
   }
 
-  .mint-button-secondary--small {
+  .sg-button-secondary--small {
     @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
     line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
   }

@@ -5,7 +5,7 @@ $stickerDefaultSize: 18px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-sticker {
+  .sg-sticker {
     position: relative;
     max-width: $stickerDefaultSize;
     max-height: $stickerDefaultSize;

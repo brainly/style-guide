@@ -25,7 +25,7 @@ $iconSizes: 120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16
 // 8  - select and dropdown arrows, checkbox check,
 
 @if ($includeHtml) {
-  .mint-icon {
+  .sg-icon {
     fill: $white;
     max-width: 24px;
     max-height: 24px;

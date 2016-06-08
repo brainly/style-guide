@@ -13,7 +13,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-rate-box {
+  .sg-rate-box {
     @include component;
     display: flex;
     align-items: center;
@@ -21,20 +21,20 @@ $includeHtml: false !default;
 
     &--active {
 
-      .mint-rate-box__star:hover ~ .mint-rate-box__star {
+      .sg-rate-box__star:hover ~ .sg-rate-box__star {
         fill: $rateStarColor;
       }
 
-      &:active .mint-rate-box__star:hover ~ .mint-rate-box__star {
+      &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
         fill: $rateStarActiveColor;
       }
 
-      &:hover .mint-rate-box__star {
+      &:hover .sg-rate-box__star {
         fill: $rateStarCheckedColor;
         transition: fill 0.1s ease-in;
       }
 
-      &:active:hover .mint-rate-box__star {
+      &:active:hover .sg-rate-box__star {
         fill: $rateStarActiveCheckedColor;
         transition: none;
       }
@@ -66,12 +66,12 @@ $includeHtml: false !default;
       height: rhythm(0.667);
       min-height: 0;
 
-      .mint-rate-box__star {
+      .sg-rate-box__star {
         height: $rateSmallIconSize;
         width: $rateSmallIconSize;
       }
 
-      .mint-rate-box__counter {
+      .sg-rate-box__counter {
         @include fixText($rateSmallFontSize, 0.125rem);
         @include fixOperaMiniLabelText;
       }
