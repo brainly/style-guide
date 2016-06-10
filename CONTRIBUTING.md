@@ -39,9 +39,9 @@ $blockFont: $fontFamilyPrimary;
 $tintedElementColor: $graySecondary;
 $blockLightColor: $white;
 
-.mint-block {
+.sg-block {
 
-  // this is an element of mint-block, note "__" separator
+  // this is an element of sg-block, note "__" separator
   &__element {
     width: 200px;
     font-family: $blockFont;
@@ -52,7 +52,7 @@ $blockLightColor: $white;
      }
   }
 
-  // this is a modifier of the entire mint-block, note "--" separator
+  // this is a modifier of the entire sg-block, note "--" separator
   &--light {
     background-color: $blockLightColor;
   }
@@ -62,8 +62,8 @@ $blockLightColor: $white;
 
 You use the styles defined above like that:
 ```html
-<div class="mint-block mint-block--light">
-  <div class="mint-block__element mint-block__element--tint">
+<div class="sg-block sg-block--light">
+  <div class="sg-block__element sg-block__element--tint">
      Here goes some block content
   </div>
 </div>
@@ -73,9 +73,9 @@ You use the styles defined above like that:
 
 > You MUST NOT combine several block classes on a single HTML element
 
-If you have a combination like `<input class="mint-block1 mint-block2">` it means that you have incorrectly separated responsibilities in your component hierarchy.
+If you have a combination like `<input class="sg-block1 sg-block2">` it means that you have incorrectly separated responsibilities in your component hierarchy.
 
-> There MUST NOT be rules with combined classes selector, e.g. `.mint-block1 .mint-block2` is a bad thing.
+> There MUST NOT be rules with combined classes selector, e.g. `.sg-block1 .sg-block2` is a bad thing.
 
 
 #### Base Variables
@@ -141,10 +141,10 @@ Here is an example of overriding user content in a specific block:
 .my-container {
   &__content {
     & > ul {
-      @extend .mint-list;
+      @extend .sg-list;
     }
     & > ul > li {
-      @extend .mint-list__element;
+      @extend .sg-list__element;
     }
   }
 }
@@ -184,7 +184,7 @@ All components are **responsive** by default, so there is no need for modifiers 
 
 If you need to combine a certain effect from several modifiers, put those modifiers together in the HTML element class attribute.
 
-> There SHOULD NOT be CSS rules with selectors for several modifiers, e.g. `.mint-block--mod1 .mint-block--mod2` is a bad thing.
+> There SHOULD NOT be CSS rules with selectors for several modifiers, e.g. `.sg-block--mod1 .sg-block--mod2` is a bad thing.
 
 If you need a special effect to be applied for a combination of modifiers, *which interfere with each other* - create a new modifier.
 

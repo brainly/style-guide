@@ -11,7 +11,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   @each $breakpointName, $media in $breakpointsMap {
-    .mint-hide-for-#{$breakpointName} {
+    .sg-hide-for-#{$breakpointName} {
       @include mintBreakpoint($breakpointName) {
         // scss-lint:disable ImportantRule
         display: none !important;
