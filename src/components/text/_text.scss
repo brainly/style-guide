@@ -3,7 +3,7 @@ $mintTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
 
 @if ($includeHtml) {
 
-  .mint-text {
+  .sg-text {
     @include typeVariant(default, 1);
     font-family: $fontFamilyPrimary;
     color: $black;

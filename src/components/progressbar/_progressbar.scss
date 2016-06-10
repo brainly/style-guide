@@ -3,7 +3,7 @@ $progressBarBackground: rgba(0, 0, 0, 0.15);
 
 @if ($includeHtml) {
 
-  .mint-progressbar {
+  .sg-progressbar {
     height: rhythm(1);
     width: 100%;
     padding: 2px;
@@ -13,13 +13,13 @@ $progressBarBackground: rgba(0, 0, 0, 0.15);
     overflow: hidden;
 
     &--mustard {
-      .mint-progressbar__value {
+      .sg-progressbar__value {
         background-color: $mustardPrimary;
       }
     }
 
     &--blue {
-      .mint-progressbar__value {
+      .sg-progressbar__value {
         background-color: $bluePrimary;
       }
     }

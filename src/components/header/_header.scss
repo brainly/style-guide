@@ -5,7 +5,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-header {
+  .sg-header {
     @include image2x($mintImagesPath + 'header_background@2x.jpg', auto, $headerHeight);
     width: 100%;
     height: $headerHeight;

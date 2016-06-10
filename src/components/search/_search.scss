@@ -3,7 +3,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-search {
+  .sg-search {
     @include component;
     overflow: visible;
     width: 100%;

@@ -2,7 +2,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-header-primary {
+  .sg-header-primary {
     @include component;
     @include typeVariant(header, 2);
     display: block;
@@ -30,7 +30,7 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-header-secondary {
+  .sg-header-secondary {
     @include component;
     @include typeVariant(default, 0.667);
     @include uppercaseText;

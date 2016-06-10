@@ -3,7 +3,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-overlay {
+  .sg-overlay {
     background-color: $overlayBackgroundColor;
     position: fixed;
     height: 100%;

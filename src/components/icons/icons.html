@@ -3,7 +3,7 @@
     <ul class="icons-list">
       {% for name in site.data.icons.names %}
       <li class="icons-list__element">
-        <svg class="mint-icon">
+        <svg class="sg-icon">
           <use xlink:href="#icon-{{ name }}"></use>
         </svg>
         <span>&nbsp;&nbsp;-&nbsp;{{ name }}</span>
@@ -20,7 +20,7 @@
     <ul class="icons-list">
       {% for color in site.data.icons.colors %}
       <li class="icons-list__element">
-        <svg class="mint-icon mint-icon--{{ color }}">
+        <svg class="sg-icon sg-icon--{{ color }}">
           <use xlink:href="#icon-friends"></use>
         </svg>
         <span>&nbsp;&nbsp;-&nbsp;{{ color }}</span>
@@ -37,7 +37,7 @@
     <ul class="icons-list">
       {% for size in site.data.icons.sizes %}
       <li class="icons-list__element icons-list__element--wider">
-        <svg class="mint-icon mint-icon--x{{ size }} mint-icon--gray">
+        <svg class="sg-icon sg-icon--x{{ size }} sg-icon--gray">
           <use xlink:href="#icon-x"></use>
         </svg>
         <span>&nbsp;&nbsp;-&nbsp;x{{ size }}</span>

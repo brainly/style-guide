@@ -7,7 +7,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-box {
+  .sg-box {
     @include component;
     @include hole;
     display: inline-flex;
@@ -27,7 +27,7 @@ $includeHtml: false !default;
     &--full {
       width: 100%;
 
-      .mint-box__hole {
+      .sg-box__hole {
         width: 100%;
       }
     }

@@ -2,7 +2,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-link {
+  .sg-link {
     @include removeDescenders;
     cursor: pointer;
     color: $bluePrimary;

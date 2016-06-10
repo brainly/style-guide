@@ -10,7 +10,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-dropdown {
+  .sg-dropdown {
     @include component;
     @include hole;
 
@@ -102,11 +102,11 @@ $includeHtml: false !default;
         border-bottom-color: transparent;
       }
 
-      .mint-dropdown__icon {
+      .sg-dropdown__icon {
         transform: rotate(180deg);
       }
 
-      .mint-dropdown__hole {
+      .sg-dropdown__hole {
 
         &--inactive {
           display: none;
@@ -117,7 +117,7 @@ $includeHtml: false !default;
         }
       }
 
-      .mint-dropdown__items {
+      .sg-dropdown__items {
         visibility: visible;
       }
     }

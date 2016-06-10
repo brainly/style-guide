@@ -8,7 +8,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-separator {
+  .sg-separator {
     @include component;
     min-height: 0;
 

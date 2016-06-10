@@ -13,7 +13,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-bubble {
+  .sg-bubble {
     @include component;
     display: inline-flex;
     align-items: flex-start;
@@ -83,7 +83,7 @@ $includeHtml: false !default;
     &--full-width {
       width: 100%;
 
-      .mint-bubble__hole {
+      .sg-bubble__hole {
         width: 100%;
       }
     }
@@ -92,7 +92,7 @@ $includeHtml: false !default;
       height: 100%;
       width: 100%;
 
-      .mint-bubble__hole {
+      .sg-bubble__hole {
         width: 100%;
         overflow: hidden;
       }
@@ -102,7 +102,7 @@ $includeHtml: false !default;
       min-height: 100%;
       width: 100%;
 
-      .mint-bubble__hole {
+      .sg-bubble__hole {
         width: 100%;
         overflow: hidden;
       }

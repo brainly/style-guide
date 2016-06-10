@@ -15,7 +15,7 @@ $textareaInvalidBorderColor: $peachSecondary;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-textarea {
+  .sg-textarea {
     background: $textareaBackground;
     border: 1px solid $textareaBorderColor;
     border-radius: $textareaBorderRadius;

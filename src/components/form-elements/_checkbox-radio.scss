@@ -9,8 +9,8 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-checkbox,
-  .mint-radio {
+  .sg-checkbox,
+  .sg-radio {
     @include component;
     overflow: visible;
     width: $crInputSize;
@@ -48,15 +48,15 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-checkbox__element:checked:active + .mint-checkbox__ghost::before {
+  .sg-checkbox__element:checked:active + .sg-checkbox__ghost::before {
     color: $crInputActiveColor;
   }
 
-  .mint-checkbox__ghost {
+  .sg-checkbox__ghost {
     border-radius: 25%;
   }
 
-  .mint-radio__ghost {
+  .sg-radio__ghost {
     border-radius: 50%;
 
     &::before {

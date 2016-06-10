@@ -13,7 +13,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-tabs {
+  .sg-tabs {
     @include component;
     @include clearfix();
     list-style: none;

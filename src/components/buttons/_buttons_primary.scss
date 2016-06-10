@@ -24,7 +24,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   // Primary buttons
-  .mint-button-primary {
+  .sg-button-primary {
     @include mintButtonBasicStyles();
     @include mintButtonBasicDimensions($buttonPrimaryHeight);
     @include mintButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
@@ -41,18 +41,18 @@ $includeHtml: false !default;
     }
   }
 
-  .mint-button-primary--alt {
+  .sg-button-primary--alt {
     @include mintButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
   }
 
-  .mint-button-primary--dark {
+  .sg-button-primary--dark {
     @include mintButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
   }
 
-  .mint-button-primary--fb {
+  .sg-button-primary--fb {
     @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
 
-    .mint-button-primary__icon {
+    .sg-button-primary__icon {
       margin-right: gutter(0.5);
       width: 20px;
       height: 20px;

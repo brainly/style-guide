@@ -13,7 +13,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-toplayer {
+  .sg-toplayer {
     @include component;
     overflow: visible;
     border-radius: $toplayerBorderRadius;
@@ -22,14 +22,14 @@ $includeHtml: false !default;
     background-color: $toplayerBackgroundColor;
 
     &--lead {
-      .mint-toplayer__wrapper {
+      .sg-toplayer__wrapper {
         @include mintBreakpoint(medium-up) {
 
           padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
         }
       }
 
-      .mint-toplayer__heading {
+      .sg-toplayer__heading {
         @include mintBreakpoint(medium-up) {
           margin-bottom: rhythm(2);
         }
@@ -74,7 +74,7 @@ $includeHtml: false !default;
     }
 
     &--with-bugbox {
-      .mint-toplayer__wrapper {
+      .sg-toplayer__wrapper {
         @include mintBreakpoint(medium-up) {
           @include image2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
           background-image: url($mintImagesPath + 'bug_box.png');

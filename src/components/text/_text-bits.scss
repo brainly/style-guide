@@ -10,7 +10,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-text-bit {
+  .sg-text-bit {
     @include typeVariant($textBitFontSize, 2);
     @include uppercaseText(-0.0625rem);
     color: $textBitColor;
@@ -19,7 +19,7 @@ $includeHtml: false !default;
     position: relative;
 
     @include mintBreakpoint(medium-up) {
-      &:not(.mint-text-bit--not-responsive) {
+      &:not(.sg-text-bit--not-responsive) {
         font-size: fontSize(large);
       }
     }

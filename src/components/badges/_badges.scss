@@ -10,7 +10,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-badge {
+  .sg-badge {
     @include component;
     @include fixText($badgeFontSize);
     @include uppercaseText;

@@ -2,7 +2,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .mint-overlayed-box {
+  .sg-overlayed-box {
     @include component;
     display: inline-flex;
 

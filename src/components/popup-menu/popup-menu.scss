@@ -5,7 +5,7 @@ $mintPopupMenuHeight: rhythm(2);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-popup-menu {
+  .sg-popup-menu {
     @include hole();
 
     position: relative;
@@ -34,7 +34,7 @@ $includeHtml: false !default;
     }
 
     &--elements-spaced {
-      .mint-popup-menu__hole {
+      .sg-popup-menu__hole {
         margin-right: $mintPopupMenuPadding / 2;
 
         &:last-child {

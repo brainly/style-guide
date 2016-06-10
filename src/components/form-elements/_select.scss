@@ -11,7 +11,7 @@ $selectInvalidBorderColor: $peachSecondary;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .mint-select {
+  .sg-select {
     @include component;
 
     font-size: $selectFontSize;
@@ -57,12 +57,12 @@ $includeHtml: false !default;
     }
 
     &--small {
-      .mint-select__icon {
+      .sg-select__icon {
         top: $selectSmallHeight / 2 - $selectIconSize / 2;
         right: $selectSmallHeight / 2 - $selectIconSize / 2;
       }
 
-      .mint-select__element {
+      .sg-select__element {
         height: $selectSmallHeight;
         padding: 0 rhythm(1.333) 0 rhythm(0.667);
       }
@@ -73,7 +73,7 @@ $includeHtml: false !default;
     }
 
     &--invalid {
-      .mint-select__element {
+      .sg-select__element {
         border: $selectBorderWidth solid $selectInvalidBorderColor;
       }
     }
