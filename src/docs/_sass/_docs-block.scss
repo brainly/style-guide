@@ -80,26 +80,26 @@ body.show-vr-lines {
 }
 
 body.show-holes {
-  .mint-bubble__hole,
-  .mint-box__hole,
-  .mint-promo-box__content,
-  .mint-header__left,
-  .mint-header__middle,
-  .mint-header__right,
-  .mint-overlayed-box,
-  .mint-overlayed-box__overlay,
-  .mint-footer__line,
-  .mint-content-box__header,
-  .mint-content-box__title,
-  .mint-content-box__footer,
-  .mint-content-box__content,
-  .mint-toplayer__heading,
-  .mint-toplayer__content,
-  .mint-toplayer__actions,
-  .mint-dropdown__hole,
-  .mint-dropdown__item-hole,
-  .mint-popup-menu__hole,
-  .mint-text-bit__hole {
+  .sg-bubble__hole,
+  .sg-box__hole,
+  .sg-promo-box__content,
+  .sg-header__left,
+  .sg-header__middle,
+  .sg-header__right,
+  .sg-overlayed-box,
+  .sg-overlayed-box__overlay,
+  .sg-footer__line,
+  .sg-content-box__header,
+  .sg-content-box__title,
+  .sg-content-box__footer,
+  .sg-content-box__content,
+  .sg-toplayer__heading,
+  .sg-toplayer__content,
+  .sg-toplayer__actions,
+  .sg-dropdown__hole,
+  .sg-dropdown__item-hole,
+  .sg-popup-menu__hole,
+  .sg-text-bit__hole {
     @extend .docs-highlight-placeholder;
   }
 }

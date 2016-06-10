@@ -51,7 +51,7 @@
     content: '$mintPrimary';
   }
 }
-.color-box--mint-mid-tone {
+.color-box--sg-mid-tone {
   background: $mintSecondary;
   .color-box__hex:after {
     content: '#{$mintSecondary}';
@@ -60,7 +60,7 @@
     content: '$mintSecondary';
   }
 }
-.color-box--mint-light {
+.color-box--sg-light {
   background: $mintSecondaryLight;
   .color-box__hex:after {
     content: '#{$mintSecondaryLight}';
