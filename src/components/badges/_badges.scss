@@ -37,11 +37,11 @@ $includeHtml: false !default;
 
     &--with-animation {
       transform: scale(0);
-      animation: mintBadgeAnimation 0.6s 2s forwards;
+      animation: sgBadgeAnimation 0.6s 2s forwards;
     }
   }
 
-  @keyframes mintBadgeAnimation {
+  @keyframes sgBadgeAnimation {
     0% {
       transform: scale(0);
     }

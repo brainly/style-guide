@@ -15,7 +15,7 @@ $includeHtml: false !default;
     display: inline-block;
 
     &__icon {
-      @include mintButtonPrimaryThreeColorVariant($buttonRoundColor, $buttonRoundColorGradient);
+      @include sgButtonPrimaryThreeColorVariant($buttonRoundColor, $buttonRoundColorGradient);
       display: flex;
       float: right;
       align-items: center;

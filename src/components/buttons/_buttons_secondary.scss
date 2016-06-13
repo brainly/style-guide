@@ -27,7 +27,7 @@ $buttonSecondaryIconBorderColorHover: $grayPrimary;
 $includeHtml: false !default;
 
 
-@mixin mintButtonSecondaryActive($borderColor, $fontColor, $backgroundColor) {
+@mixin sgButtonSecondaryActive($borderColor, $fontColor, $backgroundColor) {
   $activeFontColor: rgba($fontColor, 0.7);
 
   &:hover,
@@ -49,7 +49,7 @@ $includeHtml: false !default;
   }
 }
 
-@mixin mintButtonSecondaryWithIconActive($borderColor, $textColor) {
+@mixin sgButtonSecondaryWithIconActive($borderColor, $textColor) {
   &:hover,
   &:focus {
     color: $textColor;
@@ -59,25 +59,25 @@ $includeHtml: false !default;
   }
 }
 
-@mixin mintButtonSecondaryTwoColorVariant($colorOne, $colorTwo) {
-  @include mintButtonBasicColors($colorOne, $colorOne, transparent);
-  @include mintButtonSecondaryActive($colorOne, $colorTwo, $colorOne);
+@mixin sgButtonSecondaryTwoColorVariant($colorOne, $colorTwo) {
+  @include sgButtonBasicColors($colorOne, $colorOne, transparent);
+  @include sgButtonSecondaryActive($colorOne, $colorTwo, $colorOne);
 
   &-inverse {
-    @include mintButtonBasicColors($colorOne, $colorTwo, $colorOne);
-    @include mintButtonSecondaryActive($colorOne, $colorOne, transparent);
+    @include sgButtonBasicColors($colorOne, $colorTwo, $colorOne);
+    @include sgButtonSecondaryActive($colorOne, $colorOne, transparent);
   }
 }
 
-@mixin mintButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
+@mixin sgButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
   border: none;
   padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
-  @include mintButtonBasicColors($bgColor, $textColor, $bgColor);
-  @include mintButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
+  @include sgButtonBasicColors($bgColor, $textColor, $bgColor);
+  @include sgButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
 
   &-inverse {
-    @include mintButtonBasicColors($textColor, $hoverTextColor, $textColor);
-    @include mintButtonSecondaryActive($bgColor, $textColor, $bgColor);
+    @include sgButtonBasicColors($textColor, $hoverTextColor, $textColor);
+    @include sgButtonSecondaryActive($bgColor, $textColor, $bgColor);
     border: none;
     padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
   }
@@ -87,10 +87,10 @@ $includeHtml: false !default;
 
   // Secondary buttons
   .sg-button-secondary {
-    @include mintButtonBasicStyles();
-    @include mintButtonBasicDimensions($buttonSecondaryHeight);
-    @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
-    @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+    @include sgButtonBasicStyles();
+    @include sgButtonBasicDimensions($buttonSecondaryHeight);
+    @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+    @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
     @include hole;
 
     border-width: $buttonSecondaryBorderSize;
@@ -106,8 +106,8 @@ $includeHtml: false !default;
     }
 
     &--inverse {
-      @include mintButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-      @include mintButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+      @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
+      @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
     }
 
     &--full {
@@ -121,40 +121,40 @@ $includeHtml: false !default;
   }
 
   .sg-button-secondary--alt {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
   }
 
   .sg-button-secondary--dark {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
   }
 
   .sg-button-secondary--peach {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
   }
 
   .sg-button-secondary--gray {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
   }
 
   .sg-button-secondary--light {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
   }
 
   .sg-button-secondary--action {
-    @include mintButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
+    @include sgButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
   }
 
   .sg-button-secondary--light-blue {
-    @include mintButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
   }
 
   .sg-button-secondary--with-icon {
-    @include mintButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-    @include mintButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
+    @include sgButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
+    @include sgButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
   }
 
   .sg-button-secondary--small {
-    @include mintButtonBasicDimensions($buttonSecondarySmallHeight);
+    @include sgButtonBasicDimensions($buttonSecondarySmallHeight);
     line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
   }
 }

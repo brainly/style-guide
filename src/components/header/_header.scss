@@ -6,17 +6,17 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-header {
-    @include image2x($mintImagesPath + 'header_background@2x.jpg', auto, $headerHeight);
+    @include image2x($sgImagesPath + 'header_background@2x.jpg', auto, $headerHeight);
     width: 100%;
     height: $headerHeight;
-    background-image: url($mintImagesPath + 'header_background.jpg');
+    background-image: url($sgImagesPath + 'header_background.jpg');
     background-repeat: repeat-x;
     background-color: $headerDominantColor;
     margin-bottom: rhythm(3) - $headerHeight;
 
-    @include mintBreakpoint(medium-up) {
-      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
-      background-image: url($mintImagesPath + 'header_background_wide.jpg');
+    @include sgBreakpoint(medium-up) {
+      @include image2x($sgImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
+      background-image: url($sgImagesPath + 'header_background_wide.jpg');
     }
 
     &__container {
@@ -28,7 +28,7 @@ $includeHtml: false !default;
       margin: auto;
       align-items: center;
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         padding: 0 gutter(0.5);
       }
     }
@@ -38,7 +38,7 @@ $includeHtml: false !default;
       top: 0;
       left: 0;
       right: 0;
-      z-index: $mintHeaderZIndex;
+      z-index: $sgHeaderZIndex;
     }
 
     &__left {
@@ -46,7 +46,7 @@ $includeHtml: false !default;
       align-items: center;
       margin-right: 10px;
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         margin-right: 20px;
       }
     }
@@ -62,7 +62,7 @@ $includeHtml: false !default;
       display: flex;
       align-items: center;
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         margin-left: 20px;
       }
     }

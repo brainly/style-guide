@@ -84,7 +84,7 @@
   @return $baselines * $baseline;
 }
 
-@mixin mintBreakpoint($name) {
+@mixin sgBreakpoint($name) {
   // scss-lint:disable NameFormat
   $media: map-get($breakpointsMap, $name);
   // scss-lint:enable NameFormat
@@ -97,7 +97,7 @@
   }
 }
 
-@mixin mintListBasicStyles() {
+@mixin sgListBasicStyles() {
   @include component;
   overflow: visible; // move baseline from margin to the last line box
   display: block;

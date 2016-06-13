@@ -18,7 +18,7 @@ $includeHtml: false !default;
     margin: 0;
     position: relative;
 
-    @include mintBreakpoint(medium-up) {
+    @include sgBreakpoint(medium-up) {
       &:not(.sg-text-bit--not-responsive) {
         font-size: fontSize(large);
       }
@@ -65,7 +65,7 @@ $includeHtml: false !default;
       @include typeVariant(large, 2);
       width: 100%;
 
-      @include mintBreakpoint(large-only) {
+      @include sgBreakpoint(large-only) {
         @include typeVariant(xxlarge, 3);
       }
     }

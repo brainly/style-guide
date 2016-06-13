@@ -1,5 +1,5 @@
 $includeHtml: false !default;
-$mintTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
+$sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
 
 @if ($includeHtml) {
 
@@ -47,7 +47,7 @@ $mintTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
     }
 
     &--dark-semitransparent {
-      color: $mintTextDarkSemitransparentColor;
+      color: $sgTextDarkSemitransparentColor;
     }
 
     &--for-fine-print-light {

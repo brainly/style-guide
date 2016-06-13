@@ -10,7 +10,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-list {
-    @include mintListBasicStyles();
+    @include sgListBasicStyles();
     font-size: $listFontSize;
     line-height: rhythm(2);
 
@@ -59,7 +59,7 @@ $includeHtml: false !default;
   }
 
   .sg-menu-list {
-    @include mintListBasicStyles();
+    @include sgListBasicStyles();
     &__element {
       box-sizing: border-box;
       height: rhythm(2);
