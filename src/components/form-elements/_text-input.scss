@@ -75,7 +75,7 @@ $includeHtml: false !default;
     }
 
     &--large {
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
         border-radius: $inputLargeHeight / 2;

@@ -12,7 +12,7 @@ $includeHtml: false !default;
     max-width: 100%;
     overflow: visible;
 
-    @include mintBreakpoint('medium-up') {
+    @include sgBreakpoint('medium-up') {
       font-weight: $fontWeightBlack;
       letter-spacing: 0;
     }

@@ -6,7 +6,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-breadcrumb-list {
-    @include mintListBasicStyles();
+    @include sgListBasicStyles();
     display: inline-block;
     color: $breadcrumbListSeparatorColor;
 

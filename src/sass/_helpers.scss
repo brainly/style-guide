@@ -12,7 +12,7 @@ $includeHtml: false !default;
 
   @each $breakpointName, $media in $breakpointsMap {
     .sg-hide-for-#{$breakpointName} {
-      @include mintBreakpoint($breakpointName) {
+      @include sgBreakpoint($breakpointName) {
         // scss-lint:disable ImportantRule
         display: none !important;
         // scss-lint:enable ImportantRule

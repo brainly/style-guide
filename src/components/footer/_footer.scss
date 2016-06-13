@@ -11,7 +11,7 @@ $includeHtml: false !default;
       position: relative;
       padding: gutter(1);
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         max-width: $layoutMaximumWidth;
         margin-left: auto;
         margin-right: auto;
@@ -23,7 +23,7 @@ $includeHtml: false !default;
     &__line {
       margin-bottom: rhythm(1);
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         margin-bottom: rhythm(1);
       }
 

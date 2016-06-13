@@ -23,14 +23,14 @@ $includeHtml: false !default;
 
     &--lead {
       .sg-toplayer__wrapper {
-        @include mintBreakpoint(medium-up) {
+        @include sgBreakpoint(medium-up) {
 
           padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
         }
       }
 
       .sg-toplayer__heading {
-        @include mintBreakpoint(medium-up) {
+        @include sgBreakpoint(medium-up) {
           margin-bottom: rhythm(2);
         }
       }
@@ -46,19 +46,19 @@ $includeHtml: false !default;
     }
 
     &--small {
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         width: 410px;
       }
     }
 
     &--medium {
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         width: 600px;
       }
     }
 
     &--large {
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         width: 700px;
       }
     }
@@ -68,16 +68,16 @@ $includeHtml: false !default;
       position: relative;
       margin-bottom: $toplayerMarginBottom;
 
-      @include mintBreakpoint(medium-up) {
+      @include sgBreakpoint(medium-up) {
         margin-top: $toplayerMarginTop;
       }
     }
 
     &--with-bugbox {
       .sg-toplayer__wrapper {
-        @include mintBreakpoint(medium-up) {
-          @include image2x($mintImagesPath + 'bug_box@2x.png', 299px, 248px);
-          background-image: url($mintImagesPath + 'bug_box.png');
+        @include sgBreakpoint(medium-up) {
+          @include image2x($sgImagesPath + 'bug_box@2x.png', 299px, 248px);
+          background-image: url($sgImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
         }
@@ -85,12 +85,12 @@ $includeHtml: false !default;
     }
 
     &__header {
-      @include image2x($mintImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
+      @include image2x($sgImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
       display: flex;
       justify-content: flex-end;
       align-items: center;
       height: $toplayerHeaderHeight;
-      background-image: url($mintImagesPath + 'header_background_wide.jpg');
+      background-image: url($sgImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
       background-color: $toplayerHeaderDominantColor;
       border-top-left-radius: $toplayerBorderRadius;

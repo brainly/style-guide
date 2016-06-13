@@ -25,11 +25,11 @@ $includeHtml: false !default;
 
   // Primary buttons
   .sg-button-primary {
-    @include mintButtonBasicStyles();
-    @include mintButtonBasicDimensions($buttonPrimaryHeight);
-    @include mintButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
-    @include mintButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
-    @include mintButtonPrimaryActive($buttonPrimaryFontColor);
+    @include sgButtonBasicStyles();
+    @include sgButtonBasicDimensions($buttonPrimaryHeight);
+    @include sgButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
+    @include sgButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
+    @include sgButtonPrimaryActive($buttonPrimaryFontColor);
     @include hole;
 
     border: none;
@@ -42,15 +42,15 @@ $includeHtml: false !default;
   }
 
   .sg-button-primary--alt {
-    @include mintButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+    @include sgButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
   }
 
   .sg-button-primary--dark {
-    @include mintButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+    @include sgButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
   }
 
   .sg-button-primary--fb {
-    @include mintButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+    @include sgButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
 
     .sg-button-primary__icon {
       margin-right: gutter(0.5);
