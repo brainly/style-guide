@@ -28,12 +28,6 @@ $includeHtml: false !default;
           padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
         }
       }
-
-      .sg-toplayer__heading {
-        @include sgBreakpoint(medium-up) {
-          margin-bottom: rhythm(2);
-        }
-      }
     }
 
     &--fill {
@@ -112,18 +106,6 @@ $includeHtml: false !default;
 
     &__wrapper {
       padding: $toplayerFirstVerticalPadding gutter(1) rhythm(1);
-    }
-
-    &__heading {
-      margin-bottom: gutter(1);
-    }
-
-    &__content {
-      margin-bottom: gutter(1);
-    }
-
-    &__list-title {
-      margin-bottom: 0;
     }
 
     &__actions {
