@@ -79,8 +79,6 @@
       location: overlayed-box/overlayed-box
     - name: Popup Menu
       location: popup-menu/popup-menu
-    - name: Promo Box
-      location: promo-box/promo-box
     - name: Header
       location: header/header
     - name: Footer
