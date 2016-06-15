@@ -37,12 +37,30 @@ $includeHtml: false !default;
       padding: rhythm(1) gutter(1);
     }
 
+    &--no-border-small {
+      border: none;
+      padding: rhythm(1 / 2) gutter(1 / 2);
+    }
+
+    &--no-border-large {
+      border: none;
+      padding: rhythm(2) gutter(2);
+    }
+
     &--small-padding {
       padding: (gutter(1 / 2) - $boxBorderSize);
     }
 
+    &--large-padding {
+      padding: (gutter(2) - $boxBorderSize);
+    }
+
     &--blue-secondary-light {
       background-color: $blueSecondaryLight;
+    }
+
+    &--mint-secondary {
+      background-color: $mintSecondary;
     }
 
     &--lavender {
