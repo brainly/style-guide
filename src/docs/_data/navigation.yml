@@ -87,3 +87,5 @@
       location: content-box/content-box
     - name: Toplayer
       location: toplayer/toplayer
+    - name: Media
+      location: media/media
