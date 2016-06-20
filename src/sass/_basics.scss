@@ -17,6 +17,7 @@ $includeHtml: false !default;
   body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
     font-size: fontSize(default);
     font-family: $fontFamilyPrimary;
     line-height: rhythm(1);
