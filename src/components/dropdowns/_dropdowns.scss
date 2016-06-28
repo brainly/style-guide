@@ -3,7 +3,7 @@ $dropdownHeight: toPx(rhythm(1.5));
 $dropdownBorderSize: 1px;
 $dropdownBackground: $white;
 $dropdownHoverColor: $graySecondary;
-$dropdownBorderColor: $grayAltLight;
+$dropdownBorderColor: $graySecondaryLight;
 $dropdownOpenedBorderColor: $grayPrimary;
 
 $includeHtml: false !default;
@@ -15,7 +15,7 @@ $includeHtml: false !default;
     @include hole;
 
     overflow: visible;
-    background-color: $grayAltLight;
+    background-color: $graySecondaryLight;
     border: $dropdownBorderSize solid $dropdownBorderColor;
     border-radius: $dropdownHeight / 2;
     min-height: $dropdownHeight;
