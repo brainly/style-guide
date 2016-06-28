@@ -48,7 +48,7 @@ $includeHtml: false !default;
     }
 
     &--small-padding {
-      padding: (gutter(1 / 2) - $boxBorderSize);
+      padding: gutter(2 / 3);
     }
 
     &--large-padding {
