@@ -18,6 +18,7 @@ $includeHtml: false !default;
     border: $boxBorderSize solid $boxBorderColor;
     padding: (gutter(1) - $boxBorderSize);
     overflow: visible;
+    background-color: $white;
 
     &__image {
       max-width: 100%;
