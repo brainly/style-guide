@@ -4,10 +4,11 @@ module.exports = function (gulp, plugins, consts) {
         var images = plugins.path.join(consts.SRC, 'images', '**', '*');
         var icons = plugins.path.join(consts.SRC, 'images', 'icons', '*');
         var subjects = plugins.path.join(consts.SRC, 'images', 'subjects', '*');
+        var ranks = plugins.path.join(consts.SRC, 'images', 'ranks', '*');
 
         // by default, gulp would pick `assets/css` as the base,
         // so we need to set it explicitly:
-        return gulp.src([fonts, images, '!' + icons, '!' + subjects], {base: './src'})
+        return gulp.src([fonts, images, '!' + icons, '!' + subjects, '!' + ranks], {base: './src'})
             .pipe(plugins.rev())
             .pipe(gulp.dest(consts.DIST))  // write rev'd assets to build dir
             .pipe(plugins.rev.manifest())
