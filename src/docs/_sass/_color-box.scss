@@ -204,6 +204,17 @@
     content: '$grayLight';
   }
 }
+
+.color-box--gray-secondary-light {
+  background: $graySecondaryLight;
+  .color-box__hex:after {
+    content: '#{$graySecondaryLight}';
+  }
+  .color-box__variable:after {
+    content: '$graySecondaryLight';
+  }
+}
+
 .color-box--white {
   background: $white;
   
