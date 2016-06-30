@@ -1,0 +1,123 @@
+$layoutMaxWidth: 1024px;
+$layoutAsideWidth: 320px;
+$layoutMediumContentMaxWidth: 660px;
+$layoutContainerMarginTop: $headerHeight;
+$layoutBorderRadius: 8px;
+
+.sg-layout {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: $layoutMaxWidth;
+    margin: $layoutContainerMarginTop auto;
+
+    @include sgBreakpoint(medium-up) {
+      margin-top: $layoutContainerMarginTop + rhythm(1);
+      border-radius: $layoutBorderRadius;
+      max-width: $layoutMediumContentMaxWidth;
+    }
+
+    @include sgBreakpoint(large-only) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: gutter(1 / 2);
+      max-width: $layoutMaxWidth;
+      background-color: $graySecondaryLight;
+    }
+
+    &--no-max-width {
+      @include sgBreakpoint(medium-down) {
+        max-width: none;
+      }
+    }
+
+    &--reversed-order {
+
+      @include sgBreakpoint(large-only) {
+        flex-direction: row-reverse;
+      }
+
+      .sg-layout__content {
+        background-color: transparent;
+        padding: 0;
+      }
+
+      .sg-layout__aside-content {
+        margin-top: 0;
+        background-color: $white;
+        padding: rhythm(1) gutter(1);
+
+        @include sgBreakpoint(medium-up) {
+          border-radius: $layoutBorderRadius;
+        }
+
+        @include sgBreakpoint(large-only) {
+          margin-right: gutter(1);
+          margin-left: 0;
+        }
+      }
+    }
+
+    &--no-margin-top {
+      margin-top: 0;
+
+      @include sgBreakpoint(large-only) {
+        margin-top: 0;
+      }
+    }
+
+    &--full-page {
+      padding: 0;
+      margin: 0;
+      border-radius: 0;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    min-width: 0;
+    flex-grow: 1;
+    flex-shrink: 0;
+    padding: rhythm(1) gutter(1);
+    background-color: $white;
+    width: 100%;
+
+    @include sgBreakpoint(medium-up) {
+      border-radius: $layoutBorderRadius;
+    }
+
+    @include sgBreakpoint(large-only) {
+      max-width: calc(100% - #{$layoutAsideWidth + gutter(1)});
+      flex-basis: 1px;
+    }
+
+    &--no-max-width {
+      @include sgBreakpoint(large-only) {
+        max-width: none;
+      }
+    }
+  }
+
+  &__aside-content {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 100%;
+
+    @include sgBreakpoint(medium-up) {
+      margin-top: rhythm(1);
+    }
+
+    @include sgBreakpoint(large-only) {
+      margin-top: 0;
+      margin-left: gutter(1);
+      width: $layoutAsideWidth;
+    }
+  }
+
+  &__footer {
+    position: relative;
+  }
+}
