@@ -196,12 +196,12 @@
   }
 }
 .color-box--gray-light {
-  background: $graySecondaryLight;
+  background: $grayLight;
   .color-box__hex:after {
-    content: '#{$graySecondaryLight}';
+    content: '#{$grayLight}';
   }
   .color-box__variable:after {
-    content: '$graySecondaryLight';
+    content: '$grayLight';
   }
 }
 .color-box--white {
