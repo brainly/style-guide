@@ -1,6 +1,8 @@
-$inputHeight: rhythm(2);
-$inputLowHeight: rhythm(1.5);
-$inputLargeHeight: rhythm(2.667);
+$inputHeight: rhythm(3 / 2);
+$inputLargeHeight: rhythm(8 / 3);
+$inputBorderRadius: gutter(1 / 6);
+$inputLargeBorderRadius: gutter(1 / 3);
+
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
@@ -13,8 +15,6 @@ $inputValidBorderColor: $mintSecondary;
 $inputFocusValidBorderColor: $mintPrimary;
 $inputInvalidBorderColor: $peachSecondary;
 $inputFocusInvalidBorderColor: $peachPrimary;
-$inputTransparentBorderColor: rgba($graySecondary, 0.7);
-$inputTransparentFocusBorderColor: rgba($grayPrimary, 0.7);
 
 $includeHtml: false !default;
 
@@ -24,10 +24,10 @@ $includeHtml: false !default;
     @include component;
     background: $inputBackground;
     border: 1px solid $inputBorderColor;
-    border-radius: $inputHeight / 2;
+    border-radius: $inputBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
-    padding: 0 $inputHeight / 2;
+    padding: 0 gutter(1 / 2);
     height: $inputHeight;
     appearance: none;
     transition: border 300ms;
@@ -41,13 +41,6 @@ $includeHtml: false !default;
       color: $inputPlaceholderTextColor;
       font-size: $inputPlaceholderFontSize;
       position: relative;
-    }
-
-    &--short {
-      border-radius: $inputLowHeight / 2;
-      padding: 0 $inputLowHeight / 2;
-      height: $inputLowHeight;
-      line-height: $inputLowHeight;
     }
 
     &--valid {
@@ -66,11 +59,11 @@ $includeHtml: false !default;
       }
     }
 
-    &--spaced {
+    &--spaced-bottom {
       margin-bottom: $inputHeight / 4;
     }
 
-    &--full {
+    &--full-width {
       width: 100%;
     }
 
@@ -78,33 +71,12 @@ $includeHtml: false !default;
       @include sgBreakpoint(medium-up) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
-        border-radius: $inputLargeHeight / 2;
-        padding: 0 $inputLargeHeight / 2;
+        border-radius: $inputLargeBorderRadius;
+        padding: 0 gutter(1);
 
         &::placeholder {
           font-size: fontSize(standout);
         }
-      }
-    }
-
-    &--subtle-border {
-      $boxShadowColor: rgba(0, 0, 0, 0.2);
-      $boxShadowColorFocus: rgba(0, 0, 0, 0.4);
-      border: none;
-      box-shadow: 0 0 10px $boxShadowColor;
-      transition: box-shadow 300ms;
-
-      &:focus {
-        box-shadow: 0 0 10px $boxShadowColorFocus;
-      }
-    }
-
-    &--transparent-border {
-      border-color: $inputTransparentBorderColor;
-      background-clip: padding-box;
-
-      &:focus {
-        border-color: $inputTransparentFocusBorderColor;
       }
     }
 
