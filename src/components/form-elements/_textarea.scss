@@ -1,11 +1,11 @@
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
-$textareaBorderRadius: 11px;
+$textareaBorderRadius:  gutter(1 / 6);
 $textareaFontSize: fontSize(default);
 $textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
-$textareaPadding: 11px;
-$textareaSmallPadding: 4px;
+$textareaPadding: gutter(1 / 2);
+$textareaSmallPadding: gutter(1 / 6);
 $textareaFocusBorderColor: $grayPrimary;
 $textareaPlaceholderTextColor: $grayPrimary;
 $textareaPlaceholderFontSize: fontSize(medium);
@@ -41,7 +41,7 @@ $includeHtml: false !default;
       position: relative;
     }
 
-    &--full {
+    &--full-width {
       width: 100%;
     }
 
