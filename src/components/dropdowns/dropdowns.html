@@ -10,27 +10,23 @@
                 </svg>
             </div>
             <div class="sg-dropdown__hole">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
+                <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+                  Default label
                 </div>
             </div>
         </div>
     </div>
     <div class="docs-block__content">
-        <div class="sg-dropdown sg-dropdown--full">
+        <div class="sg-dropdown sg-dropdown--full-width">
             <div class="sg-dropdown__icon">
                 <svg class="sg-icon sg-icon--x8 sg-icon--gray">
                     <use xlink:href="#icon-arrow_down"></use>
                 </svg>
             </div>
             <div class="sg-dropdown__hole">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
-                </div>
+              <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+                Default label
+              </div>
             </div>
         </div>
     </div>
@@ -48,156 +44,171 @@
                 </svg>
             </div>
             <div class="sg-dropdown__hole">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
-                </div>
+              <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+                Default label
+              </div>
             </div>
             <div class="sg-dropdown__items">
-                <div class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 1
-                        </div>
+                <a href="#" class="sg-dropdown__item-hole">
+                    <div class="sg-dropdown__item-text">
+                      Option 1
                     </div>
-                </div>
-                <div class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 2
-                        </div>
-                    </div>
-                </div>
+                </a>
+                <a href="#" class="sg-dropdown__item-hole">
+                  <div class="sg-dropdown__item-text">
+                    Option 2
+                  </div>
+                </a>
             </div>
         </div>
     </div>
+
     <div class="docs-block__content">
-        <div class="sg-dropdown sg-dropdown--full sg-dropdown--opened">
-            <div class="sg-dropdown__icon">
-                <svg class="sg-icon sg-icon--x8 sg-icon--gray">
-                    <use xlink:href="#icon-arrow_down"></use>
-                </svg>
-            </div>
-            <div class="sg-dropdown__hole">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
-                </div>
-            </div>
-            <div class="sg-dropdown__items">
-                <div class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 1
-                        </div>
-                    </div>
-                </div>
-                <div class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 2
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="sg-dropdown sg-dropdown--full-width sg-dropdown--opened">
+        <div class="sg-dropdown__icon">
+          <svg class="sg-icon sg-icon--x8 sg-icon--gray">
+            <use xlink:href="#icon-arrow_down"></use>
+          </svg>
         </div>
-        <br>
-        <br>
-        <br>
+        <div class="sg-dropdown__hole">
+          <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+            Default label
+          </div>
+        </div>
+        <div class="sg-dropdown__items">
+          <a href="#" class="sg-dropdown__item-hole">
+            <div class="sg-dropdown__item-text">
+              Option 1
+            </div>
+          </a>
+          <a href="#" class="sg-dropdown__item-hole">
+            <div class="sg-dropdown__item-text">
+              Option 2
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
+    <br>
+    <br>
+    <br>
 </section>
 
 <section class="docs-block">
     <aside class="docs-block__info">
         <h3 class="docs-block__header">Example default usage (interactive)</h3>
     </aside>
+  <div class="docs-block__content">
+    <div class="sg-dropdown js-sg-dropdown">
+      <div class="sg-dropdown__icon">
+        <svg class="sg-icon sg-icon--x8 sg-icon--gray">
+          <use xlink:href="#icon-arrow_down"></use>
+        </svg>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--inactive">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+          Default label
+        </div>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--active">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+          Choose option
+        </div>
+      </div>
+      <div class="sg-dropdown__items">
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 1
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 2
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 3
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
     <div class="docs-block__content">
-        <div class="sg-dropdown js-sg-dropdown">
+        <div class="sg-dropdown sg-dropdown--full-width js-sg-dropdown">
             <div class="sg-dropdown__icon">
                 <svg class="sg-icon sg-icon--x8 sg-icon--gray">
                     <use xlink:href="#icon-arrow_down"></use>
                 </svg>
             </div>
             <div class="sg-dropdown__hole sg-dropdown__hole--inactive">
-                <div class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
-                </div>
+              <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+                Default label
+              </div>
             </div>
             <div class="sg-dropdown__hole sg-dropdown__hole--active">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Choose option
-                    </div>
-                </div>
+              <div class="sg-dropdown__item-text sg-dropdown__item-text--default">
+                Choose option
+              </div>
             </div>
             <div class="sg-dropdown__items">
                 <a href="#" class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 1
-                        </div>
+                  <div class="sg-dropdown__item-icon">
+                    <div class="sg-subject-icon-box">
+                      <svg class="sg-subject-icon sg-subject-icon--small">
+                        <use xlink:href="#icon-subject-life-science"></use>
+                      </svg>
                     </div>
+                  </div>
+                  <div class="sg-dropdown__item-text">
+                    Option 1
+                  </div>
                 </a>
-                <a href="#" class="sg-dropdown__item-hole">
-                    <div href="#" class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                        <div class="sg-label__text">
-                            Option 2
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="docs-block__content">
-        <div class="sg-dropdown sg-dropdown--full js-sg-dropdown">
-            <div class="sg-dropdown__icon">
-                <svg class="sg-icon sg-icon--x8 sg-icon--gray">
-                    <use xlink:href="#icon-arrow_down"></use>
-                </svg>
-            </div>
-            <div class="sg-dropdown__hole sg-dropdown__hole--inactive">
-                <div class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                    <div class="sg-label__text">
-                        Default label
-                    </div>
+              <a href="#" class="sg-dropdown__item-hole">
+                <div class="sg-dropdown__item-icon">
+                  <div class="sg-subject-icon-box">
+                    <svg class="sg-subject-icon sg-subject-icon--small">
+                      <use xlink:href="#icon-subject-life-science"></use>
+                    </svg>
+                  </div>
                 </div>
-            </div>
-            <div class="sg-dropdown__hole  sg-dropdown__hole--active">
-                <div class="sg-label sg-label--emphasised sg-label--full-width">
-                    <div class="sg-label__text">
-                        Choose option
-                    </div>
+                <div class="sg-dropdown__item-text">
+                  Option 2
                 </div>
-            </div>
-            <div class="sg-dropdown__items">
-                <a href="#" class="sg-dropdown__item-hole">
-                    <div class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                        <div class="sg-label__icon sg-label__icon--large">
-                            <div class="sg-subject-icon-box">
-                                <svg class="sg-subject-icon sg-subject-icon--medium"><use xlink:href="#icon-subject-life-science"></use></svg>
-                            </div>
-                        </div>
-                        <div class="sg-label__text">
-                            Option 1
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="sg-dropdown__item-hole">
-                    <div class="sg-label sg-label--emphasised sg-label--inactive sg-label--full-width">
-                        <div class="sg-label__icon sg-label__icon--large">
-                            <div class="sg-subject-icon-box">
-                                <svg class="sg-subject-icon sg-subject-icon--medium"><use xlink:href="#icon-subject-life-science"></use></svg>
-                            </div>
-                        </div>
-                        <div class="sg-label__text">
-                            Option 2
-                        </div>
-                    </div>
-                </a>
+              </a>
+              <a href="#" class="sg-dropdown__item-hole">
+                <div class="sg-dropdown__item-icon">
+                  <div class="sg-subject-icon-box">
+                    <svg class="sg-subject-icon sg-subject-icon--small">
+                      <use xlink:href="#icon-subject-life-science"></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class="sg-dropdown__item-text">
+                  Option 3
+                </div>
+              </a>
             </div>
         </div>
     </div>
