@@ -20,7 +20,6 @@ $includeHtml: false !default;
     width: $avatarMediumSize;
     height: $avatarMediumSize;
     border-radius: 50%;
-    background: $avatarDefaultBackgroundColor;
     // scss-lint:disable VendorPrefix
     // workaround for the Chrome bug - crbug.com/157218
     -webkit-perspective: 1px;
@@ -32,7 +31,8 @@ $includeHtml: false !default;
       width: 100%;
 
       &--icon {
-        top: 3px;
+        padding-top: 3px;
+        background-color: $avatarDefaultBackgroundColor;
       }
     }
 
@@ -41,7 +41,7 @@ $includeHtml: false !default;
       height: $avatarSmallSize;
 
       .sg-avatar__image--icon {
-        top: 2px;
+        padding-top: 2px;
       }
     }
 
@@ -50,7 +50,7 @@ $includeHtml: false !default;
       height: $avatarBigSize;
 
       .sg-avatar__image--icon {
-        top: 5px;
+        padding-top: 5px;
       }
     }
 
@@ -63,7 +63,7 @@ $includeHtml: false !default;
       height: $avatarXLargeSize;
 
       .sg-avatar__image--icon {
-        top: 6px;
+        padding-top: 6px;
       }
     }
 
@@ -72,7 +72,7 @@ $includeHtml: false !default;
       height: $avatarXXLargeSize;
 
       .sg-avatar__image--icon {
-        top: 8px;
+        padding-top: 8px;
       }
     }
 
@@ -81,7 +81,7 @@ $includeHtml: false !default;
       height: $avatarXXXLargeSize;
 
       .sg-avatar__image--icon {
-        top: 10px;
+        padding-top: 10px;
       }
     }
 
