@@ -6,7 +6,7 @@ $dropdownHoverColor: $grayPrimary;
 $dropdownBorderColor: $graySecondary;
 $dropdownOpenedBorderColor: $grayPrimary;
 $dropdownBorderRadius: gutter(1 / 8);
-$dropdownActiveBackgroundColo: $blueSecondaryLight;
+$dropdownActiveBackgroundColor: $blueSecondaryLight;
 $dropdownFontSize: fontSize(small);
 
 $includeHtml: false !default;
@@ -87,19 +87,25 @@ $includeHtml: false !default;
 
       &:hover,
       &:active {
-        background-color: $dropdownActiveBackgroundColo;
+        background-color: $dropdownActiveBackgroundColor;
+
+        .sg-dropdown__item-text {
+          color: $grayPrimary;
+        }
+
+
       }
     }
 
     &__item-text {
       font-size: $dropdownFontSize;
       font-weight: $fontWeightBold;
-      color: $grayPrimary;
+      color: $graySecondary;
       text-overflow: ellipsis;
       max-width: 100%;
 
-      &--default {
-        color: $graySecondary;
+      &--active {
+        color: $grayPrimary;
       }
     }
 
