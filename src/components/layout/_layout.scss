@@ -8,7 +8,6 @@ $layoutBorderRadius: 8px;
   &__container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     max-width: $layoutMaxWidth;
     margin: $layoutContainerMarginTop auto;
 
