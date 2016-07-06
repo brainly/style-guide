@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "43.3.2",
+  "version": "44.0.0",
   "dependencies": {
     "abbrev": {
       "version": "1.0.9",
