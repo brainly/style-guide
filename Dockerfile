@@ -9,7 +9,7 @@ RUN apk add --no-cache git ruby python ruby-bundler build-base ruby-dev libffi-d
     gem install scss_lint jekyll json --no-rdoc --no-ri && \ 
     npm install gulp http-server -g
 
-ADD node_shrinkwrap node_shrinkwrap
+ADD .packages .packages
 ADD npm-shrinkwrap.json npm-shrinkwrap.json
 ADD package.json package.json
 RUN npm install
