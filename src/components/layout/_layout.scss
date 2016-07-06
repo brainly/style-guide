@@ -18,6 +18,7 @@ $layoutBorderRadius: 8px;
     }
 
     @include sgBreakpoint(large-only) {
+      align-items: flex-start;
       flex-direction: row;
       flex-wrap: wrap;
       padding: gutter(1 / 2);
