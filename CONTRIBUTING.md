@@ -262,12 +262,3 @@ You can as well run code style check for specified file using command like:
 
 To simplify work with code style checking install plugin 'scss-lint' for WebStorm.
 To setup it set global path to file `scripts/ide-scss-lint-exec.sh` as `SCSS Lint exe` option.
-
-#### Dependencies
-
-For npm we are using `shrinkwrap` and `shrinkpack`
-(You should have shrinkpack installed globally on your development machine)
-
-**How to use:**
-After installing module with `npm i --save` (or `--save-dev`) run `npm shrinkwrap --dev` and then `shrinkpack`.
-Commit all files from `node_shrinkwrap` to repository.
