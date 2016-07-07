@@ -61,24 +61,6 @@
   }
 }
 
-body.show-vr-lines {
-  .docs-block__content:hover {
-    &:before {
-      z-index: 1;
-      content: '';
-      background: linear-gradient(to bottom, #0ff 0, rgba(255, 255, 255, 0) 1px) repeat-y;
-      background-size: 100% rhythm(1);
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 1px;
-      pointer-events: none;
-    }
-  }
-}
-
 body.show-holes {
   .sg-bubble__hole,
   .sg-box__hole,
