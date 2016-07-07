@@ -13,7 +13,7 @@ $sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
     }
 
     &--obscure {
-      @include typeVariant(obscure, 1);
+      @include typeVariant(obscure, 0.5);
     }
 
     &--small {
