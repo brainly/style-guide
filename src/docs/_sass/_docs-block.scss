@@ -79,8 +79,7 @@ body.show-holes {
   .sg-toplayer__actions,
   .sg-dropdown__hole,
   .sg-dropdown__item-hole,
-  .sg-popup-menu__hole,
-  .sg-text-bit__hole {
+  .sg-popup-menu__hole {
     @extend .docs-highlight-placeholder;
   }
 }

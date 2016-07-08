@@ -16,20 +16,11 @@ $includeHtml: false !default;
       width: $logoLargeWidth;
     }
 
-    &--small {
-      height: $logoDefaultHeight / 2;
-      width: $logoDefaultWidth / 2;
-    }
-
     &--eodev {
       width: 114px;
 
       @include sgBreakpoint(medium-up) {
         width: 154px;
-      }
-
-      &.sg-logo--small {
-        width: 57px;
       }
     }
 
@@ -39,10 +30,6 @@ $includeHtml: false !default;
       @include sgBreakpoint(medium-up) {
         width: 217px;
       }
-
-      &.sg-logo--small {
-        width: 81px;
-      }
     }
 
     &--zadane {
@@ -51,10 +38,6 @@ $includeHtml: false !default;
       @include sgBreakpoint(medium-up) {
         width: 176px;
       }
-
-      &.sg-logo--small {
-        width: 65px;
-      }
     }
 
     &--znanija {
@@ -62,10 +45,6 @@ $includeHtml: false !default;
 
       @include sgBreakpoint(medium-up) {
         width: 176px;
-      }
-
-      &.sg-logo--small {
-        width: 65px;
       }
     }
 
