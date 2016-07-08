@@ -6,6 +6,12 @@
   height: 100px;
   margin: 0;
   z-index: 1000;
+  transform: translateY(0);
+  transition: transform 300ms, height 300ms;
+
+  &--hidden {
+    transform: translateY(100%);
+  }
 
   &__code {
     height: 100%;
