@@ -2,37 +2,79 @@
     <a href="./" class="main-menu__home">
         <img src="images/logos/brainly-mobile.svg" />
     </a>
-    <ul>
+    <ul class="main-menu__item">
     {% for page in site.data.navigation %}
         {% assign pageUrl = page.name | slugify | append:'.html' %}
         <li>
             <a href="{{ pageUrl }}">{{ page.name }}</a></h2>
             <ul>
             {% for element in page.elements %}
-                <li><a href="{{ pageUrl }}#{{ element.name | slugify }}">{{ element.name }}</a></li>
+                <li><a href="{{ pageUrl }}#{{ element.name | slugify }}" class="js-searchable">{{ element.name }}</a></li>
             {% endfor %}
             </ul>
         </li>
     {% endfor %}
     </ul>
     <aside>
-        <label title="Highlight holes"><input type="checkbox" id="highlight-holes" /> Holes</label>
+        <div class="main-menu__search" >
+          <input type="search" placeholder="Search&hellip;" id="js-search-box"/>
+          <ul id="js-search-results"></ul>
+        </div>
+        <label title="Highlight holes"><input type="checkbox" id="js-highlight-holes" /> Holes</label>
         <a href="https://github.com/brainly/style-guide" class="version">v{{ site.data.package.version }}</a>
     </aside>
 </nav>
 
 <script>
-    var showHolesCheckbox = document.getElementById('highlight-holes');
+  // highlighting holes
+  var showHolesCheckbox = document.getElementById('js-highlight-holes');
 
-    function toggleHoles() {
-        document.body.classList.toggle('show-holes');
-        localStorage.showHoles = showHolesCheckbox.checked;
+  function toggleHoles() {
+      document.body.classList.toggle('show-holes');
+      localStorage.showHoles = showHolesCheckbox.checked;
+  }
+
+  showHolesCheckbox.addEventListener('change', toggleHoles);
+
+  if(localStorage.showHoles === 'true') {
+      showHolesCheckbox.checked = true;
+      toggleHoles();
+  }
+
+  // search
+  var $searchBox = $('#js-search-box');
+  var $searchResults = $('#js-search-results');
+
+  function searchElements(query) {
+    query = query.toLowerCase();
+
+    return $('a.js-searchable').filter(function() {
+      return $(this).text().toLowerCase().indexOf(query) !== -1;
+    }).map(function() {
+      return {
+        text: $(this).text(),
+        link: $(this).attr('href')
+      }
+    });
+  }
+
+  $searchBox.on('input', function() {
+    if($searchBox.val().length < 3) {
+      return;
     }
 
-    showHolesCheckbox.addEventListener('change', toggleHoles);
+    var results = searchElements($searchBox.val());
 
-    if(localStorage.showHoles === 'true') {
-        showHolesCheckbox.checked = true;
-        toggleHoles();
-    }
+    $searchResults.empty();
+    results.each(function(idx, item) {
+      var $li = $('<li>');
+      var $a = $('<a>');
+
+      $a.text(item.text).attr('href', item.link);
+
+      $li.append($a);
+      $searchResults.append($li);
+    });
+  });
+
 </script>
