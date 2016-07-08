@@ -31,17 +31,22 @@ $includeHtml: false !default;
   }
 
   .sg-header-secondary {
-    @include component;
-    @include typeVariant(default, 0.667);
+    @include typeVariant(default, 2 / 3);
     @include uppercaseText;
-    min-height: rhythm(4 / 3);
-    display: block;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: $black;
     font-weight: $fontWeightBold;
 
     &--small {
-      @include typeVariant(small, 0.667);
+      @include typeVariant(small, 2 / 3);
       @include uppercaseText(0.0625rem);
+    }
+
+    &--xsmall {
+      @include typeVariant(obscure, 0.5);
+      @include uppercaseText(0);
     }
 
     &--light {
