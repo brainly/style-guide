@@ -1,0 +1,13 @@
+.copy-helper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  margin: 0;
+  z-index: 1000;
+
+  &__code {
+    height: 100%;
+  }
+}
