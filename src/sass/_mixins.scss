@@ -57,7 +57,7 @@
 // Sets the font size and line height
 // fontsizeName - string
 // lineHeight - int, number of baselines
-@mixin typeVariant($fontsizeName, $lineHeight: null, $shift: null, $push: null) {
+@mixin typeVariant($fontsizeName, $lineHeight: null) {
 
   $remFontsize: fontSize($fontsizeName);
 
@@ -68,14 +68,6 @@
   @if $lineHeight != null {
     $remLineHeight: rhythm($lineHeight);
     line-height: $remLineHeight;
-  }
-
-  @if $shift != null {
-    padding-top: rhythm($shift);
-  }
-
-  @if $push != null {
-    margin-bottom: rhythm($push);
   }
 }
 
