@@ -24,31 +24,31 @@
   <script>
     var copyHelper = document.querySelector('.copy-helper__code');
 
-    document.body.addEventListener('click', function(e) {
+    document.body.addEventListener('click', function (e) {
       var prevTarget = null;
       var target = e.target;
 
-      while(target.tagName.toLowerCase() === 'use' || target.classList.toString().indexOf('sg-') !== -1) {
+      while (target.tagName.toLowerCase() === 'use' || target.classList.toString().indexOf('sg-') !== -1) {
         prevTarget = target;
         target = target.parentNode;
       }
 
-      if(prevTarget) {
+      if (prevTarget) {
         copyHelper.innerText = prevTarget.outerHTML;
         hljs.highlightBlock(copyHelper);
       }
     });
 
-    copyHelper.addEventListener('click', function() {
-        if (document.selection) {
-          var range = document.body.createTextRange();
-          range.moveToElementText(copyHelper);
-          range.select();
-        } else if (window.getSelection) {
-          var range = document.createRange();
-          range.selectNode(copyHelper);
-          window.getSelection().addRange(range);
-        }
+    copyHelper.addEventListener('click', function () {
+      if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(copyHelper);
+        range.select();
+      } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(copyHelper);
+        window.getSelection().addRange(range);
+      }
     });
   </script>
 </div>
