@@ -24,19 +24,6 @@ $includeHtml: false !default;
       }
     }
 
-    &__hole {
-      display: block;
-      position: absolute;
-      top: -22px;
-      left: -13px;
-      line-height: 0;
-
-      &--small {
-        top: -25px;
-        left: -10px;
-      }
-    }
-
     &--alt {
       color: $textBitAltColor;
     }
