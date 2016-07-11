@@ -1,6 +1,6 @@
 @mixin sgButtonBasicStyles() {
   @include component;
-  @include uppercaseText;
+  @include uppercaseText(0.02rem);
   cursor: pointer;
   text-decoration: none;
   font-weight: $fontWeightBold;
@@ -18,42 +18,21 @@
   padding: 0 $height / 2;
 }
 
+@mixin sgPrimaryButtonColors($fontColor, $backgroundColor, $activeBackgroundColor) {
+  color: $fontColor;
+  fill: $fontColor;
+  background-color: $backgroundColor;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: $activeBackgroundColor;
+  }
+}
+
 @mixin sgButtonBasicColors($borderColor, $fontColor, $backgroundColor) {
   border-color: $borderColor;
   color: $fontColor;
   fill: $fontColor;
   background-color: $backgroundColor;
-}
-
-@mixin sgButtonPrimaryActive($fontColor) {
-  $activeFontColor: rgba($fontColor, 0.7);
-  transition: background-position 0.3s ease-out;
-
-  &:hover,
-  &:focus {
-    background-position: 0 0;
-    outline: none;
-  }
-
-  &:active {
-    color: $activeFontColor;
-    outline: none;
-  }
-}
-
-@mixin sgButtonPrimaryThreeColorVariant($buttonColor, $gradientColor, $buttonShadowColor: null) {
-  background-color: $buttonColor;
-  background-image: linear-gradient(170deg, $gradientColor 0%, $gradientColor 50%, $buttonColor 51%, $buttonColor 100%);
-  background-size: 100% 140%;
-  background-position: 0 -10px;
-  background-repeat: no-repeat;
-
-  @if ($buttonShadowColor) {
-    box-shadow: 0 -1px 0 $buttonShadowColor inset;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $gradientColor;
-  }
 }

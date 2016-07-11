@@ -1,5 +1,4 @@
 $buttonRoundColor: $mintPrimary;
-$buttonRoundColorGradient: #84ddaf;
 $buttonRoundAddSize: rhythm(2);
 $buttonRoundAddColor: $white;
 $buttonRoundLabelFontSize: fontSize(xsmall);
@@ -15,7 +14,6 @@ $includeHtml: false !default;
     display: inline-block;
 
     &__icon {
-      @include sgButtonPrimaryThreeColorVariant($buttonRoundColor, $buttonRoundColorGradient);
       display: flex;
       float: right;
       align-items: center;
@@ -25,6 +23,7 @@ $includeHtml: false !default;
       border-radius: 50%;
       line-height: $buttonRoundAddSize;
       text-align: center;
+      background-color: $buttonRoundColor;
       color: $buttonRoundAddColor;
       box-shadow: 0 3px 10px 0 $boxShadowColor;
     }

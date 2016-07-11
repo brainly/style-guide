@@ -1,5 +1,5 @@
 $buttonSecondaryBorderSize: 1px;
-$buttonSecondaryHeight: rhythm(4 / 3);
+$buttonSecondaryHeight: rhythm(7 / 6);
 $buttonSecondarySmallHeight: gutter(1);
 $buttonSecondaryFontSize: fontSize(obscure);
 
@@ -156,5 +156,6 @@ $includeHtml: false !default;
   .sg-button-secondary--small {
     @include sgButtonBasicDimensions($buttonSecondarySmallHeight);
     line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
+    border-radius: 4px;
   }
 }
