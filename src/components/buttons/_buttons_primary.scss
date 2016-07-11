@@ -1,25 +1,17 @@
-$buttonPrimaryHeight: rhythm(2);
-$buttonPrimaryFontSize: fontSize(default);
+$buttonPrimaryHeight: rhythm(3 / 2);
+$buttonPrimaryFontSize: fontSize(small);
 $buttonPrimaryFontColor: $white;
 
 $buttonColor: $mintPrimary;
-$buttonColorGradient: #84ddaf;
-$buttonShadowColor: #67c996;
-
+$buttonActiveColor: $mintSecondary;
 $buttonAltColor: $bluePrimary;
-$buttonAltColorGradient: #73c3ff;
-$buttonAltShadowColor: #57aff2;
-
+$buttonActiveAltColor: $blueSecondary;
 $buttonDarkColor: $black;
-$buttonDarkColorGradient: #262626;
-$buttonDarkShadowColor: $black;
-
+$buttonActiveDarkColor: #262626;
 $buttonFbColor: #3b5997;
-$buttonFbColorGradient: #4668b2;
-$buttonFbShadowColor: #355088;
+$buttonActiveFbColor: #4668b2;
 
 $includeHtml: false !default;
-
 
 @if ($includeHtml) {
 
@@ -27,11 +19,8 @@ $includeHtml: false !default;
   .sg-button-primary {
     @include sgButtonBasicStyles();
     @include sgButtonBasicDimensions($buttonPrimaryHeight);
-    @include sgButtonBasicColors(transparent, $buttonPrimaryFontColor, $buttonColor);
-    @include sgButtonPrimaryThreeColorVariant($buttonColor, $buttonColorGradient, $buttonShadowColor);
-    @include sgButtonPrimaryActive($buttonPrimaryFontColor);
+    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonColor, $buttonActiveColor);
     @include hole;
-
     border: none;
     font-size: $buttonPrimaryFontSize;
 
@@ -42,15 +31,15 @@ $includeHtml: false !default;
   }
 
   .sg-button-primary--alt {
-    @include sgButtonPrimaryThreeColorVariant($buttonAltColor, $buttonAltColorGradient, $buttonAltShadowColor);
+    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonAltColor, $buttonActiveAltColor);
   }
 
   .sg-button-primary--dark {
-    @include sgButtonPrimaryThreeColorVariant($buttonDarkColor, $buttonDarkColorGradient, $buttonDarkShadowColor);
+    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonDarkColor, $buttonActiveDarkColor);
   }
 
   .sg-button-primary--fb {
-    @include sgButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
+    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonFbColor, $buttonActiveFbColor);
   }
 }
 
