@@ -51,12 +51,6 @@ $includeHtml: false !default;
 
   .sg-button-primary--fb {
     @include sgButtonPrimaryThreeColorVariant($buttonFbColor, $buttonFbColorGradient, $buttonFbShadowColor);
-
-    .sg-button-primary__icon {
-      margin-right: gutter(0.5);
-      width: 20px;
-      height: 20px;
-    }
   }
 }
 

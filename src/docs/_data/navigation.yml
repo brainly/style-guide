@@ -53,14 +53,10 @@
       location: dropdowns/dropdowns
     - name: Search
       location: search/search
-    - name: Progressbar
-      location: progressbar/progressbar
     - name: Home Button
       location: home-button/home-button
     - name: Subjects
       location: subject-icons/subjects
-    - name: Tabs
-      location: tabs/tabs
     - name: Separators
       location: separators/separators
     - name: Overlay
