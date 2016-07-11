@@ -20,5 +20,46 @@
     </article>
     {% endfor %}
 </div>
+
+<pre class="copy-helper copy-helper--hidden"><code class="copy-helper__code"></code></pre>
+<script>
+  var copyHelper = document.querySelector('.copy-helper');
+  var copyHelperCode = copyHelper.querySelector('.copy-helper__code');
+
+  hljs.configure({
+    languages: ['html']
+  });
+
+  document.querySelector('.data-container').addEventListener('click', function (e) {
+    var prevTarget = null;
+    var target = e.target;
+
+    while (target.tagName.toLowerCase() === 'use' || target.classList.toString().indexOf('sg-') !== -1) {
+      prevTarget = target;
+      target = target.parentNode;
+    }
+
+    if (prevTarget) {
+      copyHelper.classList.remove('copy-helper--hidden');
+
+      var markup = prevTarget.outerHTML;
+      markup = markup.replace(/ xmlns:xlink="http:\/\/www\.w3\.org\/1999\/xlink"/g, '');
+      copyHelperCode.innerText = markup;
+
+      hljs.highlightBlock(copyHelperCode);
+    } else {
+      copyHelper.classList.add('copy-helper--hidden');
+    }
+  });
+
+  copyHelper.addEventListener('click', function () {
+    if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(copyHelper);
+      window.getSelection().addRange(range);
+    }
+  });
+</script>
+
 </body>
 </html>
