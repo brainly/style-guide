@@ -1,11 +1,11 @@
 $bubbleBackground: $white;
 $bubbleBackgroundDark: $grayLight;
-$bubbleBorderColor: $graySecondary;
+$bubbleBorderColor: $grayLight;
 $bubbleBorderRadius: 8px;
 $bubbleBoxShadow: $defaultBottomShadow;
 
 $borderSize: 1px;
-$triangleSize: rhythm(0.5);
+$triangleSize: gutter(0.5);
 $innerTriangleSize: 10px;     // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 $innerTriangleOffset: -20px;  // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 
@@ -14,18 +14,12 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-bubble {
-    @include component;
-    display: inline-flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    min-height: rhythm(3);
-    overflow: visible;
     background: $bubbleBackground;
     border: $borderSize solid $bubbleBorderColor;
     border-radius: $bubbleBorderRadius;
     box-shadow: $bubbleBoxShadow;
-    padding: (gutter(0.5) - $borderSize) gutter(0.5)  (gutter(0.5) - $borderSize) gutter(1);
-    margin-bottom: rhythm(1);
+    padding: gutter(0.5) gutter(1);
+    position: relative;
 
     &::before {
       content: '';
@@ -51,80 +45,22 @@ $includeHtml: false !default;
       margin: 0 auto;
     }
 
-    &__hole {
-      margin: rhythm(0.5) gutter(0.5) rhythm(0.5) 0;
-
-      &--full {
-        height: 100%;
-        width: 100%;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-
-      &--no-v-spacing {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    }
-
-    &--dark {
-      border-color: $bubbleBackgroundDark;
-      background: $bubbleBackgroundDark;
-
-      &::before {
-        border-bottom-color: $bubbleBackgroundDark;
-      }
-
-      &::after {
-        border-bottom-color: $bubbleBackgroundDark;
-      }
-    }
-
-    &--full-width {
-      width: 100%;
-
-      .sg-bubble__hole {
-        width: 100%;
-      }
-    }
-
-    &--full {
-      height: 100%;
-      width: 100%;
-
-      .sg-bubble__hole {
-        width: 100%;
-        overflow: hidden;
-      }
-    }
-
     &--full-and-grow {
       min-height: 100%;
       width: 100%;
-
-      .sg-bubble__hole {
-        width: 100%;
-        overflow: hidden;
-      }
-    }
-
-    &--no-spacing {
-      margin: 0;
     }
 
     &--to-right {
 
       &::before {
-        right: rhythm(1);
+        right: gutter(1);
         left: auto;
       }
 
       &::after {
-        right: gutter(1) + $innerTriangleSize / 2;
+        right: (gutter(1) + $triangleSize - $innerTriangleSize);
         left: auto;
       }
     }
-
   }
-
 }
