@@ -53,6 +53,10 @@
     background-color: $grayPrimary;
     padding: $baseline;
     display: inline-block;
+
+    &--full-width {
+      width: 100%;
+    }
   }
 
   &__content-box {

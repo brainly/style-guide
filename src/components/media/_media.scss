@@ -1,7 +1,7 @@
 $mediaBackgroundColor: $white;
 $mediaFocusedBackgroundColor: $blueSecondaryLight;
-$mediaClickableBackgroundColor: $graySecondary;
-$mediaBorderRadius: 8px;
+$mediaClickableBackgroundColor: $grayLight;
+$mediaBorderRadius: 4px;
 $mediaItemColor: $black;
 $mediaItemSecondaryColor: $grayPrimary;
 
@@ -24,6 +24,10 @@ $mediaItemSecondaryColor: $grayPrimary;
 
   &--transparent {
     background-color: transparent;
+  }
+
+  &--gray-secondary-light {
+    background-color: $graySecondaryLight;
   }
 
   &--clickable {
