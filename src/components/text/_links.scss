@@ -22,11 +22,11 @@ $includeHtml: false !default;
       color: $white;
     }
 
-    &--warning {
+    &--mustard {
       color: $mustardPrimary;
     }
 
-    &--error {
+    &--peach {
       color: $peachPrimary;
     }
 
@@ -49,6 +49,10 @@ $includeHtml: false !default;
 
     &--small {
       @include typeVariant(small, 0.75);
+    }
+
+    &--obscure {
+      @include typeVariant(obscure, 0.5);
     }
 
     &--disabled {
