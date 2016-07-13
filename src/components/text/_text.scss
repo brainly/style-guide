@@ -58,11 +58,15 @@ $sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
       color: $blueSecondary;
     }
 
-    &--warning {
+    &--blue {
+      color: $bluePrimary;
+    }
+
+    &--mustard {
       color: $mustardPrimary;
     }
 
-    &--error {
+    &--peach {
       color: $peachPrimary;
     }
   }
