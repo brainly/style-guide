@@ -21,6 +21,9 @@ $buttonSecondaryActionTextColorHover: $white;
 $buttonSecondaryLightBlueColor: $blueSecondary;
 $buttonSecondaryLightBlueTextColorHover: $white;
 
+$buttonSecondaryDisabledColor: $grayLight;
+$buttonSecondaryDisabledTextColor: $grayLight;
+
 $buttonSecondaryIconColor: $graySecondary;
 $buttonSecondaryIconBorderColorHover: $grayPrimary;
 
@@ -146,6 +149,22 @@ $includeHtml: false !default;
 
   .sg-button-secondary--light-blue {
     @include sgButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
+  }
+
+  .sg-button-secondary--disabled {
+    @include sgButtonBasicColors($buttonSecondaryDisabledColor, $buttonSecondaryDisabledTextColor, transparent);
+    @include sgButtonSecondaryActive($buttonSecondaryDisabledColor, $buttonSecondaryDisabledTextColor, transparent);
+    cursor: default;
+
+    &:active {
+      color: $buttonSecondaryDisabledColor;
+      fill: $buttonSecondaryDisabledColor;
+      outline: none;
+
+      .sg-button-secondary__hole {
+        opacity: 1;
+      }
+    }
   }
 
   .sg-button-secondary--with-icon {
