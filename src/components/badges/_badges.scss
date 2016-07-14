@@ -1,38 +1,47 @@
-$badgeFontSize: fontSize(xsmall);
-$badgeDefaultBackgroundColor: $white;
-$badgeDefaultColor: $black;
-$badgeErrorBackgroundColor: $peachPrimary;
-$badgeErrorColor: $white;
-$badgeWarningBackgroundColor: $mustardPrimary;
-$badgeWarningColor: $white;
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .sg-badge {
-    @include component;
-    @include fixText($badgeFontSize);
     @include uppercaseText;
-    overflow: visible; // allow badges align as text
-    min-height: 0;
-    height: auto;
-
-    border-radius: $badgeFontSize;
+    display: inline-block;
+    text-overflow: ellipsis;
+    border-radius: gutter(1 / 6);
     font-weight: $fontWeightBold;
-    padding: 3px 6px;
+    padding: gutter(1 / 8) gutter(1 / 4);
+    background-color: $white;
 
-    background-color: $badgeDefaultBackgroundColor;
-    color: $badgeDefaultColor;
-
-    &--error {
-      background-color: $badgeErrorBackgroundColor;
-      color: $badgeErrorColor;
+    &--peach {
+      background-color: $peachPrimary;
     }
 
-    &--warning {
-      background-color: $badgeWarningBackgroundColor;
-      color: $badgeWarningColor;
+    &--mustard {
+      background-color: $mustardPrimary;
+    }
+
+    &--mint-secondary-light {
+      background-color: $mintSecondaryLight;
+    }
+
+    &--peach-secondary-light {
+      background-color: $peachSecondaryLight;
+    }
+
+    &--blue-secondary-light {
+      background-color: $blueSecondaryLight;
+    }
+
+    &--rounded {
+      border-radius: gutter(1 / 2);
+    }
+
+    &--small {
+      border-radius: gutter(1 / 12);
+      padding: gutter(1 / 24) gutter(1 / 6);
+    }
+
+    &--large {
+      padding: gutter(1 / 8) gutter(1 / 2);
     }
 
     &--with-animation {
