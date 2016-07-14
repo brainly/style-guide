@@ -20,6 +20,10 @@ $sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
       @include typeVariant(small, 0.75);
     }
 
+    &--xsmall {
+      @include typeVariant(xsmall, 5 / 12);
+    }
+
     &--headline {
       @include typeVariant(headline, 1.334);
       font-weight: $fontWeightNormal;
