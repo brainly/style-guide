@@ -3,11 +3,8 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-badge {
-    @include uppercaseText;
     display: inline-block;
-    text-overflow: ellipsis;
     border-radius: gutter(1 / 6);
-    font-weight: $fontWeightBold;
     padding: gutter(1 / 8) gutter(1 / 4);
     background-color: $white;
 
