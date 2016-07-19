@@ -25,13 +25,15 @@ $sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
     }
 
     &--headline {
-      @include typeVariant(headline, 1.334);
-      font-weight: $fontWeightNormal;
-      margin: 0;
+      @include typeVariant(headline, 4 / 3);
     }
 
     &--emphasised {
       font-weight: $fontWeightBold;
+    }
+
+    &--regular {
+      font-weight: $fontWeightNormal;
     }
 
     &--no-wrap {
