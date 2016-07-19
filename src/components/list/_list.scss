@@ -1,4 +1,3 @@
-$listFontSize: fontSize(headline);
 $smallListFontSize: fontSize(default);
 
 $menuListColor: $bluePrimary;
@@ -10,9 +9,10 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-list {
-    @include sgListBasicStyles();
-    font-size: $listFontSize;
-    line-height: rhythm(2);
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
     &__element {
       display: flex;
@@ -23,31 +23,22 @@ $includeHtml: false !default;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: gutter(0.333);
-      width: 18px;
-      height: 18px;
+      margin-right: gutter(1 / 3);
 
-      &--align-first-line {
-        align-self: flex-start;
-        height: rhythm(2);
-        display: flex;
-        align-items: center;
+      &--x24 {
+        height: rhythm(1);
       }
-    }
 
-    &--small {
-      line-height: rhythm(1);
-      font-weight: $fontWeightBold;
-      font-size: $smallListFontSize;
+      &--x32 {
+        height: rhythm(1.5);
+      }
 
-      .sg-list__icon {
-        margin-right: gutter(0.167);
-        width: 14px;
-        height: 14px;
+      &--align-top {
+        align-self: flex-start;
+      }
 
-        &--align-first-line {
-          height: rhythm(1);
-        }
+      &--spacing-right-small {
+        margin-right: gutter(1 / 8);
       }
     }
 
