@@ -1,4 +1,4 @@
-$rateHeight: $defaultComponentHeight;
+$rateHeight: rhythm(1);
 $rateStarColor: $graySecondary;
 $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $grayLight;
@@ -7,7 +7,7 @@ $rateCounterColor: $grayPrimary;
 $rateFontSize: fontSize(obscure);
 $rateIconSize: rhythm(0.75);
 $rateSmallFontSize: fontSize(xsmall);
-$rateSmallIconSize: rhythm(0.667);
+$rateSmallIconSize: rhythm(2 / 3);
 
 $includeHtml: false !default;
 
@@ -63,7 +63,7 @@ $includeHtml: false !default;
     }
 
     &--small {
-      height: rhythm(0.667);
+      height: rhythm(2 / 3);
       min-height: 0;
 
       .sg-rate-box__star {
