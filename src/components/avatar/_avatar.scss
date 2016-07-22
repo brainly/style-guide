@@ -14,8 +14,9 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-avatar {
-
-    @include component;
+    display: block;
+    position: relative;
+    overflow: hidden;
 
     width: $avatarMediumSize;
     height: $avatarMediumSize;
