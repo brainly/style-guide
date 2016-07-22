@@ -24,6 +24,11 @@
       align-items: center;
     }
 
+    &--to-bottom {
+      display: flex;
+      align-items: flex-end;
+    }
+
     &--align-top {
 
       & > * {
@@ -53,6 +58,11 @@
     background-color: $grayPrimary;
     padding: $baseline;
     display: inline-block;
+
+    &--to-bottom {
+      display: flex;
+      align-items: flex-end;
+    }
 
     &--full-width {
       width: 100%;
