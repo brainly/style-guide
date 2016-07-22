@@ -36,6 +36,10 @@ $sgTextDarkSemitransparentColor: rgba(0, 0, 0, 0.4);
       font-weight: $fontWeightNormal;
     }
 
+    &--break-words {
+      word-break: break-word;
+    }
+
     &--no-wrap {
       white-space: nowrap;
     }
