@@ -1,13 +1,11 @@
 $labelPrimaryColor: $black;
 $labelSecondaryColor: $grayPrimary;
-$labelInactiveColor: $grayPrimary;
 $labelFontSizePrimary: fontSize(obscure);
 $labelFontSizeSecondary: fontSize(xsmall);
 $labelFontSizeLarge: fontSize(standout);
 $labelIconSizePrimary: 16px;
 $labelIconSizeSecondary: 14px;
 $labelIconSizeLarge: 24px;
-$labelIconSizePrimaryLarge: 32px;
 $labelScaleFactor: 2 / 3;
 
 $includeHtml: false !default;
@@ -47,16 +45,8 @@ $includeHtml: false !default;
         margin-right: 0;
       }
 
-      &--large {
-        width: $labelIconSizePrimaryLarge;
-        height: $labelIconSizePrimaryLarge;
-      }
-    }
-
-    &--lite {
-      .sg-label__text,
-      .sg-label__number {
-        font-weight: $fontWeightBold;
+      &--align-top {
+        align-self: flex-start;
       }
     }
 
@@ -75,22 +65,6 @@ $includeHtml: false !default;
       .sg-label__text,
       .sg-label__number {
         color: $labelSecondaryColor;
-      }
-    }
-
-    &--inactive {
-      .sg-label__text,
-      .sg-label__number {
-        color: $labelInactiveColor;
-      }
-    }
-
-    &--full-width {
-      width: 100%;
-
-      .sg-label__text {
-        text-overflow: ellipsis;
-        max-width: 100%;
       }
     }
 
