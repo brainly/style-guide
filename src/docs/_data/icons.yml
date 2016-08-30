@@ -1,4 +1,5 @@
 names:
+  - answer
   - answered
   - arrow_down
   - arrow_left
@@ -6,13 +7,16 @@ names:
   - arrow_up
   - attachment
   - bold
+  - bulb
+  - camera
   - check
   - comment
-  - camera
+  - counter
   - equation
   - excellent
   - friends
   - heart
+  - keyboard
   - menu
   - messages
   - notifications
@@ -20,11 +24,13 @@ names:
   - plus
   - points
   - profile
+  - reload
   - report_flag
   - search
   - star
   - stream
   - symbols
+  - unseen
   - x
 sizes:
   - 120
