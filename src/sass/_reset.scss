@@ -19,6 +19,7 @@ $includeHtml: false !default;
   }
 
   // overrides content-box from normalize
+
   // scss-lint:disable QualifyingElement
   input[type="search"] {
     box-sizing: border-box;
