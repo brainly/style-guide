@@ -1,17 +1,3 @@
-/* DO NOT USE THESE COLORS DIRECTLY!
-
-  !WRONG!
-  .box {
-    color: $black;
-  }
-
-  !GOOD!
-  $boxTextColor: $black;
-  .div {
-    color: $boxTextColor;
-  }
-*/
-
 // Primary colors
 $black: #000000;
 $mintPrimary: #6ed6a0;
