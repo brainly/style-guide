@@ -4,6 +4,7 @@ node_js:
   - "0.12"
 
 before_install:
+  - rvm install 2.2.2
   - gem install scss_lint --no-rdoc --no-ri
   - npm install -g gulp
 
