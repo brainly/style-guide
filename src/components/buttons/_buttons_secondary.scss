@@ -110,7 +110,7 @@ $includeHtml: false !default;
 
     &--inverse {
       @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-      @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
+      @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, transparent);
     }
 
     &--full {
