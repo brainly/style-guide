@@ -7,7 +7,6 @@ names:
   - arrow_up
   - attachment
   - bold
-  - bulb
   - camera
   - check
   - comment
@@ -24,6 +23,7 @@ names:
   - plus
   - points
   - profile
+  - question
   - reload
   - report_flag
   - search
