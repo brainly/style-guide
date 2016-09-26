@@ -3,7 +3,7 @@
         <ul class="icons-list">
             {% for item in site.data.subjects %}
             <li class="icons-list__element icons-list__element--wide">
-                <svg class="sg-subject-icon"><use xlink:href="#icon-subject-{{ item }}"></use></svg>
+                <svg class="sg-subject-icon"><use xlink:href="images/subjects-icons.svg#icon-subject-{{ item }}"></use></svg>
                 <span class="icons-list__element-info">- {{ item }}</span>
             </li>
             {% endfor %}

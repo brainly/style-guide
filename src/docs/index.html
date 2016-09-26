@@ -18,16 +18,10 @@ layout: article
   &lt;link href="https://styleguide.brainly.com/{{ site.data.package.version }}/style-guide.css" rel="stylesheet"/&gt;
 </pre>
 
-<p class="sg-text">In order to use basic set of <a href="./basics.html#icons" class="sg-link">icons</a> include this script before the closing &lt;/body&gt; tag:</p>
+<p class="sg-text">By default icons will <strong>not</strong> work on older browsers. To fix that you can include following script just before the ending &lt;/body&gt; tag:</p>
 
 <pre>
-  &lt;script src="https://styleguide.brainly.com/%%images/icons.js%%"&gt;&lt;/script&gt;
-</pre>
-
-<p class="sg-text">Similarly, if you'd like to use <a href="./basics.html#subject-icons" class="sg-link">subject icons</a> include this script:</p>
-
-<pre>
-  &lt;script src="https://styleguide.brainly.com/%%images/subjects-icons.js%%"&gt;&lt;/script&gt;
+  &lt;script src="https://styleguide.brainly.com/%%images/external-svg-icons-polyfill.js%%"&gt;&lt;/script&gt;
 </pre>
 
 <h2 class="article-header article-header--small">

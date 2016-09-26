@@ -12,14 +12,8 @@ function svgSymbolCleanUp(shape, sprite, callback) {
     callback(null);
 }
 
-function svgAddPolyfill(svgPolyfill, svg) {
-    return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm,""));
-}
-
 module.exports = function (gulp, plugins, consts) {
     return function () {
-        var fs = require('fs');
-        var svgPolyfill = fs.readFileSync(plugins.path.join(consts.SRC, 'svg-polyfill.js'), "utf8");
         var subjectIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects', '*.svg');
         var iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
         var destPath = plugins.path.join(consts.SRC, 'images');
@@ -27,7 +21,7 @@ module.exports = function (gulp, plugins, consts) {
         var subjectIconsConfig = {
             mode: {
                 symbol: {
-                    sprite: '../subjects-icons.js'
+                    sprite: '../subjects-icons.svg'
                 }
             },
             shape: {
@@ -37,16 +31,13 @@ module.exports = function (gulp, plugins, consts) {
                 transform: [{
                     custom: svgSymbolCleanUp
                 }]
-            },
-            svg: {
-                transform: [svgAddPolyfill.bind(null, svgPolyfill)]
             }
         };
 
         var iconsConfig = {
             mode: {
                 symbol: {
-                    sprite: '../icons.js'
+                    sprite: '../icons.svg'
                 }
             },
             shape: {
@@ -56,9 +47,6 @@ module.exports = function (gulp, plugins, consts) {
                 transform: [{
                     custom: svgSymbolCleanUp
                 }]
-            },
-            svg: {
-                transform: [svgAddPolyfill.bind(null, svgPolyfill)]
             }
         };
 
