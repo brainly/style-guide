@@ -100,9 +100,8 @@ Holes only make sense in the context of the certain container.
 If you are trying to do it from scratch:
 
 1. Clone repo
-2. Run `./scripts/bootstrap.sh` in the root of the project
-3. Run `./scripts/server.sh`
-4. Open corresponding files in the `docs` directory in your browser (e.g. `http://dockerhost:8181/dev/docs/basics.html`):
+3. Run `npm start`
+4. Open corresponding files in the `docs` directory in your browser (e.g. `http://localhost:8000/dev/docs/basics.html`):
   * `docs/basics.html` for basic components
   * `docs/components.html` for complex components
   * `docs/containers.html` for containers

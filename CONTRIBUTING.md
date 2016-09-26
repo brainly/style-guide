@@ -255,10 +255,4 @@ To bump the version correctly you should follow these steps:
 All code style details are located in [`.scss-lint.yml`](https://github.com/brainly/frontend-tools-configs/blob/master/.scss-lint.yml) file.
 
 To check code style for project simply run:
-`./scripts/run-scss-lint.sh`
-
-You can as well run code style check for specified file using command like:
-`./scripts/run-scss-lint.sh src/sass/_basics.scss`
-
-To simplify work with code style checking install plugin 'scss-lint' for WebStorm.
-To setup it set global path to file `scripts/ide-scss-lint-exec.sh` as `SCSS Lint exe` option.
+`gulp scss-lint`
