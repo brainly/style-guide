@@ -32,26 +32,21 @@ $includeHtml: false !default;
 
   .sg-header-secondary {
     @include typeVariant(default, 2 / 3);
-    @include uppercaseText;
     position: relative;
-    overflow: hidden;
     text-overflow: ellipsis;
     color: $black;
     font-weight: $fontWeightBold;
 
     &--small {
       @include typeVariant(small, 2 / 3);
-      @include uppercaseText(0.0625rem);
     }
 
     &--xsmall {
       @include typeVariant(obscure, 0.5);
-      @include uppercaseText(0);
     }
 
     &--light {
       color: $white;
     }
   }
-
 }
