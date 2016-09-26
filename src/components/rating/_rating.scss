@@ -20,6 +20,7 @@ $includeHtml: false !default;
     height: $rateHeight;
 
     &--active {
+      cursor: pointer;
 
       .sg-rate-box__star:hover ~ .sg-rate-box__star {
         fill: $rateStarColor;
