@@ -12,7 +12,7 @@ $layoutContainerMarginTop: $headerHeight;
 
     @include sgBreakpoint(medium-up) {
       margin-top: $layoutContainerMarginTop + rhythm(1);
-      border-radius: $layoutDefaultBorderRadius;
+      border-radius: $defaultBorderRadius;
       max-width: $layoutMediumContentMaxWidth;
     }
 
@@ -108,7 +108,7 @@ $layoutContainerMarginTop: $headerHeight;
   &__box {
     padding: rhythm(1) gutter(1) 0;
     background-color: $white;
-    border-radius: $layoutDefaultBorderRadius;
+    border-radius: $defaultBorderRadius;
 
     @include sgBreakpoint('medium-up') {
       padding-bottom: rhythm(1);
