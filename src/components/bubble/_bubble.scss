@@ -66,5 +66,18 @@ $includeHtml: false !default;
         left: auto;
       }
     }
+
+    &--to-left {
+
+      &::before {
+        right: auto;
+        left: gutter(1);
+      }
+
+      &::after {
+        left: (gutter(1) + $triangleSize - $innerTriangleSize);
+        right: auto;
+      }
+    }
   }
 }
