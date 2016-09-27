@@ -109,7 +109,7 @@ $layoutBorderRadius: 8px;
   &__box {
     padding: rhythm(1) gutter(1) 0;
     background-color: $white;
-    border-radius: 8px;
+    border-radius: $layoutBorderRadius;
 
     @include sgBreakpoint('medium-up') {
       padding-bottom: rhythm(1);
