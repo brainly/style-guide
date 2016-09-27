@@ -10,5 +10,5 @@ node_modules
 .sass-cache
 
 # Generated images
-/src/images/subjects-icons.svg
-/src/images/icons.svg
+/src/images/subjects-icons.js
+/src/images/icons.js
