@@ -2,7 +2,6 @@ $layoutMaxWidth: 1024px;
 $layoutAsideWidth: 320px;
 $layoutMediumContentMaxWidth: 660px;
 $layoutContainerMarginTop: $headerHeight;
-$layoutBorderRadius: 8px;
 
 .sg-layout {
   &__container {
@@ -13,7 +12,7 @@ $layoutBorderRadius: 8px;
 
     @include sgBreakpoint(medium-up) {
       margin-top: $layoutContainerMarginTop + rhythm(1);
-      border-radius: $layoutBorderRadius;
+      border-radius: $layoutDefaultBorderRadius;
       max-width: $layoutMediumContentMaxWidth;
     }
 
@@ -109,7 +108,7 @@ $layoutBorderRadius: 8px;
   &__box {
     padding: rhythm(1) gutter(1) 0;
     background-color: $white;
-    border-radius: $layoutBorderRadius;
+    border-radius: $layoutDefaultBorderRadius;
 
     @include sgBreakpoint('medium-up') {
       padding-bottom: rhythm(1);

@@ -5,7 +5,6 @@ $toplayerShadow: $defaultBottomShadow;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: rhythm(1);
 $toplayerHeaderHeight: rhythm(1.25);
-$toplayerBorderRadius: 8px;
 
 $toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
@@ -16,7 +15,7 @@ $includeHtml: false !default;
   .sg-toplayer {
     @include component;
     overflow: visible;
-    border-radius: $toplayerBorderRadius;
+    border-radius: $layoutDefaultBorderRadius;
     width: 100%;
     box-shadow: $toplayerShadow;
     background-color: $toplayerBackgroundColor;
@@ -87,8 +86,8 @@ $includeHtml: false !default;
       background-image: url($sgImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
       background-color: $toplayerHeaderDominantColor;
-      border-top-left-radius: $toplayerBorderRadius;
-      border-top-right-radius: $toplayerBorderRadius;
+      border-top-left-radius: $layoutDefaultBorderRadius;
+      border-top-right-radius: $layoutDefaultBorderRadius;
     }
 
     &__close {
