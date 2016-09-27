@@ -154,7 +154,7 @@ $includeHtml: false !default;
     }
 
     &--rounded-square {
-      border-radius: 8px;
+      border-radius: $defaultBorderRadius;
     }
   }
 }
