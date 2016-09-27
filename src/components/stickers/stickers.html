@@ -7,8 +7,8 @@
     <div class="docs-block__contrast-box">
       {% for name in site.data.icons.names %}
         <svg class="sg-sticker">
-          <use class="sg-sticker__back" xlink:href="images/icons.svg#icon-{{ name }}"></use>
-          <use class="sg-sticker__front" xlink:href="images/icons.svg#icon-{{ name }}"></use>
+          <use class="sg-sticker__back" xlink:href="#icon-{{ name }}"></use>
+          <use class="sg-sticker__front" xlink:href="#icon-{{ name }}"></use>
         </svg>
       {% endfor %}
     </div>
