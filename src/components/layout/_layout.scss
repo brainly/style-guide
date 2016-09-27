@@ -45,12 +45,7 @@ $layoutBorderRadius: 8px;
 
       .sg-layout__aside-content {
         margin-top: 0;
-        background-color: $white;
-        padding: rhythm(1) gutter(1);
-
-        @include sgBreakpoint(medium-up) {
-          border-radius: $layoutBorderRadius;
-        }
+        padding: 0;
 
         @include sgBreakpoint(large-only) {
           margin-right: gutter(1);
@@ -80,13 +75,8 @@ $layoutBorderRadius: 8px;
     min-width: 0;
     flex-grow: 1;
     flex-shrink: 0;
-    padding: rhythm(1) gutter(1);
-    background-color: $white;
+    padding: 0;
     width: 100%;
-
-    @include sgBreakpoint(medium-up) {
-      border-radius: $layoutBorderRadius;
-    }
 
     @include sgBreakpoint(large-only) {
       max-width: calc(100% - #{$layoutAsideWidth + gutter(1)});
@@ -106,12 +96,7 @@ $layoutBorderRadius: 8px;
     flex-shrink: 0;
     width: 100%;
 
-    @include sgBreakpoint(medium-up) {
-      margin-top: rhythm(1);
-    }
-
     @include sgBreakpoint(large-only) {
-      margin-top: 0;
       margin-left: gutter(1);
       width: $layoutAsideWidth;
     }
@@ -119,5 +104,16 @@ $layoutBorderRadius: 8px;
 
   &__footer {
     position: relative;
+  }
+
+  &__box {
+    padding: rhythm(1) gutter(1) 0;
+    background-color: $white;
+    border-radius: 8px;
+
+    @include sgBreakpoint('medium-up') {
+      padding-bottom: rhythm(1);
+      margin-bottom: gutter(1);
+    }
   }
 }
