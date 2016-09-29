@@ -34,7 +34,7 @@ module.exports = function (gulp, plugins, consts) {
                 id: {
                     generator: "icon-subject-%s"
                 },
-                transform: [{
+                transform: ['svgo', {
                     custom: svgSymbolCleanUp
                 }]
             },
@@ -53,7 +53,7 @@ module.exports = function (gulp, plugins, consts) {
                 id: {
                     generator: "icon-%s"
                 },
-                transform: [{
+                transform: ['svgo', {
                     custom: svgSymbolCleanUp
                 }]
             },
