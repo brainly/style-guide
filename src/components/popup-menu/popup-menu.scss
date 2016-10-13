@@ -1,6 +1,8 @@
-$sgPopupMenuBackground: $blueSecondary;
-$sgPopupMenuPadding: gutter(1);
-$sgPopupMenuHeight: rhythm(2);
+$sgPopupMenuBackground: $white;
+$sgPopupMenuPadding: rhythm(1 / 2);
+$sgPopupMenuHeight: 44px;
+$sgPopupMenuBoxShadow: $defaultBottomShadow;
+$sgPopupMenuBorderRadiusTop: 8px;
 
 $includeHtml: false !default;
 
@@ -11,19 +13,21 @@ $includeHtml: false !default;
     position: relative;
     width: 100%;
     height: $sgPopupMenuHeight;
-    padding: 0 ($sgPopupMenuPadding / 2);
+    padding: 0 ($sgPopupMenuPadding);
     margin: 0;
     background-color: $sgPopupMenuBackground;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: $sgPopupMenuBorderRadiusTop $sgPopupMenuBorderRadiusTop 0 0;
+    box-shadow: $sgPopupMenuBoxShadow;
 
     &::before {
       content: '';
-      border: $sgPopupMenuPadding / 2 solid transparent;
+      border: $sgPopupMenuPadding solid transparent;
       border-bottom-color: $sgPopupMenuBackground;
       position: absolute;
-      top: -$sgPopupMenuPadding;
+      top: -$sgPopupMenuPadding * 2;
       right: 18px;
       width: 0;
       margin: 0 auto;
@@ -35,7 +39,7 @@ $includeHtml: false !default;
 
     &--elements-spaced {
       .sg-popup-menu__hole {
-        margin-right: $sgPopupMenuPadding / 2;
+        margin-right: $sgPopupMenuPadding;
 
         &:last-child {
           margin-right: 0;
