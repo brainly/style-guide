@@ -50,9 +50,10 @@ gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
 
-gulp.task('jekyll:docs', getTask('jekyll-docs'));
+gulp.task('jekyll:docs', ['build:copy-components'], getTask('jekyll-docs'));
 
 gulp.task('docs:copy-components', getTask('docs-copy-components'));
+gulp.task('build:copy-components', getTask('build-copy-components'));
 
 gulp.task('watch:sass', getTask('watch-sass'));
 gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
