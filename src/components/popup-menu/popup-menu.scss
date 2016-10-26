@@ -1,5 +1,6 @@
 $sgPopupMenuBackground: $white;
 $sgPopupMenuPadding: rhythm(1 / 2);
+$sgPopupMenuTriangleBorder: rhythm(1 / 3);
 $sgPopupMenuHeight: rhythm(22 / 12); // 44px
 $sgPopupMenuBoxShadow: $defaultBottomShadow;
 $sgPopupMenuBorderRadiusTop: 8px;
@@ -24,11 +25,11 @@ $includeHtml: false !default;
 
     &::before {
       content: '';
-      border: $sgPopupMenuPadding solid transparent;
+      border: $sgPopupMenuTriangleBorder solid transparent;
       border-bottom-color: $sgPopupMenuBackground;
       position: absolute;
-      top: -$sgPopupMenuPadding * 2;
-      right: 18px;
+      top: -$sgPopupMenuTriangleBorder * 2;
+      right: gutter(1);
       width: 0;
       margin: 0 auto;
     }
