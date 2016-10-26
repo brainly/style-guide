@@ -17,6 +17,7 @@ names:
   - friends
   - heart
   - keyboard
+  - logout
   - menu
   - messages
   - notifications
@@ -24,6 +25,8 @@ names:
   - plus
   - points
   - profile
+  - profile_edit
+  - profile_view
   - question
   - reload
   - report_flag
