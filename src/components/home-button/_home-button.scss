@@ -9,7 +9,7 @@ $includeHtml: false !default;
   .sg-home-button {
     @include component;
 
-    @include sgBreakpoint(medium-up) {
+    @include sgBreakpoint(large-only) {
       top: 10px;
     }
 
@@ -19,7 +19,7 @@ $includeHtml: false !default;
       width: $homeButtonMobileHeight;
       height: $homeButtonMobileHeight;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgBreakpoint(large-only) {
         display: none;
       }
     }
@@ -29,7 +29,7 @@ $includeHtml: false !default;
       width: $homeButtonDefaultWidth;
       display: none;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgBreakpoint(large-only) {
         display: block;
       }
     }
