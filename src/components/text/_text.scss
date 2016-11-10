@@ -24,7 +24,7 @@ $includeHtml: false !default;
     }
 
     &--headline {
-      @include typeVariant(headline, 4 / 3);
+      @include typeVariant(headline, 7 / 6);
     }
 
     &--emphasised {
