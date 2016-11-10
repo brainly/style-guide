@@ -18,7 +18,7 @@ $includeHtml: false !default;
     }
 
     &--small {
-      @include typeVariant(headline);
+      @include typeVariant(headline, 7 / 6);
     }
 
     &--xsmall {
