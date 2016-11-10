@@ -2,6 +2,7 @@ $layoutMaxWidth: 1024px;
 $layoutAsideWidth: 320px;
 $layoutMediumContentMaxWidth: 660px;
 $layoutContainerMarginTop: $headerHeight;
+$layoutGapWidth: gutter(5 / 6);
 
 .sg-layout {
   &__container {
@@ -47,7 +48,7 @@ $layoutContainerMarginTop: $headerHeight;
         padding: 0;
 
         @include sgBreakpoint(large-only) {
-          margin-right: gutter(1);
+          margin-right: $layoutGapWidth;
           margin-left: 0;
         }
       }
@@ -78,7 +79,7 @@ $layoutContainerMarginTop: $headerHeight;
     width: 100%;
 
     @include sgBreakpoint(large-only) {
-      max-width: calc(100% - #{$layoutAsideWidth + gutter(1)});
+      max-width: calc(100% - #{$layoutAsideWidth + $layoutGapWidth});
       flex-basis: 1px;
     }
 
@@ -96,7 +97,7 @@ $layoutContainerMarginTop: $headerHeight;
     width: 100%;
 
     @include sgBreakpoint(large-only) {
-      margin-left: gutter(1);
+      margin-left: $layoutGapWidth;
       width: $layoutAsideWidth;
     }
   }
