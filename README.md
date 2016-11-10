@@ -138,3 +138,10 @@ You can hover with mouse over the container in style guide to see the holes (whi
 ## Contribution
 
 If you are a component author you should follow this [guidelines](CONTRIBUTING.md) on top of BEM.
+
+## Layout
+
+Layout is adjusted using 2 breakpoints (`medium-up`, `large-only`) and its mobile first.
+- On mobile layout container has 100% width of the page, its single column (main content then aside content)
+- From `medium-up` layout has 660px and its centered, its single column (main content then aside content)
+- On `large-only` layout has 1024px, 12px padding from the side 660px main column (320px*2 + 20px gap), 20px gap, 320px aside column. On this view columns are placed side by side
