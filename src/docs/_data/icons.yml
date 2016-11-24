@@ -60,6 +60,7 @@ sizes:
 colors:
   - gray
   - gray-secondary
+  - gray-light
   - blue
   - mustard
   - lavender
