@@ -61,6 +61,11 @@ $includeHtml: false !default;
       }
     }
 
+    &--simple {
+      border: none;
+      border-radius: 0;
+    }
+
     &--short {
       height: rhythm(1.5);
       padding: $textareaSmallPadding $textareaPadding;
