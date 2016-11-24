@@ -28,6 +28,14 @@ $includeHtml: false !default;
       background-color: $blueSecondaryLight;
     }
 
+    &--mint-secondary {
+      background-color: $mintSecondary;
+    }
+
+    &--gray-secondary {
+      background-color: $graySecondary;
+    }
+
     &--rounded {
       border-radius: gutter(1 / 2);
     }
