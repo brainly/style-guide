@@ -64,6 +64,10 @@ $includeHtml: false !default;
       background-color: $mintSecondary;
     }
 
+    &--mint {
+      background-color: $mintPrimary;
+    }
+
     &--lavender {
       background-color: $lavenderPrimary;
     }
