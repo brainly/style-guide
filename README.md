@@ -96,7 +96,7 @@ Holes only make sense in the context of the certain container.
 ## HowTo
 
 #### Requirements
-
+ - [Ruby](https://www.ruby-lang.org/en/downloads/)
  - [Jekyll](https://jekyllrb.com/docs/installation/)
  
 #### Have a look at style guide
