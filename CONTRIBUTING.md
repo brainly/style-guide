@@ -22,6 +22,17 @@ If you want to update Style Guide, you should follow the given guidelines and co
  - [Bumping Release Version](#bumping-release-version)
  - [Code Style](#code-style)
 
+ 
+## How to start
+
+If you are trying to do it from scratch:
+
+1. Clone repo
+2. Run `npm run watch` - it will run build, gulp watch and start for you
+5. Open corresponding files in the `docs` directory in your browser (e.g. `http://localhost:8000/dev/docs/basics.html`):
+  * `docs/basics.html` for basic components
+  * `docs/components.html` for complex components
+  * `docs/containers.html` for containers
 
 ## Design Conventions
 
