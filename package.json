@@ -1,12 +1,12 @@
 {
   "name": "style-guide",
-  "version": "65.7.1",
+  "version": "65.7.2",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
   "devDependencies": {
     "del": "^2.2.0",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v2.0.0",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v7.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-base64": "^0.1.3",
@@ -19,21 +19,24 @@
     "gulp-replace": "^0.5.3",
     "gulp-rev": "^7.0.0",
     "gulp-sass": "^2.0.1",
-    "gulp-scss-lint": "^0.3.0",
     "gulp-svg-sprite": "^1.2.7",
     "gulp-util": "^3.0.6",
     "http-server": "^0.9.0",
     "husky": "^0.11.3",
     "run-sequence": "^1.1.1",
     "s3": "^4.4.0",
+    "sass-lint": "^1.10.2",
     "yargs": "^4.3.1"
   },
   "scripts": {
+    "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q src/**/*.scss",
+    "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
-    "prepush": "gulp scss-lint && gulp scss-unused-variables",
+    "prepush": "npm test",
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
-    "watch": "gulp build && gulp watch & npm start"
+    "watch": "gulp build && gulp watch & npm start",
+    "test": "npm run scss-lint -s && npm run scss-unused-variables -s"
   }
 }

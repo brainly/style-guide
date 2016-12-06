@@ -263,7 +263,7 @@ To bump the version correctly you should follow these steps:
 1. Merge PR to master
 
 #### Code Style
-All code style details are located in [`.scss-lint.yml`](https://github.com/brainly/frontend-tools-configs/blob/master/.scss-lint.yml) file.
+All code style details are located in [`.sass-lint.yml`](https://github.com/brainly/frontend-tools-configs/blob/master/.sass-lint.yml) file.
 
 To check code style for project simply run:
-`gulp scss-lint`
+`npm run scss-lint`

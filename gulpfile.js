@@ -60,12 +60,7 @@ gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
 gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
 gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:docs-sass']);
 
-gulp.task('scss-lint', getTask('scss-lint'));
-gulp.task('scss-unused-variables', getTask('scss-unused-variables'));
-
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
-
-gulp.task('ci', ['scss-lint', 'scss-unused-variables']);
 
 gulp.task('deploy', function(done) {
   runSequence('build', 'upload-files', done);

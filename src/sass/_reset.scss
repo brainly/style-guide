@@ -20,11 +20,11 @@ $includeHtml: false !default;
 
   // overrides content-box from normalize
 
-  // scss-lint:disable QualifyingElement
-  input[type="search"] {
+  // sass-lint:disable no-qualifying-elements
+  input[type='search'] {
     box-sizing: border-box;
   }
-  // scss-lint:enable QualifyingElement
+  // sass-lint:enable no-qualifying-elements
 
   // We want to have svg overflows visible
   svg:not(:root) {
