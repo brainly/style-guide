@@ -1,17 +1,17 @@
 @mixin fixText($fontSize, $lineHeightOffset: 0) {
-  /* $lineHeightOffset is a way to fix font issue with the baseline
-     the issue is visible when vertically centering the text of at least 12px */
+  // $lineHeightOffset is a way to fix font issue with the baseline
+  //   the issue is visible when vertically centering the text of at least 12px
   font-size: $fontSize;
   min-height: $fontSize;
   line-height: $fontSize + $lineHeightOffset;
 }
 
-@mixin fixOperaMiniLabelText {
-  /* these styles fixes the vertical centering and visibility of label text on opera mini
-     https://github.com/brainly/style-guide/issues/482
-     https://github.com/brainly/style-guide/issues/489 */
-  // scss-lint:disable ImportantRule
+@mixin fixOperaMiniLabelText() {
+  // these styles fixes the vertical centering and visibility of label text on opera mini
+  //   https://github.com/brainly/style-guide/issues/482
+  //   https://github.com/brainly/style-guide/issues/489
+  // sass-lint:disable no-important
   line-height: 1 !important;
-  // scss-lint:enable ImportantRule
+  // sass-lint:enable no-important
   overflow: visible;
 }

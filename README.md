@@ -98,7 +98,6 @@ Holes only make sense in the context of the certain container.
 #### Requirements
  - [Ruby](https://www.ruby-lang.org/en/downloads/)
  - [Jekyll](https://jekyllrb.com/docs/installation/)
- - scss-lint - `gem install scss-lint`
  
 #### Have a look at style guide
 

@@ -1,4 +1,4 @@
-/// scss-lint:disable all
+// sass-lint:disable-all
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -430,4 +430,3 @@ $includeHtml: false !default;
     padding: 0;
   }
 }
-/// scss-lint:enable all

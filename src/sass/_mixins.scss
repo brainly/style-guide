@@ -1,12 +1,12 @@
 @mixin image2x($image, $width: 'auto', $height: 'auto') {
   @media (min-resolution: 144dpi) {
-    /* on retina, use image that's scaled by 2 */
+    // on retina, use image that's scaled by 2
     background-image: url($image);
     background-size: $width $height;
   }
 }
 
-@mixin component {
+@mixin component() {
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -39,9 +39,7 @@
 }
 
 @function fontSize($fontsizeKey) {
-  // scss-lint:disable NameFormat
   @return map-get($fontSizes, $fontsizeKey);
-  // scss-lint:enable NameFormat
 }
 
 @mixin uppercaseText($letterSpacing: null) {
@@ -77,9 +75,7 @@
 }
 
 @mixin sgBreakpoint($name) {
-  // scss-lint:disable NameFormat
   $media: map-get($breakpointsMap, $name);
-  // scss-lint:enable NameFormat
   @if($media) {
     @media #{$media} {
       @content;
@@ -90,7 +86,7 @@
 }
 
 @mixin sgListBasicStyles() {
-  @include component;
+  @include component();
   overflow: visible; // move baseline from margin to the last line box
   display: block;
   margin: 0;
@@ -108,9 +104,7 @@
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
 @function stripUnit($number) {
-  // scss-lint:disable NameFormat
   @if type-of($number) == 'number' and not unitless($number) {
-  // scss-lint:enable NameFormat
     @return $number / ($number * 0 + 1);
   }
 

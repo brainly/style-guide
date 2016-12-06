@@ -1,27 +1,30 @@
 $includeHtml: false !default;
+$proximaNovaRegularWoff2Path: $sgFontsPath + 'ProximaNova-Regular.woff2';
+$proximaNovaRegularWoffPath: $sgFontsPath + 'ProximaNova-Regular.woff';
+$proximaNovaSemiBoldWoff2Path: $sgFontsPath + 'ProximaNova-SemiBold.woff2';
+$proximaNovaSemiBoldWoffPath: $sgFontsPath + 'ProximaNova-SemiBold.woff';
+$proximaNovaBlackWoff2Path: $sgFontsPath + 'ProximaNova-Black.woff2';
+$proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
 
 @if ($includeHtml) {
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($sgFontsPath + 'ProximaNova-Regular.woff2') format('woff2'),
-      url($sgFontsPath + 'ProximaNova-Regular.woff') format('woff');
+    src: url($proximaNovaRegularWoff2Path) format('woff2'), url($proximaNovaRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
   }
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($sgFontsPath + 'ProximaNova-SemiBold.woff2') format('woff2'),
-      url($sgFontsPath + 'ProximaNova-SemiBold.woff') format('woff');
+    src: url($proximaNovaSemiBoldWoff2Path) format('woff2'), url($proximaNovaSemiBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
   }
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($sgFontsPath + 'ProximaNova-Black.woff2') format('woff2'),
-      url($sgFontsPath + 'ProximaNova-Black.woff') format('woff');
+    src: url($proximaNovaBlackWoff2Path) format('woff2'), url($proximaNovaBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
   }
