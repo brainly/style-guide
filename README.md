@@ -95,11 +95,17 @@ Holes only make sense in the context of the certain container.
 
 ## HowTo
 
+#### Requirements
+ - [Ruby](https://www.ruby-lang.org/en/downloads/)
+ - [Jekyll](https://jekyllrb.com/docs/installation/)
+ - scss-lint - `gem install scss-lint`
+ 
 #### Have a look at style guide
 
 If you are trying to do it from scratch:
 
 1. Clone repo
+2. Run `npm run build`
 3. Run `npm start`
 4. Open corresponding files in the `docs` directory in your browser (e.g. `http://localhost:8000/dev/docs/basics.html`):
   * `docs/basics.html` for basic components
