@@ -3,7 +3,7 @@
     <aside class="docs-block__info">
         <h3 class="docs-block__header">{{ logo.name | capitalize }}{% if logo.default %} - default{% endif %}</h3>
     </aside>
-    <div class="docs-block__content">
+    <div class="docs-block__contrast-box docs-block__contrast-box--small-padding">
         <a href="#" class="sg-home-button{% if logo.default != true %} sg-home-button--{{ logo.name }}{% endif %}">
           <img class="sg-home-button__logo-small" src="images/logos/{{ logo.name }}-mobile.svg" />
           <img class="sg-home-button__logo-big" src="images/logos/{{ logo.name }}.svg" />
