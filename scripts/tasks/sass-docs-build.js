@@ -10,7 +10,6 @@ module.exports = function (gulp, plugins, consts) {
                 browsers: ['last 2 versions', 'ie 8', 'ie 9'],
                 cascade: false
             }))
-            .pipe(plugins.minifyCss())
             .pipe(plugins.rename('main.css'))
             .pipe(gulp.dest(cssFilesDest))
     };
