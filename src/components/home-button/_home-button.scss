@@ -1,6 +1,6 @@
-$homeButtonMobileHeight: 44px;
-$homeButtonDefaultHeight: 60px;
-$homeButtonDefaultWidth: 134px;
+$homeButtonMobileHeight: 36px;
+$homeButtonDefaultHeight: 36px;
+$homeButtonDefaultWidth: 81px;
 
 $includeHtml: false !default;
 
@@ -10,7 +10,7 @@ $includeHtml: false !default;
     @include component;
 
     @include sgBreakpoint(large-only) {
-      top: 10px;
+      top: 2px;
     }
 
     &__logo-small {

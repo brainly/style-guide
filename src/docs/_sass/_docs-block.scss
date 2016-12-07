@@ -67,6 +67,9 @@
     &--full-width {
       width: 100%;
     }
+    &--small-padding {
+      padding: $baseline / 2;
+    }
   }
 
   &__content-box {
