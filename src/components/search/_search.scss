@@ -20,6 +20,31 @@ $includeHtml: false !default;
     &--short &__button {
       right: gutter(0.25);
     }
+
+    &--alt {
+      .sg-input {
+        padding-left: 50px;
+        background: rgba(255,255,255,0.5);
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.1);
+        border-radius: 7px;
+        border: none;
+        &::-webkit-input-placeholder {
+          color: #fff;
+        }
+        &::-moz-placeholder {
+          color: #fff;
+        }
+        &:-ms-input-placeholder {
+          color: #fff;
+        }
+        &:-moz-placeholder {
+          color: #fff;
+        }
+      }
+    }
+    &__icon-left {
+      left: gutter(0.25);
+    }
   }
 
 }

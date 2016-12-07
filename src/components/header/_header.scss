@@ -1,4 +1,3 @@
-$headerDominantColor: #65a6a8;
 $headerHeight:  rhythm(2.5); // 60px;
 
 $includeHtml: false !default;
@@ -6,18 +5,10 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-header {
-    @include image2x($sgImagesPath + 'header_background@2x.jpg', auto, $headerHeight);
     width: 100%;
     height: $headerHeight;
-    background-image: url($sgImagesPath + 'header_background.jpg');
-    background-repeat: repeat-x;
-    background-color: $headerDominantColor;
+    background-color: $bluePrimary;
     margin-bottom: rhythm(3) - $headerHeight;
-
-    @include sgBreakpoint(medium-up) {
-      @include image2x($sgImagesPath + 'header_background_wide@2x.jpg', auto, $headerHeight);
-      background-image: url($sgImagesPath + 'header_background_wide.jpg');
-    }
 
     &__container {
       display: flex;
