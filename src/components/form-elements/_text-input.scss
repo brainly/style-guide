@@ -36,9 +36,6 @@ $includeHtml: false !default;
     &:focus {
       outline: none;
       border-color: $inputFocusBorderColor;
-      &::placeholder {
-        color: $white;
-      }
     }
 
     &::placeholder {
@@ -52,6 +49,7 @@ $includeHtml: false !default;
       box-shadow: 0 1px 4px 0 $defaultBottomShadowColor;
       border-radius: 7px;
       border: none;
+
       &::placeholder {
         color: $white;
       }
