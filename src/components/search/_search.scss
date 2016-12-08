@@ -1,4 +1,4 @@
-
+$searchInputTransparentColor: rgba($white, 0.5);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -17,34 +17,41 @@ $includeHtml: false !default;
       align-items: center;
     }
 
+    &__icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: gutter(0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+    }
     &--short &__button {
       right: gutter(0.25);
     }
 
     &--alt {
       .sg-input {
-        padding-left: 50px;
-        background: rgba(255,255,255,0.5);
-        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.1);
+        padding-left: 40px;
+        background: $searchInputTransparentColor;
+        box-shadow: 0 1px 4px 0 $defaultBottomShadowColor;
         border-radius: 7px;
         border: none;
         &::-webkit-input-placeholder {
-          color: #fff;
+          color: $white;
         }
         &::-moz-placeholder {
-          color: #fff;
+          color: $white;
         }
         &:-ms-input-placeholder {
-          color: #fff;
+          color: $white;
         }
         &:-moz-placeholder {
-          color: #fff;
+          color: $white;
         }
       }
     }
-    &__icon-left {
-      left: gutter(0.25);
-    }
   }
-
 }
