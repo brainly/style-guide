@@ -23,7 +23,6 @@ $includeHtml: false !default;
     &--lead {
       .sg-toplayer__wrapper {
         @include sgBreakpoint(medium-up) {
-
           padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
         }
       }
@@ -78,14 +77,12 @@ $includeHtml: false !default;
     }
 
     &__header {
-      @include image2x($sgImagesPath + 'header_background_wide@2x.jpg', auto, 60px);
       display: flex;
       justify-content: flex-end;
       align-items: center;
       height: $toplayerHeaderHeight;
-      background-image: url($sgImagesPath + 'header_background_wide.jpg');
       background-repeat: repeat-x;
-      background-color: $toplayerHeaderDominantColor;
+      background-color: $bluePrimary;
       border-top-left-radius: $defaultBorderRadius;
       border-top-right-radius: $defaultBorderRadius;
     }
