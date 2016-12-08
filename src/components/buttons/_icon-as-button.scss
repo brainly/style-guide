@@ -146,13 +146,27 @@ $includeHtml: false !default;
         }
       }
     }
+
     &--transparent {
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
 
       &:hover {
+        fill: $iconAsButtonColor;
         background: $iconAsButtonTransparentColor;
       }
+
+      &.sg-icon-as-button--light {
+        fill: $iconAsButtonLightColor;
+      }
+      &.sg-icon-as-button--mint {
+        fill: $iconAsButtonMintColor;
+      }
+    }
+
+    &--transparent-active {
+      fill: $iconAsButtonColor;
+      background: $iconAsButtonTransparentColor;
     }
 
     &--action-active {
