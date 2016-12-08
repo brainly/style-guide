@@ -11,6 +11,7 @@ $iconAsButtonDarkActiveColor: rgba($iconAsButtonDarkColor, 0.7);
 $iconAsButtonMintColor: $mintPrimary;
 $iconAsButtonMintActiveColor: rgba($iconAsButtonMintColor, 0.7);
 $iconAsButtonActionColor: $white;
+$iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.1);
 
 $includeHtml: false !default;
 
@@ -143,6 +144,14 @@ $includeHtml: false !default;
         &.sg-icon-as-button--mint {
           background: $iconAsButtonMintColor;
         }
+      }
+    }
+    &--transparent {
+      transition: background 0.3s ease-out, fill 0.3s ease-out;
+      border-radius: 50%;
+
+      &:hover {
+        background: $iconAsButtonTransparentColor;
       }
     }
 
