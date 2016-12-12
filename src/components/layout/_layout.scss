@@ -5,9 +5,14 @@ $layoutContainerMarginTop: $headerHeight;
 $layoutGapWidth: gutter(5 / 6);
 
 .sg-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   &__container {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     max-width: $layoutMaxWidth;
     margin: $layoutContainerMarginTop auto;
 
@@ -73,7 +78,6 @@ $layoutGapWidth: gutter(5 / 6);
 
   &__content {
     min-width: 0;
-    flex-grow: 1;
     flex-shrink: 0;
     padding: 0;
     width: 100%;
@@ -81,6 +85,7 @@ $layoutGapWidth: gutter(5 / 6);
     @include sgBreakpoint(large-only) {
       max-width: calc(100% - #{$layoutAsideWidth + $layoutGapWidth});
       flex-basis: 1px;
+      flex-grow: 1;
     }
 
     &--no-max-width {
