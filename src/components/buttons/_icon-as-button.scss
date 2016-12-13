@@ -152,6 +152,14 @@ $includeHtml: false !default;
           background: $iconAsButtonGrayColor;
         }
 
+        &.sg-icon-as-button--gray-secondary {
+          background: $iconAsButtonGraySecondaryColor;
+        }
+        
+        &.sg-icon-as-button--gray-light {
+          background: $iconAsButtonGrayLightColor;
+        }
+
         &.sg-icon-as-button--dark {
           background: $iconAsButtonDarkColor;
         }
@@ -195,6 +203,14 @@ $includeHtml: false !default;
 
       &.sg-icon-as-button--gray {
         background: $iconAsButtonGrayColor;
+      }
+      
+      &.sg-icon-as-button--gray-secondary {
+        background: $iconAsButtonGraySecondaryColor;
+      }
+      
+      &.sg-icon-as-button--gray-light {
+        background: $iconAsButtonGrayLightColor;
       }
 
       &.sg-icon-as-button--dark {
