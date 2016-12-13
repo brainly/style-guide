@@ -6,6 +6,8 @@ $iconAsButtonGrayColor: $grayPrimary;
 $iconAsButtonGrayActiveColor: rgba($iconAsButtonGrayColor, 0.7);
 $iconAsButtonGraySecondaryColor: $graySecondary;
 $iconAsButtonGraySecondaryActiveColor: rgba($iconAsButtonGraySecondaryColor, 0.7);
+$iconAsButtonGrayLightColor: $grayLight;
+$iconAsButtonGrayLightActiveColor: rgba($iconAsButtonGrayLightColor, 0.7);
 $iconAsButtonDarkColor: $black;
 $iconAsButtonDarkActiveColor: rgba($iconAsButtonDarkColor, 0.7);
 $iconAsButtonMintColor: $mintPrimary;
@@ -99,6 +101,19 @@ $includeHtml: false !default;
       }
     }
 
+    &--gray-light {
+      fill: $iconAsButtonGrayLightColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonGrayLightActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonGrayLightColor;
+      }
+    }
+
     &--dark {
       fill: $iconAsButtonDarkColor;
 
@@ -135,6 +150,14 @@ $includeHtml: false !default;
 
         &.sg-icon-as-button--gray {
           background: $iconAsButtonGrayColor;
+        }
+
+        &.sg-icon-as-button--gray-secondary {
+          background: $iconAsButtonGraySecondaryColor;
+        }
+        
+        &.sg-icon-as-button--gray-light {
+          background: $iconAsButtonGrayLightColor;
         }
 
         &.sg-icon-as-button--dark {
@@ -180,6 +203,14 @@ $includeHtml: false !default;
 
       &.sg-icon-as-button--gray {
         background: $iconAsButtonGrayColor;
+      }
+      
+      &.sg-icon-as-button--gray-secondary {
+        background: $iconAsButtonGraySecondaryColor;
+      }
+      
+      &.sg-icon-as-button--gray-light {
+        background: $iconAsButtonGrayLightColor;
       }
 
       &.sg-icon-as-button--dark {
