@@ -13,3 +13,4 @@ node_modules
 /src/images/subjects-icons.js
 /src/images/icons.js
 /src/docs/_includes/components/
+/src/docs/_data/package.json
