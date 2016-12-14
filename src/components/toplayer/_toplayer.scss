@@ -1,6 +1,5 @@
-$toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
-$toplayerShadow: $defaultBottomShadow;
+$toplayerShadow: 0 2px 6px 3px $defaultBottomShadowColor;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: rhythm(1);
 $toplayerHeaderHeight: rhythm(1.25);
@@ -81,13 +80,13 @@ $includeHtml: false !default;
       align-items: center;
       height: $toplayerHeaderHeight;
       background-repeat: repeat-x;
-      background-color: $bluePrimary;
+      background-color: $white;
       border-top-left-radius: $defaultBorderRadius;
       border-top-right-radius: $defaultBorderRadius;
     }
 
     &__close {
-      color: $toplayerCrossColor;
+      color: $graySecondary;
       font-size: 32px;
       height: 20px;
       font-weight: $fontWeightBold;
