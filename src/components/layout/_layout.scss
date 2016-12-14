@@ -15,6 +15,7 @@ $layoutGapWidth: gutter(5 / 6);
     flex-grow: 1;
     max-width: 100%;
     margin: $layoutContainerMarginTop auto;
+    width: 100%;
 
     @include sgBreakpoint(medium-up) {
       margin-top: $layoutContainerMarginTop + rhythm(1);
