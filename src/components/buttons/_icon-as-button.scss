@@ -48,6 +48,14 @@ $includeHtml: false !default;
       }
     }
 
+    &--adaptive {
+      fill: inherit;
+      &:hover,
+      &:active {
+        fill: inherit;
+      }
+    }
+
     &--xsmall {
       .sg-icon-as-button__hole {
         width: 24px;
