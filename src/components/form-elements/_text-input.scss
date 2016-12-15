@@ -46,6 +46,7 @@ $includeHtml: false !default;
     }
 
     &--light {
+      transition: background 0.3s ease-out;
       background: $searchInputTransparentColor;
       box-shadow:  $searchInputBoxShadow;
       border-radius: 7px;
@@ -54,6 +55,10 @@ $includeHtml: false !default;
       &::placeholder {
         color: $white;
         font-weight: $fontWeightBold;
+      }
+
+      &:focus {
+        background: $white;
       }
     }
 
