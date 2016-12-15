@@ -48,6 +48,15 @@ $includeHtml: false !default;
       }
     }
 
+    &--adaptive {
+      fill: inherit;
+
+      &:hover,
+      &:active {
+        fill: inherit;
+      }
+    }
+
     &--xsmall {
       .sg-icon-as-button__hole {
         width: 24px;
@@ -182,6 +191,7 @@ $includeHtml: false !default;
       &.sg-icon-as-button--light {
         fill: $iconAsButtonLightColor;
       }
+
       &.sg-icon-as-button--mint {
         fill: $iconAsButtonMintColor;
       }
