@@ -3,7 +3,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-link {
-    @include removeDescenders;
+    @include removeDescenders();
     cursor: pointer;
     color: $bluePrimary;
     text-decoration: none;

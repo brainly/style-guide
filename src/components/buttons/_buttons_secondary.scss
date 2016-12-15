@@ -73,10 +73,10 @@ $includeHtml: false !default;
 }
 
 @mixin sgButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
-  border: none;
-  padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
   @include sgButtonBasicColors($bgColor, $textColor, $bgColor);
   @include sgButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
+  border: none;
+  padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
 
   &-inverse {
     @include sgButtonBasicColors($textColor, $hoverTextColor, $textColor);
@@ -94,7 +94,7 @@ $includeHtml: false !default;
     @include sgButtonBasicDimensions($buttonSecondaryHeight);
     @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
     @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-    @include hole;
+    @include hole();
 
     border-width: $buttonSecondaryBorderSize;
     border-style: solid;
@@ -144,7 +144,8 @@ $includeHtml: false !default;
   }
 
   .sg-button-secondary--action {
-    @include sgButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor, $buttonSecondaryActionTextColorHover);
+    @include sgButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor,
+      $buttonSecondaryActionTextColorHover);
   }
 
   .sg-button-secondary--light-blue {

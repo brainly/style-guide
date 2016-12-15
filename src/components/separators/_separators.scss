@@ -9,7 +9,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-separator {
-    @include component;
+    @include component();
     min-height: 0;
 
     margin-right: $separatorSpacing;

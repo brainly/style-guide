@@ -5,7 +5,7 @@ $includeHtml: false !default;
   .sg-content-box {
 
     &__title {
-      @include componentsContainer;
+      @include componentsContainer();
       min-height: rhythm(2);
 
       &--spaced {
@@ -16,7 +16,7 @@ $includeHtml: false !default;
     }
 
     &__header {
-      @include componentsContainer;
+      @include componentsContainer();
       height: rhythm(2);
 
       &--spaced {
@@ -40,7 +40,7 @@ $includeHtml: false !default;
     }
 
     &__actions {
-      @include componentsContainer;
+      @include componentsContainer();
       min-height: rhythm(2);
 
       &--with-elements-to-right {

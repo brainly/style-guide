@@ -29,7 +29,7 @@ $includeHtml: false !default;
     }
 
     &__label {
-      @include uppercaseText;
+      @include uppercaseText();
       float: left;
       font-weight: $fontWeightBold;
       font-size: $buttonRoundLabelFontSize;

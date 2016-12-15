@@ -20,7 +20,7 @@ $includeHtml: false !default;
     @include sgButtonBasicStyles();
     @include sgButtonBasicDimensions($buttonPrimaryHeight);
     @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonColor, $buttonActiveColor);
-    @include hole;
+    @include hole();
     border: none;
     font-size: $buttonPrimaryFontSize;
 

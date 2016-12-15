@@ -8,9 +8,11 @@ dist/
 node_modules
 *.css
 .sass-cache
+/npm-debug.log
 
 # Generated images
 /src/images/subjects-icons.js
 /src/images/icons.js
 /src/docs/_includes/components/
 /src/docs/_data/package.json
+

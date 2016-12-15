@@ -3,7 +3,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-search {
-    @include component;
+    @include component();
     overflow: visible;
     width: 100%;
 
@@ -18,7 +18,7 @@ $includeHtml: false !default;
       fill: $white;
     }
 
-    &__input:focus + &__button{
+    &__input:focus + &__button {
       fill: $graySecondary;
     }
 

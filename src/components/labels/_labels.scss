@@ -13,7 +13,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-label {
-    @include component;
+    @include component();
     overflow: visible;
     display: flex;
     align-items: center;
@@ -21,7 +21,7 @@ $includeHtml: false !default;
     &__text,
     &__number {
       @include fixText($labelFontSizePrimary, 2 / 16);
-      @include fixOperaMiniLabelText;
+      @include fixOperaMiniLabelText();
 
       display: block;
       color: $labelPrimaryColor;
@@ -74,7 +74,7 @@ $includeHtml: false !default;
       .sg-label__text,
       .sg-label__number {
         @include fixText($labelFontSizeSecondary);
-        @include fixOperaMiniLabelText;
+        @include fixOperaMiniLabelText();
 
         margin-right: $labelScaleFactor * gutter(0.25);
 
@@ -94,7 +94,7 @@ $includeHtml: false !default;
       .sg-label__text,
       .sg-label__number {
         @include fixText($labelFontSizeLarge);
-        @include fixOperaMiniLabelText;
+        @include fixOperaMiniLabelText();
 
         &:last-child {
           margin-right: 0;

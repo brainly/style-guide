@@ -14,8 +14,8 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-dropdown {
-    @include component;
-    @include hole;
+    @include component();
+    @include hole();
 
     overflow: visible;
     background-color: $dropdownBackground;

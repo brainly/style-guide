@@ -14,7 +14,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-select {
-    @include component;
+    @include component();
     font-size: $selectFontSize;
     color: $selectTextColor;
 

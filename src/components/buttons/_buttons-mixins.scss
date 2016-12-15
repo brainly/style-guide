@@ -1,5 +1,5 @@
 @mixin sgButtonBasicStyles() {
-  @include component;
+  @include component();
   @include uppercaseText(0.02rem);
   cursor: pointer;
   text-decoration: none;
