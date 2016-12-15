@@ -51,10 +51,12 @@ $includeHtml: false !default;
       box-shadow:  $searchInputBoxShadow;
       border-radius: 7px;
       border: none;
+
       &::placeholder {
         color: $white;
         font-weight: $fontWeightBold;
       }
+
       &:focus {
         background: $white;
       }
