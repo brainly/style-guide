@@ -23,7 +23,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-input {
-    @include component;
+    @include component();
     background: $inputBackground;
     border: 1px solid $inputBorderColor;
     border-radius: $inputBorderRadius;

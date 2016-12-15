@@ -51,6 +51,7 @@ $includeHtml: false !default;
 
   .sg-menu-list {
     @include sgListBasicStyles();
+
     &__element {
       box-sizing: border-box;
       height: rhythm(2);

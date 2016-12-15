@@ -11,7 +11,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-toplayer {
-    @include component;
+    @include component();
     overflow: visible;
     border-radius: $defaultBorderRadius;
     width: 100%;
@@ -103,7 +103,7 @@ $includeHtml: false !default;
     }
 
     &__actions {
-      @include componentsContainer;
+      @include componentsContainer();
       min-height: rhythm(2);
     }
   }

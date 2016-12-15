@@ -3,14 +3,14 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-overlayed-box {
-    @include component;
+    @include component();
     display: inline-flex;
 
     overflow: visible;
     vertical-align: inherit;
 
     &__overlay {
-      @include componentsContainer;
+      @include componentsContainer();
       position: absolute;
       right: - gutter(0.125);
       bottom: - gutter(0.125);

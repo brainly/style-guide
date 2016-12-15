@@ -14,7 +14,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-rate-box {
-    @include component;
+    @include component();
     display: flex;
     align-items: center;
     height: $rateHeight;
@@ -56,7 +56,7 @@ $includeHtml: false !default;
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
       @include uppercaseText(0);
-      @include fixOperaMiniLabelText;
+      @include fixOperaMiniLabelText();
 
       font-weight: $fontWeightBold;
       color: $rateCounterColor;
@@ -74,7 +74,7 @@ $includeHtml: false !default;
 
       .sg-rate-box__counter {
         @include fixText($rateSmallFontSize, 0.125rem);
-        @include fixOperaMiniLabelText;
+        @include fixOperaMiniLabelText();
       }
     }
   }
