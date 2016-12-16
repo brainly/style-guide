@@ -45,14 +45,13 @@
   // search
   var $searchBox = $('#js-search-box');
   var $searchResults = $('#js-search-results');
+  var searchResults = $searchResults[0];
 
   function removeClassActive(index) {
-    var searchResults = $searchResults[0];
     searchResults.children[index].classList.remove('active');
   }
 
   function addClassActive(index) {
-    var searchResults = $searchResults[0];
     searchResults.children[index].classList.add('active');
   }
 
@@ -69,7 +68,7 @@
     });
   }
 
-  $searchBox.on('input', function(e) {
+  $searchBox.on('input', function() {
     if($searchBox.val().length < 3) {
       return;
     }
@@ -97,7 +96,6 @@
         active++;
 
         if (active == children.length) {
-          console.log('check', active);
           removeClassActive(previousActive);
           active = -1;
           return;
@@ -117,8 +115,6 @@
         previousActive = active;
         active--;
 
-        console.log(active);
-
         if (active === -2 ) {
           active = children.length - 1;
           addClassActive(active);
@@ -132,7 +128,7 @@
 
       if (e.keyCode === 13) {   //enter
         var searchResults = $searchResults[0];
-        var href = searchResults.children[active].querySelector('a').getAttribute("href");
+        var href = searchResults.children[active].querySelector('a').getAttribute('href');
         location.assign(href);
       }
     });
