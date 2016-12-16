@@ -23,6 +23,16 @@ $includeHtml: false !default;
         font-size: fontSize(large);
       }
     }
+    &--small {
+      font-size: rhythm(1);
+      line-height: rhythm(1);
+
+      @include sgBreakpoint(medium-up) {
+        &:not(.sg-text-bit--not-responsive) {
+          @include typeVariant(subheader, 2);
+        }
+      }
+    }
 
     &--alt {
       color: $textBitAltColor;
