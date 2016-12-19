@@ -17,7 +17,7 @@ $includeHtml: false !default;
   .sg-textarea {
     background: $textareaBackground;
     border: 1px solid $textareaBorderColor;
-    border-radius: $smallBorderRadius;
+    border-radius: $borderRadiusSmall;
     color: $textareaTextColor;
     display: block;
     font-size: $textareaFontSize;

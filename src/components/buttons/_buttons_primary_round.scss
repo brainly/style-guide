@@ -33,7 +33,7 @@ $includeHtml: false !default;
       float: left;
       font-weight: $fontWeightBold;
       font-size: $buttonRoundLabelFontSize;
-      border-radius: $smallBorderRadius;
+      border-radius: $borderRadiusSmall;
       line-height: rhythm(0.5);
       background: $buttonRoundLabelBackground;
       color: $buttonRoundLabelColor;

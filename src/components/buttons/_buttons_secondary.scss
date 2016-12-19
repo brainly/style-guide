@@ -176,6 +176,6 @@ $includeHtml: false !default;
   .sg-button-secondary--small {
     @include sgButtonBasicDimensions($buttonSecondarySmallHeight);
     line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
-    border-radius: $smallBorderRadius;
+    border-radius: $borderRadiusSmall;
   }
 }
