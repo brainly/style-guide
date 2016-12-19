@@ -1,6 +1,5 @@
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
-$textareaBorderRadius:  $defaultBorderRadius / 2;
 $textareaFontSize: fontSize(default);
 $textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
@@ -18,7 +17,7 @@ $includeHtml: false !default;
   .sg-textarea {
     background: $textareaBackground;
     border: 1px solid $textareaBorderColor;
-    border-radius: $textareaBorderRadius;
+    border-radius: $smallBorderRadius;
     color: $textareaTextColor;
     display: block;
     font-size: $textareaFontSize;

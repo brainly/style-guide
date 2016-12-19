@@ -3,7 +3,6 @@ $sgPopupMenuPadding: rhythm(1 / 2);
 $sgPopupMenuTriangleBorder: rhythm(1 / 3);
 $sgPopupMenuHeight: rhythm(22 / 12); // 44px
 $sgPopupMenuBoxShadow: $defaultBottomShadow;
-$sgPopupMenuBorderRadiusTop: $defaultBorderRadius;
 
 $includeHtml: false !default;
 
@@ -20,7 +19,7 @@ $includeHtml: false !default;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-radius: $sgPopupMenuBorderRadiusTop $sgPopupMenuBorderRadiusTop 0 0;
+    border-radius: $defaultBorderRadius $defaultBorderRadius 0 0;
     box-shadow: $sgPopupMenuBoxShadow;
 
     &::before {

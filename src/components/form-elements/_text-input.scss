@@ -24,7 +24,7 @@ $includeHtml: false !default;
     @include component();
     background: $inputBackground;
     border: 1px solid $inputBorderColor;
-    border-radius: $defaultBorderRadius / 2;
+    border-radius: $smallBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
