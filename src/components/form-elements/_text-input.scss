@@ -1,7 +1,5 @@
 $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
-$inputBorderRadius: gutter(1 / 6);
-$inputLargeBorderRadius: gutter(1 / 3);
 
 $inputBackground: $white;
 $inputBorderColor: $graySecondary;
@@ -26,7 +24,7 @@ $includeHtml: false !default;
     @include component();
     background: $inputBackground;
     border: 1px solid $inputBorderColor;
-    border-radius: $inputBorderRadius;
+    border-radius: $borderRadiusSmall;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
@@ -49,7 +47,7 @@ $includeHtml: false !default;
       transition: background 0.3s ease-out;
       background: $searchInputTransparentColor;
       box-shadow:  $searchInputBoxShadow;
-      border-radius: 7px;
+      border-radius: $borderRadiusDefault;
       border: none;
 
       &::placeholder {
@@ -90,7 +88,7 @@ $includeHtml: false !default;
       @include sgBreakpoint(medium-up) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
-        border-radius: $inputLargeBorderRadius;
+        border-radius: $borderRadiusDefault;
         padding: 0 gutter(1);
 
         &::placeholder {

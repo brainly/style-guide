@@ -5,7 +5,6 @@ $dropdownBackground: $white;
 $dropdownHoverColor: $grayPrimary;
 $dropdownBorderColor: $graySecondary;
 $dropdownOpenedBorderColor: $grayPrimary;
-$dropdownBorderRadius: gutter(1 / 8);
 $dropdownActiveBackgroundColor: $blueSecondaryLight;
 $dropdownFontSize: fontSize(small);
 
@@ -20,7 +19,7 @@ $includeHtml: false !default;
     overflow: visible;
     background-color: $dropdownBackground;
     border: $dropdownBorderSize solid $dropdownBorderColor;
-    border-radius: $dropdownBorderRadius;
+    border-radius: $borderRadiusSmall;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
@@ -69,7 +68,7 @@ $includeHtml: false !default;
       background-color: $dropdownBackground;
       border: $dropdownBorderSize solid $dropdownOpenedBorderColor;
       border-top: none;
-      border-radius: 0 0 $dropdownBorderRadius $dropdownBorderRadius;
+      border-radius: 0 0 $borderRadiusSmall $borderRadiusSmall;
       left: -$dropdownBorderSize;
       right: -$dropdownBorderSize;
       z-index: 1;
@@ -117,7 +116,7 @@ $includeHtml: false !default;
     &--opened {
       background-color: $dropdownBackground;
       border-color: $dropdownOpenedBorderColor;
-      border-radius: $dropdownBorderRadius $dropdownBorderRadius 0 0;
+      border-radius: $borderRadiusSmall $borderRadiusSmall 0 0;
       border-bottom-color: transparent;
 
       &:hover,

@@ -21,7 +21,7 @@ $includeHtml: false !default;
     &__element {
       background: $selectBackground;
       border: 1px solid $selectBorderColor;
-      border-radius: gutter(1 / 8);
+      border-radius: $borderRadiusSmall;
       font-size: inherit;
       font-weight: $fontWeightBold;
       color: inherit;
