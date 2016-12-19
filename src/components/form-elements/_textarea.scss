@@ -78,5 +78,10 @@ $includeHtml: false !default;
     &--xtall {
       height: rhythm(7);
     }
+
+    &--auto-height {
+      line-height: rhythm(1);
+      height: auto;
+    }
   }
 }
