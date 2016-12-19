@@ -13,7 +13,7 @@ $includeHtml: false !default;
     align-items: flex-start;
     flex-wrap: wrap;
     min-height: rhythm(3);
-    border-radius: $defaultBorderRadius;
+    border-radius: $borderRadiusDefault;
     border: $boxBorderSize solid $boxBorderColor;
     padding: (gutter(1) - $boxBorderSize);
     overflow: visible;

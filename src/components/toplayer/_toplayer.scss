@@ -13,7 +13,7 @@ $includeHtml: false !default;
   .sg-toplayer {
     @include component();
     overflow: visible;
-    border-radius: $defaultBorderRadius;
+    border-radius: $borderRadiusDefault;
     width: 100%;
     box-shadow: $toplayerShadow;
     background-color: $toplayerBackgroundColor;
@@ -81,8 +81,8 @@ $includeHtml: false !default;
       height: $toplayerHeaderHeight;
       background-repeat: repeat-x;
       background-color: $white;
-      border-top-left-radius: $defaultBorderRadius;
-      border-top-right-radius: $defaultBorderRadius;
+      border-top-left-radius: $borderRadiusDefault;
+      border-top-right-radius: $borderRadiusDefault;
     }
 
     &__close {

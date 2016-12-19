@@ -62,10 +62,10 @@ $layoutMaximumWidth: 1024px;
 $layoutDefaultPadding: 24px;
 
 // Border radius
-$defaultBorderRadius: 8px;
-$largeBorderRadius: $defaultBorderRadius * 1.5;
-$smallBorderRadius: $defaultBorderRadius / 2;
-$xsmallBorderRadius: $defaultBorderRadius / 4;
+$borderRadiusDefault: 8px;
+$largeBorderRadius: $borderRadiusDefault * 1.5;
+$smallBorderRadius: $borderRadiusDefault / 2;
+$xsmallBorderRadius: $borderRadiusDefault / 4;
 
 
 // Vertical stack

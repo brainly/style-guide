@@ -19,7 +19,7 @@ $layoutGapWidth: gutter(5 / 6);
 
     @include sgBreakpoint(medium-up) {
       margin-top: $layoutContainerMarginTop + rhythm(1);
-      border-radius: $defaultBorderRadius;
+      border-radius: $borderRadiusDefault;
       max-width: $layoutMediumContentMaxWidth;
     }
 
@@ -115,7 +115,7 @@ $layoutGapWidth: gutter(5 / 6);
   &__box {
     padding: rhythm(1) gutter(1) 0;
     background-color: $white;
-    border-radius: $defaultBorderRadius;
+    border-radius: $borderRadiusDefault;
 
     @include sgBreakpoint('medium-up') {
       padding-bottom: rhythm(1);
