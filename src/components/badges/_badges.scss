@@ -4,7 +4,7 @@ $includeHtml: false !default;
 
   .sg-badge {
     display: inline-block;
-    border-radius: gutter(1 / 6);
+    border-radius: $defaultBorderRadius / 2;
     padding: gutter(1 / 8) gutter(1 / 4);
     background-color: $white;
 
@@ -37,11 +37,11 @@ $includeHtml: false !default;
     }
 
     &--rounded {
-      border-radius: gutter(1 / 2);
+      border-radius: $defaultBorderRadius * 1.5;
     }
 
     &--small {
-      border-radius: gutter(1 / 12);
+      border-radius: $defaultBorderRadius / 4;
       padding: gutter(1 / 24) gutter(1 / 6);
     }
 

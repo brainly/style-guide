@@ -1,7 +1,7 @@
 $mediaBackgroundColor: $white;
 $mediaFocusedBackgroundColor: $blueSecondaryLight;
 $mediaClickableBackgroundColor: $grayLight;
-$mediaBorderRadius: 4px;
+$mediaBorderRadius: $defaultBorderRadius / 2;
 $mediaItemColor: $black;
 $mediaItemSecondaryColor: $grayPrimary;
 

@@ -3,7 +3,7 @@ $sgPopupMenuPadding: rhythm(1 / 2);
 $sgPopupMenuTriangleBorder: rhythm(1 / 3);
 $sgPopupMenuHeight: rhythm(22 / 12); // 44px
 $sgPopupMenuBoxShadow: $defaultBottomShadow;
-$sgPopupMenuBorderRadiusTop: 8px;
+$sgPopupMenuBorderRadiusTop: $defaultBorderRadius;
 
 $includeHtml: false !default;
 

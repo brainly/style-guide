@@ -5,7 +5,7 @@ $dropdownBackground: $white;
 $dropdownHoverColor: $grayPrimary;
 $dropdownBorderColor: $graySecondary;
 $dropdownOpenedBorderColor: $grayPrimary;
-$dropdownBorderRadius: gutter(1 / 8);
+$dropdownBorderRadius: $defaultBorderRadius / 2;
 $dropdownActiveBackgroundColor: $blueSecondaryLight;
 $dropdownFontSize: fontSize(small);
 

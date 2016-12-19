@@ -1,6 +1,5 @@
 $boxBorderColor: $graySecondary;
 $boxBackgroundDark: $grayLight;
-$boxBorderRadius: 8px;
 $boxBorderSize: 1px;
 
 $includeHtml: false !default;
@@ -14,7 +13,7 @@ $includeHtml: false !default;
     align-items: flex-start;
     flex-wrap: wrap;
     min-height: rhythm(3);
-    border-radius: $boxBorderRadius;
+    border-radius: $defaultBorderRadius;
     border: $boxBorderSize solid $boxBorderColor;
     padding: (gutter(1) - $boxBorderSize);
     overflow: visible;

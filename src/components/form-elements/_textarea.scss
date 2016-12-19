@@ -1,6 +1,6 @@
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
-$textareaBorderRadius:  gutter(1 / 6);
+$textareaBorderRadius:  $defaultBorderRadius / 2;
 $textareaFontSize: fontSize(default);
 $textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
