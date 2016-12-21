@@ -7,7 +7,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-home-button {
-    @include component;
+    @include component();
 
     @include sgBreakpoint(large-only) {
       top: 2px;

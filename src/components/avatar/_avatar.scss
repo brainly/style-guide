@@ -1,4 +1,4 @@
-$avatarDefaultBackgroundColor: $grayPrimary;
+$avatarDefaultBackgroundColor: $graySecondary;
 $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
@@ -22,7 +22,7 @@ $includeHtml: false !default;
     height: $avatarMediumSize;
     border-radius: 50%;
     // workaround for the Chrome bug - crbug.com/157218
-    -webkit-perspective: 1px;
+    -webkit-perspective: 1px; // sass-lint:disable-line  no-vendor-prefixes
 
     &__image {
       position: relative;

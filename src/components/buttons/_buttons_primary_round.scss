@@ -29,11 +29,11 @@ $includeHtml: false !default;
     }
 
     &__label {
-      @include uppercaseText;
+      @include uppercaseText();
       float: left;
       font-weight: $fontWeightBold;
       font-size: $buttonRoundLabelFontSize;
-      border-radius: 4px;
+      border-radius: $borderRadiusSmall;
       line-height: rhythm(0.5);
       background: $buttonRoundLabelBackground;
       color: $buttonRoundLabelColor;

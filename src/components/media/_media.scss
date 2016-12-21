@@ -1,7 +1,6 @@
 $mediaBackgroundColor: $white;
 $mediaFocusedBackgroundColor: $blueSecondaryLight;
 $mediaClickableBackgroundColor: $grayLight;
-$mediaBorderRadius: 4px;
 $mediaItemColor: $black;
 $mediaItemSecondaryColor: $grayPrimary;
 
@@ -12,7 +11,7 @@ $mediaItemSecondaryColor: $grayPrimary;
   line-height: rhythm(1);
   min-height: rhythm(2.5);
   background-color: $mediaBackgroundColor;
-  border-radius: $mediaBorderRadius;
+  border-radius: $borderRadiusSmall;
 
   &--no-padding {
     padding: 0;

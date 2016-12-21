@@ -1,6 +1,5 @@
-$toplayerCrossColor: $white;
 $toplayerBackgroundColor: $white;
-$toplayerShadow: $defaultBottomShadow;
+$toplayerShadow: 0 2px 6px 3px $defaultBottomShadowColor;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: rhythm(1);
 $toplayerHeaderHeight: rhythm(1.25);
@@ -12,9 +11,9 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-toplayer {
-    @include component;
+    @include component();
     overflow: visible;
-    border-radius: $defaultBorderRadius;
+    border-radius: $borderRadiusDefault;
     width: 100%;
     box-shadow: $toplayerShadow;
     background-color: $toplayerBackgroundColor;
@@ -81,13 +80,13 @@ $includeHtml: false !default;
       align-items: center;
       height: $toplayerHeaderHeight;
       background-repeat: repeat-x;
-      background-color: $bluePrimary;
-      border-top-left-radius: $defaultBorderRadius;
-      border-top-right-radius: $defaultBorderRadius;
+      background-color: $white;
+      border-top-left-radius: $borderRadiusDefault;
+      border-top-right-radius: $borderRadiusDefault;
     }
 
     &__close {
-      color: $toplayerCrossColor;
+      color: $graySecondary;
       font-size: 32px;
       height: 20px;
       font-weight: $fontWeightBold;
@@ -104,7 +103,7 @@ $includeHtml: false !default;
     }
 
     &__actions {
-      @include componentsContainer;
+      @include componentsContainer();
       min-height: rhythm(2);
     }
   }

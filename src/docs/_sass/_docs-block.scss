@@ -10,6 +10,12 @@
     margin: 0;
   }
 
+  &__label {
+    position: absolute;
+    top: gutter(1/3);
+    left: gutter(1/3);
+  }
+
   &__info {
     flex: 0 1 auto;
     padding: 0 20px 0 0;
@@ -18,6 +24,10 @@
 
   &__content {
     flex: 1 1 auto;
+
+    &--with-label {
+      position: relative;
+    }
 
     &--centered {
       display: flex;
@@ -39,9 +49,9 @@
     &:hover {
       position: relative;
 
-      .docs-highlight-placeholder {
-        outline: 2px dashed white;
-        box-shadow: black 0 0 10px 0;
+      %docs-highlight-placeholder {
+        outline: 2px dashed $white;
+        box-shadow: $black 0 0 10px 0;
       }
     }
 
@@ -67,6 +77,7 @@
     &--full-width {
       width: 100%;
     }
+
     &--small-padding {
       padding: $baseline / 2;
     }
@@ -78,7 +89,7 @@
   }
 }
 
-body.show-holes {
+body.show-holes { // sass-lint:disable-line no-qualifying-elements
   .sg-bubble__hole,
   .sg-box__hole,
   .sg-promo-box__content,
@@ -97,6 +108,6 @@ body.show-holes {
   .sg-dropdown__hole,
   .sg-dropdown__item-hole,
   .sg-popup-menu__hole {
-    @extend .docs-highlight-placeholder;
+    @extend %docs-highlight-placeholder;
   }
 }

@@ -11,7 +11,7 @@ $includeHtml: false !default;
 
   .sg-checkbox,
   .sg-radio {
-    @include component;
+    @include component();
     overflow: visible;
     width: $crInputSize;
     height: $crInputSize;

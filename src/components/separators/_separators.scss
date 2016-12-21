@@ -9,7 +9,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-separator {
-    @include component;
+    @include component();
     min-height: 0;
 
     margin-right: $separatorSpacing;
@@ -22,6 +22,10 @@ $includeHtml: false !default;
       margin-right: $separatorSpacingSmall;
       padding-right: $separatorSpacingSmall;
       height: $separatorHeightSmall;
+    }
+
+    &--large {
+      height: rhythm(1.5);
     }
   }
 

@@ -1,6 +1,5 @@
 $boxBorderColor: $graySecondary;
 $boxBackgroundDark: $grayLight;
-$boxBorderRadius: 8px;
 $boxBorderSize: 1px;
 
 $includeHtml: false !default;
@@ -8,13 +7,13 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-box {
-    @include component;
-    @include hole;
+    @include component();
+    @include hole();
     display: inline-flex;
     align-items: flex-start;
     flex-wrap: wrap;
     min-height: rhythm(3);
-    border-radius: $boxBorderRadius;
+    border-radius: $borderRadiusDefault;
     border: $boxBorderSize solid $boxBorderColor;
     padding: (gutter(1) - $boxBorderSize);
     overflow: visible;

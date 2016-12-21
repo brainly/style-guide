@@ -9,6 +9,7 @@ $includeHtml: false !default;
     height: $headerHeight;
     background-color: $bluePrimary;
     margin-bottom: rhythm(3) - $headerHeight;
+    box-shadow: $defaultBottomShadow;
 
     &__container {
       display: flex;

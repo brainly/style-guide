@@ -26,13 +26,13 @@
                   </a>
                 </div>
                 <div class="sg-header__middle">
-                    <div class="sg-search sg-search--alt">
+                    <div class="sg-search">
                         <input type="search" placeholder="Find all the answers..."
-                               class="sg-input sg-input--light sg-input--full-width"/>
-                        <div class="sg-search__button sg-search__button">
-                            <button class="sg-icon-as-button sg-icon-as-button--small" type="submit">
+                               class="sg-search__input sg-input sg-input--light sg-input--full-width"/>
+                        <div class="sg-search__button">
+                            <button class="sg-icon-as-button sg-icon-as-button--small sg-icon-as-button--adaptive" type="submit">
                                 <div class="sg-icon-as-button__hole">
-                                    <svg class="sg-icon sg-icon--x18">
+                                    <svg class="sg-icon sg-icon--adaptive sg-icon--x18">
                                         <use xlink:href="#icon-search"></use>
                                     </svg>
                                 </div>
@@ -61,10 +61,18 @@
                         </div>
                     </button>
 
-                    <div class="sg-avatar sg-avatar--with-border">
-                        <img class="sg-avatar__image"
-                             src="https://source.unsplash.com/76x76/?man"/>
-                    </div>
+                    <button class="sg-icon-as-button sg-icon-as-button--transparent">
+                      <div class="sg-icon-as-button__hole">
+                        <div class="sg-avatar sg-avatar--small">
+                          <div class="sg-avatar__image sg-avatar__image--icon">
+                            <svg class="sg-icon sg-icon--x24 sg-icon--gray">
+                              <use xlink:href="#icon-profile"></use>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </button>
+
                 </div>
                 <div class="sg-header__right sg-hide-for-medium-up">
                     <button class="sg-icon-as-button sg-icon-as-button--light">

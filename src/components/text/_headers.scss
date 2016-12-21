@@ -3,7 +3,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-header-primary {
-    @include component;
+    @include component();
     @include typeVariant(header, 2);
     display: block;
     color: $black;

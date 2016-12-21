@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "68.1.0",
+  "version": "72.0.0",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -29,7 +29,7 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q src/**/*.scss",
+    "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",

@@ -60,7 +60,13 @@ $fontSizes: (
 // Layout
 $layoutMaximumWidth: 1024px;
 $layoutDefaultPadding: 24px;
-$defaultBorderRadius: 8px;
+
+// Border radius
+$borderRadiusDefault: 8px;
+$borderRadiusLarge: $borderRadiusDefault * 1.5;
+$borderRadiusSmall: $borderRadiusDefault / 2;
+$borderRadiusXsmall: $borderRadiusDefault / 4;
+
 
 // Vertical stack
 $sgHeaderZIndex: 101;

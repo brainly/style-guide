@@ -1,6 +1,5 @@
 $bubbleBackground: $white;
 $bubbleBorderColor: $grayLight;
-$bubbleBorderRadius: 8px;
 $bubbleBoxShadow: $defaultBottomShadow;
 
 $borderSize: 1px;
@@ -15,7 +14,7 @@ $includeHtml: false !default;
   .sg-bubble {
     background: $bubbleBackground;
     border: $borderSize solid $bubbleBorderColor;
-    border-radius: $bubbleBorderRadius;
+    border-radius: $borderRadiusDefault;
     box-shadow: $bubbleBoxShadow;
     padding: gutter(0.5) gutter(1);
     position: relative;

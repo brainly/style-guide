@@ -54,7 +54,8 @@
           padding: 0 15px;
 
 
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             background: $graySecondary;
           }
         }
@@ -126,14 +127,15 @@
     font-size: 12px;
     color: $black;
 
-    label, .version {
+    label,
+    .version {
       margin: 0 3px;
     }
 
     .version {
       color: $black;
       text-decoration: none;
-      
+
       &:hover {
         text-decoration: underline;
       }

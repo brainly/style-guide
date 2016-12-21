@@ -13,12 +13,13 @@ $layoutGapWidth: gutter(5 / 6);
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    max-width: $layoutMaxWidth;
+    max-width: 100%;
     margin: $layoutContainerMarginTop auto;
+    width: 100%;
 
     @include sgBreakpoint(medium-up) {
       margin-top: $layoutContainerMarginTop + rhythm(1);
-      border-radius: $defaultBorderRadius;
+      border-radius: $borderRadiusDefault;
       max-width: $layoutMediumContentMaxWidth;
     }
 
@@ -114,7 +115,7 @@ $layoutGapWidth: gutter(5 / 6);
   &__box {
     padding: rhythm(1) gutter(1) 0;
     background-color: $white;
-    border-radius: $defaultBorderRadius;
+    border-radius: $borderRadiusDefault;
 
     @include sgBreakpoint('medium-up') {
       padding-bottom: rhythm(1);

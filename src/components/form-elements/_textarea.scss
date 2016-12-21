@@ -1,6 +1,5 @@
 $textareaBackground: $white;
 $textareaBorderColor: $graySecondary;
-$textareaBorderRadius:  gutter(1 / 6);
 $textareaFontSize: fontSize(default);
 $textareaLineHeight: rhythm(0.792);
 $textareaTextColor: $black;
@@ -18,7 +17,7 @@ $includeHtml: false !default;
   .sg-textarea {
     background: $textareaBackground;
     border: 1px solid $textareaBorderColor;
-    border-radius: $textareaBorderRadius;
+    border-radius: $borderRadiusSmall;
     color: $textareaTextColor;
     display: block;
     font-size: $textareaFontSize;
@@ -78,6 +77,11 @@ $includeHtml: false !default;
 
     &--xtall {
       height: rhythm(7);
+    }
+
+    &--auto-height {
+      line-height: rhythm(1);
+      height: auto;
     }
   }
 }
