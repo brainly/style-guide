@@ -48,11 +48,19 @@
   var searchResults = $searchResults[0];
 
   function removeClassActive(index) {
-    searchResults.children[index].classList.remove('active');
+    if (index >= 0) {
+      searchResults.children[index].classList.remove('active');
+    } else {
+      return;
+    }
   }
 
   function addClassActive(index) {
-    searchResults.children[index].classList.add('active');
+    if (index >= 0) {
+      searchResults.children[index].classList.add('active');
+    } else {
+      return;
+    }
   }
 
   function searchElements(query) {
@@ -89,13 +97,16 @@
 
   $searchBox.on('keydown', function(e) {
       var children = $searchResults.children();
+      var arrowdown = e.keyCode === 40
+      var arrowup = e.keyCode === 38;
+      var enter = e.keyCode === 13;
 
-      if (e.keyCode === 40) {  //arrowdown
+      if (arrowdown) {
         e.preventDefault();
         var previousActive = active;
         active++;
 
-        if (active == children.length) {
+        if (active === children.length) {
           removeClassActive(previousActive);
           active = -1;
           return;
@@ -110,7 +121,7 @@
         }
       }
 
-      if (e.keyCode === 38) {   //arrowup
+      if (arrowup) {   //arrowup
         e.preventDefault();
         previousActive = active;
         active--;
@@ -126,7 +137,7 @@
         }
       }
 
-      if (e.keyCode === 13) {   //enter
+      if (enter) {
         var searchResults = $searchResults[0];
         var href = searchResults.children[active].querySelector('a').getAttribute('href');
         location.assign(href);
