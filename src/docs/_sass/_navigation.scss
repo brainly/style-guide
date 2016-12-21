@@ -59,6 +59,10 @@
             background: $graySecondary;
           }
         }
+
+        &.active {
+          background: $graySecondary;
+        }
       }
     }
   }
