@@ -12,7 +12,7 @@ $includeHtml: false !default;
 
     position: relative;
     width: 100%;
-    height: $sgPopupMenuHeight;
+    min-height: $sgPopupMenuHeight;
     padding: 0 ($sgPopupMenuPadding);
     margin: 0;
     background-color: $sgPopupMenuBackground;
@@ -31,6 +31,7 @@ $includeHtml: false !default;
       right: gutter(1);
       width: 0;
       margin: 0 auto;
+      pointer-events: none;
     }
 
     &__hole {
