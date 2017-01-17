@@ -1,66 +1,66 @@
 primary:
   - name: Black
     variable: $black
-    hex: "000000"
+    hex: "020a1a"
   - name: Mint
     variable: $mintPrimary
-    hex: 6ed6a0
+    hex: 56d9ab
   - name: Mint mid-tone
     variable: $mintSecondary
-    hex: a7e6c6
+    hex: aff3cf
   - name: Mint light
     variable: $mintSecondaryLight
-    hex: e1f6eb
+    hex: d5fae4
   - name: Blue
     variable: $bluePrimary
-    hex: 5bb8ff
+    hex: 49a2ff
   - name: Blue mid-tone
     variable: $blueSecondary
-    hex: abe3ff
+    hex: abe1ff
   - name: Blue light
     variable: $blueSecondaryLight
-    hex: ddf3ff
+    hex: daf3ff
 secondary:
   - name: Lavender
     variable: $lavenderPrimary
-    hex: 6e85ff
+    hex: 637de5
   - name: Lavender mid-tone
     variable: $lavenderSecondary
-    hex: bdc8fc
+    hex: b3c4ff
   - name: Lavender light
     variable: $lavenderSecondaryLight
-    hex: e8ecff
+    hex: e2e8ff
   - name: Peach
     variable: $peachPrimary
-    hex: ff8073
+    hex: ff6966
   - name: Peach mid-tone
     variable: $peachSecondary
-    hex: fdc7c1
+    hex: ffbeba
   - name: Peach light
     variable: $peachSecondaryLight
-    hex: ffe5e2
+    hex: ffe2e0
   - name: Mustard
     variable: $mustardPrimary
-    hex: ffbe32
+    hex: fec83c
   - name: Mustard mid-tone
     variable: $mustardSecondary
-    hex: ffdb8d
+    hex: ffde8c
   - name: Mustard light
     variable: $mustardSecondaryLight
-    hex: fff1d5
+    hex: fff5d5
 gray:
   - name: White
     variable: $white
     hex: ffffff
   - name: Gray
     variable: $grayPrimary
-    hex: 70747d
+    hex: 434e66
   - name: Gray mid-tone
     variable: $graySecondary
-    hex: a1a6b1
+    hex: 9fa6b5
   - name: Gray light
     variable: $grayLight
-    hex: dee2e5
+    hex: e1e8ed
   - name: Gray secondary light
     variable: $graySecondaryLight
     hex: f0f3f5
