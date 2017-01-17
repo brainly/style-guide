@@ -59,8 +59,8 @@ gray:
     variable: $graySecondary
     hex: 9fa6b5
   - name: Gray light
-    variable: $grayLight
+    variable: Light
     hex: e1e8ed
-  - name: Gray secondary light
-    variable: $graySecondaryLight
+  - name: Gray secondary lightest
+    variable: $graySecondaryLightest
     hex: f0f3f5

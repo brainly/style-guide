@@ -23,16 +23,15 @@ $white: #ffffff;
 $grayPrimary: #434e66;
 $graySecondary: #9fa6b5;
 $grayLight: #e1e8ed;
-$graySecondaryLight: #f0f3f5;
+$graySecondaryLightest: #f0f3f5;
 
 // Special colors - for games
 $bronze: #e99562;
 $silver: #c8cbd3;
 $gold: #f7cb6a;
-$games: #8e70ec;
 
 // this comment exists to suppress errors about these unused variables:
-// $bronze $silver $gold $games
+// $bronze $silver $gold
 
 // Shadows
 $defaultBottomShadowColor: rgba(0, 0, 0, 0.1);
