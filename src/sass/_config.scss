@@ -1,29 +1,37 @@
 // Primary colors
-$black: #000000;
-$mintPrimary: #6ed6a0;
-$mintSecondary: #a7e6c6;
-$mintSecondaryLight: #e1f6eb;
-$bluePrimary: #5bb8ff;
-$blueSecondary: #abe3ff;
-$blueSecondaryLight: #ddf3ff;
+$black: #020a1b;
+$mintPrimary: #56d9ab;
+$mintSecondary: #aff3cf;
+$mintSecondaryLight: #d5fae4;
+$bluePrimary: #49a2ff;
+$blueSecondary: #abe1ff;
+$blueSecondaryLight: #daf3ff;
 
 // Secondary colors
-$lavenderPrimary: #6e85ff;
-$lavenderSecondary: #bdc8fc;
-$lavenderSecondaryLight: #e8ecff;
-$peachPrimary: #ff8073;
-$peachSecondary: #fdc7c1;
-$peachSecondaryLight: #ffe5e2;
-$mustardPrimary: #ffbe32;
-$mustardSecondary: #ffdb8d;
-$mustardSecondaryLight: #fff1d5;
+$lavenderPrimary: #637de5;
+$lavenderSecondary: #b3c4ff;
+$lavenderSecondaryLight: #e2e8ff;
+$peachPrimary: #ff6966;
+$peachSecondary: #ffbeba;
+$peachSecondaryLight: #ffe2e0;
+$mustardPrimary: #fec83c;
+$mustardSecondary: #ffde8c;
+$mustardSecondaryLight: #fff5d5;
 
 // Grey colors
 $white: #ffffff;
-$grayPrimary: #70747d;
-$graySecondary: #a1a6b1;
-$grayLight: #dee2e5;
-$graySecondaryLight: #f0f3f5;
+$grayPrimary: #434e66;
+$graySecondary: #9fa6b5;
+$grayLight: #e1e8ed;
+$graySecondaryLightest: #f0f3f5;
+
+// Special colors - for games
+$bronze: #e99562;
+$silver: #c8cbd3;
+$gold: #f7cb6a;
+
+// this comment exists to suppress errors about these unused variables:
+// $bronze $silver $gold
 
 // Shadows
 $defaultBottomShadowColor: rgba(0, 0, 0, 0.1);
