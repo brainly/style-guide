@@ -4,16 +4,16 @@ primary:
     hex: "020a1a"
   - name: Mint
     variable: $mintPrimary
-    hex: 56d9ab
+    hex: 7ed7ac
   - name: Mint mid-tone
     variable: $mintSecondary
-    hex: aff3cf
+    hex: a8edc8
   - name: Mint light
     variable: $mintSecondaryLight
-    hex: d5fae4
+    hex: d8f8e5
   - name: Blue
     variable: $bluePrimary
-    hex: 49a2ff
+    hex: 57b2f8
   - name: Blue mid-tone
     variable: $blueSecondary
     hex: abe1ff
@@ -23,7 +23,7 @@ primary:
 secondary:
   - name: Lavender
     variable: $lavenderPrimary
-    hex: 637de5
+    hex: 7a8adb
   - name: Lavender mid-tone
     variable: $lavenderSecondary
     hex: b3c4ff
@@ -32,10 +32,10 @@ secondary:
     hex: e2e8ff
   - name: Peach
     variable: $peachPrimary
-    hex: ff6966
+    hex: ff796b
   - name: Peach mid-tone
     variable: $peachSecondary
-    hex: ffbeba
+    hex: ffb3ae
   - name: Peach light
     variable: $peachSecondaryLight
     hex: ffe2e0
