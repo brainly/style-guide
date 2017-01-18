@@ -58,8 +58,8 @@ gray:
   - name: Gray mid-tone
     variable: $graySecondary
     hex: 9fa6b5
-  - name: Gray light
-    variable: Light
+  - name: Gray secondary light
+    variable: $graySecondaryLight
     hex: e1e8ed
   - name: Gray secondary lightest
     variable: $graySecondaryLightest
