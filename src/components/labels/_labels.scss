@@ -50,13 +50,6 @@ $includeHtml: false !default;
       }
     }
 
-    &--unstyled {
-      .sg-label__text,
-      .sg-label__number {
-        color: inherit;
-      }
-    }
-
     &--emphasised {
       @include uppercaseText(0);
     }
@@ -107,6 +100,13 @@ $includeHtml: false !default;
         height: $labelIconSizeLarge;
       }
 
+    }
+
+    &--unstyled {
+      .sg-label__text,
+      .sg-label__number {
+        color: inherit;
+      }
     }
   }
 

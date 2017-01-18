@@ -1,38 +1,104 @@
-@mixin sgButtonBasicStyles() {
-  @include component();
-  @include uppercaseText(0.02rem);
+$buttonFontColor: $white;
+$buttonColor: $mintPrimary;
+$buttonAltColor: $bluePrimary;
+$buttonDarkColor: $grayPrimary;
+$buttonInverseColor: $white;
+
+$buttonInverseFontColor: $mintPrimary;
+$buttonInverseAltFontColor: $bluePrimary;
+$buttonInverseDarkFontColor: $grayPrimary;
+
+$buttonBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+$buttonHoverBoxShadow:  0 2px 16px 0 rgba(0, 0, 0, 0.25);
+$buttonActiveBoxShadow:  0 1px 3px 0 rgba(0, 0, 0, 0.2);
+$buttonActiveScale: scale(0.985);
+
+$buttonDisabledColor: $white;
+$buttonDisabledFontColor: $graySecondaryLight;
+
+@mixin sgButtonBasics() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  border: none;
+  user-select: none;
+  outline-width: 0;
   text-decoration: none;
+  text-overflow: ellipsis;
   font-weight: $fontWeightBold;
+  text-transform: uppercase;
+  box-shadow: $buttonBoxShadow;
+  transition-property: box-shadow, transform;
+  transition-duration: 0.3s;
+
+  &:hover,
+  &:focus {
+    box-shadow: $buttonHoverBoxShadow;
+  }
+
+  &:active {
+    box-shadow: $buttonActiveBoxShadow;
+    transform: $buttonActiveScale;
+  }
+
+  &:active:focus {
+    box-shadow: $buttonActiveBoxShadow;
+  }
 
   &:active,
   &:focus,
   &:hover {
     text-decoration: none;
   }
-}
 
-@mixin sgButtonBasicDimensions($height) {
-  border-radius: $height / 2;
-  height: $height;
-  padding: 0 $height / 2;
-}
-
-@mixin sgPrimaryButtonColors($fontColor, $backgroundColor, $activeBackgroundColor) {
-  color: $fontColor;
-  fill: $fontColor;
-  background-color: $backgroundColor;
-
-  &:active,
-  &:focus,
-  &:hover {
-    background-color: $activeBackgroundColor;
+  &--full-width {
+    width: 100%;
   }
-}
 
-@mixin sgButtonBasicColors($borderColor, $fontColor, $backgroundColor) {
-  border-color: $borderColor;
-  color: $fontColor;
-  fill: $fontColor;
-  background-color: $backgroundColor;
+  &--alt {
+    background-color: $buttonAltColor;
+  }
+
+  &--dark {
+    background-color: $buttonDarkColor;
+  }
+
+  &--inverse {
+    background-color: $buttonInverseColor;
+    color: $buttonInverseFontColor;
+    fill: $buttonInverseFontColor;
+  }
+
+  &--alt-inverse {
+    background-color: $buttonInverseColor;
+    color: $buttonInverseAltFontColor;
+    fill: $buttonInverseAltFontColor;
+  }
+
+  &--dark-inverse {
+    background-color: $buttonInverseColor;
+    color: $buttonInverseDarkFontColor;
+    fill: $buttonInverseDarkFontColor;
+  }
+
+  &--disabled {
+    background-color: $buttonDisabledColor;
+    color: $buttonDisabledFontColor;
+    fill: $buttonDisabledFontColor;
+    cursor: default;
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:active {
+      transform: none;
+    }
+
+    &:active,
+    &:hover {
+      box-shadow: $buttonBoxShadow;
+    }
+  }
 }
