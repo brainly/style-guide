@@ -20,6 +20,7 @@ $buttonDisabledFontColor: $graySecondaryLight;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   cursor: pointer;
   border: none;
   user-select: none;
@@ -50,6 +51,12 @@ $buttonDisabledFontColor: $graySecondaryLight;
   &:focus,
   &:hover {
     text-decoration: none;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &--full-width {
