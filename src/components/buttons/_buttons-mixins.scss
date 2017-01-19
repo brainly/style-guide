@@ -30,7 +30,7 @@ $buttonDisabledFontColor: $graySecondaryLight;
   font-weight: $fontWeightBold;
   text-transform: uppercase;
   box-shadow: $buttonBoxShadow;
-  transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform, opacity;
   transition-duration: 0.3s;
 
   &:hover,
@@ -90,22 +90,18 @@ $buttonDisabledFontColor: $graySecondaryLight;
   }
 
   &--disabled {
-    background-color: $buttonDisabledColor;
-    color: $buttonDisabledFontColor;
-    fill: $buttonDisabledFontColor;
+    opacity: 0.7;
     cursor: default;
-
-    &:focus {
-      box-shadow: none;
-    }
+    box-shadow: none;
 
     &:active {
       transform: none;
     }
 
     &:active,
+    &:focus,
     &:hover {
-      box-shadow: $buttonBoxShadow;
+      box-shadow: none;
     }
   }
 }

@@ -32,7 +32,7 @@ $includeHtml: false !default;
       background-color: $white;
       color: $peachPrimary;
       fill: $peachPrimary;
-      transition-property: box-shadow, transform, background-color, color, fill;
+      transition-property: box-shadow, transform, background-color, color, fill, opacity;
 
       &:hover,
       &:active,
