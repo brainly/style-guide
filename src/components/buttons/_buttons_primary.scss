@@ -20,12 +20,13 @@ $includeHtml: false !default;
 
     &--fb {
       text-transform: none;
+      padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
       background-color: $buttonPrimaryFbColor;
     }
 
     &__icon {
       display: inline-flex;
-      margin-right: gutter(1 / 2);
+      margin-right: $buttonPrimaryPadding / 2;
     }
   }
 }
