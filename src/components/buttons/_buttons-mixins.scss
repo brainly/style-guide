@@ -89,7 +89,7 @@ $buttonActiveScale: scale(0.985);
   &--disabled {
     opacity: 0.45;
     cursor: default;
-    box-shadow: none;
+    box-shadow: $buttonBoxShadow;
 
     &:active {
       transform: none;
@@ -98,7 +98,7 @@ $buttonActiveScale: scale(0.985);
     &:active,
     &:focus,
     &:hover {
-      box-shadow: none;
+      box-shadow: $buttonBoxShadow;
     }
   }
 }
