@@ -3,48 +3,78 @@
         <h3 class="docs-block__header">Primary buttons</h3>
     </aside>
     <div class="docs-block__content docs-block__content--align-top">
-        <a class="sg-button-primary">
-            <div class="sg-button-primary__hole">
-                Add question
-            </div>
-        </a>
+        <button class="sg-button-primary">
+            Add your answer
+        </button>
         <button class="sg-button-primary sg-button-primary--alt">
-            <div class="sg-button-primary__hole">
-                Search!
-            </div>
+            Ask your question
         </button>
         <button class="sg-button-primary sg-button-primary--dark">
-            <div class="sg-button-primary__hole">
-                Search!
+            Search
+        </button>
+        <button class="sg-button-primary sg-button-primary--disabled">
+            Disabled
+        </button>
+
+        <br>
+        <br>
+        <button class="sg-button-primary sg-button-primary--fb">
+            <div class="sg-button-primary__container">
+                    <span class="sg-button-primary__icon">
+                    <svg class="sg-icon sg-icon--x16 sg-icon--adaptive">
+                        <use xlink:href="#icon-fb"></use>
+                    </svg>
+                </span>
+                Login with Facebook
             </div>
         </button>
-        <a class="sg-button-primary sg-button-primary--fb">
-            <div class="sg-button-primary__hole">
-                Via Facebook
-            </div>
-        </a>
     </div>
 </section>
+
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Primary button wide</h3>
+        <h3 class="docs-block__header">Primary buttons wide</h3>
     </aside>
-    <div class="docs-block__content">
-        <a class="sg-button-primary sg-button-primary--full">
-            <div class="sg-button-primary__hole">
-                Add question
-            </div>
-        </a>
+    <div class="docs-block__content docs-block__content--align-top">
+        <button class="sg-button-primary sg-button-primary--full-width">
+            Search
+        </button>
     </div>
 </section>
+
+<section class="docs-block">
+    <aside class="docs-block__info">
+        <h3 class="docs-block__header">Primary buttons inverted</h3>
+    </aside>
+    <div class="docs-block__content">
+        <div class="docs-block__contrast-box">
+            <button class="sg-button-primary sg-button-primary--inverse">
+                Search
+            </button>
+
+            <button class="sg-button-primary sg-button-primary--alt-inverse">
+                Search
+            </button>
+
+            <button class="sg-button-primary sg-button-primary--dark-inverse">
+                Search
+            </button>
+
+            <button class="sg-button-primary sg-button-primary--inverse sg-button-primary--disabled">
+                Disabled
+            </button>
+        </div>
+    </div>
+</section>
+
 <section class="docs-block">
     <aside class="docs-block__info">
         <h3 class="docs-block__header">Primary round button</h3>
     </aside>
     <div class="docs-block__content">
-        <a class="sg-button-primary-round">
+        <a href="#" class="sg-button-primary-round">
             <div class="sg-button-primary-round__icon">
-                <svg class="sg-icon sg-icon--x20">
+                <svg class="sg-icon sg-icon--x16">
                     <use xlink:href="#icon-plus"></use>
                 </svg>
             </div>
@@ -52,60 +82,40 @@
         </a>
     </div>
 </section>
+
 <section class="docs-block">
     <aside class="docs-block__info">
         <h3 class="docs-block__header">Secondary buttons</h3>
     </aside>
     <div class="docs-block__content docs-block__content--align-top">
-        <a class="sg-button-secondary">
-            <div class="sg-button-secondary__hole">
-              <svg class="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlink:href="#icon-search"></use>
-              </svg>
-            </div>
+        <a href="#" class="sg-button-secondary">
+          <svg class="sg-icon sg-icon--x14 sg-icon--adaptive">
+            <use xlink:href="#icon-search"></use>
+          </svg>
         </a>
+
+        <button class="sg-button-secondary">
+            Search
+        </button>
         <button class="sg-button-secondary sg-button-secondary--alt">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
+            Search
         </button>
         <button class="sg-button-secondary sg-button-secondary--dark">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--peach">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--gray">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--action">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
+            Search
         </button>
         <button class="sg-button-secondary sg-button-secondary--disabled">
-          <div class="sg-button-secondary__hole">
             Disabled
-          </div>
         </button>
-        <div class="docs-block__contrast-box">
-            <a class="sg-button-secondary sg-button-secondary--light">
-                <div class="sg-button-secondary__hole">
-                    Search!
-                </div>
-            </a>
-        </div>
 
-        <button class="sg-button-secondary sg-button-secondary--light-blue">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
+    </div>
+</section>
+<section class="docs-block">
+    <aside class="docs-block__info">
+        <h3 class="docs-block__header">Secondary buttons wide</h3>
+    </aside>
+    <div class="docs-block__content docs-block__content--align-top">
+        <button class="sg-button-secondary sg-button-secondary--full-width">
+            Search
         </button>
     </div>
 </section>
@@ -114,50 +124,27 @@
         <h3 class="docs-block__header">Secondary buttons inverted</h3>
     </aside>
     <div class="docs-block__content">
-        <button class="sg-button-secondary sg-button-secondary--inverse">
-            <div class="sg-button-secondary__hole">
+        <div class="docs-block__contrast-box">
+            <button class="sg-button-secondary sg-button-secondary--inverse">
               <svg class="sg-icon sg-icon--x14 sg-icon--adaptive">
                 <use xlink:href="#icon-search"></use>
               </svg>
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--alt-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--dark-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--peach-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--gray-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--action-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <div class="docs-block__contrast-box">
-            <button class="sg-button-secondary sg-button-secondary--light-inverse">
-                <div class="sg-button-secondary__hole">
-                    Search!
-                </div>
+            </button>
+
+            <button class="sg-button-secondary sg-button-secondary--inverse">
+                Search
+            </button>
+
+            <button class="sg-button-secondary sg-button-secondary--alt-inverse">
+                Search
+            </button>
+            <button class="sg-button-secondary sg-button-secondary--dark-inverse">
+                Search
+            </button>
+            <button class="sg-button-secondary sg-button-secondary--inverse sg-button-secondary--disabled">
+                Disabled
             </button>
         </div>
-        <button class="sg-button-secondary sg-button-secondary--light-blue-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
     </div>
 </section>
 <section class="docs-block">
@@ -167,46 +154,22 @@
     <div class="docs-block__content">
         <button class="sg-button-secondary sg-button-secondary--small">
             <div class="sg-button-secondary__hole">
-                Search!
+                Search
             </div>
         </button>
         <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--alt">
             <div class="sg-button-secondary__hole">
-                Search!
+                Search
             </div>
         </button>
         <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--dark">
             <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--peach">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--gray">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--action">
-            <div class="sg-button-secondary__hole">
-                Search!
+                Search
             </div>
         </button>
         <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--disabled">
-            <div class="sg-button-secondary__hole">
-                Disabled
-            </div>
+            Disabled
         </button>
-        <div class="docs-block__contrast-box">
-            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--light">
-                <div class="sg-button-secondary__hole">
-                    Search!
-                </div>
-            </button>
-        </div>
     </div>
 </section>
 <section class="docs-block">
@@ -214,65 +177,24 @@
         <h3 class="docs-block__header">Secondary buttons small inverted</h3>
     </aside>
     <div class="docs-block__content">
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--alt-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--dark-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--peach-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--gray-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--action-inverse">
-            <div class="sg-button-secondary__hole">
-                Search!
-            </div>
-        </button>
         <div class="docs-block__contrast-box">
-            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--light-inverse">
-                <div class="sg-button-secondary__hole">
-                    Search!
-                </div>
+            <button class="sg-button-secondary sg-button-secondary--inverse sg-button-secondary--small">
+                Search
             </button>
-        </div>
-    </div>
-</section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Secondary buttons with icons</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="sg-button-secondary sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
-                <div class="sg-label sg-label--secondary">
-                    <div class="sg-label__icon">
-                        <svg class="sg-icon sg-icon--x16 sg-icon--peach">
-                            <use xlink:href="#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="sg-label__text">Thank you</div>
-                    <div class="sg-label__number">21</div>
-                </div>
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
+            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--alt-inverse">
+                Search
+            </button>
+            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--dark-inverse">
+                Search
+            </button>
+            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse sg-button-secondary--disabled">
+                Disabled
+            </button>
+
+            <br>
+            <br>
+
+            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
                 <div class="sg-label sg-label--secondary">
                     <div class="sg-label__icon">
                         <svg class="sg-icon sg-icon--x16 sg-icon--lavender">
@@ -282,10 +204,9 @@
                     <div class="sg-label__text">Comment</div>
                     <div class="sg-label__number">21</div>
                 </div>
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
+            </button>
+
+            <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
                 <div class="sg-label">
                     <div class="sg-label__icon">
                         <svg class="sg-icon sg-icon--x16 sg-icon--mustard">
@@ -294,64 +215,29 @@
                     </div>
                     <div class="sg-label__text">Mark as brainliest</div>
                 </div>
-            </div>
-        </button>
-    </div>
-</section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Secondary buttons small with icons</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
-                <div class="sg-label sg-label--small sg-label--secondary">
-                    <div class="sg-label__icon">
-                        <svg class="sg-icon sg-icon--x14 sg-icon--peach">
-                            <use xlink:href="#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="sg-label__text">Thank you</div>
-                    <div class="sg-label__number">21</div>
-                </div>
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
-                <div class="sg-label sg-label--small sg-label--secondary">
-                    <div class="sg-label__icon">
-                        <svg class="sg-icon sg-icon--x14 sg-icon--lavender">
-                            <use xlink:href="#icon-comment"></use>
-                        </svg>
-                    </div>
-                    <div class="sg-label__text">Comment</div>
-                    <div class="sg-label__number">21</div>
-                </div>
-            </div>
-        </button>
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--with-icon">
-            <div class="sg-button-secondary__hole">
-                <div class="sg-label sg-label--small">
-                    <div class="sg-label__icon">
-                        <svg class="sg-icon sg-icon--x14 sg-icon--mustard">
-                            <use xlink:href="#icon-excellent"></use>
-                        </svg>
-                    </div>
-                    <div class="sg-label__text">Mark as brainliest</div>
-                </div>
-            </div>
-        </button>
-    </div>
-</section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Secondary button wide</h3>
-    </aside>
-    <div class="docs-block__content">
-        <button class="sg-button-secondary sg-button-secondary--full">This button is wide</button>
+            </button>
 
-        <button class="sg-button-secondary sg-button-secondary--alt-inverse sg-button-secondary--small sg-button-secondary--full">
-            This one to!
+        </div>
+    </div>
+</section>
+
+<section class="docs-block">
+    <aside class="docs-block__info">
+        <h3 class="docs-block__header">Secondary buttons small active and inverted</h3>
+    </aside>
+    <div class="docs-block__content">
+
+        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--active-inverse">
+            <div class="sg-label sg-label--secondary sg-label--unstyled">
+                <div class="sg-label__icon">
+                    <svg class="sg-icon sg-icon--x16 sg-icon--adaptive">
+                        <use xlink:href="#icon-heart"></use>
+                    </svg>
+                </div>
+                <div class="sg-label__text">Thank you</div>
+                <div class="sg-label__number">21</div>
+            </div>
         </button>
+
     </div>
 </section>

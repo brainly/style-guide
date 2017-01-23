@@ -1,45 +1,32 @@
 $buttonPrimaryHeight: rhythm(3 / 2);
-$buttonPrimaryFontSize: fontSize(small);
-$buttonPrimaryFontColor: $white;
-
-$buttonColor: $mintPrimary;
-$buttonActiveColor: $mintSecondary;
-$buttonAltColor: $bluePrimary;
-$buttonActiveAltColor: $blueSecondary;
-$buttonDarkColor: $black;
-$buttonActiveDarkColor: #262626;
-$buttonFbColor: #3b579d;
-$buttonActiveFbColor: #4668b2;
+$buttonPrimaryFontSize: fontSize(default);
+$buttonPrimaryBorderRadius: 9px;
+$buttonPrimaryPadding: gutter(1);
+$buttonPrimaryFbColor: #3b5998;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  // Primary buttons
   .sg-button-primary {
-    @include sgButtonBasicStyles();
-    @include sgButtonBasicDimensions($buttonPrimaryHeight);
-    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonColor, $buttonActiveColor);
-    @include hole();
-    border: none;
+    @include sgButtonBasics();
+    border-radius: $buttonPrimaryBorderRadius;
+    height: $buttonPrimaryHeight;
+    padding: 0 $buttonPrimaryPadding;
     font-size: $buttonPrimaryFontSize;
+    color: $buttonFontColor;
+    fill: $buttonFontColor;
+    background-color: $buttonColor;
 
-    &--full {
-      width: 100%;
-      text-align: center;
+    &--fb {
+      text-transform: none;
+      padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
+      background-color: $buttonPrimaryFbColor;
+    }
+
+    &__icon {
+      display: inline-flex;
+      margin-right: $buttonPrimaryPadding / 2;
     }
   }
-
-  .sg-button-primary--alt {
-    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonAltColor, $buttonActiveAltColor);
-  }
-
-  .sg-button-primary--dark {
-    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonDarkColor, $buttonActiveDarkColor);
-  }
-
-  .sg-button-primary--fb {
-    @include sgPrimaryButtonColors($buttonPrimaryFontColor, $buttonFbColor, $buttonActiveFbColor);
-  }
 }
-

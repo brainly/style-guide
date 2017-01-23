@@ -1,181 +1,46 @@
-$buttonSecondaryBorderSize: 1px;
-$buttonSecondaryHeight: rhythm(7 / 6);
-$buttonSecondarySmallHeight: gutter(1);
-$buttonSecondaryFontSize: fontSize(obscure);
+$buttonSecondaryHeight: rhythm(5 / 4);
+$buttonSecondaryFontSize: fontSize(small);
+$buttonSecondaryBorderRadius: 7px;
+$buttonSecondaryPadding: gutter(3 / 4);
 
-$buttonSecondaryColor: $mintPrimary;
-$buttonSecondaryTextColorHover: $white;
-$buttonSecondaryAltColor: $bluePrimary;
-$buttonSecondaryAltTextColorHover: $white;
-$buttonSecondaryDarkColor: $black;
-$buttonSecondaryDarkTextColorHover: $white;
-$buttonSecondaryPeachColor: $peachPrimary;
-$buttonSecondaryPeachTextColorHover: $white;
-$buttonSecondaryGrayColor: $grayPrimary;
-$buttonSecondaryGrayTextColorHover: $white;
-$buttonSecondaryLightColor: $white;
-$buttonSecondaryLightTextColorHover: $black;
-$buttonSecondaryActionColor: $graySecondaryLight;
-$buttonSecondaryActionTextColor: $black;
-$buttonSecondaryActionTextColorHover: $white;
-$buttonSecondaryLightBlueColor: $blueSecondary;
-$buttonSecondaryLightBlueTextColorHover: $white;
-
-$buttonSecondaryDisabledColor: $graySecondaryLight;
-$buttonSecondaryDisabledTextColor: $graySecondaryLight;
-
-$buttonSecondaryIconColor: $graySecondary;
-$buttonSecondaryIconBorderColorHover: $grayPrimary;
+$buttonSecondarySmallHeight: rhythm(1);
+$buttonSecondarySmallFontSize: fontSize(obscure);
+$buttonSecondarySmallBorderRadius: 5px;
+$buttonSecondarySmallPadding: 14px;
 
 $includeHtml: false !default;
 
-
-@mixin sgButtonSecondaryActive($borderColor, $fontColor, $backgroundColor) {
-  $activeFontColor: rgba($fontColor, 0.7);
-
-  &:hover,
-  &:focus {
-    border-color: $borderColor;
-    color: $fontColor;
-    fill: $fontColor;
-    background-color: $backgroundColor;
-  }
-
-  &:active {
-    color: $activeFontColor;
-    fill: $activeFontColor;
-    outline: none;
-  }
-
-  &:active &__hole {
-    opacity: 0.7;
-  }
-}
-
-@mixin sgButtonSecondaryWithIconActive($borderColor, $textColor) {
-  &:hover,
-  &:focus {
-    color: $textColor;
-    background-color: transparent;
-    border-color: $borderColor;
-    transition: border-color 0.1s ease-in;
-  }
-}
-
-@mixin sgButtonSecondaryTwoColorVariant($colorOne, $colorTwo) {
-  @include sgButtonBasicColors($colorOne, $colorOne, transparent);
-  @include sgButtonSecondaryActive($colorOne, $colorTwo, $colorOne);
-
-  &-inverse {
-    @include sgButtonBasicColors($colorOne, $colorTwo, $colorOne);
-    @include sgButtonSecondaryActive($colorOne, $colorOne, transparent);
-  }
-}
-
-@mixin sgButtonSecondaryThreeColorVariant($bgColor, $textColor, $hoverTextColor) {
-  @include sgButtonBasicColors($bgColor, $textColor, $bgColor);
-  @include sgButtonSecondaryActive($textColor, $hoverTextColor, $textColor);
-  border: none;
-  padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
-
-  &-inverse {
-    @include sgButtonBasicColors($textColor, $hoverTextColor, $textColor);
-    @include sgButtonSecondaryActive($bgColor, $textColor, $bgColor);
-    border: none;
-    padding: 0 $buttonSecondaryHeight / 2 + 0.125rem;
-  }
-}
-
 @if ($includeHtml) {
-
-  // Secondary buttons
   .sg-button-secondary {
-    @include sgButtonBasicStyles();
-    @include sgButtonBasicDimensions($buttonSecondaryHeight);
-    @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryColor, $buttonSecondaryTextColorHover);
-    @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-    @include hole();
-
-    border-width: $buttonSecondaryBorderSize;
-    border-style: solid;
-    background-color: transparent;
+    @include sgButtonBasics();
+    border-radius: $buttonSecondaryBorderRadius;
+    height: $buttonSecondaryHeight;
+    padding: 0 $buttonSecondaryPadding;
     font-size: $buttonSecondaryFontSize;
-    font-weight: $fontWeightBold;
-    transition: background-color 0.3s ease-out, color 0.3s ease-out, fill 0.3s ease-out;
+    color: $buttonFontColor;
+    fill: $buttonFontColor;
+    background-color: $buttonColor;
 
-    &:hover,
-    &:focus {
-      outline: none;
+    &--small {
+      padding: 0 $buttonSecondarySmallPadding;
+      height: $buttonSecondarySmallHeight;
+      border-radius: $buttonSecondarySmallBorderRadius;
+      font-size: $buttonSecondarySmallFontSize;
     }
 
-    &--inverse {
-      @include sgButtonBasicColors($buttonSecondaryColor, $buttonSecondaryTextColorHover, $buttonSecondaryColor);
-      @include sgButtonSecondaryActive($buttonSecondaryColor, $buttonSecondaryColor, transparent);
-    }
+    &--active-inverse {
+      background-color: $white;
+      color: $peachPrimary;
+      fill: $peachPrimary;
+      transition-property: box-shadow, transform, background-color, color, fill, opacity;
 
-    &--full {
-      width: 100%;
-      text-align: center;
-    }
-
-    &__hole {
-      white-space: nowrap;
-    }
-  }
-
-  .sg-button-secondary--alt {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryAltColor, $buttonSecondaryAltTextColorHover);
-  }
-
-  .sg-button-secondary--dark {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryDarkColor, $buttonSecondaryDarkTextColorHover);
-  }
-
-  .sg-button-secondary--peach {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryPeachColor, $buttonSecondaryPeachTextColorHover);
-  }
-
-  .sg-button-secondary--gray {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryGrayColor, $buttonSecondaryGrayTextColorHover);
-  }
-
-  .sg-button-secondary--light {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryLightColor, $buttonSecondaryLightTextColorHover);
-  }
-
-  .sg-button-secondary--action {
-    @include sgButtonSecondaryThreeColorVariant($buttonSecondaryActionColor, $buttonSecondaryActionTextColor,
-      $buttonSecondaryActionTextColorHover);
-  }
-
-  .sg-button-secondary--light-blue {
-    @include sgButtonSecondaryTwoColorVariant($buttonSecondaryLightBlueColor, $buttonSecondaryLightBlueTextColorHover);
-  }
-
-  .sg-button-secondary--disabled {
-    @include sgButtonBasicColors($buttonSecondaryDisabledColor, $buttonSecondaryDisabledTextColor, transparent);
-    @include sgButtonSecondaryActive($buttonSecondaryDisabledColor, $buttonSecondaryDisabledTextColor, transparent);
-    cursor: default;
-
-    &:active {
-      color: $buttonSecondaryDisabledColor;
-      fill: $buttonSecondaryDisabledColor;
-      outline: none;
-
-      .sg-button-secondary__hole {
-        opacity: 1;
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $peachPrimary;
+        color: $white;
+        fill: $white;
       }
     }
-  }
-
-  .sg-button-secondary--with-icon {
-    @include sgButtonBasicColors($buttonSecondaryIconColor, $buttonSecondaryIconColor, transparent);
-    @include sgButtonSecondaryWithIconActive($buttonSecondaryIconBorderColorHover, $buttonSecondaryIconColor);
-  }
-
-  .sg-button-secondary--small {
-    @include sgButtonBasicDimensions($buttonSecondarySmallHeight);
-    line-height: $buttonSecondarySmallHeight - $buttonSecondaryBorderSize;
-    border-radius: $borderRadiusSmall;
   }
 }
