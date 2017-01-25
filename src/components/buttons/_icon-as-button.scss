@@ -12,6 +12,8 @@ $iconAsButtonDarkColor: $black;
 $iconAsButtonDarkActiveColor: rgba($iconAsButtonDarkColor, 0.7);
 $iconAsButtonMintColor: $mintPrimary;
 $iconAsButtonMintActiveColor: rgba($iconAsButtonMintColor, 0.7);
+$iconAsButtonPeachColor: $peachPrimary;
+$iconAsButtonPeachActiveColor: rgba($iconAsButtonPeachColor, 0.7);
 $iconAsButtonActionColor: $white;
 $iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.2);
 
@@ -149,6 +151,19 @@ $includeHtml: false !default;
       }
     }
 
+    &--peach {
+      fill: $iconAsButtonPeachColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonPeachActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonPeachColor;
+      }
+    }
+
     &--action {
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
@@ -175,6 +190,10 @@ $includeHtml: false !default;
 
         &.sg-icon-as-button--mint {
           background: $iconAsButtonMintColor;
+        }
+
+        &.sg-icon-as-button--peach {
+          background: $iconAsButtonPeachColor;
         }
       }
     }
@@ -229,6 +248,10 @@ $includeHtml: false !default;
 
       &.sg-icon-as-button--mint {
         background: $iconAsButtonMintColor;
+      }
+
+      &.sg-icon-as-button--peach {
+        background: $iconAsButtonPeachColor;
       }
     }
   }
