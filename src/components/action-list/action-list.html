@@ -1,26 +1,10 @@
 <section class="docs-block">
   <aside class="docs-block__info">
-    <h3 class="docs-block__header">Action list simple</h3>
-
-  </aside>
-  <div class="docs-block__content">
-    <div class="sg-actions-list sg-actions-list--space-between">
-      <div class="sg-actions-list__hole">
-        <button class="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-          Answer
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="docs-block">
-  <aside class="docs-block__info">
     <h3 class="docs-block__header">Action list space between</h3>
 
   </aside>
   <div class="docs-block__content">
-    <div class="sg-actions-list sg-actions-list--no-wrap sg-actions-list--space-between-alt">
+    <div class="sg-actions-list sg-actions-list--no-wrap sg-actions-list--space-between">
 
       <div class="sg-actions-list__hole sg-actions-list__hole--no-shrink">
 
@@ -70,7 +54,30 @@
 
 <section class="docs-block">
   <aside class="docs-block__info">
-    <h3 class="docs-block__header">Action list navigation</h3>
+    <h3 class="docs-block__header">Action list to right</h3>
+  </aside>
+
+  <div class="docs-block__content">
+    <div class="docs-block__contrast-box docs-block__contrast-box--full-width">
+      <div class="sg-actions-list sg-actions-list--to-right">
+        <div class="sg-actions-list__hole">
+          <button class="sg-button-secondary sg-button-secondary--alt sg-button-secondary--small">
+            accept
+          </button>
+        </div>
+        <div class="sg-actions-list__hole">
+          <button class="sg-button-secondary sg-button-secondary--alt-inverse sg-button-secondary--small">
+            later
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Action list no spacing</h3>
   </aside>
 
   <div class="docs-block__content">
@@ -133,28 +140,27 @@
     </div>
   </div>
 </section>
-
 <section class="docs-block">
   <aside class="docs-block__info">
-    <h3 class="docs-block__header">Action centered full width elements</h3>
+    <h3 class="docs-block__header">Action list no wrap and flex start</h3>
   </aside>
 
   <div class="docs-block__content">
-    <div class="docs-block__contrast-box">
-      <div class="sg-actions-list">
-        <div class="sg-actions-list__hole--grow sg-actions-list__hole--full-width-centered">
-          <button class="sg-button-secondary sg-button-secondary--full-width sg-button-secondary--alt">Example button</button>
+    <div class="docs-block__contrast-box" style="width: 300px;">
+      <div class="sg-actions-list sg-actions-list--no-wrap sg-actions-list--to-top">
+
+        <div class="sg-actions-list__hole sg-actions-list__hole--no-shrink">
+          <svg class="sg-icon sg-icon--x24">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-messages"></use>
+          </svg>
         </div>
-        <div class="sg-actions-list__hole--grow sg-actions-list__hole--full-width-centered">
-          <button class="sg-button-secondary sg-button-secondary--full-width sg-button-secondary--alt">Example button</button>
-        </div>
-        <div class="sg-actions-list__hole--grow sg-actions-list__hole--full-width-centered">
-          <button class="sg-button-secondary sg-button-secondary--full-width sg-button-secondary--alt">Example button</button>
-        </div>
-        <div class="sg-actions-list__hole--grow sg-actions-list__hole--full-width-centered">
-          <button class="sg-button-secondary sg-button-secondary--full-width sg-button-secondary--alt">Example button</button>
+        <div class="sg-actions-list__hole sg-actions-list__hole--grow">
+          <p class="sg-text sg-text--light">
+            And this element will just never wrap
+          </p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
