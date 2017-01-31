@@ -13,30 +13,6 @@
     &:last-child {
       margin-right: 0;
     }
-
-    &--container {
-      position: relative;
-    }
-
-    &--no-spacing {
-      margin: 0;
-    }
-
-    &--to-right {
-      margin-left: auto;
-    }
-
-    &--space-bellow {
-      margin-bottom: gutter(0.5);
-    }
-
-    &--no-shrink {
-      flex-shrink: 0;
-    }
-
-    &--grow {
-      flex-grow: 1;
-    }
   }
 
   &--to-top {
