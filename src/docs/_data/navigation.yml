@@ -79,6 +79,8 @@
       location: header/header
     - name: Footer
       location: footer/footer
+    - name: Action List
+      location: action-list/action-list
     - name: Content Box
       location: content-box/content-box
     - name: Toplayer
