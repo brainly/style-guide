@@ -41,6 +41,13 @@ $includeHtml: false !default;
         color: $white;
         fill: $white;
       }
+
+    }
+
+    &--disabled-inverse {
+      background-color: $white;
+      color: $peachPrimary;
+      fill: $peachPrimary;
     }
   }
 }
