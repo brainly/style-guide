@@ -44,7 +44,8 @@ $includeHtml: false !default;
 
     }
 
-    &--disabled-inverse {
+    &--active-inverse-disabled {
+      @extend .sg-button-secondary--disabled;
       background-color: $white;
       color: $peachPrimary;
       fill: $peachPrimary;
