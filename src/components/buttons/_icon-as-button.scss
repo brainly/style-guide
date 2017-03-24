@@ -260,6 +260,10 @@ $includeHtml: false !default;
       &.sg-icon-as-button--peach {
         background: $iconAsButtonPeachColor;
       }
+
+      &.sg-icon-as-button--light {
+        background: $iconAsButtonActionColor;
+      }
     }
   }
 }

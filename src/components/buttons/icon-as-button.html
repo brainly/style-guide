@@ -90,14 +90,18 @@
       </div>
     </button>
     {% for variant in buttonVariants %}
-      {% if variant != 'light' %}
-    <button class="sg-icon-as-button sg-icon-as-button--action-active sg-icon-as-button--{{ variant }}">
-      <div class="sg-icon-as-button__hole">
-        <svg class="sg-icon sg-icon--adaptive sg-icon--x26">
-          <use xlink:href="#icon-heart"></use>
-        </svg>
-      </div>
-    </button>
+      {% if variant == 'light' %}
+        <div class="docs-block__content docs-block__contrast-box">
+      {% endif %}
+      <button class="sg-icon-as-button sg-icon-as-button--action-active sg-icon-as-button--{{ variant }}">
+        <div class="sg-icon-as-button__hole">
+          <svg class="sg-icon sg-icon--adaptive {% if variant == 'light' %} sg-icon--mint{% endif %} sg-icon--x26">
+            <use xlink:href="#icon-heart"></use>
+          </svg>
+        </div>
+      </button>
+      {% if variant == 'light' %}
+        </div>
       {% endif %}
     {% endfor %}
   </div>
