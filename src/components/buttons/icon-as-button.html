@@ -90,14 +90,18 @@
       </div>
     </button>
     {% for variant in buttonVariants %}
-      {% if variant != 'light' %}
-    <button class="sg-icon-as-button sg-icon-as-button--action-active sg-icon-as-button--{{ variant }}">
-      <div class="sg-icon-as-button__hole">
-        <svg class="sg-icon sg-icon--adaptive sg-icon--x26">
-          <use xlink:href="#icon-heart"></use>
-        </svg>
-      </div>
-    </button>
+      {% if variant == 'light' %}
+        <div class="docs-block__content docs-block__contrast-box">
+      {% endif %}
+      <button class="sg-icon-as-button sg-icon-as-button--action-active sg-icon-as-button--{{ variant }}">
+        <div class="sg-icon-as-button__hole">
+          <svg class="sg-icon sg-icon--adaptive {% if variant == 'light' %} sg-icon--mint{% endif %} sg-icon--x26">
+            <use xlink:href="#icon-heart"></use>
+          </svg>
+        </div>
+      </button>
+      {% if variant == 'light' %}
+        </div>
       {% endif %}
     {% endfor %}
   </div>
@@ -226,6 +230,42 @@
     <button class="sg-icon-as-button sg-icon-as-button--action sg-icon-as-button--rounded-square sg-icon-as-button--xsmall">
       <div class="sg-icon-as-button__hole">
         <svg class="sg-icon sg-icon--adaptive sg-icon--x14">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+  </div>
+</section>
+
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">xxsmall</h3>
+  </aside>
+  <div class="docs-block__content">
+    <button class="sg-icon-as-button sg-icon-as-button--xxsmall">
+      <div class="sg-icon-as-button__hole">
+        <svg class="sg-icon sg-icon--adaptive sg-icon--x10">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="sg-icon-as-button sg-icon-as-button--with-border sg-icon-as-button--xxsmall">
+      <div class="sg-icon-as-button__hole">
+        <svg class="sg-icon sg-icon--adaptive sg-icon--x10">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="sg-icon-as-button sg-icon-as-button--action sg-icon-as-button--xxsmall">
+      <div class="sg-icon-as-button__hole">
+        <svg class="sg-icon sg-icon--adaptive sg-icon--x10">
+          <use xlink:href="#icon-notifications"></use>
+        </svg>
+      </div>
+    </button>
+    <button class="sg-icon-as-button sg-icon-as-button--action sg-icon-as-button--rounded-square sg-icon-as-button--xxsmall">
+      <div class="sg-icon-as-button__hole">
+        <svg class="sg-icon sg-icon--adaptive sg-icon--x10">
           <use xlink:href="#icon-notifications"></use>
         </svg>
       </div>

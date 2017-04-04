@@ -66,6 +66,13 @@ $includeHtml: false !default;
       }
     }
 
+    &--xxsmall {
+      .sg-icon-as-button__hole {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
     &--with-border {
       .sg-icon-as-button__hole {
         border: solid $iconAsButtonColor 1px;
@@ -252,6 +259,10 @@ $includeHtml: false !default;
 
       &.sg-icon-as-button--peach {
         background: $iconAsButtonPeachColor;
+      }
+
+      &.sg-icon-as-button--light {
+        background: $iconAsButtonActionColor;
       }
     }
   }
