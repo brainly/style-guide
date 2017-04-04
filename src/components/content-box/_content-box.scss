@@ -49,8 +49,8 @@ $includeHtml: false !default;
     }
 
     &--spaced {
-      .sg-content-box__content,
-      .sg-content-box__actions {
+      > .sg-content-box__content,
+      > .sg-content-box__actions {
         @include sgBreakpoint(medium-up) {
           padding-left: gutter(2);
         }
