@@ -32,6 +32,10 @@ $includeHtml: false !default;
       }
     }
 
+    &--no-min-height {
+      min-height: 0;
+    }
+
     &--no-border {
       border: none;
       padding: rhythm(1) gutter(1);
@@ -55,16 +59,20 @@ $includeHtml: false !default;
       padding: (gutter(2) - $boxBorderSize);
     }
 
-    &--blue-secondary-light {
-      background-color: $blueSecondaryLight;
-    }
-
     &--mint-secondary {
       background-color: $mintSecondary;
     }
 
     &--mint {
       background-color: $mintPrimary;
+    }
+
+    &--blue {
+      background-color: $bluePrimary;
+    }
+
+    &--blue-secondary-light {
+      background-color: $blueSecondaryLight;
     }
 
     &--lavender {
