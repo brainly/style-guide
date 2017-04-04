@@ -79,6 +79,18 @@ $includeHtml: false !default;
         margin-bottom: rhythm(0.5);
       }
 
+      &--spaced-bottom-small {
+        margin-top: rhythm(1 / 3);
+      }
+
+      &--spaced-bottom-xsmall {
+        margin-top: rhythm(1 / 4);
+      }
+
+      &--spaced-bottom-xxsmall {
+        margin-top: rhythm(1 / 6);
+      }
+
       &--spaced-bottom-large {
         margin-bottom: rhythm(1);
       }
@@ -87,8 +99,24 @@ $includeHtml: false !default;
         margin-bottom: rhythm(1.5);
       }
 
+      &--spaced-bottom-xxlarge {
+        margin-bottom: rhythm(2);
+      }
+
       &--spaced-top {
         margin-top: rhythm(0.5);
+      }
+
+      &--spaced-top-small {
+        margin-top: rhythm(1 / 3);
+      }
+
+      &--spaced-top-xsmall {
+        margin-top: rhythm(1 / 4);
+      }
+
+      &--spaced-top-xxsmall {
+        margin-top: rhythm(1 / 6);
       }
 
       &--spaced-top-large {
