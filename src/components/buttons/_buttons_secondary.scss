@@ -41,6 +41,26 @@ $includeHtml: false !default;
         color: $white;
         fill: $white;
       }
+
+    }
+
+    &--active-inverse-disabled {
+      background-color: $white;
+      color: $peachPrimary;
+      fill: $peachPrimary;
+      opacity: 0.45;
+      cursor: default;
+      box-shadow: $buttonBoxShadow;
+
+      &:active {
+        transform: none;
+      }
+
+      &:active,
+      &:focus,
+      &:hover {
+        box-shadow: $buttonBoxShadow;
+      }
     }
   }
 }
