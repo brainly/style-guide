@@ -1,4 +1,5 @@
 $avatarDefaultBackgroundColor: $graySecondary;
+$avatarXSmallSize: 16px;
 $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
@@ -25,6 +26,7 @@ $includeHtml: false !default;
     -webkit-perspective: 1px; // sass-lint:disable-line  no-vendor-prefixes
 
     &__image {
+      display: flex;
       position: relative;
       height: 100%;
       width: 100%;
@@ -32,6 +34,11 @@ $includeHtml: false !default;
       &--icon {
         background-color: $avatarDefaultBackgroundColor;
       }
+    }
+
+    &--xsmall {
+      width: $avatarXSmallSize;
+      height: $avatarXSmallSize;
     }
 
     &--small {
