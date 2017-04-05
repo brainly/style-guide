@@ -35,8 +35,6 @@
   }
 
   &__button {
-    //transition: transform 300ms ease-in-out;
-
     &--flip {
       transform: rotateZ(180deg);
     }
