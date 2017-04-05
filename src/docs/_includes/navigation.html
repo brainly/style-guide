@@ -43,9 +43,9 @@
   }
 
   // search
-  var $searchBox = $('#js-search-box');
-  var $searchResults = $('#js-search-results');
-  var searchResults = $searchResults[0];
+  var $searchBox = document.querySelector('#js-search-box');
+  var $searchResults = document.querySelector('#js-search-results');
+  var searchResults = $searchResults;
 
   function removeClassActive(index) {
     if (index >= 0) {
@@ -62,38 +62,39 @@
   function searchElements(query) {
     query = query.toLowerCase();
 
-    return $('a.js-searchable').filter(function() {
-      return $(this).text().toLowerCase().indexOf(query) !== -1;
-    }).map(function() {
+    return Array.from(document.querySelectorAll('a.js-searchable')).filter(function(link) {
+      return link.innerText.trim().toLowerCase().indexOf(query) !== -1;
+    }).map(function(link) {
       return {
-        text: $(this).text(),
-        link: $(this).attr('href')
+        text: link.innerText,
+        link: link.href
       }
     });
   }
 
-  $searchBox.on('input', function() {
-    if($searchBox.val().length < 3) {
+  $searchBox.addEventListener('input', function() {
+    if($searchBox.value.length < 2) {
       return;
     }
 
-    var results = searchElements($searchBox.val());
+    var results = searchElements($searchBox.value);
 
-    $searchResults.empty();
-    results.each(function(idx, item) {
-      var $li = $('<li>');
-      var $a = $('<a>');
+    $searchResults.innerHTML = '';
+    results.forEach(function(item) {
+      var $li = document.createElement('li');
+      var $a = document.createElement('a');
 
-      $a.text(item.text).attr('href', item.link);
+      $a.innerText = item.text;
+      $a.href = item.link;
 
-      $li.append($a);
-      $searchResults.append($li);
+      $li.appendChild($a);
+      $searchResults.appendChild($li);
     });
   });
 
-  $searchBox.on('keydown', function(e) {
-      var children = $searchResults.children();
-      var arrowdown = e.keyCode === 40
+  $searchBox.addEventListener('keydown', function(e) {
+      var children = $searchResults.childNodes;
+      var arrowdown = e.keyCode === 40;
       var arrowup = e.keyCode === 38;
       var enter = e.keyCode === 13;
 
@@ -133,19 +134,19 @@
         }
       }
 
-      if (enter) {
-        var searchResults = $searchResults[0];
-        var href = searchResults.children[active].querySelector('a').getAttribute('href');
+      if (enter && active >= 0) {
+        var href = $searchResults.childNodes[active].querySelector('a').href;
         location.assign(href);
       }
     });
 
-  $searchResults.on('mouseenter', function(e) {
-    var children = $searchResults.children();
+  $searchResults.addEventListener('mouseenter', function(e) {
+    var children = $searchResults.childNodes;
 
     for(var i=0; i<children.length; i++){
         removeClassActive(i);
     }
+    active = -1;
   });
 
 </script>
