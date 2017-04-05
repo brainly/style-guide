@@ -4,16 +4,39 @@
   right: 0;
   bottom: 0;
   height: 100px;
-  margin: 0;
   z-index: 1000;
   transform: translateY(0);
   transition: transform 300ms, height 300ms;
+  will-change: transform;
 
   &--hidden {
     transform: translateY(100%);
   }
 
+  &--big {
+    height: 50%;
+  }
+
+  &__code-wrapper {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   &__code {
     height: 100%;
+    width: 100%;
+  }
+
+  &__buttons {
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  &__button {
+    &--flip {
+      transform: rotateZ(180deg);
+    }
   }
 }
