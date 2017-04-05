@@ -1,6 +1,4 @@
 $breadcrumbListSeparatorColor: $grayPrimary;
-$breadcrumbListBlueSeparatorColor: $blueSecondary;
-$breadcrumbListLightBlueSeparatorColor: $blueSecondaryLight;
 
 $includeHtml: false !default;
 
@@ -30,25 +28,12 @@ $includeHtml: false !default;
       min-height: 1rem;
     }
 
-    &--for-fine-print {
-      font-size: fontSize(small);
-      color: $breadcrumbListBlueSeparatorColor;
+    &--adaptive {
+      color: inherit;
 
       .sg-breadcrumb-list__element {
         &::after {
-          color: $breadcrumbListBlueSeparatorColor;
-
-        }
-      }
-    }
-
-    &--for-fine-print-light {
-      font-size: fontSize(small);
-      color: $breadcrumbListLightBlueSeparatorColor;
-
-      .sg-breadcrumb-list__element {
-        &::after {
-          color: $breadcrumbListLightBlueSeparatorColor;
+          color: inherit;
         }
       }
     }
