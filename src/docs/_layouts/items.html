@@ -80,12 +80,12 @@
   });
 
   new Clipboard(copyButton, {
-    target: function() {
+    target: function () {
       return copyHelperCode;
     }
   });
 
-  growButton.addEventListener('click', function() {
+  growButton.addEventListener('click', function () {
     growButton.classList.toggle('copy-helper__button--flip');
     copyHelper.classList.toggle('copy-helper--big');
   });
