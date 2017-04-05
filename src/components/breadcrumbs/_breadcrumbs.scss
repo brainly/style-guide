@@ -30,6 +30,16 @@ $includeHtml: false !default;
       min-height: 1rem;
     }
 
+    &--adaptive {
+      color: inherit;
+
+      .sg-breadcrumb-list__element {
+        &::after {
+          color: inherit;
+        }
+      }
+    }
+
     &--for-fine-print {
       font-size: fontSize(small);
       color: $breadcrumbListBlueSeparatorColor;
