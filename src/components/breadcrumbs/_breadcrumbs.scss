@@ -39,28 +39,5 @@ $includeHtml: false !default;
         }
       }
     }
-
-    &--for-fine-print {
-      font-size: fontSize(small);
-      color: $breadcrumbListBlueSeparatorColor;
-
-      .sg-breadcrumb-list__element {
-        &::after {
-          color: $breadcrumbListBlueSeparatorColor;
-
-        }
-      }
-    }
-
-    &--for-fine-print-light {
-      font-size: fontSize(small);
-      color: $breadcrumbListLightBlueSeparatorColor;
-
-      .sg-breadcrumb-list__element {
-        &::after {
-          color: $breadcrumbListLightBlueSeparatorColor;
-        }
-      }
-    }
   }
 }
