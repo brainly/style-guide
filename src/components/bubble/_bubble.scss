@@ -4,8 +4,8 @@ $bubbleBoxShadow: $defaultBottomShadow;
 
 $borderSize: 1px;
 $triangleSize: gutter(0.5);
-$innerTriangleSize: 10px;     // hand-picked value, checked against basic font-size changes, scales 11px - 30px
-$innerTriangleOffset: -20px;  // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleSize: 10px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleOffset: -20px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 
 $includeHtml: false !default;
 
@@ -19,28 +19,56 @@ $includeHtml: false !default;
     padding: gutter(0.5) gutter(1);
     position: relative;
 
-    &::before {
+    @mixin arrow($arrowSize: gutter(0.5)) {
+      border: $arrowSize solid transparent;
       content: '';
-      border: $triangleSize solid transparent;
-      border-bottom-color: $bubbleBorderColor;
       position: absolute;
-      top: -(2 * $triangleSize);
+      top: 0;
       right: 0;
       left: 0;
       width: 0;
-      margin: 0 auto;
+      height: 0;
+      bottom: 0;
+      margin: auto;
+    }
+
+    &::before {
+      @include arrow($triangleSize);
     }
 
     &::after {
-      content: '';
-      border: $innerTriangleSize solid transparent;
-      border-bottom-color: $bubbleBackground;
-      position: absolute;
-      top: $innerTriangleOffset;
-      right: 0;
-      left: 0;
-      width: 0;
-      margin: 0 auto;
+      @include arrow($innerTriangleSize);
+    }
+
+    &--left {
+
+      &::before {
+        border-right-color: $bubbleBorderColor;
+        left: -(2 * $triangleSize);
+        right: auto;
+      }
+
+      &::after {
+        border-right-color: $bubbleBackground;
+        left: $innerTriangleOffset;
+        right: auto;
+      }
+
+    }
+
+    &--top {
+
+      &::before {
+        border-bottom-color: $bubbleBorderColor;
+        top: -(2 * $triangleSize);
+        bottom: auto;
+      }
+
+      &::after {
+        border-bottom-color: $bubbleBackground;
+        top: $innerTriangleOffset;
+        bottom: auto;
+      }
     }
 
     &--full-and-grow {
