@@ -36,18 +36,21 @@ We support the following browsers (90% of our traffic comes from these browsers)
 
 | Browser | Versions  | Total share in global traffic |
 | ---- | ---- | ---- |
-| Google Chrome | 28+ | 49.4% | 
-| Safari | 7+ | 12.6% |
-| Android Browser | 4.0+ | 5.46% |
-| Firefox | 42+ | 5% |
-| YaBrowser | 15+ | 9.85% |
-| Opera Mini | 7+ | 1.72% |
-| Opera | 33+ | 2.96% |
-| Internet Explorer | 11+ | 2.5% |
+| Google Chrome | 28+ | 61.82% | 
+| Safari | 7+ | 12.54% |
+| YaBrowser | 15+ | 4.40% |
+| Firefox | 42+ | 4.24% |
+| Android Webview | 30+ | 3.45% |
+| Android Browser | 4.0+ | 3.36% |
+| UCBrowser | 8+ | 3.14% |
+| Opera | 33+ | 1.98% |
+| Opera Mini | 7+ | 1.63% |
+| Internet Explorer | 11+ | 1.58% |
+| Edge | 11+ | 1.19% |
 
-Last updated: 11.05.2016
+Last updated: 24.04.2017
 
-Note: You can find all recent stats in [this document](https://docs.google.com/spreadsheets/d/1n0tGV042xnrcdaZjNi1UWFcp77FUf5RDgHrTBon7Kgk/) (only company accessible!)
+Note: You can find all recent stats in [our analytics](https://analytics.google.com/analytics/web/#report/visitors-browser/a85994882w128325453p132056054/) (INTERNAL)
 
 ## Methodology
 
