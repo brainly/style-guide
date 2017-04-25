@@ -33,10 +33,12 @@ $includeHtml: false !default;
     }
 
     &--zadane {
-      width: 130px;
+      width: 134px;
+      height: 74px;
 
       @include sgBreakpoint(medium-up) {
         width: 176px;
+        height: 98px;
       }
     }
 
