@@ -31,6 +31,13 @@ $buttonActiveScale: scale(0.985);
   transition-property: box-shadow, transform, opacity;
   transition-duration: 0.3s;
 
+  // hack for proper text centering on Safari related to inline-flex issue with <button> tag
+  &::before,
+  &::after {
+    content: '';
+    flex: 1 0 auto;
+  }
+
   &:hover,
   &:focus {
     box-shadow: $buttonHoverBoxShadow;
