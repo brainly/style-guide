@@ -1,3 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="64" height="64" viewBox="0 0 64 64">
-<path fill="white" d="M38.464,40.430 L38.464,36.942 L49.502,32.623 L38.464,28.239 L38.464,24.752 L52.830,30.831 L52.830,34.382 L38.464,40.430 ZM26.464,43.949 L34.047,21.328 L37.535,21.328 L29.952,43.949 L26.464,43.949 ZM11.168,30.831 L25.534,24.752 L25.534,28.239 L14.528,32.623 L25.534,36.942 L25.534,40.430 L11.168,34.382 L11.168,30.831 Z" class="cls-2"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .b {
+            fill: #abe1ff;
+            }
+
+            .c {
+            fill: #020a1a;
+            }
+        </style>
+    </defs>
+    <title>informatics</title>
+    <rect class="b" x="6" y="4" width="12" height="8" rx="0.5" ry="0.5" />
+    <path class="c" d="M5,4v8a1,1,0,0,0,1,1H18a1,1,0,0,0,1-1V4a1,1,0,0,0-1-1H6A1,1,0,0,0,5,4Zm11.58,7H7.42A.4.4,0,0,1,7,10.62V5.37A.4.4,0,0,1,7.42,5h9.17a.4.4,0,0,1,.42.37v5.25A.4.4,0,0,1,16.58,11Z" />
+    <path class="c" d="M20.51,21h-17a1,1,0,0,1-.92-1.39l2.14-5A1,1,0,0,1,5.66,14H18.34a1,1,0,0,1,.92.6l2.17,5A1,1,0,0,1,20.51,21Z" />
 </svg>
