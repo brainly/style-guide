@@ -25,10 +25,33 @@
     {% endfor %}
 </div>
 
-<pre class="copy-helper copy-helper--hidden"><code class="copy-helper__code"></code></pre>
+<div class="copy-helper copy-helper--hidden">
+    <pre class="copy-helper__code-wrapper"><code class="copy-helper__code" id="sg-code"></code></pre>
+
+    <div class="copy-helper__buttons">
+        <button class="sg-icon-as-button sg-icon-as-button--dark js-grow-button copy-helper__button" title="Show more/less">
+            <div class="sg-icon-as-button__hole">
+                <svg class="sg-icon sg-icon--adaptive sg-icon--x22">
+                    <use xlink:href="#icon-arrow_up"></use>
+                </svg>
+            </div>
+        </button>
+
+        <button class="sg-icon-as-button sg-icon-as-button--dark js-copy-button" title="Copy to the clipboard">
+          <div class="sg-icon-as-button__hole">
+            <svg class="sg-icon sg-icon--adaptive sg-icon--x22">
+              <use xlink:href="#icon-answer"></use>
+            </svg>
+          </div>
+        </button>
+    </div>
+</div>
+
 <script>
   var copyHelper = document.querySelector('.copy-helper');
   var copyHelperCode = copyHelper.querySelector('.copy-helper__code');
+  var copyButton = copyHelper.querySelector('.js-copy-button');
+  var growButton = copyHelper.querySelector('.js-grow-button');
 
   hljs.configure({
     languages: ['html']
@@ -56,12 +79,15 @@
     }
   });
 
-  copyHelper.addEventListener('click', function () {
-    if (window.getSelection) {
-      var range = document.createRange();
-      range.selectNode(copyHelper);
-      window.getSelection().addRange(range);
+  new Clipboard(copyButton, {
+    target: function () {
+      return copyHelperCode;
     }
+  });
+
+  growButton.addEventListener('click', function () {
+    growButton.classList.toggle('copy-helper__button--flip');
+    copyHelper.classList.toggle('copy-helper--big');
   });
 </script>
 
