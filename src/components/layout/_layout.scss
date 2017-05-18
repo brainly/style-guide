@@ -85,7 +85,6 @@ $layoutGapWidth: gutter(5 / 6);
 
     @include sgBreakpoint(large-only) {
       max-width: calc(100% - #{$layoutAsideWidth + $layoutGapWidth});
-      flex-basis: 1px;
       flex-grow: 1;
     }
 
