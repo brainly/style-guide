@@ -84,6 +84,10 @@ $includeHtml: false !default;
       width: 100%;
     }
 
+    &--no-border {
+      border: none;
+    }
+
     &--large {
       @include sgBreakpoint(medium-up) {
         height: $inputLargeHeight;
@@ -98,7 +102,7 @@ $includeHtml: false !default;
     }
 
     &--with-icon {
-      padding-right: 40px;
+      padding-left: 40px;
     }
   }
 }
