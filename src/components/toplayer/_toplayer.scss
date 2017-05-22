@@ -74,6 +74,29 @@ $includeHtml: false !default;
       }
     }
 
+    &--small-spaced {
+      @include sgBreakpoint(small-only) {
+        margin-top: gutter(4);
+        max-width: gutter(14);
+        margin-left: gutter(1);
+        margin-right: gutter(1);
+      }
+    }
+
+    &--splash-screen {
+      overflow: hidden;
+      margin: gutter(1 / 2);
+      // sass-lint:disable no-duplicate-properties
+      min-height: 100%;
+      min-height: calc(100% - #{gutter(1)}); // https://github.com/sass/sass/issues/818
+      // sass-lint:enable no-duplicate-properties
+
+      @include sgBreakpoint(medium-up) {
+        min-height: calc(100% - #{gutter(2)});
+        margin: gutter(1);
+      }
+    }
+
     &__header {
       display: flex;
       justify-content: flex-end;
