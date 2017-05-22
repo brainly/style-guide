@@ -73,6 +73,7 @@ $includeHtml: false !default;
       &:focus {
         background: $white;
         box-shadow:  $searchInputBoxShadow;
+
         &::placeholder {
           color: $white;
         }
