@@ -88,7 +88,7 @@ $includeHtml: false !default;
       margin: gutter(1 / 2);
       // sass-lint:disable no-duplicate-properties
       min-height: 100%;
-      min-height: calc(100% - #{gutter(1)});
+      min-height: calc(100% - #{gutter(1)}); // https://github.com/sass/sass/issues/818
       // sass-lint:enable no-duplicate-properties
 
       @include sgBreakpoint(medium-up) {
