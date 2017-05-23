@@ -11,7 +11,8 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-toplayer {
-    @include component();
+    display: flex;
+    flex-direction: column;
     overflow: visible;
     border-radius: $borderRadiusDefault;
     width: 100%;
@@ -27,6 +28,7 @@ $includeHtml: false !default;
     }
 
     &--fill {
+      display: block;
       position: absolute;
       margin: 0;
       bottom: 0;
@@ -95,6 +97,10 @@ $includeHtml: false !default;
         min-height: calc(100% - #{gutter(2)});
         margin: gutter(1);
       }
+    }
+
+    &--row {
+      flex-direction: row;
     }
 
     &__header {
