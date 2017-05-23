@@ -97,6 +97,10 @@ $includeHtml: false !default;
       }
     }
 
+    &--flex {
+      display: flex;
+    }
+
     &__header {
       display: flex;
       justify-content: flex-end;
