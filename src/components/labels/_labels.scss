@@ -44,10 +44,6 @@ $includeHtml: false !default;
       &:last-child {
         margin-right: 0;
       }
-
-      &--align-top {
-        align-self: flex-start;
-      }
     }
 
     &--emphasised {
@@ -107,6 +103,10 @@ $includeHtml: false !default;
       .sg-label__number {
         color: inherit;
       }
+    }
+
+    &--elements-to-the-top {
+      align-items: flex-start;
     }
   }
 
