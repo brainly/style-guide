@@ -32,16 +32,6 @@ $includeHtml: false !default;
       }
     }
 
-    &--zadane {
-      width: 134px;
-      height: 74px;
-
-      @include sgBreakpoint(medium-up) {
-        width: 176px;
-        height: 98px;
-      }
-    }
-
     &--znanija {
       width: 131px;
 
