@@ -7,22 +7,22 @@ $includeHtml: false !default;
     overflow: visible;
     width: 100%;
 
-    &__button {
+    &__icon {
       transition: fill 0.3s ease-out;
       position: absolute;
       top: 0;
       bottom: 0;
-      right: gutter(0.5);
+      left: gutter(0.5);
       display: flex;
       align-items: center;
       fill: $white;
     }
 
-    &__input:focus + &__button {
+    &__input:focus + &__icon {
       fill: $graySecondary;
     }
 
-    &--short &__button {
+    &--short &__icon {
       right: gutter(0.25);
     }
   }
