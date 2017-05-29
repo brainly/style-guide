@@ -11,6 +11,10 @@ $includeHtml: false !default;
     margin-bottom: rhythm(3) - $headerHeight;
     box-shadow: $defaultBottomShadow;
 
+    &--light {
+      background-color: $graySecondaryLightest;
+    }
+
     &__container {
       display: flex;
       width: 100%;
