@@ -7,6 +7,10 @@ $includeHtml: false !default;
   .sg-footer {
     background-color: $footerBackgroundColor;
 
+    &--light {
+      background-color: $graySecondaryLightest;
+    }
+
     &__container {
       position: relative;
       padding: gutter(1);
