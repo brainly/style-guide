@@ -1,18 +1,23 @@
-$footerBackgroundColor: $graySecondaryLightest;
+$footerBackgroundColorSmall: $graySecondaryLightest;
+$footerBackgroundColorLarge: $white;
+
+$footerLayoutMaximumWidth: 1024px;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .sg-footer {
-    background-color: $footerBackgroundColor;
-
+    background-color: $footerBackgroundColorSmall;
+    @include sgBreakpoint(medium-up) {
+      bacground-color: $footerBackgroundColorLarge;
+    }
     &__container {
       position: relative;
       padding: gutter(1);
 
       @include sgBreakpoint(medium-up) {
-        max-width: $layoutMaximumWidth;
+        max-width: $footerLayoutMaximumWidth;
         margin-left: auto;
         margin-right: auto;
 
