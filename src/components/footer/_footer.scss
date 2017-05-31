@@ -9,9 +9,11 @@ $includeHtml: false !default;
 
   .sg-footer {
     background-color: $footerBackgroundColorSmall;
+
     @include sgBreakpoint(medium-up) {
-      bacground-color: $footerBackgroundColorLarge;
+      background-color: $footerBackgroundColorLarge;
     }
+
     &__container {
       position: relative;
       padding: gutter(1);
