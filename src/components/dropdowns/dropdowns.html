@@ -214,6 +214,126 @@
     </div>
 </section>
 
+<section class="docs-block">
+  <aside class="docs-block__info">
+    <h3 class="docs-block__header">Example fixed dropdown usage (interactive)</h3>
+  </aside>
+  <div class="docs-block__content docs-block__contrast-box">
+    <div class="sg-dropdown sg-dropdown--fixed js-sg-dropdown">
+      <div class="sg-dropdown__icon">
+        <svg class="sg-icon sg-icon--x8 sg-icon--gray">
+          <use xlink:href="#icon-arrow_down"></use>
+        </svg>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--inactive">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--active">
+          Default label
+        </div>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--active">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--active">
+          Choose option
+        </div>
+      </div>
+      <div class="sg-dropdown__items sg-dropdown__items--fixed">
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 1
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 2
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 3
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="docs-block__content docs-block__contrast-box">
+    <div class="sg-dropdown sg-dropdown--full-width sg-dropdown--fixed js-sg-dropdown">
+      <div class="sg-dropdown__icon">
+        <svg class="sg-icon sg-icon--x8 sg-icon--gray">
+          <use xlink:href="#icon-arrow_down"></use>
+        </svg>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--inactive">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--active">
+          Default label
+        </div>
+      </div>
+      <div class="sg-dropdown__hole sg-dropdown__hole--active">
+        <div class="sg-dropdown__item-text sg-dropdown__item-text--active">
+          Choose option
+        </div>
+      </div>
+      <div class="sg-dropdown__items  sg-dropdown__items--fixed">
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 1
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 2
+          </div>
+        </a>
+        <a href="#" class="sg-dropdown__item-hole">
+          <div class="sg-dropdown__item-icon">
+            <div class="sg-subject-icon-box">
+              <svg class="sg-subject-icon sg-subject-icon--small">
+                <use xlink:href="#icon-subject-life-science"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="sg-dropdown__item-text">
+            Option 3
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 <script>
   Array.from(document.querySelectorAll('.js-sg-dropdown')).forEach(function (dropdown) {
     dropdown.addEventListener('click', function () {
