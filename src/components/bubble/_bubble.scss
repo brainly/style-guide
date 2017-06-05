@@ -32,6 +32,10 @@ $includeHtml: false !default;
       margin: auto;
     }
 
+    &--full {
+      height: 100%;
+    }
+
     &::before {
       @include arrow($triangleSize);
     }
@@ -94,16 +98,6 @@ $includeHtml: false !default;
         bottom: $innerTriangleOffset;
         top: auto;
       }
-    }
-
-    &--full-and-grow {
-      min-height: 100%;
-      width: 100%;
-    }
-
-    &--full {
-      height: 100%;
-      width: 100%;
     }
 
     &--row {

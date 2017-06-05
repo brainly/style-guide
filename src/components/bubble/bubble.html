@@ -12,7 +12,21 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Standard top (middle)</h3>
+        <h3 class="docs-block__header">Full (need add left/right/top/bottom)</h3>
+        --full (makes 100% height)
+    </aside>
+    <div class="docs-block__content" style="height: 200px">
+        <div class="sg-bubble sg-bubble--full">
+            Hi there!!<br/>
+            Just wondering if you have any problems with your school work.
+        </div>
+    </div>
+</section>
+
+<section class="docs-block">
+    <aside class="docs-block__info">
+        <h3 class="docs-block__header">Top (middle)</h3>
+        --top
     </aside>
     <div class="docs-block__content">
         <div class="sg-bubble sg-bubble--top">
@@ -24,7 +38,8 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Standard top-start</h3>
+        <h3 class="docs-block__header">Top-start</h3>
+        --top --row-start
     </aside>
     <div class="docs-block__content">
         <div class="sg-bubble sg-bubble--top sg-bubble--row-start">
@@ -36,7 +51,8 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Standard top-end</h3>
+        <h3 class="docs-block__header">Top-end</h3>
+        --top --row-end
     </aside>
     <div class="docs-block__content">
         <div class="sg-bubble sg-bubble--top sg-bubble--row-end">
@@ -48,7 +64,9 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Standard bottom-start</h3>
+        <h3 class="docs-block__header">Bottom-start</h3>
+        --bottom <br/>
+        --row-start (-- / --row-end)
     </aside>
     <div class="docs-block__content">
         <div class="sg-bubble sg-bubble--bottom sg-bubble--row-start">
@@ -60,39 +78,13 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">left side arrow</h3>
+        <h3 class="docs-block__header">Left-start</h3>
+        --left <br/>
+        --column-start (-- / --column-end)
     </aside>
     <div class="docs-block__content">
-        <div class="sg-bubble sg-bubble--left">
-            Hi there!!<br/>
-            Just wondering if you have any problems with your school work.
-        </div>
-    </div>
-</section>
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Full and grow + top </h3>
-    </aside>
-    <div class="docs-block__content">
-        <div style="width: 300px;min-height: 200px">
-            <div class="sg-bubble sg-bubble--full-and-grow sg-bubble--top">
-                Hi there!! Just wondering if you have any problems with your school work.
-                We've got plenty of people who can help you here :)
-                Also, my last question was answered in less than 10 minutes :D
-                Anyway, you can just go ahead and try for yourself.
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="docs-block">
-    <aside class="docs-block__info">
-        <h3 class="docs-block__header">Full and grow + left-start</h3>
-    </aside>
-    <div class="docs-block__content">
-        <div style="width: 300px;min-height: 200px">
-            <div class="sg-bubble sg-bubble--full-and-grow sg-bubble--left sg-bubble--column-start">
+        <div style="width: 300px">
+            <div class="sg-bubble sg-bubble--left sg-bubble--column-start">
                 Hi there!! Just wondering if you have any problems with your school work.
                 We've got plenty of people who can help you here :)
                 Also, my last question was answered in less than 10 minutes :D
@@ -104,11 +96,13 @@
 
 <section class="docs-block">
     <aside class="docs-block__info">
-        <h3 class="docs-block__header">Full and grow + right-end</h3>
+        <h3 class="docs-block__header">Right-start</h3>
+        --right <br/>
+        --column-start (-- / --column-end)
     </aside>
     <div class="docs-block__content">
-        <div style="width: 300px;min-height: 200px">
-            <div class="sg-bubble sg-bubble--full-and-grow sg-bubble--right sg-bubble--column-end">
+        <div style="width: 300px">
+            <div class="sg-bubble sg-bubble--right sg-bubble--column-start">
                 Hi there!! Just wondering if you have any problems with your school work.
                 We've got plenty of people who can help you here :)
                 Also, my last question was answered in less than 10 minutes :D
