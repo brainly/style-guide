@@ -9,6 +9,19 @@ $innerTriangleOffset: -20px; // hand-picked value, checked against basic font-si
 
 $includeHtml: false !default;
 
+@mixin arrow($arrowSize: gutter(0.5)) {
+  border: $arrowSize solid transparent;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  margin: auto;
+}
+
 @if ($includeHtml) {
 
   .sg-bubble {
@@ -18,19 +31,6 @@ $includeHtml: false !default;
     box-shadow: $bubbleBoxShadow;
     padding: gutter(0.5) gutter(1);
     position: relative;
-
-    @mixin arrow($arrowSize: gutter(0.5)) {
-      border: $arrowSize solid transparent;
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      bottom: 0;
-      margin: auto;
-    }
 
     &--full {
       height: 100%;
