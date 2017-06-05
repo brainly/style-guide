@@ -4,10 +4,23 @@ $bubbleBoxShadow: $defaultBottomShadow;
 
 $borderSize: 1px;
 $triangleSize: gutter(0.5);
-$innerTriangleSize: 10px;     // hand-picked value, checked against basic font-size changes, scales 11px - 30px
-$innerTriangleOffset: -20px;  // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleSize: 10px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleOffset: -20px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 
 $includeHtml: false !default;
+
+@mixin arrow($arrowSize: gutter(0.5)) {
+  border: $arrowSize solid transparent;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  margin: auto;
+}
 
 @if ($includeHtml) {
 
@@ -19,63 +32,123 @@ $includeHtml: false !default;
     padding: gutter(0.5) gutter(1);
     position: relative;
 
+    &--full {
+      height: 100%;
+    }
+
     &::before {
-      content: '';
-      border: $triangleSize solid transparent;
-      border-bottom-color: $bubbleBorderColor;
-      position: absolute;
-      top: -(2 * $triangleSize);
-      right: 0;
-      left: 0;
-      width: 0;
-      margin: 0 auto;
+      @include arrow($triangleSize);
     }
 
     &::after {
-      content: '';
-      border: $innerTriangleSize solid transparent;
-      border-bottom-color: $bubbleBackground;
-      position: absolute;
-      top: $innerTriangleOffset;
-      right: 0;
-      left: 0;
-      width: 0;
-      margin: 0 auto;
+      @include arrow($innerTriangleSize);
     }
 
-    &--full-and-grow {
-      min-height: 100%;
-      width: 100%;
-    }
-
-    &--full {
-      height: 100%;
-      width: 100%;
-    }
-
-    &--to-right {
-
+    &--left {
       &::before {
-        right: gutter(1);
+        border-right-color: $bubbleBorderColor;
+        left: -(2 * $triangleSize);
+        right: auto;
+      }
+
+      &::after {
+        border-right-color: $bubbleBackground;
+        left: $innerTriangleOffset;
+        right: auto;
+      }
+    }
+
+    &--right {
+      &::before {
+        border-left-color: $bubbleBorderColor;
+        right: -(2 * $triangleSize);
         left: auto;
       }
 
       &::after {
-        right: (gutter(1) + $triangleSize - $innerTriangleSize);
+        border-left-color: $bubbleBackground;
+        right: $innerTriangleOffset;
         left: auto;
       }
     }
 
-    &--to-left {
-
+    &--top {
       &::before {
-        right: auto;
-        left: gutter(1);
+        border-bottom-color: $bubbleBorderColor;
+        top: -(2 * $triangleSize);
+        bottom: auto;
       }
 
       &::after {
-        left: (gutter(1) + $triangleSize - $innerTriangleSize);
-        right: auto;
+        border-bottom-color: $bubbleBackground;
+        top: $innerTriangleOffset;
+        bottom: auto;
+      }
+    }
+
+    &--bottom {
+      &::before {
+        border-top-color: $bubbleBorderColor;
+        bottom: -(2 * $triangleSize);
+        top: auto;
+      }
+
+      &::after {
+        border-top-color: $bubbleBackground;
+        bottom: $innerTriangleOffset;
+        top: auto;
+      }
+    }
+
+    &--row {
+      &-end {
+        &::before {
+          right: gutter(1);
+          left: auto;
+        }
+
+        &::after {
+          right: (gutter(1) + $triangleSize - $innerTriangleSize);
+          left: auto;
+        }
+      }
+
+      &-start {
+        &::before {
+          right: auto;
+          left: gutter(1);
+        }
+
+        &::after {
+          right: auto;
+          left: (gutter(1) + $triangleSize - $innerTriangleSize);
+        }
+      }
+    }
+
+    &--column {
+      &-start {
+        &::before {
+          bottom: auto;
+          top: gutter(1);
+        }
+
+        &::after {
+          bottom: auto;
+          top: (gutter(1) + $triangleSize - $innerTriangleSize);
+        }
+      }
+
+      &-end {
+        &::before {
+          bottom: gutter(1);
+          top: auto;
+        }
+
+        &::after {
+          bottom: (gutter(1) + $triangleSize - $innerTriangleSize);
+          top: auto;
+        }
       }
     }
   }
