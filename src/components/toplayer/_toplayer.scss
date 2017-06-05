@@ -3,6 +3,7 @@ $toplayerShadow: 0 2px 6px 3px $defaultBottomShadowColor;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: rhythm(1);
 $toplayerHeaderHeight: rhythm(1.25);
+$layoutMaxWidth: 1024px;
 
 $toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
@@ -97,6 +98,10 @@ $includeHtml: false !default;
         min-height: calc(100% - #{gutter(2)});
         margin: gutter(1);
       }
+    }
+
+    &--limited-width {
+      max-width: $layoutMaxWidth;
     }
 
     &--row {
