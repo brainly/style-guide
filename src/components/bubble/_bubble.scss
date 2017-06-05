@@ -69,6 +69,7 @@ $includeHtml: false !default;
         top: $innerTriangleOffset;
         bottom: auto;
       }
+
     }
 
     &--full-and-grow {
@@ -81,30 +82,51 @@ $includeHtml: false !default;
       width: 100%;
     }
 
-    &--to-right {
-
+    &--row-end {
       &::before {
         right: gutter(1);
         left: auto;
       }
-
       &::after {
         right: (gutter(1) + $triangleSize - $innerTriangleSize);
         left: auto;
       }
     }
 
-    &--to-left {
-
+    &--row-start {
       &::before {
         right: auto;
         left: gutter(1);
       }
 
       &::after {
-        left: (gutter(1) + $triangleSize - $innerTriangleSize);
         right: auto;
+        left: (gutter(1) + $triangleSize - $innerTriangleSize);
       }
     }
+
+    &--column-end {
+      &::before {
+        bottom: gutter(1);
+        top: auto;
+      }
+      &::after {
+        bottom: (gutter(1) + $triangleSize - $innerTriangleSize);
+        top: auto;
+      }
+    }
+
+    &--column-start {
+      &::before {
+        bottom: auto;
+        top: gutter(1);
+      }
+
+      &::after {
+        bottom: auto;
+        top: (gutter(1) + $triangleSize - $innerTriangleSize);
+      }
+    }
+
   }
 }
