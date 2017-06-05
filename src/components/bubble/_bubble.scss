@@ -112,6 +112,7 @@ $includeHtml: false !default;
           right: gutter(1);
           left: auto;
         }
+
         &::after {
           right: (gutter(1) + $triangleSize - $innerTriangleSize);
           left: auto;
@@ -149,6 +150,7 @@ $includeHtml: false !default;
           bottom: gutter(1);
           top: auto;
         }
+
         &::after {
           bottom: (gutter(1) + $triangleSize - $innerTriangleSize);
           top: auto;
