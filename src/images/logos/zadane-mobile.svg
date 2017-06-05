@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 36 36">
-  <style>
-    .st0{fill:#FFFFFF;} .st1{fill:#020A1B;}
-  </style>
-  <path d="M7 0h22c3.9 0 7 3.1 7 7v22c0 3.9-3.1 7-7 7H7c-3.9 0-7-3.1-7-7V7c0-3.9 3.1-7 7-7z" class="st0"/>
-  <path d="M33.3 1.5C34.9 2.8 36 4.8 36 7v21.8L2.7 34.5C1.1 33.3 0 31.2 0 29V7.4l33.3-5.9z" class="st1"/>
-  <path d="M25 24.4l-14.1 2.4V23l7-9.3-6.8 1.1v-4.2l13.5-2.3V12l-7 9.3 7.4-1.2v4.3z" class="st0"/>
-</svg>

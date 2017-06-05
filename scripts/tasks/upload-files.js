@@ -16,19 +16,28 @@ module.exports = function (gulp, plugins, consts) {
       }
     });
 
-    var params = {
-      localDir: consts.DIST,
-      s3Params: {
-        Bucket: consts.BUCKET_NAME
+    client.s3.headObject({
+      Bucket: consts.BUCKET_NAME,
+      Key: `${consts.VERSION}/style-guide.css`
+    }, function(notExits, data) {
+      if (notExits) {
+        var params = {
+          localDir: consts.DIST,
+          s3Params: {
+            Bucket: consts.BUCKET_NAME
+          }
+        };
+        var uploader = client.uploadDir(params);
+        uploader.on('error', function (err) {
+          console.error('unable to upload:', err.stack);
+        });
+        uploader.on('progress', function () {
+          console.log('Upload progress', uploader.progressAmount, uploader.progressTotal);
+        });
+        uploader.on('end', done);
+      } else {
+        throw new Error('Version already exists');
       }
-    };
-    var uploader = client.uploadDir(params);
-    uploader.on('error', function (err) {
-      console.error('unable to upload:', err.stack);
     });
-    uploader.on('progress', function () {
-      console.log('Upload progress', uploader.progressAmount, uploader.progressTotal);
-    });
-    uploader.on('end', done);
   };
 };

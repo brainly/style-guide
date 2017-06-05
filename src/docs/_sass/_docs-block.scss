@@ -81,6 +81,10 @@
     &--small-padding {
       padding: $baseline / 2;
     }
+
+    &--light {
+      background-color: $graySecondaryLightest;
+    }
   }
 
   &__content-box {

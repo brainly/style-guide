@@ -1,11 +1,13 @@
-function svgSymbolCleanUp(shape, sprite, callback) {
+function svgSymbolCleanUp(config, shape, sprite, callback) {
     var symbol = shape.dom.documentElement;
     var childNodes = shape.dom.documentElement.childNodes;
     symbol.setAttribute('style', 'overflow: visible');
 
     for(var i = 0; i < childNodes.length; i++) {
         if(childNodes[i].nodeType === 1) {
-            childNodes[i].removeAttribute('class');
+            if (config.removeClass) {
+              childNodes[i].removeAttribute('class');
+            }
             childNodes[i].removeAttribute('fill');
         }
     }
@@ -35,7 +37,7 @@ module.exports = function (gulp, plugins, consts) {
                     generator: "icon-subject-%s"
                 },
                 transform: ['svgo', {
-                    custom: svgSymbolCleanUp
+                    custom: svgSymbolCleanUp.bind(null, {removeClass: false})
                 }]
             },
             svg: {
@@ -54,7 +56,7 @@ module.exports = function (gulp, plugins, consts) {
                     generator: "icon-%s"
                 },
                 transform: ['svgo', {
-                    custom: svgSymbolCleanUp
+                    custom: svgSymbolCleanUp.bind(null, {removeClass: true})
                 }]
             },
             svg: {
