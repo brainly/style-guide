@@ -1,16 +1,16 @@
 primary:
   - name: Black
     variable: $black
-    hex: "020a1a"
+    hex: "020a1b"
   - name: Mint
     variable: $mintPrimary
     hex: 53cf92
   - name: Mint mid-tone
     variable: $mintSecondary
-    hex: a8edc8
+    hex: b4efc2
   - name: Mint light
     variable: $mintSecondaryLight
-    hex: d8f8e5
+    hex: ddf7e5
   - name: Blue
     variable: $bluePrimary
     hex: 57b2f8
@@ -64,3 +64,40 @@ gray:
   - name: Gray secondary lightest
     variable: $graySecondaryLightest
     hex: f0f3f5
+additional:
+  - name: Bronze
+    variable: $bronzePrimary
+    hex: a76a58
+  - name: Bronze mid-tone
+    variable: $bronzeSecondary
+    hex: db8d6b
+  - name: Bronze light
+    variable: $bronzeSecondaryLight
+    hex: f4d7ca
+  - name: Silver
+    variable: $silverPrimary
+    hex: 8e969a
+  - name: Silver mid-tone
+    variable: $silverSecondary
+    hex: b6bec2
+  - name: Silver light
+    variable: $silverSecondaryLight
+    hex: e8eef1
+  - name: Gold
+    variable: $goldPrimary
+    hex: c08228
+  - name: Gold mid-tone
+    variable: $goldSecondary
+    hex: ecb444
+  - name: Gold light
+    variable: $goldSecondaryLight
+    hex: fbe4b5
+  - name: Navy blue
+    variable: $navybluePrimary
+    hex: 1b2e57
+  - name: Navy blue mid tone
+    variable: $navyblueSecondary
+    hex: 3a548d
+  - name: Navy blue light
+    variable: $navyblueSecondaryLight
+    hex: b3c4e7
