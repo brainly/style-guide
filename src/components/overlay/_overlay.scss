@@ -16,6 +16,9 @@ $includeHtml: false !default;
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    // sass-lint:disable no-misspelled-properties
+    -webkit-overflow-scrolling: touch; // it fixes an issue with scrolling on iOS browsers
+    // sass-lint:enable no-misspelled-properties
   }
 
 }
