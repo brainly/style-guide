@@ -4,7 +4,7 @@ primary:
     hex: "020a1a"
   - name: Mint
     variable: $mintPrimary
-    hex: 7ed7ac
+    hex: 53cf92
   - name: Mint mid-tone
     variable: $mintSecondary
     hex: a8edc8
