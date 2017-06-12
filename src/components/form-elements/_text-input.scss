@@ -2,17 +2,14 @@ $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
 $inputSmallHeight: rhythm(5 / 4);
 
-$inputBackground: rgba(225,232,237,0.75);
-$inputBorderColor: $graySecondary;
+$inputBackground: rgba(225, 232, 237, 0.75);
 $inputTextColor: $black;
 $inputFontSize: fontSize(medium);
 $inputLargeFontSize: fontSize(standout);
 $inputFocusBorderColor: $bluePrimary;
 $inputPlaceholderTextColor: $graySecondary;
 $inputPlaceholderFontSize: fontSize(medium);
-$inputValidBorderColor: $mintSecondary;
 $inputFocusValidBorderColor: $mintPrimary;
-$inputInvalidBorderColor: $peachSecondary;
 $inputFocusInvalidBorderColor: $peachPrimary;
 $searchInputTransparentColor: rgba($white, 0.4);
 $searchInputTransparentColorAlt: rgba($white, 0.8);
