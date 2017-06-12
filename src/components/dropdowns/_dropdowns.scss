@@ -6,7 +6,8 @@ $dropdownBorderColor: $white;
 $dropdownOpenedBorderColor: $white;
 $dropdownActiveBackgroundColor: $blueSecondaryLight;
 $dropdownFontSize: fontSize(small);
-$dropdownShadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+$dropdownShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+$dropdownShadowOpen: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 
 $includeHtml: false !default;
 
@@ -66,7 +67,7 @@ $includeHtml: false !default;
       overflow: hidden;
       padding-bottom: gutter(1 / 6);
       margin: 0 0 gutter(0.5);
-      box-shadow: $dropdownShadow;
+      box-shadow: $dropdownShadowOpen;
       background-color: $dropdownBackground;
       border: $dropdownBorderSize solid $dropdownOpenedBorderColor;
       border-top: none;
