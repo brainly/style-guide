@@ -1,14 +1,12 @@
 $selectBackground: $white;
-$selectTextColor: $graySecondary;
+$selectTextColor: $grayPrimary;
 $selectFontSize: fontSize(small);
 $selectIconSize: rhythm(1 / 3);
-$selectHeight: rhythm(7 / 6);
-$selectBorderColor: $graySecondary;
+$selectHeight: rhythm(5 / 4);
 $selectActiveBorderColor: $grayPrimary;
-$selectInvalidBorderColor: $peachSecondary;
 $selectActiveInvalidBorderColor: $peachPrimary;
-$selectValidBorderColor: $mintSecondary;
 $selectActiveValidBorderColor: $mintPrimary;
+$selectShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 
 $includeHtml: false !default;
 
@@ -17,14 +15,17 @@ $includeHtml: false !default;
     @include component();
     font-size: $selectFontSize;
     color: $selectTextColor;
+    box-shadow: $selectShadow;
+    border-radius: $borderRadiusDefault;
 
     &__element {
       background: $selectBackground;
-      border: 1px solid $selectBorderColor;
-      border-radius: $borderRadiusSmall;
+      border: none;
+      border-radius: $borderRadiusDefault;
       font-size: inherit;
       font-weight: $fontWeightBold;
-      color: inherit;
+
+      //color: inherit;
       display: inline-block;
       height: $selectHeight;
       position: relative;
@@ -61,27 +62,11 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      .sg-select__element {
-        border-color: $selectValidBorderColor;
-
-        &:hover,
-        &:focus,
-        &:active {
-          border-color: $selectActiveValidBorderColor;
-        }
-      }
+      color: $selectActiveValidBorderColor;
     }
 
     &--invalid {
-      .sg-select__element {
-        border-color: $selectInvalidBorderColor;
-
-        &:hover,
-        &:focus,
-        &:active {
-          border-color: $selectActiveInvalidBorderColor;
-        }
-      }
+      color: $selectActiveInvalidBorderColor;
     }
   }
 }
