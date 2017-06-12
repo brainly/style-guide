@@ -1,13 +1,14 @@
 $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
+$inputSmallHeight: rhythm(5 / 4);
 
-$inputBackground: $white;
+$inputBackground: rgba(225,232,237,0.75);
 $inputBorderColor: $graySecondary;
 $inputTextColor: $black;
 $inputFontSize: fontSize(medium);
 $inputLargeFontSize: fontSize(standout);
-$inputFocusBorderColor: $grayPrimary;
-$inputPlaceholderTextColor: $grayPrimary;
+$inputFocusBorderColor: $bluePrimary;
+$inputPlaceholderTextColor: $graySecondary;
 $inputPlaceholderFontSize: fontSize(medium);
 $inputValidBorderColor: $mintSecondary;
 $inputFocusValidBorderColor: $mintPrimary;
@@ -24,8 +25,8 @@ $includeHtml: false !default;
   .sg-input {
     @include component();
     background: $inputBackground;
-    border: 1px solid $inputBorderColor;
-    border-radius: $borderRadiusSmall;
+    border: 2px solid transparent;
+    border-radius: $borderRadiusDefault;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
@@ -35,7 +36,12 @@ $includeHtml: false !default;
 
     &:focus {
       outline: none;
-      border-color: $inputFocusBorderColor;
+      border: 2px solid $inputFocusBorderColor;
+      background-color: $white;
+
+      &::placeholder {
+        visibility: hidden;
+      }
     }
 
     &::placeholder {
@@ -59,6 +65,7 @@ $includeHtml: false !default;
       &:focus {
         background: $white;
         box-shadow:  $searchInputBoxShadow;
+        border: none;
       }
 
       &:hover {
@@ -69,13 +76,15 @@ $includeHtml: false !default;
     &--light-alt {
       transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
       background: $searchInputTransparentColorAlt;
+      border: none;
 
       &:focus {
         background: $white;
         box-shadow:  $searchInputBoxShadow;
+        border: none;
 
         &::placeholder {
-          color: $white;
+          visibility: hidden;
         }
       }
 
@@ -85,19 +94,13 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      border-color: $inputValidBorderColor;
-
-      &:focus {
-        border-color: $inputFocusValidBorderColor;
-      }
+      color: $inputFocusValidBorderColor;
+      font-weight: $fontWeightBold;
     }
 
     &--invalid {
-      border-color: $inputInvalidBorderColor;
-
-      &:focus {
-        border-color: $inputFocusInvalidBorderColor;
-      }
+      color: $inputFocusInvalidBorderColor;
+      font-weight: $fontWeightBold;
     }
 
     &--spaced-bottom {
@@ -123,6 +126,10 @@ $includeHtml: false !default;
           font-size: fontSize(standout);
         }
       }
+    }
+
+    &--small {
+      height: $inputSmallHeight;
     }
 
     &--with-icon {
