@@ -44,7 +44,7 @@ $includeHtml: false !default;
       transition: transform 0.2s;
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
-      border-bottom: 6px solid $graySecondary;
+      border-top: 6px solid $graySecondary;
     }
 
     &--full-width {
