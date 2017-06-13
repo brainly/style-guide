@@ -4,7 +4,7 @@ $inputSmallHeight: rhythm(5 / 4);
 
 $inputBackground: rgba(225, 232, 237, 0.75);
 $inputTextColor: $black;
-$inputFontSize: fontSize(medium);
+$inputFontSize: fontSize(small);
 $inputLargeFontSize: fontSize(standout);
 $inputFocusBorderColor: $bluePrimary;
 $inputPlaceholderTextColor: $graySecondary;
@@ -137,6 +137,7 @@ $includeHtml: false !default;
     &--small {
       height: $inputSmallHeight;
       border-radius: $inputSmallBorderRadius;
+
       &::placeholder {
         font-size: $inputSmallPlaceholderFontSize;
       }
