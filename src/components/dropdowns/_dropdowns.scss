@@ -1,6 +1,7 @@
 $dropdownIconSize: gutter(1 / 3);
 $dropdownHeight: gutter(7 / 6);
 $dropdownBorderSize: 1px;
+$dropdownBorderRadius: 7px;
 $dropdownBackground: $white;
 $dropdownBorderColor: $white;
 $dropdownOpenedBorderColor: $white;
@@ -20,7 +21,7 @@ $includeHtml: false !default;
     overflow: visible;
     background-color: $dropdownBackground;
     border: $dropdownBorderSize solid $dropdownBorderColor;
-    border-radius: $borderRadiusDefault;
+    border-radius: $dropdownBorderRadius;
     box-shadow: $dropdownShadow;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
@@ -74,7 +75,7 @@ $includeHtml: false !default;
       background-color: $dropdownBackground;
       border: $dropdownBorderSize solid $dropdownOpenedBorderColor;
       border-top: none;
-      border-radius: 0 0 $borderRadiusDefault $borderRadiusDefault;
+      border-radius: 0 0 $dropdownBorderRadius $dropdownBorderRadius;
       left: -$dropdownBorderSize;
       right: -$dropdownBorderSize;
       z-index: 1;
@@ -132,7 +133,7 @@ $includeHtml: false !default;
     &--opened {
       background-color: $dropdownBackground;
       border-color: $dropdownOpenedBorderColor;
-      border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+      border-radius: $dropdownBorderRadius $dropdownBorderRadius 0 0;
       border-bottom-color: transparent;
 
       &:hover,
