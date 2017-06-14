@@ -2,16 +2,16 @@ $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
 $inputSmallHeight: rhythm(5 / 4);
 
-$inputBackground: rgba(225, 232, 237, 0.75);
+$inputBackground: $white;
 $inputTextColor: $black;
 $inputFontSize: fontSize(small);
 $inputLargeFontSize: fontSize(standout);
-$inputFocusBorderColor: $bluePrimary;
 $inputPlaceholderTextColor: $graySecondary;
 $inputFocusValidBorderColor: $mintPrimary;
 $inputFocusInvalidBorderColor: $peachPrimary;
 $inputStandardBorderRadius: 9px;
 $inputPlaceholderFontSize: 14px;
+$inputFocusShadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 
 $inputSmallBorderRadius: 7px;
 $inputSmallPlaceholderFontSize: 12px;
@@ -30,7 +30,7 @@ $includeHtml: false !default;
   .sg-input {
     @include component();
     background: $inputBackground;
-    border: 2px solid transparent;
+    border: 2px solid $graySecondaryLight;
     border-radius: $inputStandardBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
@@ -41,7 +41,8 @@ $includeHtml: false !default;
 
     &:focus {
       outline: none;
-      border: 2px solid $inputFocusBorderColor;
+      box-shadow: $inputFocusShadow;
+      border: 2px solid transparent;
       background-color: $white;
 
       &::placeholder {
