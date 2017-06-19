@@ -4,7 +4,7 @@ import ButtonPrimary from '../ButtonPrimary.jsx'
 const Buttons = () => {
     return (
         <div>
-            <ButtonPrimary type='dark'>jakis text</ButtonPrimary>
+            <ButtonPrimary type='dark'>jakis text !!!!!</ButtonPrimary>
         </div>
     );
 };

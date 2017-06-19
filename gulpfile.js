@@ -50,7 +50,7 @@ gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
 
-gulp.task('jekyll:docs', ['build:copy-components','react', 'build:copy-package-json'], getTask('jekyll-docs'));
+gulp.task('jekyll:docs', ['build:copy-components','build:react-pages', 'build:copy-package-json'], getTask('jekyll-docs'));
 
 gulp.task('docs:copy-components', getTask('docs-copy-components'));
 gulp.task('build:copy-components', getTask('build-copy-components'));
@@ -59,7 +59,7 @@ gulp.task('build:copy-package-json', getTask('build-copy-package-json'));
 gulp.task('watch:sass', getTask('watch-sass'));
 gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
 gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
-gulp.task('watch', ['watch:sass', 'watch:docs-templates','react', 'watch:docs-sass']);
+gulp.task('watch', ['watch:sass', 'watch:docs-templates','build:react-pages', 'watch:docs-sass']);
 
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
@@ -67,7 +67,7 @@ gulp.task('deploy', function(done) {
   runSequence('build', 'upload-files', done);
 });
 
-gulp.task('react', getTask('react'));
+gulp.task('build:react-pages', getTask('build-react-pages'));
 
 gulp.task('upload-files', getTask('upload-files'));
 
