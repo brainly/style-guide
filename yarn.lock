@@ -1906,9 +1906,9 @@ front-matter@2.1.0:
   dependencies:
     js-yaml "^3.4.6"
 
-"frontend-tools-configs@git+https://github.com/brainly/frontend-tools-configs.git#v7.0.1":
-  version "7.0.1"
-  resolved "git+https://github.com/brainly/frontend-tools-configs.git#58a1f3b56c708253747a35389cceeec6163d8a9d"
+"frontend-tools-configs@git+https://github.com/brainly/frontend-tools-configs.git#v9.0.0":
+  version "9.0.0"
+  resolved "git+https://github.com/brainly/frontend-tools-configs.git#9105bfc61aa96b49e72345fb4f9a65e65f106413"
 
 fs-exists-sync@^0.1.0:
   version "0.1.0"
