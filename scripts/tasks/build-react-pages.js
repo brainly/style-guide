@@ -61,8 +61,6 @@ module.exports = function(gulp, plugins, consts) {
         const ReactPageClass = require(path).default;
         const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
 
-        fs.unlinkSync(path);
-
         file.contents = new Buffer(htmlPage);
         cb(null, file);
 
