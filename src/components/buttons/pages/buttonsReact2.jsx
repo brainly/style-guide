@@ -1,3 +1,5 @@
+//TODO delete this later, this file is only example
+
 import React from 'react';
 import ButtonPrimary from '../ButtonPrimary'
 

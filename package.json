@@ -10,6 +10,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "classnames": "^2.2.5",
     "del": "^2.2.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v9.0.0",
     "gulp": "^3.9.0",
@@ -47,8 +48,5 @@
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & npm start",
     "test": "npm run scss-lint -s && npm run scss-unused-variables -s"
-  },
-  "dependencies": {
-    "classnames": "^2.2.5"
   }
 }

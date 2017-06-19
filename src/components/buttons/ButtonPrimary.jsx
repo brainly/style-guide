@@ -1,3 +1,5 @@
+//TODO delete this later, this file is only example
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
