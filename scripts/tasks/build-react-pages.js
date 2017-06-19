@@ -43,7 +43,7 @@ module.exports = function(gulp, plugins, consts) {
             [fileNameWithExtension]: file.path
           },
           output: {
-            filename: "[name]",
+            filename: '[name]',
             path: jsPath,
             libraryTarget: 'commonjs2'
           }
@@ -69,7 +69,7 @@ module.exports = function(gulp, plugins, consts) {
 
       }))
       .pipe(rename(function(path) {
-        path.extname = ".html"
+        path.extname = '.html';
       }))
       .pipe(gulp.dest(docsOutputPath));
   }
