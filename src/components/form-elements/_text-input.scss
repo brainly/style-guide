@@ -2,17 +2,25 @@ $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
 $inputSmallHeight: rhythm(5 / 4);
 
-$inputBackground: rgba(225, 232, 237, 0.75);
+$inputBackground: $white;
 $inputTextColor: $black;
-$inputFontSize: fontSize(medium);
+$inputFontSize: fontSize(small);
 $inputLargeFontSize: fontSize(standout);
-$inputFocusBorderColor: $bluePrimary;
 $inputPlaceholderTextColor: $graySecondary;
-$inputPlaceholderFontSize: fontSize(medium);
 $inputFocusValidBorderColor: $mintPrimary;
 $inputFocusInvalidBorderColor: $peachPrimary;
+$inputStandardBorderRadius: 9px;
+$inputPlaceholderFontSize: 14px;
+$inputFocusShadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+
+$inputSmallBorderRadius: 7px;
+$inputSmallPlaceholderFontSize: 12px;
+
+$inputLargeBorderRadius: 13px;
+
 $searchInputTransparentColor: rgba($white, 0.4);
 $searchInputTransparentColorAlt: rgba($white, 0.8);
+
 $searchInputBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 
 $includeHtml: false !default;
@@ -22,8 +30,8 @@ $includeHtml: false !default;
   .sg-input {
     @include component();
     background: $inputBackground;
-    border: 2px solid transparent;
-    border-radius: $borderRadiusDefault;
+    border: 2px solid $graySecondaryLight;
+    border-radius: $inputStandardBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
@@ -33,7 +41,8 @@ $includeHtml: false !default;
 
     &:focus {
       outline: none;
-      border: 2px solid $inputFocusBorderColor;
+      box-shadow: $inputFocusShadow;
+      border: 2px solid transparent;
       background-color: $white;
 
       &::placeholder {
@@ -44,6 +53,7 @@ $includeHtml: false !default;
     &::placeholder {
       color: $inputPlaceholderTextColor;
       font-size: $inputPlaceholderFontSize;
+      font-weight: $fontWeightBold;
       position: relative;
     }
 
@@ -116,7 +126,7 @@ $includeHtml: false !default;
       @include sgBreakpoint(medium-up) {
         height: $inputLargeHeight;
         font-size: $inputLargeFontSize;
-        border-radius: $borderRadiusDefault;
+        border-radius: $inputLargeBorderRadius;
         padding: 0 gutter(1);
 
         &::placeholder {
@@ -127,6 +137,11 @@ $includeHtml: false !default;
 
     &--small {
       height: $inputSmallHeight;
+      border-radius: $inputSmallBorderRadius;
+
+      &::placeholder {
+        font-size: $inputSmallPlaceholderFontSize;
+      }
     }
 
     &--with-icon {
