@@ -20,7 +20,10 @@ const coreConfig = {
       },
     ],
   },
-  externals: nodeModules
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+ externals: nodeModules
 };
 
 module.exports = function(gulp, plugins, consts) {
