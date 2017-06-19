@@ -6328,12 +6328,6 @@ vinyl-fs@^0.3.0:
     through2 "^0.6.1"
     vinyl "^0.4.0"
 
-vinyl-named@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vinyl-named/-/vinyl-named-1.1.0.tgz#94e4fe741e38db0ec303e5b3d868b297a2deab66"
-  dependencies:
-    through "^2.3.6"
-
 vinyl-sourcemaps-apply@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz#ab6549d61d172c2b1b87be5c508d239c8ef87705"

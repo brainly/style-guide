@@ -33,7 +33,6 @@
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
     "through2": "^2.0.3",
-    "vinyl-named": "^1.1.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5",
     "webpack-stream": "^3.2.0",

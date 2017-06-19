@@ -1,18 +1,14 @@
-const webpack = require('webpack');
-const ReactDOMServer = require('react-dom/server');
-const React = require('react');
 const through = require('through2');
-const path = require('path');
-const named = require('vinyl-named');
-const rename = require("gulp-rename");
 const fs = require('fs');
-
+const webpack = require('webpack');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+const rename = require('gulp-rename');
 
 const nodeModules = {};
 fs.readdirSync('node_modules')
   .filter(dir => dir !== '.bin')
   .forEach(mod => nodeModules[mod] = 'commonjs ' + mod);
-
 
 const coreConfig = {
   target: 'node',
@@ -27,7 +23,6 @@ const coreConfig = {
   externals: nodeModules
 };
 
-
 module.exports = function(gulp, plugins, consts) {
   return function() {
     const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
@@ -38,7 +33,7 @@ module.exports = function(gulp, plugins, consts) {
         const pathArray = file.path.replace(consts.SRC, '').split('/');
         const fileNameWithExtension = pathArray.pop();
         const relativePath = pathArray.join('/');
-        const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', relativePath)
+        const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', relativePath);
 
         const config = Object.assign({}, coreConfig, {
           entry: {
