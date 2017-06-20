@@ -7,6 +7,7 @@ const rename = require('gulp-rename');
 
 // create external modules for webpack to not include it in bundles.
 const nodeModules = {};
+
 fs.readdirSync('node_modules')
   .filter(dir => dir !== '.bin')
   .forEach(mod => nodeModules[mod] = 'commonjs ' + mod);
@@ -18,11 +19,11 @@ const coreConfig = {
       {
         test: /\.js|jsx?$/,
         loader: 'babel-loader'
-      },
-    ],
+      }
+    ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
   externals: nodeModules
 };
@@ -50,7 +51,7 @@ module.exports = function(gulp, plugins, consts) {
         console.error(err);
         return;
       }
-      cb(null, file)
+      cb(null, file);
     });
   };
 
@@ -67,6 +68,7 @@ module.exports = function(gulp, plugins, consts) {
   return function() {
     const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
     const docsOutputPath = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+    const docsOutputPath2 = plugins.path.join(consts.SRC, 'docs', '_includes');
 
     return gulp.src(componentsHtml, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
@@ -76,6 +78,7 @@ module.exports = function(gulp, plugins, consts) {
           path.extname = '.html';
         })
       )
-      .pipe(gulp.dest(docsOutputPath));
-  }
+      .pipe(gulp.dest(docsOutputPath))
+      .pipe(gulp.dest(docsOutputPath2));
+  };
 };
