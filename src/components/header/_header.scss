@@ -6,7 +6,6 @@ $includeHtml: false !default;
 
   .sg-header {
     width: 100%;
-    height: $headerHeight;
     background-color: $bluePrimary;
     margin-bottom: rhythm(3) - $headerHeight;
     box-shadow: $defaultBottomShadow;
@@ -20,12 +19,12 @@ $includeHtml: false !default;
       width: 100%;
       height: 100%;
       max-width: $layoutMaximumWidth;
-      padding: 0 gutter(1 / 2);
+      padding: gutter(1 / 2);
       margin: auto;
       align-items: center;
 
       @include sgBreakpoint(large-only) {
-        padding: 0 gutter(1);
+        padding: gutter(1 / 2) gutter(1);
       }
     }
 
