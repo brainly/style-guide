@@ -27,7 +27,7 @@ const Bubble = ({alignment, direction, full, children}) => {
 
 Bubble.propTypes = {
   children: PropTypes.node.isRequired,
-  direction: PropTypes.oneOf['top', 'right', 'bottom', 'left'],
+  direction: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
   alignment: PropTypes.oneOf(['start', 'middle', 'end']),
   full: PropTypes.bool
 };
