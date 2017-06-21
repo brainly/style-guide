@@ -8,6 +8,7 @@ node_modules
 *.css
 .sass-cache
 /npm-debug.log
+coverage/
 
 # Generated images
 /src/images/subjects-icons.js
