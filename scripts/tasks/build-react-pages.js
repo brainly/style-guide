@@ -75,6 +75,7 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(through.obj(createHtmlFiles))
       .pipe(rename(
         function(path) {
+          path.dirname += '/..';
           path.extname = '.html';
         })
       )
