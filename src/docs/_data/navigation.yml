@@ -68,7 +68,7 @@
   location: containers
   elements:
     - name: Bubble
-      location: bubble/pages/bubble
+      location: bubble/bubble
     - name: Box
       location: box/box
     - name: Overlayed Box
