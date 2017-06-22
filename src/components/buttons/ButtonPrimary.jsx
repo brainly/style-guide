@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-
 const types = {
   alt: 'alt',
   dark: 'dark',
@@ -11,7 +10,6 @@ const types = {
   dark_inverse: 'dark-inverse',
   fb: 'fb'
 };
-
 
 const ButtonPrimary = ({disabled, icon, type, children, wide, ...props}) => {
   const btnClass = classNames('sg-button-primary', {
