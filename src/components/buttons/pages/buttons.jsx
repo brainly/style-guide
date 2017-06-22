@@ -107,6 +107,7 @@ const Buttons = () =>
             <use xlinkHref="#icon-search"></use>
           </svg>
         </ButtonSecondary>
+        &nbsp;
         <ButtonSecondary type={types2.inverse}>
           Search
         </ButtonSecondary>
