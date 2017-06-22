@@ -8,15 +8,15 @@ const types = {
   inverse: 'inverse',
   alt_inverse: 'alt-inverse',
   dark_inverse: 'dark-inverse',
-  active_inverse: 'active-inverse',
-  active_inverse_disabled: 'active-inverse-disabled'
+  active_inverse: 'active-inverse'
 };
 
 const ButtonSecondary = ({small, disabled, type, children, ...props}) => {
   const btnClass = classNames('sg-button-secondary', {
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
-    [`sg-button-secondary--${type}`]: type
+    [`sg-button-secondary--${type}`]: type,
+    'sg-button-secondary--active-inverse-disabled': disabled && types.active_inverse
   });
 
   return <button {...props} disabled={disabled} className={btnClass}>

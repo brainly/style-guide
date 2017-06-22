@@ -211,7 +211,7 @@ const Buttons = () =>
         </div>
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.active_inverse_disabled} small={true}>
+      <ButtonSecondary disabled={true} type={types2.active_inverse} small={true}>
         <div className="sg-label sg-label--secondary sg-label--unstyled">
           <div className="sg-label__icon">
             <svg className="sg-icon sg-icon--x16 sg-icon--adaptive">
