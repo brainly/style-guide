@@ -56,6 +56,6 @@
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & npm start",
-    "test": "npm run scss-lint -s && npm run scss-unused-variables -s  && npm run js-lint -s  && jest --verbose"
+    "test": "npm run scss-lint -s && npm run scss-unused-variables -s  && npm run js-lint -s  && jest"
   }
 }
