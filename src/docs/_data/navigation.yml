@@ -40,7 +40,7 @@
     - name: Buttons
       location: buttons/buttons
     - name: Icon as button
-      location: buttons/icon-as-button
+      location: icon-as-button/icon-as-button
     - name: Checkbox & Radio
       location: form-elements/checkbox-radio
     - name: Text input
