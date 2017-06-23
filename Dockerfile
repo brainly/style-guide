@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:5.8
+FROM mhart/alpine-node:8.1
 
 ENV AWS_ACCESS_KEY ${AWS_ACCESS_KEY}
 ENV AWS_SECRET_ACCESS_KEY ${AWS_SECRET_ACCESS_KEY}
