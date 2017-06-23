@@ -19,6 +19,10 @@
     align-items: flex-start;
   }
 
+  &--centered {
+    justify-content: center;
+  }
+
   &--to-right {
     justify-content: flex-end;
 
