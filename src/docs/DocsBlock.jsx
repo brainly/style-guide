@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const contrastBlockCssClass = 'docs-block__contrast-box';
 const DocsBlock = ({info, additionalInfo, children}) => {
   let header;
 
@@ -28,3 +29,4 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
+export {contrastBlockCssClass};

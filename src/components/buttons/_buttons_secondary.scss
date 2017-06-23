@@ -60,6 +60,10 @@ $includeHtml: false !default;
       &:focus,
       &:hover {
         box-shadow: $buttonBoxShadow;
+
+        background-color: $white;
+        color: $peachPrimary;
+        fill: $peachPrimary;
       }
     }
   }
