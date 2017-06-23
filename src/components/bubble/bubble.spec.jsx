@@ -1,18 +1,28 @@
 import React from 'react';
-import Bubble from './Bubble';
+import Bubble, {directions, alignments} from './Bubble';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const bubble = shallow(
-    <Bubble direction='top'>Some text</Bubble>
+    <Bubble direction={directions.top}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble')).toEqual(true);
 });
 
+test('error when no direction', () => {
+  const spy = jest.spyOn(console, 'error');
+
+  console.error = jest.fn();
+  shallow(<Bubble>Some text</Bubble>);
+  expect(console.error.mock.calls).toHaveLength(1);
+
+  spy.mockRestore();
+});
+
 test('render top', () => {
   const bubble = shallow(
-    <Bubble direction='top'>Some text</Bubble>
+    <Bubble direction={directions.top}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
@@ -25,7 +35,7 @@ test('render top', () => {
 
 test('render top start', () => {
   const bubble = shallow(
-    <Bubble direction='top' alignment='start'>Some text</Bubble>
+    <Bubble direction={directions.top} alignment={alignments.start}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
@@ -35,7 +45,7 @@ test('render top start', () => {
 
 test('render right', () => {
   const bubble = shallow(
-    <Bubble direction='right'>Some text</Bubble>
+    <Bubble direction={directions.right}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
@@ -47,7 +57,7 @@ test('render right', () => {
 
 test('render right end', () => {
   const bubble = shallow(
-    <Bubble direction='right' alignment='end'>Some text</Bubble>
+    <Bubble direction={directions.right} alignment={alignments.end}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
@@ -59,7 +69,7 @@ test('render right end', () => {
 
 test('render full', () => {
   const bubble = shallow(
-    <Bubble direction='left' full={true}>Some text</Bubble>
+    <Bubble direction={directions.left} full={true}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);
