@@ -1,32 +1,32 @@
 import React from 'react';
-import Bubble from '../Bubble';
+import Bubble, {directions, alignments} from '../Bubble';
 import DocsBlock from '../../../docs/DocsBlock';
 
 const Bubbles = () =>
   <div>
     <DocsBlock info='Top (middle)' additionalInfo='--top'>
-      <Bubble direction='top'>
+      <Bubble direction={directions.top}>
         Hi there!!<br/>
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Top-start' additionalInfo='--top --row-start'>
-      <Bubble direction='top' alignment='start'>
+      <Bubble direction={directions.top} alignment={alignments.start}>
         Hi there!!<br/>
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Top-end' additionalInfo='--top --row-end'>
-      <Bubble direction='top' alignment='end'>
+      <Bubble direction={directions.top} alignment={alignments.end}>
         Hi there!!<br/>
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Bottom-start' additionalInfo='--bottom --row-start (--/--row-end)'>
-      <Bubble direction='bottom' alignment='start'>
+      <Bubble direction={directions.bottom} alignment={alignments.start}>
         Hi there!!<br/>
         Just wondering if you have any problems with your school work.
       </Bubble>
@@ -34,7 +34,7 @@ const Bubbles = () =>
 
     <DocsBlock info='Left-start' additionalInfo='--left --column-start (--/--column-end)'>
       <div style={{width: '300px'}}>
-        <Bubble direction='left' alignment='start'>
+        <Bubble direction={directions.left} alignment={alignments.start}>
           Hi there!! Just wondering if you have any problems with your school work.
           We've got plenty of people who can help you here :)
           Also, my last question was answered in less than 10 minutes :D
@@ -45,7 +45,7 @@ const Bubbles = () =>
 
     <DocsBlock info='Right-start' additionalInfo='--right --column-start (--/--column-end)'>
       <div style={{width: '300px'}}>
-        <Bubble direction='right' alignment='start'>
+        <Bubble direction={directions.right} alignment={alignments.start}>
           Hi there!! Just wondering if you have any problems with your school work.
           We've got plenty of people who can help you here :)
           Also, my last question was answered in less than 10 minutes :D
@@ -56,7 +56,7 @@ const Bubbles = () =>
 
     <DocsBlock info='Full + left' additionalInfo='--full (makes 100% height) --top'>
       <div style={{height: '200px'}}>
-        <Bubble direction='top' full={true}>
+        <Bubble direction={directions.top} full={true}>
           Hi there!!<br/>
           Just wondering if you have any problems with your school work.
         </Bubble>
@@ -64,7 +64,7 @@ const Bubbles = () =>
     </DocsBlock>
 
     <DocsBlock info='Example usage' additionalInfo='--top'>
-      <Bubble direction='top'>
+      <Bubble direction={directions.top}>
         <div className="sg-bubble__hole">
           <div className="sg-content-box">
             <div className="sg-content-box__header">
