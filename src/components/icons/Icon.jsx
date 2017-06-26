@@ -57,7 +57,7 @@ const colors = {
 };
 const sizes = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size, type}) => {
+const Icon = ({color, size = 24, type}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
