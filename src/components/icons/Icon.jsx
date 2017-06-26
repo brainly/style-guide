@@ -40,7 +40,8 @@ const types = {
   stream: 'stream',
   symbols: 'symbols',
   unseen: 'unseen',
-  x: 'x'
+  x: 'x',
+  fb: 'fb'
 };
 const colors = {
   adaptive: 'adaptive',
