@@ -2,9 +2,8 @@ import React from 'react';
 import ButtonPrimary from './ButtonPrimary';
 import ButtonSecondary, {types} from './ButtonSecondary';
 import ButtonRound from './ButtonRound';
-
-
 import {shallow} from 'enzyme';
+
 describe('Button Primary', () => {
   test('render', () => {
     const button = shallow(
