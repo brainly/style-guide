@@ -54,6 +54,7 @@ const colors = {
   dark: 'dark',
   mint: 'mint'
 };
+const sizes = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
 const Icon = ({color, size, type}) => {
   const iconClass = classNames('sg-icon', {
@@ -68,10 +69,10 @@ const Icon = ({color, size, type}) => {
 };
 
 Icon.propTypes = {
-  size: PropTypes.oneOf([120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8]),
+  size: PropTypes.oneOf(sizes),
   color: PropTypes.oneOf(Object.values(colors)),
   type: PropTypes.oneOf(Object.values(types)).isRequired
 };
 
 export default Icon;
-export {types, colors};
+export {types, colors, sizes};
