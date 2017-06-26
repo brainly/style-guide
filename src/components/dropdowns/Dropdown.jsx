@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {types as iconTypes, colors as iconColors} from '../icons/Icon';
 import DropdownItem from './DropdownItem';
 
-const Dropdown = ({fullWidth = true, opened, ...props}) => {
+const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items = []}) => {
   const dropdownClass = classNames('sg-dropdown', {
     'sg-dropdown--full-width': fullWidth,
     'sg-dropdown--opened': opened
   });
+  const itemsClass = classNames('sg-dropdown__items', {
+    'sg-dropdown__items--fixed': fixed
+  });
 
-  return <div className={dropdownClass} onClick={props.onClick}>
-    <div className="sg-dropdown__icon">
-      <Icon size={8} color={iconColors.gray} type={iconTypes.arrow_down}/>
-    </div>
+  return <div className={dropdownClass} onClick={onClick}>
+    <div className="sg-dropdown__icon"></div>
     <div className="sg-dropdown__hole">
       <div className="sg-dropdown__item-text">
-        {props.label}
+        {label}
       </div>
     </div>
-    <div className="sg-dropdown__items">
-      {props.items.map(item =>
-        <DropdownItem key={item.id} text={item.text} id={item.id} onClick={props.onItemClick}/>
+    <div className={itemsClass}>
+      {items.map(({id, text}) =>
+        <DropdownItem key={id} text={text} id={id} onClick={() => onItemClick(id)}/>
       )}
     </div>
   </div>;
@@ -32,6 +32,7 @@ Dropdown.propTypes = {
   onItemClick: PropTypes.func,
   label: PropTypes.string.isRequired,
   fullWidth: PropTypes.bool,
+  fixed: PropTypes.bool,
   opened: PropTypes.bool,
   items: PropTypes.array.isRequired
 };
