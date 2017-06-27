@@ -24,7 +24,7 @@ test('error when no type', () => {
 test('type passed to xlink:href', () => {
   const type = types.answer;
   const icon = shallow(
-    <Icon type={type}>Some text</Icon>
+    <Icon type={type}/>
   );
   const use = icon.find('use');
 
@@ -36,7 +36,7 @@ test('colors', () => {
   const type = types.answer;
   const color = colors.dark;
   const icon = shallow(
-    <Icon type={type} color={color}>Some text</Icon>
+    <Icon type={type} color={color}/>
   );
 
   expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
@@ -47,7 +47,7 @@ test('size', () => {
   const size = 10;
   const type = types.answer;
   const icon = shallow(
-    <Icon type={type} size={size}>Some text</Icon>
+    <Icon type={type} size={size}/>
   );
 
   expect(icon.hasClass(`sg-icon--x${size}`)).toEqual(true);
