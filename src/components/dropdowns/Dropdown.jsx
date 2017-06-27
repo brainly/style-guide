@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DropdownItem from './DropdownItem';
 
-const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items = []}) => {
+const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items}) => {
   const dropdownClass = classNames('sg-dropdown', {
     'sg-dropdown--full-width': fullWidth,
     'sg-dropdown--opened': opened

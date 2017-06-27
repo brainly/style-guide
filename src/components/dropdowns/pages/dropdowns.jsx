@@ -9,7 +9,7 @@ const defaultItems = [item1st, item2nd, item3rd];
 const defaultLabel = 'default Label';
 const defaultProps = {items: defaultItems, label: defaultLabel};
 
-const Buttons = () =>
+const Dropdowns = () =>
   <div>
     <DocsBlock info='Closed' multiContent={[
       <Dropdown {...defaultProps} fullWidth={false}/>,
@@ -38,4 +38,4 @@ const Buttons = () =>
 
   </div>;
 
-export default Buttons;
+export default Dropdowns;
