@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const contrastBlockCssClass = 'docs-block__contrast-box';
+
 const InfoBlock = ({info, additionalInfo}) => {
   if (!info && !additionalInfo) {
     return null;
@@ -22,17 +24,23 @@ InfoBlock.propTypes = {
   info: PropTypes.node
 };
 
-const contrastBlockCssClass = 'docs-block__contrast-box';
-const DocsBlock = ({info, additionalInfo, children}) =>
+const ContentBlock = ({children}) => <div className="docs-block__content">
+  {children}
+</div>;
+
+ContentBlock.propTypes = {children: PropTypes.node};
+
+
+const DocsBlock = ({info, additionalInfo, children, multiContent = []}) =>
   <section className="docs-block">
     <InfoBlock info={info} additionalInfo={additionalInfo}/>
-    <div className="docs-block__content">
-      {children}
-    </div>
+    <ContentBlock>{children}</ContentBlock>
+    {multiContent.map((extraChild, i) => <ContentBlock key={i}>{extraChild}</ContentBlock>)}
   </section>;
 
 DocsBlock.propTypes = {
-  children: PropTypes.node.isRequired,
+  multiContent: PropTypes.arrayOf(PropTypes.node),
+  children: PropTypes.node,
   additionalInfo: PropTypes.node,
   info: PropTypes.node
 };
