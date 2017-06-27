@@ -221,6 +221,10 @@ $includeHtml: false !default;
       &.sg-icon-as-button--mint {
         fill: $iconAsButtonMintColor;
       }
+
+      &.sg-icon-as-button--peach {
+        fill: $iconAsButtonPeachColor;
+      }
     }
 
     &--transparent-active {
