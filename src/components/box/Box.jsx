@@ -12,7 +12,6 @@ const colors = {
   blue_secondary_light: 'blue-secondary-light'
 };
 
-//todo implement
 const paddings = {
   small: 'small-padding',
   large: 'large-padding'

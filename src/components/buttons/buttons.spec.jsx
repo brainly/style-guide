@@ -122,12 +122,12 @@ describe('Button Secondary', () => {
     expect(button.hasClass('sg-button-secondary--small')).toEqual(true);
   });
 
-  test('secondary button don\'t have wide', () => {
+  test('wide', () => {
     const button = shallow(
       <ButtonSecondary wide={true}>Some text</ButtonSecondary>
     );
 
-    expect(button.hasClass('sg-button-secondary--full-width')).toEqual(false);
+    expect(button.hasClass('sg-button-secondary--full-width')).toEqual(true);
   });
 
   test('secondary button don\'t have icon', () => {

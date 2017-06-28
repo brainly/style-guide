@@ -11,11 +11,12 @@ const types = {
   active_inverse: 'active-inverse'
 };
 
-const ButtonSecondary = ({small, disabled, type, children, ...props}) => {
+const ButtonSecondary = ({small, wide, disabled, type, children, ...props}) => {
   const btnClass = classNames('sg-button-secondary', {
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
     [`sg-button-secondary--${type}`]: type,
+    'sg-button-secondary--full-width': wide,
     'sg-button-secondary--active-inverse-disabled': disabled && types.active_inverse
   });
 
