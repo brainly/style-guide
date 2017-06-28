@@ -23,7 +23,7 @@ test('when no children no create hole box', () => {
 });
 
 test('colors', () => {
-  const color = colors.gray;
+  const color = colors.lavender;
   const box = shallow(
     <Box color={color}>some text</Box>
   );
@@ -56,7 +56,7 @@ test('no colors => default border on ', () => {
 });
 
 test(' colors => default border off', () => {
-  const color = colors.gray;
+  const color = colors.lavender;
   const box = shallow(
     <Box color={color}>some text</Box>
   );
@@ -72,7 +72,6 @@ test('default padding', () => {
   expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(false);
   expect(box.hasClass(`sg-box--${paddings.small}`)).toEqual(false);
 });
-
 
 test('small padding', () => {
   const padding = paddings.small;
@@ -91,6 +90,14 @@ test('large padding', () => {
   );
 
   expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(true);
+});
+
+test('no min height', () => {
+  const box = shallow(
+    <Box noMinHeight={true}>some text</Box>
+  );
+
+  expect(box.hasClass('sg-box--no-min-height')).toEqual(true);
 });
 
 test('full width', () => {
