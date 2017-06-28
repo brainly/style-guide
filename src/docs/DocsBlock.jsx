@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const contrastBlockCssClass = 'docs-block__contrast-box';
+const contrastBlockFullWidthCssClass = 'docs-block__contrast-box--full-width';
 
 const InfoBlock = ({info, additionalInfo}) => {
   if (!info && !additionalInfo) {
@@ -46,4 +47,4 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
-export {contrastBlockCssClass};
+export {contrastBlockCssClass, contrastBlockFullWidthCssClass};
