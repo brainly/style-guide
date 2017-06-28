@@ -10,17 +10,7 @@ test('render', () => {
   expect(box.hasClass('sg-box')).toEqual(true);
 });
 
-test('when children create hole box', () => {
-  const box = shallow(<Box>some text</Box>);
 
-  expect(box.find('.sg-box__hole')).toHaveLength(1);
-});
-
-test('when no children no create hole box', () => {
-  const box = shallow(<Box/>);
-
-  expect(box.find('.sg-box__hole')).toHaveLength(0);
-});
 
 test('colors', () => {
   const color = colors.lavender;
@@ -118,5 +108,13 @@ test('image container', () => {
 
   expect(box.hasClass('sg-box--image-wrapper')).toEqual(true);
   expect(box.find('.sg-box__image')).toHaveLength(1);
+  expect(box.find('.sg-box__hole')).toHaveLength(0);
 });
 
+test('standard box, no image container', () => {
+  const box = shallow(<Box>some text</Box>);
+
+  expect(box.hasClass('sg-box--image-wrapper')).toEqual(false);
+  expect(box.find('.sg-box__image')).toHaveLength(0);
+  expect(box.find('.sg-box__hole')).toHaveLength(1);
+});
