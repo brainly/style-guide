@@ -10,14 +10,16 @@ test('render', () => {
   expect(box.hasClass('sg-box')).toEqual(true);
 });
 
-test('error when no children', () => {
-  const spy = jest.spyOn(console, 'error');
+test('when children create hole box', () => {
+  const box = shallow(<Box>some text</Box>);
 
-  console.error = jest.fn();
-  shallow(<Box></Box>);
-  expect(console.error.mock.calls).toHaveLength(1);
+  expect(box.find('.sg-box__hole')).toHaveLength(1);
+});
 
-  spy.mockRestore();
+test('when no children no create hole box', () => {
+  const box = shallow(<Box/>);
+
+  expect(box.find('.sg-box__hole')).toHaveLength(0);
 });
 
 test('colors', () => {
@@ -30,31 +32,45 @@ test('colors', () => {
 });
 
 
-test('no colors => default border', () => {
-  const box = shallow(
-    <Box>some text</Box>
-  );
+test('border', () => {
+  const boxComponent = <Box border={true}>some text</Box>;
+  const box = shallow(boxComponent);
 
-  expect(box.props().border).toEqual(true);
+  expect(boxComponent.props.border).toEqual(true);
+  expect(box.hasClass('sg-box--no-border')).toEqual(false);
 });
 
+test('border', () => {
+  const boxComponent = <Box border={false}>some text</Box>;
+  const box = shallow(boxComponent);
 
-test(' colors => default no border', () => {
+  expect(boxComponent.props.border).toEqual(false);
+  expect(box.hasClass('sg-box--no-border')).toEqual(true);
+});
+
+test('no colors => default border on ', () => {
+  const boxComponent = <Box>some text</Box>;
+  const box = shallow(boxComponent);
+
+  expect(box.hasClass('sg-box--no-border')).toEqual(false);
+});
+
+test(' colors => default border off', () => {
   const color = colors.gray;
   const box = shallow(
     <Box color={color}>some text</Box>
   );
 
-  expect(box.props().border).toEqual(false);
+  expect(box.hasClass('sg-box--no-border')).toEqual(true);
 });
 
 test('default padding', () => {
-  const padding = paddings.normal;
   const box = shallow(
     <Box>some text</Box>
   );
 
-  expect(box.props().padding).toEqual(padding);
+  expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(false);
+  expect(box.hasClass(`sg-box--${paddings.small}`)).toEqual(false);
 });
 
 
@@ -64,7 +80,7 @@ test('small padding', () => {
     <Box padding={padding}>some text</Box>
   );
 
-  expect(box.props().padding).toEqual(padding);
+  expect(box.hasClass(`sg-box--${paddings.small}`)).toEqual(true);
 });
 
 
@@ -74,23 +90,26 @@ test('large padding', () => {
     <Box padding={padding}>some text</Box>
   );
 
-  expect(box.props().padding).toEqual(padding);
+  expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(true);
 });
 
 test('full width', () => {
   const box = shallow(
-    <Box fullWidth={true}>some text</Box>
+    <Box full={true}>some text</Box>
   );
 
-  expect(box.hasClass('sg-box--full-width')).toEqual(true);
+  expect(box.hasClass('sg-box--full')).toEqual(true);
 });
 
 
 test('image container', () => {
+  const imgSrc = 'https://source.unsplash.com/100x100/?man';
+
   const box = shallow(
-    <Box image={true}>some text</Box>
+    <Box imgSrc={imgSrc}/>
   );
 
   expect(box.hasClass('sg-box--image-wrapper')).toEqual(true);
+  expect(box.find('.sg-box__image')).toHaveLength(1);
 });
 

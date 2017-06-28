@@ -17,25 +17,44 @@ const colors = {
 
 //todo implement
 const paddings = {
-  normal: 1,
-  small: 2,
-  large: 3
+  small: 'small-padding',
+  large: 'large-padding'
 };
 
-const Box = ({color, children}) => {
+const Box = ({color, padding, full, children, border = !color, imgSrc}) => {
   const boxClass = classNames('sg-box', {
-    [`sg-box--${color}`]: color
+    [`sg-box--${color}`]: color,
+    'sg-box--no-border': !border,
+    'sg-box--full': full,
+    [`sg-box--${padding}`]: padding,
+    'sg-box--image-wrapper': imgSrc
   });
 
+  let img;
+
+  if (imgSrc) {
+    img = <img className="sg-box__image" src={imgSrc}/>;
+  }
+
+  let boxHole;
+
+  if (children) {
+    boxHole = <div className="sg-box__hole">{children}</div>;
+  }
+
   return <div className={boxClass}>
-    {children}
+    {img}
+    {boxHole}
   </div>;
 };
 
 Box.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   color: PropTypes.oneOf(Object.values(colors)),
-  border: PropTypes.bool
+  border: PropTypes.bool,
+  full: PropTypes.bool,
+  padding: PropTypes.oneOf(Object.values(paddings)),
+  imgSrc: PropTypes.string
 };
 
 export default Box;
