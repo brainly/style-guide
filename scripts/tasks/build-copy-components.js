@@ -1,9 +1,9 @@
-module.exports = function (gulp, plugins, consts) {
-    return function () {
-        var componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/*.html');
-        var docsOutputPath = plugins.path.join(consts.SRC, 'docs', '_includes');
+module.exports = function(gulp, plugins, consts) {
+  return function() {
+    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/*.html');
+    const docsOutputPath = plugins.path.join(consts.SRC, 'docs', '_includes');
 
-        return gulp.src(componentsHtml, {base: consts.SRC})
-            .pipe(gulp.dest(docsOutputPath));
-    }
+    return gulp.src(componentsHtml, {base: consts.SRC})
+      .pipe(gulp.dest(docsOutputPath));
+  };
 };
