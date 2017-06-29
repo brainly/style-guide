@@ -1,11 +1,12 @@
-module.exports = function (gulp, plugins, consts) {
-    return function (done) {
-        var spawn = require('child_process').spawn;
-        var docsOutputPath = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+module.exports = function(gulp, plugins, consts) {
+  return function(done) {
+    const spawn = require('child_process').spawn;
+    const docsOutputPath = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+    const jekyll = spawn('jekyll', ['build', '--config', 'src/docs/_config.yml', '--source', 'src/docs', '-d',
+      docsOutputPath], {stdio: 'inherit'});
 
-        var jekyll = spawn('jekyll', ['build', '--config', 'src/docs/_config.yml', '--source', 'src/docs', '-d', docsOutputPath], {stdio: 'inherit'});
-        jekyll.on('exit', function (code) {
-            done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
-        });
-    }
+    jekyll.on('exit', function(code) {
+      done(code === 0 ? null : 'ERROR: Jekyll process exited with code: ' + code);
+    });
+  };
 };

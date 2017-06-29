@@ -6,7 +6,7 @@ const path = require('path');
 const runSequence = require('run-sequence');
 const pkg = require('./package');
 const plugins = require('gulp-load-plugins')({
-  pattern: ['gulp-*', 'gulp.*', 'run\-sequence']
+  pattern: ['gulp-*', 'gulp.*', 'run-sequence']
 });
 
 plugins.path = path;
@@ -40,38 +40,46 @@ function getTask(task) {
 }
 
 gulp.task('sass:build', getTask('sass-build'));
+gulp.task('watch:sass', getTask('watch-sass'));
+
 gulp.task('sass:docs-build', getTask('sass-docs-build'));
+gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
 
 gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
 gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
 
-gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
 
-gulp.task('jekyll:docs', ['build:copy-components', 'build:react-pages', 'build:copy-package-json'], getTask('jekyll-docs'));
-
 gulp.task('docs:copy-components', getTask('docs-copy-components'));
 gulp.task('build:copy-components', getTask('build-copy-components'));
+gulp.task('watch:copy-components', getTask('watch-copy-components'));
+
 gulp.task('build:copy-package-json', getTask('build-copy-package-json'));
 
-gulp.task('watch:sass', getTask('watch-sass'));
-gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
-gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
-gulp.task('watch', ['watch:sass', 'watch:docs-templates', 'watch:react-pages', 'watch:docs-sass']);
-
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
-
-gulp.task('deploy', function(done) {
-  runSequence('build', 'upload-files', done);
-});
 
 gulp.task('build:react-pages', getTask('build-react-pages'));
 gulp.task('watch:react-pages', getTask('watch-react-pages'));
 
+gulp.task('jekyll:docs', ['build:copy-package-json'], getTask('jekyll-docs'));
+gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
+
 gulp.task('upload-files', getTask('upload-files'));
 
+gulp.task('clean:dist', getTask('clean-dist'));
+
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:copy-components', 'build:react-pages', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace', 'root-redirect-page', done);
+  runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:copy-components',
+    'build:react-pages', 'jekyll:docs', 'docs:copy-components', 'fingerprint', 'fingerprint-replace',
+    'index-fingerprint-replace', 'root-redirect-page', done);
+});
+
+gulp.task('watch',
+  ['watch:sass', 'watch:docs-sass', 'watch:copy-components', 'watch:react-pages', 'watch:docs-templates']
+);
+
+gulp.task('deploy', function(done) {
+  runSequence('build', 'upload-files', done);
 });
