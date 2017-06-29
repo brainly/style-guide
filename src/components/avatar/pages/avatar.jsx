@@ -9,7 +9,6 @@ const Avatars = () =>
         size => <Avatar key={size} size={size} iconType={iconTypes.friends}/>
       )}
     </DocsBlock>
-
     <DocsBlock info='Default with border' toBottom={true}>
       <div className={`${contrastBlockCssClass} ${contrastBlockBottomWidthCssClass}`}>
         {Object.values(sizes).map(
@@ -17,13 +16,11 @@ const Avatars = () =>
         )}
       </div>
     </DocsBlock>
-
     <DocsBlock info='Default avatars' toBottom={true}>
       {Object.values(sizes).map(
         size => <Avatar key={size} size={size} imgSrc="https://source.unsplash.com/240x240/?man"/>
       )}
     </DocsBlock>
-
     <DocsBlock info='Default with border' toBottom={true}>
       <div className={`${contrastBlockCssClass} ${contrastBlockBottomWidthCssClass}`}>
         {Object.values(sizes).map(
