@@ -51,10 +51,6 @@ $includeHtml: false !default;
       height: $avatarBigSize;
     }
 
-    &--with-border {
-      border: solid $avatarBorderColor $avatarBorderWidth;
-    }
-
     &--xlarge {
       width: $avatarXLargeSize;
       height: $avatarXLargeSize;
@@ -68,6 +64,10 @@ $includeHtml: false !default;
     &--xxxlarge {
       width: $avatarXXXLargeSize;
       height: $avatarXXXLargeSize;
+    }
+
+    &--with-border {
+      border: solid $avatarBorderColor $avatarBorderWidth;
     }
 
     &--spaced {

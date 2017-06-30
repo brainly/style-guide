@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 const contrastBlockCssClass = 'docs-block__contrast-box';
 const contrastBlockFullWidthCssClass = 'docs-block__contrast-box--full-width';
+const contrastBlockBottomWidthCssClass = 'docs-block__contrast-box--to-bottom';
 
 const InfoBlock = ({info, additionalInfo}) => {
   if (!info && !additionalInfo) {
@@ -25,21 +27,30 @@ InfoBlock.propTypes = {
   info: PropTypes.node
 };
 
-const ContentBlock = ({children}) => <div className="docs-block__content">
-  {children}
-</div>;
+const ContentBlock = ({children, toBottom}) => {
+  const contentClass = classnames('docs-block__content', {
+    'docs-block__content--to-bottom': toBottom
+  });
 
-ContentBlock.propTypes = {children: PropTypes.node};
+  return <div className={contentClass}>
+    {children}
+  </div>;
+};
+
+ContentBlock.propTypes = {
+  children: PropTypes.node,
+  toBottom: PropTypes.bool
+};
 
 
-const DocsBlock = ({info, additionalInfo, children, multiContent = []}) =>
-  <section className="docs-block">
-    <InfoBlock info={info} additionalInfo={additionalInfo}/>
-    <ContentBlock>{children}</ContentBlock>
-    {multiContent.map((extraChild, i) => <ContentBlock key={i}>{extraChild}</ContentBlock>)}
-  </section>;
+const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom}) => <section className="docs-block">
+  <InfoBlock info={info} additionalInfo={additionalInfo}/>
+  <ContentBlock toBottom={toBottom}>{children}</ContentBlock>
+  {multiContent.map((extraChild, i) => <ContentBlock toBottom={toBottom} key={i}>{extraChild}</ContentBlock>)}
+</section>;
 
 DocsBlock.propTypes = {
+  toBottom: PropTypes.bool,
   multiContent: PropTypes.arrayOf(PropTypes.node),
   children: PropTypes.node,
   additionalInfo: PropTypes.node,
@@ -47,4 +58,4 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
-export {contrastBlockCssClass, contrastBlockFullWidthCssClass};
+export {contrastBlockCssClass, contrastBlockFullWidthCssClass, contrastBlockBottomWidthCssClass};
