@@ -1,49 +1,123 @@
-// import React from 'react';
-// import TopLayer from '../TopLayer';
-// import IconAsButton, {colors, types} from '../../icon-as-button/IconAsButton';
-// import ButtonSecondary, {types as buttonTypes} from '../../buttons/ButtonSecondary';
-// import DocsBlock from '../../../docs/DocsBlock';
-// import ContrastBox from '../../../docs/ContrastBox';
-//
-// const items = ['one', 'two', 'three'];
-//
-// const PopupsMenus = () =>
-//   <div>
-//     <DocsBlock info='Default'>
-//       <TopLayer items={items}/>
-//     </DocsBlock>
-//
-//     <DocsBlock info='Default'>
-//       <ContrastBox fullWidth={true}>
-//         <TopLayer items={items}/>
-//       </ContrastBox>
-//     </DocsBlock>
-//
-//     <DocsBlock info='Example usage 1'>
-//       <ContrastBox fullWidth={true}>
-//         <TopLayer items={[
-//           <IconAsButton color={colors.gray_secondary} type={types.notifications}/>,
-//           <IconAsButton color={colors.gray_secondary} type={types.messages}/>,
-//           <IconAsButton color={colors.gray_secondary} type={types.friends}/>,
-//           <div className="sg-avatar sg-avatar--with-border">
-//             <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-//           </div>
-//         ]}/>
-//       </ContrastBox>
-//     </DocsBlock>
-//
-//     <DocsBlock info='elements-spaced'>
-//       <ContrastBox fullWidth={true}>
-//         <TopLayer items={[
-//           <ButtonSecondary type={buttonTypes.dark_inverse} wide={true}>
-//             Log in
-//           </ButtonSecondary>,
-//           <ButtonSecondary type={buttonTypes.dark} wide={true}>
-//             Join now
-//           </ButtonSecondary>
-//         ]} extraSpacing={true}/>
-//       </ContrastBox>
-//     </DocsBlock>
-//   </div>;
-//
-// export default PopupsMenus;
+import React from 'react';
+import TopLayer, {sizes} from '../TopLayer';
+import DocsBlock from '../../../docs/DocsBlock';
+import Icon, {types, colors} from '../../icons/Icon';
+
+const content = <div className="sg-content-box">
+  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+    heading
+  </div>
+
+  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+    content
+  </div>
+
+  <div className="sg-content-box__actions">
+    actions
+  </div>
+</div>;
+
+const TopLayers = () =>
+  <div>
+    <DocsBlock info='Standard'>
+      <TopLayer>
+        {content}
+      </TopLayer>
+    </DocsBlock>
+
+    <DocsBlock info='Lead'>
+      <TopLayer lead={true}>
+        {content}
+      </TopLayer>
+    </DocsBlock>
+
+    <DocsBlock info='Small'>
+      <TopLayer size={sizes.small}>
+        {content}
+      </TopLayer>
+    </DocsBlock>
+
+    <DocsBlock info='Medium'>
+      <TopLayer size={sizes.medium}>
+        {content}
+      </TopLayer>
+    </DocsBlock>
+    <DocsBlock info='Large'>
+      <TopLayer size={sizes.large}>
+        {content}
+      </TopLayer>
+    </DocsBlock>
+
+    <DocsBlock info='fill'>
+      <div style={{width: '200px', height: '200px', position: 'relative'}}>
+        <TopLayer fill={true}>
+          {content}
+        </TopLayer>
+      </div>
+    </DocsBlock>
+
+    <DocsBlock info='Example usage'>
+      <TopLayer size={sizes.medium} lead={true} withBugbox={true}>
+        <div className="sg-content-box">
+          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+            <h1 className="sg-text-bit sg-text-bit--alt">
+              The world's largest learning community
+            </h1>
+          </div>
+
+          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+
+            <h2 className="sg-header-secondary">
+              Why join Brainly?
+            </h2>
+            <ul className="sg-list">
+              <li className="sg-list__element">
+                <div className="sg-list__icon sg-list__icon--spacing-right-small">
+                  <Icon type={types.plus} size={14} color={colors.gray_secondary}/>
+                </div>
+                <div className="sg-text sg-text--emphasised">ask questions about your assignment</div>
+              </li>
+              <li className="sg-list__element">
+                <div className="sg-list__icon sg-list__icon--spacing-right-small">
+                  <Icon type={types.plus} size={14} color={colors.gray_secondary}/>
+                </div>
+                <div className="sg-text sg-text--emphasised">get answer with explanation</div>
+              </li>
+              <li className="sg-list__element">
+                <div className="sg-list__icon sg-list__icon--spacing-right-small">
+                  <Icon type={types.plus} size={14} color={colors.gray_secondary}/>
+                </div>
+                <div className="sg-text sg-text--emphasised">find similar questions</div>
+              </li>
+            </ul>
+          </div>
+
+          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+            <a className="sg-button-primary sg-button-primary--alt" href="#">
+              Join us
+            </a>
+          </div>
+        </div>
+      </TopLayer>
+    </DocsBlock>
+
+
+    <DocsBlock info='Example usage (on small screen'>
+      <iframe height="568" width="320" src='components/toplayer/notlogged_toplayer.html'></iframe>
+    </DocsBlock>
+
+    <DocsBlock info='Example usage (small spaced on small screen)'>
+      <iframe height="568" width="320" src='components/toplayer/small_spaced_toplayer.html'></iframe>
+    </DocsBlock>
+
+    <DocsBlock info='Example usage (modal)'>
+      <iframe height="300" width="800" src='components/toplayer/default_toplayer.html'></iframe>
+    </DocsBlock>
+
+    <DocsBlock info='Example usage (splash screen)'>
+      <iframe height="300" width="800" src='components/toplayer/splash_screen_toplayer.html'></iframe>
+    </DocsBlock>
+
+  </div>;
+
+export default TopLayers;
