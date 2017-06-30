@@ -1,5 +1,6 @@
 import React from 'react';
-import DocsBlock, {contrastBlockCssClass} from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/DocsBlock';
+import {contrastBlockCssClass} from '../../../docs/ContrastBox';
 import IconAsButton, {types, colors, sizes} from '../IconAsButton';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';

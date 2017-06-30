@@ -1,17 +1,18 @@
 import React from 'react';
-import DocsBlock, {contrastBlockCssClass} from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/DocsBlock';
+import ContrastBox from '../../../docs/ContrastBox';
 import Icon, {types, colors, sizes} from '../Icon';
 
 const icons = () => <div>
   <DocsBlock >
-    <div className={contrastBlockCssClass}>
+    <ContrastBox>
       <ul className="icons-list">
         {Object.values(types).map(type => <li className="icons-list__element" key={type}>
           <Icon type={type}/>
           <span>&nbsp; - {type}</span>
         </li>)}
       </ul>
-    </div>
+    </ContrastBox>
   </DocsBlock>
 
   <DocsBlock info="Colors">
@@ -24,14 +25,14 @@ const icons = () => <div>
   </DocsBlock>
 
   <DocsBlock info="Sizes">
-    <div className={contrastBlockCssClass}>
+    <ContrastBox>
       <ul className="icons-list">
         {sizes.map(size => <li className="icons-list__element icons-list__element--wider" key={size}>
-          <Icon size={size}  type={types.x}/>
+          <Icon size={size} type={types.x}/>
           <span>&nbsp; - {size}</span>
         </li>)}
       </ul>
-    </div>
+    </ContrastBox>
   </DocsBlock>
 </div>;
 

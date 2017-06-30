@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const contrastBlockCssClass = 'docs-block__contrast-box';
-const contrastBlockFullWidthCssClass = 'docs-block__contrast-box--full-width';
-const contrastBlockBottomWidthCssClass = 'docs-block__contrast-box--to-bottom';
-
 const InfoBlock = ({info, additionalInfo}) => {
   if (!info && !additionalInfo) {
     return null;
@@ -27,9 +23,10 @@ InfoBlock.propTypes = {
   info: PropTypes.node
 };
 
-const ContentBlock = ({children, toBottom}) => {
+const ContentBlock = ({children, toBottom, centered}) => {
   const contentClass = classnames('docs-block__content', {
-    'docs-block__content--to-bottom': toBottom
+    'docs-block__content--to-bottom': toBottom,
+    'docs-block__content--centered': centered
   });
 
   return <div className={contentClass}>
@@ -39,18 +36,23 @@ const ContentBlock = ({children, toBottom}) => {
 
 ContentBlock.propTypes = {
   children: PropTypes.node,
+  centered: PropTypes.bool,
   toBottom: PropTypes.bool
 };
 
 
-const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom}) => <section className="docs-block">
-  <InfoBlock info={info} additionalInfo={additionalInfo}/>
-  <ContentBlock toBottom={toBottom}>{children}</ContentBlock>
-  {multiContent.map((extraChild, i) => <ContentBlock toBottom={toBottom} key={i}>{extraChild}</ContentBlock>)}
-</section>;
+const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom, centered}) =>
+  <section className="docs-block">
+    <InfoBlock info={info} additionalInfo={additionalInfo}/>
+    <ContentBlock toBottom={toBottom} centered={centered}>{children}</ContentBlock>
+    {multiContent.map((extraChild, i) =>
+      <ContentBlock toBottom={toBottom} centered={centered} key={i}>{extraChild}</ContentBlock>
+    )}
+  </section>;
 
 DocsBlock.propTypes = {
   toBottom: PropTypes.bool,
+  centered: PropTypes.bool,
   multiContent: PropTypes.arrayOf(PropTypes.node),
   children: PropTypes.node,
   additionalInfo: PropTypes.node,
@@ -58,4 +60,3 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
-export {contrastBlockCssClass, contrastBlockFullWidthCssClass, contrastBlockBottomWidthCssClass};
