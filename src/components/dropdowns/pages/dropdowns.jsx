@@ -1,6 +1,7 @@
 import React from 'react';
 import Dropdown from '../DropdownContainer';
-import DocsBlock, {contrastBlockCssClass} from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/DocsBlock';
+import ContrastBox from '../../../docs/ContrastBox';
 
 const item1st = {id: 'csdsd', text: '1st item'};
 const item2nd = {id: 'sdfsdfg', text: '2nd item'};
@@ -18,22 +19,22 @@ const Dropdowns = () =>
 
     <DocsBlock info='Open' multiContent={[
       <div style={{height: '120px'}}>
-        <div className={contrastBlockCssClass}>
+        <ContrastBox>
           <Dropdown {...defaultProps} isOpened={true} fullWidth={false}/>
-        </div>
+        </ContrastBox>
       </div>,
-      <div className={contrastBlockCssClass}>
+      <ContrastBox>
         <Dropdown {...defaultProps} isOpened={true}/>
-      </div>
+      </ContrastBox>
     ]}/>
 
     <DocsBlock info='Fixed' additionalInfo="(items extend div)" multiContent={[
-      <div className={contrastBlockCssClass}>
+      <ContrastBox>
         <Dropdown {...defaultProps} fixed={true} isOpened={true} fullWidth={false}/>
-      </div>,
-      <div className={contrastBlockCssClass}>
+      </ContrastBox>,
+      <ContrastBox>
         <Dropdown {...defaultProps} fixed={true} isOpened={true}/>
-      </div>
+      </ContrastBox>
     ]}/>
 
   </div>;

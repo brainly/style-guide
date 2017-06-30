@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+const contrastBlockCssClass = 'docs-block__contrast-box';
 const ContrastBox = ({toBottom, smallPadding, light, fullWidth, children}) => {
-  const cssClass = classnames('docs-block__contrast-box', {
+  const cssClass = classnames(contrastBlockCssClass, {
     'docs-block__contrast-box--to-bottom': toBottom,
     'docs-block__contrast-box--small-padding': smallPadding,
     'docs-block__contrast-box--light': light,
@@ -24,3 +25,4 @@ ContrastBox.propTypes = {
 };
 
 export default ContrastBox;
+export {contrastBlockCssClass};

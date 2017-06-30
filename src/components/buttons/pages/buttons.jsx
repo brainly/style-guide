@@ -2,7 +2,8 @@ import React from 'react';
 import ButtonPrimary, {types} from '../ButtonPrimary';
 import ButtonSecondary, {types as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
-import DocsBlock, {contrastBlockCssClass} from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/DocsBlock';
+import ContrastBox from '../../../docs/ContrastBox';
 import Icon, {types as iconTypes, colors as iconColors} from '../../icons/Icon';
 
 const Buttons = () =>
@@ -39,7 +40,7 @@ const Buttons = () =>
     </DocsBlock>
 
     <DocsBlock info="Primary buttons inverted">
-      <div className={contrastBlockCssClass}>
+      <ContrastBox>
         <ButtonPrimary type={types.inverse}>
           Add your answer
         </ButtonPrimary>
@@ -55,7 +56,7 @@ const Buttons = () =>
         <ButtonPrimary disabled={true} type={types.inverse}>
           Disabled
         </ButtonPrimary>
-      </div>
+      </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info="Primary round button">
@@ -94,7 +95,7 @@ const Buttons = () =>
 
 
     <DocsBlock info="Secondary buttons inverted">
-      <div className={contrastBlockCssClass}>
+      <ContrastBox>
         <ButtonSecondary type={types2.inverse}>
           <Icon type={iconTypes.search} color={iconColors.adaptive} size={14}/>
         </ButtonSecondary>
@@ -114,7 +115,7 @@ const Buttons = () =>
         <ButtonSecondary disabled={true} type={types2.inverse}>
           Disabled
         </ButtonSecondary>
-      </div>
+      </ContrastBox>
     </DocsBlock>
 
 
@@ -142,7 +143,7 @@ const Buttons = () =>
 
 
     <DocsBlock info="Secondary buttons inverted small">
-      <div className={contrastBlockCssClass}>
+      <ContrastBox>
         <ButtonSecondary type={types2.inverse} small={true}>
           Search
         </ButtonSecondary>
@@ -180,7 +181,7 @@ const Buttons = () =>
           </div>
         </ButtonSecondary>
 
-      </div>
+      </ContrastBox>
     </DocsBlock>
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 import PopupMenu from '../PopupMenu';
 import IconAsButton, {colors, types} from '../../icon-as-button/IconAsButton';
 import ButtonSecondary, {types as buttonTypes} from '../../buttons/ButtonSecondary';
-import DocsBlock, {contrastBlockCssClass, contrastBlockFullWidthCssClass} from '../../../docs/DocsBlock';
-import classnames from 'classnames';
+import DocsBlock from '../../../docs/DocsBlock';
+import ContrastBox from '../../../docs/ContrastBox';
 
 const items = ['one', 'two', 'three'];
 
@@ -14,13 +14,13 @@ const PopupsMenus = () =>
     </DocsBlock>
 
     <DocsBlock info='Default'>
-      <div className={classnames(contrastBlockCssClass, contrastBlockFullWidthCssClass)}>
+      <ContrastBox fullWidth={true}>
         <PopupMenu items={items}/>
-      </div>
+      </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Example usage 1'>
-      <div className={classnames(contrastBlockCssClass, contrastBlockFullWidthCssClass)}>
+      <ContrastBox fullWidth={true}>
         <PopupMenu items={[
           <IconAsButton color={colors.gray_secondary} type={types.notifications}/>,
           <IconAsButton color={colors.gray_secondary} type={types.messages}/>,
@@ -29,11 +29,11 @@ const PopupsMenus = () =>
             <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
           </div>
         ]}/>
-      </div>
+      </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='elements-spaced'>
-      <div className={classnames(contrastBlockCssClass, contrastBlockFullWidthCssClass)}>
+      <ContrastBox fullWidth={true}>
         <PopupMenu items={[
           <ButtonSecondary type={buttonTypes.dark_inverse} wide={true}>
             Log in
@@ -42,7 +42,7 @@ const PopupsMenus = () =>
             Join now
           </ButtonSecondary>
         ]} extraSpacing={true}/>
-      </div>
+      </ContrastBox>
     </DocsBlock>
   </div>;
 
