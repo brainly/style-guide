@@ -25,10 +25,6 @@
   &__content {
     flex: 1 1 auto;
 
-    &--with-label {
-      position: relative;
-    }
-
     &--centered {
       display: flex;
       align-items: center;
@@ -37,13 +33,6 @@
     &--to-bottom {
       display: flex;
       align-items: flex-end;
-    }
-
-    &--align-top {
-
-      & > * {
-        vertical-align: top;
-      }
     }
 
     &:hover {
