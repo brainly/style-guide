@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {sizes, iconTypes, iconColors} from './avatar';
+import Avatar, {sizes, iconTypes, iconColors} from './Avatar';
 import Icon from '../icons/Icon';
 
 import {shallow, mount} from 'enzyme';

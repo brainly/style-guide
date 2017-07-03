@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {sizes, iconTypes} from '../avatar';
+import Avatar, {sizes, iconTypes} from '../Avatar';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 
