@@ -35,8 +35,8 @@ const consts = {
   }
 };
 
-function getTask(task) {
-  return require(path.join(consts.PROJECT_DIR, 'scripts', 'tasks', task))(gulp, plugins, consts);
+function getTask(task, options = {}) {
+  return require(path.join(consts.PROJECT_DIR, 'scripts', 'tasks', task))(gulp, plugins, consts, options);
 }
 
 gulp.task('sass:build', getTask('sass-build'));
@@ -61,7 +61,7 @@ gulp.task('build:copy-package-json', getTask('build-copy-package-json'));
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
 gulp.task('build:react-pages', getTask('build-react-pages'));
-gulp.task('docs:react-pages', getTask('docs-react-pages'));
+gulp.task('docs:react-pages', getTask('build-react-pages', {docs: true}));
 gulp.task('watch:react-pages', getTask('watch-react-pages'));
 
 gulp.task('jekyll:docs', getTask('jekyll-docs'));

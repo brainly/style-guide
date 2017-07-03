@@ -28,7 +28,7 @@ const coreConfig = {
   externals: nodeModules
 };
 
-module.exports = function(gulp, plugins, consts) {
+module.exports = function(gulp, plugins, consts, options) {
   const createWebpackBundles = function(file, enc, cb) {
     const pathArray = file.path.replace(consts.SRC, '').split('/');
     const fileNameWithExtension = pathArray.pop();
@@ -67,7 +67,17 @@ module.exports = function(gulp, plugins, consts) {
 
   return function() {
     const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
-    const docsOutputPath2 = plugins.path.join(consts.SRC, 'docs', '_includes');
+
+    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+    const docsOutputPathSrcIncludes = plugins.path.join(consts.SRC, 'docs', '_includes');
+
+    let output;
+
+    if (options.docs) {
+      output = docsOutputPathVersionedDist;
+    } else {
+      output = docsOutputPathSrcIncludes;
+    }
 
     return gulp.src(componentsHtml, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
@@ -78,6 +88,6 @@ module.exports = function(gulp, plugins, consts) {
           path.extname = '.html';
         })
       )
-      .pipe(gulp.dest(docsOutputPath2));
+      .pipe(gulp.dest(output));
   };
 };
