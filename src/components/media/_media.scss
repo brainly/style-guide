@@ -60,11 +60,6 @@ $mediaItemSecondaryColor: $grayPrimary;
     min-width: 0;
     position: relative;
     flex: 1 1 0;
-
-    &--centered {
-      display: flex;
-      align-items: center;
-    }
   }
 
   &__content {
@@ -77,9 +72,6 @@ $mediaItemSecondaryColor: $grayPrimary;
       color: $mediaItemSecondaryColor;
     }
 
-    &--light {
-      color: $white;
-    }
 
     &--spaced-bottom {
       margin-bottom: rhythm(1 / 3);

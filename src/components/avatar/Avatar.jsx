@@ -16,7 +16,7 @@ const sizes = {
 const iconSizes = {
   xsmall: 14,
   small: 22,
-  normal: 30,
+  normal: 32,
   large: 46,
   xlarge: 62,
   xxlarge: 94,
