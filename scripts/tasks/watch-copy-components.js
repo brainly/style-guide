@@ -4,6 +4,6 @@ module.exports = function(gulp, plugins, consts) {
 
 
     plugins.livereload.listen();
-    return gulp.watch(componentsTemplatesSources, ['build:copy-components', 'docs:copy-components']);
+    return gulp.watch(componentsTemplatesSources, ['build:copy-components']);
   };
 };

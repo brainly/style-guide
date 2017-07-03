@@ -67,7 +67,7 @@ module.exports = function(gulp, plugins, consts) {
 
   return function() {
     const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
-    const docsOutputPath2 = plugins.path.join(consts.SRC, 'docs', '_includes');
+    const docsOutputPath = plugins.path.join(consts.VERSIONED_DIST, 'docs');
 
     return gulp.src(componentsHtml, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
@@ -78,6 +78,6 @@ module.exports = function(gulp, plugins, consts) {
           path.extname = '.html';
         })
       )
-      .pipe(gulp.dest(docsOutputPath2));
+      .pipe(gulp.dest(docsOutputPath));
   };
 };
