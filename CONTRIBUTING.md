@@ -249,12 +249,13 @@ Each file should export default module like so:
 export default ComponentName;
 ```
 
-#### <a id="#react-components-files-location"></a>Files Location
+#### Files Location
 
 Component and container files should be located next to `.scss` files in `src/components` directory. 
 Documentation pages for components should be located in same directory in subdirectory called `pages`.
 
 #### <a name="#react-components-tests"></a>Tests
+#### Tests
 
 Each component should be tested. We are using [jest](https://facebook.github.io/jest/) as a test runner/framework.
 Test files should be located next to component/container file with extension `.spec.js`
