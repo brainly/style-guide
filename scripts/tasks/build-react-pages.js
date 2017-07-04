@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const rename = require('gulp-rename');
+const prettify = require('gulp-prettify');
 
 // create external modules for webpack to not include it in bundles.
 const nodeModules = {};
@@ -88,6 +89,7 @@ module.exports = function(gulp, plugins, consts, options) {
           path.extname = '.html';
         })
       )
+      .pipe(prettify())
       .pipe(gulp.dest(output));
   };
 };
