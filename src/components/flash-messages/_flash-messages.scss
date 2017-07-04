@@ -11,6 +11,7 @@
     background-color: $blueSecondary;
     min-height: rhythm(1);
     width: 100%;
+    padding: rhythm(1/4);
 
     &--error {
       background-color: $peachSecondary;
