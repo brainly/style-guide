@@ -10,61 +10,50 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.SMALL_ONLY}>
             <span>
-              <span>
-                <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
-              </span>
-              - hidden for small screens
+              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
             </span>
           </RwdHelper>
+          - hidden for small screens
         </li>
 
         <li>
           <RwdHelper hide={TYPE.MEDIUM_ONLY}>
             <span>
-              <span>
-                <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
-              </span>
-              - hidden for medium screens
+              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
             </span>
           </RwdHelper>
+          - hidden for medium screens
         </li>
 
         <li>
           <RwdHelper hide={TYPE.MEDIUM_DOWN}>
             <span>
-              <span>
-                <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
-              </span>
-              - hidden for small and medium screens
+              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
             </span>
           </RwdHelper>
+          - hidden for small and medium screens
         </li>
 
         <li>
           <RwdHelper hide={TYPE.MEDIUM_UP}>
             <span>
-              <span>
-                <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
-              </span>
-              - hidden for medium and large screens
+              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
             </span>
           </RwdHelper>
+          - hidden for medium and large screens
         </li>
 
         <li>
           <RwdHelper hide={TYPE.LARGE_ONLY}>
             <span>
-              <span>
-                <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
-              </span>
-              - hidden for large screens
+              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
             </span>
           </RwdHelper>
+          - hidden for large screens
         </li>
       </ul>
     </DocsBlock>
 
   </div>;
-
 
 export default RwdHelpers;
