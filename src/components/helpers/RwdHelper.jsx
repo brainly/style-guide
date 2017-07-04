@@ -11,20 +11,25 @@ const types = {
 };
 
 const RwdHelper = ({hide, children}) => {
-  const finalClassname = classNames({
-    [`sg-hide-for-${hide}`]: hide
-  });
+  if (!children) {
+    return null;
+  }
 
-  return (
-    <div className={finalClassname}>
-      {children}
-    </div>
-  );
+  const hideClass = `sg-hide-for-${hide}`;
+
+  if (typeof children === 'string') {
+    return <span className={hideClass}>{children}</span>;
+  }
+
+  const finalClassName = classNames(children.props.className, hideClass);
+
+  return React.cloneElement(children, {className: finalClassName});
 };
 
 RwdHelper.propTypes = {
-  children: PropTypes.node.isRequired,
-  hide: PropTypes.oneOf(types).isRequired
+  // One child only !!!
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  hide: PropTypes.oneOf(Object.values(types)).isRequired
 };
 
 export default RwdHelper;
