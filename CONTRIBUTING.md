@@ -243,8 +243,8 @@ There is a particular "code smell" when working with containers: *if parent cont
 ### <a name="react-components"></a>React Components
 
 Each component/container should have its own file.
-Component are dump and should be written in pure function form. 
-Each component should exported as default module like:
+Component are dumb and should be written in pure function form. 
+Each file should export default module like so:
 ```
 export default ComponentName;
 ```
@@ -254,9 +254,9 @@ export default ComponentName;
 Component and container files should be located next to `.scss` files in `src/components` directory. 
 Documentation pages for components should be located in same directory in subdirectory called `pages`.
 
-#### <a name="(#react-components-tests"></a>Tests
+#### <a name="#react-components-tests"></a>Tests
 
-Each component should be tests. We are using [jest](https://facebook.github.io/jest/) as a test runner/framework.
+Each component should be tested. We are using [jest](https://facebook.github.io/jest/) as a test runner/framework.
 Test files should be located next to component/container file with extension `.spec.js`
 
 #### <a name="#react-components-imports"></a>Importing dependencies
@@ -275,13 +275,13 @@ import ButtonPrimary, {types as buttonTypes} from 'components/buttons/ButtonPrim
 #### <a name="#react-components-options"></a>Components options
 
 Component options should be stored in const object.
-Options should have singular form (alignment not alignments) and capitalized names like:
+Options should have singular form ("alignment" not "alignments") and capitalized names like:
 
 ```
 const ALIGNMENT = {START: 'start', END: 'end'};
 ```
 
-Each component should export it configuration options (if it have some).
+Each component should export its configuration options (if it have some).
 ```
 export {DIRECTION, ALIGNMENT};
 ```
