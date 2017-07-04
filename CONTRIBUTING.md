@@ -249,7 +249,7 @@ Each file should export default module like so:
 export default ComponentName;
 ```
 
-#### <a name="#react-components-files-location"></a>Files Location
+#### <a id="#react-components-files-location"></a>Files Location
 
 Component and container files should be located next to `.scss` files in `src/components` directory. 
 Documentation pages for components should be located in same directory in subdirectory called `pages`.
