@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const types = {
-  smallOnly: 'small-only',
-  mediumOnly: 'medium-only',
-  mediumDown: 'medium-down',
-  mediumUp: 'medium-up',
-  largeOnly: 'large-only'
+const TYPE = {
+  SMALL_ONLY: 'small-only',
+  MEDIUM_ONLY: 'medium-only',
+  MEDIUM_DOWN: 'medium-down',
+  MEDIUM_UP: 'medium-up',
+  LARGE_ONLY: 'large-only'
 };
 
 const RwdHelper = ({hide, children}) => {
@@ -29,8 +29,8 @@ const RwdHelper = ({hide, children}) => {
 RwdHelper.propTypes = {
   // One child only !!!
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
-  hide: PropTypes.oneOf(Object.values(types)).isRequired
+  hide: PropTypes.oneOf(Object.values(TYPE)).isRequired
 };
 
 export default RwdHelper;
-export {types};
+export {TYPE};

@@ -1,5 +1,5 @@
 import React from 'react';
-import RwdHelper, {types} from '../RwdHelper';
+import RwdHelper, {TYPE} from '../RwdHelper';
 import DocsBlock from '../../../docs/DocsBlock';
 import Icon, {types as icoTypes, colors} from '../../icons/Icon';
 
@@ -8,7 +8,7 @@ const RwdHelpers = () =>
     <DocsBlock info='Top (middle)' additionalInfo='--top'>
       <ul>
         <li>
-          <RwdHelper hide={types.smallOnly}>
+          <RwdHelper hide={TYPE.SMALL_ONLY}>
             <span>
               <span>
                 <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
@@ -19,7 +19,7 @@ const RwdHelpers = () =>
         </li>
 
         <li>
-          <RwdHelper hide={types.mediumOnly}>
+          <RwdHelper hide={TYPE.MEDIUM_ONLY}>
             <span>
               <span>
                 <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
@@ -30,7 +30,7 @@ const RwdHelpers = () =>
         </li>
 
         <li>
-          <RwdHelper hide={types.mediumDown}>
+          <RwdHelper hide={TYPE.MEDIUM_DOWN}>
             <span>
               <span>
                 <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
@@ -41,7 +41,7 @@ const RwdHelpers = () =>
         </li>
 
         <li>
-          <RwdHelper hide={types.mediumUp}>
+          <RwdHelper hide={TYPE.MEDIUM_UP}>
             <span>
               <span>
                 <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
@@ -52,7 +52,7 @@ const RwdHelpers = () =>
         </li>
 
         <li>
-          <RwdHelper hide={types.largeOnly}>
+          <RwdHelper hide={TYPE.LARGE_ONLY}>
             <span>
               <span>
                 <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
