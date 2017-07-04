@@ -1,8 +1,7 @@
 $crInputSize: rhythm(2 / 3);
 $crInputColor: $white;
-$crInputBorderColor: $graySecondary;
-$crInputActiveBorderColor: $bluePrimary;
-$crInputCheckedColor: $bluePrimary;
+$crInputBorderColor: $graySecondaryLight;
+$crInputCheckedColor: $grayPrimary;
 $crInputActiveColor: rgba($crInputColor, 0.7);
 
 $includeHtml: false !default;
@@ -26,45 +25,46 @@ $includeHtml: false !default;
       z-index: 1;
     }
 
-    &__element:active + &__ghost {
-      border-color: $crInputActiveBorderColor;
+    &__element:checked + &__ghost::before {
+      background: $crInputCheckedColor;
     }
 
-    &__element:checked + &__ghost {
-      border-color: $crInputCheckedColor;
-      background: $crInputCheckedColor;
+    &__element:active + &__ghost::before {
+      background: $crInputActiveColor;
     }
 
     &__ghost {
       background: $crInputColor;
       width: $crInputSize;
       height: $crInputSize;
-      border: 1px solid $crInputBorderColor;
-      fill: $crInputColor;
+      box-shadow: 0 0 1px 2px $crInputBorderColor;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-    }
-  }
 
-  .sg-checkbox__element:checked:active + .sg-checkbox__ghost::before {
-    color: $crInputActiveColor;
+      &::before {
+        content: '';
+        background-color: $crInputColor;
+        width: $crInputSize / 1.5;
+        height: $crInputSize / 1.5;
+      }
+    }
   }
 
   .sg-checkbox__ghost {
     border-radius: 25%;
+
+    &::before {
+      border-radius: 25%;
+    }
   }
 
   .sg-radio__ghost {
     border-radius: 50%;
 
     &::before {
-      content: '';
       border-radius: 50%;
-      background-color: $crInputColor;
-      width: $crInputSize / 2;
-      height: $crInputSize / 2;
     }
   }
 }
