@@ -18,6 +18,12 @@ If you want to update Style Guide, you should follow the given guidelines and co
     - [How To Think About Containers And Holes](#how-to-think-about-containers-and-holes)
     - [Parent-Child Relationship](#parent-child-relationship)
 
+ - [React Components](#react-components)
+    - [Files Location](#files-location)
+    - [Tests](#tests)
+    - [Importing dependencies](#importing-dependencies)
+    - [Components options](#components-options)
+
 * [Technical Discipline](#technical-discipline)
  - [Bumping Release Version](#bumping-release-version)
  - [Code Style](#code-style)
@@ -234,7 +240,51 @@ There is a particular "code smell" when working with containers: *if parent cont
 
 > Containers SHOULD use "holes" to influence child blocks position, padding, offset.
 
+### React Components
 
+Each component/container should have its own file.
+Component are dumb and should be written in pure function form. 
+Each file should export default module like so:
+```
+export default ComponentName;
+```
+
+#### Files Location
+
+Component and container files should be located next to `.scss` files in `src/components` directory. 
+Documentation pages for components should be located in same directory in subdirectory called `pages`.
+
+#### Tests
+
+Each component should be tested. We are using [jest](https://facebook.github.io/jest/) as a test runner/framework.
+Test files should be located next to component/container file with extension `.spec.js`
+
+#### Importing dependencies
+
+When importing dependencies we are using global imports instead of relative ones.
+
+Bad:
+```
+import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
+```
+
+Good:
+```
+import ButtonPrimary, {types as buttonTypes} from 'components/buttons/ButtonPrimary';
+```
+#### Components options
+
+Component options should be stored in const object.
+Options should have singular form ("alignment" not "alignments") and capitalized names like:
+
+```
+const ALIGNMENT = {START: 'start', END: 'end'};
+```
+
+Each component should export its configuration options (if it have some).
+```
+export {DIRECTION, ALIGNMENT};
+```
 
 
 ### Technical Discipline
