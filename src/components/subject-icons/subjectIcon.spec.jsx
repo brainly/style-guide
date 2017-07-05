@@ -1,10 +1,10 @@
 import React from 'react';
-import SubjectIcon, {types} from './SubjectIcon';
+import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const icon = shallow(
-    <SubjectIcon type={types.accountancy}/>
+    <SubjectIcon type={TYPE.ACCOUNTANCY}/>
   );
 
   expect(icon.hasClass('sg-subject-icon')).toEqual(true);
@@ -22,12 +22,32 @@ test('error when no type', () => {
 });
 
 test('type passed to xlink:href', () => {
-  const type = types.accountancy;
+  const type = TYPE.ACCOUNTANCY;
   const icon = shallow(
     <SubjectIcon type={type}/>
   );
   const use = icon.find('use');
 
   expect(use.props().xlinkHref).toEqual('#icon-subject-' + type);
+});
+
+test('size', () => {
+  const size = SIZE.SMALL;
+  const type = TYPE.LANGUAGE;
+  const icon = shallow(
+    <SubjectIcon type={type} size={size}/>
+  );
+
+  expect(icon.hasClass(`sg-subject-icon--${size}`)).toEqual(true);
+});
+
+test('normal size', () => {
+  const type = TYPE.LANGUAGE;
+
+  const icon = shallow(
+    <SubjectIcon type={type}/>
+  );
+
+  expect(icon.hasClass('sg-subject-icon--normal')).toEqual(false);
 });
 
