@@ -18,6 +18,7 @@ const breadcrumbs = () => <div>
       <Breadcrumb elements={elements} adaptive={true}/>
     </div>
   </DocsBlock>
+
 </div>;
 
 export default breadcrumbs;
