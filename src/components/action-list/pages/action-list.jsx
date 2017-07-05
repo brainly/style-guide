@@ -90,24 +90,28 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='No wrap' multiContent={[
-      <ContrastBox style={{width: '200px'}}>
-        <ActionList noWrap={true} holes={[
-          <Icon type={iconTypes.messages} size={24} />,
-          <p className="sg-text sg-text--light">
-            Elements in this box will just never wrap
-          </p>
-        ]}>
-        </ActionList>
-      </ContrastBox>,
-      <ContrastBox style={{width: '200px'}}>
-        <ActionList holes={[
-          <Icon type={iconTypes.messages} size={24} />,
-          <p className="sg-text sg-text--light">
-            Default behaviour for elements is to wrap
-          </p>
-        ]}>
-        </ActionList>
-      </ContrastBox>
+      <div style={{width: '200px'}}>
+        <ContrastBox>
+          <ActionList noWrap={true} holes={[
+            <Icon type={iconTypes.messages} size={24} />,
+            <p className="sg-text sg-text--light">
+              Elements in this box will just never wrap
+            </p>
+          ]}>
+          </ActionList>
+        </ContrastBox>
+      </div>,
+      <div style={{width: '200px'}}>
+        <ContrastBox>
+          <ActionList holes={[
+            <Icon type={iconTypes.messages} size={24} />,
+            <p className="sg-text sg-text--light">
+              Default behaviour for elements is to wrap
+            </p>
+          ]}>
+          </ActionList>
+        </ContrastBox>
+      </div>
     ]}>
     </DocsBlock>
   </div>;
