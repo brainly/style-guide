@@ -41,7 +41,7 @@ test('error when no holes', () => {
 
 test('to-right', () => {
   const actionList = shallow(
-    <ActionList holes={holes} direction={DIRECTION.toRight}/>
+    <ActionList holes={holes} direction={DIRECTION.TO_RIGHT}/>
   );
 
   expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
@@ -49,7 +49,7 @@ test('to-right', () => {
 
 test('to-top', () => {
   const actionList = shallow(
-    <ActionList holes={holes} direction={DIRECTION.toTop}/>
+    <ActionList holes={holes} direction={DIRECTION.TO_TOP}/>
   );
 
   expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
@@ -57,7 +57,7 @@ test('to-top', () => {
 
 test('centered', () => {
   const actionList = shallow(
-    <ActionList holes={holes} direction={DIRECTION.centered}/>
+    <ActionList holes={holes} direction={DIRECTION.CENTERED}/>
   );
 
   expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
@@ -65,7 +65,7 @@ test('centered', () => {
 
 test('space-between', () => {
   const actionList = shallow(
-    <ActionList holes={holes} direction={DIRECTION.spaceBetween}/>
+    <ActionList holes={holes} direction={DIRECTION.SPACE_BETWEEN}/>
   );
 
   expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);

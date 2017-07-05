@@ -24,7 +24,7 @@ const ActionLists = () =>
 
     <DocsBlock info='To right'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.toRight} holes={[
+        <ActionList direction={DIRECTION.TO_RIGHT} holes={[
           <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
             accept
           </ButtonSecondary>,
@@ -38,7 +38,7 @@ const ActionLists = () =>
 
     <DocsBlock info='To top'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.toTop} holes={[
+        <ActionList direction={DIRECTION.TO_TOP} holes={[
           <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
             accept
           </ButtonSecondary>,
@@ -52,7 +52,7 @@ const ActionLists = () =>
 
     <DocsBlock info='Centered'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.centered} holes={[
+        <ActionList direction={DIRECTION.CENTERED} holes={[
           <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
             accept
           </ButtonSecondary>,
@@ -65,7 +65,7 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='Space between'>
-      <ActionList direction={DIRECTION.spaceBetween} holes={[
+      <ActionList direction={DIRECTION.SPACE_BETWEEN} holes={[
         <div className="sg-label">
           <div className="sg-label__icon">
             <Icon type={iconTypes.answer} size={14} color={iconColors.gray_secondary}/>

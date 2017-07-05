@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const DIRECTION = {
-  toRight: 'to-right',
-  toTop: 'to-top',
-  centered: 'centered',
-  spaceBetween: 'space-between'
+  TO_RIGHT: 'to-right',
+  TO_TOP: 'to-top',
+  CENTERED: 'centered',
+  SPACE_BETWEEN: 'space-between'
 };
 
 const ActionList = ({holes = [], direction, noWrap}) => {
