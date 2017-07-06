@@ -9,15 +9,11 @@ const firstStringLong = firstString + 'This element has icon aligned to the firs
 const secondString = 'Two three four';
 const secondStringLong = secondString + 'This element does not have icon aligned to the first line ' +
   'but its still cool!';
-const firstItem = {text: firstString};
-const secondItem = {text: 'Two three four'};
-const thirdItem = {text: 'Three four five'};
-const firstExample = {text: firstStringLong};
-const secondExample = {text: secondStringLong};
-const secondExampleLongest = {text: secondStringLong + ' Yeah!! Yeah!'};
-const items = [firstItem, secondItem, thirdItem];
-const exampleItems = [firstExample, secondExample, thirdItem];
-const exampleSmall = [firstExample, secondExampleLongest, thirdItem];
+const thirdString = 'Three four five';
+const secondExampleLongest = secondStringLong + ' Yeah!! Yeah!';
+const items = [firstString, secondString, thirdString];
+const exampleItems = [firstStringLong, secondStringLong, thirdString];
+const exampleSmall = [firstStringLong, secondExampleLongest, thirdString];
 
 const ListItems = () =>
   <div>

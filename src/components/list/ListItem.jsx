@@ -26,7 +26,7 @@ const ListItem = ({text, small}) => {
 
 ListItem.propTypes = {
   small: PropTypes.bool,
-  text: PropTypes.string.isRequired
+  text: PropTypes.node.isRequired
 };
 
 export default ListItem;
