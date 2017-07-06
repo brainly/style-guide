@@ -9,7 +9,7 @@ const List = ({items, spaced, small}) => {
   });
 
   return <ul className={listClass}>
-    {items.map(({text}, index) =>
+    {items.map((text, index) =>
       <ListItem key={index} text={text} small={small}/>
     )}
   </ul>;
@@ -18,7 +18,7 @@ const List = ({items, spaced, small}) => {
 List.propTypes = {
   spaced: PropTypes.bool,
   small: PropTypes.bool,
-  items: PropTypes.array.isRequired
+  items: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
 export default List;
