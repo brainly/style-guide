@@ -2,6 +2,7 @@ import React from 'react';
 import DocsBlock, {CONTENT_BOX_CLASS} from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 import List from '../List';
+import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';
 const firstStringLong = firstString + 'This element has icon aligned to the first line ' +
@@ -14,6 +15,10 @@ const secondExampleLongest = secondStringLong + ' Yeah!! Yeah!';
 const items = [firstString, secondString, thirdString];
 const exampleItems = [firstStringLong, secondStringLong, thirdString];
 const exampleSmall = [firstStringLong, secondExampleLongest, thirdString];
+const menuItem1 = {text: firstString, href: '#'};
+const menuItem2 = {text: secondString, href: '#'};
+const menuItem3 = {text: thirdString, href: '#'};
+const menuItems = [menuItem1, menuItem2, menuItem3];
 
 const ListItems = () =>
   <div>
@@ -45,47 +50,17 @@ const ListItems = () =>
 
     <DocsBlock info="Menu list">
       <div className={CONTENT_BOX_CLASS}>
-        <ul className="sg-menu-list">
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">One two three</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Two three four</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Three four five</a>
-          </li>
-        </ul>
+        <MenuList items={menuItems}/>
       </div>
     </DocsBlock>
     <DocsBlock info="Menu list - small">
       <div className={CONTENT_BOX_CLASS}>
-        <ul className="sg-menu-list sg-menu-list--small">
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">One two three</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Two three four</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Three four five</a>
-          </li>
-        </ul>
+        <MenuList items={menuItems} size={SIZE.SMALL}/>
       </div>
     </DocsBlock>
     <DocsBlock info="Menu list - large">
       <div className={CONTENT_BOX_CLASS}>
-        <ul className="sg-menu-list sg-menu-list--large">
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">One two three</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Two three four</a>
-          </li>
-          <li className="sg-menu-list__element">
-            <a className="sg-menu-list__link" href="#">Three four five</a>
-          </li>
-        </ul>
+        <MenuList items={menuItems} size={SIZE.LARGE}/>
       </div>
     </DocsBlock>
   </div>;
