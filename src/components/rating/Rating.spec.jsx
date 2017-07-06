@@ -178,9 +178,11 @@ describe('rating', () => {
 
 
 describe('star', () => {
+  const dumpFnc = () => undefined;
+
   test('render', () => {
     const star = shallow(
-      <Star />
+      <Star onClick={dumpFnc} />
     );
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
@@ -189,7 +191,7 @@ describe('star', () => {
   test('Star use Icon component', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size}/>
+      <Star size={size} onClick={dumpFnc}/>
     );
 
     expect(star.find(Icon)).toHaveLength(1);
@@ -205,34 +207,20 @@ describe('star', () => {
     expect(onClick.mock.calls).toHaveLength(1);
   });
 
-  test('shouldn\'t throw error when no onClick', () => {
+  test('should throw error when no onClick', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    shallow(<Star/>);
+    mount(<Star/>);
 
-    expect(console.error.mock.calls).toHaveLength(0);
-
-    spy.mockRestore();
-  });
-
-  test('shouldn\'t throw error when no onClick and tried click', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    const star = shallow(<Star/>);
-
-    star.simulate('click');
-    expect(console.error.mock.calls).toHaveLength(0);
-
+    expect(console.error.mock.calls).toHaveLength(1);
 
     spy.mockRestore();
   });
-
 
   test('checked', () => {
     const star = shallow(
-      <Star checked={true}/>
+      <Star checked={true} onClick={dumpFnc}/>
     );
 
     expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
@@ -241,7 +229,7 @@ describe('star', () => {
   test('pass size to icon', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size}/>
+      <Star size={size} onClick={dumpFnc}/>
     );
 
     const icon = star.find(Icon);
