@@ -9,7 +9,7 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const MenuList = ({items, size}) => {
+const MenuList = ({items, size = SIZE.NORMAL}) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
   });
