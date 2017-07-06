@@ -27,8 +27,10 @@ class Rating extends Component {
     if (!active) {
       return;
     }
-    if (rate !== index) {
-      onChange(index);
+    const ratedStarIndex = rate - 1;
+
+    if (ratedStarIndex !== index) {
+      onChange(rate);
     }
   }
 
