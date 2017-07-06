@@ -2,22 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Star from './Star';
+import RateCounter from './RateCounter';
 
 const ICO_SIZE = {
   SMALL: 14,
   NORMAL: 16
-};
-
-const RateCounter = ({counter}) => {
-  if (counter === undefined) {
-    return null;
-  }
-
-  return <div className="sg-rate-box__counter">{counter}</div>;
-};
-
-RateCounter.propTypes = {
-  counter: PropTypes.number
 };
 
 class Rating extends Component {
