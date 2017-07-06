@@ -4,7 +4,7 @@ import ListItem from '../list/ListItem';
 import List from '../list/List';
 import Icon from '../icons/Icon';
 
-const testItem = {text: 'test'};
+const testItem = 'test';
 const items = [testItem];
 
 describe('list', () => {
