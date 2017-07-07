@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {sizes, iconTypes, iconColors} from './Avatar';
+import Avatar, {SIZE, iconTypes, iconColors} from './Avatar';
 import Icon from '../icons/Icon';
 
 import {shallow, mount} from 'enzyme';
@@ -54,13 +54,13 @@ test('icon pass properties to Icon', () => {
 });
 
 
-test('sizes', () => {
-  const size = sizes.xlarge;
+test('SIZE', () => {
+  const size = SIZE.XLARGE;
   const avatar = shallow(
     <Avatar size={size} iconType={iconTypes.friends}/>
   );
 
-  expect(avatar.hasClass(`sg-avatar--${size}`)).toEqual(true);
+  expect(avatar.hasClass('sg-avatar--xlarge')).toEqual(true);
 });
 
 test('border', () => {
