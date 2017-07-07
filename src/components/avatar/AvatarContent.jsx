@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon, {types as ICON_TYPE, colors as ICON_COLOR} from '../icons/Icon';
-import {SIZE} from './avatarConstants';
+import Icon from '../icons/Icon';
+import {SIZE, ICON_TYPE, ICON_COLOR} from './avatarConstants';
 
 const AvatarContent = ({imgSrc, iconType, iconColor, iconSize}) => {
   if (imgSrc) {
@@ -26,4 +26,3 @@ AvatarContent.propTypes = {
 };
 
 export default AvatarContent;
-export {ICON_TYPE, ICON_COLOR};

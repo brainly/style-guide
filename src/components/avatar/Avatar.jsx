@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import AvatarContent, {ICON_TYPE, ICON_COLOR} from './AvatarContent';
-import {SIZE} from './avatarConstants';
+import AvatarContent from './AvatarContent';
+import {SIZE, ICON_TYPE, ICON_COLOR} from './avatarConstants';
 
 const Avatar = ({size = SIZE.NORMAL, border, spaced, ...contentProps}) => {
   const avatarClass = classNames('sg-avatar', {

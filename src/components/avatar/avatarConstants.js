@@ -1,3 +1,5 @@
+import {types as ICON_TYPE, colors as ICON_COLOR} from '../icons/Icon';
+
 const SIZE = {
   XSMALL: {className: 'xsmall', iconSize: 14},
   SMALL: {className: 'small', iconSize: 22},
@@ -8,4 +10,4 @@ const SIZE = {
   XXXLARGE: {className: 'xxxlarge', iconSize: 118}
 };
 
-export {SIZE};
+export {SIZE, ICON_TYPE, ICON_COLOR};
