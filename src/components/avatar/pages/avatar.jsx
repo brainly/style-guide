@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {SIZE, iconTypes} from '../Avatar';
+import Avatar, {SIZE, ICON_TYPE} from '../Avatar';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 
@@ -7,25 +7,26 @@ const Avatars = () =>
   <div>
     <DocsBlock info='Default avatars' toBottom={true}>
       {Object.values(SIZE).map(
-        size => <Avatar key={size} size={size} iconType={iconTypes.friends}/>
+        (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.friends}/>
       )}
     </DocsBlock>
     <DocsBlock info='Default with border'>
       <ContrastBox toBottom={true}>
         {Object.values(SIZE).map(
-          size => <Avatar key={size} size={size} iconType={iconTypes.friends} border={true}/>
+          (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.friends} border={true}/>
         )}
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info='Default avatars' toBottom={true}>
       {Object.values(SIZE).map(
-        size => <Avatar key={size} size={size} imgSrc="https://source.unsplash.com/240x240/?man"/>
+        (size, index) => <Avatar key={index} size={size} imgSrc="https://source.unsplash.com/240x240/?man"/>
       )}
     </DocsBlock>
     <DocsBlock info='Default with border'>
       <ContrastBox toBottom={true}>
         {Object.values(SIZE).map(
-          size => <Avatar key={size} size={size} border={true} imgSrc="https://source.unsplash.com/240x240/?man"/>
+          (size, index) =>
+            <Avatar key={index} size={size} border={true} imgSrc="https://source.unsplash.com/240x240/?man"/>
         )}
       </ContrastBox>
     </DocsBlock>
