@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {types, colors} from '../icons/Icon';
+import Icon, {TYPE, colors} from '../icons/Icon';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ const Star = ({size, checked, onClick}) => {
   });
 
   return <span className={starClass} onClick={onClick}>
-    <Icon type={types.star} size={size} color={colors.adaptive}/>
+    <Icon type={TYPE.star} size={size} color={colors.adaptive}/>
   </span>;
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
-import IconAsButton, {types, colors, sizes} from './IconAsButton';
+import IconAsButton, {TYPE, colors, sizes} from './IconAsButton';
 import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const type = types.star;
+  const type = TYPE.star;
   const iconAsButton = shallow(
     <IconAsButton type={type}/>
   );
@@ -26,7 +26,7 @@ test('error when no type', () => {
 });
 
 test('colors', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const color = colors.dark;
   const iconAsButton = shallow(
     <IconAsButton type={type} color={color}/>
@@ -39,7 +39,7 @@ test('colors', () => {
 test('size', () => {
   const size = sizes.small;
   const sizeOfSmallIco = 18;
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} size={size}/>
   );
@@ -52,7 +52,7 @@ test('size', () => {
 test('default size', () => {
   const size = sizes.normal;
   const sizeOfNormallIco = 26;
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type}/>
   );
@@ -64,7 +64,7 @@ test('default size', () => {
 
 
 test('border', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} border={true}/>
   );
@@ -73,7 +73,7 @@ test('border', () => {
 });
 
 test('transparent', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} transparent={true}/>
   );
@@ -82,7 +82,7 @@ test('transparent', () => {
 });
 
 test('transparent active', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} transparent={true} active={true}/>
   );
@@ -92,7 +92,7 @@ test('transparent active', () => {
 });
 
 test('action', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} action={true}/>
   );
@@ -101,7 +101,7 @@ test('action', () => {
 });
 
 test('action active', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const iconAsButton = shallow(
     <IconAsButton type={type} action={true} active={true}/>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
-import Icon, {types, colors} from './Icon';
+import Icon, {TYPE, colors} from './Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const icon = shallow(
-    <Icon type={types.answer}/>
+    <Icon type={TYPE.answer}/>
   );
 
   expect(icon.hasClass('sg-icon')).toEqual(true);
@@ -22,7 +22,7 @@ test('error when no type', () => {
 });
 
 test('type passed to xlink:href', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const icon = shallow(
     <Icon type={type}/>
   );
@@ -33,7 +33,7 @@ test('type passed to xlink:href', () => {
 
 
 test('colors', () => {
-  const type = types.answer;
+  const type = TYPE.answer;
   const color = colors.dark;
   const icon = shallow(
     <Icon type={type} color={color}/>
@@ -45,7 +45,7 @@ test('colors', () => {
 
 test('size', () => {
   const size = 10;
-  const type = types.answer;
+  const type = TYPE.answer;
   const icon = shallow(
     <Icon type={type} size={size}/>
   );

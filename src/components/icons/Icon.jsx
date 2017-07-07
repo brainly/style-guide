@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-const types = {
+const TYPE = {
   answer: 'answer',
   answered: 'answered',
   arrow_down: 'arrow_down',
@@ -72,8 +72,8 @@ const Icon = ({color, size = 24, type}) => {
 Icon.propTypes = {
   size: PropTypes.oneOf(sizes),
   color: PropTypes.oneOf(Object.values(colors)),
-  type: PropTypes.oneOf(Object.values(types)).isRequired
+  type: PropTypes.oneOf(Object.values(TYPE)).isRequired
 };
 
 export default Icon;
-export {types, colors, sizes};
+export {TYPE, colors, sizes};

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {types as ICON_TYPE, colors as ICON_COLOR} from '../icons/Icon';
+import Icon, {TYPE as ICON_TYPE, colors as ICON_COLOR} from '../icons/Icon';
 
 const SIZE = {
   XSMALL: {className: 'xsmall', iconSize: 16},

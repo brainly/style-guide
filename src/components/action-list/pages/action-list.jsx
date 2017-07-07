@@ -2,7 +2,7 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {types as buttonSecondaryTypes} from '../../buttons/ButtonSecondary';
 import ButtonPrimary, {types as buttonPrimaryTypes} from '../../buttons/ButtonPrimary';
-import Icon, {types as iconTypes, colors as iconColors} from '../../icons/Icon';
+import Icon, {TYPE as iconTypes, colors as iconColors} from '../../icons/Icon';
 import ContrastBox from '../../../docs/ContrastBox';
 import DocsBlock from '../../../docs/DocsBlock';
 import ActionListHole from '../ActionListHole';

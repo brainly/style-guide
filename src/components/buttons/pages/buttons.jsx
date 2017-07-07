@@ -4,7 +4,7 @@ import ButtonSecondary, {types as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
-import Icon, {types as iconTypes, colors as iconColors} from '../../icons/Icon';
+import Icon, {TYPE as iconTypes, colors as iconColors} from '../../icons/Icon';
 
 const Buttons = () =>
   <div>

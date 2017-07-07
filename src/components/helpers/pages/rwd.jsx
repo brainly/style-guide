@@ -1,7 +1,7 @@
 import React from 'react';
 import RwdHelper, {TYPE} from '../RwdHelper';
 import DocsBlock from '../../../docs/DocsBlock';
-import Icon, {types as icoTypes, colors} from '../../icons/Icon';
+import Icon, {TYPE as icoTypes, colors} from '../../icons/Icon';
 
 const RwdHelpers = () =>
   <div>
