@@ -1,9 +1,10 @@
 import React from 'react';
 import ContentBox from './ContentBox';
 import ContentBoxContent, {SPACE, SPACE_SIZE, ALIGNMENT} from './ContentBoxContent';
-// import ContentBoxTitle from './ContentBoxTitle';
+import ContentBoxTitle from './ContentBoxTitle';
 // import ContentBoxActions from './ContentBoxActions';
-// import ContentBoxHeader from './ContentBoxHeader';
+
+import ContentBoxHeader from './ContentBoxHeader';
 import {shallow, mount} from 'enzyme';
 
 describe('content box', () => {
@@ -63,5 +64,89 @@ describe('Content', () => {
     );
 
     expect(testBox.hasClass('sg-content-box__content--spaced-top-xsmall')).toEqual(true);
+  });
+});
+
+describe('Header', () => {
+  test('render', () => {
+    const testBox = shallow(
+      <ContentBoxHeader>test</ContentBoxHeader>
+    );
+
+    expect(testBox.hasClass('sg-content-box__header')).toEqual(true);
+  });
+
+  test('centered elements', () => {
+    const testBox = shallow(
+      <ContentBoxHeader align={ALIGNMENT.CENTER}>test</ContentBoxHeader>
+    );
+
+    expect(testBox.hasClass('sg-content-box__header--with-centered-elements')).toEqual(true);
+  });
+
+  test('space default size', () => {
+    const testBox = shallow(
+      <ContentBoxHeader space={SPACE.BOTTOM}>test</ContentBoxHeader>
+    );
+
+    expect(testBox.hasClass('sg-content-box__header--spaced-bottom')).toEqual(true);
+  });
+
+  test('is spaced', () => {
+    const testBox = shallow(
+      <ContentBoxHeader isSpaced={true}>test</ContentBoxHeader>
+    );
+
+    expect(testBox.hasClass('sg-content-box__header--spaced')).toEqual(true);
+  });
+
+  test('space default size', () => {
+    const testBox = shallow(
+      <ContentBoxHeader space={SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxHeader>
+    );
+
+    expect(testBox.hasClass('sg-content-box__header--spaced-top-xsmall')).toEqual(true);
+  });
+});
+
+describe('Title', () => {
+  test('render', () => {
+    const testBox = shallow(
+      <ContentBoxTitle>test</ContentBoxTitle>
+    );
+
+    expect(testBox.hasClass('sg-content-box__title')).toEqual(true);
+  });
+
+  test('centered elements', () => {
+    const testBox = shallow(
+      <ContentBoxTitle align={ALIGNMENT.CENTER}>test</ContentBoxTitle>
+    );
+
+    expect(testBox.hasClass('sg-content-box__title--with-centered-elements')).toEqual(true);
+  });
+
+  test('space default size', () => {
+    const testBox = shallow(
+      <ContentBoxTitle space={SPACE.BOTTOM}>test</ContentBoxTitle>
+    );
+
+    expect(testBox.hasClass('sg-content-box__title--spaced-bottom')).toEqual(true);
+  });
+
+  test('is spaced', () => {
+    const testBox = shallow(
+      <ContentBoxTitle isSpaced={true}>test</ContentBoxTitle>
+    );
+
+    expect(testBox.hasClass('sg-content-box__title--spaced')).toEqual(true);
+  });
+
+  test('space default size', () => {
+    const testBox = shallow(
+      <ContentBoxTitle space={SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxTitle>
+    );
+
+    expect(testBox.hasClass('sg-content-box__title--spaced-top-xsmall')).toEqual(true);
   });
 });
