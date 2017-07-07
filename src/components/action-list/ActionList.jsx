@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ActionListHole from './ActionListHole';
+// import ActionListHole from './ActionListHole';
 
 const DIRECTION = {
   TO_RIGHT: 'to-right',
@@ -10,7 +10,7 @@ const DIRECTION = {
   SPACE_BETWEEN: 'space-between'
 };
 
-const ActionList = ({holes = [], direction, noWrap}) => {
+const ActionList = ({children, direction, noWrap}) => {
   const actionListClass = classNames('sg-actions-list', {
     [`sg-actions-list--${direction}`]: direction,
     'sg-actions-list--no-wrap': noWrap
@@ -18,7 +18,7 @@ const ActionList = ({holes = [], direction, noWrap}) => {
 
   return (
     <div className={actionListClass}>
-      {holes.map((hole, i) => <ActionListHole key={i}>{hole}</ActionListHole>)}
+      {children}
     </div>
   );
 };
@@ -26,7 +26,7 @@ const ActionList = ({holes = [], direction, noWrap}) => {
 ActionList.propTypes = {
   direction: PropTypes.oneOf(Object.values(DIRECTION)),
   noWrap: PropTypes.bool,
-  holes: PropTypes.array.isRequired
+  children: PropTypes.node
 };
 
 export default ActionList;

@@ -5,107 +5,130 @@ import ButtonPrimary, {types as buttonPrimaryTypes} from '../../buttons/ButtonPr
 import Icon, {types as iconTypes, colors as iconColors} from '../../icons/Icon';
 import ContrastBox from '../../../docs/ContrastBox';
 import DocsBlock from '../../../docs/DocsBlock';
+import ActionListHole from '../ActionListHole';
 
 const ActionLists = () =>
   <div>
     <DocsBlock info='Default'>
       <ContrastBox fullWidth={true}>
-        <ActionList holes={[
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
-            accept
-          </ButtonSecondary>,
-          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
-            Later
-          </ButtonPrimary>
-        ]}>
+        <ActionList>
+          <ActionListHole>
+            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+              accept
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+              Later
+            </ButtonPrimary>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='To right'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.TO_RIGHT} holes={[
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
-            accept
-          </ButtonSecondary>,
-          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
-            Later
-          </ButtonPrimary>
-        ]}>
+        <ActionList direction={DIRECTION.TO_RIGHT}>
+          <ActionListHole>
+            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+              accept
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+              Later
+            </ButtonPrimary>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='To top'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.TO_TOP} holes={[
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
-            accept
-          </ButtonSecondary>,
-          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
-            Later
-          </ButtonPrimary>
-        ]}>
+        <ActionList direction={DIRECTION.TO_TOP}>
+          <ActionListHole>
+            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+              accept
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+              Later
+            </ButtonPrimary>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Centered'>
       <ContrastBox fullWidth={true}>
-        <ActionList direction={DIRECTION.CENTERED} holes={[
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
-            accept
-          </ButtonSecondary>,
-          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
-            Later
-          </ButtonPrimary>
-        ]}>
+        <ActionList direction={DIRECTION.CENTERED}>
+          <ActionListHole>
+            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+              accept
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+              Later
+            </ButtonPrimary>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Space between'>
-      <ActionList direction={DIRECTION.SPACE_BETWEEN} holes={[
-        <div className="sg-label">
-          <div className="sg-label__icon">
-            <Icon type={iconTypes.answer} size={14} color={iconColors.gray_secondary}/>
+      <ActionList direction={DIRECTION.SPACE_BETWEEN}>
+        <ActionListHole>
+          <div className="sg-label">
+            <div className="sg-label__icon">
+              <Icon type={iconTypes.answer} size={14} color={iconColors.gray_secondary}/>
+            </div>
+            <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
+              0/5
+            </div>
           </div>
-          <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
-            0/5
+        </ActionListHole>
+        <ActionListHole>
+          <div className="sg-label">
+            <div className="sg-label__icon">
+              <Icon type={iconTypes.counter} size={14} color={iconColors.gray_secondary}/>
+            </div>
+            <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
+              2d : 00h
+            </div>
           </div>
-        </div>,
-        <div className="sg-label">
-          <div className="sg-label__icon">
-            <Icon type={iconTypes.counter} size={14} color={iconColors.gray_secondary}/>
-          </div>
-          <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
-            2d : 00h
-          </div>
-        </div>,
-        <ButtonSecondary type={buttonSecondaryTypes.alt_inverse} small={true}>
+        </ActionListHole>
+        <ActionListHole><ButtonSecondary type={buttonSecondaryTypes.alt_inverse} small={true}>
           start
         </ButtonSecondary>
-      ]}>
+        </ActionListHole>
       </ActionList>
     </DocsBlock>
 
     <DocsBlock info='No wrap' multiContent={[
       <ContrastBox narrow={true}>
-        <ActionList noWrap={true} holes={[
-          <Icon type={iconTypes.messages} size={24} />,
-          <p className="sg-text sg-text--light">
-            Elements in this box will just never wrap
-          </p>
-        ]}>
+        <ActionList noWrap={true}>
+          <ActionListHole>
+            <Icon type={iconTypes.messages} size={24}/>
+          </ActionListHole>
+          <ActionListHole>
+            <p className="sg-text sg-text--light">
+              Elements in this box will just never wrap
+            </p>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>,
       <ContrastBox narrow={true}>
-        <ActionList holes={[
-          <Icon type={iconTypes.messages} size={24} />,
-          <p className="sg-text sg-text--light">
-            Default behaviour for elements is to wrap
-          </p>
-        ]}>
+        <ActionList>
+          <ActionListHole>
+            <Icon type={iconTypes.messages} size={24}/>
+          </ActionListHole>
+          <ActionListHole>
+            <p className="sg-text sg-text--light">
+              Default behaviour for elements is to wrap
+            </p>
+          </ActionListHole>
         </ActionList>
       </ContrastBox>
     ]}>

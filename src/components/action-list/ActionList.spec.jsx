@@ -5,45 +5,30 @@ import {shallow} from 'enzyme';
 import ButtonSecondary, {types as buttonSecondaryTypes} from '../buttons/ButtonSecondary';
 import ButtonPrimary, {types as buttonPrimaryTypes} from '../buttons/ButtonPrimary';
 
-const holes = [
-  <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
-    accept
-  </ButtonSecondary>,
-  <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
-    Later
-  </ButtonPrimary>
-];
-
 describe('ActionList', () => {
   test('render', () => {
     const actionList = shallow(
-      <ActionList holes={holes}/>
+      <ActionList>
+        <ActionListHole>
+          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+            accept
+          </ButtonSecondary>
+        </ActionListHole>
+        <ActionListHole>
+          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+            Later
+          </ButtonPrimary>
+        </ActionListHole>
+      </ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list')).toEqual(true);
   });
 
-  test('render with holes', () => {
-    const actionList = shallow(
-      <ActionList holes={holes}/>
-    );
-
-    expect(actionList.find(ActionListHole)).toHaveLength(holes.length);
-  });
-
-  test('error when no holes', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    shallow(<ActionList />);
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
-  });
 
   test('to-right', () => {
     const actionList = shallow(
-      <ActionList holes={holes} direction={DIRECTION.TO_RIGHT}/>
+      <ActionList direction={DIRECTION.TO_RIGHT}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
@@ -51,7 +36,7 @@ describe('ActionList', () => {
 
   test('to-top', () => {
     const actionList = shallow(
-      <ActionList holes={holes} direction={DIRECTION.TO_TOP}/>
+      <ActionList direction={DIRECTION.TO_TOP}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
@@ -59,7 +44,7 @@ describe('ActionList', () => {
 
   test('centered', () => {
     const actionList = shallow(
-      <ActionList holes={holes} direction={DIRECTION.CENTERED}/>
+      <ActionList direction={DIRECTION.CENTERED}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
@@ -67,7 +52,7 @@ describe('ActionList', () => {
 
   test('space-between', () => {
     const actionList = shallow(
-      <ActionList holes={holes} direction={DIRECTION.SPACE_BETWEEN}/>
+      <ActionList direction={DIRECTION.SPACE_BETWEEN}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);
@@ -75,7 +60,7 @@ describe('ActionList', () => {
 
   test('no-wrap', () => {
     const actionList = shallow(
-      <ActionList holes={holes} noWrap={true}/>
+      <ActionList noWrap={true}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
@@ -85,7 +70,11 @@ describe('ActionList', () => {
 describe('ActionListHole', () => {
   test('render', () => {
     const actionListHole = shallow(
-      <ActionListHole>{holes}</ActionListHole>
+      <ActionListHole>
+        <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+          accept
+        </ButtonSecondary>
+      </ActionListHole>
     );
 
     expect(actionListHole.hasClass('sg-actions-list__hole')).toEqual(true);
