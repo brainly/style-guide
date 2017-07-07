@@ -67,6 +67,10 @@
       width: 100%;
     }
 
+    &--narrow {
+      width: 200px;
+    }
+
     &--small-padding {
       padding: $baseline / 2;
     }
