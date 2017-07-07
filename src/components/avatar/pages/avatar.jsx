@@ -7,13 +7,13 @@ const Avatars = () =>
   <div>
     <DocsBlock info='Default avatars' toBottom={true}>
       {Object.values(SIZE).map(
-        (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.friends}/>
+        (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.profile}/>
       )}
     </DocsBlock>
     <DocsBlock info='Default with border'>
       <ContrastBox toBottom={true}>
         {Object.values(SIZE).map(
-          (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.friends} border={true}/>
+          (size, index) => <Avatar key={index} size={size} iconType={ICON_TYPE.profile} border={true}/>
         )}
       </ContrastBox>
     </DocsBlock>
