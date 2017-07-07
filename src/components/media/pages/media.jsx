@@ -2,14 +2,14 @@ import React from 'react';
 import Media from '../Media';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
-import Avatar, {iconTypes, iconColors} from '../../avatar/Avatar';
+import Avatar, {ICON_TYPE, ICON_COLOR} from '../../avatar/Avatar';
 
 const defaultProps = {
   contentArray: [
     <span className="sg-link sg-link--gray sg-link--emphasised">The Goat</span>,
     <span>Master </span>
   ],
-  aside: <Avatar iconType={iconTypes.profile} iconColor={iconColors.gray}/>
+  aside: <Avatar iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
 };
 
 const Medias = () =>
