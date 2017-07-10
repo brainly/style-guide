@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
-import IconAsButton, {colors, TYPE} from '../../icon-as-button/IconAsButton';
-import ButtonSecondary, {types as buttonTypes} from '../../buttons/ButtonSecondary';
+import IconAsButton, {COLOR, TYPE} from '../../icon-as-button/IconAsButton';
+import ButtonSecondary, {TYPE as buttonTypes} from '../../buttons/ButtonSecondary';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 
@@ -22,9 +22,9 @@ const PopupsMenus = () =>
     <DocsBlock info='Example usage 1'>
       <ContrastBox fullWidth={true}>
         <PopupMenu items={[
-          <IconAsButton color={colors.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS}/>,
-          <IconAsButton color={colors.GRAY_SECONDARY} type={TYPE.MESSAGES}/>,
-          <IconAsButton color={colors.GRAY_SECONDARY} type={TYPE.FRIENDS}/>,
+          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS}/>,
+          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES}/>,
+          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS}/>,
           <div className="sg-avatar sg-avatar--with-border">
             <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
           </div>

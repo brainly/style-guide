@@ -1,7 +1,7 @@
 import React from 'react';
 import TopLayer from '../TopLayer';
 import Icon, {TYPE as icoTypes, COLOR as icoColors} from '../../icons/Icon';
-import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
+import ButtonPrimary, {TYPE as buttonTypes} from '../../buttons/ButtonPrimary';
 
 const content = <div className="sg-content-box">
   <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">

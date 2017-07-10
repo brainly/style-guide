@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAsButton, {TYPE, colors, sizes} from './IconAsButton';
+import IconAsButton, {TYPE, COLOR, SIZE} from './IconAsButton';
 import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 
@@ -27,7 +27,7 @@ test('error when no type', () => {
 
 test('colors', () => {
   const type = TYPE.ANSWER;
-  const color = colors.dark;
+  const color = COLOR.DARK;
   const iconAsButton = shallow(
     <IconAsButton type={type} color={color}/>
   );
@@ -37,7 +37,7 @@ test('colors', () => {
 
 
 test('size', () => {
-  const size = sizes.small;
+  const size = SIZE.SMALL;
   const sizeOfSmallIco = 18;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
@@ -45,12 +45,11 @@ test('size', () => {
   );
   const icon = iconAsButton.find(Icon);
 
-  expect(iconAsButton.hasClass(`sg-icon-as-button--${size}`)).toEqual(true);
+  expect(iconAsButton.hasClass('sg-icon-as-button--small')).toEqual(true);
   expect(icon.props().size).toEqual(sizeOfSmallIco);
 });
 
 test('default size', () => {
-  const size = sizes.normal;
   const sizeOfNormallIco = 26;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
@@ -58,7 +57,7 @@ test('default size', () => {
   );
   const icon = iconAsButton.find(Icon);
 
-  expect(iconAsButton.hasClass(`sg-icon-as-button--${size}`)).toEqual(true);
+  expect(iconAsButton.hasClass('sg-icon-as-button--normal')).toEqual(true);
   expect(icon.props().size).toEqual(sizeOfNormallIco);
 });
 

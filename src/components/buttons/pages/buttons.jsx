@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonPrimary, {types} from '../ButtonPrimary';
-import ButtonSecondary, {types as types2} from '../ButtonSecondary';
+import ButtonPrimary, {TYPE} from '../ButtonPrimary';
+import ButtonSecondary, {TYPE as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
@@ -13,11 +13,11 @@ const Buttons = () =>
         Add your answer
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={types.alt}>
+      <ButtonPrimary type={TYPE.ALT}>
         Ask your question
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={types.dark}>
+      <ButtonPrimary type={TYPE.DARK}>
         Search
       </ButtonPrimary>
       &nbsp;
@@ -30,7 +30,7 @@ const Buttons = () =>
 
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16}/>}
-        type={types.fb}>
+        type={TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
     </DocsBlock>
@@ -41,19 +41,19 @@ const Buttons = () =>
 
     <DocsBlock info="Primary buttons inverted">
       <ContrastBox>
-        <ButtonPrimary type={types.inverse}>
+        <ButtonPrimary type={TYPE.INVERSE}>
           Add your answer
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary type={types.alt_inverse}>
+        <ButtonPrimary type={TYPE.ALT_INVERSE}>
           Ask your question
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary type={types.dark_inverse}>
+        <ButtonPrimary type={TYPE.DARK_INVERSE}>
           Search
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary disabled={true} type={types.inverse}>
+        <ButtonPrimary disabled={true} type={TYPE.INVERSE}>
           Disabled
         </ButtonPrimary>
       </ContrastBox>
@@ -75,11 +75,11 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.alt}>
+      <ButtonSecondary type={types2.ALT}>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.dark}>
+      <ButtonSecondary type={types2.DARK}>
         Search
       </ButtonSecondary>
       &nbsp;
@@ -96,23 +96,23 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
-        <ButtonSecondary type={types2.inverse}>
+        <ButtonSecondary type={types2.INVERSE}>
           <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.inverse}>
+        <ButtonSecondary type={types2.INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.alt_inverse}>
+        <ButtonSecondary type={types2.ALT_INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.dark_inverse}>
+        <ButtonSecondary type={types2.DARK_INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled={true} type={types2.inverse}>
+        <ButtonSecondary disabled={true} type={types2.INVERSE}>
           Disabled
         </ButtonSecondary>
       </ContrastBox>
@@ -128,11 +128,11 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.alt} small={true}>
+      <ButtonSecondary type={types2.ALT} small={true}>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.dark} small={true}>
+      <ButtonSecondary type={types2.DARK} small={true}>
         Search
       </ButtonSecondary>
       &nbsp;
@@ -144,25 +144,25 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons inverted small">
       <ContrastBox>
-        <ButtonSecondary type={types2.inverse} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small={true}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.alt_inverse} small={true}>
+        <ButtonSecondary type={types2.ALT_INVERSE} small={true}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.dark_inverse} small={true}>
+        <ButtonSecondary type={types2.DARK_INVERSE} small={true}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled={true} type={types2.inverse} small={true}>
+        <ButtonSecondary disabled={true} type={types2.INVERSE} small={true}>
           Disabled
         </ButtonSecondary>
 
         <br/><br/>
 
-        <ButtonSecondary type={types2.inverse} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small={true}>
           <div className="sg-label sg-label--secondary">
             <div className="sg-label__icon">
               <Icon type={iconTypes.COMMENT} color={iconColors.LAVENDER} size={16}/>
@@ -172,7 +172,7 @@ const Buttons = () =>
           </div>
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.inverse} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small={true}>
           <div className="sg-label sg-label--secondary">
             <div className="sg-label__icon">
               <Icon type={iconTypes.EXCELLENT} color={iconColors.MUSTARD} size={16}/>
@@ -186,7 +186,7 @@ const Buttons = () =>
 
 
     <DocsBlock info="Secondary buttons small active and inverted">
-      <ButtonSecondary type={types2.active_inverse} small={true}>
+      <ButtonSecondary type={types2.ACTIVE_INVERSE} small={true}>
         <div className="sg-label sg-label--secondary sg-label--unstyled">
           <div className="sg-label__icon">
             <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>
@@ -196,7 +196,7 @@ const Buttons = () =>
         </div>
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled={true} type={types2.active_inverse} small={true}>
+      <ButtonSecondary disabled={true} type={types2.ACTIVE_INVERSE} small={true}>
         <div className="sg-label sg-label--secondary sg-label--unstyled">
           <div className="sg-label__icon">
             <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>

@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
-import ButtonSecondary, {types as buttonSecondaryTypes} from '../../buttons/ButtonSecondary';
-import ButtonPrimary, {types as buttonPrimaryTypes} from '../../buttons/ButtonPrimary';
+import ButtonSecondary, {TYPE as buttonSecondaryTypes} from '../../buttons/ButtonSecondary';
+import ButtonPrimary, {TYPE as buttonPrimaryTypes} from '../../buttons/ButtonPrimary';
 import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../../icons/Icon';
 import ContrastBox from '../../../docs/ContrastBox';
 import DocsBlock from '../../../docs/DocsBlock';

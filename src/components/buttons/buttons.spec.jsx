@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonPrimary from './ButtonPrimary';
-import ButtonSecondary, {types} from './ButtonSecondary';
+import ButtonSecondary, {TYPE} from './ButtonSecondary';
 import ButtonRound from './ButtonRound';
 import {shallow} from 'enzyme';
 
@@ -15,7 +15,7 @@ describe('Button Primary', () => {
   });
 
   test('type', () => {
-    const type = types.alt;
+    const type = TYPE.ALT;
     const button = shallow(
       <ButtonPrimary type={type}>Some text</ButtonPrimary>
     );
@@ -86,7 +86,7 @@ describe('Button Secondary', () => {
   });
 
   test('type', () => {
-    const type = types.alt;
+    const type = TYPE.ALT;
     const button = shallow(
       <ButtonSecondary type={type}>Some text</ButtonSecondary>
     );
@@ -142,7 +142,7 @@ describe('Button Secondary', () => {
 
   test('active-inverse-disabled', () => {
 
-    const typeActiveInverse = types.active_inverse;
+    const typeActiveInverse = TYPE.ACTIVE_INVERSE;
     const button = shallow(
       <ButtonSecondary disabled={true} type={typeActiveInverse}>Some text</ButtonSecondary>
     );

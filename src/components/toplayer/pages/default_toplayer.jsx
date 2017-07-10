@@ -1,5 +1,5 @@
 import React from 'react';
-import TopLayer, {sizes} from '../TopLayer';
+import TopLayer, {SIZE} from '../TopLayer';
 
 const content = <div className="sg-content-box">
   <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
@@ -30,7 +30,7 @@ const DefaultTopLayer = () =>
     </head>
     <body>
       <div className="sg-overlay">
-        <TopLayer modal={true} size={sizes.small}>
+        <TopLayer modal={true} size={SIZE.SMALL}>
           {content}
         </TopLayer>
       </div>

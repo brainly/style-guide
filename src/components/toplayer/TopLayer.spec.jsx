@@ -1,5 +1,5 @@
 import React from 'react';
-import TopLayer, {sizes} from './TopLayer';
+import TopLayer, {SIZE} from './TopLayer';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -27,13 +27,13 @@ test('default size', () => {
     <TopLayer>some text</TopLayer>
   );
 
-  Object.values(sizes).forEach(size => {
+  Object.values(SIZE).forEach(size => {
     expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
   });
 });
 
 test('size', () => {
-  const size = sizes.small;
+  const size = SIZE.SMALL;
   const topLayer = shallow(
     <TopLayer size={size}>some text</TopLayer>
   );

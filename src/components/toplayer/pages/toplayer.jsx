@@ -1,5 +1,5 @@
 import React from 'react';
-import TopLayer, {sizes} from '../TopLayer';
+import TopLayer, {SIZE} from '../TopLayer';
 import DocsBlock from '../../../docs/DocsBlock';
 import Icon, {TYPE, COLOR} from '../../icons/Icon';
 
@@ -32,18 +32,18 @@ const TopLayers = () =>
     </DocsBlock>
 
     <DocsBlock info='Small'>
-      <TopLayer size={sizes.small}>
+      <TopLayer size={SIZE.SMALL}>
         {content}
       </TopLayer>
     </DocsBlock>
 
     <DocsBlock info='Medium'>
-      <TopLayer size={sizes.medium}>
+      <TopLayer size={SIZE.MEDIUM}>
         {content}
       </TopLayer>
     </DocsBlock>
     <DocsBlock info='Large'>
-      <TopLayer size={sizes.large}>
+      <TopLayer size={SIZE.LARGE}>
         {content}
       </TopLayer>
     </DocsBlock>
@@ -57,7 +57,7 @@ const TopLayers = () =>
     </DocsBlock>
 
     <DocsBlock info='Example usage'>
-      <TopLayer size={sizes.medium} lead={true} withBugbox={true}>
+      <TopLayer size={SIZE.MEDIUM} lead={true} withBugbox={true}>
         <div className="sg-content-box">
           <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
             <h1 className="sg-text-bit sg-text-bit--alt">
