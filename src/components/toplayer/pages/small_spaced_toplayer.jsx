@@ -2,9 +2,11 @@ import React from 'react';
 import TopLayer from '../TopLayer';
 import Icon, {TYPE as icoTypes, COLOR as icoColors} from '../../icons/Icon';
 import ButtonPrimary, {TYPE as buttonTypes} from '../../buttons/ButtonPrimary';
+import ContentBox from '../../content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
 
-const content = <div className="sg-content-box">
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+const content = <ContentBox>
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     <h2 className="sg-header-secondary">
       Why join Brainly?
     </h2>
@@ -28,12 +30,12 @@ const content = <div className="sg-content-box">
         <div className="sg-text sg-text--emphasised">find similar questions</div>
       </li>
     </ul>
-  </div>
+  </ContentBoxContent>
 
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     <ButtonPrimary type={buttonTypes.alt}>Join us</ButtonPrimary>
-  </div>
-</div>;
+  </ContentBoxContent>
+</ContentBox>;
 
 const SmallSpacedTopLayer = () =>
   <html>
