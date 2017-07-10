@@ -23,7 +23,7 @@ const ALIGNMENT = {
   RIGHT: 'right'
 };
 
-const ContentBoxActions = ({content, space, spaceSize = SPACE_SIZE.NORMAL,
+const ContentBoxActions = ({children, space, spaceSize = SPACE_SIZE.NORMAL,
   align = ALIGNMENT.LEFT
 }) => {
 
@@ -35,12 +35,12 @@ const ContentBoxActions = ({content, space, spaceSize = SPACE_SIZE.NORMAL,
   });
 
   return <div className={contentBoxClass}>
-    {content}
+    {children}
   </div>;
 };
 
 ContentBoxActions.propTypes = {
-  content: PropTypes.node,
+  children: PropTypes.node,
   full: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
   space: PropTypes.oneOf(Object.values(SPACE)),

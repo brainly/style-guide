@@ -23,7 +23,7 @@ const ALIGNMENT = {
   RIGHT: 'right'
 };
 
-const ContentBoxTitle = ({content, isSpaced, space, spaceSize = SPACE_SIZE.NORMAL,
+const ContentBoxTitle = ({children, isSpaced, space, spaceSize = SPACE_SIZE.NORMAL,
   align = ALIGNMENT.LEFT
 }) => {
 
@@ -35,12 +35,12 @@ const ContentBoxTitle = ({content, isSpaced, space, spaceSize = SPACE_SIZE.NORMA
   });
 
   return <div className={contentBoxClass}>
-    {content}
+    {children}
   </div>;
 };
 
 ContentBoxTitle.propTypes = {
-  content: PropTypes.node,
+  children: PropTypes.node,
   full: PropTypes.bool,
   isSpaced: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
