@@ -43,7 +43,7 @@ const TYPE = {
   x: 'x',
   fb: 'fb'
 };
-const colors = {
+const COLOR = {
   adaptive: 'adaptive',
   gray: 'gray',
   gray_secondary: 'gray-secondary',
@@ -71,9 +71,9 @@ const Icon = ({color, size = 24, type}) => {
 
 Icon.propTypes = {
   size: PropTypes.oneOf(sizes),
-  color: PropTypes.oneOf(Object.values(colors)),
+  color: PropTypes.oneOf(Object.values(COLOR)),
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired
 };
 
 export default Icon;
-export {TYPE, colors, sizes};
+export {TYPE, COLOR, sizes};

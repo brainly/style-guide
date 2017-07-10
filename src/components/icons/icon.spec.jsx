@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {TYPE, colors} from './Icon';
+import Icon, {TYPE, COLOR} from './Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -34,7 +34,7 @@ test('type passed to xlink:href', () => {
 
 test('colors', () => {
   const type = TYPE.answer;
-  const color = colors.dark;
+  const color = COLOR.dark;
   const icon = shallow(
     <Icon type={type} color={color}/>
   );

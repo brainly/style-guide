@@ -1,6 +1,6 @@
 import React from 'react';
 import TopLayer from '../TopLayer';
-import Icon, {TYPE as icoTypes, colors as icoColors} from '../../icons/Icon';
+import Icon, {TYPE as icoTypes, COLOR as icoColors} from '../../icons/Icon';
 import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
 
 const content = <div className="sg-content-box">
