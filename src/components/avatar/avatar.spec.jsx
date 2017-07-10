@@ -28,16 +28,15 @@ test('render with image', () => {
   expect(avatar.find(Icon)).toHaveLength(0);
 });
 
-test('error when render without image & icon', () => {
+test('no error when render without image & icon', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
   mount(<Avatar/>);
-  expect(console.error.mock.calls).toHaveLength(1);
+  expect(console.error.mock.calls).toHaveLength(0);
 
   spy.mockRestore();
 });
-
 
 test('icon pass properties to Icon', () => {
   const iconColor = ICON_COLOR.MUSTARD;
@@ -51,6 +50,15 @@ test('icon pass properties to Icon', () => {
   expect(icoProps.color).toEqual(iconColor);
   expect(icoProps.type).toEqual(iconType);
   expect(icoProps.size).not.toEqual(undefined);
+});
+
+
+test('default icon profile', () => {
+  const iconType = ICON_TYPE.PROFILE;
+  const avatar = mount(<Avatar/>);
+  const icoProps = avatar.find(Icon).props();
+
+  expect(icoProps.type).toEqual(iconType);
 });
 
 

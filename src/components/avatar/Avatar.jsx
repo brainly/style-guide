@@ -13,19 +13,14 @@ const SIZE = {
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
 
-const AvatarContent = ({imgSrc, iconType, iconColor, iconSize}) => {
+const AvatarContent = ({imgSrc, iconType = ICON_TYPE.PROFILE, iconColor, iconSize}) => {
   if (imgSrc) {
     return <img className="sg-avatar__image" src={imgSrc}/>;
   }
 
-  if (iconType) {
-    return <div className="sg-avatar__image sg-avatar__image--icon">
-      <Icon type={iconType} color={iconColor} size={iconSize}/>
-    </div>;
-  }
-
-  console.error('Define imgSrc or iconType in Avatar component');
-  return null;
+  return <div className="sg-avatar__image sg-avatar__image--icon">
+    <Icon type={iconType} color={iconColor} size={iconSize}/>
+  </div>;
 };
 
 AvatarContent.propTypes = {
