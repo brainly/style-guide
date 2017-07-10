@@ -13,6 +13,7 @@ plugins.path = path;
 
 const consts = {
   PROJECT_DIR: __dirname,
+  IS_PRODUCTION: Boolean(argv.production),
   VERSION: argv.production ? pkg.version : 'dev',
   BUCKET_NAME: argv.production ? 'styleguide.brainly.com' : 'beta.styleguide.brainly.com',
   AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,

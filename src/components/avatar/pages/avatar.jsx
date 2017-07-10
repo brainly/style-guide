@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar, {SIZE, ICON_TYPE, ICON_COLOR} from '../Avatar';
 import DocsActiveBlock from '../../../docs/DocsActiveBlock';
+import ContrastBox from '../../../docs/ContrastBox';
 
 const Avatars = () => {
   const settings = {
@@ -12,10 +13,10 @@ const Avatars = () => {
     iconColor: Object.values(ICON_COLOR)
   };
 
-  return <DocsActiveBlock settings={settings}>
+  return <ContrastBox light><DocsActiveBlock settings={settings}>
     <Avatar iconType={ICON_TYPE.profile}/>
     <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
-  </DocsActiveBlock>;
+  </DocsActiveBlock></ContrastBox>;
 };
 
 export default Avatars;

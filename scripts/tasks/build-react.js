@@ -15,12 +15,6 @@ const coreConfig = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new UglifyJSPlugin()
-  ],
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM'
@@ -30,6 +24,13 @@ const coreConfig = {
 module.exports = function(gulp, plugins, consts) {
   const createWebpackBundles = function(file, enc, cb) {
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs/', 'js/');
+    const webpackPlugins = [new webpack.DefinePlugin({
+        'process.env.NODE_ENV': JSON.stringify(consts.IS_PRODUCTION ? 'production' : 'development')
+      })];
+
+    if(consts.IS_PRODUCTION) {
+      plugins.push(new UglifyJSPlugin());
+    }
 
     const config = Object.assign({}, coreConfig, {
       entry: {
@@ -37,9 +38,10 @@ module.exports = function(gulp, plugins, consts) {
       },
       output: {
         filename: '[name].bundle.js',
-        path: jsPath,
-        // libraryTarget: 'commonjs2'
-      }
+        path: jsPath
+      },
+      plugins: webpackPlugins,
+      devtool: consts.IS_PRODUCTION ? 'source-map' : 'eval'
     });
 
     webpack(config, function(err) {
