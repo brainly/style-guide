@@ -11,9 +11,9 @@ const ContentBoxHeader = ({children, spaced, spacedTop, spacedBottom,
     'sg-content-box__header--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__header--spaced': spaced,
     'sg-content-box__header--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__header--spaced-top-${spacedTop}`]: spacedTop !== SIZE.NORMAL,
+    [`sg-content-box__header--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__header--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__header--spaced-bottom-${spacedBottom}`]: spacedBottom !== SIZE.NORMAL
+    [`sg-content-box__header--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   });
 
   return <div className={contentBoxClass}>
