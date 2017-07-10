@@ -17,7 +17,7 @@ test('render element', () => {
 test('render element', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
-      <Icon type={icoTypes.heart}/>
+      <Icon type={icoTypes.HEART}/>
     </RwdHelper>
   );
 

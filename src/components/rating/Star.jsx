@@ -9,7 +9,7 @@ const Star = ({size, checked, onClick}) => {
   });
 
   return <span className={starClass} onClick={onClick}>
-    <Icon type={TYPE.star} size={size} color={COLOR.adaptive}/>
+    <Icon type={TYPE.STAR} size={size} color={COLOR.ADAPTIVE}/>
   </span>;
 };
 

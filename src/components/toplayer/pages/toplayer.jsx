@@ -73,19 +73,19 @@ const TopLayers = () =>
             <ul className="sg-list">
               <li className="sg-list__element">
                 <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.plus} size={14} color={COLOR.gray_secondary}/>
+                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
                 </div>
                 <div className="sg-text sg-text--emphasised">ask questions about your assignment</div>
               </li>
               <li className="sg-list__element">
                 <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.plus} size={14} color={COLOR.gray_secondary}/>
+                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
                 </div>
                 <div className="sg-text sg-text--emphasised">get answer with explanation</div>
               </li>
               <li className="sg-list__element">
                 <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.plus} size={14} color={COLOR.gray_secondary}/>
+                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
                 </div>
                 <div className="sg-text sg-text--emphasised">find similar questions</div>
               </li>

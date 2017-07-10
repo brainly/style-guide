@@ -18,7 +18,7 @@ const icons = () => <div>
   <DocsBlock info="Colors">
     <ul className="icons-list">
       {Object.values(COLOR).map(color => <li className="icons-list__element" key={color}>
-        <Icon color={color} type={TYPE.friends}/>
+        <Icon color={color} type={TYPE.FRIENDS}/>
         <span>&nbsp; - {color}</span>
       </li>)}
     </ul>
@@ -28,7 +28,7 @@ const icons = () => <div>
     <ContrastBox>
       <ul className="icons-list">
         {sizes.map(size => <li className="icons-list__element icons-list__element--wider" key={size}>
-          <Icon size={size} type={TYPE.x}/>
+          <Icon size={size} type={TYPE.X}/>
           <span>&nbsp; - {size}</span>
         </li>)}
       </ul>

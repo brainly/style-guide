@@ -39,7 +39,7 @@ const IconAsButton = ({color, size = sizes.normal, type, action, transparent, ac
 
   return <button className={buttonClass}>
     <div className="sg-icon-as-button__hole">
-      <Icon type={type} color={iconColors.adaptive} size={icoSizes[size]}/>
+      <Icon type={type} color={iconColors.ADAPTIVE} size={icoSizes[size]}/>
     </div>
   </button>;
 };

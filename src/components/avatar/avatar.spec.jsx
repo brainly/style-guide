@@ -5,7 +5,7 @@ import Icon from '../icons/Icon';
 import {shallow, mount} from 'enzyme';
 
 test('render avatar with Icon', () => {
-  const avatar = mount(<Avatar iconType={ICON_TYPE.friends}/>);
+  const avatar = mount(<Avatar iconType={ICON_TYPE.FRIENDS}/>);
 
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
   expect(avatar.find('img')).toHaveLength(0);
@@ -40,8 +40,8 @@ test('error when render without image & icon', () => {
 
 
 test('icon pass properties to Icon', () => {
-  const iconColor = ICON_COLOR.mustard;
-  const iconType = ICON_TYPE.friends;
+  const iconColor = ICON_COLOR.MUSTARD;
+  const iconType = ICON_TYPE.FRIENDS;
   const avatar = mount(<Avatar iconType={iconType} iconColor={iconColor}/>);
 
   expect(avatar.find(Icon)).toHaveLength(1);
@@ -57,7 +57,7 @@ test('icon pass properties to Icon', () => {
 test('SIZE', () => {
   const size = SIZE.XLARGE;
   const avatar = shallow(
-    <Avatar size={size} iconType={ICON_TYPE.friends}/>
+    <Avatar size={size} iconType={ICON_TYPE.FRIENDS}/>
   );
 
   expect(avatar.hasClass('sg-avatar--xlarge')).toEqual(true);
@@ -65,7 +65,7 @@ test('SIZE', () => {
 
 test('border', () => {
   const avatar = shallow(
-    <Avatar border={true} iconType={ICON_TYPE.friends}/>
+    <Avatar border={true} iconType={ICON_TYPE.FRIENDS}/>
   );
 
   expect(avatar.hasClass('sg-avatar--with-border')).toEqual(true);
@@ -73,7 +73,7 @@ test('border', () => {
 
 test('spaced', () => {
   const avatar = shallow(
-    <Avatar spaced={true} iconType={ICON_TYPE.friends}/>
+    <Avatar spaced={true} iconType={ICON_TYPE.FRIENDS}/>
   );
 
   expect(avatar.hasClass('sg-avatar--spaced')).toEqual(true);

@@ -82,7 +82,7 @@ const ActionLists = () =>
         <ActionListHole>
           <div className="sg-label">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.answer} size={14} color={iconColors.gray_secondary}/>
+              <Icon type={iconTypes.ANSWER} size={14} color={iconColors.GRAY_SECONDARY}/>
             </div>
             <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
               0/5
@@ -92,7 +92,7 @@ const ActionLists = () =>
         <ActionListHole>
           <div className="sg-label">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.counter} size={14} color={iconColors.gray_secondary}/>
+              <Icon type={iconTypes.COUNTER} size={14} color={iconColors.GRAY_SECONDARY}/>
             </div>
             <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
               2d : 00h
@@ -110,7 +110,7 @@ const ActionLists = () =>
       <ContrastBox narrow={true}>
         <ActionList noWrap={true}>
           <ActionListHole>
-            <Icon type={iconTypes.messages} size={24}/>
+            <Icon type={iconTypes.MESSAGES} size={24}/>
           </ActionListHole>
           <ActionListHole>
             <p className="sg-text sg-text--light">
@@ -122,7 +122,7 @@ const ActionLists = () =>
       <ContrastBox narrow={true}>
         <ActionList>
           <ActionListHole>
-            <Icon type={iconTypes.messages} size={24}/>
+            <Icon type={iconTypes.MESSAGES} size={24}/>
           </ActionListHole>
           <ActionListHole>
             <p className="sg-text sg-text--light">
