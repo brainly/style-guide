@@ -1,36 +1,21 @@
 import React from 'react';
-import Avatar, {SIZE} from '../Avatar';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import Avatar, {SIZE, ICON_TYPE, ICON_COLOR} from '../Avatar';
+import DocsActiveBlock from '../../../docs/DocsActiveBlock';
 
-const Avatars = () =>
-  <div>
-    <DocsBlock info='Default avatars' toBottom={true}>
-      {Object.values(SIZE).map(
-        (size, index) => <Avatar key={index} size={size}/>
-      )}
-    </DocsBlock>
-    <DocsBlock info='Default with border'>
-      <ContrastBox toBottom={true}>
-        {Object.values(SIZE).map(
-          (size, index) => <Avatar key={index} size={size} border={true}/>
-        )}
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info='Default avatars' toBottom={true}>
-      {Object.values(SIZE).map(
-        (size, index) => <Avatar key={index} size={size} imgSrc="https://source.unsplash.com/240x240/?cat"/>
-      )}
-    </DocsBlock>
-    <DocsBlock info='Default with border'>
-      <ContrastBox toBottom={true}>
-        {Object.values(SIZE).map(
-          (size, index) =>
-            <Avatar key={index} size={size} border={true} imgSrc="https://source.unsplash.com/240x240/?dog"/>
-        )}
-      </ContrastBox>
-    </DocsBlock>
-  </div>;
+const Avatars = () => {
+  const settings = {
+    size: Object.values(SIZE),
+    border: Boolean,
+    spaced: Boolean,
+    imgSrc: String,
+    iconType: Object.values(ICON_TYPE),
+    iconColor: Object.values(ICON_COLOR)
+  };
 
+  return <DocsActiveBlock settings={settings}>
+    <Avatar iconType={ICON_TYPE.profile}/>
+    <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
+  </DocsActiveBlock>;
+};
 
 export default Avatars;
