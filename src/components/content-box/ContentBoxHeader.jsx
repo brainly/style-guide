@@ -23,7 +23,7 @@ const ALIGNMENT = {
   RIGHT: 'right'
 };
 
-const ContentBoxHeader = ({content, isSpaced, space, spaceSize = SPACE_SIZE.NORMAL,
+const ContentBoxHeader = ({children, isSpaced, space, spaceSize = SPACE_SIZE.NORMAL,
   align = ALIGNMENT.LEFT
 }) => {
 
@@ -35,12 +35,12 @@ const ContentBoxHeader = ({content, isSpaced, space, spaceSize = SPACE_SIZE.NORM
   });
 
   return <div className={contentBoxClass}>
-    {content}
+    {children}
   </div>;
 };
 
 ContentBoxHeader.propTypes = {
-  content: PropTypes.node,
+  children: PropTypes.node,
   full: PropTypes.bool,
   isSpaced: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
