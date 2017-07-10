@@ -5,7 +5,7 @@ import ContentBoxActions, {SIZE, ALIGNMENT} from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import ContentBoxHeader from '../ContentBoxHeader';
-import ButtonSecondary, {types as BUTTON_TYPE} from '../../buttons/ButtonSecondary';
+import ButtonSecondary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonSecondary';
 import ButtonPrimary from '../../buttons/ButtonPrimary';
 import Breadcrumbs from '../../breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
@@ -73,7 +73,7 @@ const examplePart1 = <ContentBox>
     <div className="sg-separator"></div>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-    <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+    <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
   </ContentBoxActions>
 </ContentBox>;
 
@@ -102,7 +102,7 @@ const examplePart2 = <ContentBox>
     <div className="sg-separator"></div>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-    <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+    <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
   </ContentBoxActions>
 </ContentBox>;
 
@@ -131,7 +131,7 @@ const ContentBoxes = () =>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -158,7 +158,7 @@ const ContentBoxes = () =>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -188,7 +188,7 @@ const ContentBoxes = () =>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -216,7 +216,7 @@ const ContentBoxes = () =>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -249,7 +249,7 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
                 <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
@@ -314,7 +314,7 @@ const ContentBoxes = () =>
               <a className="sg-link" href="#">Report</a>
             </li>
           </ul>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
                 <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
@@ -331,7 +331,7 @@ const ContentBoxes = () =>
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
                 <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
@@ -352,7 +352,7 @@ const ContentBoxes = () =>
         </ContentBoxHeader>
         <ContentBoxContent>
           <div className="sg-header-primary sg-header-primary--small">Hey! Still not sure about the answer?</div>
-          <ButtonPrimary type={BUTTON_TYPE.alt}>Check similar answers</ButtonPrimary>
+          <ButtonPrimary type={BUTTON_TYPE.ALT}>Check similar answers</ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
