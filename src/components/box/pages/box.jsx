@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, {colors, paddings} from '../Box';
+import Box, {COLOR, PADDING} from '../Box';
 import DocsBlock from '../../../docs/DocsBlock';
 import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
 
@@ -11,7 +11,7 @@ const Boxs = () =>
       </Box>
     </DocsBlock>
 
-    {Object.values(colors).map(
+    {Object.values(COLOR).map(
       color => <DocsBlock key={color} info={`color ${color}`}>
         <Box color={color}>{color} (no border by default)</Box>
       </DocsBlock>
@@ -29,19 +29,19 @@ const Boxs = () =>
     </DocsBlock>
 
     <DocsBlock info="Small padding + no min height" multiContent={[
-      <Box padding={paddings.small} noMinHeight={true}>some text</Box>,
-      <Box padding={paddings.small} noMinHeight={true}>more text<br/> more more</Box>
+      <Box padding={PADDING.SMALL} noMinHeight={true}>some text</Box>,
+      <Box padding={PADDING.SMALL} noMinHeight={true}>more text<br/> more more</Box>
     ]}/>
 
 
     <DocsBlock info="Small padding" multiContent={[
-      <Box padding={paddings.small}>some text</Box>,
-      <Box padding={paddings.small}>more text<br/> more more</Box>
+      <Box padding={PADDING.SMALL}>some text</Box>,
+      <Box padding={PADDING.SMALL}>more text<br/> more more</Box>
     ]}/>
 
     <DocsBlock info="Large padding" multiContent={[
-      <Box padding={paddings.large}>some text</Box>,
-      <Box padding={paddings.large}>more text<br/> more more</Box>
+      <Box padding={PADDING.LARGE}>some text</Box>,
+      <Box padding={PADDING.LARGE}>more text<br/> more more</Box>
     ]}/>
 
     <DocsBlock info="Example of usage">

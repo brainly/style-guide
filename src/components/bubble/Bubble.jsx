@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const alignments = {start: 'start', end: 'end'};
-const directions = {left: 'left', right: 'right', top: 'top', bottom: 'bottom'};
-const HORIZONTAL_DIRECTIONS = [directions.left, directions.right];
+const ALIGNMENT = {START: 'start', END: 'end'};
+const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
+const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
 const Bubble = ({alignment, direction, full, children}) => {
   let alignmentClass;
@@ -30,10 +30,10 @@ const Bubble = ({alignment, direction, full, children}) => {
 
 Bubble.propTypes = {
   children: PropTypes.node.isRequired,
-  direction: PropTypes.oneOf(Object.values(directions)).isRequired,
-  alignment: PropTypes.oneOf(Object.values(alignments)), // without define is center
+  direction: PropTypes.oneOf(Object.values(DIRECTION)).isRequired,
+  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)), // without define is center
   full: PropTypes.bool
 };
 
 export default Bubble;
-export {directions, alignments};
+export {DIRECTION, ALIGNMENT};

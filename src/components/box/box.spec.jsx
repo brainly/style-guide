@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, {colors, paddings} from './Box';
+import Box, {COLOR, PADDING} from './Box';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -13,7 +13,7 @@ test('render', () => {
 
 
 test('colors', () => {
-  const color = colors.lavender;
+  const color = COLOR.LAVENDER;
   const box = shallow(
     <Box color={color}>some text</Box>
   );
@@ -46,7 +46,7 @@ test('no colors => default border on ', () => {
 });
 
 test(' colors => default border off', () => {
-  const color = colors.lavender;
+  const color = COLOR.LAVENDER;
   const box = shallow(
     <Box color={color}>some text</Box>
   );
@@ -59,27 +59,27 @@ test('default padding', () => {
     <Box>some text</Box>
   );
 
-  expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(false);
-  expect(box.hasClass(`sg-box--${paddings.small}`)).toEqual(false);
+  expect(box.hasClass(`sg-box--${PADDING.LARGE}`)).toEqual(false);
+  expect(box.hasClass(`sg-box--${PADDING.SMALL}`)).toEqual(false);
 });
 
 test('small padding', () => {
-  const padding = paddings.small;
+  const padding = PADDING.SMALL;
   const box = shallow(
     <Box padding={padding}>some text</Box>
   );
 
-  expect(box.hasClass(`sg-box--${paddings.small}`)).toEqual(true);
+  expect(box.hasClass('sg-box--small-padding')).toEqual(true);
 });
 
 
 test('large padding', () => {
-  const padding = paddings.large;
+  const padding = PADDING.LARGE;
   const box = shallow(
     <Box padding={padding}>some text</Box>
   );
 
-  expect(box.hasClass(`sg-box--${paddings.large}`)).toEqual(true);
+  expect(box.hasClass('sg-box--large-padding')).toEqual(true);
 });
 
 test('no min height', () => {

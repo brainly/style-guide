@@ -1,10 +1,10 @@
 import React from 'react';
-import Bubble, {directions, alignments} from './Bubble';
+import Bubble, {DIRECTION, ALIGNMENT} from './Bubble';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const bubble = shallow(
-    <Bubble direction={directions.top}>Some text</Bubble>
+    <Bubble direction={DIRECTION.TOP}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble')).toEqual(true);
@@ -22,7 +22,7 @@ test('error when no direction', () => {
 
 test('render top', () => {
   const bubble = shallow(
-    <Bubble direction={directions.top}>Some text</Bubble>
+    <Bubble direction={DIRECTION.TOP}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
@@ -35,7 +35,7 @@ test('render top', () => {
 
 test('render top start', () => {
   const bubble = shallow(
-    <Bubble direction={directions.top} alignment={alignments.start}>Some text</Bubble>
+    <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
@@ -45,7 +45,7 @@ test('render top start', () => {
 
 test('render right', () => {
   const bubble = shallow(
-    <Bubble direction={directions.right}>Some text</Bubble>
+    <Bubble direction={DIRECTION.RIGHT}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
@@ -57,7 +57,7 @@ test('render right', () => {
 
 test('render right end', () => {
   const bubble = shallow(
-    <Bubble direction={directions.right} alignment={alignments.end}>Some text</Bubble>
+    <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.END}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
@@ -69,7 +69,7 @@ test('render right end', () => {
 
 test('render full', () => {
   const bubble = shallow(
-    <Bubble direction={directions.left} full={true}>Some text</Bubble>
+    <Bubble direction={DIRECTION.LEFT} full={true}>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);

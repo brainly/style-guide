@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
-import Icon, {TYPE, COLOR, sizes} from '../Icon';
+import Icon, {TYPE, COLOR, SIZE} from '../Icon';
 
 const icons = () => <div>
   <DocsBlock >
@@ -27,7 +27,7 @@ const icons = () => <div>
   <DocsBlock info="Sizes">
     <ContrastBox>
       <ul className="icons-list">
-        {sizes.map(size => <li className="icons-list__element icons-list__element--wider" key={size}>
+        {SIZE.map(size => <li className="icons-list__element icons-list__element--wider" key={size}>
           <Icon size={size} type={TYPE.X}/>
           <span>&nbsp; - {size}</span>
         </li>)}

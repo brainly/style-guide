@@ -1,18 +1,18 @@
 import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import {contrastBlockCssClass} from '../../../docs/ContrastBox';
-import IconAsButton, {TYPE, colors, sizes} from '../IconAsButton';
+import IconAsButton, {TYPE, COLOR, SIZE} from '../IconAsButton';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 
 const DrawHelper = props => {
   const liClass = classnames('icons-list__element', {
-    [contrastBlockCssClass]: props.color === colors.light
+    [contrastBlockCssClass]: props.color === COLOR.light
   });
   const liStyle = {padding: 0};
 
-  if (props.color === colors.adaptive) {
+  if (props.color === COLOR.adaptive) {
     liStyle.fill = '#ff00ff';
   }
 
@@ -23,31 +23,31 @@ const DrawHelper = props => {
 };
 
 DrawHelper.propTypes = {
-  color: PropTypes.oneOf(Object.values(colors))
+  color: PropTypes.oneOf(Object.values(COLOR))
 
 };
 
 const icons = () => <div>
   <DocsBlock info="Normal">
     <ul className="icons-list">
-      {Object.values(colors).map(color => <DrawHelper color={color} key={color} type={TYPE.HEART}/>)}
+      {Object.values(COLOR).map(color => <DrawHelper color={color} key={color} type={TYPE.HEART}/>)}
     </ul>
   </DocsBlock>
 
 
   <DocsBlock info="Border">
     <ul className="icons-list">
-      {Object.values(colors).map(color => <DrawHelper color={color} key={color} type={TYPE.HEART} border={true}/>)}
+      {Object.values(COLOR).map(color => <DrawHelper color={color} key={color} type={TYPE.HEART} border={true}/>)}
     </ul>
   </DocsBlock>
 
 
   <DocsBlock info="Action">
     <ul className="icons-list">
-      {Object.values(colors).map(color =>
+      {Object.values(COLOR).map(color =>
         <DrawHelper color={color} key={color} type={TYPE.HEART} action={true}/>
       )}
-      {Object.values(colors).map(color =>
+      {Object.values(COLOR).map(color =>
         <DrawHelper color={color} key={color} type={TYPE.HEART} action={true} active={true}/>
       )}
     </ul>
@@ -55,10 +55,10 @@ const icons = () => <div>
 
   <DocsBlock info="Action transparent">
     <ul className="icons-list">
-      {Object.values(colors).map(color =>
+      {Object.values(COLOR).map(color =>
         <DrawHelper color={color} key={color} type={TYPE.HEART} transparent={true}/>
       )}
-      {Object.values(colors).map(color =>
+      {Object.values(COLOR).map(color =>
         <DrawHelper color={color} key={color} type={TYPE.HEART} transparent={true} active={true}/>
       )}
     </ul>
@@ -67,8 +67,8 @@ const icons = () => <div>
 
   <DocsBlock info="small">
     <ul className="icons-list">
-      {Object.values(colors).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={sizes.small}/>
+      {Object.values(COLOR).map(color =>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.small}/>
       )}
     </ul>
   </DocsBlock>
@@ -76,8 +76,8 @@ const icons = () => <div>
 
   <DocsBlock info="xsmall">
     <ul className="icons-list">
-      {Object.values(colors).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={sizes.xsmall}/>
+      {Object.values(COLOR).map(color =>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.xsmall}/>
       )}
     </ul>
   </DocsBlock>
@@ -85,8 +85,8 @@ const icons = () => <div>
 
   <DocsBlock info="xxsmall">
     <ul className="icons-list">
-      {Object.values(colors).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={sizes.xxsmall}/>
+      {Object.values(COLOR).map(color =>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.xxsmall}/>
       )}
     </ul>
   </DocsBlock>

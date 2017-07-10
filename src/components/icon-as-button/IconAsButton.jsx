@@ -3,33 +3,27 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon, {TYPE, COLOR as iconColors} from '../icons/Icon';
 
-const colors = {
-  adaptive: 'adaptive',
-  gray: 'gray',
-  gray_secondary: 'gray-secondary',
-  gray_light: 'gray-light',
-  dark: 'dark',
-  mint: 'mint',
-  peach: 'peach',
-  light: 'light'
+const COLOR = {
+  ADAPTIVE: 'adaptive',
+  GRAY: 'gray',
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_LIGHT: 'gray-light',
+  DARK: 'dark',
+  MINT: 'mint',
+  PEACH: 'peach',
+  LIGHT: 'light'
 };
-const sizes = {
-  normal: 'normal',
-  small: 'small',
-  xsmall: 'xsmall',
-  xxsmall: 'xxsmall'
-};
-const icoSizes = {
-  normal: 26,
-  small: 18,
-  xsmall: 14,
-  xxsmall: 10
+const SIZE = {
+  NORMAL: {className: 'normal', iconSize: 26},
+  SMALL: {className: 'small', iconSize: 18},
+  XSMALL: {className: 'xsmall', iconSize: 14},
+  XXSMALL: {className: 'xxsmall', iconSize: 10}
 };
 
-const IconAsButton = ({color, size = sizes.normal, type, action, transparent, active, border}) => {
+const IconAsButton = ({color, size = SIZE.NORMAL, type, action, transparent, active, border}) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${color}`]: color,
-    [`sg-icon-as-button--${size}`]: size,
+    [`sg-icon-as-button--${size.className}`]: size,
     'sg-icon-as-button--with-border': border,
     'sg-icon-as-button--action': action,
     'sg-icon-as-button--action-active': action && active,
@@ -39,14 +33,14 @@ const IconAsButton = ({color, size = sizes.normal, type, action, transparent, ac
 
   return <button className={buttonClass}>
     <div className="sg-icon-as-button__hole">
-      <Icon type={type} color={iconColors.ADAPTIVE} size={icoSizes[size]}/>
+      <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize}/>
     </div>
   </button>;
 };
 
 IconAsButton.propTypes = {
-  size: PropTypes.oneOf(Object.values(sizes)),
-  color: PropTypes.oneOf(Object.values(colors)),
+  size: PropTypes.oneOf(Object.values(SIZE)),
+  color: PropTypes.oneOf(Object.values(COLOR)),
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   border: PropTypes.bool,
   action: PropTypes.bool,
@@ -55,4 +49,4 @@ IconAsButton.propTypes = {
 };
 
 export default IconAsButton;
-export {TYPE, colors, sizes};
+export {TYPE, COLOR, SIZE};

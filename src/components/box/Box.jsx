@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const colors = {
-  blue: 'blue',
-  lavender: 'lavender',
-  dark: 'dark',
-  mint: 'mint',
-  mint_secondary: 'mint-secondary',
-  navyblue_secondary: 'navyblue-secondary',
-  blue_secondary_light: 'blue-secondary-light'
+const COLOR = {
+  BLUE: 'blue',
+  LAVENDER: 'lavender',
+  DARK: 'dark',
+  MINT: 'mint',
+  MINT_SECONDARY: 'mint-secondary',
+  NAVYBLUE_SECONDARY: 'navyblue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
 };
 
-const paddings = {
-  small: 'small-padding',
-  large: 'large-padding'
+const PADDING = {
+  SMALL: 'small-padding',
+  LARGE: 'large-padding'
 };
 
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight}) => {
@@ -42,13 +42,13 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
 
 Box.propTypes = {
   children: PropTypes.node,
-  color: PropTypes.oneOf(Object.values(colors)),
+  color: PropTypes.oneOf(Object.values(COLOR)),
   border: PropTypes.bool,
   noMinHeight: PropTypes.bool,
   full: PropTypes.bool,
-  padding: PropTypes.oneOf(Object.values(paddings)),
+  padding: PropTypes.oneOf(Object.values(PADDING)),
   imgSrc: PropTypes.string
 };
 
 export default Box;
-export {colors, paddings};
+export {COLOR, PADDING};

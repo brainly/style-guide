@@ -1,5 +1,5 @@
 import React from 'react';
-import TopLayer, {sizes} from '../TopLayer';
+import TopLayer, {SIZE} from '../TopLayer';
 import Icon, {TYPE as icoTypes, COLOR as icoColors} from '../../icons/Icon';
 import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
 
@@ -49,7 +49,7 @@ const NotLoggedTopLayer = () =>
     </head>
     <body>
       <div className="sg-overlay">
-        <TopLayer modal={true} size={sizes.medium} lead={true} withBugbox={true}>
+        <TopLayer modal={true} size={SIZE.MEDIUM} lead={true} withBugbox={true}>
           {content}
         </TopLayer>
       </div>

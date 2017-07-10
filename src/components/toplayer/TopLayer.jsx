@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const sizes = {
-  small: 'small',
-  medium: 'medium',
-  large: 'large'
+const SIZE = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large'
 };
 
 const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, splashScreen, limitedWidth, row}) => {
@@ -41,8 +41,8 @@ TopLayer.propTypes = {
   splashScreen: PropTypes.bool,
   limitedWidth: PropTypes.bool,
   row: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(sizes))
+  size: PropTypes.oneOf(Object.values(SIZE))
 };
 
 export default TopLayer;
-export {sizes};
+export {SIZE};
