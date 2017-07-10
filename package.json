@@ -45,6 +45,7 @@
     "slug": "^0.9.1",
     "through2": "^2.0.3",
     "uuid": "^3.1.0",
+    "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^2.6.1",
     "yargs": "^4.3.1"
   },
