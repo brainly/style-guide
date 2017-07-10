@@ -10,7 +10,8 @@ import ButtonPrimary from '../../buttons/ButtonPrimary';
 import Breadcrumbs from '../../breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from '../../stickers/Sticker';
-import Icon from '../../icons/Icon';
+import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
+import Rating from '../../rating/Rating';
 
 const link1 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>;
 const link2 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>;
@@ -66,12 +67,12 @@ const examplePart1 = <ContentBox>
     <div className="sg-overlayed-box">
       <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
       <div className="sg-overlayed-box__overlay">
-        <Sticker type={STICKER_TYPE.answer}/>
+        <Sticker type={STICKER_TYPE.ANSWER}/>
       </div>
     </div>
     <div className="sg-separator"></div>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
-    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
     <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
   </ContentBoxActions>
 </ContentBox>;
@@ -95,12 +96,12 @@ const examplePart2 = <ContentBox>
     <div className="sg-overlayed-box">
       <Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>
       <div className="sg-overlayed-box__overlay">
-        <Sticker type={STICKER_TYPE.answer}/>
+        <Sticker type={STICKER_TYPE.ANSWER}/>
       </div>
     </div>
     <div className="sg-separator"></div>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
     <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
   </ContentBoxActions>
 </ContentBox>;
@@ -124,12 +125,12 @@ const ContentBoxes = () =>
           <div className="sg-overlayed-box">
             <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
             <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.answer}/>
+              <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -151,12 +152,12 @@ const ContentBoxes = () =>
           <div className="sg-overlayed-box">
             <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
             <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.answer}/>
+              <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -181,12 +182,12 @@ const ContentBoxes = () =>
           <div className="sg-overlayed-box">
             <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
             <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.answer}/>
+              <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -209,12 +210,12 @@ const ContentBoxes = () =>
           <div className="sg-overlayed-box">
             <Avatar imgSrc="https://source.unsplash.com/64x64/?kitten"/>
             <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.answer}/>
+              <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
           <div className="sg-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -251,42 +252,13 @@ const ContentBoxes = () =>
           <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
-                <Icon type={ICON_TYPE.heart} color={ICON_COLOR.adaptive} size={SI}/>
+                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
               </div>
               <div className="sg-label__text">Thank you</div>
               <div className="sg-label__number">21</div>
             </div>
           </ButtonSecondary>
-
-
-          <div className="sg-rate-box sg-rate-box--active sg-rate-box--small">
-            <span className="sg-rate-box__star sg-rate-box__star--checked">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star sg-rate-box__star--checked">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__counter">34</span>
-          </div>
+          <Rating rate={2} counter={34} active={true}/>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -301,8 +273,9 @@ const ContentBoxes = () =>
             lorem quis, gravida ex.
           </div>
         </ContentBoxContent>
-        <ContentBoxActions space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>Action
-          elements</ContentBoxActions>
+        <ContentBoxActions space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+          Action elements
+        </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
@@ -341,123 +314,45 @@ const ContentBoxes = () =>
               <a className="sg-link" href="#">Report</a>
             </li>
           </ul>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--active-inverse">
+          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
-                <svg className="sg-icon sg-icon--x16 sg-icon--adaptive">
-                  <use xlinkHref="#icon-heart"></use>
-                </svg>
+                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
               </div>
               <div className="sg-label__text">Thank you</div>
               <div className="sg-label__number">21</div>
             </div>
-          </button>
-          <div className="sg-rate-box sg-rate-box--active sg-rate-box--small">
-            <span className="sg-rate-box__star sg-rate-box__star--checked">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star sg-rate-box__star--checked">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__star">
-              <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </span>
-            <span className="sg-rate-box__counter">34</span>
-          </div>
+          </ButtonSecondary>
+          <Rating rate={3} counter={34} active={true}/>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Actions with elements moved to right">
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
-          <div className="sg-content-box__actions sg-content-box__actions--with-elements-to-right">
-            <ul className="sg-breadcrumb-list">
-              <li className="sg-breadcrumb-list__element">
-                <a className="sg-link" href="#">Comments (9)</a>
-              </li>
-              <li className="sg-breadcrumb-list__element">
-                <a className="sg-link" href="#">Report</a>
-              </li>
-            </ul>
-            <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--active-inverse">
-              <div className="sg-label sg-label--secondary sg-label--unstyled">
-                <div className="sg-label__icon">
-                  <svg className="sg-icon sg-icon--x16 sg-icon--adaptive">
-                    <use xlinkHref="#icon-heart"></use>
-                  </svg>
-                </div>
-                <div className="sg-label__text">Thank you</div>
-                <div className="sg-label__number">21</div>
+          <Breadcrumbs elements={breadcrumbsSpaced2}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
+            <div className="sg-label sg-label--secondary sg-label--unstyled">
+              <div className="sg-label__icon">
+                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
               </div>
-            </button>
-            <div className="sg-rate-box sg-rate-box--active sg-rate-box--small">
-              <span className="sg-rate-box__star sg-rate-box__star--checked">
-                <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </span>
-              <span className="sg-rate-box__star sg-rate-box__star--checked">
-                <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </span>
-              <span className="sg-rate-box__star">
-                <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </span>
-              <span className="sg-rate-box__star">
-                <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </span>
-              <span className="sg-rate-box__star">
-                <svg className="sg-icon sg-icon--x14 sg-icon--adaptive">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-              </span>
-              <span className="sg-rate-box__counter">34</span>
+              <div className="sg-label__text">Thank you</div>
+              <div className="sg-label__number">21</div>
             </div>
-          </div>
+          </ButtonSecondary>
+          <Rating rate={3} counter={34} active={true}/>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Example usage">
       <ContentBox spaced={true}>
         <ContentBoxHeader>
-          <div className="sg-avatar sg-avatar--spaced">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-          </div>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <span className="sg-link sg-link--gray">The Brain</span>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <span className="sg-link sg-link--gray">Answerer</span>
-            </li>
-          </ul>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
+          <Breadcrumbs elements={['The Brain', 'Answerer']}/>
         </ContentBoxHeader>
         <ContentBoxContent>
           <div className="sg-header-primary sg-header-primary--small">Hey! Still not sure about the answer?</div>
-          <button className="sg-button-primary sg-button-primary--alt">
-            Check similar answers
-          </button>
+          <ButtonPrimary type={BUTTON_TYPE.alt}>Check similar answers</ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
