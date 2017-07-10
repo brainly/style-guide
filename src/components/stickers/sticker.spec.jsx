@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const sticker = shallow(
-    <Sticker type={TYPE.camera}/>
+    <Sticker type={TYPE.CAMERA}/>
   );
 
   expect(sticker.hasClass('sg-sticker')).toEqual(true);
@@ -22,7 +22,7 @@ test('error when no type', () => {
 });
 
 test('type passed to xlink:href', () => {
-  const type = TYPE.camera;
+  const type = TYPE.CAMERA;
   const sticker = shallow(
     <Sticker type={type}/>
   );

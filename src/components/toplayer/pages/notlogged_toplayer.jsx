@@ -1,6 +1,6 @@
 import React from 'react';
 import TopLayer, {sizes} from '../TopLayer';
-import Icon, {types as icoTypes, colors as icoColors} from '../../icons/Icon';
+import Icon, {TYPE as icoTypes, COLOR as icoColors} from '../../icons/Icon';
 import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
 
 const content = <div className="sg-content-box">
@@ -17,19 +17,19 @@ const content = <div className="sg-content-box">
     <ul className="sg-list">
       <li className="sg-list__element">
         <div className="sg-list__icon sg-list__icon----spacing-right-small">
-          <Icon type={icoTypes.plus} size={14} color={icoColors.gray_secondary}/>
+          <Icon type={icoTypes.PLUS} size={14} color={icoColors.GRAY_SECONDARY}/>
         </div>
         <div className="sg-text sg-text--emphasised">ask questions about your assignment</div>
       </li>
       <li className="sg-list__element">
         <div className="sg-list__icon sg-list__icon----spacing-right-small">
-          <Icon type={icoTypes.plus} size={14} color={icoColors.gray_secondary}/>
+          <Icon type={icoTypes.PLUS} size={14} color={icoColors.GRAY_SECONDARY}/>
         </div>
         <div className="sg-text sg-text--emphasised">get answer with explanation</div>
       </li>
       <li className="sg-list__element">
         <div className="sg-list__icon sg-list__icon----spacing-right-small">
-          <Icon type={icoTypes.plus} size={14} color={icoColors.gray_secondary}/>
+          <Icon type={icoTypes.PLUS} size={14} color={icoColors.GRAY_SECONDARY}/>
         </div>
         <div className="sg-text sg-text--emphasised">find similar questions</div>
       </li>

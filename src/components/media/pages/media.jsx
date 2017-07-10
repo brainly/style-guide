@@ -9,7 +9,7 @@ const defaultProps = {
     <span className="sg-link sg-link--gray sg-link--emphasised">The Goat</span>,
     <span>Master </span>
   ],
-  aside: <Avatar iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+  aside: <Avatar iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
 };
 
 const Medias = () =>

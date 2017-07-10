@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {types, colors as iconColors} from '../icons/Icon';
+import Icon, {TYPE, COLOR as iconColors} from '../icons/Icon';
 
 const colors = {
   adaptive: 'adaptive',
@@ -39,7 +39,7 @@ const IconAsButton = ({color, size = sizes.normal, type, action, transparent, ac
 
   return <button className={buttonClass}>
     <div className="sg-icon-as-button__hole">
-      <Icon type={type} color={iconColors.adaptive} size={icoSizes[size]}/>
+      <Icon type={type} color={iconColors.ADAPTIVE} size={icoSizes[size]}/>
     </div>
   </button>;
 };
@@ -47,7 +47,7 @@ const IconAsButton = ({color, size = sizes.normal, type, action, transparent, ac
 IconAsButton.propTypes = {
   size: PropTypes.oneOf(Object.values(sizes)),
   color: PropTypes.oneOf(Object.values(colors)),
-  type: PropTypes.oneOf(Object.values(types)).isRequired,
+  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   border: PropTypes.bool,
   action: PropTypes.bool,
   transparent: PropTypes.bool,
@@ -55,4 +55,4 @@ IconAsButton.propTypes = {
 };
 
 export default IconAsButton;
-export {types, colors, sizes};
+export {TYPE, colors, sizes};

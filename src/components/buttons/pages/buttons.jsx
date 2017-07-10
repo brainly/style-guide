@@ -4,7 +4,7 @@ import ButtonSecondary, {types as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
-import Icon, {types as iconTypes, colors as iconColors} from '../../icons/Icon';
+import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../../icons/Icon';
 
 const Buttons = () =>
   <div>
@@ -29,7 +29,7 @@ const Buttons = () =>
       <br/>
 
       <ButtonPrimary
-        icon={<Icon type={iconTypes.fb} color={iconColors.adaptive} size={16}/>}
+        icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16}/>}
         type={types.fb}>
         Login with Facebook
       </ButtonPrimary>
@@ -61,14 +61,14 @@ const Buttons = () =>
 
     <DocsBlock info="Primary round button">
       <ButtonRound label="Add question">
-        <Icon type={iconTypes.plus} size={16}/>
+        <Icon type={iconTypes.PLUS} size={16}/>
       </ButtonRound>
     </DocsBlock>
 
 
     <DocsBlock info='Secondary buttons'>
       <ButtonSecondary>
-        <Icon type={iconTypes.search} color={iconColors.adaptive} size={14}/>
+        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary>
@@ -97,7 +97,7 @@ const Buttons = () =>
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
         <ButtonSecondary type={types2.inverse}>
-          <Icon type={iconTypes.search} color={iconColors.adaptive} size={14}/>
+          <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
         </ButtonSecondary>
         &nbsp;
         <ButtonSecondary type={types2.inverse}>
@@ -121,7 +121,7 @@ const Buttons = () =>
 
     <DocsBlock info='Secondary buttons small'>
       <ButtonSecondary small={true}>
-        <Icon type={iconTypes.search} color={iconColors.adaptive} size={14}/>
+        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary small={true}>
@@ -165,7 +165,7 @@ const Buttons = () =>
         <ButtonSecondary type={types2.inverse} small={true}>
           <div className="sg-label sg-label--secondary">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.comment} color={iconColors.lavender} size={16}/>
+              <Icon type={iconTypes.COMMENT} color={iconColors.LAVENDER} size={16}/>
             </div>
             <div className="sg-label__text">Comment</div>
             <div className="sg-label__number">21</div>
@@ -175,7 +175,7 @@ const Buttons = () =>
         <ButtonSecondary type={types2.inverse} small={true}>
           <div className="sg-label sg-label--secondary">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.excellent} color={iconColors.mustard} size={16}/>
+              <Icon type={iconTypes.EXCELLENT} color={iconColors.MUSTARD} size={16}/>
             </div>
             <div className="sg-label__text">Mark as brainliest</div>
           </div>
@@ -189,7 +189,7 @@ const Buttons = () =>
       <ButtonSecondary type={types2.active_inverse} small={true}>
         <div className="sg-label sg-label--secondary sg-label--unstyled">
           <div className="sg-label__icon">
-            <Icon type={iconTypes.heart} color={iconColors.adaptive} size={16}/>
+            <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>
           </div>
           <div className="sg-label__text">Thank you</div>
           <div className="sg-label__number">21</div>
@@ -199,7 +199,7 @@ const Buttons = () =>
       <ButtonSecondary disabled={true} type={types2.active_inverse} small={true}>
         <div className="sg-label sg-label--secondary sg-label--unstyled">
           <div className="sg-label__icon">
-            <Icon type={iconTypes.heart} color={iconColors.adaptive} size={16}/>
+            <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>
           </div>
           <div className="sg-label__text">Thank you</div>
           <div className="sg-label__number">21</div>

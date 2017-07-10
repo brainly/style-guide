@@ -1,7 +1,7 @@
 import React from 'react';
 import RwdHelper, {TYPE} from '../RwdHelper';
 import DocsBlock from '../../../docs/DocsBlock';
-import Icon, {types as icoTypes, colors} from '../../icons/Icon';
+import Icon, {TYPE as icoTypes, COLOR} from '../../icons/Icon';
 
 const RwdHelpers = () =>
   <div>
@@ -10,7 +10,7 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.SMALL_ONLY}>
             <span>
-              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
+              <Icon type={icoTypes.HEART} color={COLOR.PEACH} size={14}/>
             </span>
           </RwdHelper>
           - hidden for small screens
@@ -19,7 +19,7 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.MEDIUM_ONLY}>
             <span>
-              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
+              <Icon type={icoTypes.HEART} color={COLOR.PEACH} size={14}/>
             </span>
           </RwdHelper>
           - hidden for medium screens
@@ -28,7 +28,7 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.MEDIUM_DOWN}>
             <span>
-              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
+              <Icon type={icoTypes.HEART} color={COLOR.PEACH} size={14}/>
             </span>
           </RwdHelper>
           - hidden for small and medium screens
@@ -37,7 +37,7 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.MEDIUM_UP}>
             <span>
-              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
+              <Icon type={icoTypes.HEART} color={COLOR.PEACH} size={14}/>
             </span>
           </RwdHelper>
           - hidden for medium and large screens
@@ -46,7 +46,7 @@ const RwdHelpers = () =>
         <li>
           <RwdHelper hide={TYPE.LARGE_ONLY}>
             <span>
-              <Icon type={icoTypes.heart} color={colors.peach} size={14}/>
+              <Icon type={icoTypes.HEART} color={COLOR.PEACH} size={14}/>
             </span>
           </RwdHelper>
           - hidden for large screens

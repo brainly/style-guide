@@ -1,7 +1,7 @@
 import React from 'react';
 import RwdHelper, {TYPE} from './RwdHelper';
 import {shallow} from 'enzyme';
-import Icon, {types as icoTypes} from '../icons/Icon';
+import Icon, {TYPE as icoTypes} from '../icons/Icon';
 
 test('render element', () => {
   const rwdHelper = shallow(
@@ -17,7 +17,7 @@ test('render element', () => {
 test('render element', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
-      <Icon type={icoTypes.heart}/>
+      <Icon type={icoTypes.HEART}/>
     </RwdHelper>
   );
 
