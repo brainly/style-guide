@@ -40,7 +40,6 @@ ContentBlock.propTypes = {
   toBottom: PropTypes.bool
 };
 
-
 const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom, centered}) =>
   <section className="docs-block">
     <InfoBlock info={info} additionalInfo={additionalInfo}/>

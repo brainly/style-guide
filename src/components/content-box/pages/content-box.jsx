@@ -1,12 +1,25 @@
 import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContentBox from '../ContentBox';
-import ContentBoxActions from '../ContentBoxActions';
-import ContentBoxTitle, {ALIGNMENT, SPACE_SIZE, SPACE} from '../ContentBoxTitle';
+import ContentBoxActions, {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT} from '../ContentBoxActions';
+import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import ContentBoxHeader from '../ContentBoxHeader';
-import ButtonSecondary from '../../buttons/ButtonSecondary';
+import ButtonSecondary, {types as BUTTON_TYPE} from '../../buttons/ButtonSecondary';
 import ButtonPrimary from '../../buttons/ButtonPrimary';
+import Breadcrumbs from '../../breadcrumbs/Breadcrumb';
+import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
+import Sticker, {TYPE as STICKER_TYPE} from '../../stickers/Sticker';
+import Icon from '../../icons/Icon';
+
+const link1 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>;
+const link2 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>;
+const link3 = <a className="sg-link sg-link--gray" href="#">2 min ago</a>;
+const breadcrumbs = [link1, link2, link3];
+const breadcrumbsSpaced = [<a className="sg-link sg-link--gray" href="#">Katie</a>,
+  <a className="sg-link sg-link--gray" href="#">Answerer</a>];
+const breadcrumbsSpaced2 = [<a className="sg-link" href="#">Comments (9)</a>,
+  <a className="sg-link" href="#">Report</a>];
 
 const spacedBottomOptions = <div>
   <div className="sg-text">Options:</div>
@@ -34,27 +47,70 @@ const spacedTopOptions = <div>
   </ul>
 </div>;
 
+const examplePart1 = <ContentBox>
+  <ContentBoxTitle>
+    <h2 className="sg-header-secondary">This is a title for context box</h2>
+  </ContentBoxTitle>
+  <ContentBoxActions>
+    <ButtonSecondary>Search!</ButtonSecondary>
+  </ContentBoxActions>
+  <ContentBoxContent>
+    <div className="sg-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+      lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+      Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+      vel eros.
+    </div>
+  </ContentBoxContent>
+  <ContentBoxActions>
+    <div className="sg-overlayed-box">
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
+      <div className="sg-overlayed-box__overlay">
+        <Sticker type={STICKER_TYPE.answer}/>
+      </div>
+    </div>
+    <div className="sg-separator"></div>
+    <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
+    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+    <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+  </ContentBoxActions>
+</ContentBox>;
+
+const examplePart2 = <ContentBox>
+  <ContentBoxTitle>
+    <h2 className="sg-header-primary">This is a title for context box</h2>
+  </ContentBoxTitle>
+  <ContentBoxActions>
+    <ButtonPrimary>Search!</ButtonPrimary>
+  </ContentBoxActions>
+  <ContentBoxContent>
+    <div className="sg-text">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+      lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+      Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+      vel eros.
+    </div>
+  </ContentBoxContent>
+  <ContentBoxActions>
+    <div className="sg-overlayed-box">
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>
+      <div className="sg-overlayed-box__overlay">
+        <Sticker type={STICKER_TYPE.answer}/>
+      </div>
+    </div>
+    <div className="sg-separator"></div>
+    <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
+    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+    <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
+  </ContentBoxActions>
+</ContentBox>;
+
 const ContentBoxes = () =>
   <div>
     <DocsBlock info="Simple with header">
       <ContentBox>
         <ContentBoxHeader>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray" href="#">2 min ago</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <div className="sg-badge sg-badge--mustard">
-                <div className="sg-text sg-text--emphasised sg-text--xsmall sg-text--light">HOT</div>
-              </div>
-            </li>
-          </ul>
+          <Breadcrumbs elements={breadcrumbs}/>
         </ContentBoxHeader>
         <ContentBoxContent>
           <div className="sg-text">
@@ -66,30 +122,15 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-            </div>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
             <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
+              <Sticker type={STICKER_TYPE.answer}/>
             </div>
           </div>
           <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?cat"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -108,30 +149,15 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?dog"/>
-            </div>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
             <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
+              <Sticker type={STICKER_TYPE.answer}/>
             </div>
           </div>
           <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?car"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -141,22 +167,7 @@ const ContentBoxes = () =>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
         <ContentBoxHeader>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray" href="#">2 min ago</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <div className="sg-badge sg-badge--mustard">
-                <div className="sg-text sg-text--emphasised sg-text--xsmall sg-text--light">HOT</div>
-              </div>
-            </li>
-          </ul>
+          <Breadcrumbs elements={breadcrumbs}/>
         </ContentBoxHeader>
         <ContentBoxContent>
           <div className="sg-text">
@@ -168,55 +179,25 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-            </div>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
             <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
+              <Sticker type={STICKER_TYPE.answer}/>
             </div>
           </div>
           <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?cat"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title and header (spaced)">
-      <ContentBox isSpaced={true}>
-        <ContentBoxTitle isSpaced={true}>
+      <ContentBox spaced={true}>
+        <ContentBoxTitle spaced={true}>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
-        <ContentBoxHeader isSpaced={true}>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray" href="#">2 min ago</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <div className="sg-badge sg-badge--mustard">
-                <div className="sg-text sg-text--emphasised sg-text--xsmall sg-text--light">HOT</div>
-              </div>
-            </li>
-          </ul>
+        <ContentBoxHeader spaced={true}>
+          <Breadcrumbs elements={breadcrumbs}/>
         </ContentBoxHeader>
         <ContentBoxContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
@@ -226,30 +207,15 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?dog"/>
-            </div>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?kitten"/>
             <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
+              <Sticker type={STICKER_TYPE.answer}/>
             </div>
           </div>
           <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?car"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.profile} iconColor={ICON_COLOR.gray}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.inverse}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -259,111 +225,17 @@ const ContentBoxes = () =>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
           lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
           Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-          vel eros.</ContentBoxContent>
+          vel eros.
+        </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
-    <DocsBlock info="Simple with title and actions">
-      <ContentBox>
-        <ContentBoxTitle>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
-        </ContentBoxTitle>
-        <ContentBoxActions>
-          <ButtonSecondary>Search!</ButtonSecondary>
-        </ContentBoxActions>
-        <ContentBoxContent>
-          <div className="sg-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros.
-          </div>
-        </ContentBoxContent>
-        <ContentBoxActions>
-          <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-            </div>
-            <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
-            </div>
-          </div>
-          <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?cat"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
-        </ContentBoxActions>
-      </ContentBox>
-      <ContentBox>
-        <ContentBoxTitle>
-          <h2 className="sg-header-primary">This is a title for context box</h2>
-        </ContentBoxTitle>
-        <ContentBoxActions>
-          <ButtonPrimary>Search!</ButtonPrimary>
-        </ContentBoxActions>
-        <ContentBoxContent>
-          <div className="sg-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros.
-          </div>
-        </ContentBoxContent>
-        <ContentBoxActions>
-          <div className="sg-overlayed-box">
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?dog"/>
-            </div>
-            <div className="sg-overlayed-box__overlay">
-              <svg className="sg-sticker">
-                <use className="sg-sticker__back" xlinkHref="#icon-answering"></use>
-                <use className="sg-sticker__front" xlinkHref="#icon-answering"></use>
-              </svg>
-            </div>
-          </div>
-          <div className="sg-separator"></div>
-          <div className="sg-avatar sg-avatar--small">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?car"/>
-          </div>
-          <div className="sg-avatar sg-avatar--small">
-            <div className="sg-avatar__image sg-avatar__image--icon">
-              <svg className="sg-icon sg-icon--x24 sg-icon--gray">
-                <use xlinkHref="#icon-profile"></use>
-              </svg>
-            </div>
-          </div>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--inverse">
-            Answer
-          </button>
-        </ContentBoxActions>
-      </ContentBox>
+    <DocsBlock info="Simple with title and actions" multiContent={[examplePart1, examplePart2]}>
     </DocsBlock>
     <DocsBlock info="Spaced">
-      <ContentBox isSpaced={true}>
+      <ContentBox spaced={true}>
         <ContentBoxHeader>
-          <div className="sg-avatar sg-avatar--spaced">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-          </div>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray" href="#">Katie</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link sg-link--gray" href="#">Answerer</a>
-            </li>
-          </ul>
+          <Avatar spaced={true} imgSrc="https://source.unsplash.com/64x64/?woman"/>
+          <Breadcrumbs elements={breadcrumbsSpaced}/>
         </ContentBoxHeader>
         <ContentBoxContent>
           <div className="sg-text">
@@ -375,25 +247,17 @@ const ContentBoxes = () =>
           </div>
         </ContentBoxContent>
         <ContentBoxActions>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link" href="#">Comments (9)</a>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <a className="sg-link" href="#">Report</a>
-            </li>
-          </ul>
-          <button className="sg-button-secondary sg-button-secondary--small sg-button-secondary--active-inverse">
+          <Breadcrumbs elements={breadcrumbsSpaced2}/>
+          <ButtonSecondary small={true} type={BUTTON_TYPE.active_inverse}>
             <div className="sg-label sg-label--secondary sg-label--unstyled">
               <div className="sg-label__icon">
-                <svg className="sg-icon sg-icon--x16 sg-icon--adaptive">
-                  <use xlinkHref="#icon-heart"></use>
-                </svg>
+                <Icon type={ICON_TYPE.heart} color={ICON_COLOR.adaptive} size={SI}/>
               </div>
               <div className="sg-label__text">Thank you</div>
               <div className="sg-label__number">21</div>
             </div>
-          </button>
+          </ButtonSecondary>
+
 
           <div className="sg-rate-box sg-rate-box--active sg-rate-box--small">
             <span className="sg-rate-box__star sg-rate-box__star--checked">
@@ -428,30 +292,31 @@ const ContentBoxes = () =>
     </DocsBlock>
     <DocsBlock info="Spaced-bottom elements inside" additionalInfo={spacedBottomOptions}>
       <ContentBox>
-        <ContentBoxTitle space={SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxTitle space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
-        <ContentBoxContent space={SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxContent space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
           <div className="sg-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
           </div>
         </ContentBoxContent>
-        <ContentBoxActions space={SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>Action elements</ContentBoxActions>
+        <ContentBoxActions space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>Action
+          elements</ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
       <ContentBox>
-        <ContentBoxTitle space={SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxTitle space={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
-        <ContentBoxContent space={SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxContent space={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
           <div className="sg-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
           </div>
         </ContentBoxContent>
-        <ContentBoxActions space={SPACE.TOP} SPACESIZE={SPACE_SIZE.XLARGE}>
+        <ContentBoxActions space={ALIGNED_SPACE.TOP} SPACESIZE={SPACE_SIZE.XLARGE}>
           Action elements
         </ContentBoxActions>
       </ContentBox>
@@ -574,7 +439,7 @@ const ContentBoxes = () =>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Example usage">
-      <ContentBox isSpaced={true}>
+      <ContentBox spaced={true}>
         <ContentBoxHeader>
           <div className="sg-avatar sg-avatar--spaced">
             <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>

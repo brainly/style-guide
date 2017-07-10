@@ -1,37 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT} from './ContentBoxConstants';
 
-const SPACE = {
-  TOP: 'top',
-  BOTTOM: 'bottom'
-};
-
-const SPACE_SIZE = {
-  XXSMALL: 'xxsmall',
-  XSMALL: 'xsmall',
-  SMALL: 'small',
-  NORMAL: 'normal',
-  LARGE: 'large',
-  XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
-};
-
-const ALIGNMENT = {
-  LEFT: 'left',
-  CENTER: 'center',
-  RIGHT: 'right'
-};
-
-const ContentBoxTitle = ({children, isSpaced, space, spaceSize = SPACE_SIZE.NORMAL,
+const ContentBoxTitle = ({children, spaced, alignedSpace, spaceSize = SPACE_SIZE.NORMAL,
   align = ALIGNMENT.LEFT
 }) => {
 
   const contentBoxClass = classNames('sg-content-box__title', {
     'sg-content-box__title--with-centered-elements': align === ALIGNMENT.CENTER,
-    'sg-content-box__title--spaced': isSpaced,
-    [`sg-content-box__title--spaced-${space}`]: space && spaceSize === SPACE_SIZE.NORMAL,
-    [`sg-content-box__title--spaced-${space}-${spaceSize}`]: space && spaceSize !== SPACE_SIZE.NORMAL
+    'sg-content-box__title--spaced': spaced,
+    [`sg-content-box__title--spaced-${alignedSpace}`]: alignedSpace && spaceSize === SPACE_SIZE.NORMAL,
+    [`sg-content-box__title--spaced-${alignedSpace}-${spaceSize}`]: alignedSpace && spaceSize !== SPACE_SIZE.NORMAL
   });
 
   return <div className={contentBoxClass}>
@@ -42,11 +22,11 @@ const ContentBoxTitle = ({children, isSpaced, space, spaceSize = SPACE_SIZE.NORM
 ContentBoxTitle.propTypes = {
   children: PropTypes.node,
   full: PropTypes.bool,
-  isSpaced: PropTypes.bool,
+  spaced: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
-  space: PropTypes.oneOf(Object.values(SPACE)),
+  alignedSpace: PropTypes.oneOf(Object.values(ALIGNED_SPACE)),
   spaceSize: PropTypes.oneOf(Object.values(SPACE_SIZE))
 };
 
 export default ContentBoxTitle;
-export {SPACE, SPACE_SIZE, ALIGNMENT};
+export {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT};
