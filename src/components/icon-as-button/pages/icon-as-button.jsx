@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 
 const DrawHelper = props => {
   const liClass = classnames('icons-list__element', {
-    [contrastBlockCssClass]: props.color === COLOR.light
+    [contrastBlockCssClass]: props.color === COLOR.LIGHT
   });
   const liStyle = {padding: 0};
 
-  if (props.color === COLOR.adaptive) {
+  if (props.color === COLOR.ADAPTIVE) {
     liStyle.fill = '#ff00ff';
   }
 

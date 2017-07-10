@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
 import IconAsButton, {COLOR, TYPE} from '../../icon-as-button/IconAsButton';
-import ButtonSecondary, {types as buttonTypes} from '../../buttons/ButtonSecondary';
+import ButtonSecondary, {TYPE as buttonTypes} from '../../buttons/ButtonSecondary';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 

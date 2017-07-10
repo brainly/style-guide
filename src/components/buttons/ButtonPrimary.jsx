@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const types = {
-  alt: 'alt',
-  dark: 'dark',
-  inverse: 'inverse',
-  alt_inverse: 'alt-inverse',
-  dark_inverse: 'dark-inverse',
-  fb: 'fb'
+const TYPE = {
+  ALT: 'alt',
+  DARK: 'dark',
+  INVERSE: 'inverse',
+  ALT_INVERSE: 'alt-inverse',
+  DARK_INVERSE: 'dark-inverse',
+  FB: 'fb'
 };
 
 const ButtonPrimary = ({disabled, icon, type, children, wide, ...props}) => {
@@ -35,8 +35,8 @@ ButtonPrimary.propTypes = {
   icon: PropTypes.node,
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
-  type: PropTypes.oneOf(Object.values(types))
+  type: PropTypes.oneOf(Object.values(TYPE))
 };
 
 export default ButtonPrimary;
-export {types};
+export {TYPE};

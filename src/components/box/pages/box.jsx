@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from '../Box';
 import DocsBlock from '../../../docs/DocsBlock';
-import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
+import ButtonPrimary, {TYPE as buttonTypes} from '../../buttons/ButtonPrimary';
 
 const Boxs = () =>
   <div>

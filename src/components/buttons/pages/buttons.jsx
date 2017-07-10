@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonPrimary, {types} from '../ButtonPrimary';
-import ButtonSecondary, {types as types2} from '../ButtonSecondary';
+import ButtonPrimary, {TYPE} from '../ButtonPrimary';
+import ButtonSecondary, {TYPE as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
@@ -13,11 +13,11 @@ const Buttons = () =>
         Add your answer
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={types.alt}>
+      <ButtonPrimary type={TYPE.ALT}>
         Ask your question
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={types.dark}>
+      <ButtonPrimary type={TYPE.DARK}>
         Search
       </ButtonPrimary>
       &nbsp;
@@ -30,7 +30,7 @@ const Buttons = () =>
 
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16}/>}
-        type={types.fb}>
+        type={TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
     </DocsBlock>
@@ -41,19 +41,19 @@ const Buttons = () =>
 
     <DocsBlock info="Primary buttons inverted">
       <ContrastBox>
-        <ButtonPrimary type={types.inverse}>
+        <ButtonPrimary type={TYPE.INVERSE}>
           Add your answer
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary type={types.alt_inverse}>
+        <ButtonPrimary type={TYPE.ALT_INVERSE}>
           Ask your question
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary type={types.dark_inverse}>
+        <ButtonPrimary type={TYPE.DARK_INVERSE}>
           Search
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary disabled={true} type={types.inverse}>
+        <ButtonPrimary disabled={true} type={TYPE.INVERSE}>
           Disabled
         </ButtonPrimary>
       </ContrastBox>

@@ -2,8 +2,8 @@ import React from 'react';
 import ActionList, {DIRECTION} from './ActionList';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';
-import ButtonSecondary, {types as buttonSecondaryTypes} from '../buttons/ButtonSecondary';
-import ButtonPrimary, {types as buttonPrimaryTypes} from '../buttons/ButtonPrimary';
+import ButtonSecondary, {TYPE as buttonSecondaryTypes} from '../buttons/ButtonSecondary';
+import ButtonPrimary, {TYPE as buttonPrimaryTypes} from '../buttons/ButtonPrimary';
 
 describe('ActionList', () => {
   test('render', () => {
