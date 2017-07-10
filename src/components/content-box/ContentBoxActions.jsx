@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT} from './ContentBoxConstants';
+import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 
-const ContentBoxActions = ({children, alignedSpace, spaceSize = SPACE_SIZE.NORMAL,
+const ContentBoxActions = ({children, spacedTop, spacedBottom,
   align = ALIGNMENT.LEFT
 }) => {
 
   const contentBoxClass = classNames('sg-content-box__actions', {
     'sg-content-box__actions--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__actions--with-elements-to-right': align === ALIGNMENT.RIGHT,
-    [`sg-content-box__actions--spaced-${alignedSpace}`]: alignedSpace && spaceSize === SPACE_SIZE.NORMAL,
-    [`sg-content-box__actions--spaced-${alignedSpace}-${spaceSize}`]: alignedSpace && spaceSize !== SPACE_SIZE.NORMAL
+    'sg-content-box__actions--spaced-top': spacedTop === SIZE.NORMAL,
+    [`sg-content-box__actions--spaced-top-${spacedTop}`]: spacedTop !== SIZE.NORMAL,
+    'sg-content-box__actions--spaced-bottom': spacedBottom === SIZE.NORMAL,
+    [`sg-content-box__actions--spaced-bottom-${spacedBottom}`]: spacedBottom !== SIZE.NORMAL
   });
 
   return <div className={contentBoxClass}>
@@ -23,9 +25,9 @@ ContentBoxActions.propTypes = {
   children: PropTypes.node,
   full: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
-  alignedSpace: PropTypes.oneOf(Object.values(ALIGNED_SPACE)),
-  spaceSize: PropTypes.oneOf(Object.values(SPACE_SIZE))
+  spacedTop: PropTypes.oneOf(Object.values(SIZE)),
+  spacedBottom: PropTypes.oneOf(Object.values(SIZE))
 };
 
 export default ContentBoxActions;
-export {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT};
+export {SIZE, ALIGNMENT};

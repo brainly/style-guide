@@ -1,9 +1,4 @@
-const ALIGNED_SPACE = {
-  TOP: 'top',
-  BOTTOM: 'bottom'
-};
-
-const SPACE_SIZE = {
+const SIZE = {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -19,4 +14,4 @@ const ALIGNMENT = {
   RIGHT: 'right'
 };
 
-export {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT};
+export {SIZE, ALIGNMENT};

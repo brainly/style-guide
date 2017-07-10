@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContentBox from '../ContentBox';
-import ContentBoxActions, {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT} from '../ContentBoxActions';
+import ContentBoxActions, {SIZE, ALIGNMENT} from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import ContentBoxHeader from '../ContentBoxHeader';
@@ -264,32 +264,32 @@ const ContentBoxes = () =>
     </DocsBlock>
     <DocsBlock info="Spaced-bottom elements inside" additionalInfo={spacedBottomOptions}>
       <ContentBox>
-        <ContentBoxTitle space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxTitle spacedBottom={SIZE.XLARGE}>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
-        <ContentBoxContent space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxContent spacedBottom={SIZE.XLARGE}>
           <div className="sg-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
           </div>
         </ContentBoxContent>
-        <ContentBoxActions space={ALIGNED_SPACE.BOTTOM} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxActions spacedBottom={SIZE.XLARGE}>
           Action elements
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
       <ContentBox>
-        <ContentBoxTitle space={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxTitle spacedTop={SIZE.XLARGE}>
           <h2 className="sg-header-secondary">This is a title for context box</h2>
         </ContentBoxTitle>
-        <ContentBoxContent space={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XLARGE}>
+        <ContentBoxContent spacedTop={SIZE.XLARGE}>
           <div className="sg-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
           </div>
         </ContentBoxContent>
-        <ContentBoxActions space={ALIGNED_SPACE.TOP} SPACESIZE={SPACE_SIZE.XLARGE}>
+        <ContentBoxActions spacedTop={SIZE.XLARGE}>
           Action elements
         </ContentBoxActions>
       </ContentBox>

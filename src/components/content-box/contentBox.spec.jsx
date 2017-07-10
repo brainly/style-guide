@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentBox from './ContentBox';
 import ContentBoxContent from './ContentBoxContent';
-import {ALIGNED_SPACE, SPACE_SIZE, ALIGNMENT} from './ContentBoxConstants';
+import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 import ContentBoxTitle from './ContentBoxTitle';
 import ContentBoxActions from './ContentBoxActions';
 
@@ -69,10 +69,11 @@ describe('Content', () => {
 
   test('space default size', () => {
     const testBox = shallow(
-      <ContentBoxContent alignedSpace={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxContent>
+      <ContentBoxContent spacedTop={SIZE.NORMAL}>test</ContentBoxContent>
     );
 
-    expect(testBox.hasClass('sg-content-box__content--spaced-top-xsmall')).toEqual(true);
+    expect(testBox.hasClass('sg-content-box__content--spaced-top')).toBeTruthy();
+    expect(testBox.hasClass('sg-content-box__content--spaced-top-normal')).toBeFalsy();
   });
 });
 
@@ -93,9 +94,9 @@ describe('Header', () => {
     expect(testBox.hasClass('sg-content-box__header--with-centered-elements')).toEqual(true);
   });
 
-  test('space default size', () => {
+  test('spacing default size', () => {
     const testBox = shallow(
-      <ContentBoxHeader alignedSpace={ALIGNED_SPACE.BOTTOM}>test</ContentBoxHeader>
+      <ContentBoxHeader spacedBottom={SIZE.NORMAL}>test</ContentBoxHeader>
     );
 
     expect(testBox.hasClass('sg-content-box__header--spaced-bottom')).toEqual(true);
@@ -109,9 +110,9 @@ describe('Header', () => {
     expect(testBox.hasClass('sg-content-box__header--spaced')).toEqual(true);
   });
 
-  test('space default size', () => {
+  test('spacing top', () => {
     const testBox = shallow(
-      <ContentBoxHeader alignedSpace={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxHeader>
+      <ContentBoxHeader spacedTop={SIZE.XSMALL}>test</ContentBoxHeader>
     );
 
     expect(testBox.hasClass('sg-content-box__header--spaced-top-xsmall')).toEqual(true);
@@ -135,12 +136,13 @@ describe('Title', () => {
     expect(testBox.hasClass('sg-content-box__title--with-centered-elements')).toEqual(true);
   });
 
-  test('space default size', () => {
+  test('spacing default sie', () => {
     const testBox = shallow(
-      <ContentBoxTitle alignedSpace={ALIGNED_SPACE.BOTTOM}>test</ContentBoxTitle>
+      <ContentBoxTitle spacedBottom={SIZE.NORMAL}>test</ContentBoxTitle>
     );
 
     expect(testBox.hasClass('sg-content-box__title--spaced-bottom')).toEqual(true);
+    expect(testBox.hasClass('sg-content-box__title--spaced-bottom-normal')).toEqual(false);
   });
 
   test('is spaced', () => {
@@ -151,9 +153,9 @@ describe('Title', () => {
     expect(testBox.hasClass('sg-content-box__title--spaced')).toEqual(true);
   });
 
-  test('space default size', () => {
+  test('spacing', () => {
     const testBox = shallow(
-      <ContentBoxTitle alignedSpace={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxTitle>
+      <ContentBoxTitle spacedTop={SIZE.XSMALL}>test</ContentBoxTitle>
     );
 
     expect(testBox.hasClass('sg-content-box__title--spaced-top-xsmall')).toEqual(true);
@@ -185,9 +187,9 @@ describe('Actions', () => {
     expect(testBox.hasClass('sg-content-box__actions--with-elements-to-right')).toEqual(true);
   });
 
-  test('space default size', () => {
+  test('spaced top', () => {
     const testBox = shallow(
-      <ContentBoxActions alignedSpace={ALIGNED_SPACE.TOP} spaceSize={SPACE_SIZE.XSMALL}>test</ContentBoxActions>
+      <ContentBoxActions spacedTop={SIZE.XSMALL}>test</ContentBoxActions>
     );
 
     expect(testBox.hasClass('sg-content-box__actions--spaced-top-xsmall')).toEqual(true);
