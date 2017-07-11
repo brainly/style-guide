@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text, {SIZE as TEXT_SIZE, WEIGHT as TEXT_WEIGHT} from '../text/Text';
+import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../text/Text';
 
 const SIZE = {
   NORMAL: 'normal',
@@ -10,14 +10,14 @@ const SIZE = {
 };
 
 const COLOR = {
-  NORMAL: {BADGE: 'light', TEXT: 'default'},
-  PEACH: {BADGE: 'peach', TEXT: 'light'},
-  MUSTARD: {BADGE: 'mustard', TEXT: 'light'},
-  MINT_SECONDARY: {BADGE: 'mint-secondary', TEXT: 'light'},
-  GRAY_SECONDARY: {BADGE: 'gray-secondary', TEXT: 'light'},
-  MINT_SECONDARY_LIGHT: {BADGE: 'mint-secondary-light', TEXT: 'mint'},
-  PEACH_SECONDARY_LIGHT: {BADGE: 'peach-secondary-light', TEXT: 'peach'},
-  BLUE_SECONDARY_LIGHT: {BADGE: 'blue-secondary-light', TEXT: 'blue'}
+  NORMAL: {BADGE: 'light', TEXT: TEXT_COLOR.DEFAULT},
+  PEACH: {BADGE: 'peach', TEXT: TEXT_COLOR.LIGHT},
+  MUSTARD: {BADGE: 'mustard', TEXT: TEXT_COLOR.LIGHT},
+  MINT_SECONDARY: {BADGE: 'mint-secondary', TEXT: TEXT_COLOR.LIGHT},
+  GRAY_SECONDARY: {BADGE: 'gray-secondary', TEXT: TEXT_COLOR.LIGHT},
+  MINT_SECONDARY_LIGHT: {BADGE: 'mint-secondary-light', TEXT: TEXT_COLOR.MINT},
+  PEACH_SECONDARY_LIGHT: {BADGE: 'peach-secondary-light', TEXT: TEXT_COLOR.PEACH},
+  BLUE_SECONDARY_LIGHT: {BADGE: 'blue-secondary-light', TEXT: TEXT_COLOR.BLUE}
 };
 
 const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation}) => {
