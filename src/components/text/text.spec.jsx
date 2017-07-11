@@ -1,6 +1,6 @@
 import React from 'react';
-import Text, {TYPE, COLOR, WEIGHT} from '../text/Text';
-import {shallow} from 'enzyme';
+import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../text/Text';
+import {shallow, mount} from 'enzyme';
 
 describe('Text', () => {
   test('render', () => {
@@ -13,10 +13,18 @@ describe('Text', () => {
 
   test('type', () => {
     const text = shallow(
-      <Text type={TYPE.STANDOUT}>Test</Text>
+      <Text size={SIZE.STANDOUT}>Test</Text>
     );
 
     expect(text.hasClass('sg-text--standout')).toBeTruthy();
+  });
+
+  test('type', () => {
+    const text = mount(
+      <Text type={TYPE.SPAN}>Test</Text>
+    );
+
+    expect(text.props().type).toEqual(TYPE.SPAN);
   });
 
   test('color', () => {
