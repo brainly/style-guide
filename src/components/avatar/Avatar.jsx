@@ -15,13 +15,13 @@ const SIZE = {
   XXLARGE: {className: 'xxlarge', iconSize: 96},
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
-const AvatarContent = ({imgSrc, iconType = ICON_TYPE.PROFILE, iconColor, iconSize}) => {
+const AvatarContent = ({imgSrc, iconColor, iconSize}) => {
   if (imgSrc) {
     return <img className="sg-avatar__image" src={imgSrc}/>;
   }
 
   return <div className="sg-avatar__image sg-avatar__image--icon">
-    <Icon type={iconType} color={iconColor} size={iconSize}/>
+    <Icon type={ICON_TYPE.PROFILE} color={iconColor} size={iconSize}/>
   </div>;
 };
 
