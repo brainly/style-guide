@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderSecondary,  {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE, COLOR as HEADER_COLOR} from '../text/HeaderSecondary';
+import HeaderSecondary,  {SIZE, TYPE as HEADER_TYPE, COLOR as HEADER_COLOR} from '../text/HeaderSecondary';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
@@ -12,7 +12,7 @@ test('render', () => {
 
 test('size', () => {
   const header = shallow(
-    <HeaderSecondary size={HEADER_SIZE.SMALL}>Test</HeaderSecondary>
+    <HeaderSecondary size={SIZE.SMALL}>Test</HeaderSecondary>
   );
 
   expect(header.hasClass('sg-header-secondary--small')).toBeTruthy();
@@ -36,7 +36,7 @@ test('light', () => {
 
 test('default size', () => {
   const header = shallow(
-    <HeaderSecondary size={HEADER_SIZE.NORMAL}>Test</HeaderSecondary>
+    <HeaderSecondary size={SIZE.NORMAL}>Test</HeaderSecondary>
   );
 
   expect(header.hasClass('sg-header-secondary--normal')).toBeFalsy();
