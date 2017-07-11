@@ -34,7 +34,7 @@ const COLOR = {
 };
 
 const WEIGHT = {
-  NORMAL: 'regular',
+  REGULAR: 'regular',
   BOLD: 'emphasised'
 };
 

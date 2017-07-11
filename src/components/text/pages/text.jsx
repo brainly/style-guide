@@ -63,7 +63,7 @@ const TextExamples = () =>
       </Text>
     </ContrastBox>
     <br/><br/>
-    <Text type={TYPE.H1} size={SIZE.HEADLINE} weight={WEIGHT.NORMAL}>
+    <Text type={TYPE.H1} size={SIZE.HEADLINE} weight={WEIGHT.REGULAR}>
         This is a headline text used on h1 with regular as an option removing bold effect from it
     </Text>
   </DocsBlock>;
