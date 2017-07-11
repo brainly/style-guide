@@ -28,7 +28,7 @@ test('render with image', () => {
   expect(avatar.find(Icon)).toHaveLength(0);
 });
 
-test('no error when render without image & icon', () => {
+test('no error when render without image', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
@@ -37,7 +37,6 @@ test('no error when render without image & icon', () => {
 
   spy.mockRestore();
 });
-
 
 test('default icon profile', () => {
   const iconType = TYPE.PROFILE;
