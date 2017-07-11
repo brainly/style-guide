@@ -27,24 +27,26 @@ const COLOR = {
   WARNING: 'warning'
 };
 
-const TextBit = ({children, type = TYPE.H1, color, size}) => {
+const TextBit = ({children, type = TYPE.H1, color, size, notResponsive}) => {
 
-  const ChosenType = type;
+  const Type = type;
   const textClass = classNames('sg-text-bit', {
     [`sg-text-bit--${size}`]: size,
-    [`sg-text-bit--${color}`]: color
+    [`sg-text-bit--${color}`]: color,
+    'sg-text-bit--not-responsive': notResponsive
   });
 
-  return <ChosenType className={textClass}>
+  return <Type className={textClass}>
     {children}
-  </ChosenType>;
+  </Type>;
 };
 
 TextBit.propTypes = {
   children: PropTypes.node,
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE))
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  notResponsive: PropTypes.bool
 };
 
 export default TextBit;

@@ -40,7 +40,7 @@ const WEIGHT = {
 
 const Text = ({children, size, weight, color, type = TYPE.DIV, noWrap, breakWords}) => {
 
-  const ChosenType = type;
+  const Type = type;
   const textClass = classNames('sg-text', {
     [`sg-text--${size}`]: size,
     [`sg-text--${color}`]: color,
@@ -49,9 +49,9 @@ const Text = ({children, size, weight, color, type = TYPE.DIV, noWrap, breakWord
     'sg-text--break-words': breakWords
   });
 
-  return <ChosenType className={textClass}>
+  return <Type className={textClass}>
     {children}
-  </ChosenType>;
+  </Type>;
 };
 
 Text.propTypes = {

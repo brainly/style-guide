@@ -1,6 +1,7 @@
 import React from 'react';
 import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../text/Text';
 import TextBit, {TYPE as TB_TYPE, SIZE as TB_SIZE, COLOR as TB_COLOR} from '../text/TextBit';
+import Link, {COLOR as LINK_COLOR, SIZE as LINK_SIZE} from '../text/Link';
 import {shallow, mount} from 'enzyme';
 
 describe('Text', () => {
@@ -78,4 +79,78 @@ describe('TextBit', () => {
     expect(textBit.hasClass('sg-text-bit--alt')).toBeTruthy();
   });
 
+  test('not responsive', () => {
+    const textBit = shallow(
+      <TextBit notResponsive={true}>Test</TextBit>
+    );
+
+    expect(textBit.hasClass('sg-text-bit--not-responsive')).toBeTruthy();
+  });
+});
+
+
+describe('Link', () => {
+  test('render', () => {
+    const link = shallow(
+      <Link href="test.com">Test</Link>
+    );
+
+    expect(link.hasClass('sg-link')).toBeTruthy();
+  });
+
+  test('empty href', () => {
+    const link = shallow(
+      <Link>Test</Link>
+    );
+
+    expect(link.props().href).toEqual('#');
+  });
+
+  test('size', () => {
+    const link = shallow(
+      <Link size={LINK_SIZE.OBSCURE}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--obscure')).toBeTruthy();
+  });
+
+  test('color', () => {
+    const link = shallow(
+      <Link color={LINK_COLOR.LIGHT}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--light')).toBeTruthy();
+  });
+
+  test('unstyled', () => {
+    const link = shallow(
+      <Link unstyled={true}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--unstyled')).toBeTruthy();
+  });
+
+  test('underlined', () => {
+    const link = shallow(
+      <Link underlined={true}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--underlined')).toBeTruthy();
+  });
+
+  test('emphasised', () => {
+    const link = shallow(
+      <Link emphasised={true}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--emphasised')).toBeTruthy();
+  });
+
+  test('disabled', () => {
+    const link = shallow(
+      <Link disabled={true}>Test</Link>
+    );
+
+    expect(link.hasClass('sg-link--disabled')).toBeTruthy();
+  });
 });
