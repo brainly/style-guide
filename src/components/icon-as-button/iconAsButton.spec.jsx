@@ -1,7 +1,8 @@
 import React from 'react';
 import IconAsButton, {TYPE, COLOR, SIZE} from './IconAsButton';
 import Icon from '../icons/Icon';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
+import OverlayedBox from '../overlayed-box/OverlayedBox';
 
 test('render', () => {
   const type = TYPE.STAR;
@@ -107,4 +108,29 @@ test('action active', () => {
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
   expect(iconAsButton.hasClass('sg-icon-as-button--action-active')).toEqual(true);
+});
+
+test('overlay', () => {
+  const type = TYPE.ANSWER;
+  const overlay = <div>abc</div>;
+  const iconAsButton = mount(
+    <IconAsButton type={type} overlay={overlay}/>
+  );
+
+  const overlayedBox = iconAsButton.find(OverlayedBox);
+
+  expect(overlayedBox).toHaveLength(1);
+  expect(overlayedBox.find(Icon)).toHaveLength(1);
+  expect(overlayedBox.props().overlay).toEqual(overlay);
+});
+
+test('no overlay', () => {
+  const type = TYPE.ANSWER;
+  const iconAsButton = mount(
+    <IconAsButton type={type}/>
+  );
+
+  const overlayedBox = iconAsButton.find(OverlayedBox);
+
+  expect(overlayedBox).toHaveLength(0);
 });

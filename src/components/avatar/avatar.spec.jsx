@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar, {SIZE} from './Avatar';
-import Icon from '../icons/Icon';
+import Icon, {TYPE} from '../icons/Icon';
 
 import {shallow, mount} from 'enzyme';
 
@@ -26,6 +26,24 @@ test('render with image', () => {
 
   expect(avatar.find('.sg-avatar__image--icon')).toHaveLength(0);
   expect(avatar.find(Icon)).toHaveLength(0);
+});
+
+test('no error when render without image', () => {
+  const spy = jest.spyOn(console, 'error');
+
+  console.error = jest.fn();
+  mount(<Avatar/>);
+  expect(console.error.mock.calls).toHaveLength(0);
+
+  spy.mockRestore();
+});
+
+test('default icon profile', () => {
+  const iconType = TYPE.PROFILE;
+  const avatar = mount(<Avatar/>);
+  const icoProps = avatar.find(Icon).props();
+
+  expect(icoProps.type).toEqual(iconType);
 });
 
 test('SIZE', () => {
