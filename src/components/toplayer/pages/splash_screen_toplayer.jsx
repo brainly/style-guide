@@ -1,12 +1,15 @@
 import React from 'react';
 import TopLayer from '../TopLayer';
+import ContentBox from '../../content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
+import ContentBoxActions from '../../content-box/ContentBoxActions';
 
-const content = <div className="sg-content-box">
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+const content = <ContentBox>
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     heading
-  </div>
+  </ContentBoxContent>
 
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     content
     <br/>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse enim diam, dictum et maximus sit amet, pulvinar
@@ -14,13 +17,12 @@ const content = <div className="sg-content-box">
     orci, sit amet gravida metus dapibus nec. Sed orci nisi, volutpat varius auctor sit amet, eleifend eu elit. Fusce
     eget nunc tristique nibh viverra lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
     ridiculus mus.
+  </ContentBoxContent>
 
-  </div>
-
-  <div className="sg-content-box__actions">
+  <ContentBoxActions>
     actions
-  </div>
-</div>;
+  </ContentBoxActions>
+</ContentBox>;
 
 const SmallSpacedTopLayer = () =>
   <html>

@@ -1,6 +1,11 @@
 import React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from '../Bubble';
 import DocsBlock from '../../../docs/DocsBlock';
+import ContentBox from '../../content-box/ContentBox';
+import ContentBoxContent from '../../content-box/ContentBoxContent';
+import ContentBoxHeader from '../../content-box/ContentBoxHeader';
+import ContentBoxActions from '../../content-box/ContentBoxActions';
+import ButtonSecondary, {TYPE} from '../../buttons/ButtonSecondary';
 
 const Bubbles = () =>
   <div>
@@ -66,8 +71,8 @@ const Bubbles = () =>
     <DocsBlock info='Example usage' additionalInfo='--top'>
       <Bubble direction={DIRECTION.TOP}>
         <div className="sg-bubble__hole">
-          <div className="sg-content-box">
-            <div className="sg-content-box__header">
+          <ContentBox>
+            <ContentBoxHeader>
               <div className="sg-avatar">
                 <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
               </div>
@@ -79,8 +84,8 @@ const Bubbles = () =>
                   <a className="sg-link sg-link--gray" href="#">a few seconds ago</a>
                 </li>
               </ul>
-            </div>
-            <div className="sg-content-box__content">
+            </ContentBoxHeader>
+            <ContentBoxContent>
               <div className="sg-text">
                 Hi there!! Just wondering if you have any problems with your school work. We've got plenty
                 of people who
@@ -88,18 +93,16 @@ const Bubbles = () =>
                 you can just
                 go ahead and try for yourself.
               </div>
-            </div>
-            <div className="sg-content-box__actions">
-              <button className="sg-button-secondary sg-button-secondary--alt">
+            </ContentBoxContent>
+            <ContentBoxActions>
+              <ButtonSecondary type={TYPE.ALT}>
                 Join us!
-              </button>
-            </div>
-          </div>
+              </ButtonSecondary>
+            </ContentBoxActions>
+          </ContentBox>
         </div>
       </Bubble>
     </DocsBlock>
-
   </div>;
-
 
 export default Bubbles;
