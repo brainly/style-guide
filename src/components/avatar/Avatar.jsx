@@ -15,22 +15,6 @@ const SIZE = {
   XXLARGE: {className: 'xxlarge', iconSize: 96},
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
-const AvatarContent = ({imgSrc, iconColor, iconSize}) => {
-  if (imgSrc) {
-    return <img className="sg-avatar__image" src={imgSrc}/>;
-  }
-
-  return <div className="sg-avatar__image sg-avatar__image--icon">
-    <Icon type={ICON_TYPE.PROFILE} color={iconColor} size={iconSize}/>
-  </div>;
-};
-
-AvatarContent.propTypes = {
-  imgSrc: PropTypes.string,
-  iconSize: PropTypes.oneOf(Object.values(SIZE).map(size => size.iconSize)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
-  iconColor: PropTypes.oneOf(Object.values(ICON_COLOR))
-};
 
 const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc}) => {
   const avatarClass = classNames('sg-avatar', {
