@@ -5,6 +5,7 @@ import ButtonPrimary, {TYPE} from '../../buttons/ButtonPrimary';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxHeader from '../../content-box/ContentBoxHeader';
 import ContentBoxActions from '../../content-box/ContentBoxActions';
+import HeaderSecondary, {TYPE as HEADER_TYPE} from '../../text/HeaderSecondary';
 
 const Boxs = () =>
   <div>
@@ -51,7 +52,7 @@ const Boxs = () =>
       <Box>
         <ContentBox>
           <ContentBoxHeader>
-            <h3 className="sg-header-secondary">Ask a question about a school subject</h3>
+            <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
           </ContentBoxHeader>
           <ContentBoxActions>
             <ButtonPrimary type={TYPE.ALT} wide={true}>

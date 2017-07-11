@@ -1,8 +1,9 @@
 import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
-import ButtonSecondary, {TYPE as buttonSecondaryTypes} from '../../buttons/ButtonSecondary';
-import ButtonPrimary, {TYPE as buttonPrimaryTypes} from '../../buttons/ButtonPrimary';
-import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../../icons/Icon';
+import ButtonSecondary, {TYPE as BUTTON_SECONDARY_TYPE} from '../../buttons/ButtonSecondary';
+import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from '../../buttons/ButtonPrimary';
+import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
+import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../../text/Text';
 import ContrastBox from '../../../docs/ContrastBox';
 import DocsBlock from '../../../docs/DocsBlock';
 import ActionListHole from '../ActionListHole';
@@ -13,12 +14,12 @@ const ActionLists = () =>
       <ContrastBox fullWidth={true}>
         <ActionList>
           <ActionListHole>
-            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
               accept
             </ButtonSecondary>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
           </ActionListHole>
@@ -30,12 +31,12 @@ const ActionLists = () =>
       <ContrastBox fullWidth={true}>
         <ActionList direction={DIRECTION.TO_RIGHT}>
           <ActionListHole>
-            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
               accept
             </ButtonSecondary>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
           </ActionListHole>
@@ -47,12 +48,12 @@ const ActionLists = () =>
       <ContrastBox fullWidth={true}>
         <ActionList direction={DIRECTION.TO_TOP}>
           <ActionListHole>
-            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
               accept
             </ButtonSecondary>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
           </ActionListHole>
@@ -64,12 +65,12 @@ const ActionLists = () =>
       <ContrastBox fullWidth={true}>
         <ActionList direction={DIRECTION.CENTERED}>
           <ActionListHole>
-            <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
               accept
             </ButtonSecondary>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
           </ActionListHole>
@@ -82,24 +83,24 @@ const ActionLists = () =>
         <ActionListHole>
           <div className="sg-label">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.ANSWER} size={14} color={iconColors.GRAY_SECONDARY}/>
+              <Icon type={ICON_TYPE.ANSWER} size={14} color={ICON_COLOR.GRAY_SECONDARY}/>
             </div>
-            <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
+            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}>
               0/5
-            </div>
+            </Text>
           </div>
         </ActionListHole>
         <ActionListHole>
           <div className="sg-label">
             <div className="sg-label__icon">
-              <Icon type={iconTypes.COUNTER} size={14} color={iconColors.GRAY_SECONDARY}/>
+              <Icon type={ICON_TYPE.COUNTER} size={14} color={ICON_COLOR.GRAY_SECONDARY}/>
             </div>
-            <div className="sg-text sg-text--obscure sg-text--emphasised sg-text--gray-secondary">
+            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}>
               2d : 00h
-            </div>
+            </Text>
           </div>
         </ActionListHole>
-        <ActionListHole><ButtonSecondary type={buttonSecondaryTypes.alt_inverse} small={true}>
+        <ActionListHole><ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small={true}>
           start
         </ButtonSecondary>
         </ActionListHole>
@@ -110,24 +111,24 @@ const ActionLists = () =>
       <ContrastBox narrow={true}>
         <ActionList noWrap={true}>
           <ActionListHole>
-            <Icon type={iconTypes.MESSAGES} size={24}/>
+            <Icon type={ICON_TYPE.MESSAGES} size={24}/>
           </ActionListHole>
           <ActionListHole>
-            <p className="sg-text sg-text--light">
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
               Elements in this box will just never wrap
-            </p>
+            </Text>
           </ActionListHole>
         </ActionList>
       </ContrastBox>,
       <ContrastBox narrow={true}>
         <ActionList>
           <ActionListHole>
-            <Icon type={iconTypes.MESSAGES} size={24}/>
+            <Icon type={ICON_TYPE.MESSAGES} size={24}/>
           </ActionListHole>
           <ActionListHole>
-            <p className="sg-text sg-text--light">
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
               Default behaviour for elements is to wrap
-            </p>
+            </Text>
           </ActionListHole>
         </ActionList>
       </ContrastBox>

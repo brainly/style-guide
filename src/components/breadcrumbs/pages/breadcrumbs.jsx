@@ -1,6 +1,7 @@
 import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import Breadcrumb from '../Breadcrumb';
+import Text, {COLOR as TEXT_COLOR} from '../../text/Text';
 
 const elements = ['Coments (9)', 'Report', 'Follow'];
 
@@ -14,9 +15,9 @@ const breadcrumbs = () => <div>
   </DocsBlock>
 
   <DocsBlock info="Adaptive">
-    <div className="sg-text sg-text--mint">
+    <Text color={TEXT_COLOR.MINT}>
       <Breadcrumb elements={elements} adaptive={true}/>
-    </div>
+    </Text>
   </DocsBlock>
 
 </div>;
