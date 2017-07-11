@@ -1,5 +1,6 @@
 import React from 'react';
-import DocsBlock, {CONTENT_BOX_CLASS} from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/DocsBlock';
+import ContentBox from '../../content-box/ContentBox';
 import ContrastBox from '../../../docs/ContrastBox';
 import List from '../List';
 import MenuList, {SIZE} from '../MenuList';
@@ -49,19 +50,19 @@ const ListItems = () =>
     </DocsBlock>
 
     <DocsBlock info="Menu list">
-      <div className={CONTENT_BOX_CLASS}>
+      <ContentBox>
         <MenuList items={menuItems}/>
-      </div>
+      </ContentBox>
     </DocsBlock>
     <DocsBlock info="Menu list - small">
-      <div className={CONTENT_BOX_CLASS}>
+      <ContentBox>
         <MenuList items={menuItems} size={SIZE.SMALL}/>
-      </div>
+      </ContentBox>
     </DocsBlock>
     <DocsBlock info="Menu list - large">
-      <div className={CONTENT_BOX_CLASS}>
+      <ContentBox>
         <MenuList items={menuItems} size={SIZE.LARGE}/>
-      </div>
+      </ContentBox>
     </DocsBlock>
   </div>;
 

@@ -22,7 +22,7 @@ InfoBlock.propTypes = {
   additionalInfo: PropTypes.node,
   info: PropTypes.node
 };
-const CONTENT_BOX_CLASS = 'docs-block__content-box';
+
 const ContentBlock = ({children, toBottom, centered}) => {
   const contentClass = classnames('docs-block__content', {
     'docs-block__content--to-bottom': toBottom,
@@ -59,4 +59,3 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
-export {CONTENT_BOX_CLASS};
