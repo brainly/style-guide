@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {SIZE, ICON_TYPE, ICON_COLOR} from '../Avatar';
+import Avatar, {SIZE} from '../Avatar';
 import DocsActiveBlock from '../../../docs/DocsActiveBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 
@@ -8,15 +8,17 @@ const Avatars = () => {
     size: Object.values(SIZE),
     border: Boolean,
     spaced: Boolean,
-    imgSrc: String,
-    iconType: Object.values(ICON_TYPE),
-    iconColor: Object.values(ICON_COLOR)
+    imgSrc: String
   };
 
-  return <ContrastBox light><DocsActiveBlock settings={settings}>
-    <Avatar iconType={ICON_TYPE.profile}/>
-    <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
-  </DocsActiveBlock></ContrastBox>;
+  return <ContrastBox light>
+    <DocsActiveBlock settings={settings}>
+      <Avatar size={SIZE.LARGE}/>
+    </DocsActiveBlock>
+    <DocsActiveBlock settings={settings}>
+      <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
+    </DocsActiveBlock>
+  </ContrastBox>;
 };
 
 export default Avatars;
