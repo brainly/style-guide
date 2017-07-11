@@ -12,18 +12,22 @@ import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from '../../stickers/Sticker';
 import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
 import Rating from '../../rating/Rating';
+import Text from '../../text/Text';
+import Link, {COLOR as LINK_COLOR} from '../../text/Link';
+import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE} from '../../text/HeaderPrimary';
+import HeaderSecondary from '../../text/HeaderSecondary';
 
-const link1 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">Math</a>;
-const link2 = <a className="sg-link sg-link--gray sg-link--emphasised" href="#">10 pts</a>;
-const link3 = <a className="sg-link sg-link--gray" href="#">2 min ago</a>;
+const link1 = <Link color={LINK_COLOR.GRAY} emphasised={true}>Math</Link>;
+const link2 = <Link color={LINK_COLOR.GRAY} emphasised={true}>10 pts</Link>;
+const link3 = <Link color={LINK_COLOR.GRAY}>2 min ago</Link>;
 const breadcrumbs = [link1, link2, link3];
-const breadcrumbsSpaced = [<a className="sg-link sg-link--gray" href="#">Katie</a>,
-  <a className="sg-link sg-link--gray" href="#">Answerer</a>];
-const breadcrumbsSpaced2 = [<a className="sg-link" href="#">Comments (9)</a>,
-  <a className="sg-link" href="#">Report</a>];
+const breadcrumbsSpaced = [<Link color={LINK_COLOR.GRAY}>Katie</Link>,
+  <Link color={LINK_COLOR.GRAY}>Answerer</Link>];
+const breadcrumbsSpaced2 = [<Link>Comments (9)</Link>,
+  <Link>Report</Link>];
 
 const spacedBottomOptions = <div>
-  <div className="sg-text">Options:</div>
+  <Text>Options:</Text>
   <ul>
     <li>spaced-top</li>
     <li>spaced-top-small</li>
@@ -36,7 +40,7 @@ const spacedBottomOptions = <div>
 </div>;
 
 const spacedTopOptions = <div>
-  <div className="sg-text">Options:</div>
+  <Text>Options:</Text>
   <ul>
     <li>spaced-top</li>
     <li>spaced-top-small</li>
@@ -50,18 +54,18 @@ const spacedTopOptions = <div>
 
 const examplePart1 = <ContentBox>
   <ContentBoxTitle>
-    <h2 className="sg-header-secondary">This is a title for context box</h2>
+    <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
   </ContentBoxTitle>
   <ContentBoxActions>
     <ButtonSecondary>Search!</ButtonSecondary>
   </ContentBoxActions>
   <ContentBoxContent>
-    <div className="sg-text">
+    <Text>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
       lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
       Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
       vel eros.
-    </div>
+    </Text>
   </ContentBoxContent>
   <ContentBoxActions>
     <div className="sg-overlayed-box">
@@ -79,18 +83,18 @@ const examplePart1 = <ContentBox>
 
 const examplePart2 = <ContentBox>
   <ContentBoxTitle>
-    <h2 className="sg-header-primary">This is a title for context box</h2>
+    <HeaderPrimary type={HEADER_TYPE.H2}>This is a title for context box</HeaderPrimary>
   </ContentBoxTitle>
   <ContentBoxActions>
     <ButtonPrimary>Search!</ButtonPrimary>
   </ContentBoxActions>
   <ContentBoxContent>
-    <div className="sg-text">
+    <Text>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
       lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
       Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
       vel eros.
-    </div>
+    </Text>
   </ContentBoxContent>
   <ContentBoxActions>
     <div className="sg-overlayed-box">
@@ -114,12 +118,12 @@ const ContentBoxes = () =>
           <Breadcrumbs elements={breadcrumbs}/>
         </ContentBoxHeader>
         <ContentBoxContent>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
             Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
             vel eros.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
@@ -138,15 +142,15 @@ const ContentBoxes = () =>
     <DocsBlock info="Simple with title">
       <ContentBox>
         <ContentBoxTitle>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxContent>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
             Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
             vel eros.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
@@ -165,18 +169,18 @@ const ContentBoxes = () =>
     <DocsBlock info="Simple with title and header">
       <ContentBox>
         <ContentBoxTitle>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxHeader>
           <Breadcrumbs elements={breadcrumbs}/>
         </ContentBoxHeader>
         <ContentBoxContent>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
             Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
             vel eros.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <div className="sg-overlayed-box">
@@ -195,7 +199,7 @@ const ContentBoxes = () =>
     <DocsBlock info="Simple with title and header (spaced)">
       <ContentBox spaced={true}>
         <ContentBoxTitle spaced={true}>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxHeader spaced={true}>
           <Breadcrumbs elements={breadcrumbs}/>
@@ -239,13 +243,13 @@ const ContentBoxes = () =>
           <Breadcrumbs elements={breadcrumbsSpaced}/>
         </ContentBoxHeader>
         <ContentBoxContent>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
             Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
             vel eros. Maecenas posuere sit amet urna quis faucibus. Maecenas a lorem mi. Morbi interdum
             tincidunt neque, nec mollis nulla tincidunt ac. Suspendisse potenti.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2}/>
@@ -265,13 +269,13 @@ const ContentBoxes = () =>
     <DocsBlock info="Spaced-bottom elements inside" additionalInfo={spacedBottomOptions}>
       <ContentBox>
         <ContentBoxTitle spacedBottom={SIZE.XLARGE}>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxContent spacedBottom={SIZE.XLARGE}>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions spacedBottom={SIZE.XLARGE}>
           Action elements
@@ -281,13 +285,13 @@ const ContentBoxes = () =>
     <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
       <ContentBox>
         <ContentBoxTitle spacedTop={SIZE.XLARGE}>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxContent spacedTop={SIZE.XLARGE}>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions spacedTop={SIZE.XLARGE}>
           Action elements
@@ -297,21 +301,21 @@ const ContentBoxes = () =>
     <DocsBlock info="Centered elements inside">
       <ContentBox>
         <ContentBoxTitle align={ALIGNMENT.CENTER}>
-          <h2 className="sg-header-secondary">This is a title for context box</h2>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxContent align={ALIGNMENT.CENTER}>
-          <div className="sg-text">
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
             lorem quis, gravida ex.
-          </div>
+          </Text>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
           <ul className="sg-breadcrumb-list">
             <li className="sg-breadcrumb-list__element">
-              <a className="sg-link" href="#">Comments (9)</a>
+              <Link>Comments (9)</Link>
             </li>
             <li className="sg-breadcrumb-list__element">
-              <a className="sg-link" href="#">Report</a>
+              <Link>Report</Link>
             </li>
           </ul>
           <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
@@ -351,7 +355,7 @@ const ContentBoxes = () =>
           <Breadcrumbs elements={['The Brain', 'Answerer']}/>
         </ContentBoxHeader>
         <ContentBoxContent>
-          <div className="sg-header-primary sg-header-primary--small">Hey! Still not sure about the answer?</div>
+          <HeaderPrimary SIZE={HEADER_SIZE.SMALL}>Hey! Still not sure about the answer?</HeaderPrimary>
           <ButtonPrimary type={BUTTON_TYPE.ALT}>Check similar answers</ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>

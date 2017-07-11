@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../icons/Icon';
+import Text, {SIZE} from '../text/Text';
 
 
 const ListItem = ({text, small}) => {
   const iconClass = classNames('sg-list__icon', {
     'sg-list__icon--spacing-right-small': small
   });
-  let content = <div className="sg-text sg-text--headline">{text}</div>;
+  let content = <Text size={SIZE.HEADLINE}>{text}</Text>;
   let iconSize = 18;
 
   if (small) {

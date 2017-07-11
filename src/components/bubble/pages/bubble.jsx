@@ -6,6 +6,8 @@ import ContentBoxContent from '../../content-box/ContentBoxContent';
 import ContentBoxHeader from '../../content-box/ContentBoxHeader';
 import ContentBoxActions from '../../content-box/ContentBoxActions';
 import ButtonSecondary, {TYPE} from '../../buttons/ButtonSecondary';
+import Text from '../../text/Text';
+import Link, {COLOR as LINK_COLOR} from '../../text/Link';
 
 const Bubbles = () =>
   <div>
@@ -78,21 +80,21 @@ const Bubbles = () =>
               </div>
               <ul className="sg-breadcrumb-list">
                 <li className="sg-breadcrumb-list__element">
-                  <a className="sg-link sg-link--gray" href="#">Katie</a>
+                  <Link color={LINK_COLOR.GRAY}>Katie</Link>
                 </li>
                 <li className="sg-breadcrumb-list__element">
-                  <a className="sg-link sg-link--gray" href="#">a few seconds ago</a>
+                  <Link color={LINK_COLOR.GRAY}>a few seconds ago</Link>
                 </li>
               </ul>
             </ContentBoxHeader>
             <ContentBoxContent>
-              <div className="sg-text">
+              <Text>
                 Hi there!! Just wondering if you have any problems with your school work. We've got plenty
                 of people who
                 can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
                 you can just
                 go ahead and try for yourself.
-              </div>
+              </Text>
             </ContentBoxContent>
             <ContentBoxActions>
               <ButtonSecondary type={TYPE.ALT}>
