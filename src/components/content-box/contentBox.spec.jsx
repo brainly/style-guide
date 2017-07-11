@@ -75,6 +75,14 @@ describe('Content', () => {
     expect(testBox.hasClass('sg-content-box__content--spaced-top')).toBeTruthy();
     expect(testBox.hasClass('sg-content-box__content--spaced-top-normal')).toBeFalsy();
   });
+
+  test('spaced bottom', () => {
+    const testBox = shallow(
+      <ContentBoxContent spacedBottom={SIZE.XSMALL}>test</ContentBoxContent>
+    );
+
+    expect(testBox.hasClass('sg-content-box__content--spaced-bottom-xsmall')).toEqual(true);
+  });
 });
 
 describe('Header', () => {
@@ -193,5 +201,13 @@ describe('Actions', () => {
     );
 
     expect(testBox.hasClass('sg-content-box__actions--spaced-top-xsmall')).toEqual(true);
+  });
+
+  test('spaced bottom', () => {
+    const testBox = shallow(
+      <ContentBoxActions spacedBottom={SIZE.XSMALL}>test</ContentBoxActions>
+    );
+
+    expect(testBox.hasClass('sg-content-box__actions--spaced-bottom-xsmall')).toEqual(true);
   });
 });

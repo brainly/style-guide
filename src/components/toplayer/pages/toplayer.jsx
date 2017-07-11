@@ -2,20 +2,24 @@ import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
 import DocsBlock from '../../../docs/DocsBlock';
 import Icon, {TYPE, COLOR} from '../../icons/Icon';
+import ContentBox from '../../content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
+import ContentBoxActions from '../../content-box/ContentBoxActions';
+import ButtonPrimary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonPrimary';
 
-const content = <div className="sg-content-box">
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+const content = <ContentBox>
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     heading
-  </div>
+  </ContentBoxContent>
 
-  <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
     content
-  </div>
+  </ContentBoxContent>
 
-  <div className="sg-content-box__actions">
+  <ContentBoxActions>
     actions
-  </div>
-</div>;
+  </ContentBoxActions>
+</ContentBox>;
 
 const TopLayers = () =>
   <div>
@@ -58,14 +62,14 @@ const TopLayers = () =>
 
     <DocsBlock info='Example usage'>
       <TopLayer size={SIZE.MEDIUM} lead={true} withBugbox={true}>
-        <div className="sg-content-box">
-          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+        <ContentBox>
+          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
             <h1 className="sg-text-bit sg-text-bit--alt">
               The world's largest learning community
             </h1>
-          </div>
+          </ContentBoxContent>
 
-          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
+          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
 
             <h2 className="sg-header-secondary">
               Why join Brainly?
@@ -90,14 +94,14 @@ const TopLayers = () =>
                 <div className="sg-text sg-text--emphasised">find similar questions</div>
               </li>
             </ul>
-          </div>
+          </ContentBoxContent>
 
-          <div className="sg-content-box__content sg-content-box__content--spaced-bottom-large">
-            <a className="sg-button-primary sg-button-primary--alt" href="#">
+          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+            <ButtonPrimary type={BUTTON_TYPE.ALT}>
               Join us
-            </a>
-          </div>
-        </div>
+            </ButtonPrimary>
+          </ContentBoxContent>
+        </ContentBox>
       </TopLayer>
     </DocsBlock>
 

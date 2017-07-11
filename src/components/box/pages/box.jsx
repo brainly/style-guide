@@ -1,7 +1,10 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from '../Box';
 import DocsBlock from '../../../docs/DocsBlock';
-import ButtonPrimary, {TYPE as buttonTypes} from '../../buttons/ButtonPrimary';
+import ButtonPrimary, {TYPE} from '../../buttons/ButtonPrimary';
+import ContentBox from '../../content-box/ContentBox';
+import ContentBoxHeader from '../../content-box/ContentBoxHeader';
+import ContentBoxActions from '../../content-box/ContentBoxActions';
 
 const Boxs = () =>
   <div>
@@ -46,19 +49,18 @@ const Boxs = () =>
 
     <DocsBlock info="Example of usage">
       <Box>
-        <div className="sg-content-box">
-          <div className="sg-content-box__header">
+        <ContentBox>
+          <ContentBoxHeader>
             <h3 className="sg-header-secondary">Ask a question about a school subject</h3>
-          </div>
-          <div className="sg-content-box__actions">
-            <ButtonPrimary type={buttonTypes.alt} wide={true}>
+          </ContentBoxHeader>
+          <ContentBoxActions>
+            <ButtonPrimary type={TYPE.ALT} wide={true}>
               Ask your question
             </ButtonPrimary>
-          </div>
-        </div>
+          </ContentBoxActions>
+        </ContentBox>
       </Box>
     </DocsBlock>
   </div>;
-
 
 export default Boxs;
