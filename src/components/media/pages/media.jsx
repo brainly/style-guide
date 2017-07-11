@@ -3,10 +3,11 @@ import Media from '../Media';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 import Avatar from '../../avatar/Avatar';
+import Link, {COLOR} from '../../text/Link';
 
 const defaultProps = {
   contentArray: [
-    <span className="sg-link sg-link--gray sg-link--emphasised">The Goat</span>,
+    <Link color={COLOR.GRAY} emphasised={true}>The Goat</Link>,
     <span>Master </span>
   ],
   aside: <Avatar />
