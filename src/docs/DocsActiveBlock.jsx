@@ -109,6 +109,7 @@ class DocsActiveBlock extends Component {
   constructor(props) {
     super(props);
 
+    this.$child = null;
     this.state = {};
 
     if(this.props.children) {
@@ -121,6 +122,11 @@ class DocsActiveBlock extends Component {
           return result;
         }, {});
     }
+  }
+
+  componentDidUpdate() {
+    const root = ReactDOM.findDOMNode(this);
+    console.log(root.querySelector('.docs-block__content').innerHTML);
   }
 
   setProps(key, value) {

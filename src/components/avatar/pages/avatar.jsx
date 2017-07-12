@@ -1,24 +1,35 @@
 import React from 'react';
 import Avatar, {SIZE} from '../Avatar';
-import DocsActiveBlock from '../../../docs/DocsActiveBlock';
+import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 
-const Avatars = () => {
-  const settings = {
-    size: Object.values(SIZE),
-    border: Boolean,
-    spaced: Boolean,
-    imgSrc: String
-  };
-
-  return <ContrastBox light fullWidth>
-    <DocsActiveBlock settings={settings}>
-      <Avatar size={SIZE.LARGE}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
-    </DocsActiveBlock>
-  </ContrastBox>;
-};
+const Avatars = () =>
+  <div>
+    <DocsBlock info='Default avatars' toBottom={true}>
+      {Object.values(SIZE).map(
+        (size, index) => <Avatar key={index} size={size}/>
+      )}
+    </DocsBlock>
+    <DocsBlock info='Default with border'>
+      <ContrastBox toBottom={true}>
+        {Object.values(SIZE).map(
+          (size, index) => <Avatar key={index} size={size} border={true}/>
+        )}
+      </ContrastBox>
+    </DocsBlock>
+    <DocsBlock info='Default avatars' toBottom={true}>
+      {Object.values(SIZE).map(
+        (size, index) => <Avatar key={index} size={size} imgSrc="https://source.unsplash.com/240x240/?cat"/>
+      )}
+    </DocsBlock>
+    <DocsBlock info='Default with border'>
+      <ContrastBox toBottom={true}>
+        {Object.values(SIZE).map(
+          (size, index) =>
+            <Avatar key={index} size={size} border={true} imgSrc="https://source.unsplash.com/240x240/?dog"/>
+        )}
+      </ContrastBox>
+    </DocsBlock>
+  </div>;
 
 export default Avatars;
