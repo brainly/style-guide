@@ -133,7 +133,7 @@ class DocsActiveBlock extends Component {
     const childUpdated = React.cloneElement(this.props.children, this.state);
 
     return <section className="docs-block">
-      <ContentBlock>{childUpdated}</ContentBlock>
+      <ContentBlock centered>{childUpdated}</ContentBlock>
       <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings} values={this.state}/>
     </section>
     ;

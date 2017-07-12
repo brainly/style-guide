@@ -11,7 +11,7 @@ const Avatars = () => {
     imgSrc: String
   };
 
-  return <ContrastBox light>
+  return <ContrastBox light fullWidth>
     <DocsActiveBlock settings={settings}>
       <Avatar size={SIZE.LARGE}/>
     </DocsActiveBlock>
