@@ -8,10 +8,10 @@ const textInputs = () => <div>
     <TextInput placeholder="placeholder"/>
   </DocsBlock>
   <DocsBlock info="Valid">
-    <TextInput placeholder="placeholder" valid={true} value="This is valid example"/>
+    <TextInput placeholder="placeholder" valid={true} value="This is valid example" onChange={() => undefined}/>
   </DocsBlock>
   <DocsBlock info="Invalid">
-    <TextInput placeholder="placeholder" invalid={true} value="This is invalid example"/>
+    <TextInput placeholder="placeholder" invalid={true} value="This is invalid example" onChange={() => undefined}/>
   </DocsBlock>
   <DocsBlock info="Small">
     <TextInput placeholder="placeholder" size={SIZE.SMALL}/>
@@ -29,6 +29,10 @@ const textInputs = () => <div>
   </DocsBlock>
   <DocsBlock info="Light alt">
     <TextInput placeholder="placeholder" fullWidth={true} color={COLOR.LIGHT_ALT}/>
+  </DocsBlock>
+  <DocsBlock info="Password">
+    <TextInput type="password" value="secret" placeholder="Type password" onChange={() => undefined}
+    />
   </DocsBlock>
 </div>;
 
