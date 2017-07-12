@@ -14,18 +14,35 @@ const COLOR = {
   LIGHT_ALT: 'light-alt'
 };
 
+const VALIDATION = {
+  VALID: true,
+  INVALID: false,
+  UNDEFINED: undefined
+};
 
-const TextInput = ({type = 'text', value, valid, invalid, size, fullWidth, spacedBottom = true, color, ...props}) => {
+
+const TextInput = props => {
+  const {
+    type = 'text',
+    spacedBottom = true,
+    valid = VALIDATION.UNDEFINED,
+    size = SIZE.NORMAL,
+    color = COLOR.NORMAL,
+    fullWidth,
+    value,
+    ...additionalProps
+  } = props;
+
   const inputClass = classnames('sg-input', {
     'sg-input--spaced-bottom': spacedBottom,
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
-    'sg-input--valid': valid,
-    'sg-input--invalid': invalid,
+    'sg-input--valid': valid === VALIDATION.VALID,
+    'sg-input--invalid': valid === VALIDATION.INVALID,
     'sg-input--full-width': fullWidth
   });
 
-  return <input type={type} className={inputClass} value={value} {...props}/>;
+  return <input type={type} className={inputClass} value={value} {...additionalProps}/>;
 };
 
 TextInput.propTypes = {
@@ -40,4 +57,4 @@ TextInput.propTypes = {
 };
 
 export default TextInput;
-export {SIZE, COLOR};
+export {SIZE, COLOR, VALIDATION};
