@@ -110,10 +110,6 @@ $includeHtml: false !default;
       font-weight: $fontWeightBold;
     }
 
-    &--spaced-bottom {
-      margin-bottom: $inputHeight / 4;
-    }
-
     &--full-width {
       width: 100%;
     }
