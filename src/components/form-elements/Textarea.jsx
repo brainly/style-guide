@@ -18,7 +18,6 @@ const VALIDATION = {
 
 const Textarea = props => {
   const {
-    type = 'text',
     valid = VALIDATION.UNDEFINED,
     size = SIZE.NORMAL,
     fullWidth,
@@ -37,7 +36,7 @@ const Textarea = props => {
     'sg-textarea--auto-height': autoHeight
   });
 
-  return <textarea type={type} className={textareaClass} value={value} {...additionalProps}/>;
+  return <textarea className={textareaClass} value={value} {...additionalProps}/>;
 };
 
 Textarea.propTypes = {
