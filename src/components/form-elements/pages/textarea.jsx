@@ -1,6 +1,8 @@
 import React from 'react';
 import Textarea, {SIZE, VALIDATION} from '../Textarea';
 import DocsBlock from '../../../docs/DocsBlock';
+import ContrastBox from '../../../docs/ContrastBox';
+
 
 const textareas = () => <div>
   <DocsBlock info="Default">
@@ -24,7 +26,9 @@ const textareas = () => <div>
   ]}/>
 
   <DocsBlock info="Simple">
-    <Textarea placeholder="placeholder" simple={true}/>
+    <ContrastBox>
+      <Textarea placeholder="placeholder" simple={true}/>
+    </ContrastBox>
   </DocsBlock>
   <DocsBlock info="Auto height">
     <Textarea placeholder="placeholder" autoHeight={true}/>
