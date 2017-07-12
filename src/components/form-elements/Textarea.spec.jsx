@@ -1,104 +1,84 @@
 import React from 'react';
-import TextInput, {SIZE, COLOR, VALIDATION} from './TextInput';
+import Textarea, {SIZE, VALIDATION} from './Textarea';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const button = shallow(
-    <TextInput/>
+    <Textarea/>
   );
 
-  expect(button.hasClass('sg-input')).toEqual(true);
-});
-
-test('default spaced bottom', () => {
-  const button = shallow(
-    <TextInput/>
-  );
-
-  expect(button.hasClass('sg-input--spaced-bottom')).toEqual(true);
-});
-
-test('no spaced bottom', () => {
-  const button = shallow(
-    <TextInput spacedBottom={false}/>
-  );
-
-  expect(button.hasClass('sg-input--spaced-bottom')).toEqual(false);
+  expect(button.hasClass('sg-textarea')).toEqual(true);
 });
 
 test('full width', () => {
   const button = shallow(
-    <TextInput fullWidth={true}/>
+    <Textarea fullWidth={true}/>
   );
 
-  expect(button.hasClass('sg-input--full-width')).toEqual(true);
+  expect(button.hasClass('sg-textarea--full-width')).toEqual(true);
+});
+
+test('auto height', () => {
+  const button = shallow(
+    <Textarea autoHeight={true}/>
+  );
+
+  expect(button.hasClass('sg-textarea--auto-height')).toEqual(true);
+});
+
+test('simple', () => {
+  const button = shallow(
+    <Textarea simple={true}/>
+  );
+
+  expect(button.hasClass('sg-textarea--simple')).toEqual(true);
 });
 
 
 test('default validation', () => {
   const button = shallow(
-    <TextInput/>
+    <Textarea/>
   );
 
-  expect(button.hasClass('sg-input--valid')).toEqual(false);
-  expect(button.hasClass('sg-input--invalid')).toEqual(false);
+  expect(button.hasClass('sg-textarea--valid')).toEqual(false);
+  expect(button.hasClass('sg-textarea--invalid')).toEqual(false);
 });
 
 
 test('valid', () => {
   const button = shallow(
-    <TextInput valid={VALIDATION.VALID}/>
+    <Textarea valid={VALIDATION.VALID}/>
   );
 
-  expect(button.hasClass('sg-input--valid')).toEqual(true);
-  expect(button.hasClass('sg-input--invalid')).toEqual(false);
+  expect(button.hasClass('sg-textarea--valid')).toEqual(true);
+  expect(button.hasClass('sg-textarea--invalid')).toEqual(false);
 });
 
 
 test('invalid', () => {
   const button = shallow(
-    <TextInput valid={VALIDATION.INVALID}/>
+    <Textarea valid={VALIDATION.INVALID}/>
   );
 
-  expect(button.hasClass('sg-input--valid')).toEqual(false);
-  expect(button.hasClass('sg-input--invalid')).toEqual(true);
+  expect(button.hasClass('sg-textarea--valid')).toEqual(false);
+  expect(button.hasClass('sg-textarea--invalid')).toEqual(true);
 });
 
 
 test('size', () => {
   const button = shallow(
-    <TextInput size={SIZE.LARGE}/>
+    <Textarea size={SIZE.SHORT}/>
   );
 
-  expect(button.hasClass('sg-input--large')).toEqual(true);
+  expect(button.hasClass('sg-textarea--short')).toEqual(true);
 });
 
 
 test('default size', () => {
   const button = shallow(
-    <TextInput/>
+    <Textarea/>
   );
 
-  expect(button.hasClass('sg-input--normal')).toEqual(false);
-  expect(button.hasClass('sg-input--large')).toEqual(false);
+  expect(button.hasClass('sg-textarea--normal')).toEqual(false);
+  expect(button.hasClass('sg-textarea--short')).toEqual(false);
 });
-
-
-test('color', () => {
-  const button = shallow(
-    <TextInput color={COLOR.LIGHT}/>
-  );
-
-  expect(button.hasClass('sg-input--light')).toEqual(true);
-});
-
-
-test('default color', () => {
-  const button = shallow(
-    <TextInput/>
-  );
-
-  expect(button.hasClass('sg-input--normal')).toEqual(false);
-  expect(button.hasClass('sg-input--light')).toEqual(false);
-});
-
