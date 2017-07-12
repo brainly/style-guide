@@ -2,7 +2,8 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {TYPE as BUTTON_SECONDARY_TYPE} from '../../buttons/ButtonSecondary';
 import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from '../../buttons/ButtonPrimary';
-import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
+import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from '../../labels/Label';
+import Icon from '../../icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../../text/Text';
 import ContrastBox from '../../../docs/ContrastBox';
 import DocsBlock from '../../../docs/DocsBlock';
@@ -81,24 +82,18 @@ const ActionLists = () =>
     <DocsBlock info='Space between'>
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
-          <div className="sg-label">
-            <div className="sg-label__icon">
-              <Icon type={ICON_TYPE.ANSWER} size={14} color={ICON_COLOR.GRAY_SECONDARY}/>
-            </div>
-            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}>
-              0/5
-            </Text>
-          </div>
+          <Label iconType={ICON_TYPE.ANSWER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary={true}
+            size={LABEL_SIZE.SMALL}>
+            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}>0/5</Text>
+          </Label>
         </ActionListHole>
         <ActionListHole>
-          <div className="sg-label">
-            <div className="sg-label__icon">
-              <Icon type={ICON_TYPE.COUNTER} size={14} color={ICON_COLOR.GRAY_SECONDARY}/>
-            </div>
-            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}>
-              2d : 00h
-            </Text>
-          </div>
+          <Label iconType={ICON_TYPE.COUNTER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary={true}
+            size={LABEL_SIZE.SMALL}>
+            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}>2d: 00h</Text>
+          </Label>
         </ActionListHole>
         <ActionListHole><ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small={true}>
           start

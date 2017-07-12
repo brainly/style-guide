@@ -9,7 +9,7 @@ const SIZE = {
   LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
 };
 
-const Label = ({text, number, iconType, iconColor,
+const Label = ({text, children, number, iconType, iconColor,
   size = SIZE.NORMAL, secondary, unstyled, emphasised, elementsToTop
 }) => {
 
@@ -21,8 +21,12 @@ const Label = ({text, number, iconType, iconColor,
     'sg-label--elements-to-the-top': elementsToTop
   });
 
+  let textElement;
   let numberElement;
 
+  if (text) {
+    textElement =  <div className="sg-label__text">{text}</div>;
+  }
   if (number) {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
@@ -31,13 +35,15 @@ const Label = ({text, number, iconType, iconColor,
     <div className="sg-label__icon">
       <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
     </div>
-    <div className="sg-label__text">{text}</div>
+    {textElement}
     {numberElement}
+    {children}
   </div>;
 };
 
 Label.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  children: PropTypes.node,
   iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
   iconType: PropTypes.oneOf(Object.values(ICON_TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),

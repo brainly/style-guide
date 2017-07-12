@@ -5,6 +5,7 @@ import ButtonRound from '../ButtonRound';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../../icons/Icon';
+import Label, {ICON_COLOR, ICON_TYPE} from '../../labels/Label';
 
 const Buttons = () =>
   <div>
@@ -163,22 +164,13 @@ const Buttons = () =>
         <br/><br/>
 
         <ButtonSecondary type={types2.INVERSE} small={true}>
-          <div className="sg-label sg-label--secondary">
-            <div className="sg-label__icon">
-              <Icon type={iconTypes.COMMENT} color={iconColors.LAVENDER} size={16}/>
-            </div>
-            <div className="sg-label__text">Comment</div>
-            <div className="sg-label__number">21</div>
-          </div>
+          <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
+            iconColor={ICON_COLOR.LAVENDER} secondary={true}/>
         </ButtonSecondary>
         &nbsp;
         <ButtonSecondary type={types2.INVERSE} small={true}>
-          <div className="sg-label sg-label--secondary">
-            <div className="sg-label__icon">
-              <Icon type={iconTypes.EXCELLENT} color={iconColors.MUSTARD} size={16}/>
-            </div>
-            <div className="sg-label__text">Mark as brainliest</div>
-          </div>
+          <Label text="Mark as brainliest" iconType={ICON_TYPE.EXCELLENT}
+            iconColor={ICON_COLOR.MUSTARD} secondary={true}/>
         </ButtonSecondary>
 
       </ContrastBox>
@@ -187,23 +179,13 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons small active and inverted">
       <ButtonSecondary type={types2.ACTIVE_INVERSE} small={true}>
-        <div className="sg-label sg-label--secondary sg-label--unstyled">
-          <div className="sg-label__icon">
-            <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>
-          </div>
-          <div className="sg-label__text">Thank you</div>
-          <div className="sg-label__number">21</div>
-        </div>
+        <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
+          iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary disabled={true} type={types2.ACTIVE_INVERSE} small={true}>
-        <div className="sg-label sg-label--secondary sg-label--unstyled">
-          <div className="sg-label__icon">
-            <Icon type={iconTypes.HEART} color={iconColors.ADAPTIVE} size={16}/>
-          </div>
-          <div className="sg-label__text">Thank you</div>
-          <div className="sg-label__number">21</div>
-        </div>
+        <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
+          iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
       </ButtonSecondary>
     </DocsBlock>
 

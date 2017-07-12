@@ -10,7 +10,7 @@ import ButtonPrimary from '../../buttons/ButtonPrimary';
 import Breadcrumbs from '../../breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from '../../stickers/Sticker';
-import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
+import Label, {ICON_COLOR, ICON_TYPE} from '../../labels/Label';
 import Rating from '../../rating/Rating';
 import Text from '../../text/Text';
 import Link, {COLOR as LINK_COLOR} from '../../text/Link';
@@ -254,13 +254,8 @@ const ContentBoxes = () =>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
-            <div className="sg-label sg-label--secondary sg-label--unstyled">
-              <div className="sg-label__icon">
-                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
-              </div>
-              <div className="sg-label__text">Thank you</div>
-              <div className="sg-label__number">21</div>
-            </div>
+            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
           </ButtonSecondary>
           <Rating rate={2} counter={34} active={true}/>
         </ContentBoxActions>
@@ -319,13 +314,8 @@ const ContentBoxes = () =>
             </li>
           </ul>
           <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
-            <div className="sg-label sg-label--secondary sg-label--unstyled">
-              <div className="sg-label__icon">
-                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
-              </div>
-              <div className="sg-label__text">Thank you</div>
-              <div className="sg-label__number">21</div>
-            </div>
+            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
           </ButtonSecondary>
           <Rating rate={3} counter={34} active={true}/>
         </ContentBoxActions>
@@ -336,13 +326,8 @@ const ContentBoxes = () =>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
-            <div className="sg-label sg-label--secondary sg-label--unstyled">
-              <div className="sg-label__icon">
-                <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.ADAPTIVE} size={16}/>
-              </div>
-              <div className="sg-label__text">Thank you</div>
-              <div className="sg-label__number">21</div>
-            </div>
+            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
           </ButtonSecondary>
           <Rating rate={3} counter={34} active={true}/>
         </ContentBoxActions>
