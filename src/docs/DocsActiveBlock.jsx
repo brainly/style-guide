@@ -2,6 +2,48 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
+function isComponent(value) {
+  return value.$$typeof;
+}
+
+function propToString(prop) {
+  if(isComponent((prop))) {
+    return generateJSX(prop);
+  } else if(Array.isArray(prop)) {
+    return '[' + prop
+      .map(item => propToString(item))
+      .join(', ') + ']';
+  } else {
+    return JSON.stringify(prop);
+  }
+}
+
+function generateJSX(component) {
+  if(!isComponent(component)) {
+    return component;
+  }
+
+  const type = component.type.name || component.type;
+  let children = component.props.children || [];
+
+  if (!Array.isArray(children)) {
+    children = [children];
+  }
+
+  let jsxProps = Object.keys(component.props)
+    .filter(key => key !== 'children')
+    .map(key => `${key}=${propToString(component.props[key])}`)
+    .join(' ');
+
+  if(jsxProps) {
+    jsxProps = ' ' + jsxProps;
+  }
+
+  return (children.length > 0) ?
+    `<${type}${jsxProps}>${children.map(generateJSX).join('')}</${type}>` :
+    `<${type}${jsxProps} />`;
+}
+
 const ContentBlock = ({children, toBottom, centered}) => {
   const contentClass = classnames('docs-block__content', {
     'docs-block__content--to-bottom': toBottom,
@@ -125,8 +167,12 @@ class DocsActiveBlock extends Component {
   }
 
   componentDidUpdate() {
-    const root = ReactDOM.findDOMNode(this);
-    console.log(root.querySelector('.docs-block__content').innerHTML);
+    const jsx = generateJSX(this.component);
+    const html = ReactDOM.findDOMNode(this).querySelector('.docs-block__content').innerHTML;
+
+    console.log(jsx);
+
+    // cleaner.clean(html, {'remove-comments': true}, cleanHTML => console.log(cleanHTML));
   }
 
   setProps(key, value) {
@@ -136,10 +182,10 @@ class DocsActiveBlock extends Component {
   }
 
   render() {
-    const childUpdated = React.cloneElement(this.props.children, this.state);
+    this.component = React.cloneElement(this.props.children, this.state);
 
     return <section className="docs-block">
-      <ContentBlock centered>{childUpdated}</ContentBlock>
+      <ContentBlock centered>{this.component}</ContentBlock>
       <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings} values={this.state}/>
     </section>
     ;
