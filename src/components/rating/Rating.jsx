@@ -1,12 +1,39 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Star from './Star';
-import RateCounter from './RateCounter';
+import Icon, {TYPE, COLOR} from '../icons/Icon';
+import classnames from 'classnames';
 
 const ICO_SIZE = {
   SMALL: 14,
   NORMAL: 16
+};
+
+const Star = ({size, checked, onClick}) => {
+  const starClass = classnames('sg-rate-box__star', {
+    'sg-rate-box__star--checked': checked
+  });
+
+  return <span className={starClass} onClick={onClick}>
+    <Icon type={TYPE.STAR} size={size} color={COLOR.ADAPTIVE}/>
+  </span>;
+};
+
+Star.propTypes = {
+  size: PropTypes.number,
+  checked: PropTypes.bool,
+  onClick: PropTypes.func.isRequired
+};
+
+const RateCounter = ({counter}) => {
+  if (counter === undefined) {
+    return null;
+  }
+
+  return <div className="sg-rate-box__counter">{counter}</div>;
+};
+
+RateCounter.propTypes = {
+  counter: PropTypes.number
 };
 
 class Rating extends Component {
@@ -25,7 +52,7 @@ class Rating extends Component {
 
   render() {
     const {metricSize = 5, rate = 0, small, active, counter} = this.props;
-    const ratingClass = classNames('sg-rate-box', {
+    const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--small': small,
       'sg-rate-box--active': active
     });
@@ -53,3 +80,4 @@ Rating.propTypes = {
 };
 
 export default Rating;
+export {Star};
