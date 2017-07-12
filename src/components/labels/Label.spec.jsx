@@ -27,16 +27,6 @@ test('error when no icon type', () => {
   spy.mockRestore();
 });
 
-test('error when no text', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<Label iconType={ICON_TYPE.STAR}/>);
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('icon color', () => {
   const iconType = ICON_TYPE.HEART;
   const iconColor = ICON_COLOR.LAVENDER;
@@ -98,6 +88,16 @@ test('elements to top', () => {
   );
 
   expect(label.hasClass('sg-label--elements-to-the-top')).toEqual(true);
+});
+
+test('label with no text', () => {
+  const iconType = ICON_TYPE.HEART;
+  const label = shallow(
+    <Label iconType={iconType} secondary={true}/>
+  );
+  const textLabel = label.find('div.sg-label__text');
+
+  expect(textLabel).toHaveLength(0);
 });
 
 test('label with a number', () => {
