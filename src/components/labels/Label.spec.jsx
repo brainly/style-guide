@@ -82,6 +82,24 @@ test('secondary label', () => {
   expect(label.hasClass('sg-label--secondary')).toEqual(true);
 });
 
+test('emphasised', () => {
+  const iconType = ICON_TYPE.HEART;
+  const label = shallow(
+    <Label iconType={iconType} emphasised={true} text="test"/>
+  );
+
+  expect(label.hasClass('sg-label--emphasised')).toEqual(true);
+});
+
+test('elements to top', () => {
+  const iconType = ICON_TYPE.HEART;
+  const label = shallow(
+    <Label iconType={iconType} elementsToTop={true} text="test"/>
+  );
+
+  expect(label.hasClass('sg-label--elements-to-the-top')).toEqual(true);
+});
+
 test('label with a number', () => {
   const iconType = ICON_TYPE.HEART;
   const label = shallow(

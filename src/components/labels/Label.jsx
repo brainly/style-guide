@@ -21,14 +21,10 @@ const Label = ({text, number, iconType, iconColor,
     'sg-label--elements-to-the-top': elementsToTop
   });
 
+  let numberElement;
+
   if (number) {
-    return <div className={labelClass}>
-      <div className="sg-label__icon">
-        <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
-      </div>
-      <div className="sg-label__text">{text}</div>
-      <div className="sg-label__number">{number}</div>
-    </div>;
+    numberElement = <div className="sg-label__number">{number}</div>;
   }
 
   return <div className={labelClass}>
@@ -36,6 +32,7 @@ const Label = ({text, number, iconType, iconColor,
       <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
     </div>
     <div className="sg-label__text">{text}</div>
+    {numberElement}
   </div>;
 };
 
