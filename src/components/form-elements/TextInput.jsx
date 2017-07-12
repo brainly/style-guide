@@ -24,7 +24,6 @@ const VALIDATION = {
 const TextInput = props => {
   const {
     type = 'text',
-    spacedBottom = true,
     valid = VALIDATION.UNDEFINED,
     size = SIZE.NORMAL,
     color = COLOR.NORMAL,
@@ -34,7 +33,6 @@ const TextInput = props => {
   } = props;
 
   const inputClass = classnames('sg-input', {
-    'sg-input--spaced-bottom': spacedBottom,
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
     'sg-input--valid': valid === VALIDATION.VALID,
@@ -50,7 +48,6 @@ TextInput.propTypes = {
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  spacedBottom: PropTypes.bool,
   valid: PropTypes.bool,
   invalid: PropTypes.bool,
   fullWidth: PropTypes.bool

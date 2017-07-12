@@ -10,22 +10,6 @@ test('render', () => {
   expect(button.hasClass('sg-input')).toEqual(true);
 });
 
-test('default spaced bottom', () => {
-  const button = shallow(
-    <TextInput/>
-  );
-
-  expect(button.hasClass('sg-input--spaced-bottom')).toEqual(true);
-});
-
-test('no spaced bottom', () => {
-  const button = shallow(
-    <TextInput spacedBottom={false}/>
-  );
-
-  expect(button.hasClass('sg-input--spaced-bottom')).toEqual(false);
-});
-
 test('full width', () => {
   const button = shallow(
     <TextInput fullWidth={true}/>
