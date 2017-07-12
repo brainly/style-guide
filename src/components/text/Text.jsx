@@ -23,6 +23,7 @@ const SIZE = {
 };
 
 const COLOR = {
+  DEFAULT: 'default',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
   MINT: 'mint',
@@ -44,7 +45,7 @@ const Text = ({children, size, weight, color, type = TYPE.DIV, noWrap, breakWord
   const Type = type;
   const textClass = classNames('sg-text', {
     [`sg-text--${size}`]: size,
-    [`sg-text--${color}`]: color,
+    [`sg-text--${color}`]: color !== COLOR.DEFAULT,
     [`sg-text--${weight}`]: weight,
     'sg-text--no-wrap': noWrap,
     'sg-text--break-words': breakWords
