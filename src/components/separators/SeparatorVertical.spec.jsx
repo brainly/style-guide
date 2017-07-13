@@ -1,10 +1,10 @@
 import React from 'react';
-import Separator, {SIZE} from './Separator';
+import SeparatorVertical, {SIZE} from './SeparatorVertical';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const separator = shallow(
-    <Separator/>
+    <SeparatorVertical/>
   );
 
   expect(separator.hasClass('sg-separator')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('size', () => {
   const separator = shallow(
-    <Separator size={SIZE.SMALL}/>
+    <SeparatorVertical size={SIZE.SMALL}/>
   );
 
   expect(separator.hasClass('sg-separator--small')).toEqual(true);

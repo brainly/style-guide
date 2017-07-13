@@ -3,18 +3,18 @@ import DocsBlock from '../../../docs/DocsBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 import Text, {COLOR, SIZE as TEXT_SIZE, WEIGHT, TYPE} from '../../text/Text';
 import Link from '../../text/Link';
-import Separator, {SIZE} from '../Separator';
-import HorizontalSeparator from '../HorizontalSeparator';
+import SeparatorVertical, {SIZE} from '../SeparatorVertical';
+import SeparatorHorizontal, {TYPE as SEPARATOR_TYPE} from '../SeparatorHorizontal';
 
 const Separators = () => <div>
   <DocsBlock info="Default" centered={true}>
     <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
-    <Separator/>
+    <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL}/>
   </DocsBlock>
   <DocsBlock info="Small" centered={true}>
     <Link>previous</Link>
-    <Separator size={SIZE.SMALL}/>
+    <SeparatorVertical size={SIZE.SMALL}/>
     <Link>next</Link>
   </DocsBlock>
   <DocsBlock info="Large" centered={true}>
@@ -22,7 +22,7 @@ const Separators = () => <div>
       <Text type={TYPE.P} size={TEXT_SIZE.SMALL} color={COLOR.GRAY} weight={WEIGHT.BOLD}>answers</Text>
       <Text type={TYPE.P} weight={WEIGHT.BOLD}>0</Text>
     </div>
-    <Separator size={SIZE.LARGE}/>
+    <SeparatorVertical size={SIZE.LARGE}/>
     <div>
       <Text type={TYPE.P} size={TEXT_SIZE.SMALL} color={COLOR.GRAY} weight={WEIGHT.BOLD}>answers</Text>
       <Text type={TYPE.P} weight={WEIGHT.BOLD}>0</Text>
@@ -31,21 +31,21 @@ const Separators = () => <div>
   <DocsBlock info="Horizontal" centered={true}>
     <div>
       <Avatar size={AVATAR_SIZE.SMALL}/>
-      <HorizontalSeparator/>
+      <SeparatorHorizontal/>
       <Avatar size={AVATAR_SIZE.SMALL}/>
     </div>
   </DocsBlock>
   <DocsBlock info="Horizontal spaced" additionalInfo="(with margins)" centered={true}>
     <div>
       <Avatar size={AVATAR_SIZE.SMALL}/>
-      <HorizontalSeparator spaced={true}/>
+      <SeparatorHorizontal type={SEPARATOR_TYPE.SPACED}/>
       <Avatar size={AVATAR_SIZE.SMALL}/>
     </div>
   </DocsBlock>
   <DocsBlock info="Horizontal spaced" additionalInfo="(with static margins)" centered={true}>
     <div>
       <Avatar size={AVATAR_SIZE.SMALL}/>
-      <HorizontalSeparator spaced={true} short={true}/>
+      <SeparatorHorizontal type={SEPARATOR_TYPE.SHORT_SPACED}/>
       <Avatar size={AVATAR_SIZE.SMALL}/>
     </div>
   </DocsBlock>

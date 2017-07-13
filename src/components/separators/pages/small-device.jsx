@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar, {SIZE} from '../../avatar/Avatar';
-import HorizontalSeparator from '../HorizontalSeparator';
+import SeparatorHorizontal, {TYPE} from '../SeparatorHorizontal';
 
 const SmallDeviceExample = () =>
   <html lang="en">
@@ -11,10 +11,10 @@ const SmallDeviceExample = () =>
       <script src="images/icons.js"></script>
       <div>
         <Avatar size={SIZE.SMALL}/>
-        <HorizontalSeparator spaced={true}/>
+        <SeparatorHorizontal type={TYPE.SPACED}/>
         <Avatar size={SIZE.SMALL}/>
         <Avatar size={SIZE.SMALL}/>
-        <HorizontalSeparator spaced={true} short={true}/>
+        <SeparatorHorizontal type={TYPE.SHORT_SPACED}/>
         <Avatar size={SIZE.SMALL}/>
       </div>
     </body>
