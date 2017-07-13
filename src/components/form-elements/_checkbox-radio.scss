@@ -3,8 +3,8 @@ $crInputColor: $white;
 $crInputBorderColor: $graySecondary;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
+$crRadioCheckedColor: $white;
 $crInputActiveColor: rgba($crInputColor, 0.7);
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -30,16 +30,11 @@ $includeHtml: false !default;
       border-color: $crInputActiveBorderColor;
     }
 
-    &__element:checked + &__ghost {
-      border-color: $crInputCheckedColor;
-      background: $crInputCheckedColor;
-    }
-
     &__ghost {
       background: $crInputColor;
       width: $crInputSize;
       height: $crInputSize;
-      border: 1px solid $crInputBorderColor;
+      border: 2px solid $crInputBorderColor;
       fill: $crInputColor;
       display: flex;
       align-items: center;
@@ -48,23 +43,46 @@ $includeHtml: false !default;
     }
   }
 
-  .sg-checkbox__element:checked:active + .sg-checkbox__ghost::before {
-    color: $crInputActiveColor;
+  .sg-checkbox {
+
+    &__ghost {
+      border-radius: 20%;
+    }
+
+    &__element:checked {
+      & + .sg-checkbox__ghost {
+        border-color: $crInputCheckedColor;
+        background: $crInputCheckedColor;
+      }
+
+      &:active + .sg-checkbox__ghost::before {
+        color: $crInputActiveColor;
+      }
+    }
   }
 
-  .sg-checkbox__ghost {
-    border-radius: 25%;
-  }
-
-  .sg-radio__ghost {
-    border-radius: 50%;
-
-    &::before {
-      content: '';
+  .sg-radio {
+    &__ghost {
       border-radius: 50%;
-      background-color: $crInputColor;
-      width: $crInputSize / 2;
-      height: $crInputSize / 2;
+
+      &::before {
+        content: '';
+        border-radius: 50%;
+        background-color: $crInputColor;
+        width: $crInputSize / 2;
+        height: $crInputSize / 2;
+      }
+    }
+
+    &__element:checked {
+      & + .sg-radio__ghost {
+        border-color: $crInputCheckedColor;
+        background: $crRadioCheckedColor;
+      }
+
+      & + .sg-radio__ghost::before {
+        background: $crInputCheckedColor;
+      }
     }
   }
 }
