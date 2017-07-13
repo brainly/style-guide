@@ -17,7 +17,9 @@ const coreConfig = {
   },
   externals: {
     react: 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
+    'html_beautify': 'html_beautify',
+    'hljs': 'hljs'
   }
 };
 
