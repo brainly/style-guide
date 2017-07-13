@@ -48,8 +48,7 @@ TextInput.propTypes = {
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  valid: PropTypes.oneOf(Object.values(VALIDATION)),
   fullWidth: PropTypes.bool
 };
 

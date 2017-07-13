@@ -9,22 +9,12 @@ test('render', () => {
     <Label iconType={iconType} text="test"/>
   );
   const icon = label.find(Icon);
-  const textLabel = label.find('div.sg-label__text');
+  const textLabel = label.find('label.sg-label__text');
 
   expect(label.hasClass('sg-label')).toEqual(true);
   expect(textLabel).toHaveLength(1);
   expect(icon).toHaveLength(1);
   expect(icon.props().type).toEqual(iconType);
-});
-
-test('error when no icon type', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<Label text="test"/>);
-  expect(console.error.mock.calls).toHaveLength(2);
-
-  spy.mockRestore();
 });
 
 test('icon color', () => {
@@ -64,18 +54,16 @@ test('default size', () => {
 });
 
 test('secondary label', () => {
-  const iconType = ICON_TYPE.HEART;
   const label = shallow(
-    <Label iconType={iconType} secondary={true} text="test"/>
+    <Label secondary={true} text="test"/>
   );
 
   expect(label.hasClass('sg-label--secondary')).toEqual(true);
 });
 
 test('emphasised', () => {
-  const iconType = ICON_TYPE.HEART;
   const label = shallow(
-    <Label iconType={iconType} emphasised={true} text="test"/>
+    <Label emphasised={true} text="test"/>
   );
 
   expect(label.hasClass('sg-label--emphasised')).toEqual(true);
@@ -93,7 +81,7 @@ test('elements to top', () => {
 test('label with no text', () => {
   const iconType = ICON_TYPE.HEART;
   const label = shallow(
-    <Label iconType={iconType} secondary={true}/>
+    <Label iconType={iconType}/>
   );
   const textLabel = label.find('div.sg-label__text');
 
@@ -101,11 +89,21 @@ test('label with no text', () => {
 });
 
 test('label with a number', () => {
-  const iconType = ICON_TYPE.HEART;
   const label = shallow(
-    <Label iconType={iconType} secondary={true} text="test" number={23}/>
+    <Label secondary={true} text="test" number={23}/>
   );
   const numberLabel = label.find('div.sg-label__number');
 
   expect(numberLabel).toHaveLength(1);
+});
+
+test('passing children', () => {
+  const element = <div className="smth123">xyz</div>;
+  const label = shallow(
+    <Label>
+      {element}
+    </Label>
+  );
+
+  expect(label.find('div.smth123')).toHaveLength(1);
 });

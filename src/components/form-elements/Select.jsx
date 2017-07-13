@@ -48,8 +48,7 @@ const optionShape = PropTypes.shape({
 Select.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  valid: PropTypes.oneOf(Object.values(VALIDATION)),
   fullWidth: PropTypes.bool,
   options: PropTypes.arrayOf(optionShape)
 };

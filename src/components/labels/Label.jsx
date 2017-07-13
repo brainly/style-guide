@@ -9,9 +9,20 @@ const SIZE = {
   LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
 };
 
-const Label = ({text, children, number, iconType, iconColor,
-  size = SIZE.NORMAL, secondary, unstyled, emphasised, elementsToTop
-}) => {
+const Label = props => {
+  const {
+    size = SIZE.NORMAL,
+    text,
+    children,
+    number,
+    iconType,
+    htmlFor,
+    iconColor,
+    secondary,
+    unstyled,
+    emphasised,
+    elementsToTop
+  } = props;
 
   const labelClass = classNames('sg-label', {
     [`sg-label--${size.CLASS_NAME}`]: size !== SIZE.NORMAL,
@@ -23,18 +34,22 @@ const Label = ({text, children, number, iconType, iconColor,
 
   let textElement;
   let numberElement;
+  let icon;
 
   if (text) {
-    textElement =  <div className="sg-label__text">{text}</div>;
+    textElement = <label className="sg-label__text" htmlFor={htmlFor}>{text}</label>;
   }
   if (number) {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
+  if (iconType) {
+    icon = <div className="sg-label__icon">
+      <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
+    </div>;
+  }
 
   return <div className={labelClass}>
-    <div className="sg-label__icon">
-      <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
-    </div>
+    {icon}
     {textElement}
     {numberElement}
     {children}
@@ -43,9 +58,10 @@ const Label = ({text, children, number, iconType, iconColor,
 
 Label.propTypes = {
   text: PropTypes.string,
+  htmlFor: PropTypes.string,
   children: PropTypes.node,
   iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)).isRequired,
+  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
   size: PropTypes.oneOf(Object.values(SIZE)),
   number: PropTypes.number,
   secondary: PropTypes.bool,
