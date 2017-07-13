@@ -1,9 +1,10 @@
 $crInputSize: rhythm(2 / 3);
 $crInputColor: $white;
-$crInputBorderColor: $graySecondaryLight;
-$crInputCheckedColor: $grayPrimary;
+$crInputBorderColor: $graySecondary;
+$crInputActiveBorderColor: $bluePrimary;
+$crInputCheckedColor: $bluePrimary;
+$crRadioCheckedColor: $white;
 $crInputActiveColor: rgba($crInputColor, 0.7);
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -25,46 +26,63 @@ $includeHtml: false !default;
       z-index: 1;
     }
 
-    &__element:checked + &__ghost::before {
-      background: $crInputCheckedColor;
-    }
-
-    &__element:active + &__ghost::before {
-      background: $crInputActiveColor;
+    &__element:active + &__ghost {
+      border-color: $crInputActiveBorderColor;
     }
 
     &__ghost {
       background: $crInputColor;
       width: $crInputSize;
       height: $crInputSize;
-      box-shadow: 0 0 1px 2px $crInputBorderColor;
+      border: 2px solid $crInputBorderColor;
+      fill: $crInputColor;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+    }
+  }
 
-      &::before {
-        content: '';
-        background-color: $crInputColor;
-        width: $crInputSize / 1.5;
-        height: $crInputSize / 1.5;
+  .sg-checkbox {
+
+    &__ghost {
+      border-radius: 20%;
+    }
+
+    &__element:checked {
+      & + .sg-checkbox__ghost {
+        border-color: $crInputCheckedColor;
+        background: $crInputCheckedColor;
+      }
+
+      &:active + .sg-checkbox__ghost::before {
+        color: $crInputActiveColor;
       }
     }
   }
 
-  .sg-checkbox__ghost {
-    border-radius: 25%;
-
-    &::before {
-      border-radius: 25%;
-    }
-  }
-
-  .sg-radio__ghost {
-    border-radius: 50%;
-
-    &::before {
+  .sg-radio {
+    &__ghost {
       border-radius: 50%;
+
+      &::before {
+        content: '';
+        border-radius: 50%;
+        background-color: $crInputColor;
+        width: $crInputSize / 2;
+        height: $crInputSize / 2;
+      }
+    }
+
+    &__element:checked {
+      & + .sg-radio__ghost {
+        border-color: $crInputCheckedColor;
+        background: $crRadioCheckedColor;
+      }
+
+      & + .sg-radio__ghost::before {
+        background: $crInputCheckedColor;
+      }
     }
   }
 }
