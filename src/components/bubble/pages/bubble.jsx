@@ -72,37 +72,35 @@ const Bubbles = () =>
 
     <DocsBlock info='Example usage' additionalInfo='--top'>
       <Bubble direction={DIRECTION.TOP}>
-        <div className="sg-bubble__hole">
-          <ContentBox>
-            <ContentBoxHeader>
-              <div className="sg-avatar">
-                <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-              </div>
-              <ul className="sg-breadcrumb-list">
-                <li className="sg-breadcrumb-list__element">
-                  <Link color={LINK_COLOR.GRAY}>Katie</Link>
-                </li>
-                <li className="sg-breadcrumb-list__element">
-                  <Link color={LINK_COLOR.GRAY}>a few seconds ago</Link>
-                </li>
-              </ul>
-            </ContentBoxHeader>
-            <ContentBoxContent>
-              <Text>
+        <ContentBox>
+          <ContentBoxHeader>
+            <div className="sg-avatar">
+              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
+            </div>
+            <ul className="sg-breadcrumb-list">
+              <li className="sg-breadcrumb-list__element">
+                <Link color={LINK_COLOR.GRAY}>Katie</Link>
+              </li>
+              <li className="sg-breadcrumb-list__element">
+                <Link color={LINK_COLOR.GRAY}>a few seconds ago</Link>
+              </li>
+            </ul>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <Text>
                 Hi there!! Just wondering if you have any problems with your school work. We've got plenty
                 of people who
                 can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
                 you can just
                 go ahead and try for yourself.
-              </Text>
-            </ContentBoxContent>
-            <ContentBoxActions>
-              <ButtonSecondary type={TYPE.ALT}>
+            </Text>
+          </ContentBoxContent>
+          <ContentBoxActions>
+            <ButtonSecondary type={TYPE.ALT}>
                 Join us!
-              </ButtonSecondary>
-            </ContentBoxActions>
-          </ContentBox>
-        </div>
+            </ButtonSecondary>
+          </ContentBoxActions>
+        </ContentBox>
       </Bubble>
     </DocsBlock>
   </div>;
