@@ -41,8 +41,10 @@
       location: buttons/buttons
     - name: Icon as button
       location: icon-as-button/icon-as-button
-    - name: Checkbox & Radio
-      location: form-elements/checkbox-radio
+    - name: Checkbox
+      location: form-elements/checkbox
+    - name: Radio
+      location: form-elements/radio
     - name: Text input
       location: form-elements/text-input
     - name: Selects

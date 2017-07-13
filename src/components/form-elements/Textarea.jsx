@@ -43,8 +43,7 @@ Textarea.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
+  valid: PropTypes.oneOf(Object.values(VALIDATION)),
   fullWidth: PropTypes.bool,
   simple: PropTypes.bool,
   autoHeight: PropTypes.bool

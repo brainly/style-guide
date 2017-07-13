@@ -9,9 +9,42 @@ const SIZE = {
   LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
 };
 
-const Label = ({text, children, number, iconType, iconColor,
-  size = SIZE.NORMAL, secondary, unstyled, emphasised, elementsToTop
-}) => {
+const LabelIcon = ({iconType, iconColor, iconContent, iconSize}) => {
+  if (iconContent) {
+    return <div className="sg-label__icon">
+      {iconContent}
+    </div>;
+  }
+  if (iconType) {
+    return <div className="sg-label__icon">
+      <Icon type={iconType} color={iconColor} size={iconSize}/>
+    </div>;
+  }
+  return null;
+};
+
+LabelIcon.propTypes = {
+  iconContent: PropTypes.node,
+  iconSize: PropTypes.number,
+  iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
+  iconType: PropTypes.oneOf(Object.values(ICON_TYPE))
+};
+
+const Label = props => {
+  const {
+    size = SIZE.NORMAL,
+    text,
+    children,
+    number,
+    iconContent,
+    iconType,
+    iconColor,
+    htmlFor,
+    secondary,
+    unstyled,
+    emphasised,
+    elementsToTop
+  } = props;
 
   const labelClass = classNames('sg-label', {
     [`sg-label--${size.CLASS_NAME}`]: size !== SIZE.NORMAL,
@@ -25,16 +58,14 @@ const Label = ({text, children, number, iconType, iconColor,
   let numberElement;
 
   if (text) {
-    textElement =  <div className="sg-label__text">{text}</div>;
+    textElement = <label className="sg-label__text" htmlFor={htmlFor}>{text}</label>;
   }
   if (number) {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
 
   return <div className={labelClass}>
-    <div className="sg-label__icon">
-      <Icon type={iconType} color={iconColor} size={size.ICON_SIZE}/>
-    </div>
+    <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={size.ICON_SIZE}/>
     {textElement}
     {numberElement}
     {children}
@@ -43,9 +74,11 @@ const Label = ({text, children, number, iconType, iconColor,
 
 Label.propTypes = {
   text: PropTypes.string,
+  htmlFor: PropTypes.string,
   children: PropTypes.node,
+  iconContent: PropTypes.node,
   iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)).isRequired,
+  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
   size: PropTypes.oneOf(Object.values(SIZE)),
   number: PropTypes.number,
   secondary: PropTypes.bool,
@@ -55,4 +88,4 @@ Label.propTypes = {
 };
 
 export default Label;
-export {SIZE, ICON_TYPE, ICON_COLOR};
+export {SIZE, ICON_TYPE, ICON_COLOR, LabelIcon};
