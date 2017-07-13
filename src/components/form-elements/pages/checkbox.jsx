@@ -5,7 +5,7 @@ import Label from '../../labels/Label';
 
 const dumpProps = {onChange: () => undefined};
 
-const checkboxesAndRadios = () => <div>
+const checkboxes = () => <div>
   <DocsBlock info="Checkboxes">
     <Checkbox />
     <Checkbox checked={true} {...dumpProps}/>
@@ -19,4 +19,4 @@ const checkboxesAndRadios = () => <div>
   </DocsBlock>
 </div>;
 
-export default checkboxesAndRadios;
+export default checkboxes;
