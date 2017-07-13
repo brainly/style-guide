@@ -2,6 +2,7 @@ import React from 'react';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
 import SubjectIcon, {TYPE, SIZE} from '../SubjectIcon';
+import SubjectIconBox from '../SubjectIconBox';
 
 const Subjects = () =>
   <div>
@@ -20,25 +21,25 @@ const Subjects = () =>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Subject icon box">
-      <div className="sg-subject-icon-box">
+      <SubjectIconBox>
         <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
-      </div>
-      <div className="sg-subject-icon-box">
+      </SubjectIconBox>
+      <SubjectIconBox>
         <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM}/>
-      </div>
-      <div className="sg-subject-icon-box">
+      </SubjectIconBox>
+      <SubjectIconBox>
         <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL}/>
-      </div>
+      </SubjectIconBox>
       <br/>
-      <div className="sg-subject-icon-box sg-subject-icon-box--darker">
+      <SubjectIconBox darker={true}>
         <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
-      </div>
-      <div className="sg-subject-icon-box sg-subject-icon-box--darker">
+      </SubjectIconBox>
+      <SubjectIconBox darker={true}>
         <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM}/>
-      </div>
-      <div className="sg-subject-icon-box sg-subject-icon-box--darker">
+      </SubjectIconBox>
+      <SubjectIconBox darker={true}>
         <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL}/>
-      </div>
+      </SubjectIconBox>
     </DocsBlock>
   </div>;
 
