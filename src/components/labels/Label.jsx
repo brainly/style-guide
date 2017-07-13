@@ -27,7 +27,7 @@ LabelIcon.propTypes = {
   iconContent: PropTypes.node,
   iconSize: PropTypes.number,
   iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
+  iconType: PropTypes.oneOf(Object.values(ICON_TYPE))
 };
 
 const Label = props => {
@@ -88,4 +88,4 @@ Label.propTypes = {
 };
 
 export default Label;
-export {SIZE, ICON_TYPE, ICON_COLOR};
+export {SIZE, ICON_TYPE, ICON_COLOR, LabelIcon};
