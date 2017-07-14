@@ -9,7 +9,7 @@ const Search = props => <div className="sg-search">
   </div>
 </div>;
 
-Search.propTypes = Object.assign({}, TextInput.propTypes);
+Search.propTypes = TextInput.propTypes;
 
 export default Search;
 export {SIZE, COLOR, VALIDATION};
