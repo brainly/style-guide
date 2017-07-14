@@ -104,7 +104,7 @@ const examplePart2 = <ContentBox>
         <Sticker type={STICKER_TYPE.ANSWER}/>
       </div>
     </div>
-    <div className="sg-vertical-separator"></div>
+    <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
     <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -133,7 +133,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-vertical-separator"></div>
+          <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -160,7 +160,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-vertical-separator"></div>
+          <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -190,7 +190,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-vertical-separator"></div>
+          <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -218,7 +218,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-vertical-separator"></div>
+          <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
