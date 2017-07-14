@@ -7,8 +7,8 @@ test('render', () => {
     <SeparatorVertical/>
   );
 
-  expect(separator.hasClass('sg-separator')).toEqual(true);
-  expect(separator.hasClass('sg-separator--normal')).toEqual(false);
+  expect(separator.hasClass('sg-vertical-separator')).toEqual(true);
+  expect(separator.hasClass('sg-vertical-separator--normal')).toEqual(false);
 });
 
 test('size', () => {
@@ -16,5 +16,5 @@ test('size', () => {
     <SeparatorVertical size={SIZE.SMALL}/>
   );
 
-  expect(separator.hasClass('sg-separator--small')).toEqual(true);
+  expect(separator.hasClass('sg-vertical-separator--small')).toEqual(true);
 });

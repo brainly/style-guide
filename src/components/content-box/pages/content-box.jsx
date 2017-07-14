@@ -16,6 +16,7 @@ import Text from '../../text/Text';
 import Link, {COLOR as LINK_COLOR} from '../../text/Link';
 import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE} from '../../text/HeaderPrimary';
 import HeaderSecondary from '../../text/HeaderSecondary';
+import SeparatorVertical from '../../separators/SeparatorVertical';
 
 const link1 = <Link color={LINK_COLOR.GRAY} emphasised={true}>Math</Link>;
 const link2 = <Link color={LINK_COLOR.GRAY} emphasised={true}>10 pts</Link>;
@@ -74,7 +75,7 @@ const examplePart1 = <ContentBox>
         <Sticker type={STICKER_TYPE.ANSWER}/>
       </div>
     </div>
-    <div className="sg-separator"></div>
+    <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
     <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -103,7 +104,7 @@ const examplePart2 = <ContentBox>
         <Sticker type={STICKER_TYPE.ANSWER}/>
       </div>
     </div>
-    <div className="sg-separator"></div>
+    <div className="sg-vertical-separator"></div>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
     <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -132,7 +133,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-separator"></div>
+          <div className="sg-vertical-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -159,7 +160,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-separator"></div>
+          <div className="sg-vertical-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -189,7 +190,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-separator"></div>
+          <div className="sg-vertical-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
@@ -217,7 +218,7 @@ const ContentBoxes = () =>
               <Sticker type={STICKER_TYPE.ANSWER}/>
             </div>
           </div>
-          <div className="sg-separator"></div>
+          <div className="sg-vertical-separator"></div>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>

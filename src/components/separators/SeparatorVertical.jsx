@@ -10,8 +10,8 @@ const SIZE = {
 
 const Separator = ({size = SIZE.NORMAL}) => {
 
-  const separatorClass = classNames('sg-separator', {
-    [`sg-separator--${size}`]: size !== SIZE.NORMAL
+  const separatorClass = classNames('sg-vertical-separator', {
+    [`sg-vertical-separator--${size}`]: size !== SIZE.NORMAL
   });
 
   return <div className = {separatorClass}></div>;
