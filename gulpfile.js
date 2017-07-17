@@ -71,6 +71,8 @@ gulp.task('upload-files', getTask('upload-files'));
 
 gulp.task('clean:dist', getTask('clean-dist'));
 
+gulp.task('build:test', getTask('test-build'));
+
 gulp.task('build', function(done) {
   runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:copy-components',
     'build:react-pages', 'build:copy-package-json', 'jekyll:docs', 'docs:copy-components', 'docs:react-pages',
