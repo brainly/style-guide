@@ -56,7 +56,7 @@ const IconAsButton = ({color, size = SIZE.NORMAL, type, action, transparent, act
 IconAsButton.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  type: PropTypes.oneOf(Object.values(TYPE)),
   border: PropTypes.bool,
   action: PropTypes.bool,
   transparent: PropTypes.bool,
