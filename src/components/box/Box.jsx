@@ -9,10 +9,12 @@ const COLOR = {
   MINT: 'mint',
   MINT_SECONDARY: 'mint-secondary',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  PEACH: 'peach'
 };
 
 const PADDING = {
+  XSMALL: 'xsmall-padding',
   SMALL: 'small-padding',
   LARGE: 'large-padding'
 };
