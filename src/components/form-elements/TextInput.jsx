@@ -41,7 +41,8 @@ const TextInput = props => {
     'sg-input--invalid': valid === VALIDATION.INVALID,
     'sg-input--full-width': fullWidth,
     'sg-input--no-border': noBorder,
-    'sg-input--with-icon': withIcon
+    'sg-input--with-icon': withIcon,
+    'sg-search__input': type === 'search'
   });
 
   return <input type={type} className={inputClass} value={value} {...additionalProps}/>;

@@ -58,3 +58,13 @@ expect('render icon', () => {
   expect(icon.props().color).toEqual(ICON_COLOR.GRAY_SECONDARY);
   expect(icon.props().size).toEqual(18);
 });
+
+expect('adaptive icon', () => {
+  const search = shallow(
+    <Search adaptiveIco={true}/>
+  );
+
+  const icon = search.find(Icon);
+
+  expect(icon.props().color).toEqual(ICON_COLOR.ADAPTIVE);
+});

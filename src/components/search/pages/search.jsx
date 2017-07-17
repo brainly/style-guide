@@ -15,7 +15,7 @@ const searches = () => <div>
   </DocsBlock>
   <DocsBlock info="Light">
     <ContrastBox fullWidth={true}>
-      <Search placeholder="Find all the answers..." fullWidth={true} color={COLOR.LIGHT}/>
+      <Search placeholder="Find all the answers..." fullWidth={true} color={COLOR.LIGHT} adaptiveIco={true}/>
     </ContrastBox>
   </DocsBlock>
   <DocsBlock info="No border">
