@@ -9,6 +9,7 @@ import RWDHelper, {TYPE as RWD_TYPE} from '../../helpers/RwdHelper';
 import IconAsButton, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icon-as-button/IconAsButton';
 import ButtonSecondary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonSecondary';
 import Badge, {COLOR as BADGE_COLOR} from '../../badges/Badge';
+import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 
 const SmallDeviceExample = () =>
   <html lang="en">
@@ -33,8 +34,9 @@ const SmallDeviceExample = () =>
               <IconAsButton type={ICON_TYPE.MESSAGES} transparent={true} color={ICON_COLOR.LIGHT} overlay={
                 <Badge color={BADGE_COLOR.PEACH} rounded={true}>1</Badge>
               }/>
-              {/* FIXME: There should be an avatar */}
-              <IconAsButton  color={ICON_COLOR.transparent} type={ICON_TYPE.PROFILE}/>
+              <IconAsButton transparent={true}>
+                <Avatar size={AVATAR_SIZE.SMALL}/>
+              </IconAsButton>
             </HeaderRight>
           </div>
         </RWDHelper>
