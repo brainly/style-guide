@@ -12,11 +12,7 @@ const LayoutReversedOrder = () =>
     <head>
       <meta charSet="utf-8"/>
       <link rel="stylesheet" href="../../../style-guide.css"/>
-      <style>{'\
-      body {\
-        background-color: #f0f3f5;\
-      }\
-    '}</style>
+      <style>{'body {background-color: #f0f3f5;}'}</style>
     </head>
     <body>
       <Layout>
