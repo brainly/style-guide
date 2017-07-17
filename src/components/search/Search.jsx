@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 import TextInput, {VALIDATION, COLOR, SIZE} from '../form-elements/TextInput';
 import Icon, {TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
 
-const Search = props => {
-  const {
-    adaptiveIco,
-    ...additionalProps
-  } = props;
+const Search = ({adaptiveIco, ...additionalProps}) => {
   const iconColor = adaptiveIco ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
 
   return <div className="sg-search">
