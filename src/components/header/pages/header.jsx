@@ -12,6 +12,7 @@ import ButtonSecondary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonSecondar
 import Badge, {COLOR as BADGE_COLOR} from '../../badges/Badge';
 import ActionList from '../../action-list/ActionList';
 import ActionListHole from '../../action-list/ActionListHole';
+import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
 
 const Headers = () =>
   <div>
@@ -38,8 +39,9 @@ const Headers = () =>
               <IconAsButton type={ICON_TYPE.MESSAGES} transparent={true} color={ICON_COLOR.LIGHT} overlay={
                 <Badge color={BADGE_COLOR.PEACH} rounded={true}>1</Badge>
               }/>
-              {/* FIXME: There should be an avatar */}
-              <IconAsButton  color={ICON_COLOR.transparent} type={ICON_TYPE.PROFILE}/>
+              <IconAsButton transparent={true}>
+                <Avatar size={AVATAR_SIZE.SMALL}/>
+              </IconAsButton>
             </HeaderRight>
           </div>
         </RWDHelper>
