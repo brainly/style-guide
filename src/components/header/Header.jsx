@@ -9,11 +9,11 @@ const Header = ({children, light, fixed}) => {
     'sg-header--fixed': fixed
   });
 
-  return <div className={headerClass}>
+  return <header className={headerClass}>
     <div className="sg-header__container">
       {children}
     </div>
-  </div>;
+  </header>;
 };
 
 Header.propTypes = {
