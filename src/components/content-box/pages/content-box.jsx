@@ -70,9 +70,9 @@ const examplePart1 = <ContentBox>
     </Text>
   </ContentBoxContent>
   <ContentBoxActions>
-    <OverlayedBox
-      children={<Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>}
-      overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
+    </OverlayedBox>
     <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -96,9 +96,9 @@ const examplePart2 = <ContentBox>
     </Text>
   </ContentBoxContent>
   <ContentBoxActions>
-    <OverlayedBox
-      children={<Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>}
-      overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>
+    </OverlayedBox>
     <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -122,9 +122,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox
-            children={<Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>}
-            overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -146,9 +146,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox
-            children={<Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>}
-            overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -173,9 +173,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox
-            children={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>}
-            overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -198,9 +198,9 @@ const ContentBoxes = () =>
           vel eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox
-            children={<Avatar imgSrc="https://source.unsplash.com/64x64/?lion"/>}
-            overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
