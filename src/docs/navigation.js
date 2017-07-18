@@ -17,7 +17,7 @@ import text from '../components/text/pages/text';
 import headers from '../components/text/pages/headers';
 import textBit from '../components/text/pages/text-bit';
 import links from '../components/text/pages/links';
-// import colors from '../components/header/'; //todo
+import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
 import badges from '../components/badges/pages/badges';
 import box from '../components/box/pages/box';
@@ -26,7 +26,7 @@ import bubble from '../components/bubble/pages/bubble';
 import contentBox from '../components/content-box/pages/content-box';
 import dropdowns from '../components/dropdowns/pages/dropdowns';
 import flashMessage from '../components/flash-messages/pages/flash-messages';
-// import colors from '../components/footer/';// todo
+import footer from '../components/footer/pages/footer';
 import rwd from '../components/helpers/pages/rwd';
 import homeButton from '../components/home-button/pages/home-button';
 import layout from '../components/layout/pages/layout';
@@ -198,13 +198,12 @@ const navigation = [
       },
       {
         'name': 'Header',
-        component: headers
+        component: header
       },
-      // todo
-      // {
-      //   'name': 'Footer',
-      // component:footer
-      // },
+      {
+        'name': 'Footer',
+        component: footer
+      },
       {
         'name': 'Action List',
         component: actionList
