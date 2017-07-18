@@ -3,6 +3,7 @@ import TopLayer from '../TopLayer';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
 import ContentBoxActions from '../../content-box/ContentBoxActions';
+import Overlay from '../../overlay/Overlay';
 
 const content = <ContentBox>
   <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
@@ -31,11 +32,11 @@ const SmallSpacedTopLayer = () =>
       <link rel="stylesheet" href="../../../style-guide.css"/>
     </head>
     <body>
-      <div className="sg-overlay">
+      <Overlay>
         <TopLayer modal={true} splashScreen={true} limitedWidth={true}>
           {content}
         </TopLayer>
-      </div>
+      </Overlay>
       <script src="images/icons.js"></script>
     </body>
   </html>;
