@@ -1,65 +1,85 @@
 import React from 'react';
 import Layout from './Layout';
-import LayoutContainer from './LayoutContainer';
 import LayoutBox from './LayoutBox';
 import LayoutContent from './LayoutContent';
 import LayoutAsideContent from './LayoutAsideContent';
-import LayoutFooter from './LayoutFooter';
 import {shallow} from 'enzyme';
 
 describe('Layout', () => {
   test('render', () => {
     const layout = shallow(
       <Layout>
-        <LayoutContainer>
-            Content
-        </LayoutContainer>
+        Content
       </Layout>
     );
 
     expect(layout.hasClass('sg-layout')).toEqual(true);
   });
-});
 
-describe('LayoutContainer', () => {
-  test('render', () => {
-    const layoutContainer = shallow(
-      <LayoutContainer>
+  test('error when no children', () => {
+    const spy = jest.spyOn(console, 'error');
+
+    console.error = jest.fn();
+    shallow(
+      <Layout></Layout>
+    );
+    expect(console.error.mock.calls).toHaveLength(1);
+
+    spy.mockRestore();
+  });
+
+  test('render with footer', () => {
+    const footer = <div className="sg-footer">
+      <div className="sg-footer__container">
+        Footer
+      </div>
+    </div>;
+
+    const layout = shallow(
+      <Layout footer={footer}>
         Content
-      </LayoutContainer>
+      </Layout>
     );
 
-    expect(layoutContainer.hasClass('sg-layout__container')).toEqual(true);
+    expect(layout.find('.sg-layout__footer')).toHaveLength(1);
   });
 
   test('reserved-order', () => {
-    const layoutContainer = shallow(
-      <LayoutContainer reversedOrder={true}>Content</LayoutContainer>
+    const layout = shallow(
+      <Layout reversedOrder={true}>Content</Layout>
     );
+
+    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(layoutContainer.hasClass('sg-layout__container--reversed-order')).toEqual(true);
   });
 
   test('no-max-width', () => {
-    const layoutContainer = shallow(
-      <LayoutContainer noMaxWidth={true}>Content</LayoutContainer>
+    const layout = shallow(
+      <Layout noMaxWidth={true}>Content</Layout>
     );
+
+    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(layoutContainer.hasClass('sg-layout__container--no-max-width')).toEqual(true);
   });
 
   test('no-margin-top', () => {
-    const layoutContainer = shallow(
-      <LayoutContainer noMarginTop={true}>Content</LayoutContainer>
+    const layout = shallow(
+      <Layout noMarginTop={true}>Content</Layout>
     );
+
+    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(layoutContainer.hasClass('sg-layout__container--no-margin-top')).toEqual(true);
   });
 
   test('full-page', () => {
-    const layoutContainer = shallow(
-      <LayoutContainer fullPage={true}>Content</LayoutContainer>
+    const layout = shallow(
+      <Layout fullPage={true}>Content</Layout>
     );
+
+    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(layoutContainer.hasClass('sg-layout__container--full-page')).toEqual(true);
   });
@@ -106,17 +126,5 @@ describe('LayoutBox', () => {
     );
 
     expect(layoutBox.hasClass('sg-layout__box')).toEqual(true);
-  });
-});
-
-describe('LayoutFooter', () => {
-  test('render', () => {
-    const layoutFooter = shallow(
-      <LayoutFooter>
-        Content
-      </LayoutFooter>
-    );
-
-    expect(layoutFooter.hasClass('sg-layout__footer')).toEqual(true);
   });
 });

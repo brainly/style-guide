@@ -1,11 +1,21 @@
 import React from 'react';
 import Layout from './../Layout';
-import LayoutContainer from './../LayoutContainer';
 import LayoutBox from './../LayoutBox';
 import LayoutContent from './../LayoutContent';
 import LayoutAsideContent from './../LayoutAsideContent';
-import LayoutFooter from './../LayoutFooter';
 import Text from '../../text/Text';
+
+const header = <div className="sg-header sg-header--fixed">
+  <div className="sg-header__container">
+    Header
+  </div>
+</div>;
+
+const footer = <div className="sg-footer">
+  <div className="sg-footer__container">
+    Footer
+  </div>
+</div>;
 
 const LayoutSmall = () =>
   <html>
@@ -14,33 +24,19 @@ const LayoutSmall = () =>
       <link rel="stylesheet" href="../../../style-guide.css"/>
     </head>
     <body>
-      <Layout>
-        <div className="sg-header sg-header--fixed">
-          <div className="sg-header__container">
-            Header
-          </div>
-        </div>
-        <LayoutContainer>
-          <LayoutContent>
-            <LayoutBox>
-              <Text>
-                Main content has padding and white background
-              </Text>
-            </LayoutBox>
-          </LayoutContent>
-          <LayoutAsideContent>
+      <Layout header={header} footer={footer}>
+        <LayoutContent>
+          <LayoutBox>
             <Text>
-              Aside content has no padding and no background
+              Main content has padding and white background
             </Text>
-          </LayoutAsideContent>
-        </LayoutContainer>
-        <LayoutFooter>
-          <div className="sg-footer">
-            <div className="sg-footer__container">
-              Footer
-            </div>
-          </div>
-        </LayoutFooter>
+          </LayoutBox>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>
+            Aside content has no padding and no background
+          </Text>
+        </LayoutAsideContent>
       </Layout>
       <script src="images/icons.js"></script>
     </body>
