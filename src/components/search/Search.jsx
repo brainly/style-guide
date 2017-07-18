@@ -7,7 +7,7 @@ const Search = ({adaptiveIco, ...additionalProps}) => {
   const iconColor = adaptiveIco ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
 
   return <div className="sg-search">
-    <TextInput {...additionalProps} type="search" withIcon={true} />
+    <TextInput {...additionalProps} type="search" withIcon={true} className='sg-search__input'/>
     <div className="sg-search__icon">
       <Icon type={TYPE.SEARCH} color={iconColor} size={18}/>
     </div>

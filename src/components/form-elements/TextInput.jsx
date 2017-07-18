@@ -31,18 +31,18 @@ const TextInput = props => {
     withIcon,
     noBorder,
     value,
+    className,
     ...additionalProps
   } = props;
 
-  const inputClass = classnames('sg-input', {
+  const inputClass = classnames('sg-input', className, {
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
     'sg-input--valid': valid === VALIDATION.VALID,
     'sg-input--invalid': valid === VALIDATION.INVALID,
     'sg-input--full-width': fullWidth,
     'sg-input--no-border': noBorder,
-    'sg-input--with-icon': withIcon,
-    'sg-search__input': type === 'search'
+    'sg-input--with-icon': withIcon
   });
 
   return <input type={type} className={inputClass} value={value} {...additionalProps}/>;
@@ -56,7 +56,8 @@ TextInput.propTypes = {
   valid: PropTypes.oneOf(Object.values(VALIDATION)),
   fullWidth: PropTypes.bool,
   noBorder: PropTypes.bool,
-  withIcon: PropTypes.bool
+  withIcon: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default TextInput;
