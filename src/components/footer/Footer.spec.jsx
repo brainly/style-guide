@@ -7,7 +7,7 @@ test('render', () => {
     <Footer>some text</Footer>
   );
 
-  expect(header.hasClass('sg-footer')).toEqual(true);
+  expect(header.hasClass('sg-layout__footer')).toEqual(true);
 });
 
 test('error when no child', () => {
