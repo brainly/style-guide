@@ -16,16 +16,6 @@ test('render', () => {
   expect(icon.props().type).toEqual(type);
 });
 
-test('error when no type', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<IconAsButton/>);
-  expect(console.error.mock.calls).toHaveLength(2);
-
-  spy.mockRestore();
-});
-
 test('colors', () => {
   const type = TYPE.ANSWER;
   const color = COLOR.DARK;
@@ -133,4 +123,18 @@ test('no overlay', () => {
   const overlayedBox = iconAsButton.find(OverlayedBox);
 
   expect(overlayedBox).toHaveLength(0);
+});
+
+
+test('error when more than 1 child', () => {
+  const spy = jest.spyOn(console, 'error');
+
+  console.error = jest.fn();
+  shallow(<IconAsButton>
+    <div></div>
+    <div></div>
+  </IconAsButton>);
+  expect(console.error.mock.calls).toHaveLength(2);
+
+  spy.mockRestore();
 });
