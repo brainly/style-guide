@@ -60,8 +60,9 @@ module.exports = function(gulp, plugins, consts) {
     const path = file.path.replace(consts.SRC, consts.VERSIONED_DIST + '/docs');
     const ReactPageClass = require(path).default;
     const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
+    const doctype = '<!DOCTYPE html>\n';
 
-    file.contents = new Buffer(htmlPage);
+    file.contents = new Buffer(doctype + htmlPage);
     cb(null, file);
   };
 
