@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Head = ({page, site}) => <head>
+const Head = ({page = {}, site = {}}) => <head>
   <meta charSet="utf-8"/>
   <title>{page.title || site.title}</title>
   <meta name="description" content={page.excerpt || site.description}/>

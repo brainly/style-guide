@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
 
-
-const slugify = name => name;// TODO create
-
-
-const someJSScript = <script>
-  {`
+const someJSScript = `
   // highlighting holes
   var showHolesCheckbox = document.getElementById('js-highlight-holes');
   var active = -1;
@@ -129,8 +125,7 @@ const someJSScript = <script>
 }
   active = -1;
 });
-  `}
-</script>;
+  `;
 
 const Navigation = ({navigation, version}) => <nav className="main-menu">
   <a href="./" className="main-menu__home">
@@ -164,7 +159,7 @@ const Navigation = ({navigation, version}) => <nav className="main-menu">
     <label title="Highlight holes"><input type="checkbox" id="js-highlight-holes"/> Holes</label>
     <a href="https://github.com/brainly/style-guide" className="version">v{version }</a>
   </aside>
-  {someJSScript}
+  <script dangerouslySetInnerHTML={{__html: someJSScript}}/>
 </nav>;
 
 Navigation.propTypes = {

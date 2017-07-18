@@ -3,19 +3,16 @@ import PropTypes from 'prop-types';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
-
-const version = 'xyz '; //TODO import
-const slugify = name => name;// TODO create
-
-const page = {}; // TODO
-
+import packageJSON from '../_data/package.json';
 import site from '../config';
+import slugify from 'slugify';
 
+const version = packageJSON.version;
 const ItemsPage = ({navigationIdx}) => {
   const pageConfig = navigation[navigationIdx];
 
   return <html>
-    <Head page={page} site={site}/>
+    <Head page={pageConfig} site={site}/>
     <body>
 
       <script src="images/icons.js" async></script>
@@ -113,8 +110,6 @@ growButton.addEventListener('click', function() {
 };
 
 ItemsPage.propTypes = {
-  page: PropTypes.object,
-  site: PropTypes.object,
   navigationIdx: PropTypes.number
 
 };
