@@ -31,10 +31,11 @@ const TextInput = props => {
     withIcon,
     noBorder,
     value,
+    className,
     ...additionalProps
   } = props;
 
-  const inputClass = classnames('sg-input', {
+  const inputClass = classnames('sg-input', className, {
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
     'sg-input--valid': valid === VALIDATION.VALID,
@@ -55,7 +56,8 @@ TextInput.propTypes = {
   valid: PropTypes.oneOf(Object.values(VALIDATION)),
   fullWidth: PropTypes.bool,
   noBorder: PropTypes.bool,
-  withIcon: PropTypes.bool
+  withIcon: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default TextInput;

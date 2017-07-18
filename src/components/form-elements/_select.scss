@@ -8,6 +8,7 @@ $selectActiveBorderColor: $grayPrimary;
 $selectActiveInvalidBorderColor: $peachPrimary;
 $selectActiveValidBorderColor: $mintPrimary;
 $selectShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+$arrowColor: $graySecondary;
 
 $includeHtml: false !default;
 
@@ -48,13 +49,16 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      top: $selectHeight / 2 - $selectIconSize / 2;
+      top: $selectHeight / 2 - $selectIconSize / 2.5;
       right: gutter(1 / 2);
       height: $selectIconSize;
       width: $selectIconSize;
       pointer-events: none;
       z-index: 1;
       display: flex;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid $arrowColor;
 
     }
 
