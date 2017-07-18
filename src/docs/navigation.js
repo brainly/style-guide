@@ -36,14 +36,9 @@ import media from '../components/media/pages/media';
 import popupMenu from '../components/popup-menu/pages/popup-menu';
 import search from '../components/search/pages/search';
 import toplayer from '../components/toplayer/pages/toplayer';
-import defaultToplayer from '../components/toplayer/pages/default_toplayer';
-import notloggedToplayer from '../components/toplayer/pages/notlogged_toplayer';
-import splashScreenTopLayer from '../components/toplayer/pages/splash_screen_toplayer';
-import smallSpacedToplLayer from '../components/toplayer/pages/small_spaced_toplayer';
 import subjectIcons from '../components/subject-icons/pages/subject-icons';
 import subjects from '../components/subject-icons/pages/subjects';
 import separators from '../components/separators/pages/separators';
-import separatorSmallDevice from '../components/separators/pages/small-device';
 
 const navigation = [
   {
