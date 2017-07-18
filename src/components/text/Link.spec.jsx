@@ -8,6 +8,7 @@ test('render', () => {
   );
 
   expect(link.hasClass('sg-link')).toBeTruthy();
+  expect(link.props().href).toEqual('test.com');
 });
 
 test('empty href', () => {
@@ -15,7 +16,7 @@ test('empty href', () => {
     <Link>Test</Link>
   );
 
-  expect(link.props().href).toEqual('#');
+  expect(link.find('span')).toHaveLength(1);
 });
 
 test('size', () => {
