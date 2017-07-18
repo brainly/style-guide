@@ -51,10 +51,6 @@ gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
 
-gulp.task('docs:copy-components', getTask('docs-copy-components'));
-gulp.task('build:copy-components', getTask('build-copy-components'));
-gulp.task('watch:copy-components', getTask('watch-copy-components'));
-
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
 gulp.task('docs:react-pages', getTask('build-react-pages'));
@@ -69,13 +65,12 @@ gulp.task('build:test', getTask('test-build'));
 gulp.task('jekyll:docs', getTask('test-build'));
 
 gulp.task('build', function(done) {
-  runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:copy-components',
-    'jekyll:docs', 'docs:copy-components', 'docs:react-pages', 'fingerprint', 'fingerprint-replace',
-    'index-fingerprint-replace', 'root-redirect-page', done);
+  runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'jekyll:docs', 'docs:react-pages',
+    'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace', 'root-redirect-page', done);
 });
 
 gulp.task('watch',
-  ['watch:sass', 'watch:docs-sass', 'watch:copy-components', 'watch:docs-templates']
+  ['watch:sass', 'watch:docs-sass', 'watch:docs-templates']
 );
 
 gulp.task('deploy', function(done) {
