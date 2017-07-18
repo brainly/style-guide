@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from './../Layout';
-import LayoutBox from './../LayoutBox';
-import LayoutContent from './../LayoutContent';
-import LayoutAsideContent from './../LayoutAsideContent';
+import Layout from '../Layout';
+import LayoutBox from '../LayoutBox';
+import LayoutContent from '../LayoutContent';
+import LayoutAsideContent from '../LayoutAsideContent';
 import Text from '../../text/Text';
 
 const header = <div className="sg-header sg-header--fixed">
@@ -17,11 +17,12 @@ const footer = <div className="sg-footer">
   </div>
 </div>;
 
-const LayoutSmall = () =>
+const LayoutLarge = () =>
   <html>
     <head>
       <meta charSet="utf-8"/>
       <link rel="stylesheet" href="../../../style-guide.css"/>
+      <style>{'body {background-color: #f0f3f5;}'}</style>
     </head>
     <body>
       <Layout header={header} footer={footer}>
@@ -42,4 +43,4 @@ const LayoutSmall = () =>
     </body>
   </html>;
 
-export default LayoutSmall;
+export default LayoutLarge;

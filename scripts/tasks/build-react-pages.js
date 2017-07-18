@@ -67,7 +67,7 @@ module.exports = function(gulp, plugins, consts) {
 
 
   return function() {
-    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
+    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/iframe-pages/*.jsx');
     const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST, 'docs');
 
     return gulp.src(componentsHtml, {base: consts.SRC})

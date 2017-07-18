@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from './../Layout';
-import LayoutBox from './../LayoutBox';
-import LayoutContent from './../LayoutContent';
-import LayoutAsideContent from './../LayoutAsideContent';
+import Layout from '../Layout';
+import LayoutBox from '../LayoutBox';
+import LayoutContent from '../LayoutContent';
+import LayoutAsideContent from '../LayoutAsideContent';
 import Text from '../../text/Text';
 
 const header = <div className="sg-header sg-header--fixed">
