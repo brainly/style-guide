@@ -20,6 +20,10 @@ const coreConfig = {
       {
         test: /\.js|jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader'
       }
     ]
   },
@@ -68,8 +72,8 @@ module.exports = function(gulp, plugins, consts) {
 
 
   return function() {
-    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/iframe-pages/*.jsx');
-    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+    const componentsHtml = plugins.path.join(consts.DOCS, '/pages/*.jsx');
+    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST);
 
     return gulp.src(componentsHtml, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))

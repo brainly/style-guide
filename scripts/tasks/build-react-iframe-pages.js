@@ -72,8 +72,8 @@ module.exports = function(gulp, plugins, consts) {
 
 
   return function() {
-    const componentsHtml = plugins.path.join(consts.DOCS, '/pages/*.jsx');
-    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST);
+    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/iframe-pages/*.jsx');
+    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST, 'docs');
 
     return gulp.src(componentsHtml, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
