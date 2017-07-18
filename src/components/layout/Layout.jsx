@@ -13,7 +13,7 @@ const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTo
   let footerContent;
 
   if (footer) {
-    footerContent = <footer className="sg-layout__footer">{footer}</footer>;
+    footerContent = <div className="sg-layout__footer">{footer}</div>;
   }
 
   return (
