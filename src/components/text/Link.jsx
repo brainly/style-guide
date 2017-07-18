@@ -18,8 +18,12 @@ const SIZE = {
   OBSCURE: 'obscure'
 };
 
-const Link = ({children, href = '#', color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled,
+const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled,
   ...additionalProps}) => {
+
+  if (!href) {
+    disabled = true;
+  }
 
   const linkClass = classNames('sg-link', {
     [`sg-link--${size}`]: size !== SIZE.NORMAL,
