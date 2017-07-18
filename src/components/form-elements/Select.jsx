@@ -29,9 +29,6 @@ const Select = props => {
 
   return <div className={selectClass}>
     <div className="sg-select__icon">
-      <svg className="sg-icon sg-icon--x8 sg-icon--gray">
-        <path fill="#9fa6b5" d="M0 1l4 6 4-6"/>
-      </svg>
     </div>
     <select className="sg-select__element" value={value} {...additionalProps}>
       {optionsElements}
