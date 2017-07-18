@@ -3,6 +3,7 @@ import TopLayer, {SIZE} from '../TopLayer';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
 import ContentBoxActions from '../../content-box/ContentBoxActions';
+import Overlay from '../../overlay/Overlay';
 
 const content =
   <ContentBox>
@@ -32,11 +33,11 @@ const DefaultTopLayer = () =>
       <link rel="stylesheet" href="../../../style-guide.css"/>
     </head>
     <body>
-      <div className="sg-overlay">
+      <Overlay>
         <TopLayer modal={true} size={SIZE.SMALL}>
           {content}
         </TopLayer>
-      </div>
+      </Overlay>
       <script src="images/icons.js"></script>
     </body>
   </html>;
