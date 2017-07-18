@@ -5,7 +5,7 @@ import Head from './Head';
 import navigation from '../navigation';
 import packageJSON from '../../../package.json';
 import site from '../config';
-import slugify from 'slugify';
+import slugify from '../slugify';
 
 const version = packageJSON.version;
 
