@@ -17,7 +17,6 @@ test('empty href', () => {
   );
 
   expect(link.find('span')).toHaveLength(1);
-  expect(link.hasClass('sg-link--disabled')).toBeTruthy();
 });
 
 test('size', () => {

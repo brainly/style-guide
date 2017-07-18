@@ -21,10 +21,6 @@ const SIZE = {
 const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled,
   ...additionalProps}) => {
 
-  if (!href) {
-    disabled = true;
-  }
-
   const linkClass = classNames('sg-link', {
     [`sg-link--${size}`]: size !== SIZE.NORMAL,
     [`sg-link--${color}`]: color,
@@ -34,7 +30,7 @@ const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, 
     'sg-link--disabled': disabled
   });
 
-  if (disabled) {
+  if (disabled || !href) {
     return <span className={linkClass} {...additionalProps}>
       {children}
     </span>;
