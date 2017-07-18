@@ -63,6 +63,15 @@ test('default padding', () => {
   expect(box.hasClass(`sg-box--${PADDING.SMALL}`)).toEqual(false);
 });
 
+test('xsmall padding', () => {
+  const padding = PADDING.XSMALL;
+  const box = shallow(
+    <Box padding={padding}>some text</Box>
+  );
+
+  expect(box.hasClass('sg-box--xsmall-padding')).toEqual(true);
+});
+
 test('small padding', () => {
   const padding = PADDING.SMALL;
   const box = shallow(
