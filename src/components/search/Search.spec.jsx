@@ -45,7 +45,7 @@ test('pass properties to TextInput, without Search specific', () => {
   expect(textInput.props().withIcon).toEqual(true);
 });
 
-expect('render icon', () => {
+test('render icon', () => {
   const button = shallow(
     <Search/>
   );
@@ -53,8 +53,18 @@ expect('render icon', () => {
   const icon = button.find(Icon);
 
   expect(icon).toHaveLength(1);
-  expect(button.find('sg-search__icon')).toHaveLength(1);
+  expect(button.find('.sg-search__icon')).toHaveLength(1);
   expect(icon.props().type).toEqual(TYPE.SEARCH);
   expect(icon.props().color).toEqual(ICON_COLOR.GRAY_SECONDARY);
   expect(icon.props().size).toEqual(18);
+});
+
+test('adaptive icon', () => {
+  const search = shallow(
+    <Search adaptiveIco={true}/>
+  );
+
+  const icon = search.find(Icon);
+
+  expect(icon.props().color).toEqual(ICON_COLOR.ADAPTIVE);
 });

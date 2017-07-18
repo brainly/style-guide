@@ -33,7 +33,7 @@ IconAsButtonContent.propTypes = {
   overlay: PropTypes.node
 };
 
-const IconAsButton = ({color, size = SIZE.NORMAL, type, action, transparent, active, border, overlay}) => {
+const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay}) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${color}`]: color,
     [`sg-icon-as-button--${size.className}`]: size,
@@ -44,10 +44,18 @@ const IconAsButton = ({color, size = SIZE.NORMAL, type, action, transparent, act
     'sg-icon-as-button--transparent-active': transparent && active
   });
 
+  let content;
+
+  if (type) {
+    content = <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize}/>;
+  } else {
+    content = children;
+  }
+
   return <button className={buttonClass}>
     <div className="sg-icon-as-button__hole">
       <IconAsButtonContent overlay={overlay}>
-        <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize}/>
+        {content}
       </IconAsButtonContent>
     </div>
   </button>;
@@ -56,7 +64,8 @@ const IconAsButton = ({color, size = SIZE.NORMAL, type, action, transparent, act
 IconAsButton.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  children: PropTypes.element,
   border: PropTypes.bool,
   action: PropTypes.bool,
   transparent: PropTypes.bool,
