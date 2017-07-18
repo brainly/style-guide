@@ -33,7 +33,7 @@ const coreConfig = {
   externals: nodeModules
 };
 
-module.exports = function(gulp, plugins, consts) {
+module.exports = function(gulp, plugins, consts, options) {
   const createWebpackBundles = function(file, enc, cb) {
     const pathArray = file.path.replace(consts.SRC, '').split('/');
     const fileNameWithExtension = pathArray.pop();
@@ -72,10 +72,17 @@ module.exports = function(gulp, plugins, consts) {
 
 
   return function() {
-    const componentsHtml = plugins.path.join(consts.DOCS, '/pages/*.jsx');
-    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST);
+    let input, output;
 
-    return gulp.src(componentsHtml, {base: consts.SRC})
+    if (options.iframe) {
+      input = plugins.path.join(consts.COMPONENTS, '/**/iframe-pages/*.jsx');
+      output = plugins.path.join(consts.VERSIONED_DIST, 'docs');
+    } else {
+      input = plugins.path.join(consts.DOCS, '/pages/*.jsx');
+      output = plugins.path.join(consts.VERSIONED_DIST);
+    }
+
+    return gulp.src(input, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
       .pipe(through.obj(createHtmlFiles))
       .pipe(rename(
@@ -85,6 +92,6 @@ module.exports = function(gulp, plugins, consts) {
         })
       )
       .pipe(prettify())
-      .pipe(gulp.dest(docsOutputPathVersionedDist));
+      .pipe(gulp.dest(output));
   };
 };

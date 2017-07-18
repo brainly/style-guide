@@ -53,7 +53,7 @@ gulp.task('svgs-generate', getTask('svgs-generate'));
 
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
-gulp.task('build:react-iframe-pages', getTask('build-react-iframe-pages'));
+gulp.task('build:react-iframe-pages', getTask('build-react-pages', {iframe: true}));
 gulp.task('build:react-pages', getTask('build-react-pages'));
 
 gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
