@@ -6,7 +6,7 @@ import select from '../components/form-elements/pages/select';
 import textInput from '../components/form-elements/pages/text-input';
 import textarea from '../components/form-elements/pages/textarea';
 import labels from '../components/labels/pages/labels';
-// import colors from '../components/overlay'; //TODO
+import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
 import stickers from '../components/stickers/pages/stickers';
 import avatar from '../components/avatar/pages/avatar';
@@ -29,7 +29,7 @@ import flashMessage from '../components/flash-messages/pages/flash-messages';
 // import colors from '../components/footer/';// todo
 import rwd from '../components/helpers/pages/rwd';
 import homeButton from '../components/home-button/pages/home-button';
-// import colors from '../components/layout/'; //todo
+import layout from '../components/layout/pages/layout';
 import list from '../components/list/pages/list';
 import logo from '../components/logo/pages/logo';
 import media from '../components/media/pages/media';
@@ -165,12 +165,10 @@ const navigation = [
         'name': 'Separators',
         component: separators
       },
-      // todo
-      // {
-      //   'name': 'Overlay',
-      //   'location': 'overlay/overlay',
-      //   component:overlay
-      // },
+      {
+        'name': 'Overlay',
+        component: overlay
+      },
       {
         'name': 'Flash messages',
         component: flashMessage
@@ -219,11 +217,10 @@ const navigation = [
         'name': 'Toplayer',
         component: toplayer
       },
-      // todo
-      // {
-      //   'name': 'Layout',
-      //   component:layout
-      // },
+      {
+        'name': 'Layout',
+        component: layout
+      },
       {
         'name': 'Media',
         component: media
