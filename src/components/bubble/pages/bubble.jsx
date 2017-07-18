@@ -7,6 +7,8 @@ import ContentBoxHeader from '../../content-box/ContentBoxHeader';
 import ContentBoxActions from '../../content-box/ContentBoxActions';
 import ButtonSecondary, {TYPE} from '../../buttons/ButtonSecondary';
 import Text from '../../text/Text';
+import Avatar from '../../avatar/Avatar';
+import Breadcrumb from '../../breadcrumbs/Breadcrumb';
 import Link, {COLOR as LINK_COLOR} from '../../text/Link';
 
 const Bubbles = () =>
@@ -74,17 +76,11 @@ const Bubbles = () =>
       <Bubble direction={DIRECTION.TOP}>
         <ContentBox>
           <ContentBoxHeader>
-            <div className="sg-avatar">
-              <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-            </div>
-            <ul className="sg-breadcrumb-list">
-              <li className="sg-breadcrumb-list__element">
-                <Link color={LINK_COLOR.GRAY}>Katie</Link>
-              </li>
-              <li className="sg-breadcrumb-list__element">
-                <Link color={LINK_COLOR.GRAY}>a few seconds ago</Link>
-              </li>
-            </ul>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+            <Breadcrumb elements={[
+              <Link href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
+              <Link href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
+            ]}/>
           </ContentBoxHeader>
           <ContentBoxContent>
             <Text>
