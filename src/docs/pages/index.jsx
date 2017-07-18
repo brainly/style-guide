@@ -1,6 +1,6 @@
 import React from 'react';
 import ArticlePage from '../layouts/ArticlePage';
-import packageJSON from '../_data/package.json';
+import packageJSON from '../../../package.json';
 
 const index = () => <ArticlePage>
   <h1 className="main-header">Brainly style guide</h1>
