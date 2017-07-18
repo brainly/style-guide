@@ -1,9 +1,0 @@
-# Site settings
-title: Brainly Style Guide
-description: Brainly Front-End Style Guide Documentation
-baseurl: "."
-keep_files:
-  - "css/main.css"
-
-# Build settings
-markdown: kramdown

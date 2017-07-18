@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "95.1.0",
+  "version": "96.0.0",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -43,6 +43,7 @@
     "run-sequence": "^1.1.1",
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
+    "slugify": "^1.1.0",
     "through2": "^2.0.3",
     "uuid": "^3.1.0",
     "webpack": "^2.6.1",

@@ -20,6 +20,10 @@ const coreConfig = {
       {
         test: /\.js|jsx?$/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader'
       }
     ]
   },
@@ -60,27 +64,25 @@ module.exports = function(gulp, plugins, consts, options) {
     const path = file.path.replace(consts.SRC, consts.VERSIONED_DIST + '/docs');
     const ReactPageClass = require(path).default;
     const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
+    const doctype = '<!DOCTYPE html>\n';
 
-    file.contents = new Buffer(htmlPage);
+    file.contents = new Buffer(doctype + htmlPage);
     cb(null, file);
   };
 
 
   return function() {
-    const componentsHtml = plugins.path.join(consts.COMPONENTS, '/**/pages/*.jsx');
+    let input, output;
 
-    const docsOutputPathVersionedDist = plugins.path.join(consts.VERSIONED_DIST, 'docs');
-    const docsOutputPathSrcIncludes = plugins.path.join(consts.SRC, 'docs', '_includes');
-
-    let output;
-
-    if (options.docs) {
-      output = docsOutputPathVersionedDist;
+    if (options.iframe) {
+      input = plugins.path.join(consts.COMPONENTS, '/**/iframe-pages/*.jsx');
+      output = plugins.path.join(consts.VERSIONED_DIST, 'docs');
     } else {
-      output = docsOutputPathSrcIncludes;
+      input = plugins.path.join(consts.DOCS, '/pages/*.jsx');
+      output = plugins.path.join(consts.VERSIONED_DIST);
     }
 
-    return gulp.src(componentsHtml, {base: consts.SRC})
+    return gulp.src(input, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
       .pipe(through.obj(createHtmlFiles))
       .pipe(rename(
