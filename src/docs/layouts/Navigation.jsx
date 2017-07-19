@@ -35,7 +35,7 @@ const Navigation = ({navigation, version}) => <nav className="main-menu">
     <label title="Highlight holes"><input type="checkbox" id="js-highlight-holes"/> Holes</label>
     <a href="https://github.com/brainly/style-guide" className="version">v{version }</a>
   </aside>
-  <script src="js/script2.js"/>
+  <script src="js/search-and-holes.js"/>
 </nav>;
 
 Navigation.propTypes = {

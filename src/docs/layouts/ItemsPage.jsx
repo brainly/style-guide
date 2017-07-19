@@ -60,7 +60,7 @@ const ItemsPage = ({navigationIdx}) => {
         </div>
       </div>
 
-      <script src="js/script1.js"/>
+      <script src="js/highlight-markup.js"/>
 
     </body>
   </html>;
