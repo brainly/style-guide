@@ -1,4 +1,4 @@
-
+/*eslint-disable */
 // highlighting holes
 var showHolesCheckbox = document.getElementById('js-highlight-holes');
 var active = -1;
@@ -121,3 +121,4 @@ $searchResults.addEventListener('mouseenter', function (e) {
   }
   active = -1;
 });
+/*eslint-enable */

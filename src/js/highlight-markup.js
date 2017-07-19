@@ -1,3 +1,4 @@
+/*eslint-disable */
 var copyHelper = document.querySelector('.copy-helper');
 var copyHelperCode = copyHelper.querySelector('.copy-helper__code');
 var copyButton = copyHelper.querySelector('.js-copy-button');
@@ -39,3 +40,4 @@ growButton.addEventListener('click', function() {
   growButton.classList.toggle('copy-helper__button--flip');
   copyHelper.classList.toggle('copy-helper--big');
 });
+/*eslint-enable */
