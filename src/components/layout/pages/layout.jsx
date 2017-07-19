@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from '../../../docs/components/DocsBlock';
 
 const Layouts = () =>
   <div>

@@ -77,7 +77,7 @@ const ComponentSettings = ({settings, values, onChange}) => {
     </label>
   });
 
-  return <fieldset className="docs-block__settings">{content}</fieldset>;
+  return <fieldset className="docs-active-block__settings">{content}</fieldset>;
 };
 
 ComponentSettings.propTypes = {

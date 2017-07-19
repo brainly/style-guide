@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import {contrastBlockCssClass} from 'ContrastBox';
 import IconAsButton, {TYPE, COLOR, SIZE} from '../IconAsButton';
 import classnames from 'classnames';

@@ -56,8 +56,7 @@ gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
 gulp.task('build:react-iframe-pages', getTask('build-react-pages', {iframe: true}));
 gulp.task('build:react-pages', getTask('build-react-pages'));
-
-gulp.task('build:react', getTask('build-react'));
+gulp.task('build:react-interactive-pages', getTask('build-react-interactive-pages'));
 
 gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
 
@@ -69,19 +68,9 @@ gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('build', function(done) {
   runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:react-pages',
-    'build:react-iframe-pages', 'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
+    'build:react-iframe-pages', 'build:react-interactive-pages',
+    'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
     'root-redirect-page', done);
-});
-
-gulp.task('build-react-frontend', function(done) {
-  runSequence('clean:dist',
-    'sass:build', 'sass:docs-build',
-    'svgs-generate',
-    'build:react-pages', 'build:react-iframe-pages',
-    'build:react',
-    'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
-    'root-redirect-page',
-    done);
 });
 
 gulp.task('watch',

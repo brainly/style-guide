@@ -5,8 +5,8 @@ import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary'
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
-import ContrastBox from 'ContrastBox';
-import DocsBlock from 'DocsBlock';
+import ContrastBox from 'components/ContrastBox';
+import DocsBlock from 'components/DocsBlock';
 import ActionListHole from '../ActionListHole';
 
 const ActionLists = () =>

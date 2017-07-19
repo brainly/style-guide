@@ -1,7 +1,6 @@
 import React from 'react';
 import Avatar, {SIZE} from '../Avatar';
-import DocsActiveBlock from '../../../docs/DocsActiveBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Avatars = () => {
   const settings = {
@@ -11,14 +10,14 @@ const Avatars = () => {
     imgSrc: String
   };
 
-  return <ContrastBox light fullWidth>
+  return <div>
     <DocsActiveBlock settings={settings}>
       <Avatar size={SIZE.LARGE}/>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settings}>
       <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
     </DocsActiveBlock>
-  </ContrastBox>;
+  </div>;
 };
 
 

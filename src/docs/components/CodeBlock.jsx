@@ -7,12 +7,21 @@ const CodeBlock = ({children, type}) => {
     throw new Error('Passed child is not a string.');
   }
 
-  let markup = beautify(children, {indent_size: 2});
+  let markup = beautify(children, {
+    indent_size: 2,
+    unformatted: [],
+    wrap_line_length: 0
+  });
 
   if(type === 'jsx') {
     //HACK <i> was added to force highlightJS to highlight first tag
     markup = hljs.highlight('jsx', `<i>${markup}</i>`).value.slice(9, -78);
   } else if(type === 'html') {
+    // Remove optional SVG namespace added by the browser
+    markup = markup.replace(/ xmlns:xlink="http:\/\/www\.w3\.org\/1999\/xlink"/g, '');
+    // Get rid of the HTML comments left by react
+    markup = markup.replace(/\n *<!-- \/?react-text(: [0-9]+)? -->/g, '');
+
     markup = hljs.highlight(type, markup).value;
   }
 

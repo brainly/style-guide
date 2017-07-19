@@ -1,7 +1,7 @@
 import React from 'react';
 import Textarea, {SIZE, VALIDATION} from '../Textarea';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 
 const textareas = () => <div>
   <DocsBlock info="Default">

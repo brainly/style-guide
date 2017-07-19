@@ -225,6 +225,12 @@ const navigation = [
         component: media
       }
     ]
+  },
+  {
+    'name': 'Interactive',
+    'location': 'interactive',
+    'elements': [
+    ]
   }
 ];
 

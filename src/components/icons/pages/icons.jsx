@@ -1,6 +1,6 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 import Icon, {TYPE, COLOR, SIZE} from '../Icon';
 
 const icons = () => <div>

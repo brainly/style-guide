@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Text, {COLOR, SIZE as TEXT_SIZE, WEIGHT, TYPE} from 'text/Text';
 import Link from 'text/Link';

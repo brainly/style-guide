@@ -1,6 +1,6 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
 import OverlayedBox from '../OverlayedBox';
 import Avatar from 'avatar/Avatar';
