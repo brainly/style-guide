@@ -21,9 +21,5 @@ $includeHtml: false !default;
     &__input:focus + &__icon {
       fill: $graySecondary;
     }
-
-    &--short &__icon {
-      right: gutter(0.25);
-    }
   }
 }
