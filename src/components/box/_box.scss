@@ -51,6 +51,10 @@ $includeHtml: false !default;
       padding: rhythm(2) gutter(2);
     }
 
+    &--no-padding {
+      padding: 0;
+    }
+
     &--xsmall-padding {
       padding: gutter(1 / 3);
     }

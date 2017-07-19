@@ -14,6 +14,7 @@ const COLOR = {
 };
 
 const PADDING = {
+  NO_PADDING: 'no-padding',
   XSMALL: 'xsmall-padding',
   SMALL: 'small-padding',
   LARGE: 'large-padding'

@@ -32,6 +32,11 @@ const Boxs = () =>
       <Box full={true}>full</Box>
     </DocsBlock>
 
+    <DocsBlock info="No padding" multiContent={[
+      <Box padding={PADDING.NO_PADDING}>some text</Box>,
+      <Box padding={PADDING.NO_PADDING}>more text<br/> more more</Box>
+    ]}/>
+
     <DocsBlock info="Xsmall padding + no min height" multiContent={[
       <Box padding={PADDING.XSMALL} noMinHeight={true}>some text</Box>,
       <Box padding={PADDING.XSMALL} noMinHeight={true}>more text<br/> more more</Box>
