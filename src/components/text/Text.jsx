@@ -19,6 +19,7 @@ const SIZE = {
   OBSCURE: 'obscure',
   SMALL: 'small',
   XSMALL: 'xsmall',
+  LARGE: 'large',
   HEADLINE: 'headline'
 };
 

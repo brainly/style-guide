@@ -27,6 +27,11 @@ $includeHtml: false !default;
       @include typeVariant(headline, 7 / 6);
     }
 
+    &--large {
+      font-size: gutter(7 / 4);
+      line-height: gutter(7 / 4);
+    }
+
     &--emphasised {
       font-weight: $fontWeightBold;
     }
