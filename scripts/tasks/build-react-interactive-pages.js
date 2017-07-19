@@ -16,8 +16,6 @@ const coreConfig = {
     extensions: ['.js', '.jsx']
   },
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
     'html_beautify': 'html_beautify',
     'hljs': 'hljs'
   }

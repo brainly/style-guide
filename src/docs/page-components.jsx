@@ -1,4 +1,5 @@
-import { render } from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
 
@@ -19,4 +20,4 @@ const content = <div>
   </article>
 </div>;
 
-render(content, document.getElementById('root'));
+ReactDOM.render(content, document.getElementById('root'));

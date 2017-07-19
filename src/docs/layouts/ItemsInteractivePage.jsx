@@ -18,9 +18,6 @@ const ItemsInteractivePage = ({navigationIdx}) => {
   <script src="images/icons.js" async></script>
   <script src="images/subjects-icons.js" async></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js" defer></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.6.14/beautify-html.min.js" defer></script>
 
   <script src="js/page-components.jsx.bundle.js" defer></script>
