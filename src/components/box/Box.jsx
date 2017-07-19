@@ -20,14 +20,15 @@ const PADDING = {
   LARGE: 'large-padding'
 };
 
-const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight}) => {
+const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
     'sg-box--full': full,
     [`sg-box--${padding}`]: padding,
     'sg-box--image-wrapper': imgSrc,
-    'sg-box--no-min-height': noMinHeight
+    'sg-box--no-min-height': noMinHeight,
+    'sg-box--with-shadow': shadow
   });
 
   let content;
@@ -50,7 +51,8 @@ Box.propTypes = {
   noMinHeight: PropTypes.bool,
   full: PropTypes.bool,
   padding: PropTypes.oneOf(Object.values(PADDING)),
-  imgSrc: PropTypes.string
+  imgSrc: PropTypes.string,
+  shadow: PropTypes.bool
 };
 
 export default Box;

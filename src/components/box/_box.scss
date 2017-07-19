@@ -1,6 +1,7 @@
 $boxBorderColor: $graySecondary;
 $boxBackgroundDark: $graySecondaryLight;
 $boxBorderSize: 1px;
+$boxShadow: 0 1px 3px 2px rgba(0, 0, 0, 0.05);
 
 $includeHtml: false !default;
 
@@ -49,6 +50,10 @@ $includeHtml: false !default;
     &--no-border-large {
       border: none;
       padding: rhythm(2) gutter(2);
+    }
+
+    &--with-shadow {
+      box-shadow: $boxShadow;
     }
 
     &--no-padding {
