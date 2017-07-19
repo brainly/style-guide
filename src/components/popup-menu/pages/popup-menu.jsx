@@ -4,6 +4,7 @@ import IconAsButton, {COLOR, TYPE} from '../../icon-as-button/IconAsButton';
 import ButtonSecondary, {TYPE as buttonTypes} from '../../buttons/ButtonSecondary';
 import DocsBlock from '../../../docs/DocsBlock';
 import ContrastBox from '../../../docs/ContrastBox';
+import Avatar from '../../avatar/Avatar';
 
 const items = ['one', 'two', 'three'];
 
@@ -25,9 +26,7 @@ const PopupsMenus = () =>
           <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS}/>,
           <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES}/>,
           <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS}/>,
-          <div className="sg-avatar sg-avatar--with-border">
-            <img className="sg-avatar__image" src="https://source.unsplash.com/64x64/?man"/>
-          </div>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?moose"/>
         ]}/>
       </ContrastBox>
     </DocsBlock>

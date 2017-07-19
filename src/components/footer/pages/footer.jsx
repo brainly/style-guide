@@ -17,11 +17,11 @@ const Footers = () => <div>
   <DocsBlock info="Full">
     <Footer>
       <FooterLine>
-        <Breadcrumb elements={[<Link color={TEXT_COLOR.GRAY}>Regularmin</Link>,
-          <Link color={TEXT_COLOR.GRAY}>Kontakt</Link>,
-          <Link color={TEXT_COLOR.GRAY}>Jak zdobyć punkty?</Link>,
-          <Link color={TEXT_COLOR.GRAY}>O nas</Link>,
-          <Link color={TEXT_COLOR.GRAY}>Kariera</Link>
+        <Breadcrumb elements={[<Link href="#" color={TEXT_COLOR.GRAY}>Regularmin</Link>,
+          <Link href="#" color={TEXT_COLOR.GRAY}>Kontakt</Link>,
+          <Link href="#" color={TEXT_COLOR.GRAY}>Jak zdobyć punkty?</Link>,
+          <Link href="#" color={TEXT_COLOR.GRAY}>O nas</Link>,
+          <Link href="#" color={TEXT_COLOR.GRAY}>Kariera</Link>
         ]}/></FooterLine>
       <FooterLine>
         <Text size={TEXT_SIZE.SMALL} weight={TEXT_WEIGHT.BOLD}>

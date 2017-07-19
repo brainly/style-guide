@@ -14,33 +14,33 @@ const Links = () =>
         Some texts and a disabled link <Link color={COLOR.GRAY} disabled={true}>2 min ago</Link><br/>
       </div>
       <div>
-        An emphasized link <Link color={COLOR.GRAY} size={SIZE.SMALL} emphasised={true}>Math</Link><br/>
+        An emphasized link <Link href="#" color={COLOR.GRAY} size={SIZE.SMALL} emphasised={true}>Math</Link><br/>
       </div>
       <div>
-        Fine print link <Link color={COLOR.FINE_PRINT_LIGHT}>brainly.pl</Link><br/>
+        Fine print link <Link href="#" color={COLOR.FINE_PRINT_LIGHT}>brainly.pl</Link><br/>
       </div>
       <div>
-        Fine print emphasised link <Link color={COLOR.FINE_PRINT} emphasised={true}>Terms of use</Link><br/>
+        Fine print emphasised link <Link href="#" color={COLOR.FINE_PRINT} emphasised={true}>Terms of use</Link><br/>
       </div>
       <div>
-        Example of <Link color={COLOR.PEACH}> error link</Link> and
+        Example of <Link href="#" color={COLOR.PEACH}> error link</Link> and
         <Link color={COLOR.MUSTARD}> warning link</Link><br/>
       </div>
       <div>
-        Example of <Link color={COLOR.MINT}> mint link</Link><br/>
+        Example of <Link href="#" color={COLOR.MINT}> mint link</Link><br/>
       </div>
       <div>
-        Some texts and a <Link underlined={true}>underlined link</Link><br/>
+        Some texts and a <Link href="#" underlined={true}>underlined link</Link><br/>
       </div>
       <div>
-        Text with <Link unstyled={true}>unstyled link</Link><br/>
+        Text with <Link href="#" unstyled={true}>unstyled link</Link><br/>
       </div>
       <div>
-        Text with <Link size={SIZE.OBSCURE}>obscure link</Link><br/>
+        Text with <Link href="#" size={SIZE.OBSCURE}>obscure link</Link><br/>
       </div>
       <ContrastBox>
         <Text color={COLOR.LIGHT}>
-          This text is light and <Link color={COLOR.LIGHT}>this link is light!</Link>
+          This text is light and <Link href="#" color={COLOR.LIGHT}>this link is light!</Link>
         </Text>
       </ContrastBox>
     </Text>

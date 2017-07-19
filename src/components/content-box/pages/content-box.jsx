@@ -17,15 +17,16 @@ import Link, {COLOR as LINK_COLOR} from '../../text/Link';
 import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE} from '../../text/HeaderPrimary';
 import HeaderSecondary from '../../text/HeaderSecondary';
 import SeparatorVertical from '../../separators/SeparatorVertical';
+import OverlayedBox from '../../overlayed-box/OverlayedBox';
 
-const link1 = <Link color={LINK_COLOR.GRAY} emphasised={true}>Math</Link>;
-const link2 = <Link color={LINK_COLOR.GRAY} emphasised={true}>10 pts</Link>;
-const link3 = <Link color={LINK_COLOR.GRAY}>2 min ago</Link>;
+const link1 = <Link href="#" color={LINK_COLOR.GRAY} emphasised={true}>Math</Link>;
+const link2 = <Link href="#" color={LINK_COLOR.GRAY} emphasised={true}>10 pts</Link>;
+const link3 = <Link href="#" color={LINK_COLOR.GRAY}>2 min ago</Link>;
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [<Link color={LINK_COLOR.GRAY}>Katie</Link>,
-  <Link color={LINK_COLOR.GRAY}>Answerer</Link>];
+  <Link href="#" color={LINK_COLOR.GRAY}>Answerer</Link>];
 const breadcrumbsSpaced2 = [<Link>Comments (9)</Link>,
-  <Link>Report</Link>];
+  <Link href="#">Report</Link>];
 
 const spacedBottomOptions = <div>
   <Text>Options:</Text>
@@ -69,12 +70,9 @@ const examplePart1 = <ContentBox>
     </Text>
   </ContentBoxContent>
   <ContentBoxActions>
-    <div className="sg-overlayed-box">
+    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
       <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
-      <div className="sg-overlayed-box__overlay">
-        <Sticker type={STICKER_TYPE.ANSWER}/>
-      </div>
-    </div>
+    </OverlayedBox>
     <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -98,12 +96,9 @@ const examplePart2 = <ContentBox>
     </Text>
   </ContentBoxContent>
   <ContentBoxActions>
-    <div className="sg-overlayed-box">
+    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
       <Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>
-      <div className="sg-overlayed-box__overlay">
-        <Sticker type={STICKER_TYPE.ANSWER}/>
-      </div>
-    </div>
+    </OverlayedBox>
     <SeparatorVertical/>
     <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
     <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -127,12 +122,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <div className="sg-overlayed-box">
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
-            <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.ANSWER}/>
-            </div>
-          </div>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -154,12 +146,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <div className="sg-overlayed-box">
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
-            <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.ANSWER}/>
-            </div>
-          </div>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -184,12 +173,9 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <div className="sg-overlayed-box">
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
-            <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.ANSWER}/>
-            </div>
-          </div>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -212,12 +198,9 @@ const ContentBoxes = () =>
           vel eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <div className="sg-overlayed-box">
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?kitten"/>
-            <div className="sg-overlayed-box__overlay">
-              <Sticker type={STICKER_TYPE.ANSWER}/>
-            </div>
-          </div>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion"/>
+          </OverlayedBox>
           <SeparatorVertical/>
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
           <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
@@ -306,14 +289,10 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
-          <ul className="sg-breadcrumb-list">
-            <li className="sg-breadcrumb-list__element">
-              <Link>Comments (9)</Link>
-            </li>
-            <li className="sg-breadcrumb-list__element">
-              <Link>Report</Link>
-            </li>
-          </ul>
+          <Breadcrumbs elements={[
+            <Link href="#">Comments (9)</Link>,
+            <Link href="#">Report</Link>
+          ]}/>
           <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
               iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
