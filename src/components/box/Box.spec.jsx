@@ -21,6 +21,13 @@ test('colors', () => {
   expect(box.hasClass(`sg-box--${color}`)).toEqual(true);
 });
 
+test('shadow', () => {
+  const boxComponent = <Box shadow={true}>some text</Box>;
+  const box = shallow(boxComponent);
+
+  expect(boxComponent.props.shadow).toEqual(true);
+  expect(box.hasClass('sg-box--with-shadow')).toEqual(true);
+});
 
 test('border', () => {
   const boxComponent = <Box border={true}>some text</Box>;

@@ -15,6 +15,12 @@ const Boxs = () =>
       </Box>
     </DocsBlock>
 
+    <DocsBlock info='With shadow'>
+      <Box shadow={true}>
+        This is a box with shadow
+      </Box>
+    </DocsBlock>
+
     {Object.values(COLOR).map(
       color => <DocsBlock key={color} info={`color ${color}`}>
         <Box color={color}>{color} (no border by default)</Box>
