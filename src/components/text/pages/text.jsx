@@ -16,9 +16,13 @@ const TextExamples = () =>
     </Text>
     <Text size={SIZE.STANDOUT}>
       <br/>
-        This text is a bit bigger then the regular one
-      <br/>
+        This text is a bit bigger than the regular one
     </Text>
+    <br/>
+    <Text size={SIZE.LARGE}>
+      This text is large!
+    </Text>
+    <br/>
     <ContrastBox>
       <Text color={COLOR.LIGHT}>
         This text is light
