@@ -60,11 +60,13 @@ gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
 
 gulp.task('upload-files', getTask('upload-files'));
 
+gulp.task('copy-static', getTask('copy-static'));
+
 gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('build', function(done) {
   runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:react-pages',
-    'build:react-iframe-pages', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
+    'build:react-iframe-pages', 'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
     'root-redirect-page', done);
 });
 
