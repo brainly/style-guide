@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import generateJSX from './JSXGenerator';
 import ComponentSettings from './ComponentSettings';
 import CodeBlock from './CodeBlock';
-import ComponentBlock from './ComponentBlock';
 import DocsBlock from './DocsBlock';
+import ReactDOMServer from 'react-dom/server';
 
 class DocsActiveBlock extends Component {
 
@@ -12,8 +12,7 @@ class DocsActiveBlock extends Component {
     super(props);
 
     this.state = {
-      props: {},
-      html: ''
+      props: {}
     };
 
     if (this.props.children) {
@@ -26,12 +25,6 @@ class DocsActiveBlock extends Component {
           return result;
         }, {});
     }
-  }
-
-  onHTMLChanged(html) {
-    this.setState({
-      html
-    })
   }
 
   setProps(key, value) {
@@ -47,12 +40,14 @@ class DocsActiveBlock extends Component {
     const component = React.cloneElement(this.props.children, this.state.props);
 
     const jsx = generateJSX(component);
-    const html = this.state.html;
+    const html = ReactDOMServer.renderToStaticMarkup(component);
 
     return <div>
       <DocsBlock>
         <div className="docs-active-block">
-          <ComponentBlock component={component} onHTMLChanged={this.onHTMLChanged.bind(this)}/>
+          <div className="docs-active-block__component">
+            {component}
+          </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
                              values={this.state.props}/>
         </div>
