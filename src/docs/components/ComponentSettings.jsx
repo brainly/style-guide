@@ -43,13 +43,13 @@ const ComponentSettings = ({settings, values, onChange}) => {
           {allowedValues.map((item, index) =>
             <option key={stringifyIfNeeded(item)} value={index}>{stringifyIfNeeded(item)}</option>)}
         </select>
-      </label>
+      </label>;
     }
 
     let type;
     let inputType;
-    let inputValue = values[key];
-    let checked = Boolean(values[key]);
+    const inputValue = values[key];
+    const checked = Boolean(values[key]);
 
     if (allowedValues === Boolean) {
       type = 'boolean';
@@ -69,12 +69,12 @@ const ComponentSettings = ({settings, values, onChange}) => {
 
     return <label key={key}>{key}:
       <input type={inputType}
-             data-key={key}
-             data-value-type={type}
-             checked={checked}
-             value={inputValue}
-             onChange={inputChanged.bind(null, allowedValues)}/>
-    </label>
+        data-key={key}
+        data-value-type={type}
+        checked={checked}
+        value={inputValue}
+        onChange={inputChanged.bind(null, allowedValues)}/>
+    </label>;
   });
 
   return <fieldset className="docs-active-block__settings">{content}</fieldset>;
@@ -82,6 +82,7 @@ const ComponentSettings = ({settings, values, onChange}) => {
 
 ComponentSettings.propTypes = {
   settings: PropTypes.object.isRequired,
+  values: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 };
 

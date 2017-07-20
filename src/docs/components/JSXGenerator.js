@@ -3,13 +3,13 @@ function isComponent(value) {
 }
 
 function propToString(prop) {
-  if (isComponent((prop))) {
+  if (isComponent(prop)) {
     return generateJSX(prop);
   } else if (Array.isArray(prop)) {
     return '{[' + prop
-        .map(item => propToString(item))
-        .join(', ') + ']}';
-  } else if (typeof prop === "string") {
+      .map(item => propToString(item))
+      .join(', ') + ']}';
+  } else if (typeof prop === 'string') {
     return JSON.stringify(prop);
   }
 
@@ -37,7 +37,7 @@ function generateJSX(component) {
     jsxProps = ' ' + jsxProps;
   }
 
-  return (children.length > 0) ?
+  return children.length ?
     `<${type}${jsxProps}>${children.map(generateJSX).join('')}</${type}>` :
     `<${type}${jsxProps} />`;
 }

@@ -11,29 +11,31 @@ class DocsActiveBlock extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      props: {}
-    };
+    let componentProps = {};
 
     if (this.props.children) {
-      const props = this.props.children.props;
-
-      this.state.props = Object.keys(props)
+      componentProps = this.props.children.props;
+      componentProps = Object.keys(componentProps)
         .filter(key => props.hasOwnProperty(key))
         .reduce((result, key) => {
           result[key] = props[key];
           return result;
         }, {});
     }
+
+    this.state = {
+      props: componentProps
+    };
   }
 
   setProps(key, value) {
     const props = this.state.props;
+
     props[key] = value;
 
     this.setState({
       props
-    })
+    });
   }
 
   render() {
@@ -49,7 +51,7 @@ class DocsActiveBlock extends Component {
             {component}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
-                             values={this.state.props}/>
+            values={this.state.props}/>
         </div>
       </DocsBlock>
       <DocsBlock info="JSX">
@@ -63,7 +65,8 @@ class DocsActiveBlock extends Component {
 }
 
 DocsActiveBlock.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.element.isRequired,
+  settings: PropTypes.object.isRequired
 };
 
 export default DocsActiveBlock;

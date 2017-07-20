@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import beautify from 'html_beautify';
 import hljs from 'hljs';
 
 const CodeBlock = ({children, type}) => {
-  if (typeof children !== "string") {
+  if (typeof children !== 'string') {
     throw new Error('Passed child is not a string.');
   }
 
@@ -13,7 +14,7 @@ const CodeBlock = ({children, type}) => {
     wrap_line_length: 0
   });
 
-  if(type === 'jsx') {
+  if (type === 'jsx') {
     //HACK <i> was added to force highlightJS to highlight first tag
     markup = hljs.highlight('jsx', `<i>${markup}</i>`).value.slice(9, -78);
   } else {
@@ -26,6 +27,11 @@ const CodeBlock = ({children, type}) => {
       </code>
     </pre>
   </div>;
+};
+
+CodeBlock.propTypes = {
+  children: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 export default CodeBlock;
