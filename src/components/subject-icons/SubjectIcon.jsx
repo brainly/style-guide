@@ -21,6 +21,7 @@ const TYPE = {
   EGZAM: 'egzam',
   ENGLISH: 'english',
   ENTREPRENEURSHIP: 'entrepreneurship',
+  ENVIRONMENT: 'environment',
   ETHICS: 'ethics',
   EUSKARA: 'euskara',
   FIRST_AID: 'first-aid',
@@ -63,7 +64,7 @@ const TYPE = {
   SCIENCE: 'science',
   SECURITY: 'security',
   SKILLS: 'skills',
-  SOCIAL: 'social',
+  SOCIAL_SCIENCE: 'social-science',
   SOCIOLOGY: 'sociology',
   SPANISH: 'spanish',
   STATISTICS: 'statistics',
@@ -71,6 +72,7 @@ const TYPE = {
   TOURISM: 'tourism',
   TRAFFIC: 'traffic',
   UKRAINIAN: 'ukrainian',
+  UKRAINIAN_LITERATURE: 'ukrainian-literature',
   WOS: 'wos'
 };
 
