@@ -27,9 +27,6 @@ const coreConfig = {
       }
     ]
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   externals: nodeModules
 };
 
@@ -41,6 +38,14 @@ module.exports = function(gulp, plugins, consts, options) {
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', relativePath);
 
     const config = Object.assign({}, coreConfig, {
+      resolve: {
+        extensions: ['.js', '.jsx'],
+        modules: [
+          consts.COMPONENTS,
+          consts.DOCS,
+          'node_modules'
+        ]
+      },
       entry: {
         [fileNameWithExtension]: file.path
       },

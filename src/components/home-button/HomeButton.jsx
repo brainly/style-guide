@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {TYPE} from '../logo/Logo';
+import {TYPE} from 'logo/Logo';
 
 const HomeButton = ({type = TYPE.BRAINLY, href = '#'}) => {
 

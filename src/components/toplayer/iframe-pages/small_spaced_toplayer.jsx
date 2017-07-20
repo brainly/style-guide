@@ -1,12 +1,12 @@
 import React from 'react';
 import TopLayer from '../TopLayer';
-import ButtonPrimary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonPrimary';
-import ContentBox from '../../content-box/ContentBox';
-import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
-import Text, {WEIGHT} from '../../text/Text';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from '../../text/HeaderSecondary';
-import List, {ICON_TYPE, ICON_COLOR} from '../../list/List';
-import Overlay from '../../overlay/Overlay';
+import ButtonPrimary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonPrimary';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
+import Text, {WEIGHT} from 'text/Text';
+import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
+import Overlay from 'overlay/Overlay';
 
 const content = <ContentBox>
   <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>

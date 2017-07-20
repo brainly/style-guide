@@ -1,10 +1,10 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
-import IconAsButton, {COLOR, TYPE} from '../../icon-as-button/IconAsButton';
-import ButtonSecondary, {TYPE as buttonTypes} from '../../buttons/ButtonSecondary';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
-import Avatar from '../../avatar/Avatar';
+import IconAsButton, {COLOR, TYPE} from 'icon-as-button/IconAsButton';
+import ButtonSecondary, {TYPE as buttonTypes} from 'buttons/ButtonSecondary';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
+import Avatar from 'avatar/Avatar';
 
 const items = ['one', 'two', 'three'];
 

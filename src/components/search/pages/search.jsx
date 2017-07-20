@@ -1,7 +1,7 @@
 import React from 'react';
 import Search, {SIZE, COLOR} from '../Search';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
 
 const searches = () => <div>
   <DocsBlock info="Standard">

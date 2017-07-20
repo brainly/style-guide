@@ -1,6 +1,6 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
-import Label from '../../labels/Label';
+import DocsBlock from 'DocsBlock';
+import Label from 'labels/Label';
 import Radio from '../Radio';
 
 const dumpProps = {onChange: () => undefined};

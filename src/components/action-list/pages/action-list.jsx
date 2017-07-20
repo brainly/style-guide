@@ -1,12 +1,12 @@
 import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
-import ButtonSecondary, {TYPE as BUTTON_SECONDARY_TYPE} from '../../buttons/ButtonSecondary';
-import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from '../../buttons/ButtonPrimary';
-import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from '../../labels/Label';
-import Icon from '../../icons/Icon';
-import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../../text/Text';
-import ContrastBox from '../../../docs/ContrastBox';
-import DocsBlock from '../../../docs/DocsBlock';
+import ButtonSecondary, {TYPE as BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
+import Icon from 'icons/Icon';
+import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
+import ContrastBox from 'ContrastBox';
+import DocsBlock from 'DocsBlock';
 import ActionListHole from '../ActionListHole';
 
 const ActionLists = () =>

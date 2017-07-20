@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import List, {ListItem} from '../list/List';
-import Icon from '../icons/Icon';
+import List, {ListItem} from 'list/List';
+import Icon from 'icons/Icon';
 
 const testItem = 'test';
 const items = [testItem];

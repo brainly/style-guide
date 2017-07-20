@@ -1,10 +1,10 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from 'DocsBlock';
 import Footer from '../Footer';
 import FooterLine from '../FooterLine';
-import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../../text/Text';
-import Link from '../../text/Link';
-import Breadcrumb from '../../breadcrumbs/Breadcrumb';
+import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
+import Link from 'text/Link';
+import Breadcrumb from 'breadcrumbs/Breadcrumb';
 
 const Footers = () => <div>
   <DocsBlock info="Standard">

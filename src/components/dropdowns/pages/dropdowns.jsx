@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from '../DropdownContainer';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
 
 const item1st = {id: 'csdsd', text: '1st item'};
 const item2nd = {id: 'sdfsdfg', text: '2nd item'};

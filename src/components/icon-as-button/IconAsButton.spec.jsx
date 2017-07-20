@@ -1,8 +1,8 @@
 import React from 'react';
 import IconAsButton, {TYPE, COLOR, SIZE} from './IconAsButton';
-import Icon from '../icons/Icon';
+import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
-import OverlayedBox from '../overlayed-box/OverlayedBox';
+import OverlayedBox from 'overlayed-box/OverlayedBox';
 
 test('render', () => {
   const type = TYPE.STAR;

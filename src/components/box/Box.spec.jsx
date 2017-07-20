@@ -10,8 +10,6 @@ test('render', () => {
   expect(box.hasClass('sg-box')).toEqual(true);
 });
 
-
-
 test('colors', () => {
   const color = COLOR.LAVENDER;
   const box = shallow(

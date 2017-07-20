@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Icon, {TYPE, COLOR} from '../icons/Icon';
+import Icon, {TYPE, COLOR} from 'icons/Icon';
 import classnames from 'classnames';
 
 const ICO_SIZE = {

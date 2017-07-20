@@ -1,5 +1,5 @@
 import React from 'react';
-import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../text/Text';
+import Text, {TYPE, SIZE, COLOR, WEIGHT} from './Text';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {

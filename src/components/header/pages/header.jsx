@@ -1,18 +1,18 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from 'DocsBlock';
 import Header from '../Header';
 import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
 import HeaderRight from '../HeaderRight';
-import HomeButton from '../../home-button/HomeButton';
-import Search, {COLOR as SEARCH_COLOR} from '../../search/Search';
-import RWDHelper, {TYPE as RWD_TYPE} from '../../helpers/RwdHelper';
-import IconAsButton, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icon-as-button/IconAsButton';
-import ButtonSecondary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonSecondary';
-import Badge, {COLOR as BADGE_COLOR} from '../../badges/Badge';
-import ActionList from '../../action-list/ActionList';
-import ActionListHole from '../../action-list/ActionListHole';
-import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
+import HomeButton from 'home-button/HomeButton';
+import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
+import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
+import IconAsButton, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from 'icon-as-button/IconAsButton';
+import ButtonSecondary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonSecondary';
+import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
+import ActionList from 'action-list/ActionList';
+import ActionListHole from 'action-list/ActionListHole';
+import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const Headers = () =>
   <div>

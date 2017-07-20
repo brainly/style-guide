@@ -2,10 +2,10 @@ import React from 'react';
 import ButtonPrimary, {TYPE} from '../ButtonPrimary';
 import ButtonSecondary, {TYPE as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
-import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../../icons/Icon';
-import Label, {ICON_COLOR, ICON_TYPE} from '../../labels/Label';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
+import Icon, {TYPE as iconTypes, COLOR as iconColors} from 'icons/Icon';
+import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 
 const Buttons = () =>
   <div>

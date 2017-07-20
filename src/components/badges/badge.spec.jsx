@@ -1,6 +1,6 @@
 import React from 'react';
 import Badge, {COLOR, SIZE} from './Badge';
-import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR} from '../text/Text';
+import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR} from 'text/Text';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {

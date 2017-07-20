@@ -4,7 +4,6 @@ import ContentBoxContent from './ContentBoxContent';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 import ContentBoxTitle from './ContentBoxTitle';
 import ContentBoxActions from './ContentBoxActions';
-
 import ContentBoxHeader from './ContentBoxHeader';
 import {shallow, mount} from 'enzyme';
 

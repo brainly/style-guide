@@ -1,6 +1,6 @@
 import React from 'react';
 import Rating, {Star} from './Rating';
-import Icon from '../icons/Icon';
+import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 
 

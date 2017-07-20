@@ -1,6 +1,6 @@
 import React from 'react';
 import Label, {SIZE, ICON_COLOR, ICON_TYPE, LabelIcon} from './Label';
-import Icon from '../icons/Icon';
+import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
 
 describe('Label', () => {

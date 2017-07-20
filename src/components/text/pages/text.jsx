@@ -1,6 +1,6 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
 import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../Text';
 
 const TextExamples = () =>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar, {SIZE} from '../Avatar';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
 
 const Avatars = () =>
   <div>
