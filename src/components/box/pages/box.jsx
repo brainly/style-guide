@@ -1,11 +1,11 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from '../Box';
-import DocsBlock from '../../../docs/DocsBlock';
-import ButtonPrimary, {TYPE} from '../../buttons/ButtonPrimary';
-import ContentBox from '../../content-box/ContentBox';
-import ContentBoxHeader from '../../content-box/ContentBoxHeader';
-import ContentBoxActions from '../../content-box/ContentBoxActions';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from '../../text/HeaderSecondary';
+import DocsBlock from 'DocsBlock';
+import ButtonPrimary, {TYPE} from 'buttons/ButtonPrimary';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxHeader from 'content-box/ContentBoxHeader';
+import ContentBoxActions from 'content-box/ContentBoxActions';
+import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Boxs = () =>
   <div>

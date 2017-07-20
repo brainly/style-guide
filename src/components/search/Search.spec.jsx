@@ -1,7 +1,7 @@
 import React from 'react';
 import Search, {SIZE, COLOR, VALIDATION} from './Search';
-import TextInput from '../form-elements/TextInput';
-import Icon, {TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
+import TextInput from 'form-elements/TextInput';
+import Icon, {TYPE, COLOR as ICON_COLOR} from 'icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {

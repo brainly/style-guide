@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
-import Text, {SIZE} from '../text/Text';
+import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from 'icons/Icon';
+import Text, {SIZE} from 'text/Text';
 
 
 const ListItem = ({text, small, iconType = ICON_TYPE.ARROW_RIGHT, iconColor = ICON_COLOR.LIGHT}) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link, {COLOR as LINK_COLOR, SIZE as LINK_SIZE} from '../text/Link';
+import Link, {COLOR as LINK_COLOR, SIZE as LINK_SIZE} from './Link';
 import {shallow} from 'enzyme';
 
 test('render', () => {

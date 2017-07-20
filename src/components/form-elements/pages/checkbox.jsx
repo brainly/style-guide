@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '../Checkbox';
-import DocsBlock from '../../../docs/DocsBlock';
-import Label from '../../labels/Label';
+import DocsBlock from 'DocsBlock';
+import Label from 'labels/Label';
 
 const dumpProps = {onChange: () => undefined};
 

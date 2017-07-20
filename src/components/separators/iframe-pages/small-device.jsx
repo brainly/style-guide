@@ -1,5 +1,5 @@
 import React from 'react';
-import Avatar, {SIZE} from '../../avatar/Avatar';
+import Avatar, {SIZE} from 'avatar/Avatar';
 import SeparatorHorizontal, {TYPE} from '../SeparatorHorizontal';
 
 const SmallDeviceExample = () =>

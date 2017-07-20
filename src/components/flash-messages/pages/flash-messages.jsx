@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from 'DocsBlock';
 import FlashMessage, {TYPE} from '../FlashMessage';
 
 const TEXT = 'I have never seen a code like this before...';

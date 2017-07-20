@@ -1,6 +1,6 @@
 import React from 'react';
 import color from '../colors';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from 'DocsBlock';
 
 const colors = () => <div>
   <DocsBlock info="Primary colors">

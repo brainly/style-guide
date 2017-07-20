@@ -1,9 +1,9 @@
 import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
-import ContentBox from '../../content-box/ContentBox';
-import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
-import ContentBoxActions from '../../content-box/ContentBoxActions';
-import Overlay from '../../overlay/Overlay';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
+import ContentBoxActions from 'content-box/ContentBoxActions';
+import Overlay from 'overlay/Overlay';
 
 const content =
   <ContentBox>

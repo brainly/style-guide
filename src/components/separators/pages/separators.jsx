@@ -1,8 +1,8 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
-import Avatar, {SIZE as AVATAR_SIZE} from '../../avatar/Avatar';
-import Text, {COLOR, SIZE as TEXT_SIZE, WEIGHT, TYPE} from '../../text/Text';
-import Link from '../../text/Link';
+import DocsBlock from 'DocsBlock';
+import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
+import Text, {COLOR, SIZE as TEXT_SIZE, WEIGHT, TYPE} from 'text/Text';
+import Link from 'text/Link';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';
 import SeparatorHorizontal, {TYPE as SEPARATOR_TYPE} from '../SeparatorHorizontal';
 

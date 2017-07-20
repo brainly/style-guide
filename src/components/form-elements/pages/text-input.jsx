@@ -1,7 +1,7 @@
 import React from 'react';
 import TextInput, {SIZE, COLOR} from '../TextInput';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
 
 const textInputs = () => <div>
   <DocsBlock info="Default">

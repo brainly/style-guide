@@ -1,11 +1,11 @@
 import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
-import DocsBlock from '../../../docs/DocsBlock';
-import Icon, {TYPE, COLOR} from '../../icons/Icon';
-import ContentBox from '../../content-box/ContentBox';
-import ContentBoxContent, {SIZE as SPACING_SIZE} from '../../content-box/ContentBoxContent';
-import ContentBoxActions from '../../content-box/ContentBoxActions';
-import ButtonPrimary, {TYPE as BUTTON_TYPE} from '../../buttons/ButtonPrimary';
+import DocsBlock from 'DocsBlock';
+import Icon, {TYPE, COLOR} from 'icons/Icon';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
+import ContentBoxActions from 'content-box/ContentBoxActions';
+import ButtonPrimary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonPrimary';
 
 const content = <ContentBox>
   <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>

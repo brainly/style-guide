@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
+import DocsBlock from 'DocsBlock';
 import Label, {ICON_COLOR, ICON_TYPE, SIZE} from '../Label';
 
 const longText = 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';

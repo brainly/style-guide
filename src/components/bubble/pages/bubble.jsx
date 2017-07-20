@@ -1,15 +1,15 @@
 import React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from '../Bubble';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContentBox from '../../content-box/ContentBox';
-import ContentBoxContent from '../../content-box/ContentBoxContent';
-import ContentBoxHeader from '../../content-box/ContentBoxHeader';
-import ContentBoxActions from '../../content-box/ContentBoxActions';
-import ButtonSecondary, {TYPE} from '../../buttons/ButtonSecondary';
-import Text from '../../text/Text';
-import Avatar from '../../avatar/Avatar';
-import Breadcrumb from '../../breadcrumbs/Breadcrumb';
-import Link, {COLOR as LINK_COLOR} from '../../text/Link';
+import DocsBlock from 'DocsBlock';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent from 'content-box/ContentBoxContent';
+import ContentBoxHeader from 'content-box/ContentBoxHeader';
+import ContentBoxActions from 'content-box/ContentBoxActions';
+import ButtonSecondary, {TYPE} from 'buttons/ButtonSecondary';
+import Text from 'text/Text';
+import Avatar from 'avatar/Avatar';
+import Breadcrumb from 'breadcrumbs/Breadcrumb';
+import Link, {COLOR as LINK_COLOR} from 'text/Link';
 
 const Bubbles = () =>
   <div>

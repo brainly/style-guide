@@ -1,9 +1,9 @@
 import React from 'react';
 import Media from '../Media';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
-import Avatar from '../../avatar/Avatar';
-import Link, {COLOR} from '../../text/Link';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
+import Avatar from 'avatar/Avatar';
+import Link, {COLOR} from 'text/Link';
 
 const defaultProps = {
   contentArray: [

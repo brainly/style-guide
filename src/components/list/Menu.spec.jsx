@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import MenuList, {SIZE, MenuItem} from '../list/MenuList';
+import MenuList, {SIZE, MenuItem} from 'list/MenuList';
 
 const menuItem = {
   text: 'Test',

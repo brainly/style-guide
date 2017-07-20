@@ -1,7 +1,7 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContentBox from '../../content-box/ContentBox';
-import ContrastBox from '../../../docs/ContrastBox';
+import DocsBlock from 'DocsBlock';
+import ContentBox from 'content-box/ContentBox';
+import ContrastBox from 'ContrastBox';
 import List from '../List';
 import MenuList, {SIZE} from '../MenuList';
 

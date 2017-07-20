@@ -1,11 +1,11 @@
 import React from 'react';
-import DocsBlock from '../../../docs/DocsBlock';
-import ContrastBox from '../../../docs/ContrastBox';
-import IconAsButton, {TYPE, COLOR} from '../../icon-as-button/IconAsButton';
+import DocsBlock from 'DocsBlock';
+import ContrastBox from 'ContrastBox';
+import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
 import OverlayedBox from '../OverlayedBox';
-import Avatar from '../../avatar/Avatar';
-import Badge, {COLOR as BADGE_COLOR} from '../../badges/Badge';
-import Sticker, {TYPE as STICKER_TYPE} from '../../stickers/Sticker';
+import Avatar from 'avatar/Avatar';
+import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
+import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 
 
 const overlayedBoxs = () => <div>
