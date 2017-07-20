@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .a {
+        fill: none;
+      }
+
+      .b {
+        fill: #020a1a;
+      }
+
+      .c {
+        fill: #57b2f8;
+      }
+
+      .d {
+        fill: #53cf92;
+      }
+    </style>
+  </defs>
+  <title>social_science_5_m</title>
+  <rect class="b" x="17" y="10" width="2" height="4" rx="1" ry="1" transform="translate(6 30) rotate(-90)" />
+  <circle class="b" cx="21" cy="12" r="1" />
+  <rect class="b" x="5" y="10" width="2" height="4" rx="1" ry="1" transform="translate(-6 18) rotate(-90)" />
+  <circle class="b" cx="3" cy="12" r="1" />
+  <rect class="b" x="11" y="16" width="2" height="4" rx="1" ry="1" transform="translate(24 36) rotate(180)" />
+  <circle class="b" cx="12" cy="21" r="1" />
+  <rect class="b" x="11" y="4" width="2" height="4" rx="1" ry="1" />
+  <circle class="b" cx="12" cy="3" r="1" />
+  <rect class="b" x="15.24" y="5.76" width="2" height="4" rx="1" ry="1" transform="translate(22.24 24.73) rotate(-135)" />
+  <circle class="b" cx="18.36" cy="5.64" r="1" transform="translate(1.39 14.64) rotate(-45)" />
+  <rect class="b" x="6.76" y="14.24" width="2" height="4" rx="1" ry="1" transform="translate(1.76 33.21) rotate(-135)" />
+  <circle class="b" cx="5.64" cy="18.36" r="1" transform="translate(-11.33 9.36) rotate(-45)" />
+  <rect class="b" x="15.24" y="14.24" width="2" height="4" rx="1" ry="1" transform="translate(39.21 16.24) rotate(135)" />
+  <circle class="b" cx="18.36" cy="18.36" r="1" transform="translate(-7.61 18.36) rotate(-45)" />
+  <rect class="b" x="6.76" y="5.76" width="2" height="4" rx="1" ry="1" transform="translate(-3.21 7.76) rotate(-45)" />
+  <circle class="b" cx="5.64" cy="5.64" r="1" transform="translate(-2.33 5.64) rotate(-45)" />
+  <path class="b" d="M16.79,10.6A5,5,0,0,0,16,9.06a6.46,6.46,0,0,0-4.69-2A5,5,0,0,0,7,12a4.91,4.91,0,0,0,.21,1.44c0,.05,1.11,1.63,1.65,2.45a5,5,0,0,0,8.08-3.13C16.92,12,16.81,10.92,16.79,10.6Z" />
+  <path class="c" d="M16.8,10.58h0a3.84,3.84,0,0,1-1.72.56c-.77,0-.83.13-.91.34a.47.47,0,0,0,.43.59c.53.07.74.63.89,1s1,.46,1.42-.09A6.15,6.15,0,0,0,16.8,10.58Z" />
+  <path class="d" d="M10.43,8.56c.18,1.2-1,1.17-1.28,1.41a2.36,2.36,0,0,0-1,1.57c-.1.54.23.58.46.44s.29-.57.49-.58c.44,0,.65.83,1,.58s0-.59-.05-.85c-.23-.71.85-1.07,1.58-.91.44.17.77.56,1.28.33a2.76,2.76,0,0,0,.81-.83c.2-.25.26-.47.62-.39s.36.82.85.77,1-.84.76-1.13A4.92,4.92,0,0,0,11.37,7,1.32,1.32,0,0,0,10.43,8.56Z"
+  />
+  <path class="c" d="M11.42,15.59c.12.41.1.95.57,1,.64,0,.72-.68.71-1.35S12,14.54,12,14.14c0-.71.64-.44.93-1.07.59-1.31.09-1.92-.54-1.79s-1.32,1-1.64,1.43a1.17,1.17,0,0,1-.88.43,15.22,15.22,0,0,1-1.55-.24,1.43,1.43,0,0,0-1.09.53,5.21,5.21,0,0,0,1.64,2.45,7.56,7.56,0,0,1,.6-.74A1.16,1.16,0,0,1,11.42,15.59Z"
+  />
+</svg>

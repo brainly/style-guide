@@ -1,27 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
-    <defs>
-        <style>
-            .b {
-            fill: #020a1a;
-            }
+  <defs>
+    <style>
+      .b {
+        fill: #020a1a;
+      }
 
-            .c {
-            fill: #fff;
-            }
-
-            .d {
-            fill: #ff796b;
-            }
-        </style>
-    </defs>
-    <title>security</title>
-    <rect class="b" x="14.82" y="12.68" width="6" height="3" transform="translate(20.39 36.81) rotate(-135)" />
-    <rect class="b" x="3.18" y="12.68" width="6" height="3" transform="translate(-8.22 8.53) rotate(-45)" />
-    <path class="b" d="M12,2A7,7,0,0,0,7.87,14.63l1.29-1.29a3.87,3.87,0,0,1,5.48-.22l1.51,1.5A7,7,0,0,0,12,2Z" />
-    <circle class="c" cx="9" cy="8" r="1" />
-    <circle class="c" cx="15" cy="8" r="1" />
-    <circle class="d" cx="12" cy="16" r="3" />
-    <path class="c" d="M12,15.17a.83.83,0,1,1-.83.83.83.83,0,0,1,.83-.83M12,14a2,2,0,1,0,2,2,2,2,0,0,0-2-2Z" />
-    <rect class="b" x="16.67" y="14.17" width="5" height="3" rx="1" ry="1" transform="translate(-5.47 18.15) rotate(-45)" />
-    <rect class="b" x="2.33" y="14.17" width="5" height="3" rx="1" ry="1" transform="translate(-2.84 30.17) rotate(-135)" />
+      .c {
+        fill: #ff796b;
+      }
+    </style>
+  </defs>
+  <title>security_3_m</title>
+  <rect class="b" x="14.82" y="12.68" width="6" height="3" transform="translate(20.39 36.81) rotate(-135)" />
+  <rect class="b" x="3.18" y="12.68" width="6" height="3" transform="translate(-8.22 8.53) rotate(-45)" />
+  <path class="b" d="M12,2A7,7,0,0,0,7.87,14.63l1.29-1.29a3.87,3.87,0,0,1,5.48-.22l1.51,1.5A7,7,0,0,0,12,2ZM9,9a1,1,0,1,1,1-1A1,1,0,0,1,9,9Zm6,0a1,1,0,1,1,1-1A1,1,0,0,1,15,9Z" />
+  <circle class="c" cx="12" cy="16" r="0.83" />
+  <path class="c" d="M12,13a3,3,0,1,0,3,3A3,3,0,0,0,12,13Zm0,5a2,2,0,1,1,2-2A2,2,0,0,1,12,18Z" />
+  <rect class="b" x="16.67" y="14.17" width="5" height="3" rx="1" ry="1" transform="translate(-5.47 18.15) rotate(-45)" />
+  <rect class="b" x="2.33" y="14.17" width="5" height="3" rx="1" ry="1" transform="translate(-2.84 30.17) rotate(-135)" />
 </svg>
