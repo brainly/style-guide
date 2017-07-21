@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <path d="M18.78,18.75l.07-.07a1,1,0,0,0,.27-.93L17.23,9.58a1,1,0,0,1,.27-.93l2.72-2.72A2.74,2.74,0,0,0,21,4h0a1,1,0,0,0-1-1h-.14a2.41,2.41,0,0,0-1.71.71L15.36,6.51a1,1,0,0,1-.93.27L6.26,4.89a1,1,0,0,0-.93.27l-.07.07A1,1,0,0,0,5.5,6.82l5.06,2.65a1,1,0,0,1,.24,1.59l-2.6,2.6a1,1,0,0,1-.85.28l-1.5-.21A1,1,0,0,0,5,14l-.71.71,3,1.64a1,1,0,0,1,.39.39l1.64,3L10,19a1,1,0,0,0,.28-.85l-.21-1.5a1,1,0,0,1,.28-.85l2.6-2.6a1,1,0,0,1,1.59.24l2.65,5.06A1,1,0,0,0,18.78,18.75Z"
+  />
+  <rect x="-0.51" y="8.6" width="5.3" height="1" rx="0.5" ry="0.5" transform="translate(-5.81 4.17) rotate(-45)" />
+  <rect x="2.83" y="9.78" width="4.61" height="1" rx="0.5" ry="0.5" transform="translate(-5.76 6.65) rotate(-45)" />
+  <rect x="6.56" y="10.85" width="3.4" height="1" rx="0.5" ry="0.5" transform="translate(-5.6 9.17) rotate(-45)" />
+  <rect x="12.26" y="21.38" width="5.3" height="1" rx="0.5" ry="0.5" transform="translate(-11.1 16.95) rotate(-45)" />
+  <rect x="11.4" y="18.36" width="4.61" height="1" rx="0.5" ry="0.5" transform="translate(-9.32 15.22) rotate(-45)" />
+  <rect x="10.9" y="15.24" width="3.4" height="1" rx="0.5" ry="0.5" transform="translate(-7.44 13.52) rotate(-45)" />
+</svg>

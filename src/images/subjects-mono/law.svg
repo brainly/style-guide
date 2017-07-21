@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <path width="8" height="10" transform="translate(13.97 8.97)" d="M4,0,0,6A4,4,0,0,0,8,6ZM2,5.25,3.44,3A.65.65,0,0,1,4.55,3L6,5.25A.5.5,0,0,1,5.53,6H2.47A.5.5,0,0,1,2,5.25Z" />
+  <path width="8" height="10" transform="translate(1.97 8.97)" d="M4,0,0,6A4,4,0,0,0,8,6ZM2,5.25,3.44,3A.65.65,0,0,1,4.55,3L6,5.25A.5.5,0,0,1,5.53,6H2.47A.5.5,0,0,1,2,5.25Z" />
+  <rect x="5.98" y="8.98" width="12" height="1" />
+  <rect x="10.97" y="1.99" width="2" height="10.04" rx="1" ry="1" />
+</svg>
