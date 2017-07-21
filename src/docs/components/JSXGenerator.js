@@ -1,9 +1,7 @@
-function isComponent(value) {
-  return value.$$typeof;
-}
+import React from 'react';
 
 function propToString(prop) {
-  if (isComponent(prop)) {
+  if (React.isValidElement(prop)) {
     return generateJSX(prop);
   } else if (Array.isArray(prop)) {
     return '{[' + prop
@@ -17,16 +15,11 @@ function propToString(prop) {
 }
 
 function generateJSX(component) {
-  if (!isComponent(component)) {
+  if (!React.isValidElement(component)) {
     return component;
   }
 
   const type = component.type.name || component.type;
-  let children = component.props.children || [];
-
-  if (!Array.isArray(children)) {
-    children = [children];
-  }
 
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
@@ -37,8 +30,8 @@ function generateJSX(component) {
     jsxProps = ' ' + jsxProps;
   }
 
-  return children.length ?
-    `<${type}${jsxProps}>${children.map(generateJSX).join('')}</${type}>` :
+  return React.Children.count(component.props.children) ?
+    `<${type}${jsxProps}>${React.Children.map(component.props.children, generateJSX).join('')}</${type}>` :
     `<${type}${jsxProps} />`;
 }
 
