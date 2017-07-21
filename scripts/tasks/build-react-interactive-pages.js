@@ -26,7 +26,15 @@ module.exports = function(gulp, plugins, consts) {
     })];
 
     if (consts.IS_PRODUCTION) {
-      webpackPlugins.push(new UglifyJSPlugin());
+      webpackPlugins.push(new UglifyJSPlugin({
+        // we can't remove names - otherwise we won't be able to generate JSX
+        mangle: {
+          keep_fnames: true
+        },
+        compress: {
+          keep_fnames: true
+        }
+      }));
     }
 
     const config = Object.assign({}, coreConfig, {
