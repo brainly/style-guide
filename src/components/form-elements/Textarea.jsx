@@ -21,6 +21,13 @@ const Textarea = props => {
     ...additionalProps
   } = props;
 
+  if (valid && invalid) {
+    throw {
+      name: 'WrongValidation',
+      message: 'TextInput can be either valid or invalid!'
+    };
+  }
+
   const textareaClass = classnames('sg-textarea', {
     [`sg-textarea--${size}`]: size !== SIZE.NORMAL,
     'sg-textarea--valid': valid,

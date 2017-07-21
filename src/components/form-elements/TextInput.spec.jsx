@@ -48,6 +48,11 @@ test('invalid', () => {
   expect(input.hasClass('sg-input--valid')).toEqual(false);
 });
 
+test('error when both valid and invalid', () => {
+  expect(() => {
+    shallow(<TextInput valid={true} invalid={true}/>);
+  }).toThrow();
+});
 
 test('size', () => {
   const input = shallow(

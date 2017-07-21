@@ -65,6 +65,13 @@ test('invalid', () => {
 });
 
 
+test('error when both valid and invalid', () => {
+  expect(() => {
+    shallow(<Textarea valid={true} invalid={true}/>);
+  }).toThrow();
+});
+
+
 test('size', () => {
   const textarea = shallow(
     <Textarea size={SIZE.SHORT}/>

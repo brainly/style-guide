@@ -73,3 +73,9 @@ test('invalid', () => {
   expect(select.hasClass('sg-select--invalid')).toEqual(true);
 });
 
+
+test('error when both valid and invalid', () => {
+  expect(() => {
+    shallow(<Select valid={true} invalid={true}/>);
+  }).toThrow();
+});

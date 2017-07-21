@@ -29,6 +29,13 @@ const TextInput = props => {
     ...additionalProps
   } = props;
 
+  if (valid && invalid) {
+    throw {
+      name: 'WrongValidation',
+      message: 'TextInput can be either valid or invalid!'
+    };
+  }
+
   const inputClass = classnames('sg-input', className, {
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,

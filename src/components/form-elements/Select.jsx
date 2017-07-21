@@ -12,6 +12,13 @@ const Select = props => {
     ...additionalProps
   } = props;
 
+  if (valid && invalid) {
+    throw {
+      name: 'WrongValidation',
+      message: 'TextInput can be either valid or invalid!'
+    };
+  }
+
   const selectClass = classnames('sg-select', {
     'sg-select--valid': valid,
     'sg-select--invalid': invalid,
