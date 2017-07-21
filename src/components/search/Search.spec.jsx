@@ -1,5 +1,5 @@
 import React from 'react';
-import Search, {SIZE, COLOR, VALIDATION} from './Search';
+import Search, {SIZE, COLOR} from './Search';
 import TextInput from 'form-elements/TextInput';
 import Icon, {TYPE, COLOR as ICON_COLOR} from 'icons/Icon';
 import {shallow} from 'enzyme';
@@ -26,20 +26,19 @@ test('set Search specific properties to TextInput', () => {
 
 test('pass properties to TextInput, without Search specific', () => {
   const size = SIZE.LARGE;
-  const validation = VALIDATION.VALID;
   const color = COLOR.ALT;
   const type = 'text';
   const withIcon = false;
 
   const button = shallow(
-    <Search color={color} size={size} validation={validation} type={type} withIcon={withIcon}/>
+    <Search color={color} size={size} valid={true} type={type} withIcon={withIcon}/>
   );
 
   const textInput = button.find(TextInput);
 
   expect(textInput.props().size).toEqual(size);
   expect(textInput.props().color).toEqual(color);
-  expect(textInput.props().validation).toEqual(validation);
+  expect(textInput.props().valid).toEqual(true);
 
   expect(textInput.props().type).toEqual('search');
   expect(textInput.props().withIcon).toEqual(true);
