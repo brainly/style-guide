@@ -1,13 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
-  <defs>
-    <style>
-      .b {
-        fill: #020a1a;
-      }
-    </style>
-  </defs>
-  <title>algebra_mono</title>
-  <rect class="b" x="4" y="11" width="16" height="2" rx="1" ry="1" />
-  <circle class="b" cx="12.05" cy="18.46" r="3.53" />
-  <circle class="b" cx="12" cy="5.54" r="3.53" />
+  <rect x="4" y="11" width="16" height="2" rx="1" ry="1" />
+  <circle cx="12.05" cy="18.46" r="3.53" />
+  <circle cx="12" cy="5.54" r="3.53" />
 </svg>
