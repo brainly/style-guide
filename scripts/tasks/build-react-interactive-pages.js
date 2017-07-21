@@ -26,7 +26,7 @@ module.exports = function(gulp, plugins, consts) {
     })];
 
     if (consts.IS_PRODUCTION) {
-      plugins.push(new UglifyJSPlugin());
+      webpackPlugins.push(new UglifyJSPlugin());
     }
 
     const config = Object.assign({}, coreConfig, {
