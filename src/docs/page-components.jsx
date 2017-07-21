@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
+import Badges from '../components/badges/pages/badges-interactive';
 
 const content = <div>
   <article>
@@ -17,6 +18,13 @@ const content = <div>
       <a href="#bubble" className="permalink">#</a>
     </h2>
     <Bubbles />
+  </article>
+  <article>
+    <h2 className="article-header" id="badges">
+      Badges
+      <a href="#badges" className="permalink">#</a>
+    </h2>
+    <Badges />
   </article>
 </div>;
 
