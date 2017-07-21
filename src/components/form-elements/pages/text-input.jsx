@@ -11,7 +11,7 @@ const textInputs = () => <div>
     <TextInput placeholder="placeholder" valid={true} value="This is valid example" onChange={() => undefined}/>
   </DocsBlock>
   <DocsBlock info="Invalid">
-    <TextInput placeholder="placeholder" valid={false} value="This is invalid example" onChange={() => undefined}/>
+    <TextInput placeholder="placeholder" invalid={true} value="This is invalid example" onChange={() => undefined}/>
   </DocsBlock>
   <DocsBlock info="Small">
     <TextInput placeholder="placeholder" size={SIZE.SMALL}/>
