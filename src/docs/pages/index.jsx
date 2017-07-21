@@ -29,7 +29,7 @@ const index = () => <ArticlePage>
   </code></pre>
 
   <p className="sg-text">In order to use basic set of
-    <a href="./basics.html#icons" className="sg-link">icons</a>
+    <a href="./basics.html#icons" className="sg-link">icons </a>
     include this script before the closing &lt;/body&gt; tag:
   </p>
 
@@ -40,12 +40,22 @@ const index = () => <ArticlePage>
   </pre>
 
   <p className="sg-text">Similarly, if you'd like to use
-    <a href="./basics.html#subject-icons" className="sg-link">subject icons</a>
+    <a href="./basics.html#subject-icons" className="sg-link">subject icons </a>
     include the following script:</p>
 
   <pre>
     <code className="html">
       &lt;script src="https://styleguide.brainly.com/%%images/subjects-icons.js%%"&gt;&lt;    /script&gt;
+    </code>
+  </pre>
+
+  <p className="sg-text">If you'd like to use
+    <a href="./basics.html#subject-mono-icons" className="sg-link">subject mono icons </a>
+    include the following script:</p>
+
+  <pre>
+    <code className="html">
+      &lt;script src="https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%"&gt;&lt;    /script&gt;
     </code>
   </pre>
 
