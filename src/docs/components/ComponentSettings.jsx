@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function isPlainObject(o) {
+  return Object.getPrototypeOf(o) === Object.prototype;
+}
+
 const ComponentSettings = ({settings, values, onChange}) => {
   function inputChanged(values, e) {
     const target = e.target;
@@ -13,8 +17,6 @@ const ComponentSettings = ({settings, values, onChange}) => {
     } else if (type === 'number') {
       value = Number(target.value);
     } else if (type === 'object') {
-      value = JSON.parse(target.value);
-    } else if (type === 'array') {
       value = values[target.value];
     } else if (type === 'string') {
       value = target.value;
@@ -26,22 +28,18 @@ const ComponentSettings = ({settings, values, onChange}) => {
   const content = Object.keys(settings).map(key => {
     const allowedValues = settings[key];
 
-    function stringifyIfNeeded(item) {
-      return typeof item === 'string' ? item : JSON.stringify(item);
-    }
-
-    if (Array.isArray(allowedValues)) {
-      const selectedIdx = allowedValues.indexOf(values[key]);
+    if (isPlainObject(allowedValues)) {
+      const allowedKeys = Object.keys(allowedValues);
+      const selectedKey = allowedKeys.find(optionKey => allowedValues[optionKey] === values[key]);
 
       return <label key={key}>{key}:
         <select
           data-key={key}
-          data-value-type="array"
+          data-value-type="object"
           onChange={inputChanged.bind(null, allowedValues)}
-          value={selectedIdx}
+          value={selectedKey}
         >
-          {allowedValues.map((item, index) =>
-            <option key={stringifyIfNeeded(item)} value={index}>{stringifyIfNeeded(item)}</option>)}
+          {allowedKeys.map(optionKey => <option key={optionKey} value={optionKey}>{optionKey}</option>)}
         </select>
       </label>;
     }
@@ -57,9 +55,6 @@ const ComponentSettings = ({settings, values, onChange}) => {
     } else if (allowedValues === Number) {
       type = 'number';
       inputType = 'number';
-    } else if (allowedValues === Object) {
-      type = 'object';
-      inputType = 'text';
     } else if (allowedValues === String) {
       type = 'string';
       inputType = 'text';

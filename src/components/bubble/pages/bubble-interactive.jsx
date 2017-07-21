@@ -15,8 +15,8 @@ import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Bubbles = () => {
   const settings = {
-    direction: Object.values(DIRECTION),
-    alignment: Object.values(ALIGNMENT),
+    direction: DIRECTION,
+    alignment: ALIGNMENT,
     full: Boolean
   };
 

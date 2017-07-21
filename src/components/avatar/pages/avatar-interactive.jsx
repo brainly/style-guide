@@ -4,7 +4,7 @@ import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Avatars = () => {
   const settings = {
-    size: Object.values(SIZE),
+    size: SIZE,
     border: Boolean,
     spaced: Boolean,
     imgSrc: String
