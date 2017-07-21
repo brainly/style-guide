@@ -18,6 +18,7 @@ const ItemsPage = ({navigationIdx}) => {
 
       <script src="images/icons.js" async></script>
       <script src="images/subjects-icons.js" async></script>
+      <script src="images/subjects-mono-icons.js" async></script>
 
       <Navigation navigation={navigation} version={version}/>
 

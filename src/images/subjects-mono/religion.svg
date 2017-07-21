@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .b {
+        fill: #020a1a;
+      }
+    </style>
+  </defs>
+  <title>religion_m</title>
+  <path class="b" d="M16.1,8.9A7.17,7.17,0,0,0,2.17,11.17h0v2.89a6,6,0,1,0,11.91,0h0V12h1.42a1,1,0,0,0,1-1A7.17,7.17,0,0,0,16.1,8.9Zm-3.56,1.57a.78.78,0,1,1,.78-.77A.78.78,0,0,1,12.54,10.47Z" />
+  <ellipse class="b" cx="9.07" cy="2.59" rx="4.66" ry="0.86" />
+  <rect class="b" x="13.22" y="16.69" width="5.34" height="5.48" rx="2.67" ry="2.67" transform="translate(40.71 15.69) rotate(120.74)" />
+  <rect class="b" x="16.23" y="17.72" width="6.2" height="0.86" rx="0.43" ry="0.43" transform="matrix(-0.51, 0.86, -0.86, -0.51, 44.81, 10.81)" />
+  <rect class="b" x="15.84" y="15.77" width="6.78" height="0.86" rx="0.43" ry="0.43" transform="translate(42.99 7.95) rotate(120.74)" />
+  <rect class="b" x="14.36" y="15.03" width="8.13" height="0.86" rx="0.43" ry="0.43" transform="translate(41.13 7.52) rotate(120.74)" />
+  <rect class="b" x="13.09" y="15.02" width="8.13" height="0.86" rx="0.43" ry="0.43" transform="translate(39.2 8.59) rotate(120.74)" />
+  <path class="b" d="M15.7,13.72s-.05,1.15-2,4.13c.73-.16,1.38-.33,1.38-.33l1.21-2.1S17.26,13.84,15.7,13.72Z" />
+</svg>

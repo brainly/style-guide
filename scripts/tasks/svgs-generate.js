@@ -24,6 +24,7 @@ module.exports = function(gulp, plugins, consts) {
     const fs = require('fs');
     const svgPolyfill = fs.readFileSync(plugins.path.join(consts.SRC, 'svg-polyfill.js'), 'utf8');
     const subjectIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects', '*.svg');
+    const subjectMonoIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects-mono', '*.svg');
     const iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
     const destPath = plugins.path.join(consts.SRC, 'images');
 
@@ -36,6 +37,25 @@ module.exports = function(gulp, plugins, consts) {
       shape: {
         id: {
           generator: 'icon-subject-%s'
+        },
+        transform: ['svgo', {
+          custom: svgSymbolCleanUp.bind(null, {removeClass: false})
+        }]
+      },
+      svg: {
+        transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      }
+    };
+
+    const subjectMonoIconsConfig = {
+      mode: {
+        symbol: {
+          sprite: '../subjects-mono-icons.js'
+        }
+      },
+      shape: {
+        id: {
+          generator: 'icon-subject-mono-%s'
         },
         transform: ['svgo', {
           custom: svgSymbolCleanUp.bind(null, {removeClass: false})
@@ -67,6 +87,10 @@ module.exports = function(gulp, plugins, consts) {
 
     gulp.src(subjectIconsPath)
       .pipe(plugins.svgSprite(subjectIconsConfig))
+      .pipe(gulp.dest(destPath));
+
+    gulp.src(subjectMonoIconsPath)
+      .pipe(plugins.svgSprite(subjectMonoIconsConfig))
       .pipe(gulp.dest(destPath));
 
     return gulp.src(iconsPath)

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .b {
+        fill: #020a1a;
+      }
+    </style>
+  </defs>
+  <title>wos_civilisation</title>
+  <circle class="b" cx="19.02" cy="6.02" r="2" />
+  <path class="b" d="M22,10.88a3,3,0,0,0-6,0h0v3a28.71,28.71,0,0,0,.39,3.87,2.65,2.65,0,0,0,5.23,0A28.71,28.71,0,0,0,22,13.93v-3Z" />
+  <circle class="b" cx="5.02" cy="6.02" r="2" />
+  <path class="b" d="M8,10.88a3,3,0,0,0-6,0H2v3a28.71,28.71,0,0,0,.39,3.87,2.65,2.65,0,0,0,5.23,0A28.71,28.71,0,0,0,8,13.93v-3Z" />
+  <rect class="b" x="10.02" y="13.02" width="4" height="2" rx="1" ry="1" />
+  <rect class="b" x="10.02" y="9.02" width="4" height="2" rx="1" ry="1" />
+</svg>
