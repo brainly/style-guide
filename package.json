@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "98.0.0",
+  "version": "98.0.1",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -12,7 +12,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "classnames": "^2.2.5",
     "del": "^2.2.0",
     "enzyme": "^2.8.2",
     "eslint": "^4.0.0",
@@ -67,5 +66,8 @@
       "src/components",
       "src/docs"
     ]
+  },
+  "dependencies": {
+    "classnames": "^2.2.5"
   }
 }
