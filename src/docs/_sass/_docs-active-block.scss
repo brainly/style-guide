@@ -1,0 +1,22 @@
+.docs-active-block {
+  display: flex;
+  flex-direction: row;
+
+  &__component {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    margin: 10px;
+  }
+
+  &__settings {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    width: 300px;
+    border: none;
+    border-left: solid $grayPrimary 1px;
+  }
+}

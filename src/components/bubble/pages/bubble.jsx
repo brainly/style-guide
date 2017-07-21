@@ -1,6 +1,6 @@
 import React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from '../Bubble';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';

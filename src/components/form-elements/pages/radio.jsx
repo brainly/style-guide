@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Label from 'labels/Label';
 import Radio from '../Radio';
 

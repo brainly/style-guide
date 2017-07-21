@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from '../Select';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 
 const exampleOptions = [
   {value: 'option1', text: 'Option1'},

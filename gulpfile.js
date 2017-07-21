@@ -13,6 +13,7 @@ plugins.path = path;
 
 const consts = {
   PROJECT_DIR: __dirname,
+  IS_PRODUCTION: Boolean(argv.production),
   VERSION: argv.production ? pkg.version : 'dev',
   BUCKET_NAME: argv.production ? 'styleguide.brainly.com' : 'beta.styleguide.brainly.com',
   AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,
@@ -55,6 +56,7 @@ gulp.task('root-redirect-page', getTask('root-redirect-page'));
 
 gulp.task('build:react-iframe-pages', getTask('build-react-pages', {iframe: true}));
 gulp.task('build:react-pages', getTask('build-react-pages'));
+gulp.task('build:react-interactive-pages', getTask('build-react-interactive-pages'));
 
 gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
 
@@ -66,7 +68,8 @@ gulp.task('clean:dist', getTask('clean-dist'));
 
 gulp.task('build', function(done) {
   runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:react-pages',
-    'build:react-iframe-pages', 'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
+    'build:react-iframe-pages', 'build:react-interactive-pages',
+    'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
     'root-redirect-page', done);
 });
 

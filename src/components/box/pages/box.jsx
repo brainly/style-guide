@@ -1,6 +1,6 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from '../Box';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import ButtonPrimary, {TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';

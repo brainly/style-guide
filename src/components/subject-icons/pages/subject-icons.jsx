@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import SubjectIcon, {TYPE} from '../SubjectIcon';
 
 const subjectIcons = () => <div>

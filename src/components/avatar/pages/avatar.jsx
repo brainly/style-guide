@@ -1,7 +1,7 @@
 import React from 'react';
 import Avatar, {SIZE} from '../Avatar';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 
 const Avatars = () =>
   <div>
@@ -31,6 +31,5 @@ const Avatars = () =>
       </ContrastBox>
     </DocsBlock>
   </div>;
-
 
 export default Avatars;

@@ -1,13 +1,16 @@
 .copy-helper {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 100px;
-  z-index: 1000;
-  transform: translateY(0);
-  transition: transform 300ms, height 300ms;
-  will-change: transform;
+
+  &--fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    z-index: 1000;
+    transform: translateY(0);
+    transition: transform 300ms, height 300ms;
+    will-change: transform;
+  }
 
   &--hidden {
     transform: translateY(100%);
@@ -15,6 +18,10 @@
 
   &--big {
     height: 50%;
+  }
+
+  &--wrapped > .copy-helper__code-wrapper {
+    white-space: pre-wrap;
   }
 
   &__code-wrapper {

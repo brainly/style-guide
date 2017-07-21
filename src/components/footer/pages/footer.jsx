@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Footer from '../Footer';
 import FooterLine from '../FooterLine';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';

@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Breadcrumb from '../Breadcrumb';
 import Text, {COLOR as TEXT_COLOR} from 'text/Text';
 
