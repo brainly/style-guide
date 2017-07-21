@@ -58,7 +58,7 @@ module.exports = function(gulp, plugins, consts) {
           generator: 'icon-subject-mono-%s'
         },
         transform: ['svgo', {
-          custom: svgSymbolCleanUp.bind(null, {removeClass: false})
+          custom: svgSymbolCleanUp.bind(null, {removeClass: true})
         }]
       },
       svg: {
