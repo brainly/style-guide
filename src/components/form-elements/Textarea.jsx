@@ -24,7 +24,7 @@ const Textarea = props => {
   if (valid && invalid) {
     throw {
       name: 'WrongValidation',
-      message: 'TextInput can be either valid or invalid!'
+      message: 'Textarea can be either valid or invalid!'
     };
   }
 

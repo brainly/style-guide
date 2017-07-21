@@ -15,7 +15,7 @@ const Select = props => {
   if (valid && invalid) {
     throw {
       name: 'WrongValidation',
-      message: 'TextInput can be either valid or invalid!'
+      message: 'Select can be either valid or invalid!'
     };
   }
 
