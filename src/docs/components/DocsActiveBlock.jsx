@@ -16,7 +16,7 @@ class DocsActiveBlock extends Component {
     if (this.props.children) {
       componentProps = this.props.children.props;
       componentProps = Object.keys(componentProps)
-        .filter(key => props.hasOwnProperty(key))
+        .filter(key => props.hasOwnProperty(key) && key !== 'children')
         .reduce((result, key) => {
           result[key] = props[key];
           return result;
