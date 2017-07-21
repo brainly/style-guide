@@ -2,16 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const VALIDATION = {
-  VALID: true,
-  INVALID: false,
-  UNDEFINED: undefined
-};
-
-
 const Select = props => {
   const {
-    valid = VALIDATION.UNDEFINED,
+    valid,
+    invalid,
     fullWidth,
     value,
     options = [],
@@ -19,8 +13,8 @@ const Select = props => {
   } = props;
 
   const selectClass = classnames('sg-select', {
-    'sg-select--valid': valid === VALIDATION.VALID,
-    'sg-select--invalid': valid === VALIDATION.INVALID,
+    'sg-select--valid': valid,
+    'sg-select--invalid': invalid,
     'sg-select--full-width': fullWidth
   });
   const optionsElements = options.map(({value, text}) =>
@@ -45,10 +39,10 @@ const optionShape = PropTypes.shape({
 Select.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
-  valid: PropTypes.oneOf(Object.values(VALIDATION)),
+  valid: PropTypes.bool,
+  invalid: PropTypes.bool,
   fullWidth: PropTypes.bool,
   options: PropTypes.arrayOf(optionShape)
 };
 
 export default Select;
-export {VALIDATION};

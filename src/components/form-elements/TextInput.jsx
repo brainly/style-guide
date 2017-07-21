@@ -14,23 +14,17 @@ const COLOR = {
   LIGHT_ALT: 'light-alt'
 };
 
-const VALIDATION = {
-  VALID: true,
-  INVALID: false,
-  UNDEFINED: undefined
-};
-
-
 const TextInput = props => {
   const {
     type = 'text',
-    valid = VALIDATION.UNDEFINED,
     size = SIZE.NORMAL,
     color = COLOR.NORMAL,
     fullWidth,
     withIcon,
     noBorder,
     value,
+    valid,
+    invalid,
     className,
     ...additionalProps
   } = props;
@@ -38,8 +32,8 @@ const TextInput = props => {
   const inputClass = classnames('sg-input', className, {
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
-    'sg-input--valid': valid === VALIDATION.VALID,
-    'sg-input--invalid': valid === VALIDATION.INVALID,
+    'sg-input--valid': valid,
+    'sg-input--invalid': invalid,
     'sg-input--full-width': fullWidth,
     'sg-input--no-border': noBorder,
     'sg-input--with-icon': withIcon
@@ -53,7 +47,8 @@ TextInput.propTypes = {
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
-  valid: PropTypes.oneOf(Object.values(VALIDATION)),
+  valid: PropTypes.bool,
+  invalid: PropTypes.bool,
   fullWidth: PropTypes.bool,
   noBorder: PropTypes.bool,
   withIcon: PropTypes.bool,
@@ -61,4 +56,4 @@ TextInput.propTypes = {
 };
 
 export default TextInput;
-export {SIZE, COLOR, VALIDATION};
+export {SIZE, COLOR};

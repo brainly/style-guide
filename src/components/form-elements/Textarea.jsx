@@ -9,16 +9,10 @@ const SIZE = {
   XTALL: 'xtall'
 };
 
-const VALIDATION = {
-  VALID: true,
-  INVALID: false,
-  UNDEFINED: undefined
-};
-
-
 const Textarea = props => {
   const {
-    valid = VALIDATION.UNDEFINED,
+    valid,
+    invalid,
     size = SIZE.NORMAL,
     fullWidth,
     simple,
@@ -29,8 +23,8 @@ const Textarea = props => {
 
   const textareaClass = classnames('sg-textarea', {
     [`sg-textarea--${size}`]: size !== SIZE.NORMAL,
-    'sg-textarea--valid': valid === VALIDATION.VALID,
-    'sg-textarea--invalid': valid === VALIDATION.INVALID,
+    'sg-textarea--valid': valid,
+    'sg-textarea--invalid': invalid,
     'sg-textarea--full-width': fullWidth,
     'sg-textarea--simple': simple,
     'sg-textarea--auto-height': autoHeight
@@ -43,11 +37,12 @@ Textarea.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  valid: PropTypes.oneOf(Object.values(VALIDATION)),
+  valid: PropTypes.bool,
+  invalid: PropTypes.bool,
   fullWidth: PropTypes.bool,
   simple: PropTypes.bool,
   autoHeight: PropTypes.bool
 };
 
 export default Textarea;
-export {SIZE, VALIDATION};
+export {SIZE};
