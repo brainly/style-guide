@@ -1,6 +1,6 @@
 import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Icon, {TYPE, COLOR} from 'icons/Icon';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';

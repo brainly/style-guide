@@ -1,6 +1,6 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
-import ContrastBox from 'ContrastBox';
+import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 import HeaderPrimary, {TYPE, SIZE, COLOR} from '../HeaderPrimary';
 import HeaderSecondary from '../HeaderSecondary';
 

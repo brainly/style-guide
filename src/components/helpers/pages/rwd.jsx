@@ -1,6 +1,6 @@
 import React from 'react';
 import RwdHelper, {TYPE} from '../RwdHelper';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Icon, {TYPE as icoTypes, COLOR} from 'icons/Icon';
 
 const RwdHelpers = () =>

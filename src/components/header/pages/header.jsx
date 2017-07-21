@@ -1,5 +1,5 @@
 import React from 'react';
-import DocsBlock from 'DocsBlock';
+import DocsBlock from 'components/DocsBlock';
 import Header from '../Header';
 import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
