@@ -12,9 +12,6 @@ const coreConfig = {
       }
     ]
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
   externals: {
     'html_beautify': 'html_beautify',
     'hljs': 'hljs'
@@ -25,10 +22,10 @@ module.exports = function(gulp, plugins, consts) {
   const createWebpackBundles = function(file, enc, cb) {
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs/', 'js/');
     const webpackPlugins = [new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(consts.IS_PRODUCTION ? 'production' : 'development')
-      })];
+      'process.env.NODE_ENV': JSON.stringify(consts.IS_PRODUCTION ? 'production' : 'development')
+    })];
 
-    if(consts.IS_PRODUCTION) {
+    if (consts.IS_PRODUCTION) {
       plugins.push(new UglifyJSPlugin());
     }
 
@@ -39,6 +36,14 @@ module.exports = function(gulp, plugins, consts) {
       output: {
         filename: '[name].bundle.js',
         path: jsPath
+      },
+      resolve: {
+        extensions: ['.js', '.jsx'],
+        modules: [
+          consts.COMPONENTS,
+          consts.DOCS,
+          'node_modules'
+        ]
       },
       plugins: webpackPlugins,
       devtool: consts.IS_PRODUCTION ? 'source-map' : 'eval'
