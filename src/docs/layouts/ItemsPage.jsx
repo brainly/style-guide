@@ -38,7 +38,7 @@ const ItemsPage = ({navigationIdx}) => {
 
       </div>
 
-      <div className="copy-helper copy-helper--hidden">
+      <div className="copy-helper copy-helper--fixed copy-helper--hidden">
         <pre className="copy-helper__code-wrapper"><code className="copy-helper__code" id="sg-code"></code></pre>
 
         <div className="copy-helper__buttons">
