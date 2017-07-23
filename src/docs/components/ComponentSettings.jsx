@@ -15,10 +15,10 @@ const ComponentSettings = ({settings, values, onChange}) => {
 
     if (isPlainObject(allowedValues)) {
       input = <ComponentSettingsSelect key={key} values={allowedValues} currentValue={currentValue}
-                                       onChange={value => onChange(key, value)}/>;
+        onChange={value => onChange(key, value)}/>;
     } else {
       input = <ComponentSettingsInput key={key} values={allowedValues} currentValue={currentValue}
-                                      onChange={value => onChange(key, value)}/>;
+        onChange={value => onChange(key, value)}/>;
     }
 
     return <label key={key}>{key}: {input} </label>;

@@ -34,10 +34,10 @@ const ComponentSettingsInput = ({values, currentValue, onChange}) => {
   }
 
   return <input type={inputType}
-                data-value-type={type}
-                checked={checked}
-                value={currentValue}
-                onChange={inputChanged}/>;
+    data-value-type={type}
+    checked={checked}
+    value={currentValue}
+    onChange={inputChanged}/>;
 };
 
 ComponentSettingsInput.propTypes = {
