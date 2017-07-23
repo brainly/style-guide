@@ -12,11 +12,7 @@ const ComponentSettingsSelect = ({values, currentValue, onChange}) => {
     onChange(value);
   }
 
-  return <select
-    data-value-type="object"
-    onChange={inputChanged}
-    value={selectedKey}
-  >
+  return <select onChange={inputChanged} value={selectedKey}>
     {allowedKeys.map(optionKey => <option key={optionKey} value={optionKey}>{optionKey}</option>)}
   </select>;
 };
