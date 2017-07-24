@@ -2,10 +2,7 @@ $toplayerBackgroundColor: $white;
 $toplayerShadow: 0 2px 6px 3px $defaultBottomShadowColor;
 $toplayerMarginTop: 65px;
 $toplayerMarginBottom: rhythm(1);
-$toplayerHeaderHeight: rhythm(1.25);
 $layoutMaxWidth: 1024px;
-
-$toplayerFirstVerticalPadding: (rhythm(1) - ($toplayerHeaderHeight - rhythm(1)));
 
 $includeHtml: false !default;
 
@@ -19,11 +16,12 @@ $includeHtml: false !default;
     width: 100%;
     box-shadow: $toplayerShadow;
     background-color: $toplayerBackgroundColor;
+    position: relative;
 
     &--lead {
       .sg-toplayer__wrapper {
         @include sgBreakpoint(medium-up) {
-          padding: ($toplayerFirstVerticalPadding + rhythm(1)) gutter(2) rhythm(2);
+          padding: rhythm(2) gutter(2);
         }
       }
     }
@@ -108,32 +106,17 @@ $includeHtml: false !default;
       flex-direction: row;
     }
 
-    &__header {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      height: $toplayerHeaderHeight;
-      background-repeat: repeat-x;
-      background-color: $white;
-      border-top-left-radius: $borderRadiusDefault;
-      border-top-right-radius: $borderRadiusDefault;
-    }
-
     &__close {
-      color: $graySecondary;
-      font-size: 32px;
-      height: 20px;
-      font-weight: $fontWeightBold;
-      padding: 0 gutter(0.25);
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: gutter(1 / 2);
       cursor: pointer;
-
-      &:hover {
-        text-decoration: none;
-      }
     }
 
     &__wrapper {
-      padding: $toplayerFirstVerticalPadding gutter(1) rhythm(1);
+      padding: rhythm(1) gutter(1);
     }
 
     &__actions {

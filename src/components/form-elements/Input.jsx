@@ -14,7 +14,7 @@ const COLOR = {
   LIGHT_ALT: 'light-alt'
 };
 
-const TextInput = props => {
+const Input = props => {
   const {
     type = 'text',
     size = SIZE.NORMAL,
@@ -32,7 +32,7 @@ const TextInput = props => {
   if (valid && invalid) {
     throw {
       name: 'WrongValidation',
-      message: 'TextInput can be either valid or invalid!'
+      message: 'Input can be either valid or invalid!'
     };
   }
 
@@ -49,9 +49,9 @@ const TextInput = props => {
   return <input type={type} className={inputClass} value={value} {...additionalProps}/>;
 };
 
-TextInput.propTypes = {
+Input.propTypes = {
   type: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
   valid: PropTypes.bool,
@@ -62,5 +62,5 @@ TextInput.propTypes = {
   className: PropTypes.string
 };
 
-export default TextInput;
+export default Input;
 export {SIZE, COLOR};

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextInput from 'form-elements/TextInput';
+import Input from 'form-elements/Input';
 import Checkbox from 'form-elements/Checkbox';
 
 const ComponentSettingsInput = ({values, currentValue, onChange}) => {
@@ -34,7 +34,7 @@ const ComponentSettingsInput = ({values, currentValue, onChange}) => {
     inputType = 'text';
   }
 
-  return <TextInput type={inputType} value={currentValue} onChange={inputChanged}/>;
+  return <Input type={inputType} value={currentValue} onChange={inputChanged}/>;
 };
 
 ComponentSettingsInput.propTypes = {
