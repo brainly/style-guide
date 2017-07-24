@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Text from 'text/Text';
 import ComponentSettingsInput from './ComponentSettingsInput';
 import ComponentSettingsSelect from './ComponentSettingsSelect';
 
@@ -21,10 +22,10 @@ const ComponentSettings = ({settings, values, onChange}) => {
         onChange={value => onChange(key, value)}/>;
     }
 
-    return <label key={key}>{key}: {input} </label>;
+    return <label key={key}><Text>{key}:</Text> {input} </label>;
   });
 
-  return <fieldset className="docs-active-block__settings">{content}</fieldset>;
+  return <fieldset className="docs-active-block__component-settings">{content}</fieldset>;
 };
 
 ComponentSettings.propTypes = {
