@@ -14,11 +14,21 @@ import Link, {COLOR as LINK_COLOR} from 'text/Link';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Bubbles = () => {
-  const settings = {
-    direction: DIRECTION,
-    alignment: ALIGNMENT,
-    full: Boolean
-  };
+  const settings = [
+    {
+      name: 'direction',
+      values: DIRECTION,
+      required: true
+    },
+    {
+      name: 'alignment',
+      values: ALIGNMENT
+    },
+    {
+      name: 'full',
+      values: Boolean
+    }
+  ];
 
   return <div>
     <DocsActiveBlock settings={settings}>

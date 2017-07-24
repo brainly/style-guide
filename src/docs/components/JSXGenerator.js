@@ -2,7 +2,7 @@ import React from 'react';
 
 function propToString(prop) {
   if (React.isValidElement(prop)) {
-    return generateJSX(prop);
+    return '{' + generateJSX(prop) + '}';
   } else if (Array.isArray(prop)) {
     return '{[' + prop
       .map(item => propToString(item))
@@ -23,6 +23,7 @@ function generateJSX(component) {
 
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
+    .filter(key => component.props[key] !== undefined)
     .map(key => `${key}=${propToString(component.props[key])}`)
     .join(' ');
 
