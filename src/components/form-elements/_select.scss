@@ -19,6 +19,7 @@ $includeHtml: false !default;
     color: $selectTextColor;
     box-shadow: $selectShadow;
     border-radius: $selectBorderRadius;
+    padding-left: gutter(1 / 12);
 
     &__element {
       background: $selectBackground;
