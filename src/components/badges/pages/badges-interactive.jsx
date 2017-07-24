@@ -1,24 +1,23 @@
 import React from 'react';
-import Avatar, {SIZE} from '../Avatar';
+import Badge, {COLOR, SIZE} from '../Badge';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const Avatars = () => {
+const Badges = () => {
   const settings = {
+    color: COLOR,
     size: SIZE,
-    border: Boolean,
-    spaced: Boolean,
-    imgSrc: String
+    rounded: Boolean,
+    withAnimation: Boolean
   };
 
   return <div>
     <DocsActiveBlock settings={settings}>
-      <Avatar size={SIZE.LARGE}/>
+      <Badge>3 / 5</Badge>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settings}>
-      <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
+      <Badge color={COLOR.PEACH} rounded={true} withAnimation={true}>123</Badge>
     </DocsActiveBlock>
   </div>;
 };
 
-
-export default Avatars;
+export default Badges;
