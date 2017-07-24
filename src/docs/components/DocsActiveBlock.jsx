@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import generateJSX from './JSXGenerator';
+import DocsActiveBlockSettings from './DocsActiveBlockSettings';
 import ComponentSettings from './ComponentSettings';
 import CodeBlock from './CodeBlock';
 import DocsBlock from './DocsBlock';
 import ReactDOMServer from 'react-dom/server';
+import classnames from 'classnames';
 
 class DocsActiveBlock extends Component {
 
@@ -24,6 +26,8 @@ class DocsActiveBlock extends Component {
     }
 
     this.state = {
+      showCode: null,
+      grayBackground: true,
       props: componentProps
     };
   }
@@ -38,28 +42,42 @@ class DocsActiveBlock extends Component {
     });
   }
 
+  settingsChanged(setting, value) {
+    this.setState({
+      [setting]: value
+    });
+  }
+
   render() {
     const component = React.cloneElement(this.props.children, this.state.props);
+    let code;
 
-    const jsx = generateJSX(component);
-    const html = ReactDOMServer.renderToStaticMarkup(component);
+    if (this.state.showCode === 'jsx') {
+      const jsx = generateJSX(component);
+
+      code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
+    } else if (this.state.showCode === 'html') {
+      const html = ReactDOMServer.renderToStaticMarkup(component);
+
+      code = <DocsBlock><CodeBlock type="html">{html}</CodeBlock></DocsBlock>;
+    }
+
+    const blockClass = classnames('docs-active-block', {
+      'docs-active-block--gray': this.state.grayBackground
+    });
 
     return <div>
       <DocsBlock>
-        <div className="docs-active-block">
+        <div className={blockClass}>
           <div className="docs-active-block__component">
             {component}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
             values={this.state.props}/>
+          <DocsActiveBlockSettings onChange={this.settingsChanged.bind(this)} values={this.state} />
         </div>
       </DocsBlock>
-      <DocsBlock info="JSX">
-        <CodeBlock type="jsx">{jsx}</CodeBlock>
-      </DocsBlock>
-      <DocsBlock info="HTML">
-        <CodeBlock type="html">{html}</CodeBlock>
-      </DocsBlock>
+      {code}
     </div>;
   }
 }

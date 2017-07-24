@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Select from 'form-elements/Select';
 
 const ComponentSettingsSelect = ({values, currentValue, onChange}) => {
   const allowedKeys = Object.keys(values);
@@ -12,9 +13,9 @@ const ComponentSettingsSelect = ({values, currentValue, onChange}) => {
     onChange(value);
   }
 
-  return <select onChange={inputChanged} value={selectedKey}>
-    {allowedKeys.map(optionKey => <option key={optionKey} value={optionKey}>{optionKey}</option>)}
-  </select>;
+  const options = allowedKeys.map(optionKey => ({text: optionKey, value: optionKey}));
+
+  return <Select onChange={inputChanged} value={selectedKey} options={options} />;
 };
 
 ComponentSettingsSelect.propTypes = {

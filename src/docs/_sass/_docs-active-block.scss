@@ -1,6 +1,15 @@
+$docsActiveBlockTransparent: rgba(0, 0, 0, 0);
+
 .docs-active-block {
   display: flex;
   flex-direction: row;
+  position: relative;
+
+  &--gray .docs-active-block__component {
+    background-color: $graySecondaryLightest;
+    background-size: 41px 40px;
+    background-image: radial-gradient(circle, $grayPrimary 1px, $docsActiveBlockTransparent 1px);
+  }
 
   &__component {
     display: flex;
@@ -8,15 +17,27 @@
     align-items: center;
     vertical-align: middle;
     justify-content: center;
-    margin: 10px;
+    padding: 20px;
   }
 
-  &__settings {
+  &__component-settings {
     display: flex;
     flex-shrink: 0;
     flex-direction: column;
     width: 300px;
     border: none;
     border-left: solid $grayPrimary 1px;
+  }
+
+  &__settings {
+    display: block;
+    position: absolute;
+    bottom: -24px;
+    left: 0;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

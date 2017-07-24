@@ -1,43 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from 'form-elements/TextInput';
+import Checkbox from 'form-elements/Checkbox';
 
 const ComponentSettingsInput = ({values, currentValue, onChange}) => {
-  let type;
+  let dataType;
   let inputType;
   const checked = Boolean(currentValue);
 
   function inputChanged(e) {
     const target = e.target;
-    const type = e.target.dataset.valueType;
-    let value = null;
+    let value = target.value;
 
-    if (type === 'boolean') {
+    if (dataType === 'boolean') {
       value = Boolean(target.checked);
-    } else if (type === 'number') {
-      value = Number(target.value);
-    } else if (type === 'string') {
-      value = target.value;
+    } else if (dataType === 'number') {
+      value = Number(value);
     }
 
     onChange(value);
   }
 
   if (values === Boolean) {
-    type = 'boolean';
+    dataType = 'boolean';
     inputType = 'checkbox';
+
+    return <Checkbox checked={checked} value={currentValue} onChange={inputChanged} />;
   } else if (values === Number) {
-    type = 'number';
+    dataType = 'number';
     inputType = 'number';
   } else if (values === String) {
-    type = 'string';
+    dataType = 'string';
     inputType = 'text';
   }
 
-  return <input type={inputType}
-    data-value-type={type}
-    checked={checked}
-    value={currentValue}
-    onChange={inputChanged}/>;
+  return <TextInput type={inputType} value={currentValue} onChange={inputChanged}/>;
 };
 
 ComponentSettingsInput.propTypes = {
