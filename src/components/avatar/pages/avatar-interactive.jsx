@@ -3,12 +3,24 @@ import Avatar, {SIZE} from '../Avatar';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Avatars = () => {
-  const settings = {
-    size: SIZE,
-    border: Boolean,
-    spaced: Boolean,
-    imgSrc: String
-  };
+  const settings = [
+    {
+      name: 'size',
+      values: SIZE
+    },
+    {
+      name: 'border',
+      values: Boolean
+    },
+    {
+      name: 'spaced',
+      values: Boolean
+    },
+    {
+      name: 'imgSrc',
+      values: String
+    }
+  ];
 
   return <div>
     <DocsActiveBlock settings={settings}>

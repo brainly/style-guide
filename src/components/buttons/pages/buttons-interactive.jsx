@@ -7,24 +7,59 @@ import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {
-  const primarySettings = {
-    type: PRIMARY_TYPE,
-    wide: Boolean,
-    disabled: Boolean,
-    icon: String
-  };
+  const allIcons = {};
 
-  const roundSettings = {
-    href: String,
-    label: String
-  };
+  Object.keys(ICON_TYPES).forEach(type =>
+    allIcons[type] = <Icon type={ICON_TYPES[type]} color={ICON_COLOR.ADAPTIVE} size={16}/>);
 
-  const secondarySettings = {
-    small: Boolean,
-    wide: Boolean,
-    disabled: Boolean,
-    type: SECONDARY_TYPE
-  };
+  const primarySettings = [
+    {
+      name: 'type',
+      values: PRIMARY_TYPE
+    },
+    {
+      name: 'wide',
+      values: Boolean
+    },
+    {
+      name: 'disabled',
+      values: Boolean
+    },
+    {
+      name: 'icon',
+      values: allIcons
+    }
+  ];
+
+  const roundSettings = [
+    {
+      name: 'href',
+      values: String
+    },
+    {
+      name: 'label',
+      values: String
+    }
+  ];
+
+  const secondarySettings = [
+    {
+      name: 'type',
+      values: SECONDARY_TYPE
+    },
+    {
+      name: 'small',
+      values: Boolean
+    },
+    {
+      name: 'wide',
+      values: Boolean
+    },
+    {
+      name: 'disabled',
+      values: Boolean
+    }
+  ];
 
   return <div>
     <DocsActiveBlock settings={primarySettings}>
