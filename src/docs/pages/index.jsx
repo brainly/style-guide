@@ -21,8 +21,8 @@ const index = () => <ArticlePage>
     How to use it?
   </h2>
 
-  <p className="sg-text">In order to use style guide components, you have to include CSS file in the <code>&lt;
-    head&gt;</code> of your website:</p>
+  <p className="sg-text">In order to use style guide components, you have to include CSS file in
+    the <code>&lt;head&gt;</code> of your website:</p>
 
   <pre><code className="html">
     &lt;link href="https://styleguide.brainly.com/{packageJSON.version}/style-guide.css" rel="stylesheet"/&gt;
@@ -35,7 +35,7 @@ const index = () => <ArticlePage>
 
   <pre>
     <code className="html">
-    &lt;script src="https://styleguide.brainly.com/%%images/icons.js%%"&gt;&lt;    /script&gt;
+    &lt;script src="https://styleguide.brainly.com/%%images/icons.js%%"&gt;&lt;/script&gt;
     </code>
   </pre>
 
@@ -45,17 +45,17 @@ const index = () => <ArticlePage>
 
   <pre>
     <code className="html">
-      &lt;script src="https://styleguide.brainly.com/%%images/subjects-icons.js%%"&gt;&lt;    /script&gt;
+      &lt;script src="https://styleguide.brainly.com/%%images/subjects-icons.js%%"&gt;&lt;/script&gt;
     </code>
   </pre>
 
-  <p className="sg-text">If you'd like to use
+  <p className="sg-text">Finally, if you'd like to use
     <a href="./basics.html#subject-mono-icons" className="sg-link">subject mono icons </a>
     include the following script:</p>
 
   <pre>
     <code className="html">
-      &lt;script src="https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%"&gt;&lt;    /script&gt;
+      &lt;script src="https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%"&gt;&lt;/script&gt;
     </code>
   </pre>
 
