@@ -69,7 +69,7 @@ const Buttons = () => {
     </DocsActiveBlock>
     <DocsActiveBlock settings={primarySettings}>
       <ButtonPrimary
-        icon={<Icon type={ICON_TYPES.FB} color={ICON_COLORS.ADAPTIVE} size={16}/>}
+        icon={allIcons.FB}
         type={PRIMARY_TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
