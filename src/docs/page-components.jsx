@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
 import Badges from '../components/badges/pages/badges-interactive';
+import Buttons from '../components/buttons/pages/buttons-interactive';
 
 const content = <div>
   <article>
@@ -25,6 +26,13 @@ const content = <div>
       <a href="#badges" className="permalink">#</a>
     </h2>
     <Badges />
+  </article>
+  <article>
+    <h2 className="article-header" id="buttons">
+      Buttons
+      <a href="#buttons" className="permalink">#</a>
+    </h2>
+    <Buttons />
   </article>
 </div>;
 
