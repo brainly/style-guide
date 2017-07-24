@@ -109,4 +109,8 @@ $buttonActiveScale: scale(0.985);
       box-shadow: $buttonBoxShadow;
     }
   }
+
+  & .sg-label__text {
+    cursor: pointer;
+  }
 }
