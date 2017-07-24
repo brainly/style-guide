@@ -1,3 +1,5 @@
+$docsActiveBlockTransparent: rgba(0, 0, 0, 0);
+
 .docs-active-block {
   display: flex;
   flex-direction: row;
@@ -6,7 +8,7 @@
   &--gray .docs-active-block__component {
     background-color: $graySecondaryLightest;
     background-size: 41px 40px;
-    background-image: radial-gradient(circle, $grayPrimary 1px, rgba(0, 0, 0, 0) 1px);
+    background-image: radial-gradient(circle, $grayPrimary 1px, $docsActiveBlockTransparent 1px);
   }
 
   &__component {
