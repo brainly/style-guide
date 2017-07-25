@@ -9,27 +9,35 @@ function isPlainObject(o) {
 }
 
 const ComponentSettings = ({settings, values, onChange}) => {
-  const content = Object.keys(settings).map(key => {
-    const allowedValues = settings[key];
-    const currentValue = values[key];
+  const content = settings.map(propSettings => {
+    const propName = propSettings.name;
+    const allowedValues = propSettings.values;
+    const isRequired = Boolean(propSettings.required);
+    const currentValue = values[propName];
     let input = null;
 
     if (isPlainObject(allowedValues)) {
-      input = <ComponentSettingsSelect key={key} values={allowedValues} currentValue={currentValue}
-        onChange={value => onChange(key, value)}/>;
+      input = <ComponentSettingsSelect key={propName} values={allowedValues} currentValue={currentValue}
+        required={isRequired} onChange={value => onChange(propName, value)}/>;
     } else {
-      input = <ComponentSettingsInput key={key} values={allowedValues} currentValue={currentValue}
-        onChange={value => onChange(key, value)}/>;
+      input = <ComponentSettingsInput key={propName} values={allowedValues} currentValue={currentValue}
+        onChange={value => onChange(propName, value)}/>;
     }
 
-    return <label key={key}><Text>{key}:</Text> {input} </label>;
+    return <label key={propName}><Text>{propName}:</Text> {input} </label>;
   });
 
   return <fieldset className="docs-active-block__component-settings">{content}</fieldset>;
 };
 
+const propSettings = PropTypes.shape({
+  name: PropTypes.string.isRequired,
+  values: PropTypes.any.isRequired,
+  required: PropTypes.bool
+});
+
 ComponentSettings.propTypes = {
-  settings: PropTypes.object.isRequired,
+  settings: PropTypes.arrayOf(propSettings),
   values: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired
 };

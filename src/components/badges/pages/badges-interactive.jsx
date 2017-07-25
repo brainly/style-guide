@@ -3,12 +3,24 @@ import Badge, {COLOR, SIZE} from '../Badge';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Badges = () => {
-  const settings = {
-    color: COLOR,
-    size: SIZE,
-    rounded: Boolean,
-    withAnimation: Boolean
-  };
+  const settings = [
+    {
+      name: 'color',
+      values: COLOR
+    },
+    {
+      name: 'size',
+      values: SIZE
+    },
+    {
+      name: 'rounded',
+      values: Boolean
+    },
+    {
+      name: 'withAnimation',
+      values: Boolean
+    }
+  ];
 
   return <div>
     <DocsActiveBlock settings={settings}>
