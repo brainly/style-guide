@@ -4,6 +4,7 @@ import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
 import Badges from '../components/badges/pages/badges-interactive';
 import Buttons from '../components/buttons/pages/buttons-interactive';
+import FlashMessages from '../components/flash-messages/pages/flash-messages-interactive';
 
 const content = <div>
   <article>
@@ -33,6 +34,13 @@ const content = <div>
       <a href="#buttons" className="permalink">#</a>
     </h2>
     <Buttons />
+  </article>
+  <article>
+    <h2 className="article-header" id="flash-messages">
+      Flash messages
+      <a href="#flash-messages" className="permalink">#</a>
+    </h2>
+    <FlashMessages />
   </article>
 </div>;
 
