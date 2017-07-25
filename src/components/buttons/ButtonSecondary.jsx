@@ -30,7 +30,6 @@ ButtonSecondary.propTypes = {
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  icon: PropTypes.node,
   type: PropTypes.oneOf(Object.values(TYPE))
 };
 
