@@ -9,6 +9,7 @@ node_modules
 .sass-cache
 /npm-debug.log
 coverage/
+package-lock.json
 
 # Generated images
 /src/images/subjects-icons.js
