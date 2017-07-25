@@ -6,7 +6,7 @@ import Badges from '../components/badges/pages/badges-interactive';
 import Buttons from '../components/buttons/pages/buttons-interactive';
 import FlashMessages from '../components/flash-messages/pages/flash-messages-interactive';
 import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-interactive';
-import slugify from 'slugify';
+import slugify from './slugify';
 
 const demos = {
   'Avatars': <Avatars/>,
