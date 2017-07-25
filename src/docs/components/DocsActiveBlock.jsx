@@ -27,7 +27,7 @@ class DocsActiveBlock extends Component {
 
     this.state = {
       showCode: null,
-      grayBackground: true,
+      changeBackground: 'light',
       props: componentProps
     };
   }
@@ -63,7 +63,8 @@ class DocsActiveBlock extends Component {
     }
 
     const blockClass = classnames('docs-active-block', {
-      'docs-active-block--gray': this.state.grayBackground
+      'docs-active-block--gray': this.state.changeBackground === 'light',
+      'docs-active-block--dark': this.state.changeBackground === 'dark'
     });
 
     return <div>
