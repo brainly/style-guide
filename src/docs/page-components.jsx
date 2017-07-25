@@ -4,36 +4,24 @@ import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
 import Badges from '../components/badges/pages/badges-interactive';
 import Buttons from '../components/buttons/pages/buttons-interactive';
+import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-interactive';
+import slugify from 'slugify';
 
-const content = <div>
-  <article>
-    <h2 className="article-header" id="avatars">
-      Avatars
-      <a href="#avatars" className="permalink">#</a>
-    </h2>
-    <Avatars />
-  </article>
-  <article>
-    <h2 className="article-header" id="bubble">
-      Bubble
-      <a href="#bubble" className="permalink">#</a>
-    </h2>
-    <Bubbles />
-  </article>
-  <article>
-    <h2 className="article-header" id="badges">
-      Badges
-      <a href="#badges" className="permalink">#</a>
-    </h2>
-    <Badges />
-  </article>
-  <article>
-    <h2 className="article-header" id="buttons">
-      Buttons
-      <a href="#buttons" className="permalink">#</a>
-    </h2>
-    <Buttons />
-  </article>
-</div>;
+const demos = {
+  'Avatars': <Avatars/>,
+  'Bubbles': <Bubbles/>,
+  'Badges': <Badges/>,
+  'Buttons': <Buttons/>,
+  'Icon as a button': <IconsAsButtons/>
+};
 
-ReactDOM.render(content, document.getElementById('root'));
+const sections = Object.keys(demos).map(key => <article key={key}>
+  <h2 className="article-header" id={slugify(key)}>
+    {key}
+    <a href={'#' + slugify(key)} className="permalink">#</a>
+  </h2>
+  {demos[key]}
+</article>
+);
+
+ReactDOM.render(<div>{sections}</div>, document.getElementById('root'));
