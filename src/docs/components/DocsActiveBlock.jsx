@@ -84,7 +84,7 @@ class DocsActiveBlock extends Component {
 
 DocsActiveBlock.propTypes = {
   children: PropTypes.element.isRequired,
-  settings: PropTypes.object.isRequired
+  settings: PropTypes.array.isRequired
 };
 
 export default DocsActiveBlock;
