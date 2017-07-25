@@ -26,6 +26,15 @@ const CodeBlock = ({children, type}) => {
       <code className="copy-helper__code hljs" dangerouslySetInnerHTML={{__html: markup}}>
       </code>
     </pre>
+    <div className="copy-helper__buttons">
+      <button className="sg-icon-as-button sg-icon-as-button--dark js-copy-button" title="Copy to the clipboard">
+        <div className="sg-icon-as-button__hole">
+          <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
+            <use xlinkHref="#icon-answer"></use>
+          </svg>
+        </div>
+      </button>
+    </div>
   </div>;
 };
 
