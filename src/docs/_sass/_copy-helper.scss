@@ -1,5 +1,7 @@
 .copy-helper {
 
+  position: relative;
+
   &--fixed {
     position: fixed;
     left: 0;
@@ -36,8 +38,8 @@
   }
 
   &__buttons {
-    position: fixed;
-    right: 0;
+    position: absolute;
+    right: gutter(1 / 6);
     top: 0;
   }
 
