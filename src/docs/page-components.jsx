@@ -8,6 +8,7 @@ import Buttons from 'buttons/pages/buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import Stickers from 'stickers/pages/stickers-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
+import Subjects from 'subject-icons/pages/subjects-interactive';
 import SubjectMonoIcons from 'subject-mono-icons/pages/subject-mono-icons-interactive';
 import IconsAsButtons from 'icon-as-button/pages/icon-as-button-interactive';
 import Boxes from 'box/pages/box-interactive';
