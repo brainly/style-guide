@@ -7,7 +7,8 @@ const Subjects = () => {
   const settingsIcons = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
+      required: true
     },
     {
       name: 'size',
@@ -17,7 +18,8 @@ const Subjects = () => {
   const settingsBox = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
+      required: true
     },
     {
       name: 'size',

@@ -6,7 +6,8 @@ const Stickers = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
+      required: true
     }
   ];
 

@@ -6,7 +6,8 @@ const SubjectMonoIcons = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
+      required: true
     },
     {
       name: 'size',
