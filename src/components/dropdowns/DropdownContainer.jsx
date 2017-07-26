@@ -7,7 +7,7 @@ class DropdownContainer extends React.Component {
     super(props);
 
     this.state = {
-      isOpened: this.props.isOpened || false,
+      isOpened: this.props.openOnStart || false,
       label: this.getDefaultLabel(),
       currentItem: this.props.currentItem
     };
@@ -57,7 +57,7 @@ const itemShape = PropTypes.shape({
 DropdownContainer.propTypes = {
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
-  isOpened: PropTypes.bool,
+  openOnStart: PropTypes.bool,
   fullWidth: PropTypes.bool,
   label: PropTypes.string,
   currentItem: itemShape,

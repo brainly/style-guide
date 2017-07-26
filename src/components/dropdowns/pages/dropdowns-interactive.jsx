@@ -15,7 +15,7 @@ const Dropdowns = () => {
       values: Boolean
     },
     {
-      name: 'isOpened',
+      name: 'openOnStart',
       values: Boolean
     },
     {
@@ -34,7 +34,7 @@ const Dropdowns = () => {
     </DocsActiveBlock>
 
     <DocsActiveBlock settings={settings}>
-      <Dropdown items={defaultItems} label={'Pick one…'} fixed={true} isOpened={true} fullWidth={false}/>
+      <Dropdown items={defaultItems} label={'Pick one…'} fixed={true} openOnStart={true} fullWidth={false}/>
     </DocsActiveBlock>
 
   </div>;

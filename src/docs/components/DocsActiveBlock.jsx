@@ -28,7 +28,8 @@ class DocsActiveBlock extends Component {
     this.state = {
       showCode: null,
       changeBackground: 'light',
-      props: componentProps
+      props: componentProps,
+      renderNormally: true
     };
   }
 
@@ -40,6 +41,7 @@ class DocsActiveBlock extends Component {
     this.setState({
       props
     });
+    this.remountComponent();
   }
 
   settingsChanged(setting, value) {
@@ -48,8 +50,17 @@ class DocsActiveBlock extends Component {
     });
   }
 
+  remountComponent() {
+    this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
+  }
+
   render() {
-    const component = React.cloneElement(this.props.children, this.state.props);
+    let component;
+
+    if (this.state.renderNormally) {
+      component = React.cloneElement(this.props.children, this.state.props);
+    }
+
     let code;
 
     if (this.state.showCode === 'jsx') {
@@ -74,8 +85,8 @@ class DocsActiveBlock extends Component {
             <div>{component}</div>
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
-            values={this.state.props}/>
-          <DocsActiveBlockSettings onChange={this.settingsChanged.bind(this)} values={this.state} />
+                             values={this.state.props}/>
+          <DocsActiveBlockSettings onChange={this.settingsChanged.bind(this)} values={this.state}/>
         </div>
       </DocsBlock>
       {code}
