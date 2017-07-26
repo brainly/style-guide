@@ -13,6 +13,7 @@ import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-in
 import Boxes from '../components/box/pages/box-interactive';
 import ActionLists from '../components/action-list/pages/action-list-interactive';
 import Ratings from '../components/rating/pages/rating-interactive';
+import Dropdowns from '../components/dropdowns/pages/dropdowns-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -26,7 +27,8 @@ const demos = {
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
-  'Rating': <Ratings/>
+  'Rating': <Ratings/>,
+  'Dropdowns': <Dropdowns/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>

@@ -71,7 +71,7 @@ class DocsActiveBlock extends Component {
       <DocsBlock>
         <div className={blockClass}>
           <div className="docs-active-block__component">
-            {component}
+            <div>{component}</div>
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
             values={this.state.props}/>

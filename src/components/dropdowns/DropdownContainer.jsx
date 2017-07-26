@@ -27,7 +27,10 @@ class DropdownContainer extends React.Component {
     }
 
     this.setState({currentItem, label: currentItem.text});
-    this.props.onChange(id);
+
+    if (this.props.onChange) {
+      this.props.onChange(id);
+    }
   }
 
   toggle() {
