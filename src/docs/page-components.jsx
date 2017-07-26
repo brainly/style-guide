@@ -14,7 +14,6 @@ import Subjects from '../components/subject-icons/pages/subjects-interactive';
 import Boxes from '../components/box/pages/box-interactive';
 import ActionLists from '../components/action-list/pages/action-list-interactive';
 import Ratings from '../components/rating/pages/rating-interactive';
-import slugify from './slugify';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -25,7 +24,7 @@ const demos = {
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
   'Subject mono icons': <SubjectMonoIcons/>,
-  'Subjects': <Subjects/>
+  'Subjects': <Subjects/>,
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
