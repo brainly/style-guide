@@ -21,25 +21,13 @@ const Subjects = () =>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Subject icon box">
-      <SubjectIconBox>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
-      </SubjectIconBox>
-      <SubjectIconBox>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM}/>
-      </SubjectIconBox>
-      <SubjectIconBox>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL}/>
-      </SubjectIconBox>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE}/>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM}/>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL}/>
       <br/>
-      <SubjectIconBox darker={true}>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
-      </SubjectIconBox>
-      <SubjectIconBox darker={true}>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM}/>
-      </SubjectIconBox>
-      <SubjectIconBox darker={true}>
-        <SubjectIcon type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL}/>
-      </SubjectIconBox>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE} darker={true}/>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM} darker={true}/>
+      <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL} darker={true}/>
     </DocsBlock>
   </div>;
 
