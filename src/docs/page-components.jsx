@@ -9,6 +9,7 @@ import Stickers from '../components/stickers/pages/stickers-interactive';
 import SubjectIcons from '../components/subject-icons/pages/subject-icons-interactive';
 import SubjectMonoIcons from '../components/subject-mono-icons/pages/subject-mono-icons-interactive';
 import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-interactive';
+import Subjects from '../components/subject-icons/pages/subjects-interactive';
 import slugify from './slugify';
 
 const demos = {
@@ -20,7 +21,8 @@ const demos = {
   'Flash messages': <FlashMessages />,
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
-  'Subject mono icons': <SubjectMonoIcons/>
+  'Subject mono icons': <SubjectMonoIcons/>,
+  'Subjects': <Subjects/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
