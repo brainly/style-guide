@@ -4,7 +4,7 @@ import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Icons = () => {
 
-  const SIZE_OPTIONS = SIZE.reduce(function(result, item) {
+  const SIZE_OPTIONS = SIZE.reduce((result, item) => {
     result[item] = item;
     return result;
   }, {});
