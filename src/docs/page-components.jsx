@@ -5,6 +5,9 @@ import Bubbles from '../components/bubble/pages/bubble-interactive';
 import Badges from '../components/badges/pages/badges-interactive';
 import Buttons from '../components/buttons/pages/buttons-interactive';
 import FlashMessages from '../components/flash-messages/pages/flash-messages-interactive';
+import Stickers from '../components/stickers/pages/stickers-interactive';
+import SubjectIcons from '../components/subject-icons/pages/subject-icons-interactive';
+import SubjectMonoIcons from '../components/subject-mono-icons/pages/subject-mono-icons-interactive';
 import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-interactive';
 import slugify from './slugify';
 
@@ -14,7 +17,10 @@ const demos = {
   'Badges': <Badges/>,
   'Buttons': <Buttons/>,
   'Icon as a button': <IconsAsButtons/>,
-  'Flash messages': <FlashMessages />
+  'Flash messages': <FlashMessages />,
+  'Stickers': <Stickers/>,
+  'Subject icons': <SubjectIcons/>,
+  'Subject mono icons': <SubjectMonoIcons/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
