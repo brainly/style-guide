@@ -34,9 +34,7 @@ const Subjects = () => {
       <SubjectIcon type={TYPE.PHYSICS}/>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settingsBox}>
-      <SubjectIconBox>
-        <SubjectIcon type={TYPE.ARTMUSIC}/>
-      </SubjectIconBox>
+      <SubjectIconBox type={TYPE.ARTMUSIC}/>
     </DocsActiveBlock>
   </div>;
 };

@@ -20,3 +20,4 @@ SubjectIconBox.propTypes = {
 };
 
 export default SubjectIconBox;
+export {TYPE, SIZE};
