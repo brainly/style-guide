@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import slugify from './slugify';
 import Avatars from '../components/avatar/pages/avatar-interactive';
 import Bubbles from '../components/bubble/pages/bubble-interactive';
 import Badges from '../components/badges/pages/badges-interactive';
@@ -10,6 +11,9 @@ import SubjectIcons from '../components/subject-icons/pages/subject-icons-intera
 import SubjectMonoIcons from '../components/subject-mono-icons/pages/subject-mono-icons-interactive';
 import IconsAsButtons from '../components/icon-as-button/pages/icon-as-button-interactive';
 import Subjects from '../components/subject-icons/pages/subjects-interactive';
+import Boxes from '../components/box/pages/box-interactive';
+import ActionLists from '../components/action-list/pages/action-list-interactive';
+import Ratings from '../components/rating/pages/rating-interactive';
 import slugify from './slugify';
 
 const demos = {
@@ -18,11 +22,14 @@ const demos = {
   'Badges': <Badges/>,
   'Buttons': <Buttons/>,
   'Icon as a button': <IconsAsButtons/>,
-  'Flash messages': <FlashMessages />,
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
   'Subject mono icons': <SubjectMonoIcons/>,
   'Subjects': <Subjects/>
+  'Flash messages': <FlashMessages />,
+  'Boxes': <Boxes/>,
+  'Action List': <ActionLists/>,
+  'Rating': <Ratings/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
