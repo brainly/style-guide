@@ -23,7 +23,7 @@ const demos = {
   'Icon as a button': <IconsAsButtons/>,
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
-  'Subjects': <Subjects/>,
+  'Subject icon box': <Subjects/>,
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,

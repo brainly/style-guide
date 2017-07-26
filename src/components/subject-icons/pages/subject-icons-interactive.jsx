@@ -15,7 +15,8 @@ const SubjectIcons = () => {
     },
     {
       name: 'mono',
-      values: Boolean}
+      values: Boolean
+    }
   ];
 
   return <div>
