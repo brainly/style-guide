@@ -24,6 +24,7 @@ const demos = {
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
   'Subject mono icons': <SubjectMonoIcons/>,
+  'Subjects': <Subjects/>,
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
