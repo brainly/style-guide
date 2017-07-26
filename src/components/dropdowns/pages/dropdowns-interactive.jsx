@@ -29,14 +29,9 @@ const Dropdowns = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} contentBefore="Lorem Ipsum" contentAfter="Lorem ipsum" wrapper={<div/>}>
       <Dropdown items={defaultItems} label={'Pick one…'}/>
     </DocsActiveBlock>
-
-    <DocsActiveBlock settings={settings}>
-      <Dropdown items={defaultItems} label={'Pick one…'} fixed={true} openOnStart={true} fullWidth={false}/>
-    </DocsActiveBlock>
-
   </div>;
 };
 

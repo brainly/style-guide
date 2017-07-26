@@ -56,21 +56,20 @@ class DocsActiveBlock extends Component {
 
   render() {
     let component;
+    let code;
 
     if (this.state.renderNormally) {
       component = React.cloneElement(this.props.children, this.state.props);
-    }
 
-    let code;
+      if (this.state.showCode === 'jsx') {
+        const jsx = generateJSX(component);
 
-    if (this.state.showCode === 'jsx') {
-      const jsx = generateJSX(component);
+        code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
+      } else if (this.state.showCode === 'html') {
+        const html = ReactDOMServer.renderToStaticMarkup(component);
 
-      code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
-    } else if (this.state.showCode === 'html') {
-      const html = ReactDOMServer.renderToStaticMarkup(component);
-
-      code = <DocsBlock><CodeBlock type="html">{html}</CodeBlock></DocsBlock>;
+        code = <DocsBlock><CodeBlock type="html">{html}</CodeBlock></DocsBlock>;
+      }
     }
 
     const blockClass = classnames('docs-active-block', {
@@ -78,14 +77,20 @@ class DocsActiveBlock extends Component {
       'docs-active-block--dark': this.state.changeBackground === 'dark'
     });
 
+    component = [this.props.contentBefore, component, this.props.contentAfter];
+
+    if (this.props.wrapper) {
+      component = React.cloneElement(this.props.wrapper, {}, component);
+    }
+
     return <div>
       <DocsBlock>
         <div className={blockClass}>
           <div className="docs-active-block__component">
-            <div>{component}</div>
+            {component}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
-                             values={this.state.props}/>
+            values={this.state.props}/>
           <DocsActiveBlockSettings onChange={this.settingsChanged.bind(this)} values={this.state}/>
         </div>
       </DocsBlock>
@@ -96,7 +101,10 @@ class DocsActiveBlock extends Component {
 
 DocsActiveBlock.propTypes = {
   children: PropTypes.element.isRequired,
-  settings: PropTypes.array.isRequired
+  settings: PropTypes.array.isRequired,
+  contentBefore: PropTypes.node,
+  contentAfter: PropTypes.node,
+  wrapper: PropTypes.element
 };
 
 export default DocsActiveBlock;

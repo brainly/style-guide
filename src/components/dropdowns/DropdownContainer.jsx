@@ -8,15 +8,12 @@ class DropdownContainer extends React.Component {
 
     this.state = {
       isOpened: this.props.openOnStart || false,
-      label: this.getDefaultLabel(),
-      currentItem: this.props.currentItem
+      currentItem: this.props.currentItem || {}
     };
   }
 
-  getDefaultLabel() {
-    const {label, currentItem = {}} = this.props;
-
-    return label || currentItem.text || '';
+  getLabel() {
+    return this.state.currentItem.text || this.props.label || '';
   }
 
   onItemClick(id) {
@@ -41,7 +38,7 @@ class DropdownContainer extends React.Component {
     return <Dropdown
       opened={this.state.isOpened}
       fullWidth={this.props.fullWidth}
-      label={this.state.label}
+      label={this.getLabel()}
       items={this.props.items}
       fixed={this.props.fixed}
       onItemClick={this.onItemClick.bind(this)}
