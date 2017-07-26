@@ -13,6 +13,10 @@ const Subjects = () => {
     {
       name: 'size',
       values: SIZE
+    },
+    {
+      name: 'mono',
+      values: Boolean
     }
   ];
   const settingsBox = [
