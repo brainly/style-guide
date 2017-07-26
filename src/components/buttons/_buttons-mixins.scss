@@ -94,6 +94,10 @@ $buttonActiveScale: scale(0.985);
     fill: $buttonInverseDarkFontColor;
   }
 
+  & .sg-label__text {
+    cursor: pointer;
+  }
+
   &--disabled {
     opacity: 0.45;
     cursor: default;
@@ -108,9 +112,9 @@ $buttonActiveScale: scale(0.985);
     &:hover {
       box-shadow: $buttonBoxShadow;
     }
-  }
 
-  & .sg-label__text {
-    cursor: pointer;
+    & .sg-label__text {
+      cursor: default;
+    }
   }
 }
