@@ -6,8 +6,6 @@ import {shallow} from 'enzyme';
 test('render', () => {
   const box = shallow(
     <SubjectIconBox>
-      <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
-    </SubjectIconBox>
   );
 
   expect(box.hasClass('sg-subject-icon-box')).toEqual(true);
@@ -16,15 +14,14 @@ test('render', () => {
 
 test('darker', () => {
   const box = shallow(
-    <SubjectIconBox darker={true}>
-      <SubjectIcon type={TYPE.LIFE_SCIENCE}/>
+    <SubjectIconBox type={TYPE.ALGEBRA} darker={true}>
     </SubjectIconBox>
   );
 
   expect(box.hasClass('sg-subject-icon-box--darker')).toEqual(true);
 });
 
-test('error when no child', () => {
+test('error when no type', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
