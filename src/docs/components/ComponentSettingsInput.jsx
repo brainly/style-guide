@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Input from 'form-elements/Input';
 import Checkbox from 'form-elements/Checkbox';
 
-const ComponentSettingsInput = ({values, currentValue, onChange}) => {
+const ComponentSettingsInput = ({values, currentValue = '', onChange}) => {
   let dataType;
   let inputType;
   const checked = Boolean(currentValue);
@@ -25,7 +25,7 @@ const ComponentSettingsInput = ({values, currentValue, onChange}) => {
     dataType = 'boolean';
     inputType = 'checkbox';
 
-    return <Checkbox checked={checked} value={currentValue} onChange={inputChanged} />;
+    return <Checkbox checked={checked} onChange={inputChanged} />;
   } else if (values === Number) {
     dataType = 'number';
     inputType = 'number';

@@ -33,7 +33,7 @@ test('no opened at start', () => {
 
 
 test('opened at start when props passed', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps} isOpened={true}/>);
+  const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart={true}/>);
 
   expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(true);
   expect(dropDown.state('isOpened')).toEqual(true);
@@ -55,22 +55,18 @@ test('toggle open', () => {
   expect(dropDown.state('isOpened')).toEqual(false);
 });
 
-test('label defined', () => {
-  const dropDown = shallow(<DropdownContainer {...defaultProps}/>);
-
-  expect(dropDown.state('label')).toEqual(defaultLabel);
-});
-
 test('label from selected option', () => {
-  const dropDown = shallow(<DropdownContainer items={defaultItems} currentItem={item2nd}/>);
+  const dropDown = mount(<DropdownContainer items={defaultItems} currentItem={item2nd}/>);
+  const label = dropDown.find('.sg-dropdown__hole > .sg-dropdown__item-text');
 
-  expect(dropDown.state('label')).toEqual(item2nd.text);
+  expect(label.text()).toEqual(item2nd.text);
 });
 
 test('label and currentItem not defined', () => {
-  const dropDown = shallow(<DropdownContainer items={defaultItems}/>);
+  const dropDown = mount(<DropdownContainer items={[]} />);
+  const label = dropDown.find('.sg-dropdown__item-text');
 
-  expect(dropDown.state('label')).toEqual('');
+  expect(label.text()).toEqual('');
 });
 
 test('default select', () => {
