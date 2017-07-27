@@ -12,7 +12,7 @@ const Stickers = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <Sticker type={TYPE.QUESTION}/>
     </DocsActiveBlock>
   </div>;

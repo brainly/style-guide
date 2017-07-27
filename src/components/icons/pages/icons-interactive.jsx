@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon, {TYPE, SIZE, COLOR} from '../Icon';
-import DocsActiveBlock from 'components/DocsActiveBlock';
+import DocsActiveBlock, {BACKGROUND_COLOR} from 'components/DocsActiveBlock';
 
 const Icons = () => {
 
@@ -26,7 +26,7 @@ const Icons = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor={BACKGROUND_COLOR.DARK}>
       <Icon type={TYPE.NOTIFICATIONS}/>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settings}>

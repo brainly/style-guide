@@ -23,7 +23,7 @@ const SubjectIcons = () => {
     <DocsActiveBlock settings={settings}>
       <SubjectIcon type={TYPE.MATHEMATICS}/>
     </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <SubjectIcon type={TYPE.BIOLOGY} mono={true}/>
     </DocsActiveBlock>
   </div>;
