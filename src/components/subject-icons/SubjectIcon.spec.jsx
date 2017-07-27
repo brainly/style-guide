@@ -41,6 +41,16 @@ test('size', () => {
   expect(icon.hasClass(`sg-subject-icon--${size}`)).toEqual(true);
 });
 
+test('mono', () => {
+  const type = TYPE.LANGUAGE;
+  const icon = shallow(
+    <SubjectIcon type={type} mono={true}/>
+  );
+  const use = icon.find('use');
+
+  expect(use.props().xlinkHref).toEqual('#icon-subject-mono-' + type);
+});
+
 test('normal size', () => {
   const type = TYPE.LANGUAGE;
 
