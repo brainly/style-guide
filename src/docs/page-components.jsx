@@ -14,6 +14,7 @@ import Boxes from 'box/pages/box-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
+import Labels from 'labels/pages/labels-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 
@@ -30,8 +31,9 @@ const demos = {
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
   'Rating': <Ratings/>,
-  'Dropdowns': <Dropdowns/>,
   'Icons': <Icons/>,
+  'Labels': <Labels/>,
+  'Dropdowns': <Dropdowns/>,
   'Separators': <Separators/>
 };
 
