@@ -20,20 +20,20 @@ const Dropdowns = () =>
     <DocsBlock info='Open' multiContent={[
       <div style={{height: '120px'}}>
         <ContrastBox>
-          <Dropdown {...defaultProps} isOpened={true} fullWidth={false}/>
+          <Dropdown {...defaultProps} openOnStart={true} fullWidth={false}/>
         </ContrastBox>
       </div>,
       <ContrastBox>
-        <Dropdown {...defaultProps} isOpened={true}/>
+        <Dropdown {...defaultProps} openOnStart={true}/>
       </ContrastBox>
     ]}/>
 
     <DocsBlock info='Fixed' additionalInfo="(items extend div)" multiContent={[
       <ContrastBox>
-        <Dropdown {...defaultProps} fixed={true} isOpened={true} fullWidth={false}/>
+        <Dropdown {...defaultProps} fixed={true} openOnStart={true} fullWidth={false}/>
       </ContrastBox>,
       <ContrastBox>
-        <Dropdown {...defaultProps} fixed={true} isOpened={true}/>
+        <Dropdown {...defaultProps} fixed={true} openOnStart={true}/>
       </ContrastBox>
     ]}/>
 
