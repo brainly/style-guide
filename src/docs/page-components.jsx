@@ -17,6 +17,7 @@ import Icons from 'icons/pages/icons-interactive';
 import Labels from 'labels/pages/labels-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
+import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -34,7 +35,8 @@ const demos = {
   'Icons': <Icons/>,
   'Labels': <Labels/>,
   'Dropdowns': <Dropdowns/>,
-  'Separators': <Separators/>
+  'Separators': <Separators/>,
+  'Popup Menu': <PopupMenus/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
