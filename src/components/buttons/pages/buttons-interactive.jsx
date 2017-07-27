@@ -86,13 +86,13 @@ const Buttons = () => {
         <Icon type={ICON_TYPES.SEARCH} color={ICON_COLORS.ADAPTIVE} size={14}/>
       </ButtonSecondary>
     </DocsActiveBlock>
-    <DocsActiveBlock settings={secondarySettings}>
+    <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
       <ButtonSecondary type={SECONDARY_TYPE.INVERSE} small={true}>
         <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
           iconColor={ICON_COLOR.LAVENDER} secondary={true}/>
       </ButtonSecondary>
     </DocsActiveBlock>
-    <DocsActiveBlock settings={secondarySettings}>
+    <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
       <ButtonSecondary type={SECONDARY_TYPE.ACTIVE_INVERSE} small={true}>
         <Label text="Thank you" number={331} iconType={ICON_TYPE.HEART}
           iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>

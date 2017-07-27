@@ -31,14 +31,14 @@ const Bubbles = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <Bubble direction={DIRECTION.TOP}>
         Hi there!!<br/>
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <Bubble direction={DIRECTION.TOP}>
         <ContentBox>
           <ContentBoxHeader>

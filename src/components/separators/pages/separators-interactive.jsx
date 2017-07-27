@@ -20,6 +20,7 @@ const Separators = () => {
 
   return <div>
     <DocsActiveBlock settings={verticalSettings}
+      backgroundColor="dark"
       contentBefore={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>}
       contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}>
 
@@ -27,7 +28,9 @@ const Separators = () => {
 
     </DocsActiveBlock>
 
-    <DocsActiveBlock settings={horizontalSettings} componentType={SeparatorHorizontal}
+    <DocsActiveBlock
+      backgroundColor="dark"
+      settings={horizontalSettings} componentType={SeparatorHorizontal}
       contentBefore={<Avatar size={AVATAR_SIZE.SMALL}/>}
       contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}
       wrapper={<div/>}>
