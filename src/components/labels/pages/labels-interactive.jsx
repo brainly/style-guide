@@ -18,10 +18,6 @@ const Labels = () => {
       values: ICON_COLOR
     },
     {
-      name: 'iconContent',
-      values: Node
-    },
-    {
       name: 'text',
       values: String
     },

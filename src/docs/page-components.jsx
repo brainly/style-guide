@@ -32,7 +32,7 @@ const demos = {
   'Action List': <ActionLists/>,
   'Rating': <Ratings/>,
   'Icons': <Icons/>,
-  'Labels': <Labels/>
+  'Labels': <Labels/>,
   'Dropdowns': <Dropdowns/>,
   'Separators': <Separators/>
 };
