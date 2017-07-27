@@ -58,7 +58,6 @@ class DocsActiveBlock extends Component {
     const wrapper = this.props.wrapper;
     let {contentBefore, contentAfter} = this.props;
     let component;
-    let output;
     let code;
 
     if (this.state.renderNormally) {
@@ -80,7 +79,7 @@ class DocsActiveBlock extends Component {
       'docs-active-block--dark': this.state.changeBackground === 'dark'
     });
 
-    output = [];
+    let output = [];
 
     if (contentBefore) {
       if (React.isValidElement(contentBefore)) {
