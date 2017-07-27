@@ -1,17 +1,23 @@
 import React from 'react';
 
-function propToString(prop) {
+function propToString(prop, inJS = false) {
+  let result = '';
+  let wrapInBraces = !inJS;
+
   if (React.isValidElement(prop)) {
-    return '{' + generateJSX(prop) + '}';
+    result = generateJSX(prop);
   } else if (Array.isArray(prop)) {
-    return '{[' + prop
-      .map(item => propToString(item))
-      .join(', ') + ']}';
+    result = '[' + prop
+      .map(item => propToString(item, true))
+      .join(', ') + ']';
   } else if (typeof prop === 'string') {
-    return JSON.stringify(prop);
+    result = JSON.stringify(prop);
+    wrapInBraces = false;
+  } else {
+    result = JSON.stringify(prop);
   }
 
-  return '{' + JSON.stringify(prop) + '}';
+  return wrapInBraces ? '{' + result + '}' : result;
 }
 
 function generateJSX(component) {
