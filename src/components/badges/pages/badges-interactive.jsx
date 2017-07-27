@@ -23,10 +23,10 @@ const Badges = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <Badge>3 / 5</Badge>
     </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} backgroundColor="dark">
       <Badge color={COLOR.PEACH} rounded={true} withAnimation={true}>123</Badge>
     </DocsActiveBlock>
   </div>;
