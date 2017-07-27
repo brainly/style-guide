@@ -37,7 +37,7 @@ import popupMenu from '../components/popup-menu/pages/popup-menu';
 import search from '../components/search/pages/search';
 import toplayer from '../components/toplayer/pages/toplayer';
 import subjectIcons from '../components/subject-icons/pages/subject-icons';
-import subjectMonoIcons from '../components/subject-mono-icons/pages/subject-mono-icons';
+import subjectMonoIcons from '../components/subject-icons/pages/subject-mono-icons';
 import subjects from '../components/subject-icons/pages/subjects';
 import separators from '../components/separators/pages/separators';
 

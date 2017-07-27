@@ -12,12 +12,19 @@ const SubjectIcons = () => {
     {
       name: 'size',
       values: SIZE
+    },
+    {
+      name: 'mono',
+      values: Boolean
     }
   ];
 
   return <div>
     <DocsActiveBlock settings={settings}>
       <SubjectIcon type={TYPE.MATHEMATICS}/>
+    </DocsActiveBlock>
+    <DocsActiveBlock settings={settings}>
+      <SubjectIcon type={TYPE.BIOLOGY} mono={true}/>
     </DocsActiveBlock>
   </div>;
 };

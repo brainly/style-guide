@@ -9,7 +9,6 @@ import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import Stickers from 'stickers/pages/stickers-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
 import Subjects from 'subject-icons/pages/subjects-interactive';
-import SubjectMonoIcons from 'subject-mono-icons/pages/subject-mono-icons-interactive';
 import IconsAsButtons from 'icon-as-button/pages/icon-as-button-interactive';
 import Boxes from 'box/pages/box-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
@@ -25,8 +24,7 @@ const demos = {
   'Icon as a button': <IconsAsButtons/>,
   'Stickers': <Stickers/>,
   'Subject icons': <SubjectIcons/>,
-  'Subject mono icons': <SubjectMonoIcons/>,
-  'Subjects': <Subjects/>,
+  'Subject icon box': <Subjects/>,
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
