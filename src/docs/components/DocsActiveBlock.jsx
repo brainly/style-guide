@@ -8,6 +8,12 @@ import DocsBlock from './DocsBlock';
 import ReactDOMServer from 'react-dom/server';
 import classnames from 'classnames';
 
+const BACKGROUND_COLOR = {
+  LIGHT: 'light',
+  DARK: 'dark',
+  NONE: 'none'
+};
+
 class DocsActiveBlock extends Component {
 
   constructor(props) {
@@ -27,7 +33,7 @@ class DocsActiveBlock extends Component {
 
     this.state = {
       showCode: null,
-      changeBackground: 'light',
+      changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,
       props: componentProps,
       renderNormally: true
     };
@@ -75,8 +81,8 @@ class DocsActiveBlock extends Component {
     }
 
     const blockClass = classnames('docs-active-block', {
-      'docs-active-block--gray': this.state.changeBackground === 'light',
-      'docs-active-block--dark': this.state.changeBackground === 'dark'
+      'docs-active-block--gray': this.state.changeBackground === BACKGROUND_COLOR.LIGHT,
+      'docs-active-block--dark': this.state.changeBackground === BACKGROUND_COLOR.DARK
     });
 
     let output = [];
@@ -124,7 +130,9 @@ DocsActiveBlock.propTypes = {
   settings: PropTypes.array.isRequired,
   contentBefore: PropTypes.node,
   contentAfter: PropTypes.node,
-  wrapper: PropTypes.element
+  wrapper: PropTypes.element,
+  backgroundColor: PropTypes.oneOf(Object.values(BACKGROUND_COLOR))
 };
 
 export default DocsActiveBlock;
+export {BACKGROUND_COLOR};
