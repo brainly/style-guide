@@ -16,6 +16,7 @@ import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
 import Labels from 'labels/pages/labels-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
+import Separators from 'separators/pages/separators-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -33,6 +34,7 @@ const demos = {
   'Icons': <Icons/>,
   'Labels': <Labels/>
   'Dropdowns': <Dropdowns/>,
+  'Separators': <Separators/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
