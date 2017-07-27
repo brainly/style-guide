@@ -14,6 +14,7 @@ import Boxes from 'box/pages/box-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
+import Labels from 'labels/pages/labels-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -28,7 +29,8 @@ const demos = {
   'Boxes': <Boxes/>,
   'Action List': <ActionLists/>,
   'Rating': <Ratings/>,
-  'Icons': <Icons/>
+  'Icons': <Icons/>,
+  'Labels': <Labels/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
