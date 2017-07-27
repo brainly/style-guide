@@ -22,7 +22,7 @@ class DocsActiveBlock extends Component {
         .reduce((result, key) => {
           result[key] = componentProps[key];
           return result;
-        }, {});
+        }, {key: 'component'});
     }
 
     this.state = {
@@ -55,7 +55,10 @@ class DocsActiveBlock extends Component {
   }
 
   render() {
+    const wrapper = this.props.wrapper;
+    let {contentBefore, contentAfter} = this.props;
     let component;
+    let output;
     let code;
 
     if (this.state.renderNormally) {
@@ -77,17 +80,35 @@ class DocsActiveBlock extends Component {
       'docs-active-block--dark': this.state.changeBackground === 'dark'
     });
 
-    component = [this.props.contentBefore, component, this.props.contentAfter];
+    output = [];
 
-    if (this.props.wrapper) {
-      component = React.cloneElement(this.props.wrapper, {}, component);
+    if (contentBefore) {
+      if (React.isValidElement(contentBefore)) {
+        contentBefore = React.cloneElement(contentBefore, {key: 'before'});
+      }
+
+      output.push(contentBefore);
+    }
+
+    output.push(component);
+
+    if (contentAfter) {
+      if (React.isValidElement(contentAfter)) {
+        contentAfter = React.cloneElement(contentAfter, {key: 'after'});
+      }
+
+      output.push(contentAfter);
+    }
+
+    if (wrapper) {
+      output = React.cloneElement(wrapper, {}, output);
     }
 
     return <div>
       <DocsBlock>
         <div className={blockClass}>
           <div className="docs-active-block__component">
-            {component}
+            {output}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
             values={this.state.props}/>

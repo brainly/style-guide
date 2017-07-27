@@ -19,16 +19,19 @@ const Separators = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={verticalSettings} componentType={SeparatorVertical}>
-      <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+    <DocsActiveBlock settings={verticalSettings}
+      contentBefore={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>}
+      contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}>
+
       <SeparatorVertical/>
-      <Avatar size={AVATAR_SIZE.SMALL}/>
+
     </DocsActiveBlock>
 
-    <DocsActiveBlock settings={horizontalSettings} componentType={SeparatorHorizontal}>
-      <Avatar size={AVATAR_SIZE.SMALL}/>
+    <DocsActiveBlock settings={horizontalSettings} componentType={SeparatorHorizontal}
+      contentBefore={<Avatar size={AVATAR_SIZE.SMALL}/>}
+      contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}
+      wrapper={<div/>}>
       <SeparatorHorizontal/>
-      <Avatar size={AVATAR_SIZE.SMALL}/>
     </DocsActiveBlock>
   </div>;
 };
