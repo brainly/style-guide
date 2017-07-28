@@ -20,6 +20,7 @@ import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
 import Headers from 'text/pages/headers-interactive';
 import Links from 'text/pages/links-interactive';
+import TextBits from 'text/pages/text-bit-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -40,7 +41,8 @@ const demos = {
   'Separators': <Separators/>,
   'Text': <Texts/>,
   'Headers': <Headers/>,
-  'Links': <Links/>
+  'Links': <Links/>,
+  'Text Bit': <TextBits/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
