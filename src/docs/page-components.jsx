@@ -43,7 +43,7 @@ const demos = {
   'Text': <Texts/>,
   'Headers': <Headers/>,
   'Links': <Links/>,
-  'Text Bit': <TextBits/>
+  'Text Bit': <TextBits/>,
   'Popup Menu': <PopupMenus/>
 };
 
