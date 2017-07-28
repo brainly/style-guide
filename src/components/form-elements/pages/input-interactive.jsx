@@ -66,10 +66,6 @@ const Inputs = () => {
     {
       name: 'invalid',
       values: Boolean
-    },
-    {
-      name: 'onChange',
-      values: String
     }
   ];
 
