@@ -1,30 +1,8 @@
 import React from 'react';
-import Input, {SIZE, COLOR} from '../Input';
+import Input, {TYPE, SIZE, COLOR} from '../Input';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Inputs = () => {
-  const TYPE = {
-    BUTTON: 'button',
-    COLOR: 'color',
-    DATE: 'date',
-    DATETIME_LOCAL: 'datetime-local',
-    EMAIL: 'email',
-    FILE: 'file',
-    HIDDEN: 'hidden',
-    IMAGE: 'image',
-    MONTH: 'month',
-    NUMBER: 'number',
-    PASSWORD: 'password',
-    RANGE: 'range',
-    RESET: 'reset',
-    SEARCH: 'search',
-    SUBMIT: 'submit',
-    TEL: 'tel',
-    TEXT: 'text',
-    TIME: 'time',
-    URL: 'url',
-    WEEK: 'week'
-  };
 
   const settings = [
     {
