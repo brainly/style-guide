@@ -26,6 +26,7 @@ import Checkboxes from 'form-elements/pages/checkbox-interactive';
 import Radios from 'form-elements/pages/radio-interactive';
 import Inputs from 'form-elements/pages/input-interactive';
 import Selects from 'form-elements/pages/select-interactive';
+import Textareas from 'form-elements/pages/textarea-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -52,7 +53,8 @@ const demos = {
   'Checkbox': <Checkboxes/>,
   'Radio': <Radios/>,
   'Input': <Inputs/>,
-  'Select': <Selects/>
+  'Select': <Selects/>,
+  'Textarea': <Textareas/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
