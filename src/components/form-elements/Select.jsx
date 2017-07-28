@@ -44,7 +44,6 @@ const optionShape = PropTypes.shape({
 });
 
 Select.propTypes = {
-  type: PropTypes.string,
   value: PropTypes.string,
   valid: PropTypes.bool,
   invalid: PropTypes.bool,
