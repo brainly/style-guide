@@ -25,6 +25,7 @@ import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
 import Checkboxes from 'form-elements/pages/checkbox-interactive';
 import Radios from 'form-elements/pages/radio-interactive';
 import Inputs from 'form-elements/pages/input-interactive';
+import Selects from 'form-elements/pages/select-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -50,7 +51,8 @@ const demos = {
   'Popup Menu': <PopupMenus/>,
   'Checkbox': <Checkboxes/>,
   'Radio': <Radios/>,
-  'Input': <Inputs/>
+  'Input': <Inputs/>,
+  'Select': <Selects/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
