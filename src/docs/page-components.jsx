@@ -18,6 +18,8 @@ import Labels from 'labels/pages/labels-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
+import Headers from 'text/pages/headers-interactive';
+import Links from 'text/pages/links-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -36,7 +38,9 @@ const demos = {
   'Labels': <Labels/>,
   'Dropdowns': <Dropdowns/>,
   'Separators': <Separators/>,
-  'Text': <Texts/>
+  'Text': <Texts/>,
+  'Headers': <Headers/>,
+  'Links': <Links/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>

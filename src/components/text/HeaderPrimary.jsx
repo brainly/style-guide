@@ -18,15 +18,7 @@ const SIZE = {
 };
 
 const COLOR = {
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  MINT: 'mint',
-  PEACH: 'peach',
-  LIGHT: 'light',
-  BLUE: 'blue',
-  MUSTARD: 'mustard',
-  FINE_PRINT: 'for-fine-print',
-  FINE_PRINT_LIGHT: 'for-fine-print-light'
+  LIGHT: 'light'
 };
 
 const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color}) => {

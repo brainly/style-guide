@@ -27,19 +27,12 @@ const Texts = () => {
     {
       name: 'breakWords',
       values: Boolean
-    },
-    {
-      name: 'children',
-      values: String
     }
   ];
 
   return <div>
     <DocsActiveBlock settings={settings}>
       <Text>Lorem Ipsum</Text>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Text size={SIZE.OBSCURE} color={COLOR.GRAY}>This text is not really intended to be read</Text>
     </DocsActiveBlock>
   </div>;
 };
