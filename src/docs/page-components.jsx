@@ -22,6 +22,8 @@ import Headers from 'text/pages/headers-interactive';
 import Links from 'text/pages/links-interactive';
 import TextBits from 'text/pages/text-bit-interactive';
 import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
+import Checkboxes from 'form-elements/pages/checkbox-interactive';
+import Radios from 'form-elements/pages/radio-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -44,7 +46,9 @@ const demos = {
   'Headers': <Headers/>,
   'Links': <Links/>,
   'Text Bit': <TextBits/>,
-  'Popup Menu': <PopupMenus/>
+  'Popup Menu': <PopupMenus/>,
+  'Checkbox': <Checkboxes/>,
+  'Radio': <Radios/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
