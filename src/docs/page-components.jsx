@@ -24,6 +24,7 @@ import TextBits from 'text/pages/text-bit-interactive';
 import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
 import Checkboxes from 'form-elements/pages/checkbox-interactive';
 import Radios from 'form-elements/pages/radio-interactive';
+import Inputs from 'form-elements/pages/input-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -48,7 +49,8 @@ const demos = {
   'Text Bit': <TextBits/>,
   'Popup Menu': <PopupMenus/>,
   'Checkbox': <Checkboxes/>,
-  'Radio': <Radios/>
+  'Radio': <Radios/>,
+  'Input': <Inputs/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>

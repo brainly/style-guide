@@ -3,7 +3,7 @@ import icons from '../components/icons/pages/icons';
 import checkbox from '../components/form-elements/pages/checkbox';
 import radio from '../components/form-elements/pages/radio';
 import select from '../components/form-elements/pages/select';
-import textInput from '../components/form-elements/pages/text-input';
+import textInput from '../components/form-elements/pages/input';
 import textarea from '../components/form-elements/pages/textarea';
 import labels from '../components/labels/pages/labels';
 import overlay from '../components/overlay/pages/overlay';
