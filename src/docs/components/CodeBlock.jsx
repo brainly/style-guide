@@ -36,7 +36,14 @@ class CodeBlock extends Component {
 
     if (type === 'jsx') {
       //HACK <i> was added to force highlightJS to highlight first tag
-      markup = hljs.highlight('jsx', `<i>${markup}</i>`).value.slice(9, -78);
+      markup = hljs.highlight('jsx', `<i>${markup}</i>`).value;
+
+      //Try to clean up <i>
+      markup = markup
+        .replace('&lt;i&gt;', '')
+        .replace('&lt;/i&gt;', '')
+        .replace('<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>', '');
+
     } else {
       markup = hljs.highlight(type, markup).value;
     }

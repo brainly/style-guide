@@ -34,10 +34,10 @@ const PopupsMenus = () =>
     <DocsBlock info='elements-spaced'>
       <ContrastBox fullWidth={true}>
         <PopupMenu items={[
-          <ButtonSecondary type={buttonTypes.dark_inverse} wide={true}>
+          <ButtonSecondary type={buttonTypes.DARK_INVERSE} wide={true}>
             Log in
           </ButtonSecondary>,
-          <ButtonSecondary type={buttonTypes.dark} wide={true}>
+          <ButtonSecondary type={buttonTypes.DARK} wide={true}>
             Join now
           </ButtonSecondary>
         ]} extraSpacing={true}/>
