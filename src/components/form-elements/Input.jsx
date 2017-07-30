@@ -2,6 +2,29 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
+const TYPE = {
+  BUTTON: 'button',
+  COLOR: 'color',
+  DATE: 'date',
+  DATETIME_LOCAL: 'datetime-local',
+  EMAIL: 'email',
+  FILE: 'file',
+  HIDDEN: 'hidden',
+  IMAGE: 'image',
+  MONTH: 'month',
+  NUMBER: 'number',
+  PASSWORD: 'password',
+  RANGE: 'range',
+  RESET: 'reset',
+  SEARCH: 'search',
+  SUBMIT: 'submit',
+  TEL: 'tel',
+  TEXT: 'text',
+  TIME: 'time',
+  URL: 'url',
+  WEEK: 'week'
+};
+
 const SIZE = {
   SMALL: 'small',
   LARGE: 'large',
@@ -50,7 +73,7 @@ const Input = props => {
 };
 
 Input.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf(Object.values(TYPE)),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
@@ -63,4 +86,4 @@ Input.propTypes = {
 };
 
 export default Input;
-export {SIZE, COLOR};
+export {SIZE, COLOR, TYPE};

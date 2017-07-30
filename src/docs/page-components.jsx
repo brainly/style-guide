@@ -23,6 +23,11 @@ import Links from 'text/pages/links-interactive';
 import TextBits from 'text/pages/text-bit-interactive';
 import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
 import HomeButtons from 'home-button/pages/home-button-interactive';
+import Checkboxes from 'form-elements/pages/checkbox-interactive';
+import Radios from 'form-elements/pages/radio-interactive';
+import Inputs from 'form-elements/pages/input-interactive';
+import Selects from 'form-elements/pages/select-interactive';
+import Textareas from 'form-elements/pages/textarea-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -46,7 +51,12 @@ const demos = {
   'Links': <Links/>,
   'Text Bit': <TextBits/>,
   'Popup Menu': <PopupMenus/>,
-  'Home Button': <HomeButtons/>
+  'Home Button': <HomeButtons/>,
+  'Checkbox': <Checkboxes/>,
+  'Radio': <Radios/>,
+  'Input': <Inputs/>,
+  'Select': <Selects/>,
+  'Textarea': <Textareas/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
