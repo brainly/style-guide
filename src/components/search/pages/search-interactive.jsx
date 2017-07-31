@@ -36,11 +36,11 @@ const SearchInputs = () => {
   ];
 
   return <div>
-    <DocsActiveBlock settings={settings}>
+    <DocsActiveBlock settings={settings} wrapper={<div/>}>
       <Search placeholder="Find all the answers..."/>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <Search placeholder="Find all the answers..." color={COLOR.LIGHT} fullWidth adaptiveIco noBorder/>
+      <Search placeholder="Find all the answers..." color={COLOR.LIGHT} fullWidth adaptiveIco/>
     </DocsActiveBlock>
   </div>;
 };
