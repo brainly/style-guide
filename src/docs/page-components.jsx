@@ -28,6 +28,8 @@ import Radios from 'form-elements/pages/radio-interactive';
 import Inputs from 'form-elements/pages/input-interactive';
 import Selects from 'form-elements/pages/select-interactive';
 import Textareas from 'form-elements/pages/textarea-interactive';
+import SearchInputs from 'search/pages/search-interactive';
+
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -56,7 +58,8 @@ const demos = {
   'Radio': <Radios/>,
   'Input': <Inputs/>,
   'Select': <Selects/>,
-  'Textarea': <Textareas/>
+  'Textarea': <Textareas/>,
+  'Search': <SearchInputs/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
