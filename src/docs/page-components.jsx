@@ -22,6 +22,7 @@ import Headers from 'text/pages/headers-interactive';
 import Links from 'text/pages/links-interactive';
 import TextBits from 'text/pages/text-bit-interactive';
 import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
+import HomeButtons from 'home-button/pages/home-button-interactive';
 import Checkboxes from 'form-elements/pages/checkbox-interactive';
 import Radios from 'form-elements/pages/radio-interactive';
 import Inputs from 'form-elements/pages/input-interactive';
@@ -50,6 +51,7 @@ const demos = {
   'Links': <Links/>,
   'Text Bit': <TextBits/>,
   'Popup Menu': <PopupMenus/>,
+  'Home Button': <HomeButtons/>,
   'Checkbox': <Checkboxes/>,
   'Radio': <Radios/>,
   'Input': <Inputs/>,
