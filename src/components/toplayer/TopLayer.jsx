@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon, {TYPE as iconTypes, COLOR as iconColors} from 'icons/Icon';
+import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../icons/Icon';
 
 const SIZE = {
   SMALL: 'small',

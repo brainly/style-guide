@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
+import Icon, {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
 
 const SIZE = {
   NORMAL: {CLASS_NAME: 'normal', ICON_SIZE: 16},
