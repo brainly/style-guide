@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text, {SIZE, COLOR, WEIGHT} from 'text/Text';
+import Text, {SIZE, COLOR, WEIGHT} from '../text/Text';
 
 const TYPE = {
   DEFAULT: 'default',

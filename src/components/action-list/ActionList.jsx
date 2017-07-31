@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-// import ActionListHole from './ActionListHole';
 
 const DIRECTION = {
   TO_RIGHT: 'to-right',
