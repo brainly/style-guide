@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Footer = ({children}) =>
+const FooterLine = ({children}) =>
   <div className="sg-footer__line">
     {children}
   </div>;
 
-Footer.propTypes = {
+FooterLine.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-export default Footer;
+export default FooterLine;
 
 

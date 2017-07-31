@@ -33,6 +33,7 @@ import Lists from 'list/pages/list-interactive';
 import Breadcrumbs from 'breadcrumbs/pages/breadcrumbs-interactive';
 import HeadersLayout from 'header/pages/header-interactive';
 import Footers from 'footer/pages/footer-interactive';
+import Layouts from 'layout/pages/layout-interactive';
 
 
 const demos = {
@@ -67,7 +68,8 @@ const demos = {
   'List': <Lists/>,
   'Breadcrumbs': <Breadcrumbs/>,
   'Header': <HeadersLayout/>,
-  'Footer': <Footers/>
+  'Footer': <Footers/>,
+  'Layout': <Layouts/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>

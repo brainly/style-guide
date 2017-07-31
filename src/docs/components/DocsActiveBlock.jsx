@@ -31,9 +31,11 @@ class DocsActiveBlock extends Component {
         }, {key: 'component'});
     }
 
+
     this.state = {
       showCode: null,
       changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,
+      centeredItems: typeof this.props.centeredItems === 'undefined' ? true : this.props.centeredItems,
       props: componentProps,
       renderNormally: true
     };
@@ -85,6 +87,10 @@ class DocsActiveBlock extends Component {
       'docs-active-block--dark': this.state.changeBackground === BACKGROUND_COLOR.DARK
     });
 
+    const componentClass = classnames('docs-active-block__component', {
+      'docs-active-block__component--centered': this.state.centeredItems === true
+    });
+
     let output = [];
 
     if (contentBefore) {
@@ -112,7 +118,7 @@ class DocsActiveBlock extends Component {
     return <div>
       <DocsBlock>
         <div className={blockClass}>
-          <div className="docs-active-block__component">
+          <div className={componentClass}>
             {output}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
@@ -128,6 +134,7 @@ class DocsActiveBlock extends Component {
 DocsActiveBlock.propTypes = {
   children: PropTypes.element.isRequired,
   settings: PropTypes.array.isRequired,
+  centeredItems: PropTypes.bool,
   contentBefore: PropTypes.node,
   contentAfter: PropTypes.node,
   wrapper: PropTypes.element,
