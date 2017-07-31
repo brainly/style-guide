@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon, {TYPE, COLOR} from 'icons/Icon';
 import UUID from 'node-uuid';
+import Icon, {TYPE, COLOR} from '../icons/Icon';
 
 const Checkbox = props => {
   const {

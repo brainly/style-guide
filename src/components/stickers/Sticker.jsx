@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {TYPE} from 'icons/Icon';
+import {TYPE} from '../icons/Icon';
 
 const Sticker = ({type}) => {
   const iconType = `#icon-${type}`;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {TYPE, COLOR as iconColors} from 'icons/Icon';
-import OverlayedBox from 'overlayed-box/OverlayedBox';
+import Icon, {TYPE, COLOR as iconColors} from '../icons/Icon';
+import OverlayedBox from '../overlayed-box/OverlayedBox';
 
 const COLOR = {
   ADAPTIVE: 'adaptive',
