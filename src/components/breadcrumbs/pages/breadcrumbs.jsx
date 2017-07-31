@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import Breadcrumb from '../Breadcrumb';
 import Text, {COLOR as TEXT_COLOR} from 'text/Text';
 
-const elements = ['Coments (9)', 'Report', 'Follow'];
+const elements = ['Comments (9)', 'Report', 'Follow'];
 
 const breadcrumbs = () => <div>
   <DocsBlock info="Default">
