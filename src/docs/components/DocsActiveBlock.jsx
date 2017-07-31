@@ -35,7 +35,6 @@ class DocsActiveBlock extends Component {
     this.state = {
       showCode: null,
       changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,
-      centeredItems: typeof this.props.centeredItems === 'undefined' ? true : this.props.centeredItems,
       props: componentProps,
       renderNormally: true
     };
@@ -63,8 +62,8 @@ class DocsActiveBlock extends Component {
   }
 
   render() {
-    const wrapper = this.props.wrapper;
     let {contentBefore, contentAfter} = this.props;
+    const {centeredItems = true, wrapper} = this.props;
     let component;
     let code;
 
@@ -88,7 +87,7 @@ class DocsActiveBlock extends Component {
     });
 
     const componentClass = classnames('docs-active-block__component', {
-      'docs-active-block__component--centered': this.state.centeredItems === true
+      'docs-active-block__component--centered': centeredItems
     });
 
     let output = [];

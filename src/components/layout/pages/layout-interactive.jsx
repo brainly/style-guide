@@ -39,7 +39,7 @@ const Layouts = () => {
   </div>;
 
   return <div>
-    <DocsActiveBlock settings={settings} centeredItems={false}>
+    <DocsActiveBlock settings={settings} centeredItems={false} backgroundColor="dark">
       <Layout header={header} footer={footer}>
         <LayoutContent>
           <LayoutBox>
