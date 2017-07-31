@@ -1,5 +1,6 @@
 import React from 'react';
-import List, {ListItem, ICON_TYPE, ICON_COLOR} from '../List';
+import List, {ICON_TYPE, ICON_COLOR} from '../List';
+import MenuList, {SIZE} from '../MenuList';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const firstString = 'One two three';
@@ -33,12 +34,22 @@ const Lists = () => {
     }
   ];
 
+  const menuSettings = [
+    {
+      name: 'size',
+      values: SIZE
+    }
+  ];
+
   return <div>
     <DocsActiveBlock settings={settings} backgroundColor="dark">
       <List items={items}/>
     </DocsActiveBlock>
     <DocsActiveBlock settings={settings}>
       <List items={example} iconColor={ICON_COLOR.GRAY_SECONDARY} iconType={ICON_TYPE.PLUS} spaced/>
+    </DocsActiveBlock>
+    <DocsActiveBlock settings={menuSettings}>
+      <MenuList items={menuItems}/>
     </DocsActiveBlock>
   </div>;
 };
