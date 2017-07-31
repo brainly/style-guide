@@ -31,6 +31,7 @@ class DocsActiveBlock extends Component {
         }, {key: 'component'});
     }
 
+
     this.state = {
       showCode: null,
       changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,
@@ -61,8 +62,8 @@ class DocsActiveBlock extends Component {
   }
 
   render() {
-    const wrapper = this.props.wrapper;
     let {contentBefore, contentAfter} = this.props;
+    const {centeredItems = true, wrapper} = this.props;
     let component;
     let code;
 
@@ -83,6 +84,10 @@ class DocsActiveBlock extends Component {
     const blockClass = classnames('docs-active-block', {
       'docs-active-block--gray': this.state.changeBackground === BACKGROUND_COLOR.LIGHT,
       'docs-active-block--dark': this.state.changeBackground === BACKGROUND_COLOR.DARK
+    });
+
+    const componentClass = classnames('docs-active-block__component', {
+      'docs-active-block__component--centered': centeredItems
     });
 
     let output = [];
@@ -112,7 +117,7 @@ class DocsActiveBlock extends Component {
     return <div>
       <DocsBlock>
         <div className={blockClass}>
-          <div className="docs-active-block__component">
+          <div className={componentClass}>
             {output}
           </div>
           <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
@@ -128,6 +133,7 @@ class DocsActiveBlock extends Component {
 DocsActiveBlock.propTypes = {
   children: PropTypes.element.isRequired,
   settings: PropTypes.array.isRequired,
+  centeredItems: PropTypes.bool,
   contentBefore: PropTypes.node,
   contentAfter: PropTypes.node,
   wrapper: PropTypes.element,

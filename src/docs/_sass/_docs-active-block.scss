@@ -22,12 +22,17 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   }
 
   &__component {
-    display: flex;
-    flex-grow: 1;
-    align-items: center;
     vertical-align: middle;
-    justify-content: center;
     padding: 20px;
+    max-height: 400px;
+    overflow: scroll;
+
+    &--centered {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   &__component-settings {
