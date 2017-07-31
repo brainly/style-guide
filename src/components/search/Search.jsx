@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input, {VALIDATION, COLOR, SIZE} from 'form-elements/Input';
+import Input, {COLOR, SIZE} from 'form-elements/Input';
 import Icon, {TYPE, COLOR as ICON_COLOR} from 'icons/Icon';
 
 const Search = ({adaptiveIco, ...additionalProps}) => {
@@ -17,4 +17,4 @@ const Search = ({adaptiveIco, ...additionalProps}) => {
 Search.propTypes = Object.assign({adaptiveIco: PropTypes.bool}, Input.propTypes);
 
 export default Search;
-export {SIZE, COLOR, VALIDATION};
+export {SIZE, COLOR};
