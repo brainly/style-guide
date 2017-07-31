@@ -29,6 +29,7 @@ import Inputs from 'form-elements/pages/input-interactive';
 import Selects from 'form-elements/pages/select-interactive';
 import Textareas from 'form-elements/pages/textarea-interactive';
 import SearchInputs from 'search/pages/search-interactive';
+import Lists from 'list/pages/list-interactive';
 
 
 const demos = {
@@ -59,7 +60,8 @@ const demos = {
   'Input': <Inputs/>,
   'Select': <Selects/>,
   'Textarea': <Textareas/>,
-  'Search': <SearchInputs/>
+  'Search': <SearchInputs/>,
+  'List': <Lists/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
