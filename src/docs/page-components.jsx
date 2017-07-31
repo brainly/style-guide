@@ -31,6 +31,7 @@ import Textareas from 'form-elements/pages/textarea-interactive';
 import SearchInputs from 'search/pages/search-interactive';
 import Lists from 'list/pages/list-interactive';
 import Breadcrumbs from 'breadcrumbs/pages/breadcrumbs-interactive';
+import HeadersLayout from 'header/pages/header-interactive';
 
 
 const demos = {
@@ -63,7 +64,8 @@ const demos = {
   'Textarea': <Textareas/>,
   'Search': <SearchInputs/>,
   'List': <Lists/>,
-  'Breadcrumbs': <Breadcrumbs/>
+  'Breadcrumbs': <Breadcrumbs/>,
+  'Header': <HeadersLayout/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
