@@ -22,9 +22,10 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   }
 
   &__component {
+    position: relative;
     vertical-align: middle;
     padding: 20px;
-    max-height: 400px;
+    max-height: 500px;
     overflow: scroll;
 
     &--centered {
