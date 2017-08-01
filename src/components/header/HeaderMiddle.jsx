@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const HeaderMiddle = ({children}) => <div className="sg-header__middle">
-  {children}
-</div>;
+const HeaderMiddle = ({children, className}) => {
+  const headerClass = classnames('sg-header__middle', className);
+
+  return <div className={headerClass}>
+    {children}
+  </div>;
+};
 
 HeaderMiddle.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default HeaderMiddle;

@@ -21,13 +21,13 @@ const COLOR = {
   LIGHT: 'light'
 };
 
-const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color}) => {
+const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color, className}) => {
 
   const Type = type;
   const headerClass = classNames('sg-header-primary', {
     [`sg-header-primary--${size}`]: size !== SIZE.NORMAL,
     [`sg-header-primary--${color}`]: color
-  });
+  }, className);
 
   return <Type className={headerClass}>
     {children}
@@ -38,7 +38,8 @@ HeaderPrimary.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf(Object.values(TYPE)),
   size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR))
+  color: PropTypes.oneOf(Object.values(COLOR)),
+  className: PropTypes.string
 };
 
 export default HeaderPrimary;

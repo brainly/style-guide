@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const ContentBox = ({children, spaced, full, className}) => {
-  const contentBoxClass = classNames('sg-content-box', className, {
+  const contentBoxClass = classNames('sg-content-box', {
     'sg-content-box--spaced': spaced,
     'sg-content-box--full': full
-  });
+  }, className);
 
   return <div className={contentBoxClass}>
     {children}

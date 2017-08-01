@@ -15,11 +15,11 @@ const Bubble = ({alignment, direction, full, children, className}) => {
     alignmentClass = 'sg-bubble--row-' + alignment;
   }
 
-  const bubbleClass = classNames('sg-bubble', className, {
+  const bubbleClass = classNames('sg-bubble', {
     'sg-bubble--full': full,
     [`sg-bubble--${direction}`]: direction,
     [alignmentClass]: alignment
-  });
+  }, className);
 
   return (
     <div className={bubbleClass}>

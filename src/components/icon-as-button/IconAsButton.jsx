@@ -33,7 +33,8 @@ IconAsButtonContent.propTypes = {
   overlay: PropTypes.node
 };
 
-const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay}) => {
+const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay,
+  className}) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${color}`]: color,
     [`sg-icon-as-button--${size.className}`]: size,
@@ -42,7 +43,7 @@ const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transp
     'sg-icon-as-button--action-active': action && active,
     'sg-icon-as-button--transparent': transparent,
     'sg-icon-as-button--transparent-active': transparent && active
-  });
+  }, className);
 
   let content;
 
@@ -70,7 +71,8 @@ IconAsButton.propTypes = {
   action: PropTypes.bool,
   transparent: PropTypes.bool,
   active: PropTypes.bool,
-  overlay: PropTypes.node
+  overlay: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default IconAsButton;

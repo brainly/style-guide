@@ -17,10 +17,10 @@ MenuItem.propTypes = {
   text: PropTypes.string.isRequired
 };
 
-const MenuList = ({items, size = SIZE.NORMAL}) => {
+const MenuList = ({items, size = SIZE.NORMAL, className}) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
-  });
+  }, className);
 
   return <ul className={listClass}>
     {items.map(({text, href}, index) =>
@@ -31,7 +31,8 @@ const MenuList = ({items, size = SIZE.NORMAL}) => {
 
 MenuList.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  className: PropTypes.string
 };
 
 export default MenuList;

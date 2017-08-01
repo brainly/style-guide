@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {TYPE} from '../icons/Icon';
+import classNames from 'classnames';
 
-const Sticker = ({type}) => {
+const Sticker = ({type, className}) => {
   const iconType = `#icon-${type}`;
+  const stickerClass = classNames('sg-sticker', className);
 
-  return <svg className="sg-sticker">
+  return <svg className={stickerClass}>
     <use className="sg-sticker__back" xlinkHref={iconType}></use>
     <use className="sg-sticker__front" xlinkHref={iconType}></use>
   </svg>;
 };
 
 Sticker.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired
+  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  className: PropTypes.string
 };
 
 export default Sticker;

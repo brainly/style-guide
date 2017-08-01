@@ -18,7 +18,7 @@ const SIZE = {
   OBSCURE: 'obscure'
 };
 
-const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled,
+const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled, className,
   ...additionalProps}) => {
 
   const linkClass = classNames('sg-link', {
@@ -28,7 +28,7 @@ const Link = ({children, href, color, size = SIZE.NORMAL, unstyled, underlined, 
     'sg-link--underlined': underlined,
     'sg-link--unstyled': unstyled,
     'sg-link--disabled': disabled
-  });
+  }, className);
 
   if (disabled || !href) {
     return <span className={linkClass} {...additionalProps}>
@@ -49,7 +49,8 @@ Link.propTypes = {
   unstyled: PropTypes.bool,
   underlined: PropTypes.bool,
   emphasised: PropTypes.bool,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Link;

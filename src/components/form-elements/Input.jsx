@@ -59,7 +59,7 @@ const Input = props => {
     };
   }
 
-  const inputClass = classnames('sg-input', className, {
+  const inputClass = classnames('sg-input', {
     [`sg-input--${size}`]: size !== SIZE.NORMAL,
     [`sg-input--${color}`]: color !== COLOR.NORMAL,
     'sg-input--valid': valid,
@@ -67,7 +67,7 @@ const Input = props => {
     'sg-input--full-width': fullWidth,
     'sg-input--no-border': noBorder,
     'sg-input--with-icon': withIcon
-  });
+  }, className);
 
   return <input type={type} className={inputClass} value={value} {...additionalProps}/>;
 };

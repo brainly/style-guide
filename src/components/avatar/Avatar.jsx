@@ -17,11 +17,11 @@ const SIZE = {
 };
 
 const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className}) => {
-  const avatarClass = classNames('sg-avatar', className, {
+  const avatarClass = classNames('sg-avatar', {
     [`sg-avatar--${size.className}`]: size !== SIZE.normal,
     'sg-avatar--with-border': border,
     'sg-avatar--spaced': spaced
-  });
+  }, className);
 
   const defaultAvatar = <div className="sg-avatar__image sg-avatar__image--icon">
     <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize}/>

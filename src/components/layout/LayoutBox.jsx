@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const LayoutBox = ({children}) =>
-  <div className="sg-layout__box">
+const LayoutBox = ({children, className}) => {
+
+  const layoutClass = classnames('sg-layout__box', className);
+
+  return <div className={layoutClass}>
     {children}
   </div>;
+};
 
 LayoutBox.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
 };
 
 export default LayoutBox;

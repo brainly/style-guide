@@ -7,14 +7,14 @@ const ContentBoxContent = ({
   children, full, spacedTop, spacedBottom, className, align = ALIGNMENT.LEFT
 }) => {
 
-  const contentBoxClass = classNames('sg-content-box__content', className, {
+  const contentBoxClass = classNames('sg-content-box__content', {
     'sg-content-box__content--full': full,
     'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
     'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
     [`sg-content-box__content--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__content--spaced-bottom': spacedBottom === SIZE.NORMAL,
     [`sg-content-box__content--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
-  });
+  }, className);
 
   return <div className={contentBoxClass}>
     {children}

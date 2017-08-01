@@ -51,11 +51,11 @@ class Rating extends Component {
   }
 
   render() {
-    const {metricSize = 5, rate = 0, small, active, counter} = this.props;
+    const {metricSize = 5, rate = 0, small, active, counter, className} = this.props;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--small': small,
       'sg-rate-box--active': active
-    });
+    }, className);
     const starsProps = new Array(metricSize).fill(true).map((dump, index) => ({
       key: index,
       checked: index < rate,
@@ -76,7 +76,8 @@ Rating.propTypes = {
   metricSize: PropTypes.number,
   active: PropTypes.bool,
   onChange: PropTypes.func,
-  counter: PropTypes.number
+  counter: PropTypes.number,
+  className: PropTypes.string
 };
 
 export default Rating;

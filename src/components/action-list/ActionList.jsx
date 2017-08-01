@@ -10,10 +10,10 @@ const DIRECTION = {
 };
 
 const ActionList = ({children, direction, noWrap, className}) => {
-  const actionListClass = classNames('sg-actions-list', className, {
+  const actionListClass = classNames('sg-actions-list', {
     [`sg-actions-list--${direction}`]: direction,
     'sg-actions-list--no-wrap': noWrap
-  });
+  }, className);
 
   return (
     <div className={actionListClass}>

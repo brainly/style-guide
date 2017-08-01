@@ -41,7 +41,7 @@ const WEIGHT = {
   BOLD: 'emphasised'
 };
 
-const Text = ({children, size, weight, color, type = TYPE.DIV, noWrap, breakWords}) => {
+const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap, breakWords}) => {
 
   const Type = type;
   const textClass = classNames('sg-text', {
@@ -50,7 +50,7 @@ const Text = ({children, size, weight, color, type = TYPE.DIV, noWrap, breakWord
     [`sg-text--${weight}`]: weight,
     'sg-text--no-wrap': noWrap,
     'sg-text--break-words': breakWords
-  });
+  }, className);
 
   return <Type className={textClass}>
     {children}
@@ -64,7 +64,8 @@ Text.propTypes = {
   weight: PropTypes.oneOf(Object.values(WEIGHT)),
   type: PropTypes.oneOf(Object.values(TYPE)),
   noWrap: PropTypes.bool,
-  breakWords: PropTypes.bool
+  breakWords: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Text;

@@ -9,7 +9,8 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, splashScreen, limitedWidth, row}) => {
+const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, splashScreen, limitedWidth, row,
+  className}) => {
   const topLayerClassName = classnames('sg-toplayer', {
     'sg-toplayer--lead': lead,
     'sg-toplayer--fill': fill,
@@ -20,7 +21,7 @@ const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, s
     'sg-toplayer--limited-width': limitedWidth,
     'sg-toplayer--row': row,
     [`sg-toplayer--${size}`]: size
-  });
+  }, className);
 
   return <div className={topLayerClassName}>
     <div className="sg-toplayer__close">
@@ -42,7 +43,8 @@ TopLayer.propTypes = {
   splashScreen: PropTypes.bool,
   limitedWidth: PropTypes.bool,
   row: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZE))
+  size: PropTypes.oneOf(Object.values(SIZE)),
+  className: PropTypes.string
 };
 
 export default TopLayer;

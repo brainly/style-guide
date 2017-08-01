@@ -9,11 +9,11 @@ const TYPE = {
   ZNANIJA: 'znanija'
 };
 
-const Logo = ({type = TYPE.BRAINLY}) => {
+const Logo = ({type = TYPE.BRAINLY, className}) => {
 
   const logoClass = classnames('sg-logo', {
     [`sg-logo--${type}`]: type !== TYPE.BRAINLY
-  });
+  }, className);
 
   const logoPath = `images/logos/${type}.svg`;
 
@@ -23,7 +23,8 @@ const Logo = ({type = TYPE.BRAINLY}) => {
 };
 
 Logo.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE))
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  className: PropTypes.string
 };
 
 export default Logo;
