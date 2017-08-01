@@ -15,7 +15,7 @@ const Bubble = ({alignment, direction, full, children, className}) => {
     alignmentClass = 'sg-bubble--row-' + alignment;
   }
 
-  const bubbleClass = classNames('sg-bubble', {
+  const bubbleClass = classNames('sg-bubble', className, {
     'sg-bubble--full': full,
     [`sg-bubble--${direction}`]: direction,
     [alignmentClass]: alignment

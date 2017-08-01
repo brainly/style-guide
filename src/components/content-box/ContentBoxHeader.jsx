@@ -7,7 +7,7 @@ const ContentBoxHeader = ({children, spaced, spacedTop, spacedBottom, className,
   align = ALIGNMENT.LEFT
 }) => {
 
-  const contentBoxClass = classNames('sg-content-box__header', {
+  const contentBoxClass = classNames('sg-content-box__header', className, {
     'sg-content-box__header--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__header--spaced': spaced,
     'sg-content-box__header--spaced-top': spacedTop === SIZE.NORMAL,

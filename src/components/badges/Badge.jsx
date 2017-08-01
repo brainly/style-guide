@@ -22,7 +22,7 @@ const COLOR = {
 
 const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation, className}) => {
 
-  const badgeClass = classNames('sg-badge', {
+  const badgeClass = classNames('sg-badge', className, {
     [`sg-badge--${color.BADGE}`]: color !== COLOR.NORMAL,
     [`sg-badge--${size}`]: size !== SIZE.NORMAL,
     'sg-badge--rounded': rounded,
