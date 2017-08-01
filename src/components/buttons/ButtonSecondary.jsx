@@ -11,8 +11,8 @@ const TYPE = {
   ACTIVE_INVERSE: 'active-inverse'
 };
 
-const ButtonSecondary = ({small, wide, disabled, type, children, ...props}) => {
-  const btnClass = classNames('sg-button-secondary', {
+const ButtonSecondary = ({small, wide, disabled, type, children, className, ...props}) => {
+  const btnClass = classNames('sg-button-secondary', className, {
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
     [`sg-button-secondary--${type}`]: type,
@@ -30,7 +30,8 @@ ButtonSecondary.propTypes = {
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(Object.values(TYPE))
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  className: PropTypes.string
 };
 
 export default ButtonSecondary;

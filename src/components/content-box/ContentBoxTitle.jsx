@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 
 const ContentBoxTitle = ({
-  children, spaced, spacedTop, spacedBottom, align = ALIGNMENT.LEFT
+  children, spaced, spacedTop, spacedBottom, className, align = ALIGNMENT.LEFT
 }) => {
 
-  const contentBoxClass = classNames('sg-content-box__title', {
+  const contentBoxClass = classNames('sg-content-box__title', className, {
     'sg-content-box__title--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__title--spaced': spaced,
     'sg-content-box__title--spaced-top': spacedTop === SIZE.NORMAL,
@@ -27,7 +27,8 @@ ContentBoxTitle.propTypes = {
   spaced: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
   spacedTop: PropTypes.oneOf(Object.values(SIZE)),
-  spacedBottom: PropTypes.oneOf(Object.values(SIZE))
+  spacedBottom: PropTypes.oneOf(Object.values(SIZE)),
+  className: PropTypes.string
 };
 
 export default ContentBoxTitle;

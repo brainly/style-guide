@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Breadcrumb = ({short, adaptive, elements = []}) => {
-  const breadcrumbClass = classNames('sg-breadcrumb-list', {
+const Breadcrumb = ({className, short, adaptive, elements = []}) => {
+  const breadcrumbClass = classNames('sg-breadcrumb-list', className, {
     'sg-breadcrumb-list--short': short,
     'sg-breadcrumb-list--adaptive': adaptive
   });
@@ -16,7 +16,8 @@ const Breadcrumb = ({short, adaptive, elements = []}) => {
 Breadcrumb.propTypes = {
   elements: PropTypes.arrayOf(PropTypes.node).isRequired,
   adaptive: PropTypes.bool,
-  short: PropTypes.bool
+  short: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Breadcrumb;

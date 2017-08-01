@@ -16,8 +16,8 @@ const SIZE = {
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
 
-const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc}) => {
-  const avatarClass = classNames('sg-avatar', {
+const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className}) => {
+  const avatarClass = classNames('sg-avatar', className, {
     [`sg-avatar--${size.className}`]: size !== SIZE.normal,
     'sg-avatar--with-border': border,
     'sg-avatar--spaced': spaced
@@ -36,7 +36,8 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   border: PropTypes.bool,
   spaced: PropTypes.bool,
-  imgSrc: PropTypes.string
+  imgSrc: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default Avatar;
