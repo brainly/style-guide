@@ -14,7 +14,7 @@ const ContentBoxActions = ({children, spacedTop, spacedBottom, className,
     [`sg-content-box__actions--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__actions--spaced-bottom': spacedBottom === SIZE.NORMAL,
     [`sg-content-box__actions--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
-  });
+  }, className);
 
   return <div className={contentBoxClass}>
     {children}

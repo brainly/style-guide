@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTop, fullPage}) => {
+const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTop, fullPage, className}) => {
   const layoutContainerClass = classNames('sg-layout__container', {
     'sg-layout__container--reversed-order': reversedOrder,
     'sg-layout__container--no-max-width': noMaxWidth,
     'sg-layout__container--no-margin-top': noMarginTop,
     'sg-layout__container--full-page': fullPage
-  });
+  }, className);
 
   let footerContent;
 
@@ -34,7 +34,8 @@ Layout.propTypes = {
   reversedOrder: PropTypes.bool,
   noMaxWidth: PropTypes.bool,
   noMarginTop: PropTypes.bool,
-  fullPage: PropTypes.bool
+  fullPage: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Layout;

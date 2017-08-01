@@ -11,9 +11,9 @@ const TYPE = {
 };
 
 const FlashMessage = ({text, type = TYPE.DEFAULT, className}) => {
-  const messageClass = classNames('sg-flash__message', className, {
+  const messageClass = classNames('sg-flash__message', {
     [`sg-flash__message--${type}`]: type !== TYPE.DEFAULT
-  });
+  }, className);
 
   return <div className="sg-flash">
     <div className={messageClass}>

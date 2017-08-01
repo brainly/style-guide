@@ -8,6 +8,7 @@ const Select = props => {
     invalid,
     fullWidth,
     value,
+    className,
     options = [],
     ...additionalProps
   } = props;
@@ -23,7 +24,7 @@ const Select = props => {
     'sg-select--valid': valid,
     'sg-select--invalid': invalid,
     'sg-select--full-width': fullWidth
-  });
+  }, className);
   const optionsElements = options.map(({value, text}) =>
     <option key={value} value={value}>{text}</option>
   );
@@ -48,7 +49,8 @@ Select.propTypes = {
   valid: PropTypes.bool,
   invalid: PropTypes.bool,
   fullWidth: PropTypes.bool,
-  options: PropTypes.arrayOf(optionShape)
+  options: PropTypes.arrayOf(optionShape),
+  className: PropTypes.string
 };
 
 export default Select;

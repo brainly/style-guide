@@ -17,11 +17,11 @@ const ICONS = {
   'znanija': 'znanija-mobile-4b7ac3cb04'
 };
 
-const HomeButton = ({type = TYPE.BRAINLY, href = '#'}) => {
+const HomeButton = ({type = TYPE.BRAINLY, href = '#', className}) => {
 
   const buttonClass = classnames('sg-home-button', {
     [`sg-home-button--${type}`]: type !== TYPE.BRAINLY
-  });
+  }, className);
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
   const mobilePath = `${BASE_URL}${ICONS[type]}.svg`;
 
@@ -33,7 +33,8 @@ const HomeButton = ({type = TYPE.BRAINLY, href = '#'}) => {
 
 HomeButton.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)),
-  href: PropTypes.string
+  href: PropTypes.string,
+  className: PropTypes.string
 };
 
 export default HomeButton;

@@ -1,12 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const HeaderLeft = ({children}) => <div className="sg-header__left">
-  {children}
-</div>;
+const HeaderLeft = ({children, className}) => {
+  const headerClass = classnames('sg-header__left', className);
+
+  return <div className={headerClass}>
+    {children}
+  </div>;
+};
 
 HeaderLeft.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default HeaderLeft;

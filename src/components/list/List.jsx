@@ -32,10 +32,10 @@ ListItem.propTypes = {
   text: PropTypes.node.isRequired
 };
 
-const List = ({items, spaced, small, iconType, iconColor}) => {
+const List = ({items, spaced, small, iconType, iconColor, className}) => {
   const listClass = classNames('sg-list', {
     'sg-list--spaced-elements': spaced
-  });
+  }, className);
 
   return <ul className={listClass}>
     {items.map((text, index) =>
@@ -49,7 +49,8 @@ List.propTypes = {
   small: PropTypes.bool,
   iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
   iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  items: PropTypes.arrayOf(PropTypes.node).isRequired
+  items: PropTypes.arrayOf(PropTypes.node).isRequired,
+  className: PropTypes.string
 };
 
 export default List;

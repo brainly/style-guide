@@ -43,7 +43,8 @@ const Label = props => {
     secondary,
     unstyled,
     emphasised,
-    elementsToTop
+    elementsToTop,
+    className
   } = props;
 
   const labelClass = classNames('sg-label', {
@@ -52,7 +53,7 @@ const Label = props => {
     'sg-label--unstyled': unstyled,
     'sg-label--emphasised': emphasised,
     'sg-label--elements-to-the-top': elementsToTop
-  });
+  }, className);
 
   let textElement;
   let numberElement;
@@ -84,7 +85,8 @@ Label.propTypes = {
   secondary: PropTypes.bool,
   unstyled: PropTypes.bool,
   emphasised: PropTypes.bool,
-  elementsToTop: PropTypes.bool
+  elementsToTop: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Label;

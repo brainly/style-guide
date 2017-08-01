@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Media = ({contentArray = [], aside, ...props}) => {
+const Media = ({contentArray = [], aside, className, ...props}) => {
   const {toRight, focused, clickable, noPadding, transparent, graySecondaryLight, small, spacedBottom} = props;
   const mediaClassName = classnames('sg-media', {
     'sg-media--to-right': toRight,
@@ -11,8 +11,7 @@ const Media = ({contentArray = [], aside, ...props}) => {
     'sg-media--no-padding': noPadding,
     'sg-media--transparent': transparent,
     'sg-media--gray-secondary-light': graySecondaryLight
-
-  });
+  }, className);
   const contentClassName = classnames('sg-media__content', {
     'sg-media__content--small': small,
     'sg-media__content--spaced-bottom': spacedBottom
@@ -39,7 +38,8 @@ Media.propTypes = {
   transparent: PropTypes.bool,
   graySecondaryLight: PropTypes.bool,
   small: PropTypes.bool,
-  spacedBottom: PropTypes.bool
+  spacedBottom: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Media;

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Breadcrumb = ({className, short, adaptive, elements = []}) => {
-  const breadcrumbClass = classNames('sg-breadcrumb-list', className, {
+  const breadcrumbClass = classNames('sg-breadcrumb-list', {
     'sg-breadcrumb-list--short': short,
     'sg-breadcrumb-list--adaptive': adaptive
-  });
+  }, className);
 
   return <ul className={breadcrumbClass}>
     {elements.map((elem, i) => <li key={i} className="sg-breadcrumb-list__element">{elem}</li>)}

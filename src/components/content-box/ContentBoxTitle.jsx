@@ -14,7 +14,7 @@ const ContentBoxTitle = ({
     [`sg-content-box__title--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__title--spaced-bottom': spacedBottom === SIZE.NORMAL,
     [`sg-content-box__title--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
-  });
+  }, className);
 
   return <div className={contentBoxClass}>
     {children}

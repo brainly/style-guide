@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Header = ({children, light, fixed}) => {
+const Header = ({children, light, fixed, className}) => {
 
   const headerClass = classnames('sg-header', {
     'sg-header--light': light,
     'sg-header--fixed': fixed
-  });
+  }, className);
 
   return <header className={headerClass}>
     <div className="sg-header__container">
@@ -19,7 +19,8 @@ const Header = ({children, light, fixed}) => {
 Header.propTypes = {
   children: PropTypes.node.isRequired,
   light: PropTypes.bool,
-  fixed: PropTypes.bool
+  fixed: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Header;

@@ -12,11 +12,11 @@ const TYPE = {
 };
 
 const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...props}) => {
-  const btnClass = classNames('sg-button-primary', className, {
+  const btnClass = classNames('sg-button-primary', {
     'sg-button-primary--disabled': disabled,
     'sg-button-primary--full-width': wide,
     [`sg-button-primary--${type}`]: type
-  });
+  }, className);
 
   let ico;
 

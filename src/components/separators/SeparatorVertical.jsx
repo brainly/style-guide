@@ -8,17 +8,18 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const Separator = ({size = SIZE.NORMAL}) => {
+const Separator = ({size = SIZE.NORMAL, className}) => {
 
   const separatorClass = classNames('sg-vertical-separator', {
     [`sg-vertical-separator--${size}`]: size !== SIZE.NORMAL
-  });
+  }, className);
 
   return <div className = {separatorClass}></div>;
 };
 
 Separator.propTypes = {
-  size: PropTypes.oneOf(Object.values(SIZE))
+  size: PropTypes.oneOf(Object.values(SIZE)),
+  className: PropTypes.string
 };
 
 export default Separator;

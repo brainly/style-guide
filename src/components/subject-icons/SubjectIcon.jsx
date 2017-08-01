@@ -82,10 +82,10 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, mono}) => {
+const SubjectIcon = ({type, size = SIZE.NORMAL, className, mono}) => {
   const iconClass = classNames('sg-subject-icon', {
     [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL
-  });
+  }, className);
   const iconType = `#icon-subject-${mono ? 'mono-' : ''}${type}`;
 
   return <svg className={iconClass}>
@@ -96,7 +96,8 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, mono}) => {
 SubjectIcon.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  mono: PropTypes.bool
+  mono: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default SubjectIcon;

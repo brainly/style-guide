@@ -21,7 +21,7 @@ const PADDING = {
 };
 
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, className}) => {
-  const boxClass = classNames('sg-box', className, {
+  const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
     'sg-box--full': full,
@@ -29,7 +29,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
     'sg-box--with-shadow': shadow
-  });
+  }, className);
 
   let content;
 
