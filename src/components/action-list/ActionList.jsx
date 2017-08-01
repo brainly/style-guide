@@ -9,8 +9,8 @@ const DIRECTION = {
   SPACE_BETWEEN: 'space-between'
 };
 
-const ActionList = ({children, direction, noWrap}) => {
-  const actionListClass = classNames('sg-actions-list', {
+const ActionList = ({children, direction, noWrap, className}) => {
+  const actionListClass = classNames('sg-actions-list', className, {
     [`sg-actions-list--${direction}`]: direction,
     'sg-actions-list--no-wrap': noWrap
   });
@@ -25,7 +25,8 @@ const ActionList = ({children, direction, noWrap}) => {
 ActionList.propTypes = {
   direction: PropTypes.oneOf(Object.values(DIRECTION)),
   noWrap: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default ActionList;

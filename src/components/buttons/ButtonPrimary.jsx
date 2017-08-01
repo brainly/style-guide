@@ -11,8 +11,8 @@ const TYPE = {
   FB: 'fb'
 };
 
-const ButtonPrimary = ({disabled, icon, type, children, wide, ...props}) => {
-  const btnClass = classNames('sg-button-primary', {
+const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...props}) => {
+  const btnClass = classNames('sg-button-primary', className, {
     'sg-button-primary--disabled': disabled,
     'sg-button-primary--full-width': wide,
     [`sg-button-primary--${type}`]: type
@@ -35,7 +35,8 @@ ButtonPrimary.propTypes = {
   icon: PropTypes.node,
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
-  type: PropTypes.oneOf(Object.values(TYPE))
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  className: PropTypes.string
 };
 
 export default ButtonPrimary;

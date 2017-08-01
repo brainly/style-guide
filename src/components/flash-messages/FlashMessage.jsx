@@ -10,8 +10,8 @@ const TYPE = {
   INFO: 'info'
 };
 
-const FlashMessage = ({text, type = TYPE.DEFAULT}) => {
-  const messageClass = classNames('sg-flash__message', {
+const FlashMessage = ({text, type = TYPE.DEFAULT, className}) => {
+  const messageClass = classNames('sg-flash__message', className, {
     [`sg-flash__message--${type}`]: type !== TYPE.DEFAULT
   });
 
@@ -26,7 +26,8 @@ const FlashMessage = ({text, type = TYPE.DEFAULT}) => {
 
 FlashMessage.propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(Object.values(TYPE))
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  className: PropTypes.string
 };
 
 export default FlashMessage;

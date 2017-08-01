@@ -20,9 +20,9 @@ const COLOR = {
   BLUE_SECONDARY_LIGHT: {BADGE: 'blue-secondary-light', TEXT: TEXT_COLOR.BLUE}
 };
 
-const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation}) => {
+const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation, className}) => {
 
-  const badgeClass = classNames('sg-badge', {
+  const badgeClass = classNames('sg-badge', className, {
     [`sg-badge--${color.BADGE}`]: color !== COLOR.NORMAL,
     [`sg-badge--${size}`]: size !== SIZE.NORMAL,
     'sg-badge--rounded': rounded,
@@ -40,7 +40,8 @@ Badge.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   children: PropTypes.string.isRequired,
   rounded: PropTypes.bool,
-  withAnimation: PropTypes.bool
+  withAnimation: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default Badge;
