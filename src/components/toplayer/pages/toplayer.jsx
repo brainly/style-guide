@@ -1,11 +1,13 @@
 import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
 import DocsBlock from 'components/DocsBlock';
-import Icon, {TYPE, COLOR} from 'icons/Icon';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonPrimary';
+import Text, {WEIGHT} from 'text/Text';
+import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
 
 const content = <ContentBox>
   <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
@@ -64,42 +66,17 @@ const TopLayers = () =>
       <TopLayer size={SIZE.MEDIUM} lead={true} withBugbox={true}>
         <ContentBox>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            <h1 className="sg-text-bit sg-text-bit--alt">
-              The world's largest learning community
-            </h1>
-          </ContentBoxContent>
-
-          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-
-            <h2 className="sg-header-secondary">
+            <HeaderSecondary type={HEADER_TYPE.H2}>
               Why join Brainly?
-            </h2>
-            <ul className="sg-list">
-              <li className="sg-list__element">
-                <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
-                </div>
-                <div className="sg-text sg-text--emphasised">ask questions about your assignment</div>
-              </li>
-              <li className="sg-list__element">
-                <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
-                </div>
-                <div className="sg-text sg-text--emphasised">get answer with explanation</div>
-              </li>
-              <li className="sg-list__element">
-                <div className="sg-list__icon sg-list__icon--spacing-right-small">
-                  <Icon type={TYPE.PLUS} size={14} color={COLOR.GRAY_SECONDARY}/>
-                </div>
-                <div className="sg-text sg-text--emphasised">find similar questions</div>
-              </li>
-            </ul>
+            </HeaderSecondary>
+            <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
+              <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
+              <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>,
+              <Text weight={WEIGHT.BOLD}>find similar questions</Text>
+            ]}/>
           </ContentBoxContent>
-
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            <ButtonPrimary type={BUTTON_TYPE.ALT}>
-              Join us
-            </ButtonPrimary>
+            <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
           </ContentBoxContent>
         </ContentBox>
       </TopLayer>
