@@ -67,3 +67,11 @@ test('component with children', () => {
 
   expect(generateJSX(input)).toEqual(output);
 });
+
+test('not a valid React element', () => {
+  const input = <h1>Test</h1>;
+  const output =
+    '<h1>Test</h1>';
+
+  expect(generateJSX(input)).toEqual(output);
+});
