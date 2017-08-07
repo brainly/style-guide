@@ -31,6 +31,7 @@ $iconSizes: 120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16
     max-height: 24px;
     height: 24px;
     width: 24px;
+    pointer-events: none;
 
     @each $size in $iconSizes {
       &--x#{$size} {
