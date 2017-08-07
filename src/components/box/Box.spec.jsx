@@ -112,7 +112,6 @@ test('full width', () => {
   expect(box.hasClass('sg-box--full')).toEqual(true);
 });
 
-
 test('image container', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
