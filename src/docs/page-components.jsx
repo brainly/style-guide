@@ -35,7 +35,8 @@ import HeadersLayout from 'header/pages/header-interactive';
 import Footers from 'footer/pages/footer-interactive';
 import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
-
+import OverlayedBoxes from 'overlayed-box/pages/overlayed-box-interactive';
+import Logos from 'logo/pages/logo-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -71,7 +72,9 @@ const demos = {
   'Header': <HeadersLayout/>,
   'Footer': <Footers/>,
   'Layout': <Layouts/>,
-  'Toplayer': <Toplayers/>
+  'Toplayer': <Toplayers/>,
+  'Overlayed box': <OverlayedBoxes/>,
+  'Logo': <Logos/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
