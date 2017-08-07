@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ALIGNMENT = {START: 'start', END: 'end'};
+const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
 const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-const Bubble = ({alignment, direction, full, children, className}) => {
+const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, className}) => {
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
@@ -18,7 +18,7 @@ const Bubble = ({alignment, direction, full, children, className}) => {
   const bubbleClass = classNames('sg-bubble', className, {
     'sg-bubble--full': full,
     [`sg-bubble--${direction}`]: direction,
-    [alignmentClass]: alignment
+    [alignmentClass]: alignment !== ALIGNMENT.CENTER
   }, className);
 
   return (
@@ -31,7 +31,7 @@ const Bubble = ({alignment, direction, full, children, className}) => {
 Bubble.propTypes = {
   children: PropTypes.node.isRequired,
   direction: PropTypes.oneOf(Object.values(DIRECTION)).isRequired,
-  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)), // without define is center
+  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   full: PropTypes.bool,
   className: PropTypes.string
 };
