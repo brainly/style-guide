@@ -36,6 +36,7 @@ import Footers from 'footer/pages/footer-interactive';
 import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
 import Overlays from 'overlay/pages/overlay-interactive';
+import Logos from 'logo/pages/logo-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -72,7 +73,8 @@ const demos = {
   'Footer': <Footers/>,
   'Layout': <Layouts/>,
   'Toplayer': <Toplayers/>,
-  'Overlay': <Overlays/>
+  'Overlay': <Overlays/>,
+  'Logo': <Logos/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
