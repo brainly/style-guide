@@ -37,6 +37,7 @@ import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
 import OverlayedBoxes from 'overlayed-box/pages/overlayed-box-interactive';
 import Logos from 'logo/pages/logo-interactive';
+import Media from 'media/pages/media-interactive';
 
 const demos = {
   'Avatars': <Avatars/>,
@@ -74,7 +75,8 @@ const demos = {
   'Layout': <Layouts/>,
   'Toplayer': <Toplayers/>,
   'Overlayed box': <OverlayedBoxes/>,
-  'Logo': <Logos/>
+  'Logo': <Logos/>,
+  'Media': <Media/>
 };
 
 const sections = Object.keys(demos).map(key => <article key={key}>
