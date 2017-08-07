@@ -59,3 +59,4 @@ DocsBlock.propTypes = {
 };
 
 export default DocsBlock;
+export {InfoBlock, ContentBlock};
