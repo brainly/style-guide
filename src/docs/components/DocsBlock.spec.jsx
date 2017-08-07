@@ -62,7 +62,7 @@ describe('InfoBlock', () => {
       <InfoBlock/>
     );
 
-    expect(infoBlock.hasClass('.docs-block__info')).toBeFalsy();
+    expect(infoBlock.hasClass('docs-block__info')).toBeFalsy();
     expect(infoBlock.find('.docs-block__header')).toHaveLength(0);
   });
 
