@@ -1,26 +1,32 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import UUID from 'node-uuid';
 import Icon, {TYPE, COLOR} from '../icons/Icon';
 import classNames from 'classnames';
 
-const Checkbox = props => {
-  const {
-    checked,
-    id = UUID.v1(),
-    className,
-    ...additionalProps
-  } = props;
+class Checkbox extends PureComponent {
+  constructor(props) {
+    super(props);
 
-  const checkboxClass = classNames('sg-checkbox', className);
+    this.state = {
+      id: props.id || UUID.v1()
+    };
+  }
 
-  return <div className={checkboxClass}>
-    <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps}/>
-    <label className="sg-checkbox__ghost" htmlFor={id}>
-      <Icon type={TYPE.CHECK} color={COLOR.ADAPTIVE} size={10}/>
-    </label>
-  </div>;
-};
+  render() {
+    const {checked, className, ...additionalProps} = this.props;
+    const {id} = this.state;
+
+    const checkboxClass = classNames('sg-checkbox', className);
+
+    return <div className={checkboxClass}>
+      <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps}/>
+      <label className="sg-checkbox__ghost" htmlFor={id}>
+        <Icon type={TYPE.CHECK} color={COLOR.ADAPTIVE} size={10}/>
+      </label>
+    </div>;
+  }
+}
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
