@@ -36,7 +36,7 @@ describe('ActionList', () => {
 
   test('to-top', () => {
     const actionList = shallow(
-      <ActionList direction={DIRECTION.TO_TOP}></ActionList>
+      <ActionList toTop={true}></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
