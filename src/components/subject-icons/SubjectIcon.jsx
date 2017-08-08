@@ -12,6 +12,7 @@ const TYPE = {
   ART: 'art',
   ARTMUSIC: 'artmusic',
   BELARUS: 'belarus',
+  BELARUS_ALT: 'belarus-alt',
   BIOLOGY: 'biology',
   BUSINESS: 'business',
   CATALA: 'catala',
@@ -40,6 +41,7 @@ const TYPE = {
   ITALIAN: 'italian',
   JAPANESE: 'japanese',
   KAZACH: 'kazach',
+  KAZACH_ALT: 'kazach-alt',
   KOREAN: 'korean',
   LANGUAGE: 'language',
   LATIN: 'latin',
@@ -61,6 +63,7 @@ const TYPE = {
   RELIGION: 'religion',
   RPA_LANG: 'rpa-lang',
   RUSSIAN: 'russian',
+  RUSSIAN_ALT: 'russian-alt',
   SCIENCE: 'science',
   SECURITY: 'security',
   SKILLS: 'skills',
@@ -72,6 +75,7 @@ const TYPE = {
   TOURISM: 'tourism',
   TRAFFIC: 'traffic',
   UKRAINIAN: 'ukrainian',
+  UKRAINIAN_ALT: 'ukrainian-alt',
   UKRAINIAN_LITERATURE: 'ukrainian-literature',
   WOS: 'wos'
 };

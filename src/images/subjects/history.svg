@@ -2,23 +2,23 @@
     <defs>
         <style>
             .b {
-            fill: #020a1a;
+                fill: #ff796b;
             }
 
             .c {
-            fill: #ff796b;
+                fill: #fec83c;
             }
 
             .d {
-            fill: #fec83c;
+                fill: #020a1a;
             }
         </style>
     </defs>
     <title>history</title>
-    <rect class="b" x="1.97" y="2" width="20" height="4" rx="2" ry="2" />
-    <rect class="c" x="5.02" y="7" width="13.92" height="4" rx="0.5" ry="0.5" />
-    <path class="d" d="M9,15a1,1,0,1,0-2,0v7H9Z" />
-    <path class="d" d="M13,15a1,1,0,0,0-2,0v7h2Z" />
-    <path class="d" d="M17,15a1,1,0,1,0-2,0v7h2Z" />
-    <path class="b" d="M5,12.5V22H7V15a1,1,0,0,1,2,0v7h2V15a1,1,0,0,1,1-1h0a1,1,0,0,1,1,1v7h2V15a1,1,0,0,1,2,0v7h2V12.5a.5.5,0,0,0-.5-.5h-13A.5.5,0,0,0,5,12.5Z" />
+    <rect class="b" x="5.02" y="4.97" width="13.92" height="2.01" rx="0.5" ry="0.5" />
+    <path class="c" d="M9,10.92a1,1,0,1,0-2,0V22H9Z" />
+    <path class="c" d="M13,10.92a1,1,0,0,0-2,0V22h2Z" />
+    <path class="c" d="M17,10.92a1,1,0,0,0-2,0V22h2Z" />
+    <path class="d" d="M5,8.42V22H7V10.92a1,1,0,0,1,2,0V22h2V10.92a1,1,0,0,1,1-1h0a1,1,0,0,1,1,1V22h2V10.92a1,1,0,0,1,2,0V22h2V8.42a.5.5,0,0,0-.5-.5h-13A.5.5,0,0,0,5,8.42Z" />
+    <rect class="d" x="3" y="1.98" width="18" height="2" rx="1" ry="1" />
 </svg>
