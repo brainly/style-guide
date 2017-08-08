@@ -245,6 +245,10 @@ $includeHtml: false !default;
         fill: $iconAsButtonActionColor;
       }
 
+      &.sg-icon-as-button--adaptive {
+        background: inherit;
+      }
+
       &.sg-icon-as-button--gray {
         background: $iconAsButtonGrayColor;
       }
