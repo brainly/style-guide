@@ -43,10 +43,10 @@ $includeHtml: false !default;
       height: 40px;
     }
 
-    &--small {
+    &--with-border {
       .sg-icon-as-button__hole {
-        width: 30px;
-        height: 30px;
+        border: solid $iconAsButtonColor 1px;
+        border-radius: 50%;
       }
     }
 
@@ -56,6 +56,17 @@ $includeHtml: false !default;
       &:hover,
       &:active {
         fill: inherit;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: inherit;
+      }
+    }
+
+    &--small {
+      .sg-icon-as-button__hole {
+        width: 30px;
+        height: 30px;
       }
     }
 
@@ -70,13 +81,6 @@ $includeHtml: false !default;
       .sg-icon-as-button__hole {
         width: 16px;
         height: 16px;
-      }
-    }
-
-    &--with-border {
-      .sg-icon-as-button__hole {
-        border: solid $iconAsButtonColor 1px;
-        border-radius: 50%;
       }
     }
 
