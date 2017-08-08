@@ -2,30 +2,31 @@
     <defs>
         <style>
             .b {
-            fill: #020a1a;
+                fill: #020a1a;
             }
 
             .c {
-            fill: #57b2f8;
+                fill: #57b2f8;
             }
 
             .d {
-            fill: #53cf92;
+                fill: #53cf92;
             }
 
             .e {
-            fill: #fec83c;
+                fill: #fec83c;
             }
 
             .f {
-            fill: #ff796b;
+                fill: #ff796b;
             }
         </style>
     </defs>
     <title>art</title>
-    <path class="b" d="M12.32,4a7.5,7.5,0,0,0,.15,15,1.25,1.25,0,0,0,.92-2.09,1.25,1.25,0,0,1,.93-2.07h1.4A4.28,4.28,0,0,0,20,11.08C20.21,7.18,16.68,4,12.32,4Z" />
-    <circle class="c" cx="7.89" cy="10.72" r="1.5" />
-    <circle class="d" cx="10.39" cy="7.38" r="1.5" />
-    <circle class="e" cx="14.56" cy="7.38" r="1.5" />
-    <circle class="f" cx="17.06" cy="10.72" r="1.5" />
+    <path class="b" d="M11.72,4a8,8,0,0,0,.17,16.07,1.34,1.34,0,0,0,1-2.24,1.33,1.33,0,0,1,1-2.22h1.5a4.58,4.58,0,0,0,4.53-4.06C20.17,7.36,16.38,3.91,11.72,4Z" />
+    <circle class="c" cx="6.97" cy="11.15" r="1.61" />
+    <circle class="d" cx="9.65" cy="7.58" r="1.61" />
+    <circle class="e" cx="14.11" cy="7.58" r="1.61" />
+    <circle class="f" cx="16.79" cy="11.15" r="1.61" />
 </svg>
+
