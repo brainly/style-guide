@@ -19,6 +19,10 @@ $includeHtml: false !default;
     // sass-lint:disable no-misspelled-properties
     -webkit-overflow-scrolling: touch; // it fixes an issue with scrolling on iOS browsers
     // sass-lint:enable no-misspelled-properties
+
+    &--partial {
+      position: absolute;
+    }
   }
 
 }

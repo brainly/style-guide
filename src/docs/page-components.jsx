@@ -35,6 +35,7 @@ import HeadersLayout from 'header/pages/header-interactive';
 import Footers from 'footer/pages/footer-interactive';
 import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
+import Overlays from 'overlay/pages/overlay-interactive';
 import OverlayedBoxes from 'overlayed-box/pages/overlayed-box-interactive';
 import Logos from 'logo/pages/logo-interactive';
 import Media from 'media/pages/media-interactive';
@@ -75,6 +76,7 @@ const demos = {
   'Footer': <Footers/>,
   'Layout': <Layouts/>,
   'Toplayer': <Toplayers/>,
+  'Overlay': <Overlays/>,
   'Overlayed box': <OverlayedBoxes/>,
   'Logo': <Logos/>,
   'Media': <Media/>,

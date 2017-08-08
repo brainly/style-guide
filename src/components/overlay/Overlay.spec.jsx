@@ -17,3 +17,11 @@ test('children', () => {
 
   expect(overlay.find('.test')).toHaveLength(1);
 });
+
+test('partial', () => {
+  const overlay = shallow(
+    <Overlay partial={true}/>
+  );
+
+  expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
+});
