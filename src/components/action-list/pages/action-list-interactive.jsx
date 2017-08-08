@@ -14,6 +14,10 @@ const ActionLists = () => {
       values: Boolean
     },
     {
+      name: 'toTop',
+      values: Boolean
+    },
+    {
       name: 'direction',
       values: DIRECTION
     }
