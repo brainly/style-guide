@@ -6,8 +6,8 @@ module.exports = function(gulp, plugins, consts) {
 
     plugins.livereload.listen();
     return gulp.watch([docsSources, componentsHtml], function() {
-      plugins.runSequence('build:react-pages', 'build:react-iframe-pages', 'fingerprint-replace',
-        'index-fingerprint-replace');
+      plugins.runSequence('build:react-pages', 'build:react-iframe-pages', 'build:react-interactive-pages',
+        'fingerprint-replace', 'index-fingerprint-replace');
     });
   };
 };
