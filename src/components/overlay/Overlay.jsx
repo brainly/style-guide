@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 
-const Overlay = ({children, className}) => {
-  const overlayClass = classnames('sg-overlay', className);
+const Overlay = ({fixed, children, className}) => {
+  const overlayClass = classnames('sg-overlay', {
+    'sg-overlay--fixed': fixed
+  },
+  className);
+
 
   return <div className={overlayClass}>
     {children}
@@ -12,6 +16,7 @@ const Overlay = ({children, className}) => {
 };
 
 Overlay.propTypes = {
+  fixed: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string
 };

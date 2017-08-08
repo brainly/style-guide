@@ -4,7 +4,10 @@ import Overlay from '../Overlay';
 import Text from 'text/Text';
 
 const Overlays = () => {
-  const settings = [];
+  const settings = [{
+    name: 'fixed',
+    values: Boolean
+  }];
 
   return <div>
     <DocsActiveBlock settings={settings}>

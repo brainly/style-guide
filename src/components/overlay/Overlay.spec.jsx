@@ -17,3 +17,11 @@ test('children', () => {
 
   expect(overlay.find('.test')).toHaveLength(1);
 });
+
+test('fixed', () => {
+  const overlay = shallow(
+    <Overlay fixed={true}/>
+  );
+
+  expect(overlay.hasClass('sg-overlay--fixed')).toBeTruthy();
+});

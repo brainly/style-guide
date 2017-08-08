@@ -62,7 +62,5 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   // Hack to display overlay only in the docs active block, not full screen
   & .sg-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
   }
 }
