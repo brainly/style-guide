@@ -5,7 +5,7 @@ $includeHtml: false !default;
 
   .sg-overlay {
     background-color: $overlayBackgroundColor;
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
@@ -20,8 +20,8 @@ $includeHtml: false !default;
     -webkit-overflow-scrolling: touch; // it fixes an issue with scrolling on iOS browsers
     // sass-lint:enable no-misspelled-properties
 
-    &--fixed {
-      position: fixed;
+    &--partial {
+      position: absolute;
     }
   }
 

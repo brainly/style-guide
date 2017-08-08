@@ -5,7 +5,7 @@ import Text from 'text/Text';
 
 const Overlays = () => {
   const settings = [{
-    name: 'fixed',
+    name: 'partial',
     values: Boolean
   }];
 

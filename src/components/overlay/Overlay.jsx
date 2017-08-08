@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 
-const Overlay = ({fixed, children, className}) => {
+const Overlay = ({partial, children, className}) => {
   const overlayClass = classnames('sg-overlay', {
-    'sg-overlay--fixed': fixed
+    'sg-overlay--partial': partial
   },
   className);
 
@@ -16,7 +16,7 @@ const Overlay = ({fixed, children, className}) => {
 };
 
 Overlay.propTypes = {
-  fixed: PropTypes.bool,
+  partial: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string
 };

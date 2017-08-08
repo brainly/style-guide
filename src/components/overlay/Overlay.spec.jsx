@@ -18,10 +18,10 @@ test('children', () => {
   expect(overlay.find('.test')).toHaveLength(1);
 });
 
-test('fixed', () => {
+test('partial', () => {
   const overlay = shallow(
-    <Overlay fixed={true}/>
+    <Overlay partial={true}/>
   );
 
-  expect(overlay.hasClass('sg-overlay--fixed')).toBeTruthy();
+  expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
 });
