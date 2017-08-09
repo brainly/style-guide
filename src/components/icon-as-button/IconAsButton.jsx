@@ -12,6 +12,8 @@ const COLOR = {
   DARK: 'dark',
   MINT: 'mint',
   PEACH: 'peach',
+  MUSTARD: 'mustard',
+  LAVENDER: 'lavender',
   LIGHT: 'light'
 };
 const SIZE = {

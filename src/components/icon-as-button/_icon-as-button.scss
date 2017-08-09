@@ -14,6 +14,10 @@ $iconAsButtonMintColor: $mintPrimary;
 $iconAsButtonMintActiveColor: rgba($iconAsButtonMintColor, 0.7);
 $iconAsButtonPeachColor: $peachPrimary;
 $iconAsButtonPeachActiveColor: rgba($iconAsButtonPeachColor, 0.7);
+$iconAsButtonMustardColor: $mustardPrimary;
+$iconAsButtonMustardActiveColor: rgba($iconAsButtonMustardColor, 0.7);
+$iconAsButtonLavenderColor: $lavenderPrimary;
+$iconAsButtonLavenderActiveColor: rgba($iconAsButtonLavenderColor, 0.7);
 $iconAsButtonActionColor: $white;
 $iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.2);
 
@@ -162,6 +166,32 @@ $includeHtml: false !default;
       }
     }
 
+    &--mustard {
+      fill: $iconAsButtonMustardColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonMustardActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonMustardColor;
+      }
+    }
+
+    &--lavender {
+      fill: $iconAsButtonLavenderColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonLavenderActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonLavenderColor;
+      }
+    }
+
     &--peach {
       fill: $iconAsButtonPeachColor;
 
@@ -206,6 +236,14 @@ $includeHtml: false !default;
         &.sg-icon-as-button--peach {
           background: $iconAsButtonPeachColor;
         }
+
+        &.sg-icon-as-button--mustard {
+          background: $iconAsButtonMustardColor;
+        }
+
+        &.sg-icon-as-button--lavender {
+          background: $iconAsButtonLavenderColor;
+        }
       }
     }
 
@@ -229,11 +267,6 @@ $includeHtml: false !default;
       &.sg-icon-as-button--peach {
         fill: $iconAsButtonPeachColor;
       }
-    }
-
-    &--transparent-active {
-      fill: $iconAsButtonColor;
-      background: $iconAsButtonTransparentColor;
     }
 
     &--action-active {
@@ -276,6 +309,11 @@ $includeHtml: false !default;
       &.sg-icon-as-button--light {
         background: $iconAsButtonActionColor;
       }
+    }
+
+    &--transparent-active {
+      fill: $iconAsButtonColor;
+      background: $iconAsButtonTransparentColor;
     }
   }
 }
