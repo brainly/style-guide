@@ -14,6 +14,10 @@ $iconAsButtonMintColor: $mintPrimary;
 $iconAsButtonMintActiveColor: rgba($iconAsButtonMintColor, 0.7);
 $iconAsButtonPeachColor: $peachPrimary;
 $iconAsButtonPeachActiveColor: rgba($iconAsButtonPeachColor, 0.7);
+$iconAsButtonMustardColor: $mustardPrimary;
+$iconAsButtonMustardActiveColor: rgba($iconAsButtonMustardColor, 0.7);
+$iconAsButtonLavenderColor: $lavenderPrimary;
+$iconAsButtonLavenderActiveColor: rgba($iconAsButtonLavenderColor, 0.7);
 $iconAsButtonActionColor: $white;
 $iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.2);
 
@@ -43,10 +47,10 @@ $includeHtml: false !default;
       height: 40px;
     }
 
-    &--small {
+    &--with-border {
       .sg-icon-as-button__hole {
-        width: 30px;
-        height: 30px;
+        border: solid $iconAsButtonColor 1px;
+        border-radius: 50%;
       }
     }
 
@@ -56,6 +60,17 @@ $includeHtml: false !default;
       &:hover,
       &:active {
         fill: inherit;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: inherit;
+      }
+    }
+
+    &--small {
+      .sg-icon-as-button__hole {
+        width: 30px;
+        height: 30px;
       }
     }
 
@@ -70,13 +85,6 @@ $includeHtml: false !default;
       .sg-icon-as-button__hole {
         width: 16px;
         height: 16px;
-      }
-    }
-
-    &--with-border {
-      .sg-icon-as-button__hole {
-        border: solid $iconAsButtonColor 1px;
-        border-radius: 50%;
       }
     }
 
@@ -158,6 +166,32 @@ $includeHtml: false !default;
       }
     }
 
+    &--mustard {
+      fill: $iconAsButtonMustardColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonMustardActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonMustardColor;
+      }
+    }
+
+    &--lavender {
+      fill: $iconAsButtonLavenderColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonLavenderActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonLavenderColor;
+      }
+    }
+
     &--peach {
       fill: $iconAsButtonPeachColor;
 
@@ -202,6 +236,14 @@ $includeHtml: false !default;
         &.sg-icon-as-button--peach {
           background: $iconAsButtonPeachColor;
         }
+
+        &.sg-icon-as-button--mustard {
+          background: $iconAsButtonMustardColor;
+        }
+
+        &.sg-icon-as-button--lavender {
+          background: $iconAsButtonLavenderColor;
+        }
       }
     }
 
@@ -225,11 +267,14 @@ $includeHtml: false !default;
       &.sg-icon-as-button--peach {
         fill: $iconAsButtonPeachColor;
       }
-    }
 
-    &--transparent-active {
-      fill: $iconAsButtonColor;
-      background: $iconAsButtonTransparentColor;
+      &.sg-icon-as-button--mustard {
+        fill: $iconAsButtonMustardColor;
+      }
+
+      &.sg-icon-as-button--lavender {
+        fill: $iconAsButtonLavenderColor;
+      }
     }
 
     &--action-active {
@@ -239,6 +284,10 @@ $includeHtml: false !default;
 
       &:hover {
         fill: $iconAsButtonActionColor;
+      }
+
+      &.sg-icon-as-button--adaptive {
+        background: inherit;
       }
 
       &.sg-icon-as-button--gray {
@@ -266,8 +315,43 @@ $includeHtml: false !default;
       }
 
       &.sg-icon-as-button--light {
+        fill: $iconAsButtonColor;
         background: $iconAsButtonActionColor;
       }
+
+      &.sg-icon-as-button--mustard {
+        background: $iconAsButtonMustardColor;
+      }
+
+      &.sg-icon-as-button--lavender {
+        background: $iconAsButtonLavenderColor;
+      }
+    }
+
+    &--transparent-active {
+      fill: $iconAsButtonColor;
+      background: $iconAsButtonTransparentColor;
+
+      &.sg-icon-as-button--adaptive {
+        fill: inherit;
+      }
+
+      &.sg-icon-as-button--gray {
+        fill: $iconAsButtonGrayColor;
+      }
+
+      &.sg-icon-as-button--gray-secondary {
+        fill: $iconAsButtonGraySecondaryColor;
+      }
+
+      &.sg-icon-as-button--gray-light {
+        fill: $iconAsButtonGrayLightColor;
+      }
+
+      &.sg-icon-as-button--dark {
+        fill: $iconAsButtonDarkColor;
+      }
+
     }
   }
 }
