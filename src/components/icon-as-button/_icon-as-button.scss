@@ -267,6 +267,14 @@ $includeHtml: false !default;
       &.sg-icon-as-button--peach {
         fill: $iconAsButtonPeachColor;
       }
+
+      &.sg-icon-as-button--mustard {
+        fill: $iconAsButtonMustardColor;
+      }
+
+      &.sg-icon-as-button--lavender {
+        fill: $iconAsButtonLavenderColor;
+      }
     }
 
     &--action-active {
@@ -307,13 +315,43 @@ $includeHtml: false !default;
       }
 
       &.sg-icon-as-button--light {
+        fill: $iconAsButtonColor;
         background: $iconAsButtonActionColor;
+      }
+
+      &.sg-icon-as-button--mustard {
+        background: $iconAsButtonMustardColor;
+      }
+
+      &.sg-icon-as-button--lavender {
+        background: $iconAsButtonLavenderColor;
       }
     }
 
     &--transparent-active {
       fill: $iconAsButtonColor;
       background: $iconAsButtonTransparentColor;
+
+      &.sg-icon-as-button--adaptive {
+        fill: inherit;
+      }
+
+      &.sg-icon-as-button--gray {
+        fill: $iconAsButtonGrayColor;
+      }
+
+      &.sg-icon-as-button--gray-secondary {
+        fill: $iconAsButtonGraySecondaryColor;
+      }
+
+      &.sg-icon-as-button--gray-light {
+        fill: $iconAsButtonGrayLightColor;
+      }
+
+      &.sg-icon-as-button--dark {
+        fill: $iconAsButtonDarkColor;
+      }
+
     }
   }
 }
