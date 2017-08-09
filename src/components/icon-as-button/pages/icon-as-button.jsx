@@ -68,7 +68,7 @@ const icons = () => <div>
   <DocsBlock info="small">
     <ul className="icons-list">
       {Object.values(COLOR).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.small}/>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.SMALL}/>
       )}
     </ul>
   </DocsBlock>
@@ -77,7 +77,7 @@ const icons = () => <div>
   <DocsBlock info="xsmall">
     <ul className="icons-list">
       {Object.values(COLOR).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.xsmall}/>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.XSMALL}/>
       )}
     </ul>
   </DocsBlock>
@@ -86,7 +86,7 @@ const icons = () => <div>
   <DocsBlock info="xxsmall">
     <ul className="icons-list">
       {Object.values(COLOR).map(color =>
-        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.xxsmall}/>
+        <DrawHelper color={color} key={color} type={TYPE.HEART} size={SIZE.XXSMALL}/>
       )}
     </ul>
   </DocsBlock>
