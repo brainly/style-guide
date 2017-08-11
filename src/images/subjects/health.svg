@@ -2,30 +2,14 @@
     <defs>
         <style>
             .b {
-                fill: #020a1a;
+                fill:#020a1a
             }
-
-            .c {
-                fill: #ff796b;
+            .a {
+                fill:#ff796b
             }
         </style>
     </defs>
     <title>health</title>
-    <path class="b" d="M17.72,8h0A2.94,2.94,0,0,0,12,8.86,2.94,2.94,0,0,0,6.28,8h0C5.79,9.24,5,14.61,12,18h0C19,14.61,18.2,9.24,17.72,8Z" />
-    <circle class="c" cx="7.5" cy="3.5" r="0.5" />
-    <circle class="c" cx="10.5" cy="3.5" r="0.5" />
-    <circle class="c" cx="13.5" cy="3.5" r="0.5" />
-    <circle class="c" cx="16.5" cy="3.5" r="0.5" />
-    <circle class="c" cx="7.5" cy="20.5" r="0.5" />
-    <circle class="c" cx="10.5" cy="20.5" r="0.5" />
-    <circle class="c" cx="13.5" cy="20.5" r="0.5" />
-    <circle class="c" cx="16.5" cy="20.5" r="0.5" />
-    <circle class="c" cx="3.5" cy="16.5" r="0.5" />
-    <circle class="c" cx="3.5" cy="13.5" r="0.5" />
-    <circle class="c" cx="3.5" cy="10.5" r="0.5" />
-    <circle class="c" cx="3.5" cy="7.5" r="0.5" />
-    <circle class="c" cx="20.5" cy="16.5" r="0.5" />
-    <circle class="c" cx="20.5" cy="13.5" r="0.5" />
-    <circle class="c" cx="20.5" cy="10.5" r="0.5" />
-    <circle class="c" cx="20.5" cy="7.5" r="0.5" />
+    <path class="b" d="M19.6,6.67h0A3.91,3.91,0,0,0,12,7.82,3.91,3.91,0,0,0,4.4,6.66h0C3.75,8.34,2.74,15.47,12,20h0C21.25,15.47,20.24,8.34,19.6,6.67Z"/>
+    <path class="a" d="M14,11,12,9l-2,2A2.9,2.9,0,1,0,14,11Z" />
 </svg>
