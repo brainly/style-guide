@@ -21,37 +21,17 @@ function propToString(prop, inJS = false) {
   return wrapInBraces ? '{' + result + '}' : result;
 }
 
-function generateJSX(component, settings = null) {
+function generateJSX(component, propsWithDefaults) {
   if (!React.isValidElement(component)) {
     return component;
   }
 
   const type = component.type.name || component.type;
-
-  let unchangedProps, propsWithDefaults = [];
-
-  if (Array.isArray(settings)) {
-
-    unchangedProps = Object.keys(component.props)
-      .filter(key => {
-        const propSettings = settings.find(setting => setting.name === key);
-
-        if (!propSettings || propSettings.required) {
-          return true;
-        }
-
-        return false;
-      });
-
-    propsWithDefaults = Object.keys(component.props)
-      .filter(key => unchangedProps.indexOf(key) === -1);
-  }
-
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
     .filter(key => component.props[key] !== undefined)
     .filter(key => {
-      if (settings && propsWithDefaults.indexOf(key) > -1) {
+      if (Array.isArray(propsWithDefaults) && propsWithDefaults.indexOf(key) > -1) {
         const componentWithoutProp = React.cloneElement(component, {[`${key}`]: undefined});
         const codeWithProp = ReactDOMServer.renderToStaticMarkup(component);
         const codeWithoutProp = ReactDOMServer.renderToStaticMarkup(componentWithoutProp);

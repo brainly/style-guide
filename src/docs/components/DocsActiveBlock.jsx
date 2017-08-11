@@ -61,17 +61,37 @@ class DocsActiveBlock extends Component {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
   }
 
+  getPropsWithDefaults(component) {
+    const settings = this.props.settings;
+    let unchangedProps, propsWithDefaults;
+
+    if (Array.isArray(settings)) {
+      unchangedProps = Object.keys(component.props)
+        .filter(key => {
+          const propSettings = settings.find(setting => setting.name === key);
+
+          return !!(!propSettings || propSettings.required);
+        });
+
+      propsWithDefaults = Object.keys(component.props)
+        .filter(key => unchangedProps.indexOf(key) === -1);
+    }
+    return propsWithDefaults;
+  }
+
   render() {
     let {contentBefore, contentAfter} = this.props;
     const {centeredItems = true, wrapper} = this.props;
     let component;
     let code;
+    let propsWithDefaults;
 
     if (this.state.renderNormally) {
       component = React.cloneElement(this.props.children, this.state.props);
+      propsWithDefaults = this.getPropsWithDefaults(component);
 
       if (this.state.showCode === 'jsx') {
-        const jsx = generateJSX(component, this.props.settings);
+        const jsx = generateJSX(component, propsWithDefaults);
 
         code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
       } else if (this.state.showCode === 'html') {
