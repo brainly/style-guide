@@ -71,7 +71,7 @@ class DocsActiveBlock extends Component {
       component = React.cloneElement(this.props.children, this.state.props);
 
       if (this.state.showCode === 'jsx') {
-        const jsx = generateJSX(component);
+        const jsx = generateJSX(component, this.props.settings);
 
         code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
       } else if (this.state.showCode === 'html') {
