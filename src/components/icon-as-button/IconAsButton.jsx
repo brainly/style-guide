@@ -23,7 +23,7 @@ const SIZE = {
   XXSMALL: {className: 'xxsmall', iconSize: 10}
 };
 
-const IconAsButtonContent = ({children, overlay}) => {
+const IconAsButtonContent = ({children = null, overlay}) => {
   if (!overlay) {
     return children;
   }
