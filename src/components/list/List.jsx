@@ -32,7 +32,7 @@ ListItem.propTypes = {
   text: PropTypes.node.isRequired
 };
 
-const List = ({items, spaced, small, iconType, iconColor, className}) => {
+const List = ({items = [], spaced, small, iconType, iconColor, className}) => {
   const listClass = classNames('sg-list', {
     'sg-list--spaced-elements': spaced
   }, className);

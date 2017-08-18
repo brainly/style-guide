@@ -17,7 +17,7 @@ MenuItem.propTypes = {
   text: PropTypes.string.isRequired
 };
 
-const MenuList = ({items, size = SIZE.NORMAL, className}) => {
+const MenuList = ({items = [], size = SIZE.NORMAL, className}) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
   }, className);
