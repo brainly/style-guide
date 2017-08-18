@@ -61,22 +61,35 @@ class DocsActiveBlock extends Component {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
   }
 
-  getPropsWithDefaults(component) {
+  getPropsToRemove(props) {
     const settings = this.props.settings;
 
     if (!Array.isArray(settings)) {
       return [];
     }
 
-    const unchangedProps = Object.keys(component.props)
+    const unchangedProps = Object.keys(props)
       .filter(key => {
         const propSettings = settings.find(setting => setting.name === key);
 
         return !!(!propSettings || propSettings.required);
       });
 
-    return Object.keys(component.props)
-      .filter(key => unchangedProps.indexOf(key) === -1);
+    return Object.keys(props)
+      .filter(key => unchangedProps.indexOf(key) > -1);
+  }
+
+  removePropsWithDefaultValues(props) {
+    const fewerProps = Object.assign({}, props);
+    const propsToRemove = this.getPropsToRemove(props);
+
+    for (const prop in propsToRemove) {
+      if (fewerProps.hasOwnProperty(prop)) {
+        delete fewerProps[prop];
+      }
+    }
+
+    return fewerProps;
   }
 
   render() {
@@ -86,11 +99,10 @@ class DocsActiveBlock extends Component {
     let code;
 
     if (this.state.renderNormally) {
-      component = React.cloneElement(this.props.children, this.state.props);
+      component = React.cloneElement(this.props.children, this.removePropsWithDefaultValues(this.state.props));
 
       if (this.state.showCode === 'jsx') {
-        const propsWithDefaults = this.getPropsWithDefaults(component);
-        const jsx = generateJSX(component, propsWithDefaults);
+        const jsx = generateJSX(component);
 
         code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
       } else if (this.state.showCode === 'html') {

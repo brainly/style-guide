@@ -21,7 +21,7 @@ function propToString(prop, inJS = false) {
   return wrapInBraces ? '{' + result + '}' : result;
 }
 
-function generateJSX(component, propsWithDefaults = []) {
+function generateJSX(component) {
   if (!React.isValidElement(component)) {
     return component;
   }
@@ -31,14 +31,11 @@ function generateJSX(component, propsWithDefaults = []) {
     .filter(key => key !== 'children')
     .filter(key => component.props[key] !== undefined)
     .filter(key => {
-      if (propsWithDefaults.indexOf(key) > -1) {
-        const componentWithoutProp = React.cloneElement(component, {[`${key}`]: undefined});
-        const codeWithProp = ReactDOMServer.renderToStaticMarkup(component);
-        const codeWithoutProp = ReactDOMServer.renderToStaticMarkup(componentWithoutProp);
+      const componentWithoutProp = React.cloneElement(component, {[`${key}`]: undefined});
+      const codeWithProp = ReactDOMServer.renderToStaticMarkup(component);
+      const codeWithoutProp = ReactDOMServer.renderToStaticMarkup(componentWithoutProp);
 
-        return codeWithProp !== codeWithoutProp;
-      }
-      return true;
+      return codeWithProp !== codeWithoutProp;
     })
     .map(key => `${key}=${propToString(component.props[key])}`)
     .join(' ');
