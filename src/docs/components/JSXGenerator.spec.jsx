@@ -52,7 +52,7 @@ test('component with array of components param', () => {
   expect(generateJSX(input)).toEqual(output);
 });
 
-test('component with children', () => {
+xtest('component with children', () => {
   const input = <ActionList>
     <ActionListHole>
       <Avatar />
