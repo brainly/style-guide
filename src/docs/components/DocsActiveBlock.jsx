@@ -70,7 +70,7 @@ class DocsActiveBlock extends Component {
 
     const unchangedProps = Object.keys(props)
       .filter(key => {
-        const propSettings = settings.find(setting => setting.name === key.value);
+        const propSettings = settings.find(setting => setting.name === key);
 
         return !!(!propSettings || propSettings.required);
       });
@@ -80,7 +80,7 @@ class DocsActiveBlock extends Component {
   }
 
   removePropsWithDefaultValues(props) {
-    const fewerProps = Object.assign(props);
+    const fewerProps = Object.assign({}, props);
     const propsToRemove = this.getPropsToRemove(props);
 
     for (const prop in propsToRemove) {
