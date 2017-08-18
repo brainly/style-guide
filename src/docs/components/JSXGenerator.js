@@ -48,9 +48,8 @@ function generateJSX(component, propsWithDefaults = []) {
   }
 
   return React.Children.count(component.props.children) ?
-    `<${type}${jsxProps}>
-        ${React.Children.map(component.props.children, childrenComp => generateJSX(childrenComp)).join('')}
-     </${type}>` :
+    `<${type}${jsxProps}>${React.Children.map(component.props.children,
+      childrenComp => generateJSX(childrenComp)).join('')}</${type}>` :
     `<${type}${jsxProps} />`;
 }
 
