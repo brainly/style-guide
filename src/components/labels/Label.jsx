@@ -61,7 +61,7 @@ const Label = props => {
   if (text) {
     textElement = <label className="sg-label__text" htmlFor={htmlFor}>{text}</label>;
   }
-  if (number) {
+  if (number !== undefined) {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
 
