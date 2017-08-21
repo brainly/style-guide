@@ -97,6 +97,13 @@ describe('Label', () => {
     const numberLabel = label.find('div.sg-label__number');
 
     expect(numberLabel).toHaveLength(1);
+
+    const label2 = shallow(
+      <Label secondary={true} text="test" number={0}/>
+    );
+    const numberLabel2 = label2.find('div.sg-label__number');
+
+    expect(numberLabel2).toHaveLength(1);
   });
 
   test('passing children', () => {

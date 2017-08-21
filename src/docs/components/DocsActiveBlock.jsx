@@ -61,6 +61,37 @@ class DocsActiveBlock extends Component {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
   }
 
+  getPropsToRemove(props) {
+    const settings = this.props.settings;
+
+    if (!Array.isArray(settings)) {
+      return [];
+    }
+
+    const unchangedProps = Object.keys(props)
+      .filter(key => {
+        const propSettings = settings.find(setting => setting.name === key);
+
+        return !!(!propSettings || propSettings.required);
+      });
+
+    return Object.keys(props)
+      .filter(key => unchangedProps.indexOf(key) > -1);
+  }
+
+  removePropsWithDefaultValues(props) {
+    const fewerProps = Object.assign({}, props);
+    const propsToRemove = this.getPropsToRemove(props);
+
+    for (const prop in propsToRemove) {
+      if (fewerProps.hasOwnProperty(prop)) {
+        delete fewerProps[prop];
+      }
+    }
+
+    return fewerProps;
+  }
+
   render() {
     let {contentBefore, contentAfter} = this.props;
     const {centeredItems = true, wrapper} = this.props;
@@ -68,7 +99,7 @@ class DocsActiveBlock extends Component {
     let code;
 
     if (this.state.renderNormally) {
-      component = React.cloneElement(this.props.children, this.state.props);
+      component = React.cloneElement(this.props.children, this.removePropsWithDefaultValues(this.state.props));
 
       if (this.state.showCode === 'jsx') {
         const jsx = generateJSX(component);
