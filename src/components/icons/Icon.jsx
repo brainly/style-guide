@@ -58,14 +58,14 @@ const COLOR = {
 };
 const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size = 24, type, className}) => {
+const Icon = ({color, size = 24, type, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
   }, className);
   const iconType = `#icon-${type}`;
 
-  return <svg className={iconClass}>
+  return <svg {...props} className={iconClass}>
     <use xlinkHref={iconType}></use>
   </svg>;
 };
