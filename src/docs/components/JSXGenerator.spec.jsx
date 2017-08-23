@@ -6,7 +6,7 @@ import ActionListHole from 'action-list/ActionListHole';
 import generateJSX from './JSXGenerator';
 
 test('only component', () => {
-  const input = <Avatar />;
+  const input = <Avatar/>;
   const output = '<Avatar />';
 
   expect(generateJSX(input)).toEqual(output);
@@ -42,9 +42,8 @@ test('component with multiple params', () => {
   expect(generateJSX(input)).toEqual(output);
 });
 
-const items = [<Avatar/>, <Avatar imgSrc="http://image.com/image.jpg" />];
-
 test('component with array of components param', () => {
+  const items = [<Avatar/>, <Avatar imgSrc="http://image.com/image.jpg"/>];
   const input = <PopupMenu items={items}/>;
   const output =
     '<PopupMenu items={[<Avatar />, <Avatar imgSrc="http://image.com/image.jpg" />]} />';
@@ -55,10 +54,10 @@ test('component with array of components param', () => {
 test('component with children', () => {
   const input = <ActionList>
     <ActionListHole>
-      <Avatar />
+      <Avatar/>
     </ActionListHole>
     <ActionListHole>
-      <Avatar />
+      <Avatar/>
     </ActionListHole>
   </ActionList>;
 
