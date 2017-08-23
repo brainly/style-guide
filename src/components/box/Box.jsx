@@ -20,7 +20,7 @@ const PADDING = {
   LARGE: 'large-padding'
 };
 
-const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, className}) => {
+const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, className, ...props}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
@@ -39,7 +39,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     content = <div className="sg-box__hole">{children}</div>;
   }
 
-  return <div className={boxClass}>
+  return <div {...props} className={boxClass}>
     {content}
   </div>;
 };

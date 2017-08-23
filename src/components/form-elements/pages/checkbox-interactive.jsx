@@ -12,7 +12,7 @@ const Checkboxes = () => {
 
   return <div>
     <DocsActiveBlock settings={settings}>
-      <Checkbox />
+      <Checkbox/>
     </DocsActiveBlock>
   </div>;
 };

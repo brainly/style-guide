@@ -21,15 +21,14 @@ const COLOR = {
   LIGHT: 'light'
 };
 
-const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color, className}) => {
-
+const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color, className, ...props}) => {
   const Type = type;
   const headerClass = classNames('sg-header-primary', {
     [`sg-header-primary--${size}`]: size !== SIZE.NORMAL,
     [`sg-header-primary--${color}`]: color
   }, className);
 
-  return <Type className={headerClass}>
+  return <Type {...props} className={headerClass}>
     {children}
   </Type>;
 };

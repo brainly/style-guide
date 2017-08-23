@@ -84,7 +84,9 @@ test('error when passing a react element as a child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Badge><div>asd</div></Badge>);
+  shallow(<Badge>
+    <div>asd</div>
+  </Badge>);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();

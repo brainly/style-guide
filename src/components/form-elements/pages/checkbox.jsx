@@ -7,9 +7,9 @@ const dumpProps = {onChange: () => undefined};
 
 const checkboxes = () => <div>
   <DocsBlock info="Checkboxes">
-    <Checkbox />
+    <Checkbox/>
     <Checkbox checked={true} {...dumpProps}/>
-    <br />
+    <br/>
     <Label secondary={true} text="Check me!" htmlFor="checkbox-1" iconContent={
       <Checkbox id="checkbox-1"/>
     }/>

@@ -2,8 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Media = ({contentArray = [], aside, className, ...props}) => {
-  const {toRight, focused, clickable, noPadding, transparent, graySecondaryLight, small, spacedBottom} = props;
+const Media = props => {
+  const {
+    contentArray = [],
+    aside,
+    className,
+    toRight, focused,
+    clickable,
+    noPadding,
+    transparent,
+    graySecondaryLight,
+    small,
+    spacedBottom,
+    ...restProps
+  } = props;
   const mediaClassName = classnames('sg-media', {
     'sg-media--to-right': toRight,
     'sg-media--focused': focused,
@@ -17,7 +29,7 @@ const Media = ({contentArray = [], aside, className, ...props}) => {
     'sg-media__content--spaced-bottom': spacedBottom
   });
 
-  return <div className={mediaClassName}>
+  return <div {...restProps} className={mediaClassName}>
     <div className="sg-media__aside">
       {aside}
     </div>

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
 
-const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className}) => {
+const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props}) => {
   const boxClass = classNames('sg-subject-icon-box', {
     'sg-subject-icon-box--darker': darker
   }, className);
 
-  return <div className={boxClass}>
+  return <div {...props} className={boxClass}>
     <SubjectIcon type={type} size={size}/>
   </div>;
 };

@@ -9,8 +9,21 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, splashScreen, limitedWidth, row,
-  className}) => {
+const TopLayer = props => {
+  const {
+    children,
+    size,
+    lead,
+    fill,
+    modal,
+    withBugbox,
+    smallSpaced,
+    splashScreen,
+    limitedWidth,
+    row,
+    className,
+    ...additionalProps
+  } = props;
   const topLayerClassName = classnames('sg-toplayer', {
     'sg-toplayer--lead': lead,
     'sg-toplayer--fill': fill,
@@ -23,7 +36,7 @@ const TopLayer = ({children, size, lead, fill, modal, withBugbox, smallSpaced, s
     [`sg-toplayer--${size}`]: size
   }, className);
 
-  return <div className={topLayerClassName}>
+  return <div {...additionalProps} className={topLayerClassName}>
     <div className="sg-toplayer__close">
       <Icon type={iconTypes.X} color={iconColors.GRAY_SECONDARY} size={14}/>
     </div>

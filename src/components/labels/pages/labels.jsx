@@ -18,7 +18,7 @@ const Labels = () =>
         secondary={true}/>
       <div style={{maxWidth: 250 + 'px'}}>
         <Label text={multilineExample1} iconType={ICON_TYPE.SEARCH} iconColor={ICON_COLOR.GRAY}/>
-        <br />
+        <br/>
         <Label text={multilineExample2} iconType={ICON_TYPE.SEARCH} iconColor={ICON_COLOR.GRAY} elementsToTop={true}/>
       </div>
     </DocsBlock>

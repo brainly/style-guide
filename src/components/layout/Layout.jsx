@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTop, fullPage, className}) => {
+const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTop, fullPage, className, ...props}) => {
+  const layoutClass = classNames('sg-layout', className);
   const layoutContainerClass = classNames('sg-layout__container', {
     'sg-layout__container--reversed-order': reversedOrder,
     'sg-layout__container--no-max-width': noMaxWidth,
     'sg-layout__container--no-margin-top': noMarginTop,
     'sg-layout__container--full-page': fullPage
-  }, className);
-
+  });
   let footerContent;
 
   if (footer) {
@@ -17,7 +17,7 @@ const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTo
   }
 
   return (
-    <div className="sg-layout">
+    <div {...props} className={layoutClass}>
       {header}
       <div className={layoutContainerClass}>
         {children}

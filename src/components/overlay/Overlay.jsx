@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 
-const Overlay = ({partial, children, className}) => {
-  const overlayClass = classnames('sg-overlay', {
-    'sg-overlay--partial': partial
-  },
-  className);
+const Overlay = ({partial, children, className, ...props}) => {
+  const overlayClass = classnames(
+    'sg-overlay',
+    {'sg-overlay--partial': partial},
+    className);
 
 
-  return <div className={overlayClass}>
+  return <div {...props} className={overlayClass}>
     {children}
   </div>;
 };

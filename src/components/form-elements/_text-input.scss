@@ -60,7 +60,7 @@ $includeHtml: false !default;
     &--light {
       transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
       background: $searchInputTransparentColor;
-      box-shadow:  $searchInputBoxShadow;
+      box-shadow: $searchInputBoxShadow;
       border-radius: $borderRadiusDefault;
       border: none;
 
@@ -71,7 +71,7 @@ $includeHtml: false !default;
 
       &:focus {
         background: $white;
-        box-shadow:  $searchInputBoxShadow;
+        box-shadow: $searchInputBoxShadow;
         border: none;
       }
 
@@ -87,7 +87,7 @@ $includeHtml: false !default;
 
       &:focus {
         background: $white;
-        box-shadow:  $searchInputBoxShadow;
+        box-shadow: $searchInputBoxShadow;
         border: none;
 
         &::placeholder {
@@ -96,7 +96,7 @@ $includeHtml: false !default;
       }
 
       &:hover {
-        box-shadow:  $searchInputBoxShadow;
+        box-shadow: $searchInputBoxShadow;
       }
     }
 

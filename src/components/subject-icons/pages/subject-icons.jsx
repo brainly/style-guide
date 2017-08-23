@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import SubjectIcon, {TYPE} from '../SubjectIcon';
 
 const subjectIcons = () => <div>
-  <DocsBlock >
+  <DocsBlock>
     <ul className="icons-list">
       {Object.values(TYPE).map(type => <li className="icons-list__element icons-list__element--wide" key={type}>
         <SubjectIcon type={type}/>

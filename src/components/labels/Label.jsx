@@ -44,7 +44,8 @@ const Label = props => {
     unstyled,
     emphasised,
     elementsToTop,
-    className
+    className,
+    ...restProps
   } = props;
 
   const labelClass = classNames('sg-label', {
@@ -65,7 +66,7 @@ const Label = props => {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
 
-  return <div className={labelClass}>
+  return <div {...restProps} className={labelClass}>
     <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={size.ICON_SIZE}/>
     {textElement}
     {numberElement}

@@ -33,7 +33,7 @@ test('label', () => {
 
 test('no label', () => {
   const button = shallow(
-    <ButtonRound >Some text</ButtonRound>
+    <ButtonRound>Some text</ButtonRound>
   );
 
   expect(button.find('sg-button-primary-round__label')).toHaveLength(0);
@@ -54,7 +54,7 @@ test('func', () => {
 
 test('func throw testing 1part - undefined function', () => {
   const button = shallow(
-    <ButtonRound >Some text</ButtonRound>
+    <ButtonRound>Some text</ButtonRound>
   );
 
   expect(() => button.simulate('click')).not.toThrow();

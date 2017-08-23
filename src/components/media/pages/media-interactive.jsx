@@ -10,7 +10,7 @@ const MediaExamples = () => {
       <Link color={COLOR.GRAY} emphasised={true}>The Goat</Link>,
       <span>Master </span>
     ],
-    aside: <Avatar />
+    aside: <Avatar/>
   };
 
   const settings = [

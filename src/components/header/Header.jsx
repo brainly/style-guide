@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const Header = ({children, light, fixed, className}) => {
+const Header = ({children, light, fixed, className, ...props}) => {
 
   const headerClass = classnames('sg-header', {
     'sg-header--light': light,
     'sg-header--fixed': fixed
   }, className);
 
-  return <header className={headerClass}>
+  return <header {...props} className={headerClass}>
     <div className="sg-header__container">
       {children}
     </div>

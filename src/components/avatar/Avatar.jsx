@@ -16,7 +16,7 @@ const SIZE = {
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
 
-const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className}) => {
+const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, ...props}) => {
   const avatarClass = classNames('sg-avatar', {
     [`sg-avatar--${size.className}`]: size !== SIZE.normal,
     'sg-avatar--with-border': border,
@@ -27,7 +27,7 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className})
     <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize}/>
   </div>;
 
-  return <div className={avatarClass}>
+  return <div {...props} className={avatarClass}>
     {imgSrc ? <img className="sg-avatar__image" src={imgSrc}/> : defaultAvatar}
   </div>;
 };

@@ -40,7 +40,7 @@ const WEIGHT = {
   BOLD: 'emphasised'
 };
 
-const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap, breakWords}) => {
+const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap, breakWords, ...props}) => {
 
   const Type = type;
   const textClass = classNames('sg-text', {
@@ -51,7 +51,7 @@ const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap
     'sg-text--break-words': breakWords
   }, className);
 
-  return <Type className={textClass}>
+  return <Type {...props} className={textClass}>
     {children}
   </Type>;
 };

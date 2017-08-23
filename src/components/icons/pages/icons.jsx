@@ -4,7 +4,7 @@ import ContrastBox from 'components/ContrastBox';
 import Icon, {TYPE, COLOR, SIZE} from '../Icon';
 
 const icons = () => <div>
-  <DocsBlock >
+  <DocsBlock>
     <ContrastBox>
       <ul className="icons-list">
         {Object.values(TYPE).map(type => <li className="icons-list__element" key={type}>

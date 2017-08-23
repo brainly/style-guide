@@ -86,13 +86,13 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, className, mono}) => {
+const SubjectIcon = ({type, size = SIZE.NORMAL, className, mono, ...props}) => {
   const iconClass = classNames('sg-subject-icon', {
     [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL
   }, className);
   const iconType = `#icon-subject-${mono ? 'mono-' : ''}${type}`;
 
-  return <svg className={iconClass}>
+  return <svg {...props} className={iconClass}>
     <use xlinkHref={iconType}></use>
   </svg>;
 };

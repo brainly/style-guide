@@ -27,7 +27,7 @@ const COLOR = {
   WARNING: 'warning'
 };
 
-const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, className}) => {
+const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, className, ...props}) => {
 
   const Type = type;
   const textClass = classNames('sg-text-bit', {
@@ -36,7 +36,7 @@ const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, classNam
     'sg-text-bit--not-responsive': notResponsive
   }, className);
 
-  return <Type className={textClass}>
+  return <Type {...props} className={textClass}>
     {children}
   </Type>;
 };

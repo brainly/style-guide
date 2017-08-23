@@ -18,7 +18,7 @@ const LOGOS = {
   'znanija': 'znanija-addd85e6f5'
 };
 
-const Logo = ({type = TYPE.BRAINLY, className}) => {
+const Logo = ({type = TYPE.BRAINLY, className, ...props}) => {
 
   const logoClass = classnames('sg-logo', {
     [`sg-logo--${type}`]: type !== TYPE.BRAINLY
@@ -26,7 +26,7 @@ const Logo = ({type = TYPE.BRAINLY, className}) => {
 
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
 
-  return <div className={logoClass}>
+  return <div {...props} className={logoClass}>
     <img className="sg-logo__image" src={logoPath}/>
   </div>;
 };
