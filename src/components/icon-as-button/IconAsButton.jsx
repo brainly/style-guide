@@ -35,8 +35,9 @@ IconAsButtonContent.propTypes = {
   overlay: PropTypes.node
 };
 
-const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay,
-  className}) => {
+const IconAsButton = ({
+  color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay, className, ...props
+}) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${color}`]: color,
     [`sg-icon-as-button--${size.className}`]: size,
@@ -55,7 +56,7 @@ const IconAsButton = ({color, size = SIZE.NORMAL, type, children, action, transp
     content = children;
   }
 
-  return <button className={buttonClass}>
+  return <button {...props} className={buttonClass}>
     <div className="sg-icon-as-button__hole">
       <IconAsButtonContent overlay={overlay}>
         {content}

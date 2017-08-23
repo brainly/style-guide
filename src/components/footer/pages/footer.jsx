@@ -30,13 +30,13 @@ const Footers = () => <div>
               United States: <Link target="_blank">brainly.com</Link>
             </Text>,
             <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-            Poland: <Link target="_blank">brainly.pl</Link>
+              Poland: <Link target="_blank">brainly.pl</Link>
             </Text>,
             <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-            Russia/Ukraine: <Link target="_blank">znanija.com</Link>
+              Russia/Ukraine: <Link target="_blank">znanija.com</Link>
             </Text>,
             <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-            Latam: <Link target="_blank">brainly.lat</Link>
+              Latam: <Link target="_blank">brainly.lat</Link>
             </Text>
           ]}/>
         </Text>

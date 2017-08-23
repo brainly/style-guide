@@ -6,7 +6,7 @@ const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
 const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, className}) => {
+const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, className, ...props}) => {
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
@@ -22,7 +22,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, classN
   }, className);
 
   return (
-    <div className={bubbleClass}>
+    <div {...props} className={bubbleClass}>
       {children}
     </div>
   );

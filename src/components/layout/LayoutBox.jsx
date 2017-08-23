@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const LayoutBox = ({children, className}) => {
+const LayoutBox = ({children, className, ...props}) => {
 
   const layoutClass = classnames('sg-layout__box', className);
 
-  return <div className={layoutClass}>
+  return <div {...props} className={layoutClass}>
     {children}
   </div>;
 };

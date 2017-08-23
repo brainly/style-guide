@@ -24,7 +24,7 @@ test('error when no items', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<PopupMenu />);
+  shallow(<PopupMenu/>);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();

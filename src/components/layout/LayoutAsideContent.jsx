@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const LayoutAsideContent = ({children, className}) => {
+const LayoutAsideContent = ({children, className, ...props}) => {
 
   const layoutClass = classnames('sg-layout__aside-content', className);
 
-  return <div className={layoutClass}>
+  return <div {...props} className={layoutClass}>
     {children}
   </div>;
 };

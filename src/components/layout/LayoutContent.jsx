@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const LayoutContent = ({children, noMaxWidth, className}) => {
+const LayoutContent = ({children, noMaxWidth, className, ...props}) => {
   const layoutContentClass = classNames('sg-layout__content', {
     'sg-layout__content--no-max-width': noMaxWidth
   }, className);
 
-  return <div className={layoutContentClass}>
+  return <div {...props} className={layoutContentClass}>
     {children}
   </div>;
 };

@@ -17,12 +17,12 @@ MenuItem.propTypes = {
   text: PropTypes.string.isRequired
 };
 
-const MenuList = ({items = [], size = SIZE.NORMAL, className}) => {
+const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
   }, className);
 
-  return <ul className={listClass}>
+  return <ul {...props} className={listClass}>
     {items.map(({text, href}, index) =>
       <MenuItem key={index} text={text} href={href}/>
     )}

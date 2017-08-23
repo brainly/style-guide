@@ -8,7 +8,7 @@ const DIRECTION = {
   SPACE_BETWEEN: 'space-between'
 };
 
-const ActionList = ({children, toTop, direction, noWrap, className}) => {
+const ActionList = ({children, toTop, direction, noWrap, className, ...props}) => {
   const actionListClass = classNames('sg-actions-list', {
     [`sg-actions-list--${direction}`]: direction,
     'sg-actions-list--to-top': toTop,
@@ -16,7 +16,7 @@ const ActionList = ({children, toTop, direction, noWrap, className}) => {
   }, className);
 
   return (
-    <div className={actionListClass}>
+    <div {...props} className={actionListClass}>
       {children}
     </div>
   );

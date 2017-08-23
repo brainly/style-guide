@@ -63,7 +63,7 @@ test('label from selected option', () => {
 });
 
 test('label and currentItem not defined', () => {
-  const dropDown = mount(<DropdownContainer items={[]} />);
+  const dropDown = mount(<DropdownContainer items={[]}/>);
   const label = dropDown.find('.sg-dropdown__item-text');
 
   expect(label.text()).toEqual('');

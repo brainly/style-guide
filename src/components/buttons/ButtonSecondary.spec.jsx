@@ -30,7 +30,7 @@ test('disabled', () => {
 });
 test('not disabled', () => {
   const button = shallow(
-    <ButtonSecondary >Some text</ButtonSecondary>
+    <ButtonSecondary>Some text</ButtonSecondary>
   );
 
   expect(button.hasClass('sg-button-secondary--disabled')).toEqual(false);

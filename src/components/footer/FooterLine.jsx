@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const FooterLine = ({children, className}) => {
+const FooterLine = ({children, className, ...props}) => {
   const footerClass = classNames('sg-footer__line', className);
 
-  return <div className={footerClass}>
+  return <div {...props} className={footerClass}>
     {children}
   </div>;
 };

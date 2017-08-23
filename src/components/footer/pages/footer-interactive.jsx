@@ -7,8 +7,7 @@ import Link from 'text/Link';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 
 const Footers = () => {
-  const settings = [
-  ];
+  const settings = [];
 
   return <div>
     <DocsActiveBlock settings={settings}>

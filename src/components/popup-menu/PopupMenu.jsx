@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const PopupMenu = ({items = [], extraSpacing, className}) => {
+const PopupMenu = ({items = [], extraSpacing, className, ...props}) => {
   const popupMenuClass = classNames('sg-popup-menu', {
     'sg-popup-menu--elements-spaced': extraSpacing
   }, className);
 
-  return <div className={popupMenuClass}>
+  return <div {...props} className={popupMenuClass}>
     {items.map((item, i) => <div key={i} className="sg-popup-menu__hole">{item}</div>)}
   </div>;
 };

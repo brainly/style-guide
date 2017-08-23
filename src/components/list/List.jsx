@@ -32,12 +32,12 @@ ListItem.propTypes = {
   text: PropTypes.node.isRequired
 };
 
-const List = ({items = [], spaced, small, iconType, iconColor, className}) => {
+const List = ({items = [], spaced, small, iconType, iconColor, className, ...props}) => {
   const listClass = classNames('sg-list', {
     'sg-list--spaced-elements': spaced
   }, className);
 
-  return <ul className={listClass}>
+  return <ul {...props} className={listClass}>
     {items.map((text, index) =>
       <ListItem key={index} text={text} small={small} iconType={iconType} iconColor={iconColor}/>
     )}

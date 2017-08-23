@@ -7,7 +7,7 @@ import {shallow, mount} from 'enzyme';
 describe('rating', () => {
   test('render', () => {
     const rating = shallow(
-      <Rating />
+      <Rating/>
     );
 
     expect(rating.hasClass('sg-rate-box')).toEqual(true);
@@ -181,7 +181,7 @@ describe('star', () => {
 
   test('render', () => {
     const star = shallow(
-      <Star onClick={dumpFnc} />
+      <Star onClick={dumpFnc}/>
     );
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);

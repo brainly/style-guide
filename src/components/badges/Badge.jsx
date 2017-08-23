@@ -20,7 +20,7 @@ const COLOR = {
   BLUE_SECONDARY_LIGHT: {BADGE: 'blue-secondary-light', TEXT: TEXT_COLOR.BLUE}
 };
 
-const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation, className}) => {
+const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, withAnimation, className, ...props}) => {
 
   const badgeClass = classNames('sg-badge', className, {
     [`sg-badge--${color.BADGE}`]: color !== COLOR.NORMAL,
@@ -30,7 +30,7 @@ const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, wit
   }, className);
   const textSize = size === SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
 
-  return <div className={badgeClass}>
+  return <div {...props} className={badgeClass}>
     <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={color.TEXT}>{children}</Text>
   </div>;
 };

@@ -5,7 +5,7 @@ import Icon, {TYPE} from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 
 test('render default', () => {
-  const avatar = mount(<Avatar />);
+  const avatar = mount(<Avatar/>);
 
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
   expect(avatar.find('img')).toHaveLength(0);

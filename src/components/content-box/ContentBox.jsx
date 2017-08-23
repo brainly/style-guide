@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ContentBox = ({children, spaced, full, className}) => {
+const ContentBox = ({children, spaced, full, className, ...props}) => {
   const contentBoxClass = classNames('sg-content-box', {
     'sg-content-box--spaced': spaced,
     'sg-content-box--full': full
   }, className);
 
-  return <div className={contentBoxClass}>
+  return <div {...props} className={contentBoxClass}>
     {children}
   </div>;
 };

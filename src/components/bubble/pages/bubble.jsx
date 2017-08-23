@@ -84,16 +84,16 @@ const Bubbles = () =>
           </ContentBoxHeader>
           <ContentBoxContent>
             <Text>
-                Hi there!! Just wondering if you have any problems with your school work. We've got plenty
-                of people who
-                can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
-                you can just
-                go ahead and try for yourself.
+              Hi there!! Just wondering if you have any problems with your school work. We've got plenty
+              of people who
+              can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
+              you can just
+              go ahead and try for yourself.
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
             <ButtonSecondary type={TYPE.ALT}>
-                Join us!
+              Join us!
             </ButtonSecondary>
           </ContentBoxActions>
         </ContentBox>

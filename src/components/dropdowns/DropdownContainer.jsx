@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 
-class DropdownContainer extends React.Component {
+class DropdownContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -42,7 +42,8 @@ class DropdownContainer extends React.Component {
       items={this.props.items}
       fixed={this.props.fixed}
       onItemClick={this.onItemClick.bind(this)}
-      onClick={this.toggle.bind(this)}/>;
+      onClick={this.toggle.bind(this)}
+      className={this.props.className}/>;
   }
 }
 
@@ -58,7 +59,8 @@ DropdownContainer.propTypes = {
   fullWidth: PropTypes.bool,
   label: PropTypes.string,
   currentItem: itemShape,
-  items: PropTypes.arrayOf(itemShape)
+  items: PropTypes.arrayOf(itemShape),
+  className: PropTypes.string
 };
 
 export default DropdownContainer;

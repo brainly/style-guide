@@ -12,7 +12,7 @@ const Radios = () => {
 
   return <div>
     <DocsActiveBlock settings={settings}>
-      <Radio />
+      <Radio/>
     </DocsActiveBlock>
   </div>;
 };
