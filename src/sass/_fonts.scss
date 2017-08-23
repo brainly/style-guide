@@ -13,6 +13,9 @@ $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
     src: url($proximaNovaRegularWoff2Path) format('woff2'), url($proximaNovaRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
+    // sass-lint:disable no-misspelled-properties
+    font-display: swap;
+    // sass-lint:enable no-misspelled-properties
   }
 
   @font-face {
@@ -20,6 +23,9 @@ $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
     src: url($proximaNovaSemiBoldWoff2Path) format('woff2'), url($proximaNovaSemiBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
+    // sass-lint:disable no-misspelled-properties
+    font-display: swap;
+    // sass-lint:enable no-misspelled-properties
   }
 
   @font-face {
@@ -27,5 +33,8 @@ $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
     src: url($proximaNovaBlackWoff2Path) format('woff2'), url($proximaNovaBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
+    // sass-lint:disable no-misspelled-properties
+    font-display: swap;
+    // sass-lint:enable no-misspelled-properties
   }
 }
