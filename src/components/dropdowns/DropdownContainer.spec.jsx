@@ -12,20 +12,20 @@ const defaultProps = {items: defaultItems, label: defaultLabel};
 
 
 test('it\'s container so should\'t render presentional component', () => {
-  const dropDown = shallow(<DropdownContainer {...defaultProps}/>);
+  const dropDown = shallow(<DropdownContainer {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown')).toEqual(false);
 });
 
 test('mount should render Dropdown component', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps}/>);
+  const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown')).toEqual(true);
 });
 
 
 test('no opened at start', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps}/>);
+  const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(false);
   expect(dropDown.state('isOpened')).toEqual(false);
@@ -33,7 +33,7 @@ test('no opened at start', () => {
 
 
 test('opened at start when props passed', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart={true}/>);
+  const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart />);
 
   expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(true);
   expect(dropDown.state('isOpened')).toEqual(true);
@@ -41,7 +41,7 @@ test('opened at start when props passed', () => {
 
 
 test('toggle open', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps}/>);
+  const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(false);
   expect(dropDown.state('isOpened')).toEqual(false);
@@ -56,27 +56,27 @@ test('toggle open', () => {
 });
 
 test('label from selected option', () => {
-  const dropDown = mount(<DropdownContainer items={defaultItems} currentItem={item2nd}/>);
+  const dropDown = mount(<DropdownContainer items={defaultItems} currentItem={item2nd} />);
   const label = dropDown.find('.sg-dropdown__hole > .sg-dropdown__item-text');
 
   expect(label.text()).toEqual(item2nd.text);
 });
 
 test('label and currentItem not defined', () => {
-  const dropDown = mount(<DropdownContainer items={[]}/>);
+  const dropDown = mount(<DropdownContainer items={[]} />);
   const label = dropDown.find('.sg-dropdown__item-text');
 
   expect(label.text()).toEqual('');
 });
 
 test('default select', () => {
-  const dropDown = shallow(<DropdownContainer items={defaultItems} currentItem={item2nd}/>);
+  const dropDown = shallow(<DropdownContainer items={defaultItems} currentItem={item2nd} />);
 
   expect(dropDown.state('currentItem')).toEqual(item2nd);
 });
 
 test('label contains class sg-dropdown__item-text', () => {
-  const dropDown = mount(<DropdownContainer items={[]} label={defaultLabel}/>);
+  const dropDown = mount(<DropdownContainer items={[]} label={defaultLabel} />);
   const label = dropDown.find('.sg-dropdown__item-text');
 
   expect(label).toHaveLength(1);
@@ -86,7 +86,7 @@ test('label contains class sg-dropdown__item-text', () => {
 test('render all options', () => {
   const label = 1;
   const items = defaultItems;
-  const dropDown = mount(<DropdownContainer items={items} currentItem={item2nd}/>);
+  const dropDown = mount(<DropdownContainer items={items} currentItem={item2nd} />);
   const options = dropDown.find('.sg-dropdown__item-text');
 
   expect(options).toHaveLength(label + items.length);
@@ -94,7 +94,7 @@ test('render all options', () => {
 
 test('clicking options + calling on props change', () => {
   const onChange = jest.fn();
-  const dropDown = mount(<DropdownContainer items={defaultItems} currentItem={item2nd} onChange={onChange}/>);
+  const dropDown = mount(<DropdownContainer items={defaultItems} currentItem={item2nd} onChange={onChange} />);
   const options = dropDown.find('.sg-dropdown__item-text');
 
   const option1st = options.at(1);

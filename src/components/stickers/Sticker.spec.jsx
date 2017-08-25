@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const sticker = shallow(
-    <Sticker type={TYPE.CAMERA}/>
+    <Sticker type={TYPE.CAMERA} />
   );
 
   expect(sticker.hasClass('sg-sticker')).toEqual(true);
@@ -15,7 +15,7 @@ test('error when no type', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Sticker/>);
+  shallow(<Sticker />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
@@ -24,7 +24,7 @@ test('error when no type', () => {
 test('type passed to xlink:href', () => {
   const type = TYPE.CAMERA;
   const sticker = shallow(
-    <Sticker type={type}/>
+    <Sticker type={type} />
   );
   const use = sticker.find('use');
   const back = use.at(0);

@@ -38,6 +38,9 @@ class DocsActiveBlock extends Component {
       props: componentProps,
       renderNormally: true
     };
+
+    this.setProps = this.setProps.bind(this);
+    this.settingsChanged = this.settingsChanged.bind(this);
   }
 
   setProps(key, value) {
@@ -145,19 +148,21 @@ class DocsActiveBlock extends Component {
       output = React.cloneElement(wrapper, {}, output);
     }
 
-    return <div>
-      <DocsBlock>
-        <div className={blockClass}>
-          <div className={componentClass}>
-            {output}
+    return (
+      <div>
+        <DocsBlock>
+          <div className={blockClass}>
+            <div className={componentClass}>
+              {output}
+            </div>
+            <ComponentSettings onChange={this.setProps} settings={this.props.settings}
+              values={this.state.props} />
+            <DocsActiveBlockSettings onChange={this.settingsChanged} values={this.state} />
           </div>
-          <ComponentSettings onChange={this.setProps.bind(this)} settings={this.props.settings}
-            values={this.state.props}/>
-          <DocsActiveBlockSettings onChange={this.settingsChanged.bind(this)} values={this.state}/>
-        </div>
-      </DocsBlock>
-      {code}
-    </div>;
+        </DocsBlock>
+        {code}
+      </div>
+    );
   }
 }
 

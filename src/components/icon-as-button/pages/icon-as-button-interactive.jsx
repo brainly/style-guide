@@ -36,23 +36,25 @@ const IconsAsButtons = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <IconAsButton color={COLOR.GRAY} type={TYPE.ATTACHMENT}/>
-    </DocsActiveBlock>
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <IconAsButton color={COLOR.GRAY} type={TYPE.ATTACHMENT} />
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
-      <IconAsButton type={TYPE.MESSAGES} transparent={true} overlay={
-        <Badge color={BADGE_COLOR.PEACH} rounded={true}>1</Badge>
-      }/>
-    </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <IconAsButton type={TYPE.MESSAGES} transparent overlay={
+          <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+        } />
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
-      <IconAsButton transparent={true}>
-        <Avatar size={AVATAR_SIZE.SMALL}/>
-      </IconAsButton>
-    </DocsActiveBlock>
-  </div>;
+      <DocsActiveBlock settings={settings}>
+        <IconAsButton transparent>
+          <Avatar size={AVATAR_SIZE.SMALL} />
+        </IconAsButton>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 

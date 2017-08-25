@@ -25,43 +25,43 @@ const ListItems = () =>
   <div>
     <DocsBlock info="Default">
       <ContrastBox>
-        <List items={items}/>
+        <List items={items} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small list">
       <ContrastBox>
-        <List items={items} small={true}/>
+        <List items={items} small />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="List with spacings">
       <ContrastBox>
-        <List items={items} spaced={true}/>
+        <List items={items} spaced />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example">
       <ContrastBox>
-        <List items={exampleItems}/>
+        <List items={exampleItems} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example (small text)">
       <ContrastBox>
-        <List items={exampleSmall} small={true}/>
+        <List items={exampleSmall} small />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info="Menu list">
       <ContentBox>
-        <MenuList items={menuItems}/>
+        <MenuList items={menuItems} />
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Menu list - small">
       <ContentBox>
-        <MenuList items={menuItems} size={SIZE.SMALL}/>
+        <MenuList items={menuItems} size={SIZE.SMALL} />
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Menu list - large">
       <ContentBox>
-        <MenuList items={menuItems} size={SIZE.LARGE}/>
+        <MenuList items={menuItems} size={SIZE.LARGE} />
       </ContentBox>
     </DocsBlock>
   </div>;

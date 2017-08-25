@@ -9,7 +9,7 @@ const items = [testItem];
 describe('list', () => {
   test('render', () => {
     const list = shallow(
-      <List items={items}/>
+      <List items={items} />
     );
 
     expect(list.hasClass('sg-list')).toEqual(true);
@@ -17,7 +17,7 @@ describe('list', () => {
 
   test('with spaced elements', () => {
     const list = shallow(
-      <List spaced={true} items={items}/>
+      <List spaced items={items} />
     );
 
     expect(list.hasClass('sg-list--spaced-elements')).toEqual(true);
@@ -25,7 +25,7 @@ describe('list', () => {
 
   test('with default spacing', () => {
     const list = shallow(
-      <List items={items}/>
+      <List items={items} />
     );
 
     expect(list.hasClass('sg-list--spaced-elements')).toEqual(false);
@@ -36,7 +36,7 @@ describe('list item', () => {
 
   test('render', () => {
     const listItem = shallow(
-      <ListItem text="test"/>
+      <ListItem text="test" />
     );
     const icon = listItem.find(Icon);
     const iconDiv = listItem.find('div').at(0);
@@ -49,7 +49,7 @@ describe('list item', () => {
 
   test('small right spacing', () => {
     const listItem = mount(
-      <ListItem small={true} text="test"/>
+      <ListItem small text="test" />
     );
 
     expect(listItem.props().small).toEqual(true);
@@ -57,7 +57,7 @@ describe('list item', () => {
 
   test('default spacing', () => {
     const listItem = mount(
-      <ListItem text="test"/>
+      <ListItem text="test" />
     );
 
     expect(listItem.props().small).toEqual(undefined);
@@ -67,7 +67,7 @@ describe('list item', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    shallow(<ListItem/>);
+    shallow(<ListItem />);
 
     expect(console.error.mock.calls).toHaveLength(1);
 

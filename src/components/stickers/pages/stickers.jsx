@@ -7,7 +7,7 @@ const Stickers = () =>
   <DocsBlock info="Default">
     <ContrastBox>
       {Object.values(TYPE).map(type =>
-        <Sticker key={type} type={type}/>
+        <Sticker key={type} type={type} />
       )}
     </ContrastBox>
   </DocsBlock>;

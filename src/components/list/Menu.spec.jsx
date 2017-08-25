@@ -11,7 +11,7 @@ const menuItems = [menuItem];
 describe('menu list', () => {
   test('render', () => {
     const menu = shallow(
-      <MenuList items={menuItems}/>
+      <MenuList items={menuItems} />
     );
 
     expect(menu.hasClass('sg-menu-list')).toEqual(true);
@@ -20,7 +20,7 @@ describe('menu list', () => {
 
   test('small size', () => {
     const menu = shallow(
-      <MenuList items={menuItems} size={SIZE.SMALL}/>
+      <MenuList items={menuItems} size={SIZE.SMALL} />
     );
 
     expect(menu.hasClass('sg-menu-list--small')).toEqual(true);
@@ -28,7 +28,7 @@ describe('menu list', () => {
 
   test('large', () => {
     const menu = shallow(
-      <MenuList items={menuItems} size={SIZE.LARGE}/>
+      <MenuList items={menuItems} size={SIZE.LARGE} />
     );
 
     expect(menu.hasClass('sg-menu-list--large')).toEqual(true);
@@ -38,7 +38,7 @@ describe('menu list', () => {
 describe('menu item', () => {
   test('render', () => {
     const menuItem = shallow(
-      <MenuItem text="test" href="#"/>
+      <MenuItem text="test" href="#" />
     );
 
     expect(menuItem.hasClass('sg-menu-list__element')).toEqual(true);
@@ -48,7 +48,7 @@ describe('menu item', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    shallow(<MenuItem href="#"/>);
+    shallow(<MenuItem href="#" />);
 
     expect(console.error.mock.calls).toHaveLength(1);
 
@@ -59,7 +59,7 @@ describe('menu item', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    shallow(<MenuItem text="test"/>);
+    shallow(<MenuItem text="test" />);
 
     expect(console.error.mock.calls).toHaveLength(1);
 

@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const button = shallow(
-    <HomeButton/>
+    <HomeButton />
   );
 
   expect(button.hasClass('sg-home-button')).toBeTruthy();
@@ -14,7 +14,7 @@ test('render', () => {
 
 test('type', () => {
   const button = shallow(
-    <HomeButton type={TYPE.EODEV}/>
+    <HomeButton type={TYPE.EODEV} />
   );
 
   expect(button.hasClass('sg-home-button--eodev')).toBeTruthy();
@@ -23,7 +23,7 @@ test('type', () => {
 test('href', () => {
   const test = 'test';
   const button = shallow(
-    <HomeButton href={test}/>
+    <HomeButton href={test} />
   );
 
   expect(button.props().href).toEqual(test);

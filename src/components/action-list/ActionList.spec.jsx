@@ -10,7 +10,7 @@ describe('ActionList', () => {
     const actionList = shallow(
       <ActionList>
         <ActionListHole>
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+          <ButtonSecondary type={buttonSecondaryTypes.alt} small>
             accept
           </ButtonSecondary>
         </ActionListHole>
@@ -36,7 +36,7 @@ describe('ActionList', () => {
 
   test('to-top', () => {
     const actionList = shallow(
-      <ActionList toTop={true}></ActionList>
+      <ActionList toTop></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
@@ -60,7 +60,7 @@ describe('ActionList', () => {
 
   test('no-wrap', () => {
     const actionList = shallow(
-      <ActionList noWrap={true}></ActionList>
+      <ActionList noWrap></ActionList>
     );
 
     expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
@@ -71,7 +71,7 @@ describe('ActionListHole', () => {
   test('render', () => {
     const actionListHole = shallow(
       <ActionListHole>
-        <ButtonSecondary type={buttonSecondaryTypes.alt} small={true}>
+        <ButtonSecondary type={buttonSecondaryTypes.alt} small>
           accept
         </ButtonSecondary>
       </ActionListHole>

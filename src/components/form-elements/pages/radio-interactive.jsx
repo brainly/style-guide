@@ -10,11 +10,13 @@ const Radios = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Radio/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Radio />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Radios;

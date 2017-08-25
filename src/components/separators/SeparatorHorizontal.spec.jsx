@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const separator = shallow(
-    <SeparatorHorizontal/>
+    <SeparatorHorizontal />
   );
 
   expect(separator.hasClass('sg-horizontal-separator')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('type', () => {
   const separator = shallow(
-    <SeparatorHorizontal type={TYPE.SPACED}/>
+    <SeparatorHorizontal type={TYPE.SPACED} />
   );
 
   expect(separator.hasClass('sg-horizontal-separator--spaced')).toEqual(true);

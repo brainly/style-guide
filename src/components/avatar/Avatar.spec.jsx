@@ -5,7 +5,7 @@ import Icon, {TYPE} from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 
 test('render default', () => {
-  const avatar = mount(<Avatar/>);
+  const avatar = mount(<Avatar />);
 
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
   expect(avatar.find('img')).toHaveLength(0);
@@ -18,7 +18,7 @@ test('render with image', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
   const avatar = mount(
-    <Avatar imgSrc={imgSrc}/>
+    <Avatar imgSrc={imgSrc} />
   );
 
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
@@ -32,7 +32,7 @@ test('no error when render without image', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  mount(<Avatar/>);
+  mount(<Avatar />);
   expect(console.error.mock.calls).toHaveLength(0);
 
   spy.mockRestore();
@@ -40,7 +40,7 @@ test('no error when render without image', () => {
 
 test('default icon profile', () => {
   const iconType = TYPE.PROFILE;
-  const avatar = mount(<Avatar/>);
+  const avatar = mount(<Avatar />);
   const icoProps = avatar.find(Icon).props();
 
   expect(icoProps.type).toEqual(iconType);
@@ -49,7 +49,7 @@ test('default icon profile', () => {
 test('SIZE', () => {
   const size = SIZE.XLARGE;
   const avatar = shallow(
-    <Avatar size={size}/>
+    <Avatar size={size} />
   );
 
   expect(avatar.hasClass('sg-avatar--xlarge')).toEqual(true);
@@ -57,7 +57,7 @@ test('SIZE', () => {
 
 test('border', () => {
   const avatar = shallow(
-    <Avatar border={true}/>
+    <Avatar border />
   );
 
   expect(avatar.hasClass('sg-avatar--with-border')).toEqual(true);
@@ -65,7 +65,7 @@ test('border', () => {
 
 test('spaced', () => {
   const avatar = shallow(
-    <Avatar spaced={true}/>
+    <Avatar spaced />
   );
 
   expect(avatar.hasClass('sg-avatar--spaced')).toEqual(true);

@@ -23,36 +23,38 @@ const ActionLists = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <ActionList>
-        <ActionListHole>
-          <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
-            accept
-          </ButtonSecondary>
-        </ActionListHole>
-        <ActionListHole>
-          <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-            Later
-          </ButtonPrimary>
-        </ActionListHole>
-      </ActionList>
-    </DocsActiveBlock>
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <ActionList>
+          <ActionListHole>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
+              accept
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
+              Later
+            </ButtonPrimary>
+          </ActionListHole>
+        </ActionList>
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
-      <ActionList noWrap={true}>
-        <ActionListHole>
-          <Icon type={ICON_TYPE.MESSAGES} size={24} color={ICON_COLOR.DARK}/>
-        </ActionListHole>
-        <ActionListHole>
-          <Text type={TEXT_TYPE.P} color={TEXT_COLOR.DARK}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus turpis quis dolor suscipit, a mattis
-            nunc posuere. Duis lacinia mauris quis tempus varius. Donec consectetur bibendum pretium.
-          </Text>
-        </ActionListHole>
-      </ActionList>
-    </DocsActiveBlock>
-  </div>;
+      <DocsActiveBlock settings={settings}>
+        <ActionList noWrap>
+          <ActionListHole>
+            <Icon type={ICON_TYPE.MESSAGES} size={24} color={ICON_COLOR.DARK} />
+          </ActionListHole>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.DARK}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus turpis quis dolor suscipit,
+              a mattis nunc posuere. Duis lacinia mauris quis tempus varius. Donec consectetur bibendum pretium.
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 

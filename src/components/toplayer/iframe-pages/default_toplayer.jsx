@@ -12,7 +12,7 @@ const content =
     </ContentBoxContent>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
       content
-      <br/>
+      <br />
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse enim diam, dictum et maximus sit amet,
       pulvinar
       vel ante. Maecenas id tempus lacus. Cras vitae lectus vehicula, pretium odio sed, pretium nulla. Nunc ultrices
@@ -29,12 +29,12 @@ const content =
 const DefaultTopLayer = () =>
   <html>
     <head>
-      <meta charSet="utf-8"/>
-      <link rel="stylesheet" href="../../../style-guide.css"/>
+      <meta charSet="utf-8" />
+      <link rel="stylesheet" href="../../../style-guide.css" />
     </head>
     <body>
       <Overlay>
-        <TopLayer modal={true} size={SIZE.SMALL}>
+        <TopLayer modal size={SIZE.SMALL}>
           {content}
         </TopLayer>
       </Overlay>

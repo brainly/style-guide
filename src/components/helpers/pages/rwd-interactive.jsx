@@ -12,22 +12,24 @@ const Helpers = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <RwdHelper hide={TYPE.MEDIUM_DOWN}>
-        <span>
-          <Icon type={ICON_TYPE.HEART} color={COLOR.PEACH} size={32}/>
-        </span>
-      </RwdHelper>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <RwdHelper hide={TYPE.MEDIUM_UP}>
-        <span>
-          <Icon type={ICON_TYPE.EQUATION} color={COLOR.LAVENDER} size={32}/>
-        </span>
-      </RwdHelper>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <RwdHelper hide={TYPE.MEDIUM_DOWN}>
+          <span>
+            <Icon type={ICON_TYPE.HEART} color={COLOR.PEACH} size={32} />
+          </span>
+        </RwdHelper>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <RwdHelper hide={TYPE.MEDIUM_UP}>
+          <span>
+            <Icon type={ICON_TYPE.EQUATION} color={COLOR.LAVENDER} size={32} />
+          </span>
+        </RwdHelper>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Helpers;

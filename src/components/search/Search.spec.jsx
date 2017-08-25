@@ -6,7 +6,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const search = shallow(
-    <Search/>
+    <Search />
   );
 
   expect(search.hasClass('sg-search')).toEqual(true);
@@ -15,7 +15,7 @@ test('render', () => {
 
 test('set Search specific properties to Input', () => {
   const search = shallow(
-    <Search/>
+    <Search />
   );
 
   const input = search.find(Input);
@@ -31,7 +31,7 @@ test('pass properties to Input, without Search specific', () => {
   const withIcon = false;
 
   const search = shallow(
-    <Search color={color} size={size} valid={true} type={type} withIcon={withIcon}/>
+    <Search color={color} size={size} valid type={type} withIcon={withIcon} />
   );
 
   const input = search.find(Input);
@@ -46,7 +46,7 @@ test('pass properties to Input, without Search specific', () => {
 
 test('render icon', () => {
   const search = shallow(
-    <Search/>
+    <Search />
   );
 
   const icon = search.find(Icon);
@@ -60,7 +60,7 @@ test('render icon', () => {
 
 test('adaptive icon', () => {
   const search = shallow(
-    <Search adaptiveIco={true}/>
+    <Search adaptiveIco />
   );
 
   const icon = search.find(Icon);

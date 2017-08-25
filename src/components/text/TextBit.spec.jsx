@@ -36,7 +36,7 @@ test('color', () => {
 
 test('not responsive', () => {
   const textBit = shallow(
-    <TextBit notResponsive={true}>Test</TextBit>
+    <TextBit notResponsive>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit--not-responsive')).toBeTruthy();

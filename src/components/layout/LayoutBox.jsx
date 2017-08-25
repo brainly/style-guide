@@ -6,9 +6,11 @@ const LayoutBox = ({children, className, ...props}) => {
 
   const layoutClass = classnames('sg-layout__box', className);
 
-  return <div {...props} className={layoutClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={layoutClass}>
+      {children}
+    </div>
+  );
 };
 
 LayoutBox.propTypes = {

@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const overlay = shallow(
-    <Overlay/>
+    <Overlay />
   );
 
   expect(overlay.hasClass('sg-overlay')).toEqual(true);
@@ -22,7 +22,7 @@ test('children', () => {
 
 test('partial', () => {
   const overlay = shallow(
-    <Overlay partial={true}/>
+    <Overlay partial />
   );
 
   expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();

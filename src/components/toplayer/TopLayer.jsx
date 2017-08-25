@@ -36,14 +36,16 @@ const TopLayer = props => {
     [`sg-toplayer--${size}`]: size
   }, className);
 
-  return <div {...additionalProps} className={topLayerClassName}>
-    <div className="sg-toplayer__close">
-      <Icon type={iconTypes.X} color={iconColors.GRAY_SECONDARY} size={14}/>
+  return (
+    <div {...additionalProps} className={topLayerClassName}>
+      <div className="sg-toplayer__close">
+        <Icon type={iconTypes.X} color={iconColors.GRAY_SECONDARY} size={14} />
+      </div>
+      <div className="sg-toplayer__wrapper">
+        {children}
+      </div>
     </div>
-    <div className="sg-toplayer__wrapper">
-      {children}
-    </div>
-  </div>;
+  );
 };
 
 TopLayer.propTypes = {

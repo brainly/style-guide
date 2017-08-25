@@ -19,99 +19,103 @@ import HeaderSecondary from 'text/HeaderSecondary';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 
-const link1 = <Link href="#" color={LINK_COLOR.GRAY} emphasised={true}>Math</Link>;
-const link2 = <Link href="#" color={LINK_COLOR.GRAY} emphasised={true}>10 pts</Link>;
+const link1 = <Link href="#" color={LINK_COLOR.GRAY} emphasised>Math</Link>;
+const link2 = <Link href="#" color={LINK_COLOR.GRAY} emphasised>10 pts</Link>;
 const link3 = <Link href="#" color={LINK_COLOR.GRAY}>2 min ago</Link>;
 const breadcrumbs = [link1, link2, link3];
-const breadcrumbsSpaced = [<Link color={LINK_COLOR.GRAY}>Katie</Link>,
-  <Link href="#" color={LINK_COLOR.GRAY}>Answerer</Link>];
-const breadcrumbsSpaced2 = [<Link>Comments (9)</Link>,
-  <Link href="#">Report</Link>];
+const breadcrumbsSpaced = [<Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
+  <Link key={2} href="#" color={LINK_COLOR.GRAY}>Answerer</Link>];
+const breadcrumbsSpaced2 = [<Link key={1}>Comments (9)</Link>,
+  <Link key={2} href="#">Report</Link>];
 
-const spacedBottomOptions = <div>
-  <Text>Options:</Text>
-  <ul>
-    <li>spaced-top</li>
-    <li>spaced-top-small</li>
-    <li>spaced-top-xsmall</li>
-    <li>spaced-top-xxsmall</li>
-    <li>spaced-top-large</li>
-    <li>spaced-top-xlarge</li>
-    <li>spaced-top-xxlarge</li>
-  </ul>
-</div>;
+const spacedBottomOptions =
+  <div>
+    <Text>Options:</Text>
+    <ul>
+      <li>spaced-top</li>
+      <li>spaced-top-small</li>
+      <li>spaced-top-xsmall</li>
+      <li>spaced-top-xxsmall</li>
+      <li>spaced-top-large</li>
+      <li>spaced-top-xlarge</li>
+      <li>spaced-top-xxlarge</li>
+    </ul>
+  </div>;
 
-const spacedTopOptions = <div>
-  <Text>Options:</Text>
-  <ul>
-    <li>spaced-top</li>
-    <li>spaced-top-small</li>
-    <li>spaced-top-xsmall</li>
-    <li>spaced-top-xxsmall</li>
-    <li>spaced-top-large</li>
-    <li>spaced-top-xlarge</li>
-    <li>spaced-top-xxlarge</li>
-  </ul>
-</div>;
+const spacedTopOptions =
+  <div>
+    <Text>Options:</Text>
+    <ul>
+      <li>spaced-top</li>
+      <li>spaced-top-small</li>
+      <li>spaced-top-xsmall</li>
+      <li>spaced-top-xxsmall</li>
+      <li>spaced-top-large</li>
+      <li>spaced-top-xlarge</li>
+      <li>spaced-top-xxlarge</li>
+    </ul>
+  </div>;
 
-const examplePart1 = <ContentBox>
-  <ContentBoxTitle>
-    <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
-  </ContentBoxTitle>
-  <ContentBoxActions>
-    <ButtonSecondary>Search!</ButtonSecondary>
-  </ContentBoxActions>
-  <ContentBoxContent>
-    <Text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-      lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-      Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-      vel eros.
-    </Text>
-  </ContentBoxContent>
-  <ContentBoxActions>
-    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-      <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
-    </OverlayedBox>
-    <SeparatorVertical/>
-    <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog"/>
-    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-    <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
-  </ContentBoxActions>
-</ContentBox>;
+const examplePart1 =
+  <ContentBox>
+    <ContentBoxTitle>
+      <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+    </ContentBoxTitle>
+    <ContentBoxActions>
+      <ButtonSecondary>Search!</ButtonSecondary>
+    </ContentBoxActions>
+    <ContentBoxContent>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+        lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+        Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+        vel eros.
+      </Text>
+    </ContentBoxContent>
+    <ContentBoxActions>
+      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+        <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
+      </OverlayedBox>
+      <SeparatorVertical />
+      <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog" />
+      <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+      <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+    </ContentBoxActions>
+  </ContentBox>;
 
-const examplePart2 = <ContentBox>
-  <ContentBoxTitle>
-    <HeaderPrimary type={HEADER_TYPE.H2}>This is a title for context box</HeaderPrimary>
-  </ContentBoxTitle>
-  <ContentBoxActions>
-    <ButtonPrimary>Search!</ButtonPrimary>
-  </ContentBoxActions>
-  <ContentBoxContent>
-    <Text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-      lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-      Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-      vel eros.
-    </Text>
-  </ContentBoxContent>
-  <ContentBoxActions>
-    <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-      <Avatar imgSrc="https://source.unsplash.com/64x64/?bird"/>
-    </OverlayedBox>
-    <SeparatorVertical/>
-    <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-    <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-    <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
-  </ContentBoxActions>
-</ContentBox>;
+const examplePart2 =
+  <ContentBox>
+    <ContentBoxTitle>
+      <HeaderPrimary type={HEADER_TYPE.H2}>This is a title for context box</HeaderPrimary>
+    </ContentBoxTitle>
+    <ContentBoxActions>
+      <ButtonPrimary>Search!</ButtonPrimary>
+    </ContentBoxActions>
+    <ContentBoxContent>
+      <Text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+        lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+        Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+        vel eros.
+      </Text>
+    </ContentBoxContent>
+    <ContentBoxActions>
+      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+        <Avatar imgSrc="https://source.unsplash.com/64x64/?bird" />
+      </OverlayedBox>
+      <SeparatorVertical />
+      <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+      <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+      <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+    </ContentBoxActions>
+  </ContentBox>;
 
 const ContentBoxes = () =>
   <div>
     <DocsBlock info="Simple with header">
       <ContentBox>
         <ContentBoxHeader>
-          <Breadcrumbs elements={breadcrumbs}/>
+          <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -122,13 +126,13 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
           </OverlayedBox>
-          <SeparatorVertical/>
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <SeparatorVertical />
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat" />
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -146,13 +150,13 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog"/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
           </OverlayedBox>
-          <SeparatorVertical/>
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <SeparatorVertical />
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -162,7 +166,7 @@ const ContentBoxes = () =>
           <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
         <ContentBoxHeader>
-          <Breadcrumbs elements={breadcrumbs}/>
+          <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -173,23 +177,23 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
           </OverlayedBox>
-          <SeparatorVertical/>
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <SeparatorVertical />
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title and header (spaced)">
-      <ContentBox spaced={true}>
-        <ContentBoxTitle spaced={true}>
+      <ContentBox spaced>
+        <ContentBoxTitle spaced>
           <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
         </ContentBoxTitle>
-        <ContentBoxHeader spaced={true}>
-          <Breadcrumbs elements={breadcrumbs}/>
+        <ContentBoxHeader spaced>
+          <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
@@ -198,19 +202,19 @@ const ContentBoxes = () =>
           vel eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER}/>}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion"/>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           </OverlayedBox>
-          <SeparatorVertical/>
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten"/>
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <SeparatorVertical />
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten" />
+          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with content (full)">
       <ContentBox>
-        <ContentBoxContent full={true}>
+        <ContentBoxContent full>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
           lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
           Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
@@ -221,10 +225,10 @@ const ContentBoxes = () =>
     <DocsBlock info="Simple with title and actions" multiContent={[examplePart1, examplePart2]}>
     </DocsBlock>
     <DocsBlock info="Spaced">
-      <ContentBox spaced={true}>
+      <ContentBox spaced>
         <ContentBoxHeader>
-          <Avatar spaced={true} imgSrc="https://source.unsplash.com/64x64/?woman"/>
-          <Breadcrumbs elements={breadcrumbsSpaced}/>
+          <Avatar spaced imgSrc="https://source.unsplash.com/64x64/?woman" />
+          <Breadcrumbs elements={breadcrumbsSpaced} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -236,12 +240,12 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <Breadcrumbs elements={breadcrumbsSpaced2}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
+          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <ButtonSecondary small type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
+              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
           </ButtonSecondary>
-          <Rating rate={2} counter={34} active={true}/>
+          <Rating rate={2} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -290,34 +294,34 @@ const ContentBoxes = () =>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
           <Breadcrumbs elements={[
-            <Link href="#">Comments (9)</Link>,
-            <Link href="#">Report</Link>
-          ]}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
+            <Link key={1} href="#">Comments (9)</Link>,
+            <Link key={2} href="#">Report</Link>
+          ]} />
+          <ButtonSecondary small type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
+              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
           </ButtonSecondary>
-          <Rating rate={3} counter={34} active={true}/>
+          <Rating rate={3} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Actions with elements moved to right">
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
-          <Breadcrumbs elements={breadcrumbsSpaced2}/>
-          <ButtonSecondary small={true} type={BUTTON_TYPE.ACTIVE_INVERSE}>
+          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <ButtonSecondary small type={BUTTON_TYPE.ACTIVE_INVERSE}>
             <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
+              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
           </ButtonSecondary>
-          <Rating rate={3} counter={34} active={true}/>
+          <Rating rate={3} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Example usage">
-      <ContentBox spaced={true}>
+      <ContentBox spaced>
         <ContentBoxHeader>
-          <Avatar imgSrc="https://source.unsplash.com/64x64/?man"/>
-          <Breadcrumbs elements={['The Brain', 'Answerer']}/>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
+          <Breadcrumbs elements={['The Brain', 'Answerer']} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <HeaderPrimary SIZE={HEADER_SIZE.SMALL}>Hey! Still not sure about the answer?</HeaderPrimary>

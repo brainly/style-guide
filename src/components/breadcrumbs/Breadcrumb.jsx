@@ -8,9 +8,11 @@ const Breadcrumb = ({className, short, adaptive, elements = [], ...props}) => {
     'sg-breadcrumb-list--adaptive': adaptive
   }, className);
 
-  return <ul {...props} className={breadcrumbClass}>
-    {elements.map((elem, i) => <li key={i} className="sg-breadcrumb-list__element">{elem}</li>)}
-  </ul>;
+  return (
+    <ul {...props} className={breadcrumbClass}>
+      {elements.map((elem, i) => <li key={i} className="sg-breadcrumb-list__element">{elem}</li>)}
+    </ul>
+  );
 };
 
 Breadcrumb.propTypes = {

@@ -5,9 +5,11 @@ import classNames from 'classnames';
 const FooterLine = ({children, className, ...props}) => {
   const footerClass = classNames('sg-footer__line', className);
 
-  return <div {...props} className={footerClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={footerClass}>
+      {children}
+    </div>
+  );
 };
 
 FooterLine.propTypes = {

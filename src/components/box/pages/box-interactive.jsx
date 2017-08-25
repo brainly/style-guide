@@ -40,32 +40,34 @@ const Boxes = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Box>
-        This is a box.
-      </Box>
-    </DocsActiveBlock>
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Box>
+          This is a box.
+        </Box>
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
-      <Box imgSrc="https://source.unsplash.com/144x144/?flower"/>
-    </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Box imgSrc="https://source.unsplash.com/144x144/?flower" />
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings}>
-      <Box>
-        <ContentBox>
-          <ContentBoxHeader>
-            <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
-          </ContentBoxHeader>
-          <ContentBoxActions>
-            <ButtonPrimary type={TYPE.ALT} wide={true}>
-              Ask your question
-            </ButtonPrimary>
-          </ContentBoxActions>
-        </ContentBox>
-      </Box>
-    </DocsActiveBlock>
-  </div>;
+      <DocsActiveBlock settings={settings}>
+        <Box>
+          <ContentBox>
+            <ContentBoxHeader>
+              <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
+            </ContentBoxHeader>
+            <ContentBoxActions>
+              <ButtonPrimary type={TYPE.ALT} wide>
+                Ask your question
+              </ButtonPrimary>
+            </ContentBoxActions>
+          </ContentBox>
+        </Box>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Boxes;

@@ -24,10 +24,12 @@ const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...prop
     ico = <span className="sg-button-primary__icon">{icon}</span>;
   }
 
-  return <button {...props} disabled={disabled} className={btnClass}>
-    {ico}
-    {children}
-  </button>;
+  return (
+    <button {...props} disabled={disabled} className={btnClass}>
+      {ico}
+      {children}
+    </button>
+  );
 };
 
 ButtonPrimary.propTypes = {

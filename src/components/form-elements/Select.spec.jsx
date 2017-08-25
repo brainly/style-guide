@@ -7,9 +7,11 @@ const exampleOptions = [
   {value: 'test2', text: 'test2'}
 ];
 
+const voidFunction = () => undefined;
+
 test('render', () => {
   const select = shallow(
-    <Select/>
+    <Select />
   );
 
   expect(select.hasClass('sg-select')).toEqual(true);
@@ -17,7 +19,7 @@ test('render', () => {
 
 test('render options', () => {
   const select = shallow(
-    <Select options={exampleOptions}/>
+    <Select options={exampleOptions} />
   );
 
   expect(select.find('option')).toHaveLength(exampleOptions.length);
@@ -25,7 +27,7 @@ test('render options', () => {
 
 test('choose options', () => {
   const select = render(
-    <Select options={exampleOptions} value={exampleOptions[1].value} onChange={() => undefined}/>
+    <Select options={exampleOptions} value={exampleOptions[1].value} onChange={voidFunction} />
   );
 
   const option1st = select.find('option').get(0);
@@ -37,7 +39,7 @@ test('choose options', () => {
 
 test('full width', () => {
   const select = shallow(
-    <Select fullWidth={true}/>
+    <Select fullWidth />
   );
 
   expect(select.hasClass('sg-select--full-width')).toEqual(true);
@@ -46,7 +48,7 @@ test('full width', () => {
 
 test('default validation', () => {
   const select = shallow(
-    <Select/>
+    <Select />
   );
 
   expect(select.hasClass('sg-select--valid')).toEqual(false);
@@ -56,7 +58,7 @@ test('default validation', () => {
 
 test('valid', () => {
   const select = shallow(
-    <Select valid={true}/>
+    <Select valid />
   );
 
   expect(select.hasClass('sg-select--valid')).toEqual(true);
@@ -66,7 +68,7 @@ test('valid', () => {
 
 test('invalid', () => {
   const select = shallow(
-    <Select invalid={true}/>
+    <Select invalid />
   );
 
   expect(select.hasClass('sg-select--valid')).toEqual(false);
@@ -76,6 +78,6 @@ test('invalid', () => {
 
 test('error when both valid and invalid', () => {
   expect(() => {
-    shallow(<Select valid={true} invalid={true}/>);
+    shallow(<Select valid invalid />);
   }).toThrow();
 });

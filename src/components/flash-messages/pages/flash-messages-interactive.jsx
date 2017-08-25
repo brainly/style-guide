@@ -14,14 +14,16 @@ const FlashMessages = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <FlashMessage text='I have never seen a code like this before...'/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <FlashMessage text='Whoops! Something went wrong' type={TYPE.ERROR}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <FlashMessage text='I have never seen a code like this before...' />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <FlashMessage text='Whoops! Something went wrong' type={TYPE.ERROR} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default FlashMessages;

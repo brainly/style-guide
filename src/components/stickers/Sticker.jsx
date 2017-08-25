@@ -7,10 +7,12 @@ const Sticker = ({type, className, ...props}) => {
   const iconType = `#icon-${type}`;
   const stickerClass = classNames('sg-sticker', className);
 
-  return <svg {...props} className={stickerClass}>
-    <use className="sg-sticker__back" xlinkHref={iconType}></use>
-    <use className="sg-sticker__front" xlinkHref={iconType}></use>
-  </svg>;
+  return (
+    <svg {...props} className={stickerClass}>
+      <use className="sg-sticker__back" xlinkHref={iconType}></use>
+      <use className="sg-sticker__front" xlinkHref={iconType}></use>
+    </svg>
+  );
 };
 
 Sticker.propTypes = {

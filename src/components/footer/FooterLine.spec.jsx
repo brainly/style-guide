@@ -14,7 +14,7 @@ test('error when no child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<FooterLine/>);
+  shallow(<FooterLine />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();

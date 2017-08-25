@@ -36,9 +36,11 @@ const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, classNam
     'sg-text-bit--not-responsive': notResponsive
   }, className);
 
-  return <Type {...props} className={textClass}>
-    {children}
-  </Type>;
+  return (
+    <Type {...props} className={textClass}>
+      {children}
+    </Type>
+  );
 };
 
 TextBit.propTypes = {

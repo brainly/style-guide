@@ -29,13 +29,15 @@ const Select = props => {
     <option key={value} value={value}>{text}</option>
   );
 
-  return <div className={selectClass}>
-    <div className="sg-select__icon">
+  return (
+    <div className={selectClass}>
+      <div className="sg-select__icon">
+      </div>
+      <select className="sg-select__element" value={value} {...additionalProps}>
+        {optionsElements}
+      </select>
     </div>
-    <select className="sg-select__element" value={value} {...additionalProps}>
-      {optionsElements}
-    </select>
-  </div>;
+  );
 };
 
 

@@ -35,14 +35,16 @@ const SearchInputs = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings} wrapper={<div/>}>
-      <Search placeholder="Find all the answers..."/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <Search placeholder="Find all the answers..." color={COLOR.LIGHT} fullWidth adaptiveIco/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings} wrapper={<div />}>
+        <Search placeholder="Find all the answers..." />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <Search placeholder="Find all the answers..." color={COLOR.LIGHT} fullWidth adaptiveIco />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default SearchInputs;

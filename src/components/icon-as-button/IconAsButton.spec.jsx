@@ -7,7 +7,7 @@ import OverlayedBox from 'overlayed-box/OverlayedBox';
 test('render', () => {
   const type = TYPE.STAR;
   const iconAsButton = shallow(
-    <IconAsButton type={type}/>
+    <IconAsButton type={type} />
   );
   const icon = iconAsButton.find(Icon);
 
@@ -20,7 +20,7 @@ test('colors', () => {
   const type = TYPE.ANSWER;
   const color = COLOR.DARK;
   const iconAsButton = shallow(
-    <IconAsButton type={type} color={color}/>
+    <IconAsButton type={type} color={color} />
   );
 
   expect(iconAsButton.hasClass(`sg-icon-as-button--${color}`)).toEqual(true);
@@ -32,7 +32,7 @@ test('size', () => {
   const sizeOfSmallIco = 18;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} size={size}/>
+    <IconAsButton type={type} size={size} />
   );
   const icon = iconAsButton.find(Icon);
 
@@ -44,7 +44,7 @@ test('default size', () => {
   const sizeOfNormallIco = 26;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type}/>
+    <IconAsButton type={type} />
   );
   const icon = iconAsButton.find(Icon);
 
@@ -56,7 +56,7 @@ test('default size', () => {
 test('border', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} border={true}/>
+    <IconAsButton type={type} border />
   );
 
   expect(iconAsButton.hasClass('sg-icon-as-button--with-border')).toEqual(true);
@@ -65,7 +65,7 @@ test('border', () => {
 test('transparent', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} transparent={true}/>
+    <IconAsButton type={type} transparent />
   );
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
@@ -74,7 +74,7 @@ test('transparent', () => {
 test('transparent active', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} transparent={true} active={true}/>
+    <IconAsButton type={type} transparent active />
   );
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
@@ -84,7 +84,7 @@ test('transparent active', () => {
 test('action', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} action={true}/>
+    <IconAsButton type={type} action />
   );
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
@@ -93,7 +93,7 @@ test('action', () => {
 test('action active', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(
-    <IconAsButton type={type} action={true} active={true}/>
+    <IconAsButton type={type} action active />
   );
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
@@ -104,7 +104,7 @@ test('overlay', () => {
   const type = TYPE.ANSWER;
   const overlay = <div>abc</div>;
   const iconAsButton = mount(
-    <IconAsButton type={type} overlay={overlay}/>
+    <IconAsButton type={type} overlay={overlay} />
   );
 
   const overlayedBox = iconAsButton.find(OverlayedBox);
@@ -117,7 +117,7 @@ test('overlay', () => {
 test('no overlay', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = mount(
-    <IconAsButton type={type}/>
+    <IconAsButton type={type} />
   );
 
   const overlayedBox = iconAsButton.find(OverlayedBox);
@@ -130,10 +130,11 @@ test('error when more than 1 child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<IconAsButton>
-    <div></div>
-    <div></div>
-  </IconAsButton>);
+  shallow(
+    <IconAsButton>
+      <div></div>
+      <div></div>
+    </IconAsButton>);
   expect(console.error.mock.calls).toHaveLength(2);
 
   spy.mockRestore();

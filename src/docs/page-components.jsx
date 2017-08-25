@@ -42,54 +42,55 @@ import Media from 'media/pages/media-interactive';
 import Helpers from 'helpers/pages/rwd-interactive';
 
 const demos = {
-  'Avatars': <Avatars/>,
-  'Bubbles': <Bubbles/>,
-  'Badges': <Badges/>,
-  'Buttons': <Buttons/>,
-  'Icon as a button': <IconsAsButtons/>,
-  'Stickers': <Stickers/>,
-  'Subject icons': <SubjectIcons/>,
-  'Subject icon box': <Subjects/>,
+  'Avatars': <Avatars />,
+  'Bubbles': <Bubbles />,
+  'Badges': <Badges />,
+  'Buttons': <Buttons />,
+  'Icon as a button': <IconsAsButtons />,
+  'Stickers': <Stickers />,
+  'Subject icons': <SubjectIcons />,
+  'Subject icon box': <Subjects />,
   'Flash messages': <FlashMessages />,
-  'Boxes': <Boxes/>,
-  'Action List': <ActionLists/>,
-  'Rating': <Ratings/>,
-  'Icons': <Icons/>,
-  'Labels': <Labels/>,
-  'Dropdowns': <Dropdowns/>,
-  'Separators': <Separators/>,
-  'Text': <Texts/>,
-  'Headers': <Headers/>,
-  'Links': <Links/>,
-  'Text Bit': <TextBits/>,
-  'Popup Menu': <PopupMenus/>,
-  'Home Button': <HomeButtons/>,
-  'Checkbox': <Checkboxes/>,
-  'Radio': <Radios/>,
-  'Input': <Inputs/>,
-  'Select': <Selects/>,
-  'Textarea': <Textareas/>,
-  'Search': <SearchInputs/>,
-  'List': <Lists/>,
-  'Breadcrumbs': <Breadcrumbs/>,
-  'Header': <HeadersLayout/>,
-  'Footer': <Footers/>,
-  'Layout': <Layouts/>,
-  'Toplayer': <Toplayers/>,
-  'Overlay': <Overlays/>,
-  'Overlayed box': <OverlayedBoxes/>,
-  'Logo': <Logos/>,
-  'Media': <Media/>,
-  'Helpers': <Helpers/>
+  'Boxes': <Boxes />,
+  'Action List': <ActionLists />,
+  'Rating': <Ratings />,
+  'Icons': <Icons />,
+  'Labels': <Labels />,
+  'Dropdowns': <Dropdowns />,
+  'Separators': <Separators />,
+  'Text': <Texts />,
+  'Headers': <Headers />,
+  'Links': <Links />,
+  'Text Bit': <TextBits />,
+  'Popup Menu': <PopupMenus />,
+  'Home Button': <HomeButtons />,
+  'Checkbox': <Checkboxes />,
+  'Radio': <Radios />,
+  'Input': <Inputs />,
+  'Select': <Selects />,
+  'Textarea': <Textareas />,
+  'Search': <SearchInputs />,
+  'List': <Lists />,
+  'Breadcrumbs': <Breadcrumbs />,
+  'Header': <HeadersLayout />,
+  'Footer': <Footers />,
+  'Layout': <Layouts />,
+  'Toplayer': <Toplayers />,
+  'Overlay': <Overlays />,
+  'Overlayed box': <OverlayedBoxes />,
+  'Logo': <Logos />,
+  'Media': <Media />,
+  'Helpers': <Helpers />
 };
 
-const sections = Object.keys(demos).map(key => <article key={key}>
-  <h2 className="article-header" id={slugify(key)}>
-    {key}
-    <a href={'#' + slugify(key)} className="permalink">#</a>
-  </h2>
-  {demos[key]}
-</article>
+const sections = Object.keys(demos).map(key =>
+  <article key={key}>
+    <h2 className="article-header" id={slugify(key)}>
+      {key}
+      <a href={'#' + slugify(key)} className="permalink">#</a>
+    </h2>
+    {demos[key]}
+  </article>
 );
 
 ReactDOM.render(<div>{sections}</div>, document.getElementById('root'));

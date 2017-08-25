@@ -28,9 +28,11 @@ const HeaderSecondary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color, c
     [`sg-header-secondary--${color}`]: color
   }, className);
 
-  return <Type {...props} className={headerClass}>
-    {children}
-  </Type>;
+  return (
+    <Type {...props} className={headerClass}>
+      {children}
+    </Type>
+  );
 };
 
 HeaderSecondary.propTypes = {

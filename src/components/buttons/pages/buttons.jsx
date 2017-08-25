@@ -22,22 +22,22 @@ const Buttons = () =>
         Search
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary disabled={true}>
+      <ButtonPrimary disabled>
         Disabled
       </ButtonPrimary>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
 
       <ButtonPrimary
-        icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16}/>}
+        icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16} />}
         type={TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
     </DocsBlock>
 
     <DocsBlock info="Primary buttons wide">
-      <ButtonPrimary wide={true}>Search</ButtonPrimary>
+      <ButtonPrimary wide>Search</ButtonPrimary>
     </DocsBlock>
 
     <DocsBlock info="Primary buttons inverted">
@@ -54,7 +54,7 @@ const Buttons = () =>
           Search
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary disabled={true} type={TYPE.INVERSE}>
+        <ButtonPrimary disabled type={TYPE.INVERSE}>
           Disabled
         </ButtonPrimary>
       </ContrastBox>
@@ -62,14 +62,14 @@ const Buttons = () =>
 
     <DocsBlock info="Primary round button">
       <ButtonRound label="Add question">
-        <Icon type={iconTypes.PLUS} size={16}/>
+        <Icon type={iconTypes.PLUS} size={16} />
       </ButtonRound>
     </DocsBlock>
 
 
     <DocsBlock info='Secondary buttons'>
       <ButtonSecondary>
-        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
+        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary>
@@ -84,21 +84,21 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled={true}>
+      <ButtonSecondary disabled>
         Disabled
       </ButtonSecondary>
     </DocsBlock>
 
 
     <DocsBlock info="Secondary buttons wide">
-      <ButtonSecondary wide={true}>Search</ButtonSecondary>
+      <ButtonSecondary wide>Search</ButtonSecondary>
     </DocsBlock>
 
 
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
         <ButtonSecondary type={types2.INVERSE}>
-          <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
+          <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
         </ButtonSecondary>
         &nbsp;
         <ButtonSecondary type={types2.INVERSE}>
@@ -113,7 +113,7 @@ const Buttons = () =>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled={true} type={types2.INVERSE}>
+        <ButtonSecondary disabled type={types2.INVERSE}>
           Disabled
         </ButtonSecondary>
       </ContrastBox>
@@ -121,23 +121,23 @@ const Buttons = () =>
 
 
     <DocsBlock info='Secondary buttons small'>
-      <ButtonSecondary small={true}>
-        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14}/>
+      <ButtonSecondary small>
+        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary small={true}>
+      <ButtonSecondary small>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.ALT} small={true}>
+      <ButtonSecondary type={types2.ALT} small>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary type={types2.DARK} small={true}>
+      <ButtonSecondary type={types2.DARK} small>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled={true} small={true}>
+      <ButtonSecondary disabled small>
         Disabled
       </ButtonSecondary>
     </DocsBlock>
@@ -145,32 +145,32 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons inverted small">
       <ContrastBox>
-        <ButtonSecondary type={types2.INVERSE} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.ALT_INVERSE} small={true}>
+        <ButtonSecondary type={types2.ALT_INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.DARK_INVERSE} small={true}>
+        <ButtonSecondary type={types2.DARK_INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled={true} type={types2.INVERSE} small={true}>
+        <ButtonSecondary disabled type={types2.INVERSE} small>
           Disabled
         </ButtonSecondary>
 
-        <br/><br/>
+        <br /><br />
 
-        <ButtonSecondary type={types2.INVERSE} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small>
           <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
-            iconColor={ICON_COLOR.LAVENDER} secondary={true}/>
+            iconColor={ICON_COLOR.LAVENDER} secondary />
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary type={types2.INVERSE} small={true}>
+        <ButtonSecondary type={types2.INVERSE} small>
           <Label text="Mark as brainliest" iconType={ICON_TYPE.EXCELLENT}
-            iconColor={ICON_COLOR.MUSTARD} secondary={true}/>
+            iconColor={ICON_COLOR.MUSTARD} secondary />
         </ButtonSecondary>
 
       </ContrastBox>
@@ -178,14 +178,14 @@ const Buttons = () =>
 
 
     <DocsBlock info="Secondary buttons small active and inverted">
-      <ButtonSecondary type={types2.ACTIVE_INVERSE} small={true}>
+      <ButtonSecondary type={types2.ACTIVE_INVERSE} small>
         <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
+          iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled={true} type={types2.ACTIVE_INVERSE} small={true}>
+      <ButtonSecondary disabled type={types2.ACTIVE_INVERSE} small>
         <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE} secondary={true} unstyled={true}/>
+          iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
       </ButtonSecondary>
     </DocsBlock>
 

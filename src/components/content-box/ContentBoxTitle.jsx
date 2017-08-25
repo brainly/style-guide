@@ -16,14 +16,11 @@ const ContentBoxTitle = ({
     [`sg-content-box__title--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
-  return <div className={contentBoxClass}>
-    {children}
-  </div>;
+  return <div className={contentBoxClass}>{children}</div>;
 };
 
 ContentBoxTitle.propTypes = {
   children: PropTypes.node,
-  full: PropTypes.bool,
   spaced: PropTypes.bool,
   align: PropTypes.oneOf(Object.values(ALIGNMENT)),
   spacedTop: PropTypes.oneOf(Object.values(SIZE)),

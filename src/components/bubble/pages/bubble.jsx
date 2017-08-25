@@ -15,28 +15,28 @@ const Bubbles = () =>
   <div>
     <DocsBlock info='Top (middle)' additionalInfo='--top'>
       <Bubble direction={DIRECTION.TOP}>
-        Hi there!!<br/>
+        Hi there!!<br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Top-start' additionalInfo='--top --row-start'>
       <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>
-        Hi there!!<br/>
+        Hi there!!<br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Top-end' additionalInfo='--top --row-end'>
       <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.END}>
-        Hi there!!<br/>
+        Hi there!!<br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info='Bottom-start' additionalInfo='--bottom --row-start (--/--row-end)'>
       <Bubble direction={DIRECTION.BOTTOM} alignment={ALIGNMENT.START}>
-        Hi there!!<br/>
+        Hi there!!<br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
@@ -45,7 +45,7 @@ const Bubbles = () =>
       <div style={{width: '300px'}}>
         <Bubble direction={DIRECTION.LEFT} alignment={ALIGNMENT.START}>
           Hi there!! Just wondering if you have any problems with your school work.
-          We've got plenty of people who can help you here :)
+          We&apos;ve got plenty of people who can help you here :)
           Also, my last question was answered in less than 10 minutes :D
           Anyway, you can just go ahead and try for yourself.
         </Bubble>
@@ -56,7 +56,7 @@ const Bubbles = () =>
       <div style={{width: '300px'}}>
         <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.START}>
           Hi there!! Just wondering if you have any problems with your school work.
-          We've got plenty of people who can help you here :)
+          We&apos;ve got plenty of people who can help you here :)
           Also, my last question was answered in less than 10 minutes :D
           Anyway, you can just go ahead and try for yourself.
         </Bubble>
@@ -65,8 +65,8 @@ const Bubbles = () =>
 
     <DocsBlock info='Full + left' additionalInfo='--full (makes 100% height) --top'>
       <div style={{height: '200px'}}>
-        <Bubble direction={DIRECTION.TOP} full={true}>
-          Hi there!!<br/>
+        <Bubble direction={DIRECTION.TOP} full>
+          Hi there!!<br />
           Just wondering if you have any problems with your school work.
         </Bubble>
       </div>
@@ -76,15 +76,15 @@ const Bubbles = () =>
       <Bubble direction={DIRECTION.TOP}>
         <ContentBox>
           <ContentBoxHeader>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
             <Breadcrumb elements={[
-              <Link href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
-              <Link href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
-            ]}/>
+              <Link key={1} href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
+              <Link key={2} href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
+            ]} />
           </ContentBoxHeader>
           <ContentBoxContent>
             <Text>
-              Hi there!! Just wondering if you have any problems with your school work. We've got plenty
+              Hi there!! Just wondering if you have any problems with your school work. We&apos;ve got plenty
               of people who
               can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
               you can just

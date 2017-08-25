@@ -20,7 +20,7 @@ test('colors', () => {
 });
 
 test('shadow', () => {
-  const boxComponent = <Box shadow={true}>some text</Box>;
+  const boxComponent = <Box shadow>some text</Box>;
   const box = shallow(boxComponent);
 
   expect(boxComponent.props.shadow).toEqual(true);
@@ -28,7 +28,7 @@ test('shadow', () => {
 });
 
 test('border', () => {
-  const boxComponent = <Box border={true}>some text</Box>;
+  const boxComponent = <Box border>some text</Box>;
   const box = shallow(boxComponent);
 
   expect(boxComponent.props.border).toEqual(true);
@@ -98,7 +98,7 @@ test('large padding', () => {
 
 test('no min height', () => {
   const box = shallow(
-    <Box noMinHeight={true}>some text</Box>
+    <Box noMinHeight>some text</Box>
   );
 
   expect(box.hasClass('sg-box--no-min-height')).toEqual(true);
@@ -106,7 +106,7 @@ test('no min height', () => {
 
 test('full width', () => {
   const box = shallow(
-    <Box full={true}>some text</Box>
+    <Box full>some text</Box>
   );
 
   expect(box.hasClass('sg-box--full')).toEqual(true);
@@ -116,7 +116,7 @@ test('image container', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
   const box = shallow(
-    <Box imgSrc={imgSrc}/>
+    <Box imgSrc={imgSrc} />
   );
 
   expect(box.hasClass('sg-box--image-wrapper')).toEqual(true);

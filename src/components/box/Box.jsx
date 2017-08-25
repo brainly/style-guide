@@ -34,14 +34,16 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
   let content;
 
   if (imgSrc) {
-    content = <img className="sg-box__image" src={imgSrc}/>;
+    content = <img className="sg-box__image" src={imgSrc} />;
   } else {
     content = <div className="sg-box__hole">{children}</div>;
   }
 
-  return <div {...props} className={boxClass}>
-    {content}
-  </div>;
+  return (
+    <div {...props} className={boxClass}>
+      {content}
+    </div>
+  );
 };
 
 Box.propTypes = {

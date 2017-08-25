@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DropdownItem from './DropdownItem';
 
+function getOnClick(onItemClick, id) {
+  return () => onItemClick(id);
+}
+
 const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items = [], className}) => {
   const dropdownClass = classNames('sg-dropdown', {
     'sg-dropdown--full-width': fullWidth,
@@ -12,19 +16,21 @@ const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick,
     'sg-dropdown__items--fixed': fixed
   });
 
-  return <div className={dropdownClass} onClick={onClick}>
-    <div className="sg-dropdown__icon"></div>
-    <div className="sg-dropdown__hole">
-      <div className="sg-dropdown__item-text">
-        {label}
+  return (
+    <div className={dropdownClass} onClick={onClick}>
+      <div className="sg-dropdown__icon"></div>
+      <div className="sg-dropdown__hole">
+        <div className="sg-dropdown__item-text">
+          {label}
+        </div>
+      </div>
+      <div className={itemsClass}>
+        {items.map(({id, text}) =>
+          <DropdownItem key={id} text={text} id={id} onClick={getOnClick(onItemClick, id)} />
+        )}
       </div>
     </div>
-    <div className={itemsClass}>
-      {items.map(({id, text}) =>
-        <DropdownItem key={id} text={text} id={id} onClick={() => onItemClick(id)}/>
-      )}
-    </div>
-  </div>;
+  );
 };
 
 Dropdown.propTypes = {

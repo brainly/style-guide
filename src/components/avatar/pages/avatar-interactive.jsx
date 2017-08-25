@@ -22,14 +22,16 @@ const Avatars = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Avatar size={SIZE.LARGE}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Avatar imgSrc="https://source.unsplash.com/240x240/?cat"/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Avatar size={SIZE.LARGE} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Avatar imgSrc="https://source.unsplash.com/240x240/?cat" />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 

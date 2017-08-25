@@ -14,7 +14,7 @@ test('error when no child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Header/>);
+  shallow(<Header />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
@@ -22,7 +22,7 @@ test('error when no child', () => {
 
 test('light', () => {
   const header = shallow(
-    <Header light={true}>some text</Header>
+    <Header light>some text</Header>
   );
 
   expect(header.hasClass('sg-header--light')).toEqual(true);
@@ -30,7 +30,7 @@ test('light', () => {
 
 test('fixed', () => {
   const header = shallow(
-    <Header fixed={true}>some text</Header>
+    <Header fixed>some text</Header>
   );
 
   expect(header.hasClass('sg-header--fixed')).toEqual(true);

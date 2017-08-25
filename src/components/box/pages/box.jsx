@@ -16,52 +16,52 @@ const Boxs = () =>
     </DocsBlock>
 
     <DocsBlock info='With shadow'>
-      <Box shadow={true}>
+      <Box shadow>
         This is a box with shadow
       </Box>
     </DocsBlock>
 
-    {Object.values(COLOR).map(
-      color => <DocsBlock key={color} info={`color ${color}`}>
+    {Object.values(COLOR).map(color =>
+      <DocsBlock key={color} info={`color ${color}`}>
         <Box color={color}>{color} (no border by default)</Box>
       </DocsBlock>
     )
     }
 
     <DocsBlock info='Image' multiContent={[
-      <Box imgSrc="https://source.unsplash.com/100x100/?man"/>,
-      <Box imgSrc="https://source.unsplash.com/50x100/?man"/>,
-      <Box imgSrc="https://source.unsplash.com/100x50/?man"/>
-    ]}/>
+      <Box key={1} imgSrc="https://source.unsplash.com/100x100/?man" />,
+      <Box key={2} imgSrc="https://source.unsplash.com/50x100/?man" />,
+      <Box key={3} imgSrc="https://source.unsplash.com/100x50/?man" />
+    ]} />
 
     <DocsBlock info="Full">
-      <Box full={true}>full</Box>
+      <Box full>full</Box>
     </DocsBlock>
 
     <DocsBlock info="No padding" multiContent={[
-      <Box padding={PADDING.NO_PADDING}>some text</Box>,
-      <Box padding={PADDING.NO_PADDING}>more text<br/> more more</Box>
-    ]}/>
+      <Box key={1} padding={PADDING.NO_PADDING}>some text</Box>,
+      <Box key={2} padding={PADDING.NO_PADDING}>more text<br /> more more</Box>
+    ]} />
 
     <DocsBlock info="Xsmall padding + no min height" multiContent={[
-      <Box padding={PADDING.XSMALL} noMinHeight={true}>some text</Box>,
-      <Box padding={PADDING.XSMALL} noMinHeight={true}>more text<br/> more more</Box>
-    ]}/>
+      <Box key={1} padding={PADDING.XSMALL} noMinHeight>some text</Box>,
+      <Box key={2} padding={PADDING.XSMALL} noMinHeight>more text<br /> more more</Box>
+    ]} />
 
     <DocsBlock info="Small padding + no min height" multiContent={[
-      <Box padding={PADDING.SMALL} noMinHeight={true}>some text</Box>,
-      <Box padding={PADDING.SMALL} noMinHeight={true}>more text<br/> more more</Box>
-    ]}/>
+      <Box key={1} padding={PADDING.SMALL} noMinHeight>some text</Box>,
+      <Box key={2} padding={PADDING.SMALL} noMinHeight>more text<br /> more more</Box>
+    ]} />
 
     <DocsBlock info="Small padding" multiContent={[
-      <Box padding={PADDING.SMALL}>some text</Box>,
-      <Box padding={PADDING.SMALL}>more text<br/> more more</Box>
-    ]}/>
+      <Box key={1} padding={PADDING.SMALL}>some text</Box>,
+      <Box key={2} padding={PADDING.SMALL}>more text<br /> more more</Box>
+    ]} />
 
     <DocsBlock info="Large padding" multiContent={[
-      <Box padding={PADDING.LARGE}>some text</Box>,
-      <Box padding={PADDING.LARGE}>more text<br/> more more</Box>
-    ]}/>
+      <Box key={1} padding={PADDING.LARGE}>some text</Box>,
+      <Box key={2} padding={PADDING.LARGE}>more text<br /> more more</Box>
+    ]} />
 
     <DocsBlock info="Example of usage">
       <Box>
@@ -70,7 +70,7 @@ const Boxs = () =>
             <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
           </ContentBoxHeader>
           <ContentBoxActions>
-            <ButtonPrimary type={TYPE.ALT} wide={true}>
+            <ButtonPrimary type={TYPE.ALT} wide>
               Ask your question
             </ButtonPrimary>
           </ContentBoxActions>

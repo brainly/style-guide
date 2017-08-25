@@ -13,9 +13,11 @@ const ContentBoxHeader = ({children, spaced, spacedTop, spacedBottom, className,
     [`sg-content-box__header--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
-  return <div {...props} className={contentBoxClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={contentBoxClass}>
+      {children}
+    </div>
+  );
 };
 
 ContentBoxHeader.propTypes = {

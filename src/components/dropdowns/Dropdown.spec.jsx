@@ -11,19 +11,19 @@ const defaultLabel = 'default Label';
 const defaultProps = {items: defaultItems, label: defaultLabel};
 
 test('render', () => {
-  const dropDown = shallow(<Dropdown {...defaultProps}/>);
+  const dropDown = shallow(<Dropdown {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown')).toEqual(true);
 
 });
 
 test('default full width', () => {
-  const dropDown = shallow(<Dropdown {...defaultProps}/>);
+  const dropDown = shallow(<Dropdown {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown--full-width')).toEqual(true);
 });
 test('no full width', () => {
-  const dropDown = shallow(<Dropdown {...defaultProps} fullWidth={false}/>);
+  const dropDown = shallow(<Dropdown {...defaultProps} fullWidth={false} />);
 
   expect(dropDown.hasClass('sg-dropdown--full-width')).toEqual(false);
 });

@@ -9,19 +9,20 @@ import Text, {WEIGHT} from 'text/Text';
 import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
 
-const content = <ContentBox>
-  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-    heading
-  </ContentBoxContent>
+const content =
+  <ContentBox>
+    <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+      heading
+    </ContentBoxContent>
 
-  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-    content
-  </ContentBoxContent>
+    <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+      content
+    </ContentBoxContent>
 
-  <ContentBoxActions>
-    actions
-  </ContentBoxActions>
-</ContentBox>;
+    <ContentBoxActions>
+      actions
+    </ContentBoxActions>
+  </ContentBox>;
 
 const TopLayers = () =>
   <div>
@@ -32,7 +33,7 @@ const TopLayers = () =>
     </DocsBlock>
 
     <DocsBlock info='Lead'>
-      <TopLayer lead={true}>
+      <TopLayer lead>
         {content}
       </TopLayer>
     </DocsBlock>
@@ -56,24 +57,24 @@ const TopLayers = () =>
 
     <DocsBlock info='fill'>
       <div style={{width: '200px', height: '200px', position: 'relative'}}>
-        <TopLayer fill={true}>
+        <TopLayer fill>
           {content}
         </TopLayer>
       </div>
     </DocsBlock>
 
     <DocsBlock info='Example usage'>
-      <TopLayer size={SIZE.MEDIUM} lead={true} withBugbox={true}>
+      <TopLayer size={SIZE.MEDIUM} lead withBugbox>
         <ContentBox>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
             <HeaderSecondary type={HEADER_TYPE.H2}>
               Why join Brainly?
             </HeaderSecondary>
             <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
-              <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
-              <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>,
-              <Text weight={WEIGHT.BOLD}>find similar questions</Text>
-            ]}/>
+              <Text key={1} weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
+              <Text key={2} weight={WEIGHT.BOLD}>get answer with explanation</Text>,
+              <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
+            ]} />
           </ContentBoxContent>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
             <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>

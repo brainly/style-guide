@@ -14,10 +14,12 @@ const Radio = props => {
 
   const radioClass = classNames('sg-radio', className);
 
-  return <div className={radioClass}>
-    <input className="sg-radio__element" type="radio" checked={checked} name={name} id={id} {...additionalProps}/>
-    <label className="sg-radio__ghost" htmlFor={id}></label>
-  </div>;
+  return (
+    <div className={radioClass}>
+      <input className="sg-radio__element" type="radio" checked={checked} name={name} id={id} {...additionalProps} />
+      <label className="sg-radio__ghost" htmlFor={id}></label>
+    </div>
+  );
 };
 
 Radio.propTypes = {

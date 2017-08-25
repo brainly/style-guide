@@ -5,9 +5,11 @@ import classnames from 'classnames';
 const HeaderLeft = ({children, className, ...props}) => {
   const headerClass = classnames('sg-header__left', className);
 
-  return <div {...props} className={headerClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={headerClass}>
+      {children}
+    </div>
+  );
 };
 
 HeaderLeft.propTypes = {

@@ -5,23 +5,25 @@ import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import Text from 'text/Text';
 
-const header = <div className="sg-header sg-header--fixed">
-  <div className="sg-header__container">
-    Header
-  </div>
-</div>;
+const header =
+  <div className="sg-header sg-header--fixed">
+    <div className="sg-header__container">
+      Header
+    </div>
+  </div>;
 
-const footer = <div className="sg-footer">
-  <div className="sg-footer__container">
-    Footer
-  </div>
-</div>;
+const footer =
+  <div className="sg-footer">
+    <div className="sg-footer__container">
+      Footer
+    </div>
+  </div>;
 
 const LayoutSmall = () =>
   <html>
     <head>
-      <meta charSet="utf-8"/>
-      <link rel="stylesheet" href="../../../style-guide.css"/>
+      <meta charSet="utf-8" />
+      <link rel="stylesheet" href="../../../style-guide.css" />
     </head>
     <body>
       <Layout header={header} footer={footer}>

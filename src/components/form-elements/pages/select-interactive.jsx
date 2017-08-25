@@ -25,11 +25,13 @@ const Selects = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Select options={exampleOptions}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Select options={exampleOptions} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Selects;

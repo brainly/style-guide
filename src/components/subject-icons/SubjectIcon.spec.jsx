@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const icon = shallow(
-    <SubjectIcon type={TYPE.ACCOUNTANCY}/>
+    <SubjectIcon type={TYPE.ACCOUNTANCY} />
   );
 
   expect(icon.hasClass('sg-subject-icon')).toEqual(true);
@@ -15,7 +15,7 @@ test('error when no type', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<SubjectIcon/>);
+  shallow(<SubjectIcon />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
@@ -24,7 +24,7 @@ test('error when no type', () => {
 test('type passed to xlink:href', () => {
   const type = TYPE.ACCOUNTANCY;
   const icon = shallow(
-    <SubjectIcon type={type}/>
+    <SubjectIcon type={type} />
   );
   const use = icon.find('use');
 
@@ -35,7 +35,7 @@ test('size', () => {
   const size = SIZE.SMALL;
   const type = TYPE.LANGUAGE;
   const icon = shallow(
-    <SubjectIcon type={type} size={size}/>
+    <SubjectIcon type={type} size={size} />
   );
 
   expect(icon.hasClass(`sg-subject-icon--${size}`)).toEqual(true);
@@ -44,7 +44,7 @@ test('size', () => {
 test('mono', () => {
   const type = TYPE.LANGUAGE;
   const icon = shallow(
-    <SubjectIcon type={type} mono={true}/>
+    <SubjectIcon type={type} mono />
   );
   const use = icon.find('use');
 
@@ -55,7 +55,7 @@ test('normal size', () => {
   const type = TYPE.LANGUAGE;
 
   const icon = shallow(
-    <SubjectIcon type={type}/>
+    <SubjectIcon type={type} />
   );
 
   expect(icon.hasClass('sg-subject-icon--normal')).toEqual(false);

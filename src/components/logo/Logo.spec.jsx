@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const logo = shallow(
-    <Logo/>
+    <Logo />
   );
 
   expect(logo.hasClass('sg-logo')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('type', () => {
   const logo = shallow(
-    <Logo type={TYPE.ZNANIJA}/>
+    <Logo type={TYPE.ZNANIJA} />
   );
 
   expect(logo.hasClass('sg-logo--znanija')).toEqual(true);

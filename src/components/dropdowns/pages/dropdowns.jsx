@@ -13,29 +13,29 @@ const defaultProps = {items: defaultItems, label: defaultLabel};
 const Dropdowns = () =>
   <div>
     <DocsBlock info='Closed' multiContent={[
-      <Dropdown {...defaultProps} fullWidth={false}/>,
-      <Dropdown {...defaultProps}/>
-    ]}/>
+      <Dropdown key={1} {...defaultProps} fullWidth={false} />,
+      <Dropdown key={2} {...defaultProps} />
+    ]} />
 
     <DocsBlock info='Open' multiContent={[
-      <div style={{height: '120px'}}>
+      <div key={1} style={{height: '120px'}}>
         <ContrastBox>
-          <Dropdown {...defaultProps} openOnStart={true} fullWidth={false}/>
+          <Dropdown {...defaultProps} openOnStart fullWidth={false} />
         </ContrastBox>
       </div>,
-      <ContrastBox>
-        <Dropdown {...defaultProps} openOnStart={true}/>
+      <ContrastBox key={2}>
+        <Dropdown {...defaultProps} openOnStart />
       </ContrastBox>
-    ]}/>
+    ]} />
 
     <DocsBlock info='Fixed' additionalInfo="(items extend div)" multiContent={[
-      <ContrastBox>
-        <Dropdown {...defaultProps} fixed={true} openOnStart={true} fullWidth={false}/>
+      <ContrastBox key={1}>
+        <Dropdown {...defaultProps} fixed openOnStart fullWidth={false} />
       </ContrastBox>,
-      <ContrastBox>
-        <Dropdown {...defaultProps} fixed={true} openOnStart={true}/>
+      <ContrastBox key={2}>
+        <Dropdown {...defaultProps} fixed openOnStart />
       </ContrastBox>
-    ]}/>
+    ]} />
 
   </div>;
 

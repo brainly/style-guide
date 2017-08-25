@@ -26,9 +26,11 @@ const Logo = ({type = TYPE.BRAINLY, className, ...props}) => {
 
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
 
-  return <div {...props} className={logoClass}>
-    <img className="sg-logo__image" src={logoPath}/>
-  </div>;
+  return (
+    <div {...props} className={logoClass}>
+      <img className="sg-logo__image" src={logoPath} />
+    </div>
+  );
 };
 
 Logo.propTypes = {

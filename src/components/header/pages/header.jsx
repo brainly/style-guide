@@ -26,21 +26,21 @@ const Headers = () =>
     <DocsBlock info="Example usage">
       <Header>
         <HeaderLeft>
-          <HomeButton/>
+          <HomeButton />
         </HeaderLeft>
         <HeaderMiddle>
-          <Search placeholder="Find all the answers..." fullWidth={true} color={SEARCH_COLOR.LIGHT}
-            adaptiveIco={true}/>
+          <Search placeholder="Find all the answers..." fullWidth color={SEARCH_COLOR.LIGHT}
+            adaptiveIco />
         </HeaderMiddle>
         <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
           <div>
             <HeaderRight>
-              <ButtonSecondary type={BUTTON_TYPE.DARK} small={true}>Register</ButtonSecondary>
-              <IconAsButton type={ICON_TYPE.MESSAGES} transparent={true} color={ICON_COLOR.LIGHT} overlay={
-                <Badge color={BADGE_COLOR.PEACH} rounded={true}>1</Badge>
-              }/>
-              <IconAsButton transparent={true}>
-                <Avatar size={AVATAR_SIZE.SMALL}/>
+              <ButtonSecondary type={BUTTON_TYPE.DARK} small>Register</ButtonSecondary>
+              <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
+                <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+              } />
+              <IconAsButton transparent>
+                <Avatar size={AVATAR_SIZE.SMALL} />
               </IconAsButton>
             </HeaderRight>
           </div>
@@ -48,29 +48,29 @@ const Headers = () =>
         <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
           <div>
             <HeaderRight>
-              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT}/>
+              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
             </HeaderRight>
           </div>
         </RWDHelper>
       </Header>
     </DocsBlock>
     <DocsBlock info="Light">
-      <Header light={true}>
+      <Header light>
         <HeaderLeft>
-          <HomeButton/>
+          <HomeButton />
         </HeaderLeft>
         <HeaderMiddle>
-          <Search placeholder="Find all the answers..." fullWidth={true}/>
+          <Search placeholder="Find all the answers..." fullWidth />
         </HeaderMiddle>
         <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
           <div>
             <HeaderRight>
               <ActionList>
                 <ActionListHole>
-                  <ButtonSecondary type={BUTTON_TYPE.DARK_INVERSE} small={true}>Log in</ButtonSecondary>
+                  <ButtonSecondary type={BUTTON_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
                 </ActionListHole>
                 <ActionListHole>
-                  <ButtonSecondary type={BUTTON_TYPE.DARK} small={true}>Join now</ButtonSecondary>
+                  <ButtonSecondary type={BUTTON_TYPE.DARK} small>Join now</ButtonSecondary>
                 </ActionListHole>
               </ActionList>
             </HeaderRight>
@@ -79,7 +79,7 @@ const Headers = () =>
         <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
           <div>
             <HeaderRight>
-              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT}/>
+              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
             </HeaderRight>
           </div>
         </RWDHelper>

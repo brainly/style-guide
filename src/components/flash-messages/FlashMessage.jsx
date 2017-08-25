@@ -15,13 +15,15 @@ const FlashMessage = ({text, type = TYPE.DEFAULT, className, ...props}) => {
     [`sg-flash__message--${type}`]: type !== TYPE.DEFAULT
   }, className);
 
-  return <div {...props} className="sg-flash">
-    <div className={messageClass}>
-      <Text size={SIZE.SMALL} color={COLOR.LIGHT} weight={WEIGHT.BOLD}>
-        {text}
-      </Text>
+  return (
+    <div {...props} className="sg-flash">
+      <div className={messageClass}>
+        <Text size={SIZE.SMALL} color={COLOR.LIGHT} weight={WEIGHT.BOLD}>
+          {text}
+        </Text>
+      </div>
     </div>
-  </div>;
+  );
 };
 
 FlashMessage.propTypes = {

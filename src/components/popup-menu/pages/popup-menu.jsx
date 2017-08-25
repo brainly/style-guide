@@ -11,36 +11,36 @@ const items = ['one', 'two', 'three'];
 const PopupsMenus = () =>
   <div>
     <DocsBlock info='Default'>
-      <PopupMenu items={items}/>
+      <PopupMenu items={items} />
     </DocsBlock>
 
     <DocsBlock info='Default'>
-      <ContrastBox fullWidth={true}>
-        <PopupMenu items={items}/>
+      <ContrastBox fullWidth>
+        <PopupMenu items={items} />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Example usage 1'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <PopupMenu items={[
-          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS}/>,
-          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES}/>,
-          <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS}/>,
-          <Avatar imgSrc="https://source.unsplash.com/64x64/?moose"/>
-        ]}/>
+          <IconAsButton key={1} color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
+          <IconAsButton key={2} color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
+          <IconAsButton key={3} color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
+          <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />
+        ]} />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='elements-spaced'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <PopupMenu items={[
-          <ButtonSecondary type={buttonTypes.DARK_INVERSE} wide={true}>
+          <ButtonSecondary key={1} type={buttonTypes.DARK_INVERSE} wide>
             Log in
           </ButtonSecondary>,
-          <ButtonSecondary type={buttonTypes.DARK} wide={true}>
+          <ButtonSecondary key={2} type={buttonTypes.DARK} wide>
             Join now
           </ButtonSecondary>
-        ]} extraSpacing={true}/>
+        ]} extraSpacing />
       </ContrastBox>
     </DocsBlock>
   </div>;

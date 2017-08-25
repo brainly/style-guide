@@ -1,33 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
+import {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
+import LabelIcon from './subcomponents/LabelIcon';
 
 const SIZE = {
   NORMAL: {CLASS_NAME: 'normal', ICON_SIZE: 16},
   SMALL: {CLASS_NAME: 'small', ICON_SIZE: 14},
   LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
-};
-
-const LabelIcon = ({iconType, iconColor, iconContent, iconSize}) => {
-  if (iconContent) {
-    return <div className="sg-label__icon">
-      {iconContent}
-    </div>;
-  }
-  if (iconType) {
-    return <div className="sg-label__icon">
-      <Icon type={iconType} color={iconColor} size={iconSize}/>
-    </div>;
-  }
-  return null;
-};
-
-LabelIcon.propTypes = {
-  iconContent: PropTypes.node,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE))
 };
 
 const Label = props => {
@@ -66,12 +46,14 @@ const Label = props => {
     numberElement = <div className="sg-label__number">{number}</div>;
   }
 
-  return <div {...restProps} className={labelClass}>
-    <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={size.ICON_SIZE}/>
-    {textElement}
-    {numberElement}
-    {children}
-  </div>;
+  return (
+    <div {...restProps} className={labelClass}>
+      <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={size.ICON_SIZE} />
+      {textElement}
+      {numberElement}
+      {children}
+    </div>
+  );
 };
 
 Label.propTypes = {

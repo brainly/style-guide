@@ -20,11 +20,13 @@ const Subjects = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settingsBox}>
-      <SubjectIconBox type={TYPE.ARTMUSIC}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settingsBox}>
+        <SubjectIconBox type={TYPE.ARTMUSIC} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Subjects;

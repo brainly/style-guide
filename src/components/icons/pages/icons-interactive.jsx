@@ -25,14 +25,16 @@ const Icons = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings} backgroundColor={BACKGROUND_COLOR.DARK}>
-      <Icon type={TYPE.NOTIFICATIONS}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Icon type={TYPE.HEART} color={COLOR.PEACH} size={46}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings} backgroundColor={BACKGROUND_COLOR.DARK}>
+        <Icon type={TYPE.NOTIFICATIONS} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Icon type={TYPE.HEART} color={COLOR.PEACH} size={46} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Icons;

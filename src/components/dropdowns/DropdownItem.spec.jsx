@@ -2,10 +2,11 @@ import React from 'react';
 import DropdownItem from './DropdownItem';
 import {shallow} from 'enzyme';
 
+const voidFunction = () => undefined;
 
 test('render', () => {
   const text = 'xyz';
-  const dropDown = shallow(<DropdownItem text={text} onClick={() => undefined}/>);
+  const dropDown = shallow(<DropdownItem text={text} onClick={voidFunction} />);
   const textItem = dropDown.find('.sg-dropdown__item-text');
 
   expect(dropDown.hasClass('sg-dropdown__item-hole')).toEqual(true);
@@ -15,7 +16,7 @@ test('render', () => {
 
 test('click working', () => {
   const onClick = jest.fn();
-  const dropDown = shallow(<DropdownItem text="xyz" onClick={onClick}/>);
+  const dropDown = shallow(<DropdownItem text="xyz" onClick={onClick} />);
 
   expect(onClick.mock.calls).toHaveLength(0);
 
@@ -25,7 +26,7 @@ test('click working', () => {
 
 test('click working', () => {
   const onClick = jest.fn();
-  const dropDown = shallow(<DropdownItem text="xyz" onClick={onClick}/>);
+  const dropDown = shallow(<DropdownItem text="xyz" onClick={onClick} />);
 
   expect(onClick.mock.calls).toHaveLength(0);
 

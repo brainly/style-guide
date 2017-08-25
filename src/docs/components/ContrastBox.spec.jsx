@@ -15,7 +15,7 @@ test('error when no children', () => {
 
   console.error = jest.fn();
   shallow(
-    <ContrastBox/>
+    <ContrastBox />
   );
   expect(console.error.mock.calls).toHaveLength(1);
 
@@ -24,7 +24,7 @@ test('error when no children', () => {
 
 test('to bottom', () => {
   const contrastBox = shallow(
-    <ContrastBox toBottom={true}>some text</ContrastBox>
+    <ContrastBox toBottom>some text</ContrastBox>
   );
 
   expect(contrastBox.hasClass('docs-block__contrast-box--to-bottom')).toEqual(true);
@@ -32,7 +32,7 @@ test('to bottom', () => {
 
 test('small padding', () => {
   const contrastBox = shallow(
-    <ContrastBox smallPadding={true}>some text</ContrastBox>
+    <ContrastBox smallPadding>some text</ContrastBox>
   );
 
   expect(contrastBox.hasClass('docs-block__contrast-box--small-padding')).toEqual(true);
@@ -40,7 +40,7 @@ test('small padding', () => {
 
 test('light', () => {
   const contrastBox = shallow(
-    <ContrastBox light={true}>some text</ContrastBox>
+    <ContrastBox light>some text</ContrastBox>
   );
 
   expect(contrastBox.hasClass('docs-block__contrast-box--light')).toEqual(true);
@@ -48,7 +48,7 @@ test('light', () => {
 
 test('full width', () => {
   const contrastBox = shallow(
-    <ContrastBox fullWidth={true}>some text</ContrastBox>
+    <ContrastBox fullWidth>some text</ContrastBox>
   );
 
   expect(contrastBox.hasClass('docs-block__contrast-box--full-width')).toEqual(true);
@@ -56,7 +56,7 @@ test('full width', () => {
 
 test('narrow', () => {
   const contrastBox = shallow(
-    <ContrastBox narrow={true}>some text</ContrastBox>
+    <ContrastBox narrow>some text</ContrastBox>
   );
 
   expect(contrastBox.hasClass('docs-block__contrast-box--narrow')).toEqual(true);
