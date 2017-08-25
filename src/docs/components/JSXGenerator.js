@@ -37,7 +37,13 @@ function generateJSX(component) {
 
       return codeWithProp !== codeWithoutProp;
     })
-    .map(key => `${key}=${propToString(component.props[key])}`)
+    .map(key => {
+      if (component.props[key] === true) {
+        return key;
+      }
+
+      return `${key}=${propToString(component.props[key])}`;
+    })
     .join(' ');
 
   if (jsxProps) {
