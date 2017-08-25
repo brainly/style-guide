@@ -26,12 +26,11 @@ function generateJSX(component) {
   }
 
   const type = component.type.name || component.type;
-  const propValues = component.props;
-  let jsxProps = Object.keys(propValues)
+  let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
-    .filter(key => propValues[key] !== undefined)
+    .filter(key => component.props[key] !== undefined)
     .map(key => {
-      if (propValues[key] === true) {
+      if (component.props[key] === true) {
         return key;
       }
 
