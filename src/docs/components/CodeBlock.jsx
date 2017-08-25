@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
-
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import beautify from 'html_beautify';
@@ -7,6 +5,13 @@ import hljs from 'hljs';
 import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
 
 class CodeBlock extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.copyCodeFunction = this.copyCodeFunction.bind(this);
+  }
+
   componentDidMount() {
     this.prepareClipboard();
   }
@@ -15,12 +20,15 @@ class CodeBlock extends Component {
     const copyButton = this.copyButton;
     const copyHelperCode = this.copyCode;
 
-    // eslint-disable-next-line no-undef
-    new Clipboard(copyButton, {
+    new window.Clipboard(copyButton, {
       target() {
         return copyHelperCode;
       }
     });
+  }
+
+  copyCodeFunction(node)  {
+    this.copyCode = node;
   }
 
   render() {
@@ -53,12 +61,12 @@ class CodeBlock extends Component {
     return (
       <div className="copy-helper copy-helper--wrapped">
         <pre className="copy-helper__code-wrapper">
-          <code ref={node => this.copyCode = node}
+          <code ref={this.copyCodeFunction}
             className="copy-helper__code hljs" dangerouslySetInnerHTML={{__html: markup}}>
           </code>
         </pre>
         <div className="copy-helper__buttons"
-          ref={node => this.copyButton = node}>
+          ref={this.copyCodeFunction}>
           <IconAsButton
             title="Copy to the clipboard" type={TYPE.ANSWER} color={COLOR.DARK} />
         </div>
