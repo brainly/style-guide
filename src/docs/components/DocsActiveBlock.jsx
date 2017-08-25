@@ -38,12 +38,9 @@ class DocsActiveBlock extends Component {
       props: componentProps,
       renderNormally: true
     };
-
-    this.setProps = this.setProps.bind(this);
-    this.settingsChanged = this.settingsChanged.bind(this);
   }
 
-  setProps(key, value) {
+  setProps = (key, value) => {
     const props = this.state.props;
 
     props[key] = value;
@@ -52,13 +49,13 @@ class DocsActiveBlock extends Component {
       props
     });
     this.remountComponent();
-  }
+  };
 
-  settingsChanged(setting, value) {
+  settingsChanged = (setting, value) => {
     this.setState({
       [setting]: value
     });
-  }
+  };
 
   remountComponent() {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));

@@ -6,6 +6,7 @@
   "extends": [
     "./node_modules/frontend-tools-configs/eslint/main.js",
     "./node_modules/frontend-tools-configs/eslint/react.js",
-    "./node_modules/frontend-tools-configs/eslint/redux.js"
+    "./node_modules/frontend-tools-configs/eslint/redux.js",
+    "./node_modules/frontend-tools-configs/eslint/babel.js"
   ]
 }
