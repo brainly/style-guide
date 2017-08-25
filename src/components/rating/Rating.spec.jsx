@@ -7,7 +7,7 @@ import {shallow, mount} from 'enzyme';
 describe('rating', () => {
   test('render', () => {
     const rating = shallow(
-      <Rating/>
+      <Rating />
     );
 
     expect(rating.hasClass('sg-rate-box')).toEqual(true);
@@ -17,7 +17,7 @@ describe('rating', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    shallow(<Rating/>);
+    shallow(<Rating />);
     expect(console.error.mock.calls).toHaveLength(0);
 
     spy.mockRestore();
@@ -25,7 +25,7 @@ describe('rating', () => {
 
   test('active', () => {
     const rating = shallow(
-      <Rating active={true}/>
+      <Rating active />
     );
 
     expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
@@ -34,7 +34,7 @@ describe('rating', () => {
   test('render stars - defined metricSize', () => {
     const metricSize = 8;
     const rating = shallow(
-      <Rating active={true} metricSize={metricSize}/>
+      <Rating active metricSize={metricSize} />
     );
 
     expect(rating.find(Star)).toHaveLength(metricSize);
@@ -43,7 +43,7 @@ describe('rating', () => {
   test('render stars - default number of stars', () => {
     const defaultMetricSize = 5;
     const rating = shallow(
-      <Rating/>
+      <Rating />
     );
 
     expect(rating.find(Star)).toHaveLength(defaultMetricSize);
@@ -52,7 +52,7 @@ describe('rating', () => {
   test('rate', () => {
     const rate = 3;
     const rating = shallow(
-      <Rating rate={3}/>
+      <Rating rate={3} />
     );
     const stars = rating.find(Star);
     let checkedStars = 0;
@@ -70,7 +70,7 @@ describe('rating', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = mount(
-      <Rating rate={rate} onChange={onChange}/>
+      <Rating rate={rate} onChange={onChange} />
     );
     const stars = rating.find(Star);
 
@@ -87,7 +87,7 @@ describe('rating', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = mount(
-      <Rating rate={rate} onChange={onChange} active={true}/>
+      <Rating rate={rate} onChange={onChange} active />
     );
     const stars = rating.find(Star);
 
@@ -113,7 +113,7 @@ describe('rating', () => {
 
     const rate = 3;
     const rating = mount(
-      <Rating rate={rate} active={true}/>
+      <Rating rate={rate} active />
     );
     const stars = rating.find(Star);
 
@@ -132,7 +132,7 @@ describe('rating', () => {
   test('small', () => {
     const sizeOfSmallStar = 14;
     const rating = shallow(
-      <Rating small={true}/>
+      <Rating small />
     );
     const stars = rating.find(Star);
 
@@ -146,7 +146,7 @@ describe('rating', () => {
   test('no small', () => {
     const sizeOfNormalStar = 16;
     const rating = shallow(
-      <Rating/>
+      <Rating />
     );
     const stars = rating.find(Star);
 
@@ -160,7 +160,7 @@ describe('rating', () => {
 
   test('counter', () => {
     const rating = mount(
-      <Rating counter={30}/>
+      <Rating counter={30} />
     );
 
     expect(rating.find('.sg-rate-box__counter')).toHaveLength(1);
@@ -168,7 +168,7 @@ describe('rating', () => {
 
   test('no counter', () => {
     const rating = mount(
-      <Rating/>
+      <Rating />
     );
 
     expect(rating.find('.sg-rate-box__counter')).toHaveLength(0);
@@ -181,7 +181,7 @@ describe('star', () => {
 
   test('render', () => {
     const star = shallow(
-      <Star onClick={dumpFnc}/>
+      <Star onClick={dumpFnc} />
     );
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
@@ -190,7 +190,7 @@ describe('star', () => {
   test('Star use Icon component', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc}/>
+      <Star size={size} onClick={dumpFnc} />
     );
 
     expect(star.find(Icon)).toHaveLength(1);
@@ -198,7 +198,7 @@ describe('star', () => {
 
   test('click working', () => {
     const onClick = jest.fn();
-    const star = shallow(<Star onClick={onClick}/>);
+    const star = shallow(<Star onClick={onClick} />);
 
     expect(onClick.mock.calls).toHaveLength(0);
 
@@ -210,7 +210,7 @@ describe('star', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
-    mount(<Star/>);
+    mount(<Star />);
 
     expect(console.error.mock.calls).toHaveLength(1);
 
@@ -219,7 +219,7 @@ describe('star', () => {
 
   test('checked', () => {
     const star = shallow(
-      <Star checked={true} onClick={dumpFnc}/>
+      <Star checked onClick={dumpFnc} />
     );
 
     expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
@@ -228,7 +228,7 @@ describe('star', () => {
   test('pass size to icon', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc}/>
+      <Star size={size} onClick={dumpFnc} />
     );
 
     const icon = star.find(Icon);

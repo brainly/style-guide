@@ -51,9 +51,11 @@ const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap
     'sg-text--break-words': breakWords
   }, className);
 
-  return <Type {...props} className={textClass}>
-    {children}
-  </Type>;
+  return (
+    <Type {...props} className={textClass}>
+      {children}
+    </Type>
+  );
 };
 
 Text.propTypes = {

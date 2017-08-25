@@ -4,15 +4,15 @@ import {shallow} from 'enzyme';
 
 const defaultProps = {
   contentArray: [
-    <span className="sg-link sg-link--gray sg-link--emphasised">The Goat</span>,
-    <span>Master </span>
+    <span key={1} className="sg-link sg-link--gray sg-link--emphasised">The Goat</span>,
+    <span key={2}>Master </span>
   ],
   aside: <div>aside</div>
 };
 
 test('render', () => {
   const media = shallow(
-    <Media {...defaultProps}/>
+    <Media {...defaultProps} />
   );
 
   expect(media.hasClass('sg-media')).toEqual(true);
@@ -25,7 +25,7 @@ test('error when no aside', () => {
 
   console.error = jest.fn();
   shallow(
-    <Media contentArray={defaultProps.contentArray}/>
+    <Media contentArray={defaultProps.contentArray} />
   );
   expect(console.error.mock.calls).toHaveLength(1);
 
@@ -37,7 +37,7 @@ test('error when no content array', () => {
 
   console.error = jest.fn();
   shallow(
-    <Media aside={defaultProps.aside}/>
+    <Media aside={defaultProps.aside} />
   );
   expect(console.error.mock.calls).toHaveLength(1);
 
@@ -46,8 +46,8 @@ test('error when no content array', () => {
 
 test('testing modifications - all on', () => {
   const media = shallow(
-    <Media {...defaultProps} clickable={true} graySecondaryLight={true} focused={true} toRight={true} small={true}
-      transparent={true} noPadding={true} spacedBottom={true}/>
+    <Media {...defaultProps} clickable graySecondaryLight focused toRight small
+      transparent noPadding spacedBottom />
   );
 
   expect(media.hasClass('sg-media--clickable')).toEqual(true);
@@ -63,7 +63,7 @@ test('testing modifications - all on', () => {
 
 test('testing modifications - all off', () => {
   const media = shallow(
-    <Media  {...defaultProps}/>
+    <Media  {...defaultProps} />
   );
 
   expect(media.hasClass('sg-media--clickable')).toEqual(false);

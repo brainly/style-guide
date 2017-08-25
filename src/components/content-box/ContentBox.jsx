@@ -8,9 +8,11 @@ const ContentBox = ({children, spaced, full, className, ...props}) => {
     'sg-content-box--full': full
   }, className);
 
-  return <div {...props} className={contentBoxClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={contentBoxClass}>
+      {children}
+    </div>
+  );
 };
 
 ContentBox.propTypes = {

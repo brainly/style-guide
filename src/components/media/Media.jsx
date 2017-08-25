@@ -29,14 +29,16 @@ const Media = props => {
     'sg-media__content--spaced-bottom': spacedBottom
   });
 
-  return <div {...restProps} className={mediaClassName}>
-    <div className="sg-media__aside">
-      {aside}
+  return (
+    <div {...restProps} className={mediaClassName}>
+      <div className="sg-media__aside">
+        {aside}
+      </div>
+      <div className="sg-media__wrapper">
+        {contentArray.map((content, index) => <div key={index} className={contentClassName}>{content}</div>)}
+      </div>
     </div>
-    <div className="sg-media__wrapper">
-      {contentArray.map((content, index) => <div key={index} className={contentClassName}>{content}</div>)}
-    </div>
-  </div>;
+  );
 };
 
 

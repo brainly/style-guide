@@ -39,14 +39,16 @@ const Textareas = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Textarea placeholder="Simple textarea"/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Textarea placeholder="placeholder" value="Tall and valid textarea" size={SIZE.XTALL} valid/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Textarea placeholder="Simple textarea" />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Textarea placeholder="placeholder" value="Tall and valid textarea" size={SIZE.XTALL} valid />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Textareas;

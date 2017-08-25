@@ -6,21 +6,21 @@ import ActionListHole from 'action-list/ActionListHole';
 import generateJSX from './JSXGenerator';
 
 test('only component', () => {
-  const input = <Avatar/>;
+  const input = <Avatar />;
   const output = '<Avatar />';
 
   expect(generateJSX(input)).toEqual(output);
 });
 
 test('component with bool param', () => {
-  const input = <Avatar border={true}/>;
+  const input = <Avatar border />;
   const output = '<Avatar border={true} />';
 
   expect(generateJSX(input)).toEqual(output);
 });
 
 test('component with string param', () => {
-  const input = <Avatar imgSrc="http://image.com/image.jpg"/>;
+  const input = <Avatar imgSrc="http://image.com/image.jpg" />;
   const output = '<Avatar imgSrc="http://image.com/image.jpg" />';
 
   expect(generateJSX(input)).toEqual(output);
@@ -29,22 +29,22 @@ test('component with string param', () => {
 const sizeLargeString = JSON.stringify(SIZE.LARGE);
 
 test('component with object param', () => {
-  const input = <Avatar size={SIZE.LARGE}/>;
+  const input = <Avatar size={SIZE.LARGE} />;
   const output = `<Avatar size={${sizeLargeString}} />`;
 
   expect(generateJSX(input)).toEqual(output);
 });
 
 test('component with multiple params', () => {
-  const input = <Avatar size={SIZE.LARGE} border={true} imgSrc="http://image.com/image.jpg"/>;
+  const input = <Avatar size={SIZE.LARGE} border imgSrc="http://image.com/image.jpg" />;
   const output = `<Avatar size={${sizeLargeString}} border={true} imgSrc="http://image.com/image.jpg" />`;
 
   expect(generateJSX(input)).toEqual(output);
 });
 
 test('component with array of components param', () => {
-  const items = [<Avatar/>, <Avatar imgSrc="http://image.com/image.jpg"/>];
-  const input = <PopupMenu items={items}/>;
+  const items = [<Avatar key={1} />, <Avatar key={2} imgSrc="http://image.com/image.jpg" />];
+  const input = <PopupMenu items={items} />;
   const output =
     '<PopupMenu items={[<Avatar />, <Avatar imgSrc="http://image.com/image.jpg" />]} />';
 
@@ -52,14 +52,15 @@ test('component with array of components param', () => {
 });
 
 test('component with children', () => {
-  const input = <ActionList>
-    <ActionListHole>
-      <Avatar/>
-    </ActionListHole>
-    <ActionListHole>
-      <Avatar/>
-    </ActionListHole>
-  </ActionList>;
+  const input =
+    <ActionList>
+      <ActionListHole>
+        <Avatar />
+      </ActionListHole>
+      <ActionListHole>
+        <Avatar />
+      </ActionListHole>
+    </ActionList>;
 
   const output =
     '<ActionList><ActionListHole><Avatar /></ActionListHole><ActionListHole><Avatar /></ActionListHole></ActionList>';

@@ -13,9 +13,11 @@ const ContentBoxActions = ({children, spacedTop, spacedBottom, className, align 
     [`sg-content-box__actions--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
-  return <div {...props} className={contentBoxClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={contentBoxClass}>
+      {children}
+    </div>
+  );
 };
 
 ContentBoxActions.propTypes = {

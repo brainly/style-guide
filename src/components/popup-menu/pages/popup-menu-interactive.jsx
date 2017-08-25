@@ -13,26 +13,28 @@ const PopupMenus = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <PopupMenu items={[
-        <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS}/>,
-        <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES}/>,
-        <IconAsButton color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS}/>,
-        <Avatar imgSrc="https://source.unsplash.com/64x64/?moose"/>
-      ]}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <PopupMenu items={[
-        <ButtonSecondary type={buttonTypes.DARK_INVERSE} wide={true}>
-          Log in
-        </ButtonSecondary>,
-        <ButtonSecondary type={buttonTypes.DARK} wide={true}>
-          Join now
-        </ButtonSecondary>
-      ]} extraSpacing={true}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <PopupMenu items={[
+          <IconAsButton key={1} color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
+          <IconAsButton key={2} color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
+          <IconAsButton key={3} color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
+          <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />
+        ]} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <PopupMenu items={[
+          <ButtonSecondary key={1} type={buttonTypes.DARK_INVERSE} wide>
+            Log in
+          </ButtonSecondary>,
+          <ButtonSecondary key={2} type={buttonTypes.DARK} wide>
+            Join now
+          </ButtonSecondary>
+        ]} extraSpacing />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default PopupMenus;

@@ -8,9 +8,11 @@ const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props})
     'sg-subject-icon-box--darker': darker
   }, className);
 
-  return <div {...props} className={boxClass}>
-    <SubjectIcon type={type} size={size}/>
-  </div>;
+  return (
+    <div {...props} className={boxClass}>
+      <SubjectIcon type={type} size={size} />
+    </div>
+  );
 };
 
 SubjectIconBox.propTypes = {

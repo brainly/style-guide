@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-bind */
+
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import beautify from 'html_beautify';
@@ -48,18 +50,20 @@ class CodeBlock extends Component {
       markup = hljs.highlight(type, markup).value;
     }
 
-    return <div className="copy-helper copy-helper--wrapped">
-      <pre className="copy-helper__code-wrapper">
-        <code ref={node => this.copyCode = node}
-          className="copy-helper__code hljs" dangerouslySetInnerHTML={{__html: markup}}>
-        </code>
-      </pre>
-      <div className="copy-helper__buttons"
-        ref={node => this.copyButton = node}>
-        <IconAsButton
-          title="Copy to the clipboard" type={TYPE.ANSWER} color={COLOR.DARK}/>
+    return (
+      <div className="copy-helper copy-helper--wrapped">
+        <pre className="copy-helper__code-wrapper">
+          <code ref={node => this.copyCode = node}
+            className="copy-helper__code hljs" dangerouslySetInnerHTML={{__html: markup}}>
+          </code>
+        </pre>
+        <div className="copy-helper__buttons"
+          ref={node => this.copyButton = node}>
+          <IconAsButton
+            title="Copy to the clipboard" type={TYPE.ANSWER} color={COLOR.DARK} />
+        </div>
       </div>
-    </div>;
+    );
   }
 }
 

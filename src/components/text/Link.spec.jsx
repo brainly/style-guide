@@ -37,7 +37,7 @@ test('color', () => {
 
 test('unstyled', () => {
   const link = shallow(
-    <Link unstyled={true}>Test</Link>
+    <Link unstyled>Test</Link>
   );
 
   expect(link.hasClass('sg-link--unstyled')).toBeTruthy();
@@ -45,7 +45,7 @@ test('unstyled', () => {
 
 test('underlined', () => {
   const link = shallow(
-    <Link underlined={true}>Test</Link>
+    <Link underlined>Test</Link>
   );
 
   expect(link.hasClass('sg-link--underlined')).toBeTruthy();
@@ -53,7 +53,7 @@ test('underlined', () => {
 
 test('emphasised', () => {
   const link = shallow(
-    <Link emphasised={true}>Test</Link>
+    <Link emphasised>Test</Link>
   );
 
   expect(link.hasClass('sg-link--emphasised')).toBeTruthy();
@@ -61,7 +61,7 @@ test('emphasised', () => {
 
 test('disabled', () => {
   const link = shallow(
-    <Link disabled={true}>Test</Link>
+    <Link disabled>Test</Link>
   );
 
   expect(link.hasClass('sg-link--disabled')).toBeTruthy();

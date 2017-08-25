@@ -24,46 +24,48 @@ const Headers = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Header>
-        <HeaderLeft>left</HeaderLeft>
-        <HeaderMiddle>middle</HeaderMiddle>
-        <HeaderRight>right</HeaderRight>
-      </Header>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Header>
-        <HeaderLeft>
-          <HomeButton/>
-        </HeaderLeft>
-        <HeaderMiddle>
-          <Search placeholder="Find all the answers..." fullWidth={true} color={SEARCH_COLOR.LIGHT}
-            adaptiveIco={true}/>
-        </HeaderMiddle>
-        <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
-          <div>
-            <HeaderRight>
-              <ButtonSecondary type={BUTTON_TYPE.DARK} small={true}>Register</ButtonSecondary>
-              <IconAsButton type={ICON_TYPE.MESSAGES} transparent={true} color={ICON_COLOR.LIGHT} overlay={
-                <Badge color={BADGE_COLOR.PEACH} rounded={true}>1</Badge>
-              }/>
-              <IconAsButton transparent={true}>
-                <Avatar size={AVATAR_SIZE.SMALL}/>
-              </IconAsButton>
-            </HeaderRight>
-          </div>
-        </RWDHelper>
-        <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
-          <div>
-            <HeaderRight>
-              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT}/>
-            </HeaderRight>
-          </div>
-        </RWDHelper>
-      </Header>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Header>
+          <HeaderLeft>left</HeaderLeft>
+          <HeaderMiddle>middle</HeaderMiddle>
+          <HeaderRight>right</HeaderRight>
+        </Header>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Header>
+          <HeaderLeft>
+            <HomeButton />
+          </HeaderLeft>
+          <HeaderMiddle>
+            <Search placeholder="Find all the answers..." fullWidth color={SEARCH_COLOR.LIGHT}
+              adaptiveIco />
+          </HeaderMiddle>
+          <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
+            <div>
+              <HeaderRight>
+                <ButtonSecondary type={BUTTON_TYPE.DARK} small>Register</ButtonSecondary>
+                <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
+                  <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+                } />
+                <IconAsButton transparent>
+                  <Avatar size={AVATAR_SIZE.SMALL} />
+                </IconAsButton>
+              </HeaderRight>
+            </div>
+          </RWDHelper>
+          <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
+            <div>
+              <HeaderRight>
+                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
+              </HeaderRight>
+            </div>
+          </RWDHelper>
+        </Header>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Headers;

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon, {TYPE, COLOR as iconColors} from '../icons/Icon';
-import OverlayedBox from '../overlayed-box/OverlayedBox';
+import IconAsButtonContent from './subcomponents/IconAsButtonContent';
 
 const COLOR = {
   ADAPTIVE: 'adaptive',
@@ -23,18 +23,6 @@ const SIZE = {
   XXSMALL: {className: 'xxsmall', iconSize: 10}
 };
 
-const IconAsButtonContent = ({children = null, overlay}) => {
-  if (!overlay) {
-    return children;
-  }
-  return <OverlayedBox overlay={overlay}>{children}</OverlayedBox>;
-};
-
-IconAsButtonContent.propTypes = {
-  children: PropTypes.element.isRequired,
-  overlay: PropTypes.node
-};
-
 const IconAsButton = ({
   color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay, className, ...props
 }) => {
@@ -51,18 +39,20 @@ const IconAsButton = ({
   let content;
 
   if (type) {
-    content = <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize}/>;
+    content = <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize} />;
   } else {
     content = children;
   }
 
-  return <button {...props} className={buttonClass}>
-    <div className="sg-icon-as-button__hole">
-      <IconAsButtonContent overlay={overlay}>
-        {content}
-      </IconAsButtonContent>
-    </div>
-  </button>;
+  return (
+    <button {...props} className={buttonClass}>
+      <div className="sg-icon-as-button__hole">
+        <IconAsButtonContent overlay={overlay}>
+          {content}
+        </IconAsButtonContent>
+      </div>
+    </button>
+  );
 };
 
 IconAsButton.propTypes = {

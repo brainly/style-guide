@@ -5,9 +5,11 @@ import classnames from 'classnames';
 const ActionListHole = ({children, className, ...props}) => {
   const finalClassName = classnames('sg-actions-list__hole', className);
 
-  return <div {...props} className={finalClassName}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={finalClassName}>
+      {children}
+    </div>
+  );
 };
 
 ActionListHole.propTypes = {

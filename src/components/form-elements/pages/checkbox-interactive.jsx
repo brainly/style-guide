@@ -10,11 +10,13 @@ const Checkboxes = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Checkbox/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Checkbox />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Checkboxes;

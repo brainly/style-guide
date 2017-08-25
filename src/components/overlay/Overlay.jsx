@@ -10,9 +10,11 @@ const Overlay = ({partial, children, className, ...props}) => {
     className);
 
 
-  return <div {...props} className={overlayClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={overlayClass}>
+      {children}
+    </div>
+  );
 };
 
 Overlay.propTypes = {

@@ -30,9 +30,11 @@ const Badge = ({children, color = COLOR.NORMAL, size = SIZE.NORMAL, rounded, wit
   }, className);
   const textSize = size === SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
 
-  return <div {...props} className={badgeClass}>
-    <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={color.TEXT}>{children}</Text>
-  </div>;
+  return (
+    <div {...props} className={badgeClass}>
+      <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={color.TEXT}>{children}</Text>
+    </div>
+  );
 };
 
 Badge.propTypes = {

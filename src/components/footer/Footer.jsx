@@ -5,11 +5,13 @@ import classNames from 'classnames';
 const Footer = ({children, className, ...props}) => {
   const footerClass = classNames('sg-footer', className);
 
-  return <footer {...props} className={footerClass}>
-    <div className="sg-footer__container">
-      {children}
-    </div>
-  </footer>;
+  return (
+    <footer {...props} className={footerClass}>
+      <div className="sg-footer__container">
+        {children}
+      </div>
+    </footer>
+  );
 };
 
 Footer.propTypes = {

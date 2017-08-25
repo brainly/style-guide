@@ -41,17 +41,19 @@ const Lists = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <List items={items}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <List items={example} iconColor={ICON_COLOR.GRAY_SECONDARY} iconType={ICON_TYPE.PLUS} spaced/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={menuSettings}>
-      <MenuList items={menuItems}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <List items={items} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <List items={example} iconColor={ICON_COLOR.GRAY_SECONDARY} iconType={ICON_TYPE.PLUS} spaced />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={menuSettings}>
+        <MenuList items={menuItems} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Lists;

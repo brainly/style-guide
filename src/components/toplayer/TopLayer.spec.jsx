@@ -44,8 +44,8 @@ test('size', () => {
 
 test('testing modifications - all on', () => {
   const topLayer = shallow(
-    <TopLayer fill={true} lead={true} limitedWidth={true} modal={true} row={true} smallSpaced={true} splashScreen={true}
-      withBugbox={true}>
+    <TopLayer fill lead limitedWidth modal row smallSpaced splashScreen
+      withBugbox>
       some text
     </TopLayer>
   );

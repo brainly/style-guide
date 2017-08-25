@@ -7,9 +7,11 @@ const PopupMenu = ({items = [], extraSpacing, className, ...props}) => {
     'sg-popup-menu--elements-spaced': extraSpacing
   }, className);
 
-  return <div {...props} className={popupMenuClass}>
-    {items.map((item, i) => <div key={i} className="sg-popup-menu__hole">{item}</div>)}
-  </div>;
+  return (
+    <div {...props} className={popupMenuClass}>
+      {items.map((item, i) => <div key={i} className="sg-popup-menu__hole">{item}</div>)}
+    </div>
+  );
 };
 
 PopupMenu.propTypes = {

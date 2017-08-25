@@ -6,7 +6,7 @@ const elements = ['Coments (9)', 'Report', 'Follow'];
 
 test('render', () => {
   const breadcrumb = shallow(
-    <Breadcrumb elements={elements}/>
+    <Breadcrumb elements={elements} />
   );
 
   expect(breadcrumb.hasClass('sg-breadcrumb-list')).toEqual(true);
@@ -17,7 +17,7 @@ test('error when no elements', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Breadcrumb/>);
+  shallow(<Breadcrumb />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
@@ -25,7 +25,7 @@ test('error when no elements', () => {
 
 test('short', () => {
   const breadcrumb = shallow(
-    <Breadcrumb elements={elements} short={true}/>
+    <Breadcrumb elements={elements} short />
   );
 
   expect(breadcrumb.hasClass('sg-breadcrumb-list--short')).toEqual(true);
@@ -33,7 +33,7 @@ test('short', () => {
 
 test('adaptive', () => {
   const breadcrumb = shallow(
-    <Breadcrumb elements={elements} adaptive={true}/>
+    <Breadcrumb elements={elements} adaptive />
   );
 
   expect(breadcrumb.hasClass('sg-breadcrumb-list--adaptive')).toEqual(true);

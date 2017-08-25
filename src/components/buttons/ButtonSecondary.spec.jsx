@@ -21,7 +21,7 @@ test('type', () => {
 
 test('disabled', () => {
   const button = shallow(
-    <ButtonSecondary disabled={true}>Some text</ButtonSecondary>
+    <ButtonSecondary disabled>Some text</ButtonSecondary>
   );
 
   expect(button.hasClass('sg-button-secondary--disabled')).toEqual(true);
@@ -41,7 +41,7 @@ test('not disabled', () => {
 
 test('small', () => {
   const button = shallow(
-    <ButtonSecondary small={true}>Some text</ButtonSecondary>
+    <ButtonSecondary small>Some text</ButtonSecondary>
   );
 
   expect(button.hasClass('sg-button-secondary--small')).toEqual(true);
@@ -49,7 +49,7 @@ test('small', () => {
 
 test('wide', () => {
   const button = shallow(
-    <ButtonSecondary wide={true}>Some text</ButtonSecondary>
+    <ButtonSecondary wide>Some text</ButtonSecondary>
   );
 
   expect(button.hasClass('sg-button-secondary--full-width')).toEqual(true);
@@ -69,7 +69,7 @@ test('active-inverse-disabled', () => {
 
   const typeActiveInverse = TYPE.ACTIVE_INVERSE;
   const button = shallow(
-    <ButtonSecondary disabled={true} type={typeActiveInverse}>Some text</ButtonSecondary>
+    <ButtonSecondary disabled type={typeActiveInverse}>Some text</ButtonSecondary>
   );
 
   expect(button.hasClass('sg-button-secondary--disabled')).toEqual(true);

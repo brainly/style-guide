@@ -7,10 +7,10 @@ import Link, {COLOR} from 'text/Link';
 const MediaExamples = () => {
   const defaultProps = {
     contentArray: [
-      <Link color={COLOR.GRAY} emphasised={true}>The Goat</Link>,
-      <span>Master </span>
+      <Link key={1} color={COLOR.GRAY} emphasised>The Goat</Link>,
+      <span key={2}>Master </span>
     ],
-    aside: <Avatar/>
+    aside: <Avatar />
   };
 
   const settings = [
@@ -48,14 +48,16 @@ const MediaExamples = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Media {...defaultProps}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <Media {...defaultProps} graySecondaryLight={true} clickable={true} toRight={true}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Media {...defaultProps} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <Media {...defaultProps} graySecondaryLight clickable toRight />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default MediaExamples;

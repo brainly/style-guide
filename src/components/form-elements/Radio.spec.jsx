@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const radio = shallow(
-    <Radio/>
+    <Radio />
   );
 
   expect(radio.hasClass('sg-radio')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('not checked', () => {
   const radio = shallow(
-    <Radio/>
+    <Radio />
   );
   const input = radio.find('input[type="radio"]');
 
@@ -22,7 +22,7 @@ test('not checked', () => {
 
 test('checked', () => {
   const radio = shallow(
-    <Radio checked={true}/>
+    <Radio checked />
   );
   const input = radio.find('input[type="radio"]');
 
@@ -34,7 +34,7 @@ test('unique ID by default', () => {
   const noOfRadio = 15;
   const arrayOfId = new Array(noOfRadio).fill(true).map(() => {
     const radio = shallow(
-      <Radio/>
+      <Radio />
     );
     const input = radio.find('input[type="radio"]');
 
@@ -48,7 +48,7 @@ test('unique ID by default', () => {
 test('passing id', () => {
   const id = 'id_of_radio';
   const radio = shallow(
-    <Radio id={id}/>
+    <Radio id={id} />
   );
   const input = radio.find('input[type="radio"]');
 
@@ -58,7 +58,7 @@ test('passing id', () => {
 test('passing name', () => {
   const name = 'group_name';
   const radio = shallow(
-    <Radio name={name}/>
+    <Radio name={name} />
   );
   const input = radio.find('input[type="radio"]');
 

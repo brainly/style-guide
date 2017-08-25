@@ -18,25 +18,27 @@ const Separators = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={verticalSettings}
-      backgroundColor="dark"
-      contentBefore={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat"/>}
-      contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}>
+  return (
+    <div>
+      <DocsActiveBlock settings={verticalSettings}
+        backgroundColor="dark"
+        contentBefore={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />}
+        contentAfter={<Avatar size={AVATAR_SIZE.SMALL} />}>
 
-      <SeparatorVertical/>
+        <SeparatorVertical />
 
-    </DocsActiveBlock>
+      </DocsActiveBlock>
 
-    <DocsActiveBlock
-      backgroundColor="dark"
-      settings={horizontalSettings} componentType={SeparatorHorizontal}
-      contentBefore={<Avatar size={AVATAR_SIZE.SMALL}/>}
-      contentAfter={<Avatar size={AVATAR_SIZE.SMALL}/>}
-      wrapper={<div/>}>
-      <SeparatorHorizontal/>
-    </DocsActiveBlock>
-  </div>;
+      <DocsActiveBlock
+        backgroundColor="dark"
+        settings={horizontalSettings} componentType={SeparatorHorizontal}
+        contentBefore={<Avatar size={AVATAR_SIZE.SMALL} />}
+        contentAfter={<Avatar size={AVATAR_SIZE.SMALL} />}
+        wrapper={<div />}>
+        <SeparatorHorizontal />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Separators;

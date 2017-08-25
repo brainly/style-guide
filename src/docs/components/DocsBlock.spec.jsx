@@ -15,7 +15,7 @@ describe('DocsBlock', () => {
 
   test('children', () => {
     const docsBlock = shallow(
-      <DocsBlock><div className="test"/></DocsBlock>
+      <DocsBlock><div className="test" /></DocsBlock>
     );
 
     expect(docsBlock.find('.test')).toHaveLength(1);
@@ -25,7 +25,7 @@ describe('DocsBlock', () => {
     const info = 'test';
     const additionalInfo = 'more tests';
     const docsBlock = shallow(
-      <DocsBlock info={info} additionalInfo={additionalInfo}/>
+      <DocsBlock info={info} additionalInfo={additionalInfo} />
     );
 
     const infoBlock = docsBlock.find(InfoBlock);
@@ -36,7 +36,7 @@ describe('DocsBlock', () => {
 
   test('pass properties to ContentBlock', () => {
     const docsBlock = shallow(
-      <DocsBlock toBottom={true} centered={true}/>
+      <DocsBlock toBottom centered />
     );
 
     const contentBlock = docsBlock.find(ContentBlock);
@@ -47,7 +47,7 @@ describe('DocsBlock', () => {
 
   test('multi content', () => {
     const docsBlock = shallow(
-      <DocsBlock multiContent={[<div className="first"/>, <div className="second"/>]}/>
+      <DocsBlock multiContent={[<div key={1} className="first" />, <div key={2} className="second" />]} />
     );
 
     expect(docsBlock.find('.first')).toHaveLength(1);
@@ -59,7 +59,7 @@ describe('DocsBlock', () => {
 describe('InfoBlock', () => {
   test('empty', () => {
     const infoBlock = shallow(
-      <InfoBlock/>
+      <InfoBlock />
     );
 
     expect(infoBlock.hasClass('docs-block__info')).toBeFalsy();
@@ -68,7 +68,7 @@ describe('InfoBlock', () => {
 
   test('with info', () => {
     const infoBlock = shallow(
-      <InfoBlock info="test"/>
+      <InfoBlock info="test" />
     );
 
     expect(infoBlock.hasClass('docs-block__info')).toBeTruthy();
@@ -77,7 +77,7 @@ describe('InfoBlock', () => {
 
   test('with additional info', () => {
     const infoBlock = shallow(
-      <InfoBlock additionalInfo="test"/>
+      <InfoBlock additionalInfo="test" />
     );
 
     expect(infoBlock.hasClass('docs-block__info')).toBeTruthy();
@@ -88,7 +88,7 @@ describe('InfoBlock', () => {
 describe('ContentBlock', () => {
   test('render', () => {
     const contentBlock = shallow(
-      <ContentBlock/>
+      <ContentBlock />
     );
 
     expect(contentBlock.find('.docs-block__content')).toBeTruthy();
@@ -96,7 +96,7 @@ describe('ContentBlock', () => {
 
   test('toBottom', () => {
     const contentBlock = shallow(
-      <ContentBlock toBottom={true}/>
+      <ContentBlock toBottom />
     );
 
     expect(contentBlock.hasClass('docs-block__content--to-bottom')).toBeTruthy();
@@ -104,7 +104,7 @@ describe('ContentBlock', () => {
 
   test('centered', () => {
     const contentBlock = shallow(
-      <ContentBlock centered={true}/>
+      <ContentBlock centered />
     );
 
     expect(contentBlock.hasClass('docs-block__content--centered')).toBeTruthy();

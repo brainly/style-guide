@@ -9,38 +9,39 @@ import TextBit, {COLOR as TB_COLOR, TYPE as TB_TYPE} from 'text/TextBit';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
 import Overlay from 'overlay/Overlay';
 
-const content = <ContentBox>
-  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-    <TextBit color={TB_COLOR.ALT} type={TB_TYPE.H1}>
-      The world's largest learning community
-    </TextBit>
-  </ContentBoxContent>
+const content =
+  <ContentBox>
+    <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+      <TextBit color={TB_COLOR.ALT} type={TB_TYPE.H1}>
+        The world&apos;s largest learning community
+      </TextBit>
+    </ContentBoxContent>
 
-  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-    <HeaderSecondary type={HEADER_TYPE.H2}>
-      Why join Brainly?
-    </HeaderSecondary>
-    <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
-      <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
-      <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>,
-      <Text weight={WEIGHT.BOLD}>find similar questions</Text>
-    ]}/>
-  </ContentBoxContent>
+    <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+      <HeaderSecondary type={HEADER_TYPE.H2}>
+        Why join Brainly?
+      </HeaderSecondary>
+      <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
+        <Text key={1} weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
+        <Text key={2} weight={WEIGHT.BOLD}>get answer with explanation</Text>,
+        <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
+      ]} />
+    </ContentBoxContent>
 
-  <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-    <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
-  </ContentBoxContent>
-</ContentBox>;
+    <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+      <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
+    </ContentBoxContent>
+  </ContentBox>;
 
 const NotLoggedTopLayer = () =>
   <html>
     <head>
-      <meta charSet="utf-8"/>
-      <link rel="stylesheet" href="../../../style-guide.css"/>
+      <meta charSet="utf-8" />
+      <link rel="stylesheet" href="../../../style-guide.css" />
     </head>
     <body>
       <Overlay>
-        <TopLayer modal={true} size={SIZE.MEDIUM} lead={true} withBugbox={true}>
+        <TopLayer modal size={SIZE.MEDIUM} lead withBugbox>
           {content}
         </TopLayer>
       </Overlay>

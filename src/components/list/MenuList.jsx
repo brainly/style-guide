@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import MenuItem from './subcomponents/MenuItem';
 
 const SIZE = {
   SMALL: 'small',
@@ -8,25 +9,18 @@ const SIZE = {
   LARGE: 'large'
 };
 
-const MenuItem = ({text, href}) => <li className="sg-menu-list__element">
-  <a className="sg-menu-list__link" href={href}>{text}</a>
-</li>;
-
-MenuItem.propTypes = {
-  href: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
-};
-
 const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
   }, className);
 
-  return <ul {...props} className={listClass}>
-    {items.map(({text, href}, index) =>
-      <MenuItem key={index} text={text} href={href}/>
-    )}
-  </ul>;
+  return (
+    <ul {...props} className={listClass}>
+      {items.map(({text, href}, index) =>
+        <MenuItem key={index} text={text} href={href} />
+      )}
+    </ul>
+  );
 };
 
 MenuList.propTypes = {

@@ -69,7 +69,7 @@ test('render right end', () => {
 
 test('render full', () => {
   const bubble = shallow(
-    <Bubble direction={DIRECTION.LEFT} full={true}>Some text</Bubble>
+    <Bubble direction={DIRECTION.LEFT} full>Some text</Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);

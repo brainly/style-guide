@@ -56,7 +56,7 @@ test('color', () => {
 
 test('animation', () => {
   const badge = shallow(
-    <Badge withAnimation={true}>Test</Badge>
+    <Badge withAnimation>Test</Badge>
   );
 
   expect(badge.hasClass('sg-badge--with-animation')).toEqual(true);
@@ -64,7 +64,7 @@ test('animation', () => {
 
 test('rounded', () => {
   const badge = shallow(
-    <Badge rounded={true}>Test</Badge>
+    <Badge rounded>Test</Badge>
   );
 
   expect(badge.hasClass('sg-badge--rounded')).toEqual(true);
@@ -74,7 +74,7 @@ test('error when no child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Badge/>);
+  shallow(<Badge />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
@@ -84,9 +84,10 @@ test('error when passing a react element as a child', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Badge>
-    <div>asd</div>
-  </Badge>);
+  shallow(
+    <Badge>
+      <div>asd</div>
+    </Badge>);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();

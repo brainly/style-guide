@@ -7,34 +7,34 @@ import Link, {COLOR} from 'text/Link';
 
 const defaultProps = {
   contentArray: [
-    <Link color={COLOR.GRAY} emphasised={true}>The Goat</Link>,
-    <span>Master </span>
+    <Link key={1} color={COLOR.GRAY} emphasised>The Goat</Link>,
+    <span key={2}>Master </span>
   ],
-  aside: <Avatar/>
+  aside: <Avatar />
 };
 
 const Medias = () =>
   <div>
     <DocsBlock info='Standard'>
-      <ContrastBox fullWidth={true}>
-        <Media {...defaultProps}/>
+      <ContrastBox fullWidth>
+        <Media {...defaultProps} />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='To right'>
-      <ContrastBox fullWidth={true}>
-        <Media {...defaultProps} toRight={true}/>
+      <ContrastBox fullWidth>
+        <Media {...defaultProps} toRight />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Focused'>
-      <ContrastBox fullWidth={true}>
-        <Media {...defaultProps} focused={true}/>
+      <ContrastBox fullWidth>
+        <Media {...defaultProps} focused />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info='Gray secondary light - Clickable'>
-      <Media {...defaultProps} graySecondaryLight={true} clickable={true}/>
+      <Media {...defaultProps} graySecondaryLight clickable />
     </DocsBlock>
   </div>;
 

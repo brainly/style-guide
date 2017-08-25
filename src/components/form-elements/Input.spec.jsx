@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const input = shallow(
-    <Input/>
+    <Input />
   );
 
   expect(input.hasClass('sg-input')).toEqual(true);
@@ -12,7 +12,7 @@ test('render', () => {
 
 test('full width', () => {
   const input = shallow(
-    <Input fullWidth={true}/>
+    <Input fullWidth />
   );
 
   expect(input.hasClass('sg-input--full-width')).toEqual(true);
@@ -21,7 +21,7 @@ test('full width', () => {
 
 test('default validation', () => {
   const input = shallow(
-    <Input/>
+    <Input />
   );
 
   expect(input.hasClass('sg-input--valid')).toEqual(false);
@@ -31,7 +31,7 @@ test('default validation', () => {
 
 test('valid', () => {
   const input = shallow(
-    <Input valid={true}/>
+    <Input valid />
   );
 
   expect(input.hasClass('sg-input--valid')).toEqual(true);
@@ -41,7 +41,7 @@ test('valid', () => {
 
 test('invalid', () => {
   const input = shallow(
-    <Input invalid={true}/>
+    <Input invalid />
   );
 
   expect(input.hasClass('sg-input--invalid')).toEqual(true);
@@ -50,13 +50,13 @@ test('invalid', () => {
 
 test('error when both valid and invalid', () => {
   expect(() => {
-    shallow(<Input valid={true} invalid={true}/>);
+    shallow(<Input valid invalid />);
   }).toThrow();
 });
 
 test('size', () => {
   const input = shallow(
-    <Input size={SIZE.LARGE}/>
+    <Input size={SIZE.LARGE} />
   );
 
   expect(input.hasClass('sg-input--large')).toEqual(true);
@@ -65,7 +65,7 @@ test('size', () => {
 
 test('default size', () => {
   const input = shallow(
-    <Input/>
+    <Input />
   );
 
   expect(input.hasClass('sg-input--normal')).toEqual(false);
@@ -75,7 +75,7 @@ test('default size', () => {
 
 test('color', () => {
   const input = shallow(
-    <Input color={COLOR.LIGHT}/>
+    <Input color={COLOR.LIGHT} />
   );
 
   expect(input.hasClass('sg-input--light')).toEqual(true);
@@ -84,7 +84,7 @@ test('color', () => {
 
 test('default color', () => {
   const input = shallow(
-    <Input/>
+    <Input />
   );
 
   expect(input.hasClass('sg-input--normal')).toEqual(false);

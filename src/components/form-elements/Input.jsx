@@ -69,10 +69,12 @@ const Input = props => {
     'sg-input--with-icon': withIcon
   }, className);
 
-  return <input type={type} className={inputClass} value={value} {...additionalProps}/>;
+  return <input type={type} className={inputClass} value={value} {...additionalProps} />;
 };
 
-Input.propTypes = {
+Input.propTypes = propTypes;
+
+const propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(Object.values(SIZE)),
@@ -86,4 +88,4 @@ Input.propTypes = {
 };
 
 export default Input;
-export {SIZE, COLOR, TYPE};
+export {SIZE, COLOR, TYPE, propTypes};

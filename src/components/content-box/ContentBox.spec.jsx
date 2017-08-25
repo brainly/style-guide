@@ -18,7 +18,7 @@ describe('content box', () => {
 
   test('full', () => {
     const contentBox = mount(
-      <ContentBox full={true}>test</ContentBox>
+      <ContentBox full>test</ContentBox>
     );
 
     expect(contentBox.props().full).toEqual(true);
@@ -26,7 +26,7 @@ describe('content box', () => {
 
   test('is spaced', () => {
     const contentBox = shallow(
-      <ContentBox spaced={true}>test</ContentBox>
+      <ContentBox spaced>test</ContentBox>
     );
 
     expect(contentBox.hasClass('sg-content-box--spaced')).toEqual(true);
@@ -44,7 +44,7 @@ describe('Content', () => {
 
   test('full', () => {
     const testBox = mount(
-      <ContentBoxContent full={true}>test</ContentBoxContent>
+      <ContentBoxContent full>test</ContentBoxContent>
     );
 
     expect(testBox.props().full).toEqual(true);
@@ -111,7 +111,7 @@ describe('Header', () => {
 
   test('is spaced', () => {
     const testBox = shallow(
-      <ContentBoxHeader spaced={true}>test</ContentBoxHeader>
+      <ContentBoxHeader spaced>test</ContentBoxHeader>
     );
 
     expect(testBox.hasClass('sg-content-box__header--spaced')).toEqual(true);
@@ -154,7 +154,7 @@ describe('Title', () => {
 
   test('is spaced', () => {
     const testBox = shallow(
-      <ContentBoxTitle spaced={true}>test</ContentBoxTitle>
+      <ContentBoxTitle spaced>test</ContentBoxTitle>
     );
 
     expect(testBox.hasClass('sg-content-box__title--spaced')).toEqual(true);

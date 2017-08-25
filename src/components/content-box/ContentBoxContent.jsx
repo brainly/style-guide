@@ -13,9 +13,11 @@ const ContentBoxContent = ({children, full, spacedTop, spacedBottom, className, 
     [`sg-content-box__content--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
-  return <div {...props} className={contentBoxClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={contentBoxClass}>
+      {children}
+    </div>
+  );
 };
 
 ContentBoxContent.propTypes = {

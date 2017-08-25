@@ -6,9 +6,11 @@ const LayoutAsideContent = ({children, className, ...props}) => {
 
   const layoutClass = classnames('sg-layout__aside-content', className);
 
-  return <div {...props} className={layoutClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={layoutClass}>
+      {children}
+    </div>
+  );
 };
 
 LayoutAsideContent.propTypes = {

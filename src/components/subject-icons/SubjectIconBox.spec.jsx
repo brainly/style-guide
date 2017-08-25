@@ -6,7 +6,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const box = shallow(
-    <SubjectIconBox type={TYPE.LIFE_SCIENCE}/>
+    <SubjectIconBox type={TYPE.LIFE_SCIENCE} />
   );
 
   expect(box.hasClass('sg-subject-icon-box')).toEqual(true);
@@ -15,7 +15,7 @@ test('render', () => {
 
 test('darker', () => {
   const box = shallow(
-    <SubjectIconBox type={TYPE.LIFE_SCIENCE} darker={true}/>
+    <SubjectIconBox type={TYPE.LIFE_SCIENCE} darker />
   );
 
   expect(box.hasClass('sg-subject-icon-box--darker')).toEqual(true);
@@ -25,7 +25,7 @@ test('error when no type', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<SubjectIconBox/>);
+  shallow(<SubjectIconBox />);
   expect(console.error.mock.calls).toHaveLength(2);
 
   spy.mockRestore();

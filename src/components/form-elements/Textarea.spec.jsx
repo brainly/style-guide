@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const textarea = shallow(
-    <Textarea/>
+    <Textarea />
   );
 
   expect(textarea.hasClass('sg-textarea')).toEqual(true);
@@ -12,7 +12,7 @@ test('render', () => {
 
 test('full width', () => {
   const textarea = shallow(
-    <Textarea fullWidth={true}/>
+    <Textarea fullWidth />
   );
 
   expect(textarea.hasClass('sg-textarea--full-width')).toEqual(true);
@@ -20,7 +20,7 @@ test('full width', () => {
 
 test('auto height', () => {
   const textarea = shallow(
-    <Textarea autoHeight={true}/>
+    <Textarea autoHeight />
   );
 
   expect(textarea.hasClass('sg-textarea--auto-height')).toEqual(true);
@@ -28,7 +28,7 @@ test('auto height', () => {
 
 test('simple', () => {
   const textarea = shallow(
-    <Textarea simple={true}/>
+    <Textarea simple />
   );
 
   expect(textarea.hasClass('sg-textarea--simple')).toEqual(true);
@@ -37,7 +37,7 @@ test('simple', () => {
 
 test('default validation', () => {
   const textarea = shallow(
-    <Textarea/>
+    <Textarea />
   );
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
@@ -47,7 +47,7 @@ test('default validation', () => {
 
 test('valid', () => {
   const textarea = shallow(
-    <Textarea valid={true}/>
+    <Textarea valid />
   );
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(true);
@@ -57,7 +57,7 @@ test('valid', () => {
 
 test('invalid', () => {
   const textarea = shallow(
-    <Textarea invalid={true}/>
+    <Textarea invalid />
   );
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
@@ -67,14 +67,14 @@ test('invalid', () => {
 
 test('error when both valid and invalid', () => {
   expect(() => {
-    shallow(<Textarea valid={true} invalid={true}/>);
+    shallow(<Textarea valid invalid />);
   }).toThrow();
 });
 
 
 test('size', () => {
   const textarea = shallow(
-    <Textarea size={SIZE.SHORT}/>
+    <Textarea size={SIZE.SHORT} />
   );
 
   expect(textarea.hasClass('sg-textarea--short')).toEqual(true);
@@ -83,7 +83,7 @@ test('size', () => {
 
 test('default size', () => {
   const textarea = shallow(
-    <Textarea/>
+    <Textarea />
   );
 
   expect(textarea.hasClass('sg-textarea--normal')).toEqual(false);

@@ -7,9 +7,11 @@ const LayoutContent = ({children, noMaxWidth, className, ...props}) => {
     'sg-layout__content--no-max-width': noMaxWidth
   }, className);
 
-  return <div {...props} className={layoutContentClass}>
-    {children}
-  </div>;
+  return (
+    <div {...props} className={layoutContentClass}>
+      {children}
+    </div>
+  );
 };
 
 LayoutContent.propTypes = {

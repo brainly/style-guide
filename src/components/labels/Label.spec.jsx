@@ -7,7 +7,7 @@ describe('Label', () => {
   test('render', () => {
     const iconType = ICON_TYPE.STAR;
     const label = shallow(
-      <Label iconType={iconType} text="test"/>
+      <Label iconType={iconType} text="test" />
     );
     const icon = label.find(LabelIcon);
     const textLabel = label.find('label.sg-label__text');
@@ -23,7 +23,7 @@ describe('Label', () => {
     const iconType = ICON_TYPE.HEART;
     const iconColor = ICON_COLOR.LAVENDER;
     const label = shallow(
-      <Label iconType={iconType} iconColor={iconColor} text="test"/>
+      <Label iconType={iconType} iconColor={iconColor} text="test" />
     );
     const icon = label.find(LabelIcon);
 
@@ -34,7 +34,7 @@ describe('Label', () => {
     const size = SIZE.SMALL;
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} size={size} text="test"/>
+      <Label iconType={iconType} size={size} text="test" />
     );
     const icon = label.find(LabelIcon);
 
@@ -46,7 +46,7 @@ describe('Label', () => {
     const size = SIZE.NORMAL;
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} size={size} text="test"/>
+      <Label iconType={iconType} size={size} text="test" />
     );
     const icon = label.find(LabelIcon);
 
@@ -57,7 +57,7 @@ describe('Label', () => {
 
   test('secondary label', () => {
     const label = shallow(
-      <Label secondary={true} text="test"/>
+      <Label secondary text="test" />
     );
 
     expect(label.hasClass('sg-label--secondary')).toEqual(true);
@@ -65,7 +65,7 @@ describe('Label', () => {
 
   test('emphasised', () => {
     const label = shallow(
-      <Label emphasised={true} text="test"/>
+      <Label emphasised text="test" />
     );
 
     expect(label.hasClass('sg-label--emphasised')).toEqual(true);
@@ -74,7 +74,7 @@ describe('Label', () => {
   test('elements to top', () => {
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} elementsToTop={true} text="test"/>
+      <Label iconType={iconType} elementsToTop text="test" />
     );
 
     expect(label.hasClass('sg-label--elements-to-the-top')).toEqual(true);
@@ -83,7 +83,7 @@ describe('Label', () => {
   test('label with no text', () => {
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType}/>
+      <Label iconType={iconType} />
     );
     const textLabel = label.find('div.sg-label__text');
 
@@ -92,14 +92,14 @@ describe('Label', () => {
 
   test('label with a number', () => {
     const label = shallow(
-      <Label secondary={true} text="test" number={23}/>
+      <Label secondary text="test" number={23} />
     );
     const numberLabel = label.find('div.sg-label__number');
 
     expect(numberLabel).toHaveLength(1);
 
     const label2 = shallow(
-      <Label secondary={true} text="test" number={0}/>
+      <Label secondary text="test" number={0} />
     );
     const numberLabel2 = label2.find('div.sg-label__number');
 
@@ -125,7 +125,7 @@ describe('LabelIcon', () => {
     const iconColor = ICON_COLOR.BLUE;
     const iconSize = 10;
     const label = shallow(
-      <LabelIcon iconType={iconType} iconColor={iconColor} iconSize={iconSize}/>
+      <LabelIcon iconType={iconType} iconColor={iconColor} iconSize={iconSize} />
     );
     const icon = label.find(Icon);
 
@@ -138,7 +138,7 @@ describe('LabelIcon', () => {
   test('render content', () => {
     const content = <div className="xyz">xyz123</div>;
     const label = shallow(
-      <LabelIcon iconContent={content}/>
+      <LabelIcon iconContent={content} />
     );
     const icon = label.find(Icon);
 
@@ -148,7 +148,7 @@ describe('LabelIcon', () => {
 
   test('render null', () => {
     const label = shallow(
-      <LabelIcon/>
+      <LabelIcon />
     );
     const icon = label.find(Icon);
 

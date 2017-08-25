@@ -19,12 +19,14 @@ class Checkbox extends PureComponent {
 
     const checkboxClass = classNames('sg-checkbox', className);
 
-    return <div className={checkboxClass}>
-      <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps}/>
-      <label className="sg-checkbox__ghost" htmlFor={id}>
-        <Icon type={TYPE.CHECK} color={COLOR.ADAPTIVE} size={10}/>
-      </label>
-    </div>;
+    return (
+      <div className={checkboxClass}>
+        <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps} />
+        <label className="sg-checkbox__ghost" htmlFor={id}>
+          <Icon type={TYPE.CHECK} color={COLOR.ADAPTIVE} size={10} />
+        </label>
+      </div>
+    );
   }
 }
 

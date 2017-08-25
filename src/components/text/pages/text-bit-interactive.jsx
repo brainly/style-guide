@@ -22,13 +22,15 @@ const TextBits = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <TextBit>
-        What do you need to know?
-      </TextBit>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <TextBit>
+          What do you need to know?
+        </TextBit>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default TextBits;

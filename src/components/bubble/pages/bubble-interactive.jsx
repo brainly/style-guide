@@ -30,42 +30,45 @@ const Bubbles = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <Bubble direction={DIRECTION.TOP}>
-        Hi there!!<br/>
-        Just wondering if you have any problems with your school work.
-      </Bubble>
-    </DocsActiveBlock>
+  return (
+    <div>
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <Bubble direction={DIRECTION.TOP}>
+          Hi there!!<br />
+          Just wondering if you have any problems with your school work.
+        </Bubble>
+      </DocsActiveBlock>
 
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <Bubble direction={DIRECTION.TOP}>
-        <ContentBox>
-          <ContentBoxHeader>
-            <ActionList>
-              <ActionListHole>
-                <Avatar imgSrc="https://source.unsplash.com/64x64/?parrot"/>
-              </ActionListHole>
-              <ActionListHole>
-                <Breadcrumb elements={[<Link color={LINK_COLOR.GRAY}>Katie</Link>,
-                  <Link color={LINK_COLOR.GRAY}>a few seconds ago</Link>]}/>
-              </ActionListHole>
-            </ActionList>
-          </ContentBoxHeader>
-          <ContentBoxContent>
-            <Text>
-              Hi there!! Just wondering if you have any problems with your school work. We've got plenty
-              of people who can help you here :) Also, my last question was answered in less than 10 minutes :D
-              Anyway, you can just go ahead and try for yourself.
-            </Text>
-          </ContentBoxContent>
-          <ContentBoxActions>
-            <ButtonSecondary type={TYPE.ALT}>Join us!</ButtonSecondary>
-          </ContentBoxActions>
-        </ContentBox>
-      </Bubble>
-    </DocsActiveBlock>
-  </div>;
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <Bubble direction={DIRECTION.TOP}>
+          <ContentBox>
+            <ContentBoxHeader>
+              <ActionList>
+                <ActionListHole>
+                  <Avatar imgSrc="https://source.unsplash.com/64x64/?parrot" />
+                </ActionListHole>
+                <ActionListHole>
+                  <Breadcrumb elements={[
+                    <Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
+                    <Link key={2} color={LINK_COLOR.GRAY}>a few seconds ago</Link>]} />
+                </ActionListHole>
+              </ActionList>
+            </ContentBoxHeader>
+            <ContentBoxContent>
+              <Text>
+                Hi there!! Just wondering if you have any problems with your school work. We&apos;ve got plenty
+                of people who can help you here :) Also, my last question was answered in less than 10 minutes :D
+                Anyway, you can just go ahead and try for yourself.
+              </Text>
+            </ContentBoxContent>
+            <ContentBoxActions>
+              <ButtonSecondary type={TYPE.ALT}>Join us!</ButtonSecondary>
+            </ContentBoxActions>
+          </ContentBox>
+        </Bubble>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 

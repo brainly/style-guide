@@ -19,14 +19,16 @@ const SubjectIcons = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <SubjectIcon type={TYPE.MATHEMATICS}/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings} backgroundColor="dark">
-      <SubjectIcon type={TYPE.BIOLOGY} mono={true}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <SubjectIcon type={TYPE.MATHEMATICS} />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings} backgroundColor="dark">
+        <SubjectIcon type={TYPE.BIOLOGY} mono />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default SubjectIcons;

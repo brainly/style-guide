@@ -22,7 +22,7 @@ test('type', () => {
 
 test('disabled', () => {
   const button = shallow(
-    <ButtonPrimary disabled={true}>Some text</ButtonPrimary>
+    <ButtonPrimary disabled>Some text</ButtonPrimary>
   );
 
   expect(button.hasClass('sg-button-primary--disabled')).toEqual(true);
@@ -41,14 +41,14 @@ test('not disabled', () => {
 
 test('primary don\'t have small', () => {
   const button = shallow(
-    <ButtonPrimary small={true}>Some text</ButtonPrimary>
+    <ButtonPrimary small>Some text</ButtonPrimary>
   );
 
   expect(button.hasClass('sg-button-primary--small')).toEqual(false);
 });
 test('wide', () => {
   const button = shallow(
-    <ButtonPrimary wide={true}>Some text</ButtonPrimary>
+    <ButtonPrimary wide>Some text</ButtonPrimary>
   );
 
   expect(button.hasClass('sg-button-primary--full-width')).toEqual(true);

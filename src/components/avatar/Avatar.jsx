@@ -23,13 +23,16 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
     'sg-avatar--spaced': spaced
   }, className);
 
-  const defaultAvatar = <div className="sg-avatar__image sg-avatar__image--icon">
-    <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize}/>
-  </div>;
+  const defaultAvatar =
+    <div className="sg-avatar__image sg-avatar__image--icon">
+      <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize} />
+    </div>;
 
-  return <div {...props} className={avatarClass}>
-    {imgSrc ? <img className="sg-avatar__image" src={imgSrc}/> : defaultAvatar}
-  </div>;
+  return (
+    <div {...props} className={avatarClass}>
+      {imgSrc ? <img className="sg-avatar__image" src={imgSrc} /> : defaultAvatar}
+    </div>
+  );
 };
 
 Avatar.propTypes = {

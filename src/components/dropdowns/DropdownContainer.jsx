@@ -10,6 +10,9 @@ class DropdownContainer extends Component {
       isOpened: this.props.openOnStart || false,
       currentItem: this.props.currentItem || {}
     };
+
+    this.onItemClick = this.onItemClick.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   getLabel() {
@@ -41,9 +44,9 @@ class DropdownContainer extends Component {
       label={this.getLabel()}
       items={this.props.items}
       fixed={this.props.fixed}
-      onItemClick={this.onItemClick.bind(this)}
-      onClick={this.toggle.bind(this)}
-      className={this.props.className}/>;
+      onItemClick={this.onItemClick}
+      onClick={this.toggle}
+      className={this.props.className} />;
   }
 }
 

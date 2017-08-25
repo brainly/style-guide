@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const checkbox = shallow(
-    <Checkbox/>
+    <Checkbox />
   );
 
   expect(checkbox.hasClass('sg-checkbox')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('not checked', () => {
   const checkbox = shallow(
-    <Checkbox/>
+    <Checkbox />
   );
   const input = checkbox.find('input[type="checkbox"]');
 
@@ -22,7 +22,7 @@ test('not checked', () => {
 
 test('checked', () => {
   const checkbox = shallow(
-    <Checkbox checked={true}/>
+    <Checkbox checked />
   );
   const input = checkbox.find('input[type="checkbox"]');
 
@@ -34,7 +34,7 @@ test('unique ID by default', () => {
   const noOfCheckbox = 15;
   const arrayOfId = new Array(noOfCheckbox).fill(true).map(() => {
     const checkbox = shallow(
-      <Checkbox/>
+      <Checkbox />
     );
     const input = checkbox.find('input[type="checkbox"]');
 
@@ -48,7 +48,7 @@ test('unique ID by default', () => {
 test('passing id', () => {
   const id = 'id_of_checkbox';
   const checkbox = shallow(
-    <Checkbox id={id}/>
+    <Checkbox id={id} />
   );
   const input = checkbox.find('input[type="checkbox"]');
 

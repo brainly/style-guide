@@ -29,11 +29,12 @@ describe('Layout', () => {
   });
 
   test('render with footer', () => {
-    const footer = <div className="sg-footer">
-      <div className="sg-footer__container">
-        Footer
-      </div>
-    </div>;
+    const footer =
+      <div className="sg-footer">
+        <div className="sg-footer__container">
+          Footer
+        </div>
+      </div>;
 
     const layout = shallow(
       <Layout footer={footer}>
@@ -46,7 +47,7 @@ describe('Layout', () => {
 
   test('reserved-order', () => {
     const layout = shallow(
-      <Layout reversedOrder={true}>Content</Layout>
+      <Layout reversedOrder>Content</Layout>
     );
 
     const layoutContainer = layout.find('.sg-layout__container');
@@ -56,7 +57,7 @@ describe('Layout', () => {
 
   test('no-max-width', () => {
     const layout = shallow(
-      <Layout noMaxWidth={true}>Content</Layout>
+      <Layout noMaxWidth>Content</Layout>
     );
 
     const layoutContainer = layout.find('.sg-layout__container');
@@ -66,7 +67,7 @@ describe('Layout', () => {
 
   test('no-margin-top', () => {
     const layout = shallow(
-      <Layout noMarginTop={true}>Content</Layout>
+      <Layout noMarginTop>Content</Layout>
     );
 
     const layoutContainer = layout.find('.sg-layout__container');
@@ -76,7 +77,7 @@ describe('Layout', () => {
 
   test('full-page', () => {
     const layout = shallow(
-      <Layout fullPage={true}>Content</Layout>
+      <Layout fullPage>Content</Layout>
     );
 
     const layoutContainer = layout.find('.sg-layout__container');
@@ -98,7 +99,7 @@ describe('LayoutContent', () => {
 
   test('no-max-width', () => {
     const layoutContent = shallow(
-      <LayoutContent noMaxWidth={true}>Content</LayoutContent>
+      <LayoutContent noMaxWidth>Content</LayoutContent>
     );
 
     expect(layoutContent.hasClass('sg-layout__content--no-max-width')).toEqual(true);

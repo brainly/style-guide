@@ -28,9 +28,11 @@ const HeaderPrimary = ({children, type = TYPE.H1, size = SIZE.NORMAL, color, cla
     [`sg-header-primary--${color}`]: color
   }, className);
 
-  return <Type {...props} className={headerClass}>
-    {children}
-  </Type>;
+  return (
+    <Type {...props} className={headerClass}>
+      {children}
+    </Type>
+  );
 };
 
 HeaderPrimary.propTypes = {

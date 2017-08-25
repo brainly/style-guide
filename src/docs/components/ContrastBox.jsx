@@ -12,9 +12,11 @@ const ContrastBox = ({toBottom, smallPadding, light, fullWidth, narrow, children
     'docs-block__contrast-box--narrow': narrow
   });
 
-  return <section className={cssClass}>
-    {children}
-  </section>;
+  return (
+    <section className={cssClass}>
+      {children}
+    </section>
+  );
 };
 
 ContrastBox.propTypes = {

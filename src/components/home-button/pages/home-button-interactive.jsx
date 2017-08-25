@@ -14,11 +14,13 @@ const HomeButtons = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <HomeButton href="https://brainly.com"/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <HomeButton href="https://brainly.com" />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default HomeButtons;

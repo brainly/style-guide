@@ -34,14 +34,16 @@ const Links = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Link>Comments (9)</Link>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Link href="#" color={COLOR.MINT} emphasised={true} size={SIZE.SMALL}>Terms of use</Link>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Link>Comments (9)</Link>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Link href="#" color={COLOR.MINT} emphasised size={SIZE.SMALL}>Terms of use</Link>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Links;

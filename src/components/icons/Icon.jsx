@@ -65,9 +65,11 @@ const Icon = ({color, size = 24, type, className, ...props}) => {
   }, className);
   const iconType = `#icon-${type}`;
 
-  return <svg {...props} className={iconClass}>
-    <use xlinkHref={iconType}></use>
-  </svg>;
+  return (
+    <svg {...props} className={iconClass}>
+      <use xlinkHref={iconType}></use>
+    </svg>
+  );
 };
 
 Icon.propTypes = {

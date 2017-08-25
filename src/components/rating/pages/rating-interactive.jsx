@@ -26,11 +26,13 @@ const Ratings = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Rating rate={3} counter={34}/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Rating rate={3} counter={34} />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 

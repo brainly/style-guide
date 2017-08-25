@@ -14,18 +14,18 @@ const TextBitExamples = () =>
     <TextBit color={COLOR.GRAY}>
       What do you need to know?
     </TextBit>
-    <TextBit size={SIZE.SMALL} notResponsive={true}>
+    <TextBit size={SIZE.SMALL} notResponsive>
       What do you need to know?
     </TextBit>
-    <TextBit notResponsive={true} color={COLOR.WARNING}>
+    <TextBit notResponsive color={COLOR.WARNING}>
       What do you need to know?
     </TextBit>
-    <TextBit size={SIZE.XXLARGE} color={COLOR.DARK} notResponsive={true}>
+    <TextBit size={SIZE.XXLARGE} color={COLOR.DARK} notResponsive>
       What do you need to know?
     </TextBit>
     <ContrastBox>
-      <TextBit size={SIZE.XLARGE} color={COLOR.LIGHT} notResponsive={true}>
-        We've got your back!
+      <TextBit size={SIZE.XLARGE} color={COLOR.LIGHT} notResponsive>
+        We&apos;ve got your back!
       </TextBit>
     </ContrastBox>
   </DocsBlock>;

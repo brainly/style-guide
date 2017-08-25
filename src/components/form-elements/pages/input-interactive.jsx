@@ -47,15 +47,17 @@ const Inputs = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Input placeholder="Simple input"/>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <Input placeholder="Big wrong input" fullWidth={true} size={SIZE.LARGE} invalid noBorder
-        value="I'm a big bad input"/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Input placeholder="Simple input" />
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Input placeholder="Big wrong input" fullWidth size={SIZE.LARGE} invalid noBorder
+          value="I'm a big bad input" />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Inputs;

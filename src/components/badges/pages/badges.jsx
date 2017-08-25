@@ -26,15 +26,15 @@ const Badges = () =>
       <Badge color={COLOR.BLUE_SECONDARY_LIGHT} size={SIZE.SMALL}>3 / 5</Badge>
     </DocsBlock>
     <DocsBlock info="Rounded">
-      <Badge color={COLOR.PEACH} rounded={true}>1</Badge>
-      <Badge color={COLOR.MUSTARD} rounded={true}>HOT</Badge>
-      <Badge color={COLOR.MINT_SECONDARY_LIGHT} size={SIZE.LARGE} rounded={true}>4 / 5</Badge>
+      <Badge color={COLOR.PEACH} rounded>1</Badge>
+      <Badge color={COLOR.MUSTARD} rounded>HOT</Badge>
+      <Badge color={COLOR.MINT_SECONDARY_LIGHT} size={SIZE.LARGE} rounded>4 / 5</Badge>
       <ContrastBox>
-        <Badge rounded={true} size={SIZE.LARGE}>4575</Badge>
+        <Badge rounded size={SIZE.LARGE}>4575</Badge>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="With animation" additionalInfo="(click to reload)">
-      <Badge color={COLOR.PEACH} rounded={true} withAnimation={true}>1</Badge>
+      <Badge color={COLOR.PEACH} rounded withAnimation>1</Badge>
     </DocsBlock>
   </div>;
 

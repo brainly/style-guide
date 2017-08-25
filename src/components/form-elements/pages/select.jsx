@@ -12,19 +12,20 @@ const exampleProps = {
   onChange: () => undefined
 };
 
-const selects = () => <div>
-  <DocsBlock info="Default">
-    <Select {...exampleProps}/>
-  </DocsBlock>
-  <DocsBlock info="Valid">
-    <Select {...exampleProps} valid={true}/>
-  </DocsBlock>
-  <DocsBlock info="Invalid">
-    <Select {...exampleProps} invalid={true}/>
-  </DocsBlock>
-  <DocsBlock info="Full width">
-    <Select {...exampleProps} fullWidth={true}/>
-  </DocsBlock>
-</div>;
+const selects = () =>
+  <div>
+    <DocsBlock info="Default">
+      <Select {...exampleProps} />
+    </DocsBlock>
+    <DocsBlock info="Valid">
+      <Select {...exampleProps} valid />
+    </DocsBlock>
+    <DocsBlock info="Invalid">
+      <Select {...exampleProps} invalid />
+    </DocsBlock>
+    <DocsBlock info="Full width">
+      <Select {...exampleProps} fullWidth />
+    </DocsBlock>
+  </div>;
 
 export default selects;

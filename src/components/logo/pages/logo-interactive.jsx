@@ -10,11 +10,13 @@ const Logos = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Logo/>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Logo />
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Logos;

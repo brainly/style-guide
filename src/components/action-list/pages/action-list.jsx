@@ -12,10 +12,10 @@ import ActionListHole from '../ActionListHole';
 const ActionLists = () =>
   <div>
     <DocsBlock info='Default'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <ActionList>
           <ActionListHole>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
             </ButtonSecondary>
           </ActionListHole>
@@ -29,10 +29,10 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='To right'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_RIGHT}>
           <ActionListHole>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
             </ButtonSecondary>
           </ActionListHole>
@@ -46,10 +46,10 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='To top'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_TOP}>
           <ActionListHole>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
             </ButtonSecondary>
           </ActionListHole>
@@ -63,10 +63,10 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='Centered'>
-      <ContrastBox fullWidth={true}>
+      <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.CENTERED}>
           <ActionListHole>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small={true}>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
             </ButtonSecondary>
           </ActionListHole>
@@ -82,31 +82,34 @@ const ActionLists = () =>
     <DocsBlock info='Space between'>
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
-          <Label iconType={ICON_TYPE.ANSWER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary={true}
+          <Label iconType={ICON_TYPE.ANSWER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary
             size={LABEL_SIZE.SMALL}>
             <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
-              type={TEXT_TYPE.DIV}>0/5</Text>
+              type={TEXT_TYPE.DIV}>0/5
+            </Text>
           </Label>
         </ActionListHole>
         <ActionListHole>
-          <Label iconType={ICON_TYPE.COUNTER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary={true}
+          <Label iconType={ICON_TYPE.COUNTER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary
             size={LABEL_SIZE.SMALL}>
             <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
-              type={TEXT_TYPE.DIV}>2d: 00h</Text>
+              type={TEXT_TYPE.DIV}>2d: 00h
+            </Text>
           </Label>
         </ActionListHole>
-        <ActionListHole><ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small={true}>
-          start
-        </ButtonSecondary>
+        <ActionListHole>
+          <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+            start
+          </ButtonSecondary>
         </ActionListHole>
       </ActionList>
     </DocsBlock>
 
     <DocsBlock info='No wrap' multiContent={[
-      <ContrastBox narrow={true}>
-        <ActionList noWrap={true}>
+      <ContrastBox key={1} narrow>
+        <ActionList noWrap>
           <ActionListHole>
-            <Icon type={ICON_TYPE.MESSAGES} size={24}/>
+            <Icon type={ICON_TYPE.MESSAGES} size={24} />
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
@@ -115,10 +118,10 @@ const ActionLists = () =>
           </ActionListHole>
         </ActionList>
       </ContrastBox>,
-      <ContrastBox narrow={true}>
+      <ContrastBox key={2} narrow>
         <ActionList>
           <ActionListHole>
-            <Icon type={ICON_TYPE.MESSAGES} size={24}/>
+            <Icon type={ICON_TYPE.MESSAGES} size={24} />
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>

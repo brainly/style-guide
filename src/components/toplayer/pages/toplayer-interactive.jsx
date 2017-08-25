@@ -51,45 +51,47 @@ const Toplayers = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <TopLayer>
-        <ContentBox>
-          <ContentBoxHeader spacedBottom={SPACING_SIZE.LARGE}>
-            heading
-          </ContentBoxHeader>
-          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            content
-          </ContentBoxContent>
-          <ContentBoxActions>
-            actions
-          </ContentBoxActions>
-        </ContentBox>
-      </TopLayer>
-    </DocsActiveBlock>
-    <DocsActiveBlock settings={settings}>
-      <TopLayer size={SIZE.MEDIUM} lead={true} withBugbox={true}>
-        <ContentBox>
-          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            <TextBit color={TEXT_BIT_COLOR.ALT} type={HEADER_TYPE.H1}>
-              The world's largest learning community
-            </TextBit>
-            <HeaderSecondary type={HEADER_TYPE.H2}>
-              Why join Brainly?
-            </HeaderSecondary>
-            <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
-              <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
-              <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>,
-              <Text weight={WEIGHT.BOLD}>find similar questions</Text>
-            ]}/>
-          </ContentBoxContent>
-          <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
-          </ContentBoxContent>
-        </ContentBox>
-      </TopLayer>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <TopLayer>
+          <ContentBox>
+            <ContentBoxHeader spacedBottom={SPACING_SIZE.LARGE}>
+              heading
+            </ContentBoxHeader>
+            <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+              content
+            </ContentBoxContent>
+            <ContentBoxActions>
+              actions
+            </ContentBoxActions>
+          </ContentBox>
+        </TopLayer>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <TopLayer size={SIZE.MEDIUM} lead withBugbox>
+          <ContentBox>
+            <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+              <TextBit color={TEXT_BIT_COLOR.ALT} type={HEADER_TYPE.H1}>
+                The world&apos;s largest learning community
+              </TextBit>
+              <HeaderSecondary type={HEADER_TYPE.H2}>
+                Why join Brainly?
+              </HeaderSecondary>
+              <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
+                <Text key={1} weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
+                <Text key={2} weight={WEIGHT.BOLD}>get answer with explanation</Text>,
+                <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
+              ]} />
+            </ContentBoxContent>
+            <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
+              <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
+            </ContentBoxContent>
+          </ContentBox>
+        </TopLayer>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Toplayers;

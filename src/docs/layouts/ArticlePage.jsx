@@ -8,17 +8,18 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-const ItemsPage = ({children}) => <html>
-  <Head site={site}/>
-  <body>
-    <Navigation navigation={navigation} version={version}/>
+const ItemsPage = ({children}) =>
+  <html>
+    <Head site={site} />
+    <body>
+      <Navigation navigation={navigation} version={version} />
 
-    <div className="data-container">
-      {children}
-    </div>
+      <div className="data-container">
+        {children}
+      </div>
 
-  </body>
-</html>;
+    </body>
+  </html>;
 
 ItemsPage.propTypes = {
   children: PropTypes.node

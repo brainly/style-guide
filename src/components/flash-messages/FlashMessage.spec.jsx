@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const flashMessage = shallow(
-    <FlashMessage text="test"/>
+    <FlashMessage text="test" />
   );
 
   expect(flashMessage.hasClass('sg-flash')).toEqual(true);
@@ -13,7 +13,7 @@ test('render', () => {
 
 test('default type', () => {
   const flashMessage = shallow(
-    <FlashMessage text="test"/>
+    <FlashMessage text="test" />
   );
   const messageDiv = flashMessage.find('div.sg-flash__message');
 
@@ -23,7 +23,7 @@ test('default type', () => {
 
 test('type', () => {
   const flashMessage = shallow(
-    <FlashMessage text="test" type={TYPE.ERROR}/>
+    <FlashMessage text="test" type={TYPE.ERROR} />
   );
 
   const messageDiv = flashMessage.find('div.sg-flash__message');
@@ -36,7 +36,7 @@ test('error when no text', () => {
 
   console.error = jest.fn();
   shallow(
-    <FlashMessage type={TYPE.SUCCESS}/>);
+    <FlashMessage type={TYPE.SUCCESS} />);
 
   expect(console.error.mock.calls).toHaveLength(1);
 

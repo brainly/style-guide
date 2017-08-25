@@ -30,11 +30,13 @@ const Texts = () => {
     }
   ];
 
-  return <div>
-    <DocsActiveBlock settings={settings}>
-      <Text>Lorem Ipsum</Text>
-    </DocsActiveBlock>
-  </div>;
+  return (
+    <div>
+      <DocsActiveBlock settings={settings}>
+        <Text>Lorem Ipsum</Text>
+      </DocsActiveBlock>
+    </div>
+  );
 };
 
 export default Texts;

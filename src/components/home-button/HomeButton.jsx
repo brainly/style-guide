@@ -18,10 +18,12 @@ const HomeButton = ({type = TYPE.BRAINLY, href = '#', className, ...props}) => {
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
   const mobilePath = `${BASE_URL}${ICONS[type]}.svg`;
 
-  return <a {...props} href={href} className={buttonClass}>
-    <img className="sg-home-button__logo-small" src={mobilePath}/>
-    <img className="sg-home-button__logo-big" src={logoPath}/>
-  </a>;
+  return (
+    <a {...props} href={href} className={buttonClass}>
+      <img className="sg-home-button__logo-small" src={mobilePath} />
+      <img className="sg-home-button__logo-big" src={logoPath} />
+    </a>
+  );
 };
 
 HomeButton.propTypes = {

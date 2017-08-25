@@ -34,7 +34,7 @@ const ComponentSettingsInput = ({values, currentValue = '', onChange}) => {
     inputType = 'text';
   }
 
-  return <Input type={inputType} value={currentValue} onChange={inputChanged}/>;
+  return <Input type={inputType} value={currentValue} onChange={inputChanged} />;
 };
 
 ComponentSettingsInput.propTypes = {
