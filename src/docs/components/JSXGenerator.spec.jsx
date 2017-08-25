@@ -14,7 +14,7 @@ test('only component', () => {
 
 test('component with bool param', () => {
   const input = <Avatar border />;
-  const output = '<Avatar border={true} />';
+  const output = '<Avatar border />';
 
   expect(generateJSX(input)).toEqual(output);
 });
@@ -37,7 +37,7 @@ test('component with object param', () => {
 
 test('component with multiple params', () => {
   const input = <Avatar size={SIZE.LARGE} border imgSrc="http://image.com/image.jpg" />;
-  const output = `<Avatar size={${sizeLargeString}} border={true} imgSrc="http://image.com/image.jpg" />`;
+  const output = `<Avatar size={${sizeLargeString}} border imgSrc="http://image.com/image.jpg" />`;
 
   expect(generateJSX(input)).toEqual(output);
 });
