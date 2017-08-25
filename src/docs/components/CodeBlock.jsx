@@ -5,13 +5,6 @@ import hljs from 'hljs';
 import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
 
 class CodeBlock extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.copyCodeFunction = this.copyCodeFunction.bind(this);
-  }
-
   componentDidMount() {
     this.prepareClipboard();
   }
@@ -27,9 +20,9 @@ class CodeBlock extends Component {
     });
   }
 
-  copyCodeFunction(node)  {
+  copyCodeFunction = node => {
     this.copyCode = node;
-  }
+  };
 
   render() {
     const {children, type} = this.props;
