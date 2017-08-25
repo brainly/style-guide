@@ -38,9 +38,53 @@ class DocsActiveBlock extends Component {
       props: componentProps,
       renderNormally: true
     };
+
+    this.setProps = this.setProps.bind(this);
+    this.settingsChanged = this.settingsChanged.bind(this);
   }
 
-  setProps = (key, value) => {
+  isPropRequired(propName) {
+    const settings = this.props.settings;
+
+    if (Array.isArray(settings)) {
+      const propSettings = settings.find(propSettings => propSettings.name === propName);
+
+      return propSettings && propSettings.required;
+    }
+
+    return false;
+  }
+
+  /**
+   * Returns only props that are required or have non-default values.
+   *
+   * @returns {Object} object representing react props
+   */
+  getCleanProps() {
+    const component = this.props.children;
+    const props = Object.assign({}, component.props, this.state.props);
+    const originalComponent = React.cloneElement(component, props);
+    const originalHTML = ReactDOMServer.renderToStaticMarkup(originalComponent);
+
+    Object.keys(this.state.props).forEach(key => {
+      if (key === 'key' || key === 'children' || props[key] === undefined || this.isPropRequired(key)) {
+        return;
+      }
+
+      const inputPropsWithoutAProp = Object.assign({}, props, {[key]: undefined});
+      const componentWithoutAProp = React.cloneElement(component, inputPropsWithoutAProp);
+
+      const withoutPropHTML = ReactDOMServer.renderToStaticMarkup(componentWithoutAProp);
+
+      if (originalHTML === withoutPropHTML) {
+        props[key] = undefined;
+      }
+    });
+
+    return props;
+  }
+
+  setProps(key, value) {
     const props = this.state.props;
 
     props[key] = value;
@@ -49,47 +93,16 @@ class DocsActiveBlock extends Component {
       props
     });
     this.remountComponent();
-  };
+  }
 
-  settingsChanged = (setting, value) => {
+  settingsChanged(setting, value) {
     this.setState({
       [setting]: value
     });
-  };
+  }
 
   remountComponent() {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
-  }
-
-  getPropsToRemove(props) {
-    const settings = this.props.settings;
-
-    if (!Array.isArray(settings)) {
-      return [];
-    }
-
-    const unchangedProps = Object.keys(props)
-      .filter(key => {
-        const propSettings = settings.find(setting => setting.name === key);
-
-        return !!(!propSettings || propSettings.required);
-      });
-
-    return Object.keys(props)
-      .filter(key => unchangedProps.indexOf(key) > -1);
-  }
-
-  removePropsWithDefaultValues(props) {
-    const fewerProps = Object.assign({}, props);
-    const propsToRemove = this.getPropsToRemove(props);
-
-    for (const prop in propsToRemove) {
-      if (fewerProps.hasOwnProperty(prop)) {
-        delete fewerProps[prop];
-      }
-    }
-
-    return fewerProps;
   }
 
   render() {
@@ -99,7 +112,7 @@ class DocsActiveBlock extends Component {
     let code;
 
     if (this.state.renderNormally) {
-      component = React.cloneElement(this.props.children, this.removePropsWithDefaultValues(this.state.props));
+      component = React.cloneElement(this.props.children, this.getCleanProps());
 
       if (this.state.showCode === 'jsx') {
         const jsx = generateJSX(component);
