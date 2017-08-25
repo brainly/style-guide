@@ -55,7 +55,7 @@ class DocsActiveBlock extends Component {
     this.setState({
       [setting]: value
     });
-  }
+  };
 
   remountComponent() {
     this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
