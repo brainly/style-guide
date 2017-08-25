@@ -13,7 +13,7 @@ test('only component', () => {
 });
 
 test('component with bool param', () => {
-  const input = <Avatar border={true} />;
+  const input = <Avatar border />;
   const output = '<Avatar border />';
 
   expect(generateJSX(input)).toEqual(output);
