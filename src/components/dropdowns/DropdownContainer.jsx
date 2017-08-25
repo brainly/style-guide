@@ -10,16 +10,13 @@ class DropdownContainer extends Component {
       isOpened: this.props.openOnStart || false,
       currentItem: this.props.currentItem || {}
     };
-
-    this.onItemClick = this.onItemClick.bind(this);
-    this.toggle = this.toggle.bind(this);
   }
 
   getLabel() {
     return this.state.currentItem.text || this.props.label || '';
   }
 
-  onItemClick(id) {
+  onItemClick = id => {
     const currentItem = this.props.items.find(item => item.id === id);
 
     if (this.state.currentItem && this.state.currentItem.id === currentItem.id) {
@@ -31,11 +28,11 @@ class DropdownContainer extends Component {
     if (this.props.onChange) {
       this.props.onChange(id);
     }
-  }
+  };
 
-  toggle() {
+  toggle = () => {
     this.setState({isOpened: !this.state.isOpened});
-  }
+  };
 
   render() {
     return <Dropdown
