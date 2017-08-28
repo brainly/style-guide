@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-bind */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from 'text/Text';
@@ -15,14 +14,15 @@ const ComponentSettings = ({settings, values, onChange}) => {
     const allowedValues = propSettings.values;
     const isRequired = Boolean(propSettings.required);
     const currentValue = values[propName];
+    const inputOnChange = value => onChange(propName, value);
     let input = null;
 
     if (isPlainObject(allowedValues)) {
       input = <ComponentSettingsSelect key={propName} values={allowedValues} currentValue={currentValue}
-        required={isRequired} onChange={value => onChange(propName, value)} />;
+        required={isRequired} onChange={inputOnChange} />;
     } else {
       input = <ComponentSettingsInput key={propName} values={allowedValues} currentValue={currentValue}
-        onChange={value => onChange(propName, value)} />;
+        onChange={inputOnChange} />;
     }
 
     return <label key={propName}><Text>{propName}:</Text> {input} </label>;
