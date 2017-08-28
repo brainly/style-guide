@@ -10,7 +10,8 @@ const FlashMessages = () => {
     },
     {
       name: 'text',
-      values: String
+      values: String,
+      required: true
     }
   ];
 

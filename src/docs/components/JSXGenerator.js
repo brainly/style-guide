@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOMServer from 'react-dom/server';
 
 function propToString(prop, inJS = false) {
   let result = '';
@@ -30,13 +29,6 @@ function generateJSX(component) {
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
     .filter(key => component.props[key] !== undefined)
-    .filter(key => {
-      const componentWithoutProp = React.cloneElement(component, {[`${key}`]: undefined});
-      const codeWithProp = ReactDOMServer.renderToStaticMarkup(component);
-      const codeWithoutProp = ReactDOMServer.renderToStaticMarkup(componentWithoutProp);
-
-      return codeWithProp !== codeWithoutProp;
-    })
     .map(key => {
       if (component.props[key] === true) {
         return key;
@@ -51,8 +43,7 @@ function generateJSX(component) {
   }
 
   return React.Children.count(component.props.children) ?
-    `<${type}${jsxProps}>${React.Children.map(component.props.children,
-      childrenComp => generateJSX(childrenComp)).join('')}</${type}>` :
+    `<${type}${jsxProps}>${React.Children.map(component.props.children, generateJSX).join('')}</${type}>` :
     `<${type}${jsxProps} />`;
 }
 
