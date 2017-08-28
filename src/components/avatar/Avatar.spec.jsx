@@ -70,3 +70,17 @@ test('spaced', () => {
 
   expect(avatar.hasClass('sg-avatar--spaced')).toEqual(true);
 });
+
+test('link', () => {
+  const avatar = shallow(
+    <Avatar link="https://brainly.com" />
+  );
+
+  expect(avatar.find('a')).toHaveLength(1);
+
+  const avatar1 = shallow(
+    <Avatar />
+  );
+
+  expect(avatar1.find('a')).toHaveLength(0);
+});
