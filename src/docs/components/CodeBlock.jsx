@@ -24,6 +24,10 @@ class CodeBlock extends Component {
     this.copyCode = node;
   };
 
+  copyButtonFunction = node => {
+    this.copyButton = node;
+  };
+
   render() {
     const {children, type} = this.props;
 
@@ -59,7 +63,7 @@ class CodeBlock extends Component {
           </code>
         </pre>
         <div className="copy-helper__buttons"
-          ref={this.copyCodeFunction}>
+          ref={this.copyButtonFunction}>
           <IconAsButton
             title="Copy to the clipboard" type={TYPE.ANSWER} color={COLOR.DARK} />
         </div>
