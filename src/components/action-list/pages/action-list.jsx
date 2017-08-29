@@ -132,6 +132,45 @@ const ActionLists = () =>
       </ContrastBox>
     ]}>
     </DocsBlock>
+
+    <DocsBlock info='Hole - as container'>
+      <ContrastBox>
+        <ActionList noWrap>
+          <ActionListHole asContainer>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              You can position absolute elements here
+            </Text>
+          </ActionListHole>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              Default behaviour
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info='Hole - without spacing'>
+      <ContrastBox>
+        <ActionList noWrap>
+          <ActionListHole noSpacing>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This component does not have margin thanks to modifier
+            </Text>
+          </ActionListHole>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This component has right margin
+            </Text>
+          </ActionListHole>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              By default, last hole does not have right margin
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
   </div>;
 
 export default ActionLists;
