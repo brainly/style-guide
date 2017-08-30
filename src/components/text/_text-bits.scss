@@ -44,6 +44,10 @@ $includeHtml: false !default;
       color: $textBitWarningColor;
     }
 
+    &--lavender {
+      color: $lavenderPrimary;
+    }
+
     &--small {
       font-size: rhythm(1);
       line-height: rhythm(1);

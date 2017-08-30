@@ -31,6 +31,7 @@ const COLOR = {
   LIGHT: 'light',
   BLUE: 'blue',
   MUSTARD: 'mustard',
+  LAVENDER: 'lavender',
   FINE_PRINT: 'for-fine-print',
   FINE_PRINT_LIGHT: 'for-fine-print-light'
 };

@@ -56,6 +56,11 @@ const TextExamples = () =>
       This is a error example
       <br /><br />
     </Text>
+    <Text color={COLOR.LAVENDER}>
+      <br />
+      This is a lavender text example
+      <br /><br />
+    </Text>
     <Text color={COLOR.BLUE}>
       <br />
       This is blue text it should be used only in components not in text context

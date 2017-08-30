@@ -22,6 +22,10 @@ const Buttons = () =>
         Search
       </ButtonPrimary>
       &nbsp;
+      <ButtonPrimary type={TYPE.LAVENDER}>
+        Go
+      </ButtonPrimary>
+      &nbsp;
       <ButtonPrimary disabled>
         Disabled
       </ButtonPrimary>
@@ -83,6 +87,9 @@ const Buttons = () =>
       <ButtonSecondary type={types2.DARK}>
         Search
       </ButtonSecondary>
+      <ButtonSecondary type={types2.LAVENDER}>
+        Search
+      </ButtonSecondary>
       &nbsp;
       <ButtonSecondary disabled>
         Disabled
@@ -134,6 +141,10 @@ const Buttons = () =>
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary type={types2.DARK} small>
+        Search
+      </ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary type={types2.LAVENDER} small>
         Search
       </ButtonSecondary>
       &nbsp;
