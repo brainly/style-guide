@@ -24,7 +24,8 @@ const COLOR = {
   LIGHT: 'light',
   DARK: 'dark',
   GRAY: 'gray',
-  WARNING: 'warning'
+  WARNING: 'warning',
+  LAVENDER: 'lavender'
 };
 
 const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, className, ...props}) => {

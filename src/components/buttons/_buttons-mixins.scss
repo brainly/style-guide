@@ -76,6 +76,10 @@ $buttonActiveScale: scale(0.985);
     background-color: $buttonDarkColor;
   }
 
+  &--lavender {
+    background-color: $lavenderPrimary;
+  }
+
   &--inverse {
     background-color: $buttonInverseColor;
     color: $buttonInverseFontColor;

@@ -14,6 +14,9 @@ const TextBitExamples = () =>
     <TextBit color={COLOR.GRAY}>
       What do you need to know?
     </TextBit>
+    <TextBit color={COLOR.LAVENDER}>
+      What do you need to know?
+    </TextBit>
     <TextBit size={SIZE.SMALL} notResponsive>
       What do you need to know?
     </TextBit>

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 const TYPE = {
   ALT: 'alt',
   DARK: 'dark',
+  LAVENDER: 'lavender',
   INVERSE: 'inverse',
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
