@@ -1,5 +1,5 @@
 import React from 'react';
-import SubjectIcon, {TYPE, SIZE} from '../SubjectIcon';
+import SubjectIcon, {TYPE, SIZE, MONO} from '../SubjectIcon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const SubjectIcons = () => {
@@ -15,7 +15,7 @@ const SubjectIcons = () => {
     },
     {
       name: 'mono',
-      values: Boolean
+      values: MONO
     }
   ];
 

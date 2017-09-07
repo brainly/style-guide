@@ -86,9 +86,24 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, className, mono, ...props}) => {
+const MONO = {
+  LIGHT: 'light',
+  ADAPTIVE: 'adaptive',
+  GRAY: 'gray',
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_LIGHT: 'gray-light',
+  BLUE: 'blue',
+  MUSTARD: 'mustard',
+  LAVENDER: 'lavender',
+  PEACH: 'peach',
+  DARK: 'dark',
+  MINT: 'mint'
+};
+
+const SubjectIcon = ({type, size = SIZE.NORMAL, mono, className, ...props}) => {
   const iconClass = classNames('sg-subject-icon', {
-    [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL
+    [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
+    [`sg-subject-icon--${mono}`]: mono !== MONO.LIGHT && mono !== undefined
   }, className);
   const iconType = `#icon-subject-${mono ? 'mono-' : ''}${type}`;
 
@@ -102,9 +117,9 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, className, mono, ...props}) => {
 SubjectIcon.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  mono: PropTypes.bool,
+  mono: PropTypes.oneOf(Object.values(MONO)),
   className: PropTypes.string
 };
 
 export default SubjectIcon;
-export {TYPE, SIZE};
+export {TYPE, SIZE, MONO};
