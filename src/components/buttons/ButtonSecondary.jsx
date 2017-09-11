@@ -20,10 +20,16 @@ const ButtonSecondary = ({small, wide, disabled, type, children, className, ...p
     'sg-button-secondary--active-inverse-disabled': disabled && TYPE.ACTIVE_INVERSE
   }, className);
 
+  let TypeToRender = 'button';
+
+  if (props.href) {
+    TypeToRender = 'a';
+  }
+
   return (
-    <button {...props} disabled={disabled} className={btnClass}>
+    <TypeToRender {...props} disabled={disabled} className={btnClass}>
       {children}
-    </button>
+    </TypeToRender>
   );
 };
 
@@ -31,6 +37,7 @@ ButtonSecondary.propTypes = {
   small: PropTypes.bool,
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
+  href: PropTypes.string,
   children: PropTypes.node.isRequired,
   type: PropTypes.oneOf(Object.values(TYPE)),
   className: PropTypes.string
