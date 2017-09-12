@@ -24,11 +24,17 @@ const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...prop
     ico = <span className="sg-button-primary__icon">{icon}</span>;
   }
 
+  let TypeToRender = 'button';
+
+  if (props.href) {
+    TypeToRender = 'a';
+  }
+
   return (
-    <button {...props} disabled={disabled} className={btnClass}>
+    <TypeToRender {...props} disabled={disabled} className={btnClass}>
       {ico}
       {children}
-    </button>
+    </TypeToRender>
   );
 };
 
@@ -37,6 +43,7 @@ ButtonPrimary.propTypes = {
   icon: PropTypes.node,
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
+  href: PropTypes.string,
   type: PropTypes.oneOf(Object.values(TYPE)),
   className: PropTypes.string
 };
