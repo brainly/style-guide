@@ -55,6 +55,7 @@ $includeHtml: false !default;
       font-size: $inputPlaceholderFontSize;
       font-weight: $fontWeightBold;
       position: relative;
+      opacity: 1;
     }
 
     &--light {
