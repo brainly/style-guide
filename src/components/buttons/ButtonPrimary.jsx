@@ -19,11 +19,12 @@ const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...prop
   }, className);
 
   let ico;
-  let TypeToRender = 'button';
 
   if (icon) {
     ico = <span className="sg-button-primary__icon">{icon}</span>;
   }
+
+  let TypeToRender = 'button';
 
   if (props.href) {
     TypeToRender = 'a';
