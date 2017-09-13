@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const SIZE = {
   SHORT: 'short',
@@ -19,6 +20,8 @@ const Textarea = props => {
     autoHeight,
     value,
     className,
+    autoHeightReact,
+    nested,
     ...additionalProps
   } = props;
 
@@ -35,10 +38,19 @@ const Textarea = props => {
     'sg-textarea--invalid': invalid,
     'sg-textarea--full-width': fullWidth,
     'sg-textarea--simple': simple,
+    'sg-textarea--nested': nested,
     'sg-textarea--auto-height': autoHeight
   }, className);
 
-  return <textarea className={textareaClass} value={value} {...additionalProps} />;
+  const textareaProps = {
+    className: textareaClass, value, ...additionalProps
+  };
+
+  if (autoHeightReact) {
+    return <TextareaAutosize {...textareaProps} />;
+  } else {
+    return <textarea {...textareaProps} />;
+  }
 };
 
 Textarea.propTypes = {
@@ -50,6 +62,8 @@ Textarea.propTypes = {
   fullWidth: PropTypes.bool,
   simple: PropTypes.bool,
   autoHeight: PropTypes.bool,
+  nested: PropTypes.bool,
+  autoHeightReact: PropTypes.bool,
   className: PropTypes.string
 };
 
