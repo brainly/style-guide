@@ -12,4 +12,44 @@
     height: 24px;
     width: 24px;
   }
+
+  &--adaptive {
+    fill: inherit;
+  }
+
+  &--gray {
+    fill: $grayPrimary;
+  }
+
+  &--gray-secondary {
+    fill: $graySecondary;
+  }
+
+  &--gray-light {
+    fill: $graySecondaryLight;
+  }
+
+  &--blue {
+    fill: $bluePrimary;
+  }
+
+  &--mustard {
+    fill: $mustardPrimary;
+  }
+
+  &--lavender {
+    fill: $lavenderPrimary;
+  }
+
+  &--peach {
+    fill: $peachPrimary;
+  }
+
+  &--dark {
+    fill: $black;
+  }
+
+  &--mint {
+    fill: $mintPrimary;
+  }
 }
