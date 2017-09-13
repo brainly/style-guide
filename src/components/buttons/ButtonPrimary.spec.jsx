@@ -20,6 +20,15 @@ test('type', () => {
   expect(button.hasClass('sg-button-primary--' + type)).toEqual(true);
 });
 
+test('button with href', () => {
+  const button = shallow(
+    <ButtonPrimary href="http://example.com">Some text</ButtonPrimary>
+  );
+
+  expect(button.find('a')).toHaveLength(1);
+  expect(button.find('button')).toHaveLength(0);
+});
+
 test('disabled', () => {
   const button = shallow(
     <ButtonPrimary disabled>Some text</ButtonPrimary>
