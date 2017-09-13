@@ -28,6 +28,10 @@ const Buttons = () => {
     {
       name: 'icon',
       values: allIcons
+    },
+    {
+      name: 'href',
+      values: String
     }
   ];
 
@@ -58,6 +62,10 @@ const Buttons = () => {
     {
       name: 'disabled',
       values: Boolean
+    },
+    {
+      name: 'href',
+      values: String
     }
   ];
 
