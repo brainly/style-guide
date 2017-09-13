@@ -1,5 +1,5 @@
 import React from 'react';
-import SubjectIcon, {TYPE, SIZE, MONO} from '../SubjectIcon';
+import SubjectIcon, {TYPE, SIZE, MONO_COLOR} from '../SubjectIcon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const SubjectIcons = () => {
@@ -14,8 +14,8 @@ const SubjectIcons = () => {
       values: SIZE
     },
     {
-      name: 'mono',
-      values: MONO
+      name: 'monoColor',
+      values: MONO_COLOR
     }
   ];
 
@@ -25,7 +25,7 @@ const SubjectIcons = () => {
         <SubjectIcon type={TYPE.MATHEMATICS} />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <SubjectIcon type={TYPE.BIOLOGY} mono />
+        <SubjectIcon type={TYPE.BIOLOGY} monoColor={MONO_COLOR.LIGHT} />
       </DocsActiveBlock>
     </div>
   );

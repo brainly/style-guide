@@ -86,7 +86,7 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const MONO = {
+const MONO_COLOR = {
   LIGHT: 'light',
   ADAPTIVE: 'adaptive',
   GRAY: 'gray',
@@ -100,12 +100,12 @@ const MONO = {
   MINT: 'mint'
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, mono, className, ...props}) => {
+const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props}) => {
   const iconClass = classNames('sg-subject-icon', {
     [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
-    [`sg-subject-icon--${mono}`]: mono !== MONO.LIGHT && mono !== undefined
+    [`sg-subject-icon--${monoColor}`]: monoColor !== MONO_COLOR.LIGHT && monoColor !== undefined
   }, className);
-  const iconType = `#icon-subject-${mono ? 'mono-' : ''}${type}`;
+  const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
 
   return (
     <svg {...props} className={iconClass}>
@@ -117,9 +117,9 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, mono, className, ...props}) => {
 SubjectIcon.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  mono: PropTypes.oneOf(Object.values(MONO)),
+  monoColor: PropTypes.oneOf(Object.values(MONO_COLOR)),
   className: PropTypes.string
 };
 
 export default SubjectIcon;
-export {TYPE, SIZE, MONO};
+export {TYPE, SIZE, MONO_COLOR};
