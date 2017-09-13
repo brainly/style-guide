@@ -47,7 +47,7 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "js-lint": "npm run eslint --ext .js --ext .jsx src/",
+    "js-lint": "npm run eslint -- --ext .js --ext .jsx src/",
     "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
