@@ -19,6 +19,7 @@ const Textarea = props => {
     autoHeight,
     value,
     className,
+    nested,
     ...additionalProps
   } = props;
 
@@ -35,6 +36,7 @@ const Textarea = props => {
     'sg-textarea--invalid': invalid,
     'sg-textarea--full-width': fullWidth,
     'sg-textarea--simple': simple,
+    'sg-textarea--nested': nested,
     'sg-textarea--auto-height': autoHeight
   }, className);
 
@@ -50,6 +52,7 @@ Textarea.propTypes = {
   fullWidth: PropTypes.bool,
   simple: PropTypes.bool,
   autoHeight: PropTypes.bool,
+  nested: PropTypes.bool,
   className: PropTypes.string
 };
 
