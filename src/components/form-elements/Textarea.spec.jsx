@@ -1,6 +1,6 @@
 import React from 'react';
 import Textarea, {SIZE} from './Textarea';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 test('render', () => {
   const textarea = shallow(
@@ -88,4 +88,13 @@ test('default size', () => {
 
   expect(textarea.hasClass('sg-textarea--normal')).toEqual(false);
   expect(textarea.hasClass('sg-textarea--short')).toEqual(false);
+});
+
+test('Type', () => {
+  const CustomTextarea = props => <textarea {...props} data-super-custom="superCustom" />;
+  const textarea = mount(
+    <Textarea Type={CustomTextarea} />
+  );
+
+  expect(textarea.find('[data-super-custom="superCustom"]')).toHaveLength(1);
 });

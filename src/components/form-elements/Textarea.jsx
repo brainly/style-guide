@@ -19,6 +19,7 @@ const Textarea = props => {
     autoHeight,
     value,
     className,
+    Type = 'textarea',
     ...additionalProps
   } = props;
 
@@ -38,11 +39,11 @@ const Textarea = props => {
     'sg-textarea--auto-height': autoHeight
   }, className);
 
-  return <textarea className={textareaClass} value={value} {...additionalProps} />;
+  return <Type className={textareaClass} value={value} {...additionalProps} />;
 };
 
 Textarea.propTypes = {
-  type: PropTypes.string,
+  Type: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   value: PropTypes.string,
   size: PropTypes.oneOf(Object.values(SIZE)),
   valid: PropTypes.bool,
