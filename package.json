@@ -68,7 +68,6 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "node-uuid": "^1.4.8",
-    "react-textarea-autosize": "^5.1.0"
+    "node-uuid": "^1.4.8"
   }
 }
