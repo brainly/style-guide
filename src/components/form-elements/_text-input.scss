@@ -1,4 +1,3 @@
-// sass-lint:disable no-vendor-prefixes
 $inputHeight: rhythm(3 / 2);
 $inputLargeHeight: rhythm(8 / 3);
 $inputSmallHeight: rhythm(5 / 4);
@@ -104,12 +103,12 @@ $includeHtml: false !default;
 
     &--valid {
       color: $inputFocusValidBorderColor;
-      -webkit-text-stroke: 0.5px $inputFocusValidBorderColor;
+      -webkit-text-stroke: 0.5px $inputFocusValidBorderColor; // sass-lint:disable-line no-vendor-prefixes
     }
 
     &--invalid {
       color: $inputFocusInvalidBorderColor;
-      -webkit-text-stroke: 0.5px $inputFocusInvalidBorderColor;
+      -webkit-text-stroke: 0.5px $inputFocusInvalidBorderColor; // sass-lint:disable-line no-vendor-prefixes
     }
 
     &--full-width {
