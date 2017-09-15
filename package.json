@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "113.2.2",
+  "version": "114.0.0",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -15,7 +15,7 @@
     "babel-preset-react": "^6.24.1",
     "del": "^2.2.0",
     "enzyme": "^2.8.2",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#15.0.0",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v15.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-base64": "^0.1.3",
