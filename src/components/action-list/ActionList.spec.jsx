@@ -67,17 +67,3 @@ describe('ActionList', () => {
   });
 });
 
-describe('ActionListHole', () => {
-  test('render', () => {
-    const actionListHole = shallow(
-      <ActionListHole>
-        <ButtonSecondary type={buttonSecondaryTypes.alt} small>
-          accept
-        </ButtonSecondary>
-      </ActionListHole>
-    );
-
-    expect(actionListHole.hasClass('sg-actions-list__hole')).toEqual(true);
-  });
-});
-
