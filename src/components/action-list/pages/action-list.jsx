@@ -134,7 +134,7 @@ const ActionLists = () =>
     </DocsBlock>
 
     <DocsBlock info='Hole - as container'>
-      <ContrastBox>
+      <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole asContainer>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
@@ -150,22 +150,95 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - without spacing'>
-      <ContrastBox>
+    <DocsBlock info='Hole - no-spacing'>
+      <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole noSpacing>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole noSpacing>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Last hole does not have margin
+            </ButtonSecondary>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info='Hole - grow'>
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole grow>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              This component does not have margin thanks to modifier
+              This component will grow to fill all remaining size
             </Text>
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              This component has right margin
+              This component has default width
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info='Hole - no-shrink'>
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole grow>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This component will grow to fill all remaining size
             </Text>
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              By default, last hole does not have right margin
+              This component will not be shrinked even if its width is smalle
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info='Hole - to-right'>
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This is default component
+            </Text>
+          </ActionListHole>
+          <ActionListHole toRight>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This component will stick to right side
+            </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info='Hole - to-end'>
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
+                Action 1
+              </ButtonPrimary>
+              <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
+                Action 2
+              </ButtonPrimary>
+            </Text>
+          </ActionListHole>
+          <ActionListHole toEnd>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              This component will be pulled down if container is higher than its contents
             </Text>
           </ActionListHole>
         </ActionList>
