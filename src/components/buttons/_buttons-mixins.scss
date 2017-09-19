@@ -8,6 +8,11 @@ $buttonInverseFontColor: $mintPrimary;
 $buttonInverseAltFontColor: $bluePrimary;
 $buttonInverseDarkFontColor: $grayPrimary;
 
+$buttonActiveInverseColor: $white;
+$buttonActiveInverseFontColor: $peachPrimary;
+$buttonActiveInverseInteractionColor: $peachPrimary;
+$buttonActiveInverseInteractionFontColor: $white;
+
 $buttonBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 $buttonHoverBoxShadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
 $buttonActiveBoxShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -92,6 +97,31 @@ $buttonActiveScale: scale(0.985);
     background-color: $buttonInverseColor;
     color: $buttonInverseDarkFontColor;
     fill: $buttonInverseDarkFontColor;
+  }
+
+  &--active-inverse {
+    background-color: $buttonActiveInverseColor;
+    color: $buttonActiveInverseFontColor;
+    fill: $buttonActiveInverseFontColor;
+    transition-property: box-shadow, transform, background-color, color, fill, opacity;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $buttonActiveInverseInteractionColor;
+      color: $buttonActiveInverseInteractionFontColor;
+      fill: $buttonActiveInverseInteractionFontColor;
+    }
+
+    &.sg-button-secondary--disabled {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $buttonActiveInverseColor;
+        color: $buttonActiveInverseFontColor;
+        fill: $buttonActiveInverseFontColor;
+      }
+    }
   }
 
   & .sg-label__text {

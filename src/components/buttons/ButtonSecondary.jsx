@@ -16,8 +16,7 @@ const ButtonSecondary = ({small, wide, disabled, type, children, className, ...p
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
     [`sg-button-secondary--${type}`]: type,
-    'sg-button-secondary--full-width': wide,
-    'sg-button-secondary--active-inverse-disabled': disabled && type === TYPE.ACTIVE_INVERSE
+    'sg-button-secondary--full-width': wide
   }, className);
 
   let TypeToRender = 'button';
