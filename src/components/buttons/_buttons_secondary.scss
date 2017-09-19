@@ -27,44 +27,5 @@ $includeHtml: false !default;
       border-radius: $buttonSecondarySmallBorderRadius;
       font-size: $buttonSecondarySmallFontSize;
     }
-
-    &--active-inverse {
-      background-color: $white;
-      color: $peachPrimary;
-      fill: $peachPrimary;
-      transition-property: box-shadow, transform, background-color, color, fill, opacity;
-
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: $peachPrimary;
-        color: $white;
-        fill: $white;
-      }
-
-    }
-
-    &--active-inverse-disabled {
-      background-color: $white;
-      color: $peachPrimary;
-      fill: $peachPrimary;
-      opacity: 0.45;
-      cursor: default;
-      box-shadow: $buttonBoxShadow;
-
-      &:active {
-        transform: none;
-      }
-
-      &:active,
-      &:focus,
-      &:hover {
-        box-shadow: $buttonBoxShadow;
-
-        background-color: $white;
-        color: $peachPrimary;
-        fill: $peachPrimary;
-      }
-    }
   }
 }
