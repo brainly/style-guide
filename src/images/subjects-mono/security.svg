@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <title>security</title>
   <rect x="14.82" y="12.68" width="6" height="3" transform="translate(20.39 36.81) rotate(-135)" />
   <rect x="3.18" y="12.68" width="6" height="3" transform="translate(-8.22 8.53) rotate(-45)" />
   <path d="M12,2A7,7,0,0,0,7.87,14.63l1.29-1.29a3.87,3.87,0,0,1,5.48-.22l1.51,1.5A7,7,0,0,0,12,2ZM9,9a1,1,0,1,1,1-1A1,1,0,0,1,9,9Zm6,0a1,1,0,1,1,1-1A1,1,0,0,1,15,9Z" />
