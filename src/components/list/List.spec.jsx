@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import List, {ListItem} from 'list/List';
-import Icon from 'icons/Icon';
+import Icon, {TYPE} from 'icons/Icon';
 
 const testItem = 'test';
 const items = [testItem];
@@ -34,17 +34,30 @@ describe('list', () => {
 
 describe('list item', () => {
 
-  test('render', () => {
+  test('render - no default icon', () => {
     const listItem = shallow(
       <ListItem text="test" />
     );
     const icon = listItem.find(Icon);
-    const iconDiv = listItem.find('div').at(0);
+    const iconDiv = listItem.find('.sg-list__icon');
+
+    expect(listItem.hasClass('sg-list__element')).toEqual(true);
+    expect(icon).toHaveLength(0);
+    expect(iconDiv).toHaveLength(0);
+  });
+
+  test('iconType', () => {
+    const listItem = shallow(
+      <ListItem text="test" iconType={TYPE.ARROW_RIGHT} />
+    );
+    const icon = listItem.find(Icon);
+    const iconDiv = listItem.find('.sg-list__icon');
 
     expect(listItem.hasClass('sg-list__element')).toEqual(true);
     expect(icon).toHaveLength(1);
     expect(icon.props().type).toEqual('arrow_right');
-    expect(iconDiv.hasClass('sg-list__icon')).toEqual(true);
+    expect(iconDiv).toHaveLength(1);
+    expect(iconDiv.at(0).hasClass('sg-list__icon')).toEqual(true);
   });
 
   test('small right spacing', () => {
