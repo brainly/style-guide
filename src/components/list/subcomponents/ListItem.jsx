@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../../icons/Icon';
 import Text, {SIZE} from '../../text/Text';
 
-const ListItem = ({text, small, iconType = ICON_TYPE.ARROW_RIGHT, iconColor = ICON_COLOR.LIGHT}) => {
+const ListItem = ({text, small, iconType, iconColor = ICON_COLOR.LIGHT}) => {
   const iconClass = classNames('sg-list__icon', {
     'sg-list__icon--spacing-right-small': small
   });
@@ -18,9 +18,11 @@ const ListItem = ({text, small, iconType = ICON_TYPE.ARROW_RIGHT, iconColor = IC
 
   return (
     <li className="sg-list__element">
+      {iconType &&
       <div className={iconClass}>
         <Icon type={iconType} size={iconSize} color={iconColor} />
       </div>
+      }
       {content}
     </li>
   );
