@@ -40,6 +40,7 @@ import OverlayedBoxes from 'overlayed-box/pages/overlayed-box-interactive';
 import Logos from 'logo/pages/logo-interactive';
 import Media from 'media/pages/media-interactive';
 import Helpers from 'helpers/pages/rwd-interactive';
+import ContentBoxes from 'content-box/pages/content-box-interactive';
 
 const demos = {
   'Avatars': <Avatars />,
@@ -80,7 +81,8 @@ const demos = {
   'Overlayed box': <OverlayedBoxes />,
   'Logo': <Logos />,
   'Media': <Media />,
-  'Helpers': <Helpers />
+  'Helpers': <Helpers />,
+  'ContentBox': <ContentBoxes />
 };
 
 const sections = Object.keys(demos).map(key =>
