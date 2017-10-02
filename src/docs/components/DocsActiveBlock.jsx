@@ -58,7 +58,15 @@ class DocsActiveBlock extends Component {
    * @returns {Object} object representing react props
    */
   getCleanProps() {
-    const component = this.props.children;
+    const component = Object.assign({}, this.props.children);
+
+    if (typeof component.type === 'function') {
+      const fakeComponentClass = component.type.bind();
+
+      fakeComponentClass.propTypes = {};
+      component.type = fakeComponentClass;
+    }
+
     const props = Object.assign({}, component.props, this.state.props);
     const originalComponent = React.cloneElement(component, props);
     const originalHTML = ReactDOMServer.renderToStaticMarkup(originalComponent);
