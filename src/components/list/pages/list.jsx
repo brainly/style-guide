@@ -2,7 +2,7 @@ import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContrastBox from 'components/ContrastBox';
-import List from '../List';
+import List, {ICON_TYPE} from '../List';
 import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';
@@ -23,29 +23,29 @@ const menuItems = [menuItem1, menuItem2, menuItem3];
 
 const ListItems = () =>
   <div>
-    <DocsBlock info="Default">
+    <DocsBlock info="Default with icon ARROW_RIGHT">
       <ContrastBox>
-        <List items={items} />
+        <List items={items} iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small list">
       <ContrastBox>
-        <List items={items} small />
+        <List items={items} small iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="List with spacings">
       <ContrastBox>
-        <List items={items} spaced />
+        <List items={items} spaced iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example">
       <ContrastBox>
-        <List items={exampleItems} />
+        <List items={exampleItems} iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example (small text)">
       <ContrastBox>
-        <List items={exampleSmall} small />
+        <List items={exampleSmall} small iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
 
