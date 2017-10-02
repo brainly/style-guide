@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 
 class DropdownContainer extends Component {
-  constructor(props) {
-    super(props);
+  static defaultProps = {
+    items: []
+  };
 
-    this.state = {
-      isOpened: this.props.openOnStart || false,
-      currentItem: this.props.currentItem || {}
-    };
-  }
+  state = {
+    isOpened: this.props.openOnStart || false,
+    currentItem: this.props.currentItem || {}
+  };
 
   getLabel() {
     return this.state.currentItem.text || this.props.label || '';
