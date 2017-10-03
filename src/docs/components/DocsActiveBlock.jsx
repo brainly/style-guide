@@ -63,6 +63,9 @@ class DocsActiveBlock extends Component {
     if (typeof component.type === 'function') {
       const fakeComponentClass = component.type.bind();
 
+      // rewrite static properties
+      Object.entries(component.type).forEach(([key, value]) => fakeComponentClass[key] = value);
+
       fakeComponentClass.propTypes = {};
       component.type = fakeComponentClass;
     }
