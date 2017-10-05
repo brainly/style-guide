@@ -78,7 +78,7 @@ const examplePart1 =
       </OverlayedBox>
       <SeparatorVertical />
       <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog" />
-      <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+      <Avatar size={AVATAR_SIZE.SMALL} />
       <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
     </ContentBoxActions>
   </ContentBox>;
@@ -105,7 +105,7 @@ const examplePart2 =
       </OverlayedBox>
       <SeparatorVertical />
       <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
-      <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+      <Avatar size={AVATAR_SIZE.SMALL} />
       <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
     </ContentBoxActions>
   </ContentBox>;
@@ -131,7 +131,7 @@ const ContentBoxes = () =>
           </OverlayedBox>
           <SeparatorVertical />
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat" />
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <Avatar size={AVATAR_SIZE.SMALL} />
           <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -155,7 +155,7 @@ const ContentBoxes = () =>
           </OverlayedBox>
           <SeparatorVertical />
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <Avatar size={AVATAR_SIZE.SMALL} />
           <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -182,7 +182,7 @@ const ContentBoxes = () =>
           </OverlayedBox>
           <SeparatorVertical />
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <Avatar size={AVATAR_SIZE.SMALL} />
           <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -207,7 +207,7 @@ const ContentBoxes = () =>
           </OverlayedBox>
           <SeparatorVertical />
           <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten" />
-          <Avatar size={AVATAR_SIZE.SMALL} iconType={ICON_TYPE.PROFILE} iconColor={ICON_COLOR.GRAY} />
+          <Avatar size={AVATAR_SIZE.SMALL} />
           <ButtonSecondary small type={BUTTON_TYPE.INVERSE}>Answer</ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
@@ -324,7 +324,7 @@ const ContentBoxes = () =>
           <Breadcrumbs elements={['The Brain', 'Answerer']} />
         </ContentBoxHeader>
         <ContentBoxContent>
-          <HeaderPrimary SIZE={HEADER_SIZE.SMALL}>Hey! Still not sure about the answer?</HeaderPrimary>
+          <HeaderPrimary size={HEADER_SIZE.SMALL}>Hey! Still not sure about the answer?</HeaderPrimary>
           <ButtonPrimary type={BUTTON_TYPE.ALT}>Check similar answers</ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>

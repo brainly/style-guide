@@ -10,7 +10,7 @@ const TextExamples = () =>
       Here is a <Text type={TYPE.SPAN} color={COLOR.GRAY}>gray text</Text>,
       this is a <Text type={TYPE.SPAN} color={COLOR.GRAY_SECONDARY}>gray secondary text</Text>,
       this is a <Text type={TYPE.SPAN} color={COLOR.MINT}>mint text</Text>,
-      <Text Text type={TYPE.SPAN} noWrap>this text will not wrap</Text>,
+      <Text type={TYPE.SPAN} noWrap>this text will not wrap</Text>,
       <br />
       and an <Text type={TYPE.SPAN} weight={WEIGHT.BOLD}>emphasised text</Text>.
     </Text>

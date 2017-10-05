@@ -45,7 +45,7 @@ test('larger size', () => {
 });
 
 test('color', () => {
-  const badge = mount(
+  const badge = shallow(
     <Badge color={COLOR.MINT_SECONDARY}>Test</Badge>
   );
   const text = badge.find(Text);
