@@ -48,7 +48,7 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "js-lint": "npm run eslint -- --ext .js --ext .jsx src/",
+    "js-lint": "yarn run eslint -- --ext .js --ext .jsx src/",
     "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
@@ -56,8 +56,8 @@
     "prepush": "yarn test",
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
-    "watch": "gulp build && gulp watch & npm start",
-    "test": "npm run scss-lint -s && npm run scss-unused-variables -s  && npm run js-lint -s  && jest",
+    "watch": "gulp build && gulp watch & yarn start",
+    "test": "yarn run scss-lint -s && yarn run scss-unused-variables -s  && yarn run js-lint -s  && jest",
     "eslint": "./node_modules/frontend-tools-configs/node_modules/.bin/eslint"
   },
   "jest": {
