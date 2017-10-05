@@ -53,7 +53,7 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
-    "prepush": "npm test",
+    "prepush": "yarn test",
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & npm start",
