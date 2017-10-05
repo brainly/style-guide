@@ -5,7 +5,7 @@ import DocsActiveBlockSettings from './DocsActiveBlockSettings';
 import ComponentSettings from './ComponentSettings';
 import CodeBlock from './CodeBlock';
 import DocsBlock from './DocsBlock';
-import ReactDOMServer from 'react-dom/server';
+import {renderToStaticMarkup} from 'react-dom/server.browser';
 import classnames from 'classnames';
 
 const BACKGROUND_COLOR = {
@@ -72,7 +72,7 @@ class DocsActiveBlock extends Component {
 
     const props = Object.assign({}, component.props, this.state.props);
     const originalComponent = React.cloneElement(component, props);
-    const originalHTML = ReactDOMServer.renderToStaticMarkup(originalComponent);
+    const originalHTML = renderToStaticMarkup(originalComponent);
 
     Object.keys(this.state.props).forEach(key => {
       if (key === 'key' || key === 'children' || props[key] === undefined || this.isPropRequired(key)) {
@@ -82,7 +82,7 @@ class DocsActiveBlock extends Component {
       const inputPropsWithoutAProp = Object.assign({}, props, {[key]: undefined});
       const componentWithoutAProp = React.cloneElement(component, inputPropsWithoutAProp);
 
-      const withoutPropHTML = ReactDOMServer.renderToStaticMarkup(componentWithoutAProp);
+      const withoutPropHTML = renderToStaticMarkup(componentWithoutAProp);
 
       if (originalHTML === withoutPropHTML) {
         props[key] = undefined;
@@ -127,7 +127,7 @@ class DocsActiveBlock extends Component {
 
         code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
       } else if (this.state.showCode === 'html') {
-        const html = ReactDOMServer.renderToStaticMarkup(component);
+        const html = renderToStaticMarkup(component);
 
         code = <DocsBlock><CodeBlock type="html">{html}</CodeBlock></DocsBlock>;
       }
