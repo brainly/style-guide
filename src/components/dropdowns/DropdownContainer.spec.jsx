@@ -20,7 +20,7 @@ test('it\'s container so should\'t render presentional component', () => {
 test('mount should render Dropdown component', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
-  expect(dropDown.hasClass('sg-dropdown')).toEqual(true);
+  expect(dropDown.find('.sg-dropdown').length).toEqual(1);
 });
 
 
@@ -35,7 +35,7 @@ test('no opened at start', () => {
 test('opened at start when props passed', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart />);
 
-  expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(true);
+  expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(true);
   expect(dropDown.state('isOpened')).toEqual(true);
 });
 
@@ -47,7 +47,7 @@ test('toggle open', () => {
   expect(dropDown.state('isOpened')).toEqual(false);
 
   dropDown.simulate('click');
-  expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(true);
+  expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(true);
   expect(dropDown.state('isOpened')).toEqual(true);
 
   dropDown.simulate('click');
