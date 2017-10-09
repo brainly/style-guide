@@ -22,13 +22,15 @@ const Buttons = () =>
         Search
       </ButtonPrimary>
       &nbsp;
+      <ButtonPrimary type={TYPE.NAVY_BLUE}>
+        Action
+      </ButtonPrimary>
+      <br />
+      <br />
       <ButtonPrimary disabled>
         Disabled
       </ButtonPrimary>
-
-      <br />
-      <br />
-
+      &nbsp;
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16} />}
         type={TYPE.FB}>
@@ -81,6 +83,9 @@ const Buttons = () =>
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary type={types2.DARK}>
+        Search
+      </ButtonSecondary>
+      <ButtonSecondary type={types2.NAVY_BLUE}>
         Search
       </ButtonSecondary>
       &nbsp;

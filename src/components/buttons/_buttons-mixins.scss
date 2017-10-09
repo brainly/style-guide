@@ -2,6 +2,7 @@ $buttonFontColor: $white;
 $buttonColor: $mintPrimary;
 $buttonAltColor: $bluePrimary;
 $buttonDarkColor: $grayPrimary;
+$buttonNavyBluePrimary: $navybluePrimary;
 $buttonInverseColor: $white;
 
 $buttonInverseFontColor: $mintPrimary;
@@ -79,6 +80,10 @@ $buttonActiveScale: scale(0.985);
 
   &--dark {
     background-color: $buttonDarkColor;
+  }
+
+  &--navy-blue {
+    background-color: $buttonNavyBluePrimary;
   }
 
   &--inverse {
