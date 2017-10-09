@@ -80,5 +80,9 @@ $iconSizes: 120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16
     &--mint {
       fill: $mintPrimary;
     }
+
+    &--navy-blue {
+      fill: $navybluePrimary;
+    }
   }
 }
