@@ -37,6 +37,7 @@ const TYPE = {
   RELOAD: 'reload',
   REPORT_FLAG: 'report_flag',
   SEARCH: 'search',
+  SEEN: 'seen',
   STAR: 'star',
   STREAM: 'stream',
   SYMBOLS: 'symbols',
@@ -54,7 +55,8 @@ const COLOR = {
   LAVENDER: 'lavender',
   PEACH: 'peach',
   DARK: 'dark',
-  MINT: 'mint'
+  MINT: 'mint',
+  NAVY_BLUE: 'navy-blue'
 };
 const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
