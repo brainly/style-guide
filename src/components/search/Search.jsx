@@ -10,7 +10,7 @@ const Search = ({adaptiveIco, className, ...additionalProps}) => {
 
   return (
     <div className={searchClass}>
-      <Input {...additionalProps} type="search" withIcon className='sg-search__input' />
+      <Input {...additionalProps} type="search" withIcon className="sg-search__input" />
       <div className="sg-search__icon">
         <Icon type={TYPE.SEARCH} color={iconColor} size={18} />
       </div>

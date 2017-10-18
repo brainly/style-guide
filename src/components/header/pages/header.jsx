@@ -86,7 +86,7 @@ const Headers = () =>
       </Header>
     </DocsBlock>
     <DocsBlock info="Fixed header">
-      <iframe width="600" height="480" src='components/header/small-device.html'></iframe>
+      <iframe width="600" height="480" src="components/header/small-device.html"></iframe>
     </DocsBlock>
   </div>;
 

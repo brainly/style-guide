@@ -26,36 +26,36 @@ const content =
 
 const TopLayers = () =>
   <div>
-    <DocsBlock info='Standard'>
+    <DocsBlock info="Standard">
       <TopLayer>
         {content}
       </TopLayer>
     </DocsBlock>
 
-    <DocsBlock info='Lead'>
+    <DocsBlock info="Lead">
       <TopLayer lead>
         {content}
       </TopLayer>
     </DocsBlock>
 
-    <DocsBlock info='Small'>
+    <DocsBlock info="Small">
       <TopLayer size={SIZE.SMALL}>
         {content}
       </TopLayer>
     </DocsBlock>
 
-    <DocsBlock info='Medium'>
+    <DocsBlock info="Medium">
       <TopLayer size={SIZE.MEDIUM}>
         {content}
       </TopLayer>
     </DocsBlock>
-    <DocsBlock info='Large'>
+    <DocsBlock info="Large">
       <TopLayer size={SIZE.LARGE}>
         {content}
       </TopLayer>
     </DocsBlock>
 
-    <DocsBlock info='fill'>
+    <DocsBlock info="fill">
       <div style={{width: '200px', height: '200px', position: 'relative'}}>
         <TopLayer fill>
           {content}
@@ -63,7 +63,7 @@ const TopLayers = () =>
       </div>
     </DocsBlock>
 
-    <DocsBlock info='Example usage'>
+    <DocsBlock info="Example usage">
       <TopLayer size={SIZE.MEDIUM} lead withBugbox>
         <ContentBox>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
@@ -84,20 +84,20 @@ const TopLayers = () =>
     </DocsBlock>
 
 
-    <DocsBlock info='Example usage (on small screen'>
-      <iframe height="568" width="320" src='components/toplayer/notlogged_toplayer.html'></iframe>
+    <DocsBlock info="Example usage (on small screen">
+      <iframe height="568" width="320" src="components/toplayer/notlogged_toplayer.html"></iframe>
     </DocsBlock>
 
-    <DocsBlock info='Example usage (small spaced on small screen)'>
-      <iframe height="568" width="320" src='components/toplayer/small_spaced_toplayer.html'></iframe>
+    <DocsBlock info="Example usage (small spaced on small screen)">
+      <iframe height="568" width="320" src="components/toplayer/small_spaced_toplayer.html"></iframe>
     </DocsBlock>
 
-    <DocsBlock info='Example usage (modal)'>
-      <iframe height="300" width="800" src='components/toplayer/default_toplayer.html'></iframe>
+    <DocsBlock info="Example usage (modal)">
+      <iframe height="300" width="800" src="components/toplayer/default_toplayer.html"></iframe>
     </DocsBlock>
 
-    <DocsBlock info='Example usage (splash screen)'>
-      <iframe height="300" width="800" src='components/toplayer/splash_screen_toplayer.html'></iframe>
+    <DocsBlock info="Example usage (splash screen)">
+      <iframe height="300" width="800" src="components/toplayer/splash_screen_toplayer.html"></iframe>
     </DocsBlock>
 
   </div>;

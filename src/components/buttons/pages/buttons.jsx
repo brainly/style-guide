@@ -9,7 +9,7 @@ import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 
 const Buttons = () =>
   <div>
-    <DocsBlock info='Primary buttons'>
+    <DocsBlock info="Primary buttons">
       <ButtonPrimary>
         Add your answer
       </ButtonPrimary>
@@ -67,7 +67,7 @@ const Buttons = () =>
     </DocsBlock>
 
 
-    <DocsBlock info='Secondary buttons'>
+    <DocsBlock info="Secondary buttons">
       <ButtonSecondary>
         <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
       </ButtonSecondary>
@@ -120,7 +120,7 @@ const Buttons = () =>
     </DocsBlock>
 
 
-    <DocsBlock info='Secondary buttons small'>
+    <DocsBlock info="Secondary buttons small">
       <ButtonSecondary small>
         <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
       </ButtonSecondary>

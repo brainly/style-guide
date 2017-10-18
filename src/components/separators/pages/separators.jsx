@@ -51,7 +51,7 @@ const Separators = () =>
       </div>
     </DocsBlock>
     <DocsBlock info="Horizontal spaced" additionalInfo="(small device)">
-      <iframe width="300" height="200" src='components/separators/small-device.html'>
+      <iframe width="300" height="200" src="components/separators/small-device.html">
       </iframe>
     </DocsBlock>
   </div>;

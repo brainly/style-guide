@@ -9,13 +9,13 @@ import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Boxs = () =>
   <div>
-    <DocsBlock info='Simple'>
+    <DocsBlock info="Simple">
       <Box>
         This is a box. (no color - default border on)
       </Box>
     </DocsBlock>
 
-    <DocsBlock info='With shadow'>
+    <DocsBlock info="With shadow">
       <Box shadow>
         This is a box with shadow
       </Box>
@@ -28,7 +28,7 @@ const Boxs = () =>
     )
     }
 
-    <DocsBlock info='Image' multiContent={[
+    <DocsBlock info="Image" multiContent={[
       <Box key={1} imgSrc="https://source.unsplash.com/100x100/?man" />,
       <Box key={2} imgSrc="https://source.unsplash.com/50x100/?man" />,
       <Box key={3} imgSrc="https://source.unsplash.com/100x50/?man" />

@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "116.1.0",
+  "version": "116.1.1",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -16,7 +16,7 @@
     "del": "^2.2.0",
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v15.0.0",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v15.1.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-base64": "^0.1.3",
