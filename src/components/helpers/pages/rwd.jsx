@@ -5,7 +5,7 @@ import Icon, {TYPE as icoTypes, COLOR} from 'icons/Icon';
 
 const RwdHelpers = () =>
   <div>
-    <DocsBlock info='Top (middle)' additionalInfo='--top'>
+    <DocsBlock info="Top (middle)" additionalInfo="--top">
       <ul>
         <li>
           <RwdHelper hide={TYPE.SMALL_ONLY}>

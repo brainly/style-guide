@@ -11,7 +11,7 @@ import ActionListHole from '../ActionListHole';
 
 const ActionLists = () =>
   <div>
-    <DocsBlock info='Default'>
+    <DocsBlock info="Default">
       <ContrastBox fullWidth>
         <ActionList>
           <ActionListHole>
@@ -28,7 +28,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='To right'>
+    <DocsBlock info="To right">
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_RIGHT}>
           <ActionListHole>
@@ -45,7 +45,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='To top'>
+    <DocsBlock info="To top">
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_TOP}>
           <ActionListHole>
@@ -62,7 +62,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Centered'>
+    <DocsBlock info="Centered">
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.CENTERED}>
           <ActionListHole>
@@ -79,7 +79,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Space between'>
+    <DocsBlock info="Space between">
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
           <Label iconType={ICON_TYPE.ANSWER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary
@@ -105,7 +105,7 @@ const ActionLists = () =>
       </ActionList>
     </DocsBlock>
 
-    <DocsBlock info='No wrap' multiContent={[
+    <DocsBlock info="No wrap" multiContent={[
       <ContrastBox key={1} narrow>
         <ActionList noWrap>
           <ActionListHole>
@@ -133,7 +133,7 @@ const ActionLists = () =>
     ]}>
     </DocsBlock>
 
-    <DocsBlock info='Hole - as container'>
+    <DocsBlock info="Hole - as container">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole asContainer>
@@ -150,7 +150,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - no-spacing'>
+    <DocsBlock info="Hole - no-spacing">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole noSpacing>
@@ -172,7 +172,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - grow'>
+    <DocsBlock info="Hole - grow">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole grow>
@@ -189,7 +189,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - no-shrink'>
+    <DocsBlock info="Hole - no-shrink">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole grow>
@@ -206,7 +206,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - to-right'>
+    <DocsBlock info="Hole - to-right">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
@@ -223,7 +223,7 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Hole - to-end'>
+    <DocsBlock info="Hole - to-end">
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>

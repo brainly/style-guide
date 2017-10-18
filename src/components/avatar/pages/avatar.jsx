@@ -5,24 +5,24 @@ import ContrastBox from 'components/ContrastBox';
 
 const Avatars = () =>
   <div>
-    <DocsBlock info='Default avatars' toBottom>
+    <DocsBlock info="Default avatars" toBottom>
       {Object.values(SIZE).map(
         (size, index) => <Avatar key={index} size={size} />
       )}
     </DocsBlock>
-    <DocsBlock info='Default with border'>
+    <DocsBlock info="Default with border">
       <ContrastBox toBottom>
         {Object.values(SIZE).map(
           (size, index) => <Avatar key={index} size={size} border />
         )}
       </ContrastBox>
     </DocsBlock>
-    <DocsBlock info='Default avatars' toBottom>
+    <DocsBlock info="Default avatars" toBottom>
       {Object.values(SIZE).map(
         (size, index) => <Avatar key={index} size={size} imgSrc="https://source.unsplash.com/240x240/?cat" />
       )}
     </DocsBlock>
-    <DocsBlock info='Default with border'>
+    <DocsBlock info="Default with border">
       <ContrastBox toBottom>
         {Object.values(SIZE).map(
           (size, index) =>

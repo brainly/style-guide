@@ -15,25 +15,25 @@ const defaultProps = {
 
 const Medias = () =>
   <div>
-    <DocsBlock info='Standard'>
+    <DocsBlock info="Standard">
       <ContrastBox fullWidth>
         <Media {...defaultProps} />
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='To right'>
+    <DocsBlock info="To right">
       <ContrastBox fullWidth>
         <Media {...defaultProps} toRight />
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Focused'>
+    <DocsBlock info="Focused">
       <ContrastBox fullWidth>
         <Media {...defaultProps} focused />
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Gray secondary light - Clickable'>
+    <DocsBlock info="Gray secondary light - Clickable">
       <Media {...defaultProps} graySecondaryLight clickable />
     </DocsBlock>
   </div>;

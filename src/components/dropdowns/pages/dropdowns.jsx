@@ -12,12 +12,12 @@ const defaultProps = {items: defaultItems, label: defaultLabel};
 
 const Dropdowns = () =>
   <div>
-    <DocsBlock info='Closed' multiContent={[
+    <DocsBlock info="Closed" multiContent={[
       <Dropdown key={1} {...defaultProps} fullWidth={false} />,
       <Dropdown key={2} {...defaultProps} />
     ]} />
 
-    <DocsBlock info='Open' multiContent={[
+    <DocsBlock info="Open" multiContent={[
       <div key={1} style={{height: '120px'}}>
         <ContrastBox>
           <Dropdown {...defaultProps} openOnStart fullWidth={false} />
@@ -28,7 +28,7 @@ const Dropdowns = () =>
       </ContrastBox>
     ]} />
 
-    <DocsBlock info='Fixed' additionalInfo="(items extend div)" multiContent={[
+    <DocsBlock info="Fixed" additionalInfo="(items extend div)" multiContent={[
       <ContrastBox key={1}>
         <Dropdown {...defaultProps} fixed openOnStart fullWidth={false} />
       </ContrastBox>,

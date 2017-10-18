@@ -10,17 +10,17 @@ const items = ['one', 'two', 'three'];
 
 const PopupsMenus = () =>
   <div>
-    <DocsBlock info='Default'>
+    <DocsBlock info="Default">
       <PopupMenu items={items} />
     </DocsBlock>
 
-    <DocsBlock info='Default'>
+    <DocsBlock info="Default">
       <ContrastBox fullWidth>
         <PopupMenu items={items} />
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='Example usage 1'>
+    <DocsBlock info="Example usage 1">
       <ContrastBox fullWidth>
         <PopupMenu items={[
           <IconAsButton key={1} color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
@@ -31,7 +31,7 @@ const PopupsMenus = () =>
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info='elements-spaced'>
+    <DocsBlock info="elements-spaced">
       <ContrastBox fullWidth>
         <PopupMenu items={[
           <ButtonSecondary key={1} type={buttonTypes.DARK_INVERSE} wide>
