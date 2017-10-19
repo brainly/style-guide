@@ -22,6 +22,7 @@ const TYPE = {
   FRIENDS: 'friends',
   HEART: 'heart',
   KEYBOARD: 'keyboard',
+  LIGHTNING: 'lightning',
   LOGOUT: 'logout',
   MENU: 'menu',
   MESSAGES: 'messages',
