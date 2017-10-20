@@ -15,12 +15,16 @@
       position: relative;
     }
 
+    &--no-spacing {
+      margin: 0;
+    }
+
     &--to-right {
       margin-left: auto;
     }
 
-    &--no-spacing {
-      margin: 0;
+    &--space-bellow {
+      margin-bottom: gutter(0.5);
     }
 
     &--no-shrink {
@@ -44,6 +48,9 @@
     align-items: flex-start;
   }
 
+
+
+
   &--centered {
     justify-content: center;
   }
@@ -63,6 +70,8 @@
       margin-right: 0;
     }
   }
+
+
 
   &--no-wrap {
     flex-wrap: nowrap;
