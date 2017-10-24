@@ -93,7 +93,12 @@ $includeHtml: false !default;
       // sass-lint:enable no-duplicate-properties
 
       @include sgBreakpoint(medium-up) {
-        min-height: calc(100% - #{gutter(2)});
+        min-height: 0;
+        height: 100%;
+        // sass-lint:disable no-duplicate-properties
+        height: calc(100% - #{gutter(2)});
+        // sass-lint:enable no-duplicate-properties
+        max-height: gutter(33);
         margin: gutter(1);
       }
     }
