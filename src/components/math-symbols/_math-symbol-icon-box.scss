@@ -1,0 +1,14 @@
+$subjectIconBoxBackground: $blueSecondary;
+$subjectIconBoxDarkerBackground: $bluePrimary;
+
+.sg-math-symbol-icon-box {
+  border-radius: 50%;
+  background-color: $subjectIconBoxBackground;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+
+  &--darker {
+    background-color: $subjectIconBoxDarkerBackground;
+  }
+}

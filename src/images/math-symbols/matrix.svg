@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 24">
+    <title>matrix</title>
+    <rect id="Rectangle-6-Copy-5" x="15" y="5" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-7" x="15" y="11" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-8" x="15" y="17" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-11" x="22" y="5" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-10" x="22" y="11" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-9" x="22" y="17" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-14" x="29" y="5" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-13" x="29" y="11" width="4" height="4" rx="1"></rect>
+    <rect id="Rectangle-6-Copy-12" x="29" y="17" width="4" height="4" rx="1"></rect>
+    <polyline points="11.5 4 9.5 4 9.5 22 11.5 22"></polyline>
+    <polyline transform="translate(37.500000, 13.000000) rotate(-180.000000) translate(-37.500000, -13.000000) " points="38.5 4 36.5 4 36.5 22 38.5 22"></polyline>
+</svg>
+
