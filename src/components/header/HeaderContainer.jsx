@@ -10,7 +10,9 @@ const HeaderContainer = ({children, light, className, ...props}) => {
 
   return (
     <div {...props} className={headerContainerClass}>
-      {children}
+      <div className="sg-header__content">
+        {children}
+      </div>
     </div>
   );
 };

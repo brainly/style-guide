@@ -18,6 +18,14 @@ $includeHtml: false !default;
     }
 
     &__container {
+      background-color: $bluePrimary;
+
+      &--light {
+        background-color: $white;
+      }
+    }
+
+    &__content {
       display: flex;
       width: 100%;
       height: 100%;
@@ -25,14 +33,9 @@ $includeHtml: false !default;
       padding: gutter(1 / 2);
       margin: auto;
       align-items: center;
-      background-color: $bluePrimary;
 
       @include sgBreakpoint(large-only) {
         padding: gutter(1 / 2) gutter(1);
-      }
-
-      &--light {
-        background-color: $white;
       }
     }
 

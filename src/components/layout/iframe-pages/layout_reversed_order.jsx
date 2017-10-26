@@ -8,7 +8,9 @@ import Text from 'text/Text';
 const header =
   <div className="sg-header sg-header--fixed">
     <div className="sg-header__container">
-      Header
+      <div className="sg-header__content">
+        Header
+      </div>
     </div>
   </div>;
 
