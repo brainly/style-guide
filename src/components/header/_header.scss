@@ -6,13 +6,8 @@ $includeHtml: false !default;
 
   .sg-header {
     width: 100%;
-    background-color: $bluePrimary;
     margin-bottom: rhythm(3) - $headerHeight;
     box-shadow: $defaultBottomShadow;
-
-    &--light {
-      background-color: $graySecondaryLightest;
-    }
 
     &--fixed {
       position: fixed;
@@ -30,9 +25,14 @@ $includeHtml: false !default;
       padding: gutter(1 / 2);
       margin: auto;
       align-items: center;
+      background-color: $bluePrimary;
 
       @include sgBreakpoint(large-only) {
         padding: gutter(1 / 2) gutter(1);
+      }
+
+      &--light {
+        background-color: $white;
       }
     }
 
