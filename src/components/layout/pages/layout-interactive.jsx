@@ -29,7 +29,9 @@ const Layouts = () => {
   const header =
     <div className="sg-header">
       <div className="sg-header__container">
-        Header
+        <div className="sg-header__content">
+          Header
+        </div>
       </div>
     </div>;
 
