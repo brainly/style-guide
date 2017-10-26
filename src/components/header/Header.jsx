@@ -10,7 +10,7 @@ const Header = ({children, fixed, className, ...props}) => {
 
   return (
     <header {...props} className={headerClass}>
-        {children}
+      {children}
     </header>
   );
 };
