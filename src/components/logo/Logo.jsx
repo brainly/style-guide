@@ -8,14 +8,18 @@ const TYPE = {
   BRAINLY: 'brainly',
   EODEV: 'eodev',
   NOSDEVOIRS: 'nosdevoirs',
-  ZNANIJA: 'znanija'
+  ZNANIJA: 'znanija',
+  BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_PLUS_LARGE: 'brainly-plus-large'
 };
 
 const LOGOS = {
   'brainly': 'brainly-761d75d6ea',
   'eodev': 'eodev-1972bd4349',
   'nosdevoirs': 'nosdevoirs-e2d5d17215',
-  'znanija': 'znanija-addd85e6f5'
+  'znanija': 'znanija-addd85e6f5',
+  'brainly-plus': 'brainly-plus-9dd3b24a28',
+  'brainly-plus-large': 'brainly-plus-large-42debebd42'
 };
 
 const Logo = ({type = TYPE.BRAINLY, className, ...props}) => {
