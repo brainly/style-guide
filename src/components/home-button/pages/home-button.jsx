@@ -25,6 +25,11 @@ const Logos = () =>
         <HomeButton type={TYPE.ZNANIJA} />
       </ContrastBox>
     </DocsBlock>
+    <DocsBlock info="Brainly Plus">
+      <ContrastBox smallPadding>
+        <HomeButton type={TYPE.BRAINLY_PLUS} />
+      </ContrastBox>
+    </DocsBlock>
   </div>;
 
 export default Logos;
