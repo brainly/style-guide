@@ -16,6 +16,27 @@ $includeHtml: false !default;
       width: $logoLargeWidth;
     }
 
+    &--brainly-plus {
+      width: $logoDefaultWidth;
+      height: 68px;
+
+      @include sgBreakpoint(medium-up) {
+        width: $logoLargeWidth;
+        height: 92px;
+      }
+    }
+
+    &--brainly-plus-large {
+      width: $logoDefaultWidth;
+      height: 90px;
+
+      @include sgBreakpoint(medium-up) {
+        width: $logoLargeWidth;
+        height: 120px;
+      }
+    }
+
+
     &--eodev {
       width: 114px;
 

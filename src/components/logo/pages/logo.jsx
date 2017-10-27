@@ -16,6 +16,12 @@ const Logos = () =>
     <DocsBlock info="Znanija">
       <Logo type={TYPE.ZNANIJA} />
     </DocsBlock>
+    <DocsBlock info="Brainly Plus">
+      <Logo type={TYPE.BRAINLY_PLUS} />
+    </DocsBlock>
+    <DocsBlock info="Brainly Plus Large">
+      <Logo type={TYPE.BRAINLY_PLUS_LARGE} />
+    </DocsBlock>
   </div>;
 
 export default Logos;
