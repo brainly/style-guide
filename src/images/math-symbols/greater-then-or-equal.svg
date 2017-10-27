@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
     <title>greater then or equal</title>
-    <polygon points="8.932 15.56 16.068 12.376 16.068 10.92 8.932 7.72 8.932 9.224 14.612 11.656 8.932 14.056"></polygon>
-    <rect rx="0" height="1.5" width="7" y="18" x="9"></rect>
+    <rect fill="transparent" x="0" y="0" width="24" height="24"></rect>
+    <polygon points="8 14.84 15.136 11.656 15.136 10.2 8 7 8 8.504 13.68 10.936 8 13.336"></polygon>
+    <polygon points="8 15 8 16.0315044 15.136 16.0315044 15.136 15"></polygon>
 </svg>

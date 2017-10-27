@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
     <title>inequality</title>
-    <rect rx="0" height="1" width="10.4" y="13" x="7.3"></rect>
-    <rect rx="0" height="1" width="10.4" y="10" x="7.3"></rect>
-    <rect x="7.3" y="13" width="13.75" height="1" rx="0" transform="rotate(-45) translate(-13.8, 3.82)"></rect>
+    <rect fill="transparent" x="0" y="0" width="24" height="24"></rect>
+    <polygon points="7.31809664 10.0019248 7.31809664 10.9734623 17.698208 10.9734623 17.698208 10.0019248"></polygon>
+    <polygon points="7.31809664 13.0019248 7.31809664 13.9734623 17.698208 13.9734623 17.698208 13.0019248"></polygon>
+    <polygon points="17.0041054 6.79571148 17.7016958 7.49330184 8.02084996 17.1883842 7.30902306 16.4907938"></polygon>
 </svg>

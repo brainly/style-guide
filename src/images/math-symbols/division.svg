@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
     <title>division</title>
+    <rect fill="transparent" x="0" y="0" width="24" height="24"></rect>
     <rect x="8" y="2" width="7" height="7" rx="1"></rect>
     <rect x="8" y="14" width="7" height="7" rx="1"></rect>
     <path d="M7.5,11 L15.5,11 L15.5,11 C15.7761424,11 16,11.2238576 16,11.5 L16,11.5 L16,11.5 C16,11.7761424 15.7761424,12 15.5,12 L7.5,12 L7.5,12 C7.22385763,12 7,11.7761424 7,11.5 L7,11.5 L7,11.5 C7,11.2238576 7.22385763,11 7.5,11 Z"></path>
