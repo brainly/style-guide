@@ -18,10 +18,10 @@ const TYPE = {
   LIMIT: 'limit',
   MATRIX: 'matrix',
   INTEGRAL: 'integral',
-  CHECKIT: 'checkit'
+  EQUATION_SYSTEM: 'equation-system'
 };
 
-const WIDE = [TYPE.LIMIT, TYPE.MATRIX, TYPE.INTEGRAL, TYPE.CHECKIT];
+const WIDE = [TYPE.LIMIT, TYPE.MATRIX, TYPE.INTEGRAL, TYPE.EQUATION_SYSTEM];
 
 const SIZE = {
   SMALL: 'small',
