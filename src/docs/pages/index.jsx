@@ -1,6 +1,9 @@
 import React from 'react';
 import ArticlePage from '../layouts/ArticlePage';
 import packageJSON from '../../../package.json';
+import ContentBox from '../../components/content-box/ContentBox';
+import ContentBoxHeader from '../../components/content-box/ContentBoxHeader';
+import ContentBoxContent from '../../components/content-box/ContentBoxContent';
 
 const index = () =>
   <ArticlePage>
@@ -34,49 +37,70 @@ const index = () =>
       </code>
     </pre>
 
-    <p className="sg-text">In order to use basic set of
-      <a href="./basics.html#icons" className="sg-link">icons </a>
-      include this script before the closing &lt;/body&gt; tag:
-    </p>
+    <ContentBox>
+      <ContentBoxHeader>
+        <p className="sg-text">For our icons include this scripts before the closing &lt;/body&gt; tag:</p>
+      </ContentBoxHeader>
+    </ContentBox>
 
-    <pre>
-      <code className="html">
-        &lt;script src=&quot;https://styleguide.brainly.com/%%images/icons.js%%&quot;&gt;&lt;/script&gt;
-      </code>
-    </pre>
-
-    <p className="sg-text">Similarly, if you&apos;d like to use
-      <a href="./basics.html#subject-icons" className="sg-link">subject icons </a>
-      include the following script:
-    </p>
-
-    <pre>
-      <code className="html">
-        &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-icons.js%%&quot;&gt;&lt;/script&gt;
-      </code>
-    </pre>
-
-    <p className="sg-text">Finally, if you&apos;d like to use
-      <a href="./basics.html#subject-mono-icons" className="sg-link">subject mono icons </a>
-      include the following script:
-    </p>
-
-    <pre>
-      <code className="html">
-        &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%&quot;&gt;&lt;/script&gt;
-      </code>
-    </pre>
-
-    <p className="sg-text">If you&apos;d like to use
-      <a href="./basics.html#math-symbols" className="sg-link">math symbols </a>
-      include the following script:
-    </p>
-
-    <pre>
-      <code className="html">
-        &lt;script src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
-      </code>
-    </pre>
+    <ul className="sg-list">
+      <li className="sg-list__element">
+        <ContentBox>
+          <ContentBoxHeader>
+            <p className="sg-text"><a href="./basics.html#icons" className="sg-link">Basic icons</a>:</p>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <pre>
+              <code className="html">
+                &lt;script src=&quot;https://styleguide.brainly.com/%%images/icons.js%%&quot;&gt;&lt;/script&gt;
+              </code>
+            </pre>
+          </ContentBoxContent>
+        </ContentBox>
+      </li>
+      <li className="sg-list__element">
+        <ContentBox>
+          <ContentBoxHeader>
+            <p className="sg-text"><a href="./basics.html#subject-icons" className="sg-link">Subject icons</a>:</p>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <pre>
+              <code className="html">
+                &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-icons.js%%&quot;&gt;&lt;/script&gt;
+              </code>
+            </pre>
+          </ContentBoxContent>
+        </ContentBox>
+      </li>
+      <li className="sg-list__element">
+        <ContentBox>
+          <ContentBoxHeader>
+            <p className="sg-text"><a href="./basics.html#subject-mono-icons" className="sg-link">Subject mono icons</a>:</p>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <pre>
+              <code className="html">
+                &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%&quot;&gt;&lt;/script&gt;
+              </code>
+            </pre>
+          </ContentBoxContent>
+        </ContentBox>
+      </li>
+      <li className="sg-list__element">
+        <ContentBox>
+          <ContentBoxHeader>
+            <p className="sg-text"><a href="./basics.html#math-symbols" className="sg-link">Math symbols</a>:</p>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <pre>
+              <code className="html">
+                &lt;script src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
+              </code>
+            </pre>
+          </ContentBoxContent>
+        </ContentBox>
+      </li>
+    </ul>
 
     <h2 className="article-header article-header--small">
       More
