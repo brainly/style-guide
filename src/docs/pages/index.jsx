@@ -52,7 +52,8 @@ const index = () =>
           <ContentBoxContent>
             <pre>
               <code className="html">
-                &lt;script src=&quot;https://styleguide.brainly.com/%%images/icons.js%%&quot;&gt;&lt;/script&gt;
+                &lt;script
+                src=&quot;https://styleguide.brainly.com/%%images/icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>
@@ -66,7 +67,8 @@ const index = () =>
           <ContentBoxContent>
             <pre>
               <code className="html">
-                &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-icons.js%%&quot;&gt;&lt;/script&gt;
+                &lt;script
+                src=&quot;https://styleguide.brainly.com/%%images/subjects-icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>
@@ -75,12 +77,15 @@ const index = () =>
       <li className="sg-list__element">
         <ContentBox>
           <ContentBoxHeader>
-            <p className="sg-text"><a href="./basics.html#subject-mono-icons" className="sg-link">Subject mono icons</a>:</p>
+            <p className="sg-text">
+              <a href="./basics.html#subject-mono-icons" className="sg-link">Subject mono icons</a>:
+            </p>
           </ContentBoxHeader>
           <ContentBoxContent>
             <pre>
               <code className="html">
-                &lt;script src=&quot;https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%&quot;&gt;&lt;/script&gt;
+                &lt;script
+                src=&quot;https://styleguide.brainly.com/%%images/subjects-mono-icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>
@@ -94,7 +99,8 @@ const index = () =>
           <ContentBoxContent>
             <pre>
               <code className="html">
-                &lt;script src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
+                &lt;script
+                src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>
