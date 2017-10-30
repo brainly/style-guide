@@ -21,7 +21,12 @@ const MATH_SYMBOL_TYPE = {
   EQUATION_SYSTEM: 'equation-system'
 };
 
-const WIDE = [MATH_SYMBOL_TYPE.LIMIT, MATH_SYMBOL_TYPE.MATRIX, MATH_SYMBOL_TYPE.INTEGRAL, MATH_SYMBOL_TYPE.EQUATION_SYSTEM];
+const WIDE = [
+  MATH_SYMBOL_TYPE.LIMIT,
+  MATH_SYMBOL_TYPE.MATRIX,
+  MATH_SYMBOL_TYPE.INTEGRAL,
+  MATH_SYMBOL_TYPE.EQUATION_SYSTEM
+];
 
 const SIZE = {
   SMALL: 'small',
@@ -46,7 +51,7 @@ const COLOR = {
 const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, className, ...props}) => {
   const iconClass = classNames('sg-math-symbol-icon', {
     [`sg-math-symbol-icon--${size}`]: size !== SIZE.NORMAL,
-    ['sg-math-symbol-icon--wide']: WIDE.includes(type),
+    'sg-math-symbol-icon--wide': WIDE.includes(type),
     [`sg-math-symbol-icon--${color}`]: color
   }, className);
   const iconType = `#sg-math-symbol-icon-${type}`;
