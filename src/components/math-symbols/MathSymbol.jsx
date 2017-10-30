@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+const MATH_SYMBOL_TYPE = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
   POWER: 'power',
@@ -21,7 +21,7 @@ const TYPE = {
   EQUATION_SYSTEM: 'equation-system'
 };
 
-const WIDE = [TYPE.LIMIT, TYPE.MATRIX, TYPE.INTEGRAL, TYPE.EQUATION_SYSTEM];
+const WIDE = [MATH_SYMBOL_TYPE.LIMIT, MATH_SYMBOL_TYPE.MATRIX, MATH_SYMBOL_TYPE.INTEGRAL, MATH_SYMBOL_TYPE.EQUATION_SYSTEM];
 
 const SIZE = {
   SMALL: 'small',
@@ -43,7 +43,7 @@ const COLOR = {
   MINT: 'mint'
 };
 
-const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}) => {
+const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, className, ...props}) => {
   const iconClass = classNames('sg-math-symbol-icon', {
     [`sg-math-symbol-icon--${size}`]: size !== SIZE.NORMAL,
     ['sg-math-symbol-icon--wide']: WIDE.includes(type),
@@ -59,11 +59,11 @@ const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}) => {
 };
 
 MathSymbol.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  type: PropTypes.oneOf(Object.values(MATH_SYMBOL_TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
   className: PropTypes.string
 };
 
 export default MathSymbol;
-export {TYPE, SIZE, COLOR};
+export {MATH_SYMBOL_TYPE, SIZE, COLOR};
