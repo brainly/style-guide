@@ -5,21 +5,23 @@ import classNames from 'classnames';
 const TYPE = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
-  DIVISION: 'division',
-  SUBSCRIPT: 'subscript',
   POWER: 'power',
-  LIMIT: 'limit',
-  MATRIX: 'matrix',
-  INTEGRAL: 'integral',
-  CHECKIT: 'checkit',
+  SUBSCRIPT: 'subscript',
   LESSEQUAL: 'less-then-or-equal',
   GREATEREQUAL: 'greater-then-or-equal',
   INEQUALITY: 'inequality',
+  DIVISION: 'division',
   PI: 'pi',
   ALPHA: 'alpha',
   BETA: 'beta',
-  LINE: 'line'
+  LINE: 'line',
+  LIMIT: 'limit',
+  MATRIX: 'matrix',
+  INTEGRAL: 'integral',
+  CHECKIT: 'checkit'
 };
+
+const WIDE = [TYPE.LIMIT, TYPE.MATRIX, TYPE.INTEGRAL, TYPE.CHECKIT];
 
 const SIZE = {
   SMALL: 'small',
@@ -44,6 +46,7 @@ const COLOR = {
 const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}) => {
   const iconClass = classNames('sg-math-symbol-icon', {
     [`sg-math-symbol-icon--${size}`]: size !== SIZE.NORMAL,
+    [`sg-math-symbol-icon--wide`] : WIDE.includes(type),
     [`sg-math-symbol-icon--${color}`]: color
   }, className);
   const iconType = `#sg-math-symbol-icon-${type}`;

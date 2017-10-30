@@ -9,9 +9,7 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
       if (config.removeClass) {
         childNodes[i].removeAttribute('class');
       }
-      if(!config.fill) {
-        childNodes[i].removeAttribute('fill');
-      }
+      childNodes[i].removeAttribute('fill');
     }
   }
   callback(null);
@@ -99,7 +97,7 @@ module.exports = function(gulp, plugins, consts) {
           generator: 'sg-math-symbol-icon-%s'
         },
         transform: ['svgo', {
-          custom: svgSymbolCleanUp.bind(null, {removeClass: true, fill: true})
+          custom: svgSymbolCleanUp.bind(null, {removeClass: true})
         }]
       },
       svg: {

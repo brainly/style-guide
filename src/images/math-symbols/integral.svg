@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 24">
     <title>integral</title>
-    <rect fill="transparent" x="0" y="0" width="48" height="24"></rect>
     <rect x="11" y="1" width="4" height="4" rx="1"></rect>
     <rect x="11" y="19" width="4" height="4" rx="1"></rect>
     <polygon points="22.62 17 24.04 17 22.31 14.52 23.93 12.17 22.51 12.17 21.52 13.66 20.52 12.17 19.1 12.17 20.71 14.52 19 17 20.41 17 21.52 15.37"></polygon>
