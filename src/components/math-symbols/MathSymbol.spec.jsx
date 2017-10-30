@@ -1,10 +1,10 @@
 import React from 'react';
-import MathSymbol, {TYPE, SIZE, COLOR} from './MathSymbol';
+import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, COLOR} from './MathSymbol';
 import {shallow} from 'enzyme';
 
 test('render', () => {
   const icon = shallow(
-    <MathSymbol type={TYPE.SQUERE_ROOT} />
+    <MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />
   );
 
   expect(icon.hasClass('sg-math-symbol-icon')).toEqual(true);
@@ -22,7 +22,7 @@ test('error when no type', () => {
 });
 
 test('type passed to xlink:href', () => {
-  const type = TYPE.SQUERE_ROOT;
+  const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(
     <MathSymbol type={type} />
   );
@@ -33,7 +33,7 @@ test('type passed to xlink:href', () => {
 
 
 test('colors', () => {
-  const type = TYPE.SQUERE_ROOT;
+  const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const color = COLOR.DARK;
   const icon = shallow(
     <MathSymbol type={type} color={color} />
@@ -44,7 +44,7 @@ test('colors', () => {
 
 test('size', () => {
   const size = SIZE.SMALL;
-  const type = TYPE.SQUERE_ROOT;
+  const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(
     <MathSymbol type={type} size={size} />
   );
@@ -53,7 +53,7 @@ test('size', () => {
 });
 
 test('other props', () => {
-  const type = TYPE.SQUERE_ROOT;
+  const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(
     <MathSymbol type={type} data-something={'else'} />
   );
