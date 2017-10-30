@@ -46,7 +46,7 @@ const COLOR = {
 const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}) => {
   const iconClass = classNames('sg-math-symbol-icon', {
     [`sg-math-symbol-icon--${size}`]: size !== SIZE.NORMAL,
-    [`sg-math-symbol-icon--wide`] : WIDE.includes(type),
+    ['sg-math-symbol-icon--wide']: WIDE.includes(type),
     [`sg-math-symbol-icon--${color}`]: color
   }, className);
   const iconType = `#sg-math-symbol-icon-${type}`;

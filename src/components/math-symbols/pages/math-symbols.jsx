@@ -10,7 +10,7 @@ const MathSymbols = () =>
         <ul className="icons-list">
           {Object.values(TYPE).map(type =>
             <li className="icons-list__element" key={type}>
-              <MathSymbol type={type} color={COLOR.LIGHT} wide={WIDE}/>
+              <MathSymbol type={type} color={COLOR.LIGHT} wide={WIDE} />
               <span className="icons-list__element-info">&nbsp; - {type}</span>
             </li>)}
         </ul>
