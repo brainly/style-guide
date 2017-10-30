@@ -20,14 +20,6 @@ test('error when no child', () => {
   spy.mockRestore();
 });
 
-test('light', () => {
-  const header = shallow(
-    <Header light>some text</Header>
-  );
-
-  expect(header.hasClass('sg-header--light')).toEqual(true);
-});
-
 test('fixed', () => {
   const header = shallow(
     <Header fixed>some text</Header>

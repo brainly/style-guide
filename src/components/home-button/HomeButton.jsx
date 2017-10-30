@@ -7,7 +7,8 @@ const ICONS = {
   'brainly': 'brainly-mobile-426ef8718f',
   'eodev': 'eodev-mobile-b3319881d5',
   'nosdevoirs': 'nosdevoirs-mobile-0920e17308',
-  'znanija': 'znanija-mobile-4b7ac3cb04'
+  'znanija': 'znanija-mobile-4b7ac3cb04',
+  'brainly-plus': 'brainly-plus-9dd3b24a28'
 };
 
 const HomeButton = ({type = TYPE.BRAINLY, href = '#', className, ...props}) => {

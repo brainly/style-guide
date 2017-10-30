@@ -6,13 +6,8 @@ $includeHtml: false !default;
 
   .sg-header {
     width: 100%;
-    background-color: $bluePrimary;
     margin-bottom: rhythm(3) - $headerHeight;
     box-shadow: $defaultBottomShadow;
-
-    &--light {
-      background-color: $graySecondaryLightest;
-    }
 
     &--fixed {
       position: fixed;
@@ -23,6 +18,14 @@ $includeHtml: false !default;
     }
 
     &__container {
+      background-color: $bluePrimary;
+
+      &--light {
+        background-color: $white;
+      }
+    }
+
+    &__content {
       display: flex;
       width: 100%;
       height: 100%;

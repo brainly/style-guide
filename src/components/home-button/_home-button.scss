@@ -34,6 +34,10 @@ $includeHtml: false !default;
       }
     }
 
+    &--brainly-plus &__logo-big {
+      height: 41px;
+    }
+
     &--eodev &__logo-big {
       width: 114px;
     }
