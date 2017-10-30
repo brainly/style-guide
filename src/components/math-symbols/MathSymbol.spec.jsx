@@ -52,6 +52,15 @@ test('size', () => {
   expect(icon.hasClass(`sg-math-symbol-icon--${size}`)).toEqual(true);
 });
 
+test('wide', () => {
+  const type = MATH_SYMBOL_TYPE.LIMIT;
+  const icon = shallow(
+    <MathSymbol type={type} />
+  );
+
+  expect(icon.hasClass('sg-math-symbol-icon--wide')).toEqual(true);
+});
+
 test('other props', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(
