@@ -67,6 +67,17 @@ const index = () =>
       </code>
     </pre>
 
+    <p className="sg-text">If you&apos;d like to use
+      <a href="./basics.html#math-symbols" className="sg-link">math symbols </a>
+      include the following script:
+    </p>
+
+    <pre>
+      <code className="html">
+        &lt;script src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
+      </code>
+    </pre>
+
     <h2 className="article-header article-header--small">
       More
     </h2>
