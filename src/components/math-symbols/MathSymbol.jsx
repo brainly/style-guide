@@ -49,9 +49,11 @@ const COLOR = {
 };
 
 const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, className, ...props}) => {
+  const isWide = WIDE.indexOf(type) !== -1;
   const iconClass = classNames('sg-math-symbol-icon', {
-    [`sg-math-symbol-icon--${size}`]: size !== SIZE.NORMAL,
-    'sg-math-symbol-icon--wide': WIDE.indexOf(type) !== -1,
+    [`sg-math-symbol-icon--${size}`]: !isWide && size !== SIZE.NORMAL,
+    [`sg-math-symbol-icon--wide-${size}`]: isWide && size !== SIZE.NORMAL,
+    'sg-math-symbol-icon--wide': isWide && size === SIZE.NORMAL,
     [`sg-math-symbol-icon--${color}`]: color
   }, className);
   const iconType = `#sg-math-symbol-icon-${type}`;

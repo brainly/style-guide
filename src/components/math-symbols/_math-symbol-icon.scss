@@ -5,6 +5,17 @@
 
   &--wide {
     width: 128px;
+    height: 64px;
+  }
+
+  &--wide-medium {
+    width: 64px;
+    height: 32px;
+  }
+
+  &--wide-small {
+    width: 48px;
+    height: 24px;
   }
 
   &--medium {
