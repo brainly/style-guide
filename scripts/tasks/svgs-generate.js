@@ -26,6 +26,7 @@ module.exports = function(gulp, plugins, consts) {
     const subjectIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects', '*.svg');
     const subjectMonoIconsPath = plugins.path.join(consts.SRC, 'images', 'subjects-mono', '*.svg');
     const iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
+    const mathSymbolsPath = plugins.path.join(consts.SRC, 'images', 'math-symbols', '*.svg');
     const destPath = plugins.path.join(consts.SRC, 'images');
 
     const subjectIconsConfig = {
@@ -85,12 +86,35 @@ module.exports = function(gulp, plugins, consts) {
       }
     };
 
+    const mathSymbolsConfig = {
+      mode: {
+        symbol: {
+          sprite: '../math-symbols-icons.js'
+        }
+      },
+      shape: {
+        id: {
+          generator: 'sg-math-symbol-icon-%s'
+        },
+        transform: ['svgo', {
+          custom: svgSymbolCleanUp.bind(null, {removeClass: true})
+        }]
+      },
+      svg: {
+        transform: [svgAddPolyfill.bind(null, svgPolyfill)]
+      }
+    };
+
     gulp.src(subjectIconsPath)
       .pipe(plugins.svgSprite(subjectIconsConfig))
       .pipe(gulp.dest(destPath));
 
     gulp.src(subjectMonoIconsPath)
       .pipe(plugins.svgSprite(subjectMonoIconsConfig))
+      .pipe(gulp.dest(destPath));
+
+    gulp.src(mathSymbolsPath)
+      .pipe(plugins.svgSprite(mathSymbolsConfig))
       .pipe(gulp.dest(destPath));
 
     return gulp.src(iconsPath)
