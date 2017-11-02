@@ -10,7 +10,7 @@ const HeaderContent = ({children, autoHeight = false, className, ...props}) => {
 
   return (
     <div {...props} className={headerContentClass}>
-        {children}
+      {children}
     </div>
   );
 };
