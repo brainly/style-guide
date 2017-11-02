@@ -37,6 +37,10 @@ $includeHtml: false !default;
       @include sgBreakpoint(large-only) {
         padding: 0 gutter(1);
       }
+
+      &--auto-height {
+        height: auto;
+      }
     }
 
     &__left {
