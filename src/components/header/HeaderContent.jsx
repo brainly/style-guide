@@ -4,12 +4,12 @@ import classnames from 'classnames';
 
 const HeaderContent = ({children, autoHeight = false, className, ...props}) => {
 
-  const headerContainerClass = classnames('sg-header__content', {
+  const headerContentClass = classnames('sg-header__content', {
     'sg-header__content--auto-height': autoHeight
   }, className);
 
   return (
-    <div {...props} className={headerContainerClass}>
+    <div {...props} className={headerContentClass}>
         {children}
     </div>
   );
