@@ -2,6 +2,7 @@ import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Header from '../Header';
 import HeaderContainer from '../HeaderContainer';
+import HeaderContent from '../HeaderContent';
 import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
 import HeaderRight from '../HeaderRight';
@@ -26,9 +27,11 @@ const Headers = () => {
       <DocsActiveBlock settings={settings}>
         <Header>
           <HeaderContainer>
-            <HeaderLeft>left</HeaderLeft>
-            <HeaderMiddle>middle</HeaderMiddle>
-            <HeaderRight>right</HeaderRight>
+            <HeaderContent>
+              <HeaderLeft>left</HeaderLeft>
+              <HeaderMiddle>middle</HeaderMiddle>
+              <HeaderRight>right</HeaderRight>
+            </HeaderContent>
           </HeaderContainer>
         </Header>
       </DocsActiveBlock>
