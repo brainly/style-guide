@@ -22,7 +22,7 @@ test('error when no child', () => {
 
 test('auto-height', () => {
   const headerContent = shallow(
-    <HeaderContent light>some text</HeaderContent>
+    <HeaderContent autoHeight>some text</HeaderContent>
   );
 
   expect(headerContent.hasClass('sg-header__content--auto-height')).toEqual(true);
