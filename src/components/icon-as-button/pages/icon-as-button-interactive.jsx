@@ -57,5 +57,4 @@ const IconsAsButtons = () => {
   );
 };
 
-
 export default IconsAsButtons;

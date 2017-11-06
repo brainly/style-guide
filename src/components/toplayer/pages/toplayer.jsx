@@ -83,7 +83,6 @@ const TopLayers = () =>
       </TopLayer>
     </DocsBlock>
 
-
     <DocsBlock info="Example usage (on small screen">
       <iframe height="568" width="320" src="components/toplayer/notlogged_toplayer.html"></iframe>
     </DocsBlock>

@@ -32,7 +32,6 @@ test('render top', () => {
   expect(bubble.hasClass('sg-bubble--row-start')).toEqual(false);
 });
 
-
 test('render top start', () => {
   const bubble = shallow(
     <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>Some text</Bubble>
@@ -41,7 +40,6 @@ test('render top start', () => {
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
   expect(bubble.hasClass('sg-bubble--row-start')).toEqual(true);
 });
-
 
 test('render right', () => {
   const bubble = shallow(

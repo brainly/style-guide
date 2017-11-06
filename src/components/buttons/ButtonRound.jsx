@@ -20,7 +20,6 @@ const ButtonRound = ({label, children, href = '#', onClick = () => undefined, cl
   );
 };
 
-
 ButtonRound.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,

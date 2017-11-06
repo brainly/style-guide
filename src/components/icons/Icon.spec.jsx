@@ -31,7 +31,6 @@ test('type passed to xlink:href', () => {
   expect(use.props().xlinkHref).toEqual('#icon-' + type);
 });
 
-
 test('colors', () => {
   const type = TYPE.ANSWER;
   const color = COLOR.DARK;
@@ -41,7 +40,6 @@ test('colors', () => {
 
   expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
 });
-
 
 test('size', () => {
   const size = 10;

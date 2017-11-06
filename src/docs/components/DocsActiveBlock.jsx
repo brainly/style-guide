@@ -31,7 +31,6 @@ class DocsActiveBlock extends Component {
         }, {key: 'component'});
     }
 
-
     this.state = {
       showCode: null,
       changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,

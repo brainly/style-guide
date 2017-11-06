@@ -11,13 +11,11 @@ const icons = () =>
       </ul>
     </DocsBlock>
 
-
     <DocsBlock info="Border">
       <ul className="icons-list">
         {Object.values(COLOR).map(color => <DrawHelper color={color} key={color} type={TYPE.HEART} border />)}
       </ul>
     </DocsBlock>
-
 
     <DocsBlock info="Action">
       <ul className="icons-list">
@@ -41,7 +39,6 @@ const icons = () =>
       </ul>
     </DocsBlock>
 
-
     <DocsBlock info="small">
       <ul className="icons-list">
         {Object.values(COLOR).map(color =>
@@ -50,7 +47,6 @@ const icons = () =>
       </ul>
     </DocsBlock>
 
-
     <DocsBlock info="xsmall">
       <ul className="icons-list">
         {Object.values(COLOR).map(color =>
@@ -58,7 +54,6 @@ const icons = () =>
         )}
       </ul>
     </DocsBlock>
-
 
     <DocsBlock info="xxsmall">
       <ul className="icons-list">

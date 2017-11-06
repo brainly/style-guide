@@ -28,4 +28,3 @@ test('fixed', () => {
   expect(header.hasClass('sg-header--fixed')).toEqual(true);
 });
 
-

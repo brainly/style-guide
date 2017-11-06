@@ -2,14 +2,12 @@ import React from 'react';
 import DropdownContainer from './DropdownContainer';
 import {shallow, mount} from 'enzyme';
 
-
 const item1st = {id: 'csdsd', text: '1st item'};
 const item2nd = {id: 'sdfsdfg', text: '2nd item'};
 const item3rd = {id: 'fdpks', text: '3rd item'};
 const defaultItems = [item1st, item2nd, item3rd];
 const defaultLabel = 'default Label';
 const defaultProps = {items: defaultItems, label: defaultLabel};
-
 
 test('it\'s container so should\'t render presentional component', () => {
   const dropDown = shallow(<DropdownContainer {...defaultProps} />);
@@ -23,7 +21,6 @@ test('mount should render Dropdown component', () => {
   expect(dropDown.find('.sg-dropdown').length).toEqual(1);
 });
 
-
 test('no opened at start', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
@@ -31,14 +28,12 @@ test('no opened at start', () => {
   expect(dropDown.state('isOpened')).toEqual(false);
 });
 
-
 test('opened at start when props passed', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart />);
 
   expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(true);
   expect(dropDown.state('isOpened')).toEqual(true);
 });
-
 
 test('toggle open', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} />);

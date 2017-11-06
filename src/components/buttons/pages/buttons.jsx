@@ -66,7 +66,6 @@ const Buttons = () =>
       </ButtonRound>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons">
       <ButtonSecondary>
         <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
@@ -89,11 +88,9 @@ const Buttons = () =>
       </ButtonSecondary>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons wide">
       <ButtonSecondary wide>Search</ButtonSecondary>
     </DocsBlock>
-
 
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
@@ -119,7 +116,6 @@ const Buttons = () =>
       </ContrastBox>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons small">
       <ButtonSecondary small>
         <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
@@ -141,7 +137,6 @@ const Buttons = () =>
         Disabled
       </ButtonSecondary>
     </DocsBlock>
-
 
     <DocsBlock info="Secondary buttons inverted small">
       <ContrastBox>
@@ -175,7 +170,6 @@ const Buttons = () =>
 
       </ContrastBox>
     </DocsBlock>
-
 
     <DocsBlock info="Secondary buttons small active and inverted">
       <ButtonSecondary type={types2.ACTIVE_INVERSE} small>

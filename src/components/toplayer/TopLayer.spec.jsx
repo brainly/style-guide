@@ -41,7 +41,6 @@ test('size', () => {
   expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(true);
 });
 
-
 test('testing modifications - all on', () => {
   const topLayer = shallow(
     <TopLayer fill lead limitedWidth modal row smallSpaced splashScreen

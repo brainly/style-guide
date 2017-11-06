@@ -34,7 +34,6 @@ test('simple', () => {
   expect(textarea.hasClass('sg-textarea--simple')).toEqual(true);
 });
 
-
 test('default validation', () => {
   const textarea = shallow(
     <Textarea />
@@ -43,7 +42,6 @@ test('default validation', () => {
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
-
 
 test('valid', () => {
   const textarea = shallow(
@@ -54,7 +52,6 @@ test('valid', () => {
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
 
-
 test('invalid', () => {
   const textarea = shallow(
     <Textarea invalid />
@@ -64,13 +61,11 @@ test('invalid', () => {
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(true);
 });
 
-
 test('error when both valid and invalid', () => {
   expect(() => {
     shallow(<Textarea valid invalid />);
   }).toThrow();
 });
-
 
 test('size', () => {
   const textarea = shallow(
@@ -79,7 +74,6 @@ test('size', () => {
 
   expect(textarea.hasClass('sg-textarea--short')).toEqual(true);
 });
-
 
 test('default size', () => {
   const textarea = shallow(

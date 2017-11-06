@@ -26,7 +26,6 @@ test('colors', () => {
   expect(iconAsButton.hasClass(`sg-icon-as-button--${color}`)).toEqual(true);
 });
 
-
 test('size', () => {
   const size = SIZE.SMALL;
   const sizeOfSmallIco = 18;
@@ -51,7 +50,6 @@ test('default size', () => {
   expect(iconAsButton.hasClass('sg-icon-as-button--normal')).toEqual(true);
   expect(icon.props().size).toEqual(sizeOfNormallIco);
 });
-
 
 test('border', () => {
   const type = TYPE.ANSWER;
@@ -124,7 +122,6 @@ test('no overlay', () => {
 
   expect(overlayedBox).toHaveLength(0);
 });
-
 
 test('error when more than 1 child', () => {
   const spy = jest.spyOn(console, 'error');
