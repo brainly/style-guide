@@ -1,5 +1,5 @@
 import React from 'react';
-import SubjectIcon, {TYPE, SIZE, MONO_COLOR} from './SubjectIcon';
+import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from './SubjectIcon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -44,7 +44,7 @@ test('size', () => {
 test('mono', () => {
   const type = TYPE.LANGUAGE;
   const icon = shallow(
-    <SubjectIcon type={type} monoColor={MONO_COLOR.LIGHT} />
+    <SubjectIcon type={type} monoColor={ICON_COLOR.LIGHT} />
   );
   const use = icon.find('use');
 

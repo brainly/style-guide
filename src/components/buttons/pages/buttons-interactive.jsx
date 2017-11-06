@@ -2,7 +2,7 @@ import React from 'react';
 import ButtonPrimary, {TYPE as PRIMARY_TYPE} from '../ButtonPrimary';
 import ButtonSecondary, {TYPE as SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
-import Icon, {TYPE as ICON_TYPES, COLOR as ICON_COLORS} from 'icons/Icon';
+import Icon, {TYPE as ICON_TYPES, ICON_COLORS} from 'icons/Icon';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

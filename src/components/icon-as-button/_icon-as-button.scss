@@ -20,6 +20,10 @@ $iconAsButtonLavenderColor: $lavenderPrimary;
 $iconAsButtonLavenderActiveColor: rgba($iconAsButtonLavenderColor, 0.7);
 $iconAsButtonActionColor: $white;
 $iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.2);
+$iconAsButtonNavyBlueColor: $navybluePrimary;
+$iconAsButtonNavyBlueActiveColor: rgba($iconAsButtonNavyBlueColor, 0.7);
+$iconAsButtonBlueColor: $bluePrimary;
+$iconAsButtonBlueActiveColor: rgba($iconAsButtonBlueColor, 0.7);
 
 $includeHtml: false !default;
 
@@ -163,6 +167,33 @@ $includeHtml: false !default;
 
       .sg-icon-as-button__hole {
         border-color: $iconAsButtonMintColor;
+      }
+    }
+
+    &--navy-blue {
+      fill: $iconAsButtonNavyBlueColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonNavyBlueActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonNavyBlueColor;
+      }
+    }
+
+
+    &--blue {
+      fill: $iconAsButtonBlueColor;
+
+      &:hover,
+      &:active {
+        fill: $iconAsButtonBlueActiveColor;
+      }
+
+      .sg-icon-as-button__hole {
+        border-color: $iconAsButtonBlueColor;
       }
     }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import SubjectIcon, {TYPE, MONO_COLOR} from '../SubjectIcon';
+import SubjectIcon, {TYPE, ICON_COLOR} from '../SubjectIcon';
 
 const subjectMonoIcons = () =>
   <div>
@@ -10,7 +10,7 @@ const subjectMonoIcons = () =>
         <ul className="icons-list">
           {Object.values(TYPE).map(type =>
             <li className="icons-list__element icons-list__element--wide" key={type}>
-              <SubjectIcon type={type} monoColor={MONO_COLOR.LIGHT} />
+              <SubjectIcon type={type} monoColor={ICON_COLOR.LIGHT} />
               <span className="icons-list__element-info">&nbsp; - {type}</span>
             </li>)}
         </ul>

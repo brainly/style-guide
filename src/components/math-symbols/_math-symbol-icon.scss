@@ -1,3 +1,5 @@
+@import '../icons/icons-mixin';
+
 .sg-math-symbol-icon {
   height: 64px;
   width: 64px;
@@ -28,48 +30,6 @@
     width: 24px;
   }
 
-  &--adaptive {
-    fill: inherit;
-  }
-
-  &--light {
-    fill: $white;
-  }
-
-  &--gray {
-    fill: $grayPrimary;
-  }
-
-  &--gray-secondary {
-    fill: $graySecondary;
-  }
-
-  &--gray-light {
-    fill: $graySecondaryLight;
-  }
-
-  &--blue {
-    fill: $bluePrimary;
-  }
-
-  &--mustard {
-    fill: $mustardPrimary;
-  }
-
-  &--lavender {
-    fill: $lavenderPrimary;
-  }
-
-  &--peach {
-    fill: $peachPrimary;
-  }
-
-  &--dark {
-    fill: $black;
-  }
-
-  &--mint {
-    fill: $mintPrimary;
-  }
+  @include iconColor();
 }
 

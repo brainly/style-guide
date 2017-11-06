@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon, {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from '../../icons/Icon';
+import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from '../../icons/Icon';
 
 const LabelIcon = ({iconType, iconColor, iconContent, iconSize}) => {
   if (iconContent) {

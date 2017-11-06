@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon, {TYPE, COLOR} from '../../icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from '../../icons/Icon';
 
 const Star = ({size, checked, onClick}) => {
   const starClass = classnames('sg-rate-box__star', {
@@ -10,7 +10,7 @@ const Star = ({size, checked, onClick}) => {
 
   return (
     <span className={starClass} onClick={onClick}>
-      <Icon type={TYPE.STAR} size={size} color={COLOR.ADAPTIVE} />
+      <Icon type={TYPE.STAR} size={size} color={ICON_COLOR.ADAPTIVE} />
     </span>
   );
 };

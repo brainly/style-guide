@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon, {TYPE as iconTypes, COLOR as iconColors} from '../icons/Icon';
+import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
 
 const SIZE = {
   SMALL: 'small',
@@ -39,7 +39,7 @@ const TopLayer = props => {
   return (
     <div {...additionalProps} className={topLayerClassName}>
       <div className="sg-toplayer__close">
-        <Icon type={iconTypes.X} color={iconColors.GRAY_SECONDARY} size={14} />
+        <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
       </div>
       <div className="sg-toplayer__wrapper">
         {children}
