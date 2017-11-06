@@ -37,7 +37,6 @@ const ItemsPage = ({navigationIdx}) => {
             </article>
           )}
 
-
         </div>
 
         <div className="copy-helper copy-helper--fixed copy-helper--hidden">

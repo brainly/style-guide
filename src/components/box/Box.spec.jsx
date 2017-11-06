@@ -86,7 +86,6 @@ test('small padding', () => {
   expect(box.hasClass('sg-box--small-padding')).toEqual(true);
 });
 
-
 test('large padding', () => {
   const padding = PADDING.LARGE;
   const box = shallow(

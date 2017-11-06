@@ -3,7 +3,6 @@ import SubjectIconBox, {TYPE} from './SubjectIconBox';
 import SubjectIcon from './SubjectIcon';
 import {shallow} from 'enzyme';
 
-
 test('render', () => {
   const box = shallow(
     <SubjectIconBox type={TYPE.LIFE_SCIENCE} />

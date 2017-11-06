@@ -29,7 +29,6 @@ test('checked', () => {
   expect(input.props().checked).toBeTruthy();
 });
 
-
 test('unique ID by default', () => {
   const noOfRadio = 15;
   const arrayOfId = new Array(noOfRadio).fill(true).map(() => {
@@ -43,7 +42,6 @@ test('unique ID by default', () => {
 
   expect(arrayOfId).toHaveLength(new Set(arrayOfId).size);
 });
-
 
 test('passing id', () => {
   const id = 'id_of_radio';

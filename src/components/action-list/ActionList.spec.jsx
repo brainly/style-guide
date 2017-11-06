@@ -25,7 +25,6 @@ describe('ActionList', () => {
     expect(actionList.hasClass('sg-actions-list')).toEqual(true);
   });
 
-
   test('to-right', () => {
     const actionList = shallow(
       <ActionList direction={DIRECTION.TO_RIGHT}></ActionList>

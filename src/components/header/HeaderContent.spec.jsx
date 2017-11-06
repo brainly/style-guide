@@ -28,4 +28,3 @@ test('auto-height', () => {
   expect(headerContent.hasClass('sg-header__content--auto-height')).toEqual(true);
 });
 
-

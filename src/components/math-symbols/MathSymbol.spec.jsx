@@ -31,7 +31,6 @@ test('type passed to xlink:href', () => {
   expect(use.props().xlinkHref).toEqual('#sg-math-symbol-icon-' + type);
 });
 
-
 test('colors', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const color = COLOR.DARK;

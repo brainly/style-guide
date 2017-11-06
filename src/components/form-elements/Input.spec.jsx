@@ -18,7 +18,6 @@ test('full width', () => {
   expect(input.hasClass('sg-input--full-width')).toEqual(true);
 });
 
-
 test('default validation', () => {
   const input = shallow(
     <Input />
@@ -28,7 +27,6 @@ test('default validation', () => {
   expect(input.hasClass('sg-input--invalid')).toEqual(false);
 });
 
-
 test('valid', () => {
   const input = shallow(
     <Input valid />
@@ -37,7 +35,6 @@ test('valid', () => {
   expect(input.hasClass('sg-input--valid')).toEqual(true);
   expect(input.hasClass('sg-input--invalid')).toEqual(false);
 });
-
 
 test('invalid', () => {
   const input = shallow(
@@ -62,7 +59,6 @@ test('size', () => {
   expect(input.hasClass('sg-input--large')).toEqual(true);
 });
 
-
 test('default size', () => {
   const input = shallow(
     <Input />
@@ -72,7 +68,6 @@ test('default size', () => {
   expect(input.hasClass('sg-input--large')).toEqual(false);
 });
 
-
 test('color', () => {
   const input = shallow(
     <Input color={COLOR.LIGHT} />
@@ -80,7 +75,6 @@ test('color', () => {
 
   expect(input.hasClass('sg-input--light')).toEqual(true);
 });
-
 
 test('default color', () => {
   const input = shallow(

@@ -2,7 +2,6 @@ import React from 'react';
 import ButtonRound from './ButtonRound';
 import {shallow} from 'enzyme';
 
-
 test('render', () => {
   const button = shallow(
     <ButtonRound>Some text</ButtonRound>
@@ -10,7 +9,6 @@ test('render', () => {
 
   expect(button.hasClass('sg-button-primary-round')).toEqual(true);
 });
-
 
 test('href', () => {
   const href = '#test';
@@ -38,7 +36,6 @@ test('no label', () => {
 
   expect(button.find('sg-button-primary-round__label')).toHaveLength(0);
 });
-
 
 test('func', () => {
   let counter = 0;

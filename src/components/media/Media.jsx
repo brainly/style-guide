@@ -41,7 +41,6 @@ const Media = props => {
   );
 };
 
-
 Media.propTypes = {
   aside: PropTypes.node.isRequired,
   contentArray: PropTypes.arrayOf(PropTypes.node).isRequired,

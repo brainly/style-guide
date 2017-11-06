@@ -2503,9 +2503,9 @@ front-matter@2.1.0:
   dependencies:
     js-yaml "^3.4.6"
 
-"frontend-tools-configs@git+https://github.com/brainly/frontend-tools-configs.git#v16.0.0":
-  version "16.0.0"
-  resolved "git+https://github.com/brainly/frontend-tools-configs.git#61dac4d94f29c15f79ac2f01c7aebb2608d84585"
+"frontend-tools-configs@git+https://github.com/brainly/frontend-tools-configs.git#v16.1.0":
+  version "16.1.0"
+  resolved "git+https://github.com/brainly/frontend-tools-configs.git#605911a8be8d1dbc33de1a63684e2f3682fe8b78"
   dependencies:
     eslint "^4.5.0"
     eslint-plugin-babel "^4.1.2"

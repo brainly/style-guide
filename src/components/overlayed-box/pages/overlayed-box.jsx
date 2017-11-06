@@ -7,7 +7,6 @@ import Avatar from 'avatar/Avatar';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 
-
 const overlayedBoxs = () =>
   <div>
     <DocsBlock info="Icon as button with overlay-box">
@@ -47,6 +46,5 @@ const overlayedBoxs = () =>
       </ContrastBox>
     </DocsBlock>
   </div>;
-
 
 export default overlayedBoxs;

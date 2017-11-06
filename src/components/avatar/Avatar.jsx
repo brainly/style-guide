@@ -23,7 +23,6 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
     'sg-avatar--spaced': spaced
   }, className);
 
-
   let avatarContent;
 
   if (imgSrc) {
