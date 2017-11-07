@@ -12,6 +12,7 @@ const SIZE = {
 const TopLayer = props => {
   const {
     children,
+    onClose,
     size,
     lead,
     fill,
@@ -24,6 +25,7 @@ const TopLayer = props => {
     className,
     ...additionalProps
   } = props;
+
   const topLayerClassName = classnames('sg-toplayer', {
     'sg-toplayer--lead': lead,
     'sg-toplayer--fill': fill,
@@ -38,9 +40,11 @@ const TopLayer = props => {
 
   return (
     <div {...additionalProps} className={topLayerClassName}>
-      <div className="sg-toplayer__close">
-        <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
-      </div>
+      {onClose ?
+        <div className="sg-toplayer__close" onClick={onClose}>
+          <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
+        </div> : null
+      }
       <div className="sg-toplayer__wrapper">
         {children}
       </div>
@@ -50,6 +54,7 @@ const TopLayer = props => {
 
 TopLayer.propTypes = {
   children: PropTypes.node.isRequired,
+  onClose: PropTypes.func,
   lead: PropTypes.bool,
   fill: PropTypes.bool,
   modal: PropTypes.bool,
