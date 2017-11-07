@@ -1,6 +1,6 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
-import IconAsButton, {COLOR, TYPE} from 'icon-as-button/IconAsButton';
+import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
 import ButtonSecondary, {TYPE as buttonTypes} from 'buttons/ButtonSecondary';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
@@ -23,9 +23,9 @@ const PopupsMenus = () =>
     <DocsBlock info="Example usage 1">
       <ContrastBox fullWidth>
         <PopupMenu items={[
-          <IconAsButton key={1} color={COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
-          <IconAsButton key={2} color={COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
-          <IconAsButton key={3} color={COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
+          <IconAsButton key={1} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
+          <IconAsButton key={2} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
+          <IconAsButton key={3} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
           <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />
         ]} />
       </ContrastBox>

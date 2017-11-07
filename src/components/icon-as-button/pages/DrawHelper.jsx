@@ -1,16 +1,16 @@
 import React from 'react';
 import {contrastBlockCssClass} from 'components/ContrastBox';
-import IconAsButton, {COLOR} from '../IconAsButton';
+import IconAsButton, {ICON_COLOR} from '../IconAsButton';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 const DrawHelper = props => {
   const liClass = classnames('icons-list__element', {
-    [contrastBlockCssClass]: props.color === COLOR.LIGHT
+    [contrastBlockCssClass]: props.color === ICON_COLOR.LIGHT
   });
   const liStyle = {padding: 0};
 
-  if (props.color === COLOR.ADAPTIVE) {
+  if (props.color === ICON_COLOR.ADAPTIVE) {
     liStyle.fill = '#ff00ff';
   }
 
@@ -23,7 +23,7 @@ const DrawHelper = props => {
 };
 
 DrawHelper.propTypes = {
-  color: PropTypes.oneOf(Object.values(COLOR))
+  color: PropTypes.oneOf(Object.values(ICON_COLOR))
 };
 
 export default DrawHelper;
