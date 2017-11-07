@@ -2,8 +2,8 @@ import React from 'react';
 import ButtonPrimary, {TYPE as PRIMARY_TYPE} from '../ButtonPrimary';
 import ButtonSecondary, {TYPE as SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
-import Icon, {TYPE as ICON_TYPES, ICON_COLORS} from 'icons/Icon';
-import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
+import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
+import Label, {ICON_TYPE} from 'labels/Label';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {
@@ -92,7 +92,7 @@ const Buttons = () => {
 
       <DocsActiveBlock settings={secondarySettings}>
         <ButtonSecondary>
-          <Icon type={ICON_TYPES.SEARCH} color={ICON_COLORS.ADAPTIVE} size={14} />
+          <Icon type={ICON_TYPES.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
         </ButtonSecondary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
