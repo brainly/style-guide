@@ -40,9 +40,11 @@ const TopLayer = props => {
 
   return (
     <div {...additionalProps} className={topLayerClassName}>
-      <div className="sg-toplayer__close" onClick={onClose}>
-        <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
-      </div>
+      {onClose ?
+        <div className="sg-toplayer__close" onClick={onClose}>
+          <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
+        </div> : null
+      }
       <div className="sg-toplayer__wrapper">
         {children}
       </div>
