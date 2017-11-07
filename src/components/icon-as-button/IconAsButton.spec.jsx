@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAsButton, {TYPE, COLOR, SIZE} from './IconAsButton';
+import IconAsButton, {TYPE, ICON_COLOR, SIZE} from './IconAsButton';
 import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
@@ -18,14 +18,13 @@ test('render', () => {
 
 test('colors', () => {
   const type = TYPE.ANSWER;
-  const color = COLOR.DARK;
+  const color = ICON_COLOR.DARK;
   const iconAsButton = shallow(
     <IconAsButton type={type} color={color} />
   );
 
   expect(iconAsButton.hasClass(`sg-icon-as-button--${color}`)).toEqual(true);
 });
-
 
 test('size', () => {
   const size = SIZE.SMALL;
@@ -51,7 +50,6 @@ test('default size', () => {
   expect(iconAsButton.hasClass('sg-icon-as-button--normal')).toEqual(true);
   expect(icon.props().size).toEqual(sizeOfNormallIco);
 });
-
 
 test('border', () => {
   const type = TYPE.ANSWER;
@@ -124,7 +122,6 @@ test('no overlay', () => {
 
   expect(overlayedBox).toHaveLength(0);
 });
-
 
 test('error when more than 1 child', () => {
   const spy = jest.spyOn(console, 'error');

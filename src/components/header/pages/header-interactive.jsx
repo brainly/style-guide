@@ -9,7 +9,7 @@ import HeaderRight from '../HeaderRight';
 import HomeButton from 'home-button/HomeButton';
 import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
-import IconAsButton, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from 'icon-as-button/IconAsButton';
+import IconAsButton, {TYPE as ICON_TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 import ButtonSecondary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonSecondary';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';

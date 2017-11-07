@@ -18,7 +18,6 @@ describe('Label', () => {
     expect(icon.props().iconType).toEqual(iconType);
   });
 
-
   test('icon color', () => {
     const iconType = ICON_TYPE.HEART;
     const iconColor = ICON_COLOR.LAVENDER;

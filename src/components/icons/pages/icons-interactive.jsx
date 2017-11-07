@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {TYPE, SIZE, COLOR} from '../Icon';
+import Icon, {TYPE, SIZE, ICON_COLOR} from '../Icon';
 import DocsActiveBlock, {BACKGROUND_COLOR} from 'components/DocsActiveBlock';
 
 const Icons = () => {
@@ -21,7 +21,7 @@ const Icons = () => {
     },
     {
       name: 'color',
-      values: COLOR
+      values: ICON_COLOR
     }
   ];
 
@@ -31,7 +31,7 @@ const Icons = () => {
         <Icon type={TYPE.NOTIFICATIONS} />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Icon type={TYPE.HEART} color={COLOR.PEACH} size={46} />
+        <Icon type={TYPE.HEART} color={ICON_COLOR.PEACH} size={46} />
       </DocsActiveBlock>
     </div>
   );

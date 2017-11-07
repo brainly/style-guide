@@ -4,8 +4,8 @@ import ButtonSecondary, {TYPE as types2} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Icon, {TYPE as iconTypes, COLOR as iconColors} from 'icons/Icon';
-import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
+import Icon, {TYPE as iconTypes, ICON_COLOR} from 'icons/Icon';
+import Label, {ICON_TYPE} from 'labels/Label';
 
 const Buttons = () =>
   <div>
@@ -30,7 +30,7 @@ const Buttons = () =>
       <br />
 
       <ButtonPrimary
-        icon={<Icon type={iconTypes.FB} color={iconColors.ADAPTIVE} size={16} />}
+        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
         type={TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
@@ -66,10 +66,9 @@ const Buttons = () =>
       </ButtonRound>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons">
       <ButtonSecondary>
-        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
+        <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary>
@@ -89,16 +88,14 @@ const Buttons = () =>
       </ButtonSecondary>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons wide">
       <ButtonSecondary wide>Search</ButtonSecondary>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
         <ButtonSecondary type={types2.INVERSE}>
-          <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
+          <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
         </ButtonSecondary>
         &nbsp;
         <ButtonSecondary type={types2.INVERSE}>
@@ -119,10 +116,9 @@ const Buttons = () =>
       </ContrastBox>
     </DocsBlock>
 
-
     <DocsBlock info="Secondary buttons small">
       <ButtonSecondary small>
-        <Icon type={iconTypes.SEARCH} color={iconColors.ADAPTIVE} size={14} />
+        <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary small>
@@ -141,7 +137,6 @@ const Buttons = () =>
         Disabled
       </ButtonSecondary>
     </DocsBlock>
-
 
     <DocsBlock info="Secondary buttons inverted small">
       <ContrastBox>
@@ -175,7 +170,6 @@ const Buttons = () =>
 
       </ContrastBox>
     </DocsBlock>
-
 
     <DocsBlock info="Secondary buttons small active and inverted">
       <ButtonSecondary type={types2.ACTIVE_INVERSE} small>

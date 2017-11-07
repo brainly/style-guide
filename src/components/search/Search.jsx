@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Input, {COLOR, SIZE, propTypes as InputPropTypes} from '../form-elements/Input';
-import Icon, {TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 
 const Search = ({adaptiveIco, className, ...additionalProps}) => {
   const iconColor = adaptiveIco ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;

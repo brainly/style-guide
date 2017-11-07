@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
+import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 
 const DEFAULT_ICON = ICON_TYPE.PROFILE;
 const DEFAULT_COLOR = ICON_COLOR.GRAY;
@@ -22,7 +22,6 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
     'sg-avatar--with-border': border,
     'sg-avatar--spaced': spaced
   }, className);
-
 
   let avatarContent;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Icon, {TYPE, COLOR, SIZE} from '../Icon';
+import Icon, {TYPE, ICON_COLOR, SIZE} from '../Icon';
 
 const icons = () =>
   <div>
@@ -19,7 +19,7 @@ const icons = () =>
 
     <DocsBlock info="Colors">
       <ul className="icons-list">
-        {Object.values(COLOR).map(color =>
+        {Object.values(ICON_COLOR).map(color =>
           <li className="icons-list__element" key={color}>
             <Icon color={color} type={TYPE.FRIENDS} />
             <span>&nbsp; - {color}</span>

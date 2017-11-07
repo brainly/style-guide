@@ -45,7 +45,6 @@ test('full width', () => {
   expect(select.hasClass('sg-select--full-width')).toEqual(true);
 });
 
-
 test('default validation', () => {
   const select = shallow(
     <Select />
@@ -54,7 +53,6 @@ test('default validation', () => {
   expect(select.hasClass('sg-select--valid')).toEqual(false);
   expect(select.hasClass('sg-select--invalid')).toEqual(false);
 });
-
 
 test('valid', () => {
   const select = shallow(
@@ -65,7 +63,6 @@ test('valid', () => {
   expect(select.hasClass('sg-select--invalid')).toEqual(false);
 });
 
-
 test('invalid', () => {
   const select = shallow(
     <Select invalid />
@@ -74,7 +71,6 @@ test('invalid', () => {
   expect(select.hasClass('sg-select--valid')).toEqual(false);
   expect(select.hasClass('sg-select--invalid')).toEqual(true);
 });
-
 
 test('error when both valid and invalid', () => {
   expect(() => {

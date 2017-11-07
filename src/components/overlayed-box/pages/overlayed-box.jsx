@@ -1,12 +1,11 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
+import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 import OverlayedBox from '../OverlayedBox';
 import Avatar from 'avatar/Avatar';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
-
 
 const overlayedBoxs = () =>
   <div>
@@ -14,7 +13,7 @@ const overlayedBoxs = () =>
       <IconAsButton type={TYPE.MESSAGES}
         overlay={<Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>} />
       <ContrastBox>
-        <IconAsButton color={COLOR.LIGHT} type={TYPE.PROFILE}
+        <IconAsButton color={ICON_COLOR.LIGHT} type={TYPE.PROFILE}
           overlay={<Badge color={BADGE_COLOR.MUSTARD} rounded>!</Badge>} />
       </ContrastBox>
     </DocsBlock>
@@ -47,6 +46,5 @@ const overlayedBoxs = () =>
       </ContrastBox>
     </DocsBlock>
   </div>;
-
 
 export default overlayedBoxs;

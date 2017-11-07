@@ -2,7 +2,6 @@ import React from 'react';
 import Dropdown from './Dropdown';
 import {shallow} from 'enzyme';
 
-
 const item1st = {id: 'csdsd', text: '1st item'};
 const item2nd = {id: 'sdfsdfg', text: '2nd item'};
 const item3rd = {id: 'fdpks', text: '3rd item'};
@@ -27,5 +26,4 @@ test('no full width', () => {
 
   expect(dropDown.hasClass('sg-dropdown--full-width')).toEqual(false);
 });
-
 

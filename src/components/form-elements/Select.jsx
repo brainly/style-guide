@@ -40,7 +40,6 @@ const Select = props => {
   );
 };
 
-
 const optionShape = PropTypes.shape({
   value: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired

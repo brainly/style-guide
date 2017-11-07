@@ -3,7 +3,6 @@ import Rating, {Star} from './Rating';
 import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 
-
 describe('rating', () => {
   test('render', () => {
     const rating = shallow(
@@ -150,7 +149,6 @@ describe('rating', () => {
     );
     const stars = rating.find(Star);
 
-
     expect(rating.hasClass('sg-rate-box--small')).toEqual(false);
 
     stars.forEach(star => {
@@ -174,7 +172,6 @@ describe('rating', () => {
     expect(rating.find('.sg-rate-box__counter')).toHaveLength(0);
   });
 });
-
 
 describe('star', () => {
   const dumpFnc = () => undefined;

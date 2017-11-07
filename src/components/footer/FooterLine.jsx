@@ -19,4 +19,3 @@ FooterLine.propTypes = {
 
 export default FooterLine;
 
-

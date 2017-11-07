@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAsButton, {TYPE, COLOR, SIZE} from '../IconAsButton';
+import IconAsButton, {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
@@ -12,7 +12,7 @@ const IconsAsButtons = () => {
     },
     {
       name: 'color',
-      values: COLOR
+      values: ICON_COLOR
     },
     {
       name: 'type',
@@ -39,7 +39,7 @@ const IconsAsButtons = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <IconAsButton color={COLOR.GRAY} type={TYPE.ATTACHMENT} />
+        <IconAsButton color={ICON_COLOR.GRAY} type={TYPE.ATTACHMENT} />
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>
@@ -56,6 +56,5 @@ const IconsAsButtons = () => {
     </div>
   );
 };
-
 
 export default IconsAsButtons;

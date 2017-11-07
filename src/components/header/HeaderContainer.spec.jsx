@@ -28,4 +28,3 @@ test('light', () => {
   expect(headerContainer.hasClass('sg-header__container--light')).toEqual(true);
 });
 
-

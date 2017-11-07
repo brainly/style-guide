@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {TYPE, COLOR} from './Icon';
+import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -31,17 +31,15 @@ test('type passed to xlink:href', () => {
   expect(use.props().xlinkHref).toEqual('#icon-' + type);
 });
 
-
 test('colors', () => {
   const type = TYPE.ANSWER;
-  const color = COLOR.DARK;
+  const color = ICON_COLOR.DARK;
   const icon = shallow(
     <Icon type={type} color={color} />
   );
 
   expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
 });
-
 
 test('size', () => {
   const size = 10;

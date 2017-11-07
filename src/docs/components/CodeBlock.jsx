@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import beautify from 'html_beautify';
 import hljs from 'hljs';
-import IconAsButton, {TYPE, COLOR} from 'icon-as-button/IconAsButton';
+import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
 class CodeBlock extends Component {
   componentDidMount() {
@@ -65,7 +65,7 @@ class CodeBlock extends Component {
         <div className="copy-helper__buttons"
           ref={this.copyButtonFunction}>
           <IconAsButton
-            title="Copy to the clipboard" type={TYPE.ANSWER} color={COLOR.DARK} />
+            title="Copy to the clipboard" type={TYPE.ANSWER} color={ICON_COLOR.DARK} />
         </div>
       </div>
     );

@@ -19,7 +19,6 @@ test('render', () => {
   expect(media.find('.sg-media__content')).toHaveLength(defaultProps.contentArray.length);
 });
 
-
 test('error when no aside', () => {
   const spy = jest.spyOn(console, 'error');
 

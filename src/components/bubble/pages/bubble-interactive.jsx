@@ -71,5 +71,4 @@ const Bubbles = () => {
   );
 };
 
-
 export default Bubbles;

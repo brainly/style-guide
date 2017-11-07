@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {ICON_COLOR} from '../icons/Icon';
 
 const MATH_SYMBOL_TYPE = {
   SQUERE_ROOT: 'squere-root',
@@ -34,20 +35,6 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const COLOR = {
-  LIGHT: 'light',
-  ADAPTIVE: 'adaptive',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_LIGHT: 'gray-light',
-  BLUE: 'blue',
-  MUSTARD: 'mustard',
-  LAVENDER: 'lavender',
-  PEACH: 'peach',
-  DARK: 'dark',
-  MINT: 'mint'
-};
-
 const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, className, ...props}) => {
   const isWide = WIDE.indexOf(type) !== -1;
   const iconClass = classNames('sg-math-symbol-icon', {
@@ -68,9 +55,9 @@ const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, classNa
 MathSymbol.propTypes = {
   type: PropTypes.oneOf(Object.values(MATH_SYMBOL_TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
+  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
   className: PropTypes.string
 };
 
 export default MathSymbol;
-export {MATH_SYMBOL_TYPE, SIZE, COLOR};
+export {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR};

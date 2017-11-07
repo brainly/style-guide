@@ -29,7 +29,6 @@ test('checked', () => {
   expect(input.props().checked).toBeTruthy();
 });
 
-
 test('unique ID by default', () => {
   const noOfCheckbox = 15;
   const arrayOfId = new Array(noOfCheckbox).fill(true).map(() => {
@@ -43,7 +42,6 @@ test('unique ID by default', () => {
 
   expect(arrayOfId).toHaveLength(new Set(arrayOfId).size);
 });
-
 
 test('passing id', () => {
   const id = 'id_of_checkbox';

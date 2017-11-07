@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import slugify from '../slugify';
 
-
 const Navigation = ({navigation, version}) =>
   <nav className="main-menu">
     <a href="./" className="main-menu__home">
@@ -45,6 +44,5 @@ Navigation.propTypes = {
   navigation: PropTypes.array,
   version: PropTypes.string
 };
-
 
 export default Navigation;
