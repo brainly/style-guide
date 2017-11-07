@@ -1,5 +1,5 @@
 import React from 'react';
-import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, COLOR} from './MathSymbol';
+import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR} from './MathSymbol';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -33,7 +33,7 @@ test('type passed to xlink:href', () => {
 
 test('colors', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
-  const color = COLOR.DARK;
+  const color = ICON_COLOR.DARK;
   const icon = shallow(
     <MathSymbol type={type} color={color} />
   );

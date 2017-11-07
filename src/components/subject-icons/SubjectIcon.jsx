@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {ICON_COLOR} from '../icons/Icon';
 
 const TYPE = {
   ACCOUNTANCY: 'accountancy',
@@ -86,24 +87,10 @@ const SIZE = {
   NORMAL: 'normal'
 };
 
-const MONO_COLOR = {
-  LIGHT: 'light',
-  ADAPTIVE: 'adaptive',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_LIGHT: 'gray-light',
-  BLUE: 'blue',
-  MUSTARD: 'mustard',
-  LAVENDER: 'lavender',
-  PEACH: 'peach',
-  DARK: 'dark',
-  MINT: 'mint'
-};
-
 const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props}) => {
   const iconClass = classNames('sg-subject-icon', {
     [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
-    [`sg-subject-icon--${monoColor}`]: monoColor !== MONO_COLOR.LIGHT && monoColor !== undefined
+    [`sg-subject-icon--${monoColor}`]: monoColor !== ICON_COLOR.LIGHT && monoColor !== undefined
   }, className);
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
 
@@ -117,9 +104,9 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props})
 SubjectIcon.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   size: PropTypes.oneOf(Object.values(SIZE)),
-  monoColor: PropTypes.oneOf(Object.values(MONO_COLOR)),
+  monoColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
   className: PropTypes.string
 };
 
 export default SubjectIcon;
-export {TYPE, SIZE, MONO_COLOR};
+export {TYPE, SIZE, ICON_COLOR};

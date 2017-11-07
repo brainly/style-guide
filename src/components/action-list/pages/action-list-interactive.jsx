@@ -2,7 +2,7 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {TYPE as BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {TYPE as BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Icon, {COLOR as ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
+import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, COLOR as TEXT_COLOR} from 'text/Text';
 import ActionListHole from '../ActionListHole';
 import DocsActiveBlock from 'components/DocsActiveBlock';

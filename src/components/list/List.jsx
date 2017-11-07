@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {TYPE as ICON_TYPE, COLOR as ICON_COLOR} from '../icons/Icon';
+import {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import ListItem from './subcomponents/ListItem';
 
 const List = ({items = [], spaced, small, iconType, iconColor, className, ...props}) => {

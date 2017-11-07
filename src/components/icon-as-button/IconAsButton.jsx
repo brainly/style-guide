@@ -1,21 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {TYPE, COLOR as iconColors} from '../icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 import IconAsButtonContent from './subcomponents/IconAsButtonContent';
 
-const COLOR = {
-  ADAPTIVE: 'adaptive',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_LIGHT: 'gray-light',
-  DARK: 'dark',
-  MINT: 'mint',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  LAVENDER: 'lavender',
-  LIGHT: 'light'
-};
 const SIZE = {
   NORMAL: {className: 'normal', iconSize: 26},
   SMALL: {className: 'small', iconSize: 18},
@@ -39,7 +27,7 @@ const IconAsButton = ({
   let content;
 
   if (type) {
-    content = <Icon type={type} color={iconColors.ADAPTIVE} size={size.iconSize} />;
+    content = <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={size.iconSize} />;
   } else {
     content = children;
   }
@@ -57,7 +45,7 @@ const IconAsButton = ({
 
 IconAsButton.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
+  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
   type: PropTypes.oneOf(Object.values(TYPE)),
   children: PropTypes.element,
   border: PropTypes.bool,
@@ -69,4 +57,4 @@ IconAsButton.propTypes = {
 };
 
 export default IconAsButton;
-export {TYPE, COLOR, SIZE};
+export {TYPE, ICON_COLOR, SIZE};

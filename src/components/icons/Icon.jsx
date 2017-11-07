@@ -46,19 +46,21 @@ const TYPE = {
   X: 'x',
   FB: 'fb'
 };
-const COLOR = {
+const ICON_COLOR = {
   ADAPTIVE: 'adaptive',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_LIGHT: 'gray-light',
   BLUE: 'blue',
-  MUSTARD: 'mustard',
-  LAVENDER: 'lavender',
-  PEACH: 'peach',
   DARK: 'dark',
+  GRAY: 'gray',
+  GRAY_LIGHT: 'gray-light',
+  GRAY_SECONDARY: 'gray-secondary',
+  LAVENDER: 'lavender',
+  LIGHT: 'light',
   MINT: 'mint',
-  NAVY_BLUE: 'navy-blue'
+  MUSTARD: 'mustard',
+  NAVY_BLUE: 'navy-blue',
+  PEACH: 'peach'
 };
+
 const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
 const Icon = ({color, size = 24, type, className, ...props}) => {
@@ -77,10 +79,10 @@ const Icon = ({color, size = 24, type, className, ...props}) => {
 
 Icon.propTypes = {
   size: PropTypes.oneOf(SIZE),
-  color: PropTypes.oneOf(Object.values(COLOR)),
+  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
   type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
   className: PropTypes.string
 };
 
 export default Icon;
-export {TYPE, COLOR, SIZE};
+export {TYPE, ICON_COLOR, SIZE};

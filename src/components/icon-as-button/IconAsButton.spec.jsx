@@ -1,5 +1,5 @@
 import React from 'react';
-import IconAsButton, {TYPE, COLOR, SIZE} from './IconAsButton';
+import IconAsButton, {TYPE, ICON_COLOR, SIZE} from './IconAsButton';
 import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
@@ -18,7 +18,7 @@ test('render', () => {
 
 test('colors', () => {
   const type = TYPE.ANSWER;
-  const color = COLOR.DARK;
+  const color = ICON_COLOR.DARK;
   const iconAsButton = shallow(
     <IconAsButton type={type} color={color} />
   );

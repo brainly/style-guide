@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import UUID from 'node-uuid';
-import Icon, {TYPE, COLOR} from '../icons/Icon';
+import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 import classNames from 'classnames';
 
 class Checkbox extends PureComponent {
@@ -23,7 +23,7 @@ class Checkbox extends PureComponent {
       <div className={checkboxClass}>
         <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps} />
         <label className="sg-checkbox__ghost" htmlFor={id}>
-          <Icon type={TYPE.CHECK} color={COLOR.ADAPTIVE} size={10} />
+          <Icon type={TYPE.CHECK} color={ICON_COLOR.ADAPTIVE} size={10} />
         </label>
       </div>
     );
