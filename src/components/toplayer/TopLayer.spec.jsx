@@ -32,16 +32,6 @@ test('default size', () => {
   });
 });
 
-test('check if ', () => {
-  const topLayer = shallow(
-    <TopLayer>some text</TopLayer>
-  );
-
-  Object.values(SIZE).forEach(size => {
-    expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
-  });
-});
-
 test('check if close button exists', () => {
   const mockCallback = jest.fn();
   const topLayer = mount(<TopLayer onClose={mockCallback} />);
