@@ -1,6 +1,6 @@
 import React from 'react';
 import TopLayer, {SIZE} from './TopLayer';
-import {shallow} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 
 test('render', () => {
   const topLayer = shallow(
@@ -30,6 +30,38 @@ test('default size', () => {
   Object.values(SIZE).forEach(size => {
     expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
   });
+});
+
+test('check if ', () => {
+  const topLayer = shallow(
+    <TopLayer>some text</TopLayer>
+  );
+
+  Object.values(SIZE).forEach(size => {
+    expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
+  });
+});
+
+test('check if close button exists', () => {
+  const mockCallback = jest.fn();
+  const topLayer = mount(<TopLayer onClose={mockCallback} />);
+
+  expect(topLayer.find('.sg-toplayer__close')).toHaveLength(1);
+});
+
+test('check when no close button', () => {
+  const topLayer = mount(<TopLayer />);
+
+  expect(topLayer.find('.sg-toplayer__close')).toHaveLength(0);
+});
+
+test('click action', () => {
+  const mockCallback = jest.fn();
+  const topLayer = mount(<TopLayer onClose={mockCallback} />);
+  const button = topLayer.find('.sg-toplayer__close');
+
+  button.simulate('click');
+  expect(mockCallback.mock.calls).toHaveLength(1);
 });
 
 test('size', () => {
