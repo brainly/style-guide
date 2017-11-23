@@ -56,16 +56,17 @@
     justify-content: flex-end;
 
     > .sg-actions-list__hole {
-      margin: 0 0 0 gutter(0.5);
+      margin-left: gutter(0.5);
+      margin-right: 0;
+
+      &:first-child {
+        margin-left: 0;
+      }
     }
   }
 
   &--space-between {
     justify-content: space-between;
-
-    > .sg-actions-list__hole {
-      margin-right: 0;
-    }
   }
 
   &--no-wrap {
