@@ -10,7 +10,11 @@ const ICO_SIZE = {
 };
 
 class Rating extends Component {
-  onClick(index) {
+  state = {
+    showActiveText: false
+  };
+
+  onClick = index => {
     const {onChange = () => undefined, rate, active} = this.props;
 
     if (!active) {
@@ -21,25 +25,51 @@ class Rating extends Component {
     if (ratedStarIndex !== rate) {
       onChange(ratedStarIndex);
     }
-  }
+  };
+
+  onMouseEnter = () => {
+    const {active} = this.props;
+
+    if (!active) {
+      return;
+    }
+
+    this.setState({showActiveText: true});
+  };
+
+  onMouseLeave = () => {
+    this.setState({showActiveText: false});
+  };
 
   render() {
-    const {metricSize = 5, rate = 0, small, active, counter, className} = this.props;
+    const {metricSize = 5, rate = 0, small, active, className, counterText, activeText} = this.props;
+    const {showActiveText} = this.state;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--small': small,
       'sg-rate-box--active': active
     }, className);
+
     const starsProps = new Array(metricSize).fill(true).map((dump, index) => ({
+      index,
       key: index,
       checked: index < rate,
       size: small ? ICO_SIZE.SMALL : ICO_SIZE.NORMAL,
-      onClick: () => this.onClick(index)
+      onClick: this.onClick,
+      onMouseEnter: this.onMouseEnter,
+      onMouseLeave: this.onMouseLeave
     }));
+
+    const rateString = rate.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
 
     return (
       <div className={ratingClass}>
-        {starsProps.map(props => <Star key={props.key} {...props} />)}
-        <RateCounter counter={counter} />
+        <div className="sg-rate-box__rate">
+          {rateString}
+        </div>
+        <div className="sg-rate-box__stars">
+          {starsProps.map(props => <Star key={props.key} {...props} />)}
+        </div>
+        <RateCounter activeText={activeText} counterText={counterText} showActiveText={showActiveText || rate === 0} />
       </div>
     );
   }
@@ -51,7 +81,8 @@ Rating.propTypes = {
   metricSize: PropTypes.number,
   active: PropTypes.bool,
   onChange: PropTypes.func,
-  counter: PropTypes.number,
+  counterText: PropTypes.string,
+  activeText: PropTypes.string,
   className: PropTypes.string
 };
 

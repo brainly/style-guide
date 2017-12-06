@@ -20,25 +20,37 @@ $includeHtml: false !default;
     height: $rateHeight;
 
     &--active {
-      cursor: pointer;
 
-      .sg-rate-box__star:hover ~ .sg-rate-box__star {
-        fill: $rateStarColor;
+      .sg-rate-box__star{
+        cursor: pointer;
       }
 
-      &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
-        fill: $rateStarActiveColor;
+
+      .sg-rate-box__stars{
+
+        .sg-rate-box__star:hover ~ .sg-rate-box__star {
+          fill: $rateStarColor;
+        }
+
+        &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
+          fill: $rateStarActiveColor;
+        }
+
+        &:hover .sg-rate-box__star {
+          fill: $rateStarCheckedColor;
+          transition: fill 0.1s ease-in;
+        }
+
+        &:active:hover .sg-rate-box__star {
+          fill: $rateStarActiveCheckedColor;
+          transition: none;
+        }
       }
 
-      &:hover .sg-rate-box__star {
-        fill: $rateStarCheckedColor;
-        transition: fill 0.1s ease-in;
-      }
+    }
 
-      &:active:hover .sg-rate-box__star {
-        fill: $rateStarActiveCheckedColor;
-        transition: none;
-      }
+    &__stars {
+      display: flex;
     }
 
     &__star {
@@ -55,12 +67,35 @@ $includeHtml: false !default;
 
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
-      @include uppercaseText(0);
+      @include fixOperaMiniLabelText();
+
+      color: $rateCounterColor;
+      margin: 0 0 0 gutter(0.25);
+
+      position: relative;
+    }
+
+    &__counter-item-static {
+      visibility: hidden;
+      height: 0;
+    }
+
+    &__counter-item-dynamic {
+      position: absolute;
+      left: 0;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &__rate {
+      @include fixText($rateFontSize, 0.125rem);
       @include fixOperaMiniLabelText();
 
       font-weight: $fontWeightBold;
       color: $rateCounterColor;
-      margin: 0 0 0 gutter(0.25);
+      margin: 0 gutter(0.25) 0 0;
     }
 
     &--small {
@@ -72,7 +107,7 @@ $includeHtml: false !default;
         width: $rateSmallIconSize;
       }
 
-      .sg-rate-box__counter {
+      .sg-rate-box__counter, .sg-rate-box__rate {
         @include fixText($rateSmallFontSize, 0.125rem);
         @include fixOperaMiniLabelText();
       }
