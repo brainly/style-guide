@@ -9,8 +9,7 @@ const RateCounterItem = ({text, hidden = false}) =>
     <div className={`sg-rate-box__counter-item-dynamic ${hidden ? 'sg-rate-box__counter-item-dynamic--hidden' : ''}`}>
       {text}
     </div>
-  </Fragment>
-;
+  </Fragment>;
 
 RateCounterItem.propTypes = {
   text: PropTypes.string,

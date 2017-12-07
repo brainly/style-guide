@@ -155,22 +155,6 @@ describe('rating', () => {
       expect(star.props().size).toEqual(sizeOfNormalStar);
     });
   });
-
-  test('counter', () => {
-    const rating = mount(
-      <Rating counter={30} />
-    );
-
-    expect(rating.find('.sg-rate-box__counter')).toHaveLength(1);
-  });
-
-  test('no counter', () => {
-    const rating = mount(
-      <Rating />
-    );
-
-    expect(rating.find('.sg-rate-box__counter')).toHaveLength(0);
-  });
 });
 
 describe('star', () => {

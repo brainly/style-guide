@@ -33,7 +33,7 @@ const Ratings = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Rating rate={3} counterText="34 votes" activeText="Vote!" />
+        <Rating rate={3} counterText="34 votes" activeText="Rate!" />
       </DocsActiveBlock>
     </div>
   );

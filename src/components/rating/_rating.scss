@@ -21,12 +21,11 @@ $includeHtml: false !default;
 
     &--active {
 
-      .sg-rate-box__star{
+      .sg-rate-box__star {
         cursor: pointer;
       }
 
-
-      .sg-rate-box__stars{
+      .sg-rate-box__stars {
 
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
           fill: $rateStarColor;
@@ -107,7 +106,8 @@ $includeHtml: false !default;
         width: $rateSmallIconSize;
       }
 
-      .sg-rate-box__counter, .sg-rate-box__rate {
+      .sg-rate-box__counter,
+      .sg-rate-box__rate {
         @include fixText($rateSmallFontSize, 0.125rem);
         @include fixOperaMiniLabelText();
       }

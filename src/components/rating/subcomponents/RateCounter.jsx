@@ -6,8 +6,7 @@ const RateCounter = ({activeText, counterText, showActiveText}) =>
   <div className="sg-rate-box__counter">
     <RateCounterItem text={counterText} hidden={showActiveText} />
     <RateCounterItem text={activeText} hidden={!showActiveText} />
-  </div>
-;
+  </div>;
 
 RateCounter.propTypes = {
   counterText: PropTypes.string,
