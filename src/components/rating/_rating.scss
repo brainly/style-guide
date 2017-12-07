@@ -69,7 +69,7 @@ $includeHtml: false !default;
       @include fixOperaMiniLabelText();
 
       color: $rateCounterColor;
-      margin: 0 0 0 gutter(0.25);
+      margin: 0 0 0 gutter(1 / 4);
 
       position: relative;
     }
@@ -94,7 +94,7 @@ $includeHtml: false !default;
 
       font-weight: $fontWeightBold;
       color: $rateCounterColor;
-      margin: 0 gutter(0.25) 0 0;
+      margin: 0 gutter(1 / 4) 0 0;
     }
 
     &--small {

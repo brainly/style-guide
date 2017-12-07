@@ -28,9 +28,7 @@ class Rating extends Component {
   };
 
   onMouseEnter = () => {
-    const {active} = this.props;
-
-    if (!active) {
+    if (!this.props.active) {
       return;
     }
 
@@ -54,9 +52,7 @@ class Rating extends Component {
       key: index,
       checked: index < rate,
       size: small ? ICO_SIZE.SMALL : ICO_SIZE.NORMAL,
-      onClick: this.onClick,
-      onMouseEnter: this.onMouseEnter,
-      onMouseLeave: this.onMouseLeave
+      onClick: this.onClick
     }));
 
     const rateString = rate.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
@@ -66,7 +62,7 @@ class Rating extends Component {
         <div className="sg-rate-box__rate">
           {rateString}
         </div>
-        <div className="sg-rate-box__stars">
+        <div className="sg-rate-box__stars" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
           {starsProps.map(props => <Star key={props.key} {...props} />)}
         </div>
         <RateCounter activeText={activeText} counterText={counterText} showActiveText={showActiveText || rate === 0} />

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon, {TYPE, ICON_COLOR} from '../../icons/Icon';
 
-const Star = ({size, checked, onClick, index, ...props}) => {
+const Star = ({size, checked, onClick, index}) => {
   const starClass = classnames('sg-rate-box__star', {
     'sg-rate-box__star--checked': checked
   });
   const onClickStar = () => onClick(index);
 
   return (
-    <span className={starClass} onClick={onClickStar} {...props}>
+    <span className={starClass} onClick={onClickStar}>
       <Icon type={TYPE.STAR} size={size} color={ICON_COLOR.ADAPTIVE} />
     </span>
   );
