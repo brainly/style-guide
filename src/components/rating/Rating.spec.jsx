@@ -51,7 +51,7 @@ describe('rating', () => {
   test('rate', () => {
     const rate = 3;
     const rating = shallow(
-      <Rating rate={3} />
+      <Rating rate={rate} />
     );
     const stars = rating.find(Star);
     let checkedStars = 0;
@@ -158,11 +158,9 @@ describe('rating', () => {
 });
 
 describe('star', () => {
-  const dumpFnc = () => undefined;
-
   test('render', () => {
     const star = shallow(
-      <Star onClick={dumpFnc} />
+      <Star onClick={jest.fn()} />
     );
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
@@ -171,7 +169,7 @@ describe('star', () => {
   test('Star use Icon component', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc} />
+      <Star size={size} onClick={jest.fn()} />
     );
 
     expect(star.find(Icon)).toHaveLength(1);
@@ -200,7 +198,7 @@ describe('star', () => {
 
   test('checked', () => {
     const star = shallow(
-      <Star checked onClick={dumpFnc} />
+      <Star checked onClick={jest.fn()} />
     );
 
     expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
@@ -209,7 +207,7 @@ describe('star', () => {
   test('pass size to icon', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc} />
+      <Star size={size} onClick={jest.fn()} />
     );
 
     const icon = star.find(Icon);

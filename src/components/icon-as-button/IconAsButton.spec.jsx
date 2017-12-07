@@ -23,7 +23,7 @@ test('colors', () => {
     <IconAsButton type={type} color={color} />
   );
 
-  expect(iconAsButton.hasClass(`sg-icon-as-button--${color}`)).toEqual(true);
+  expect(iconAsButton.hasClass('sg-icon-as-button--dark')).toEqual(true);
 });
 
 test('size', () => {
