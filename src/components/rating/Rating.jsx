@@ -65,7 +65,8 @@ class Rating extends Component {
         <div className="sg-rate-box__stars" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
           {starsProps.map(props => <Star key={props.key} {...props} />)}
         </div>
-        <RateCounter activeText={activeText} counterText={counterText} showActiveText={showActiveText || rate === 0} />
+        <RateCounter activeText={activeText} counterText={counterText}
+          showActiveText={showActiveText || active && rate === 0} />
       </div>
     );
   }
@@ -83,4 +84,3 @@ Rating.propTypes = {
 };
 
 export default Rating;
-export {Star};
