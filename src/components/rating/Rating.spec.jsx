@@ -6,7 +6,7 @@ import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
 describe('rating', () => {
-  it('render', () => {
+  it('renders correctly', () => {
     const rating = shallow(
       <Rating />
     );
@@ -14,7 +14,7 @@ describe('rating', () => {
     expect(rating.hasClass('sg-rate-box')).toEqual(true);
   });
 
-  it('shouldn\'t throw error when no onChange', () => {
+  it('doesn\'t throw error when no onChange', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -32,7 +32,7 @@ describe('rating', () => {
     expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
   });
 
-  it('render stars - defined metricSize', () => {
+  it('renders stars - defined metricSize', () => {
     const metricSize = 8;
     const rating = shallow(
       <Rating active metricSize={metricSize} />
@@ -41,7 +41,7 @@ describe('rating', () => {
     expect(rating.find(Star)).toHaveLength(metricSize);
   });
 
-  it('render stars - default number of stars', () => {
+  it('renders stars - default number of stars', () => {
     const defaultMetricSize = 5;
     const rating = shallow(
       <Rating />
@@ -67,7 +67,7 @@ describe('rating', () => {
     expect(checkedStars).toEqual(rate);
   });
 
-  it('onchange not working when no active', () => {
+  it('onchange func doesn\'t call when no active', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = mount(
@@ -107,7 +107,7 @@ describe('rating', () => {
     expect(onChange.mock.calls).toHaveLength(2);
   });
 
-  it('clicking not defined on change not throw errors', () => {
+  it('doesn\'t throw error when onChange isn\'t defined', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -144,7 +144,7 @@ describe('rating', () => {
     });
   });
 
-  it('no small', () => {
+  it('small isn\'t defined', () => {
     const sizeOfNormalStar = 16;
     const rating = shallow(
       <Rating />
@@ -159,7 +159,7 @@ describe('rating', () => {
   });
 
   describe('counter text', () => {
-    it('exist', () => {
+    it('exists', () => {
       const rating = shallow(
         <Rating />
       );
@@ -224,7 +224,7 @@ describe('rating', () => {
     });
 
     // should be near same as above, so if we let delete above we need delete it here
-    it('no displays active text when no active and mouse over stars', () => {
+    it('doesn\'t display active text when no active and mouse over stars', () => {
       const rating = mount(
         <Rating rate={3} />
       );
@@ -245,7 +245,7 @@ describe('rating', () => {
 });
 
 describe('star', () => {
-  it('render', () => {
+  it('renders', () => {
     const star = shallow(
       <Star onClick={jest.fn()} />
     );
@@ -253,7 +253,7 @@ describe('star', () => {
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
   });
 
-  it('Star use Icon component', () => {
+  it('uses Icon component', () => {
     const size = 16;
     const star = shallow(
       <Star size={size} onClick={jest.fn()} />
@@ -262,7 +262,7 @@ describe('star', () => {
     expect(star.find(Icon)).toHaveLength(1);
   });
 
-  it('click working', () => {
+  it('onClick', () => {
     const onClick = jest.fn();
     const star = shallow(<Star onClick={onClick} />);
 
@@ -272,7 +272,7 @@ describe('star', () => {
     expect(onClick.mock.calls).toHaveLength(1);
   });
 
-  it('should throw error when no onClick', () => {
+  it('throws error when onClick isn\'t defined', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -291,7 +291,7 @@ describe('star', () => {
     expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
   });
 
-  it('pass size to icon', () => {
+  it('passes size to icon', () => {
     const size = 16;
     const star = shallow(
       <Star size={size} onClick={jest.fn()} />
