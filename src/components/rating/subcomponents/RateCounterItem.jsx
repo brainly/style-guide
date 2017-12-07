@@ -9,7 +9,7 @@ const RateCounterItem = ({text, hidden = false}) => {
 
   return (
     <Fragment>
-      <div className={'sg-rate-box__counter-item-static'}>
+      <div className="sg-rate-box__counter-item-static">
         {text}
       </div>
       <div className={dynamicItemClassName}>
