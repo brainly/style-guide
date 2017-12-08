@@ -10,12 +10,16 @@ const ICO_SIZE = {
 };
 
 class Rating extends Component {
+  defaultProps = {
+    onChange: () => undefined
+  };
+
   state = {
     showActiveText: false
   };
 
   onClick = index => {
-    const {onChange = () => undefined, rate, active} = this.props;
+    const {onChange, rate, active} = this.props;
 
     if (!active) {
       return;
