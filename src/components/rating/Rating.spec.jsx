@@ -1,10 +1,12 @@
 import React from 'react';
-import Rating, {Star} from './Rating';
-import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
+import Icon from 'icons/Icon';
+import Rating from './Rating';
+import RateCounter from './subcomponents/RateCounter';
+import Star from './subcomponents/Star';
 
 describe('rating', () => {
-  test('render', () => {
+  it('renders correctly', () => {
     const rating = shallow(
       <Rating />
     );
@@ -12,7 +14,7 @@ describe('rating', () => {
     expect(rating.hasClass('sg-rate-box')).toEqual(true);
   });
 
-  test('shouldn\'t throw error when no onChange', () => {
+  it('doesn\'t throw error when no onChange', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -22,7 +24,7 @@ describe('rating', () => {
     spy.mockRestore();
   });
 
-  test('active', () => {
+  it('active', () => {
     const rating = shallow(
       <Rating active />
     );
@@ -30,7 +32,7 @@ describe('rating', () => {
     expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
   });
 
-  test('render stars - defined metricSize', () => {
+  it('renders stars - defined metricSize', () => {
     const metricSize = 8;
     const rating = shallow(
       <Rating active metricSize={metricSize} />
@@ -39,7 +41,7 @@ describe('rating', () => {
     expect(rating.find(Star)).toHaveLength(metricSize);
   });
 
-  test('render stars - default number of stars', () => {
+  it('renders stars - default number of stars', () => {
     const defaultMetricSize = 5;
     const rating = shallow(
       <Rating />
@@ -48,10 +50,10 @@ describe('rating', () => {
     expect(rating.find(Star)).toHaveLength(defaultMetricSize);
   });
 
-  test('rate', () => {
+  it('rate', () => {
     const rate = 3;
     const rating = shallow(
-      <Rating rate={3} />
+      <Rating rate={rate} />
     );
     const stars = rating.find(Star);
     let checkedStars = 0;
@@ -65,7 +67,7 @@ describe('rating', () => {
     expect(checkedStars).toEqual(rate);
   });
 
-  test('onchange not working when no active', () => {
+  it('onchange func doesn\'t call when no active', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = mount(
@@ -82,7 +84,7 @@ describe('rating', () => {
     expect(onChange.mock.calls).toHaveLength(0);
   });
 
-  test('onchange', () => {
+  it('onchange', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = mount(
@@ -105,7 +107,7 @@ describe('rating', () => {
     expect(onChange.mock.calls).toHaveLength(2);
   });
 
-  test('clicking not defined on change not throw errors', () => {
+  it('doesn\'t throw error when onChange isn\'t defined', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -128,7 +130,7 @@ describe('rating', () => {
     spy.mockRestore();
   });
 
-  test('small', () => {
+  it('small', () => {
     const sizeOfSmallStar = 14;
     const rating = shallow(
       <Rating small />
@@ -142,7 +144,7 @@ describe('rating', () => {
     });
   });
 
-  test('no small', () => {
+  it('small isn\'t defined', () => {
     const sizeOfNormalStar = 16;
     const rating = shallow(
       <Rating />
@@ -156,44 +158,111 @@ describe('rating', () => {
     });
   });
 
-  test('counter', () => {
-    const rating = mount(
-      <Rating counter={30} />
-    );
+  describe('counter text', () => {
+    it('exists', () => {
+      const rating = shallow(
+        <Rating />
+      );
+      const rateCounter = rating.find(RateCounter);
 
-    expect(rating.find('.sg-rate-box__counter')).toHaveLength(1);
-  });
+      expect(rateCounter).toHaveLength(1);
+    });
 
-  test('no counter', () => {
-    const rating = mount(
-      <Rating />
-    );
+    it('displays active text when active and haven\'t been rated', () => {
+      const rating = shallow(
+        <Rating active />
+      );
+      const rateCounter = rating.find(RateCounter);
 
-    expect(rating.find('.sg-rate-box__counter')).toHaveLength(0);
+      expect(rateCounter.props().showActiveText).toBeTruthy();
+    });
+
+    it('displays counter text when no active and haven\'t been rated', () => {
+      const rating = shallow(
+        <Rating />
+      );
+      const rateCounter = rating.find(RateCounter);
+
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+    });
+
+    it('displays counter text when have been rated and no active', () => {
+      const rating = shallow(
+        <Rating rate={3} />
+      );
+      const rateCounter = rating.find(RateCounter);
+
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+    });
+
+    it('displays counter text when have been rated and active', () => {
+      const rating = shallow(
+        <Rating rate={3} active />
+      );
+      const rateCounter = rating.find(RateCounter);
+
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+    });
+
+    // check if let is needed, looks like a bug on enzyme side
+    it('displays active text when active and mouse over stars', () => {
+      const rating = mount(
+        <Rating rate={3} active />
+      );
+      const stars = rating.find('.sg-rate-box__stars');
+      let rateCounter = rating.find(RateCounter);
+
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+
+      stars.simulate('mouseEnter');
+      rateCounter = rating.find(RateCounter);
+      expect(rateCounter.props().showActiveText).toBeTruthy();
+
+      stars.simulate('mouseLeave');
+      rateCounter = rating.find(RateCounter);
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+    });
+
+    // should be near same as above, so if we let delete above we need delete it here
+    it('doesn\'t display active text when no active and mouse over stars', () => {
+      const rating = mount(
+        <Rating rate={3} />
+      );
+      const stars = rating.find('.sg-rate-box__stars');
+      let rateCounter = rating.find(RateCounter);
+
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+
+      stars.simulate('mouseEnter');
+      rateCounter = rating.find(RateCounter);
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+
+      stars.simulate('mouseLeave');
+      rateCounter = rating.find(RateCounter);
+      expect(rateCounter.props().showActiveText).toBeFalsy();
+    });
   });
 });
 
 describe('star', () => {
-  const dumpFnc = () => undefined;
-
-  test('render', () => {
+  it('renders', () => {
     const star = shallow(
-      <Star onClick={dumpFnc} />
+      <Star onClick={jest.fn()} />
     );
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
   });
 
-  test('Star use Icon component', () => {
+  it('uses Icon component', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc} />
+      <Star size={size} onClick={jest.fn()} />
     );
 
     expect(star.find(Icon)).toHaveLength(1);
   });
 
-  test('click working', () => {
+  it('onClick', () => {
     const onClick = jest.fn();
     const star = shallow(<Star onClick={onClick} />);
 
@@ -203,7 +272,7 @@ describe('star', () => {
     expect(onClick.mock.calls).toHaveLength(1);
   });
 
-  test('should throw error when no onClick', () => {
+  it('throws error when onClick isn\'t defined', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -214,18 +283,18 @@ describe('star', () => {
     spy.mockRestore();
   });
 
-  test('checked', () => {
+  it('checked', () => {
     const star = shallow(
-      <Star checked onClick={dumpFnc} />
+      <Star checked onClick={jest.fn()} />
     );
 
     expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
   });
 
-  test('pass size to icon', () => {
+  it('passes size to icon', () => {
     const size = 16;
     const star = shallow(
-      <Star size={size} onClick={dumpFnc} />
+      <Star size={size} onClick={jest.fn()} />
     );
 
     const icon = star.find(Icon);

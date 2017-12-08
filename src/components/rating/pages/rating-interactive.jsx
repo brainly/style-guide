@@ -21,15 +21,19 @@ const Ratings = () => {
       values: Number
     },
     {
-      name: 'counter',
-      values: Number
+      name: 'counterText',
+      values: String
+    },
+    {
+      name: 'activeText',
+      values: String
     }
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Rating rate={3} counter={34} />
+        <Rating rate={3} counterText="34 votes" activeText="Rate!" />
       </DocsActiveBlock>
     </div>
   );
