@@ -9,6 +9,16 @@ const ICO_SIZE = {
   NORMAL: 16
 };
 
+const generateArrayRange = function(range) {
+  const array = [];
+
+  for (let i = 0; i < range; i++) {
+    array[i] = i;
+  }
+
+  return array;
+};
+
 class Rating extends Component {
   static defaultProps = {
     onChange: () => undefined,
@@ -18,7 +28,7 @@ class Rating extends Component {
 
   constructor(props) {
     super(props);
-    this.createStarsOnClickFunctions(this.props);
+    this.createStarsOnClickFunctions(this.props.metricSize);
   }
 
   state = {
@@ -26,11 +36,13 @@ class Rating extends Component {
   };
 
   componentWillReciveProps(nextProps) {
-    this.createStarsOnClickFunctions(nextProps);
+    if (this.props.metricSize !== nextProps.metricSize) {
+      this.createStarsOnClickFunctions(nextProps.metricSize);
+    }
   }
 
-  createStarsOnClickFunctions({metricSize}) {
-    this.starsOnClickFunctions = new Array(metricSize).fill(true).map((dump, index) => () => this.onClick(index));
+  createStarsOnClickFunctions(metricSize) {
+    this.starsOnClickFunctions = generateArrayRange(metricSize).map(rangeIndex => () => this.onClick(rangeIndex));
   }
 
   onClick = index => {
@@ -66,11 +78,11 @@ class Rating extends Component {
       'sg-rate-box--active': active
     }, className);
 
-    const starsProps = new Array(metricSize).fill(true).map((dump, index) => ({
-      key: index,
-      checked: index < rate,
+    const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
+      key: rangeIndex,
+      checked: rangeIndex < rate,
       size: small ? ICO_SIZE.SMALL : ICO_SIZE.NORMAL,
-      onClick: this.starsOnClickFunctions[index]
+      onClick: this.starsOnClickFunctions[rangeIndex]
     }));
 
     const rateString = rate.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
