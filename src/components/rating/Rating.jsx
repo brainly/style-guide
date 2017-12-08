@@ -11,12 +11,27 @@ const ICO_SIZE = {
 
 class Rating extends Component {
   static defaultProps = {
-    onChange: () => undefined
+    onChange: () => undefined,
+    metricSize: 5,
+    rate: 0
   };
+
+  constructor(props) {
+    super(props);
+    this.createStarsOnClickFunctions(this.props);
+  }
 
   state = {
     showActiveText: false
   };
+
+  componentWillReciveProps(nextProps) {
+    this.createStarsOnClickFunctions(nextProps);
+  }
+
+  createStarsOnClickFunctions({metricSize}) {
+    this.starsOnClickFunctions = new Array(metricSize).fill(true).map((dump, index) => () => this.onClick(index));
+  }
 
   onClick = index => {
     const {onChange, rate, active} = this.props;
@@ -44,7 +59,7 @@ class Rating extends Component {
   };
 
   render() {
-    const {metricSize = 5, rate = 0, small, active, className, counterText, activeText} = this.props;
+    const {metricSize, rate, small, active, className, counterText, activeText} = this.props;
     const {showActiveText} = this.state;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--small': small,
@@ -52,11 +67,10 @@ class Rating extends Component {
     }, className);
 
     const starsProps = new Array(metricSize).fill(true).map((dump, index) => ({
-      index,
       key: index,
       checked: index < rate,
       size: small ? ICO_SIZE.SMALL : ICO_SIZE.NORMAL,
-      onClick: this.onClick
+      onClick: this.starsOnClickFunctions[index]
     }));
 
     const rateString = rate.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
