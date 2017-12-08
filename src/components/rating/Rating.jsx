@@ -10,7 +10,7 @@ const ICO_SIZE = {
 };
 
 class Rating extends Component {
-  defaultProps = {
+  static defaultProps = {
     onChange: () => undefined
   };
 
