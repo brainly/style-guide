@@ -10,7 +10,7 @@ const ICO_SIZE = {
 };
 
 const generateArrayRange = function(range) {
-  const array = [];
+  const array = Array(range);
 
   for (let i = 0; i < range; i++) {
     array[i] = i;
