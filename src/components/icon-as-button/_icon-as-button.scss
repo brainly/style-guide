@@ -27,6 +27,37 @@ $iconAsButtonBlueActiveColor: rgba($iconAsButtonBlueColor, 0.7);
 
 $includeHtml: false !default;
 
+@mixin colorTheme($modifierName, $color, $colorActive, $actionForegroundColor: $iconAsButtonActionColor) {
+  &.sg-icon-as-button--#{$modifierName} {
+    fill: $color;
+
+    &:hover,
+    &:active {
+      fill: $colorActive;
+    }
+
+    .sg-icon-as-button__hole {
+      border-color: $color;
+    }
+  }
+
+  &.sg-icon-as-button--action {
+    &:hover {
+      &.sg-icon-as-button--#{$modifierName} {
+        fill: $actionForegroundColor;
+        background: $color;
+      }
+    }
+  }
+
+  &--action-active {
+    &.sg-icon-as-button--#{$modifierName} {
+      fill: $actionForegroundColor;
+      background: $color;
+    }
+  }
+}
+
 @if ($includeHtml) {
   .sg-icon-as-button {
     display: inline-flex;
@@ -92,190 +123,21 @@ $includeHtml: false !default;
       }
     }
 
-    &--light {
-      fill: $iconAsButtonLightColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonLightActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonLightColor;
-      }
-    }
-
-    &--gray {
-      fill: $iconAsButtonGrayColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonGrayActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonGrayColor;
-      }
-    }
-
-    &--gray-secondary {
-      fill: $iconAsButtonGraySecondaryColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonGraySecondaryActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonGraySecondaryColor;
-      }
-    }
-
-    &--gray-light {
-      fill: $iconAsButtonGrayLightColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonGrayLightActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonGrayLightColor;
-      }
-    }
-
-    &--dark {
-      fill: $iconAsButtonDarkColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonDarkActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonDarkColor;
-      }
-    }
-
-    &--mint {
-      fill: $iconAsButtonMintColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonMintActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonMintColor;
-      }
-    }
-
-    &--navy-blue {
-      fill: $iconAsButtonNavyBlueColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonNavyBlueActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonNavyBlueColor;
-      }
-    }
-
-
-    &--blue {
-      fill: $iconAsButtonBlueColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonBlueActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonBlueColor;
-      }
-    }
-
-    &--mustard {
-      fill: $iconAsButtonMustardColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonMustardActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonMustardColor;
-      }
-    }
-
-    &--lavender {
-      fill: $iconAsButtonLavenderColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonLavenderActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonLavenderColor;
-      }
-    }
-
-    &--peach {
-      fill: $iconAsButtonPeachColor;
-
-      &:hover,
-      &:active {
-        fill: $iconAsButtonPeachActiveColor;
-      }
-
-      .sg-icon-as-button__hole {
-        border-color: $iconAsButtonPeachColor;
-      }
-    }
+    @include colorTheme(light, $iconAsButtonLightColor, $iconAsButtonLightActiveColor, $iconAsButtonColor);
+    @include colorTheme(gray, $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
+    @include colorTheme(gray-secondary, $iconAsButtonGraySecondaryColor, $iconAsButtonGraySecondaryActiveColor);
+    @include colorTheme(gray-light, $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
+    @include colorTheme(dark, $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
+    @include colorTheme(mint, $iconAsButtonMintColor, $iconAsButtonMintActiveColor);
+    @include colorTheme(navy-blue, $iconAsButtonNavyBlueColor, $iconAsButtonNavyBlueActiveColor);
+    @include colorTheme(blue, $iconAsButtonBlueColor, $iconAsButtonBlueActiveColor);
+    @include colorTheme(mustard, $iconAsButtonMustardColor, $iconAsButtonMustardActiveColor);
+    @include colorTheme(lavender, $iconAsButtonLavenderColor, $iconAsButtonLavenderActiveColor);
+    @include colorTheme(peach, $iconAsButtonPeachColor, $iconAsButtonPeachActiveColor);
 
     &--action {
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
-
-      &:hover {
-        background: $iconAsButtonColor;
-        fill: $iconAsButtonActionColor;
-
-        &.sg-icon-as-button--gray {
-          background: $iconAsButtonGrayColor;
-        }
-
-        &.sg-icon-as-button--gray-secondary {
-          background: $iconAsButtonGraySecondaryColor;
-        }
-
-        &.sg-icon-as-button--gray-light {
-          background: $iconAsButtonGrayLightColor;
-        }
-
-        &.sg-icon-as-button--dark {
-          background: $iconAsButtonDarkColor;
-        }
-
-        &.sg-icon-as-button--mint {
-          background: $iconAsButtonMintColor;
-        }
-
-        &.sg-icon-as-button--peach {
-          background: $iconAsButtonPeachColor;
-        }
-
-        &.sg-icon-as-button--mustard {
-          background: $iconAsButtonMustardColor;
-        }
-
-        &.sg-icon-as-button--lavender {
-          background: $iconAsButtonLavenderColor;
-        }
-      }
     }
 
     &--transparent {
@@ -283,28 +145,7 @@ $includeHtml: false !default;
       border-radius: 50%;
 
       &:hover {
-        fill: $iconAsButtonColor;
         background: $iconAsButtonTransparentColor;
-      }
-
-      &.sg-icon-as-button--light {
-        fill: $iconAsButtonLightColor;
-      }
-
-      &.sg-icon-as-button--mint {
-        fill: $iconAsButtonMintColor;
-      }
-
-      &.sg-icon-as-button--peach {
-        fill: $iconAsButtonPeachColor;
-      }
-
-      &.sg-icon-as-button--mustard {
-        fill: $iconAsButtonMustardColor;
-      }
-
-      &.sg-icon-as-button--lavender {
-        fill: $iconAsButtonLavenderColor;
       }
     }
 
@@ -321,43 +162,6 @@ $includeHtml: false !default;
         fill: inherit;
         background: inherit;
       }
-
-      &.sg-icon-as-button--gray {
-        background: $iconAsButtonGrayColor;
-      }
-
-      &.sg-icon-as-button--gray-secondary {
-        background: $iconAsButtonGraySecondaryColor;
-      }
-
-      &.sg-icon-as-button--gray-light {
-        background: $iconAsButtonGrayLightColor;
-      }
-
-      &.sg-icon-as-button--dark {
-        background: $iconAsButtonDarkColor;
-      }
-
-      &.sg-icon-as-button--mint {
-        background: $iconAsButtonMintColor;
-      }
-
-      &.sg-icon-as-button--peach {
-        background: $iconAsButtonPeachColor;
-      }
-
-      &.sg-icon-as-button--light {
-        fill: $iconAsButtonColor;
-        background: $iconAsButtonActionColor;
-      }
-
-      &.sg-icon-as-button--mustard {
-        background: $iconAsButtonMustardColor;
-      }
-
-      &.sg-icon-as-button--lavender {
-        background: $iconAsButtonLavenderColor;
-      }
     }
 
     &--transparent-active {
@@ -367,23 +171,6 @@ $includeHtml: false !default;
       &.sg-icon-as-button--adaptive {
         fill: inherit;
       }
-
-      &.sg-icon-as-button--gray {
-        fill: $iconAsButtonGrayColor;
-      }
-
-      &.sg-icon-as-button--gray-secondary {
-        fill: $iconAsButtonGraySecondaryColor;
-      }
-
-      &.sg-icon-as-button--gray-light {
-        fill: $iconAsButtonGrayLightColor;
-      }
-
-      &.sg-icon-as-button--dark {
-        fill: $iconAsButtonDarkColor;
-      }
-
     }
   }
 }
