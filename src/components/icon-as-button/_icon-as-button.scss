@@ -123,17 +123,17 @@ $includeHtml: false !default;
       }
     }
 
-    @include colorTheme(light, $iconAsButtonLightColor, $iconAsButtonLightActiveColor, $iconAsButtonColor);
-    @include colorTheme(gray, $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
-    @include colorTheme(gray-secondary, $iconAsButtonGraySecondaryColor, $iconAsButtonGraySecondaryActiveColor);
-    @include colorTheme(gray-light, $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
-    @include colorTheme(dark, $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
-    @include colorTheme(mint, $iconAsButtonMintColor, $iconAsButtonMintActiveColor);
-    @include colorTheme(navy-blue, $iconAsButtonNavyBlueColor, $iconAsButtonNavyBlueActiveColor);
-    @include colorTheme(blue, $iconAsButtonBlueColor, $iconAsButtonBlueActiveColor);
-    @include colorTheme(mustard, $iconAsButtonMustardColor, $iconAsButtonMustardActiveColor);
-    @include colorTheme(lavender, $iconAsButtonLavenderColor, $iconAsButtonLavenderActiveColor);
-    @include colorTheme(peach, $iconAsButtonPeachColor, $iconAsButtonPeachActiveColor);
+    @include colorTheme('light', $iconAsButtonLightColor, $iconAsButtonLightActiveColor, $iconAsButtonColor);
+    @include colorTheme('gray', $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
+    @include colorTheme('gray-secondary', $iconAsButtonGraySecondaryColor, $iconAsButtonGraySecondaryActiveColor);
+    @include colorTheme('gray-light', $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
+    @include colorTheme('dark', $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
+    @include colorTheme('mint', $iconAsButtonMintColor, $iconAsButtonMintActiveColor);
+    @include colorTheme('navy-blue', $iconAsButtonNavyBlueColor, $iconAsButtonNavyBlueActiveColor);
+    @include colorTheme('blue', $iconAsButtonBlueColor, $iconAsButtonBlueActiveColor);
+    @include colorTheme('mustard', $iconAsButtonMustardColor, $iconAsButtonMustardActiveColor);
+    @include colorTheme('lavender', $iconAsButtonLavenderColor, $iconAsButtonLavenderActiveColor);
+    @include colorTheme('peach', $iconAsButtonPeachColor, $iconAsButtonPeachActiveColor);
 
     &--action {
       transition: background 0.3s ease-out, fill 0.3s ease-out;
