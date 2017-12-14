@@ -25,13 +25,13 @@ $includeHtml: false !default;
         cursor: pointer;
       }
 
-      .sg-rate-box__stars_container:hover {
-        .sg-rate-box__filled_stars {
+      .sg-rate-box__stars-container:hover {
+        .sg-rate-box__filled-stars {
           display: none;
         }
       }
 
-      .sg-rate-box__background_stars {
+      .sg-rate-box__background-stars {
 
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
           fill: $rateStarColor;
@@ -54,16 +54,16 @@ $includeHtml: false !default;
 
     }
 
-    &__stars_container {
+    &__stars-container {
       position: relative;
     }
 
-    &__background_stars {
+    &__background-stars {
       display: flex;
       fill: $rateStarColor;
     }
 
-    &__filled_stars {
+    &__filled-stars {
       display: flex;
       fill: $rateStarCheckedColor;
 

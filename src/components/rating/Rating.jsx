@@ -91,11 +91,11 @@ class Rating extends Component {
         <div className="sg-rate-box__rate">
           {rateString}
         </div>
-        <div className="sg-rate-box__stars_container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          <div className="sg-rate-box__filled_stars" style={{width: `${100 * rate / metricSize}%`}}>
+        <div className="sg-rate-box__stars-container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+          <div className="sg-rate-box__filled-stars" style={{width: `${100 * rate / metricSize}%`}}>
             {starsProps.map(props => <Star key={props.key} {...props} />)}
           </div>
-          <div className="sg-rate-box__background_stars">
+          <div className="sg-rate-box__background-stars">
             {starsProps.map(props => <Star key={props.key} {...props} />)}
           </div>
         </div>
