@@ -32,7 +32,7 @@ class Rating extends Component {
   }
 
   state = {
-    showActiveText: false
+    hoveringStars: false
   };
 
   componentWillReciveProps(nextProps) {
@@ -63,16 +63,16 @@ class Rating extends Component {
       return;
     }
 
-    this.setState({showActiveText: true});
+    this.setState({hoveringStars: true});
   };
 
   onMouseLeave = () => {
-    this.setState({showActiveText: false});
+    this.setState({hoveringStars: false});
   };
 
   render() {
     const {metricSize, rate, small, active, className, counterText, activeText} = this.props;
-    const {showActiveText} = this.state;
+    const {hoveringStars} = this.state;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--small': small,
       'sg-rate-box--active': active
@@ -80,7 +80,6 @@ class Rating extends Component {
 
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
       key: rangeIndex,
-      checked: rangeIndex < rate,
       size: small ? ICO_SIZE.SMALL : ICO_SIZE.NORMAL,
       onClick: this.starsOnClickFunctions[rangeIndex]
     }));
@@ -92,11 +91,16 @@ class Rating extends Component {
         <div className="sg-rate-box__rate">
           {rateString}
         </div>
-        <div className="sg-rate-box__stars" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-          {starsProps.map(props => <Star key={props.key} {...props} />)}
+        <div className="sg-rate-box__stars_container" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+          <div className="sg-rate-box__filled_stars" style={{width: `${100 * rate / metricSize}%`}}>
+            {starsProps.map(props => <Star key={props.key} {...props} />)}
+          </div>
+          <div className="sg-rate-box__background_stars">
+            {starsProps.map(props => <Star key={props.key} {...props} />)}
+          </div>
         </div>
         <RateCounter activeText={activeText} counterText={counterText}
-          showActiveText={showActiveText || active && rate === 0} />
+          showActiveText={hoveringStars || active && rate === 0} />
       </div>
     );
   }
