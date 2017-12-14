@@ -25,7 +25,13 @@ $includeHtml: false !default;
         cursor: pointer;
       }
 
-      .sg-rate-box__stars {
+      .sg-rate-box__stars-container:hover {
+        .sg-rate-box__filled-stars {
+          display: none;
+        }
+      }
+
+      .sg-rate-box__background-stars {
 
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
           fill: $rateStarColor;
@@ -48,21 +54,34 @@ $includeHtml: false !default;
 
     }
 
-    &__stars {
+    &__stars-container {
+      position: relative;
+    }
+
+    &__background-stars {
       display: flex;
+      fill: $rateStarColor;
+    }
+
+    &__filled-stars {
+      display: flex;
+      fill: $rateStarCheckedColor;
+
+      position: absolute;
+      left: 0;
+      overflow: hidden;
     }
 
     &__star {
-      fill: $rateStarColor;
       width: $rateIconSize;
       height: $rateIconSize;
       padding: 0 1px;
-      display: flex;
 
-      &--checked {
-        fill: $rateStarCheckedColor;
-      }
+      // maybe delete
+      display: flex;
     }
+
+    // counter
 
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
