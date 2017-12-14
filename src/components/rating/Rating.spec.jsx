@@ -38,7 +38,7 @@ describe('rating', () => {
       <Rating active metricSize={metricSize} />
     );
 
-    expect(rating.find(Star)).toHaveLength(metricSize);
+    expect(rating.find(Star)).toHaveLength(2 * metricSize);
   });
 
   it('renders stars - default number of stars', () => {
@@ -47,24 +47,20 @@ describe('rating', () => {
       <Rating />
     );
 
-    expect(rating.find(Star)).toHaveLength(defaultMetricSize);
+    expect(rating.find(Star)).toHaveLength(2 * defaultMetricSize);
   });
 
-  it('rate', () => {
+  it('fills stars', () => {
     const rate = 3;
+    const metric = 10;
+    const percentageRate = `${100 * rate / metric}%`;
     const rating = shallow(
-      <Rating rate={rate} />
+      <Rating rate={rate} metricSize={metric} />
     );
-    const stars = rating.find(Star);
-    let checkedStars = 0;
+    const filledStarsBox = rating.find('.sg-rate-box__filled-stars');
+    const filledWidth = filledStarsBox.props().style.width;
 
-    stars.forEach(star => {
-      if (star.props().checked) {
-        checkedStars++;
-      }
-    });
-
-    expect(checkedStars).toEqual(rate);
+    expect(filledWidth).toEqual(percentageRate);
   });
 
   it('onchange func doesn\'t call when no active', () => {
@@ -209,7 +205,7 @@ describe('rating', () => {
       const rating = mount(
         <Rating rate={3} active />
       );
-      const stars = rating.find('.sg-rate-box__stars');
+      const stars = rating.find('.sg-rate-box__stars-container');
       let rateCounter = rating.find(RateCounter);
 
       expect(rateCounter.props().showActiveText).toBeFalsy();
@@ -228,7 +224,7 @@ describe('rating', () => {
       const rating = mount(
         <Rating rate={3} />
       );
-      const stars = rating.find('.sg-rate-box__stars');
+      const stars = rating.find('.sg-rate-box__stars-container');
       let rateCounter = rating.find(RateCounter);
 
       expect(rateCounter.props().showActiveText).toBeFalsy();
@@ -281,14 +277,6 @@ describe('star', () => {
     expect(console.error.mock.calls).toHaveLength(1);
 
     spy.mockRestore();
-  });
-
-  it('checked', () => {
-    const star = shallow(
-      <Star checked onClick={jest.fn()} />
-    );
-
-    expect(star.hasClass('sg-rate-box__star--checked')).toEqual(true);
   });
 
   it('passes size to icon', () => {
