@@ -14,7 +14,6 @@ const TYPE = {
   BOLD: 'bold',
   CAMERA: 'camera',
   CHECK: 'check',
-  CHECKED: 'checked',
   COMMENT: 'comment',
   COUNTER: 'counter',
   CUP: 'cup',
@@ -46,6 +45,7 @@ const TYPE = {
   STUDENT: 'student',
   SYMBOLS: 'symbols',
   UNSEEN: 'unseen',
+  VERIFIED: 'verified',
   X: 'x',
   FB: 'fb'
 };
