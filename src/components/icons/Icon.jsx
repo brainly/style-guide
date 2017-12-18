@@ -19,6 +19,7 @@ const TYPE = {
   CUP: 'cup',
   EQUATION: 'equation',
   EXCELLENT: 'excellent',
+  EXPERT: 'expert',
   FRIENDS: 'friends',
   HEART: 'heart',
   KEYBOARD: 'keyboard',
@@ -41,8 +42,10 @@ const TYPE = {
   SEEN: 'seen',
   STAR: 'star',
   STREAM: 'stream',
+  STUDENT: 'student',
   SYMBOLS: 'symbols',
   UNSEEN: 'unseen',
+  VERIFIED: 'verified',
   X: 'x',
   FB: 'fb'
 };
