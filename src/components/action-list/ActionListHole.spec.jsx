@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';
-import ButtonSecondary, {TYPE as buttonSecondaryTypes} from 'buttons/ButtonSecondary';
+import ButtonSecondary, {BUTTON_TYPE as buttonSecondaryTypes} from 'buttons/ButtonSecondary';
 
 describe('ActionListHole', () => {
   test('render', () => {
