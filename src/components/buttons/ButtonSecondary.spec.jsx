@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonSecondary, {BUTTON_TYPE} from './ButtonSecondary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from './ButtonSecondary';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -9,9 +9,8 @@ test('render', () => {
 
   expect(button.hasClass('sg-button-secondary')).toEqual(true);
 });
-
 test('type', () => {
-  const buttonType = BUTTON_TYPE.ALT;
+  const buttonType = BUTTON_SECONDARY_TYPE.ALT;
   const button = shallow(
     <ButtonSecondary buttonType={buttonType}>Some text</ButtonSecondary>
   );

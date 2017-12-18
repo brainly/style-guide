@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
 import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
-import ButtonSecondary, {TYPE as buttonTypes} from 'buttons/ButtonSecondary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Avatar from 'avatar/Avatar';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -25,10 +25,10 @@ const PopupMenus = () => {
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <PopupMenu items={[
-          <ButtonSecondary key={1} type={buttonTypes.DARK_INVERSE} wide>
+          <ButtonSecondary key={1} type={BUTTON_SECONDARY_TYPE.DARK_INVERSE} wide>
             Log in
           </ButtonSecondary>,
-          <ButtonSecondary key={2} type={buttonTypes.DARK} wide>
+          <ButtonSecondary key={2} type={BUTTON_SECONDARY_TYPE.DARK} wide>
             Join now
           </ButtonSecondary>
         ]} extraSpacing />

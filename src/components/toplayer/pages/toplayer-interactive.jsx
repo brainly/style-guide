@@ -5,7 +5,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import ButtonPrimary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonPrimary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {WEIGHT} from 'text/Text';
 import TextBit, {COLOR as TEXT_BIT_COLOR} from 'text/TextBit';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
@@ -85,7 +85,7 @@ const Toplayers = () => {
               ]} />
             </ContentBoxContent>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
+              <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
             </ContentBoxContent>
           </ContentBox>
         </TopLayer>

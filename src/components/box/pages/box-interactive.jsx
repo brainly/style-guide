@@ -1,6 +1,6 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from '../Box';
-import ButtonPrimary, {TYPE} from 'buttons/ButtonPrimary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
@@ -59,7 +59,7 @@ const Boxes = () => {
               <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
             </ContentBoxHeader>
             <ContentBoxActions>
-              <ButtonPrimary type={TYPE.ALT} wide>
+              <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT} wide>
                 Ask your question
               </ButtonPrimary>
             </ContentBoxActions>

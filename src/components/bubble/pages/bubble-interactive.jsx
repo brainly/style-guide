@@ -4,7 +4,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import ButtonSecondary, {TYPE} from 'buttons/ButtonSecondary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 import Avatar from 'avatar/Avatar';
 import Text from 'text/Text';
@@ -62,7 +62,7 @@ const Bubbles = () => {
               </Text>
             </ContentBoxContent>
             <ContentBoxActions>
-              <ButtonSecondary type={TYPE.ALT}>Join us!</ButtonSecondary>
+              <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT}>Join us!</ButtonSecondary>
             </ContentBoxActions>
           </ContentBox>
         </Bubble>

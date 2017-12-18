@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const BUTTON_TYPE = {
+const BUTTON_PRIMARY_TYPE = {
   ALT: 'alt',
   DARK: 'dark',
   INVERSE: 'inverse',
@@ -44,9 +44,9 @@ ButtonPrimary.propTypes = {
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
-  buttonType: PropTypes.oneOf(Object.values(BUTTON_TYPE)),
+  buttonType: PropTypes.oneOf(Object.values(BUTTON_PRIMARY_TYPE)),
   className: PropTypes.string
 };
 
 export default ButtonPrimary;
-export {BUTTON_TYPE};
+export {BUTTON_PRIMARY_TYPE};

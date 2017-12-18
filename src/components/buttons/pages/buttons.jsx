@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonPrimary, {BUTTON_TYPE} from '../ButtonPrimary';
-import ButtonSecondary, {BUTTON_TYPE as types2} from '../ButtonSecondary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
@@ -14,11 +14,11 @@ const Buttons = () =>
         Add your answer
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={BUTTON_TYPE.ALT}>
+      <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT}>
         Ask your question
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={BUTTON_TYPE.DARK}>
+      <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK}>
         Search
       </ButtonPrimary>
       &nbsp;
@@ -31,7 +31,7 @@ const Buttons = () =>
 
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
-        buttonType={BUTTON_TYPE.FB}>
+        buttonType={BUTTON_PRIMARY_TYPE.FB}>
         Login with Facebook
       </ButtonPrimary>
     </DocsBlock>
@@ -42,19 +42,19 @@ const Buttons = () =>
 
     <DocsBlock info="Primary buttons inverted">
       <ContrastBox>
-        <ButtonPrimary buttonType={BUTTON_TYPE.INVERSE}>
+        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
           Add your answer
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary buttonType={BUTTON_TYPE.ALT_INVERSE}>
+        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT_INVERSE}>
           Ask your question
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary buttonType={BUTTON_TYPE.DARK_INVERSE}>
+        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
           Search
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary disabled buttonType={BUTTON_TYPE.INVERSE}>
+        <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
           Disabled
         </ButtonPrimary>
       </ContrastBox>
@@ -75,11 +75,11 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary buttonType={types2.ALT}>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary buttonType={types2.DARK}>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK}>
         Search
       </ButtonSecondary>
       &nbsp;
@@ -94,23 +94,23 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons inverted">
       <ContrastBox>
-        <ButtonSecondary buttonType={types2.INVERSE}>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
           <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.INVERSE}>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.ALT_INVERSE}>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.DARK_INVERSE}>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled buttonType={types2.INVERSE}>
+        <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
           Disabled
         </ButtonSecondary>
       </ContrastBox>
@@ -125,11 +125,11 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary buttonType={types2.ALT} small>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
         Search
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary buttonType={types2.DARK} small>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>
         Search
       </ButtonSecondary>
       &nbsp;
@@ -140,30 +140,30 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons inverted small">
       <ContrastBox>
-        <ButtonSecondary buttonType={types2.INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.ALT_INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.DARK_INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>
           Search
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled type={types2.INVERSE} small>
+        <ButtonSecondary disabled type={BUTTON_SECONDARY_TYPE.INVERSE} small>
           Disabled
         </ButtonSecondary>
 
         <br /><br />
 
-        <ButtonSecondary buttonType={types2.INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
           <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
             iconColor={ICON_COLOR.LAVENDER} secondary />
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={types2.INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
           <Label text="Mark as brainliest" iconType={ICON_TYPE.EXCELLENT}
             iconColor={ICON_COLOR.MUSTARD} secondary />
         </ButtonSecondary>
@@ -172,12 +172,12 @@ const Buttons = () =>
     </DocsBlock>
 
     <DocsBlock info="Secondary buttons small active and inverted">
-      <ButtonSecondary buttonType={types2.ACTIVE_INVERSE} small>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
         <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
           iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled buttonType={types2.ACTIVE_INVERSE} small>
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
         <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
           iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
       </ButtonSecondary>
