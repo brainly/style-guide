@@ -1,5 +1,5 @@
 import React from 'react';
-import ButtonPrimary, {TYPE} from './ButtonPrimary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from './ButtonPrimary';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -12,12 +12,12 @@ test('render', () => {
 });
 
 test('type', () => {
-  const type = TYPE.ALT;
+  const buttonType = BUTTON_PRIMARY_TYPE.ALT;
   const button = shallow(
-    <ButtonPrimary type={type}>Some text</ButtonPrimary>
+    <ButtonPrimary buttonType={buttonType}>Some text</ButtonPrimary>
   );
 
-  expect(button.hasClass('sg-button-primary--' + type)).toEqual(true);
+  expect(button.hasClass('sg-button-primary--' + buttonType)).toEqual(true);
 });
 
 test('button with href', () => {

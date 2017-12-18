@@ -2,20 +2,20 @@ import React from 'react';
 import ActionList, {DIRECTION} from './ActionList';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';
-import ButtonSecondary, {TYPE as buttonSecondaryTypes} from 'buttons/ButtonSecondary';
-import ButtonPrimary, {TYPE as buttonPrimaryTypes} from 'buttons/ButtonPrimary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 
 describe('ActionList', () => {
   test('render', () => {
     const actionList = shallow(
       <ActionList>
         <ActionListHole>
-          <ButtonSecondary type={buttonSecondaryTypes.alt} small>
+          <ButtonSecondary type={BUTTON_SECONDARY_TYPE.alt} small>
             accept
           </ButtonSecondary>
         </ActionListHole>
         <ActionListHole>
-          <ButtonPrimary type={buttonPrimaryTypes.dark_inverse}>
+          <ButtonPrimary type={BUTTON_PRIMARY_TYPE.dark_inverse}>
             Later
           </ButtonPrimary>
         </ActionListHole>

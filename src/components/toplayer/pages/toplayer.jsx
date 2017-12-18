@@ -4,7 +4,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import ButtonPrimary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonPrimary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {WEIGHT} from 'text/Text';
 import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
@@ -77,7 +77,7 @@ const TopLayers = () =>
             ]} />
           </ContentBoxContent>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-            <ButtonPrimary type={BUTTON_TYPE.ALT}>Join us</ButtonPrimary>
+            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
           </ContentBoxContent>
         </ContentBox>
       </TopLayer>

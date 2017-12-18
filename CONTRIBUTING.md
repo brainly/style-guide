@@ -270,7 +270,7 @@ import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
 
 Good:
 ```
-import ButtonPrimary, {types as buttonTypes} from 'components/buttons/ButtonPrimary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'components/buttons/ButtonPrimary';
 ```
 #### Components options
 

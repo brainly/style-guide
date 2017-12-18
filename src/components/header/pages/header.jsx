@@ -10,7 +10,7 @@ import HomeButton from 'home-button/HomeButton';
 import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
 import IconAsButton, {TYPE as ICON_TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
-import ButtonSecondary, {TYPE as BUTTON_TYPE} from 'buttons/ButtonSecondary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
@@ -43,7 +43,7 @@ const Headers = () =>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary type={BUTTON_TYPE.DARK} small>Register</ButtonSecondary>
+                  <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
                   <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
                     <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
                   } />
@@ -79,10 +79,10 @@ const Headers = () =>
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>
@@ -114,10 +114,10 @@ const Headers = () =>
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>

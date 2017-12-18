@@ -1,6 +1,6 @@
 import React from 'react';
-import ButtonPrimary, {TYPE as PRIMARY_TYPE} from '../ButtonPrimary';
-import ButtonSecondary, {TYPE as SECONDARY_TYPE} from '../ButtonSecondary';
+import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
+import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import Label, {ICON_TYPE} from 'labels/Label';
@@ -15,7 +15,7 @@ const Buttons = () => {
   const primarySettings = [
     {
       name: 'type',
-      values: PRIMARY_TYPE
+      values: BUTTON_PRIMARY_TYPE
     },
     {
       name: 'wide',
@@ -49,7 +49,7 @@ const Buttons = () => {
   const secondarySettings = [
     {
       name: 'type',
-      values: SECONDARY_TYPE
+      values: BUTTON_SECONDARY_TYPE
     },
     {
       name: 'small',
@@ -79,7 +79,7 @@ const Buttons = () => {
       <DocsActiveBlock settings={primarySettings}>
         <ButtonPrimary
           icon={allIcons.FB}
-          type={PRIMARY_TYPE.FB}>
+          buttonType={BUTTON_PRIMARY_TYPE.FB}>
           Login with Facebook
         </ButtonPrimary>
       </DocsActiveBlock>
@@ -96,13 +96,13 @@ const Buttons = () => {
         </ButtonSecondary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
-        <ButtonSecondary type={SECONDARY_TYPE.INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
           <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
             iconColor={ICON_COLOR.LAVENDER} secondary />
         </ButtonSecondary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
-        <ButtonSecondary type={SECONDARY_TYPE.ACTIVE_INVERSE} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
           <Label text="Thank you" number={331} iconType={ICON_TYPE.HEART}
             iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
         </ButtonSecondary>

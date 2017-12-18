@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+const BUTTON_PRIMARY_TYPE = {
   ALT: 'alt',
   DARK: 'dark',
   INVERSE: 'inverse',
@@ -11,11 +11,11 @@ const TYPE = {
   FB: 'fb'
 };
 
-const ButtonPrimary = ({disabled, icon, type, children, wide, className, ...props}) => {
+const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, ...props}) => {
   const btnClass = classNames('sg-button-primary', {
     'sg-button-primary--disabled': disabled,
     'sg-button-primary--full-width': wide,
-    [`sg-button-primary--${type}`]: type
+    [`sg-button-primary--${buttonType}`]: buttonType
   }, className);
 
   let ico;
@@ -44,9 +44,9 @@ ButtonPrimary.propTypes = {
   wide: PropTypes.bool,
   disabled: PropTypes.bool,
   href: PropTypes.string,
-  type: PropTypes.oneOf(Object.values(TYPE)),
+  buttonType: PropTypes.oneOf(Object.values(BUTTON_PRIMARY_TYPE)),
   className: PropTypes.string
 };
 
 export default ButtonPrimary;
-export {TYPE};
+export {BUTTON_PRIMARY_TYPE};

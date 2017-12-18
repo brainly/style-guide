@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+const BUTTON_SECONDARY_TYPE = {
   ALT: 'alt',
   DARK: 'dark',
   INVERSE: 'inverse',
@@ -11,11 +11,12 @@ const TYPE = {
   ACTIVE_INVERSE: 'active-inverse'
 };
 
-const ButtonSecondary = ({small, wide, disabled, type, children, className, ...props}) => {
+const ButtonSecondary = ({small, wide, disabled, buttonType, children, className, ...props}) => {
+
   const btnClass = classNames('sg-button-secondary', {
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
-    [`sg-button-secondary--${type}`]: type,
+    [`sg-button-secondary--${buttonType}`]: buttonType,
     'sg-button-secondary--full-width': wide
   }, className);
 
@@ -38,9 +39,9 @@ ButtonSecondary.propTypes = {
   disabled: PropTypes.bool,
   href: PropTypes.string,
   children: PropTypes.node.isRequired,
-  type: PropTypes.oneOf(Object.values(TYPE)),
+  buttonType: PropTypes.oneOf(Object.values(BUTTON_SECONDARY_TYPE)),
   className: PropTypes.string
 };
 
 export default ButtonSecondary;
-export {TYPE};
+export {BUTTON_SECONDARY_TYPE};
