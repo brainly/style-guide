@@ -14,7 +14,7 @@ const Buttons = () => {
 
   const primarySettings = [
     {
-      name: 'type',
+      name: 'buttonType',
       values: BUTTON_PRIMARY_TYPE
     },
     {
@@ -48,7 +48,7 @@ const Buttons = () => {
 
   const secondarySettings = [
     {
-      name: 'type',
+      name: 'buttonType',
       values: BUTTON_SECONDARY_TYPE
     },
     {
