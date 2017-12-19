@@ -10,12 +10,12 @@ describe('ActionList', () => {
     const actionList = shallow(
       <ActionList>
         <ActionListHole>
-          <ButtonSecondary type={BUTTON_SECONDARY_TYPE.alt} small>
+          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.alt} small>
             accept
           </ButtonSecondary>
         </ActionListHole>
         <ActionListHole>
-          <ButtonPrimary type={BUTTON_PRIMARY_TYPE.dark_inverse}>
+          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.dark_inverse}>
             Later
           </ButtonPrimary>
         </ActionListHole>

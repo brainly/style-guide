@@ -7,7 +7,7 @@ describe('ActionListHole', () => {
   test('render', () => {
     const actionListHole = shallow(
       <ActionListHole>
-        <ButtonSecondary type={BUTTON_SECONDARY_TYPE.alt} small>
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.alt} small>
           accept
         </ButtonSecondary>
       </ActionListHole>

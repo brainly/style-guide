@@ -92,7 +92,7 @@ const Bubbles = () =>
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT}>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
               Join us!
             </ButtonSecondary>
           </ContentBoxActions>

@@ -56,7 +56,7 @@ const ContentBoxes = () => {
             </OverlayedBox>
             <SeparatorVertical />
             <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog" />
-            <ButtonSecondary small type={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+            <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
           </ContentBoxActions>
         </ContentBox>
       </DocsActiveBlock>
