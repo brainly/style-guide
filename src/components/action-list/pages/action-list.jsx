@@ -3,6 +3,7 @@ import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Avatar, {SIZE} from 'avatar/Avatar';
+import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE, COLOR as HEADER_COLOR} from 'text/HeaderPrimary';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
@@ -228,11 +229,11 @@ const ActionLists = () =>
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <Avatar size={SIZE.XXXLARGE} border imgSrc="https://source.unsplash.com/240x240/?dog" />
+            <HeaderPrimary size={HEADER_SIZE.XXXLARGE} type={HEADER_TYPE.SPAN} color={HEADER_COLOR.LIGHT}>$14.95</HeaderPrimary>
           </ActionListHole>
           <ActionListHole toEnd>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              This component will be pulled down if container is higher than its contents
+            <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+              per month
             </Text>
           </ActionListHole>
         </ActionList>
