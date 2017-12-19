@@ -3,6 +3,7 @@ dist/
 .editorconfig
 .eslintrc-es5
 .idea
+.vscode
 .DS_Store
 node_modules
 *.css
