@@ -2,7 +2,6 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Avatar, {SIZE} from 'avatar/Avatar';
 import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE, COLOR as HEADER_COLOR} from 'text/HeaderPrimary';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
@@ -229,7 +228,12 @@ const ActionLists = () =>
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <HeaderPrimary size={HEADER_SIZE.XXXLARGE} type={HEADER_TYPE.SPAN} color={HEADER_COLOR.LIGHT}>$14.95</HeaderPrimary>
+            <HeaderPrimary
+              size={HEADER_SIZE.XXXLARGE}
+              type={HEADER_TYPE.SPAN}
+              color={HEADER_COLOR.LIGHT}>
+              $14.95
+            </HeaderPrimary>
           </ActionListHole>
           <ActionListHole toEnd>
             <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
