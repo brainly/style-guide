@@ -43,7 +43,7 @@ const Headers = () =>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
+                  <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
                   <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
                     <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
                   } />
@@ -79,10 +79,10 @@ const Headers = () =>
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>
@@ -114,10 +114,10 @@ const Headers = () =>
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary type={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>

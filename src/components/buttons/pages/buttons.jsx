@@ -14,11 +14,11 @@ const Buttons = () =>
         Add your answer
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT}>
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
         Ask your question
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK}>
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
         Search
       </ButtonPrimary>
       &nbsp;

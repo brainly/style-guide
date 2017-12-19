@@ -28,12 +28,12 @@ const ActionLists = () => {
       <DocsActiveBlock settings={settings}>
         <ActionList>
           <ActionListHole>
-            <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT} small>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
             </ButtonSecondary>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary type={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
+            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
           </ActionListHole>

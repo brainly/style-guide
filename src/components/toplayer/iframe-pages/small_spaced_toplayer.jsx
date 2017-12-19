@@ -22,7 +22,7 @@ const content =
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <ButtonPrimary type={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
     </ContentBoxContent>
   </ContentBox>;
 
