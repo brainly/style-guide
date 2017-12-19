@@ -2,6 +2,7 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Avatar, {SIZE} from 'avatar/Avatar';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
@@ -227,14 +228,7 @@ const ActionLists = () =>
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-                Action 1
-              </ButtonPrimary>
-              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-                Action 2
-              </ButtonPrimary>
-            </Text>
+            <Avatar size={SIZE.XXXLARGE} border imgSrc="https://source.unsplash.com/240x240/?dog" />
           </ActionListHole>
           <ActionListHole toEnd>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
