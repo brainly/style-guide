@@ -29,6 +29,7 @@ const TYPE = {
   MESSAGES: 'messages',
   NOTIFICATIONS: 'notifications',
   PENCIL: 'pencil',
+  PLANET: 'planet',
   PLUS: 'plus',
   PODIUM: 'podium',
   POINTS: 'points',
