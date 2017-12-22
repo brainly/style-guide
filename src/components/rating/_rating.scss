@@ -77,8 +77,7 @@ $includeHtml: false !default;
       height: $rateIconSize;
       padding: 0 1px;
 
-      // maybe delete
-      display: flex;
+      flex-shrink: 0;
     }
 
     // counter
