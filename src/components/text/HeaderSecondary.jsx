@@ -17,7 +17,7 @@ const SIZE = {
   XSMALL: 'xsmall'
 };
 
-const COLOR = {
+const HEADER_COLOR = {
   LIGHT: 'light'
 };
 
@@ -39,9 +39,9 @@ HeaderSecondary.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf(Object.values(TYPE)),
   size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
+  color: PropTypes.oneOf(Object.values(HEADER_COLOR)),
   className: PropTypes.string
 };
 
 export default HeaderSecondary;
-export {TYPE, SIZE, COLOR};
+export {TYPE, SIZE, HEADER_COLOR};

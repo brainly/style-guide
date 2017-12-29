@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderPrimary, {TYPE, SIZE, COLOR} from '../HeaderPrimary';
+import HeaderPrimary, {TYPE, SIZE, HEADER_COLOR} from '../HeaderPrimary';
 import HeaderSecondary from '../HeaderSecondary';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -15,7 +15,7 @@ const Headers = () => {
     },
     {
       name: 'color',
-      values: COLOR
+      values: HEADER_COLOR
     }
   ];
 
@@ -25,7 +25,7 @@ const Headers = () => {
         <HeaderPrimary>Lorem Ipsum</HeaderPrimary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <HeaderPrimary type={TYPE.H2} size={SIZE.SMALL} color={COLOR.LIGHT}>We&apos;ve got your back!</HeaderPrimary>
+        <HeaderPrimary type={TYPE.H2} size={SIZE.SMALL} color={HEADER_COLOR.LIGHT}>We&apos;ve got your back!</HeaderPrimary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <HeaderSecondary>Stay curious</HeaderSecondary>

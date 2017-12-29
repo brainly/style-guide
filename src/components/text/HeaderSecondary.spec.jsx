@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderSecondary, {SIZE, TYPE as HEADER_TYPE, COLOR as HEADER_COLOR} from './HeaderSecondary';
+import HeaderSecondary, {SIZE, TYPE as HEADER_TYPE, HEADER_COLOR} from './HeaderSecondary';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
