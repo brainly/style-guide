@@ -5,7 +5,7 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Boxs = () =>
   <div>

@@ -7,7 +7,7 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Text from 'text/Text';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
