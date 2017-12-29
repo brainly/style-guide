@@ -9,7 +9,7 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {WEIGHT} from 'text/Text';
 import TextBit, {COLOR as TEXT_BIT_COLOR} from 'text/TextBit';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Toplayers = () => {
   const settings = [

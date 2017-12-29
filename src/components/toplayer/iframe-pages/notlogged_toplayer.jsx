@@ -4,7 +4,7 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import Text, {WEIGHT} from 'text/Text';
-import HeaderSecondary, {TYPE as HEADER_TYPE} from 'text/HeaderSecondary';
+import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import TextBit, {COLOR as TB_COLOR, TYPE as TB_TYPE} from 'text/TextBit';
 import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
 import Overlay from 'overlay/Overlay';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+const HEADER_TYPE = {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -21,7 +21,7 @@ const HEADER_COLOR = {
   LIGHT: 'light'
 };
 
-const HeaderSecondary = ({children, type = TYPE.H1, size = HEADER_SIZE.NORMAL, color, className, ...props}) => {
+const HeaderSecondary = ({children, type = HEADER_TYPE.H1, size = HEADER_SIZE.NORMAL, color, className, ...props}) => {
   const Type = type;
   const headerClass = classNames('sg-header-secondary', {
     [`sg-header-secondary--${size}`]: size !== HEADER_SIZE.NORMAL,
@@ -37,11 +37,11 @@ const HeaderSecondary = ({children, type = TYPE.H1, size = HEADER_SIZE.NORMAL, c
 
 HeaderSecondary.propTypes = {
   children: PropTypes.node,
-  type: PropTypes.oneOf(Object.values(TYPE)),
+  type: PropTypes.oneOf(Object.values(HEADER_TYPE)),
   size: PropTypes.oneOf(Object.values(HEADER_SIZE)),
   color: PropTypes.oneOf(Object.values(HEADER_COLOR)),
   className: PropTypes.string
 };
 
 export default HeaderSecondary;
-export {TYPE, HEADER_SIZE, HEADER_COLOR};
+export {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR};
