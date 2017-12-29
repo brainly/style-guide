@@ -14,7 +14,7 @@ import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Link, {COLOR as LINK_COLOR} from 'text/Link';
-import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE} from 'text/HeaderPrimary';
+import HeaderPrimary, {HEADER_SIZE, TYPE as HEADER_TYPE} from 'text/HeaderPrimary';
 import HeaderSecondary from 'text/HeaderSecondary';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';

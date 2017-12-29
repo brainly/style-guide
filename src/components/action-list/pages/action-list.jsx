@@ -2,7 +2,7 @@ import React from 'react';
 import ActionList, {DIRECTION} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import HeaderPrimary, {SIZE as HEADER_SIZE, TYPE as HEADER_TYPE, HEADER_COLOR} from 'text/HeaderPrimary';
+import HeaderPrimary, {HEADER_SIZE, TYPE as HEADER_TYPE, HEADER_COLOR} from 'text/HeaderPrimary';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
