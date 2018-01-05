@@ -44,6 +44,34 @@ $includeHtml: false !default;
       word-break: break-word;
     }
 
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+
+    &--to-left {
+      text-align: left;
+    }
+
+    &--to-right {
+      text-align: right;
+    }
+
+    &--to-center {
+      text-align: center;
+    }
+
+    &--full {
+      width: 100%;
+    }
+
     &--no-wrap {
       white-space: nowrap;
     }

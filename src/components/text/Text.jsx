@@ -40,13 +40,41 @@ const WEIGHT = {
   BOLD: 'emphasised'
 };
 
-const Text = ({children, size, weight, color, className, type = TYPE.DIV, noWrap, breakWords, ...props}) => {
+const TEXT_TRANSFORM = {
+  UPPERCASE: 'uppercase',
+  LOWERCASE: 'lowercase',
+  CAPITALIZE: 'capitalize'
+};
+
+const TEXT_ALIGN = {
+  LEFT: 'to-left',
+  CENTER: 'to-center',
+  RIGHT: 'to-right'
+};
+
+const Text = ({
+  children,
+  size,
+  weight,
+  transform,
+  align,
+  color,
+  className,
+  type = TYPE.DIV,
+  noWrap,
+  full,
+  breakWords,
+  ...props
+}) => {
 
   const Type = type;
   const textClass = classNames('sg-text', {
     [`sg-text--${size}`]: size,
     [`sg-text--${color}`]: color,
     [`sg-text--${weight}`]: weight,
+    [`sg-text--${transform}`]: transform,
+    [`sg-text--${align}`]: align,
+    'sg-text--full': full,
     'sg-text--no-wrap': noWrap,
     'sg-text--break-words': breakWords
   }, className);
@@ -63,11 +91,14 @@ Text.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
   weight: PropTypes.oneOf(Object.values(WEIGHT)),
+  transform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
+  align: PropTypes.oneOf(Object.values(TEXT_ALIGN)),
   type: PropTypes.oneOf(Object.values(TYPE)),
   noWrap: PropTypes.bool,
+  full: PropTypes.bool,
   breakWords: PropTypes.bool,
   className: PropTypes.string
 };
 
 export default Text;
-export {TYPE, SIZE, COLOR, WEIGHT};
+export {TYPE, SIZE, COLOR, WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN};
