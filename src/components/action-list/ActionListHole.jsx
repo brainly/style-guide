@@ -2,10 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-const ActionListHole = ({children, asContainer, noSpacing, noShrink, grow, toEnd, toRight, className, ...props}) => {
+export const ACTION_LIST_HOLE_SPACING = {
+  XSMALL: 'xsmall',
+  SMALL: 'small'
+};
+
+const ActionListHole = ({
+  children,
+  asContainer,
+  spacing,
+  noSpacing,
+  noShrink,
+  grow,
+  toEnd,
+  toRight,
+  className,
+  ...props
+}) => {
   const actionListHoleClass = classnames('sg-actions-list__hole', {
     'sg-actions-list__hole--container': asContainer,
     'sg-actions-list__hole--no-spacing': noSpacing,
+    [`sg-actions-list__hole--spaced-${spacing}`]: spacing,
     'sg-actions-list__hole--no-shrink': noShrink,
     'sg-actions-list__hole--grow': grow,
     'sg-actions-list__hole--to-end': toEnd,
@@ -24,6 +41,7 @@ ActionListHole.propTypes = {
   className: PropTypes.string,
   asContainer: PropTypes.bool,
   noSpacing: PropTypes.bool,
+  spacing: PropTypes.oneOf(Object.values(ACTION_LIST_HOLE_SPACING)),
   noShrink: PropTypes.bool,
   grow: PropTypes.bool,
   toEnd: PropTypes.bool,
