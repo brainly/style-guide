@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../Text';
+import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from '../Text';
 
 const TextExamples = () =>
   <DocsBlock info="Examples">
@@ -69,6 +69,30 @@ const TextExamples = () =>
     <br /><br />
     <Text type={TYPE.H1} size={SIZE.HEADLINE} weight={WEIGHT.REGULAR}>
       This is a headline text used on h1 with regular as an option removing bold effect from it
+    </Text>
+    <br /><br />
+    <Text align={TEXT_ALIGN.LEFT}>
+      this text is aligned to left
+    </Text>
+    <Text align={TEXT_ALIGN.CENTER}>
+      this text is aligned to center
+    </Text>
+    <Text align={TEXT_ALIGN.RIGHT}>
+      this text is aligned to right
+    </Text>
+    <br /><br />
+    <Text transform={TEXT_TRANSFORM.LOWERCASE}>
+      THIS TEXT IS LOWERCASED
+    </Text>
+    <Text transform={TEXT_TRANSFORM.UPPERCASE}>
+      this text is uppercased
+    </Text>
+    <Text transform={TEXT_TRANSFORM.CAPITALIZE}>
+      this text capitalized
+    </Text>
+    <br /><br />
+    <Text full>
+      this text takes full width
     </Text>
   </DocsBlock>;
 

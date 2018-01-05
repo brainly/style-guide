@@ -1,5 +1,5 @@
 import React from 'react';
-import Text, {TYPE, SIZE, COLOR, WEIGHT} from '../Text';
+import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../Text';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Texts = () => {
@@ -21,7 +21,19 @@ const Texts = () => {
       values: WEIGHT
     },
     {
+      name: 'transform',
+      values: TEXT_TRANSFORM
+    },
+    {
+      name: 'align',
+      values: TEXT_ALIGN
+    },
+    {
       name: 'noWrap',
+      values: Boolean
+    },
+    {
+      name: 'full',
       values: Boolean
     },
     {
