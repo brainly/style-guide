@@ -8,7 +8,7 @@ import Icon from 'icons/Icon';
 import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
-import ActionListHole from '../ActionListHole';
+import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
 
 const ActionLists = () =>
   <div>
@@ -146,6 +146,50 @@ const ActionLists = () =>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
               Default behaviour
             </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info="Hole - spaced small">
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Last hole does not have margin
+            </ButtonSecondary>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info="Hole - spaced xsmall">
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Without default margin
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              Last hole does not have margin
+            </ButtonSecondary>
           </ActionListHole>
         </ActionList>
       </ContrastBox>

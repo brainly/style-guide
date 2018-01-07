@@ -1,9 +1,9 @@
 import React from 'react';
-import ActionListHole from './ActionListHole';
+import ActionListHole, {ACTION_LIST_HOLE_SPACING} from './ActionListHole';
 import {shallow} from 'enzyme';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 
-describe('ActionListHole', () => {
+describe('<ActionListHole />', () => {
   test('render', () => {
     const actionListHole = shallow(
       <ActionListHole>
@@ -62,5 +62,29 @@ describe('ActionListHole', () => {
     );
 
     expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(true);
+  });
+
+  test('to-right', () => {
+    const actionListHole = shallow(
+      <ActionListHole toRight>test</ActionListHole>
+    );
+
+    expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(true);
+  });
+
+  test('spaced-small', () => {
+    const actionListHole = shallow(
+      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>test</ActionListHole>
+    );
+
+    expect(actionListHole.hasClass('sg-actions-list__hole--spaced-small')).toEqual(true);
+  });
+
+  test('spaced-xsmall', () => {
+    const actionListHole = shallow(
+      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>test</ActionListHole>
+    );
+
+    expect(actionListHole.hasClass('sg-actions-list__hole--spaced-xsmall')).toEqual(true);
   });
 });
