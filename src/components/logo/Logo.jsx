@@ -2,9 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const BASE_URL = 'https://styleguide.brainly.com/images/logos/';
+export const BASE_URL = 'https://styleguide.brainly.com/images/logos/';
 
-const TYPE = {
+export const TYPE = {
   BRAINLY: 'brainly',
   EODEV: 'eodev',
   NOSDEVOIRS: 'nosdevoirs',
@@ -13,7 +13,7 @@ const TYPE = {
   BRAINLY_PLUS_LARGE: 'brainly-plus-large'
 };
 
-const LOGOS = {
+export const LOGOS = {
   'brainly': 'brainly-761d75d6ea',
   'eodev': 'eodev-1972bd4349',
   'nosdevoirs': 'nosdevoirs-e2d5d17215',
@@ -43,4 +43,3 @@ Logo.propTypes = {
 };
 
 export default Logo;
-export {TYPE, BASE_URL, LOGOS};

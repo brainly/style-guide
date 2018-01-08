@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {ICON_COLOR} from '../icons/Icon';
 
-const MATH_SYMBOL_TYPE = {
+export const MATH_SYMBOL_TYPE = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
   POWER: 'power',
@@ -29,7 +29,7 @@ const WIDE = [
   MATH_SYMBOL_TYPE.EQUATION_SYSTEM
 ];
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal'
@@ -60,4 +60,4 @@ MathSymbol.propTypes = {
 };
 
 export default MathSymbol;
-export {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR};
+export {ICON_COLOR};

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const DIRECTION = {
+export const DIRECTION = {
   TO_RIGHT: 'to-right',
   CENTERED: 'centered',
   SPACE_BETWEEN: 'space-between'
@@ -31,4 +31,3 @@ ActionList.propTypes = {
 };
 
 export default ActionList;
-export {DIRECTION};

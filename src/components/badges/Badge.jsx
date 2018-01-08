@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../text/Text';
 
-const SIZE = {
+export const SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
   LARGE: 'large'
 };
 
-const COLOR = {
+export const COLOR = {
   NORMAL: {BADGE: 'light', TEXT: TEXT_COLOR.DEFAULT},
   PEACH: {BADGE: 'peach', TEXT: TEXT_COLOR.LIGHT},
   MUSTARD: {BADGE: 'mustard', TEXT: TEXT_COLOR.LIGHT},
@@ -47,4 +47,3 @@ Badge.propTypes = {
 };
 
 export default Badge;
-export {SIZE, COLOR};

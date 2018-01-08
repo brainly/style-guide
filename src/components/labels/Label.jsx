@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
 import LabelIcon from './subcomponents/LabelIcon';
 
-const SIZE = {
+export const SIZE = {
   NORMAL: {CLASS_NAME: 'normal', ICON_SIZE: 16},
   SMALL: {CLASS_NAME: 'small', ICON_SIZE: 14},
   LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
@@ -73,4 +73,4 @@ Label.propTypes = {
 };
 
 export default Label;
-export {SIZE, ICON_TYPE, ICON_COLOR, LabelIcon};
+export {ICON_TYPE, ICON_COLOR, LabelIcon};

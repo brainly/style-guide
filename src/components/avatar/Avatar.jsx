@@ -6,7 +6,8 @@ import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 const DEFAULT_ICON = ICON_TYPE.PROFILE;
 const DEFAULT_COLOR = ICON_COLOR.GRAY;
 const BORDER_SIZE = 2;
-const SIZE = {
+
+export const SIZE = {
   XSMALL: {className: 'xsmall', iconSize: 16},
   SMALL: {className: 'small', iconSize: 24},
   NORMAL: {className: 'normal', iconSize: 32},
@@ -52,4 +53,3 @@ Avatar.propTypes = {
 };
 
 export default Avatar;
-export {SIZE};

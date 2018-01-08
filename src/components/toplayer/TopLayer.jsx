@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large'
@@ -68,4 +68,3 @@ TopLayer.propTypes = {
 };
 
 export default TopLayer;
-export {SIZE};

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+export const TYPE = {
   ANSWER: 'answer',
   ANSWERED: 'answered',
   ARROW_DOWN: 'arrow_down',
@@ -50,7 +50,7 @@ const TYPE = {
   X: 'x',
   FB: 'fb'
 };
-const ICON_COLOR = {
+export const ICON_COLOR = {
   ADAPTIVE: 'adaptive',
   BLUE: 'blue',
   DARK: 'dark',
@@ -65,7 +65,7 @@ const ICON_COLOR = {
   PEACH: 'peach'
 };
 
-const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
+export const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
 const Icon = ({color, size = 24, type, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
@@ -89,4 +89,3 @@ Icon.propTypes = {
 };
 
 export default Icon;
-export {TYPE, ICON_COLOR, SIZE};

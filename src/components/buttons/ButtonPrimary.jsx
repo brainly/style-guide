@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const BUTTON_PRIMARY_TYPE = {
+export const BUTTON_PRIMARY_TYPE = {
   ALT: 'alt',
   DARK: 'dark',
   INVERSE: 'inverse',
@@ -49,4 +49,3 @@ ButtonPrimary.propTypes = {
 };
 
 export default ButtonPrimary;
-export {BUTTON_PRIMARY_TYPE};

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+export const TYPE = {
   SPAN: 'span',
   P: 'p',
   H1: 'h1',
@@ -14,7 +14,7 @@ const TYPE = {
   DIV: 'div'
 };
 
-const SIZE = {
+export const SIZE = {
   STANDOUT: 'standout',
   OBSCURE: 'obscure',
   SMALL: 'small',
@@ -23,7 +23,7 @@ const SIZE = {
   HEADLINE: 'headline'
 };
 
-const COLOR = {
+export const COLOR = {
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
   MINT: 'mint',
@@ -35,18 +35,18 @@ const COLOR = {
   FINE_PRINT_LIGHT: 'for-fine-print-light'
 };
 
-const WEIGHT = {
+export const WEIGHT = {
   REGULAR: 'regular',
   BOLD: 'emphasised'
 };
 
-const TEXT_TRANSFORM = {
+export const TEXT_TRANSFORM = {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize'
 };
 
-const TEXT_ALIGN = {
+export const TEXT_ALIGN = {
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right'
@@ -101,4 +101,3 @@ Text.propTypes = {
 };
 
 export default Text;
-export {TYPE, SIZE, COLOR, WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN};

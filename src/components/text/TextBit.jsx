@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+export const TYPE = {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -12,14 +12,14 @@ const TYPE = {
   DIV: 'div'
 };
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge'
 };
 
-const COLOR = {
+export const COLOR = {
   ALT: 'alt',
   LIGHT: 'light',
   DARK: 'dark',
@@ -53,4 +53,3 @@ TextBit.propTypes = {
 };
 
 export default TextBit;
-export {TYPE, SIZE, COLOR};

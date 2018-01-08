@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Text, {SIZE, COLOR, WEIGHT} from '../text/Text';
 
-const TYPE = {
+export const TYPE = {
   DEFAULT: 'default',
   SUCCESS: 'success',
   ERROR: 'error',
@@ -33,4 +33,3 @@ FlashMessage.propTypes = {
 };
 
 export default FlashMessage;
-export {TYPE};

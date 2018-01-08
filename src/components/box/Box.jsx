@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const COLOR = {
+export const COLOR = {
   BLUE: 'blue',
   LAVENDER: 'lavender',
   DARK: 'dark',
@@ -13,7 +13,7 @@ const COLOR = {
   PEACH: 'peach'
 };
 
-const PADDING = {
+export const PADDING = {
   NO_PADDING: 'no-padding',
   XSMALL: 'xsmall-padding',
   SMALL: 'small-padding',
@@ -59,4 +59,3 @@ Box.propTypes = {
 };
 
 export default Box;
-export {COLOR, PADDING};
