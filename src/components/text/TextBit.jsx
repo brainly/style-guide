@@ -28,7 +28,6 @@ export const COLOR = {
 };
 
 const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, className, ...props}) => {
-
   const Type = type;
   const textClass = classNames('sg-text-bit', {
     [`sg-text-bit--${size}`]: size,
