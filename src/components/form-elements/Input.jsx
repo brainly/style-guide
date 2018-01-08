@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const TYPE = {
+export const TYPE = {
   BUTTON: 'button',
   COLOR: 'color',
   DATE: 'date',
@@ -25,13 +25,13 @@ const TYPE = {
   WEEK: 'week'
 };
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   LARGE: 'large',
   NORMAL: 'normal'
 };
 
-const COLOR = {
+export const COLOR = {
   NORMAL: 'normal',
   LIGHT: 'light',
   LIGHT_ALT: 'light-alt'
@@ -72,9 +72,7 @@ const Input = props => {
   return <input type={type} className={inputClass} value={value} {...additionalProps} />;
 };
 
-Input.propTypes = propTypes;
-
-const propTypes = {
+export const propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)),
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   size: PropTypes.oneOf(Object.values(SIZE)),
@@ -87,5 +85,6 @@ const propTypes = {
   className: PropTypes.string
 };
 
+Input.propTypes = propTypes;
+
 export default Input;
-export {SIZE, COLOR, TYPE, propTypes};

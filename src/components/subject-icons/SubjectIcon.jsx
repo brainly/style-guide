@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {ICON_COLOR} from '../icons/Icon';
 
-const TYPE = {
+export const TYPE = {
   ACCOUNTANCY: 'accountancy',
   ADMINISTRATION: 'administration',
   AGRICULTURAL: 'agricultural',
@@ -81,7 +81,7 @@ const TYPE = {
   WOS: 'wos'
 };
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal'
@@ -109,4 +109,4 @@ SubjectIcon.propTypes = {
 };
 
 export default SubjectIcon;
-export {TYPE, SIZE, ICON_COLOR};
+export {ICON_COLOR};

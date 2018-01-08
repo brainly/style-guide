@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+export const TYPE = {
   SMALL_ONLY: 'small-only',
   MEDIUM_ONLY: 'medium-only',
   MEDIUM_DOWN: 'medium-down',
@@ -33,4 +33,3 @@ RwdHelper.propTypes = {
 };
 
 export default RwdHelper;
-export {TYPE};

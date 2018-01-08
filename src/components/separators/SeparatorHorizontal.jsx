@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const TYPE = {
+export const TYPE = {
   NORMAL: 'normal',
   SPACED: 'spaced',
   SHORT_SPACED: 'short-spaced'
@@ -22,4 +22,3 @@ SeparatorHorizontal.propTypes = {
 };
 
 export default SeparatorHorizontal;
-export {TYPE};

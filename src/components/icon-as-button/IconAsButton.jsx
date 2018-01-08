@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 import IconAsButtonContent from './subcomponents/IconAsButtonContent';
 
-const SIZE = {
+export const SIZE = {
   NORMAL: {className: 'normal', iconSize: 26},
   SMALL: {className: 'small', iconSize: 18},
   XSMALL: {className: 'xsmall', iconSize: 14},
@@ -57,4 +57,4 @@ IconAsButton.propTypes = {
 };
 
 export default IconAsButton;
-export {TYPE, ICON_COLOR, SIZE};
+export {TYPE, ICON_COLOR};

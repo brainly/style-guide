@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const SIZE = {
+export const SIZE = {
   SHORT: 'short',
   NORMAL: 'normal',
   TALL: 'tall',
@@ -62,4 +62,3 @@ Textarea.propTypes = {
 };
 
 export default Textarea;
-export {SIZE};

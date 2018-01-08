@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import MenuItem from './subcomponents/MenuItem';
 
-const SIZE = {
+export const SIZE = {
   SMALL: 'small',
   NORMAL: 'normal',
   LARGE: 'large'
@@ -30,4 +30,4 @@ MenuList.propTypes = {
 };
 
 export default MenuList;
-export {SIZE, MenuItem};
+export {MenuItem};

@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
-const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
+export const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
+export const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
+
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
 const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, className, ...props}) => {
@@ -37,4 +38,3 @@ Bubble.propTypes = {
 };
 
 export default Bubble;
-export {DIRECTION, ALIGNMENT};

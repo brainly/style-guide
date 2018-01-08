@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const BUTTON_SECONDARY_TYPE = {
+export const BUTTON_SECONDARY_TYPE = {
   ALT: 'alt',
   DARK: 'dark',
   INVERSE: 'inverse',
@@ -44,4 +44,3 @@ ButtonSecondary.propTypes = {
 };
 
 export default ButtonSecondary;
-export {BUTTON_SECONDARY_TYPE};

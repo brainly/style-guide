@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const SIZE = {
+export const SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
   LARGE: 'large'
@@ -22,4 +22,3 @@ Separator.propTypes = {
 };
 
 export default Separator;
-export {SIZE};

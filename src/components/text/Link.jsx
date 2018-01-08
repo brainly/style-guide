@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const COLOR = {
+export const COLOR = {
   GRAY: 'gray',
   MINT: 'mint',
   PEACH: 'peach',
@@ -12,7 +12,7 @@ const COLOR = {
   FINE_PRINT_LIGHT: 'for-fine-print-light'
 };
 
-const SIZE = {
+export const SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
   OBSCURE: 'obscure'
@@ -59,4 +59,3 @@ Link.propTypes = {
 };
 
 export default Link;
-export {COLOR, SIZE};
