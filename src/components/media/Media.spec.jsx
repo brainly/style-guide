@@ -62,7 +62,7 @@ test('testing modifications - all on', () => {
 
 test('testing modifications - all off', () => {
   const media = shallow(
-    <Media  {...defaultProps} />
+    <Media {...defaultProps} />
   );
 
   expect(media.hasClass('sg-media--clickable')).toEqual(false);

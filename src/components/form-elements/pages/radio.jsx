@@ -9,7 +9,7 @@ const radios = () =>
   <div>
     <DocsBlock info="Radio Buttons">
       <Radio name="group1" />
-      <Radio name="group1" checked  {...dumpProps} />
+      <Radio name="group1" checked {...dumpProps} />
       <br />
       <Label secondary htmlFor="radio-3" text="Check me!" iconContent={
         <Radio name="group2" />
