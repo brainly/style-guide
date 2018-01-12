@@ -33,7 +33,7 @@ const Link = props => {
 
   if (disabled || !href) {
     return (
-      <span  {...additionalProps} className={linkClass}>
+      <span {...additionalProps} className={linkClass}>
         {children}
       </span>
     );

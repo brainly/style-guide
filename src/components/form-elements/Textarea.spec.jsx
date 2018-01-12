@@ -87,6 +87,7 @@ test('default size', () => {
 test('Type', () => {
   const CustomTextarea = props => <textarea {...props} data-super-custom="superCustom" />;
   const textarea = mount(
+    // eslint-disable-next-line react/jsx-no-bind
     <Textarea Type={CustomTextarea} />
   );
 

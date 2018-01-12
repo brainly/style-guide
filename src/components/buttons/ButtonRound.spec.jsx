@@ -41,6 +41,7 @@ test('func', () => {
   let counter = 0;
   const onClick = () => counter++;
   const button = shallow(
+    // eslint-disable-next-line react/jsx-no-bind
     <ButtonRound onClick={onClick}>Some text</ButtonRound>
   );
 
