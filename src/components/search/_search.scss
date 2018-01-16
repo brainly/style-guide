@@ -22,4 +22,8 @@ $includeHtml: false !default;
       fill: $graySecondary;
     }
   }
+
+  input[type='search'].sg-search__input {
+    -webkit-appearance: none;
+  }
 }
