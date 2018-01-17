@@ -23,7 +23,7 @@ $includeHtml: false !default;
     }
   }
 
-  // Normalize add -webkit-appearance: textfield and that changes styling for iOS
+  // Normalize adds -webkit-appearance: textfield and that changes styling for iOS
 
   // sass-lint:disable no-qualifying-elements, no-vendor-prefixes
   input[type='search'].sg-search__input {
