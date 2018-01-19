@@ -217,6 +217,28 @@ const ActionLists = () =>
       </ContrastBox>
     </DocsBlock>
 
+    <DocsBlock info="Hole - space-bellow">
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole spaceBellow>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              With space bellow
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole spaceBellow>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              With space bellow
+            </ButtonSecondary>
+          </ActionListHole>
+          <ActionListHole spaceBellow>
+            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+              With space bellow
+            </ButtonSecondary>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
     <DocsBlock info="Hole - grow">
       <ContrastBox fullWidth>
         <ActionList noWrap>
