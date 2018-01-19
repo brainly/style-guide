@@ -32,6 +32,14 @@ describe('<ActionListHole />', () => {
     expect(actionListHole.hasClass('sg-actions-list__hole--no-spacing')).toEqual(true);
   });
 
+  test('space-bellow', () => {
+    const actionListHole = shallow(
+      <ActionListHole spaceBellow>test</ActionListHole>
+    );
+
+    expect(actionListHole.hasClass('sg-actions-list__hole--space-bellow')).toEqual(true);
+  });
+
   test('no-shrink', () => {
     const actionListHole = shallow(
       <ActionListHole noShrink>test</ActionListHole>

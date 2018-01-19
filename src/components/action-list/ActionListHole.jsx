@@ -12,6 +12,7 @@ const ActionListHole = ({
   asContainer,
   spacing,
   noSpacing,
+  spaceBellow,
   noShrink,
   grow,
   toEnd,
@@ -22,6 +23,7 @@ const ActionListHole = ({
   const actionListHoleClass = classnames('sg-actions-list__hole', {
     'sg-actions-list__hole--container': asContainer,
     'sg-actions-list__hole--no-spacing': noSpacing,
+    'sg-actions-list__hole--space-bellow': spaceBellow,
     [`sg-actions-list__hole--spaced-${spacing}`]: spacing,
     'sg-actions-list__hole--no-shrink': noShrink,
     'sg-actions-list__hole--grow': grow,
@@ -41,6 +43,7 @@ ActionListHole.propTypes = {
   className: PropTypes.string,
   asContainer: PropTypes.bool,
   noSpacing: PropTypes.bool,
+  spaceBellow: PropTypes.bool,
   spacing: PropTypes.oneOf(Object.values(ACTION_LIST_HOLE_SPACING)),
   noShrink: PropTypes.bool,
   grow: PropTypes.bool,
