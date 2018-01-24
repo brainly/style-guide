@@ -2,11 +2,7 @@ import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContrastBox from 'components/ContrastBox';
-import List from '../List';
-import ListItem from '../ListItem';
-import ListItemIcon from '../ListItemIcon';
-import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
-import Text, {SIZE as TEXT_SIZE} from '../../text/Text';
+import List, {ICON_TYPE} from '../List';
 import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';
@@ -29,67 +25,27 @@ const ListItems = () =>
   <div>
     <DocsBlock info="Default with icon ARROW_RIGHT">
       <ContrastBox>
-        <List>
-          {items.map((item, index) =>
-            <ListItem key={index}>
-              <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
-              </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
-        </List>
+        <List items={items} iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small list">
       <ContrastBox>
-        <List>
-          {items.map((item, index) =>
-            <ListItem key={index}>
-              <ListItemIcon small>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
-              </ListItemIcon>
-              <Text>{item}</Text>
-            </ListItem>)}
-        </List>
+        <List items={items} small iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="List with spacings">
       <ContrastBox>
-        <List spaced>
-          {items.map((item, index) =>
-            <ListItem key={index}>
-              <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
-              </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
-        </List>
+        <List items={items} spaced iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example">
       <ContrastBox>
-        <List>
-          {exampleItems.map((item, index) =>
-            <ListItem key={index}>
-              <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
-              </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
-        </List>
+        <List items={exampleItems} iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example (small text)">
       <ContrastBox>
-        <List>
-          {exampleSmall.map((item, index) =>
-            <ListItem key={index}>
-              <ListItemIcon small>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
-              </ListItemIcon>
-              <Text>{item}</Text>
-            </ListItem>)}
-        </List>
+        <List items={exampleSmall} small iconType={ICON_TYPE.ARROW_RIGHT} />
       </ContrastBox>
     </DocsBlock>
 

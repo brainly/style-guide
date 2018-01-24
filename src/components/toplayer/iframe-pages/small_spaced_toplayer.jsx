@@ -5,10 +5,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import Text, {WEIGHT} from 'text/Text';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
-import List from 'list/List';
-import ListItem from 'list/ListItem';
-import ListItemIcon from 'list/ListItemIcon';
-import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
+import List, {ICON_TYPE, ICON_COLOR} from 'list/List';
 import Overlay from 'overlay/Overlay';
 
 const content =
@@ -17,26 +14,11 @@ const content =
       <HeaderSecondary type={HEADER_TYPE.H2}>
         Why join Brainly?
       </HeaderSecondary>
-      <List>
-        <ListItem key={1}>
-          <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
-          </ListItemIcon>
-          <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>
-        </ListItem>
-        <ListItem key={2}>
-          <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
-          </ListItemIcon>
-          <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>
-        </ListItem>
-        <ListItem key={3}>
-          <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
-          </ListItemIcon>
-          <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
-        </ListItem>
-      </List>
+      <List iconType={ICON_TYPE.PLUS} iconColor={ICON_COLOR.GRAY_SECONDARY} items={[
+        <Text key={1} weight={WEIGHT.BOLD}>ask questions about your assignment</Text>,
+        <Text key={2} weight={WEIGHT.BOLD}>get answer with explanation</Text>,
+        <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
+      ]} />
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
