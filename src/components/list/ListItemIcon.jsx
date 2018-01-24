@@ -15,7 +15,8 @@ const ListItemIcon = ({small, children}) => {
 };
 
 ListItemIcon.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  small: PropTypes.bool
 };
 
 export default ListItemIcon;

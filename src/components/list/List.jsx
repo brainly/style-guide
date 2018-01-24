@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 
 const List = ({spaced, className, children, ...props}) => {
   const listClass = classNames('sg-list', {
