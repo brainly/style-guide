@@ -29,7 +29,6 @@ import Inputs from 'form-elements/pages/input-interactive';
 import Selects from 'form-elements/pages/select-interactive';
 import Textareas from 'form-elements/pages/textarea-interactive';
 import SearchInputs from 'search/pages/search-interactive';
-import Lists from 'list/pages/list-interactive';
 import Breadcrumbs from 'breadcrumbs/pages/breadcrumbs-interactive';
 import HeadersLayout from 'header/pages/header-interactive';
 import Footers from 'footer/pages/footer-interactive';
@@ -71,7 +70,6 @@ const demos = {
   'Select': <Selects />,
   'Textarea': <Textareas />,
   'Search': <SearchInputs />,
-  'List': <Lists />,
   'Breadcrumbs': <Breadcrumbs />,
   'Header': <HeadersLayout />,
   'Footer': <Footers />,
