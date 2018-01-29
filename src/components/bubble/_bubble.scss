@@ -20,6 +20,7 @@ $includeHtml: false !default;
   height: 0;
   bottom: 0;
   margin: auto;
+  pointer-events: none;
 }
 
 @if ($includeHtml) {
