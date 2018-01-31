@@ -72,12 +72,16 @@ $includeHtml: false !default;
       padding: (gutter(2) - $boxBorderSize);
     }
 
+    &--mint {
+      background-color: $mintPrimary;
+    }
+
     &--mint-secondary {
       background-color: $mintSecondary;
     }
 
-    &--mint {
-      background-color: $mintPrimary;
+    &--mint-secondary-light {
+      background-color: $mintSecondaryLight;
     }
 
     &--blue {
