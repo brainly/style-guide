@@ -8,6 +8,7 @@ export const COLOR = {
   DARK: 'dark',
   MINT: 'mint',
   MINT_SECONDARY: 'mint-secondary',
+  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
   PEACH: 'peach'
