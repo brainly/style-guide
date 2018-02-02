@@ -1,0 +1,90 @@
+$cardBorderColor: $graySecondaryLight;
+$cardBackgroundDark: $graySecondaryLight;
+$cardBorderSize: 1px;
+$cardShadow: 0 1px 3px 2px rgba(0, 0, 0, 0.05);
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .sg-card {
+    @include component();
+    display: inline-flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: $borderRadiusDefault;
+    border: $cardBackgroundDark solid $cardBorderSize;
+    overflow: hidden;
+    background-color: $white;
+
+    &--full {
+      width: 100%;
+
+      .sg-card__hole {
+        width: 100%;
+      }
+    }
+
+    &--with-shadow {
+      box-shadow: $cardShadow;
+    }
+    
+    &--no-border {
+      border: none;
+    }
+
+    &--centered {
+      .sg-card__hole {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+      }
+    }
+
+    &--small-padding {
+      .sg-card__hole {
+        padding: gutter(2 / 3);
+      }
+    }
+
+    &--large-padding {
+      .sg-card__hole {
+        padding: (gutter(2) - $cardBorderSize);
+      }
+    }
+
+    &__hole {
+      width: 100%;
+
+      &--mint {
+        background-color: $mintPrimary;
+      }
+  
+      &--navyblue {
+        background-color: $navybluePrimary;
+      }
+      
+      &--navyblue-secondary {
+        background-color: $navyblueSecondary;
+      }
+
+      &--navyblue-secondary-light {
+        background-color: $navyblueSecondaryLight;
+      }
+
+      &--gray {
+        background-color: $grayPrimary;
+      }
+
+      &--gray-secondary {
+        background-color: $graySecondary;
+      }
+
+      &--gray-secondary-light {
+        background-color: $graySecondaryLight;
+      }
+    }
+  }
+}
