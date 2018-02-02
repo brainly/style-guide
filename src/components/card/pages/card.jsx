@@ -5,7 +5,7 @@ import DocsBlock from 'components/DocsBlock';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
-import ContentBoxContent from 'content-box/ContentBoxContent'
+import ContentBoxContent from 'content-box/ContentBoxContent';
 import ActionList, {DIRECTION} from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';

@@ -2,8 +2,6 @@ import React from 'react';
 import Card, {PADDING} from './Card';
 import CardHole, {COLOR} from './CardHole';
 import {shallow} from 'enzyme';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 
 describe('ActionList', () => {
   test('render', () => {
@@ -63,10 +61,10 @@ describe('ActionList', () => {
         </CardHole>
       </Card>
     );
-    
+
     expect(card.hasClass('sg-card--small-padding')).toEqual(true);
   });
-  
+
   test('large padding', () => {
     const padding = PADDING.LARGE;
     const card = shallow(
@@ -79,7 +77,7 @@ describe('ActionList', () => {
         </CardHole>
       </Card>
     );
-  
+
     expect(card.hasClass('sg-card--large-padding')).toEqual(true);
   });
 

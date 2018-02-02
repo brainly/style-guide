@@ -1,5 +1,5 @@
 import React from 'react';
-import CardHole, {COLOR, PADDING} from './CardHole';
+import CardHole, {COLOR} from './CardHole';
 import {shallow} from 'enzyme';
 
 describe('<CardHole />', () => {
@@ -20,7 +20,7 @@ describe('<CardHole />', () => {
         some text
       </CardHole>
     );
-  
+
     expect(cardHole.hasClass(`sg-card__hole--${color}`)).toEqual(true);
   });
 });

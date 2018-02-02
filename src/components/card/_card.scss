@@ -1,5 +1,4 @@
 $cardBorderColor: $graySecondaryLight;
-$cardBackgroundDark: $graySecondaryLight;
 $cardBorderSize: 1px;
 $cardShadow: 0 1px 3px 2px rgba(0, 0, 0, 0.05);
 
@@ -13,7 +12,7 @@ $includeHtml: false !default;
     align-items: flex-start;
     flex-wrap: wrap;
     border-radius: $borderRadiusDefault;
-    border: $cardBackgroundDark solid $cardBorderSize;
+    border: $cardBorderColor solid $cardBorderSize;
     overflow: hidden;
     background-color: $white;
 
@@ -28,12 +27,13 @@ $includeHtml: false !default;
     &--with-shadow {
       box-shadow: $cardShadow;
     }
-    
+
     &--no-border {
       border: none;
     }
 
     &--centered {
+
       .sg-card__hole {
         display: flex;
         flex-wrap: wrap;
@@ -44,12 +44,14 @@ $includeHtml: false !default;
     }
 
     &--small-padding {
+
       .sg-card__hole {
         padding: gutter(2 / 3);
       }
     }
 
     &--large-padding {
+
       .sg-card__hole {
         padding: (gutter(2) - $cardBorderSize);
       }
@@ -61,11 +63,11 @@ $includeHtml: false !default;
       &--mint {
         background-color: $mintPrimary;
       }
-  
+
       &--navyblue {
         background-color: $navybluePrimary;
       }
-      
+
       &--navyblue-secondary {
         background-color: $navyblueSecondary;
       }

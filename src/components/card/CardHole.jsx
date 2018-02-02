@@ -13,7 +13,7 @@ export const COLOR = {
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
 };
 
-const CardHole = ({color, padding, children, className, ...props}) => {
+const CardHole = ({color, children, className, ...props}) => {
   const cardHoleClass = classnames('sg-card__hole', {
     [`sg-card__hole--${color}`]: color
   }, className);
@@ -23,7 +23,7 @@ const CardHole = ({color, padding, children, className, ...props}) => {
       {children}
     </div>
   );
-}
+};
 
 CardHole.propTypes = {
   children: PropTypes.node.isRequired,
