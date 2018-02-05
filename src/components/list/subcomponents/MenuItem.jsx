@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const MenuItem = ({text, href}) =>
-  <li className="sg-menu-list__element">
-    <a className="sg-menu-list__link" href={href}>{text}</a>
-  </li>;
+const MenuItem = ({text, href, type = 'a', className, ...restProps}) => {
+  const Type = type;
+  const elementClass = classnames('sg-menu-list__link', className);
+
+  return (
+    <li className="sg-menu-list__element">
+      <Type className={elementClass} href={href} {...restProps}>{text}</Type>
+    </li>
+  );
+};
 
 MenuItem.propTypes = {
-  href: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  className: PropTypes.string,
+  href: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  type: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 export default MenuItem;
