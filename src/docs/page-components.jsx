@@ -11,6 +11,7 @@ import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
 import Subjects from 'subject-icons/pages/subjects-interactive';
 import IconsAsButtons from 'icon-as-button/pages/icon-as-button-interactive';
 import Boxes from 'box/pages/box-interactive';
+import Cards from 'card/pages/card-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
@@ -52,6 +53,7 @@ const demos = {
   'Subject icon box': <Subjects />,
   'Flash messages': <FlashMessages />,
   'Boxes': <Boxes />,
+  'Cards': <Cards />,
   'Action List': <ActionLists />,
   'Rating': <Ratings />,
   'Icons': <Icons />,
