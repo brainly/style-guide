@@ -21,6 +21,7 @@ import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
 import badges from '../components/badges/pages/badges';
 import box from '../components/box/pages/box';
+import card from '../components/card/pages/card';
 import breadcrumbs from '../components/breadcrumbs/pages/breadcrumbs';
 import bubble from '../components/bubble/pages/bubble';
 import contentBox from '../components/content-box/pages/content-box';
@@ -197,6 +198,11 @@ const navigation = [
         'name': 'Box',
         'location': 'box/box',
         component: box
+      },
+      {
+        'name': 'Card',
+        'location': 'card/card',
+        component: card
       },
       {
         'name': 'Overlayed Box',
