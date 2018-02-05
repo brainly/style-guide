@@ -32,14 +32,20 @@ const IconAsButton = ({
     content = children;
   }
 
+  let renderType = 'button';
+
+  if (props.href) {
+    renderType = 'a';
+  }
+
   return (
-    <button {...props} className={buttonClass}>
+    <renderType {...props} className={buttonClass}>
       <div className="sg-icon-as-button__hole">
         <IconAsButtonContent overlay={overlay}>
           {content}
         </IconAsButtonContent>
       </div>
-    </button>
+    </renderType>
   );
 };
 
