@@ -1,5 +1,5 @@
 import React from 'react';
-import CardHole, {COLOR} from './CardHole';
+import CardHole, {CARD_HOLE_COLOR} from './CardHole';
 import {shallow} from 'enzyme';
 
 describe('<CardHole />', () => {
@@ -14,7 +14,7 @@ describe('<CardHole />', () => {
   });
 
   test('colors', () => {
-    const color = COLOR.GRAY_SECONDARY;
+    const color = CARD_HOLE_COLOR.GRAY_SECONDARY;
     const cardHole = shallow(
       <CardHole color={color}>
         some text

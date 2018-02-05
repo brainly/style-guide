@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-export const COLOR = {
+export const CARD_HOLE_COLOR = {
   BLUE: 'blue',
   MINT: 'mint',
   NAVYBLUE: 'navyblue-secondary',
@@ -28,7 +28,7 @@ const CardHole = ({color, children, className, ...props}) => {
 CardHole.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf(Object.values(COLOR))
+  color: PropTypes.oneOf(Object.values(CARD_HOLE_COLOR))
 };
 
 export default CardHole;

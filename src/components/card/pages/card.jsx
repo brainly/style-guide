@@ -1,6 +1,6 @@
 import React from 'react';
-import Card, {PADDING} from '../Card';
-import CardHole, {COLOR} from '../CardHole';
+import Card, {CARD_PADDING} from '../Card';
+import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
 import DocsBlock from 'components/DocsBlock';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ContentBox from 'content-box/ContentBox';
@@ -13,11 +13,11 @@ import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 const Cards = () =>
   <div>
     <DocsBlock info="Simple with large pading">
-      <Card padding={PADDING.LARGE}>
+      <Card padding={CARD_PADDING.LARGE}>
         <CardHole>
           This is card content top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card content bottom
         </CardHole>
       </Card>
@@ -25,40 +25,40 @@ const Cards = () =>
 
     <DocsBlock info="Full and centered">
       <Card full centered>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card content top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card content bottom
         </CardHole>
       </Card>
     </DocsBlock>
 
     <DocsBlock info="No border">
-      <Card noBorder padding={PADDING.SMALL}>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+      <Card noBorder padding={CARD_PADDING.SMALL}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card content top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card content bottom
         </CardHole>
       </Card>
     </DocsBlock>
 
     <DocsBlock info="With shadow">
-      <Card shadow padding={PADDING.SMALL}>
+      <Card shadow padding={CARD_PADDING.SMALL}>
         <CardHole>
           This is card content top
         </CardHole>
-        <CardHole color={COLOR.NAVYBLUE_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.NAVYBLUE_SECONDARY}>
           This is card content bottom
         </CardHole>
       </Card>
     </DocsBlock>
 
     <DocsBlock info="Example use">
-      <Card padding={PADDING.SMALL}>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+      <Card padding={CARD_PADDING.SMALL}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           <ContentBox>
             <ContentBoxHeader>
               <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
@@ -66,7 +66,7 @@ const Cards = () =>
             <ContentBoxContent>And add some description</ContentBoxContent>
           </ContentBox>
         </CardHole>
-        <CardHole color={COLOR.NAVYBLUE_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.NAVYBLUE_SECONDARY}>
           <ActionList direction={DIRECTION.SPACE_BETWEEN}>
             <ActionListHole>
               <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE_ALT} wide>

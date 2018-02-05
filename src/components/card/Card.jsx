@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export const PADDING = {
-  SMALL: 'small-padding',
-  LARGE: 'large-padding'
+export const CARD_PADDING = {
+  SMALL: 'padding-small',
+  LARGE: 'padding-large'
 };
 
 const Card = ({children, full, centered, padding, shadow, noBorder, className, ...props}) => {
@@ -29,7 +29,7 @@ Card.propTypes = {
   centered: PropTypes.bool,
   noBorder: PropTypes.bool,
   shadow: PropTypes.bool,
-  padding: PropTypes.oneOf(Object.values(PADDING)),
+  padding: PropTypes.oneOf(Object.values(CARD_PADDING)),
   className: PropTypes.string
 };
 

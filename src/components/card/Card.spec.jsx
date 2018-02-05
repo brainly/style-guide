@@ -1,16 +1,16 @@
 import React from 'react';
-import Card, {PADDING} from './Card';
-import CardHole, {COLOR} from './CardHole';
+import Card, {CARD_PADDING} from './Card';
+import CardHole, {CARD_HOLE_COLOR} from './CardHole';
 import {shallow} from 'enzyme';
 
 describe('ActionList', () => {
   test('render', () => {
     const card = shallow(
       <Card>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card bottom
         </CardHole>
       </Card>
@@ -22,10 +22,10 @@ describe('ActionList', () => {
   test('full', () => {
     const card = shallow(
       <Card full>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card bottom
         </CardHole>
       </Card>
@@ -37,10 +37,10 @@ describe('ActionList', () => {
   test('centered', () => {
     const card = shallow(
       <Card centered>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card bottom
         </CardHole>
       </Card>
@@ -50,35 +50,35 @@ describe('ActionList', () => {
   });
 
   test('small padding', () => {
-    const padding = PADDING.SMALL;
+    const padding = CARD_PADDING.SMALL;
     const card = shallow(
       <Card padding={padding}>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card bottom
         </CardHole>
       </Card>
     );
 
-    expect(card.hasClass('sg-card--small-padding')).toEqual(true);
+    expect(card.hasClass('sg-card--padding-small')).toEqual(true);
   });
 
   test('large padding', () => {
-    const padding = PADDING.LARGE;
+    const padding = CARD_PADDING.LARGE;
     const card = shallow(
       <Card padding={padding}>
-        <CardHole color={COLOR.GRAY_SECONDARY_LIGHT}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           This is card top
         </CardHole>
-        <CardHole color={COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
           This is card bottom
         </CardHole>
       </Card>
     );
 
-    expect(card.hasClass('sg-card--large-padding')).toEqual(true);
+    expect(card.hasClass('sg-card--padding-large')).toEqual(true);
   });
 
 });

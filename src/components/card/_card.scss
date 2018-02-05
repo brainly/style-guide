@@ -43,14 +43,14 @@ $includeHtml: false !default;
       }
     }
 
-    &--small-padding {
+    &--padding-small {
 
       .sg-card__hole {
         padding: gutter(2 / 3);
       }
     }
 
-    &--large-padding {
+    &--padding-large {
 
       .sg-card__hole {
         padding: (gutter(2) - $cardBorderSize);
