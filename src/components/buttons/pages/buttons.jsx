@@ -15,11 +15,15 @@ const Buttons = () =>
       </ButtonPrimary>
       &nbsp;
       <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Ask your question
+        Search
       </ButtonPrimary>
       &nbsp;
       <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
         Search
+      </ButtonPrimary>
+      &nbsp;
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.PEACH}>
+        reject
       </ButtonPrimary>
       &nbsp;
       <ButtonPrimary disabled>
@@ -83,9 +87,14 @@ const Buttons = () =>
         Search
       </ButtonSecondary>
       &nbsp;
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.PEACH}>
+        reject
+      </ButtonSecondary>
+      &nbsp;
       <ButtonSecondary disabled>
         Disabled
       </ButtonSecondary>
+
     </DocsBlock>
 
     <DocsBlock info="Secondary buttons wide">
@@ -131,6 +140,10 @@ const Buttons = () =>
       &nbsp;
       <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>
         Search
+      </ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.PEACH} small>
+        reject
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary disabled small>
