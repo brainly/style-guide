@@ -24,8 +24,20 @@ $includeHtml: false !default;
       background-color: $peachSecondaryLight;
     }
 
+    &--blue {
+      background-color: $bluePrimary;
+    }
+
     &--blue-secondary-light {
       background-color: $blueSecondaryLight;
+    }
+
+    &--blue-secondary {
+      background-color: $blueSecondary;
+    }
+
+    &--mint {
+      background-color: $mintPrimary;
     }
 
     &--mint-secondary {
