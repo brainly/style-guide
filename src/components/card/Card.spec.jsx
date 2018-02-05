@@ -3,7 +3,7 @@ import Card, {CARD_PADDING} from './Card';
 import CardHole, {CARD_HOLE_COLOR} from './CardHole';
 import {shallow} from 'enzyme';
 
-describe('ActionList', () => {
+describe('Card', () => {
   test('render', () => {
     const card = shallow(
       <Card>
