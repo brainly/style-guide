@@ -136,3 +136,14 @@ test('error when more than 1 child', () => {
 
   spy.mockRestore();
 });
+
+test('link as button', () => {
+  const type = TYPE.ANSWER;
+  const href = 'http://brainly.test';
+
+  const iconAsButton = shallow(
+    <IconAsButton type={type} href={href} />
+  );
+
+  expect(iconAsButton.find('a')).toHaveLength(1);
+});
