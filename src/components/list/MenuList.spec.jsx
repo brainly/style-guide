@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import MenuList, {SIZE, MenuItem} from 'list/MenuList';
+import MenuList, {MenuItem, SIZE} from 'list/MenuList';
 
 const menuItem = {
   text: 'Test',
@@ -8,8 +8,8 @@ const menuItem = {
 };
 const menuItems = [menuItem];
 
-describe('menu list', () => {
-  test('render', () => {
+describe('<MenuList />', () => {
+  test('renders', () => {
     const menu = shallow(
       <MenuList items={menuItems} />
     );
@@ -35,16 +35,17 @@ describe('menu list', () => {
   });
 });
 
-describe('menu item', () => {
-  test('render', () => {
+describe('<MenuItem />', () => {
+  test('renders', () => {
     const menuItem = shallow(
       <MenuItem text="test" href="#" />
     );
 
     expect(menuItem.hasClass('sg-menu-list__element')).toEqual(true);
+    expect(menuItem.find('.sg-menu-list__link')).toHaveLength(1);
   });
 
-  test('error when no text', () => {
+  test('throws error when no text', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -55,15 +56,16 @@ describe('menu item', () => {
     spy.mockRestore();
   });
 
-  test('error when no href', () => {
-    const spy = jest.spyOn(console, 'error');
+  test('renders different type of html element', () => {
+    const menuItem = shallow(<MenuItem type="span" text="test" />);
 
-    console.error = jest.fn();
-    shallow(<MenuItem text="test" />);
+    expect(menuItem.find('span')).toHaveLength(1);
+  });
 
-    expect(console.error.mock.calls).toHaveLength(1);
+  test('passes props to link element', () => {
+    const menuItem = shallow(<MenuItem type="span" text="test" id="m4l" />);
 
-    spy.mockRestore();
+    expect(menuItem.find('.sg-menu-list__link').props().id).toEqual('m4l');
   });
 
 });

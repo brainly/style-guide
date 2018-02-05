@@ -16,8 +16,8 @@ const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}) => {
 
   return (
     <ul {...props} className={listClass}>
-      {items.map(({text, href}, index) =>
-        <MenuItem key={index} text={text} href={href} />
+      {items.map(({...elementProps}, index) =>
+        <MenuItem key={index} {...elementProps} />
       )}
     </ul>
   );
