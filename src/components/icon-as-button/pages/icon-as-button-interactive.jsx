@@ -33,6 +33,10 @@ const IconsAsButtons = () => {
     {
       name: 'active',
       values: Boolean
+    },
+    {
+      name: 'href',
+      values: String
     }
   ];
 

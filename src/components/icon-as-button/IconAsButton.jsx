@@ -32,14 +32,20 @@ const IconAsButton = ({
     content = children;
   }
 
+  let RenderType = 'button';
+
+  if (props.href) {
+    RenderType = 'a';
+  }
+
   return (
-    <button {...props} className={buttonClass}>
+    <RenderType {...props} role="button" className={buttonClass}>
       <div className="sg-icon-as-button__hole">
         <IconAsButtonContent overlay={overlay}>
           {content}
         </IconAsButtonContent>
       </div>
-    </button>
+    </RenderType>
   );
 };
 
@@ -53,6 +59,7 @@ IconAsButton.propTypes = {
   transparent: PropTypes.bool,
   active: PropTypes.bool,
   overlay: PropTypes.node,
+  href: PropTypes.string,
   className: PropTypes.string
 };
 
