@@ -8,6 +8,7 @@ export const BUTTON_PRIMARY_TYPE = {
   INVERSE: 'inverse',
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
+  PEACH: 'peach',
   FB: 'fb'
 };
 

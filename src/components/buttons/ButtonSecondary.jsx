@@ -8,7 +8,8 @@ export const BUTTON_SECONDARY_TYPE = {
   INVERSE: 'inverse',
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
-  ACTIVE_INVERSE: 'active-inverse'
+  ACTIVE_INVERSE: 'active-inverse',
+  PEACH: 'peach'
 };
 
 const ButtonSecondary = ({small, wide, disabled, buttonType, children, className, ...props}) => {

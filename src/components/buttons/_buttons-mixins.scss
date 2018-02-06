@@ -3,6 +3,7 @@ $buttonColor: $mintPrimary;
 $buttonAltColor: $bluePrimary;
 $buttonDarkColor: $grayPrimary;
 $buttonInverseColor: $white;
+$buttonPeach: $peachPrimary;
 
 $buttonInverseFontColor: $mintPrimary;
 $buttonInverseAltFontColor: $bluePrimary;
@@ -146,5 +147,11 @@ $buttonActiveScale: scale(0.985);
     & .sg-label__text {
       cursor: default;
     }
+  }
+
+  &--peach {
+    background-color: $buttonPeach;
+    color: $buttonActiveInverseInteractionFontColor;
+    fill: $buttonActiveInverseInteractionFontColor;
   }
 }
