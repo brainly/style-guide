@@ -12,12 +12,12 @@ import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Cards = () =>
   <div>
-    <DocsBlock info="Simple with large pading">
+    <DocsBlock info="Simple with large padding">
       <Card padding={CARD_PADDING.LARGE}>
         <CardHole>
           This is card content top
         </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHTEST}>
           This is card content bottom
         </CardHole>
       </Card>
