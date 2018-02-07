@@ -87,6 +87,10 @@ $includeHtml: false !default;
       &--gray-secondary-light {
         background-color: $graySecondaryLight;
       }
+
+      &--gray-secondary-lightest {
+        background-color: $graySecondaryLightest;
+      }
     }
   }
 }
