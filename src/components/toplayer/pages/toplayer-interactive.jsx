@@ -51,6 +51,10 @@ const Toplayers = () => {
     {
       name: 'row',
       values: Boolean
+    },
+    {
+      name: 'noPadding',
+      values: Boolean
     }
   ];
 
