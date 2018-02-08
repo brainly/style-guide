@@ -22,6 +22,7 @@ const TopLayer = props => {
     splashScreen,
     limitedWidth,
     row,
+    noPadding,
     className,
     ...additionalProps
   } = props;
@@ -38,6 +39,10 @@ const TopLayer = props => {
     [`sg-toplayer--${size}`]: size
   }, className);
 
+  const toplayerWrapperClassName = classnames('sg-toplayer__wrapper', {
+    'sg-toplayer__wrapper--no-padding': noPadding
+  });
+
   return (
     <div {...additionalProps} className={topLayerClassName}>
       {onClose ?
@@ -45,7 +50,7 @@ const TopLayer = props => {
           <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
         </div> : null
       }
-      <div className="sg-toplayer__wrapper">
+      <div className={toplayerWrapperClassName}>
         {children}
       </div>
     </div>
@@ -64,6 +69,7 @@ TopLayer.propTypes = {
   limitedWidth: PropTypes.bool,
   row: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(SIZE)),
+  noPadding: PropTypes.bool,
   className: PropTypes.string
 };
 

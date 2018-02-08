@@ -95,3 +95,19 @@ test('testing modifications - all off', () => {
   expect(topLayer.hasClass('sg-toplayer--limited-width')).toEqual(false);
   expect(topLayer.hasClass('sg-toplayer--row')).toEqual(false);
 });
+
+test('testing wrapper', () => {
+  const topLayer = shallow(
+    <TopLayer>some text</TopLayer>
+  );
+
+  expect(topLayer.find('.sg-toplayer__wrapper')).toHaveLength(1);
+});
+
+test('testing wrapper without padding', () => {
+  const topLayer = shallow(
+    <TopLayer noPadding>some text</TopLayer>
+  );
+
+  expect(topLayer.find('.sg-toplayer__wrapper').hasClass('sg-toplayer__wrapper--no-padding')).toEqual(true);
+});
