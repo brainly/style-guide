@@ -16,7 +16,7 @@ const MenuItem = ({text, href, type = 'a', className, ...restProps}) => {
 MenuItem.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.node.isRequired,
   type: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
