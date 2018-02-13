@@ -11,13 +11,15 @@ export const COLOR = {
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
   PEACH: 'peach'
 };
 
 export const PADDING = {
   NO_PADDING: 'no-padding',
-  XSMALL: 'xsmall-padding',
   SMALL: 'small-padding',
+  XSMALL: 'xsmall-padding',
+  XXSMALL: 'xxsmall-padding',
   LARGE: 'large-padding'
 };
 

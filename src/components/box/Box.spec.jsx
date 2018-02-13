@@ -66,6 +66,17 @@ test('default padding', () => {
 
   expect(box.hasClass(`sg-box--${PADDING.LARGE}`)).toEqual(false);
   expect(box.hasClass(`sg-box--${PADDING.SMALL}`)).toEqual(false);
+  expect(box.hasClass(`sg-box--${PADDING.XSMALL}`)).toEqual(false);
+  expect(box.hasClass(`sg-box--${PADDING.XXSMALL}`)).toEqual(false);
+});
+
+test('small padding', () => {
+  const padding = PADDING.SMALL;
+  const box = shallow(
+    <Box padding={padding}>some text</Box>
+  );
+
+  expect(box.hasClass('sg-box--small-padding')).toEqual(true);
 });
 
 test('xsmall padding', () => {
@@ -77,13 +88,13 @@ test('xsmall padding', () => {
   expect(box.hasClass('sg-box--xsmall-padding')).toEqual(true);
 });
 
-test('small padding', () => {
-  const padding = PADDING.SMALL;
+test('xxsmall padding', () => {
+  const padding = PADDING.XXSMALL;
   const box = shallow(
     <Box padding={padding}>some text</Box>
   );
 
-  expect(box.hasClass('sg-box--small-padding')).toEqual(true);
+  expect(box.hasClass('sg-box--xxsmall-padding')).toEqual(true);
 });
 
 test('large padding', () => {
