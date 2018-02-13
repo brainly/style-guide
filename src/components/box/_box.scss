@@ -60,12 +60,16 @@ $includeHtml: false !default;
       padding: 0;
     }
 
-    &--xsmall-padding {
-      padding: gutter(1 / 3);
-    }
-
     &--small-padding {
       padding: gutter(2 / 3);
+    }
+
+    &--xsmall-padding {
+      padding: gutter(1 / 2);
+    }
+
+    &--xxsmall-padding {
+      padding: gutter(1 / 3);
     }
 
     &--large-padding {
@@ -107,6 +111,10 @@ $includeHtml: false !default;
 
     &--peach {
       background-color: $peachPrimary;
+    }
+
+    &--gray-secondary-lightest {
+      background-color: $graySecondaryLightest;
     }
 
     &--image-wrapper {

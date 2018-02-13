@@ -43,14 +43,19 @@ const Boxs = () =>
       <Box key={2} padding={PADDING.NO_PADDING}>more text<br /> more more</Box>
     ]} />
 
+    <DocsBlock info="Small padding + no min height" multiContent={[
+      <Box key={1} padding={PADDING.SMALL} noMinHeight>some text</Box>,
+      <Box key={2} padding={PADDING.SMALL} noMinHeight>more text<br /> more more</Box>
+    ]} />
+
     <DocsBlock info="Xsmall padding + no min height" multiContent={[
       <Box key={1} padding={PADDING.XSMALL} noMinHeight>some text</Box>,
       <Box key={2} padding={PADDING.XSMALL} noMinHeight>more text<br /> more more</Box>
     ]} />
 
-    <DocsBlock info="Small padding + no min height" multiContent={[
-      <Box key={1} padding={PADDING.SMALL} noMinHeight>some text</Box>,
-      <Box key={2} padding={PADDING.SMALL} noMinHeight>more text<br /> more more</Box>
+    <DocsBlock info="Xxsmall padding + no min height" multiContent={[
+      <Box key={1} padding={PADDING.XXSMALL} noMinHeight>some text</Box>,
+      <Box key={2} padding={PADDING.XXSMALL} noMinHeight>more text<br /> more more</Box>
     ]} />
 
     <DocsBlock info="Small padding" multiContent={[
