@@ -37,34 +37,6 @@ const Dropdowns = () =>
         <Dropdown {...defaultProps} fixed isOpened />
       </ContrastBox>
     ]} />
-
-    <DocsBlock info="With OpenedController" additionalInfo="(manages opened state)" multiContent={[
-      <ContrastBox key={1}>
-        <OpenedController>
-          {
-            ({isOpened, toggle}) =>
-              <Dropdown
-                {...defaultProps}
-                isOpened={isOpened}
-                toggle={toggle}
-              />
-          }
-        </OpenedController>
-      </ContrastBox>,
-      <ContrastBox key={2}>
-        <OpenedController>
-          {
-            ({isOpened, toggle}) =>
-              <Dropdown
-                {...defaultProps}
-                isOpened={isOpened}
-                toggle={toggle}
-              />
-          }
-        </OpenedController>
-      </ContrastBox>
-    ]} />
-
   </div>;
 
 export default Dropdowns;
