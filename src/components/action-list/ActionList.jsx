@@ -9,7 +9,7 @@ export const DIRECTION = {
 };
 
 export const ALIGNMENT = {
-  BASELINE: 'baseline'
+  BASELINE: 'align-baseline'
 };
 
 const ActionList = ({children, toTop, direction, align, noWrap, className, ...props}) => {
