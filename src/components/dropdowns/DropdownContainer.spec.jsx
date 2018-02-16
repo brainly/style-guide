@@ -1,5 +1,4 @@
 import React from 'react';
-import OpenedController from '../opened-controller/OpenedController';
 import DropdownContainer from './DropdownContainer';
 import {shallow, mount} from 'enzyme';
 
