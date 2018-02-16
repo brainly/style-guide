@@ -37,7 +37,7 @@ class DropdownContainer extends Component {
       items={this.props.items}
       fixed={this.props.fixed}
       onItemClick={this.onItemClick}
-      onClick={this.props.toggle}
+      onClick={this.props.onToggle}
       className={this.props.className} />;
   }
 }
@@ -51,7 +51,7 @@ DropdownContainer.propTypes = {
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
   isOpened: PropTypes.bool,
-  toggle: PropTypes.func,
+  onToggle: PropTypes.func,
   fullWidth: PropTypes.bool,
   label: PropTypes.string,
   currentItem: itemShape,

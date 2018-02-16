@@ -1,4 +1,5 @@
 import React from 'react';
+import OpenedController from '../opened-controller/OpenedController';
 import DropdownContainer from './DropdownContainer';
 import {shallow, mount} from 'enzyme';
 
@@ -21,33 +22,25 @@ test('mount should render Dropdown component', () => {
   expect(dropDown.find('.sg-dropdown').length).toEqual(1);
 });
 
-test('no opened at start', () => {
+test('it is closed by default', () => {
   const dropDown = mount(<DropdownContainer {...defaultProps} />);
 
-  expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(false);
-  expect(dropDown.state('isOpened')).toEqual(false);
+  expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(false);
 });
 
-test('opened at start when props passed', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps} openOnStart />);
+test('it is opened when props passed', () => {
+  const dropDown = mount(<DropdownContainer {...defaultProps} isOpened />);
 
   expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(true);
-  expect(dropDown.state('isOpened')).toEqual(true);
 });
 
-test('toggle open', () => {
-  const dropDown = mount(<DropdownContainer {...defaultProps} />);
+test('onToggle property', () => {
+  const onToggle = jest.fn();
+  const dropDown = mount(<DropdownContainer {...defaultProps} onToggle={onToggle} />);
 
-  expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(false);
-  expect(dropDown.state('isOpened')).toEqual(false);
-
+  expect(onToggle).not.toHaveBeenCalled();
   dropDown.simulate('click');
-  expect(dropDown.find('.sg-dropdown').hasClass('sg-dropdown--opened')).toEqual(true);
-  expect(dropDown.state('isOpened')).toEqual(true);
-
-  dropDown.simulate('click');
-  expect(dropDown.hasClass('sg-dropdown--opened')).toEqual(false);
-  expect(dropDown.state('isOpened')).toEqual(false);
+  expect(onToggle).toHaveBeenCalled();
 });
 
 test('label from selected option', () => {
