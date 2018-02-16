@@ -46,7 +46,7 @@ describe('ActionList', () => {
       <ActionList align={ALIGNMENT.BASELINE}></ActionList>
     );
 
-    expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--baseline')).toEqual(true);
   });
 
   test('centered', () => {
