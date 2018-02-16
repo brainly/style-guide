@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from '../DropdownContainer';
+import OpenedController from '../../opened-controller/OpenedController';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 
@@ -34,6 +35,33 @@ const Dropdowns = () =>
       </ContrastBox>,
       <ContrastBox key={2}>
         <Dropdown {...defaultProps} fixed openOnStart />
+      </ContrastBox>
+    ]} />
+
+    <DocsBlock info="With OpenedController" additionalInfo="(manages opened state)" multiContent={[
+      <ContrastBox key={1}>
+        <OpenedController>
+          {
+            ({isOpened, toggle}) =>
+              <Dropdown
+                {...defaultProps}
+                isOpened={isOpened}
+                toggle={toggle}
+              />
+          }
+        </OpenedController>
+      </ContrastBox>,
+      <ContrastBox key={2}>
+        <OpenedController>
+          {
+            ({isOpened, toggle}) =>
+              <Dropdown
+                {...defaultProps}
+                isOpened={isOpened}
+                toggle={toggle}
+              />
+          }
+        </OpenedController>
       </ContrastBox>
     ]} />
 

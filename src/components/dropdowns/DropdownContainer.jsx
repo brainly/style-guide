@@ -1,28 +1,6 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
-
-// this should be separate component
-export class OpenedController extends Component {
-  state = {
-    isOpened: false
-  };
-
-  toggle = () => {
-    this.setState(prevState => ({isOpened: !prevState.isOpened}));
-  }
-
-  render() {
-    return (
-      <Fragment>
-        {this.props.children({
-          isOpened: this.state.isOpened,
-          toggle: this.toggle
-        })}
-      </Fragment>
-    )
-  }
-}
 
 class DropdownContainer extends Component {
   static defaultProps = {
@@ -72,7 +50,8 @@ const itemShape = PropTypes.shape({
 DropdownContainer.propTypes = {
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
-  openOnStart: PropTypes.bool,
+  isOpened: PropTypes.bool,
+  toggle: PropTypes.func,
   fullWidth: PropTypes.bool,
   label: PropTypes.string,
   currentItem: itemShape,

@@ -1,7 +1,6 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import DocsBlock from 'components/DocsBlock';
-import DropdownContainer, {OpenedController} from '../DropdownContainer';
+import Dropdown from '../DropdownContainer';
 
 const item1st = {id: 'dd-item-1', text: '1st item'};
 const item2nd = {id: 'dd-item-2', text: '2nd item'};
@@ -31,19 +30,9 @@ const Dropdowns = () => {
 
   return (
     <div>
-      <DocsBlock>
-        <OpenedController>
-          {
-            ({isOpened, toggle}) =>
-              <DropdownContainer
-                items={defaultItems}
-                label={'Pick one…'}
-                isOpened={isOpened}
-                toggle={toggle}
-              />
-          }
-        </OpenedController>
-      </DocsBlock>
+      <DocsActiveBlock settings={settings} contentBefore="Lorem Ipsum" contentAfter="Lorem ipsum" wrapper={<div />}>
+        <Dropdown items={defaultItems} label={'Pick one…'} />
+      </DocsActiveBlock>
     </div>
   );
 };
