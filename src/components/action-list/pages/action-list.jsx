@@ -1,5 +1,5 @@
 import React from 'react';
-import ActionList, {DIRECTION} from '../ActionList';
+import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE, HEADER_COLOR} from 'text/HeaderPrimary';
@@ -58,6 +58,23 @@ const ActionLists = () =>
             <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
               Later
             </ButtonPrimary>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info="Baseline">
+      <ContrastBox fullWidth>
+        <ActionList align={ALIGNMENT.BASELINE}>
+          <ActionListHole>
+            <Text>
+              Normale text
+            </Text>
+          </ActionListHole>
+          <ActionListHole>
+            <Text weight={TEXT_WEIGHT.BOLD}>
+              Bold text
+            </Text>
           </ActionListHole>
         </ActionList>
       </ContrastBox>

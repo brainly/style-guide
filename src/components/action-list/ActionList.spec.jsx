@@ -1,5 +1,5 @@
 import React from 'react';
-import ActionList, {DIRECTION} from './ActionList';
+import ActionList, {DIRECTION, ALIGNMENT} from './ActionList';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
@@ -39,6 +39,14 @@ describe('ActionList', () => {
     );
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
+  });
+
+  test('baseline', () => {
+    const actionList = shallow(
+      <ActionList align={ALIGNMENT.BASELINE}></ActionList>
+    );
+
+    expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
   });
 
   test('centered', () => {
