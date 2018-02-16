@@ -1,6 +1,5 @@
 import React from 'react';
 import Dropdown from '../DropdownContainer';
-import OpenedController from '../../opened-controller/OpenedController';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 
