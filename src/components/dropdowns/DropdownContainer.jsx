@@ -1,6 +1,28 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
+
+// this should be separate component
+export class OpenedController extends Component {
+  state = {
+    isOpened: false
+  };
+
+  toggle = () => {
+    this.setState(prevState => ({isOpened: !prevState.isOpened}));
+  }
+
+  render() {
+    return (
+      <Fragment>
+        {this.props.children({
+          isOpened: this.state.isOpened,
+          toggle: this.toggle
+        })}
+      </Fragment>
+    )
+  }
+}
 
 class DropdownContainer extends Component {
   static defaultProps = {
@@ -8,7 +30,6 @@ class DropdownContainer extends Component {
   };
 
   state = {
-    isOpened: this.props.openOnStart || false,
     currentItem: this.props.currentItem || {}
   };
 
@@ -30,19 +51,15 @@ class DropdownContainer extends Component {
     }
   };
 
-  toggle = () => {
-    this.setState({isOpened: !this.state.isOpened});
-  };
-
   render() {
     return <Dropdown
-      opened={this.state.isOpened}
+      opened={this.props.isOpened}
       fullWidth={this.props.fullWidth}
       label={this.getLabel()}
       items={this.props.items}
       fixed={this.props.fixed}
       onItemClick={this.onItemClick}
-      onClick={this.toggle}
+      onClick={this.props.toggle}
       className={this.props.className} />;
   }
 }
