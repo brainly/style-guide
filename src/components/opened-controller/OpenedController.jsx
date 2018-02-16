@@ -26,7 +26,7 @@ export class OpenedController extends Component {
           onToggle: this.onToggle
         })}
       </Fragment>
-    )
+    );
   }
 }
 
