@@ -1,5 +1,5 @@
 import React from 'react';
-import ActionList, {DIRECTION} from '../ActionList';
+import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
@@ -20,6 +20,10 @@ const ActionLists = () => {
     {
       name: 'direction',
       values: DIRECTION
+    },
+    {
+      name: 'align',
+      values: ALIGNMENT
     }
   ];
 

@@ -8,9 +8,14 @@ export const DIRECTION = {
   SPACE_BETWEEN: 'space-between'
 };
 
-const ActionList = ({children, toTop, direction, noWrap, className, ...props}) => {
+export const ALIGNMENT = {
+  BASELINE: 'align-baseline'
+};
+
+const ActionList = ({children, toTop, direction, align, noWrap, className, ...props}) => {
   const actionListClass = classNames('sg-actions-list', {
     [`sg-actions-list--${direction}`]: direction,
+    [`sg-actions-list--${align}`]: align,
     'sg-actions-list--to-top': toTop,
     'sg-actions-list--no-wrap': noWrap
   }, className);
@@ -24,6 +29,7 @@ const ActionList = ({children, toTop, direction, noWrap, className, ...props}) =
 
 ActionList.propTypes = {
   direction: PropTypes.oneOf(Object.values(DIRECTION)),
+  align: PropTypes.oneOf(Object.values(ALIGNMENT)),
   noWrap: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
