@@ -8,7 +8,6 @@ class DropdownContainer extends Component {
   };
 
   state = {
-    isOpened: this.props.openOnStart || false,
     currentItem: this.props.currentItem || {}
   };
 
@@ -30,19 +29,15 @@ class DropdownContainer extends Component {
     }
   };
 
-  toggle = () => {
-    this.setState({isOpened: !this.state.isOpened});
-  };
-
   render() {
     return <Dropdown
-      opened={this.state.isOpened}
+      opened={this.props.isOpened}
       fullWidth={this.props.fullWidth}
       label={this.getLabel()}
       items={this.props.items}
       fixed={this.props.fixed}
       onItemClick={this.onItemClick}
-      onClick={this.toggle}
+      onClick={this.props.onToggle}
       className={this.props.className} />;
   }
 }
@@ -55,7 +50,8 @@ const itemShape = PropTypes.shape({
 DropdownContainer.propTypes = {
   fixed: PropTypes.bool,
   onChange: PropTypes.func,
-  openOnStart: PropTypes.bool,
+  isOpened: PropTypes.bool,
+  onToggle: PropTypes.func,
   fullWidth: PropTypes.bool,
   label: PropTypes.string,
   currentItem: itemShape,

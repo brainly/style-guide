@@ -15,7 +15,7 @@ const Dropdowns = () => {
       values: Boolean
     },
     {
-      name: 'openOnStart',
+      name: 'isOpened',
       values: Boolean
     },
     {
