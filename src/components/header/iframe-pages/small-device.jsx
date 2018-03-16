@@ -10,7 +10,7 @@ import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
 import IconAsButton, {TYPE as ICON_TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
+import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const SmallDeviceExample = () =>
@@ -36,7 +36,7 @@ const SmallDeviceExample = () =>
                 <HeaderRight>
                   <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
                   <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
-                    <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+                    <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>
                   } />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />

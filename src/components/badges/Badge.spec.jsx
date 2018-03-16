@@ -1,94 +1,73 @@
 import React from 'react';
-import Badge, {COLOR, SIZE} from './Badge';
-import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR} from '../text/Text';
+import Badge, {BADGE_COLOR, BADGE_SIZE} from './Badge';
 import {shallow, mount} from 'enzyme';
 
-test('render', () => {
-  const badge = shallow(
-    <Badge>Test</Badge>
-  );
-  const text = badge.find(Text);
+describe('<Badge />', () => {
+  it('renders without error', () => {
+    const badge = shallow(
+      <Badge>Test</Badge>
+    );
 
-  expect(text).toHaveLength(1);
-  expect(badge.hasClass('sg-badge')).toEqual(true);
-});
+    expect(badge).toHaveLength(1);
+    expect(badge.hasClass('sg-badge')).toEqual(true);
+  });
 
-test('default size', () => {
-  const badge = mount(
-    <Badge>Test</Badge>
-  );
-  const text = badge.find(Text);
+  it('default size', () => {
+    const badge = mount(
+      <Badge>Test</Badge>
+    );
 
-  expect(text.props().size).toEqual(TEXT_SIZE.XSMALL);
-  expect(badge.hasClass('sg-badge--small')).toEqual(false);
-  expect(badge.hasClass('sg-badge--large')).toEqual(false);
-});
+    expect(badge.hasClass('sg-badge--small')).toEqual(false);
+    expect(badge.hasClass('sg-badge--large')).toEqual(false);
+  });
 
-test('small size', () => {
-  const badge = shallow(
-    <Badge size={SIZE.SMALL}>Test</Badge>
-  );
-  const text = badge.find(Text);
+  it('small size', () => {
+    const badge = shallow(
+      <Badge size={BADGE_SIZE.SMALL}>Test</Badge>
+    );
 
-  expect(text.props().size).toEqual(TEXT_SIZE.XSMALL);
-  expect(badge.hasClass('sg-badge--small')).toEqual(true);
-});
+    expect(badge.hasClass('sg-badge--small')).toEqual(true);
+  });
 
-test('larger size', () => {
-  const badge = shallow(
-    <Badge size={SIZE.LARGE}>Test</Badge>
-  );
-  const text = badge.find(Text);
+  it('larger size', () => {
+    const badge = shallow(
+      <Badge size={BADGE_SIZE.LARGE}>Test</Badge>
+    );
 
-  expect(text.props().size).toEqual(TEXT_SIZE.NORMAL);
-  expect(badge.hasClass('sg-badge--large')).toEqual(true);
-});
+    expect(badge.hasClass('sg-badge--large')).toEqual(true);
+  });
 
-test('color', () => {
-  const badge = shallow(
-    <Badge color={COLOR.MINT_SECONDARY}>Test</Badge>
-  );
-  const text = badge.find(Text);
+  it('color', () => {
+    const badge = shallow(
+      <Badge color={BADGE_COLOR.MINT_SECONDARY}>Test</Badge>
+    );
 
-  expect(badge.hasClass('sg-badge--mint-secondary')).toEqual(true);
-  expect(text.props().color).toEqual(TEXT_COLOR.LIGHT);
-});
+    expect(badge.hasClass('sg-badge--mint-secondary')).toEqual(true);
+  });
 
-test('animation', () => {
-  const badge = shallow(
-    <Badge withAnimation>Test</Badge>
-  );
+  it('animation', () => {
+    const badge = shallow(
+      <Badge withAnimation>Test</Badge>
+    );
 
-  expect(badge.hasClass('sg-badge--with-animation')).toEqual(true);
-});
+    expect(badge.hasClass('sg-badge--with-animation')).toEqual(true);
+  });
 
-test('rounded', () => {
-  const badge = shallow(
-    <Badge rounded>Test</Badge>
-  );
+  it('rounded', () => {
+    const badge = shallow(
+      <Badge rounded>Test</Badge>
+    );
 
-  expect(badge.hasClass('sg-badge--rounded')).toEqual(true);
-});
+    expect(badge.hasClass('sg-badge--rounded')).toEqual(true);
+  });
 
-test('error when no child', () => {
-  const spy = jest.spyOn(console, 'error');
+  it('error when no child', () => {
+    const spy = jest.spyOn(console, 'error');
 
-  console.error = jest.fn();
-  shallow(<Badge />);
-  expect(console.error.mock.calls).toHaveLength(1);
+    console.error = jest.fn();
+    shallow(<Badge />);
+    expect(console.error.mock.calls).toHaveLength(1);
 
-  spy.mockRestore();
-});
-
-test('error when passing a react element as a child', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <Badge>
-      <div>asd</div>
-    </Badge>);
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
+    spy.mockRestore();
+  });
 });

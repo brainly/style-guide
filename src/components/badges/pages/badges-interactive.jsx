@@ -1,16 +1,16 @@
 import React from 'react';
-import Badge, {COLOR, SIZE} from '../Badge';
+import TextBadge, {TEXT_BADGE_COLOR, TEXT_BADGE_SIZE} from '../TextBadge';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Badges = () => {
   const settings = [
     {
       name: 'color',
-      values: COLOR
+      values: TEXT_BADGE_COLOR
     },
     {
       name: 'size',
-      values: SIZE
+      values: TEXT_BADGE_SIZE
     },
     {
       name: 'rounded',
@@ -25,10 +25,10 @@ const Badges = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Badge>3 / 5</Badge>
+        <TextBadge>3 / 5</TextBadge>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Badge color={COLOR.PEACH} rounded withAnimation>123</Badge>
+        <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded withAnimation>123</TextBadge>
       </DocsActiveBlock>
     </div>
   );
