@@ -5,7 +5,7 @@ import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR} from '../text/Text';
 import {shallow, mount} from 'enzyme';
 
 describe('<TextBadge />', () => {
-  it('render', () => {
+  it('render itself without error', () => {
     const component = shallow(
       <TextBadge>Test</TextBadge>
     );
@@ -15,18 +15,16 @@ describe('<TextBadge />', () => {
     expect(badge).toHaveLength(1);
   });
 
-  it('default size', () => {
+  it('sets <Text /> component size - default', () => {
     const badge = mount(
       <TextBadge>Test</TextBadge>
     );
     const text = badge.find(Text);
 
     expect(text.props().size).toEqual(TEXT_SIZE.XSMALL);
-    expect(badge.hasClass('sg-badge--small')).toEqual(false);
-    expect(badge.hasClass('sg-badge--large')).toEqual(false);
   });
 
-  it('small size', () => {
+  it('sets <Text /> component size - small', () => {
     const badge = shallow(
       <TextBadge size={TEXT_BADGE_SIZE.SMALL}>Test</TextBadge>
     );
@@ -34,7 +32,7 @@ describe('<TextBadge />', () => {
     expect(badge.find(Badge).children().props().size).toEqual(TEXT_SIZE.XSMALL);
   });
 
-  it('larger size', () => {
+  it('sets <Text /> component size - large', () => {
     const badge = shallow(
       <TextBadge size={TEXT_BADGE_SIZE.LARGE}>Test</TextBadge>
     );
@@ -42,7 +40,7 @@ describe('<TextBadge />', () => {
     expect(badge.find(Badge).children().props().size).toEqual(TEXT_SIZE.NORMAL);
   });
 
-  it('color', () => {
+  it('maps <Text /> and <Badge /> colors', () => {
     const component = shallow(
       <TextBadge color={TEXT_BADGE_COLOR.MINT_SECONDARY}>Test</TextBadge>
     );
@@ -51,7 +49,7 @@ describe('<TextBadge />', () => {
     expect(badge.children().props().color).toEqual(TEXT_COLOR.LIGHT);
   });
 
-  it('animation', () => {
+  it('animates when withAnimation is passed <Badge />', () => {
     const component = shallow(
       <TextBadge withAnimation>Test</TextBadge>
     );
@@ -60,7 +58,7 @@ describe('<TextBadge />', () => {
     expect(badge.props().withAnimation).toEqual(true);
   });
 
-  it('rounded', () => {
+  it('is is styled differently when rounded is passed <Badge />', () => {
     const component = shallow(
       <TextBadge rounded>Test</TextBadge>
     );
@@ -69,7 +67,7 @@ describe('<TextBadge />', () => {
     expect(badge.props().rounded).toEqual(true);
   });
 
-  it('error when no child', () => {
+  it('logs error when has no child', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
@@ -79,7 +77,7 @@ describe('<TextBadge />', () => {
     spy.mockRestore();
   });
 
-  it('error when passing a react element as a child', () => {
+  it('logs error when passing a react element as a child', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();

@@ -48,7 +48,7 @@ const Badge = ({
 Badge.propTypes = {
   color: PropTypes.oneOf(Object.values(BADGE_COLOR)),
   size: PropTypes.oneOf(Object.values(BADGE_SIZE)),
-  children: PropTypes.any.isRequired,
+  children: PropTypes.node.isRequired,
   rounded: PropTypes.bool,
   withAnimation: PropTypes.bool,
   className: PropTypes.string

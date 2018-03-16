@@ -12,7 +12,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge')).toEqual(true);
   });
 
-  it('default size', () => {
+  it('doesn\'t add additional classes when has default size', () => {
     const badge = mount(
       <Badge>Test</Badge>
     );
@@ -21,7 +21,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--large')).toEqual(false);
   });
 
-  it('small size', () => {
+  it('adds class modifier when has small size', () => {
     const badge = shallow(
       <Badge size={BADGE_SIZE.SMALL}>Test</Badge>
     );
@@ -29,7 +29,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--small')).toEqual(true);
   });
 
-  it('larger size', () => {
+  it('adds class modifier when has larger size', () => {
     const badge = shallow(
       <Badge size={BADGE_SIZE.LARGE}>Test</Badge>
     );
@@ -37,7 +37,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--large')).toEqual(true);
   });
 
-  it('color', () => {
+  it('can be configured by color', () => {
     const badge = shallow(
       <Badge color={BADGE_COLOR.MINT_SECONDARY}>Test</Badge>
     );
@@ -45,7 +45,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--mint-secondary')).toEqual(true);
   });
 
-  it('animation', () => {
+  it('adds animation class modifier when withAnimation is present', () => {
     const badge = shallow(
       <Badge withAnimation>Test</Badge>
     );
@@ -53,7 +53,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--with-animation')).toEqual(true);
   });
 
-  it('rounded', () => {
+  it('adds rounded modifier class when rounded is present', () => {
     const badge = shallow(
       <Badge rounded>Test</Badge>
     );
@@ -61,7 +61,7 @@ describe('<Badge />', () => {
     expect(badge.hasClass('sg-badge--rounded')).toEqual(true);
   });
 
-  it('error when no child', () => {
+  it('logs error when no child has been passed', () => {
     const spy = jest.spyOn(console, 'error');
 
     console.error = jest.fn();
