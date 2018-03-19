@@ -51,7 +51,7 @@ const Textarea = props => {
 Textarea.propTypes = {
   Type: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   textareaRef: PropTypes.func,
-  value: PropTypes.string,
+  value: PropTypes.any,
   size: PropTypes.oneOf(Object.values(SIZE)),
   valid: PropTypes.bool,
   invalid: PropTypes.bool,
