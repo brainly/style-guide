@@ -9,6 +9,7 @@ import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT 
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
+import SeparatorVertical, {SIZE as SEPARATOR_VERTICAL_SIZE} from 'separators/SeparatorVertical';
 
 const ActionLists = () =>
   <div>
@@ -322,6 +323,24 @@ const ActionLists = () =>
             <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
               per month
             </Text>
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info="Hole - stretch">
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole>
+            <HeaderPrimary
+              size={HEADER_SIZE.XXXLARGE}
+              type={HEADER_TYPE.SPAN}
+              color={HEADER_COLOR.LIGHT}>
+              $14.95
+            </HeaderPrimary>
+          </ActionListHole>
+          <ActionListHole stretch>
+            <SeparatorVertical size={SEPARATOR_VERTICAL_SIZE.FULL} />
           </ActionListHole>
         </ActionList>
       </ContrastBox>
