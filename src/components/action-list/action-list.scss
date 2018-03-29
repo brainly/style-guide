@@ -47,6 +47,10 @@
       align-self: flex-end;
     }
 
+    &--stretch {
+      align-self: stretch;
+    }
+
     &:last-child {
       margin-right: 0;
     }
