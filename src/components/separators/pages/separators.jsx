@@ -29,6 +29,11 @@ const Separators = () =>
         <Text type={TYPE.P} weight={WEIGHT.BOLD}>0</Text>
       </div>
     </DocsBlock>
+    <DocsBlock info="Full" centered>
+      <Avatar size={AVATAR_SIZE.XXLARGE} />
+      <SeparatorVertical size={SIZE.FULL} />
+      <Avatar size={AVATAR_SIZE.XXLARGE} />
+    </DocsBlock>
     <DocsBlock info="Horizontal" centered>
       <div>
         <Avatar size={AVATAR_SIZE.SMALL} />

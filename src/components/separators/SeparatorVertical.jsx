@@ -5,7 +5,8 @@ import classNames from 'classnames';
 export const SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
-  LARGE: 'large'
+  LARGE: 'large',
+  FULL: 'full'
 };
 
 const Separator = ({size = SIZE.NORMAL, className, ...props}) => {
