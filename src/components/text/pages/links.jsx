@@ -4,7 +4,7 @@ import ContrastBox from 'components/ContrastBox';
 import Link, {SIZE, COLOR} from '../Link';
 import Text from '../Text';
 
-const Links = () =>
+const Links = () => (
   <DocsBlock info="Examples">
     <Text>
       <div>
@@ -44,6 +44,7 @@ const Links = () =>
         </Text>
       </ContrastBox>
     </Text>
-  </DocsBlock>;
+  </DocsBlock>
+);
 
 export default Links;

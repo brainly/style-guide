@@ -3,7 +3,7 @@ import Avatar, {SIZE} from '../Avatar';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 
-const Avatars = () =>
+const Avatars = () => (
   <div>
     <DocsBlock info="Default avatars" toBottom>
       {Object.values(SIZE).map(
@@ -30,6 +30,7 @@ const Avatars = () =>
         )}
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Avatars;

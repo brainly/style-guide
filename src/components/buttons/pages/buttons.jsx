@@ -7,7 +7,7 @@ import ContrastBox from 'components/ContrastBox';
 import Icon, {TYPE as iconTypes, ICON_COLOR} from 'icons/Icon';
 import Label, {ICON_TYPE} from 'labels/Label';
 
-const Buttons = () =>
+const Buttons = () => (
   <div>
     <DocsBlock info="Primary buttons">
       <ButtonPrimary>
@@ -35,7 +35,8 @@ const Buttons = () =>
 
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
-        buttonType={BUTTON_PRIMARY_TYPE.FB}>
+        buttonType={BUTTON_PRIMARY_TYPE.FB}
+      >
         Login with Facebook
       </ButtonPrimary>
     </DocsBlock>
@@ -172,13 +173,22 @@ const Buttons = () =>
         <br /><br />
 
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
-            iconColor={ICON_COLOR.LAVENDER} secondary />
+          <Label
+            text="Comment"
+            number={21}
+            iconType={ICON_TYPE.COMMENT}
+            iconColor={ICON_COLOR.LAVENDER}
+            secondary
+          />
         </ButtonSecondary>
         &nbsp;
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label text="Mark as brainliest" iconType={ICON_TYPE.EXCELLENT}
-            iconColor={ICON_COLOR.MUSTARD} secondary />
+          <Label
+            text="Mark as brainliest"
+            iconType={ICON_TYPE.EXCELLENT}
+            iconColor={ICON_COLOR.MUSTARD}
+            secondary
+          />
         </ButtonSecondary>
 
       </ContrastBox>
@@ -186,16 +196,29 @@ const Buttons = () =>
 
     <DocsBlock info="Secondary buttons small active and inverted">
       <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
-        <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+        <Label
+          text="Thank you"
+          number={21}
+          iconType={ICON_TYPE.HEART}
+          iconColor={ICON_COLOR.ADAPTIVE}
+          secondary
+          unstyled
+        />
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
-        <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+        <Label
+          text="Thank you"
+          number={21}
+          iconType={ICON_TYPE.HEART}
+          iconColor={ICON_COLOR.ADAPTIVE}
+          secondary
+          unstyled
+        />
       </ButtonSecondary>
     </DocsBlock>
 
-  </div>;
+  </div>
+);
 
 export default Buttons;

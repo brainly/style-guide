@@ -18,11 +18,26 @@ const ComponentSettings = ({settings, values, onChange}) => {
     let input = null;
 
     if (isPlainObject(allowedValues)) {
-      input = <ComponentSettingsSelect key={propName} values={allowedValues} currentValue={currentValue}
-        required={isRequired} onChange={inputOnChange} />;
+      input = (
+        <ComponentSettingsSelect
+          key={propName}
+          values={allowedValues}
+          currentValue={currentValue}
+          required={isRequired}
+          // eslint-disable-next-line react/jsx-no-bind
+          onChange={inputOnChange}
+        />
+      );
     } else {
-      input = <ComponentSettingsInput key={propName} values={allowedValues} currentValue={currentValue}
-        onChange={inputOnChange} />;
+      input = (
+        <ComponentSettingsInput
+          key={propName}
+          values={allowedValues}
+          currentValue={currentValue}
+          // eslint-disable-next-line react/jsx-no-bind
+          onChange={inputOnChange}
+        />
+      );
     }
 
     return <label key={propName}><Text>{propName}:</Text> {input} </label>;

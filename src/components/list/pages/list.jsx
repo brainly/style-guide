@@ -25,70 +25,75 @@ const menuItem2 = {text: secondString, href: '#'};
 const menuItem3 = {text: thirdString, href: '#'};
 const menuItems = [menuItem1, menuItem2, menuItem3];
 
-const ListItems = () =>
+const ListItems = () => (
   <div>
     <DocsBlock info="Default with icon ARROW_RIGHT">
       <ContrastBox>
         <List>
-          {items.map((item, index) =>
+          {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
               <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
+            </ListItem>
+          ))}
         </List>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small list">
       <ContrastBox>
         <List>
-          {items.map((item, index) =>
+          {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon small>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
               </ListItemIcon>
               <Text>{item}</Text>
-            </ListItem>)}
+            </ListItem>
+          ))}
         </List>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="List with spacings">
       <ContrastBox>
         <List spaced>
-          {items.map((item, index) =>
+          {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
               <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
+            </ListItem>
+          ))}
         </List>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example">
       <ContrastBox>
         <List>
-          {exampleItems.map((item, index) =>
+          {exampleItems.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
               <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
-            </ListItem>)}
+            </ListItem>
+          ))}
         </List>
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Example (small text)">
       <ContrastBox>
         <List>
-          {exampleSmall.map((item, index) =>
+          {exampleSmall.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon small>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
               </ListItemIcon>
               <Text>{item}</Text>
-            </ListItem>)}
+            </ListItem>
+          ))}
         </List>
       </ContrastBox>
     </DocsBlock>
@@ -108,6 +113,7 @@ const ListItems = () =>
         <MenuList items={menuItems} size={SIZE.LARGE} />
       </ContentBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default ListItems;

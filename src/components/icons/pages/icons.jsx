@@ -3,41 +3,45 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Icon, {TYPE, ICON_COLOR, SIZE} from '../Icon';
 
-const icons = () =>
+const icons = () => (
   <div>
     <DocsBlock>
       <ContrastBox>
         <ul className="icons-list">
-          {Object.values(TYPE).map(type =>
+          {Object.values(TYPE).map(type => (
             <li className="icons-list__element" key={type}>
               <Icon type={type} />
               <span>&nbsp; - {type}</span>
-            </li>)}
+            </li>
+          ))}
         </ul>
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info="Colors">
       <ul className="icons-list">
-        {Object.values(ICON_COLOR).map(color =>
+        {Object.values(ICON_COLOR).map(color => (
           <li className="icons-list__element" key={color}>
             <Icon color={color} type={TYPE.FRIENDS} />
             <span>&nbsp; - {color}</span>
-          </li>)}
+          </li>
+        ))}
       </ul>
     </DocsBlock>
 
     <DocsBlock info="Sizes">
       <ContrastBox>
         <ul className="icons-list">
-          {SIZE.map(size =>
+          {SIZE.map(size => (
             <li className="icons-list__element icons-list__element--wider" key={size}>
               <Icon size={size} type={TYPE.X} />
               <span>&nbsp; - {size}</span>
-            </li>)}
+            </li>
+          ))}
         </ul>
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default icons;

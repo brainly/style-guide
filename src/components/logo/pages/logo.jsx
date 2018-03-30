@@ -2,7 +2,7 @@ import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Logo, {TYPE} from '../Logo';
 
-const Logos = () =>
+const Logos = () => (
   <div>
     <DocsBlock info="Brainly - default">
       <Logo />
@@ -22,6 +22,7 @@ const Logos = () =>
     <DocsBlock info="Brainly Plus Large">
       <Logo type={TYPE.BRAINLY_PLUS_LARGE} />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Logos;

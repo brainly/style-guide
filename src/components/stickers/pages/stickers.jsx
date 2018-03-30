@@ -3,13 +3,14 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Sticker, {TYPE} from '../Sticker';
 
-const Stickers = () =>
+const Stickers = () => (
   <DocsBlock info="Default">
     <ContrastBox>
       {Object.values(TYPE).map(type =>
         <Sticker key={type} type={type} />
       )}
     </ContrastBox>
-  </DocsBlock>;
+  </DocsBlock>
+);
 
 export default Stickers;

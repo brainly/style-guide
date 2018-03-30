@@ -1,11 +1,12 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 
-const OverlayExample = () =>
+const OverlayExample = () => (
   <div>
     <DocsBlock info="Default">
-      <iframe width="600" height="400" src="components/overlay/example.html"></iframe>
+      <iframe width="600" height="400" src="components/overlay/example.html" />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default OverlayExample;

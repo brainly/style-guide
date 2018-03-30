@@ -13,7 +13,7 @@ const SeparatorHorizontal = ({type = TYPE.NORMAL, className, ...props}) => {
     [`sg-horizontal-separator--${type}`]: type !== TYPE.NORMAL
   }, className);
 
-  return <div {...props} className={separatorClass}></div>;
+  return <div {...props} className={separatorClass} />;
 };
 
 SeparatorHorizontal.propTypes = {

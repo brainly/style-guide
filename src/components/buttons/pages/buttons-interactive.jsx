@@ -79,7 +79,8 @@ const Buttons = () => {
       <DocsActiveBlock settings={primarySettings}>
         <ButtonPrimary
           icon={allIcons.FB}
-          buttonType={BUTTON_PRIMARY_TYPE.FB}>
+          buttonType={BUTTON_PRIMARY_TYPE.FB}
+        >
           Login with Facebook
         </ButtonPrimary>
       </DocsActiveBlock>
@@ -97,14 +98,25 @@ const Buttons = () => {
       </DocsActiveBlock>
       <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label text="Comment" number={21} iconType={ICON_TYPE.COMMENT}
-            iconColor={ICON_COLOR.LAVENDER} secondary />
+          <Label
+            text="Comment"
+            number={21}
+            iconType={ICON_TYPE.COMMENT}
+            iconColor={ICON_COLOR.LAVENDER}
+            secondary
+          />
         </ButtonSecondary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
-          <Label text="Thank you" number={331} iconType={ICON_TYPE.HEART}
-            iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+          <Label
+            text="Thank you"
+            number={331}
+            iconType={ICON_TYPE.HEART}
+            iconColor={ICON_COLOR.ADAPTIVE}
+            secondary
+            unstyled
+          />
         </ButtonSecondary>
       </DocsActiveBlock>
     </div>

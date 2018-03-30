@@ -31,8 +31,7 @@ const Select = props => {
 
   return (
     <div className={selectClass}>
-      <div className="sg-select__icon">
-      </div>
+      <div className="sg-select__icon" />
       <select className="sg-select__element" value={value} {...additionalProps}>
         {optionsElements}
       </select>

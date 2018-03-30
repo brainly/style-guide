@@ -9,8 +9,8 @@ const Sticker = ({type, className, ...props}) => {
 
   return (
     <svg {...props} className={stickerClass}>
-      <use className="sg-sticker__back" xlinkHref={iconType}></use>
-      <use className="sg-sticker__front" xlinkHref={iconType}></use>
+      <use className="sg-sticker__back" xlinkHref={iconType} />
+      <use className="sg-sticker__front" xlinkHref={iconType} />
     </svg>
   );
 };

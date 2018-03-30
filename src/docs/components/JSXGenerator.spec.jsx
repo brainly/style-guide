@@ -52,7 +52,7 @@ test('component with array of components param', () => {
 });
 
 test('component with children', () => {
-  const input =
+  const input = (
     <ActionList>
       <ActionListHole>
         <Avatar />
@@ -60,7 +60,8 @@ test('component with children', () => {
       <ActionListHole>
         <Avatar />
       </ActionListHole>
-    </ActionList>;
+    </ActionList>
+  );
 
   const output =
     '<ActionList><ActionListHole><Avatar /></ActionListHole><ActionListHole><Avatar /></ActionListHole></ActionList>';

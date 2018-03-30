@@ -13,7 +13,7 @@ test('render', () => {
 test('children', () => {
   const overlay = shallow(
     <Overlay>
-      <div className="test"></div>
+      <div className="test" />
     </Overlay>
   );
 

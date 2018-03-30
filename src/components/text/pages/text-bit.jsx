@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import TextBit, {SIZE, COLOR} from '../TextBit';
 
-const TextBitExamples = () =>
+const TextBitExamples = () => (
   <DocsBlock info="Default">
     <TextBit>
       What do you need to know?
@@ -28,6 +28,7 @@ const TextBitExamples = () =>
         We&apos;ve got your back!
       </TextBit>
     </ContrastBox>
-  </DocsBlock>;
+  </DocsBlock>
+);
 
 export default TextBitExamples;

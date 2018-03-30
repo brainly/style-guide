@@ -18,7 +18,7 @@ const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick,
 
   return (
     <div className={dropdownClass} onClick={onClick}>
-      <div className="sg-dropdown__icon"></div>
+      <div className="sg-dropdown__icon" />
       <div className="sg-dropdown__hole">
         <div className="sg-dropdown__item-text">
           {label}

@@ -4,7 +4,7 @@ import ContrastBox from 'components/ContrastBox';
 import HeaderPrimary, {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR} from '../HeaderPrimary';
 import HeaderSecondary from '../HeaderSecondary';
 
-const Headers = () =>
+const Headers = () => (
   <DocsBlock info="Examples">
     <HeaderPrimary type={HEADER_TYPE.H2}>X Together we go far!
     </HeaderPrimary>
@@ -43,6 +43,7 @@ const Headers = () =>
         We&apos;ve got your back! - header secondary xsmall
       </HeaderSecondary>
     </ContrastBox>
-  </DocsBlock>;
+  </DocsBlock>
+);
 
 export default Headers;

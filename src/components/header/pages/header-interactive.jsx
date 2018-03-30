@@ -42,16 +42,25 @@ const Headers = () => {
               <HomeButton />
             </HeaderLeft>
             <HeaderMiddle>
-              <Search placeholder="Find all the answers..." fullWidth color={SEARCH_COLOR.LIGHT}
-                adaptiveIco />
+              <Search
+                placeholder="Find all the answers..."
+                fullWidth
+                color={SEARCH_COLOR.LIGHT}
+                adaptiveIco
+              />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
                   <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
-                  <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
-                    <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
-                  } />
+                  <IconAsButton
+                    type={ICON_TYPE.MESSAGES}
+                    transparent
+                    color={ICON_COLOR.LIGHT}
+                    overlay={
+                      <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+                    }
+                  />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />
                   </IconAsButton>

@@ -2,13 +2,13 @@ import React from 'react';
 import Avatar, {SIZE} from 'avatar/Avatar';
 import SeparatorHorizontal, {TYPE} from '../SeparatorHorizontal';
 
-const SmallDeviceExample = () =>
+const SmallDeviceExample = () => (
   <html lang="en">
     <head>
       <link rel="stylesheet" href="../../../style-guide.css" />
     </head>
     <body>
-      <script src="images/icons.js"></script>
+      <script src="images/icons.js" />
       <div>
         <Avatar size={SIZE.SMALL} />
         <SeparatorHorizontal type={TYPE.SPACED} />
@@ -18,6 +18,7 @@ const SmallDeviceExample = () =>
         <Avatar size={SIZE.SMALL} />
       </div>
     </body>
-  </html>;
+  </html>
+);
 
 export default SmallDeviceExample;

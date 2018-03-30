@@ -11,7 +11,7 @@ import DocsBlock from 'components/DocsBlock';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
 import SeparatorVertical, {SIZE as SEPARATOR_VERTICAL_SIZE} from 'separators/SeparatorVertical';
 
-const ActionLists = () =>
+const ActionLists = () => (
   <div>
     <DocsBlock info="Default">
       <ContrastBox fullWidth>
@@ -101,18 +101,36 @@ const ActionLists = () =>
     <DocsBlock info="Space between">
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
-          <Label iconType={ICON_TYPE.ANSWER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary
-            size={LABEL_SIZE.SMALL}>
-            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
-              type={TEXT_TYPE.DIV}>0/5
+          <Label
+            iconType={ICON_TYPE.ANSWER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              0/5
             </Text>
           </Label>
         </ActionListHole>
         <ActionListHole>
-          <Label iconType={ICON_TYPE.COUNTER} iconColor={ICON_COLOR.GRAY_SECONDARY} secondary
-            size={LABEL_SIZE.SMALL}>
-            <Text size={TEXT_SIZE.OBSCURE} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR.GRAY_SECONDARY}
-              type={TEXT_TYPE.DIV}>2d: 00h
+          <Label
+            iconType={ICON_TYPE.COUNTER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              2d: 00h
             </Text>
           </Label>
         </ActionListHole>
@@ -124,33 +142,35 @@ const ActionLists = () =>
       </ActionList>
     </DocsBlock>
 
-    <DocsBlock info="No wrap" multiContent={[
-      <ContrastBox key={1} narrow>
-        <ActionList noWrap>
-          <ActionListHole>
-            <Icon type={ICON_TYPE.MESSAGES} size={24} />
-          </ActionListHole>
-          <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              Elements in this box will just never wrap
-            </Text>
-          </ActionListHole>
-        </ActionList>
-      </ContrastBox>,
-      <ContrastBox key={2} narrow>
-        <ActionList>
-          <ActionListHole>
-            <Icon type={ICON_TYPE.MESSAGES} size={24} />
-          </ActionListHole>
-          <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
-              Default behaviour for elements is to wrap
-            </Text>
-          </ActionListHole>
-        </ActionList>
-      </ContrastBox>
-    ]}>
-    </DocsBlock>
+    <DocsBlock
+      info="No wrap"
+      multiContent={[
+        <ContrastBox key={1} narrow>
+          <ActionList noWrap>
+            <ActionListHole>
+              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+            </ActionListHole>
+            <ActionListHole>
+              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+                Elements in this box will just never wrap
+              </Text>
+            </ActionListHole>
+          </ActionList>
+        </ContrastBox>,
+        <ContrastBox key={2} narrow>
+          <ActionList>
+            <ActionListHole>
+              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+            </ActionListHole>
+            <ActionListHole>
+              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+                Default behaviour for elements is to wrap
+              </Text>
+            </ActionListHole>
+          </ActionList>
+        </ContrastBox>
+      ]}
+    />
 
     <DocsBlock info="Hole - as container">
       <ContrastBox fullWidth>
@@ -315,7 +335,8 @@ const ActionLists = () =>
             <HeaderPrimary
               size={HEADER_SIZE.XXXLARGE}
               type={HEADER_TYPE.SPAN}
-              color={HEADER_COLOR.LIGHT}>
+              color={HEADER_COLOR.LIGHT}
+            >
               $14.95
             </HeaderPrimary>
           </ActionListHole>
@@ -335,7 +356,8 @@ const ActionLists = () =>
             <HeaderPrimary
               size={HEADER_SIZE.XXXLARGE}
               type={HEADER_TYPE.SPAN}
-              color={HEADER_COLOR.LIGHT}>
+              color={HEADER_COLOR.LIGHT}
+            >
               $14.95
             </HeaderPrimary>
           </ActionListHole>
@@ -345,6 +367,7 @@ const ActionLists = () =>
         </ActionList>
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default ActionLists;

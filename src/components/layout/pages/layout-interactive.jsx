@@ -26,21 +26,23 @@ const Layouts = () => {
     }
   ];
 
-  const header =
+  const header = (
     <div className="sg-header">
       <div className="sg-header__container">
         <div className="sg-header__content">
           Header
         </div>
       </div>
-    </div>;
+    </div>
+  );
 
-  const footer =
+  const footer = (
     <div className="sg-footer">
       <div className="sg-footer__container">
         Footer
       </div>
-    </div>;
+    </div>
+  );
 
   return (
     <div>

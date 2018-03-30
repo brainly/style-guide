@@ -11,7 +11,7 @@ import ListItemIcon from 'list/ListItemIcon';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 import Overlay from 'overlay/Overlay';
 
-const content =
+const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
       <HeaderSecondary type={HEADER_TYPE.H2}>
@@ -42,9 +42,10 @@ const content =
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
       <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
     </ContentBoxContent>
-  </ContentBox>;
+  </ContentBox>
+);
 
-const SmallSpacedTopLayer = () =>
+const SmallSpacedTopLayer = () => (
   <html>
     <head>
       <meta charSet="utf-8" />
@@ -56,8 +57,9 @@ const SmallSpacedTopLayer = () =>
           {content}
         </TopLayer>
       </Overlay>
-      <script src="images/icons.js"></script>
+      <script src="images/icons.js" />
     </body>
-  </html>;
+  </html>
+);
 
 export default SmallSpacedTopLayer;

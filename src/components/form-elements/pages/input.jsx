@@ -5,7 +5,7 @@ import ContrastBox from 'components/ContrastBox';
 
 const voidFunction = () => undefined;
 
-const textInputs = () =>
+const textInputs = () => (
   <div>
     <DocsBlock info="Default">
       <Input placeholder="placeholder" />
@@ -36,6 +36,7 @@ const textInputs = () =>
     <DocsBlock info="Password">
       <Input type="password" value="secret" placeholder="Type password" onChange={voidFunction} />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default textInputs;

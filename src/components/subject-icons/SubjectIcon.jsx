@@ -96,7 +96,7 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props})
 
   return (
     <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType}></use>
+      <use xlinkHref={iconType} />
     </svg>
   );
 };

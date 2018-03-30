@@ -5,7 +5,7 @@ import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxCon
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Overlay from 'overlay/Overlay';
 
-const content =
+const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
       heading
@@ -24,9 +24,10 @@ const content =
     <ContentBoxActions>
       actions
     </ContentBoxActions>
-  </ContentBox>;
+  </ContentBox>
+);
 
-const DefaultTopLayer = () =>
+const DefaultTopLayer = () => (
   <html>
     <head>
       <meta charSet="utf-8" />
@@ -38,8 +39,9 @@ const DefaultTopLayer = () =>
           {content}
         </TopLayer>
       </Overlay>
-      <script src="images/icons.js"></script>
+      <script src="images/icons.js" />
     </body>
-  </html>;
+  </html>
+);
 
 export default DefaultTopLayer;

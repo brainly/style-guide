@@ -4,7 +4,7 @@ import ContrastBox from 'components/ContrastBox';
 import SubjectIcon, {TYPE, SIZE} from '../SubjectIcon';
 import SubjectIconBox from '../SubjectIconBox';
 
-const Subjects = () =>
+const Subjects = () => (
   <div>
     <DocsBlock info="Medium">
       <ContrastBox>
@@ -29,6 +29,7 @@ const Subjects = () =>
       <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.MEDIUM} darker />
       <SubjectIconBox type={TYPE.LIFE_SCIENCE} size={SIZE.SMALL} darker />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Subjects;

@@ -12,7 +12,7 @@ import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 
-const content =
+const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
       heading
@@ -25,9 +25,10 @@ const content =
     <ContentBoxActions>
       actions
     </ContentBoxActions>
-  </ContentBox>;
+  </ContentBox>
+);
 
-const TopLayers = () =>
+const TopLayers = () => (
   <div>
     <DocsBlock info="Standard">
       <TopLayer>
@@ -102,21 +103,22 @@ const TopLayers = () =>
     </DocsBlock>
 
     <DocsBlock info="Example usage (on small screen">
-      <iframe height="568" width="320" src="components/toplayer/notlogged_toplayer.html"></iframe>
+      <iframe height="568" width="320" src="components/toplayer/notlogged_toplayer.html" />
     </DocsBlock>
 
     <DocsBlock info="Example usage (small spaced on small screen)">
-      <iframe height="568" width="320" src="components/toplayer/small_spaced_toplayer.html"></iframe>
+      <iframe height="568" width="320" src="components/toplayer/small_spaced_toplayer.html" />
     </DocsBlock>
 
     <DocsBlock info="Example usage (modal)">
-      <iframe height="300" width="800" src="components/toplayer/default_toplayer.html"></iframe>
+      <iframe height="300" width="800" src="components/toplayer/default_toplayer.html" />
     </DocsBlock>
 
     <DocsBlock info="Example usage (splash screen)">
-      <iframe height="300" width="800" src="components/toplayer/splash_screen_toplayer.html"></iframe>
+      <iframe height="300" width="800" src="components/toplayer/splash_screen_toplayer.html" />
     </DocsBlock>
 
-  </div>;
+  </div>
+);
 
 export default TopLayers;

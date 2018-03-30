@@ -20,8 +20,12 @@ const Breadcrumbs = () => {
 
   return (
     <div>
-      <DocsActiveBlock settings={settings} wrapper={<Text color={COLOR.MINT} />} contentAfter=" Lorem Ipsum"
-        contentBefore="Lorem Ipsum ">
+      <DocsActiveBlock
+        settings={settings}
+        wrapper={<Text color={COLOR.MINT} />}
+        contentAfter=" Lorem Ipsum"
+        contentBefore="Lorem Ipsum "
+      >
         <Breadcrumb elements={elements} />
       </DocsActiveBlock>
     </div>

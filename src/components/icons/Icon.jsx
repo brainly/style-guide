@@ -76,7 +76,7 @@ const Icon = ({color, size = 24, type, className, ...props}) => {
 
   return (
     <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType}></use>
+      <use xlinkHref={iconType} />
     </svg>
   );
 };

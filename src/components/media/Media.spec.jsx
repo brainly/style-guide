@@ -45,8 +45,17 @@ test('error when no content array', () => {
 
 test('testing modifications - all on', () => {
   const media = shallow(
-    <Media {...defaultProps} clickable graySecondaryLight focused toRight small
-      transparent noPadding spacedBottom />
+    <Media
+      {...defaultProps}
+      clickable
+      graySecondaryLight
+      focused
+      toRight
+      small
+      transparent
+      noPadding
+      spacedBottom
+    />
   );
 
   expect(media.hasClass('sg-media--clickable')).toEqual(true);

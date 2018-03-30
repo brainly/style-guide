@@ -99,8 +99,11 @@ class Rating extends Component {
             {starsProps.map(props => <Star key={props.key} {...props} />)}
           </div>
         </div>
-        <RateCounter activeText={activeText} counterText={counterText}
-          showActiveText={hoveringStars || active && rate === 0} />
+        <RateCounter
+          activeText={activeText}
+          counterText={counterText}
+          showActiveText={hoveringStars || active && rate === 0}
+        />
       </div>
     );
   }
