@@ -129,8 +129,8 @@ test('error when more than 1 child', () => {
   console.error = jest.fn();
   shallow(
     <IconAsButton>
-      <div></div>
-      <div></div>
+      <div />
+      <div />
     </IconAsButton>);
   expect(console.error.mock.calls).toHaveLength(2);
 

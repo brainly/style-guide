@@ -11,7 +11,7 @@ import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 import Link, {COLOR as LINK_COLOR} from 'text/Link';
 
-const Bubbles = () =>
+const Bubbles = () => (
   <div>
     <DocsBlock info="Top (middle)" additionalInfo="--top">
       <Bubble direction={DIRECTION.TOP}>
@@ -77,10 +77,12 @@ const Bubbles = () =>
         <ContentBox>
           <ContentBoxHeader>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
-            <Breadcrumb elements={[
-              <Link key={1} href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
-              <Link key={2} href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
-            ]} />
+            <Breadcrumb
+              elements={[
+                <Link key={1} href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
+                <Link key={2} href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
+              ]}
+            />
           </ContentBoxHeader>
           <ContentBoxContent>
             <Text>
@@ -99,6 +101,7 @@ const Bubbles = () =>
         </ContentBox>
       </Bubble>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Bubbles;

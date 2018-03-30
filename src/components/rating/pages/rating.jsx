@@ -2,7 +2,7 @@ import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Rating from '../Rating';
 
-const ratings = () =>
+const ratings = () => (
   <div>
 
     <DocsBlock info="Default">
@@ -21,6 +21,7 @@ const ratings = () =>
       <Rating rate={3} small active counter={34} />
     </DocsBlock>
 
-  </div>;
+  </div>
+);
 
 export default ratings;

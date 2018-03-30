@@ -15,7 +15,7 @@ test('error when no children', () => {
 
   console.error = jest.fn();
   shallow(
-    <TopLayer></TopLayer>
+    <TopLayer />
   );
   expect(console.error.mock.calls).toHaveLength(1);
 
@@ -65,8 +65,16 @@ test('size', () => {
 
 test('testing modifications - all on', () => {
   const topLayer = shallow(
-    <TopLayer fill lead limitedWidth modal row smallSpaced splashScreen
-      withBugbox>
+    <TopLayer
+      fill
+      lead
+      limitedWidth
+      modal
+      row
+      smallSpaced
+      splashScreen
+      withBugbox
+    >
       some text
     </TopLayer>
   );

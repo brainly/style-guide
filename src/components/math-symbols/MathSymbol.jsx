@@ -47,7 +47,7 @@ const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, classNa
 
   return (
     <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType}></use>
+      <use xlinkHref={iconType} />
     </svg>
   );
 };

@@ -5,23 +5,25 @@ import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import Text from 'text/Text';
 
-const header =
+const header = (
   <div className="sg-header sg-header--fixed">
     <div className="sg-header__container">
       <div className="sg-header__content">
         Header
       </div>
     </div>
-  </div>;
+  </div>
+);
 
-const footer =
+const footer = (
   <div className="sg-footer">
     <div className="sg-footer__container">
       Footer
     </div>
-  </div>;
+  </div>
+);
 
-const LayoutLarge = () =>
+const LayoutLarge = () => (
   <html>
     <head>
       <meta charSet="utf-8" />
@@ -43,8 +45,9 @@ const LayoutLarge = () =>
           </Text>
         </LayoutAsideContent>
       </Layout>
-      <script src="images/icons.js"></script>
+      <script src="images/icons.js" />
     </body>
-  </html>;
+  </html>
+);
 
 export default LayoutLarge;

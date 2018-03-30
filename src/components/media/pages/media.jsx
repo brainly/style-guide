@@ -13,7 +13,7 @@ const defaultProps = {
   aside: <Avatar />
 };
 
-const Medias = () =>
+const Medias = () => (
   <div>
     <DocsBlock info="Standard">
       <ContrastBox fullWidth>
@@ -36,6 +36,7 @@ const Medias = () =>
     <DocsBlock info="Gray secondary light - Clickable">
       <Media {...defaultProps} graySecondaryLight clickable />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Medias;

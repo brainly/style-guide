@@ -40,12 +40,14 @@ const Textarea = props => {
     'sg-textarea--auto-height': autoHeight
   }, className);
 
-  return <Type
-    className={textareaClass}
-    ref={textareaRef}
-    value={value}
-    {...additionalProps}
-  />;
+  return (
+    <Type
+      className={textareaClass}
+      ref={textareaRef}
+      value={value}
+      {...additionalProps}
+    />
+  );
 };
 
 Textarea.propTypes = {

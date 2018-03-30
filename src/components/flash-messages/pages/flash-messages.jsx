@@ -4,7 +4,7 @@ import FlashMessage, {TYPE} from '../FlashMessage';
 
 const TEXT = 'I have never seen a code like this before...';
 
-const flashMessages = () =>
+const flashMessages = () => (
   <div>
     <DocsBlock info="Default">
       <FlashMessage text={TEXT} />
@@ -18,6 +18,7 @@ const flashMessages = () =>
     <DocsBlock info="Info">
       <FlashMessage text={TEXT} type={TYPE.INFO} />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default flashMessages;

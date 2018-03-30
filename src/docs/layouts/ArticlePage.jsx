@@ -8,7 +8,7 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-const ItemsPage = ({children}) =>
+const ItemsPage = ({children}) => (
   <html>
     <Head site={site} />
     <body>
@@ -19,7 +19,8 @@ const ItemsPage = ({children}) =>
       </div>
 
     </body>
-  </html>;
+  </html>
+);
 
 ItemsPage.propTypes = {
   children: PropTypes.node

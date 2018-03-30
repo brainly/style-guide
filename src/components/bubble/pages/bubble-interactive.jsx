@@ -48,9 +48,11 @@ const Bubbles = () => {
                   <Avatar imgSrc="https://source.unsplash.com/64x64/?parrot" />
                 </ActionListHole>
                 <ActionListHole>
-                  <Breadcrumb elements={[
-                    <Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
-                    <Link key={2} color={LINK_COLOR.GRAY}>a few seconds ago</Link>]} />
+                  <Breadcrumb
+                    elements={[
+                      <Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
+                      <Link key={2} color={LINK_COLOR.GRAY}>a few seconds ago</Link>]}
+                  />
                 </ActionListHole>
               </ActionList>
             </ContentBoxHeader>

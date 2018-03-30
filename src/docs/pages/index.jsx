@@ -5,7 +5,7 @@ import ContentBox from '../../components/content-box/ContentBox';
 import ContentBoxHeader from '../../components/content-box/ContentBoxHeader';
 import ContentBoxContent from '../../components/content-box/ContentBoxContent';
 
-const index = () =>
+const index = () => (
   <ArticlePage>
     <h1 className="main-header">Brainly style guide</h1>
     <h2 className="article-header  article-header--small">
@@ -117,6 +117,7 @@ const index = () =>
     </p>
 
     <script dangerouslySetInnerHTML={{__html: 'hljs.initHighlightingOnLoad();'}} />
-  </ArticlePage>;
+  </ArticlePage>
+);
 
 export default index;

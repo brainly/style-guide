@@ -10,7 +10,7 @@ import ActionList, {DIRECTION} from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 
-const Cards = () =>
+const Cards = () => (
   <div>
     <DocsBlock info="Simple with large padding">
       <Card padding={CARD_PADDING.LARGE}>
@@ -82,6 +82,7 @@ const Cards = () =>
         </CardHole>
       </Card>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Cards;

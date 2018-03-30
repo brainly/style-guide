@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import slugify from '../slugify';
 
-const Navigation = ({navigation, version}) =>
+const Navigation = ({navigation, version}) => (
   <nav className="main-menu">
     <a href="./" className="main-menu__home">
       <img src="images/logos/brainly-mobile.svg" />
@@ -17,13 +17,13 @@ const Navigation = ({navigation, version}) =>
               {page.name }
             </a>
             <ul>
-              {page.elements.map((element, index) =>
+              {page.elements.map((element, index) => (
                 <li key={index}>
                   <a href={`${pageUrl}#${slugify(element.name)}`} className="js-searchable">
                     {element.name}
                   </a>
                 </li>
-              )}
+              ))}
             </ul>
           </li>
         );
@@ -38,7 +38,8 @@ const Navigation = ({navigation, version}) =>
       <a href="https://github.com/brainly/style-guide" className="version">v{version }</a>
     </aside>
     <script src="js/search-and-holes.js" />
-  </nav>;
+  </nav>
+);
 
 Navigation.propTypes = {
   navigation: PropTypes.array,

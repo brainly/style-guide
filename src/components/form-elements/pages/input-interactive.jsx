@@ -53,8 +53,14 @@ const Inputs = () => {
         <Input placeholder="Simple input" />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Input placeholder="Big wrong input" fullWidth size={SIZE.LARGE} invalid noBorder
-          value="I'm a big bad input" />
+        <Input
+          placeholder="Big wrong input"
+          fullWidth
+          size={SIZE.LARGE}
+          invalid
+          noBorder
+          value="I'm a big bad input"
+        />
       </DocsActiveBlock>
     </div>
   );

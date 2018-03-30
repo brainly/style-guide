@@ -7,14 +7,19 @@ import Avatar from 'avatar/Avatar';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 
-const overlayedBoxs = () =>
+const overlayedBoxs = () => (
   <div>
     <DocsBlock info="Icon as button with overlay-box">
-      <IconAsButton type={TYPE.MESSAGES}
-        overlay={<Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>} />
+      <IconAsButton
+        type={TYPE.MESSAGES}
+        overlay={<Badge color={BADGE_COLOR.PEACH}rounded>1</Badge>}
+      />
       <ContrastBox>
-        <IconAsButton color={ICON_COLOR.LIGHT} type={TYPE.PROFILE}
-          overlay={<Badge color={BADGE_COLOR.MUSTARD} rounded>!</Badge>} />
+        <IconAsButton
+          color={ICON_COLOR.LIGHT}
+          type={TYPE.PROFILE}
+          overlay={<Badge color={BADGE_COLOR.MUSTARD} rounded>!</Badge>}
+        />
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Standard overlay box">
@@ -45,6 +50,7 @@ const overlayedBoxs = () =>
         </OverlayedBox>
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default overlayedBoxs;

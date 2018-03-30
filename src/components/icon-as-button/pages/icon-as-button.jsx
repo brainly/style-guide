@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
 import DrawHelper from './DrawHelper';
 
-const icons = () =>
+const icons = () => (
   <div>
     <DocsBlock info="Normal">
       <ul className="icons-list">
@@ -62,6 +62,7 @@ const icons = () =>
         )}
       </ul>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default icons;

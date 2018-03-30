@@ -29,10 +29,11 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
   if (imgSrc) {
     avatarContent = <img className="sg-avatar__image" src={imgSrc} alt={title} title={title} />;
   } else {
-    avatarContent =
+    avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
         <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize} />
-      </div>;
+      </div>
+    );
   }
 
   return (

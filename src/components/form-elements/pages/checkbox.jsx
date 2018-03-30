@@ -5,19 +5,31 @@ import Label from 'labels/Label';
 
 const dumpProps = {onChange: () => undefined};
 
-const checkboxes = () =>
+const checkboxes = () => (
   <div>
     <DocsBlock info="Checkboxes">
       <Checkbox />
       <Checkbox checked {...dumpProps} />
       <br />
-      <Label secondary text="Check me!" htmlFor="checkbox-1" iconContent={
-        <Checkbox id="checkbox-1" />
-      } />
-      <Label secondary text="Check me!" htmlFor="checkbox-2" emphasised iconContent={
-        <Checkbox id="checkbox-2" />
-      } />
+      <Label
+        secondary
+        text="Check me!"
+        htmlFor="checkbox-1"
+        iconContent={
+          <Checkbox id="checkbox-1" />
+        }
+      />
+      <Label
+        secondary
+        text="Check me!"
+        htmlFor="checkbox-2"
+        emphasised
+        iconContent={
+          <Checkbox id="checkbox-2" />
+        }
+      />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default checkboxes;

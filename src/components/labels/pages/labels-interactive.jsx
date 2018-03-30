@@ -49,13 +49,25 @@ const Labels = () => {
         <Label text="Search" iconType={ICON_TYPE.SEARCH} iconColor={ICON_COLOR.GRAY} />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Label text="Comment" number={21} size={SIZE.LARGE} iconType={ICON_TYPE.COMMENT}
-          iconColor={ICON_COLOR.LAVENDER} emphasised secondary />
+        <Label
+          text="Comment"
+          number={21}
+          size={SIZE.LARGE}
+          iconType={ICON_TYPE.COMMENT}
+          iconColor={ICON_COLOR.LAVENDER}
+          emphasised
+          secondary
+        />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Label size={SIZE.LARGE} text="Check me!" htmlFor="checkbox-1" iconContent={
-          <Checkbox id="checkbox-1" />
-        } />
+        <Label
+          size={SIZE.LARGE}
+          text="Check me!"
+          htmlFor="checkbox-1"
+          iconContent={
+            <Checkbox id="checkbox-1" />
+          }
+        />
       </DocsActiveBlock>
     </div>
   );

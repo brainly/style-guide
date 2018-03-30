@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import HomeButton, {TYPE} from '../HomeButton';
 
-const Logos = () =>
+const Logos = () => (
   <div>
     <DocsBlock info="Brainly - default">
       <ContrastBox smallPadding>
@@ -30,6 +30,7 @@ const Logos = () =>
         <HomeButton type={TYPE.BRAINLY_PLUS} />
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Logos;

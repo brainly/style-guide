@@ -5,7 +5,7 @@ import Text, {COLOR as TEXT_COLOR} from 'text/Text';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 
-const breadcrumbs = () =>
+const breadcrumbs = () => (
   <div>
     <DocsBlock info="Default">
       <Breadcrumb elements={elements} />
@@ -21,6 +21,7 @@ const breadcrumbs = () =>
       </Text>
     </DocsBlock>
 
-  </div>;
+  </div>
+);
 
 export default breadcrumbs;

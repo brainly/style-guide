@@ -27,7 +27,7 @@ describe('ActionList', () => {
 
   test('to-right', () => {
     const actionList = shallow(
-      <ActionList direction={DIRECTION.TO_RIGHT}></ActionList>
+      <ActionList direction={DIRECTION.TO_RIGHT} />
     );
 
     expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
@@ -35,7 +35,7 @@ describe('ActionList', () => {
 
   test('to-top', () => {
     const actionList = shallow(
-      <ActionList toTop></ActionList>
+      <ActionList toTop />
     );
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
@@ -43,7 +43,7 @@ describe('ActionList', () => {
 
   test('baseline', () => {
     const actionList = shallow(
-      <ActionList align={ALIGNMENT.BASELINE}></ActionList>
+      <ActionList align={ALIGNMENT.BASELINE} />
     );
 
     expect(actionList.hasClass('sg-actions-list--align-baseline')).toEqual(true);
@@ -51,7 +51,7 @@ describe('ActionList', () => {
 
   test('centered', () => {
     const actionList = shallow(
-      <ActionList direction={DIRECTION.CENTERED}></ActionList>
+      <ActionList direction={DIRECTION.CENTERED} />
     );
 
     expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
@@ -59,7 +59,7 @@ describe('ActionList', () => {
 
   test('space-between', () => {
     const actionList = shallow(
-      <ActionList direction={DIRECTION.SPACE_BETWEEN}></ActionList>
+      <ActionList direction={DIRECTION.SPACE_BETWEEN} />
     );
 
     expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);
@@ -67,7 +67,7 @@ describe('ActionList', () => {
 
   test('no-wrap', () => {
     const actionList = shallow(
-      <ActionList noWrap></ActionList>
+      <ActionList noWrap />
     );
 
     expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);

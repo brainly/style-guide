@@ -58,14 +58,21 @@ class CodeBlock extends Component {
     return (
       <div className="copy-helper copy-helper--wrapped">
         <pre className="copy-helper__code-wrapper">
-          <code ref={this.copyCodeFunction}
-            className="copy-helper__code hljs" dangerouslySetInnerHTML={{__html: markup}}>
-          </code>
+          <code
+            ref={this.copyCodeFunction}
+            className="copy-helper__code hljs"
+            dangerouslySetInnerHTML={{__html: markup}}
+          />
         </pre>
-        <div className="copy-helper__buttons"
-          ref={this.copyButtonFunction}>
+        <div
+          className="copy-helper__buttons"
+          ref={this.copyButtonFunction}
+        >
           <IconAsButton
-            title="Copy to the clipboard" type={TYPE.ANSWER} color={ICON_COLOR.DARK} />
+            title="Copy to the clipboard"
+            type={TYPE.ANSWER}
+            color={ICON_COLOR.DARK}
+          />
         </div>
       </div>
     );

@@ -92,6 +92,7 @@ class DocsActiveBlock extends Component {
   }
 
   setProps = (key, value) => {
+    // eslint-disable-next-line react/no-access-state-in-setstate
     const props = this.state.props;
 
     props[key] = value;
@@ -172,8 +173,11 @@ class DocsActiveBlock extends Component {
             <div className={componentClass}>
               {output}
             </div>
-            <ComponentSettings onChange={this.setProps} settings={this.props.settings}
-              values={this.state.props} />
+            <ComponentSettings
+              onChange={this.setProps}
+              settings={this.props.settings}
+              values={this.state.props}
+            />
             <DocsActiveBlockSettings onChange={this.settingsChanged} values={this.state} />
           </div>
         </DocsBlock>

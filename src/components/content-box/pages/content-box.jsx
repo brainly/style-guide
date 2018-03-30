@@ -28,7 +28,7 @@ const breadcrumbsSpaced = [<Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
 const breadcrumbsSpaced2 = [<Link key={1}>Comments (9)</Link>,
   <Link key={2} href="#">Report</Link>];
 
-const spacedBottomOptions =
+const spacedBottomOptions = (
   <div>
     <Text>Options:</Text>
     <ul>
@@ -40,9 +40,10 @@ const spacedBottomOptions =
       <li>spaced-top-xlarge</li>
       <li>spaced-top-xxlarge</li>
     </ul>
-  </div>;
+  </div>
+);
 
-const spacedTopOptions =
+const spacedTopOptions = (
   <div>
     <Text>Options:</Text>
     <ul>
@@ -54,9 +55,10 @@ const spacedTopOptions =
       <li>spaced-top-xlarge</li>
       <li>spaced-top-xxlarge</li>
     </ul>
-  </div>;
+  </div>
+);
 
-const examplePart1 =
+const examplePart1 = (
   <ContentBox>
     <ContentBoxTitle>
       <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
@@ -81,9 +83,10 @@ const examplePart1 =
       <Avatar size={AVATAR_SIZE.SMALL} />
       <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
     </ContentBoxActions>
-  </ContentBox>;
+  </ContentBox>
+);
 
-const examplePart2 =
+const examplePart2 = (
   <ContentBox>
     <ContentBoxTitle>
       <HeaderPrimary type={HEADER_TYPE.H2}>This is a title for context box</HeaderPrimary>
@@ -108,9 +111,10 @@ const examplePart2 =
       <Avatar size={AVATAR_SIZE.SMALL} />
       <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
     </ContentBoxActions>
-  </ContentBox>;
+  </ContentBox>
+);
 
-const ContentBoxes = () =>
+const ContentBoxes = () => (
   <div>
     <DocsBlock info="Simple with header">
       <ContentBox>
@@ -222,8 +226,10 @@ const ContentBoxes = () =>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
-    <DocsBlock info="Simple with title and actions" multiContent={[examplePart1, examplePart2]}>
-    </DocsBlock>
+    <DocsBlock
+      info="Simple with title and actions"
+      multiContent={[examplePart1, examplePart2]}
+    />
     <DocsBlock info="Spaced">
       <ContentBox spaced>
         <ContentBoxHeader>
@@ -242,8 +248,14 @@ const ContentBoxes = () =>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+            <Label
+              text="Thank you"
+              number={21}
+              iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE}
+              secondary
+              unstyled
+            />
           </ButtonSecondary>
           <Rating rate={2} counter={34} active />
         </ContentBoxActions>
@@ -293,13 +305,21 @@ const ContentBoxes = () =>
           </Text>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
-          <Breadcrumbs elements={[
-            <Link key={1} href="#">Comments (9)</Link>,
-            <Link key={2} href="#">Report</Link>
-          ]} />
+          <Breadcrumbs
+            elements={[
+              <Link key={1} href="#">Comments (9)</Link>,
+              <Link key={2} href="#">Report</Link>
+            ]}
+          />
           <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+            <Label
+              text="Thank you"
+              number={21}
+              iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE}
+              secondary
+              unstyled
+            />
           </ButtonSecondary>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
@@ -310,8 +330,14 @@ const ContentBoxes = () =>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-            <Label text="Thank you" number={21} iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE} secondary unstyled />
+            <Label
+              text="Thank you"
+              number={21}
+              iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE}
+              secondary
+              unstyled
+            />
           </ButtonSecondary>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
@@ -329,6 +355,7 @@ const ContentBoxes = () =>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default ContentBoxes;

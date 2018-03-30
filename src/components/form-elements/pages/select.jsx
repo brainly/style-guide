@@ -12,7 +12,7 @@ const exampleProps = {
   onChange: () => undefined
 };
 
-const selects = () =>
+const selects = () => (
   <div>
     <DocsBlock info="Default">
       <Select {...exampleProps} />
@@ -26,6 +26,7 @@ const selects = () =>
     <DocsBlock info="Full width">
       <Select {...exampleProps} fullWidth />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default selects;

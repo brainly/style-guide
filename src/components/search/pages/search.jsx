@@ -3,7 +3,7 @@ import Search, {SIZE, COLOR} from '../Search';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 
-const searches = () =>
+const searches = () => (
   <div>
     <DocsBlock info="Standard">
       <Search placeholder="Find all the answers..." />
@@ -22,6 +22,7 @@ const searches = () =>
     <DocsBlock info="No border">
       <Search placeholder="Find all the answers..." fullWidth noBorder />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default searches;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Head = ({page = {}, site = {}}) =>
+const Head = ({page = {}, site = {}}) => (
   <head>
     <meta charSet="utf-8" />
     <title>{page.title || site.title}</title>
@@ -16,10 +16,11 @@ const Head = ({page = {}, site = {}}) =>
     <link rel="stylesheet" href={site.baseurl + '/css/main.css'} />
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
-  </head>;
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" />
+  </head>
+);
 
 Head.propTypes = {
   page: PropTypes.object,

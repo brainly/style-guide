@@ -17,17 +17,17 @@ const ItemsPage = ({navigationIdx}) => {
       <Head page={pageConfig} site={site} />
       <body>
 
-        <script src="images/icons.js" async></script>
-        <script src="images/subjects-icons.js" async></script>
-        <script src="images/subjects-mono-icons.js" async></script>
-        <script src="images/math-symbols-icons.js" async></script>
+        <script src="images/icons.js" async />
+        <script src="images/subjects-icons.js" async />
+        <script src="images/subjects-mono-icons.js" async />
+        <script src="images/math-symbols-icons.js" async />
 
         <Navigation navigation={navigation} version={version} />
 
         <div className="data-container">
           <h1 className="main-header">Brainly style guide - {pageConfig.name}</h1>
 
-          {pageConfig.elements.map(({name, component}) =>
+          {pageConfig.elements.map(({name, component}) => (
             <article key={name}>
               <h2 className="article-header" id={slugify(name)}>
                 {name}
@@ -35,19 +35,21 @@ const ItemsPage = ({navigationIdx}) => {
               </h2>
               {component()}
             </article>
-          )}
+          ))}
 
         </div>
 
         <div className="copy-helper copy-helper--fixed copy-helper--hidden">
-          <pre className="copy-helper__code-wrapper"><code className="copy-helper__code" id="sg-code"></code></pre>
+          <pre className="copy-helper__code-wrapper"><code className="copy-helper__code" id="sg-code" /></pre>
 
           <div className="copy-helper__buttons">
-            <button className="sg-icon-as-button sg-icon-as-button--dark js-grow-button copy-helper__button"
-              title="Show more/less">
+            <button
+              className="sg-icon-as-button sg-icon-as-button--dark js-grow-button copy-helper__button"
+              title="Show more/less"
+            >
               <div className="sg-icon-as-button__hole">
                 <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
-                  <use xlinkHref="#icon-arrow_up"></use>
+                  <use xlinkHref="#icon-arrow_up" />
                 </svg>
               </div>
             </button>
@@ -55,7 +57,7 @@ const ItemsPage = ({navigationIdx}) => {
             <button className="sg-icon-as-button sg-icon-as-button--dark js-copy-button" title="Copy to the clipboard">
               <div className="sg-icon-as-button__hole">
                 <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
-                  <use xlinkHref="#icon-answer"></use>
+                  <use xlinkHref="#icon-answer" />
                 </svg>
               </div>
             </button>

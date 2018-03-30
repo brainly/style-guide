@@ -8,7 +8,7 @@ import Avatar from 'avatar/Avatar';
 
 const items = ['one', 'two', 'three'];
 
-const PopupsMenus = () =>
+const PopupsMenus = () => (
   <div>
     <DocsBlock info="Default">
       <PopupMenu items={items} />
@@ -22,27 +22,33 @@ const PopupsMenus = () =>
 
     <DocsBlock info="Example usage 1">
       <ContrastBox fullWidth>
-        <PopupMenu items={[
-          <IconAsButton key={1} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
-          <IconAsButton key={2} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
-          <IconAsButton key={3} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
-          <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />
-        ]} />
+        <PopupMenu
+          items={[
+            <IconAsButton key={1} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.NOTIFICATIONS} />,
+            <IconAsButton key={2} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.MESSAGES} />,
+            <IconAsButton key={3} color={ICON_COLOR.GRAY_SECONDARY} type={TYPE.FRIENDS} />,
+            <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />
+          ]}
+        />
       </ContrastBox>
     </DocsBlock>
 
     <DocsBlock info="elements-spaced">
       <ContrastBox fullWidth>
-        <PopupMenu items={[
-          <ButtonSecondary key={1} buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} wide>
-            Log in
-          </ButtonSecondary>,
-          <ButtonSecondary key={2} buttonType={BUTTON_SECONDARY_TYPE.DARK} wide>
-            Join now
-          </ButtonSecondary>
-        ]} extraSpacing />
+        <PopupMenu
+          items={[
+            <ButtonSecondary key={1} buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} wide>
+              Log in
+            </ButtonSecondary>,
+            <ButtonSecondary key={2} buttonType={BUTTON_SECONDARY_TYPE.DARK} wide>
+              Join now
+            </ButtonSecondary>
+          ]}
+          extraSpacing
+        />
       </ContrastBox>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default PopupsMenus;

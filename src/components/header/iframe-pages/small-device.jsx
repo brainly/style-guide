@@ -13,14 +13,14 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
-const SmallDeviceExample = () =>
+const SmallDeviceExample = () => (
   <html lang="en">
     <head>
       <link rel="stylesheet" href="../../../style-guide.css" />
       <link rel="stylesheet" href="../../css/main.css" />
     </head>
     <body className="docs--header-small-example">
-      <script src="images/icons.js"></script>
+      <script src="images/icons.js" />
       <Header fixed>
         <HeaderContainer>
           <HeaderContent>
@@ -28,16 +28,25 @@ const SmallDeviceExample = () =>
               <HomeButton />
             </HeaderLeft>
             <HeaderMiddle>
-              <Search placeholder="Find all the answers..." fullWidth color={SEARCH_COLOR.LIGHT}
-                adaptiveIco />
+              <Search
+                placeholder="Find all the answers..."
+                fullWidth
+                color={SEARCH_COLOR.LIGHT}
+                adaptiveIco
+              />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
                   <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
-                  <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
-                    <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
-                  } />
+                  <IconAsButton
+                    type={ICON_TYPE.MESSAGES}
+                    transparent
+                    color={ICON_COLOR.LIGHT}
+                    overlay={
+                      <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+                    }
+                  />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />
                   </IconAsButton>
@@ -55,6 +64,7 @@ const SmallDeviceExample = () =>
         </HeaderContainer>
       </Header>
     </body>
-  </html>;
+  </html>
+);
 
 export default SmallDeviceExample;

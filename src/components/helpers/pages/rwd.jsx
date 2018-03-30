@@ -3,7 +3,7 @@ import RwdHelper, {TYPE} from '../RwdHelper';
 import DocsBlock from 'components/DocsBlock';
 import Icon, {TYPE as icoTypes, ICON_COLOR} from 'icons/Icon';
 
-const RwdHelpers = () =>
+const RwdHelpers = () => (
   <div>
     <DocsBlock info="Top (middle)" additionalInfo="--top">
       <ul>
@@ -54,6 +54,7 @@ const RwdHelpers = () =>
       </ul>
     </DocsBlock>
 
-  </div>;
+  </div>
+);
 
 export default RwdHelpers;

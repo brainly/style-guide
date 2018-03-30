@@ -47,9 +47,13 @@ const IconsAsButtons = () => {
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>
-        <IconAsButton type={TYPE.MESSAGES} transparent overlay={
-          <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
-        } />
+        <IconAsButton
+          type={TYPE.MESSAGES}
+          transparent
+          overlay={
+            <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+          }
+        />
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>

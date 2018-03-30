@@ -6,7 +6,7 @@ import Link from 'text/Link';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';
 import SeparatorHorizontal, {TYPE as SEPARATOR_TYPE} from '../SeparatorHorizontal';
 
-const Separators = () =>
+const Separators = () => (
   <div>
     <DocsBlock info="Default" centered>
       <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
@@ -56,9 +56,9 @@ const Separators = () =>
       </div>
     </DocsBlock>
     <DocsBlock info="Horizontal spaced" additionalInfo="(small device)">
-      <iframe width="300" height="200" src="components/separators/small-device.html">
-      </iframe>
+      <iframe width="300" height="200" src="components/separators/small-device.html" />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Separators;

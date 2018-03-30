@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Badge, {COLOR, SIZE} from '../Badge';
 
-const Badges = () =>
+const Badges = () => (
   <div>
     <DocsBlock info="Default">
       <Badge color={COLOR.PEACH}>1</Badge>
@@ -36,6 +36,7 @@ const Badges = () =>
     <DocsBlock info="With animation" additionalInfo="(click to reload)">
       <Badge color={COLOR.PEACH} rounded withAnimation>1</Badge>
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Badges;

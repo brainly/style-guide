@@ -21,7 +21,7 @@ describe('Layout', () => {
 
     console.error = jest.fn();
     shallow(
-      <Layout></Layout>
+      <Layout />
     );
     expect(console.error.mock.calls).toHaveLength(1);
 
@@ -29,12 +29,13 @@ describe('Layout', () => {
   });
 
   test('render with footer', () => {
-    const footer =
+    const footer = (
       <div className="sg-footer">
         <div className="sg-footer__container">
           Footer
         </div>
-      </div>;
+      </div>
+    );
 
     const layout = shallow(
       <Layout footer={footer}>

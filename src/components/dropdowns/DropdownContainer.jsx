@@ -30,15 +30,18 @@ class DropdownContainer extends Component {
   };
 
   render() {
-    return <Dropdown
-      opened={this.props.isOpened}
-      fullWidth={this.props.fullWidth}
-      label={this.getLabel()}
-      items={this.props.items}
-      fixed={this.props.fixed}
-      onItemClick={this.onItemClick}
-      onClick={this.props.onToggle}
-      className={this.props.className} />;
+    return (
+      <Dropdown
+        opened={this.props.isOpened}
+        fullWidth={this.props.fullWidth}
+        label={this.getLabel()}
+        items={this.props.items}
+        fixed={this.props.fixed}
+        onItemClick={this.onItemClick}
+        onClick={this.props.onToggle}
+        className={this.props.className}
+      />
+    );
   }
 }
 

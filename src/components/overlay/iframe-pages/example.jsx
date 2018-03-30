@@ -1,7 +1,7 @@
 import React from 'react';
 import Overlay from '../Overlay';
 
-const OverlayExamples = () =>
+const OverlayExamples = () => (
   <html lang="en">
     <head>
       <link rel="stylesheet" href="../../../style-guide.css" />
@@ -17,6 +17,7 @@ const OverlayExamples = () =>
     Lorem ipsum dolor sit amet.
       </p>
     </body>
-  </html>;
+  </html>
+);
 
 export default OverlayExamples;

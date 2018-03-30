@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from '../Text';
 
-const TextExamples = () =>
+const TextExamples = () => (
   <DocsBlock info="Examples">
     <Text>
       This is a default typeface for text everywhere.<br />
@@ -94,6 +94,7 @@ const TextExamples = () =>
     <Text full>
       this text takes full width
     </Text>
-  </DocsBlock>;
+  </DocsBlock>
+);
 
 export default TextExamples;

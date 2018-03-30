@@ -16,7 +16,7 @@ import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
-const Headers = () =>
+const Headers = () => (
   <div>
     <DocsBlock info="Standard">
       <Header>
@@ -37,16 +37,25 @@ const Headers = () =>
               <HomeButton />
             </HeaderLeft>
             <HeaderMiddle>
-              <Search placeholder="Find all the answers..." fullWidth color={SEARCH_COLOR.LIGHT}
-                adaptiveIco />
+              <Search
+                placeholder="Find all the answers..."
+                fullWidth
+                color={SEARCH_COLOR.LIGHT}
+                adaptiveIco
+              />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
                   <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
-                  <IconAsButton type={ICON_TYPE.MESSAGES} transparent color={ICON_COLOR.LIGHT} overlay={
-                    <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
-                  } />
+                  <IconAsButton
+                    type={ICON_TYPE.MESSAGES}
+                    transparent
+                    color={ICON_COLOR.LIGHT}
+                    overlay={
+                      <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+                    }
+                  />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />
                   </IconAsButton>
@@ -135,8 +144,9 @@ const Headers = () =>
       </Header>
     </DocsBlock>
     <DocsBlock info="Fixed header">
-      <iframe width="600" height="480" src="components/header/small-device.html"></iframe>
+      <iframe width="600" height="480" src="components/header/small-device.html" />
     </DocsBlock>
-  </div>;
+  </div>
+);
 
 export default Headers;

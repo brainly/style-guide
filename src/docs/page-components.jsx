@@ -85,7 +85,7 @@ const demos = {
   'ContentBox': <ContentBoxes />
 };
 
-const sections = Object.keys(demos).map(key =>
+const sections = Object.keys(demos).map(key => (
   <article key={key}>
     <h2 className="article-header" id={slugify(key)}>
       {key}
@@ -93,6 +93,6 @@ const sections = Object.keys(demos).map(key =>
     </h2>
     {demos[key]}
   </article>
-);
+));
 
 ReactDOM.render(<div>{sections}</div>, document.getElementById('root'));
