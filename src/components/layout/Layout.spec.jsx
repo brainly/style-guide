@@ -56,6 +56,16 @@ describe('Layout', () => {
     expect(layoutContainer.hasClass('sg-layout__container--reversed-order')).toEqual(true);
   });
 
+  test('three-columns', () => {
+    const layout = shallow(
+      <Layout threeColumns>Content</Layout>
+    );
+
+    const layoutContainer = layout.find('.sg-layout');
+
+    expect(layoutContainer.hasClass('sg-layout--three-columns')).toEqual(true);
+  });
+
   test('no-max-width', () => {
     const layout = shallow(
       <Layout noMaxWidth>Content</Layout>
