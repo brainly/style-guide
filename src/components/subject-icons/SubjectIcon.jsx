@@ -12,6 +12,7 @@ export const TYPE = {
   ARABIC: 'arabic',
   ART: 'art',
   ARTMUSIC: 'artmusic',
+  ASTRONOMY: 'astronomy',
   BELARUS: 'belarus',
   BELARUS_ALT: 'belarus-alt',
   BIOLOGY: 'biology',
@@ -43,6 +44,7 @@ export const TYPE = {
   JAPANESE: 'japanese',
   KAZACH: 'kazach',
   KAZACH_ALT: 'kazach-alt',
+  KYRGYZ: 'kyrgyz',
   KOREAN: 'korean',
   LANGUAGE: 'language',
   LATIN: 'latin',
@@ -78,6 +80,7 @@ export const TYPE = {
   UKRAINIAN: 'ukrainian',
   UKRAINIAN_ALT: 'ukrainian-alt',
   UKRAINIAN_LITERATURE: 'ukrainian-literature',
+  UZBEK: 'uzbek',
   WOS: 'wos'
 };
 

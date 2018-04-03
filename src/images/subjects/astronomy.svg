@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+  <defs>
+    <style>
+      .a{fill:#57b2f8}
+      .b{fill:#fec83c}
+      .c{fill:#000}
+    </style>
+  </defs>
+  <path d="M12 22a1 1 0 0 1-1-1v-8.46c0-.55 2-1.7 2-1.16V21a1 1 0 0 1-1 1z" class="b" />
+  <path d="M18.16 3.07l-5.42 3.05a1.2 1.2 0 0 0-.52 1.45L5.3 11.49a1.12 1.12 0 0 0-.47 1.42l-2.18 1.23a1 1 0 0 0 1 1.74l2.18-1.24a1.12 1.12 0 0 0 1.43.36l6.93-4a1.2 1.2 0 0 0 1.51.3l5.39-3.05z" class="c" />
+  <path d="M21.1 8.26a4.25 4.25 0 0 0-3-5.2z" class="a" />
+  <circle cx="6.02" cy="6.1" r="1" class="b" />
+  <circle cx="11.04" cy="3.1" r="1" class="b" />
+  <circle cx="18" cy="14.12" r="1" class="b" />
+  <circle cx="20.52" cy="11.47" r=".5" class="b" />
+  <circle cx="3.51" cy="3.59" r=".5" class="b" />
+  <circle cx="11.99" cy="10" r="1" class="b" />
+</svg>
