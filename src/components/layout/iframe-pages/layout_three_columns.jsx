@@ -48,9 +48,9 @@ const LayoutThreeColumns = () => (
           </LayoutBox>
         </LayoutContent>
         <LayoutAsideContent>
-          <Text>
-        Aside content has no padding and no background
-          </Text>
+          <LayoutBox>
+            Right content
+          </LayoutBox>
         </LayoutAsideContent>
       </Layout>
       <script src="images/icons.js" />
