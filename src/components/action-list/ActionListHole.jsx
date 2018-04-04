@@ -18,6 +18,7 @@ const ActionListHole = ({
   toEnd,
   toRight,
   stretch,
+  equalWidth,
   className,
   ...props
 }) => {
@@ -30,7 +31,8 @@ const ActionListHole = ({
     'sg-actions-list__hole--grow': grow,
     'sg-actions-list__hole--to-end': toEnd,
     'sg-actions-list__hole--to-right': toRight,
-    'sg-actions-list__hole--stretch': stretch
+    'sg-actions-list__hole--stretch': stretch,
+    'sg-actions-list__hole--equal-width': equalWidth
   }, className);
 
   return (
@@ -51,7 +53,8 @@ ActionListHole.propTypes = {
   grow: PropTypes.bool,
   toEnd: PropTypes.bool,
   toRight: PropTypes.bool,
-  stretch: PropTypes.bool
+  stretch: PropTypes.bool,
+  equalWidth: PropTypes.bool
 };
 
 export default ActionListHole;
