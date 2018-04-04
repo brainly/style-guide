@@ -13,6 +13,7 @@ export const TYPE = {
   ATTACHMENT: 'attachment',
   BOLD: 'bold',
   CAMERA: 'camera',
+  CHANGE_STATUS: 'change_status',
   CHECK: 'check',
   COMMENT: 'comment',
   COUNTER: 'counter',
