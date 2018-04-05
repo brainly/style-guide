@@ -95,4 +95,12 @@ describe('<ActionListHole />', () => {
 
     expect(actionListHole.hasClass('sg-actions-list__hole--spaced-xsmall')).toEqual(true);
   });
+
+  test('equal-width', () => {
+    const actionListHole = shallow(
+      <ActionListHole equalWidth>test</ActionListHole>
+    );
+
+    expect(actionListHole.hasClass('sg-actions-list__hole--equal-width')).toEqual(true);
+  });
 });

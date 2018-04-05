@@ -10,6 +10,9 @@ import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
 import SeparatorVertical, {SIZE as SEPARATOR_VERTICAL_SIZE} from 'separators/SeparatorVertical';
+import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent, {ALIGNMENT as CB_ALIGNMENT} from 'content-box/ContentBoxContent';
+import Radio from 'form-elements/Radio';
 
 const ActionLists = () => (
   <div>
@@ -363,6 +366,85 @@ const ActionLists = () => (
           </ActionListHole>
           <ActionListHole stretch>
             <SeparatorVertical size={SEPARATOR_VERTICAL_SIZE.FULL} />
+          </ActionListHole>
+        </ActionList>
+      </ContrastBox>
+    </DocsBlock>
+
+    <DocsBlock info="Hole - equal width">
+      <ContrastBox fullWidth>
+        <ActionList noWrap>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                  short text
+                </Text>
+                <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                  <Radio />
+                </ContentBoxContent>
+              </ContentBoxContent>
+            </ContentBox>
+          </ActionListHole>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                  and medium text
+                </Text>
+                <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                  <Radio />
+                </ContentBoxContent>
+              </ContentBoxContent>
+            </ContentBox>
+          </ActionListHole>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                  and some longer text
+                </Text>
+                <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                  <Radio />
+                </ContentBoxContent>
+              </ContentBoxContent>
+            </ContentBox>
+          </ActionListHole>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                  and medium text
+                </Text>
+                <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                  <Radio />
+                </ContentBoxContent>
+              </ContentBoxContent>
+            </ContentBox>
+          </ActionListHole>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                short text
+                </Text>
+                <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                  <Radio />
+                </ContentBoxContent>
+              </ContentBoxContent>
+            </ContentBox>
+          </ActionListHole>
+          <ActionListHole equalWidth>
+            <ContentBox>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                  and medium text
+                </Text>
+              </ContentBoxContent>
+              <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
+                <Radio />
+              </ContentBoxContent>
+            </ContentBox>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
