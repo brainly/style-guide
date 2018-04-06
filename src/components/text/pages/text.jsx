@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from '../Text';
 
-const TextExamples = () => (
+const TextExamples = () =>
   <DocsBlock info="Examples">
     <Text>
       This is a default typeface for text everywhere.<br />
@@ -80,6 +80,15 @@ const TextExamples = () => (
     <Text align={TEXT_ALIGN.RIGHT}>
       this text is aligned to right
     </Text>
+    <Text align={TEXT_ALIGN.JUSTIFY}>
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+    </Text>
     <br /><br />
     <Text transform={TEXT_TRANSFORM.LOWERCASE}>
       THIS TEXT IS LOWERCASED
@@ -94,7 +103,6 @@ const TextExamples = () => (
     <Text full>
       this text takes full width
     </Text>
-  </DocsBlock>
-);
+  </DocsBlock>;
 
 export default TextExamples;

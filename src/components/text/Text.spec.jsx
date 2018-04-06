@@ -1,6 +1,6 @@
 import React from 'react';
 import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from './Text';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 test('render', () => {
   const text = shallow(
@@ -19,11 +19,21 @@ test('size', () => {
 });
 
 test('type', () => {
-  const text = mount(
-    <Text type={TYPE.SPAN}>Test</Text>
+  const text = 'random text';
+  const component = shallow(
+    <Text type={TYPE.SPAN}>{text}</Text>
   );
 
-  expect(text.props().type).toEqual(TYPE.SPAN);
+  expect(component.find('span').contains(text)).toEqual(true);
+});
+
+test('type - label', () => {
+  const text = 'random text';
+  const component = shallow(
+    <Text type={TYPE.LABEL}>{text}</Text>
+  );
+
+  expect(component.find('label').contains(text)).toEqual(true);
 });
 
 test('color', () => {
@@ -88,6 +98,14 @@ test('align - right', () => {
   );
 
   expect(text.hasClass('sg-text--to-right')).toBeTruthy();
+});
+
+test('align - justify', () => {
+  const text = shallow(
+    <Text align={TEXT_ALIGN.JUSTIFY}>Test</Text>
+  );
+
+  expect(text.hasClass('sg-text--justify')).toBeTruthy();
 });
 
 test('full', () => {
