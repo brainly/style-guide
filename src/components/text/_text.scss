@@ -68,6 +68,10 @@ $includeHtml: false !default;
       text-align: center;
     }
 
+    &--justify {
+      text-align: justify;
+    }
+
     &--full {
       width: 100%;
     }

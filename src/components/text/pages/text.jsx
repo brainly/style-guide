@@ -80,6 +80,15 @@ const TextExamples = () => (
     <Text align={TEXT_ALIGN.RIGHT}>
       this text is aligned to right
     </Text>
+    <Text align={TEXT_ALIGN.JUSTIFY}>
+    This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+      This text is justified. This text is justified. This text is justified.
+    </Text>
     <br /><br />
     <Text transform={TEXT_TRANSFORM.LOWERCASE}>
       THIS TEXT IS LOWERCASED

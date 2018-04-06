@@ -11,7 +11,8 @@ export const TYPE = {
   H4: 'h4',
   H5: 'h5',
   H6: 'h6',
-  DIV: 'div'
+  DIV: 'div',
+  LABEL: 'label'
 };
 
 export const SIZE = {
@@ -49,7 +50,8 @@ export const TEXT_TRANSFORM = {
 export const TEXT_ALIGN = {
   LEFT: 'to-left',
   CENTER: 'to-center',
-  RIGHT: 'to-right'
+  RIGHT: 'to-right',
+  JUSTIFY: 'justify'
 };
 
 const Text = ({
