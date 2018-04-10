@@ -24,6 +24,10 @@ const Cards = () => {
       values: Boolean
     },
     {
+      name: 'transparent',
+      values: Boolean
+    },
+    {
       name: 'shadow',
       values: Boolean
     }

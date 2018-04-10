@@ -16,6 +16,10 @@ $includeHtml: false !default;
     overflow: hidden;
     background-color: $white;
 
+    &--transparent {
+      background-color: transparent;
+    }
+
     &--full {
       width: 100%;
 

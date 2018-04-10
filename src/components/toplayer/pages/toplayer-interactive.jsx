@@ -53,6 +53,10 @@ const Toplayers = () => {
       values: Boolean
     },
     {
+      name: 'transparent',
+      values: Boolean
+    },
+    {
       name: 'noPadding',
       values: Boolean
     }
