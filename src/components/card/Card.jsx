@@ -7,12 +7,13 @@ export const CARD_PADDING = {
   LARGE: 'padding-large'
 };
 
-const Card = ({children, full, centered, padding, shadow, noBorder, className, ...props}) => {
+const Card = ({children, full, centered, padding, shadow, noBorder, transparent, className, ...props}) => {
   const cardClass = classNames('sg-card', {
     'sg-card--full': full,
     'sg-card--with-shadow': shadow,
     'sg-card--no-border': noBorder,
     'sg-card--centered': centered,
+    'sg-card--transparent': transparent,
     [`sg-card--${padding}`]: padding
   }, className);
 
@@ -29,6 +30,7 @@ Card.propTypes = {
   centered: PropTypes.bool,
   noBorder: PropTypes.bool,
   shadow: PropTypes.bool,
+  transparent: PropTypes.bool,
   padding: PropTypes.oneOf(Object.values(CARD_PADDING)),
   className: PropTypes.string
 };

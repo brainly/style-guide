@@ -23,6 +23,7 @@ const TopLayer = props => {
     limitedWidth,
     row,
     noPadding,
+    transparent,
     className,
     ...additionalProps
   } = props;
@@ -36,6 +37,7 @@ const TopLayer = props => {
     'sg-toplayer--splash-screen': splashScreen,
     'sg-toplayer--limited-width': limitedWidth,
     'sg-toplayer--row': row,
+    'sg-toplayer--transparent': transparent,
     [`sg-toplayer--${size}`]: size
   }, className);
 
@@ -69,6 +71,7 @@ TopLayer.propTypes = {
   limitedWidth: PropTypes.bool,
   row: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(SIZE)),
+  transparent: PropTypes.bool,
   noPadding: PropTypes.bool,
   className: PropTypes.string
 };

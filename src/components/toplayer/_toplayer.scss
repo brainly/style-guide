@@ -18,6 +18,10 @@ $includeHtml: false !default;
     background-color: $toplayerBackgroundColor;
     position: relative;
 
+    &--transparent {
+      background-color: transparent;
+    }
+
     &--lead {
       .sg-toplayer__wrapper {
         @include sgBreakpoint(medium-up) {
