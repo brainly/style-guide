@@ -60,6 +60,10 @@ $includeHtml: false !default;
     &__hole {
       width: 100%;
 
+      &--blue {
+        background-color: $bluePrimary;
+      }
+
       &--lavender {
         background-color: $lavenderPrimary;
       }
