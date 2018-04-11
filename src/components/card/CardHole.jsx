@@ -7,6 +7,7 @@ export const CARD_HOLE_COLOR = {
   LAVENDER: 'lavender',
   MINT: 'mint',
   MINT_SECONDARY: 'mint-secondary',
+  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   NAVYBLUE: 'navyblue-secondary',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
   NAVYBLUE_SECONDARY_LIGHT: 'navyblue-secondary-light',
