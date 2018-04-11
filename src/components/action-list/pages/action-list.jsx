@@ -449,6 +449,19 @@ const ActionLists = () => (
         </ActionList>
       </ContrastBox>
     </DocsBlock>
+
+    <DocsBlock info="Hole - hide overflow">
+      <ActionList noWrap>
+        <ActionListHole hideOverflow>
+          <div style={{height: '16px', lineHeight: '16px'}}>
+            test test test test test test test test test test test test test test test test
+            test test test test test test test test test test test test test test test test
+            test test test test test test test test test test test test test test test test
+            test test test test test test test test test test test test test test test test
+          </div>
+        </ActionListHole>
+      </ActionList>
+    </DocsBlock>
   </div>
 );
 
