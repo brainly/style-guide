@@ -57,6 +57,10 @@
       flex-shrink: 1;
     }
 
+    &--hide-overflow {
+      overflow: hidden;
+    }
+
     &:last-child {
       margin-right: 0;
     }
