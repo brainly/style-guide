@@ -100,10 +100,6 @@ $includeHtml: false !default;
     &__counter-item-dynamic {
       position: absolute;
       left: 0;
-
-      &--hidden {
-        display: none;
-      }
     }
 
     &__rate {
