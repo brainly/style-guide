@@ -8,6 +8,8 @@ $rateFontSize: fontSize(obscure);
 $rateIconSize: rhythm(0.75);
 $rateSmallFontSize: fontSize(xsmall);
 $rateSmallIconSize: rhythm(2 / 3);
+$rateLargeFontSize: fontSize(small);
+$rateLargeIconSize: rhythm(1);
 
 $includeHtml: false !default;
 
@@ -18,8 +20,20 @@ $includeHtml: false !default;
     display: flex;
     align-items: center;
     height: $rateHeight;
+    overflow: visible;
 
     &--active {
+      &:hover {
+        .sg-rate-box__counter {
+          .sg-rate-box__counter-item-dynamic:nth-child(2) {
+            display: none;
+          }
+  
+          .sg-rate-box__counter-item-dynamic:nth-child(4) {
+            display: block;
+          }
+        }
+      }
 
       .sg-rate-box__star {
         cursor: pointer;
@@ -51,7 +65,6 @@ $includeHtml: false !default;
           transition: none;
         }
       }
-
     }
 
     &__stars-container {
@@ -81,7 +94,6 @@ $includeHtml: false !default;
     }
 
     // counter
-
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
       @include fixOperaMiniLabelText();
@@ -100,6 +112,10 @@ $includeHtml: false !default;
     &__counter-item-dynamic {
       position: absolute;
       left: 0;
+
+      &:nth-child(4) {
+        display: none;
+      }
     }
 
     &__rate {
@@ -124,6 +140,29 @@ $includeHtml: false !default;
       .sg-rate-box__rate {
         @include fixText($rateSmallFontSize, 0.125rem);
         @include fixOperaMiniLabelText();
+      }
+    }
+
+    &--large {
+      .sg-rate-box__star {
+        height: $rateLargeIconSize;
+        width: $rateLargeIconSize + 0.125rem; // more whitespace between large icons
+      }
+    
+      .sg-rate-box__counter,
+      .sg-rate-box__rate {
+        @include fixText($rateLargeFontSize, 0.125rem);
+        @include fixOperaMiniLabelText();
+      }
+    }
+
+    &--with-alt-labels {
+      align-items: flex-end;
+
+      .sg-rate-box__rate,
+      .sg-rate-box__counter {
+        font-weight: $fontWeightBold;
+        color: $graySecondary;
       }
     }
   }

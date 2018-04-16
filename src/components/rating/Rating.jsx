@@ -83,11 +83,11 @@ class Rating extends Component {
 
   render() {
     const {metricSize, rate, size = RATING_SIZE.NORMAL,
-      active, toBottom, className, counterText, activeText} = this.props;
+      active, className, counterText, activeText, altLabels} = this.props;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--large': size === RATING_SIZE.LARGE,
       'sg-rate-box--small': size === RATING_SIZE.SMALL,
-      'sg-rate-box--to-bottom': toBottom,
+      'sg-rate-box--with-alt-labels': altLabels,
       'sg-rate-box--active': active
     }, className);
 
@@ -127,7 +127,7 @@ Rating.propTypes = {
   rate: PropTypes.number,
   metricSize: PropTypes.number,
   active: PropTypes.bool,
-  toBottom: PropTypes.bool,
+  altLabels: PropTypes.bool,
   onChange: PropTypes.func,
   onStarMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
