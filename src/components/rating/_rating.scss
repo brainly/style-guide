@@ -146,9 +146,10 @@ $includeHtml: false !default;
     &--large {
       .sg-rate-box__star {
         height: $rateLargeIconSize;
-        width: $rateLargeIconSize + 0.125rem; // more whitespace between large icons
+        // more whitespace between large icons
+        width: $rateLargeIconSize + 0.125rem;
       }
-    
+
       .sg-rate-box__counter,
       .sg-rate-box__rate {
         @include fixText($rateLargeFontSize, 0.125rem);
