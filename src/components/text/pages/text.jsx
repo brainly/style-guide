@@ -103,6 +103,9 @@ const TextExamples = () => (
     <Text full>
       this text takes full width
     </Text>
+    <Text asContainer>
+      this text is a container - things can be positioned relative to it
+    </Text>
   </DocsBlock>
 );
 

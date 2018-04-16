@@ -7,6 +7,10 @@ $includeHtml: false !default;
     font-family: $fontFamilyPrimary;
     color: $black;
 
+    &--container {
+      position: relative;
+    }
+
     &--standout {
       @include typeVariant(standout, 1);
     }

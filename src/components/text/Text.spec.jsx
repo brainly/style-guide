@@ -115,3 +115,11 @@ test('full', () => {
 
   expect(text.hasClass('sg-text--full')).toBeTruthy();
 });
+
+test('asContainer', () => {
+  const text = shallow(
+    <Text asContainer>Test</Text>
+  );
+
+  expect(text.hasClass('sg-text--container')).toBeTruthy();
+});
