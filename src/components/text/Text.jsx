@@ -64,6 +64,7 @@ const Text = ({
   className,
   type = TYPE.DIV,
   noWrap,
+  asContainer,
   full,
   breakWords,
   ...props
@@ -76,6 +77,7 @@ const Text = ({
     [`sg-text--${weight}`]: weight,
     [`sg-text--${transform}`]: transform,
     [`sg-text--${align}`]: align,
+    'sg-text--container': asContainer,
     'sg-text--full': full,
     'sg-text--no-wrap': noWrap,
     'sg-text--break-words': breakWords
@@ -97,6 +99,7 @@ Text.propTypes = {
   align: PropTypes.oneOf(Object.values(TEXT_ALIGN)),
   type: PropTypes.oneOf(Object.values(TYPE)),
   noWrap: PropTypes.bool,
+  asContainer: PropTypes.bool,
   full: PropTypes.bool,
   breakWords: PropTypes.bool,
   className: PropTypes.string
