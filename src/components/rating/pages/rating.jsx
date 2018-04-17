@@ -16,14 +16,6 @@ const ratings = () => (
       <Rating rate={3} active counter={34} counterText="Hover to rate" activeText="Rate me!" />
     </DocsBlock>
 
-    <DocsBlock info="Small">
-      <Rating rate={3} size={RATING_SIZE.SMALL} counter={34} />
-    </DocsBlock>
-
-    <DocsBlock info="Small Active">
-      <Rating rate={3} size={RATING_SIZE.SMALL} active counter={34} />
-    </DocsBlock>
-
     <DocsBlock info="Large">
       <Rating rate={3} size={RATING_SIZE.LARGE} counter={34} />
     </DocsBlock>

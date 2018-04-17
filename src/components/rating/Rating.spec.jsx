@@ -120,31 +120,16 @@ describe('rating', () => {
     spy.mockRestore();
   });
 
-  it('small', () => {
-    const sizeOfSmallStar = 14;
+  it('large', () => {
     const rating = shallow(
-      <Rating size={RATING_SIZE.SMALL} />
+      <Rating size={RATING_SIZE.LARGE} />
     );
     const stars = rating.find(Star);
 
-    expect(rating.hasClass('sg-rate-box--small')).toEqual(true);
+    expect(rating.hasClass('sg-rate-box--large')).toEqual(true);
 
     stars.forEach(star => {
-      expect(star.props().size).toEqual(sizeOfSmallStar);
-    });
-  });
-
-  it('small isn\'t defined', () => {
-    const sizeOfNormalStar = 16;
-    const rating = shallow(
-      <Rating />
-    );
-    const stars = rating.find(Star);
-
-    expect(rating.hasClass('sg-rate-box--small')).toEqual(false);
-
-    stars.forEach(star => {
-      expect(star.props().size).toEqual(sizeOfNormalStar);
+      expect(star.props().size).toEqual(RATING_SIZE.LARGE);
     });
   });
 

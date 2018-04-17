@@ -5,7 +5,6 @@ import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 
 export const RATING_SIZE = {
-  SMALL: 14,
   NORMAL: 16,
   LARGE: 24
 };
@@ -83,11 +82,9 @@ class Rating extends Component {
 
   render() {
     const {metricSize, rate, size = RATING_SIZE.NORMAL,
-      active, className, counterText, activeText, altLabels} = this.props;
+      active, className, counterText, activeText} = this.props;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--large': size === RATING_SIZE.LARGE,
-      'sg-rate-box--small': size === RATING_SIZE.SMALL,
-      'sg-rate-box--with-alt-labels': altLabels,
       'sg-rate-box--active': active
     }, className);
 
@@ -127,7 +124,6 @@ Rating.propTypes = {
   rate: PropTypes.number,
   metricSize: PropTypes.number,
   active: PropTypes.bool,
-  altLabels: PropTypes.bool,
   onChange: PropTypes.func,
   onStarMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
