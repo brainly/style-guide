@@ -3,11 +3,11 @@ $rateStarColor: $graySecondary;
 $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
-$rateCounterColor: $grayPrimary;
+$rateCounterColor: $graySecondary;
 $rateFontSize: fontSize(obscure);
 $rateIconSize: rhythm(0.75);
-$rateSmallFontSize: fontSize(xsmall);
-$rateSmallIconSize: rhythm(2 / 3);
+$rateLargeFontSize: fontSize(small);
+$rateLargeIconSize: rhythm(1);
 
 $includeHtml: false !default;
 
@@ -16,10 +16,22 @@ $includeHtml: false !default;
   .sg-rate-box {
     @include component();
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     height: $rateHeight;
+    overflow: visible;
 
     &--active {
+      &:hover {
+        .sg-rate-box__counter {
+          .sg-rate-box__counter-item-dynamic:nth-child(2) {
+            display: none;
+          }
+
+          .sg-rate-box__counter-item-dynamic:nth-child(4) {
+            display: block;
+          }
+        }
+      }
 
       .sg-rate-box__star {
         cursor: pointer;
@@ -51,7 +63,6 @@ $includeHtml: false !default;
           transition: none;
         }
       }
-
     }
 
     &__stars-container {
@@ -81,14 +92,12 @@ $includeHtml: false !default;
     }
 
     // counter
-
     &__counter {
       @include fixText($rateFontSize, 0.125rem);
       @include fixOperaMiniLabelText();
-
+      font-weight: $fontWeightBold;
       color: $rateCounterColor;
       margin: 0 0 0 gutter(1 / 4);
-
       position: relative;
     }
 
@@ -101,7 +110,7 @@ $includeHtml: false !default;
       position: absolute;
       left: 0;
 
-      &--hidden {
+      &:nth-child(4) {
         display: none;
       }
     }
@@ -115,18 +124,16 @@ $includeHtml: false !default;
       margin: 0 gutter(1 / 4) 0 0;
     }
 
-    &--small {
-      height: rhythm(2 / 3);
-      min-height: 0;
-
+    &--large {
       .sg-rate-box__star {
-        height: $rateSmallIconSize;
-        width: $rateSmallIconSize;
+        height: $rateLargeIconSize;
+        // more whitespace between large icons
+        width: $rateLargeIconSize + 0.125rem;
       }
 
       .sg-rate-box__counter,
       .sg-rate-box__rate {
-        @include fixText($rateSmallFontSize, 0.125rem);
+        @include fixText($rateLargeFontSize, 0.125rem);
         @include fixOperaMiniLabelText();
       }
     }

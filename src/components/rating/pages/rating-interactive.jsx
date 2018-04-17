@@ -1,6 +1,6 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import Rating from '../Rating';
+import Rating, {RATING_SIZE} from '../Rating';
 
 const Ratings = () => {
   const settings = [
@@ -9,7 +9,11 @@ const Ratings = () => {
       values: Boolean
     },
     {
-      name: 'small',
+      name: 'size',
+      values: RATING_SIZE
+    },
+    {
+      name: 'altLabels',
       values: Boolean
     },
     {

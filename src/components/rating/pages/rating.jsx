@@ -1,10 +1,9 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import Rating from '../Rating';
+import Rating, {RATING_SIZE} from '../Rating';
 
 const ratings = () => (
   <div>
-
     <DocsBlock info="Default">
       <Rating rate={3} counter={34} />
     </DocsBlock>
@@ -13,12 +12,24 @@ const ratings = () => (
       <Rating rate={3} active counter={34} />
     </DocsBlock>
 
-    <DocsBlock info="Small">
-      <Rating rate={3} small counter={34} />
+    <DocsBlock info="Active with counters">
+      <Rating rate={3} active counter={34} counterText="Hover to rate" activeText="Rate me!" />
     </DocsBlock>
 
-    <DocsBlock info="Small Active">
-      <Rating rate={3} small active counter={34} />
+    <DocsBlock info="Large">
+      <Rating rate={3} size={RATING_SIZE.LARGE} counter={34} />
+    </DocsBlock>
+
+    <DocsBlock info="Large Active with alt labels">
+      <Rating
+        rate={3}
+        size={RATING_SIZE.LARGE}
+        altLabels
+        active
+        counter={34}
+        counterText="Hover to rate"
+        activeText="Rate me!"
+      />
     </DocsBlock>
 
   </div>

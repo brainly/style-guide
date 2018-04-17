@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import Icon from 'icons/Icon';
-import Rating from './Rating';
+import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
@@ -95,12 +95,6 @@ describe('rating', () => {
 
     stars.at(1).simulate('click');
     expect(onChange.mock.calls).toHaveLength(2);
-
-    const lastRatedStarIndex = rate - 1;
-
-    //shouldn't call onChange when same rate clicked
-    stars.at(lastRatedStarIndex).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(2);
   });
 
   it('doesn\'t throw error when onChange isn\'t defined', () => {
@@ -126,31 +120,16 @@ describe('rating', () => {
     spy.mockRestore();
   });
 
-  it('small', () => {
-    const sizeOfSmallStar = 14;
+  it('large', () => {
     const rating = shallow(
-      <Rating small />
+      <Rating size={RATING_SIZE.LARGE} />
     );
     const stars = rating.find(Star);
 
-    expect(rating.hasClass('sg-rate-box--small')).toEqual(true);
+    expect(rating.hasClass('sg-rate-box--large')).toEqual(true);
 
     stars.forEach(star => {
-      expect(star.props().size).toEqual(sizeOfSmallStar);
-    });
-  });
-
-  it('small isn\'t defined', () => {
-    const sizeOfNormalStar = 16;
-    const rating = shallow(
-      <Rating />
-    );
-    const stars = rating.find(Star);
-
-    expect(rating.hasClass('sg-rate-box--small')).toEqual(false);
-
-    stars.forEach(star => {
-      expect(star.props().size).toEqual(sizeOfNormalStar);
+      expect(star.props().size).toEqual(RATING_SIZE.LARGE);
     });
   });
 
@@ -162,15 +141,6 @@ describe('rating', () => {
       const rateCounter = rating.find(RateCounter);
 
       expect(rateCounter).toHaveLength(1);
-    });
-
-    it('displays active text when active and haven\'t been rated', () => {
-      const rating = shallow(
-        <Rating active />
-      );
-      const rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter.props().showActiveText).toBeTruthy();
     });
 
     it('displays counter text when no active and haven\'t been rated', () => {
@@ -197,25 +167,6 @@ describe('rating', () => {
       );
       const rateCounter = rating.find(RateCounter);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-    });
-
-    // check if let is needed, looks like a bug on enzyme side
-    it('displays active text when active and mouse over stars', () => {
-      const rating = mount(
-        <Rating rate={3} active />
-      );
-      const stars = rating.find('.sg-rate-box__stars-container');
-      let rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-
-      stars.simulate('mouseEnter');
-      rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().showActiveText).toBeTruthy();
-
-      stars.simulate('mouseLeave');
-      rateCounter = rating.find(RateCounter);
       expect(rateCounter.props().showActiveText).toBeFalsy();
     });
 
@@ -266,17 +217,6 @@ describe('star', () => {
 
     star.simulate('click');
     expect(onClick.mock.calls).toHaveLength(1);
-  });
-
-  it('throws error when onClick isn\'t defined', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    mount(<Star />);
-
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
   });
 
   it('passes size to icon', () => {
