@@ -23,7 +23,7 @@ $includeHtml: false !default;
     background-color: $dropdownBackground;
     border: $dropdownBorderSize solid $dropdownBorderColor;
     border-radius: $dropdownBorderRadius;
-    box-shadow: $dropdownShadow;
+    box-shadow: $componentShadow;
     min-height: $dropdownHeight;
     height: $dropdownHeight;
     cursor: pointer;
