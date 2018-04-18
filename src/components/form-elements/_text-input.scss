@@ -40,7 +40,7 @@ $includeHtml: false !default;
     box-shadow: $componentShadow;
     transition: border 300ms;
 
-    &:focus, 
+    &:focus,
     &:active {
       outline: none;
       box-shadow: $elevatedComponentShadow;
