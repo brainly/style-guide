@@ -33,7 +33,7 @@ $buttonActiveScale: scale(0.985);
   white-space: nowrap;
   font-weight: $fontWeightBold;
   text-transform: uppercase;
-  box-shadow: $buttonBoxShadow;
+  box-shadow: $componentShadow;
   transition-property: box-shadow, transform, opacity;
   transition-duration: 0.3s;
 
@@ -46,11 +46,11 @@ $buttonActiveScale: scale(0.985);
 
   &:hover,
   &:focus {
-    box-shadow: $buttonHoverBoxShadow;
+    box-shadow: $elevatedComponentShadow;
   }
 
   &:active {
-    box-shadow: $buttonActiveBoxShadow;
+    box-shadow: $componentShadow;
     transform: $buttonActiveScale;
   }
 

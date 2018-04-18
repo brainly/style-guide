@@ -15,6 +15,7 @@ $includeHtml: false !default;
     border: $cardBorderColor solid $cardBorderSize;
     overflow: hidden;
     background-color: $white;
+    box-shadow: $containerShadow;
 
     &--transparent {
       background-color: transparent;

@@ -53,7 +53,7 @@ $includeHtml: false !default;
     }
 
     &--with-shadow {
-      box-shadow: $boxShadow;
+      box-shadow: $containerShadow;
     }
 
     &--no-padding {

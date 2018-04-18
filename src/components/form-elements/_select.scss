@@ -17,7 +17,7 @@ $includeHtml: false !default;
     @include component();
     font-size: $selectFontSize;
     color: $selectTextColor;
-    box-shadow: $selectShadow;
+    box-shadow: $componentShadow;
     border-radius: $selectBorderRadius;
     padding-left: gutter(1 / 12);
 

@@ -30,18 +30,20 @@ $includeHtml: false !default;
   .sg-input {
     @include component();
     background: $inputBackground;
-    border: 2px solid $graySecondaryLight;
+    border: none;
     border-radius: $inputStandardBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
     height: $inputHeight;
     appearance: none;
+    box-shadow: $componentShadow;
     transition: border 300ms;
 
-    &:focus {
+    &:focus, 
+    &:active {
       outline: none;
-      box-shadow: $inputFocusShadow;
+      box-shadow: $elevatedComponentShadow;
       border: 2px solid transparent;
       background-color: $white;
 
