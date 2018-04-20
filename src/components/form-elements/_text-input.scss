@@ -29,14 +29,13 @@ $includeHtml: false !default;
   .sg-input {
     @include component();
     background: $inputBackground;
-    border: none;
+    border: 2px solid $graySecondaryLight;
     border-radius: $inputStandardBorderRadius;
     color: $inputTextColor;
     font-size: $inputFontSize;
     padding: 0 gutter(1 / 2);
     height: $inputHeight;
     appearance: none;
-    box-shadow: $componentShadow;
     transition: border 300ms;
 
     &:focus,
