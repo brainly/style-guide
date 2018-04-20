@@ -28,7 +28,7 @@ $includeHtml: false !default;
     overflow-y: auto;
     appearance: none;
     position: relative;
-    transition: border 300ms;    
+    transition: border 300ms;
 
     &::placeholder {
       color: $textareaPlaceholderTextColor;
