@@ -7,7 +7,6 @@ $selectBorderRadius: 7px;
 $selectActiveBorderColor: $grayPrimary;
 $selectActiveInvalidBorderColor: $peachPrimary;
 $selectActiveValidBorderColor: $mintPrimary;
-$selectShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 $arrowColor: $graySecondary;
 
 $includeHtml: false !default;
@@ -17,7 +16,7 @@ $includeHtml: false !default;
     @include component();
     font-size: $selectFontSize;
     color: $selectTextColor;
-    box-shadow: $selectShadow;
+    box-shadow: $componentShadow;
     border-radius: $selectBorderRadius;
     padding-left: gutter(1 / 12);
 

@@ -1,8 +1,6 @@
 $bubbleBackground: $white;
 $bubbleBorderColor: $graySecondaryLight;
-$bubbleBoxShadow: $defaultBottomShadow;
 
-$borderSize: 1px;
 $triangleSize: gutter(0.5);
 $innerTriangleSize: 10px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
 $innerTriangleOffset: -20px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
@@ -27,9 +25,8 @@ $includeHtml: false !default;
 
   .sg-bubble {
     background: $bubbleBackground;
-    border: $borderSize solid $bubbleBorderColor;
     border-radius: $borderRadiusDefault;
-    box-shadow: $bubbleBoxShadow;
+    box-shadow: $elevatedContainerShadow;
     padding: gutter(0.5) gutter(1);
     position: relative;
 

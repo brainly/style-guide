@@ -11,7 +11,6 @@ $inputFocusValidBorderColor: $mintPrimary;
 $inputFocusInvalidBorderColor: $peachPrimary;
 $inputStandardBorderRadius: 9px;
 $inputPlaceholderFontSize: 14px;
-$inputFocusShadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 
 $inputSmallBorderRadius: 7px;
 $inputSmallPlaceholderFontSize: 12px;
@@ -39,9 +38,10 @@ $includeHtml: false !default;
     appearance: none;
     transition: border 300ms;
 
-    &:focus {
+    &:focus,
+    &:active {
       outline: none;
-      box-shadow: $inputFocusShadow;
+      box-shadow: $elevatedComponentShadow;
       border: 2px solid transparent;
       background-color: $white;
 

@@ -10,7 +10,6 @@ $textareaPlaceholderFontSize: fontSize(medium);
 $textareaFocusValid: $mintPrimary;
 $textareaFocusInvalid: $peachPrimary;
 $textareaStandardBorderRadius: 9px;
-$textareaFocusShadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 
 $includeHtml: false !default;
 
@@ -39,7 +38,7 @@ $includeHtml: false !default;
 
     &:focus {
       outline: none;
-      box-shadow: $textareaFocusShadow;
+      box-shadow: $elevatedComponentShadow;
       border: 2px solid transparent;
       background-color: $white;
 
