@@ -11,6 +11,7 @@ node_modules
 /npm-debug.log
 coverage/
 package-lock.json
+yarn-error.log
 
 # Generated images
 /src/images/subjects-icons.js
