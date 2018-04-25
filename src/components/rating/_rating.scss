@@ -16,13 +16,13 @@ $includeHtml: false !default;
   .sg-rate-box {
     @include component();
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     height: $rateHeight;
     overflow: visible;
 
     &--active {
-      &:hover {
-        .sg-rate-box__counter {
+      .sg-rate-box__stars-container:hover {
+        ~ .sg-rate-box__counter {
           .sg-rate-box__counter-item-dynamic:nth-child(2) {
             display: none;
           }
