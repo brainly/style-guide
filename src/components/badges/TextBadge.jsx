@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Badge, {BADGE_SIZE, BADGE_COLOR} from './Badge';
+import Badge, {BADGE_SIZE, BADGE_COLOR} from './subcomponents/Badge';
 import Text, {SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from '../text/Text';
 
 export const TEXT_BADGE_SIZE = BADGE_SIZE;
