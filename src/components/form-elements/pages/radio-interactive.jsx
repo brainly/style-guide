@@ -7,6 +7,10 @@ const Radios = () => {
     {
       name: 'checked',
       values: Boolean
+    },
+    {
+      name: 'large',
+      values: Boolean
     }
   ];
 

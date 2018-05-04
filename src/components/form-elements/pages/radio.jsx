@@ -28,6 +28,10 @@ const radios = () => (
         }
       />
     </DocsBlock>
+    <DocsBlock info="Large">
+      <Radio large name="group4" />
+      <Radio large name="group4" checked {...dumpProps} />
+    </DocsBlock>
   </div>
 );
 
