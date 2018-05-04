@@ -3,18 +3,23 @@ import PropTypes from 'prop-types';
 import UUID from 'node-uuid';
 import classNames from 'classnames';
 
+export const SIZE = {
+  NORMAL: 'normal',
+  LARGE: 'large'
+};
+
 const Radio = props => {
   const {
     checked,
     name,
-    large,
+    size,
     className,
     id = UUID.v1(),
     ...additionalProps
   } = props;
 
   const radioClass = classNames('sg-radio', {
-    'sg-radio--large': large
+    [`sg-radio--${size}`]: size !== SIZE.NORMAL
   }, className);
 
   return (
@@ -29,7 +34,7 @@ Radio.propTypes = {
   checked: PropTypes.bool,
   name: PropTypes.string,
   id: PropTypes.string,
-  large: PropTypes.bool,
+  size: PropTypes.oneOf(Object.values(SIZE)),
   className: PropTypes.string
 };
 
