@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Label from 'labels/Label';
-import Radio, {SIZE as RADIO_SIZE} from '../Radio';
+import Radio, {RADIO_SIZE} from '../Radio';
 
 const dumpProps = {onChange: () => undefined};
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio, {SIZE as RADIO_SIZE} from '../Radio';
+import Radio, {RADIO_SIZE} from '../Radio';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Radios = () => {
