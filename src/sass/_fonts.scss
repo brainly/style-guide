@@ -1,8 +1,8 @@
 $includeHtml: false !default;
 $proximaNovaRegularWoff2Path: $sgFontsPath + 'ProximaNova-Regular.woff2';
 $proximaNovaRegularWoffPath: $sgFontsPath + 'ProximaNova-Regular.woff';
-$proximaNovaSemiBoldWoff2Path: $sgFontsPath + 'ProximaNova-SemiBold.woff2';
-$proximaNovaSemiBoldWoffPath: $sgFontsPath + 'ProximaNova-SemiBold.woff';
+$proximaNovaBoldWoff2Path: $sgFontsPath + 'ProximaNova-Bold.woff2';
+$proximaNovaBoldWoffPath: $sgFontsPath + 'ProximaNova-Bold.woff';
 $proximaNovaBlackWoff2Path: $sgFontsPath + 'ProximaNova-Black.woff2';
 $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
 
@@ -20,7 +20,7 @@ $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaSemiBoldWoff2Path) format('woff2'), url($proximaNovaSemiBoldWoffPath) format('woff');
+    src: url($proximaNovaBoldWoff2Path) format('woff2'), url($proximaNovaBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties
