@@ -1,6 +1,6 @@
 import React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
-import Badge, {COLOR as BADGE_COLOR} from 'badges/Badge';
+import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
@@ -51,7 +51,7 @@ const IconsAsButtons = () => {
           type={TYPE.MESSAGES}
           transparent
           overlay={
-            <Badge color={BADGE_COLOR.PEACH} rounded>1</Badge>
+            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>
           }
         />
       </DocsActiveBlock>
