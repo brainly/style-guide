@@ -133,6 +133,14 @@ describe('rating', () => {
     });
   });
 
+  it('renders without label', () => {
+    const rating = shallow(
+      <Rating noLabel />
+    );
+
+    expect(rating.hasClass('sg-rate-box__rate')).toEqual(false);
+  });
+
   describe('counter text', () => {
     it('exists', () => {
       const rating = shallow(
