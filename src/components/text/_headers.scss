@@ -28,6 +28,18 @@ $includeHtml: false !default;
     &--light {
       color: $white;
     }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
   }
 
   .sg-header-secondary {
@@ -47,6 +59,18 @@ $includeHtml: false !default;
 
     &--light {
       color: $white;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
     }
   }
 }
