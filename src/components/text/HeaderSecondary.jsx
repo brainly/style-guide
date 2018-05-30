@@ -36,4 +36,4 @@ HeaderSecondary.propTypes = {
 };
 
 export default HeaderSecondary;
-export {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR};
+export {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR, HEADER_TRANSFORM};

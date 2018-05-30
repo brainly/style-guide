@@ -47,5 +47,5 @@ test('transform uppercase', () => {
     <HeaderSecondary transform={HEADER_TRANSFORM.UPPERCASE}>Test</HeaderSecondary>
   );
 
-  expect(header.hasClass('sg-header-primary--uppercase')).toBeTruthy();
+  expect(header.hasClass('sg-header-secondary--uppercase')).toBeTruthy();
 });
