@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE, HEADER_COLOR} from './HeaderPrimary';
+import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE, HEADER_COLOR, HEADER_TRANSFORM} from './HeaderPrimary';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
@@ -40,4 +40,12 @@ test('default size', () => {
   );
 
   expect(header.hasClass('sg-header-primary--normal')).toBeFalsy();
+});
+
+test('transform uppercase', () => {
+  const header = shallow(
+    <HeaderPrimary transform={HEADER_TRANSFORM.UPPERCASE}>Test</HeaderPrimary>
+  );
+
+  expect(header.hasClass('sg-header-primary--uppercase')).toBeTruthy();
 });

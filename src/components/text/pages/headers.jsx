@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import HeaderPrimary, {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR} from '../HeaderPrimary';
+import HeaderPrimary, {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR, HEADER_TRANSFORM} from '../HeaderPrimary';
 import HeaderSecondary from '../HeaderSecondary';
 
 const Headers = () => (
@@ -43,6 +43,15 @@ const Headers = () => (
         We&apos;ve got your back! - header secondary xsmall
       </HeaderSecondary>
     </ContrastBox>
+    <HeaderPrimary type={HEADER_TYPE.H2} size={HEADER_SIZE.XSMALL} transform={HEADER_TRANSFORM.UPPERCASE}>
+      X We&apos;ve got your back! - uppercase
+    </HeaderPrimary>
+    <HeaderPrimary type={HEADER_TYPE.H2} size={HEADER_SIZE.XSMALL} transform={HEADER_TRANSFORM.LOWERCASE}>
+      X We&apos;ve got your back! - lowercase
+    </HeaderPrimary>
+    <HeaderPrimary type={HEADER_TYPE.H2} size={HEADER_SIZE.XSMALL} transform={HEADER_TRANSFORM.CAPITALIZE}>
+      X We&apos;ve got your back! - capitalized
+    </HeaderPrimary>
   </DocsBlock>
 );
 
