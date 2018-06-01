@@ -65,6 +65,22 @@ describe('ActionList', () => {
     expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);
   });
 
+  test('space-around', () => {
+    const actionList = shallow(
+      <ActionList direction={DIRECTION.SPACE_AROUND} />
+    );
+
+    expect(actionList.hasClass('sg-actions-list--space-around')).toEqual(true);
+  });
+
+  test('space-evenly', () => {
+    const actionList = shallow(
+      <ActionList direction={DIRECTION.SPACE_EVENLY} />
+    );
+
+    expect(actionList.hasClass('sg-actions-list--space-evenly')).toEqual(true);
+  });
+
   test('no-wrap', () => {
     const actionList = shallow(
       <ActionList noWrap />
@@ -73,4 +89,3 @@ describe('ActionList', () => {
     expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
   });
 });
-

@@ -5,7 +5,9 @@ import classNames from 'classnames';
 export const DIRECTION = {
   TO_RIGHT: 'to-right',
   CENTERED: 'centered',
-  SPACE_BETWEEN: 'space-between'
+  SPACE_BETWEEN: 'space-between',
+  SPACE_AROUND: 'space-around',
+  SPACE_EVENLY: 'space-evenly'
 };
 
 export const ALIGNMENT = {

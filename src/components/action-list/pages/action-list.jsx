@@ -145,6 +145,94 @@ const ActionLists = () => (
       </ActionList>
     </DocsBlock>
 
+    <DocsBlock info="Space around">
+      <ActionList direction={DIRECTION.SPACE_AROUND}>
+        <ActionListHole>
+          <Label
+            iconType={ICON_TYPE.ANSWER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              0/5
+            </Text>
+          </Label>
+        </ActionListHole>
+        <ActionListHole>
+          <Label
+            iconType={ICON_TYPE.COUNTER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              2d: 00h
+            </Text>
+          </Label>
+        </ActionListHole>
+        <ActionListHole>
+          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+            start
+          </ButtonSecondary>
+        </ActionListHole>
+      </ActionList>
+    </DocsBlock>
+
+    <DocsBlock info="Space evenly">
+      <ActionList direction={DIRECTION.SPACE_EVENLY}>
+        <ActionListHole>
+          <Label
+            iconType={ICON_TYPE.ANSWER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              0/5
+            </Text>
+          </Label>
+        </ActionListHole>
+        <ActionListHole>
+          <Label
+            iconType={ICON_TYPE.COUNTER}
+            iconColor={ICON_COLOR.GRAY_SECONDARY}
+            secondary
+            size={LABEL_SIZE.SMALL}
+          >
+            <Text
+              size={TEXT_SIZE.OBSCURE}
+              weight={TEXT_WEIGHT.BOLD}
+              color={TEXT_COLOR.GRAY_SECONDARY}
+              type={TEXT_TYPE.DIV}
+            >
+              2d: 00h
+            </Text>
+          </Label>
+        </ActionListHole>
+        <ActionListHole>
+          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+            start
+          </ButtonSecondary>
+        </ActionListHole>
+      </ActionList>
+    </DocsBlock>
+
     <DocsBlock
       info="No wrap"
       multiContent={[
