@@ -16,3 +16,9 @@ export const HEADER_SIZE = {
 export const HEADER_COLOR = {
   LIGHT: 'light'
 };
+
+export const HEADER_TRANSFORM = {
+  UPPERCASE: 'uppercase',
+  LOWERCASE: 'lowercase',
+  CAPITALIZE: 'capitalize'
+};

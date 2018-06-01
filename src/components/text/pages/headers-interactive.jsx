@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderPrimary, {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR} from '../HeaderPrimary';
+import HeaderPrimary, {HEADER_TYPE, HEADER_SIZE, HEADER_COLOR, HEADER_TRANSFORM} from '../HeaderPrimary';
 import HeaderSecondary from '../HeaderSecondary';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -16,6 +16,10 @@ const Headers = () => {
     {
       name: 'color',
       values: HEADER_COLOR
+    },
+    {
+      name: 'transform',
+      values: HEADER_TRANSFORM
     }
   ];
 
