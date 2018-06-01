@@ -82,7 +82,7 @@ class Rating extends Component {
 
   render() {
     const {metricSize, rate, size = RATING_SIZE.NORMAL,
-      active, className, counterText, activeText} = this.props;
+      active, className, counterText, activeText, noLabel} = this.props;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--large': size === RATING_SIZE.LARGE,
       'sg-rate-box--active': active
@@ -98,9 +98,10 @@ class Rating extends Component {
 
     return (
       <div className={ratingClass}>
-        <div className="sg-rate-box__rate">
-          {rateString}
-        </div>
+        {!noLabel &&
+          <div className="sg-rate-box__rate">
+            {rateString}
+          </div>}
         <div className="sg-rate-box__stars-container" onMouseLeave={this.onMouseLeave}>
           <div className="sg-rate-box__filled-stars" style={{width: `${100 * rate / metricSize}%`}}>
             {starsProps.map(props => <Star key={props.key} {...props} />)}
@@ -129,6 +130,7 @@ Rating.propTypes = {
   onMouseLeave: PropTypes.func,
   counterText: PropTypes.string,
   activeText: PropTypes.string,
+  noLabel: PropTypes.bool,
   className: PropTypes.string
 };
 

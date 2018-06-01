@@ -31,6 +31,10 @@ const Ratings = () => {
     {
       name: 'activeText',
       values: String
+    },
+    {
+      name: 'noLabel',
+      value: Boolean
     }
   ];
 
