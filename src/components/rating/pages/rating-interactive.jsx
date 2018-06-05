@@ -34,7 +34,7 @@ const Ratings = () => {
     },
     {
       name: 'noLabel',
-      value: Boolean
+      values: Boolean
     }
   ];
 
