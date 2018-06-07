@@ -13,6 +13,7 @@ const Badges = () => (
       <TextBadge color={TEXT_BADGE_COLOR.MINT_SECONDARY_LIGHT}>4 / 5</TextBadge>
       <TextBadge color={TEXT_BADGE_COLOR.PEACH_SECONDARY_LIGHT}>5 / 5</TextBadge>
       <TextBadge color={TEXT_BADGE_COLOR.BLUE_SECONDARY_LIGHT}>3 / 5</TextBadge>
+      <TextBadge color={TEXT_BADGE_COLOR.LAVENDER}>3 / 5</TextBadge>
 
       <ContrastBox>
         <TextBadge>4575</TextBadge>
