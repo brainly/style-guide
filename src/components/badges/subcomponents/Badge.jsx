@@ -31,7 +31,7 @@ const Badge = ({
   className,
   ...props
 }) => {
-  const badgeClass = classNames('sg-badge', className, {
+  const badgeClass = classNames('sg-badge', {
     [`sg-badge--${color}`]: color !== BADGE_COLOR.NORMAL,
     [`sg-badge--${size}`]: size !== BADGE_SIZE.NORMAL,
     'sg-badge--rounded': rounded,

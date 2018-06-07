@@ -30,7 +30,14 @@ const TextBadge = ({
   const textSize = size === BADGE_SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
 
   return (
-    <Badge {...props} color={color.BADGE} size={size} rounded={rounded} withAnimation={withAnimation}>
+    <Badge
+      {...props}
+      className={className}
+      color={color.BADGE}
+      size={size}
+      rounded={rounded}
+      withAnimation={withAnimation}
+    >
       <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={color.TEXT}>{children}</Text>
     </Badge>
   );
