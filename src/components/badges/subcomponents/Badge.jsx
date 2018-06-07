@@ -19,7 +19,8 @@ export const BADGE_COLOR = {
   GRAY_SECONDARY: 'gray-secondary',
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   PEACH_SECONDARY_LIGHT: 'peach-secondary-light',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  LAVENDER: 'lavender'
 };
 
 const Badge = ({
@@ -31,7 +32,7 @@ const Badge = ({
   className,
   ...props
 }) => {
-  const badgeClass = classNames('sg-badge', className, {
+  const badgeClass = classNames('sg-badge', {
     [`sg-badge--${color}`]: color !== BADGE_COLOR.NORMAL,
     [`sg-badge--${size}`]: size !== BADGE_SIZE.NORMAL,
     'sg-badge--rounded': rounded,

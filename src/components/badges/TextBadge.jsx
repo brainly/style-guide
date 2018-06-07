@@ -15,7 +15,8 @@ export const TEXT_BADGE_COLOR = {
   GRAY_SECONDARY: {BADGE: BADGE_COLOR.GRAY_SECONDARY, TEXT: TEXT_COLOR.LIGHT},
   MINT_SECONDARY_LIGHT: {BADGE: BADGE_COLOR.MINT_SECONDARY_LIGHT, TEXT: TEXT_COLOR.MINT},
   PEACH_SECONDARY_LIGHT: {BADGE: BADGE_COLOR.PEACH_SECONDARY_LIGHT, TEXT: TEXT_COLOR.PEACH},
-  BLUE_SECONDARY_LIGHT: {BADGE: BADGE_COLOR.BLUE_SECONDARY_LIGHT, TEXT: TEXT_COLOR.BLUE}
+  BLUE_SECONDARY_LIGHT: {BADGE: BADGE_COLOR.BLUE_SECONDARY_LIGHT, TEXT: TEXT_COLOR.BLUE},
+  LAVENDER: {BADGE: BADGE_COLOR.LAVENDER, TEXT: TEXT_COLOR.LIGHT}
 };
 
 const TextBadge = ({
@@ -30,7 +31,14 @@ const TextBadge = ({
   const textSize = size === BADGE_SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
 
   return (
-    <Badge {...props} color={color.BADGE} size={size} rounded={rounded} withAnimation={withAnimation}>
+    <Badge
+      {...props}
+      className={className}
+      color={color.BADGE}
+      size={size}
+      rounded={rounded}
+      withAnimation={withAnimation}
+    >
       <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={color.TEXT}>{children}</Text>
     </Badge>
   );

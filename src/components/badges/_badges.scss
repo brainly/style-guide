@@ -48,6 +48,10 @@ $includeHtml: false !default;
       background-color: $graySecondary;
     }
 
+    &--lavender {
+      background-color: $lavenderPrimary;
+    }
+
     &--rounded {
       border-radius: $borderRadiusLarge;
     }
