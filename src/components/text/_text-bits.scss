@@ -48,7 +48,7 @@ $includeHtml: false !default;
       @include uppercaseText(0);
       font-size: fontSize(headline);
       line-height: rhythm(1);
-      
+
       @include sgBreakpoint(medium-up) {
         &:not(.sg-text-bit--not-responsive) {
           @include typeVariant(subheader, 2);
