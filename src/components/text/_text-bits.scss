@@ -45,7 +45,8 @@ $includeHtml: false !default;
     }
 
     &--small {
-      font-size: rhythm(1);
+      @include uppercaseText(0);
+      font-size: fontSize(headline);
       line-height: rhythm(1);
 
       @include sgBreakpoint(medium-up) {
