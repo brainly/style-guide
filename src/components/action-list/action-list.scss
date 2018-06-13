@@ -106,4 +106,13 @@
   &--no-wrap {
     flex-wrap: nowrap;
   }
+
+  &--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+ 
+    > .sg-actions-list__hole:not(:last-child) {
+      margin-bottom: gutter(0.5);
+    }
+  } 
 }
