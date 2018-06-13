@@ -6,6 +6,10 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import ActionList, {DIRECTION} from 'action-list/ActionList';
+import ActionListHole from 'action-list/ActionListHole';
+import Text, {WEIGHT as TEXT_WEIGHT} from 'text/Text';
+import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';
 
 const Boxs = () => (
   <div>
@@ -26,6 +30,12 @@ const Boxs = () => (
         <Box color={color}>{color} (no border by default)</Box>
       </DocsBlock>
     ))}
+
+    <DocsBlock info="With message">
+      <Box message onClose color={COLOR.BLUE_SECONDARY}>
+        This is a box with message and onClose
+      </Box>
+    </DocsBlock>
 
     <DocsBlock
       info="Image"
@@ -88,7 +98,7 @@ const Boxs = () => (
       ]}
     />
 
-    <DocsBlock info="Example of usage">
+    <DocsBlock info="Example of box usage">
       <Box>
         <ContentBox>
           <ContentBoxHeader>
@@ -100,6 +110,32 @@ const Boxs = () => (
             </ButtonPrimary>
           </ContentBoxActions>
         </ContentBox>
+      </Box>
+    </DocsBlock>
+
+    <DocsBlock info="Example of message box usage">
+      <Box message onClose full color={COLOR.BLUE_SECONDARY}>
+        <ActionList direction={DIRECTION.SPACE_BETWEEN}>
+          <ActionListHole>
+            <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={32} />
+          </ActionListHole>
+          <ActionListHole>
+            <Text weight={TEXT_WEIGHT.BOLD}>
+              Title for a message with valuable information for a user
+            </Text>
+            <Text>
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+              This is a description for users in appropriate situation.
+
+            </Text>
+          </ActionListHole>
+        </ActionList>
       </Box>
     </DocsBlock>
   </div>
