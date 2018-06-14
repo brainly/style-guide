@@ -36,7 +36,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     'sg-box--no-min-height': noMinHeight,
     'sg-box--with-shadow': shadow && !message,
     'sg-box--message': message,
-    'sg-box--with-onclose': onClose
+    'sg-box--with-close': onClose
 
   }, className);
 
