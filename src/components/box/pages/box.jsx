@@ -3,12 +3,13 @@ import Box, {COLOR, PADDING} from '../Box';
 import DocsBlock from 'components/DocsBlock';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
+import ContentBoxContent, {SIZE as CONTENT_BOX_CONTENT_SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
-import ActionList, {DIRECTION} from 'action-list/ActionList';
+import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Text, {WEIGHT as TEXT_WEIGHT} from 'text/Text';
+import Text, {WEIGHT as TEXT_WEIGHT, SIZE as TEXT_SIZE} from 'text/Text';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';
 
 const Boxs = () => (
@@ -115,25 +116,25 @@ const Boxs = () => (
 
     <DocsBlock info="Example of message box usage">
       <Box message onClose full color={COLOR.BLUE_SECONDARY}>
-        <ActionList direction={DIRECTION.SPACE_BETWEEN}>
+        <ActionList noWrap toTop>
           <ActionListHole>
-            <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={32} />
+            <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={30} />
           </ActionListHole>
           <ActionListHole>
-            <Text weight={TEXT_WEIGHT.BOLD}>
-              Title for a message with valuable information for a user
-            </Text>
-            <Text>
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-              This is a description for users in appropriate situation.
-
-            </Text>
+            <ContentBox>
+              <ContentBoxContent spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.XSMALL}>
+                <Text weight={TEXT_WEIGHT.BOLD} size={TEXT_SIZE.SMALL}>
+                Title for a message with valuable information for a user.
+                </Text>
+              </ContentBoxContent>
+              <ContentBoxContent>
+                <Text size={TEXT_SIZE.SMALL}>
+                This is valuable information for users in a specific situation. For example:
+                we want to let you know that in 24h Brainly will disable some feature.
+                You can find more information about this change on our blog.
+                </Text>
+              </ContentBoxContent>
+            </ContentBox>
           </ActionListHole>
         </ActionList>
       </Box>
