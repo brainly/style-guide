@@ -136,7 +136,7 @@ $includeHtml: false !default;
       padding-right: gutter(5/3);
     }
 
-    &--message__close {
+    &__close {
       display: flex;
       position: absolute;
       right: 0;
