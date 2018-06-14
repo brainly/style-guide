@@ -127,12 +127,12 @@ $includeHtml: false !default;
       align-items: center;
       justify-content: center;
     }
-    
+
     &--message {
       padding: gutter(1);
     }
-    
-    &--with-onClose {
+
+    &--with-onclose {
       padding-right: gutter(5/3);
     }
 

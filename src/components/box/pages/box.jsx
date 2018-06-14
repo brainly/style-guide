@@ -12,6 +12,8 @@ import ActionListHole from 'action-list/ActionListHole';
 import Text, {WEIGHT as TEXT_WEIGHT, SIZE as TEXT_SIZE} from 'text/Text';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';
 
+const closeCallback = () => undefined;
+
 const Boxs = () => (
   <div>
     <DocsBlock info="Simple">
@@ -33,7 +35,7 @@ const Boxs = () => (
     ))}
 
     <DocsBlock info="With message">
-      <Box message onClose color={COLOR.BLUE_SECONDARY}>
+      <Box message onClose={closeCallback} color={COLOR.BLUE_SECONDARY}>
         This is a box with message and onClose
       </Box>
     </DocsBlock>
@@ -115,7 +117,7 @@ const Boxs = () => (
     </DocsBlock>
 
     <DocsBlock info="Example of message box usage">
-      <Box message onClose full color={COLOR.BLUE_SECONDARY}>
+      <Box message onClose={closeCallback} full color={COLOR.BLUE_SECONDARY}>
         <ActionList noWrap toTop>
           <ActionListHole>
             <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={30} />

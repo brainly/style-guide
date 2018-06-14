@@ -36,7 +36,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     'sg-box--no-min-height': noMinHeight,
     'sg-box--with-shadow': shadow && !message,
     'sg-box--message': message,
-    'sg-box--with-onClose': onClose
+    'sg-box--with-onclose': onClose
 
   }, className);
 
@@ -51,7 +51,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
   return (
     <div {...props} className={boxClass}>
       {onClose ?
-        <div className="sg-box--message__close" onClick={onClose}>
+        <div className="sg-box--message__close" onClose={onClose}>
           <Icon type={iconTypes.X} color={ICON_COLOR.DARK} size={14} />
         </div> : null
       }
@@ -70,7 +70,7 @@ Box.propTypes = {
   imgSrc: PropTypes.string,
   shadow: PropTypes.bool,
   message: PropTypes.bool,
-  onClose: PropTypes.bool,
+  onClose: PropTypes.func,
   className: PropTypes.string
 };
 
