@@ -37,10 +37,6 @@ const Boxes = () => {
     {
       name: 'imgSrc',
       values: String
-    },
-    {
-      name: 'message',
-      values: Boolean
     }
   ];
 
