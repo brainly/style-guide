@@ -35,13 +35,13 @@ const LayoutMedium = () => (
         <LayoutContent>
           <LayoutBox>
             <Text>
-          Main content has padding and white background
+              Main content has no padding and no background (both are given by layout box)
             </Text>
           </LayoutBox>
         </LayoutContent>
         <LayoutAsideContent>
           <Text>
-        Aside content has no padding and no background
+            Aside content has no padding and no background
           </Text>
         </LayoutAsideContent>
       </Layout>

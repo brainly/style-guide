@@ -23,6 +23,14 @@ const Layouts = () => {
     {
       name: 'fullPage',
       values: Boolean
+    },
+    {
+      name: 'threeColumns',
+      values: Boolean
+    },
+    {
+      name: 'wide',
+      values: Boolean
     }
   ];
 

@@ -34,13 +34,13 @@ const LayoutReversedOrder = () => (
       <Layout header={header} footer={footer} reversedOrder>
         <LayoutContent>
           <Text>
-        Main content has padding and white background
+            Main content has no padding and no background
           </Text>
         </LayoutContent>
         <LayoutAsideContent>
           <LayoutBox>
             <Text>
-          Aside content has no padding and no background
+              Aside content has no padding and no background (both are given by layout box)
             </Text>
           </LayoutBox>
         </LayoutAsideContent>
