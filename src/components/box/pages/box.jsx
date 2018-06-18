@@ -35,6 +35,12 @@ const Boxs = () => (
     ))}
 
     <DocsBlock info="With message">
+      <Box message color={COLOR.BLUE_SECONDARY}>
+        This is a box with message
+      </Box>
+    </DocsBlock>
+
+    <DocsBlock info="With message">
       <Box message onClose={closeCallback} color={COLOR.BLUE_SECONDARY}>
         This is a box with message and onClose
       </Box>
