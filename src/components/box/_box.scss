@@ -91,6 +91,10 @@ $includeHtml: false !default;
       background-color: $bluePrimary;
     }
 
+    &--blue-secondary {
+      background-color: $blueSecondary;
+    }
+
     &--blue-secondary-light {
       background-color: $blueSecondaryLight;
     }
@@ -122,6 +126,24 @@ $includeHtml: false !default;
       padding: (gutter(0.5) - $boxBorderSize);
       align-items: center;
       justify-content: center;
+    }
+
+    &--message {
+      padding: gutter(1);
+    }
+
+    &--with-close {
+      padding-right: gutter(5/3);
+    }
+
+    &__close {
+      display: flex;
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: gutter(1 / 2);
+      cursor: pointer;
+      z-index: 1;
     }
   }
 

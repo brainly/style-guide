@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
 
 export const COLOR = {
   BLUE: 'blue',
@@ -10,6 +11,7 @@ export const COLOR = {
   MINT_SECONDARY: 'mint-secondary',
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
+  BLUE_SECONDARY: 'blue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
   PEACH: 'peach'
@@ -23,15 +25,19 @@ export const PADDING = {
   LARGE: 'large-padding'
 };
 
-const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, className, ...props}) => {
+const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow,
+  message, onClose, className, ...props}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
     'sg-box--full': full,
-    [`sg-box--${padding}`]: padding,
+    [`sg-box--${padding}`]: padding && !message,
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
-    'sg-box--with-shadow': shadow
+    'sg-box--with-shadow': shadow && !message,
+    'sg-box--message': message,
+    'sg-box--with-close': onClose
+
   }, className);
 
   let content;
@@ -44,6 +50,11 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
 
   return (
     <div {...props} className={boxClass}>
+      {onClose ?
+        <div className="sg-box__close" onClose={onClose}>
+          <Icon type={iconTypes.X} color={ICON_COLOR.DARK} size={14} />
+        </div> : null
+      }
       {content}
     </div>
   );
@@ -58,6 +69,8 @@ Box.propTypes = {
   padding: PropTypes.oneOf(Object.values(PADDING)),
   imgSrc: PropTypes.string,
   shadow: PropTypes.bool,
+  message: PropTypes.bool,
+  onClose: PropTypes.func,
   className: PropTypes.string
 };
 
