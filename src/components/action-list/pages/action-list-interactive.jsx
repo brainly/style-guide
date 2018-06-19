@@ -24,6 +24,10 @@ const ActionLists = () => {
     {
       name: 'align',
       values: ALIGNMENT
+    },
+    {
+      name: 'vertical',
+      values: Boolean
     }
   ];
 

@@ -25,6 +25,14 @@ describe('ActionList', () => {
     expect(actionList.hasClass('sg-actions-list')).toEqual(true);
   });
 
+  test('vertical', () => {
+    const actionList = shallow(
+      <ActionList vertical />
+    );
+
+    expect(actionList.hasClass('sg-actions-list--vertical')).toEqual(true);
+  });
+
   test('to-right', () => {
     const actionList = shallow(
       <ActionList direction={DIRECTION.TO_RIGHT} />
