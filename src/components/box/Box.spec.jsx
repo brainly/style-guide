@@ -122,17 +122,9 @@ test('full width', () => {
   expect(box.hasClass('sg-box--full')).toEqual(true);
 });
 
-test('message', () => {
-  const box = shallow(
-    <Box message>some text</Box>
-  );
-
-  expect(box.hasClass('sg-box--message')).toEqual(true);
-});
-
 test('close button', () => {
   const mockCallback = jest.fn();
-  const box = shallow(<Box message onClose={mockCallback} />);
+  const box = shallow(<Box onClose={mockCallback} />);
 
   expect(box.find('.sg-box__close')).toHaveLength(1);
 });
