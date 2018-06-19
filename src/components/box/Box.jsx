@@ -26,18 +26,15 @@ export const PADDING = {
 };
 
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow,
-  message, onClose, className, ...props}) => {
+  onClose, className, ...props}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
     'sg-box--full': full,
-    [`sg-box--${padding}`]: padding && !message,
+    [`sg-box--${padding}`]: padding,
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
-    'sg-box--with-shadow': shadow && !message,
-    'sg-box--message': message,
-    'sg-box--with-close': onClose
-
+    'sg-box--with-shadow': shadow
   }, className);
 
   let content;
@@ -52,7 +49,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     <div {...props} className={boxClass}>
       {onClose ?
         <div className="sg-box__close" onClose={onClose}>
-          <Icon type={iconTypes.X} color={ICON_COLOR.DARK} size={14} />
+          <Icon type={iconTypes.X} color={ICON_COLOR.DARK} size={10} />
         </div> : null
       }
       {content}
@@ -69,7 +66,6 @@ Box.propTypes = {
   padding: PropTypes.oneOf(Object.values(PADDING)),
   imgSrc: PropTypes.string,
   shadow: PropTypes.bool,
-  message: PropTypes.bool,
   onClose: PropTypes.func,
   className: PropTypes.string
 };

@@ -132,10 +132,6 @@ $includeHtml: false !default;
       padding: gutter(1);
     }
 
-    &--with-close {
-      padding-right: gutter(5/3);
-    }
-
     &__close {
       display: flex;
       position: absolute;

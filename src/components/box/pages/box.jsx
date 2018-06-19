@@ -34,15 +34,9 @@ const Boxs = () => (
       </DocsBlock>
     ))}
 
-    <DocsBlock info="With message">
-      <Box message color={COLOR.BLUE_SECONDARY}>
-        This is a box with message
-      </Box>
-    </DocsBlock>
-
-    <DocsBlock info="With message">
-      <Box message onClose={closeCallback} color={COLOR.BLUE_SECONDARY}>
-        This is a box with message and onClose
+    <DocsBlock info="With onClose">
+      <Box onClose={closeCallback} >
+        This is a box with onClose
       </Box>
     </DocsBlock>
 
@@ -123,7 +117,7 @@ const Boxs = () => (
     </DocsBlock>
 
     <DocsBlock info="Example of message box usage">
-      <Box message onClose={closeCallback} full color={COLOR.BLUE_SECONDARY}>
+      <Box border={false} onClose={closeCallback} full color={COLOR.BLUE_SECONDARY}>
         <ActionList noWrap toTop>
           <ActionListHole>
             <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={30} />
