@@ -35,9 +35,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
     'sg-box--with-shadow': shadow && !message,
-    'sg-box--message': message,
-    'sg-box--with-close': onClose
-
+    'sg-box--message': message
   }, className);
 
   let content;
