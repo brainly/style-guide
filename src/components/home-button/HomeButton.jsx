@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {TYPE, BASE_URL, LOGOS} from 'logo/Logo';
+import {TYPE, BASE_URL, LOGOS} from '../logo/Logo';
 
 const ICONS = {
   'brainly': 'brainly-mobile-426ef8718f',
