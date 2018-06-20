@@ -3,6 +3,7 @@ import Layout from './Layout';
 import LayoutBox from './LayoutBox';
 import LayoutContent from './LayoutContent';
 import LayoutAsideContent from './LayoutAsideContent';
+import LayoutLeftContent from './LayoutLeftContent';
 import {shallow} from 'enzyme';
 
 describe('Layout', () => {
@@ -54,6 +55,16 @@ describe('Layout', () => {
     const layoutContainer = layout.find('.sg-layout__container');
 
     expect(layoutContainer.hasClass('sg-layout__container--reversed-order')).toEqual(true);
+  });
+
+  test('three-columns', () => {
+    const component = shallow(
+      <Layout threeColumns>Content</Layout>
+    );
+
+    const layout = component.find('.sg-layout');
+
+    expect(layout.hasClass('sg-layout--three-columns')).toEqual(true);
   });
 
   test('no-max-width', () => {
@@ -128,5 +139,17 @@ describe('LayoutBox', () => {
     );
 
     expect(layoutBox.hasClass('sg-layout__box')).toEqual(true);
+  });
+});
+
+describe('LayoutLeftContent', () => {
+  test('render', () => {
+    const layoutLeftContent = shallow(
+      <LayoutLeftContent>
+        Content
+      </LayoutLeftContent>
+    );
+
+    expect(layoutLeftContent.hasClass('sg-layout__left-content')).toEqual(true);
   });
 });
