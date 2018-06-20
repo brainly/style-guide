@@ -2,8 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Layout = ({children, header, footer, reversedOrder, noMaxWidth, noMarginTop, fullPage, className, ...props}) => {
-  const layoutClass = classNames('sg-layout', className);
+const Layout = ({
+  children,
+  header,
+  footer,
+  reversedOrder,
+  noMaxWidth,
+  noMarginTop,
+  fullPage,
+  wide,
+  threeColumns,
+  className,
+  ...props
+}) => {
+  const layoutClass = classNames('sg-layout', className, {
+    'sg-layout--three-columns': threeColumns
+  });
   const layoutContainerClass = classNames('sg-layout__container', {
     'sg-layout__container--reversed-order': reversedOrder,
     'sg-layout__container--no-max-width': noMaxWidth,
@@ -35,6 +49,8 @@ Layout.propTypes = {
   noMaxWidth: PropTypes.bool,
   noMarginTop: PropTypes.bool,
   fullPage: PropTypes.bool,
+  wide: PropTypes.bool,
+  threeColumns: PropTypes.bool,
   className: PropTypes.string
 };
 

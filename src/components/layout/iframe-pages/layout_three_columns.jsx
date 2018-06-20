@@ -3,6 +3,7 @@ import Layout from '../Layout';
 import LayoutBox from '../LayoutBox';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
+import LayoutSecondaryContent from '../LayoutSecondaryContent';
 import Text from 'text/Text';
 
 const header = (
@@ -23,25 +24,31 @@ const footer = (
   </div>
 );
 
-const LayoutSmall = () => (
+const LayoutWideThreeColumns = () => (
   <html>
     <head>
       <meta charSet="utf-8" />
       <link rel="stylesheet" href="../../../style-guide.css" />
+      <style>{'body {background-color: #f0f3f5;}'}</style>
     </head>
     <body>
-      <Layout header={header} footer={footer}>
+      <Layout header={header} footer={footer} threeColumns wide>
+        <LayoutSecondaryContent>
+          <Text>
+            Secondary content has no padding and no background
+          </Text>
+        </LayoutSecondaryContent>
         <LayoutContent>
-          <LayoutBox>
-            <Text>
-              Main content has no padding and no background (both are given by layout box)
-            </Text>
-          </LayoutBox>
+          <Text>
+            Main content has no padding and white background
+          </Text>
         </LayoutContent>
         <LayoutAsideContent>
-          <Text>
-            Aside content has no padding and no background
-          </Text>
+          <LayoutBox>
+            <Text>
+              Aside content has no padding and no background (both are given by layout box)
+            </Text>
+          </LayoutBox>
         </LayoutAsideContent>
       </Layout>
       <script src="images/icons.js" />
@@ -49,4 +56,4 @@ const LayoutSmall = () => (
   </html>
 );
 
-export default LayoutSmall;
+export default LayoutWideThreeColumns;

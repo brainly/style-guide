@@ -1,5 +1,7 @@
 $layoutMaxWidth: 1024px;
+$layoutWideMaxWidth: 1280px;
 $layoutAsideWidth: 320px;
+$layoutSecondaryWidth: 200px;
 $layoutMediumContentMaxWidth: 660px;
 $layoutContainerMarginTop: $headerHeight;
 $layoutGapWidth: gutter(5 / 6);
@@ -11,6 +13,31 @@ $includeHtml: false !default;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    &--wide {
+      .sg-layout__container {
+        @include sgBreakpoint(large-only) {
+          max-width: $layoutWideMaxWidth;
+        }
+      }
+    }
+
+    &--three-columns {
+      .sg-layout__secondary-content {
+        display: flex;
+      }
+
+      .sg-layout__container {
+        @include sgBreakpoint(large-only) {
+          flex-wrap: nowrap;
+        }
+      }
+
+      .sg-layout__content {
+        flex-basis: 0;
+        width: auto;
+      }
+    }
 
     &__container {
       display: flex;
@@ -50,6 +77,13 @@ $includeHtml: false !default;
         .sg-layout__content {
           background-color: transparent;
           padding: 0;
+        }
+
+        .sg-layout__secondary-content {
+          @include sgBreakpoint(large-only) {
+            margin-right: 0;
+            margin-left: $layoutGapWidth;
+          }
         }
 
         .sg-layout__aside-content {
@@ -95,6 +129,18 @@ $includeHtml: false !default;
         @include sgBreakpoint(large-only) {
           max-width: none;
         }
+      }
+    }
+
+    &__secondary-content {
+      display: none;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 100%;
+
+      @include sgBreakpoint(large-only) {
+        margin-right: $layoutGapWidth;
+        width: $layoutSecondaryWidth;
       }
     }
 
