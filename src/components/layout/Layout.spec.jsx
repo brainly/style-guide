@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from './Layout';
 import LayoutBox from './LayoutBox';
 import LayoutContent from './LayoutContent';
+import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
 import {shallow} from 'enzyme';
 
@@ -116,6 +117,18 @@ describe('LayoutAsideContent', () => {
     );
 
     expect(layoutAsideContent.hasClass('sg-layout__aside-content')).toEqual(true);
+  });
+});
+
+describe('LayoutSecondaryContent', () => {
+  test('render', () => {
+    const component = shallow(
+      <LayoutSecondaryContent>
+        Content
+      </LayoutSecondaryContent>
+    );
+
+    expect(component.hasClass('sg-layout__secondary-content')).toEqual(true);
   });
 });
 
