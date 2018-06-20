@@ -23,6 +23,10 @@ $includeHtml: false !default;
     }
 
     &--three-columns {
+      .sg-layout__secondary-content {
+        display: flex;
+      }
+
       .sg-layout__container {
         @include sgBreakpoint(large-only) {
           flex-wrap: nowrap;
@@ -129,7 +133,7 @@ $includeHtml: false !default;
     }
 
     &__secondary-content {
-      display: flex;
+      display: none;
       flex-direction: column;
       flex-shrink: 0;
       width: 100%;

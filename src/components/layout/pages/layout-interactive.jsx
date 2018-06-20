@@ -4,6 +4,7 @@ import Layout from '../Layout';
 import LayoutBox from '../LayoutBox';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
+import LayoutSecondaryContent from '../LayoutSecondaryContent';
 import Text from 'text/Text';
 
 const Layouts = () => {
@@ -56,16 +57,21 @@ const Layouts = () => {
     <div>
       <DocsActiveBlock settings={settings} centeredItems={false} backgroundColor="dark">
         <Layout header={header} footer={footer}>
+          <LayoutSecondaryContent>
+            <Text>
+              Secondary content has no padding and no background
+            </Text>
+          </LayoutSecondaryContent>
           <LayoutContent>
             <LayoutBox>
               <Text>
-                Main content has padding and white background
+                Main content has has no padding and no background (given by LayoutBox)
               </Text>
             </LayoutBox>
           </LayoutContent>
           <LayoutAsideContent>
             <Text>
-              Aside content has no padding and no background
+              Aside content has has no padding and no background (given by LayoutBox)
             </Text>
           </LayoutAsideContent>
         </Layout>
