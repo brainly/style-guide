@@ -19,7 +19,6 @@ $includeHtml: false !default;
     background-color: $buttonColor;
 
     &--fb {
-      text-transform: none;
       padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
       background-color: $buttonPrimaryFbColor;
     }
