@@ -37,6 +37,10 @@ const Boxes = () => {
     {
       name: 'imgSrc',
       values: String
+    },
+    {
+      name: 'noBorderRadius',
+      values: Boolean
     }
   ];
 
