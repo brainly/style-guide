@@ -25,7 +25,7 @@ export const PADDING = {
   LARGE: 'large-padding'
 };
 
-const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow,
+const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,
   onClose, className, ...props}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
@@ -34,7 +34,8 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     [`sg-box--${padding}`]: padding,
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
-    'sg-box--with-shadow': shadow
+    'sg-box--with-shadow': shadow,
+    'sg-box--no-border-radius': noBorderRadius
   }, className);
 
   let content;
@@ -66,6 +67,7 @@ Box.propTypes = {
   padding: PropTypes.oneOf(Object.values(PADDING)),
   imgSrc: PropTypes.string,
   shadow: PropTypes.bool,
+  noBorderRadius: PropTypes.bool,
   onClose: PropTypes.func,
   className: PropTypes.string
 };

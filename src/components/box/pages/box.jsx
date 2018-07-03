@@ -10,7 +10,7 @@ import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import Text, {WEIGHT as TEXT_WEIGHT, SIZE as TEXT_SIZE} from 'text/Text';
-import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';
+import Avatar from 'avatar/Avatar';
 
 const closeCallback = () => undefined;
 
@@ -33,6 +33,12 @@ const Boxs = () => (
         <Box color={color}>{color} (no border by default)</Box>
       </DocsBlock>
     ))}
+
+    <DocsBlock info="No border radius">
+      <Box noBorderRadius>
+        This is a box with no border radius
+      </Box>
+    </DocsBlock>
 
     <DocsBlock info="With onClose">
       <Box onClose={closeCallback} >
@@ -117,21 +123,24 @@ const Boxs = () => (
     </DocsBlock>
 
     <DocsBlock info="Example of message box usage">
-      <Box border={false} onClose={closeCallback} full color={COLOR.BLUE_SECONDARY}>
+      <Box color={COLOR.BLUE_SECONDARY} full border={false} onClose={closeCallback}>
         <ActionList noWrap toTop>
           <ActionListHole>
-            <Icon type={ICON_TYPE.POINTS} color={ICON_COLOR.DARK} size={30} />
+            <Avatar spaced />
           </ActionListHole>
-          <ActionListHole>
+          <ActionListHole grow>
             <ContentBox>
-              <ContentBoxContent spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.XSMALL}>
+              <ContentBoxContent
+                spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.XSMALL}
+                spacedTop={CONTENT_BOX_CONTENT_SPACING_SIZE.SMALL}
+              >
                 <Text weight={TEXT_WEIGHT.BOLD} size={TEXT_SIZE.SMALL}>
-                Title for a message with valuable information for a user.
+                  Title for a message with valuable information for a user.
                 </Text>
               </ContentBoxContent>
-              <ContentBoxContent>
+              <ContentBoxContent spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.SMALL}>
                 <Text size={TEXT_SIZE.SMALL}>
-                This is valuable information for users in a specific situation. For example:
+                  This is valuable information for users in a specific situation. For example:
                 we want to let you know that in 24h Brainly will disable some feature.
                 You can find more information about this change on our blog.
                 </Text>
