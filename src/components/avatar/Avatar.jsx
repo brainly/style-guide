@@ -17,7 +17,7 @@ export const SIZE = {
   XXXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
 
-const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, link, title, ...props}) => {
+const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, gray, className, link, title, ...props}) => {
   const avatarClass = classNames('sg-avatar', {
     [`sg-avatar--${size.className}`]: size !== SIZE.normal,
     'sg-avatar--with-border': border,
@@ -28,6 +28,8 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
 
   if (imgSrc) {
     avatarContent = <img className="sg-avatar__image" src={imgSrc} alt={title} title={title} />;
+  } else if (gray) {
+    avatarContent = <img className="sg-avatar__image sg-avatar__image--icon" />;
   } else {
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
@@ -47,6 +49,7 @@ Avatar.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   border: PropTypes.bool,
   spaced: PropTypes.bool,
+  gray: PropTypes.bool,
   imgSrc: PropTypes.string,
   className: PropTypes.string,
   title: PropTypes.string,

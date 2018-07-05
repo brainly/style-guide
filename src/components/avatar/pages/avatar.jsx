@@ -17,6 +17,11 @@ const Avatars = () => (
         )}
       </ContrastBox>
     </DocsBlock>
+    <DocsBlock info="Gray" toBottom>
+      {Object.values(SIZE).map(
+        (size, index) => <Avatar key={index} size={size} gray />
+      )}
+    </DocsBlock>
     <DocsBlock info="Default avatars" toBottom>
       {Object.values(SIZE).map(
         (size, index) => <Avatar key={index} size={size} imgSrc="https://source.unsplash.com/240x240/?cat" />
