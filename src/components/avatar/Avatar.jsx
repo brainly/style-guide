@@ -33,11 +33,7 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, gray, class
   } else {
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
-        <Icon
-          type={DEFAULT_ICON}
-          color={DEFAULT_COLOR}
-          size={border ? size.iconSize - BORDER_SIZE : size.iconSize}
-        />
+        <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize} />
       </div>
     );
   }
