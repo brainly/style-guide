@@ -7,7 +7,21 @@ export const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bot
 
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, className, ...props}) => {
+export const BUBBLE_COLOR = {
+  BLUE: 'blue',
+  LAVENDER: 'lavender',
+  DARK: 'dark',
+  MINT: 'mint',
+  MINT_SECONDARY: 'mint-secondary',
+  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
+  NAVYBLUE_SECONDARY: 'navyblue-secondary',
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
+  PEACH: 'peach'
+};
+
+const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, children, className, ...props}) => {
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
@@ -18,6 +32,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, classN
 
   const bubbleClass = classNames('sg-bubble', className, {
     'sg-bubble--full': full,
+    [`sg-bubble--${color}`]: color,
     [`sg-bubble--${direction}`]: direction,
     [alignmentClass]: alignment !== ALIGNMENT.CENTER
   }, className);
@@ -32,6 +47,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, full, children, classN
 Bubble.propTypes = {
   children: PropTypes.node.isRequired,
   direction: PropTypes.oneOf(Object.values(DIRECTION)).isRequired,
+  color: PropTypes.oneOf(Object.values(BUBBLE_COLOR)),
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   full: PropTypes.bool,
   className: PropTypes.string
