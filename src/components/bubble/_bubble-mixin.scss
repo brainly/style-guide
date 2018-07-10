@@ -1,0 +1,56 @@
+@mixin bubbleColor() {
+  &--mint {
+    background-color: $mintPrimary;
+    border-color: $mintPrimary;
+  }
+
+  &--mint-secondary {
+    background-color: $mintSecondary;
+    border-color: $mintSecondary;
+  }
+
+  &--mint-secondary-light {
+    background-color: $mintSecondaryLight;
+    border-color: $mintSecondaryLight;
+  }
+
+  &--blue {
+    background-color: $bluePrimary;
+    border-color: $bluePrimary;
+  }
+
+  &--blue-secondary {
+    background-color: $blueSecondary;
+    border-color: $blueSecondary;
+  }
+
+  &--blue-secondary-light {
+    background-color: $blueSecondaryLight;
+    border-color: $blueSecondaryLight;
+  }
+
+  &--lavender {
+    background-color: $lavenderPrimary;
+    border-color: $lavenderPrimary;
+  }
+
+  &--dark {
+    background-color: $graySecondaryLight;
+    border-color: $graySecondaryLight;
+  }
+
+  &--navyblue-secondary {
+    background-color: $navyblueSecondary;
+    border-color: $navyblueSecondary;
+  }
+
+  &--peach {
+    background-color: $peachPrimary;
+    border-color: $peachPrimary;
+  }
+
+  &--gray-secondary-lightest {
+    background-color: $graySecondaryLightest;
+    border-color: $graySecondaryLightest;
+  }
+}

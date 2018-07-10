@@ -1,5 +1,6 @@
+@import './bubble-mixin';
+
 $bubbleBackground: $white;
-$bubbleBorderColor: $graySecondaryLight;
 
 $triangleSize: gutter(0.5);
 $innerTriangleSize: 10px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
@@ -24,7 +25,10 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-bubble {
+    @include bubbleColor();
+
     background: $bubbleBackground;
+    border-color: $bubbleBackground;
     border-radius: $borderRadiusDefault;
     box-shadow: $elevatedContainerShadow;
     padding: gutter(0.5) gutter(1);
@@ -44,13 +48,13 @@ $includeHtml: false !default;
 
     &--left {
       &::before {
-        border-right-color: $bubbleBorderColor;
+        border-right-color: inherit;
         left: -(2 * $triangleSize);
         right: auto;
       }
 
       &::after {
-        border-right-color: $bubbleBackground;
+        border-right-color: inherit;
         left: $innerTriangleOffset;
         right: auto;
       }
@@ -58,13 +62,13 @@ $includeHtml: false !default;
 
     &--right {
       &::before {
-        border-left-color: $bubbleBorderColor;
+        border-left-color: inherit;
         right: -(2 * $triangleSize);
         left: auto;
       }
 
       &::after {
-        border-left-color: $bubbleBackground;
+        border-left-color: inherit;
         right: $innerTriangleOffset;
         left: auto;
       }
@@ -72,13 +76,13 @@ $includeHtml: false !default;
 
     &--top {
       &::before {
-        border-bottom-color: $bubbleBorderColor;
+        border-bottom-color: inherit;
         top: -(2 * $triangleSize);
         bottom: auto;
       }
 
       &::after {
-        border-bottom-color: $bubbleBackground;
+        border-bottom-color: inherit;
         top: $innerTriangleOffset;
         bottom: auto;
       }
@@ -86,13 +90,13 @@ $includeHtml: false !default;
 
     &--bottom {
       &::before {
-        border-top-color: $bubbleBorderColor;
+        border-top-color: inherit;
         bottom: -(2 * $triangleSize);
         top: auto;
       }
 
       &::after {
-        border-top-color: $bubbleBackground;
+        border-top-color: inherit;
         bottom: $innerTriangleOffset;
         top: auto;
       }
