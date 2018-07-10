@@ -1,5 +1,5 @@
 import React from 'react';
-import Bubble, {DIRECTION, ALIGNMENT, COLOR} from '../Bubble';
+import Bubble, {DIRECTION, ALIGNMENT, BUBBLE_COLOR} from '../Bubble';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
@@ -30,7 +30,7 @@ const Bubbles = () => {
     },
     {
       name: 'color',
-      values: COLOR
+      values: BUBBLE_COLOR
     }
   ];
 
