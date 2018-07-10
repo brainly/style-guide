@@ -42,6 +42,7 @@ import subjectMonoIcons from '../components/subject-icons/pages/subject-mono-ico
 import subjects from '../components/subject-icons/pages/subjects';
 import MathSymbols from '../components/math-symbols/pages/math-symbols';
 import separators from '../components/separators/pages/separators';
+import spinners from '../components/spinner/pages/spinners';
 
 const navigation = [
   {
@@ -183,6 +184,10 @@ const navigation = [
       {
         'name': 'Flash messages',
         component: flashMessage
+      },
+      {
+        'name': 'Spinner',
+        component: spinners
       }
     ]
   },

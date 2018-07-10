@@ -41,6 +41,7 @@ import Logos from 'logo/pages/logo-interactive';
 import Media from 'media/pages/media-interactive';
 import Helpers from 'helpers/pages/rwd-interactive';
 import ContentBoxes from 'content-box/pages/content-box-interactive';
+import Spinners from 'spinner/pages/spinners-interactive';
 
 const demos = {
   'Avatars': <Avatars />,
@@ -82,7 +83,8 @@ const demos = {
   'Logo': <Logos />,
   'Media': <Media />,
   'Helpers': <Helpers />,
-  'ContentBox': <ContentBoxes />
+  'ContentBox': <ContentBoxes />,
+  'Spinner': <Spinners />
 };
 
 const sections = Object.keys(demos).map(key => (
