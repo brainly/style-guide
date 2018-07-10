@@ -1,5 +1,5 @@
 import React from 'react';
-import Bubble, {DIRECTION, ALIGNMENT} from '../Bubble';
+import Bubble, {DIRECTION, ALIGNMENT, BUBBLE_COLOR} from '../Bubble';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent from 'content-box/ContentBoxContent';
@@ -101,6 +101,14 @@ const Bubbles = () => (
         </ContentBox>
       </Bubble>
     </DocsBlock>
+
+    {Object.values(BUBBLE_COLOR).map(color => (
+      <DocsBlock key={color} info={`color ${color}`}>
+        <Bubble direction={DIRECTION.LEFT} color={color}>
+          {color}<br />
+        </Bubble>
+      </DocsBlock>))
+    }
   </div>
 );
 

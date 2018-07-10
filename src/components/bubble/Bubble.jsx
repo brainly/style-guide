@@ -7,7 +7,7 @@ export const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bot
 
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-export const COLOR = {
+export const BUBBLE_COLOR = {
   BLUE: 'blue',
   LAVENDER: 'lavender',
   DARK: 'dark',
@@ -47,7 +47,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, children,
 Bubble.propTypes = {
   children: PropTypes.node.isRequired,
   direction: PropTypes.oneOf(Object.values(DIRECTION)).isRequired,
-  color: PropTypes.oneOf(Object.values(COLOR)),
+  color: PropTypes.oneOf(Object.values(BUBBLE_COLOR)),
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   full: PropTypes.bool,
   className: PropTypes.string
