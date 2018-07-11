@@ -1,0 +1,27 @@
+.sg-spinner {
+  background-color: transparent;
+  border: 3px solid $mintSecondaryLight;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  display: block;
+  width: gutter(4 / 3);
+  height: gutter(4 / 3);
+  box-sizing: border-box;
+  animation: spinner-animation 0.65s infinite linear;
+
+  &--gray {
+    border-bottom-color: $grayPrimary;
+    border-left-color: $grayPrimary;
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
