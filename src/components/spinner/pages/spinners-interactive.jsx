@@ -1,18 +1,22 @@
 import React from 'react';
-import Spinner from '../Spinner';
+import Spinner, {SPINNER_SIZE} from '../Spinner';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Spinners = () => {
   const settings = [
     {
-      name: 'gray',
+      name: 'size',
+      values: SPINNER_SIZE
+    },
+    {
+      name: 'light',
       values: Boolean
     }
   ];
 
   return (
     <div>
-      <DocsActiveBlock settings={settings} backgroundColor="none">
+      <DocsActiveBlock settings={settings} backgroundColor="light">
         <Spinner />
       </DocsActiveBlock>
     </div>
