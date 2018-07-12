@@ -2,9 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-const Spinner = ({gray, className, ...props}) => {
+export const SPINNER_SIZE = {
+  SMALL: 'small',
+  XSMALL: 'xsmall',
+  XXSMALL: 'xxsmall'
+};
+
+const Spinner = ({light, size, className, ...props}) => {
   const spinnerClassNames = classNames('sg-spinner', {
-    'sg-spinner--gray': gray
+    'sg-spinner--light': light,
+    [`sg-spinner--${size}`]: size
   }, className);
 
   return (
@@ -13,7 +20,8 @@ const Spinner = ({gray, className, ...props}) => {
 };
 
 Spinner.propTypes = {
-  gray: PropTypes.bool,
+  light: PropTypes.bool,
+  size: PropTypes.oneOf(Object.values(SPINNER_SIZE)),
   className: PropTypes.string
 };
 
