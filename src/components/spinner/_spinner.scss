@@ -1,18 +1,34 @@
 .sg-spinner {
   background-color: transparent;
-  border: 3px solid $mintSecondaryLight;
+  border: 3px solid $grayPrimary;
   border-radius: 50%;
   border-top-color: transparent;
   border-right-color: transparent;
-  display: block;
+  display: inline-block;
   width: gutter(4 / 3);
   height: gutter(4 / 3);
   box-sizing: border-box;
   animation: spinner-animation 0.65s infinite linear;
 
-  &--gray {
-    border-bottom-color: $grayPrimary;
-    border-left-color: $grayPrimary;
+  &--small {
+    width: gutter(1);
+    height: gutter(1);
+  }
+
+  &--xsmall {
+    width: gutter(5 / 6);
+    height: gutter(5 / 6);
+  }
+
+  &--xxsmall {
+    width: gutter(2 / 3);
+    height: gutter(2 / 3);
+    border-width: 2px;
+  }
+
+  &--light {
+    border-bottom-color: $white;
+    border-left-color: $white;
   }
 }
 
