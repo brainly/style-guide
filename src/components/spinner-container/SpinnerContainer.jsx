@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../spinner/Spinner';
+import Spinner, {SPINNER_SIZE} from '../spinner/Spinner';
 
-const SpinnerContainer = ({loading, gray, children}) => (
-  <div className="sg-spinner-container">
+export {SPINNER_SIZE} from '../spinner/Spinner';
+
+const SpinnerContainer = ({loading, light, size, children, ...props}) => (
+  <div {...props} className="sg-spinner-container">
     {children}
     {loading &&
       <div className="sg-spinner-container__overlay">
-        <Spinner gray={gray} />
+        <Spinner light={light} size={size} />
       </div>
     }
   </div>
@@ -15,7 +17,8 @@ const SpinnerContainer = ({loading, gray, children}) => (
 
 SpinnerContainer.propTypes = {
   loading: PropTypes.bool,
-  gray: PropTypes.bool,
+  light: PropTypes.bool,
+  size: PropTypes.oneOf(Object.values(SPINNER_SIZE)),
   children: PropTypes.node
 };
 
