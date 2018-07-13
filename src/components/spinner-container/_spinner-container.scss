@@ -1,0 +1,21 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .sg-spinner-container {
+    position: relative;
+    display: inline-block;
+
+    &__overlay {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+}
