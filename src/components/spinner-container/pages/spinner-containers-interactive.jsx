@@ -1,23 +1,27 @@
 import React from 'react';
-import SpinnerContainer from '../SpinnerContainer';
+import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const spinnerContainers = () => {
+const SpinnerContainers = () => {
   const settings = [
+    {
+      name: 'size',
+      values: SPINNER_SIZE
+    },
     {
       name: 'loading',
       values: Boolean
     },
     {
-      name: 'gray',
+      name: 'light',
       values: Boolean
     }
   ];
 
   return (
     <div>
-      <DocsActiveBlock settings={settings} backgroundColor="none">
+      <DocsActiveBlock settings={settings} backgroundColor="light">
         <SpinnerContainer>
           <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
             Ask your question
@@ -28,4 +32,4 @@ const spinnerContainers = () => {
   );
 };
 
-export default spinnerContainers;
+export default SpinnerContainers;

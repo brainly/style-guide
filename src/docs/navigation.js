@@ -43,7 +43,7 @@ import subjects from '../components/subject-icons/pages/subjects';
 import MathSymbols from '../components/math-symbols/pages/math-symbols';
 import separators from '../components/separators/pages/separators';
 import spinners from '../components/spinner/pages/spinners';
-import spinnerContainers from '../components/spinner-container/pages/spinner-container';
+import SpinnerContainers from '../components/spinner-container/pages/spinner-containers';
 
 const navigation = [
   {
@@ -248,7 +248,7 @@ const navigation = [
       },
       {
         'name': 'Spinner Container',
-        component: spinnerContainers
+        component: SpinnerContainers
       }
     ]
   },

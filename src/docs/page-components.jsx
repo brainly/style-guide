@@ -42,6 +42,7 @@ import Media from 'media/pages/media-interactive';
 import Helpers from 'helpers/pages/rwd-interactive';
 import ContentBoxes from 'content-box/pages/content-box-interactive';
 import Spinners from 'spinner/pages/spinners-interactive';
+import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
 
 const demos = {
   'Avatars': <Avatars />,
@@ -84,7 +85,8 @@ const demos = {
   'Media': <Media />,
   'Helpers': <Helpers />,
   'ContentBox': <ContentBoxes />,
-  'Spinner': <Spinners />
+  'Spinner': <Spinners />,
+  'Spinner Container': <SpinnerContainers />
 };
 
 const sections = Object.keys(demos).map(key => (
