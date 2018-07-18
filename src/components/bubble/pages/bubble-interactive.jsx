@@ -29,6 +29,10 @@ const Bubbles = () => {
       values: Boolean
     },
     {
+      name: 'noShadow',
+      values: Boolean
+    },
+    {
       name: 'color',
       values: BUBBLE_COLOR
     }

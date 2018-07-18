@@ -21,7 +21,7 @@ export const BUBBLE_COLOR = {
   PEACH: 'peach'
 };
 
-const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, children, className, ...props}) => {
+const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, noShadow, children, className, ...props}) => {
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
@@ -32,6 +32,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, children,
 
   const bubbleClass = classNames('sg-bubble', className, {
     'sg-bubble--full': full,
+    'sg-bubble--no-shadow': noShadow,
     [`sg-bubble--${color}`]: color,
     [`sg-bubble--${direction}`]: direction,
     [alignmentClass]: alignment !== ALIGNMENT.CENTER
@@ -50,6 +51,7 @@ Bubble.propTypes = {
   color: PropTypes.oneOf(Object.values(BUBBLE_COLOR)),
   alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
   full: PropTypes.bool,
+  noShadow: PropTypes.bool,
   className: PropTypes.string
 };
 
