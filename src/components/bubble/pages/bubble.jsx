@@ -109,6 +109,13 @@ const Bubbles = () => (
         </Bubble>
       </DocsBlock>))
     }
+
+    <DocsBlock info="Without shadow" additionalInfo="--no-shadow">
+      <Bubble direction={DIRECTION.LEFT} color={BUBBLE_COLOR.MINT_SECONDARY} noShadow>
+        Hi there!!<br />
+        Just wondering if you have any problems with your school work.
+      </Bubble>
+    </DocsBlock>
   </div>
 );
 

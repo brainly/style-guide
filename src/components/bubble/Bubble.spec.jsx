@@ -72,3 +72,11 @@ test('render full', () => {
 
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);
 });
+
+test('renders without shadow', () => {
+  const bubble = shallow(
+    <Bubble direction={DIRECTION.LEFT} noShadow>Some text</Bubble>
+  );
+
+  expect(bubble.hasClass('sg-bubble--no-shadow')).toEqual(true);
+});

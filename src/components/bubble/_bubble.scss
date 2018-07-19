@@ -34,6 +34,10 @@ $includeHtml: false !default;
       height: 100%;
     }
 
+    &--no-shadow {
+      box-shadow: none;
+    }
+
     &::before {
       @include arrow($triangleSize);
     }
