@@ -69,7 +69,6 @@ $includeHtml: false !default;
       }
 
       &--reversed-order {
-
         @include sgBreakpoint(large-only) {
           flex-direction: row-reverse;
         }
