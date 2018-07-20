@@ -77,6 +77,9 @@ $includeHtml: false !default;
         .sg-layout__content {
           background-color: transparent;
           padding: 0;
+          @include sgBreakpoint(medium-down) {
+            order: 2;
+          }
         }
 
         .sg-layout__secondary-content {
@@ -93,6 +96,9 @@ $includeHtml: false !default;
           @include sgBreakpoint(large-only) {
             margin-right: $layoutGapWidth;
             margin-left: 0;
+          }
+          @include sgBreakpoint(medium-down) {
+            order: 1;
           }
         }
       }
