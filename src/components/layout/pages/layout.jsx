@@ -15,6 +15,12 @@ const Layouts = () => (
     <DocsBlock info="reversed-order">
       <iframe height="568" width="1100" src="components/layout/layout_reversed_order.html" />
     </DocsBlock>
+    <DocsBlock info="reversed-order medium">
+      <iframe height="568" width="800" src="components/layout/layout_reversed_order.html" />
+    </DocsBlock>
+    <DocsBlock info="reversed-order small">
+      <iframe height="568" width="360" src="components/layout/layout_reversed_order.html" />
+    </DocsBlock>
     <DocsBlock info="wide + three-columns">
       <iframe height="568" width="1100" src="components/layout/layout_three_columns.html" />
     </DocsBlock>
