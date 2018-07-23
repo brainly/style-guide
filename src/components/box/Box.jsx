@@ -49,7 +49,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
   return (
     <div {...props} className={boxClass}>
       {onClose ?
-        <div className="sg-box__close" onClose={onClose}>
+        <div className="sg-box__close" onClick={onClose}>
           <Icon type={iconTypes.X} color={ICON_COLOR.DARK} size={10} />
         </div> : null
       }

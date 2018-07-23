@@ -129,6 +129,17 @@ test('close button', () => {
   expect(box.find('.sg-box__close')).toHaveLength(1);
 });
 
+test('clicking on close button calls onClose', () => {
+  const mockCallback = jest.fn();
+  const box = shallow(<Box onClose={mockCallback} />);
+
+  const closeDivNode = box.find('.sg-box__close');
+
+  closeDivNode.simulate('click');
+
+  expect(mockCallback).toHaveBeenCalled();
+});
+
 test('image container', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
