@@ -1,4 +1,4 @@
-$overlayBackgroundColor: rgba(0, 0, 0, 0.6);
+$overlayBackgroundColor: rgba($bluePrimary, 0.9);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
