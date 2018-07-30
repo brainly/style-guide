@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Label from 'labels/Label';
-import Radio from '../Radio';
+import Radio, {RADIO_SIZE} from '../Radio';
 
 const dumpProps = {onChange: () => undefined};
 
@@ -27,6 +27,10 @@ const radios = () => (
           <Radio name="group3" />
         }
       />
+    </DocsBlock>
+    <DocsBlock info="Large">
+      <Radio size={RADIO_SIZE.LARGE} name="group4" />
+      <Radio size={RADIO_SIZE.LARGE} name="group4" checked {...dumpProps} />
     </DocsBlock>
   </div>
 );

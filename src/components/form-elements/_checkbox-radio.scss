@@ -5,6 +5,7 @@ $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
 $crRadioCheckedColor: $white;
 $crInputActiveColor: rgba($crInputColor, 0.7);
+$radioLargeSize: gutter(1.5);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -82,6 +83,29 @@ $includeHtml: false !default;
 
       & + .sg-radio__ghost::before {
         background: $crInputCheckedColor;
+      }
+    }
+
+    &--large {
+      width: $radioLargeSize;
+      height: $radioLargeSize;
+      min-height: $radioLargeSize;
+      line-height: $radioLargeSize;
+
+      .sg-radio__element {
+        left: 0;
+        width: $radioLargeSize;
+        height: $radioLargeSize;
+      }
+
+      .sg-radio__ghost {
+        width: $radioLargeSize;
+        height: $radioLargeSize;
+
+        &::before {
+          width: $radioLargeSize / 2;
+          height: $radioLargeSize / 2;
+        }
       }
     }
   }

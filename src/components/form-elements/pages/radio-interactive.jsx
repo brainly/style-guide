@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio from '../Radio';
+import Radio, {RADIO_SIZE} from '../Radio';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Radios = () => {
@@ -7,6 +7,10 @@ const Radios = () => {
     {
       name: 'checked',
       values: Boolean
+    },
+    {
+      name: 'size',
+      values: RADIO_SIZE
     }
   ];
 
