@@ -14,13 +14,12 @@ export const ALIGNMENT = {
   BASELINE: 'align-baseline'
 };
 
-const ActionList = ({children, toTop, direction, align, noWrap, vertical, className, ...props}) => {
+const ActionList = ({children, toTop, direction, align, noWrap, className, ...props}) => {
   const actionListClass = classNames('sg-actions-list', {
     [`sg-actions-list--${direction}`]: direction,
     [`sg-actions-list--${align}`]: align,
     'sg-actions-list--to-top': toTop,
-    'sg-actions-list--no-wrap': noWrap,
-    'sg-actions-list--vertical': vertical
+    'sg-actions-list--no-wrap': noWrap
   }, className);
 
   return (
@@ -36,8 +35,7 @@ ActionList.propTypes = {
   noWrap: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
-  toTop: PropTypes.bool,
-  vertical: PropTypes.bool
+  toTop: PropTypes.bool
 };
 
 export default ActionList;

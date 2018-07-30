@@ -33,23 +33,6 @@ const ActionLists = () => (
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Vertical">
-      <ContrastBox fullWidth>
-        <ActionList vertical>
-          <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
-              accept
-            </ButtonSecondary>
-          </ActionListHole>
-          <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
-          </ActionListHole>
-        </ActionList>
-      </ContrastBox>
-    </DocsBlock>
-
     <DocsBlock info="To right">
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_RIGHT}>
