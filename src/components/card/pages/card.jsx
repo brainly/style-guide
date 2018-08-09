@@ -56,6 +56,17 @@ const Cards = () => (
       </Card>
     </DocsBlock>
 
+    <DocsBlock info="Vertical with small padding">
+      <Card vertical padding={CARD_PADDING.SMALL}>
+        <CardHole color={CARD_HOLE_COLOR.LAVENDER_SECONDARY_LIGHT}>
+          This is card content left
+        </CardHole>
+        <CardHole>
+         This is card content right
+        </CardHole>
+      </Card>
+    </DocsBlock>
+
     <DocsBlock info="Example use">
       <Card padding={CARD_PADDING.SMALL}>
         <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>

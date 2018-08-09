@@ -12,6 +12,10 @@ const Cards = () => {
       values: CARD_PADDING
     },
     {
+      name: 'vertical',
+      values: Boolean
+    },
+    {
       name: 'centered',
       values: Boolean
     },

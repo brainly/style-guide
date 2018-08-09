@@ -4,12 +4,15 @@ import classNames from 'classnames';
 
 export const CARD_PADDING = {
   SMALL: 'padding-small',
-  LARGE: 'padding-large'
+  NORMAL: 'padding-normal',
+  LARGE: 'padding-large',
+  XLARGE: 'padding-xlarge'
 };
 
-const Card = ({children, full, centered, padding, shadow, noBorder, transparent, className, ...props}) => {
+const Card = ({children, full, vertical, centered, padding, shadow, noBorder, transparent, className, ...props}) => {
   const cardClass = classNames('sg-card', {
     'sg-card--full': full,
+    'sg-card--vertical': vertical,
     'sg-card--with-shadow': shadow,
     'sg-card--no-border': noBorder,
     'sg-card--centered': centered,
@@ -27,6 +30,7 @@ const Card = ({children, full, centered, padding, shadow, noBorder, transparent,
 Card.propTypes = {
   children: PropTypes.node,
   full: PropTypes.bool,
+  vertical: PropTypes.bool,
   centered: PropTypes.bool,
   noBorder: PropTypes.bool,
   shadow: PropTypes.bool,
