@@ -29,6 +29,15 @@ $includeHtml: false !default;
       }
     }
 
+    &--vertical {
+      flex-direction: row;
+
+    .sg-card__hole {
+      align-self: stretch;
+      flex: 1;
+      }
+    }
+
     &--with-shadow {
       box-shadow: $cardShadow;
     }
@@ -43,7 +52,6 @@ $includeHtml: false !default;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        height: 100%;
         justify-content: center;
       }
     }
@@ -55,10 +63,24 @@ $includeHtml: false !default;
       }
     }
 
+    &--padding-normal {
+
+      .sg-card__hole {
+        padding: gutter(1);
+      }
+    }
+
     &--padding-large {
 
       .sg-card__hole {
-        padding: (gutter(2) - $cardBorderSize);
+        padding: gutter(4 / 3);
+      }
+    }
+
+    &--padding-xlarge {
+
+      .sg-card__hole {
+        padding: gutter(8 / 3);
       }
     }
 
@@ -69,8 +91,24 @@ $includeHtml: false !default;
         background-color: $bluePrimary;
       }
 
+      &--blue-secondary {
+        background-color: $blueSecondary;
+      }
+
+      &--blue-secondary-light {
+        background-color: $blueSecondaryLight;
+      }
+
       &--lavender {
         background-color: $lavenderPrimary;
+      }
+
+      &--lavender-secondary {
+        background-color: $lavenderSecondary;
+      }
+
+      &--lavender-secondary-light {
+        background-color: $lavenderSecondaryLight;
       }
 
       &--mint {
