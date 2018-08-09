@@ -32,10 +32,10 @@ $includeHtml: false !default;
     &--vertical {
       flex-direction: row;
 
-    .sg-card__hole {
-      align-self: stretch;
-      flex: 1;
-      }
+      .sg-card__hole {
+        align-self: stretch;
+        flex: 1;
+        }
     }
 
     &--with-shadow {
