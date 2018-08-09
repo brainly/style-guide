@@ -34,6 +34,21 @@ describe('Card', () => {
     expect(card.hasClass('sg-card--full')).toEqual(true);
   });
 
+  test('vertical', () => {
+    const card = shallow(
+      <Card vertical>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
+          This is card top
+        </CardHole>
+        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
+          This is card bottom
+        </CardHole>
+      </Card>
+    );
+
+    expect(card.hasClass('sg-card--vertical')).toEqual(true);
+  });
+
   test('centered', () => {
     const card = shallow(
       <Card centered>

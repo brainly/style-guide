@@ -4,7 +4,11 @@ import classnames from 'classnames';
 
 export const CARD_HOLE_COLOR = {
   BLUE: 'blue',
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
   LAVENDER: 'lavender',
+  LAVENDER_SECONDARY: 'lavender-secondary',
+  LAVENDER_SECONDARY_LIGHT: 'lavender-secondary-light',
   MINT: 'mint',
   MINT_SECONDARY: 'mint-secondary',
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
