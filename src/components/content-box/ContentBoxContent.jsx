@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 
 const ContentBoxContent = ({children, full, spacedTop, spacedBottom, className, align = ALIGNMENT.LEFT, ...props}) => {
-  const contentBoxClass = classNames('sg-content-box__content', className, {
+  const contentBoxClass = classNames('sg-content-box__content', {
     'sg-content-box__content--full': full,
     'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
     'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
