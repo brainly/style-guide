@@ -19,6 +19,9 @@ const Logos = () => (
     <DocsBlock info="Brainly Plus">
       <Logo type={TYPE.BRAINLY_PLUS} />
     </DocsBlock>
+    <DocsBlock info="Brainly Plus White">
+      <Logo type={TYPE.BRAINLY_PLUS_WHITE} />
+    </DocsBlock>
     <DocsBlock info="Brainly Plus Large">
       <Logo type={TYPE.BRAINLY_PLUS_LARGE} />
     </DocsBlock>
