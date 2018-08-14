@@ -10,6 +10,7 @@ const Layout = ({
   noMaxWidth,
   noMarginTop,
   fullPage,
+  fullHeight,
   wide,
   threeColumns,
   className,
@@ -22,7 +23,8 @@ const Layout = ({
     'sg-layout__container--reversed-order': reversedOrder,
     'sg-layout__container--no-max-width': noMaxWidth,
     'sg-layout__container--no-margin-top': noMarginTop,
-    'sg-layout__container--full-page': fullPage
+    'sg-layout__container--full-page': fullPage,
+    'sg-layout__container--full-height': fullHeight
   });
   let footerContent;
 
@@ -49,6 +51,7 @@ Layout.propTypes = {
   noMaxWidth: PropTypes.bool,
   noMarginTop: PropTypes.bool,
   fullPage: PropTypes.bool,
+  fullHeight: PropTypes.bool,
   wide: PropTypes.bool,
   threeColumns: PropTypes.bool,
   className: PropTypes.string

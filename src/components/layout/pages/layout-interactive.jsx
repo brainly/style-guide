@@ -26,6 +26,10 @@ const Layouts = () => {
       values: Boolean
     },
     {
+      name: 'fullHeight',
+      values: Boolean
+    },
+    {
       name: 'threeColumns',
       values: Boolean
     },
