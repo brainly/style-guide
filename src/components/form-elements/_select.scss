@@ -76,9 +76,9 @@ $includeHtml: false !default;
     }
 
     &--capitalized {
-      select {
+      .sg-select__element {
         text-transform: capitalize;
-      } 
+      }
     }
   }
 }
