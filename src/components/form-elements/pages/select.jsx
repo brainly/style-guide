@@ -4,7 +4,7 @@ import DocsBlock from 'components/DocsBlock';
 
 const exampleOptions = [
   {value: 'option1', text: 'Option1'},
-  {value: 'option2', text: 'Select Selector'}
+  {value: 'option2', text: 'Select selector'}
 ];
 const exampleProps = {
   options: exampleOptions,
@@ -22,6 +22,9 @@ const selects = () => (
     </DocsBlock>
     <DocsBlock info="Invalid">
       <Select {...exampleProps} invalid />
+    </DocsBlock>
+    <DocsBlock info="Capitalized">
+      <Select {...exampleProps} capitalized />
     </DocsBlock>
     <DocsBlock info="Full width">
       <Select {...exampleProps} fullWidth />
