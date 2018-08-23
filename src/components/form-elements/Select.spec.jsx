@@ -72,6 +72,14 @@ test('invalid', () => {
   expect(select.hasClass('sg-select--invalid')).toEqual(true);
 });
 
+test('invalid', () => {
+  const select = shallow(
+    <Select capitalized />
+  );
+
+  expect(select.hasClass('sg-select--capitalized')).toEqual(true);
+});
+
 test('error when both valid and invalid', () => {
   expect(() => {
     shallow(<Select valid invalid />);

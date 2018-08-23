@@ -74,5 +74,11 @@ $includeHtml: false !default;
     &--invalid {
       color: $selectActiveInvalidBorderColor;
     }
+
+    &--capitalized {
+      select {
+        text-transform: capitalize;
+      } 
+    }
   }
 }

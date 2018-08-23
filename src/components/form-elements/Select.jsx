@@ -6,6 +6,7 @@ const Select = props => {
   const {
     valid,
     invalid,
+    capitalized,
     fullWidth,
     value,
     className,
@@ -23,6 +24,7 @@ const Select = props => {
   const selectClass = classnames('sg-select', {
     'sg-select--valid': valid,
     'sg-select--invalid': invalid,
+    'sg-select--capitalized': capitalized,
     'sg-select--full-width': fullWidth
   }, className);
   const optionsElements = options.map(({value, text}) =>
@@ -48,6 +50,7 @@ Select.propTypes = {
   value: PropTypes.string,
   valid: PropTypes.bool,
   invalid: PropTypes.bool,
+  capitalized: PropTypes.bool,
   fullWidth: PropTypes.bool,
   options: PropTypes.arrayOf(optionShape),
   className: PropTypes.string
