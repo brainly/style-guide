@@ -1,5 +1,5 @@
-import React from 'react';
 import {shallow} from 'enzyme';
+import React from 'react';
 import List from './List';
 
 describe('<List>', () => {
@@ -25,5 +25,14 @@ describe('<List>', () => {
     );
 
     expect(list.hasClass('sg-list--spaced-elements')).toEqual(false);
+  });
+
+  it('renders additional classes', () => {
+    const list = shallow(
+      <List className="m4l" />
+    );
+
+    expect(list.hasClass('sg-list')).toEqual(true);
+    expect(list.hasClass('m4l')).toEqual(true);
   });
 });

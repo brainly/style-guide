@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const List = ({spaced, className, children, ...props}) => {
   const listClass = classNames('sg-list', {

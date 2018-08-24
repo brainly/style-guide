@@ -27,4 +27,13 @@ describe('<ListItemIcon>', () => {
 
     expect(listItemIcon.contains(children)).toEqual(true);
   });
+
+  it('renders additional classes', () => {
+    const list = shallow(
+      <ListItemIcon className="m4l">42</ListItemIcon>
+    );
+
+    expect(list.hasClass('sg-list__icon')).toEqual(true);
+    expect(list.hasClass('m4l')).toEqual(true);
+  });
 });
