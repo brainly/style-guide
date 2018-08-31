@@ -13,7 +13,7 @@ $includeHtml: false !default;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
-    
+
     &--small {
       @include uppercaseText(0);
       font-size: getFontSize($newFontSizes, small);
