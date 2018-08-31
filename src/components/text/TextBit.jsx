@@ -26,7 +26,7 @@ export const COLOR = {
   PEACH_PRIMARY: 'peach-primary'
 };
 
-const TextBit = ({children, type = TYPE.H1, color, size, notResponsive, className, ...props}) => {
+const TextBit = ({children, type = TYPE.H1, color, size, className, ...props}) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
     [`sg-text-bit--${size}`]: size,
@@ -45,7 +45,6 @@ TextBit.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
   color: PropTypes.oneOf(Object.values(COLOR)),
   type: PropTypes.oneOf(Object.values(TYPE)),
-  notResponsive: PropTypes.bool,
   className: PropTypes.string
 };
 

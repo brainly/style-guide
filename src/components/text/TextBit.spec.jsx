@@ -12,10 +12,10 @@ test('render', () => {
 
 test('sie', () => {
   const textBit = shallow(
-    <TextBit size={TB_SIZE.XXLARGE}>Test</TextBit>
+    <TextBit size={TB_SIZE.XLARGE}>Test</TextBit>
   );
 
-  expect(textBit.hasClass('sg-text-bit--xxlarge')).toBeTruthy();
+  expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
 });
 
 test('type', () => {
@@ -28,16 +28,8 @@ test('type', () => {
 
 test('color', () => {
   const textBit = shallow(
-    <TextBit color={TB_COLOR.ALT}>Test</TextBit>
+    <TextBit color={TB_COLOR.BLUE_SECONDARY}>Test</TextBit>
   );
 
-  expect(textBit.hasClass('sg-text-bit--alt')).toBeTruthy();
-});
-
-test('not responsive', () => {
-  const textBit = shallow(
-    <TextBit notResponsive>Test</TextBit>
-  );
-
-  expect(textBit.hasClass('sg-text-bit--not-responsive')).toBeTruthy();
+  expect(textBit.hasClass('sg-text-bit--blue-secondary')).toBeTruthy();
 });
