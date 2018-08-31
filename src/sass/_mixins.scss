@@ -42,6 +42,15 @@
   @return map-get($fontSizes, $fontsizeKey);
 }
 
+// $newFontSizes would be changed to fontSizes as soon as we removed the old ones
+@function getFontSize($newFontSizes, $fontsizeKey) {
+  @return map-get($newFontSizes, $fontsizeKey);
+}
+
+@function getLineHeight($lineHeightSizes, $lineheightKey) {
+  @return map-get($lineHeightSizes, $lineheightKey);
+}
+
 @mixin uppercaseText($letterSpacing: null) {
   text-transform: uppercase;
   @if $letterSpacing != null {

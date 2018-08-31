@@ -1,76 +1,53 @@
-$textBitFontSize: subheader;
-$textBitColor: $mintSecondary;
-$textBitAltColor: $blueSecondary;
-$textBitWarningColor: $peachPrimary;
-$textBitLightColor: $white;
-$textBitDarkColor: $black;
-$textBitGrayColor: $graySecondary;
+$lineHeightSizes: $bitSizes;
+$newFontSizes: $bitSizes;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .sg-text-bit {
-    @include typeVariant($textBitFontSize, 2);
     @include uppercaseText(-0.0625rem);
-    color: $textBitColor;
+    font-size: getFontSize($newFontSizes, normal);
+    line-height: getLineHeight($lineHeightSizes, normal);
+    color: $mintSecondary;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
-
-    @include sgBreakpoint(medium-up) {
-      &:not(.sg-text-bit--not-responsive) {
-        font-size: fontSize(large);
-      }
-    }
-
-    &--alt {
-      color: $textBitAltColor;
-    }
-
-    &--light {
-      color: $textBitLightColor;
-    }
-
-    &--dark {
-      color: $textBitDarkColor;
-    }
-
-    &--gray {
-      color: $textBitGrayColor;
-    }
-
-    &--warning {
-      color: $textBitWarningColor;
-    }
-
+    
     &--small {
       @include uppercaseText(0);
-      font-size: fontSize(headline);
-      line-height: rhythm(1);
-
-      @include sgBreakpoint(medium-up) {
-        &:not(.sg-text-bit--not-responsive) {
-          @include typeVariant(subheader, 2);
-        }
-      }
+      font-size: getFontSize($newFontSizes, small);
+      line-height: getLineHeight($lineHeightSizes, small);
     }
 
     &--large {
-      font-size: fontSize(large);
+      font-size: getFontSize($newFontSizes, large);
+      line-height: getLineHeight($lineHeightSizes, large);
     }
 
     &--xlarge {
-      @include typeVariant(large, 2);
-      width: 100%;
-
-      @include sgBreakpoint(large-only) {
-        @include typeVariant(xxlarge, 3);
-      }
+      font-size: getFontSize($newFontSizes, xlarge);
+      line-height: getLineHeight($lineHeightSizes, xlarge);
     }
 
-    &--xxlarge {
-      @include typeVariant(xxlarge, 3);
+    &--blue-secondary {
+      color: $blueSecondary;
+    }
+
+    &--white {
+      color: $white;
+    }
+
+    &--black {
+      color: $black;
+    }
+
+    &--gray-secondary {
+      color: $graySecondary;
+    }
+
+    &--peach-primary {
+      color: $peachPrimary;
     }
   }
 }

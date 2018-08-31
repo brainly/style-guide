@@ -60,8 +60,12 @@ $fontWeightBold: 700;
 $fontWeightBlack: 900;
 
 // Vertical rhythm
-$baseFont: 16px;
+$baseFont: 18px;
 $baseline: 1.5rem;
+
+
+$newFontSize: 18px;
+$newBaseLine: 27px;
 
 // Typo
 $fontSizes: (
@@ -78,6 +82,13 @@ $fontSizes: (
   headline: 1.5rem,  // 24px
   subheader: 2.75rem, // 44px
   header: 3rem
+);
+
+$bitSizes: (
+  xlarge: 80px,
+  large: 56px,
+  normal: 40px,
+  small: 24px,
 );
 
 // Layout
