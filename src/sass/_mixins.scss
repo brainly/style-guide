@@ -42,7 +42,7 @@
   @return map-get($fontSizes, $fontsizeKey);
 }
 
-// $$bitSizes one config for font size and line-height 
+// $bitSizes one config for font size and line-height 
 @function getBitSize($fontsizeKey) {
   @return map-get($bitSizes, $fontsizeKey);
 }
