@@ -42,13 +42,9 @@
   @return map-get($fontSizes, $fontsizeKey);
 }
 
-// $newFontSizes would be changed to fontSizes as soon as we removed the old ones
-@function getFontSize($newFontSizes, $fontsizeKey) {
-  @return map-get($newFontSizes, $fontsizeKey);
-}
-
-@function getLineHeight($lineHeightSizes, $lineheightKey) {
-  @return map-get($lineHeightSizes, $lineheightKey);
+// $$bitSizes one config for font size and line-height 
+@function getBitSize($fontsizeKey) {
+  @return map-get($bitSizes, $fontsizeKey);
 }
 
 @mixin uppercaseText($letterSpacing: null) {

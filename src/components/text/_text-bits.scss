@@ -1,14 +1,11 @@
-$lineHeightSizes: $bitSizes;
-$newFontSizes: $bitSizes;
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
 
   .sg-text-bit {
     @include uppercaseText(-0.0625rem);
-    font-size: getFontSize($newFontSizes, normal);
-    line-height: getLineHeight($lineHeightSizes, normal);
+    font-size: getBitSize(normal);
+    line-height: getBitSize(normal);
     color: $mintSecondary;
     font-weight: $fontWeightBlack;
     margin: 0;
@@ -16,18 +13,18 @@ $includeHtml: false !default;
 
     &--small {
       @include uppercaseText(0);
-      font-size: getFontSize($newFontSizes, small);
-      line-height: getLineHeight($lineHeightSizes, small);
+      font-size: getBitSize(small);
+      line-height: getBitSize(small);
     }
 
     &--large {
-      font-size: getFontSize($newFontSizes, large);
-      line-height: getLineHeight($lineHeightSizes, large);
+      font-size: getBitSize(large);
+      line-height: getBitSize(large);
     }
 
     &--xlarge {
-      font-size: getFontSize($newFontSizes, xlarge);
-      line-height: getLineHeight($lineHeightSizes, xlarge);
+      font-size: getBitSize(xlarge);
+      line-height: getBitSize(xlarge);
     }
 
     &--blue-secondary {
