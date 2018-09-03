@@ -1,5 +1,16 @@
 $includeHtml: false !default;
 
+$bitSizes: (
+  xlarge: 80px,
+  large: 56px,
+  normal: 40px,
+  small: 24px,
+);
+
+@function getBitSize($fontsizeKey) {
+  @return map-get($bitSizes, $fontsizeKey);
+}
+
 @if ($includeHtml) {
 
   .sg-text-bit {

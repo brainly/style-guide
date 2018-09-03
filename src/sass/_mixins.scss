@@ -42,11 +42,6 @@
   @return map-get($fontSizes, $fontsizeKey);
 }
 
-// $bitSizes one config for font size and line-height 
-@function getBitSize($fontsizeKey) {
-  @return map-get($bitSizes, $fontsizeKey);
-}
-
 @mixin uppercaseText($letterSpacing: null) {
   text-transform: uppercase;
   @if $letterSpacing != null {
