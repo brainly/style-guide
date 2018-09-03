@@ -1,0 +1,87 @@
+$includeHtml: false !default;
+
+$headlineFontSizes: (
+  xxlarge: 53px,
+  xlarge: 39px,
+  large: 28px,
+  normal: 21px,
+  small: 18px,
+  xsmall: 14px
+);
+
+$headlineLineHeight: (
+  xxlarge: 60px,
+  xlarge: 44px,
+  large: 32px,
+  normal: 24px,
+  small: 20px,
+  xsmall: 15px
+);
+
+@function getHeadlineFontSize($fontsizeKey) {
+  @return map-get($headlineFontSizes, $fontsizeKey);
+}
+
+@function getHeadlineLineHeight($fontsizeKey) {
+  @return map-get($headlineLineHeight, $fontsizeKey);
+}
+
+@if ($includeHtml) {
+
+  .sg-headline {
+    @include component();
+    display: block;
+    color: $black;
+    font-size: getHeadlineFontSize(normal);
+    line-height: getHeadlineLineHeight(normal);
+    font-weight: $fontWeightBold;
+    letter-spacing: -1px;
+    max-width: 100%;
+    overflow: visible;
+
+    &--xsmall {
+      font-size: getHeadlineFontSize(xsmall);
+      line-height: getHeadlineLineHeight(xsmall);
+    }
+
+    &--small {
+      font-size: getHeadlineFontSize(small);
+      line-height: getHeadlineLineHeight(small);
+    }
+
+    &--large {
+      font-size: getHeadlineFontSize(large);
+      line-height: getHeadlineLineHeight(large);
+    }
+
+    &--xlarge {
+      font-size: getHeadlineFontSize(xlarge);
+      line-height: getHeadlineLineHeight(xlarge);
+    }
+
+    &--xxlarge {
+      font-size: getHeadlineFontSize(xxlarge);
+      line-height: getHeadlineLineHeight(xxlarge);
+    }
+    
+    &--extra-bold {
+      font-weight: $fontWeightBlack;
+    }
+
+    &--light {
+      color: $white;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+  }
+}
