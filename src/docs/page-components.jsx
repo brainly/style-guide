@@ -20,6 +20,7 @@ import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
 import Headers from 'text/pages/headers-interactive';
+import Headlines from 'text/pages/headlines-interactive';
 import Links from 'text/pages/links-interactive';
 import TextBits from 'text/pages/text-bit-interactive';
 import PopupMenus from 'popup-menu/pages/popup-menu-interactive';
@@ -64,6 +65,7 @@ const demos = {
   'Separators': <Separators />,
   'Text': <Texts />,
   'Headers': <Headers />,
+  'Headlines': <Headlines />,
   'Links': <Links />,
   'Text Bit': <TextBits />,
   'Popup Menu': <PopupMenus />,
