@@ -36,6 +36,15 @@ const Headlines = () => {
       <ContrastBox>
         {light}
       </ContrastBox>
+      <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.NORMAL} transform={HEADLINE_TRANSFORM.CAPITALIZE}>
+        {text} - capitalize
+      </Headline>
+      <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.NORMAL} transform={HEADLINE_TRANSFORM.LOWERCASE}>
+        {text} - lowercase
+      </Headline>
+      <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.NORMAL} transform={HEADLINE_TRANSFORM.UPPERCASE}>
+        {text} - uppercase
+      </Headline>
     </DocsBlock>
   );
 
