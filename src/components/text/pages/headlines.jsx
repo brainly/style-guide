@@ -23,7 +23,7 @@ const Headlines = () => {
       );
 
       light.push(
-        <Headline type={HEADLINE_TYPE.H2} size={size} extraBold={extraBold} color={HEADLINE_COLOR.LIGHT}>
+        <Headline type={HEADLINE_TYPE.H2} size={size} extraBold={extraBold} color={HEADLINE_COLOR.WHITE}>
           {text} - {size}
         </Headline>
       );

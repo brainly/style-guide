@@ -32,7 +32,7 @@ const Headlines = () => {
         <Headline>Lorem Ipsum</Headline>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.SMALL} color={HEADLINE_COLOR.LIGHT}>
+        <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.SMALL} color={HEADLINE_COLOR.WHITE}>
           We&apos;ve got your back!
         </Headline>
       </DocsActiveBlock>

@@ -28,10 +28,10 @@ test('type', () => {
 
 test('light', () => {
   const text = shallow(
-    <Headline color={HEADLINE_COLOR.LIGHT}>Test</Headline>
+    <Headline color={HEADLINE_COLOR.WHITE}>Test</Headline>
   );
 
-  expect(text.hasClass('sg-headline--light')).toBeTruthy();
+  expect(text.hasClass('sg-headline--white')).toBeTruthy();
 });
 
 test('default size', () => {

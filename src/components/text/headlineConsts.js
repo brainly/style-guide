@@ -17,7 +17,7 @@ export const HEADLINE_SIZE = {
 };
 
 export const HEADLINE_COLOR = {
-  LIGHT: 'light'
+  WHITE: 'white'
 };
 
 export const HEADLINE_TRANSFORM = {
