@@ -27,23 +27,23 @@ $headlineSizes: (
   )
 );
 
-@function getSizeFromMap($map, $keys...) {
+@function getHeadLineSizeFromMap($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
   }
   @return $map;
 }
 
-@mixin typeSizeVariant($size) {
-  font-size: getSizeFromMap($headlineSizes, $size, 'fontSize');
-  line-height: getSizeFromMap($headlineSizes, $size, 'lineHeight');
+@mixin headlineTypeSizeVariant($size) {
+  font-size: getHeadLineSizeFromMap($headlineSizes, $size, 'fontSize');
+  line-height: getHeadLineSizeFromMap($headlineSizes, $size, 'lineHeight');
 }
 
 @if ($includeHtml) {
 
   .sg-headline {
     @include component();
-    @include typeSizeVariant(normal);
+    @include headlineTypeSizeVariant(normal);
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
@@ -52,23 +52,23 @@ $headlineSizes: (
     overflow: visible;
 
     &--xsmall {
-      @include typeSizeVariant(xsmall);
+      @include headlineTypeSizeVariant(xsmall);
     }
 
     &--small {
-      @include typeSizeVariant(small);
+      @include headlineTypeSizeVariant(small);
     }
 
     &--large {
-      @include typeSizeVariant(large);
+      @include headlineTypeSizeVariant(large);
     }
 
     &--xlarge {
-      @include typeSizeVariant(xlarge);
+      @include headlineTypeSizeVariant(xlarge);
     }
 
     &--xxlarge {
-      @include typeSizeVariant(xxlarge);
+      @include headlineTypeSizeVariant(xxlarge);
     }
 
     &--extra-bold {
