@@ -7,7 +7,7 @@ import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxCon
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {WEIGHT} from 'text/Text';
-import TextBit, {COLOR as TEXT_BIT_COLOR} from 'text/TextBit';
+import TextBit, {TEXT_BIT_COLOR} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -83,7 +83,7 @@ const Toplayers = () => {
         <TopLayer size={SIZE.MEDIUM} lead withBugbox>
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <TextBit color={TEXT_BIT_COLOR.ALT} type={HEADER_TYPE.H1}>
+              <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY} type={HEADER_TYPE.H1}>
                 The world&apos;s largest learning community
               </TextBit>
               <HeaderSecondary type={HEADER_TYPE.H2}>

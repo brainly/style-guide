@@ -5,7 +5,7 @@ import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import Text, {WEIGHT} from 'text/Text';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
-import TextBit, {COLOR as TB_COLOR, TYPE as TB_TYPE} from 'text/TextBit';
+import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -15,7 +15,7 @@ import Overlay from 'overlay/Overlay';
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <TextBit color={TB_COLOR.ALT} type={TB_TYPE.H1}>
+      <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY} type={TEXT_BIT_TYPE.H1}>
         The world&apos;s largest learning community
       </TextBit>
     </ContentBoxContent>

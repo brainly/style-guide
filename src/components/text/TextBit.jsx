@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export const TYPE = {
+export const TEXT_BIT_TYPE = {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -12,13 +12,13 @@ export const TYPE = {
   DIV: 'div'
 };
 
-export const SIZE = {
+export const TEXT_BIT_SIZE = {
   SMALL: 'small',
   LARGE: 'large',
   XLARGE: 'xlarge'
 };
 
-export const COLOR = {
+export const TEXT_BIT_COLOR = {
   BLUE_SECONDARY: 'blue-secondary',
   WHITE: 'white',
   BLACK: 'black',
@@ -26,7 +26,7 @@ export const COLOR = {
   PEACH_PRIMARY: 'peach-primary'
 };
 
-const TextBit = ({children, type = TYPE.H1, color, size, className, ...props}) => {
+const TextBit = ({children, type = TEXT_BIT_TYPE.H1, color, size, className, ...props}) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
     [`sg-text-bit--${size}`]: size,
@@ -42,9 +42,9 @@ const TextBit = ({children, type = TYPE.H1, color, size, className, ...props}) =
 
 TextBit.propTypes = {
   children: PropTypes.node,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)),
+  size: PropTypes.oneOf(Object.values(TEXT_BIT_SIZE)),
+  color: PropTypes.oneOf(Object.values(TEXT_BIT_COLOR)),
+  type: PropTypes.oneOf(Object.values(TEXT_BIT_TYPE)),
   className: PropTypes.string
 };
 
