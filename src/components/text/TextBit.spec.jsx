@@ -1,5 +1,5 @@
 import React from 'react';
-import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, COLOR as TEXT_BIT_COLOR} from './TextBit';
+import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_BIT_COLOR} from './TextBit';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
