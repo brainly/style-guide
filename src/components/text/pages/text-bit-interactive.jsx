@@ -1,20 +1,20 @@
 import React from 'react';
-import TextBit, {TYPE, SIZE, COLOR} from '../TextBit';
+import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const TextBits = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TEXT_BIT_TYPE
     },
     {
       name: 'size',
-      values: SIZE
+      values: TEXT_BIT_SIZE
     },
     {
       name: 'color',
-      values: COLOR
+      values: TEXT_BIT_COLOR
     },
     {
       name: 'notResponsive',
