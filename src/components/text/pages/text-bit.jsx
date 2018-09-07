@@ -6,28 +6,25 @@ import TextBit, {SIZE, COLOR} from '../TextBit';
 const TextBitExamples = () => (
   <DocsBlock info="Default">
     <TextBit>
-      What do you need to know?
+      This is text bit default
     </TextBit>
-    <TextBit size={SIZE.LARGE} color={COLOR.ALT}>
-      What do you need to know?
+    <TextBit size={SIZE.LARGE} color={COLOR.BLUE_SECONDARY}>
+      This is text bit large primary blue
     </TextBit>
-    <TextBit color={COLOR.GRAY}>
-      What do you need to know?
+    <TextBit size={SIZE.SMALL} color={COLOR.GRAY_SECONDARY}>
+      This is text bit small secondary gray
     </TextBit>
-    <TextBit size={SIZE.SMALL} notResponsive>
-      What do you need to know?
-    </TextBit>
-    <TextBit notResponsive color={COLOR.WARNING}>
-      What do you need to know?
-    </TextBit>
-    <TextBit size={SIZE.XXLARGE} color={COLOR.DARK} notResponsive>
-      What do you need to know?
+    <TextBit color={COLOR.PEACH_PRIMARY}>
+      This is text bit default peach primary
     </TextBit>
     <ContrastBox>
-      <TextBit size={SIZE.XLARGE} color={COLOR.LIGHT} notResponsive>
-        We&apos;ve got your back!
+      <TextBit size={SIZE.LARGE} color={COLOR.WHITE}>
+        This is text bit large white
       </TextBit>
     </ContrastBox>
+    <TextBit size={SIZE.XLARGE} color={COLOR.BLACK}>
+      This is text bit large black
+    </TextBit>
   </DocsBlock>
 );
 
