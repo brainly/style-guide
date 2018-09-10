@@ -18,6 +18,21 @@ const icons = () => (
       </ContrastBox>
     </DocsBlock>
 
+    <DocsBlock info="Custom SVG">
+      <ul className="icons-list">
+        <li className="icons-list__element">
+          <Icon
+            type={TYPE.FRIENDS}
+            color={ICON_COLOR.PEACH}
+            customSvg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fill-rule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z">
+              </path></svg>'
+          />
+          <span>&nbsp; - {'custom SVG'}</span>
+        </li>
+      </ul>
+    </DocsBlock>
+
     <DocsBlock info="Colors">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (

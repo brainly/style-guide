@@ -68,7 +68,7 @@ export const ICON_COLOR = {
 
 export const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size = 24, type, className, ...props}) => {
+const Icon = ({color, size = 24, type, customSvg, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
@@ -76,16 +76,22 @@ const Icon = ({color, size = 24, type, className, ...props}) => {
   const iconType = `#icon-${type}`;
 
   return (
-    <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType} />
-    </svg>
+    <React.Fragment>
+      {customSvg ?
+        <div {...props} className={iconClass} dangerouslySetInnerHTML={{__html: customSvg}} /> :
+        <svg {...props} className={iconClass}>
+          <use xlinkHref={iconType} />
+        </svg>
+      }
+    </React.Fragment>
   );
 };
 
 Icon.propTypes = {
   size: PropTypes.oneOf(SIZE),
   color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  type: PropTypes.oneOf(Object.values(TYPE)),
+  customSvg: PropTypes.string,
   className: PropTypes.string
 };
 

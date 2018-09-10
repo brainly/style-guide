@@ -12,7 +12,18 @@ export const SIZE = {
 };
 
 const IconAsButton = ({
-  color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay, className, ...props
+  color,
+  size = SIZE.NORMAL,
+  type,
+  children,
+  action,
+  transparent,
+  active,
+  border,
+  overlay,
+  customSvg,
+  className,
+  ...props
 }) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${color}`]: color,
@@ -26,8 +37,8 @@ const IconAsButton = ({
 
   let content;
 
-  if (type) {
-    content = <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={size.iconSize} />;
+  if (type || customSvg) {
+    content = <Icon type={type} customSvg={customSvg} color={ICON_COLOR.ADAPTIVE} size={size.iconSize} />;
   } else {
     content = children;
   }
@@ -60,6 +71,7 @@ IconAsButton.propTypes = {
   active: PropTypes.bool,
   overlay: PropTypes.node,
   href: PropTypes.string,
+  customSvg: PropTypes.string,
   className: PropTypes.string
 };
 
