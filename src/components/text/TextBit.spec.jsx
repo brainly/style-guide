@@ -1,10 +1,10 @@
 import React from 'react';
-import TextBit, {TYPE as TB_TYPE, SIZE as TB_SIZE, COLOR as TB_COLOR} from './TextBit';
+import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_BIT_COLOR} from './TextBit';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
   const textBit = shallow(
-    <TextBit type={TB_TYPE.H1}>Test</TextBit>
+    <TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit')).toBeTruthy();
@@ -12,7 +12,7 @@ test('render', () => {
 
 test('sie', () => {
   const textBit = shallow(
-    <TextBit size={TB_SIZE.XLARGE}>Test</TextBit>
+    <TextBit size={TEXT_BIT_SIZE.XLARGE}>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
@@ -20,15 +20,15 @@ test('sie', () => {
 
 test('type', () => {
   const textBit = mount(
-    <TextBit type={TB_TYPE.H3}>Test</TextBit>
+    <TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>
   );
 
-  expect(textBit.props().type).toEqual(TB_TYPE.H3);
+  expect(textBit.props().type).toEqual(TEXT_BIT_TYPE.H3);
 });
 
 test('color', () => {
   const textBit = shallow(
-    <TextBit color={TB_COLOR.BLUE_SECONDARY}>Test</TextBit>
+    <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY}>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit--blue-secondary')).toBeTruthy();
