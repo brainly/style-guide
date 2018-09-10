@@ -1,0 +1,94 @@
+$includeHtml: false !default;
+
+$headlineSizes: (
+  xxlarge: (
+    fontSize: 53px,
+    lineHeight: 60px
+  ),
+  xlarge: (
+    fontSize: 39px,
+    lineHeight: 44px
+  ),
+  large: (
+    fontSize: 28px,
+    lineHeight: 32px
+  ),
+  normal: (
+    fontSize: 21px,
+    lineHeight: 24px
+  ),
+  small: (
+    fontSize: 18px,
+    lineHeight: 20px
+  ),
+  xsmall: (
+    fontSize: 14px,
+    lineHeight: 15px
+  )
+);
+
+@function getHeadLineSizeFromMap($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin headlineTypeSizeVariant($size) {
+  font-size: getHeadLineSizeFromMap($headlineSizes, $size, 'fontSize');
+  line-height: getHeadLineSizeFromMap($headlineSizes, $size, 'lineHeight');
+}
+
+@if ($includeHtml) {
+
+  .sg-headline {
+    @include component();
+    @include headlineTypeSizeVariant(normal);
+    display: block;
+    color: $black;
+    font-weight: $fontWeightBold;
+    letter-spacing: -1px;
+    max-width: 100%;
+    overflow: visible;
+
+    &--xsmall {
+      @include headlineTypeSizeVariant(xsmall);
+    }
+
+    &--small {
+      @include headlineTypeSizeVariant(small);
+    }
+
+    &--large {
+      @include headlineTypeSizeVariant(large);
+    }
+
+    &--xlarge {
+      @include headlineTypeSizeVariant(xlarge);
+    }
+
+    &--xxlarge {
+      @include headlineTypeSizeVariant(xxlarge);
+    }
+
+    &--extra-bold {
+      font-weight: $fontWeightBlack;
+    }
+
+    &--white {
+      color: $white;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+  }
+}

@@ -15,6 +15,7 @@ import rating from '../components/rating/pages/rating';
 import buttons from '../components/buttons/pages/buttons';
 import text from '../components/text/pages/text';
 import headers from '../components/text/pages/headers';
+import headlines from '../components/text/pages/headlines';
 import textBit from '../components/text/pages/text-bit';
 import links from '../components/text/pages/links';
 import header from '../components/header/pages/header';
@@ -62,6 +63,11 @@ const navigation = [
         'name': 'Headers',
         'location': 'text/headers',
         component: headers
+      },
+      {
+        'name': 'Headlines',
+        'location': 'text/headlines',
+        component: headlines
       },
       {
         'name': 'Link',
