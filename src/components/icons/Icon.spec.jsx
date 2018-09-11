@@ -2,29 +2,38 @@ import React from 'react';
 import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
 
-const svgImage = '<svg xmlns= "http://www.w3.org/2000/svg" viewBox="0 0 24 24">' +
-'<path fill-rule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z" /></svg>';
-
-test('render', () => {
+test('render if type', () => {
   const icon = shallow(
     <Icon type={TYPE.ANSWER} />
   );
 
-  expect(icon.find('svg')).toHaveLength(1);
-  expect(icon.find('svg').hasClass('sg-icon')).toEqual(true);
+  expect(icon.hasClass('sg-icon')).toEqual(true);
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('render customSvg', () => {
+test('render if customSvg', () => {
   const icon = shallow(
-    <Icon
-      customSvg={svgImage}
-    />
+    <Icon customSvg>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fillRule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z" />
+        </svg>
+      </div>
+    </Icon>
   );
 
-  expect(icon.find('div')).toHaveLength(1);
-  expect(icon.find('div').hasClass('sg-icon')).toEqual(true);
-  expect(icon.children().props().dangerouslySetInnerHTML.__html).toBe(svgImage);
+  expect(icon.hasClass('sg-icon')).toEqual(true);
+  expect(icon.find('svg')).toHaveLength(1);
+});
+
+test('error when no type and no customSvg', () => {
+  const spy = jest.spyOn(console, 'error');
+
+  console.error = jest.fn();
+  shallow(<Icon />);
+  expect(console.error.mock.calls).toHaveLength(1);
+
+  spy.mockRestore();
 });
 
 test('type passed to xlink:href', () => {
@@ -44,7 +53,7 @@ test('colors', () => {
     <Icon type={type} color={color} />
   );
 
-  expect(icon.find('svg').hasClass(`sg-icon--${color}`)).toEqual(true);
+  expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
 });
 
 test('size', () => {
@@ -54,7 +63,7 @@ test('size', () => {
     <Icon type={type} size={size} />
   );
 
-  expect(icon.find('svg').hasClass(`sg-icon--x${size}`)).toEqual(true);
+  expect(icon.hasClass(`sg-icon--x${size}`)).toEqual(true);
 });
 
 test('other props', () => {
@@ -65,4 +74,3 @@ test('other props', () => {
 
   expect(icon.find('[data-something="else"]')).toHaveLength(1);
 });
-

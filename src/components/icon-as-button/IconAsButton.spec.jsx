@@ -16,6 +16,23 @@ test('render', () => {
   expect(icon.props().type).toEqual(type);
 });
 
+test('render custom SVG', () => {
+  const iconAsButton = shallow(
+    <IconAsButton customSvg>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fillRule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z" />
+        </svg>
+      </div>
+    </IconAsButton>
+  );
+  const icon = iconAsButton.find(Icon);
+
+  expect(iconAsButton.hasClass('sg-icon-as-button')).toEqual(true);
+  expect(icon).toHaveLength(1);
+  expect(icon.find('svg')).toHaveLength(1);
+});
+
 test('colors', () => {
   const type = TYPE.ANSWER;
   const color = ICON_COLOR.DARK;

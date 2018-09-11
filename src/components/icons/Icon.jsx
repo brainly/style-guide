@@ -68,7 +68,7 @@ export const ICON_COLOR = {
 
 export const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size = 24, type, customSvg, className, ...props}) => {
+const Icon = ({color, size = 24, type, customSvg, children, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
@@ -76,22 +76,45 @@ const Icon = ({color, size = 24, type, customSvg, className, ...props}) => {
   const iconType = `#icon-${type}`;
 
   return (
-    <React.Fragment>
-      {customSvg ?
-        <div {...props} className={iconClass} dangerouslySetInnerHTML={{__html: customSvg}} /> :
-        <svg {...props} className={iconClass}>
+    <div {...props} className={iconClass}>
+      {type ?
+        <svg className="sg-icon__svg">
           <use xlinkHref={iconType} />
-        </svg>
-      }
-    </React.Fragment>
+        </svg> :
+        children}
+    </div>
+
   );
+};
+
+const requiredPropsCheck = props => {
+  if (!props.type && !props.customSvg) {
+    return new Error('"type" or "customSvg" is required by Icon component.');
+  }
+  if (props.type) {
+    PropTypes.checkPropTypes({
+      type: PropTypes.oneOf(Object.values(TYPE))
+    },
+    {type: props.type},
+    'prop',
+    'Icon');
+  }
+  if (props.customSvg) {
+    PropTypes.checkPropTypes({
+      customSvg: PropTypes.bool
+    },
+    {customSvg: props.customSvg},
+    'prop',
+    'Icon');
+  }
 };
 
 Icon.propTypes = {
   size: PropTypes.oneOf(SIZE),
   color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  customSvg: PropTypes.string,
+  type: requiredPropsCheck,
+  customSvg: requiredPropsCheck,
+  children: PropTypes.node,
   className: PropTypes.string
 };
 

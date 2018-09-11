@@ -38,7 +38,15 @@ const IconAsButton = ({
   let content;
 
   if (type || customSvg) {
-    content = <Icon type={type} customSvg={customSvg} color={ICON_COLOR.ADAPTIVE} size={size.iconSize} />;
+    content = (
+      <Icon
+        type={type}
+        color={ICON_COLOR.ADAPTIVE}
+        size={size.iconSize}
+        customSvg={customSvg}
+      >{children}
+      </Icon>
+    );
   } else {
     content = children;
   }
@@ -71,7 +79,7 @@ IconAsButton.propTypes = {
   active: PropTypes.bool,
   overlay: PropTypes.node,
   href: PropTypes.string,
-  customSvg: PropTypes.string,
+  customSvg: PropTypes.bool,
   className: PropTypes.string
 };
 
