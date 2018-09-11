@@ -68,7 +68,7 @@ export const ICON_COLOR = {
 
 export const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size = 24, type, customSvg, children, className, ...props}) => {
+const Icon = ({color, size = 24, type, children, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
@@ -88,8 +88,8 @@ const Icon = ({color, size = 24, type, customSvg, children, className, ...props}
 };
 
 const requiredPropsCheck = props => {
-  if (!props.type && !props.customSvg) {
-    return new Error('"type" or "customSvg" is required by Icon component.');
+  if (!props.type && !props.children) {
+    return new Error('"type" or "children" is required by Icon component.');
   }
   if (props.type) {
     PropTypes.checkPropTypes({
@@ -99,11 +99,11 @@ const requiredPropsCheck = props => {
     'prop',
     'Icon');
   }
-  if (props.customSvg) {
+  if (props.children) {
     PropTypes.checkPropTypes({
-      customSvg: PropTypes.bool
+      children: PropTypes.node
     },
-    {customSvg: props.customSvg},
+    {children: props.children},
     'prop',
     'Icon');
   }
@@ -113,8 +113,7 @@ Icon.propTypes = {
   size: PropTypes.oneOf(SIZE),
   color: PropTypes.oneOf(Object.values(ICON_COLOR)),
   type: requiredPropsCheck,
-  customSvg: requiredPropsCheck,
-  children: PropTypes.node,
+  children: requiredPropsCheck,
   className: PropTypes.string
 };
 

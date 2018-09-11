@@ -11,9 +11,9 @@ test('render if type', () => {
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('render if customSvg', () => {
+test('render if children', () => {
   const icon = shallow(
-    <Icon customSvg>
+    <Icon>
       <div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path fillRule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z" />
@@ -26,11 +26,12 @@ test('render if customSvg', () => {
   expect(icon.find('svg')).toHaveLength(1);
 });
 
-test('error when no type and no customSvg', () => {
+test('error when no type and no children', () => {
   const spy = jest.spyOn(console, 'error');
 
   console.error = jest.fn();
-  shallow(<Icon />);
+  shallow(
+    <Icon />);
   expect(console.error.mock.calls).toHaveLength(1);
 
   spy.mockRestore();
