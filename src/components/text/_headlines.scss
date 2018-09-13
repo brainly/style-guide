@@ -42,14 +42,11 @@ $headlineSizes: (
 @if ($includeHtml) {
 
   .sg-headline {
-    @include component();
     @include headlineTypeSizeVariant(normal);
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
-    letter-spacing: -1px;
     max-width: 100%;
-    overflow: visible;
 
     &--xsmall {
       @include headlineTypeSizeVariant(xsmall);
@@ -73,7 +70,6 @@ $headlineSizes: (
 
     &--extra-bold {
       font-weight: $fontWeightBlack;
-      letter-spacing: 0;
     }
 
     &--white {
