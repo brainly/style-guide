@@ -89,7 +89,10 @@ const Icon = ({color, size = 24, type, children, className, ...props}) => {
 
 const requiredPropsCheck = props => {
   if (!props.type && !props.children) {
-    return new Error('"type" or "children" is required by Icon component.');
+    return new Error('Prop "type" or "children" is required by Icon component.');
+  }
+  if (props.type && props.children) {
+    return new Error('Only one of props: "type" or "children" is allowed by Icon component.');
   }
   if (props.type) {
     PropTypes.checkPropTypes({

@@ -37,6 +37,23 @@ test('error when no type and no children', () => {
   spy.mockRestore();
 });
 
+test('error when type and children', () => {
+  const spy = jest.spyOn(console, 'error');
+
+  console.error = jest.fn();
+  shallow(
+    <Icon type={TYPE.ANSWER}>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path fillRule="nonzero" d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z" />
+        </svg>
+      </div>
+    </Icon>);
+  expect(console.error.mock.calls).toHaveLength(1);
+
+  spy.mockRestore();
+});
+
 test('type passed to xlink:href', () => {
   const type = TYPE.ANSWER;
   const icon = shallow(
