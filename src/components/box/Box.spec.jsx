@@ -135,8 +135,8 @@ test('white close button', () => {
   const box = shallow(<Box whiteCloseIcon onClose={mockCallback} />);
 
   expect(box.find('.sg-box__close')).toHaveLength(1);
-  expect(box.find('div').find(Icon)).toHaveLength(0);
-  expect(box.find('div').find(Icon).hasClass('sg-icon--light')).toEqual(true);
+  expect(box.find('div').find(Icon)).toHaveLength(1);
+  expect(box.find('div').find(Icon).props().color).toEqual('light');
 });
 
 test('clicking on close button calls onClose', () => {
