@@ -1,10 +1,6 @@
 {
   "name": "style-guide",
-<<<<<<< HEAD
-  "version": "139.0.2",
-=======
   "version": "139.1.0",
->>>>>>> v139.1.0
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
