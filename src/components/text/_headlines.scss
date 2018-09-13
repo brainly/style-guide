@@ -46,7 +46,6 @@ $headlineSizes: (
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
-    letter-spacing: -1px;
     max-width: 100%;
 
     &--xsmall {
@@ -71,7 +70,6 @@ $headlineSizes: (
 
     &--extra-bold {
       font-weight: $fontWeightBlack;
-      letter-spacing: 0;
     }
 
     &--white {
