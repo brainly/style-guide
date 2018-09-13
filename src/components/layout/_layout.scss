@@ -136,6 +136,10 @@ $includeHtml: false !default;
           max-width: none;
         }
       }
+
+      &--center {
+        margin: 0 auto;
+      }
     }
 
     &__secondary-content {

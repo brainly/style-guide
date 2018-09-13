@@ -21,6 +21,9 @@ const Layouts = () => (
     <DocsBlock info="wide + three-columns">
       <iframe height="568" width="1100" src="components/layout/layout_three_columns.html" />
     </DocsBlock>
+    <DocsBlock info="one column center content large screen">
+      <iframe height="568" width="1100" src="components/layout/layout_one_column_center.html" />
+    </DocsBlock>
   </div>
 );
 
