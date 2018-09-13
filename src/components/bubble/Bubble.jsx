@@ -30,7 +30,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, noShadow,
     alignmentClass = 'sg-bubble--row-' + alignment;
   }
 
-  const bubbleClass = classNames('sg-bubble', className, {
+  const bubbleClass = classNames('sg-bubble', {
     'sg-bubble--full': full,
     'sg-bubble--no-shadow': noShadow,
     [`sg-bubble--${color}`]: color,

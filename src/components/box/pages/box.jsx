@@ -41,8 +41,14 @@ const Boxs = () => (
     </DocsBlock>
 
     <DocsBlock info="With onClose">
-      <Box onClose={closeCallback} >
+      <Box onClose={closeCallback}>
         This is a box with onClose
+      </Box>
+    </DocsBlock>
+
+    <DocsBlock info="With onClose and whiteCloseIcon">
+      <Box onClose={closeCallback} whiteCloseIcon color={COLOR.BLUE}>
+        This is a box with onClose and white close Icon
       </Box>
     </DocsBlock>
 

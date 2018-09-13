@@ -1,5 +1,6 @@
 import React from 'react';
 import Box, {COLOR, PADDING} from './Box';
+import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -50,7 +51,7 @@ test('no colors => default border on ', () => {
   expect(box.hasClass('sg-box--no-border')).toEqual(false);
 });
 
-test(' colors => default border off', () => {
+test('colors => default border off', () => {
   const color = COLOR.LAVENDER;
   const box = shallow(
     <Box color={color}>some text</Box>
@@ -127,6 +128,15 @@ test('close button', () => {
   const box = shallow(<Box onClose={mockCallback} />);
 
   expect(box.find('.sg-box__close')).toHaveLength(1);
+});
+
+test('white close button', () => {
+  const mockCallback = jest.fn();
+  const box = shallow(<Box whiteCloseIcon onClose={mockCallback} />);
+
+  expect(box.find('.sg-box__close')).toHaveLength(1);
+  expect(box.find('div').find(Icon)).toHaveLength(0);
+  expect(box.find('div').find(Icon).hasClass('sg-icon--light')).toEqual(true);
 });
 
 test('clicking on close button calls onClose', () => {
