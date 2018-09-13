@@ -68,7 +68,7 @@ export const ICON_COLOR = {
 
 export const SIZE = [120, 118, 96, 94, 64, 62, 48, 46, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
 
-const Icon = ({color, size = 24, type, className, ...props}) => {
+const Icon = ({color, size = 24, type, children, className, ...props}) => {
   const iconClass = classNames('sg-icon', {
     [`sg-icon--${color}`]: color,
     [`sg-icon--x${size}`]: size
@@ -76,16 +76,47 @@ const Icon = ({color, size = 24, type, className, ...props}) => {
   const iconType = `#icon-${type}`;
 
   return (
-    <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType} />
-    </svg>
+    <div {...props} className={iconClass}>
+      {type ?
+        <svg className="sg-icon__svg">
+          <use xlinkHref={iconType} />
+        </svg> :
+        children}
+    </div>
+
   );
+};
+
+const requiredPropsCheck = props => {
+  if (!props.type && !props.children) {
+    return new Error('Prop "type" or "children" is required by Icon component.');
+  }
+  if (props.type && props.children) {
+    return new Error('Only one of props: "type" or "children" is allowed by Icon component.');
+  }
+  if (props.type) {
+    PropTypes.checkPropTypes({
+      type: PropTypes.oneOf(Object.values(TYPE))
+    },
+    {type: props.type},
+    'prop',
+    'Icon');
+  }
+  if (props.children) {
+    PropTypes.checkPropTypes({
+      children: PropTypes.node
+    },
+    {children: props.children},
+    'prop',
+    'Icon');
+  }
 };
 
 Icon.propTypes = {
   size: PropTypes.oneOf(SIZE),
   color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
+  type: requiredPropsCheck,
+  children: requiredPropsCheck,
   className: PropTypes.string
 };
 
