@@ -53,7 +53,7 @@ const Footers = () => {
             </Text>
           </FooterLine>
           <FooterLine>
-            <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.OBSCURE} color={TEXT_COLOR.GRAY} weight={TEXT_WEIGHT.BOLD}>
+            <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY} weight={TEXT_WEIGHT.BOLD}>
               Strona korzysta z plików cookie w celu realizacji usług zgodnie z <Link>polityką cookie</Link>.
               Możesz określić warunki przechowywania lub dostępu do cookie w Twojej
               przeglądarce.

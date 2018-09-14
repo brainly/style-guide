@@ -39,7 +39,7 @@ const Links = () => (
         Text with <Link href="#" size={SIZE.OBSCURE}>obscure link</Link><br />
       </div>
       <ContrastBox>
-        <Text color={COLOR.LIGHT}>
+        <Text color={COLOR.WHITE}>
           This text is light and <Link href="#" color={COLOR.LIGHT}>this link is light!</Link>
         </Text>
       </ContrastBox>
