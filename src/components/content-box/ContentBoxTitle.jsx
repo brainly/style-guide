@@ -7,7 +7,7 @@ const ContentBoxTitle = ({
   children, spaced, spacedTop, spacedBottom, className, align = ALIGNMENT.LEFT
 }) => {
 
-  const contentBoxClass = classNames('sg-content-box__title', className, {
+  const contentBoxClass = classNames('sg-content-box__title', {
     'sg-content-box__title--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__title--spaced': spaced,
     'sg-content-box__title--spaced-top': spacedTop === SIZE.NORMAL,

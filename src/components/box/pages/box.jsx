@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, {COLOR, PADDING} from '../Box';
+import Box, {COLOR, PADDING, CLOSE_ICON_COLOR} from '../Box';
 import DocsBlock from 'components/DocsBlock';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
@@ -41,8 +41,14 @@ const Boxs = () => (
     </DocsBlock>
 
     <DocsBlock info="With onClose">
-      <Box onClose={closeCallback} >
+      <Box onClose={closeCallback}>
         This is a box with onClose
+      </Box>
+    </DocsBlock>
+
+    <DocsBlock info="With onClose and closeIconColor">
+      <Box onClose={closeCallback} closeIconColor={CLOSE_ICON_COLOR.LIGHT} color={COLOR.BLUE}>
+        This is a box with onClose and light close Icon
       </Box>
     </DocsBlock>
 
