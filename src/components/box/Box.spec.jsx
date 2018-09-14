@@ -1,5 +1,5 @@
 import React from 'react';
-import Box, {COLOR, PADDING} from './Box';
+import Box, {COLOR, PADDING, CLOSE_ICON_COLOR} from './Box';
 import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 
@@ -130,9 +130,9 @@ test('close button', () => {
   expect(box.find('.sg-box__close')).toHaveLength(1);
 });
 
-test('white close button', () => {
+test('light close button', () => {
   const mockCallback = jest.fn();
-  const box = shallow(<Box whiteCloseIcon onClose={mockCallback} />);
+  const box = shallow(<Box closeIconColor={CLOSE_ICON_COLOR.LIGHT} onClose={mockCallback} />);
 
   expect(box.find('.sg-box__close')).toHaveLength(1);
   expect(box.find('div').find(Icon)).toHaveLength(1);

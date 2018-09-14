@@ -25,8 +25,13 @@ export const PADDING = {
   LARGE: 'large-padding'
 };
 
+export const CLOSE_ICON_COLOR = {
+  LIGHT: 'LIGHT',
+  DARK: 'DARK'
+};
+
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,
-  onClose, whiteCloseIcon, className, ...props}) => {
+  onClose, closeIconColor, className, ...props}) => {
   const boxClass = classNames('sg-box', {
     [`sg-box--${color}`]: color,
     'sg-box--no-border': !border,
@@ -45,12 +50,11 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
   } else {
     content = <div className="sg-box__hole">{children}</div>;
   }
-
   return (
     <div {...props} className={boxClass}>
       {onClose ?
         <div className="sg-box__close" onClick={onClose}>
-          <Icon type={iconTypes.X} color={whiteCloseIcon ? ICON_COLOR.LIGHT : ICON_COLOR.DARK} size={10} />
+          <Icon type={iconTypes.X} color={closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK} size={10} />
         </div> : null
       }
       {content}
@@ -69,7 +73,7 @@ Box.propTypes = {
   shadow: PropTypes.bool,
   noBorderRadius: PropTypes.bool,
   onClose: PropTypes.func,
-  whiteCloseIcon: PropTypes.bool,
+  closeIconColor: PropTypes.oneOf(Object.values(CLOSE_ICON_COLOR)),
   className: PropTypes.string
 };
 
