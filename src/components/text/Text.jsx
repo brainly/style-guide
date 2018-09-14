@@ -16,12 +16,11 @@ export const TYPE = {
 };
 
 export const SIZE = {
-  STANDOUT: 'standout',
-  OBSCURE: 'obscure',
-  SMALL: 'small',
-  XSMALL: 'xsmall',
+  XXLARGE: 'xxlarge',
+  XLARGE: 'xlarge',
   LARGE: 'large',
-  HEADLINE: 'headline'
+  SMALL: 'small',
+  XSMALL: 'xsmall'
 };
 
 export const COLOR = {
@@ -29,16 +28,16 @@ export const COLOR = {
   GRAY_SECONDARY: 'gray-secondary',
   MINT: 'mint',
   PEACH: 'peach',
-  LIGHT: 'light',
+  WHITE: 'white',
   BLUE: 'blue',
   MUSTARD: 'mustard',
-  FINE_PRINT: 'for-fine-print',
-  FINE_PRINT_LIGHT: 'for-fine-print-light'
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
 };
 
 export const WEIGHT = {
   REGULAR: 'regular',
-  BOLD: 'emphasised'
+  BOLD: 'bold'
 };
 
 export const TEXT_TRANSFORM = {

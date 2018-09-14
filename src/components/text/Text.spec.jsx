@@ -12,10 +12,10 @@ test('render', () => {
 
 test('size', () => {
   const text = shallow(
-    <Text size={SIZE.STANDOUT}>Test</Text>
+    <Text size={SIZE.XLARGE}>Test</Text>
   );
 
-  expect(text.hasClass('sg-text--standout')).toBeTruthy();
+  expect(text.hasClass('sg-text--xlarge')).toBeTruthy();
 });
 
 test('type', () => {
@@ -49,7 +49,7 @@ test('weight', () => {
     <Text weight={WEIGHT.BOLD}>Test</Text>
   );
 
-  expect(text.hasClass('sg-text--emphasised')).toBeTruthy();
+  expect(text.hasClass('sg-text--bold')).toBeTruthy();
 });
 
 test('transform - uppercase', () => {

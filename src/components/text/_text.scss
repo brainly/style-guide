@@ -1,9 +1,49 @@
 $includeHtml: false !default;
+$includeHtml: false !default;
+
+$bodyTextSizes: (
+  xxlarge: (
+    fontSize: 45px,
+    lineHeight: 60px
+  ),
+  xlarge: (
+    fontSize: 33px,
+    lineHeight: 44px
+  ),
+  large: (
+    fontSize: 24px,
+    lineHeight: 32px
+  ),
+  normal: (
+    fontSize: 18px,
+    lineHeight: 24px
+  ),
+  small: (
+    fontSize: 15px,
+    lineHeight: 20px
+  ),
+  xsmall: (
+    fontSize: 12px,
+    lineHeight: 16px
+  )
+);
+
+@function getBodyTextSizeFromMap($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin bodyTextTypeSizeVariant($size) {
+  font-size: getBodyTextSizeFromMap($bodyTextSizes, $size, 'fontSize');
+  line-height: getBodyTextSizeFromMap($bodyTextSizes, $size, 'lineHeight');
+}
 
 @if ($includeHtml) {
 
   .sg-text {
-    @include typeVariant(default, 1);
+    @include bodyTextTypeSizeVariant(normal);
     font-family: $fontFamilyPrimary;
     color: $black;
 
@@ -11,32 +51,27 @@ $includeHtml: false !default;
       position: relative;
     }
 
-    &--standout {
-      @include typeVariant(standout, 1);
+    &--xxlarge {
+      @include bodyTextTypeSizeVariant(xxlarge);
     }
 
-    &--obscure {
-      @include typeVariant(obscure, 0.5);
-    }
-
-    &--small {
-      @include typeVariant(small, 0.75);
-    }
-
-    &--xsmall {
-      @include typeVariant(xsmall, 5 / 12);
-    }
-
-    &--headline {
-      @include typeVariant(headline, 7 / 6);
+    &--xlarge {
+      @include bodyTextTypeSizeVariant(xlarge);
     }
 
     &--large {
-      font-size: gutter(7 / 4);
-      line-height: gutter(7 / 4);
+      @include bodyTextTypeSizeVariant(large);
     }
 
-    &--emphasised {
+    &--small {
+      @include bodyTextTypeSizeVariant(small);
+    }
+
+    &--xsmall {
+      @include bodyTextTypeSizeVariant(small);
+    }
+
+    &--bold {
       font-weight: $fontWeightBold;
     }
 
@@ -96,20 +131,20 @@ $includeHtml: false !default;
       color: $mintPrimary;
     }
 
-    &--light {
+    &--white {
       color: $white;
-    }
-
-    &--for-fine-print-light {
-      color: $blueSecondaryLight;
-    }
-
-    &--for-fine-print {
-      color: $blueSecondary;
     }
 
     &--blue {
       color: $bluePrimary;
+    }
+
+    &--blue-secondary {
+      color: $blueSecondary;
+    }
+
+    &--blue-secondary-light {
+      color: $blueSecondaryLight;
     }
 
     &--mustard {

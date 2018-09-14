@@ -12,38 +12,34 @@ const TextExamples = () => (
       this is a <Text type={TYPE.SPAN} color={COLOR.MINT}>mint text</Text>,
       <Text type={TYPE.SPAN} noWrap>this text will not wrap</Text>,
       <br />
-      and an <Text type={TYPE.SPAN} weight={WEIGHT.BOLD}>emphasised text</Text>.
+      and an <Text type={TYPE.SPAN} weight={WEIGHT.BOLD}>bold text</Text>.
     </Text>
-    <Text size={SIZE.STANDOUT}>
+    <Text size={SIZE.LARGE}>
       <br />
       This text is a bit bigger than the regular one
     </Text>
     <br />
-    <Text size={SIZE.LARGE}>
+    <Text size={SIZE.XLARGE}>
       This text is large!
     </Text>
     <br />
     <ContrastBox>
-      <Text color={COLOR.LIGHT}>
-        This text is light
+      <Text color={COLOR.WHITE}>
+        This text is white
       </Text>
     </ContrastBox>
-    <Text size={SIZE.OBSCURE}>
+    <Text size={SIZE.SMALL}>
       <br />
       This text is not really intended to be read
       <br />
     </Text>
-    <Text size={SIZE.SMALL}>
+    <Text size={SIZE.XSMALL}>
       <br />
       This text is small but you should be able to read it
       <br />
     </Text>
-    <Text size={SIZE.XSMALL}>
-      <br />
-      This text is xsmall!
-      <br />
-    </Text>
-    <Text size={SIZE.OBSCURE} color={COLOR.FINE_PRINT}>
+
+    <Text size={SIZE.SMALL} color={COLOR.BLUE_SECONDARY}>
       <br />
       This is a fine print example
     </Text>
@@ -62,12 +58,12 @@ const TextExamples = () => (
       <br /><br />
     </Text>
     <ContrastBox>
-      <Text size={SIZE.OBSCURE} color={COLOR.FINE_PRINT_LIGHT}>
+      <Text size={SIZE.SMALL} color={COLOR.BLUE_SECONDARY_LIGHT}>
         This is a very light fine print
       </Text>
     </ContrastBox>
     <br /><br />
-    <Text type={TYPE.H1} size={SIZE.HEADLINE} weight={WEIGHT.REGULAR}>
+    <Text type={TYPE.H1} weight={WEIGHT.REGULAR}>
       This is a headline text used on h1 with regular as an option removing bold effect from it
     </Text>
     <br /><br />
