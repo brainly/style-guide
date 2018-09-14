@@ -46,7 +46,7 @@ describe('<TextBadge />', () => {
     );
     const badge = component.find(Badge);
 
-    expect(badge.children().props().color).toEqual(TEXT_COLOR.LIGHT);
+    expect(badge.children().props().color).toEqual(TEXT_COLOR.WHITE);
   });
 
   it('animates when withAnimation is passed <Badge />', () => {
