@@ -9,7 +9,7 @@ import ContentBoxActions from 'content-box/ContentBoxActions';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Text, {WEIGHT as TEXT_WEIGHT, SIZE as TEXT_SIZE} from 'text/Text';
+import Text, {TEXT_WEIGHT, TEXT_SIZE} from 'text/Text';
 import Avatar from 'avatar/Avatar';
 
 const closeCallback = () => undefined;

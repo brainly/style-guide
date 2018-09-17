@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text, {SIZE, COLOR, WEIGHT} from '../text/Text';
+import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../text/Text';
 
 export const TYPE = {
   DEFAULT: 'default',
@@ -18,7 +18,7 @@ const FlashMessage = ({text, type = TYPE.DEFAULT, className, ...props}) => {
   return (
     <div {...props} className="sg-flash">
       <div className={messageClass}>
-        <Text size={SIZE.SMALL} color={COLOR.LIGHT} weight={WEIGHT.BOLD}>
+        <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.LIGHT} weight={TEXT_WEIGHT.BOLD}>
           {text}
         </Text>
       </div>

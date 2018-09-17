@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-export const TYPE = {
+export const TEXT_TYPE = {
   SPAN: 'span',
   P: 'p',
   H1: 'h1',
@@ -15,27 +15,28 @@ export const TYPE = {
   LABEL: 'label'
 };
 
-export const SIZE = {
-  XXLARGE: 'xxlarge',
-  XLARGE: 'xlarge',
-  LARGE: 'large',
+export const TEXT_SIZE = {
+  XSMALL: 'xsmall',
   SMALL: 'small',
-  XSMALL: 'xsmall'
+  NORMAL: 'normal',
+  LARGE: 'large',
+  XLARGE: 'xlarge',
+  XXLARGE: 'xxlarge'
 };
 
-export const COLOR = {
+export const TEXT_COLOR = {
+  WHITE: 'white',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
   MINT: 'mint',
   PEACH: 'peach',
-  WHITE: 'white',
-  BLUE: 'blue',
   MUSTARD: 'mustard',
+  BLUE: 'blue',
   BLUE_SECONDARY: 'blue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
 };
 
-export const WEIGHT = {
+export const TEXT_WEIGHT = {
   REGULAR: 'regular',
   BOLD: 'bold'
 };
@@ -55,13 +56,13 @@ export const TEXT_ALIGN = {
 
 const Text = ({
   children,
-  size,
+  size = TEXT_SIZE.NORMAL,
   weight,
   transform,
   align,
   color,
   className,
-  type = TYPE.DIV,
+  type = TEXT_TYPE.DIV,
   noWrap,
   asContainer,
   full,
@@ -71,7 +72,7 @@ const Text = ({
 
   const Type = type;
   const textClass = classNames('sg-text', {
-    [`sg-text--${size}`]: size,
+    [`sg-text--${size}`]: size !== TEXT_SIZE.NORMAL,
     [`sg-text--${color}`]: color,
     [`sg-text--${weight}`]: weight,
     [`sg-text--${transform}`]: transform,
@@ -91,12 +92,12 @@ const Text = ({
 
 Text.propTypes = {
   children: PropTypes.node,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  weight: PropTypes.oneOf(Object.values(WEIGHT)),
+  size: PropTypes.oneOf(Object.values(TEXT_SIZE)),
+  color: PropTypes.oneOf(Object.values(TEXT_COLOR)),
+  weight: PropTypes.oneOf(Object.values(TEXT_WEIGHT)),
   transform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
   align: PropTypes.oneOf(Object.values(TEXT_ALIGN)),
-  type: PropTypes.oneOf(Object.values(TYPE)),
+  type: PropTypes.oneOf(Object.values(TEXT_TYPE)),
   noWrap: PropTypes.bool,
   asContainer: PropTypes.bool,
   full: PropTypes.bool,
