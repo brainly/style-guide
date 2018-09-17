@@ -28,7 +28,8 @@ $includeHtml: false !default;
       }
     }
 
-    &--brainly-plus-large {
+    &--brainly-plus-large,
+    &--brainly-plus-large-white {
       width: $logoDefaultWidth;
       height: 90px;
 

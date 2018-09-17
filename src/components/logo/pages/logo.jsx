@@ -28,6 +28,9 @@ const Logos = () => (
     <DocsBlock info="Brainly Plus Large">
       <Logo type={TYPE.BRAINLY_PLUS_LARGE} />
     </DocsBlock>
+    <DocsBlock info="Brainly Plus Large White">
+      <Logo type={TYPE.BRAINLY_PLUS_LARGE_WHITE} />
+    </DocsBlock>
   </div>
 );
 

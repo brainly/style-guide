@@ -12,6 +12,7 @@ export const TYPE = {
   ZNANIJA_PLUS: 'znanija-plus',
   BRAINLY_PLUS: 'brainly-plus',
   BRAINLY_PLUS_WHITE: 'brainly-plus-white',
+  BRAINLY_PLUS_LARGE_WHITE: 'brainly-plus-large-white',
   BRAINLY_PLUS_LARGE: 'brainly-plus-large'
 };
 
@@ -22,7 +23,8 @@ export const LOGOS = {
   'znanija': 'znanija-addd85e6f5',
   'znanija-plus': 'znanija-plus-7649db3e26',
   'brainly-plus': 'brainly-plus-9dd3b24a28',
-  'brainly-plus-white': 'brainly-plus-white-f199a6d8b7',
+  'brainly-plus-white': 'brainly-plus-white-cfb4dc6847',
+  'brainly-plus-large-white': 'brainly-plus-large-white-b9b5efbf59',
   'brainly-plus-large': 'brainly-plus-large-42debebd42'
 };
 
