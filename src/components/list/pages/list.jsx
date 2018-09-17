@@ -6,7 +6,7 @@ import List from '../List';
 import ListItem from '../ListItem';
 import ListItemIcon from '../ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
-import Text, {SIZE as TEXT_SIZE} from '../../text/Text';
+import Text, {TEXT_SIZE} from '../../text/Text';
 import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';
@@ -35,7 +35,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
+              <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
           ))}
         </List>
@@ -63,7 +63,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
+              <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
           ))}
         </List>
@@ -77,7 +77,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
               </ListItemIcon>
-              <Text size={TEXT_SIZE.HEADLINE}>{item}</Text>
+              <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
           ))}
         </List>

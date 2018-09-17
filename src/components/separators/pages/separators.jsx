@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Text, {COLOR, SIZE as TEXT_SIZE, WEIGHT, TYPE} from 'text/Text';
+import Text, {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
 import Link from 'text/Link';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';
 import SeparatorHorizontal, {TYPE as SEPARATOR_TYPE} from '../SeparatorHorizontal';
@@ -20,13 +20,13 @@ const Separators = () => (
     </DocsBlock>
     <DocsBlock info="Large" centered>
       <div>
-        <Text type={TYPE.P} size={TEXT_SIZE.SMALL} color={COLOR.GRAY} weight={WEIGHT.BOLD}>answers</Text>
-        <Text type={TYPE.P} weight={WEIGHT.BOLD}>0</Text>
+        <Text type={TEXT_TYPE.P} size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY} weight={TEXT_WEIGHT.BOLD}>answers</Text>
+        <Text type={TEXT_TYPE.P} weight={TEXT_WEIGHT.BOLD}>0</Text>
       </div>
       <SeparatorVertical size={SIZE.LARGE} />
       <div>
-        <Text type={TYPE.P} size={TEXT_SIZE.SMALL} color={COLOR.GRAY} weight={WEIGHT.BOLD}>answers</Text>
-        <Text type={TYPE.P} weight={WEIGHT.BOLD}>0</Text>
+        <Text type={TEXT_TYPE.P} size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY} weight={TEXT_WEIGHT.BOLD}>answers</Text>
+        <Text type={TEXT_TYPE.P} weight={TEXT_WEIGHT.BOLD}>0</Text>
       </div>
     </DocsBlock>
     <DocsBlock info="Full" centered>

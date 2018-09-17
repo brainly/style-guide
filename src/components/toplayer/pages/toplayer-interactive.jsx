@@ -6,7 +6,7 @@ import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Text, {WEIGHT} from 'text/Text';
+import Text, {TEXT_WEIGHT} from 'text/Text';
 import TextBit, {TEXT_BIT_COLOR} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
@@ -94,19 +94,19 @@ const Toplayers = () => {
                   <ListItemIcon>
                     <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
                   </ListItemIcon>
-                  <Text weight={WEIGHT.BOLD}>ask questions about your assignment</Text>
+                  <Text weight={TEXT_WEIGHT.BOLD}>ask questions about your assignment</Text>
                 </ListItem>
                 <ListItem key={2}>
                   <ListItemIcon>
                     <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
                   </ListItemIcon>
-                  <Text weight={WEIGHT.BOLD}>get answer with explanation</Text>
+                  <Text weight={TEXT_WEIGHT.BOLD}>get answer with explanation</Text>
                 </ListItem>
                 <ListItem key={3}>
                   <ListItemIcon>
                     <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
                   </ListItemIcon>
-                  <Text key={3} weight={WEIGHT.BOLD}>find similar questions</Text>
+                  <Text key={3} weight={TEXT_WEIGHT.BOLD}>find similar questions</Text>
                 </ListItem>
               </List>
             </ContentBoxContent>

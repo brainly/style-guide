@@ -68,7 +68,7 @@ $bodyTextSizes: (
     }
 
     &--xsmall {
-      @include bodyTextTypeSizeVariant(small);
+      @include bodyTextTypeSizeVariant(xsmall);
     }
 
     &--bold {
