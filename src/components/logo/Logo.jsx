@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-export const BASE_URL = 'http://127.0.0.1:8000//images/logos/';
+export const BASE_URL = 'https://styleguide.brainly.com/images/logos/';
 
 export const TYPE = {
   BRAINLY: 'brainly',
