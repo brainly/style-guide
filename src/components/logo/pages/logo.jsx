@@ -22,14 +22,11 @@ const Logos = () => (
     <DocsBlock info="Brainly Plus">
       <Logo type={TYPE.BRAINLY_PLUS} />
     </DocsBlock>
-    <DocsBlock info="Brainly Plus White">
-      <Logo type={TYPE.BRAINLY_PLUS_WHITE} />
+    <DocsBlock info="Brainly Plus Inverse">
+      <Logo type={TYPE.BRAINLY_PLUS_INVERSE} />
     </DocsBlock>
-    <DocsBlock info="Brainly Plus Large">
-      <Logo type={TYPE.BRAINLY_PLUS_LARGE} />
-    </DocsBlock>
-    <DocsBlock info="Brainly Plus Large White">
-      <Logo type={TYPE.BRAINLY_PLUS_LARGE_WHITE} />
+    <DocsBlock info="Brainly Plus Small">
+      <Logo type={TYPE.BRAINLY_PLUS_SMALL} />
     </DocsBlock>
   </div>
 );
