@@ -17,7 +17,7 @@ $includeHtml: false !default;
     }
 
     &--brainly-plus-small,
-    &--znanija-plus {
+    &--znanija-plus-small {
       width: $logoDefaultWidth;
       height: 68px;
 
@@ -28,7 +28,9 @@ $includeHtml: false !default;
     }
 
     &--brainly-plus,
-    &--brainly-plus-inverse {
+    &--brainly-plus-inverse,
+    &--znanija-plus,
+    &--znanija-plus-inverse {
       width: $logoDefaultWidth;
       height: 90px;
 

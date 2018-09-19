@@ -19,6 +19,12 @@ const Logos = () => (
     <DocsBlock info="Znanija Plus">
       <Logo type={TYPE.ZNANIJA_PLUS} />
     </DocsBlock>
+    <DocsBlock info="Znanija Plus Inverse">
+      <Logo type={TYPE.ZNANIJA_PLUS_INVERSE} />
+    </DocsBlock>
+    <DocsBlock info="Znanija Plus Small">
+      <Logo type={TYPE.ZNANIJA_PLUS_SMALL} />
+    </DocsBlock>
     <DocsBlock info="Brainly Plus">
       <Logo type={TYPE.BRAINLY_PLUS} />
     </DocsBlock>
