@@ -61,7 +61,7 @@
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & yarn start",
-    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn js-typecheck && yarn run js-lint && jest",
+    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-lint && jest",
     "eslint": "./node_modules/frontend-tools-configs/node_modules/.bin/eslint"
   },
   "jest": {
