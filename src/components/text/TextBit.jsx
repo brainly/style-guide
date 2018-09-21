@@ -38,14 +38,14 @@ type TextBitPropsType = {
 const TextBit = ({
   children,
   type = TEXT_BIT_TYPE.H1,
-  color = '',
-  size = '',
+  color,
+  size,
   className,
   ...props}: TextBitPropsType) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
-    [`sg-text-bit--${size}`]: size,
-    [`sg-text-bit--${color}`]: color
+    [`sg-text-bit--${size || ''}`]: size,
+    [`sg-text-bit--${color || ''}`]: color
   }, className);
 
   return (
