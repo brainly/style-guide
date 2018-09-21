@@ -15,7 +15,6 @@ export const TEXT_BIT_TYPE = Object.freeze({
 
 export const TEXT_BIT_SIZE = Object.freeze({
   SMALL: 'small',
-  NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge'
 });
