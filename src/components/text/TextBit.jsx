@@ -29,9 +29,9 @@ export const TEXT_BIT_COLOR = {
 
 type TextBitPropsType = {
   children: React.Node,
-  size: 'small' | 'large' | 'xlarge',
-  color: 'blue-secondary' | 'white' | 'black' | 'gray-secondary' | 'peach-primary',
-  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div',
+  type: $Keys<typeof TEXT_BIT_TYPE>,
+  size: $Keys<typeof TEXT_BIT_SIZE>,
+  color: $Keys<typeof TEXT_BIT_COLOR>,
   className: string
 };
 
