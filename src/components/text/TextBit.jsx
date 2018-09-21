@@ -1,5 +1,6 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export const TEXT_BIT_TYPE = {
@@ -26,7 +27,15 @@ export const TEXT_BIT_COLOR = {
   PEACH_PRIMARY: 'peach-primary'
 };
 
-const TextBit = ({children, type = TEXT_BIT_TYPE.H1, color, size, className, ...props}) => {
+type TextBitPropsType = {
+  children: Object,
+  size: string,
+  color: string,
+  type: string,
+  className: string
+};
+
+const TextBit = ({children, type = TEXT_BIT_TYPE.H1, color, size, className, ...props}: TextBitPropsType) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
     [`sg-text-bit--${size}`]: size,
@@ -38,14 +47,6 @@ const TextBit = ({children, type = TEXT_BIT_TYPE.H1, color, size, className, ...
       {children}
     </Type>
   );
-};
-
-TextBit.propTypes = {
-  children: PropTypes.node,
-  size: PropTypes.oneOf(Object.values(TEXT_BIT_SIZE)),
-  color: PropTypes.oneOf(Object.values(TEXT_BIT_COLOR)),
-  type: PropTypes.oneOf(Object.values(TEXT_BIT_TYPE)),
-  className: PropTypes.string
 };
 
 export default TextBit;
