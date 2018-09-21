@@ -31,7 +31,7 @@ export const TEXT_BIT_COLOR = Object.freeze({
 type TextBitPropsType = {
   children: React.Node,
   type?: $Values<typeof TEXT_BIT_TYPE>,
-  size?: $Values<typeof TEXT_BIT_SIZE>,
+  size?: $Values<typeof TEXT_BIT_SIZE> | null,
   color?: $Values<typeof TEXT_BIT_COLOR>,
   className?: string
 };
@@ -39,7 +39,7 @@ type TextBitPropsType = {
 const TextBit = ({
   children,
   type = TEXT_BIT_TYPE.H1,
-  size = TEXT_BIT_SIZE.NORMAL,
+  size,
   color,
   className,
   ...props}: TextBitPropsType) => {
