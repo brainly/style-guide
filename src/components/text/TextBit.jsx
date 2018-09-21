@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export const TEXT_BIT_TYPE = {
@@ -28,10 +28,10 @@ export const TEXT_BIT_COLOR = {
 };
 
 type TextBitPropsType = {
-  children: Object,
-  size: string,
-  color: string,
-  type: string,
+  children: React.Node,
+  size: 'small' | 'large' | 'xlarge',
+  color: 'blue-secondary' | 'white' | 'black' | 'gray-secondary' | 'peach-primary',
+  type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div',
   className: string
 };
 
