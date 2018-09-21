@@ -31,7 +31,7 @@ export const TEXT_BIT_COLOR = Object.freeze({
 type TextBitPropsType = {
   children: React.Node,
   type?: $Values<typeof TEXT_BIT_TYPE>,
-  size?: $Values<typeof TEXT_BIT_SIZE> | null,
+  size?: $Values<typeof TEXT_BIT_SIZE>,
   color?: $Values<typeof TEXT_BIT_COLOR>,
   className?: string
 };
