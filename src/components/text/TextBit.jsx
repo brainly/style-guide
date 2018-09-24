@@ -15,6 +15,7 @@ export const TEXT_BIT_TYPE = Object.freeze({
 
 export const TEXT_BIT_SIZE = Object.freeze({
   SMALL: 'small',
+  NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge'
 });
@@ -38,13 +39,13 @@ type TextBitPropsType = {
 const TextBit = ({
   children,
   type = TEXT_BIT_TYPE.H1,
-  size,
+  size = TEXT_BIT_SIZE.NORMAL,
   color,
   className,
   ...props}: TextBitPropsType) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
-    [`sg-text-bit--${size || ''}`]: size,
+    [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.NORMAL,
     [`sg-text-bit--${color || ''}`]: color
   }, className);
 
