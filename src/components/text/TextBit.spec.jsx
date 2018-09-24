@@ -10,12 +10,20 @@ test('render', () => {
   expect(textBit.hasClass('sg-text-bit')).toBeTruthy();
 });
 
-test('sie', () => {
+test('size', () => {
   const textBit = shallow(
     <TextBit size={TEXT_BIT_SIZE.XLARGE}>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
+});
+
+test('should not pass size when default passed', () => {
+  const textBit = shallow(
+    <TextBit size={TEXT_BIT_SIZE.NORMAL}>Test</TextBit>
+  );
+
+  expect(textBit.hasClass('sg-text-bit--normal')).toBeFalsy();
 });
 
 test('type', () => {
