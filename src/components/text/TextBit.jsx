@@ -45,7 +45,7 @@ const TextBit = ({
   ...props}: TextBitPropsType) => {
   const Type = type;
   const textClass = classNames('sg-text-bit', {
-    [`sg-text-bit--${size}`]: size,
+    [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.NORMAL,
     [`sg-text-bit--${color || ''}`]: color
   }, className);
 
