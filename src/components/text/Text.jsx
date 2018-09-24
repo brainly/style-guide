@@ -24,7 +24,7 @@ const Text = ({
   type = TEXT_TYPE.DIV,
   size = TEXT_SIZE.NORMAL,
   weight = TEXT_WEIGHT.REGULAR,
-  color,
+  color = TEXT_COLOR.DEFAULT,
   transform,
   align,
   noWrap,
@@ -38,8 +38,8 @@ const Text = ({
   const Type = type;
   const textClass = classNames('sg-text', {
     [`sg-text--${size}`]: size !== TEXT_SIZE.NORMAL,
-    [`sg-text--${weight}`]: weight,
-    [`sg-text--${color || ''}`]: color,
+    [`sg-text--${color}`]: color !== TEXT_COLOR.DEFAULT,
+    [`sg-text--${weight}`]: weight !== TEXT_WEIGHT.REGULAR,
     [`sg-text--${transform || ''}`]: transform,
     [`sg-text--${align || ''}`]: align,
     'sg-text--container': asContainer,

@@ -1,7 +1,9 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Text, {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
+import Text from 'text/Text';
+import {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/TextConsts';
+
 import Link from 'text/Link';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';
 import SeparatorHorizontal, {TYPE as SEPARATOR_TYPE} from '../SeparatorHorizontal';

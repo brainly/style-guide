@@ -3,7 +3,9 @@ import TopLayer, {SIZE} from '../TopLayer';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
-import Text, {TEXT_WEIGHT} from 'text/Text';
+import Text from 'text/Text';
+import {TEXT_WEIGHT} from 'text/TextConsts';
+
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';

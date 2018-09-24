@@ -8,7 +8,8 @@ export const TEXT_TYPE = Object.freeze({
   H5: 'h5',
   H6: 'h6',
   DIV: 'div',
-  LABEL: 'label'
+  LABEL: 'label',
+  LINK: 'a'
 });
 
 export const TEXT_SIZE = Object.freeze({
@@ -21,6 +22,7 @@ export const TEXT_SIZE = Object.freeze({
 });
 
 export const TEXT_COLOR = Object.freeze({
+  DEFAULT: 'default',
   WHITE: 'white',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',

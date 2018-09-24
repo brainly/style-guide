@@ -1,7 +1,8 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Breadcrumb from '../Breadcrumb';
-import Text, {COLOR} from 'text/Text';
+import Text from 'text/Text';
+import {TEXT_COLOR} from 'text/TextConsts';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 
@@ -22,7 +23,7 @@ const Breadcrumbs = () => {
     <div>
       <DocsActiveBlock
         settings={settings}
-        wrapper={<Text color={COLOR.MINT} />}
+        wrapper={<Text color={TEXT_COLOR.MINT} />}
         contentAfter=" Lorem Ipsum"
         contentBefore="Lorem Ipsum "
       >

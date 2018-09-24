@@ -6,7 +6,9 @@ import List from '../List';
 import ListItem from '../ListItem';
 import ListItemIcon from '../ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
-import Text, {TEXT_SIZE} from '../../text/Text';
+import Text from 'text/Text';
+import {TEXT_SIZE} from 'text/TextConsts';
+
 import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';

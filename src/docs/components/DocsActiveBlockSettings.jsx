@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text, {TEXT_SIZE, TEXT_COLOR} from 'text/Text';
+import Text from 'text/Text';
+import {TEXT_SIZE, TEXT_COLOR} from 'text/TextConsts';
+
 import Radio from 'form-elements/Radio';
 import ActionList from 'action-list/ActionList';
 import SeparatorVertical from 'separators/SeparatorVertical';

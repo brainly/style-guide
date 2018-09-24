@@ -1,7 +1,8 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Breadcrumb from '../Breadcrumb';
-import Text, {TEXT_COLOR} from 'text/Text';
+import Text from 'text/Text';
+import {TEXT_COLOR} from 'text/TextConsts';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 

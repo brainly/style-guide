@@ -1,24 +1,26 @@
 import React from 'react';
-import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../Text';
+import Text from '../Text';
+import {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/TextConsts';
+
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Texts = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TEXT_TYPE
     },
     {
       name: 'size',
-      values: SIZE
+      values: TEXT_SIZE
     },
     {
       name: 'color',
-      values: COLOR
+      values: TEXT_COLOR
     },
     {
       name: 'weight',
-      values: WEIGHT
+      values: TEXT_WEIGHT
     },
     {
       name: 'transform',

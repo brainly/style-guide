@@ -1,7 +1,8 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from '../Text';
+import Text from '../Text';
+import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../TextConsts';
 
 const text = 'We\'ve got your back!';
 

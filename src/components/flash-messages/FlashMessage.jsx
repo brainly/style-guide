@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../text/Text';
+import Text from '../text/Text';
+import {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/TextConsts';
 
 export const TYPE = {
   DEFAULT: 'default',
