@@ -1,7 +1,9 @@
 import React from 'react';
 import TextBadge, {TEXT_BADGE_COLOR, TEXT_BADGE_SIZE} from './TextBadge';
 import Badge from './subcomponents/Badge';
-import Text, {TEXT_SIZE, TEXT_COLOR} from '../text/Text';
+import Text from '../text/Text';
+import {TEXT_SIZE, TEXT_COLOR} from 'text/TextConsts';
+
 import {shallow, mount} from 'enzyme';
 
 describe('<TextBadge />', () => {
