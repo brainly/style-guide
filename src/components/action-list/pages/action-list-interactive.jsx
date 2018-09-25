@@ -3,8 +3,7 @@ import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
-import Text from 'text/Text';
-import {TEXT_TYPE, TEXT_COLOR} from 'text/TextConsts';
+import Text, {TEXT_TYPE, TEXT_COLOR} from '../../text';
 
 import ActionListHole from '../ActionListHole';
 import DocsActiveBlock from 'components/DocsActiveBlock';

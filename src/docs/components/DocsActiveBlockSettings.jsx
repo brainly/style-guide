@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from 'text/Text';
-import {TEXT_SIZE, TEXT_COLOR} from 'text/TextConsts';
+import Text, {TEXT_SIZE, TEXT_COLOR} from '../../../src/components/text';
 
 import Radio from 'form-elements/Radio';
 import ActionList from 'action-list/ActionList';

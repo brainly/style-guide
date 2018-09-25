@@ -9,8 +9,7 @@ import ContentBoxActions from 'content-box/ContentBoxActions';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Text from 'text/Text';
-import {TEXT_WEIGHT, TEXT_SIZE} from 'text/TextConsts';
+import Text, {TEXT_WEIGHT, TEXT_SIZE} from '../../text';
 
 import Avatar from 'avatar/Avatar';
 
