@@ -1,6 +1,6 @@
 import React from 'react';
 import Text from '../Text';
-import {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/TextConsts';
+import {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE, TEXT_TRANSFORM, TEXT_ALIGN} from 'text/TextConsts';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
