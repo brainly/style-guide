@@ -10,7 +10,7 @@ import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 import Link from 'text/Link';
-import {TEXT_COLOR} from '../../text';
+import {TEXT_COLOR} from 'text';
 
 const Bubbles = () => (
   <div>

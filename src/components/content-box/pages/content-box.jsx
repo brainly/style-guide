@@ -12,7 +12,7 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
-import Text, {TEXT_COLOR} from '../../text';
+import Text, {TEXT_COLOR} from 'text';
 import Link from 'text/Link';
 import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE} from 'text/HeaderPrimary';
 import HeaderSecondary from 'text/HeaderSecondary';

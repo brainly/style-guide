@@ -4,7 +4,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar from 'avatar/Avatar';
 import Link from 'text/Link';
-import {TEXT_COLOR} from '../../text';
+import {TEXT_COLOR} from 'text';
 
 const defaultProps = {
   contentArray: [

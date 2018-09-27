@@ -1,7 +1,7 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Breadcrumb from '../Breadcrumb';
-import Text, {TEXT_COLOR} from '../../text';
+import Text, {TEXT_COLOR} from 'text';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 

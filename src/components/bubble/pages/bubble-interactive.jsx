@@ -11,7 +11,7 @@ import Text from 'text/Text';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import Link from 'text/Link';
-import {TEXT_COLOR} from '../../text';
+import {TEXT_COLOR} from 'text';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

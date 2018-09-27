@@ -3,7 +3,7 @@ import DocsActiveBlock from 'components/DocsActiveBlock';
 import Media from '../Media';
 import Avatar from 'avatar/Avatar';
 import Link from 'text/Link';
-import {TEXT_COLOR} from '../../text';
+import {TEXT_COLOR} from 'text';
 
 const MediaExamples = () => {
   const defaultProps = {
