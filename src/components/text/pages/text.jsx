@@ -2,6 +2,7 @@ import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text from '../Text';
+import Link from '../Link';
 import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../TextConsts';
 
 const text = 'We\'ve got your back!';
@@ -48,6 +49,25 @@ const TextExamples = () => {
       </DocsBlock>
       <DocsBlock info="Color variant">
         {colorVariant}
+      </DocsBlock>
+      <DocsBlock info="Link options exists in all text's variants">
+        <Link
+          href=""
+          weight={TEXT_WEIGHT.BOLD}
+          size={TEXT_SIZE.LARGE}
+        >
+          link / bold / standard / xlarge / standard
+        </Link>
+        <br />
+        <Link
+          href=""
+          color={TEXT_COLOR.MINT}
+          weight={TEXT_WEIGHT.BOLD}
+          size={TEXT_SIZE.LARGE}
+          underlined
+        >
+          link / bold / mint / xlarge / underlined
+        </Link>
       </DocsBlock>
       <DocsBlock info="Alignment examples">
         <Text align={TEXT_ALIGN.LEFT}>

@@ -1,35 +1,29 @@
 import React from 'react';
-import Link, {SIZE, COLOR} from '../Link';
+import Link from '../Link';
+import {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../../text';
+
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Links = () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: TEXT_SIZE
     },
     {
       name: 'color',
-      values: COLOR
+      values: TEXT_COLOR
     },
     {
       name: 'href',
       values: String
     },
     {
-      name: 'unstyled',
-      values: Boolean
+      name: 'weight',
+      values: TEXT_WEIGHT
     },
     {
       name: 'underlined',
-      values: Boolean
-    },
-    {
-      name: 'emphasised',
-      values: Boolean
-    },
-    {
-      name: 'disabled',
       values: Boolean
     }
   ];
@@ -40,7 +34,14 @@ const Links = () => {
         <Link>Comments (9)</Link>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Link href="#" color={COLOR.MINT} emphasised size={SIZE.SMALL}>Terms of use</Link>
+        <Link
+          href="#"
+          color={TEXT_COLOR.MINT}
+          size={TEXT_SIZE.SMALL}
+          weight={TEXT_WEIGHT.REGULAR}
+        >
+          Terms of use
+        </Link>
       </DocsActiveBlock>
     </div>
   );

@@ -10,7 +10,9 @@ import Avatar from 'avatar/Avatar';
 import Text from 'text/Text';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Link, {COLOR as LINK_COLOR} from 'text/Link';
+import Link from 'text/Link';
+import {TEXT_COLOR} from '../../text';
+
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Bubbles = () => {
@@ -58,8 +60,8 @@ const Bubbles = () => {
                 <ActionListHole>
                   <Breadcrumb
                     elements={[
-                      <Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
-                      <Link key={2} color={LINK_COLOR.GRAY}>a few seconds ago</Link>]}
+                      <Link key={1} color={TEXT_COLOR.GRAY}>Katie</Link>,
+                      <Link key={2} color={TEXT_COLOR.GRAY}>a few seconds ago</Link>]}
                   />
                 </ActionListHole>
               </ActionList>

@@ -45,6 +45,7 @@ $bodyTextSizes: (
   .sg-text {
     @include bodyTextTypeSizeVariant(normal);
     font-family: $fontFamilyPrimary;
+    font-weight: $fontWeightNormal;
     color: $black;
 
     &--container {
@@ -69,6 +70,26 @@ $bodyTextSizes: (
 
     &--xsmall {
       @include bodyTextTypeSizeVariant(xsmall);
+    }
+
+    &--link {
+      @include removeDescenders();
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    &--link-underlined {
+      text-decoration: underline;
+    }
+
+    &--link-unstyled {
+      color: inherit;
+      font-weight: inherit;
     }
 
     &--bold {
