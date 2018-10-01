@@ -1,7 +1,6 @@
 import React from 'react';
-import Link from './Link';
+import Link, {LINK_SIZE, LINK_COLOR} from './Link';
 import Text from './Text';
-import {TEXT_SIZE, TEXT_COLOR} from './textConsts';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -31,7 +30,7 @@ test('empty href', () => {
 
 test('size', () => {
   const link = shallow(
-    <Link size={TEXT_SIZE.SMALL}>Test</Link>
+    <Link size={LINK_SIZE.SMALL}>Test</Link>
   ).dive();
 
   expect(link.hasClass('sg-text--small')).toBeTruthy();
@@ -39,7 +38,7 @@ test('size', () => {
 
 test('color', () => {
   const link = shallow(
-    <Link color={TEXT_COLOR.WHITE}>Test</Link>
+    <Link color={LINK_COLOR.WHITE}>Test</Link>
   ).dive();
 
   expect(link.hasClass('sg-text--white')).toBeTruthy();

@@ -12,19 +12,19 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
-import Text, {TEXT_COLOR} from 'text';
-import Link from 'text/Link';
+import Text from 'text';
+import Link, {LINK_COLOR} from 'text/Link';
 import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE} from 'text/HeaderPrimary';
 import HeaderSecondary from 'text/HeaderSecondary';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 
-const link1 = <Link href="#" color={TEXT_COLOR.GRAY}>Math</Link>;
-const link2 = <Link href="#" color={TEXT_COLOR.GRAY}>10 pts</Link>;
-const link3 = <Link href="#" color={TEXT_COLOR.GRAY}>2 min ago</Link>;
+const link1 = <Link href="#" color={LINK_COLOR.GRAY}>Math</Link>;
+const link2 = <Link href="#" color={LINK_COLOR.GRAY}>10 pts</Link>;
+const link3 = <Link href="#" color={LINK_COLOR.GRAY}>2 min ago</Link>;
 const breadcrumbs = [link1, link2, link3];
-const breadcrumbsSpaced = [<Link key={1} color={TEXT_COLOR.GRAY}>Katie</Link>,
-  <Link key={2} href="#" color={TEXT_COLOR.GRAY}>Answerer</Link>];
+const breadcrumbsSpaced = [<Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
+  <Link key={2} href="#" color={LINK_COLOR.GRAY}>Answerer</Link>];
 const breadcrumbsSpaced2 = [<Link key={1}>Comments (9)</Link>,
   <Link key={2} href="#">Report</Link>];
 

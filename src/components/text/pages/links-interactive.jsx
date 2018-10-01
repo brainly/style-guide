@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from '../Link';
-import {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text';
+import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'text/Link';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -8,11 +7,11 @@ const Links = () => {
   const settings = [
     {
       name: 'size',
-      values: TEXT_SIZE
+      values: LINK_SIZE
     },
     {
       name: 'color',
-      values: TEXT_COLOR
+      values: LINK_COLOR
     },
     {
       name: 'href',
@@ -20,7 +19,7 @@ const Links = () => {
     },
     {
       name: 'weight',
-      values: TEXT_WEIGHT
+      values: LINK_WEIGHT
     },
     {
       name: 'underlined',
@@ -36,9 +35,9 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link
           href="#"
-          color={TEXT_COLOR.MINT}
-          size={TEXT_SIZE.SMALL}
-          weight={TEXT_WEIGHT.REGULAR}
+          color={LINK_COLOR.MINT}
+          size={LINK_SIZE.SMALL}
+          weight={LINK_WEIGHT.REGULAR}
         >
           Terms of use
         </Link>

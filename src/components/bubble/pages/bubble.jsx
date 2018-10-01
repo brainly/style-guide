@@ -9,8 +9,10 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
-import Link from 'text/Link';
-import {TEXT_COLOR} from 'text';
+import Link, {LINK_COLOR} from 'text/Link';
+
+// import Link from 'text/Link';
+// import {LINK_COLOR} from 'text';
 
 const Bubbles = () => (
   <div>
@@ -80,8 +82,8 @@ const Bubbles = () => (
             <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
             <Breadcrumb
               elements={[
-                <Link key={1} href="#" color={TEXT_COLOR.GRAY}>Katie</Link>,
-                <Link key={2} href="#" color={TEXT_COLOR.GRAY}>a few seconds ago</Link>
+                <Link key={1} href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
+                <Link key={2} href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
               ]}
             />
           </ContentBoxHeader>
