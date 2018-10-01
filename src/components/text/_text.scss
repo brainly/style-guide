@@ -73,7 +73,6 @@ $bodyTextSizes: (
     }
 
     &--link {
-      @include removeDescenders();
       cursor: pointer;
       text-decoration: none;
 
@@ -84,13 +83,11 @@ $bodyTextSizes: (
     }
 
     &--link-underlined {
-      @include removeDescenders();
       cursor: pointer;
       text-decoration: underline;
     }
 
     &--link-unstyled {
-      @include removeDescenders();
       cursor: pointer;
       color: inherit;
       font-weight: inherit;
