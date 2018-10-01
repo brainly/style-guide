@@ -5,7 +5,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Text, {TEXT_WEIGHT} from 'text';
+import Text, {TEXT_WEIGHT} from 'text/Text';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 import List from 'list/List';
 import ListItem from 'list/ListItem';

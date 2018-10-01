@@ -2,7 +2,7 @@ import React from 'react';
 import Card, {CARD_PADDING} from '../Card';
 import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Text, {TEXT_COLOR, TEXT_TYPE} from 'text';
+import Text, {TEXT_COLOR, TEXT_TYPE} from 'text/Text';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

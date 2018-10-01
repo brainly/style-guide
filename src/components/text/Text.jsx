@@ -4,8 +4,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
 
+export {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+
 export type TextPropsType = {
-  children: React.Node,
+  children?: React.Node,
   size?: $Values<typeof TEXT_SIZE>,
   type?: $Values<typeof TEXT_TYPE>,
   color?: $Values<typeof TEXT_COLOR>,
