@@ -15,7 +15,8 @@ export const LINK_ALIGN = TEXT_ALIGN;
 
 type LinkPropsType = {
   href?: string,
-  underlined?: boolean
+  underlined?: boolean,
+  unstyled?: boolean
 } & TextPropsType;
 
 const Link = (props: LinkPropsType) => {
@@ -23,13 +24,16 @@ const Link = (props: LinkPropsType) => {
     children,
     href,
     color = LINK_COLOR.BLUE,
-    underlined,
+    underlined = false,
+    unstyled = false,
     className,
     ...additionalProps
   } = props;
-  const linkClass = classNames('sg-text--link', {
-    [`sg-text--${color}`]: color !== LINK_COLOR.DEFAULT,
-    'sg-text--link-underlined': underlined
+  const linkClass = classNames({
+    'sg-text--link': !underlined && !unstyled,
+    'sg-text--link-underlined': underlined && !unstyled,
+    'sg-text--link-unstyled': !underlined && unstyled,
+    [`sg-text--${color}`]: color !== LINK_COLOR.DEFAULT
   }, className);
 
   if (!href) {

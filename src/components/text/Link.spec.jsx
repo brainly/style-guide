@@ -46,8 +46,19 @@ test('color', () => {
 
 test('unstyled', () => {
   const link = shallow(
+    <Link unstyled>Test</Link>
+  );
+
+  expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
+  expect(link.hasClass('sg-text--link')).toBeFalsy();
+});
+
+test('underlined', () => {
+  const link = shallow(
     <Link underlined>Test</Link>
   );
 
   expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
+  expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
+  expect(link.hasClass('sg-text--link')).toBeFalsy();
 });
