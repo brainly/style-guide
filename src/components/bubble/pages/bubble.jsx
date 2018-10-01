@@ -11,9 +11,6 @@ import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 import Link, {LINK_COLOR} from 'text/Link';
 
-// import Link from 'text/Link';
-// import {LINK_COLOR} from 'text';
-
 const Bubbles = () => (
   <div>
     <DocsBlock info="Top (middle)" additionalInfo="--top">
