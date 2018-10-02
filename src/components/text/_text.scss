@@ -91,6 +91,11 @@ $bodyTextSizes: (
       cursor: pointer;
       color: inherit;
       font-weight: inherit;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
     }
 
     &--bold {

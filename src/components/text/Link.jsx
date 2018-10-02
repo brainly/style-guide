@@ -33,7 +33,7 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link': !underlined && !unstyled,
     'sg-text--link-underlined': underlined && !unstyled,
     'sg-text--link-unstyled': !underlined && unstyled,
-    [`sg-text--${color}`]: color !== LINK_COLOR.DEFAULT
+    [`sg-text--${color}`]: !unstyled ? color !== LINK_COLOR.DEFAULT : null
   }, className);
 
   if (!href) {
