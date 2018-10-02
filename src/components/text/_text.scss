@@ -1,5 +1,4 @@
 $includeHtml: false !default;
-$includeHtml: false !default;
 
 $bodyTextSizes: (
   xxlarge: (
@@ -180,6 +179,27 @@ $bodyTextSizes: (
 
     &--peach {
       color: $peachPrimary;
+    }
+
+    // TODO to be removed when changes in twig template would be changed
+    &--standout {
+      @include typeVariant(standout, 1);
+    }
+
+    &--obscure {
+      @include typeVariant(obscure, 0.5);
+    }
+
+    &--headline {
+      @include typeVariant(headline, 7 / 6);
+    }
+
+    &--emphasised {
+      font-weight: $fontWeightBold;
+    }
+
+    &--light {
+      color: $white;
     }
   }
 
