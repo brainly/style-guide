@@ -9,7 +9,7 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
-import Link, {COLOR as LINK_COLOR} from 'text/Link';
+import Link, {LINK_COLOR} from 'text/Link';
 
 const Bubbles = () => (
   <div>

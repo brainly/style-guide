@@ -1,112 +1,116 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from '../Text';
+import Text from '../Text';
+import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
+import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../textConsts';
 
-const TextExamples = () => (
-  <DocsBlock info="Examples">
-    <Text>
-      This is a default typeface for text everywhere.<br />
-      Here is a <Text type={TYPE.SPAN} color={COLOR.GRAY}>gray text</Text>,
-      this is a <Text type={TYPE.SPAN} color={COLOR.GRAY_SECONDARY}>gray secondary text</Text>,
-      this is a <Text type={TYPE.SPAN} color={COLOR.MINT}>mint text</Text>,
-      <Text type={TYPE.SPAN} noWrap>this text will not wrap</Text>,
-      <br />
-      and an <Text type={TYPE.SPAN} weight={WEIGHT.BOLD}>emphasised text</Text>.
-    </Text>
-    <Text size={SIZE.STANDOUT}>
-      <br />
-      This text is a bit bigger than the regular one
-    </Text>
-    <br />
-    <Text size={SIZE.LARGE}>
-      This text is large!
-    </Text>
-    <br />
-    <ContrastBox>
-      <Text color={COLOR.LIGHT}>
-        This text is light
-      </Text>
-    </ContrastBox>
-    <Text size={SIZE.OBSCURE}>
-      <br />
-      This text is not really intended to be read
-      <br />
-    </Text>
-    <Text size={SIZE.SMALL}>
-      <br />
-      This text is small but you should be able to read it
-      <br />
-    </Text>
-    <Text size={SIZE.XSMALL}>
-      <br />
-      This text is xsmall!
-      <br />
-    </Text>
-    <Text size={SIZE.OBSCURE} color={COLOR.FINE_PRINT}>
-      <br />
-      This is a fine print example
-    </Text>
-    <Text color={COLOR.MUSTARD}>
-      <br />
-      This is a warning example
-    </Text>
-    <Text color={COLOR.PEACH}>
-      <br />
-      This is a error example
-      <br /><br />
-    </Text>
-    <Text color={COLOR.BLUE}>
-      <br />
-      This is blue text it should be used only in components not in text context
-      <br /><br />
-    </Text>
-    <ContrastBox>
-      <Text size={SIZE.OBSCURE} color={COLOR.FINE_PRINT_LIGHT}>
-        This is a very light fine print
-      </Text>
-    </ContrastBox>
-    <br /><br />
-    <Text type={TYPE.H1} size={SIZE.HEADLINE} weight={WEIGHT.REGULAR}>
-      This is a headline text used on h1 with regular as an option removing bold effect from it
-    </Text>
-    <br /><br />
-    <Text align={TEXT_ALIGN.LEFT}>
-      this text is aligned to left
-    </Text>
-    <Text align={TEXT_ALIGN.CENTER}>
-      this text is aligned to center
-    </Text>
-    <Text align={TEXT_ALIGN.RIGHT}>
-      this text is aligned to right
-    </Text>
-    <Text align={TEXT_ALIGN.JUSTIFY}>
-    This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-      This text is justified. This text is justified. This text is justified.
-    </Text>
-    <br /><br />
-    <Text transform={TEXT_TRANSFORM.LOWERCASE}>
-      THIS TEXT IS LOWERCASED
-    </Text>
-    <Text transform={TEXT_TRANSFORM.UPPERCASE}>
-      this text is uppercased
-    </Text>
-    <Text transform={TEXT_TRANSFORM.CAPITALIZE}>
-      this text capitalized
-    </Text>
-    <br /><br />
-    <Text full>
-      this text takes full width
-    </Text>
-    <Text asContainer>
-      this text is a container - things can be positioned relative to it
-    </Text>
-  </DocsBlock>
-);
+const text = 'We\'ve got your back!';
+
+function getValues(object, addUndefined = true) {
+  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+}
+
+const TextExamples = () => {
+  const SizeVariant = [];
+  const colorVariant = [];
+
+  getValues(TEXT_SIZE, false).forEach(size => {
+    getValues(TEXT_WEIGHT, false).forEach(weight => {
+      SizeVariant.push(
+        <Text type={TEXT_TYPE.H2} size={size} color={TEXT_COLOR.GRAY} weight={weight}>
+          {text} - {size}
+        </Text>
+      );
+    });
+  });
+  getValues(TEXT_COLOR, false).forEach(color => {
+    if (color === TEXT_COLOR.WHITE) {
+      colorVariant.push(
+        <ContrastBox>
+          <Text type={TEXT_TYPE.H2} color={color}>
+            {text} - {color}
+          </Text>
+        </ContrastBox>
+      );
+    } else {
+      colorVariant.push(
+        <Text type={TEXT_TYPE.H2} color={color}>
+          {text} - {color}
+        </Text>
+      );
+    }
+
+  });
+  return (
+    <div>
+      <DocsBlock info="Size and weight variant">
+        {SizeVariant}
+      </DocsBlock>
+      <DocsBlock info="Color variant">
+        {colorVariant}
+      </DocsBlock>
+      <DocsBlock info="Link options exists in all text's variants">
+        <Link
+          href="#"
+          weight={LINK_WEIGHT.BOLD}
+          size={LINK_SIZE.LARGE}
+        >
+          link / bold / standard / xlarge / standard
+        </Link>
+        <br />
+        <Link
+          href="#"
+          color={LINK_COLOR.MINT}
+          weight={LINK_WEIGHT.BOLD}
+          size={LINK_SIZE.LARGE}
+          underlined
+        >
+          link / bold / mint / xlarge / underlined
+        </Link>
+      </DocsBlock>
+      <DocsBlock info="Alignment examples">
+        <Text align={TEXT_ALIGN.LEFT}>
+          Text aligned to left
+        </Text>
+        <Text align={TEXT_ALIGN.CENTER}>
+          Text aligned to center
+        </Text>
+        <Text align={TEXT_ALIGN.RIGHT}>
+          Text aligned to right
+        </Text>
+        <Text align={TEXT_ALIGN.JUSTIFY}>
+        This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is justified.
+        </Text>
+      </DocsBlock>
+      <DocsBlock info="Transform examples">
+        <Text transform={TEXT_TRANSFORM.LOWERCASE}>
+          THIS TEXT IS LOWERCASED
+        </Text>
+        <Text transform={TEXT_TRANSFORM.UPPERCASE}>
+          this text is uppercased
+        </Text>
+        <Text transform={TEXT_TRANSFORM.CAPITALIZE}>
+          this text capitalized
+        </Text>
+      </DocsBlock>
+      <DocsBlock info="Container and full width">
+        <Text asContainer>
+          This text is a container - things can be positioned relative to it
+        </Text>
+        <br />
+        <Text full>
+          This text takes full width
+        </Text>
+      </DocsBlock>
+    </div>
+  );
+};
 
 export default TextExamples;

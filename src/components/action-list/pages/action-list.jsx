@@ -5,7 +5,8 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE, HEADER_COLOR} from 'text/HeaderPrimary';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
-import Text, {TYPE as TEXT_TYPE, SIZE as TEXT_SIZE, COLOR as TEXT_COLOR, WEIGHT as TEXT_WEIGHT} from 'text/Text';
+import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
+
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
@@ -111,7 +112,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -128,7 +129,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -155,7 +156,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -172,7 +173,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -199,7 +200,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -216,7 +217,7 @@ const ActionLists = () => (
             size={LABEL_SIZE.SMALL}
           >
             <Text
-              size={TEXT_SIZE.OBSCURE}
+              size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
               color={TEXT_COLOR.GRAY_SECONDARY}
               type={TEXT_TYPE.DIV}
@@ -242,7 +243,7 @@ const ActionLists = () => (
               <Icon type={ICON_TYPE.MESSAGES} size={24} />
             </ActionListHole>
             <ActionListHole>
-              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
                 Elements in this box will just never wrap
               </Text>
             </ActionListHole>
@@ -254,7 +255,7 @@ const ActionLists = () => (
               <Icon type={ICON_TYPE.MESSAGES} size={24} />
             </ActionListHole>
             <ActionListHole>
-              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+              <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
                 Default behaviour for elements is to wrap
               </Text>
             </ActionListHole>
@@ -267,12 +268,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole asContainer>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               You can position absolute elements here
             </Text>
           </ActionListHole>
           <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               Default behaviour
             </Text>
           </ActionListHole>
@@ -372,12 +373,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole grow>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This component will grow to fill all remaining size
             </Text>
           </ActionListHole>
           <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This component has default width
             </Text>
           </ActionListHole>
@@ -389,12 +390,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole grow>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This component will grow to fill all remaining size
             </Text>
           </ActionListHole>
           <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This component will not be shrinked even if its width is smalle
             </Text>
           </ActionListHole>
@@ -406,12 +407,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This is default component
             </Text>
           </ActionListHole>
           <ActionListHole toRight>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
               This component will stick to right side
             </Text>
           </ActionListHole>
@@ -432,7 +433,7 @@ const ActionLists = () => (
             </HeaderPrimary>
           </ActionListHole>
           <ActionListHole toEnd>
-            <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+            <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
               per month
             </Text>
           </ActionListHole>
@@ -465,7 +466,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                   short text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
@@ -477,7 +478,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                   and medium text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
@@ -489,7 +490,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                   and some longer text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
@@ -501,7 +502,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                   and medium text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
@@ -513,7 +514,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                 short text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
@@ -525,7 +526,7 @@ const ActionLists = () => (
           <ActionListHole equalWidth>
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
-                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.LIGHT}>
+                <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
                   and medium text
                 </Text>
               </ContentBoxContent>

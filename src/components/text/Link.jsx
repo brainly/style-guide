@@ -1,61 +1,63 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import classNames from 'classnames';
+import Text from './Text';
+import {TEXT_TYPE, TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+import type {TextPropsType} from './Text';
 
-export const COLOR = {
-  GRAY: 'gray',
-  MINT: 'mint',
-  PEACH: 'peach',
-  LIGHT: 'light',
-  MUSTARD: 'mustard',
-  FINE_PRINT: 'for-fine-print',
-  FINE_PRINT_LIGHT: 'for-fine-print-light'
-};
+export const LINK_COLOR = TEXT_COLOR;
+export const LINK_TYPE = TEXT_TYPE;
+export const LINK_SIZE = TEXT_SIZE;
+export const LINK_WEIGHT = TEXT_WEIGHT;
+export const LINK_TRANSFORM = TEXT_TRANSFORM;
+export const LINK_ALIGN = TEXT_ALIGN;
 
-export const SIZE = {
-  NORMAL: 'normal',
-  SMALL: 'small',
-  OBSCURE: 'obscure'
-};
+type LinkPropsType = {
+  href?: string,
+  underlined?: boolean,
+  unstyled?: boolean
+} & TextPropsType;
 
-const Link = props => {
+const Link = (props: LinkPropsType) => {
   const {
-    children, href, color, size = SIZE.NORMAL, unstyled, underlined, emphasised, disabled, className, ...additionalProps
+    children,
+    href,
+    color = LINK_COLOR.BLUE,
+    underlined = false,
+    unstyled = false,
+    className,
+    ...additionalProps
   } = props;
-  const linkClass = classNames('sg-link', {
-    [`sg-link--${size}`]: size !== SIZE.NORMAL,
-    [`sg-link--${color}`]: color,
-    'sg-link--emphasised': emphasised,
-    'sg-link--underlined': underlined,
-    'sg-link--unstyled': unstyled,
-    'sg-link--disabled': disabled
+  const linkClass = classNames({
+    'sg-text--link': !underlined && !unstyled,
+    'sg-text--link-underlined': underlined && !unstyled,
+    'sg-text--link-unstyled': !underlined && unstyled,
+    [`sg-text--${color}`]: !unstyled ? color !== LINK_COLOR.DEFAULT : null
   }, className);
 
-  if (disabled || !href) {
+  if (!href) {
     return (
-      <span {...additionalProps} className={linkClass}>
+      <Text
+        type={LINK_TYPE.SPAN}
+        {...additionalProps}
+        className={linkClass}
+      >
         {children}
-      </span>
+      </Text>
     );
   }
 
   return (
-    <a {...additionalProps} className={linkClass} href={href}>
+    <Text
+      type={LINK_TYPE.LINK}
+      {...additionalProps}
+      className={linkClass}
+      href={href}
+    >
       {children}
-    </a>
+    </Text>
   );
-};
-
-Link.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  href: PropTypes.string,
-  unstyled: PropTypes.bool,
-  underlined: PropTypes.bool,
-  emphasised: PropTypes.bool,
-  disabled: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Link;

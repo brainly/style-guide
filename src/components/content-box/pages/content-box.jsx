@@ -13,14 +13,14 @@ import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
-import Link, {COLOR as LINK_COLOR} from 'text/Link';
+import Link, {LINK_COLOR} from 'text/Link';
 import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE} from 'text/HeaderPrimary';
 import HeaderSecondary from 'text/HeaderSecondary';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 
-const link1 = <Link href="#" color={LINK_COLOR.GRAY} emphasised>Math</Link>;
-const link2 = <Link href="#" color={LINK_COLOR.GRAY} emphasised>10 pts</Link>;
+const link1 = <Link href="#" color={LINK_COLOR.GRAY}>Math</Link>;
+const link2 = <Link href="#" color={LINK_COLOR.GRAY}>10 pts</Link>;
 const link3 = <Link href="#" color={LINK_COLOR.GRAY}>2 min ago</Link>;
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [<Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,

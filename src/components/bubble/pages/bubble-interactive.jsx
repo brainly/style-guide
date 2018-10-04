@@ -10,7 +10,8 @@ import Avatar from 'avatar/Avatar';
 import Text from 'text/Text';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Link, {COLOR as LINK_COLOR} from 'text/Link';
+import Link, {LINK_COLOR} from 'text/Link';
+
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Bubbles = () => {

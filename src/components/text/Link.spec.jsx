@@ -1,5 +1,6 @@
 import React from 'react';
-import Link, {COLOR as LINK_COLOR, SIZE as LINK_SIZE} from './Link';
+import Link, {LINK_SIZE, LINK_COLOR} from './Link';
+import Text from './Text';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -7,32 +8,40 @@ test('render', () => {
     <Link href="test.com">Test</Link>
   );
 
-  expect(link.hasClass('sg-link')).toBeTruthy();
+  expect(link.hasClass('sg-text--link')).toBeTruthy();
   expect(link.props().href).toEqual('test.com');
+});
+
+test('render Text', () => {
+  const link = shallow(
+    <Link href="test.com">Test</Link>
+  );
+
+  expect(link.find(Text)).toBeTruthy();
 });
 
 test('empty href', () => {
   const link = shallow(
     <Link>Test</Link>
-  );
+  ).dive();
 
   expect(link.find('span')).toHaveLength(1);
 });
 
 test('size', () => {
   const link = shallow(
-    <Link size={LINK_SIZE.OBSCURE}>Test</Link>
-  );
+    <Link size={LINK_SIZE.SMALL}>Test</Link>
+  ).dive();
 
-  expect(link.hasClass('sg-link--obscure')).toBeTruthy();
+  expect(link.hasClass('sg-text--small')).toBeTruthy();
 });
 
 test('color', () => {
   const link = shallow(
-    <Link color={LINK_COLOR.LIGHT}>Test</Link>
-  );
+    <Link color={LINK_COLOR.WHITE}>Test</Link>
+  ).dive();
 
-  expect(link.hasClass('sg-link--light')).toBeTruthy();
+  expect(link.hasClass('sg-text--white')).toBeTruthy();
 });
 
 test('unstyled', () => {
@@ -40,7 +49,8 @@ test('unstyled', () => {
     <Link unstyled>Test</Link>
   );
 
-  expect(link.hasClass('sg-link--unstyled')).toBeTruthy();
+  expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
+  expect(link.hasClass('sg-text--link')).toBeFalsy();
 });
 
 test('underlined', () => {
@@ -48,21 +58,7 @@ test('underlined', () => {
     <Link underlined>Test</Link>
   );
 
-  expect(link.hasClass('sg-link--underlined')).toBeTruthy();
-});
-
-test('emphasised', () => {
-  const link = shallow(
-    <Link emphasised>Test</Link>
-  );
-
-  expect(link.hasClass('sg-link--emphasised')).toBeTruthy();
-});
-
-test('disabled', () => {
-  const link = shallow(
-    <Link disabled>Test</Link>
-  );
-
-  expect(link.hasClass('sg-link--disabled')).toBeTruthy();
+  expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
+  expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
+  expect(link.hasClass('sg-text--link')).toBeFalsy();
 });

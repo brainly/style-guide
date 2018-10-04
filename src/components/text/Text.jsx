@@ -1,82 +1,49 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
 import classNames from 'classnames';
+import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
 
-export const TYPE = {
-  SPAN: 'span',
-  P: 'p',
-  H1: 'h1',
-  H2: 'h2',
-  H3: 'h3',
-  H4: 'h4',
-  H5: 'h5',
-  H6: 'h6',
-  DIV: 'div',
-  LABEL: 'label'
-};
+export {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
 
-export const SIZE = {
-  STANDOUT: 'standout',
-  OBSCURE: 'obscure',
-  SMALL: 'small',
-  XSMALL: 'xsmall',
-  LARGE: 'large',
-  HEADLINE: 'headline'
-};
-
-export const COLOR = {
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  MINT: 'mint',
-  PEACH: 'peach',
-  LIGHT: 'light',
-  BLUE: 'blue',
-  MUSTARD: 'mustard',
-  FINE_PRINT: 'for-fine-print',
-  FINE_PRINT_LIGHT: 'for-fine-print-light'
-};
-
-export const WEIGHT = {
-  REGULAR: 'regular',
-  BOLD: 'emphasised'
-};
-
-export const TEXT_TRANSFORM = {
-  UPPERCASE: 'uppercase',
-  LOWERCASE: 'lowercase',
-  CAPITALIZE: 'capitalize'
-};
-
-export const TEXT_ALIGN = {
-  LEFT: 'to-left',
-  CENTER: 'to-center',
-  RIGHT: 'to-right',
-  JUSTIFY: 'justify'
+export type TextPropsType = {
+  children?: React.Node,
+  size?: $Values<typeof TEXT_SIZE>,
+  type?: $Values<typeof TEXT_TYPE>,
+  color?: $Values<typeof TEXT_COLOR>,
+  weight?: $Values<typeof TEXT_WEIGHT>,
+  transform?: $Values<typeof TEXT_TRANSFORM>,
+  align?: $Values<typeof TEXT_ALIGN>,
+  noWrap?: boolean,
+  asContainer?: boolean,
+  full?: boolean,
+  breakWords?: boolean,
+  className?: string
 };
 
 const Text = ({
   children,
-  size,
-  weight,
+  type = TEXT_TYPE.DIV,
+  size = TEXT_SIZE.NORMAL,
+  weight = TEXT_WEIGHT.REGULAR,
+  color = TEXT_COLOR.DEFAULT,
   transform,
   align,
-  color,
-  className,
-  type = TYPE.DIV,
   noWrap,
   asContainer,
   full,
   breakWords,
+  className,
   ...props
-}) => {
+}: TextPropsType) => {
 
   const Type = type;
   const textClass = classNames('sg-text', {
-    [`sg-text--${size}`]: size,
-    [`sg-text--${color}`]: color,
-    [`sg-text--${weight}`]: weight,
-    [`sg-text--${transform}`]: transform,
-    [`sg-text--${align}`]: align,
+    [`sg-text--${size}`]: size !== TEXT_SIZE.NORMAL,
+    [`sg-text--${color}`]: color !== TEXT_COLOR.DEFAULT,
+    [`sg-text--${weight}`]: weight !== TEXT_WEIGHT.REGULAR,
+    [`sg-text--${transform || ''}`]: transform,
+    [`sg-text--${align || ''}`]: align,
     'sg-text--container': asContainer,
     'sg-text--full': full,
     'sg-text--no-wrap': noWrap,
@@ -88,21 +55,6 @@ const Text = ({
       {children}
     </Type>
   );
-};
-
-Text.propTypes = {
-  children: PropTypes.node,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  weight: PropTypes.oneOf(Object.values(WEIGHT)),
-  transform: PropTypes.oneOf(Object.values(TEXT_TRANSFORM)),
-  align: PropTypes.oneOf(Object.values(TEXT_ALIGN)),
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  noWrap: PropTypes.bool,
-  asContainer: PropTypes.bool,
-  full: PropTypes.bool,
-  breakWords: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Text;

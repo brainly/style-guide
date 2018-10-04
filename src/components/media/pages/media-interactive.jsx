@@ -2,12 +2,12 @@ import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Media from '../Media';
 import Avatar from 'avatar/Avatar';
-import Link, {COLOR} from 'text/Link';
+import Link, {LINK_COLOR} from 'text/Link';
 
 const MediaExamples = () => {
   const defaultProps = {
     contentArray: [
-      <Link key={1} color={COLOR.GRAY} emphasised>The Goat</Link>,
+      <Link key={1} color={LINK_COLOR.GRAY}>The Goat</Link>,
       <span key={2}>Master </span>
     ],
     aside: <Avatar />

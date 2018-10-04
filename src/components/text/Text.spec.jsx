@@ -1,5 +1,7 @@
 import React from 'react';
-import Text, {TYPE, SIZE, COLOR, WEIGHT, TEXT_ALIGN, TEXT_TRANSFORM} from './Text';
+import Text from './Text';
+import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -12,16 +14,16 @@ test('render', () => {
 
 test('size', () => {
   const text = shallow(
-    <Text size={SIZE.STANDOUT}>Test</Text>
+    <Text size={TEXT_SIZE.XLARGE}>Test</Text>
   );
 
-  expect(text.hasClass('sg-text--standout')).toBeTruthy();
+  expect(text.hasClass('sg-text--xlarge')).toBeTruthy();
 });
 
 test('type', () => {
   const text = 'random text';
   const component = shallow(
-    <Text type={TYPE.SPAN}>{text}</Text>
+    <Text type={TEXT_TYPE.SPAN}>{text}</Text>
   );
 
   expect(component.find('span').contains(text)).toEqual(true);
@@ -30,7 +32,7 @@ test('type', () => {
 test('type - label', () => {
   const text = 'random text';
   const component = shallow(
-    <Text type={TYPE.LABEL}>{text}</Text>
+    <Text type={TEXT_TYPE.LABEL}>{text}</Text>
   );
 
   expect(component.find('label').contains(text)).toEqual(true);
@@ -38,7 +40,7 @@ test('type - label', () => {
 
 test('color', () => {
   const text = shallow(
-    <Text color={COLOR.MINT}>Test</Text>
+    <Text color={TEXT_COLOR.MINT}>Test</Text>
   );
 
   expect(text.hasClass('sg-text--mint')).toBeTruthy();
@@ -46,10 +48,10 @@ test('color', () => {
 
 test('weight', () => {
   const text = shallow(
-    <Text weight={WEIGHT.BOLD}>Test</Text>
+    <Text weight={TEXT_WEIGHT.BOLD}>Test</Text>
   );
 
-  expect(text.hasClass('sg-text--emphasised')).toBeTruthy();
+  expect(text.hasClass('sg-text--bold')).toBeTruthy();
 });
 
 test('transform - uppercase', () => {

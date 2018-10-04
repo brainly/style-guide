@@ -17,7 +17,6 @@ import text from '../components/text/pages/text';
 import headers from '../components/text/pages/headers';
 import headlines from '../components/text/pages/headlines';
 import textBit from '../components/text/pages/text-bit';
-import links from '../components/text/pages/links';
 import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
 import badges from '../components/badges/pages/badges';
@@ -68,10 +67,6 @@ const navigation = [
         'name': 'Headlines',
         'location': 'text/headlines',
         component: headlines
-      },
-      {
-        'name': 'Link',
-        component: links
       },
       {
         'name': 'Text Bit',
