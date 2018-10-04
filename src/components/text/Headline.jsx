@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {HEADLINE_COLOR, HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_TRANSFORM} from './headlineConsts';
 
+export {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM} from './headlineConsts';
+
 const Headline = ({
   children,
   type = HEADLINE_TYPE.H1,
@@ -39,4 +41,3 @@ Headline.propTypes = {
 };
 
 export default Headline;
-export {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM};
