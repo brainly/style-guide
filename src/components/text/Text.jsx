@@ -2,9 +2,27 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+import {
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_COLOR,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN
+} from './textConsts';
 
-export {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+export {
+  TYPE, // backward compatibility
+  SIZE, // backward compatibility
+  COLOR, // backward compatibility
+  WEIGHT, // backward compatibility
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_COLOR,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN
+} from './textConsts';
 
 export type TextPropsType = {
   children?: React.Node,
