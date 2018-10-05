@@ -24,10 +24,10 @@ export const COLOR = {
   GRAY: 'gray',
   MINT: 'mint',
   PEACH: 'peach',
-  LIGHT: 'light',
+  LIGHT: 'white',
   MUSTARD: 'mustard',
-  FINE_PRINT: 'for-fine-print',
-  FINE_PRINT_LIGHT: 'for-fine-print-light'
+  FINE_PRINT: 'blue-secondary',
+  FINE_PRINT_LIGHT: 'blue-secondary-light'
 };
 
 type LinkPropsType = {
