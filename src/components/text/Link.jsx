@@ -15,7 +15,7 @@ export const LINK_ALIGN = TEXT_ALIGN;
 
 // backward compatibility
 export const SIZE = {
-  NORMAL: 'xsmall',
+  NORMAL: 'small',
   SMALL: 'small',
   OBSCURE: 'xsmall'
 };
