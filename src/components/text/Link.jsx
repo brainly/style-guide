@@ -13,10 +13,29 @@ export const LINK_WEIGHT = TEXT_WEIGHT;
 export const LINK_TRANSFORM = TEXT_TRANSFORM;
 export const LINK_ALIGN = TEXT_ALIGN;
 
+// backward compatibility
+export const SIZE = {
+  NORMAL: 'small',
+  SMALL: 'small',
+  OBSCURE: 'xsmall'
+};
+// backward compatibility
+export const COLOR = {
+  GRAY: 'gray',
+  MINT: 'mint',
+  PEACH: 'peach',
+  LIGHT: 'white',
+  MUSTARD: 'mustard',
+  FINE_PRINT: 'blue-secondary',
+  FINE_PRINT_LIGHT: 'blue-secondary-light'
+};
+
 type LinkPropsType = {
   href?: string,
   underlined?: boolean,
-  unstyled?: boolean
+  unstyled?: boolean,
+  emphasised?: boolean,
+  disabled?: boolean
 } & TextPropsType;
 
 const Link = (props: LinkPropsType) => {
@@ -26,6 +45,8 @@ const Link = (props: LinkPropsType) => {
     color = LINK_COLOR.BLUE,
     underlined = false,
     unstyled = false,
+    emphasised = true, //backward compability
+    disabled = false, //backward compability
     className,
     ...additionalProps
   } = props;
@@ -33,6 +54,8 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link': !underlined && !unstyled,
     'sg-text--link-underlined': underlined && !unstyled,
     'sg-text--link-unstyled': !underlined && unstyled,
+    'sg-text--bold': emphasised, //backward compability
+    'sg-link--disabled': disabled, //backward compability
     [`sg-text--${color}`]: !unstyled ? color !== LINK_COLOR.DEFAULT : null
   }, className);
 

@@ -14,7 +14,12 @@ export const TEXT_TYPE = Object.freeze({
   LINK: 'a'
 });
 
+export const TYPE = TEXT_TYPE; // backward compatibility
+
 export const TEXT_SIZE = Object.freeze({
+  OBSCURE: 'xsmall', // backward compatibility
+  HEDALINE: 'large', // backward compatibility
+  STANDOUT: 'normal', // backward compatibility
   XSMALL: 'xsmall',
   SMALL: 'small',
   NORMAL: 'normal',
@@ -23,9 +28,12 @@ export const TEXT_SIZE = Object.freeze({
   XXLARGE: 'xxlarge'
 });
 
+export const SIZE = TEXT_SIZE; // backward compatibility
+
 export const TEXT_COLOR = Object.freeze({
   DEFAULT: 'default',
   WHITE: 'white',
+  LIGHT: 'white', //backward compability
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
   MINT: 'mint',
@@ -36,10 +44,14 @@ export const TEXT_COLOR = Object.freeze({
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
 });
 
+export const COLOR = TEXT_COLOR; // backward compatibility
+
 export const TEXT_WEIGHT = Object.freeze({
   REGULAR: 'regular',
   BOLD: 'bold'
 });
+
+export const WEIGHT = TEXT_WEIGHT; // backward compatibility
 
 export const TEXT_TRANSFORM = Object.freeze({
   UPPERCASE: 'uppercase',
