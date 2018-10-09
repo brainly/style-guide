@@ -1,5 +1,5 @@
 import React from 'react';
-import Headline, {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM} from '../Headline';
+import Headline, {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from '../Headline';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Headlines = () => {
@@ -19,6 +19,10 @@ const Headlines = () => {
     {
       name: 'transform',
       values: HEADLINE_TRANSFORM
+    },
+    {
+      name: 'align',
+      values: HEADLINE_ALIGN
     },
     {
       name: 'extraBold',

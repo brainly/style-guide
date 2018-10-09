@@ -25,3 +25,10 @@ export const HEADLINE_TRANSFORM = {
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize'
 };
+
+export const HEADLINE_ALIGN = {
+  LEFT: 'to-left',
+  CENTER: 'to-center',
+  RIGHT: 'to-right',
+  JUSTIFY: 'justify'
+};
