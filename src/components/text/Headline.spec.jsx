@@ -1,5 +1,5 @@
 import React from 'react';
-import Headline, {HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_COLOR, HEADLINE_TRANSFORM} from './Headline';
+import Headline, {HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './Headline';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
@@ -56,4 +56,12 @@ test('extra bold', () => {
   );
 
   expect(headline.hasClass('sg-headline--extra-bold')).toBeTruthy();
+});
+
+test('extra align left', () => {
+  const headline = shallow(
+    <Headline align={HEADLINE_ALIGN.LEFT}>Test</Headline>
+  );
+
+  expect(headline.hasClass('sg-headline--to-left')).toBeTruthy();
 });

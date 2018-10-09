@@ -87,5 +87,21 @@ $headlineSizes: (
     &--capitalize {
       text-transform: capitalize;
     }
+
+    &--to-left {
+      text-align: left;
+    }
+
+    &--to-right {
+      text-align: right;
+    }
+
+    &--to-center {
+      text-align: center;
+    }
+
+    &--justify {
+      text-align: justify;
+    }
   }
 }
