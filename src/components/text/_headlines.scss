@@ -76,6 +76,38 @@ $headlineSizes: (
       color: $white;
     }
 
+    &--gray {
+      color: $grayPrimary;
+    }
+
+    &--gray-secondary {
+      color: $graySecondary;
+    }
+
+    &--mint {
+      color: $mintPrimary;
+    }
+
+    &--blue {
+      color: $bluePrimary;
+    }
+
+    &--blue-secondary {
+      color: $blueSecondary;
+    }
+
+    &--blue-secondary-light {
+      color: $blueSecondaryLight;
+    }
+
+    &--mustard {
+      color: $mustardPrimary;
+    }
+
+    &--peach {
+      color: $peachPrimary;
+    }
+    
     &--uppercase {
       text-transform: uppercase;
     }
