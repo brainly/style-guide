@@ -37,9 +37,6 @@ const Headlines = () => {
         {light}
       </ContrastBox>
       <br />
-      <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.NORMAL} color={HEADLINE_COLOR.MINT} transform={HEADLINE_TRANSFORM.CAPITALIZE}>
-        {text} - capitalize
-      </Headline>
       <Headline type={HEADLINE_TYPE.H2} size={HEADLINE_SIZE.NORMAL} transform={HEADLINE_TRANSFORM.CAPITALIZE}>
         {text} - capitalize
       </Headline>
