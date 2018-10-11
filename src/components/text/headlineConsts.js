@@ -17,7 +17,16 @@ export const HEADLINE_SIZE = {
 };
 
 export const HEADLINE_COLOR = {
-  WHITE: 'white'
+  DEFAULT: 'default',
+  WHITE: 'white',
+  GRAY: 'gray',
+  GRAY_SECONDARY: 'gray-secondary',
+  MINT: 'mint',
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+  BLUE: 'blue',
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
 };
 
 export const HEADLINE_TRANSFORM = {
