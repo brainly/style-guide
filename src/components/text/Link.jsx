@@ -31,7 +31,7 @@ export const COLOR = {
 };
 
 type LinkPropsType = {
-  href?: string,
+  href?: ?string,
   underlined?: boolean,
   unstyled?: boolean,
   emphasised?: boolean,
