@@ -9,8 +9,8 @@ export type ContentBoxPropsType = {
   spacedSmall?: boolean,
   full?: boolean,
   className?: string,
-  spacedTop?: $Values<typeof SIZE>,
-  spacedBottom?: $Values<typeof SIZE>
+  spacedTop?: ?$Values<typeof SIZE>,
+  spacedBottom?: ?$Values<typeof SIZE>
 };
 
 const ContentBox = ({

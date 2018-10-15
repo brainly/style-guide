@@ -8,9 +8,9 @@ export type ContentBoxTitlePropsType = {
   spaced?: boolean,
   spacedSmall?: boolean,
   className?: string,
-  spacedTop?: $Values<typeof SIZE>,
-  spacedBottom?: $Values<typeof SIZE>,
-  align?: $Values<typeof ALIGNMENT>
+  spacedTop?: ?$Values<typeof SIZE>,
+  spacedBottom?: ?$Values<typeof SIZE>,
+  align?: ?$Values<typeof ALIGNMENT>
 };
 
 const ContentBoxTitle = ({
