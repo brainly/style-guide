@@ -3,8 +3,8 @@ import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 import ContentBoxActions from './ContentBoxActions';
 import {shallow} from 'enzyme';
 
-describe('Actions', () => {
-  test('render', () => {
+describe('<ContentBoxActions />', () => {
+  it('renders', () => {
     const testBox = shallow(
       <ContentBoxActions>test</ContentBoxActions>
     );
@@ -12,7 +12,7 @@ describe('Actions', () => {
     expect(testBox.hasClass('sg-content-box__actions')).toEqual(true);
   });
 
-  test('centered elements', () => {
+  it('has class that aligns elements to center', () => {
     const testBox = shallow(
       <ContentBoxActions align={ALIGNMENT.CENTER}>test</ContentBoxActions>
     );
@@ -20,7 +20,7 @@ describe('Actions', () => {
     expect(testBox.hasClass('sg-content-box__actions--with-centered-elements')).toEqual(true);
   });
 
-  test('elements to right', () => {
+  it('has class that aligns elements to right', () => {
     const testBox = shallow(
       <ContentBoxActions align={ALIGNMENT.RIGHT}>test</ContentBoxActions>
     );
@@ -28,7 +28,7 @@ describe('Actions', () => {
     expect(testBox.hasClass('sg-content-box__actions--with-elements-to-right')).toEqual(true);
   });
 
-  test('spaced top', () => {
+  it('has spacedTop class with proper size', () => {
     const testBox = shallow(
       <ContentBoxActions spacedTop={SIZE.XSMALL}>test</ContentBoxActions>
     );
@@ -36,7 +36,7 @@ describe('Actions', () => {
     expect(testBox.hasClass('sg-content-box__actions--spaced-top-xsmall')).toEqual(true);
   });
 
-  test('spaced bottom', () => {
+  it('has spacedBottom class with proper size', () => {
     const testBox = shallow(
       <ContentBoxActions spacedBottom={SIZE.XSMALL}>test</ContentBoxActions>
     );

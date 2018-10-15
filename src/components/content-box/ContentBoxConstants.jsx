@@ -1,3 +1,4 @@
+// @flow
 const SIZE = {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
