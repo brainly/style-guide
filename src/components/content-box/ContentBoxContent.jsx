@@ -7,9 +7,9 @@ export type ContentBoxContentPropsType = {
   children: React.Node,
   full?: boolean,
   className?: string,
-  spacedTop: $Values<typeof SIZE>,
-  spacedBottom: $Values<typeof SIZE>,
-  align: $Values<typeof ALIGNMENT>
+  spacedTop?: $Values<typeof SIZE>,
+  spacedBottom?: $Values<typeof SIZE>,
+  align?: $Values<typeof ALIGNMENT>
 };
 
 const ContentBoxContent = ({

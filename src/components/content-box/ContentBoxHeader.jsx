@@ -9,9 +9,9 @@ export type ContentBoxHeaderPropsType = {
   spacedSmall?: boolean,
   full?: boolean,
   className?: string,
-  spacedTop: $Values<typeof SIZE>,
-  spacedBottom: $Values<typeof SIZE>,
-  align: $Values<typeof ALIGNMENT>
+  spacedTop?: $Values<typeof SIZE>,
+  spacedBottom?: $Values<typeof SIZE>,
+  align?: $Values<typeof ALIGNMENT>
 };
 
 const ContentBoxHeader = ({
