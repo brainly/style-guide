@@ -28,9 +28,9 @@ const ContentBox = ({
     'sg-content-box--spaced-small': spacedSmall,
     'sg-content-box--full': full,
     'sg-content-box--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
+    [`sg-content-box--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
+    [`sg-content-box--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
   return (

@@ -25,9 +25,9 @@ const ContentBoxContent = ({
     'sg-content-box__content--full': full,
     'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
     'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
+    [`sg-content-box__content--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__content--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
+    [`sg-content-box__content--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
   return (

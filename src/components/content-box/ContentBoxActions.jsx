@@ -23,9 +23,9 @@ const ContentBoxActions = ({
     'sg-content-box__actions--with-centered-elements': align === ALIGNMENT.CENTER,
     'sg-content-box__actions--with-elements-to-right': align === ALIGNMENT.RIGHT,
     'sg-content-box__actions--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__actions--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
+    [`sg-content-box__actions--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__actions--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__actions--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
+    [`sg-content-box__actions--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
   return (
