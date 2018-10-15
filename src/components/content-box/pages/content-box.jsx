@@ -216,6 +216,31 @@ const ContentBoxes = () => (
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
+    <DocsBlock info="Simple with title and header (spaced small)">
+      <ContentBox spaced>
+        <ContentBoxTitle spacedSmall>
+          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+        </ContentBoxTitle>
+        <ContentBoxHeader spacedSmall>
+          <Breadcrumbs elements={breadcrumbs} />
+        </ContentBoxHeader>
+        <ContentBoxContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+          lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+          Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+          vel eros.
+        </ContentBoxContent>
+        <ContentBoxActions>
+          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
+          </OverlayedBox>
+          <SeparatorVertical />
+          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten" />
+          <Avatar size={AVATAR_SIZE.SMALL} />
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+        </ContentBoxActions>
+      </ContentBox>
+    </DocsBlock>
     <DocsBlock info="Simple with content (full)">
       <ContentBox>
         <ContentBoxContent full>
@@ -232,6 +257,37 @@ const ContentBoxes = () => (
     />
     <DocsBlock info="Spaced">
       <ContentBox spaced>
+        <ContentBoxHeader>
+          <Avatar spaced imgSrc="https://source.unsplash.com/64x64/?woman" />
+          <Breadcrumbs elements={breadcrumbsSpaced} />
+        </ContentBoxHeader>
+        <ContentBoxContent>
+          <Text>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
+            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
+            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
+            vel eros. Maecenas posuere sit amet urna quis faucibus. Maecenas a lorem mi. Morbi interdum
+            tincidunt neque, nec mollis nulla tincidunt ac. Suspendisse potenti.
+          </Text>
+        </ContentBoxContent>
+        <ContentBoxActions>
+          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
+            <Label
+              text="Thank you"
+              number={21}
+              iconType={ICON_TYPE.HEART}
+              iconColor={ICON_COLOR.ADAPTIVE}
+              secondary
+              unstyled
+            />
+          </ButtonSecondary>
+          <Rating rate={2} counter={34} active />
+        </ContentBoxActions>
+      </ContentBox>
+    </DocsBlock>
+    <DocsBlock info="Spaced small">
+      <ContentBox spacedSmall>
         <ContentBoxHeader>
           <Avatar spaced imgSrc="https://source.unsplash.com/64x64/?woman" />
           <Breadcrumbs elements={breadcrumbsSpaced} />

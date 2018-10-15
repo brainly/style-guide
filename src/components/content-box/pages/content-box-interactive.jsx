@@ -19,6 +19,10 @@ const ContentBoxes = () => {
       values: Boolean
     },
     {
+      name: 'spacedSmall',
+      values: Boolean
+    },
+    {
       name: 'full',
       values: Boolean
     }
