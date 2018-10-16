@@ -1,16 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import classNames from 'classnames';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 
-const ContentBoxContent = ({children, full, spacedTop, spacedBottom, className, align = ALIGNMENT.LEFT, ...props}) => {
+export type ContentBoxContentPropsType = {
+  children: React.Node,
+  full?: boolean,
+  className?: string,
+  spacedTop?: ?$Values<typeof SIZE>,
+  spacedBottom?: ?$Values<typeof SIZE>,
+  align: $Values<typeof ALIGNMENT>
+};
+
+const ContentBoxContent = ({
+  children,
+  full,
+  spacedTop,
+  spacedBottom,
+  className,
+  align = ALIGNMENT.LEFT,
+  ...props
+}: ContentBoxContentPropsType) => {
   const contentBoxClass = classNames('sg-content-box__content', {
     'sg-content-box__content--full': full,
     'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
     'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-top-${spacedTop}`]: spacedTop && spacedTop !== SIZE.NORMAL,
+    [`sg-content-box__content--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
     'sg-content-box__content--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-bottom-${spacedBottom}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
+    [`sg-content-box__content--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
   }, className);
 
   return (
@@ -18,15 +35,6 @@ const ContentBoxContent = ({children, full, spacedTop, spacedBottom, className, 
       {children}
     </div>
   );
-};
-
-ContentBoxContent.propTypes = {
-  children: PropTypes.node,
-  full: PropTypes.bool,
-  align: PropTypes.oneOf(Object.values(ALIGNMENT)),
-  spacedTop: PropTypes.oneOf(Object.values(SIZE)),
-  spacedBottom: PropTypes.oneOf(Object.values(SIZE)),
-  className: PropTypes.string
 };
 
 export default ContentBoxContent;

@@ -2,8 +2,8 @@ import React from 'react';
 import ContentBox, {CONTENT_BOX_SPACING_SIZE} from './ContentBox';
 import {shallow} from 'enzyme';
 
-describe('content box', () => {
-  test('render', () => {
+describe('<ContentBox />', () => {
+  it('renders', () => {
     const contentBox = shallow(
       <ContentBox>test</ContentBox>
     );
@@ -11,7 +11,7 @@ describe('content box', () => {
     expect(contentBox.hasClass('sg-content-box')).toEqual(true);
   });
 
-  test('full', () => {
+  it('has full class', () => {
     const contentBox = shallow(
       <ContentBox full>test</ContentBox>
     );
@@ -19,15 +19,19 @@ describe('content box', () => {
     expect(contentBox.hasClass('sg-content-box--full')).toEqual(true);
   });
 
-  test('is spaced', () => {
+  it('has spaced class', () => {
     const contentBox = shallow(
       <ContentBox spaced>test</ContentBox>
     );
+    const contentBox2 = shallow(
+      <ContentBox spacedSmall>test</ContentBox>
+    );
 
     expect(contentBox.hasClass('sg-content-box--spaced')).toEqual(true);
+    expect(contentBox2.hasClass('sg-content-box--spaced-small')).toEqual(true);
   });
 
-  test('spacedBottom normal', () => {
+  it('has spacedBottom proper class', () => {
     const testBox = shallow(
       <ContentBox spacedBottom={CONTENT_BOX_SPACING_SIZE.NORMAL}>test</ContentBox>
     );
@@ -36,7 +40,7 @@ describe('content box', () => {
     expect(testBox.hasClass('sg-content-box--spaced-bottom-normal')).toEqual(false);
   });
 
-  test('spacedBottom size', () => {
+  it('has spacedBottom class with proper size', () => {
     const testBox = shallow(
       <ContentBox spacedBottom={CONTENT_BOX_SPACING_SIZE.XSMALL}>test</ContentBox>
     );
@@ -44,7 +48,7 @@ describe('content box', () => {
     expect(testBox.hasClass('sg-content-box--spaced-bottom-xsmall')).toEqual(true);
   });
 
-  test('spacedTop normal', () => {
+  it('has spacedTop proper class', () => {
     const testBox = shallow(
       <ContentBox spacedTop={CONTENT_BOX_SPACING_SIZE.NORMAL}>test</ContentBox>
     );
@@ -53,7 +57,7 @@ describe('content box', () => {
     expect(testBox.hasClass('sg-content-box--spaced-top-normal')).toEqual(false);
   });
 
-  test('spacedTop size', () => {
+  it('has spacedTop class with proper size', () => {
     const testBox = shallow(
       <ContentBox spacedTop={CONTENT_BOX_SPACING_SIZE.XSMALL}>test</ContentBox>
     );

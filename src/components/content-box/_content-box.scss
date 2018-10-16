@@ -13,6 +13,12 @@ $includeHtml: false !default;
           padding-left: gutter(2);
         }
       }
+
+      &--spaced-small {
+        @include sgBreakpoint(medium-up) {
+          padding-left: gutter(1);
+        }
+      }
     }
 
     &__header {
@@ -22,6 +28,12 @@ $includeHtml: false !default;
       &--spaced {
         @include sgBreakpoint(medium-up) {
           padding-left: gutter(2);
+        }
+      }
+
+      &--spaced {
+        @include sgBreakpoint(medium-up) {
+          padding-left: gutter(1);
         }
       }
     }
@@ -53,6 +65,15 @@ $includeHtml: false !default;
       > .sg-content-box__actions {
         @include sgBreakpoint(medium-up) {
           padding-left: gutter(2);
+        }
+      }
+    }
+
+    &--spaced-small {
+      > .sg-content-box__content,
+      > .sg-content-box__actions {
+        @include sgBreakpoint(medium-up) {
+          padding-left: gutter(1);
         }
       }
     }

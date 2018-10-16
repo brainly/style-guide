@@ -1,4 +1,5 @@
-const SIZE = {
+// @flow
+const SIZE = Object.freeze({
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -6,12 +7,12 @@ const SIZE = {
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge'
-};
+});
 
-const ALIGNMENT = {
+const ALIGNMENT = Object.freeze({
   LEFT: 'left',
   CENTER: 'center',
   RIGHT: 'right'
-};
+});
 
 export {SIZE, ALIGNMENT};
