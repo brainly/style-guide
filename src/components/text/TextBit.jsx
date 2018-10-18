@@ -24,6 +24,8 @@ export const TEXT_BIT_COLOR = Object.freeze({
   BLUE_SECONDARY: 'blue-secondary',
   WHITE: 'white',
   BLACK: 'black',
+  MINT: 'mint',
+  BLUE_PRIMARY: 'blue-primary',
   GRAY_SECONDARY: 'gray-secondary',
   PEACH_PRIMARY: 'peach-primary'
 });
