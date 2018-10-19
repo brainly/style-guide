@@ -14,8 +14,14 @@ const TextBitExamples = () => (
     <TextBit size={TEXT_BIT_SIZE.SMALL} color={TEXT_BIT_COLOR.GRAY_SECONDARY}>
       This is text bit small secondary gray
     </TextBit>
+    <TextBit size={TEXT_BIT_SIZE.LARGE} color={TEXT_BIT_COLOR.BLUE_PRIMARY}>
+      This is text bit large primary blue
+    </TextBit>
     <TextBit color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
       This is text bit default peach primary
+    </TextBit>
+    <TextBit size={TEXT_BIT_SIZE.SMALL} color={TEXT_BIT_COLOR.MINT}>
+      This is text bit small secondary gray
     </TextBit>
     <ContrastBox>
       <TextBit size={TEXT_BIT_SIZE.LARGE} color={TEXT_BIT_COLOR.WHITE}>
