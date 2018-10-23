@@ -108,6 +108,11 @@ const color = {
       'name': 'Gray secondary lightest',
       'variable': '$graySecondaryLightest',
       'hex': 'f0f3f5'
+    },
+    {
+      'name': 'Gray secondary ultra light',
+      'variable': '$graySecondaryUltraLight',
+      'hex': 'f7f9fa'
     }
   ],
   'additional': [
