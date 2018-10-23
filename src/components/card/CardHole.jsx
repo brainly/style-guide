@@ -18,7 +18,8 @@ export const CARD_HOLE_COLOR = {
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-  GRAY_SECONDARY_LIGHTEST: 'gray-secondary-lightest'
+  GRAY_SECONDARY_LIGHTEST: 'gray-secondary-lightest',
+  GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light'
 };
 
 const CardHole = ({color, children, className, ...props}) => {

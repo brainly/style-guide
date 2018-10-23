@@ -15,7 +15,6 @@ $includeHtml: false !default;
     border: $cardBorderColor solid $cardBorderSize;
     overflow: hidden;
     background-color: $white;
-    box-shadow: $containerShadow;
 
     &--transparent {
       background-color: transparent;
@@ -149,6 +148,10 @@ $includeHtml: false !default;
 
       &--gray-secondary-lightest {
         background-color: $graySecondaryLightest;
+      }
+
+      &--gray-secondary-ultra-light {
+        background-color: $graySecondaryUltraLight;
       }
     }
   }
