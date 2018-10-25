@@ -122,6 +122,18 @@ $includeHtml: false !default;
         background-color: $mintSecondaryLight;
       }
 
+      &--mustard {
+        background-color: $mustardPrimary;
+      }
+
+      &--mustard-secondary {
+        background-color: $mustardSecondary;
+      }
+
+      &--mustard-secondary-light {
+        background-color: $mustardSecondaryLight;
+      }
+
       &--navyblue {
         background-color: $navybluePrimary;
       }
