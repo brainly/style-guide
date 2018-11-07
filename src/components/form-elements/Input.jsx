@@ -48,7 +48,7 @@ type PropsType = {
   noBorder?: boolean,
   withIcon?: boolean,
   className?: string,
-  setInputRef: (ref: ?HTMLElement) => mixed
+  setInputRef?: (ref: ?HTMLElement) => mixed
 };
 
 const Input = (props: PropsType) => {
