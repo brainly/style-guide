@@ -1,8 +1,8 @@
+// @flow
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 
-export const TYPE = {
+export const TYPE = Object.freeze({
   BUTTON: 'button',
   COLOR: 'color',
   DATE: 'date',
@@ -23,21 +23,35 @@ export const TYPE = {
   TIME: 'time',
   URL: 'url',
   WEEK: 'week'
-};
+});
 
-export const SIZE = {
+export const SIZE = Object.freeze({
   SMALL: 'small',
   LARGE: 'large',
   NORMAL: 'normal'
-};
+});
 
-export const COLOR = {
+export const COLOR = Object.freeze({
   NORMAL: 'normal',
   LIGHT: 'light',
   LIGHT_ALT: 'light-alt'
+});
+
+type PropsType = {
+  type?: $Values<typeof TYPE>,
+  value?: string | number,
+  size?: $Values<typeof SIZE>,
+  color?: $Values<typeof COLOR>,
+  valid?: boolean,
+  invalid?: boolean,
+  fullWidth?: boolean,
+  noBorder?: boolean,
+  withIcon?: boolean,
+  className?: string,
+  setInputRef?: (ref: ?HTMLElement) => mixed
 };
 
-const Input = props => {
+const Input = (props: PropsType) => {
   const {
     type = 'text',
     size = SIZE.NORMAL,
@@ -49,6 +63,7 @@ const Input = props => {
     valid,
     invalid,
     className,
+    setInputRef,
     ...additionalProps
   } = props;
 
@@ -69,22 +84,7 @@ const Input = props => {
     'sg-input--with-icon': withIcon
   }, className);
 
-  return <input type={type} className={inputClass} value={value} {...additionalProps} />;
+  return <input type={type} ref={setInputRef} className={inputClass} value={value} {...additionalProps} />;
 };
-
-export const propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  noBorder: PropTypes.bool,
-  withIcon: PropTypes.bool,
-  className: PropTypes.string
-};
-
-Input.propTypes = propTypes;
 
 export default Input;
