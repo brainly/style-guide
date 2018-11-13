@@ -31,7 +31,8 @@ export const SIZE = Object.freeze({
 const Avatar = ({
   size = SIZE.NORMAL,
   border = false,
-  spaced, imgSrc,
+  spaced,
+  imgSrc,
   className,
   link,
   title,
