@@ -30,6 +30,14 @@ const Avatars = () => (
         )}
       </ContrastBox>
     </DocsBlock>
+    <DocsBlock info="Default clickable">
+      <ContrastBox toBottom>
+        {Object.values(SIZE).map(
+          (size, index) =>
+            <Avatar key={index} size={size} clickable imgSrc="https://source.unsplash.com/240x240/?dog" />
+        )}
+      </ContrastBox>
+    </DocsBlock>
   </div>
 );
 

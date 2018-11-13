@@ -19,6 +19,10 @@ const Avatars = () => {
     {
       name: 'imgSrc',
       values: String
+    },
+    {
+      name: 'clickable',
+      values: Boolean
     }
   ];
 

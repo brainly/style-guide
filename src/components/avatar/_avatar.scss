@@ -73,6 +73,10 @@ $includeHtml: false !default;
     &--spaced {
       margin: 0 $avatarSpacedMargin $avatarSpacedMargin 0;
     }
+
+    &--clickable {
+      cursor: pointer;
+    }
   }
 
 }
