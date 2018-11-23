@@ -13,8 +13,7 @@ $includeHtml: false !default;
       @include componentsContainer();
       position: absolute;
       right: - gutter(0.2);
-      bottom: - gutter(0.2);
+      top: - gutter(0.2);
     }
   }
-
 }
