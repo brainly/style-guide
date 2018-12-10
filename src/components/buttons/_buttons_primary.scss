@@ -1,8 +1,9 @@
-$buttonPrimaryHeight: rhythm(3 / 2);
-$buttonPrimaryFontSize: fontSize(default);
-$buttonPrimaryBorderRadius: 9px;
+$buttonPrimaryHeight: 40px;
+// $buttonPrimaryFontSize: fontSize(default);
+// $buttonPrimaryBorderRadius: 9px;
 $buttonPrimaryPadding: gutter(1);
 $buttonPrimaryFbColor: #3b5998;
+$buttonPrimaryFbColorHover: #2a457b;
 
 $includeHtml: false !default;
 
@@ -10,10 +11,11 @@ $includeHtml: false !default;
 
   .sg-button-primary {
     @include sgButtonBasics();
-    border-radius: $buttonPrimaryBorderRadius;
+
     height: $buttonPrimaryHeight;
     padding: 0 $buttonPrimaryPadding;
-    font-size: $buttonPrimaryFontSize;
+    font-size: 15px;
+    line-height: 15px;
     color: $buttonFontColor;
     fill: $buttonFontColor;
     background-color: $buttonColor;
@@ -21,6 +23,13 @@ $includeHtml: false !default;
     &--fb {
       padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
       background-color: $buttonPrimaryFbColor;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        @include hoverMix($buttonPrimaryFbColorHover, $buttonPrimaryFbColor, 72%);
+      }
     }
 
     &__icon {

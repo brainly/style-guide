@@ -1,12 +1,12 @@
-$buttonSecondaryHeight: rhythm(5 / 4);
-$buttonSecondaryFontSize: fontSize(small);
-$buttonSecondaryBorderRadius: 7px;
-$buttonSecondaryPadding: gutter(3 / 4);
+$buttonSecondaryHeight: 40px;
+$buttonSecondaryFontSize: 15px;
+$buttonSecondaryBorderRadius: 20px;
+$buttonSecondaryPadding: 24px;
 
-$buttonSecondarySmallHeight: rhythm(1);
-$buttonSecondarySmallFontSize: fontSize(obscure);
-$buttonSecondarySmallBorderRadius: 5px;
-$buttonSecondarySmallPadding: 14px;
+$buttonSecondarySmallHeight: 32px;
+$buttonSecondarySmallFontSize: 12px;
+$buttonSecondarySmallBorderRadius: 16px;
+$buttonSecondarySmallPadding: 24px;
 
 $includeHtml: false !default;
 
@@ -17,6 +17,7 @@ $includeHtml: false !default;
     height: $buttonSecondaryHeight;
     padding: 0 $buttonSecondaryPadding;
     font-size: $buttonSecondaryFontSize;
+    line-height: $buttonSecondaryFontSize;
     color: $buttonFontColor;
     fill: $buttonFontColor;
     background-color: $buttonColor;
@@ -26,6 +27,7 @@ $includeHtml: false !default;
       height: $buttonSecondarySmallHeight;
       border-radius: $buttonSecondarySmallBorderRadius;
       font-size: $buttonSecondarySmallFontSize;
+      line-height: $buttonSecondarySmallFontSize;
     }
   }
 }

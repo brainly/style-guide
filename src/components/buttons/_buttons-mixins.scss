@@ -1,9 +1,14 @@
 $buttonFontColor: $white;
 $buttonColor: $mintPrimary;
+$buttonColorHover: $mintPrimaryDark;
 $buttonAltColor: $bluePrimary;
+$buttonAltColorHover: $bluePrimaryDark;
 $buttonDarkColor: $grayPrimary;
+$buttonDarkColorHover: $black;
 $buttonInverseColor: $white;
 $buttonPeach: $peachPrimary;
+$buttonPeachHover: $peachPrimaryDark;
+$buttonTransparentWhite: rgba($white, 0);
 
 $buttonInverseFontColor: $mintPrimary;
 $buttonInverseAltFontColor: $bluePrimary;
@@ -18,7 +23,24 @@ $buttonBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 $buttonActiveBoxShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 $buttonActiveScale: scale(0.985);
 
+@function getColorMix($baseColor, $nextColor, $percent) {
+  @return mix($nextColor, $baseColor, $percent);
+}
+
+@mixin hoverMix($baseColor, $nextColor, $percent) {
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus {
+    &:not(.sg-button-primary--disabled) {
+      background-color: getColorMix($nextColor, $baseColor, $percent);
+    }
+  }
+}
+
 @mixin sgButtonBasics() {
+  @include hoverMix($buttonColorHover, $buttonColor, 72%);
+  will-change: background-color;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -32,8 +54,9 @@ $buttonActiveScale: scale(0.985);
   white-space: nowrap;
   font-weight: $fontWeightBold;
   text-transform: uppercase;
-  box-shadow: $componentShadow;
-  transition-property: box-shadow, transform, opacity;
+  border-radius: 20px;
+  transition-property: background-color;
+  transition-timing-function: ease-in-out;
   transition-duration: 0.3s;
 
   // hack for proper text centering on Safari related to inline-flex issue with <button> tag
@@ -41,20 +64,6 @@ $buttonActiveScale: scale(0.985);
   &::after {
     content: '';
     flex: 1 0 auto;
-  }
-
-  &:hover,
-  &:focus {
-    box-shadow: $elevatedComponentShadow;
-  }
-
-  &:active {
-    box-shadow: $componentShadow;
-    transform: $buttonActiveScale;
-  }
-
-  &:active:focus {
-    box-shadow: $buttonActiveBoxShadow;
   }
 
   &:active,
@@ -74,44 +83,45 @@ $buttonActiveScale: scale(0.985);
   }
 
   &--alt {
+    @include hoverMix($buttonAltColorHover, $buttonAltColor, 72%);
     background-color: $buttonAltColor;
   }
 
   &--dark {
+    @include hoverMix($buttonDarkColorHover, $buttonDarkColor, 72%);
     background-color: $buttonDarkColor;
   }
 
   &--inverse {
-    background-color: $buttonInverseColor;
-    color: $buttonInverseFontColor;
-    fill: $buttonInverseFontColor;
+    @include hoverMix($buttonInverseDarkFontColor, $buttonTransparentWhite, 16%);
+    background-color: $buttonTransparentWhite;
+    border: 2px solid $buttonInverseDarkFontColor;
+    color: $buttonInverseDarkFontColor;
+    fill: $buttonInverseDarkFontColor;
   }
 
   &--alt-inverse {
-    background-color: $buttonInverseColor;
-    color: $buttonInverseAltFontColor;
-    fill: $buttonInverseAltFontColor;
+    @include hoverMix($buttonInverseDarkFontColor, $buttonTransparentWhite, 16%);
+    background-color: $buttonTransparentWhite;
+    border: 2px solid $buttonInverseDarkFontColor;
+    color: $buttonInverseDarkFontColor;
+    fill: $buttonInverseDarkFontColor;
   }
 
   &--dark-inverse {
-    background-color: $buttonInverseColor;
+    @include hoverMix($buttonInverseDarkFontColor, $buttonTransparentWhite, 16%);
+    background-color: $buttonTransparentWhite;
+    border: 2px solid $buttonInverseDarkFontColor;
     color: $buttonInverseDarkFontColor;
     fill: $buttonInverseDarkFontColor;
   }
 
   &--active-inverse {
-    background-color: $buttonActiveInverseColor;
+    @include hoverMix($buttonActiveInverseFontColor, $buttonTransparentWhite, 16%);
+    background-color: $buttonTransparentWhite;
+    border: 2px solid $buttonActiveInverseFontColor;
     color: $buttonActiveInverseFontColor;
     fill: $buttonActiveInverseFontColor;
-    transition-property: box-shadow, transform, background-color, color, fill, opacity;
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: $buttonActiveInverseInteractionColor;
-      color: $buttonActiveInverseInteractionFontColor;
-      fill: $buttonActiveInverseInteractionFontColor;
-    }
 
     &.sg-button-secondary--disabled {
       &:hover,
@@ -131,24 +141,18 @@ $buttonActiveScale: scale(0.985);
   &--disabled {
     opacity: 0.45;
     cursor: default;
-    box-shadow: $buttonBoxShadow;
 
     &:active {
       transform: none;
     }
 
-    &:active,
-    &:focus,
-    &:hover {
-      box-shadow: $buttonBoxShadow;
-    }
-
-    & .sg-label__text {
+    &.sg-label__text {
       cursor: default;
     }
   }
 
   &--peach {
+    @include hoverMix($buttonPeachHover, $buttonPeach, 72%);
     background-color: $buttonPeach;
     color: $buttonActiveInverseInteractionFontColor;
     fill: $buttonActiveInverseInteractionFontColor;
