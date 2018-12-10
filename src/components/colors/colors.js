@@ -3,7 +3,7 @@ const color = {
     {
       'name': 'Black',
       'variable': '$black',
-      'hex': '020a1b'
+      'hex': '000000'
     },
     {
       'name': 'Mint Dark',
@@ -55,17 +55,17 @@ const color = {
     {
       'name': 'Lavender',
       'variable': '$lavenderPrimary',
-      'hex': '7a8adb'
+      'hex': '6d83f3'
     },
     {
       'name': 'Lavender mid-tone',
       'variable': '$lavenderSecondary',
-      'hex': 'b3c4ff'
+      'hex': 'bdc7fb'
     },
     {
       'name': 'Lavender light',
       'variable': '$lavenderSecondaryLight',
-      'hex': 'e2e8ff'
+      'hex': 'eaedfe'
     },
     {
       'name': 'Peach Dark',
@@ -75,17 +75,17 @@ const color = {
     {
       'name': 'Peach',
       'variable': '$peachPrimary',
-      'hex': 'ff796b'
+      'hex': 'ff7968'
     },
     {
       'name': 'Peach mid-tone',
       'variable': '$peachSecondary',
-      'hex': 'ffb3ae'
+      'hex': 'ffc8c0'
     },
     {
       'name': 'Peach light',
       'variable': '$peachSecondaryLight',
-      'hex': 'ffe2e0'
+      'hex': 'ffe8e5'
     },
     {
       'name': 'Mustard Dark',
@@ -95,17 +95,17 @@ const color = {
     {
       'name': 'Mustard',
       'variable': '$mustardPrimary',
-      'hex': 'fec83c'
+      'hex': 'fbbe2e'
     },
     {
       'name': 'Mustard mid-tone',
       'variable': '$mustardSecondary',
-      'hex': 'ffde8c'
+      'hex': 'fedd8e'
     },
     {
       'name': 'Mustard light',
       'variable': '$mustardSecondaryLight',
-      'hex': 'fff5d5'
+      'hex': 'fff2d5'
     }
   ],
   'gray': [
