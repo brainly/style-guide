@@ -1,30 +1,39 @@
 // Primary colors
-$black: #020a1b;
-$mintPrimary: #53cf92;
-$mintSecondary: #b4efc2;
-$mintSecondaryLight: #ddf7e5;
-$bluePrimary: #57b2f8;
-$blueSecondary: #abe1ff;
-$blueSecondaryLight: #daf3ff;
+$black: #000000;
+
+$mintPrimaryDark: #40bd7e;
+$mintPrimary: #60d399;
+$mintSecondary: #9ce8c2;
+$mintSecondaryLight: #e3f7ed;
+
+$bluePrimaryDark: #059ff2;
+$bluePrimary: #4fbdf7;
+$blueSecondary: #b2e2fc;
+$blueSecondaryLight: #e0f3fe;
 
 // Secondary colors
-$lavenderPrimary: #7a8adb;
-$lavenderSecondary: #b3c4ff;
-$lavenderSecondaryLight: #e2e8ff;
-$peachPrimary: #ff796b;
-$peachSecondary: #ffb3ae;
-$peachSecondaryLight: #ffe2e0;
-$mustardPrimary: #fec83c;
-$mustardSecondary: #ffde8c;
-$mustardSecondaryLight: #fff5d5;
+$lavenderPrimaryDark: #435fee;
+$lavenderPrimary: #6d83f3;
+$lavenderSecondary: #bdc7fb;
+$lavenderSecondaryLight: #eaedfe;
+
+$peachPrimaryDark: #ff604b;
+$peachPrimary: #ff7968;
+$peachSecondary: #ffc8c0;
+$peachSecondaryLight: #ffe8e5;
+
+$mustardPrimary: #eda600;
+$mustardPrimary: #fbbe2e;
+$mustardSecondary: #fedd8e;
+$mustardSecondaryLight:#fff2d5;
 
 // Grey colors
 $white: #ffffff;
-$grayPrimary: #434e66;
-$graySecondary: #9fa6b5;
-$graySecondaryLight: #e1e8ed;
-$graySecondaryLightest: #f0f3f5;
-$graySecondaryUltraLight: #f7f9fa;
+$grayPrimary: #323c45;
+$graySecondary: #687b8c;
+$graySecondaryLight: #c3d1dd;
+$graySecondaryLightest: #ebf2f7;
+$graySecondaryUltraLight: #f5f8fa;
 
 // Special colors - for games
 $bronzePrimary: #a76a58;

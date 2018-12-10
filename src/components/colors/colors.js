@@ -6,37 +6,52 @@ const color = {
       'hex': '020a1b'
     },
     {
+      'name': 'Mint Dark',
+      'variable': '$mintPrimaryDark',
+      'hex': '40bd7e'
+    },
+    {
       'name': 'Mint',
       'variable': '$mintPrimary',
-      'hex': '53cf92'
+      'hex': '60d399'
     },
     {
       'name': 'Mint mid-tone',
       'variable': '$mintSecondary',
-      'hex': 'b4efc2'
+      'hex': '9ce8c2'
     },
     {
       'name': 'Mint light',
       'variable': '$mintSecondaryLight',
-      'hex': 'ddf7e5'
+      'hex': 'e3f7ed'
+    },
+    {
+      'name': 'Blue Dark',
+      'variable': '$bluePrimaryDark',
+      'hex': '059ff2'
     },
     {
       'name': 'Blue',
       'variable': '$bluePrimary',
-      'hex': '57b2f8'
+      'hex': '4fbdf7'
     },
     {
       'name': 'Blue mid-tone',
       'variable': '$blueSecondary',
-      'hex': 'abe1ff'
+      'hex': 'b2e2fc'
     },
     {
       'name': 'Blue light',
       'variable': '$blueSecondaryLight',
-      'hex': 'daf3ff'
+      'hex': 'e0f3fe'
     }
   ],
   'secondary': [
+    {
+      'name': 'Lavender Dark',
+      'variable': '$lavenderPrimaryDark',
+      'hex': '435fee'
+    },
     {
       'name': 'Lavender',
       'variable': '$lavenderPrimary',
@@ -53,6 +68,11 @@ const color = {
       'hex': 'e2e8ff'
     },
     {
+      'name': 'Peach Dark',
+      'variable': '$peachPrimaryDark',
+      'hex': 'ff604b'
+    },
+    {
       'name': 'Peach',
       'variable': '$peachPrimary',
       'hex': 'ff796b'
@@ -66,6 +86,11 @@ const color = {
       'name': 'Peach light',
       'variable': '$peachSecondaryLight',
       'hex': 'ffe2e0'
+    },
+    {
+      'name': 'Mustard Dark',
+      'variable': '$mustardPrimaryDark',
+      'hex': 'eda600'
     },
     {
       'name': 'Mustard',
@@ -92,27 +117,27 @@ const color = {
     {
       'name': 'Gray',
       'variable': '$grayPrimary',
-      'hex': '434e66'
+      'hex': '323c45'
     },
     {
       'name': 'Gray mid-tone',
       'variable': '$graySecondary',
-      'hex': '9fa6b5'
+      'hex': '687b8c'
     },
     {
       'name': 'Gray secondary light',
       'variable': '$graySecondaryLight',
-      'hex': 'e1e8ed'
+      'hex': 'c3d1dd'
     },
     {
       'name': 'Gray secondary lightest',
       'variable': '$graySecondaryLightest',
-      'hex': 'f0f3f5'
+      'hex': 'ebf2f7'
     },
     {
       'name': 'Gray secondary ultra light',
       'variable': '$graySecondaryUltraLight',
-      'hex': 'f7f9fa'
+      'hex': 'f5f8fa'
     }
   ],
   'additional': [
