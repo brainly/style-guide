@@ -33,17 +33,17 @@ const color = {
     {
       'name': 'Blue',
       'variable': '$bluePrimary',
-      'hex': '4fbdf7'
+      'hex': '57b2f8'
     },
     {
       'name': 'Blue mid-tone',
       'variable': '$blueSecondary',
-      'hex': 'b2e2fc'
+      'hex': 'abe1ff'
     },
     {
       'name': 'Blue light',
       'variable': '$blueSecondaryLight',
-      'hex': 'e0f3fe'
+      'hex': 'daf3ff'
     }
   ],
   'secondary': [
