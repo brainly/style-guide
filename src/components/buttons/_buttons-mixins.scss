@@ -19,9 +19,8 @@ $buttonActiveInverseFontColor: $peachPrimary;
 $buttonActiveInverseInteractionColor: $peachPrimary;
 $buttonActiveInverseInteractionFontColor: $white;
 
-$buttonBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-$buttonActiveBoxShadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 $buttonActiveScale: scale(0.985);
+$buttonDefaultBorderRadius: 20px;
 
 @function getColorMix($baseColor, $nextColor, $percent) {
   @return mix($nextColor, $baseColor, $percent);
@@ -32,7 +31,7 @@ $buttonActiveScale: scale(0.985);
   &:focus,
   &:active,
   &:active:focus {
-    &:not(.sg-button-primary--disabled) {
+    &:not(.sg-button-primary--disabled):not(.sg-button-secondary--disabled) {
       background-color: getColorMix($nextColor, $baseColor, $percent);
     }
   }
@@ -54,12 +53,12 @@ $buttonActiveScale: scale(0.985);
   white-space: nowrap;
   font-weight: $fontWeightBold;
   text-transform: uppercase;
-  border-radius: 20px;
+  border-radius: $buttonDefaultBorderRadius;
   transition-property: background-color;
   transition-timing-function: ease-in-out;
   transition-duration: 0.3s;
 
-  // hack for proper text centering on Safari related to inline-flex issue with <button> tag
+  // // hack for proper text centering on Safari related to inline-flex issue with <button> tag
   &::before,
   &::after {
     content: '';
@@ -122,19 +121,10 @@ $buttonActiveScale: scale(0.985);
     border: 2px solid $buttonActiveInverseFontColor;
     color: $buttonActiveInverseFontColor;
     fill: $buttonActiveInverseFontColor;
-
-    &.sg-button-secondary--disabled {
-      &:hover,
-      &:active,
-      &:focus {
-        background-color: $buttonActiveInverseColor;
-        color: $buttonActiveInverseFontColor;
-        fill: $buttonActiveInverseFontColor;
-      }
-    }
   }
 
   & .sg-label__text {
+    align-self: center;
     cursor: pointer;
   }
 

@@ -1,6 +1,5 @@
 $buttonPrimaryHeight: 40px;
-// $buttonPrimaryFontSize: fontSize(default);
-// $buttonPrimaryBorderRadius: 9px;
+$buttonPrimaryFontSize: 15px;
 $buttonPrimaryPadding: gutter(1);
 $buttonPrimaryFbColor: #3b5998;
 $buttonPrimaryFbColorHover: #2a457b;
@@ -14,7 +13,7 @@ $includeHtml: false !default;
 
     height: $buttonPrimaryHeight;
     padding: 0 $buttonPrimaryPadding;
-    font-size: 15px;
+    font-size: $buttonPrimaryFontSize;
     line-height: 15px;
     color: $buttonFontColor;
     fill: $buttonFontColor;

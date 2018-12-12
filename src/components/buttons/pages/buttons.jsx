@@ -51,14 +51,6 @@ const Buttons = () => (
           Add your answer
       </ButtonPrimary>
         &nbsp;
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT_INVERSE}>
-          Ask your question
-      </ButtonPrimary>
-        &nbsp;
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-          Search
-      </ButtonPrimary>
-        &nbsp;
       <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
           Disabled
       </ButtonPrimary>
@@ -110,16 +102,8 @@ const Buttons = () => (
           Search
       </ButtonSecondary>
         &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE}>
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
           Search
-      </ButtonSecondary>
-        &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
-          Search
-      </ButtonSecondary>
-        &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          Disabled
       </ButtonSecondary>
 
     </DocsBlock>
@@ -155,15 +139,7 @@ const Buttons = () => (
           Search
       </ButtonSecondary>
         &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
-          Search
-      </ButtonSecondary>
-        &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>
-          Search
-      </ButtonSecondary>
-        &nbsp;
-      <ButtonSecondary disabled type={BUTTON_SECONDARY_TYPE.INVERSE} small>
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
           Disabled
       </ButtonSecondary>
 
