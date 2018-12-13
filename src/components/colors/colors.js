@@ -139,68 +139,6 @@ const color = {
       'variable': '$graySecondaryUltraLight',
       'hex': 'f5f8fa'
     }
-  ],
-  'additional': [
-    {
-      'name': 'Bronze',
-      'variable': '$bronzePrimary',
-      'hex': 'a76a58'
-    },
-    {
-      'name': 'Bronze mid-tone',
-      'variable': '$bronzeSecondary',
-      'hex': 'db8d6b'
-    },
-    {
-      'name': 'Bronze light',
-      'variable': '$bronzeSecondaryLight',
-      'hex': 'f4d7ca'
-    },
-    {
-      'name': 'Silver',
-      'variable': '$silverPrimary',
-      'hex': '8e969a'
-    },
-    {
-      'name': 'Silver mid-tone',
-      'variable': '$silverSecondary',
-      'hex': 'b6bec2'
-    },
-    {
-      'name': 'Silver light',
-      'variable': '$silverSecondaryLight',
-      'hex': 'e8eef1'
-    },
-    {
-      'name': 'Gold',
-      'variable': '$goldPrimary',
-      'hex': 'c08228'
-    },
-    {
-      'name': 'Gold mid-tone',
-      'variable': '$goldSecondary',
-      'hex': 'ecb444'
-    },
-    {
-      'name': 'Gold light',
-      'variable': '$goldSecondaryLight',
-      'hex': 'fbe4b5'
-    },
-    {
-      'name': 'Navy blue',
-      'variable': '$navybluePrimary',
-      'hex': '1b2e57'
-    },
-    {
-      'name': 'Navy blue mid tone',
-      'variable': '$navyblueSecondary',
-      'hex': '3a548d'
-    },
-    {
-      'name': 'Navy blue light',
-      'variable': '$navyblueSecondaryLight',
-      'hex': 'b3c4e7'
-    }
   ]
 };
 
