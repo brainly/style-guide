@@ -34,16 +34,6 @@ const colors = () => (
         ))}
       </ol>
     </DocsBlock>
-    <DocsBlock info="Additional colors">
-      <ol className="colors-list">
-        {color.additional.map(({name, variable, hex}) => (
-          <li className="color-box" style={{background: `#${hex}`}} key={name}>
-            <span className="color-box__name">{name} / #{hex}</span>
-            <span className="color-box__variable">{variable}</span>
-          </li>
-        ))}
-      </ol>
-    </DocsBlock>
   </div>
 );
 
