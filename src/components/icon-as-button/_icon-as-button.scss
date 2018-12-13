@@ -20,7 +20,6 @@ $iconAsButtonLavenderColor: $lavenderPrimary;
 $iconAsButtonLavenderActiveColor: rgba($iconAsButtonLavenderColor, 0.7);
 $iconAsButtonActionColor: $white;
 $iconAsButtonTransparentColor: rgba($iconAsButtonDarkColor, 0.2);
-$iconAsButtonNavyBlueActiveColor: rgba($iconAsButtonNavyBlueColor, 0.7);
 $iconAsButtonBlueColor: $bluePrimary;
 $iconAsButtonBlueActiveColor: rgba($iconAsButtonBlueColor, 0.7);
 
@@ -128,7 +127,6 @@ $includeHtml: false !default;
     @include colorTheme('gray-light', $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
     @include colorTheme('dark', $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
     @include colorTheme('mint', $iconAsButtonMintColor, $iconAsButtonMintActiveColor);
-    @include colorTheme('navy-blue', $iconAsButtonNavyBlueColor, $iconAsButtonNavyBlueActiveColor);
     @include colorTheme('blue', $iconAsButtonBlueColor, $iconAsButtonBlueActiveColor);
     @include colorTheme('mustard', $iconAsButtonMustardColor, $iconAsButtonMustardActiveColor);
     @include colorTheme('lavender', $iconAsButtonLavenderColor, $iconAsButtonLavenderActiveColor);
