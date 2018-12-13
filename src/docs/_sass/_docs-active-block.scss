@@ -14,7 +14,7 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   &--dark .docs-active-block__component {
     background-color: $grayPrimary;
     background-size: 41px 40px;
-    background-image: radial-gradient(circle, $navybluePrimary 1px, $docsActiveBlockTransparent 1px);
+    background-image: radial-gradient(circle, $grayPrimary 1px, $docsActiveBlockTransparent 1px);
   }
 
   &__label {
