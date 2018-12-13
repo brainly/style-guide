@@ -2,12 +2,9 @@ import React from 'react';
 import Card, {CARD_PADDING} from '../Card';
 import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
 import DocsBlock from 'components/DocsBlock';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxContent from 'content-box/ContentBoxContent';
-import ActionList, {DIRECTION} from 'action-list/ActionList';
-import ActionListHole from 'action-list/ActionListHole';
 import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
 
 const Cards = () => (
@@ -76,20 +73,6 @@ const Cards = () => (
             </ContentBoxHeader>
             <ContentBoxContent>And add some description</ContentBoxContent>
           </ContentBox>
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.NAVYBLUE_SECONDARY}>
-          <ActionList direction={DIRECTION.SPACE_BETWEEN}>
-            <ActionListHole>
-              <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE_ALT} wide>
-                Ask your question
-              </ButtonSecondary>
-            </ActionListHole>
-            <ActionListHole>
-              <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} wide>
-                Cancel
-              </ButtonSecondary>
-            </ActionListHole>
-          </ActionList>
         </CardHole>
       </Card>
     </DocsBlock>
