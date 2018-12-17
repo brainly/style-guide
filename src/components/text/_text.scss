@@ -154,11 +154,11 @@ $bodyTextSizes: (
     }
 
     &--mint-dark {
-      color: $mintPrimary;
+      color: $mintPrimaryDark;
     }
 
     &--mint {
-      color: $mintPrimaryDark;
+      color: $mintPrimary;
     }
 
     &--white {
@@ -186,11 +186,11 @@ $bodyTextSizes: (
     }
 
     &--peach-dark {
-      color: $peachPrimary;
+      color: $peachPrimaryDark;
     }
 
     &--peach {
-      color: $peachPrimaryDark;
+      color: $peachPrimary;
     }
 
     // TODO to be removed when changes in twig template would be changed
