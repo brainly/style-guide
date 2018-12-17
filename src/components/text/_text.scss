@@ -153,12 +153,20 @@ $bodyTextSizes: (
       color: $graySecondary;
     }
 
-    &--mint {
+    &--mint-dark {
       color: $mintPrimary;
+    }
+
+    &--mint {
+      color: $mintPrimaryDark;
     }
 
     &--white {
       color: $white;
+    }
+
+    &--blue-dark {
+      color: $bluePrimaryDark;
     }
 
     &--blue {
@@ -177,8 +185,12 @@ $bodyTextSizes: (
       color: $mustardPrimary;
     }
 
-    &--peach {
+    &--peach-dark {
       color: $peachPrimary;
+    }
+
+    &--peach {
+      color: $peachPrimaryDark;
     }
 
     // TODO to be removed when changes in twig template would be changed

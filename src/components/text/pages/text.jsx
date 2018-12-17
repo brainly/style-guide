@@ -56,7 +56,7 @@ const TextExamples = () => {
           weight={LINK_WEIGHT.BOLD}
           size={LINK_SIZE.LARGE}
         >
-          link / bold / standard / xlarge / standard
+          link / bold / standard / xlarge /  la la
         </Link>
         <br />
         <Link
