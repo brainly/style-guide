@@ -5,7 +5,7 @@ $includeHtml: false !default;
   .sg-link {
     @include removeDescenders();
     cursor: pointer;
-    color: $bluePrimary;
+    color: $bluePrimaryDark;
     text-decoration: none;
     font-weight: $fontWeightBold;
 

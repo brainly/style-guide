@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 
 const DEFAULT_ICON = ICON_TYPE.PROFILE;
-const DEFAULT_COLOR = ICON_COLOR.GRAY;
+const DEFAULT_COLOR = ICON_COLOR.GRAY_SECONDARY;
 const BORDER_SIZE = 2;
 
 export const SIZE = {

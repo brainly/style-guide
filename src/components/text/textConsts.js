@@ -36,9 +36,12 @@ export const TEXT_COLOR = Object.freeze({
   LIGHT: 'white', //backward compability
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
+  MINT_DARK: 'mint-dark',
   MINT: 'mint',
+  PEACH_DARK: 'peach-dark',
   PEACH: 'peach',
   MUSTARD: 'mustard',
+  BLUE_DARK: 'blue-dark',
   BLUE: 'blue',
   BLUE_SECONDARY: 'blue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light'

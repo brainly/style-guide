@@ -42,7 +42,7 @@ const Link = (props: LinkPropsType) => {
   const {
     children,
     href,
-    color = LINK_COLOR.BLUE,
+    color = LINK_COLOR.BLUE_DARK,
     underlined = false,
     unstyled = false,
     emphasised = true, //backward compability
