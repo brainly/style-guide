@@ -153,12 +153,20 @@ $bodyTextSizes: (
       color: $graySecondary;
     }
 
+    &--mint-dark {
+      color: $mintPrimaryDark;
+    }
+
     &--mint {
       color: $mintPrimary;
     }
 
     &--white {
       color: $white;
+    }
+
+    &--blue-dark {
+      color: $bluePrimaryDark;
     }
 
     &--blue {
@@ -175,6 +183,10 @@ $bodyTextSizes: (
 
     &--mustard {
       color: $mustardPrimary;
+    }
+
+    &--peach-dark {
+      color: $peachPrimaryDark;
     }
 
     &--peach {

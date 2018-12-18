@@ -7,8 +7,8 @@ $textareaPadding: gutter(1 / 2);
 $textareaPaddingSmaller: gutter(1 / 3);
 $textareaPlaceholderTextColor: $graySecondary;
 $textareaPlaceholderFontSize: fontSize(medium);
-$textareaFocusValid: $mintPrimary;
-$textareaFocusInvalid: $peachPrimary;
+$textareaFocusValid: $mintPrimaryDark;
+$textareaFocusInvalid: $peachPrimaryDark;
 $textareaStandardBorderRadius: 9px;
 
 $includeHtml: false !default;
