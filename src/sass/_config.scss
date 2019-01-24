@@ -5,27 +5,32 @@ $mintPrimaryDark: #40bd7e;
 $mintPrimary: #60d399;
 $mintSecondary: #9ce8c2;
 $mintSecondaryLight: #e3f7ed;
+$mintSecondaryUltraLight: #f0faf5;
 
-$bluePrimaryDark: #059ff2;
-$bluePrimary: #57b2f8;
-$blueSecondary: #abe1ff;
-$blueSecondaryLight: #daf3ff;
+$bluePrimaryDark: #1d9ff5;
+$bluePrimary: #4fb3f6;
+$blueSecondary: #b9e2fe;
+$blueSecondaryLight: #d9f0ff;
+$blueSecondaryUltraLight: #edf8ff;
 
 // Secondary colors
 $lavenderPrimaryDark: #435fee;
 $lavenderPrimary: #6d83f3;
 $lavenderSecondary: #bdc7fb;
-$lavenderSecondaryLight: #eaedfe;
+$lavenderSecondaryLight: #ebeeff;
+$lavenderSecondaryUltraLight: #f2f4ff;
 
 $peachPrimaryDark: #ff604b;
 $peachPrimary: #ff7968;
-$peachSecondary: #ffc8c0;
+$peachSecondary: #ffc7bf;
 $peachSecondaryLight: #ffe8e5;
+$peachSecondaryUltraLight: #fff1f0;
 
 $mustardPrimaryDark: #eda600;
 $mustardPrimary: #fbbe2e;
 $mustardSecondary: #fedd8e;
-$mustardSecondaryLight: #fff2d5;
+$mustardSecondaryLight: #fff3d6;
+$mustardSecondaryUltraLight: #fffaf0;
 
 // Grey colors
 $white: #ffffff;
@@ -38,6 +43,8 @@ $graySecondaryUltraLight: #f5f8fa;
 
 // this comment exists to suppress errors about these unused variables:
 // $mintPrimaryDark $bluePrimaryDark $lavenderPrimaryDark $peachPrimaryDark $mustardPrimaryDark
+// $blueSecondaryUltraLight $lavenderSecondaryUltraLight $mintSecondaryUltraLight 
+// $mustardSecondaryUltraLight $peachSecondaryUltraLight
 
 // Shadows
 $defaultBottomShadowColor: rgba(0, 0, 0, 0.1);

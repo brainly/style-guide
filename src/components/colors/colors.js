@@ -26,24 +26,34 @@ const color = {
       'hex': 'e3f7ed'
     },
     {
+      'name': 'Mint ultra light',
+      'variable': '$mintSecondaryUltraLight',
+      'hex': 'f0faf5'
+    },
+    {
       'name': 'Blue Dark',
       'variable': '$bluePrimaryDark',
-      'hex': '059ff2'
+      'hex': '1d9ff5'
     },
     {
       'name': 'Blue',
       'variable': '$bluePrimary',
-      'hex': '57b2f8'
+      'hex': '4fb3f6'
     },
     {
       'name': 'Blue mid-tone',
       'variable': '$blueSecondary',
-      'hex': 'abe1ff'
+      'hex': 'b9e2fe'
     },
     {
       'name': 'Blue light',
       'variable': '$blueSecondaryLight',
-      'hex': 'daf3ff'
+      'hex': 'd9f0ff'
+    },
+    {
+      'name': 'Blue ultra light',
+      'variable': '$blueSecondaryUltraLight',
+      'hex': 'edf8ff'
     }
   ],
   'secondary': [
@@ -68,6 +78,11 @@ const color = {
       'hex': 'eaedfe'
     },
     {
+      'name': 'Lavender ultra light',
+      'variable': '$lavenderSecondaryUltraLight',
+      'hex': 'f2f4ff'
+    },
+    {
       'name': 'Peach Dark',
       'variable': '$peachPrimaryDark',
       'hex': 'ff604b'
@@ -80,12 +95,17 @@ const color = {
     {
       'name': 'Peach mid-tone',
       'variable': '$peachSecondary',
-      'hex': 'ffc8c0'
+      'hex': 'ffc7bf'
     },
     {
       'name': 'Peach light',
       'variable': '$peachSecondaryLight',
       'hex': 'ffe8e5'
+    },
+    {
+      'name': 'Peach ultra light',
+      'variable': '$peachSecondaryUltraLight',
+      'hex': 'fff1f0'
     },
     {
       'name': 'Mustard Dark',
@@ -105,7 +125,12 @@ const color = {
     {
       'name': 'Mustard light',
       'variable': '$mustardSecondaryLight',
-      'hex': 'fff2d5'
+      'hex': 'fff3d6'
+    },
+    {
+      'name': 'Mustard ultra light',
+      'variable': '$mustardSecondaryUltraLight',
+      'hex': 'fffaf0'
     }
   ],
   'gray': [
