@@ -1,3 +1,6 @@
+// this file will be used only by babel 7;
+// babel 6 will still use .babelrc in the root folder
+// it makes repo code compatible both with babel 6 and 7
 const babelEnv = modules => [
   '@babel/preset-env',
   {
