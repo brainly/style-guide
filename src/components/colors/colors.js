@@ -75,7 +75,7 @@ const color = {
     {
       'name': 'Lavender light',
       'variable': '$lavenderSecondaryLight',
-      'hex': 'eaedfe'
+      'hex': 'ebeeff'
     },
     {
       'name': 'Lavender ultra light',
