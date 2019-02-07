@@ -1,9 +1,8 @@
 const babelEnv = params => [
   '@babel/preset-env',
-  {
+  Object.assign(  {
     targets: '> 0.2%, not dead, not ie < 11',
-    ...params,
-  }
+  }, params)
 ];
 
 module.exports = api => {
