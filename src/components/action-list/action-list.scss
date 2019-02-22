@@ -70,6 +70,10 @@
     align-items: baseline;
   }
 
+  &--stretch {
+    align-items: stretch;
+  }
+
   &--to-top {
     align-items: flex-start;
   }
