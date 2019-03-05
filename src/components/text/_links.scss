@@ -1,0 +1,81 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .sg-link {
+    @include removeDescenders();
+    cursor: pointer;
+    color: $bluePrimaryDark;
+    text-decoration: none;
+    font-weight: $fontWeightBold;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+
+    &--gray {
+      color: $grayPrimary;
+    }
+
+    &--light {
+      color: $white;
+    }
+
+    &--mint {
+      color: $mintPrimary;
+    }
+
+    &--mustard {
+      color: $mustardPrimary;
+    }
+
+    &--peach {
+      color: $peachPrimary;
+    }
+
+    &--for-fine-print {
+      color: $blueSecondary;
+    }
+
+    &--for-fine-print-light {
+      color: $blueSecondaryLight;
+    }
+
+    &--unstyled {
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    &--emphasised {
+      @include uppercaseText(0.01rem);
+    }
+
+    &--small {
+      @include typeVariant(small, 0.75);
+    }
+
+    &--obscure {
+      @include typeVariant(obscure, 0.5);
+    }
+
+    &--disabled {
+      cursor: default;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
+    &--underlined {
+      text-decoration: underline;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+  }
+
+}

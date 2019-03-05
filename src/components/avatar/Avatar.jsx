@@ -12,7 +12,7 @@ export const SIZE = {
   NORMAL: {className: 'normal', iconSize: 32},
   LARGE: {className: 'large', iconSize: 48},
   XLARGE: {className: 'xlarge', iconSize: 64},
-  XXLARGE: {className: 'xxxlarge', iconSize: 120}
+  XXLARGE: {className: 'xxlarge', iconSize: 120}
 };
 
 const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, link, title, ...props}) => {

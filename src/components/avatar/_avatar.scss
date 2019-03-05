@@ -3,7 +3,7 @@ $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
 $avatarXLargeSize: 64px;
-$avatarXXXLargeSize: 120px;
+$avatarXXLargeSize: 120px;
 $avatarSpacedMargin: 4px;
 $avatarBorderWidth: 1px;
 $avatarBorderColor: $white;
@@ -49,9 +49,9 @@ $includeHtml: false !default;
       height: $avatarXLargeSize;
     }
 
-    &--xxxlarge {
-      width: $avatarXXXLargeSize;
-      height: $avatarXXXLargeSize;
+    &--xxlarge {
+      width: $avatarXXLargeSize;
+      height: $avatarXXLargeSize;
     }
 
     &--with-border {
