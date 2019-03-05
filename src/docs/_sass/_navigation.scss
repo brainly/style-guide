@@ -56,12 +56,12 @@
 
           &:hover,
           &:focus {
-            background: $graySecondary;
+            background: $graySecondaryLight;
           }
         }
 
         &.active {
-          background: $graySecondary;
+          background: $graySecondaryLight;
         }
       }
     }
@@ -104,7 +104,7 @@
       padding: 0;
 
       &:hover {
-        background: $graySecondary;
+        background: $graySecondaryLight;
 
         > ul {
           display: flex;

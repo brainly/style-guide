@@ -19,7 +19,6 @@ import Labels from 'labels/pages/labels-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
-import Headers from 'text/pages/headers-interactive';
 import Headlines from 'text/pages/headlines-interactive';
 import Links from 'text/pages/links-interactive';
 import TextBits from 'text/pages/text-bit-interactive';
@@ -32,7 +31,6 @@ import Selects from 'form-elements/pages/select-interactive';
 import Textareas from 'form-elements/pages/textarea-interactive';
 import SearchInputs from 'search/pages/search-interactive';
 import Breadcrumbs from 'breadcrumbs/pages/breadcrumbs-interactive';
-import HeadersLayout from 'header/pages/header-interactive';
 import Footers from 'footer/pages/footer-interactive';
 import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
@@ -64,7 +62,6 @@ const demos = {
   'Dropdowns': <Dropdowns />,
   'Separators': <Separators />,
   'Text': <Texts />,
-  'Headers': <Headers />,
   'Headlines': <Headlines />,
   'Links': <Links />,
   'Text Bit': <TextBits />,
@@ -77,7 +74,6 @@ const demos = {
   'Textarea': <Textareas />,
   'Search': <SearchInputs />,
   'Breadcrumbs': <Breadcrumbs />,
-  'Header': <HeadersLayout />,
   'Footer': <Footers />,
   'Layout': <Layouts />,
   'Toplayer': <Toplayers />,

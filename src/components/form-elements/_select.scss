@@ -19,7 +19,6 @@ $includeHtml: false !default;
     box-shadow: $componentShadow;
     border-radius: $selectBorderRadius;
     height: $selectHeight;
-    padding-left: gutter(1 / 12);
 
     &__element {
       background: $selectBackground;
