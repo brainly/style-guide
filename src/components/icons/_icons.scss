@@ -2,18 +2,15 @@
 
 $includeHtml: false !default;
 
-$iconSizes: 120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8;
+$iconSizes: 120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
 
 // Icon sizes :(
 // 120 - avatar xxxlarge
 // 118 - avatar xxxlarge with border
-// 96 - avatar xxlarge
-// 94 - avatar xxlarge with border
 // 64 - avatar xlarge
 // 62 - avatar xlarge with border
 // 48 - avatar large
 // 46 - avatar large with border
-// 38 - list icons (arrow right)
 // 32 - avatar default,
 // 30 - avatar default with border,
 // 26 - icon as button default,
@@ -23,8 +20,7 @@ $iconSizes: 120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8;
 // 18 - icon as button small, default list
 // 16 - label default, rating default
 // 14 - label small, rating small, icon as button default with small icon,
-// 10 - icon as button small with small icon,
-// 8  - select and dropdown arrows, checkbox check,
+// 10 - icon as button small with small icon, checkbox check icon
 
 @if ($includeHtml) {
 

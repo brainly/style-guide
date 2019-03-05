@@ -1,10 +1,8 @@
 $avatarDefaultBackgroundColor: $graySecondaryLight;
-$avatarXSmallSize: 16px;
 $avatarSmallSize: 24px;
 $avatarMediumSize: 32px;
 $avatarBigSize: 48px;
 $avatarXLargeSize: 64px;
-$avatarXXLargeSize: 96px;
 $avatarXXXLargeSize: 120px;
 $avatarSpacedMargin: 4px;
 $avatarBorderWidth: 1px;
@@ -36,11 +34,6 @@ $includeHtml: false !default;
       }
     }
 
-    &--xsmall {
-      width: $avatarXSmallSize;
-      height: $avatarXSmallSize;
-    }
-
     &--small {
       width: $avatarSmallSize;
       height: $avatarSmallSize;
@@ -54,11 +47,6 @@ $includeHtml: false !default;
     &--xlarge {
       width: $avatarXLargeSize;
       height: $avatarXLargeSize;
-    }
-
-    &--xxlarge {
-      width: $avatarXXLargeSize;
-      height: $avatarXXLargeSize;
     }
 
     &--xxxlarge {

@@ -66,7 +66,7 @@ export const ICON_COLOR = {
   PEACH: 'peach'
 };
 
-export const SIZE = [120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10, 8];
+export const SIZE = [120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
 
 const Icon = ({color, size = 24, type, children, className, ...props}) => {
   const iconClass = classNames('sg-icon', {

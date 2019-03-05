@@ -8,13 +8,11 @@ const DEFAULT_COLOR = ICON_COLOR.GRAY_SECONDARY;
 const BORDER_SIZE = 2;
 
 export const SIZE = {
-  XSMALL: {className: 'xsmall', iconSize: 16},
   SMALL: {className: 'small', iconSize: 24},
   NORMAL: {className: 'normal', iconSize: 32},
   LARGE: {className: 'large', iconSize: 48},
   XLARGE: {className: 'xlarge', iconSize: 64},
-  XXLARGE: {className: 'xxlarge', iconSize: 96},
-  XXXLARGE: {className: 'xxxlarge', iconSize: 120}
+  XXLARGE: {className: 'xxxlarge', iconSize: 120}
 };
 
 const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, link, title, ...props}) => {
