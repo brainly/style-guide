@@ -1,5 +1,6 @@
 $includeHtml: false !default;
 
+// Depracated, please use headline with proper insted
 @if ($includeHtml) {
 
   .sg-header-primary {
