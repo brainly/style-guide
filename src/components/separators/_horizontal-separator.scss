@@ -24,6 +24,13 @@ $includeHtml: false !default;
     &--short-spaced {
       margin: (rhythm(0.5) - $horizontalSeparatorHeight) 0 rhythm(0.5);
     }
-  }
 
+    &--white {
+      border-bottom: $horizontalSeparatorHeight solid $white;
+    }
+
+    &--gray-dark {
+      border-color: $graySecondary;
+    }
+  }
 }

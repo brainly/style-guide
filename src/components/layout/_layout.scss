@@ -164,6 +164,14 @@ $includeHtml: false !default;
         margin-left: $layoutGapWidth;
         width: $layoutAsideWidth;
       }
+
+      &--attach-top {
+        order: -1;
+
+        @include sgBreakpoint(large-only) {
+          order: initial;
+        }
+      }
     }
 
     &__footer {

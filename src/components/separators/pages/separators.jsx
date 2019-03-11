@@ -1,5 +1,6 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
+import ContrastBox from 'components/ContrastBox';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Text, {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
 
@@ -13,6 +14,34 @@ const Separators = () => (
       <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
       <SeparatorVertical />
       <Avatar size={AVATAR_SIZE.SMALL} />
+    </DocsBlock>
+    <DocsBlock info="Small white vertical" centered>
+      <ContrastBox>
+        <Link>previous</Link>
+        <SeparatorVertical white size={SIZE.SMALL} />
+        <Link>next</Link>
+      </ContrastBox>
+    </DocsBlock>
+    <DocsBlock info="Small white horizontal" centered>
+      <ContrastBox>
+        <Link>previous</Link>
+        <SeparatorHorizontal white size={SIZE.SMALL} />
+        <Link>next</Link>
+      </ContrastBox>
+    </DocsBlock>
+    <DocsBlock info="Small grayDark vertical" centered>
+      <ContrastBox>
+        <Link>previous</Link>
+        <SeparatorVertical grayDark size={SIZE.SMALL} />
+        <Link>next</Link>
+      </ContrastBox>
+    </DocsBlock>
+    <DocsBlock info="Small grayDark horizontal" centered>
+      <ContrastBox>
+        <Link>previous</Link>
+        <SeparatorHorizontal grayDark size={SIZE.SMALL} />
+        <Link>next</Link>
+      </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small" centered>
       <Link>previous</Link>

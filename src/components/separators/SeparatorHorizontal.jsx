@@ -8,9 +8,11 @@ export const TYPE = {
   SHORT_SPACED: 'short-spaced'
 };
 
-const SeparatorHorizontal = ({type = TYPE.NORMAL, className, ...props}) => {
+const SeparatorHorizontal = ({type = TYPE.NORMAL, white, grayDark, className, ...props}) => {
   const separatorClass = classNames('sg-horizontal-separator', {
-    [`sg-horizontal-separator--${type}`]: type !== TYPE.NORMAL
+    [`sg-horizontal-separator--${type}`]: type !== TYPE.NORMAL,
+    'sg-horizontal-separator--white': white,
+    'sg-horizontal-separator--gray-dark': grayDark
   }, className);
 
   return <div {...props} className={separatorClass} />;
@@ -18,6 +20,8 @@ const SeparatorHorizontal = ({type = TYPE.NORMAL, className, ...props}) => {
 
 SeparatorHorizontal.propTypes = {
   type: PropTypes.oneOf(Object.values(TYPE)),
+  white: PropTypes.bool,
+  grayDark: PropTypes.bool,
   className: PropTypes.string
 };
 

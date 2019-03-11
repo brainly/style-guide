@@ -14,6 +14,7 @@ export const COLOR = {
   BLUE_SECONDARY: 'blue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
+  GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
   PEACH: 'peach'
 };
 
