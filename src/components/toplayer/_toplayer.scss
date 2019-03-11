@@ -88,12 +88,6 @@ $includeHtml: false !default;
       }
     }
 
-    &--spaced-on-small-only {
-      @include sgBreakpoint(small-only) {
-        margin: gutter(1 / 2);
-      }
-    }
-
     &--splash-screen {
       overflow: hidden;
       margin: gutter(1 / 2);
