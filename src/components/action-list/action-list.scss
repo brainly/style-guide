@@ -35,12 +35,6 @@
       margin-left: auto;
     }
 
-    &--to-right-on-medium-up {
-      @include sgBreakpoint(medium-up) {
-        margin-left: auto;
-      }
-    }
-
     &--space-bellow {
       margin-bottom: gutter(0.5);
     }

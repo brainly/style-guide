@@ -18,7 +18,6 @@ const ActionListHole = ({
   grow,
   toEnd,
   toRight,
-  toRightOnMediumUp,
   stretch,
   equalWidth,
   hideOverflow,
@@ -35,7 +34,6 @@ const ActionListHole = ({
     'sg-actions-list__hole--grow': grow,
     'sg-actions-list__hole--to-end': toEnd,
     'sg-actions-list__hole--to-right': toRight,
-    'sg-actions-list__hole--to-right-on-medium-up': toRightOnMediumUp,
     'sg-actions-list__hole--stretch': stretch,
     'sg-actions-list__hole--equal-width': equalWidth,
     'sg-actions-list__hole--hide-overflow': hideOverflow
@@ -60,7 +58,6 @@ ActionListHole.propTypes = {
   grow: PropTypes.bool,
   toEnd: PropTypes.bool,
   toRight: PropTypes.bool,
-  toRightOnMediumUp: PropTypes.bool,
   stretch: PropTypes.bool,
   equalWidth: PropTypes.bool,
   hideOverflow: PropTypes.bool
