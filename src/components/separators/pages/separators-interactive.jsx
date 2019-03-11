@@ -13,6 +13,10 @@ const Separators = () => {
     {
       name: 'white',
       values: Boolean
+    },
+    {
+      name: 'grayDark',
+      values: Boolean
     }
   ];
   const horizontalSettings = [
@@ -22,6 +26,10 @@ const Separators = () => {
     },
     {
       name: 'white',
+      values: Boolean
+    },
+    {
+      name: 'grayDark',
       values: Boolean
     }
   ];

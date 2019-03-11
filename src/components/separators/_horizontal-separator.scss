@@ -28,5 +28,9 @@ $includeHtml: false !default;
     &--white {
       border-bottom: $horizontalSeparatorHeight solid $white;
     }
+
+    &--gray-dark {
+      border-color: $graySecondary;
+    }
   }
 }
