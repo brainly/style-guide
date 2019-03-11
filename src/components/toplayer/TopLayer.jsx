@@ -71,6 +71,7 @@ TopLayer.propTypes = {
   smallSpaced: PropTypes.bool,
   splashScreen: PropTypes.bool,
   limitedWidth: PropTypes.bool,
+  spacedOnSmallOnly: PropTypes.bool,
   row: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(SIZE)),
   transparent: PropTypes.bool,

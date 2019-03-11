@@ -167,7 +167,7 @@ $includeHtml: false !default;
 
       &--attach-top {
         order: -1;
-    
+
         @include sgBreakpoint(large-only) {
           order: initial;
         }
