@@ -21,6 +21,7 @@ export const HEADLINE_COLOR = {
   WHITE: 'white',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
   MINT: 'mint',
   PEACH: 'peach',
   MUSTARD: 'mustard',
