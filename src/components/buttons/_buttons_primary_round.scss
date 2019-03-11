@@ -47,6 +47,7 @@ $includeHtml: false !default;
       color: $buttonRoundAddColor;
       box-shadow: $buttonRoundBoxShadow;
       transition: box-shadow 0.3s;
+      flex-shrink: 0;
     }
 
     &__label {

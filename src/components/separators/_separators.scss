@@ -31,6 +31,13 @@ $includeHtml: false !default;
     &--full {
       height: 100%;
     }
-  }
 
+    &--white {
+      border-color: $white;
+    }
+
+    &--gray-dark {
+      border-color: $graySecondary;
+    }
+  }
 }

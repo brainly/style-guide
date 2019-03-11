@@ -19,6 +19,10 @@
       margin: 0 gutter(1 / 4) 0 0;
     }
 
+    &--spaced-large {
+      margin: 0 gutter(1) 0 0;
+    }
+
     &--container {
       position: relative;
     }
@@ -29,6 +33,12 @@
 
     &--to-right {
       margin-left: auto;
+    }
+
+    &--to-right-on-medium-up {
+      @include sgBreakpoint(medium-up) {
+        margin-left: auto;
+      }
     }
 
     &--space-bellow {

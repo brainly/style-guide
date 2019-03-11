@@ -16,6 +16,7 @@ const Textarea = props => {
     size = SIZE.NORMAL,
     fullWidth,
     simple,
+    noPadding,
     autoHeight,
     value,
     className,
@@ -37,6 +38,7 @@ const Textarea = props => {
     'sg-textarea--invalid': invalid,
     'sg-textarea--full-width': fullWidth,
     'sg-textarea--simple': simple,
+    'sg-textarea--no-padding': noPadding,
     'sg-textarea--auto-height': autoHeight
   }, className);
 
@@ -59,6 +61,7 @@ Textarea.propTypes = {
   invalid: PropTypes.bool,
   fullWidth: PropTypes.bool,
   simple: PropTypes.bool,
+  noPadding: PropTypes.bool,
   autoHeight: PropTypes.bool,
   className: PropTypes.string
 };

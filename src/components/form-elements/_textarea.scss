@@ -65,8 +65,17 @@ $includeHtml: false !default;
     &--simple {
       border: none;
       border-radius: 0;
+
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
     }
 
+    &--no-padding {
+      padding: 0;
+    }
+    
     &--short {
       height: rhythm(1.5);
       padding-top: gutter(1 /5);

@@ -9,9 +9,11 @@ export const SIZE = {
   FULL: 'full'
 };
 
-const Separator = ({size = SIZE.NORMAL, className, ...props}) => {
+const Separator = ({size = SIZE.NORMAL, white, grayDark, className, ...props}) => {
   const separatorClass = classNames('sg-vertical-separator', {
-    [`sg-vertical-separator--${size}`]: size !== SIZE.NORMAL
+    [`sg-vertical-separator--${size}`]: size !== SIZE.NORMAL,
+    'sg-vertical-separator--white': white,
+    'sg-vertical-separator--gray-dark': grayDark
   }, className);
 
   return <div {...props} className={separatorClass} />;
@@ -19,6 +21,8 @@ const Separator = ({size = SIZE.NORMAL, className, ...props}) => {
 
 Separator.propTypes = {
   size: PropTypes.oneOf(Object.values(SIZE)),
+  white: PropTypes.bool,
+  grayDark: PropTypes.bool,
   className: PropTypes.string
 };
 

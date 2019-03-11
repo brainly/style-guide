@@ -8,21 +8,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $blueSecondary;
+    background-color: $bluePrimary;
     min-height: rhythm(1);
     width: 100%;
     padding: rhythm(1/4);
 
     &--error {
-      background-color: $peachSecondary;
+      background-color: $peachPrimary;
     }
 
     &--success {
-      background-color: $mintSecondary;
+      background-color: $mintPrimary;
     }
 
     &--info {
-      background-color: $mustardSecondary;
+      background-color: $mustardPrimary;
     }
   }
 }
