@@ -18,7 +18,7 @@ const FlashMessage = ({text, type = TYPE.DEFAULT, className, ...props}) => {
   return (
     <div {...props} className="sg-flash">
       <div className={messageClass}>
-        <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.WHITE} weight={TEXT_WEIGHT.BOLD}>
+        <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.DEFAULT} weight={TEXT_WEIGHT.BOLD}>
           {text}
         </Text>
       </div>
