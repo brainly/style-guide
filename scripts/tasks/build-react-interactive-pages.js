@@ -7,7 +7,7 @@ const coreConfig = {
   module: {
     rules: [
       {
-        test: /\.js|.jsx$/,
+        test: /\.js|jsx?$/,
         loader: 'babel-loader'
       }
     ]
