@@ -18,7 +18,7 @@ const coreConfig = {
   module: {
     rules: [
       {
-        test: /\.js|.jsx$/,
+        test: /\.js|jsx?$/,
         exclude: /\.json$/,
         loader: 'babel-loader'
       }
