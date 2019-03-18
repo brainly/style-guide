@@ -30,7 +30,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-rev": "^7.0.0",
-    "gulp-sass": "^3.1.0",
+    "gulp-sass": "3.2.1",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-svg-sprite": "^1.2.7",
     "gulp-util": "^3.0.6",
@@ -45,8 +45,8 @@
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
     "through2": "^2.0.3",
-    "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.6.0",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "4.6.0",
     "yargs": "^4.3.1"
   },
   "scripts": {
@@ -78,5 +78,8 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "node-uuid": "^1.4.8"
+  },
+  "resolutions": {
+    "natives": "1.1.3"
   }
 }

@@ -5,9 +5,9 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const coreConfig = {
   target: 'node',
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js|jsx?$/,
+        test: /\.js|.jsx$/,
         loader: 'babel-loader'
       }
     ]
@@ -27,12 +27,14 @@ module.exports = function(gulp, plugins, consts) {
 
     if (consts.IS_PRODUCTION) {
       webpackPlugins.push(new UglifyJSPlugin({
-        // we can't remove names - otherwise we won't be able to generate JSX
-        mangle: {
-          keep_fnames: true
-        },
-        compress: {
-          keep_fnames: true
+        uglifyOptions: {
+          // we can't remove names - otherwise we won't be able to generate JSX
+          mangle: {
+            keep_fnames: true
+          },
+          compress: {
+            keep_fnames: true
+          }
         }
       }));
     }

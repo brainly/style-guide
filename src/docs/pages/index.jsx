@@ -1,9 +1,10 @@
 import React from 'react';
 import ArticlePage from '../layouts/ArticlePage';
-import packageJSON from '../../../package.json';
 import ContentBox from '../../components/content-box/ContentBox';
 import ContentBoxHeader from '../../components/content-box/ContentBoxHeader';
 import ContentBoxContent from '../../components/content-box/ContentBoxContent';
+
+const packageJSON = require('../../../package.json');
 
 const index = () => (
   <ArticlePage>

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
-import packageJSON from '../../../package.json';
 import site from '../config';
+
+const packageJSON = require('../../../package.json');
 
 const version = packageJSON.version;
 
