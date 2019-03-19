@@ -16,14 +16,11 @@ fs.readdirSync('node_modules')
 const coreConfig = {
   target: 'node',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js|jsx?$/,
+        exclude: /\.json$/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.json$/,
-        use: 'json-loader'
       }
     ]
   },
@@ -35,7 +32,7 @@ module.exports = function(gulp, plugins, consts, options) {
     const pathArray = file.path.replace(consts.SRC, '').split('/');
     const fileNameWithExtension = pathArray.pop();
     const relativePath = pathArray.join('/');
-    const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', relativePath);
+    const jsPath = plugins.path.join(consts.VERSIONED_DIST, relativePath);
 
     const config = Object.assign({}, coreConfig, {
       resolve: {
@@ -56,9 +53,11 @@ module.exports = function(gulp, plugins, consts, options) {
       }
     });
 
-    webpack(config, function(err) {
-      if (err) {
-        console.error(err);
+    webpack(config, function(err, stats) {
+      const info = stats.toJson();
+
+      if (err || stats.hasErrors()) {
+        console.error(err, info.errors);
         return;
       }
       cb(null, file);
@@ -66,7 +65,7 @@ module.exports = function(gulp, plugins, consts, options) {
   };
 
   const createHtmlFiles = function(file, enc, cb) {
-    const path = file.path.replace(consts.SRC, consts.VERSIONED_DIST + '/docs');
+    const path = file.path.replace(consts.SRC, consts.VERSIONED_DIST);
     const ReactPageClass = require(path).default;
     const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
     const doctype = '<!DOCTYPE html>\n';
@@ -74,7 +73,6 @@ module.exports = function(gulp, plugins, consts, options) {
     file.contents = new Buffer(doctype + htmlPage);
     cb(null, file);
   };
-
 
   return function() {
     let input, output;
