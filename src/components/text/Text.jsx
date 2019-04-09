@@ -6,10 +6,16 @@ import {
   TEXT_TYPE,
   TEXT_SIZE,
   TEXT_COLOR,
-  TEXT_WEIGHT,
-  TEXT_TRANSFORM,
-  TEXT_ALIGN
+  TEXT_WEIGHT
 } from './textConsts';
+import type {
+  TextSizeType,
+  TextTypeType,
+  TextColorType,
+  TextWeightType,
+  TextTransformType,
+  TextAlignType
+} from './textTypes';
 
 export {
   TYPE, // backward compatibility
@@ -26,12 +32,12 @@ export {
 
 export type TextPropsType = {
   children?: React.Node,
-  size?: $Values<typeof TEXT_SIZE>,
-  type?: $Values<typeof TEXT_TYPE>,
-  color?: $Values<typeof TEXT_COLOR>,
-  weight?: $Values<typeof TEXT_WEIGHT>,
-  transform?: $Values<typeof TEXT_TRANSFORM>,
-  align?: $Values<typeof TEXT_ALIGN>,
+  size?: TextSizeType,
+  type?: TextTypeType,
+  color?: TextColorType,
+  weight?: TextWeightType,
+  transform?: TextTransformType,
+  align?: TextAlignType,
   noWrap?: boolean,
   asContainer?: boolean,
   full?: boolean,

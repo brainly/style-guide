@@ -62,7 +62,7 @@ const Link = (props: LinkPropsType) => {
   if (!href) {
     return (
       <Text
-        type={LINK_TYPE.SPAN}
+        type="span"
         {...additionalProps}
         className={linkClass}
       >
@@ -73,7 +73,7 @@ const Link = (props: LinkPropsType) => {
 
   return (
     <Text
-      type={LINK_TYPE.LINK}
+      type="a"
       {...additionalProps}
       className={linkClass}
       href={href}

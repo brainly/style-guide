@@ -2,14 +2,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
+import type {SizeType, AligmentType} from './contextBoxTypes';
 
 export type ContentBoxContentPropsType = {
   children: React.Node,
   full?: boolean,
   className?: string,
-  spacedTop?: ?$Values<typeof SIZE>,
-  spacedBottom?: ?$Values<typeof SIZE>,
-  align?: $Values<typeof ALIGNMENT>
+  spacedTop?: ?SizeType,
+  spacedBottom?: ?SizeType,
+  align?: AligmentType
 };
 
 const ContentBoxContent = ({
