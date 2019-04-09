@@ -2,6 +2,11 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import type {
+  TextBitTypeType,
+  TextBitSizeType,
+  TextBitColorType
+} from './textTypes';
 
 export const TEXT_BIT_TYPE = Object.freeze({
   H1: 'h1',
@@ -32,9 +37,9 @@ export const TEXT_BIT_COLOR = Object.freeze({
 
 type TextBitPropsType = {
   children: React.Node,
-  type?: $Values<typeof TEXT_BIT_TYPE>,
-  size?: $Values<typeof TEXT_BIT_SIZE>,
-  color?: $Values<typeof TEXT_BIT_COLOR>,
+  type?: TextBitTypeType,
+  size?: TextBitSizeType,
+  color?: TextBitColorType,
   className?: string
 };
 

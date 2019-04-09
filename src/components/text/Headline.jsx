@@ -1,9 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import classNames from 'classnames';
-import {HEADLINE_COLOR, HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './headlineConsts';
+import type {
+  HeadlineTypeType,
+  HeadlineSizeType,
+  HeadlineColorType,
+  HeadlineTransformType,
+  HeadlineAlignType
+} from './headlineTypes';
+
+import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
 
 export {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './headlineConsts';
+
+export type HeadlinePropsType = {
+  children?: React.Node,
+  size?: HeadlineSizeType,
+  type?: HeadlineTypeType,
+  color?: HeadlineColorType,
+  transform?: HeadlineTransformType,
+  align?: HeadlineAlignType,
+  className?: string,
+  extraBold?: boolean
+};
 
 const Headline = ({
   children,
@@ -15,12 +34,12 @@ const Headline = ({
   color,
   className,
   ...props
-}) => {
+}: HeadlinePropsType) => {
   const Type = type;
   const headlineClass = classNames('sg-headline', {
     [`sg-headline--${size}`]: size !== HEADLINE_SIZE.NORMAL,
-    [`sg-headline--${color}`]: color,
-    [`sg-headline--${transform}`]: transform,
+    [`sg-headline--${String(color)}`]: color,
+    [`sg-headline--${String(transform)}`]: transform,
     [`sg-headline--${align || ''}`]: align,
     'sg-headline--extra-bold': extraBold
   }, className);
@@ -30,17 +49,6 @@ const Headline = ({
       {children}
     </Type>
   );
-};
-
-Headline.propTypes = {
-  children: PropTypes.node,
-  type: PropTypes.oneOf(Object.values(HEADLINE_TYPE)),
-  size: PropTypes.oneOf(Object.values(HEADLINE_SIZE)),
-  transform: PropTypes.oneOf(Object.values(HEADLINE_TRANSFORM)),
-  align: PropTypes.oneOf(Object.values(HEADLINE_ALIGN)),
-  extraBold: PropTypes.bool,
-  color: PropTypes.oneOf(Object.values(HEADLINE_COLOR)),
-  className: PropTypes.string
 };
 
 export default Headline;
