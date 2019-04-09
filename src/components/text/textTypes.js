@@ -1,6 +1,6 @@
 // @flow strict
 export type TextTypeType =
-  |'span'
+  | 'span'
   | 'p'
   | 'h1'
   | 'h2'
@@ -36,7 +36,7 @@ export type TextColorType =
   | 'blue-secondary-light';
 
 export type TextWeightType =
-  |'regular'
+  | 'regular'
   | 'bold';
 
 export type TextTransformType =
@@ -45,7 +45,7 @@ export type TextTransformType =
   | 'capitalize';
 
 export type TextAlignType =
-  |'to-left'
+  | 'to-left'
   | 'to-center'
   | 'to-right'
   | 'justify';
