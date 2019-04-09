@@ -8,14 +8,57 @@ import {
   TEXT_COLOR,
   TEXT_WEIGHT
 } from './textConsts';
-import type {
-  TextSizeType,
-  TextTypeType,
-  TextColorType,
-  TextWeightType,
-  TextTransformType,
-  TextAlignType
-} from './textTypes';
+
+type TextTypeType =
+  | 'span'
+  | 'p'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'div'
+  | 'label'
+  | 'a';
+
+type TextSizeType =
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+
+type TextColorType =
+  | 'default'
+  | 'white'
+  | 'gray'
+  | 'gray-secondary'
+  | 'mint-dark'
+  | 'mint'
+  | 'peach-dark'
+  | 'peach'
+  | 'mustard'
+  | 'blue-dark'
+  | 'blue'
+  | 'blue-secondary'
+  | 'blue-secondary-light';
+
+type TextWeightType =
+  | 'regular'
+  | 'bold';
+
+type TextTransformType =
+  | 'uppercase'
+  | 'lowercase'
+  | 'capitalize';
+
+type TextAlignType =
+  | 'to-left'
+  | 'to-center'
+  | 'to-right'
+  | 'justify';
 
 export {
   TYPE, // backward compatibility
@@ -31,18 +74,18 @@ export {
 } from './textConsts';
 
 export type TextPropsType = {
-  children?: React.Node,
+  children?: ?React.Node,
   size?: TextSizeType,
   type?: TextTypeType,
   color?: TextColorType,
   weight?: TextWeightType,
-  transform?: TextTransformType,
-  align?: TextAlignType,
-  noWrap?: boolean,
-  asContainer?: boolean,
-  full?: boolean,
-  breakWords?: boolean,
-  className?: string
+  transform?: ?TextTransformType,
+  align?: ?TextAlignType,
+  noWrap?: ?boolean,
+  asContainer?: ?boolean,
+  full?: ?boolean,
+  breakWords?: ?boolean,
+  className?: ?string
 };
 
 const Text = ({

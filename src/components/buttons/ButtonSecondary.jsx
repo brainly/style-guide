@@ -1,6 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type ButtonSecondaryTypeType =
+  | 'alt'
+  | 'dark'
+  | 'inverse'
+  | 'alt-inverse'
+  | 'dark-inverse'
+  | 'active-inverse'
+  | 'peach';
 
 export const BUTTON_SECONDARY_TYPE = {
   ALT: 'alt',
@@ -12,12 +22,23 @@ export const BUTTON_SECONDARY_TYPE = {
   PEACH: 'peach'
 };
 
-const ButtonSecondary = ({small, wide, disabled, buttonType, children, className, ...props}) => {
+type ButtonSecondaryPropsType = {
+  children?: ?Node,
+  className?: ?string,
+  wide?: ?boolean,
+  disabled?: ?boolean,
+  small?: ?boolean,
+  href?: ?string,
+  buttonType?: ?ButtonSecondaryTypeType
+};
 
+const ButtonSecondary = (
+  {small, wide, disabled, buttonType, children, className, ...props}: ButtonSecondaryPropsType
+) => {
   const btnClass = classNames('sg-button-secondary', {
     'sg-button-secondary--small': small,
     'sg-button-secondary--disabled': disabled,
-    [`sg-button-secondary--${buttonType}`]: buttonType,
+    [`sg-button-secondary--${String(buttonType)}`]: buttonType,
     'sg-button-secondary--full-width': wide
   }, className);
 
@@ -32,16 +53,6 @@ const ButtonSecondary = ({small, wide, disabled, buttonType, children, className
       {children}
     </TypeToRender>
   );
-};
-
-ButtonSecondary.propTypes = {
-  small: PropTypes.bool,
-  wide: PropTypes.bool,
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  buttonType: PropTypes.oneOf(Object.values(BUTTON_SECONDARY_TYPE)),
-  className: PropTypes.string
 };
 
 export default ButtonSecondary;

@@ -2,11 +2,30 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import type {
-  TextBitTypeType,
-  TextBitSizeType,
-  TextBitColorType
-} from './textTypes';
+
+type TextBitTypeType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'div';
+
+type TextBitSizeType =
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge';
+
+type TextBitColorType =
+  | 'blue-secondary'
+  | 'white'
+  | 'black'
+  | 'mint'
+  | 'blue-primary'
+  | 'gray-secondary'
+  | 'peach-primary';
 
 export const TEXT_BIT_TYPE = Object.freeze({
   H1: 'h1',
@@ -39,8 +58,8 @@ type TextBitPropsType = {
   children: React.Node,
   type?: TextBitTypeType,
   size?: TextBitSizeType,
-  color?: TextBitColorType,
-  className?: string
+  color?: ?TextBitColorType,
+  className?: ?string
 };
 
 const TextBit = ({

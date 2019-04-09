@@ -1,6 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type ButtonPrimaryTypeType =
+  | 'alt'
+  | 'dark'
+  | 'inverse'
+  | 'alt-inverse'
+  | 'dark-inverse'
+  | 'peach'
+  | 'fb';
 
 export const BUTTON_PRIMARY_TYPE = {
   ALT: 'alt',
@@ -12,11 +22,21 @@ export const BUTTON_PRIMARY_TYPE = {
   FB: 'fb'
 };
 
-const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, ...props}) => {
+type ButtonPrimaryPropsType = {
+  children?: ?Node,
+  className?: ?string,
+  icon?: ?Node,
+  wide?: ?boolean,
+  disabled?: ?boolean,
+  href?: ?string,
+  buttonType?: ?ButtonPrimaryTypeType
+};
+
+const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, ...props}: ButtonPrimaryPropsType) => {
   const btnClass = classNames('sg-button-primary', {
     'sg-button-primary--disabled': disabled,
     'sg-button-primary--full-width': wide,
-    [`sg-button-primary--${buttonType}`]: buttonType
+    [`sg-button-primary--${String(buttonType)}`]: buttonType
   }, className);
 
   let ico;
@@ -37,16 +57,6 @@ const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, .
       {children}
     </TypeToRender>
   );
-};
-
-ButtonPrimary.propTypes = {
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.node,
-  wide: PropTypes.bool,
-  disabled: PropTypes.bool,
-  href: PropTypes.string,
-  buttonType: PropTypes.oneOf(Object.values(BUTTON_PRIMARY_TYPE)),
-  className: PropTypes.string
 };
 
 export default ButtonPrimary;

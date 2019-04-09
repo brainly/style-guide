@@ -1,7 +1,33 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
 import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
+
+type ColorType =
+  | 'blue'
+  | 'lavender'
+  | 'dark'
+  | 'mint'
+  | 'mint-secondary'
+  | 'mint-secondary-light'
+  | 'navyblue-secondary'
+  | 'blue-secondary'
+  | 'blue-secondary-light'
+  | 'gray-secondary-lightest'
+  | 'gray-secondary-ultra-light'
+  | 'peach';
+
+type PaddingType =
+  | 'no-padding'
+  | 'small-padding'
+  | 'xsmall-padding'
+  | 'xxsmall-padding'
+  | 'large-padding';
+
+type CloseIconColorType =
+  | 'LIGHT'
+  | 'DARK';
 
 export const COLOR = {
   BLUE: 'blue',
@@ -31,13 +57,28 @@ export const CLOSE_ICON_COLOR = {
   DARK: 'DARK'
 };
 
+type BoxPropsType = {
+  children?: ?Node,
+  className?: ?string,
+  color?: ?ColorType,
+  border?: boolean,
+  noMinHeight?: ?boolean,
+  full?: ?boolean,
+  padding?: ?PaddingType,
+  imgSrc?: ?string,
+  shadow?: ?boolean,
+  noBorderRadius?: ?boolean,
+  onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed),
+  closeIconColor?: ?CloseIconColorType
+};
+
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,
-  onClose, closeIconColor, className, ...props}) => {
+  onClose, closeIconColor, className, ...props}: BoxPropsType) => {
   const boxClass = classNames('sg-box', {
-    [`sg-box--${color}`]: color,
+    [`sg-box--${String(color)}`]: color,
     'sg-box--no-border': !border,
     'sg-box--full': full,
-    [`sg-box--${padding}`]: padding,
+    [`sg-box--${String(padding)}`]: padding,
     'sg-box--image-wrapper': imgSrc,
     'sg-box--no-min-height': noMinHeight,
     'sg-box--with-shadow': shadow,
@@ -61,21 +102,6 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
       {content}
     </div>
   );
-};
-
-Box.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.oneOf(Object.values(COLOR)),
-  border: PropTypes.bool,
-  noMinHeight: PropTypes.bool,
-  full: PropTypes.bool,
-  padding: PropTypes.oneOf(Object.values(PADDING)),
-  imgSrc: PropTypes.string,
-  shadow: PropTypes.bool,
-  noBorderRadius: PropTypes.bool,
-  onClose: PropTypes.func,
-  closeIconColor: PropTypes.oneOf(Object.values(CLOSE_ICON_COLOR)),
-  className: PropTypes.string
 };
 
 export default Box;
