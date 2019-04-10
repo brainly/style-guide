@@ -10,16 +10,6 @@ test('render', () => {
   expect(bubble.hasClass('sg-bubble')).toEqual(true);
 });
 
-test('error when no direction', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<Bubble>Some text</Bubble>);
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('render top', () => {
   const bubble = shallow(
     <Bubble direction={DIRECTION.TOP}>Some text</Bubble>
