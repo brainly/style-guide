@@ -1,18 +1,30 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
 import UUID from 'node-uuid';
 import classNames from 'classnames';
+import type {
+  RadioSizeType
+} from './formElementsTypes';
 
 export const RADIO_SIZE = {
   NORMAL: 'normal',
   LARGE: 'large'
 };
 
-const Radio = props => {
+export type RadioPropsType = {
+  checked?: boolean,
+  name?: string,
+  id?: string,
+  size?: RadioSizeType,
+  className?: string
+};
+
+const Radio = (props: RadioPropsType) => {
   const {
     checked,
     name,
-    size,
+    size = RADIO_SIZE.NORMAL,
     className,
     id = UUID.v1(),
     ...additionalProps
@@ -28,14 +40,6 @@ const Radio = props => {
       <label className="sg-radio__ghost" htmlFor={id} />
     </div>
   );
-};
-
-Radio.propTypes = {
-  checked: PropTypes.bool,
-  name: PropTypes.string,
-  id: PropTypes.string,
-  size: PropTypes.oneOf(Object.values(RADIO_SIZE)),
-  className: PropTypes.string
 };
 
 export default Radio;

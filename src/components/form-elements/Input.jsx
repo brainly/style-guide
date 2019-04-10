@@ -1,6 +1,11 @@
 // @flow
 import React from 'react';
 import classnames from 'classnames';
+import type {
+  InputType,
+  InputColorType,
+  InputSizeType
+} from './formElementsTypes';
 
 export const TYPE = Object.freeze({
   BUTTON: 'button',
@@ -38,10 +43,10 @@ export const COLOR = Object.freeze({
 });
 
 type PropsType = {
-  type?: $Values<typeof TYPE>,
+  type?: InputType,
   value?: string | number,
-  size?: $Values<typeof SIZE>,
-  color?: $Values<typeof COLOR>,
+  size?: InputSizeType,
+  color?: InputColorType,
   valid?: boolean,
   invalid?: boolean,
   fullWidth?: boolean,
