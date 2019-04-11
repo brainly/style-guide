@@ -1,6 +1,88 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type IconTypeType =
+  | 'answer'
+  | 'answered'
+  | 'arrow_down'
+  | 'arrow_double_down'
+  | 'arrow_left'
+  | 'arrow_right'
+  | 'arrow_up'
+  | 'attachment'
+  | 'bold'
+  | 'camera'
+  | 'change_status'
+  | 'check'
+  | 'comment'
+  | 'counter'
+  | 'cup'
+  | 'equation'
+  | 'excellent'
+  | 'expert'
+  | 'friends'
+  | 'heart'
+  | 'keyboard'
+  | 'lightning'
+  | 'logout'
+  | 'menu'
+  | 'messages'
+  | 'notifications'
+  | 'pencil'
+  | 'planet'
+  | 'plus'
+  | 'podium'
+  | 'points'
+  | 'profile'
+  | 'profile_edit'
+  | 'profile_view'
+  | 'question'
+  | 'reload'
+  | 'report_flag'
+  | 'search'
+  | 'seen'
+  | 'star'
+  | 'stream'
+  | 'student'
+  | 'symbols'
+  | 'unseen'
+  | 'verified'
+  | 'x'
+  | 'fb';
+
+type IconColorType =
+  | 'adaptive'
+  | 'blue'
+  | 'dark'
+  | 'gray'
+  | 'gray-light'
+  | 'gray-secondary'
+  | 'lavender'
+  | 'light'
+  | 'mint'
+  | 'mustard'
+  | 'navy-blue'
+  | 'peach';
+
+type IconSizeType =
+  | 120
+  | 118
+  | 64
+  | 62
+  | 48
+  | 46
+  | 32
+  | 30
+  | 26
+  | 24
+  | 22
+  | 20
+  | 18
+  | 16
+  | 14
+  | 10;
 
 export const TYPE = {
   ANSWER: 'answer',
@@ -68,10 +150,25 @@ export const ICON_COLOR = {
 
 export const SIZE = [120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
 
-const Icon = ({color, size = 24, type, children, className, ...props}) => {
+type IconPropsType =
+  | {
+      className?: ?string,
+      color?: ?IconColorType,
+      size?: ?IconSizeType,
+      type: IconTypeType
+    }
+  | {
+      children: Node,
+      className?: ?string,
+      color?: ?IconColorType,
+      size?: ?IconSizeType
+   };
+
+// $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
+const Icon = ({color, size = 24, type, children, className, ...props}: IconPropsType) => {
   const iconClass = classNames('sg-icon', {
-    [`sg-icon--${color}`]: color,
-    [`sg-icon--x${size}`]: size
+    [`sg-icon--${String(color)}`]: color,
+    [`sg-icon--x${String(size)}`]: size
   }, className);
   const iconType = `#icon-${type}`;
 
@@ -83,41 +180,7 @@ const Icon = ({color, size = 24, type, children, className, ...props}) => {
         </svg> :
         children}
     </div>
-
   );
-};
-
-const requiredPropsCheck = props => {
-  if (!props.type && !props.children) {
-    return new Error('Prop "type" or "children" is required by Icon component.');
-  }
-  if (props.type && props.children) {
-    return new Error('Only one of props: "type" or "children" is allowed by Icon component.');
-  }
-  if (props.type) {
-    PropTypes.checkPropTypes({
-      type: PropTypes.oneOf(Object.values(TYPE))
-    },
-    {type: props.type},
-    'prop',
-    'Icon');
-  }
-  if (props.children) {
-    PropTypes.checkPropTypes({
-      children: PropTypes.node
-    },
-    {children: props.children},
-    'prop',
-    'Icon');
-  }
-};
-
-Icon.propTypes = {
-  size: PropTypes.oneOf(SIZE),
-  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  type: requiredPropsCheck,
-  children: requiredPropsCheck,
-  className: PropTypes.string
 };
 
 export default Icon;

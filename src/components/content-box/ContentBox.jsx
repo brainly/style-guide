@@ -2,14 +2,22 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {SIZE} from './ContentBoxConstants';
-import type {SizeType} from './contextBoxTypes';
+
+type SizeType =
+  | 'xxsmall'
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
 
 export type ContentBoxPropsType = {
   children: React.Node,
-  spaced?: boolean,
-  spacedSmall?: boolean,
-  full?: boolean,
-  className?: string,
+  spaced?: ?boolean,
+  spacedSmall?: ?boolean,
+  full?: ?boolean,
+  className?: ?string,
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType
 };

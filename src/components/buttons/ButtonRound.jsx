@@ -1,8 +1,21 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const ButtonRound = ({label, children, href = '#', onClick = () => undefined, className, ...props}) => {
+type ButtonRoundType = {
+  children?: ?Node,
+  className?: ?string,
+  wide?: ?boolean,
+  disabled?: ?boolean,
+  small?: ?boolean,
+  href?: string,
+  label?: ?string
+};
+
+const ButtonRound = (
+  {label, children, href = '#', className, ...props}: ButtonRoundType
+) => {
   let labelElem;
 
   if (label) {
@@ -11,21 +24,13 @@ const ButtonRound = ({label, children, href = '#', onClick = () => undefined, cl
   const buttonClass = classnames('sg-button-primary-round', className);
 
   return (
-    <a {...props} href={href} onClick={onClick} className={buttonClass}>
+    <a {...props} href={href} className={buttonClass}>
       <div className="sg-button-primary-round__icon">
         {children}
       </div>
       {labelElem}
     </a>
   );
-};
-
-ButtonRound.propTypes = {
-  onClick: PropTypes.func,
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string,
-  label: PropTypes.string,
-  className: PropTypes.string
 };
 
 export default ButtonRound;

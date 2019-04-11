@@ -1,15 +1,47 @@
 // @flow
 import * as React from 'react';
 import classNames from 'classnames';
-import type {
-  HeadlineTypeType,
-  HeadlineSizeType,
-  HeadlineColorType,
-  HeadlineTransformType,
-  HeadlineAlignType
-} from './headlineTypes';
-
 import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
+
+type HeadlineTypeType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6';
+
+type HeadlineSizeType =
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+
+type HeadlineColorType =
+  | 'default'
+  | 'white'
+  | 'gray'
+  | 'gray-secondary'
+  | 'gray-secondary-light'
+  | 'mint'
+  | 'peach'
+  | 'mustard'
+  | 'blue'
+  | 'blue-secondary'
+  | 'blue-secondary-light';
+
+type HeadlineTransformType =
+  | 'uppercase'
+  | 'lowercase'
+  | 'capitalize';
+
+type HeadlineAlignType =
+  | 'to-left'
+  | 'to-center'
+  | 'to-right'
+  | 'justify';
 
 export {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './headlineConsts';
 
@@ -17,11 +49,11 @@ export type HeadlinePropsType = {
   children?: React.Node,
   size?: HeadlineSizeType,
   type?: HeadlineTypeType,
-  color?: HeadlineColorType,
-  transform?: HeadlineTransformType,
-  align?: HeadlineAlignType,
-  className?: string,
-  extraBold?: boolean
+  color?: ?HeadlineColorType,
+  transform?: ?HeadlineTransformType,
+  align?: ?HeadlineAlignType,
+  className?: ?string,
+  extraBold?: ?boolean
 };
 
 const Headline = ({

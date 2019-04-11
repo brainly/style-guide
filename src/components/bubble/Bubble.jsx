@@ -1,6 +1,31 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type BubbleColorType =
+  | 'blue'
+  | 'lavender'
+  | 'dark'
+  | 'mint'
+  | 'mint-secondary'
+  | 'mint-secondary-light'
+  | 'navyblue-secondary'
+  | 'blue-secondary'
+  | 'blue-secondary-light'
+  | 'gray-secondary-lightest'
+  | 'peach';
+
+type AligmentType =
+  | 'start'
+  | 'center'
+  | 'end';
+
+type DirectionType =
+  | 'left'
+  | 'right'
+  | 'top'
+  | 'bottom';
 
 export const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
 export const DIRECTION = {LEFT: 'left', RIGHT: 'right', TOP: 'top', BOTTOM: 'bottom'};
@@ -21,7 +46,19 @@ export const BUBBLE_COLOR = {
   PEACH: 'peach'
 };
 
-const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, noShadow, children, className, ...props}) => {
+type BubblePropsType = {
+  children: Node,
+  className?: ?string,
+  alignment?: AligmentType,
+  direction: DirectionType,
+  color?: ?BubbleColorType,
+  full?: ?boolean,
+  noShadow?: ?boolean
+};
+
+const Bubble = (
+  {alignment = ALIGNMENT.CENTER, direction, color, full, noShadow, children, className, ...props}: BubblePropsType
+) => {
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
@@ -33,7 +70,7 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, noShadow,
   const bubbleClass = classNames('sg-bubble', {
     'sg-bubble--full': full,
     'sg-bubble--no-shadow': noShadow,
-    [`sg-bubble--${color}`]: color,
+    [`sg-bubble--${String(color)}`]: color,
     [`sg-bubble--${direction}`]: direction,
     [alignmentClass]: alignment !== ALIGNMENT.CENTER
   }, className);
@@ -43,16 +80,6 @@ const Bubble = ({alignment = ALIGNMENT.CENTER, direction, color, full, noShadow,
       {children}
     </div>
   );
-};
-
-Bubble.propTypes = {
-  children: PropTypes.node.isRequired,
-  direction: PropTypes.oneOf(Object.values(DIRECTION)).isRequired,
-  color: PropTypes.oneOf(Object.values(BUBBLE_COLOR)),
-  alignment: PropTypes.oneOf(Object.values(ALIGNMENT)),
-  full: PropTypes.bool,
-  noShadow: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Bubble;

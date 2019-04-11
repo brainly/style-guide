@@ -4,7 +4,72 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
 import {TEXT_TYPE, TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
-import type {TextPropsType} from './Text';
+
+type TextTypeType =
+  | 'span'
+  | 'p'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'div'
+  | 'label'
+  | 'a';
+
+type TextSizeType =
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+
+type TextColorType =
+  | 'default'
+  | 'white'
+  | 'gray'
+  | 'gray-secondary'
+  | 'mint-dark'
+  | 'mint'
+  | 'peach-dark'
+  | 'peach'
+  | 'mustard'
+  | 'blue-dark'
+  | 'blue'
+  | 'blue-secondary'
+  | 'blue-secondary-light';
+
+type TextWeightType =
+  | 'regular'
+  | 'bold';
+
+type TextTransformType =
+  | 'uppercase'
+  | 'lowercase'
+  | 'capitalize';
+
+type TextAlignType =
+  | 'to-left'
+  | 'to-center'
+  | 'to-right'
+  | 'justify';
+
+type TextPropsType = {
+  children?: ?React.Node,
+  size?: TextSizeType,
+  type?: TextTypeType,
+  color?: TextColorType,
+  weight?: TextWeightType,
+  transform?: ?TextTransformType,
+  align?: ?TextAlignType,
+  noWrap?: ?boolean,
+  asContainer?: ?boolean,
+  full?: ?boolean,
+  breakWords?: ?boolean,
+  className?: ?string
+};
 
 export const LINK_COLOR = TEXT_COLOR;
 export const LINK_TYPE = TEXT_TYPE;

@@ -1,10 +1,32 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
+
+type ActionListHoleSpacingType =
+  | 'xsmall'
+  | 'small';
 
 export const ACTION_LIST_HOLE_SPACING = {
   XSMALL: 'xsmall',
   SMALL: 'small'
+};
+
+type ActionListHolePropsType = {
+  children: Node,
+  asContainer?: ?boolean,
+  spacing?: ?ActionListHoleSpacingType,
+  noSpacing?: ?boolean,
+  spaceBellow?: ?boolean,
+  spacedLarge?: ?boolean,
+  noShrink?: ?boolean,
+  grow?: ?boolean,
+  toEnd?: ?boolean,
+  toRight?: ?boolean,
+  stretch?: ?boolean,
+  equalWidth?: ?boolean,
+  hideOverflow?: ?boolean,
+  className?: ?string
 };
 
 const ActionListHole = ({
@@ -23,12 +45,12 @@ const ActionListHole = ({
   hideOverflow,
   className,
   ...props
-}) => {
+}: ActionListHolePropsType) => {
   const actionListHoleClass = classnames('sg-actions-list__hole', {
     'sg-actions-list__hole--container': asContainer,
     'sg-actions-list__hole--no-spacing': noSpacing,
     'sg-actions-list__hole--space-bellow': spaceBellow,
-    [`sg-actions-list__hole--spaced-${spacing}`]: spacing,
+    [`sg-actions-list__hole--spaced-${String(spacing)}`]: spacing,
     'sg-actions-list__hole--spaced-large': spacedLarge,
     'sg-actions-list__hole--no-shrink': noShrink,
     'sg-actions-list__hole--grow': grow,
@@ -44,23 +66,6 @@ const ActionListHole = ({
       {children}
     </div>
   );
-};
-
-ActionListHole.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  asContainer: PropTypes.bool,
-  noSpacing: PropTypes.bool,
-  spaceBellow: PropTypes.bool,
-  spacedLarge: PropTypes.bool,
-  spacing: PropTypes.oneOf(Object.values(ACTION_LIST_HOLE_SPACING)),
-  noShrink: PropTypes.bool,
-  grow: PropTypes.bool,
-  toEnd: PropTypes.bool,
-  toRight: PropTypes.bool,
-  stretch: PropTypes.bool,
-  equalWidth: PropTypes.bool,
-  hideOverflow: PropTypes.bool
 };
 
 export default ActionListHole;

@@ -1,6 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type DirectionType =
+  | 'to-right'
+  | 'centered'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly';
+
+type AligmentType =
+  | 'align-baseline'
+  | 'stretch';
 
 export const DIRECTION = {
   TO_RIGHT: 'to-right',
@@ -15,10 +27,19 @@ export const ALIGNMENT = {
   STRETCH: 'stretch'
 };
 
-const ActionList = ({children, toTop, direction, align, noWrap, className, ...props}) => {
+type ActionListPropsType = {
+  children: Node,
+  toTop?: ?boolean,
+  className?: ?string,
+  noWrap?: ?boolean,
+  direction?: ?DirectionType,
+  align?: ?AligmentType
+};
+
+const ActionList = ({children, toTop, direction, align, noWrap, className, ...props}: ActionListPropsType) => {
   const actionListClass = classNames('sg-actions-list', {
-    [`sg-actions-list--${direction}`]: direction,
-    [`sg-actions-list--${align}`]: align,
+    [`sg-actions-list--${String(direction)}`]: direction,
+    [`sg-actions-list--${String(align)}`]: align,
     'sg-actions-list--to-top': toTop,
     'sg-actions-list--no-wrap': noWrap
   }, className);
@@ -28,15 +49,6 @@ const ActionList = ({children, toTop, direction, align, noWrap, className, ...pr
       {children}
     </div>
   );
-};
-
-ActionList.propTypes = {
-  direction: PropTypes.oneOf(Object.values(DIRECTION)),
-  align: PropTypes.oneOf(Object.values(ALIGNMENT)),
-  noWrap: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  toTop: PropTypes.bool
 };
 
 export default ActionList;
