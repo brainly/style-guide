@@ -1,11 +1,38 @@
 // @flow
 import React from 'react';
 import classnames from 'classnames';
-import type {
-  InputType,
-  InputColorType,
-  InputSizeType
-} from './formElementsTypes';
+
+type InputSizeType =
+  | 'small'
+  | 'normal'
+  | 'large';
+
+type InputColorType =
+  | 'normal'
+  | 'light'
+  | 'light-alt';
+
+type InputType =
+  | 'button'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week';
 
 export const TYPE = Object.freeze({
   BUTTON: 'button',
@@ -80,8 +107,8 @@ const Input = (props: PropsType) => {
   }
 
   const inputClass = classnames('sg-input', {
-    [`sg-input--${size}`]: size !== SIZE.NORMAL,
-    [`sg-input--${color}`]: color !== COLOR.NORMAL,
+    [`sg-input--${String(size)}`]: size !== SIZE.NORMAL,
+    [`sg-input--${String(color)}`]: color !== COLOR.NORMAL,
     'sg-input--valid': valid,
     'sg-input--invalid': invalid,
     'sg-input--full-width': fullWidth,

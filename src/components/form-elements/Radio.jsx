@@ -3,9 +3,10 @@
 import React from 'react';
 import UUID from 'node-uuid';
 import classNames from 'classnames';
-import type {
-  RadioSizeType
-} from './formElementsTypes';
+
+type RadioSizeType =
+  | 'normal'
+  | 'large';
 
 export const RADIO_SIZE = {
   NORMAL: 'normal',
@@ -31,7 +32,7 @@ const Radio = (props: RadioPropsType) => {
   } = props;
 
   const radioClass = classNames('sg-radio', {
-    [`sg-radio--${size}`]: size !== RADIO_SIZE.NORMAL
+    [`sg-radio--${String(size)}`]: size !== RADIO_SIZE.NORMAL
   }, className);
 
   return (

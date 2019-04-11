@@ -1,10 +1,13 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
-import type {
-  TextareaSizeType
-} from './formElementsTypes';
+
+type TextareaSizeType =
+  | 'short'
+  | 'normal'
+  | 'tall'
+  | 'xtall';
 
 export const SIZE = {
   SHORT: 'short',
@@ -14,7 +17,7 @@ export const SIZE = {
 };
 
 export type TextareaPropsType = {
-  Type?: string,
+  Type?: string | () => React.Node,
   textareaRef?: (ref: ?HTMLElement) => mixed,
   value?: any,
   size?: TextareaSizeType,
@@ -51,7 +54,7 @@ const Textarea = (props: TextareaPropsType) => {
   }
 
   const textareaClass = classnames('sg-textarea', {
-    [`sg-textarea--${size}`]: size !== SIZE.NORMAL,
+    [`sg-textarea--${String(size)}`]: size !== SIZE.NORMAL,
     'sg-textarea--valid': valid,
     'sg-textarea--invalid': invalid,
     'sg-textarea--full-width': fullWidth,
@@ -69,19 +72,5 @@ const Textarea = (props: TextareaPropsType) => {
     />
   );
 };
-
-// Textarea.propTypes = {
-//   Type: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-//   textareaRef: PropTypes.func,
-//   value: PropTypes.any,
-//   size: PropTypes.oneOf(Object.values(SIZE)),
-//   valid: PropTypes.bool,
-//   invalid: PropTypes.bool,
-//   fullWidth: PropTypes.bool,
-//   simple: PropTypes.bool,
-//   noPadding: PropTypes.bool,
-//   autoHeight: PropTypes.bool,
-//   className: PropTypes.string
-// };
 
 export default Textarea;
