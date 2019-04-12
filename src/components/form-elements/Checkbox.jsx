@@ -1,11 +1,22 @@
+// @flow
+
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
 import UUID from 'node-uuid';
 import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 import classNames from 'classnames';
 
-class Checkbox extends PureComponent {
-  constructor(props) {
+export type CheckboxPropsType = {
+  checked?: boolean,
+  id?: string,
+  className?: string
+};
+
+export type CheckboxStateType = {
+  id?: string
+};
+
+class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
+  constructor(props: CheckboxPropsType) {
     super(props);
 
     this.state = {
@@ -29,11 +40,5 @@ class Checkbox extends PureComponent {
     );
   }
 }
-
-Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  id: PropTypes.string,
-  className: PropTypes.string
-};
 
 export default Checkbox;

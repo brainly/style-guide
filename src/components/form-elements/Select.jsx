@@ -1,8 +1,23 @@
+// @flow
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 
-const Select = props => {
+type OptionsPropsType = {
+  value: string,
+  text: string
+};
+
+export type SelectPropsType = {
+  value?: string,
+  valid?: boolean,
+  invalid?: boolean,
+  capitalized?: boolean,
+  fullWidth?: boolean,
+  options?: Array<OptionsPropsType>,
+  className?: string
+};
+
+const Select = (props: SelectPropsType) => {
   const {
     valid,
     invalid,
@@ -39,21 +54,6 @@ const Select = props => {
       </select>
     </div>
   );
-};
-
-const optionShape = PropTypes.shape({
-  value: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
-});
-
-Select.propTypes = {
-  value: PropTypes.string,
-  valid: PropTypes.bool,
-  invalid: PropTypes.bool,
-  capitalized: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  options: PropTypes.arrayOf(optionShape),
-  className: PropTypes.string
 };
 
 export default Select;
