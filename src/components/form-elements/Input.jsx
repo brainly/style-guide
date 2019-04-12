@@ -70,10 +70,10 @@ export const COLOR = Object.freeze({
 });
 
 type PropsType = {
-  type?: InputType,
+  type?: ?InputType,
   value?: string | number,
-  size?: InputSizeType,
-  color?: InputColorType,
+  size?: ?InputSizeType,
+  color?: ?InputColorType,
   valid?: boolean,
   invalid?: boolean,
   fullWidth?: boolean,

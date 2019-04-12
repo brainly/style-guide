@@ -20,7 +20,7 @@ export type TextareaPropsType = {
   Type?: string | () => React.Node,
   textareaRef?: (ref: ?HTMLElement) => mixed,
   value?: any,
-  size?: TextareaSizeType,
+  size?: ?TextareaSizeType,
   valid?: boolean,
   invalid?: boolean,
   fullWidth?: boolean,

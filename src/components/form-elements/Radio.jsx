@@ -17,7 +17,7 @@ export type RadioPropsType = {
   checked?: boolean,
   name?: string,
   id?: string,
-  size?: RadioSizeType,
+  size?: ?RadioSizeType,
   className?: string
 };
 
