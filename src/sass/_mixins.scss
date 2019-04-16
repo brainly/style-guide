@@ -101,7 +101,7 @@
 
 // spacing function that returns proper size based on namespace
 @function spacing($size) {
-  @each $key, $value in $sizes-setup {
+  @each $key, $value in $sizesSetup {
     @if($key == $size) {
       @return $value;
     }
