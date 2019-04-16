@@ -99,6 +99,15 @@
   @return $size * $layoutDefaultPadding;
 }
 
+// spacing function that returns proper size based on namespace
+@function spacing($size) {
+  @each $key, $value in $sizes-setup {
+    @if($key == $size) {
+      @return $value;
+    }
+  }
+}
+
 // https://css-tricks.com/snippets/sass/strip-unit-function/
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
