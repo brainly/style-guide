@@ -1,8 +1,15 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const OverlayedBox = ({overlay, children, className, ...props}) => {
+type OverlayedBoxType = {
+  children?: ?Node,
+  overlay?: ?Node,
+  className?: string
+};
+
+const OverlayedBox = ({overlay, children, className, ...props}: OverlayedBoxType) => {
   const boxClass = classnames('sg-overlayed-box', className);
 
   return (
@@ -13,12 +20,6 @@ const OverlayedBox = ({overlay, children, className, ...props}) => {
       </div>
     </div>
   );
-};
-
-OverlayedBox.propTypes = {
-  children: PropTypes.node,
-  overlay: PropTypes.node,
-  className: PropTypes.string
 };
 
 export default OverlayedBox;

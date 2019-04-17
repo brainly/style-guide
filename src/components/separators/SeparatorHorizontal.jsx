@@ -1,6 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+type SeparatorHorizontalTypeType =
+  | 'normal'
+  | 'spaced'
+  | 'short-spaced';
+
+type SeparatorHorizontalPropsType = {
+  type?: SeparatorHorizontalTypeType,
+  white?: boolean,
+  grayDark?: boolean,
+  className?: string
+};
 
 export const TYPE = {
   NORMAL: 'normal',
@@ -8,7 +20,9 @@ export const TYPE = {
   SHORT_SPACED: 'short-spaced'
 };
 
-const SeparatorHorizontal = ({type = TYPE.NORMAL, white, grayDark, className, ...props}) => {
+const SeparatorHorizontal = ({
+  type = TYPE.NORMAL, white, grayDark, className, ...props
+}: SeparatorHorizontalPropsType) => {
   const separatorClass = classNames('sg-horizontal-separator', {
     [`sg-horizontal-separator--${type}`]: type !== TYPE.NORMAL,
     'sg-horizontal-separator--white': white,
@@ -16,13 +30,6 @@ const SeparatorHorizontal = ({type = TYPE.NORMAL, white, grayDark, className, ..
   }, className);
 
   return <div {...props} className={separatorClass} />;
-};
-
-SeparatorHorizontal.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  white: PropTypes.bool,
-  grayDark: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default SeparatorHorizontal;

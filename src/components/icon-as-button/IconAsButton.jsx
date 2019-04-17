@@ -1,22 +1,52 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
-import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
+import * as IconModule from '../icons/Icon';
 import IconAsButtonContent from './subcomponents/IconAsButtonContent';
 
+const {ICON_COLOR, default: Icon} = IconModule;
+
+type IconSizeType =
+  | 'normal'
+  | 'small'
+  | 'xsmall'
+  | 'xxsmall';
+
 export const SIZE = {
-  NORMAL: {className: 'normal', iconSize: 26},
-  SMALL: {className: 'small', iconSize: 18},
-  XSMALL: {className: 'xsmall', iconSize: 14},
-  XXSMALL: {className: 'xxsmall', iconSize: 10}
+  NORMAL: 'normal',
+  SMALL: 'small',
+  XSMALL: 'xsmall',
+  XXSMALL: 'xxsmall'
+};
+
+const ICON_SIZE = {
+  [SIZE.NORMAL]: 26,
+  [SIZE.SMALL]: 18,
+  [SIZE.XSMALL]: 14,
+  [SIZE.XXSMALL]: 10
+};
+
+type IconAsButtonPropsType = {
+  size?: IconSizeType,
+  color?: IconModule.IconColorType,
+  type?: ?IconModule.IconTypeType,
+  children?: ?Node,
+  border?: boolean,
+  action?: boolean,
+  transparent?: boolean,
+  active?: boolean,
+  overlay?: ?Node,
+  href?: string,
+  className?: string
 };
 
 const IconAsButton = ({
   color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay, className, ...props
-}) => {
+}: IconAsButtonPropsType) => {
   const buttonClass = classNames('sg-icon-as-button', {
-    [`sg-icon-as-button--${color}`]: color,
-    [`sg-icon-as-button--${size.className}`]: size,
+    [`sg-icon-as-button--${String(color)}`]: color,
+    [`sg-icon-as-button--${size}`]: size,
     'sg-icon-as-button--with-border': border,
     'sg-icon-as-button--action': action,
     'sg-icon-as-button--action-active': action && active,
@@ -27,7 +57,7 @@ const IconAsButton = ({
   let content;
 
   if (type) {
-    content = <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={size.iconSize} />;
+    content = <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={ICON_SIZE[size]} />;
   } else {
     content = children;
   }
@@ -49,19 +79,5 @@ const IconAsButton = ({
   );
 };
 
-IconAsButton.propTypes = {
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  children: PropTypes.element,
-  border: PropTypes.bool,
-  action: PropTypes.bool,
-  transparent: PropTypes.bool,
-  active: PropTypes.bool,
-  overlay: PropTypes.node,
-  href: PropTypes.string,
-  className: PropTypes.string
-};
-
 export default IconAsButton;
-export {TYPE, ICON_COLOR};
+export {TYPE, ICON_COLOR} from '../icons/Icon';
