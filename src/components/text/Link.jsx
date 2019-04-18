@@ -26,20 +26,14 @@ type TextSizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type TextColorType =
-  | 'default'
+type LinkColorType =
+  | 'black'
   | 'white'
   | 'gray'
   | 'gray-secondary'
+  | 'gray-secondary-light'
   | 'mint-dark'
-  | 'mint'
-  | 'peach-dark'
-  | 'peach'
-  | 'mustard'
-  | 'blue-dark'
-  | 'blue'
-  | 'blue-secondary'
-  | 'blue-secondary-light';
+  | 'blue-dark';
 
 type TextWeightType =
   | 'regular'
@@ -56,18 +50,21 @@ type TextAlignType =
   | 'to-right'
   | 'justify';
 
-type TextPropsType = {
+export type LinkPropsType = {
   children?: ?React.Node,
+  href?: ?string,
   size?: TextSizeType,
   type?: TextTypeType,
-  color?: TextColorType,
+  color?: ?LinkColorType,
   weight?: TextWeightType,
   transform?: ?TextTransformType,
   align?: ?TextAlignType,
   noWrap?: ?boolean,
-  asContainer?: ?boolean,
-  full?: ?boolean,
   breakWords?: ?boolean,
+  underlined?: boolean,
+  unstyled?: boolean,
+  emphasised?: boolean,
+  disabled?: boolean,
   className?: ?string
 };
 
@@ -78,42 +75,16 @@ export const LINK_WEIGHT = TEXT_WEIGHT;
 export const LINK_TRANSFORM = TEXT_TRANSFORM;
 export const LINK_ALIGN = TEXT_ALIGN;
 
-// backward compatibility
-export const SIZE = {
-  NORMAL: 'small',
-  SMALL: 'small',
-  OBSCURE: 'xsmall'
-};
-
-// backward compatibility
-export const COLOR = {
-  GRAY: 'gray',
-  MINT: 'mint',
-  PEACH: 'peach',
-  LIGHT: 'white',
-  MUSTARD: 'mustard',
-  FINE_PRINT: 'blue-secondary',
-  FINE_PRINT_LIGHT: 'blue-secondary-light'
-};
-
-type LinkPropsType = {
-  href?: ?string,
-  underlined?: boolean,
-  unstyled?: boolean,
-  emphasised?: boolean,
-  disabled?: boolean
-} & TextPropsType;
-
 const Link = (props: LinkPropsType) => {
   const {
     children,
     href,
-    color,
-    weight = LINK_WEIGHT.REGULAR,
+    color = LINK_COLOR.BLUE_DARK,
     underlined = false,
     unstyled = false,
-    emphasised = true, //backward compability
-    disabled = false, //backward compability
+    emphasised = true, // backward compatibility
+    disabled = false, // backward compatibility
+    weight,
     className,
     ...additionalProps
   } = props;
@@ -121,10 +92,10 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link': !underlined && !unstyled,
     'sg-text--link-underlined': underlined && !unstyled,
     'sg-text--link-unstyled': !underlined && unstyled,
-    'sg-text--bold': emphasised, //backward compability
-    'sg-link--disabled': disabled, //backward compability
+    'sg-text--bold': emphasised,
+    'sg-text--link-disabled': disabled,
     [`sg-text--${color || ''}`]: color,
-    [`sg-text--${weight}`]: weight !== LINK_WEIGHT.REGULAR
+    [`sg-text--${String(weight)}`]: weight !== LINK_WEIGHT.BOLD
   }, className);
 
   if (!href) {

@@ -35,9 +35,9 @@ export const TEXT_COLOR = Object.freeze({
   LAVENDER_DARK: 'lavender-dark',
   MUSTARD_DARK: 'mustard-dark',
   PEACH_DARK: 'peach-dark',
-  GRAY_PRIMARY: 'gray-primary',
-  GRAY_SECOONDARY: 'gray-secondary',
-  GRAY_SECOONDARY_LIGHT: 'gray-secondary-light'
+  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
 });
 
 export const LINK_COLOR = Object.freeze({
@@ -45,9 +45,9 @@ export const LINK_COLOR = Object.freeze({
   BLACK: 'black',
   WHITE: 'white',
   MINT_DARK: 'mint-dark',
-  GRAY_PRIMARY: 'gray-primary',
-  GRAY_SECOONDARY: 'gray-secondary',
-  GRAY_SECOONDARY_LIGHT: 'gray-secondary-light'
+  GRAY: 'gray',
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
 });
 
 export const COLOR = TEXT_COLOR; // backward compatibility

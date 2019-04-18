@@ -81,6 +81,15 @@ $bodyTextSizes: (
       }
     }
 
+    &--link-disabled {
+      cursor: default;
+
+      &:hover,
+      &:active {
+        text-decoration: none;
+      }
+    }
+
     &--link-underlined {
       cursor: pointer;
       text-decoration: underline;
@@ -148,8 +157,9 @@ $bodyTextSizes: (
     &--white {
       color: $white;
     }
-    
-    &--gray-primary {
+
+    // backward compatibility for html, it should be replaced with sg-text--gray-primary
+    &--gray {
       color: $grayPrimary;
     }
 

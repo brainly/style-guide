@@ -103,7 +103,6 @@ const TextExamples = () => {
       <DocsBlock info="Link options">
         <Link
           href="#"
-          weight={LINK_WEIGHT.REGULAR}
           size={LINK_SIZE.LARGE}
         >
           link / bold / standard / xlarge / standard
