@@ -7,26 +7,65 @@ import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIG
 
 const text = 'We\'ve got your back!';
 
+const textSizesMap = [
+  {
+    type: 'xsmall',
+    fontSize: '12px',
+    lineHeight: '16px'
+  },
+  {
+    type: 'small',
+    fontSize: '15px',
+    lineHeight: '20px'
+  },
+  {
+    type: 'normal',
+    fontSize: '18px',
+    lineHeight: '24px'
+  },
+  {
+    type: 'large',
+    fontSize: '24px',
+    lineHeight: '32px'
+  },
+  {
+    type: 'xlarge',
+    fontSize: '33px',
+    lineHeight: '44px'
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '45px',
+    lineHeight: '60px'
+  }
+];
+
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
 const TextExamples = () => {
   const SizeVariant = [];
-  const colorVariant = [];
+  const ColorVariant = [];
+  const linkColorVariant = [];
 
   getValues(TEXT_SIZE, false).forEach(size => {
     getValues(TEXT_WEIGHT, false).forEach(weight => {
+      let itemSize;
+
+      textSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize} / ${item.lineHeight}` : null));
+
       SizeVariant.push(
         <Text type={TEXT_TYPE.H2} size={size} color={TEXT_COLOR.GRAY} weight={weight}>
-          {text} - {size}
+          {size} - {itemSize}
         </Text>
       );
     });
   });
+
   getValues(TEXT_COLOR, false).forEach(color => {
     if (color === TEXT_COLOR.WHITE) {
-      colorVariant.push(
+      ColorVariant.push(
         <ContrastBox>
           <Text type={TEXT_TYPE.H2} color={color}>
             {text} - {color}
@@ -34,26 +73,43 @@ const TextExamples = () => {
         </ContrastBox>
       );
     } else {
-      colorVariant.push(
+      ColorVariant.push(
         <Text type={TEXT_TYPE.H2} color={color}>
           {text} - {color}
         </Text>
       );
     }
-
   });
+
+  getValues(LINK_COLOR, false).forEach(color => {
+    if (color !== LINK_COLOR.WHITE) {
+      linkColorVariant.push(
+        <div>
+          <Link
+            href="#"
+            color={color}
+            weight={LINK_WEIGHT.BOLD}
+            size={LINK_SIZE.LARGE}
+          >link - {color}
+          </Link>
+          <br />
+        </div>
+      );
+    }
+  });
+
   return (
     <div>
       <DocsBlock info="Size and weight variant">
         {SizeVariant}
       </DocsBlock>
       <DocsBlock info="Color variant">
-        {colorVariant}
+        {ColorVariant}
       </DocsBlock>
-      <DocsBlock info="Link options exists in all text's variants">
+      <DocsBlock info="Link options">
         <Link
           href="#"
-          weight={LINK_WEIGHT.BOLD}
+          weight={LINK_WEIGHT.REGULAR}
           size={LINK_SIZE.LARGE}
         >
           link / bold / standard / xlarge / standard
@@ -61,13 +117,15 @@ const TextExamples = () => {
         <br />
         <Link
           href="#"
-          color={LINK_COLOR.MINT}
           weight={LINK_WEIGHT.BOLD}
           size={LINK_SIZE.LARGE}
           underlined
         >
           link / bold / mint / xlarge / underlined
         </Link>
+      </DocsBlock>
+      <DocsBlock info="Link color variants">
+        {linkColorVariant}
       </DocsBlock>
       <DocsBlock info="Alignment examples">
         <Text align={TEXT_ALIGN.LEFT}>

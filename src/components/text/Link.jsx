@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
-import {TEXT_TYPE, TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+import {TEXT_TYPE, LINK_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
 
 type TextTypeType =
   | 'span'
@@ -71,7 +71,7 @@ type TextPropsType = {
   className?: ?string
 };
 
-export const LINK_COLOR = TEXT_COLOR;
+export {LINK_COLOR} from './textConsts';
 export const LINK_TYPE = TEXT_TYPE;
 export const LINK_SIZE = TEXT_SIZE;
 export const LINK_WEIGHT = TEXT_WEIGHT;
@@ -84,6 +84,7 @@ export const SIZE = {
   SMALL: 'small',
   OBSCURE: 'xsmall'
 };
+
 // backward compatibility
 export const COLOR = {
   GRAY: 'gray',
@@ -107,10 +108,11 @@ const Link = (props: LinkPropsType) => {
   const {
     children,
     href,
-    color = LINK_COLOR.BLUE_DARK,
+    color,
+    weight = LINK_WEIGHT.REGULAR,
     underlined = false,
     unstyled = false,
-    emphasised = true, //backward compability
+    emphasised = false, //backward compability
     disabled = false, //backward compability
     className,
     ...additionalProps
@@ -121,7 +123,8 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link-unstyled': !underlined && unstyled,
     'sg-text--bold': emphasised, //backward compability
     'sg-link--disabled': disabled, //backward compability
-    [`sg-text--${color}`]: !unstyled ? color !== LINK_COLOR.DEFAULT : null
+    [`sg-text--${color || ''}`]: color,
+    [`sg-text--${weight}`]: weight !== LINK_WEIGHT.REGULAR
   }, className);
 
   if (!href) {

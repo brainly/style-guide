@@ -145,12 +145,20 @@ $bodyTextSizes: (
       white-space: nowrap;
     }
 
-    &--gray {
+    &--white {
+      color: $white;
+    }
+    
+    &--gray-primary {
       color: $grayPrimary;
     }
 
     &--gray-secondary {
       color: $graySecondary;
+    }
+
+    &--gray-secondary-light {
+      color: $graySecondaryLight;
     }
 
     &--mint-dark {
@@ -161,28 +169,24 @@ $bodyTextSizes: (
       color: $mintPrimary;
     }
 
-    &--white {
-      color: $white;
-    }
-
     &--blue-dark {
       color: $bluePrimaryDark;
     }
 
     &--blue {
-      color: $bluePrimary;
+      color: $bluePrimaryDark; // backward compatibility for html
     }
 
-    &--blue-secondary {
-      color: $blueSecondary;
-    }
-
-    &--blue-secondary-light {
-      color: $blueSecondaryLight;
+    &--mustard-dark {
+      color: $mustardPrimaryDark;
     }
 
     &--mustard {
       color: $mustardPrimary;
+    }
+
+    &--lavender-dark {
+      color: $lavenderPrimaryDark;
     }
 
     &--peach-dark {
@@ -190,7 +194,7 @@ $bodyTextSizes: (
     }
 
     &--peach {
-      color: $peachPrimary;
+      color: $peachPrimaryDark; // backward compatibility for html
     }
   }
 }

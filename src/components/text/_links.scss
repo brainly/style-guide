@@ -15,16 +15,45 @@ $includeHtml: false !default;
       text-decoration: underline;
     }
 
+    &--white {
+      color: $white;
+    }
+
+    &--black {
+      color: $black;
+    }
+    
+    &--blue-dark {
+      color: $bluePrimaryDark;
+    }
+
+    &--mint-dark {
+      color: $mintPrimaryDark;
+    }
+
+    &--gray-primary {
+      color: $grayPrimary;
+    }
+
+    &--gray-secondary {
+      color: $graySecondary;
+    }
+    
+    &--gray-secondary-light {
+      color: $graySecondaryLight;
+    }
+
+    // backward compatibility
     &--gray {
       color: $grayPrimary;
     }
 
-    &--light {
-      color: $white;
-    }
-
     &--mint {
       color: $mintPrimary;
+    }
+
+    &--light {
+      color: $white;
     }
 
     &--mustard {
