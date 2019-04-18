@@ -165,24 +165,27 @@ $bodyTextSizes: (
       color: $mintPrimaryDark;
     }
 
+    // backward compatibility for html, it should be replaced with sg-text--mint-dark
     &--mint {
-      color: $mintPrimary;
+      color: $mintPrimaryDark;
     }
 
     &--blue-dark {
       color: $bluePrimaryDark;
     }
 
+    // backward compatibility for html, it should be replaced with sg-text--blue-dark
     &--blue {
-      color: $bluePrimaryDark; // backward compatibility for html
+      color: $bluePrimaryDark;
     }
 
     &--mustard-dark {
       color: $mustardPrimaryDark;
     }
 
+    // backward compatibility for html, it should be replaced with sg-text--mustard-dark
     &--mustard {
-      color: $mustardPrimary;
+      color: $mustardPrimaryDark;
     }
 
     &--lavender-dark {
@@ -193,8 +196,9 @@ $bodyTextSizes: (
       color: $peachPrimaryDark;
     }
 
+    // backward compatibility for html, it should be replaced with sg-text--peach-dark
     &--peach {
-      color: $peachPrimaryDark; // backward compatibility for html
+      color: $peachPrimaryDark;
     }
   }
 }
