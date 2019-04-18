@@ -112,7 +112,7 @@ const Link = (props: LinkPropsType) => {
     weight = LINK_WEIGHT.REGULAR,
     underlined = false,
     unstyled = false,
-    emphasised = false, //backward compability
+    emphasised = true, //backward compability
     disabled = false, //backward compability
     className,
     ...additionalProps
