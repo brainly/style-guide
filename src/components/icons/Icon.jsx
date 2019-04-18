@@ -20,6 +20,7 @@ type IconTypeType =
   | 'counter'
   | 'cup'
   | 'equation'
+  | 'exclamation_mark'
   | 'excellent'
   | 'expert'
   | 'friends'
@@ -47,6 +48,7 @@ type IconTypeType =
   | 'stream'
   | 'student'
   | 'symbols'
+  | 'thumbs_up'
   | 'unseen'
   | 'verified'
   | 'x'
@@ -101,6 +103,7 @@ export const TYPE = {
   COUNTER: 'counter',
   CUP: 'cup',
   EQUATION: 'equation',
+  EXCLAMATION_MARK: 'exclamation_mark',
   EXCELLENT: 'excellent',
   EXPERT: 'expert',
   FRIENDS: 'friends',
@@ -128,6 +131,7 @@ export const TYPE = {
   STREAM: 'stream',
   STUDENT: 'student',
   SYMBOLS: 'symbols',
+  THUMBS_UP: 'thumbs_up',
   UNSEEN: 'unseen',
   VERIFIED: 'verified',
   X: 'x',
