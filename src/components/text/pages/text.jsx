@@ -10,33 +10,27 @@ const text = 'We\'ve got your back!';
 const textSizesMap = [
   {
     type: 'xsmall',
-    fontSize: '12px',
-    lineHeight: '16px'
+    fontSize: '12px'
   },
   {
     type: 'small',
-    fontSize: '15px',
-    lineHeight: '20px'
+    fontSize: '15px'
   },
   {
     type: 'normal',
-    fontSize: '18px',
-    lineHeight: '24px'
+    fontSize: '18px'
   },
   {
     type: 'large',
-    fontSize: '24px',
-    lineHeight: '32px'
+    fontSize: '24px'
   },
   {
     type: 'xlarge',
-    fontSize: '33px',
-    lineHeight: '44px'
+    fontSize: '33px'
   },
   {
     type: 'xxlarge',
-    fontSize: '45px',
-    lineHeight: '60px'
+    fontSize: '45px'
   }
 ];
 
@@ -53,11 +47,11 @@ const TextExamples = () => {
     getValues(TEXT_WEIGHT, false).forEach(weight => {
       let itemSize;
 
-      textSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize} / ${item.lineHeight}` : null));
+      textSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize}` : null));
 
       SizeVariant.push(
         <Text type={TEXT_TYPE.H2} size={size} color={TEXT_COLOR.GRAY} weight={weight}>
-          {size} - {itemSize}
+          {text} - {size} - {itemSize}
         </Text>
       );
     });
