@@ -39,9 +39,9 @@ function getValues(object, addUndefined = true) {
 }
 
 const TextExamples = () => {
-  const SizeVariant = [];
-  const ColorVariant = [];
-  const linkColorVariant = [];
+  const sizeVariant = [];
+  const colorVariant = [];
+  const linkcolorVariant = [];
 
   getValues(TEXT_SIZE, false).forEach(size => {
     getValues(TEXT_WEIGHT, false).forEach(weight => {
@@ -49,7 +49,7 @@ const TextExamples = () => {
 
       textSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize}` : null));
 
-      SizeVariant.push(
+      sizeVariant.push(
         <Text type={TEXT_TYPE.H2} size={size} color={TEXT_COLOR.GRAY} weight={weight}>
           {text} - {size} - {itemSize}
         </Text>
@@ -59,7 +59,7 @@ const TextExamples = () => {
 
   getValues(TEXT_COLOR, false).forEach(color => {
     if (color === TEXT_COLOR.WHITE) {
-      ColorVariant.push(
+      colorVariant.push(
         <ContrastBox>
           <Text type={TEXT_TYPE.H2} color={color}>
             {text} - {color}
@@ -67,7 +67,7 @@ const TextExamples = () => {
         </ContrastBox>
       );
     } else {
-      ColorVariant.push(
+      colorVariant.push(
         <Text type={TEXT_TYPE.H2} color={color}>
           {text} - {color}
         </Text>
@@ -77,8 +77,8 @@ const TextExamples = () => {
 
   getValues(LINK_COLOR, false).forEach(color => {
     if (color !== LINK_COLOR.WHITE) {
-      linkColorVariant.push(
-        <div>
+      linkcolorVariant.push(
+        <React.Fragment>
           <Link
             href="#"
             color={color}
@@ -87,38 +87,52 @@ const TextExamples = () => {
           >link - {color}
           </Link>
           <br />
-        </div>
+        </React.Fragment>
       );
+    } else {
+      <ContrastBox>
+        <React.Fragment>
+          <Link
+            href="#"
+            color={LINK_COLOR.WHITE}
+            weight={LINK_WEIGHT.BOLD}
+            size={LINK_SIZE.LARGE}
+          >link - {color}
+          </Link>
+          <br />
+        </React.Fragment>
+      </ContrastBox>;
     }
   });
 
   return (
     <div>
       <DocsBlock info="Size and weight variant">
-        {SizeVariant}
+        {sizeVariant}
       </DocsBlock>
       <DocsBlock info="Color variant">
-        {ColorVariant}
+        {colorVariant}
       </DocsBlock>
       <DocsBlock info="Link options">
         <Link
           href="#"
           size={LINK_SIZE.LARGE}
         >
-          link / bold / standard / xlarge / standard
+          link / regular/ standard / xlarge / standard
         </Link>
         <br />
         <Link
           href="#"
           weight={LINK_WEIGHT.BOLD}
           size={LINK_SIZE.LARGE}
+          color={TEXT_COLOR.MINT_DARK}
           underlined
         >
           link / bold / mint / xlarge / underlined
         </Link>
       </DocsBlock>
       <DocsBlock info="Link color variants">
-        {linkColorVariant}
+        {linkcolorVariant}
       </DocsBlock>
       <DocsBlock info="Alignment examples">
         <Text align={TEXT_ALIGN.LEFT}>

@@ -94,7 +94,7 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link-unstyled': !underlined && unstyled,
     'sg-text--bold': emphasised,
     'sg-text--link-disabled': disabled,
-    [`sg-text--${color || ''}`]: color,
+    [`sg-text--${String(color)}`]: color,
     [`sg-text--${String(weight)}`]: weight !== LINK_WEIGHT.BOLD
   }, className);
 

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
-  TEXT_COLOR,
   TEXT_WEIGHT
 } from './textConsts';
 
@@ -104,7 +103,7 @@ const Text = ({
   const Type = type;
   const textClass = classNames('sg-text', {
     [`sg-text--${String(size)}`]: size !== TEXT_SIZE.NORMAL,
-    [`sg-text--${String(color)}`]: color !== TEXT_COLOR.DEFAULT,
+    [`sg-text--${String(color)}`]: color,
     [`sg-text--${String(weight)}`]: weight !== TEXT_WEIGHT.REGULAR,
     [`sg-text--${transform || ''}`]: transform,
     [`sg-text--${align || ''}`]: align,
