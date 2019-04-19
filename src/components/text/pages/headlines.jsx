@@ -5,6 +5,33 @@ import Headline, {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFO
 
 const text = 'We\'ve got your back!';
 
+const headlineSizesMap = [
+  {
+    type: 'xsmall',
+    fontSize: '14px'
+  },
+  {
+    type: 'small',
+    fontSize: '18px'
+  },
+  {
+    type: 'normal',
+    fontSize: '21px'
+  },
+  {
+    type: 'large',
+    fontSize: '28px'
+  },
+  {
+    type: 'xlarge',
+    fontSize: '39px'
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '53px'
+  }
+];
+
 function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
@@ -15,10 +42,13 @@ const Headlines = () => {
 
   getValues(HEADLINE_SIZE, false).forEach(size => {
     [false, true].forEach(extraBold => {
+      let itemSize;
+
+      headlineSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize}` : null));
 
       standard.push(
         <Headline type={HEADLINE_TYPE.H2} size={size} extraBold={extraBold}>
-          {text} - {size}
+          {text} - {size} - {itemSize}
         </Headline>
       );
     });
