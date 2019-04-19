@@ -1,37 +1,39 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import ContrastBox from 'components/ContrastBox';
 import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 
-const TextBitExamples = () => (
-  <DocsBlock info="Default">
-    <TextBit>
-      This is text bit default
-    </TextBit>
-    <TextBit size={TEXT_BIT_SIZE.LARGE} color={TEXT_BIT_COLOR.BLUE_SECONDARY}>
-      This is text bit large primary blue
-    </TextBit>
-    <TextBit size={TEXT_BIT_SIZE.SMALL} color={TEXT_BIT_COLOR.GRAY_SECONDARY}>
-      This is text bit small secondary gray
-    </TextBit>
-    <TextBit size={TEXT_BIT_SIZE.LARGE} color={TEXT_BIT_COLOR.BLUE_PRIMARY}>
-      This is text bit large primary blue
-    </TextBit>
-    <TextBit color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
-      This is text bit default peach primary
-    </TextBit>
-    <TextBit size={TEXT_BIT_SIZE.SMALL} color={TEXT_BIT_COLOR.MINT}>
-      This is text bit small secondary gray
-    </TextBit>
-    <ContrastBox>
-      <TextBit size={TEXT_BIT_SIZE.LARGE} color={TEXT_BIT_COLOR.WHITE}>
-        This is text bit large white
+const text = 'We\'ve got your back!';
+
+function getValues(object, addUndefined = true) {
+  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+}
+
+const TextBitExamples = () => {
+  const sizesVariants = [];
+  const colorsVariants = [];
+
+  getValues(TEXT_BIT_SIZE, false).forEach(size => {
+    sizesVariants.push(
+      <TextBit size={size} color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
+        {text} - {size}
       </TextBit>
-    </ContrastBox>
-    <TextBit size={TEXT_BIT_SIZE.XLARGE} color={TEXT_BIT_COLOR.BLACK}>
-      This is text bit large black
-    </TextBit>
-  </DocsBlock>
-);
+    );
+  });
+
+  getValues(TEXT_BIT_COLOR, false).forEach(color => {
+    colorsVariants.push(
+      <TextBit size={TEXT_BIT_SIZE.NORMAL} color={color}>
+        {text} - {color}
+      </TextBit>
+    );
+  });
+
+  return (
+    <DocsBlock info="Default">
+      {sizesVariants}
+      {colorsVariants}
+    </DocsBlock>
+  );
+};
 
 export default TextBitExamples;

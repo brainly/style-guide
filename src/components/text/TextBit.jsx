@@ -19,13 +19,20 @@ type TextBitSizeType =
   | 'xlarge';
 
 type TextBitColorType =
-  | 'blue-secondary'
-  | 'white'
-  | 'black'
-  | 'mint'
   | 'blue-primary'
+  | 'blue-secondary'
+  | 'mint-primary'
+  | 'mint-secondary'
+  | 'lavender-primary'
+  | 'lavender-secondary'
+  | 'peach-primary'
+  | 'peach-secondary'
+  | 'mustard-primary'
+  | 'mustard-secondary'
   | 'gray-secondary'
-  | 'peach-primary';
+  | 'gray-secondary-light'
+  | 'white'
+  | 'black';
 
 export const TEXT_BIT_TYPE = Object.freeze({
   H1: 'h1',
@@ -45,13 +52,20 @@ export const TEXT_BIT_SIZE = Object.freeze({
 });
 
 export const TEXT_BIT_COLOR = Object.freeze({
-  BLUE_SECONDARY: 'blue-secondary',
-  WHITE: 'white',
-  BLACK: 'black',
-  MINT: 'mint',
   BLUE_PRIMARY: 'blue-primary',
+  BLUE_SECONDARY: 'blue-secondary',
+  MINT_PRIMARY: 'mint-primary',
+  MINT_SECONDARY: 'mint-secondary',
+  PEACH_PRIMARY: 'peach-primary',
+  PEACH_SECONDARY: 'peach-secondary',
+  MUSTARAD_PRIMARY: 'mustard-primary',
+  MUSTARAD_SECONDARY: 'mustard-secondary',
+  LAVENDER_PRIMARY: 'lavender-primary',
+  LAVENDER_SECONDARY: 'lavender-secondary',
   GRAY_SECONDARY: 'gray-secondary',
-  PEACH_PRIMARY: 'peach-primary'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  WHITE: 'white',
+  BLACK: 'black'
 });
 
 type TextBitPropsType = {

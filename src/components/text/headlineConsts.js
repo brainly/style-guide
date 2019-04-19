@@ -19,15 +19,14 @@ export const HEADLINE_SIZE = {
 export const HEADLINE_COLOR = {
   DEFAULT: 'default',
   WHITE: 'white',
-  GRAY: 'gray',
+  BLUE_DARK: 'blue-dark',
+  MINT_DARK: 'mint-dark',
+  LAVENDER_DARK: 'lavender-dark',
+  MUSTARD_DARK: 'mustard-dark',
+  PEACH_DARK: 'peach-dark',
+  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
   GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-  MINT: 'mint',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  BLUE: 'blue',
-  BLUE_SECONDARY: 'blue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
 };
 
 export const HEADLINE_TRANSFORM = {
