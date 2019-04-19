@@ -28,7 +28,7 @@ export const TEXT_SIZE = Object.freeze({
 export const SIZE = TEXT_SIZE; // backward compatibility
 
 export const TEXT_COLOR = Object.freeze({
-  DEFAULT: 'black',
+  DEFAULT: 'default',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
   MINT_DARK: 'mint-dark',
