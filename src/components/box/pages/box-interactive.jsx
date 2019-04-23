@@ -4,7 +4,7 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -60,7 +60,7 @@ const Boxes = () => {
         <Box>
           <ContentBox>
             <ContentBoxHeader>
-              <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
+              <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
               <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>

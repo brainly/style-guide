@@ -6,7 +6,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as CONTENT_BOX_CONTENT_SPACING_SIZE} from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import Text, {TEXT_WEIGHT, TEXT_SIZE} from 'text/Text';
@@ -118,7 +118,7 @@ const Boxs = () => (
       <Box>
         <ContentBox>
           <ContentBoxHeader>
-            <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
+            <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
           </ContentBoxHeader>
           <ContentBoxActions>
             <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>

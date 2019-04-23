@@ -4,7 +4,7 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
 import Text, {TEXT_WEIGHT} from 'text/Text';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -14,9 +14,9 @@ import Overlay from 'overlay/Overlay';
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <HeaderSecondary type={HEADER_TYPE.H2}>
+      <Headline type={HEADLINE_TYPE.H2}>
         Why join Brainly?
-      </HeaderSecondary>
+      </Headline>
       <List>
         <ListItem key={1}>
           <ListItemIcon>

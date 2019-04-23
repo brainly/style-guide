@@ -7,12 +7,12 @@ import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxCon
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {TEXT_WEIGHT} from 'text/Text';
-import TextBit, {TEXT_BIT_COLOR} from 'text/TextBit';
+import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 
 const Toplayers = () => {
   const settings = [
@@ -83,12 +83,12 @@ const Toplayers = () => {
         <TopLayer size={SIZE.MEDIUM} lead withBugbox>
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY} type={HEADER_TYPE.H1}>
+              <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY} type={TEXT_BIT_TYPE.H1}>
                 The world&apos;s largest learning community
               </TextBit>
-              <HeaderSecondary type={HEADER_TYPE.H2}>
+              <Headline type={HEADLINE_TYPE.H2}>
                 Why join Brainly?
-              </HeaderSecondary>
+              </Headline>
               <List>
                 <ListItem key={1}>
                   <ListItemIcon>

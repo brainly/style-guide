@@ -2,7 +2,7 @@ import React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE, HEADER_COLOR} from 'text/HeaderPrimary';
+import Headline, {HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_COLOR} from 'text/Headline';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
@@ -424,13 +424,13 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <HeaderPrimary
-              size={HEADER_SIZE.XXXLARGE}
-              type={HEADER_TYPE.SPAN}
-              color={HEADER_COLOR.LIGHT}
+            <Headline
+              size={HEADLINE_SIZE.XXXLARGE}
+              type={HEADLINE_TYPE.SPAN}
+              color={HEADLINE_COLOR.LIGHT}
             >
               $14.95
-            </HeaderPrimary>
+            </Headline>
           </ActionListHole>
           <ActionListHole toEnd>
             <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
@@ -445,13 +445,13 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole>
-            <HeaderPrimary
-              size={HEADER_SIZE.XXXLARGE}
-              type={HEADER_TYPE.SPAN}
-              color={HEADER_COLOR.LIGHT}
+            <Headline
+              size={HEADLINE_SIZE.XXXLARGE}
+              type={HEADLINE_TYPE.SPAN}
+              color={HEADLINE_COLOR.LIGHT}
             >
               $14.95
-            </HeaderPrimary>
+            </Headline>
           </ActionListHole>
           <ActionListHole stretch>
             <SeparatorVertical size={SEPARATOR_VERTICAL_SIZE.FULL} />
