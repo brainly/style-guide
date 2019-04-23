@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
-  TEXT_COLOR,
   TEXT_WEIGHT
 } from './textConsts';
 
@@ -35,15 +34,12 @@ type TextColorType =
   | 'white'
   | 'gray'
   | 'gray-secondary'
+  | 'gray-secondary-light'
   | 'mint-dark'
-  | 'mint'
   | 'peach-dark'
-  | 'peach'
-  | 'mustard'
-  | 'blue-dark'
-  | 'blue'
-  | 'blue-secondary'
-  | 'blue-secondary-light';
+  | 'mustard-dark'
+  | 'lavender-dark'
+  | 'blue-dark';
 
 type TextWeightType =
   | 'regular'
@@ -77,7 +73,7 @@ export type TextPropsType = {
   children?: ?React.Node,
   size?: TextSizeType,
   type?: TextTypeType,
-  color?: TextColorType,
+  color?: ?TextColorType,
   weight?: TextWeightType,
   transform?: ?TextTransformType,
   align?: ?TextAlignType,
@@ -93,7 +89,7 @@ const Text = ({
   type = TEXT_TYPE.DIV,
   size = TEXT_SIZE.NORMAL,
   weight = TEXT_WEIGHT.REGULAR,
-  color = TEXT_COLOR.DEFAULT,
+  color,
   transform,
   align,
   noWrap,
@@ -106,9 +102,9 @@ const Text = ({
 
   const Type = type;
   const textClass = classNames('sg-text', {
-    [`sg-text--${size}`]: size !== TEXT_SIZE.NORMAL,
-    [`sg-text--${color}`]: color !== TEXT_COLOR.DEFAULT,
-    [`sg-text--${weight}`]: weight !== TEXT_WEIGHT.REGULAR,
+    [`sg-text--${String(size)}`]: size !== TEXT_SIZE.NORMAL,
+    [`sg-text--${String(color)}`]: color,
+    [`sg-text--${String(weight)}`]: weight !== TEXT_WEIGHT.REGULAR,
     [`sg-text--${transform || ''}`]: transform,
     [`sg-text--${align || ''}`]: align,
     'sg-text--container': asContainer,

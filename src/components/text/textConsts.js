@@ -17,9 +17,6 @@ export const TEXT_TYPE = Object.freeze({
 export const TYPE = TEXT_TYPE; // backward compatibility
 
 export const TEXT_SIZE = Object.freeze({
-  OBSCURE: 'xsmall', // backward compatibility
-  HEADLINE: 'large', // backward compatibility
-  STANDOUT: 'normal', // backward compatibility
   XSMALL: 'xsmall',
   SMALL: 'small',
   NORMAL: 'normal',
@@ -33,26 +30,31 @@ export const SIZE = TEXT_SIZE; // backward compatibility
 export const TEXT_COLOR = Object.freeze({
   DEFAULT: 'default',
   WHITE: 'white',
-  LIGHT: 'white', //backward compability
+  BLUE_DARK: 'blue-dark',
+  MINT_DARK: 'mint-dark',
+  LAVENDER_DARK: 'lavender-dark',
+  MUSTARD_DARK: 'mustard-dark',
+  PEACH_DARK: 'peach-dark',
+  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
+});
+
+export const LINK_COLOR = Object.freeze({
+  BLUE_DARK: 'blue-dark',
+  WHITE: 'white',
+  MINT_DARK: 'mint-dark',
+  BLACK: 'black',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
-  MINT_DARK: 'mint-dark',
-  MINT: 'mint',
-  PEACH_DARK: 'peach-dark',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  BLUE_DARK: 'blue-dark',
-  BLUE: 'blue',
-  BLUE_SECONDARY: 'blue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
 });
 
 export const COLOR = TEXT_COLOR; // backward compatibility
 
 export const TEXT_WEIGHT = Object.freeze({
   REGULAR: 'regular',
-  BOLD: 'bold',
-  EMPHASISED: 'bold' // backward compatibility
+  BOLD: 'bold'
 });
 
 export const WEIGHT = TEXT_WEIGHT; // backward compatibility

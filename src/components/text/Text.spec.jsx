@@ -40,10 +40,10 @@ test('type - label', () => {
 
 test('color', () => {
   const text = shallow(
-    <Text color={TEXT_COLOR.MINT}>Test</Text>
+    <Text color={TEXT_COLOR.MINT_DARK}>Test</Text>
   );
 
-  expect(text.hasClass('sg-text--mint')).toBeTruthy();
+  expect(text.hasClass('sg-text--mint-dark')).toBeTruthy();
 });
 
 test('weight', () => {

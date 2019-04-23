@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
-import {TEXT_TYPE, TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+import {TEXT_TYPE, LINK_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
 
 type TextTypeType =
   | 'span'
@@ -26,20 +26,14 @@ type TextSizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type TextColorType =
-  | 'default'
+type LinkColorType =
+  | 'black'
   | 'white'
   | 'gray'
   | 'gray-secondary'
+  | 'gray-secondary-light'
   | 'mint-dark'
-  | 'mint'
-  | 'peach-dark'
-  | 'peach'
-  | 'mustard'
-  | 'blue-dark'
-  | 'blue'
-  | 'blue-secondary'
-  | 'blue-secondary-light';
+  | 'blue-dark';
 
 type TextWeightType =
   | 'regular'
@@ -56,52 +50,30 @@ type TextAlignType =
   | 'to-right'
   | 'justify';
 
-type TextPropsType = {
+export type LinkPropsType = {
   children?: ?React.Node,
+  href?: ?string,
   size?: TextSizeType,
   type?: TextTypeType,
-  color?: TextColorType,
+  color?: ?LinkColorType,
   weight?: TextWeightType,
   transform?: ?TextTransformType,
   align?: ?TextAlignType,
   noWrap?: ?boolean,
-  asContainer?: ?boolean,
-  full?: ?boolean,
   breakWords?: ?boolean,
+  underlined?: boolean,
+  unstyled?: boolean,
+  emphasised?: boolean,
+  disabled?: boolean,
   className?: ?string
 };
 
-export const LINK_COLOR = TEXT_COLOR;
+export {LINK_COLOR} from './textConsts';
 export const LINK_TYPE = TEXT_TYPE;
 export const LINK_SIZE = TEXT_SIZE;
 export const LINK_WEIGHT = TEXT_WEIGHT;
 export const LINK_TRANSFORM = TEXT_TRANSFORM;
 export const LINK_ALIGN = TEXT_ALIGN;
-
-// backward compatibility
-export const SIZE = {
-  NORMAL: 'small',
-  SMALL: 'small',
-  OBSCURE: 'xsmall'
-};
-// backward compatibility
-export const COLOR = {
-  GRAY: 'gray',
-  MINT: 'mint',
-  PEACH: 'peach',
-  LIGHT: 'white',
-  MUSTARD: 'mustard',
-  FINE_PRINT: 'blue-secondary',
-  FINE_PRINT_LIGHT: 'blue-secondary-light'
-};
-
-type LinkPropsType = {
-  href?: ?string,
-  underlined?: boolean,
-  unstyled?: boolean,
-  emphasised?: boolean,
-  disabled?: boolean
-} & TextPropsType;
 
 const Link = (props: LinkPropsType) => {
   const {
@@ -110,8 +82,9 @@ const Link = (props: LinkPropsType) => {
     color = LINK_COLOR.BLUE_DARK,
     underlined = false,
     unstyled = false,
-    emphasised = true, //backward compability
-    disabled = false, //backward compability
+    emphasised = true, // backward compatibility
+    disabled = false, // backward compatibility
+    weight,
     className,
     ...additionalProps
   } = props;
@@ -119,9 +92,10 @@ const Link = (props: LinkPropsType) => {
     'sg-text--link': !underlined && !unstyled,
     'sg-text--link-underlined': underlined && !unstyled,
     'sg-text--link-unstyled': !underlined && unstyled,
-    'sg-text--bold': emphasised, //backward compability
-    'sg-link--disabled': disabled, //backward compability
-    [`sg-text--${color}`]: !unstyled ? color !== LINK_COLOR.DEFAULT : null
+    'sg-text--bold': emphasised,
+    'sg-text--link-disabled': disabled,
+    [`sg-text--${String(color)}`]: color,
+    [`sg-text--${String(weight)}`]: weight !== LINK_WEIGHT.BOLD
   }, className);
 
   if (!href) {

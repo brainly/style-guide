@@ -14,11 +14,14 @@ const index = () => (
 
     <p className="sg-text">Welcome to the official Brainly style guide! This style guide is being used across all
       language versions of the Brainly website (e.g.
-      <a href="https://brainly.com" className="sg-link">brainly.com</a>,
-      <a href="https://znanija.com" className="sg-link">znanija.com</a>,
-      <a href="https://nosdevoirs.fr/" className="sg-link">nosdevoirs.fr</a>
-      ), on our
-      corporate website (<a href="https://brainly.co" className="sg-link">brainly.co</a>) and some smaller sites (e.g.
+      <a href="https://brainly.com" className="sg-text sg-text--blue-dark sg-text--bold sg-text--link">brainly.com</a>,
+      <a href="https://znanija.com" className="sg-text sg-text--blue-dark sg-text--bold sg-text--link">znanija.com</a>,
+      <a href="https://nosdevoirs.fr/" className="sg-text sg-text--blue-dark sg-text--bold sg-text--link">
+        nosdevoirs.fr
+      </a>
+      ), on our corporate website
+        (<a href="https://brainly.co" className="sg-text sg-text--blue-dark sg-text--bold sg-text--link">brainly.co</a>)
+      and some smaller sites (e.g.
       landing pages).
     </p>
 
@@ -47,7 +50,15 @@ const index = () => (
       <li className="sg-list__element">
         <ContentBox>
           <ContentBoxHeader>
-            <p className="sg-text"><a href="./basics.html#icons" className="sg-link">Basic icons</a>:</p>
+            <p className="sg-text">
+              <a
+                href="./basics.html#icons"
+                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+              >
+                Basic icons
+              </a>
+            :
+            </p>
           </ContentBoxHeader>
           <ContentBoxContent>
             <pre>
@@ -62,7 +73,15 @@ const index = () => (
       <li className="sg-list__element">
         <ContentBox>
           <ContentBoxHeader>
-            <p className="sg-text"><a href="./basics.html#subject-icons" className="sg-link">Subject icons</a>:</p>
+            <p className="sg-text">
+              <a
+                href="./basics.html#subject-icons"
+                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+              >
+                Subject icons
+              </a>
+            :
+            </p>
           </ContentBoxHeader>
           <ContentBoxContent>
             <pre>
@@ -78,7 +97,12 @@ const index = () => (
         <ContentBox>
           <ContentBoxHeader>
             <p className="sg-text">
-              <a href="./basics.html#subject-mono-icons" className="sg-link">Subject mono icons</a>:
+              <a
+                href="./basics.html#subject-mono-icons"
+                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+              >
+                Subject mono icons
+              </a>:
             </p>
           </ContentBoxHeader>
           <ContentBoxContent>
@@ -94,7 +118,12 @@ const index = () => (
       <li className="sg-list__element">
         <ContentBox>
           <ContentBoxHeader>
-            <p className="sg-text"><a href="./basics.html#math-symbols" className="sg-link">Math symbols</a>:</p>
+            <p className="sg-text">
+              <a href="./basics.html#math-symbols" className="sg-text sg-text--blue-dark sg-text--bold sg-text--link">
+                Math symbols
+              </a>
+            :
+            </p>
           </ContentBoxHeader>
           <ContentBoxContent>
             <pre>
@@ -113,7 +142,13 @@ const index = () => (
     </h2>
 
     <p className="sg-text">If you&apos;d like to learn more about this project, report a bug or contribute check it out
-      on <a href="https://github.com/brainly/style-guide" className="sg-link">GitHub</a>.
+    on
+      <a
+        href="https://github.com/brainly/style-guide"
+        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+      >
+        GitHub
+      </a>.
     </p>
 
     <script dangerouslySetInnerHTML={{__html: 'hljs.initHighlightingOnLoad();'}} />
