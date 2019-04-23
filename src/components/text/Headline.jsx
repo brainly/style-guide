@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
 
 type HeadlineTypeType =
+  | 'span'
   | 'h1'
   | 'h2'
   | 'h3'
