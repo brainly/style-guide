@@ -131,13 +131,6 @@ const TextExamples = () => {
           link / bold / mint / xlarge / underlined
         </Link>
         <br />
-        <Link
-          href="#"
-          weight={LINK_WEIGHT.REGULAR}
-          unstyled
-        >
-          link / regular / default / normal / unstyled
-        </Link>
       </DocsBlock>
       <DocsBlock info="Link color variants">
         {linkcolorVariant}
