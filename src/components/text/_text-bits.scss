@@ -38,8 +38,52 @@ $bitSizes: (
       line-height: getBitSize(xlarge);
     }
 
+    &--blue-primary {
+      color: $bluePrimary;
+    }
+
     &--blue-secondary {
       color: $blueSecondary;
+    }
+
+    &--mint-primary {
+      color: $mintPrimary;
+    }
+
+    &--mint-secondary {
+      color: $mintSecondary;
+    }
+
+    &--peach-primary {
+      color: $peachPrimary;
+    }
+
+    &--peach-secondary {
+      color: $peachSecondary;
+    }
+
+    &--lavender-primary {
+      color: $lavenderPrimary;
+    }
+
+    &--lavender-secondary {
+      color: $lavenderSecondary;
+    }
+
+    &--mustard-primary {
+      color: $mustardPrimary;
+    }
+
+    &--mustard-secondary {
+      color: $mustardSecondary;
+    }
+
+    &--gray-secondary {
+      color: $graySecondary;
+    }
+
+    &--gray-secondary-light {
+      color: $graySecondaryLight;
     }
 
     &--white {
@@ -48,22 +92,6 @@ $bitSizes: (
 
     &--black {
       color: $black;
-    }
-
-    &--gray-secondary {
-      color: $graySecondary;
-    }
-
-    &--peach-primary {
-      color: $peachPrimary;
-    }
-
-    &--blue-primary {
-      color: $bluePrimary;
-    }
-
-    &--mint {
-      color: $mintPrimary;
     }
   }
 }

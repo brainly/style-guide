@@ -88,28 +88,43 @@ $headlineSizes: (
       color: $graySecondaryLight;
     }
 
+    &--mint-dark {
+      color: $mintPrimaryDark;
+    }
+
+    // backward compatibility for html, it should be replaced with sg-text--mint-dark
     &--mint {
-      color: $mintPrimary;
+      color: $mintPrimaryDark;
     }
 
+    &--blue-dark {
+      color: $bluePrimaryDark;
+    }
+
+    // backward compatibility for html, it should be replaced with sg-text--blue-dark
     &--blue {
-      color: $bluePrimary;
+      color: $bluePrimaryDark;
     }
 
-    &--blue-secondary {
-      color: $blueSecondary;
-    }
-
-    &--blue-secondary-light {
-      color: $blueSecondaryLight;
+    &--mustard-dark {
+      color: $mustardPrimaryDark;
     }
 
     &--mustard {
-      color: $mustardPrimary;
+      color: $mustardPrimaryDark;
     }
 
+    &--lavender-dark {
+      color: $lavenderPrimaryDark;
+    }
+
+    &--peach-dark {
+      color: $peachPrimaryDark;
+    }
+
+    // backward compatibility for html, it should be replaced with sg-text--peach-dark
     &--peach {
-      color: $peachPrimary;
+      color: $peachPrimaryDark;
     }
 
     &--uppercase {

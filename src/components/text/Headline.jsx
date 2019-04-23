@@ -25,12 +25,11 @@ type HeadlineColorType =
   | 'gray'
   | 'gray-secondary'
   | 'gray-secondary-light'
-  | 'mint'
-  | 'peach'
-  | 'mustard'
-  | 'blue'
-  | 'blue-secondary'
-  | 'blue-secondary-light';
+  | 'mint-dark'
+  | 'peach-dark'
+  | 'lavender-dark'
+  | 'mustard-dark'
+  | 'blue-dark';
 
 type HeadlineTransformType =
   | 'uppercase'
