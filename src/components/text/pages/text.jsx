@@ -130,7 +130,6 @@ const TextExamples = () => {
         >
           link / bold / mint / xlarge / underlined
         </Link>
-        <br />
       </DocsBlock>
       <DocsBlock info="Link color variants">
         {linkcolorVariant}
