@@ -103,10 +103,12 @@ $includeHtml: false !default;
 
     &--valid {
       color: $inputFocusValidBorderColor;
+      font-weight: $fontWeightBold;
     }
 
     &--invalid {
       color: $inputFocusInvalidBorderColor;
+      font-weight: $fontWeightBold;
     }
 
     &--full-width {
