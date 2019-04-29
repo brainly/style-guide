@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import type {Node} from 'react';
+import type {Node, Element} from 'react';
 import classNames from 'classnames';
 import * as IconModule from '../icons/Icon';
 import IconAsButtonContent from './subcomponents/IconAsButtonContent';
@@ -31,7 +31,7 @@ type IconAsButtonPropsType = {
   size?: IconSizeType,
   color?: IconModule.IconColorType,
   type?: ?IconModule.IconTypeType,
-  children?: ?Node,
+  children?: ?Element<any>,
   border?: boolean,
   action?: boolean,
   transparent?: boolean,
