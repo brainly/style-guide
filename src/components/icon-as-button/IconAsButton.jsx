@@ -72,7 +72,7 @@ const IconAsButton = ({
     <RenderType {...props} role="button" className={buttonClass}>
       <div className="sg-icon-as-button__hole">
         <IconAsButtonContent overlay={overlay}>
-          {content}
+          {content || null}
         </IconAsButtonContent>
       </div>
     </RenderType>
