@@ -81,3 +81,4 @@ const IconAsButton = ({
 
 export default IconAsButton;
 export {TYPE, ICON_COLOR} from '../icons/Icon';
+export type {IconTypeType} from '../icons/Icon';
