@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 const SIZE = Object.freeze({
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
