@@ -57,8 +57,7 @@
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
     "deploy": "gulp deploy",
-    "preversion": "./scripts/preversion.sh",
-    "postversion": "./scripts/postversion.sh",
+    "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & yarn start",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
     "eslint": "./node_modules/frontend-tools-configs/node_modules/.bin/eslint"
