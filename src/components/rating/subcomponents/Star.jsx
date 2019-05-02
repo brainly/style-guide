@@ -1,15 +1,17 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon, {TYPE, ICON_COLOR} from '../../icons/Icon';
+import * as IconModule from '../../icons/Icon';
 
-const Star = ({size, ...props}) => (
+const {default: Icon, TYPE, ICON_COLOR} = IconModule;
+
+type PropsType = {
+  size?: IconModule.IconSizeType
+};
+
+const Star = ({size, ...props}: PropsType) => (
   <span className="sg-rate-box__star" {...props}>
     <Icon type={TYPE.STAR} size={size} color={ICON_COLOR.ADAPTIVE} />
   </span>
 );
-
-Star.propTypes = {
-  size: PropTypes.number
-};
 
 export default Star;

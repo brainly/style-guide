@@ -1,8 +1,15 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const Overlay = ({partial, children, className, ...props}) => {
+type PropsType = {
+  children?: Node,
+  partial?: boolean,
+  className?: string
+};
+
+const Overlay = ({partial, children, className, ...props}: PropsType) => {
   const overlayClass = classnames(
     'sg-overlay',
     {'sg-overlay--partial': partial},
@@ -13,12 +20,6 @@ const Overlay = ({partial, children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-Overlay.propTypes = {
-  partial: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string
 };
 
 export default Overlay;

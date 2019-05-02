@@ -1,25 +1,28 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
-import Spinner, {SPINNER_SIZE} from '../spinner/Spinner';
+import type {Node} from 'react';
+import * as SpinnerModule from '../spinner/Spinner';
+
+const {default: Spinner} = SpinnerModule;
 
 export {SPINNER_SIZE} from '../spinner/Spinner';
 
-const SpinnerContainer = ({loading, light, size, children, ...props}) => (
+type PropsType = {
+  loading?: boolean,
+  light?: boolean,
+  size?: SpinnerModule.SpinnerSizeType,
+  children?: Node
+};
+
+const SpinnerContainer = ({loading, light, size, children, ...props}: PropsType) => (
   <div {...props} className="sg-spinner-container">
     {children}
-    {loading &&
+    {loading === true &&
       <div className="sg-spinner-container__overlay">
         <Spinner light={light} size={size} />
       </div>
     }
   </div>
 );
-
-SpinnerContainer.propTypes = {
-  loading: PropTypes.bool,
-  light: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SPINNER_SIZE)),
-  children: PropTypes.node
-};
 
 export default SpinnerContainer;

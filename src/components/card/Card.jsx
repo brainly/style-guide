@@ -1,6 +1,13 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+export type CardPaddingType =
+  | 'padding-small'
+  | 'padding-normal'
+  | 'padding-large'
+  | 'padding-xlarge';
 
 export const CARD_PADDING = {
   SMALL: 'padding-small',
@@ -9,7 +16,21 @@ export const CARD_PADDING = {
   XLARGE: 'padding-xlarge'
 };
 
-const Card = ({children, full, vertical, centered, padding, shadow, noBorder, transparent, className, ...props}) => {
+type PropsType = {
+  children?: Node,
+  className?: string,
+  full?: boolean,
+  vertical?: boolean,
+  centered?: boolean,
+  noBorder?: boolean,
+  shadow?: boolean,
+  transparent?: boolean,
+  padding?: CardPaddingType
+};
+
+const Card = ({
+  children, full, vertical, centered, padding, shadow, noBorder, transparent, className, ...props
+}: PropsType) => {
   const cardClass = classNames('sg-card', {
     'sg-card--full': full,
     'sg-card--vertical': vertical,
@@ -17,7 +38,7 @@ const Card = ({children, full, vertical, centered, padding, shadow, noBorder, tr
     'sg-card--no-border': noBorder,
     'sg-card--centered': centered,
     'sg-card--transparent': transparent,
-    [`sg-card--${padding}`]: padding
+    [`sg-card--${String(padding)}`]: padding
   }, className);
 
   return (
@@ -25,18 +46,6 @@ const Card = ({children, full, vertical, centered, padding, shadow, noBorder, tr
       {children}
     </div>
   );
-};
-
-Card.propTypes = {
-  children: PropTypes.node,
-  full: PropTypes.bool,
-  vertical: PropTypes.bool,
-  centered: PropTypes.bool,
-  noBorder: PropTypes.bool,
-  shadow: PropTypes.bool,
-  transparent: PropTypes.bool,
-  padding: PropTypes.oneOf(Object.values(CARD_PADDING)),
-  className: PropTypes.string
 };
 
 export default Card;

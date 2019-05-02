@@ -1,8 +1,15 @@
+// @flow strict
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import React from 'react';
 
-const ListItemIcon = ({small, children, className, ...props}) => {
+type PropsType = {
+  children?: Node,
+  className?: string,
+  small?: boolean
+};
+
+const ListItemIcon = ({small, children, className, ...props}: PropsType) => {
   const iconClass = classNames('sg-list__icon', {
     'sg-list__icon--spacing-right-small': small
   }, className);
@@ -12,12 +19,6 @@ const ListItemIcon = ({small, children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-ListItemIcon.propTypes = {
-  children: PropTypes.node,
-  small: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default ListItemIcon;

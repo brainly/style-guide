@@ -1,9 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
+import * as SubjectIconModule from './SubjectIcon';
 
-const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props}) => {
+const {default: SubjectIcon, TYPE, SIZE} = SubjectIconModule;
+
+type PropsType = {
+  className?: string,
+  darker?: boolean,
+  type: SubjectIconModule.IconTypeType,
+  size?: SubjectIconModule.SizeType
+};
+
+const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props}: PropsType) => {
   const boxClass = classNames('sg-subject-icon-box', {
     'sg-subject-icon-box--darker': darker
   }, className);
@@ -13,13 +22,6 @@ const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props})
       <SubjectIcon type={type} size={size} />
     </div>
   );
-};
-
-SubjectIconBox.propTypes = {
-  darker: PropTypes.bool,
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  className: PropTypes.string
 };
 
 export default SubjectIconBox;

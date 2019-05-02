@@ -1,8 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from '../../icons/Icon';
+import type {Node} from 'react';
+import * as IconModule from '../../icons/Icon';
 
-const LabelIcon = ({iconType, iconColor, iconContent, iconSize}) => {
+const {default: Icon} = IconModule;
+
+type PropsType = {
+  iconContent?: Node,
+  iconSize?: IconModule.IconSizeType,
+  iconColor?: IconModule.IconColorType,
+  iconType?: IconModule.IconTypeType
+};
+
+const LabelIcon = ({iconType, iconColor, iconContent, iconSize}: PropsType) => {
   if (iconContent) {
     return (
       <div className="sg-label__icon">
@@ -18,13 +28,6 @@ const LabelIcon = ({iconType, iconColor, iconContent, iconSize}) => {
     );
   }
   return null;
-};
-
-LabelIcon.propTypes = {
-  iconContent: PropTypes.node,
-  iconSize: PropTypes.number,
-  iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE))
 };
 
 export default LabelIcon;

@@ -1,8 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const LayoutBox = ({children, className, ...props}) => {
+type PropsType = {
+  className?: ?string,
+  children: Node
+};
+
+const LayoutBox = ({children, className, ...props}: PropsType) => {
 
   const layoutClass = classnames('sg-layout__box', className);
 
@@ -11,11 +17,6 @@ const LayoutBox = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-LayoutBox.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
 };
 
 export default LayoutBox;

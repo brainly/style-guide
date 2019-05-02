@@ -1,8 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const HeaderMiddle = ({children, className, ...props}) => {
+type PropsType = {
+  children?: Node,
+  className?: string
+};
+
+const HeaderMiddle = ({children, className, ...props}: PropsType) => {
   const headerClass = classnames('sg-header__middle', className);
 
   return (
@@ -10,11 +16,6 @@ const HeaderMiddle = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-HeaderMiddle.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
 };
 
 export default HeaderMiddle;

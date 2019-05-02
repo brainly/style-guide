@@ -10,18 +10,6 @@ test('render', () => {
   expect(topLayer.hasClass('sg-toplayer')).toEqual(true);
 });
 
-test('error when no children', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <TopLayer />
-  );
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('default size', () => {
   const topLayer = shallow(
     <TopLayer>some text</TopLayer>

@@ -1,16 +1,46 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
-import {ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
 import LabelIcon from './subcomponents/LabelIcon';
+import * as IconModule from '../icons/Icon';
+
+const {ICON_COLOR, TYPE: ICON_TYPE} = IconModule;
+
+type SizeType =
+  | 'normal'
+  | 'small'
+  | 'large';
 
 export const SIZE = {
-  NORMAL: {CLASS_NAME: 'normal', ICON_SIZE: 16},
-  SMALL: {CLASS_NAME: 'small', ICON_SIZE: 14},
-  LARGE: {CLASS_NAME: 'large', ICON_SIZE: 24}
+  NORMAL: 'normal',
+  SMALL: 'small',
+  LARGE: 'large'
 };
 
-const Label = props => {
+export const ICON_SIZE = {
+  [SIZE.NORMAL]: 16,
+  [SIZE.SMALL]: 18,
+  [SIZE.LARGE]: 24
+};
+
+type PropsType = {
+  text?: string,
+  htmlFor?: string,
+  children?: ?Node,
+  iconContent?: ?Node,
+  iconColor?: IconModule.IconColorType,
+  iconType?: IconModule.IconTypeType,
+  size?: SizeType,
+  number?: number,
+  secondary?: number,
+  unstyled?: boolean,
+  emphasised?: boolean,
+  elementsToTop?: boolean,
+  className?: string
+};
+
+const Label = (props: PropsType) => {
   const {
     size = SIZE.NORMAL,
     text,
@@ -29,7 +59,7 @@ const Label = props => {
   } = props;
 
   const labelClass = classNames('sg-label', {
-    [`sg-label--${size.CLASS_NAME}`]: size !== SIZE.NORMAL,
+    [`sg-label--${size}`]: size !== SIZE.NORMAL,
     'sg-label--secondary': secondary,
     'sg-label--unstyled': unstyled,
     'sg-label--emphasised': emphasised,
@@ -48,28 +78,12 @@ const Label = props => {
 
   return (
     <div {...restProps} className={labelClass}>
-      <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={size.ICON_SIZE} />
+      <LabelIcon iconContent={iconContent} iconType={iconType} iconColor={iconColor} iconSize={ICON_SIZE[size]} />
       {textElement}
       {numberElement}
       {children}
     </div>
   );
-};
-
-Label.propTypes = {
-  text: PropTypes.string,
-  htmlFor: PropTypes.string,
-  children: PropTypes.node,
-  iconContent: PropTypes.node,
-  iconColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  iconType: PropTypes.oneOf(Object.values(ICON_TYPE)),
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  number: PropTypes.number,
-  secondary: PropTypes.bool,
-  unstyled: PropTypes.bool,
-  emphasised: PropTypes.bool,
-  elementsToTop: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Label;

@@ -68,7 +68,7 @@ export type IconColorType =
   | 'navy-blue'
   | 'peach';
 
-type IconSizeType =
+export type IconSizeType =
   | 120
   | 118
   | 64

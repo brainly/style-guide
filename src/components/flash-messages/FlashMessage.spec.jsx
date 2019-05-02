@@ -30,15 +30,3 @@ test('type', () => {
 
   expect(messageDiv.hasClass('sg-flash__message--error')).toEqual(true);
 });
-
-test('error when no text', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <FlashMessage type={TYPE.SUCCESS} />);
-
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});

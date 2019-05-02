@@ -1,8 +1,15 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const HeaderContainer = ({children, light, className, ...props}) => {
+type PropsType = {
+  children: Node,
+  light?: boolean,
+  className?: string
+};
+
+const HeaderContainer = ({children, light, className, ...props}: PropsType) => {
 
   const headerContainerClass = classnames('sg-header__container', {
     'sg-header__container--light': light
@@ -13,12 +20,6 @@ const HeaderContainer = ({children, light, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-HeaderContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  light: PropTypes.bool
 };
 
 export default HeaderContainer;
