@@ -33,7 +33,7 @@ type PropsType = {
   iconType?: IconModule.IconTypeType,
   size?: SizeType,
   number?: number,
-  secondary?: number,
+  secondary?: boolean,
   unstyled?: boolean,
   emphasised?: boolean,
   elementsToTop?: boolean,
