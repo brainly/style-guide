@@ -9,7 +9,7 @@ import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const urlParams = queryString.parse(location.search);
+const urlParams = location.hash === '#boxes' ? queryString.parse(location.search) : {};
 
 const Boxes = () => {
   const settings = [
@@ -50,7 +50,7 @@ const Boxes = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Box {...urlParams}>
+        <Box {...urlParams} >
           This is a box.
         </Box>
       </DocsActiveBlock>
