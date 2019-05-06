@@ -3,7 +3,7 @@ import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
 
-type IconTypeType =
+export type IconTypeType =
   | 'answer'
   | 'answered'
   | 'arrow_down'
@@ -54,7 +54,7 @@ type IconTypeType =
   | 'x'
   | 'fb';
 
-type IconColorType =
+export type IconColorType =
   | 'adaptive'
   | 'blue'
   | 'dark'
