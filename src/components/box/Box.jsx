@@ -160,7 +160,7 @@ type BoxPropsType = {
    *            some text
    *          </Box>
    * @see noBorderRadius=true https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=true#boxes
-   * @see noBorderRadius=false https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=true#boxes
+   * @see noBorderRadius=false https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=false#boxes
    * @default false
    */
   noBorderRadius?: ?boolean,
