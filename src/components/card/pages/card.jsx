@@ -5,7 +5,7 @@ import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxContent from 'content-box/ContentBoxContent';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 
 const Cards = () => (
   <div>
@@ -69,7 +69,7 @@ const Cards = () => (
         <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           <ContentBox>
             <ContentBoxHeader>
-              <HeaderSecondary type={HEADER_TYPE.H3}>Ask a question about a school subject</HeaderSecondary>
+              <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
             </ContentBoxHeader>
             <ContentBoxContent>And add some description</ContentBoxContent>
           </ContentBox>

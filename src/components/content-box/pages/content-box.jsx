@@ -14,8 +14,7 @@ import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Link, {LINK_COLOR} from 'text/Link';
-import HeaderPrimary, {HEADER_SIZE, HEADER_TYPE} from 'text/HeaderPrimary';
-import HeaderSecondary from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 
@@ -61,7 +60,7 @@ const spacedTopOptions = (
 const examplePart1 = (
   <ContentBox>
     <ContentBoxTitle>
-      <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+      <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
       <ButtonSecondary>Search!</ButtonSecondary>
@@ -89,7 +88,7 @@ const examplePart1 = (
 const examplePart2 = (
   <ContentBox>
     <ContentBoxTitle>
-      <HeaderPrimary type={HEADER_TYPE.H2}>This is a title for context box</HeaderPrimary>
+      <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
       <ButtonPrimary>Search!</ButtonPrimary>
@@ -143,7 +142,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Simple with title">
       <ContentBox>
         <ContentBoxTitle>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxContent>
           <Text>
@@ -167,7 +166,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Simple with title and header">
       <ContentBox>
         <ContentBoxTitle>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxHeader>
           <Breadcrumbs elements={breadcrumbs} />
@@ -194,7 +193,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Simple with title and header (spaced)">
       <ContentBox spaced>
         <ContentBoxTitle spaced>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spaced>
           <Breadcrumbs elements={breadcrumbs} />
@@ -219,7 +218,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Simple with title and header (spaced small)">
       <ContentBox spaced>
         <ContentBoxTitle spacedSmall>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spacedSmall>
           <Breadcrumbs elements={breadcrumbs} />
@@ -320,7 +319,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Spaced-bottom elements inside" additionalInfo={spacedBottomOptions}>
       <ContentBox>
         <ContentBoxTitle spacedBottom={SIZE.XLARGE}>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxContent spacedBottom={SIZE.XLARGE}>
           <Text>
@@ -336,7 +335,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
       <ContentBox>
         <ContentBoxTitle spacedTop={SIZE.XLARGE}>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxContent spacedTop={SIZE.XLARGE}>
           <Text>
@@ -352,7 +351,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Centered elements inside">
       <ContentBox>
         <ContentBoxTitle align={ALIGNMENT.CENTER}>
-          <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
         </ContentBoxTitle>
         <ContentBoxContent align={ALIGNMENT.CENTER}>
           <Text>
@@ -406,7 +405,7 @@ const ContentBoxes = () => (
           <Breadcrumbs elements={['The Brain', 'Answerer']} />
         </ContentBoxHeader>
         <ContentBoxContent>
-          <HeaderPrimary size={HEADER_SIZE.SMALL}>Hey! Still not sure about the answer?</HeaderPrimary>
+          <Headline size={HEADLINE_SIZE.SMALL}>Hey! Still not sure about the answer?</Headline>
           <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Check similar answers</ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>

@@ -7,7 +7,7 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Text from 'text/Text';
-import HeaderSecondary, {HEADER_TYPE} from 'text/HeaderSecondary';
+import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -41,7 +41,7 @@ const ContentBoxes = () => {
       <DocsActiveBlock settings={settings}>
         <ContentBox>
           <ContentBoxTitle>
-            <HeaderSecondary type={HEADER_TYPE.H2}>This is a title for context box</HeaderSecondary>
+            <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
           </ContentBoxTitle>
           <ContentBoxActions>
             <ButtonSecondary>Search!</ButtonSecondary>
