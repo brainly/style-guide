@@ -178,15 +178,15 @@ type BoxPropsType = {
    *          <Box closeIconColor="DARK">
    *            some text
    *          </Box>
-   * @todo interactive example for this prop missing. Please check twig-compatible docs to see more
+   * @todo add interactive example for this prop
    */
   closeIconColor?: ?CloseIconColorType,
   /**
-   * Callback, called by clicking on **close** button. If specified, button will be aded automatically
+   * Callback, called by clicking on **close** button. If specified, button will be added automatically
    * @example <Box onClose={() => doSomething()}>
    *            some text
    *          </Box>
-   * @todo interactive example for this prop missing. Please check twig-compatible docs to see more
+   * @todo add interactive example for this prop
    */
   onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed)
 };
