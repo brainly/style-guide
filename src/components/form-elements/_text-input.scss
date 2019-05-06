@@ -103,12 +103,12 @@ $includeHtml: false !default;
 
     &--valid {
       color: $inputFocusValidBorderColor;
-      -webkit-text-stroke: 0.5px $inputFocusValidBorderColor; // sass-lint:disable-line no-vendor-prefixes
+      font-weight: $fontWeightBold;
     }
 
     &--invalid {
       color: $inputFocusInvalidBorderColor;
-      -webkit-text-stroke: 0.5px $inputFocusInvalidBorderColor; // sass-lint:disable-line no-vendor-prefixes
+      font-weight: $fontWeightBold;
     }
 
     &--full-width {

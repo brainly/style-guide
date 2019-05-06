@@ -1,8 +1,14 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import OverlayedBox from '../../overlayed-box/OverlayedBox';
 
-const IconAsButtonContent = ({children = null, overlay}) => {
+type IconAsButtonContentType = {
+  children: Node,
+  overlay?: ?Node
+};
+
+const IconAsButtonContent = ({children, overlay}: IconAsButtonContentType) => {
   if (!overlay) {
     return children;
   }
@@ -11,11 +17,6 @@ const IconAsButtonContent = ({children = null, overlay}) => {
       {children}
     </OverlayedBox>
   );
-};
-
-IconAsButtonContent.propTypes = {
-  children: PropTypes.element.isRequired,
-  overlay: PropTypes.node
 };
 
 export default IconAsButtonContent;

@@ -123,20 +123,6 @@ test('no overlay', () => {
   expect(overlayedBox).toHaveLength(0);
 });
 
-test('error when more than 1 child', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <IconAsButton>
-      <div />
-      <div />
-    </IconAsButton>);
-  expect(console.error.mock.calls).toHaveLength(2);
-
-  spy.mockRestore();
-});
-
 test('link as button', () => {
   const type = TYPE.ANSWER;
   const href = 'http://brainly.test';

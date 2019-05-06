@@ -58,20 +58,86 @@ export const CLOSE_ICON_COLOR = {
 };
 
 type BoxPropsType = {
+  /**
+   * Specify inner children components, provided by React and shouldn't be specified manually
+   */
   children?: ?Node,
+  /**
+   * Additional class names
+   */
   className?: ?string,
+  /**
+   * Specify background color
+   * @example
+   * <Box color="mint-secondary">some text</Box>
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   */
   color?: ?ColorType,
+  /**
+   * Specify if **<Box/>** should have borders around
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @default true
+   */
   border?: boolean,
+  /**
+   * Specify if **<Box/>** should *NOT* have min height
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @default false
+   */
   noMinHeight?: ?boolean,
+  /**
+   * Specify if **<Box/>** should take full parents width
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @default false
+   */
   full?: ?boolean,
+  /**
+   * Specify padding sizes for inner content
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   */
   padding?: ?PaddingType,
+  /**
+   * Specify src for image, which will be displayed INSTEAD of inner content
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   */
   imgSrc?: ?string,
+  /**
+   * Specify if border-shadow should be displayed around the **<Box/>**
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @default false
+   */
   shadow?: ?boolean,
+  /**
+   * Specify if **<Box/>** should have flat corners
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @default false
+   */
   noBorderRadius?: ?boolean,
-  onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed),
-  closeIconColor?: ?CloseIconColorType
+  /**
+   * Color of **close** icon. Prop used only in case if **onClose** prop specified as well
+   * @example
+   * // right
+   * <Box onClose={() => doSomething()} closeIconColor="DARK">some text</Box>
+   * // wrong
+   * <Box closeIconColor="DARK">some text</Box>
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   */
+  closeIconColor?: ?CloseIconColorType,
+  /**
+   * Callback, called by clicking on **close** button. If specified, button will be aded automatically
+   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   */
+  onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed)
 };
 
+/**
+ * Container, used for grouping small blocks of information. Highlight any prop to
+ * get detailed prop info.
+ *
+ * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+ *
+ * @returns {JSX.Element} Box component
+ */
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,
   onClose, closeIconColor, className, ...props}: BoxPropsType) => {
   const boxClass = classNames('sg-box', {
