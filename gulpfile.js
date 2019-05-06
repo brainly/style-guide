@@ -33,6 +33,9 @@ const consts = {
   },
   get COMPONENTS() {
     return path.join(this.SRC, 'components');
+  },
+  get LATEST_DIST() {
+    return path.join(this.DIST, 'latest');
   }
 };
 
@@ -66,11 +69,13 @@ gulp.task('copy-static', getTask('copy-static'));
 
 gulp.task('clean:dist', getTask('clean-dist'));
 
+gulp.task('copy-latest', getTask('copy-latest'));
+
 gulp.task('build', function(done) {
   runSequence('clean:dist', 'sass:build', 'sass:docs-build', 'svgs-generate', 'build:react-pages',
     'build:react-iframe-pages', 'build:react-interactive-pages',
     'copy-static', 'fingerprint', 'fingerprint-replace', 'index-fingerprint-replace',
-    'root-redirect-page', done);
+    'root-redirect-page', 'copy-latest', done);
 });
 
 gulp.task('watch',
