@@ -1,8 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const LayoutSecondaryContent = ({children, className, ...props}) => {
+type PropsType = {
+  className?: ?string,
+  children: Node
+};
+
+const LayoutSecondaryContent = ({children, className, ...props}: PropsType) => {
   const layoutClass = classnames('sg-layout__secondary-content', className);
 
   return (
@@ -10,11 +16,6 @@ const LayoutSecondaryContent = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-LayoutSecondaryContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
 };
 
 export default LayoutSecondaryContent;

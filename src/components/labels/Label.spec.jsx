@@ -1,5 +1,5 @@
 import React from 'react';
-import Label, {SIZE, ICON_COLOR, ICON_TYPE, LabelIcon} from './Label';
+import Label, {SIZE, ICON_COLOR, ICON_TYPE, ICON_SIZE, LabelIcon} from './Label';
 import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
 
@@ -38,7 +38,7 @@ describe('Label', () => {
     const icon = label.find(LabelIcon);
 
     expect(label.hasClass('sg-label--small')).toEqual(true);
-    expect(icon.props().iconSize).toEqual(size.ICON_SIZE);
+    expect(icon.props().iconSize).toEqual(ICON_SIZE[size]);
   });
 
   test('default size', () => {
@@ -51,7 +51,7 @@ describe('Label', () => {
 
     expect(label.hasClass('sg-label--small')).toEqual(false);
     expect(label.hasClass('sg-label--large')).toEqual(false);
-    expect(icon.props().iconSize).toEqual(size.ICON_SIZE);
+    expect(icon.props().iconSize).toEqual(ICON_SIZE[size]);
   });
 
   test('secondary label', () => {

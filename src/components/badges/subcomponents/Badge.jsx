@@ -1,6 +1,26 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+export type BadgeSizeType =
+  | 'normal'
+  | 'small'
+  | 'large';
+
+export type BadgeColorType =
+  | 'light'
+  | 'peach'
+  | 'mustard'
+  | 'mint'
+  | 'mint-secondary'
+  | 'blue-secondary'
+  | 'blue'
+  | 'gray-secondary'
+  | 'mint-secondary-light'
+  | 'peach-secondary-light'
+  | 'blue-secondary-light'
+  | 'lavender';
 
 export const BADGE_SIZE = {
   NORMAL: 'normal',
@@ -23,6 +43,15 @@ export const BADGE_COLOR = {
   LAVENDER: 'lavender'
 };
 
+type PropsType = {
+  children: Node,
+  className?: string,
+  color?: BadgeColorType,
+  size?: BadgeSizeType,
+  rounded?: boolean,
+  withAnimation?: boolean
+};
+
 const Badge = ({
   children,
   color = BADGE_COLOR.NORMAL,
@@ -31,7 +60,7 @@ const Badge = ({
   withAnimation,
   className,
   ...props
-}) => {
+}: PropsType) => {
   const badgeClass = classNames('sg-badge', {
     [`sg-badge--${color}`]: color !== BADGE_COLOR.NORMAL,
     [`sg-badge--${size}`]: size !== BADGE_SIZE.NORMAL,
@@ -44,15 +73,6 @@ const Badge = ({
       {children}
     </div>
   );
-};
-
-Badge.propTypes = {
-  color: PropTypes.oneOf(Object.values(BADGE_COLOR)),
-  size: PropTypes.oneOf(Object.values(BADGE_SIZE)),
-  children: PropTypes.node.isRequired,
-  rounded: PropTypes.bool,
-  withAnimation: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Badge;

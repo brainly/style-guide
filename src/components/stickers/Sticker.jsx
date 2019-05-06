@@ -1,9 +1,16 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
-import {TYPE} from '../icons/Icon';
+import * as IconModule from '../icons/Icon';
 import classNames from 'classnames';
 
-const Sticker = ({type, className, ...props}) => {
+const {TYPE} = IconModule;
+
+type PropsType = {
+  type: IconModule.IconTypeType,
+  className?: string
+};
+
+const Sticker = ({type, className, ...props}: PropsType) => {
   const iconType = `#icon-${type}`;
   const stickerClass = classNames('sg-sticker', className);
 
@@ -13,11 +20,6 @@ const Sticker = ({type, className, ...props}) => {
       <use className="sg-sticker__front" xlinkHref={iconType} />
     </svg>
   );
-};
-
-Sticker.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
-  className: PropTypes.string
 };
 
 export default Sticker;

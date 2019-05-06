@@ -1,7 +1,92 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ICON_COLOR} from '../icons/Icon';
+import * as IconModule from '../icons/Icon';
+
+export type IconTypeType =
+  | 'accountancy'
+  | 'administration'
+  | 'agricultural'
+  | 'algebra'
+  | 'all'
+  | 'arabic'
+  | 'art'
+  | 'artmusic'
+  | 'astronomy'
+  | 'belarus'
+  | 'belarus-alt'
+  | 'biology'
+  | 'business'
+  | 'catala'
+  | 'chemistry'
+  | 'chinese'
+  | 'economics'
+  | 'egzam'
+  | 'english'
+  | 'entrepreneurship'
+  | 'environment'
+  | 'ethics'
+  | 'euskara'
+  | 'first-aid'
+  | 'french'
+  | 'galego'
+  | 'geography'
+  | 'geology'
+  | 'geometry'
+  | 'german'
+  | 'grammar'
+  | 'health'
+  | 'history'
+  | 'india-lang'
+  | 'indonesian-lang'
+  | 'informatics'
+  | 'italian'
+  | 'japanese'
+  | 'kazach'
+  | 'kazach-alt'
+  | 'kyrgyz'
+  | 'korean'
+  | 'language'
+  | 'latin'
+  | 'law'
+  | 'life-science'
+  | 'literature'
+  | 'logic'
+  | 'mathematics'
+  | 'music'
+  | 'nigerian-lang'
+  | 'otherlanguages'
+  | 'others'
+  | 'pedagogics'
+  | 'philosophy'
+  | 'physical-education'
+  | 'physics'
+  | 'politics'
+  | 'psychology'
+  | 'religion'
+  | 'rpa-lang'
+  | 'russian'
+  | 'russian-alt'
+  | 'science'
+  | 'security'
+  | 'skills'
+  | 'social-science'
+  | 'sociology'
+  | 'spanish'
+  | 'statistics'
+  | 'technology'
+  | 'tourism'
+  | 'traffic'
+  | 'ukrainian'
+  | 'ukrainian-alt'
+  | 'ukrainian-literature'
+  | 'uzbek'
+  | 'wos';
+
+export type SizeType =
+  | 'small'
+  | 'medium'
+  | 'normal';
 
 export const TYPE = {
   ACCOUNTANCY: 'accountancy',
@@ -90,10 +175,17 @@ export const SIZE = {
   NORMAL: 'normal'
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props}) => {
+type PropsType = {
+  className?: string,
+  type: IconTypeType,
+  size?: SizeType,
+  monoColor?: IconModule.IconColorType
+};
+
+const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props}: PropsType) => {
   const iconClass = classNames('sg-subject-icon', {
     [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
-    [`sg-subject-icon--${monoColor}`]: monoColor !== ICON_COLOR.LIGHT && monoColor !== undefined
+    [`sg-subject-icon--${String(monoColor)}`]: monoColor !== IconModule.ICON_COLOR.LIGHT && monoColor !== undefined
   }, className);
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
 
@@ -104,12 +196,5 @@ const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props})
   );
 };
 
-SubjectIcon.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)).isRequired,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  monoColor: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  className: PropTypes.string
-};
-
 export default SubjectIcon;
-export {ICON_COLOR};
+export {ICON_COLOR} from '../icons/Icon';

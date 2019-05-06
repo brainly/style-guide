@@ -1,15 +1,19 @@
+// @flow
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
+
+type RatingSizeType =
+  | 16
+  | 24;
 
 export const RATING_SIZE = {
   NORMAL: 16,
   LARGE: 24
 };
 
-const generateArrayRange = function(range) {
+const generateArrayRange = function(range: number): Array<number> {
   const array = Array(range);
 
   for (let i = 0; i < range; i++) {
@@ -19,7 +23,23 @@ const generateArrayRange = function(range) {
   return array;
 };
 
-class Rating extends Component {
+type OnMouseEnterType = (index: number, event: SyntheticMouseEvent<HTMLSpanElement>) => mixed;
+
+type PropsType = {
+  size?: RatingSizeType,
+  rate: number,
+  metricSize: number,
+  active?: boolean,
+  onChange: Function,
+  onStarMouseEnter: OnMouseEnterType,
+  onMouseLeave: () => mixed,
+  counterText?: string,
+  activeText?: string,
+  noLabel?: boolean,
+  className?: string
+};
+
+class Rating extends Component<PropsType> {
   static defaultProps = {
     onChange: () => undefined,
     onStarMouseEnter: () => undefined,
@@ -28,34 +48,34 @@ class Rating extends Component {
     rate: 0
   };
 
-  constructor(props) {
+  constructor(props: PropsType) {
     super(props);
 
     this.createStarsOnClickFunctions(this.props.metricSize);
     this.createStarsMouseEnterFunctions(this.props.metricSize);
   }
 
-  starsOnClickFunctions = null;
-  starsOnIconMouseEnterFunctions = null;
+  starsOnClickFunctions: Array<() => mixed> = [];
+  starsMouseEnterFunctions: Array<SyntheticMouseEvent<HTMLSpanElement> => mixed> = [];
 
-  componentWillReciveProps(nextProps) {
+  componentWillReciveProps(nextProps: PropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
       this.createStarsOnClickFunctions(nextProps.metricSize);
       this.createStarsMouseEnterFunctions(this.props.metricSize);
     }
   }
 
-  createStarsOnClickFunctions(metricSize) {
+  createStarsOnClickFunctions(metricSize: number) {
     this.starsOnClickFunctions = generateArrayRange(metricSize).map(rangeIndex => () => this.onClick(rangeIndex));
   }
 
-  createStarsMouseEnterFunctions(metricSize) {
+  createStarsMouseEnterFunctions(metricSize: number) {
     this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(rangeIndex =>
       event => this.onStarMouseEnter(rangeIndex, event)
     );
   }
 
-  onClick = index => {
+  onClick = (index: number) => {
     const {onChange, active} = this.props;
 
     if (!active) {
@@ -66,7 +86,7 @@ class Rating extends Component {
     onChange(ratedStarIndex);
   };
 
-  onStarMouseEnter = (index, event) => {
+  onStarMouseEnter = (index: number, event: SyntheticMouseEvent<HTMLSpanElement>) => {
     const {onStarMouseEnter, active} = this.props;
 
     if (!active) {
@@ -119,19 +139,5 @@ class Rating extends Component {
     );
   }
 }
-
-Rating.propTypes = {
-  size: PropTypes.number,
-  rate: PropTypes.number,
-  metricSize: PropTypes.number,
-  active: PropTypes.bool,
-  onChange: PropTypes.func,
-  onStarMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func,
-  counterText: PropTypes.string,
-  activeText: PropTypes.string,
-  noLabel: PropTypes.bool,
-  className: PropTypes.string
-};
 
 export default Rating;

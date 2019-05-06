@@ -11,16 +11,6 @@ test('render', () => {
   expect(sticker.find('use')).toHaveLength(2);
 });
 
-test('error when no type', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<Sticker />);
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('type passed to xlink:href', () => {
   const type = TYPE.CAMERA;
   const sticker = shallow(

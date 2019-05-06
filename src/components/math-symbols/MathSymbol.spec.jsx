@@ -11,16 +11,6 @@ test('render', () => {
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('error when no type', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<MathSymbol />);
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('type passed to xlink:href', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(

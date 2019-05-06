@@ -1,7 +1,13 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../text/Text';
+import Text from '../text/Text';
+
+export type FlashMessageTypeType =
+  | 'default'
+  | 'success'
+  | 'error'
+  | 'info';
 
 export const TYPE = {
   DEFAULT: 'default',
@@ -10,7 +16,13 @@ export const TYPE = {
   INFO: 'info'
 };
 
-const FlashMessage = ({text, type = TYPE.DEFAULT, className, ...props}) => {
+type PropsType = {
+  text: string,
+  type?: FlashMessageTypeType,
+  className?: string
+};
+
+const FlashMessage = ({text, type = 'default', className, ...props}: PropsType) => {
   const messageClass = classNames('sg-flash__message', {
     [`sg-flash__message--${type}`]: type !== TYPE.DEFAULT
   }, className);
@@ -18,18 +30,12 @@ const FlashMessage = ({text, type = TYPE.DEFAULT, className, ...props}) => {
   return (
     <div {...props} className="sg-flash">
       <div className={messageClass}>
-        <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.DEFAULT} weight={TEXT_WEIGHT.BOLD}>
+        <Text size="small" color="default" weight="bold">
           {text}
         </Text>
       </div>
     </div>
   );
-};
-
-FlashMessage.propTypes = {
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  className: PropTypes.string
 };
 
 export default FlashMessage;

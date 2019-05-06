@@ -1,9 +1,17 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {ElementType} from 'react';
 import classnames from 'classnames';
 
-const MenuItem = ({text, href, type = 'a', className, ...restProps}) => {
-  const Type = type;
+export type PropsType = {
+  className?: string,
+  href?: string,
+  text: string,
+  type?: ElementType
+};
+
+const MenuItem = ({text, href, type, className, ...restProps}: PropsType) => {
+  const Type = type !== undefined ? type : 'a';
   const elementClass = classnames('sg-menu-list__link', className);
 
   return (
@@ -11,13 +19,6 @@ const MenuItem = ({text, href, type = 'a', className, ...restProps}) => {
       <Type className={elementClass} href={href} {...restProps}>{text}</Type>
     </li>
   );
-};
-
-MenuItem.propTypes = {
-  className: PropTypes.string,
-  href: PropTypes.string,
-  text: PropTypes.node.isRequired,
-  type: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
 };
 
 export default MenuItem;

@@ -60,14 +60,4 @@ describe('<Badge />', () => {
 
     expect(badge.hasClass('sg-badge--rounded')).toEqual(true);
   });
-
-  it('logs error when no child has been passed', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    shallow(<Badge />);
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
-  });
 });

@@ -1,6 +1,26 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
+
+export type ColorType =
+  | 'blue'
+  | 'blue-secondary'
+  | 'blue-secondary-light'
+  | 'lavender'
+  | 'lavender-secondary'
+  | 'lavender-secondary-light'
+  | 'mint'
+  | 'mint-secondary'
+  | 'mint-secondary-light'
+  | 'mustard'
+  | 'mustard-secondary'
+  | 'mustard-secondary-light'
+  | 'gray'
+  | 'gray-secondary'
+  | 'gray-secondary-light'
+  | 'gray-secondary-lightest'
+  | 'gray-secondary-ultra-light';
 
 export const CARD_HOLE_COLOR = {
   BLUE: 'blue',
@@ -22,9 +42,15 @@ export const CARD_HOLE_COLOR = {
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light'
 };
 
-const CardHole = ({color, children, className, ...props}) => {
+type PropsType = {
+  children: Node,
+  className?: string,
+  color?: ColorType
+};
+
+const CardHole = ({color, children, className, ...props}: PropsType) => {
   const cardHoleClass = classnames('sg-card__hole', {
-    [`sg-card__hole--${color}`]: color
+    [`sg-card__hole--${String(color)}`]: color
   }, className);
 
   return (
@@ -32,12 +58,6 @@ const CardHole = ({color, children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-CardHole.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  color: PropTypes.oneOf(Object.values(CARD_HOLE_COLOR))
 };
 
 export default CardHole;

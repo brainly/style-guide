@@ -1,8 +1,15 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const Header = ({children, fixed, className, ...props}) => {
+type PropsType = {
+  children: Node,
+  fixed?: boolean,
+  className?: string
+};
+
+const Header = ({children, fixed, className, ...props}: PropsType) => {
 
   const headerClass = classnames('sg-header', {
     'sg-header--fixed': fixed
@@ -13,12 +20,6 @@ const Header = ({children, fixed, className, ...props}) => {
       {children}
     </header>
   );
-};
-
-Header.propTypes = {
-  children: PropTypes.node.isRequired,
-  fixed: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Header;
