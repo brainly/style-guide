@@ -5,7 +5,7 @@ import type {Node} from 'react';
 import classNames from 'classnames';
 
 type PropsType = {
-  items?: Array<Node>,
+  items: Array<Node>,
   extraSpacing?: boolean,
   className?: string
 };

@@ -10,18 +10,6 @@ test('render', () => {
   expect(contrastBox.hasClass('docs-block__contrast-box')).toEqual(true);
 });
 
-test('error when no children', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <ContrastBox />
-  );
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('to bottom', () => {
   const contrastBox = shallow(
     <ContrastBox toBottom>some text</ContrastBox>
