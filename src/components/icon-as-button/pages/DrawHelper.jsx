@@ -1,14 +1,19 @@
+// @flow
 import React from 'react';
 import {contrastBlockCssClass} from 'components/ContrastBox';
 import IconAsButton, {ICON_COLOR} from '../IconAsButton';
+import * as IconModule from '../../icons/Icon';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 
-const DrawHelper = props => {
+type PropsType = {
+  color: IconModule.IconColorType
+};
+
+const DrawHelper = (props: PropsType) => {
   const liClass = classnames('icons-list__element', {
     [contrastBlockCssClass]: props.color === ICON_COLOR.LIGHT
   });
-  const liStyle = {padding: 0};
+  const liStyle = {padding: 0, fill: ''};
 
   if (props.color === ICON_COLOR.ADAPTIVE) {
     liStyle.fill = '#ff00ff';
@@ -20,10 +25,6 @@ const DrawHelper = props => {
       <span>&nbsp; - {props.color}</span>
     </li>
   );
-};
-
-DrawHelper.propTypes = {
-  color: PropTypes.oneOf(Object.values(ICON_COLOR))
 };
 
 export default DrawHelper;

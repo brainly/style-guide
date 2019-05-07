@@ -1,8 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
 
-const FooterLine = ({children, className, ...props}) => {
+type PropsType = {
+  children: Node,
+  className?: string
+};
+
+const FooterLine = ({children, className, ...props}: PropsType) => {
   const footerClass = classNames('sg-footer__line', className);
 
   return (
@@ -10,11 +16,6 @@ const FooterLine = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-FooterLine.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
 };
 
 export default FooterLine;

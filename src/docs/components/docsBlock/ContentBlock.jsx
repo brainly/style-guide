@@ -1,20 +1,21 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const ContentBlock = ({children, toBottom, centered}) => {
+type PropsType = {
+  children?: Node,
+  centered?: boolean,
+  toBottom?: boolean
+};
+
+const ContentBlock = ({children, toBottom, centered}: PropsType) => {
   const contentClass = classnames('docs-block__content', {
     'docs-block__content--to-bottom': toBottom,
     'docs-block__content--centered': centered
   });
 
   return <div className={contentClass}>{children}</div>;
-};
-
-ContentBlock.propTypes = {
-  children: PropTypes.node,
-  centered: PropTypes.bool,
-  toBottom: PropTypes.bool
 };
 
 export default ContentBlock;

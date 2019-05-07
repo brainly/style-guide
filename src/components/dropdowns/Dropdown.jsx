@@ -1,5 +1,5 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import DropdownItem from './DropdownItem';
 
@@ -7,7 +7,21 @@ function getOnClick(onItemClick, id) {
   return () => onItemClick(id);
 }
 
-const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items = [], className}) => {
+type PropsType = {
+  onClick?: SyntheticMouseEvent<HTMLDivElement>,
+  onItemClick: string => mixed,
+  label: string,
+  fullWidth?: boolean,
+  fixed?: boolean,
+  opened?: boolean,
+  items: Array<{
+    id: string,
+    text: string
+  }>,
+  className?: string
+};
+
+const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick, items = [], className}: PropsType) => {
   const dropdownClass = classNames('sg-dropdown', {
     'sg-dropdown--full-width': fullWidth,
     'sg-dropdown--opened': opened
@@ -31,17 +45,6 @@ const Dropdown = ({fixed, label, onClick, fullWidth = true, opened, onItemClick,
       </div>
     </div>
   );
-};
-
-Dropdown.propTypes = {
-  onClick: PropTypes.func,
-  onItemClick: PropTypes.func,
-  label: PropTypes.string.isRequired,
-  fullWidth: PropTypes.bool,
-  fixed: PropTypes.bool,
-  opened: PropTypes.bool,
-  items: PropTypes.array.isRequired,
-  className: PropTypes.string
 };
 
 export default Dropdown;

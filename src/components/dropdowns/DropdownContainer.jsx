@@ -1,24 +1,47 @@
+// @flow strict
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 
-class DropdownContainer extends Component {
+type ItemType = {
+  id: string,
+  text: string
+};
+
+type PropsType = {
+  label: string,
+  fullWidth?: boolean,
+  fixed?: boolean,
+  isOpened?: boolean,
+  items: Array<ItemType>,
+  className?: string,
+  currentItem?: ItemType,
+  onChange: string => mixed,
+  onToggle?: SyntheticMouseEvent<HTMLDivElement>
+};
+
+type StateType = {
+  currentItem: ItemType,
+  label: string
+};
+
+class DropdownContainer extends Component<PropsType, StateType> {
   static defaultProps = {
     items: []
   };
 
   state = {
-    currentItem: this.props.currentItem || {}
+    currentItem: this.props.currentItem || {},
+    label: ''
   };
 
   getLabel() {
     return this.state.currentItem.text || this.props.label || '';
   }
 
-  onItemClick = id => {
+  onItemClick = (id: string) => {
     const currentItem = this.props.items.find(item => item.id === id);
 
-    if (this.state.currentItem && this.state.currentItem.id === currentItem.id) {
+    if (!currentItem || (this.state.currentItem && this.state.currentItem.id === currentItem.id)) {
       return;
     }
 
@@ -44,22 +67,5 @@ class DropdownContainer extends Component {
     );
   }
 }
-
-const itemShape = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
-});
-
-DropdownContainer.propTypes = {
-  fixed: PropTypes.bool,
-  onChange: PropTypes.func,
-  isOpened: PropTypes.bool,
-  onToggle: PropTypes.func,
-  fullWidth: PropTypes.bool,
-  label: PropTypes.string,
-  currentItem: itemShape,
-  items: PropTypes.arrayOf(itemShape),
-  className: PropTypes.string
-};
 
 export default DropdownContainer;

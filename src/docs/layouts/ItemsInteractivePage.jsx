@@ -1,5 +1,5 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
@@ -8,7 +8,11 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-const ItemsInteractivePage = ({navigationIdx}) => {
+type PropsType = {
+  navigationIdx?: number
+};
+
+const ItemsInteractivePage = ({navigationIdx}: PropsType) => {
   const pageConfig = navigation[navigationIdx];
 
   return (
@@ -36,10 +40,6 @@ const ItemsInteractivePage = ({navigationIdx}) => {
       </body>
     </html>
   );
-};
-
-ItemsInteractivePage.propTypes = {
-  navigationIdx: PropTypes.number
 };
 
 export default ItemsInteractivePage;

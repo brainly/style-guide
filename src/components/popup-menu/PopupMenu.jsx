@@ -1,8 +1,16 @@
+// @flow strict
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
 
-const PopupMenu = ({items = [], extraSpacing, className, ...props}) => {
+type PropsType = {
+  items?: Array<Node>,
+  extraSpacing?: boolean,
+  className?: string
+};
+
+const PopupMenu = ({items = [], extraSpacing, className, ...props}: PropsType) => {
   const popupMenuClass = classNames('sg-popup-menu', {
     'sg-popup-menu--elements-spaced': extraSpacing
   }, className);
@@ -12,12 +20,6 @@ const PopupMenu = ({items = [], extraSpacing, className, ...props}) => {
       {items.map((item, i) => <div key={i} className="sg-popup-menu__hole">{item}</div>)}
     </div>
   );
-};
-
-PopupMenu.propTypes = {
-  items: PropTypes.array.isRequired,
-  extraSpacing: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default PopupMenu;

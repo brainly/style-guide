@@ -1,8 +1,24 @@
+// @flow strict
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const Media = props => {
+type PropsType = {
+  aside: Node,
+  contentArray: Array<Node>,
+  toRight?: boolean,
+  focused?: boolean,
+  clickable?: boolean,
+  noPadding?: boolean,
+  transparent?: boolean,
+  graySecondaryLight?: boolean,
+  small?: boolean,
+  spacedBottom?: boolean,
+  className?: string
+};
+
+const Media = (props: PropsType) => {
   const {
     contentArray = [],
     aside,
@@ -39,20 +55,6 @@ const Media = props => {
       </div>
     </div>
   );
-};
-
-Media.propTypes = {
-  aside: PropTypes.node.isRequired,
-  contentArray: PropTypes.arrayOf(PropTypes.node).isRequired,
-  toRight: PropTypes.bool,
-  focused: PropTypes.bool,
-  clickable: PropTypes.bool,
-  noPadding: PropTypes.bool,
-  transparent: PropTypes.bool,
-  graySecondaryLight: PropTypes.bool,
-  small: PropTypes.bool,
-  spacedBottom: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Media;

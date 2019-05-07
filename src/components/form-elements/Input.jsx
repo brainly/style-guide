@@ -69,7 +69,7 @@ export const COLOR = Object.freeze({
   LIGHT_ALT: 'light-alt'
 });
 
-type PropsType = {
+export type PropsType = {
   type?: ?InputType,
   value?: string | number,
   size?: ?InputSizeType,

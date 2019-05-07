@@ -1,17 +1,17 @@
-import PropTypes from 'prop-types';
+// @flow strict
 import React from 'react';
 
-const DropdownItem = ({text, onClick}) => (
+type PropsType = {
+  onClick: SyntheticMouseEvent<HTMLDivElement> => mixed,
+  text: string
+};
+
+const DropdownItem = ({text, onClick}: PropsType) => (
   <div className="sg-dropdown__item-hole" onClick={onClick}>
     <div className="sg-dropdown__item-text">
       {text}
     </div>
   </div>
 );
-
-DropdownItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  text: PropTypes.string.isRequired
-};
 
 export default DropdownItem;
