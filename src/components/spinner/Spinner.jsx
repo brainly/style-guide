@@ -1,6 +1,11 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
+export type SpinnerSizeType =
+  | 'small'
+  | 'xsmall'
+  | 'xxsmall';
 
 export const SPINNER_SIZE = {
   SMALL: 'small',
@@ -8,21 +13,21 @@ export const SPINNER_SIZE = {
   XXSMALL: 'xxsmall'
 };
 
-const Spinner = ({light, size, className, ...props}) => {
+type PropsType = {
+  light?: boolean,
+  size?: SpinnerSizeType,
+  className?: string
+};
+
+const Spinner = ({light, size, className, ...props}: PropsType) => {
   const spinnerClassNames = classNames('sg-spinner', {
     'sg-spinner--light': light,
-    [`sg-spinner--${size}`]: size
+    [`sg-spinner--${String(size)}`]: size
   }, className);
 
   return (
     <div {...props} className={spinnerClassNames} />
   );
-};
-
-Spinner.propTypes = {
-  light: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SPINNER_SIZE)),
-  className: PropTypes.string
 };
 
 export default Spinner;

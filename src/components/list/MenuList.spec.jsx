@@ -45,17 +45,6 @@ describe('<MenuItem />', () => {
     expect(menuItem.find('.sg-menu-list__link')).toHaveLength(1);
   });
 
-  test('throws error when no text', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    shallow(<MenuItem href="#" />);
-
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
-  });
-
   test('renders different type of html element', () => {
     const menuItem = shallow(<MenuItem type="span" text="test" />);
 

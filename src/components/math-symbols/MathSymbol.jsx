@@ -1,7 +1,27 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {ICON_COLOR} from '../icons/Icon';
+import * as IconModule from '../icons/Icon';
+
+const {ICON_COLOR} = IconModule;
+
+export type MathSymbolTypeType =
+  | 'squere-root'
+  | 'nth-root'
+  | 'power'
+  | 'subscript'
+  | 'less-then-or-equal'
+  | 'greater-then-or-equal'
+  | 'inequality'
+  | 'division'
+  | 'pi'
+  | 'alpha'
+  | 'beta'
+  | 'line'
+  | 'limit'
+  | 'matrix'
+  | 'integral'
+  | 'equation-system';
 
 export const MATH_SYMBOL_TYPE = {
   SQUERE_ROOT: 'squere-root',
@@ -29,19 +49,31 @@ const WIDE = [
   MATH_SYMBOL_TYPE.EQUATION_SYSTEM
 ];
 
+export type MathSymbolSizeType =
+  | 'small'
+  | 'medium'
+  | 'normal';
+
 export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal'
 };
 
-const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, className, ...props}) => {
+type PropsType = {
+  type: MathSymbolTypeType,
+  size?: MathSymbolSizeType,
+  color?: IconModule.IconColorType,
+  className?: string
+};
+
+const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}: PropsType) => {
   const isWide = WIDE.indexOf(type) !== -1;
   const iconClass = classNames('sg-math-symbol-icon', {
     [`sg-math-symbol-icon--${size}`]: !isWide && size !== SIZE.NORMAL,
     [`sg-math-symbol-icon--wide-${size}`]: isWide && size !== SIZE.NORMAL,
     'sg-math-symbol-icon--wide': isWide && size === SIZE.NORMAL,
-    [`sg-math-symbol-icon--${color}`]: color
+    [`sg-math-symbol-icon--${String(color)}`]: color
   }, className);
   const iconType = `#sg-math-symbol-icon-${type}`;
 
@@ -50,13 +82,6 @@ const MathSymbol = ({type = MATH_SYMBOL_TYPE, size = SIZE.NORMAL, color, classNa
       <use xlinkHref={iconType} />
     </svg>
   );
-};
-
-MathSymbol.propTypes = {
-  type: PropTypes.oneOf(Object.values(MATH_SYMBOL_TYPE)).isRequired,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  color: PropTypes.oneOf(Object.values(ICON_COLOR)),
-  className: PropTypes.string
 };
 
 export default MathSymbol;

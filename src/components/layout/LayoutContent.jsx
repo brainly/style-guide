@@ -1,8 +1,16 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
 
-const LayoutContent = ({children, noMaxWidth, center, className, ...props}) => {
+type PropsType = {
+  className?: ?string,
+  children: Node,
+  noMaxWidth?: boolean,
+  center?: boolean
+};
+
+const LayoutContent = ({children, noMaxWidth, center, className, ...props}: PropsType) => {
   const layoutContentClass = classNames('sg-layout__content', {
     'sg-layout__content--no-max-width': noMaxWidth,
     'sg-layout__content--center': center
@@ -13,13 +21,6 @@ const LayoutContent = ({children, noMaxWidth, center, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-LayoutContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  noMaxWidth: PropTypes.bool,
-  center: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default LayoutContent;

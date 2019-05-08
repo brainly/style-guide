@@ -1,8 +1,15 @@
+// @flow strict
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import React from 'react';
 
-const List = ({spaced, className, children, ...props}) => {
+type PropsType = {
+  children?: Node,
+  spaced?: boolean,
+  className?: string
+};
+
+const List = ({spaced, className, children, ...props}: PropsType) => {
   const listClass = classNames('sg-list', {
     'sg-list--spaced-elements': spaced
   }, className);
@@ -12,12 +19,6 @@ const List = ({spaced, className, children, ...props}) => {
       {children}
     </ul>
   );
-};
-
-List.propTypes = {
-  children: PropTypes.node,
-  spaced: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default List;

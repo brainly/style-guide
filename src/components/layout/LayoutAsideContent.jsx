@@ -1,9 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const LayoutAsideContent = ({children, className, ...props}) => {
+type PropsType = {
+  className?: ?string,
+  children: Node
+};
 
+const LayoutAsideContent = ({children, className, ...props}: PropsType) => {
   const layoutClass = classnames('sg-layout__aside-content', className);
 
   return (
@@ -11,11 +16,6 @@ const LayoutAsideContent = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-LayoutAsideContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string
 };
 
 export default LayoutAsideContent;

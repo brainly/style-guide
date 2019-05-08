@@ -1,6 +1,20 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classNames from 'classnames';
+
+type PropsType = {
+  className?: string,
+  children: Node,
+  header?: Node,
+  footer?: Node,
+  noMaxWidth?: boolean,
+  noMarginTop?: boolean,
+  reversedOrder?: boolean,
+  fullPage?: boolean,
+  wide?: boolean,
+  threeColumns?: boolean
+};
 
 const Layout = ({
   children,
@@ -14,7 +28,7 @@ const Layout = ({
   threeColumns,
   className,
   ...props
-}) => {
+}: PropsType) => {
   const layoutClass = classNames('sg-layout', className, {
     'sg-layout--three-columns': threeColumns
   });
@@ -26,7 +40,7 @@ const Layout = ({
   });
   let footerContent;
 
-  if (footer) {
+  if (footer !== undefined) {
     footerContent = <div className="sg-layout__footer">{footer}</div>;
   }
 
@@ -39,19 +53,6 @@ const Layout = ({
       {footerContent}
     </div>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-  header: PropTypes.node,
-  footer: PropTypes.node,
-  reversedOrder: PropTypes.bool,
-  noMaxWidth: PropTypes.bool,
-  noMarginTop: PropTypes.bool,
-  fullPage: PropTypes.bool,
-  wide: PropTypes.bool,
-  threeColumns: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default Layout;

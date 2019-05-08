@@ -1,7 +1,13 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
+
+export type TopLayerSizeType =
+  | 'small'
+  | 'medium'
+  | 'large';
 
 export const SIZE = {
   SMALL: 'small',
@@ -9,7 +15,24 @@ export const SIZE = {
   LARGE: 'large'
 };
 
-const TopLayer = props => {
+export type PropsType = {
+  children: Node,
+  onClose?: SyntheticMouseEvent<HTMLDivElement> => mixed,
+  lead?: boolean,
+  fill?: boolean,
+  modal?: boolean,
+  withBugbox?: boolean,
+  smallSpaced?: boolean,
+  splashScreen?: boolean,
+  limitedWidth?: boolean,
+  row?: boolean,
+  size?: TopLayerSizeType,
+  transparent?: boolean,
+  noPadding?: boolean,
+  className?: string
+};
+
+const TopLayer = (props: PropsType) => {
   const {
     children,
     onClose,
@@ -38,7 +61,7 @@ const TopLayer = props => {
     'sg-toplayer--limited-width': limitedWidth,
     'sg-toplayer--row': row,
     'sg-toplayer--transparent': transparent,
-    [`sg-toplayer--${size}`]: size
+    [`sg-toplayer--${String(size)}`]: size
   }, className);
 
   const toplayerWrapperClassName = classnames('sg-toplayer__wrapper', {
@@ -57,23 +80,6 @@ const TopLayer = props => {
       </div>
     </div>
   );
-};
-
-TopLayer.propTypes = {
-  children: PropTypes.node.isRequired,
-  onClose: PropTypes.func,
-  lead: PropTypes.bool,
-  fill: PropTypes.bool,
-  modal: PropTypes.bool,
-  withBugbox: PropTypes.bool,
-  smallSpaced: PropTypes.bool,
-  splashScreen: PropTypes.bool,
-  limitedWidth: PropTypes.bool,
-  row: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  transparent: PropTypes.bool,
-  noPadding: PropTypes.bool,
-  className: PropTypes.string
 };
 
 export default TopLayer;

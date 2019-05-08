@@ -1,8 +1,15 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const HeaderContent = ({children, autoHeight = false, className, ...props}) => {
+type PropsType = {
+  children: Node,
+  autoHeight?: boolean,
+  className?: string
+};
+
+const HeaderContent = ({children, autoHeight, className, ...props}: PropsType) => {
 
   const headerContentClass = classnames('sg-header__content', {
     'sg-header__content--auto-height': autoHeight
@@ -13,12 +20,6 @@ const HeaderContent = ({children, autoHeight = false, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-HeaderContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  autoHeight: PropTypes.bool
 };
 
 export default HeaderContent;

@@ -1,8 +1,20 @@
+// @flow strict
 import React from 'react';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
 
 export const BASE_URL = 'https://styleguide.brainly.com/images/logos/';
+
+export type LogoTypeType =
+  | 'brainly'
+  | 'eodev'
+  | 'nosdevoirs'
+  | 'znanija'
+  | 'znanija-plus'
+  | 'znanija-plus-inverse'
+  | 'znanija-plus-small'
+  | 'brainly-plus'
+  | 'brainly-plus-inverse'
+  | 'brainly-plus-small';
 
 export const TYPE = {
   BRAINLY: 'brainly',
@@ -18,19 +30,24 @@ export const TYPE = {
 };
 
 export const LOGOS = {
-  'brainly': 'brainly-761d75d6ea',
-  'eodev': 'eodev-1972bd4349',
-  'nosdevoirs': 'nosdevoirs-e2d5d17215',
-  'znanija': 'znanija-addd85e6f5',
-  'znanija-plus': 'znanija-plus-e62f1437d9',
-  'znanija-plus-inverse': 'znanija-plus-inverse-106aa465e9',
-  'znanija-plus-small': 'znanija-plus-small-edf813672e',
-  'brainly-plus': 'brainly-plus-42debebd42',
-  'brainly-plus-inverse': 'brainly-plus-inverse-b9b5efbf59',
-  'brainly-plus-small': 'brainly-plus-small-9dd3b24a28'
+  [TYPE.BRAINLY]: 'brainly-761d75d6ea',
+  [TYPE.EODEV]: 'eodev-1972bd4349',
+  [TYPE.NOSDEVOIRS]: 'nosdevoirs-e2d5d17215',
+  [TYPE.ZNANIJA]: 'znanija-addd85e6f5',
+  [TYPE.ZNANIJA_PLUS]: 'znanija-plus-e62f1437d9',
+  [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-106aa465e9',
+  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-edf813672e',
+  [TYPE.BRAINLY_PLUS]: 'brainly-plus-42debebd42',
+  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-b9b5efbf59',
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-9dd3b24a28'
 };
 
-const Logo = ({type = TYPE.BRAINLY, className, ...props}) => {
+type PropsType = {
+  className?: string,
+  type?: LogoTypeType
+};
+
+const Logo = ({type = TYPE.BRAINLY, className, ...props}: PropsType) => {
 
   const logoClass = classnames('sg-logo', {
     [`sg-logo--${type}`]: type !== TYPE.BRAINLY
@@ -43,11 +60,6 @@ const Logo = ({type = TYPE.BRAINLY, className, ...props}) => {
       <img className="sg-logo__image" src={logoPath} />
     </div>
   );
-};
-
-Logo.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  className: PropTypes.string
 };
 
 export default Logo;

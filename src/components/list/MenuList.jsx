@@ -1,7 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import MenuItem from './subcomponents/MenuItem';
+import * as MenuItemModule from './subcomponents/MenuItem';
+
+const {default: MenuItem} = MenuItemModule;
+
+export type SizeType =
+  | 'small'
+  | 'normal'
+  | 'large';
 
 export const SIZE = {
   SMALL: 'small',
@@ -9,7 +16,13 @@ export const SIZE = {
   LARGE: 'large'
 };
 
-const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}) => {
+type PropsType = {
+  size?: SizeType,
+  className?: string,
+  items?: Array<MenuItemModule.PropsType>
+};
+
+const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}: PropsType) => {
   const listClass = classNames('sg-menu-list', {
     [`sg-menu-list--${size}`]: size !== SIZE.NORMAL
   }, className);
@@ -21,12 +34,6 @@ const MenuList = ({items = [], size = SIZE.NORMAL, className, ...props}) => {
       )}
     </ul>
   );
-};
-
-MenuList.propTypes = {
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  items: PropTypes.array.isRequired,
-  className: PropTypes.string
 };
 
 export default MenuList;

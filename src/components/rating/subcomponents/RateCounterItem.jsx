@@ -1,7 +1,11 @@
+// @flow strict
 import React, {Fragment} from 'react';
-import PropTypes from 'prop-types';
 
-const RateCounterItem = ({text}) => (
+type PropsType = {
+  text?: string
+};
+
+const RateCounterItem = ({text}: PropsType) => (
   <Fragment>
     <div className="sg-rate-box__counter-item-static">
       {text}
@@ -11,9 +15,5 @@ const RateCounterItem = ({text}) => (
     </div>
   </Fragment>
 );
-
-RateCounterItem.propTypes = {
-  text: PropTypes.string
-};
 
 export default RateCounterItem;

@@ -19,13 +19,3 @@ test('darker', () => {
 
   expect(box.hasClass('sg-subject-icon-box--darker')).toEqual(true);
 });
-
-test('error when no type', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(<SubjectIconBox />);
-  expect(console.error.mock.calls).toHaveLength(2);
-
-  spy.mockRestore();
-});

@@ -1,23 +1,52 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
 
-const DEFAULT_ICON = ICON_TYPE.PROFILE;
-const DEFAULT_COLOR = ICON_COLOR.GRAY_SECONDARY;
-const BORDER_SIZE = 2;
+export type AvatarSizeType =
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
 
 export const SIZE = {
-  SMALL: {className: 'small', iconSize: 24},
-  NORMAL: {className: 'normal', iconSize: 32},
-  LARGE: {className: 'large', iconSize: 48},
-  XLARGE: {className: 'xlarge', iconSize: 64},
-  XXLARGE: {className: 'xxlarge', iconSize: 120}
+  SMALL: 'small',
+  NORMAL: 'normal',
+  LARGE: 'large',
+  XLARGE: 'xlarge',
+  XXLARGE: 'xxlarge'
 };
 
-const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, link, title, ...props}) => {
+export const ICON_SIZE_FOR_AVATARS_WITH_BORDER = {
+  [SIZE.SMALL]: 22,
+  [SIZE.NORMAL]: 30,
+  [SIZE.LARGE]: 46,
+  [SIZE.XLARGE]: 62,
+  [SIZE.XXLARGE]: 118
+};
+
+export const ICON_SIZE = {
+  [SIZE.SMALL]: 24,
+  [SIZE.NORMAL]: 32,
+  [SIZE.LARGE]: 48,
+  [SIZE.XLARGE]: 64,
+  [SIZE.XXLARGE]: 120
+};
+
+type PropsType = {
+  size?: AvatarSizeType,
+  border?: boolean,
+  spaced?: boolean,
+  imgSrc?: string,
+  className?: string,
+  title?: string,
+  link?: string
+};
+
+const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, link, title, ...props}: PropsType) => {
   const avatarClass = classNames('sg-avatar', {
-    [`sg-avatar--${size.className}`]: size !== SIZE.normal,
+    [`sg-avatar--${size}`]: size !== SIZE.NORMAL,
     'sg-avatar--with-border': border,
     'sg-avatar--spaced': spaced
   }, className);
@@ -29,7 +58,11 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
   } else {
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
-        <Icon type={DEFAULT_ICON} color={DEFAULT_COLOR} size={border ? size.iconSize - BORDER_SIZE : size.iconSize} />
+        <Icon
+          type="profile"
+          color="gray-secondary"
+          size={border ? ICON_SIZE_FOR_AVATARS_WITH_BORDER[size] : ICON_SIZE[size]}
+        />
       </div>
     );
   }
@@ -39,16 +72,6 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
       {link ? <a href={link} title={title}>{avatarContent}</a> : avatarContent}
     </div>
   );
-};
-
-Avatar.propTypes = {
-  size: PropTypes.oneOf(Object.values(SIZE)),
-  border: PropTypes.bool,
-  spaced: PropTypes.bool,
-  imgSrc: PropTypes.string,
-  className: PropTypes.string,
-  title: PropTypes.string,
-  link: PropTypes.string
 };
 
 export default Avatar;

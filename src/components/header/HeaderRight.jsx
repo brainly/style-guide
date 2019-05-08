@@ -1,8 +1,14 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
-const HeaderRight = ({children, className, ...props}) => {
+type PropsType = {
+  children?: Node,
+  className?: string
+};
+
+const HeaderRight = ({children, className, ...props}: PropsType) => {
   const headerClass = classnames('sg-header__right', className);
 
   return (
@@ -10,11 +16,6 @@ const HeaderRight = ({children, className, ...props}) => {
       {children}
     </div>
   );
-};
-
-HeaderRight.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
 };
 
 export default HeaderRight;

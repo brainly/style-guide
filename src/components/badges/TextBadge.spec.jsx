@@ -67,27 +67,4 @@ describe('<TextBadge />', () => {
 
     expect(badge.props().rounded).toEqual(true);
   });
-
-  it('logs error when has no child', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    shallow(<TextBadge />);
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
-  });
-
-  it('logs error when passing a react element as a child', () => {
-    const spy = jest.spyOn(console, 'error');
-
-    console.error = jest.fn();
-    shallow(
-      <TextBadge>
-        <div>asd</div>
-      </TextBadge>);
-    expect(console.error.mock.calls).toHaveLength(1);
-
-    spy.mockRestore();
-  });
 });
