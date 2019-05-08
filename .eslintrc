@@ -9,5 +9,8 @@
     "./node_modules/frontend-tools-configs/eslint/redux.js",
     "./node_modules/frontend-tools-configs/eslint/babel.js",
     "./node_modules/frontend-tools-configs/eslint/flow.js"
-  ]
+  ],
+  "rules": {
+    "max-len": ["error", { "code": 120, "ignoreComments": true }]
+  }
 }
