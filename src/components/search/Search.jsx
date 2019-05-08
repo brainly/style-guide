@@ -9,7 +9,7 @@ const {default: Input, COLOR, SIZE} = InputModule;
 type PropsType = {
   adaptiveIco?: boolean,
   className?: string,
-  ...InputModule.PropsType
+  ...InputModule.InputPropsType
 };
 
 const Search = ({adaptiveIco, className, ...additionalProps}: PropsType) => {
