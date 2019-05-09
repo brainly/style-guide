@@ -45,8 +45,8 @@
     "run-sequence": "^1.1.1",
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
+    "terser-webpack-plugin": "^1.2.3",
     "through2": "^2.0.3",
-    "uglifyjs-webpack-plugin": "^2.1.2",
     "webpack": "^4.6.0",
     "yargs": "^4.3.1"
   },
