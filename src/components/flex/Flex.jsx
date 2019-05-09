@@ -6,10 +6,9 @@ import {
   FLEX_DIRECTION,
   FLEX_DISPLAY,
   FLEX_JUSTIFY_VALUES,
-  FLEX_ALIGNMENT_VALUES
+  FLEX_ALIGNMENT_VALUES,
+  SPACING_SET
 } from './FlexConsts';
-import {SPACING_SET} from './styledConsts';
-import style from './flex.css';
 
 export {
   FLEX_DIRECTION,

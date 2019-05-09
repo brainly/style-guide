@@ -1,12 +1,12 @@
-@value sizeXxxl, sizeXxl, sizeXl, sizeL, sizeM, sizeS, sizeXs from '@brainly/style-guide-basics';
-
-$flexSpacing_xs: spacing(xs);
-$flexSpacing_s: spacing(s);
-$flexSpacing_m: spacing(m);
-$flexSpacing_l: spacing(l);
-$flexSpacing_xl: spacing(xl);
-$flexSpacing_xxl: spacing(xxl);
-$flexSpacing_xxxl: spacing(xxxl);
+$flexSpacingsMap: (
+  'xs': spacing(xs),
+  's': spacing(s),
+  'm': spacing(m),
+  'l': spacing(l),
+  'xl': spacing(xl),
+  'xxl': spacing(xxl),
+  'xxxl': spacing(xxxl),
+);
 
 .sg-flex {
   display: flex;
@@ -124,24 +124,24 @@ $flexSpacing_xxxl: spacing(xxxl);
   }
 }
 
-@each $size in (xs, s, m, l, xl, xxl, xxxl) {
-  .sg-flex--margin-$(size) {
-    margin: flexSpacing_$(size);
+@each $sizeName, $size in $flexSpacingsMap {
+  .sg-flex--margin-#{$sizeName} {
+    margin: #{$size};
   }
 
-  .sg-flex--margin-top-$(size) {
-    margin-top: flexSpacing_$(size);
+  .sg-flex--margin-top-#{$sizeName} {
+    margin-top: #{$size};
   }
 
-  .sg-flex--margin-right-$(size) {
-    margin-right: flexSpacing_$(size);
+  .sg-flex--margin-right-#{$sizeName} {
+    margin-right: #{$size};
   }
 
-  .sg-flex--margin-bottom-$(size) {
-    margin-bottom: flexSpacing_$(size);
+  .sg-flex--margin-bottom-#{$sizeName} {
+    margin-bottom: #{$size};
   }
 
-  .sg-flex--margin-left-$(size) {
-    margin-left: flexSpacing_$(size);
+  .sg-flex--margin-left-#{$sizeName} {
+    margin-left: #{$size};
   }
 }
