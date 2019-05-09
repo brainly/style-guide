@@ -1,7 +1,19 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const Head = ({page = {}, site = {}}) => (
+type PropsType = {
+  page?: {
+    title: string,
+    excerpt: string
+  },
+  site?: {
+    title: string,
+    description: string,
+    baseurl: string
+  }
+};
+
+const Head = ({page = {}, site = {}}: PropsType) => (
   <head>
     <meta charSet="utf-8" />
     <title>{page.title || site.title}</title>
@@ -21,10 +33,5 @@ const Head = ({page = {}, site = {}}) => (
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js" />
   </head>
 );
-
-Head.propTypes = {
-  page: PropTypes.object,
-  site: PropTypes.object
-};
 
 export default Head;

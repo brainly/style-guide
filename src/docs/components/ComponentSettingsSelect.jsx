@@ -1,8 +1,15 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Select from 'form-elements/Select';
 
-const ComponentSettingsSelect = ({values, currentValue, required, onChange}) => {
+type PropsType = {
+  values: {[string]: number | string | boolean},
+  required: boolean,
+  onChange: string => mixed,
+  currentValue?: number | string | boolean
+};
+
+const ComponentSettingsSelect = ({values, currentValue, required, onChange}: PropsType) => {
   const allowedKeys = Object.keys(values);
   const selectedKey = allowedKeys.find(optionKey => values[optionKey] === currentValue);
 
@@ -20,13 +27,6 @@ const ComponentSettingsSelect = ({values, currentValue, required, onChange}) => 
   }
 
   return <Select onChange={inputChanged} value={selectedKey} options={options} />;
-};
-
-ComponentSettingsSelect.propTypes = {
-  values: PropTypes.object.isRequired,
-  currentValue: PropTypes.any,
-  required: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired
 };
 
 export default ComponentSettingsSelect;

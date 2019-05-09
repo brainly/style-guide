@@ -1,7 +1,13 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 
-const InfoBlock = ({info, additionalInfo}) => {
+type PropsType = {
+  additionalInfo?: Node,
+  info?: Node
+};
+
+const InfoBlock = ({info, additionalInfo}: PropsType) => {
   if (!info && !additionalInfo) {
     return null;
   }
@@ -17,11 +23,6 @@ const InfoBlock = ({info, additionalInfo}) => {
       {additionalInfo}
     </aside>
   );
-};
-
-InfoBlock.propTypes = {
-  additionalInfo: PropTypes.node,
-  info: PropTypes.node
 };
 
 export default InfoBlock;

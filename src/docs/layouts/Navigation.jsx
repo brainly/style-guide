@@ -1,8 +1,18 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import slugify from '../slugify';
 
-const Navigation = ({navigation, version}) => (
+type PropsType = {
+  version: string,
+  navigation: Array<{
+    name: string,
+    elements: Array<{
+      name: string
+    }>
+  }>
+};
+
+const Navigation = ({navigation, version}: PropsType) => (
   <nav className="main-menu">
     <a href="./" className="main-menu__home">
       <img src="images/logos/brainly-mobile.svg" />
@@ -40,10 +50,5 @@ const Navigation = ({navigation, version}) => (
     <script src="js/search-and-holes.js" />
   </nav>
 );
-
-Navigation.propTypes = {
-  navigation: PropTypes.array,
-  version: PropTypes.string
-};
 
 export default Navigation;

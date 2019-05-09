@@ -1,5 +1,6 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
@@ -8,7 +9,11 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-const ItemsPage = ({children}) => (
+type PropsType = {
+  children?: Node
+};
+
+const ItemsPage = ({children}: PropsType) => (
   <html>
     <Head site={site} />
     <body>
@@ -21,9 +26,5 @@ const ItemsPage = ({children}) => (
     </body>
   </html>
 );
-
-ItemsPage.propTypes = {
-  children: PropTypes.node
-};
 
 export default ItemsPage;

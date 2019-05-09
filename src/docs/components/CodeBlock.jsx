@@ -1,13 +1,24 @@
+// @flow
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
+// $FlowFixMe
 import beautify from 'html_beautify';
+// $FlowFixMe
 import hljs from 'hljs';
 import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
-class CodeBlock extends Component {
+type PropsType = {
+  children: Node,
+  type: string
+};
+
+class CodeBlock extends Component<PropsType> {
   componentDidMount() {
     this.prepareClipboard();
   }
+
+  copyButton: ?HTMLDivElement;
+  copyCode: ?HTMLElement;
 
   prepareClipboard() {
     const copyButton = this.copyButton;
@@ -20,11 +31,11 @@ class CodeBlock extends Component {
     });
   }
 
-  copyCodeFunction = node => {
+  copyCodeFunction = (node: ?HTMLElement) => {
     this.copyCode = node;
   };
 
-  copyButtonFunction = node => {
+  copyButtonFunction = (node: ?HTMLDivElement) => {
     this.copyButton = node;
   };
 
@@ -78,10 +89,5 @@ class CodeBlock extends Component {
     );
   }
 }
-
-CodeBlock.propTypes = {
-  children: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired
-};
 
 export default CodeBlock;
