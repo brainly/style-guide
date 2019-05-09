@@ -1,9 +1,19 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import InfoBlock from './docsBlock/InfoBlock';
 import ContentBlock from './docsBlock/ContentBlock';
 
-const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom, centered}) => (
+type PropsType = {
+  additionalInfo?: Node,
+  info?: Node,
+  children?: Node,
+  multiContent?: Array<Node>,
+  toBottom?: boolean,
+  centered?: boolean
+};
+
+const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom, centered}: PropsType) => (
   <section className="docs-block">
     <InfoBlock info={info} additionalInfo={additionalInfo} />
     <ContentBlock toBottom={toBottom} centered={centered}>{children}</ContentBlock>
@@ -12,15 +22,6 @@ const DocsBlock = ({info, additionalInfo, children, multiContent = [], toBottom,
     )}
   </section>
 );
-
-DocsBlock.propTypes = {
-  toBottom: PropTypes.bool,
-  centered: PropTypes.bool,
-  multiContent: PropTypes.arrayOf(PropTypes.node),
-  children: PropTypes.node,
-  additionalInfo: PropTypes.node,
-  info: PropTypes.node
-};
 
 export default DocsBlock;
 export {InfoBlock, ContentBlock};

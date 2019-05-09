@@ -1,9 +1,19 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Node} from 'react';
 import classnames from 'classnames';
 
+type PropsType = {
+  children: Node,
+  toBottom?: boolean,
+  smallPadding?: boolean,
+  light?: boolean,
+  fullWidth?: boolean,
+  narrow?: boolean
+};
+
 const contrastBlockCssClass = 'docs-block__contrast-box';
-const ContrastBox = ({toBottom, smallPadding, light, fullWidth, narrow, children}) => {
+const ContrastBox = ({toBottom, smallPadding, light, fullWidth, narrow, children}: PropsType) => {
   const cssClass = classnames(contrastBlockCssClass, {
     'docs-block__contrast-box--to-bottom': toBottom,
     'docs-block__contrast-box--small-padding': smallPadding,
@@ -17,15 +27,6 @@ const ContrastBox = ({toBottom, smallPadding, light, fullWidth, narrow, children
       {children}
     </section>
   );
-};
-
-ContrastBox.propTypes = {
-  children: PropTypes.node.isRequired,
-  toBottom: PropTypes.bool,
-  smallPadding: PropTypes.bool,
-  light: PropTypes.bool,
-  fullWidth: PropTypes.bool,
-  narrow: PropTypes.bool
 };
 
 export default ContrastBox;

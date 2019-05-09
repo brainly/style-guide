@@ -19,30 +19,6 @@ test('render', () => {
   expect(media.find('.sg-media__content')).toHaveLength(defaultProps.contentArray.length);
 });
 
-test('error when no aside', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <Media contentArray={defaultProps.contentArray} />
-  );
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
-test('error when no content array', () => {
-  const spy = jest.spyOn(console, 'error');
-
-  console.error = jest.fn();
-  shallow(
-    <Media aside={defaultProps.aside} />
-  );
-  expect(console.error.mock.calls).toHaveLength(1);
-
-  spy.mockRestore();
-});
-
 test('testing modifications - all on', () => {
   const media = shallow(
     <Media

@@ -1,5 +1,5 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Text, {TEXT_SIZE, TEXT_COLOR} from 'text/Text';
 
 import Radio from 'form-elements/Radio';
@@ -7,9 +7,17 @@ import ActionList from 'action-list/ActionList';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import UUID from 'node-uuid';
 
-class DocsActiveBlockSettings extends React.Component {
+type PropsType = {
+  values: {
+    showCode: ?string,
+    changeBackground: 'light' | 'dark' | 'none'
+  },
+  onChange: (string, mixed) => mixed
+};
 
-  onChangeFunc = (type, value) => this.props.onChange(type, value);
+class DocsActiveBlockSettings extends React.Component<PropsType> {
+
+  onChangeFunc = (type: string, value: mixed) => this.props.onChange(type, value);
   onChangeShowNothing = () => this.onChangeFunc('showCode', null);
   onChangeShowJSX = () => this.onChangeFunc('showCode', 'jsx');
   onChangeShowHTML = () => this.onChangeFunc('showCode', 'html');
@@ -72,10 +80,5 @@ class DocsActiveBlockSettings extends React.Component {
       </div>);
   }
 }
-
-DocsActiveBlockSettings.propTypes = {
-  values: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired
-};
 
 export default DocsActiveBlockSettings;
