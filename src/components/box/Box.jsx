@@ -59,7 +59,16 @@ export const CLOSE_ICON_COLOR = {
 
 type BoxPropsType = {
   /**
-   * Specify inner children components, provided by React and shouldn't be specified manually
+   * Children to be render inside of the Box. Takes no effect if **imgSrc** prop specified.
+   * @example <Box>
+   *            some child
+   *          </Box>
+   *
+   *          // child from box below won't be rendered
+   *          <Box imgSrc="https://some_url">
+   *            THIS CONTENT WILL
+   *            BE REPLACED BY IMAGE
+   *          </Box>
    */
   children?: ?Node,
   /**
@@ -68,64 +77,116 @@ type BoxPropsType = {
   className?: ?string,
   /**
    * Specify background color
-   * @example
-   * <Box color="mint-secondary">some text</Box>
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box color="mint-secondary">
+   *            some text
+   *          </Box>
+   * @see color=blue https://styleguide.brainly.com/latest/docs/interactive.html?color=blue#boxes
+   * @see color=lavender https://styleguide.brainly.com/latest/docs/interactive.html?color=lavender#boxes
+   * @see color=dark https://styleguide.brainly.com/latest/docs/interactive.html?color=dark#boxes
+   * @see color=mint https://styleguide.brainly.com/latest/docs/interactive.html?color=mint#boxes
+   * @see color=mint-secondary https://styleguide.brainly.com/latest/docs/interactive.html?color=mint-secondary#boxes
+   * @see color=mint-secondary-light https://styleguide.brainly.com/latest/docs/interactive.html?color=mint-secondary-light#boxes
+   * @see color=navyblue-secondary https://styleguide.brainly.com/latest/docs/interactive.html?color=navyblue-secondary#boxes
+   * @see color=blue-secondary https://styleguide.brainly.com/latest/docs/interactive.html?color=blue-secondary#boxes
+   * @see color=blue-secondary-light https://styleguide.brainly.com/latest/docs/interactive.html?color=blue-secondary-light#boxes
+   * @see color=gray-secondary-lightest https://styleguide.brainly.com/latest/docs/interactive.html?color=gray-secondary-lightest#boxes
+   * @see color=gray-secondary-ultra-light https://styleguide.brainly.com/latest/docs/interactive.html?color=gray-secondary-ultra-light#boxes
+   * @see color=peach https://styleguide.brainly.com/latest/docs/interactive.html?color=peach#boxes
    */
   color?: ?ColorType,
   /**
    * Specify if **<Box/>** should have borders around
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box border={false}>
+   *            some text
+   *          </Box>
+   * @see border=true https://styleguide.brainly.com/latest/docs/interactive.html?border=false#boxes
+   * @see border=false https://styleguide.brainly.com/latest/docs/interactive.html?border=false#boxes
    * @default true
    */
   border?: boolean,
   /**
    * Specify if **<Box/>** should *NOT* have min height
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box noMinHeight>
+   *            some text
+   *          </Box>
+   * @see noMinHeight=true https://styleguide.brainly.com/latest/docs/interactive.html?noMinHeight=true#boxes
+   * @see noMinHeight=false https://styleguide.brainly.com/latest/docs/interactive.html?noMinHeight=false#boxes
    * @default false
    */
   noMinHeight?: ?boolean,
   /**
    * Specify if **<Box/>** should take full parents width
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box full>
+   *            some text
+   *          </Box>
+   * @see full=true https://styleguide.brainly.com/latest/docs/interactive.html?full=true#boxes
+   * @see full=false https://styleguide.brainly.com/latest/docs/interactive.html?full=false#boxes
    * @default false
    */
   full?: ?boolean,
   /**
    * Specify padding sizes for inner content
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box padding="large-padding">
+   *            some text
+   *          </Box>
+   * @see no-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=no-padding#boxes
+   * @see small-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=small-padding#boxes
+   * @see xsmall-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=xsmall-padding#boxes
+   * @see xxsmall-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=xxsmall-padding#boxes
+   * @see large-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=large-padding#boxes
    */
   padding?: ?PaddingType,
   /**
    * Specify src for image, which will be displayed INSTEAD of inner content
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box imgSrc="https://some_url">
+   *            THIS CONTENT WILL
+   *            BE REPLACED BY IMAGE
+   *          </Box>
    */
   imgSrc?: ?string,
   /**
    * Specify if border-shadow should be displayed around the **<Box/>**
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box shadow>
+   *            some text
+   *          </Box>
+   * @see shadow=true https://styleguide.brainly.com/latest/docs/interactive.html?shadow=true#boxes
+   * @see shadow=false https://styleguide.brainly.com/latest/docs/interactive.html?shadow=false#boxes
    * @default false
    */
   shadow?: ?boolean,
   /**
    * Specify if **<Box/>** should have flat corners
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example <Box noBorderRadius>
+   *            some text
+   *          </Box>
+   * @see noBorderRadius=true https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=true#boxes
+   * @see noBorderRadius=false https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=false#boxes
    * @default false
    */
   noBorderRadius?: ?boolean,
   /**
    * Color of **close** icon. Prop used only in case if **onClose** prop specified as well
-   * @example
-   * // right
-   * <Box onClose={() => doSomething()} closeIconColor="DARK">some text</Box>
-   * // wrong
-   * <Box closeIconColor="DARK">some text</Box>
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * @example // right
+   *          <Box
+   *            onClose={() => doSomething()}
+   *            closeIconColor="DARK"
+   *          >
+   *            some text
+   *          </Box>
+   *
+   *          // wrong
+   *          <Box closeIconColor="DARK">
+   *            some text
+   *          </Box>
+   * @todo add interactive example for this prop
    */
   closeIconColor?: ?CloseIconColorType,
   /**
-   * Callback, called by clicking on **close** button. If specified, button will be aded automatically
-   * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+   * Callback, called by clicking on **close** button. If specified, button will be added automatically
+   * @example <Box onClose={() => doSomething()}>
+   *            some text
+   *          </Box>
+   * @todo add interactive example for this prop
    */
   onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed)
 };
@@ -134,8 +195,12 @@ type BoxPropsType = {
  * Container, used for grouping small blocks of information. Highlight any prop to
  * get detailed prop info.
  *
- * @see https://styleguide.brainly.com/latest/docs/containers.html#box
+ * @see react docs: https://styleguide.brainly.com/latest/docs/interactive.html#boxes
+ * @see twig-compatible docs: https://styleguide.brainly.com/latest/docs/containers.html#box
  *
+ * @example <Box>
+ *             some child
+ *          </Box>
  * @returns {JSX.Element} Box component
  */
 const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,

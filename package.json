@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "143.6.3",
+  "version": "143.7.2",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -37,6 +37,7 @@
     "http-server": "^0.9.0",
     "husky": "^0.11.3",
     "jest": "^24.0.0",
+    "query-string": "^6.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",

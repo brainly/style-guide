@@ -20,8 +20,7 @@ type PropsType = {
 };
 
 type StateType = {
-  currentItem: ItemType,
-  label: string
+  currentItem: ItemType
 };
 
 class DropdownContainer extends Component<PropsType, StateType> {
