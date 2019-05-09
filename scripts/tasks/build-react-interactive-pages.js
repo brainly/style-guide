@@ -1,6 +1,6 @@
 const through = require('through2');
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const coreConfig = {
   target: 'node',
@@ -26,15 +26,11 @@ module.exports = function(gulp, plugins, consts) {
     })];
 
     if (consts.IS_PRODUCTION) {
-      webpackPlugins.push(new UglifyJSPlugin({
-        uglifyOptions: {
-          // we can't remove names - otherwise we won't be able to generate JSX
-          mangle: {
-            keep_fnames: true
-          },
-          compress: {
-            keep_fnames: true
-          }
+      webpackPlugins.push(new TerserPlugin({
+        terserOptions: {
+          mangle: false,
+          keep_classnames: true,
+          keep_fnames: true
         }
       }));
     }
