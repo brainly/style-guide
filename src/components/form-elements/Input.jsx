@@ -69,7 +69,7 @@ export const COLOR = Object.freeze({
   LIGHT_ALT: 'light-alt'
 });
 
-type PropsType = {
+export type InputPropsType = {
   type?: ?InputType,
   value?: string | number,
   size?: ?InputSizeType,
@@ -83,7 +83,7 @@ type PropsType = {
   setInputRef?: (ref: ?HTMLElement) => mixed
 };
 
-const Input = (props: PropsType) => {
+const Input = (props: InputPropsType) => {
   const {
     type = 'text',
     size = SIZE.NORMAL,

@@ -1,5 +1,6 @@
+// @flow
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import type {Element} from 'react';
 import generateJSX from './JSXGenerator';
 import DocsActiveBlockSettings from './DocsActiveBlockSettings';
 import ComponentSettings from './ComponentSettings';
@@ -14,9 +15,32 @@ const BACKGROUND_COLOR = {
   NONE: 'none'
 };
 
-class DocsActiveBlock extends Component {
+type BackgroundColorType = 'light' | 'dark' | 'none';
 
-  constructor(props) {
+type PropsType = {
+  children: Element<any>,
+  settings: Array<{
+    name: string,
+    values: any,
+    required?: boolean
+  }>,
+  centeredItems?: boolean,
+  contentBefore?: Element<*>,
+  contentAfter?: Element<*>,
+  wrapper: Element<*>,
+  backgroundColor: BackgroundColorType
+};
+
+type StateType = {
+  props: {[string]: number | string | boolean},
+  renderNormally: boolean,
+  changeBackground: BackgroundColorType,
+  showCode: ?string
+};
+
+class DocsActiveBlock extends Component<PropsType, StateType> {
+
+  constructor(props: PropsType) {
     super(props);
 
     let componentProps = {};
@@ -39,7 +63,7 @@ class DocsActiveBlock extends Component {
     };
   }
 
-  isPropRequired(propName) {
+  isPropRequired(propName: string) {
     const settings = this.props.settings;
 
     if (Array.isArray(settings)) {
@@ -70,6 +94,7 @@ class DocsActiveBlock extends Component {
     }
 
     const props = Object.assign({}, component.props, this.state.props);
+    // $FlowFixMe
     const originalComponent = React.cloneElement(component, props);
     const originalHTML = renderToStaticMarkup(originalComponent);
 
@@ -79,6 +104,7 @@ class DocsActiveBlock extends Component {
       }
 
       const inputPropsWithoutAProp = Object.assign({}, props, {[key]: undefined});
+      // $FlowFixMe
       const componentWithoutAProp = React.cloneElement(component, inputPropsWithoutAProp);
 
       const withoutPropHTML = renderToStaticMarkup(componentWithoutAProp);
@@ -91,7 +117,7 @@ class DocsActiveBlock extends Component {
     return props;
   }
 
-  setProps = (key, value) => {
+  setProps = (key: string, value: number | string | boolean) => {
     // eslint-disable-next-line react/no-access-state-in-setstate
     const props = this.state.props;
 
@@ -103,7 +129,7 @@ class DocsActiveBlock extends Component {
     this.remountComponent();
   };
 
-  settingsChanged = (setting, value) => {
+  settingsChanged = (setting: string, value: mixed) => {
     this.setState({
       [setting]: value
     });
@@ -186,16 +212,6 @@ class DocsActiveBlock extends Component {
     );
   }
 }
-
-DocsActiveBlock.propTypes = {
-  children: PropTypes.element.isRequired,
-  settings: PropTypes.array.isRequired,
-  centeredItems: PropTypes.bool,
-  contentBefore: PropTypes.node,
-  contentAfter: PropTypes.node,
-  wrapper: PropTypes.element,
-  backgroundColor: PropTypes.oneOf(Object.values(BACKGROUND_COLOR))
-};
 
 export default DocsActiveBlock;
 export {BACKGROUND_COLOR};

@@ -1,7 +1,9 @@
+// @flow strict
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {TYPE, BASE_URL, LOGOS} from '../logo/Logo';
+import * as LogoModule from '../logo/Logo';
+
+const {TYPE, BASE_URL, LOGOS} = LogoModule;
 
 const ICONS = {
   'brainly': 'brainly-mobile-426ef8718f',
@@ -11,7 +13,13 @@ const ICONS = {
   'brainly-plus': 'brainly-plus-9dd3b24a28'
 };
 
-const HomeButton = ({type = TYPE.BRAINLY, href = '#', className, ...props}) => {
+type PropsType = {
+  type?: LogoModule.LogoTypeType,
+  href?: string,
+  className?: string
+};
+
+const HomeButton = ({type = TYPE.BRAINLY, href = '#', className, ...props}: PropsType) => {
 
   const buttonClass = classnames('sg-home-button', {
     [`sg-home-button--${type}`]: type !== TYPE.BRAINLY
@@ -25,12 +33,6 @@ const HomeButton = ({type = TYPE.BRAINLY, href = '#', className, ...props}) => {
       <img className="sg-home-button__logo-big" src={logoPath} />
     </a>
   );
-};
-
-HomeButton.propTypes = {
-  type: PropTypes.oneOf(Object.values(TYPE)),
-  href: PropTypes.string,
-  className: PropTypes.string
 };
 
 export default HomeButton;

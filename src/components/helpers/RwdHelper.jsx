@@ -1,6 +1,15 @@
+// @flow strict
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import type {Element} from 'react';
 import classNames from 'classnames';
+
+type RwdHelperTypeType =
+  | 'small-only'
+  | 'medium-only'
+  | 'medium-down'
+  | 'medium-up'
+  | 'large-only';
 
 export const TYPE = {
   SMALL_ONLY: 'small-only',
@@ -10,7 +19,12 @@ export const TYPE = {
   LARGE_ONLY: 'large-only'
 };
 
-const RwdHelper = ({hide, children}) => {
+type PropsType = {
+  hide: RwdHelperTypeType,
+  children: Element<*> | string
+};
+
+const RwdHelper = ({hide, children}: PropsType) => {
   if (!children) {
     return null;
   }
@@ -24,12 +38,6 @@ const RwdHelper = ({hide, children}) => {
   const finalClassName = classNames(children.props.className, hideClass);
 
   return React.cloneElement(children, {className: finalClassName});
-};
-
-RwdHelper.propTypes = {
-  // One child only !!!
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
-  hide: PropTypes.oneOf(Object.values(TYPE)).isRequired
 };
 
 export default RwdHelper;

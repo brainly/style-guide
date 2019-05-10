@@ -5,8 +5,11 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
+import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
+
+const urlParams = location.hash === '#boxes' ? queryString.parse(location.search) : {};
 
 const Boxes = () => {
   const settings = [
@@ -47,17 +50,20 @@ const Boxes = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Box>
+        <Box {...urlParams} >
           This is a box.
         </Box>
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>
-        <Box imgSrc="https://source.unsplash.com/144x144/?flower" />
+        <Box
+          imgSrc="https://source.unsplash.com/144x144/?flower"
+          {...urlParams}
+        />
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>
-        <Box>
+        <Box {...urlParams}>
           <ContentBox>
             <ContentBoxHeader>
               <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
