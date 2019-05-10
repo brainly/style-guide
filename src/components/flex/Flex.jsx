@@ -63,31 +63,31 @@ const Flex = (props: FlexPropsType) => {
   } = props;
 
   const flexClass = classNames(
-    style['sg-flex'],
-    fullWidth ? style['sg-flex--full-width'] : null,
-    fullHeight ? style['sg-flex--full-height'] : null,
-    noShrink ? style['sg-flex--no-shrink'] : null,
+    'sg-flex',
+    fullWidth ? 'sg-flex--full-width' : null,
+    fullHeight ? 'sg-flex--full-height' : null,
+    noShrink ? 'sg-flex--no-shrink' : null,
     //flex setup
-    inlineFlex ? style['sg-flex--inline'] : null,
-    alignItems ? style[`sg-flex--align-items-${alignItems}`] : null,
-    alignContent ? style[`sg-flex--align-content-${alignContent}`] : null,
-    justifyContent ? style[`sg-flex--justify-content-${justifyContent}`] : null,
-    wrap ? style['sg-flex--wrap'] : null,
-    wrapReverse ? style['sg-flex--wrap-reverse'] : null,
-    alignSelf ? style[`sg-flex--align-self-${alignSelf}`] : null,
-    direction === FLEX_DIRECTION.COLUMN ? style['sg-flex--column'] : null,
+    inlineFlex ? 'sg-flex--inline' : null,
+    alignItems ? `sg-flex--align-items-${alignItems}` : null,
+    alignContent ? `sg-flex--align-content-${alignContent}` : null,
+    justifyContent ? `sg-flex--justify-content-${justifyContent}` : null,
+    wrap ? 'sg-flex--wrap' : null,
+    wrapReverse ? 'sg-flex--wrap-reverse' : null,
+    alignSelf ? `sg-flex--align-self-${alignSelf}` : null,
+    direction === FLEX_DIRECTION.COLUMN ? 'sg-flex--column' : null,
     direction === FLEX_DIRECTION.COLUMN_REVERSE ?
-      style['sg-flex--column-reverse'] :
+      'sg-flex--column-reverse' :
       null,
-    direction === FLEX_DIRECTION.ROW ? style['sg-flex--row'] : null,
+    direction === FLEX_DIRECTION.ROW ? 'sg-flex--row' : null,
     direction === FLEX_DIRECTION.ROW_REVERSE ?
-      style['sg-flex--row-reverse'] :
+      'sg-flex--row-reverse' :
       null,
-    margin ? style[`sg-flex--margin-${margin}`] : null,
-    marginTop ? style[`sg-flex--margin-top-${marginTop}`] : null,
-    marginRight ? style[`sg-flex--margin-right-${marginRight}`] : null,
-    marginBottom ? style[`sg-flex--margin-bottom-${marginBottom}`] : null,
-    marginLeft ? style[`sg-flex--margin-left-${marginLeft}`] : null,
+    margin ? `sg-flex--margin-${margin}` : null,
+    marginTop ? `sg-flex--margin-top-${marginTop}` : null,
+    marginRight ? `sg-flex--margin-right-${marginRight}` : null,
+    marginBottom ? `sg-flex--margin-bottom-${marginBottom}` : null,
+    marginLeft ? `sg-flex--margin-left-${marginLeft}` : null,
     className
   );
 
