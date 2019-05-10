@@ -1,42 +1,73 @@
 // @flow
 
 import * as React from 'react';
+import type {Node} from 'react';
 import classNames from 'classnames';
 import {
   FLEX_DIRECTION,
-  FLEX_DISPLAY,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   SPACING_SET
 } from './FlexConsts';
 
+type FlexDirectionType =
+  | 'column'
+  | 'column-reverse'
+  | 'row'
+  | 'row-reverse';
+
+type FlexJustifyValuesType =
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evently'
+  | 'stretch';
+
+type FlexAlignmentValuesType =
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'stretch';
+
+type FlexMarginsType =
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl';
+
 export {
   FLEX_DIRECTION,
-  FLEX_DISPLAY,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   SPACING_SET as FLEX_MARGINS
 };
 
 export type FlexPropsType = {
-  children: React.Node,
+  children: ?Node,
+  className?: string,
   fullWidth?: boolean,
   fullHeight?: boolean,
   noShrink?: boolean,
-  direction?: $Values<typeof FLEX_DIRECTION>,
-  justifyContent?: $Values<typeof FLEX_JUSTIFY_VALUES>,
-  alignContent?: $Values<typeof FLEX_JUSTIFY_VALUES>,
-  alignItems?: $Values<typeof FLEX_ALIGNMENT_VALUES>,
-  alignSelf?: $Values<typeof FLEX_ALIGNMENT_VALUES>,
+  direction?: ?FlexDirectionType,
+  justifyContent?: ?FlexJustifyValuesType,
+  alignContent?: ?FlexAlignmentValuesType,
+  alignItems?: ?FlexAlignmentValuesType,
+  alignSelf?: ?FlexAlignmentValuesType,
   inlineFlex?: boolean,
   wrap?: boolean,
   wrapReverse?: boolean,
-  margin?: string,
-  marginTop?: string,
-  marginRight?: string,
-  marginBottom?: string,
-  marginLeft?: string,
-  className?: string
+  margin?: ?FlexMarginsType,
+  marginTop?: ?FlexMarginsType,
+  marginRight?: ?FlexMarginsType,
+  marginBottom?: ?FlexMarginsType,
+  marginLeft?: ?FlexMarginsType
 };
 
 const Flex = (props: FlexPropsType) => {
@@ -71,10 +102,10 @@ const Flex = (props: FlexPropsType) => {
     inlineFlex ? 'sg-flex--inline' : null,
     alignItems ? `sg-flex--align-items-${alignItems}` : null,
     alignContent ? `sg-flex--align-content-${alignContent}` : null,
+    alignSelf ? `sg-flex--align-self-${alignSelf}` : null,
     justifyContent ? `sg-flex--justify-content-${justifyContent}` : null,
     wrap ? 'sg-flex--wrap' : null,
     wrapReverse ? 'sg-flex--wrap-reverse' : null,
-    alignSelf ? `sg-flex--align-self-${alignSelf}` : null,
     direction === FLEX_DIRECTION.COLUMN ? 'sg-flex--column' : null,
     direction === FLEX_DIRECTION.COLUMN_REVERSE ?
       'sg-flex--column-reverse' :

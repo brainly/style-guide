@@ -20,7 +20,7 @@ import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
 import badges from '../components/badges/pages/badges';
 import box from '../components/box/pages/box';
-import flexus from '../components/flex/pages/flex';
+import flexbox from '../components/flex/pages/flex';
 import card from '../components/card/pages/card';
 import breadcrumbs from '../components/breadcrumbs/pages/breadcrumbs';
 import bubble from '../components/bubble/pages/bubble';
@@ -202,9 +202,9 @@ const navigation = [
         component: box
       },
       {
-        'name': 'Flex',
+        'name': 'Flexbox',
         'location': 'flex/flex',
-        component: flexus
+        component: flexbox
       },
       {
         'name': 'Card',

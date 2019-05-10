@@ -1,10 +1,5 @@
 // @flow
 
-export const FLEX_DISPLAY = Object.freeze({
-  DEFAULT: 'default',
-  INLINE_FLEX: 'inline-flex'
-});
-
 export const FLEX_DIRECTION = Object.freeze({
   COLUMN: 'column',
   COLUMN_REVERSE: 'column-reverse',
