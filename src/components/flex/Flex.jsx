@@ -50,10 +50,38 @@ export {
 };
 
 export type FlexPropsType = {
+  /**
+   * Children to be render inside of the Box. Takes no effect if **imgSrc** prop specified.
+   * @example <Flex>
+   *            children to be render here
+   *          </Flex>
+   *
+   */
   children: ?Node,
+  /**
+   * Additional class names
+   */
   className?: string,
+  /**
+    * component will be rendered on 100% width of a parent
+    * @example <Flex fullWidth>
+    *            component content
+    *          </Flex>
+   */
   fullWidth?: boolean,
+  /**
+    * component will be rendered on 100% height of a parent
+    * @example <Flex fullHeight>
+    *            component content
+    *          </Flex>
+   */
   fullHeight?: boolean,
+  /**
+    * It will set flex-shirnk to 0
+    * @example <Flex noShrink>
+    *            component content
+    *          </Flex>
+   */
   noShrink?: boolean,
   direction?: ?FlexDirectionType,
   justifyContent?: ?FlexJustifyValuesType,
