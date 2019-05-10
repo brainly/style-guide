@@ -26,13 +26,7 @@ module.exports = function(gulp, plugins, consts) {
     })];
 
     if (consts.IS_PRODUCTION) {
-      webpackPlugins.push(new TerserPlugin({
-        terserOptions: {
-          mangle: false,
-          keep_classnames: true,
-          keep_fnames: true
-        }
-      }));
+      webpackPlugins.push();
     }
 
     const config = Object.assign({}, coreConfig, {
@@ -52,7 +46,18 @@ module.exports = function(gulp, plugins, consts) {
         ]
       },
       plugins: webpackPlugins,
-      devtool: consts.IS_PRODUCTION ? 'source-map' : 'eval'
+      devtool: consts.IS_PRODUCTION ? 'source-map' : 'eval',
+      optimization: {
+        minimize: consts.IS_PRODUCTION,
+        minimizer: consts.IS_PRODUCTION ? [new TerserPlugin({
+          sourceMap: true,
+          parallel: true,
+          terserOptions: {
+            keep_classnames: true,
+            keep_fnames: true
+          }
+        })] : undefined
+      }
     });
 
     webpack(config, function(err) {
