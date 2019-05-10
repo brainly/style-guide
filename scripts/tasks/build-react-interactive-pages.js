@@ -25,10 +25,6 @@ module.exports = function(gulp, plugins, consts) {
       'process.env.NODE_ENV': JSON.stringify(consts.IS_PRODUCTION ? 'production' : 'development')
     })];
 
-    if (consts.IS_PRODUCTION) {
-      webpackPlugins.push();
-    }
-
     const config = Object.assign({}, coreConfig, {
       entry: {
         [plugins.path.basename(file.path)]: file.path
