@@ -33,5 +33,6 @@ export const SPACING_SET = Object.freeze({
   LARGE: 'l',
   XLARGE: 'xl',
   XXLARGE: 'xxl',
-  XXXLARGE: 'xxxl'
+  XXXLARGE: 'xxxl',
+  XXXXLARGE: 'xxxxl'
 });

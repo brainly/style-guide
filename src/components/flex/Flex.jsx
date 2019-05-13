@@ -40,7 +40,8 @@ type FlexMarginsType =
   | 'l'
   | 'xl'
   | 'xxl'
-  | 'xxxl';
+  | 'xxxl'
+  | 'xxxxl';
 
 export {
   FLEX_DIRECTION,
@@ -83,18 +84,123 @@ export type FlexPropsType = {
     *          </Flex>
    */
   noShrink?: boolean,
+  /**
+   * Specify flex direction
+   * @example <Flex direction="column">
+   *            component content
+   *          </Flex>
+   * @see direction=column https://styleguide.brainly.com/latest/docs/interactive.html?direction=column#flexbox
+   * @see direction=column-reverse https://styleguide.brainly.com/latest/docs/interactive.html?direction=column-reverse#flexbox
+   * @see direction=row https://styleguide.brainly.com/latest/docs/interactive.html?direction=row#flexbox
+   * @see direction=row-reverse https://styleguide.brainly.com/latest/docs/interactive.html?direction=row-reverse#flexbox
+   */
   direction?: ?FlexDirectionType,
+  /**
+   * Specify flex justify content 
+   * @example <Flex justifyContent="space-between">
+   *            component content
+   *          </Flex>
+   * @see justifyContent=center https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=center#flexbox
+   * @see justifyContent=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?ustifyContent=flex-start#flexbox
+   * @see justifyContent=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=flex-end#flexbox
+   * @see justifyContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=baseline#flexbox
+   * @see justifyContent=space-between https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-between#flexbox
+   * @see justifyContent=space-around https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-around#flexbox
+   * @see justifyContent=space-evently https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evently#flexbox
+   * @see justifyContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=stretch#flexbox
+   */
   justifyContent?: ?FlexJustifyValuesType,
+  /**
+   * Specify flex align content 
+   * @example <Flex alignContent="center">
+   *            component content
+   *          </Flex>
+   * @see alignContent=center https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=center#flexbox
+   * @see alignContent=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=flex-start#flexbox
+   * @see alignContent=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=flex-end#flexbox
+   * @see alignContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=baseline#flexbox
+   * @see alignContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
+   */
   alignContent?: ?FlexAlignmentValuesType,
+  /**
+   * Specify flex align items 
+   * @example <Flex alignItems="center">
+   *            component content
+   *          </Flex>
+   * @see alignItems=center https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=center#flexbox
+   * @see alignItems=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=flex-start#flexbox
+   * @see alignItems=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=flex-end#flexbox
+   * @see alignItems=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=baseline#flexbox
+   * @see alignItems=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
+   */
   alignItems?: ?FlexAlignmentValuesType,
+  /**
+   * Specify flex align self
+   * @example <Flex alignSelf="center">
+   *            component content
+   *          </Flex>
+   * @see alignSelf=center https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=center#flexbox
+   * @see alignSelf=flex-start https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=flex-start#flexbox
+   * @see alignSelf=flex-end https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=flex-end#flexbox
+   * @see alignSelf=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=baseline#flexbox
+   * @see alignSelf=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=stretch#flexbox
+   */
   alignSelf?: ?FlexAlignmentValuesType,
+  /**
+    * It will set flex display to inline-flex
+    * @example <Flex inlineFlex>
+    *            component content
+    *          </Flex>
+   */
   inlineFlex?: boolean,
+  /**
+    * It will wrap component
+    * @example <Flex wrap>
+    *            component content
+    *          </Flex>
+   */
   wrap?: boolean,
+  /**
+    * It will wrap reverse component
+    * @example <Flex wrapReverse>
+    *            component content
+    *          </Flex>
+   */
   wrapReverse?: boolean,
+  /**
+   * Specify margin for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex margin="m">
+   *            component content
+   *          </Flex>
+   */
   margin?: ?FlexMarginsType,
+  /**
+   * Specify margin top for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex marginTop="m">
+   *            component content
+   *          </Flex>
+   */
   marginTop?: ?FlexMarginsType,
+  /**
+   * Specify margin right for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex marginRight="m">
+   *            component content
+   *          </Flex>
+   */
   marginRight?: ?FlexMarginsType,
+  /**
+   * Specify margin bottom for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex marginBottom="m">
+   *            component content
+   *          </Flex>
+   */
   marginBottom?: ?FlexMarginsType,
+  /**
+   * Specify margin left for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * @example <Flex marginLeft="m">
+   *            component content
+   *          </Flex>
+   */
   marginLeft?: ?FlexMarginsType
 };
 
@@ -126,7 +232,6 @@ const Flex = (props: FlexPropsType) => {
     fullWidth ? 'sg-flex--full-width' : null,
     fullHeight ? 'sg-flex--full-height' : null,
     noShrink ? 'sg-flex--no-shrink' : null,
-    //flex setup
     inlineFlex ? 'sg-flex--inline' : null,
     alignItems ? `sg-flex--align-items-${alignItems}` : null,
     alignContent ? `sg-flex--align-content-${alignContent}` : null,

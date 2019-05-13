@@ -1,4 +1,5 @@
 $flexSpacingsMap: (
+  'xxs': spacing(xxs),
   'xs': spacing(xs),
   's': spacing(s),
   'm': spacing(m),
@@ -6,6 +7,7 @@ $flexSpacingsMap: (
   'xl': spacing(xl),
   'xxl': spacing(xxl),
   'xxxl': spacing(xxxl),
+  'xxxxl': spacing(xxxxl),
 );
 
 .sg-flex {
@@ -143,5 +145,18 @@ $flexSpacingsMap: (
 
   .sg-flex--margin-left-#{$sizeName} {
     margin-left: #{$size};
+  }
+}
+
+// helper class just for add spacing documentation into SG
+.doc-spacing {
+  background-color: $blueSecondary;
+  margin-right: spacing(xl);
+
+  @each $sizeName, $size in $flexSpacingsMap {
+    &--#{$sizeName} {
+      width: #{$size};
+      height: #{$size};
+    }
   }
 }

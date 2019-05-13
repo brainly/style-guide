@@ -3,10 +3,9 @@ import Flex, {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  SPACING_SET
+  FLEX_MARGINS
 } from '../Flex';
-import Text, {TEXT_SIZE} from '../../text/Text';
-import Link, {LINK_SIZE} from '../../text/Link';
+
 import Box, {COLOR} from '../../box/Box';
 import queryString from 'query-string';
 
@@ -17,45 +16,65 @@ const urlParams = location.hash === '#flexbox' ? queryString.parse(location.sear
 const Flexboxes = () => {
   const settings = [
     {
-      name: 'full width',
+      name: 'fullWidth',
       values: Boolean
     },
     {
-      name: 'full height',
+      name: 'fullHeight',
       values: Boolean
     },
     {
-      name: 'no shrink',
+      name: 'noShrink',
       values: Boolean
     },
     {
-      name: 'inline flex',
+      name: 'inlineFlex',
       values: Boolean
     },
     {
-      name: 'flex direction',
+      name: 'wrap',
+      values: Boolean
+    },
+    {
+      name: 'wrapReverse',
+      values: Boolean
+    },
+    {
+      name: 'direction',
       values: FLEX_DIRECTION
     },
     {
-      name: 'flex justify content',
+      name: 'justifyContent',
       values: FLEX_JUSTIFY_VALUES
     },
     {
-      name: 'flex align items',
+      name: 'alignItems',
       values: FLEX_ALIGNMENT_VALUES
     },
     {
-      name: 'flex margin',
-      values: SPACING_SET
+      name: 'alignContent',
+      values: FLEX_ALIGNMENT_VALUES
+    },
+    {
+      name: 'alignSelf',
+      values: FLEX_ALIGNMENT_VALUES
+    },
+    {
+      name: 'margin',
+      values: FLEX_MARGINS
     }
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Flex {...urlParams} >
-          <Box color={COLOR.BLUE}>This is a box 1.</Box>
-          <Box color={COLOR.BLUE}>This is a box 2.</Box>
+        <Flex {...urlParams}>
+          <Flex>
+            <Box color={COLOR.BLUE}>This is a box 1.</Box>
+          </Flex>
+          <Flex>
+            <Box color={COLOR.BLUE}>This is a box 2.</Box>
+          </Flex>
         </Flex>
       </DocsActiveBlock>
     </div>
