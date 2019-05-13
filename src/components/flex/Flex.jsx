@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from 'react';
 import type {Node} from 'react';
@@ -7,7 +7,7 @@ import {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  SPACING_SET
+  FLEX_MARGINS
 } from './FlexConsts';
 
 type FlexDirectionType =
@@ -47,7 +47,7 @@ export {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  SPACING_SET as FLEX_MARGINS
+  FLEX_MARGINS
 };
 
 export type FlexPropsType = {
@@ -58,7 +58,7 @@ export type FlexPropsType = {
    *          </Flex>
    *
    */
-  children: ?Node,
+  children: Node,
   /**
    * Additional class names
    */
@@ -94,7 +94,7 @@ export type FlexPropsType = {
    * @see direction=row https://styleguide.brainly.com/latest/docs/interactive.html?direction=row#flexbox
    * @see direction=row-reverse https://styleguide.brainly.com/latest/docs/interactive.html?direction=row-reverse#flexbox
    */
-  direction?: ?FlexDirectionType,
+  direction?: FlexDirectionType,
   /**
    * Specify flex justify content 
    * @example <Flex justifyContent="space-between">
@@ -109,7 +109,7 @@ export type FlexPropsType = {
    * @see justifyContent=space-evently https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evently#flexbox
    * @see justifyContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=stretch#flexbox
    */
-  justifyContent?: ?FlexJustifyValuesType,
+  justifyContent?: FlexJustifyValuesType,
   /**
    * Specify flex align content 
    * @example <Flex alignContent="center">
@@ -121,7 +121,7 @@ export type FlexPropsType = {
    * @see alignContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=baseline#flexbox
    * @see alignContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
    */
-  alignContent?: ?FlexAlignmentValuesType,
+  alignContent?: FlexAlignmentValuesType,
   /**
    * Specify flex align items 
    * @example <Flex alignItems="center">
@@ -133,7 +133,7 @@ export type FlexPropsType = {
    * @see alignItems=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=baseline#flexbox
    * @see alignItems=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
    */
-  alignItems?: ?FlexAlignmentValuesType,
+  alignItems?: FlexAlignmentValuesType,
   /**
    * Specify flex align self
    * @example <Flex alignSelf="center">
@@ -145,7 +145,7 @@ export type FlexPropsType = {
    * @see alignSelf=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=baseline#flexbox
    * @see alignSelf=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=stretch#flexbox
    */
-  alignSelf?: ?FlexAlignmentValuesType,
+  alignSelf?: FlexAlignmentValuesType,
   /**
     * It will set flex display to inline-flex
     * @example <Flex inlineFlex>
@@ -173,35 +173,35 @@ export type FlexPropsType = {
    *            component content
    *          </Flex>
    */
-  margin?: ?FlexMarginsType,
+  margin?: FlexMarginsType,
   /**
    * Specify margin top for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginTop="m">
    *            component content
    *          </Flex>
    */
-  marginTop?: ?FlexMarginsType,
+  marginTop?: FlexMarginsType,
   /**
    * Specify margin right for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginRight="m">
    *            component content
    *          </Flex>
    */
-  marginRight?: ?FlexMarginsType,
+  marginRight?: FlexMarginsType,
   /**
    * Specify margin bottom for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginBottom="m">
    *            component content
    *          </Flex>
    */
-  marginBottom?: ?FlexMarginsType,
+  marginBottom?: FlexMarginsType,
   /**
    * Specify margin left for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginLeft="m">
    *            component content
    *          </Flex>
    */
-  marginLeft?: ?FlexMarginsType
+  marginLeft?: FlexMarginsType
 };
 
 const Flex = (props: FlexPropsType) => {
@@ -228,32 +228,27 @@ const Flex = (props: FlexPropsType) => {
   } = props;
 
   const flexClass = classNames(
-    'sg-flex',
-    fullWidth ? 'sg-flex--full-width' : null,
-    fullHeight ? 'sg-flex--full-height' : null,
-    noShrink ? 'sg-flex--no-shrink' : null,
-    inlineFlex ? 'sg-flex--inline' : null,
-    alignItems ? `sg-flex--align-items-${alignItems}` : null,
-    alignContent ? `sg-flex--align-content-${alignContent}` : null,
-    alignSelf ? `sg-flex--align-self-${alignSelf}` : null,
-    justifyContent ? `sg-flex--justify-content-${justifyContent}` : null,
-    wrap ? 'sg-flex--wrap' : null,
-    wrapReverse ? 'sg-flex--wrap-reverse' : null,
-    direction === FLEX_DIRECTION.COLUMN ? 'sg-flex--column' : null,
-    direction === FLEX_DIRECTION.COLUMN_REVERSE ?
-      'sg-flex--column-reverse' :
-      null,
-    direction === FLEX_DIRECTION.ROW ? 'sg-flex--row' : null,
-    direction === FLEX_DIRECTION.ROW_REVERSE ?
-      'sg-flex--row-reverse' :
-      null,
-    margin ? `sg-flex--margin-${margin}` : null,
-    marginTop ? `sg-flex--margin-top-${marginTop}` : null,
-    marginRight ? `sg-flex--margin-right-${marginRight}` : null,
-    marginBottom ? `sg-flex--margin-bottom-${marginBottom}` : null,
-    marginLeft ? `sg-flex--margin-left-${marginLeft}` : null,
-    className
-  );
+    'sg-flex', {
+      'sg-flex--full-width': fullWidth,
+      'sg-flex--full-height': fullHeight,
+      'sg-flex--no-shrink': noShrink,
+      'sg-flex--inline': inlineFlex,
+      [`sg-flex--align-items-${alignItems || ''}`]: alignItems,
+      [`sg-flex--align-content-${alignContent || ''}`]: alignContent,
+      [`sg-flex--align-self-${alignSelf || ''}`]: alignSelf,
+      [`sg-flex--justify-content-${justifyContent || ''}`]: justifyContent,
+      'sg-flex--wrap': wrap,
+      'sg-flex--wrap-reverse': wrapReverse,
+      'sg-flex--column': direction === FLEX_DIRECTION.COLUMN,
+      'sg-flex--column-reverse': direction === FLEX_DIRECTION.COLUMN_REVERSE,
+      'sg-flex--row': direction === FLEX_DIRECTION.ROW,
+      'sg-flex--row-reverse': direction === FLEX_DIRECTION.ROW_REVERSE,
+      [`sg-flex--margin-${margin || ''}`]: margin,
+      [`sg-flex--margin-top-${marginTop || ''}`]: marginTop,
+      [`sg-flex--margin-right-${marginRight || ''}`]: marginRight,
+      [`sg-flex--margin-bottom-${marginBottom || ''}`]: marginBottom,
+      [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft
+    }, className);
 
   return (
     <div className={flexClass} {...otherProps}>

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export const FLEX_DIRECTION = Object.freeze({
   COLUMN: 'column',
@@ -26,7 +26,7 @@ export const FLEX_ALIGNMENT_VALUES = Object.freeze({
   STRETCH: 'stretch'
 });
 
-export const SPACING_SET = Object.freeze({
+export const FLEX_MARGINS = Object.freeze({
   XSMALL: 'xs',
   SMALL: 's',
   MEDIUM: 'm',
