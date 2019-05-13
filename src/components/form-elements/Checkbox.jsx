@@ -1,9 +1,9 @@
 // @flow
 
-import React, {PureComponent} from 'react';
-import UUID from 'node-uuid';
-import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 import classNames from 'classnames';
+import React, {PureComponent} from 'react';
+import generateRandomString from '../../js/generateRandomString';
+import Icon, {ICON_COLOR, TYPE} from '../icons/Icon';
 
 export type CheckboxPropsType = {
   checked?: boolean,
@@ -20,7 +20,7 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
     super(props);
 
     this.state = {
-      id: props.id || UUID.v1()
+      id: props.id || generateRandomString()
     };
   }
 

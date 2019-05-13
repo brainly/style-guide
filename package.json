@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "143.6.4",
+  "version": "143.8.3",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -76,7 +76,6 @@
     }
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "node-uuid": "^1.4.8"
+    "classnames": "^2.2.5"
   }
 }
