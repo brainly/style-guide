@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react';
-import UUID from 'node-uuid';
 import classNames from 'classnames';
+import generateRandomString from '../../js/generateRandomString';
 
 type RadioSizeType =
   | 'normal'
@@ -27,7 +27,7 @@ const Radio = (props: RadioPropsType) => {
     name,
     size = RADIO_SIZE.NORMAL,
     className,
-    id = UUID.v1(),
+    id = generateRandomString(),
     ...additionalProps
   } = props;
 
