@@ -52,7 +52,7 @@ export {
 
 export type FlexPropsType = {
   /**
-   * Children to be render inside of the Box. Takes no effect if **imgSrc** prop specified.
+   * Children to be render inside of the Flex.
    * @example <Flex>
    *            children to be render here
    *          </Flex>

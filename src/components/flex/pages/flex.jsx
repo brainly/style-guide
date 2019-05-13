@@ -74,6 +74,9 @@ const Flexbox = () => (
         <Text size={TEXT_SIZE.SMALL}>Flex component can be used to apply flexbox behaviors into the layout. Before using these utilities, you should be familiar with <Link size={LINK_SIZE.SMALL} href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">CSS3 Flexible Box spec</Link></Text>
         <Text size={TEXT_SIZE.SMALL}>To justify your elements you can use following options:  CENTER, FLEX_START, FLEX_END, BASELINE, SPACE_BETWEEN, SPACE_AROUND, SPACE_EVENTLY, STRETCH</Text>
         <Text size={TEXT_SIZE.SMALL}>To align your elements you can use following options:  CENTER, FLEX_START, FLEX_END, BASELINE,STRETCH</Text>
+        <Text size={TEXT_SIZE.SMALL}>
+          There are avalaible options of margin, marginTop, marginRight, marginBottom, marginLeft with all the presented spacing values.
+        </Text>
       </Flex>
       {/* eslint-enable max-len */}
       <SeparatorHorizontal type={TYPE.SPACED} />
@@ -110,7 +113,6 @@ const Flexbox = () => (
           <Box color={COLOR.BLUE_SECONDARY}>space between</Box>
         </Flex>
       </Flex>
-      <SeparatorHorizontal type={TYPE.SPACED} />
       <Flex
         direction={FLEX_DIRECTION.ROW}
         marginBottom={FLEX_MARGINS.MEDIUM}
