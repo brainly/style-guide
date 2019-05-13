@@ -70,10 +70,12 @@ const Flexbox = () => (
     </DocsBlock>
     <DocsBlock info="Flexbox introduction">
       <Flex direction={FLEX_DIRECTION.COLUMN} marginBottom={FLEX_MARGINS.MEDIUM} fullWidth>
+        {/* eslint-disable max-len */}
         <Text size={TEXT_SIZE.SMALL}>Flex component can be used to apply flexbox behaviors into the layout. Before using these utilities, you should be familiar with <Link size={LINK_SIZE.SMALL} href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">CSS3 Flexible Box spec</Link></Text>
         <Text size={TEXT_SIZE.SMALL}>To justify your elements you can use following options:  CENTER, FLEX_START, FLEX_END, BASELINE, SPACE_BETWEEN, SPACE_AROUND, SPACE_EVENTLY, STRETCH</Text>
         <Text size={TEXT_SIZE.SMALL}>To align your elements you can use following options:  CENTER, FLEX_START, FLEX_END, BASELINE,STRETCH</Text>
       </Flex>
+      {/* eslint-enable max-len */}
       <SeparatorHorizontal type={TYPE.SPACED} />
     </DocsBlock>
     <DocsBlock info="Examples of flex column or row">
