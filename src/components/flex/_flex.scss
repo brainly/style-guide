@@ -1,0 +1,162 @@
+$flexSpacingsMap: (
+  'xxs': spacing(xxs),
+  'xs': spacing(xs),
+  's': spacing(s),
+  'm': spacing(m),
+  'l': spacing(l),
+  'xl': spacing(xl),
+  'xxl': spacing(xxl),
+  'xxxl': spacing(xxxl),
+  'xxxxl': spacing(xxxxl),
+);
+
+.sg-flex {
+  display: flex;
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--full-height {
+    height: 100%;
+  }
+
+  &--no-shrink {
+    flex-shrink: 0;
+  }
+
+  &--inline {
+    display: inline-flex;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  &--row {
+    flex-direction: row;
+  }
+
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
+  }
+
+  &--wrap-reverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  &--justify-content-space-between {
+    justify-content: space-between;
+  }
+
+  &--justify-content-center {
+    justify-content: center;
+  }
+
+  &--justify-content-flex-start {
+    justify-content: flex-start;
+  }
+
+  &--justify-content-flex-end {
+    justify-content: flex-end;
+  }
+
+  &--justify-content-baseline {
+    justify-content: baseline;
+  }
+
+  &--justify-content-stretch {
+    justify-content: stretch;
+  }
+
+  &--justify-content-space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &--justify-content-space-around {
+    justify-content: space-around;
+  }
+
+  &--align-items-center {
+    align-items: center;
+  }
+
+  &--align-items-flex-start {
+    align-items: flex-start;
+  }
+
+  &--align-items-flex-end {
+    align-items: flex-end;
+  }
+
+  &--align-items-baseline {
+    align-items: baseline;
+  }
+
+  &--align-items-stretch {
+    align-items: stretch;
+  }
+
+  &--align-self-center {
+    align-self: center;
+  }
+
+  &--align-self-flex-start {
+    align-self: flex-start;
+  }
+
+  &--align-self-flex-end {
+    align-self: flex-end;
+  }
+
+  &--align-self-baseline {
+    align-self: baseline;
+  }
+
+  &--align-self-stretch {
+    align-self: stretch;
+  }
+}
+
+@each $sizeName, $size in $flexSpacingsMap {
+  .sg-flex--margin-#{$sizeName} {
+    margin: #{$size};
+  }
+
+  .sg-flex--margin-top-#{$sizeName} {
+    margin-top: #{$size};
+  }
+
+  .sg-flex--margin-right-#{$sizeName} {
+    margin-right: #{$size};
+  }
+
+  .sg-flex--margin-bottom-#{$sizeName} {
+    margin-bottom: #{$size};
+  }
+
+  .sg-flex--margin-left-#{$sizeName} {
+    margin-left: #{$size};
+  }
+}
+
+// helper class just for add spacing documentation into SG
+.doc-spacing {
+  background-color: $blueSecondary;
+  margin-right: spacing(xl);
+
+  @each $sizeName, $size in $flexSpacingsMap {
+    &--#{$sizeName} {
+      width: #{$size};
+      height: #{$size};
+    }
+  }
+}
