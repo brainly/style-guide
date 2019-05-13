@@ -1,11 +1,11 @@
 // @flow
-import React from 'react';
-import Text, {TEXT_SIZE, TEXT_COLOR} from 'text/Text';
 
-import Radio from 'form-elements/Radio';
 import ActionList from 'action-list/ActionList';
+import Radio from 'form-elements/Radio';
+import React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import UUID from 'node-uuid';
+import Text, {TEXT_COLOR, TEXT_SIZE} from 'text/Text';
+import generateRandomString from '../../js/generateRandomString';
 
 type PropsType = {
   values: {
@@ -32,21 +32,21 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
           <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY}>Code:
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={!this.props.values.showCode}
                 onChange={this.onChangeShowNothing}
               /> none
             </label>
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={this.props.values.showCode === 'jsx'}
                 onChange={this.onChangeShowJSX}
               /> JSX
             </label>
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={this.props.values.showCode === 'html'}
                 onChange={this.onChangeShowHTML}
               /> HTML
@@ -56,21 +56,21 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
           <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY}>Background:
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={!this.props.values.changeBackground}
                 onChange={this.onChangeBackgroundDefault}
               /> none
             </label>
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'light'}
                 onChange={this.onChangeBackgroundLight}
               /> light
             </label>
             <label className="docs-active-block__label">
               <Radio
-                name={UUID.v1()}
+                name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'dark'}
                 onChange={this.onChangeBackgroundDark}
               /> dark
