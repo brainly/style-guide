@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export const TEXT_TYPE = Object.freeze({
   SPAN: 'span',
