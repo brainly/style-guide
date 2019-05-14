@@ -105,6 +105,10 @@ Each component should export its configuration options (if it have some).
 export {DIRECTION, ALIGNMENT};
 ```
 
+#### Layout and helpers documentation
+Go here to find documentation about [Flexbox](src/components/flex/FLEXBOX.md).
+and documentation regaring [SASS MIXINS](src/sass/README.md)
+
 ## Technical Discipline
 
 #### Bumping Release Version
