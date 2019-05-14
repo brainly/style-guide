@@ -106,7 +106,7 @@ export {DIRECTION, ALIGNMENT};
 ```
 
 #### Layout and helpers documentation
-Go here to find documentation about [FlEXBOX component](src/components/flex/FLEXBOX.md) and documentation regarding [SASS MIXINS](src/sass/README.md)
+Go here to find documentation about [FlEXBOX component](src/components/flex/README.md) and documentation regarding [SASS MIXINS](src/sass/README.md)
 
 ## Technical Discipline
 
