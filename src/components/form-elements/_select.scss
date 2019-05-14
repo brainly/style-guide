@@ -1,7 +1,7 @@
 $selectHeight: rhythm(3 / 2);
 $selectBackground: $white;
 $selectTextColor: $grayPrimary;
-$selectFontSize: fontSize(small);
+$selectFontSize: 16px; // fix zooming to select on focus in iOS devices
 $selectIconSize: rhythm(1 / 3);
 $selectBorderRadius: 7px;
 $selectActiveBorderColor: $grayPrimary;
