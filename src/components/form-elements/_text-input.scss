@@ -4,7 +4,7 @@ $inputSmallHeight: rhythm(5 / 4);
 
 $inputBackground: $white;
 $inputTextColor: $black;
-$inputFontSize: fontSize(small);
+$inputFontSize: 16px; // fix zooming to input on focus in iOS devices
 $inputLargeFontSize: fontSize(standout);
 $inputPlaceholderTextColor: $graySecondary;
 $inputFocusValidBorderColor: $mintPrimaryDark;
