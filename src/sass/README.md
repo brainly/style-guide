@@ -1,5 +1,6 @@
-# Brainly spacings
+# SASS Mixins
 
+## Brainly spacings
 ### Introduction
 
 At Brainly, we are using "Soft grid". Soft grid means that we simply measure 8-px

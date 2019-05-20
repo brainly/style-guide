@@ -92,25 +92,11 @@ $headlineSizes: (
       color: $mintPrimaryDark;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--mint-dark
-    &--mint {
-      color: $mintPrimaryDark;
-    }
-
     &--blue-dark {
       color: $bluePrimaryDark;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--blue-dark
-    &--blue {
-      color: $bluePrimaryDark;
-    }
-
     &--mustard-dark {
-      color: $mustardPrimaryDark;
-    }
-
-    &--mustard {
       color: $mustardPrimaryDark;
     }
 
@@ -119,11 +105,6 @@ $headlineSizes: (
     }
 
     &--peach-dark {
-      color: $peachPrimaryDark;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--peach-dark
-    &--peach {
       color: $peachPrimaryDark;
     }
 
