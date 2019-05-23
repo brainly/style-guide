@@ -19,7 +19,7 @@ export const BUTTON_SECONDARY_TYPE = {
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
   ACTIVE_INVERSE: 'active-inverse',
-  PEACH: 'peach'
+  ACTIVE_MUSTRAD: 'active-mustard'
 };
 
 type ButtonSecondaryPropsType = {

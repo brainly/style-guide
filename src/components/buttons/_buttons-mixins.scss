@@ -1,7 +1,7 @@
 $buttonFontColor: $white;
 $buttonColor: $mintPrimary;
 $buttonAltColor: $bluePrimary;
-$buttonDarkColor: $grayPrimary;
+$buttonDarkColor: $black;
 $buttonInverseColor: $white;
 $buttonPeach: $peachPrimary;
 
@@ -32,37 +32,11 @@ $buttonActiveScale: scale(0.985);
   white-space: nowrap;
   font-weight: $fontWeightBold;
   text-transform: uppercase;
-  box-shadow: $componentShadow;
-  transition-property: box-shadow, transform, opacity;
+  box-shadow: none;
+  transition-property: background-color, border-color;
   transition-duration: 0.3s;
-
-  // hack for proper text centering on Safari related to inline-flex issue with <button> tag
-  &::before,
-  &::after {
-    content: '';
-    flex: 1 0 auto;
-  }
-
-  &:hover,
-  &:focus {
-    box-shadow: $elevatedComponentShadow;
-  }
-
-  &:active {
-    box-shadow: $componentShadow;
-    transform: $buttonActiveScale;
-  }
-
-  &:active:focus {
-    box-shadow: $buttonActiveBoxShadow;
-  }
-
-  &:active,
-  &:focus,
-  &:hover {
-    text-decoration: none;
-  }
-
+  transition-timing-function: ease-in-out;
+  
   &__container {
     display: flex;
     align-items: center;
@@ -73,44 +47,163 @@ $buttonActiveScale: scale(0.985);
     width: 100%;
   }
 
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus {
+    box-shadow: none;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: mix($mintPrimaryDark, $mintPrimary, 80%);
+    border-color: mix($mintPrimaryDark, $mintPrimary, 80%);
+  }
+
+  &.sg-button-primary--disabled {
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: $mintPrimary;
+      border-color: $mintPrimary;
+    }
+  }
+
   &--alt {
     background-color: $buttonAltColor;
+
+    &:hover {
+      background-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
+      border-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
+    }
+
+    &.sg-button-primary--disabled {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $buttonAltColor;
+        border-color: $buttonAltColor;
+      }
+    }
   }
 
   &--dark {
     background-color: $buttonDarkColor;
+
+    &:hover {
+      background-color: mix($grayPrimary, $buttonDarkColor, 80%);
+      border-color: mix($grayPrimary, $buttonDarkColor, 80%);
+    }
+
+    &.sg-button-primary--disabled {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $buttonDarkColor;
+        border-color: $buttonDarkColor;
+      }
+    }
   }
 
-  &--inverse {
-    background-color: $buttonInverseColor;
-    color: $buttonInverseFontColor;
-    fill: $buttonInverseFontColor;
-  }
-
+  &--inverse,
   &--alt-inverse {
-    background-color: $buttonInverseColor;
-    color: $buttonInverseAltFontColor;
-    fill: $buttonInverseAltFontColor;
-  }
-
-  &--dark-inverse {
-    background-color: $buttonInverseColor;
-    color: $buttonInverseDarkFontColor;
-    fill: $buttonInverseDarkFontColor;
-  }
-
-  &--active-inverse {
-    background-color: $buttonActiveInverseColor;
-    color: $buttonActiveInverseFontColor;
-    fill: $buttonActiveInverseFontColor;
-    transition-property: box-shadow, transform, background-color, color, fill, opacity;
+    border: 2px solid;
+    border-color: $black;
+    color: $black;
+    background: none;
 
     &:hover,
     &:active,
     &:focus {
-      background-color: $buttonActiveInverseInteractionColor;
-      color: $buttonActiveInverseInteractionFontColor;
-      fill: $buttonActiveInverseInteractionFontColor;
+      background-color: mix($black, $transparentWhite, 12%);
+      border-color: $black;
+    }
+  }
+
+  &--dark-inverse {
+    background-color: $white;
+    color: $black;
+    border: 2px solid $white;
+
+    &:hover {
+      background-color: mix($graySecondaryUltraLight, $white, 80%);
+      border-color: mix($graySecondaryUltraLight, $white, 80%);
+    }
+  }
+
+  // thank you button and mark as best
+  &--active-inverse,
+  &--active-mustard {
+    background-color: $white;
+    border: none;
+    height: 40px;
+    font-size: 15px;
+    line-height: 15px;
+    border-radius: 20px;
+
+    .sg-label__text,
+    .sg-label__number {
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .sg-label .sg-label__icon {
+      margin-right: spacing(xs);
+      width: 24px;
+      height: 24px;
+    }
+
+    .sg-icon {
+      width: 24px;
+      height: 24px;
+      max-width: 24px;
+      max-height: 24px;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      border: none;
+    }
+  }
+
+  // mark as best answer
+  &--active-mustard {
+    color: $mustardPrimary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: mix($mustardPrimary, $transparentWhite, 12%);
+      color: $mustardPrimary;
+      fill: $mustardPrimary;
+    }
+
+    &.sg-button-secondary--disabled {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $buttonActiveInverseColor;
+        color: $mustardPrimary;
+        fill: $mustardPrimary;
+      }
+    }
+  }
+
+  // thank you button
+  &--active-inverse {
+    color: $peachPrimary;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: mix($peachPrimary, $transparentWhite, 12%);
+      color: $peachPrimary;
+      fill: $peachPrimary;
     }
 
     &.sg-button-secondary--disabled {
@@ -124,33 +217,18 @@ $buttonActiveScale: scale(0.985);
     }
   }
 
-  & .sg-label__text {
+  &.sg-label__text {
     cursor: pointer;
+    display: flex;
+    align-items: center;
   }
 
   &--disabled {
     opacity: 0.45;
     cursor: default;
-    box-shadow: $buttonBoxShadow;
-
-    &:active {
-      transform: none;
-    }
-
-    &:active,
-    &:focus,
-    &:hover {
-      box-shadow: $buttonBoxShadow;
-    }
 
     & .sg-label__text {
       cursor: default;
     }
-  }
-
-  &--peach {
-    background-color: $buttonPeach;
-    color: $buttonActiveInverseInteractionFontColor;
-    fill: $buttonActiveInverseInteractionFontColor;
   }
 }
