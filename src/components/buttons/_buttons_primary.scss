@@ -2,8 +2,6 @@ $buttonPrimaryHeight: 40px;
 $buttonPrimaryFontSize: 15px;
 $buttonPrimaryBorderRadius: 20px;
 $buttonPrimaryPadding: gutter(1);
-$buttonPrimaryFbColor: #3c5b96;
-$buttonPrimaryFbHoverColor: #4367a9;
 
 $includeHtml: false !default;
 
@@ -24,5 +22,6 @@ $includeHtml: false !default;
       display: inline-flex;
       margin-right: $buttonPrimaryPadding / 2;
     }
+
   }
 }
