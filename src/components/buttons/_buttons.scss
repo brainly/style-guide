@@ -1,0 +1,184 @@
+$transparentWhite: rgba(255, 255, 255, 0);
+$buttonPrimaryFbColor: #3c5b96;
+$buttonPrimaryFbHoverColor: #4367a9;
+
+.sg-button-next {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $black;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 15px;
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+    padding: 0 spacing(m);
+    will-change: background-color, border-color;
+    transition-property: background-color, border-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.sg-button-next:focus {
+    outline: none;
+}
+
+.sg-button-next--medium {
+    height: 40px;
+}
+
+.sg-button-next--large {
+    border-radius: 28px;
+    height: 56px;
+    padding: 0 spacing(l);
+    font-size: 21px;
+    line-height: 21px;
+}
+
+.sg-button-next--small {
+    border-radius: 16px;
+    height: 32px;
+    padding: 0 20px;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.sg-button-next--disabled {
+    opacity: 0.45;
+    cursor: default;
+}
+
+.sg-button-next:active {
+    transform: none;
+}
+
+.sg-button-next:active,
+.sg-button-next:focus,
+.sg-button-next:hover {
+    transform: none;
+    transition: none;
+}
+
+.sg-button-next--primary {
+    background-color: $black;
+    border: 2px solid $black;
+}
+
+.sg-button-next--primary:hover {
+    background-color: mix($grayPrimary, $black, 80%);
+    border-color: mix($grayPrimary, $black, 80%);
+}
+
+.sg-button-next--primary-inverted {
+    background-color: $white;
+    color: $black;
+    border: 2px solid $white;
+}
+
+.sg-button-next--primary-inverted:hover {
+    background-color: mix($graySecondaryUltraLight, $white, 80%);
+    border-color: mix($graySecondaryUltraLight, $white, 80%);
+}
+
+.sg-button-next--primary-blue {
+    background-color: $bluePrimary;
+    border: 2px solid $bluePrimary;
+}
+
+.sg-button-next--primary-blue:hover {
+    background-color: mix($bluePrimaryDark, $bluePrimary, 80%);
+    border-color: mix($bluePrimaryDark, $bluePrimary, 80%);
+}
+
+.sg-button-next--primary-mint {
+    background-color: $mintPrimary;
+    border: 2px solid $mintPrimary;
+}
+
+.sg-button-next--primary-mint:hover {
+    background-color: mix($mintPrimaryDark,$mintPrimary, 80%);
+    border-color: mix($mintPrimaryDark, $mintPrimary, 80%);
+}
+
+.sg-button-next--secondary {
+    background-color: $transparentWhite;
+    border: 2px solid $black;
+    color: $black;
+}
+
+.sg-button-next--secondary:hover {
+    background-color: mix($black, $transparentWhite, 12%);
+}
+
+.sg-button-next--secondary-peach {
+    background-color: $transparentWhite;
+    border: 2px solid $peachPrimary;
+    color: $peachPrimary;
+}
+
+.sg-button-next--secondary-peach:hover {
+    background-color: mix($peachPrimary, $transparentWhite, 12%);
+}
+
+.sg-button-next--link-button {
+    background-color: $transparentWhite;
+    border: 2px solid $transparentWhite;
+    color: $black;
+}
+
+.sg-button-next--link-button:hover {
+    background-color: mix($black, $transparentWhite, 12%);
+    border-color: $transparentWhite;
+}
+
+.sg-button-next--link-button-inverted {
+    background-color: $transparentWhite;
+    border: 2px solid $transparentWhite;
+    color: $white;
+}
+
+.sg-button-next--link-button-inverted:hover {
+    background-color: mix($white, $transparentWhite, 12%);
+    border-color: $transparentWhite;
+}
+
+.sg-button-next--destructive {
+    background-color: $peachSecondary;
+    border: 2px solid $peachSecondary;
+    color: $black;
+}
+
+.sg-button-next--destructive:hover {
+    background-color: mix($peachPrimary, $peachSecondary, 80%);
+    border-color: mix($peachPrimary, $peachSecondary, 80%);
+}
+
+.sg-button-next--warning {
+    background-color: $mustardSecondary;
+    border: 2px solid $mustardSecondary;
+    color: $black;
+}
+
+.sg-button-next--warning:hover {
+    background-color: mix($mustardPrimary, $mustardSecondary, 80%);
+    border-color: mix($mustardPrimary, $mustardSecondary, 80%);
+}
+
+.sg-button-next--facebook {
+  background-color: $buttonPrimaryFbColor;
+  border: 2px solid $buttonPrimaryFbColor;
+  color: $white;
+}
+
+.sg-button-next--facebook:hover {
+  background-color: $buttonPrimaryFbHoverColor;
+  border-color: $buttonPrimaryFbHoverColor;
+}
