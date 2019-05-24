@@ -3,7 +3,6 @@ import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
-import Label, {ICON_TYPE} from 'labels/Label';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {

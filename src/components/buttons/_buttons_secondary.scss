@@ -3,11 +3,6 @@ $buttonSecondaryFontSize: 12px;
 $buttonSecondaryBorderRadius: 16px;
 $buttonSecondaryPadding: gutter(3 / 4);
 
-$buttonSecondarySmallHeight: rhythm(1);
-$buttonSecondarySmallFontSize: fontSize(obscure);
-$buttonSecondarySmallBorderRadius: 5px;
-$buttonSecondarySmallPadding: 14px;
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
