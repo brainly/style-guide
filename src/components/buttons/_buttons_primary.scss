@@ -1,8 +1,7 @@
-$buttonPrimaryHeight: rhythm(3 / 2);
-$buttonPrimaryFontSize: fontSize(default);
-$buttonPrimaryBorderRadius: 9px;
-$buttonPrimaryPadding: gutter(1);
-$buttonPrimaryFbColor: #3b5998;
+$buttonPrimaryHeight: 40px;
+$buttonPrimaryFontSize: 15px;
+$buttonPrimaryBorderRadius: 20px;
+$buttonPrimaryPadding: spacing(m);
 
 $includeHtml: false !default;
 
@@ -14,18 +13,15 @@ $includeHtml: false !default;
     height: $buttonPrimaryHeight;
     padding: 0 $buttonPrimaryPadding;
     font-size: $buttonPrimaryFontSize;
+    line-height: $buttonPrimaryFontSize;
     color: $buttonFontColor;
     fill: $buttonFontColor;
     background-color: $buttonColor;
-
-    &--fb {
-      padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
-      background-color: $buttonPrimaryFbColor;
-    }
 
     &__icon {
       display: inline-flex;
       margin-right: $buttonPrimaryPadding / 2;
     }
+
   }
 }
