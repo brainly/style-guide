@@ -254,8 +254,19 @@ $buttonPrimaryFbHoverColor: #4367a9;
     padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
     background-color: $buttonPrimaryFbColor;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
       background-color: $buttonPrimaryFbHoverColor;
+    }
+
+    &.sg-button-secondary--disabled {
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $buttonPrimaryFbColor;
+      }
     }
   }
 
