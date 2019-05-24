@@ -52,10 +52,6 @@ const Buttons = () => {
       values: BUTTON_SECONDARY_TYPE
     },
     {
-      name: 'small',
-      values: Boolean
-    },
-    {
       name: 'wide',
       values: Boolean
     },
@@ -73,8 +69,13 @@ const Buttons = () => {
     <div>
       <DocsActiveBlock settings={primarySettings}>
         <ButtonPrimary>
-          Add your answer
+          Add your answer primary
         </ButtonPrimary>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={secondarySettings}>
+        <ButtonSecondary>
+          Add your answer secondary
+        </ButtonSecondary>
       </DocsActiveBlock>
       <DocsActiveBlock settings={primarySettings}>
         <ButtonPrimary
@@ -91,34 +92,6 @@ const Buttons = () => {
         </ButtonRound>
       </DocsActiveBlock>
 
-      <DocsActiveBlock settings={secondarySettings}>
-        <ButtonSecondary>
-          <Icon type={ICON_TYPES.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-        </ButtonSecondary>
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label
-            text="Comment"
-            number={21}
-            iconType={ICON_TYPE.COMMENT}
-            iconColor={ICON_COLOR.LAVENDER}
-            secondary
-          />
-        </ButtonSecondary>
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={secondarySettings} backgroundColor="dark">
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
-          <Label
-            text="Thank you"
-            number={331}
-            iconType={ICON_TYPE.HEART}
-            iconColor={ICON_COLOR.ADAPTIVE}
-            secondary
-            unstyled
-          />
-        </ButtonSecondary>
-      </DocsActiveBlock>
     </div>
   );
 };

@@ -14,25 +14,32 @@ const Buttons = () => (
         Add your answer
       </ButtonPrimary>
       &nbsp;
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Search
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
-        Search
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.PEACH}>
-        reject
-      </ButtonPrimary>
-      &nbsp;
       <ButtonPrimary disabled>
-        Disabled
+        Add your answer disabled
       </ButtonPrimary>
-
+      &nbsp;
       <br />
       <br />
-
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+        Ask your question
+      </ButtonPrimary>
+      &nbsp;
+      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+        Ask your question disabled
+      </ButtonPrimary>
+      &nbsp;
+      <br />
+      <br />
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
+        join now
+      </ButtonPrimary>
+      &nbsp;
+      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.DARK}>
+        Join now disabled
+      </ButtonPrimary>
+      &nbsp;
+      <br />
+      <br />
       <ButtonPrimary
         icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
         buttonType={BUTTON_PRIMARY_TYPE.FB}
@@ -42,7 +49,9 @@ const Buttons = () => (
     </DocsBlock>
 
     <DocsBlock info="Primary buttons wide">
-      <ButtonPrimary wide>Search</ButtonPrimary>
+      <ButtonPrimary wide>Primary wide</ButtonPrimary>
+      &nbsp;
+      <ButtonPrimary wide disabled>Primary wide disabled</ButtonPrimary>
     </DocsBlock>
 
     <DocsBlock info="Primary buttons inverted">
@@ -51,16 +60,18 @@ const Buttons = () => (
           Add your answer
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT_INVERSE}>
-          Ask your question
+        <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
+          Add your answer disabled
         </ButtonPrimary>
         &nbsp;
+        <br />
+        <br />
         <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
           Search
         </ButtonPrimary>
         &nbsp;
-        <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
-          Disabled
+        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE} disabled>
+          Search
         </ButtonPrimary>
       </ContrastBox>
     </DocsBlock>
@@ -76,30 +87,44 @@ const Buttons = () => (
         <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
       </ButtonSecondary>
       &nbsp;
+      <br />
+      <br />
       <ButtonSecondary>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK}>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.PEACH}>
-        reject
+        Add your answer
       </ButtonSecondary>
       &nbsp;
       <ButtonSecondary disabled>
-        Disabled
+        Add your answer
       </ButtonSecondary>
-
+      &nbsp;
+      <br />
+      <br />
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
+        Ask your question
+      </ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} disabled>
+        Ask your question
+      </ButtonSecondary>
+      &nbsp;
+      <br />
+      <br />
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK}>
+        Log in
+      </ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} disabled>
+        Log in
+      </ButtonSecondary>
+      &nbsp;
+      <br />
+      <br />
     </DocsBlock>
 
     <DocsBlock info="Secondary buttons wide">
       <ButtonSecondary wide>Search</ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary wide disabled>Search disabled</ButtonSecondary>
     </DocsBlock>
 
     <DocsBlock info="Secondary buttons inverted">
@@ -108,110 +133,67 @@ const Buttons = () => (
           <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
         </ButtonSecondary>
         &nbsp;
+        <br />
+        <br />
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          Search
+          Answer
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE}>
-          Search
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} disabled>
+          Answer
         </ButtonSecondary>
         &nbsp;
+        <br />
+        <br />
         <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
-          Search
+          Log in
         </ButtonSecondary>
         &nbsp;
-        <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          Disabled
+        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} disabled>
+          Log in
         </ButtonSecondary>
+        &nbsp;
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Secondary buttons small">
-      <ButtonSecondary small>
-        <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary small>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>
-        Search
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.PEACH} small>
-        reject
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled small>
-        Disabled
-      </ButtonSecondary>
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons inverted small">
-      <ContrastBox>
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          Search
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
-          Search
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>
-          Search
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary disabled type={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          Disabled
-        </ButtonSecondary>
-
-        <br /><br />
-
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label
-            text="Comment"
-            number={21}
-            iconType={ICON_TYPE.COMMENT}
-            iconColor={ICON_COLOR.LAVENDER}
-            secondary
-          />
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} small>
-          <Label
-            text="Mark as brainliest"
-            iconType={ICON_TYPE.EXCELLENT}
-            iconColor={ICON_COLOR.MUSTARD}
-            secondary
-          />
-        </ButtonSecondary>
-
-      </ContrastBox>
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons small active and inverted">
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
+    <DocsBlock info="Custom buttons with icons examples">
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
         <Label
           text="Thank you"
-          number={21}
+          number={24}
           iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE}
+          iconColor={ICON_COLOR.PEACH}
           secondary
           unstyled
         />
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE} small>
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
         <Label
           text="Thank you"
-          number={21}
+          number={2}
           iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.ADAPTIVE}
+          iconColor={ICON_COLOR.PEACH}
+          secondary
+          unstyled
+        />
+      </ButtonSecondary>
+      <br /><br />
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTRAD} small>
+        <Label
+          text="Mark as brainliest"
+          iconType={ICON_TYPE.EXCELLENT}
+          iconColor={ICON_COLOR.MUSTARD}
+          secondary
+          unstyled
+        />
+      </ButtonSecondary>
+      &nbsp;
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTRAD} small>
+        <Label
+          text="Mark as brainliest"
+          iconType={ICON_TYPE.EXCELLENT}
+          iconColor={ICON_COLOR.MUSTARD}
           secondary
           unstyled
         />

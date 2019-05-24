@@ -76,7 +76,10 @@ $buttonPrimaryFbHoverColor: #4367a9;
   &--alt {
     background-color: $buttonAltColor;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
       background-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
       border-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
     }
@@ -95,7 +98,10 @@ $buttonPrimaryFbHoverColor: #4367a9;
   &--dark {
     background-color: $buttonDarkColor;
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus {
       background-color: mix($grayPrimary, $buttonDarkColor, 80%);
       border-color: mix($grayPrimary, $buttonDarkColor, 80%);
     }
@@ -119,8 +125,9 @@ $buttonPrimaryFbHoverColor: #4367a9;
     background: none;
 
     &:hover,
+    &:focus,
     &:active,
-    &:focus {
+    &:active:focus {
       background-color: mix($black, $transparentWhite, 12%);
       border-color: $black;
     }
@@ -143,8 +150,9 @@ $buttonPrimaryFbHoverColor: #4367a9;
     border: 2px solid $white;
 
     &:hover,
+    &:focus,
     &:active,
-    &:focus {
+    &:active:focus {
       background-color: mix($graySecondaryUltraLight, $white, 80%);
       border-color: mix($graySecondaryUltraLight, $white, 80%);
     }
@@ -191,8 +199,9 @@ $buttonPrimaryFbHoverColor: #4367a9;
     }
 
     &:hover,
+    &:focus,
     &:active,
-    &:focus {
+    &:active:focus {
       border: none;
     }
   }
@@ -202,8 +211,9 @@ $buttonPrimaryFbHoverColor: #4367a9;
     color: $mustardPrimary;
 
     &:hover,
+    &:focus,
     &:active,
-    &:focus {
+    &:active:focus {
       background-color: mix($mustardPrimary, $transparentWhite, 12%);
       color: $mustardPrimary;
       fill: $mustardPrimary;
@@ -225,8 +235,9 @@ $buttonPrimaryFbHoverColor: #4367a9;
     color: $peachPrimary;
 
     &:hover,
+    &:focus,
     &:active,
-    &:focus {
+    &:active:focus {
       background-color: mix($peachPrimary, $transparentWhite, 12%);
       color: $peachPrimary;
       fill: $peachPrimary;
