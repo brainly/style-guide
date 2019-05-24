@@ -179,7 +179,7 @@ const Buttons = () => (
         />
       </ButtonSecondary>
       <br /><br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTRAD} small>
+      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
         <Label
           text="Mark as brainliest"
           iconType={ICON_TYPE.EXCELLENT}
@@ -189,7 +189,7 @@ const Buttons = () => (
         />
       </ButtonSecondary>
       &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTRAD} small>
+      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
         <Label
           text="Mark as brainliest"
           iconType={ICON_TYPE.EXCELLENT}
