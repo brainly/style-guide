@@ -1,79 +1,166 @@
 import React from 'react';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
 import ButtonRound from '../ButtonRound';
+import Button, {BUTTON_TYPE, BUTTON_SIZE} from '../Button';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Icon, {TYPE as iconTypes, ICON_COLOR} from 'icons/Icon';
-import Label, {ICON_TYPE} from 'labels/Label';
 
 const Buttons = () => (
   <div>
     <DocsBlock info="Primary buttons">
-      <ButtonPrimary>
-        Add your answer
-      </ButtonPrimary>
+      <Button type={BUTTON_TYPE.PRIMARY}>
+        Button primary
+      </Button>
       &nbsp;
-      <ButtonPrimary disabled>
-        Add your answer disabled
-      </ButtonPrimary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Ask your question
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Ask your question disabled
-      </ButtonPrimary>
+      <Button type={BUTTON_TYPE.PRIMARY_BLUE}>
+        Button primary blue
+      </Button>
       &nbsp;
       <br />
       <br />
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
-        join now
-      </ButtonPrimary>
+      <Button type={BUTTON_TYPE.PRIMARY_MINT}>
+        Button primary mint
+      </Button>
       &nbsp;
-      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.DARK}>
-        Join now disabled
-      </ButtonPrimary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonPrimary
-        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
-        buttonType={BUTTON_PRIMARY_TYPE.FB}
-      >
-        Login with Facebook
-      </ButtonPrimary>
-    </DocsBlock>
-
-    <DocsBlock info="Primary buttons wide">
-      <ButtonPrimary wide>Primary wide</ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary wide disabled>Primary wide disabled</ButtonPrimary>
-    </DocsBlock>
-
-    <DocsBlock info="Primary buttons inverted">
       <ContrastBox>
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
-          Add your answer
-        </ButtonPrimary>
-        &nbsp;
-        <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
-          Add your answer disabled
-        </ButtonPrimary>
-        &nbsp;
-        <br />
-        <br />
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-          Search
-        </ButtonPrimary>
-        &nbsp;
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE} disabled>
-          Search
-        </ButtonPrimary>
+        <Button type={BUTTON_TYPE.PRIMARY_INVERTED}>
+          Button primary inverted
+        </Button>
       </ContrastBox>
+      &nbsp;
+      <br />
+      <br />
+    </DocsBlock>
+    <DocsBlock info="Button secondary">
+      <Button type={BUTTON_TYPE.SECONDARY}>
+        Button secondary
+      </Button>
+      &nbsp;
+      <br />
+      <br />
+    </DocsBlock>
+    <DocsBlock info="Special buttons">
+      <Button type={BUTTON_TYPE.FACEBOOK}>
+        Button facebook
+      </Button>
+      &nbsp;
+      <Button type={BUTTON_TYPE.WARNING}>
+        Button warning
+      </Button>
+      &nbsp;
+      <Button type={BUTTON_TYPE.DETRUCTIVE}>
+        Button destructive
+      </Button>
+      &nbsp;
+      <br />
+      <br />
+    </DocsBlock>
+    <DocsBlock info="Link buttons">
+      <Button type={BUTTON_TYPE.LINK_BUTTON}>
+        Link button
+      </Button>
+      &nbsp;
+      <ContrastBox>
+        <Button type={BUTTON_TYPE.LINK_BUTTON_INVERTED}>
+          Link button inverted
+        </Button>
+      </ContrastBox>
+      &nbsp;
+      <br />
+      <br />
+      <Button type={BUTTON_TYPE.LINK_BUTTON_PEACH}>
+        Link button peach
+      </Button>
+      &nbsp;
+      <Button type={BUTTON_TYPE.LINK_BUTTON_MUSTRAD}>
+        Link button mustard
+      </Button>
+      &nbsp;
+    </DocsBlock>
+    <DocsBlock info="Buttons avalaible sizes">
+      <Button type={BUTTON_TYPE.PRIMARY} size={BUTTON_SIZE.LARGE}>
+        Large
+      </Button>
+      &nbsp;
+      <Button type={BUTTON_TYPE.PRIMARY} size={BUTTON_SIZE.MEDIUM}>
+        Medium
+      </Button>
+      &nbsp;
+      <Button type={BUTTON_TYPE.PRIMARY} size={BUTTON_SIZE.SMALL}>
+        Small
+      </Button>
+    </DocsBlock>
+    <DocsBlock info="Buttons with icons">
+      <Button
+        size={BUTTON_SIZE.LARGE}
+        type={BUTTON_TYPE.FACEBOOK}
+        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.LIGHT} size={32} />}
+      >
+        FB button
+      </Button>
+      &nbsp;
+      <Button
+        type={BUTTON_TYPE.FACEBOOK}
+        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.LIGHT} size={24} />}
+      >
+        FB button
+      </Button>
+      &nbsp;
+      <Button
+        size={BUTTON_SIZE.SMALL}
+        type={BUTTON_TYPE.FACEBOOK}
+        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.LIGHT} size={16} />}
+      >
+        FB button
+      </Button>
+      <br />
+      <br />
+      <Button
+        size={BUTTON_SIZE.LARGE}
+        type={BUTTON_TYPE.LINK_BUTTON_PEACH}
+        icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={32} />}
+      >
+        Thank you
+      </Button>
+      &nbsp;
+      <Button
+        type={BUTTON_TYPE.LINK_BUTTON_PEACH}
+        icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={24} />}
+      >
+        Thank you
+      </Button>
+      &nbsp;
+      <Button
+        size={BUTTON_SIZE.SMALL}
+        type={BUTTON_TYPE.LINK_BUTTON_PEACH}
+        icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={16} />}
+      >
+        Thank you
+      </Button>
+      &nbsp;
+      <Button
+        size={BUTTON_SIZE.LARGE}
+        type={BUTTON_TYPE.LINK_BUTTON_MUSTRAD}
+        icon={<Icon type={iconTypes.EXCELLENT} color={ICON_COLOR.MUSTARD} size={32} />}
+      >
+        Mark as best
+      </Button>
+      &nbsp;
+      <Button
+        type={BUTTON_TYPE.LINK_BUTTON_MUSTRAD}
+        icon={<Icon type={iconTypes.EXCELLENT} color={ICON_COLOR.MUSTARD} size={24} />}
+      >
+        Mark as best
+      </Button>
+      &nbsp;
+      <Button
+        size={BUTTON_SIZE.SMALL}
+        type={BUTTON_TYPE.LINK_BUTTON_MUSTRAD}
+        icon={<Icon type={iconTypes.EXCELLENT} color={ICON_COLOR.MUSTARD} size={16} />}
+      >
+        Mark as best
+      </Button>
+      &nbsp;
     </DocsBlock>
 
     <DocsBlock info="Primary round button">
@@ -81,125 +168,6 @@ const Buttons = () => (
         <Icon type={iconTypes.PLUS} size={16} />
       </ButtonRound>
     </DocsBlock>
-
-    <DocsBlock info="Secondary buttons">
-      <ButtonSecondary>
-        <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary>
-        Add your answer
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled>
-        Add your answer
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
-        Ask your question
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} disabled>
-        Ask your question
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK}>
-        Log in
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} disabled>
-        Log in
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons wide">
-      <ButtonSecondary wide>Search</ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary wide disabled>Search disabled</ButtonSecondary>
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons inverted">
-      <ContrastBox>
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-        </ButtonSecondary>
-        &nbsp;
-        <br />
-        <br />
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          Answer
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} disabled>
-          Answer
-        </ButtonSecondary>
-        &nbsp;
-        <br />
-        <br />
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
-          Log in
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} disabled>
-          Log in
-        </ButtonSecondary>
-        &nbsp;
-      </ContrastBox>
-    </DocsBlock>
-
-    <DocsBlock info="Custom buttons with icons examples">
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-        <Label
-          text="Thank you"
-          number={24}
-          iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.PEACH}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-        <Label
-          text="Thank you"
-          number={2}
-          iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.PEACH}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      <br /><br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
-        <Label
-          text="Mark as brainliest"
-          iconType={ICON_TYPE.EXCELLENT}
-          iconColor={ICON_COLOR.MUSTARD}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
-        <Label
-          text="Mark as brainliest"
-          iconType={ICON_TYPE.EXCELLENT}
-          iconColor={ICON_COLOR.MUSTARD}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-    </DocsBlock>
-
   </div>
 );
 

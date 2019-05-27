@@ -1,0 +1,113 @@
+# Buttons
+
+Buttons are created to help user to make actions, choices and to move around the product.
+
+### General usage examples
+
+```jsx
+import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'style-guide/src/components/buttons/Button';
+
+<Button type="primary-blue" size={BUTTON_SIZE.SMALL}>
+    I am primary small button
+</Button>
+```
+
+```HTML
+<div class="sg-button sg-button--primary-blue sg-button--small">
+    I am primary small button
+</div>
+```
+
+### Types of buttons on Brainly and examples of usage
+
+#### Primary buttons
+There are 4 types of primary buttons avalaible, that are used as main action buttons on Brainly, like asking questions, login or register
+
+```jsx
+import Button from 'style-guide/src/components/buttons/Button';
+
+<Button type="primary">
+    I am black button
+</Button>
+
+<Button type="primary-inverted">
+    I am white button
+</Button>
+
+<Button type="primary-blue">
+    I am blue button
+</Button>
+
+<Button type="primary-mint">
+    I am mint button
+</Button>
+```
+#### Secondary buttons
+We have one secondary button, e.g answer button on feed, which is white with black border
+
+```jsx
+import Button from 'style-guide/src/components/buttons/Button';
+
+<Button type="secondary">
+    I am white button with border
+</Button>
+
+```
+#### Link buttons
+We have 4 link buttons avalaible, black, white, peach and mustard. They are also used to create `thank you` and `mark as best` buttons
+
+```jsx
+import Button from 'style-guide/src/components/buttons/Button';
+
+<Button type="link-button">
+    I am black link button
+</Button>
+
+<Button type="link-button-inverted">
+    I am white link button
+</Button>
+
+<Button type="link-button-peach">
+    I am peach link button
+</Button>
+
+<Button type="link-button-mustard">
+    I am mustard link button
+</Button>
+
+// Example of the thank you button created with link button
+<Button
+  type="link-button-peach"
+  icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={24} />}
+>
+  Thank you
+</Button>
+```
+#### Additional buttons
+There are also 3 additional buttons created for special cases - destructive and warning, and facebook button, what have custom set of colors from outside the palette.
+
+```jsx
+import Button from 'style-guide/src/components/buttons/Button';
+
+<Button type="destructive">
+    Mustard destructive button
+</Button>
+
+<Button type="warning">
+    Peach warning
+</Button>
+
+<Button type="facebook">
+    I am FB button
+</Button>
+```
+
+| Prop name | Type | Default | Description |
+| :- | :- | :-: | :- |
+| size | String | `medium`| use `small`, `medium` or `large` to set the size of the Button
+| type | String |`primary` | use `primary`, `primary-inverted`, `primary-blue`, `primary-mint`,`secondary`, `link-button`, `link-button-inverted`, `link-button-peach`, `link-button-mustard`, `destructive`, `warning`, `facebook` to set the type of the Button
+| href | String | `button` | sets the HTML tag for the component |
+| disabled | Boolean | `false` | sets the `disabled` attribute on the Button |
+| fullWidth | Boolean | `false` | adds class responsible for making button 100% of it's parent |
+| icon | Node |  | optional icon inserted on the left side |
+
