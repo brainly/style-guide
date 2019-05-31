@@ -14,43 +14,25 @@ export type IconTypeType =
   | 'arrow_up'
   | 'attachment'
   | 'bold'
-  | 'camera'
-  | 'change_status'
   | 'check'
-  | 'comment'
   | 'counter'
-  | 'cup'
   | 'equation'
   | 'exclamation_mark'
   | 'excellent'
-  | 'expert'
   | 'friends'
   | 'heart'
-  | 'keyboard'
-  | 'lightning'
-  | 'logout'
   | 'menu'
   | 'messages'
   | 'notifications'
   | 'pencil'
-  | 'planet'
   | 'plus'
-  | 'podium'
   | 'points'
   | 'profile'
-  | 'profile_edit'
-  | 'profile_view'
-  | 'question'
-  | 'reload'
   | 'report_flag'
   | 'search'
   | 'seen'
   | 'star'
-  | 'stream'
-  | 'student'
   | 'symbols'
-  | 'thumbs_up'
-  | 'unseen'
   | 'verified'
   | 'x'
   | 'fb';
@@ -66,7 +48,6 @@ export type IconColorType =
   | 'light'
   | 'mint'
   | 'mustard'
-  | 'navy-blue'
   | 'peach';
 
 export type IconSizeType =
@@ -97,43 +78,25 @@ export const TYPE = {
   ARROW_UP: 'arrow_up',
   ATTACHMENT: 'attachment',
   BOLD: 'bold',
-  CAMERA: 'camera',
-  CHANGE_STATUS: 'change_status',
   CHECK: 'check',
-  COMMENT: 'comment',
   COUNTER: 'counter',
-  CUP: 'cup',
   EQUATION: 'equation',
   EXCLAMATION_MARK: 'exclamation_mark',
   EXCELLENT: 'excellent',
-  EXPERT: 'expert',
   FRIENDS: 'friends',
   HEART: 'heart',
-  KEYBOARD: 'keyboard',
-  LIGHTNING: 'lightning',
-  LOGOUT: 'logout',
   MENU: 'menu',
   MESSAGES: 'messages',
   NOTIFICATIONS: 'notifications',
   PENCIL: 'pencil',
-  PLANET: 'planet',
   PLUS: 'plus',
-  PODIUM: 'podium',
   POINTS: 'points',
   PROFILE: 'profile',
-  PROFILE_EDIT: 'profile_edit',
-  PROFILE_VIEW: 'profile_view',
-  QUESTION: 'question',
-  RELOAD: 'reload',
   REPORT_FLAG: 'report_flag',
   SEARCH: 'search',
   SEEN: 'seen',
   STAR: 'star',
-  STREAM: 'stream',
-  STUDENT: 'student',
   SYMBOLS: 'symbols',
-  THUMBS_UP: 'thumbs_up',
-  UNSEEN: 'unseen',
   VERIFIED: 'verified',
   X: 'x',
   FB: 'fb'
@@ -149,7 +112,6 @@ export const ICON_COLOR = {
   LIGHT: 'light',
   MINT: 'mint',
   MUSTARD: 'mustard',
-  NAVY_BLUE: 'navy-blue',
   PEACH: 'peach'
 };
 
