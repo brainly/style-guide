@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import * as IconModule from '../../icons/Icon';
 

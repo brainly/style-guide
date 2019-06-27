@@ -1,4 +1,5 @@
 // @flow strict
+
 import React, {Fragment} from 'react';
 
 type PropsType = {

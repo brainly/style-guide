@@ -1,2 +1,4 @@
 /src/images
 /src/svg-polyfill.js
+/dist
+/node_modules

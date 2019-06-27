@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import {contrastBlockCssClass} from 'components/ContrastBox';
 import IconAsButton, {ICON_COLOR} from '../IconAsButton';

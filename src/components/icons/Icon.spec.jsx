@@ -33,7 +33,7 @@ test('type passed to xlink:href', () => {
   );
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual('#icon-' + type);
+  expect(use.props().xlinkHref).toEqual(`#icon-${type}`);
 });
 
 test('colors', () => {
@@ -59,7 +59,7 @@ test('size', () => {
 test('other props', () => {
   const type = TYPE.ANSWER;
   const icon = shallow(
-    <Icon type={type} data-something={'else'} />
+    <Icon type={type} data-something="else" />
   );
 
   expect(icon.find('[data-something="else"]')).toHaveLength(1);

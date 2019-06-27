@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import * as BadgeModule from './subcomponents/Badge';
 import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../text/Text';

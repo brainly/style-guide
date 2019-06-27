@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 
 type PropsType = {

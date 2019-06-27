@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import type {Node} from 'react';
 import OverlayedBox from '../../overlayed-box/OverlayedBox';

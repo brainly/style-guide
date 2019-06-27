@@ -5,7 +5,9 @@ module.exports = function(gulp, plugins, consts) {
     const docsHtmlPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', '*.html');
     const docsCssPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', 'css', 'main.css');
     const componentsHtmlPath = plugins.path.join(consts.VERSIONED_DIST, 'docs', 'components', '**', '*.html');
+    /* eslint-disable no-useless-escape, max-len */
     const inlineReferencesReg = /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g;
+    /* eslint-disable no-useless-escape, max-len */
     const docsHtmlRootRelativePath = '../../';
     const docsCssRootRelativePath = '../../../';
     const componentsHtmlRootRelativePath = '../../../../';

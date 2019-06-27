@@ -20,6 +20,6 @@ test('type passed to xlink:href', () => {
   const back = use.at(0);
   const front = use.at(1);
 
-  expect(back.props().xlinkHref).toEqual('#icon-' + type);
-  expect(front.props().xlinkHref).toEqual('#icon-' + type);
+  expect(back.props().xlinkHref).toEqual(`#icon-${type}`);
+  expect(front.props().xlinkHref).toEqual(`#icon-${type}`);
 });

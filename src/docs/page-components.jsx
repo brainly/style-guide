@@ -93,7 +93,7 @@ const sections = Object.keys(demos).map(key => (
   <article key={key}>
     <h2 className="article-header" id={slugify(key)}>
       {key}
-      <a href={'#' + slugify(key)} className="permalink">#</a>
+      <a href={`#${slugify(key)}`} className="permalink">#</a>
     </h2>
     {demos[key]}
   </article>

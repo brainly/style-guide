@@ -31,7 +31,7 @@ const Dropdowns = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings} contentBefore="Lorem Ipsum" contentAfter="Lorem ipsum" wrapper={<div />}>
-        <Dropdown items={defaultItems} label={'Pick one…'} />
+        <Dropdown items={defaultItems} label="Pick one…" />
       </DocsActiveBlock>
     </div>
   );

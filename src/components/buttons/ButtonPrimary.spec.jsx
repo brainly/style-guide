@@ -17,7 +17,7 @@ test('type', () => {
     <ButtonPrimary buttonType={buttonType}>Some text</ButtonPrimary>
   );
 
-  expect(button.hasClass('sg-button-primary--' + buttonType)).toEqual(true);
+  expect(button.hasClass(`sg-button-primary--${buttonType}`)).toEqual(true);
 });
 
 test('button with href', () => {

@@ -3,8 +3,8 @@ import DocsBlock from 'components/DocsBlock';
 import Label, {ICON_COLOR, ICON_TYPE, SIZE} from '../Label';
 
 const longText = 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
-const multilineExample1 = 'This is a multiline example with icon in the middle (default behaviur). ' + longText;
-const multilineExample2 = 'This is a multiline example with icon aligned to top. ' + longText;
+const multilineExample1 = `This is a multiline example with icon in the middle (default behaviur). ${longText}`;
+const multilineExample2 = `This is a multiline example with icon aligned to top. ${longText}`;
 
 const Labels = () => (
   <div>

@@ -18,7 +18,7 @@ test('type passed to xlink:href', () => {
   );
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual('#icon-subject-' + type);
+  expect(use.props().xlinkHref).toEqual(`#icon-subject-${type}`);
 });
 
 test('size', () => {
@@ -38,7 +38,7 @@ test('mono', () => {
   );
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual('#icon-subject-mono-' + type);
+  expect(use.props().xlinkHref).toEqual(`#icon-subject-mono-${type}`);
 });
 
 test('normal size', () => {

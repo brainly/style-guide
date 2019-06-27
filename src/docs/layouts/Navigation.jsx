@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import slugify from '../slugify';
 
@@ -19,7 +20,7 @@ const Navigation = ({navigation, version}: PropsType) => (
     </a>
     <ul className="main-menu__item">
       {navigation.map((page, index) => {
-        const pageUrl = slugify(page.name) + '.html';
+        const pageUrl = `${slugify(page.name)}.html`;
 
         return (
           <li key={index}>

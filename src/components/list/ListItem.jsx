@@ -1,4 +1,5 @@
 // @flow strict
+
 import classNames from 'classnames';
 import type {Node} from 'react';
 import React from 'react';

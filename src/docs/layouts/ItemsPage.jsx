@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import Navigation from './Navigation';
 import Head from './Head';
@@ -35,7 +36,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
             <article key={name}>
               <h2 className="article-header" id={slugify(name)}>
                 {name}
-                <a href={'#' + slugify(name)} className="permalink">#</a>
+                <a href={`#${slugify(name)}`} className="permalink">#</a>
               </h2>
               {component()}
             </article>

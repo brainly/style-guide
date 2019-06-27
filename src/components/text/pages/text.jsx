@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text from '../Text';
@@ -78,7 +78,7 @@ const TextExamples = () => {
   getValues(LINK_COLOR, false).forEach(color => {
     if (color !== LINK_COLOR.WHITE) {
       linkcolorVariant.push(
-        <React.Fragment>
+        <Fragment>
           <Link
             href="#"
             color={color}
@@ -87,11 +87,11 @@ const TextExamples = () => {
           >link - {color}
           </Link>
           <br />
-        </React.Fragment>
+        </Fragment>
       );
     } else {
       <ContrastBox>
-        <React.Fragment>
+        <Fragment>
           <Link
             href="#"
             color={LINK_COLOR.WHITE}
@@ -100,7 +100,7 @@ const TextExamples = () => {
           >link - {color}
           </Link>
           <br />
-        </React.Fragment>
+        </Fragment>
       </ContrastBox>;
     }
   });

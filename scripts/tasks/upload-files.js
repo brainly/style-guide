@@ -15,7 +15,8 @@ module.exports = function(gulp, plugins, consts) {
         region: consts.AWS_REGION
       }
     });
-
+    
+    /* eslint-disable no-unused-vars */
     client.s3.headObject({
       Bucket: consts.BUCKET_NAME,
       Key: `${consts.VERSION}/style-guide.css`
@@ -33,7 +34,9 @@ module.exports = function(gulp, plugins, consts) {
           console.error('unable to upload:', err.stack);
         });
         uploader.on('progress', function() {
+          /* eslint-disable no-console */
           console.log('Upload progress', uploader.progressAmount, uploader.progressTotal);
+           /* eslint-enable no-console */
         });
         uploader.on('end', done);
       } else {

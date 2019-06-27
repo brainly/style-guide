@@ -18,7 +18,7 @@ test('type passed to xlink:href', () => {
   );
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual('#sg-math-symbol-icon-' + type);
+  expect(use.props().xlinkHref).toEqual(`#sg-math-symbol-icon-${type}`);
 });
 
 test('colors', () => {
@@ -63,7 +63,7 @@ test('wide with size', () => {
 test('other props', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(
-    <MathSymbol type={type} data-something={'else'} />
+    <MathSymbol type={type} data-something="else" />
   );
 
   expect(icon.find('[data-something="else"]')).toHaveLength(1);

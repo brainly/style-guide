@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 
 type PropsType = {
@@ -25,7 +26,7 @@ const Head = ({page = {}, site = {}}: PropsType) => (
     <meta name="theme-color" content="#6ED6A0" />
 
     <link rel="stylesheet" href="../style-guide.css" />
-    <link rel="stylesheet" href={site.baseurl + '/css/main.css'} />
+    <link rel="stylesheet" href={`${site.baseurl}/css/main.css`} />
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" />

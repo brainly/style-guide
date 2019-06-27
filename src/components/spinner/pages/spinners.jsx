@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Spinner, {SPINNER_SIZE} from '../Spinner';
 
 const Spinners = () => (
-  <React.Fragment>
+  <Fragment>
     <DocsBlock info="Normal" additionalInfo="(Default)">
       <Spinner />
     </DocsBlock>
@@ -22,7 +22,7 @@ const Spinners = () => (
         <Spinner light />
       </ContrastBox>
     </DocsBlock>
-  </React.Fragment>
+  </Fragment>
 );
 
 export default Spinners;

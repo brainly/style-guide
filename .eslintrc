@@ -4,13 +4,13 @@
   },
   "parser": "babel-eslint",
   "extends": [
-    "./node_modules/frontend-tools-configs/eslint/main.js",
-    "./node_modules/frontend-tools-configs/eslint/react.js",
-    "./node_modules/frontend-tools-configs/eslint/redux.js",
-    "./node_modules/frontend-tools-configs/eslint/babel.js",
-    "./node_modules/frontend-tools-configs/eslint/flow.js"
+    "brainly",
+    "brainly-react"
   ],
   "rules": {
-    "max-len": ["error", { "code": 120, "ignoreComments": true }]
+    "max-len": ["error", { "code": 120, "ignoreComments": true }],
+    "prettier/react": "off",
+    "prettier/prettier": "off",
+    "prettier": "off"
   }
 }

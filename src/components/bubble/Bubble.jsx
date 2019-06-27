@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -62,9 +63,9 @@ const Bubble = (
   let alignmentClass;
 
   if (HORIZONTAL_DIRECTIONS.includes(direction)) {
-    alignmentClass = 'sg-bubble--column-' + alignment;
+    alignmentClass = `sg-bubble--column-${alignment}`;
   } else {
-    alignmentClass = 'sg-bubble--row-' + alignment;
+    alignmentClass = `sg-bubble--row--${alignment}`;
   }
 
   const bubbleClass = classNames('sg-bubble', {

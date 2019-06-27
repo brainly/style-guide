@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from '../Headline';
@@ -74,7 +74,7 @@ const Headlines = () => {
   });
 
   return (
-    <React.Fragment>
+    <Fragment>
       <DocsBlock info="Size and weight variant">
         {standard}
       </DocsBlock>
@@ -102,7 +102,7 @@ const Headlines = () => {
           {text} - align right
         </Headline>
       </DocsBlock>
-    </React.Fragment>
+    </Fragment>
   );
 
 };
