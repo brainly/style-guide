@@ -86,6 +86,22 @@ module.exports = function(gulp, plugins, consts) {
       }
     };
 
+    const notTransformedIconsConfig = {
+      mode: {
+        symbol: {
+          sprite: '../icons.svg'
+        }
+      },
+      shape: {
+        id: {
+          generator: 'icon-%s'
+        },
+        transform: ['svgo', {
+          custom: svgSymbolCleanUp.bind(null, {removeClass: true})
+        }]
+      }
+    };
+
     const mathSymbolsConfig = {
       mode: {
         symbol: {
@@ -115,6 +131,10 @@ module.exports = function(gulp, plugins, consts) {
 
     gulp.src(mathSymbolsPath)
       .pipe(plugins.svgSprite(mathSymbolsConfig))
+      .pipe(gulp.dest(destPath));
+
+    gulp.src(iconsPath)
+      .pipe(plugins.svgSprite(notTransformedIconsConfig))
       .pipe(gulp.dest(destPath));
 
     return gulp.src(iconsPath)
