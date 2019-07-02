@@ -8,7 +8,7 @@ const Buttons = () => {
   const allIcons = {};
 
   Object.keys(ICON_TYPES).forEach(type =>
-    allIcons[type] = <Icon type={ICON_TYPES[type]} color={ICON_COLOR.ADAPTIVE} size={16} />);
+    allIcons[type] = <Icon type={ICON_TYPES[type]} color={ICON_COLOR.ADAPTIVE} size={24} />);
 
   const roundSettings = [
     {
@@ -57,10 +57,10 @@ const Buttons = () => {
       </DocsActiveBlock>
       <DocsActiveBlock settings={buttonsSettings}>
         <Button
-          icon={allIcons.FB}
-          buttonType={BUTTON_TYPE.FB}
+          icon={allIcons.ANSWER}
+          type={BUTTON_TYPE.PRIMARY}
         >
-          Login with Facebook
+          Answer
         </Button>
       </DocsActiveBlock>
 

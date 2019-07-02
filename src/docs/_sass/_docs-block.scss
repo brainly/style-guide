@@ -2,6 +2,14 @@
   margin: 0 0 50px;
   display: flex;
 
+  &--full-width {
+    width: 100%;
+  }
+
+  &--even-columns {
+    flex: 1 1 0;
+  }
+
   &__header {
     color: $grayPrimary;
     display: block;
@@ -29,6 +37,17 @@
     &--centered {
       display: flex;
       align-items: center;
+    }
+
+    &--space-between {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &--justified {
+      display: flex;
+      flex: 1 1 0;
+      justify-content: center;
     }
 
     &--to-bottom {

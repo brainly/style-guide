@@ -11,9 +11,10 @@ type ButtonTypeType =
   | 'primary-blue'
   | 'primary-mint'
   | 'secondary'
-  | 'secondary-peach'
   | 'link-button'
   | 'link-button-inverted'
+  | 'link-button-peach'
+  | 'link-button-mustard'
   | 'destructive'
   | 'warning'
   | 'facebook';
@@ -46,9 +47,10 @@ export type ButtonPropsType = {
    * @see type="primary-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary-blue"#buttons
    * @see type="primary-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary-mint"#buttons
    * @see type="secondary" https://styleguide.brainly.com/latest/docs/interactive.html?type="secondary"#buttons
-   * @see type="secondary-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="secondary-peach"#buttons
    * @see type="link-button" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button"#buttons
    * @see type="link-button-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
+   * @see type="link-button-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-peach"#buttons
+   * @see type="link-button-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-mustard"#buttons
    * @see type="destructive" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
    * @see type="warning" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
    * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons

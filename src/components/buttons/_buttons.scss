@@ -3,20 +3,20 @@ $buttonPrimaryFbColor: #3c5b96;
 $buttonPrimaryFbHoverColor: #4367a9;
 
 @mixin sgButtonHover($color1, $color2, $percent) {
-  &:hover,
-  &:focus,
-  &:active,
-  &:active:focus {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]),
+  &:active:not([disabled]),
+  &:active:focus:not([disabled]) {
     background-color: mix($color1, $color2, $percent);
     border-color: mix($color1, $color2, $percent);
   }
 }
 
 @mixin sgButtonHoverNoBorder($color1, $color2, $percent) {
-  &:hover,
-  &:focus,
-  &:active,
-  &:active:focus {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]),
+  &:active:not([disabled]),
+  &:active:focus:not([disabled]) {
     background-color: mix($color1, $color2, $percent);
   }
 }
