@@ -143,7 +143,12 @@ const Button = ({
   }
 
   return (
-    <TypeToRender {...props} disabled={disabled} className={btnClass}>
+    <TypeToRender
+      className={btnClass}
+      {...props}
+      disabled={disabled}
+      role={props.href ? 'button' : null}
+    >
       {ico}
       {children}
     </TypeToRender>

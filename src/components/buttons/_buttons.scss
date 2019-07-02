@@ -1,4 +1,4 @@
-$transparentWhite: rgba(255, 255, 255, 0);
+$transparent: rgba(255, 255, 255, 0);
 $buttonPrimaryFbColor: #3c5b96;
 $buttonPrimaryFbHoverColor: #4367a9;
 
@@ -119,37 +119,37 @@ $buttonPrimaryFbHoverColor: #4367a9;
   }
 
   &--secondary {
-    @include sgButtonHoverNoBorder($black, $transparentWhite, 12%);
-    background-color: $transparentWhite;
+    @include sgButtonHoverNoBorder($black, $transparent, 12%);
+    background-color: $transparent;
     border: 2px solid $black;
     color: $black;
   }
 
   &--link-button {
-    @include sgButtonHoverNoBorder($black, $transparentWhite, 12%);
-    background-color: $transparentWhite;
-    border: 2px solid $transparentWhite;
+    @include sgButtonHoverNoBorder($black, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $transparent;
     color: $black;
   }
 
   &--link-button-inverted {
-    @include sgButtonHoverNoBorder($white, $transparentWhite, 12%);
-    background-color: $transparentWhite;
-    border: 2px solid $transparentWhite;
+    @include sgButtonHoverNoBorder($white, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $transparent;
     color: $white;
   }
 
   &--link-button-peach {
-    @include sgButtonHoverNoBorder($peachPrimary, $transparentWhite, 12%);
-    background-color: $transparentWhite;
-    border: 2px solid $transparentWhite;
+    @include sgButtonHoverNoBorder($peachPrimary, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $transparent;
     color: $peachPrimary;
   }
 
   &--link-button-mustard {
-    @include sgButtonHoverNoBorder($mustardPrimary, $transparentWhite, 12%);
-    background-color: $transparentWhite;
-    border: 2px solid $transparentWhite;
+    @include sgButtonHoverNoBorder($mustardPrimary, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $transparent;
     color: $mustardPrimary;
   }
 
