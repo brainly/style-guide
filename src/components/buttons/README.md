@@ -5,7 +5,7 @@ Buttons are created to help user to make actions, choices and to move around the
 ### General usage examples
 
 ```jsx
-import Button, {BUTTON_TYPE, BUTTON_SIZE} from 'style-guide/src/components/buttons/Button';
+import Button from 'style-guide/src/components/buttons/Button';
 
 <Button type="primary-blue" size={BUTTON_SIZE.SMALL}>
     I am primary small button
