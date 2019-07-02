@@ -1,6 +1,6 @@
 import React from 'react';
 import hex from '../../colors/hex';
-import Button, {BUTTON_TYPE, BUTTON_SIZE} from '../Button';
+import Button, {BUTTON_TYPE} from '../Button';
 import DocsBlock from 'components/DocsBlock';
 import Flex from '../../flex/Flex';
 import Icon, {TYPE as iconTypes} from 'icons/Icon';
