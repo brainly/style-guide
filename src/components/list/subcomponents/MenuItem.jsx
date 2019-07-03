@@ -1,13 +1,13 @@
 // @flow strict
 import React from 'react';
-import type {ElementType} from 'react';
 import classnames from 'classnames';
 
 export type PropsType = {
   className?: string,
   href?: string,
   text: string,
-  type?: ElementType
+  // $FlowFixMe
+  type?: string | any => React$Node
 };
 
 const MenuItem = ({text, href, type, className, ...restProps}: PropsType) => {

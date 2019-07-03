@@ -88,7 +88,7 @@ test('Type', () => {
   const CustomTextarea = props => <textarea {...props} data-super-custom="superCustom" />;
   const textarea = mount(
     // eslint-disable-next-line react/jsx-no-bind
-    <Textarea Type={CustomTextarea} />
+    <Textarea type={CustomTextarea} />
   );
 
   expect(textarea.find('[data-super-custom="superCustom"]')).toHaveLength(1);

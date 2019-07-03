@@ -81,6 +81,7 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
    * @returns {Object} object representing react props
    */
   getCleanProps() {
+    // $FlowFixMe
     const component = Object.assign({}, this.props.children);
 
     if (typeof component.type === 'function') {
@@ -94,7 +95,6 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     }
 
     const props = Object.assign({}, component.props, this.state.props);
-    // $FlowFixMe
     const originalComponent = React.cloneElement(component, props);
     const originalHTML = renderToStaticMarkup(originalComponent);
 
@@ -104,7 +104,6 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
       }
 
       const inputPropsWithoutAProp = Object.assign({}, props, {[key]: undefined});
-      // $FlowFixMe
       const componentWithoutAProp = React.cloneElement(component, inputPropsWithoutAProp);
 
       const withoutPropHTML = renderToStaticMarkup(componentWithoutAProp);
