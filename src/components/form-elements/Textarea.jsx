@@ -17,7 +17,7 @@ export const SIZE = {
 };
 
 export type TextareaPropsType = {
-  Type?: string | () => React.Node,
+  Type?: string | any => React$Node,
   textareaRef?: (ref: ?HTMLElement) => mixed,
   value?: any,
   size?: ?TextareaSizeType,
