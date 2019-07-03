@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type {Node} from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import InfoBlock from './docsBlock/InfoBlock';
 import ContentBlock from './docsBlock/ContentBlock';
 
@@ -31,7 +31,7 @@ const DocsBlock = ({
   justified
 }: PropsType) => (
   <section
-    className={classnames('docs-block', {
+    className={cx('docs-block', {
       'docs-block--even-columns': evenColumns,
       'docs-block--full-width': fullWidth
     })}

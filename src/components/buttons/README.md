@@ -5,7 +5,7 @@ Buttons are created to help user to make actions, choices and to move around the
 ### General usage examples
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button type="primary-blue" size={BUTTON_SIZE.SMALL}>
     I am primary small button
@@ -24,7 +24,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 There are 4 types of primary buttons avalaible, that are used as main action buttons on Brainly, like asking questions, login or register
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button type="primary">
     I am black button
@@ -47,7 +47,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 We have one secondary button, e.g answer button on feed, which is white with black border
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button type="secondary">
     I am white button with border
@@ -59,7 +59,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 We have 4 link buttons avalaible, black, white, peach and mustard. They are also used to create `thank you` and `mark as best` buttons
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button type="link-button">
     I am black link button
@@ -90,7 +90,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 There are also 3 additional buttons created for special cases - destructive and warning, and facebook button, what have custom set of colors from outside the palette.
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button type="destructive">
     Mustard destructive button
@@ -109,7 +109,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 We have 3 possible options in our style-guide regarding buttons with icons, each have a standard icon size, which should be perserve.
 
 ```jsx
-import Button from 'style-guide/src/components/buttons/Button';
+import {Button} from 'style-guide';
 
 <Button
     size="small"

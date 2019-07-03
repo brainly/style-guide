@@ -34,7 +34,8 @@
   // Added to align text in the center,
   // as soon as Proxima is fixed we could remove it.
   &__text {
-    margin-bottom: -1px;
+    position: relative;
+    top: 1px;
   }
 
   &__icon {

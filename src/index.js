@@ -6,6 +6,7 @@ export {default as TextBadge} from './components/badges/TextBadge';
 export {default as Box} from './components/box/Box';
 export {default as Breadcrumb} from './components/breadcrumbs/Breadcrumb';
 export {default as Bubble} from './components/bubble/Bubble';
+export {default as Button} from './components/buttons/Button';
 export {default as ButtonPrimary} from './components/buttons/ButtonPrimary';
 export {default as ButtonRound} from './components/buttons/ButtonRound';
 export {default as ButtonSecondary} from './components/buttons/ButtonSecondary';

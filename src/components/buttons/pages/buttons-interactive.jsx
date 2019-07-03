@@ -5,10 +5,10 @@ import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {
-  const allIcons = {};
-
-  Object.keys(ICON_TYPES).forEach(type =>
-    allIcons[type] = <Icon type={ICON_TYPES[type]} color={ICON_COLOR.ADAPTIVE} size={24} />);
+  const allIcons = Object.entries(ICON_TYPES).reduce((acc, [key, type]) => ({
+    ...acc,
+    [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />
+  }), {});
 
   const roundSettings = [
     {

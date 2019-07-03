@@ -10,28 +10,30 @@ function getValues(object, addUndefined = true) {
   return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
 }
 
+const getIconColor = type => {
+  if (
+    type === 'primary-inverted' ||
+    type === 'secondary' ||
+    type === 'destructive' ||
+    type === 'link-button' ||
+    type === 'warning'
+  ) {
+    return 'dark';
+  } else if (type === 'link-button-peach') {
+    return 'peach';
+  } else if (type === 'link-button-mustard') {
+    return 'mustard';
+  } else {
+    return 'light';
+  }
+};
+
 const Buttons = () => {
   const buttonsVariants = [];
   const buttonsText = 'Button';
 
   getValues(BUTTON_TYPE, false).forEach(type => {
-    let iconColor;
-
-    if (
-      type === 'primary-inverted' ||
-      type === 'secondary' ||
-      type === 'destructive' ||
-      type === 'link-button' ||
-      type === 'warning'
-    ) {
-      iconColor = 'dark';
-    } else if (type === 'link-button-peach') {
-      iconColor = 'peach';
-    } else if (type === 'link-button-mustard') {
-      iconColor = 'mustard';
-    } else {
-      iconColor = 'light';
-    }
+    const iconColor = getIconColor(type);
 
     buttonsVariants.push(
       <DocsBlock centered fullWidth>

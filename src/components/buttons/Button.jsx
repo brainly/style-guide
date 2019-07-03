@@ -1,9 +1,31 @@
-// @flow
+// @flow strict
 
-import * as React from 'react';
+import React from 'react';
 import type {Node} from 'react';
-import classNames from 'classnames';
-import {BUTTON_SIZE, BUTTON_TYPE} from './ButtonConsts';
+import cx from 'classnames';
+
+const BUTTON_SIZE = Object.freeze({
+  LARGE: 'large',
+  MEDIUM: 'medium',
+  SMALL: 'small'
+});
+
+const BUTTON_TYPE = Object.freeze({
+  PRIMARY: 'primary',
+  PRIMARY_INVERTED: 'primary-inverted',
+  PRIMARY_BLUE: 'primary-blue',
+  PRIMARY_MINT: 'primary-mint',
+  SECONDARY: 'secondary',
+  LINK_BUTTON: 'link-button',
+  LINK_BUTTON_INVERTED: 'link-button-inverted',
+  LINK_BUTTON_PEACH: 'link-button-peach',
+  LINK_BUTTON_MUSTRAD: 'link-button-mustard',
+  DETRUCTIVE: 'destructive',
+  WARNING: 'warning',
+  FACEBOOK: 'facebook'
+});
+
+export {BUTTON_SIZE, BUTTON_TYPE};
 
 type ButtonTypeType =
   | 'primary'
@@ -24,19 +46,17 @@ type ButtonSizeType =
   | 'medium'
   | 'small';
 
-export {BUTTON_SIZE, BUTTON_TYPE};
-
 export type ButtonPropsType = {
   /**
    * Children to be rendered inside Button
    * @example <Button
-   *           icon={<Icon type={ICON_TYPE.ANSWER} color={ICON_COLOR.LIGHT} size={24} />}
-   *           buttonType={BUTTON_TYPE.FB}
+   *           icon={<Icon type="answer" color="light" size={24} />}
+   *           type="primary"
    *          >
-   *            Button with white answer icon
+   *            button
    *          </Button>
    */
-  children?: React.Node,
+  children?: Node,
   /**
    * Specify type of the button that you want to use
    * @example <Button type="primary">
@@ -59,13 +79,13 @@ export type ButtonPropsType = {
   /**
    * You can render icon inside each type of button on the left side
    * @example <Button
-   *           icon={ICON_TYPE.FB}
-   *           buttonType={BUTTON_TYPE.FB}
+   *           icon={<Icon type="facebook" color="light" size={24} />}
+   *           buttonType="facebook"
    *          >
    *            Login with Facebook
    *          </Button>
    */
-  icon?: ?Node,
+  icon?: Node,
   /**
    * There are three sizes options for buttons, not need to be specify, default is medium
    * @example <Button type="primary" size="medium">
@@ -89,14 +109,14 @@ export type ButtonPropsType = {
    *            button
    *          </Button>
    */
-  disabled?: ?boolean,
+  disabled?: boolean,
   /**
    * Optional boolean for full width button
    * @example <Button type="primary-mint" fullWidth>
    *            button
    *          </Button>
    */
-  fullWidth?: ?boolean,
+  fullWidth?: boolean,
   /**
    * Additional class names
    */
@@ -107,47 +127,39 @@ const Button = ({
   size,
   type,
   icon,
+  href,
   fullWidth,
   disabled,
   children,
   className,
   ...props
 }: ButtonPropsType) => {
-  const btnClass = classNames(
+  const btnClass = cx(
     'sg-button', {
-      [`sg-button--${size || ''}`]: size,
-      [`sg-button--${type || ''}`]: type,
+      [`sg-button--${String(size)}`]: size,
+      [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
       'sg-button--full-width': fullWidth
     },
     className
   );
 
-  const iconClass = classNames(
+  const iconClass = cx(
     'sg-button__icon', {
       [`sg-button__icon--${size || ''}`]: size
     },
     className
   );
 
-  let ico;
-
-  if (icon) {
-    ico = <span className={iconClass}>{icon}</span>;
-  }
-
-  let TypeToRender = 'button';
-
-  if (props.href) {
-    TypeToRender = 'a';
-  }
+  const ico = icon !== undefined ? <span className={iconClass}>{icon}</span> : null;
+  const TypeToRender = href !== undefined ? 'a' : 'button';
 
   return (
     <TypeToRender
       className={btnClass}
       {...props}
       disabled={disabled}
-      role={props.href ? 'button' : null}
+      role={href !== null ? 'button' : undefined}
     >
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
