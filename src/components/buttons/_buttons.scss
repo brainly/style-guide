@@ -1,23 +1,9 @@
-$transparent: rgba(255, 255, 255, 0);
-$buttonPrimaryFbColor: #3c5b96;
-$buttonPrimaryFbHoverColor: #4367a9;
-
-@mixin sgButtonHover($color1, $color2, $percent) {
+@mixin buttonHover($color1, $color2, $percent) {
   &:hover:not([disabled]),
   &:focus:not([disabled]),
   &:active:not([disabled]),
   &:active:focus:not([disabled]) {
-    background-color: mix($color1, $color2, $percent);
-    border-color: mix($color1, $color2, $percent);
-  }
-}
-
-@mixin sgButtonHoverNoBorder($color1, $color2, $percent) {
-  &:hover:not([disabled]),
-  &:focus:not([disabled]),
-  &:active:not([disabled]),
-  &:active:focus:not([disabled]) {
-    background-color: mix($color1, $color2, $percent);
+    @include sgButtonHoverMix($color1, $color2, $percent);
   }
 }
 
@@ -44,6 +30,12 @@ $buttonPrimaryFbHoverColor: #4367a9;
   transition-timing-function: ease-in-out;
   cursor: pointer;
   box-sizing: border-box;
+
+  // Added to align text in the center,
+  // as soon as Proxima is fixed we could remove it.
+  &__text {
+    margin-bottom: -1px;
+  }
 
   &__icon {
     fill: $white;
@@ -94,88 +86,77 @@ $buttonPrimaryFbHoverColor: #4367a9;
 
   // BUTTON TYPES
   &--primary {
-    @include sgButtonHover($grayPrimary, $black, 80%);
+    @include buttonHover($grayPrimary, $black, 80%);
     background-color: $black;
-    border: 2px solid $black;
   }
 
   &--primary-inverted {
-    @include sgButtonHover($graySecondaryUltraLight, $white, 80%);
+    @include buttonHover($graySecondaryUltraLight, $white, 80%);
     background-color: $white;
     color: $black;
-    border: 2px solid $white;
   }
 
   &--primary-blue {
-    @include sgButtonHover($bluePrimaryDark, $bluePrimary, 80%);
+    @include buttonHover($bluePrimaryDark, $bluePrimary, 80%);
     background-color: $bluePrimary;
-    border: 2px solid $bluePrimary;
   }
 
   &--primary-mint {
-    @include sgButtonHover($mintPrimaryDark, $mintPrimary, 80%);
+    @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
     background-color: $mintPrimary;
-    border: 2px solid $mintPrimary;
   }
 
   &--secondary {
-    @include sgButtonHoverNoBorder($black, $transparent, 12%);
+    @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
     border: 2px solid $black;
     color: $black;
   }
 
   &--link-button {
-    @include sgButtonHoverNoBorder($black, $transparent, 12%);
+    @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
-    border: 2px solid $transparent;
     color: $black;
   }
 
   &--link-button-inverted {
-    @include sgButtonHoverNoBorder($white, $transparent, 12%);
+    @include buttonHover($white, $transparent, 12%);
     background-color: $transparent;
-    border: 2px solid $transparent;
     color: $white;
   }
 
   &--link-button-peach {
-    @include sgButtonHoverNoBorder($peachPrimary, $transparent, 12%);
+    @include buttonHover($peachPrimary, $transparent, 12%);
     background-color: $transparent;
-    border: 2px solid $transparent;
     color: $peachPrimary;
   }
 
   &--link-button-mustard {
-    @include sgButtonHoverNoBorder($mustardPrimary, $transparent, 12%);
+    @include buttonHover($mustardPrimary, $transparent, 12%);
     background-color: $transparent;
-    border: 2px solid $transparent;
     color: $mustardPrimary;
   }
 
   &--destructive {
-    @include sgButtonHover($peachPrimary, $peachSecondary, 80%);
+    @include buttonHover($peachPrimary, $peachSecondary, 80%);
     background-color: $peachSecondary;
-    border: 2px solid $peachSecondary;
     color: $black;
   }
 
   &--warning {
-    @include sgButtonHover($mustardPrimary, $mustardSecondary, 80%);
+    @include buttonHover($mustardPrimary, $mustardSecondary, 80%);
     background-color: $mustardSecondary;
-    border: 2px solid $mustardSecondary;
     color: $black;
   }
 
   &--facebook {
     background-color: $buttonPrimaryFbColor;
-    border: 2px solid $buttonPrimaryFbColor;
     color: $white;
 
-    &:hover,
-    &:focus,
-    &:active,
-    &:active:focus {
+    &:hover:not([disabled]),
+    &:focus:not([disabled]),
+    &:active:not([disabled]),
+    &:active:focus:not([disabled]) {
       background-color: $buttonPrimaryFbHoverColor;
       border-color: $buttonPrimaryFbHoverColor;
     }

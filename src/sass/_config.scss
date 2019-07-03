@@ -40,6 +40,10 @@ $graySecondaryLight: #c3d1dd;
 $graySecondaryLightest: #ebf2f7;
 $graySecondaryUltraLight: #f5f8fa;
 
+// configuration needed for buttons
+$transparent: rgba(255, 255, 255, 0);
+$buttonPrimaryFbColor: #3c5b96;
+$buttonPrimaryFbHoverColor: #4367a9;
 
 // this comment exists to suppress errors about these unused variables:
 // $mintPrimaryDark $bluePrimaryDark $lavenderPrimaryDark $peachPrimaryDark $mustardPrimaryDark

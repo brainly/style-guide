@@ -1,0 +1,50 @@
+.docs-button-hovered {
+  &--primary {
+    @include sgButtonHoverMix($grayPrimary, $black, 80%);
+  }
+
+  &--primary-inverted {
+    @include sgButtonHoverMix($graySecondaryUltraLight, $white, 80%);
+  }
+
+  &--primary-blue {
+    @include sgButtonHoverMix($bluePrimaryDark, $bluePrimary, 80%);
+  }
+
+  &--primary-mint {
+    @include sgButtonHoverMix($mintPrimaryDark, $mintPrimary, 80%);
+  }
+
+  &--secondary {
+    @include sgButtonHoverMix($black, $transparent, 12%);
+  }
+
+  &--link-button {
+    @include sgButtonHoverMix($black, $transparent, 12%);
+  }
+
+  &--link-button-inverted {
+    @include sgButtonHoverMix($white, $transparent, 12%);
+  }
+
+  &--link-button-peach {
+    @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+  }
+
+  &--link-button-mustard {
+    @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+  }
+
+  &--destructive {
+    @include sgButtonHoverMix($peachPrimary, $peachSecondary, 80%);
+  }
+
+  &--warning {
+    @include sgButtonHoverMix($mustardPrimary, $mustardSecondary, 80%);
+  }
+
+  &--facebook {
+    background-color: $buttonPrimaryFbHoverColor;
+    border-color: $buttonPrimaryFbHoverColor;
+  }
+}

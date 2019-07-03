@@ -150,7 +150,8 @@ const Button = ({
       role={props.href ? 'button' : null}
     >
       {ico}
-      {children}
+      {/* As soon as we have Proxima fixed, we could remove that span */}
+      <span className="sg-button__text">{children}</span>
     </TypeToRender>
   );
 };

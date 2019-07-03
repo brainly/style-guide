@@ -42,6 +42,7 @@ import Button from 'style-guide/src/components/buttons/Button';
     I am mint button
 </Button>
 ```
+
 #### Secondary buttons
 We have one secondary button, e.g answer button on feed, which is white with black border
 
@@ -53,6 +54,7 @@ import Button from 'style-guide/src/components/buttons/Button';
 </Button>
 
 ```
+
 #### Link buttons
 We have 4 link buttons avalaible, black, white, peach and mustard. They are also used to create `thank you` and `mark as best` buttons
 
@@ -75,7 +77,7 @@ import Button from 'style-guide/src/components/buttons/Button';
     I am mustard link button
 </Button>
 
-// Example of the thank you button created with link button
+{/* Example of the thank you button created with link button */}
 <Button
   type="link-button-peach"
   icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={24} />}
@@ -83,6 +85,7 @@ import Button from 'style-guide/src/components/buttons/Button';
   Thank you
 </Button>
 ```
+
 #### Additional buttons
 There are also 3 additional buttons created for special cases - destructive and warning, and facebook button, what have custom set of colors from outside the palette.
 
@@ -100,6 +103,47 @@ import Button from 'style-guide/src/components/buttons/Button';
 <Button type="facebook">
     I am FB button
 </Button>
+```
+
+#### Buttons with icons
+We have 3 possible options in our style-guide regarding buttons with icons, each have a standard icon size, which should be perserve.
+
+```jsx
+import Button from 'style-guide/src/components/buttons/Button';
+
+<Button
+    size="small"
+    type="facebook"
+    icon={<Icon type={iconTypes.FB} color="light" size={16} />}
+>
+    Log in
+</Button>
+
+<Button
+    type="facebook"
+    icon={<Icon type={iconTypes.FB} color="light" size={24} />}
+>
+    Log in
+</Button>
+
+<Button
+    size="large"
+    type="facebook"
+    icon={<Icon type={iconTypes.FB} color="light" size={32} />}
+>
+    Log in
+</Button>
+```
+
+```HTML
+<button class="sg-button sg-button--large sg-button--facebook">
+    <span class="sg-button__icon sg-button__icon--large">
+        <div class="sg-icon sg-icon--light sg-icon--x32">
+            <svg class="sg-icon__svg"></svg>
+        </div>
+    </span>
+    <span class="sg-button__text">Button</span>
+</button>
 ```
 
 | Prop name | Type | Default | Description |
