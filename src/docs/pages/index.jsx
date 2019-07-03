@@ -151,6 +151,11 @@ const index = () => (
       </a>.
     </p>
 
+    <input
+      type="hidden"
+      value="https://styleguide.brainly.com/%%images/icons.svg%%"
+    />
+
     <script dangerouslySetInnerHTML={{__html: 'hljs.initHighlightingOnLoad();'}} />
   </ArticlePage>
 );
