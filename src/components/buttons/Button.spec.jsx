@@ -55,7 +55,7 @@ test('primary don\'t have small', () => {
 
   expect(button.hasClass('sg-button--small')).toEqual(false);
 });
-test('wide', () => {
+test('full width', () => {
   const button = shallow(
     <Button fullWidth>Some text</Button>
   );
