@@ -151,7 +151,12 @@ const Button = ({
     className
   );
 
-  const ico = icon !== undefined ? <span className={iconClass}>{icon}</span> : null;
+  let ico;
+
+  if (icon !== undefined && icon !== null) {
+    ico = <span className={iconClass}>{icon}</span>;
+  }
+
   const TypeToRender = href !== undefined ? 'a' : 'button';
 
   return (
@@ -159,7 +164,7 @@ const Button = ({
       className={btnClass}
       {...props}
       disabled={disabled}
-      role={href !== null ? 'button' : undefined}
+      role={href !== undefined ? 'button' : undefined}
     >
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
