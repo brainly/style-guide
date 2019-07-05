@@ -1,0 +1,161 @@
+@mixin buttonHover($color1, $color2, $percent) {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]),
+  &:active:not([disabled]),
+  &:active:focus:not([disabled]) {
+    @include sgButtonHoverMix($color1, $color2, $percent);
+  }
+}
+
+.sg-button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  color: $white;
+  text-transform: uppercase;
+  padding: 0 spacing(m);
+  will-change: background-color, border-color;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  // Added to align text in the center,
+  // as soon as Proxima is fixed we could remove it.
+  &__text {
+    position: relative;
+    top: 1px;
+  }
+
+  &__icon {
+    fill: $white;
+    display: inline-flex;
+    margin-right: spacing(xs);
+
+    &--small {
+      margin-right: spacing(xs);
+    }
+
+    &--large {
+      margin-right: spacing(s);
+    }
+  }
+
+  &--medium {
+    height: 40px;
+  }
+
+  &--large {
+    border-radius: 28px;
+    height: 56px;
+    padding: 0 spacing(l);
+    font-size: 21px;
+    line-height: 21px;
+  }
+
+  &--small {
+    border-radius: 16px;
+    height: 32px;
+    padding: 0 20px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  &--disabled {
+    opacity: 0.45;
+    cursor: default;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  // BUTTON TYPES
+  &--primary {
+    @include buttonHover($grayPrimary, $black, 80%);
+    background-color: $black;
+  }
+
+  &--primary-inverted {
+    @include buttonHover($graySecondaryUltraLight, $white, 80%);
+    background-color: $white;
+    color: $black;
+  }
+
+  &--primary-blue {
+    @include buttonHover($bluePrimaryDark, $bluePrimary, 80%);
+    background-color: $bluePrimary;
+  }
+
+  &--primary-mint {
+    @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
+    background-color: $mintPrimary;
+  }
+
+  &--secondary {
+    @include buttonHover($black, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $black;
+    color: $black;
+  }
+
+  &--link-button {
+    @include buttonHover($black, $transparent, 12%);
+    background-color: $transparent;
+    color: $black;
+  }
+
+  &--link-button-inverted {
+    @include buttonHover($white, $transparent, 12%);
+    background-color: $transparent;
+    color: $white;
+  }
+
+  &--link-button-peach {
+    @include buttonHover($peachPrimary, $transparent, 12%);
+    background-color: $transparent;
+    color: $peachPrimary;
+  }
+
+  &--link-button-mustard {
+    @include buttonHover($mustardPrimary, $transparent, 12%);
+    background-color: $transparent;
+    color: $mustardPrimary;
+  }
+
+  &--destructive {
+    @include buttonHover($peachPrimary, $peachSecondary, 80%);
+    background-color: $peachSecondary;
+    color: $black;
+  }
+
+  &--warning {
+    @include buttonHover($mustardPrimary, $mustardSecondary, 80%);
+    background-color: $mustardSecondary;
+    color: $black;
+  }
+
+  &--facebook {
+    background-color: $buttonPrimaryFbColor;
+    color: $white;
+
+    &:hover:not([disabled]),
+    &:focus:not([disabled]),
+    &:active:not([disabled]),
+    &:active:focus:not([disabled]) {
+      background-color: $buttonPrimaryFbHoverColor;
+      border-color: $buttonPrimaryFbHoverColor;
+    }
+  }
+}

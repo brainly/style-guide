@@ -1,206 +1,136 @@
 import React from 'react';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
-import ButtonRound from '../ButtonRound';
+import hex from '../../colors/hex';
+import Button, {BUTTON_TYPE} from '../Button';
 import DocsBlock from 'components/DocsBlock';
-import ContrastBox from 'components/ContrastBox';
-import Icon, {TYPE as iconTypes, ICON_COLOR} from 'icons/Icon';
-import Label, {ICON_TYPE} from 'labels/Label';
+import Flex from '../../flex/Flex';
+import Icon, {TYPE as iconTypes} from 'icons/Icon';
+import Text from '../../text/Text';
 
-const Buttons = () => (
-  <div>
-    <DocsBlock info="Primary buttons">
-      <ButtonPrimary>
-        Add your answer
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary disabled>
-        Add your answer disabled
-      </ButtonPrimary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Ask your question
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Ask your question disabled
-      </ButtonPrimary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK}>
-        join now
-      </ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.DARK}>
-        Join now disabled
-      </ButtonPrimary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonPrimary
-        icon={<Icon type={iconTypes.FB} color={ICON_COLOR.ADAPTIVE} size={16} />}
-        buttonType={BUTTON_PRIMARY_TYPE.FB}
-      >
-        Login with Facebook
-      </ButtonPrimary>
-    </DocsBlock>
+function getValues(object, addUndefined = true) {
+  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+}
 
-    <DocsBlock info="Primary buttons wide">
-      <ButtonPrimary wide>Primary wide</ButtonPrimary>
-      &nbsp;
-      <ButtonPrimary wide disabled>Primary wide disabled</ButtonPrimary>
-    </DocsBlock>
+const getIconColor = type => {
+  if (
+    type === 'primary-inverted' ||
+    type === 'secondary' ||
+    type === 'destructive' ||
+    type === 'link-button' ||
+    type === 'warning'
+  ) {
+    return 'dark';
+  } else if (type === 'link-button-peach') {
+    return 'peach';
+  } else if (type === 'link-button-mustard') {
+    return 'mustard';
+  } else {
+    return 'light';
+  }
+};
 
-    <DocsBlock info="Primary buttons inverted">
-      <ContrastBox>
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
-          Add your answer
-        </ButtonPrimary>
+const Buttons = () => {
+  const buttonsVariants = [];
+  const buttonsText = 'Button';
+
+  getValues(BUTTON_TYPE, false).forEach(type => {
+    const iconColor = getIconColor(type);
+
+    buttonsVariants.push(
+      <DocsBlock centered fullWidth>
+        <Flex
+          fullWidth
+          style={{
+            backgroundColor: type === 'link-button-inverted' ? hex.graySecondary : null,
+            paddingTop: type === 'link-button-inverted' ? '10px' : null
+          }}
+        >
+          <DocsBlock evenColumns justified>
+            <Text>{type}</Text>
+          </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Button type={type}>
+              {buttonsText}
+            </Button>
+          </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Button
+              type={type}
+              className={`docs-button-hovered--${type}`}
+            >
+              {buttonsText}
+            </Button>
+          </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Button type={type} disabled>
+              {buttonsText}
+            </Button>
+          </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Button
+              type={type}
+              icon={
+                <Icon
+                  type={iconTypes.ANSWER}
+                  color={iconColor}
+                  size={24}
+                />}
+            >
+              {buttonsText}
+            </Button>
+          </DocsBlock>
+        </Flex>
+      </DocsBlock>
+
+    );
+  });
+
+  return (
+    <DocsBlock>
+      <DocsBlock centered fullWidth>
+        <DocsBlock evenColumns justified>
+          <Text weight="bold">type / state </Text>
+        </DocsBlock>
+        <DocsBlock evenColumns justified>
+          <Text>default</Text>
+        </DocsBlock>
+        <DocsBlock evenColumns justified>
+          <Text>hover</Text>
+        </DocsBlock>
+        <DocsBlock evenColumns justified>
+          <Text>disabled</Text>
+        </DocsBlock>
+        <DocsBlock evenColumns justified>
+          <Text>with icon</Text>
+        </DocsBlock>
+      </DocsBlock>
+      {buttonsVariants}
+      <DocsBlock info="Buttons sizes">
+        <Button
+          size="large"
+          type="facebook"
+          icon={<Icon type={iconTypes.FB} color="light" size={32} />}
+        >
+          {buttonsText}
+        </Button>
         &nbsp;
-        <ButtonPrimary disabled buttonType={BUTTON_PRIMARY_TYPE.INVERSE}>
-          Add your answer disabled
-        </ButtonPrimary>
+        <Button
+          type="facebook"
+          icon={<Icon type={iconTypes.FB} color="light" size={24} />}
+        >
+          {buttonsText}
+        </Button>
         &nbsp;
-        <br />
-        <br />
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-          Search
-        </ButtonPrimary>
-        &nbsp;
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE} disabled>
-          Search
-        </ButtonPrimary>
-      </ContrastBox>
+        <Button
+          size="small"
+          type="facebook"
+          icon={<Icon type={iconTypes.FB} color="light" size={16} />}
+        >
+          {buttonsText}
+        </Button>
+      </DocsBlock>
     </DocsBlock>
+  );
 
-    <DocsBlock info="Primary round button">
-      <ButtonRound label="Add question">
-        <Icon type={iconTypes.PLUS} size={16} />
-      </ButtonRound>
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons">
-      <ButtonSecondary>
-        <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary>
-        Add your answer
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled>
-        Add your answer
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
-        Ask your question
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} disabled>
-        Ask your question
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK}>
-        Log in
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} disabled>
-        Log in
-      </ButtonSecondary>
-      &nbsp;
-      <br />
-      <br />
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons wide">
-      <ButtonSecondary wide>Search</ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary wide disabled>Search disabled</ButtonSecondary>
-    </DocsBlock>
-
-    <DocsBlock info="Secondary buttons inverted">
-      <ContrastBox>
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          <Icon type={iconTypes.SEARCH} color={ICON_COLOR.ADAPTIVE} size={14} />
-        </ButtonSecondary>
-        &nbsp;
-        <br />
-        <br />
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-          Answer
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.INVERSE} disabled>
-          Answer
-        </ButtonSecondary>
-        &nbsp;
-        <br />
-        <br />
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}>
-          Log in
-        </ButtonSecondary>
-        &nbsp;
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} disabled>
-          Log in
-        </ButtonSecondary>
-        &nbsp;
-      </ContrastBox>
-    </DocsBlock>
-
-    <DocsBlock info="Custom buttons with icons examples">
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-        <Label
-          text="Thank you"
-          number={24}
-          iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.PEACH}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
-        <Label
-          text="Thank you"
-          number={2}
-          iconType={ICON_TYPE.HEART}
-          iconColor={ICON_COLOR.PEACH}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      <br /><br />
-      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
-        <Label
-          text="Mark as brainliest"
-          iconType={ICON_TYPE.EXCELLENT}
-          iconColor={ICON_COLOR.MUSTARD}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-      &nbsp;
-      <ButtonSecondary disabled buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_MUSTARD} small>
-        <Label
-          text="Mark as brainliest"
-          iconType={ICON_TYPE.EXCELLENT}
-          iconColor={ICON_COLOR.MUSTARD}
-          secondary
-          unstyled
-        />
-      </ButtonSecondary>
-    </DocsBlock>
-
-  </div>
-);
+};
 
 export default Buttons;

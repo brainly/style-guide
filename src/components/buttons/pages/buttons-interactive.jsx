@@ -1,38 +1,14 @@
 import React from 'react';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from '../ButtonPrimary';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from '../ButtonSecondary';
+import Button, {BUTTON_TYPE, BUTTON_SIZE} from '../Button';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {
-  const allIcons = {};
-
-  Object.keys(ICON_TYPES).forEach(type =>
-    allIcons[type] = <Icon type={ICON_TYPES[type]} color={ICON_COLOR.ADAPTIVE} size={16} />);
-
-  const primarySettings = [
-    {
-      name: 'buttonType',
-      values: BUTTON_PRIMARY_TYPE
-    },
-    {
-      name: 'wide',
-      values: Boolean
-    },
-    {
-      name: 'disabled',
-      values: Boolean
-    },
-    {
-      name: 'icon',
-      values: allIcons
-    },
-    {
-      name: 'href',
-      values: String
-    }
-  ];
+  const allIcons = Object.entries(ICON_TYPES).reduce((acc, [key, type]) => ({
+    ...acc,
+    [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />
+  }), {});
 
   const roundSettings = [
     {
@@ -45,18 +21,26 @@ const Buttons = () => {
     }
   ];
 
-  const secondarySettings = [
+  const buttonsSettings = [
     {
-      name: 'buttonType',
-      values: BUTTON_SECONDARY_TYPE
-    },
-    {
-      name: 'wide',
-      values: Boolean
+      name: 'type',
+      values: BUTTON_TYPE
     },
     {
       name: 'disabled',
       values: Boolean
+    },
+    {
+      name: 'fullWidth',
+      values: Boolean
+    },
+    {
+      name: 'size',
+      values: BUTTON_SIZE
+    },
+    {
+      name: 'icon',
+      values: allIcons
     },
     {
       name: 'href',
@@ -66,23 +50,18 @@ const Buttons = () => {
 
   return (
     <div>
-      <DocsActiveBlock settings={primarySettings}>
-        <ButtonPrimary>
-          Add your answer primary
-        </ButtonPrimary>
+      <DocsActiveBlock settings={buttonsSettings}>
+        <Button type={BUTTON_TYPE.PRIMARY_BLUE}>
+          Ask your question
+        </Button>
       </DocsActiveBlock>
-      <DocsActiveBlock settings={secondarySettings}>
-        <ButtonSecondary>
-          Add your answer secondary
-        </ButtonSecondary>
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={primarySettings}>
-        <ButtonPrimary
-          icon={allIcons.FB}
-          buttonType={BUTTON_PRIMARY_TYPE.FB}
+      <DocsActiveBlock settings={buttonsSettings}>
+        <Button
+          icon={allIcons.ANSWER}
+          type={BUTTON_TYPE.PRIMARY}
         >
-          Login with Facebook
-        </ButtonPrimary>
+          Answer
+        </Button>
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={roundSettings}>

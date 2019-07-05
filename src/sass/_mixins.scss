@@ -123,3 +123,7 @@
 @function toPx($rems) {
   @return stripUnit($rems) * stripUnit($baseFont) * 1px;
 }
+
+@mixin sgButtonHoverMix($color1, $color2, $percent) {
+  background-color: mix($color1, $color2, $percent);
+}
