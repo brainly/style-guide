@@ -163,6 +163,7 @@ const Button = ({
     <TypeToRender
       className={btnClass}
       {...props}
+      href={href}
       disabled={disabled}
       role={href !== undefined ? 'button' : undefined}
     >

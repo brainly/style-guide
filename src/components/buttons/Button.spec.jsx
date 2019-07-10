@@ -25,7 +25,7 @@ test('button with href', () => {
     <Button href="http://example.com">Some text</Button>
   );
 
-  expect(button.find('a')).toHaveLength(1);
+  expect(button.find('a[href]')).toHaveLength(1);
   expect(button.find('button')).toHaveLength(0);
 });
 
