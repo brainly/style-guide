@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import * as IconModule from '../icons/Icon';
 import classNames from 'classnames';
