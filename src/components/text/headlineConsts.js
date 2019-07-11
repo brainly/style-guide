@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export const HEADLINE_TYPE = Object.freeze({
   H1: 'h1',
