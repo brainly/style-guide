@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import classnames from 'classnames';
 
@@ -99,7 +99,7 @@ const Input = (props: InputPropsType) => {
     ...additionalProps
   } = props;
 
-  if (valid && invalid) {
+  if (valid === true && invalid === true) {
     throw {
       name: 'WrongValidation',
       message: 'Input can be either valid or invalid!'

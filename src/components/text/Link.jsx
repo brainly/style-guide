@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from 'react';
 import classNames from 'classnames';
@@ -98,7 +98,7 @@ const Link = (props: LinkPropsType) => {
     [`sg-text--${String(weight)}`]: weight
   }, className);
 
-  if (!href) {
+  if (href === undefined || href === '' || href === null) {
     return (
       <Text
         type="span"

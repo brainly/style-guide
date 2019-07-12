@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -218,7 +218,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
 
   let content;
 
-  if (imgSrc) {
+  if (imgSrc !== undefined && imgSrc !== null) {
     content = <img className="sg-box__image" src={imgSrc} />;
   } else {
     content = <div className="sg-box__hole">{children}</div>;

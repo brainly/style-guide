@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -40,13 +40,13 @@ const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, .
 
   let ico;
 
-  if (icon) {
+  if (icon !== undefined && icon !== null && icon !== '') {
     ico = <span className="sg-button-primary__icon">{icon}</span>;
   }
 
   let TypeToRender = 'button';
 
-  if (props.href) {
+  if (props.href !== undefined && props.href !== null && props.href !== '') {
     TypeToRender = 'a';
   }
 

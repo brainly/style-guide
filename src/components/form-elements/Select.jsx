@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import classnames from 'classnames';
 
@@ -29,7 +29,7 @@ const Select = (props: SelectPropsType) => {
     ...additionalProps
   } = props;
 
-  if (valid && invalid) {
+  if (valid === true && invalid === true) {
     throw {
       name: 'WrongValidation',
       message: 'Select can be either valid or invalid!'

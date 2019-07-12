@@ -1,9 +1,8 @@
-// @flow
+// @flow strict
 import React from 'react';
-import type {Node, Element} from 'react';
+import type {Element} from 'react';
 import classNames from 'classnames';
 import * as IconModule from '../icons/Icon';
-import IconAsButtonContent from './subcomponents/IconAsButtonContent';
 
 const {ICON_COLOR, default: Icon} = IconModule;
 
@@ -31,27 +30,26 @@ type IconAsButtonPropsType = {
   size?: IconSizeType,
   color?: IconModule.IconColorType,
   type?: ?IconModule.IconTypeType,
-  children?: ?Element<any>,
+  children?: ?Element<*>,
   border?: boolean,
   action?: boolean,
   transparent?: boolean,
   active?: boolean,
-  overlay?: ?Node,
   href?: string,
   className?: string
 };
 
 const IconAsButton = ({
-  color, size = SIZE.NORMAL, type, children, action, transparent, active, border, overlay, className, ...props
+  color, size = SIZE.NORMAL, type, children, action, transparent, active, border, className, ...props
 }: IconAsButtonPropsType) => {
   const buttonClass = classNames('sg-icon-as-button', {
     [`sg-icon-as-button--${String(color)}`]: color,
     [`sg-icon-as-button--${size}`]: size,
     'sg-icon-as-button--with-border': border,
     'sg-icon-as-button--action': action,
-    'sg-icon-as-button--action-active': action && active,
+    'sg-icon-as-button--action-active': action === true && active === true,
     'sg-icon-as-button--transparent': transparent,
-    'sg-icon-as-button--transparent-active': transparent && active
+    'sg-icon-as-button--transparent-active': transparent === true && active === true
   }, className);
 
   let content;
@@ -64,16 +62,14 @@ const IconAsButton = ({
 
   let RenderType = 'button';
 
-  if (props.href) {
+  if (props.href !== undefined && props.href !== null && props.href !== '') {
     RenderType = 'a';
   }
 
   return (
     <RenderType {...props} role="button" className={buttonClass}>
       <div className="sg-icon-as-button__hole">
-        <IconAsButtonContent overlay={overlay}>
-          {content || null}
-        </IconAsButtonContent>
+        {content || null}
       </div>
     </RenderType>
   );
