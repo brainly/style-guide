@@ -66,6 +66,8 @@ module.exports = function(gulp, plugins, consts, options) {
 
   const createHtmlFiles = function(file, enc, cb) {
     const path = file.path.replace(consts.SRC, consts.VERSIONED_DIST);
+
+    delete require.cache[require.resolve(path)];
     const ReactPageClass = require(path).default;
     const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
     const doctype = '<!DOCTYPE html>\n';
