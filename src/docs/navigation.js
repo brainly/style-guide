@@ -8,7 +8,6 @@ import textarea from '../components/form-elements/pages/textarea';
 import labels from '../components/labels/pages/labels';
 import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
-import stickers from '../components/stickers/pages/stickers';
 import avatar from '../components/avatar/pages/avatar';
 import iconAsButton from '../components/icon-as-button/pages/icon-as-button';
 import rating from '../components/rating/pages/rating';
@@ -108,10 +107,6 @@ const navigation = [
       {
         'name': 'Badges',
         component: badges
-      },
-      {
-        'name': 'Stickers',
-        component: stickers
       },
       {
         'name': 'Avatars',

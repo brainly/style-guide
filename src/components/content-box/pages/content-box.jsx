@@ -9,7 +9,6 @@ import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
@@ -17,6 +16,7 @@ import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
+import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 
 const link1 = <Link href="#" color={LINK_COLOR.GRAY}>Math</Link>;
 const link2 = <Link href="#" color={LINK_COLOR.GRAY}>10 pts</Link>;
@@ -74,7 +74,7 @@ const examplePart1 = (
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
-      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+      <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
         <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
       </OverlayedBox>
       <SeparatorVertical />
@@ -102,7 +102,7 @@ const examplePart2 = (
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
-      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+      <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
         <Avatar imgSrc="https://source.unsplash.com/64x64/?bird" />
       </OverlayedBox>
       <SeparatorVertical />
@@ -129,7 +129,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+          <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
           </OverlayedBox>
           <SeparatorVertical />
@@ -153,7 +153,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+          <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
           </OverlayedBox>
           <SeparatorVertical />
@@ -180,7 +180,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+          <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
           </OverlayedBox>
           <SeparatorVertical />
@@ -205,7 +205,7 @@ const ContentBoxes = () => (
           vel eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+          <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           </OverlayedBox>
           <SeparatorVertical />
@@ -230,7 +230,7 @@ const ContentBoxes = () => (
           vel eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
+          <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           </OverlayedBox>
           <SeparatorVertical />
