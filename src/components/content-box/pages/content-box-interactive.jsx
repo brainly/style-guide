@@ -8,7 +8,6 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Text from 'text/Text';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import OverlayedBox from 'overlayed-box/OverlayedBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const ContentBoxes = () => {
