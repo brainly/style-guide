@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import * as React from 'react';
 import classnames from 'classnames';
@@ -17,9 +17,10 @@ export const SIZE = {
 };
 
 export type TextareaPropsType = {
+  // $FlowFixMe any generic prop types here broke autocomplete, so let's leave it as is for now
   type?: string | any => React$Node,
   textareaRef?: (ref: ?HTMLElement) => mixed,
-  value?: any,
+  value?: mixed,
   size?: ?TextareaSizeType,
   valid?: boolean,
   invalid?: boolean,
@@ -46,7 +47,7 @@ const Textarea = (props: TextareaPropsType) => {
     ...additionalProps
   } = props;
 
-  if (valid && invalid) {
+  if (valid === true && invalid === true) {
     throw {
       name: 'WrongValidation',
       message: 'Textarea can be either valid or invalid!'

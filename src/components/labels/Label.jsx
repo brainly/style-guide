@@ -1,5 +1,5 @@
-// @flow
-import React from 'react';
+// @flow strict
+import * as React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
 import LabelIcon from './subcomponents/LabelIcon';
@@ -28,7 +28,7 @@ type PropsType = {
   text?: string,
   htmlFor?: string,
   children?: ?Node,
-  iconContent?: ?Node,
+  iconContent?: ?React.Element<*>,
   iconColor?: IconModule.IconColorType,
   iconType?: IconModule.IconTypeType,
   size?: SizeType,
@@ -69,7 +69,7 @@ const Label = (props: PropsType) => {
   let textElement;
   let numberElement;
 
-  if (text) {
+  if (text !== undefined && text !== '') {
     textElement = <label className="sg-label__text" htmlFor={htmlFor}>{text}</label>;
   }
   if (number !== undefined) {

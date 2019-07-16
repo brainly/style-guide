@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
@@ -30,7 +30,7 @@ type PropsType = {
   rate: number,
   metricSize: number,
   active?: boolean,
-  onChange: Function,
+  onChange: number => mixed,
   onStarMouseEnter: OnMouseEnterType,
   onMouseLeave: () => mixed,
   counterText?: string,
@@ -76,7 +76,7 @@ class Rating extends Component<PropsType> {
   }
 
   onClick = (index: number) => {
-    const {onChange, active} = this.props;
+    const {onChange, active = false} = this.props;
 
     if (!active) {
       return;
@@ -87,7 +87,7 @@ class Rating extends Component<PropsType> {
   };
 
   onStarMouseEnter = (index: number, event: SyntheticMouseEvent<HTMLSpanElement>) => {
-    const {onStarMouseEnter, active} = this.props;
+    const {onStarMouseEnter, active = false} = this.props;
 
     if (!active) {
       return;
@@ -102,7 +102,7 @@ class Rating extends Component<PropsType> {
 
   render() {
     const {metricSize, rate, size = RATING_SIZE.NORMAL,
-      active, className, counterText, activeText, noLabel} = this.props;
+      active, className, counterText, activeText, noLabel = false} = this.props;
     const ratingClass = classnames('sg-rate-box', {
       'sg-rate-box--large': size === RATING_SIZE.LARGE,
       'sg-rate-box--active': active

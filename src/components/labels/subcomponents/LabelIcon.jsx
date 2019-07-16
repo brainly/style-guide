@@ -1,12 +1,11 @@
-// @flow
-import React from 'react';
-import type {Node} from 'react';
+// @flow strict
+import * as React from 'react';
 import * as IconModule from '../../icons/Icon';
 
 const {default: Icon} = IconModule;
 
 type PropsType = {
-  iconContent?: Node,
+  iconContent?: ?React.Element<*>,
   iconSize?: IconModule.IconSizeType,
   iconColor?: IconModule.IconColorType,
   iconType?: IconModule.IconTypeType

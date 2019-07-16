@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import classnames from 'classnames';
 import * as InputModule from '../form-elements/Input';
@@ -13,7 +13,7 @@ type PropsType = {
 };
 
 const Search = ({adaptiveIco, className, ...additionalProps}: PropsType) => {
-  const iconColor = adaptiveIco ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
+  const iconColor = adaptiveIco === true ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
   const searchClass = classnames('sg-search', className);
 
   return (

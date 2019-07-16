@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icons/Icon';
@@ -53,7 +53,7 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
 
   let avatarContent;
 
-  if (imgSrc) {
+  if (imgSrc !== undefined && imgSrc !== null && imgSrc !== '') {
     avatarContent = <img className="sg-avatar__image" src={imgSrc} alt={title} title={title} />;
   } else {
     avatarContent = (
@@ -69,7 +69,7 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
 
   return (
     <div {...props} className={avatarClass}>
-      {link ? <a href={link} title={title}>{avatarContent}</a> : avatarContent}
+      {link !== undefined && link !== '' ? <a href={link} title={title}>{avatarContent}</a> : avatarContent}
     </div>
   );
 };

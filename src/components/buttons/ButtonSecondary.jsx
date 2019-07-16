@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -44,7 +44,7 @@ const ButtonSecondary = (
 
   let TypeToRender = 'button';
 
-  if (props.href) {
+  if (props.href !== undefined && props.href !== null && props.href !== '') {
     TypeToRender = 'a';
   }
 

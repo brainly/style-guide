@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 import React from 'react';
 import type {Node} from 'react';
 import classnames from 'classnames';
@@ -18,7 +18,7 @@ const ButtonRound = (
 ) => {
   let labelElem;
 
-  if (label) {
+  if (label !== undefined && label !== null && label !== '') {
     labelElem = <span className="sg-button-primary-round__label">{label}</span>;
   }
   const buttonClass = classnames('sg-button-primary-round', className);

@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import classNames from 'classnames';
 import React, {PureComponent} from 'react';
@@ -12,7 +12,7 @@ export type CheckboxPropsType = {
 };
 
 export type CheckboxStateType = {
-  id?: string
+  id: string
 };
 
 class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
@@ -20,7 +20,7 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
     super(props);
 
     this.state = {
-      id: props.id || generateRandomString()
+      id: props.id === undefined || props.id === '' ? generateRandomString() : props.id
     };
   }
 

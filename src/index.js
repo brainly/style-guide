@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 export {default as ActionList} from './components/action-list/ActionList';
 export {default as ActionListHole} from './components/action-list/ActionListHole';
 export {default as Avatar} from './components/avatar/Avatar';
