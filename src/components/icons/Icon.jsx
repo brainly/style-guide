@@ -145,6 +145,7 @@ export type IconSizeType =
   | 14
   | 10;
 
+// Added to export separately this new set in html-sketchapp
 export const STD_TYPE = {
   STD_ALL_QUESTIONS: 'std-all_questions', // new
   STD_ANSWER: 'std-answer',
