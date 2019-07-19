@@ -34,7 +34,7 @@ const icons = () => (
       <ul className="icons-list">
         {SIZE.map(size => (
           <li className="icons-list__element icons-list__element--wider" key={size}>
-            <Icon color="dark" size={size} type="std-answer" />
+            <Icon color="dark" size={size} type="answer" />
             <span>&nbsp; - {size}</span>
           </li>
         ))}

@@ -276,17 +276,51 @@ export const ICON_COLOR = {
 // As soon as we change Avatars to new the new icon, we could clean up sizes of the icons.
 export const SIZE = [120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
 
-type IconPropsType =
+export type IconPropsType =
   | {
+      /**
+       * Additional class names
+       */
       className?: ?string,
+       /**
+        * Icons colors example, see more in SG interactive
+        * @example <Icon color="dark" type="std-answer" />
+        * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+        */
       color?: ?IconColorType,
+      /**
+        * Icons size example, see more in SG interactive
+        * @example <Icon size="46" type="std-answer" />
+        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
+        */
       size?: ?IconSizeType,
+      /**
+        * Icons types example, see more in SG interactive
+        * @example <Icon size="46" type="std-answer" />
+        * @see type="std-heart" https://styleguide.brainly.com/latest/docs/interactive.html?type=std-heart#icons
+        */
       type: IconTypeType
     }
   | {
+      /**
+       * Children to be rendered inside Icon
+       */
       children: Node,
+      /**
+       * Additional class names
+       */
       className?: ?string,
+      /**
+        * Icons colors example, see more in SG interactive
+        * @example <Icon color="dark" type="std-answer" />
+        * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+        */
       color?: ?IconColorType,
+      /**
+        * Icons size example, see more in SG interactive
+        * @example <Icon size="46" type="std-answer" />
+        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
+        */
       size?: ?IconSizeType
    };
 
