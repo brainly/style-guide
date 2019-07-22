@@ -7,8 +7,8 @@ import Text from '../../text/Text';
 const icons = () => (
   <div>
     <DocsBlock>
+      <Text size="medium" color="peach-dark" weight="bold">This set of the icons is deprecated</Text>
       <ContrastBox>
-        <Text size="small">This set of the icons is deprecated</Text>
         <ul className="icons-list">
           {Object.values(TYPE).map(type => (
             <li className="icons-list__element" key={type}>
