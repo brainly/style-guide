@@ -1,10 +1,6 @@
 // @flow
 import React, {Component} from 'react';
 import type {Node} from 'react';
-// $FlowFixMe
-import beautify from 'html_beautify';
-// $FlowFixMe
-import hljs from 'hljs';
 import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
 type PropsType = {
@@ -45,8 +41,8 @@ class CodeBlock extends Component<PropsType> {
     if (typeof children !== 'string') {
       throw new Error('Passed child is not a string.');
     }
-
-    let markup = beautify(children, {
+    // $FlowFixMe
+    let markup = html_beautify(children, { // eslint-disable-line no-undef
       indent_size: 2,
       unformatted: [],
       wrap_line_length: 0
@@ -54,7 +50,8 @@ class CodeBlock extends Component<PropsType> {
 
     if (type === 'jsx') {
       //HACK <i> was added to force highlightJS to highlight first tag
-      markup = hljs.highlight('jsx', `<i>${markup}</i>`).value;
+      // $FlowFixMe
+      markup = hljs.highlight('jsx', `<i>${markup}</i>`).value; // eslint-disable-line no-undef
 
       //Try to clean up <i>
       markup = markup
@@ -63,7 +60,8 @@ class CodeBlock extends Component<PropsType> {
         .replace('<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>', '');
 
     } else {
-      markup = hljs.highlight(type, markup).value;
+      // $FlowFixMe
+      markup = hljs.highlight(type, markup).value; // eslint-disable-line no-undef
     }
 
     return (

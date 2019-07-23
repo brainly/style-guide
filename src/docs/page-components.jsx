@@ -89,7 +89,7 @@ const demos = {
   'Spinner Container': <SpinnerContainers />
 };
 
-const sections = Object.keys(demos).map(key => (
+export const sections = Object.keys(demos).map(key => (
   <article key={key}>
     <h2 className="article-header" id={slugify(key)}>
       {key}
@@ -99,4 +99,8 @@ const sections = Object.keys(demos).map(key => (
   </article>
 ));
 
-ReactDOM.render(<div>{sections}</div>, document.getElementById('root'));
+const root = document.getElementById('root');
+
+if (root) {
+  ReactDOM.render(<div>{sections}</div>, root);
+}
