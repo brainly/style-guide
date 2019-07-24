@@ -256,8 +256,7 @@ export const TYPE = {
   UNSEEN: 'unseen', // not needed in new set
   VERIFIED: 'verified',
   X: 'x',
-  FB: 'fb',
-  ...STD_TYPE
+  FB: 'fb'
 };
 
 export const ICON_COLOR = {
