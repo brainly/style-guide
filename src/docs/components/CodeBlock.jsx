@@ -41,7 +41,7 @@ class CodeBlock extends Component<PropsType> {
     if (typeof children !== 'string') {
       throw new Error('Passed child is not a string.');
     }
-    // $FlowFixMe
+
     let markup = html_beautify(children, { // eslint-disable-line no-undef
       indent_size: 2,
       unformatted: [],
@@ -50,7 +50,6 @@ class CodeBlock extends Component<PropsType> {
 
     if (type === 'jsx') {
       //HACK <i> was added to force highlightJS to highlight first tag
-      // $FlowFixMe
       markup = hljs.highlight('jsx', `<i>${markup}</i>`).value; // eslint-disable-line no-undef
 
       //Try to clean up <i>
@@ -60,7 +59,6 @@ class CodeBlock extends Component<PropsType> {
         .replace('<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>', '');
 
     } else {
-      // $FlowFixMe
       markup = hljs.highlight(type, markup).value; // eslint-disable-line no-undef
     }
 

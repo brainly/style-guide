@@ -12,6 +12,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const VERSIONED_DIST_DIR = path.join(DIST_DIR, VERSION);
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
+const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -22,7 +23,6 @@ const babelEnv = params => [
 
 module.exports = () => {
   const jsEntry = path.join(SOURCE_DOCS_DIR, 'webpackEntry.jsx');
-  const jsOutput = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
   const config = {
     target: 'web',
@@ -111,7 +111,7 @@ module.exports = () => {
     },
     output: {
       filename: '[name].bundle.js',
-      path: jsOutput,
+      path: DIST_DIR_OUTPUT,
       publicPath: '/'
     },
     resolve: {

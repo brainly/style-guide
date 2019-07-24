@@ -53,6 +53,7 @@
     "sass-lint": "^1.10.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "svg-sprite-loader": "^4.1.6",
     "terser-webpack-plugin": "^1.2.3",
     "through2": "^2.0.3",
     "webpack": "^4.6.0",
@@ -88,8 +89,7 @@
     }
   },
   "dependencies": {
-    "classnames": "^2.2.5",
-    "svg-sprite-loader": "^4.1.6"
+    "classnames": "^2.2.5"
   },
   "sideEffects": false
 }

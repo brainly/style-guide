@@ -11004,9 +11004,9 @@ svg-baker-runtime@1.4.1:
     svg-baker "^1.4.0"
 
 svg-baker@^1.4.0, svg-baker@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/svg-baker/-/svg-baker-1.4.1.tgz#6071edef6e99b12af87e655024c154d066e1ad2f"
-  integrity sha512-Y14nrVtN8IMYZ5K8yNlepdGwfAi0GClqaoSMTtYsQxFfaobtyDTM816lTWMA5tbbXDbih1frv7AGil54dtX6YA==
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/svg-baker/-/svg-baker-1.5.0.tgz#e94e75523d9303e9a2b3448987080d966cb90af4"
+  integrity sha512-UMU4WQMfsmY1l8eqoxBoGTDht02RVu46cC0QoAVsJM6lUvbGCkPnAHHMG3mM8m/D1zAGg8Q0IZXnHokZ9umX0Q==
   dependencies:
     bluebird "^3.5.0"
     clone "^2.1.1"
