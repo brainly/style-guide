@@ -187,7 +187,7 @@ export const STD_TYPE = {
   STD_PENCIL: 'std-pencil',
   STD_PLAY: 'std-play', // new
   STD_PLUS: 'std-plus',
-  STD_PONITS: 'std-points',
+  STD_POINTS: 'std-points',
   STD_PROFILE: 'std-profile', // new
   STD_RECENT_QUESTIONS: 'std-recent_questions', // new
   STD_REPORT_FLAG: 'std-report_flag',
