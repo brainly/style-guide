@@ -1,10 +1,6 @@
 // @flow
 import React, {Component} from 'react';
 import type {Node} from 'react';
-// $FlowFixMe
-import beautify from 'html_beautify';
-// $FlowFixMe
-import hljs from 'hljs';
 import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
 type PropsType = {
@@ -46,7 +42,7 @@ class CodeBlock extends Component<PropsType> {
       throw new Error('Passed child is not a string.');
     }
 
-    let markup = beautify(children, {
+    let markup = html_beautify(children, {
       indent_size: 2,
       unformatted: [],
       wrap_line_length: 0

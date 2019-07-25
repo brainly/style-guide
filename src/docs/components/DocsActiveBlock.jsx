@@ -81,8 +81,7 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
    * @returns {Object} object representing react props
    */
   getCleanProps() {
-    // $FlowFixMe
-    const component = Object.assign({}, this.props.children);
+    const component = this.props.children;
 
     if (typeof component.type === 'function') {
       const fakeComponentClass = component.type.bind();
@@ -91,7 +90,6 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
       Object.entries(component.type).forEach(([key, value]) => fakeComponentClass[key] = value);
 
       fakeComponentClass.propTypes = {};
-      component.type = fakeComponentClass;
     }
 
     const props = Object.assign({}, component.props, this.state.props);

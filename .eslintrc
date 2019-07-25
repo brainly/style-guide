@@ -12,5 +12,9 @@
   ],
   "rules": {
     "max-len": ["error", { "code": 120, "ignoreComments": true }]
+  },
+  "globals": {
+    "hljs": "readonly",
+    "html_beautify": "readonly"
   }
 }
