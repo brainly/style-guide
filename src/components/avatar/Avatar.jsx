@@ -21,17 +21,17 @@ export const SIZE = {
 export const ICON_SIZE_FOR_AVATARS_WITH_BORDER = {
   [SIZE.SMALL]: 22,
   [SIZE.NORMAL]: 30,
-  [SIZE.LARGE]: 46,
-  [SIZE.XLARGE]: 62,
-  [SIZE.XXLARGE]: 118
+  [SIZE.LARGE]: 54,
+  [SIZE.XLARGE]: 78,
+  [SIZE.XXLARGE]: 102
 };
 
 export const ICON_SIZE = {
   [SIZE.SMALL]: 24,
   [SIZE.NORMAL]: 32,
-  [SIZE.LARGE]: 48,
-  [SIZE.XLARGE]: 64,
-  [SIZE.XXLARGE]: 120
+  [SIZE.LARGE]: 56,
+  [SIZE.XLARGE]: 80,
+  [SIZE.XXLARGE]: 104
 };
 
 type PropsType = {
@@ -59,8 +59,8 @@ const Avatar = ({size = SIZE.NORMAL, border = false, spaced, imgSrc, className, 
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
         <Icon
-          type="profile"
-          color="gray-secondary"
+          type="std-profile"
+          color="gray-light"
           size={border ? ICON_SIZE_FOR_AVATARS_WITH_BORDER[size] : ICON_SIZE[size]}
         />
       </div>
