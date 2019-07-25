@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const argv = require('yargs').argv;
@@ -104,8 +103,6 @@ module.exports = () => {
       },
       'hljs': 'hljs'
     },
-    watch: true,
-    mode: 'development',
     entry: {
       [path.basename(jsEntry)]: jsEntry
     },
@@ -126,9 +123,7 @@ module.exports = () => {
       }
     },
     plugins: [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(IS_PRODUCTION ? 'production' : 'development')
-      }), new HtmlWebpackPlugin({
+      new HtmlWebpackPlugin({
         template: path.join(SOURCE_DOCS_DIR, 'index.html')
       })
     ],
