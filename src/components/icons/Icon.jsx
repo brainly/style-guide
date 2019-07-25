@@ -130,8 +130,14 @@ export type IconColorType =
 export type IconSizeType =
   | 120
   | 118
+  | 104
+  | 102
+  | 80
+  | 78
   | 64
   | 62
+  | 56
+  | 54
   | 48
   | 46
   | 32
@@ -274,7 +280,7 @@ export const ICON_COLOR = {
 };
 
 // As soon as we change Avatars to new the new icon, we could clean up sizes of the icons.
-export const SIZE = [120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
+export const SIZE = [120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
 
 export type IconPropsType =
   | {

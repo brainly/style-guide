@@ -2,15 +2,21 @@
 
 $includeHtml: false !default;
 
-$iconSizes: 120, 118, 64, 62, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
+$iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
 
 // Icon sizes :(
-// 120 - avatar xxxlarge
-// 118 - avatar xxxlarge with border
-// 64 - avatar xlarge
-// 62 - avatar xlarge with border
-// 48 - avatar large
-// 46 - avatar large with border
+// 120 - DEPRECATED
+// 118 - DEPRECATED
+// 104 - avatar xxxlarge
+// 102 - avatar xxxlarge with border
+// 80 - avatar xlarge
+// 78 - avatar xlarge with border
+// 64 - DEPRECATED
+// 62 - DEPRECATED
+// 56 - avatar large
+// 54 - avatar large with border
+// 48 - DEPRECATED
+// 46 - DEPRECATED
 // 32 - avatar default,
 // 30 - avatar default with border,
 // 26 - icon as button default,
