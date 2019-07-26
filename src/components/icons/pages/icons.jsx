@@ -10,7 +10,7 @@ const icons = () => (
       <Text size="medium" color="peach-dark" weight="bold">This set of the icons is deprecated</Text>
       <ContrastBox>
         <ul className="icons-list">
-          {Object.values(TYPE).map(type => (
+          {Object.values(TYPE).filter(type => !type.includes('std')).map(type => (
             <li className="icons-list__element" key={type}>
               <Icon type={type} />
               <span>&nbsp; - {type}</span>
