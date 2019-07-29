@@ -21,18 +21,20 @@ const requireAll = r => {
 
 requireAll(require.context('../images/', true, /\.svg$/));
 
-const GeneratePage = ({padeIndex}) => navigation[padeIndex].elements.map(({name, component}) => (
-  <React.Fragment key={name}>
-    <h1 className="main-header">Brainly style guide - {navigation[padeIndex].name}</h1>
-    <article >
-      <h2 className="article-header" id={slugify(name)}>
-        {name}
-        <a href={'#' + slugify(name)} className="permalink">#</a>
-      </h2>
-      {component()}
-    </article>
-  </React.Fragment>
-));
+const GeneratePage = ({padeIndex}) => navigation[padeIndex]
+  .elements
+  .map(({name, component}) => (
+    <React.Fragment key={name}>
+      <h1 className="main-header">Brainly style guide - {navigation[padeIndex].name}</h1>
+      <article >
+        <h2 className="article-header" id={slugify(name)}>
+          {name}
+          <a href={'#' + slugify(name)} className="permalink">#</a>
+        </h2>
+        {component()}
+      </article>
+    </React.Fragment>
+  ));
 
 const BasicsPage = () => <GeneratePage padeIndex="0" />;
 const ComponentsPage = () => <GeneratePage padeIndex="1" />;
