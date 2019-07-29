@@ -39,7 +39,19 @@ module.exports = () => {
           loader: 'svg-sprite-loader',
           include: path.join(SOURCE_DIR, 'images'),
           options: {
-            symbolId: filePath => `icon-${path.basename(filePath, '.svg')}`
+            symbolId: filePath => {
+              const pathParts = filePath.split(path.sep);
+              const symbol = path.basename(filePath, '.svg');
+
+              switch (pathParts[pathParts.length - 2]) {
+                case 'math-symbols': return `sg-math-symbol-icon-${symbol}`;
+                case 'icons': return `icon-${symbol}`;
+                case 'subjects': return `icon-subject-${symbol}`;
+                case 'subjects-mono': return `icon-subject-mono-${symbol}`;
+                case 'std-icons': return `icon-${symbol}`;
+                default: return symbol;
+              }
+            }
           }
         },
         {
@@ -116,6 +128,7 @@ module.exports = () => {
       modules: [
         SOURCE_COMPONENTS_DIR,
         SOURCE_DOCS_DIR,
+        path.join(SOURCE_DIR, 'images'),
         'node_modules'
       ],
       alias: {
@@ -142,7 +155,10 @@ module.exports = () => {
     devServer: {
       contentBase: path.join(VERSIONED_DIST_DIR, 'docs'),
       index: 'index.html',
-      watchContentBase: true
+      watchContentBase: true,
+      historyApiFallback: {
+        disableDotRule: true
+      }
     }
   };
 
