@@ -88,15 +88,6 @@
 
   &--to-right {
     justify-content: flex-end;
-
-    > .sg-actions-list__hole {
-      margin-left: gutter(0.5);
-      margin-right: 0;
-
-      &:first-child {
-        margin-left: 0;
-      }
-    }
   }
 
   &--space-between {
