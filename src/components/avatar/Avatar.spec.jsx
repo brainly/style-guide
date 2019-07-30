@@ -1,6 +1,6 @@
 import React from 'react';
 import Avatar, {SIZE} from './Avatar';
-import Icon, {TYPE} from 'icons/Icon';
+import Icon from 'icons/Icon';
 
 import {shallow, mount} from 'enzyme';
 
@@ -39,11 +39,10 @@ test('no error when render without image', () => {
 });
 
 test('default icon profile', () => {
-  const iconType = TYPE.PROFILE;
   const avatar = mount(<Avatar />);
   const icoProps = avatar.find(Icon).props();
 
-  expect(icoProps.type).toEqual(iconType);
+  expect(icoProps.type).toEqual('std-profile');
 });
 
 test('SIZE', () => {

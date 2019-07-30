@@ -22,6 +22,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
       <body>
 
         <script src="images/icons.js" async />
+        <script src="images/std-icons.js" async />
         <script src="images/subjects-icons.js" async />
         <script src="images/subjects-mono-icons.js" async />
         <script src="images/math-symbols-icons.js" async />

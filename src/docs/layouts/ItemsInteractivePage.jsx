@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
@@ -9,10 +9,14 @@ import site from '../config';
 const version = packageJSON.version;
 
 type PropsType = {
-  navigationIdx?: number
+  navigationIdx?: number,
+  rootNodeToBeRemovedAfterFullWebpackMigration?: React.Node
 };
 
-const ItemsInteractivePage = ({navigationIdx}: PropsType) => {
+const ItemsInteractivePage = ({
+  navigationIdx,
+  rootNodeToBeRemovedAfterFullWebpackMigration
+}: PropsType) => {
   const pageConfig = navigation[navigationIdx];
 
   return (
@@ -21,6 +25,7 @@ const ItemsInteractivePage = ({navigationIdx}: PropsType) => {
       <body>
 
         <script src="images/icons.js" async />
+        <script src="images/std-icons.js" async />
         <script src="images/subjects-icons.js" async />
         <script src="images/subjects-mono-icons.js" async />
         <script src="images/math-symbols-icons.js" async />
@@ -34,7 +39,10 @@ const ItemsInteractivePage = ({navigationIdx}: PropsType) => {
         <div className="data-container">
           <h1 className="main-header">Brainly style guide - {pageConfig.name}</h1>
 
-          <div id="root" />
+          {rootNodeToBeRemovedAfterFullWebpackMigration ?
+            rootNodeToBeRemovedAfterFullWebpackMigration :
+            <div id="root" />
+          }
         </div>
 
       </body>

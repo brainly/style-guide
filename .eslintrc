@@ -11,6 +11,11 @@
     "./node_modules/frontend-tools-configs/eslint/flow.js"
   ],
   "rules": {
-    "max-len": ["error", { "code": 120, "ignoreComments": true }]
+    "max-len": ["error", { "code": 120, "ignoreComments": true }],
+    "react/no-multi-comp": "off"
+  },
+  "globals": {
+    "hljs": "readonly",
+    "html_beautify": "readonly"
   }
 }

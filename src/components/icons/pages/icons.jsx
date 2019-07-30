@@ -1,14 +1,16 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Icon, {TYPE, ICON_COLOR, SIZE} from '../Icon';
+import Icon, {TYPE, STD_TYPE, ICON_COLOR, SIZE} from '../Icon';
+import Text from '../../text/Text';
 
 const icons = () => (
   <div>
     <DocsBlock>
+      <Text size="medium" color="peach-dark" weight="bold">This set of the icons is deprecated</Text>
       <ContrastBox>
         <ul className="icons-list">
-          {Object.values(TYPE).map(type => (
+          {Object.values(TYPE).filter(type => !type.includes('std')).map(type => (
             <li className="icons-list__element" key={type}>
               <Icon type={type} />
               <span>&nbsp; - {type}</span>
@@ -17,13 +19,45 @@ const icons = () => (
         </ul>
       </ContrastBox>
     </DocsBlock>
+    <DocsBlock>
+      <ul className="icons-list">
+        {Object.values(STD_TYPE).map(type => (
+          <li className="icons-list__element" key={type}>
+            <Icon size="32" color="dark" type={type} />
+            <span>&nbsp; - {type}</span>
+          </li>
+        ))}
+      </ul>
+    </DocsBlock>
+
+    <DocsBlock info="Sizes">
+      <ul className="icons-list">
+        {SIZE.map(size => (
+          <li className="icons-list__element icons-list__element--wider" key={size}>
+            <Icon color="dark" size={size} type="answer" />
+            <span>&nbsp; - {size}</span>
+          </li>
+        ))}
+      </ul>
+    </DocsBlock>
+
+    <DocsBlock info="Colors">
+      <ul className="icons-list">
+        {Object.values(ICON_COLOR).map(color => (
+          <li className="icons-list__element" key={color}>
+            <Icon color={color} size="46" type="std-answer" />
+            <span>&nbsp; - {color}</span>
+          </li>
+        ))}
+      </ul>
+    </DocsBlock>
 
     <DocsBlock info="Custom SVG">
       <ul className="icons-list">
         <li className="icons-list__element">
           <Icon
-            color={ICON_COLOR.PEACH}
-            size={30}
+            color="peach"
+            size="32"
           >
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -34,30 +68,6 @@ const icons = () => (
           <span>&nbsp; - custom SVG</span>
         </li>
       </ul>
-    </DocsBlock>
-
-    <DocsBlock info="Colors">
-      <ul className="icons-list">
-        {Object.values(ICON_COLOR).map(color => (
-          <li className="icons-list__element" key={color}>
-            <Icon color={color} type={TYPE.FRIENDS} />
-            <span>&nbsp; - {color}</span>
-          </li>
-        ))}
-      </ul>
-    </DocsBlock>
-
-    <DocsBlock info="Sizes">
-      <ContrastBox>
-        <ul className="icons-list">
-          {SIZE.map(size => (
-            <li className="icons-list__element icons-list__element--wider" key={size}>
-              <Icon size={size} type={TYPE.X} />
-              <span>&nbsp; - {size}</span>
-            </li>
-          ))}
-        </ul>
-      </ContrastBox>
     </DocsBlock>
   </div>
 );

@@ -36,6 +36,16 @@ test('type passed to xlink:href', () => {
   expect(use.props().xlinkHref).toEqual('#icon-' + type);
 });
 
+test('new type passed to xlink:href', () => {
+  const type = 'std-answer';
+  const icon = shallow(
+    <Icon type={type} />
+  );
+  const use = icon.find('use');
+
+  expect(use.props().xlinkHref).toEqual('#icon-' + type);
+});
+
 test('colors', () => {
   const type = TYPE.ANSWER;
   const color = ICON_COLOR.DARK;
