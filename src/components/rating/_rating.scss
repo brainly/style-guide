@@ -1,13 +1,13 @@
-$rateHeight: rhythm(1);
+$rateHeight: 32px;
 $rateStarColor: $graySecondary;
 $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $graySecondary;
 $rateFontSize: fontSize(obscure);
-$rateIconSize: rhythm(0.75);
+$rateIconSize: 24px;
 $rateLargeFontSize: fontSize(small);
-$rateLargeIconSize: rhythm(1);
+$rateLargeIconSize: 32px;
 
 $includeHtml: false !default;
 
@@ -127,9 +127,8 @@ $includeHtml: false !default;
     &--large {
       .sg-rate-box__star {
         height: $rateLargeIconSize;
-        // more whitespace between large icons
-        width: $rateLargeIconSize + 0.125rem;
-      }
+        width: $rateLargeIconSize;
+        }
 
       .sg-rate-box__counter,
       .sg-rate-box__rate {

@@ -2,7 +2,7 @@
 import React from 'react';
 import * as IconModule from '../../icons/Icon';
 
-const {default: Icon, TYPE, ICON_COLOR} = IconModule;
+const {default: Icon, ICON_COLOR} = IconModule;
 
 type PropsType = {
   size?: IconModule.IconSizeType
@@ -10,7 +10,7 @@ type PropsType = {
 
 const Star = ({size, ...props}: PropsType) => (
   <span className="sg-rate-box__star" {...props}>
-    <Icon type={TYPE.STAR} size={size} color={ICON_COLOR.ADAPTIVE} />
+    <Icon type="std-star" size={size} color={ICON_COLOR.ADAPTIVE} />
   </span>
 );
 
