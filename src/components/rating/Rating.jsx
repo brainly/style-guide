@@ -5,12 +5,12 @@ import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 
 type RatingSizeType =
-  | 16
-  | 24;
+  | 24
+  | 32;
 
 export const RATING_SIZE = {
-  NORMAL: 16,
-  LARGE: 24
+  NORMAL: 24,
+  LARGE: 32
 };
 
 const generateArrayRange = function(range: number): Array<number> {
