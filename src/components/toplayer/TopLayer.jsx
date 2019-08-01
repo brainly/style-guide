@@ -2,7 +2,7 @@
 import React from 'react';
 import type {Node} from 'react';
 import classnames from 'classnames';
-import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
 
 export type TopLayerSizeType =
   | 'small'
