@@ -115,7 +115,7 @@ const Boxs = () => (
     />
 
     <DocsBlock info="Example of box usage">
-      <Box>
+      <Box onClose={closeCallback}>
         <ContentBox>
           <ContentBoxHeader>
             <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>

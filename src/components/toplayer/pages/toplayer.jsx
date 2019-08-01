@@ -12,6 +12,8 @@ import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 
+const closeCallback = () => undefined;
+
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
@@ -68,7 +70,7 @@ const TopLayers = () => (
     </DocsBlock>
 
     <DocsBlock info="Example usage">
-      <TopLayer size={SIZE.MEDIUM} lead withBugbox>
+      <TopLayer size={SIZE.MEDIUM} lead withBugbox onClose={closeCallback}>
         <ContentBox>
           <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
             <Headline type={HEADLINE_TYPE.H2}>

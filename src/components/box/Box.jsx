@@ -2,7 +2,7 @@
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
-import Icon, {TYPE as iconTypes, ICON_COLOR} from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type ColorType =
   | 'blue'
@@ -227,7 +227,7 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
     <div {...props} className={boxClass}>
       {onClose ?
         <div className="sg-box__close" onClick={onClose}>
-          <Icon type={iconTypes.X} color={closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK} size={10} />
+          <Icon type="std-close" color={closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK} size={16} />
         </div> : null
       }
       {content}

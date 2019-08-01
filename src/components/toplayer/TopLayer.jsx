@@ -72,7 +72,7 @@ const TopLayer = (props: PropsType) => {
     <div {...additionalProps} className={topLayerClassName}>
       {onClose ?
         <div className="sg-toplayer__close" onClick={onClose}>
-          <Icon type={iconTypes.X} color={ICON_COLOR.GRAY_SECONDARY} size={14} />
+          <Icon type="std-close" color="gray-secondary" size={24} />
         </div> : null
       }
       <div className={toplayerWrapperClassName}>
