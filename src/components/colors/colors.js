@@ -1,6 +1,16 @@
 const color = {
   'primary': [
     {
+      'name': 'Black Base 500',
+      'variable': '$black',
+      'hex': '000000'
+    },
+    {
+      'name': 'White Base 500',
+      'variable': '$white',
+      'hex': 'ffffff'
+    },
+    {
       'name': 'Mint Dark 900',
       'variable': '$mintPrimaryDark',
       'hex': '40bd7e'
@@ -49,16 +59,6 @@ const color = {
       'name': 'Blue Light 100',
       'variable': '$blueSecondaryUltraLight',
       'hex': 'edf8ff'
-    },
-    {
-      'name': 'Black Base 500',
-      'variable': '$black',
-      'hex': '000000'
-    },
-    {
-      'name': 'White Base 500',
-      'variable': '$white',
-      'hex': 'ffffff'
     }
   ],
   'secondary': [
