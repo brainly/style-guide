@@ -16,6 +16,7 @@ type ColorType =
   | 'blue-secondary-light'
   | 'gray-secondary-lightest'
   | 'gray-secondary-ultra-light'
+  | 'mustard-primary'
   | 'peach';
 
 type PaddingType =
@@ -41,6 +42,7 @@ export const COLOR = {
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
+  MUSTARD_PRIMARY: 'mustard-primary',
   PEACH: 'peach'
 };
 
@@ -92,6 +94,7 @@ type BoxPropsType = {
    * @see color=gray-secondary-lightest https://styleguide.brainly.com/latest/docs/interactive.html?color=gray-secondary-lightest#boxes
    * @see color=gray-secondary-ultra-light https://styleguide.brainly.com/latest/docs/interactive.html?color=gray-secondary-ultra-light#boxes
    * @see color=peach https://styleguide.brainly.com/latest/docs/interactive.html?color=peach#boxes
+   * @see color=mustard-primary https://styleguide.brainly.com/latest/docs/interactive.html?color=mustard-primary#boxes
    */
   color?: ?ColorType,
   /**
