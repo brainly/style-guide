@@ -34,6 +34,7 @@ type FlexAlignmentValuesType =
   | 'stretch';
 
 type FlexMarginsType =
+  | 'xxs'
   | 'xs'
   | 's'
   | 'm'

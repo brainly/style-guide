@@ -26,7 +26,7 @@ const Flexbox = () => (
       <Flex direction={FLEX_DIRECTION.ROW} wrap>
         <Flex direction={FLEX_DIRECTION.COLUMN}>
           <Text size={TEXT_SIZE.SMALL}>xxs - 4px</Text>
-          <div className="doc-spacing doc-spacing--xs" />
+          <div className="doc-spacing doc-spacing--xxs" />
         </Flex>
         <Flex direction={FLEX_DIRECTION.COLUMN}>
           <Text size={TEXT_SIZE.SMALL}>xs - 8px</Text>
