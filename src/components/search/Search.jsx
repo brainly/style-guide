@@ -8,7 +8,7 @@ const {default: Input, COLOR, SIZE} = InputModule;
 
 type PropsType = {|
   +adaptiveIco?: boolean,
-  +inputClassName?: string,
+  +inputClassName?: string
 |} & InputModule.InputPropsType;
 
 const Search = ({adaptiveIco, className, inputClassName, ...additionalProps}: PropsType) => {
@@ -17,7 +17,12 @@ const Search = ({adaptiveIco, className, inputClassName, ...additionalProps}: Pr
 
   return (
     <div className={classnames(baseClassName, className)}>
-      <Input {...additionalProps} type="search" withIcon className={classnames(`${baseClassName}__input`, inputClassName)} />
+      <Input
+        {...additionalProps}
+        type="search"
+        withIcon
+        className={classnames(`${baseClassName}__input`, inputClassName)}
+      />
       <div className={`${baseClassName}__icon`}>
         <Icon type={TYPE.SEARCH} color={iconColor} size={18} />
       </div>
