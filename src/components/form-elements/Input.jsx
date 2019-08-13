@@ -70,17 +70,17 @@ export const COLOR = Object.freeze({
 });
 
 export type InputPropsType = {
-  +type?: ?InputType,
-  +value?: string | number,
-  +size?: ?InputSizeType,
-  +color?: ?InputColorType,
-  +valid?: boolean,
-  +invalid?: boolean,
-  +fullWidth?: boolean,
-  +noBorder?: boolean,
-  +withIcon?: boolean,
-  +className?: string,
-  +setInputRef?: (ref: ?HTMLElement) => mixed
+  type?: ?InputType,
+  value?: string | number,
+  size?: ?InputSizeType,
+  color?: ?InputColorType,
+  valid?: boolean,
+  invalid?: boolean,
+  fullWidth?: boolean,
+  noBorder?: boolean,
+  withIcon?: boolean,
+  className?: string,
+  setInputRef?: (ref: ?HTMLElement) => mixed
 };
 
 const Input = (props: InputPropsType) => {
