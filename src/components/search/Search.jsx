@@ -6,20 +6,19 @@ import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
 
 const {default: Input, COLOR, SIZE} = InputModule;
 
-type PropsType = {
-  adaptiveIco?: boolean,
-  className?: string,
-  ...InputModule.InputPropsType
-};
+type PropsType = {|
+  +adaptiveIco?: boolean,
+  +inputClassName?: string,
+|} & InputModule.InputPropsType;
 
-const Search = ({adaptiveIco, className, ...additionalProps}: PropsType) => {
+const Search = ({adaptiveIco, className, inputClassName, ...additionalProps}: PropsType) => {
   const iconColor = adaptiveIco === true ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
-  const searchClass = classnames('sg-search', className);
+  const baseClassName = 'sg-search';
 
   return (
-    <div className={searchClass}>
-      <Input {...additionalProps} type="search" withIcon className="sg-search__input" />
-      <div className="sg-search__icon">
+    <div className={classnames(baseClassName, className)}>
+      <Input {...additionalProps} type="search" withIcon className={classnames(`${baseClassName}__input`, inputClassName)} />
+      <div className={`${baseClassName}__icon`}>
         <Icon type={TYPE.SEARCH} color={iconColor} size={18} />
       </div>
     </div>
