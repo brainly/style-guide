@@ -17,6 +17,7 @@ type PropsType = {
   text: string,
   type?: FlashMessageTypeType,
   className?: string,
+  ...
 };
 
 const FlashMessage = ({

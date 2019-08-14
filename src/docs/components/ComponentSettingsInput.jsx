@@ -9,6 +9,7 @@ type PropsType = {
   values: Boolean | Number | String,
   onChange: (boolean | string | number) => mixed,
   currentValue?: number | string | boolean,
+  ...
 };
 
 const ComponentSettingsInput = ({

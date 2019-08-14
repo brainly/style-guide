@@ -26,6 +26,7 @@ type ActionListHolePropsType = {
   equalWidth?: ?boolean,
   hideOverflow?: ?boolean,
   className?: ?string,
+  ...
 };
 
 const ActionListHole = ({

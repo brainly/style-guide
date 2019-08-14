@@ -47,6 +47,7 @@ type PropsType = {
   children: Node,
   className?: string,
   color?: ColorType,
+  ...
 };
 
 const CardHole = ({color, children, className, ...props}: PropsType) => {

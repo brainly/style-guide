@@ -39,6 +39,7 @@ type PropsType = {
   activeText?: string,
   noLabel?: boolean,
   className?: string,
+  ...
 };
 
 /* eslint-disable react/default-props-match-prop-types */

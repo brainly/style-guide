@@ -36,6 +36,7 @@ type PropsType = {
   emphasised?: boolean,
   elementsToTop?: boolean,
   className?: string,
+  ...
 };
 
 const Label = (props: PropsType) => {

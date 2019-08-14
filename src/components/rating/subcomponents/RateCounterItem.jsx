@@ -2,9 +2,7 @@
 
 import React from 'react';
 
-type PropsType = {
-  text?: string,
-};
+type PropsType = {text?: string, ...};
 
 const RateCounterItem = ({text}: PropsType) => (
   <>

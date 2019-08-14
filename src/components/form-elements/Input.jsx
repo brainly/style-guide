@@ -76,6 +76,7 @@ export type InputPropsType = {
   withIcon?: boolean,
   className?: string,
   setInputRef?: (ref: ?HTMLElement) => mixed,
+  ...
 };
 
 const Input = (props: InputPropsType) => {

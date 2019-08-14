@@ -17,6 +17,7 @@ export type RadioPropsType = {
   id?: string,
   size?: ?RadioSizeType,
   className?: string,
+  ...
 };
 
 const Radio = (props: RadioPropsType) => {

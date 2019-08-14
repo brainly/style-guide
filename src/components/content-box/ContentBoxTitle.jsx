@@ -23,6 +23,7 @@ export type ContentBoxTitlePropsType = {
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
   align?: AligmentType,
+  ...
 };
 
 const ContentBoxTitle = ({

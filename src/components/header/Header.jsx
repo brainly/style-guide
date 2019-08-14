@@ -8,6 +8,7 @@ type PropsType = {
   children: Node,
   fixed?: boolean,
   className?: string,
+  ...
 };
 
 const Header = ({children, fixed, className, ...props}: PropsType) => {

@@ -17,6 +17,7 @@ type PropsType = {
   centered?: boolean,
   spacedBetween?: boolean,
   justified?: boolean,
+  ...
 };
 
 const DocsBlock = ({

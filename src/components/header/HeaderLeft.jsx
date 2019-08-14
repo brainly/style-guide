@@ -7,6 +7,7 @@ import classnames from 'classnames';
 type PropsType = {
   children?: Node,
   className?: string,
+  ...
 };
 
 const HeaderLeft = ({children, className, ...props}: PropsType) => {

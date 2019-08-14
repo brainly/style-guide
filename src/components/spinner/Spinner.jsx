@@ -15,6 +15,7 @@ type PropsType = {
   light?: boolean,
   size?: SpinnerSizeType,
   className?: string,
+  ...
 };
 
 const Spinner = ({light, size, className, ...props}: PropsType) => {

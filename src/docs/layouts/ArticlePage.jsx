@@ -10,9 +10,7 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-type PropsType = {
-  children?: Node,
-};
+type PropsType = {children?: Node, ...};
 
 const ItemsPage = ({children}: PropsType) => (
   <html>

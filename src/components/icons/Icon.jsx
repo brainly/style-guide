@@ -330,6 +330,7 @@ export type IconPropsType =
        * @see type="std-heart" https://styleguide.brainly.com/latest/docs/interactive.html?type=std-heart#icons
        */
       type: IconTypeType,
+      ...
     }
   | {
       /**
@@ -352,11 +353,11 @@ export type IconPropsType =
        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
        */
       size?: ?IconSizeType,
+      ...
     };
 
 const Icon = ({
   color,
-  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   size = 24,
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   type,

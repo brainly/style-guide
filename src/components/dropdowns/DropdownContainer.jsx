@@ -6,6 +6,7 @@ import Dropdown from './Dropdown';
 type ItemType = {
   id: string,
   text: string,
+  ...
 };
 
 type PropsType = {
@@ -18,11 +19,13 @@ type PropsType = {
   currentItem?: ItemType,
   onChange: string => mixed,
   onToggle?: SyntheticMouseEvent<HTMLDivElement>,
+  ...
 };
 
 type StateType = {
   currentItem: ItemType,
   label: string,
+  ...
 };
 
 /* eslint-disable react/default-props-match-prop-types */

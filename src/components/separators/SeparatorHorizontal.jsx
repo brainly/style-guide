@@ -10,6 +10,7 @@ type SeparatorHorizontalPropsType = {
   white?: boolean,
   grayDark?: boolean,
   className?: string,
+  ...
 };
 
 export const TYPE = {

@@ -11,6 +11,7 @@ type PropsType = {
   light?: boolean,
   fullWidth?: boolean,
   narrow?: boolean,
+  ...
 };
 
 const contrastBlockCssClass = 'docs-block__contrast-box';

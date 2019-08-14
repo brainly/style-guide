@@ -6,9 +6,7 @@ import IconAsButton, {ICON_COLOR} from '../IconAsButton';
 import * as IconModule from '../../icons/Icon';
 import classnames from 'classnames';
 
-type PropsType = {
-  color: IconModule.IconColorType,
-};
+type PropsType = {color: IconModule.IconColorType, ...};
 
 const DrawHelper = (props: PropsType) => {
   const liClass = classnames('icons-list__element', {

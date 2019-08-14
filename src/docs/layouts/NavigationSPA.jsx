@@ -8,10 +8,10 @@ type PropsType = {
   version: string,
   navigation: Array<{
     name: string,
-    elements: Array<{
-      name: string,
-    }>,
+    elements: Array<{name: string, ...}>,
+    ...
   }>,
+  ...
 };
 
 const Navigation = ({navigation, version}: PropsType) => (

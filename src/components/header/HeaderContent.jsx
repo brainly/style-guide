@@ -8,6 +8,7 @@ type PropsType = {
   children: Node,
   autoHeight?: boolean,
   className?: string,
+  ...
 };
 
 const HeaderContent = ({

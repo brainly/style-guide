@@ -178,6 +178,7 @@ type PropsType = {
   type: IconTypeType,
   size?: SizeType,
   monoColor?: IconModule.IconColorType,
+  ...
 };
 
 const SubjectIcon = ({

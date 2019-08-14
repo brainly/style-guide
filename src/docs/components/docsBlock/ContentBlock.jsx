@@ -10,6 +10,7 @@ type PropsType = {
   spacedBetween?: boolean,
   justified?: boolean,
   toBottom?: boolean,
+  ...
 };
 
 const ContentBlock = ({

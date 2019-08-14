@@ -18,6 +18,7 @@ module.name_mapper.extension='scss' -> 'empty/object'
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=src/components
 module.system.node.resolve_dirname=src/docs
+exact_by_default=true
 
 [strict]
 nonstrict-import
