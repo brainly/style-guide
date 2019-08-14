@@ -21,12 +21,18 @@ const SpinnerContainers = () => (
         </ButtonPrimary>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.SMALL}>
-        <ButtonPrimary disabled={IS_LOADING} buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+        <ButtonPrimary
+          disabled={IS_LOADING}
+          buttonType={BUTTON_PRIMARY_TYPE.ALT}
+        >
           Ask your question
         </ButtonPrimary>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.SMALL}>
-        <ButtonPrimary disabled={IS_LOADING} buttonType={BUTTON_PRIMARY_TYPE.DARK}>
+        <ButtonPrimary
+          disabled={IS_LOADING}
+          buttonType={BUTTON_PRIMARY_TYPE.DARK}
+        >
           Ask your question
         </ButtonPrimary>
       </SpinnerContainer>
@@ -39,23 +45,31 @@ const SpinnerContainers = () => (
         </ButtonSecondary>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.XSMALL}>
-        <ButtonSecondary disabled={IS_LOADING} buttonType={BUTTON_SECONDARY_TYPE.ALT}>
+        <ButtonSecondary
+          disabled={IS_LOADING}
+          buttonType={BUTTON_SECONDARY_TYPE.ALT}
+        >
           Ask your question
         </ButtonSecondary>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.XSMALL}>
-        <ButtonSecondary disabled={IS_LOADING} buttonType={BUTTON_SECONDARY_TYPE.DARK}>
+        <ButtonSecondary
+          disabled={IS_LOADING}
+          buttonType={BUTTON_SECONDARY_TYPE.DARK}
+        >
           Ask your question
         </ButtonSecondary>
       </SpinnerContainer>
     </DocsBlock>
 
     <DocsBlock info="with Box">
-      <SpinnerContainer loading >
+      <SpinnerContainer loading>
         <Box>
           <ContentBox>
             <ContentBoxHeader>
-              <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
+              <Headline type={HEADLINE_TYPE.H3}>
+                Ask a question about a school subject
+              </Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
               <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>
@@ -68,7 +82,7 @@ const SpinnerContainers = () => (
     </DocsBlock>
 
     <DocsBlock info="with Box" additionalInfo="(light)">
-      <SpinnerContainer loading light >
+      <SpinnerContainer loading light>
         <Box color={COLOR.NAVYBLUE_SECONDARY}>
           navyblue-secondary (no border by default)
         </Box>

@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import * as SpinnerModule from '../spinner/Spinner';
@@ -11,17 +12,23 @@ type PropsType = {
   loading?: boolean,
   light?: boolean,
   size?: SpinnerModule.SpinnerSizeType,
-  children?: Node
+  children?: Node,
 };
 
-const SpinnerContainer = ({loading, light, size, children, ...props}: PropsType) => (
+const SpinnerContainer = ({
+  loading,
+  light,
+  size,
+  children,
+  ...props
+}: PropsType) => (
   <div {...props} className="sg-spinner-container">
     {children}
-    {loading === true &&
+    {loading === true && (
       <div className="sg-spinner-container__overlay">
         <Spinner light={light} size={size} />
       </div>
-    }
+    )}
   </div>
 );
 

@@ -4,12 +4,12 @@ import DocsBlock from 'components/DocsBlock';
 
 const exampleOptions = [
   {value: 'option1', text: 'Option1'},
-  {value: 'option2', text: 'Select selector'}
+  {value: 'option2', text: 'Select selector'},
 ];
 const exampleProps = {
   options: exampleOptions,
   value: exampleOptions[1].value,
-  onChange: () => undefined
+  onChange: () => undefined,
 };
 
 const selects = () => (

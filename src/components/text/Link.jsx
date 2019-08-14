@@ -3,7 +3,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
-import {TEXT_TYPE, LINK_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from './textConsts';
+import {
+  TEXT_TYPE,
+  LINK_COLOR,
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from './textConsts';
 
 type TextTypeType =
   | 'span'
@@ -35,20 +42,11 @@ type LinkColorType =
   | 'mint-dark'
   | 'blue-dark';
 
-type TextWeightType =
-  | 'regular'
-  | 'bold';
+type TextWeightType = 'regular' | 'bold';
 
-type TextTransformType =
-  | 'uppercase'
-  | 'lowercase'
-  | 'capitalize';
+type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
-type TextAlignType =
-  | 'to-left'
-  | 'to-center'
-  | 'to-right'
-  | 'justify';
+type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
 export type LinkPropsType = {
   children?: ?React.Node,
@@ -65,7 +63,7 @@ export type LinkPropsType = {
   unstyled?: boolean,
   emphasised?: boolean,
   disabled?: boolean,
-  className?: ?string
+  className?: ?string,
 };
 
 export {LINK_COLOR} from './textConsts';
@@ -88,35 +86,29 @@ const Link = (props: LinkPropsType) => {
     className,
     ...additionalProps
   } = props;
-  const linkClass = classNames({
-    'sg-text--link': !underlined && !unstyled,
-    'sg-text--link-underlined': underlined && !unstyled,
-    'sg-text--link-unstyled': !underlined && unstyled,
-    'sg-text--bold': emphasised,
-    'sg-text--link-disabled': disabled,
-    [`sg-text--${String(color)}`]: color && !unstyled,
-    [`sg-text--${String(weight)}`]: weight
-  }, className);
+  const linkClass = classNames(
+    {
+      'sg-text--link': !underlined && !unstyled,
+      'sg-text--link-underlined': underlined && !unstyled,
+      'sg-text--link-unstyled': !underlined && unstyled,
+      'sg-text--bold': emphasised,
+      'sg-text--link-disabled': disabled,
+      [`sg-text--${String(color)}`]: color && !unstyled,
+      [`sg-text--${String(weight)}`]: weight,
+    },
+    className
+  );
 
   if (href === undefined || href === '' || href === null) {
     return (
-      <Text
-        type="span"
-        {...additionalProps}
-        className={linkClass}
-      >
+      <Text type="span" {...additionalProps} className={linkClass}>
         {children}
       </Text>
     );
   }
 
   return (
-    <Text
-      type="a"
-      {...additionalProps}
-      className={linkClass}
-      href={href}
-    >
+    <Text type="a" {...additionalProps} className={linkClass} href={href}>
       {children}
     </Text>
   );

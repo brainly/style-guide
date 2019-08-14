@@ -3,17 +3,13 @@ import Bubble, {DIRECTION, ALIGNMENT} from './Bubble';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const bubble = shallow(
-    <Bubble direction={DIRECTION.TOP}>Some text</Bubble>
-  );
+  const bubble = shallow(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
 
   expect(bubble.hasClass('sg-bubble')).toEqual(true);
 });
 
 test('render top', () => {
-  const bubble = shallow(
-    <Bubble direction={DIRECTION.TOP}>Some text</Bubble>
-  );
+  const bubble = shallow(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
 
@@ -24,7 +20,9 @@ test('render top', () => {
 
 test('render top start', () => {
   const bubble = shallow(
-    <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>Some text</Bubble>
+    <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>
+      Some text
+    </Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
@@ -45,7 +43,9 @@ test('render right', () => {
 
 test('render right end', () => {
   const bubble = shallow(
-    <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.END}>Some text</Bubble>
+    <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.END}>
+      Some text
+    </Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
@@ -57,7 +57,9 @@ test('render right end', () => {
 
 test('render full', () => {
   const bubble = shallow(
-    <Bubble direction={DIRECTION.LEFT} full>Some text</Bubble>
+    <Bubble direction={DIRECTION.LEFT} full>
+      Some text
+    </Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);
@@ -65,7 +67,9 @@ test('render full', () => {
 
 test('renders without shadow', () => {
   const bubble = shallow(
-    <Bubble direction={DIRECTION.LEFT} noShadow>Some text</Bubble>
+    <Bubble direction={DIRECTION.LEFT} noShadow>
+      Some text
+    </Bubble>
   );
 
   expect(bubble.hasClass('sg-bubble--no-shadow')).toEqual(true);

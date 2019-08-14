@@ -11,7 +11,7 @@ const nodeModules = {};
 
 fs.readdirSync('node_modules')
   .filter(dir => dir !== '.bin')
-  .forEach(mod => nodeModules[mod] = 'commonjs ' + mod);
+  .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
 
 const coreConfig = {
   target: 'node',
@@ -20,11 +20,11 @@ const coreConfig = {
       {
         test: /\.js|jsx?$/,
         exclude: /\.json$/,
-        loader: 'babel-loader'
-      }
-    ]
+        loader: 'babel-loader',
+      },
+    ],
   },
-  externals: nodeModules
+  externals: nodeModules,
 };
 
 module.exports = function(gulp, plugins, consts, options) {
@@ -37,20 +37,16 @@ module.exports = function(gulp, plugins, consts, options) {
     const config = Object.assign({}, coreConfig, {
       resolve: {
         extensions: ['.js', '.jsx'],
-        modules: [
-          consts.COMPONENTS,
-          consts.DOCS,
-          'node_modules'
-        ]
+        modules: [consts.COMPONENTS, consts.DOCS, 'node_modules'],
       },
       entry: {
-        [fileNameWithExtension]: file.path
+        [fileNameWithExtension]: file.path,
       },
       output: {
         filename: '[name]',
         path: jsPath,
-        libraryTarget: 'commonjs2'
-      }
+        libraryTarget: 'commonjs2',
+      },
     });
 
     webpack(config, function(err, stats) {
@@ -69,7 +65,9 @@ module.exports = function(gulp, plugins, consts, options) {
 
     delete require.cache[require.resolve(path)];
     const ReactPageClass = require(path).default;
-    const htmlPage = ReactDOMServer.renderToStaticMarkup(React.createElement(ReactPageClass));
+    const htmlPage = ReactDOMServer.renderToStaticMarkup(
+      React.createElement(ReactPageClass)
+    );
     const doctype = '<!DOCTYPE html>\n';
 
     file.contents = new Buffer(doctype + htmlPage);
@@ -87,11 +85,12 @@ module.exports = function(gulp, plugins, consts, options) {
       output = plugins.path.join(consts.VERSIONED_DIST);
     }
 
-    return gulp.src(input, {base: consts.SRC})
+    return gulp
+      .src(input, {base: consts.SRC})
       .pipe(through.obj(createWebpackBundles))
       .pipe(through.obj(createHtmlFiles))
-      .pipe(rename(
-        function(path) {
+      .pipe(
+        rename(function(path) {
           path.dirname += '/..';
           path.extname = '.html';
         })

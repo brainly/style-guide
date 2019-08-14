@@ -8,7 +8,10 @@ import HeaderRight from '../HeaderRight';
 import HomeButton from '../../home-button/HomeButton';
 import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
-import IconAsButton, {TYPE as ICON_TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
+import IconAsButton, {
+  TYPE as ICON_TYPE,
+  ICON_COLOR,
+} from 'icon-as-button/IconAsButton';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
@@ -38,13 +41,20 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
+                  <ButtonSecondary
+                    buttonType={BUTTON_SECONDARY_TYPE.DARK}
+                    small
+                  >
+                    Register
+                  </ButtonSecondary>
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
                     overlay={
-                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>
+                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+                        1
+                      </TextBadge>
                     }
                   />
                   <IconAsButton transparent>
@@ -56,7 +66,10 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR.LIGHT}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>

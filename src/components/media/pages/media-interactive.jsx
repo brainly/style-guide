@@ -7,45 +7,47 @@ import Link, {LINK_COLOR} from 'text/Link';
 const MediaExamples = () => {
   const defaultProps = {
     contentArray: [
-      <Link key={1} color={LINK_COLOR.GRAY}>The Goat</Link>,
-      <span key={2}>Master </span>
+      <Link key={1} color={LINK_COLOR.GRAY}>
+        The Goat
+      </Link>,
+      <span key={2}>Master </span>,
     ],
-    aside: <Avatar />
+    aside: <Avatar />,
   };
 
   const settings = [
     {
       name: 'toRight',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'focused',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'clickable',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noPadding',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'transparent',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'graySecondaryLight',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'small',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'spacedBottom',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

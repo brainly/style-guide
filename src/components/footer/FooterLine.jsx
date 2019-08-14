@@ -1,11 +1,12 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
 
 type PropsType = {
   children: Node,
-  className?: string
+  className?: string,
 };
 
 const FooterLine = ({children, className, ...props}: PropsType) => {
@@ -19,4 +20,3 @@ const FooterLine = ({children, className, ...props}: PropsType) => {
 };
 
 export default FooterLine;
-

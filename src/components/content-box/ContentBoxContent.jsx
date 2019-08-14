@@ -13,10 +13,7 @@ type SizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type AligmentType =
-  | 'left'
-  | 'center'
-  | 'right';
+type AligmentType = 'left' | 'center' | 'right';
 
 export type ContentBoxContentPropsType = {
   children: React.Node,
@@ -24,7 +21,7 @@ export type ContentBoxContentPropsType = {
   className?: ?string,
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
-  align?: AligmentType
+  align?: AligmentType,
 };
 
 const ContentBoxContent = ({
@@ -36,14 +33,20 @@ const ContentBoxContent = ({
   align = ALIGNMENT.LEFT,
   ...props
 }: ContentBoxContentPropsType) => {
-  const contentBoxClass = classNames('sg-content-box__content', {
-    'sg-content-box__content--full': full,
-    'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
-    'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
-    'sg-content-box__content--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__content--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
-  }, className);
+  const contentBoxClass = classNames(
+    'sg-content-box__content',
+    {
+      'sg-content-box__content--full': full,
+      'sg-content-box__content--with-centered-text': align === ALIGNMENT.CENTER,
+      'sg-content-box__content--spaced-top': spacedTop === SIZE.NORMAL,
+      [`sg-content-box__content--spaced-top-${spacedTop || ''}`]:
+        spacedTop && spacedTop !== SIZE.NORMAL,
+      'sg-content-box__content--spaced-bottom': spacedBottom === SIZE.NORMAL,
+      [`sg-content-box__content--spaced-bottom-${spacedBottom || ''}`]:
+        spacedBottom && spacedBottom !== SIZE.NORMAL,
+    },
+    className
+  );
 
   return (
     <div {...props} className={contentBoxClass}>

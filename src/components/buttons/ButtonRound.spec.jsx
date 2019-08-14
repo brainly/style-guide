@@ -3,36 +3,28 @@ import ButtonRound from './ButtonRound';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const button = shallow(
-    <ButtonRound>Some text</ButtonRound>
-  );
+  const button = shallow(<ButtonRound>Some text</ButtonRound>);
 
   expect(button.hasClass('sg-button-primary-round')).toEqual(true);
 });
 
 test('href', () => {
   const href = '#test';
-  const button = shallow(
-    <ButtonRound href={href}>Some text</ButtonRound>
-  );
+  const button = shallow(<ButtonRound href={href}>Some text</ButtonRound>);
 
   expect(button.is(`[href="${href}"]`)).toEqual(true);
 });
 
 test('label', () => {
   const label = 'example label';
-  const button = shallow(
-    <ButtonRound label={label}>Some text</ButtonRound>
-  );
+  const button = shallow(<ButtonRound label={label}>Some text</ButtonRound>);
 
   expect(button.contains(label)).toEqual(true);
   expect(button.find('.sg-button-primary-round__label')).toHaveLength(1);
 });
 
 test('no label', () => {
-  const button = shallow(
-    <ButtonRound>Some text</ButtonRound>
-  );
+  const button = shallow(<ButtonRound>Some text</ButtonRound>);
 
   expect(button.find('sg-button-primary-round__label')).toHaveLength(0);
 });
@@ -51,9 +43,7 @@ test('func', () => {
 });
 
 test('func throw testing 1part - undefined function', () => {
-  const button = shallow(
-    <ButtonRound>Some text</ButtonRound>
-  );
+  const button = shallow(<ButtonRound>Some text</ButtonRound>);
 
   expect(() => button.simulate('click')).not.toThrow();
 

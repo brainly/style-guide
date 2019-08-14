@@ -8,18 +8,14 @@ import Text from 'text/Text';
 const header = (
   <div className="sg-header sg-header--fixed">
     <div className="sg-header__container">
-      <div className="sg-header__content">
-        Header
-      </div>
+      <div className="sg-header__content">Header</div>
     </div>
   </div>
 );
 
 const footer = (
   <div className="sg-footer">
-    <div className="sg-footer__container">
-      Footer
-    </div>
+    <div className="sg-footer__container">Footer</div>
   </div>
 );
 
@@ -34,14 +30,13 @@ const LayoutSmall = () => (
         <LayoutContent>
           <LayoutBox>
             <Text>
-              Main content has no padding and no background (both are given by layout box)
+              Main content has no padding and no background (both are given by
+              layout box)
             </Text>
           </LayoutBox>
         </LayoutContent>
         <LayoutAsideContent>
-          <Text>
-            Aside content has no padding and no background
-          </Text>
+          <Text>Aside content has no padding and no background</Text>
         </LayoutAsideContent>
       </Layout>
       <script src="images/icons.js" />

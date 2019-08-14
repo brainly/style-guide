@@ -5,61 +5,59 @@ import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Buttons = () => {
-  const allIcons = Object.entries(ICON_TYPES).reduce((acc, [key, type]) => ({
-    ...acc,
-    [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />
-  }), {});
+  const allIcons = Object.entries(ICON_TYPES).reduce(
+    (acc, [key, type]) => ({
+      ...acc,
+      [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />,
+    }),
+    {}
+  );
 
   const roundSettings = [
     {
       name: 'href',
-      values: String
+      values: String,
     },
     {
       name: 'label',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   const buttonsSettings = [
     {
       name: 'type',
-      values: BUTTON_TYPE
+      values: BUTTON_TYPE,
     },
     {
       name: 'disabled',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'size',
-      values: BUTTON_SIZE
+      values: BUTTON_SIZE,
     },
     {
       name: 'icon',
-      values: allIcons
+      values: allIcons,
     },
     {
       name: 'href',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button type={BUTTON_TYPE.PRIMARY_BLUE}>
-          Ask your question
-        </Button>
+        <Button type={BUTTON_TYPE.PRIMARY_BLUE}>Ask your question</Button>
       </DocsActiveBlock>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button
-          icon={allIcons.ANSWER}
-          type={BUTTON_TYPE.PRIMARY}
-        >
+        <Button icon={allIcons.ANSWER} type={BUTTON_TYPE.PRIMARY}>
           Answer
         </Button>
       </DocsActiveBlock>
@@ -69,7 +67,6 @@ const Buttons = () => {
           <Icon type={ICON_TYPES.PLUS} size={16} />
         </ButtonRound>
       </DocsActiveBlock>
-
     </div>
   );
 };

@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -26,9 +27,7 @@ type PaddingType =
   | 'xxsmall-padding'
   | 'large-padding';
 
-type CloseIconColorType =
-  | 'LIGHT'
-  | 'DARK';
+type CloseIconColorType = 'LIGHT' | 'DARK';
 
 export const COLOR = {
   BLUE: 'blue',
@@ -43,7 +42,7 @@ export const COLOR = {
   GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
   MUSTARD_PRIMARY: 'mustard-primary',
-  PEACH: 'peach'
+  PEACH: 'peach',
 };
 
 export const PADDING = {
@@ -51,12 +50,12 @@ export const PADDING = {
   SMALL: 'small-padding',
   XSMALL: 'xsmall-padding',
   XXSMALL: 'xxsmall-padding',
-  LARGE: 'large-padding'
+  LARGE: 'large-padding',
 };
 
 export const CLOSE_ICON_COLOR = {
   LIGHT: 'LIGHT',
-  DARK: 'DARK'
+  DARK: 'DARK',
 };
 
 type BoxPropsType = {
@@ -191,7 +190,7 @@ type BoxPropsType = {
    *          </Box>
    * @todo add interactive example for this prop
    */
-  onClose?: ?(SyntheticInputEvent<HTMLDivElement> => mixed)
+  onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
 };
 
 /**
@@ -206,18 +205,35 @@ type BoxPropsType = {
  *          </Box>
  * @returns {JSX.Element} Box component
  */
-const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeight, shadow, noBorderRadius,
-  onClose, closeIconColor, className, ...props}: BoxPropsType) => {
-  const boxClass = classNames('sg-box', {
-    [`sg-box--${String(color)}`]: color,
-    'sg-box--no-border': !border,
-    'sg-box--full': full,
-    [`sg-box--${String(padding)}`]: padding,
-    'sg-box--image-wrapper': imgSrc,
-    'sg-box--no-min-height': noMinHeight,
-    'sg-box--with-shadow': shadow,
-    'sg-box--no-border-radius': noBorderRadius
-  }, className);
+const Box = ({
+  color,
+  padding,
+  full,
+  children,
+  border = !color,
+  imgSrc,
+  noMinHeight,
+  shadow,
+  noBorderRadius,
+  onClose,
+  closeIconColor,
+  className,
+  ...props
+}: BoxPropsType) => {
+  const boxClass = classNames(
+    'sg-box',
+    {
+      [`sg-box--${String(color)}`]: color,
+      'sg-box--no-border': !border,
+      'sg-box--full': full,
+      [`sg-box--${String(padding)}`]: padding,
+      'sg-box--image-wrapper': imgSrc,
+      'sg-box--no-min-height': noMinHeight,
+      'sg-box--with-shadow': shadow,
+      'sg-box--no-border-radius': noBorderRadius,
+    },
+    className
+  );
 
   let content;
 
@@ -228,11 +244,17 @@ const Box = ({color, padding, full, children, border = !color, imgSrc, noMinHeig
   }
   return (
     <div {...props} className={boxClass}>
-      {onClose ?
+      {onClose ? (
         <div className="sg-box__close" onClick={onClose}>
-          <Icon type="std-close" color={closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK} size={16} />
-        </div> : null
-      }
+          <Icon
+            type="std-close"
+            color={
+              closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK
+            }
+            size={16}
+          />
+        </div>
+      ) : null}
       {content}
     </div>
   );

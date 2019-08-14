@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import type {Node} from 'react';
 import Navigation from './Navigation';
@@ -10,7 +11,7 @@ import site from '../config';
 const version = packageJSON.version;
 
 type PropsType = {
-  children?: Node
+  children?: Node,
 };
 
 const ItemsPage = ({children}: PropsType) => (
@@ -19,10 +20,7 @@ const ItemsPage = ({children}: PropsType) => (
     <body>
       <Navigation navigation={navigation} version={version} />
 
-      <div className="data-container">
-        {children}
-      </div>
-
+      <div className="data-container">{children}</div>
     </body>
   </html>
 );

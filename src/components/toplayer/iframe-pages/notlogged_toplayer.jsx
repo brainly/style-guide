@@ -2,7 +2,9 @@ import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import ContentBox from '../../content-box/ContentBox';
-import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
+import ContentBoxContent, {
+  SIZE as SPACING_SIZE,
+} from 'content-box/ContentBoxContent';
 import Text, {TEXT_WEIGHT} from 'text/Text';
 
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
@@ -22,33 +24,49 @@ const content = (
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <Headline type={HEADLINE_TYPE.H2}>
-        Why join Brainly?
-      </Headline>
+      <Headline type={HEADLINE_TYPE.H2}>Why join Brainly?</Headline>
       <List>
         <ListItem key={1}>
           <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+            <Icon
+              type={ICON_TYPE.PLUS}
+              color={ICON_COLOR.GRAY_SECONDARY}
+              size={18}
+            />
           </ListItemIcon>
-          <Text weight={TEXT_WEIGHT.BOLD}>ask questions about your assignment</Text>
+          <Text weight={TEXT_WEIGHT.BOLD}>
+            ask questions about your assignment
+          </Text>
         </ListItem>
         <ListItem key={2}>
           <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+            <Icon
+              type={ICON_TYPE.PLUS}
+              color={ICON_COLOR.GRAY_SECONDARY}
+              size={18}
+            />
           </ListItemIcon>
           <Text weight={TEXT_WEIGHT.BOLD}>get answer with explanation</Text>
         </ListItem>
         <ListItem key={3}>
           <ListItemIcon>
-            <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+            <Icon
+              type={ICON_TYPE.PLUS}
+              color={ICON_COLOR.GRAY_SECONDARY}
+              size={18}
+            />
           </ListItemIcon>
-          <Text key={3} weight={TEXT_WEIGHT.BOLD}>find similar questions</Text>
+          <Text key={3} weight={TEXT_WEIGHT.BOLD}>
+            find similar questions
+          </Text>
         </ListItem>
       </List>
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
+      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+        Join us
+      </ButtonPrimary>
     </ContentBoxContent>
   </ContentBox>
 );

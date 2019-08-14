@@ -5,18 +5,14 @@ import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const search = shallow(
-    <Search />
-  );
+  const search = shallow(<Search />);
 
   expect(search.hasClass('sg-search')).toEqual(true);
   expect(search.find(Input)).toHaveLength(1);
 });
 
 test('set Search specific properties to Input', () => {
-  const search = shallow(
-    <Search />
-  );
+  const search = shallow(<Search />);
 
   const input = search.find(Input);
 
@@ -45,9 +41,7 @@ test('pass properties to Input, without Search specific', () => {
 });
 
 test('render icon', () => {
-  const search = shallow(
-    <Search />
-  );
+  const search = shallow(<Search />);
 
   const icon = search.find(Icon);
 
@@ -59,9 +53,7 @@ test('render icon', () => {
 });
 
 test('adaptive icon', () => {
-  const search = shallow(
-    <Search adaptiveIco />
-  );
+  const search = shallow(<Search adaptiveIco />);
 
   const icon = search.find(Icon);
 

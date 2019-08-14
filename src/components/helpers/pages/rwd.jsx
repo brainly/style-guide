@@ -53,7 +53,6 @@ const RwdHelpers = () => (
         </li>
       </ul>
     </DocsBlock>
-
   </div>
 );
 

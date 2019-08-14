@@ -13,7 +13,13 @@ const ratings = () => (
     </DocsBlock>
 
     <DocsBlock info="Active with counters">
-      <Rating rate={3} active counter={34} counterText="Hover to rate" activeText="Rate me!" />
+      <Rating
+        rate={3}
+        active
+        counter={34}
+        counterText="Hover to rate"
+        activeText="Rate me!"
+      />
     </DocsBlock>
 
     <DocsBlock info="Active without label">
@@ -35,7 +41,6 @@ const ratings = () => (
         activeText="Rate me!"
       />
     </DocsBlock>
-
   </div>
 );
 

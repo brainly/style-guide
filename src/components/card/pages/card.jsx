@@ -11,9 +11,7 @@ const Cards = () => (
   <div>
     <DocsBlock info="Simple with large padding">
       <Card padding={CARD_PADDING.LARGE}>
-        <CardHole>
-          This is card content top
-        </CardHole>
+        <CardHole>This is card content top</CardHole>
         <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHTEST}>
           This is card content bottom
         </CardHole>
@@ -44,9 +42,7 @@ const Cards = () => (
 
     <DocsBlock info="With shadow">
       <Card shadow padding={CARD_PADDING.SMALL}>
-        <CardHole>
-          This is card content top
-        </CardHole>
+        <CardHole>This is card content top</CardHole>
         <CardHole color={CARD_HOLE_COLOR.NAVYBLUE_SECONDARY}>
           This is card content bottom
         </CardHole>
@@ -58,9 +54,7 @@ const Cards = () => (
         <CardHole color={CARD_HOLE_COLOR.LAVENDER_SECONDARY_LIGHT}>
           This is card content left
         </CardHole>
-        <CardHole>
-         This is card content right
-        </CardHole>
+        <CardHole>This is card content right</CardHole>
       </Card>
     </DocsBlock>
 
@@ -69,7 +63,9 @@ const Cards = () => (
         <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
           <ContentBox>
             <ContentBoxHeader>
-              <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
+              <Headline type={HEADLINE_TYPE.H3}>
+                Ask a question about a school subject
+              </Headline>
             </ContentBoxHeader>
             <ContentBoxContent>And add some description</ContentBoxContent>
           </ContentBox>

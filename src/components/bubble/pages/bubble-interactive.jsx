@@ -19,31 +19,32 @@ const Bubbles = () => {
     {
       name: 'direction',
       values: DIRECTION,
-      required: true
+      required: true,
     },
     {
       name: 'alignment',
-      values: ALIGNMENT
+      values: ALIGNMENT,
     },
     {
       name: 'full',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noShadow',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'color',
-      values: BUBBLE_COLOR
-    }
+      values: BUBBLE_COLOR,
+    },
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
         <Bubble direction={DIRECTION.TOP}>
-          Hi there!!<br />
+          Hi there!!
+          <br />
           Just wondering if you have any problems with your school work.
         </Bubble>
       </DocsActiveBlock>
@@ -59,21 +60,29 @@ const Bubbles = () => {
                 <ActionListHole>
                   <Breadcrumb
                     elements={[
-                      <Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
-                      <Link key={2} color={LINK_COLOR.GRAY}>a few seconds ago</Link>]}
+                      <Link key={1} color={LINK_COLOR.GRAY}>
+                        Katie
+                      </Link>,
+                      <Link key={2} color={LINK_COLOR.GRAY}>
+                        a few seconds ago
+                      </Link>,
+                    ]}
                   />
                 </ActionListHole>
               </ActionList>
             </ContentBoxHeader>
             <ContentBoxContent>
               <Text>
-                Hi there!! Just wondering if you have any problems with your school work. We&apos;ve got plenty
-                of people who can help you here :) Also, my last question was answered in less than 10 minutes :D
-                Anyway, you can just go ahead and try for yourself.
+                Hi there!! Just wondering if you have any problems with your
+                school work. We&apos;ve got plenty of people who can help you
+                here :) Also, my last question was answered in less than 10
+                minutes :D Anyway, you can just go ahead and try for yourself.
               </Text>
             </ContentBoxContent>
             <ContentBoxActions>
-              <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT}>Join us!</ButtonSecondary>
+              <ButtonSecondary type={BUTTON_SECONDARY_TYPE.ALT}>
+                Join us!
+              </ButtonSecondary>
             </ContentBoxActions>
           </ContentBox>
         </Bubble>

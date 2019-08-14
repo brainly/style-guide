@@ -7,10 +7,12 @@ import Link, {LINK_COLOR} from 'text/Link';
 
 const defaultProps = {
   contentArray: [
-    <Link key={1} color={LINK_COLOR.GRAY}>The Goat</Link>,
-    <span key={2}>Master </span>
+    <Link key={1} color={LINK_COLOR.GRAY}>
+      The Goat
+    </Link>,
+    <span key={2}>Master </span>,
   ],
-  aside: <Avatar />
+  aside: <Avatar />,
 };
 
 const Medias = () => (

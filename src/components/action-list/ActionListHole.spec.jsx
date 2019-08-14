@@ -21,7 +21,9 @@ describe('<ActionListHole />', () => {
       <ActionListHole asContainer>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--container')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--container')).toEqual(
+      true
+    );
   });
 
   test('no-spacing', () => {
@@ -29,7 +31,9 @@ describe('<ActionListHole />', () => {
       <ActionListHole noSpacing>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--no-spacing')).toEqual(true);
+    expect(
+      actionListHole.hasClass('sg-actions-list__hole--no-spacing')
+    ).toEqual(true);
   });
 
   test('space-bellow', () => {
@@ -37,7 +41,9 @@ describe('<ActionListHole />', () => {
       <ActionListHole spaceBellow>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--space-bellow')).toEqual(true);
+    expect(
+      actionListHole.hasClass('sg-actions-list__hole--space-bellow')
+    ).toEqual(true);
   });
 
   test('no-shrink', () => {
@@ -45,23 +51,25 @@ describe('<ActionListHole />', () => {
       <ActionListHole noShrink>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--no-shrink')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--no-shrink')).toEqual(
+      true
+    );
   });
 
   test('grow', () => {
-    const actionListHole = shallow(
-      <ActionListHole grow>test</ActionListHole>
-    );
+    const actionListHole = shallow(<ActionListHole grow>test</ActionListHole>);
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--grow')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--grow')).toEqual(
+      true
+    );
   });
 
   test('to-end', () => {
-    const actionListHole = shallow(
-      <ActionListHole toEnd>test</ActionListHole>
-    );
+    const actionListHole = shallow(<ActionListHole toEnd>test</ActionListHole>);
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--to-end')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--to-end')).toEqual(
+      true
+    );
   });
 
   test('to-right', () => {
@@ -69,7 +77,9 @@ describe('<ActionListHole />', () => {
       <ActionListHole toRight>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(
+      true
+    );
   });
 
   test('to-right', () => {
@@ -77,23 +87,33 @@ describe('<ActionListHole />', () => {
       <ActionListHole toRight>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(true);
+    expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(
+      true
+    );
   });
 
   test('spaced-small', () => {
     const actionListHole = shallow(
-      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>test</ActionListHole>
+      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
+        test
+      </ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--spaced-small')).toEqual(true);
+    expect(
+      actionListHole.hasClass('sg-actions-list__hole--spaced-small')
+    ).toEqual(true);
   });
 
   test('spaced-xsmall', () => {
     const actionListHole = shallow(
-      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>test</ActionListHole>
+      <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
+        test
+      </ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--spaced-xsmall')).toEqual(true);
+    expect(
+      actionListHole.hasClass('sg-actions-list__hole--spaced-xsmall')
+    ).toEqual(true);
   });
 
   test('equal-width', () => {
@@ -101,6 +121,8 @@ describe('<ActionListHole />', () => {
       <ActionListHole equalWidth>test</ActionListHole>
     );
 
-    expect(actionListHole.hasClass('sg-actions-list__hole--equal-width')).toEqual(true);
+    expect(
+      actionListHole.hasClass('sg-actions-list__hole--equal-width')
+    ).toEqual(true);
   });
 });

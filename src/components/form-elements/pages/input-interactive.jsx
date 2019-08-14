@@ -3,48 +3,47 @@ import Input, {TYPE, SIZE, COLOR} from '../Input';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Inputs = () => {
-
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
     },
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'color',
-      values: COLOR
+      values: COLOR,
     },
     {
       name: 'value',
-      values: String
+      values: String,
     },
     {
       name: 'placeholder',
-      values: String
+      values: String,
     },
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'withIcon',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noBorder',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'valid',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'invalid',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

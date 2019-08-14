@@ -1,6 +1,9 @@
 // @flow strict
+
 export {default as ActionList} from './components/action-list/ActionList';
-export {default as ActionListHole} from './components/action-list/ActionListHole';
+export {
+  default as ActionListHole,
+} from './components/action-list/ActionListHole';
 export {default as Avatar} from './components/avatar/Avatar';
 export {default as TextBadge} from './components/badges/TextBadge';
 export {default as Box} from './components/box/Box';
@@ -13,14 +16,26 @@ export {default as ButtonSecondary} from './components/buttons/ButtonSecondary';
 export {default as Card} from './components/card/Card';
 export {default as CardHole} from './components/card/CardHole';
 export {default as ContentBox} from './components/content-box/ContentBox';
-export {default as ContentBoxActions} from './components/content-box/ContentBoxActions';
-export {default as ContentBoxContent} from './components/content-box/ContentBoxContent';
-export {default as ContentBoxHeader} from './components/content-box/ContentBoxHeader';
-export {default as ContentBoxTitle} from './components/content-box/ContentBoxTitle';
+export {
+  default as ContentBoxActions,
+} from './components/content-box/ContentBoxActions';
+export {
+  default as ContentBoxContent,
+} from './components/content-box/ContentBoxContent';
+export {
+  default as ContentBoxHeader,
+} from './components/content-box/ContentBoxHeader';
+export {
+  default as ContentBoxTitle,
+} from './components/content-box/ContentBoxTitle';
 export {default as Dropdown} from './components/dropdowns/Dropdown';
-export {default as DropdownContainer} from './components/dropdowns/DropdownContainer';
+export {
+  default as DropdownContainer,
+} from './components/dropdowns/DropdownContainer';
 export {default as DropdownItem} from './components/dropdowns/DropdownItem';
-export {default as FlashMessage} from './components/flash-messages/FlashMessage';
+export {
+  default as FlashMessage,
+} from './components/flash-messages/FlashMessage';
 export {default as Flex} from './components/flex/Flex';
 export {default as Footer} from './components/footer/Footer';
 export {default as FooterLine} from './components/footer/FooterLine';
@@ -37,14 +52,20 @@ export {default as HeaderMiddle} from './components/header/HeaderMiddle';
 export {default as HeaderRight} from './components/header/HeaderRight';
 export {default as RwdHelper} from './components/helpers/RwdHelper';
 export {default as HomeButton} from './components/home-button/HomeButton';
-export {default as IconAsButton} from './components/icon-as-button/IconAsButton';
+export {
+  default as IconAsButton,
+} from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
 export {default as Label} from './components/labels/Label';
 export {default as Layout} from './components/layout/Layout';
-export {default as LayoutAsideContent} from './components/layout/LayoutAsideContent';
+export {
+  default as LayoutAsideContent,
+} from './components/layout/LayoutAsideContent';
 export {default as LayoutBox} from './components/layout/LayoutBox';
 export {default as LayoutContent} from './components/layout/LayoutContent';
-export {default as LayoutSecondaryContent} from './components/layout/LayoutSecondaryContent';
+export {
+  default as LayoutSecondaryContent,
+} from './components/layout/LayoutSecondaryContent';
 export {default as List} from './components/list/List';
 export {default as ListItem} from './components/list/ListItem';
 export {default as ListItemIcon} from './components/list/ListItemIcon';
@@ -57,13 +78,21 @@ export {default as OverlayedBox} from './components/overlayed-box/OverlayedBox';
 export {default as PopupMenu} from './components/popup-menu/PopupMenu';
 export {default as Rating} from './components/rating/Rating';
 export {default as Search} from './components/search/Search';
-export {default as SeparatorHorizontal} from './components/separators/SeparatorHorizontal';
-export {default as SeparatorVertical} from './components/separators/SeparatorVertical';
+export {
+  default as SeparatorHorizontal,
+} from './components/separators/SeparatorHorizontal';
+export {
+  default as SeparatorVertical,
+} from './components/separators/SeparatorVertical';
 export {default as Spinner} from './components/spinner/Spinner';
-export {default as SpinnerContainer} from './components/spinner-container/SpinnerContainer';
+export {
+  default as SpinnerContainer,
+} from './components/spinner-container/SpinnerContainer';
 export {default as Sticker} from './components/stickers/Sticker';
 export {default as SubjectIcon} from './components/subject-icons/SubjectIcon';
-export {default as SubjectIconBox} from './components/subject-icons/SubjectIconBox';
+export {
+  default as SubjectIconBox,
+} from './components/subject-icons/SubjectIconBox';
 export {default as Headline} from './components/text/Headline';
 export {default as Link} from './components/text/Link';
 export {default as Text} from './components/text/Text';

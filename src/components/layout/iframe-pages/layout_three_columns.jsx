@@ -9,18 +9,14 @@ import Text from 'text/Text';
 const header = (
   <div className="sg-header sg-header--fixed">
     <div className="sg-header__container">
-      <div className="sg-header__content">
-        Header
-      </div>
+      <div className="sg-header__content">Header</div>
     </div>
   </div>
 );
 
 const footer = (
   <div className="sg-footer">
-    <div className="sg-footer__container">
-      Footer
-    </div>
+    <div className="sg-footer__container">Footer</div>
   </div>
 );
 
@@ -34,19 +30,16 @@ const LayoutWideThreeColumns = () => (
     <body>
       <Layout header={header} footer={footer} threeColumns wide>
         <LayoutSecondaryContent>
-          <Text>
-            Secondary content has no padding and no background
-          </Text>
+          <Text>Secondary content has no padding and no background</Text>
         </LayoutSecondaryContent>
         <LayoutContent>
-          <Text>
-            Main content has no padding and white background
-          </Text>
+          <Text>Main content has no padding and white background</Text>
         </LayoutContent>
         <LayoutAsideContent>
           <LayoutBox>
             <Text>
-              Aside content has no padding and no background (both are given by layout box)
+              Aside content has no padding and no background (both are given by
+              layout box)
             </Text>
           </LayoutBox>
         </LayoutAsideContent>

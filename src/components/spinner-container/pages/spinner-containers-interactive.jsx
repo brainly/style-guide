@@ -7,16 +7,16 @@ const SpinnerContainers = () => {
   const settings = [
     {
       name: 'size',
-      values: SPINNER_SIZE
+      values: SPINNER_SIZE,
     },
     {
       name: 'loading',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'light',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

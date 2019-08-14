@@ -3,22 +3,18 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type TextareaSizeType =
-  | 'short'
-  | 'normal'
-  | 'tall'
-  | 'xtall';
+type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
 
 export const SIZE = {
   SHORT: 'short',
   NORMAL: 'normal',
   TALL: 'tall',
-  XTALL: 'xtall'
+  XTALL: 'xtall',
 };
 
 export type TextareaPropsType = {
   // $FlowFixMe any generic prop types here broke autocomplete, so let's leave it as is for now
-  type?: string | any => React$Node,
+  type?: string | (any => React$Node),
   textareaRef?: (ref: ?HTMLElement) => mixed,
   value?: mixed,
   size?: ?TextareaSizeType,
@@ -28,7 +24,7 @@ export type TextareaPropsType = {
   simple?: boolean,
   noPadding?: boolean,
   autoHeight?: boolean,
-  className?: string
+  className?: string,
 };
 
 const Textarea = (props: TextareaPropsType) => {
@@ -50,19 +46,23 @@ const Textarea = (props: TextareaPropsType) => {
   if (valid === true && invalid === true) {
     throw {
       name: 'WrongValidation',
-      message: 'Textarea can be either valid or invalid!'
+      message: 'Textarea can be either valid or invalid!',
     };
   }
 
-  const textareaClass = classnames('sg-textarea', {
-    [`sg-textarea--${String(size)}`]: size !== SIZE.NORMAL,
-    'sg-textarea--valid': valid,
-    'sg-textarea--invalid': invalid,
-    'sg-textarea--full-width': fullWidth,
-    'sg-textarea--simple': simple,
-    'sg-textarea--no-padding': noPadding,
-    'sg-textarea--auto-height': autoHeight
-  }, className);
+  const textareaClass = classnames(
+    'sg-textarea',
+    {
+      [`sg-textarea--${String(size)}`]: size !== SIZE.NORMAL,
+      'sg-textarea--valid': valid,
+      'sg-textarea--invalid': invalid,
+      'sg-textarea--full-width': fullWidth,
+      'sg-textarea--simple': simple,
+      'sg-textarea--no-padding': noPadding,
+      'sg-textarea--auto-height': autoHeight,
+    },
+    className
+  );
 
   return (
     <Type

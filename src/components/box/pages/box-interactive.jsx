@@ -9,50 +9,49 @@ import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const urlParams = location.hash === '#boxes' ? queryString.parse(location.search) : {};
+const urlParams =
+  location.hash === '#boxes' ? queryString.parse(location.search) : {};
 
 const Boxes = () => {
   const settings = [
     {
       name: 'color',
-      values: COLOR
+      values: COLOR,
     },
     {
       name: 'border',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'shadow',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'full',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noMinHeight',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'padding',
-      values: PADDING
+      values: PADDING,
     },
     {
       name: 'imgSrc',
-      values: String
+      values: String,
     },
     {
       name: 'noBorderRadius',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Box {...urlParams} >
-          This is a box.
-        </Box>
+        <Box {...urlParams}>This is a box.</Box>
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>
@@ -66,7 +65,9 @@ const Boxes = () => {
         <Box {...urlParams}>
           <ContentBox>
             <ContentBoxHeader>
-              <Headline type={HEADLINE_TYPE.H3}>Ask a question about a school subject</Headline>
+              <Headline type={HEADLINE_TYPE.H3}>
+                Ask a question about a school subject
+              </Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
               <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>

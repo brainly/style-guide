@@ -47,218 +47,217 @@ import SpinnerContainers from '../components/spinner-container/pages/spinner-con
 
 const navigation = [
   {
-    'name': 'Basics',
-    'location': 'basics',
-    'elements': [
+    name: 'Basics',
+    location: 'basics',
+    elements: [
       {
-        'name': 'Colors',
-        component: colors
+        name: 'Colors',
+        component: colors,
       },
       {
-        'name': 'Text',
-        component: text
+        name: 'Text',
+        component: text,
       },
       {
-        'name': 'Headlines',
-        'location': 'text/headlines',
-        component: headlines
+        name: 'Headlines',
+        location: 'text/headlines',
+        component: headlines,
       },
       {
-        'name': 'Text Bit',
-        component: textBit
+        name: 'Text Bit',
+        component: textBit,
       },
       {
-        'name': 'Icons',
-        component: icons
+        name: 'Icons',
+        component: icons,
       },
       {
-        'name': 'Subject Icons',
-        component: subjectIcons
+        name: 'Subject Icons',
+        component: subjectIcons,
       },
       {
-        'name': 'Subject Mono Icons',
-        component: subjectMonoIcons
+        name: 'Subject Mono Icons',
+        component: subjectMonoIcons,
       },
       {
-        'name': 'Math symbols',
-        component: MathSymbols
+        name: 'Math symbols',
+        component: MathSymbols,
       },
       {
-        'name': 'Logo',
-        component: logo
+        name: 'Logo',
+        component: logo,
       },
       {
-        'name': 'Helpers',
-        component: rwd
-      }
-    ]
+        name: 'Helpers',
+        component: rwd,
+      },
+    ],
   },
   {
-    'name': 'Components',
-    'location': 'components',
-    'elements': [
+    name: 'Components',
+    location: 'components',
+    elements: [
       {
-        'name': 'Breadcrumbs',
-        component: breadcrumbs
+        name: 'Breadcrumbs',
+        component: breadcrumbs,
       },
       {
-        'name': 'Lists',
-        component: list
+        name: 'Lists',
+        component: list,
       },
       {
-        'name': 'Badges',
-        component: badges
+        name: 'Badges',
+        component: badges,
       },
       {
-        'name': 'Stickers',
-        component: stickers
+        name: 'Stickers',
+        component: stickers,
       },
       {
-        'name': 'Avatars',
-        component: avatar
+        name: 'Avatars',
+        component: avatar,
       },
       {
-        'name': 'Labels',
-        component: labels
+        name: 'Labels',
+        component: labels,
       },
       {
-        'name': 'Rating',
-        component: rating
+        name: 'Rating',
+        component: rating,
       },
       {
-        'name': 'Buttons',
-        component: buttons
+        name: 'Buttons',
+        component: buttons,
       },
       {
-        'name': 'Icon as button',
-        component: iconAsButton
+        name: 'Icon as button',
+        component: iconAsButton,
       },
       {
-        'name': 'Checkbox',
-        component: checkbox
+        name: 'Checkbox',
+        component: checkbox,
       },
       {
-        'name': 'Radio',
-        component: radio
+        name: 'Radio',
+        component: radio,
       },
       {
-        'name': 'Text input',
-        component: textInput
+        name: 'Text input',
+        component: textInput,
       },
       {
-        'name': 'Selects',
-        component: select
+        name: 'Selects',
+        component: select,
       },
       {
-        'name': 'Textarea',
-        component: textarea
+        name: 'Textarea',
+        component: textarea,
       },
       {
-        'name': 'Dropdowns',
-        component: dropdowns
+        name: 'Dropdowns',
+        component: dropdowns,
       },
       {
-        'name': 'Search',
-        'location': 'search/search',
-        component: search
+        name: 'Search',
+        location: 'search/search',
+        component: search,
       },
       {
-        'name': 'Home Button',
-        component: homeButton
+        name: 'Home Button',
+        component: homeButton,
       },
       {
-        'name': 'Subjects',
-        component: subjects
+        name: 'Subjects',
+        component: subjects,
       },
       {
-        'name': 'Separators',
-        component: separators
+        name: 'Separators',
+        component: separators,
       },
       {
-        'name': 'Overlay',
-        component: overlay
+        name: 'Overlay',
+        component: overlay,
       },
       {
-        'name': 'Flash messages',
-        component: flashMessage
+        name: 'Flash messages',
+        component: flashMessage,
       },
       {
-        'name': 'Spinner',
-        component: spinners
-      }
-    ]
+        name: 'Spinner',
+        component: spinners,
+      },
+    ],
   },
   {
-    'name': 'Containers',
-    'location': 'containers',
-    'elements': [
+    name: 'Containers',
+    location: 'containers',
+    elements: [
       {
-        'name': 'Bubble',
-        component: bubble
+        name: 'Bubble',
+        component: bubble,
       },
       {
-        'name': 'Box',
-        'location': 'box/box',
-        component: box
+        name: 'Box',
+        location: 'box/box',
+        component: box,
       },
       {
-        'name': 'Flexbox',
-        'location': 'flex/flex',
-        component: flexbox
+        name: 'Flexbox',
+        location: 'flex/flex',
+        component: flexbox,
       },
       {
-        'name': 'Card',
-        'location': 'card/card',
-        component: card
+        name: 'Card',
+        location: 'card/card',
+        component: card,
       },
       {
-        'name': 'Overlayed Box',
-        component: overlayedBox
+        name: 'Overlayed Box',
+        component: overlayedBox,
       },
       {
-        'name': 'Popup Menu',
-        component: popupMenu
+        name: 'Popup Menu',
+        component: popupMenu,
       },
       {
-        'name': 'Header',
-        component: header
+        name: 'Header',
+        component: header,
       },
       {
-        'name': 'Footer',
-        component: footer
+        name: 'Footer',
+        component: footer,
       },
       {
-        'name': 'Action List',
-        component: actionList
+        name: 'Action List',
+        component: actionList,
       },
       {
-        'name': 'Content Box',
-        component: contentBox
+        name: 'Content Box',
+        component: contentBox,
       },
       {
-        'name': 'Toplayer',
-        component: toplayer
+        name: 'Toplayer',
+        component: toplayer,
       },
       {
-        'name': 'Layout',
-        component: layout
+        name: 'Layout',
+        component: layout,
       },
       {
-        'name': 'Media',
-        component: media
+        name: 'Media',
+        component: media,
       },
       {
-        'name': 'Spinner Container',
-        component: SpinnerContainers
-      }
-    ]
+        name: 'Spinner Container',
+        component: SpinnerContainers,
+      },
+    ],
   },
   {
-    'name': 'Interactive',
-    'location': 'interactive',
-    'elements': [
-    ]
-  }
+    name: 'Interactive',
+    location: 'interactive',
+    elements: [],
+  },
 ];
 
 export default navigation;

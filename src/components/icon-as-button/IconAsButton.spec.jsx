@@ -5,9 +5,7 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const type = TYPE.STAR;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} />);
   const icon = iconAsButton.find(Icon);
 
   expect(iconAsButton.hasClass('sg-icon-as-button')).toEqual(true);
@@ -18,9 +16,7 @@ test('render', () => {
 test('colors', () => {
   const type = TYPE.ANSWER;
   const color = ICON_COLOR.DARK;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} color={color} />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} color={color} />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--dark')).toEqual(true);
 });
@@ -29,9 +25,7 @@ test('size', () => {
   const size = SIZE.SMALL;
   const sizeOfSmallIco = 18;
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} size={size} />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} size={size} />);
   const icon = iconAsButton.find(Icon);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--small')).toEqual(true);
@@ -41,9 +35,7 @@ test('size', () => {
 test('default size', () => {
   const sizeOfNormallIco = 26;
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} />);
   const icon = iconAsButton.find(Icon);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--normal')).toEqual(true);
@@ -52,58 +44,50 @@ test('default size', () => {
 
 test('border', () => {
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} border />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} border />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--with-border')).toEqual(true);
 });
 
 test('transparent', () => {
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} transparent />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} transparent />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
 });
 
 test('transparent active', () => {
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} transparent active />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} transparent active />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
-  expect(iconAsButton.hasClass('sg-icon-as-button--transparent-active')).toEqual(true);
+  expect(
+    iconAsButton.hasClass('sg-icon-as-button--transparent-active')
+  ).toEqual(true);
 });
 
 test('action', () => {
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} action />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} action />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
 });
 
 test('action active', () => {
   const type = TYPE.ANSWER;
-  const iconAsButton = shallow(
-    <IconAsButton type={type} action active />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} action active />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
-  expect(iconAsButton.hasClass('sg-icon-as-button--action-active')).toEqual(true);
+  expect(iconAsButton.hasClass('sg-icon-as-button--action-active')).toEqual(
+    true
+  );
 });
 
 test('link as button', () => {
   const type = TYPE.ANSWER;
   const href = 'http://brainly.test';
 
-  const iconAsButton = shallow(
-    <IconAsButton type={type} href={href} />
-  );
+  const iconAsButton = shallow(<IconAsButton type={type} href={href} />);
 
   expect(iconAsButton.find('a')).toHaveLength(1);
 });

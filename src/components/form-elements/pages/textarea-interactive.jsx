@@ -3,40 +3,39 @@ import Textarea, {SIZE} from '../Textarea';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Textareas = () => {
-
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'value',
-      values: String
+      values: String,
     },
     {
       name: 'placeholder',
-      values: String
+      values: String,
     },
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'simple',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'autoHeight',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'valid',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'invalid',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
@@ -45,7 +44,12 @@ const Textareas = () => {
         <Textarea placeholder="Simple textarea" />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Textarea placeholder="placeholder" value="Tall and valid textarea" size={SIZE.XTALL} valid />
+        <Textarea
+          placeholder="placeholder"
+          value="Tall and valid textarea"
+          size={SIZE.XTALL}
+          valid
+        />
       </DocsActiveBlock>
     </div>
   );

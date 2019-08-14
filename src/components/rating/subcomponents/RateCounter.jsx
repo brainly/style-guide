@@ -1,10 +1,11 @@
 // @flow strict
+
 import React from 'react';
 import RateCounterItem from './RateCounterItem';
 
 type PropsType = {
   counterText?: string,
-  activeText?: string
+  activeText?: string,
 };
 
 const RateCounter = ({activeText, counterText}: PropsType) => (

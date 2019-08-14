@@ -26,33 +26,27 @@ describe('ActionList', () => {
   });
 
   test('to-right', () => {
-    const actionList = shallow(
-      <ActionList direction={DIRECTION.TO_RIGHT} />
-    );
+    const actionList = shallow(<ActionList direction={DIRECTION.TO_RIGHT} />);
 
     expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
   });
 
   test('to-top', () => {
-    const actionList = shallow(
-      <ActionList toTop />
-    );
+    const actionList = shallow(<ActionList toTop />);
 
     expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
   });
 
   test('baseline', () => {
-    const actionList = shallow(
-      <ActionList align={ALIGNMENT.BASELINE} />
-    );
+    const actionList = shallow(<ActionList align={ALIGNMENT.BASELINE} />);
 
-    expect(actionList.hasClass('sg-actions-list--align-baseline')).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--align-baseline')).toEqual(
+      true
+    );
   });
 
   test('centered', () => {
-    const actionList = shallow(
-      <ActionList direction={DIRECTION.CENTERED} />
-    );
+    const actionList = shallow(<ActionList direction={DIRECTION.CENTERED} />);
 
     expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
   });
@@ -82,9 +76,7 @@ describe('ActionList', () => {
   });
 
   test('no-wrap', () => {
-    const actionList = shallow(
-      <ActionList noWrap />
-    );
+    const actionList = shallow(<ActionList noWrap />);
 
     expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
   });

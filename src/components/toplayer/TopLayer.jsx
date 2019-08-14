@@ -1,23 +1,21 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classnames from 'classnames';
 import Icon from '../icons/Icon';
 
-export type TopLayerSizeType =
-  | 'small'
-  | 'medium'
-  | 'large';
+export type TopLayerSizeType = 'small' | 'medium' | 'large';
 
 export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
-  LARGE: 'large'
+  LARGE: 'large',
 };
 
 export type PropsType = {
   children: Node,
-  onClose?: SyntheticMouseEvent<HTMLDivElement> => mixed,
+  onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
   lead?: boolean,
   fill?: boolean,
   modal?: boolean,
@@ -29,7 +27,7 @@ export type PropsType = {
   size?: TopLayerSizeType,
   transparent?: boolean,
   noPadding?: boolean,
-  className?: string
+  className?: string,
 };
 
 const TopLayer = (props: PropsType) => {
@@ -51,33 +49,35 @@ const TopLayer = (props: PropsType) => {
     ...additionalProps
   } = props;
 
-  const topLayerClassName = classnames('sg-toplayer', {
-    'sg-toplayer--lead': lead,
-    'sg-toplayer--fill': fill,
-    'sg-toplayer--modal': modal,
-    'sg-toplayer--with-bugbox': withBugbox,
-    'sg-toplayer--small-spaced': smallSpaced,
-    'sg-toplayer--splash-screen': splashScreen,
-    'sg-toplayer--limited-width': limitedWidth,
-    'sg-toplayer--row': row,
-    'sg-toplayer--transparent': transparent,
-    [`sg-toplayer--${String(size)}`]: size
-  }, className);
+  const topLayerClassName = classnames(
+    'sg-toplayer',
+    {
+      'sg-toplayer--lead': lead,
+      'sg-toplayer--fill': fill,
+      'sg-toplayer--modal': modal,
+      'sg-toplayer--with-bugbox': withBugbox,
+      'sg-toplayer--small-spaced': smallSpaced,
+      'sg-toplayer--splash-screen': splashScreen,
+      'sg-toplayer--limited-width': limitedWidth,
+      'sg-toplayer--row': row,
+      'sg-toplayer--transparent': transparent,
+      [`sg-toplayer--${String(size)}`]: size,
+    },
+    className
+  );
 
   const toplayerWrapperClassName = classnames('sg-toplayer__wrapper', {
-    'sg-toplayer__wrapper--no-padding': noPadding
+    'sg-toplayer__wrapper--no-padding': noPadding,
   });
 
   return (
     <div {...additionalProps} className={topLayerClassName}>
-      {onClose ?
+      {onClose ? (
         <div className="sg-toplayer__close" onClick={onClose}>
           <Icon type="std-close" color="gray-secondary" size={24} />
-        </div> : null
-      }
-      <div className={toplayerWrapperClassName}>
-        {children}
-      </div>
+        </div>
+      ) : null}
+      <div className={toplayerWrapperClassName}>{children}</div>
     </div>
   );
 };

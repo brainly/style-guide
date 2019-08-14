@@ -6,16 +6,15 @@ import Text, {TEXT_COLOR} from 'text/Text';
 const elements = ['Comments (9)', 'Report', 'Follow'];
 
 const Breadcrumbs = () => {
-
   const settings = [
     {
       name: 'short',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'adaptive',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

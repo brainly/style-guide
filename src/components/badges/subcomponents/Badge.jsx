@@ -1,12 +1,10 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
 
-export type BadgeSizeType =
-  | 'normal'
-  | 'small'
-  | 'large';
+export type BadgeSizeType = 'normal' | 'small' | 'large';
 
 export type BadgeColorType =
   | 'light'
@@ -25,7 +23,7 @@ export type BadgeColorType =
 export const BADGE_SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
-  LARGE: 'large'
+  LARGE: 'large',
 };
 
 export const BADGE_COLOR = {
@@ -40,7 +38,7 @@ export const BADGE_COLOR = {
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
   PEACH_SECONDARY_LIGHT: 'peach-secondary-light',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
-  LAVENDER: 'lavender'
+  LAVENDER: 'lavender',
 };
 
 type PropsType = {
@@ -49,7 +47,7 @@ type PropsType = {
   color?: BadgeColorType,
   size?: BadgeSizeType,
   rounded?: boolean,
-  withAnimation?: boolean
+  withAnimation?: boolean,
 };
 
 const Badge = ({
@@ -61,12 +59,16 @@ const Badge = ({
   className,
   ...props
 }: PropsType) => {
-  const badgeClass = classNames('sg-badge', {
-    [`sg-badge--${color}`]: color !== BADGE_COLOR.NORMAL,
-    [`sg-badge--${size}`]: size !== BADGE_SIZE.NORMAL,
-    'sg-badge--rounded': rounded,
-    'sg-badge--with-animation': withAnimation
-  }, className);
+  const badgeClass = classNames(
+    'sg-badge',
+    {
+      [`sg-badge--${color}`]: color !== BADGE_COLOR.NORMAL,
+      [`sg-badge--${size}`]: size !== BADGE_SIZE.NORMAL,
+      'sg-badge--rounded': rounded,
+      'sg-badge--with-animation': withAnimation,
+    },
+    className
+  );
 
   return (
     <div {...props} className={badgeClass}>

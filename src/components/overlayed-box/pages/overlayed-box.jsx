@@ -12,13 +12,21 @@ const overlayedBoxs = () => (
     <DocsBlock info="Icon as button with overlay-box">
       <IconAsButton
         type={TYPE.MESSAGES}
-        overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>}
+        overlay={
+          <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+            1
+          </TextBadge>
+        }
       />
       <ContrastBox>
         <IconAsButton
           color={ICON_COLOR.LIGHT}
           type={TYPE.PROFILE}
-          overlay={<TextBadge color={TEXT_BADGE_COLOR.MUSTARD} rounded>!</TextBadge>}
+          overlay={
+            <TextBadge color={TEXT_BADGE_COLOR.MUSTARD} rounded>
+              !
+            </TextBadge>
+          }
         />
       </ContrastBox>
     </DocsBlock>
@@ -45,7 +53,13 @@ const overlayedBoxs = () => (
         <OverlayedBox overlay={<TextBadge rounded>1</TextBadge>}>
           <Avatar />
         </OverlayedBox>
-        <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>456</TextBadge>}>
+        <OverlayedBox
+          overlay={
+            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+              456
+            </TextBadge>
+          }
+        >
           <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
         </OverlayedBox>
       </ContrastBox>

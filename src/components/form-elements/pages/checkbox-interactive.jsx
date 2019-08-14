@@ -6,8 +6,8 @@ const Checkboxes = () => {
   const settings = [
     {
       name: 'checked',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

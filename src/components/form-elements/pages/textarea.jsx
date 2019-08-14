@@ -36,7 +36,7 @@ const textareas = () => (
       info="Tall, XTall"
       multiContent={[
         <Textarea key={1} placeholder="placeholder" size={SIZE.TALL} />,
-        <Textarea key={2} placeholder="placeholder" size={SIZE.XTALL} />
+        <Textarea key={2} placeholder="placeholder" size={SIZE.XTALL} />,
       ]}
     />
 

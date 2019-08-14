@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import classNames from 'classnames';
 import * as IconModule from '../icons/Icon';
@@ -39,42 +40,49 @@ export const MATH_SYMBOL_TYPE = {
   LIMIT: 'limit',
   MATRIX: 'matrix',
   INTEGRAL: 'integral',
-  EQUATION_SYSTEM: 'equation-system'
+  EQUATION_SYSTEM: 'equation-system',
 };
 
 const WIDE = [
   MATH_SYMBOL_TYPE.LIMIT,
   MATH_SYMBOL_TYPE.MATRIX,
   MATH_SYMBOL_TYPE.INTEGRAL,
-  MATH_SYMBOL_TYPE.EQUATION_SYSTEM
+  MATH_SYMBOL_TYPE.EQUATION_SYSTEM,
 ];
 
-export type MathSymbolSizeType =
-  | 'small'
-  | 'medium'
-  | 'normal';
+export type MathSymbolSizeType = 'small' | 'medium' | 'normal';
 
 export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
-  NORMAL: 'normal'
+  NORMAL: 'normal',
 };
 
 type PropsType = {
   type: MathSymbolTypeType,
   size?: MathSymbolSizeType,
   color?: IconModule.IconColorType,
-  className?: string
+  className?: string,
 };
 
-const MathSymbol = ({type, size = SIZE.NORMAL, color, className, ...props}: PropsType) => {
+const MathSymbol = ({
+  type,
+  size = SIZE.NORMAL,
+  color,
+  className,
+  ...props
+}: PropsType) => {
   const isWide = WIDE.indexOf(type) !== -1;
-  const iconClass = classNames('sg-math-symbol-icon', {
-    [`sg-math-symbol-icon--${size}`]: !isWide && size !== SIZE.NORMAL,
-    [`sg-math-symbol-icon--wide-${size}`]: isWide && size !== SIZE.NORMAL,
-    'sg-math-symbol-icon--wide': isWide && size === SIZE.NORMAL,
-    [`sg-math-symbol-icon--${String(color)}`]: color
-  }, className);
+  const iconClass = classNames(
+    'sg-math-symbol-icon',
+    {
+      [`sg-math-symbol-icon--${size}`]: !isWide && size !== SIZE.NORMAL,
+      [`sg-math-symbol-icon--wide-${size}`]: isWide && size !== SIZE.NORMAL,
+      'sg-math-symbol-icon--wide': isWide && size === SIZE.NORMAL,
+      [`sg-math-symbol-icon--${String(color)}`]: color,
+    },
+    className
+  );
   const iconType = `#sg-math-symbol-icon-${type}`;
 
   return (

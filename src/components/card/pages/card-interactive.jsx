@@ -10,32 +10,32 @@ const Cards = () => {
   const settings = [
     {
       name: 'padding',
-      values: CARD_PADDING
+      values: CARD_PADDING,
     },
     {
       name: 'vertical',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'centered',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'full',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noBorder',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'transparent',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'shadow',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
@@ -44,8 +44,10 @@ const Cards = () => {
         <Card padding={CARD_PADDING.SMALL}>
           <CardHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.DARK}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus turpis quis dolor suscipit,
-              a mattis nunc posuere. Duis lacinia mauris quis tempus varius. Donec consectetur bibendum pretium.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              rhoncus turpis quis dolor suscipit, a mattis nunc posuere. Duis
+              lacinia mauris quis tempus varius. Donec consectetur bibendum
+              pretium.
             </Text>
           </CardHole>
           <CardHole color={CARD_HOLE_COLOR.GRAY}>

@@ -3,9 +3,7 @@ import Overlay from './Overlay';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const overlay = shallow(
-    <Overlay />
-  );
+  const overlay = shallow(<Overlay />);
 
   expect(overlay.hasClass('sg-overlay')).toEqual(true);
 });
@@ -21,9 +19,7 @@ test('children', () => {
 });
 
 test('partial', () => {
-  const overlay = shallow(
-    <Overlay partial />
-  );
+  const overlay = shallow(<Overlay partial />);
 
   expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
 });

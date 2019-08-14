@@ -36,14 +36,19 @@ test('component with object param', () => {
 });
 
 test('component with multiple params', () => {
-  const input = <Avatar size={SIZE.LARGE} border imgSrc="http://image.com/image.jpg" />;
+  const input = (
+    <Avatar size={SIZE.LARGE} border imgSrc="http://image.com/image.jpg" />
+  );
   const output = `<Avatar size=${sizeLargeString} border imgSrc="http://image.com/image.jpg" />`;
 
   expect(generateJSX(input)).toEqual(output);
 });
 
 test('component with array of components param', () => {
-  const items = [<Avatar key={1} />, <Avatar key={2} imgSrc="http://image.com/image.jpg" />];
+  const items = [
+    <Avatar key={1} />,
+    <Avatar key={2} imgSrc="http://image.com/image.jpg" />,
+  ];
   const input = <PopupMenu items={items} />;
   const output =
     '<PopupMenu items={[<Avatar />, <Avatar imgSrc="http://image.com/image.jpg" />]} />';
@@ -71,8 +76,7 @@ test('component with children', () => {
 
 test('not a valid React element', () => {
   const input = <h1>Test</h1>;
-  const output =
-    '<h1>Test</h1>';
+  const output = '<h1>Test</h1>';
 
   expect(generateJSX(input)).toEqual(output);
 });

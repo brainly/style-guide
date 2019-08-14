@@ -1,6 +1,13 @@
 import React from 'react';
 import Text from '../Text';
-import {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE, TEXT_TRANSFORM, TEXT_ALIGN} from 'text/textConsts';
+import {
+  TEXT_COLOR,
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_TYPE,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from 'text/textConsts';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -8,40 +15,40 @@ const Texts = () => {
   const settings = [
     {
       name: 'type',
-      values: TEXT_TYPE
+      values: TEXT_TYPE,
     },
     {
       name: 'size',
-      values: TEXT_SIZE
+      values: TEXT_SIZE,
     },
     {
       name: 'color',
-      values: TEXT_COLOR
+      values: TEXT_COLOR,
     },
     {
       name: 'weight',
-      values: TEXT_WEIGHT
+      values: TEXT_WEIGHT,
     },
     {
       name: 'transform',
-      values: TEXT_TRANSFORM
+      values: TEXT_TRANSFORM,
     },
     {
       name: 'align',
-      values: TEXT_ALIGN
+      values: TEXT_ALIGN,
     },
     {
       name: 'noWrap',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'full',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'breakWords',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

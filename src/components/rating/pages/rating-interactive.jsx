@@ -6,36 +6,36 @@ const Ratings = () => {
   const settings = [
     {
       name: 'active',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'size',
-      values: RATING_SIZE
+      values: RATING_SIZE,
     },
     {
       name: 'altLabels',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'rate',
-      values: Number
+      values: Number,
     },
     {
       name: 'metricSize',
-      values: Number
+      values: Number,
     },
     {
       name: 'counterText',
-      values: String
+      values: String,
     },
     {
       name: 'activeText',
-      values: String
+      values: String,
     },
     {
       name: 'noLabel',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

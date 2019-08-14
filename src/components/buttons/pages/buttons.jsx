@@ -7,7 +7,9 @@ import Icon, {TYPE as iconTypes} from 'icons/Icon';
 import Text from '../../text/Text';
 
 function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+  return addUndefined
+    ? [undefined, ...Object.values(object)]
+    : Object.values(object);
 }
 
 const getIconColor = type => {
@@ -40,23 +42,19 @@ const Buttons = () => {
         <Flex
           fullWidth
           style={{
-            backgroundColor: type === 'link-button-inverted' ? hex.graySecondary : null,
-            paddingTop: type === 'link-button-inverted' ? '10px' : null
+            backgroundColor:
+              type === 'link-button-inverted' ? hex.graySecondary : null,
+            paddingTop: type === 'link-button-inverted' ? '10px' : null,
           }}
         >
           <DocsBlock evenColumns justified>
             <Text>{type}</Text>
           </DocsBlock>
           <DocsBlock evenColumns justified>
-            <Button type={type}>
-              {buttonsText}
-            </Button>
+            <Button type={type}>{buttonsText}</Button>
           </DocsBlock>
           <DocsBlock evenColumns justified>
-            <Button
-              type={type}
-              className={`docs-button-hovered--${type}`}
-            >
+            <Button type={type} className={`docs-button-hovered--${type}`}>
               {buttonsText}
             </Button>
           </DocsBlock>
@@ -69,18 +67,14 @@ const Buttons = () => {
             <Button
               type={type}
               icon={
-                <Icon
-                  type={iconTypes.ANSWER}
-                  color={iconColor}
-                  size={24}
-                />}
+                <Icon type={iconTypes.ANSWER} color={iconColor} size={24} />
+              }
             >
               {buttonsText}
             </Button>
           </DocsBlock>
         </Flex>
       </DocsBlock>
-
     );
   });
 
@@ -130,7 +124,6 @@ const Buttons = () => {
       </DocsBlock>
     </DocsBlock>
   );
-
 };
 
 export default Buttons;

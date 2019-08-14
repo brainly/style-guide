@@ -7,7 +7,7 @@ import cx from 'classnames';
 const BUTTON_SIZE = Object.freeze({
   LARGE: 'large',
   MEDIUM: 'medium',
-  SMALL: 'small'
+  SMALL: 'small',
 });
 
 const BUTTON_TYPE = Object.freeze({
@@ -22,7 +22,7 @@ const BUTTON_TYPE = Object.freeze({
   LINK_BUTTON_MUSTRAD: 'link-button-mustard',
   DETRUCTIVE: 'destructive',
   WARNING: 'warning',
-  FACEBOOK: 'facebook'
+  FACEBOOK: 'facebook',
 });
 
 export {BUTTON_SIZE, BUTTON_TYPE};
@@ -41,10 +41,7 @@ type ButtonTypeType =
   | 'warning'
   | 'facebook';
 
-type ButtonSizeType =
-  | 'large'
-  | 'medium'
-  | 'small';
+type ButtonSizeType = 'large' | 'medium' | 'small';
 
 export type ButtonPropsType = {
   /**
@@ -120,7 +117,7 @@ export type ButtonPropsType = {
   /**
    * Additional class names
    */
-  className?: string
+  className?: string,
 };
 
 const Button = ({
@@ -135,18 +132,20 @@ const Button = ({
   ...props
 }: ButtonPropsType) => {
   const btnClass = cx(
-    'sg-button', {
+    'sg-button',
+    {
       [`sg-button--${String(size)}`]: size,
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
-      'sg-button--full-width': fullWidth
+      'sg-button--full-width': fullWidth,
     },
     className
   );
 
   const iconClass = cx(
-    'sg-button__icon', {
-      [`sg-button__icon--${size || ''}`]: size
+    'sg-button__icon',
+    {
+      [`sg-button__icon--${size || ''}`]: size,
     },
     className
   );

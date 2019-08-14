@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classnames from 'classnames';
@@ -10,12 +11,16 @@ type ButtonRoundType = {
   disabled?: ?boolean,
   small?: ?boolean,
   href?: string,
-  label?: ?string
+  label?: ?string,
 };
 
-const ButtonRound = (
-  {label, children, href = '#', className, ...props}: ButtonRoundType
-) => {
+const ButtonRound = ({
+  label,
+  children,
+  href = '#',
+  className,
+  ...props
+}: ButtonRoundType) => {
   let labelElem;
 
   if (label !== undefined && label !== null && label !== '') {
@@ -25,9 +30,7 @@ const ButtonRound = (
 
   return (
     <a {...props} href={href} className={buttonClass}>
-      <div className="sg-button-primary-round__icon">
-        {children}
-      </div>
+      <div className="sg-button-primary-round__icon">{children}</div>
       {labelElem}
     </a>
   );

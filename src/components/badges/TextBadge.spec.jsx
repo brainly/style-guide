@@ -7,9 +7,7 @@ import {shallow, mount} from 'enzyme';
 
 describe('<TextBadge />', () => {
   it('render itself without error', () => {
-    const component = shallow(
-      <TextBadge>Test</TextBadge>
-    );
+    const component = shallow(<TextBadge>Test</TextBadge>);
 
     const badge = component.find(Badge);
 
@@ -17,9 +15,7 @@ describe('<TextBadge />', () => {
   });
 
   it('sets <Text /> component size - default', () => {
-    const badge = mount(
-      <TextBadge>Test</TextBadge>
-    );
+    const badge = mount(<TextBadge>Test</TextBadge>);
     const text = badge.find(Text);
 
     expect(text.props().size).toEqual(TEXT_SIZE.XSMALL);
@@ -30,7 +26,12 @@ describe('<TextBadge />', () => {
       <TextBadge size={TEXT_BADGE_SIZE.SMALL}>Test</TextBadge>
     );
 
-    expect(badge.find(Badge).children().props().size).toEqual(TEXT_SIZE.XSMALL);
+    expect(
+      badge
+        .find(Badge)
+        .children()
+        .props().size
+    ).toEqual(TEXT_SIZE.XSMALL);
   });
 
   it('sets <Text /> component size - large', () => {
@@ -38,7 +39,12 @@ describe('<TextBadge />', () => {
       <TextBadge size={TEXT_BADGE_SIZE.LARGE}>Test</TextBadge>
     );
 
-    expect(badge.find(Badge).children().props().size).toEqual(TEXT_SIZE.NORMAL);
+    expect(
+      badge
+        .find(Badge)
+        .children()
+        .props().size
+    ).toEqual(TEXT_SIZE.NORMAL);
   });
 
   it('maps <Text /> and <Badge /> colors', () => {
@@ -51,18 +57,14 @@ describe('<TextBadge />', () => {
   });
 
   it('animates when withAnimation is passed <Badge />', () => {
-    const component = shallow(
-      <TextBadge withAnimation>Test</TextBadge>
-    );
+    const component = shallow(<TextBadge withAnimation>Test</TextBadge>);
     const badge = component.find(Badge);
 
     expect(badge.props().withAnimation).toEqual(true);
   });
 
   it('is is styled differently when rounded is passed <Badge />', () => {
-    const component = shallow(
-      <TextBadge rounded>Test</TextBadge>
-    );
+    const component = shallow(<TextBadge rounded>Test</TextBadge>);
     const badge = component.find(Badge);
 
     expect(badge.props().rounded).toEqual(true);

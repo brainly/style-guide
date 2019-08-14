@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -18,7 +19,7 @@ export const BUTTON_PRIMARY_TYPE = {
   INVERSE: 'inverse',
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
-  FB: 'fb'
+  FB: 'fb',
 };
 
 type ButtonPrimaryPropsType = {
@@ -28,15 +29,27 @@ type ButtonPrimaryPropsType = {
   wide?: ?boolean,
   disabled?: ?boolean,
   href?: ?string,
-  buttonType?: ?ButtonPrimaryTypeType
+  buttonType?: ?ButtonPrimaryTypeType,
 };
 
-const ButtonPrimary = ({disabled, icon, buttonType, children, wide, className, ...props}: ButtonPrimaryPropsType) => {
-  const btnClass = classNames('sg-button-primary', {
-    'sg-button-primary--disabled': disabled,
-    'sg-button-primary--full-width': wide,
-    [`sg-button-primary--${String(buttonType)}`]: buttonType
-  }, className);
+const ButtonPrimary = ({
+  disabled,
+  icon,
+  buttonType,
+  children,
+  wide,
+  className,
+  ...props
+}: ButtonPrimaryPropsType) => {
+  const btnClass = classNames(
+    'sg-button-primary',
+    {
+      'sg-button-primary--disabled': disabled,
+      'sg-button-primary--full-width': wide,
+      [`sg-button-primary--${String(buttonType)}`]: buttonType,
+    },
+    className
+  );
 
   let ico;
 

@@ -13,7 +13,6 @@ test('render', () => {
   const dropDown = shallow(<Dropdown {...defaultProps} />);
 
   expect(dropDown.hasClass('sg-dropdown')).toEqual(true);
-
 });
 
 test('default full width', () => {
@@ -26,4 +25,3 @@ test('no full width', () => {
 
   expect(dropDown.hasClass('sg-dropdown--full-width')).toEqual(false);
 });
-

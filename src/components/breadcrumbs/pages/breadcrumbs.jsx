@@ -20,7 +20,6 @@ const breadcrumbs = () => (
         <Breadcrumb elements={elements} adaptive />
       </Text>
     </DocsBlock>
-
   </div>
 );
 

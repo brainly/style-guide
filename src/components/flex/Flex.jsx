@@ -7,14 +7,10 @@ import {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS
+  FLEX_MARGINS,
 } from './FlexConsts';
 
-type FlexDirectionType =
-  | 'column'
-  | 'column-reverse'
-  | 'row'
-  | 'row-reverse';
+type FlexDirectionType = 'column' | 'column-reverse' | 'row' | 'row-reverse';
 
 type FlexJustifyValuesType =
   | 'center'
@@ -48,7 +44,7 @@ export {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS
+  FLEX_MARGINS,
 };
 
 export type FlexPropsType = {
@@ -65,24 +61,24 @@ export type FlexPropsType = {
    */
   className?: string,
   /**
-    * component will be rendered on 100% width of a parent
-    * @example <Flex fullWidth>
-    *            component content
-    *          </Flex>
+   * component will be rendered on 100% width of a parent
+   * @example <Flex fullWidth>
+   *            component content
+   *          </Flex>
    */
   fullWidth?: boolean,
   /**
-    * component will be rendered on 100% height of a parent
-    * @example <Flex fullHeight>
-    *            component content
-    *          </Flex>
+   * component will be rendered on 100% height of a parent
+   * @example <Flex fullHeight>
+   *            component content
+   *          </Flex>
    */
   fullHeight?: boolean,
   /**
-    * It will set flex-shirnk to 0
-    * @example <Flex noShrink>
-    *            component content
-    *          </Flex>
+   * It will set flex-shirnk to 0
+   * @example <Flex noShrink>
+   *            component content
+   *          </Flex>
    */
   noShrink?: boolean,
   /**
@@ -97,7 +93,7 @@ export type FlexPropsType = {
    */
   direction?: FlexDirectionType,
   /**
-   * Specify flex justify content 
+   * Specify flex justify content
    * @example <Flex justifyContent="space-between">
    *            component content
    *          </Flex>
@@ -112,7 +108,7 @@ export type FlexPropsType = {
    */
   justifyContent?: FlexJustifyValuesType,
   /**
-   * Specify flex align content 
+   * Specify flex align content
    * @example <Flex alignContent="center">
    *            component content
    *          </Flex>
@@ -124,7 +120,7 @@ export type FlexPropsType = {
    */
   alignContent?: FlexAlignmentValuesType,
   /**
-   * Specify flex align items 
+   * Specify flex align items
    * @example <Flex alignItems="center">
    *            component content
    *          </Flex>
@@ -148,24 +144,24 @@ export type FlexPropsType = {
    */
   alignSelf?: FlexAlignmentValuesType,
   /**
-    * It will set flex display to inline-flex
-    * @example <Flex inlineFlex>
-    *            component content
-    *          </Flex>
+   * It will set flex display to inline-flex
+   * @example <Flex inlineFlex>
+   *            component content
+   *          </Flex>
    */
   inlineFlex?: boolean,
   /**
-    * It will wrap component
-    * @example <Flex wrap>
-    *            component content
-    *          </Flex>
+   * It will wrap component
+   * @example <Flex wrap>
+   *            component content
+   *          </Flex>
    */
   wrap?: boolean,
   /**
-    * It will wrap reverse component
-    * @example <Flex wrapReverse>
-    *            component content
-    *          </Flex>
+   * It will wrap reverse component
+   * @example <Flex wrapReverse>
+   *            component content
+   *          </Flex>
    */
   wrapReverse?: boolean,
   /**
@@ -202,7 +198,8 @@ export type FlexPropsType = {
    *            component content
    *          </Flex>
    */
-  marginLeft?: FlexMarginsType
+  marginLeft?: FlexMarginsType,
+  ...
 };
 
 const Flex = (props: FlexPropsType) => {
@@ -229,7 +226,8 @@ const Flex = (props: FlexPropsType) => {
   } = props;
 
   const flexClass = classNames(
-    'sg-flex', {
+    'sg-flex',
+    {
       'sg-flex--full-width': fullWidth,
       'sg-flex--full-height': fullHeight,
       'sg-flex--no-shrink': noShrink,
@@ -248,8 +246,10 @@ const Flex = (props: FlexPropsType) => {
       [`sg-flex--margin-top-${marginTop || ''}`]: marginTop,
       [`sg-flex--margin-right-${marginRight || ''}`]: marginRight,
       [`sg-flex--margin-bottom-${marginBottom || ''}`]: marginBottom,
-      [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft
-    }, className);
+      [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft,
+    },
+    className
+  );
 
   return (
     <div className={flexClass} {...otherProps}>

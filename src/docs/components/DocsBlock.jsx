@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import type {Node} from 'react';
 import cx from 'classnames';
@@ -15,7 +16,7 @@ type PropsType = {
   toBottom?: boolean,
   centered?: boolean,
   spacedBetween?: boolean,
-  justified?: boolean
+  justified?: boolean,
 };
 
 const DocsBlock = ({
@@ -28,12 +29,12 @@ const DocsBlock = ({
   toBottom,
   centered,
   spacedBetween,
-  justified
+  justified,
 }: PropsType) => (
   <section
     className={cx('docs-block', {
       'docs-block--even-columns': evenColumns,
-      'docs-block--full-width': fullWidth
+      'docs-block--full-width': fullWidth,
     })}
   >
     <InfoBlock info={info} additionalInfo={additionalInfo} />

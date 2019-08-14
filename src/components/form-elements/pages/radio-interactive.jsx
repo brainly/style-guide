@@ -6,12 +6,12 @@ const Radios = () => {
   const settings = [
     {
       name: 'checked',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'size',
-      values: RADIO_SIZE
-    }
+      values: RADIO_SIZE,
+    },
   ];
 
   return (

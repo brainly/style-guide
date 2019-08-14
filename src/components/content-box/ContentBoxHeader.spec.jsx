@@ -5,9 +5,7 @@ import {shallow} from 'enzyme';
 
 describe('<ContentBoxHeader />', () => {
   it('renders', () => {
-    const testBox = shallow(
-      <ContentBoxHeader>test</ContentBoxHeader>
-    );
+    const testBox = shallow(<ContentBoxHeader>test</ContentBoxHeader>);
 
     expect(testBox.hasClass('sg-content-box__header')).toEqual(true);
   });
@@ -17,19 +15,21 @@ describe('<ContentBoxHeader />', () => {
       <ContentBoxHeader align={ALIGNMENT.CENTER}>test</ContentBoxHeader>
     );
 
-    expect(testBox.hasClass('sg-content-box__header--with-centered-elements')).toEqual(true);
+    expect(
+      testBox.hasClass('sg-content-box__header--with-centered-elements')
+    ).toEqual(true);
   });
 
   it('has spaced class', () => {
-    const testBox = shallow(
-      <ContentBoxHeader spaced>test</ContentBoxHeader>
-    );
+    const testBox = shallow(<ContentBoxHeader spaced>test</ContentBoxHeader>);
     const testBox2 = shallow(
       <ContentBoxHeader spacedSmall>test</ContentBoxHeader>
     );
 
     expect(testBox.hasClass('sg-content-box__header--spaced')).toEqual(true);
-    expect(testBox2.hasClass('sg-content-box__header--spaced-small')).toEqual(true);
+    expect(testBox2.hasClass('sg-content-box__header--spaced-small')).toEqual(
+      true
+    );
   });
 
   it('has spacedTop proper class', () => {
@@ -38,7 +38,9 @@ describe('<ContentBoxHeader />', () => {
     );
 
     expect(testBox.hasClass('sg-content-box__header--spaced-top')).toBeTruthy();
-    expect(testBox.hasClass('sg-content-box__header--spaced-top-normal')).toBeFalsy();
+    expect(
+      testBox.hasClass('sg-content-box__header--spaced-top-normal')
+    ).toBeFalsy();
   });
 
   it('has spacedTop class with proper size', () => {
@@ -46,7 +48,9 @@ describe('<ContentBoxHeader />', () => {
       <ContentBoxHeader spacedTop={SIZE.XSMALL}>test</ContentBoxHeader>
     );
 
-    expect(testBox.hasClass('sg-content-box__header--spaced-top-xsmall')).toEqual(true);
+    expect(
+      testBox.hasClass('sg-content-box__header--spaced-top-xsmall')
+    ).toEqual(true);
   });
 
   it('has spacedBottom proper class', () => {
@@ -54,8 +58,12 @@ describe('<ContentBoxHeader />', () => {
       <ContentBoxHeader spacedBottom={SIZE.NORMAL}>test</ContentBoxHeader>
     );
 
-    expect(testBox.hasClass('sg-content-box__header--spaced-bottom')).toBeTruthy();
-    expect(testBox.hasClass('sg-content-box__header--spaced-bottom-normal')).toBeFalsy();
+    expect(
+      testBox.hasClass('sg-content-box__header--spaced-bottom')
+    ).toBeTruthy();
+    expect(
+      testBox.hasClass('sg-content-box__header--spaced-bottom-normal')
+    ).toBeFalsy();
   });
 
   it('has spacedBottom class with proper size', () => {
@@ -63,6 +71,8 @@ describe('<ContentBoxHeader />', () => {
       <ContentBoxHeader spacedBottom={SIZE.XSMALL}>test</ContentBoxHeader>
     );
 
-    expect(testBox.hasClass('sg-content-box__header--spaced-bottom-xsmall')).toEqual(true);
+    expect(
+      testBox.hasClass('sg-content-box__header--spaced-bottom-xsmall')
+    ).toEqual(true);
   });
 });

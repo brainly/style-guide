@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import Text from 'text/Text';
 import ComponentSettingsInput from './ComponentSettingsInput';
@@ -12,10 +13,10 @@ type PropsType = {
   settings: Array<{
     name: string,
     values: any,
-    required?: boolean
+    required?: boolean,
   }>,
   values: {[string]: number | string | boolean},
-  onChange: (string, number | string | boolean) => mixed
+  onChange: (string, number | string | boolean) => mixed,
 };
 
 const ComponentSettings = ({settings, values, onChange}: PropsType) => {
@@ -50,10 +51,18 @@ const ComponentSettings = ({settings, values, onChange}: PropsType) => {
       );
     }
 
-    return <label key={propName}><Text>{propName}:</Text> {input} </label>;
+    return (
+      <label key={propName}>
+        <Text>{propName}:</Text> {input}{' '}
+      </label>
+    );
   });
 
-  return <fieldset className="docs-active-block__component-settings">{content}</fieldset>;
+  return (
+    <fieldset className="docs-active-block__component-settings">
+      {content}
+    </fieldset>
+  );
 };
 
 export default ComponentSettings;

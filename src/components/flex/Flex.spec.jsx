@@ -5,7 +5,7 @@ import Flex, {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS
+  FLEX_MARGINS,
 } from './Flex';
 
 describe('<Flex>', () => {

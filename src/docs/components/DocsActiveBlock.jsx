@@ -1,4 +1,5 @@
 // @flow
+
 import React, {Component} from 'react';
 import type {Element} from 'react';
 import generateJSX from './JSXGenerator';
@@ -12,7 +13,7 @@ import classnames from 'classnames';
 const BACKGROUND_COLOR = {
   LIGHT: 'light',
   DARK: 'dark',
-  NONE: 'none'
+  NONE: 'none',
 };
 
 type BackgroundColorType = 'light' | 'dark' | 'none';
@@ -22,24 +23,23 @@ type PropsType = {
   settings: Array<{
     name: string,
     values: any,
-    required?: boolean
+    required?: boolean,
   }>,
   centeredItems?: boolean,
   contentBefore?: Element<*>,
   contentAfter?: Element<*>,
   wrapper: Element<*>,
-  backgroundColor: BackgroundColorType
+  backgroundColor: BackgroundColorType,
 };
 
 type StateType = {
   props: {[string]: number | string | boolean},
   renderNormally: boolean,
   changeBackground: BackgroundColorType,
-  showCode: ?string
+  showCode: ?string,
 };
 
 class DocsActiveBlock extends Component<PropsType, StateType> {
-
   constructor(props: PropsType) {
     super(props);
 
@@ -48,18 +48,21 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     if (this.props.children) {
       componentProps = this.props.children.props;
       componentProps = Object.keys(componentProps)
-        .filter(key => componentProps.hasOwnProperty(key) && key !== 'children')
-        .reduce((result, key) => {
-          result[key] = componentProps[key];
-          return result;
-        }, {key: 'component'});
+        .filter(key => componentProps.hasOwnProperty(key) && key !== 'children') //eslint-disable-line no-prototype-builtins
+        .reduce(
+          (result, key) => {
+            result[key] = componentProps[key];
+            return result;
+          },
+          {key: 'component'}
+        );
     }
 
     this.state = {
       showCode: null,
       changeBackground: this.props.backgroundColor || BACKGROUND_COLOR.LIGHT,
       props: componentProps,
-      renderNormally: true
+      renderNormally: true,
     };
   }
 
@@ -67,7 +70,9 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     const settings = this.props.settings;
 
     if (Array.isArray(settings)) {
-      const propSettings = settings.find(propSettings => propSettings.name === propName);
+      const propSettings = settings.find(
+        propSettings => propSettings.name === propName
+      );
 
       return propSettings && propSettings.required;
     }
@@ -87,7 +92,9 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
       const fakeComponentClass = component.type.bind();
 
       // rewrite static properties
-      Object.entries(component.type).forEach(([key, value]) => fakeComponentClass[key] = value);
+      Object.entries(component.type).forEach(
+        ([key, value]) => (fakeComponentClass[key] = value)
+      );
 
       fakeComponentClass.propTypes = {};
     }
@@ -97,12 +104,22 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     const originalHTML = renderToStaticMarkup(originalComponent);
 
     Object.keys(this.state.props).forEach(key => {
-      if (key === 'key' || key === 'children' || props[key] === undefined || this.isPropRequired(key)) {
+      if (
+        key === 'key' ||
+        key === 'children' ||
+        props[key] === undefined ||
+        this.isPropRequired(key)
+      ) {
         return;
       }
 
-      const inputPropsWithoutAProp = Object.assign({}, props, {[key]: undefined});
-      const componentWithoutAProp = React.cloneElement(component, inputPropsWithoutAProp);
+      const inputPropsWithoutAProp = Object.assign({}, props, {
+        [key]: undefined,
+      });
+      const componentWithoutAProp = React.cloneElement(
+        component,
+        inputPropsWithoutAProp
+      );
 
       const withoutPropHTML = renderToStaticMarkup(componentWithoutAProp);
 
@@ -121,19 +138,21 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     props[key] = value;
 
     this.setState({
-      props
+      props,
     });
     this.remountComponent();
   };
 
   settingsChanged = (setting: string, value: mixed) => {
     this.setState({
-      [setting]: value
+      [setting]: value,
     });
   };
 
   remountComponent() {
-    this.setState({renderNormally: false}, () => this.setState({renderNormally: true}));
+    this.setState({renderNormally: false}, () =>
+      this.setState({renderNormally: true})
+    );
   }
 
   render() {
@@ -148,21 +167,31 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
       if (this.state.showCode === 'jsx') {
         const jsx = generateJSX(component);
 
-        code = <DocsBlock><CodeBlock type="jsx">{jsx}</CodeBlock></DocsBlock>;
+        code = (
+          <DocsBlock>
+            <CodeBlock type="jsx">{jsx}</CodeBlock>
+          </DocsBlock>
+        );
       } else if (this.state.showCode === 'html') {
         const html = renderToStaticMarkup(component);
 
-        code = <DocsBlock><CodeBlock type="html">{html}</CodeBlock></DocsBlock>;
+        code = (
+          <DocsBlock>
+            <CodeBlock type="html">{html}</CodeBlock>
+          </DocsBlock>
+        );
       }
     }
 
     const blockClass = classnames('docs-active-block', {
-      'docs-active-block--gray': this.state.changeBackground === BACKGROUND_COLOR.LIGHT,
-      'docs-active-block--dark': this.state.changeBackground === BACKGROUND_COLOR.DARK
+      'docs-active-block--gray':
+        this.state.changeBackground === BACKGROUND_COLOR.LIGHT,
+      'docs-active-block--dark':
+        this.state.changeBackground === BACKGROUND_COLOR.DARK,
     });
 
     const componentClass = classnames('docs-active-block__component', {
-      'docs-active-block__component--centered': centeredItems
+      'docs-active-block__component--centered': centeredItems,
     });
 
     let output = [];
@@ -193,15 +222,16 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
       <div>
         <DocsBlock>
           <div className={blockClass}>
-            <div className={componentClass}>
-              {output}
-            </div>
+            <div className={componentClass}>{output}</div>
             <ComponentSettings
               onChange={this.setProps}
               settings={this.props.settings}
               values={this.state.props}
             />
-            <DocsActiveBlockSettings onChange={this.settingsChanged} values={this.state} />
+            <DocsActiveBlockSettings
+              onChange={this.settingsChanged}
+              values={this.state}
+            />
           </div>
         </DocsBlock>
         {code}

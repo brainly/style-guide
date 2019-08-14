@@ -7,13 +7,13 @@ const SIZE = Object.freeze({
   NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
+  XXLARGE: 'xxlarge',
 });
 
 const ALIGNMENT = Object.freeze({
   LEFT: 'left',
   CENTER: 'center',
-  RIGHT: 'right'
+  RIGHT: 'right',
 });
 
 export {SIZE, ALIGNMENT};

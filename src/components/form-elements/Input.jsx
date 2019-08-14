@@ -1,16 +1,11 @@
 // @flow strict
+
 import React from 'react';
 import classnames from 'classnames';
 
-type InputSizeType =
-  | 'small'
-  | 'normal'
-  | 'large';
+type InputSizeType = 'small' | 'normal' | 'large';
 
-type InputColorType =
-  | 'normal'
-  | 'light'
-  | 'light-alt';
+type InputColorType = 'normal' | 'light' | 'light-alt';
 
 type InputType =
   | 'button'
@@ -54,19 +49,19 @@ export const TYPE = Object.freeze({
   TEXT: 'text',
   TIME: 'time',
   URL: 'url',
-  WEEK: 'week'
+  WEEK: 'week',
 });
 
 export const SIZE = Object.freeze({
   SMALL: 'small',
   LARGE: 'large',
-  NORMAL: 'normal'
+  NORMAL: 'normal',
 });
 
 export const COLOR = Object.freeze({
   NORMAL: 'normal',
   LIGHT: 'light',
-  LIGHT_ALT: 'light-alt'
+  LIGHT_ALT: 'light-alt',
 });
 
 export type InputPropsType = {
@@ -80,7 +75,7 @@ export type InputPropsType = {
   noBorder?: boolean,
   withIcon?: boolean,
   className?: string,
-  setInputRef?: (ref: ?HTMLElement) => mixed
+  setInputRef?: (ref: ?HTMLElement) => mixed,
 };
 
 const Input = (props: InputPropsType) => {
@@ -102,21 +97,33 @@ const Input = (props: InputPropsType) => {
   if (valid === true && invalid === true) {
     throw {
       name: 'WrongValidation',
-      message: 'Input can be either valid or invalid!'
+      message: 'Input can be either valid or invalid!',
     };
   }
 
-  const inputClass = classnames('sg-input', {
-    [`sg-input--${String(size)}`]: size !== SIZE.NORMAL,
-    [`sg-input--${String(color)}`]: color !== COLOR.NORMAL,
-    'sg-input--valid': valid,
-    'sg-input--invalid': invalid,
-    'sg-input--full-width': fullWidth,
-    'sg-input--no-border': noBorder,
-    'sg-input--with-icon': withIcon
-  }, className);
+  const inputClass = classnames(
+    'sg-input',
+    {
+      [`sg-input--${String(size)}`]: size !== SIZE.NORMAL,
+      [`sg-input--${String(color)}`]: color !== COLOR.NORMAL,
+      'sg-input--valid': valid,
+      'sg-input--invalid': invalid,
+      'sg-input--full-width': fullWidth,
+      'sg-input--no-border': noBorder,
+      'sg-input--with-icon': withIcon,
+    },
+    className
+  );
 
-  return <input type={type} ref={setInputRef} className={inputClass} value={value} {...additionalProps} />;
+  return (
+    <input
+      type={type}
+      ref={setInputRef}
+      className={inputClass}
+      value={value}
+      {...additionalProps}
+    />
+  );
 };
 
 export default Input;

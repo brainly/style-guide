@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import {contrastBlockCssClass} from 'components/ContrastBox';
 import IconAsButton, {ICON_COLOR} from '../IconAsButton';
@@ -6,12 +7,12 @@ import * as IconModule from '../../icons/Icon';
 import classnames from 'classnames';
 
 type PropsType = {
-  color: IconModule.IconColorType
+  color: IconModule.IconColorType,
 };
 
 const DrawHelper = (props: PropsType) => {
   const liClass = classnames('icons-list__element', {
-    [contrastBlockCssClass]: props.color === ICON_COLOR.LIGHT
+    [contrastBlockCssClass]: props.color === ICON_COLOR.LIGHT,
   });
   const liStyle = {padding: 0, fill: ''};
 

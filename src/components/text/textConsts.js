@@ -11,7 +11,7 @@ export const TEXT_TYPE = Object.freeze({
   H6: 'h6',
   DIV: 'div',
   LABEL: 'label',
-  LINK: 'a'
+  LINK: 'a',
 });
 
 export const TYPE = TEXT_TYPE; // backward compatibility
@@ -22,7 +22,7 @@ export const TEXT_SIZE = Object.freeze({
   NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
+  XXLARGE: 'xxlarge',
 });
 
 export const SIZE = TEXT_SIZE; // backward compatibility
@@ -37,7 +37,7 @@ export const TEXT_COLOR = Object.freeze({
   PEACH_DARK: 'peach-dark',
   GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
   GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
 });
 
 export const LINK_COLOR = Object.freeze({
@@ -47,14 +47,14 @@ export const LINK_COLOR = Object.freeze({
   BLACK: 'black',
   GRAY: 'gray',
   GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
 });
 
 export const COLOR = TEXT_COLOR; // backward compatibility
 
 export const TEXT_WEIGHT = Object.freeze({
   REGULAR: 'regular',
-  BOLD: 'bold'
+  BOLD: 'bold',
 });
 
 export const WEIGHT = TEXT_WEIGHT; // backward compatibility
@@ -62,12 +62,12 @@ export const WEIGHT = TEXT_WEIGHT; // backward compatibility
 export const TEXT_TRANSFORM = Object.freeze({
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
-  CAPITALIZE: 'capitalize'
+  CAPITALIZE: 'capitalize',
 });
 
 export const TEXT_ALIGN = Object.freeze({
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',
-  JUSTIFY: 'justify'
+  JUSTIFY: 'justify',
 });

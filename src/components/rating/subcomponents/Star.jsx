@@ -1,11 +1,12 @@
 // @flow strict
+
 import React from 'react';
 import * as IconModule from '../../icons/Icon';
 
 const {default: Icon, ICON_COLOR} = IconModule;
 
 type PropsType = {
-  size?: IconModule.IconSizeType
+  size?: IconModule.IconSizeType,
 };
 
 const Star = ({size, ...props}: PropsType) => (

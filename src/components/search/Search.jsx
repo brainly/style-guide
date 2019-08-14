@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import classnames from 'classnames';
 import * as InputModule from '../form-elements/Input';
@@ -8,11 +9,17 @@ const {default: Input, COLOR, SIZE} = InputModule;
 
 type PropsType = {
   adaptiveIco?: boolean,
-  inputClassName?: string
+  inputClassName?: string,
 } & InputModule.InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
 
-const Search = ({adaptiveIco, className, inputClassName, ...additionalProps}: PropsType) => {
-  const iconColor = adaptiveIco === true ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
+const Search = ({
+  adaptiveIco,
+  className,
+  inputClassName,
+  ...additionalProps
+}: PropsType) => {
+  const iconColor =
+    adaptiveIco === true ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
   const baseClassName = 'sg-search';
 
   return (

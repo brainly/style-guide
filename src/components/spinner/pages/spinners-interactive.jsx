@@ -6,12 +6,12 @@ const Spinners = () => {
   const settings = [
     {
       name: 'size',
-      values: SPINNER_SIZE
+      values: SPINNER_SIZE,
     },
     {
       name: 'light',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

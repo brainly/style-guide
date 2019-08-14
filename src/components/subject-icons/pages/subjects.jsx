@@ -8,16 +8,16 @@ const Subjects = () => (
   <div>
     <DocsBlock info="Medium">
       <ContrastBox>
-        {Object.values(TYPE).map(type =>
+        {Object.values(TYPE).map(type => (
           <SubjectIcon key={type} type={type} size={SIZE.MEDIUM} />
-        )}
+        ))}
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Small">
       <ContrastBox>
-        {Object.values(TYPE).map(type =>
+        {Object.values(TYPE).map(type => (
           <SubjectIcon key={type} type={type} size={SIZE.SMALL} />
-        )}
+        ))}
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Subject icon box">

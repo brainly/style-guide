@@ -2,7 +2,11 @@ import React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import Headline, {HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_COLOR} from 'text/Headline';
+import Headline, {
+  HEADLINE_SIZE,
+  HEADLINE_TYPE,
+  HEADLINE_COLOR,
+} from 'text/Headline';
 import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
@@ -10,9 +14,13 @@ import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
-import SeparatorVertical, {SIZE as SEPARATOR_VERTICAL_SIZE} from 'separators/SeparatorVertical';
+import SeparatorVertical, {
+  SIZE as SEPARATOR_VERTICAL_SIZE,
+} from 'separators/SeparatorVertical';
 import ContentBox from 'content-box/ContentBox';
-import ContentBoxContent, {ALIGNMENT as CB_ALIGNMENT} from 'content-box/ContentBoxContent';
+import ContentBoxContent, {
+  ALIGNMENT as CB_ALIGNMENT,
+} from 'content-box/ContentBoxContent';
 import Radio from 'form-elements/Radio';
 
 const ActionLists = () => (
@@ -72,14 +80,10 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList align={ALIGNMENT.BASELINE}>
           <ActionListHole>
-            <Text>
-              Normale text
-            </Text>
+            <Text>Normale text</Text>
           </ActionListHole>
           <ActionListHole>
-            <Text weight={TEXT_WEIGHT.BOLD}>
-              Bold text
-            </Text>
+            <Text weight={TEXT_WEIGHT.BOLD}>Bold text</Text>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -260,7 +264,7 @@ const ActionLists = () => (
               </Text>
             </ActionListHole>
           </ActionList>
-        </ContrastBox>
+        </ContrastBox>,
       ]}
     />
 
@@ -515,7 +519,7 @@ const ActionLists = () => (
             <ContentBox>
               <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
                 <Text type={TEXT_TYPE.SPAN} color={TEXT_COLOR.WHITE}>
-                short text
+                  short text
                 </Text>
                 <ContentBoxContent align={CB_ALIGNMENT.CENTER}>
                   <Radio />
@@ -543,10 +547,11 @@ const ActionLists = () => (
       <ActionList noWrap>
         <ActionListHole hideOverflow>
           <div style={{height: '16px', lineHeight: '16px'}}>
-            test test test test test test test test test test test test test test test test
-            test test test test test test test test test test test test test test test test
-            test test test test test test test test test test test test test test test test
-            test test test test test test test test test test test test test test test test
+            test test test test test test test test test test test test test
+            test test test test test test test test test test test test test
+            test test test test test test test test test test test test test
+            test test test test test test test test test test test test test
+            test test test test test test test test test test test test
           </div>
         </ActionListHole>
       </ActionList>

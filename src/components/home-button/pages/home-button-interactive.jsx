@@ -6,12 +6,12 @@ const HomeButtons = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
     },
     {
       name: 'href',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   return (

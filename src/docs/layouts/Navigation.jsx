@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import slugify from '../slugify';
 
@@ -7,9 +8,9 @@ type PropsType = {
   navigation: Array<{
     name: string,
     elements: Array<{
-      name: string
-    }>
-  }>
+      name: string,
+    }>,
+  }>,
 };
 
 const Navigation = ({navigation, version}: PropsType) => (
@@ -19,17 +20,18 @@ const Navigation = ({navigation, version}: PropsType) => (
     </a>
     <ul className="main-menu__item">
       {navigation.map((page, index) => {
-        const pageUrl = slugify(page.name) + '.html';
+        const pageUrl = `${slugify(page.name)}.html`;
 
         return (
           <li key={index}>
-            <a href={pageUrl}>
-              {page.name }
-            </a>
+            <a href={pageUrl}>{page.name}</a>
             <ul>
               {page.elements.map((element, index) => (
                 <li key={index}>
-                  <a href={`${pageUrl}#${slugify(element.name)}`} className="js-searchable">
+                  <a
+                    href={`${pageUrl}#${slugify(element.name)}`}
+                    className="js-searchable"
+                  >
                     {element.name}
                   </a>
                 </li>
@@ -44,8 +46,12 @@ const Navigation = ({navigation, version}: PropsType) => (
         <input type="search" placeholder="Search&hellip;" id="js-search-box" />
         <ul id="js-search-results" />
       </div>
-      <label title="Highlight holes"><input type="checkbox" id="js-highlight-holes" /> Holes</label>
-      <a href="https://github.com/brainly/style-guide" className="version">v{version }</a>
+      <label title="Highlight holes">
+        <input type="checkbox" id="js-highlight-holes" /> Holes
+      </label>
+      <a href="https://github.com/brainly/style-guide" className="version">
+        v{version}
+      </a>
     </aside>
     <script src="js/search-and-holes.js" />
   </nav>

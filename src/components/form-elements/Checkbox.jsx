@@ -8,11 +8,11 @@ import Icon, {ICON_COLOR, TYPE} from '../icons/Icon';
 export type CheckboxPropsType = {
   checked?: boolean,
   id?: string,
-  className?: string
+  className?: string,
 };
 
 export type CheckboxStateType = {
-  id: string
+  id: string,
 };
 
 class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
@@ -20,7 +20,10 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
     super(props);
 
     this.state = {
-      id: props.id === undefined || props.id === '' ? generateRandomString() : props.id
+      id:
+        props.id === undefined || props.id === ''
+          ? generateRandomString()
+          : props.id,
     };
   }
 
@@ -32,7 +35,13 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
 
     return (
       <div className={checkboxClass}>
-        <input className="sg-checkbox__element" type="checkbox" id={id} checked={checked} {...additionalProps} />
+        <input
+          className="sg-checkbox__element"
+          type="checkbox"
+          id={id}
+          checked={checked}
+          {...additionalProps}
+        />
         <label className="sg-checkbox__ghost" htmlFor={id}>
           <Icon type={TYPE.CHECK} color={ICON_COLOR.ADAPTIVE} size={10} />
         </label>
