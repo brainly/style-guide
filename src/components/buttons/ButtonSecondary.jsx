@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -19,7 +20,7 @@ export const BUTTON_SECONDARY_TYPE = {
   ALT_INVERSE: 'alt-inverse',
   DARK_INVERSE: 'dark-inverse',
   ACTIVE_INVERSE: 'active-inverse',
-  ACTIVE_MUSTARD: 'active-mustard'
+  ACTIVE_MUSTARD: 'active-mustard',
 };
 
 type ButtonSecondaryPropsType = {
@@ -29,18 +30,28 @@ type ButtonSecondaryPropsType = {
   disabled?: ?boolean,
   small?: ?boolean,
   href?: ?string,
-  buttonType?: ?ButtonSecondaryTypeType
+  buttonType?: ?ButtonSecondaryTypeType,
 };
 
-const ButtonSecondary = (
-  {small, wide, disabled, buttonType, children, className, ...props}: ButtonSecondaryPropsType
-) => {
-  const btnClass = classNames('sg-button-secondary', {
-    'sg-button-secondary--small': small,
-    'sg-button-secondary--disabled': disabled,
-    [`sg-button-secondary--${String(buttonType)}`]: buttonType,
-    'sg-button-secondary--full-width': wide
-  }, className);
+const ButtonSecondary = ({
+  small,
+  wide,
+  disabled,
+  buttonType,
+  children,
+  className,
+  ...props
+}: ButtonSecondaryPropsType) => {
+  const btnClass = classNames(
+    'sg-button-secondary',
+    {
+      'sg-button-secondary--small': small,
+      'sg-button-secondary--disabled': disabled,
+      [`sg-button-secondary--${String(buttonType)}`]: buttonType,
+      'sg-button-secondary--full-width': wide,
+    },
+    className
+  );
 
   let TypeToRender = 'button';
 

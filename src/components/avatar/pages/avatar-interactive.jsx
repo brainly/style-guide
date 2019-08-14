@@ -6,20 +6,20 @@ const Avatars = () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'border',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'spaced',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'imgSrc',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   return (

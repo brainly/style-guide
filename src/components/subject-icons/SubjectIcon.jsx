@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import classNames from 'classnames';
 import * as IconModule from '../icons/Icon';
@@ -83,10 +84,7 @@ export type IconTypeType =
   | 'uzbek'
   | 'wos';
 
-export type SizeType =
-  | 'small'
-  | 'medium'
-  | 'normal';
+export type SizeType = 'small' | 'medium' | 'normal';
 
 export const TYPE = {
   ACCOUNTANCY: 'accountancy',
@@ -166,27 +164,38 @@ export const TYPE = {
   UKRAINIAN_ALT: 'ukrainian-alt',
   UKRAINIAN_LITERATURE: 'ukrainian-literature',
   UZBEK: 'uzbek',
-  WOS: 'wos'
+  WOS: 'wos',
 };
 
 export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
-  NORMAL: 'normal'
+  NORMAL: 'normal',
 };
 
 type PropsType = {
   className?: string,
   type: IconTypeType,
   size?: SizeType,
-  monoColor?: IconModule.IconColorType
+  monoColor?: IconModule.IconColorType,
 };
 
-const SubjectIcon = ({type, size = SIZE.NORMAL, monoColor, className, ...props}: PropsType) => {
-  const iconClass = classNames('sg-subject-icon', {
-    [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
-    [`sg-subject-icon--${String(monoColor)}`]: monoColor !== IconModule.ICON_COLOR.LIGHT && monoColor !== undefined
-  }, className);
+const SubjectIcon = ({
+  type,
+  size = SIZE.NORMAL,
+  monoColor,
+  className,
+  ...props
+}: PropsType) => {
+  const iconClass = classNames(
+    'sg-subject-icon',
+    {
+      [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
+      [`sg-subject-icon--${String(monoColor)}`]:
+        monoColor !== IconModule.ICON_COLOR.LIGHT && monoColor !== undefined,
+    },
+    className
+  );
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
 
   return (

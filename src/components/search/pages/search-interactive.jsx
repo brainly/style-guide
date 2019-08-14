@@ -3,36 +3,35 @@ import Search, {SIZE, COLOR} from '../Search';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const SearchInputs = () => {
-
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'color',
-      values: COLOR
+      values: COLOR,
     },
     {
       name: 'value',
-      values: String
+      values: String,
     },
     {
       name: 'placeholder',
-      values: String
+      values: String,
     },
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'adaptiveIco',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noBorder',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
@@ -41,7 +40,12 @@ const SearchInputs = () => {
         <Search placeholder="Find all the answers..." />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Search placeholder="Find all the answers..." color={COLOR.LIGHT} fullWidth adaptiveIco />
+        <Search
+          placeholder="Find all the answers..."
+          color={COLOR.LIGHT}
+          fullWidth
+          adaptiveIco
+        />
       </DocsActiveBlock>
     </div>
   );

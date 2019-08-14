@@ -13,10 +13,7 @@ type SizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type AligmentType =
-  | 'left'
-  | 'center'
-  | 'right';
+type AligmentType = 'left' | 'center' | 'right';
 
 export type ContentBoxTitlePropsType = {
   children: React.Node,
@@ -25,7 +22,7 @@ export type ContentBoxTitlePropsType = {
   className?: ?string,
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
-  align?: AligmentType
+  align?: AligmentType,
 };
 
 const ContentBoxTitle = ({
@@ -35,18 +32,24 @@ const ContentBoxTitle = ({
   spacedTop,
   spacedBottom,
   className,
-  align = ALIGNMENT.LEFT
+  align = ALIGNMENT.LEFT,
 }: ContentBoxTitlePropsType) => {
-
-  const contentBoxClass = classNames('sg-content-box__title', {
-    'sg-content-box__title--with-centered-elements': align === ALIGNMENT.CENTER,
-    'sg-content-box__title--spaced': spaced,
-    'sg-content-box__title--spaced-small': spacedSmall,
-    'sg-content-box__title--spaced-top': spacedTop === SIZE.NORMAL,
-    [`sg-content-box__title--spaced-top-${spacedTop || ''}`]: spacedTop && spacedTop !== SIZE.NORMAL,
-    'sg-content-box__title--spaced-bottom': spacedBottom === SIZE.NORMAL,
-    [`sg-content-box__title--spaced-bottom-${spacedBottom || ''}`]: spacedBottom && spacedBottom !== SIZE.NORMAL
-  }, className);
+  const contentBoxClass = classNames(
+    'sg-content-box__title',
+    {
+      'sg-content-box__title--with-centered-elements':
+        align === ALIGNMENT.CENTER,
+      'sg-content-box__title--spaced': spaced,
+      'sg-content-box__title--spaced-small': spacedSmall,
+      'sg-content-box__title--spaced-top': spacedTop === SIZE.NORMAL,
+      [`sg-content-box__title--spaced-top-${spacedTop || ''}`]:
+        spacedTop && spacedTop !== SIZE.NORMAL,
+      'sg-content-box__title--spaced-bottom': spacedBottom === SIZE.NORMAL,
+      [`sg-content-box__title--spaced-bottom-${spacedBottom || ''}`]:
+        spacedBottom && spacedBottom !== SIZE.NORMAL,
+    },
+    className
+  );
 
   return <div className={contentBoxClass}>{children}</div>;
 };

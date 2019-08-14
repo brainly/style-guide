@@ -16,7 +16,13 @@ const OverlayedBoxes = () => {
         </OverlayedBox>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <OverlayedBox overlay={<TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>3</TextBadge>}>
+        <OverlayedBox
+          overlay={
+            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+              3
+            </TextBadge>
+          }
+        >
           <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
         </OverlayedBox>
       </DocsActiveBlock>

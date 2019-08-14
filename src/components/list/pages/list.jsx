@@ -11,13 +11,15 @@ import Text, {TEXT_SIZE} from 'text/Text';
 import MenuList, {SIZE} from '../MenuList';
 
 const firstString = 'One two three';
-const firstStringLong = firstString + 'This element has icon aligned to the first line ' +
-  'please take a look how cool it is!!';
+const firstStringLong =
+  `${firstString}This element has icon aligned to the first line ` +
+  `please take a look how cool it is!!`;
 const secondString = 'Two three four';
-const secondStringLong = secondString + 'This element does not have icon aligned to the first line ' +
-  'but its still cool!';
+const secondStringLong =
+  `${secondString}This element does not have icon aligned to the first line ` +
+  `but its still cool!`;
 const thirdString = 'Three four five';
-const secondExampleLongest = secondStringLong + ' Yeah!! Yeah!';
+const secondExampleLongest = `${secondStringLong} Yeah!! Yeah!`;
 const items = [firstString, secondString, thirdString];
 const exampleItems = [firstStringLong, secondStringLong, thirdString];
 const exampleSmall = [firstStringLong, secondExampleLongest, thirdString];
@@ -34,7 +36,11 @@ const ListItems = () => (
           {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
+                <Icon
+                  color={ICON_COLOR.LIGHT}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={18}
+                />
               </ListItemIcon>
               <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
@@ -48,7 +54,11 @@ const ListItems = () => (
           {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon small>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
+                <Icon
+                  color={ICON_COLOR.LIGHT}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={14}
+                />
               </ListItemIcon>
               <Text>{item}</Text>
             </ListItem>
@@ -62,7 +72,11 @@ const ListItems = () => (
           {items.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
+                <Icon
+                  color={ICON_COLOR.LIGHT}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={18}
+                />
               </ListItemIcon>
               <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
@@ -76,7 +90,11 @@ const ListItems = () => (
           {exampleItems.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={18} />
+                <Icon
+                  color={ICON_COLOR.LIGHT}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={18}
+                />
               </ListItemIcon>
               <Text size={TEXT_SIZE.XLARGE}>{item}</Text>
             </ListItem>
@@ -90,7 +108,11 @@ const ListItems = () => (
           {exampleSmall.map((item, index) => (
             <ListItem key={index}>
               <ListItemIcon small>
-                <Icon color={ICON_COLOR.LIGHT} type={ICON_TYPE.ARROW_RIGHT} size={14} />
+                <Icon
+                  color={ICON_COLOR.LIGHT}
+                  type={ICON_TYPE.ARROW_RIGHT}
+                  size={14}
+                />
               </ListItemIcon>
               <Text>{item}</Text>
             </ListItem>

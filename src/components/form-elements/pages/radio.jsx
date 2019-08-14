@@ -15,17 +15,13 @@ const radios = () => (
         secondary
         htmlFor="radio-3"
         text="Check me!"
-        iconContent={
-          <Radio name="group2" />
-        }
+        iconContent={<Radio name="group2" />}
       />
       <Label
         secondary
         htmlFor="radio-4"
         text="Check me!"
-        iconContent={
-          <Radio name="group3" />
-        }
+        iconContent={<Radio name="group3" />}
       />
     </DocsBlock>
     <DocsBlock info="Large">

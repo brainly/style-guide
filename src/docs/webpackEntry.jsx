@@ -21,15 +21,18 @@ const requireAll = r => {
 
 requireAll(require.context('../images/', true, /\.svg$/));
 
-const GeneratePage = ({padeIndex}) => navigation[padeIndex]
-  .elements
-  .map(({name, component}) => (
+const GeneratePage = ({padeIndex}) =>
+  navigation[padeIndex].elements.map(({name, component}) => (
     <React.Fragment key={name}>
-      <h1 className="main-header">Brainly style guide - {navigation[padeIndex].name}</h1>
-      <article >
+      <h1 className="main-header">
+        Brainly style guide - {navigation[padeIndex].name}
+      </h1>
+      <article>
         <h2 className="article-header" id={slugify(name)}>
           {name}
-          <a href={'#' + slugify(name)} className="permalink">#</a>
+          <a href={`#${slugify(name)}`} className="permalink">
+            #
+          </a>
         </h2>
         {component()}
       </article>
@@ -40,46 +43,25 @@ const BasicsPage = () => <GeneratePage padeIndex="0" />;
 const ComponentsPage = () => <GeneratePage padeIndex="1" />;
 const ContainersPage = () => <GeneratePage padeIndex="2" />;
 const InteractivePage = () => (
-  <React.Fragment>
+  <>
     <h1 className="main-header">Brainly style guide - {navigation[3].name}</h1>
     {sections}
-  </React.Fragment>
+  </>
 );
 
-const App = () =>
-  (
-    <Router >
-      <Head site={site} />
-      <Navigation navigation={navigation} version={version} />
-      <div className="data-container">
-        <Route
-          path="/"
-          exact
-          component={IndexPage}
-        />
-        <Route
-          path="/basics.html"
-          exact
-          component={BasicsPage}
-        />
-        <Route
-          path="/components.html"
-          exact
-          component={ComponentsPage}
-        />
-        <Route
-          path="/containers.html"
-          exact
-          component={ContainersPage}
-        />
-        <Route
-          path="/interactive.html"
-          exact
-          component={InteractivePage}
-        />
-      </div>
-    </Router>
-  );
+const App = () => (
+  <Router>
+    <Head site={site} />
+    <Navigation navigation={navigation} version={version} />
+    <div className="data-container">
+      <Route path="/" exact component={IndexPage} />
+      <Route path="/basics.html" exact component={BasicsPage} />
+      <Route path="/components.html" exact component={ComponentsPage} />
+      <Route path="/containers.html" exact component={ContainersPage} />
+      <Route path="/interactive.html" exact component={InteractivePage} />
+    </div>
+  </Router>
+);
 
 const Wrapped = hot(App);
 

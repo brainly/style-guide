@@ -3,21 +3,20 @@ import SubjectIconBox, {TYPE, SIZE} from '../SubjectIconBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Subjects = () => {
-
   const settingsBox = [
     {
       name: 'type',
       values: TYPE,
-      required: true
+      required: true,
     },
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'darker',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

@@ -1,10 +1,11 @@
 // @flow strict
+
 import React, {Component} from 'react';
 import Dropdown from './Dropdown';
 
 type ItemType = {
   id: string,
-  text: string
+  text: string,
 };
 
 type PropsType = {
@@ -16,22 +17,24 @@ type PropsType = {
   className?: string,
   currentItem?: ItemType,
   onChange: string => mixed,
-  onToggle?: SyntheticMouseEvent<HTMLDivElement>
+  onToggle?: SyntheticMouseEvent<HTMLDivElement>,
 };
 
 type StateType = {
   currentItem: ItemType,
-  label: string
+  label: string,
 };
 
+/* eslint-disable react/default-props-match-prop-types */
+// legacy files without proper flow checks can suffer from this
 class DropdownContainer extends Component<PropsType, StateType> {
   static defaultProps = {
-    items: []
+    items: [],
   };
 
   state = {
     currentItem: this.props.currentItem || {},
-    label: ''
+    label: '',
   };
 
   getLabel() {
@@ -41,7 +44,10 @@ class DropdownContainer extends Component<PropsType, StateType> {
   onItemClick = (id: string) => {
     const currentItem = this.props.items.find(item => item.id === id);
 
-    if (!currentItem || (this.state.currentItem && this.state.currentItem.id === currentItem.id)) {
+    if (
+      !currentItem ||
+      (this.state.currentItem && this.state.currentItem.id === currentItem.id)
+    ) {
       return;
     }
 

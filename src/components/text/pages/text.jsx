@@ -3,39 +3,48 @@ import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text from '../Text';
 import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
-import {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT, TEXT_TRANSFORM, TEXT_ALIGN} from '../textConsts';
+import {
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_COLOR,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from '../textConsts';
 
-const text = 'We\'ve got your back!';
+const text = "We've got your back!";
 
 const textSizesMap = [
   {
     type: 'xsmall',
-    fontSize: '12px'
+    fontSize: '12px',
   },
   {
     type: 'small',
-    fontSize: '15px'
+    fontSize: '15px',
   },
   {
     type: 'normal',
-    fontSize: '18px'
+    fontSize: '18px',
   },
   {
     type: 'large',
-    fontSize: '24px'
+    fontSize: '24px',
   },
   {
     type: 'xlarge',
-    fontSize: '33px'
+    fontSize: '33px',
   },
   {
     type: 'xxlarge',
-    fontSize: '45px'
-  }
+    fontSize: '45px',
+  },
 ];
 
 function getValues(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+  return addUndefined
+    ? [undefined, ...Object.values(object)]
+    : Object.values(object);
 }
 
 const TextExamples = () => {
@@ -47,10 +56,17 @@ const TextExamples = () => {
     getValues(TEXT_WEIGHT, false).forEach(weight => {
       let itemSize;
 
-      textSizesMap.map(item => (item.type === size ? itemSize = `${item.fontSize}` : null));
+      textSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
 
       sizeVariant.push(
-        <Text type={TEXT_TYPE.H2} size={size} color={TEXT_COLOR.GRAY} weight={weight}>
+        <Text
+          type={TEXT_TYPE.H2}
+          size={size}
+          color={TEXT_COLOR.GRAY}
+          weight={weight}
+        >
           {text} - {size} - {itemSize}
         </Text>
       );
@@ -78,46 +94,41 @@ const TextExamples = () => {
   getValues(LINK_COLOR, false).forEach(color => {
     if (color !== LINK_COLOR.WHITE) {
       linkcolorVariant.push(
-        <React.Fragment>
+        <>
           <Link
             href="#"
             color={color}
             weight={LINK_WEIGHT.BOLD}
             size={LINK_SIZE.LARGE}
-          >link - {color}
+          >
+            link - {color}
           </Link>
           <br />
-        </React.Fragment>
+        </>
       );
     } else {
       <ContrastBox>
-        <React.Fragment>
+        <>
           <Link
             href="#"
             color={LINK_COLOR.WHITE}
             weight={LINK_WEIGHT.BOLD}
             size={LINK_SIZE.LARGE}
-          >link - {color}
+          >
+            link - {color}
           </Link>
           <br />
-        </React.Fragment>
+        </>
       </ContrastBox>;
     }
   });
 
   return (
     <div>
-      <DocsBlock info="Size and weight variant">
-        {sizeVariant}
-      </DocsBlock>
-      <DocsBlock info="Color variant">
-        {colorVariant}
-      </DocsBlock>
+      <DocsBlock info="Size and weight variant">{sizeVariant}</DocsBlock>
+      <DocsBlock info="Color variant">{colorVariant}</DocsBlock>
       <DocsBlock info="Link options">
-        <Link
-          href="#"
-          size={LINK_SIZE.LARGE}
-        >
+        <Link href="#" size={LINK_SIZE.LARGE}>
           link / regular/ standard / xlarge / standard
         </Link>
         <br />
@@ -131,27 +142,20 @@ const TextExamples = () => {
           link / bold / mint / xlarge / underlined
         </Link>
       </DocsBlock>
-      <DocsBlock info="Link color variants">
-        {linkcolorVariant}
-      </DocsBlock>
+      <DocsBlock info="Link color variants">{linkcolorVariant}</DocsBlock>
       <DocsBlock info="Alignment examples">
-        <Text align={TEXT_ALIGN.LEFT}>
-          Text aligned to left
-        </Text>
-        <Text align={TEXT_ALIGN.CENTER}>
-          Text aligned to center
-        </Text>
-        <Text align={TEXT_ALIGN.RIGHT}>
-          Text aligned to right
-        </Text>
+        <Text align={TEXT_ALIGN.LEFT}>Text aligned to left</Text>
+        <Text align={TEXT_ALIGN.CENTER}>Text aligned to center</Text>
+        <Text align={TEXT_ALIGN.RIGHT}>Text aligned to right</Text>
         <Text align={TEXT_ALIGN.JUSTIFY}>
-        This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
-          This text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is
+          justified. This text is justified. This text is justified. This text
+          is justified. This text is justified. This text is justified. This
+          text is justified. This text is justified. This text is justified.
+          This text is justified. This text is justified. This text is
+          justified. This text is justified. This text is justified. This text
+          is justified. This text is justified. This text is justified. This
+          text is justified. This text is justified.
         </Text>
       </DocsBlock>
       <DocsBlock info="Transform examples">
@@ -161,18 +165,14 @@ const TextExamples = () => {
         <Text transform={TEXT_TRANSFORM.UPPERCASE}>
           this text is uppercased
         </Text>
-        <Text transform={TEXT_TRANSFORM.CAPITALIZE}>
-          this text capitalized
-        </Text>
+        <Text transform={TEXT_TRANSFORM.CAPITALIZE}>this text capitalized</Text>
       </DocsBlock>
       <DocsBlock info="Container and full width">
         <Text asContainer>
           This text is a container - things can be positioned relative to it
         </Text>
         <br />
-        <Text full>
-          This text takes full width
-        </Text>
+        <Text full>This text takes full width</Text>
       </DocsBlock>
     </div>
   );

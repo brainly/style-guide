@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import * as IconModule from '../icons/Icon';
 import classNames from 'classnames';
@@ -7,7 +8,7 @@ const {TYPE} = IconModule;
 
 type PropsType = {
   type: IconModule.IconTypeType,
-  className?: string
+  className?: string,
 };
 
 const Sticker = ({type, className, ...props}: PropsType) => {

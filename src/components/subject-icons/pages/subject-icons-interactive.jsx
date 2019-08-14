@@ -7,16 +7,16 @@ const SubjectIcons = () => {
     {
       name: 'type',
       values: TYPE,
-      required: true
+      required: true,
     },
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'monoColor',
-      values: ICON_COLOR
-    }
+      values: ICON_COLOR,
+    },
   ];
 
   return (

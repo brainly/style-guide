@@ -7,7 +7,7 @@ export const HEADLINE_TYPE = Object.freeze({
   H4: 'h4',
   H5: 'h5',
   H6: 'h6',
-  SPAN: 'span'
+  SPAN: 'span',
 });
 
 export const HEADLINE_SIZE = Object.freeze({
@@ -16,7 +16,7 @@ export const HEADLINE_SIZE = Object.freeze({
   NORMAL: 'normal',
   LARGE: 'large',
   XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
+  XXLARGE: 'xxlarge',
 });
 
 export const HEADLINE_COLOR = Object.freeze({
@@ -29,18 +29,18 @@ export const HEADLINE_COLOR = Object.freeze({
   PEACH_DARK: 'peach-dark',
   GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
   GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light'
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
 });
 
 export const HEADLINE_TRANSFORM = Object.freeze({
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
-  CAPITALIZE: 'capitalize'
+  CAPITALIZE: 'capitalize',
 });
 
 export const HEADLINE_ALIGN = Object.freeze({
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',
-  JUSTIFY: 'justify'
+  JUSTIFY: 'justify',
 });

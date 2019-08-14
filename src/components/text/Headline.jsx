@@ -1,16 +1,10 @@
 // @flow strict
+
 import * as React from 'react';
 import classNames from 'classnames';
 import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
 
-type HeadlineTypeType =
-  | 'span'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6';
+type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type HeadlineSizeType =
   | 'xsmall'
@@ -32,18 +26,17 @@ type HeadlineColorType =
   | 'mustard-dark'
   | 'blue-dark';
 
-type HeadlineTransformType =
-  | 'uppercase'
-  | 'lowercase'
-  | 'capitalize';
+type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
-type HeadlineAlignType =
-  | 'to-left'
-  | 'to-center'
-  | 'to-right'
-  | 'justify';
+type HeadlineAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
-export {HEADLINE_TYPE, HEADLINE_SIZE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './headlineConsts';
+export {
+  HEADLINE_TYPE,
+  HEADLINE_SIZE,
+  HEADLINE_COLOR,
+  HEADLINE_TRANSFORM,
+  HEADLINE_ALIGN,
+} from './headlineConsts';
 
 export type HeadlinePropsType = {
   children?: React.Node,
@@ -53,7 +46,7 @@ export type HeadlinePropsType = {
   transform?: ?HeadlineTransformType,
   align?: ?HeadlineAlignType,
   className?: ?string,
-  extraBold?: ?boolean
+  extraBold?: ?boolean,
 };
 
 const Headline = ({
@@ -68,13 +61,17 @@ const Headline = ({
   ...props
 }: HeadlinePropsType) => {
   const Type = type;
-  const headlineClass = classNames('sg-headline', {
-    [`sg-headline--${size}`]: size !== HEADLINE_SIZE.NORMAL,
-    [`sg-headline--${String(color)}`]: color,
-    [`sg-headline--${String(transform)}`]: transform,
-    [`sg-headline--${align || ''}`]: align,
-    'sg-headline--extra-bold': extraBold
-  }, className);
+  const headlineClass = classNames(
+    'sg-headline',
+    {
+      [`sg-headline--${size}`]: size !== HEADLINE_SIZE.NORMAL,
+      [`sg-headline--${String(color)}`]: color,
+      [`sg-headline--${String(transform)}`]: transform,
+      [`sg-headline--${align || ''}`]: align,
+      'sg-headline--extra-bold': extraBold,
+    },
+    className
+  );
 
   return (
     <Type {...props} className={headlineClass}>

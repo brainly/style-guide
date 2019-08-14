@@ -16,12 +16,12 @@ export const TYPE = {
   MEDIUM_ONLY: 'medium-only',
   MEDIUM_DOWN: 'medium-down',
   MEDIUM_UP: 'medium-up',
-  LARGE_ONLY: 'large-only'
+  LARGE_ONLY: 'large-only',
 };
 
 type PropsType = {
   hide: RwdHelperTypeType,
-  children: Element<*> | string
+  children: Element<*> | string,
 };
 
 const RwdHelper = ({hide, children}: PropsType) => {

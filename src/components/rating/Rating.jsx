@@ -1,16 +1,15 @@
 // @flow strict
+
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 
-type RatingSizeType =
-  | 24
-  | 32;
+type RatingSizeType = 24 | 32;
 
 export const RATING_SIZE = {
   NORMAL: 24,
-  LARGE: 32
+  LARGE: 32,
 };
 
 const generateArrayRange = function(range: number): Array<number> {
@@ -23,7 +22,10 @@ const generateArrayRange = function(range: number): Array<number> {
   return array;
 };
 
-type OnMouseEnterType = (index: number, event: SyntheticMouseEvent<HTMLSpanElement>) => mixed;
+type OnMouseEnterType = (
+  index: number,
+  event: SyntheticMouseEvent<HTMLSpanElement>
+) => mixed;
 
 type PropsType = {
   size?: RatingSizeType,
@@ -36,16 +38,18 @@ type PropsType = {
   counterText?: string,
   activeText?: string,
   noLabel?: boolean,
-  className?: string
+  className?: string,
 };
 
+/* eslint-disable react/default-props-match-prop-types */
+// legacy files without proper flow checks can suffer from this
 class Rating extends Component<PropsType> {
   static defaultProps = {
     onChange: () => undefined,
     onStarMouseEnter: () => undefined,
     onMouseLeave: () => undefined,
     metricSize: 5,
-    rate: 0
+    rate: 0,
   };
 
   constructor(props: PropsType) {
@@ -56,7 +60,9 @@ class Rating extends Component<PropsType> {
   }
 
   starsOnClickFunctions: Array<() => mixed> = [];
-  starsMouseEnterFunctions: Array<SyntheticMouseEvent<HTMLSpanElement> => mixed> = [];
+  starsMouseEnterFunctions: Array<
+    (SyntheticMouseEvent<HTMLSpanElement>) => mixed
+  > = [];
 
   componentWillReciveProps(nextProps: PropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
@@ -66,12 +72,14 @@ class Rating extends Component<PropsType> {
   }
 
   createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(metricSize).map(rangeIndex => () => this.onClick(rangeIndex));
+    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => () => this.onClick(rangeIndex)
+    );
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(rangeIndex =>
-      event => this.onStarMouseEnter(rangeIndex, event)
+    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
     );
   }
 
@@ -86,7 +94,10 @@ class Rating extends Component<PropsType> {
     onChange(ratedStarIndex);
   };
 
-  onStarMouseEnter = (index: number, event: SyntheticMouseEvent<HTMLSpanElement>) => {
+  onStarMouseEnter = (
+    index: number,
+    event: SyntheticMouseEvent<HTMLSpanElement>
+  ) => {
     const {onStarMouseEnter, active = false} = this.props;
 
     if (!active) {
@@ -101,40 +112,62 @@ class Rating extends Component<PropsType> {
   };
 
   render() {
-    const {metricSize, rate, size = RATING_SIZE.NORMAL,
-      active, className, counterText, activeText, noLabel = false} = this.props;
-    const ratingClass = classnames('sg-rate-box', {
-      'sg-rate-box--large': size === RATING_SIZE.LARGE,
-      'sg-rate-box--active': active
-    }, className);
+    const {
+      metricSize,
+      rate,
+      size = RATING_SIZE.NORMAL,
+      active,
+      className,
+      counterText,
+      activeText,
+      noLabel = false,
+    } = this.props;
+    const ratingClass = classnames(
+      'sg-rate-box',
+      {
+        'sg-rate-box--large': size === RATING_SIZE.LARGE,
+        'sg-rate-box--active': active,
+      },
+      className
+    );
 
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
       key: rangeIndex,
       size,
-      onClick: this.starsOnClickFunctions[rangeIndex]
+      onClick: this.starsOnClickFunctions[rangeIndex],
     }));
 
-    const rateString = rate.toLocaleString(undefined, {minimumFractionDigits: 1, maximumFractionDigits: 1});
+    const rateString = rate.toLocaleString(undefined, {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
 
     return (
       <div className={ratingClass}>
-        {!noLabel &&
-          <div className="sg-rate-box__rate">
-            {rateString}
-          </div>}
-        <div className="sg-rate-box__stars-container" onMouseLeave={this.onMouseLeave}>
-          <div className="sg-rate-box__filled-stars" style={{width: `${100 * rate / metricSize}%`}}>
-            {starsProps.map(props => <Star key={props.key} {...props} />)}
+        {!noLabel && <div className="sg-rate-box__rate">{rateString}</div>}
+        <div
+          className="sg-rate-box__stars-container"
+          onMouseLeave={this.onMouseLeave}
+        >
+          <div
+            className="sg-rate-box__filled-stars"
+            style={{width: `${(100 * rate) / metricSize}%`}}
+          >
+            {starsProps.map(props => (
+              <Star key={props.key} {...props} />
+            ))}
           </div>
           <div className="sg-rate-box__background-stars">
-            {starsProps.map(props =>
-              <Star key={props.key} onMouseEnter={this.starsMouseEnterFunctions[props.key]} {...props} />)}
+            {starsProps.map(props => (
+              <Star
+                key={props.key}
+                onMouseEnter={this.starsMouseEnterFunctions[props.key]}
+                {...props}
+              />
+            ))}
           </div>
         </div>
-        <RateCounter
-          activeText={activeText}
-          counterText={counterText}
-        />
+        <RateCounter activeText={activeText} counterText={counterText} />
       </div>
     );
   }

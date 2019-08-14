@@ -7,8 +7,8 @@ const Stickers = () => {
     {
       name: 'type',
       values: TYPE,
-      required: true
-    }
+      required: true,
+    },
   ];
 
   return (

@@ -15,18 +15,14 @@ const checkboxes = () => (
         secondary
         text="Check me!"
         htmlFor="checkbox-1"
-        iconContent={
-          <Checkbox id="checkbox-1" />
-        }
+        iconContent={<Checkbox id="checkbox-1" />}
       />
       <Label
         secondary
         text="Check me!"
         htmlFor="checkbox-2"
         emphasised
-        iconContent={
-          <Checkbox id="checkbox-2" />
-        }
+        iconContent={<Checkbox id="checkbox-2" />}
       />
     </DocsBlock>
   </div>

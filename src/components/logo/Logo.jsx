@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import classnames from 'classnames';
 
@@ -26,7 +27,7 @@ export const TYPE = {
   ZNANIJA_PLUS_SMALL: 'znanija-plus-small',
   BRAINLY_PLUS: 'brainly-plus',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
-  BRAINLY_PLUS_SMALL: 'brainly-plus-small'
+  BRAINLY_PLUS_SMALL: 'brainly-plus-small',
 };
 
 export const LOGOS = {
@@ -39,19 +40,22 @@ export const LOGOS = {
   [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-edf813672e',
   [TYPE.BRAINLY_PLUS]: 'brainly-plus-42debebd42',
   [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-b9b5efbf59',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-9dd3b24a28'
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-9dd3b24a28',
 };
 
 type PropsType = {
   className?: string,
-  type?: LogoTypeType
+  type?: LogoTypeType,
 };
 
 const Logo = ({type = TYPE.BRAINLY, className, ...props}: PropsType) => {
-
-  const logoClass = classnames('sg-logo', {
-    [`sg-logo--${type}`]: type !== TYPE.BRAINLY
-  }, className);
+  const logoClass = classnames(
+    'sg-logo',
+    {
+      [`sg-logo--${type}`]: type !== TYPE.BRAINLY,
+    },
+    className
+  );
 
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
 

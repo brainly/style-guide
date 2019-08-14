@@ -210,7 +210,7 @@ export const STD_TYPE = {
   STD_TWITTER: 'std-twitter', // new
   STD_UNDERLINED: 'std-underlined',
   STD_VERIFIED: 'std-verified',
-  STD_YOUTUBE: 'std-youtube'
+  STD_YOUTUBE: 'std-youtube',
 };
 
 export const TYPE = {
@@ -263,7 +263,7 @@ export const TYPE = {
   VERIFIED: 'verified',
   X: 'x',
   FB: 'fb',
-  ...STD_TYPE
+  ...STD_TYPE,
 };
 
 export const ICON_COLOR = {
@@ -277,11 +277,34 @@ export const ICON_COLOR = {
   LIGHT: 'light',
   MINT: 'mint',
   MUSTARD: 'mustard',
-  PEACH: 'peach'
+  PEACH: 'peach',
 };
 
 // As soon as we change Avatars to new the new icon, we could clean up sizes of the icons.
-export const SIZE = [120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10];
+export const SIZE = [
+  120,
+  118,
+  104,
+  102,
+  80,
+  78,
+  64,
+  62,
+  56,
+  54,
+  48,
+  46,
+  32,
+  30,
+  26,
+  24,
+  22,
+  20,
+  18,
+  16,
+  14,
+  10,
+];
 
 export type IconPropsType =
   | {
@@ -289,24 +312,24 @@ export type IconPropsType =
        * Additional class names
        */
       className?: ?string,
-       /**
-        * Icons colors example, see more in SG interactive
-        * @example <Icon color="dark" type="std-answer" />
-        * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
-        */
+      /**
+       * Icons colors example, see more in SG interactive
+       * @example <Icon color="dark" type="std-answer" />
+       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+       */
       color?: ?IconColorType,
       /**
-        * Icons size example, see more in SG interactive
-        * @example <Icon size="46" type="std-answer" />
-        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
-        */
+       * Icons size example, see more in SG interactive
+       * @example <Icon size="46" type="std-answer" />
+       * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
+       */
       size?: ?IconSizeType,
       /**
-        * Icons types example, see more in SG interactive
-        * @example <Icon size="46" type="std-answer" />
-        * @see type="std-heart" https://styleguide.brainly.com/latest/docs/interactive.html?type=std-heart#icons
-        */
-      type: IconTypeType
+       * Icons types example, see more in SG interactive
+       * @example <Icon size="46" type="std-answer" />
+       * @see type="std-heart" https://styleguide.brainly.com/latest/docs/interactive.html?type=std-heart#icons
+       */
+      type: IconTypeType,
     }
   | {
       /**
@@ -318,35 +341,50 @@ export type IconPropsType =
        */
       className?: ?string,
       /**
-        * Icons colors example, see more in SG interactive
-        * @example <Icon color="dark" type="std-answer" />
-        * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
-        */
+       * Icons colors example, see more in SG interactive
+       * @example <Icon color="dark" type="std-answer" />
+       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+       */
       color?: ?IconColorType,
       /**
-        * Icons size example, see more in SG interactive
-        * @example <Icon size="46" type="std-answer" />
-        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
-        */
-      size?: ?IconSizeType
-   };
+       * Icons size example, see more in SG interactive
+       * @example <Icon size="46" type="std-answer" />
+       * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
+       */
+      size?: ?IconSizeType,
+    };
 
-// $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
-const Icon = ({color, size = 24, type, children, className, ...props}: IconPropsType) => {
-  const iconClass = classNames('sg-icon', {
-    [`sg-icon--${String(color)}`]: color,
-    [`sg-icon--x${String(size)}`]: size
-  }, className);
+const Icon = ({
+  color,
+  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
+  size = 24,
+  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
+  type,
+  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
+  children,
+  className,
+  ...props
+}: IconPropsType) => {
+  const iconClass = classNames(
+    'sg-icon',
+    {
+      [`sg-icon--${String(color)}`]: color,
+      [`sg-icon--x${String(size)}`]: size,
+    },
+    className
+  );
 
   const iconType = `#icon-${type}`;
 
   return (
     <div {...props} className={iconClass}>
-      {type ?
+      {type ? (
         <svg className="sg-icon__svg">
           <use xlinkHref={iconType} />
-        </svg> :
-        children}
+        </svg>
+      ) : (
+        children
+      )}
     </div>
   );
 };

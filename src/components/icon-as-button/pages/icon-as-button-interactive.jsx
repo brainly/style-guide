@@ -8,36 +8,36 @@ const IconsAsButtons = () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'color',
-      values: ICON_COLOR
+      values: ICON_COLOR,
     },
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
     },
     {
       name: 'border',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'action',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'transparent',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'active',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'href',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   return (
@@ -51,7 +51,9 @@ const IconsAsButtons = () => {
           type={TYPE.MESSAGES}
           transparent
           overlay={
-            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>
+            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+              1
+            </TextBadge>
           }
         />
       </DocsActiveBlock>

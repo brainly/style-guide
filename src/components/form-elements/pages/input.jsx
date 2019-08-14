@@ -11,10 +11,20 @@ const textInputs = () => (
       <Input placeholder="placeholder" />
     </DocsBlock>
     <DocsBlock info="Valid">
-      <Input placeholder="placeholder" valid value="This is valid example" onChange={voidFunction} />
+      <Input
+        placeholder="placeholder"
+        valid
+        value="This is valid example"
+        onChange={voidFunction}
+      />
     </DocsBlock>
     <DocsBlock info="Invalid">
-      <Input placeholder="placeholder" invalid value="This is invalid example" onChange={voidFunction} />
+      <Input
+        placeholder="placeholder"
+        invalid
+        value="This is invalid example"
+        onChange={voidFunction}
+      />
     </DocsBlock>
     <DocsBlock info="Small">
       <Input placeholder="placeholder" size={SIZE.SMALL} />
@@ -34,7 +44,12 @@ const textInputs = () => (
       <Input placeholder="placeholder" fullWidth color={COLOR.LIGHT_ALT} />
     </DocsBlock>
     <DocsBlock info="Password">
-      <Input type="password" value="secret" placeholder="Type password" onChange={voidFunction} />
+      <Input
+        type="password"
+        value="secret"
+        placeholder="Type password"
+        onChange={voidFunction}
+      />
     </DocsBlock>
   </div>
 );

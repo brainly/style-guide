@@ -45,55 +45,57 @@ import Spinners from 'spinner/pages/spinners-interactive';
 import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
 
 const demos = {
-  'Avatars': <Avatars />,
-  'Bubbles': <Bubbles />,
-  'Badges': <Badges />,
-  'Buttons': <Buttons />,
+  Avatars: <Avatars />,
+  Bubbles: <Bubbles />,
+  Badges: <Badges />,
+  Buttons: <Buttons />,
   'Icon as a button': <IconsAsButtons />,
-  'Stickers': <Stickers />,
+  Stickers: <Stickers />,
   'Subject icons': <SubjectIcons />,
   'Subject icon box': <Subjects />,
   'Flash messages': <FlashMessages />,
-  'Boxes': <Boxes />,
-  'Flex': <Flexboxes />,
-  'Cards': <Cards />,
+  Boxes: <Boxes />,
+  Flex: <Flexboxes />,
+  Cards: <Cards />,
   'Action List': <ActionLists />,
-  'Rating': <Ratings />,
-  'Icons': <Icons />,
-  'Labels': <Labels />,
-  'Dropdowns': <Dropdowns />,
-  'Separators': <Separators />,
-  'Text': <Texts />,
-  'Headlines': <Headlines />,
-  'Links': <Links />,
+  Rating: <Ratings />,
+  Icons: <Icons />,
+  Labels: <Labels />,
+  Dropdowns: <Dropdowns />,
+  Separators: <Separators />,
+  Text: <Texts />,
+  Headlines: <Headlines />,
+  Links: <Links />,
   'Text Bit': <TextBits />,
   'Popup Menu': <PopupMenus />,
   'Home Button': <HomeButtons />,
-  'Checkbox': <Checkboxes />,
-  'Radio': <Radios />,
-  'Input': <Inputs />,
-  'Select': <Selects />,
-  'Textarea': <Textareas />,
-  'Search': <SearchInputs />,
-  'Breadcrumbs': <Breadcrumbs />,
-  'Footer': <Footers />,
-  'Layout': <Layouts />,
-  'Toplayer': <Toplayers />,
-  'Overlay': <Overlays />,
+  Checkbox: <Checkboxes />,
+  Radio: <Radios />,
+  Input: <Inputs />,
+  Select: <Selects />,
+  Textarea: <Textareas />,
+  Search: <SearchInputs />,
+  Breadcrumbs: <Breadcrumbs />,
+  Footer: <Footers />,
+  Layout: <Layouts />,
+  Toplayer: <Toplayers />,
+  Overlay: <Overlays />,
   'Overlayed box': <OverlayedBoxes />,
-  'Logo': <Logos />,
-  'Media': <Media />,
-  'Helpers': <Helpers />,
-  'ContentBox': <ContentBoxes />,
-  'Spinner': <Spinners />,
-  'Spinner Container': <SpinnerContainers />
+  Logo: <Logos />,
+  Media: <Media />,
+  Helpers: <Helpers />,
+  ContentBox: <ContentBoxes />,
+  Spinner: <Spinners />,
+  'Spinner Container': <SpinnerContainers />,
 };
 
 export const sections = Object.keys(demos).map(key => (
   <article key={key}>
     <h2 className="article-header" id={slugify(key)}>
       {key}
-      <a href={'#' + slugify(key)} className="permalink">#</a>
+      <a href={`#${slugify(key)}`} className="permalink">
+        #
+      </a>
     </h2>
     {demos[key]}
   </article>

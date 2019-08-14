@@ -8,30 +8,30 @@ const Separators = () => {
   const verticalSettings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'white',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'grayDark',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
   const horizontalSettings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
     },
     {
       name: 'white',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'grayDark',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
@@ -39,12 +39,12 @@ const Separators = () => {
       <DocsActiveBlock
         settings={verticalSettings}
         backgroundColor="dark"
-        contentBefore={<Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />}
+        contentBefore={
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
+        }
         contentAfter={<Avatar size={AVATAR_SIZE.SMALL} />}
       >
-
         <SeparatorVertical />
-
       </DocsActiveBlock>
 
       <DocsActiveBlock

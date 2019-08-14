@@ -32,7 +32,6 @@ test('render text', () => {
 
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is('span')).toEqual(true);
-
 });
 
 test('merge className', () => {

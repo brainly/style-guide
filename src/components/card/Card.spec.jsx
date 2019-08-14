@@ -95,6 +95,4 @@ describe('Card', () => {
 
     expect(card.hasClass('sg-card--padding-large')).toEqual(true);
   });
-
 });
-

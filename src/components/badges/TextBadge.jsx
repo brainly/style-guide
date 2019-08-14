@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import * as BadgeModule from './subcomponents/Badge';
 import Text, {TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from '../text/Text';
@@ -20,7 +21,7 @@ const TEXT_COLOR_MAPPING = {
   [TEXT_BADGE_COLOR.MINT_SECONDARY_LIGHT]: TEXT_COLOR.MINT_DARK,
   [TEXT_BADGE_COLOR.PEACH_SECONDARY_LIGHT]: TEXT_COLOR.PEACH_DARK,
   [TEXT_BADGE_COLOR.BLUE_SECONDARY_LIGHT]: TEXT_COLOR.BLUE_DARK,
-  [TEXT_BADGE_COLOR.LAVENDER]: TEXT_COLOR.WHITE
+  [TEXT_BADGE_COLOR.LAVENDER]: TEXT_COLOR.WHITE,
 };
 
 type PropsType = {
@@ -29,7 +30,7 @@ type PropsType = {
   color?: BadgeModule.BadgeColorType,
   size?: BadgeModule.BadgeSizeType,
   rounded?: boolean,
-  withAnimation?: boolean
+  withAnimation?: boolean,
 };
 
 const TextBadge = ({
@@ -41,7 +42,8 @@ const TextBadge = ({
   className,
   ...props
 }: PropsType) => {
-  const textSize = size === BADGE_SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
+  const textSize =
+    size === BADGE_SIZE.LARGE ? TEXT_SIZE.NORMAL : TEXT_SIZE.XSMALL;
 
   return (
     <Badge
@@ -52,7 +54,13 @@ const TextBadge = ({
       rounded={rounded}
       withAnimation={withAnimation}
     >
-      <Text size={textSize} weight={TEXT_WEIGHT.BOLD} color={TEXT_COLOR_MAPPING[color]}>{children}</Text>
+      <Text
+        size={textSize}
+        weight={TEXT_WEIGHT.BOLD}
+        color={TEXT_COLOR_MAPPING[color]}
+      >
+        {children}
+      </Text>
     </Badge>
   );
 };

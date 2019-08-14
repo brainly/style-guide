@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import classNames from 'classnames';
 import * as SubjectIconModule from './SubjectIcon';
@@ -9,13 +10,23 @@ type PropsType = {
   className?: string,
   darker?: boolean,
   type: SubjectIconModule.IconTypeType,
-  size?: SubjectIconModule.SizeType
+  size?: SubjectIconModule.SizeType,
 };
 
-const SubjectIconBox = ({type, size = SIZE.NORMAL, darker, className, ...props}: PropsType) => {
-  const boxClass = classNames('sg-subject-icon-box', {
-    'sg-subject-icon-box--darker': darker
-  }, className);
+const SubjectIconBox = ({
+  type,
+  size = SIZE.NORMAL,
+  darker,
+  className,
+  ...props
+}: PropsType) => {
+  const boxClass = classNames(
+    'sg-subject-icon-box',
+    {
+      'sg-subject-icon-box--darker': darker,
+    },
+    className
+  );
 
   return (
     <div {...props} className={boxClass}>

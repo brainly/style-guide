@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
@@ -13,7 +14,7 @@ type PropsType = {
   reversedOrder?: boolean,
   fullPage?: boolean,
   wide?: boolean,
-  threeColumns?: boolean
+  threeColumns?: boolean,
 };
 
 const Layout = ({
@@ -30,13 +31,13 @@ const Layout = ({
   ...props
 }: PropsType) => {
   const layoutClass = classNames('sg-layout', className, {
-    'sg-layout--three-columns': threeColumns
+    'sg-layout--three-columns': threeColumns,
   });
   const layoutContainerClass = classNames('sg-layout__container', {
     'sg-layout__container--reversed-order': reversedOrder,
     'sg-layout__container--no-max-width': noMaxWidth,
     'sg-layout__container--no-margin-top': noMarginTop,
-    'sg-layout__container--full-page': fullPage
+    'sg-layout__container--full-page': fullPage,
   });
   let footerContent;
 
@@ -47,9 +48,7 @@ const Layout = ({
   return (
     <div {...props} className={layoutClass}>
       {header}
-      <div className={layoutContainerClass}>
-        {children}
-      </div>
+      <div className={layoutContainerClass}>{children}</div>
       {footerContent}
     </div>
   );

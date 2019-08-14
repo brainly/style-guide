@@ -1,10 +1,11 @@
 // @flow
+
 import React from 'react';
 import type {Node} from 'react';
 
 type PropsType = {
   additionalInfo?: Node,
-  info?: Node
+  info?: Node,
 };
 
 const InfoBlock = ({info, additionalInfo}: PropsType) => {

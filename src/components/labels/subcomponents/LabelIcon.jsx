@@ -1,4 +1,5 @@
 // @flow strict
+
 import * as React from 'react';
 import * as IconModule from '../../icons/Icon';
 
@@ -8,16 +9,12 @@ type PropsType = {
   iconContent?: ?React.Element<*>,
   iconSize?: IconModule.IconSizeType,
   iconColor?: IconModule.IconColorType,
-  iconType?: IconModule.IconTypeType
+  iconType?: IconModule.IconTypeType,
 };
 
 const LabelIcon = ({iconType, iconColor, iconContent, iconSize}: PropsType) => {
   if (iconContent) {
-    return (
-      <div className="sg-label__icon">
-        {iconContent}
-      </div>
-    );
+    return <div className="sg-label__icon">{iconContent}</div>;
   }
   if (iconType) {
     return (

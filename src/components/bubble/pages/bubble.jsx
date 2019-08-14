@@ -15,58 +15,75 @@ const Bubbles = () => (
   <div>
     <DocsBlock info="Top (middle)" additionalInfo="--top">
       <Bubble direction={DIRECTION.TOP}>
-        Hi there!!<br />
+        Hi there!!
+        <br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info="Top-start" additionalInfo="--top --row-start">
       <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>
-        Hi there!!<br />
+        Hi there!!
+        <br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
     <DocsBlock info="Top-end" additionalInfo="--top --row-end">
       <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.END}>
-        Hi there!!<br />
+        Hi there!!
+        <br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
-    <DocsBlock info="Bottom-start" additionalInfo="--bottom --row-start (--/--row-end)">
+    <DocsBlock
+      info="Bottom-start"
+      additionalInfo="--bottom --row-start (--/--row-end)"
+    >
       <Bubble direction={DIRECTION.BOTTOM} alignment={ALIGNMENT.START}>
-        Hi there!!<br />
+        Hi there!!
+        <br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>
 
-    <DocsBlock info="Left-start" additionalInfo="--left --column-start (--/--column-end)">
+    <DocsBlock
+      info="Left-start"
+      additionalInfo="--left --column-start (--/--column-end)"
+    >
       <div style={{width: '300px'}}>
         <Bubble direction={DIRECTION.LEFT} alignment={ALIGNMENT.START}>
-          Hi there!! Just wondering if you have any problems with your school work.
-          We&apos;ve got plenty of people who can help you here :)
-          Also, my last question was answered in less than 10 minutes :D
-          Anyway, you can just go ahead and try for yourself.
+          Hi there!! Just wondering if you have any problems with your school
+          work. We&apos;ve got plenty of people who can help you here :) Also,
+          my last question was answered in less than 10 minutes :D Anyway, you
+          can just go ahead and try for yourself.
         </Bubble>
       </div>
     </DocsBlock>
 
-    <DocsBlock info="Right-start" additionalInfo="--right --column-start (--/--column-end)">
+    <DocsBlock
+      info="Right-start"
+      additionalInfo="--right --column-start (--/--column-end)"
+    >
       <div style={{width: '300px'}}>
         <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.START}>
-          Hi there!! Just wondering if you have any problems with your school work.
-          We&apos;ve got plenty of people who can help you here :)
-          Also, my last question was answered in less than 10 minutes :D
-          Anyway, you can just go ahead and try for yourself.
+          Hi there!! Just wondering if you have any problems with your school
+          work. We&apos;ve got plenty of people who can help you here :) Also,
+          my last question was answered in less than 10 minutes :D Anyway, you
+          can just go ahead and try for yourself.
         </Bubble>
       </div>
     </DocsBlock>
 
-    <DocsBlock info="Full + left" additionalInfo="--full (makes 100% height) --top">
+    <DocsBlock
+      info="Full + left"
+      additionalInfo="--full (makes 100% height) --top"
+    >
       <div style={{height: '200px'}}>
         <Bubble direction={DIRECTION.TOP} full>
-          Hi there!!<br />
+          Hi there!!
+          <br />
           Just wondering if you have any problems with your school work.
         </Bubble>
       </div>
@@ -79,18 +96,21 @@ const Bubbles = () => (
             <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
             <Breadcrumb
               elements={[
-                <Link key={1} href="#" color={LINK_COLOR.GRAY}>Katie</Link>,
-                <Link key={2} href="#" color={LINK_COLOR.GRAY}>a few seconds ago</Link>
+                <Link key={1} href="#" color={LINK_COLOR.GRAY}>
+                  Katie
+                </Link>,
+                <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+                  a few seconds ago
+                </Link>,
               ]}
             />
           </ContentBoxHeader>
           <ContentBoxContent>
             <Text>
-              Hi there!! Just wondering if you have any problems with your school work. We&apos;ve got plenty
-              of people who
-              can help you here :) Also, my last question was answered in less than 10 minutes :D Anyway,
-              you can just
-              go ahead and try for yourself.
+              Hi there!! Just wondering if you have any problems with your
+              school work. We&apos;ve got plenty of people who can help you here
+              :) Also, my last question was answered in less than 10 minutes :D
+              Anyway, you can just go ahead and try for yourself.
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
@@ -105,14 +125,20 @@ const Bubbles = () => (
     {Object.values(BUBBLE_COLOR).map(color => (
       <DocsBlock key={color} info={`color ${color}`}>
         <Bubble direction={DIRECTION.LEFT} color={color}>
-          {color}<br />
+          {color}
+          <br />
         </Bubble>
-      </DocsBlock>))
-    }
+      </DocsBlock>
+    ))}
 
     <DocsBlock info="Without shadow" additionalInfo="--no-shadow">
-      <Bubble direction={DIRECTION.LEFT} color={BUBBLE_COLOR.MINT_SECONDARY} noShadow>
-        Hi there!!<br />
+      <Bubble
+        direction={DIRECTION.LEFT}
+        color={BUBBLE_COLOR.MINT_SECONDARY}
+        noShadow
+      >
+        Hi there!!
+        <br />
         Just wondering if you have any problems with your school work.
       </Bubble>
     </DocsBlock>

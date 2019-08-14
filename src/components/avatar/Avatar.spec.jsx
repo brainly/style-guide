@@ -17,9 +17,7 @@ test('render default', () => {
 test('render with image', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
-  const avatar = mount(
-    <Avatar imgSrc={imgSrc} />
-  );
+  const avatar = mount(<Avatar imgSrc={imgSrc} />);
 
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
   expect(avatar.find('img')).toHaveLength(1);
@@ -47,39 +45,29 @@ test('default icon profile', () => {
 
 test('SIZE', () => {
   const size = SIZE.XLARGE;
-  const avatar = shallow(
-    <Avatar size={size} />
-  );
+  const avatar = shallow(<Avatar size={size} />);
 
   expect(avatar.hasClass('sg-avatar--xlarge')).toEqual(true);
 });
 
 test('border', () => {
-  const avatar = shallow(
-    <Avatar border />
-  );
+  const avatar = shallow(<Avatar border />);
 
   expect(avatar.hasClass('sg-avatar--with-border')).toEqual(true);
 });
 
 test('spaced', () => {
-  const avatar = shallow(
-    <Avatar spaced />
-  );
+  const avatar = shallow(<Avatar spaced />);
 
   expect(avatar.hasClass('sg-avatar--spaced')).toEqual(true);
 });
 
 test('link', () => {
-  const avatar = shallow(
-    <Avatar link="https://brainly.com" />
-  );
+  const avatar = shallow(<Avatar link="https://brainly.com" />);
 
   expect(avatar.find('a')).toHaveLength(1);
 
-  const avatar1 = shallow(
-    <Avatar />
-  );
+  const avatar1 = shallow(<Avatar />);
 
   expect(avatar1.find('a')).toHaveLength(0);
 });

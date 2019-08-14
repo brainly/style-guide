@@ -18,14 +18,36 @@ import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 
-const link1 = <Link href="#" color={LINK_COLOR.GRAY}>Math</Link>;
-const link2 = <Link href="#" color={LINK_COLOR.GRAY}>10 pts</Link>;
-const link3 = <Link href="#" color={LINK_COLOR.GRAY}>2 min ago</Link>;
+const link1 = (
+  <Link href="#" color={LINK_COLOR.GRAY}>
+    Math
+  </Link>
+);
+const link2 = (
+  <Link href="#" color={LINK_COLOR.GRAY}>
+    10 pts
+  </Link>
+);
+const link3 = (
+  <Link href="#" color={LINK_COLOR.GRAY}>
+    2 min ago
+  </Link>
+);
 const breadcrumbs = [link1, link2, link3];
-const breadcrumbsSpaced = [<Link key={1} color={LINK_COLOR.GRAY}>Katie</Link>,
-  <Link key={2} href="#" color={LINK_COLOR.GRAY}>Answerer</Link>];
-const breadcrumbsSpaced2 = [<Link key={1}>Comments (9)</Link>,
-  <Link key={2} href="#">Report</Link>];
+const breadcrumbsSpaced = [
+  <Link key={1} color={LINK_COLOR.GRAY}>
+    Katie
+  </Link>,
+  <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+    Answerer
+  </Link>,
+];
+const breadcrumbsSpaced2 = [
+  <Link key={1}>Comments (9)</Link>,
+  <Link key={2} href="#">
+    Report
+  </Link>,
+];
 
 const spacedBottomOptions = (
   <div>
@@ -60,17 +82,20 @@ const spacedTopOptions = (
 const examplePart1 = (
   <ContentBox>
     <ContentBoxTitle>
-      <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+      <Headline type={HEADLINE_TYPE.H2}>
+        This is a title for context box
+      </Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
       <ButtonSecondary>Search!</ButtonSecondary>
     </ContentBoxActions>
     <ContentBoxContent>
       <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-        lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-        Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-        vel eros.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
+        porttitor, tincidunt lorem quis, gravida ex. Phasellus semper orci
+        nulla, sit amet egestas orci mattis sit amet. Aenean laoreet, dolor ac
+        aliquet porta, velit libero euismod purus, quis dignissim ante sem vel
+        eros.
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
@@ -78,9 +103,14 @@ const examplePart1 = (
         <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
       </OverlayedBox>
       <SeparatorVertical />
-      <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?dog" />
+      <Avatar
+        size={AVATAR_SIZE.SMALL}
+        imgSrc="https://source.unsplash.com/64x64/?dog"
+      />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+        Answer
+      </ButtonSecondary>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -88,17 +118,20 @@ const examplePart1 = (
 const examplePart2 = (
   <ContentBox>
     <ContentBoxTitle>
-      <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+      <Headline type={HEADLINE_TYPE.H2}>
+        This is a title for context box
+      </Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
       <ButtonPrimary>Search!</ButtonPrimary>
     </ContentBoxActions>
     <ContentBoxContent>
       <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-        lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-        Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-        vel eros.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
+        porttitor, tincidunt lorem quis, gravida ex. Phasellus semper orci
+        nulla, sit amet egestas orci mattis sit amet. Aenean laoreet, dolor ac
+        aliquet porta, velit libero euismod purus, quis dignissim ante sem vel
+        eros.
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
@@ -106,9 +139,14 @@ const examplePart2 = (
         <Avatar imgSrc="https://source.unsplash.com/64x64/?bird" />
       </OverlayedBox>
       <SeparatorVertical />
-      <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+      <Avatar
+        size={AVATAR_SIZE.SMALL}
+        imgSrc="https://source.unsplash.com/64x64/?bird"
+      />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+        Answer
+      </ButtonSecondary>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -122,10 +160,11 @@ const ContentBoxes = () => (
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex. Phasellus semper
+            orci nulla, sit amet egestas orci mattis sit amet. Aenean laoreet,
+            dolor ac aliquet porta, velit libero euismod purus, quis dignissim
+            ante sem vel eros.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
@@ -133,23 +172,31 @@ const ContentBoxes = () => (
             <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
           </OverlayedBox>
           <SeparatorVertical />
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?cat" />
+          <Avatar
+            size={AVATAR_SIZE.SMALL}
+            imgSrc="https://source.unsplash.com/64x64/?cat"
+          />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+            Answer
+          </ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title">
       <ContentBox>
         <ContentBoxTitle>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxContent>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex. Phasellus semper
+            orci nulla, sit amet egestas orci mattis sit amet. Aenean laoreet,
+            dolor ac aliquet porta, velit libero euismod purus, quis dignissim
+            ante sem vel eros.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
@@ -157,26 +204,34 @@ const ContentBoxes = () => (
             <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
           </OverlayedBox>
           <SeparatorVertical />
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+          <Avatar
+            size={AVATAR_SIZE.SMALL}
+            imgSrc="https://source.unsplash.com/64x64/?bird"
+          />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+            Answer
+          </ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title and header">
       <ContentBox>
         <ContentBoxTitle>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader>
           <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex. Phasellus semper
+            orci nulla, sit amet egestas orci mattis sit amet. Aenean laoreet,
+            dolor ac aliquet porta, velit libero euismod purus, quis dignissim
+            ante sem vel eros.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
@@ -184,69 +239,91 @@ const ContentBoxes = () => (
             <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
           </OverlayedBox>
           <SeparatorVertical />
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?bird" />
+          <Avatar
+            size={AVATAR_SIZE.SMALL}
+            imgSrc="https://source.unsplash.com/64x64/?bird"
+          />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+            Answer
+          </ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title and header (spaced)">
       <ContentBox spaced>
         <ContentBoxTitle spaced>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spaced>
           <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-          lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-          Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-          vel eros.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
+          porttitor, tincidunt lorem quis, gravida ex. Phasellus semper orci
+          nulla, sit amet egestas orci mattis sit amet. Aenean laoreet, dolor ac
+          aliquet porta, velit libero euismod purus, quis dignissim ante sem vel
+          eros.
         </ContentBoxContent>
         <ContentBoxActions>
           <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           </OverlayedBox>
           <SeparatorVertical />
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten" />
+          <Avatar
+            size={AVATAR_SIZE.SMALL}
+            imgSrc="https://source.unsplash.com/64x64/?kitten"
+          />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+            Answer
+          </ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with title and header (spaced small)">
       <ContentBox spaced>
         <ContentBoxTitle spacedSmall>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spacedSmall>
           <Breadcrumbs elements={breadcrumbs} />
         </ContentBoxHeader>
         <ContentBoxContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-          lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-          Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-          vel eros.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
+          porttitor, tincidunt lorem quis, gravida ex. Phasellus semper orci
+          nulla, sit amet egestas orci mattis sit amet. Aenean laoreet, dolor ac
+          aliquet porta, velit libero euismod purus, quis dignissim ante sem vel
+          eros.
         </ContentBoxContent>
         <ContentBoxActions>
           <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
             <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           </OverlayedBox>
           <SeparatorVertical />
-          <Avatar size={AVATAR_SIZE.SMALL} imgSrc="https://source.unsplash.com/64x64/?kitten" />
+          <Avatar
+            size={AVATAR_SIZE.SMALL}
+            imgSrc="https://source.unsplash.com/64x64/?kitten"
+          />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>Answer</ButtonSecondary>
+          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
+            Answer
+          </ButtonSecondary>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
     <DocsBlock info="Simple with content (full)">
       <ContentBox>
         <ContentBoxContent full>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-          lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-          Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-          vel eros.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
+          porttitor, tincidunt lorem quis, gravida ex. Phasellus semper orci
+          nulla, sit amet egestas orci mattis sit amet. Aenean laoreet, dolor ac
+          aliquet porta, velit libero euismod purus, quis dignissim ante sem vel
+          eros.
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
@@ -262,16 +339,21 @@ const ContentBoxes = () => (
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros. Maecenas posuere sit amet urna quis faucibus. Maecenas a lorem mi. Morbi interdum
-            tincidunt neque, nec mollis nulla tincidunt ac. Suspendisse potenti.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex. Phasellus semper
+            orci nulla, sit amet egestas orci mattis sit amet. Aenean laoreet,
+            dolor ac aliquet porta, velit libero euismod purus, quis dignissim
+            ante sem vel eros. Maecenas posuere sit amet urna quis faucibus.
+            Maecenas a lorem mi. Morbi interdum tincidunt neque, nec mollis
+            nulla tincidunt ac. Suspendisse potenti.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
+          <ButtonSecondary
+            small
+            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
+          >
             <Label
               text="Thank you"
               number={21}
@@ -293,16 +375,21 @@ const ContentBoxes = () => (
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex. Phasellus semper orci nulla, sit amet egestas orci mattis sit amet.
-            Aenean laoreet, dolor ac aliquet porta, velit libero euismod purus, quis dignissim ante sem
-            vel eros. Maecenas posuere sit amet urna quis faucibus. Maecenas a lorem mi. Morbi interdum
-            tincidunt neque, nec mollis nulla tincidunt ac. Suspendisse potenti.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex. Phasellus semper
+            orci nulla, sit amet egestas orci mattis sit amet. Aenean laoreet,
+            dolor ac aliquet porta, velit libero euismod purus, quis dignissim
+            ante sem vel eros. Maecenas posuere sit amet urna quis faucibus.
+            Maecenas a lorem mi. Morbi interdum tincidunt neque, nec mollis
+            nulla tincidunt ac. Suspendisse potenti.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
+          <ButtonSecondary
+            small
+            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
+          >
             <Label
               text="Thank you"
               number={21}
@@ -316,15 +403,20 @@ const ContentBoxes = () => (
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
-    <DocsBlock info="Spaced-bottom elements inside" additionalInfo={spacedBottomOptions}>
+    <DocsBlock
+      info="Spaced-bottom elements inside"
+      additionalInfo={spacedBottomOptions}
+    >
       <ContentBox>
         <ContentBoxTitle spacedBottom={SIZE.XLARGE}>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxContent spacedBottom={SIZE.XLARGE}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions spacedBottom={SIZE.XLARGE}>
@@ -332,15 +424,20 @@ const ContentBoxes = () => (
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
-    <DocsBlock info="Spaced-top elements inside" additionalInfo={spacedTopOptions}>
+    <DocsBlock
+      info="Spaced-top elements inside"
+      additionalInfo={spacedTopOptions}
+    >
       <ContentBox>
         <ContentBoxTitle spacedTop={SIZE.XLARGE}>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxContent spacedTop={SIZE.XLARGE}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions spacedTop={SIZE.XLARGE}>
@@ -351,22 +448,31 @@ const ContentBoxes = () => (
     <DocsBlock info="Centered elements inside">
       <ContentBox>
         <ContentBoxTitle align={ALIGNMENT.CENTER}>
-          <Headline type={HEADLINE_TYPE.H2}>This is a title for context box</Headline>
+          <Headline type={HEADLINE_TYPE.H2}>
+            This is a title for context box
+          </Headline>
         </ContentBoxTitle>
         <ContentBoxContent align={ALIGNMENT.CENTER}>
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui porttitor, tincidunt
-            lorem quis, gravida ex.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel
+            dui porttitor, tincidunt lorem quis, gravida ex.
           </Text>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
           <Breadcrumbs
             elements={[
-              <Link key={1} href="#">Comments (9)</Link>,
-              <Link key={2} href="#">Report</Link>
+              <Link key={1} href="#">
+                Comments (9)
+              </Link>,
+              <Link key={2} href="#">
+                Report
+              </Link>,
             ]}
           />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
+          <ButtonSecondary
+            small
+            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
+          >
             <Label
               text="Thank you"
               number={21}
@@ -384,7 +490,10 @@ const ContentBoxes = () => (
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}>
+          <ButtonSecondary
+            small
+            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
+          >
             <Label
               text="Thank you"
               number={21}
@@ -405,8 +514,12 @@ const ContentBoxes = () => (
           <Breadcrumbs elements={['The Brain', 'Answerer']} />
         </ContentBoxHeader>
         <ContentBoxContent>
-          <Headline size={HEADLINE_SIZE.SMALL}>Hey! Still not sure about the answer?</Headline>
-          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Check similar answers</ButtonPrimary>
+          <Headline size={HEADLINE_SIZE.SMALL}>
+            Hey! Still not sure about the answer?
+          </Headline>
+          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+            Check similar answers
+          </ButtonPrimary>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>

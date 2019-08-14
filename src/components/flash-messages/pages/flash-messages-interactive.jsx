@@ -6,13 +6,13 @@ const FlashMessages = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
+      values: TYPE,
     },
     {
       name: 'text',
       values: String,
-      required: true
-    }
+      required: true,
+    },
   ];
 
   return (

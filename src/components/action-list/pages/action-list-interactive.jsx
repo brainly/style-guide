@@ -12,20 +12,20 @@ const ActionLists = () => {
   const settings = [
     {
       name: 'noWrap',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'toTop',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'direction',
-      values: DIRECTION
+      values: DIRECTION,
     },
     {
       name: 'align',
-      values: ALIGNMENT
-    }
+      values: ALIGNMENT,
+    },
   ];
 
   return (
@@ -52,8 +52,10 @@ const ActionLists = () => {
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.DARK}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus turpis quis dolor suscipit,
-              a mattis nunc posuere. Duis lacinia mauris quis tempus varius. Donec consectetur bibendum pretium.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+              rhoncus turpis quis dolor suscipit, a mattis nunc posuere. Duis
+              lacinia mauris quis tempus varius. Donec consectetur bibendum
+              pretium.
             </Text>
           </ActionListHole>
         </ActionList>

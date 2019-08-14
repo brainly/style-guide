@@ -16,7 +16,7 @@ const Dropdowns = () => (
       info="Closed"
       multiContent={[
         <Dropdown key={1} {...defaultProps} fullWidth={false} />,
-        <Dropdown key={2} {...defaultProps} />
+        <Dropdown key={2} {...defaultProps} />,
       ]}
     />
 
@@ -30,7 +30,7 @@ const Dropdowns = () => (
         </div>,
         <ContrastBox key={2}>
           <Dropdown {...defaultProps} isOpened />
-        </ContrastBox>
+        </ContrastBox>,
       ]}
     />
 
@@ -43,7 +43,7 @@ const Dropdowns = () => (
         </ContrastBox>,
         <ContrastBox key={2}>
           <Dropdown {...defaultProps} fixed isOpened />
-        </ContrastBox>
+        </ContrastBox>,
       ]}
     />
   </div>

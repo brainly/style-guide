@@ -3,17 +3,13 @@ import TopLayer, {SIZE} from './TopLayer';
 import {mount, shallow} from 'enzyme';
 
 test('render', () => {
-  const topLayer = shallow(
-    <TopLayer>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.hasClass('sg-toplayer')).toEqual(true);
 });
 
 test('default size', () => {
-  const topLayer = shallow(
-    <TopLayer>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer>some text</TopLayer>);
 
   Object.values(SIZE).forEach(size => {
     expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
@@ -44,9 +40,7 @@ test('click action', () => {
 
 test('size', () => {
   const size = SIZE.SMALL;
-  const topLayer = shallow(
-    <TopLayer size={size}>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer size={size}>some text</TopLayer>);
 
   expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(true);
 });
@@ -78,9 +72,7 @@ test('testing modifications - all on', () => {
 });
 
 test('testing modifications - all off', () => {
-  const topLayer = shallow(
-    <TopLayer>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.hasClass('sg-toplayer--lead')).toEqual(false);
   expect(topLayer.hasClass('sg-toplayer--fill')).toEqual(false);
@@ -93,17 +85,17 @@ test('testing modifications - all off', () => {
 });
 
 test('testing wrapper', () => {
-  const topLayer = shallow(
-    <TopLayer>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.find('.sg-toplayer__wrapper')).toHaveLength(1);
 });
 
 test('testing wrapper without padding', () => {
-  const topLayer = shallow(
-    <TopLayer noPadding>some text</TopLayer>
-  );
+  const topLayer = shallow(<TopLayer noPadding>some text</TopLayer>);
 
-  expect(topLayer.find('.sg-toplayer__wrapper').hasClass('sg-toplayer__wrapper--no-padding')).toEqual(true);
+  expect(
+    topLayer
+      .find('.sg-toplayer__wrapper')
+      .hasClass('sg-toplayer__wrapper--no-padding')
+  ).toEqual(true);
 });

@@ -6,8 +6,8 @@ const Logos = () => {
   const settings = [
     {
       name: 'type',
-      values: TYPE
-    }
+      values: TYPE,
+    },
   ];
 
   return (

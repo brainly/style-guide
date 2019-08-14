@@ -8,8 +8,8 @@ const Helpers = () => {
     {
       name: 'hide',
       values: TYPE,
-      required: true
-    }
+      required: true,
+    },
   ];
 
   return (
@@ -24,7 +24,11 @@ const Helpers = () => {
       <DocsActiveBlock settings={settings}>
         <RwdHelper hide={TYPE.MEDIUM_UP}>
           <span>
-            <Icon type={ICON_TYPE.EQUATION} color={ICON_COLOR.LAVENDER} size={32} />
+            <Icon
+              type={ICON_TYPE.EQUATION}
+              color={ICON_COLOR.LAVENDER}
+              size={32}
+            />
           </span>
         </RwdHelper>
       </DocsActiveBlock>

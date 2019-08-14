@@ -1,11 +1,12 @@
 // @flow
+
 import React, {Component} from 'react';
 import type {Node} from 'react';
 import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
 type PropsType = {
   children: Node,
-  type: string
+  type: string,
 };
 
 class CodeBlock extends Component<PropsType> {
@@ -23,7 +24,7 @@ class CodeBlock extends Component<PropsType> {
     new window.Clipboard(copyButton, {
       target() {
         return copyHelperCode;
-      }
+      },
     });
   }
 
@@ -45,7 +46,7 @@ class CodeBlock extends Component<PropsType> {
     let markup = html_beautify(children, {
       indent_size: 2,
       unformatted: [],
-      wrap_line_length: 0
+      wrap_line_length: 0,
     });
 
     if (type === 'jsx') {
@@ -56,8 +57,10 @@ class CodeBlock extends Component<PropsType> {
       markup = markup
         .replace('&lt;i&gt;', '')
         .replace('&lt;/i&gt;', '')
-        .replace('<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>', '');
-
+        .replace(
+          '<span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>',
+          ''
+        );
     } else {
       markup = hljs.highlight(type, markup).value;
     }
@@ -71,10 +74,7 @@ class CodeBlock extends Component<PropsType> {
             dangerouslySetInnerHTML={{__html: markup}}
           />
         </pre>
-        <div
-          className="copy-helper__buttons"
-          ref={this.copyButtonFunction}
-        >
+        <div className="copy-helper__buttons" ref={this.copyButtonFunction}>
           <IconAsButton
             title="Copy to the clipboard"
             type={TYPE.ANSWER}

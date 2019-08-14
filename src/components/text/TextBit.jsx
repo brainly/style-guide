@@ -3,20 +3,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type TextBitTypeType =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'div';
+type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
-type TextBitSizeType =
-  | 'small'
-  | 'normal'
-  | 'large'
-  | 'xlarge';
+type TextBitSizeType = 'small' | 'normal' | 'large' | 'xlarge';
 
 type TextBitColorType =
   | 'blue-primary'
@@ -41,14 +30,14 @@ export const TEXT_BIT_TYPE = Object.freeze({
   H4: 'h4',
   H5: 'h5',
   H6: 'h6',
-  DIV: 'div'
+  DIV: 'div',
 });
 
 export const TEXT_BIT_SIZE = Object.freeze({
   SMALL: 'small',
   NORMAL: 'normal',
   LARGE: 'large',
-  XLARGE: 'xlarge'
+  XLARGE: 'xlarge',
 });
 
 export const TEXT_BIT_COLOR = Object.freeze({
@@ -65,7 +54,7 @@ export const TEXT_BIT_COLOR = Object.freeze({
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
   WHITE: 'white',
-  BLACK: 'black'
+  BLACK: 'black',
 });
 
 type TextBitPropsType = {
@@ -73,7 +62,7 @@ type TextBitPropsType = {
   type?: TextBitTypeType,
   size?: TextBitSizeType,
   color?: ?TextBitColorType,
-  className?: ?string
+  className?: ?string,
 };
 
 const TextBit = ({
@@ -82,12 +71,17 @@ const TextBit = ({
   size = TEXT_BIT_SIZE.NORMAL,
   color,
   className,
-  ...props}: TextBitPropsType) => {
+  ...props
+}: TextBitPropsType) => {
   const Type = type;
-  const textClass = classNames('sg-text-bit', {
-    [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.NORMAL,
-    [`sg-text-bit--${color || ''}`]: color
-  }, className);
+  const textClass = classNames(
+    'sg-text-bit',
+    {
+      [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.NORMAL,
+      [`sg-text-bit--${color || ''}`]: color,
+    },
+    className
+  );
 
   return (
     <Type {...props} className={textClass}>

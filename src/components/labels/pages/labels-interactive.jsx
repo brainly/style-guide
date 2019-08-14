@@ -7,46 +7,50 @@ const Labels = () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'iconType',
-      values: ICON_TYPE
+      values: ICON_TYPE,
     },
     {
       name: 'iconColor',
-      values: ICON_COLOR
+      values: ICON_COLOR,
     },
     {
       name: 'text',
-      values: String
+      values: String,
     },
     {
       name: 'number',
-      values: Number
+      values: Number,
     },
     {
       name: 'secondary',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'emphasised',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'unstyled',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'elementsToTop',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Label text="Search" iconType={ICON_TYPE.SEARCH} iconColor={ICON_COLOR.GRAY} />
+        <Label
+          text="Search"
+          iconType={ICON_TYPE.SEARCH}
+          iconColor={ICON_COLOR.GRAY}
+        />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <Label
@@ -64,9 +68,7 @@ const Labels = () => {
           size={SIZE.LARGE}
           text="Check me!"
           htmlFor="checkbox-1"
-          iconContent={
-            <Checkbox id="checkbox-1" />
-          }
+          iconContent={<Checkbox id="checkbox-1" />}
         />
       </DocsActiveBlock>
     </div>

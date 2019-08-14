@@ -9,7 +9,10 @@ import HeaderRight from '../HeaderRight';
 import HomeButton from 'home-button/HomeButton';
 import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
-import IconAsButton, {TYPE as ICON_TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
+import IconAsButton, {
+  TYPE as ICON_TYPE,
+  ICON_COLOR,
+} from 'icon-as-button/IconAsButton';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
 import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import ActionList from 'action-list/ActionList';
@@ -47,13 +50,20 @@ const Headers = () => (
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Register</ButtonSecondary>
+                  <ButtonSecondary
+                    buttonType={BUTTON_SECONDARY_TYPE.DARK}
+                    small
+                  >
+                    Register
+                  </ButtonSecondary>
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
                     overlay={
-                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>1</TextBadge>
+                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+                        1
+                      </TextBadge>
                     }
                   />
                   <IconAsButton transparent>
@@ -65,7 +75,10 @@ const Headers = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR.LIGHT}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>
@@ -88,10 +101,20 @@ const Headers = () => (
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary
+                        buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}
+                        small
+                      >
+                        Log in
+                      </ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary
+                        buttonType={BUTTON_SECONDARY_TYPE.DARK}
+                        small
+                      >
+                        Join now
+                      </ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>
@@ -100,7 +123,10 @@ const Headers = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR.LIGHT}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>
@@ -123,10 +149,20 @@ const Headers = () => (
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE} small>Log in</ButtonSecondary>
+                      <ButtonSecondary
+                        buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}
+                        small
+                      >
+                        Log in
+                      </ButtonSecondary>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.DARK} small>Join now</ButtonSecondary>
+                      <ButtonSecondary
+                        buttonType={BUTTON_SECONDARY_TYPE.DARK}
+                        small
+                      >
+                        Join now
+                      </ButtonSecondary>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>
@@ -135,7 +171,10 @@ const Headers = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.LIGHT} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR.LIGHT}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>
@@ -144,7 +183,11 @@ const Headers = () => (
       </Header>
     </DocsBlock>
     <DocsBlock info="Fixed header">
-      <iframe width="600" height="480" src="components/header/small-device.html" />
+      <iframe
+        width="600"
+        height="480"
+        src="components/header/small-device.html"
+      />
     </DocsBlock>
   </div>
 );

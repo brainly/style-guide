@@ -7,24 +7,24 @@ const Links = () => {
   const settings = [
     {
       name: 'size',
-      values: LINK_SIZE
+      values: LINK_SIZE,
     },
     {
       name: 'color',
-      values: LINK_COLOR
+      values: LINK_COLOR,
     },
     {
       name: 'href',
-      values: String
+      values: String,
     },
     {
       name: 'weight',
-      values: LINK_WEIGHT
+      values: LINK_WEIGHT,
     },
     {
       name: 'underlined',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (

@@ -1,4 +1,5 @@
 // @flow
+
 import React from 'react';
 import Input from 'form-elements/Input';
 import Checkbox from 'form-elements/Checkbox';
@@ -7,10 +8,14 @@ type PropsType = {
   // eslint-disable-next-line flowtype/no-primitive-constructor-types
   values: Boolean | Number | String,
   onChange: (boolean | string | number) => mixed,
-  currentValue?: number | string | boolean
+  currentValue?: number | string | boolean,
 };
 
-const ComponentSettingsInput = ({values, currentValue, onChange}: PropsType) => {
+const ComponentSettingsInput = ({
+  values,
+  currentValue,
+  onChange,
+}: PropsType) => {
   let dataType;
   let inputType;
   const checked = Boolean(currentValue);
@@ -39,8 +44,10 @@ const ComponentSettingsInput = ({values, currentValue, onChange}: PropsType) => 
     dataType = 'string';
     inputType = 'text';
   }
-  // $FlowFixMe
-  return <Input type={inputType} value={currentValue} onChange={inputChanged} />;
+  return (
+    // $FlowFixMe
+    <Input type={inputType} value={currentValue} onChange={inputChanged} />
+  );
 };
 
 export default ComponentSettingsInput;

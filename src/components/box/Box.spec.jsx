@@ -4,18 +4,14 @@ import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const box = shallow(
-    <Box>some text</Box>
-  );
+  const box = shallow(<Box>some text</Box>);
 
   expect(box.hasClass('sg-box')).toEqual(true);
 });
 
 test('colors', () => {
   const color = COLOR.LAVENDER;
-  const box = shallow(
-    <Box color={color}>some text</Box>
-  );
+  const box = shallow(<Box color={color}>some text</Box>);
 
   expect(box.hasClass(`sg-box--${color}`)).toEqual(true);
 });
@@ -53,17 +49,13 @@ test('no colors => default border on ', () => {
 
 test('colors => default border off', () => {
   const color = COLOR.LAVENDER;
-  const box = shallow(
-    <Box color={color}>some text</Box>
-  );
+  const box = shallow(<Box color={color}>some text</Box>);
 
   expect(box.hasClass('sg-box--no-border')).toEqual(true);
 });
 
 test('default padding', () => {
-  const box = shallow(
-    <Box>some text</Box>
-  );
+  const box = shallow(<Box>some text</Box>);
 
   expect(box.hasClass(`sg-box--${PADDING.LARGE}`)).toEqual(false);
   expect(box.hasClass(`sg-box--${PADDING.SMALL}`)).toEqual(false);
@@ -73,52 +65,40 @@ test('default padding', () => {
 
 test('small padding', () => {
   const padding = PADDING.SMALL;
-  const box = shallow(
-    <Box padding={padding}>some text</Box>
-  );
+  const box = shallow(<Box padding={padding}>some text</Box>);
 
   expect(box.hasClass('sg-box--small-padding')).toEqual(true);
 });
 
 test('xsmall padding', () => {
   const padding = PADDING.XSMALL;
-  const box = shallow(
-    <Box padding={padding}>some text</Box>
-  );
+  const box = shallow(<Box padding={padding}>some text</Box>);
 
   expect(box.hasClass('sg-box--xsmall-padding')).toEqual(true);
 });
 
 test('xxsmall padding', () => {
   const padding = PADDING.XXSMALL;
-  const box = shallow(
-    <Box padding={padding}>some text</Box>
-  );
+  const box = shallow(<Box padding={padding}>some text</Box>);
 
   expect(box.hasClass('sg-box--xxsmall-padding')).toEqual(true);
 });
 
 test('large padding', () => {
   const padding = PADDING.LARGE;
-  const box = shallow(
-    <Box padding={padding}>some text</Box>
-  );
+  const box = shallow(<Box padding={padding}>some text</Box>);
 
   expect(box.hasClass('sg-box--large-padding')).toEqual(true);
 });
 
 test('no min height', () => {
-  const box = shallow(
-    <Box noMinHeight>some text</Box>
-  );
+  const box = shallow(<Box noMinHeight>some text</Box>);
 
   expect(box.hasClass('sg-box--no-min-height')).toEqual(true);
 });
 
 test('full width', () => {
-  const box = shallow(
-    <Box full>some text</Box>
-  );
+  const box = shallow(<Box full>some text</Box>);
 
   expect(box.hasClass('sg-box--full')).toEqual(true);
 });
@@ -132,11 +112,18 @@ test('close button', () => {
 
 test('light close button', () => {
   const mockCallback = jest.fn();
-  const box = shallow(<Box closeIconColor={CLOSE_ICON_COLOR.LIGHT} onClose={mockCallback} />);
+  const box = shallow(
+    <Box closeIconColor={CLOSE_ICON_COLOR.LIGHT} onClose={mockCallback} />
+  );
 
   expect(box.find('.sg-box__close')).toHaveLength(1);
   expect(box.find('div').find(Icon)).toHaveLength(1);
-  expect(box.find('div').find(Icon).props().color).toEqual('light');
+  expect(
+    box
+      .find('div')
+      .find(Icon)
+      .props().color
+  ).toEqual('light');
 });
 
 test('clicking on close button calls onClose', () => {
@@ -153,9 +140,7 @@ test('clicking on close button calls onClose', () => {
 test('image container', () => {
   const imgSrc = 'https://source.unsplash.com/100x100/?man';
 
-  const box = shallow(
-    <Box imgSrc={imgSrc} />
-  );
+  const box = shallow(<Box imgSrc={imgSrc} />);
 
   expect(box.hasClass('sg-box--image-wrapper')).toEqual(true);
   expect(box.find('.sg-box__image')).toHaveLength(1);

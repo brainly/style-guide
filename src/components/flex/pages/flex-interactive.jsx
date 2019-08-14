@@ -3,7 +3,7 @@ import Flex, {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
-  FLEX_MARGINS
+  FLEX_MARGINS,
 } from '../Flex';
 
 import Box, {COLOR} from '../../box/Box';
@@ -11,58 +11,59 @@ import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const urlParams = location.hash === '#flexbox' ? queryString.parse(location.search) : {};
+const urlParams =
+  location.hash === '#flexbox' ? queryString.parse(location.search) : {};
 
 const Flexboxes = () => {
   const settings = [
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'fullHeight',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noShrink',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'inlineFlex',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'wrap',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'wrapReverse',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'direction',
-      values: FLEX_DIRECTION
+      values: FLEX_DIRECTION,
     },
     {
       name: 'justifyContent',
-      values: FLEX_JUSTIFY_VALUES
+      values: FLEX_JUSTIFY_VALUES,
     },
     {
       name: 'alignItems',
-      values: FLEX_ALIGNMENT_VALUES
+      values: FLEX_ALIGNMENT_VALUES,
     },
     {
       name: 'alignContent',
-      values: FLEX_ALIGNMENT_VALUES
+      values: FLEX_ALIGNMENT_VALUES,
     },
     {
       name: 'alignSelf',
-      values: FLEX_ALIGNMENT_VALUES
+      values: FLEX_ALIGNMENT_VALUES,
     },
     {
       name: 'margin',
-      values: FLEX_MARGINS
-    }
+      values: FLEX_MARGINS,
+    },
   ];
 
   return (

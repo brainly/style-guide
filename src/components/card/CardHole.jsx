@@ -1,4 +1,5 @@
 // @flow strict
+
 import React from 'react';
 import type {Node} from 'react';
 import classnames from 'classnames';
@@ -39,19 +40,23 @@ export const CARD_HOLE_COLOR = {
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
   GRAY_SECONDARY_LIGHTEST: 'gray-secondary-lightest',
-  GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light'
+  GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
 };
 
 type PropsType = {
   children: Node,
   className?: string,
-  color?: ColorType
+  color?: ColorType,
 };
 
 const CardHole = ({color, children, className, ...props}: PropsType) => {
-  const cardHoleClass = classnames('sg-card__hole', {
-    [`sg-card__hole--${String(color)}`]: color
-  }, className);
+  const cardHoleClass = classnames(
+    'sg-card__hole',
+    {
+      [`sg-card__hole--${String(color)}`]: color,
+    },
+    className
+  );
 
   return (
     <div {...props} className={cardHoleClass}>

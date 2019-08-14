@@ -15,9 +15,12 @@ const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
 const babelEnv = params => [
   '@babel/preset-env',
-  Object.assign({
-    targets: '> 0.2%, not dead, not ie < 11'
-  }, params)
+  Object.assign(
+    {
+      targets: '> 0.2%, not dead, not ie < 11',
+    },
+    params
+  ),
 ];
 
 module.exports = () => {
@@ -31,8 +34,8 @@ module.exports = () => {
           test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/,
           loader: 'file-loader',
           query: {
-            name: 'static/media/[name].[hash:8].[ext]'
-          }
+            name: 'static/media/[name].[hash:8].[ext]',
+          },
         },
         {
           test: /\.svg$/,
@@ -44,15 +47,21 @@ module.exports = () => {
               const symbol = path.basename(filePath, '.svg');
 
               switch (pathParts[pathParts.length - 2]) {
-                case 'math-symbols': return `sg-math-symbol-icon-${symbol}`;
-                case 'icons': return `icon-${symbol}`;
-                case 'subjects': return `icon-subject-${symbol}`;
-                case 'subjects-mono': return `icon-subject-mono-${symbol}`;
-                case 'std-icons': return `icon-${symbol}`;
-                default: return symbol;
+                case 'math-symbols':
+                  return `sg-math-symbol-icon-${symbol}`;
+                case 'icons':
+                  return `icon-${symbol}`;
+                case 'subjects':
+                  return `icon-subject-${symbol}`;
+                case 'subjects-mono':
+                  return `icon-subject-mono-${symbol}`;
+                case 'std-icons':
+                  return `icon-${symbol}`;
+                default:
+                  return symbol;
               }
-            }
-          }
+            },
+          },
         },
         {
           test: /\.js$|jsx?$/,
@@ -64,18 +73,19 @@ module.exports = () => {
               '@babel/plugin-transform-flow-strip-types',
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
-              'react-hot-loader/babel'
+              'react-hot-loader/babel',
             ],
             env: {
               test: {
-                presets: [babelEnv({modules: 'auto'})]
-              }
-            }
-          }
-        }, {
+                presets: [babelEnv({modules: 'auto'})],
+              },
+            },
+          },
+        },
+        {
           test: /\.scss$/,
           resolve: {
-            extensions: ['.scss', '.sass']
+            extensions: ['.scss', '.sass'],
           },
           use: [
             'style-loader',
@@ -91,37 +101,40 @@ module.exports = () => {
                       'OperaMini >= 5',
                       'Android >= 4',
                       'Chrome >= 28',
-                      'Safari >= 7'
+                      'Safari >= 7',
                     ],
-                    cascade: false
-                  })]
-              }
-            }, {
+                    cascade: false,
+                  }),
+                ],
+              },
+            },
+            {
               loader: 'sass-loader',
               options: {
                 includePaths: [
                   SOURCE_DIR,
-                  path.resolve(__dirname, 'node_modules')
-                ]
-              }
-            }],
-          include: path.resolve(__dirname)
-        }
-      ]
+                  path.resolve(__dirname, 'node_modules'),
+                ],
+              },
+            },
+          ],
+          include: path.resolve(__dirname),
+        },
+      ],
     },
     externals: {
-      'html_beautify': {
-        root: 'html_beautify'
+      html_beautify: {
+        root: 'html_beautify',
       },
-      'hljs': 'hljs'
+      hljs: 'hljs',
     },
     entry: {
-      [path.basename(jsEntry)]: jsEntry
+      [path.basename(jsEntry)]: jsEntry,
     },
     output: {
       filename: '[name].bundle.js',
       path: DIST_DIR_OUTPUT,
-      publicPath: '/'
+      publicPath: '/',
     },
     resolve: {
       extensions: ['.js', '.jsx'],
@@ -129,37 +142,41 @@ module.exports = () => {
         SOURCE_COMPONENTS_DIR,
         SOURCE_DOCS_DIR,
         path.join(SOURCE_DIR, 'images'),
-        'node_modules'
+        'node_modules',
       ],
       alias: {
-        'react-dom': '@hot-loader/react-dom'
-      }
+        'react-dom': '@hot-loader/react-dom',
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(SOURCE_DOCS_DIR, 'index.html')
-      })
+        template: path.join(SOURCE_DOCS_DIR, 'index.html'),
+      }),
     ],
     devtool: IS_PRODUCTION ? 'source-map' : 'eval',
     optimization: {
       minimize: IS_PRODUCTION,
-      minimizer: IS_PRODUCTION ? [new TerserPlugin({
-        sourceMap: true,
-        parallel: true,
-        terserOptions: {
-          keep_classnames: true,
-          keep_fnames: true
-        }
-      })] : undefined
+      minimizer: IS_PRODUCTION
+        ? [
+            new TerserPlugin({
+              sourceMap: true,
+              parallel: true,
+              terserOptions: {
+                keep_classnames: true,
+                keep_fnames: true,
+              },
+            }),
+          ]
+        : undefined,
     },
     devServer: {
       contentBase: path.join(VERSIONED_DIST_DIR, 'docs'),
       index: 'index.html',
       watchContentBase: true,
       historyApiFallback: {
-        disableDotRule: true
-      }
-    }
+        disableDotRule: true,
+      },
+    },
   };
 
   return config;

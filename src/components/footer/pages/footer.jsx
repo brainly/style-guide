@@ -21,11 +21,21 @@ const Footers = () => (
         <FooterLine>
           <Breadcrumb
             elements={[
-              <Link key={1} href="#" color={LINK_COLOR.GRAY}>Regularmin</Link>,
-              <Link key={2} href="#" color={LINK_COLOR.GRAY}>Kontakt</Link>,
-              <Link key={3} href="#" color={LINK_COLOR.GRAY}>Jak zdobyć punkty?</Link>,
-              <Link key={4} href="#" color={LINK_COLOR.GRAY}>O nas</Link>,
-              <Link key={5} href="#" color={LINK_COLOR.GRAY}>Kariera</Link>
+              <Link key={1} href="#" color={LINK_COLOR.GRAY}>
+                Regularmin
+              </Link>,
+              <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+                Kontakt
+              </Link>,
+              <Link key={3} href="#" color={LINK_COLOR.GRAY}>
+                Jak zdobyć punkty?
+              </Link>,
+              <Link key={4} href="#" color={LINK_COLOR.GRAY}>
+                O nas
+              </Link>,
+              <Link key={5} href="#" color={LINK_COLOR.GRAY}>
+                Kariera
+              </Link>,
             ]}
           />
         </FooterLine>
@@ -45,16 +55,21 @@ const Footers = () => (
                 </Text>,
                 <Text key={4} type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
                   Latam: <Link target="_blank">brainly.lat</Link>
-                </Text>
+                </Text>,
               ]}
             />
           </Text>
         </FooterLine>
         <FooterLine>
-          <Text type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY} weight={TEXT_WEIGHT.BOLD}>
-            Strona korzysta z plików cookie w celu realizacji usług zgodnie z <Link>polityką cookie</Link>.
-            Możesz określić warunki przechowywania lub dostępu do cookie w Twojej
-            przeglądarce.
+          <Text
+            type={TEXT_TYPE.SPAN}
+            size={TEXT_SIZE.SMALL}
+            color={TEXT_COLOR.GRAY}
+            weight={TEXT_WEIGHT.BOLD}
+          >
+            Strona korzysta z plików cookie w celu realizacji usług zgodnie z{' '}
+            <Link>polityką cookie</Link>. Możesz określić warunki przechowywania
+            lub dostępu do cookie w Twojej przeglądarce.
           </Text>
         </FooterLine>
       </Footer>

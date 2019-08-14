@@ -1,11 +1,12 @@
 // @flow strict
+
 import classNames from 'classnames';
 import type {Node} from 'react';
 import React from 'react';
 
 type PropsType = {
   children?: Node,
-  className?: string
+  className?: string,
 };
 
 const ListItem = ({children, className, ...props}: PropsType) => {
@@ -14,7 +15,8 @@ const ListItem = ({children, className, ...props}: PropsType) => {
   return (
     <li className={listItemClass} {...props}>
       {children}
-    </li>);
+    </li>
+  );
 };
 
 export default ListItem;

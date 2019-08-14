@@ -4,32 +4,26 @@ import MenuList, {MenuItem, SIZE} from 'list/MenuList';
 
 const menuItem = {
   text: 'Test',
-  href: '#'
+  href: '#',
 };
 const menuItems = [menuItem];
 
 describe('<MenuList />', () => {
   test('renders', () => {
-    const menu = shallow(
-      <MenuList items={menuItems} />
-    );
+    const menu = shallow(<MenuList items={menuItems} />);
 
     expect(menu.hasClass('sg-menu-list')).toEqual(true);
     expect(menu.hasClass('sg-menu-list--normal')).toEqual(false);
   });
 
   test('small size', () => {
-    const menu = shallow(
-      <MenuList items={menuItems} size={SIZE.SMALL} />
-    );
+    const menu = shallow(<MenuList items={menuItems} size={SIZE.SMALL} />);
 
     expect(menu.hasClass('sg-menu-list--small')).toEqual(true);
   });
 
   test('large', () => {
-    const menu = shallow(
-      <MenuList items={menuItems} size={SIZE.LARGE} />
-    );
+    const menu = shallow(<MenuList items={menuItems} size={SIZE.LARGE} />);
 
     expect(menu.hasClass('sg-menu-list--large')).toEqual(true);
   });
@@ -37,9 +31,7 @@ describe('<MenuList />', () => {
 
 describe('<MenuItem />', () => {
   test('renders', () => {
-    const menuItem = shallow(
-      <MenuItem text="test" href="#" />
-    );
+    const menuItem = shallow(<MenuItem text="test" href="#" />);
 
     expect(menuItem.hasClass('sg-menu-list__element')).toEqual(true);
     expect(menuItem.find('.sg-menu-list__link')).toHaveLength(1);
@@ -56,5 +48,4 @@ describe('<MenuItem />', () => {
 
     expect(menuItem.find('.sg-menu-list__link').props().id).toEqual('m4l');
   });
-
 });

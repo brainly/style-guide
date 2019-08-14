@@ -8,30 +8,34 @@ const item3rd = {id: 'dd-item-3', text: '3rd item'};
 const defaultItems = [item1st, item2nd, item3rd];
 
 const Dropdowns = () => {
-
   const settings = [
     {
       name: 'fixed',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'isOpened',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'fullWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'label',
-      values: String
-    }
+      values: String,
+    },
   ];
 
   return (
     <div>
-      <DocsActiveBlock settings={settings} contentBefore="Lorem Ipsum" contentAfter="Lorem ipsum" wrapper={<div />}>
-        <Dropdown items={defaultItems} label={'Pick one…'} />
+      <DocsActiveBlock
+        settings={settings}
+        contentBefore="Lorem Ipsum"
+        contentAfter="Lorem ipsum"
+        wrapper={<div />}
+      >
+        <Dropdown items={defaultItems} label="Pick one…" />
       </DocsActiveBlock>
     </div>
   );

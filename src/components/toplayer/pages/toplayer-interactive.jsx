@@ -3,7 +3,9 @@ import DocsActiveBlock from 'components/DocsActiveBlock';
 import TopLayer, {SIZE} from '../TopLayer';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
-import ContentBoxContent, {SIZE as SPACING_SIZE} from 'content-box/ContentBoxContent';
+import ContentBoxContent, {
+  SIZE as SPACING_SIZE,
+} from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
 import Text, {TEXT_WEIGHT} from 'text/Text';
@@ -18,48 +20,48 @@ const Toplayers = () => {
   const settings = [
     {
       name: 'size',
-      values: SIZE
+      values: SIZE,
     },
     {
       name: 'lead',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'fill',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'modal',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'withBugbox',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'smallSpaced',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'splashScreen',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'limitedWidth',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'row',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'transparent',
-      values: Boolean
+      values: Boolean,
     },
     {
       name: 'noPadding',
-      values: Boolean
-    }
+      values: Boolean,
+    },
   ];
 
   return (
@@ -73,9 +75,7 @@ const Toplayers = () => {
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
               content
             </ContentBoxContent>
-            <ContentBoxActions>
-              actions
-            </ContentBoxActions>
+            <ContentBoxActions>actions</ContentBoxActions>
           </ContentBox>
         </TopLayer>
       </DocsActiveBlock>
@@ -83,35 +83,56 @@ const Toplayers = () => {
         <TopLayer size={SIZE.MEDIUM} lead withBugbox>
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY} type={TEXT_BIT_TYPE.H1}>
+              <TextBit
+                color={TEXT_BIT_COLOR.BLUE_SECONDARY}
+                type={TEXT_BIT_TYPE.H1}
+              >
                 The world&apos;s largest learning community
               </TextBit>
-              <Headline type={HEADLINE_TYPE.H2}>
-                Why join Brainly?
-              </Headline>
+              <Headline type={HEADLINE_TYPE.H2}>Why join Brainly?</Headline>
               <List>
                 <ListItem key={1}>
                   <ListItemIcon>
-                    <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+                    <Icon
+                      type={ICON_TYPE.PLUS}
+                      color={ICON_COLOR.GRAY_SECONDARY}
+                      size={18}
+                    />
                   </ListItemIcon>
-                  <Text weight={TEXT_WEIGHT.BOLD}>ask questions about your assignment</Text>
+                  <Text weight={TEXT_WEIGHT.BOLD}>
+                    ask questions about your assignment
+                  </Text>
                 </ListItem>
                 <ListItem key={2}>
                   <ListItemIcon>
-                    <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+                    <Icon
+                      type={ICON_TYPE.PLUS}
+                      color={ICON_COLOR.GRAY_SECONDARY}
+                      size={18}
+                    />
                   </ListItemIcon>
-                  <Text weight={TEXT_WEIGHT.BOLD}>get answer with explanation</Text>
+                  <Text weight={TEXT_WEIGHT.BOLD}>
+                    get answer with explanation
+                  </Text>
                 </ListItem>
                 <ListItem key={3}>
                   <ListItemIcon>
-                    <Icon type={ICON_TYPE.PLUS} color={ICON_COLOR.GRAY_SECONDARY} size={18} />
+                    <Icon
+                      type={ICON_TYPE.PLUS}
+                      color={ICON_COLOR.GRAY_SECONDARY}
+                      size={18}
+                    />
                   </ListItemIcon>
-                  <Text key={3} weight={TEXT_WEIGHT.BOLD}>find similar questions</Text>
+                  <Text key={3} weight={TEXT_WEIGHT.BOLD}>
+                    find similar questions
+                  </Text>
                 </ListItem>
               </List>
             </ContentBoxContent>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>Join us</ButtonPrimary>
+              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
+                Join us
+              </ButtonPrimary>
             </ContentBoxContent>
           </ContentBox>
         </TopLayer>

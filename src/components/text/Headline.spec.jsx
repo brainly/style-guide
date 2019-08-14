@@ -1,11 +1,15 @@
 import React from 'react';
-import Headline, {HEADLINE_SIZE, HEADLINE_TYPE, HEADLINE_COLOR, HEADLINE_TRANSFORM, HEADLINE_ALIGN} from './Headline';
+import Headline, {
+  HEADLINE_SIZE,
+  HEADLINE_TYPE,
+  HEADLINE_COLOR,
+  HEADLINE_TRANSFORM,
+  HEADLINE_ALIGN,
+} from './Headline';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
-  const headline = shallow(
-    <Headline>Test</Headline>
-  );
+  const headline = shallow(<Headline>Test</Headline>);
 
   expect(headline.hasClass('sg-headline')).toBeTruthy();
 });
@@ -19,17 +23,13 @@ test('size', () => {
 });
 
 test('type', () => {
-  const headline = mount(
-    <Headline type={HEADLINE_TYPE.H3}>Test</Headline>
-  );
+  const headline = mount(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
 
   expect(headline.props().type).toEqual(HEADLINE_TYPE.H3);
 });
 
 test('light', () => {
-  const text = shallow(
-    <Headline color={HEADLINE_COLOR.WHITE}>Test</Headline>
-  );
+  const text = shallow(<Headline color={HEADLINE_COLOR.WHITE}>Test</Headline>);
 
   expect(text.hasClass('sg-headline--white')).toBeTruthy();
 });
@@ -51,9 +51,7 @@ test('transform uppercase', () => {
 });
 
 test('extra bold', () => {
-  const headline = shallow(
-    <Headline extraBold>Test</Headline>
-  );
+  const headline = shallow(<Headline extraBold>Test</Headline>);
 
   expect(headline.hasClass('sg-headline--extra-bold')).toBeTruthy();
 });
