@@ -40,6 +40,10 @@ $includeHtml: false !default;
       flex-shrink: 0;
       align-items: center;
       margin-right: gutter(0.25);
+      
+      // To fix alignment issue caused by Proxima font
+      position: relative;
+      top: 1px;
 
       &:last-child {
         margin-right: 0;
