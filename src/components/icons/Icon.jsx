@@ -127,9 +127,7 @@ export type IconColorType =
   | 'navy-blue'
   | 'peach';
 
-export type IconTagType =
-  | 'div'
-  | 'span';
+export type IconTagType = 'div' | 'span';
 
 export type IconSizeType =
   | 120
@@ -286,7 +284,7 @@ export const ICON_COLOR = {
 
 export const ICON_TAG_TYPE = {
   DIV: 'div',
-  SPAN: 'span'
+  SPAN: 'span',
 };
 
 // As soon as we change Avatars to new the new icon, we could clean up sizes of the icons.
@@ -353,7 +351,7 @@ export type IconPropsType =
                     />
                   </Button>
       */
-      tagType?: IconTagType
+      tagType?: IconTagType,
     }
   | {
       /**
@@ -390,7 +388,7 @@ export type IconPropsType =
                     />
                   </Button>
       */
-      tagType?: IconTagType
+      tagType?: IconTagType,
     };
 
 const Icon = ({
@@ -418,7 +416,6 @@ const Icon = ({
   const Tag = tagType;
 
   return (
-
     <Tag {...props} className={iconClass}>
       {type ? (
         <svg className="sg-icon__svg">
