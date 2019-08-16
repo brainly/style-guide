@@ -59,6 +59,14 @@ test('size', () => {
   expect(icon.hasClass(`sg-icon--x${size}`)).toEqual(true);
 });
 
+test('tag type', () => {
+  const component = shallow(
+    <Icon type={TYPE.ANSWER} size="10" tagType="span" />
+  );
+
+  expect(component.find('span')).toHaveLength(1);
+});
+
 test('other props', () => {
   const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} data-something="else" />);
