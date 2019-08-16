@@ -9,6 +9,7 @@ const {TYPE} = IconModule;
 type PropsType = {
   type: IconModule.IconTypeType,
   className?: string,
+  ...
 };
 
 const Sticker = ({type, className, ...props}: PropsType) => {

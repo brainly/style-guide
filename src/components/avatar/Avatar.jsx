@@ -43,6 +43,7 @@ type PropsType = {
   className?: string,
   title?: string,
   link?: string,
+  ...
 };
 
 const Avatar = ({

@@ -7,6 +7,7 @@ import classnames from 'classnames';
 type PropsType = {
   className?: ?string,
   children: Node,
+  ...
 };
 
 const LayoutAsideContent = ({children, className, ...props}: PropsType) => {

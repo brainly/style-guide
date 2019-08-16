@@ -8,6 +8,7 @@ type PropsType = {
   children?: Node,
   className?: string,
   small?: boolean,
+  ...
 };
 
 const ListItemIcon = ({small, children, className, ...props}: PropsType) => {

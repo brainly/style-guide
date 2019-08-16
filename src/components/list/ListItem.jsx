@@ -7,6 +7,7 @@ import React from 'react';
 type PropsType = {
   children?: Node,
   className?: string,
+  ...
 };
 
 const ListItem = ({children, className, ...props}: PropsType) => {

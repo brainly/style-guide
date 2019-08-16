@@ -47,6 +47,7 @@ export type HeadlinePropsType = {
   align?: ?HeadlineAlignType,
   className?: ?string,
   extraBold?: ?boolean,
+  ...
 };
 
 const Headline = ({

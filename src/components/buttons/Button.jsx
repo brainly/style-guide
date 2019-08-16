@@ -118,6 +118,7 @@ export type ButtonPropsType = {
    * Additional class names
    */
   className?: string,
+  ...
 };
 
 const Button = ({

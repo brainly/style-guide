@@ -34,6 +34,7 @@ type IconAsButtonPropsType = {
   active?: boolean,
   href?: string,
   className?: string,
+  ...
 };
 
 const IconAsButton = ({

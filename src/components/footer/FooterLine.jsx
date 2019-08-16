@@ -7,6 +7,7 @@ import classNames from 'classnames';
 type PropsType = {
   children: Node,
   className?: string,
+  ...
 };
 
 const FooterLine = ({children, className, ...props}: PropsType) => {

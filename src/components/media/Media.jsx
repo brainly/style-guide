@@ -16,6 +16,7 @@ type PropsType = {
   small?: boolean,
   spacedBottom?: boolean,
   className?: string,
+  ...
 };
 
 const Media = (props: PropsType) => {

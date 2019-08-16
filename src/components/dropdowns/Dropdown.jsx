@@ -18,8 +18,10 @@ type PropsType = {
   items: Array<{
     id: string,
     text: string,
+    ...
   }>,
   className?: string,
+  ...
 };
 
 const Dropdown = ({

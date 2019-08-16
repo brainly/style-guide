@@ -12,6 +12,7 @@ const version = packageJSON.version;
 type PropsType = {
   navigationIdx?: number,
   rootNodeToBeRemovedAfterFullWebpackMigration?: React.Node,
+  ...
 };
 
 const ItemsInteractivePage = ({

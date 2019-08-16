@@ -8,6 +8,7 @@ type PropsType = {
   children: Node,
   light?: boolean,
   className?: string,
+  ...
 };
 
 const HeaderContainer = ({children, light, className, ...props}: PropsType) => {

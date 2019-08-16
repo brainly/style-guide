@@ -6,6 +6,7 @@ import classnames from 'classnames';
 type OptionsPropsType = {
   value: string,
   text: string,
+  ...
 };
 
 export type SelectPropsType = {
@@ -16,6 +17,7 @@ export type SelectPropsType = {
   fullWidth?: boolean,
   options?: Array<OptionsPropsType>,
   className?: string,
+  ...
 };
 
 const Select = (props: SelectPropsType) => {

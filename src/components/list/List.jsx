@@ -8,6 +8,7 @@ type PropsType = {
   children?: Node,
   spaced?: boolean,
   className?: string,
+  ...
 };
 
 const List = ({spaced, className, children, ...props}: PropsType) => {

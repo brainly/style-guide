@@ -6,6 +6,7 @@ import RateCounterItem from './RateCounterItem';
 type PropsType = {
   counterText?: string,
   activeText?: string,
+  ...
 };
 
 const RateCounter = ({activeText, counterText}: PropsType) => (

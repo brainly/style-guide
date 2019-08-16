@@ -30,6 +30,7 @@ type ButtonPrimaryPropsType = {
   disabled?: ?boolean,
   href?: ?string,
   buttonType?: ?ButtonPrimaryTypeType,
+  ...
 };
 
 const ButtonPrimary = ({

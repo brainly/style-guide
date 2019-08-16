@@ -46,6 +46,7 @@ export const LOGOS = {
 type PropsType = {
   className?: string,
   type?: LogoTypeType,
+  ...
 };
 
 const Logo = ({type = TYPE.BRAINLY, className, ...props}: PropsType) => {

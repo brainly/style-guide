@@ -13,6 +13,7 @@ type PropsType = {
   light?: boolean,
   size?: SpinnerModule.SpinnerSizeType,
   children?: Node,
+  ...
 };
 
 const SpinnerContainer = ({

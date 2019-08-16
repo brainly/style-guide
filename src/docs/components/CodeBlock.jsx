@@ -7,6 +7,7 @@ import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 type PropsType = {
   children: Node,
   type: string,
+  ...
 };
 
 class CodeBlock extends Component<PropsType> {
