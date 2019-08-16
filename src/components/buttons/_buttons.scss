@@ -31,11 +31,10 @@
   cursor: pointer;
   box-sizing: border-box;
 
-  // Added to align text in the center,
-  // as soon as Proxima is fixed we could remove it.
   &__text {
     position: relative;
-    top: 1px;
+    display: flex;
+    align-items: center;
   }
 
   &__icon {
@@ -70,6 +69,12 @@
     padding: 0 20px;
     font-size: 12px;
     line-height: 12px;
+
+    // Proxima is broken
+    // Added to align text in the center for this font-size
+    .sg-button__text {
+      top: 1px;
+    }
   }
 
   &--disabled {

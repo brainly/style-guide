@@ -76,6 +76,10 @@ const icons = () => (
         </li>
       </ul>
     </DocsBlock>
+
+    <Icon color="dark" size="46" type="std-answer" tagType="div" />
+    <Text>Get +<Icon color="dark" size="16" type="std-points" tagType="span" /></Text>
+
   </div>
 );
 
