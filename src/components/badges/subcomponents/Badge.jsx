@@ -48,6 +48,7 @@ type PropsType = {
   size?: BadgeSizeType,
   rounded?: boolean,
   withAnimation?: boolean,
+  ...
 };
 
 const Badge = ({

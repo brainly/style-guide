@@ -10,9 +10,7 @@ import slugify from '../slugify';
 
 const version = packageJSON.version;
 
-type PropsType = {
-  navigationIdx?: number,
-};
+type PropsType = {navigationIdx?: number, ...};
 
 const ItemsPage = ({navigationIdx}: PropsType) => {
   const pageConfig = navigation[navigationIdx];

@@ -18,6 +18,7 @@ type PropsType = {
   type?: LogoModule.LogoTypeType,
   href?: string,
   className?: string,
+  ...
 };
 
 const HomeButton = ({
@@ -34,6 +35,7 @@ const HomeButton = ({
     className
   );
   const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
+  // $FlowFixMe - some icons are missing, we will investigate why
   const mobilePath = `${BASE_URL}${ICONS[type]}.svg`;
 
   return (

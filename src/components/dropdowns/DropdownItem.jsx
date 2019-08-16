@@ -5,6 +5,7 @@ import React from 'react';
 type PropsType = {
   onClick: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
   text: string,
+  ...
 };
 
 const DropdownItem = ({text, onClick}: PropsType) => (

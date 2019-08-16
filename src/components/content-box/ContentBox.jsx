@@ -21,6 +21,7 @@ export type ContentBoxPropsType = {
   className?: ?string,
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
+  ...
 };
 
 const ContentBox = ({

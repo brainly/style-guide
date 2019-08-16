@@ -11,6 +11,7 @@ type PropsType = {
   darker?: boolean,
   type: SubjectIconModule.IconTypeType,
   size?: SubjectIconModule.SizeType,
+  ...
 };
 
 const SubjectIconBox = ({

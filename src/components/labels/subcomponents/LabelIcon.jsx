@@ -10,6 +10,7 @@ type PropsType = {
   iconSize?: IconModule.IconSizeType,
   iconColor?: IconModule.IconColorType,
   iconType?: IconModule.IconTypeType,
+  ...
 };
 
 const LabelIcon = ({iconType, iconColor, iconContent, iconSize}: PropsType) => {

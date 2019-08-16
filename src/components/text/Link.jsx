@@ -64,6 +64,7 @@ export type LinkPropsType = {
   emphasised?: boolean,
   disabled?: boolean,
   className?: ?string,
+  ...
 };
 
 export {LINK_COLOR} from './textConsts';

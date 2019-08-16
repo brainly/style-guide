@@ -22,6 +22,7 @@ export const TYPE = {
 type PropsType = {
   hide: RwdHelperTypeType,
   children: Element<*> | string,
+  ...
 };
 
 const RwdHelper = ({hide, children}: PropsType) => {

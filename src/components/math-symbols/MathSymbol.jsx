@@ -63,6 +63,7 @@ type PropsType = {
   size?: MathSymbolSizeType,
   color?: IconModule.IconColorType,
   className?: string,
+  ...
 };
 
 const MathSymbol = ({

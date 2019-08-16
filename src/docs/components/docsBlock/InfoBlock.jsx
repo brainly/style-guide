@@ -6,6 +6,7 @@ import type {Node} from 'react';
 type PropsType = {
   additionalInfo?: Node,
   info?: Node,
+  ...
 };
 
 const InfoBlock = ({info, additionalInfo}: PropsType) => {

@@ -25,6 +25,7 @@ export type TextareaPropsType = {
   noPadding?: boolean,
   autoHeight?: boolean,
   className?: string,
+  ...
 };
 
 const Textarea = (props: TextareaPropsType) => {

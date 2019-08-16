@@ -33,6 +33,7 @@ type ActionListPropsType = {
   noWrap?: ?boolean,
   direction?: ?DirectionType,
   align?: ?AligmentType,
+  ...
 };
 
 const ActionList = ({

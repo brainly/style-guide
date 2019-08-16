@@ -24,19 +24,22 @@ type PropsType = {
     name: string,
     values: any,
     required?: boolean,
+    ...
   }>,
   centeredItems?: boolean,
   contentBefore?: Element<*>,
   contentAfter?: Element<*>,
   wrapper: Element<*>,
   backgroundColor: BackgroundColorType,
+  ...
 };
 
 type StateType = {
-  props: {[string]: number | string | boolean},
+  props: {[string]: number | string | boolean, ...},
   renderNormally: boolean,
   changeBackground: BackgroundColorType,
   showCode: ?string,
+  ...
 };
 
 class DocsActiveBlock extends Component<PropsType, StateType> {

@@ -191,6 +191,7 @@ type BoxPropsType = {
    * @todo add interactive example for this prop
    */
   onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
+  ...
 };
 
 /**

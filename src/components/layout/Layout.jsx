@@ -15,6 +15,7 @@ type PropsType = {
   fullPage?: boolean,
   wide?: boolean,
   threeColumns?: boolean,
+  ...
 };
 
 const Layout = ({

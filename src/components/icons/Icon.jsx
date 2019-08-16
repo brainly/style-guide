@@ -352,6 +352,7 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      ...
     }
   | {
       /**
@@ -389,11 +390,11 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      ...
     };
 
 const Icon = ({
   color,
-  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   size = 24,
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   type,

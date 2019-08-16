@@ -9,11 +9,10 @@ export type CheckboxPropsType = {
   checked?: boolean,
   id?: string,
   className?: string,
+  ...
 };
 
-export type CheckboxStateType = {
-  id: string,
-};
+export type CheckboxStateType = {id: string, ...};
 
 class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
   constructor(props: CheckboxPropsType) {

@@ -11,8 +11,10 @@ type PropsType = {
   values: {
     showCode: ?string,
     changeBackground: 'light' | 'dark' | 'none',
+    ...
   },
   onChange: (string, mixed) => mixed,
+  ...
 };
 
 class DocsActiveBlockSettings extends React.Component<PropsType> {

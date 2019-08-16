@@ -8,6 +8,7 @@ type OverlayedBoxType = {
   children?: ?Node,
   overlay?: ?Node,
   className?: string,
+  ...
 };
 
 const OverlayedBox = ({

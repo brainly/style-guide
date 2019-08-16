@@ -31,6 +31,7 @@ type PropsType = {
   size?: BadgeModule.BadgeSizeType,
   rounded?: boolean,
   withAnimation?: boolean,
+  ...
 };
 
 const TextBadge = ({
