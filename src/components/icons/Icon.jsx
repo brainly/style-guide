@@ -127,6 +127,8 @@ export type IconColorType =
   | 'navy-blue'
   | 'peach';
 
+export type IconTagType = 'div' | 'span';
+
 export type IconSizeType =
   | 120
   | 118
@@ -280,6 +282,11 @@ export const ICON_COLOR = {
   PEACH: 'peach',
 };
 
+export const ICON_TAG_TYPE = {
+  DIV: 'div',
+  SPAN: 'span',
+};
+
 // As soon as we change Avatars to new the new icon, we could clean up sizes of the icons.
 export const SIZE = [
   120,
@@ -330,6 +337,21 @@ export type IconPropsType =
        * @see type="std-heart" https://styleguide.brainly.com/latest/docs/interactive.html?type=std-heart#icons
        */
       type: IconTypeType,
+      /**
+      * Option to change tag to span, which allows correct HTML structure
+      * @example  <Button
+                    type="secondary"
+                  >
+                    Get +50
+                    <Icon
+                      type={iconTypes.POINTS}
+                      color="dark"
+                      size={16}
+                      tagType="span"
+                    />
+                  </Button>
+      */
+      tagType?: IconTagType,
       ...
     }
   | {
@@ -353,6 +375,21 @@ export type IconPropsType =
        * @see size="46" https://styleguide.brainly.com/latest/docs/interactive.html?size=46#icons
        */
       size?: ?IconSizeType,
+      /**
+      * Option to change tag to span, which allows correct HTML structure
+      * @example  <Button
+                    type="secondary"
+                  >
+                    Get +50
+                    <Icon
+                      type={iconTypes.POINTS}
+                      color="dark"
+                      size={16}
+                      tagType="span"
+                    />
+                  </Button>
+      */
+      tagType?: IconTagType,
       ...
     };
 
@@ -363,6 +400,7 @@ const Icon = ({
   type,
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   children,
+  tagType = 'div',
   className,
   ...props
 }: IconPropsType) => {
@@ -376,9 +414,10 @@ const Icon = ({
   );
 
   const iconType = `#icon-${type}`;
+  const Tag = tagType;
 
   return (
-    <div {...props} className={iconClass}>
+    <Tag {...props} className={iconClass}>
       {type ? (
         <svg className="sg-icon__svg">
           <use xlinkHref={iconType} />
@@ -386,7 +425,7 @@ const Icon = ({
       ) : (
         children
       )}
-    </div>
+    </Tag>
   );
 };
 
