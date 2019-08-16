@@ -83,6 +83,7 @@ export type IconTypeType =
   | 'std-less'
   | 'std-linkedin'
   | 'std-lock_with_play'
+  | 'std-logout'
   | 'std-medium'
   | 'std-menu'
   | 'std-messages'
@@ -96,10 +97,15 @@ export type IconTypeType =
   | 'std-plus'
   | 'std-points'
   | 'std-profile'
+  | 'std-profile_view'
+  | 'std-question'
   | 'std-recent_questions'
+  | 'std-reload'
   | 'std-report_flag'
+  | 'std-rotate'
   | 'std-search'
   | 'std-seen'
+  | 'std-settings'
   | 'std-share'
   | 'std-sms'
   | 'std-star_half'
@@ -182,6 +188,7 @@ export const STD_TYPE = {
   STD_LESS: 'std-less', // new
   STD_LINKEDIN: 'std-linkedin', // new
   STD_LOCK_WITH_PLAY: 'std-lock_with_play', // new
+  STD_LOGOUT: 'std-logout',
   STD_MEDIUM: 'std-medium', // new
   STD_MENU: 'std-menu', // new
   STD_MESSAGES: 'std-messages',
@@ -195,10 +202,15 @@ export const STD_TYPE = {
   STD_PLUS: 'std-plus',
   STD_POINTS: 'std-points',
   STD_PROFILE: 'std-profile', // new
+  STD_PROFILE_VIEW: 'std-profile_view',
+  STD_QUESTION: 'std-question',
   STD_RECENT_QUESTIONS: 'std-recent_questions', // new
+  STD_RELOAD: 'std-reload',
   STD_REPORT_FLAG: 'std-report_flag',
+  STD_ROTATE: 'std-rotate', //new
   STD_SEARCH: 'std-search',
   STD_SEEN: 'std-seen', // new
+  STD_SETTINGS: 'std-settings', // new
   STD_SHARE: 'std-share', // new
   STD_SMS: 'std-sms', // new
   STD_STAR_HALF: 'std-star_half', // new
@@ -237,7 +249,7 @@ export const TYPE = {
   HEART: 'heart',
   KEYBOARD: 'keyboard', // not needed in new set
   LIGHTNING: 'lightning', // not needed in new set
-  LOGOUT: 'logout', // not needed in new set
+  LOGOUT: 'logout',
   MENU: 'menu',
   MESSAGES: 'messages',
   NOTIFICATIONS: 'notifications',
@@ -248,9 +260,9 @@ export const TYPE = {
   POINTS: 'points',
   PROFILE: 'profile',
   PROFILE_EDIT: 'profile_edit', // not needed in new set
-  PROFILE_VIEW: 'profile_view', // not needed in new set
-  QUESTION: 'question', // not needed in new set
-  RELOAD: 'reload', // not needed in new set
+  PROFILE_VIEW: 'profile_view',
+  QUESTION: 'question',
+  RELOAD: 'reload',
   REPORT_FLAG: 'report_flag',
   SEARCH: 'search',
   SEEN: 'seen',
