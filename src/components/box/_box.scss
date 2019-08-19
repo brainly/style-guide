@@ -5,7 +5,6 @@ $boxBorderSize: 1px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-box {
     @include component();
     @include hole();
@@ -117,6 +116,10 @@ $includeHtml: false !default;
       background-color: $peachPrimary;
     }
 
+    &--peach-secondary {
+      background-color: $peachSecondary;
+    }
+
     &--mustard-primary {
       background-color: $mustardPrimary;
     }
@@ -151,5 +154,4 @@ $includeHtml: false !default;
       z-index: 1;
     }
   }
-
 }
