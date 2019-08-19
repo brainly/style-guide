@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" version="1">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <title>reload</title>
   <path fill-rule="nonzero" d="M379 171a149 149 0 1 0 25 102 21 21 0 0 1 43 4 192 192 0 1 1-42-142v-28a21 21 0 0 1 43 0v85c0 12-10 21-21 21h-86a21 21 0 1 1 0-42h38z"/>
 </svg>
