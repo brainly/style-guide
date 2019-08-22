@@ -64,6 +64,31 @@ test('invalid', () => {
   expect(select.hasClass('sg-select--invalid')).toEqual(true);
 });
 
+test('multiple', () => {
+  const select = shallow(<Select multiple />);
+  const selectElement = select.find('select');
+
+  expect(select.hasClass('sg-select--multiple')).toEqual(true);
+  expect(selectElement.prop('multiple')).toEqual(true);
+});
+
+test('choose multiple options', () => {
+  const select = render(
+    <Select
+      multiple
+      options={exampleOptions}
+      value={[exampleOptions[0].value, exampleOptions[1].value]}
+      onChange={voidFunction}
+    />
+  );
+
+  const option1st = select.find('option').get(0);
+  const option2nd = select.find('option').get(1);
+
+  expect(option1st.attribs.selected).toBeDefined();
+  expect(option2nd.attribs.selected).toBeDefined();
+});
+
 test('capitalized', () => {
   const select = shallow(<Select capitalized />);
 

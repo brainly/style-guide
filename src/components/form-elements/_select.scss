@@ -79,5 +79,24 @@ $includeHtml: false !default;
         text-transform: capitalize;
       }
     }
+
+    &--multiple {
+      height: rhythm(4);
+
+      .sg-select__element {
+        height: inherit;
+        padding: gutter(1 / 4) gutter(1 / 2);
+      }
+
+      &.sg-select {
+        &--tall {
+          height: rhythm(6);
+        }
+
+        &--xtall {
+          height: rhythm(7);
+        }
+      }
+    }
   }
 }
