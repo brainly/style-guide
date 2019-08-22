@@ -63,6 +63,7 @@ type TextBitPropsType = {
   size?: TextBitSizeType,
   color?: ?TextBitColorType,
   className?: ?string,
+  ...
 };
 
 const TextBit = ({

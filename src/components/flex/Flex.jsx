@@ -199,6 +199,7 @@ export type FlexPropsType = {
    *          </Flex>
    */
   marginLeft?: FlexMarginsType,
+  ...
 };
 
 const Flex = (props: FlexPropsType) => {

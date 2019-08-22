@@ -22,6 +22,7 @@ export type ContentBoxContentPropsType = {
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
   align?: AligmentType,
+  ...
 };
 
 const ContentBoxContent = ({

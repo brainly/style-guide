@@ -6,12 +6,15 @@ type PropsType = {
   page?: {
     title: string,
     excerpt: string,
+    ...
   },
   site?: {
     title: string,
     description: string,
     baseurl: string,
+    ...
   },
+  ...
 };
 
 const Head = ({page = {}, site = {}}: PropsType) => (

@@ -7,6 +7,7 @@ import classnames from 'classnames';
 type PropsType = {
   children?: Node,
   className?: string,
+  ...
 };
 
 const HeaderMiddle = ({children, className, ...props}: PropsType) => {

@@ -4,10 +4,11 @@ import React from 'react';
 import Select from 'form-elements/Select';
 
 type PropsType = {
-  values: {[string]: number | string | boolean},
+  values: {[string]: number | string | boolean, ...},
   required: boolean,
   onChange: string => mixed,
   currentValue?: number | string | boolean,
+  ...
 };
 
 const ComponentSettingsSelect = ({

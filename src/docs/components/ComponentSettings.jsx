@@ -14,9 +14,11 @@ type PropsType = {
     name: string,
     values: any,
     required?: boolean,
+    ...
   }>,
-  values: {[string]: number | string | boolean},
+  values: {[string]: number | string | boolean, ...},
   onChange: (string, number | string | boolean) => mixed,
+  ...
 };
 
 const ComponentSettings = ({settings, values, onChange}: PropsType) => {

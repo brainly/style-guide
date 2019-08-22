@@ -53,6 +53,7 @@ type BubblePropsType = {
   color?: ?BubbleColorType,
   full?: ?boolean,
   noShadow?: ?boolean,
+  ...
 };
 
 const Bubble = ({

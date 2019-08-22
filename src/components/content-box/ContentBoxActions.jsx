@@ -21,6 +21,7 @@ export type ContentBoxActionsPropsType = {
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
   align?: AligmentType,
+  ...
 };
 
 const ContentBoxActions = ({

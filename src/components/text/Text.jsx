@@ -69,6 +69,7 @@ export type TextPropsType = {
   full?: ?boolean,
   breakWords?: ?boolean,
   className?: ?string,
+  ...
 };
 
 const Text = ({

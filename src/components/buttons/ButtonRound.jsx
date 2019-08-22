@@ -12,6 +12,7 @@ type ButtonRoundType = {
   small?: ?boolean,
   href?: string,
   label?: ?string,
+  ...
 };
 
 const ButtonRound = ({

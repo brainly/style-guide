@@ -18,7 +18,8 @@ type ColorType =
   | 'gray-secondary-lightest'
   | 'gray-secondary-ultra-light'
   | 'mustard-primary'
-  | 'peach';
+  | 'peach'
+  | 'peach-secondary';
 
 type PaddingType =
   | 'no-padding'
@@ -43,6 +44,7 @@ export const COLOR = {
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
   MUSTARD_PRIMARY: 'mustard-primary',
   PEACH: 'peach',
+  PEACH_SECONDARY: 'peach-secondary',
 };
 
 export const PADDING = {
@@ -191,6 +193,7 @@ type BoxPropsType = {
    * @todo add interactive example for this prop
    */
   onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
+  ...
 };
 
 /**

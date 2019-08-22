@@ -9,6 +9,7 @@ type PropsType = {
   adaptive?: ?boolean,
   short?: ?boolean,
   elements: $ReadOnlyArray<Node>,
+  ...
 };
 
 const Breadcrumb = ({

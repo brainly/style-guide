@@ -28,6 +28,7 @@ export type PropsType = {
   transparent?: boolean,
   noPadding?: boolean,
   className?: string,
+  ...
 };
 
 const TopLayer = (props: PropsType) => {

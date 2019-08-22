@@ -27,6 +27,7 @@ type PropsType = {
   shadow?: boolean,
   transparent?: boolean,
   padding?: CardPaddingType,
+  ...
 };
 
 const Card = ({

@@ -9,6 +9,7 @@ type PropsType = {
   children: Node,
   noMaxWidth?: boolean,
   center?: boolean,
+  ...
 };
 
 const LayoutContent = ({

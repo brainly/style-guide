@@ -8,6 +8,7 @@ type PropsType = {
   items: Array<Node>,
   extraSpacing?: boolean,
   className?: string,
+  ...
 };
 
 const PopupMenu = ({

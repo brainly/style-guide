@@ -31,6 +31,7 @@ type ButtonSecondaryPropsType = {
   small?: ?boolean,
   href?: ?string,
   buttonType?: ?ButtonSecondaryTypeType,
+  ...
 };
 
 const ButtonSecondary = ({

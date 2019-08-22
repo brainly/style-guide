@@ -18,6 +18,7 @@ type PropsType = {
   size?: SizeType,
   className?: string,
   items?: Array<MenuItemModule.PropsType>,
+  ...
 };
 
 const MenuList = ({

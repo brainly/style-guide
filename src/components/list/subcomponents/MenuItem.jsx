@@ -9,6 +9,7 @@ export type PropsType = {
   text: string,
   // $FlowFixMe
   type?: string | (any => React$Node),
+  ...
 };
 
 const MenuItem = ({text, href, type, className, ...restProps}: PropsType) => {

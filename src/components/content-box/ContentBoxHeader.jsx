@@ -24,6 +24,7 @@ export type ContentBoxHeaderPropsType = {
   spacedTop?: ?SizeType,
   spacedBottom?: ?SizeType,
   align?: AligmentType,
+  ...
 };
 
 const ContentBoxHeader = ({

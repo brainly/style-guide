@@ -17,6 +17,7 @@ type SeparatorPropsType = {
   white?: boolean,
   grayDark?: boolean,
   className?: string,
+  ...
 };
 
 const Separator = ({

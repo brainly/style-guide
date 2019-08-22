@@ -10,6 +10,7 @@ const {default: Input, COLOR, SIZE} = InputModule;
 type PropsType = {
   adaptiveIco?: boolean,
   inputClassName?: string,
+  ...
 } & InputModule.InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
 
 const Search = ({

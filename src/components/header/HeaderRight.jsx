@@ -7,6 +7,7 @@ import classnames from 'classnames';
 type PropsType = {
   children?: Node,
   className?: string,
+  ...
 };
 
 const HeaderRight = ({children, className, ...props}: PropsType) => {

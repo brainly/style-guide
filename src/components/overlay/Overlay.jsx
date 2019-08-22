@@ -8,6 +8,7 @@ type PropsType = {
   children?: Node,
   partial?: boolean,
   className?: string,
+  ...
 };
 
 const Overlay = ({partial, children, className, ...props}: PropsType) => {
