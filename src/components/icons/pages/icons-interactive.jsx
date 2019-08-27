@@ -43,7 +43,7 @@ const Icons = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Icon type={TYPE.HEART} color={ICON_COLOR.PEACH} size={46} />
+        <Icon type={TYPE.STD_HEART} color={ICON_COLOR.PEACH} size={46} />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settingsNewIcons}>
         <Icon type="std-answer" color="peach" size={46} />

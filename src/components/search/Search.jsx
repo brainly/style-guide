@@ -32,7 +32,7 @@ const Search = ({
         className={classnames(`${baseClassName}__input`, inputClassName)}
       />
       <div className={`${baseClassName}__icon`}>
-        <Icon type={TYPE.SEARCH} color={iconColor} size={18} />
+        <Icon type={TYPE.STD_SEARCH} color={iconColor} size={18} />
       </div>
     </div>
   );
