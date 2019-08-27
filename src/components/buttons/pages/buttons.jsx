@@ -67,7 +67,7 @@ const Buttons = () => {
             <Button
               type={type}
               icon={
-                <Icon type={iconTypes.ANSWER} color={iconColor} size={24} />
+                <Icon type={iconTypes.STD_ANSWER} color={iconColor} size={24} />
               }
             >
               {buttonsText}
@@ -102,14 +102,14 @@ const Buttons = () => {
         <Button
           size="large"
           type="facebook"
-          icon={<Icon type={iconTypes.FB} color="light" size={32} />}
+          icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={32} />}
         >
           {buttonsText}
         </Button>
         &nbsp;
         <Button
           type="facebook"
-          icon={<Icon type={iconTypes.FB} color="light" size={24} />}
+          icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={24} />}
         >
           {buttonsText}
         </Button>
@@ -117,7 +117,7 @@ const Buttons = () => {
         <Button
           size="small"
           type="facebook"
-          icon={<Icon type={iconTypes.FB} color="light" size={16} />}
+          icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={16} />}
         >
           {buttonsText}
         </Button>

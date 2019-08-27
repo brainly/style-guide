@@ -68,7 +68,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
             >
               <div className="sg-icon-as-button__hole">
                 <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
-                  <use xlinkHref="#icon-answer" />
+                  <use xlinkHref="#icon-std-answer" />
                 </svg>
               </div>
             </button>
