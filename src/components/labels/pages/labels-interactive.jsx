@@ -48,16 +48,15 @@ const Labels = () => {
       <DocsActiveBlock settings={settings}>
         <Label
           text="Search"
-          iconType={ICON_TYPE.SEARCH}
+          iconType={ICON_TYPE.STD_SEARCH}
           iconColor={ICON_COLOR.GRAY}
         />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <Label
-          text="Comment"
-          number={21}
+          text="Edit"
           size={SIZE.LARGE}
-          iconType={ICON_TYPE.COMMENT}
+          iconType={ICON_TYPE.STD_PENCIL}
           iconColor={ICON_COLOR.LAVENDER}
           emphasised
           secondary

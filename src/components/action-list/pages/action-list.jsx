@@ -110,7 +110,7 @@ const ActionLists = () => (
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.ANSWER}
+            iconType={ICON_TYPE.STD_ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -127,7 +127,7 @@ const ActionLists = () => (
         </ActionListHole>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.COUNTER}
+            iconType={ICON_TYPE.STD_COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -154,7 +154,7 @@ const ActionLists = () => (
       <ActionList direction={DIRECTION.SPACE_AROUND}>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.ANSWER}
+            iconType={ICON_TYPE.STD_ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -171,7 +171,7 @@ const ActionLists = () => (
         </ActionListHole>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.COUNTER}
+            iconType={ICON_TYPE.STD_COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -198,7 +198,7 @@ const ActionLists = () => (
       <ActionList direction={DIRECTION.SPACE_EVENLY}>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.ANSWER}
+            iconType={ICON_TYPE.STD_ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -215,7 +215,7 @@ const ActionLists = () => (
         </ActionListHole>
         <ActionListHole>
           <Label
-            iconType={ICON_TYPE.COUNTER}
+            iconType={ICON_TYPE.STD_COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
             size={LABEL_SIZE.SMALL}
@@ -244,7 +244,7 @@ const ActionLists = () => (
         <ContrastBox key={1} narrow>
           <ActionList noWrap>
             <ActionListHole>
-              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+              <Icon type={ICON_TYPE.STD_MESSAGES} size={24} />
             </ActionListHole>
             <ActionListHole>
               <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
@@ -256,7 +256,7 @@ const ActionLists = () => (
         <ContrastBox key={2} narrow>
           <ActionList>
             <ActionListHole>
-              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+              <Icon type={ICON_TYPE.STD_MESSAGES} size={24} />
             </ActionListHole>
             <ActionListHole>
               <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>

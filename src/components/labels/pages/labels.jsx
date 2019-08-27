@@ -12,25 +12,25 @@ const Labels = () => (
     <DocsBlock info="Default">
       <Label
         text="Default label"
-        iconType={ICON_TYPE.SEARCH}
+        iconType={ICON_TYPE.STD_SEARCH}
         iconColor={ICON_COLOR.GRAY}
       />
       <Label
         text="Unstyled label"
-        iconType={ICON_TYPE.PENCIL}
+        iconType={ICON_TYPE.STD_PENCIL}
         iconColor={ICON_COLOR.LAVENDER}
         unstyled
       />
       <Label
         text="Mark as brainliest"
-        iconType={ICON_TYPE.EXCELLENT}
+        iconType={ICON_TYPE.STD_EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
         emphasised
       />
       <Label
         text="Comment"
         number={21}
-        iconType={ICON_TYPE.COMMENT}
+        iconType={ICON_TYPE.STD_COMMENT}
         iconColor={ICON_COLOR.LAVENDER}
         emphasised
         secondary
@@ -38,7 +38,7 @@ const Labels = () => (
       <Label
         text="Thank you"
         number={21}
-        iconType={ICON_TYPE.HEART}
+        iconType={ICON_TYPE.STD_HEART}
         iconColor={ICON_COLOR.PEACH}
         emphasised
         secondary
@@ -46,13 +46,13 @@ const Labels = () => (
       <div style={{maxWidth: `${250}px`}}>
         <Label
           text={multilineExample1}
-          iconType={ICON_TYPE.SEARCH}
+          iconType={ICON_TYPE.STD_SEARCH}
           iconColor={ICON_COLOR.GRAY}
         />
         <br />
         <Label
           text={multilineExample2}
-          iconType={ICON_TYPE.SEARCH}
+          iconType={ICON_TYPE.STD_SEARCH}
           iconColor={ICON_COLOR.GRAY}
           elementsToTop
         />
@@ -62,7 +62,7 @@ const Labels = () => (
       <Label
         text="Mark as brainliest"
         size={SIZE.SMALL}
-        iconType={ICON_TYPE.EXCELLENT}
+        iconType={ICON_TYPE.STD_EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
         emphasised
       />
@@ -70,7 +70,7 @@ const Labels = () => (
         text="Comment"
         number={21}
         size={SIZE.SMALL}
-        iconType={ICON_TYPE.COMMENT}
+        iconType={ICON_TYPE.STD_COMMENT}
         iconColor={ICON_COLOR.LAVENDER}
         emphasised
         secondary
@@ -79,7 +79,7 @@ const Labels = () => (
         text="Thank you"
         number={21}
         size={SIZE.SMALL}
-        iconType={ICON_TYPE.HEART}
+        iconType={ICON_TYPE.STD_HEART}
         iconColor={ICON_COLOR.PEACH}
         emphasised
         secondary
@@ -89,14 +89,14 @@ const Labels = () => (
       <Label
         text="Mark as brainliest"
         size={SIZE.LARGE}
-        iconType={ICON_TYPE.EXCELLENT}
+        iconType={ICON_TYPE.STD_EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
       />
       <Label
         text="Comment"
         number={21}
         size={SIZE.LARGE}
-        iconType={ICON_TYPE.COMMENT}
+        iconType={ICON_TYPE.STD_COMMENT}
         iconColor={ICON_COLOR.LAVENDER}
         secondary
       />
@@ -104,7 +104,7 @@ const Labels = () => (
         text="Thank you"
         number={21}
         size={SIZE.LARGE}
-        iconType={ICON_TYPE.HEART}
+        iconType={ICON_TYPE.STD_HEART}
         iconColor={ICON_COLOR.PEACH}
         secondary
       />

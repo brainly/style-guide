@@ -48,7 +48,7 @@ const SmallDeviceExample = () => (
                     Register
                   </ButtonSecondary>
                   <IconAsButton
-                    type={ICON_TYPE.MESSAGES}
+                    type={ICON_TYPE.STD_MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
                     overlay={
@@ -67,7 +67,7 @@ const SmallDeviceExample = () => (
               <div>
                 <HeaderRight>
                   <IconAsButton
-                    type={ICON_TYPE.MENU}
+                    type={ICON_TYPE.STD_MENU}
                     color={ICON_COLOR.LIGHT}
                   />
                 </HeaderRight>
