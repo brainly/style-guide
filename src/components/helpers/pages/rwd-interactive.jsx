@@ -1,15 +1,15 @@
-import React from "react";
-import DocsActiveBlock from "components/DocsActiveBlock";
-import RwdHelper, { TYPE } from "../RwdHelper";
-import Icon, { TYPE as ICON_TYPE, ICON_COLOR } from "icons/Icon";
+import React from 'react';
+import DocsActiveBlock from 'components/DocsActiveBlock';
+import RwdHelper, {TYPE} from '../RwdHelper';
+import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';
 
 const Helpers = () => {
   const settings = [
     {
-      name: "hide",
+      name: 'hide',
       values: TYPE,
-      required: true
-    }
+      required: true,
+    },
   ];
 
   return (
