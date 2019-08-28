@@ -42,7 +42,7 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
           {...additionalProps}
         />
         <label className="sg-checkbox__ghost" htmlFor={id}>
-          <Icon type="std-check" color="adaptive" size={16} />
+          <Icon type="check" color="adaptive" size={16} />
         </label>
       </div>
     );

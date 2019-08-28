@@ -20,7 +20,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
       <Head page={pageConfig} site={site} />
       <body>
         <script src="images/icons.js" async />
-        <script src="images/std-icons.js" async />
+        <script src="images/icons.js" async />
         <script src="images/subjects-icons.js" async />
         <script src="images/subjects-mono-icons.js" async />
         <script src="images/math-symbols-icons.js" async />
@@ -57,7 +57,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
             >
               <div className="sg-icon-as-button__hole">
                 <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
-                  <use xlinkHref="#icon-std-arrow_up" />
+                  <use xlinkHref="#icon-arrow_up" />
                 </svg>
               </div>
             </button>
@@ -68,7 +68,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
             >
               <div className="sg-icon-as-button__hole">
                 <svg className="sg-icon sg-icon--adaptive sg-icon--x22">
-                  <use xlinkHref="#icon-std-answer" />
+                  <use xlinkHref="#icon-answer" />
                 </svg>
               </div>
             </button>

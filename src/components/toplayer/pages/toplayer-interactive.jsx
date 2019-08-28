@@ -94,7 +94,7 @@ const Toplayers = () => {
                 <ListItem key={1}>
                   <ListItemIcon>
                     <Icon
-                      type={ICON_TYPE.STD_PLUS}
+                      type={ICON_TYPE.PLUS}
                       color={ICON_COLOR.GRAY_SECONDARY}
                       size={18}
                     />
@@ -106,7 +106,7 @@ const Toplayers = () => {
                 <ListItem key={2}>
                   <ListItemIcon>
                     <Icon
-                      type={ICON_TYPE.STD_PLUS}
+                      type={ICON_TYPE.PLUS}
                       color={ICON_COLOR.GRAY_SECONDARY}
                       size={18}
                     />
@@ -118,7 +118,7 @@ const Toplayers = () => {
                 <ListItem key={3}>
                   <ListItemIcon>
                     <Icon
-                      type={ICON_TYPE.STD_PLUS}
+                      type={ICON_TYPE.PLUS}
                       color={ICON_COLOR.GRAY_SECONDARY}
                       size={18}
                     />

@@ -49,7 +49,7 @@ const ActionLists = () => {
         <ActionList noWrap>
           <ActionListHole>
             <Icon
-              type={ICON_TYPE.STD_MESSAGES}
+              type={ICON_TYPE.MESSAGES}
               size={24}
               color={ICON_COLOR.DARK}
             />

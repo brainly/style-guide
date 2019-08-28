@@ -40,7 +40,7 @@ test('default icon profile', () => {
   const avatar = mount(<Avatar />);
   const icoProps = avatar.find(Icon).props();
 
-  expect(icoProps.type).toEqual('std-profile');
+  expect(icoProps.type).toEqual('profile');
 });
 
 test('SIZE', () => {

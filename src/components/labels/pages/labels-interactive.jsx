@@ -48,7 +48,7 @@ const Labels = () => {
       <DocsActiveBlock settings={settings}>
         <Label
           text="Search"
-          iconType={ICON_TYPE.STD_SEARCH}
+          iconType={ICON_TYPE.SEARCH}
           iconColor={ICON_COLOR.GRAY}
         />
       </DocsActiveBlock>
@@ -56,7 +56,7 @@ const Labels = () => {
         <Label
           text="Edit"
           size={SIZE.LARGE}
-          iconType={ICON_TYPE.STD_PENCIL}
+          iconType={ICON_TYPE.PENCIL}
           iconColor={ICON_COLOR.LAVENDER}
           emphasised
           secondary

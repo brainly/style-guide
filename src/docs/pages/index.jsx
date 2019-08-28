@@ -86,7 +86,7 @@ const index = () => (
             <pre>
               <code className="html">
                 &lt;script
-                src=&quot;https://styleguide.brainly.com/%%images/std-icons.js%%&quot;&gt;&lt;/script&gt;
+                src=&quot;https://styleguide.brainly.com/%%images/icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>

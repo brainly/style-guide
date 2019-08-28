@@ -47,7 +47,7 @@ test('render icon', () => {
 
   expect(icon).toHaveLength(1);
   expect(search.find('.sg-search__icon')).toHaveLength(1);
-  expect(icon.props().type).toEqual(TYPE.STD_SEARCH);
+  expect(icon.props().type).toEqual(TYPE.SEARCH);
   expect(icon.props().color).toEqual(ICON_COLOR.GRAY_SECONDARY);
   expect(icon.props().size).toEqual(18);
 });

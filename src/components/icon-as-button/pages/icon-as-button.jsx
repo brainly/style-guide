@@ -8,7 +8,7 @@ const icons = () => (
     <DocsBlock info="Normal">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} />
+          <DrawHelper color={color} key={color} type={TYPE.HEART} />
         ))}
       </ul>
     </DocsBlock>
@@ -16,7 +16,7 @@ const icons = () => (
     <DocsBlock info="Border">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} border />
+          <DrawHelper color={color} key={color} type={TYPE.HEART} border />
         ))}
       </ul>
     </DocsBlock>
@@ -24,13 +24,13 @@ const icons = () => (
     <DocsBlock info="Action">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} action />
+          <DrawHelper color={color} key={color} type={TYPE.HEART} action />
         ))}
         {Object.values(ICON_COLOR).map(color => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             action
             active
           />
@@ -44,7 +44,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             transparent
           />
         ))}
@@ -52,7 +52,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             transparent
             active
           />
@@ -66,7 +66,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             size={SIZE.SMALL}
           />
         ))}
@@ -79,7 +79,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             size={SIZE.XSMALL}
           />
         ))}
@@ -92,7 +92,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.STD_HEART}
+            type={TYPE.HEART}
             size={SIZE.XXSMALL}
           />
         ))}

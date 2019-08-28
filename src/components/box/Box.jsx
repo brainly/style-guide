@@ -250,7 +250,7 @@ const Box = ({
       {onClose ? (
         <div className="sg-box__close" onClick={onClose}>
           <Icon
-            type="std-close"
+            type="close"
             color={
               closeIconColor ? ICON_COLOR[closeIconColor] : ICON_COLOR.DARK
             }
