@@ -1,31 +1,12 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import ContrastBox from 'components/ContrastBox';
-import Icon, {TYPE, STD_TYPE, ICON_COLOR, SIZE} from '../Icon';
-import Text from '../../text/Text';
+import Icon, {TYPE, ICON_COLOR, SIZE} from '../Icon';
 
 const icons = () => (
   <div>
     <DocsBlock>
-      <Text size="medium" color="peach-dark" weight="bold">
-        This set of the icons is deprecated
-      </Text>
-      <ContrastBox>
-        <ul className="icons-list">
-          {Object.values(TYPE)
-            .filter(type => !type.includes('std'))
-            .map(type => (
-              <li className="icons-list__element" key={type}>
-                <Icon type={type} />
-                <span>&nbsp; - {type}</span>
-              </li>
-            ))}
-        </ul>
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock>
       <ul className="icons-list">
-        {Object.values(STD_TYPE).map(type => (
+        {Object.values(TYPE).map(type => (
           <li className="icons-list__element" key={type}>
             <Icon size="32" color="dark" type={type} />
             <span>&nbsp; - {type}</span>
