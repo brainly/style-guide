@@ -5,55 +5,6 @@ import type {Node} from 'react';
 import classNames from 'classnames';
 
 export type IconTypeType =
-  | 'answer'
-  | 'answered'
-  | 'arrow_down'
-  | 'arrow_double_down'
-  | 'arrow_left'
-  | 'arrow_right'
-  | 'arrow_up'
-  | 'attachment'
-  | 'bold'
-  | 'camera'
-  | 'change_status'
-  | 'check'
-  | 'comment'
-  | 'counter'
-  | 'cup'
-  | 'equation'
-  | 'exclamation_mark'
-  | 'excellent'
-  | 'expert'
-  | 'friends'
-  | 'heart'
-  | 'keyboard'
-  | 'lightning'
-  | 'logout'
-  | 'menu'
-  | 'messages'
-  | 'notifications'
-  | 'pencil'
-  | 'planet'
-  | 'plus'
-  | 'podium'
-  | 'points'
-  | 'profile'
-  | 'profile_edit'
-  | 'profile_view'
-  | 'question'
-  | 'reload'
-  | 'report_flag'
-  | 'search'
-  | 'seen'
-  | 'star'
-  | 'stream'
-  | 'student'
-  | 'symbols'
-  | 'thumbs_up'
-  | 'unseen'
-  | 'verified'
-  | 'x'
-  | 'fb'
   | 'std-all_questions'
   | 'std-answer'
   | 'std-arrow_double_down'
@@ -159,8 +110,7 @@ export type IconSizeType =
   | 14
   | 10;
 
-// Added to export separately this new set in html-sketchapp
-export const STD_TYPE = {
+export const TYPE = {
   STD_ALL_QUESTIONS: 'std-all_questions', // new
   STD_ANSWER: 'std-answer',
   STD_ARROW_DOUBLE_DOWN: 'std-arrow_double_down',
@@ -225,59 +175,6 @@ export const STD_TYPE = {
   STD_UNDERLINED: 'std-underlined',
   STD_VERIFIED: 'std-verified',
   STD_YOUTUBE: 'std-youtube',
-};
-
-export const TYPE = {
-  ANSWER: 'answer',
-  ANSWERED: 'answered', // not needed in new set
-  ARROW_DOWN: 'arrow_down',
-  ARROW_DOUBLE_DOWN: 'arrow_double_down',
-  ARROW_LEFT: 'arrow_left',
-  ARROW_RIGHT: 'arrow_right',
-  ARROW_UP: 'arrow_up',
-  ATTACHMENT: 'attachment',
-  BOLD: 'bold',
-  CAMERA: 'camera',
-  CHANGE_STATUS: 'change_status', // not needed in new set
-  CHECK: 'check',
-  COMMENT: 'comment', // not needed in new set
-  COUNTER: 'counter',
-  CUP: 'cup', // not needed in new set
-  EQUATION: 'equation',
-  EXCLAMATION_MARK: 'exclamation_mark',
-  EXCELLENT: 'excellent',
-  EXPERT: 'expert', // not needed in new set
-  FRIENDS: 'friends',
-  HEART: 'heart',
-  KEYBOARD: 'keyboard', // not needed in new set
-  LIGHTNING: 'lightning', // not needed in new set
-  LOGOUT: 'logout',
-  MENU: 'menu',
-  MESSAGES: 'messages',
-  NOTIFICATIONS: 'notifications',
-  PENCIL: 'pencil',
-  PLANET: 'planet', // not needed in new set
-  PLUS: 'plus',
-  PODIUM: 'podium', // not needed in new set
-  POINTS: 'points',
-  PROFILE: 'profile',
-  PROFILE_EDIT: 'profile_edit', // not needed in new set
-  PROFILE_VIEW: 'profile_view',
-  QUESTION: 'question',
-  RELOAD: 'reload',
-  REPORT_FLAG: 'report_flag',
-  SEARCH: 'search',
-  SEEN: 'seen',
-  STAR: 'star',
-  STREAM: 'stream', // not needed in new set
-  STUDENT: 'student', // not needed in new set
-  SYMBOLS: 'symbols',
-  THUMBS_UP: 'thumbs_up', // not needed in new set
-  UNSEEN: 'unseen', // not needed in new set
-  VERIFIED: 'verified',
-  X: 'x',
-  FB: 'fb',
-  ...STD_TYPE,
 };
 
 export const ICON_COLOR = {
