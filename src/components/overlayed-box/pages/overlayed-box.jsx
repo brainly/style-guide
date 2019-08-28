@@ -32,22 +32,16 @@ const overlayedBoxs = () => (
     </DocsBlock>
     <DocsBlock info="Standard overlay box">
       <ContrastBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.PENCIL} />}>
+        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.STD_PENCIL} />}>
           <Avatar />
         </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.SEARCH} />}>
+        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.STD_SEARCH} />}>
           <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
         </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.COMMENT} />}>
+        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.STD_FRIENDS} />}>
           <Avatar />
         </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.COMMENT} />}>
-          <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
-        </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.FRIENDS} />}>
-          <Avatar />
-        </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.FRIENDS} />}>
+        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.STD_FRIENDS} />}>
           <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
         </OverlayedBox>
         <OverlayedBox overlay={<TextBadge rounded>1</TextBadge>}>

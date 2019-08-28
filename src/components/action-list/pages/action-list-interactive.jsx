@@ -48,7 +48,11 @@ const ActionLists = () => {
       <DocsActiveBlock settings={settings}>
         <ActionList noWrap>
           <ActionListHole>
-            <Icon type={ICON_TYPE.MESSAGES} size={24} color={ICON_COLOR.DARK} />
+            <Icon
+              type={ICON_TYPE.STD_MESSAGES}
+              size={24}
+              color={ICON_COLOR.DARK}
+            />
           </ActionListHole>
           <ActionListHole>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.DARK}>

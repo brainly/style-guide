@@ -11,7 +11,7 @@ import {shallow} from 'enzyme';
 
 describe('Label', () => {
   test('render', () => {
-    const iconType = ICON_TYPE.STAR;
+    const iconType = ICON_TYPE.STD_STAR;
     const label = shallow(<Label iconType={iconType} text="test" />);
     const icon = label.find(LabelIcon);
     const textLabel = label.find('label.sg-label__text');
@@ -23,7 +23,7 @@ describe('Label', () => {
   });
 
   test('icon color', () => {
-    const iconType = ICON_TYPE.HEART;
+    const iconType = ICON_TYPE.STD_HEART;
     const iconColor = ICON_COLOR.LAVENDER;
     const label = shallow(
       <Label iconType={iconType} iconColor={iconColor} text="test" />
@@ -35,7 +35,7 @@ describe('Label', () => {
 
   test('size', () => {
     const size = SIZE.SMALL;
-    const iconType = ICON_TYPE.HEART;
+    const iconType = ICON_TYPE.STD_HEART;
     const label = shallow(
       <Label iconType={iconType} size={size} text="test" />
     );
@@ -47,7 +47,7 @@ describe('Label', () => {
 
   test('default size', () => {
     const size = SIZE.NORMAL;
-    const iconType = ICON_TYPE.HEART;
+    const iconType = ICON_TYPE.STD_HEART;
     const label = shallow(
       <Label iconType={iconType} size={size} text="test" />
     );
@@ -71,7 +71,7 @@ describe('Label', () => {
   });
 
   test('elements to top', () => {
-    const iconType = ICON_TYPE.HEART;
+    const iconType = ICON_TYPE.STD_HEART;
     const label = shallow(
       <Label iconType={iconType} elementsToTop text="test" />
     );
@@ -80,7 +80,7 @@ describe('Label', () => {
   });
 
   test('label with no text', () => {
-    const iconType = ICON_TYPE.HEART;
+    const iconType = ICON_TYPE.STD_HEART;
     const label = shallow(<Label iconType={iconType} />);
     const textLabel = label.find('div.sg-label__text');
 
@@ -109,7 +109,7 @@ describe('Label', () => {
 
 describe('LabelIcon', () => {
   test('render icon and pass props', () => {
-    const iconType = ICON_TYPE.STAR;
+    const iconType = ICON_TYPE.STD_STAR;
     const iconColor = ICON_COLOR.BLUE;
     const iconSize = 10;
     const label = shallow(

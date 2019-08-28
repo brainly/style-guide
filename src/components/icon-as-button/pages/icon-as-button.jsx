@@ -8,7 +8,7 @@ const icons = () => (
     <DocsBlock info="Normal">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.HEART} />
+          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} />
         ))}
       </ul>
     </DocsBlock>
@@ -16,7 +16,7 @@ const icons = () => (
     <DocsBlock info="Border">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.HEART} border />
+          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} border />
         ))}
       </ul>
     </DocsBlock>
@@ -24,13 +24,13 @@ const icons = () => (
     <DocsBlock info="Action">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.HEART} action />
+          <DrawHelper color={color} key={color} type={TYPE.STD_HEART} action />
         ))}
         {Object.values(ICON_COLOR).map(color => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.HEART}
+            type={TYPE.STD_HEART}
             action
             active
           />
@@ -41,13 +41,18 @@ const icons = () => (
     <DocsBlock info="Action transparent">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper color={color} key={color} type={TYPE.HEART} transparent />
+          <DrawHelper
+            color={color}
+            key={color}
+            type={TYPE.STD_HEART}
+            transparent
+          />
         ))}
         {Object.values(ICON_COLOR).map(color => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.HEART}
+            type={TYPE.STD_HEART}
             transparent
             active
           />
@@ -61,7 +66,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.HEART}
+            type={TYPE.STD_HEART}
             size={SIZE.SMALL}
           />
         ))}
@@ -74,7 +79,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.HEART}
+            type={TYPE.STD_HEART}
             size={SIZE.XSMALL}
           />
         ))}
@@ -87,7 +92,7 @@ const icons = () => (
           <DrawHelper
             color={color}
             key={color}
-            type={TYPE.HEART}
+            type={TYPE.STD_HEART}
             size={SIZE.XXSMALL}
           />
         ))}

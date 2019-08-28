@@ -356,7 +356,7 @@ export type IconPropsType =
                   >
                     Get +50
                     <Icon
-                      type={iconTypes.POINTS}
+                      type={iconTypes.STD_POINTS}
                       color="dark"
                       size={16}
                       tagType="span"
@@ -394,7 +394,7 @@ export type IconPropsType =
                   >
                     Get +50
                     <Icon
-                      type={iconTypes.POINTS}
+                      type={iconTypes.STD_POINTS}
                       color="dark"
                       size={16}
                       tagType="span"

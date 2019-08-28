@@ -357,7 +357,7 @@ const ContentBoxes = () => (
             <Label
               text="Thank you"
               number={21}
-              iconType={ICON_TYPE.HEART}
+              iconType={ICON_TYPE.STD_HEART}
               iconColor={ICON_COLOR.ADAPTIVE}
               secondary
               unstyled
@@ -393,7 +393,7 @@ const ContentBoxes = () => (
             <Label
               text="Thank you"
               number={21}
-              iconType={ICON_TYPE.HEART}
+              iconType={ICON_TYPE.STD_HEART}
               iconColor={ICON_COLOR.ADAPTIVE}
               secondary
               unstyled
@@ -476,7 +476,7 @@ const ContentBoxes = () => (
             <Label
               text="Thank you"
               number={21}
-              iconType={ICON_TYPE.HEART}
+              iconType={ICON_TYPE.STD_HEART}
               iconColor={ICON_COLOR.ADAPTIVE}
               secondary
               unstyled
@@ -497,7 +497,7 @@ const ContentBoxes = () => (
             <Label
               text="Thank you"
               number={21}
-              iconType={ICON_TYPE.HEART}
+              iconType={ICON_TYPE.STD_HEART}
               iconColor={ICON_COLOR.ADAPTIVE}
               secondary
               unstyled

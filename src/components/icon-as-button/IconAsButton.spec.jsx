@@ -4,7 +4,7 @@ import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const type = TYPE.STAR;
+  const type = TYPE.STD_STAR;
   const iconAsButton = shallow(<IconAsButton type={type} />);
   const icon = iconAsButton.find(Icon);
 
@@ -14,7 +14,7 @@ test('render', () => {
 });
 
 test('colors', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const color = ICON_COLOR.DARK;
   const iconAsButton = shallow(<IconAsButton type={type} color={color} />);
 
@@ -24,7 +24,7 @@ test('colors', () => {
 test('size', () => {
   const size = SIZE.SMALL;
   const sizeOfSmallIco = 18;
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} size={size} />);
   const icon = iconAsButton.find(Icon);
 
@@ -34,7 +34,7 @@ test('size', () => {
 
 test('default size', () => {
   const sizeOfNormallIco = 26;
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} />);
   const icon = iconAsButton.find(Icon);
 
@@ -43,21 +43,21 @@ test('default size', () => {
 });
 
 test('border', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} border />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--with-border')).toEqual(true);
 });
 
 test('transparent', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} transparent />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
 });
 
 test('transparent active', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} transparent active />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--transparent')).toEqual(true);
@@ -67,14 +67,14 @@ test('transparent active', () => {
 });
 
 test('action', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} action />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
 });
 
 test('action active', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} action active />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--action')).toEqual(true);
@@ -84,7 +84,7 @@ test('action active', () => {
 });
 
 test('link as button', () => {
-  const type = TYPE.ANSWER;
+  const type = TYPE.STD_ANSWER;
   const href = 'http://brainly.test';
 
   const iconAsButton = shallow(<IconAsButton type={type} href={href} />);

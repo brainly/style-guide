@@ -114,14 +114,14 @@ import {Button} from 'style-guide';
 <Button
     size="small"
     type="facebook"
-    icon={<Icon type={iconTypes.FB} color="light" size={16} />}
+    icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={16} />}
 >
     Log in
 </Button>
 
 <Button
     type="facebook"
-    icon={<Icon type={iconTypes.FB} color="light" size={24} />}
+    icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={24} />}
 >
     Log in
 </Button>
@@ -129,7 +129,7 @@ import {Button} from 'style-guide';
 <Button
     size="large"
     type="facebook"
-    icon={<Icon type={iconTypes.FB} color="light" size={32} />}
+    icon={<Icon type={iconTypes.STD_FACEBOOK} color="light" size={32} />}
 >
     Log in
 </Button>
