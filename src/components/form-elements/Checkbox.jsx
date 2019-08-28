@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import React, {PureComponent} from 'react';
 import generateRandomString from '../../js/generateRandomString';
-import Icon, {ICON_COLOR, TYPE} from '../icons/Icon';
+import Icon from '../icons/Icon';
 
 export type CheckboxPropsType = {
   checked?: boolean,
@@ -42,7 +42,7 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
           {...additionalProps}
         />
         <label className="sg-checkbox__ghost" htmlFor={id}>
-          <Icon type={TYPE.CHECK} color={ICON_COLOR.ADAPTIVE} size={10} />
+          <Icon type="std-check" color="adaptive" size={16} />
         </label>
       </div>
     );
