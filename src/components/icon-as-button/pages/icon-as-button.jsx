@@ -41,12 +41,7 @@ const icons = () => (
     <DocsBlock info="Action transparent">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper
-            color={color}
-            key={color}
-            type={TYPE.HEART}
-            transparent
-          />
+          <DrawHelper color={color} key={color} type={TYPE.HEART} transparent />
         ))}
         {Object.values(ICON_COLOR).map(color => (
           <DrawHelper
