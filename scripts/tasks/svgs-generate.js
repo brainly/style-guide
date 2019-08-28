@@ -38,12 +38,7 @@ module.exports = function(gulp, plugins, consts) {
       'subjects-mono',
       '*.svg'
     );
-    const stdIconsPath = plugins.path.join(
-      consts.SRC,
-      'images',
-      'std-icons',
-      '*.svg'
-    );
+    const iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
     const mathSymbolsPath = plugins.path.join(
       consts.SRC,
       'images',
@@ -96,10 +91,10 @@ module.exports = function(gulp, plugins, consts) {
       },
     };
 
-    const stdIconsConfig = {
+    const iconsConfig = {
       mode: {
         symbol: {
-          sprite: '../std-icons.js',
+          sprite: '../icons.js',
         },
       },
       shape: {
@@ -156,8 +151,8 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(gulp.dest(destPath));
 
     return gulp
-      .src(stdIconsPath)
-      .pipe(plugins.svgSprite(stdIconsConfig))
+      .src(iconsPath)
+      .pipe(plugins.svgSprite(iconsConfig))
       .pipe(gulp.dest(destPath));
   };
 };

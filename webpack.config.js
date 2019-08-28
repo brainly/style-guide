@@ -55,8 +55,6 @@ module.exports = () => {
                   return `icon-subject-${symbol}`;
                 case 'subjects-mono':
                   return `icon-subject-mono-${symbol}`;
-                case 'std-icons':
-                  return `icon-${symbol}`;
                 default:
                   return symbol;
               }

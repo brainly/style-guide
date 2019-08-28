@@ -33,7 +33,7 @@ const icons = () => (
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
           <li className="icons-list__element" key={color}>
-            <Icon color={color} size="46" type="std-answer" />
+            <Icon color={color} size="46" type="answer" />
             <span>&nbsp; - {color}</span>
           </li>
         ))}

@@ -3,7 +3,7 @@ import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
 
 test('render if type', () => {
-  const icon = shallow(<Icon type={TYPE.STD_ANSWER} />);
+  const icon = shallow(<Icon type={TYPE.ANSWER} />);
 
   expect(icon.hasClass('sg-icon')).toEqual(true);
   expect(icon.find('use')).toHaveLength(1);
@@ -28,7 +28,7 @@ test('render if children', () => {
 });
 
 test('type passed to xlink:href', () => {
-  const type = TYPE.STD_ANSWER;
+  const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} />);
   const use = icon.find('use');
 
@@ -36,7 +36,7 @@ test('type passed to xlink:href', () => {
 });
 
 test('new type passed to xlink:href', () => {
-  const type = 'std-answer';
+  const type = 'answer';
   const icon = shallow(<Icon type={type} />);
   const use = icon.find('use');
 
@@ -44,7 +44,7 @@ test('new type passed to xlink:href', () => {
 });
 
 test('colors', () => {
-  const type = TYPE.STD_ANSWER;
+  const type = TYPE.ANSWER;
   const color = ICON_COLOR.DARK;
   const icon = shallow(<Icon type={type} color={color} />);
 
@@ -53,7 +53,7 @@ test('colors', () => {
 
 test('size', () => {
   const size = 10;
-  const type = TYPE.STD_ANSWER;
+  const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} size={size} />);
 
   expect(icon.hasClass(`sg-icon--x${size}`)).toEqual(true);
@@ -61,14 +61,14 @@ test('size', () => {
 
 test('tag type', () => {
   const component = shallow(
-    <Icon type={TYPE.STD_ANSWER} size="10" tagType="span" />
+    <Icon type={TYPE.ANSWER} size="10" tagType="span" />
   );
 
   expect(component.find('span')).toHaveLength(1);
 });
 
 test('other props', () => {
-  const type = TYPE.STD_ANSWER;
+  const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} data-something="else" />);
 
   expect(icon.find('[data-something="else"]')).toHaveLength(1);

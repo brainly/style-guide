@@ -17,11 +17,7 @@ const Helpers = () => {
       <DocsActiveBlock settings={settings}>
         <RwdHelper hide={TYPE.MEDIUM_DOWN}>
           <span>
-            <Icon
-              type={ICON_TYPE.STD_HEART}
-              color={ICON_COLOR.PEACH}
-              size={32}
-            />
+            <Icon type={ICON_TYPE.HEART} color={ICON_COLOR.PEACH} size={32} />
           </span>
         </RwdHelper>
       </DocsActiveBlock>
@@ -29,7 +25,7 @@ const Helpers = () => {
         <RwdHelper hide={TYPE.MEDIUM_UP}>
           <span>
             <Icon
-              type={ICON_TYPE.STD_EQUATION}
+              type={ICON_TYPE.EQUATION}
               color={ICON_COLOR.LAVENDER}
               size={32}
             />

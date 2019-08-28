@@ -78,7 +78,7 @@ class CodeBlock extends Component<PropsType> {
         <div className="copy-helper__buttons" ref={this.copyButtonFunction}>
           <IconAsButton
             title="Copy to the clipboard"
-            type={TYPE.STD_ANSWER}
+            type={TYPE.ANSWER}
             color={ICON_COLOR.DARK}
           />
         </div>
