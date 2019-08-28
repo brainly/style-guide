@@ -38,7 +38,6 @@ module.exports = function(gulp, plugins, consts) {
       'subjects-mono',
       '*.svg'
     );
-    const iconsPath = plugins.path.join(consts.SRC, 'images', 'icons', '*.svg');
     const stdIconsPath = plugins.path.join(
       consts.SRC,
       'images',
@@ -84,28 +83,6 @@ module.exports = function(gulp, plugins, consts) {
       shape: {
         id: {
           generator: 'icon-subject-mono-%s',
-        },
-        transform: [
-          'svgo',
-          {
-            custom: svgSymbolCleanUp.bind(null, {removeClass: true}),
-          },
-        ],
-      },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
-      },
-    };
-
-    const iconsConfig = {
-      mode: {
-        symbol: {
-          sprite: '../icons.js',
-        },
-      },
-      shape: {
-        id: {
-          generator: 'icon-%s',
         },
         transform: [
           'svgo',
@@ -178,14 +155,9 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(plugins.svgSprite(mathSymbolsConfig))
       .pipe(gulp.dest(destPath));
 
-    gulp
+    return gulp
       .src(stdIconsPath)
       .pipe(plugins.svgSprite(stdIconsConfig))
-      .pipe(gulp.dest(destPath));
-
-    return gulp
-      .src(iconsPath)
-      .pipe(plugins.svgSprite(iconsConfig))
       .pipe(gulp.dest(destPath));
   };
 };
