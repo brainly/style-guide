@@ -18,8 +18,6 @@ const consts = {
   BUCKET_NAME: argv.production
     ? 'styleguide.brainly.com'
     : 'beta.styleguide.brainly.com',
-  AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,
-  AWS_SECRET_ACCESS_KEY: process.env.AWS_SECRET_ACCESS_KEY,
   AWS_REGION: 'eu-west-1',
   get SRC() {
     return path.join(this.PROJECT_DIR, 'src');
