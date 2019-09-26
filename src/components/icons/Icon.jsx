@@ -43,6 +43,7 @@ export type IconTypeType =
   | 'more'
   | 'notifications'
   | 'numbered_list'
+  | 'padlock'
   | 'pencil'
   | 'play'
   | 'plus'
@@ -149,6 +150,7 @@ export const TYPE = {
   MORE: 'more',
   NOTIFICATIONS: 'notifications',
   NUMBERED_LIST: 'numbered_list',
+  PADLOCK: 'padlock',
   PENCIL: 'pencil',
   PLAY: 'play',
   PLUS: 'plus',
