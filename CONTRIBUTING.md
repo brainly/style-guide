@@ -9,8 +9,7 @@ Hi 👋 Thanks for considering contributing! Aim of this doc it to guide you thr
 1. Make sure all tests and linters are happy with your changes
 1. Open a PR
 1. Get your PR accepted by two of the [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
-1. Bump project version (described below)
-1. Your chagne will be automatically deployed and available at [styleguide.brainly.com](https://styleguide.brainly.com) within couple of minutes
+
 
 ## How to run this project locally
 
@@ -83,14 +82,21 @@ When importing dependencies we are using global imports instead of relative ones
 
 Bad:
 ```
-import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
+import Button, {types as buttonTypes} from '../../buttons/Button';
 ```
 
 Good:
 ```
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'components/buttons/ButtonPrimary';
+import Button, {BUTTON_TYPE} from 'components/buttons/Button';
 ```
 
+or just:
+
+```
+import Button from 'components/buttons/Button';
+
+<Button type="primary">Button</Button>
+```
 #### Components options
 
 Component options should be stored in const object.
@@ -110,21 +116,22 @@ Go here to find documentation about [FlEXBOX component](src/components/flex/READ
 
 ## Technical Discipline
 
-#### Bumping Release Version
+#### Bumping Release Version - this part is for [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
 
-This project uses semver versioning.
+This project uses semver versioning. We follow [SemVer](https://semver.org/):
+
+1. Bump first number - If your release breaks public API in any way - e.g. removed method, renamed class, different default parameters for method, new required parameters, removing components.
+2. Bump second number - If your release only extends public API and improves support, add new components, improves CSS. 
+3. Bump the last number - Finally, if your release only fixes a bug w/o any API changes or introducing new features bump the last number.
 
 To simplify version bumping you can use [`yarn version`](https://yarnpkg.com/lang/en/docs/cli/version/). It will patch `package.json`, create a corresponding commit, create a tag and push those to git changes.
 
 To bump the version correctly you should follow these steps:
 
-1. Wait for your PR to get accepted
-
-1. Rebase your branch
-
-1. bump version in branch 
-
-1. Merge your PR to master
+1. Merge approved, pending PR's into master.
+2. Create a branch with a bumped version according to the rules above, create tag and merge it (get approvals of course).
+3. Create proper, specific and detailed release note, with all the changes included in the release
+4. Remember to let know contributors and Brainly engineers, that new version was released and it's ready to use
 
 #### Code Style
 
