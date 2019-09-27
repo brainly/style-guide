@@ -131,7 +131,7 @@ To bump the version correctly you should follow these steps:
 1. Merge approved, pending PR's into master.
 2. Create a branch with a bumped version according to the rules above, create tag and merge it (get approvals of course).
 3. Create proper, specific and detailed release note, with all the changes included in the release
-4. Remember to let know contributors and Brainly engineers, that new version was released and it's ready to use
+4. Remember to let know contributors (before merge their PR, just mention in the comment that we are releasing a new version of the library) and Brainly engineers (slack channel would be a perfect place for that), that new version was released and it's ready to use
 
 #### Code Style
 
