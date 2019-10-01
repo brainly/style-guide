@@ -46,6 +46,7 @@ export const COLOR = {
   MUSTARD_PRIMARY: 'mustard-primary',
   PEACH: 'peach',
   PEACH_SECONDARY: 'peach-secondary',
+  PEACH_SECONDARY_LIGHT: 'peach-secondary-light',
 };
 
 export const PADDING = {
