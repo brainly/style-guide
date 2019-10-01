@@ -19,7 +19,8 @@ type ColorType =
   | 'gray-secondary-ultra-light'
   | 'mustard-primary'
   | 'peach'
-  | 'peach-secondary';
+  | 'peach-secondary'
+  | 'peach-secondary-light';
 
 type PaddingType =
   | 'no-padding'
