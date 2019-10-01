@@ -19,7 +19,8 @@ type ColorType =
   | 'gray-secondary-ultra-light'
   | 'mustard-primary'
   | 'peach'
-  | 'peach-secondary';
+  | 'peach-secondary'
+  | 'peach-secondary-light';
 
 type PaddingType =
   | 'no-padding'
@@ -45,6 +46,7 @@ export const COLOR = {
   MUSTARD_PRIMARY: 'mustard-primary',
   PEACH: 'peach',
   PEACH_SECONDARY: 'peach-secondary',
+  PEACH_SECONDARY_LIGHT: 'peach-secondary-light',
 };
 
 export const PADDING = {
