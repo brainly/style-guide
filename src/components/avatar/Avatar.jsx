@@ -81,7 +81,7 @@ const Avatar = ({
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon">
         <Icon
-          type="std-profile"
+          type="profile"
           color="gray-light"
           size={
             border ? ICON_SIZE_FOR_AVATARS_WITH_BORDER[size] : ICON_SIZE[size]

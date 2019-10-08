@@ -52,7 +52,7 @@ $includeHtml: false !default;
 
     &__element:checked {
       & + .sg-checkbox__ghost {
-        border-color: $crInputCheckedColor;
+        border: 0;
         background: $crInputCheckedColor;
       }
 

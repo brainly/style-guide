@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <title>counter</title>
-  <path fill-rule="evenodd" d="M16 0C7.2 0 0 7.2 0 16s7.2 16 16 16 16-7.2 16-16S24.8 0 16 0zm9.3 17.3H14.7V6.7h2.6v8h8v2.6z"/>
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <title>
+    counter
+  </title>
+  <path d="M255.8 64a192 192 0 1 0 .4 384 192 192 0 0 0-.4-384zm85.5 213.3H256a21.4 21.4 0 0 1-21.3-21.3V149.3a21.3 21.3 0 1 1 42.6 0v85.4h64a21.3 21.3 0 1 1 0 42.6z"/>
 </svg>

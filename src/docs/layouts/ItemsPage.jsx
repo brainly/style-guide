@@ -20,7 +20,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
       <Head page={pageConfig} site={site} />
       <body>
         <script src="images/icons.js" async />
-        <script src="images/std-icons.js" async />
+        <script src="images/icons.js" async />
         <script src="images/subjects-icons.js" async />
         <script src="images/subjects-mono-icons.js" async />
         <script src="images/math-symbols-icons.js" async />

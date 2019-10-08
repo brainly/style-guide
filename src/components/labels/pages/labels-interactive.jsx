@@ -54,10 +54,9 @@ const Labels = () => {
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <Label
-          text="Comment"
-          number={21}
+          text="Edit"
           size={SIZE.LARGE}
-          iconType={ICON_TYPE.COMMENT}
+          iconType={ICON_TYPE.PENCIL}
           iconColor={ICON_COLOR.LAVENDER}
           emphasised
           secondary

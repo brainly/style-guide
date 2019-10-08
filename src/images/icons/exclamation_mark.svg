@@ -1,1 +1,7 @@
-<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><g transform="translate(13)" fill="#000" fill-rule="evenodd"><path d="M6 28.8c0 .88-.294 1.633-.881 2.26C4.53 31.687 3.825 32 3 32c-.825 0-1.531-.313-2.119-.94C.294 30.433 0 29.68 0 28.8c0-.88.294-1.633.881-2.26.588-.627 1.294-.94 2.119-.94.825 0 1.531.313 2.119.94.587.627.881 1.38.881 2.26z" fill-rule="nonzero"/><rect width="6" height="23.04" rx="1.92"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>
+    exclamation mark
+  </title>
+  <path d="M256 106.67a32.1 32.1 0 0 0-32 32V288a32 32 0 1 0 64 0V138.67a32.1 32.1 0 0 0-32-32z"/>
+  <circle cx="256" cy="394.67" r="32"/>
+</svg>

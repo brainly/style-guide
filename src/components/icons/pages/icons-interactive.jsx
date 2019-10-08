@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon, {TYPE, STD_TYPE, SIZE, ICON_COLOR} from '../Icon';
+import Icon, {TYPE, SIZE, ICON_COLOR} from '../Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Icons = () => {
@@ -7,22 +7,6 @@ const Icons = () => {
     result[item] = item;
     return result;
   }, {});
-
-  const settingsNewIcons = [
-    {
-      name: 'type',
-      values: STD_TYPE,
-      required: true,
-    },
-    {
-      name: 'size',
-      values: SIZE_OPTIONS,
-    },
-    {
-      name: 'color',
-      values: ICON_COLOR,
-    },
-  ];
 
   const settings = [
     {
@@ -43,10 +27,7 @@ const Icons = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Icon type={TYPE.HEART} color={ICON_COLOR.PEACH} size={46} />
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={settingsNewIcons}>
-        <Icon type="std-answer" color="peach" size={46} />
+        <Icon type="heart" color="peach" size={46} />
       </DocsActiveBlock>
     </div>
   );

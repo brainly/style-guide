@@ -36,7 +36,7 @@ test('type passed to xlink:href', () => {
 });
 
 test('new type passed to xlink:href', () => {
-  const type = 'std-answer';
+  const type = 'answer';
   const icon = shallow(<Icon type={type} />);
   const use = icon.find('use');
 

@@ -28,14 +28,6 @@ const Labels = () => (
         emphasised
       />
       <Label
-        text="Comment"
-        number={21}
-        iconType={ICON_TYPE.COMMENT}
-        iconColor={ICON_COLOR.LAVENDER}
-        emphasised
-        secondary
-      />
-      <Label
         text="Thank you"
         number={21}
         iconType={ICON_TYPE.HEART}
@@ -67,15 +59,6 @@ const Labels = () => (
         emphasised
       />
       <Label
-        text="Comment"
-        number={21}
-        size={SIZE.SMALL}
-        iconType={ICON_TYPE.COMMENT}
-        iconColor={ICON_COLOR.LAVENDER}
-        emphasised
-        secondary
-      />
-      <Label
         text="Thank you"
         number={21}
         size={SIZE.SMALL}
@@ -91,14 +74,6 @@ const Labels = () => (
         size={SIZE.LARGE}
         iconType={ICON_TYPE.EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
-      />
-      <Label
-        text="Comment"
-        number={21}
-        size={SIZE.LARGE}
-        iconType={ICON_TYPE.COMMENT}
-        iconColor={ICON_COLOR.LAVENDER}
-        secondary
       />
       <Label
         text="Thank you"

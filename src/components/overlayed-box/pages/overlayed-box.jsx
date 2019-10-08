@@ -38,12 +38,6 @@ const overlayedBoxs = () => (
         <OverlayedBox overlay={<Sticker type={STICKER_TYPE.SEARCH} />}>
           <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
         </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.COMMENT} />}>
-          <Avatar />
-        </OverlayedBox>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.COMMENT} />}>
-          <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
-        </OverlayedBox>
         <OverlayedBox overlay={<Sticker type={STICKER_TYPE.FRIENDS} />}>
           <Avatar />
         </OverlayedBox>
