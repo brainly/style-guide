@@ -28,6 +28,10 @@ $includeHtml: false !default;
       font-weight: $fontWeightBold;
       margin-right: gutter(0.25);
 
+      // To fix alignment issue caused by Proxima font
+      position: relative;
+      top: 1px;
+
       &:last-child {
         margin-right: 0;
       }

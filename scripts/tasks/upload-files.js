@@ -34,8 +34,6 @@ module.exports = function(gulp, plugins, consts) {
             );
           });
           uploader.on('end', done);
-        } else {
-          throw new Error('Version already exists');
         }
       }
     );
