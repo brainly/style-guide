@@ -4,13 +4,11 @@ Hi 👋 Thanks for considering contributing! The aim of this doc is to guide you
 
 ## Process
 
-1. Run this project locally (described below).
-2. Make your changes (including tests and documentation updates).
-3. Make sure all of the tests and linters are happy with your changes.
-4. Open a PR.
-5. Get your PR accepted by two of the [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS).
-6. Bump the project version (described below).
-7. Your change will be automatically deployed and available at [styleguide.brainly.com](https://styleguide.brainly.com) within a couple of minutes.
+1. Run this project locally (described below)
+1. Make your changes (including tests and documentation updates)
+1. Make sure all tests and linters are happy with your changes
+1. Open a PR
+1. Get your PR accepted by two of the [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
 
 ## How to Run This Project Locally
 
@@ -83,15 +81,22 @@ When importing dependencies, we are using global imports instead of relative one
 
 Bad:
 ```
-import ButtonPrimary, {types as buttonTypes} from '../../buttons/ButtonPrimary';
+import Button, {types as buttonTypes} from '../../buttons/Button';
 ```
 
 Good:
 ```
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'components/buttons/ButtonPrimary';
+import Button, {BUTTON_TYPE} from 'components/buttons/Button';
 ```
 
-### Components options
+or just:
+
+```
+import Button from 'components/buttons/Button';
+
+<Button type="primary">Button</Button>
+```
+#### Components options
 
 Component options should be stored in a `const` object.
 Options should have singular form ("alignment" not "alignments") and capitalized names like:
@@ -110,20 +115,24 @@ Go to these links to find documentation about [the Flexbox component](src/compon
 
 ## Technical Discipline
 
-### Bumping the Release Version
+#### Bumping the Release Version - this part is for [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
 
-This project uses semver versioning.
+This project uses semver versioning. We follow [SemVer](https://semver.org/):
+
+1. Bump first number - If your release breaks public API in any way - e.g. removed method, renamed class, different default parameters for method, new required parameters, removing components.
+2. Bump second number - If your release only extends public API and improves support, add new components, improves CSS. 
+3. Bump the last number - Finally, if your release only fixes a bug w/o any API changes or introducing new features bump the last number.
 
 To simplify version bumping you can use [`yarn version`](https://yarnpkg.com/lang/en/docs/cli/version/). It will patch `package.json`, create a corresponding commit, create a tag, and push those to git changes.
 
 To bump the version correctly you should follow these steps:
 
-1. Wait for your PR to get accepted.
-2. Rebase your branch.
-3. Bump the version in your branch.
-4. Merge your PR to the `master` branch.
+1. Merge approved, pending PR's into master.
+2. Create a branch with a bumped version according to the rules above, create tag and merge it (get approvals of course).
+3. Create proper, specific and detailed release note, with all the changes included in the release
+4. Remember to let know contributors (before merge their PR, just mention in the comment that we are releasing a new version of the library) and Brainly engineers (slack channel would be a perfect place for that), that new version was released and it's ready to use
 
-### Code Style
+#### Code Style
 
 All linter settings are based on our standarized [frontend tools configs](https://github.com/brainly/frontend-tools-configs/).
 To run the linters (and tests) you should use `yarn test`.
