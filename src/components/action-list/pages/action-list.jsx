@@ -61,7 +61,7 @@ const ActionLists = () => (
 
     <DocsBlock info="To top">
       <ContrastBox fullWidth>
-        <ActionList direction={DIRECTION.TO_TOP}>
+        <ActionList toTop>
           <ActionListHole>
             <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
               accept
@@ -398,9 +398,9 @@ const ActionLists = () => (
               This component will grow to fill all remaining size
             </Text>
           </ActionListHole>
-          <ActionListHole>
+          <ActionListHole noShrink>
             <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
-              This component will not be shrinked even if its width is smalle
+              This component will not be shrinked even if its width is smaller
             </Text>
           </ActionListHole>
         </ActionList>
