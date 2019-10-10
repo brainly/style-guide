@@ -1,3 +1,5 @@
+// @flow strict
+
 import colors from './colors';
 
 const hex = {};

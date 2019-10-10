@@ -1,3 +1,5 @@
+// @flow strict
+
 const color = {
   primary: [
     {
