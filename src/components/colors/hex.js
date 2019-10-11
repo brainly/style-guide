@@ -2,7 +2,7 @@
 
 import colors from './colors';
 
-const hex = {};
+const hex: {[key: string]: string, ...} = {};
 
 Object.keys(colors).forEach(groupName => {
   colors[groupName].forEach(color => {
