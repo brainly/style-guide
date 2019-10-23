@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from './textConsts';
 
-type TextTypeType =
+export type TextTypeType =
   | 'span'
   | 'p'
   | 'h1'
@@ -17,7 +17,7 @@ type TextTypeType =
   | 'label'
   | 'a';
 
-type TextSizeType =
+export type TextSizeType =
   | 'xsmall'
   | 'small'
   | 'normal'
@@ -25,7 +25,7 @@ type TextSizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type TextColorType =
+export type TextColorType =
   | 'default'
   | 'white'
   | 'gray'
@@ -37,11 +37,11 @@ type TextColorType =
   | 'lavender-dark'
   | 'blue-dark';
 
-type TextWeightType = 'regular' | 'bold';
+export type TextWeightType = 'regular' | 'bold';
 
-type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
+export type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
-type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
+export type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
 export {
   TYPE, // backward compatibility
