@@ -4,9 +4,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
 
-type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-type HeadlineSizeType =
+export type HeadlineSizeType =
   | 'xsmall'
   | 'small'
   | 'normal'
@@ -14,7 +14,7 @@ type HeadlineSizeType =
   | 'xlarge'
   | 'xxlarge';
 
-type HeadlineColorType =
+export type HeadlineColorType =
   | 'default'
   | 'white'
   | 'gray'
@@ -26,9 +26,13 @@ type HeadlineColorType =
   | 'mustard-dark'
   | 'blue-dark';
 
-type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
+export type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
-type HeadlineAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
+export type HeadlineAlignType =
+  | 'to-left'
+  | 'to-center'
+  | 'to-right'
+  | 'justify';
 
 export {
   HEADLINE_TYPE,
