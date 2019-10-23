@@ -1,0 +1,44 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+
+  .sg-counter {
+    display: inline-block;
+    border-radius: $borderRadiusLarge;
+    padding: 0 spacing(xs);
+    min-width: 22px;
+    min-height: 22px;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+
+    &__text {
+      position: relative;
+      top: 2px;
+    }
+
+    &--peach {
+      background-color: $peachPrimary;
+    }
+
+    &--with-animation {
+      transform: scale(0);
+      animation: sgBadgeAnimation 0.6s 2s forwards;
+    }
+  }
+
+  @keyframes sgBadgeAnimation {
+    0% {
+      transform: scale(0);
+    }
+
+    80% {
+      transform: scale(1.2);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+}
