@@ -50,9 +50,8 @@ $includeHtml: false !default;
       min-height: 16px;
       min-width: 16px;
       height: 16px;
-      width: 16px;
+      padding: 0 spacing(xxs);
       border-radius: 16px;
-      // padding-right: spacing(xxs);
     }
 
     &__icon {
