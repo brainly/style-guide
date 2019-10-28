@@ -1,72 +1,43 @@
 import React from 'react';
-import TextBadge, {TEXT_BADGE_COLOR, TEXT_BADGE_SIZE} from './TextBadge';
-import Badge from './subcomponents/Badge';
-import Text, {TEXT_SIZE, TEXT_COLOR} from 'text/Text';
+import Counter from './Counter';
+import Text from 'text/Text';
+import Icon from 'icons/Icon';
 
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
-describe('<TextBadge />', () => {
+describe('<Counter />', () => {
   it('render itself without error', () => {
-    const component = shallow(<TextBadge>Test</TextBadge>);
+    const component = shallow(<Counter type="basic">1</Counter>);
 
-    const badge = component.find(Badge);
-
-    expect(badge).toHaveLength(1);
+    expect(component).toHaveLength(1);
   });
 
-  it('sets <Text /> component size - default', () => {
-    const badge = mount(<TextBadge>Test</TextBadge>);
-    const text = badge.find(Text);
+  it('sets <Text /> component size for normal', () => {
+    const counter = shallow(<Counter type="basic">12</Counter>);
+    const text = counter.find(Text);
 
-    expect(text.props().size).toEqual(TEXT_SIZE.XSMALL);
+    expect(text.props().size).toEqual('small');
   });
 
-  it('sets <Text /> component size - small', () => {
-    const badge = shallow(
-      <TextBadge size={TEXT_BADGE_SIZE.SMALL}>Test</TextBadge>
+  it('sets <Text /> component xsmall for size small counter', () => {
+    const counter = shallow(
+      <Counter type="basic" size="small">
+        12
+      </Counter>
     );
+    const text = counter.find(Text);
 
-    expect(
-      badge
-        .find(Badge)
-        .children()
-        .props().size
-    ).toEqual(TEXT_SIZE.XSMALL);
+    expect(text.props().size).toEqual('xsmall');
   });
 
-  it('sets <Text /> component size - large', () => {
-    const badge = shallow(
-      <TextBadge size={TEXT_BADGE_SIZE.LARGE}>Test</TextBadge>
+  it('renders points icon inside the points counter', () => {
+    const counter = shallow(
+      <Counter type="points" size="small">
+        12
+      </Counter>
     );
+    const icon = counter.find(Icon);
 
-    expect(
-      badge
-        .find(Badge)
-        .children()
-        .props().size
-    ).toEqual(TEXT_SIZE.NORMAL);
-  });
-
-  it('maps <Text /> and <Badge /> colors', () => {
-    const component = shallow(
-      <TextBadge color={TEXT_BADGE_COLOR.MINT_SECONDARY}>Test</TextBadge>
-    );
-    const badge = component.find(Badge);
-
-    expect(badge.children().props().color).toEqual(TEXT_COLOR.WHITE);
-  });
-
-  it('animates when withAnimation is passed <Badge />', () => {
-    const component = shallow(<TextBadge withAnimation>Test</TextBadge>);
-    const badge = component.find(Badge);
-
-    expect(badge.props().withAnimation).toEqual(true);
-  });
-
-  it('is is styled differently when rounded is passed <Badge />', () => {
-    const component = shallow(<TextBadge rounded>Test</TextBadge>);
-    const badge = component.find(Badge);
-
-    expect(badge.props().rounded).toEqual(true);
+    expect(icon.props().type).toEqual('points');
   });
 });

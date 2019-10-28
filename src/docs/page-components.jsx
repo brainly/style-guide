@@ -4,6 +4,7 @@ import slugify from './slugify';
 import Avatars from 'avatar/pages/avatar-interactive';
 import Bubbles from 'bubble/pages/bubble-interactive';
 import Badges from 'badges/pages/badges-interactive';
+import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import Stickers from 'stickers/pages/stickers-interactive';
@@ -49,6 +50,7 @@ const demos = {
   Bubbles: <Bubbles />,
   Badges: <Badges />,
   Buttons: <Buttons />,
+  Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
   Stickers: <Stickers />,
   'Subject icons': <SubjectIcons />,

@@ -14,16 +14,84 @@ $includeHtml: false !default;
 
     &__text {
       position: relative;
+      top: 1px;
+    }
+
+    &__text-spaced {
+      position: relative;
       top: 2px;
     }
 
+    // only one color for now, counter for notifications
     &--peach {
       background-color: $peachPrimary;
+    }
+
+    &--points {
+      height: 24px;
+      padding: 0;
+      border-radius: 24px;
+      padding-right: spacing(xs);
+      background: $graySecondaryLightest;
+      position: relative;
+      vertical-align: top;
+
+      &.sg-counter--small {
+        min-height: 16px;
+        min-width: 16px;
+        height: 16px;
+        width: auto;
+        border-radius: 16px;
+        padding-right: 4px;
+      }
+    }
+
+    &--small {
+      min-height: 16px;
+      min-width: 16px;
+      height: 16px;
+      width: 16px;
+      border-radius: 16px;
+      // padding-right: spacing(xxs);
+    }
+
+    &__icon {
+      z-index: 2;
+    }
+
+    &__icon-container {
+      z-index: 1;
+      margin-right: spacing(xxs);
+  
+      &::before {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        border-radius: 10px;
+        left: 2px;
+        top: 2px;
+        background-color: $white;
+      }
+  
+      &--small {
+        margin-right: 0;
+  
+        &::before {
+          height: 12px;
+          width: 12px;
+          border-radius: 6px;
+        }
+      }
     }
 
     &--with-animation {
       transform: scale(0);
       animation: sgBadgeAnimation 0.6s 2s forwards;
+    }
+
+    &--with-pointer {
+      cursor: pointer;
     }
   }
 
