@@ -7,7 +7,7 @@ import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 
 type CounterTypeType = 'text' | 'points';
-type CounterSizeType = 'normal' | 'small';
+type CounterSizeType = 'normal' | 'normal';
 
 export const COUNTER_TYPE = Object.freeze({
   BASIC: 'basic',
@@ -26,9 +26,9 @@ export type CounterPropsType = {
    *            text
    *          </Counter>
    */
-  children?: Node,
+  children?: string,
   /**
-   * Specify type of the counter that you want to use, to types for now
+   * Specify type of the counter that you want to use, two types for now
    * @example <Counter type="basic">
    *            1
    *          </Counter>
@@ -44,7 +44,7 @@ export type CounterPropsType = {
    * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?type="normal"#counters
    * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?type="small"#counters
    */
-  size?: CounterSizeType,
+  size?: ?CounterSizeType,
   /**
    * Optional boolean for counter with animation
    * @example <Counter type="basic" withAnimation>
@@ -52,13 +52,6 @@ export type CounterPropsType = {
    *          </Counter>
    */
   withAnimation?: boolean,
-  /**
-   * Optional boolean for additional class for pointer
-   * @example <Counter type="basic" withPointer>
-   *            12
-   *          </Counter>
-   */
-  withPointer?: boolean,
   /**
    * Additional class names
    */
@@ -72,31 +65,35 @@ const Counter = ({
   className,
   size,
   withAnimation,
-  withPointer,
   ...props
 }: CounterPropsType) => {
   const counterClass = cx(
     'sg-counter',
     {
-      [`sg-counter--peach`]: type === 'basic',
-      [`sg-counter--${type}`]: type,
-      [`sg-counter--${size}`]: size,
+      [`sg-counter--peach`]: type === COUNTER_TYPE.BASIC,
+      [`sg-counter--${String(type)}`]: type,
+      [`sg-counter--${String(size)}`]: size,
       'sg-counter--with-animation': withAnimation,
-      'sg-counter--with-pointer': withPointer,
     },
     className
   );
 
   let content;
 
-  if (type === 'basic') {
+  if (type === COUNTER_TYPE.BASIC) {
     content = (
       <Text
-        size={size === 'small' ? 'xsmall' : 'small'}
+        size={
+          size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
+            ? 'xsmall'
+            : 'small'
+        }
         weight="bold"
         color="white"
         className={
-          size === 'small' ? 'sg-counter__text' : 'sg-counter__text-spaced'
+          size === COUNTER_SIZE.SMALL
+            ? 'sg-counter__text'
+            : 'sg-counter__text-spaced'
         }
       >
         {children}
@@ -109,12 +106,12 @@ const Counter = ({
       <>
         <Flex
           className={cx('sg-counter__icon-container', {
-            'sg-counter__icon-container--small': size === 'small',
+            'sg-counter__icon-container--small': size === COUNTER_SIZE.SMALL,
           })}
         >
           <Icon
             type="points"
-            size={size === 'small' ? 16 : 24}
+            size={size === COUNTER_SIZE.SMALL ? 16 : 24}
             color="dark"
             className="sg-counter__icon"
           />

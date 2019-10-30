@@ -88,10 +88,6 @@ $includeHtml: false !default;
       transform: scale(0);
       animation: sgBadgeAnimation 0.6s 2s forwards;
     }
-
-    &--with-pointer {
-      cursor: pointer;
-    }
   }
 
   @keyframes sgBadgeAnimation {
