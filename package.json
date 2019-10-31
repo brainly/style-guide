@@ -82,7 +82,7 @@
     "deploy": "gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & yarn start",
-    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
+    "test": "yarn cache clean && yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development"
   },
