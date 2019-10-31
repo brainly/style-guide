@@ -6,8 +6,7 @@ node_js:
 script:
   - yarn test
 
-cache:
-  - yarn
+cache: yarn
 
 notifications:
   email: false
