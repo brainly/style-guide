@@ -23,7 +23,7 @@
   font-weight: bold;
   color: $white;
   text-transform: uppercase;
-  padding: 0 spacing(m);
+  padding: 0 20px;
   will-change: background-color, border-color;
   transition-property: background-color, border-color;
   transition-duration: 0.2s;
@@ -41,6 +41,7 @@
     fill: $white;
     display: inline-flex;
     margin-right: spacing(xs);
+    margin-left: -4px;
 
     &--small {
       margin-right: 6px;
@@ -48,6 +49,7 @@
 
     &--large {
       margin-right: 12px;
+      margin-left: -6px;
     }
   }
 
@@ -58,7 +60,7 @@
   &--large {
     border-radius: 28px;
     height: 56px;
-    padding: 0 spacing(l);
+    padding: 0 28px;
     font-size: 21px;
     line-height: 21px;
   }
@@ -66,7 +68,7 @@
   &--small {
     border-radius: 16px;
     height: 32px;
-    padding: 0 20px;
+    padding: 0 16px;
     font-size: 12px;
     line-height: 12px;
 
