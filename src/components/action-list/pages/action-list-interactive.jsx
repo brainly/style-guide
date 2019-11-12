@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button, {BUTTON_PRIMARY_TYPE} from 'buttons/Button';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_COLOR} from 'text/Text';
 
@@ -33,14 +33,12 @@ const ActionLists = () => {
       <DocsActiveBlock settings={settings}>
         <ActionList>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
+            <Button type="primary-blue" size="small">
               accept
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
+            <Button type="primary">Later</Button>
           </ActionListHole>
         </ActionList>
       </DocsActiveBlock>
