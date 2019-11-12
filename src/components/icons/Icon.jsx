@@ -29,6 +29,7 @@ export type IconTypeType =
   | 'heading'
   | 'heart'
   | 'image'
+  | 'influence'
   | 'instagram'
   | 'italic'
   | 'less'
@@ -136,6 +137,7 @@ export const TYPE = {
   HEADING: 'heading',
   HEART: 'heart',
   IMAGE: 'image',
+  INFLUENCE: 'influence',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   LESS: 'less',
