@@ -16,6 +16,7 @@ export {default as ButtonSecondary} from './components/buttons/ButtonSecondary';
 export {default as Card} from './components/card/Card';
 export {default as CardHole} from './components/card/CardHole';
 export {default as ContentBox} from './components/content-box/ContentBox';
+export {default as Counter} from './components/counters/Counter';
 export {
   default as ContentBoxActions,
 } from './components/content-box/ContentBoxActions';
