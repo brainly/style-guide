@@ -26,7 +26,7 @@ export type CounterPropsType = {
    *            text
    *          </Counter>
    */
-  children?: string,
+  children?: string | number,
   /**
    * Specify type of the counter that you want to use, two types for now
    * @example <Counter type="basic">
@@ -124,7 +124,7 @@ const Counter = ({
             size="small"
             className="sg-counter__text"
           >
-            +{children}
+            {children}
           </Text>
         </Flex>
       </>

@@ -24,11 +24,11 @@ const Counters = () => (
     </DocsBlock>
 
     <DocsBlock info="Points counter">
-      <Counter type="points">5 pts</Counter>
+      <Counter type="points">+5 pts</Counter>
     </DocsBlock>
     <DocsBlock info="Points counter small">
       <Counter type="points" size="small">
-        10
+        +10
       </Counter>
     </DocsBlock>
   </div>
