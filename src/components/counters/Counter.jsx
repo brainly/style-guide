@@ -5,14 +5,9 @@ import cx from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
+import type {IconTypeType} from '../icons/Icon';
 
-type CounterTypeType = 'text' | 'points';
-type CounterSizeType = 'normal' | 'normal';
-
-export const COUNTER_TYPE = Object.freeze({
-  BASIC: 'basic',
-  POINTS: 'points',
-});
+type CounterSizeType = 'normal' | 'small';
 
 export const COUNTER_SIZE = Object.freeze({
   NORMAL: 'normal',
@@ -35,14 +30,12 @@ export type CounterPropsType = {
    * @see type="basic" https://styleguide.brainly.com/latest/docs/interactive.html?type="basic"#counters
    * @see type="points" https://styleguide.brainly.com/latest/docs/interactive.html?type="points"#counters
    */
-  type: CounterTypeType,
+  icon?: ?IconTypeType,
   /**
-   * Specify size of the counter that you want to use
-   * @example <Counter type="points" size=small>
-   *            12
+   * There are three sizes options for buttons, not need to be specify, default is medium
+   * @example <Counter icon="points">
+   *            1pts
    *          </Counter>
-   * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?type="normal"#counters
-   * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?type="small"#counters
    */
   size?: ?CounterSizeType,
   /**
@@ -60,7 +53,7 @@ export type CounterPropsType = {
 };
 
 const Counter = ({
-  type,
+  icon,
   children,
   className,
   size,
@@ -70,38 +63,35 @@ const Counter = ({
   const counterClass = cx(
     'sg-counter',
     {
-      [`sg-counter--peach`]: type === COUNTER_TYPE.BASIC,
-      [`sg-counter--${String(type)}`]: type,
       [`sg-counter--${String(size)}`]: size,
       'sg-counter--with-animation': withAnimation,
+      'sg-counter--with-icon': icon,
     },
     className
   );
 
   let content;
 
-  if (type === COUNTER_TYPE.BASIC) {
-    content = (
-      <Text
-        size={
-          size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
-            ? 'xsmall'
-            : 'small'
-        }
-        weight="bold"
-        color="white"
-        className={
-          size === COUNTER_SIZE.SMALL
-            ? 'sg-counter__text'
-            : 'sg-counter__text-spaced'
-        }
-      >
-        {children}
-      </Text>
-    );
-  }
+  content = (
+    <Text
+      size={
+        size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
+          ? 'xsmall'
+          : 'small'
+      }
+      weight="bold"
+      color="white"
+      className={
+        size === COUNTER_SIZE.SMALL
+          ? 'sg-counter__text'
+          : 'sg-counter__text-spaced'
+      }
+    >
+      {children}
+    </Text>
+  );
 
-  if (type === 'points') {
+  if (icon) {
     content = (
       <>
         <Flex
@@ -110,7 +100,7 @@ const Counter = ({
           })}
         >
           <Icon
-            type="points"
+            type={icon}
             size={size === COUNTER_SIZE.SMALL ? 16 : 24}
             color="dark"
             className="sg-counter__icon"
@@ -121,7 +111,11 @@ const Counter = ({
           <Text
             type="span"
             weight="bold"
-            size="small"
+            size={
+              size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
+                ? 'xsmall'
+                : 'small'
+            }
             className="sg-counter__text"
           >
             {children}
