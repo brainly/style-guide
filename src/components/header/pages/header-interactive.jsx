@@ -13,7 +13,7 @@ import IconAsButton, {
   TYPE as ICON_TYPE,
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
@@ -55,12 +55,9 @@ const Headers = () => {
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary
-                    buttonType={BUTTON_SECONDARY_TYPE.DARK}
-                    small
-                  >
+                  <Button type="primary" size="small">
                     Register
-                  </ButtonSecondary>
+                  </Button>
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent

@@ -13,7 +13,7 @@ import IconAsButton, {
   TYPE as ICON_TYPE,
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
@@ -50,12 +50,9 @@ const Headers = () => (
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <ButtonSecondary
-                    buttonType={BUTTON_SECONDARY_TYPE.DARK}
-                    small
-                  >
+                  <Button type="primary" size="small">
                     Register
-                  </ButtonSecondary>
+                  </Button>
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent
@@ -101,20 +98,14 @@ const Headers = () => (
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary
-                        buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}
-                        small
-                      >
+                      <Button type="primary-inverted" size="small">
                         Log in
-                      </ButtonSecondary>
+                      </Button>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary
-                        buttonType={BUTTON_SECONDARY_TYPE.DARK}
-                        small
-                      >
+                      <Button type="primary" size="small">
                         Join now
-                      </ButtonSecondary>
+                      </Button>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>
@@ -149,20 +140,14 @@ const Headers = () => (
                 <HeaderRight>
                   <ActionList>
                     <ActionListHole>
-                      <ButtonSecondary
-                        buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}
-                        small
-                      >
+                      <Button type="primary-inverted" size="small">
                         Log in
-                      </ButtonSecondary>
+                      </Button>
                     </ActionListHole>
                     <ActionListHole>
-                      <ButtonSecondary
-                        buttonType={BUTTON_SECONDARY_TYPE.DARK}
-                        small
-                      >
+                      <Button type="primary" size="small">
                         Join now
-                      </ButtonSecondary>
+                      </Button>
                     </ActionListHole>
                   </ActionList>
                 </HeaderRight>

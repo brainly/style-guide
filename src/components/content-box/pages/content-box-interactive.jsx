@@ -3,7 +3,7 @@ import ContentBox from '../ContentBox';
 import ContentBoxActions from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Text from 'text/Text';
@@ -47,7 +47,7 @@ const ContentBoxes = () => {
             </Headline>
           </ContentBoxTitle>
           <ContentBoxActions>
-            <ButtonSecondary>Search!</ButtonSecondary>
+            <Button>Search!</Button>
           </ContentBoxActions>
           <ContentBoxContent>
             <Text>
@@ -67,9 +67,7 @@ const ContentBoxes = () => {
               size={AVATAR_SIZE.SMALL}
               imgSrc="https://source.unsplash.com/64x64/?dog"
             />
-            <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-              Answer
-            </ButtonSecondary>
+            <Button type="primary-inverted">Answer</Button>
           </ContentBoxActions>
         </ContentBox>
       </DocsActiveBlock>

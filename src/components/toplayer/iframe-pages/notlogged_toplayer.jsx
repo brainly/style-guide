@@ -1,6 +1,6 @@
 import React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import ContentBox from '../../content-box/ContentBox';
 import ContentBoxContent, {
   SIZE as SPACING_SIZE,
@@ -64,9 +64,7 @@ const content = (
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-        Join us
-      </ButtonPrimary>
+      <Button type="primary-blue">Join us</Button>
     </ContentBoxContent>
   </ContentBox>
 );

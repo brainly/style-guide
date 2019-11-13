@@ -1,7 +1,6 @@
 import React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import Button, {BUTTON_PRIMARY_TYPE} from 'buttons/Button';
+import Button from 'buttons/Button';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_COLOR} from 'text/Text';
 

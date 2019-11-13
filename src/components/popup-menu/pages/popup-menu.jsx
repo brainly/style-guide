@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupMenu from '../PopupMenu';
 import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar from 'avatar/Avatar';
@@ -52,20 +52,12 @@ const PopupsMenus = () => (
       <ContrastBox fullWidth>
         <PopupMenu
           items={[
-            <ButtonSecondary
-              key={1}
-              buttonType={BUTTON_SECONDARY_TYPE.DARK_INVERSE}
-              wide
-            >
+            <Button key={1} type="primary-inverted" size="small">
               Log in
-            </ButtonSecondary>,
-            <ButtonSecondary
-              key={2}
-              buttonType={BUTTON_SECONDARY_TYPE.DARK}
-              wide
-            >
+            </Button>,
+            <Button key={2} type="primary" size="small">
               Join now
-            </ButtonSecondary>,
+            </Button>,
           ]}
           extraSpacing
         />

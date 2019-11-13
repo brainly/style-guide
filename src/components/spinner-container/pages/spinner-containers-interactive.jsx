@@ -1,6 +1,6 @@
 import React from 'react';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const SpinnerContainers = () => {
@@ -23,9 +23,7 @@ const SpinnerContainers = () => {
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="light">
         <SpinnerContainer>
-          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-            Ask your question
-          </ButtonPrimary>
+          <Button type="primary-blue">Ask your question</Button>
         </SpinnerContainer>
       </DocsActiveBlock>
     </div>

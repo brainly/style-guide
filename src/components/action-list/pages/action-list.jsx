@@ -1,7 +1,6 @@
 import React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import Headline, {
   HEADLINE_SIZE,
   HEADLINE_TYPE,
@@ -29,14 +28,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
+            <Button type="primary-blue" size="small">
               accept
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
+            <Button type="primary-inverted">Later</Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -46,14 +43,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_RIGHT}>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
+            <Button type="primary-blue" size="small">
               accept
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
+            <Button type="primary-inverted">Later</Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -63,14 +58,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList toTop>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
+            <Button type="primary-blue" size="small">
               accept
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
+            <Button type="primary-inverted">Later</Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -93,14 +86,12 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.CENTERED}>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small>
+            <Button type="primary-blue" size="small">
               accept
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.DARK_INVERSE}>
-              Later
-            </ButtonPrimary>
+            <Button type="primary-inverted">Later</Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -143,9 +134,9 @@ const ActionLists = () => (
           </Label>
         </ActionListHole>
         <ActionListHole>
-          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+          <Button type="secondary" size="small">
             start
-          </ButtonSecondary>
+          </Button>
         </ActionListHole>
       </ActionList>
     </DocsBlock>
@@ -187,9 +178,9 @@ const ActionLists = () => (
           </Label>
         </ActionListHole>
         <ActionListHole>
-          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+          <Button type="secondary" size="small">
             start
-          </ButtonSecondary>
+          </Button>
         </ActionListHole>
       </ActionList>
     </DocsBlock>
@@ -231,9 +222,9 @@ const ActionLists = () => (
           </Label>
         </ActionListHole>
         <ActionListHole>
-          <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT_INVERSE} small>
+          <Button type="secondary" size="small">
             start
-          </ButtonSecondary>
+          </Button>
         </ActionListHole>
       </ActionList>
     </DocsBlock>
@@ -289,19 +280,19 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Last hole does not have margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -311,19 +302,19 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Last hole does not have margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -333,19 +324,19 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole noSpacing>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole noSpacing>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Without default margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               Last hole does not have margin
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
@@ -355,19 +346,19 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spaceBellow>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               With space bellow
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole spaceBellow>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               With space bellow
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
           <ActionListHole spaceBellow>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT} small wide>
+            <Button type="primary-blue" size="small">
               With space bellow
-            </ButtonSecondary>
+            </Button>
           </ActionListHole>
         </ActionList>
       </ContrastBox>
