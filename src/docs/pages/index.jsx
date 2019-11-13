@@ -167,12 +167,12 @@ const index = () => (
 
     <p className="sg-text">
       If you&apos;d like to learn more about this project, report a bug or
-      contribute check it out on 
+      contribute, check it out on
       <a
         href="https://github.com/brainly/style-guide"
         className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
       >
-        GitHub
+         GitHub
       </a>
       .
     </p>
