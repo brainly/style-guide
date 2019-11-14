@@ -1,34 +1,34 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Counter from '../Counter';
+import Text from '../../text/Text';
 
 const Counters = () => (
   <div>
-    <DocsBlock info="Basic counter">
-      <Counter type="basic">1</Counter>
-      <Counter type="basic">123455</Counter>
-      <Counter type="basic" withAnimation>
-        12
-      </Counter>
+    <DocsBlock info="Counter">
+      <Counter>1</Counter>
+      <Counter>123455</Counter>
+      <Counter withAnimation>12</Counter>
     </DocsBlock>
-    <DocsBlock info="Basic counter small">
-      <Counter type="basic" size="small">
-        5
-      </Counter>
-      <Counter type="basic" size="small">
-        55
-      </Counter>
-      <Counter type="basic" size="small" withAnimation>
+    <DocsBlock info="Counter small">
+      <Counter size="small">5</Counter>
+      <Counter size="small">55</Counter>
+      <Counter size="small" withAnimation>
         5
       </Counter>
     </DocsBlock>
 
-    <DocsBlock info="Points counter">
-      <Counter type="points">5 pts</Counter>
+    <DocsBlock info="Counter with icon">
+      <Counter icon="points">
+        +10{' '}
+        <Text type="span" size="small" color="gray-secondary" weight="bold">
+          pts
+        </Text>
+      </Counter>
     </DocsBlock>
-    <DocsBlock info="Points counter small">
-      <Counter type="points" size="small">
-        10
+    <DocsBlock info="Counter small with icon">
+      <Counter icon="points" size="small">
+        +10
       </Counter>
     </DocsBlock>
   </div>
