@@ -5,8 +5,7 @@ import ContentBoxActions, {SIZE, ALIGNMENT} from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import ContentBoxHeader from '../ContentBoxHeader';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
@@ -87,7 +86,7 @@ const examplePart1 = (
       </Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
-      <ButtonSecondary>Search!</ButtonSecondary>
+      <Button>Search!</Button>
     </ContentBoxActions>
     <ContentBoxContent>
       <Text>
@@ -108,9 +107,7 @@ const examplePart1 = (
         imgSrc="https://source.unsplash.com/64x64/?dog"
       />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-        Answer
-      </ButtonSecondary>
+      <Button type="primary-inverted">Answer</Button>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -123,7 +120,7 @@ const examplePart2 = (
       </Headline>
     </ContentBoxTitle>
     <ContentBoxActions>
-      <ButtonPrimary>Search!</ButtonPrimary>
+      <Button>Search!</Button>
     </ContentBoxActions>
     <ContentBoxContent>
       <Text>
@@ -144,9 +141,7 @@ const examplePart2 = (
         imgSrc="https://source.unsplash.com/64x64/?bird"
       />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-        Answer
-      </ButtonSecondary>
+      <Button type="primary-inverted">Answer</Button>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -177,9 +172,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?cat"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-            Answer
-          </ButtonSecondary>
+          <Button type="primary-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -209,9 +202,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?bird"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-            Answer
-          </ButtonSecondary>
+          <Button type="primary-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -244,9 +235,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?bird"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-            Answer
-          </ButtonSecondary>
+          <Button type="primary-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -277,9 +266,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?kitten"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-            Answer
-          </ButtonSecondary>
+          <Button type="primary-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -310,9 +297,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?kitten"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <ButtonSecondary small buttonType={BUTTON_SECONDARY_TYPE.INVERSE}>
-            Answer
-          </ButtonSecondary>
+          <Button type="primary-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -350,10 +335,7 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary
-            small
-            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
-          >
+          <Button type="primary-inverted">
             <Label
               text="Thank you"
               number={21}
@@ -362,7 +344,7 @@ const ContentBoxes = () => (
               secondary
               unstyled
             />
-          </ButtonSecondary>
+          </Button>
           <Rating rate={2} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
@@ -386,10 +368,7 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary
-            small
-            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
-          >
+          <Button type="primary-inverted">
             <Label
               text="Thank you"
               number={21}
@@ -398,7 +377,7 @@ const ContentBoxes = () => (
               secondary
               unstyled
             />
-          </ButtonSecondary>
+          </Button>
           <Rating rate={2} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
@@ -469,10 +448,7 @@ const ContentBoxes = () => (
               </Link>,
             ]}
           />
-          <ButtonSecondary
-            small
-            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
-          >
+          <Button type="primary-inverted">
             <Label
               text="Thank you"
               number={21}
@@ -481,7 +457,7 @@ const ContentBoxes = () => (
               secondary
               unstyled
             />
-          </ButtonSecondary>
+          </Button>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
@@ -490,10 +466,7 @@ const ContentBoxes = () => (
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <ButtonSecondary
-            small
-            buttonType={BUTTON_SECONDARY_TYPE.ACTIVE_INVERSE}
-          >
+          <Button type="primary-inverted">
             <Label
               text="Thank you"
               number={21}
@@ -502,7 +475,7 @@ const ContentBoxes = () => (
               secondary
               unstyled
             />
-          </ButtonSecondary>
+          </Button>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
       </ContentBox>
@@ -517,9 +490,7 @@ const ContentBoxes = () => (
           <Headline size={HEADLINE_SIZE.SMALL}>
             Hey! Still not sure about the answer?
           </Headline>
-          <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-            Check similar answers
-          </ButtonPrimary>
+          <Button type="primary-blue">Check similar answers</Button>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>

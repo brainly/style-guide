@@ -1,15 +1,15 @@
 import React from 'react';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from './ActionListHole';
 import {shallow} from 'enzyme';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 
 describe('<ActionListHole />', () => {
   test('render', () => {
     const actionListHole = shallow(
       <ActionListHole>
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.alt} small>
+        <Button type="primary" size="small">
           accept
-        </ButtonSecondary>
+        </Button>
       </ActionListHole>
     );
 

@@ -7,7 +7,7 @@ import ContentBoxContent, {
   SIZE as SPACING_SIZE,
 } from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import Text, {TEXT_WEIGHT} from 'text/Text';
 import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
@@ -130,9 +130,7 @@ const Toplayers = () => {
               </List>
             </ContentBoxContent>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-                Join us
-              </ButtonPrimary>
+              <Button type="primary">Join us</Button>
             </ContentBoxContent>
           </ContentBox>
         </TopLayer>

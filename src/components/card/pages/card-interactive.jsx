@@ -1,7 +1,7 @@
 import React from 'react';
 import Card, {CARD_PADDING} from '../Card';
 import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import Text, {TEXT_COLOR, TEXT_TYPE} from 'text/Text';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -51,9 +51,7 @@ const Cards = () => {
             </Text>
           </CardHole>
           <CardHole color={CARD_HOLE_COLOR.GRAY}>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-              Ask your question
-            </ButtonPrimary>
+            <Button type="primary-blue">Ask your question</Button>
           </CardHole>
         </Card>
       </DocsActiveBlock>

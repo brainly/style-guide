@@ -5,11 +5,12 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 import Link, {LINK_COLOR} from 'text/Link';
+import Flex from 'flex/Flex';
 
 const Bubbles = () => (
   <div>
@@ -93,7 +94,9 @@ const Bubbles = () => (
       <Bubble direction={DIRECTION.TOP}>
         <ContentBox>
           <ContentBoxHeader>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
+            <Flex marginRight="s">
+              <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
+            </Flex>
             <Breadcrumb
               elements={[
                 <Link key={1} href="#" color={LINK_COLOR.GRAY}>
@@ -114,9 +117,9 @@ const Bubbles = () => (
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
-            <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
+            <Button type="primary-blue" size="small">
               Join us!
-            </ButtonSecondary>
+            </Button>
           </ContentBoxActions>
         </ContentBox>
       </Bubble>

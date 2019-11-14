@@ -1,7 +1,7 @@
 import React from 'react';
 import Box, {COLOR, PADDING, CLOSE_ICON_COLOR} from '../Box';
 import DocsBlock from 'components/DocsBlock';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
+import Button from 'buttons/Button';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {
   SIZE as CONTENT_BOX_CONTENT_SPACING_SIZE,
@@ -151,9 +151,9 @@ const Boxs = () => (
             </Headline>
           </ContentBoxHeader>
           <ContentBoxActions>
-            <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>
+            <Button type="primary-blue" fullWidth>
               Ask your question
-            </ButtonPrimary>
+            </Button>
           </ContentBoxActions>
         </ContentBox>
       </Box>

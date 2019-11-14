@@ -1,8 +1,7 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
-import ButtonPrimary, {BUTTON_PRIMARY_TYPE} from 'buttons/ButtonPrimary';
-import ButtonSecondary, {BUTTON_SECONDARY_TYPE} from 'buttons/ButtonSecondary';
+import Button from 'buttons/Button';
 
 import Box, {COLOR} from 'box/Box';
 import ContentBox from 'content-box/ContentBox';
@@ -16,49 +15,33 @@ const SpinnerContainers = () => (
   <div>
     <DocsBlock info="with Primary Button" additionalInfo="(small size)">
       <SpinnerContainer>
-        <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT}>
-          Ask your question
-        </ButtonPrimary>
+        <Button type="primary-blue">Ask your question</Button>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.SMALL}>
-        <ButtonPrimary
-          disabled={IS_LOADING}
-          buttonType={BUTTON_PRIMARY_TYPE.ALT}
-        >
+        <Button disabled={IS_LOADING} type="primary-blue">
           Ask your question
-        </ButtonPrimary>
+        </Button>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.SMALL}>
-        <ButtonPrimary
-          disabled={IS_LOADING}
-          buttonType={BUTTON_PRIMARY_TYPE.DARK}
-        >
+        <Button disabled={IS_LOADING} type="primary">
           Ask your question
-        </ButtonPrimary>
+        </Button>
       </SpinnerContainer>
     </DocsBlock>
 
     <DocsBlock info="with Secondary Button" additionalInfo="(xsmall size)">
       <SpinnerContainer>
-        <ButtonSecondary buttonType={BUTTON_SECONDARY_TYPE.ALT}>
-          Ask your question
-        </ButtonSecondary>
+        <Button type="primary-blue">Ask your question</Button>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.XSMALL}>
-        <ButtonSecondary
-          disabled={IS_LOADING}
-          buttonType={BUTTON_SECONDARY_TYPE.ALT}
-        >
+        <Button disabled={IS_LOADING} type="primary-blue">
           Ask your question
-        </ButtonSecondary>
+        </Button>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.XSMALL}>
-        <ButtonSecondary
-          disabled={IS_LOADING}
-          buttonType={BUTTON_SECONDARY_TYPE.DARK}
-        >
+        <Button disabled={IS_LOADING} type="primary">
           Ask your question
-        </ButtonSecondary>
+        </Button>
       </SpinnerContainer>
     </DocsBlock>
 
@@ -72,9 +55,9 @@ const SpinnerContainers = () => (
               </Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
-              <ButtonPrimary buttonType={BUTTON_PRIMARY_TYPE.ALT} wide>
+              <Button type="primary-blue" wide>
                 Ask your question
-              </ButtonPrimary>
+              </Button>
             </ContentBoxActions>
           </ContentBox>
         </Box>
