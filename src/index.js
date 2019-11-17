@@ -76,6 +76,7 @@ export {default as Overlay} from './components/overlay/Overlay';
 export {default as OverlayedBox} from './components/overlayed-box/OverlayedBox';
 export {default as PopupMenu} from './components/popup-menu/PopupMenu';
 export {default as Rating} from './components/rating/Rating';
+export {default as RoundButton} from './components/round-buttons/RoundButton';
 export {default as Search} from './components/search/Search';
 export {
   default as SeparatorHorizontal,

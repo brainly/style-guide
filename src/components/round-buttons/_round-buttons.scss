@@ -1,0 +1,135 @@
+$formElementHeightSmall: 32px;
+$formElementHeightMedium: 40px;
+$formElementHeightLarge: 56px;
+
+$transparentWhite: rgba(255, 255, 255, 0);
+
+$colorSetup: (
+  black-base-500: $black,
+  mint-dark-700: $mintPrimary,
+  mint-dark-900: $mintPrimaryDark,
+  blue-dark-700: $bluePrimary,
+  blue-dark-900: $bluePrimaryDark,
+  gray-light-300: $graySecondaryLightest,
+  gray-dark-900: $grayPrimary,
+  peach-base-500: $peachSecondary,
+  peach-dark-700: $peachPrimary,
+  peach-dark-900: $peachPrimaryDark,
+  mustard-base-500: $mustardSecondary,
+  mustard-dark-700: $mustardPrimary,
+);
+
+@mixin buttonHover($color1, $color2, $percent) {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]),
+  &:active:not([disabled]),
+  &:active:focus:not([disabled]) {
+    background-color: mix($color1, $color2, $percent);
+  }
+}
+
+@mixin buttonFilledHover($color1, $color2, $percent) {
+  &:hover:not([disabled]),
+  &:focus:not([disabled]),
+  &:active:not([disabled]),
+  &:active:focus:not([disabled]) {
+    background-color: mix($color1, $color2, $percent);
+    border-color: mix($color1, $color2, $percent);
+  }
+}
+
+.sg-round-button {
+  width: $formElementHeightLarge;
+  height: $formElementHeightLarge;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  overflow: visible;
+  will-change: background-color, border-color;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+
+  &--large {
+    width: $formElementHeightLarge;
+    height: $formElementHeightLarge;
+  }
+
+  &--medium {
+    width: $formElementHeightMedium;
+    height: $formElementHeightMedium;
+  }
+
+  &--small {
+    width: $formElementHeightSmall;
+    height: $formElementHeightSmall;
+  }
+
+  &__hole {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  &--black-base-500 {
+    &:hover {
+      @include buttonHover($black, $transparentWhite, 16%);
+    }
+
+    &.sg-round-button--filled:hover {
+      @include buttonFilledHover($grayPrimary, $black, 72%);
+    }
+  }
+
+  &--blue-dark-700 {
+    &:hover {
+      @include buttonHover($bluePrimaryDark, $transparentWhite, 16%);
+    }
+
+    &.sg-round-button--filled:hover {
+      @include buttonFilledHover($bluePrimaryDark, $bluePrimaryDark, 72%);
+    }
+  }
+
+  &--mint-dark-700:hover {
+    @include buttonHover($mintPrimaryDark, $transparentWhite, 16%);
+
+    &.sg-round-button--filled:hover {
+      @include buttonFilledHover($mintPrimaryDark, $mintPrimary, 72%);
+    }
+  }
+
+  &--peach-dark-700:hover {
+    @include buttonHover($peachPrimary, $transparentWhite, 16%);
+
+    &.sg-round-button--filled:hover {
+      @include buttonFilledHover($peachPrimaryDark, $peachPrimary, 72%);
+    }
+  }
+
+  &--mustard-base-500:hover {
+    @include buttonHover($mustardSecondary, $transparentWhite, 16%);
+
+    &.sg-round-button--filled:hover {
+      @include buttonFilledHover($mustardPrimary, $mustardSecondary, 72%);
+    }
+  }
+}
+
+@each $color, $value in $colorSetup {
+  .sg-round-button--#{$color} {
+    border: 2px solid $value;
+    fill: $value
+  }
+
+  .sg-round-button--#{$color}.sg-round-button--filled {
+      background-color: $value;
+  }
+}
