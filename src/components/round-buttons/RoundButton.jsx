@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import React from 'react';
 import cx from 'classnames';
@@ -41,7 +41,7 @@ const RoundButton = ({
     <Icon
       size={size === ROUND_BUTTON_SIZE.SMALL ? '16' : '24'}
       type={iconType}
-      color={filled ? ICON_COLOR.LIGHT : ICON_COLOR.ADAPTIVE}
+      color={filled !== undefined ? ICON_COLOR.LIGHT : ICON_COLOR.ADAPTIVE}
     />
   );
 

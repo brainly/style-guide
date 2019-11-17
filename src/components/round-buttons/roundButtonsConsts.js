@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 export const ROUND_BUTTON_SIZE = Object.freeze({
   LARGE: 'large',
