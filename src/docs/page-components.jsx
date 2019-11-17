@@ -6,6 +6,7 @@ import Bubbles from 'bubble/pages/bubble-interactive';
 import Badges from 'badges/pages/badges-interactive';
 import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
+import RoundButtons from 'round-buttons/pages/round-buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import Stickers from 'stickers/pages/stickers-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
@@ -50,6 +51,7 @@ const demos = {
   Bubbles: <Bubbles />,
   Badges: <Badges />,
   Buttons: <Buttons />,
+  RoundButtons: <RoundButtons />,
   Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
   Stickers: <Stickers />,

@@ -1,14 +1,10 @@
 import React from 'react';
-// import hex from '../../colors/hex';
 import RoundButton, {
   ROUND_BUTTON_SIZE,
   ROUND_BUTTON_ICON_TYPE,
   ROUND_BUTTON_COLOR,
 } from '../RoundButton';
 import DocsBlock from 'components/DocsBlock';
-// import Flex from '../../flex/Flex';
-// import Icon, {TYPE as iconTypes} from '../icons/Icon';
-// import Text from '../../text/Text';
 
 const RoundButtons = () => {
   return (
