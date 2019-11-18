@@ -1,9 +1,5 @@
 import React from 'react';
-import RoundButton, {
-  ROUND_BUTTON_SIZE,
-  ROUND_BUTTON_ICON_TYPE,
-  ROUND_BUTTON_COLOR,
-} from '../RoundButton';
+import RoundButton from '../RoundButton';
 import DocsBlock from 'components/DocsBlock';
 
 const RoundButtons = () => {
