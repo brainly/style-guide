@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
@@ -21,7 +21,7 @@ export type CounterPropsType = {
    *            text
    *          </Counter>
    */
-  children?: string | number,
+  children: React.Node,
   /**
    * Specify type of the counter that you want to use, two types for now
    * @example <Counter type="basic">
