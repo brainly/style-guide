@@ -4,7 +4,7 @@ import RoundButton, {
   ROUND_BUTTON_COLOR,
   ROUND_BUTTON_SIZE,
 } from './RoundButton';
-import Icon, {ICON_COLOR, SIZE} from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 import {shallow} from 'enzyme';
 
 describe('icons', () => {
