@@ -10,70 +10,50 @@ const RoundButtons = () => {
   return (
     <DocsBlock>
       <DocsBlock info="Round buttons">
-        <RoundButton
-          size={ROUND_BUTTON_SIZE.SMALL}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
-        />
+        <RoundButton size="small" iconType="answer" color="black-base-500" />
         &nbsp;
-        <RoundButton
-          size={ROUND_BUTTON_SIZE.MEDIUM}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.BLUE_DARK_700}
-        />
+        <RoundButton size="medium" iconType="answer" color="blue-dark-700" />
         &nbsp;
-        <RoundButton
-          size={ROUND_BUTTON_SIZE.LARGE}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.MINT_DARK_700}
-        />
+        <RoundButton size="large" iconType="answer" color="mint-dark-700" />
         &nbsp;
-        <RoundButton
-          size={ROUND_BUTTON_SIZE.MEDIUM}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.MUSTARD_BASE_500}
-        />
+        <RoundButton size="medium" iconType="answer" color="mustard-base-500" />
         &nbsp;
-        <RoundButton
-          size={ROUND_BUTTON_SIZE.SMALL}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.PEACH_DARK_700}
-        />
+        <RoundButton size="small" iconType="answer" color="peach-dark-700" />
       </DocsBlock>
       <DocsBlock info="Round buttons filled">
         <RoundButton
+          size="small"
+          iconType="answer"
           filled
-          size={ROUND_BUTTON_SIZE.SMALL}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
+          color="black-base-500"
         />
         &nbsp;
         <RoundButton
+          size="medium"
+          iconType="answer"
           filled
-          size={ROUND_BUTTON_SIZE.MEDIUM}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.BLUE_DARK_700}
+          color="blue-dark-700"
         />
         &nbsp;
         <RoundButton
+          size="large"
+          iconType="answer"
           filled
-          size={ROUND_BUTTON_SIZE.LARGE}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.MINT_DARK_700}
+          color="mint-dark-700"
         />
         &nbsp;
         <RoundButton
+          size="medium"
+          iconType="answer"
           filled
-          size={ROUND_BUTTON_SIZE.MEDIUM}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.MUSTARD_BASE_500}
+          color="mustard-base-500"
         />
         &nbsp;
         <RoundButton
+          size="small"
+          iconType="answer"
           filled
-          size={ROUND_BUTTON_SIZE.SMALL}
-          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
-          color={ROUND_BUTTON_COLOR.PEACH_DARK_700}
+          color="peach-dark-700"
         />
       </DocsBlock>
     </DocsBlock>
