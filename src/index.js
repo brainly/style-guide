@@ -88,7 +88,6 @@ export {default as Spinner} from './components/spinner/Spinner';
 export {
   default as SpinnerContainer,
 } from './components/spinner-container/SpinnerContainer';
-export {default as Sticker} from './components/stickers/Sticker';
 export {default as SubjectIcon} from './components/subject-icons/SubjectIcon';
 export {
   default as SubjectIconBox,

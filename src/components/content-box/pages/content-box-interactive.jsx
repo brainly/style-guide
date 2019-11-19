@@ -5,11 +5,9 @@ import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import Button from 'buttons/Button';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Text from 'text/Text';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import OverlayedBox from 'overlayed-box/OverlayedBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const ContentBoxes = () => {
@@ -59,9 +57,7 @@ const ContentBoxes = () => {
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
-            <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-              <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
-            </OverlayedBox>
+            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
             <SeparatorVertical />
             <Avatar
               size={AVATAR_SIZE.SMALL}

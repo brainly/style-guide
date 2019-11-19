@@ -2,8 +2,7 @@ import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import OverlayedBox from '../OverlayedBox';
 import Avatar from 'avatar/Avatar';
-import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
-import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
+import Counter from 'counters/Counter';
 
 const OverlayedBoxes = () => {
   const settings = [];
@@ -11,18 +10,10 @@ const OverlayedBoxes = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <OverlayedBox overlay={<Sticker type={STICKER_TYPE.PENCIL} />}>
-          <Avatar />
-        </OverlayedBox>
+        <Avatar />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <OverlayedBox
-          overlay={
-            <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
-              3
-            </TextBadge>
-          }
-        >
+        <OverlayedBox overlay={<Counter>3</Counter>}>
           <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
         </OverlayedBox>
       </DocsActiveBlock>

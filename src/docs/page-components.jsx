@@ -8,7 +8,6 @@ import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
 import RoundButtons from 'round-buttons/pages/round-buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
-import Stickers from 'stickers/pages/stickers-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
 import Subjects from 'subject-icons/pages/subjects-interactive';
 import IconsAsButtons from 'icon-as-button/pages/icon-as-button-interactive';
@@ -54,7 +53,6 @@ const demos = {
   RoundButtons: <RoundButtons />,
   Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
-  Stickers: <Stickers />,
   'Subject icons': <SubjectIcons />,
   'Subject icon box': <Subjects />,
   'Flash messages': <FlashMessages />,
