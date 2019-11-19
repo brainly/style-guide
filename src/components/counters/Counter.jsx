@@ -107,7 +107,7 @@ const Counter = ({
           />
         </Flex>
 
-        <Flex noWrap alignItems="center">
+        <Flex alignItems="center">
           <Text
             type="span"
             weight="bold"
