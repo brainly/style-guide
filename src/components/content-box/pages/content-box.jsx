@@ -8,14 +8,12 @@ import ContentBoxHeader from '../ContentBoxHeader';
 import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Sticker, {TYPE as STICKER_TYPE} from 'stickers/Sticker';
 import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import OverlayedBox from 'overlayed-box/OverlayedBox';
 
 const link1 = (
   <Link href="#" color={LINK_COLOR.GRAY}>
@@ -98,9 +96,7 @@ const examplePart1 = (
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
-      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-        <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
-      </OverlayedBox>
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
       <SeparatorVertical />
       <Avatar
         size={AVATAR_SIZE.SMALL}
@@ -132,9 +128,7 @@ const examplePart2 = (
       </Text>
     </ContentBoxContent>
     <ContentBoxActions>
-      <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-        <Avatar imgSrc="https://source.unsplash.com/64x64/?bird" />
-      </OverlayedBox>
+      <Avatar imgSrc="https://source.unsplash.com/64x64/?bird" />
       <SeparatorVertical />
       <Avatar
         size={AVATAR_SIZE.SMALL}
@@ -163,9 +157,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
-          </OverlayedBox>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
           <SeparatorVertical />
           <Avatar
             size={AVATAR_SIZE.SMALL}
@@ -193,9 +185,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
-          </OverlayedBox>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?dog" />
           <SeparatorVertical />
           <Avatar
             size={AVATAR_SIZE.SMALL}
@@ -226,9 +216,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
-          </OverlayedBox>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?cat" />
           <SeparatorVertical />
           <Avatar
             size={AVATAR_SIZE.SMALL}
@@ -257,9 +245,7 @@ const ContentBoxes = () => (
           eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
-          </OverlayedBox>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           <SeparatorVertical />
           <Avatar
             size={AVATAR_SIZE.SMALL}
@@ -288,9 +274,7 @@ const ContentBoxes = () => (
           eros.
         </ContentBoxContent>
         <ContentBoxActions>
-          <OverlayedBox overlay={<Sticker type={STICKER_TYPE.ANSWER} />}>
-            <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
-          </OverlayedBox>
+          <Avatar imgSrc="https://source.unsplash.com/64x64/?lion" />
           <SeparatorVertical />
           <Avatar
             size={AVATAR_SIZE.SMALL}
