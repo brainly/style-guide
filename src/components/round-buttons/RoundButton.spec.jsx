@@ -1,33 +1,25 @@
 import React from 'react';
-import RoundButton, {
-  ROUND_BUTTON_ICON_TYPE,
-  ROUND_BUTTON_COLOR,
-  ROUND_BUTTON_SIZE,
-} from './RoundButton';
+import RoundButton from './RoundButton';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import {shallow} from 'enzyme';
 
 describe('icons', () => {
   it('render', () => {
-    const type = ROUND_BUTTON_ICON_TYPE.HEART;
-    const roundButton = shallow(<RoundButton color="black" type={type} />);
+    const roundButton = shallow(<RoundButton color="black" type="heart" />);
 
     expect(roundButton.find(Icon)).toHaveLength(1);
   });
 
   it('colors', () => {
-    const type = 'heart';
-    const color = 'peach';
-    const roundButton = shallow(<RoundButton type={type} color={color} />);
+    const roundButton = shallow(<RoundButton type="heart" color="peach" />);
 
     expect(roundButton.hasClass('sg-round-button--peach')).toEqual(true);
   });
 
   it('size', () => {
-    const size = 'small';
     const sizeOfSmallIco = '16';
     const roundButton = shallow(
-      <RoundButton color="black" iconType="heart" size={size} />
+      <RoundButton color="black" iconType="heart" size="small" />
     );
     const icon = roundButton.find(Icon);
 
@@ -36,14 +28,9 @@ describe('icons', () => {
   });
 
   it('filled', () => {
-    const iconType = ROUND_BUTTON_ICON_TYPE.HEART;
     const filledWhiteIcon = ICON_COLOR.LIGHT;
     const roundButton = shallow(
-      <RoundButton
-        color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
-        iconType={iconType}
-        filled
-      />
+      <RoundButton color="black" iconType="heart" filled />
     );
     const icon = roundButton.find(Icon);
 
@@ -52,13 +39,8 @@ describe('icons', () => {
   });
 
   it('accepts additional props', () => {
-    const iconType = ROUND_BUTTON_ICON_TYPE.HEART;
     const roundButton = shallow(
-      <RoundButton
-        color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
-        iconType={iconType}
-        type="submit"
-      />
+      <RoundButton color="black" iconType="heart" type="submit" />
     );
 
     expect(roundButton.props().type).toEqual('submit');
