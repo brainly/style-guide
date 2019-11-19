@@ -14,7 +14,7 @@ export const FLEX_JUSTIFY_VALUES = Object.freeze({
   BASELINE: 'baseline',
   SPACE_BETWEEN: 'space-between',
   SPACE_AROUND: 'space-around',
-  SPACE_EVENTLY: 'space-evently',
+  SPACE_EVENLY: 'space-evenly',
   STRETCH: 'stretch',
 });
 

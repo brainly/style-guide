@@ -19,7 +19,7 @@ type FlexJustifyValuesType =
   | 'baseline'
   | 'space-between'
   | 'space-around'
-  | 'space-evently'
+  | 'space-evenly'
   | 'stretch';
 
 type FlexAlignmentValuesType =
@@ -103,7 +103,7 @@ export type FlexPropsType = {
    * @see justifyContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=baseline#flexbox
    * @see justifyContent=space-between https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-between#flexbox
    * @see justifyContent=space-around https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-around#flexbox
-   * @see justifyContent=space-evently https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evently#flexbox
+   * @see justifyContent=space-evenly https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evenly#flexbox
    * @see justifyContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=stretch#flexbox
    */
   justifyContent?: FlexJustifyValuesType,
