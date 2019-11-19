@@ -88,7 +88,7 @@ const Flexbox = () => (
         <Text size={TEXT_SIZE.SMALL}>
           To justify your elements you can use following options: CENTER,
           FLEX_START, FLEX_END, BASELINE, SPACE_BETWEEN, SPACE_AROUND,
-          SPACE_EVENTLY, STRETCH
+          SPACE_EVENLY, STRETCH
         </Text>
         <Text size={TEXT_SIZE.SMALL}>
           To align your elements you can use following options: CENTER,
