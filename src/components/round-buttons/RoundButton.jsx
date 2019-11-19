@@ -49,6 +49,11 @@ export type RoundButtonPropsType = {
    */
   ariaLabel?: string,
   /**
+   * type for round button
+   * @example <RoundButton type="submit" filled/>
+   */
+  type?: string,
+  /**
    * Additional class names
    */
   className?: string,
@@ -76,9 +81,12 @@ const RoundButton = ({
 
   const buttonContent = (
     <Icon
-      size={size === 'small' ? '16' : '24'}
+      size={size === 'small' ? '16' : size === 'large' ? '32' : '24'}
       type={iconType}
-      color={filled !== undefined ? ICON_COLOR.LIGHT : ICON_COLOR.ADAPTIVE}
+      // to export it in an easy way to sketch
+      color={
+        filled !== undefined ? 'light' : color === 'black' ? 'dark' : color
+      }
     />
   );
 
