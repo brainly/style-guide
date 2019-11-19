@@ -49,11 +49,6 @@ export type RoundButtonPropsType = {
    */
   ariaLabel?: string,
   /**
-   * type for round button
-   * @example <RoundButton type="submit" filled/>
-   */
-  type?: string,
-  /**
    * Additional class names
    */
   className?: string,
@@ -67,7 +62,6 @@ const RoundButton = ({
   className,
   ariaLabel,
   title,
-  type,
   ...props
 }: RoundButtonPropsType) => {
   const roundButtonClass = cx(
