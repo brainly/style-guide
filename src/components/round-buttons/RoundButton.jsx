@@ -67,6 +67,7 @@ const RoundButton = ({
   className,
   ariaLabel,
   title,
+  type,
   ...props
 }: RoundButtonPropsType) => {
   const roundButtonClass = cx(
