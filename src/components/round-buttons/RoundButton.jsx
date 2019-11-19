@@ -25,17 +25,17 @@ export type RoundButtonPropsType = {
   iconType?: $Values<typeof TYPE>,
   /**
    * Color variants for round buttons
-   * @example <RoundButton color="black-base-500" />
-   * @see color="black-base-500" https://styleguide.brainly.com/latest/docs/interactive.html?color="black-base-500"#round-buttons
-   * @see color="blue-dark-700" https://styleguide.brainly.com/latest/docs/interactive.html?color="blue-dark-700"#buttons
-   * @see color="mint-dark-700" https://styleguide.brainly.com/latest/docs/interactive.html?color="mint-dark-700"#buttons
-   * @see color="mustard-base-500" https://styleguide.brainly.com/latest/docs/interactive.html?color="mustard-base-500"#buttons
-   * @see color="peach-dark-700" https://styleguide.brainly.com/latest/docs/interactive.html?color="peach-dark-700"#buttons
+   * @example <RoundButton color="black" />
+   * @see color="black" https://styleguide.brainly.com/latest/docs/interactive.html?color="black"#round-buttons
+   * @see color="blue" https://styleguide.brainly.com/latest/docs/interactive.html?color="blue"#buttons
+   * @see color="mint" https://styleguide.brainly.com/latest/docs/interactive.html?color="mint"#buttons
+   * @see color="mustard" https://styleguide.brainly.com/latest/docs/interactive.html?color="mustard"#buttons
+   * @see color="peach" https://styleguide.brainly.com/latest/docs/interactive.html?color="peach"#buttons
    */
   color: $Values<typeof ROUND_BUTTON_COLOR>,
   /**
    * Optional boolean for filled variant
-   * @example <RoundButton color="black-base-500" filled/>
+   * @example <RoundButton color="black" filled/>
    */
   filled?: boolean,
   /**
