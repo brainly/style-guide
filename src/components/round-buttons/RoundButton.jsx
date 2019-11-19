@@ -2,7 +2,7 @@
 
 import React from 'react';
 import cx from 'classnames';
-import Icon, {ICON_COLOR, TYPE} from '../icons/Icon';
+import Icon, {TYPE} from '../icons/Icon';
 import {ROUND_BUTTON_SIZE, ROUND_BUTTON_COLOR} from './roundButtonsConsts';
 
 export {ROUND_BUTTON_SIZE, TYPE as ROUND_BUTTON_ICON_TYPE, ROUND_BUTTON_COLOR};
