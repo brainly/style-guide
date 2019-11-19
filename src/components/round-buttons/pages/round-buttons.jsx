@@ -6,51 +6,26 @@ const RoundButtons = () => {
   return (
     <DocsBlock>
       <DocsBlock info="Round buttons">
-        <RoundButton size="small" iconType="answer" color="black-base-500" />
+        <RoundButton size="small" iconType="answer" color="black" />
         &nbsp;
-        <RoundButton size="medium" iconType="answer" color="blue-dark-700" />
+        <RoundButton size="medium" iconType="answer" color="blue" />
         &nbsp;
-        <RoundButton size="large" iconType="answer" color="mint-dark-700" />
+        <RoundButton size="large" iconType="answer" color="mint" />
         &nbsp;
-        <RoundButton size="medium" iconType="answer" color="mustard-base-500" />
+        <RoundButton size="medium" iconType="answer" color="mustard" />
         &nbsp;
-        <RoundButton size="small" iconType="answer" color="peach-dark-700" />
+        <RoundButton size="small" iconType="answer" color="peach" />
       </DocsBlock>
       <DocsBlock info="Round buttons filled">
-        <RoundButton
-          size="small"
-          iconType="answer"
-          filled
-          color="black-base-500"
-        />
+        <RoundButton size="small" iconType="answer" filled color="black" />
         &nbsp;
-        <RoundButton
-          size="medium"
-          iconType="answer"
-          filled
-          color="blue-dark-700"
-        />
+        <RoundButton size="medium" iconType="answer" filled color="blue" />
         &nbsp;
-        <RoundButton
-          size="large"
-          iconType="answer"
-          filled
-          color="mint-dark-700"
-        />
+        <RoundButton size="large" iconType="answer" filled color="mint" />
         &nbsp;
-        <RoundButton
-          size="medium"
-          iconType="answer"
-          filled
-          color="mustard-base-500"
-        />
+        <RoundButton size="medium" iconType="answer" filled color="mustard" />
         &nbsp;
-        <RoundButton
-          size="small"
-          iconType="answer"
-          filled
-          color="peach-dark-700"
-        />
+        <RoundButton size="small" iconType="answer" filled color="peach" />
       </DocsBlock>
     </DocsBlock>
   );

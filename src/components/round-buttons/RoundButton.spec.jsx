@@ -10,33 +10,24 @@ import {shallow} from 'enzyme';
 describe('icons', () => {
   it('render', () => {
     const type = ROUND_BUTTON_ICON_TYPE.HEART;
-    const roundButton = shallow(
-      <RoundButton color={ROUND_BUTTON_COLOR.BLACK_BASE_500} type={type} />
-    );
+    const roundButton = shallow(<RoundButton color="black" type={type} />);
 
     expect(roundButton.find(Icon)).toHaveLength(1);
   });
 
   it('colors', () => {
-    const type = ROUND_BUTTON_ICON_TYPE.HEART;
-    const color = ROUND_BUTTON_COLOR.PEACH_DARK_700;
+    const type = 'heart';
+    const color = 'peach';
     const roundButton = shallow(<RoundButton type={type} color={color} />);
 
-    expect(roundButton.hasClass('sg-round-button--peach-dark-700')).toEqual(
-      true
-    );
+    expect(roundButton.hasClass('sg-round-button--peach')).toEqual(true);
   });
 
   it('size', () => {
-    const size = ROUND_BUTTON_SIZE.SMALL;
+    const size = 'small';
     const sizeOfSmallIco = '16';
-    const iconType = ROUND_BUTTON_ICON_TYPE.HEART;
     const roundButton = shallow(
-      <RoundButton
-        color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
-        iconType={iconType}
-        size={size}
-      />
+      <RoundButton color="black" iconType="heart" size={size} />
     );
     const icon = roundButton.find(Icon);
 

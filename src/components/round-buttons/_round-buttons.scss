@@ -5,18 +5,11 @@ $formElementHeightLarge: 56px;
 $transparentWhite: rgba(255, 255, 255, 0);
 
 $colorSetup: (
-  black-base-500: $black,
-  mint-dark-700: $mintPrimary,
-  mint-dark-900: $mintPrimaryDark,
-  blue-dark-700: $bluePrimary,
-  blue-dark-900: $bluePrimaryDark,
-  gray-light-300: $graySecondaryLightest,
-  gray-dark-900: $grayPrimary,
-  peach-base-500: $peachSecondary,
-  peach-dark-700: $peachPrimary,
-  peach-dark-900: $peachPrimaryDark,
-  mustard-base-500: $mustardSecondary,
-  mustard-dark-700: $mustardPrimary,
+  black: $black,
+  mint: $mintPrimary,
+  blue: $bluePrimary,
+  peach: $peachPrimary,
+  mustard: $mustardSecondary,
 );
 
 @mixin buttonHover($color1, $color2, $percent) {
@@ -78,46 +71,52 @@ $colorSetup: (
     flex-grow: 1;
   }
 
-  &--black-base-500 {
-    &:hover {
-      @include buttonHover($black, $transparentWhite, 16%);
-    }
+  &--black:hover,
+  &--black:active {
+    @include buttonHover($black, $transparentWhite, 16%);
 
-    &.sg-round-button--filled:hover {
+    &.sg-round-button--filled:hover,
+    &.sg-round-button--filled:active {
       @include buttonFilledHover($grayPrimary, $black, 72%);
     }
   }
 
-  &--blue-dark-700 {
-    &:hover {
-      @include buttonHover($bluePrimaryDark, $transparentWhite, 16%);
-    }
+  &--blue:hover,
+  &--blue:active  {
+    @include buttonHover($bluePrimaryDark, $transparentWhite, 16%);
 
-    &.sg-round-button--filled:hover {
+    &.sg-round-button--filled:hover,
+    &.sg-round-button--filled:active {
       @include buttonFilledHover($bluePrimaryDark, $bluePrimaryDark, 72%);
     }
   }
 
-  &--mint-dark-700:hover {
+  &--mint:hover,
+  &--mint:active {
     @include buttonHover($mintPrimaryDark, $transparentWhite, 16%);
 
-    &.sg-round-button--filled:hover {
+    &.sg-round-button--filled:hover,
+    &.sg-round-button--filled:active {
       @include buttonFilledHover($mintPrimaryDark, $mintPrimary, 72%);
     }
   }
 
-  &--peach-dark-700:hover {
+  &--peach:hover,
+  &--peach:active {
     @include buttonHover($peachPrimary, $transparentWhite, 16%);
 
-    &.sg-round-button--filled:hover {
+    &.sg-round-button--filled:hover,
+    &.sg-round-button--filled:active {
       @include buttonFilledHover($peachPrimaryDark, $peachPrimary, 72%);
     }
   }
 
-  &--mustard-base-500:hover {
+  &--mustard:hover,
+  &--mustard:active {
     @include buttonHover($mustardSecondary, $transparentWhite, 16%);
 
-    &.sg-round-button--filled:hover {
+    &.sg-round-button--filled:hover,
+    &.sg-round-button--filled:active {
       @include buttonFilledHover($mustardPrimary, $mustardSecondary, 72%);
     }
   }

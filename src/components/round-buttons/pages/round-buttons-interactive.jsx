@@ -32,8 +32,8 @@ const RoundButtons = () => {
       <DocsActiveBlock settings={roundButtonsSettings}>
         <RoundButton
           size={ROUND_BUTTON_SIZE.SMALL}
-          iconType="answer"
-          color={ROUND_BUTTON_COLOR.BLACK_BASE_500}
+          iconType={ROUND_BUTTON_ICON_TYPE.ANSWER}
+          color={ROUND_BUTTON_COLOR.BLACK}
         />
       </DocsActiveBlock>
     </div>
