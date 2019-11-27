@@ -8,7 +8,7 @@ const icons = () => (
       <ul className="icons-list">
         {Object.values(TYPE).map(type => (
           <li className="icons-list__element" key={type}>
-            <Icon size="32" color="dark" type={type} />
+            <Icon size={32} color="dark" type={type} />
             <span>&nbsp; - {type}</span>
           </li>
         ))}
