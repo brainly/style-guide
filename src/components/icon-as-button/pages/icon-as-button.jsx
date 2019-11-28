@@ -1,10 +1,20 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
+import Text from '../../text/Text';
+import Link from '../../text/Link';
+import Flex from '../../flex/Flex';
 import DrawHelper from './DrawHelper';
 
 const icons = () => (
   <div>
+    <Flex marginBottom="m">
+      <Text color="peach-dark">
+        This component is deprecated, please use{' '}
+        <Link href="./components.html#round-buttons">Round buttons</Link>{' '}
+        instead
+      </Text>
+    </Flex>
     <DocsBlock info="Normal">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
