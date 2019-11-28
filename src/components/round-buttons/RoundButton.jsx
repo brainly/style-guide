@@ -12,7 +12,7 @@ export type RoundButtonPropsType = {
    * Sizes for round buttons
    * @example <RoundButton size="small" />
    * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?size="small"#round-buttons
-   * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?size="normal"#buttons
+   * @see size="medium" https://styleguide.brainly.com/latest/docs/interactive.html?size="medium"#buttons
    * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#buttons
    */
   size: $Values<typeof ROUND_BUTTON_SIZE>,
@@ -52,6 +52,7 @@ export type RoundButtonPropsType = {
    * Additional class names
    */
   className?: string,
+  ...
 };
 
 const RoundButton = ({
