@@ -2,7 +2,7 @@
 
 import React from 'react';
 import cx from 'classnames';
-import Icon, {ICON_COLOR, TYPE} from '../icons/Icon';
+import Icon, {TYPE} from '../icons/Icon';
 import {ROUND_BUTTON_SIZE, ROUND_BUTTON_COLOR} from './roundButtonsConsts';
 
 export {ROUND_BUTTON_SIZE, TYPE as ROUND_BUTTON_ICON_TYPE, ROUND_BUTTON_COLOR};
@@ -76,9 +76,12 @@ const RoundButton = ({
 
   const buttonContent = (
     <Icon
-      size={size === 'small' ? '16' : '24'}
+      size={size === 'small' ? '16' : size === 'large' ? '32' : '24'}
       type={iconType}
-      color={filled !== undefined ? ICON_COLOR.LIGHT : ICON_COLOR.ADAPTIVE}
+      // to export it in an easy way to sketch
+      color={
+        filled !== undefined ? 'light' : color === 'black' ? 'dark' : color
+      }
     />
   );
 
