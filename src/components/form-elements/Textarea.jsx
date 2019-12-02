@@ -67,10 +67,10 @@ const Textarea = (props: TextareaPropsType) => {
 
   return (
     <Type
+      {...additionalProps}
       className={textareaClass}
       ref={textareaRef}
       value={value}
-      {...additionalProps}
     />
   );
 };

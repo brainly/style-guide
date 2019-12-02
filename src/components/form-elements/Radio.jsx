@@ -41,12 +41,12 @@ const Radio = (props: RadioPropsType) => {
   return (
     <div className={radioClass}>
       <input
+        {...additionalProps}
         className="sg-radio__element"
         type="radio"
         checked={checked}
         name={name}
         id={id}
-        {...additionalProps}
       />
       <label className="sg-radio__ghost" htmlFor={id} />
     </div>

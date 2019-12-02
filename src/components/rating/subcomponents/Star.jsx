@@ -8,7 +8,7 @@ const {default: Icon, ICON_COLOR} = IconModule;
 type PropsType = {size?: IconModule.IconSizeType, ...};
 
 const Star = ({size, ...props}: PropsType) => (
-  <span className="sg-rate-box__star" {...props}>
+  <span {...props} className="sg-rate-box__star">
     <Icon type="star" size={size} color={ICON_COLOR.ADAPTIVE} />
   </span>
 );

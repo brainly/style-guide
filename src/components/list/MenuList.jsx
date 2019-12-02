@@ -38,7 +38,7 @@ const MenuList = ({
   return (
     <ul {...props} className={listClass}>
       {items.map(({...elementProps}, index) => (
-        <MenuItem key={index} {...elementProps} />
+        <MenuItem {...elementProps} key={index} />
       ))}
     </ul>
   );

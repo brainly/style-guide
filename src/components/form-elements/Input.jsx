@@ -118,11 +118,11 @@ const Input = (props: InputPropsType) => {
 
   return (
     <input
+      {...additionalProps}
       type={type}
       ref={setInputRef}
       className={inputClass}
       value={value}
-      {...additionalProps}
     />
   );
 };

@@ -15,9 +15,10 @@ module.file_ext=.scss
 module.name_mapper.extension='css' -> 'empty/object'
 module.name_mapper.extension='scss' -> 'empty/object'
 
-module.system.node.resolve_dirname=node_modules
-module.system.node.resolve_dirname=src/components
-module.system.node.resolve_dirname=src/docs
+module.system.node.allow_root_relative=true
+module.system.node.root_relative_dirname=node_modules
+module.system.node.root_relative_dirname=src/components
+module.system.node.root_relative_dirname=src/docs
 exact_by_default=true
 
 [strict]

@@ -14,7 +14,7 @@ const ListItem = ({children, className, ...props}: PropsType) => {
   const listItemClass = classNames('sg-list__element', className);
 
   return (
-    <li className={listItemClass} {...props}>
+    <li {...props} className={listItemClass}>
       {children}
     </li>
   );
