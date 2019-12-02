@@ -252,7 +252,7 @@ const Flex = (props: FlexPropsType) => {
   );
 
   return (
-    <div className={flexClass} {...otherProps}>
+    <div {...otherProps} className={flexClass}>
       {children}
     </div>
   );

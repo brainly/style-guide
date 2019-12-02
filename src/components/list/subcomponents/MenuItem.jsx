@@ -18,7 +18,7 @@ const MenuItem = ({text, href, type, className, ...restProps}: PropsType) => {
 
   return (
     <li className="sg-menu-list__element">
-      <Type className={elementClass} href={href} {...restProps}>
+      <Type {...restProps} className={elementClass} href={href}>
         {text}
       </Type>
     </li>

@@ -21,7 +21,7 @@ const ListItemIcon = ({small, children, className, ...props}: PropsType) => {
   );
 
   return (
-    <div className={iconClass} {...props}>
+    <div {...props} className={iconClass}>
       {children}
     </div>
   );

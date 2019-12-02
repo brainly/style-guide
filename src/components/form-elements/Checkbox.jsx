@@ -35,11 +35,11 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
     return (
       <div className={checkboxClass}>
         <input
+          {...additionalProps}
           className="sg-checkbox__element"
           type="checkbox"
           id={id}
           checked={checked}
-          {...additionalProps}
         />
         <label className="sg-checkbox__ghost" htmlFor={id}>
           <Icon type="check" color="adaptive" size={16} />

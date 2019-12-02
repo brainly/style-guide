@@ -1,6 +1,6 @@
 {
   "name": "style-guide",
-  "version": "151.0.3",
+  "version": "151.0.4",
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
@@ -30,7 +30,7 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "file-loader": "^4.1.0",
-    "flow-bin": "^0.109.0",
+    "flow-bin": "^0.112.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-base64": "^0.1.3",
