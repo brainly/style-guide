@@ -38,6 +38,7 @@ $iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 40, 32, 30, 26, 
     max-height: 24px;
     height: 24px;
     width: 24px;
+    flex-shrink: 0;
 
     @each $size in $iconSizes {
       &--x#{$size} {
