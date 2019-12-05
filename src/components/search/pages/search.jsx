@@ -1,31 +1,75 @@
 import React from 'react';
-import Search, {SIZE, COLOR} from '../Search';
+import Search from '../Search';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
+import Flex from '../../flex/Flex';
 
 const searches = () => (
   <div>
-    <DocsBlock info="Standard">
-      <Search placeholder="Find all the answers..." />
+    <DocsBlock info="Default and white">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <div>
+            <Search placeholder="Find all the answers..." />
+          </div>
+          <br />
+          <br />
+          <Search size="large" placeholder="Find all the answers..." />
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column">
+          <ContrastBox fullWidth>
+            <Search color="white" placeholder="Find all the answers..." />
+            <br />
+            <br />
+            <Search
+              color="white"
+              size="large"
+              placeholder="Find all the answers..."
+            />
+            <br />
+            <br />
+          </ContrastBox>
+        </Flex>
+      </Flex>
     </DocsBlock>
-    <DocsBlock info="Large size">
-      <Search placeholder="Find all the answers..." size={SIZE.LARGE} />
-    </DocsBlock>
-    <DocsBlock info="Full width">
-      <Search placeholder="Find all the answers..." fullWidth />
-    </DocsBlock>
-    <DocsBlock info="Light">
-      <ContrastBox fullWidth>
-        <Search
-          placeholder="Find all the answers..."
-          fullWidth
-          color={COLOR.LIGHT}
-          adaptiveIco
-        />
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info="No border">
-      <Search placeholder="Find all the answers..." fullWidth noBorder />
+
+    <DocsBlock info="Search with round button">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Search placeholder="Find all the answers..." withRoundButton />
+          <br />
+          <br />
+          <Search
+            placeholder="Find all the answers..."
+            withRoundButton
+            size="large"
+          />
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column">
+          <ContrastBox fullWidth>
+            <Search
+              color="white"
+              placeholder="Find all the answers..."
+              fullWidth
+              withRoundButton
+            />
+            <br />
+            <br />
+            <Search
+              color="white"
+              placeholder="Find all the answers..."
+              withRoundButton
+              size="large"
+            />
+            <br />
+            <br />
+          </ContrastBox>
+        </Flex>
+      </Flex>
     </DocsBlock>
   </div>
 );

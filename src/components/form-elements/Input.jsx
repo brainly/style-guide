@@ -3,9 +3,9 @@
 import React from 'react';
 import classnames from 'classnames';
 
-type InputSizeType = 'small' | 'normal' | 'large';
+type InputSizeType = 'normal' | 'large';
 
-type InputColorType = 'normal' | 'light' | 'light-alt';
+type InputColorType = 'default' | 'white';
 
 type InputType =
   | 'button'
@@ -53,28 +53,67 @@ export const TYPE = Object.freeze({
 });
 
 export const SIZE = Object.freeze({
-  SMALL: 'small',
   LARGE: 'large',
   NORMAL: 'normal',
 });
 
 export const COLOR = Object.freeze({
-  NORMAL: 'normal',
-  LIGHT: 'light',
-  LIGHT_ALT: 'light-alt',
+  DEFAULT: 'default',
+  WHITE: 'white',
 });
 
 export type InputPropsType = {
+  /**
+   * Optional specification for input type
+   * @example <Input type="email" placeholder="placeholder" />
+   */
   type?: ?InputType,
+  /**
+   * Optional specification for input value, which can be string or number
+   * @example <Input type="email" value={2} />
+   */
   value?: string | number,
+  /**
+   * There are two sizes options for most of the form elements
+   * @example <Input size="normal" placeholder="placeholder" />
+   * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?size="normal"#input
+   * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#input
+   */
   size?: ?InputSizeType,
+  /**
+   * There are two color variants for form elements, default does not have to be specified
+   * @example <Input color="white" placeholder="placeholder" />
+   * @see color="default" https://styleguide.brainly.com/latest/docs/interactive.html?color="default"#input
+   * @see color="white" https://styleguide.brainly.com/latest/docs/interactive.html?color="white"#input
+   */
   color?: ?InputColorType,
+  /**
+   * Optional additional boolean to specified if it's valid
+   * @example <Input valid placeholder="placeholder" />
+   */
   valid?: boolean,
+  /**
+   * Optional additional boolean to specified if it's invalid
+   * @example <Input invalid placeholder="placeholder" />
+   */
   invalid?: boolean,
+  /**
+   * Optional additional boolean to specified if it's full width
+   * @example <Input fullWidth placeholder="placeholder" />
+   */
   fullWidth?: boolean,
-  noBorder?: boolean,
+  /**
+   * Optional additional boolean to specified if it's with icon, used in search component
+   * @example <Input withIcon placeholder="placeholder" />
+   */
   withIcon?: boolean,
+  /**
+   * Additional class names
+   */
   className?: string,
+  /**
+   * Additional function to set ref for input
+   */
   setInputRef?: (ref: ?HTMLElement) => mixed,
   ...
 };
@@ -83,10 +122,9 @@ const Input = (props: InputPropsType) => {
   const {
     type = 'text',
     size = SIZE.NORMAL,
-    color = COLOR.NORMAL,
+    color = COLOR.DEFAULT,
     fullWidth,
     withIcon,
-    noBorder,
     value,
     valid,
     invalid,
@@ -106,11 +144,10 @@ const Input = (props: InputPropsType) => {
     'sg-input',
     {
       [`sg-input--${String(size)}`]: size !== SIZE.NORMAL,
-      [`sg-input--${String(color)}`]: color !== COLOR.NORMAL,
+      [`sg-input--${String(color)}`]: color !== COLOR.DEFAULT,
       'sg-input--valid': valid,
       'sg-input--invalid': invalid,
       'sg-input--full-width': fullWidth,
-      'sg-input--no-border': noBorder,
       'sg-input--with-icon': withIcon,
     },
     className

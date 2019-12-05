@@ -25,29 +25,23 @@ const SearchInputs = () => {
       values: Boolean,
     },
     {
-      name: 'adaptiveIco',
-      values: Boolean,
-    },
-    {
-      name: 'noBorder',
+      name: 'withRoundButton',
       values: Boolean,
     },
   ];
 
   return (
-    <div>
-      <DocsActiveBlock settings={settings} wrapper={<div />}>
-        <Search placeholder="Find all the answers..." />
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Search
-          placeholder="Find all the answers..."
-          color={COLOR.LIGHT}
-          fullWidth
-          adaptiveIco
-        />
-      </DocsActiveBlock>
-    </div>
+    <DocsActiveBlock
+      backgroundColor="dark"
+      settings={settings}
+      wrapper={<div />}
+    >
+      <Search
+        placeholder="Find all the answers..."
+        size={SIZE.NORMAL}
+        color={COLOR.DEFAULT}
+      />
+    </DocsActiveBlock>
   );
 };
 

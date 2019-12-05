@@ -29,14 +29,6 @@ const Inputs = () => {
       values: Boolean,
     },
     {
-      name: 'withIcon',
-      values: Boolean,
-    },
-    {
-      name: 'noBorder',
-      values: Boolean,
-    },
-    {
       name: 'valid',
       values: Boolean,
     },
@@ -48,17 +40,14 @@ const Inputs = () => {
 
   return (
     <div>
-      <DocsActiveBlock settings={settings}>
-        <Input placeholder="Simple input" />
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={settings}>
+      <DocsActiveBlock backgroundColor="dark" settings={settings}>
         <Input
-          placeholder="Big wrong input"
+          backgroundColor="none"
+          placeholder="Big input"
           fullWidth
           size={SIZE.LARGE}
-          invalid
-          noBorder
-          value="I'm a big bad input"
+          color={COLOR.DEFAULT}
+          value="I'm a big input"
         />
       </DocsActiveBlock>
     </div>

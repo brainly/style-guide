@@ -1,47 +1,66 @@
 import React from 'react';
-import Input, {SIZE, COLOR} from '../Input';
+import Input from '../Input';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
+import Flex from '../../flex/Flex';
 
 const voidFunction = () => undefined;
 
 const textInputs = () => (
   <div>
-    <DocsBlock info="Default">
-      <Input placeholder="placeholder" />
+    <DocsBlock info="Default and white">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Input placeholder="placeholder" />
+
+          <br />
+          <Input size="large" placeholder="placeholder" />
+        </Flex>
+        <Flex direction="column">
+          <ContrastBox fullWidth>
+            <Input placeholder="placeholder" color="white" />
+            <br />
+            <br />
+            <Input size="large" placeholder="placeholder" color="white" />
+          </ContrastBox>
+        </Flex>
+      </Flex>
     </DocsBlock>
-    <DocsBlock info="Valid">
-      <Input
-        placeholder="placeholder"
-        valid
-        value="This is valid example"
-        onChange={voidFunction}
-      />
-    </DocsBlock>
-    <DocsBlock info="Invalid">
-      <Input
-        placeholder="placeholder"
-        invalid
-        value="This is invalid example"
-        onChange={voidFunction}
-      />
-    </DocsBlock>
-    <DocsBlock info="Small">
-      <Input placeholder="placeholder" size={SIZE.SMALL} />
-    </DocsBlock>
-    <DocsBlock info="Large">
-      <Input placeholder="placeholder" size={SIZE.LARGE} />
+    <DocsBlock info="Valid and invalid">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Input
+            placeholder="placeholder"
+            valid
+            value="This is valid example"
+            onChange={voidFunction}
+          />
+          <br />
+          <Input
+            placeholder="placeholder"
+            invalid
+            size="large"
+            value="This is invalid example"
+            onChange={voidFunction}
+          />
+        </Flex>
+        <Flex direction="column">
+          <ContrastBox fullWidth>
+            <Input valid placeholder="This is valid example" color="white" />
+            <br />
+            <br />
+            <Input
+              size="large"
+              placeholder="This is invalid example"
+              invalid
+              color="white"
+            />
+          </ContrastBox>
+        </Flex>
+      </Flex>
     </DocsBlock>
     <DocsBlock info="Full width">
       <Input placeholder="placeholder" fullWidth />
-    </DocsBlock>
-    <DocsBlock info="Light">
-      <ContrastBox fullWidth>
-        <Input placeholder="placeholder" fullWidth color={COLOR.LIGHT} />
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info="Light alt">
-      <Input placeholder="placeholder" fullWidth color={COLOR.LIGHT_ALT} />
     </DocsBlock>
     <DocsBlock info="Password">
       <Input

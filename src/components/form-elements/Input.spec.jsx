@@ -55,9 +55,9 @@ test('default size', () => {
 });
 
 test('color', () => {
-  const input = shallow(<Input color={COLOR.LIGHT} />);
+  const input = shallow(<Input color={COLOR.WHITE} />);
 
-  expect(input.hasClass('sg-input--light')).toEqual(true);
+  expect(input.hasClass('sg-input--white')).toEqual(true);
 });
 
 test('default color', () => {

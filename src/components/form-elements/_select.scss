@@ -1,40 +1,43 @@
-$selectHeight: rhythm(3 / 2);
-$selectBackground: $white;
+$selectHeight: 40px;
+$selectBackground: $graySecondaryLightest;
 $selectTextColor: $grayPrimary;
 $selectFontSize: 16px; // fix zooming to select on focus in iOS devices
-$selectIconSize: rhythm(1 / 3);
-$selectBorderRadius: 7px;
-$selectActiveBorderColor: $grayPrimary;
+$selectBorderRadius: 20px;
 $selectActiveInvalidBorderColor: $peachPrimaryDark;
 $selectActiveValidBorderColor: $mintPrimaryDark;
-$arrowColor: $graySecondary;
+$selectLargeBorderRadius: 28px;
+$selectLargeFontSize: 18px;
+$selectLargeHeight: 56px;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-select {
-    @include component();
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
     font-size: $selectFontSize;
     color: $selectTextColor;
-    box-shadow: $componentShadow;
     border-radius: $selectBorderRadius;
     height: $selectHeight;
+    border: 2px solid $graySecondaryLightest;
 
     &__element {
+      position: relative;
+      top: -2px;
       background: $selectBackground;
       border: none;
       border-radius: $borderRadiusDefault;
       font-size: inherit;
-      font-weight: $fontWeightBold;
-
-      //color: inherit;
       display: inline-block;
       height: $selectHeight;
-      position: relative;
-      padding: 0 gutter(4 / 3) 0 gutter(1 / 2);
+      padding: 0 spacing(l) 0 spacing(s);
       outline: 0;
       appearance: none;
       width: 100%;
+      border: 2px solid $graySecondaryLightest;
 
       &::-ms-expand {
         display: none;
@@ -43,35 +46,136 @@ $includeHtml: false !default;
       &:hover,
       &:focus,
       &:active {
-        border-color: $selectActiveBorderColor;
+        border-color: $graySecondaryLightest;
       }
     }
 
     &__icon {
       position: absolute;
-      top: $selectHeight / 2 - $selectIconSize / 2.5;
-      right: gutter(1 / 2);
-      height: $selectIconSize;
-      width: $selectIconSize;
+      top: spacing(xs) - 2px;
+      right: spacing(xs);
       pointer-events: none;
       z-index: 1;
       display: flex;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 6px solid $arrowColor;
+    }
 
+    &--white {
+      background: $white;
+      border: 2px solid $white;
+
+      .sg-select__element {
+        background: $white;
+        border: 2px solid $white;
+
+      }
+    }
+
+    &.sg-select--white {
+      &.sg-select--valid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $selectActiveValidBorderColor;
+        }
+      }
+
+      &.sg-select--invalid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $selectActiveInvalidBorderColor;
+        }
+      }
+      
+      &:hover {
+        background-color: mix($white, $graySecondaryUltraLight, 12%);
+        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+  
+        .sg-select__element {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+        }
+      }
+    }
+
+    &:hover {
+      background-color: mix($selectBackground, $graySecondaryLight, 80%);
+      border: 2px solid mix($selectBackground, $graySecondaryLight, 80%);
+
+      .sg-select__element {
+        background-color: mix($selectBackground, $graySecondaryLight, 80%);
+        border: 2px solid mix($selectBackground, $graySecondaryLight, 80%);
+      }
     }
 
     &--full-width {
       width: 100%;
     }
 
+    &--large {
+      height: $selectLargeHeight;
+      font-size: $selectLargeFontSize;
+      border-radius: $selectLargeBorderRadius;
+
+      .sg-select__icon {
+        right: spacing(s);
+        top: spacing(s)
+      }
+
+      .sg-select__element {
+        position: relative;
+        top: -2px;
+        border-radius: $selectLargeBorderRadius;
+        font-size: $selectLargeFontSize;
+        height: $selectLargeHeight;
+        padding: 0 50px 0 spacing(m);
+        
+        &::-ms-expand {
+          display: none;
+        }
+      }
+
+      &::placeholder {
+        font-size: 18px;
+      }
+    }
+
     &--valid {
-      color: $selectActiveValidBorderColor;
+      border: 2px solid $selectActiveValidBorderColor;
+      color: $black;
+      font-weight: normal;
+
+      &:focus,
+      &:active,
+      &:focus:hover,
+      &:active:hover {
+        background-color: $white;
+        border: 2px solid $selectActiveValidBorderColor;
+        box-shadow: none;
+      }
+
+      &:hover {
+        background-color: mix($selectBackground, $graySecondaryLight, 80%);
+        border: 2px solid $selectActiveValidBorderColor;
+      }
     }
 
     &--invalid {
-      color: $selectActiveInvalidBorderColor;
+      border: 2px solid $selectActiveInvalidBorderColor;
+      color: $black;
+      font-weight: normal;
+
+      &:focus,
+      &:active,
+      &:focus:hover,
+      &:active:hover {
+        background-color: $white;
+        border: 2px solid $selectActiveInvalidBorderColor;
+        box-shadow: none;
+      }
+
+      &:hover {
+        background-color: mix($selectBackground, $graySecondaryLight, 80%);
+        border: 2px solid $selectActiveInvalidBorderColor;
+      }
     }
 
     &--capitalized {

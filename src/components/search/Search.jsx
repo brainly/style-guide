@@ -1,39 +1,91 @@
 // @flow strict
 
 import React from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import * as InputModule from '../form-elements/Input';
-import Icon, {TYPE, ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
+import RoundButton from '../round-buttons/RoundButton';
 
 const {default: Input, COLOR, SIZE} = InputModule;
 
 type PropsType = {
-  adaptiveIco?: boolean,
   inputClassName?: string,
+  withRoundButton?: boolean,
   ...
 } & InputModule.InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
 
 const Search = ({
-  adaptiveIco,
+  /**
+   * Additional class names
+   */
   className,
+  /**
+   * Optional boolean for full width search
+   * @example <Search fullWidth placeholder="Find all the answers..." />
+   */
+  fullWidth,
+  /**
+   * There are two sizes options for most of the form elements
+   * @example <Search size="normal" placeholder="Find all the answers..." />
+   * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?size="normal"#search
+   * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#search
+   */
+  size,
+  /**
+   * Optional boolean for round button in search
+   * @example <Search withRoundButton />
+   */
+  withRoundButton,
+  /**
+   * Optional additional classname for input in search
+   * @example <Search inputClassName="sg-input--white" placeholder="Find all the answers..." />
+   */
   inputClassName,
+  /**
+   * Additional classname for input in search, like color, which is pass directly to input
+   * @example <Search color="white" placeholder="Find all the answers..." />
+   */
   ...additionalProps
 }: PropsType) => {
-  const iconColor =
-    adaptiveIco === true ? ICON_COLOR.ADAPTIVE : ICON_COLOR.GRAY_SECONDARY;
   const baseClassName = 'sg-search';
 
+  const searchClassName = cx(
+    baseClassName,
+    {
+      [`sg-search--${String(size)}`]: size,
+      'sg-search--full-width': fullWidth,
+    },
+    className
+  );
+
   return (
-    <div className={classnames(baseClassName, className)}>
+    <div className={searchClassName}>
       <Input
         {...additionalProps}
         type="search"
         withIcon
-        className={classnames(`${baseClassName}__input`, inputClassName)}
+        size={size}
+        className={cx(`${baseClassName}__input`, inputClassName)}
       />
-      <div className={`${baseClassName}__icon`}>
-        <Icon type={TYPE.SEARCH} color={iconColor} size={18} />
-      </div>
+
+      {withRoundButton !== null || withRoundButton !== undefined ? (
+        <div className={`${baseClassName}__icon`}>
+          <RoundButton
+            iconType="search"
+            color="black"
+            filled
+            size={size === 'large' ? 'medium' : 'small'}
+          />
+        </div>
+      ) : (
+        <button className={`${baseClassName}__icon`}>
+          <Icon
+            type="search"
+            color="gray-secondary"
+            size={size === 'large' ? 24 : 18}
+          />
+        </button>
+      )}
     </div>
   );
 };
