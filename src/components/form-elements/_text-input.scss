@@ -1,148 +1,124 @@
-$inputHeight: rhythm(3 / 2);
-$inputLargeHeight: rhythm(8 / 3);
-$inputSmallHeight: rhythm(5 / 4);
-
-$inputBackground: $white;
-$inputTextColor: $black;
-$inputFontSize: 16px; // fix zooming to input on focus in iOS devices
-$inputLargeFontSize: fontSize(standout);
-$inputPlaceholderTextColor: $graySecondary;
-$inputFocusValidBorderColor: $mintPrimaryDark;
-$inputFocusInvalidBorderColor: $peachPrimaryDark;
-$inputStandardBorderRadius: 9px;
-$inputPlaceholderFontSize: 16px;
-
-$inputSmallBorderRadius: 7px;
-$inputSmallPlaceholderFontSize: 12px;
-
-$inputLargeBorderRadius: 13px;
-
-$searchInputTransparentColor: rgba($white, 0.4);
-$searchInputTransparentColorAlt: rgba($white, 0.8);
-
-$searchInputBoxShadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-input {
     @include component();
-    background: $inputBackground;
-    border: 2px solid $graySecondaryLight;
-    border-radius: $inputStandardBorderRadius;
-    color: $inputTextColor;
-    font-size: $inputFontSize;
-    padding: 0 gutter(1 / 2);
-    height: $inputHeight;
+    background: $formElementDefaultBackgroundColor; 
+    border: 2px solid $formElementDefaultBackgroundColor;
+    border-radius: $formElementStandardBorderRadius;
+    color: $formElementDefaultTextColor;
+    font-size: $formElementDefaultFontSize;
+    font-weight: normal;
+    padding: 0 spacing(s);
+    height: $formElementNormalHeight;
     appearance: none;
-    transition: border 300ms;
+    transition: background 100ms, border 100ms;
 
     &:focus,
-    &:active {
+    &:active,
+    &:focus:hover,
+    &:active:hover {
       outline: none;
-      box-shadow: $elevatedComponentShadow;
-      border: 2px solid transparent;
       background-color: $white;
-
-      &::placeholder {
-        visibility: hidden;
-      }
+      border: 2px solid $graySecondaryLight;
     }
 
     &::placeholder {
-      color: $inputPlaceholderTextColor;
-      font-size: $inputPlaceholderFontSize;
-      font-weight: $fontWeightBold;
+      color: $formElementPlacholderTextColor;
+      font-size: $formElementDefaultFontSize;
+      font-weight: normal;
       position: relative;
       opacity: 1;
+      visibility: visible;
     }
 
-    &--light {
-      transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
-      background: $searchInputTransparentColor;
-      box-shadow: $searchInputBoxShadow;
-      border-radius: $borderRadiusDefault;
-      border: none;
-
-      &::placeholder {
-        color: $white;
-        font-weight: $fontWeightBold;
-      }
-
-      &:focus {
-        background: $white;
-        box-shadow: $searchInputBoxShadow;
-        border: none;
-      }
+    &:hover {
+      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+    }
+  
+    &--white {
+      background: $white;
+      border: 2px solid $white;
+      border-radius: $formElementStandardBorderRadius;
 
       &:hover {
-        box-shadow: $searchInputBoxShadow;
+        background-color: mix($white, $graySecondaryUltraLight, 12%);
+        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
       }
-    }
 
-    &--light-alt {
-      transition: background 0.3s ease-out, box-shadow 0.3s ease-out;
-      background: $searchInputTransparentColorAlt;
-      border: none;
-
-      &:focus {
-        background: $white;
-        box-shadow: $searchInputBoxShadow;
-        border: none;
-
-        &::placeholder {
-          visibility: hidden;
+      &.sg-input--valid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $formElementValidColor;
         }
       }
 
-      &:hover {
-        box-shadow: $searchInputBoxShadow;
+      &.sg-input--invalid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $formElementValidColor;
+        }
       }
     }
 
     &--valid {
-      color: $inputFocusValidBorderColor;
-      font-weight: $fontWeightBold;
+      border: 2px solid $formElementValidColor;
+      color: $black;
+      font-weight: normal;
+
+      &:focus,
+      &:active,
+      &:focus:hover,
+      &:active:hover {
+        background-color: $white;
+        border: 2px solid $formElementValidColor;
+        box-shadow: none;
+      }
+
+      &:hover {
+        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid $formElementValidColor;
+      }
     }
 
     &--invalid {
-      color: $inputFocusInvalidBorderColor;
-      font-weight: $fontWeightBold;
+      border: 2px solid $formElementInvalidColor;
+      color: $black;
+      font-weight: normal;
+
+      &:focus,
+      &:active,
+      &:focus:hover,
+      &:active:hover {
+        background-color: $white;
+        border: 2px solid $formElementInvalidColor;
+        box-shadow: none;
+      }
+
+      &:hover {
+        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid $formElementInvalidColor;
+      }
     }
 
     &--full-width {
       width: 100%;
     }
 
-    &--no-border {
-      border: none;
-    }
-
     &--large {
-      @include sgBreakpoint(medium-up) {
-        height: $inputLargeHeight;
-        font-size: $inputLargeFontSize;
-        border-radius: $inputLargeBorderRadius;
-        padding: 0 gutter(1);
-
-        &::placeholder {
-          font-size: fontSize(standout);
-        }
-      }
-    }
-
-    &--small {
-      height: $inputSmallHeight;
-      border-radius: $inputSmallBorderRadius;
+      height: $formElementLargeHeight;
+      font-size: $formElementLargeFontSize;
+      border-radius: $formElementLargeBorderRadius;
+      padding: 0 gutter(1);
 
       &::placeholder {
-        font-size: $inputSmallPlaceholderFontSize;
+        font-size: fontSize(standout);
       }
     }
 
     &--with-icon {
-      padding-left: 40px;
+      padding-right: 40px;
     }
   }
 }

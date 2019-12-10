@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from '../Select';
+import Select, {COLOR, SIZE} from '../Select';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const exampleOptions = [
@@ -11,9 +11,18 @@ const exampleOptions = [
 const Selects = () => {
   const settings = [
     {
+      name: 'size',
+      values: SIZE,
+    },
+    {
+      name: 'color',
+      values: COLOR,
+    },
+    {
       name: 'valid',
       values: Boolean,
     },
+
     {
       name: 'invalid',
       values: Boolean,
@@ -26,8 +35,12 @@ const Selects = () => {
 
   return (
     <div>
-      <DocsActiveBlock settings={settings}>
-        <Select options={exampleOptions} />
+      <DocsActiveBlock backgroundColor="dark" settings={settings}>
+        <Select
+          options={exampleOptions}
+          size={SIZE.NORMAL}
+          color={COLOR.DEAFAULT}
+        />
       </DocsActiveBlock>
     </div>
   );

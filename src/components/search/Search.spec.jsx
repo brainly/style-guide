@@ -3,6 +3,7 @@ import Search, {SIZE, COLOR} from './Search';
 import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import {shallow} from 'enzyme';
+import RoundButton from '../round-buttons/RoundButton';
 
 test('render', () => {
   const search = shallow(<Search />);
@@ -22,12 +23,18 @@ test('set Search specific properties to Input', () => {
 
 test('pass properties to Input, without Search specific', () => {
   const size = SIZE.LARGE;
-  const color = COLOR.ALT;
+  const color = COLOR.WHITE;
   const type = 'text';
-  const withIcon = false;
+  const withRoundButton = false;
 
   const search = shallow(
-    <Search color={color} size={size} valid type={type} withIcon={withIcon} />
+    <Search
+      color={color}
+      size={size}
+      valid
+      type={type}
+      withRoundButton={withRoundButton}
+    />
   );
 
   const input = search.find(Input);
@@ -52,10 +59,10 @@ test('render icon', () => {
   expect(icon.props().size).toEqual(18);
 });
 
-test('adaptive icon', () => {
-  const search = shallow(<Search adaptiveIco />);
+test('adaptive icwithRoundButtonon', () => {
+  const search = shallow(<Search withRoundButton />);
 
-  const icon = search.find(Icon);
+  const icon = search.find(RoundButton);
 
-  expect(icon.props().color).toEqual(ICON_COLOR.ADAPTIVE);
+  expect(icon).toHaveLength(1);
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import Textarea, {SIZE} from '../Textarea';
+import Textarea, {SIZE, TEXTAREA_COLOR} from '../Textarea';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Textareas = () => {
@@ -7,6 +7,10 @@ const Textareas = () => {
     {
       name: 'size',
       values: SIZE,
+    },
+    {
+      name: 'color',
+      values: TEXTAREA_COLOR,
     },
     {
       name: 'value',
@@ -40,15 +44,12 @@ const Textareas = () => {
 
   return (
     <div>
-      <DocsActiveBlock settings={settings}>
-        <Textarea placeholder="Simple textarea" />
-      </DocsActiveBlock>
-      <DocsActiveBlock settings={settings}>
+      <DocsActiveBlock backgroundColor="dark" settings={settings}>
         <Textarea
           placeholder="placeholder"
           value="Tall and valid textarea"
           size={SIZE.XTALL}
-          valid
+          color={TEXTAREA_COLOR.DEFAULT}
         />
       </DocsActiveBlock>
     </div>

@@ -5,6 +5,7 @@ import radio from '../components/form-elements/pages/radio';
 import select from '../components/form-elements/pages/select';
 import textInput from '../components/form-elements/pages/input';
 import textarea from '../components/form-elements/pages/textarea';
+import formElements from '../components/form-elements/pages/formElements';
 import labels from '../components/labels/pages/labels';
 import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
@@ -26,7 +27,6 @@ import card from '../components/card/pages/card';
 import breadcrumbs from '../components/breadcrumbs/pages/breadcrumbs';
 import bubble from '../components/bubble/pages/bubble';
 import contentBox from '../components/content-box/pages/content-box';
-import dropdowns from '../components/dropdowns/pages/dropdowns';
 import flashMessage from '../components/flash-messages/pages/flash-messages';
 import footer from '../components/footer/pages/footer';
 import rwd from '../components/helpers/pages/rwd';
@@ -151,6 +151,11 @@ const navigation = [
         component: textInput,
       },
       {
+        name: 'Search',
+        location: 'search/search',
+        component: search,
+      },
+      {
         name: 'Selects',
         component: select,
       },
@@ -159,13 +164,8 @@ const navigation = [
         component: textarea,
       },
       {
-        name: 'Dropdowns',
-        component: dropdowns,
-      },
-      {
-        name: 'Search',
-        location: 'search/search',
-        component: search,
+        name: 'Form examples',
+        component: formElements,
       },
       {
         name: 'Home Button',

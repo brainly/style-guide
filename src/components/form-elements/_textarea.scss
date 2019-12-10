@@ -1,51 +1,41 @@
-$textareaBackground: $white;
-$textareaBorderColor: $graySecondaryLight;
-$textareaFontSize: fontSize(default);
-$textareaLineHeight: rhythm(0.792);
-$textareaTextColor: $black;
-$textareaPadding: gutter(1 / 2);
-$textareaPaddingSmaller: gutter(1 / 3);
-$textareaPlaceholderTextColor: $graySecondary;
-$textareaPlaceholderFontSize: fontSize(medium);
-$textareaFocusValid: $mintPrimaryDark;
-$textareaFocusInvalid: $peachPrimaryDark;
-$textareaStandardBorderRadius: 9px;
+$textareaStandardBorderRadius: 16px;
+$textareaStandardHeight: 96px;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-textarea {
-    background: $textareaBackground;
-    border: 2px solid $textareaBorderColor;
+    background: $formElementDefaultBackgroundColor;
+    border: 2px solid $formElementDefaultBackgroundColor;
     border-radius: $textareaStandardBorderRadius;
-    color: $textareaTextColor;
+    color: $formElementDefaultTextColor;
     display: block;
-    font-size: $textareaFontSize;
-    line-height: $textareaLineHeight;
-    padding: $textareaPaddingSmaller $textareaPadding;
+    font-size: $formElementDefaultFontSize;
+    line-height: $formElementDefaultLineHeight;
+    padding: spacing(xs) spacing(s);
     resize: none;
-    height: rhythm(4);
+    height: $textareaStandardHeight;
     overflow-y: auto;
     appearance: none;
     position: relative;
-    transition: border 300ms;
+    transition: background 100ms, border 100ms;
 
     &::placeholder {
-      color: $textareaPlaceholderTextColor;
-      font-weight: $fontWeightBold;
-      font-size: $textareaPlaceholderFontSize;
+      color: $formElementPlacholderTextColor;
+      font-size: $formElementDefaultFontSize;
       position: relative;
+      visibility: visible;
     }
 
     &:focus {
       outline: none;
-      box-shadow: $elevatedComponentShadow;
-      border: 2px solid transparent;
       background-color: $white;
+      border: 2px solid $formElementActiveBorderColor;
+    }
 
-      &::placeholder {
-        visibility: hidden;
-      }
+    &--white {
+      background: $white;
+      border: 2px solid $white;
     }
 
     &--full-width {
@@ -53,13 +43,11 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      color: $textareaFocusValid;
-      font-weight: $fontWeightBold;
+      border: 2px solid $formElementValidColor;
     }
 
     &--invalid {
-      color: $textareaFocusInvalid;
-      font-weight: $fontWeightBold;
+      border: 2px solid $formElementInvalidColor;
     }
 
     &--simple {
@@ -77,21 +65,21 @@ $includeHtml: false !default;
     }
 
     &--short {
-      height: rhythm(1.5);
-      padding-top: gutter(1 /5);
-      line-height: rhythm(5 / 6);
+      height: 40px;
+      padding-top: spacing(xs);
+      line-height: 24px;
     }
 
     &--tall {
-      height: rhythm(6);
+      height: 144px;
     }
 
     &--xtall {
-      height: rhythm(7);
+      height: 168px;
     }
 
     &--auto-height {
-      line-height: rhythm(1);
+      line-height: 24px;
       height: auto;
     }
   }

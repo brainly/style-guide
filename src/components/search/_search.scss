@@ -5,24 +5,40 @@ $includeHtml: false !default;
   .sg-search {
     @include component();
     overflow: visible;
-    width: 100%;
 
     &__icon {
       transition: fill 0.3s ease-out;
       position: absolute;
       top: 0;
       bottom: 0;
-      left: gutter(0.5);
+      right: 0;
       display: flex;
       align-items: center;
+      justify-content: center;
       fill: $white;
+      background: none;
+      border: none;
+      right: spacing(xxs);
+    }
+
+    &__input {
+      width: 100%;
     }
 
     &__input:focus + &__icon {
       fill: $graySecondary;
     }
-  }
 
+    &--full-width {
+      width: 100%;
+    }
+
+    &--large {
+      .sg-search__icon {
+        right: spacing(xs);
+      }
+    }
+  }
   // Normalize adds -webkit-appearance: textfield and that changes styling for iOS
 
   // sass-lint:disable no-qualifying-elements, no-vendor-prefixes
