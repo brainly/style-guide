@@ -91,15 +91,6 @@ $includeHtml: false !default;
       line-height: 24px;
       height: auto;
     }
-
-    &--nested {
-      display: flex;
-      border: none;
-      border-radius: 0;
-      padding: rhythm(0.104) 0;
-      height: rhythm(1);
-      width: 100%;
-    }
   }
 
 }
