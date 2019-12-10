@@ -35,7 +35,7 @@ const Search = ({
    * Optional boolean for round button in search
    * @example <Search withRoundButton />
    */
-  withRoundButton,
+  withRoundButton = false,
   /**
    * Optional additional classname for input in search
    * @example <Search inputClassName="sg-input--white" placeholder="Find all the answers..." />
