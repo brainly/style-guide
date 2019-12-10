@@ -15,7 +15,7 @@ $includeHtml: false !default;
 
     &__element {
       position: relative;
-      top: -2px;
+      top: $borderRelatedVariable;
       background: $formElementDefaultBackgroundColor;
       border: none;
       border-radius: $borderRadiusDefault;
@@ -111,7 +111,7 @@ $includeHtml: false !default;
 
       .sg-select__element {
         position: relative;
-        top: -2px;
+        top: $borderRelatedVariable;
         border-radius: $formElementLargeBorderRadius;
         font-size: $formElementLargeFontSize;
         height: $formElementLargeHeight;
@@ -123,7 +123,7 @@ $includeHtml: false !default;
       }
 
       &::placeholder {
-        font-size: 18px;
+        font-size: $formElementLargeFontSize;
       }
     }
 
