@@ -43,11 +43,11 @@ const Inputs = () => {
       <DocsActiveBlock backgroundColor="dark" settings={settings}>
         <Input
           backgroundColor="none"
-          placeholder="Big input"
+          placeholder="Large input"
           fullWidth
           size={SIZE.LARGE}
           color={COLOR.DEFAULT}
-          value="I'm a big input"
+          value="I'm a large input"
         />
       </DocsActiveBlock>
     </div>
