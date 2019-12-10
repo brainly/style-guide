@@ -1,12 +1,3 @@
-$textareaBackground: $graySecondaryLightest;
-$textareaBorderColor: $graySecondaryLightest;
-$textareaFontSize: 16px;
-$textareaLineHeight: 24px;
-$textareaTextColor: $black;
-$textareaPlaceholderTextColor: $graySecondary;
-$textareaPlaceholderFontSize: 16px;
-$textareaFocusValid: $mintPrimaryDark;
-$textareaFocusInvalid: $peachPrimaryDark;
 $textareaStandardBorderRadius: 16px;
 $textareaStandardHeight: 96px;
 
@@ -14,13 +5,13 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-textarea {
-    background: $textareaBackground;
-    border: 2px solid $textareaBorderColor;
+    background: $formElementDefaultBackgroundColor;
+    border: 2px solid $formElementDefaultBackgroundColor;
     border-radius: $textareaStandardBorderRadius;
-    color: $textareaTextColor;
+    color: $formElementDefaultTextColor;
     display: block;
-    font-size: $textareaFontSize;
-    line-height: $textareaLineHeight;
+    font-size: $formElementDefaultFontSize;
+    line-height: $formElementDefaultLineHeight;
     padding: spacing(xs) spacing(s);
     resize: none;
     height: $textareaStandardHeight;
@@ -30,8 +21,8 @@ $includeHtml: false !default;
     transition: background 100ms, border 100ms;
 
     &::placeholder {
-      color: $textareaPlaceholderTextColor;
-      font-size: $textareaPlaceholderFontSize;
+      color: $formElementPlacholderTextColor;
+      font-size: $formElementDefaultFontSize;
       position: relative;
       visibility: visible;
     }
@@ -39,7 +30,7 @@ $includeHtml: false !default;
     &:focus {
       outline: none;
       background-color: $white;
-      border: 2px solid $graySecondaryLight;
+      border: 2px solid $formElementActiveBorderColor;
     }
 
     &--white {
@@ -52,11 +43,11 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      border: 2px solid $textareaFocusValid;
+      border: 2px solid $formElementValidColor;
     }
 
     &--invalid {
-      border: 2px solid $textareaFocusInvalid;
+      border: 2px solid $formElementInvalidColor;
     }
 
     &--simple {

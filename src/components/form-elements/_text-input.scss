@@ -1,29 +1,29 @@
-$inputHeight: 40px;
-$inputLargeHeight: 56px;
+// $$formElementnormalHeight: 40px;
+// $largeSize: 56px;
 
-$inputBackground: $graySecondaryLightest;
-$inputTextColor: $black;
-$inputFontSize: 16px; // fix zooming to input on focus in iOS devices
-$inputLargeFontSize: 18px;
-$inputPlaceholderTextColor: $graySecondary;
-$inputFocusValidBorderColor: $mintPrimary;
-$inputFocusInvalidBorderColor: $peachPrimary;
-$inputStandardBorderRadius: 20px;
-$inputLargeBorderRadius: 28px;
+// $formElementDefaultBackgroundColor: $graySecondaryLightest;
+// $inputTextColor: $black;
+// $inputFontSize: 16px; // fix zooming to input on focus in iOS devices
+// $largeFontSize: 18px;
+// $inputPlaceholderTextColor: $graySecondary;
+// $formElementValidColor: $mintPrimary;
+// $formElementValidColor: $peachPrimary;
+// $formElementStandardBorderRadius: 20px;
+// $formElementLargeBorderRadius: 28px;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-input {
     @include component();
-    background: $inputBackground; 
-    border: 2px solid $inputBackground;
-    border-radius: $inputStandardBorderRadius;
-    color: $inputTextColor;
-    font-size: $inputFontSize;
+    background: $formElementDefaultBackgroundColor; 
+    border: 2px solid $formElementDefaultBackgroundColor;
+    border-radius: $formElementStandardBorderRadius;
+    color: $formElementDefaultTextColor;
+    font-size: $formElementDefaultFontSize;
     font-weight: normal;
     padding: 0 spacing(s);
-    height: $inputHeight;
+    height: $formElementNormalHeight;
     appearance: none;
     transition: background 100ms, border 100ms;
 
@@ -37,8 +37,8 @@ $includeHtml: false !default;
     }
 
     &::placeholder {
-      color: $inputPlaceholderTextColor;
-      font-size: $inputLargeFontSize;
+      color: $formElementPlacholderTextColor;
+      font-size: $formElementDefaultFontSize;
       font-weight: normal;
       position: relative;
       opacity: 1;
@@ -46,14 +46,14 @@ $includeHtml: false !default;
     }
 
     &:hover {
-      background-color: mix($inputBackground, $graySecondaryLight, 80%);
-      border: 2px solid mix($inputBackground, $graySecondaryLight, 80%);
+      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
     }
   
     &--white {
       background: $white;
       border: 2px solid $white;
-      border-radius: $inputStandardBorderRadius;
+      border-radius: $formElementStandardBorderRadius;
 
       &:hover {
         background-color: mix($white, $graySecondaryUltraLight, 12%);
@@ -63,20 +63,20 @@ $includeHtml: false !default;
       &.sg-input--valid {
         &:hover {
           background-color: mix($white, $graySecondaryUltraLight, 12%);
-          border: 2px solid $inputFocusValidBorderColor;
+          border: 2px solid $formElementValidColor;
         }
       }
 
       &.sg-input--invalid {
         &:hover {
           background-color: mix($white, $graySecondaryUltraLight, 12%);
-          border: 2px solid $inputFocusInvalidBorderColor;
+          border: 2px solid $formElementValidColor;
         }
       }
     }
 
     &--valid {
-      border: 2px solid $inputFocusValidBorderColor;
+      border: 2px solid $formElementValidColor;
       color: $black;
       font-weight: normal;
 
@@ -85,18 +85,18 @@ $includeHtml: false !default;
       &:focus:hover,
       &:active:hover {
         background-color: $white;
-        border: 2px solid $inputFocusValidBorderColor;
+        border: 2px solid $formElementValidColor;
         box-shadow: none;
       }
 
       &:hover {
-        background-color: mix($inputBackground, $graySecondaryLight, 80%);
-        border: 2px solid $inputFocusValidBorderColor;
+        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid $formElementValidColor;
       }
     }
 
     &--invalid {
-      border: 2px solid $inputFocusInvalidBorderColor;
+      border: 2px solid $formElementInvalidColor;
       color: $black;
       font-weight: normal;
 
@@ -105,13 +105,13 @@ $includeHtml: false !default;
       &:focus:hover,
       &:active:hover {
         background-color: $white;
-        border: 2px solid $inputFocusInvalidBorderColor;
+        border: 2px solid $formElementInvalidColor;
         box-shadow: none;
       }
 
       &:hover {
-        background-color: mix($inputBackground, $graySecondaryLight, 80%);
-        border: 2px solid $inputFocusInvalidBorderColor;
+        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid $formElementInvalidColor;
       }
     }
 
@@ -120,9 +120,9 @@ $includeHtml: false !default;
     }
 
     &--large {
-      height: $inputLargeHeight;
-      font-size: $inputLargeFontSize;
-      border-radius: $inputLargeBorderRadius;
+      height: $formElementLargeHeight;
+      font-size: $formElementLargeFontSize;
+      border-radius: $formElementLargeBorderRadius;
       padding: 0 gutter(1);
 
       &::placeholder {

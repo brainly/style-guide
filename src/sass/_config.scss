@@ -126,3 +126,18 @@ $breakpointsMap: (
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})'
 );
+
+// Form elements configuration
+$formElementNormalHeight: 40px;
+$formElementLargeHeight: 56px;
+$formElementDefaultBackgroundColor: $graySecondaryLightest;
+$formElementActiveBorderColor: $graySecondaryLight;
+$formElementDefaultTextColor: $black;
+$formElementPlacholderTextColor: $graySecondary;
+$formElementDefaultFontSize: 16px; // fix zooming to input on focus in iOS devices
+$formElementLargeFontSize: 18px;
+$formElementDefaultLineHeight: 24px;
+$formElementValidColor: $mintPrimary;
+$formElementInvalidColor: $peachPrimary;
+$formElementStandardBorderRadius: 20px;
+$formElementLargeBorderRadius: 28px;
