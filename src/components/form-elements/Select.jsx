@@ -31,17 +31,17 @@ export type SelectPropsType = {
    */
   value?: string,
   /**
-   * Optional additional boolean to specified if it's valid
+   * Optional boolean to specified if it's valid
    * @example <Select valid options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    */
   valid?: boolean,
   /**
-   * Optional additional boolean to specified if it's invalid
+   * Optional boolean to specified if it's invalid
    * @example <Select invalid options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    */
   invalid?: boolean,
   /**
-   * Optional additional boolean to specified if it's capitalized
+   * Optional boolean to specified if it's capitalized
    * @example <Select capitalized options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    */
   capitalized?: boolean,
@@ -60,7 +60,7 @@ export type SelectPropsType = {
    */
   size?: ?SelectSizeType,
   /**
-   * Optional additional boolean to specified if it's full width
+   * Optional boolean to specified if it's full width
    * @example <Select fullWidth placeholder="placeholder" />
    */
   fullWidth?: boolean,

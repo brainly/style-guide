@@ -48,32 +48,32 @@ export type TextareaPropsType = {
    */
   size?: ?TextareaSizeType,
   /**
-   * Optional additional boolean to specified if it's valid
+   * Optional boolean to specified if it's valid
    * @example <Textarea valid placeholder="example placeholder" />
    */
   valid?: boolean,
   /**
-   * Optional additional boolean to specified if it's valid
+   * Optional boolean to specified if it's valid
    * @example <Textarea valid placeholder="example placeholder" />
    */
   invalid?: boolean,
   /**
-   * Optional additional boolean to specified if it's full width
+   * Optional boolean to specified if it's full width
    * @example <Textarea fullWidth placeholder="example placeholder" />
    */
   fullWidth?: boolean,
   /**
-   * Optional additional boolean for simple variant (does not have border radius)
+   * Optional boolean for simple variant (does not have border radius)
    * @example <Textarea simple placeholder="example placeholder" />
    */
   simple?: boolean,
   /**
-   * Optional additional boolean for variant with no padding
+   * Optional boolean for variant with no padding
    * @example <Textarea noPadding placeholder="example placeholder" />
    */
   noPadding?: boolean,
   /**
-   * Optional additional boolean for variant with height auto
+   * Optional boolean for variant with height auto
    * @example <Textarea autoHeight placeholder="example placeholder" />
    */
   autoHeight?: boolean,

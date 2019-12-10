@@ -88,22 +88,22 @@ export type InputPropsType = {
    */
   color?: ?InputColorType,
   /**
-   * Optional additional boolean to specified if it's valid
+   * Optional boolean to specified if it's valid
    * @example <Input valid placeholder="placeholder" />
    */
   valid?: boolean,
   /**
-   * Optional additional boolean to specified if it's invalid
+   * Optional boolean to specified if it's invalid
    * @example <Input invalid placeholder="placeholder" />
    */
   invalid?: boolean,
   /**
-   * Optional additional boolean to specified if it's full width
+   * Optional boolean to specified if it's full width
    * @example <Input fullWidth placeholder="placeholder" />
    */
   fullWidth?: boolean,
   /**
-   * Optional additional boolean to specified if it's with icon, used in search component
+   * Optional boolean to specified if it's with icon, used in search component
    * @example <Input withIcon placeholder="placeholder" />
    */
   withIcon?: boolean,

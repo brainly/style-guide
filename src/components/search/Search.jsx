@@ -37,7 +37,7 @@ const Search = ({
    */
   withRoundButton = false,
   /**
-   * Optional additional classname for input in search
+   * Optional classname for input in search
    * @example <Search inputClassName="sg-input--white" placeholder="Find all the answers..." />
    */
   inputClassName,
