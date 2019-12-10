@@ -68,7 +68,7 @@ const Search = ({
         className={cx(`${baseClassName}__input`, inputClassName)}
       />
 
-      {withRoundButton !== null || withRoundButton !== undefined ? (
+      {withRoundButton ? (
         <div className={`${baseClassName}__icon`}>
           <RoundButton
             iconType="search"
