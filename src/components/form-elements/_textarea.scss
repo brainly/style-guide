@@ -1,4 +1,4 @@
-$textareaStandardBorderRadius: 16px;
+$textareaStandardBorderRadius: 20px;
 $textareaStandardHeight: 96px;
 
 $includeHtml: false !default;
@@ -24,18 +24,48 @@ $includeHtml: false !default;
       color: $formElementPlacholderTextColor;
       font-size: $formElementDefaultFontSize;
       position: relative;
-      visibility: visible;
     }
 
-    &:focus {
+    &:focus,
+    &:active,
+    &:focus:hover,
+    &:active:hover {
       outline: none;
       background-color: $white;
       border: 2px solid $formElementActiveBorderColor;
+
+      &::placeholder {
+        visibility: visible;
+      }
+    }
+
+    &:hover {
+      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
     }
 
     &--white {
       background: $white;
       border: 2px solid $white;
+
+      &.sg-textarea--valid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $formElementValidColor;
+        }
+      }
+
+      &.sg-textarea--invalid {
+        &:hover {
+          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          border: 2px solid $formElementInvalidColor;
+        }
+      }
+      
+      &:hover {
+        background-color: mix($white, $graySecondaryUltraLight, 12%);
+        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+      }
     }
 
     &--full-width {
@@ -44,10 +74,18 @@ $includeHtml: false !default;
 
     &--valid {
       border: 2px solid $formElementValidColor;
+
+      &:hover {
+        border: 2px solid $formElementValidColor;
+      }
     }
 
     &--invalid {
       border: 2px solid $formElementInvalidColor;
+
+      &:hover {
+        border: 2px solid $formElementInvalidColor;
+      }
     }
 
     &--simple {

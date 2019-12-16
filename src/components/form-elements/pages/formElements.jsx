@@ -21,7 +21,7 @@ const formElements = () => (
   <Flex direction="row" justifyContent="space-between">
     <Flex>
       <ContrastBox>
-        <Box>
+        <Box style={{width: '320px'}}>
           <Flex direction="column" marginBottom="m">
             <Flex marginBottom="xs">
               <Headline size="small">Sign up with your email address</Headline>
@@ -108,7 +108,7 @@ const formElements = () => (
       </ContrastBox>
     </Flex>
     <Flex>
-      <Box color="gray-secondary-lightest">
+      <Box color="gray-secondary-lightest" style={{width: '320px'}}>
         <Flex direction="column" marginBottom="m">
           <Flex marginBottom="xs">
             <Headline size="small">Sign up with your email address</Headline>
