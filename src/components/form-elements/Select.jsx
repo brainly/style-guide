@@ -10,7 +10,7 @@ type OptionsPropsType = {
   ...
 };
 
-type SelectSizeType = 'small' | 'normal';
+type SelectSizeType = 'normal' | 'large';
 
 type SelectColorType = 'default' | 'white';
 
@@ -118,7 +118,11 @@ const Select = (props: SelectPropsType) => {
   return (
     <div className={selectClass}>
       <div className="sg-select__icon">
-        <Icon type="arrow_down" color="gray-secondary" size={24} />
+        <Icon
+          type="arrow_down"
+          color="gray-secondary"
+          size={size === 'large' ? 24 : 16}
+        />
       </div>
 
       <select {...additionalProps} className="sg-select__element" value={value}>

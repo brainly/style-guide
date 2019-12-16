@@ -21,6 +21,10 @@ $includeHtml: false !default;
       outline: none;
       background-color: $white;
       border: 2px solid $graySecondaryLight;
+
+      &::placeholder {
+        visibility: visible;
+      }
     }
 
     &::placeholder {
@@ -29,7 +33,6 @@ $includeHtml: false !default;
       font-weight: normal;
       position: relative;
       opacity: 1;
-      visibility: visible;
     }
 
     &:hover {

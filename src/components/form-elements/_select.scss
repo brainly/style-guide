@@ -22,7 +22,7 @@ $includeHtml: false !default;
       font-size: inherit;
       display: inline-block;
       height: $formElementNormalHeight;
-      padding: 0 spacing(l) 0 spacing(s);
+      padding: 0 36px 0 spacing(s);
       outline: 0;
       appearance: none;
       width: 100%;
@@ -41,8 +41,8 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      top: spacing(xs) - 2px;
-      right: spacing(xs);
+      top: spacing(xs) + 2px;
+      right: spacing(xs) + 4px;
       pointer-events: none;
       z-index: 1;
       display: flex;
