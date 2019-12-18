@@ -11,7 +11,7 @@ const ICONS = {
   eodev: 'eodev-mobile-bfdc46ee89',
   nosdevoirs: 'nosdevoirs-mobile-2caead9ada',
   znanija: 'znanija-mobile-200611d052',
-  'brainly-plus': 'brainly-mobile-6879551770',
+  'brainly-plus': 'brainly-plus-9dd3b24a28',
 };
 
 type PropsType = {
