@@ -7,10 +7,10 @@ import * as LogoModule from '../logo/Logo';
 const {TYPE, BASE_URL, LOGOS} = LogoModule;
 
 const ICONS = {
-  brainly: 'brainly-mobile-426ef8718f',
-  eodev: 'eodev-mobile-b3319881d5',
-  nosdevoirs: 'nosdevoirs-mobile-0920e17308',
-  znanija: 'znanija-mobile-4b7ac3cb04',
+  brainly: 'brainly-mobile-6879551770',
+  eodev: 'eodev-mobile-bfdc46ee89',
+  nosdevoirs: 'nosdevoirs-mobile-2caead9ada',
+  znanija: 'znanija-mobile-200611d052',
   'brainly-plus': 'brainly-plus-9dd3b24a28',
 };
 

@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 36 36">
-  <style>
-    .st0{fill:#FFFFFF;} .st1{fill:#020A1B;}
-  </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104">
   <title>nosdevoirs logo</title>
-  <path d="M7 0h22c3.9 0 7 3.1 7 7v22c0 3.9-3.1 7-7 7H7c-3.9 0-7-3.1-7-7V7c0-3.9 3.1-7 7-7z" class="st0"/>
-  <path d="M33.3 1.5C34.9 2.8 36 4.8 36 7v21.8L2.7 34.5C1.1 33.3 0 31.2 0 29V7.4l33.3-5.9z" class="st1"/>
-  <path d="M25.7 24.7l-5.5.9-4.8-8.1v8.8l-5.1.9v-16l5.7-1 4.5 8.2V9.5l5.1-.9v16.1z" class="st0"/>
+  <path d="M-.001 18.145v85.856l104.002-17.818V-.001z"/>
+  <path fill="#fff" d="M75.992 72.029l-16.728 2.836L44.67 50.16v27.181l-15.661 2.653V30.977l17.441-2.959 13.881 25.054V25.666l15.661-2.658z"/>
 </svg>
