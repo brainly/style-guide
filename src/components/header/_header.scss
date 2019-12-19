@@ -46,11 +46,11 @@ $includeHtml: false !default;
     &__left {
       display: flex;
       align-items: center;
-      margin-right: 10px;
+      margin-right: spacing(s);
       flex-shrink: 0;
 
       @include sgBreakpoint(medium-up) {
-        margin-right: 20px;
+        margin-right: spacing(m);
       }
     }
 
