@@ -61,13 +61,13 @@ $includeHtml: false !default;
     }
 
     &__right {
-      margin-left: 10px;
+      margin-left: spacing(s);
       display: flex;
       align-items: center;
       flex-shrink: 0;
 
       @include sgBreakpoint(medium-up) {
-        margin-left: 20px;
+        margin-left: spacing(m);
       }
     }
   }
