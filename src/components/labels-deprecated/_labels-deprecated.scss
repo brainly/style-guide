@@ -12,7 +12,7 @@ $includeHtml: false !default;
 
 @if ($includeHtml) {
 
-  .sg-label {
+  .sg-label-deprecated {
     @include component();
     overflow: visible;
     display: flex;
@@ -55,8 +55,8 @@ $includeHtml: false !default;
     }
 
     &--secondary {
-      .sg-label__text,
-      .sg-label__number {
+      .sg-label-deprecated__text,
+      .sg-label-deprecated__number {
         color: $labelSecondaryColor;
       }
     }
@@ -64,8 +64,8 @@ $includeHtml: false !default;
     &--small {
       min-height: 0;
 
-      .sg-label__text,
-      .sg-label__number {
+      .sg-label-deprecated__text,
+      .sg-label-deprecated__number {
         @include fixText($labelFontSizeSecondary);
         @include fixOperaMiniLabelText();
 
@@ -76,7 +76,7 @@ $includeHtml: false !default;
         }
       }
 
-      .sg-label__icon {
+      .sg-label-deprecated__icon {
         margin-right: $labelScaleFactor * gutter(0.25);
         width: $labelIconSizeSecondary;
         height: $labelIconSizeSecondary;
@@ -84,8 +84,8 @@ $includeHtml: false !default;
     }
 
     &--large {
-      .sg-label__text,
-      .sg-label__number {
+      .sg-label-deprecated__text,
+      .sg-label-deprecated__number {
         @include fixText($labelFontSizeLarge);
         @include fixOperaMiniLabelText();
 
@@ -94,7 +94,7 @@ $includeHtml: false !default;
         }
       }
 
-      .sg-label__icon {
+      .sg-label-deprecated__icon {
         margin-right: gutter(0.5);
         width: $labelIconSizeLarge;
         height: $labelIconSizeLarge;
@@ -103,8 +103,8 @@ $includeHtml: false !default;
     }
 
     &--unstyled {
-      .sg-label__text,
-      .sg-label__number {
+      .sg-label-deprecated__text,
+      .sg-label-deprecated__number {
         color: inherit;
       }
     }

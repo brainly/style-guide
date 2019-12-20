@@ -3,7 +3,7 @@
 import * as React from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
-import LabelIcon from './subcomponents/LabelIcon';
+import LabelDeprecatedIcon from './subcomponents/LabelDeprecatedIcon';
 import * as IconModule from '../icons/Icon';
 
 const {ICON_COLOR, TYPE: ICON_TYPE} = IconModule;
@@ -39,7 +39,7 @@ type PropsType = {
   ...
 };
 
-const Label = (props: PropsType) => {
+const LabelDeprecated = (props: PropsType) => {
   const {
     size = SIZE.NORMAL,
     text,
@@ -58,13 +58,13 @@ const Label = (props: PropsType) => {
   } = props;
 
   const labelClass = classNames(
-    'sg-label',
+    'sg-label-deprecated',
     {
-      [`sg-label--${size}`]: size !== SIZE.NORMAL,
-      'sg-label--secondary': secondary,
-      'sg-label--unstyled': unstyled,
-      'sg-label--emphasised': emphasised,
-      'sg-label--elements-to-the-top': elementsToTop,
+      [`sg-label-deprecated--${size}`]: size !== SIZE.NORMAL,
+      'sg-label-deprecated--secondary': secondary,
+      'sg-label-deprecated--unstyled': unstyled,
+      'sg-label-deprecated--emphasised': emphasised,
+      'sg-label-deprecated--elements-to-the-top': elementsToTop,
     },
     className
   );
@@ -74,18 +74,18 @@ const Label = (props: PropsType) => {
 
   if (text !== undefined && text !== '') {
     textElement = (
-      <label className="sg-label__text" htmlFor={htmlFor}>
+      <label className="sg-label-deprecated__text" htmlFor={htmlFor}>
         {text}
       </label>
     );
   }
   if (number !== undefined) {
-    numberElement = <div className="sg-label__number">{number}</div>;
+    numberElement = <div className="sg-label-deprecated__number">{number}</div>;
   }
 
   return (
     <div {...restProps} className={labelClass}>
-      <LabelIcon
+      <LabelDeprecatedIcon
         iconContent={iconContent}
         iconType={iconType}
         iconColor={iconColor}
@@ -98,5 +98,5 @@ const Label = (props: PropsType) => {
   );
 };
 
-export default Label;
-export {ICON_TYPE, ICON_COLOR, LabelIcon};
+export default LabelDeprecated;
+export {ICON_TYPE, ICON_COLOR, LabelDeprecatedIcon};

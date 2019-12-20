@@ -167,13 +167,13 @@ $buttonPrimaryFbHoverColor: #4367a9;
     line-height: 15px;
     border-radius: 20px;
 
-    .sg-label__text,
-    .sg-label__number {
+    .sg-label-deprecated__text,
+    .sg-label-deprecated__number {
       font-size: 15px;
       cursor: pointer;
     }
 
-    .sg-label .sg-label__icon {
+    .sg-label-deprecated .sg-label-deprecated__icon {
       margin-right: spacing(xs);
       width: 24px;
       height: 24px;
@@ -242,7 +242,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
     }
   }
 
-  &.sg-label__text {
+  &.sg-label-deprecated__text {
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -272,7 +272,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
     opacity: 0.45;
     cursor: default;
 
-    & .sg-label__text {
+    & .sg-label-deprecated__text {
       cursor: default;
     }
   }

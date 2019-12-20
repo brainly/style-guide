@@ -55,7 +55,9 @@ export {
   default as IconAsButton,
 } from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
-export {default as Label} from './components/labels/Label';
+export {
+  default as LabelDeprecated,
+} from './components/labels-deprecated/LabelDeprecated';
 export {default as Layout} from './components/layout/Layout';
 export {
   default as LayoutAsideContent,
