@@ -8,7 +8,7 @@ import ContentBoxHeader from '../ContentBoxHeader';
 import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Label, {ICON_COLOR, ICON_TYPE} from 'labels/Label';
+import LabelDeprecated, {ICON_COLOR, ICON_TYPE} from 'labels-deprecated/LabelDeprecated';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Link, {LINK_COLOR} from 'text/Link';
@@ -320,7 +320,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button type="primary-inverted">
-            <Label
+            <LabelDeprecated
               text="Thank you"
               number={21}
               iconType={ICON_TYPE.HEART}
@@ -353,7 +353,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button type="primary-inverted">
-            <Label
+            <LabelDeprecated
               text="Thank you"
               number={21}
               iconType={ICON_TYPE.HEART}
@@ -433,7 +433,7 @@ const ContentBoxes = () => (
             ]}
           />
           <Button type="primary-inverted">
-            <Label
+            <LabelDeprecated
               text="Thank you"
               number={21}
               iconType={ICON_TYPE.HEART}
@@ -451,7 +451,7 @@ const ContentBoxes = () => (
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button type="primary-inverted">
-            <Label
+            <LabelDeprecated
               text="Thank you"
               number={21}
               iconType={ICON_TYPE.HEART}

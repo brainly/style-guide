@@ -1,22 +1,22 @@
 import React from 'react';
-import Label, {
+import LabelDeprecated, {
   SIZE,
   ICON_COLOR,
   ICON_TYPE,
   ICON_SIZE,
   LabelIcon,
-} from './Label';
+} from './LabelDeprecated';
 import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
 
-describe('Label', () => {
+describe('LabelDeprecated', () => {
   test('render', () => {
     const iconType = ICON_TYPE.STAR;
-    const label = shallow(<Label iconType={iconType} text="test" />);
+    const label = shallow(<LabelDeprecated iconType={iconType} text="test" />);
     const icon = label.find(LabelIcon);
-    const textLabel = label.find('label.sg-label__text');
+    const textLabel = label.find('label.sg-label-deprecated__text');
 
-    expect(label.hasClass('sg-label')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated')).toEqual(true);
     expect(textLabel).toHaveLength(1);
     expect(icon).toHaveLength(1);
     expect(icon.props().iconType).toEqual(iconType);
@@ -26,7 +26,7 @@ describe('Label', () => {
     const iconType = ICON_TYPE.HEART;
     const iconColor = ICON_COLOR.LAVENDER;
     const label = shallow(
-      <Label iconType={iconType} iconColor={iconColor} text="test" />
+      <LabelDeprecated iconType={iconType} iconColor={iconColor} text="test" />
     );
     const icon = label.find(LabelIcon);
 
@@ -37,11 +37,11 @@ describe('Label', () => {
     const size = SIZE.SMALL;
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} size={size} text="test" />
+      <LabelDeprecated iconType={iconType} size={size} text="test" />
     );
     const icon = label.find(LabelIcon);
 
-    expect(label.hasClass('sg-label--small')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated--small')).toEqual(true);
     expect(icon.props().iconSize).toEqual(ICON_SIZE[size]);
   });
 
@@ -49,52 +49,52 @@ describe('Label', () => {
     const size = SIZE.NORMAL;
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} size={size} text="test" />
+      <LabelDeprecated iconType={iconType} size={size} text="test" />
     );
     const icon = label.find(LabelIcon);
 
-    expect(label.hasClass('sg-label--small')).toEqual(false);
-    expect(label.hasClass('sg-label--large')).toEqual(false);
+    expect(label.hasClass('sg-label-deprecated--small')).toEqual(false);
+    expect(label.hasClass('sg-label-deprecated--large')).toEqual(false);
     expect(icon.props().iconSize).toEqual(ICON_SIZE[size]);
   });
 
   test('secondary label', () => {
-    const label = shallow(<Label secondary text="test" />);
+    const label = shallow(<LabelDeprecated secondary text="test" />);
 
-    expect(label.hasClass('sg-label--secondary')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated--secondary')).toEqual(true);
   });
 
   test('emphasised', () => {
-    const label = shallow(<Label emphasised text="test" />);
+    const label = shallow(<LabelDeprecated emphasised text="test" />);
 
-    expect(label.hasClass('sg-label--emphasised')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated--emphasised')).toEqual(true);
   });
 
   test('elements to top', () => {
     const iconType = ICON_TYPE.HEART;
     const label = shallow(
-      <Label iconType={iconType} elementsToTop text="test" />
+      <LabelDeprecated iconType={iconType} elementsToTop text="test" />
     );
 
-    expect(label.hasClass('sg-label--elements-to-the-top')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated--elements-to-the-top')).toEqual(true);
   });
 
   test('label with no text', () => {
     const iconType = ICON_TYPE.HEART;
-    const label = shallow(<Label iconType={iconType} />);
-    const textLabel = label.find('div.sg-label__text');
+    const label = shallow(<LabelDeprecated iconType={iconType} />);
+    const textLabel = label.find('div.sg-label-deprecated__text');
 
     expect(textLabel).toHaveLength(0);
   });
 
   test('label with a number', () => {
-    const label = shallow(<Label secondary text="test" number={23} />);
-    const numberLabel = label.find('div.sg-label__number');
+    const label = shallow(<LabelDeprecated secondary text="test" number={23} />);
+    const numberLabel = label.find('div.sg-label-deprecated__number');
 
     expect(numberLabel).toHaveLength(1);
 
-    const label2 = shallow(<Label secondary text="test" number={0} />);
-    const numberLabel2 = label2.find('div.sg-label__number');
+    const label2 = shallow(<LabelDeprecated secondary text="test" number={0} />);
+    const numberLabel2 = label2.find('div.sg-label-deprecated__number');
 
     expect(numberLabel2).toHaveLength(1);
   });

@@ -1,9 +1,9 @@
 import React from 'react';
-import Label, {SIZE, ICON_TYPE, ICON_COLOR} from '../Label';
+import LabelDeprecated, {SIZE, ICON_TYPE, ICON_COLOR} from '../LabelDeprecated';
 import Checkbox from 'form-elements/Checkbox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const Labels = () => {
+const LabelsDeprecated = () => {
   const settings = [
     {
       name: 'size',
@@ -46,14 +46,14 @@ const Labels = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Label
+        <LabelDeprecated
           text="Search"
           iconType={ICON_TYPE.SEARCH}
           iconColor={ICON_COLOR.GRAY}
         />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Label
+        <LabelDeprecated
           text="Edit"
           size={SIZE.LARGE}
           iconType={ICON_TYPE.PENCIL}
@@ -63,7 +63,7 @@ const Labels = () => {
         />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Label
+        <LabelDeprecated
           size={SIZE.LARGE}
           text="Check me!"
           htmlFor="checkbox-1"
@@ -74,4 +74,4 @@ const Labels = () => {
   );
 };
 
-export default Labels;
+export default LabelsDeprecated;

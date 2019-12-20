@@ -1,6 +1,6 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import Label from 'labels/Label';
+import LabelDeprecated from 'labels-deprecated/LabelDeprecated';
 import Radio, {RADIO_SIZE} from '../Radio';
 
 const dumpProps = {onChange: () => undefined};
@@ -11,13 +11,13 @@ const radios = () => (
       <Radio name="group1" />
       <Radio name="group1" checked {...dumpProps} />
       <br />
-      <Label
+      <LabelDeprecated
         secondary
         htmlFor="radio-3"
         text="Check me!"
         iconContent={<Radio name="group2" />}
       />
-      <Label
+      <LabelDeprecated
         secondary
         htmlFor="radio-4"
         text="Check me!"

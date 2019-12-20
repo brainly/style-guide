@@ -17,7 +17,7 @@ import Cards from 'card/pages/card-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
-import Labels from 'labels/pages/labels-interactive';
+import LabelsDeprecated from 'labels/pages/labels-deprecated-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
@@ -62,7 +62,7 @@ const demos = {
   'Action List': <ActionLists />,
   Rating: <Ratings />,
   Icons: <Icons />,
-  Labels: <Labels />,
+  LabelsDeprecated: <LabelsDeprecated />,
   Dropdowns: <Dropdowns />,
   Separators: <Separators />,
   Text: <Texts />,

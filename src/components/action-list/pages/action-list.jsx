@@ -6,7 +6,7 @@ import Headline, {
   HEADLINE_TYPE,
   HEADLINE_COLOR,
 } from 'text/Headline';
-import Label, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels/Label';
+import LabelDeprecated, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels-deprecated/LabelDeprecated';
 import Icon from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
 
@@ -100,7 +100,7 @@ const ActionLists = () => (
     <DocsBlock info="Space between">
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -114,10 +114,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -131,7 +131,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">
@@ -144,7 +144,7 @@ const ActionLists = () => (
     <DocsBlock info="Space around">
       <ActionList direction={DIRECTION.SPACE_AROUND}>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -158,10 +158,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -175,7 +175,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">
@@ -188,7 +188,7 @@ const ActionLists = () => (
     <DocsBlock info="Space evenly">
       <ActionList direction={DIRECTION.SPACE_EVENLY}>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.ANSWER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -202,10 +202,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
-          <Label
+          <LabelDeprecated
             iconType={ICON_TYPE.COUNTER}
             iconColor={ICON_COLOR.GRAY_SECONDARY}
             secondary
@@ -219,7 +219,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </Label>
+          </LabelDeprecated>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">

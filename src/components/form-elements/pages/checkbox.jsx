@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from '../Checkbox';
 import DocsBlock from 'components/DocsBlock';
-import Label from 'labels/Label';
+import LabelDeprecated from 'labels-deprecated/LabelDeprecated';
 
 const dumpProps = {onChange: () => undefined};
 
@@ -11,13 +11,13 @@ const checkboxes = () => (
       <Checkbox />
       <Checkbox checked {...dumpProps} />
       <br />
-      <Label
+      <LabelDeprecated
         secondary
         text="Check me!"
         htmlFor="checkbox-1"
         iconContent={<Checkbox id="checkbox-1" />}
       />
-      <Label
+      <LabelDeprecated
         secondary
         text="Check me!"
         htmlFor="checkbox-2"

@@ -1,33 +1,33 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import Label, {ICON_COLOR, ICON_TYPE, SIZE} from '../Label';
+import LabelDeprecated, {ICON_COLOR, ICON_TYPE, SIZE} from '../LabelDeprecated';
 
 const longText =
   'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.';
 const multilineExample1 = `This is a multiline example with icon in the middle (default behaviur). ${longText}`;
 const multilineExample2 = `This is a multiline example with icon aligned to top. ${longText}`;
 
-const Labels = () => (
+const LabelsDeprecated = () => (
   <div>
     <DocsBlock info="Default">
-      <Label
+      <LabelDeprecated
         text="Default label"
         iconType={ICON_TYPE.SEARCH}
         iconColor={ICON_COLOR.GRAY}
       />
-      <Label
+      <LabelDeprecated
         text="Unstyled label"
         iconType={ICON_TYPE.PENCIL}
         iconColor={ICON_COLOR.LAVENDER}
         unstyled
       />
-      <Label
+      <LabelDeprecated
         text="Mark as brainliest"
         iconType={ICON_TYPE.EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
         emphasised
       />
-      <Label
+      <LabelDeprecated
         text="Thank you"
         number={21}
         iconType={ICON_TYPE.HEART}
@@ -36,13 +36,13 @@ const Labels = () => (
         secondary
       />
       <div style={{maxWidth: `${250}px`}}>
-        <Label
+        <LabelDeprecated
           text={multilineExample1}
           iconType={ICON_TYPE.SEARCH}
           iconColor={ICON_COLOR.GRAY}
         />
         <br />
-        <Label
+        <LabelDeprecated
           text={multilineExample2}
           iconType={ICON_TYPE.SEARCH}
           iconColor={ICON_COLOR.GRAY}
@@ -51,14 +51,14 @@ const Labels = () => (
       </div>
     </DocsBlock>
     <DocsBlock info="Small">
-      <Label
+      <LabelDeprecated
         text="Mark as brainliest"
         size={SIZE.SMALL}
         iconType={ICON_TYPE.EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
         emphasised
       />
-      <Label
+      <LabelDeprecated
         text="Thank you"
         number={21}
         size={SIZE.SMALL}
@@ -69,13 +69,13 @@ const Labels = () => (
       />
     </DocsBlock>
     <DocsBlock info="Large">
-      <Label
+      <LabelDeprecated
         text="Mark as brainliest"
         size={SIZE.LARGE}
         iconType={ICON_TYPE.EXCELLENT}
         iconColor={ICON_COLOR.MUSTARD}
       />
-      <Label
+      <LabelDeprecated
         text="Thank you"
         number={21}
         size={SIZE.LARGE}
@@ -87,4 +87,4 @@ const Labels = () => (
   </div>
 );
 
-export default Labels;
+export default LabelsDeprecated;
