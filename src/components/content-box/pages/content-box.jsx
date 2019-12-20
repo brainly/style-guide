@@ -8,7 +8,10 @@ import ContentBoxHeader from '../ContentBoxHeader';
 import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import LabelDeprecated, {ICON_COLOR, ICON_TYPE} from 'labels-deprecated/LabelDeprecated';
+import LabelDeprecated, {
+  ICON_COLOR,
+  ICON_TYPE,
+} from 'labels-deprecated/LabelDeprecated';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Link, {LINK_COLOR} from 'text/Link';

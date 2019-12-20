@@ -13,7 +13,12 @@ type PropsType = {
   ...
 };
 
-const LabelDeprecatedIcon = ({iconType, iconColor, iconContent, iconSize}: PropsType) => {
+const LabelDeprecatedIcon = ({
+  iconType,
+  iconColor,
+  iconContent,
+  iconSize,
+}: PropsType) => {
   if (iconContent) {
     return <div className="sg-label-deprecated__icon">{iconContent}</div>;
   }

@@ -6,7 +6,9 @@ import Headline, {
   HEADLINE_TYPE,
   HEADLINE_COLOR,
 } from 'text/Headline';
-import LabelDeprecated, {SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE} from 'labels-deprecated/LabelDeprecated';
+import LabelDeprecated, {
+  SIZE as LABEL_SIZE, ICON_COLOR, ICON_TYPE,
+} from 'labels-deprecated/LabelDeprecated';
 import Icon from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
 

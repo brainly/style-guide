@@ -4,7 +4,7 @@ import LabelDeprecated, {
   ICON_COLOR,
   ICON_TYPE,
   ICON_SIZE,
-  LabelIcon,
+  LabelDeprecatedIcon,
 } from './LabelDeprecated';
 import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
@@ -13,7 +13,7 @@ describe('LabelDeprecated', () => {
   test('render', () => {
     const iconType = ICON_TYPE.STAR;
     const label = shallow(<LabelDeprecated iconType={iconType} text="test" />);
-    const icon = label.find(LabelIcon);
+    const icon = label.find(LabelDeprecatedIcon);
     const textLabel = label.find('label.sg-label-deprecated__text');
 
     expect(label.hasClass('sg-label-deprecated')).toEqual(true);
@@ -28,7 +28,7 @@ describe('LabelDeprecated', () => {
     const label = shallow(
       <LabelDeprecated iconType={iconType} iconColor={iconColor} text="test" />
     );
-    const icon = label.find(LabelIcon);
+    const icon = label.find(LabelDeprecatedIcon);
 
     expect(icon.props().iconColor).toEqual(iconColor);
   });
@@ -39,7 +39,7 @@ describe('LabelDeprecated', () => {
     const label = shallow(
       <LabelDeprecated iconType={iconType} size={size} text="test" />
     );
-    const icon = label.find(LabelIcon);
+    const icon = label.find(LabelDeprecatedIcon);
 
     expect(label.hasClass('sg-label-deprecated--small')).toEqual(true);
     expect(icon.props().iconSize).toEqual(ICON_SIZE[size]);
@@ -51,7 +51,7 @@ describe('LabelDeprecated', () => {
     const label = shallow(
       <LabelDeprecated iconType={iconType} size={size} text="test" />
     );
-    const icon = label.find(LabelIcon);
+    const icon = label.find(LabelDeprecatedIcon);
 
     expect(label.hasClass('sg-label-deprecated--small')).toEqual(false);
     expect(label.hasClass('sg-label-deprecated--large')).toEqual(false);
@@ -76,7 +76,9 @@ describe('LabelDeprecated', () => {
       <LabelDeprecated iconType={iconType} elementsToTop text="test" />
     );
 
-    expect(label.hasClass('sg-label-deprecated--elements-to-the-top')).toEqual(true);
+    expect(label.hasClass('sg-label-deprecated--elements-to-the-top')).toEqual(
+      true
+    );
   });
 
   test('label with no text', () => {
@@ -88,12 +90,16 @@ describe('LabelDeprecated', () => {
   });
 
   test('label with a number', () => {
-    const label = shallow(<LabelDeprecated secondary text="test" number={23} />);
+    const label = shallow(
+      <LabelDeprecated secondary text="test" number={23} />
+    );
     const numberLabel = label.find('div.sg-label-deprecated__number');
 
     expect(numberLabel).toHaveLength(1);
 
-    const label2 = shallow(<LabelDeprecated secondary text="test" number={0} />);
+    const label2 = shallow(
+      <LabelDeprecated secondary text="test" number={0} />
+    );
     const numberLabel2 = label2.find('div.sg-label-deprecated__number');
 
     expect(numberLabel2).toHaveLength(1);
@@ -101,19 +107,19 @@ describe('LabelDeprecated', () => {
 
   test('passing children', () => {
     const element = <div className="smth123">xyz</div>;
-    const label = shallow(<Label>{element}</Label>);
+    const label = shallow(<LabelDeprecated>{element}</LabelDeprecated>);
 
     expect(label.find('div.smth123')).toHaveLength(1);
   });
 });
 
-describe('LabelIcon', () => {
+describe('LabelDeprecatedIcon', () => {
   test('render icon and pass props', () => {
     const iconType = ICON_TYPE.STAR;
     const iconColor = ICON_COLOR.BLUE;
     const iconSize = 10;
     const label = shallow(
-      <LabelIcon
+      <LabelDeprecatedIcon
         iconType={iconType}
         iconColor={iconColor}
         iconSize={iconSize}
@@ -129,7 +135,7 @@ describe('LabelIcon', () => {
 
   test('render content', () => {
     const content = <div className="xyz">xyz123</div>;
-    const label = shallow(<LabelIcon iconContent={content} />);
+    const label = shallow(<LabelDeprecatedIcon iconContent={content} />);
     const icon = label.find(Icon);
 
     expect(icon).toHaveLength(0);
@@ -137,7 +143,7 @@ describe('LabelIcon', () => {
   });
 
   test('render null', () => {
-    const label = shallow(<LabelIcon />);
+    const label = shallow(<LabelDeprecatedIcon />);
     const icon = label.find(Icon);
 
     expect(icon).toHaveLength(0);
