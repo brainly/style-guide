@@ -7,6 +7,7 @@ import textInput from '../components/form-elements/pages/input';
 import textarea from '../components/form-elements/pages/textarea';
 import formElements from '../components/form-elements/pages/formElements';
 import labelsDeprecated from '../components/labels-deprecated/pages/labels-deprecated';
+import labels from '../components/labels/pages/labels';
 import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
 import avatar from '../components/avatar/pages/avatar';
@@ -121,6 +122,10 @@ const navigation = [
       {
         name: 'Labels Deprecated',
         component: labelsDeprecated,
+      },
+      {
+        name: 'Labels',
+        component: labels,
       },
       {
         name: 'Rating',
