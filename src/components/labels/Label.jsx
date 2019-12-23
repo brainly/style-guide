@@ -54,7 +54,7 @@ export const LABEL_COLORS_SET = {
   MONO: 'mono',
 };
 
-type PropsType = {
+type PropsType = $ReadOnly<{
   /**
    * Specify type of label
    * @example <Label
@@ -123,7 +123,7 @@ type PropsType = {
    */
   className?: string,
   ...
-};
+}>;
 
 const Label = ({
   children,
@@ -134,7 +134,6 @@ const Label = ({
   className,
   ...props
 }: PropsType) => {
-  console.log('type', type, color);
   const filteredColor =
     type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_STRONG_MAP[color];
 
