@@ -137,6 +137,7 @@ export const TYPE = {
   FRIENDS: 'friends',
   HEADING: 'heading',
   HEART: 'heart',
+  HIDE: 'hide',
   IMAGE: 'image',
   INFLUENCE: 'influence',
   INSTRAGRAM: 'instagram',
