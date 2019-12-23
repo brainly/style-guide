@@ -55,43 +55,43 @@ const Labels = () => (
         <Flex direction="column" marginRight="l">
           <Label color="blue" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="mint" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="lavender" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="peach" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="mustard" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="gray" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
           <Label color="mono" type="default" onClose={closeCallback}>
             {' '}
-            label with icon
+            label
           </Label>
           <br />
           <br />
