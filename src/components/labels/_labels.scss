@@ -15,6 +15,10 @@
     top: 1px;
   }
 
+  &--closable {
+    padding: spacing(xs) spacing(xxs) spacing(xs) spacing(xs);
+  }
+
   &__close-button {
     background: none;
     border: none;

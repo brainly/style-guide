@@ -142,6 +142,7 @@ const Label = ({
     {
       [`sg-label--${String(filteredColor)}`]: color,
       [`sg-label--${type}`]: type,
+      'sg-label--closable': onClose,
     },
     className
   );
