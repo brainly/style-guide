@@ -1,0 +1,81 @@
+.sg-label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  border-radius: 6px;
+  padding: spacing(xs);
+
+  &__icon {
+    margin-right: spacing(xs);
+  }
+
+  &__text {
+    position: relative;
+    top: 1px;
+  }
+
+  &__close-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: 6px;
+    outline: none;
+  }
+
+  &--black {
+    background-color: $black;
+  }
+
+  &--white {
+    background-color: $white;
+  }
+
+  &--blue-primary {
+    background-color: $bluePrimary;
+  }
+
+  &--mint-primary {
+    background-color: $mintPrimary;
+  }
+
+  &--lavender-primary {
+    background-color: $lavenderPrimary;
+  }
+
+  &--peach-primary {
+    background-color: $peachPrimary;
+  }
+
+  &--mustard-primary {
+    background-color: $mustardPrimary;
+  }
+
+  &--gray-primary {
+    background-color: $graySecondary;
+  }
+
+  &--blue-secondary-light {
+    background-color: $blueSecondaryLight;
+  }
+
+  &--mint-secondary-light {
+    background-color: $mintSecondaryLight;
+  }
+
+  &--lavender-secondary-light {
+    background-color: $lavenderSecondaryLight;
+  }
+
+  &--peach-secondary-light {
+    background-color: $peachSecondaryLight;
+  }
+
+  &--mustard-secondary-light {
+    background-color: $mustardSecondaryLight;
+  }
+
+  &--gray-secondary-light {
+    background-color: $graySecondaryLightest;
+  }
+}
