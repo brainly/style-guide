@@ -69,6 +69,7 @@ export type IconTypeType =
   | 'toughest_questions'
   | 'twitter'
   | 'underlined'
+  | 'unseen'
   | 'verified'
   | 'youtube';
 
@@ -137,7 +138,6 @@ export const TYPE = {
   FRIENDS: 'friends',
   HEADING: 'heading',
   HEART: 'heart',
-  HIDE: 'hide',
   IMAGE: 'image',
   INFLUENCE: 'influence',
   INSTRAGRAM: 'instagram',
@@ -179,6 +179,7 @@ export const TYPE = {
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
+  UNSEEN: 'unseen',
   VERIFIED: 'verified',
   YOUTUBE: 'youtube',
 };
