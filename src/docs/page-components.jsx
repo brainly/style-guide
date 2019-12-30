@@ -17,7 +17,7 @@ import Cards from 'card/pages/card-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
-import LabelsDeprecated from 'labels/pages/labels-deprecated-interactive';
+import LabelsDeprecated from 'labels-deprecated/pages/labels-deprecated-interactive';
 import Dropdowns from 'dropdowns/pages/dropdowns-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
