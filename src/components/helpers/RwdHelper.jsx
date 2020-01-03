@@ -32,13 +32,17 @@ const RwdHelper = ({hide, children}: PropsType) => {
 
   const hideClass = `sg-hide-for-${hide}`;
 
-  if (typeof children === 'string') {
+  if (
+    typeof children === 'string' ||
+    Array.isArray(children) ||
+    (children && children.type === React.Fragment)
+  ) {
     return <span className={hideClass}>{children}</span>;
   }
 
-  const finalClassName = classNames(children.props.className, hideClass);
-
-  return React.cloneElement(children, {className: finalClassName});
+  return React.cloneElement(children, {
+    className: classNames(children.props.className, hideClass),
+  });
 };
 
 export default RwdHelper;

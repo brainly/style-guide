@@ -43,3 +43,29 @@ test('merge className', () => {
 
   expect(rwdHelper.find('.test.sg-hide-for-small-only')).toHaveLength(1);
 });
+
+test('render and wraps chilrden when passed as an array', () => {
+  const rwdHelper = shallow(
+    <RwdHelper hide={TYPE.SMALL_ONLY}>
+      <div className="test1">inside div 1</div>
+      <div className="test1">inside div 2</div>
+    </RwdHelper>
+  );
+
+  expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
+  expect(rwdHelper.is('span')).toEqual(true);
+});
+
+test('render and wraps chilrden when passed as an React.Fragment', () => {
+  const rwdHelper = shallow(
+    <RwdHelper hide={TYPE.SMALL_ONLY}>
+      <>
+        <div className="test1">inside div 1</div>
+        <div className="test1">inside div 2</div>
+      </>
+    </RwdHelper>
+  );
+
+  expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
+  expect(rwdHelper.is('span')).toEqual(true);
+});
