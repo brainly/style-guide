@@ -54,18 +54,20 @@ test('render and wraps chilrden when passed as an array', () => {
 
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is('span')).toEqual(true);
+  expect(rwdHelper.find('div')).toHaveLength(2);
 });
 
 test('render and wraps chilrden when passed as an React.Fragment', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
       <>
-        <div className="test1">inside div 1</div>
-        <div className="test1">inside div 2</div>
+        <div className="test">inside div 1</div>
+        <div className="test">inside div 2</div>
       </>
     </RwdHelper>
   );
 
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is('span')).toEqual(true);
+  expect(rwdHelper.find('div')).toHaveLength(2);
 });
