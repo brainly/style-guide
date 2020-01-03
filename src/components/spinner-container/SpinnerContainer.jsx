@@ -28,9 +28,10 @@ const SpinnerContainer = ({
 }: PropsType) => (
   <div
     {...props}
-    className={classnames("sg-spinner-container", {
-    'sg-spinner-container--full-width': fullWidth,
-  })}>
+    className={classnames('sg-spinner-container', {
+      'sg-spinner-container--full-width': fullWidth,
+    })}
+  >
     {children}
     {loading === true && (
       <div className="sg-spinner-container__overlay">
