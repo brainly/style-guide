@@ -57,7 +57,7 @@ test('render and wrap children when passed as an array', () => {
   expect(rwdHelper.find('div')).toHaveLength(2);
 });
 
-test('render and wrap children when passed as an React.Fragment', () => {
+test('render and wrap children when passed as React.Fragment', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
       <>
