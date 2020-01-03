@@ -4,13 +4,13 @@ import React from 'react';
 import type {Node} from 'react';
 import cx from 'classnames';
 
-const BUTTON_SIZE = Object.freeze({
+export const BUTTON_SIZE = Object.freeze({
   LARGE: 'large',
   MEDIUM: 'medium',
   SMALL: 'small',
 });
 
-const BUTTON_TYPE = Object.freeze({
+export const BUTTON_TYPE = Object.freeze({
   PRIMARY: 'primary',
   PRIMARY_INVERTED: 'primary-inverted',
   PRIMARY_BLUE: 'primary-blue',
@@ -24,8 +24,6 @@ const BUTTON_TYPE = Object.freeze({
   WARNING: 'warning',
   FACEBOOK: 'facebook',
 });
-
-export {BUTTON_SIZE, BUTTON_TYPE};
 
 type ButtonTypeType =
   | 'primary'
