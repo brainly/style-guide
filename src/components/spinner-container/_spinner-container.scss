@@ -4,7 +4,13 @@ $includeHtml: false !default;
 
   .sg-spinner-container {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &--full-width {
+      width: 100%;
+    }
 
     &__overlay {
       position: absolute;
