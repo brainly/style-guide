@@ -3,6 +3,7 @@
 import React from 'react';
 import type {Node} from 'react';
 import * as SpinnerModule from '../spinner/Spinner';
+import classnames from 'classnames';
 
 const {default: Spinner} = SpinnerModule;
 
@@ -11,6 +12,7 @@ export {SPINNER_SIZE} from '../spinner/Spinner';
 type PropsType = {
   loading?: boolean,
   light?: boolean,
+  fullWidth?: boolean,
   size?: SpinnerModule.SpinnerSizeType,
   children?: Node,
   ...
@@ -19,11 +21,16 @@ type PropsType = {
 const SpinnerContainer = ({
   loading,
   light,
+  fullWidth,
   size,
   children,
   ...props
 }: PropsType) => (
-  <div {...props} className="sg-spinner-container">
+  <div
+    {...props}
+    className={classnames("sg-spinner-container", {
+    'sg-spinner-container--full-width': fullWidth,
+  })}>
     {children}
     {loading === true && (
       <div className="sg-spinner-container__overlay">

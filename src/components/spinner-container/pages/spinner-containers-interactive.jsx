@@ -17,6 +17,10 @@ const SpinnerContainers = () => {
       name: 'light',
       values: Boolean,
     },
+    {
+      name: 'fullWidth',
+      values: Boolean,
+    },
   ];
 
   return (

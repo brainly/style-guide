@@ -8,6 +8,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
+import Textarea from 'form-elements/Textarea';
 
 const IS_LOADING = true;
 
@@ -61,6 +62,12 @@ const SpinnerContainers = () => (
             </ContentBoxActions>
           </ContentBox>
         </Box>
+      </SpinnerContainer>
+    </DocsBlock>
+
+    <DocsBlock info="full width">
+      <SpinnerContainer loading fullWidth>
+        <Textarea placeholder="Simple textarea" fullWidth />
       </SpinnerContainer>
     </DocsBlock>
 
