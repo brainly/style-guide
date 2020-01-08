@@ -66,7 +66,7 @@ type PropsType = $ReadOnly<{
    * @see type="default" https://styleguide.brainly.com/latest/docs/interactive.html?type="default"#labels
    * @see type="strong" https://styleguide.brainly.com/latest/docs/interactive.html?type="strong"#labels
    */
-  type: LabelType,
+  type?: LabelType,
   /**
    * Specify color for label
    * @example <Label
