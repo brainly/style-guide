@@ -14,7 +14,7 @@ import IconAsButton, {
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';
-import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
+import Counter from 'counters/Counter';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
@@ -57,11 +57,7 @@ const Headers = () => (
                     type={ICON_TYPE.MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
-                    overlay={
-                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
-                        1
-                      </TextBadge>
-                    }
+                    overlay={<Counter size="small">1</Counter>}
                   />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />

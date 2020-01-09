@@ -87,11 +87,11 @@ $includeHtml: false !default;
 
     &--with-animation {
       transform: scale(0);
-      animation: sgBadgeAnimation 0.6s 2s forwards;
+      animation: sgCounterAnimation 0.6s 2s forwards;
     }
   }
 
-  @keyframes sgBadgeAnimation {
+  @keyframes sgCounterAnimation {
     0% {
       transform: scale(0);
     }

@@ -20,7 +20,6 @@ import headlines from '../components/text/pages/headlines';
 import textBit from '../components/text/pages/text-bit';
 import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
-import badges from '../components/badges/pages/badges';
 import counters from '../components/counters/pages/counters';
 import box from '../components/box/pages/box';
 import flexbox from '../components/flex/pages/flex';
@@ -106,10 +105,6 @@ const navigation = [
       {
         name: 'Lists',
         component: list,
-      },
-      {
-        name: 'Badges',
-        component: badges,
       },
       {
         name: 'Counters',
