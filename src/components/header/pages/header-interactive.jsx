@@ -14,7 +14,7 @@ import IconAsButton, {
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';
-import Label from 'labels/Label';
+import Counter from 'counters/Counter';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const Headers = () => {
@@ -62,11 +62,7 @@ const Headers = () => {
                     type={ICON_TYPE.MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
-                    overlay={
-                      <Label color="peach-primary" type="strong">
-                        1
-                      </Label>
-                    }
+                    overlay={<Counter size="small">1</Counter>}
                   />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />
