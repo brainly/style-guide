@@ -57,7 +57,7 @@ const Headers = () => (
                     type={ICON_TYPE.MESSAGES}
                     transparent
                     color={ICON_COLOR.LIGHT}
-                    overlay={<Counter size="">1</Counter>}
+                    overlay={<Counter size="small">1</Counter>}
                   />
                   <IconAsButton transparent>
                     <Avatar size={AVATAR_SIZE.SMALL} />
