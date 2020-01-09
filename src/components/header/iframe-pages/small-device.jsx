@@ -1,20 +1,20 @@
-import React from 'react';
-import Header from '../Header';
-import HeaderContainer from '../HeaderContainer';
-import HeaderContent from '../HeaderContent';
-import HeaderLeft from '../HeaderLeft';
-import HeaderMiddle from '../HeaderMiddle';
-import HeaderRight from '../HeaderRight';
-import HomeButton from '../../home-button/HomeButton';
-import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
-import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
+import React from "react";
+import Header from "../Header";
+import HeaderContainer from "../HeaderContainer";
+import HeaderContent from "../HeaderContent";
+import HeaderLeft from "../HeaderLeft";
+import HeaderMiddle from "../HeaderMiddle";
+import HeaderRight from "../HeaderRight";
+import HomeButton from "../../home-button/HomeButton";
+import Search, { COLOR as SEARCH_COLOR } from "search/Search";
+import RWDHelper, { TYPE as RWD_TYPE } from "helpers/RwdHelper";
 import IconAsButton, {
   TYPE as ICON_TYPE,
-  ICON_COLOR,
-} from 'icon-as-button/IconAsButton';
-import Button from 'buttons/Button';
-import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
-import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
+  ICON_COLOR
+} from "icon-as-button/IconAsButton";
+import Button from "buttons/Button";
+import Label from "labels/Label";
+import Avatar, { SIZE as AVATAR_SIZE } from "avatar/Avatar";
 
 const SmallDeviceExample = () => (
   <html lang="en">
@@ -49,9 +49,9 @@ const SmallDeviceExample = () => (
                     transparent
                     color={ICON_COLOR.LIGHT}
                     overlay={
-                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+                      <Label color="peach-primary" type="strong">
                         1
-                      </TextBadge>
+                      </Label>
                     }
                   />
                   <IconAsButton transparent>

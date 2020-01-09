@@ -5,7 +5,6 @@ export {
   default as ActionListHole,
 } from './components/action-list/ActionListHole';
 export {default as Avatar} from './components/avatar/Avatar';
-export {default as TextBadge} from './components/badges/TextBadge';
 export {default as Box} from './components/box/Box';
 export {default as Breadcrumb} from './components/breadcrumbs/Breadcrumb';
 export {default as Bubble} from './components/bubble/Bubble';

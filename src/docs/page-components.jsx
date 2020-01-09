@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import slugify from './slugify';
 import Avatars from 'avatar/pages/avatar-interactive';
 import Bubbles from 'bubble/pages/bubble-interactive';
-import Badges from 'badges/pages/badges-interactive';
 import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
 import RoundButtons from 'round-buttons/pages/round-buttons-interactive';
@@ -49,7 +48,6 @@ import SpinnerContainers from 'spinner-container/pages/spinner-containers-intera
 const demos = {
   Avatars: <Avatars />,
   Bubbles: <Bubbles />,
-  Badges: <Badges />,
   Buttons: <Buttons />,
   RoundButtons: <RoundButtons />,
   Counters: <Counters />,

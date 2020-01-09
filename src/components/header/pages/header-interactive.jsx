@@ -14,7 +14,7 @@ import IconAsButton, {
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';
-import TextBadge, {TEXT_BADGE_COLOR} from 'badges/TextBadge';
+import Label from 'labels/Label';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const Headers = () => {
@@ -63,9 +63,9 @@ const Headers = () => {
                     transparent
                     color={ICON_COLOR.LIGHT}
                     overlay={
-                      <TextBadge color={TEXT_BADGE_COLOR.PEACH} rounded>
+                      <Label color="peach-primary" type="strong">
                         1
-                      </TextBadge>
+                      </Label>
                     }
                   />
                   <IconAsButton transparent>
