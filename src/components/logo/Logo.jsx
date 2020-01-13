@@ -39,7 +39,7 @@ export const TYPE = {
 };
 
 export const LOGOS = {
-  [TYPE.BRAINLY]: 'brainly-761d75d6ea',
+  [TYPE.BRAINLY]: 'brainly-5c4a769505',
   [TYPE.BRAINLY_MOBILE]: 'brainly-mobile-6879551770',
   [TYPE.EODEV]: 'eodev-1972bd4349',
   [TYPE.EODEV_MOBILE]: 'eodev-mobile-bfdc46ee89',
@@ -50,9 +50,9 @@ export const LOGOS = {
   [TYPE.ZNANIJA_PLUS]: 'znanija-plus-e62f1437d9',
   [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-106aa465e9',
   [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-edf813672e',
-  [TYPE.BRAINLY_PLUS]: 'brainly-plus-42debebd42',
-  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-b9b5efbf59',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-9dd3b24a28',
+  [TYPE.BRAINLY_PLUS]: 'brainly-plus-fa5c63f2ec',
+  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-6406c85190',
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-19ca2518d2',
 };
 
 type PropsType = {
