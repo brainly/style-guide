@@ -49,10 +49,10 @@ export const LOGOS = {
   [TYPE.ZNANIJA_MOBILE]: 'znanija-mobile-200611d052',
   [TYPE.ZNANIJA_PLUS]: 'znanija-plus-337423fa26',
   [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-fdb3d35877',
-  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-edf813672e',
+  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-495ddebd8c',
   [TYPE.BRAINLY_PLUS]: 'brainly-plus-0768e10846',
-  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-6406c85190',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-495ddebd8c',
+  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-c687c7219e',
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-b8ec10bfb4',
 };
 
 type PropsType = {
