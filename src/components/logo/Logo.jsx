@@ -39,7 +39,7 @@ export const TYPE = {
 };
 
 export const LOGOS = {
-  [TYPE.BRAINLY]: 'brainly-761d75d6ea',
+  [TYPE.BRAINLY]: 'brainly-5c4a769505',
   [TYPE.BRAINLY_MOBILE]: 'brainly-mobile-6879551770',
   [TYPE.EODEV]: 'eodev-1972bd4349',
   [TYPE.EODEV_MOBILE]: 'eodev-mobile-bfdc46ee89',
@@ -47,12 +47,12 @@ export const LOGOS = {
   [TYPE.NOSDEVOIRS_MOBILE]: 'nosdevoirs-mobile-2caead9ada',
   [TYPE.ZNANIJA]: 'znanija-addd85e6f5',
   [TYPE.ZNANIJA_MOBILE]: 'znanija-mobile-200611d052',
-  [TYPE.ZNANIJA_PLUS]: 'znanija-plus-e62f1437d9',
-  [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-106aa465e9',
-  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-edf813672e',
-  [TYPE.BRAINLY_PLUS]: 'brainly-plus-42debebd42',
-  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-b9b5efbf59',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-9dd3b24a28',
+  [TYPE.ZNANIJA_PLUS]: 'znanija-plus-337423fa26',
+  [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-fdb3d35877',
+  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-495ddebd8c',
+  [TYPE.BRAINLY_PLUS]: 'brainly-plus-0768e10846',
+  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-c687c7219e',
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-b8ec10bfb4',
 };
 
 type PropsType = {
