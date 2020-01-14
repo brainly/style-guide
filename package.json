@@ -87,7 +87,7 @@
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
-    "package": "yarn babel src --out-dir build"
+    "package": "yarn babel src --out-dir build --ignore '**/*.spec.jsx'"
   },
   "jest": {
     "setupFiles": [
