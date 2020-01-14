@@ -8,9 +8,9 @@ const babelEnv = params => [
 module.exports = api => {
   api.cache(true);
   return {
-    presets: [babelEnv({modules: false}), '@babel/preset-react'],
+    presets: [babelEnv({modules: false}), '@babel/preset-react', '@babel/preset-flow'],
     plugins: [
-      '@babel/plugin-transform-flow-strip-types',
+      '@babel/plugin-transform-runtime',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-class-properties',
     ],

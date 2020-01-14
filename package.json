@@ -4,14 +4,15 @@
   "description": "Brainly Front-End Style Guide",
   "author": "Brainly",
   "private": true,
-  "module": "src/index.js",
+  "module": "build/index.js",
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/plugin-transform-flow-strip-types": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
+    "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@hot-loader/react-dom": "^16.8.6",
     "babel-eslint": "^10.0.2",
@@ -85,7 +86,8 @@
     "watch": "gulp build && gulp watch & yarn start",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
     "eslint": "./node_modules/.bin/eslint",
-    "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development"
+    "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
+    "package": "yarn babel src --out-dir build"
   },
   "jest": {
     "setupFiles": [
