@@ -61,6 +61,7 @@
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.2",
     "react-test-renderer": "^16.2.0",
+    "rimraf": "^3.0.0",
     "run-sequence": "^1.1.1",
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
@@ -87,7 +88,10 @@
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn flow && yarn run js-lint && jest",
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
-    "package": "yarn babel src --out-dir build --only 'src/components' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/__mocks__/**'"
+    "package-clean": "yarn rimraf build",
+    "package-compile": "yarn babel src --out-dir build --only 'src/components' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package": "yarn package-clean && yarn package-compile"
+
   },
   "jest": {
     "setupFiles": [
