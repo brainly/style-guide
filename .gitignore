@@ -1,4 +1,5 @@
 dist/
+build/
 .scss-lint.yml
 .editorconfig
 .eslintrc-es5

@@ -1,10 +1,12 @@
 {
-  "name": "style-guide",
+  "name": "brainly-style-guide",
   "version": "156.0.0",
   "description": "Brainly Front-End Style Guide",
-  "author": "Brainly",
-  "private": true,
+  "repository": "https://github.com/brainly/style-guide.git",
+  "author": "Brainly Team",
+  "license": "GPLv3",
   "module": "build/index.js",
+  "files": ["src/", "build/"],
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
@@ -90,8 +92,8 @@
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
     "package-clean": "yarn rimraf build",
     "package-compile": "yarn babel src --out-dir build --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
-    "package": "yarn package-clean && yarn package-compile"
-
+    "package-prepare": "yarn package-clean && yarn package-compile",
+    "prepublishOnly": "yarn package-prepare"
   },
   "jest": {
     "setupFiles": [
