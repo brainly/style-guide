@@ -43,7 +43,7 @@ $includeHtml: false !default;
         height: 16px;
         width: auto;
         border-radius: 16px;
-        padding: 0 4px 0 0;
+        padding: 0 spacing(xs) 0 0;
       }
     }
 
@@ -75,7 +75,6 @@ $includeHtml: false !default;
       }
   
       &--small {
-        margin-right: 0;
   
         &::before {
           height: 12px;
