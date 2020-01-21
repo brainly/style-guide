@@ -12,7 +12,7 @@ $includeHtml: false !default;
     display: block;
     font-size: $formElementDefaultFontSize;
     line-height: $formElementDefaultLineHeight;
-    padding: spacing(xs) spacing(s);
+    padding: 6px spacing(s);
     resize: none;
     height: $textareaStandardHeight;
     overflow-y: auto;
@@ -104,7 +104,6 @@ $includeHtml: false !default;
 
     &--short {
       height: 40px;
-      padding-top: spacing(xs);
       line-height: 24px;
     }
 
