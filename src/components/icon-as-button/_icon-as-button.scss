@@ -29,7 +29,12 @@ $includeHtml: false !default;
   &.sg-icon-as-button--#{$modifierName} {
     fill: $color;
 
-    &:hover,
+    @media (hover: hover) {
+      &:hover {
+        fill: $colorActive;
+      }
+    }
+
     &:active {
       fill: $colorActive;
     }
@@ -40,10 +45,21 @@ $includeHtml: false !default;
   }
 
   &.sg-icon-as-button--action {
-    &:hover {
-      &.sg-icon-as-button--#{$modifierName} {
-        fill: $actionForegroundColor;
-        background: $color;
+    @media (hover: none) {
+      &:active {
+        &.sg-icon-as-button--#{$modifierName} {
+          fill: $actionForegroundColor;
+          background: $color;
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        &.sg-icon-as-button--#{$modifierName} {
+          fill: $actionForegroundColor;
+          background: $color;
+        }
       }
     }
   }
@@ -66,9 +82,14 @@ $includeHtml: false !default;
     overflow: visible;
     fill: $iconAsButtonColor;
 
-    &:hover,
     &:active {
       fill: $iconAsButtonActiveColor;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        fill: $iconAsButtonActiveColor;
+      }
     }
 
     &__hole {
@@ -140,8 +161,16 @@ $includeHtml: false !default;
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
 
-      &:hover {
-        background: $iconAsButtonTransparentColor;
+      @media (hover: none) {
+        &:active {
+          background: $iconAsButtonTransparentColor;
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background: $iconAsButtonTransparentColor;
+        }
       }
     }
 
@@ -149,10 +178,6 @@ $includeHtml: false !default;
       background: $iconAsButtonColor;
       fill: $iconAsButtonActionColor;
       border-radius: 50%;
-
-      &:hover {
-        fill: $iconAsButtonActionColor;
-      }
 
       &.sg-icon-as-button--adaptive {
         fill: inherit;
