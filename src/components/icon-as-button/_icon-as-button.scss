@@ -159,9 +159,9 @@ $includeHtml: false !default;
       transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
 
-        &:active {
-          background: $iconAsButtonTransparentColor;
-        }
+      &:active {
+        background: $iconAsButtonTransparentColor;
+      }
 
       @media (hover: hover) {
         &:hover {
