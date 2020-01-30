@@ -41,7 +41,7 @@ test('click action', () => {
 test('key down action', () => {
   const mockCallback = jest.fn();
   const topLayer = mount(
-    <TopLayer onClose={mockCallback} onKeyDown={mockCallback} />
+    <TopLayer onClose={mockCallback} onCloseButtonKeyDown={mockCallback} />
   );
   const button = topLayer.find('.sg-toplayer__close');
 

@@ -16,7 +16,9 @@ export const SIZE = {
 export type PropsType = {
   children: Node,
   onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
-  onKeyDown?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
+  onCloseButtonKeyDown?: (
+    event: SyntheticKeyboardEvent<HTMLInputElement>
+  ) => mixed,
   lead?: boolean,
   fill?: boolean,
   modal?: boolean,
@@ -48,7 +50,7 @@ const TopLayer = (props: PropsType) => {
     noPadding,
     transparent,
     className,
-    onKeyDown,
+    onCloseButtonKeyDown,
     ...additionalProps
   } = props;
 
@@ -79,7 +81,7 @@ const TopLayer = (props: PropsType) => {
         <div
           className="sg-toplayer__close"
           onClick={onClose}
-          onKeyDown={onKeyDown}
+          onKeyDown={onCloseButtonKeyDown}
           role="button"
           tabIndex="0"
         >
