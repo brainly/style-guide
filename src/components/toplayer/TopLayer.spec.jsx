@@ -38,6 +38,17 @@ test('click action', () => {
   expect(mockCallback.mock.calls).toHaveLength(1);
 });
 
+test('key down action', () => {
+  const mockCallback = jest.fn();
+  const topLayer = mount(
+    <TopLayer onClose={mockCallback} onKeyDown={mockCallback} />
+  );
+  const button = topLayer.find('.sg-toplayer__close');
+
+  button.simulate('keyDown');
+  expect(mockCallback.mock.calls).toHaveLength(1);
+});
+
 test('size', () => {
   const size = SIZE.SMALL;
   const topLayer = shallow(<TopLayer size={size}>some text</TopLayer>);
