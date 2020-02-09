@@ -13,15 +13,5 @@
   "globals": {
     "hljs": "readonly",
     "html_beautify": "readonly"
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    }
   }
 }
