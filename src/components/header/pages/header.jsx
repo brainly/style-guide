@@ -7,7 +7,7 @@ import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
 import HeaderRight from '../HeaderRight';
 import HomeButton from 'home-button/HomeButton';
-import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
+import Search from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
 import IconAsButton, {
   TYPE as ICON_TYPE,
@@ -40,12 +40,7 @@ const Headers = () => (
               <HomeButton />
             </HeaderLeft>
             <HeaderMiddle>
-              <Search
-                placeholder="Find all the answers..."
-                fullWidth
-                color={SEARCH_COLOR.LIGHT}
-                adaptiveIco
-              />
+              <Search placeholder="Find all the answers..." fullWidth />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
