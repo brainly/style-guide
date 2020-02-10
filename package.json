@@ -4,7 +4,7 @@
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
-  "license": "GPLv3",
+  "license": "GPL-3.0-only",
   "module": "esm/index.js",
   "main": "commonjs/index.js",
   "files": [
