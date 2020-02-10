@@ -44,7 +44,6 @@ const Headers = () => (
                 placeholder="Find all the answers..."
                 fullWidth
                 color={SEARCH_COLOR.LIGHT}
-                adaptiveIco
               />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>

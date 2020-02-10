@@ -37,7 +37,7 @@ const FlashMessage = ({
   return (
     <div {...props} className="sg-flash">
       <div className={messageClass}>
-        <Text size="small" color="default" weight="bold">
+        <Text size="small" color="default" weight="bold" align="to-center">
           {text}
         </Text>
       </div>
