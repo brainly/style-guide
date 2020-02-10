@@ -6,7 +6,7 @@ import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
 import HeaderRight from '../HeaderRight';
 import HomeButton from '../../home-button/HomeButton';
-import Search from 'search/Search';
+import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
 import IconAsButton, {
   TYPE as ICON_TYPE,
@@ -31,7 +31,11 @@ const SmallDeviceExample = () => (
               <HomeButton />
             </HeaderLeft>
             <HeaderMiddle>
-              <Search placeholder="Find all the answers..." fullWidth />
+              <Search
+                placeholder="Find all the answers..."
+                fullWidth
+                color={SEARCH_COLOR.WHITE}
+              />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
