@@ -17,7 +17,6 @@ $includeHtml: false !default;
       position: relative;
       top: $borderRelatedVariable;
       background: $formElementDefaultBackgroundColor;
-      border: none;
       border-radius: $borderRadiusDefault;
       font-size: inherit;
       display: inline-block;
@@ -73,11 +72,11 @@ $includeHtml: false !default;
           border: 2px solid $formElementInvalidColor;
         }
       }
-      
+
       &:hover {
         background-color: mix($white, $graySecondaryUltraLight, 12%);
         border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
-  
+
         .sg-select__element {
           background-color: mix($white, $graySecondaryUltraLight, 12%);
           border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
@@ -106,7 +105,7 @@ $includeHtml: false !default;
 
       .sg-select__icon {
         right: spacing(s);
-        top: spacing(s)
+        top: spacing(s);
       }
 
       .sg-select__element {
@@ -116,7 +115,7 @@ $includeHtml: false !default;
         font-size: $formElementLargeFontSize;
         height: $formElementLargeHeight;
         padding: 0 50px 0 spacing(m);
-        
+
         &::-ms-expand {
           display: none;
         }

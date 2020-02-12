@@ -72,6 +72,7 @@
     "rimraf": "^3.0.0",
     "s3": "^4.4.0",
     "sass-lint": "^1.10.2",
+    "sass-lint-config-brainly": "^1.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "svg-sprite-loader": "^4.1.6",
@@ -84,7 +85,7 @@
   },
   "scripts": {
     "js-lint": "yarn run eslint --ext .js --ext .jsx src/",
-    "scss-lint": "sass-lint -c node_modules/frontend-tools-configs/.sass-lint.yml -v -q 'src/**/*.scss'",
+    "scss-lint": "sass-lint -c node_modules/sass-lint-config-brainly/.sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow",
     "build": "gulp build",

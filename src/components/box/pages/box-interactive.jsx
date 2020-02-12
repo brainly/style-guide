@@ -70,7 +70,7 @@ const Boxes = () => {
               </Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
-              <Button type="primary-blue" wide>
+              <Button type="primary-blue" fullWidth>
                 Ask your question
               </Button>
             </ContentBoxActions>

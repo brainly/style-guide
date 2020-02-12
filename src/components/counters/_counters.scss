@@ -3,7 +3,6 @@ $includeHtml: false !default;
 @if ($includeHtml) {
 
   .sg-counter {
-    display: inline-block;
     border-radius: $borderRadiusLarge;
     padding: 0 spacing(xs);
     min-width: 22px;
@@ -62,7 +61,7 @@ $includeHtml: false !default;
     &__icon-container {
       z-index: 1;
       margin-right: spacing(xxs);
-  
+
       &::before {
         content: '';
         position: absolute;
@@ -73,9 +72,9 @@ $includeHtml: false !default;
         top: 2px;
         background-color: $white;
       }
-  
+
       &--small {
-  
+
         &::before {
           height: 12px;
           width: 12px;
