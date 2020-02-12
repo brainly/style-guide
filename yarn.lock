@@ -10491,6 +10491,11 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
+sass-lint-config-brainly@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/sass-lint-config-brainly/-/sass-lint-config-brainly-1.0.0.tgz#8e04e4434daefe2a68ac559daf14e8377b9ce813"
+  integrity sha512-nHfqjp+O5t8bxPLEq2AYCUbQHMTBXzYHEODWBaRJcrU9TFRH8/Gcy8Un36jmdJhYMZDiVTVxWSwsfsiSCagEjg==
+
 sass-lint@^1.10.2:
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/sass-lint/-/sass-lint-1.13.1.tgz#5fd2b2792e9215272335eb0f0dc607f61e8acc8f"
