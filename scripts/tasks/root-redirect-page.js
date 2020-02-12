@@ -1,5 +1,5 @@
-module.exports = function(gulp, plugins, consts) {
-  return function() {
+module.exports = function (gulp, plugins, consts) {
+  return function (next) {
     const fs = require('fs');
 
     const outputPath = plugins.path.join(consts.DIST, 'index.html');
@@ -14,5 +14,6 @@ module.exports = function(gulp, plugins, consts) {
     );
 
     fs.writeFileSync(outputPath, redirectPageContent);
+    next();
   };
 };
