@@ -60,7 +60,7 @@ $includeHtml: false !default;
           border: 2px solid $formElementInvalidColor;
         }
       }
-      
+
       &:hover {
         background-color: mix($white, $graySecondaryUltraLight, 12%);
         border: 2px solid mix($white, $graySecondaryUltraLight, 12%);

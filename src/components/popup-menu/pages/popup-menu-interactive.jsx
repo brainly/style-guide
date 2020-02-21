@@ -43,10 +43,10 @@ const PopupMenus = () => {
       <DocsActiveBlock settings={settings}>
         <PopupMenu
           items={[
-            <Button key={1} type="primary-inverted" wide>
+            <Button key={1} type="primary-inverted" fullWidth>
               Log in
             </Button>,
-            <Button key={2} type="primary" wide>
+            <Button key={2} type="primary" fullWidth>
               Join now
             </Button>,
           ]}

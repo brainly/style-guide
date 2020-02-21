@@ -3,7 +3,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .sg-input {
     @include component();
-    background: $formElementDefaultBackgroundColor; 
+    background: $formElementDefaultBackgroundColor;
     border: 2px solid $formElementDefaultBackgroundColor;
     border-radius: $formElementStandardBorderRadius;
     color: $formElementDefaultTextColor;
@@ -38,7 +38,7 @@ $includeHtml: false !default;
       background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
       border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
     }
-  
+
     &--white {
       background: $white;
       border: 2px solid $white;

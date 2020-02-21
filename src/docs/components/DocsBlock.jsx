@@ -31,8 +31,10 @@ const DocsBlock = ({
   centered,
   spacedBetween,
   justified,
+  ...props
 }: PropsType) => (
   <section
+    {...props}
     className={cx('docs-block', {
       'docs-block--even-columns': evenColumns,
       'docs-block--full-width': fullWidth,

@@ -38,7 +38,7 @@ const Buttons = () => {
     const iconColor = getIconColor(type);
 
     buttonsVariants.push(
-      <DocsBlock centered fullWidth>
+      <DocsBlock key="type" centered fullWidth>
         <Flex
           fullWidth
           style={{

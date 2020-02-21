@@ -57,7 +57,12 @@ const Headlines = () => {
       );
 
       standard.push(
-        <Headline type={HEADLINE_TYPE.H2} size={size} extraBold={extraBold}>
+        <Headline
+          key={size}
+          type={HEADLINE_TYPE.H2}
+          size={size}
+          extraBold={extraBold}
+        >
           {text} - {size} - {itemSize}
         </Headline>
       );
@@ -68,6 +73,7 @@ const Headlines = () => {
     if (color !== HEADLINE_COLOR.WHITE) {
       colorsVariants.push(
         <Headline
+          key={color}
           type={HEADLINE_TYPE.H2}
           size={HEADLINE_SIZE.NORMAL}
           color={color}
@@ -77,7 +83,7 @@ const Headlines = () => {
       );
     } else {
       colorsVariants.push(
-        <ContrastBox>
+        <ContrastBox key={color}>
           <Headline
             type={HEADLINE_TYPE.H2}
             size={HEADLINE_SIZE.NORMAL}

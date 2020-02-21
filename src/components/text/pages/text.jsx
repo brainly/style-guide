@@ -11,6 +11,7 @@ import {
   TEXT_TRANSFORM,
   TEXT_ALIGN,
 } from '../textConsts';
+import List from '../../list/List';
 
 const text = "We've got your back!";
 
@@ -66,6 +67,7 @@ const TextExamples = () => {
           size={size}
           color={TEXT_COLOR.GRAY}
           weight={weight}
+          key={size + weight}
         >
           {text} - {size} - {itemSize}
         </Text>
@@ -76,7 +78,7 @@ const TextExamples = () => {
   getValues(TEXT_COLOR, false).forEach(color => {
     if (color === TEXT_COLOR.WHITE) {
       colorVariant.push(
-        <ContrastBox>
+        <ContrastBox key={color}>
           <Text type={TEXT_TYPE.H2} color={color}>
             {text} - {color}
           </Text>
@@ -84,7 +86,7 @@ const TextExamples = () => {
       );
     } else {
       colorVariant.push(
-        <Text type={TEXT_TYPE.H2} color={color}>
+        <Text key={color} type={TEXT_TYPE.H2} color={color}>
           {text} - {color}
         </Text>
       );
@@ -94,7 +96,7 @@ const TextExamples = () => {
   getValues(LINK_COLOR, false).forEach(color => {
     if (color !== LINK_COLOR.WHITE) {
       linkcolorVariant.push(
-        <>
+        <li key={color}>
           <Link
             href="#"
             color={color}
@@ -103,23 +105,8 @@ const TextExamples = () => {
           >
             link - {color}
           </Link>
-          <br />
-        </>
+        </li>
       );
-    } else {
-      <ContrastBox>
-        <>
-          <Link
-            href="#"
-            color={LINK_COLOR.WHITE}
-            weight={LINK_WEIGHT.BOLD}
-            size={LINK_SIZE.LARGE}
-          >
-            link - {color}
-          </Link>
-          <br />
-        </>
-      </ContrastBox>;
     }
   });
 
@@ -142,7 +129,23 @@ const TextExamples = () => {
           link / bold / mint / xlarge / underlined
         </Link>
       </DocsBlock>
-      <DocsBlock info="Link color variants">{linkcolorVariant}</DocsBlock>
+      <DocsBlock info="Link color variants">
+        <List>
+          {linkcolorVariant}
+          <li>
+            <ContrastBox>
+              <Link
+                href="#"
+                color={LINK_COLOR.WHITE}
+                weight={LINK_WEIGHT.BOLD}
+                size={LINK_SIZE.LARGE}
+              >
+                link - {LINK_COLOR.WHITE}
+              </Link>
+            </ContrastBox>
+          </li>
+        </List>
+      </DocsBlock>
       <DocsBlock info="Alignment examples">
         <Text align={TEXT_ALIGN.LEFT}>Text aligned to left</Text>
         <Text align={TEXT_ALIGN.CENTER}>Text aligned to center</Text>

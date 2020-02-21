@@ -124,10 +124,10 @@ $colorSetup: (
 @each $color, $value in $colorSetup {
   .sg-round-button--#{$color} {
     border: 2px solid $value;
-    fill: $value
+    fill: $value;
   }
 
   .sg-round-button--#{$color}.sg-round-button--filled {
-      background-color: $value;
+    background-color: $value;
   }
 }

@@ -41,7 +41,7 @@ const TextBitExamples = () => {
     );
 
     sizesVariants.push(
-      <TextBit size={size} color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
+      <TextBit key="size" size={size} color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
         {text} - {size} - {itemSize}
       </TextBit>
     );
@@ -49,7 +49,7 @@ const TextBitExamples = () => {
 
   getValues(TEXT_BIT_COLOR, false).forEach(color => {
     colorsVariants.push(
-      <TextBit size={TEXT_BIT_SIZE.NORMAL} color={color}>
+      <TextBit key="color" size={TEXT_BIT_SIZE.NORMAL} color={color}>
         {text} - {color}
       </TextBit>
     );
