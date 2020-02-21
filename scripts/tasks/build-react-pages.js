@@ -70,7 +70,7 @@ module.exports = function(gulp, plugins, consts, options) {
     );
     const doctype = '<!DOCTYPE html>\n';
 
-    file.contents = new Buffer(doctype + htmlPage);
+    file.contents = Buffer.from(doctype + htmlPage);
     cb(null, file);
   };
 
