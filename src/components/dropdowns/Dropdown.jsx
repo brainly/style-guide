@@ -1,67 +1,59 @@
 // @flow strict
 
-import React from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import classNames from 'classnames';
-import DropdownItem from './DropdownItem';
 
-function getOnClick(onItemClick, id) {
-  return () => onItemClick(id);
-}
+import Icon from '../icons/Icon';
 
-type PropsType = {
-  onClick?: SyntheticMouseEvent<HTMLDivElement>,
-  onItemClick: string => mixed,
+type LinksType = {
   label: string,
-  fullWidth?: boolean,
-  fixed?: boolean,
-  opened?: boolean,
-  items: Array<{
-    id: string,
-    text: string,
-    ...
-  }>,
-  className?: string,
-  ...
+  url: string,
 };
 
-const Dropdown = ({
-  fixed,
-  label,
-  onClick,
-  fullWidth = true,
-  opened,
-  onItemClick,
-  items = [],
-  className,
-}: PropsType) => {
-  const dropdownClass = classNames(
-    'sg-dropdown',
-    {
-      'sg-dropdown--full-width': fullWidth,
-      'sg-dropdown--opened': opened,
-    },
-    className
-  );
-  const itemsClass = classNames('sg-dropdown__items', {
-    'sg-dropdown__items--fixed': fixed,
-  });
+type PropsType = {
+  name: string,
+  links: $ReadOnlyArray<LinksType>,
+};
+
+const Dropdown = ({name, links}: PropsType) => {
+  const [open, setOpen] = useState(false);
+  const clickedInside = useRef(false);
+
+  function handleClickInside() {
+    setOpen(prevOpen => !prevOpen);
+    clickedInside.current = true;
+  }
+
+  function handleClickOutside() {
+    if (clickedInside.current) {
+      clickedInside.current = false;
+      return;
+    }
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, []);
 
   return (
-    <div className={dropdownClass} onClick={onClick}>
-      <div className="sg-dropdown__icon" />
-      <div className="sg-dropdown__hole">
-        <div className="sg-dropdown__item-text">{label}</div>
-      </div>
-      <div className={itemsClass}>
-        {items.map(({id, text}) => (
-          <DropdownItem
-            key={id}
-            text={text}
-            id={id}
-            onClick={getOnClick(onItemClick, id)}
-          />
-        ))}
-      </div>
+    <div
+      className={classNames('sg-dropdown', {'sg-dropdown--opened': open})}
+      onClick={handleClickInside}
+    >
+      <p>{name}</p>
+      <Icon type={open ? 'arrow_up' : 'arrow_down'} size={24} color="gray" />
+
+      {open && (
+        <div className="sg-dropdown__items">
+          {links.map((link, index) => (
+            <a key={index} href={link.url} className="sg-dropdown__item">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
