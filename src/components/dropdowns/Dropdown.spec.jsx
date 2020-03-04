@@ -2,7 +2,7 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 import {act} from 'react-dom/test-utils';
 
-import Dropdown from './DropdownDeprecated';
+import Dropdown from './Dropdown';
 
 const testItems = [
   {label: 'text-1', url: 'url-1'},

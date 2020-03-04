@@ -5,18 +5,20 @@ import classNames from 'classnames';
 
 import Icon from '../icons/Icon';
 
-type LinksType = {
+type LinksType = $ReadOnly<{
   label: string,
   url: string,
-};
+}>;
 
-type PropsType = {
+type PropsType = $ReadOnly<{
   name: string,
-  links: $ReadOnlyArray<LinksType>,
-};
+  links: Array<LinksType>,
+  initiallyOpened?: boolean,
+}>;
 
-const Dropdown = ({name, links}: PropsType) => {
-  const [open, setOpen] = useState(false);
+// if possible, use Select component instead
+const Dropdown = ({name, links, initiallyOpened}: PropsType) => {
+  const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
 
   function handleClickInside() {

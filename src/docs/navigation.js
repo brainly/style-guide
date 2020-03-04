@@ -45,7 +45,7 @@ import MathSymbols from '../components/math-symbols/pages/math-symbols';
 import separators from '../components/separators/pages/separators';
 import spinners from '../components/spinner/pages/spinners';
 import SpinnerContainers from '../components/spinner-container/pages/spinner-containers';
-import dropdownsDeprecated from '../components/dropdowns-deprecated/pages/dropdowns-deprecated';
+import dropdowns from '../components/dropdowns/pages/dropdowns';
 
 const navigation = [
   {
@@ -161,8 +161,8 @@ const navigation = [
         component: select,
       },
       {
-        name: 'Dropdowns (deprecated)',
-        component: dropdownsDeprecated,
+        name: 'Dropdowns',
+        component: dropdowns,
       },
       {
         name: 'Textarea',
