@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DocsBlock from 'components/DocsBlock';
-import Dropdown from '../Dropdown';
+import Dropdown from '../DropdownDeprecated';
 
 const Dropdowns = () => (
   <div>

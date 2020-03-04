@@ -26,7 +26,9 @@ export {
 export {
   default as ContentBoxTitle,
 } from './components/content-box/ContentBoxTitle';
-export {default as Dropdown} from './components/dropdowns/Dropdown';
+export {
+  default as DropdownDeprecated,
+} from './components/dropdowns-deprecated/DropdownDeprecated';
 export {
   default as FlashMessage,
 } from './components/flash-messages/FlashMessage';
