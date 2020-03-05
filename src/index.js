@@ -28,10 +28,6 @@ export {
 } from './components/content-box/ContentBoxTitle';
 export {default as Dropdown} from './components/dropdowns/Dropdown';
 export {
-  default as DropdownContainer,
-} from './components/dropdowns/DropdownContainer';
-export {default as DropdownItem} from './components/dropdowns/DropdownItem';
-export {
   default as FlashMessage,
 } from './components/flash-messages/FlashMessage';
 export {default as Flex} from './components/flex/Flex';
