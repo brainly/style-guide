@@ -22,7 +22,7 @@
 
   &--opened {
     background-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
-    
+
     .sg-dropdown__items {
       display: block;
       margin-bottom: spacing(m);
