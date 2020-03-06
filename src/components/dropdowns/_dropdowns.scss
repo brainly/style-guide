@@ -37,6 +37,10 @@
       background-color: mix($white, $graySecondaryUltraLight, 16%);
     }
 
+    .sg-dropdown__items {
+      background-color: $white;
+    }
+
     .sg-dropdown__item {
       &:hover {
         background-color: mix($white, $graySecondaryUltraLight, 16%);
@@ -67,10 +71,6 @@
     border-radius: 20px;
     background-color: $graySecondaryLightest;
     transition: background-color 0.2s;
-
-    &--light {
-      background-color: $white;
-    }
   }
 
   &__item {

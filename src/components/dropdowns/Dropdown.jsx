@@ -62,11 +62,7 @@ const Dropdown = ({
       <Icon type={open ? 'arrow_up' : 'arrow_down'} size={24} color="gray" />
 
       {open && (
-        <div
-          className={classNames('sg-dropdown__items', {
-            'sg-dropdown__items--light': lightMode,
-          })}
-        >
+        <div className="sg-dropdown__items">
           {links.map((link, index) => (
             <a key={index} href={link.url} className="sg-dropdown__item">
               {link.label}
