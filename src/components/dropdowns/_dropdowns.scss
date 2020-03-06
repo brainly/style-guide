@@ -30,7 +30,7 @@
     }
   }
 
-  &--light {
+  &--white {
     background-color: $white;
 
     &:hover {
@@ -48,7 +48,7 @@
     }
   }
 
-  &--opened#{&}--light {
+  &--opened#{&}--white {
     background-color: mix($white, $graySecondaryUltraLight, 16%);
   }
 

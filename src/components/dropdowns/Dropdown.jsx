@@ -14,7 +14,7 @@ type PropsType = $ReadOnly<{
   name: string,
   links: Array<LinksType>,
   initiallyOpened?: boolean,
-  colorMode?: 'dark' | 'light',
+  color?: 'default' | 'white',
   fullWidth?: boolean,
 }>;
 
@@ -23,13 +23,11 @@ const Dropdown = ({
   name,
   links,
   initiallyOpened,
-  colorMode = 'dark',
+  color = 'default',
   fullWidth,
 }: PropsType) => {
   const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
-
-  const lightMode = colorMode === 'light';
 
   function handleClickInside() {
     setOpen(prevOpen => !prevOpen);
@@ -53,7 +51,7 @@ const Dropdown = ({
     <div
       className={classNames('sg-dropdown', {
         'sg-dropdown--opened': open,
-        'sg-dropdown--light': lightMode,
+        'sg-dropdown--white': color === 'white',
         'sg-dropdown--full-width': fullWidth,
       })}
       onClick={handleClickInside}
