@@ -7,14 +7,15 @@ module.exports = function(gulp, plugins, consts) {
     );
 
     plugins.livereload.listen();
-    return gulp.watch([docsSources, componentsHtml], function() {
-      plugins.runSequence(
+    return gulp.watch(
+      [docsSources, componentsHtml],
+      gulp.series(
         'build:react-pages',
         'build:react-iframe-pages',
         'build:react-interactive-pages',
         'fingerprint-replace',
         'index-fingerprint-replace'
-      );
-    });
+      )
+    );
   };
 };
