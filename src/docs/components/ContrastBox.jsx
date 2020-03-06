@@ -22,6 +22,7 @@ const ContrastBox = ({
   fullWidth,
   narrow,
   children,
+  ...otherProps
 }: PropsType) => {
   const cssClass = classnames(contrastBlockCssClass, {
     'docs-block__contrast-box--to-bottom': toBottom,
@@ -31,7 +32,11 @@ const ContrastBox = ({
     'docs-block__contrast-box--narrow': narrow,
   });
 
-  return <section className={cssClass}>{children}</section>;
+  return (
+    <section {...otherProps} className={cssClass}>
+      {children}
+    </section>
+  );
 };
 
 export default ContrastBox;

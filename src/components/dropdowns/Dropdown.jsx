@@ -14,10 +14,18 @@ type PropsType = $ReadOnly<{
   name: string,
   links: Array<LinksType>,
   initiallyOpened?: boolean,
+  color?: 'default' | 'white',
+  fullWidth?: boolean,
 }>;
 
 // if possible, use Select component instead
-const Dropdown = ({name, links, initiallyOpened}: PropsType) => {
+const Dropdown = ({
+  name,
+  links,
+  initiallyOpened,
+  color = 'default',
+  fullWidth,
+}: PropsType) => {
   const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
 
@@ -41,7 +49,11 @@ const Dropdown = ({name, links, initiallyOpened}: PropsType) => {
 
   return (
     <div
-      className={classNames('sg-dropdown', {'sg-dropdown--opened': open})}
+      className={classNames('sg-dropdown', {
+        'sg-dropdown--opened': open,
+        'sg-dropdown--white': color === 'white',
+        'sg-dropdown--full-width': fullWidth,
+      })}
       onClick={handleClickInside}
     >
       <p>{name}</p>
