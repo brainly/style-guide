@@ -54,7 +54,7 @@ const Dropdowns = () => (
                 {label: 'Brainly.pl', url: 'http://www.brainly.pl'},
                 {label: 'Brainly.com', url: 'http://www.brainly.com'},
               ]}
-              colorMode="light"
+              color="white"
             />
           </ContrastBox>
         </Flex>
