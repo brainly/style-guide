@@ -149,7 +149,7 @@ module.exports = function(gulp, plugins, consts) {
       },
       shape: {
         id: {
-          generator: 'sg-mobile-icon-%s',
+          generator: 'icon-mobile-%s',
         },
         transform: [
           'svgo',
