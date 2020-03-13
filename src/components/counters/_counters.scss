@@ -11,6 +11,7 @@ $includeHtml: false !default;
     justify-content: center;
     align-content: center;
     background-color: $peachPrimary;
+    cursor: default;
 
     &__text {
       position: relative;
