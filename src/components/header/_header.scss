@@ -23,10 +23,6 @@ $includeHtml: false !default;
 
     &__container {
       background-color: $white;
-
-      &--dark {
-        background-color: $bluePrimary;
-      }
     }
 
     &__content {
