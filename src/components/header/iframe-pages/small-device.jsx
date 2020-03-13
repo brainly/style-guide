@@ -6,7 +6,7 @@ import HeaderLeft from '../HeaderLeft';
 import HeaderMiddle from '../HeaderMiddle';
 import HeaderRight from '../HeaderRight';
 import HomeButton from '../../home-button/HomeButton';
-import Search, {COLOR as SEARCH_COLOR} from 'search/Search';
+import Search from 'search/Search';
 import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
 import IconAsButton, {
   TYPE as ICON_TYPE,
@@ -24,7 +24,7 @@ const SmallDeviceExample = () => (
     </head>
     <body className="docs--header-small-example">
       <script src="images/icons.js" />
-      <Header fixed>
+      <Header fixed withDivider>
         <HeaderContainer>
           <HeaderContent>
             <HeaderLeft>
@@ -34,7 +34,7 @@ const SmallDeviceExample = () => (
               <Search
                 placeholder="Find all the answers..."
                 fullWidth
-                color={SEARCH_COLOR.WHITE}
+                withRoundButton
               />
             </HeaderMiddle>
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
@@ -46,7 +46,7 @@ const SmallDeviceExample = () => (
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent
-                    color={ICON_COLOR.LIGHT}
+                    color={ICON_COLOR.DARK}
                     overlay={<Counter size="small">1</Counter>}
                   />
                   <IconAsButton transparent>
@@ -58,10 +58,7 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton
-                    type={ICON_TYPE.MENU}
-                    color={ICON_COLOR.LIGHT}
-                  />
+                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
                 </HeaderRight>
               </div>
             </RWDHelper>

@@ -13,3 +13,9 @@ test('fixed', () => {
 
   expect(header.hasClass('sg-header--fixed')).toEqual(true);
 });
+
+test('withDivider', () => {
+  const header = shallow(<Header withDivider>some text</Header>);
+
+  expect(header.hasClass('sg-header--with-divider')).toEqual(true);
+});

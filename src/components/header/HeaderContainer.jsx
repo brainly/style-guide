@@ -6,19 +6,12 @@ import classnames from 'classnames';
 
 type PropsType = {
   children: Node,
-  light?: boolean,
   className?: string,
   ...
 };
 
-const HeaderContainer = ({children, light, className, ...props}: PropsType) => {
-  const headerContainerClass = classnames(
-    'sg-header__container',
-    {
-      'sg-header__container--light': light,
-    },
-    className
-  );
+const HeaderContainer = ({children, className, ...props}: PropsType) => {
+  const headerContainerClass = classnames('sg-header__container', className);
 
   return (
     <div {...props} className={headerContainerClass}>

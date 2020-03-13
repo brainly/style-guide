@@ -7,7 +7,6 @@ $includeHtml: false !default;
   .sg-header {
     width: 100%;
     margin-bottom: rhythm(3) - $headerHeight;
-    box-shadow: $defaultBottomShadow;
 
     &--fixed {
       position: fixed;
@@ -17,12 +16,12 @@ $includeHtml: false !default;
       z-index: $sgHeaderZIndex;
     }
 
-    &__container {
-      background-color: $bluePrimary;
+    &--with-divider {
+      border-bottom: 2px solid $graySecondaryLightest;
+    }
 
-      &--light {
-        background-color: $white;
-      }
+    &__container {
+      background-color: $white;
     }
 
     &__content {
