@@ -7,11 +7,3 @@ test('render', () => {
 
   expect(headerContainer.hasClass('sg-header__container')).toEqual(true);
 });
-
-test('dark', () => {
-  const headerContainer = shallow(
-    <HeaderContainer dark>some text</HeaderContainer>
-  );
-
-  expect(headerContainer.hasClass('sg-header__container--dark')).toEqual(true);
-});

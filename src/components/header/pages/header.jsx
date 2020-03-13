@@ -134,49 +134,6 @@ const Headers = () => (
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Container - dark">
-      <Header>
-        <HeaderContainer dark>
-          <HeaderContent>
-            <HeaderLeft>
-              <HomeButton />
-            </HeaderLeft>
-            <HeaderMiddle>
-              <Search placeholder="Find all the answers..." fullWidth />
-            </HeaderMiddle>
-            <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
-              <div>
-                <HeaderRight>
-                  <ActionList>
-                    <ActionListHole>
-                      <Button type="primary-inverted" size="small">
-                        Log in
-                      </Button>
-                    </ActionListHole>
-                    <ActionListHole>
-                      <Button type="primary" size="small">
-                        Join now
-                      </Button>
-                    </ActionListHole>
-                  </ActionList>
-                </HeaderRight>
-              </div>
-            </RWDHelper>
-            <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
-              <div>
-                <HeaderRight>
-                  <IconAsButton
-                    type={ICON_TYPE.MENU}
-                    color={ICON_COLOR.LIGHT}
-                  />
-                </HeaderRight>
-              </div>
-            </RWDHelper>
-          </HeaderContent>
-        </HeaderContainer>
-      </Header>
-    </DocsBlock>
-
     <DocsBlock info="Content - auto-height">
       <ContrastBox fullWidth>
         <Header>
