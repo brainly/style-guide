@@ -7,7 +7,6 @@ $includeHtml: false !default;
   .sg-header {
     width: 100%;
     margin-bottom: rhythm(3) - $headerHeight;
-    box-shadow: none;
 
     &--fixed {
       position: fixed;
