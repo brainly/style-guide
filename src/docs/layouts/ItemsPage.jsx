@@ -24,6 +24,7 @@ const ItemsPage = ({navigationIdx}: PropsType) => {
         <script src="images/subjects-icons.js" async />
         <script src="images/subjects-mono-icons.js" async />
         <script src="images/math-symbols-icons.js" async />
+        <script src="images/mobile-icons.js" async />
 
         <Navigation navigation={navigation} version={version} />
 
