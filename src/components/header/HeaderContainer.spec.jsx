@@ -8,10 +8,10 @@ test('render', () => {
   expect(headerContainer.hasClass('sg-header__container')).toEqual(true);
 });
 
-test('light', () => {
+test('dark', () => {
   const headerContainer = shallow(
-    <HeaderContainer light>some text</HeaderContainer>
+    <HeaderContainer dark>some text</HeaderContainer>
   );
 
-  expect(headerContainer.hasClass('sg-header__container--light')).toEqual(true);
+  expect(headerContainer.hasClass('sg-header__container--dark')).toEqual(true);
 });
