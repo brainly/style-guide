@@ -4,28 +4,20 @@ $includeHtml: false !default;
   .sg-select {
     display: inline-block;
     position: relative;
-    overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
-    font-size: $formElementDefaultFontSize;
-    color: $formElementPlacholderTextColor;
-    border-radius: $formElementStandardBorderRadius;
-    height: $formElementNormalHeight;
-    border: 2px solid $graySecondaryLightest;
 
     &__element {
-      position: relative;
-      top: $borderRelatedVariable;
-      background: $formElementDefaultBackgroundColor;
-      border-radius: $borderRadiusDefault;
-      font-size: inherit;
       display: inline-block;
-      height: $formElementNormalHeight;
       padding: 0 36px 0 spacing(s);
-      outline: 0;
       appearance: none;
       width: 100%;
       border: 2px solid $graySecondaryLightest;
+      font-size: $formElementDefaultFontSize;
+      color: $formElementPlacholderTextColor;
+      height: $formElementNormalHeight;
+      background: $formElementDefaultBackgroundColor;
+      border-radius: $formElementStandardBorderRadius;
 
       &::-ms-expand {
         display: none;
@@ -40,7 +32,7 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      top: spacing(xs) + 2px;
+      top: spacing(xs) + 4px;
       right: spacing(xs) + 4px;
       pointer-events: none;
       z-index: 1;
@@ -48,35 +40,32 @@ $includeHtml: false !default;
     }
 
     &--white {
-      background: $white;
-      border: 2px solid $white;
-
       .sg-select__element {
         background: $white;
         border: 2px solid $white;
-
       }
     }
 
     &.sg-select--white {
       &.sg-select--valid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
-          border: 2px solid $formElementValidColor;
+          .sg-select__element {
+            background-color: mix($white, $graySecondaryUltraLight, 12%);
+            border: 2px solid $formElementValidColor;
+          }
         }
       }
 
       &.sg-select--invalid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
-          border: 2px solid $formElementInvalidColor;
+          .sg-select__element {
+            background-color: mix($white, $graySecondaryUltraLight, 12%);
+            border: 2px solid $formElementInvalidColor;
+          }
         }
       }
 
       &:hover {
-        background-color: mix($white, $graySecondaryUltraLight, 12%);
-        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
-
         .sg-select__element {
           background-color: mix($white, $graySecondaryUltraLight, 12%);
           border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
@@ -85,12 +74,15 @@ $includeHtml: false !default;
     }
 
     &:hover {
-      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-
       .sg-select__element {
-        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-        border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        background-color: mix(
+          $formElementDefaultBackgroundColor,
+          $graySecondaryLight,
+          80%
+        );
+        border: 2px
+          solid
+          mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
       }
     }
 
@@ -99,18 +91,14 @@ $includeHtml: false !default;
     }
 
     &--large {
-      height: $formElementLargeHeight;
-      font-size: $formElementLargeFontSize;
-      border-radius: $formElementLargeBorderRadius;
-
       .sg-select__icon {
-        right: spacing(s);
         top: spacing(s);
+        right: spacing(s);
       }
 
       .sg-select__element {
-        position: relative;
-        top: $borderRelatedVariable;
+        height: $formElementLargeHeight;
+        font-size: $formElementLargeFontSize;
         border-radius: $formElementLargeBorderRadius;
         font-size: $formElementLargeFontSize;
         height: $formElementLargeHeight;
@@ -127,42 +115,40 @@ $includeHtml: false !default;
     }
 
     &--valid {
-      border: 2px solid $formElementValidColor;
-      color: $black;
-      font-weight: normal;
-
-      &:focus,
-      &:active,
-      &:focus:hover,
-      &:active:hover {
-        background-color: $white;
+      .sg-select__element {
+        color: $black;
+        font-weight: normal;
         border: 2px solid $formElementValidColor;
-        box-shadow: none;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-        border: 2px solid $formElementValidColor;
+        .sg-select__element {
+          background-color: mix(
+            $formElementDefaultBackgroundColor,
+            $graySecondaryLight,
+            80%
+          );
+          border: 2px solid $formElementValidColor;
+        }
       }
     }
 
     &--invalid {
-      border: 2px solid $formElementInvalidColor;
-      color: $black;
-      font-weight: normal;
-
-      &:focus,
-      &:active,
-      &:focus:hover,
-      &:active:hover {
-        background-color: $white;
+      .sg-select__element {
+        color: $black;
+        font-weight: normal;
         border: 2px solid $formElementInvalidColor;
-        box-shadow: none;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-        border: 2px solid $formElementInvalidColor;
+        .sg-select__element {
+          background-color: mix(
+            $formElementDefaultBackgroundColor,
+            $graySecondaryLight,
+            80%
+          );
+          border: 2px solid $formElementInvalidColor;
+        }
       }
     }
 
