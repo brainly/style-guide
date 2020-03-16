@@ -16,6 +16,7 @@ $includeHtml: false !default;
       font-size: $formElementDefaultFontSize;
       color: $formElementPlacholderTextColor;
       height: $formElementNormalHeight;
+      line-height: $formElementNormalHeight - 4px; // subtraction due to top and bottom border
       background: $formElementDefaultBackgroundColor;
       border-radius: $formElementStandardBorderRadius;
 
@@ -96,6 +97,7 @@ $includeHtml: false !default;
 
       .sg-select__element {
         height: $formElementLargeHeight;
+        line-height: $formElementLargeHeight - 4px; // subtraction due to top and bottom border
         font-size: $formElementLargeFontSize;
         border-radius: $formElementLargeBorderRadius;
         padding: 0 50px 0 spacing(m);
