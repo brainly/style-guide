@@ -1,0 +1,23 @@
+@import '../icons/icons-mixin';
+
+$sizeSmall: 24px;
+$sizeMedium: 32px;
+$sizeNormal: 64px;
+
+.sg-mobile-icon {
+  height: $sizeNormal;
+  width: $sizeNormal;
+  fill: $white;
+
+  &--medium {
+    height: $sizeMedium;
+    width: $sizeMedium;
+  }
+
+  &--small {
+    height: $sizeSmall;
+    width: $sizeSmall;
+  }
+
+  @include iconColor();
+}

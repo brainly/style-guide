@@ -50,6 +50,7 @@ export {
   default as IconAsButton,
 } from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
+export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
 export {
   default as LabelDeprecated,
 } from './components/labels-deprecated/LabelDeprecated';

@@ -42,6 +42,7 @@ import subjectIcons from '../components/subject-icons/pages/subject-icons';
 import subjectMonoIcons from '../components/subject-icons/pages/subject-mono-icons';
 import subjects from '../components/subject-icons/pages/subjects';
 import MathSymbols from '../components/math-symbols/pages/math-symbols';
+import MobileIcons from '../components/mobile-icons/pages/mobile-icons';
 import separators from '../components/separators/pages/separators';
 import spinners from '../components/spinner/pages/spinners';
 import SpinnerContainers from '../components/spinner-container/pages/spinner-containers';
@@ -74,6 +75,10 @@ const navigation = [
         component: icons,
       },
       {
+        name: 'Mobile Icons',
+        component: MobileIcons,
+      },
+      {
         name: 'Subject Icons',
         component: subjectIcons,
       },
@@ -82,7 +87,7 @@ const navigation = [
         component: subjectMonoIcons,
       },
       {
-        name: 'Math symbols',
+        name: 'Math Symbols',
         component: MathSymbols,
       },
       {

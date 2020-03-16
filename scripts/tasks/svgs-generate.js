@@ -45,6 +45,12 @@ module.exports = function(gulp, plugins, consts) {
       'math-symbols',
       '*.svg'
     );
+    const mobileIconsPath = plugins.path.join(
+      consts.SRC,
+      'images',
+      'mobile-icons',
+      '*.svg'
+    );
     const destPath = plugins.path.join(consts.SRC, 'images');
 
     const subjectIconsConfig = {
@@ -135,6 +141,28 @@ module.exports = function(gulp, plugins, consts) {
       },
     };
 
+    const mobileIconsConfig = {
+      mode: {
+        symbol: {
+          sprite: '../mobile-icons.js',
+        },
+      },
+      shape: {
+        id: {
+          generator: 'icon-mobile-%s',
+        },
+        transform: [
+          'svgo',
+          {
+            custom: svgSymbolCleanUp.bind(null, {removeClass: true}),
+          },
+        ],
+      },
+      svg: {
+        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
+      },
+    };
+
     gulp
       .src(subjectIconsPath)
       .pipe(plugins.svgSprite(subjectIconsConfig))
@@ -148,6 +176,11 @@ module.exports = function(gulp, plugins, consts) {
     gulp
       .src(mathSymbolsPath)
       .pipe(plugins.svgSprite(mathSymbolsConfig))
+      .pipe(gulp.dest(destPath));
+
+    gulp
+      .src(mobileIconsPath)
+      .pipe(plugins.svgSprite(mobileIconsConfig))
       .pipe(gulp.dest(destPath));
 
     return gulp

@@ -146,7 +146,7 @@ const index = () => (
                 href="./basics.html#math-symbols"
                 className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
               >
-                Math symbols
+                Math Symbols
               </a>
               :
             </p>
@@ -156,6 +156,29 @@ const index = () => (
               <code className="html">
                 &lt;script
                 src=&quot;https://styleguide.brainly.com/%%images/math-symbols-icons.js%%&quot;&gt;&lt;/script&gt;
+              </code>
+            </pre>
+          </ContentBoxContent>
+        </ContentBox>
+      </li>
+      <li className="sg-list__element">
+        <ContentBox>
+          <ContentBoxHeader>
+            <p className="sg-text">
+              <a
+                href="./basics.html#mobile-icons"
+                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+              >
+                Mobile Icons
+              </a>
+              :
+            </p>
+          </ContentBoxHeader>
+          <ContentBoxContent>
+            <pre>
+              <code className="html">
+                &lt;script
+                src=&quot;https://styleguide.brainly.com/%%images/mobile-icons.js%%&quot;&gt;&lt;/script&gt;
               </code>
             </pre>
           </ContentBoxContent>
