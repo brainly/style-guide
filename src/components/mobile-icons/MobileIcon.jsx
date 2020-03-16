@@ -41,13 +41,13 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   STAR_OUTLINE: 'star-outline',
 };
 
-type PropsType = {
+type PropsType = $ReadOnly<{
   type: IconTypeType,
   size?: SizeType,
   color?: IconColorType,
   className?: string,
   ...
-};
+}>;
 
 const MobileIcon = ({
   type,
