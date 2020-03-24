@@ -21,7 +21,7 @@ const RoundButtons = () => {
       values: ROUND_BUTTON_COLOR,
     },
     {
-      name: 'icon',
+      name: 'iconType',
       values: ROUND_BUTTON_ICON_TYPE,
       required: true,
     },
