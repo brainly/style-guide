@@ -48,7 +48,7 @@ const demos = {
   Avatars: <Avatars />,
   Bubbles: <Bubbles />,
   Buttons: <Buttons />,
-  RoundButtons: <RoundButtons />,
+  'Round Buttons': <RoundButtons />,
   Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
   'Subject icons': <SubjectIcons />,
