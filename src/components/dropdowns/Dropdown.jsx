@@ -57,7 +57,12 @@ const Dropdown = ({
       onClick={handleClickInside}
     >
       <p>{name}</p>
-      <Icon type={open ? 'arrow_up' : 'arrow_down'} size={24} color="gray" />
+      <Icon
+        type={open ? 'arrow_up' : 'arrow_down'}
+        size={24}
+        color="gray"
+        className="sg-dropdown__icon"
+      />
 
       {open && (
         <div className="sg-dropdown__items">
