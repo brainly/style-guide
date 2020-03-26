@@ -3,6 +3,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Text from '../text/Text';
+import Flex from 'flex/Flex';
 
 type InputSizeType = 'normal' | 'large';
 
@@ -160,14 +161,6 @@ const Input = (props: InputPropsType) => {
     className
   );
 
-  const errorMessageClass = classnames(
-    'sg-input__error-message',
-    {
-      [`sg-input__error-message--${String(size)}`]: size !== SIZE.NORMAL,
-    },
-    className
-  );
-
   return (
     <>
       <input
@@ -180,13 +173,14 @@ const Input = (props: InputPropsType) => {
       {errorMessage !== undefined &&
         errorMessage !== null &&
         errorMessage !== '' && (
-          <Text
-            size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
-            color="peach-dark"
-            className={errorMessageClass}
-          >
-            {errorMessage}
-          </Text>
+          <Flex marginTop="xxs" marginLeft={size === SIZE.NORMAL ? 's' : 'm'}>
+            <Text
+              size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
+              color="peach-dark"
+            >
+              {errorMessage}
+            </Text>
+          </Flex>
         )}
     </>
   );

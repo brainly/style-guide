@@ -118,15 +118,6 @@ $includeHtml: false !default;
       line-height: 24px;
       height: auto;
     }
-
-    &__error-message {
-      margin-left: 16px;
-      margin-top: spacing(xxs);
-
-      &--large {
-        margin-left: 24px;
-      }
-    }
   }
-  
+
 }

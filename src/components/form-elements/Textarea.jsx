@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import Text from '../text/Text';
+import Flex from 'flex/Flex';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
 
@@ -130,14 +131,6 @@ const Textarea = (props: TextareaPropsType) => {
     className
   );
 
-  const errorMessageClass = classnames(
-    'sg-textarea__error-message',
-    {
-      [`sg-textarea__error-message--${String(size)}`]: size !== SIZE.NORMAL,
-    },
-    className
-  );
-
   return (
     <>
       <Type
@@ -149,13 +142,14 @@ const Textarea = (props: TextareaPropsType) => {
       {errorMessage !== undefined &&
         errorMessage !== null &&
         errorMessage !== '' && (
-          <Text
-            size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
-            color="peach-dark"
-            className={errorMessageClass}
-          >
-            {errorMessage}
-          </Text>
+          <Flex marginTop="xxs" marginLeft={size === SIZE.NORMAL ? 's' : 'm'}>
+            <Text
+              size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
+              color="peach-dark"
+            >
+              {errorMessage}
+            </Text>
+          </Flex>
         )}
     </>
   );
