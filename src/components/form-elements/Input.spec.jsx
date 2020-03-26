@@ -1,35 +1,40 @@
 import React from 'react';
-import Input, {SIZE, COLOR} from './Input';
+import Input from './Input';
 import {shallow} from 'enzyme';
 
 test('render', () => {
-  const input = shallow(<Input />);
+  const component = shallow(<Input />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input')).toEqual(true);
 });
 
 test('full width', () => {
-  const input = shallow(<Input fullWidth />);
+  const component = shallow(<Input fullWidth />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--full-width')).toEqual(true);
 });
 
 test('default validation', () => {
-  const input = shallow(<Input />);
+  const component = shallow(<Input />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--valid')).toEqual(false);
   expect(input.hasClass('sg-input--invalid')).toEqual(false);
 });
 
 test('valid', () => {
-  const input = shallow(<Input valid />);
+  const component = shallow(<Input valid />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--valid')).toEqual(true);
   expect(input.hasClass('sg-input--invalid')).toEqual(false);
 });
 
 test('invalid', () => {
-  const input = shallow(<Input invalid />);
+  const component = shallow(<Input invalid />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--invalid')).toEqual(true);
   expect(input.hasClass('sg-input--valid')).toEqual(false);
@@ -42,26 +47,30 @@ test('error when both valid and invalid', () => {
 });
 
 test('size', () => {
-  const input = shallow(<Input size={SIZE.LARGE} />);
+  const component = shallow(<Input size="large" />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--large')).toEqual(true);
 });
 
 test('default size', () => {
-  const input = shallow(<Input />);
+  const component = shallow(<Input />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--normal')).toEqual(false);
   expect(input.hasClass('sg-input--large')).toEqual(false);
 });
 
 test('color', () => {
-  const input = shallow(<Input color={COLOR.WHITE} />);
+  const component = shallow(<Input color="white" />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--white')).toEqual(true);
 });
 
 test('default color', () => {
-  const input = shallow(<Input />);
+  const component = shallow(<Input />);
+  const input = component.find('input');
 
   expect(input.hasClass('sg-input--normal')).toEqual(false);
   expect(input.hasClass('sg-input--light')).toEqual(false);
