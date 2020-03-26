@@ -162,7 +162,7 @@ const Input = (props: InputPropsType) => {
   );
 
   return (
-    <>
+    <div>
       <input
         {...additionalProps}
         type={type}
@@ -182,7 +182,7 @@ const Input = (props: InputPropsType) => {
             </Text>
           </Flex>
         )}
-    </>
+    </div>
   );
 };
 

@@ -132,7 +132,7 @@ const Textarea = (props: TextareaPropsType) => {
   );
 
   return (
-    <>
+    <div>
       <Type
         {...additionalProps}
         className={textareaClass}
@@ -151,7 +151,7 @@ const Textarea = (props: TextareaPropsType) => {
             </Text>
           </Flex>
         )}
-    </>
+    </div>
   );
 };
 
