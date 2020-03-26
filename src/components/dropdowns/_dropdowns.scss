@@ -56,8 +56,8 @@
     overflow-y: auto;
     border-top: none;
     border-radius: 20px;
-    box-shadow: $elevatedContainerShadow;
     background-color: $white;
+    box-shadow: $elevatedContainerShadow;
     transition: background-color, box-shadow 0.2s;
   }
 
