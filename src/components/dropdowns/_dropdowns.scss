@@ -8,21 +8,22 @@
   padding: 0 spacing(s);
   font-size: fontSize(medium);
   line-height: rhythm(5 / 6);
-  border: none;
   border-radius: 50px;
   outline: 0;
   background-color: $graySecondaryLightest;
   cursor: pointer;
   user-select: none;
   appearance: none;
+  border: 2px solid $graySecondaryLightest;
 
   &:hover {
+    border-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
     background-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
   }
 
   &--opened {
     background-color: $white;
-    border: 2px solid $graySecondaryLight;
+    border-color: $graySecondaryLight;
 
     &:hover {
       background-color: mix($white, $graySecondaryUltraLight, 12%);
