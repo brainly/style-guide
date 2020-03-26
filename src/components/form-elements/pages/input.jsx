@@ -59,6 +59,26 @@ const textInputs = () => (
         </Flex>
       </Flex>
     </DocsBlock>
+    <DocsBlock info="Invalid with error message">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Input
+            placeholder="placeholder"
+            invalid
+            errorMessage="This is an error message"
+            onChange={voidFunction}
+          />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Input
+            size="large"
+            placeholder="This is invalid example"
+            errorMessage="This is an error message"
+            invalid
+          />
+        </Flex>
+      </Flex>
+    </DocsBlock>
     <DocsBlock info="Full width">
       <Input placeholder="placeholder" fullWidth />
     </DocsBlock>

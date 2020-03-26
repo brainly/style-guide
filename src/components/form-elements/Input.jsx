@@ -2,6 +2,7 @@
 
 import React from 'react';
 import classnames from 'classnames';
+import Text from '../text/Text';
 
 type InputSizeType = 'normal' | 'large';
 
@@ -108,6 +109,11 @@ export type InputPropsType = {
    */
   withIcon?: boolean,
   /**
+   * Optional string if there should be an error message displayed
+   * @example <Input errorMessage="This is an error" />
+   */
+  errorMessage?: string,
+  /**
    * Additional class names
    */
   className?: string,
@@ -130,6 +136,7 @@ const Input = (props: InputPropsType) => {
     invalid,
     className,
     setInputRef,
+    errorMessage,
     ...additionalProps
   } = props;
 
@@ -153,14 +160,35 @@ const Input = (props: InputPropsType) => {
     className
   );
 
+  const errorMessageClass = classnames(
+    'sg-input__error-message',
+    {
+      [`sg-input__error-message--${String(size)}`]: size !== SIZE.NORMAL,
+    },
+    className
+  );
+
   return (
-    <input
-      {...additionalProps}
-      type={type}
-      ref={setInputRef}
-      className={inputClass}
-      value={value}
-    />
+    <>
+      <input
+        {...additionalProps}
+        type={type}
+        ref={setInputRef}
+        className={inputClass}
+        value={value}
+      />
+      {errorMessage !== undefined &&
+        errorMessage !== null &&
+        errorMessage !== '' && (
+          <Text
+            size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
+            color="peach-dark"
+            className={errorMessageClass}
+          >
+            {errorMessage}
+          </Text>
+        )}
+    </>
   );
 };
 

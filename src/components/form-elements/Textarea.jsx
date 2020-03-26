@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
+import Text from '../text/Text';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
 
@@ -78,6 +79,11 @@ export type TextareaPropsType = {
    */
   autoHeight?: boolean,
   /**
+   * Optional string if there should be an error message displayed
+   * @example <Textarea errorMessage="This is an error" />
+   */
+  errorMessage?: string,
+  /**
    * Additional class names
    */
   className?: string,
@@ -97,6 +103,7 @@ const Textarea = (props: TextareaPropsType) => {
     value,
     className,
     textareaRef,
+    errorMessage,
     type: Type = 'textarea',
     ...additionalProps
   } = props;
@@ -123,13 +130,34 @@ const Textarea = (props: TextareaPropsType) => {
     className
   );
 
+  const errorMessageClass = classnames(
+    'sg-textarea__error-message',
+    {
+      [`sg-textarea__error-message--${String(size)}`]: size !== SIZE.NORMAL,
+    },
+    className
+  );
+
   return (
-    <Type
-      {...additionalProps}
-      className={textareaClass}
-      ref={textareaRef}
-      value={value}
-    />
+    <>
+      <Type
+        {...additionalProps}
+        className={textareaClass}
+        ref={textareaRef}
+        value={value}
+      />
+      {errorMessage !== undefined &&
+        errorMessage !== null &&
+        errorMessage !== '' && (
+          <Text
+            size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
+            color="peach-dark"
+            className={errorMessageClass}
+          >
+            {errorMessage}
+          </Text>
+        )}
+    </>
   );
 };
 

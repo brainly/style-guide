@@ -122,5 +122,14 @@ $includeHtml: false !default;
     &--with-icon {
       padding-right: 40px;
     }
+
+    &__error-message {
+      margin-left: 16px;
+      margin-top: spacing(xxs);
+
+      &--large {
+        margin-left: 24px;
+      }
+    }
   }
 }
