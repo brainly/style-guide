@@ -21,7 +21,12 @@
   }
 
   &--opened {
-    background-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
+    background-color: $white;
+    border: 2px solid $graySecondaryLight;
+
+    &:hover {
+      background-color: mix($white, $graySecondaryUltraLight, 12%);
+    }
 
     .sg-dropdown__items {
       display: block;
@@ -32,24 +37,6 @@
 
   &--white {
     background-color: $white;
-
-    &:hover {
-      background-color: mix($white, $graySecondaryUltraLight, 16%);
-    }
-
-    .sg-dropdown__items {
-      background-color: $white;
-    }
-
-    .sg-dropdown__item {
-      &:hover {
-        background-color: mix($white, $graySecondaryUltraLight, 16%);
-      }
-    }
-  }
-
-  &--opened#{&}--white {
-    background-color: mix($white, $graySecondaryUltraLight, 16%);
   }
 
   &--full-width {
@@ -69,8 +56,9 @@
     overflow-y: auto;
     border-top: none;
     border-radius: 20px;
-    background-color: $graySecondaryLightest;
-    transition: background-color 0.2s;
+    background-color: $white;
+    box-shadow: $elevatedContainerShadow;
+    transition: background-color, box-shadow 0.2s;
   }
 
   &__item {
@@ -80,7 +68,11 @@
     text-decoration: none;
 
     &:hover {
-      background-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
+      background-color: $graySecondaryLightest;
     }
+  }
+
+  &__icon {
+    margin-left: spacing(xs);
   }
 }
