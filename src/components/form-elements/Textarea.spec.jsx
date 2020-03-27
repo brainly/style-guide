@@ -3,45 +3,52 @@ import Textarea, {SIZE} from './Textarea';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
-  const textarea = shallow(<Textarea />);
+  const component = shallow(<Textarea />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea')).toEqual(true);
 });
 
 test('full width', () => {
-  const textarea = shallow(<Textarea fullWidth />);
+  const component = shallow(<Textarea fullWidth />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--full-width')).toEqual(true);
 });
 
 test('auto height', () => {
-  const textarea = shallow(<Textarea autoHeight />);
+  const component = shallow(<Textarea autoHeight />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--auto-height')).toEqual(true);
 });
 
 test('simple', () => {
-  const textarea = shallow(<Textarea simple />);
+  const component = shallow(<Textarea simple />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--simple')).toEqual(true);
 });
 
 test('default validation', () => {
-  const textarea = shallow(<Textarea />);
+  const component = shallow(<Textarea />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
 
 test('valid', () => {
-  const textarea = shallow(<Textarea valid />);
+  const component = shallow(<Textarea valid />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(true);
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
 
 test('invalid', () => {
-  const textarea = shallow(<Textarea invalid />);
+  const component = shallow(<Textarea invalid />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
   expect(textarea.hasClass('sg-textarea--invalid')).toEqual(true);
@@ -54,13 +61,15 @@ test('error when both valid and invalid', () => {
 });
 
 test('size', () => {
-  const textarea = shallow(<Textarea size={SIZE.SHORT} />);
+  const component = shallow(<Textarea size={SIZE.SHORT} />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--short')).toEqual(true);
 });
 
 test('default size', () => {
-  const textarea = shallow(<Textarea />);
+  const component = shallow(<Textarea />);
+  const textarea = component.find('textarea');
 
   expect(textarea.hasClass('sg-textarea--normal')).toEqual(false);
   expect(textarea.hasClass('sg-textarea--short')).toEqual(false);

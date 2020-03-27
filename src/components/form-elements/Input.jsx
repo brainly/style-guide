@@ -2,6 +2,8 @@
 
 import React from 'react';
 import classnames from 'classnames';
+import Text from '../text/Text';
+import Flex from 'flex/Flex';
 
 type InputSizeType = 'normal' | 'large';
 
@@ -108,6 +110,11 @@ export type InputPropsType = {
    */
   withIcon?: boolean,
   /**
+   * Optional string if there should be an error message displayed
+   * @example <Input errorMessage="This is an error" />
+   */
+  errorMessage?: string,
+  /**
    * Additional class names
    */
   className?: string,
@@ -130,6 +137,7 @@ const Input = (props: InputPropsType) => {
     invalid,
     className,
     setInputRef,
+    errorMessage,
     ...additionalProps
   } = props;
 
@@ -153,7 +161,29 @@ const Input = (props: InputPropsType) => {
     className
   );
 
-  return (
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-input__wrapper--full-width': fullWidth,
+  });
+
+  const errorMessageDisplayed =
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
+
+  return errorMessageDisplayed ? (
+    <div className={wrapperClass}>
+      <input
+        {...additionalProps}
+        type={type}
+        ref={setInputRef}
+        className={inputClass}
+        value={value}
+      />
+      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
+        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+          {errorMessage}
+        </Text>
+      </Flex>
+    </div>
+  ) : (
     <input
       {...additionalProps}
       type={type}

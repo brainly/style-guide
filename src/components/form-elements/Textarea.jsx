@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
+import Text from '../text/Text';
+import Flex from 'flex/Flex';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
 
@@ -78,6 +80,11 @@ export type TextareaPropsType = {
    */
   autoHeight?: boolean,
   /**
+   * Optional string if there should be an error message displayed
+   * @example <Textarea errorMessage="This is an error" />
+   */
+  errorMessage?: string,
+  /**
    * Additional class names
    */
   className?: string,
@@ -97,6 +104,7 @@ const Textarea = (props: TextareaPropsType) => {
     value,
     className,
     textareaRef,
+    errorMessage,
     type: Type = 'textarea',
     ...additionalProps
   } = props;
@@ -123,7 +131,28 @@ const Textarea = (props: TextareaPropsType) => {
     className
   );
 
-  return (
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-textarea__wrapper--full-width': fullWidth,
+  });
+
+  const errorMessageDisplayed =
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
+
+  return errorMessageDisplayed ? (
+    <div className={wrapperClass}>
+      <Type
+        {...additionalProps}
+        className={textareaClass}
+        ref={textareaRef}
+        value={value}
+      />
+      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
+        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+          {errorMessage}
+        </Text>
+      </Flex>
+    </div>
+  ) : (
     <Type
       {...additionalProps}
       className={textareaClass}

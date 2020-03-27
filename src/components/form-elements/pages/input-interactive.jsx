@@ -21,6 +21,10 @@ const Inputs = () => {
       values: String,
     },
     {
+      name: 'errorMessage',
+      values: String,
+    },
+    {
       name: 'placeholder',
       values: String,
     },

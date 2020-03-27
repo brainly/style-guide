@@ -21,6 +21,10 @@ const Textareas = () => {
       values: String,
     },
     {
+      name: 'errorMessage',
+      values: String,
+    },
+    {
       name: 'fullWidth',
       values: Boolean,
     },

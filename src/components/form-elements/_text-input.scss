@@ -122,5 +122,13 @@ $includeHtml: false !default;
     &--with-icon {
       padding-right: 40px;
     }
+
+    &__wrapper {
+      display: inline-block;
+
+      &--full-width {
+        width: 100%;
+      }
+    }
   }
 }

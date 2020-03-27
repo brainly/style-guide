@@ -33,6 +33,13 @@ const textareas = () => (
           value="This is invalid example"
           onChange={voidFunction}
         />,
+        <Textarea
+          key={3}
+          placeholder="placeholder"
+          invalid
+          errorMessage="This is an error message"
+          onChange={voidFunction}
+        />,
       ]}
     />
     <DocsBlock
