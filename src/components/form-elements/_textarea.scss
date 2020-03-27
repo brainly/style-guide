@@ -118,6 +118,13 @@ $includeHtml: false !default;
       line-height: 24px;
       height: auto;
     }
+
+    &__wrapper {
+
+      &--full-width {
+        width: 100%;
+      }
+    }
   }
 
 }

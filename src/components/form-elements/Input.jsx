@@ -161,8 +161,15 @@ const Input = (props: InputPropsType) => {
     className
   );
 
-  return (
-    <div>
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-input__wrapper--full-width': fullWidth,
+  });
+
+  const errorMessageDisplayed =
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
+
+  return errorMessageDisplayed ? (
+    <div className={wrapperClass}>
       <input
         {...additionalProps}
         type={type}
@@ -170,19 +177,20 @@ const Input = (props: InputPropsType) => {
         className={inputClass}
         value={value}
       />
-      {errorMessage !== undefined &&
-        errorMessage !== null &&
-        errorMessage !== '' && (
-          <Flex marginTop="xxs" marginLeft={size === SIZE.NORMAL ? 's' : 'm'}>
-            <Text
-              size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
-              color="peach-dark"
-            >
-              {errorMessage}
-            </Text>
-          </Flex>
-        )}
+      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
+        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+          {errorMessage}
+        </Text>
+      </Flex>
     </div>
+  ) : (
+    <input
+      {...additionalProps}
+      type={type}
+      ref={setInputRef}
+      className={inputClass}
+      value={value}
+    />
   );
 };
 

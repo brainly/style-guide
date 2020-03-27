@@ -131,27 +131,34 @@ const Textarea = (props: TextareaPropsType) => {
     className
   );
 
-  return (
-    <div>
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-textarea__wrapper--full-width': fullWidth,
+  });
+
+  const errorMessageDisplayed =
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
+
+  return errorMessageDisplayed ? (
+    <div className={wrapperClass}>
       <Type
         {...additionalProps}
         className={textareaClass}
         ref={textareaRef}
         value={value}
       />
-      {errorMessage !== undefined &&
-        errorMessage !== null &&
-        errorMessage !== '' && (
-          <Flex marginTop="xxs" marginLeft={size === SIZE.NORMAL ? 's' : 'm'}>
-            <Text
-              size={size === SIZE.NORMAL ? 'xsmall' : 'small'}
-              color="peach-dark"
-            >
-              {errorMessage}
-            </Text>
-          </Flex>
-        )}
+      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
+        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+          {errorMessage}
+        </Text>
+      </Flex>
     </div>
+  ) : (
+    <Type
+      {...additionalProps}
+      className={textareaClass}
+      ref={textareaRef}
+      value={value}
+    />
   );
 };
 
