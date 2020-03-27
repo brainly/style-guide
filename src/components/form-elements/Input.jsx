@@ -3,7 +3,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import Text from '../text/Text';
-import Flex from 'flex/Flex';
+import Flex from '../flex/Flex';
 
 type InputSizeType = 'normal' | 'large';
 
