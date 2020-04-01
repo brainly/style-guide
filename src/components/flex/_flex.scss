@@ -10,6 +10,31 @@ $flexSpacingsMap: (
   'xxxxl': spacing(xxxxl),
 );
 
+$flexSideList: (
+  top
+  right
+  bottom
+  left
+);
+
+$flexProps: (
+  justify-content
+  align-items
+  align-self
+);
+$flexJustifyValues: (
+  space-between
+  space-evenly
+  space-around
+);
+$flexAlignmentValues: (
+  center
+  flex-start
+  flex-end
+  baseline
+  stretch
+);
+
 .sg-flex {
   display: flex;
 
@@ -53,98 +78,32 @@ $flexSpacingsMap: (
     flex-wrap: wrap-reverse;
   }
 
-  &--justify-content-space-between {
-    justify-content: space-between;
+  @each $value in $flexJustifyValues {
+    &--justify-content-#{$value} {
+      justify-content: #{$value};
+    }
   }
 
-  &--justify-content-center {
-    justify-content: center;
+  @each $propName in $flexProps {
+    @each $propValue in $flexAlignmentValues {
+      &--#{$propName}-#{$propValue} {
+        #{$propName}: #{$propValue};
+      }
+    }
   }
 
-  &--justify-content-flex-start {
-    justify-content: flex-start;
+  @each $sizeName, $size in $flexSpacingsMap {
+    &--margin-#{$sizeName} {
+      margin: #{$size};
+    }
   }
 
-  &--justify-content-flex-end {
-    justify-content: flex-end;
-  }
-
-  &--justify-content-baseline {
-    justify-content: baseline;
-  }
-
-  &--justify-content-stretch {
-    justify-content: stretch;
-  }
-
-  &--justify-content-space-evenly {
-    justify-content: space-evenly;
-  }
-
-  &--justify-content-space-around {
-    justify-content: space-around;
-  }
-
-  &--align-items-center {
-    align-items: center;
-  }
-
-  &--align-items-flex-start {
-    align-items: flex-start;
-  }
-
-  &--align-items-flex-end {
-    align-items: flex-end;
-  }
-
-  &--align-items-baseline {
-    align-items: baseline;
-  }
-
-  &--align-items-stretch {
-    align-items: stretch;
-  }
-
-  &--align-self-center {
-    align-self: center;
-  }
-
-  &--align-self-flex-start {
-    align-self: flex-start;
-  }
-
-  &--align-self-flex-end {
-    align-self: flex-end;
-  }
-
-  &--align-self-baseline {
-    align-self: baseline;
-  }
-
-  &--align-self-stretch {
-    align-self: stretch;
-  }
-}
-
-@each $sizeName, $size in $flexSpacingsMap {
-  .sg-flex--margin-#{$sizeName} {
-    margin: #{$size};
-  }
-
-  .sg-flex--margin-top-#{$sizeName} {
-    margin-top: #{$size};
-  }
-
-  .sg-flex--margin-right-#{$sizeName} {
-    margin-right: #{$size};
-  }
-
-  .sg-flex--margin-bottom-#{$sizeName} {
-    margin-bottom: #{$size};
-  }
-
-  .sg-flex--margin-left-#{$sizeName} {
-    margin-left: #{$size};
+  @each $sizeName, $size in $flexSpacingsMap {
+    @each $side in $flexSideList {
+      &--margin-#{$side}-#{$sizeName} {
+        margin-#{$side}: #{$size};
+      }
+    }
   }
 }
 
