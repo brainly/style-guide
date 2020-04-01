@@ -10,7 +10,7 @@ $flexSpacingsMap: (
   'xxxxl': spacing(xxxxl),
 );
 
-$flexSideList: (
+$marginSides: (
   top
   right
   bottom
@@ -99,7 +99,7 @@ $flexAlignmentValues: (
   }
 
   @each $sizeName, $size in $flexSpacingsMap {
-    @each $side in $flexSideList {
+    @each $side in $marginSides {
       &--margin-#{$side}-#{$sizeName} {
         margin-#{$side}: #{$size};
       }
