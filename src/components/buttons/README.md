@@ -87,7 +87,7 @@ import {Button} from 'style-guide';
 ```
 
 #### Additional buttons
-There are also 1 additional button created for special case: facebook button, which has custom color from outside the palette.
+There is also 1 additional button created for special case: facebook button, which has custom color from outside the palette.
 
 ```jsx
 import {Button} from 'style-guide';
