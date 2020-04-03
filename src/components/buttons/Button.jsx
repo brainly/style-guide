@@ -20,8 +20,6 @@ export const BUTTON_TYPE = Object.freeze({
   LINK_BUTTON_INVERTED: 'link-button-inverted',
   LINK_BUTTON_PEACH: 'link-button-peach',
   LINK_BUTTON_MUSTRAD: 'link-button-mustard',
-  DETRUCTIVE: 'destructive',
-  WARNING: 'warning',
   FACEBOOK: 'facebook',
 });
 
@@ -35,8 +33,6 @@ type ButtonTypeType =
   | 'link-button-inverted'
   | 'link-button-peach'
   | 'link-button-mustard'
-  | 'destructive'
-  | 'warning'
   | 'facebook';
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
@@ -66,8 +62,6 @@ export type ButtonPropsType = {
    * @see type="link-button-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
    * @see type="link-button-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-peach"#buttons
    * @see type="link-button-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-mustard"#buttons
-   * @see type="destructive" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
-   * @see type="warning" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
    * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
    */
   type: ButtonTypeType,

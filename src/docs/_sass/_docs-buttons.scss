@@ -35,14 +35,6 @@
     @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
   }
 
-  &--destructive {
-    @include sgButtonHoverMix($peachPrimary, $peachSecondary, 80%);
-  }
-
-  &--warning {
-    @include sgButtonHoverMix($mustardPrimary, $mustardSecondary, 80%);
-  }
-
   &--facebook {
     background-color: $buttonPrimaryFbHoverColor;
     border-color: $buttonPrimaryFbHoverColor;

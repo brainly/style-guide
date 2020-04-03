@@ -141,18 +141,6 @@
     color: $mustardPrimary;
   }
 
-  &--destructive {
-    @include buttonHover($peachPrimary, $peachSecondary, 80%);
-    background-color: $peachSecondary;
-    color: $black;
-  }
-
-  &--warning {
-    @include buttonHover($mustardPrimary, $mustardSecondary, 80%);
-    background-color: $mustardSecondary;
-    color: $black;
-  }
-
   &--facebook {
     background-color: $buttonPrimaryFbColor;
     color: $white;
