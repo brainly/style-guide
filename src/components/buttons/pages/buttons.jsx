@@ -16,9 +16,7 @@ const getIconColor = type => {
   if (
     type === 'primary-inverted' ||
     type === 'secondary' ||
-    type === 'destructive' ||
-    type === 'link-button' ||
-    type === 'warning'
+    type === 'link-button'
   ) {
     return 'dark';
   } else if (type === 'link-button-peach') {
