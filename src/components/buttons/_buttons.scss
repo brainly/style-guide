@@ -141,6 +141,31 @@
     color: $mustardPrimary;
   }
 
+  &--link-button,
+  &--link-button-inverted,
+  &--link-button-peach,
+  &--link-button-mustard {
+    &.sg-button {
+      padding: 0 10px;
+    }
+
+    &.sg-button--large {
+      padding: 0 14px;
+    }
+
+    &.sg-button--small {
+      padding: 0 spacing(xs);
+    }
+
+    .sg-button__icon {
+      margin-left: -2px;
+
+      &--large {
+        margin-left: -3px;
+      }
+    }
+  }
+
   &--facebook {
     background-color: $buttonPrimaryFbColor;
     color: $white;
