@@ -87,18 +87,10 @@ import {Button} from 'style-guide';
 ```
 
 #### Additional buttons
-There are also 3 additional buttons created for special cases - destructive and warning, and facebook button, what have custom set of colors from outside the palette.
+There is also 1 additional button created for special case: facebook button, which has custom color from outside the palette.
 
 ```jsx
 import {Button} from 'style-guide';
-
-<Button type="destructive">
-    Mustard destructive button
-</Button>
-
-<Button type="warning">
-    Peach warning
-</Button>
 
 <Button type="facebook">
     I am FB button
@@ -149,7 +141,7 @@ import {Button} from 'style-guide';
 | Prop name | Type | Default | Description |
 | :- | :- | :-: | :- |
 | size | String | `medium`| use `small`, `medium` or `large` to set the size of the Button
-| type | String |`primary` | use `primary`, `primary-inverted`, `primary-blue`, `primary-mint`,`secondary`, `link-button`, `link-button-inverted`, `link-button-peach`, `link-button-mustard`, `destructive`, `warning`, `facebook` to set the type of the Button
+| type | String |`primary` | use `primary`, `primary-inverted`, `primary-blue`, `primary-mint`,`secondary`, `link-button`, `link-button-inverted`, `link-button-peach`, `link-button-mustard`, `facebook` to set the type of the Button
 | href | String | `button` | sets the HTML tag for the component |
 | disabled | Boolean | `false` | sets the `disabled` attribute on the Button |
 | fullWidth | Boolean | `false` | adds class responsible for making button 100% of it's parent |
