@@ -146,4 +146,3 @@ import {Button} from 'style-guide';
 | disabled | Boolean | `false` | sets the `disabled` attribute on the Button |
 | fullWidth | Boolean | `false` | adds class responsible for making button 100% of it's parent |
 | icon | Node |  | optional icon inserted on the left side |
-
