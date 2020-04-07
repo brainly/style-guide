@@ -9,10 +9,10 @@ describe('ActionList', () => {
     const actionList = shallow(
       <ActionList>
         <ActionListHole>
-          <Button type="primary">accept</Button>
+          <Button type="solid">accept</Button>
         </ActionListHole>
         <ActionListHole>
-          <Button type="primary-inverse">accept</Button>
+          <Button type="solid-inverse">accept</Button>
         </ActionListHole>
       </ActionList>
     );

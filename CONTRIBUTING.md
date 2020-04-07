@@ -94,7 +94,7 @@ or just:
 ```
 import Button from 'components/buttons/Button';
 
-<Button type="primary">Button</Button>
+<Button type="solid">Button</Button>
 ```
 #### Components options
 

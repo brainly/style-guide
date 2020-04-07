@@ -32,12 +32,12 @@ const ActionLists = () => {
       <DocsActiveBlock settings={settings}>
         <ActionList>
           <ActionListHole>
-            <Button type="primary-blue" size="small">
+            <Button type="solid-blue" size="small">
               accept
             </Button>
           </ActionListHole>
           <ActionListHole>
-            <Button type="primary">Later</Button>
+            <Button type="solid">Later</Button>
           </ActionListHole>
         </ActionList>
       </DocsActiveBlock>

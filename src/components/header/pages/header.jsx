@@ -54,7 +54,7 @@ const Headers = () => (
               <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
                 <div>
                   <HeaderRight>
-                    <Button type="primary" size="small">
+                    <Button type="solid" size="small">
                       Register
                     </Button>
                     <IconAsButton
@@ -103,7 +103,7 @@ const Headers = () => (
               <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
                 <div>
                   <HeaderRight>
-                    <Button type="primary" size="small">
+                    <Button type="solid" size="small">
                       Register
                     </Button>
                     <IconAsButton
@@ -150,12 +150,12 @@ const Headers = () => (
                   <HeaderRight>
                     <ActionList>
                       <ActionListHole>
-                        <Button type="primary-inverted" size="small">
+                        <Button type="solid-inverted" size="small">
                           Log in
                         </Button>
                       </ActionListHole>
                       <ActionListHole>
-                        <Button type="primary" size="small">
+                        <Button type="solid" size="small">
                           Join now
                         </Button>
                       </ActionListHole>

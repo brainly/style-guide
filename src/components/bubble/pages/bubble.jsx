@@ -117,7 +117,7 @@ const Bubbles = () => (
             </Text>
           </ContentBoxContent>
           <ContentBoxActions>
-            <Button type="primary-blue" size="small">
+            <Button type="solid-blue" size="small">
               Join us!
             </Button>
           </ContentBoxActions>

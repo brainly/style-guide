@@ -16,15 +16,15 @@ const SpinnerContainers = () => (
   <div>
     <DocsBlock info="with Primary Button" additionalInfo="(small size)">
       <SpinnerContainer>
-        <Button type="primary-blue">Ask your question</Button>
+        <Button type="solid-blue">Ask your question</Button>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.SMALL}>
-        <Button disabled={IS_LOADING} type="primary-blue">
+        <Button disabled={IS_LOADING} type="solid-blue">
           Ask your question
         </Button>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.SMALL}>
-        <Button disabled={IS_LOADING} type="primary">
+        <Button disabled={IS_LOADING} type="solid">
           Ask your question
         </Button>
       </SpinnerContainer>
@@ -32,15 +32,15 @@ const SpinnerContainers = () => (
 
     <DocsBlock info="with Secondary Button" additionalInfo="(xsmall size)">
       <SpinnerContainer>
-        <Button type="primary-blue">Ask your question</Button>
+        <Button type="solid-blue">Ask your question</Button>
       </SpinnerContainer>
       <SpinnerContainer loading size={SPINNER_SIZE.XSMALL}>
-        <Button disabled={IS_LOADING} type="primary-blue">
+        <Button disabled={IS_LOADING} type="solid-blue">
           Ask your question
         </Button>
       </SpinnerContainer>
       <SpinnerContainer loading light size={SPINNER_SIZE.XSMALL}>
-        <Button disabled={IS_LOADING} type="primary">
+        <Button disabled={IS_LOADING} type="solid">
           Ask your question
         </Button>
       </SpinnerContainer>
@@ -56,7 +56,7 @@ const SpinnerContainers = () => (
               </Headline>
             </ContentBoxHeader>
             <ContentBoxActions>
-              <Button type="primary-blue" fullWidth>
+              <Button type="solid-blue" fullWidth>
                 Ask your question
               </Button>
             </ContentBoxActions>

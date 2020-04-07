@@ -130,7 +130,7 @@ const Toplayers = () => {
               </List>
             </ContentBoxContent>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <Button type="primary">Join us</Button>
+              <Button type="solid">Join us</Button>
             </ContentBoxContent>
           </ContentBox>
         </TopLayer>
