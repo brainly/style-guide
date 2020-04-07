@@ -9,7 +9,7 @@ test('render', () => {
 });
 
 test('type', () => {
-  const buttonType = BUTTON_TYPE.PRIMARY_BLUE;
+  const buttonType = BUTTON_TYPE.SOLID_BLUE;
   const button = shallow(<Button type={buttonType}>Some text</Button>);
 
   expect(button.hasClass(`sg-button--${buttonType}`)).toEqual(true);
@@ -35,7 +35,7 @@ test('not disabled', () => {
   expect(button.is('[disabled]')).toEqual(false);
 });
 
-test("primary don't have small", () => {
+test("solid don't have small", () => {
   const button = shallow(<Button small>Some text</Button>);
 
   expect(button.hasClass('sg-button--small')).toEqual(false);

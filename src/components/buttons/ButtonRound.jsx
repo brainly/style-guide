@@ -25,13 +25,13 @@ const ButtonRound = ({
   let labelElem;
 
   if (label !== undefined && label !== null && label !== '') {
-    labelElem = <span className="sg-button-primary-round__label">{label}</span>;
+    labelElem = <span className="sg-button-solid-round__label">{label}</span>;
   }
-  const buttonClass = classnames('sg-button-primary-round', className);
+  const buttonClass = classnames('sg-button-solid-round', className);
 
   return (
     <a {...props} href={href} className={buttonClass}>
-      <div className="sg-button-primary-round__icon">{children}</div>
+      <div className="sg-button-solid-round__icon">{children}</div>
       {labelElem}
     </a>
   );

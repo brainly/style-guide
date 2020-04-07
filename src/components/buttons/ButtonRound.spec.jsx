@@ -5,7 +5,7 @@ import {shallow} from 'enzyme';
 test('render', () => {
   const button = shallow(<ButtonRound>Some text</ButtonRound>);
 
-  expect(button.hasClass('sg-button-primary-round')).toEqual(true);
+  expect(button.hasClass('sg-button-solid-round')).toEqual(true);
 });
 
 test('href', () => {
@@ -20,13 +20,13 @@ test('label', () => {
   const button = shallow(<ButtonRound label={label}>Some text</ButtonRound>);
 
   expect(button.contains(label)).toEqual(true);
-  expect(button.find('.sg-button-primary-round__label')).toHaveLength(1);
+  expect(button.find('.sg-button-solid-round__label')).toHaveLength(1);
 });
 
 test('no label', () => {
   const button = shallow(<ButtonRound>Some text</ButtonRound>);
 
-  expect(button.find('sg-button-primary-round__label')).toHaveLength(0);
+  expect(button.find('sg-button-solid-round__label')).toHaveLength(0);
 });
 
 test('func', () => {

@@ -54,10 +54,10 @@ const Buttons = () => {
   return (
     <div>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button type={BUTTON_TYPE.PRIMARY_BLUE}>Ask your question</Button>
+        <Button type={BUTTON_TYPE.SOLID_BLUE}>Ask your question</Button>
       </DocsActiveBlock>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button icon={allIcons.ANSWER} type={BUTTON_TYPE.PRIMARY}>
+        <Button icon={allIcons.ANSWER} type={BUTTON_TYPE.SOLID}>
           Answer
         </Button>
       </DocsActiveBlock>

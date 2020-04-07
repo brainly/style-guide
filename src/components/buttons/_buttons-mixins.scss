@@ -47,8 +47,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     border-color: mix($mintPrimaryDark, $mintPrimary, 80%);
   }
 
-  &.sg-button-primary--disabled,
-  &.sg-button-secondary--disabled {
+  &.sg-button-solid--disabled,
+  &.sg-button-outline--disabled {
     &:hover,
     &:active,
     &:focus {
@@ -68,8 +68,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
       border-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
     }
 
-    &.sg-button-primary--disabled,
-    &.sg-button-secondary--disabled {
+    &.sg-button-solid--disabled,
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -90,8 +90,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
       border-color: mix($grayPrimary, $buttonDarkColor, 80%);
     }
 
-    &.sg-button-primary--disabled,
-    &.sg-button-secondary--disabled {
+    &.sg-button-solid--disabled,
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -116,8 +116,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
       border-color: $black;
     }
 
-    &.sg-button-primary--disabled,
-    &.sg-button-secondary--disabled {
+    &.sg-button-solid--disabled,
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -141,8 +141,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
       border-color: mix($graySecondaryUltraLight, $white, 80%);
     }
 
-    &.sg-button-primary--disabled,
-    &.sg-button-secondary--disabled {
+    &.sg-button-solid--disabled,
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -203,7 +203,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
       fill: $mustardPrimary;
     }
 
-    &.sg-button-secondary--disabled {
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -227,7 +227,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
       fill: $peachPrimary;
     }
 
-    &.sg-button-secondary--disabled {
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {
@@ -255,7 +255,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
       background-color: $buttonPrimaryFbHoverColor;
     }
 
-    &.sg-button-secondary--disabled {
+    &.sg-button-outline--disabled {
       &:hover,
       &:active,
       &:focus {

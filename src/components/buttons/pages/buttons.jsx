@@ -14,14 +14,14 @@ function getValues(object, addUndefined = true) {
 
 const getIconColor = type => {
   if (
-    type === 'primary-inverted' ||
-    type === 'secondary' ||
-    type === 'link-button'
+    type === 'solid-inverted' ||
+    type === 'outline' ||
+    type === 'transparent'
   ) {
     return 'dark';
-  } else if (type === 'link-button-peach') {
+  } else if (type === 'transparent-peach') {
     return 'peach';
-  } else if (type === 'link-button-mustard') {
+  } else if (type === 'transparent-mustard') {
     return 'mustard';
   } else {
     return 'light';
@@ -41,8 +41,8 @@ const Buttons = () => {
           fullWidth
           style={{
             backgroundColor:
-              type === 'link-button-inverted' ? hex.graySecondary : null,
-            paddingTop: type === 'link-button-inverted' ? '10px' : null,
+              type === 'transparent-inverted' ? hex.graySecondary : null,
+            paddingTop: type === 'transparent-inverted' ? '10px' : null,
           }}
         >
           <DocsBlock evenColumns justified>
