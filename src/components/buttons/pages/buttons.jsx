@@ -15,6 +15,7 @@ function getValues(object, addUndefined = true) {
 const getIconColor = type => {
   if (
     type === 'solid-inverted' ||
+    type === 'solid-light' ||
     type === 'outline' ||
     type === 'transparent'
   ) {
@@ -23,6 +24,8 @@ const getIconColor = type => {
     return 'peach';
   } else if (type === 'transparent-mustard') {
     return 'mustard';
+  } else if (type === 'transparent-light') {
+    return 'gray-secondary';
   } else {
     return 'light';
   }
