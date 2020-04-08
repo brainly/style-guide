@@ -11,28 +11,28 @@ export const BUTTON_SIZE = Object.freeze({
 });
 
 export const BUTTON_TYPE = Object.freeze({
-  PRIMARY: 'primary',
-  PRIMARY_INVERTED: 'primary-inverted',
-  PRIMARY_BLUE: 'primary-blue',
-  PRIMARY_MINT: 'primary-mint',
-  SECONDARY: 'secondary',
-  LINK_BUTTON: 'link-button',
-  LINK_BUTTON_INVERTED: 'link-button-inverted',
-  LINK_BUTTON_PEACH: 'link-button-peach',
-  LINK_BUTTON_MUSTRAD: 'link-button-mustard',
+  SOLID: 'solid',
+  SOLID_INVERTED: 'solid-inverted',
+  SOLID_BLUE: 'solid-blue',
+  SOLID_MINT: 'solid-mint',
+  OUTLINE: 'outline',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_INVERTED: 'transparent-inverted',
+  TRANSPARENT_PEACH: 'transparent-peach',
+  TRANSPARENT_MUSTRAD: 'transparent-mustard',
   FACEBOOK: 'facebook',
 });
 
 type ButtonTypeType =
-  | 'primary'
-  | 'primary-inverted'
-  | 'primary-blue'
-  | 'primary-mint'
-  | 'secondary'
-  | 'link-button'
-  | 'link-button-inverted'
-  | 'link-button-peach'
-  | 'link-button-mustard'
+  | 'solid'
+  | 'solid-inverted'
+  | 'solid-blue'
+  | 'solid-mint'
+  | 'outline'
+  | 'transparent'
+  | 'transparent-inverted'
+  | 'transparent-peach'
+  | 'transparent-mustard'
   | 'facebook';
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
@@ -42,7 +42,7 @@ export type ButtonPropsType = {
    * Children to be rendered inside Button
    * @example <Button
    *           icon={<Icon type="answer" color="light" size={24} />}
-   *           type="primary"
+   *           type="solid"
    *          >
    *            button
    *          </Button>
@@ -50,19 +50,19 @@ export type ButtonPropsType = {
   children?: Node,
   /**
    * Specify type of the button that you want to use
-   * @example <Button type="primary">
+   * @example <Button type="solid">
    *            button
    *          </Button>
-   * @see type="primary" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary"#buttons
-   * @see type="primary-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary-inverted"#buttons
-   * @see type="primary-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary-blue"#buttons
-   * @see type="primary-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="primary-mint"#buttons
-   * @see type="secondary" https://styleguide.brainly.com/latest/docs/interactive.html?type="secondary"#buttons
-   * @see type="link-button" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button"#buttons
-   * @see type="link-button-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
-   * @see type="link-button-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-peach"#buttons
-   * @see type="link-button-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-mustard"#buttons
-   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="link-button-inverted"#buttons
+   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
+   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
+   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
+   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
+   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
+   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
+   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
+   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
+   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    */
   type: ButtonTypeType,
   /**
@@ -77,7 +77,7 @@ export type ButtonPropsType = {
   icon?: Node,
   /**
    * There are three sizes options for buttons, not need to be specify, default is medium
-   * @example <Button type="primary" size="medium">
+   * @example <Button type="solid" size="medium">
    *            button
    *          </Button>
    * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?size="small"#buttons
@@ -87,21 +87,21 @@ export type ButtonPropsType = {
   size?: ButtonSizeType,
   /**
    * Specify href for button, optional string
-   * @example <Button href="https://brainly.com/" size="medium" type="primary-blue">
+   * @example <Button href="https://brainly.com/" size="medium" type="solid-blue">
    *            button
    *          </Button>
    */
   href?: string,
   /**
    * Optional boolean for disabled button
-   * @example <Button type="primary-mint" disabled>
+   * @example <Button type="solid-mint" disabled>
    *            button
    *          </Button>
    */
   disabled?: boolean,
   /**
    * Optional boolean for full width button
-   * @example <Button type="primary-mint" fullWidth>
+   * @example <Button type="solid-mint" fullWidth>
    *            button
    *          </Button>
    */

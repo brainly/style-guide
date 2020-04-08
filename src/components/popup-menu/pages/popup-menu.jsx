@@ -52,10 +52,10 @@ const PopupsMenus = () => (
       <ContrastBox fullWidth>
         <PopupMenu
           items={[
-            <Button key={1} type="primary-inverted" size="small">
+            <Button key={1} type="solid-inverted" size="small">
               Log in
             </Button>,
-            <Button key={2} type="primary" size="small">
+            <Button key={2} type="solid" size="small">
               Join now
             </Button>,
           ]}

@@ -80,7 +80,7 @@ const Bubbles = () => {
               </Text>
             </ContentBoxContent>
             <ContentBoxActions>
-              <Button type="primary">Join us!</Button>
+              <Button type="solid">Join us!</Button>
             </ContentBoxActions>
           </ContentBox>
         </Bubble>

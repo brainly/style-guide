@@ -64,7 +64,7 @@ const content = (
     </ContentBoxContent>
 
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <Button type="primary-blue">Join us</Button>
+      <Button type="solid-blue">Join us</Button>
     </ContentBoxContent>
   </ContentBox>
 );

@@ -89,62 +89,62 @@
   }
 
   // BUTTON TYPES
-  &--primary {
+  &--solid {
     @include buttonHover($grayPrimary, $black, 80%);
     background-color: $black;
   }
 
-  &--primary-inverted {
+  &--solid-inverted {
     @include buttonHover($graySecondaryUltraLight, $white, 80%);
     background-color: $white;
     color: $black;
   }
 
-  &--primary-blue {
+  &--solid-blue {
     @include buttonHover($bluePrimaryDark, $bluePrimary, 80%);
     background-color: $bluePrimary;
   }
 
-  &--primary-mint {
+  &--solid-mint {
     @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
     background-color: $mintPrimary;
   }
 
-  &--secondary {
+  &--outline {
     @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
     border: 2px solid $black;
     color: $black;
   }
 
-  &--link-button {
+  &--transparent {
     @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
     color: $black;
   }
 
-  &--link-button-inverted {
+  &--transparent-inverted {
     @include buttonHover($white, $transparent, 12%);
     background-color: $transparent;
     color: $white;
   }
 
-  &--link-button-peach {
+  &--transparent-peach {
     @include buttonHover($peachPrimary, $transparent, 12%);
     background-color: $transparent;
     color: $peachPrimary;
   }
 
-  &--link-button-mustard {
+  &--transparent-mustard {
     @include buttonHover($mustardPrimary, $transparent, 12%);
     background-color: $transparent;
     color: $mustardPrimary;
   }
 
-  &--link-button,
-  &--link-button-inverted,
-  &--link-button-peach,
-  &--link-button-mustard {
+  &--transparent,
+  &--transparent-inverted,
+  &--transparent-peach,
+  &--transparent-mustard {
     &.sg-button {
       padding: 0 10px;
     }

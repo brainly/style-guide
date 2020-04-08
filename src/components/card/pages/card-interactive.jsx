@@ -51,7 +51,7 @@ const Cards = () => {
             </Text>
           </CardHole>
           <CardHole color={CARD_HOLE_COLOR.GRAY}>
-            <Button type="primary-blue">Ask your question</Button>
+            <Button type="solid-blue">Ask your question</Button>
           </CardHole>
         </Card>
       </DocsActiveBlock>

@@ -63,7 +63,7 @@ const ContentBoxes = () => {
               size={AVATAR_SIZE.SMALL}
               imgSrc="https://source.unsplash.com/64x64/?dog"
             />
-            <Button type="primary-inverted">Answer</Button>
+            <Button type="solid-inverted">Answer</Button>
           </ContentBoxActions>
         </ContentBox>
       </DocsActiveBlock>

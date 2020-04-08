@@ -9,7 +9,7 @@ $buttonRoundLabelBackground: $mintSecondary;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .sg-button-primary-round {
+  .sg-button-solid-round {
     display: inline-flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -28,8 +28,8 @@ $includeHtml: false !default;
 
     &:hover,
     &:focus {
-      .sg-button-primary-round__icon,
-      .sg-button-primary-round__label {
+      .sg-button-solid-round__icon,
+      .sg-button-solid-round__label {
         box-shadow: $buttonHRoundHoverBoxShadow;
       }
     }

@@ -1,37 +1,37 @@
 .docs-button-hovered {
-  &--primary {
+  &--solid {
     @include sgButtonHoverMix($grayPrimary, $black, 80%);
   }
 
-  &--primary-inverted {
+  &--solid-inverted {
     @include sgButtonHoverMix($graySecondaryUltraLight, $white, 80%);
   }
 
-  &--primary-blue {
+  &--solid-blue {
     @include sgButtonHoverMix($bluePrimaryDark, $bluePrimary, 80%);
   }
 
-  &--primary-mint {
+  &--solid-mint {
     @include sgButtonHoverMix($mintPrimaryDark, $mintPrimary, 80%);
   }
 
-  &--secondary {
+  &--outline {
     @include sgButtonHoverMix($black, $transparent, 12%);
   }
 
-  &--link-button {
+  &--transparent {
     @include sgButtonHoverMix($black, $transparent, 12%);
   }
 
-  &--link-button-inverted {
+  &--transparent-inverted {
     @include sgButtonHoverMix($white, $transparent, 12%);
   }
 
-  &--link-button-peach {
+  &--transparent-peach {
     @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
   }
 
-  &--link-button-mustard {
+  &--transparent-mustard {
     @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
   }
 

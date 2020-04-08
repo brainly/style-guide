@@ -106,7 +106,7 @@ const examplePart1 = (
         imgSrc="https://source.unsplash.com/64x64/?dog"
       />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <Button type="primary-inverted">Answer</Button>
+      <Button type="solid-inverted">Answer</Button>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -138,7 +138,7 @@ const examplePart2 = (
         imgSrc="https://source.unsplash.com/64x64/?bird"
       />
       <Avatar size={AVATAR_SIZE.SMALL} />
-      <Button type="primary-inverted">Answer</Button>
+      <Button type="solid-inverted">Answer</Button>
     </ContentBoxActions>
   </ContentBox>
 );
@@ -167,7 +167,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?cat"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <Button type="primary-inverted">Answer</Button>
+          <Button type="solid-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -195,7 +195,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?bird"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <Button type="primary-inverted">Answer</Button>
+          <Button type="solid-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -226,7 +226,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?bird"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <Button type="primary-inverted">Answer</Button>
+          <Button type="solid-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -255,7 +255,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?kitten"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <Button type="primary-inverted">Answer</Button>
+          <Button type="solid-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -284,7 +284,7 @@ const ContentBoxes = () => (
             imgSrc="https://source.unsplash.com/64x64/?kitten"
           />
           <Avatar size={AVATAR_SIZE.SMALL} />
-          <Button type="primary-inverted">Answer</Button>
+          <Button type="solid-inverted">Answer</Button>
         </ContentBoxActions>
       </ContentBox>
     </DocsBlock>
@@ -322,7 +322,7 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="primary-inverted">
+          <Button type="solid-inverted">
             <LabelDeprecated
               text="Thank you"
               number={21}
@@ -355,7 +355,7 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="primary-inverted">
+          <Button type="solid-inverted">
             <LabelDeprecated
               text="Thank you"
               number={21}
@@ -435,7 +435,7 @@ const ContentBoxes = () => (
               </Link>,
             ]}
           />
-          <Button type="primary-inverted">
+          <Button type="solid-inverted">
             <LabelDeprecated
               text="Thank you"
               number={21}
@@ -453,7 +453,7 @@ const ContentBoxes = () => (
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="primary-inverted">
+          <Button type="solid-inverted">
             <LabelDeprecated
               text="Thank you"
               number={21}
@@ -477,7 +477,7 @@ const ContentBoxes = () => (
           <Headline size={HEADLINE_SIZE.SMALL}>
             Hey! Still not sure about the answer?
           </Headline>
-          <Button type="primary-blue">Check similar answers</Button>
+          <Button type="solid-blue">Check similar answers</Button>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>
