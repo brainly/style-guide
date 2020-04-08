@@ -110,6 +110,12 @@
     background-color: $mintPrimary;
   }
 
+  &--solid-light {
+    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 20%);
+    background-color: $graySecondaryLightest;
+    color: $black;
+  }
+
   &--outline {
     @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
@@ -121,6 +127,12 @@
     @include buttonHover($black, $transparent, 12%);
     background-color: $transparent;
     color: $black;
+  }
+
+  &--transparent-light {
+    @include buttonHover($black, $transparent, 12%);
+    background-color: $transparent;
+    color: $graySecondary;
   }
 
   &--transparent-inverted {
@@ -142,6 +154,7 @@
   }
 
   &--transparent,
+  &--transparent-light,
   &--transparent-inverted,
   &--transparent-peach,
   &--transparent-mustard {
