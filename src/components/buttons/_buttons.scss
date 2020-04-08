@@ -106,7 +106,7 @@
   }
 
   &--solid-mint {
-    @include buttonHover($graySecondaryLight, $mintPrimary, 80%);
+    @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
     background-color: $mintPrimary;
   }
 
