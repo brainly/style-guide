@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, {BUTTON_TYPE, BUTTON_SIZE} from '../Button';
+import Button, {BUTTON_TYPE, BUTTON_SIZE, BUTTON_TOGGLE} from '../Button';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -44,6 +44,10 @@ const Buttons = () => {
     {
       name: 'icon',
       values: allIcons,
+    },
+    {
+      name: 'toggle',
+      values: BUTTON_TOGGLE,
     },
     {
       name: 'href',

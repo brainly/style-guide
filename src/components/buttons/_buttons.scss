@@ -116,6 +116,16 @@
     background-color: $graySecondaryLightest;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      background-color: $peachSecondaryLight;
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      background-color: $mustardSecondaryLight;
+      fill: $mustardPrimary;
+    }
   }
 
   &--outline {
@@ -124,6 +134,16 @@
     border: 2px solid $black;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      border-color: $peachPrimary;
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      border-color: $mustardPrimary;
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent {
@@ -131,6 +151,14 @@
     background-color: $transparent;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent-light {
@@ -138,12 +166,21 @@
     background-color: $transparent;
     color: $graySecondary;
     fill: $graySecondary;
+
+    &-toggle-peach {
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent-inverted {
     @include buttonHover($white, $transparent, 12%);
     background-color: $transparent;
     color: $white;
+    fill: $white;
   }
 
   &--transparent-peach {
@@ -151,6 +188,10 @@
     background-color: $transparent;
     color: $peachPrimary;
     fill: $peachPrimary;
+
+    &-toggle-peach {
+      background-color: mix($peachPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent-mustard {
@@ -158,6 +199,10 @@
     background-color: $transparent;
     color: $mustardPrimary;
     fill: $mustardPrimary;
+
+    &-toggle-mustard {
+      background-color: mix($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent,

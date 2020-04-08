@@ -51,6 +51,54 @@ const Buttons = () => {
               {buttonsText}
             </Button>
           </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Flex direction="column">
+              {[
+                'solid-light',
+                'outline',
+                'transparent',
+                'transparent-light',
+                'transparent-peach',
+              ].includes(type) && (
+                <Button
+                  type={type}
+                  toggle="peach"
+                  icon={
+                    <Icon type={iconTypes.ANSWER} color="adaptive" size={24} />
+                  }
+                  style={{marginBottom: '12px'}}
+                >
+                  {buttonsText}
+                </Button>
+              )}
+
+              {[
+                'solid-light',
+                'outline',
+                'transparent',
+                'transparent-light',
+                'transparent-mustard',
+              ].includes(type) && (
+                <Button
+                  type={type}
+                  toggle="mustard"
+                  icon={
+                    <Icon type={iconTypes.ANSWER} color="adaptive" size={24} />
+                  }
+                >
+                  {buttonsText}
+                </Button>
+              )}
+              {![
+                'solid-light',
+                'outline',
+                'transparent',
+                'transparent-light',
+                'transparent-peach',
+                'transparent-mustard',
+              ].includes(type) && '-'}
+            </Flex>
+          </DocsBlock>
         </Flex>
       </DocsBlock>
     );
@@ -73,6 +121,9 @@ const Buttons = () => {
         </DocsBlock>
         <DocsBlock evenColumns justified>
           <Text>with icon</Text>
+        </DocsBlock>
+        <DocsBlock evenColumns justified>
+          <Text>toggle</Text>
         </DocsBlock>
       </DocsBlock>
       {buttonsVariants}

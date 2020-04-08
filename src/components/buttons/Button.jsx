@@ -25,6 +25,11 @@ export const BUTTON_TYPE = Object.freeze({
   FACEBOOK: 'facebook',
 });
 
+export const BUTTON_TOGGLE = Object.freeze({
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+});
+
 type ButtonTypeType =
   | 'solid'
   | 'solid-inverted'
@@ -40,6 +45,7 @@ type ButtonTypeType =
   | 'facebook';
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
+type ButtonToggleType = 'peach' | 'mustard' | null;
 
 export type ButtonPropsType = {
   /**
@@ -110,6 +116,10 @@ export type ButtonPropsType = {
    *          </Button>
    */
   fullWidth?: boolean,
+   /**
+   * UPDATE ME
+   */
+  toggle?: ButtonToggleType,
   /**
    * Additional class names
    */
@@ -124,6 +134,7 @@ const Button = ({
   href,
   fullWidth,
   disabled,
+  toggle,
   children,
   className,
   ...props
@@ -135,6 +146,7 @@ const Button = ({
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
       'sg-button--full-width': fullWidth,
+      [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
     },
     className
   );
