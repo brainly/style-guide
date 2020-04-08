@@ -15,7 +15,7 @@ export type IconTypeType =
   | 'ask_parent_to_pay'
   | 'attachment'
   | 'bell_checked'
-  | 'bell_oultined'
+  | 'bell_outlined'
   | 'bold'
   | 'bulleted_list'
   | 'camera'
@@ -130,7 +130,7 @@ export const TYPE = {
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
-  BELL_OULTINED: 'bell_oultined',
+  BELL_OUTLINED: 'bell_outlined',
   BOLD: 'bold',
   BULLETED_LIST: 'bulleted_list',
   CAMERA: 'camera',
