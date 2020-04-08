@@ -14,6 +14,8 @@ export type IconTypeType =
   | 'arrow_up'
   | 'ask_parent_to_pay'
   | 'attachment'
+  | 'bell_checked'
+  | 'bell_oultined'
   | 'bold'
   | 'bulleted_list'
   | 'camera'
@@ -21,6 +23,7 @@ export type IconTypeType =
   | 'close'
   | 'counter'
   | 'credit_card'
+  | 'crown_outlined'
   | 'equation'
   | 'excellent'
   | 'exclamation_mark'
@@ -56,6 +59,7 @@ export type IconTypeType =
   | 'recent_questions'
   | 'reload'
   | 'report_flag'
+  | 'report_flag_outlined'
   | 'rotate'
   | 'search'
   | 'seen'
@@ -125,6 +129,8 @@ export const TYPE = {
   ARROW_UP: 'arrow_up',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
+  BELL_CHECKED: 'bell_checked',
+  BELL_OULTINED: 'bell_oultined',
   BOLD: 'bold',
   BULLETED_LIST: 'bulleted_list',
   CAMERA: 'camera',
@@ -132,6 +138,7 @@ export const TYPE = {
   CLOSE: 'close',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
+  CROWN_OUTLINED: 'crown_outlined',
   EQUATION: 'equation',
   EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
@@ -167,6 +174,7 @@ export const TYPE = {
   RECENT_QUESTIONS: 'recent_questions',
   RELOAD: 'reload',
   REPORT_FLAG: 'report_flag',
+  REPORT_FLAG_OUTLINED: 'report_flag_outlined',
   ROTATE: 'rotate',
   SEARCH: 'search',
   SEEN: 'seen',
