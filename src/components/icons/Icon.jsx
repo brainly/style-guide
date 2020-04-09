@@ -31,6 +31,7 @@ export type IconTypeType =
   | 'friends'
   | 'heading'
   | 'heart'
+  | 'heart_outlined'
   | 'image'
   | 'influence'
   | 'instagram'
@@ -66,8 +67,10 @@ export type IconTypeType =
   | 'settings'
   | 'share'
   | 'sms'
-  | 'star_half'
   | 'star'
+  | 'star_half'
+  | 'star_half_outlined'
+  | 'star_outlined'
   | 'subtitle'
   | 'symbols'
   | 'title'
@@ -146,6 +149,7 @@ export const TYPE = {
   FRIENDS: 'friends',
   HEADING: 'heading',
   HEART: 'heart',
+  HEART_OUTLINED: 'heart_outlined',
   IMAGE: 'image',
   INFLUENCE: 'influence',
   INSTRAGRAM: 'instagram',
@@ -181,8 +185,10 @@ export const TYPE = {
   SETTINGS: 'settings',
   SHARE: 'share',
   SMS: 'sms',
-  STAR_HALF: 'star_half',
   STAR: 'star',
+  STAR_HALF: 'star_half',
+  STAR_HALF_OUTLINED: 'star_half_outlined',
+  STAR_OUTLINED: 'star_outlined',
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
   TITLE: 'title',
