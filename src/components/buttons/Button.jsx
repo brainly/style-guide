@@ -45,9 +45,57 @@ type ButtonTypeType =
   | 'facebook';
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
-type ButtonToggleType = 'peach' | 'mustard' | null;
+
+type ButtonColorType =
+  | {
+      type:
+        | 'solid'
+        | 'solid-inverted'
+        | 'solid-blue'
+        | 'solid-mint'
+        | 'transparent-inverted'
+        | 'facebook',
+      toggle?: null,
+    }
+  | {
+      type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
+      toggle?: 'peach' | 'mustard' | null,
+    }
+  | {
+      type: 'transparent-peach',
+      toggle?: 'peach' | null,
+    }
+  | {
+      type: 'transparent-mustard',
+      toggle?: 'mustard' | null,
+    };
 
 export type ButtonPropsType = {
+  /**
+   * type: Specify type of the button that you want to use
+   * @example <Button type="solid">
+   *            button
+   *          </Button>
+   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
+   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
+   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
+   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
+   * @see type="solid-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-light"#buttons
+   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
+   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
+   * @see type="transparent-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-light"#buttons
+   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
+   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
+   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   *
+   * toggle: optional union available just for selected type of buttons
+   *
+   * @example <Button type="solid-light" toggle="peach">
+   *            button
+   *          </Button>
+   */
+  ...ButtonColorType,
   /**
    * Children to be rendered inside Button
    * @example <Button
@@ -58,23 +106,6 @@ export type ButtonPropsType = {
    *          </Button>
    */
   children?: Node,
-  /**
-   * Specify type of the button that you want to use
-   * @example <Button type="solid">
-   *            button
-   *          </Button>
-   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
-   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
-   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
-   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
-   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
-   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
-   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
-   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
-   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   */
-  type: ButtonTypeType,
   /**
    * You can render icon inside each type of button on the left side
    * @example <Button
@@ -116,10 +147,6 @@ export type ButtonPropsType = {
    *          </Button>
    */
   fullWidth?: boolean,
-   /**
-   * UPDATE ME
-   */
-  toggle?: ButtonToggleType,
   /**
    * Additional class names
    */

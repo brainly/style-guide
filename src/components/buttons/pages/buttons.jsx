@@ -15,6 +15,12 @@ function getValues(object, addUndefined = true) {
 const Buttons = () => {
   const buttonsVariants = [];
   const buttonsText = 'Button';
+  const someButtonsWithToggle = [
+    'solid-light',
+    'outline',
+    'transparent',
+    'transparent-light',
+  ];
 
   getValues(BUTTON_TYPE, false).forEach(type => {
     buttonsVariants.push(
@@ -53,13 +59,9 @@ const Buttons = () => {
           </DocsBlock>
           <DocsBlock evenColumns justified>
             <Flex direction="column">
-              {[
-                'solid-light',
-                'outline',
-                'transparent',
-                'transparent-light',
-                'transparent-peach',
-              ].includes(type) && (
+              {[...someButtonsWithToggle, 'transparent-peach'].includes(
+                type
+              ) && (
                 <Button
                   type={type}
                   toggle="peach"
@@ -72,13 +74,9 @@ const Buttons = () => {
                 </Button>
               )}
 
-              {[
-                'solid-light',
-                'outline',
-                'transparent',
-                'transparent-light',
-                'transparent-mustard',
-              ].includes(type) && (
+              {[...someButtonsWithToggle, 'transparent-mustard'].includes(
+                type
+              ) && (
                 <Button
                   type={type}
                   toggle="mustard"
@@ -89,14 +87,6 @@ const Buttons = () => {
                   {buttonsText}
                 </Button>
               )}
-              {![
-                'solid-light',
-                'outline',
-                'transparent',
-                'transparent-light',
-                'transparent-peach',
-                'transparent-mustard',
-              ].includes(type) && '-'}
             </Flex>
           </DocsBlock>
         </Flex>
