@@ -15,11 +15,19 @@
     @include sgButtonHoverMix($mintPrimaryDark, $mintPrimary, 80%);
   }
 
+  &--solid-light {
+    @include sgButtonHoverMix($graySecondaryLight, $graySecondaryLightest, 20%);
+  }
+
   &--outline {
     @include sgButtonHoverMix($black, $transparent, 12%);
   }
 
   &--transparent {
+    @include sgButtonHoverMix($black, $transparent, 12%);
+  }
+
+  &--transparent-light {
     @include sgButtonHoverMix($black, $transparent, 12%);
   }
 

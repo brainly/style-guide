@@ -31,11 +31,11 @@ const Flexbox = () => (
         </Flex>
         <Flex direction={FLEX_DIRECTION.COLUMN}>
           <Text size={TEXT_SIZE.SMALL}>xs - 8px</Text>
-          <div className="doc-spacing doc-spacing--s" />
+          <div className="doc-spacing doc-spacing--xs" />
         </Flex>
         <Flex direction={FLEX_DIRECTION.COLUMN}>
           <Text size={TEXT_SIZE.SMALL}>s - 16px</Text>
-          <div className="doc-spacing doc-spacing--m" />
+          <div className="doc-spacing doc-spacing--s" />
         </Flex>
         <Flex direction={FLEX_DIRECTION.COLUMN}>
           <Text size={TEXT_SIZE.SMALL}>m - 24px</Text>

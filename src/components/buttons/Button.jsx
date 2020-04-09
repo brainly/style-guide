@@ -15,8 +15,10 @@ export const BUTTON_TYPE = Object.freeze({
   SOLID_INVERTED: 'solid-inverted',
   SOLID_BLUE: 'solid-blue',
   SOLID_MINT: 'solid-mint',
+  SOLID_LIGHT: 'solid-light',
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   TRANSPARENT_PEACH: 'transparent-peach',
   TRANSPARENT_MUSTRAD: 'transparent-mustard',
@@ -28,8 +30,10 @@ type ButtonTypeType =
   | 'solid-inverted'
   | 'solid-blue'
   | 'solid-mint'
+  | 'solid-light'
   | 'outline'
   | 'transparent'
+  | 'transparent-light'
   | 'transparent-inverted'
   | 'transparent-peach'
   | 'transparent-mustard'
