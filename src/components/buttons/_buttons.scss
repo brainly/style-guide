@@ -112,17 +112,19 @@
   }
 
   &--solid-light {
-    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 20%);
+    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 12%);
     background-color: $graySecondaryLightest;
     color: $black;
     fill: $black;
 
     &-toggle-peach {
+      @include buttonHover($peachSecondary, $peachSecondaryLight, 12%);
       background-color: $peachSecondaryLight;
       fill: $peachPrimary;
     }
 
     &-toggle-mustard {
+      @include buttonHover($mustardSecondary, $mustardSecondaryLight, 12%);
       background-color: $mustardSecondaryLight;
       fill: $mustardPrimary;
     }
@@ -136,11 +138,13 @@
     fill: $black;
 
     &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
       border-color: $peachPrimary;
       fill: $peachPrimary;
     }
 
     &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
       border-color: $mustardPrimary;
       fill: $mustardPrimary;
     }
@@ -153,10 +157,12 @@
     fill: $black;
 
     &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
       fill: $peachPrimary;
     }
 
     &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
       fill: $mustardPrimary;
     }
   }
@@ -168,10 +174,12 @@
     fill: $graySecondary;
 
     &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
       fill: $peachPrimary;
     }
 
     &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
       fill: $mustardPrimary;
     }
   }
@@ -190,7 +198,7 @@
     fill: $peachPrimary;
 
     &-toggle-peach {
-      background-color: mix($peachPrimary, $transparent, 12%);
+      @include buttonHover($peachPrimary, $transparent, 12%);
     }
   }
 
@@ -201,7 +209,7 @@
     fill: $mustardPrimary;
 
     &-toggle-mustard {
-      background-color: mix($mustardPrimary, $transparent, 12%);
+      @include buttonHover($mustardPrimary, $transparent, 12%);
     }
   }
 
