@@ -12,32 +12,11 @@ function getValues(object, addUndefined = true) {
     : Object.values(object);
 }
 
-const getIconColor = type => {
-  if (
-    type === 'solid-inverted' ||
-    type === 'solid-light' ||
-    type === 'outline' ||
-    type === 'transparent'
-  ) {
-    return 'dark';
-  } else if (type === 'transparent-peach') {
-    return 'peach';
-  } else if (type === 'transparent-mustard') {
-    return 'mustard';
-  } else if (type === 'transparent-light') {
-    return 'gray-secondary';
-  } else {
-    return 'light';
-  }
-};
-
 const Buttons = () => {
   const buttonsVariants = [];
   const buttonsText = 'Button';
 
   getValues(BUTTON_TYPE, false).forEach(type => {
-    const iconColor = getIconColor(type);
-
     buttonsVariants.push(
       <DocsBlock key="type" centered fullWidth>
         <Flex
@@ -67,9 +46,7 @@ const Buttons = () => {
           <DocsBlock evenColumns justified>
             <Button
               type={type}
-              icon={
-                <Icon type={iconTypes.ANSWER} color={iconColor} size={24} />
-              }
+              icon={<Icon type={iconTypes.ANSWER} color="adaptive" size={24} />}
             >
               {buttonsText}
             </Button>
