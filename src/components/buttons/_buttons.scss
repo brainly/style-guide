@@ -30,6 +30,7 @@
   transition-timing-function: ease-in-out;
   cursor: pointer;
   box-sizing: border-box;
+  fill: $white;
 
   &__text {
     position: relative;
@@ -38,7 +39,6 @@
   }
 
   &__icon {
-    fill: $white;
     display: inline-flex;
     margin-right: spacing(xs);
     margin-left: -4px;
@@ -98,6 +98,7 @@
     @include buttonHover($graySecondaryUltraLight, $white, 80%);
     background-color: $white;
     color: $black;
+    fill: $black;
   }
 
   &--solid-blue {
@@ -114,25 +115,29 @@
     @include buttonHover($graySecondaryLight, $graySecondaryLightest, 20%);
     background-color: $graySecondaryLightest;
     color: $black;
+    fill: $black;
   }
 
   &--outline {
-    @include buttonHover($black, $transparent, 12%);
+    @include buttonHover($graySecondary, $transparent, 12%);
     background-color: $transparent;
     border: 2px solid $black;
     color: $black;
+    fill: $black;
   }
 
   &--transparent {
-    @include buttonHover($black, $transparent, 12%);
+    @include buttonHover($graySecondary, $transparent, 12%);
     background-color: $transparent;
     color: $black;
+    fill: $black;
   }
 
   &--transparent-light {
-    @include buttonHover($black, $transparent, 12%);
+    @include buttonHover($graySecondary, $transparent, 12%);
     background-color: $transparent;
     color: $graySecondary;
+    fill: $graySecondary;
   }
 
   &--transparent-inverted {
@@ -145,12 +150,14 @@
     @include buttonHover($peachPrimary, $transparent, 12%);
     background-color: $transparent;
     color: $peachPrimary;
+    fill: $peachPrimary;
   }
 
   &--transparent-mustard {
     @include buttonHover($mustardPrimary, $transparent, 12%);
     background-color: $transparent;
     color: $mustardPrimary;
+    fill: $mustardPrimary;
   }
 
   &--transparent,

@@ -20,15 +20,15 @@
   }
 
   &--outline {
-    @include sgButtonHoverMix($black, $transparent, 12%);
+    @include sgButtonHoverMix($graySecondary, $transparent, 12%);
   }
 
   &--transparent {
-    @include sgButtonHoverMix($black, $transparent, 12%);
+    @include sgButtonHoverMix($graySecondary, $transparent, 12%);
   }
 
   &--transparent-light {
-    @include sgButtonHoverMix($black, $transparent, 12%);
+    @include sgButtonHoverMix($graySecondary, $transparent, 12%);
   }
 
   &--transparent-inverted {
