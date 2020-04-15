@@ -118,13 +118,13 @@
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachSecondary, $peachSecondaryLight, 12%);
+      @include buttonHover($peachPrimary, $peachSecondaryLight, 12%);
       background-color: $peachSecondaryLight;
       fill: $peachPrimary;
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardSecondary, $mustardSecondaryLight, 12%);
+      @include buttonHover($mustardPrimary, $mustardSecondaryLight, 12%);
       background-color: $mustardSecondaryLight;
       fill: $mustardPrimary;
     }

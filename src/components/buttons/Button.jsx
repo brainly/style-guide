@@ -19,9 +19,9 @@ export const BUTTON_TYPE = Object.freeze({
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
-  TRANSPARENT_INVERTED: 'transparent-inverted',
   TRANSPARENT_PEACH: 'transparent-peach',
   TRANSPARENT_MUSTRAD: 'transparent-mustard',
+  TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
 });
 
@@ -178,13 +178,9 @@ const Button = ({
     className
   );
 
-  const iconClass = cx(
-    'sg-button__icon',
-    {
-      [`sg-button__icon--${size || ''}`]: size,
-    },
-    className
-  );
+  const iconClass = cx('sg-button__icon', {
+    [`sg-button__icon--${size || ''}`]: size,
+  });
 
   let ico;
 
