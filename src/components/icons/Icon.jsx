@@ -28,6 +28,8 @@ export type IconTypeType =
   | 'excellent'
   | 'exclamation_mark'
   | 'facebook'
+  | 'friend_add'
+  | 'friend_checked'
   | 'friends'
   | 'heading'
   | 'heart'
@@ -146,6 +148,8 @@ export const TYPE = {
   EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
+  FRIEND_ADD: 'friend_add',
+  FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
   HEADING: 'heading',
   HEART: 'heart',
