@@ -30,20 +30,6 @@ export const BUTTON_TOGGLE = Object.freeze({
   MUSTARD: 'mustard',
 });
 
-type ButtonTypeType =
-  | 'solid'
-  | 'solid-inverted'
-  | 'solid-blue'
-  | 'solid-mint'
-  | 'solid-light'
-  | 'outline'
-  | 'transparent'
-  | 'transparent-light'
-  | 'transparent-inverted'
-  | 'transparent-peach'
-  | 'transparent-mustard'
-  | 'facebook';
-
 type ButtonSizeType = 'large' | 'medium' | 'small';
 
 type ButtonColorType =
@@ -203,6 +189,10 @@ const Button = ({
       <span className="sg-button__text">{children}</span>
     </TypeToRender>
   );
+};
+
+export const Lol = () => {
+  return <Button type="solid-light" toggle="peach" />;
 };
 
 export default Button;

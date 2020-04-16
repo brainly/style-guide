@@ -21,7 +21,7 @@ const Buttons = () => {
     'transparent',
     'transparent-light',
   ];
-
+  // eslint-disable-next-line react/prop-types
   const getToggleButtons = ({type, hover = false} = {}) => (
     <>
       {[...someButtonsWithToggle, 'transparent-peach'].includes(type) && (
