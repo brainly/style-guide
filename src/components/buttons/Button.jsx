@@ -19,29 +19,69 @@ export const BUTTON_TYPE = Object.freeze({
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
-  TRANSPARENT_INVERTED: 'transparent-inverted',
   TRANSPARENT_PEACH: 'transparent-peach',
   TRANSPARENT_MUSTRAD: 'transparent-mustard',
+  TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
 });
 
-type ButtonTypeType =
-  | 'solid'
-  | 'solid-inverted'
-  | 'solid-blue'
-  | 'solid-mint'
-  | 'solid-light'
-  | 'outline'
-  | 'transparent'
-  | 'transparent-light'
-  | 'transparent-inverted'
-  | 'transparent-peach'
-  | 'transparent-mustard'
-  | 'facebook';
+export const BUTTON_TOGGLE = Object.freeze({
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+});
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
 
+type ButtonColorType =
+  | {
+      type:
+        | 'solid'
+        | 'solid-inverted'
+        | 'solid-blue'
+        | 'solid-mint'
+        | 'transparent-inverted'
+        | 'facebook',
+      toggle?: null,
+    }
+  | {
+      type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
+      toggle?: 'peach' | 'mustard' | null,
+    }
+  | {
+      type: 'transparent-peach',
+      toggle?: 'peach' | null,
+    }
+  | {
+      type: 'transparent-mustard',
+      toggle?: 'mustard' | null,
+    };
+
 export type ButtonPropsType = {
+  /**
+   * type: Specify type of the button that you want to use
+   * @example <Button type="solid">
+   *            button
+   *          </Button>
+   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
+   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
+   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
+   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
+   * @see type="solid-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-light"#buttons
+   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
+   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
+   * @see type="transparent-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-light"#buttons
+   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
+   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
+   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   *
+   * toggle: optional union available just for selected type of buttons
+   *
+   * @example <Button type="solid-light" toggle="peach">
+   *            button
+   *          </Button>
+   */
+  ...ButtonColorType,
   /**
    * Children to be rendered inside Button
    * @example <Button
@@ -52,23 +92,6 @@ export type ButtonPropsType = {
    *          </Button>
    */
   children?: Node,
-  /**
-   * Specify type of the button that you want to use
-   * @example <Button type="solid">
-   *            button
-   *          </Button>
-   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
-   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
-   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
-   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
-   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
-   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
-   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
-   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
-   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   */
-  type: ButtonTypeType,
   /**
    * You can render icon inside each type of button on the left side
    * @example <Button
@@ -124,6 +147,7 @@ const Button = ({
   href,
   fullWidth,
   disabled,
+  toggle,
   children,
   className,
   ...props
@@ -135,17 +159,14 @@ const Button = ({
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
       'sg-button--full-width': fullWidth,
+      [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
     },
     className
   );
 
-  const iconClass = cx(
-    'sg-button__icon',
-    {
-      [`sg-button__icon--${size || ''}`]: size,
-    },
-    className
-  );
+  const iconClass = cx('sg-button__icon', {
+    [`sg-button__icon--${size || ''}`]: size,
+  });
 
   let ico;
 
@@ -168,6 +189,10 @@ const Button = ({
       <span className="sg-button__text">{children}</span>
     </TypeToRender>
   );
+};
+
+export const Lol = () => {
+  return <Button type="solid-light" toggle="peach" />;
 };
 
 export default Button;

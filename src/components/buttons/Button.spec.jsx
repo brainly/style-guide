@@ -59,3 +59,13 @@ test('no icon', () => {
 
   expect(button.find('.sg-button__icon')).toHaveLength(0);
 });
+
+test('toggle', () => {
+  const button = shallow(
+    <Button type="solid-light" toggle="peach">
+      Some text
+    </Button>
+  );
+
+  expect(button.hasClass('sg-button--solid-light-toggle-peach')).toEqual(true);
+});

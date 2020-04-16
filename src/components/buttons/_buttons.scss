@@ -112,10 +112,22 @@
   }
 
   &--solid-light {
-    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 20%);
+    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 12%);
     background-color: $graySecondaryLightest;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      @include buttonHover($peachPrimary, $peachSecondaryLight, 12%);
+      background-color: $peachSecondaryLight;
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $mustardSecondaryLight, 12%);
+      background-color: $mustardSecondaryLight;
+      fill: $mustardPrimary;
+    }
   }
 
   &--outline {
@@ -124,6 +136,18 @@
     border: 2px solid $black;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
+      border-color: $peachPrimary;
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
+      border-color: $mustardPrimary;
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent {
@@ -131,6 +155,16 @@
     background-color: $transparent;
     color: $black;
     fill: $black;
+
+    &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent-light {
@@ -138,12 +172,23 @@
     background-color: $transparent;
     color: $graySecondary;
     fill: $graySecondary;
+
+    &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
+      fill: $peachPrimary;
+    }
+
+    &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
+      fill: $mustardPrimary;
+    }
   }
 
   &--transparent-inverted {
     @include buttonHover($white, $transparent, 12%);
     background-color: $transparent;
     color: $white;
+    fill: $white;
   }
 
   &--transparent-peach {
@@ -151,6 +196,10 @@
     background-color: $transparent;
     color: $peachPrimary;
     fill: $peachPrimary;
+
+    &-toggle-peach {
+      @include buttonHover($peachPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent-mustard {
@@ -158,6 +207,10 @@
     background-color: $transparent;
     color: $mustardPrimary;
     fill: $mustardPrimary;
+
+    &-toggle-mustard {
+      @include buttonHover($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent,

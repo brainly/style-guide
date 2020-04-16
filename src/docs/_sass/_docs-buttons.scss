@@ -17,18 +17,50 @@
 
   &--solid-light {
     @include sgButtonHoverMix($graySecondaryLight, $graySecondaryLightest, 20%);
+
+    &-toggle-peach {
+      @include sgButtonHoverMix($peachPrimary, $peachSecondaryLight, 12%);
+    }
+
+    &-toggle-mustard {
+      @include sgButtonHoverMix($mustardPrimary, $mustardSecondaryLight, 12%);
+    }
   }
 
   &--outline {
     @include sgButtonHoverMix($graySecondary, $transparent, 12%);
+
+    &-toggle-peach {
+      @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+    }
+
+    &-toggle-mustard {
+      @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent {
     @include sgButtonHoverMix($graySecondary, $transparent, 12%);
+
+    &-toggle-peach {
+      @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+    }
+
+    &-toggle-mustard {
+      @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent-light {
     @include sgButtonHoverMix($graySecondary, $transparent, 12%);
+
+    &-toggle-peach {
+      @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+    }
+
+    &-toggle-mustard {
+      @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent-inverted {
@@ -37,10 +69,19 @@
 
   &--transparent-peach {
     @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+
+    &-toggle-peach {
+      @include sgButtonHoverMix($peachPrimary, $transparent, 12%);
+    }
   }
 
   &--transparent-mustard {
     @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+
+
+    &-toggle-mustard {
+      @include sgButtonHoverMix($mustardPrimary, $transparent, 12%);
+    }
   }
 
   &--facebook {
