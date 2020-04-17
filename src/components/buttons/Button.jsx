@@ -191,8 +191,4 @@ const Button = ({
   );
 };
 
-export const Lol = () => {
-  return <Button type="solid-light" toggle="peach" />;
-};
-
 export default Button;
