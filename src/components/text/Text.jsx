@@ -2,7 +2,12 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT, TEXT_WHITE_SPACE} from './textConsts';
+import {
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_WHITE_SPACE,
+} from './textConsts';
 
 export type TextTypeType =
   | 'span'
@@ -70,7 +75,7 @@ export type TextPropsType = {
   asContainer?: ?boolean,
   full?: ?boolean,
   breakWords?: ?boolean,
-  whiteSpace?: TextWhiteSpaceType, 
+  whiteSpace?: TextWhiteSpaceType,
   className?: ?string,
   ...
 };
