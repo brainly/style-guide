@@ -7,6 +7,7 @@ import {
   TEXT_TYPE,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
+  TEXT_WHITE_SPACE,
 } from 'text/textConsts';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -49,12 +50,18 @@ const Texts = () => {
       name: 'breakWords',
       values: Boolean,
     },
+    {
+      name: 'whiteSpace',
+      values: TEXT_WHITE_SPACE,
+    },
   ];
+
+  const text = 'Lorem Ipsum \ndolor sit amet';
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Text>Lorem Ipsum</Text>
+        <Text>{text}</Text>
       </DocsActiveBlock>
     </div>
   );
