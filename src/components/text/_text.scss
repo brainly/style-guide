@@ -118,7 +118,11 @@ $bodyTextSizes: (
       word-break: break-word;
     }
 
-    &--break-lines {
+    &--pre-wrap {
+      white-space: pre-wrap;
+    }
+
+    &--pre-line {
       white-space: pre-line;
     }
 

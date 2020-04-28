@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from './textConsts';
+import {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT, TEXT_WHITE_SPACE} from './textConsts';
 
 export type TextTypeType =
   | 'span'
@@ -42,6 +42,7 @@ export type TextWeightType = 'regular' | 'bold';
 export type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 export type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
+export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line';
 
 export {
   TYPE, // backward compatibility
@@ -54,6 +55,7 @@ export {
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
+  TEXT_WHITE_SPACE,
 } from './textConsts';
 
 export type TextPropsType = {
@@ -68,7 +70,7 @@ export type TextPropsType = {
   asContainer?: ?boolean,
   full?: ?boolean,
   breakWords?: ?boolean,
-  breakLines?: ?boolean,
+  whiteSpace?: TextWhiteSpaceType, 
   className?: ?string,
   ...
 };
@@ -85,7 +87,7 @@ const Text = ({
   asContainer,
   full,
   breakWords,
-  breakLines,
+  whiteSpace,
   className,
   ...props
 }: TextPropsType) => {
@@ -102,7 +104,8 @@ const Text = ({
       'sg-text--full': full,
       'sg-text--no-wrap': noWrap,
       'sg-text--break-words': breakWords,
-      'sg-text--break-lines': breakLines,
+      'sg-text--pre-wrap': whiteSpace === TEXT_WHITE_SPACE.PRE_WRAP,
+      'sg-text--pre-line': whiteSpace === TEXT_WHITE_SPACE.PRE_LINE,
     },
     className
   );

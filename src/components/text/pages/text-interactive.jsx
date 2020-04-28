@@ -7,6 +7,7 @@ import {
   TEXT_TYPE,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
+  TEXT_WHITE_SPACE,
 } from 'text/textConsts';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -50,8 +51,8 @@ const Texts = () => {
       values: Boolean,
     },
     {
-      name: 'breakLines',
-      values: Boolean,
+      name: 'whiteSpace',
+      values: TEXT_WHITE_SPACE,
     },
   ];
 
