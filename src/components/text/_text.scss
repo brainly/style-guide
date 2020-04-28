@@ -118,6 +118,10 @@ $bodyTextSizes: (
       word-break: break-word;
     }
 
+    &--break-lines {
+      white-space: pre-line;
+    }
+
     &--uppercase {
       text-transform: uppercase;
     }

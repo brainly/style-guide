@@ -102,3 +102,9 @@ test('asContainer', () => {
 
   expect(text.hasClass('sg-text--container')).toBeTruthy();
 });
+
+test('breakLines', () => {
+  const text = shallow(<Text breakLines>Test</Text>);
+
+  expect(text.hasClass('sg-text--break-lines')).toBeTruthy();
+});

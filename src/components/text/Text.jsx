@@ -68,6 +68,7 @@ export type TextPropsType = {
   asContainer?: ?boolean,
   full?: ?boolean,
   breakWords?: ?boolean,
+  breakLines?: ?boolean,
   className?: ?string,
   ...
 };
@@ -84,6 +85,7 @@ const Text = ({
   asContainer,
   full,
   breakWords,
+  breakLines,
   className,
   ...props
 }: TextPropsType) => {
@@ -100,6 +102,7 @@ const Text = ({
       'sg-text--full': full,
       'sg-text--no-wrap': noWrap,
       'sg-text--break-words': breakWords,
+      'sg-text--break-lines': breakLines,
     },
     className
   );

@@ -49,12 +49,18 @@ const Texts = () => {
       name: 'breakWords',
       values: Boolean,
     },
+    {
+      name: 'breakLines',
+      values: Boolean,
+    },
   ];
+
+  const text = 'Lorem Ipsum \ndolor sit amet';
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Text>Lorem Ipsum</Text>
+        <Text>{text}</Text>
       </DocsActiveBlock>
     </div>
   );
