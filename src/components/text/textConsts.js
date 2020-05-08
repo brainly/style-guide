@@ -75,4 +75,5 @@ export const TEXT_ALIGN = Object.freeze({
 export const TEXT_WHITE_SPACE = Object.freeze({
   PRE_WRAP: 'pre-wrap',
   PRE_LINE: 'pre-line',
+  NOWRAP: 'nowrap',
 });

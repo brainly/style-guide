@@ -47,7 +47,7 @@ export type TextWeightType = 'regular' | 'bold';
 export type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 export type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
-export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line';
+export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line' | 'nowrap';
 
 export {
   TYPE, // backward compatibility
@@ -111,6 +111,7 @@ const Text = ({
       'sg-text--break-words': breakWords,
       'sg-text--pre-wrap': whiteSpace === TEXT_WHITE_SPACE.PRE_WRAP,
       'sg-text--pre-line': whiteSpace === TEXT_WHITE_SPACE.PRE_LINE,
+      'sg-text--nowrap': whiteSpace === TEXT_WHITE_SPACE.NOWRAP,
     },
     className
   );
