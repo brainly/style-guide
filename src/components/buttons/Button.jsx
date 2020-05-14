@@ -103,6 +103,11 @@ export type ButtonPropsType = {
    */
   icon?: Node,
   /**
+   * Optional boolean for icon only button
+   * @example <Button type="solid-mint" iconOnly />
+   */
+  iconOnly?: boolean,
+  /**
    * There are three sizes options for buttons, not need to be specify, default is medium
    * @example <Button type="solid" size="medium">
    *            button
@@ -144,6 +149,7 @@ const Button = ({
   size,
   type,
   icon,
+  iconOnly,
   href,
   fullWidth,
   disabled,
@@ -159,6 +165,7 @@ const Button = ({
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
       'sg-button--full-width': fullWidth,
+      'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
     },
     className

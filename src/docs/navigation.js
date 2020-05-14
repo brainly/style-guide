@@ -137,11 +137,11 @@ const navigation = [
         component: buttons,
       },
       {
-        name: 'Round Buttons',
+        name: 'Round Buttons (deprecated)',
         component: roundButtons,
       },
       {
-        name: 'Icon as button',
+        name: 'Icon as button (deprecated)',
         component: iconAsButton,
       },
       {

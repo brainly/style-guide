@@ -218,9 +218,7 @@
   &--transparent-inverted,
   &--transparent-peach,
   &--transparent-mustard {
-    &.sg-button {
-      padding: 0 10px;
-    }
+    padding: 0 10px;
 
     &.sg-button--large {
       padding: 0 14px;
@@ -249,6 +247,38 @@
     &:active:focus:not([disabled]) {
       background-color: $buttonPrimaryFbHoverColor;
       border-color: $buttonPrimaryFbHoverColor;
+    }
+  }
+
+  &--icon-only {
+    padding: 0;
+    width: 40px;
+
+    &.sg-button--small {
+      width: 32px;
+    }
+
+    &.sg-button--medium {
+      width: 40px;
+    }
+
+    &.sg-button--large {
+      width: 56px;
+    }
+
+    .sg-button__icon {
+      margin: 0;
+    }
+
+    .sg-button__text { // if defined it's available for screen readers
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: none;
     }
   }
 }

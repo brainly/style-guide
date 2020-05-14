@@ -22,7 +22,7 @@ const Buttons = () => {
     'transparent-light',
   ];
   // eslint-disable-next-line react/prop-types
-  const getToggleButtons = ({type, hover = false} = {}) => (
+  const getToggleButtons = ({type} = {}) => (
     <>
       {[...someButtonsWithToggle, 'transparent-peach'].includes(type) && (
         <Button
@@ -30,7 +30,6 @@ const Buttons = () => {
           toggle="peach"
           icon={<Icon type="heart" color="adaptive" size={24} />}
           style={{marginBottom: '12px'}}
-          className={hover ? `docs-button-hovered--${type}-toggle-peach` : null}
         >
           {buttonsText}
         </Button>
@@ -41,9 +40,6 @@ const Buttons = () => {
           type={type}
           toggle="mustard"
           icon={<Icon type="heart" color="adaptive" size={24} />}
-          className={
-            hover ? `docs-button-hovered--${type}-toggle-mustard` : null
-          }
         >
           {buttonsText}
         </Button>
@@ -70,11 +66,6 @@ const Buttons = () => {
             <Button type={type}>{buttonsText}</Button>
           </DocsBlock>
           <DocsBlock evenColumns justified>
-            <Button type={type} className={`docs-button-hovered--${type}`}>
-              {buttonsText}
-            </Button>
-          </DocsBlock>
-          <DocsBlock evenColumns justified>
             <Button type={type} disabled>
               {buttonsText}
             </Button>
@@ -82,18 +73,28 @@ const Buttons = () => {
           <DocsBlock evenColumns justified>
             <Button
               type={type}
+              icon={
+                <Icon
+                  type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
+                  color="adaptive"
+                  size={24}
+                />
+              }
+            >
+              {buttonsText}
+            </Button>
+          </DocsBlock>
+          <DocsBlock evenColumns justified>
+            <Button
+              type={type}
               icon={<Icon type="heart_outlined" color="adaptive" size={24} />}
+              iconOnly
             >
               {buttonsText}
             </Button>
           </DocsBlock>
           <DocsBlock evenColumns justified>
             <Flex direction="column">{getToggleButtons({type})}</Flex>
-          </DocsBlock>
-          <DocsBlock evenColumns justified>
-            <Flex direction="column">
-              {getToggleButtons({type, hover: true})}
-            </Flex>
           </DocsBlock>
         </Flex>
       </DocsBlock>
@@ -110,42 +111,65 @@ const Buttons = () => {
           <Text>default</Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
-          <Text>hover</Text>
-        </DocsBlock>
-        <DocsBlock evenColumns justified>
           <Text>disabled</Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
           <Text>with icon</Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
-          <Text>toggle</Text>
+          <Text>icon only</Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
-          <Text>toggle hover</Text>
+          <Text>toggle</Text>
         </DocsBlock>
       </DocsBlock>
       {buttonsVariants}
       <DocsBlock info="Buttons sizes">
         <Button
           size="large"
-          type="facebook"
-          icon={<Icon type="facebook" color="light" size={32} />}
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={32} />}
         >
           {buttonsText}
         </Button>
         &nbsp;
         <Button
-          type="facebook"
-          icon={<Icon type="facebook" color="light" size={24} />}
+          size="large"
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={32} />}
+          iconOnly
+        >
+          {buttonsText}
+        </Button>
+        &nbsp;
+        <Button
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={24} />}
+        >
+          {buttonsText}
+        </Button>
+        &nbsp;
+        <Button
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={24} />}
+          iconOnly
         >
           {buttonsText}
         </Button>
         &nbsp;
         <Button
           size="small"
-          type="facebook"
-          icon={<Icon type="facebook" color="light" size={16} />}
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={16} />}
+        >
+          {buttonsText}
+        </Button>
+        &nbsp;
+        <Button
+          size="small"
+          type="solid-blue"
+          icon={<Icon type="heart_outlined" color="light" size={16} />}
+          iconOnly
         >
           {buttonsText}
         </Button>
