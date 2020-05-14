@@ -67,12 +67,6 @@ test('icon only', () => {
   expect(button.find('.sg-button__icon')).toHaveLength(1);
 });
 
-test('icon only when no icon', () => {
-  const button = shallow(<Button iconOnly>Some text</Button>);
-
-  expect(button.find('.sg-button--icon-only')).toHaveLength(0);
-});
-
 test('no icon', () => {
   const button = shallow(<Button>Some text</Button>);
 
