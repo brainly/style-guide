@@ -56,6 +56,15 @@ type ButtonColorType =
       toggle?: 'mustard' | null,
     };
 
+type ButtonIconType =
+  | {
+      icon?: Node,
+    }
+  | {
+      icon: Node,
+      iconOnly?: boolean,
+    };
+
 export type ButtonPropsType = {
   /**
    * type: Specify type of the button that you want to use
@@ -83,6 +92,25 @@ export type ButtonPropsType = {
    */
   ...ButtonColorType,
   /**
+   * You can render icon inside each type of button on the left side
+   * @example <Button
+   *           icon={<Icon type="facebook" color="light" size={24} />}
+   *           type="facebook"
+   *          >
+   *            Login with Facebook
+   *          </Button>
+   *
+   * iconOnly: optional and available when icon is set. it hides button's text
+   * @example <Button
+   *            icon={<Icon type="facebook" color="light" size={24} />}
+   *            iconOnly
+   *            type="facebook"
+   *          >
+   *            Login with Facebook
+   *          </Button>
+   */
+  ...ButtonIconType,
+  /**
    * Children to be rendered inside Button
    * @example <Button
    *           icon={<Icon type="answer" color="light" size={24} />}
@@ -92,21 +120,6 @@ export type ButtonPropsType = {
    *          </Button>
    */
   children?: Node,
-  /**
-   * You can render icon inside each type of button on the left side
-   * @example <Button
-   *           icon={<Icon type="facebook" color="light" size={24} />}
-   *           buttonType="facebook"
-   *          >
-   *            Login with Facebook
-   *          </Button>
-   */
-  icon?: Node,
-  /**
-   * Optional boolean for icon only button
-   * @example <Button type="solid-mint" iconOnly />
-   */
-  iconOnly?: boolean,
   /**
    * There are three sizes options for buttons, not need to be specify, default is medium
    * @example <Button type="solid" size="medium">
