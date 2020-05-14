@@ -59,6 +59,7 @@ type ButtonColorType =
 type ButtonIconType =
   | {
       icon?: Node,
+      iconOnly?: null,
     }
   | {
       icon: Node,
