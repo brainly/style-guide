@@ -46,6 +46,10 @@ const Buttons = () => {
       values: allIcons,
     },
     {
+      name: 'iconOnly',
+      values: Boolean,
+    },
+    {
       name: 'toggle',
       values: BUTTON_TOGGLE,
     },
