@@ -243,11 +243,11 @@ const navigation = [
         component: footer,
       },
       {
-        name: 'Action List',
+        name: 'Action List (deprecated)',
         component: actionList,
       },
       {
-        name: 'Content Box',
+        name: 'Content Box (deprecated)',
         component: contentBox,
       },
       {
