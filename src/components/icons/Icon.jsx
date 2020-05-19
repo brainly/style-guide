@@ -5,6 +5,7 @@ import type {Node} from 'react';
 import classNames from 'classnames';
 
 export type IconTypeType =
+  | 'academic_cap'
   | 'all_questions'
   | 'answer'
   | 'arrow_double_down'
@@ -18,6 +19,7 @@ export type IconTypeType =
   | 'bell_outlined'
   | 'bold'
   | 'bulleted_list'
+  | 'calendar'
   | 'camera'
   | 'check'
   | 'close'
@@ -125,6 +127,7 @@ export type IconSizeType =
   | 10;
 
 export const TYPE = {
+  ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
   ARROW_DOUBLE_DOWN: 'arrow_double_down',
@@ -138,6 +141,7 @@ export const TYPE = {
   BELL_OUTLINED: 'bell_outlined',
   BOLD: 'bold',
   BULLETED_LIST: 'bulleted_list',
+  CALENDAR: 'calendar',
   CAMERA: 'camera',
   CHECK: 'check',
   CLOSE: 'close',
