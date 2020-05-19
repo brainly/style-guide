@@ -40,6 +40,17 @@ const Buttons = () => {
           type={type}
           toggle="mustard"
           icon={<Icon type="heart" color="adaptive" size={24} />}
+          style={{marginBottom: '12px'}}
+        >
+          {buttonsText}
+        </Button>
+      )}
+
+      {[...someButtonsWithToggle, 'transparent-blue'].includes(type) && (
+        <Button
+          type={type}
+          toggle="blue"
+          icon={<Icon type="heart" color="adaptive" size={24} />}
         >
           {buttonsText}
         </Button>

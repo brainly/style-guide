@@ -20,7 +20,8 @@ export const BUTTON_TYPE = Object.freeze({
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
   TRANSPARENT_PEACH: 'transparent-peach',
-  TRANSPARENT_MUSTRAD: 'transparent-mustard',
+  TRANSPARENT_MUSTARD: 'transparent-mustard',
+  TRANSPARENT_BLUE: 'transparent-blue',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
 });
@@ -28,6 +29,7 @@ export const BUTTON_TYPE = Object.freeze({
 export const BUTTON_TOGGLE = Object.freeze({
   PEACH: 'peach',
   MUSTARD: 'mustard',
+  BLUE: 'blue',
 });
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
@@ -45,7 +47,7 @@ type ButtonColorType =
     }
   | {
       type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
-      toggle?: 'peach' | 'mustard' | null,
+      toggle?: 'peach' | 'mustard' | 'blue' | null,
     }
   | {
       type: 'transparent-peach',
@@ -54,6 +56,10 @@ type ButtonColorType =
   | {
       type: 'transparent-mustard',
       toggle?: 'mustard' | null,
+    }
+  | {
+      type: 'transparent-blue',
+      toggle?: 'blue' | null,
     };
 
 type ButtonIconType =
@@ -83,6 +89,7 @@ export type ButtonPropsType = {
    * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
    * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
+   * @see type="transparent-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-blue"#buttons
    * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    *
    * toggle: optional union available just for selected type of buttons
