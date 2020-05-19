@@ -17,6 +17,7 @@ import Text from 'text/Text';
 import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
+import Flex from 'flex/Flex';
 
 const link1 = (
   <Link href="#" color={LINK_COLOR.GRAY}>
@@ -145,6 +146,12 @@ const examplePart2 = (
 
 const ContentBoxes = () => (
   <div>
+    <Flex marginBottom="m">
+      <Text color="peach-dark">
+        This component is deprecated, please use{' '}
+        <Link href="./containers.html#flexbox">Flex</Link> instead
+      </Text>
+    </Flex>
     <DocsBlock info="Simple with header">
       <ContentBox>
         <ContentBoxHeader>

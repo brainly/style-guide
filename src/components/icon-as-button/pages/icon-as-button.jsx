@@ -11,7 +11,9 @@ const icons = () => (
     <Flex marginBottom="m">
       <Text color="peach-dark">
         This component is deprecated, please use{' '}
-        <Link href="./components.html#round-buttons">Round buttons</Link>{' '}
+        <Link href="./components.html#buttons">
+          Buttons with iconOnly option
+        </Link>{' '}
         instead
       </Text>
     </Flex>
