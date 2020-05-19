@@ -128,6 +128,12 @@
       background-color: $mustardSecondaryLight;
       fill: $mustardPrimary;
     }
+
+    &-toggle-blue {
+      @include buttonHover($bluePrimary, $blueSecondaryLight, 12%);
+      background-color: $blueSecondaryLight;
+      fill: $bluePrimary;
+    }
   }
 
   &--outline {
@@ -148,6 +154,12 @@
       border-color: $mustardPrimary;
       fill: $mustardPrimary;
     }
+
+    &-toggle-blue {
+      @include buttonHover($bluePrimary, $transparent, 12%);
+      border-color: $bluePrimary;
+      fill: $bluePrimary;
+    }
   }
 
   &--transparent {
@@ -165,6 +177,11 @@
       @include buttonHover($mustardPrimary, $transparent, 12%);
       fill: $mustardPrimary;
     }
+
+    &-toggle-blue {
+      @include buttonHover($bluePrimary, $transparent, 12%);
+      fill: $bluePrimary;
+    }
   }
 
   &--transparent-light {
@@ -181,6 +198,11 @@
     &-toggle-mustard {
       @include buttonHover($mustardPrimary, $transparent, 12%);
       fill: $mustardPrimary;
+    }
+
+    &-toggle-blue {
+      @include buttonHover($bluePrimary, $transparent, 12%);
+      fill: $bluePrimary;
     }
   }
 
@@ -213,11 +235,23 @@
     }
   }
 
+  &--transparent-blue {
+    @include buttonHover($bluePrimary, $transparent, 12%);
+    background-color: $transparent;
+    color: $bluePrimary;
+    fill: $bluePrimary;
+
+    &-toggle-blue {
+      @include buttonHover($bluePrimary, $transparent, 12%);
+    }
+  }
+
   &--transparent,
   &--transparent-light,
   &--transparent-inverted,
   &--transparent-peach,
-  &--transparent-mustard {
+  &--transparent-mustard,
+  &--transparent-blue {
     padding: 0 10px;
 
     &.sg-button--large {
