@@ -177,7 +177,11 @@ const Input = (props: InputPropsType) => {
         className={inputClass}
         value={value}
       />
-      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
+      <Flex
+        marginTop="xxs"
+        marginLeft={size === 'normal' ? 's' : 'm'}
+        marginRight={size === 'normal' ? 's' : 'm'}
+      >
         <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
           {errorMessage}
         </Text>
