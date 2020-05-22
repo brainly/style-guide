@@ -83,7 +83,7 @@ export type TextareaPropsType = {
    * Optional Node if there should be an error message displayed
    * @example <Textarea errorMessage="This is an error" />
    */
-  errorMessage?: React.Node,
+  errorMessage?: React.Node | string,
   /**
    * Additional class names
    */

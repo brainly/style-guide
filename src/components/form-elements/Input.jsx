@@ -114,7 +114,7 @@ export type InputPropsType = {
    * Optional Node if there should be an error message displayed
    * @example <Input errorMessage="This is an error" />
    */
-  errorMessage?: Node,
+  errorMessage?: Node | string,
   /**
    * Additional class names
    */
