@@ -8,6 +8,7 @@ type PropsType = {
   className?: ?string,
   adaptive?: ?boolean,
   short?: ?boolean,
+  inlineItems?: ?boolean,
   elements: $ReadOnlyArray<Node>,
   ...
 };
@@ -16,6 +17,7 @@ const Breadcrumb = ({
   className,
   short,
   adaptive,
+  inlineItems,
   elements = [],
   ...props
 }: PropsType) => {
@@ -24,6 +26,7 @@ const Breadcrumb = ({
     {
       'sg-breadcrumb-list--short': short,
       'sg-breadcrumb-list--adaptive': adaptive,
+      'sg-breadcrumb-list--inline-items': inlineItems,
     },
     className
   );
