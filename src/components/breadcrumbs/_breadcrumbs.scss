@@ -12,7 +12,7 @@ $includeHtml: false !default;
       display: inline-block;
 
       &::after {
-        content: '·';
+        content: '\00B7';
         display: inline-block;
         color: $breadcrumbListSeparatorColor;
         padding: 0 2px;
@@ -35,6 +35,12 @@ $includeHtml: false !default;
         &::after {
           color: inherit;
         }
+      }
+    }
+
+    &--inline-items {
+      .sg-breadcrumb-list__element {
+        display: inline;
       }
     }
   }
