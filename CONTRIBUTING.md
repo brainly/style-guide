@@ -132,7 +132,8 @@ Now, your file should look like:
 7. Go to icons section (`docs/basics.html#icons`) and find your newly added icon.
 8. Follow standard process of introducing changes to the style-guide.
 9. After releasing your changes, to use a new icon in your project you need update the `src` of the icons in `<script>` you include on your page. This `src` is avaialble on the main page of docs (`/docs`).
-i.e.
+
+example:
 ```
 <script src="https://styleguide.brainly.com/images/icons-0c5f18cafc.js"></script>
 ```
