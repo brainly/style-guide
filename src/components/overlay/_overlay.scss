@@ -1,4 +1,6 @@
-$overlayBackgroundColor: rgba($bluePrimary, 0.9);
+$overlayBackgroundColorBlue: rgba($bluePrimary, 0.9);
+$overlayBackgroundColorDark: rgba($black, 0.9);
+$overlayBackgroundColor: $overlayBackgroundColorBlue;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -22,6 +24,14 @@ $includeHtml: false !default;
 
     &--partial {
       position: absolute;
+    }
+
+    &--dark {
+      background-color: $overlayBackgroundColorDark;
+    }
+
+    &--blue {
+      background-color: $overlayBackgroundColorBlue;
     }
   }
 
