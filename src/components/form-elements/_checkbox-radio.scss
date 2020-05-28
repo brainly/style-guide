@@ -1,11 +1,11 @@
-$crInputSize: rhythm(2 / 3);
+$crInputSize: 16px;
 $crInputColor: $white;
 $crInputBorderColor: $graySecondaryLight;
 $crInputActiveBorderColor: $bluePrimary;
 $crInputCheckedColor: $bluePrimary;
 $crRadioCheckedColor: $white;
 $crInputActiveColor: rgba($crInputColor, 0.7);
-$radioLargeSize: gutter(1.5);
+$radioLargeSize: 32px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
