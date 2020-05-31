@@ -155,7 +155,7 @@ To bump the version correctly you should follow these steps:
 1. Merge approved, pending PR's into master.
 2. Create a branch with a bumped version according to the rules above, create tag and merge it (get approvals of course).
 3. Create proper, specific and detailed release note, with all the changes included in the release.
-4. Publish your newly prepared version of style-guide to NPM registery with `npm publish` command (do it from a fresh master branch containing commits with your changes and bumped version).
+4. Publish your newly prepared version of style-guide to NPM registry with `npm publish` command (do it from a fresh master branch containing commits with your changes and bumped version).
 5. Remember to let know contributors (before merge their PR, just mention in the comment that we are releasing a new version of the library) and Brainly engineers (slack channel would be a perfect place for that), that new version was released and it's ready to use.
 
 #### Code Style
