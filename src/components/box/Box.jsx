@@ -12,6 +12,7 @@ type ColorType =
   | 'mint'
   | 'mint-secondary'
   | 'mint-secondary-light'
+  | 'mint-secondary-ultra-light'
   | 'navyblue-secondary'
   | 'blue-secondary'
   | 'blue-secondary-light'
@@ -38,6 +39,7 @@ export const COLOR = {
   MINT: 'mint',
   MINT_SECONDARY: 'mint-secondary',
   MINT_SECONDARY_LIGHT: 'mint-secondary-light',
+  MINT_SECONDARY_ULTRA_LIGHT: 'mint-secondary-ultra-light',
   NAVYBLUE_SECONDARY: 'navyblue-secondary',
   BLUE_SECONDARY: 'blue-secondary',
   BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
