@@ -1,6 +1,6 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import Overlay from '../Overlay';
+import Overlay, {COLOR} from '../Overlay';
 import Text from 'text/Text';
 
 const Overlays = () => {
@@ -8,6 +8,10 @@ const Overlays = () => {
     {
       name: 'partial',
       values: Boolean,
+    },
+    {
+      name: 'color',
+      values: COLOR,
     },
   ];
 

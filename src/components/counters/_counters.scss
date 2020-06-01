@@ -5,8 +5,8 @@ $includeHtml: false !default;
   .sg-counter {
     border-radius: $borderRadiusLarge;
     padding: 0 spacing(xs);
-    min-width: 22px;
-    min-height: 22px;
+    min-width: 24px;
+    min-height: 24px;
     display: inline-flex;
     justify-content: center;
     align-content: center;
@@ -20,7 +20,7 @@ $includeHtml: false !default;
 
     &__text-spaced {
       position: relative;
-      top: 2px;
+      top: 3px;
     }
 
     // only one color for now, counter for notifications

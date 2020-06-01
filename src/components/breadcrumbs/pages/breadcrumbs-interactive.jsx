@@ -15,6 +15,10 @@ const Breadcrumbs = () => {
       name: 'adaptive',
       values: Boolean,
     },
+    {
+      name: 'inlineItems',
+      values: Boolean,
+    },
   ];
 
   return (

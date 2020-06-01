@@ -20,7 +20,8 @@ export const BUTTON_TYPE = Object.freeze({
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
   TRANSPARENT_PEACH: 'transparent-peach',
-  TRANSPARENT_MUSTRAD: 'transparent-mustard',
+  TRANSPARENT_MUSTARD: 'transparent-mustard',
+  TRANSPARENT_BLUE: 'transparent-blue',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
 });
@@ -28,6 +29,7 @@ export const BUTTON_TYPE = Object.freeze({
 export const BUTTON_TOGGLE = Object.freeze({
   PEACH: 'peach',
   MUSTARD: 'mustard',
+  BLUE: 'blue',
 });
 
 type ButtonSizeType = 'large' | 'medium' | 'small';
@@ -45,7 +47,7 @@ type ButtonColorType =
     }
   | {
       type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
-      toggle?: 'peach' | 'mustard' | null,
+      toggle?: 'peach' | 'mustard' | 'blue' | null,
     }
   | {
       type: 'transparent-peach',
@@ -54,6 +56,20 @@ type ButtonColorType =
   | {
       type: 'transparent-mustard',
       toggle?: 'mustard' | null,
+    }
+  | {
+      type: 'transparent-blue',
+      toggle?: 'blue' | null,
+    };
+
+type ButtonIconType =
+  | {
+      icon?: Node,
+      iconOnly?: null,
+    }
+  | {
+      icon: Node,
+      iconOnly?: boolean,
     };
 
 export type ButtonPropsType = {
@@ -73,6 +89,7 @@ export type ButtonPropsType = {
    * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
    * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
+   * @see type="transparent-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-blue"#buttons
    * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    *
    * toggle: optional union available just for selected type of buttons
@@ -83,6 +100,25 @@ export type ButtonPropsType = {
    */
   ...ButtonColorType,
   /**
+   * You can render icon inside each type of button on the left side
+   * @example <Button
+   *           icon={<Icon type="facebook" color="light" size={24} />}
+   *           type="facebook"
+   *          >
+   *            Login with Facebook
+   *          </Button>
+   *
+   * iconOnly: optional and available when icon is set. it hides button's text
+   * @example <Button
+   *            icon={<Icon type="facebook" color="light" size={24} />}
+   *            iconOnly
+   *            type="facebook"
+   *          >
+   *            Login with Facebook
+   *          </Button>
+   */
+  ...ButtonIconType,
+  /**
    * Children to be rendered inside Button
    * @example <Button
    *           icon={<Icon type="answer" color="light" size={24} />}
@@ -92,16 +128,6 @@ export type ButtonPropsType = {
    *          </Button>
    */
   children?: Node,
-  /**
-   * You can render icon inside each type of button on the left side
-   * @example <Button
-   *           icon={<Icon type="facebook" color="light" size={24} />}
-   *           buttonType="facebook"
-   *          >
-   *            Login with Facebook
-   *          </Button>
-   */
-  icon?: Node,
   /**
    * There are three sizes options for buttons, not need to be specify, default is medium
    * @example <Button type="solid" size="medium">
@@ -144,6 +170,7 @@ const Button = ({
   size,
   type,
   icon,
+  iconOnly,
   href,
   fullWidth,
   disabled,
@@ -159,6 +186,7 @@ const Button = ({
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': disabled,
       'sg-button--full-width': fullWidth,
+      'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
     },
     className

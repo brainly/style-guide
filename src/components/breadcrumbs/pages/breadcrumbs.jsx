@@ -4,6 +4,11 @@ import Breadcrumb from '../Breadcrumb';
 import Text, {TEXT_COLOR} from 'text/Text';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
+const longElements = [
+  "I'm so long and there is so little space there",
+  'The second element is also very talkative',
+  'Lorem ipsum has many many words',
+];
 
 const breadcrumbs = () => (
   <div>
@@ -19,6 +24,11 @@ const breadcrumbs = () => (
       <Text color={TEXT_COLOR.MINT}>
         <Breadcrumb elements={elements} adaptive />
       </Text>
+    </DocsBlock>
+    <DocsBlock info="Inline items">
+      <div style={{maxWidth: 300}}>
+        <Breadcrumb elements={longElements} inlineItems />
+      </div>
     </DocsBlock>
   </div>
 );

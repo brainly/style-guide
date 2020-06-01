@@ -125,9 +125,11 @@ $includeHtml: false !default;
 
     &__wrapper {
       display: inline-block;
+      max-width: min-content;
 
       &--full-width {
         width: 100%;
+        max-width: 100%;
       }
     }
   }

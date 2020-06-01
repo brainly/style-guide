@@ -137,11 +137,11 @@ const navigation = [
         component: buttons,
       },
       {
-        name: 'Round Buttons',
+        name: 'Round Buttons (deprecated)',
         component: roundButtons,
       },
       {
-        name: 'Icon as button',
+        name: 'Icon as button (deprecated)',
         component: iconAsButton,
       },
       {
@@ -243,11 +243,11 @@ const navigation = [
         component: footer,
       },
       {
-        name: 'Action List',
+        name: 'Action List (deprecated)',
         component: actionList,
       },
       {
-        name: 'Content Box',
+        name: 'Content Box (deprecated)',
         component: contentBox,
       },
       {

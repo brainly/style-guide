@@ -102,3 +102,11 @@ test('asContainer', () => {
 
   expect(text.hasClass('sg-text--container')).toBeTruthy();
 });
+
+test('whiteSpace', () => {
+  const text1 = shallow(<Text whiteSpace="pre-wrap">Test</Text>);
+  const text2 = shallow(<Text whiteSpace="pre-line">Test</Text>);
+
+  expect(text1.hasClass('sg-text--pre-wrap')).toBeTruthy();
+  expect(text2.hasClass('sg-text--pre-line')).toBeTruthy();
+});

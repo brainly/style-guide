@@ -80,10 +80,10 @@ export type TextareaPropsType = {
    */
   autoHeight?: boolean,
   /**
-   * Optional string if there should be an error message displayed
+   * Optional Node if there should be an error message displayed
    * @example <Textarea errorMessage="This is an error" />
    */
-  errorMessage?: string,
+  errorMessage?: React.Node | string,
   /**
    * Additional class names
    */
@@ -146,8 +146,8 @@ const Textarea = (props: TextareaPropsType) => {
         ref={textareaRef}
         value={value}
       />
-      <Flex marginTop="xxs" marginLeft={size === 'normal' ? 's' : 'm'}>
-        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+      <Flex marginTop="xxs" marginLeft="s" marginRight="s">
+        <Text size="xsmall" color="peach-dark">
           {errorMessage}
         </Text>
       </Flex>

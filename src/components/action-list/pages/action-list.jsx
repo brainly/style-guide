@@ -25,9 +25,17 @@ import ContentBoxContent, {
   ALIGNMENT as CB_ALIGNMENT,
 } from 'content-box/ContentBoxContent';
 import Radio from 'form-elements/Radio';
+import Link from 'text/Link';
+import Flex from 'flex/Flex';
 
 const ActionLists = () => (
   <div>
+    <Flex marginBottom="m">
+      <Text color="peach-dark">
+        This component is deprecated, please use{' '}
+        <Link href="./containers.html#flexbox">Flex</Link> instead
+      </Text>
+    </Flex>
     <DocsBlock info="Default">
       <ContrastBox fullWidth>
         <ActionList>
