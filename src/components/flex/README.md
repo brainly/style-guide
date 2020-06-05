@@ -28,7 +28,7 @@ Variable | Value
 ------------ | -------------
 xxs | 4px
 xs | 8px
-x | 16px
+s | 16px
 m | 24px
 l | 40px
 xl | 64px
