@@ -4,10 +4,10 @@ import React from 'react';
 import classNames from 'classnames';
 import generateRandomString from '../../js/generateRandomString';
 
-type RadioSizeType = 'xs' | 's';
+type RadioSizeType = 'xxs' | 's';
 
 export const RADIO_SIZE = {
-  xs: 'xs',
+  xxs: 'xxs',
   s: 's',
 };
 
