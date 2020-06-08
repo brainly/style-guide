@@ -7,6 +7,8 @@ import type {IconColorType} from '../icons/Icon';
 export type IconTypeType =
   | 'answer-bubble'
   | 'ask-bubble'
+  | 'barcode-scanner'
+  | 'chapter'
   | 'clear'
   | 'comment'
   | 'crown'
@@ -15,11 +17,15 @@ export type IconTypeType =
   | 'flashlight-off'
   | 'flashlight-on'
   | 'heart-outline'
+  | 'info'
   | 'keyboard'
   | 'options'
   | 'sent'
   | 'share-on-ios'
-  | 'star-outline';
+  | 'spark'
+  | 'star-outline'
+  | 'text'
+  | 'textbook';
 
 export type SizeType = 'small' | 'medium' | 'normal';
 
