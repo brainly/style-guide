@@ -7,6 +7,8 @@ $iconSizes: 104, 102, 80, 78, 56, 54, 40, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10
   width: 24px;
   fill: $white;
 
+  @include iconColor();
+
   @each $size in $iconSizes {
     &--x#{$size} {
       max-width: #{$size}px;
@@ -15,6 +17,4 @@ $iconSizes: 104, 102, 80, 78, 56, 54, 40, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10
       width: #{$size}px;
     }
   }
-
-  @include iconColor();
 }
