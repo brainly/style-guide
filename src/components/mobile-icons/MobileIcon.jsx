@@ -27,7 +27,24 @@ export type IconTypeType =
   | 'text'
   | 'textbook';
 
-export type SizeType = 'small' | 'medium' | 'normal';
+export type SizeType =
+  | 104
+  | 102
+  | 80
+  | 78
+  | 56
+  | 54
+  | 40
+  | 32
+  | 30
+  | 26
+  | 24
+  | 22
+  | 20
+  | 18
+  | 16
+  | 14
+  | 10;
 
 export const TYPE: {[name: string]: IconTypeType, ...} = {
   ANSWER_BUBBLE: 'answer-bubble',
@@ -63,7 +80,7 @@ type PropsType = $ReadOnly<{
 
 const MobileIcon = ({
   type,
-  size = 'normal',
+  size = 24,
   color = 'light',
   className,
   ...props
@@ -71,7 +88,7 @@ const MobileIcon = ({
   const iconClass = classNames(
     'sg-mobile-icon',
     {
-      [`sg-mobile-icon--${size}`]: size !== 'normal',
+      [`sg-mobile-icon--x${size}`]: size,
       [`sg-mobile-icon--${String(color)}`]: color !== 'light',
     },
     className
