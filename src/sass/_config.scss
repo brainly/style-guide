@@ -101,6 +101,17 @@ $sizesSetup: (
   xxxxl: 272px,
 );
 
+// component sizes
+$componentSizesSetup: (
+  xxs: 16px,
+  xs: 24px,
+  s: 32px,
+  m: 40px,
+  l: 56px,
+  xl: 80px,
+  xxl: 104px,
+);
+
 // Border radius
 $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;

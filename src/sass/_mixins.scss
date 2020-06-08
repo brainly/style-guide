@@ -108,6 +108,15 @@
   }
 }
 
+// componentSize function that returns proper size based on namespace
+@function componentSize($size) {
+  @each $key, $value in $componentSizesSetup {
+    @if($key == $size) {
+      @return $value;
+    }
+  }
+}
+
 // https://css-tricks.com/snippets/sass/strip-unit-function/
 // Remove the unit of a length
 // @param {Number} $number - Number to remove unit from
