@@ -26,6 +26,8 @@ export type SizeType = 'small' | 'medium' | 'normal';
 export const TYPE: {[name: string]: IconTypeType, ...} = {
   ANSWER_BUBBLE: 'answer-bubble',
   ASK_BUBBLE: 'ask-bubble',
+  BARCODE_SCANNER: 'barcode-scanner',
+  CHAPTER: 'chapter',
   CLEAR: 'clear',
   COMMENT: 'comment',
   CROWN: 'crown',
@@ -34,11 +36,15 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   FLASHLIGHT_OFF: 'flashlight-off',
   FLASHLIGHT_ON: 'flashlight-on',
   HEART_OUTLINE: 'heart-outline',
+  INFO: 'info',
   KEYBOARD: 'keyboard',
   OPTIONS: 'options',
   SENT: 'sent',
   SHARE_ON_IOS: 'share-on-ios',
+  SPARK: 'spark',
   STAR_OUTLINE: 'star-outline',
+  TEXT: 'text',
+  TEXTBOOK: 'textbook',
 };
 
 type PropsType = $ReadOnly<{
