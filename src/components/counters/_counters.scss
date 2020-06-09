@@ -1,12 +1,14 @@
 $includeHtml: false !default;
 
-@if ($includeHtml) {
+$counterSizeXXS: componentSize(xxs);
+$counterSizeXS: componentSize(xs);
 
+@if ($includeHtml) {
   .sg-counter {
     border-radius: $borderRadiusLarge;
     padding: 0 spacing(xs);
-    min-width: 24px;
-    min-height: 24px;
+    min-width: $counterSizeXS;
+    min-height: $counterSizeXS;
     display: inline-flex;
     justify-content: center;
     align-content: center;
@@ -29,30 +31,30 @@ $includeHtml: false !default;
     }
 
     &--with-icon {
-      height: 24px;
+      height: $counterSizeXS;
       padding: 0;
-      border-radius: 24px;
+      border-radius: $counterSizeXS;
       padding-right: spacing(xs);
       background: $graySecondaryLightest;
       position: relative;
       vertical-align: top;
 
-      &.sg-counter--small {
-        min-height: 16px;
-        min-width: 16px;
-        height: 16px;
+      &.sg-counter--xxs {
+        min-height: $counterSizeXXS;
+        min-width: $counterSizeXXS;
+        height: $counterSizeXXS;
         width: auto;
-        border-radius: 16px;
+        border-radius: $counterSizeXXS;
         padding: 0 spacing(xs) 0 0;
       }
     }
 
-    &--small {
-      min-height: 16px;
-      min-width: 16px;
-      height: 16px;
+    &--xxs {
+      min-height: $counterSizeXXS;
+      min-width: $counterSizeXXS;
+      height: $counterSizeXXS;
       padding: 0 spacing(xxs);
-      border-radius: 16px;
+      border-radius: $counterSizeXXS;
     }
 
     &__icon {
@@ -74,8 +76,7 @@ $includeHtml: false !default;
         background-color: $white;
       }
 
-      &--small {
-
+      &--xxs {
         &::before {
           height: 12px;
           width: 12px;

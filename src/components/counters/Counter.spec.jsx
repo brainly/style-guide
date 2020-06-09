@@ -20,7 +20,7 @@ describe('<Counter />', () => {
   });
 
   it('sets <Text /> component xsmall for size small counter', () => {
-    const counter = shallow(<Counter size="small">12</Counter>);
+    const counter = shallow(<Counter size="xxs">12</Counter>);
     const text = counter.find(Text);
 
     expect(text.props().size).toEqual('xsmall');
@@ -28,7 +28,7 @@ describe('<Counter />', () => {
 
   it('renders points icon inside the points counter', () => {
     const counter = shallow(
-      <Counter icon="points" size="small">
+      <Counter icon="points" size="xxs">
         12
       </Counter>
     );
