@@ -23,14 +23,14 @@ const selects = () => (
           <Select {...exampleProps} />
           <br />
           <br />
-          <Select size="large" {...exampleProps} />
+          <Select size="l" {...exampleProps} />
         </Flex>
         <Flex direction="column">
           <ContrastBox>
             <Select {...exampleProps} color="white" />
             <br />
             <br />
-            <Select size="large" {...exampleProps} color="white" />
+            <Select size="l" {...exampleProps} color="white" />
           </ContrastBox>
         </Flex>
       </Flex>
@@ -41,13 +41,13 @@ const selects = () => (
           <Select {...exampleProps} valid />
           <br />
           <br />
-          <Select size="large" {...exampleProps} valid />
+          <Select size="l" {...exampleProps} valid />
         </Flex>
         <Flex direction="column" marginRight="l">
           <Select {...exampleProps} invalid />
           <br />
           <br />
-          <Select size="large" {...exampleProps} invalid />
+          <Select size="l" {...exampleProps} invalid />
         </Flex>
       </Flex>
     </DocsBlock>

@@ -136,8 +136,8 @@ $breakpointsMap: (
 );
 
 // Form elements configuration
-$formElementNormalHeight: 40px; // Standard size for elements like inputs, selects or buttons
-$formElementLargeHeight: 56px;
+$formElementSizeM: 40px; // Standard size for elements like inputs, selects or buttons
+$formElementSizeL: 56px;
 $formElementDefaultBackgroundColor: $graySecondaryLightest;
 $formElementActiveBorderColor: $graySecondaryLight;
 $formElementDefaultTextColor: $black;

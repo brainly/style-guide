@@ -36,11 +36,7 @@ const Selects = () => {
   return (
     <div>
       <DocsActiveBlock backgroundColor="dark" settings={settings}>
-        <Select
-          options={exampleOptions}
-          size={SIZE.NORMAL}
-          color={COLOR.DEAFAULT}
-        />
+        <Select options={exampleOptions} size="m" color="white" />
       </DocsActiveBlock>
     </div>
   );
