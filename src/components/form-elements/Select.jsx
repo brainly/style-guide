@@ -10,7 +10,7 @@ type OptionsPropsType = {
   ...
 };
 
-type SelectSizeType = 'normal' | 'large';
+type SelectSizeType = 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
 
@@ -20,8 +20,8 @@ export const COLOR = Object.freeze({
 });
 
 export const SIZE = Object.freeze({
-  LARGE: 'large',
-  NORMAL: 'normal',
+  M: 'm',
+  L: 'l',
 });
 
 export type SelectPropsType = {
@@ -54,9 +54,9 @@ export type SelectPropsType = {
   color?: ?SelectColorType,
   /**
    * There are two sizes options for most of the form elements
-   * @example <Select size="normal" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
-   * @see size="normal" https://styleguide.brainly.com/latest/docs/interactive.html?size="normal"#select
-   * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#select
+   * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
+   * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
   size?: ?SelectSizeType,
   /**
@@ -66,7 +66,7 @@ export type SelectPropsType = {
   fullWidth?: boolean,
   /**
    * Optional array of options of the select
-   * @example <Select size="normal" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    */
   options?: Array<OptionsPropsType>,
   /**
@@ -105,7 +105,7 @@ const Select = (props: SelectPropsType) => {
       'sg-select--capitalized': capitalized,
       'sg-select--full-width': fullWidth,
       [`sg-select--${String(color)}`]: color,
-      [`sg-select--${String(size)}`]: size,
+      [`sg-select--${String(size)}`]: size && size !== 'm',
     },
     className
   );
@@ -121,7 +121,7 @@ const Select = (props: SelectPropsType) => {
         <Icon
           type="arrow_down"
           color="gray-secondary"
-          size={size === 'large' ? 24 : 16}
+          size={size === 'l' ? 24 : 16}
         />
       </div>
 
