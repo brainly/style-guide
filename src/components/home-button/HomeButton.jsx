@@ -18,6 +18,7 @@ type PropsType = {
   type?: LogoModule.LogoTypeType,
   href?: string,
   className?: string,
+  altTag?: string,
   ...
 };
 
@@ -25,6 +26,7 @@ const HomeButton = ({
   type = TYPE.BRAINLY,
   href = '#',
   className,
+  altTag,
   ...props
 }: PropsType) => {
   const buttonClass = classnames(
@@ -40,8 +42,8 @@ const HomeButton = ({
 
   return (
     <a {...props} href={href} className={buttonClass}>
-      <img className="sg-home-button__logo-small" src={mobilePath} />
-      <img className="sg-home-button__logo-big" src={logoPath} />
+      <img className="sg-home-button__logo-small" src={mobilePath} alt={altTag} />
+      <img className="sg-home-button__logo-big" src={logoPath} alt={altTag} />
     </a>
   );
 };
