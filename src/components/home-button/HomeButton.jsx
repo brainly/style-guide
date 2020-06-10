@@ -42,7 +42,11 @@ const HomeButton = ({
 
   return (
     <a {...props} href={href} className={buttonClass}>
-      <img className="sg-home-button__logo-small" src={mobilePath} alt={altTag} />
+      <img
+        className="sg-home-button__logo-small"
+        src={mobilePath}
+        alt={altTag}
+      />
       <img className="sg-home-button__logo-big" src={logoPath} alt={altTag} />
     </a>
   );
