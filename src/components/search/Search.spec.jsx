@@ -22,7 +22,7 @@ test('set Search specific properties to Input', () => {
 });
 
 test('pass properties to Input, without Search specific', () => {
-  const size = SIZE.LARGE;
+  const size = SIZE.L;
   const color = COLOR.WHITE;
   const type = 'text';
   const withRoundButton = false;

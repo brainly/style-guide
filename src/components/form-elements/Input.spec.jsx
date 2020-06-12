@@ -47,18 +47,17 @@ test('error when both valid and invalid', () => {
 });
 
 test('size', () => {
-  const component = shallow(<Input size="large" />);
+  const component = shallow(<Input size="l" />);
   const input = component.find('input');
 
-  expect(input.hasClass('sg-input--large')).toEqual(true);
+  expect(input.hasClass('sg-input--l')).toEqual(true);
 });
 
 test('default size', () => {
   const component = shallow(<Input />);
   const input = component.find('input');
 
-  expect(input.hasClass('sg-input--normal')).toEqual(false);
-  expect(input.hasClass('sg-input--large')).toEqual(false);
+  expect(input.hasClass('sg-input--l')).toEqual(false);
 });
 
 test('color', () => {
@@ -72,6 +71,5 @@ test('default color', () => {
   const component = shallow(<Input />);
   const input = component.find('input');
 
-  expect(input.hasClass('sg-input--normal')).toEqual(false);
   expect(input.hasClass('sg-input--light')).toEqual(false);
 });

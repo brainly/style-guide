@@ -74,7 +74,7 @@ const Search = ({
             iconType="search"
             color="black"
             filled
-            size={size === 'large' ? 'medium' : 'small'}
+            size={size === 'l' ? 'medium' : 'small'}
           />
         </div>
       ) : (
@@ -82,7 +82,7 @@ const Search = ({
           <Icon
             type="search"
             color="gray-secondary"
-            size={size === 'large' ? 24 : 18}
+            size={size === 'l' ? 24 : 18}
           />
         </button>
       )}
