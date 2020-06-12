@@ -4,7 +4,7 @@ import Rating, {RATING_SIZE} from '../Rating';
 
 const ratings = () => (
   <div>
-    <DocsBlock info="Default (XS)">
+    <DocsBlock info="Size XS">
       <Rating rate={3} counter={34} />
     </DocsBlock>
 
@@ -26,11 +26,11 @@ const ratings = () => (
       <Rating rate={3} active counter={34} noLabel />
     </DocsBlock>
 
-    <DocsBlock info="S">
+    <DocsBlock info="Size S ">
       <Rating rate={3} size={RATING_SIZE.S} counter={34} />
     </DocsBlock>
 
-    <DocsBlock info="S Active with alt labels">
+    <DocsBlock info="Size S, Active with alt labels">
       <Rating
         rate={3}
         size={RATING_SIZE.S}

@@ -7,7 +7,7 @@ const closeCallback = () => undefined;
 
 const Labels = () => (
   <div>
-    <DocsBlock info="Default">
+    <DocsBlock info="Size XS">
       <Flex>
         <Flex direction="column" marginRight="l">
           <Label color="blue" type="default">
