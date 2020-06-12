@@ -104,14 +104,14 @@ describe('rating', () => {
     spy.mockRestore();
   });
 
-  it('large', () => {
-    const rating = shallow(<Rating size={RATING_SIZE.LARGE} />);
+  it('has small size', () => {
+    const rating = shallow(<Rating size={RATING_SIZE.S} />);
     const stars = rating.find(Star);
 
-    expect(rating.hasClass('sg-rate-box--large')).toEqual(true);
+    expect(rating.hasClass('sg-rate-box--s')).toEqual(true);
 
     stars.forEach(star => {
-      expect(star.props().size).toEqual(RATING_SIZE.LARGE);
+      expect(star.props().size).toEqual(32);
     });
   });
 
