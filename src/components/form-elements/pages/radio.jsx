@@ -24,7 +24,7 @@ const radios = () => (
         iconContent={<Radio name="group3" />}
       />
     </DocsBlock>
-    <DocsBlock info="size S">
+    <DocsBlock info="Size S">
       <Radio size="s" name="group4" />
       <Radio size="s" name="group4" checked {...dumpProps} />
     </DocsBlock>

@@ -1,13 +1,13 @@
-$rateHeight: 32px;
+$rateHeight: componentSize(s);
 $rateStarColor: $graySecondary;
 $rateStarCheckedColor: $mustardPrimary;
 $rateStarActiveColor: $graySecondaryLight;
 $rateStarActiveCheckedColor: $mustardSecondary;
 $rateCounterColor: $graySecondary;
 $rateFontSize: fontSize(obscure);
-$rateIconSize: 24px;
-$rateLargeFontSize: fontSize(small);
-$rateLargeIconSize: 32px;
+$rateIconSize: componentSize(xs);
+$rateSFontSize: fontSize(small);
+$rateSIconSize: componentSize(s);
 
 $includeHtml: false !default;
 
@@ -124,15 +124,15 @@ $includeHtml: false !default;
       margin: 0 gutter(1 / 4) 0 0;
     }
 
-    &--large {
+    &--s {
       .sg-rate-box__star {
-        height: $rateLargeIconSize;
-        width: $rateLargeIconSize;
+        height: $rateSIconSize;
+        width: $rateSIconSize;
         }
 
       .sg-rate-box__counter,
       .sg-rate-box__rate {
-        @include fixText($rateLargeFontSize, 0.125rem);
+        @include fixText($rateSFontSize, 0.125rem);
         @include fixOperaMiniLabelText();
       }
     }
