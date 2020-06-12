@@ -24,7 +24,7 @@ const Radio = (props: RadioPropsType) => {
   const {
     checked,
     name,
-    size = 'xs',
+    size = 'xxs',
     className,
     id = generateRandomString(),
     ...additionalProps
