@@ -14,14 +14,14 @@ const textInputs = () => (
           <Input placeholder="placeholder" />
 
           <br />
-          <Input size="large" placeholder="placeholder" />
+          <Input size="l" placeholder="placeholder" />
         </Flex>
         <Flex direction="column">
           <ContrastBox fullWidth>
             <Input placeholder="placeholder" color="white" />
             <br />
             <br />
-            <Input size="large" placeholder="placeholder" color="white" />
+            <Input size="l" placeholder="placeholder" color="white" />
           </ContrastBox>
         </Flex>
       </Flex>
@@ -39,7 +39,7 @@ const textInputs = () => (
           <Input
             placeholder="placeholder"
             invalid
-            size="large"
+            size="l"
             value="This is invalid example"
             onChange={voidFunction}
           />
@@ -50,7 +50,7 @@ const textInputs = () => (
             <br />
             <br />
             <Input
-              size="large"
+              size="l"
               placeholder="This is invalid example"
               invalid
               color="white"
@@ -71,7 +71,7 @@ const textInputs = () => (
         </Flex>
         <Flex direction="column" marginRight="l">
           <Input
-            size="large"
+            size="l"
             placeholder="This is invalid example"
             errorMessage="This is an error message"
             invalid

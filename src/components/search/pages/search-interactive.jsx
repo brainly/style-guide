@@ -38,7 +38,7 @@ const SearchInputs = () => {
     >
       <Search
         placeholder="Find all the answers..."
-        size={SIZE.NORMAL}
+        size={SIZE.M}
         color={COLOR.DEFAULT}
       />
     </DocsActiveBlock>

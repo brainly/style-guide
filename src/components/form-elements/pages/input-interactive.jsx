@@ -49,7 +49,7 @@ const Inputs = () => {
           backgroundColor="none"
           placeholder="Large input"
           fullWidth
-          size={SIZE.LARGE}
+          size={SIZE.L}
           color={COLOR.DEFAULT}
           value="I'm a large input"
         />

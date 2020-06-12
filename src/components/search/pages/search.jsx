@@ -14,7 +14,7 @@ const searches = () => (
           </div>
           <br />
           <br />
-          <Search size="large" placeholder="Find all the answers..." />
+          <Search size="l" placeholder="Find all the answers..." />
           <br />
           <br />
         </Flex>
@@ -25,7 +25,7 @@ const searches = () => (
             <br />
             <Search
               color="white"
-              size="large"
+              size="l"
               placeholder="Find all the answers..."
             />
             <br />
@@ -44,7 +44,7 @@ const searches = () => (
           <Search
             placeholder="Find all the answers..."
             withRoundButton
-            size="large"
+            size="l"
           />
           <br />
           <br />
@@ -63,7 +63,7 @@ const searches = () => (
               color="white"
               placeholder="Find all the answers..."
               withRoundButton
-              size="large"
+              size="l"
             />
             <br />
             <br />
