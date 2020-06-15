@@ -5,7 +5,6 @@ import Avatars from 'avatar/pages/avatar-interactive';
 import Bubbles from 'bubble/pages/bubble-interactive';
 import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
-import RoundButtons from 'round-buttons/pages/round-buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
 import Subjects from 'subject-icons/pages/subjects-interactive';
@@ -48,7 +47,6 @@ const demos = {
   Avatars: <Avatars />,
   Bubbles: <Bubbles />,
   Buttons: <Buttons />,
-  'Round Buttons': <RoundButtons />,
   Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
   'Subject icons': <SubjectIcons />,

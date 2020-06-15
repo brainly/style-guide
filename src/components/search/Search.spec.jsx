@@ -3,7 +3,6 @@ import Search, {SIZE, COLOR} from './Search';
 import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import {shallow} from 'enzyme';
-import RoundButton from '../round-buttons/RoundButton';
 
 test('render', () => {
   const search = shallow(<Search />);
