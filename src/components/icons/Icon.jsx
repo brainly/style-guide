@@ -117,6 +117,7 @@ export type IconSizeType =
   | 48
   | 46
   | 40
+  | 38
   | 32
   | 30
   | 26
