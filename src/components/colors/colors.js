@@ -157,6 +157,11 @@ const color = {
       hex: 'c3d1dd',
     },
     {
+      name: 'Gray Light 400',
+      variable: '$graySecondaryLighter',
+      hex: 'e1eaf1',
+    },
+    {
       name: 'Gray Light 300',
       variable: '$graySecondaryLightest',
       hex: 'ebf2f7',
