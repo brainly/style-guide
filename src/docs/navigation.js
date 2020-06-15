@@ -14,7 +14,6 @@ import avatar from '../components/avatar/pages/avatar';
 import iconAsButton from '../components/icon-as-button/pages/icon-as-button';
 import rating from '../components/rating/pages/rating';
 import buttons from '../components/buttons/pages/buttons';
-import roundButtons from '../components/round-buttons/pages/round-buttons';
 import text from '../components/text/pages/text';
 import headlines from '../components/text/pages/headlines';
 import textBit from '../components/text/pages/text-bit';
@@ -135,10 +134,6 @@ const navigation = [
       {
         name: 'Buttons',
         component: buttons,
-      },
-      {
-        name: 'Round Buttons (deprecated)',
-        component: roundButtons,
       },
       {
         name: 'Icon as button (deprecated)',
