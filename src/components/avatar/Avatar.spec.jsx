@@ -44,10 +44,10 @@ test('default icon profile', () => {
 });
 
 test('SIZE', () => {
-  const size = SIZE.XLARGE;
+  const size = SIZE.XL;
   const avatar = shallow(<Avatar size={size} />);
 
-  expect(avatar.hasClass('sg-avatar--xlarge')).toEqual(true);
+  expect(avatar.hasClass('sg-avatar--xl')).toEqual(true);
 });
 
 test('border', () => {
