@@ -117,6 +117,7 @@ export type IconSizeType =
   | 48
   | 46
   | 40
+  | 38
   | 32
   | 30
   | 26
@@ -246,6 +247,7 @@ export const SIZE = [
   48,
   46,
   40,
+  38,
   32,
   30,
   26,
