@@ -81,6 +81,7 @@ export type IconTypeType =
   | 'symbols'
   | 'title'
   | 'toughest_questions'
+  | 'trash'
   | 'twitter'
   | 'underlined'
   | 'unseen'
@@ -206,6 +207,7 @@ export const TYPE = {
   SYMBOLS: 'symbols',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
+  TRASH: 'trash',
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
