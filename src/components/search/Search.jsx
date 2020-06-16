@@ -80,7 +80,7 @@ const Search = ({
               />
             }
             iconOnly
-            size={size === 'l' ? 'medium' : 'small'}
+            size={size === 'l' ? 'm' : 's'}
           />
         </div>
       ) : (
