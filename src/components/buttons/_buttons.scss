@@ -1,3 +1,7 @@
+$mediumButtonSize: componentSize(m);
+$smallButtonSize: componentSize(s);
+$largeButtonSize: componentSize(l);
+
 @mixin buttonHover($color1, $color2, $percent) {
   &:hover:not([disabled]),
   &:focus:not([disabled]),
@@ -13,7 +17,7 @@
   justify-content: center;
   align-items: center;
   background-color: $black;
-  height: 40px;
+  height: $mediumButtonSize;
   border-radius: 20px;
   border: none;
   white-space: nowrap;
@@ -43,31 +47,31 @@
     margin-right: spacing(xs);
     margin-left: -4px;
 
-    &--small {
+    &--s {
       margin-right: 6px;
     }
 
-    &--large {
+    &--l {
       margin-right: 12px;
       margin-left: -6px;
     }
   }
 
-  &--medium {
-    height: 40px;
+  &--m {
+    height: $mediumButtonSize;
   }
 
-  &--large {
+  &--l {
     border-radius: 28px;
-    height: 56px;
+    height: $largeButtonSize;
     padding: 0 28px;
     font-size: 21px;
     line-height: 21px;
   }
 
-  &--small {
+  &--s {
     border-radius: 16px;
-    height: 32px;
+    height: $smallButtonSize;
     padding: 0 spacing(s);
     font-size: 12px;
     line-height: 12px;
@@ -254,18 +258,18 @@
   &--transparent-blue {
     padding: 0 10px;
 
-    &.sg-button--large {
+    &.sg-button--l {
       padding: 0 14px;
     }
 
-    &.sg-button--small {
+    &.sg-button--s {
       padding: 0 spacing(xs);
     }
 
     .sg-button__icon {
       margin-left: -2px;
 
-      &--large {
+      &--l {
         margin-left: -3px;
       }
     }
@@ -286,18 +290,18 @@
 
   &--icon-only {
     padding: 0;
-    width: 40px;
+    width: $mediumButtonSize;
 
-    &.sg-button--small {
-      width: 32px;
+    &.sg-button--s {
+      width: $smallButtonSize;
     }
 
-    &.sg-button--medium {
-      width: 40px;
+    &.sg-button--m {
+      width: $mediumButtonSize;
     }
 
-    &.sg-button--large {
-      width: 56px;
+    &.sg-button--l {
+      width: $largeButtonSize;
     }
 
     .sg-button__icon {

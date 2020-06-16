@@ -35,11 +35,6 @@ test('not disabled', () => {
   expect(button.is('[disabled]')).toEqual(false);
 });
 
-test("solid don't have small", () => {
-  const button = shallow(<Button small>Some text</Button>);
-
-  expect(button.hasClass('sg-button--small')).toEqual(false);
-});
 test('full width', () => {
   const button = shallow(<Button fullWidth>Some text</Button>);
 

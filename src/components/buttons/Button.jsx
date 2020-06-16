@@ -5,9 +5,9 @@ import type {Node} from 'react';
 import cx from 'classnames';
 
 export const BUTTON_SIZE = Object.freeze({
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
+  L: 'l',
+  M: 'm',
+  S: 's',
 });
 
 export const BUTTON_TYPE = Object.freeze({
@@ -32,7 +32,7 @@ export const BUTTON_TOGGLE = Object.freeze({
   BLUE: 'blue',
 });
 
-type ButtonSizeType = 'large' | 'medium' | 'small';
+type ButtonSizeType = 'l' | 'm' | 's';
 
 type ButtonColorType =
   | {
@@ -129,18 +129,18 @@ export type ButtonPropsType = {
    */
   children?: Node,
   /**
-   * There are three sizes options for buttons, not need to be specify, default is medium
-   * @example <Button type="solid" size="medium">
+   * There are three sizes options for buttons, not need to be specify, default is m
+   * @example <Button type="solid" size="m">
    *            button
    *          </Button>
-   * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?size="small"#buttons
-   * @see size="medium" https://styleguide.brainly.com/latest/docs/interactive.html?size="medium"#buttons
-   * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#buttons
+   * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#buttons
+   * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#buttons
+   * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#buttons
    */
   size?: ButtonSizeType,
   /**
    * Specify href for button, optional string
-   * @example <Button href="https://brainly.com/" size="medium" type="solid-blue">
+   * @example <Button href="https://brainly.com/" size="m" type="solid-blue">
    *            button
    *          </Button>
    */
