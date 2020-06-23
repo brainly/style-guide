@@ -23,6 +23,8 @@ export type IconTypeType =
   | 'camera'
   | 'check'
   | 'close'
+  | 'comment'
+  | 'comment_outlined'
   | 'counter'
   | 'credit_card'
   | 'crown_outlined'
@@ -149,6 +151,8 @@ export const TYPE = {
   CAMERA: 'camera',
   CHECK: 'check',
   CLOSE: 'close',
+  COMMENT: 'comment',
+  COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
   CROWN_OUTLINED: 'crown_outlined',
