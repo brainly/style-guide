@@ -15,9 +15,9 @@ const FileHandlers = () => (
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="white">
+      <DocsBlock info="mono">
         <ContrastBox smallPadding>
-          <FileHandler color="white">text</FileHandler>
+          <FileHandler color="mono">text</FileHandler>
         </ContrastBox>
       </DocsBlock>
     </Flex>

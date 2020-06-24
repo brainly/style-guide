@@ -5,6 +5,7 @@
   height: componentSize(m);
   border-radius: 6px;
   padding: spacing(xs);
+  padding-right: 12px;
   cursor: default;
 
   &__icon {
@@ -16,6 +17,10 @@
       max-height: 24px;
       border-radius: 4px;
     }
+  }
+
+  &--closable {
+    padding-right: spacing(xs);
   }
 
   &__text {
