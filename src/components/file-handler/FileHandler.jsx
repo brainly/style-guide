@@ -115,8 +115,6 @@ const FileHandler = ({
     [`sg-file-handler--${COLORS_MAP[color]}`]: color,
   });
 
-  const showLink = src !== null && src !== undefined;
-
   const clickProps = onClick
     ? {onClick}
     : {
@@ -126,7 +124,7 @@ const FileHandler = ({
       };
 
   const thumbnail =
-    thumbnailSrc !== null && thumbnailSrc !== undefined ? (
+    thumbnailSrc !== undefined ? (
       <img
         {...clickProps}
         src={thumbnailSrc}
@@ -145,7 +143,7 @@ const FileHandler = ({
         {loading ? <Spinner size="small" /> : thumbnail}
       </div>
       <span className="sg-file-handler__text" ref={setTextRef}>
-        {showLink ? (
+        {src !== undefined ? (
           <Link {...clickProps} size="small" color="black">
             {children}
           </Link>
