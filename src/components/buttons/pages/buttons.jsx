@@ -137,7 +137,7 @@ const Buttons = () => {
       {buttonsVariants}
       <DocsBlock info="Buttons sizes">
         <Button
-          size="large"
+          size="l"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={32} />}
         >
@@ -145,7 +145,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="large"
+          size="l"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={32} />}
           iconOnly
@@ -169,7 +169,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="small"
+          size="s"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={16} />}
         >
@@ -177,7 +177,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="small"
+          size="s"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={16} />}
           iconOnly
