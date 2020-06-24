@@ -32,7 +32,7 @@ const FileHandlers = () => (
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="laoding">
+      <DocsBlock info="loading">
         <FileHandler loading>text</FileHandler>
       </DocsBlock>
     </Flex>
