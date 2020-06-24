@@ -155,7 +155,7 @@ const FileHandler = ({
         )}
       </span>
       {onClose && (
-        <button className="sg-label__close-button" onClick={onClose}>
+        <button className="sg-file-handler__close-button" onClick={onClose}>
           <Icon type="close" size={16} color="dark" />
         </button>
       )}
