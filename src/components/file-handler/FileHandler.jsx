@@ -26,18 +26,18 @@ export const FILE_HANDLER_COLORS_SET = {
 type PropsType = $ReadOnly<{
   /**
    * Specify color of the background for FileHandler
-   * @example <FileHandler color="white">
+   * @example <FileHandler color="mono">
    *            text
    *          </FileHandler>
-   * @see color="gray" https://styleguide.brainly.com/latest/docs/interactive.html?color="gray"#labels
-   * @see color="mono" https://styleguide.brainly.com/latest/docs/interactive.html?color="mono"#labels
+   * @default gray
    */
   color: FileHandlerColorType,
   /**
-   * Specify iconType, if you don't pass thumbnailSrc, to display SG icon as the image inside FileHandler
+   * Specify iconType to display SG icon as the image inside FileHandler
    * @example <FileHandler iconType="answer">
    *            text
    *          </FileHandler>
+   * @default attachment
    */
   iconType?: IconTypeType,
   /**
@@ -59,6 +59,7 @@ type PropsType = $ReadOnly<{
    * @example <FileHandler loading>
    *            text
    *          </FileHandler>
+   * @default false
    */
   loading?: boolean,
   /**
@@ -69,7 +70,7 @@ type PropsType = $ReadOnly<{
    */
   onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
   /**
-   * Callback, called by clicking on link.
+   * Callback, called by clicking on link
    * @example <FileHandler
    *           src="https://source.unsplash.com/64x64/?bird"
    *           onClose={() => doSomething()}
