@@ -82,7 +82,7 @@ type PropsType = $ReadOnly<{
   /**
    * Additional function to set ref for text
    */
-  setTextRef?: (ref: ?HTMLElement) => mixed,
+  textRef?: {current: HTMLSpanElement | null},
   /**
    * Additional class names
    */
@@ -106,7 +106,7 @@ const FileHandler = ({
   loading = false,
   onClose,
   onClick,
-  setTextRef,
+  textRef,
   className,
   ...props
 }: PropsType) => {
@@ -115,13 +115,14 @@ const FileHandler = ({
     [`sg-file-handler--${COLORS_MAP[color]}`]: color,
   });
 
-  const clickProps = onClick
-    ? {onClick}
-    : {
-        href: src,
-        target: '_blank',
-        rel: 'noopener noreferrer',
-      };
+  const clickProps =
+    thumbnailSrc !== undefined && onClick
+      ? {onClick}
+      : {
+          href: src,
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        };
 
   const thumbnail =
     thumbnailSrc !== undefined ? (
@@ -142,7 +143,7 @@ const FileHandler = ({
       <div className="sg-file-handler__icon">
         {loading ? <Spinner size="small" /> : thumbnail}
       </div>
-      <span className="sg-file-handler__text" ref={setTextRef}>
+      <span className="sg-file-handler__text" ref={textRef}>
         {src !== undefined ? (
           <Link {...clickProps} size="small" color="black">
             {children}
