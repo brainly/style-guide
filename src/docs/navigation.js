@@ -8,6 +8,7 @@ import textarea from '../components/form-elements/pages/textarea';
 import formElements from '../components/form-elements/pages/formElements';
 import labelsDeprecated from '../components/labels-deprecated/pages/labels-deprecated';
 import labels from '../components/labels/pages/labels';
+import fileHandlers from '../components/file-handler/pages/file-handlers';
 import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
 import avatar from '../components/avatar/pages/avatar';
@@ -126,6 +127,10 @@ const navigation = [
       {
         name: 'Labels',
         component: labels,
+      },
+      {
+        name: 'File Handler',
+        component: fileHandlers,
       },
       {
         name: 'Rating',

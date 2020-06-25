@@ -55,6 +55,7 @@ export {
   default as LabelDeprecated,
 } from './components/labels-deprecated/LabelDeprecated';
 export {default as Label} from './components/labels/Label';
+export {default as FileHandler} from './components/file-handler/FileHandler';
 export {default as Layout} from './components/layout/Layout';
 export {
   default as LayoutAsideContent,
