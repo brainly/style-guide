@@ -116,7 +116,7 @@ const FileHandler = ({
   });
 
   const clickProps =
-    thumbnailSrc !== undefined
+    thumbnailSrc !== undefined && onClick
       ? {onClick}
       : {
           href: src,
