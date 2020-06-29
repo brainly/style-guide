@@ -27,6 +27,10 @@
     margin-left: 6px;
   }
 
+  &--transparent {
+    background-color: transparent;
+  }
+
   &--black {
     background-color: $black;
   }
@@ -55,7 +59,7 @@
     background-color: $mustardPrimary;
   }
 
-  &--gray-primary {
+  &--gray-secondary {
     background-color: $graySecondary;
   }
 

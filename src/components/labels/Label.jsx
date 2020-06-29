@@ -17,11 +17,12 @@ export type LabelColorType =
   | 'gray'
   | 'mono';
 
-export type LabelType = 'default' | 'strong';
+export type LabelType = 'default' | 'strong' | 'transparent';
 
 export const LABEL_TYPE = {
   DEFAULT: 'default',
   STRONG: 'strong',
+  TRANSPARENT: 'transparent',
 };
 
 export const COLORS_STRONG_MAP = {
@@ -30,7 +31,7 @@ export const COLORS_STRONG_MAP = {
   lavender: 'lavender-primary',
   peach: 'peach-primary',
   mustard: 'mustard-primary',
-  gray: 'gray-primary',
+  gray: 'gray-secondary',
   mono: 'black',
 };
 
@@ -42,6 +43,11 @@ export const COLORS_DEFAULT_MAP = {
   mustard: 'mustard-secondary-light',
   gray: 'gray-secondary-light',
   mono: 'white',
+};
+
+export const COLORS_TRANSPARENT_MAP = {
+  gray: 'gray-secondary',
+  mono: 'black',
 };
 
 export const LABEL_COLORS_SET = {
@@ -147,6 +153,8 @@ const Label = ({
     className
   );
 
+  const textColor = type === 'default' ? 'default' : 'white';
+
   return (
     <div {...props} className={labelClass}>
       {iconType && (
@@ -159,11 +167,7 @@ const Label = ({
         </div>
       )}
       <span className="sg-label__text">
-        <Text
-          size="small"
-          weight="bold"
-          color={type === 'default' ? 'default' : 'white'}
-        >
+        <Text size="small" weight="bold" color={textColor}>
           {children}
         </Text>
       </span>
