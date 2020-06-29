@@ -66,10 +66,12 @@ type ButtonIconType =
   | {
       icon?: Node,
       iconOnly?: null,
+      reversedOrder?: boolean,
     }
   | {
       icon: Node,
       iconOnly?: boolean,
+      reversedOrder?: null,
     };
 
 export type ButtonPropsType = {
@@ -171,6 +173,7 @@ const Button = ({
   type,
   icon,
   iconOnly,
+  reversedOrder,
   href,
   fullWidth,
   disabled,
@@ -188,6 +191,7 @@ const Button = ({
       'sg-button--full-width': fullWidth,
       'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
+      'sg-button--reversed-order': reversedOrder,
     },
     className
   );
