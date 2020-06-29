@@ -77,3 +77,16 @@ test('toggle', () => {
 
   expect(button.hasClass('sg-button--solid-light-toggle-peach')).toEqual(true);
 });
+
+test('with icon - reversed order', () => {
+  const icon = <span>:P</span>;
+  const button = shallow(
+    <Button icon={icon} reversedOrder>
+      Some text
+    </Button>
+  );
+
+  expect(button.contains(icon)).toEqual(true);
+  expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
+  expect(button.find('.sg-button__icon--right-aligned')).toHaveLength(1);
+});
