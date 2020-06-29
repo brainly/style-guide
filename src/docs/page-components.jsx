@@ -17,6 +17,7 @@ import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
 import LabelsDeprecated from 'labels-deprecated/pages/labels-deprecated-interactive';
 import Labels from 'labels/pages/labels-interactive';
+import FileHandlers from 'file-handler/pages/file-handlers-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
 import Headlines from 'text/pages/headlines-interactive';
@@ -60,6 +61,7 @@ const demos = {
   Icons: <Icons />,
   LabelsDeprecated: <LabelsDeprecated />,
   Labels: <Labels />,
+  FileHandlers: <FileHandlers />,
   Separators: <Separators />,
   Text: <Texts />,
   Headlines: <Headlines />,
