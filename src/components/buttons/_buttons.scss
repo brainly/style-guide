@@ -47,7 +47,7 @@ $largeButtonSize: componentSize(l);
     margin-right: spacing(xs);
     margin-left: -4px;
 
-    &--right-aligned {
+    .sg-button--reversed-order & {
       margin-right: -4px;
       margin-left: spacing(xs);
     }
@@ -55,21 +55,21 @@ $largeButtonSize: componentSize(l);
     &--s {
       margin-right: 6px;
       margin-left: -4px;
-    }
 
-    &--s#{&}--right-aligned {
-      margin-right: -4px;
-      margin-left: 6px;
+      .sg-button--reversed-order & {
+        margin-right: -4px;
+        margin-left: 6px;
+      }
     }
 
     &--l {
       margin-right: 12px;
       margin-left: -6px;
-    }
 
-    &--l#{&}--right-aligned {
-      margin-right: -6px;
-      margin-left: 12px;
+      .sg-button--reversed-order & {
+        margin-right: -6px;
+        margin-left: 12px;
+      }
     }
   }
 
@@ -286,27 +286,29 @@ $largeButtonSize: componentSize(l);
       padding: 0 spacing(xs);
     }
 
+    &.sg-button--reversed-order {
+      .sg-button__icon {
+        margin-right: -2px;
+        margin-left: spacing(xs);
+
+        &--s {
+          margin-right: -2px;
+          margin-left: 6px;
+        }
+
+        &--l {
+          margin-right: -3px;
+          margin-left: 12px;
+        }
+      }
+    }
+
     .sg-button__icon {
       margin-left: -2px;
 
       &--l {
         margin-left: -3px;
       }
-
-      &--right-aligned {
-        margin-right: -2px;
-        margin-left: spacing(xs);
-      }
-    }
-
-    .sg-button__icon--right-aligned.sg-button__icon--s {
-      margin-right: -2px;
-      margin-left: 6px;
-    }
-
-    .sg-button__icon--right-aligned.sg-button__icon--l {
-      margin-right: -3px;
-      margin-left: 12px;
     }
   }
 

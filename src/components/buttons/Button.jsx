@@ -198,7 +198,6 @@ const Button = ({
 
   const iconClass = cx('sg-button__icon', {
     [`sg-button__icon--${size || ''}`]: size,
-    'sg-button__icon--right-aligned': reversedOrder,
   });
 
   let ico;
