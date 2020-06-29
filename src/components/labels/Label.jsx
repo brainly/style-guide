@@ -45,9 +45,24 @@ export const COLORS_DEFAULT_MAP = {
   mono: 'white',
 };
 
-export const COLORS_TRANSPARENT_MAP = {
+const TRANSPARENT_TEXT_COLOR_MAP = {
+  blue: 'blue-dark',
+  mint: 'mint-dark',
+  lavender: 'lavender-dark',
+  peach: 'peach-dark',
+  mustard: 'mustard-dark',
   gray: 'gray-secondary',
-  mono: 'black',
+  mono: 'default',
+};
+
+const TRANSPARENT_ICON_COLOR_MAP = {
+  blue: 'blue',
+  mint: 'mint',
+  lavender: 'lavender',
+  peach: 'peach',
+  mustard: 'mustard',
+  gray: 'gray-secondary',
+  mono: 'dark',
 };
 
 export const LABEL_COLORS_SET = {
@@ -71,6 +86,7 @@ type PropsType = $ReadOnly<{
    *          </Label>
    * @see type="default" https://styleguide.brainly.com/latest/docs/interactive.html?type="default"#labels
    * @see type="strong" https://styleguide.brainly.com/latest/docs/interactive.html?type="strong"#labels
+   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#labels
    */
   type?: LabelType,
   /**
@@ -146,24 +162,32 @@ const Label = ({
   const labelClass = classNames(
     'sg-label',
     {
-      [`sg-label--${String(filteredColor)}`]: color,
+      [`sg-label--${String(filteredColor)}`]: color && type !== 'transparent',
       [`sg-label--${type}`]: type,
       'sg-label--closable': onClose,
     },
     className
   );
 
-  const textColor = type === 'default' ? 'default' : 'white';
+  const textColor =
+    type === 'default'
+      ? 'default'
+      : type === 'strong'
+      ? 'white'
+      : TRANSPARENT_TEXT_COLOR_MAP[color];
+
+  const iconColor =
+    type === 'default'
+      ? 'dark'
+      : type === 'strong'
+      ? 'light'
+      : TRANSPARENT_ICON_COLOR_MAP[color];
 
   return (
     <div {...props} className={labelClass}>
       {iconType && (
         <div className="sg-label__icon">
-          <Icon
-            type={iconType}
-            color={type === 'default' ? 'dark' : 'light'}
-            size={16}
-          />
+          <Icon type={iconType} color={iconColor} size={16} />
         </div>
       )}
       <span className="sg-label__text">
@@ -173,11 +197,7 @@ const Label = ({
       </span>
       {onClose ? (
         <button className="sg-label__close-button" onClick={onClose}>
-          <Icon
-            type="close"
-            color={type === 'default' ? 'dark' : 'light'}
-            size={16}
-          />
+          <Icon type="close" color={iconColor} size={16} />
         </button>
       ) : null}
     </div>

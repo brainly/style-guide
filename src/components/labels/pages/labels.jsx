@@ -408,6 +408,200 @@ const Labels = () => (
         </Flex>
       </Flex>
     </DocsBlock>
+    <DocsBlock info="Transparent">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column">
+          <Label
+            color="blue"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mint"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="lavender"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="peach"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mustard"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="gray"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mono"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+      </Flex>
+    </DocsBlock>
   </div>
 );
 
