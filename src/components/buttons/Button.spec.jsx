@@ -88,5 +88,4 @@ test('with icon - reversed order', () => {
 
   expect(button.contains(icon)).toEqual(true);
   expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
-  expect(button.find('.sg-button__icon--right-aligned')).toHaveLength(1);
 });
