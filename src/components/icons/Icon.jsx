@@ -88,7 +88,21 @@ export type IconTypeType =
   | 'underlined'
   | 'unseen'
   | 'verified'
-  | 'youtube';
+  | 'youtube'
+  | 'arrow_top_right'
+  | 'circle'
+  | 'crop'
+  | 'drawing_mode'
+  | 'drawing'
+  | 'greek'
+  | 'highlighter'
+  | 'line'
+  | 'more_dots'
+  | 'pause'
+  | 'rectangle'
+  | 'rotate_90'
+  | 'sup_sub'
+  | 'triangle';
 
 export type IconColorType =
   | 'adaptive'
@@ -217,6 +231,20 @@ export const TYPE = {
   UNSEEN: 'unseen',
   VERIFIED: 'verified',
   YOUTUBE: 'youtube',
+  ARROW_TOP_RIGHT: 'arrow_top_right',
+  CIRCLE: 'circle',
+  CROP: 'crop',
+  DRAWING_MODE: 'drawing_mode',
+  DRAWING: 'drawing',
+  GREEK: 'greek',
+  HIGHTLIGHTER: 'highlighter',
+  LINE: 'line',
+  MORE_DOTS: 'more_dots',
+  PAUSE: 'pause',
+  RECTANGLE: 'rectangle',
+  ROTATE_90: 'rotate_90',
+  SUP_SUB: 'sup_sub',
+  TRIANGLE: 'triangle',
 };
 
 export const ICON_COLOR = {
