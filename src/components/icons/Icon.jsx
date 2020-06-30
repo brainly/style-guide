@@ -53,7 +53,7 @@ export type IconTypeType =
   | 'messages'
   | 'mic'
   | 'money_transfer'
-  | 'more'
+  | 'add_more'
   | 'notifications'
   | 'numbered_list'
   | 'open_in_new_tab'
@@ -92,15 +92,16 @@ export type IconTypeType =
   | 'arrow_top_right'
   | 'circle'
   | 'crop'
+  | 'cyrillic'
+  | 'draw'
   | 'drawing_mode'
-  | 'drawing'
+  | 'european'
   | 'greek'
-  | 'highlighter'
+  | 'highlight'
   | 'line'
-  | 'more_dots'
+  | 'more'
   | 'pause'
   | 'rectangle'
-  | 'rotate_90'
   | 'sup_sub'
   | 'triangle';
 
@@ -195,7 +196,7 @@ export const TYPE = {
   MESSAGES: 'messages',
   MIC: 'mic',
   MONEY_TRANSFER: 'money_transfer',
-  MORE: 'more',
+  ADD_MORE: 'add_more',
   NOTIFICATIONS: 'notifications',
   NUMBERED_LIST: 'numbered_list',
   OPEN_IN_NEW_TAB: 'open_in_new_tab',
@@ -234,15 +235,16 @@ export const TYPE = {
   ARROW_TOP_RIGHT: 'arrow_top_right',
   CIRCLE: 'circle',
   CROP: 'crop',
+  CYRILLIC: 'cyrillic',
+  DRAW: 'draw',
   DRAWING_MODE: 'drawing_mode',
-  DRAWING: 'drawing',
+  EUROPEAN: 'european',
   GREEK: 'greek',
-  HIGHTLIGHTER: 'highlighter',
+  HIGHLIGHT: 'highlight',
   LINE: 'line',
-  MORE_DOTS: 'more_dots',
+  MORE: 'more',
   PAUSE: 'pause',
   RECTANGLE: 'rectangle',
-  ROTATE_90: 'rotate_90',
   SUP_SUB: 'sup_sub',
   TRIANGLE: 'triangle',
 };
