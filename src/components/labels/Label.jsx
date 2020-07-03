@@ -17,15 +17,20 @@ export type LabelColorType =
   | 'gray'
   | 'mono';
 
-export type LabelType = 'default' | 'strong' | 'transparent';
+export type LabelType =
+  | 'default'
+  | 'solid'
+  | 'transparent'
+  | 'transparent-color';
 
 export const LABEL_TYPE = {
   DEFAULT: 'default',
-  STRONG: 'strong',
+  SOLID: 'solid',
   TRANSPARENT: 'transparent',
+  TRANSPARENT_COLOR: 'transparent-color',
 };
 
-export const COLORS_STRONG_MAP = {
+export const COLORS_SOLID_MAP = {
   blue: 'blue-primary',
   mint: 'mint-primary',
   lavender: 'lavender-primary',
@@ -45,7 +50,7 @@ export const COLORS_DEFAULT_MAP = {
   mono: 'white',
 };
 
-const TRANSPARENT_TEXT_COLOR_MAP = {
+const TRANSPARENT_COLOR_TEXT_MAP = {
   blue: 'blue-dark',
   mint: 'mint-dark',
   lavender: 'lavender-dark',
@@ -85,8 +90,9 @@ type PropsType = $ReadOnly<{
    *            example label
    *          </Label>
    * @see type="default" https://styleguide.brainly.com/latest/docs/interactive.html?type="default"#labels
-   * @see type="strong" https://styleguide.brainly.com/latest/docs/interactive.html?type="strong"#labels
+   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#labels
    * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#labels
+   * @see type="transparent-color" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-color"#labels
    */
   type?: LabelType,
   /**
@@ -157,12 +163,13 @@ const Label = ({
   ...props
 }: PropsType) => {
   const filteredColor =
-    type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_STRONG_MAP[color];
+    type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
 
   const labelClass = classNames(
     'sg-label',
     {
-      [`sg-label--${String(filteredColor)}`]: color && type !== 'transparent',
+      [`sg-label--${String(filteredColor)}`]:
+        (color && type === 'solid') || type === 'default',
       [`sg-label--${type}`]: type,
       'sg-label--closable': onClose,
     },
@@ -170,16 +177,16 @@ const Label = ({
   );
 
   const textColor =
-    type === 'default'
+    type === 'default' || type === 'transparent'
       ? 'default'
-      : type === 'strong'
+      : type === 'solid'
       ? 'white'
-      : TRANSPARENT_TEXT_COLOR_MAP[color];
+      : TRANSPARENT_COLOR_TEXT_MAP[color];
 
   const iconColor =
     type === 'default'
       ? 'dark'
-      : type === 'strong'
+      : type === 'solid'
       ? 'light'
       : TRANSPARENT_ICON_COLOR_MAP[color];
 

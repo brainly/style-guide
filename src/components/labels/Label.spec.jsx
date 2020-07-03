@@ -1,6 +1,7 @@
 import React from 'react';
 import Label from './Label';
 import Icon from 'icons/Icon';
+import Text from 'text/Text';
 import {shallow} from 'enzyme';
 
 describe('Label', () => {
@@ -28,9 +29,9 @@ describe('Label', () => {
     expect(icon.props().type).toEqual('star');
   });
 
-  test('render type strong', () => {
+  test('render type solid', () => {
     const label = shallow(
-      <Label type="strong" color="mint">
+      <Label type="solid" color="mint">
         example label
       </Label>
     );
@@ -60,7 +61,7 @@ describe('Label', () => {
   test('clicking on close button calls onClose', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="strong" color="mint" onClose={mockCallback}>
+      <Label type="solid" color="mint" onClose={mockCallback}>
         example label
       </Label>
     );
@@ -70,5 +71,59 @@ describe('Label', () => {
     closeDivNode.simulate('click');
 
     expect(mockCallback).toHaveBeenCalled();
+  });
+
+  test('has proper styles if default', () => {
+    const mockCallback = jest.fn();
+    const label = shallow(
+      <Label type="default" color="mint" onClose={mockCallback}>
+        default label
+      </Label>
+    );
+
+    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(true);
+    expect(label.find(Icon).props().color).toEqual('dark');
+    expect(label.find(Text).props().color).toEqual('default');
+  });
+
+  test('has proper styles if solid', () => {
+    const mockCallback = jest.fn();
+    const label = shallow(
+      <Label type="solid" color="mint" onClose={mockCallback}>
+        default label
+      </Label>
+    );
+
+    expect(label.hasClass('sg-label--mint-primary')).toEqual(true);
+    expect(label.find(Icon).props().color).toEqual('light');
+    expect(label.find(Text).props().color).toEqual('white');
+  });
+
+  test('has proper styles if transparent', () => {
+    const mockCallback = jest.fn();
+    const label = shallow(
+      <Label type="transparent" color="mint" onClose={mockCallback}>
+        default label
+      </Label>
+    );
+
+    expect(label.hasClass('sg-label--mint-primary')).toEqual(false);
+    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(false);
+    expect(label.find(Icon).props().color).toEqual('mint');
+    expect(label.find(Text).props().color).toEqual('default');
+  });
+
+  test('has proper styles if transparent-color', () => {
+    const mockCallback = jest.fn();
+    const label = shallow(
+      <Label type="transparent-color" color="mint" onClose={mockCallback}>
+        default label
+      </Label>
+    );
+
+    expect(label.hasClass('sg-label--mint-primary')).toEqual(false);
+    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(false);
+    expect(label.find(Icon).props().color).toEqual('mint');
+    expect(label.find(Text).props().color).toEqual('mint-dark');
   });
 });
