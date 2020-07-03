@@ -47,13 +47,29 @@ $largeButtonSize: componentSize(l);
     margin-right: spacing(xs);
     margin-left: -4px;
 
+    .sg-button--reversed-order & {
+      margin-right: -4px;
+      margin-left: spacing(xs);
+    }
+
     &--s {
       margin-right: 6px;
+      margin-left: -4px;
+
+      .sg-button--reversed-order & {
+        margin-right: -4px;
+        margin-left: 6px;
+      }
     }
 
     &--l {
       margin-right: 12px;
       margin-left: -6px;
+
+      .sg-button--reversed-order & {
+        margin-right: -6px;
+        margin-left: 12px;
+      }
     }
   }
 
@@ -81,6 +97,10 @@ $largeButtonSize: componentSize(l);
     .sg-button__text {
       top: 1px;
     }
+  }
+
+  &--reversed-order {
+    flex-direction: row-reverse;
   }
 
   &--disabled {
@@ -264,6 +284,23 @@ $largeButtonSize: componentSize(l);
 
     &.sg-button--s {
       padding: 0 spacing(xs);
+    }
+
+    &.sg-button--reversed-order {
+      .sg-button__icon {
+        margin-right: -2px;
+        margin-left: spacing(xs);
+
+        &--s {
+          margin-right: -2px;
+          margin-left: 6px;
+        }
+
+        &--l {
+          margin-right: -3px;
+          margin-left: 12px;
+        }
+      }
     }
 
     .sg-button__icon {
