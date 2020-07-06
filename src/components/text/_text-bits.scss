@@ -3,7 +3,7 @@ $includeHtml: false !default;
 $bitSizes: (
   xlarge: 80px,
   large: 56px,
-  normal: 40px,
+  medium: 40px,
   small: 24px,
 );
 
@@ -15,8 +15,8 @@ $bitSizes: (
 
   .sg-text-bit {
     @include uppercaseText(-0.0625rem);
-    font-size: getBitSize(normal);
-    line-height: getBitSize(normal);
+    font-size: getBitSize(medium);
+    line-height: getBitSize(medium);
     color: $mintSecondary;
     font-weight: $fontWeightBlack;
     margin: 0;

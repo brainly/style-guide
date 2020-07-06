@@ -25,7 +25,7 @@ export type TextTypeType =
 export type TextSizeType =
   | 'xsmall'
   | 'small'
-  | 'normal'
+  | 'medium'
   | 'large'
   | 'xlarge'
   | 'xxlarge';
@@ -83,7 +83,7 @@ export type TextPropsType = {
 const Text = ({
   children,
   type = TEXT_TYPE.DIV,
-  size = TEXT_SIZE.NORMAL,
+  size = TEXT_SIZE.MEDIUM,
   weight = TEXT_WEIGHT.REGULAR,
   color,
   transform,
@@ -100,7 +100,7 @@ const Text = ({
   const textClass = classNames(
     'sg-text',
     {
-      [`sg-text--${String(size)}`]: size !== TEXT_SIZE.NORMAL,
+      [`sg-text--${String(size)}`]: size !== TEXT_SIZE.MEDIUM,
       [`sg-text--${String(color)}`]: color,
       [`sg-text--${String(weight)}`]: weight !== TEXT_WEIGHT.REGULAR,
       [`sg-text--${transform || ''}`]: transform,

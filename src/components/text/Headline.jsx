@@ -9,7 +9,7 @@ export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export type HeadlineSizeType =
   | 'xsmall'
   | 'small'
-  | 'normal'
+  | 'medium'
   | 'large'
   | 'xlarge'
   | 'xxlarge';
@@ -57,7 +57,7 @@ export type HeadlinePropsType = {
 const Headline = ({
   children,
   type = HEADLINE_TYPE.H1,
-  size = HEADLINE_SIZE.NORMAL,
+  size = HEADLINE_SIZE.MEDIUM,
   extraBold,
   transform,
   align,
@@ -69,7 +69,7 @@ const Headline = ({
   const headlineClass = classNames(
     'sg-headline',
     {
-      [`sg-headline--${size}`]: size !== HEADLINE_SIZE.NORMAL,
+      [`sg-headline--${size}`]: size !== HEADLINE_SIZE.MEDIUM,
       [`sg-headline--${String(color)}`]: color,
       [`sg-headline--${String(transform)}`]: transform,
       [`sg-headline--${align || ''}`]: align,
