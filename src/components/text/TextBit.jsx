@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
 
-type TextBitSizeType = 'small' | 'normal' | 'large' | 'xlarge';
+type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
 
 type TextBitColorType =
   | 'blue-primary'
@@ -35,7 +35,7 @@ export const TEXT_BIT_TYPE = Object.freeze({
 
 export const TEXT_BIT_SIZE = Object.freeze({
   SMALL: 'small',
-  NORMAL: 'normal',
+  MEDIUM: 'medium',
   LARGE: 'large',
   XLARGE: 'xlarge',
 });
@@ -69,7 +69,7 @@ type TextBitPropsType = {
 const TextBit = ({
   children,
   type = TEXT_BIT_TYPE.H1,
-  size = TEXT_BIT_SIZE.NORMAL,
+  size = TEXT_BIT_SIZE.MEDIUM,
   color,
   className,
   ...props
@@ -78,7 +78,7 @@ const TextBit = ({
   const textClass = classNames(
     'sg-text-bit',
     {
-      [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.NORMAL,
+      [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.MEDIUM,
       [`sg-text-bit--${color || ''}`]: color,
     },
     className

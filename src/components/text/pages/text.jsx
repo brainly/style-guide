@@ -25,7 +25,7 @@ const textSizesMap = [
     fontSize: '15px',
   },
   {
-    type: 'normal',
+    type: 'medium',
     fontSize: '18px',
   },
   {

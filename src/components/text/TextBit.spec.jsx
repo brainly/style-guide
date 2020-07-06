@@ -15,9 +15,9 @@ test('size', () => {
 });
 
 test('should not pass size when default passed', () => {
-  const textBit = shallow(<TextBit size={TEXT_BIT_SIZE.NORMAL}>Test</TextBit>);
+  const textBit = shallow(<TextBit size={TEXT_BIT_SIZE.MEDIUM}>Test</TextBit>);
 
-  expect(textBit.hasClass('sg-text-bit--normal')).toBeFalsy();
+  expect(textBit.hasClass('sg-text-bit--medium')).toBeFalsy();
 });
 
 test('type', () => {

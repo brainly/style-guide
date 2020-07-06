@@ -28,7 +28,7 @@ type TextTypeType =
 type TextSizeType =
   | 'xsmall'
   | 'small'
-  | 'normal'
+  | 'medium'
   | 'large'
   | 'xlarge'
   | 'xxlarge';
