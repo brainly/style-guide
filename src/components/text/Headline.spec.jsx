@@ -36,10 +36,10 @@ test('light', () => {
 
 test('default size', () => {
   const headline = shallow(
-    <Headline size={HEADLINE_SIZE.NORMAL}>Test</Headline>
+    <Headline size={HEADLINE_SIZE.MEDIUM}>Test</Headline>
   );
 
-  expect(headline.hasClass('sg-headline--normal')).toBeFalsy();
+  expect(headline.hasClass('sg-headline--medium')).toBeFalsy();
 });
 
 test('transform uppercase', () => {

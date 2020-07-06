@@ -19,7 +19,7 @@ export const TYPE = TEXT_TYPE; // backward compatibility
 export const TEXT_SIZE = Object.freeze({
   XSMALL: 'xsmall',
   SMALL: 'small',
-  NORMAL: 'normal',
+  MEDIUM: 'medium',
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
