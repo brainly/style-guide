@@ -21,7 +21,7 @@ const headlineSizesMap = [
     fontSize: '18px',
   },
   {
-    type: 'normal',
+    type: 'medium',
     fontSize: '21px',
   },
   {
@@ -75,7 +75,7 @@ const Headlines = () => {
         <Headline
           key={color}
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           color={color}
         >
           {text} - {color}
@@ -86,7 +86,7 @@ const Headlines = () => {
         <ContrastBox key={color}>
           <Headline
             type={HEADLINE_TYPE.H2}
-            size={HEADLINE_SIZE.NORMAL}
+            size={HEADLINE_SIZE.MEDIUM}
             color={color}
           >
             {text} - {color}
@@ -103,21 +103,21 @@ const Headlines = () => {
       <DocsBlock info="Examples">
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           transform={HEADLINE_TRANSFORM.CAPITALIZE}
         >
           {text} - capitalize
         </Headline>
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           transform={HEADLINE_TRANSFORM.LOWERCASE}
         >
           {text} - lowercase
         </Headline>
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           transform={HEADLINE_TRANSFORM.UPPERCASE}
         >
           {text} - uppercase
@@ -125,21 +125,21 @@ const Headlines = () => {
         <br />
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           align={HEADLINE_ALIGN.LEFT}
         >
           {text} - align left
         </Headline>
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           align={HEADLINE_ALIGN.CENTER}
         >
           {text} - align center
         </Headline>
         <Headline
           type={HEADLINE_TYPE.H2}
-          size={HEADLINE_SIZE.NORMAL}
+          size={HEADLINE_SIZE.MEDIUM}
           align={HEADLINE_ALIGN.RIGHT}
         >
           {text} - align right

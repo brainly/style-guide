@@ -10,7 +10,7 @@ const textBitSizesMap = [
     fontSize: '24px',
   },
   {
-    type: 'normal',
+    type: 'medium',
     fontSize: '40px',
   },
   {
@@ -49,7 +49,7 @@ const TextBitExamples = () => {
 
   getValues(TEXT_BIT_COLOR, false).forEach(color => {
     colorsVariants.push(
-      <TextBit key="color" size={TEXT_BIT_SIZE.NORMAL} color={color}>
+      <TextBit key="color" size={TEXT_BIT_SIZE.MEDIUM} color={color}>
         {text} - {color}
       </TextBit>
     );
