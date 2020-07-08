@@ -24,6 +24,10 @@ $headlineSizes: (
   xsmall: (
     fontSize: 14px,
     lineHeight: 16px
+  ),
+  xxsmall: (
+    fontSize: 10px,
+    lineHeight: 12px
   )
 );
 
@@ -47,6 +51,10 @@ $headlineSizes: (
     color: $black;
     font-weight: $fontWeightBold;
     max-width: 100%;
+
+    &--xxsmall {
+      @include headlineTypeSizeVariant(xxsmall);
+    }
 
     &--xsmall {
       @include headlineTypeSizeVariant(xsmall);

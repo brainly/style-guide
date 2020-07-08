@@ -13,6 +13,10 @@ const text = "We've got your back!";
 
 const headlineSizesMap = [
   {
+    type: 'xxsmall',
+    fontSize: '10px',
+  },
+  {
     type: 'xsmall',
     fontSize: '14px',
   },
