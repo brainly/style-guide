@@ -23,6 +23,7 @@ export type TextTypeType =
   | 'a';
 
 export type TextSizeType =
+  | 'xxsmall'
   | 'xsmall'
   | 'small'
   | 'medium'

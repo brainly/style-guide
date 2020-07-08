@@ -24,6 +24,10 @@ $bodyTextSizes: (
   xsmall: (
     fontSize: 12px,
     lineHeight: 16px
+  ),
+  xxsmall: (
+    fontSize: 9px,
+    lineHeight: 12px
   )
 );
 
@@ -69,6 +73,10 @@ $bodyTextSizes: (
 
     &--xsmall {
       @include bodyTextTypeSizeVariant(xsmall);
+    }
+
+    &--xxsmall {
+      @include bodyTextTypeSizeVariant(xxsmall);
     }
 
     &--link {
