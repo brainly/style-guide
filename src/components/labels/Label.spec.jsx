@@ -120,7 +120,7 @@ describe('Label', () => {
     expect(label.find(Text).props().color).toEqual('white');
   });
 
-  xtest('has proper styles if transparent', () => {
+  test('has proper styles if transparent', () => {
     const mockCallback = jest.fn();
     const label = shallow(
       <Label
@@ -145,7 +145,7 @@ describe('Label', () => {
     expect(closeIcon.props().color).toEqual('dark');
     expect(heartIcon.props().color).toEqual('mint');
     expect(label.find(Text).props().color).toEqual('default');
-    expect(label.find('div').find(Icon)).toHaveLength(1);
+    expect(label.find('div').find(Icon)).toHaveLength(2);
   });
 
   test('has proper styles if transparent-color', () => {
