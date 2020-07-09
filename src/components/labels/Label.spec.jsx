@@ -12,8 +12,8 @@ describe('Label', () => {
       </Label>
     );
 
-    expect(label.hasClass('sg-label')).toEqual(true);
-    expect(label.hasClass('sg-label--blue-secondary-light')).toEqual(true);
+    expect(label.hasClass('sg-label')).toBe(true);
+    expect(label.hasClass('sg-label--blue-secondary-light')).toBe(true);
   });
 
   test('render with icon', () => {
@@ -24,9 +24,9 @@ describe('Label', () => {
     );
     const icon = label.find(Icon);
 
-    expect(label.hasClass('sg-label')).toEqual(true);
+    expect(label.hasClass('sg-label')).toBe(true);
     expect(icon).toHaveLength(1);
-    expect(icon.props().type).toEqual('star');
+    expect(icon.props().type).toBe('star');
   });
 
   test('render type solid', () => {
@@ -36,8 +36,8 @@ describe('Label', () => {
       </Label>
     );
 
-    expect(label.hasClass('sg-label')).toEqual(true);
-    expect(label.hasClass('sg-label--mint-primary')).toEqual(true);
+    expect(label.hasClass('sg-label')).toBe(true);
+    expect(label.hasClass('sg-label--mint-primary')).toBe(true);
   });
 
   test('dark close button if default', () => {
@@ -54,8 +54,8 @@ describe('Label', () => {
       label
         .find('div')
         .find(Icon)
-        .props().color
-    ).toEqual('dark');
+        .prop('color')
+    ).toBe('dark');
   });
 
   test('clicking on close button calls onClose', () => {
@@ -76,54 +76,102 @@ describe('Label', () => {
   test('has proper styles if default', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="default" color="mint" onClose={mockCallback}>
+      <Label
+        type="default"
+        color="mint"
+        iconType="heart"
+        onClose={mockCallback}
+      >
         default label
       </Label>
     );
 
-    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(true);
-    expect(label.find(Icon).props().color).toEqual('dark');
-    expect(label.find(Text).props().color).toEqual('default');
+    const closeIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'close');
+    const heartIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'heart');
+
+    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(true);
+    expect(closeIcon.prop('color')).toBe('dark');
+    expect(heartIcon.prop('color')).toBe('dark');
+    expect(label.find(Text).prop('color')).toBe('default');
   });
 
   test('has proper styles if solid', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="solid" color="mint" onClose={mockCallback}>
+      <Label type="solid" color="mint" iconType="heart" onClose={mockCallback}>
         default label
       </Label>
     );
 
-    expect(label.hasClass('sg-label--mint-primary')).toEqual(true);
-    expect(label.find(Icon).props().color).toEqual('light');
-    expect(label.find(Text).props().color).toEqual('white');
+    const closeIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'close');
+    const heartIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'heart');
+
+    expect(label.hasClass('sg-label--mint-primary')).toBe(true);
+    expect(closeIcon.prop('color')).toBe('light');
+    expect(heartIcon.prop('color')).toBe('light');
+    expect(label.find(Text).prop('color')).toBe('white');
   });
 
   test('has proper styles if transparent', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="transparent" color="mint" onClose={mockCallback}>
+      <Label
+        type="transparent"
+        color="mint"
+        iconType="heart"
+        onClose={mockCallback}
+      >
         default label
       </Label>
     );
 
-    expect(label.hasClass('sg-label--mint-primary')).toEqual(false);
-    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(false);
-    expect(label.find(Icon).props().color).toEqual('mint');
-    expect(label.find(Text).props().color).toEqual('default');
+    const closeIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'close');
+    const heartIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'heart');
+
+    expect(label.hasClass('sg-label--mint-primary')).toBe(false);
+    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
+    expect(closeIcon.prop('color')).toBe('dark');
+    expect(heartIcon.prop('color')).toBe('mint');
+    expect(label.find(Text).prop('color')).toBe('default');
+    expect(label.find('div').find(Icon)).toHaveLength(2);
   });
 
   test('has proper styles if transparent-color', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="transparent-color" color="mint" onClose={mockCallback}>
+      <Label
+        type="transparent-color"
+        color="mint"
+        iconType="heart"
+        onClose={mockCallback}
+      >
         default label
       </Label>
     );
 
-    expect(label.hasClass('sg-label--mint-primary')).toEqual(false);
-    expect(label.hasClass('sg-label--mint-secondary-light')).toEqual(false);
-    expect(label.find(Icon).props().color).toEqual('mint');
-    expect(label.find(Text).props().color).toEqual('mint-dark');
+    const closeIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'close');
+    const heartIcon = label
+      .find('Icon')
+      .findWhere(el => el.prop('type') === 'heart');
+
+    expect(label.hasClass('sg-label--mint-primary')).toBe(false);
+    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
+    expect(closeIcon.prop('color')).toBe('mint');
+    expect(heartIcon.prop('color')).toBe('mint');
+    expect(label.find(Text).prop('color')).toBe('mint-dark');
   });
 });
