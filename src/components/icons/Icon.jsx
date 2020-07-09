@@ -103,7 +103,9 @@ export type IconTypeType =
   | 'pause'
   | 'rectangle'
   | 'sup_sub'
-  | 'triangle';
+  | 'triangle'
+  | 'pi'
+  | 'quote';
 
 export type IconColorType =
   | 'adaptive'
@@ -247,6 +249,8 @@ export const TYPE = {
   RECTANGLE: 'rectangle',
   SUP_SUB: 'sup_sub',
   TRIANGLE: 'triangle',
+  PI: 'pi',
+  QUOTE: 'quote',
 };
 
 export const ICON_COLOR = {
