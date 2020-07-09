@@ -190,6 +190,13 @@ const Label = ({
       ? 'light'
       : TRANSPARENT_ICON_COLOR_MAP[color];
 
+  const closeIconColor =
+    type === 'default' || type === 'transparent'
+      ? 'dark'
+      : type === 'solid'
+      ? 'light'
+      : TRANSPARENT_ICON_COLOR_MAP[color];
+
   return (
     <div {...props} className={labelClass}>
       {iconType && (
@@ -204,7 +211,7 @@ const Label = ({
       </span>
       {onClose ? (
         <button className="sg-label__close-button" onClick={onClose}>
-          <Icon type="close" color={iconColor} size={16} />
+          <Icon type="close" color={closeIconColor} size={16} />
         </button>
       ) : null}
     </div>
