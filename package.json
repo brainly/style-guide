@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "174.3.0",
+  "version": "174.3.1",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -12,6 +12,13 @@
     "esm/",
     "commonjs/"
   ],
+  "engines": {
+    "node": ">=8.0.0",
+    "yarn": "^1.0.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
@@ -114,9 +121,6 @@
     "transform": {
       ".*": "babel-jest"
     }
-  },
-  "dependencies": {
-    "classnames": "^2.2.5"
   },
   "sideEffects": false
 }
