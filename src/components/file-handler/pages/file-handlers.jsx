@@ -22,12 +22,12 @@ const FileHandlers = () => (
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="with icon type">
+      <DocsBlock info="icon">
         <FileHandler iconType="answer">text</FileHandler>
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="with on close">
+      <DocsBlock info="close">
         <FileHandler onClose={closeCallback}>text</FileHandler>
       </DocsBlock>
     </Flex>
@@ -37,7 +37,7 @@ const FileHandlers = () => (
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="with thumbnailSrc">
+      <DocsBlock info="thumbnail">
         <FileHandler
           thumbnailSrc="https://source.unsplash.com/64x64/?bird"
           src="https://source.unsplash.com/64x64/?bird"
@@ -47,7 +47,7 @@ const FileHandlers = () => (
       </DocsBlock>
     </Flex>
     <Flex marginRight="l">
-      <DocsBlock info="with thumbnailSrc and on close">
+      <DocsBlock info="thumbnail close">
         <FileHandler
           thumbnailSrc="https://source.unsplash.com/64x64/?bird"
           src="https://source.unsplash.com/64x64/?bird"
