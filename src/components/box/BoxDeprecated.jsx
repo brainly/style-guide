@@ -64,18 +64,18 @@ export const CLOSE_ICON_COLOR = {
   DARK: 'DARK',
 };
 
-type BoxPropsType = {
+type BoxDeprecatedPropsType = {
   /**
-   * Children to be render inside of the Box. Takes no effect if **imgSrc** prop specified.
-   * @example <Box>
+   * Children to be render inside of the BoxDeprecated. Takes no effect if **imgSrc** prop specified.
+   * @example <BoxDeprecated>
    *            some child
-   *          </Box>
+   *          </BoxDeprecated>
    *
    *          // child from box below won't be rendered
-   *          <Box imgSrc="https://some_url">
+   *          <BoxDeprecated imgSrc="https://some_url">
    *            THIS CONTENT WILL
    *            BE REPLACED BY IMAGE
-   *          </Box>
+   *          </BoxDeprecated>
    */
   children?: ?Node,
   /**
@@ -84,9 +84,9 @@ type BoxPropsType = {
   className?: ?string,
   /**
    * Specify background color
-   * @example <Box color="mint-secondary">
+   * @example <BoxDeprecated color="mint-secondary">
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see color=blue https://styleguide.brainly.com/latest/docs/interactive.html?color=blue#boxes
    * @see color=lavender https://styleguide.brainly.com/latest/docs/interactive.html?color=lavender#boxes
    * @see color=dark https://styleguide.brainly.com/latest/docs/interactive.html?color=dark#boxes
@@ -103,30 +103,30 @@ type BoxPropsType = {
    */
   color?: ?ColorType,
   /**
-   * Specify if **<Box/>** should have borders around
-   * @example <Box border={false}>
+   * Specify if **<BoxDeprecated/>** should have borders around
+   * @example <BoxDeprecated border={false}>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see border=true https://styleguide.brainly.com/latest/docs/interactive.html?border=false#boxes
    * @see border=false https://styleguide.brainly.com/latest/docs/interactive.html?border=false#boxes
    * @default true
    */
   border?: boolean,
   /**
-   * Specify if **<Box/>** should *NOT* have min height
-   * @example <Box noMinHeight>
+   * Specify if **<BoxDeprecated/>** should *NOT* have min height
+   * @example <BoxDeprecated noMinHeight>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see noMinHeight=true https://styleguide.brainly.com/latest/docs/interactive.html?noMinHeight=true#boxes
    * @see noMinHeight=false https://styleguide.brainly.com/latest/docs/interactive.html?noMinHeight=false#boxes
    * @default false
    */
   noMinHeight?: ?boolean,
   /**
-   * Specify if **<Box/>** should take full parents width
-   * @example <Box full>
+   * Specify if **<BoxDeprecated/>** should take full parents width
+   * @example <BoxDeprecated full>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see full=true https://styleguide.brainly.com/latest/docs/interactive.html?full=true#boxes
    * @see full=false https://styleguide.brainly.com/latest/docs/interactive.html?full=false#boxes
    * @default false
@@ -134,9 +134,9 @@ type BoxPropsType = {
   full?: ?boolean,
   /**
    * Specify padding sizes for inner content
-   * @example <Box padding="large-padding">
+   * @example <BoxDeprecated padding="large-padding">
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see no-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=no-padding#boxes
    * @see small-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=small-padding#boxes
    * @see xsmall-padding https://styleguide.brainly.com/latest/docs/interactive.html?padding=xsmall-padding#boxes
@@ -146,27 +146,27 @@ type BoxPropsType = {
   padding?: ?PaddingType,
   /**
    * Specify src for image, which will be displayed INSTEAD of inner content
-   * @example <Box imgSrc="https://some_url">
+   * @example <BoxDeprecated imgSrc="https://some_url">
    *            THIS CONTENT WILL
    *            BE REPLACED BY IMAGE
-   *          </Box>
+   *          </BoxDeprecated>
    */
   imgSrc?: ?string,
   /**
-   * Specify if border-shadow should be displayed around the **<Box/>**
-   * @example <Box shadow>
+   * Specify if border-shadow should be displayed around the **<BoxDeprecated/>**
+   * @example <BoxDeprecated shadow>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see shadow=true https://styleguide.brainly.com/latest/docs/interactive.html?shadow=true#boxes
    * @see shadow=false https://styleguide.brainly.com/latest/docs/interactive.html?shadow=false#boxes
    * @default false
    */
   shadow?: ?boolean,
   /**
-   * Specify if **<Box/>** should have flat corners
-   * @example <Box noBorderRadius>
+   * Specify if **<BoxDeprecated/>** should have flat corners
+   * @example <BoxDeprecated noBorderRadius>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @see noBorderRadius=true https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=true#boxes
    * @see noBorderRadius=false https://styleguide.brainly.com/latest/docs/interactive.html?noBorderRadius=false#boxes
    * @default false
@@ -175,25 +175,25 @@ type BoxPropsType = {
   /**
    * Color of **close** icon. Prop used only in case if **onClose** prop specified as well
    * @example // right
-   *          <Box
+   *          <BoxDeprecated
    *            onClose={() => doSomething()}
    *            closeIconColor="DARK"
    *          >
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    *
    *          // wrong
-   *          <Box closeIconColor="DARK">
+   *          <BoxDeprecated closeIconColor="DARK">
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @todo add interactive example for this prop
    */
   closeIconColor?: ?CloseIconColorType,
   /**
    * Callback, called by clicking on **close** button. If specified, button will be added automatically
-   * @example <Box onClose={() => doSomething()}>
+   * @example <BoxDeprecated onClose={() => doSomething()}>
    *            some text
-   *          </Box>
+   *          </BoxDeprecated>
    * @todo add interactive example for this prop
    */
   onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
@@ -207,12 +207,12 @@ type BoxPropsType = {
  * @see react docs: https://styleguide.brainly.com/latest/docs/interactive.html#boxes
  * @see twig-compatible docs: https://styleguide.brainly.com/latest/docs/containers.html#box
  *
- * @example <Box>
+ * @example <BoxDeprecated>
  *             some child
- *          </Box>
- * @returns {JSX.Element} Box component
+ *          </BoxDeprecated>
+ * @returns {JSX.Element} BoxDeprecated component
  */
-const Box = ({
+const BoxDeprecated = ({
   color,
   padding,
   full,
@@ -226,18 +226,18 @@ const Box = ({
   closeIconColor,
   className,
   ...props
-}: BoxPropsType) => {
+}: BoxDeprecatedPropsType) => {
   const boxClass = classNames(
-    'sg-box',
+    'sg-box-deprecated',
     {
-      [`sg-box--${String(color)}`]: color,
-      'sg-box--no-border': !border,
-      'sg-box--full': full,
-      [`sg-box--${String(padding)}`]: padding,
-      'sg-box--image-wrapper': imgSrc,
-      'sg-box--no-min-height': noMinHeight,
-      'sg-box--with-shadow': shadow,
-      'sg-box--no-border-radius': noBorderRadius,
+      [`sg-box-deprecated--${String(color)}`]: color,
+      'sg-box-deprecated--no-border': !border,
+      'sg-box-deprecated--full': full,
+      [`sg-box-deprecated--${String(padding)}`]: padding,
+      'sg-box-deprecated--image-wrapper': imgSrc,
+      'sg-box-deprecated--no-min-height': noMinHeight,
+      'sg-box-deprecated--with-shadow': shadow,
+      'sg-box-deprecated--no-border-radius': noBorderRadius,
     },
     className
   );
@@ -245,14 +245,14 @@ const Box = ({
   let content;
 
   if (imgSrc !== undefined && imgSrc !== null) {
-    content = <img className="sg-box__image" src={imgSrc} />;
+    content = <img className="sg-box-deprecated__image" src={imgSrc} />;
   } else {
-    content = <div className="sg-box__hole">{children}</div>;
+    content = <div className="sg-box-deprecated__hole">{children}</div>;
   }
   return (
     <div {...props} className={boxClass}>
       {onClose ? (
-        <div className="sg-box__close" onClick={onClose}>
+        <div className="sg-box-deprecated__close" onClick={onClose}>
           <Icon
             type="close"
             color={
@@ -267,4 +267,4 @@ const Box = ({
   );
 };
 
-export default Box;
+export default BoxDeprecated;
