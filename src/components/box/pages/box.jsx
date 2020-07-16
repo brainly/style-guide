@@ -55,20 +55,22 @@ const Boxes = () => (
     </DocsBlock>
 
     <DocsBlock info="Padding">
-      <Flex wrap>
+      <Flex wrap alignItems="flex-end">
+        {Object.values(PADDING)
+          .reverse()
+          .map(padding => (
+            <Flex key={padding} marginRight="s" marginBottom="s">
+              <Box color="peach-secondary-light" padding={padding}>
+                <Text size="small">Padding {padding}</Text>
+              </Box>
+            </Flex>
+          ))}
+
         <Flex marginRight="s" marginBottom="s">
           <Box color="peach-secondary-light" padding={null}>
             <Text size="small">No padding</Text>
           </Box>
         </Flex>
-
-        {Object.values(PADDING).map(padding => (
-          <Flex key={padding} marginRight="s" marginBottom="s">
-            <Box color="peach-secondary-light" padding={padding}>
-              <Text size="small">Padding {padding}</Text>
-            </Box>
-          </Flex>
-        ))}
       </Flex>
     </DocsBlock>
 
