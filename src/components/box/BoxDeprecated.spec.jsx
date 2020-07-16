@@ -1,5 +1,5 @@
 import React from 'react';
-import BoxDeprecated, {COLOR, PADDING, CLOSE_ICON_COLOR} from './Box';
+import BoxDeprecated, {COLOR, PADDING, CLOSE_ICON_COLOR} from './BoxDeprecated';
 import Icon from '../icons/Icon';
 import {shallow} from 'enzyme';
 

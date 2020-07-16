@@ -22,7 +22,34 @@ type ColorType =
   | 'peach-secondary'
   | 'peach-secondary-light';
 
+export const COLOR = {
+  blue: 'blue',
+  lavender: 'lavender',
+  dark: 'dark',
+  mint: 'mint',
+  mintSecondary: 'mint-secondary',
+  mindSecondaryLight: 'mint-secondary-light',
+  mintSecondaryUltraLight: 'mint-secondary-ultra-light',
+  blueSecondary: 'blue-secondary',
+  blueSecondaryLight: 'blue-secondary-light',
+  graySecondaryLightest: 'gray-secondary-lightest',
+  graySecondaryUltraLight: 'gray-secondary-ultra-light',
+  mustardPrimary: 'mustard-primary',
+  peach: 'peach',
+  peachSecondary: 'peach-secondary',
+  peachSecondaryLight: 'peach-secondary-light',
+};
+
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+
+export const PADDING = {
+  xxs: 'xxs',
+  xs: 'xs',
+  s: 's',
+  m: 'm',
+  l: 'l',
+  xl: 'xl',
+};
 
 type BoxBorderType =
   | {
