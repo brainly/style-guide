@@ -6,7 +6,7 @@ import Flex, {
   FLEX_MARGINS,
 } from '../Flex';
 
-import Box, {COLOR} from '../../box/Box';
+import BoxDeprecated, {COLOR} from '../../box/BoxDeprecated';
 import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
@@ -71,10 +71,10 @@ const Flexboxes = () => {
       <DocsActiveBlock settings={settings}>
         <Flex {...urlParams}>
           <Flex>
-            <Box color={COLOR.BLUE}>This is a box 1.</Box>
+            <BoxDeprecated color={COLOR.BLUE}>This is a box 1.</BoxDeprecated>
           </Flex>
           <Flex>
-            <Box color={COLOR.BLUE}>This is a box 2.</Box>
+            <BoxDeprecated color={COLOR.BLUE}>This is a box 2.</BoxDeprecated>
           </Flex>
         </Flex>
       </DocsActiveBlock>

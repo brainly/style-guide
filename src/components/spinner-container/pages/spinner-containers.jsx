@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
 import Button from 'buttons/Button';
 
-import Box, {COLOR} from 'box/Box';
+import BoxDeprecated, {COLOR} from 'box/BoxDeprecated';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
@@ -46,9 +46,9 @@ const SpinnerContainers = () => (
       </SpinnerContainer>
     </DocsBlock>
 
-    <DocsBlock info="with Box">
+    <DocsBlock info="with BoxDeprecated">
       <SpinnerContainer loading>
-        <Box>
+        <BoxDeprecated>
           <ContentBox>
             <ContentBoxHeader>
               <Headline type={HEADLINE_TYPE.H3}>
@@ -61,7 +61,7 @@ const SpinnerContainers = () => (
               </Button>
             </ContentBoxActions>
           </ContentBox>
-        </Box>
+        </BoxDeprecated>
       </SpinnerContainer>
     </DocsBlock>
 
@@ -71,11 +71,11 @@ const SpinnerContainers = () => (
       </SpinnerContainer>
     </DocsBlock>
 
-    <DocsBlock info="with Box" additionalInfo="(light)">
+    <DocsBlock info="with BoxDeprecated" additionalInfo="(light)">
       <SpinnerContainer loading light>
-        <Box color={COLOR.NAVYBLUE_SECONDARY}>
+        <BoxDeprecated color={COLOR.NAVYBLUE_SECONDARY}>
           navyblue-secondary (no border by default)
-        </Box>
+        </BoxDeprecated>
       </SpinnerContainer>
     </DocsBlock>
   </div>

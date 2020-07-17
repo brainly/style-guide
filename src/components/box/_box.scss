@@ -1,57 +1,20 @@
-$boxBorderColor: $graySecondary;
-$boxBackgroundDark: $graySecondaryLight;
-$boxBorderSize: 1px;
+$boxBorderColor: $graySecondaryLightest;
+$boxColorDark: $graySecondaryLight;
+$boxColorLight: $white;
+$boxBorderSize: 2px;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-box {
-    @include component();
-    @include hole();
-    display: inline-flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    min-height: rhythm(3);
+    width: 100%;
     border-radius: $borderRadiusDefault;
-    border: $boxBorderSize solid $boxBorderColor;
-    padding: (gutter(1) - $boxBorderSize);
-    overflow: visible;
-    background-color: $white;
 
-    &__image {
-      max-width: 100%;
-      max-height: 100%;
+    &--border {
+      border: $boxBorderSize solid $boxBorderColor;
     }
 
-    &--full {
-      width: 100%;
-
-      .sg-box__hole {
-        width: 100%;
-        max-width: 100%;
-      }
-    }
-
-    &--no-min-height {
-      min-height: 0;
-    }
-
-    &--no-border {
-      border: none;
-      padding: rhythm(1) gutter(1);
-    }
-
-    &--no-border-small {
-      border: none;
-      padding: rhythm(1 / 2) gutter(1 / 2);
-    }
-
-    &--no-border-large {
-      border: none;
-      padding: rhythm(2) gutter(2);
-    }
-
-    &--with-shadow {
+    &--shadow {
       box-shadow: $containerShadow;
     }
 
@@ -59,24 +22,52 @@ $includeHtml: false !default;
       border-radius: 0;
     }
 
-    &--no-padding {
-      padding: 0;
+    &--padding-xxs {
+      padding: spacing(xxs);
     }
 
-    &--small-padding {
-      padding: gutter(2 / 3);
+    &--padding-xxs#{&}--border {
+      padding: (spacing(xxs) - $boxBorderSize);
     }
 
-    &--xsmall-padding {
-      padding: gutter(1 / 2);
+    &--padding-xs {
+      padding: spacing(xs);
     }
 
-    &--xxsmall-padding {
-      padding: gutter(1 / 3);
+    &--padding-xs#{&}--border {
+      padding: (spacing(xs) - $boxBorderSize);
     }
 
-    &--large-padding {
-      padding: (gutter(2) - $boxBorderSize);
+    &--padding-s {
+      padding: spacing(s);
+    }
+
+    &--padding-s#{&}--border {
+      padding: (spacing(s) - $boxBorderSize);
+    }
+
+    &--padding-m {
+      padding: spacing(m);
+    }
+
+    &--padding-m#{&}--border {
+      padding: (spacing(m) - $boxBorderSize);
+    }
+
+    &--padding-l {
+      padding: spacing(l);
+    }
+
+    &--padding-l#{&}--border {
+      padding: (spacing(l) - $boxBorderSize);
+    }
+
+    &--padding-xl {
+      padding: spacing(xl);
+    }
+
+    &--padding-xl#{&}--border {
+      padding: (spacing(xl) - $boxBorderSize);
     }
 
     &--mint {
@@ -112,8 +103,11 @@ $includeHtml: false !default;
     }
 
     &--dark {
-      border-color: $boxBackgroundDark;
-      background: $boxBackgroundDark;
+      background: $boxColorDark;
+    }
+
+    &--light {
+      background: $boxColorLight;
     }
 
     &--peach {
@@ -140,26 +134,68 @@ $includeHtml: false !default;
       background-color: $graySecondaryUltraLight;
     }
 
-    &--image-wrapper {
-      height: rhythm(4);
-      width: rhythm(4);
-      padding: (gutter(0.5) - $boxBorderSize);
-      align-items: center;
-      justify-content: center;
+    &--border-color-mint {
+      border-color: $mintPrimary;
     }
 
-    &--message {
-      padding: gutter(1);
+    &--border-color-mint-secondary {
+      border-color: $mintSecondary;
     }
 
-    &__close {
-      display: flex;
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: gutter(1 / 2);
-      cursor: pointer;
-      z-index: 1;
+    &--border-color-mint-secondary-light {
+      border-color: $mintSecondaryLight;
+    }
+
+    &--border-color-mint-secondary-ultra-light {
+      border-color: $mintSecondaryUltraLight;
+    }
+
+    &--border-color-blue {
+      border-color: $bluePrimary;
+    }
+
+    &--border-color-blue-secondary {
+      border-color: $blueSecondary;
+    }
+
+    &--border-color-blue-secondary-light {
+      border-color: $blueSecondaryLight;
+    }
+
+    &--border-color-lavender {
+      border-color: $lavenderPrimary;
+    }
+
+    &--border-color-dark {
+      border-color: $boxColorDark;
+    }
+
+    &--border-color-light {
+      border-color: $boxColorLight;
+    }
+
+    &--border-color-peach {
+      border-color: $peachPrimary;
+    }
+
+    &--border-color-peach-secondary {
+      border-color: $peachSecondary;
+    }
+
+    &--border-color-peach-secondary-light {
+      border-color: $peachSecondaryLight;
+    }
+
+    &--border-color-mustard-primary {
+      border-color: $mustardPrimary;
+    }
+
+    &--border-color-gray-secondary-lightest {
+      border-color: $graySecondaryLightest;
+    }
+
+    &--border-color-gray-secondary-ultra-light {
+      border-color: $graySecondaryUltraLight;
     }
   }
 }

@@ -4,7 +4,7 @@ import Flex, {FLEX_DIRECTION, FLEX_JUSTIFY_VALUES, FLEX_MARGINS} from '../Flex';
 
 import Text, {TEXT_SIZE} from '../../text/Text';
 import Link, {LINK_SIZE} from '../../text/Link';
-import Box, {COLOR} from '../../box/Box';
+import BoxDeprecated, {COLOR} from '../../box/BoxDeprecated';
 import SeparatorHorizontal, {TYPE} from '../../separators/SeparatorHorizontal';
 
 const Flexbox = () => (
@@ -82,7 +82,7 @@ const Flexbox = () => (
             size={LINK_SIZE.SMALL}
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
           >
-            CSS3 Flexible Box spec
+            CSS3 Flexible BoxDeprecated spec
           </Link>
         </Text>
         <Text size={TEXT_SIZE.SMALL}>
@@ -109,22 +109,26 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.BLUE}>I am a flex element with margin bottom M</Box>
+          <BoxDeprecated color={COLOR.BLUE}>
+            I am a flex element with margin bottom M
+          </BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>
             I am a second flex element in the column
-          </Box>
+          </BoxDeprecated>
         </Flex>
       </Flex>
       <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.BLUE}>I am a flex element with margin right M</Box>
+          <BoxDeprecated color={COLOR.BLUE}>
+            I am a flex element with margin right M
+          </BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>
             I am a second flex element in the row
-          </Box>
+          </BoxDeprecated>
         </Flex>
       </Flex>
     </DocsBlock>
@@ -136,10 +140,12 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex>
-          <Box color={COLOR.BLUE}>space between</Box>
+          <BoxDeprecated color={COLOR.BLUE}>space between</BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>space between</Box>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>
+            space between
+          </BoxDeprecated>
         </Flex>
       </Flex>
       <Flex
@@ -149,10 +155,12 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex>
-          <Box color={COLOR.BLUE}>space around</Box>
+          <BoxDeprecated color={COLOR.BLUE}>space around</BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>space around</Box>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>
+            space around
+          </BoxDeprecated>
         </Flex>
       </Flex>
       <Flex
@@ -162,10 +170,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.BLUE}>flex start</Box>
+          <BoxDeprecated color={COLOR.BLUE}>flex start</BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>flex start</Box>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>flex start</BoxDeprecated>
         </Flex>
       </Flex>
       <Flex
@@ -175,10 +183,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.BLUE}>flex end</Box>
+          <BoxDeprecated color={COLOR.BLUE}>flex end</BoxDeprecated>
         </Flex>
         <Flex>
-          <Box color={COLOR.BLUE_SECONDARY}>flex end</Box>
+          <BoxDeprecated color={COLOR.BLUE_SECONDARY}>flex end</BoxDeprecated>
         </Flex>
       </Flex>
     </DocsBlock>
