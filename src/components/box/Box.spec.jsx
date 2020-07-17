@@ -20,7 +20,7 @@ test('shadow', () => {
   const box = shallow(boxComponent);
 
   expect(boxComponent.props.shadow).toEqual(true);
-  expect(box.hasClass('sg-box--with-shadow')).toEqual(true);
+  expect(box.hasClass('sg-box--shadow')).toEqual(true);
 });
 
 test('border', () => {
@@ -28,7 +28,7 @@ test('border', () => {
   const box = shallow(boxComponent);
 
   expect(boxComponent.props.border).toEqual(true);
-  expect(box.hasClass('sg-box--with-border')).toEqual(true);
+  expect(box.hasClass('sg-box--border')).toEqual(true);
 });
 
 test('border', () => {
@@ -36,7 +36,7 @@ test('border', () => {
   const box = shallow(boxComponent);
 
   expect(boxComponent.props.border).toEqual(false);
-  expect(box.hasClass('sg-box--with-border')).toEqual(false);
+  expect(box.hasClass('sg-box--border')).toEqual(false);
 });
 
 test('borderColor', () => {

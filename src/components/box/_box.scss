@@ -9,11 +9,11 @@ $includeHtml: false !default;
     width: 100%;
     border-radius: $borderRadiusDefault;
 
-    &--with-border {
+    &--border {
       border: $boxBorderSize solid $boxBorderColor;
     }
 
-    &--with-shadow {
+    &--shadow {
       box-shadow: $containerShadow;
     }
 
@@ -25,7 +25,7 @@ $includeHtml: false !default;
       padding: spacing(xxs);
     }
 
-    &--padding-xxs#{&}--with-border {
+    &--padding-xxs#{&}--border {
       padding: (spacing(xxs) - $boxBorderSize);
     }
 
@@ -33,7 +33,7 @@ $includeHtml: false !default;
       padding: spacing(xs);
     }
 
-    &--padding-xs#{&}--with-border {
+    &--padding-xs#{&}--border {
       padding: (spacing(xs) - $boxBorderSize);
     }
 
@@ -41,7 +41,7 @@ $includeHtml: false !default;
       padding: spacing(s);
     }
 
-    &--padding-s#{&}--with-border {
+    &--padding-s#{&}--border {
       padding: (spacing(s) - $boxBorderSize);
     }
 
@@ -49,7 +49,7 @@ $includeHtml: false !default;
       padding: spacing(m);
     }
 
-    &--padding-m#{&}--with-border {
+    &--padding-m#{&}--border {
       padding: (spacing(m) - $boxBorderSize);
     }
 
@@ -57,7 +57,7 @@ $includeHtml: false !default;
       padding: spacing(l);
     }
 
-    &--padding-l#{&}--with-border {
+    &--padding-l#{&}--border {
       padding: (spacing(l) - $boxBorderSize);
     }
 
@@ -65,7 +65,7 @@ $includeHtml: false !default;
       padding: spacing(xl);
     }
 
-    &--padding-xl#{&}--with-border {
+    &--padding-xl#{&}--border {
       padding: (spacing(xl) - $boxBorderSize);
     }
 

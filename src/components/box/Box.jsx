@@ -135,8 +135,8 @@ const Box = ({
       [`sg-box--${String(color)}`]: color,
       [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
       [`sg-box--border-color-${String(borderColor)}`]: borderColor,
-      'sg-box--with-border': border,
-      'sg-box--with-shadow': shadow,
+      'sg-box--border': border,
+      'sg-box--shadow': shadow,
       'sg-box--no-border-radius': noBorderRadius,
     },
     className
