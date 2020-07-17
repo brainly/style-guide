@@ -6,9 +6,10 @@ import classNames from 'classnames';
 
 // TODO get list of colors from design team
 type ColorType =
+  | 'dark'
+  | 'light'
   | 'blue'
   | 'lavender'
-  | 'dark'
   | 'mint'
   | 'mint-secondary'
   | 'mint-secondary-light'
@@ -23,9 +24,10 @@ type ColorType =
   | 'peach-secondary-light';
 
 export const COLOR = {
+  dark: 'dark',
+  light: 'light',
   blue: 'blue',
   lavender: 'lavender',
-  dark: 'dark',
   mint: 'mint',
   mintSecondary: 'mint-secondary',
   mindSecondaryLight: 'mint-secondary-light',

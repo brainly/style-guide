@@ -1,5 +1,6 @@
 $boxBorderColor: $graySecondaryLightest;
-$boxBackgroundDark: $graySecondaryLight;
+$boxColorDark: $graySecondaryLight;
+$boxColorLight: $white;
 $boxBorderSize: 2px;
 
 $includeHtml: false !default;
@@ -102,7 +103,11 @@ $includeHtml: false !default;
     }
 
     &--dark {
-      background: $boxBackgroundDark;
+      background: $boxColorDark;
+    }
+
+    &--light {
+      background: $boxColorLight;
     }
 
     &--peach {
@@ -162,7 +167,11 @@ $includeHtml: false !default;
     }
 
     &--border-color-dark {
-      border-color: $boxBackgroundDark;
+      border-color: $boxColorDark;
+    }
+
+    &--border-color-light {
+      border-color: $boxColorLight;
     }
 
     &--border-color-peach {
