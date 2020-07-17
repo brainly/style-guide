@@ -105,7 +105,8 @@ export type IconTypeType =
   | 'sup_sub'
   | 'triangle'
   | 'pi'
-  | 'quote';
+  | 'quote'
+  | 'spark';
 
 export type IconColorType =
   | 'adaptive'
@@ -251,6 +252,7 @@ export const TYPE = {
   TRIANGLE: 'triangle',
   PI: 'pi',
   QUOTE: 'quote',
+  SPARK: 'spark',
 };
 
 export const ICON_COLOR = {
