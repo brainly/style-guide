@@ -66,7 +66,7 @@ type BoxPropsType = {
    * Children to be rendered inside of the Box
    * @example <Box>Text inside Box</Box>
    */
-  children: ?Node,
+  children: Node,
 
   /**
    * Additional class names
@@ -84,7 +84,7 @@ type BoxPropsType = {
    * @example <Box shadow>Text inside box with shadow</Box>
    * @default false
    */
-  shadow?: ?boolean,
+  shadow?: boolean,
 
   /**
    * Padding size. Defaults to 'm' size, pass null to set it to 0
@@ -97,7 +97,7 @@ type BoxPropsType = {
    * @example <Box noBorderRadius>Text inside Box with no border radius</Box>
    * @default false
    */
-  noBorderRadius?: ?boolean,
+  noBorderRadius?: boolean,
 
   /**
    * Box border and border color. Using borderColor without border will produce type error
