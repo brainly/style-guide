@@ -53,16 +53,6 @@ export const PADDING = {
   xl: 'xl',
 };
 
-type BoxBorderType =
-  | {
-      border: true,
-      borderColor?: ColorType,
-    }
-  | {
-      border?: false,
-      borderColor?: null,
-    };
-
 type BoxPropsType = {
   /**
    * Children to be rendered inside of the Box
@@ -102,12 +92,17 @@ type BoxPropsType = {
   noBorderRadius?: boolean,
 
   /**
-   * Box border and border color. Using borderColor without border will produce type error
-   * @example <Box border borderColor="mint">Text inside bordered Box</Box>
+   * Show border
+   * @example <Box border>Text inside bordered Box</Box>
    * @default false
    */
-  ...BoxBorderType,
+  border?: boolean,
 
+  /**
+   * Border color (works only with `border` prop)
+   * @example <Box border borderColor="mint">Text inside Box with mint border</Box>
+   */
+  borderColor?: ?ColorType,
   ...
 };
 
