@@ -106,7 +106,8 @@ export type IconTypeType =
   | 'triangle'
   | 'pi'
   | 'quote'
-  | 'spark';
+  | 'spark'
+  | 'rotate_90';
 
 export type IconColorType =
   | 'adaptive'
