@@ -254,6 +254,7 @@ export const TYPE = {
   PI: 'pi',
   QUOTE: 'quote',
   SPARK: 'spark',
+  ROTATE_90: 'rotate_90',
 };
 
 export const ICON_COLOR = {
