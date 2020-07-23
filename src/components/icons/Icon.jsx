@@ -70,6 +70,7 @@ export type IconTypeType =
   | 'report_flag'
   | 'report_flag_outlined'
   | 'rotate'
+  | 'rotate_90'
   | 'search'
   | 'seen'
   | 'settings'
@@ -216,6 +217,7 @@ export const TYPE = {
   REPORT_FLAG: 'report_flag',
   REPORT_FLAG_OUTLINED: 'report_flag_outlined',
   ROTATE: 'rotate',
+  ROTATE_90: 'rotate_90',
   SEARCH: 'search',
   SEEN: 'seen',
   SETTINGS: 'settings',
