@@ -71,10 +71,10 @@ const Flexboxes = () => {
       <DocsActiveBlock settings={settings}>
         <Flex {...urlParams}>
           <Flex>
-            <Box color={COLOR.BLUE}>This is a box 1.</Box>
+            <Box color={COLOR.blue}>This is a box 1.</Box>
           </Flex>
           <Flex>
-            <Box color={COLOR.BLUE}>This is a box 2.</Box>
+            <Box color={COLOR.blue}>This is a box 2.</Box>
           </Flex>
         </Flex>
       </DocsActiveBlock>

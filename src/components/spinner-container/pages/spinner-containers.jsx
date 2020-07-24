@@ -73,8 +73,8 @@ const SpinnerContainers = () => (
 
     <DocsBlock info="with Box" additionalInfo="(light)">
       <SpinnerContainer loading light>
-        <Box color={COLOR.NAVYBLUE_SECONDARY}>
-          navyblue-secondary (no border by default)
+        <Box color={COLOR.blueSecondary}>
+          blue-secondary (no border by default)
         </Box>
       </SpinnerContainer>
     </DocsBlock>
