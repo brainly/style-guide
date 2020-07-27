@@ -42,7 +42,14 @@ type ButtonColorType =
         | 'solid-blue'
         | 'solid-mint'
         | 'transparent-inverted'
-        | 'facebook',
+        | 'facebook'
+        | 'solid-light'
+        | 'outline'
+        | 'transparent'
+        | 'transparent-light'
+        | 'transparent-peach'
+        | 'transparent-mustard'
+        | 'transparent-blue',
       toggle?: null,
     }
   | {
@@ -50,15 +57,30 @@ type ButtonColorType =
       toggle?: 'peach' | 'mustard' | 'blue' | null,
     }
   | {
-      type: 'transparent-peach',
+      type:
+        | 'transparent-peach'
+        | 'solid-light'
+        | 'outline'
+        | 'transparent'
+        | 'transparent-light',
       toggle?: 'peach' | null,
     }
   | {
-      type: 'transparent-mustard',
+      type:
+        | 'transparent-mustard'
+        | 'solid-light'
+        | 'outline'
+        | 'transparent'
+        | 'transparent-light',
       toggle?: 'mustard' | null,
     }
   | {
-      type: 'transparent-blue',
+      type:
+        | 'transparent-blue'
+        | 'solid-light'
+        | 'outline'
+        | 'transparent'
+        | 'transparent-light',
       toggle?: 'blue' | null,
     };
 
