@@ -3,7 +3,7 @@ import Input from '../Input';
 import Select from '../Select';
 import ContrastBox from 'components/ContrastBox';
 import Flex from '../../flex/Flex';
-import BoxDeprecated from '../../box/BoxDeprecated';
+import Box from '../../box/Box';
 import Headline from '../../text/Headline';
 import Text from '../../text/Text';
 import Link from '../../text/Link';
@@ -21,7 +21,7 @@ const formElements = () => (
   <Flex direction="row" justifyContent="space-between">
     <Flex>
       <ContrastBox>
-        <BoxDeprecated style={{width: '320px'}}>
+        <Box style={{width: '320px'}}>
           <Flex direction="column" marginBottom="m">
             <Flex marginBottom="xs">
               <Headline size="small">Sign up with your email address</Headline>
@@ -104,11 +104,11 @@ const formElements = () => (
               </Flex>
             </Flex>
           </Flex>
-        </BoxDeprecated>
+        </Box>
       </ContrastBox>
     </Flex>
     <Flex>
-      <BoxDeprecated color="gray-secondary-lightest" style={{width: '320px'}}>
+      <Box color="gray-secondary-lightest" style={{width: '320px'}}>
         <Flex direction="column" marginBottom="m">
           <Flex marginBottom="xs">
             <Headline size="small">Sign up with your email address</Headline>
@@ -196,7 +196,7 @@ const formElements = () => (
             </Flex>
           </Flex>
         </Flex>
-      </BoxDeprecated>
+      </Box>
     </Flex>
   </Flex>
 );

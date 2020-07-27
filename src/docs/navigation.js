@@ -22,7 +22,6 @@ import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
 import counters from '../components/counters/pages/counters';
 import box from '../components/box/pages/box';
-import boxDeprecated from '../components/box/pages/box-deprecated';
 import flexbox from '../components/flex/pages/flex';
 import card from '../components/card/pages/card';
 import breadcrumbs from '../components/breadcrumbs/pages/breadcrumbs';
@@ -216,11 +215,6 @@ const navigation = [
         name: 'Box',
         location: 'box/box',
         component: box,
-      },
-      {
-        name: 'Box (deprecated)',
-        location: 'box/box',
-        component: boxDeprecated,
       },
       {
         name: 'Flexbox',
