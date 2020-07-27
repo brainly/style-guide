@@ -53,7 +53,7 @@ export const PADDING = {
   xl: 'xl',
 };
 
-type BoxPropsType = {
+export type BoxPropsType = {
   /**
    * Children to be rendered inside of the Box
    * @example <Box>Text inside Box</Box>
