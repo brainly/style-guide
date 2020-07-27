@@ -6,7 +6,6 @@ export {
 } from './components/action-list/ActionListHole';
 export {default as Avatar} from './components/avatar/Avatar';
 export {default as Box} from './components/box/Box';
-export {default as BoxDeprecated} from './components/box/BoxDeprecated';
 export {default as Breadcrumb} from './components/breadcrumbs/Breadcrumb';
 export {default as Bubble} from './components/bubble/Bubble';
 export {default as Button} from './components/buttons/Button';
