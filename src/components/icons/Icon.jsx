@@ -89,6 +89,7 @@ export type IconTypeType =
   | 'underlined'
   | 'unseen'
   | 'verified'
+  | 'warning'
   | 'youtube'
   | 'arrow_top_right'
   | 'circle'
@@ -236,6 +237,7 @@ export const TYPE = {
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
   VERIFIED: 'verified',
+  WARNING: 'warning',
   YOUTUBE: 'youtube',
   ARROW_TOP_RIGHT: 'arrow_top_right',
   CIRCLE: 'circle',
