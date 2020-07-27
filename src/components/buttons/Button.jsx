@@ -10,15 +10,19 @@ export const BUTTON_SIZE = Object.freeze({
   S: 's',
 });
 
-export const BUTTON_TYPE = Object.freeze({
-  SOLID: 'solid',
-  SOLID_INVERTED: 'solid-inverted',
-  SOLID_BLUE: 'solid-blue',
-  SOLID_MINT: 'solid-mint',
+const TOGGLE_BUTTON_TYPE = Object.freeze({
   SOLID_LIGHT: 'solid-light',
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
+});
+
+export const BUTTON_TYPE = Object.freeze({
+  ...TOGGLE_BUTTON_TYPE,
+  SOLID: 'solid',
+  SOLID_INVERTED: 'solid-inverted',
+  SOLID_BLUE: 'solid-blue',
+  SOLID_MINT: 'solid-mint',
   TRANSPARENT_PEACH: 'transparent-peach',
   TRANSPARENT_MUSTARD: 'transparent-mustard',
   TRANSPARENT_BLUE: 'transparent-blue',
@@ -36,29 +40,23 @@ type ButtonSizeType = 'l' | 'm' | 's';
 
 type ButtonColorType =
   | {
-      type:
-        | 'solid'
-        | 'solid-inverted'
-        | 'solid-blue'
-        | 'solid-mint'
-        | 'transparent-inverted'
-        | 'facebook',
+      type: $Values<typeof BUTTON_TYPE>,
       toggle?: null,
     }
   | {
-      type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
-      toggle?: 'peach' | 'mustard' | 'blue' | null,
+      type: $Values<typeof TOGGLE_BUTTON_TYPE>,
+      toggle?: $Values<typeof BUTTON_TOGGLE> | null,
     }
   | {
-      type: 'transparent-peach',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
       toggle?: 'peach' | null,
     }
   | {
-      type: 'transparent-mustard',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
       toggle?: 'mustard' | null,
     }
   | {
-      type: 'transparent-blue',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
       toggle?: 'blue' | null,
     };
 
