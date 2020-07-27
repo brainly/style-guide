@@ -15,7 +15,7 @@ const TOGGLE_BUTTON_TYPE = Object.freeze({
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
-})
+});
 
 export const BUTTON_TYPE = Object.freeze({
   ...TOGGLE_BUTTON_TYPE,
@@ -48,21 +48,15 @@ type ButtonColorType =
       toggle?: $Values<typeof BUTTON_TOGGLE> | null,
     }
   | {
-      type:
-        | $Values<typeof TOGGLE_BUTTON_TYPE>
-        | 'transparent-peach',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
       toggle?: 'peach' | null,
     }
   | {
-      type:
-        | $Values<typeof TOGGLE_BUTTON_TYPE>
-        | 'transparent-mustard',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
       toggle?: 'mustard' | null,
     }
   | {
-      type:
-        | $Values<typeof TOGGLE_BUTTON_TYPE>
-        | 'transparent-blue',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
       toggle?: 'blue' | null,
     };
 
