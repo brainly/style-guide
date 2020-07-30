@@ -104,8 +104,8 @@
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
     "package-clean": "yarn rimraf esm/ commonjs/",
-    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
-    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' && yarn copyfiles -f src/index.d.ts esm",
+    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' && yarn copyfiles -f src/index.d.ts commonjs",
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm' 'yarn run package-commonjs' 'yarn run package-esm'",
     "prepublishOnly": "yarn package-prepare"
   },
