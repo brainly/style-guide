@@ -37,6 +37,7 @@ export type IconTypeType =
   | 'friend_pending'
   | 'friend_checked'
   | 'friends'
+  | 'fullscreen'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
@@ -185,6 +186,7 @@ export const TYPE = {
   FRIEND_PENDING: 'friend_pending',
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
+  FULLSCREEN: 'fullscreen',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
