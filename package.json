@@ -29,6 +29,10 @@
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@hot-loader/react-dom": "^16.8.6",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
     "babel-loader": "^8.0.5",
@@ -107,7 +111,9 @@
     "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm' 'yarn run package-commonjs' 'yarn run package-esm'",
-    "prepublishOnly": "yarn package-prepare"
+    "prepublishOnly": "yarn package-prepare",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
+    "build-storybook": "build-storybook -c .storybook -o .storybook-dist -s ./.storybook/public"
   },
   "jest": {
     "setupFiles": [
@@ -119,7 +125,7 @@
       "src/docs"
     ],
     "transform": {
-      ".*": "babel-jest"
+      ".*": "@babel/plugin-proposal-object-rest-spread"
     }
   },
   "sideEffects": false
