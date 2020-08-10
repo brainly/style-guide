@@ -177,16 +177,5 @@ $includeHtml: false !default;
     &__footer {
       position: relative;
     }
-
-    &__box {
-      padding: rhythm(1) gutter(1) 0;
-      background-color: $white;
-      border-radius: $borderRadiusDefault;
-
-      @include sgBreakpoint('medium-up') {
-        padding-bottom: rhythm(1);
-        margin-bottom: gutter(1);
-      }
-    }
   }
 }

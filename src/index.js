@@ -60,7 +60,6 @@ export {default as Layout} from './components/layout/Layout';
 export {
   default as LayoutAsideContent,
 } from './components/layout/LayoutAsideContent';
-export {default as LayoutBox} from './components/layout/LayoutBox';
 export {default as LayoutContent} from './components/layout/LayoutContent';
 export {
   default as LayoutSecondaryContent,
