@@ -5,25 +5,25 @@ import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 
 export type IconTypeType =
-  | 'answer-bubble'
-  | 'ask-bubble'
-  | 'barcode-scanner'
+  | 'answer_bubble'
+  | 'ask_bubble'
+  | 'barcode_scanner'
   | 'chapter'
   | 'clear'
   | 'comment'
   | 'crown'
-  | 'crown-outline'
+  | 'crown_outlined'
   | 'cup'
-  | 'flashlight-off'
-  | 'flashlight-on'
-  | 'heart-outline'
+  | 'flashlight_off'
+  | 'flashlight_on'
+  | 'heart_outlined'
   | 'info'
   | 'keyboard'
   | 'options'
   | 'sent'
-  | 'share-on-ios'
+  | 'share_on_ios'
   | 'spark'
-  | 'star-outline'
+  | 'star_outlined'
   | 'text'
   | 'textbook';
 
@@ -47,25 +47,25 @@ export type SizeType =
   | 10;
 
 export const TYPE: {[name: string]: IconTypeType, ...} = {
-  ANSWER_BUBBLE: 'answer-bubble',
-  ASK_BUBBLE: 'ask-bubble',
-  BARCODE_SCANNER: 'barcode-scanner',
+  ANSWER_BUBBLE: 'answer_bubble',
+  ASK_BUBBLE: 'ask_bubble',
+  BARCODE_SCANNER: 'barcode_scanner',
   CHAPTER: 'chapter',
   CLEAR: 'clear',
   COMMENT: 'comment',
   CROWN: 'crown',
-  CROWN_OUTLINE: 'crown-outline',
+  CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
-  FLASHLIGHT_OFF: 'flashlight-off',
-  FLASHLIGHT_ON: 'flashlight-on',
-  HEART_OUTLINE: 'heart-outline',
+  FLASHLIGHT_OFF: 'flashlight_off',
+  FLASHLIGHT_ON: 'flashlight_on',
+  HEART_OUTLINED: 'heart_outlined',
   INFO: 'info',
   KEYBOARD: 'keyboard',
   OPTIONS: 'options',
   SENT: 'sent',
-  SHARE_ON_IOS: 'share-on-ios',
+  SHARE_ON_IOS: 'share_on_ios',
   SPARK: 'spark',
-  STAR_OUTLINE: 'star-outline',
+  STAR_OUTLINED: 'star_outlined',
   TEXT: 'text',
   TEXTBOOK: 'textbook',
 };
