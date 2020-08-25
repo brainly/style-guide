@@ -29,9 +29,9 @@ describe('FileHandler', () => {
     expect(fileHandler.find('button').find(Icon)).toHaveLength(1);
   });
 
-  test('renders color mono', () => {
+  test('renders color white', () => {
     const fileHandler = shallow(
-      <FileHandler color="mono">example text</FileHandler>
+      <FileHandler color="white">example text</FileHandler>
     );
 
     expect(fileHandler.hasClass('sg-file-handler--white')).toEqual(true);
