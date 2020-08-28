@@ -7,11 +7,11 @@ import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
-type CounterSizeType = 'normal' | 'small';
+type CounterSizeType = 'xs' | 'xxs';
 
 export const COUNTER_SIZE = Object.freeze({
-  NORMAL: 'normal',
-  SMALL: 'small',
+  XS: 'xs',
+  XXS: 'xxs',
 });
 
 export type CounterPropsType = {
@@ -32,7 +32,7 @@ export type CounterPropsType = {
    */
   icon?: ?IconTypeType,
   /**
-   * There are three sizes options for buttons, not need to be specify, default is medium
+   * There are two sizes options for counters, not need to be specify, default is xs
    * @example <Counter icon="points">
    *            1pts
    *          </Counter>
@@ -75,16 +75,14 @@ const Counter = ({
   content = (
     <Text
       size={
-        size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
+        size !== undefined && size !== null && size === 'xxs'
           ? 'xsmall'
           : 'small'
       }
       weight="bold"
       color="white"
       className={
-        size === COUNTER_SIZE.SMALL
-          ? 'sg-counter__text'
-          : 'sg-counter__text-spaced'
+        size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }
     >
       {children}
@@ -96,12 +94,12 @@ const Counter = ({
       <>
         <Flex
           className={cx('sg-counter__icon-container', {
-            'sg-counter__icon-container--small': size === COUNTER_SIZE.SMALL,
+            'sg-counter__icon-container--xxs': size === 'xxs',
           })}
         >
           <Icon
             type={icon}
-            size={size === COUNTER_SIZE.SMALL ? 16 : 24}
+            size={size === 'xxs' ? 16 : 24}
             color="dark"
             className="sg-counter__icon"
           />
@@ -112,7 +110,7 @@ const Counter = ({
             type="span"
             weight="bold"
             size={
-              size !== undefined && size !== null && size === COUNTER_SIZE.SMALL
+              size !== undefined && size !== null && size === 'xxs'
                 ? 'xsmall'
                 : 'small'
             }

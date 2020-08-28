@@ -17,7 +17,7 @@ const Counters = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Counter size="normal">1</Counter>
+        <Counter size="xs">1</Counter>
       </DocsActiveBlock>
     </div>
   );

@@ -2,8 +2,8 @@ import React from 'react';
 import Search, {SIZE, COLOR} from './Search';
 import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
+import Button from 'buttons/Button';
 import {shallow} from 'enzyme';
-import RoundButton from '../round-buttons/RoundButton';
 
 test('render', () => {
   const search = shallow(<Search />);
@@ -22,7 +22,7 @@ test('set Search specific properties to Input', () => {
 });
 
 test('pass properties to Input, without Search specific', () => {
-  const size = SIZE.LARGE;
+  const size = SIZE.L;
   const color = COLOR.WHITE;
   const type = 'text';
   const withRoundButton = false;
@@ -59,10 +59,10 @@ test('render icon', () => {
   expect(icon.props().size).toEqual(18);
 });
 
-test('adaptive icwithRoundButtonon', () => {
+test('adaptive Button with icon', () => {
   const search = shallow(<Search withRoundButton />);
 
-  const icon = search.find(RoundButton);
+  const icon = search.find(Button);
 
   expect(icon).toHaveLength(1);
 });

@@ -8,13 +8,13 @@ import textarea from '../components/form-elements/pages/textarea';
 import formElements from '../components/form-elements/pages/formElements';
 import labelsDeprecated from '../components/labels-deprecated/pages/labels-deprecated';
 import labels from '../components/labels/pages/labels';
+import fileHandlers from '../components/file-handler/pages/file-handlers';
 import overlay from '../components/overlay/pages/overlay';
 import overlayedBox from '../components/overlayed-box/pages/overlayed-box';
 import avatar from '../components/avatar/pages/avatar';
 import iconAsButton from '../components/icon-as-button/pages/icon-as-button';
 import rating from '../components/rating/pages/rating';
 import buttons from '../components/buttons/pages/buttons';
-import roundButtons from '../components/round-buttons/pages/round-buttons';
 import text from '../components/text/pages/text';
 import headlines from '../components/text/pages/headlines';
 import textBit from '../components/text/pages/text-bit';
@@ -129,16 +129,16 @@ const navigation = [
         component: labels,
       },
       {
+        name: 'File Handler',
+        component: fileHandlers,
+      },
+      {
         name: 'Rating',
         component: rating,
       },
       {
         name: 'Buttons',
         component: buttons,
-      },
-      {
-        name: 'Round Buttons (deprecated)',
-        component: roundButtons,
       },
       {
         name: 'Icon as button (deprecated)',

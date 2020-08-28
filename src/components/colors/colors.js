@@ -1,7 +1,7 @@
 // @flow strict
 
 const color = {
-  primary: [
+  core: [
     {
       name: 'Black Base 500',
       variable: '$black',
@@ -63,7 +63,7 @@ const color = {
       hex: 'edf8ff',
     },
   ],
-  secondary: [
+  additional: [
     {
       name: 'Lavender Dark 900',
       variable: '$lavenderPrimaryDark',
@@ -140,7 +140,7 @@ const color = {
       hex: 'fffaf0',
     },
   ],
-  gray: [
+  neutrals: [
     {
       name: 'Gray Dark 900',
       variable: '$grayPrimary',
@@ -155,6 +155,11 @@ const color = {
       name: 'Gray Base 500',
       variable: '$graySecondaryLight',
       hex: 'c3d1dd',
+    },
+    {
+      name: 'Gray Light 400',
+      variable: '$graySecondaryLighter',
+      hex: 'e1eaf1',
     },
     {
       name: 'Gray Light 300',

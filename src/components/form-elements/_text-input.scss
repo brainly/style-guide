@@ -10,7 +10,7 @@ $includeHtml: false !default;
     font-size: $formElementDefaultFontSize;
     font-weight: normal;
     padding: 0 spacing(s);
-    height: $formElementNormalHeight;
+    height: $formElementSizeM;
     appearance: none;
     transition: background 100ms, border 100ms;
 
@@ -108,8 +108,8 @@ $includeHtml: false !default;
       width: 100%;
     }
 
-    &--large {
-      height: $formElementLargeHeight;
+    &--l {
+      height: $formElementSizeL;
       font-size: $formElementLargeFontSize;
       border-radius: $formElementLargeBorderRadius;
       padding: 0 gutter(1);

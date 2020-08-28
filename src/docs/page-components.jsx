@@ -5,7 +5,6 @@ import Avatars from 'avatar/pages/avatar-interactive';
 import Bubbles from 'bubble/pages/bubble-interactive';
 import Counters from 'counters/pages/counters-interactive';
 import Buttons from 'buttons/pages/buttons-interactive';
-import RoundButtons from 'round-buttons/pages/round-buttons-interactive';
 import FlashMessages from 'flash-messages/pages/flash-messages-interactive';
 import SubjectIcons from 'subject-icons/pages/subject-icons-interactive';
 import Subjects from 'subject-icons/pages/subjects-interactive';
@@ -18,6 +17,7 @@ import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
 import LabelsDeprecated from 'labels-deprecated/pages/labels-deprecated-interactive';
 import Labels from 'labels/pages/labels-interactive';
+import FileHandlers from 'file-handler/pages/file-handlers-interactive';
 import Separators from 'separators/pages/separators-interactive';
 import Texts from 'text/pages/text-interactive';
 import Headlines from 'text/pages/headlines-interactive';
@@ -48,7 +48,6 @@ const demos = {
   Avatars: <Avatars />,
   Bubbles: <Bubbles />,
   Buttons: <Buttons />,
-  'Round Buttons': <RoundButtons />,
   Counters: <Counters />,
   'Icon as a button': <IconsAsButtons />,
   'Subject icons': <SubjectIcons />,
@@ -62,6 +61,7 @@ const demos = {
   Icons: <Icons />,
   LabelsDeprecated: <LabelsDeprecated />,
   Labels: <Labels />,
+  FileHandlers: <FileHandlers />,
   Separators: <Separators />,
   Text: <Texts />,
   Headlines: <Headlines />,

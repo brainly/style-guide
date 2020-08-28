@@ -13,7 +13,7 @@ $headlineSizes: (
     fontSize: 28px,
     lineHeight: 32px
   ),
-  normal: (
+  medium: (
     fontSize: 21px,
     lineHeight: 24px
   ),
@@ -24,6 +24,10 @@ $headlineSizes: (
   xsmall: (
     fontSize: 14px,
     lineHeight: 16px
+  ),
+  xxsmall: (
+    fontSize: 10px,
+    lineHeight: 12px
   )
 );
 
@@ -42,11 +46,15 @@ $headlineSizes: (
 @if ($includeHtml) {
 
   .sg-headline {
-    @include headlineTypeSizeVariant(normal);
+    @include headlineTypeSizeVariant(medium);
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
     max-width: 100%;
+
+    &--xxsmall {
+      @include headlineTypeSizeVariant(xxsmall);
+    }
 
     &--xsmall {
       @include headlineTypeSizeVariant(xsmall);

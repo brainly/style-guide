@@ -55,11 +55,11 @@ export {
   default as LabelDeprecated,
 } from './components/labels-deprecated/LabelDeprecated';
 export {default as Label} from './components/labels/Label';
+export {default as FileHandler} from './components/file-handler/FileHandler';
 export {default as Layout} from './components/layout/Layout';
 export {
   default as LayoutAsideContent,
 } from './components/layout/LayoutAsideContent';
-export {default as LayoutBox} from './components/layout/LayoutBox';
 export {default as LayoutContent} from './components/layout/LayoutContent';
 export {
   default as LayoutSecondaryContent,
@@ -75,7 +75,6 @@ export {default as Overlay} from './components/overlay/Overlay';
 export {default as OverlayedBox} from './components/overlayed-box/OverlayedBox';
 export {default as PopupMenu} from './components/popup-menu/PopupMenu';
 export {default as Rating} from './components/rating/Rating';
-export {default as RoundButton} from './components/round-buttons/RoundButton';
 export {default as Search} from './components/search/Search';
 export {
   default as SeparatorHorizontal,

@@ -214,120 +214,120 @@ const Labels = () => (
         </Flex>
       </Flex>
     </DocsBlock>
-    <DocsBlock info="Strong">
+    <DocsBlock info="Solid">
       <Flex>
         <Flex direction="column" marginRight="l">
-          <Label color="blue" type="strong">
+          <Label color="blue" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="mint" type="strong">
+          <Label color="mint" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="strong">
+          <Label color="lavender" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="strong">
+          <Label color="peach" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="strong">
+          <Label color="mustard" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="gray" type="strong">
+          <Label color="gray" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="mono" type="strong">
-            label
-          </Label>
-          <br />
-          <br />
-        </Flex>
-        <Flex direction="column" marginRight="l">
-          <Label color="blue" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="mint" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="lavender" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="peach" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="mustard" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="gray" type="strong" onClose={closeCallback}>
-            label
-          </Label>
-          <br />
-          <br />
-          <Label color="mono" type="strong" onClose={closeCallback}>
+          <Label color="mono" type="solid">
             label
           </Label>
           <br />
           <br />
         </Flex>
         <Flex direction="column" marginRight="l">
-          <Label color="blue" type="strong" iconType="heart">
+          <Label color="blue" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="solid" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mint" type="strong" iconType="heart">
+          <Label color="mint" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="strong" iconType="heart">
+          <Label color="lavender" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="peach" type="strong" iconType="heart">
+          <Label color="peach" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="strong" iconType="heart">
+          <Label color="mustard" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="gray" type="strong" iconType="heart">
+          <Label color="gray" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mono" type="strong" iconType="heart">
+          <Label color="mono" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -337,7 +337,7 @@ const Labels = () => (
         <Flex direction="column">
           <Label
             color="blue"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -347,7 +347,7 @@ const Labels = () => (
           <br />
           <Label
             color="mint"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -357,7 +357,7 @@ const Labels = () => (
           <br />
           <Label
             color="lavender"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -367,7 +367,7 @@ const Labels = () => (
           <br />
           <Label
             color="peach"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -377,7 +377,7 @@ const Labels = () => (
           <br />
           <Label
             color="mustard"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -387,7 +387,7 @@ const Labels = () => (
           <br />
           <Label
             color="gray"
-            type="strong"
+            type="solid"
             iconType="heart"
             onClose={closeCallback}
           >
@@ -397,7 +397,403 @@ const Labels = () => (
           <br />
           <Label
             color="mono"
-            type="strong"
+            type="solid"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+      </Flex>
+    </DocsBlock>
+    <DocsBlock info="Transparent">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent">
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column">
+          <Label
+            color="blue"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mint"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="lavender"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="peach"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mustard"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="gray"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mono"
+            type="transparent"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+      </Flex>
+    </DocsBlock>
+    <DocsBlock info="Transparent color">
+      <Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent-color">
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent-color" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent-color" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="lavender"
+            type="transparent-color"
+            onClose={closeCallback}
+          >
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent-color" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mustard"
+            type="transparent-color"
+            onClose={closeCallback}
+          >
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent-color" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent-color" onClose={closeCallback}>
+            label
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column" marginRight="l">
+          <Label color="blue" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mint" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="lavender" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="peach" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mustard" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="gray" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label color="mono" type="transparent-color" iconType="heart">
+            {' '}
+            label with icon
+          </Label>
+          <br />
+          <br />
+        </Flex>
+        <Flex direction="column">
+          <Label
+            color="blue"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mint"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="lavender"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="peach"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mustard"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="gray"
+            type="transparent-color"
+            iconType="heart"
+            onClose={closeCallback}
+          >
+            label with icon
+          </Label>
+          <br />
+          <br />
+          <Label
+            color="mono"
+            type="transparent-color"
             iconType="heart"
             onClose={closeCallback}
           >

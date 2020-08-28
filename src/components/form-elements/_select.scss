@@ -15,8 +15,8 @@ $includeHtml: false !default;
       border: 2px solid $graySecondaryLightest;
       font-size: $formElementDefaultFontSize;
       color: $formElementPlacholderTextColor;
-      height: $formElementNormalHeight;
-      line-height: $formElementNormalHeight - 4px; // subtraction due to top and bottom border
+      height: $formElementSizeM;
+      line-height: $formElementSizeM - 4px; // subtraction due to top and bottom border
       background: $formElementDefaultBackgroundColor;
       border-radius: $formElementStandardBorderRadius;
 
@@ -89,15 +89,15 @@ $includeHtml: false !default;
       width: 100%;
     }
 
-    &--large {
+    &--l {
       .sg-select__icon {
         top: spacing(s);
         right: spacing(s);
       }
 
       .sg-select__element {
-        height: $formElementLargeHeight;
-        line-height: $formElementLargeHeight - 4px; // subtraction due to top and bottom border
+        height: $formElementSizeL;
+        line-height: $formElementSizeL - 4px; // subtraction due to top and bottom border
         font-size: $formElementLargeFontSize;
         border-radius: $formElementLargeBorderRadius;
         padding: 0 50px 0 spacing(m);

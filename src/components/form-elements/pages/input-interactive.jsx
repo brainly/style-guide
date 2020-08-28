@@ -46,10 +46,9 @@ const Inputs = () => {
     <div>
       <DocsActiveBlock backgroundColor="dark" settings={settings}>
         <Input
-          backgroundColor="none"
           placeholder="Large input"
           fullWidth
-          size={SIZE.LARGE}
+          size={SIZE.L}
           color={COLOR.DEFAULT}
           value="I'm a large input"
         />

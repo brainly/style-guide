@@ -30,7 +30,7 @@ test('size', () => {
   const type = TYPE.ANSWER_BUBBLE;
   const icon = shallow(<MobileIcon type={type} size={size} />);
 
-  expect(icon.hasClass(`sg-mobile-icon--${size}`)).toEqual(true);
+  expect(icon.hasClass(`sg-mobile-icon--x${size}`)).toEqual(true);
 });
 
 test('other props', () => {

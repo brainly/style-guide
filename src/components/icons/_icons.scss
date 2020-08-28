@@ -2,13 +2,13 @@
 
 $includeHtml: false !default;
 
-$iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 40, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
+$iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 40, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
 
 // Icon sizes :(
 // 120 - DEPRECATED
 // 118 - DEPRECATED
-// 104 - avatar xxxlarge
-// 102 - avatar xxxlarge with border
+// 104 - avatar xxlarge
+// 102 - avatar xxlarge with border
 // 80 - avatar xlarge
 // 78 - avatar xlarge with border
 // 64 - DEPRECATED
@@ -17,11 +17,13 @@ $iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 40, 32, 30, 26, 
 // 54 - avatar large with border
 // 48 - DEPRECATED
 // 46 - DEPRECATED
-// 32 - avatar default,
-// 30 - avatar default with border,
+// 40 - avatar medium,
+// 38 - avatar medium with border,
+// 32 - avatar small,
+// 30 - avatar small with border,
 // 26 - icon as button default,
-// 24 - avatar small, label large
-// 22 - avatar small with border
+// 24 - avatar xsmall, label large
+// 22 - avatar xsmall with border
 // 20 - round button, fb primary button
 // 18 - icon as button small, default list
 // 16 - label default, rating default

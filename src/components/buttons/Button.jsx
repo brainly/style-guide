@@ -5,20 +5,24 @@ import type {Node} from 'react';
 import cx from 'classnames';
 
 export const BUTTON_SIZE = Object.freeze({
-  LARGE: 'large',
-  MEDIUM: 'medium',
-  SMALL: 'small',
+  L: 'l',
+  M: 'm',
+  S: 's',
 });
 
-export const BUTTON_TYPE = Object.freeze({
-  SOLID: 'solid',
-  SOLID_INVERTED: 'solid-inverted',
-  SOLID_BLUE: 'solid-blue',
-  SOLID_MINT: 'solid-mint',
+const TOGGLE_BUTTON_TYPE = Object.freeze({
   SOLID_LIGHT: 'solid-light',
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
+});
+
+export const BUTTON_TYPE = Object.freeze({
+  ...TOGGLE_BUTTON_TYPE,
+  SOLID: 'solid',
+  SOLID_INVERTED: 'solid-inverted',
+  SOLID_BLUE: 'solid-blue',
+  SOLID_MINT: 'solid-mint',
   TRANSPARENT_PEACH: 'transparent-peach',
   TRANSPARENT_MUSTARD: 'transparent-mustard',
   TRANSPARENT_BLUE: 'transparent-blue',
@@ -32,33 +36,27 @@ export const BUTTON_TOGGLE = Object.freeze({
   BLUE: 'blue',
 });
 
-type ButtonSizeType = 'large' | 'medium' | 'small';
+type ButtonSizeType = 'l' | 'm' | 's';
 
 type ButtonColorType =
   | {
-      type:
-        | 'solid'
-        | 'solid-inverted'
-        | 'solid-blue'
-        | 'solid-mint'
-        | 'transparent-inverted'
-        | 'facebook',
+      type: $Values<typeof BUTTON_TYPE>,
       toggle?: null,
     }
   | {
-      type: 'solid-light' | 'outline' | 'transparent' | 'transparent-light',
-      toggle?: 'peach' | 'mustard' | 'blue' | null,
+      type: $Values<typeof TOGGLE_BUTTON_TYPE>,
+      toggle?: $Values<typeof BUTTON_TOGGLE> | null,
     }
   | {
-      type: 'transparent-peach',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
       toggle?: 'peach' | null,
     }
   | {
-      type: 'transparent-mustard',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
       toggle?: 'mustard' | null,
     }
   | {
-      type: 'transparent-blue',
+      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
       toggle?: 'blue' | null,
     };
 
@@ -66,10 +64,12 @@ type ButtonIconType =
   | {
       icon?: Node,
       iconOnly?: null,
+      reversedOrder?: boolean,
     }
   | {
       icon: Node,
       iconOnly?: boolean,
+      reversedOrder?: null,
     };
 
 export type ButtonPropsType = {
@@ -129,18 +129,18 @@ export type ButtonPropsType = {
    */
   children?: Node,
   /**
-   * There are three sizes options for buttons, not need to be specify, default is medium
-   * @example <Button type="solid" size="medium">
+   * There are three sizes options for buttons, not need to be specify, default is m
+   * @example <Button type="solid" size="m">
    *            button
    *          </Button>
-   * @see size="small" https://styleguide.brainly.com/latest/docs/interactive.html?size="small"#buttons
-   * @see size="medium" https://styleguide.brainly.com/latest/docs/interactive.html?size="medium"#buttons
-   * @see size="large" https://styleguide.brainly.com/latest/docs/interactive.html?size="large"#buttons
+   * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#buttons
+   * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#buttons
+   * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#buttons
    */
   size?: ButtonSizeType,
   /**
    * Specify href for button, optional string
-   * @example <Button href="https://brainly.com/" size="medium" type="solid-blue">
+   * @example <Button href="https://brainly.com/" size="m" type="solid-blue">
    *            button
    *          </Button>
    */
@@ -171,6 +171,7 @@ const Button = ({
   type,
   icon,
   iconOnly,
+  reversedOrder,
   href,
   fullWidth,
   disabled,
@@ -188,6 +189,7 @@ const Button = ({
       'sg-button--full-width': fullWidth,
       'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
+      'sg-button--reversed-order': reversedOrder,
     },
     className
   );

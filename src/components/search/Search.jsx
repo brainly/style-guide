@@ -4,7 +4,7 @@ import React from 'react';
 import cx from 'classnames';
 import * as InputModule from '../form-elements/Input';
 import Icon from '../icons/Icon';
-import RoundButton from '../round-buttons/RoundButton';
+import Button from '../buttons/Button';
 
 const {default: Input, COLOR, SIZE} = InputModule;
 
@@ -70,11 +70,17 @@ const Search = ({
 
       {withRoundButton ? (
         <div className={`${baseClassName}__icon`}>
-          <RoundButton
-            iconType="search"
-            color="black"
-            filled
-            size={size === 'large' ? 'medium' : 'small'}
+          <Button
+            type="solid"
+            icon={
+              <Icon
+                type="search"
+                size={size === 'l' ? 24 : 16}
+                color="adaptive"
+              />
+            }
+            iconOnly
+            size={size === 'l' ? 'm' : 's'}
           />
         </div>
       ) : (
@@ -82,7 +88,7 @@ const Search = ({
           <Icon
             type="search"
             color="gray-secondary"
-            size={size === 'large' ? 24 : 18}
+            size={size === 'l' ? 24 : 18}
           />
         </button>
       )}

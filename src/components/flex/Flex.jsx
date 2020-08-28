@@ -10,6 +10,32 @@ import {
   FLEX_MARGINS,
 } from './FlexConsts';
 
+type FlexContainerType =
+  | 'a'
+  | 'article'
+  | 'aside'
+  | 'div'
+  | 'footer'
+  | 'form'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'header'
+  | 'input'
+  | 'li'
+  | 'main'
+  | 'nav'
+  | 'ol'
+  | 'p'
+  | 'pre'
+  | 'section'
+  | 'span'
+  | 'textarea'
+  | 'ul';
+
 type FlexDirectionType = 'column' | 'column-reverse' | 'row' | 'row-reverse';
 
 type FlexJustifyValuesType =
@@ -56,6 +82,10 @@ export type FlexPropsType = {
    *
    */
   children: Node,
+  /**
+   * Html tag used as container
+   */
+  htmlTag?: FlexContainerType,
   /**
    * Additional class names
    */
@@ -204,6 +234,7 @@ export type FlexPropsType = {
 
 const Flex = (props: FlexPropsType) => {
   const {
+    htmlTag: Container = 'div',
     fullWidth,
     fullHeight,
     noShrink,
@@ -252,9 +283,9 @@ const Flex = (props: FlexPropsType) => {
   );
 
   return (
-    <div {...otherProps} className={flexClass}>
+    <Container {...otherProps} className={flexClass}>
       {children}
-    </div>
+    </Container>
   );
 };
 

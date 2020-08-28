@@ -86,4 +86,19 @@ describe('<Flex>', () => {
 
     expect(component.hasClass('sg-flex--margin-left-l')).toEqual(true);
   });
+
+  it('renders component with different html tag', () => {
+    const component = shallow(
+      <Flex htmlTag="ul">
+        <div>test</div>
+      </Flex>
+    );
+
+    expect(
+      component
+        .find('div')
+        .parent()
+        .is('ul')
+    ).toEqual(true);
+  });
 });

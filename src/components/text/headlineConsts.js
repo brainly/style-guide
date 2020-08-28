@@ -11,9 +11,10 @@ export const HEADLINE_TYPE = Object.freeze({
 });
 
 export const HEADLINE_SIZE = Object.freeze({
+  XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
-  NORMAL: 'normal',
+  MEDIUM: 'medium',
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',

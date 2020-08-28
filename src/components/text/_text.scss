@@ -13,7 +13,7 @@ $bodyTextSizes: (
     fontSize: 24px,
     lineHeight: 32px
   ),
-  normal: (
+  medium: (
     fontSize: 18px,
     lineHeight: 24px
   ),
@@ -24,6 +24,10 @@ $bodyTextSizes: (
   xsmall: (
     fontSize: 12px,
     lineHeight: 16px
+  ),
+  xxsmall: (
+    fontSize: 9px,
+    lineHeight: 12px
   )
 );
 
@@ -42,7 +46,7 @@ $bodyTextSizes: (
 @if ($includeHtml) {
 
   .sg-text {
-    @include bodyTextTypeSizeVariant(normal);
+    @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;
     font-weight: $fontWeightNormal;
     color: $black;
@@ -69,6 +73,10 @@ $bodyTextSizes: (
 
     &--xsmall {
       @include bodyTextTypeSizeVariant(xsmall);
+    }
+
+    &--xxsmall {
+      @include bodyTextTypeSizeVariant(xxsmall);
     }
 
     &--link {

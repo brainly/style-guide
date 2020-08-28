@@ -1,23 +1,19 @@
 @import '../icons/icons-mixin';
 
-$sizeSmall: 24px;
-$sizeMedium: 32px;
-$sizeNormal: 64px;
+$iconSizes: 104, 102, 80, 78, 56, 54, 40, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
 
 .sg-mobile-icon {
-  height: $sizeNormal;
-  width: $sizeNormal;
+  @include iconColor();
+  height: 24px;
+  width: 24px;
   fill: $white;
 
-  &--medium {
-    height: $sizeMedium;
-    width: $sizeMedium;
+  @each $size in $iconSizes {
+    &--x#{$size} {
+      max-width: #{$size}px;
+      max-height: #{$size}px;
+      height: #{$size}px;
+      width: #{$size}px;
+    }
   }
-
-  &--small {
-    height: $sizeSmall;
-    width: $sizeSmall;
-  }
-
-  @include iconColor();
 }

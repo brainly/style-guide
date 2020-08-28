@@ -1,9 +1,10 @@
 $avatarDefaultBackgroundColor: $graySecondary;
-$avatarSmallSize: 24px;
-$avatarMediumSize: 32px;
-$avatarBigSize: 56px;
-$avatarXLargeSize: 80px;
-$avatarXXLargeSize: 104px;
+$avatarXSmallSize: componentSize(xs);
+$avatarSmallSize: componentSize(s);
+$avatarMediumSize: componentSize(m);
+$avatarLargeSize: componentSize(l);
+$avatarXLargeSize: componentSize(xl);
+$avatarXXLargeSize: componentSize(xxl);
 $avatarSpacedMargin: 4px;
 $avatarBorderWidth: 1px;
 $avatarBorderColor: $white;
@@ -11,14 +12,13 @@ $avatarBorderColor: $white;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-avatar {
     display: block;
     position: relative;
     overflow: hidden;
 
-    width: $avatarMediumSize;
-    height: $avatarMediumSize;
+    width: $avatarSmallSize;
+    height: $avatarSmallSize;
     border-radius: 50%;
     // workaround for the Chrome bug - crbug.com/157218
     -webkit-perspective: 1px; // sass-lint:disable-line  no-vendor-prefixes
@@ -34,22 +34,27 @@ $includeHtml: false !default;
       }
     }
 
-    &--small {
-      width: $avatarSmallSize;
-      height: $avatarSmallSize;
+    &--xs {
+      width: $avatarXSmallSize;
+      height: $avatarXSmallSize;
     }
 
-    &--large {
-      width: $avatarBigSize;
-      height: $avatarBigSize;
+    &--m {
+      width: $avatarMediumSize;
+      height: $avatarMediumSize;
     }
 
-    &--xlarge {
+    &--l {
+      width: $avatarLargeSize;
+      height: $avatarLargeSize;
+    }
+
+    &--xl {
       width: $avatarXLargeSize;
       height: $avatarXLargeSize;
     }
 
-    &--xxlarge {
+    &--xxl {
       width: $avatarXXLargeSize;
       height: $avatarXXLargeSize;
     }
@@ -62,5 +67,4 @@ $includeHtml: false !default;
       margin: 0 $avatarSpacedMargin $avatarSpacedMargin 0;
     }
   }
-
 }

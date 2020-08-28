@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../Layout';
-import LayoutBox from '../LayoutBox';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import LayoutSecondaryContent from '../LayoutSecondaryContent';
@@ -36,12 +35,10 @@ const LayoutWideThreeColumns = () => (
           <Text>Main content has no padding and white background</Text>
         </LayoutContent>
         <LayoutAsideContent>
-          <LayoutBox>
-            <Text>
-              Aside content has no padding and no background (both are given by
-              layout box)
-            </Text>
-          </LayoutBox>
+          <Text>
+            Aside content has no padding and no background (both are given by
+            layout box)
+          </Text>
         </LayoutAsideContent>
       </Layout>
       <script src="images/icons.js" />

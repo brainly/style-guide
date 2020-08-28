@@ -4,35 +4,33 @@ import React from 'react';
 import classNames from 'classnames';
 import Icon from '../icons/Icon';
 
-export type AvatarSizeType =
-  | 'small'
-  | 'normal'
-  | 'large'
-  | 'xlarge'
-  | 'xxlarge';
+export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
 export const SIZE = {
-  SMALL: 'small',
-  NORMAL: 'normal',
-  LARGE: 'large',
-  XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge',
+  XS: 'xs',
+  S: 's',
+  M: 'm',
+  L: 'l',
+  XL: 'xl',
+  XXL: 'xxl',
 };
 
 export const ICON_SIZE_FOR_AVATARS_WITH_BORDER = {
-  [SIZE.SMALL]: 22,
-  [SIZE.NORMAL]: 30,
-  [SIZE.LARGE]: 54,
-  [SIZE.XLARGE]: 78,
-  [SIZE.XXLARGE]: 102,
+  [SIZE.XS]: 22,
+  [SIZE.S]: 30,
+  [SIZE.M]: 38,
+  [SIZE.L]: 54,
+  [SIZE.XL]: 78,
+  [SIZE.XXL]: 102,
 };
 
 export const ICON_SIZE = {
-  [SIZE.SMALL]: 24,
-  [SIZE.NORMAL]: 32,
-  [SIZE.LARGE]: 56,
-  [SIZE.XLARGE]: 80,
-  [SIZE.XXLARGE]: 104,
+  [SIZE.XS]: 24,
+  [SIZE.S]: 32,
+  [SIZE.M]: 40,
+  [SIZE.L]: 56,
+  [SIZE.XL]: 80,
+  [SIZE.XXL]: 104,
 };
 
 type PropsType = {
@@ -47,7 +45,7 @@ type PropsType = {
 };
 
 const Avatar = ({
-  size = SIZE.NORMAL,
+  size = SIZE.S,
   border = false,
   spaced,
   imgSrc,
@@ -59,7 +57,7 @@ const Avatar = ({
   const avatarClass = classNames(
     'sg-avatar',
     {
-      [`sg-avatar--${size}`]: size !== SIZE.NORMAL,
+      [`sg-avatar--${size}`]: size !== SIZE.S,
       'sg-avatar--with-border': border,
       'sg-avatar--spaced': spaced,
     },
@@ -79,7 +77,7 @@ const Avatar = ({
     );
   } else {
     avatarContent = (
-      <div className="sg-avatar__image sg-avatar__image--icon">
+      <div className="sg-avatar__image sg-avatar__image--icon" title={title}>
         <Icon
           type="profile"
           color="gray-light"

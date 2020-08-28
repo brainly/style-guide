@@ -26,10 +26,10 @@ test('component with string param', () => {
   expect(generateJSX(input)).toEqual(output);
 });
 
-const sizeLargeString = JSON.stringify(SIZE.LARGE);
+const sizeLargeString = JSON.stringify(SIZE.L);
 
 test('component with object param', () => {
-  const input = <Avatar size={SIZE.LARGE} />;
+  const input = <Avatar size={SIZE.L} />;
   const output = `<Avatar size=${sizeLargeString} />`;
 
   expect(generateJSX(input)).toEqual(output);
@@ -37,7 +37,7 @@ test('component with object param', () => {
 
 test('component with multiple params', () => {
   const input = (
-    <Avatar size={SIZE.LARGE} border imgSrc="http://image.com/image.jpg" />
+    <Avatar size={SIZE.L} border imgSrc="http://image.com/image.jpg" />
   );
   const output = `<Avatar size=${sizeLargeString} border imgSrc="http://image.com/image.jpg" />`;
 

@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
 
-type InputSizeType = 'normal' | 'large';
+type InputSizeType = 'm' | 'l';
 
 type InputColorType = 'default' | 'white';
 
@@ -56,8 +56,8 @@ export const TYPE = Object.freeze({
 });
 
 export const SIZE = Object.freeze({
-  LARGE: 'large',
-  NORMAL: 'normal',
+  L: 'l',
+  M: 'm',
 });
 
 export const COLOR = Object.freeze({
@@ -129,7 +129,7 @@ export type InputPropsType = {
 const Input = (props: InputPropsType) => {
   const {
     type = 'text',
-    size = SIZE.NORMAL,
+    size = SIZE.M,
     color = COLOR.DEFAULT,
     fullWidth,
     withIcon,
@@ -152,7 +152,7 @@ const Input = (props: InputPropsType) => {
   const inputClass = classnames(
     'sg-input',
     {
-      [`sg-input--${String(size)}`]: size !== SIZE.NORMAL,
+      [`sg-input--${String(size)}`]: size !== SIZE.M,
       [`sg-input--${String(color)}`]: color !== COLOR.DEFAULT,
       'sg-input--valid': valid,
       'sg-input--invalid': invalid,
@@ -180,10 +180,10 @@ const Input = (props: InputPropsType) => {
       />
       <Flex
         marginTop="xxs"
-        marginLeft={size === 'normal' ? 's' : 'm'}
-        marginRight={size === 'normal' ? 's' : 'm'}
+        marginLeft={size === 'm' ? 's' : 'm'}
+        marginRight={size === 'm' ? 's' : 'm'}
       >
-        <Text size={size === 'normal' ? 'xsmall' : 'small'} color="peach-dark">
+        <Text size={size === 'm' ? 'xsmall' : 'small'} color="peach-dark">
           {errorMessage}
         </Text>
       </Flex>

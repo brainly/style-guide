@@ -4,11 +4,11 @@ import React from 'react';
 import classNames from 'classnames';
 import generateRandomString from '../../js/generateRandomString';
 
-type RadioSizeType = 'normal' | 'large';
+type RadioSizeType = 'xxs' | 's';
 
 export const RADIO_SIZE = {
-  NORMAL: 'normal',
-  LARGE: 'large',
+  xxs: 'xxs',
+  s: 's',
 };
 
 export type RadioPropsType = {
@@ -24,7 +24,7 @@ const Radio = (props: RadioPropsType) => {
   const {
     checked,
     name,
-    size = RADIO_SIZE.NORMAL,
+    size = 'xxs',
     className,
     id = generateRandomString(),
     ...additionalProps
@@ -33,7 +33,7 @@ const Radio = (props: RadioPropsType) => {
   const radioClass = classNames(
     'sg-radio',
     {
-      [`sg-radio--${String(size)}`]: size !== RADIO_SIZE.NORMAL,
+      [`sg-radio--${String(size)}`]: size,
     },
     className
   );

@@ -37,6 +37,7 @@ $white: #ffffff;
 $grayPrimary: #323c45;
 $graySecondary: #687b8c;
 $graySecondaryLight: #c3d1dd;
+$graySecondaryLighter: #e1eaf1;
 $graySecondaryLightest: #ebf2f7;
 $graySecondaryUltraLight: #f5f8fa;
 
@@ -48,7 +49,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
 // this comment exists to suppress errors about these unused variables:
 // $mintPrimaryDark $bluePrimaryDark $lavenderPrimaryDark $peachPrimaryDark $mustardPrimaryDark
 // $blueSecondaryUltraLight $lavenderSecondaryUltraLight $mintSecondaryUltraLight 
-// $mustardSecondaryUltraLight $peachSecondaryUltraLight $peachSecondary
+// $mustardSecondaryUltraLight $peachSecondaryUltraLight $peachSecondary $graySecondaryLighter
 
 // Shadows
 $defaultBottomShadowColor: rgba(0, 0, 0, 0.1);
@@ -101,6 +102,17 @@ $sizesSetup: (
   xxxxl: 272px,
 );
 
+// component sizes
+$componentSizesSetup: (
+  xxs: 16px,
+  xs: 24px,
+  s: 32px,
+  m: 40px,
+  l: 56px,
+  xl: 80px,
+  xxl: 104px,
+);
+
 // Border radius
 $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
@@ -125,8 +137,8 @@ $breakpointsMap: (
 );
 
 // Form elements configuration
-$formElementNormalHeight: 40px; // Standard size for elements like inputs, selects or buttons
-$formElementLargeHeight: 56px;
+$formElementSizeM: 40px; // Standard size for elements like inputs, selects or buttons
+$formElementSizeL: 56px;
 $formElementDefaultBackgroundColor: $graySecondaryLightest;
 $formElementActiveBorderColor: $graySecondaryLight;
 $formElementDefaultTextColor: $black;

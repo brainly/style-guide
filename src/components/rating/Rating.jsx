@@ -5,11 +5,11 @@ import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 
-type RatingSizeType = 24 | 32;
+type RatingSizeType = 's' | 'xs';
 
 export const RATING_SIZE = {
-  NORMAL: 24,
-  LARGE: 32,
+  XS: 'xs',
+  S: 's',
 };
 
 const generateArrayRange = function(range: number): Array<number> {
@@ -116,7 +116,7 @@ class Rating extends Component<PropsType> {
     const {
       metricSize,
       rate,
-      size = RATING_SIZE.NORMAL,
+      size = RATING_SIZE.XS,
       active,
       className,
       counterText,
@@ -126,7 +126,7 @@ class Rating extends Component<PropsType> {
     const ratingClass = classnames(
       'sg-rate-box',
       {
-        'sg-rate-box--large': size === RATING_SIZE.LARGE,
+        'sg-rate-box--s': size === RATING_SIZE.S,
         'sg-rate-box--active': active,
       },
       className
@@ -134,7 +134,7 @@ class Rating extends Component<PropsType> {
 
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
       key: rangeIndex,
-      size,
+      size: size === 's' ? 32 : 24,
       onClick: this.starsOnClickFunctions[rangeIndex],
     }));
 

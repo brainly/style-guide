@@ -82,18 +82,35 @@ const Buttons = () => {
             </Button>
           </DocsBlock>
           <DocsBlock evenColumns justified>
-            <Button
-              type={type}
-              icon={
-                <Icon
-                  type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
-                  color="adaptive"
-                  size={24}
-                />
-              }
-            >
-              {buttonsText}
-            </Button>
+            <Flex direction="column" alignItems="center">
+              <Button
+                type={type}
+                icon={
+                  <Icon
+                    type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
+                    color="adaptive"
+                    size={24}
+                  />
+                }
+              >
+                {buttonsText}
+              </Button>
+              <Flex marginTop="xs">
+                <Button
+                  type={type}
+                  icon={
+                    <Icon
+                      type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
+                      color="adaptive"
+                      size={24}
+                    />
+                  }
+                  reversedOrder
+                >
+                  {buttonsText}
+                </Button>
+              </Flex>
+            </Flex>
           </DocsBlock>
           <DocsBlock evenColumns justified>
             <Button
@@ -125,7 +142,10 @@ const Buttons = () => {
           <Text>disabled</Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
-          <Text>with icon</Text>
+          <Text>
+            with icon / <br />
+            reversed order
+          </Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
           <Text>icon only</Text>
@@ -137,7 +157,7 @@ const Buttons = () => {
       {buttonsVariants}
       <DocsBlock info="Buttons sizes">
         <Button
-          size="large"
+          size="l"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={32} />}
         >
@@ -145,7 +165,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="large"
+          size="l"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={32} />}
           iconOnly
@@ -169,7 +189,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="small"
+          size="s"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={16} />}
         >
@@ -177,7 +197,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          size="small"
+          size="s"
           type="solid-blue"
           icon={<Icon type="heart_outlined" color="light" size={16} />}
           iconOnly

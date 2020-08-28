@@ -6,7 +6,7 @@ const colors = () => (
   <div>
     <DocsBlock info="Core colors">
       <ol className="colors-list">
-        {color.primary.map(({name, variable, hex}) => (
+        {color.core.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}
@@ -18,7 +18,7 @@ const colors = () => (
     </DocsBlock>
     <DocsBlock info="Additional colors">
       <ol className="colors-list">
-        {color.secondary.map(({name, variable, hex}) => (
+        {color.additional.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}
@@ -30,7 +30,7 @@ const colors = () => (
     </DocsBlock>
     <DocsBlock info="Neutrals">
       <ol className="colors-list">
-        {color.gray.map(({name, variable, hex}) => (
+        {color.neutrals.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}

@@ -1,201 +1,110 @@
 import React from 'react';
-import Box, {COLOR, PADDING, CLOSE_ICON_COLOR} from '../Box';
+
 import DocsBlock from 'components/DocsBlock';
-import Button from 'buttons/Button';
-import ContentBox from 'content-box/ContentBox';
-import ContentBoxContent, {
-  SIZE as CONTENT_BOX_CONTENT_SPACING_SIZE,
-} from 'content-box/ContentBoxContent';
-import ContentBoxHeader from 'content-box/ContentBoxHeader';
-import ContentBoxActions from 'content-box/ContentBoxActions';
-import Headline, {HEADLINE_TYPE} from 'text/Headline';
-import ActionList from 'action-list/ActionList';
-import ActionListHole from 'action-list/ActionListHole';
-import Text, {TEXT_WEIGHT, TEXT_SIZE} from 'text/Text';
+import Text from 'text/Text';
+import Headline from 'text/Headline';
+import Flex from 'flex/Flex';
+import Icon from 'icons/Icon';
 
-import Avatar from 'avatar/Avatar';
+import Box, {COLOR, PADDING} from '../Box';
 
-const closeCallback = () => undefined;
-
-const Boxs = () => (
+const Boxes = () => (
   <div>
-    <DocsBlock info="Simple">
-      <Box>This is a box. (no color - default border on)</Box>
+    <DocsBlock info="Default">
+      <Box>
+        <Text size="small">
+          By default there is no border, 24px padding and no background color
+        </Text>
+      </Box>
+    </DocsBlock>
+
+    <DocsBlock info="With border">
+      <Box border>
+        <Text size="small">Box with default border</Text>
+      </Box>
     </DocsBlock>
 
     <DocsBlock info="With shadow">
-      <Box shadow>This is a box with shadow</Box>
+      <Box shadow>
+        <Text size="small">Box with shadow</Text>
+      </Box>
     </DocsBlock>
 
-    {Object.values(COLOR).map(color => (
-      <DocsBlock key={color} info={`color ${color}`}>
-        <Box color={color}>{color} (no border by default)</Box>
-      </DocsBlock>
-    ))}
+    <DocsBlock info="Border colors">
+      <Flex wrap>
+        {Object.values(COLOR).map(color => (
+          <Flex key={color} marginRight="s" marginBottom="s">
+            <Box border borderColor={color} padding="xs">
+              <Text size="small">{color}</Text>
+            </Box>
+          </Flex>
+        ))}
+      </Flex>
+    </DocsBlock>
+
+    <DocsBlock info="Background colors">
+      <Flex wrap>
+        {Object.values(COLOR).map(color => (
+          <Flex key={color} marginRight="s" marginBottom="s">
+            <Box color={color} padding="xs">
+              <Text size="small">{color}</Text>
+            </Box>
+          </Flex>
+        ))}
+      </Flex>
+    </DocsBlock>
+
+    <DocsBlock info="Padding">
+      <Flex wrap alignItems="flex-end">
+        {Object.values(PADDING)
+          .reverse()
+          .map(padding => (
+            <Flex key={padding} marginRight="s" marginBottom="s">
+              <Box color="peach-secondary-light" padding={padding}>
+                <Text size="small">Padding {padding}</Text>
+              </Box>
+            </Flex>
+          ))}
+
+        <Flex marginRight="s" marginBottom="s">
+          <Box color="peach-secondary-light" padding={null}>
+            <Text size="small">No padding</Text>
+          </Box>
+        </Flex>
+      </Flex>
+    </DocsBlock>
 
     <DocsBlock info="No border radius">
-      <Box noBorderRadius>This is a box with no border radius</Box>
+      <Flex wrap>
+        <Flex marginRight="s" marginBottom="s">
+          <Box color="blue-secondary-light" noBorderRadius>
+            <Text size="small">No border radius</Text>
+          </Box>
+        </Flex>
+      </Flex>
     </DocsBlock>
 
-    <DocsBlock info="With onClose">
-      <Box onClose={closeCallback}>This is a box with onClose</Box>
-    </DocsBlock>
-
-    <DocsBlock info="With onClose and closeIconColor">
-      <Box
-        onClose={closeCallback}
-        closeIconColor={CLOSE_ICON_COLOR.LIGHT}
-        color={COLOR.BLUE}
-      >
-        This is a box with onClose and light close Icon
-      </Box>
-    </DocsBlock>
-
-    <DocsBlock
-      info="Image"
-      multiContent={[
-        <Box key={1} imgSrc="https://source.unsplash.com/100x100/?man" />,
-        <Box key={2} imgSrc="https://source.unsplash.com/50x100/?man" />,
-        <Box key={3} imgSrc="https://source.unsplash.com/100x50/?man" />,
-      ]}
-    />
-
-    <DocsBlock info="Full">
-      <Box full>full</Box>
-    </DocsBlock>
-
-    <DocsBlock
-      info="No padding"
-      multiContent={[
-        <Box key={1} padding={PADDING.NO_PADDING}>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.NO_PADDING}>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock
-      info="Small padding + no min height"
-      multiContent={[
-        <Box key={1} padding={PADDING.SMALL} noMinHeight>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.SMALL} noMinHeight>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock
-      info="Xsmall padding + no min height"
-      multiContent={[
-        <Box key={1} padding={PADDING.XSMALL} noMinHeight>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.XSMALL} noMinHeight>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock
-      info="Xxsmall padding + no min height"
-      multiContent={[
-        <Box key={1} padding={PADDING.XXSMALL} noMinHeight>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.XXSMALL} noMinHeight>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock
-      info="Small padding"
-      multiContent={[
-        <Box key={1} padding={PADDING.SMALL}>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.SMALL}>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock
-      info="Large padding"
-      multiContent={[
-        <Box key={1} padding={PADDING.LARGE}>
-          some text
-        </Box>,
-        <Box key={2} padding={PADDING.LARGE}>
-          more text
-          <br /> more more
-        </Box>,
-      ]}
-    />
-
-    <DocsBlock info="Example of box usage">
-      <Box onClose={closeCallback}>
-        <ContentBox>
-          <ContentBoxHeader>
-            <Headline type={HEADLINE_TYPE.H3}>
-              Ask a question about a school subject
-            </Headline>
-          </ContentBoxHeader>
-          <ContentBoxActions>
-            <Button type="solid-blue" fullWidth>
-              Ask your question
-            </Button>
-          </ContentBoxActions>
-        </ContentBox>
-      </Box>
-    </DocsBlock>
-
-    <DocsBlock info="Example of message box usage">
-      <Box
-        color={COLOR.BLUE_SECONDARY}
-        full
-        border={false}
-        onClose={closeCallback}
-      >
-        <ActionList noWrap toTop>
-          <ActionListHole>
-            <Avatar spaced />
-          </ActionListHole>
-          <ActionListHole grow>
-            <ContentBox>
-              <ContentBoxContent
-                spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.XSMALL}
-                spacedTop={CONTENT_BOX_CONTENT_SPACING_SIZE.SMALL}
-              >
-                <Text weight={TEXT_WEIGHT.BOLD} size={TEXT_SIZE.SMALL}>
-                  Title for a message with valuable information for a user.
-                </Text>
-              </ContentBoxContent>
-              <ContentBoxContent
-                spacedBottom={CONTENT_BOX_CONTENT_SPACING_SIZE.SMALL}
-              >
-                <Text size={TEXT_SIZE.SMALL}>
-                  This is valuable information for users in a specific
-                  situation. For example: we want to let you know that in 24h
-                  Brainly will disable some feature. You can find more
-                  information about this change on our blog.
-                </Text>
-              </ContentBoxContent>
-            </ContentBox>
-          </ActionListHole>
-        </ActionList>
+    <DocsBlock info="Example usage">
+      <Box color="mint-secondary-light">
+        <Flex>
+          <Flex marginRight="s">
+            <Icon type="verified" color="adaptive" />
+          </Flex>
+          <Flex direction="column">
+            <Headline size="small">This question is Expert Verified.</Headline>
+            <Flex marginTop="s">
+              <Text size="small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </Text>
+            </Flex>
+          </Flex>
+        </Flex>
       </Box>
     </DocsBlock>
   </div>
 );
 
-export default Boxs;
+export default Boxes;

@@ -35,11 +35,6 @@ test('not disabled', () => {
   expect(button.is('[disabled]')).toEqual(false);
 });
 
-test("solid don't have small", () => {
-  const button = shallow(<Button small>Some text</Button>);
-
-  expect(button.hasClass('sg-button--small')).toEqual(false);
-});
 test('full width', () => {
   const button = shallow(<Button fullWidth>Some text</Button>);
 
@@ -81,4 +76,16 @@ test('toggle', () => {
   );
 
   expect(button.hasClass('sg-button--solid-light-toggle-peach')).toEqual(true);
+});
+
+test('with icon - reversed order', () => {
+  const icon = <span>:P</span>;
+  const button = shallow(
+    <Button icon={icon} reversedOrder>
+      Some text
+    </Button>
+  );
+
+  expect(button.contains(icon)).toEqual(true);
+  expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
 });

@@ -17,6 +17,10 @@ const text = "We've got your back!";
 
 const textSizesMap = [
   {
+    type: 'xxsmall',
+    fontSize: '9px',
+  },
+  {
     type: 'xsmall',
     fontSize: '12px',
   },
@@ -25,7 +29,7 @@ const textSizesMap = [
     fontSize: '15px',
   },
   {
-    type: 'normal',
+    type: 'medium',
     fontSize: '18px',
   },
   {

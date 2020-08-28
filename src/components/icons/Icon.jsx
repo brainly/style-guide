@@ -23,6 +23,8 @@ export type IconTypeType =
   | 'camera'
   | 'check'
   | 'close'
+  | 'comment'
+  | 'comment_outlined'
   | 'counter'
   | 'credit_card'
   | 'crown_outlined'
@@ -35,6 +37,7 @@ export type IconTypeType =
   | 'friend_pending'
   | 'friend_checked'
   | 'friends'
+  | 'fullscreen'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
@@ -51,7 +54,7 @@ export type IconTypeType =
   | 'messages'
   | 'mic'
   | 'money_transfer'
-  | 'more'
+  | 'add_more'
   | 'notifications'
   | 'numbered_list'
   | 'open_in_new_tab'
@@ -68,6 +71,7 @@ export type IconTypeType =
   | 'report_flag'
   | 'report_flag_outlined'
   | 'rotate'
+  | 'rotate_90'
   | 'search'
   | 'seen'
   | 'settings'
@@ -81,11 +85,31 @@ export type IconTypeType =
   | 'symbols'
   | 'title'
   | 'toughest_questions'
+  | 'trash'
   | 'twitter'
   | 'underlined'
   | 'unseen'
   | 'verified'
-  | 'youtube';
+  | 'warning'
+  | 'youtube'
+  | 'arrow_top_right'
+  | 'circle'
+  | 'crop'
+  | 'cyrillic'
+  | 'draw'
+  | 'drawing_mode'
+  | 'european'
+  | 'greek'
+  | 'highlight'
+  | 'line'
+  | 'more'
+  | 'pause'
+  | 'rectangle'
+  | 'sup_sub'
+  | 'triangle'
+  | 'pi'
+  | 'quote'
+  | 'spark';
 
 export type IconColorType =
   | 'adaptive'
@@ -117,6 +141,7 @@ export type IconSizeType =
   | 48
   | 46
   | 40
+  | 38
   | 32
   | 30
   | 26
@@ -147,6 +172,8 @@ export const TYPE = {
   CAMERA: 'camera',
   CHECK: 'check',
   CLOSE: 'close',
+  COMMENT: 'comment',
+  COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
   CROWN_OUTLINED: 'crown_outlined',
@@ -159,6 +186,7 @@ export const TYPE = {
   FRIEND_PENDING: 'friend_pending',
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
+  FULLSCREEN: 'fullscreen',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
@@ -175,7 +203,7 @@ export const TYPE = {
   MESSAGES: 'messages',
   MIC: 'mic',
   MONEY_TRANSFER: 'money_transfer',
-  MORE: 'more',
+  ADD_MORE: 'add_more',
   NOTIFICATIONS: 'notifications',
   NUMBERED_LIST: 'numbered_list',
   OPEN_IN_NEW_TAB: 'open_in_new_tab',
@@ -192,6 +220,7 @@ export const TYPE = {
   REPORT_FLAG: 'report_flag',
   REPORT_FLAG_OUTLINED: 'report_flag_outlined',
   ROTATE: 'rotate',
+  ROTATE_90: 'rotate_90',
   SEARCH: 'search',
   SEEN: 'seen',
   SETTINGS: 'settings',
@@ -205,11 +234,31 @@ export const TYPE = {
   SYMBOLS: 'symbols',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
+  TRASH: 'trash',
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
   VERIFIED: 'verified',
+  WARNING: 'warning',
   YOUTUBE: 'youtube',
+  ARROW_TOP_RIGHT: 'arrow_top_right',
+  CIRCLE: 'circle',
+  CROP: 'crop',
+  CYRILLIC: 'cyrillic',
+  DRAW: 'draw',
+  DRAWING_MODE: 'drawing_mode',
+  EUROPEAN: 'european',
+  GREEK: 'greek',
+  HIGHLIGHT: 'highlight',
+  LINE: 'line',
+  MORE: 'more',
+  PAUSE: 'pause',
+  RECTANGLE: 'rectangle',
+  SUP_SUB: 'sup_sub',
+  TRIANGLE: 'triangle',
+  PI: 'pi',
+  QUOTE: 'quote',
+  SPARK: 'spark',
 };
 
 export const ICON_COLOR = {
@@ -246,6 +295,7 @@ export const SIZE = [
   48,
   46,
   40,
+  38,
   32,
   30,
   26,

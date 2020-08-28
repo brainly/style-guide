@@ -10,10 +10,10 @@ const Counters = () => (
       <Counter>123455</Counter>
       <Counter withAnimation>12</Counter>
     </DocsBlock>
-    <DocsBlock info="Counter small">
-      <Counter size="small">5</Counter>
-      <Counter size="small">55</Counter>
-      <Counter size="small" withAnimation>
+    <DocsBlock info="Counter xxs">
+      <Counter size="xxs">5</Counter>
+      <Counter size="xxs">55</Counter>
+      <Counter size="xxs" withAnimation>
         5
       </Counter>
     </DocsBlock>
@@ -26,8 +26,8 @@ const Counters = () => (
         </Text>
       </Counter>
     </DocsBlock>
-    <DocsBlock info="Counter small with icon">
-      <Counter icon="points" size="small">
+    <DocsBlock info="Counter xxs with icon">
+      <Counter icon="points" size="xxs">
         +10
       </Counter>
     </DocsBlock>
