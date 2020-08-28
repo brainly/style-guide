@@ -168,8 +168,6 @@ const Label = ({
   const labelClass = classNames(
     'sg-label',
     {
-      [`sg-label--${String(filteredColor)}`]: color,
-      [`sg-label--${type}`]: type && type !== 'default',
       [`sg-label--${String(filteredColor)}`]:
         (color && type === 'solid') || type === 'default',
       [`sg-label--${type}`]: type && type !== 'default',
