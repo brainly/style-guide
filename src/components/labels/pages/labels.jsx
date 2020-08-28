@@ -45,10 +45,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="default">
-            {' '}
-            label
-          </Label>
+          <Label type="default"> label</Label>
           <br />
           <br />
         </Flex>
@@ -89,7 +86,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="default" onClose={closeCallback}>
+          <Label type="default" onClose={closeCallback}>
             {' '}
             label
           </Label>
@@ -133,7 +130,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="default" iconType="heart">
+          <Label type="default" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -201,12 +198,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label
-            color="mono"
-            type="default"
-            iconType="heart"
-            onClose={closeCallback}
-          >
+          <Label type="default" iconType="heart" onClose={closeCallback}>
             label with icon
           </Label>
           <br />
@@ -247,9 +239,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="solid">
-            label
-          </Label>
+          <Label type="solid">label</Label>
           <br />
           <br />
         </Flex>
@@ -284,7 +274,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="solid" onClose={closeCallback}>
+          <Label type="solid" onClose={closeCallback}>
             label
           </Label>
           <br />
@@ -327,7 +317,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="solid" iconType="heart">
+          <Label type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -395,12 +385,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label
-            color="mono"
-            type="solid"
-            iconType="heart"
-            onClose={closeCallback}
-          >
+          <Label type="solid" iconType="heart" onClose={closeCallback}>
             label with icon
           </Label>
           <br />
@@ -410,7 +395,7 @@ const Labels = () => (
     </DocsBlock>
     <DocsBlock info="Transparent">
       <Flex>
-        <Flex direction="column" marginRight="l">
+        <Flex direction="column" marginRight="l" style={{visibility: 'hidden'}}>
           <Label color="blue" type="transparent">
             label
           </Label>
@@ -441,13 +426,11 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent">
-            label
-          </Label>
+          <Label type="transparent">label</Label>
           <br />
           <br />
         </Flex>
-        <Flex direction="column" marginRight="l">
+        <Flex direction="column" marginRight="l" style={{visibility: 'hidden'}}>
           <Label color="blue" type="transparent" onClose={closeCallback}>
             label
           </Label>
@@ -478,7 +461,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent" onClose={closeCallback}>
+          <Label type="transparent" onClose={closeCallback}>
             label
           </Label>
           <br />
@@ -521,7 +504,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent" iconType="heart">
+          <Label type="transparent" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -589,12 +572,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label
-            color="mono"
-            type="transparent"
-            iconType="heart"
-            onClose={closeCallback}
-          >
+          <Label type="transparent" iconType="heart" onClose={closeCallback}>
             label with icon
           </Label>
           <br />
@@ -635,9 +613,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent-color">
-            label
-          </Label>
+          <Label type="transparent-color">label</Label>
           <br />
           <br />
         </Flex>
@@ -680,7 +656,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent-color" onClose={closeCallback}>
+          <Label type="transparent-color" onClose={closeCallback}>
             label
           </Label>
           <br />
@@ -723,7 +699,7 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mono" type="transparent-color" iconType="heart">
+          <Label type="transparent-color" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -792,7 +768,6 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mono"
             type="transparent-color"
             iconType="heart"
             onClose={closeCallback}

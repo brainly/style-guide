@@ -14,8 +14,7 @@ export type LabelColorType =
   | 'lavender'
   | 'peach'
   | 'mustard'
-  | 'gray'
-  | 'mono';
+  | 'gray';
 
 export type LabelType =
   | 'default'
@@ -37,7 +36,7 @@ export const COLORS_SOLID_MAP = {
   peach: 'peach-primary',
   mustard: 'mustard-primary',
   gray: 'gray-secondary',
-  mono: 'black',
+  default: 'black',
 };
 
 export const COLORS_DEFAULT_MAP = {
@@ -47,7 +46,7 @@ export const COLORS_DEFAULT_MAP = {
   peach: 'peach-secondary-light',
   mustard: 'mustard-secondary-light',
   gray: 'gray-secondary-light',
-  mono: 'white',
+  default: 'white',
 };
 
 const TRANSPARENT_COLOR_TEXT_MAP = {
@@ -57,7 +56,7 @@ const TRANSPARENT_COLOR_TEXT_MAP = {
   peach: 'peach-dark',
   mustard: 'mustard-dark',
   gray: 'gray-secondary',
-  mono: 'default',
+  default: 'default',
 };
 
 const TRANSPARENT_ICON_COLOR_MAP = {
@@ -67,7 +66,7 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   peach: 'peach',
   mustard: 'mustard',
   gray: 'gray-secondary',
-  mono: 'dark',
+  default: 'dark',
 };
 
 export const LABEL_COLORS_SET = {
@@ -77,7 +76,6 @@ export const LABEL_COLORS_SET = {
   PEACH: 'peach',
   MUSTARD: 'mustard',
   GRAY: 'gray',
-  MONO: 'mono',
 };
 
 type PropsType = $ReadOnly<{
@@ -109,9 +107,8 @@ type PropsType = $ReadOnly<{
    * @see color="peach" https://styleguide.brainly.com/latest/docs/interactive.html?color="peach"#labels
    * @see color="mustard" https://styleguide.brainly.com/latest/docs/interactive.html?color="mustard"#labels
    * @see color="gray" https://styleguide.brainly.com/latest/docs/interactive.html?color="gray"#labels
-   * @see color="mono" https://styleguide.brainly.com/latest/docs/interactive.html?color="mono"#labels
    */
-  color: LabelColorType,
+  color?: LabelColorType,
   /**
    * Icons types example, see more in SG interactive
    * @example <Label
@@ -158,18 +155,18 @@ const Label = ({
   type = 'default',
   iconType,
   onClose,
-  color,
+  color = 'default',
   className,
   ...props
 }: PropsType) => {
-  const filteredColor =
+  const backgroundColor =
     type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
 
   const labelClass = classNames(
     'sg-label',
     {
-      [`sg-label--${String(filteredColor)}`]:
-        (color && type === 'solid') || type === 'default',
+      [`sg-label--${String(backgroundColor)}`]:
+        type === 'solid' || type === 'default',
       [`sg-label--${type}`]: type,
       'sg-label--closable': onClose,
     },
