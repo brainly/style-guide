@@ -50,6 +50,10 @@ const Buttons = () => {
       values: Boolean,
     },
     {
+      name: 'reversedOrder',
+      values: Boolean,
+    },
+    {
       name: 'toggle',
       values: BUTTON_TOGGLE,
     },
