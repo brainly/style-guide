@@ -1,14 +1,18 @@
-import React from 'react';
-import { addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
+import {Canvas} from './Canvas';
 
 // load all styles
-import '!style-loader!css-loader!sass-loader!../src/main.scss';
+import '../src/main.scss';
 
-const styles = {
-  padding: 24,
+export const parameters = {
+  docs: {
+    components: {
+      Canvas, //custom canvas in order to handle plain html snippets
+    },
+  },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Basics', 'Components', 'Containers'],
+    },
+  },
 };
-
-// container for all stories
-const Container = ({ children }) => <div style={styles}>{children}</div>;
-
-addDecorator(storyFn => <Container>{storyFn()}</Container>)

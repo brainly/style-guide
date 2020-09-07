@@ -14,7 +14,7 @@ node_modules
 coverage/
 package-lock.json
 yarn-error.log
-.storybook-dist
+.storybook-static
 
 # Generated images
 /src/images/*.js

@@ -1,0 +1,30 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import Box from './Box';
+
+<Meta title="Containers/Box" component={Box} />
+
+# Box
+
+Container for grouping elements. It provides padding, background color, border and shadow.
+
+<br />
+
+### Default
+
+<Canvas>
+  <Story name="Default">
+    <Box>Text inside default Box</Box>
+  </Story>
+</Canvas>
+
+### With border
+
+<Canvas>
+  <Story name="With border" args={{
+    border: true
+  }}>
+    <Box border>Text inside Box with border</Box>
+  </Story>
+</Canvas>
+
+

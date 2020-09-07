@@ -29,10 +29,12 @@
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@hot-loader/react-dom": "^16.8.6",
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
+    "@storybook/addon-actions": "^6.0.21",
+    "@storybook/addon-docs": "^6.0.21",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/addons": "^6.0.21",
+    "@storybook/react": "^6.0.21",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
     "babel-loader": "^8.0.5",
@@ -113,7 +115,7 @@
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm' 'yarn run package-commonjs' 'yarn run package-esm'",
     "prepublishOnly": "yarn package-prepare",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
-    "build-storybook": "build-storybook -c .storybook -o .storybook-dist -s ./.storybook/public"
+    "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public"
   },
   "jest": {
     "setupFiles": [
