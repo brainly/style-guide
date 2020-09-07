@@ -58,10 +58,11 @@ export const LOGOS = {
 type PropsType = {
   className?: string,
   type?: LogoTypeType,
+  alt?: string,
   ...
 };
 
-const Logo = ({type = TYPE.BRAINLY, className, ...props}: PropsType) => {
+const Logo = ({type = TYPE.BRAINLY, className, alt, ...props}: PropsType) => {
   const logoClass = classnames(
     'sg-logo',
     {
@@ -74,7 +75,7 @@ const Logo = ({type = TYPE.BRAINLY, className, ...props}: PropsType) => {
 
   return (
     <div {...props} className={logoClass}>
-      <img className="sg-logo__image" src={logoPath} />
+      <img className="sg-logo__image" src={logoPath} alt={alt} />
     </div>
   );
 };
