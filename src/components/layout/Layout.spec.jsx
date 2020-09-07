@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from './Layout';
-import LayoutBox from './LayoutBox';
 import LayoutContent from './LayoutContent';
 import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
@@ -103,13 +102,5 @@ describe('LayoutSecondaryContent', () => {
     );
 
     expect(component.hasClass('sg-layout__secondary-content')).toEqual(true);
-  });
-});
-
-describe('LayoutBox', () => {
-  test('render', () => {
-    const layoutBox = shallow(<LayoutBox>Content</LayoutBox>);
-
-    expect(layoutBox.hasClass('sg-layout__box')).toEqual(true);
   });
 });

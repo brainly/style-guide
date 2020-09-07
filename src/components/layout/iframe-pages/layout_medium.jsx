@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../Layout';
-import LayoutBox from '../LayoutBox';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import Text from 'text/Text';
@@ -29,12 +28,10 @@ const LayoutMedium = () => (
     <body>
       <Layout header={header} footer={footer}>
         <LayoutContent>
-          <LayoutBox>
-            <Text>
-              Main content has no padding and no background (both are given by
-              layout box)
-            </Text>
-          </LayoutBox>
+          <Text>
+            Main content has no padding and no background (both are given by
+            layout box)
+          </Text>
         </LayoutContent>
         <LayoutAsideContent>
           <Text>Aside content has no padding and no background</Text>

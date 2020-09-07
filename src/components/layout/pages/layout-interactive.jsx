@@ -1,7 +1,6 @@
 import React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Layout from '../Layout';
-import LayoutBox from '../LayoutBox';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import LayoutSecondaryContent from '../LayoutSecondaryContent';
@@ -61,18 +60,10 @@ const Layouts = () => {
             <Text>Secondary content has no padding and no background</Text>
           </LayoutSecondaryContent>
           <LayoutContent>
-            <LayoutBox>
-              <Text>
-                Main content has has no padding and no background (given by
-                LayoutBox)
-              </Text>
-            </LayoutBox>
+            <Text>Main content has no padding and no background</Text>
           </LayoutContent>
           <LayoutAsideContent>
-            <Text>
-              Aside content has has no padding and no background (given by
-              LayoutBox)
-            </Text>
+            <Text>Aside content has no padding and no background</Text>
           </LayoutAsideContent>
         </Layout>
       </DocsActiveBlock>

@@ -11,22 +11,22 @@ import Spinner from '../spinner/Spinner';
 
 import type {IconTypeType} from '../icons/Icon';
 
-export type FileHandlerColorType = 'gray' | 'mono';
+export type FileHandlerColorType = 'gray' | 'white';
 
 export const COLORS_MAP = {
   gray: 'gray-secondary-light',
-  mono: 'white',
+  white: 'white',
 };
 
 export const FILE_HANDLER_COLORS_SET = {
   GRAY: 'gray',
-  MONO: 'mono',
+  WHITE: 'white',
 };
 
 type PropsType = $ReadOnly<{
   /**
    * Specify color of the background for FileHandler
-   * @example <FileHandler color="mono">
+   * @example <FileHandler color="white">
    *            text
    *          </FileHandler>
    * @default gray
