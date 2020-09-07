@@ -14,3 +14,15 @@ test('type', () => {
 
   expect(logo.hasClass('sg-logo--znanija')).toEqual(true);
 });
+
+test('alt', () => {
+  const logo = shallow(<Logo alt="test alt attr" />);
+
+  expect(logo.find('img').prop('alt')).toEqual('test alt attr');
+});
+
+test('alt undefined', () => {
+  const logo = shallow(<Logo />);
+
+  expect(logo.find('img').prop('alt')).toBeUndefined();
+});
