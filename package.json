@@ -127,8 +127,8 @@
       "src/docs"
     ],
     "transform": {
-      ".*": "@babel/plugin-proposal-object-rest-spread"
+      ".*": "babel-jest"
     }
   },
-  "sideEffects": false
+  "sideEffects": true
 }
