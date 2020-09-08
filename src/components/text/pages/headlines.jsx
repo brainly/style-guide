@@ -40,6 +40,10 @@ const headlineSizesMap = [
     type: 'xxlarge',
     fontSize: '53px',
   },
+  {
+    type: 'xxxlarge',
+    fontSize: '78px',
+  },
 ];
 
 function getValues(object, addUndefined = true) {
