@@ -83,7 +83,7 @@
     "react-router-hash-link": "^1.2.2",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^3.0.0",
-    "s3": "^4.4.0",
+    "@brainly/s3": "^4.4.0",
     "sass-lint": "^1.10.2",
     "sass-lint-config-brainly": "^1.0.1",
     "sass-loader": "^7.1.0",

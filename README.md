@@ -13,7 +13,7 @@ Documentation is an esential part of this project. You can see its latest versio
   * Components - complex components
   * Containers - components that host other components
   * Interactive - new, interactive version of the style guide docs that we are experimenting with
-  
+
 ## How to use it
 
 All components can be used in both HTML and JSX. In both cases you have to include main CSS file, as described on the [main docs page](https://styleguide.brainly.com), in the head section of your page. In case of HTML, you just have to follow style-guide markup which you can easily copy by clicking on any component in the docs. If you prefer to use React instead, you'll have to add this repository as a dependency in `package.json` and import components into your JSX file.
@@ -24,7 +24,7 @@ We officially support the following browsers (based on real user trafic from our
 
 | Browser | Versions  | Total share in global traffic |
 | ---- | ---- | ---- |
-| Google Chrome | 28+ | 60.77% | 
+| Google Chrome | 28+ | 60.77% |
 | Safari | 7+ | 12.52% |
 | Samsung Internet | 1.1+ | 3.99% |
 | YaBrowser | 15+ | 3.99% |
@@ -44,3 +44,7 @@ Note: You can find all recent stats in [our analytics](https://analytics.google.
 ## Contributing
 
 We welcome all issue reports and pull requests ❤️ If you'd like to contribute, please start with [this doc](CONTRIBUTING.md).
+
+## Caveats
+
+- Package "s3" has been forked to @brainly organization. One of dependencies of this package (graceful-fs) was causing our builds to fail. Since this package is no longer maintained, we decided to fork it and make needed updates. As a long-term solution, we need to switch "s3" package to something more up-to-date.
