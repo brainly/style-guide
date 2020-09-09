@@ -18,6 +18,7 @@ export const HEADLINE_SIZE = Object.freeze({
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
+  XXXLARGE: 'xxxlarge',
 });
 
 export const HEADLINE_COLOR = Object.freeze({

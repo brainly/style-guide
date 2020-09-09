@@ -13,7 +13,8 @@ export type HeadlineSizeType =
   | 'medium'
   | 'large'
   | 'xlarge'
-  | 'xxlarge';
+  | 'xxlarge'
+  | 'xxxlarge';
 
 export type HeadlineColorType =
   | 'default'
