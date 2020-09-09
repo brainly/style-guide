@@ -1,6 +1,6 @@
 module.exports = function(gulp, plugins, consts) {
   return function(done) {
-    const s3 = require('s3');
+    const s3 = require('@brainly/s3');
 
     const client = s3.createClient({
       s3Options: {
