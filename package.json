@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "179.1.0",
+  "version": "179.2.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
+    "@brainly/s3": "^4.4.0",
     "@hot-loader/react-dom": "^16.8.6",
     "@storybook/addon-actions": "^6.0.21",
     "@storybook/addon-docs": "^6.0.21",
@@ -83,7 +84,6 @@
     "react-router-hash-link": "^1.2.2",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^3.0.0",
-    "@brainly/s3": "^4.4.0",
     "sass-lint": "^1.10.2",
     "sass-lint-config-brainly": "^1.0.1",
     "sass-loader": "^7.1.0",
