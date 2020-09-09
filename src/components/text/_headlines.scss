@@ -1,34 +1,38 @@
 $includeHtml: false !default;
 
 $headlineSizes: (
+  xxxlarge: (
+    fontSize: 78px,
+    lineHeight: 88px,
+  ),
   xxlarge: (
     fontSize: 53px,
-    lineHeight: 60px
+    lineHeight: 60px,
   ),
   xlarge: (
     fontSize: 39px,
-    lineHeight: 44px
+    lineHeight: 44px,
   ),
   large: (
     fontSize: 28px,
-    lineHeight: 32px
+    lineHeight: 32px,
   ),
   medium: (
     fontSize: 21px,
-    lineHeight: 24px
+    lineHeight: 24px,
   ),
   small: (
     fontSize: 18px,
-    lineHeight: 20px
+    lineHeight: 20px,
   ),
   xsmall: (
     fontSize: 14px,
-    lineHeight: 16px
+    lineHeight: 16px,
   ),
   xxsmall: (
     fontSize: 10px,
-    lineHeight: 12px
-  )
+    lineHeight: 12px,
+  ),
 );
 
 @function getHeadLineSizeFromMap($map, $keys...) {
@@ -44,7 +48,6 @@ $headlineSizes: (
 }
 
 @if ($includeHtml) {
-
   .sg-headline {
     @include headlineTypeSizeVariant(medium);
     display: block;
@@ -74,6 +77,10 @@ $headlineSizes: (
 
     &--xxlarge {
       @include headlineTypeSizeVariant(xxlarge);
+    }
+
+    &--xxxlarge {
+      @include headlineTypeSizeVariant(xxxlarge);
     }
 
     &--extra-bold {
