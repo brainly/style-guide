@@ -122,7 +122,9 @@ export type InputPropsType = {
   /**
    * Additional function to set ref for input
    */
-  setInputRef?: { current: ?HTMLInputElement } | (ref: ?HTMLElement | ?HTMLInputElement) => mixed,
+  setInputRef?:
+    | {current: ?HTMLInputElement}
+    | ((ref: ?HTMLElement | ?HTMLInputElement) => mixed),
   ...
 };
 
