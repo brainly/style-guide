@@ -1,6 +1,10 @@
 $includeHtml: false !default;
 
 $bodyTextSizes: (
+  xxxlarge: (
+    fontSize: 66px,
+    lineHeight: 88px
+  ),
   xxlarge: (
     fontSize: 45px,
     lineHeight: 60px
@@ -53,6 +57,10 @@ $bodyTextSizes: (
 
     &--container {
       position: relative;
+    }
+
+    &--xxxlarge {
+      @include bodyTextTypeSizeVariant(xxxlarge);
     }
 
     &--xxlarge {

@@ -24,6 +24,7 @@ export const TEXT_SIZE = Object.freeze({
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
+  XXXLARGE: 'xxxlarge',
 });
 
 export const SIZE = TEXT_SIZE; // backward compatibility
