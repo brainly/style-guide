@@ -31,7 +31,8 @@ type TextSizeType =
   | 'medium'
   | 'large'
   | 'xlarge'
-  | 'xxlarge';
+  | 'xxlarge'
+  | 'xxxlarge';
 
 type LinkColorType =
   | 'black'

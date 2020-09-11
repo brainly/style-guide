@@ -44,6 +44,10 @@ const textSizesMap = [
     type: 'xxlarge',
     fontSize: '45px',
   },
+  {
+    type: 'xxxlarge',
+    fontSize: '66px',
+  },
 ];
 
 function getValues(object, addUndefined = true) {
