@@ -22,6 +22,7 @@ export type IconTypeType =
   | 'calendar'
   | 'camera'
   | 'check'
+  | 'clipboard'
   | 'close'
   | 'comment'
   | 'comment_outlined'
@@ -171,6 +172,7 @@ export const TYPE = {
   CALENDAR: 'calendar',
   CAMERA: 'camera',
   CHECK: 'check',
+  CLIPBOARD: 'clipboard',
   CLOSE: 'close',
   COMMENT: 'comment',
   COMMENT_OUTLINED: 'comment_outlined',
