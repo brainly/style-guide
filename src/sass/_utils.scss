@@ -11,17 +11,21 @@
       .#{$variant}sg-space-y-0 > * + *:not(.sg-space-ignore) {
         margin-top: 0 !important;
       }
+
       .#{$variant}sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore) {
         margin-top: $size !important;
       }
+
       .#{$variant}sg-space-x-0 > * + * :not(.sg-space-ignore) {
         margin-left: 0 !important;
       }
+
       .#{$variant}sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore) {
         margin-left: $size !important;
       }
-
+      
       // Automatically ignore empty elements in the same way as sg-space-ignore would be applied
+
       .#{$variant}empty\\:sg-space-y-0
         > *
         + *:not(.sg-space-ignore):not(:empty) {
