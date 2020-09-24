@@ -8,7 +8,6 @@
   @include sgResponsive($breakpoint) {
     @each $pseudo, $name in ('': '', ':not(empty)': 'empty\\:')
     {
-      // Basic
       .#{$variant}#{$name}sg-space-y-0 > * + *:not(.sg-space-ignore)#{$pseudo} {
         margin-top: 0 !important;
       }
@@ -18,7 +17,6 @@
       }
 
       @each $sizeName, $size in $sizesSetup {
-        // Basic
         .#{$variant}#{$name}sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore)#{$pseudo} {
           margin-top: $size !important;
         }

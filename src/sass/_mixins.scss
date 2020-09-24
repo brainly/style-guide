@@ -95,7 +95,7 @@
         @content;
       }
     } @else {
-      @error 'Breakpoint "#{$name}" does not exist';
+      @error 'Responsive breakpoint "#{$name}" does not exist';
     }
   }
 }
