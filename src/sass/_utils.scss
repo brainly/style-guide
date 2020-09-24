@@ -1,0 +1,17 @@
+// Utils are meant to override other styles (See 7-1 or ITCSS for reference)
+
+// Space between (Lobotomized owl) util for controlling the space between child elements.
+@each $sizeName, $size in $sizesSetup {
+  .sg-space-y-0 > * + * {
+    margin-top: 0 !important;
+  }
+  .sg-space-y-#{$sizeName} > * + * {
+    margin-top: $size !important;
+  }
+  .sg-space-x-0 > * + * {
+    margin-left: 0 !important;
+  }
+  .sg-space-x-#{$sizeName} > * + * {
+    margin-left: $size !important;
+  }
+}
