@@ -56,6 +56,7 @@
 // fontsizeName - string
 // lineHeight - int, number of baselines
 @mixin typeVariant($fontsizeName, $lineHeight: null) {
+
   $remFontsize: fontSize($fontsizeName);
 
   @if $remFontsize != null {
@@ -109,7 +110,7 @@
 // spacing function that returns proper size based on namespace
 @function spacing($size) {
   @each $key, $value in $sizesSetup {
-    @if ($key == $size) {
+    @if($key == $size) {
       @return $value;
     }
   }
@@ -118,7 +119,7 @@
 // componentSize function that returns proper size based on namespace
 @function componentSize($size) {
   @each $key, $value in $componentSizesSetup {
-    @if ($key == $size) {
+    @if($key == $size) {
       @return $value;
     }
   }
