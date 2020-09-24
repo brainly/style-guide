@@ -76,7 +76,7 @@
 
 @mixin sgBreakpoint($name, $map: $breakpointsMap) {
   $media: map-get($map, $name);
-  @if ($media) {
+  @if($media) {
     @media #{$media} {
       @content;
     }
