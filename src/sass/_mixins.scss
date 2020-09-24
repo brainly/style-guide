@@ -74,8 +74,8 @@
   @return $baselines * $baseline;
 }
 
-@mixin sgBreakpoint($name, $map: $breakpointsMap) {
-  $media: map-get($map, $name);
+@mixin sgBreakpoint($name) {
+  $media: map-get($breakpointsMap, $name);
   @if($media) {
     @media #{$media} {
       @content;
@@ -89,7 +89,14 @@
   @if $name == '' {
     @content;
   } @else {
-    @include sgBreakpoint($name, $responsiveBreakpointsMap);
+    $media: map-get($responsiveBreakpointsMap, $name);
+    @if($media) {
+      @media #{$media} {
+        @content;
+      }
+    } @else {
+      @error 'Breakpoint "#{$name}" does not exist';
+    }
   }
 }
 
