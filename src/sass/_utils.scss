@@ -3,7 +3,7 @@
 
 // Space between (Lobotomized owl) util for controlling the space between child elements.
 // You can take the child out of the layout area by giving the child a .sg-space-ignore class.
-// To automaticaly ignore empty children use "empty" class variant e.g. empty:sg-spacey-m
+// To automaticaly ignore empty children use "empty" class variant e.g. empty:sg-space-y-m
 @each $breakpoint, $variant in $responsiveVariants {
   @include sgResponsive($breakpoint) {
     @each $sizeName, $size in $sizesSetup {
