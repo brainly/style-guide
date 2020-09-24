@@ -23,27 +23,21 @@
       .#{$variant}sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore) {
         margin-left: $size !important;
       }
-      
-      // Automatically ignore empty elements in the same way as sg-space-ignore would be applied
 
-      .#{$variant}empty\\:sg-space-y-0
-        > *
-        + *:not(.sg-space-ignore):not(:empty) {
+      // Automatically ignore empty elements in the same way as sg-space-ignore would be applied
+      .#{$variant}empty\\:sg-space-y-0 > * + *:not(.sg-space-ignore):not(:empty) {
         margin-top: 0 !important;
       }
-      .#{$variant}empty\\:sg-space-y-#{$sizeName}
-        > *
-        + *:not(.sg-space-ignore):not(:empty) {
+
+      .#{$variant}empty\\:sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore):not(:empty) {
         margin-top: $size !important;
       }
-      .#{$variant}empty\\:sg-space-x-0
-        > *
-        + *:not(.sg-space-ignore):not(:empty) {
+
+      .#{$variant}empty\\:sg-space-x-0 > * + *:not(.sg-space-ignore):not(:empty) {
         margin-left: 0 !important;
       }
-      .#{$variant}empty\\:sg-space-x-#{$sizeName}
-        > *
-        + *:not(.sg-space-ignore):not(:empty) {
+
+      .#{$variant}empty\\:sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore):not(:empty) {
         margin-left: $size !important;
       }
     }
