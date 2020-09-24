@@ -1,17 +1,49 @@
+// sass-lint:disable no-important
 // Utils are meant to override other styles (See 7-1 or ITCSS for reference)
 
 // Space between (Lobotomized owl) util for controlling the space between child elements.
-@each $sizeName, $size in $sizesSetup {
-  .sg-space-y-0 > * + * {
-    margin-top: 0 !important;
-  }
-  .sg-space-y-#{$sizeName} > * + * {
-    margin-top: $size !important;
-  }
-  .sg-space-x-0 > * + * {
-    margin-left: 0 !important;
-  }
-  .sg-space-x-#{$sizeName} > * + * {
-    margin-left: $size !important;
+// You can take the child out of the layout area by giving the child a .sg-space-ignore class.
+// To automaticaly ignore empty children use "empty" class variant e.g. empty:sg-spacey-m
+@each $breakpoint, $variant in $responsiveVariants {
+  @include sgResponsive($breakpoint) {
+    @each $sizeName, $size in $sizesSetup {
+      // Basic version
+      .#{$variant}sg-space-y-0 > * + *:not(.sg-space-ignore) {
+        margin-top: 0 !important;
+      }
+      .#{$variant}sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore) {
+        margin-top: $size !important;
+      }
+      .#{$variant}sg-space-x-0 > * + * :not(.sg-space-ignore) {
+        margin-left: 0 !important;
+      }
+      .#{$variant}sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore) {
+        margin-left: $size !important;
+      }
+
+      // Automatically ignore empty elements in the same way as sg-space-ignore would be applied
+      .#{$variant}empty\\:sg-space-y-0
+        > *
+        + *:not(.sg-space-ignore):not(:empty) {
+        margin-top: 0 !important;
+      }
+      .#{$variant}empty\\:sg-space-y-#{$sizeName}
+        > *
+        + *:not(.sg-space-ignore):not(:empty) {
+        margin-top: $size !important;
+      }
+      .#{$variant}empty\\:sg-space-x-0
+        > *
+        + *:not(.sg-space-ignore):not(:empty) {
+        margin-left: 0 !important;
+      }
+      .#{$variant}empty\\:sg-space-x-#{$sizeName}
+        > *
+        + *:not(.sg-space-ignore):not(:empty) {
+        margin-left: $size !important;
+      }
+    }
   }
 }
+
+// sass-lint:enable no-important
