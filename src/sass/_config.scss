@@ -132,7 +132,7 @@ $breakpointsMap: (
   'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
-  'large-only': '(min-width: #{$breakpointLarge})',
+  'large-only': '(min-width: #{$breakpointLarge})'
 );
 
 // Breakpoints map for mobile first approach usage
