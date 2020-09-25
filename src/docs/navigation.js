@@ -47,6 +47,7 @@ import separators from '../components/separators/pages/separators';
 import spinners from '../components/spinner/pages/spinners';
 import SpinnerContainers from '../components/spinner-container/pages/spinner-containers';
 import dropdowns from '../components/dropdowns/pages/dropdowns';
+import SpaceBetween from '../sass/pages/utils/space-between';
 
 const navigation = [
   {
@@ -265,6 +266,16 @@ const navigation = [
       {
         name: 'Spinner Container',
         component: SpinnerContainers,
+      },
+    ],
+  },
+  {
+    name: 'Utilities',
+    location: 'utilities',
+    elements: [
+      {
+        name: 'Space Between',
+        component: SpaceBetween,
       },
     ],
   },
