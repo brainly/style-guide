@@ -6,7 +6,7 @@
 // To automaticaly ignore empty children use "empty" class variant e.g. empty:sg-space-y-m
 @each $breakpoint, $variant in $responsiveVariants {
   @include sgResponsive($breakpoint) {
-    @each $pseudo, $name in ('': '', ':not(empty)': 'empty\\:')
+    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:')
     {
       .#{$variant}#{$name}sg-space-y-0 > * + *:not(.sg-space-ignore)#{$pseudo} {
         margin-top: 0 !important;
