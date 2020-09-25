@@ -15,15 +15,6 @@ export const SIZE = {
   XXL: 'xxl',
 };
 
-export const ICON_SIZE_FOR_AVATARS_WITH_BORDER = {
-  [SIZE.XS]: 22,
-  [SIZE.S]: 30,
-  [SIZE.M]: 38,
-  [SIZE.L]: 54,
-  [SIZE.XL]: 78,
-  [SIZE.XXL]: 102,
-};
-
 export const ICON_SIZE = {
   [SIZE.XS]: 24,
   [SIZE.S]: 32,
@@ -78,13 +69,7 @@ const Avatar = ({
   } else {
     avatarContent = (
       <div className="sg-avatar__image sg-avatar__image--icon" title={title}>
-        <Icon
-          type="profile"
-          color="gray-light"
-          size={
-            border ? ICON_SIZE_FOR_AVATARS_WITH_BORDER[size] : ICON_SIZE[size]
-          }
-        />
+        <Icon type="profile" color="gray-light" size={ICON_SIZE[size]} />
       </div>
     );
   }
