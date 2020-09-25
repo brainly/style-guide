@@ -8,18 +8,18 @@ import * as IconModule from '../icons/Icon';
 
 const {ICON_COLOR, TYPE: ICON_TYPE} = IconModule;
 
-type SizeType = 'normal' | 'small' | 'large';
+type SizeType = 'small' | 'normal' | 'large';
 
 export const SIZE = {
-  NORMAL: 'normal',
   SMALL: 'small',
+  NORMAL: 'normal',
   LARGE: 'large',
 };
 
 export const ICON_SIZE = {
-  [SIZE.NORMAL]: 16,
-  [SIZE.SMALL]: 18,
-  [SIZE.LARGE]: 24,
+  [SIZE.SMALL]: 16,
+  [SIZE.NORMAL]: 24,
+  [SIZE.LARGE]: 32,
 };
 
 type PropsType = {
