@@ -48,7 +48,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
 
 // this comment exists to suppress errors about these unused variables:
 // $mintPrimaryDark $bluePrimaryDark $lavenderPrimaryDark $peachPrimaryDark $mustardPrimaryDark
-// $blueSecondaryUltraLight $lavenderSecondaryUltraLight $mintSecondaryUltraLight 
+// $blueSecondaryUltraLight $lavenderSecondaryUltraLight $mintSecondaryUltraLight
 // $mustardSecondaryUltraLight $peachSecondaryUltraLight $peachSecondary $graySecondaryLighter
 
 // Shadows
@@ -118,7 +118,6 @@ $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
 $borderRadiusSmall: $borderRadiusDefault / 2;
 
-
 // Vertical stack
 $sgHeaderZIndex: 101;
 $overlayZIndex: 999;
@@ -134,6 +133,19 @@ $breakpointsMap: (
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})'
+);
+
+// Breakpoints map for mobile first approach usage
+$responsiveBreakpointsMap: (
+  'md': '(min-width: #{$breakpointMedium})',
+  'lg': '(min-width: #{$breakpointLarge})',
+);
+
+// Breakpoints variants for generating reposnive utility classes
+$responsiveVariants: (
+  '': '',
+  md: 'md\\:',
+  lg: 'lg\\:',
 );
 
 // Form elements configuration

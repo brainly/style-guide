@@ -85,6 +85,21 @@
   }
 }
 
+@mixin sgResponsive($name) {
+  @if $name == '' {
+    @content;
+  } @else {
+    $media: map-get($responsiveBreakpointsMap, $name);
+    @if($media) {
+      @media #{$media} {
+        @content;
+      }
+    } @else {
+      @error 'Responsive breakpoint "#{$name}" does not exist';
+    }
+  }
+}
+
 @mixin sgListBasicStyles() {
   @include component();
   overflow: visible; // move baseline from margin to the last line box
