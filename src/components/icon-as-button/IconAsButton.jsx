@@ -7,20 +7,16 @@ import * as IconModule from '../icons/Icon';
 
 const {ICON_COLOR, default: Icon} = IconModule;
 
-type IconSizeType = 'normal' | 'small' | 'xsmall' | 'xxsmall';
+type IconSizeType = 'small' | 'normal';
 
 export const SIZE = {
-  NORMAL: 'normal',
   SMALL: 'small',
-  XSMALL: 'xsmall',
-  XXSMALL: 'xxsmall',
+  NORMAL: 'normal',
 };
 
 const ICON_SIZE = {
-  [SIZE.NORMAL]: 26,
-  [SIZE.SMALL]: 18,
-  [SIZE.XSMALL]: 14,
-  [SIZE.XXSMALL]: 10,
+  [SIZE.SMALL]: 16,
+  [SIZE.NORMAL]: 24,
 };
 
 type IconAsButtonPropsType = {
