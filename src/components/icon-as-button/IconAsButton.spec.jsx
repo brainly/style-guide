@@ -23,7 +23,7 @@ test('colors', () => {
 
 test('size', () => {
   const size = SIZE.SMALL;
-  const sizeOfSmallIco = 18;
+  const sizeOfSmallIco = 24;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} size={size} />);
   const icon = iconAsButton.find(Icon);
@@ -33,7 +33,7 @@ test('size', () => {
 });
 
 test('default size', () => {
-  const sizeOfNormallIco = 26;
+  const sizeOfNormallIco = 24;
   const type = TYPE.ANSWER;
   const iconAsButton = shallow(<IconAsButton type={type} />);
   const icon = iconAsButton.find(Icon);
