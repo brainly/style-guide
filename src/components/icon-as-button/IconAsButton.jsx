@@ -15,7 +15,7 @@ export const SIZE = {
 };
 
 const ICON_SIZE = {
-  [SIZE.SMALL]: 16,
+  [SIZE.SMALL]: 24, // based on current usage
   [SIZE.NORMAL]: 24,
 };
 
