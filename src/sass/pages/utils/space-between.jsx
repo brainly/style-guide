@@ -94,9 +94,9 @@ const SpaceBetween = () => (
     </DocsBlock>
     <DocsBlock info="Ignore empty">
       <p>
-        Applying <code>empty</code> variant result in ignoring empty nodes from
+        Applying <code>empty</code> variant results in ignoring empty nodes from
         layout modification. The same result you can achieve by using{' '}
-        <code>.sg-space-ignore</code> class on particular child element. In
+        <code>.sg-space-ignore</code> class on particular child elements. In
         below example child 3. is empty and child 4. has{' '}
         <code>.sg-space-ignore</code> class applied.
       </p>
@@ -112,7 +112,7 @@ const SpaceBetween = () => (
     </DocsBlock>
     <DocsBlock info="Responsive">
       Control the space between children depending on screen size. Change
-      browser window to see effect of selected classes
+      browser window to see effect of selected classes.
       <DocsActiveBlock topSpace settings={responsiveSettings}>
         <div>
           <span>1</span>
