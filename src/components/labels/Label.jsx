@@ -14,7 +14,8 @@ export type LabelColorType =
   | 'lavender'
   | 'peach'
   | 'mustard'
-  | 'gray';
+  | 'gray'
+  | 'default';
 
 export type LabelType =
   | 'default'
@@ -166,8 +167,7 @@ const Label = ({
     'sg-label',
     {
       [`sg-label--${String(backgroundColor)}`]:
-        type === 'solid' || type === 'default',
-      [`sg-label--${type}`]: type,
+        backgroundColor && (type === 'solid' || type === 'default'),
       'sg-label--closable': onClose,
     },
     className
