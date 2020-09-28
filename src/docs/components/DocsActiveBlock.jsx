@@ -26,6 +26,7 @@ type PropsType = {
     required?: boolean,
     ...
   }>,
+  topSpace?: boolean,
   centeredItems?: boolean,
   contentBefore?: Element<*>,
   contentAfter?: Element<*>,
@@ -191,6 +192,7 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
         this.state.changeBackground === BACKGROUND_COLOR.LIGHT,
       'docs-active-block--dark':
         this.state.changeBackground === BACKGROUND_COLOR.DARK,
+      'docs-active-block--top-space': this.props.topSpace,
     });
 
     const componentClass = classnames('docs-active-block__component', {
@@ -218,7 +220,7 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     }
 
     if (wrapper) {
-      output = React.cloneElement(wrapper, {}, output);
+      output = React.cloneElement(wrapper, this.getCleanProps(), output);
     }
 
     return (

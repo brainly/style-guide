@@ -5,6 +5,10 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   flex-direction: row;
   position: relative;
 
+  &--top-space {
+    margin-top: 16px;
+  }
+
   &--gray .docs-active-block__component {
     background-color: $graySecondaryLightest;
     background-size: 41px 40px;
