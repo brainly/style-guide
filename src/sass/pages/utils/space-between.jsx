@@ -58,15 +58,8 @@ const responsiveSettings = [
   {
     name: 'className',
     values: {
-      'empty:sg-space-y-xxs': 'empty:sg-space-y-xxs',
-      'empty:sg-space-y-xs': 'empty:sg-space-y-xs',
-      'empty:sg-space-y-s': 'empty:sg-space-y-s',
-      'empty:sg-space-y-m': 'empty:sg-space-y-m',
-      'empty:sg-space-y-l': 'empty:sg-space-y-l',
-      'empty:sg-space-y-xl': 'empty:sg-space-y-xl',
-      'empty:sg-space-y-xxl': 'empty:sg-space-y-xxl',
-      'empty:sg-space-y-xxxl': 'empty:sg-space-y-xxxl',
-      'empty:sg-space-y-xxxxl': 'empty:sg-space-y-xxxxl',
+      'md:sg-space-x-xxl': 'md:sg-space-x-xl',
+      'lg:sg-space-x-xxxl': 'lg:sg-space-x-xl',
     },
   },
 ];
@@ -116,15 +109,19 @@ const SpaceBetween = () => (
           <li>5</li>
         </ul>
       </DocsActiveBlock>
-      ,
+    </DocsBlock>
+    <DocsBlock info="Responsive">
+      Control the space between children depending on screen size. Change
+      browser window to see effect of selected classes
+      <DocsActiveBlock topSpace settings={responsiveSettings}>
+        <div>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+        </div>
+      </DocsActiveBlock>
     </DocsBlock>
   </div>
 );
 
 export default SpaceBetween;
-
-<div className="flex space-x-4">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>
-</div>;
