@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemsPage from '../layouts/ItemsPage';
+import ItemsInteractivePage from '../layouts/ItemsInteractivePage';
 
-const utilties = () => <ItemsPage navigationIdx={3} />;
+const utilties = () => <ItemsInteractivePage navigationIdx={3} />;
 
 export default utilties;
