@@ -8,7 +8,7 @@ const index = () => (
       variables. They are meant to provide building blocks for custom designs in
       application and styleguide without writing additional CSS. Because of the
       nature of utility classes they are also good choice to override other
-      styles in places which need additional tweaking.
+      styles in places where additional tweaking is needed.
     </DocsBlock>
     <DocsBlock info="Responsive design">
       Utility classes can provide responsive versions available by prefix the
