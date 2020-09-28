@@ -13,18 +13,24 @@ const index = () => (
     <DocsBlock info="Responsive design">
       Utility classes can provide responsive versions available by prefix the
       utility with the breakpoint name using following formula:
-      <code>[breakpoint]:sg-[utility-class]</code>
+      <pre>
+        <code>[breakpoint]:sg-[utility-class]</code>
+      </pre>
     </DocsBlock>
     <DocsBlock info="Pseudo variants">
       Utility classes can be also applied or changed per pseudo class versions
       available by prefix the utility with the pseudo variant name using
       following formula:
-      <code>[pseudo]:sg-[utility-class]</code> character.
+      <pre>
+        <code>[pseudo]:sg-[utility-class]</code>
+      </pre>
     </DocsBlock>
     <DocsBlock info="Mix variants">
       Responsive design prefix work with pseudo variants using the following
       forumla:
-      <code>[breakpoint]:[pseudo]:sg-[utility-class]</code> character.
+      <pre>
+        <code>[breakpoint]:[pseudo]:sg-[utility-class]</code>
+      </pre>
     </DocsBlock>
   </div>
 );
