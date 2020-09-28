@@ -42,9 +42,10 @@ const GeneratePage = ({padeIndex}) =>
 const BasicsPage = () => <GeneratePage padeIndex="0" />;
 const ComponentsPage = () => <GeneratePage padeIndex="1" />;
 const ContainersPage = () => <GeneratePage padeIndex="2" />;
+const UtilitiesPage = () => <GeneratePage padeIndex="3" />;
 const InteractivePage = () => (
   <>
-    <h1 className="main-header">Brainly style guide - {navigation[3].name}</h1>
+    <h1 className="main-header">Brainly style guide - {navigation[4].name}</h1>
     {sections}
   </>
 );
@@ -58,6 +59,7 @@ const App = () => (
       <Route path="/basics.html" exact component={BasicsPage} />
       <Route path="/components.html" exact component={ComponentsPage} />
       <Route path="/containers.html" exact component={ContainersPage} />
+      <Route path="/utilities.html" exact component={UtilitiesPage} />
       <Route path="/interactive.html" exact component={InteractivePage} />
     </div>
   </Router>
