@@ -13,7 +13,6 @@ type PropsType = {
   noMarginTop?: boolean,
   reversedOrder?: boolean,
   fullPage?: boolean,
-  wide?: boolean,
   threeColumns?: boolean,
   ...
 };
@@ -26,7 +25,6 @@ const Layout = ({
   noMaxWidth,
   noMarginTop,
   fullPage,
-  wide,
   threeColumns,
   className,
   ...props
