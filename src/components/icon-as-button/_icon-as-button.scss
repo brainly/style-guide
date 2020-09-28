@@ -120,22 +120,8 @@ $includeHtml: false !default;
 
     &--small {
       .sg-icon-as-button__hole {
-        width: 30px;
-        height: 30px;
-      }
-    }
-
-    &--xsmall {
-      .sg-icon-as-button__hole {
         width: 24px;
         height: 24px;
-      }
-    }
-
-    &--xxsmall {
-      .sg-icon-as-button__hole {
-        width: 16px;
-        height: 16px;
       }
     }
 

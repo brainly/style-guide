@@ -88,7 +88,7 @@ const Search = ({
           <Icon
             type="search"
             color="gray-secondary"
-            size={size === 'l' ? 24 : 18}
+            size={size === 'l' ? 24 : 16}
           />
         </button>
       )}

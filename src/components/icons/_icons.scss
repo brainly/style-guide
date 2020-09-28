@@ -2,33 +2,7 @@
 
 $includeHtml: false !default;
 
-$iconSizes: 120, 118, 104, 102, 80, 78, 64, 62, 56, 54, 48, 46, 40, 38, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10;
-
-// Icon sizes :(
-// 120 - DEPRECATED
-// 118 - DEPRECATED
-// 104 - avatar xxlarge
-// 102 - avatar xxlarge with border
-// 80 - avatar xlarge
-// 78 - avatar xlarge with border
-// 64 - DEPRECATED
-// 62 - DEPRECATED
-// 56 - avatar large
-// 54 - avatar large with border
-// 48 - DEPRECATED
-// 46 - DEPRECATED
-// 40 - avatar medium,
-// 38 - avatar medium with border,
-// 32 - avatar small,
-// 30 - avatar small with border,
-// 26 - icon as button default,
-// 24 - avatar xsmall, label large
-// 22 - avatar xsmall with border
-// 20 - round button, fb primary button
-// 18 - icon as button small, default list
-// 16 - label default, rating default
-// 14 - label small, rating small, icon as button default with small icon,
-// 10 - icon as button small with small icon, checkbox check icon
+$iconSizes: 16, 24, 32, 40, 56, 80, 104;
 
 @if ($includeHtml) {
 

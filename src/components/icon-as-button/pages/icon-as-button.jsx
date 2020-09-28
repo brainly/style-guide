@@ -80,27 +80,14 @@ const icons = () => (
       </ul>
     </DocsBlock>
 
-    <DocsBlock info="xsmall">
+    <DocsBlock info="normal">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
           <DrawHelper
             color={color}
             key={color}
             type={TYPE.HEART}
-            size={SIZE.XSMALL}
-          />
-        ))}
-      </ul>
-    </DocsBlock>
-
-    <DocsBlock info="xxsmall">
-      <ul className="icons-list">
-        {Object.values(ICON_COLOR).map(color => (
-          <DrawHelper
-            color={color}
-            key={color}
-            type={TYPE.HEART}
-            size={SIZE.XXSMALL}
+            size={SIZE.NORMAL}
           />
         ))}
       </ul>
