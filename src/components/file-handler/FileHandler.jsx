@@ -110,10 +110,14 @@ const FileHandler = ({
   className,
   ...props
 }: PropsType) => {
-  const fileHandlerClass = classNames('sg-file-handler', {
-    'sg-file-handler--closable': onClose,
-    [`sg-file-handler--${COLORS_MAP[color]}`]: color,
-  });
+  const fileHandlerClass = classNames(
+    'sg-file-handler',
+    {
+      'sg-file-handler--closable': onClose,
+      [`sg-file-handler--${COLORS_MAP[color]}`]: color,
+    },
+    className
+  );
 
   const clickProps =
     thumbnailSrc !== undefined && onClick
