@@ -15,7 +15,7 @@ export type LabelColorType =
   | 'peach'
   | 'mustard'
   | 'gray'
-  | 'default';
+  | 'achromatic';
 
 export type LabelType =
   | 'default'
@@ -37,7 +37,7 @@ export const COLORS_SOLID_MAP = {
   peach: 'peach-primary',
   mustard: 'mustard-primary',
   gray: 'gray-secondary',
-  default: 'black',
+  achromatic: 'black',
 };
 
 export const COLORS_DEFAULT_MAP = {
@@ -47,7 +47,7 @@ export const COLORS_DEFAULT_MAP = {
   peach: 'peach-secondary-light',
   mustard: 'mustard-secondary-light',
   gray: 'gray-secondary-light',
-  default: 'white',
+  achromatic: 'white',
 };
 
 const TRANSPARENT_COLOR_TEXT_MAP = {
@@ -57,7 +57,7 @@ const TRANSPARENT_COLOR_TEXT_MAP = {
   peach: 'peach-dark',
   mustard: 'mustard-dark',
   gray: 'gray-secondary',
-  default: 'default',
+  achromatic: 'default',
 };
 
 const TRANSPARENT_ICON_COLOR_MAP = {
@@ -67,7 +67,7 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   peach: 'peach',
   mustard: 'mustard',
   gray: 'gray-secondary',
-  default: 'dark',
+  achromatic: 'dark',
 };
 
 export const LABEL_COLORS_SET = {
@@ -77,6 +77,7 @@ export const LABEL_COLORS_SET = {
   PEACH: 'peach',
   MUSTARD: 'mustard',
   GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
 };
 
 type PropsType = $ReadOnly<{
@@ -108,6 +109,7 @@ type PropsType = $ReadOnly<{
    * @see color="peach" https://styleguide.brainly.com/latest/docs/interactive.html?color="peach"#labels
    * @see color="mustard" https://styleguide.brainly.com/latest/docs/interactive.html?color="mustard"#labels
    * @see color="gray" https://styleguide.brainly.com/latest/docs/interactive.html?color="gray"#labels
+   * @see color="achromatic" https://styleguide.brainly.com/latest/docs/interactive.html?color="achromatic"#labels
    */
   color?: LabelColorType,
   /**
@@ -156,7 +158,7 @@ const Label = ({
   type = 'default',
   iconType,
   onClose,
-  color = 'default',
+  color = 'achromatic',
   className,
   ...props
 }: PropsType) => {
