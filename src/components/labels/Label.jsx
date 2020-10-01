@@ -77,7 +77,7 @@ export const LABEL_COLORS_SET = {
   PEACH: 'peach',
   MUSTARD: 'mustard',
   GRAY: 'gray',
-  ARCHROMATIC: 'achromatic',
+  ACHROMATIC: 'achromatic',
 };
 
 type PropsType = $ReadOnly<{
