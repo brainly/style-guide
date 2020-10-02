@@ -1,4 +1,5 @@
 import React from 'react';
+import CodeBlock from 'components/CodeBlock';
 import DocsBlock from 'components/DocsBlock';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -67,9 +68,9 @@ const SpaceBetween = () => (
   <div>
     <DocsBlock info="General">
       Control the space between child elements.
-      {/* <CodeBlock type="css">
+      <CodeBlock type="css">
         {'.sg-space-{x, y}-{xxs, xs, s, m, l, xl, xxl, xxxl, xxxxl}'}
-      </CodeBlock> */}
+      </CodeBlock>
     </DocsBlock>
     <DocsBlock info="Horizontal">
       Control the horizontal space between children.
