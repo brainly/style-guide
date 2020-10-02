@@ -3,9 +3,9 @@ import ItemsInteractivePage from '../layouts/ItemsInteractivePage';
 
 const utilities = props => (
   <ItemsInteractivePage
+    {...props}
     navigationIdx={3}
     pageBundleName="utilities"
-    {...props}
   />
 );
 
