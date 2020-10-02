@@ -12,16 +12,22 @@ const version = packageJSON.version;
 type PropsType = {
   navigationIdx?: number,
   rootNodeToBeRemovedAfterFullWebpackMigration?: React.Node,
-  pageBundleName?: string,
+  pageBundleName: string,
   ...
 };
 
 const ItemsInteractivePage = ({
   navigationIdx,
   rootNodeToBeRemovedAfterFullWebpackMigration,
-  pageBundleName = 'components',
+  pageBundleName,
 }: PropsType) => {
   const pageConfig = navigation[navigationIdx];
+
+  if (!pageBundleName) {
+    throw new Error(
+      `<ItemsInteractivePage/> requires pageBundleName to be specified. Current value is "${pageBundleName}".`
+    );
+  }
 
   return (
     <html>
