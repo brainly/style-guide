@@ -1,7 +1,7 @@
 import React from 'react';
+import CodeBlock from 'components/CodeBlock';
 import DocsBlock from 'components/DocsBlock';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import CodeBlock from 'components/CodeBlock';
 
 const horizontalSettings = [
   {
