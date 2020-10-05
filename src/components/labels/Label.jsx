@@ -171,6 +171,8 @@ const Label = ({
       [`sg-label--${String(backgroundColor)}`]:
         backgroundColor && (type === 'solid' || type === 'default'),
       'sg-label--closable': onClose,
+      'sg-label--transparent':
+        type === 'transparent' || type === 'transparent-color',
     },
     className
   );
