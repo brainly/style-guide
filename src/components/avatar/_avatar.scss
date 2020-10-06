@@ -28,10 +28,13 @@ $includeHtml: false !default;
       position: relative;
       height: 100%;
       width: 100%;
+
+      &--icon {
+        background-color: $avatarDefaultBackgroundColor;
+      }
     }
 
     &__icon {
-      background-color: $avatarDefaultBackgroundColor;
       width: 100%;
       height: 100%;
     }
