@@ -10,6 +10,7 @@ test('render default', () => {
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);
   expect(avatar.find('img')).toHaveLength(0);
 
+  expect(avatar.find('.sg-avatar__image--icon')).toHaveLength(1);
   expect(avatar.find(Icon)).toHaveLength(1);
   expect(avatar.find(Icon).hasClass('sg-avatar__icon')).toEqual(true);
 });
