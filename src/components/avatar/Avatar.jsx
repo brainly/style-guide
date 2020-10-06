@@ -68,7 +68,7 @@ const Avatar = ({
     );
   } else {
     avatarContent = (
-      <div className="sg-avatar__image" title={title}>
+      <div className="sg-avatar__image sg-avatar__image--icon" title={title}>
         <Icon
           className="sg-avatar__icon"
           type="profile"
