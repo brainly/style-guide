@@ -61,11 +61,6 @@ $includeHtml: false !default;
 
     &--with-border {
       border: solid $avatarBorderColor $avatarBorderWidth;
-
-      .sg-avatar__image {
-        margin-top: -$avatarBorderWidth;
-        margin-left: -$avatarBorderWidth;
-      }
     }
 
     &--spaced {
