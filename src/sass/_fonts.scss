@@ -1,4 +1,5 @@
 $includeHtml: false !default;
+$includeFonts: true !default;
 $proximaNovaRegularWoff2Path: $sgFontsPath + 'ProximaNova-Regular.woff2';
 $proximaNovaRegularWoffPath: $sgFontsPath + 'ProximaNova-Regular.woff';
 $proximaNovaBoldWoff2Path: $sgFontsPath + 'ProximaNova-Bold.woff2';
@@ -6,7 +7,7 @@ $proximaNovaBoldWoffPath: $sgFontsPath + 'ProximaNova-Bold.woff';
 $proximaNovaBlackWoff2Path: $sgFontsPath + 'ProximaNova-Black.woff2';
 $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
 
-@if ($includeHtml) {
+@if ($includeHtml and $includeFonts) {
 
   @font-face {
     font-family: $fontFamilyProximaNova;
