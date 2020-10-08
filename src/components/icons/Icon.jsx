@@ -13,6 +13,7 @@ export type IconTypeType =
   | 'arrow_left'
   | 'arrow_right'
   | 'arrow_up'
+  | 'ask_bubble'
   | 'ask_parent_to_pay'
   | 'attachment'
   | 'bell_checked'
@@ -139,6 +140,7 @@ export const TYPE = {
   ARROW_LEFT: 'arrow_left',
   ARROW_RIGHT: 'arrow_right',
   ARROW_UP: 'arrow_up',
+  ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
