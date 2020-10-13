@@ -65,12 +65,14 @@ const Buttons = () => {
           fullWidth
           style={{
             backgroundColor:
-              type === 'transparent-inverted' ? hex.graySecondary : null,
-            paddingTop: type === 'transparent-inverted' ? '8px' : null,
-            paddingLeft: type === 'transparent-inverted' ? '4px' : null,
+              type === 'transparent-inverted' || type === 'solid-inverted'
+                ? hex.graySecondary
+                : null,
+            paddingTop: '8px',
+            paddingLeft: '16px',
           }}
         >
-          <DocsBlock evenColumns justified>
+          <DocsBlock evenColumns>
             <Text>{type}</Text>
           </DocsBlock>
           <DocsBlock evenColumns justified>
@@ -132,7 +134,7 @@ const Buttons = () => {
   return (
     <DocsBlock>
       <DocsBlock centered fullWidth>
-        <DocsBlock evenColumns justified>
+        <DocsBlock evenColumns style={{paddingLeft: '16px'}}>
           <Text weight="bold">type / state </Text>
         </DocsBlock>
         <DocsBlock evenColumns justified>
