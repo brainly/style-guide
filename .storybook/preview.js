@@ -8,6 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
+import { AddonPanel, Placeholder, Separator, Source, Spaced } from '@storybook/components';
 import {Canvas} from './Canvas';
 
 // load all styles
@@ -20,6 +21,7 @@ const Page = () => {
     <Description />
     <Primary />
     <ArgsTable story={PRIMARY_STORY} />
+    <Source code={JSON.stringify({aaa:'asdsad'}, null, 2)} language="js" copyable padded showLineNumbers />
     <Stories />
   </>
 };
@@ -31,6 +33,7 @@ export const parameters = {
       Canvas, //custom canvas in order to handle plain html snippets
     },
   },
+  layout: 'centered',
   options: {
     storySort: {
       order: ['Introduction', 'Basics', 'Components', 'Containers'],
