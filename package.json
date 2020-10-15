@@ -115,6 +115,7 @@
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm' 'yarn run package-commonjs' 'yarn run package-esm'",
     "prepublishOnly": "yarn package-prepare",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
+    "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public"
   },
   "jest": {
