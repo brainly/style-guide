@@ -50,7 +50,7 @@ export const parameters = {
   layout: 'centered',
   options: {
     storySort: {
-      order: ['Introduction', 'Foundation', 'Components', 'Layout'],
+      order: ['Introduction 👩‍💻', 'Foundation', 'Components', 'Layout'],
     },
   },
 };
