@@ -3,7 +3,7 @@
 // TODO: use built in component after issue resolved
 // https://github.com/storybookjs/storybook/issues/12786
 
-import React from 'react';
+import * as React from 'react';
 import {styled} from '@storybook/theming';
 import {transparentize} from 'polished';
 
@@ -44,6 +44,8 @@ export interface TypesetProps {
   fontSizes: Array<string>;
   fontWeight?: number;
   sampleText?: string;
+  lineHeights?: Array<number>;
+  children?: React.Node;
 }
 
 export const Typeset = ({
@@ -52,23 +54,26 @@ export const Typeset = ({
   lineHeights,
   fontWeight,
   sampleText,
+  children,
   ...props
 }: TypesetProps) => (
   <Wrapper {...props} className="docblock-typeset">
-    {fontSizes.map((size, index) => (
-      <TypeSpecimen key={size}>
-        <Label>{size}</Label>
-        <Sample
-          style={{
-            fontFamily,
-            fontSize: size,
-            fontWeight,
-            lineHeight: lineHeights?.[index] || lineHeights?.[0] || '',
-          }}
-        >
-          {sampleText || 'Was he a beast if music could move him so?'}
-        </Sample>
-      </TypeSpecimen>
-    ))}
+    {children !== undefined
+      ? children
+      : fontSizes.map((size, index) => (
+          <TypeSpecimen key={size}>
+            <Label>{size}</Label>
+            <Sample
+              style={{
+                fontFamily,
+                fontSize: size,
+                fontWeight,
+                lineHeight: lineHeights?.[index] || lineHeights?.[0] || '',
+              }}
+            >
+              {sampleText || 'Was he a beast if music could move him so?'}
+            </Sample>
+          </TypeSpecimen>
+        ))}
   </Wrapper>
 );

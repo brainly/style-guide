@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 import Box from './Box';
 
-<Meta title="Containers/Box" component={Box} />
+<Meta title="Layout/Box" component={Box} />
 
 # Box
 
@@ -20,11 +20,12 @@ Container for grouping elements. It provides padding, background color, border a
 ### With border
 
 <Canvas>
-  <Story name="With border" args={{
-    border: true
-  }}>
+  <Story
+    name="With border"
+    args={{
+      border: true,
+    }}
+  >
     <Box border>Text inside Box with border</Box>
   </Story>
 </Canvas>
-
-

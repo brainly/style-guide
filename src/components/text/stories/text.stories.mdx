@@ -1,0 +1,92 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Typeset } from '../../../_docs/blocks/Typeset';
+import Text from '../Text';
+import Link, { LINK_WEIGHT, LINK_SIZE, LINK_COLOR } from '../Link';
+import {
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_COLOR,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from '../textConsts';
+
+<Meta title="Foundation/Text" />
+
+export const text = "We've got your back!";
+
+export const textSizesMap = [
+  {
+    type: 'xxsmall',
+    fontSize: '9px',
+  },
+  {
+    type: 'xsmall',
+    fontSize: '12px',
+  },
+  {
+    type: 'small',
+    fontSize: '15px',
+  },
+  {
+    type: 'medium',
+    fontSize: '18px',
+  },
+  {
+    type: 'large',
+    fontSize: '24px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '33px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '45px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '66px',
+  },
+];
+
+export const getValues = function(object, addUndefined = true) {
+  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+};
+
+export const TextExamples = () => {
+  const sizeVariant = [];
+  getValues(TEXT_SIZE, false).forEach((size) => {
+    getValues(TEXT_WEIGHT, false).forEach((weight) => {
+      let itemSize;
+      textSizesMap.map((item) =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      );
+      sizeVariant.push(
+        <Text
+          type={TEXT_TYPE.H2}
+          size={size}
+          color={TEXT_COLOR.GRAY}
+          weight={weight}
+          key={size + weight}
+        >
+          Body text
+        </Text>,
+      );
+    });
+  });
+  return sizeVariant;
+};
+
+## Typography
+
+The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
+
+Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
+
+### Body Text
+
+**Font**: Proxima Nova
+**Weight**: 700
+
+<Typeset>{TextExamples()}</Typeset>
