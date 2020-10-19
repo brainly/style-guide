@@ -51,7 +51,9 @@ export const textSizesMap = [
 ];
 
 export const getValues = function(object, addUndefined = true) {
-  return addUndefined ? [undefined, ...Object.values(object)] : Object.values(object);
+  return addUndefined
+    ? [undefined, ...Object.values(object)]
+    : Object.values(object);
 };
 
 export const TextExamples = () => {
@@ -78,13 +80,13 @@ export const TextExamples = () => {
   return sizeVariant;
 };
 
-## Typography
+# Typography
 
 The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
 
 Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
 
-### Body Text
+## Body Text
 
 **Font**: Proxima Nova
 **Weight**: 700
