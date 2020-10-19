@@ -176,6 +176,9 @@ const Relative = styled.div({
 });
 
 const SourceSelectionList = styled.ul({
+  position: 'absolute',
+  bottom: '0',
+  left: '0',
   transform: 'translateY(1px)',
   margin: '0px',
   padding: '0px',
@@ -189,7 +192,7 @@ const SourceSelectionItem = styled.li({
 });
 
 const SourceSelectionButton = styled.button(({active}) => ({
-  padding: '10px 20px',
+  padding: '5px 20px',
   outline: 'none',
   background: 'none',
   border: 'none',
@@ -292,7 +295,7 @@ const Preview = ({
             )}
           </ChildrenContainer>
           <ActionBar actionItems={actionItems} />
-          <SourceSelectionBar />
+          {expanded && <SourceSelectionBar />}
         </Relative>
       </ZoomContext.Provider>
       {withSource && source}
