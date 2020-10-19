@@ -69,8 +69,6 @@ const getPreviewProps = (
     })
     .join('\r\n\r\n');
 
-  console.log({htmlCode});
-
   const sourceProps = getSourceProps(
     {ids: targetIds},
     docsContext,
