@@ -9,7 +9,6 @@ import React, {
 } from 'react';
 import {darken} from 'polished';
 import {styled} from '@storybook/theming';
-import {renderToStaticMarkup} from 'react-dom/server';
 
 import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
 import {Source, SourceProps} from '@storybook/components/dist/blocks/Source';
@@ -176,6 +175,47 @@ const Relative = styled.div({
   position: 'relative',
 });
 
+const SourceSelectionList = styled.ul({
+  transform: 'translateY(1px)',
+  margin: '0px',
+  padding: '0px',
+  display: 'flex',
+  listStyle: 'none',
+});
+
+const SourceSelectionItem = styled.li({
+  margin: '0px',
+  listStyle: 'none',
+});
+
+const SourceSelectionButton = styled.button(({active}) => ({
+  padding: '10px 20px',
+  outline: 'none',
+  background: 'none',
+  border: 'none',
+  appearance: 'none',
+  textDecoration: 'none',
+  lineHeight: '20px',
+  fontSize: '14px',
+  fontWeight: '700',
+  whiteSpace: 'nowrap',
+  color: active ? 'rgb(30, 167, 253)' : 'rgb(153, 153, 153)',
+  boxShadow: active ? 'rgb(30, 167, 253) 0px -3px 0px 0px inset' : 'none',
+}));
+
+const SourceSelectionBar = () => {
+  return (
+    <SourceSelectionList>
+      <SourceSelectionItem>
+        <SourceSelectionButton active>JSX</SourceSelectionButton>
+      </SourceSelectionItem>
+      <SourceSelectionItem>
+        <SourceSelectionButton>HTML</SourceSelectionButton>
+      </SourceSelectionItem>
+    </SourceSelectionList>
+  );
+};
+
 const getLayout = children => {
   return children.reduce((result, c) => {
     if (result) {
@@ -206,25 +246,6 @@ const Preview = ({
   className,
   ...props
 }: PreviewProps) => {
-  // get original components from stories and generate html code for them
-  const childrenArray = Array.isArray(children) ? children : [children];
-  const stories = childrenArray.filter(
-    c => c.props && (c.props.id || c.props.name)
-  );
-
-  const htmlCode = stories
-    .map(story => {
-      const storyChild = React.Children.only(story.props.children);
-      const element =
-        typeof storyChild === 'function' ? storyChild() : storyChild;
-      const staticMarkup = renderToStaticMarkup(element);
-
-      return staticMarkup;
-    })
-    .join('\r\n\r\n');
-
-  console.log({htmlCode});
-
   const [expanded, setExpanded] = useState(isExpanded);
   const {source, actionItem} = getSource(withSource, expanded, setExpanded);
   const [scale, setScale] = useState(1);
@@ -233,6 +254,8 @@ const Preview = ({
   const actionItems = additionalActions
     ? [...defaultActionItems, ...additionalActions]
     : defaultActionItems;
+
+  const [sourceType, setSourceType] = useState('jsx');
 
   const layout = getLayout(
     Children.count(children) === 1 ? [children] : children
@@ -269,6 +292,7 @@ const Preview = ({
             )}
           </ChildrenContainer>
           <ActionBar actionItems={actionItems} />
+          <SourceSelectionBar />
         </Relative>
       </ZoomContext.Provider>
       {withSource && source}

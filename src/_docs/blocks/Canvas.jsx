@@ -5,6 +5,7 @@ import React, {
   ReactNodeArray,
   useContext,
 } from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
 import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
 import {resetComponents} from '@storybook/components/html';
@@ -55,6 +56,21 @@ const getPreviewProps = (
         storyNameFromExport(mdxStoryNameToKey[s.props.name])
       )
   );
+
+  // get original components from stories and generate html code for them
+  const htmlCode = stories
+    .map(story => {
+      const storyChild = React.Children.only(story.props.children);
+      const element =
+        typeof storyChild === 'function' ? storyChild() : storyChild;
+      const staticMarkup = renderToStaticMarkup(element);
+
+      return staticMarkup;
+    })
+    .join('\r\n\r\n');
+
+  console.log({htmlCode});
+
   const sourceProps = getSourceProps(
     {ids: targetIds},
     docsContext,
@@ -63,7 +79,7 @@ const getPreviewProps = (
 
   return {
     ...props, // pass through columns etc.
-    withSource: sourceProps,
+    withSource: {...sourceProps, htmlCode},
     isExpanded: withSource === SourceState.OPEN,
   };
 };
