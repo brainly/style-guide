@@ -1,20 +1,11 @@
-import React, {
-  FC,
-  ReactElement,
-  ReactNode,
-  ReactNodeArray,
-  useContext,
-} from 'react';
+import React, {useContext} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
 import {resetComponents} from '@storybook/components/html';
 import {Preview as PurePreview} from './Preview';
-import {DocsContext, DocsContextProps} from '@storybook/addon-docs/dist/blocks';
-import {
-  SourceContext,
-  SourceContextProps,
-} from '@storybook/addon-docs/dist/blocks/SourceContainer';
+import {DocsContext} from '@storybook/addon-docs/dist/blocks';
+import {SourceContext} from '@storybook/addon-docs/dist/blocks/SourceContainer';
 import {getSourceProps} from '@storybook/addon-docs/dist/blocks/Source';
 
 export const SourceState = {
@@ -41,12 +32,10 @@ const getPreviewProps = (
       ),
     };
   }
-  const childArray: ReactNodeArray = Array.isArray(children)
-    ? children
-    : [children];
-  const stories = (childArray.filter(
-    (c: ReactElement) => c.props && (c.props.id || c.props.name)
-  ): Array<ReactElement>);
+  const childArray = Array.isArray(children) ? children : [children];
+  const stories = childArray.filter(
+    c => c.props && (c.props.id || c.props.name)
+  );
   const {mdxComponentMeta, mdxStoryNameToKey} = docsContext;
   const targetIds = stories.map(
     s =>
@@ -76,7 +65,7 @@ const getPreviewProps = (
   );
 
   return {
-    ...props, // pass through columns etc.
+    ...props,
     withSource: {...sourceProps, htmlCode},
     isExpanded: withSource === SourceState.OPEN,
   };

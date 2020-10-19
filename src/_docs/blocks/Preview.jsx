@@ -1,12 +1,6 @@
 // @flow
 
-import React, {
-  Children,
-  FunctionComponent,
-  ReactElement,
-  ReactNode,
-  useState,
-} from 'react';
+import React, {Children, useState} from 'react';
 import {darken} from 'polished';
 import {styled} from '@storybook/theming';
 
@@ -81,7 +75,7 @@ const ChildrenContainer = styled.div(
       : {}
 );
 
-const StyledSource = styled(Source)<{}>(({theme}) => ({
+const StyledSource = styled(Source)(({theme}) => ({
   margin: 0,
   borderTopLeftRadius: 0,
   borderTopRightRadius: 0,
@@ -102,7 +96,7 @@ const StyledSource = styled(Source)<{}>(({theme}) => ({
   },
 }));
 
-const PreviewContainer = styled.div<PreviewProps>(
+const PreviewContainer = styled.div(
   ({theme, withSource, isExpanded}) => ({
     position: 'relative',
     overflow: 'hidden',
@@ -116,7 +110,7 @@ const PreviewContainer = styled.div<PreviewProps>(
 );
 
 interface SourceItem {
-  source?: ReactElement;
+  source?: React$Element;
   actionItem: ActionItem;
 }
 
@@ -155,9 +149,9 @@ const getSource = (
   }
 };
 
-function getStoryId(children: ReactNode) {
+function getStoryId(children) {
   if (Children.count(children) === 1) {
-    const elt = (children: ReactElement);
+    const elt = children;
 
     if (elt.props) {
       return elt.props.id;
