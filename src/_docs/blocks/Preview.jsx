@@ -9,6 +9,7 @@ import React, {
 } from 'react';
 import {darken} from 'polished';
 import {styled} from '@storybook/theming';
+import {renderToStaticMarkup} from 'react-dom/server';
 
 import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
 import {Source, SourceProps} from '@storybook/components/dist/blocks/Source';
@@ -205,6 +206,25 @@ const Preview = ({
   className,
   ...props
 }) => {
+  // get original components from stories and generate html code for them
+  const childrenArray = Array.isArray(children) ? children : [children];
+  const stories = childrenArray.filter(
+    c => c.props && (c.props.id || c.props.name)
+  );
+
+  const htmlCode = stories
+    .map(story => {
+      const storyChild = React.Children.only(story.props.children);
+      const element =
+        typeof storyChild === 'function' ? storyChild() : storyChild;
+      const staticMarkup = renderToStaticMarkup(element);
+
+      return staticMarkup;
+    })
+    .join('\r\n\r\n');
+
+  console.log({htmlCode});
+
   const [expanded, setExpanded] = useState(isExpanded);
   const {source, actionItem} = getSource(withSource, expanded, setExpanded);
   const [scale, setScale] = useState(1);
@@ -213,7 +233,7 @@ const Preview = ({
   const actionItems = additionalActions
     ? [...defaultActionItems, ...additionalActions]
     : defaultActionItems;
-  // @ts-ignore
+
   const layout = getLayout(
     Children.count(children) === 1 ? [children] : children
   );
