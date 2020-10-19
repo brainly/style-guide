@@ -179,7 +179,6 @@ const SourceSelectionList = styled.ul({
   position: 'absolute',
   bottom: '0',
   left: '0',
-  transform: 'translateY(1px)',
   margin: '0px',
   padding: '0px',
   display: 'flex',
@@ -192,14 +191,14 @@ const SourceSelectionItem = styled.li({
 });
 
 const SourceSelectionButton = styled.button(({active}) => ({
-  padding: '5px 20px',
+  padding: '4px 20px',
   outline: 'none',
   background: 'none',
   border: 'none',
   appearance: 'none',
   textDecoration: 'none',
-  lineHeight: '20px',
-  fontSize: '14px',
+  lineHeight: '16px',
+  fontSize: '12px',
   fontWeight: '700',
   whiteSpace: 'nowrap',
   color: active ? 'rgb(30, 167, 253)' : 'rgb(153, 153, 153)',
