@@ -15,7 +15,6 @@ import {
   Source,
   Spaced,
 } from '@storybook/components';
-import { Canvas } from './Canvas';
 
 // load all styles
 import '../src/main.scss';
@@ -43,9 +42,6 @@ const Page = () => {
 export const parameters = {
   docs: {
     page: Page,
-    components: {
-      Canvas, //custom canvas in order to handle plain html snippets
-    },
   },
   layout: 'centered',
   options: {
@@ -60,10 +56,5 @@ export const globalTypes = {
     name: 'Theme',
     description: 'Global theme for components',
     defaultValue: 'dark',
-    toolbar: {
-      icon: 'circlehollow',
-      // array of plain string values or MenuItem shape (see below)
-      items: ['light', 'dark'],
-    },
   },
 };
