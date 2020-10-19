@@ -123,7 +123,8 @@ interface SourceItem {
 const getSource = (
   withSource: SourceProps,
   expanded: boolean,
-  setExpanded: Function
+  setExpanded: Function,
+  sourceType: 'jsx' | 'html'
 ): SourceItem => {
   switch (true) {
     case !!(withSource && withSource.error): {
@@ -137,8 +138,11 @@ const getSource = (
       };
     }
     case expanded: {
+      const {code: jsx, htmlCode} = withSource;
+      const code = sourceType === 'jsx' ? jsx : htmlCode;
+
       return {
-        source: <StyledSource {...withSource} dark />,
+        source: <StyledSource {...withSource} code={code} dark />,
         actionItem: {title: 'Hide code', onClick: () => setExpanded(false)},
       };
     }
@@ -205,14 +209,26 @@ const SourceSelectionButton = styled.button(({active}) => ({
   boxShadow: active ? 'rgb(30, 167, 253) 0px -3px 0px 0px inset' : 'none',
 }));
 
-const SourceSelectionBar = () => {
+const SourceSelectionBar = ({selected, onChange = () => {}}) => {
+  const createChangeHandler = value => () => onChange(value);
+
   return (
     <SourceSelectionList>
       <SourceSelectionItem>
-        <SourceSelectionButton active>JSX</SourceSelectionButton>
+        <SourceSelectionButton
+          onClick={createChangeHandler('jsx')}
+          active={selected === 'jsx'}
+        >
+          JSX
+        </SourceSelectionButton>
       </SourceSelectionItem>
       <SourceSelectionItem>
-        <SourceSelectionButton>HTML</SourceSelectionButton>
+        <SourceSelectionButton
+          onClick={createChangeHandler('html')}
+          active={selected === 'html'}
+        >
+          HTML
+        </SourceSelectionButton>
       </SourceSelectionItem>
     </SourceSelectionList>
   );
@@ -248,8 +264,14 @@ const Preview = ({
   className,
   ...props
 }: PreviewProps) => {
+  const [sourceType, setSourceType] = useState('jsx');
   const [expanded, setExpanded] = useState(isExpanded);
-  const {source, actionItem} = getSource(withSource, expanded, setExpanded);
+  const {source, actionItem} = getSource(
+    withSource,
+    expanded,
+    setExpanded,
+    sourceType
+  );
   const [scale, setScale] = useState(1);
   const previewClasses = [className].concat(['sbdocs', 'sbdocs-preview']);
   const defaultActionItems = withSource ? [actionItem] : [];
@@ -257,7 +279,9 @@ const Preview = ({
     ? [...defaultActionItems, ...additionalActions]
     : defaultActionItems;
 
-  const [sourceType, setSourceType] = useState('jsx');
+  const handleSourceChange = value => {
+    setSourceType(value);
+  };
 
   const layout = getLayout(
     Children.count(children) === 1 ? [children] : children
@@ -294,7 +318,12 @@ const Preview = ({
             )}
           </ChildrenContainer>
           <ActionBar actionItems={actionItems} />
-          {expanded && <SourceSelectionBar />}
+          {expanded && (
+            <SourceSelectionBar
+              onChange={handleSourceChange}
+              selected={sourceType}
+            />
+          )}
         </Relative>
       </ZoomContext.Provider>
       {withSource && source}
