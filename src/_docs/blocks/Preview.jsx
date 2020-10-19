@@ -30,7 +30,7 @@ export interface PreviewProps {
   additionalActions?: Array<ActionItem>;
 }
 
-type layout = 'padded' | 'fullscreen' | 'centered';
+type LayoutType = 'padded' | 'fullscreen' | 'centered';
 
 const ChildrenContainer = styled.div(
   ({isColumn, columns, layout}) => ({
@@ -176,7 +176,7 @@ const Relative = styled.div({
   position: 'relative',
 });
 
-const getLayout = (children: Array<ReactElement>): layout => {
+const getLayout = children => {
   return children.reduce((result, c) => {
     if (result) {
       return result;
@@ -205,7 +205,7 @@ const Preview = ({
   additionalActions,
   className,
   ...props
-}) => {
+}: PreviewProps) => {
   // get original components from stories and generate html code for them
   const childrenArray = Array.isArray(children) ? children : [children];
   const stories = childrenArray.filter(
