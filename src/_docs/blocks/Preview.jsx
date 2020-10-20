@@ -1,6 +1,7 @@
 // @flow
 
 import React, {Children, useState} from 'react';
+import type {Element} from 'react';
 import {darken} from 'polished';
 import {styled} from '@storybook/theming';
 
@@ -110,7 +111,7 @@ const PreviewContainer = styled.div(
 );
 
 interface SourceItem {
-  source?: React$Element;
+  source?: Element<*>;
   actionItem: ActionItem;
 }
 
@@ -189,7 +190,11 @@ const SourceSelectionItem = styled.li({
 });
 
 const SourceSelectionButton = styled.button(({active}) => ({
-  padding: '4px 20px',
+  height: 25,
+  width: 60,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   outline: 'none',
   background: 'none',
   border: 'none',
@@ -203,7 +208,15 @@ const SourceSelectionButton = styled.button(({active}) => ({
   boxShadow: active ? 'rgb(30, 167, 253) 0px -3px 0px 0px inset' : 'none',
 }));
 
-const SourceSelectionBar = ({selected, onChange = () => {}}) => {
+type SourceSelectionBarPropsType = {
+  selected: string,
+  onChange: () => mixed,
+};
+
+const SourceSelectionBar = ({
+  selected,
+  onChange = () => null,
+}: SourceSelectionBarPropsType) => {
   const createChangeHandler = value => () => onChange(value);
 
   return (

@@ -15,6 +15,7 @@ import {
   Source,
   Spaced,
 } from '@storybook/components';
+import {Canvas} from 'blocks/Canvas'
 
 // load all styles
 import '../src/main.scss';
@@ -42,6 +43,9 @@ const Page = () => {
 export const parameters = {
   docs: {
     page: Page,
+    components: {
+      Canvas
+    }
   },
   layout: 'centered',
   options: {

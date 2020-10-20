@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 // TODO: use built in component after issue resolved
 // https://github.com/storybookjs/storybook/issues/12786
