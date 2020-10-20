@@ -3,7 +3,6 @@ import {
   Title,
   Subtitle,
   Description,
-  Primary,
   ArgsTable,
   Stories,
   PRIMARY_STORY,
@@ -16,6 +15,7 @@ import {
   Spaced,
 } from '@storybook/components';
 import {Canvas} from 'blocks/Canvas'
+import {Primary} from 'blocks/Primary'
 
 // load all styles
 import '../src/main.scss';
