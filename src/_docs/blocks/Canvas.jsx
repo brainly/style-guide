@@ -4,7 +4,8 @@ import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
 import {resetComponents} from '@storybook/components/html';
 import {Preview as PurePreview} from './Preview';
-import {DocsContext} from '@storybook/addon-docs/dist/blocks';
+import {getDocsStories} from '@storybook/addon-docs/dist/blocks/utils';
+import {DocsContext} from '@storybook/addon-docs/dist/blocks/DocsContext';
 import {SourceContext} from '@storybook/addon-docs/dist/blocks/SourceContainer';
 import {getSourceProps} from '@storybook/addon-docs/dist/blocks/Source';
 
@@ -46,13 +47,18 @@ const getPreviewProps = (
       )
   );
 
-  // get original components from stories and generate html code for them
-  const htmlCode = stories
+  // Get original stories from document
+  const componentStories = getDocsStories(docsContext);
+
+  // Find matching stories from all listed in current document
+  const currentStories = componentStories.filter(story =>
+    targetIds.includes(story.id)
+  );
+
+  // and generate html code for them
+  const htmlCode = currentStories
     .map(story => {
-      const storyChild = React.Children.only(story.props.children);
-      const element =
-        typeof storyChild === 'function' ? storyChild() : storyChild;
-      const staticMarkup = renderToStaticMarkup(element);
+      const staticMarkup = renderToStaticMarkup(story.storyFn());
 
       return staticMarkup;
     })
