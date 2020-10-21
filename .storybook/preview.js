@@ -7,9 +7,9 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
 
-import {Canvas} from 'blocks/Canvas'
-import {Primary} from 'blocks/Primary'
-import {Stories} from 'blocks/Stories'
+import { Canvas } from 'blocks/Canvas';
+import { Primary } from 'blocks/Primary';
+import { Stories } from 'blocks/Stories';
 
 // load all styles
 import '../src/main.scss';
@@ -31,13 +31,19 @@ export const parameters = {
   docs: {
     page: Page,
     components: {
-      Canvas
-    }
+      Canvas,
+    },
   },
   layout: 'centered',
   options: {
     storySort: {
-      order: ['Introduction ✏️', 'Foundation', 'Components', 'Layout'],
+      order: [
+        'Introduction ✏️',
+        'Foundation',
+        'Components',
+        'Layout',
+        'Utilities',
+      ],
     },
   },
 };
