@@ -4,18 +4,12 @@ import {
   Subtitle,
   Description,
   ArgsTable,
-  Stories,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
-import {
-  AddonPanel,
-  Placeholder,
-  Separator,
-  Source,
-  Spaced,
-} from '@storybook/components';
+
 import {Canvas} from 'blocks/Canvas'
 import {Primary} from 'blocks/Primary'
+import {Stories} from 'blocks/Stories'
 
 // load all styles
 import '../src/main.scss';
@@ -28,13 +22,6 @@ const Page = () => {
       <Description />
       <Primary />
       <ArgsTable story={PRIMARY_STORY} />
-      <Source
-        code={JSON.stringify({ code: 'const DESIGN_SYSTEM;' }, null, 2)}
-        language="js"
-        copyable
-        padded
-        showLineNumbers
-      />
       <Stories />
     </>
   );
