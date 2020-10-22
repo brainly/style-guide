@@ -6,8 +6,10 @@ import MobileIcon, {
 } from '../../components/mobile-icons/MobileIcon';
 import SubjectIcon, {
   TYPE as SUBJECT_TYPE,
-  ICON_COLOR as SUBJECT_ICON_COLOR,
 } from '../../components/subject-icons/SubjectIcon';
+import MathSymbol, {
+  MATH_SYMBOL_TYPE,
+} from '../../components/math-symbols/MathSymbol';
 
 <Meta title="Foundation ✨/Icons" />
 
@@ -59,6 +61,18 @@ Icon set for subject related content - monochromatic version.
   {Object.values(SUBJECT_TYPE).map((type) => (
     <IconItem name={type} key={type}>
       <SubjectIcon type={type} size="small" monoColor="gray" />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Math Symbols
+
+Icon set used in rich text editor.
+
+<IconGallery>
+  {Object.values(MATH_SYMBOL_TYPE).map((type) => (
+    <IconItem name={type} key={type}>
+      <MathSymbol type={type} color="dark" size="small" />
     </IconItem>
   ))}
 </IconGallery>
