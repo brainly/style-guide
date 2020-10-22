@@ -4,14 +4,15 @@
 // https://github.com/storybookjs/storybook/issues/12786
 
 import * as React from 'react';
-import {styled} from '@storybook/theming';
-import {transparentize} from 'polished';
+import { styled } from '@storybook/theming';
+import { transparentize } from 'polished';
 
-import {withReset} from '@storybook/components/dist/typography/shared';
-import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
+import { withReset } from '@storybook/components/dist/typography/shared';
+import { getBlockBackgroundStyle } from '@storybook/components/dist/blocks/BlockBackgroundStyles';
 
-const Label = styled.div<{}>(({theme}) => ({
-  marginRight: 30,
+export const Label = styled.div<{}>(({ theme }) => ({
+  marginRight: 16,
+  width: 50,
   fontSize: `${theme.typography.size.s1}px`,
   color:
     theme.base === 'light'
@@ -26,14 +27,14 @@ const Sample = styled.div({
   lineHeight: 'normal',
 });
 
-const TypeSpecimen = styled.div({
+export const TypeSpecimen = styled.div({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'baseline',
-  '&:not(:last-child)': {marginBottom: '1rem'},
+  '&:not(:last-child)': { marginBottom: '1rem' },
 });
 
-const Wrapper = styled.div<{}>(withReset, ({theme}) => ({
+const Wrapper = styled.div<{}>(withReset, ({ theme }) => ({
   ...getBlockBackgroundStyle(theme),
   margin: '25px 0 40px',
   padding: '30px 20px',
