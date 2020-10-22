@@ -255,11 +255,6 @@ const getLayout = children => {
   }, undefined);
 };
 
-/**
- * A preview component for showing one or more component `Story`
- * items. The preview also shows the source for the component
- * as a drop-down.
- */
 const Preview = ({
   isColumn,
   columns,

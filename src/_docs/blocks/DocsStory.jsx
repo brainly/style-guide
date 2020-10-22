@@ -14,7 +14,7 @@ import {
 import {Canvas} from './Canvas';
 
 const warnStoryDescription = deprecate(
-  () => {},
+  () => null,
   dedent`
     Deprecated parameter: docs.storyDescription => docs.description.story
       

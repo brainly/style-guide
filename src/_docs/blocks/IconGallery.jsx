@@ -45,9 +45,6 @@ interface IconItemProps {
   name: string;
 }
 
-/**
- * An individual icon with a caption and an example (passed as `children`).
- */
 export const IconItem = ({name, size, children}: IconItemProps) => (
   <Item>
     <ItemSpecimen size={size}>{children}</ItemSpecimen>
@@ -59,9 +56,6 @@ interface IconGalleryProps {
   children: Node;
 }
 
-/**
- * Show a grid of icons, as specified by `IconItem`.
- */
 export const IconGallery = ({children, ...props}: IconGalleryProps) => (
   <ResetWrapper>
     <List {...props} className="docblock-icongallery">
