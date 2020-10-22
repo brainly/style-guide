@@ -11,9 +11,8 @@ import { Canvas } from 'blocks/Canvas';
 import { Primary } from 'blocks/Primary';
 import { Stories } from 'blocks/Stories';
 
-// load all styles
+// load all styles and generated icons
 import '../src/main.scss';
-
 import '../src/images/icons'
 
 const Page = () => {
