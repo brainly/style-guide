@@ -58,26 +58,28 @@ export const getValues = function(object, addUndefined = true) {
 
 export const TextExamples = (weight) => {
   const sizeVariant = [];
-  getValues(TEXT_SIZE, false).forEach((size) => {
-    let itemSize;
-    textSizesMap.map((item) =>
-      item.type === size ? (itemSize = `${item.fontSize}`) : null,
-    );
-    sizeVariant.push(
-      <TypeSpecimen key={size}>
-        <Label>{size}</Label>
-        <Text
-          type={TEXT_TYPE.H2}
-          size={size}
-          color={TEXT_COLOR.GRAY}
-          weight={weight}
-          key={size + weight}
-        >
-          Body text
-        </Text>,
-      </TypeSpecimen>,
-    );
-  });
+  getValues(TEXT_SIZE, false)
+    .reverse()
+    .forEach((size) => {
+      let itemSize;
+      textSizesMap.map((item) =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Text
+            type={TEXT_TYPE.H2}
+            size={size}
+            color={TEXT_COLOR.GRAY}
+            weight={weight}
+            key={size + weight}
+          >
+            Body text
+          </Text>,
+        </TypeSpecimen>,
+      );
+    });
   return sizeVariant;
 };
 
@@ -90,11 +92,11 @@ Proxima Nova combines modern proportions with a geometric appearance and has bec
 ## Body Text
 
 **Font**: Proxima Nova
-**Weight**: Normal
+**Weight**: 400
 
 <Typeset>{TextExamples(TEXT_WEIGHT.NORMAL)}</Typeset>
 
 **Font**: Proxima Nova
-**Weight**: Bold
+**Weight**: 700
 
 <Typeset>{TextExamples(TEXT_WEIGHT.BOLD)}</Typeset>
