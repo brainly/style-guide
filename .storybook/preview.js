@@ -11,9 +11,15 @@ import { Canvas } from 'blocks/Canvas';
 import { Primary } from 'blocks/Primary';
 import { Stories } from 'blocks/Stories';
 
-// load all styles and generated icons
+// load all styles
 import '../src/main.scss';
-import '../src/images/icons'
+
+// load generated icons
+import '../src/images/icons';
+import '../src/images/subjects-icons';
+import '../src/images/subjects-mono-icons';
+import '../src/images/math-symbols-icons';
+import '../src/images/mobile-icons';
 
 const Page = () => {
   return (
