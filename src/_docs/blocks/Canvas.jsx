@@ -1,4 +1,7 @@
+// @flow
+
 import React, {useContext} from 'react';
+import type {Node} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
@@ -85,7 +88,11 @@ const getPreviewProps = (
   };
 };
 
-export const Canvas = props => {
+interface CanvasPropsType {
+  children: Node;
+}
+
+export const Canvas = (props: CanvasPropsType) => {
   const docsContext = useContext(DocsContext);
   const sourceContext = useContext(SourceContext);
   const previewProps = getPreviewProps(props, docsContext, sourceContext);
