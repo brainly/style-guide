@@ -17,6 +17,7 @@ import Headline, {
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
+import TextBit, { TEXT_BIT_SIZE, TEXT_BIT_COLOR } from '../TextBit';
 
 <Meta title="Foundation ✨/Typography" />
 
@@ -31,6 +32,59 @@ export const getValues = function(object, addUndefined = true) {
 The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
 
 Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
+
+## Text Bit
+
+Text Bits should be used exceptionally to draw attention to different sections, make a bold statement or for high-level brand messaging.
+
+Text Bits has a ratio between line height and font size that is equal to 1. This format can come only in Black weight. Text Bit can be sentence case or uppercase.
+
+`Line height / Font Size = 1`
+
+export const textBitSizesMap = [
+  {
+    type: 'small',
+    fontSize: '24px',
+  },
+  {
+    type: 'medium',
+    fontSize: '40px',
+  },
+  {
+    type: 'large',
+    fontSize: '56px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '80px',
+  },
+];
+
+export const TextBitExamples = (extraBold) => {
+  const sizesVariants = [];
+  getValues(TEXT_BIT_SIZE, false)
+    .reverse()
+    .forEach((size) => {
+      let itemSize;
+      textBitSizesMap.map((item) =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      );
+      sizesVariants.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <TextBit key="size" size={size} color={TEXT_BIT_COLOR.BLACK}>
+            Text Bit
+          </TextBit>
+        </TypeSpecimen>,
+      );
+    });
+  return sizesVariants;
+};
+
+**Font**: Proxima Nova
+**Weight**: 900
+
+<Typeset>{TextBitExamples(true)}</Typeset>
 
 ## Headlines
 
