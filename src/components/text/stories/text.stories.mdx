@@ -34,6 +34,16 @@ Proxima Nova combines modern proportions with a geometric appearance and has bec
 
 ## Headlines
 
+Our type scale consists of six levels of headlines. They come in two weights: Bold or Black. They are used for main titles or highlight important pieces of content. Smaller headlines can be used to split off sections of the site.
+
+We assumed that a ratio between line height and font size of headlines will be always constant and close as much as possible to value of 1.125. This will provide us with the same proportions of text for each level on the scale.
+
+`Line height / Font Size = 1.125`
+
+In order to keep our typographic system on the grid, we chose the line-height values so that they always are a multiple of 4. Then we calculated the font sizes from the proportions:
+
+`Font Size = Line Height / 1.125`
+
 export const headlineSizesMap = [
   {
     type: 'xxsmall',
@@ -106,6 +116,14 @@ export const HeadlineExamples = (extraBold) => {
 <Typeset>{HeadlineExamples(false)}</Typeset>
 
 ## Body Text
+
+Body text is meant for general paragraphs, sentences, lists.
+
+The same as for headlines, the ratio between line height and font size will be always constant and its value is 1.333. As shorter in length texts such as headlines can handle less spacing than text for longer paragraphs require the bigger value of line height to increase readability.
+
+`Line height / Font Size = 1.333`
+
+Body text can also appear as a link – in this case, it has also navigational function (link can direct to a new page, move to a new position on the current page or change the view the user is on).
 
 export const textSizesMap = [
   {
