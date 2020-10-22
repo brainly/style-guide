@@ -11,12 +11,13 @@ const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s2,
   color: theme.color.defaultText,
-  marginLeft: 10,
+  marginTop: 10,
   lineHeight: 1.2,
 }));
 
-const ItemSpecimen = styled.div(({theme, size = 40}) => ({
+const ItemSpecimen = styled.div(({theme, size = 128}) => ({
   ...getBlockBackgroundStyle(theme),
+  backgroundColor: '#f7f7f7',
   overflow: 'hidden',
   height: size,
   width: size,
@@ -28,11 +29,10 @@ const ItemSpecimen = styled.div(({theme, size = 40}) => ({
 
 const Item = styled.div({
   display: 'inline-flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   alignItems: 'center',
   flex: '0 1 calc(20% - 10px)',
   minWidth: 120,
-
   margin: '0px 10px 30px 0',
 });
 

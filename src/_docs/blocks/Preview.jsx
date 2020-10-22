@@ -24,8 +24,6 @@ export interface PreviewProps {
   additionalActions?: Array<ActionItem>;
 }
 
-type LayoutType = 'padded' | 'fullscreen' | 'centered';
-
 const ChildrenContainer = styled.div(
   ({isColumn, columns, layout}) => ({
     display: isColumn || !columns ? 'block' : 'flex',

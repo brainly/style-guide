@@ -14,6 +14,8 @@ import { Stories } from 'blocks/Stories';
 // load all styles
 import '../src/main.scss';
 
+import '../src/images/icons'
+
 const Page = () => {
   return (
     <>
