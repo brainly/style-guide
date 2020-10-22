@@ -1,7 +1,7 @@
 // @flow
 
 import React, {useContext} from 'react';
-import type {Node, Element} from 'react';
+import type {Element} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
