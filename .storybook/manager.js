@@ -5,4 +5,5 @@ addons.setConfig({
   theme,
   panelPosition: 'right',
   showPanel: true,
+  sidebarAnimations: false,
 });
