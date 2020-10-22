@@ -9,7 +9,8 @@ import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBa
 
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
-  fontSize: theme.typography.size.s2,
+  fontSize: theme.typography.size.s1,
+  fontWeight: 'bold',
   color: theme.color.defaultText,
   marginTop: 10,
   lineHeight: 1.2,
