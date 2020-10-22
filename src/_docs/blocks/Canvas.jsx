@@ -1,7 +1,7 @@
 // @flow
 
 import React, {useContext} from 'react';
-import type {Node} from 'react';
+import type {Node, Element} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
@@ -40,11 +40,11 @@ const getPreviewProps = (
   }
   const childArray = Array.isArray(children) ? children : [children];
   const stories = childArray.filter(
-    c => c.props && (c.props.id || c.props.name)
+    (c: any) => c.props && (c.props.id || c.props.name)
   );
   const {mdxComponentMeta, mdxStoryNameToKey} = docsContext;
   const targetIds = stories.map(
-    s =>
+    (s: any) =>
       s.props.id ||
       toId(
         mdxComponentMeta.id || mdxComponentMeta.title,
@@ -89,7 +89,10 @@ const getPreviewProps = (
 };
 
 interface CanvasPropsType {
-  children: Node;
+  withSource?: 'open' | 'closed' | 'none';
+  mdxSource?: string;
+  children: Element<*>;
+  isExpanded?: boolean;
 }
 
 export const Canvas = (props: CanvasPropsType) => {

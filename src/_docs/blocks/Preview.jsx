@@ -22,6 +22,7 @@ export interface PreviewProps {
   withToolbar?: boolean;
   className?: string;
   additionalActions?: Array<ActionItem>;
+  children: Element<*>;
 }
 
 const ChildrenContainer = styled.div(
@@ -109,7 +110,7 @@ const PreviewContainer = styled.div(
 );
 
 interface SourceItem {
-  source?: Element<*>;
+  source?: any;
   actionItem: ActionItem;
 }
 
@@ -148,7 +149,7 @@ const getSource = (
   }
 };
 
-function getStoryId(children) {
+function getStoryId(children: Element<*>) {
   if (Children.count(children) === 1) {
     const elt = children;
 
@@ -208,7 +209,7 @@ const SourceSelectionButton = styled.button(({active}) => ({
 
 type SourceSelectionBarPropsType = {
   selected: string,
-  onChange: () => mixed,
+  onChange: any,
 };
 
 const SourceSelectionBar = ({
@@ -239,8 +240,8 @@ const SourceSelectionBar = ({
   );
 };
 
-const getLayout = children => {
-  return children.reduce((result, c) => {
+const getLayout = (children: any) => {
+  return children.reduce((result, c: any) => {
     if (result) {
       return result;
     }

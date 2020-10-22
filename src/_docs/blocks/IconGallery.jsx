@@ -44,6 +44,8 @@ const List = styled.div({
 
 interface IconItemProps {
   name: string;
+  size: number;
+  children: Node;
 }
 
 export const IconItem = ({name, size, children}: IconItemProps) => (
