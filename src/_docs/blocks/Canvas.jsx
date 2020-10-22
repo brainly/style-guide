@@ -8,6 +8,8 @@ import {getDocsStories} from '@storybook/addon-docs/dist/blocks/utils';
 import {DocsContext} from '@storybook/addon-docs/dist/blocks/DocsContext';
 import {SourceContext} from '@storybook/addon-docs/dist/blocks/SourceContainer';
 import {getSourceProps} from '@storybook/addon-docs/dist/blocks/Source';
+import prettier from 'prettier/standalone';
+import parserBabel from 'prettier/parser-babylon';
 
 export const SourceState = {
   OPEN: 'open',
@@ -56,13 +58,19 @@ const getPreviewProps = (
   );
 
   // and generate html code for them
-  const htmlCode = currentStories
-    .map(story => {
-      const staticMarkup = renderToStaticMarkup(story.storyFn());
+  const htmlCode = prettier.format(
+    currentStories
+      .map(story => {
+        const staticMarkup = renderToStaticMarkup(story.storyFn());
 
-      return staticMarkup;
-    })
-    .join('\r\n\r\n');
+        return staticMarkup;
+      })
+      .join('\r\n\r\n'),
+    {
+      parser: 'babel',
+      plugins: [parserBabel],
+    }
+  );
 
   const sourceProps = getSourceProps(
     {ids: targetIds},
