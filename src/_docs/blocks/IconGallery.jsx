@@ -18,7 +18,7 @@ const ItemLabel = styled.div(({theme}) => ({
 
 const ItemSpecimen = styled.div(({theme, size = 128}) => ({
   ...getBlockBackgroundStyle(theme),
-  backgroundColor: '#f7f7f7',
+  backgroundColor: '#fafafa',
   overflow: 'hidden',
   height: size,
   width: size,
