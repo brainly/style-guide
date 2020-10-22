@@ -23,3 +23,44 @@ Default.argTypes = {
     },
   },
 };
+
+export const Sizes = () => (
+  <div>
+    {Object.values(SIZE).map((size, index) => (
+      <Avatar key={index} size={size} />
+    ))}
+  </div>
+);
+
+export const SizesWithBorder = () => (
+  <div>
+    {Object.values(SIZE).map((size, index) => (
+      <Avatar key={index} size={size} border />
+    ))}
+  </div>
+);
+
+export const ImageSizes = () => (
+  <div>
+    {Object.values(SIZE).map((size, index) => (
+      <Avatar
+        key={index}
+        size={size}
+        imgSrc="https://source.unsplash.com/240x240/?cat"
+      />
+    ))}
+  </div>
+);
+
+export const ImageSizesWithBorder = () => (
+  <div>
+    {Object.values(SIZE).map((size, index) => (
+      <Avatar
+        key={index}
+        size={size}
+        imgSrc="https://source.unsplash.com/240x240/?cat"
+        border
+      />
+    ))}
+  </div>
+);
