@@ -10,10 +10,102 @@ import {
   TEXT_TRANSFORM,
   TEXT_ALIGN,
 } from '../textConsts';
+import Headline, {
+  HEADLINE_TYPE,
+  HEADLINE_SIZE,
+  HEADLINE_COLOR,
+  HEADLINE_TRANSFORM,
+  HEADLINE_ALIGN,
+} from '../Headline';
 
-<Meta title="Foundation/Typography" />
+<Meta title="Foundation ✨/Typography" />
 
-export const text = "We've got your back!";
+export const getValues = function(object, addUndefined = true) {
+  return addUndefined
+    ? [undefined, ...Object.values(object)]
+    : Object.values(object);
+};
+
+# Typography
+
+The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
+
+Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
+
+## Headlines
+
+export const headlineSizesMap = [
+  {
+    type: 'xxsmall',
+    fontSize: '10px',
+  },
+  {
+    type: 'xsmall',
+    fontSize: '14px',
+  },
+  {
+    type: 'small',
+    fontSize: '18px',
+  },
+  {
+    type: 'medium',
+    fontSize: '21px',
+  },
+  {
+    type: 'large',
+    fontSize: '28px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '39px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '53px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '78px',
+  },
+];
+
+export const HeadlineExamples = (extraBold) => {
+  const sizeVariant = [];
+  getValues(HEADLINE_SIZE, false)
+    .reverse()
+    .forEach((size) => {
+      let itemSize;
+      textSizesMap.map((item) =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Headline
+            key={size}
+            type={HEADLINE_TYPE.H2}
+            size={size}
+            extraBold={extraBold}
+          >
+            Headline
+          </Headline>
+        </TypeSpecimen>,
+      );
+    });
+  return sizeVariant;
+};
+
+**Font**: Proxima Nova
+**Weight**: 900
+
+<Typeset>{HeadlineExamples(true)}</Typeset>
+
+**Font**: Proxima Nova
+**Weight**: 700
+
+<Typeset>{HeadlineExamples(false)}</Typeset>
+
+## Body Text
 
 export const textSizesMap = [
   {
@@ -50,12 +142,6 @@ export const textSizesMap = [
   },
 ];
 
-export const getValues = function(object, addUndefined = true) {
-  return addUndefined
-    ? [undefined, ...Object.values(object)]
-    : Object.values(object);
-};
-
 export const TextExamples = (weight) => {
   const sizeVariant = [];
   getValues(TEXT_SIZE, false)
@@ -83,20 +169,12 @@ export const TextExamples = (weight) => {
   return sizeVariant;
 };
 
-# Typography
+**Font**: Proxima Nova
+**Weight**: 700
 
-The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
-
-Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
-
-## Body Text
+<Typeset>{TextExamples(TEXT_WEIGHT.BOLD)}</Typeset>
 
 **Font**: Proxima Nova
 **Weight**: 400
 
 <Typeset>{TextExamples(TEXT_WEIGHT.NORMAL)}</Typeset>
-
-**Font**: Proxima Nova
-**Weight**: 700
-
-<Typeset>{TextExamples(TEXT_WEIGHT.BOLD)}</Typeset>

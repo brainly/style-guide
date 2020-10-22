@@ -1,11 +1,17 @@
-import { Meta, Story, Canvas, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import {
+  Meta,
+  Story,
+  Canvas,
+  ColorPalette,
+  ColorItem,
+} from '@storybook/addon-docs/blocks';
 import color from '../colors';
 
-<Meta title="Foundation/Colors" />
+<Meta title="Foundation ✨/Colors" />
 
 # Colors
 
-All of our colors are designed to create a clear interface, support the hierarchy of information on the page and bring attention to the most important elements. Both the core and additional colors are built with base and supporting colors – dark and light. 
+All of our colors are designed to create a clear interface, support the hierarchy of information on the page and bring attention to the most important elements. Both the core and additional colors are built with base and supporting colors – dark and light.
 
 Base colors should be applied most frequently across our UI elements whereas supporting colors are recommended to use as the colors for surfaces, backgrounds (light tones) and typography (dark tones).
 
@@ -17,7 +23,7 @@ Our primary color palette consists of Blue, Mint, Black, White and their variant
 - Use mint color for positive actions and to indicate success, safe, right
 
 <ColorPalette>
-  {color.core.map(({name, variable, hex}) => (
+  {color.core.map(({ name, variable, hex }) => (
     <ColorItem
       key={name}
       title={name}
@@ -35,7 +41,7 @@ Our second color palette is made up of Lavender, Mustard and Peach tones. These 
 - Use peach color for destructive actions and errors
 
 <ColorPalette>
-  {color.additional.map(({name, variable, hex}) => (
+  {color.additional.map(({ name, variable, hex }) => (
     <ColorItem
       key={name}
       title={name}
@@ -47,12 +53,12 @@ Our second color palette is made up of Lavender, Mustard and Peach tones. These 
 
 ## Neutral Colors
 
-This palette contains colors of very low saturation - close to gray. These are not Brainly brand colors, but they are the very foundation of our information hierarchy. Used for common text and backgrounds, these colors are the baseline that allows the others to stand out. 
+This palette contains colors of very low saturation - close to gray. These are not Brainly brand colors, but they are the very foundation of our information hierarchy. Used for common text and backgrounds, these colors are the baseline that allows the others to stand out.
 
-However, they can also be used to lowlight a disabled component. 
+However, they can also be used to lowlight a disabled component.
 
 <ColorPalette>
-  {color.neutrals.map(({name, variable, hex}) => (
+  {color.neutrals.map(({ name, variable, hex }) => (
     <ColorItem
       key={name}
       title={name}

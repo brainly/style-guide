@@ -39,7 +39,7 @@ export const parameters = {
     storySort: {
       order: [
         'Introduction ✏️',
-        'Foundation',
+        'Foundation ✨',
         'Components',
         'Layout',
         'Utilities',
