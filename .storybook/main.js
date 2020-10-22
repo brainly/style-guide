@@ -9,7 +9,7 @@ const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 
 module.exports = {
   stories: ['../src/**/*.stories.@(jsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-links'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-links', '@storybook/addon-a11y'],
   webpackFinal: (config) => {
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules.push({
