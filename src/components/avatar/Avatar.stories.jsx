@@ -40,6 +40,10 @@ export const SizesWithBorder = () => (
   </div>
 );
 
+SizesWithBorder.parameters = {
+  backgrounds: {default: 'dark'},
+};
+
 export const ImageSizes = () => (
   <div>
     {Object.values(SIZE).map((size, index) => (

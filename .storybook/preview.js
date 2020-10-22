@@ -41,6 +41,7 @@ export const parameters = {
       Canvas,
     },
   },
+  controls: { hideNoControlsWarning: true },
   layout: 'centered',
   options: {
     storySort: {
