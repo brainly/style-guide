@@ -16,7 +16,7 @@ const ItemLabel = styled.div(({theme}) => ({
   lineHeight: 1.2,
 }));
 
-const ItemSpecimen = styled.div(({theme, size = 128}) => ({
+const ItemSpecimen = styled.div(({theme, size = 108}) => ({
   ...getBlockBackgroundStyle(theme),
   backgroundColor: '#fafafa',
   overflow: 'hidden',
@@ -34,7 +34,7 @@ const Item = styled.div({
   alignItems: 'center',
   flex: '0 1 calc(20% - 10px)',
   minWidth: 120,
-  margin: '0px 10px 30px 0',
+  margin: '0 10px 30px 0',
 });
 
 const List = styled.div({
