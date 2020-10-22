@@ -49,7 +49,7 @@ const ChildrenContainer = styled.div(
           margin: -10,
           '& > *': {
             width: 'auto',
-            border: '10px solid transparent!important',
+            border: '16px solid transparent!important',
           },
         }
       : {},
