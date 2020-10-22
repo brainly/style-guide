@@ -68,3 +68,7 @@ export const ImageSizesWithBorder = () => (
     ))}
   </div>
 );
+
+ImageSizesWithBorder.parameters = {
+  backgrounds: {default: 'dark'},
+};
