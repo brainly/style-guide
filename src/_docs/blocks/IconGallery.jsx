@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import type {Node} from 'react';
 import {styled} from '@storybook/theming';
 import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';
 
@@ -54,10 +55,14 @@ export const IconItem = ({name, size, children}: IconItemProps) => (
   </Item>
 );
 
+interface IconGalleryProps {
+  children: Node;
+}
+
 /**
  * Show a grid of icons, as specified by `IconItem`.
  */
-export const IconGallery = ({children, ...props}) => (
+export const IconGallery = ({children, ...props}: IconGalleryProps) => (
   <ResetWrapper>
     <List {...props} className="docblock-icongallery">
       {children}

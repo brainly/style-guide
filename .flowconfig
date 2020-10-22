@@ -21,6 +21,8 @@ module.system.node.root_relative_dirname=src/components
 module.system.node.root_relative_dirname=src/docs
 exact_by_default=true
 
+esproposal.optional_chaining=true
+
 [strict]
 nonstrict-import
 unclear-type
