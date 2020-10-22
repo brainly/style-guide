@@ -8,4 +8,6 @@ export default {
   },
 };
 
-export const Default = () => <Rating>Button</Rating>;
+export const Default = () => (
+  <Rating rate={2.4} counterText="34 votes" activeText="Rate!" />
+);
