@@ -173,7 +173,7 @@ const Relative = styled.div({
   position: 'relative',
 });
 
-const SourceSelectionList = styled.ul({
+const SourceSelectionList = styled.ul(({theme}) => ({
   position: 'absolute',
   bottom: '0',
   left: '0',
@@ -181,21 +181,28 @@ const SourceSelectionList = styled.ul({
   padding: '0px',
   display: 'flex',
   listStyle: 'none',
-});
+  overflow: 'hidden',
+  borderTopRightRadius: theme.appBorderRadius,
+  borderTop: '1px solid rgba(0,0,0,.1)',
+  borderRight: '1px solid rgba(0,0,0,.1)',
+  '> * + *': {
+    borderLeft: '1px solid rgba(0,0,0,.1)',
+  },
+}));
 
 const SourceSelectionItem = styled.li({
   margin: '0px',
   listStyle: 'none',
 });
 
-const SourceSelectionButton = styled.button(({active}) => ({
+const SourceSelectionButton = styled.button(({theme, active}) => ({
   height: 25,
   width: 60,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   outline: 'none',
-  background: 'none',
+  background: theme.barBg,
   border: 'none',
   appearance: 'none',
   textDecoration: 'none',
@@ -203,8 +210,10 @@ const SourceSelectionButton = styled.button(({active}) => ({
   fontSize: '12px',
   fontWeight: '700',
   whiteSpace: 'nowrap',
-  color: active ? 'rgb(30, 167, 253)' : 'rgb(153, 153, 153)',
-  boxShadow: active ? 'rgb(30, 167, 253) 0px -3px 0px 0px inset' : 'none',
+  color: active ? theme.barSelectedColor : '#333333',
+  boxShadow: active
+    ? `${theme.barSelectedColor} 0px -3px 0px 0px inset`
+    : 'none',
 }));
 
 type SourceSelectionBarPropsType = {
