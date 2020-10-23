@@ -17,9 +17,9 @@ export const Stories = ({title, includePrimary = false}: StoriesProps) => {
   const context = useContext(DocsContext);
   const componentStories = getDocsStories(context);
 
-  let stories: Array<DocsStoryProps> = componentStories;
-
-  if (!includePrimary) stories = stories.slice(1);
+  const stories: Array<DocsStoryProps> = [
+    ...(!includePrimary ? componentStories.slice(1) : componentStories),
+  ];
 
   if (!stories || stories.length === 0) {
     return null;
