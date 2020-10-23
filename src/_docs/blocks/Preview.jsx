@@ -182,6 +182,7 @@ const SourceSelectionList = styled.ul(({theme}) => ({
   display: 'flex',
   listStyle: 'none',
   overflow: 'hidden',
+  background: theme.barBg,
   borderTopRightRadius: theme.appBorderRadius,
   borderTop: '1px solid rgba(0,0,0,.1)',
   borderRight: '1px solid rgba(0,0,0,.1)',
@@ -197,12 +198,11 @@ const SourceSelectionItem = styled.li({
 
 const SourceSelectionButton = styled.button(({theme, active}) => ({
   height: 25,
-  width: 60,
+  width: 70,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   outline: 'none',
-  background: theme.barBg,
   border: 'none',
   appearance: 'none',
   textDecoration: 'none',
@@ -210,6 +210,7 @@ const SourceSelectionButton = styled.button(({theme, active}) => ({
   fontSize: '12px',
   fontWeight: '700',
   whiteSpace: 'nowrap',
+  background: 'none',
   color: active ? theme.barSelectedColor : '#333333',
   boxShadow: active
     ? `${theme.barSelectedColor} 0px -3px 0px 0px inset`
