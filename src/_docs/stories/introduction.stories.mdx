@@ -1,13 +1,33 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { version } from '../../../package.json';
-import { Link } from '../..';
-import Label from '../../components/labels/Label';
+import Link from 'text/Link';
+import TextBit from 'text/TextBit';
+import Text from 'text/Text';
+import Label from 'labels/Label';
+import Logo from 'logo/Logo';
+import Flex from 'flex/Flex';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
-# Brainly style guide
+<Flex direction="column" className="sg-space-y-s">
+<Logo />
 
-<Label type="transparent">v{version}</Label>
+<Flex direction="row" alignItems="baseline" className="sg-space-x-xs">
+  <TextBit type="h1" color="black">
+    Brainly style guide
+  </TextBit>
+  <Text weight="bold" size="small" color="gray-secondary">
+    v{version}
+  </Text>
+</Flex>
+
+<Flex className="sg-space-x-xxs">
+  <img src="https://img.shields.io/npm/v/brainly-style-guide" />
+  <img src="https://img.shields.io/npm/l/brainly-style-guide" />
+  <img src="https://img.shields.io/travis/brainly/style-guide" />
+</Flex>
+
+</Flex>
 
 <br />
 
