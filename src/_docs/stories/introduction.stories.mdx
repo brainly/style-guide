@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import GitHubButton from 'react-github-btn';
 import { version } from '../../../package.json';
 import Link from 'text/Link';
 import TextBit from 'text/TextBit';
@@ -6,29 +7,141 @@ import Text from 'text/Text';
 import Label from 'labels/Label';
 import Logo from 'logo/Logo';
 import Flex from 'flex/Flex';
+import OverlayedBox from 'overlayed-box/OverlayedBox';
+import { Source } from '@storybook/components';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
-<Flex direction="column" className="sg-space-y-s">
-<Logo />
+<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+  <GitHubButton
+    href="https://github.com/brainly/style-guide"
+    data-icon="octicon-star"
+    data-show-count="true"
+    aria-label="Star brainly/style-guide on GitHub"
+  >
+    Star
+  </GitHubButton>
+</div>
 
-<Flex direction="row" alignItems="baseline" className="sg-space-x-xs">
-  <TextBit type="h1" color="black">
-    Brainly style guide
-  </TextBit>
-  <Text weight="bold" size="small" color="gray-secondary">
-    v{version}
-  </Text>
-</Flex>
-
-<Flex className="sg-space-x-xxs">
-  <img src="https://img.shields.io/npm/v/brainly-style-guide" />
-  <img src="https://img.shields.io/npm/l/brainly-style-guide" />
-  <img src="https://img.shields.io/travis/brainly/style-guide" />
-</Flex>
-
+<Flex direction="column" alignItems="center" className="sg-space-y-s">
+  <Logo />
+  <Flex
+    direction="column"
+    alignItems="flex-end"
+    style={{ position: 'relative' }}
+    className="sg-space-x-xs"
+  >
+    <Text color="blue" size="small" weight="bold" color="gray-secondary-light">
+      v{version}
+    </Text>
+    <TextBit align="center" type="h1" color="black">
+      Brainly style guide
+    </TextBit>
+  </Flex>
+  <Flex className="sg-space-x-xxs">
+    <img src="https://img.shields.io/npm/v/brainly-style-guide" />
+    <img src="https://img.shields.io/npm/l/brainly-style-guide" />
+    <img src="https://img.shields.io/travis/brainly/style-guide" />
+  </Flex>
 </Flex>
 
 <br />
 
-Welcome to the official Brainly style guide! This style guide is being used across all language versions of the Brainly website (e.g. <Link href="https://brainly.com">brainly.com</Link>, <Link href="https://znanija.com">znanija.com</Link>, <Link href="https://nosdevoirs.fr">nosdevoirs.fr</Link>), and some smaller sites (e.g. landing pages).
+Welcome to the official Brainly style guide! This style guide is being used across all language versions of the Brainly website and some smaller sites.
+
+<Flex className="sg-space-x-xs" justifyContent="center">
+  <Link href="https://brainly.com">brainly.com</Link>
+  <Text color="gray-secondary-light">•</Text>
+  <Link href="https://znanija.com">znanija.com</Link>
+  <Text color="gray-secondary-light">•</Text>
+  <Link href="https://nosdevoirs.fr">nosdevoirs.fr</Link>
+</Flex>
+
+<br />
+
+## How to use it?
+
+React components are stored in `npm` package. To make it work you need to install package and import styles.
+You can use css from our <Link size="small" href="#external-css">cdn</Link> or import `scss` from package itself.
+
+### Installation
+
+```bash
+# npm
+npm install -S brainly-style-guide
+
+# yarn
+yarn add brainly-style-guide
+```
+
+```bash
+
+```
+
+### Usage
+
+```jsx
+// You don't neeed this line if you use css from public cdn
+import '~brainly-style-guide/src/sass/main.scss';
+import { Button } from 'brainly-style-guide';
+
+const App = () => {
+  return (
+    <body>
+      <Button>I like it!</Button>
+    </body>
+  );
+};
+```
+
+### External css
+
+In order to use style guide components, you have to include CSS file in the `<head>` of your website:
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/${version}/style-guide.css' rel='stylesheet'/>`}
+/>
+
+### Icons (SVG Sprites)
+
+For our icons include this scripts before the closing `</body>` tag:
+
+**Basic Icons**
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/%%images/icons.js%%' rel='stylesheet'/>`}
+/>
+
+**Subject Icons**
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/%%images/subject-icons.js%%' rel='stylesheet'/>`}
+/>
+
+**Subject Mono Icons**
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/%%images/subject-mono-icons.js%%' rel='stylesheet'/>`}
+/>
+
+**Math Symbols**
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/%%images/math-symbols-icons.js%%' rel='stylesheet'/>`}
+/>
+
+**Mobile Icons**
+
+<Source
+  type="html"
+  code={`<link href='https://styleguide.brainly.com/%%images/mobile-icons.js%%' rel='stylesheet'/>`}
+/>
+
+## More
+
+If you'd like to learn more about this project, report a bug or contribute check it out on <Link size="small" href="https://github.com/brainly/style-guide">github</Link>

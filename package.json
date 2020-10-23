@@ -83,6 +83,7 @@
     "query-string": "^6.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-github-btn": "^1.2.0",
     "react-hot-loader": "^4.12.8",
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.2",
