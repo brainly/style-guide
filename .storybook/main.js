@@ -2,7 +2,7 @@ const path = require('path');
 const argv = require('yargs').argv;
 
 const IS_PRODUCTION = Boolean(argv.production);
-const VERSION = argv.production ? pkg.version : 'dev';
+const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
 const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
