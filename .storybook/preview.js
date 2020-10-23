@@ -6,6 +6,7 @@ import {
   ArgsTable,
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
+import theme from './theme';
 
 import { Canvas } from 'blocks/Canvas';
 import { Primary } from 'blocks/Primary';
@@ -37,6 +38,7 @@ const Page = () => {
 export const parameters = {
   docs: {
     page: Page,
+    theme,
     components: {
       Canvas,
     },
@@ -53,13 +55,5 @@ export const parameters = {
         'Utilities',
       ],
     },
-  },
-};
-
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'dark',
   },
 };
