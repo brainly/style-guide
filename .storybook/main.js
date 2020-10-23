@@ -101,20 +101,13 @@ module.exports = {
       },
     ];
 
-    const _config = {
-      ...config,
-      module: {
-        ...config.module,
-      },
-    };
-
-    _config.resolve.modules.push(
+    config.resolve.modules.push(
       SOURCE_COMPONENTS_DIR,
       SOURCE_DOCS_DIR,
       path.join(SOURCE_DIR, 'images'),
       'node_modules',
     );
 
-    return _config;
+    return config;
   },
 };
