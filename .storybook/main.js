@@ -92,13 +92,6 @@ module.exports = {
           },
         },
       },
-      {
-        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/,
-        loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
     ];
 
     config.resolve.modules.push(

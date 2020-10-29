@@ -136,5 +136,8 @@
       ".*": "babel-jest"
     }
   },
-  "sideEffects": ["*.scss", "./src/images/*icons.js"]
+  "sideEffects": [
+    "*.scss",
+    "./src/images/*icons.js"
+  ]
 }
