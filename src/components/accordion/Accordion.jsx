@@ -12,6 +12,7 @@ type PropType = $ReadOnly<{
 
 type OpenedMapType = {
   [key: string]: boolean,
+  ...,
 };
 
 type AccordionContextType = {
