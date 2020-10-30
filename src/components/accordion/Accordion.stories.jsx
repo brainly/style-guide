@@ -9,6 +9,14 @@ export default {
   title: 'Components/Accordion',
   parameters: {
     component: Accordion,
+    subcomponents: {AccordionItem},
+  },
+  argTypes: {
+    children: {
+      control: {
+        disable: true,
+      },
+    },
   },
 };
 

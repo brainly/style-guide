@@ -7,7 +7,7 @@ type PropType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React$Node,
   className?: string,
-  spacing: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl',
+  spacing?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl',
 }>;
 
 type OpenedMapType = {
