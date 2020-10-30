@@ -1,4 +1,4 @@
-//@flow strict
+//@flow
 
 import React from 'react';
 import Accordion from './Accordion';
@@ -28,7 +28,7 @@ const copy = {
   url: '#',
 };
 
-const CallToAction = ({url, cta}) => {
+const CallToAction = ({url, cta}: {url: string, cta: string}) => {
   return (
     <Flex marginTop="s">
       <Link href={url}>
@@ -41,7 +41,7 @@ const CallToAction = ({url, cta}) => {
   );
 };
 
-export const Default = args => (
+export const Default = (args: any) => (
   <Accordion {...args}>
     <AccordionItem title={copy.title}>
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
