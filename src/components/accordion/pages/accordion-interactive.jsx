@@ -13,6 +13,7 @@ const copy = {
   url: '#',
 };
 
+// eslint-disable-next-line react/prop-types
 export const CallToAction = ({url, cta}) => {
   return (
     <Flex marginTop="s">
@@ -34,6 +35,8 @@ const Accordions = () => {
     },
     {
       name: 'spacing',
+      // we get object with {key: key} props,
+      // {xs: 'xs', s:'s', etc}
       values: Object.keys(spaceClasses).reduce(
         (acc, val) => ({
           ...acc,
