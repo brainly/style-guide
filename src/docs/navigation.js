@@ -49,6 +49,7 @@ import SpinnerContainers from '../components/spinner-container/pages/spinner-con
 import dropdowns from '../components/dropdowns/pages/dropdowns';
 import UtilsIntroduction from '../sass/pages/utils/introduction';
 import SpaceBetween from '../sass/pages/utils/space-between';
+import accordion from '../components/accordion/pages/accordion';
 
 const navigation = [
   {
@@ -209,6 +210,10 @@ const navigation = [
     name: 'Containers',
     location: 'containers',
     elements: [
+      {
+        name: 'Accordion',
+        component: accordion,
+      },
       {
         name: 'Bubble',
         component: bubble,
