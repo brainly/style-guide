@@ -13,7 +13,7 @@ const copy = {
   url: '#',
 };
 
-export const CallToAction = ({url, cta}: {url: string, cta: string}) => {
+export const CallToAction = ({url, cta}) => {
   return (
     <Flex marginTop="s">
       <Link href={url}>
