@@ -47,7 +47,10 @@ const Accordions = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Accordion>
+        <Accordion allowMultiple>
+          <AccordionItem title={copy.title}>
+            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+          </AccordionItem>
           <AccordionItem title={copy.title}>
             {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
           </AccordionItem>
