@@ -6,7 +6,7 @@ import AccordionItem from './AccordionItem';
 import {Flex, Icon, Link} from '../../index';
 
 export default {
-  title: 'Components/Accordion',
+  title: 'Layout/Accordion',
   parameters: {
     component: Accordion,
     subcomponents: {AccordionItem},
