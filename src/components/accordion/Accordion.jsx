@@ -25,7 +25,7 @@ export const AccordionContext = createContext<AccordionContextType>({
   onChange: () => undefined,
 });
 
-const spaceClasses = {
+export const spaceClasses = {
   xxs: 'sg-space-y-xxs',
   xs: 'sg-space-y-xs',
   s: 'sg-space-y-s',
@@ -63,7 +63,7 @@ const Accordion = ({
 
   const classes = cx(
     {
-      [`${spaceClasses[spacing]}`]: !!spacing,
+      [`${spaceClasses[spacing]}`]: spaceClasses[spacing],
     },
     className
   );
