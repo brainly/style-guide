@@ -109,6 +109,7 @@ const AccordionItem = ({
       onMouseLeave={() => {
         isHidden && setIsHover(false);
       }}
+      aria-expanded={!isHidden}
     >
       <Flex
         direction="row"
