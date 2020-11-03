@@ -53,42 +53,61 @@ const AccordionItem = ({
   };
 
   useLayoutEffect(() => {
-    if (isHidden) {
-      collapse();
-    } else {
-      expand();
-    }
-  }, [isHidden]);
+    const content = contentRef.current;
 
-  const collapse = () => {
-    if (!contentRef.current) {
-      return;
-    }
-    const sectionHeight = contentRef.current.scrollHeight;
-
-    requestAnimationFrame(function() {
+    function collapse() {
       if (!contentRef.current) {
         return;
       }
-      contentRef.current.style.height = `${sectionHeight}px`;
+      const sectionHeight = contentRef.current.scrollHeight;
 
       requestAnimationFrame(function() {
         if (!contentRef.current) {
           return;
         }
-        contentRef.current.style.height = `${0}px`;
+        contentRef.current.style.height = `${sectionHeight}px`;
+
+        requestAnimationFrame(function() {
+          if (!contentRef.current) {
+            return;
+          }
+          contentRef.current.style.height = `${0}px`;
+        });
       });
-    });
-  };
-
-  const expand = () => {
-    if (!contentRef.current) {
-      return;
     }
-    const sectionHeight = contentRef.current.scrollHeight;
 
-    contentRef.current.style.height = `${sectionHeight}px`;
-  };
+    function expand() {
+      if (!contentRef.current) {
+        return;
+      }
+      const sectionHeight = contentRef.current.scrollHeight;
+
+      contentRef.current.style.height = `${sectionHeight}px`;
+      contentRef.current.addEventListener('transitionend', onTransitionEnd);
+    }
+
+    function onTransitionEnd() {
+      if (!contentRef.current) {
+        return;
+      }
+
+      contentRef.current.style.height = 'auto';
+      contentRef.current.removeEventListener('transitionend', onTransitionEnd);
+    }
+
+    if (isHidden) {
+      collapse();
+    } else {
+      expand();
+    }
+
+    return () => {
+      if (!content) {
+        return;
+      }
+      content.removeEventListener('transitionend', onTransitionEnd);
+    };
+  }, [isHidden]);
 
   return (
     <Box
