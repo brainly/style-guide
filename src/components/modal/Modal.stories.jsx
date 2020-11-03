@@ -38,5 +38,7 @@ Default.args = {
 };
 
 Default.argTypes = {
-  children: {control: false},
+  children: {
+    control: null,
+  },
 };
