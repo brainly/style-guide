@@ -1,0 +1,38 @@
+@if ($includeHtml) {
+  .sg-accordion-item {
+    &__content {
+      transition: 0.2s ease-out height;
+      height: 0;
+      overflow: hidden;
+      margin-top: spacing(m);
+
+      &--hidden {
+        margin-top: 0;
+      }
+    }
+
+    &__pointer {
+      cursor: pointer;
+    }
+
+    &__arrow {
+      transition: 0.2s ease-out transform;
+      transform: rotateX(0);
+
+      &--visible {
+        transform: rotate(180deg);
+      }
+    }
+
+    &__icon {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      flex: none;
+
+      &--hover {
+        background: $graySecondaryLightest;
+      }
+    }
+  }
+}

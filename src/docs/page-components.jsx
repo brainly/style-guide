@@ -43,8 +43,10 @@ import Helpers from 'helpers/pages/rwd-interactive';
 import ContentBoxes from 'content-box/pages/content-box-interactive';
 import Spinners from 'spinner/pages/spinners-interactive';
 import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
+import Accordion from 'accordion/pages/accordion-interactive';
 
 const demos = {
+  Accordion: <Accordion />,
   Avatars: <Avatars />,
   Bubbles: <Bubbles />,
   Buttons: <Buttons />,

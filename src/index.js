@@ -96,3 +96,5 @@ export {default as Text} from './components/text/Text';
 export {default as TextBit} from './components/text/TextBit';
 export {default as TopLayer} from './components/toplayer/TopLayer';
 export {default as hex} from './components/colors/hex';
+export {default as Accordion} from './components/accordion/Accordion';
+export {default as AccordionItem} from './components/accordion/AccordionItem';
