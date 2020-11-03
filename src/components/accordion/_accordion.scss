@@ -1,7 +1,8 @@
 @if ($includeHtml) {
   .sg-accordion-item {
     &__content {
-      transition: 0.2s ease-out height;
+      transition: 0.2s ease-out;
+      transition-property: height, margin-top;
       height: 0;
       overflow: hidden;
       margin-top: spacing(m);
