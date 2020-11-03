@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import {Modal} from './Modal';
+import Modal from './Modal';
 import {mount, shallow} from 'enzyme';
 import TopLayer from '../toplayer/TopLayer';
 import Overlay from '../overlay/Overlay';
