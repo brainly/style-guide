@@ -1,7 +1,7 @@
 @if ($includeHtml) {
   .sg-accordion-item {
     &__content {
-      transition: 0.2s ease-in-out height;
+      transition: 0.2s ease-out height;
       height: 0;
       overflow: hidden;
       margin-top: spacing(m);
@@ -16,7 +16,7 @@
     }
 
     &__arrow {
-      transition: 0.2s ease-in-out transform;
+      transition: 0.2s ease-out transform;
       transform: rotateX(0);
 
       &--visible {
