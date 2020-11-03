@@ -26,12 +26,11 @@ const decorateOverlayClick = onOverlayClick => (
 ) =>
   event &&
   event.currentTarget.classList.contains(OVERLAY_CLASS_NAME) &&
-  // $FlowFixMe TODO(Tomek)
-  event.target.classList.contains(OVERLAY_CLASS_NAME)
+  (event.target: window.HTMLInputElement).classList.contains(OVERLAY_CLASS_NAME)
     ? onOverlayClick(event)
     : undefined;
 
-export function Modal({
+export default function Modal({
   children,
   size = 'medium',
   onOverlayClick = () => undefined,
@@ -48,13 +47,12 @@ export function Modal({
       className={overlayClassName}
       color={overlayColor || 'blue'}
     >
-      {/* $FlowFixMe[cannot-spread-inexact] */}
       <TopLayer
+        {...toplayerRestProps}
+        {...(size === 'fluid' ? null : {size})}
         modal
         role="dialog"
         onClose={closeModal}
-        {...(size === 'fluid' ? null : {size})}
-        {...toplayerRestProps}
       >
         {children}
       </TopLayer>

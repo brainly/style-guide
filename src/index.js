@@ -98,3 +98,4 @@ export {default as TopLayer} from './components/toplayer/TopLayer';
 export {default as hex} from './components/colors/hex';
 export {default as Accordion} from './components/accordion/Accordion';
 export {default as AccordionItem} from './components/accordion/AccordionItem';
+export {default as Modal} from './components/modal/Modal';
