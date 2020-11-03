@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import TopLayer from '../toplayer/TopLayer';
+import type {PropsType as TopLayerPropsType} from '../toplayer/TopLayer';
 import Overlay from '../overlay/Overlay';
 
 const OVERLAY_CLASS_NAME = 'sg-overlay';
@@ -18,6 +19,17 @@ type PropsType = {
   className?: string,
   overlayColor?: 'blue' | 'dark',
   overlayClassName?: string,
+  // Rest of top layer props
+  onCloseButtonKeyDown?: (
+    event: SyntheticKeyboardEvent<HTMLInputElement>
+  ) => mixed,
+  fill?: boolean,
+  modal?: boolean,
+  withBugbox?: boolean,
+  smallSpaced?: boolean,
+  splashScreen?: boolean,
+  limitedWidth?: boolean,
+  row?: boolean,
   ...
 };
 
