@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "182.1.0",
+  "version": "182.0.2",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -17,6 +17,7 @@
     "yarn": "^1.0.0"
   },
   "dependencies": {
+    "@types/jest": "^26.0.15",
     "classnames": "^2.2.5"
   },
   "devDependencies": {
@@ -31,14 +32,14 @@
     "@babel/preset-typescript": "^7.12.1",
     "@brainly/s3": "^4.4.0",
     "@hot-loader/react-dom": "^16.8.6",
-    "@storybook/addon-a11y": "@next",
-    "@storybook/addon-actions": "@next",
-    "@storybook/addon-docs": "@next",
-    "@storybook/addon-essentials": "@next",
-    "@storybook/addon-links": "@next",
-    "@storybook/addons": "@next",
-    "@storybook/react": "@next",
-    "@storybook/theming": "@next",
+    "@storybook/addon-a11y": "6.1.0-beta.2",
+    "@storybook/addon-actions": "6.1.0-beta.2",
+    "@storybook/addon-docs": "6.1.0-beta.2",
+    "@storybook/addon-essentials": "6.1.0-beta.2",
+    "@storybook/addon-links": "6.1.0-beta.2",
+    "@storybook/addons": "6.1.0-beta.2",
+    "@storybook/react": "6.1.0-beta.2",
+    "@storybook/theming": "6.1.0-beta.2",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
     "babel-loader": "^8.0.5",
