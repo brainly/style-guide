@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import TopLayer from '../toplayer/TopLayer';
-import type {PropsType as TopLayerPropsType} from '../toplayer/TopLayer';
 import Overlay from '../overlay/Overlay';
 
 const OVERLAY_CLASS_NAME = 'sg-overlay';
