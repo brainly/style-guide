@@ -9,32 +9,22 @@ export default {
   },
 };
 
-export const Default = args => {
-  const [isVisible, setIsVisible] = useState(false);
-  const onClose = () => setIsVisible(false);
-  const onClick = () => setIsVisible(true);
+// For iframe stories like this one, args controls don't update underlying component
+// https://github.com/storybookjs/storybook/issues/11908
 
-  return (
-    <div>
-      <Button onClick={onClick}>Open Modal</Button>
-      {isVisible && (
-        <Modal {...args} closeModal={onClose} onOverlayClick={onClose} />
-      )}
-    </div>
-  );
-};
+export const Default = args => <Modal {...args} />;
 
 Default.parameters = {
   docs: {
-    source: {
-      code: `<Modal {...props} />`,
-    },
+    inlineStories: false,
+    iframeHeight: '300px',
   },
 };
 
 Default.args = {
   children: 'Modal window',
   lead: true,
+  closeModal: () => null,
 };
 
 Default.argTypes = {
