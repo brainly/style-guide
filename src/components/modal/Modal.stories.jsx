@@ -5,6 +5,13 @@ export default {
   title: 'Components/Modal',
   parameters: {
     component: Modal,
+    actions: {argTypesRegex: '^closeModal|on.*'},
+  },
+  // we need this for functions with default value until this bug is fixed
+  // https://github.com/storybookjs/storybook/issues/12120
+  argTypes: {
+    closeModal: {defaultValue: null},
+    onOverlayClick: {defaultValue: null},
   },
 };
 
@@ -23,7 +30,6 @@ Default.parameters = {
 Default.args = {
   children: 'Modal window',
   lead: true,
-  closeModal: () => null,
 };
 
 Default.argTypes = {
