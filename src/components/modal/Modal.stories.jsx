@@ -17,7 +17,6 @@ export default {
 
 // For iframe stories like this one, args controls don't update underlying component
 // https://github.com/storybookjs/storybook/issues/11908
-
 export const Default = args => <Modal {...args} />;
 
 Default.parameters = {

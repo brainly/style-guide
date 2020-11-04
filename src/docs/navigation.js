@@ -50,6 +50,7 @@ import dropdowns from '../components/dropdowns/pages/dropdowns';
 import UtilsIntroduction from '../sass/pages/utils/introduction';
 import SpaceBetween from '../sass/pages/utils/space-between';
 import accordion from '../components/accordion/pages/accordion';
+import modal from '../components/modal/pages/modal';
 
 const navigation = [
   {
@@ -260,6 +261,10 @@ const navigation = [
       {
         name: 'Toplayer',
         component: toplayer,
+      },
+      {
+        name: 'Modal',
+        component: modal,
       },
       {
         name: 'Layout',
