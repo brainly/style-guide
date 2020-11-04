@@ -23,7 +23,6 @@ type PropsType = {
     event: SyntheticKeyboardEvent<HTMLInputElement>
   ) => mixed,
   fill?: boolean,
-  modal?: boolean,
   withBugbox?: boolean,
   smallSpaced?: boolean,
   splashScreen?: boolean,

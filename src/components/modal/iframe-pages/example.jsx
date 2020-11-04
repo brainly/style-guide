@@ -7,7 +7,7 @@ const ModalExample = () => (
       <link rel="stylesheet" href="../../../style-guide.css" />
     </head>
     <body>
-      <Modal onClose={() => undefined}>Modal window</Modal>
+      <Modal closeModal={() => undefined}>Modal window</Modal>
     </body>
   </html>
 );

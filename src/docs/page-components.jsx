@@ -44,6 +44,7 @@ import ContentBoxes from 'content-box/pages/content-box-interactive';
 import Spinners from 'spinner/pages/spinners-interactive';
 import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
 import Accordion from 'accordion/pages/accordion-interactive';
+import Modal from 'modal/pages/modal-interactive';
 
 const demos = {
   Accordion: <Accordion />,
@@ -82,6 +83,7 @@ const demos = {
   Layout: <Layouts />,
   Toplayer: <Toplayers />,
   Overlay: <Overlays />,
+  Modal: <Modal />,
   'Overlayed box': <OverlayedBoxes />,
   Logo: <Logos />,
   Media: <Media />,
