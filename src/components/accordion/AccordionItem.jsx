@@ -34,7 +34,7 @@ const AccordionItem = ({
   const [isHover, setIsHover] = useState(false);
 
   const item = id.current;
-  const {opened, onChange} = useContext(AccordionContext);
+  const {opened, onChange, noGapBetweenElements} = useContext(AccordionContext);
   const isHidden = !opened[item];
 
   const handleClickOnBody = () => {
@@ -109,15 +109,18 @@ const AccordionItem = ({
     };
   }, [isHidden]);
 
+  const isBorderHighlighted = isHover && !noGapBetweenElements;
+
   return (
     <Box
       color="light"
       border
-      borderColor={isHover ? 'dark' : 'gray-secondary-lightest'}
+      borderColor={isBorderHighlighted ? 'dark' : 'gray-secondary-lightest'}
       onClick={handleClickOnBody}
       className={cx(
         'sg-accordion-item__pointer',
         {
+          'sg-accordion-item--no-gap': noGapBetweenElements,
           'sg-accordion-item__pointer': !isHidden,
         },
         className

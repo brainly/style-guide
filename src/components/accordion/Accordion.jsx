@@ -7,7 +7,17 @@ type PropType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React$Node,
   className?: string,
-  spacing?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl',
+  spacing?:
+    | 'xxs'
+    | 'xs'
+    | 's'
+    | 'm'
+    | 'l'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl'
+    | 'xxxxl'
+    | 'none',
 }>;
 
 type OpenedMapType = {
@@ -18,11 +28,13 @@ type OpenedMapType = {
 type AccordionContextType = {
   opened: OpenedMapType,
   onChange: (item: string, value: boolean) => void,
+  noGapBetweenElements: boolean,
 };
 
 export const AccordionContext = createContext<AccordionContextType>({
   opened: {},
   onChange: () => undefined,
+  noGapBetweenElements: false,
 });
 
 export const spaceClasses = {
@@ -59,11 +71,16 @@ const Accordion = ({
     [opened, allowMultiple]
   );
 
-  const context = {onChange: handleChange, opened};
+  const context = {
+    onChange: handleChange,
+    opened,
+    noGapBetweenElements: spacing === 'none',
+  };
 
   const classes = cx(
     {
-      [`${spaceClasses[spacing]}`]: spaceClasses[spacing],
+      [`${spaceClasses[spacing]}`]:
+        spacing === 'none' ? undefined : spaceClasses[spacing],
     },
     className
   );
