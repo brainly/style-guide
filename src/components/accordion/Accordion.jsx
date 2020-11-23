@@ -1,7 +1,8 @@
 //@flow strict
 
-import React, {createContext, useCallback, useState} from 'react';
+import React, {createContext, useReducer} from 'react';
 import cx from 'classnames';
+import {accordionReducer} from './accordionReducer';
 
 type PropType = $ReadOnly<{
   allowMultiple?: boolean,
@@ -20,22 +21,8 @@ type PropType = $ReadOnly<{
     | 'none',
 }>;
 
-type OpenedMapType = {
-  [key: string]: boolean,
-  ...,
-};
-
-type AccordionContextType = {
-  opened: OpenedMapType,
-  onChange: (item: string, value: boolean) => void,
-  noGapBetweenElements: boolean,
-};
-
-export const AccordionContext = createContext<AccordionContextType>({
-  opened: {},
-  onChange: () => undefined,
-  noGapBetweenElements: false,
-});
+// $FlowFixMe context doesn't need to be defined here
+export const AccordionContext = createContext();
 
 export const spaceClasses = {
   xxs: 'sg-space-y-xxs',
@@ -55,39 +42,17 @@ const Accordion = ({
   className = '',
   spacing = 's',
 }: PropType) => {
-  const [opened, setOpened] = useState({});
-
-  const handleChange = useCallback(
-    (item: string, value: boolean) => {
-      if (allowMultiple) {
-        setOpened({...opened, [item]: value});
-      } else {
-        const newOpened = {...opened};
-
-        Object.keys(newOpened).forEach(i => (newOpened[i] = false));
-        setOpened({...newOpened, [item]: value});
-      }
-    },
-    [opened, allowMultiple]
-  );
-
-  const context = {
-    onChange: handleChange,
-    opened,
+  const [state, dispatch] = useReducer(accordionReducer, {
+    opened: {},
     noGapBetweenElements: spacing === 'none',
-  };
+    allowMultiple,
+  });
 
-  const classes = cx(
-    {
-      [`${spaceClasses[spacing]}`]:
-        spacing === 'none' ? undefined : spaceClasses[spacing],
-    },
-    className
-  );
+  const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
   return (
-    <AccordionContext.Provider value={context}>
-      <div className={classes}>{children}</div>
+    <AccordionContext.Provider value={{state, dispatch}}>
+      <div className={cx(spaceClass, className)}>{children}</div>
     </AccordionContext.Provider>
   );
 };

@@ -86,4 +86,30 @@ describe('<Accordion>', () => {
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
   });
+
+  it('displays no gaps between elements when spacing is set to "none"', () => {
+    const accordion = mount(
+      <Accordion spacing="none">
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+
+    expect(accordion.find('Box').hasClass('sg-accordion-item--no-gap')).toBe(
+      true
+    );
+  });
+
+  it('does not change border on hover when spacing is set to "none"', () => {
+    const accordion = mount(
+      <Accordion spacing="none">
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+
+    accordion.find({title: 'Item 1'}).simulate('mouseenter');
+
+    expect(accordion.find('Box').prop('borderColor')).toEqual(
+      'gray-secondary-lightest'
+    );
+  });
 });
