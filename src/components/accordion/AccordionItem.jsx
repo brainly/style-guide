@@ -171,13 +171,7 @@ const AccordionItem = ({
           !isHidden && setIsHover(false);
         }}
       >
-        <Link
-          type="h1"
-          size={titleSize}
-          color="black"
-          weight="bold"
-          underlined={isHover}
-        >
+        <Link size={titleSize} color="black" weight="bold" underlined={isHover}>
           {title}
         </Link>
         <Flex
