@@ -112,4 +112,21 @@ describe('<Accordion>', () => {
       'gray-secondary-lightest'
     );
   });
+
+  it('by default expands items that have "defaultOpened" prop', () => {
+    const accordion = mount(
+      <Accordion allowMultiple>
+        <AccordionItem title="Item 1" defaultOpened>
+          Accordion Item Description
+        </AccordionItem>
+        <AccordionItem title="Item 2" defaultOpened>
+          Accordion Item Description
+        </AccordionItem>
+        <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+
+    // hostNodes returns html elements and skip react components
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
+  });
 });

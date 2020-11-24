@@ -41,10 +41,8 @@ const AccordionItem = ({
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
   const [isHover, setIsHover] = useState(false);
 
-  const {
-    state: {opened, noGapBetweenElements},
-    dispatch,
-  } = useContext(AccordionContext);
+  const {noGapBetweenElements, opened, dispatch} = useContext(AccordionContext);
+
   const isHidden = !opened[id];
 
   const handleClickOnBody = () => {
@@ -74,7 +72,7 @@ const AccordionItem = ({
       handleOpen(true);
     }
     //eslint-disable-next-line
-  }, [defaultOpened]);
+  }, []);
 
   useLayoutEffect(() => {
     const content = contentRef.current;

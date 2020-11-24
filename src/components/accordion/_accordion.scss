@@ -1,31 +1,18 @@
-$borderDefault: 2px solid $graySecondaryLightest;
-
 @if ($includeHtml) {
   .sg-accordion-item {
-    @include sgBreakpoint(small-only) {
-      border-right: none;
-      border-left: none;
-      border-radius: 0;
-    }
-
     &--no-gap {
       border-radius: 0;
       border-top: none;
 
       &:first-child {
         border-top: 2px solid $graySecondaryLightest;
-
-        @include sgBreakpoint(medium-up) {
-          border-top-left-radius: $borderRadiusDefault;
-          border-top-right-radius: $borderRadiusDefault;
-        }
+        border-top-left-radius: $borderRadiusDefault;
+        border-top-right-radius: $borderRadiusDefault;
       }
 
       &:last-child {
-        @include sgBreakpoint(medium-up) {
-          border-bottom-left-radius: $borderRadiusDefault;
-          border-bottom-right-radius: $borderRadiusDefault;
-        }
+        border-bottom-left-radius: $borderRadiusDefault;
+        border-bottom-right-radius: $borderRadiusDefault;
       }
     }
 

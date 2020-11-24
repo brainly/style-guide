@@ -2,7 +2,17 @@
 
 import React, {createContext, useReducer} from 'react';
 import cx from 'classnames';
-import {accordionReducer} from './accordionReducer';
+
+type StateType = $ReadOnly<{
+  opened: {
+    [key: string]: boolean,
+  },
+}>;
+
+type ActionType = {
+  type: 'accordion/SET_OPENED',
+  payload: {id: string, value: boolean},
+};
 
 type PropType = $ReadOnly<{
   allowMultiple?: boolean,
@@ -42,16 +52,33 @@ const Accordion = ({
   className = '',
   spacing = 's',
 }: PropType) => {
-  const [state, dispatch] = useReducer(accordionReducer, {
+  const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
     opened: {},
-    noGapBetweenElements: spacing === 'none',
-    allowMultiple,
   });
 
+  function reducer(state: StateType, action: ActionType): StateType {
+    switch (action.type) {
+      case 'accordion/SET_OPENED': {
+        const {opened} = state;
+        const {id, value} = action.payload;
+
+        return {
+          ...state,
+          opened: allowMultiple ? {...opened, [id]: value} : {[id]: value},
+        };
+      }
+      default:
+        return state;
+    }
+  }
+
+  const noGapBetweenElements = spacing === 'none';
   const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
   return (
-    <AccordionContext.Provider value={{state, dispatch}}>
+    <AccordionContext.Provider
+      value={{noGapBetweenElements, opened: state.opened, dispatch}}
+    >
       <div className={cx(spaceClass, className)}>{children}</div>
     </AccordionContext.Provider>
   );
