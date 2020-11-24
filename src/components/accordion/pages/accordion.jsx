@@ -1,6 +1,6 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import {Default} from '../Accordion.stories';
+import {Default, NoGaps} from '../Accordion.stories';
 
 const accordion = () => (
   <div>
@@ -9,6 +9,9 @@ const accordion = () => (
     </DocsBlock>
     <DocsBlock info="Allows multiple items expanded">
       <Default allowMultiple />
+    </DocsBlock>
+    <DocsBlock info="No gap between elements with first 2 elements opened by default">
+      <NoGaps />
     </DocsBlock>
   </div>
 );

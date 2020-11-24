@@ -42,7 +42,7 @@ const Accordions = () => {
           ...acc,
           [val]: val,
         }),
-        {}
+        {none: 'none'}
       ),
     },
   ];
