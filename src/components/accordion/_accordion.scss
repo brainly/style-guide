@@ -1,5 +1,21 @@
 @if ($includeHtml) {
   .sg-accordion-item {
+    &--no-gap {
+      border-radius: 0;
+      border-top: none;
+
+      &:first-child {
+        border-top: 2px solid $graySecondaryLightest;
+        border-top-left-radius: $borderRadiusDefault;
+        border-top-right-radius: $borderRadiusDefault;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: $borderRadiusDefault;
+        border-bottom-right-radius: $borderRadiusDefault;
+      }
+    }
+
     &__content {
       transition: 0.2s ease-out;
       transition-property: height, margin-top;

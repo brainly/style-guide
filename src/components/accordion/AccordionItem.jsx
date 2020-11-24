@@ -1,6 +1,12 @@
 //@flow strict
 
-import React, {useContext, useLayoutEffect, useRef, useState} from 'react';
+import React, {
+  useContext,
+  useLayoutEffect,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import type {Node} from 'react';
 import cx from 'classnames';
 import Box from '../box/Box';
@@ -15,6 +21,7 @@ type PropType = $ReadOnly<{
   titleSize?: 'small' | 'large',
   children?: Node,
   className?: string,
+  defaultOpened?: boolean,
 }>;
 
 function generateId() {
@@ -28,20 +35,21 @@ const AccordionItem = ({
   titleSize = 'large',
   children,
   className = '',
+  defaultOpened = false,
 }: PropType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const id = useRef<string>(`AccordionItem_${generateId()}`);
+  const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
   const [isHover, setIsHover] = useState(false);
 
-  const item = id.current;
-  const {opened, onChange} = useContext(AccordionContext);
-  const isHidden = !opened[item];
+  const {noGapBetweenElements, opened, dispatch} = useContext(AccordionContext);
+
+  const isHidden = !opened[id];
 
   const handleClickOnBody = () => {
     if (!isHidden) {
       return;
     }
-    onChange(item, true);
+    handleOpen(true);
     setIsHover(false);
   };
 
@@ -49,8 +57,22 @@ const AccordionItem = ({
     if (isHidden) {
       return;
     }
-    onChange(item, false);
+    handleOpen(false);
   };
+
+  function handleOpen(value: boolean) {
+    dispatch({
+      type: 'accordion/SET_OPENED',
+      payload: {id, value},
+    });
+  }
+
+  useEffect(() => {
+    if (defaultOpened) {
+      handleOpen(true);
+    }
+    //eslint-disable-next-line
+  }, []);
 
   useLayoutEffect(() => {
     const content = contentRef.current;
@@ -109,15 +131,19 @@ const AccordionItem = ({
     };
   }, [isHidden]);
 
+  const isBorderHighlighted = isHover && !noGapBetweenElements;
+
   return (
     <Box
       color="light"
       border
-      borderColor={isHover ? 'dark' : 'gray-secondary-lightest'}
+      borderColor={isBorderHighlighted ? 'dark' : 'gray-secondary-lightest'}
       onClick={handleClickOnBody}
       className={cx(
+        'sg-accordion-item',
         'sg-accordion-item__pointer',
         {
+          'sg-accordion-item--no-gap': noGapBetweenElements,
           'sg-accordion-item__pointer': !isHidden,
         },
         className
@@ -145,13 +171,7 @@ const AccordionItem = ({
           !isHidden && setIsHover(false);
         }}
       >
-        <Link
-          type="h1"
-          size={titleSize}
-          color="black"
-          weight="bold"
-          underlined={isHover}
-        >
+        <Link size={titleSize} color="black" weight="bold" underlined={isHover}>
           {title}
         </Link>
         <Flex

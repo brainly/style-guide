@@ -1,29 +1,38 @@
 //@flow strict
 
-import React, {createContext, useCallback, useState} from 'react';
+import React, {createContext, useReducer} from 'react';
 import cx from 'classnames';
+
+type StateType = $ReadOnly<{
+  opened: {
+    [key: string]: boolean,
+  },
+}>;
+
+type ActionType = {
+  type: 'accordion/SET_OPENED',
+  payload: {id: string, value: boolean},
+};
 
 type PropType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React$Node,
   className?: string,
-  spacing?: 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl',
+  spacing?:
+    | 'xxs'
+    | 'xs'
+    | 's'
+    | 'm'
+    | 'l'
+    | 'xl'
+    | 'xxl'
+    | 'xxxl'
+    | 'xxxxl'
+    | 'none',
 }>;
 
-type OpenedMapType = {
-  [key: string]: boolean,
-  ...,
-};
-
-type AccordionContextType = {
-  opened: OpenedMapType,
-  onChange: (item: string, value: boolean) => void,
-};
-
-export const AccordionContext = createContext<AccordionContextType>({
-  opened: {},
-  onChange: () => undefined,
-});
+// $FlowFixMe context doesn't need to be defined here
+export const AccordionContext = createContext();
 
 export const spaceClasses = {
   xxs: 'sg-space-y-xxs',
@@ -43,34 +52,34 @@ const Accordion = ({
   className = '',
   spacing = 's',
 }: PropType) => {
-  const [opened, setOpened] = useState({});
+  const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
+    opened: {},
+  });
 
-  const handleChange = useCallback(
-    (item: string, value: boolean) => {
-      if (allowMultiple) {
-        setOpened({...opened, [item]: value});
-      } else {
-        const newOpened = {...opened};
+  function reducer(state: StateType, action: ActionType): StateType {
+    switch (action.type) {
+      case 'accordion/SET_OPENED': {
+        const {opened} = state;
+        const {id, value} = action.payload;
 
-        Object.keys(newOpened).forEach(i => (newOpened[i] = false));
-        setOpened({...newOpened, [item]: value});
+        return {
+          ...state,
+          opened: allowMultiple ? {...opened, [id]: value} : {[id]: value},
+        };
       }
-    },
-    [opened, allowMultiple]
-  );
+      default:
+        return state;
+    }
+  }
 
-  const context = {onChange: handleChange, opened};
-
-  const classes = cx(
-    {
-      [`${spaceClasses[spacing]}`]: spaceClasses[spacing],
-    },
-    className
-  );
+  const noGapBetweenElements = spacing === 'none';
+  const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
   return (
-    <AccordionContext.Provider value={context}>
-      <div className={classes}>{children}</div>
+    <AccordionContext.Provider
+      value={{noGapBetweenElements, opened: state.opened, dispatch}}
+    >
+      <div className={cx(spaceClass, className)}>{children}</div>
     </AccordionContext.Provider>
   );
 };
