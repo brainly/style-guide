@@ -37,7 +37,7 @@ export const TYPE = {
   BRAINLY_PLUS: 'brainly-plus',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
   BRAINLY_PLUS_SMALL: 'brainly-plus-small',
-  BRAINLY_TUTORING: 'brainly-tutoring'
+  BRAINLY_TUTORING: 'brainly-tutoring',
 };
 
 export const LOGOS = {
@@ -55,7 +55,7 @@ export const LOGOS = {
   [TYPE.BRAINLY_PLUS]: 'brainly-plus-0768e10846',
   [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-c687c7219e',
   [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-b8ec10bfb4',
-  [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-ff28f9db8b'
+  [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-ff28f9db8b',
 };
 
 type PropsType = {
