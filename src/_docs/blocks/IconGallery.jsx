@@ -5,8 +5,6 @@ import type {Node} from 'react';
 import {styled} from '@storybook/theming';
 import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';
 
-import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
-
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s1,
@@ -16,8 +14,8 @@ const ItemLabel = styled.div(({theme}) => ({
   lineHeight: 1.2,
 }));
 
-const ItemSpecimen = styled.div(({theme, size = 108}) => ({
-  ...getBlockBackgroundStyle(theme),
+const ItemSpecimen = styled.div(({size = 108}) => ({
+  borderRadius: '4px',
   backgroundColor: '#fafafa',
   overflow: 'hidden',
   height: size,
