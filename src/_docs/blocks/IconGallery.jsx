@@ -5,8 +5,6 @@ import type {Node} from 'react';
 import {styled} from '@storybook/theming';
 import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';
 
-import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
-
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s1,
