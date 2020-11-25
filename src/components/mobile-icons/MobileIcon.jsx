@@ -7,6 +7,8 @@ import type {IconColorType} from '../icons/Icon';
 export type IconTypeType =
   | 'answer_bubble'
   | 'ask_bubble'
+  | 'backward_5s'
+  | 'backward_end'
   | 'barcode_scanner'
   | 'chapter'
   | 'clear'
@@ -14,18 +16,22 @@ export type IconTypeType =
   | 'crown'
   | 'crown_outlined'
   | 'cup'
+  | 'filters'
   | 'flashlight_off'
   | 'flashlight_on'
+  | 'forward_5s'
   | 'heart_outlined'
   | 'info'
   | 'keyboard'
   | 'options'
+  | 'replay'
   | 'sent'
   | 'share_on_ios'
   | 'spark'
   | 'star_outlined'
   | 'text'
-  | 'textbook';
+  | 'textbook'
+  | 'time_speed';
 
 export type SizeType =
   | 104
@@ -49,6 +55,8 @@ export type SizeType =
 export const TYPE: {[name: string]: IconTypeType, ...} = {
   ANSWER_BUBBLE: 'answer_bubble',
   ASK_BUBBLE: 'ask_bubble',
+  BACKWARD_5S: 'backward_5s',
+  BACKWARD_END: 'backward_end',
   BARCODE_SCANNER: 'barcode_scanner',
   CHAPTER: 'chapter',
   CLEAR: 'clear',
@@ -56,18 +64,21 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
+  FILTERS: 'filters',
   FLASHLIGHT_OFF: 'flashlight_off',
   FLASHLIGHT_ON: 'flashlight_on',
+  FORWARD_5S: 'forward_5s',
   HEART_OUTLINED: 'heart_outlined',
   INFO: 'info',
   KEYBOARD: 'keyboard',
   OPTIONS: 'options',
+  REPLAY: 'replay',
   SENT: 'sent',
   SHARE_ON_IOS: 'share_on_ios',
   SPARK: 'spark',
   STAR_OUTLINED: 'star_outlined',
   TEXT: 'text',
-  TEXTBOOK: 'textbook',
+  TIME_SPEED: 'time_speed',
 };
 
 type PropsType = $ReadOnly<{

@@ -22,6 +22,7 @@ export type IconTypeType =
   | 'bulleted_list'
   | 'calendar'
   | 'camera'
+  | 'chapter'
   | 'check'
   | 'clipboard'
   | 'close'
@@ -34,6 +35,7 @@ export type IconTypeType =
   | 'excellent'
   | 'exclamation_mark'
   | 'facebook'
+  | 'filters'
   | 'friend_add'
   | 'friend_remove'
   | 'friend_pending'
@@ -149,6 +151,7 @@ export const TYPE = {
   BULLETED_LIST: 'bulleted_list',
   CALENDAR: 'calendar',
   CAMERA: 'camera',
+  CHAPTER: 'chapter',
   CHECK: 'check',
   CLIPBOARD: 'clipboard',
   CLOSE: 'close',
@@ -161,6 +164,7 @@ export const TYPE = {
   EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
+  FILTERS: 'filters',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
   FRIEND_PENDING: 'friend_pending',
