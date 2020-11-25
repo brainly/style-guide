@@ -16,12 +16,15 @@ import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
 
+type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+
 type PropType = $ReadOnly<{
   title: Node,
   titleSize?: 'small' | 'large',
   children?: Node,
   className?: string,
   defaultOpened?: boolean,
+  padding?: PaddingType,
 }>;
 
 function generateId() {
@@ -36,6 +39,7 @@ const AccordionItem = ({
   children,
   className = '',
   defaultOpened = false,
+  padding = 'm',
 }: PropType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
@@ -148,6 +152,7 @@ const AccordionItem = ({
         },
         className
       )}
+      padding={padding}
       onMouseEnter={() => {
         isHidden && setIsHover(true);
       }}
