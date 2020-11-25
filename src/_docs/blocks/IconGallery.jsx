@@ -16,8 +16,8 @@ const ItemLabel = styled.div(({theme}) => ({
   lineHeight: 1.2,
 }));
 
-const ItemSpecimen = styled.div(({theme, size = 108}) => ({
-  ...getBlockBackgroundStyle(theme),
+const ItemSpecimen = styled.div(({size = 108}) => ({
+  borderRadius: '4px',
   backgroundColor: '#fafafa',
   overflow: 'hidden',
   height: size,
