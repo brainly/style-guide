@@ -1,0 +1,6 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <title>bullet</title>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M0 0h512v512H0z"/>
+    <circle fill="#000" cx="256" cy="256" r="64"/>
+  </g></svg>
