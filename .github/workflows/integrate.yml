@@ -6,7 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,4 +15,5 @@ jobs:
         with:
           node-version: 14
       - run: yarn
+      - run: yarn build
       - run: yarn test
