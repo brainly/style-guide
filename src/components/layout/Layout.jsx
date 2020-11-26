@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 type PropsType = {
   className?: string,
+  containerClassName?: string,
   children: Node,
   header?: Node,
   footer?: Node,
@@ -27,17 +28,22 @@ const Layout = ({
   fullPage,
   threeColumns,
   className,
+  containerClassName,
   ...props
 }: PropsType) => {
   const layoutClass = classNames('sg-layout', className, {
     'sg-layout--three-columns': threeColumns,
   });
-  const layoutContainerClass = classNames('sg-layout__container', {
-    'sg-layout__container--reversed-order': reversedOrder,
-    'sg-layout__container--no-max-width': noMaxWidth,
-    'sg-layout__container--no-margin-top': noMarginTop,
-    'sg-layout__container--full-page': fullPage,
-  });
+  const layoutContainerClass = classNames(
+    'sg-layout__container',
+    containerClassName,
+    {
+      'sg-layout__container--reversed-order': reversedOrder,
+      'sg-layout__container--no-max-width': noMaxWidth,
+      'sg-layout__container--no-margin-top': noMarginTop,
+      'sg-layout__container--full-page': fullPage,
+    }
+  );
   let footerContent;
 
   if (footer !== undefined) {
