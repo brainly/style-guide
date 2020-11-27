@@ -23,6 +23,10 @@
       overflow: hidden;
     }
 
+    &__content-box {
+      padding-top: 0;
+    }
+
     &__pointer {
       cursor: pointer;
     }
