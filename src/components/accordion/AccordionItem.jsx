@@ -201,7 +201,7 @@ const AccordionItem = ({
       </Box>
 
       <div className="sg-accordion-item__content" ref={contentRef}>
-        <Box padding={padding}>
+        <Box padding={padding} className="sg-accordion-item__content-box">
           <Text>{children}</Text>
         </Box>
       </div>
