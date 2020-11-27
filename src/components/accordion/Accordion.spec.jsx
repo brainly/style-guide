@@ -94,9 +94,12 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('Box').hasClass('sg-accordion-item--no-gap')).toBe(
-      true
-    );
+    expect(
+      accordion
+        .find('Box')
+        .at(0)
+        .hasClass('sg-accordion-item--no-gap')
+    ).toBe(true);
   });
 
   it('does not change border on hover when spacing is set to "none"', () => {
@@ -108,9 +111,12 @@ describe('<Accordion>', () => {
 
     accordion.find({title: 'Item 1'}).simulate('mouseenter');
 
-    expect(accordion.find('Box').prop('borderColor')).toEqual(
-      'gray-secondary-lightest'
-    );
+    expect(
+      accordion
+        .find('Box')
+        .at(0)
+        .prop('borderColor')
+    ).toEqual('gray-secondary-lightest');
   });
 
   it('by default expands items that have "defaultOpened" prop', () => {

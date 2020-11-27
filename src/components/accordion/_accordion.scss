@@ -18,14 +18,9 @@
 
     &__content {
       transition: 0.2s ease-out;
-      transition-property: height, margin-top;
+      transition-property: height;
       height: 0;
       overflow: hidden;
-      margin-top: spacing(m);
-
-      &--hidden {
-        margin-top: 0;
-      }
     }
 
     &__pointer {

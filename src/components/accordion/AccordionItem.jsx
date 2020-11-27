@@ -54,7 +54,6 @@ const AccordionItem = ({
       return;
     }
     handleOpen(true);
-    setIsHover(false);
   };
 
   const handleClickOnTitle = () => {
@@ -145,14 +144,12 @@ const AccordionItem = ({
       onClick={handleClickOnBody}
       className={cx(
         'sg-accordion-item',
-        'sg-accordion-item__pointer',
         {
           'sg-accordion-item--no-gap': noGapBetweenElements,
-          'sg-accordion-item__pointer': !isHidden,
         },
         className
       )}
-      padding={padding}
+      padding={null}
       onMouseEnter={() => {
         isHidden && setIsHover(true);
       }}
@@ -161,13 +158,9 @@ const AccordionItem = ({
       }}
       aria-expanded={!isHidden}
     >
-      <Flex
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        className={cx({
-          'sg-accordion-item__pointer': !isHidden,
-        })}
+      <Box
+        padding={padding}
+        className="sg-accordion-item__pointer"
         onClick={handleClickOnTitle}
         onMouseEnter={() => {
           !isHidden && setIsHover(true);
@@ -176,32 +169,41 @@ const AccordionItem = ({
           !isHidden && setIsHover(false);
         }}
       >
-        <Link size={titleSize} color="black" weight="bold" underlined={isHover}>
-          {title}
-        </Link>
         <Flex
-          justifyContent="center"
+          direction="row"
+          justifyContent="space-between"
           alignItems="center"
-          className={cx('sg-accordion-item__icon', {
-            'sg-accordion-item__icon--hover': isHover,
-          })}
         >
-          <Icon
-            type="arrow_down"
-            color="dark"
-            className={cx('sg-accordion-item__arrow', {
-              'sg-accordion-item__arrow--visible': !isHidden,
+          <Link
+            size={titleSize}
+            color="black"
+            weight="bold"
+            underlined={isHover}
+          >
+            {title}
+          </Link>
+          <Flex
+            justifyContent="center"
+            alignItems="center"
+            className={cx('sg-accordion-item__icon', {
+              'sg-accordion-item__icon--hover': isHover,
             })}
-          />
+          >
+            <Icon
+              type="arrow_down"
+              color="dark"
+              className={cx('sg-accordion-item__arrow', {
+                'sg-accordion-item__arrow--visible': !isHidden,
+              })}
+            />
+          </Flex>
         </Flex>
-      </Flex>
-      <div
-        className={cx('sg-accordion-item__content', {
-          'sg-accordion-item__content--hidden': isHidden,
-        })}
-        ref={contentRef}
-      >
-        <Text>{children}</Text>
+      </Box>
+
+      <div className="sg-accordion-item__content" ref={contentRef}>
+        <Box padding={padding}>
+          <Text>{children}</Text>
+        </Box>
       </div>
     </Box>
   );
