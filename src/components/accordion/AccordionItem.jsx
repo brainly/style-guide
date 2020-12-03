@@ -43,6 +43,7 @@ const AccordionItem = ({
   padding = 'm',
   tabIndex = 0,
 }: PropType) => {
+  const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
   const contentId = `Section_${id}`;
@@ -84,6 +85,8 @@ const AccordionItem = ({
         payload: {id, value: true},
       });
     }
+
+    hasRendered.current = true;
     //eslint-disable-next-line
   }, []);
 
@@ -107,6 +110,7 @@ const AccordionItem = ({
             return;
           }
           contentRef.current.style.height = `0px`;
+
           contentRef.current.addEventListener('transitionend', onTransitionEnd);
         });
       });
@@ -116,6 +120,7 @@ const AccordionItem = ({
       if (!contentRef.current) {
         return;
       }
+
       contentRef.current.hidden = false;
       const sectionHeight = contentRef.current.scrollHeight;
 
@@ -138,11 +143,9 @@ const AccordionItem = ({
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
-    if (isHidden) {
-      collapse();
-    } else {
-      expand();
-    }
+    if (hasRendered.current === false) return;
+
+    isHidden ? collapse() : expand();
 
     return () => {
       if (!content) {
