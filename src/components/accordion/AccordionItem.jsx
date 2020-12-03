@@ -25,6 +25,7 @@ type PropType = $ReadOnly<{
   className?: string,
   defaultOpened?: boolean,
   padding?: PaddingType,
+  tabIndex?: number,
 }>;
 
 function generateId() {
@@ -40,27 +41,23 @@ const AccordionItem = ({
   className = '',
   defaultOpened = false,
   padding = 'm',
+  tabIndex = 0,
 }: PropType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
-  const [isHover, setIsHover] = useState(false);
+  const contentId = `Section_${id}`;
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const {noGapBetweenElements, opened, dispatch} = useContext(AccordionContext);
 
   const isHidden = !opened[id];
-
-  const handleClickOnBody = () => {
-    if (!isHidden) {
-      return;
-    }
-    handleOpen(true);
-  };
+  const isHighlighted = isHovered || isFocused;
+  const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
   const handleClickOnTitle = () => {
-    if (isHidden) {
-      return;
-    }
-    handleOpen(false);
+    handleOpen(isHidden);
   };
 
   function handleOpen(value: boolean) {
@@ -97,6 +94,7 @@ const AccordionItem = ({
             return;
           }
           contentRef.current.style.height = `${0}px`;
+          contentRef.current.addEventListener('transitionend', onTransitionEnd);
         });
       });
     }
@@ -105,6 +103,7 @@ const AccordionItem = ({
       if (!contentRef.current) {
         return;
       }
+      contentRef.current.hidden = false;
       const sectionHeight = contentRef.current.scrollHeight;
 
       contentRef.current.style.height = `${sectionHeight}px`;
@@ -116,7 +115,13 @@ const AccordionItem = ({
         return;
       }
 
-      contentRef.current.style.height = 'auto';
+      if (contentRef.current.style.height === '0px') {
+        contentRef.current.hidden = true;
+      } else {
+        contentRef.current.style.height = 'auto';
+        contentRef.current.hidden = false;
+      }
+
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
@@ -134,14 +139,11 @@ const AccordionItem = ({
     };
   }, [isHidden]);
 
-  const isBorderHighlighted = isHover && !noGapBetweenElements;
-
   return (
     <Box
       color="light"
       border
       borderColor={isBorderHighlighted ? 'dark' : 'gray-secondary-lightest'}
-      onClick={handleClickOnBody}
       className={cx(
         'sg-accordion-item',
         {
@@ -151,23 +153,25 @@ const AccordionItem = ({
       )}
       padding={null}
       onMouseEnter={() => {
-        isHidden && setIsHover(true);
+        isHidden && setIsHovered(true);
       }}
       onMouseLeave={() => {
-        isHidden && setIsHover(false);
+        isHidden && setIsHovered(false);
       }}
-      aria-expanded={!isHidden}
     >
       <Box
         padding={padding}
         className="sg-accordion-item__pointer"
         onClick={handleClickOnTitle}
-        onMouseEnter={() => {
-          !isHidden && setIsHover(true);
-        }}
-        onMouseLeave={() => {
-          !isHidden && setIsHover(false);
-        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        aria-expanded={!isHidden}
+        aria-controls={contentId}
+        id={id}
+        role="button"
+        tabIndex={tabIndex}
       >
         <Flex
           direction="row"
@@ -178,7 +182,7 @@ const AccordionItem = ({
             size={titleSize}
             color="black"
             weight="bold"
-            underlined={isHover}
+            underlined={isHighlighted}
           >
             {title}
           </Link>
@@ -186,7 +190,7 @@ const AccordionItem = ({
             justifyContent="center"
             alignItems="center"
             className={cx('sg-accordion-item__icon', {
-              'sg-accordion-item__icon--hover': isHover,
+              'sg-accordion-item__icon--hover': isHighlighted,
             })}
           >
             <Icon
@@ -200,7 +204,13 @@ const AccordionItem = ({
         </Flex>
       </Box>
 
-      <div className="sg-accordion-item__content" ref={contentRef}>
+      <div
+        ref={contentRef}
+        className="sg-accordion-item__content"
+        id={contentId}
+        role="region"
+        aria-labelledby={id}
+      >
         <Box padding={padding} className="sg-accordion-item__content-box">
           <Text>{children}</Text>
         </Box>

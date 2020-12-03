@@ -54,6 +54,7 @@ const Accordion = ({
 }: PropType) => {
   const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
     opened: {},
+    focused: ''
   });
 
   function reducer(state: StateType, action: ActionType): StateType {
@@ -79,7 +80,13 @@ const Accordion = ({
     <AccordionContext.Provider
       value={{noGapBetweenElements, opened: state.opened, dispatch}}
     >
-      <div className={cx(spaceClass, className)}>{children}</div>
+      <div
+        className={cx(spaceClass, className)}
+        data-allow-multiple={allowMultiple}
+        data-allow-toggle={!allowMultiple}
+      >
+        {children}
+      </div>
     </AccordionContext.Provider>
   );
 };
