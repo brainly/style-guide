@@ -58,9 +58,10 @@ const AccordionItem = ({
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
-  const toggleOpened = () => {
+  const toggleOpen = () => {
     dispatch({
-      type: 'accordion/TOGGLE_OPEN',
+      type: 'accordion/SET_OPENED',
+      payload: {id, value: isHidden},
     });
   };
 
@@ -80,10 +81,7 @@ const AccordionItem = ({
 
   useEffect(() => {
     if (defaultOpened) {
-      dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {id, value: true},
-      });
+      toggleOpen();
     }
 
     hasRendered.current = true;
@@ -134,10 +132,10 @@ const AccordionItem = ({
       }
 
       if (contentRef.current.style.height === '0px') {
-        contentRef.current.hidden = true; // accessibility requirement
+        // we set hidden in order to prevent gaining focus inside collapsed content
+        contentRef.current.hidden = true;
       } else {
         contentRef.current.style.height = 'auto';
-        contentRef.current.hidden = false; // accessibility requirement
       }
 
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
@@ -171,8 +169,10 @@ const AccordionItem = ({
     >
       <Box
         padding={padding}
-        className="sg-accordion-item__pointer"
-        onClick={toggleOpened}
+        className={cx('sg-accordion-item__button', {
+          'sg-accordion-item__button--focused': isFocused,
+        })}
+        onClick={toggleOpen}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onFocus={handleFocus}
@@ -220,6 +220,7 @@ const AccordionItem = ({
         id={contentId}
         role="region"
         aria-labelledby={id}
+        hidden
       >
         <Box padding={padding} className="sg-accordion-item__content-box">
           <Text>{children}</Text>

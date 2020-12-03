@@ -1,6 +1,6 @@
 //@flow strict
 
-import React, {createContext, useReducer, useEffect} from 'react';
+import React, {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 
 export const KEY_CODES = {
@@ -8,10 +8,12 @@ export const KEY_CODES = {
   '13': 'enter',
 };
 
+type OpenedItemsType = {
+  [key: string]: boolean,
+};
+
 type StateType = $ReadOnly<{
-  opened: {
-    [key: string]: boolean,
-  },
+  opened: OpenedItemsType,
   focusedElementId: string | null,
 }>;
 
@@ -20,7 +22,7 @@ type ActionType =
       type: 'accordion/SET_OPENED',
       payload: {id: string, value: boolean},
     }
-  | {type: 'accordion/TOGGLE_OPEN'}
+  | {type: 'accordion/KEYBOARD_SET_OPENED'}
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
@@ -64,45 +66,63 @@ const Accordion = ({
   className = '',
   spacing = 's',
 }: PropType) => {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
     opened: {},
     focusedElementId: null,
   });
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
+    const wrapper = wrapperRef.current;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      const key = KEY_CODES[event.keyCode];
+
+      if (['space', 'enter'].includes(key)) {
+        dispatch({type: 'accordion/KEYBOARD_SET_OPENED'});
+      }
+    }
+
+    if (!wrapper) return;
+    wrapper.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      if (!wrapper) return;
+      wrapper.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
-  function handleKeyDown(event: SyntheticKeyboardEvent<HTMLDivElement>) {
-    const key = KEY_CODES[event.keyCode];
-
-    if (['space', 'enter'].includes(key)) {
-      dispatch({type: 'accordion/TOGGLE_OPEN'});
-    }
+  function getUpdatedOpenedItems(
+    opened: OpenedItemsType,
+    id: string,
+    value: boolean
+  ) {
+    return allowMultiple ? {...opened, [id]: value} : {[id]: value};
   }
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
       case 'accordion/SET_OPENED': {
-        const {opened} = state;
         const {id, value} = action.payload;
 
         return {
           ...state,
-          opened: allowMultiple ? {...opened, [id]: value} : {[id]: value},
+          opened: getUpdatedOpenedItems(state.opened, id, value),
         };
       }
 
-      case 'accordion/TOGGLE_OPEN': {
+      case 'accordion/KEYBOARD_SET_OPENED': {
         const {opened, focusedElementId} = state;
 
         if (focusedElementId === null) return state;
 
         return {
           ...state,
-          opened: allowMultiple
-            ? {...opened, [focusedElementId]: !opened[focusedElementId]}
-            : {[focusedElementId]: !opened[focusedElementId]},
+          opened: getUpdatedOpenedItems(
+            state.opened,
+            focusedElementId,
+            !opened[focusedElementId]
+          ),
         };
       }
 
@@ -123,9 +143,15 @@ const Accordion = ({
 
   return (
     <AccordionContext.Provider
-      value={{noGapBetweenElements, opened: state.opened, dispatch}}
+      value={{
+        noGapBetweenElements,
+        opened: state.opened,
+        focusedElementId: state.focusedElementId,
+        dispatch,
+      }}
     >
       <div
+        ref={wrapperRef}
         className={cx(spaceClass, className)}
         data-allow-multiple={allowMultiple}
         data-allow-toggle={!allowMultiple}

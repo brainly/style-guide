@@ -16,6 +16,16 @@
       }
     }
 
+    &__button {
+      cursor: pointer;
+
+      &--focused {
+        &:focus:not(:focus-visible) {
+          outline: none;
+        }
+      }
+    }
+
     &__content {
       transition: 0.2s ease-out;
       transition-property: height;
@@ -25,10 +35,6 @@
 
     &__content-box {
       padding-top: 0;
-    }
-
-    &__pointer {
-      cursor: pointer;
     }
 
     &__arrow {
