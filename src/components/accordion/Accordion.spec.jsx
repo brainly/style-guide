@@ -66,9 +66,21 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion.find({title: 'Item 1'}).simulate('click');
-    accordion.find({title: 'Item 2'}).simulate('click');
-    accordion.find({title: 'Item 3'}).simulate('click');
+    accordion
+      .find({title: 'Item 1'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 2'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 3'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
@@ -83,9 +95,21 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion.find({title: 'Item 1'}).simulate('click');
-    accordion.find({title: 'Item 2'}).simulate('click');
-    accordion.find({title: 'Item 3'}).simulate('click');
+    accordion
+      .find({title: 'Item 1'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 2'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 3'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
