@@ -47,29 +47,42 @@ const AccordionItem = ({
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
   const contentId = `Section_${id}`;
 
+  const {noGapBetweenElements, opened, focusedElementId, dispatch} = useContext(
+    AccordionContext
+  );
   const [isHovered, setIsHovered] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-
-  const {noGapBetweenElements, opened, dispatch} = useContext(AccordionContext);
 
   const isHidden = !opened[id];
+  const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
-  const handleClickOnTitle = () => {
-    handleOpen(isHidden);
+  const toggleOpened = () => {
+    dispatch({
+      type: 'accordion/TOGGLE_OPEN',
+    });
   };
 
-  function handleOpen(value: boolean) {
+  function handleFocus() {
     dispatch({
-      type: 'accordion/SET_OPENED',
-      payload: {id, value},
+      type: 'accordion/SET_FOCUSED',
+      payload: {id},
+    });
+  }
+
+  function handleBlur() {
+    dispatch({
+      type: 'accordion/SET_FOCUSED',
+      payload: {id: null},
     });
   }
 
   useEffect(() => {
     if (defaultOpened) {
-      handleOpen(true);
+      dispatch({
+        type: 'accordion/SET_OPENED',
+        payload: {id, value: true},
+      });
     }
     //eslint-disable-next-line
   }, []);
@@ -93,7 +106,7 @@ const AccordionItem = ({
           if (!contentRef.current) {
             return;
           }
-          contentRef.current.style.height = `${0}px`;
+          contentRef.current.style.height = `0px`;
           contentRef.current.addEventListener('transitionend', onTransitionEnd);
         });
       });
@@ -116,10 +129,10 @@ const AccordionItem = ({
       }
 
       if (contentRef.current.style.height === '0px') {
-        contentRef.current.hidden = true;
+        contentRef.current.hidden = true; // accessibility requirement
       } else {
         contentRef.current.style.height = 'auto';
-        contentRef.current.hidden = false;
+        contentRef.current.hidden = false; // accessibility requirement
       }
 
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
@@ -162,11 +175,11 @@ const AccordionItem = ({
       <Box
         padding={padding}
         className="sg-accordion-item__pointer"
-        onClick={handleClickOnTitle}
+        onClick={toggleOpened}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         aria-expanded={!isHidden}
         aria-controls={contentId}
         id={id}
