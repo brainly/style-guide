@@ -168,12 +168,6 @@ const AccordionItem = ({
         className
       )}
       padding={null}
-      onMouseEnter={() => {
-        isHidden && setIsHovered(true);
-      }}
-      onMouseLeave={() => {
-        isHidden && setIsHovered(false);
-      }}
     >
       <Box
         padding={padding}
