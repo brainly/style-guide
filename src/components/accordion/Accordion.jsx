@@ -79,7 +79,13 @@ const Accordion = ({
       const key = KEY_CODES[event.keyCode];
 
       if (['space', 'enter'].includes(key)) {
-        event.preventDefault();
+        if (
+          event.target instanceof HTMLElement &&
+          event.target.id === state.focusedElementId
+        ) {
+          event.preventDefault();
+        }
+
         dispatch({type: 'accordion/KEYBOARD_SET_OPENED'});
       }
     }
@@ -91,7 +97,7 @@ const Accordion = ({
       if (!wrapper) return;
       wrapper.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [state.focusedElementId]);
 
   function getUpdatedOpenedItems(
     opened: OpenedItemsType,
