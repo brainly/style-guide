@@ -1,5 +1,7 @@
 @if ($includeHtml) {
   .sg-accordion-item {
+    overflow-anchor: none;
+
     &--no-gap {
       border-radius: 0;
       border-top: none;
