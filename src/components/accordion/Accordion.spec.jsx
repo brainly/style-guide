@@ -27,10 +27,10 @@ describe('<Accordion>', () => {
 
     expect(
       accordion
-        .find(AccordionItem)
-        .getDOMNode()
-        .getAttribute('aria-expanded')
-    ).toBe('false');
+        .find({role: 'button'})
+        .hostNodes()
+        .prop('aria-expanded')
+    ).toBe(false);
   });
 
   it('expands items after click', () => {
@@ -40,13 +40,17 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    const accordionItem = accordion.find(AccordionItem);
+    const accordionItemButton = accordion.find({role: 'button'}).hostNodes();
 
-    accordionItem.simulate('click');
+    accordionItemButton.simulate('focus');
+    accordionItemButton.simulate('click');
 
-    expect(accordionItem.getDOMNode().getAttribute('aria-expanded')).toBe(
-      'true'
-    );
+    expect(
+      accordion
+        .find({role: 'button'})
+        .hostNodes()
+        .prop('aria-expanded')
+    ).toBe(true);
 
     expect(accordion.find('.sg-accordion-item__content--hidden')).toHaveLength(
       0
@@ -62,9 +66,21 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion.find({title: 'Item 1'}).simulate('click');
-    accordion.find({title: 'Item 2'}).simulate('click');
-    accordion.find({title: 'Item 3'}).simulate('click');
+    accordion
+      .find({title: 'Item 1'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 2'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 3'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
@@ -79,9 +95,21 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion.find({title: 'Item 1'}).simulate('click');
-    accordion.find({title: 'Item 2'}).simulate('click');
-    accordion.find({title: 'Item 3'}).simulate('click');
+    accordion
+      .find({title: 'Item 1'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 2'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+    accordion
+      .find({title: 'Item 3'})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
