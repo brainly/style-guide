@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const spacing = require('./spacing');
 
 module.exports = {
   purge: [],
@@ -63,16 +64,8 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
-      // SG spacing variables
-      xxs: '4px',
-      xs: '8px',
-      s: '16px',
-      m: '24px',
-      l: '40px',
-      xl: '64px',
-      xxl: '104px',
-      xxxl: '168px',
-      xxxxl: '272px',
+      // Style Guide spacing
+      ...spacing,
     },
     animation: {
       none: 'none',
