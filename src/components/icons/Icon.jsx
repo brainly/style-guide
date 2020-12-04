@@ -114,7 +114,7 @@ export type IconTypeType =
   | 'pi'
   | 'quote'
   | 'spark'
-  | 'bullet';
+  | 'dot';
 
 export type IconColorType =
   | 'adaptive'
@@ -244,7 +244,7 @@ export const TYPE = {
   PI: 'pi',
   QUOTE: 'quote',
   SPARK: 'spark',
-  BULLET: 'bullet',
+  DOT: 'dot',
 };
 
 export const ICON_COLOR = {
