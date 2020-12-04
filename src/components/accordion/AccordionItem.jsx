@@ -58,7 +58,9 @@ const AccordionItem = ({
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
-  const toggleOpen = () => {
+  const toggleOpen = (event: SyntheticEvent<HTMLElement>) => {
+    event.preventDefault();
+
     dispatch({
       type: 'accordion/SET_OPENED',
       payload: {id, value: isHidden},
@@ -81,7 +83,10 @@ const AccordionItem = ({
 
   useEffect(() => {
     if (defaultOpened) {
-      toggleOpen();
+      dispatch({
+        type: 'accordion/SET_OPENED',
+        payload: {id, value: true},
+      });
     }
 
     hasRendered.current = true;
