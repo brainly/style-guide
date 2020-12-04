@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors');
+const colors = require('./colors');
 const spacing = require('./spacing');
 const screens = require('./screens');
 
@@ -11,17 +11,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
-      black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
-      yellow: colors.amber,
-      green: colors.emerald,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      purple: colors.violet,
-      pink: colors.pink,
+      ...colors,
     },
     spacing: {
       px: '1px',
@@ -59,7 +49,6 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
-      // Style Guide spacing
       ...spacing,
     },
     animation: {
