@@ -52,9 +52,9 @@ export const LOGOS = {
   [TYPE.ZNANIJA_PLUS]: 'znanija-plus-337423fa26',
   [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-fdb3d35877',
   [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-495ddebd8c',
-  [TYPE.BRAINLY_PLUS]: 'brainly-plus-0768e10846',
+  [TYPE.BRAINLY_PLUS]: 'brainly-plus-3f4fae7ad9',
   [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-c687c7219e',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-b8ec10bfb4',
+  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-57d2d0c2e9',
   [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-94373373cc',
 };
 
