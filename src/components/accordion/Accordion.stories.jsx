@@ -51,6 +51,36 @@ export const Default = (args: any) => (
     <AccordionItem title={copy.title}>
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
+    <AccordionItem title={copy.title}>
+      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+    </AccordionItem>
   </Accordion>
 );
 
