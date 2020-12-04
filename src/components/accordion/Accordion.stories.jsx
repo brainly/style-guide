@@ -7,9 +7,10 @@ import {Flex, Icon, Link} from '../../index';
 
 export default {
   title: 'Layout/Accordion',
+  component: Accordion,
+  subcomponents: {AccordionItem},
   parameters: {
-    component: Accordion,
-    subcomponents: {AccordionItem},
+    layout: 'padded',
   },
   argTypes: {
     children: {

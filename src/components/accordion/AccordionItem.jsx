@@ -25,6 +25,7 @@ type PropType = $ReadOnly<{
   className?: string,
   defaultOpened?: boolean,
   padding?: PaddingType,
+  tabIndex?: number,
 }>;
 
 function generateId() {
@@ -40,40 +41,50 @@ const AccordionItem = ({
   className = '',
   defaultOpened = false,
   padding = 'm',
+  tabIndex = 0,
 }: PropType) => {
+  const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
-  const [isHover, setIsHover] = useState(false);
+  const contentId = `Section_${id}`;
 
-  const {noGapBetweenElements, opened, dispatch} = useContext(AccordionContext);
+  const {noGapBetweenElements, opened, focusedElementId, dispatch} = useContext(
+    AccordionContext
+  );
+  const [isHovered, setIsHovered] = useState(false);
 
   const isHidden = !opened[id];
+  const isFocused = focusedElementId === id;
+  const isHighlighted = isHovered || isFocused;
+  const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
-  const handleClickOnBody = () => {
-    if (!isHidden) {
-      return;
-    }
-    handleOpen(true);
-  };
-
-  const handleClickOnTitle = () => {
-    if (isHidden) {
-      return;
-    }
-    handleOpen(false);
-  };
-
-  function handleOpen(value: boolean) {
+  const toggleOpen = () => {
     dispatch({
       type: 'accordion/SET_OPENED',
-      payload: {id, value},
+      payload: {id, value: isHidden},
+    });
+  };
+
+  function handleFocus() {
+    dispatch({
+      type: 'accordion/SET_FOCUSED',
+      payload: {id},
+    });
+  }
+
+  function handleBlur() {
+    dispatch({
+      type: 'accordion/SET_FOCUSED',
+      payload: {id: null},
     });
   }
 
   useEffect(() => {
     if (defaultOpened) {
-      handleOpen(true);
+      toggleOpen();
     }
+
+    hasRendered.current = true;
     //eslint-disable-next-line
   }, []);
 
@@ -96,7 +107,9 @@ const AccordionItem = ({
           if (!contentRef.current) {
             return;
           }
-          contentRef.current.style.height = `${0}px`;
+          contentRef.current.style.height = `0px`;
+
+          contentRef.current.addEventListener('transitionend', onTransitionEnd);
         });
       });
     }
@@ -105,6 +118,8 @@ const AccordionItem = ({
       if (!contentRef.current) {
         return;
       }
+
+      contentRef.current.hidden = false;
       const sectionHeight = contentRef.current.scrollHeight;
 
       contentRef.current.style.height = `${sectionHeight}px`;
@@ -116,15 +131,19 @@ const AccordionItem = ({
         return;
       }
 
-      contentRef.current.style.height = 'auto';
+      if (contentRef.current.style.height === '0px') {
+        // we set hidden in order to prevent gaining focus inside collapsed content
+        contentRef.current.hidden = true;
+      } else {
+        contentRef.current.style.height = 'auto';
+      }
+
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
-    if (isHidden) {
-      collapse();
-    } else {
-      expand();
-    }
+    if (hasRendered.current === false) return;
+
+    isHidden ? collapse() : expand();
 
     return () => {
       if (!content) {
@@ -134,14 +153,11 @@ const AccordionItem = ({
     };
   }, [isHidden]);
 
-  const isBorderHighlighted = isHover && !noGapBetweenElements;
-
   return (
     <Box
       color="light"
       border
       borderColor={isBorderHighlighted ? 'dark' : 'gray-secondary-lightest'}
-      onClick={handleClickOnBody}
       className={cx(
         'sg-accordion-item',
         {
@@ -150,24 +166,22 @@ const AccordionItem = ({
         className
       )}
       padding={null}
-      onMouseEnter={() => {
-        isHidden && setIsHover(true);
-      }}
-      onMouseLeave={() => {
-        isHidden && setIsHover(false);
-      }}
-      aria-expanded={!isHidden}
     >
       <Box
         padding={padding}
-        className="sg-accordion-item__pointer"
-        onClick={handleClickOnTitle}
-        onMouseEnter={() => {
-          !isHidden && setIsHover(true);
-        }}
-        onMouseLeave={() => {
-          !isHidden && setIsHover(false);
-        }}
+        className={cx('sg-accordion-item__button', {
+          'sg-accordion-item__button--focused': isFocused,
+        })}
+        onClick={toggleOpen}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        aria-expanded={!isHidden}
+        aria-controls={contentId}
+        id={id}
+        role="button"
+        tabIndex={tabIndex}
       >
         <Flex
           direction="row"
@@ -178,7 +192,7 @@ const AccordionItem = ({
             size={titleSize}
             color="black"
             weight="bold"
-            underlined={isHover}
+            underlined={isHighlighted}
           >
             {title}
           </Link>
@@ -186,7 +200,7 @@ const AccordionItem = ({
             justifyContent="center"
             alignItems="center"
             className={cx('sg-accordion-item__icon', {
-              'sg-accordion-item__icon--hover': isHover,
+              'sg-accordion-item__icon--hover': isHighlighted,
             })}
           >
             <Icon
@@ -200,7 +214,14 @@ const AccordionItem = ({
         </Flex>
       </Box>
 
-      <div className="sg-accordion-item__content" ref={contentRef}>
+      <div
+        ref={contentRef}
+        className="sg-accordion-item__content"
+        id={contentId}
+        role="region"
+        aria-labelledby={id}
+        hidden
+      >
         <Box padding={padding} className="sg-accordion-item__content-box">
           <Text>{children}</Text>
         </Box>
