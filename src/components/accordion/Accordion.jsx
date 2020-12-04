@@ -79,6 +79,7 @@ const Accordion = ({
       const key = KEY_CODES[event.keyCode];
 
       if (['space', 'enter'].includes(key)) {
+        event.preventDefault();
         dispatch({type: 'accordion/KEYBOARD_SET_OPENED'});
       }
     }
