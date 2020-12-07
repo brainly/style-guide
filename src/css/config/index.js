@@ -8,7 +8,7 @@ const fontWeight = require('./fontWeight');
 module.exports = {
   purge: [],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'media',
   theme: {
     screens,
     colors: {
