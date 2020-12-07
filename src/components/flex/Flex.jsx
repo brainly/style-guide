@@ -9,6 +9,7 @@ import {
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
 } from './FlexConsts';
+import {__DEV__} from '../utils';
 
 type FlexContainerType =
   | 'a'
@@ -291,6 +292,8 @@ const Flex = React.forwardRef<FlexPropsType, HTMLElement>(
   }
 );
 
-Flex.displayName = 'Flex';
+if (__DEV__) {
+  Flex.displayName = 'Flex';
+}
 
 export default Flex;
