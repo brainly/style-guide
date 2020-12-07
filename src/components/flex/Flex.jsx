@@ -291,4 +291,6 @@ const Flex = React.forwardRef<FlexPropsType, HTMLElement>(
   }
 );
 
+Flex.displayName = 'Flex';
+
 export default Flex;

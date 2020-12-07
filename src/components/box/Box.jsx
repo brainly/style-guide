@@ -151,4 +151,6 @@ const Box = forwardRef<BoxPropsType, HTMLDivElement>(
   }
 );
 
+Box.displayName = 'Box';
+
 export default Box;
