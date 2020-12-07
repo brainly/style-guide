@@ -232,61 +232,63 @@ export type FlexPropsType = {
   ...
 };
 
-const Flex = (props: FlexPropsType) => {
-  const {
-    htmlTag: Container = 'div',
-    fullWidth,
-    fullHeight,
-    noShrink,
-    inlineFlex,
-    alignItems,
-    alignContent,
-    justifyContent,
-    wrap,
-    wrapReverse,
-    alignSelf,
-    direction,
-    margin,
-    marginTop,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    children,
-    className,
-    ...otherProps
-  } = props;
+const Flex = React.forwardRef<FlexPropsType, HTMLElement>(
+  (props: FlexPropsType, ref) => {
+    const {
+      htmlTag: Container = 'div',
+      fullWidth,
+      fullHeight,
+      noShrink,
+      inlineFlex,
+      alignItems,
+      alignContent,
+      justifyContent,
+      wrap,
+      wrapReverse,
+      alignSelf,
+      direction,
+      margin,
+      marginTop,
+      marginBottom,
+      marginLeft,
+      marginRight,
+      children,
+      className,
+      ...otherProps
+    } = props;
 
-  const flexClass = classNames(
-    'sg-flex',
-    {
-      'sg-flex--full-width': fullWidth,
-      'sg-flex--full-height': fullHeight,
-      'sg-flex--no-shrink': noShrink,
-      'sg-flex--inline': inlineFlex,
-      [`sg-flex--align-items-${alignItems || ''}`]: alignItems,
-      [`sg-flex--align-content-${alignContent || ''}`]: alignContent,
-      [`sg-flex--align-self-${alignSelf || ''}`]: alignSelf,
-      [`sg-flex--justify-content-${justifyContent || ''}`]: justifyContent,
-      'sg-flex--wrap': wrap,
-      'sg-flex--wrap-reverse': wrapReverse,
-      'sg-flex--column': direction === FLEX_DIRECTION.COLUMN,
-      'sg-flex--column-reverse': direction === FLEX_DIRECTION.COLUMN_REVERSE,
-      'sg-flex--row': direction === FLEX_DIRECTION.ROW,
-      'sg-flex--row-reverse': direction === FLEX_DIRECTION.ROW_REVERSE,
-      [`sg-flex--margin-${margin || ''}`]: margin,
-      [`sg-flex--margin-top-${marginTop || ''}`]: marginTop,
-      [`sg-flex--margin-right-${marginRight || ''}`]: marginRight,
-      [`sg-flex--margin-bottom-${marginBottom || ''}`]: marginBottom,
-      [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft,
-    },
-    className
-  );
+    const flexClass = classNames(
+      'sg-flex',
+      {
+        'sg-flex--full-width': fullWidth,
+        'sg-flex--full-height': fullHeight,
+        'sg-flex--no-shrink': noShrink,
+        'sg-flex--inline': inlineFlex,
+        [`sg-flex--align-items-${alignItems || ''}`]: alignItems,
+        [`sg-flex--align-content-${alignContent || ''}`]: alignContent,
+        [`sg-flex--align-self-${alignSelf || ''}`]: alignSelf,
+        [`sg-flex--justify-content-${justifyContent || ''}`]: justifyContent,
+        'sg-flex--wrap': wrap,
+        'sg-flex--wrap-reverse': wrapReverse,
+        'sg-flex--column': direction === FLEX_DIRECTION.COLUMN,
+        'sg-flex--column-reverse': direction === FLEX_DIRECTION.COLUMN_REVERSE,
+        'sg-flex--row': direction === FLEX_DIRECTION.ROW,
+        'sg-flex--row-reverse': direction === FLEX_DIRECTION.ROW_REVERSE,
+        [`sg-flex--margin-${margin || ''}`]: margin,
+        [`sg-flex--margin-top-${marginTop || ''}`]: marginTop,
+        [`sg-flex--margin-right-${marginRight || ''}`]: marginRight,
+        [`sg-flex--margin-bottom-${marginBottom || ''}`]: marginBottom,
+        [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft,
+      },
+      className
+    );
 
-  return (
-    <Container {...otherProps} className={flexClass}>
-      {children}
-    </Container>
-  );
-};
+    return (
+      <Container {...otherProps} className={flexClass} ref={ref}>
+        {children}
+      </Container>
+    );
+  }
+);
 
 export default Flex;
