@@ -10,7 +10,8 @@
   "files": [
     "src/",
     "esm/",
-    "commonjs/"
+    "commonjs/",
+    "css/"
   ],
   "engines": {
     "node": ">=8.0.0",
