@@ -1,8 +1,9 @@
 // @flow strict
 
-import React from 'react';
+import React, {forwardRef} from 'react';
 import type {Node} from 'react';
 import classNames from 'classnames';
+import {__DEV__} from '../utils';
 
 // TODO get list of colors from design team
 type ColorType =
@@ -115,35 +116,44 @@ export type BoxPropsType = {
  * @example <Box>Text inside Box</Box>
  * @returns {JSX.Element} Box component
  */
-const Box = ({
-  children,
-  className,
-  color,
-  padding = 'm',
-  border = false,
-  borderColor = 'gray-secondary-lightest',
-  noBorderRadius = false,
-  shadow = false,
-  ...props
-}: BoxPropsType) => {
-  const classes = classNames(
-    'sg-box',
+const Box = forwardRef<BoxPropsType, HTMLDivElement>(
+  (
     {
-      [`sg-box--${String(color)}`]: color,
-      [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
-      [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
-      'sg-box--border': border,
-      'sg-box--shadow': shadow,
-      'sg-box--no-border-radius': noBorderRadius,
-    },
-    className
-  );
+      children,
+      className,
+      color,
+      padding = 'm',
+      border = false,
+      borderColor = 'gray-secondary-lightest',
+      noBorderRadius = false,
+      shadow = false,
+      ...props
+    }: BoxPropsType,
+    ref
+  ) => {
+    const classes = classNames(
+      'sg-box',
+      {
+        [`sg-box--${String(color)}`]: color,
+        [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
+        [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
+        'sg-box--border': border,
+        'sg-box--shadow': shadow,
+        'sg-box--no-border-radius': noBorderRadius,
+      },
+      className
+    );
 
-  return (
-    <div {...props} className={classes}>
-      {children}
-    </div>
-  );
-};
+    return (
+      <div {...props} className={classes} ref={ref}>
+        {children}
+      </div>
+    );
+  }
+);
+
+if (__DEV__) {
+  Box.displayName = 'Box';
+}
 
 export default Box;
