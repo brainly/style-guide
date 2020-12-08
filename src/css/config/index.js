@@ -4,6 +4,7 @@ const screens = require('./screens');
 const fontFamily = require('./fontFamily');
 const fontSize = require('./fontSize');
 const fontWeight = require('./fontWeight');
+const zIndex = require('./zIndex');
 
 module.exports = {
   purge: [],
@@ -615,15 +616,7 @@ module.exports = {
       min: 'min-content',
       max: 'max-content',
     }),
-    zIndex: {
-      auto: 'auto',
-      0: '0',
-      10: '10',
-      20: '20',
-      30: '30',
-      40: '40',
-      50: '50',
-    },
+    zIndex,
   },
   variantOrder: [
     'first',
