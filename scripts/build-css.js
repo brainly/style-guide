@@ -2,29 +2,27 @@ const path = require('path');
 const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const fs = require('fs-extra');
+const util = require('util');
 const constants = require('./constants');
 
-fs.readFile(constants.CSS_SRC, (err, css) => {
-  postcss([tailwindcss(constants.CSS_CONFIG)])
-    .process(css, {
+const readFilePromise = util.promisify(fs.readFile);
+
+async function processCss() {
+  const css = await readFilePromise(constants.CSS_SRC);
+  const result = await postcss([tailwindcss(constants.CSS_CONFIG)]).process(
+    css,
+    {
       from: constants.CSS_SRC,
       to: path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
-    })
-    .then(result => {
-      fs.outputFile(
-        path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
-        result.css,
-        () => true
-      );
-      if (result.map) {
-        fs.outputFile(
-          path.join(constants.CSS_OUTPUT_DIR, 'index.css.map'),
-          result.map,
-          () => true
-        );
-      }
-    });
-});
+    }
+  );
+
+  fs.outputFile(
+    path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
+    result.css,
+    () => true
+  );
+}
 
 async function copyCssConfig() {
   try {
@@ -37,4 +35,5 @@ async function copyCssConfig() {
   }
 }
 
+processCss();
 copyCssConfig();
