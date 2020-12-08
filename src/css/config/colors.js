@@ -4,7 +4,7 @@ const colors = {};
 
 Object.keys(colorMap).forEach(groupName => {
   colorMap[groupName].forEach(color => {
-    colors[color.name.toLocaleLowerCase().replace(/ /g, 'a')] = `#${color.hex}`;
+    colors[color.name.toLocaleLowerCase().replace(/ /g, '-')] = `#${color.hex}`;
   });
 });
 
