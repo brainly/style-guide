@@ -8,20 +8,21 @@ const constants = require('./constants');
 const readFilePromise = util.promisify(fs.readFile);
 
 async function processCss() {
-  const css = await readFilePromise(constants.CSS_SRC);
-  const result = await postcss([tailwindcss(constants.CSS_CONFIG)]).process(
-    css,
-    {
+  try {
+    const css = await readFilePromise(constants.CSS_SRC);
+    const result = await postcss([tailwindcss('sad')]).process(css, {
       from: constants.CSS_SRC,
       to: path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
-    }
-  );
+    });
 
-  fs.outputFile(
-    path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
-    result.css,
-    () => true
-  );
+    await fs.outputFile(
+      path.join(constants.CSS_OUTPUT_DIR, 'index.css'),
+      result.css,
+      () => true
+    );
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 async function copyCssConfig() {
