@@ -1,7 +1,7 @@
 dist/
 esm/
 commonjs/
-css/
+/css/
 .scss-lint.yml
 .editorconfig
 .eslintrc-es5
