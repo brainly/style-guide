@@ -3,7 +3,8 @@ const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const fs = require('fs-extra');
 
-const SRC = path.resolve(__dirname, '../src/css/index.css');
+const SRC_DIR = path.resolve(__dirname, '../src/css');
+const SRC = path.join(SRC_DIR, 'index.css');
 const OUTPUT = path.resolve(__dirname, '../css');
 const CONFIG = path.resolve(__dirname, '../src/css/config/index.js');
 
@@ -21,3 +22,13 @@ fs.readFile(SRC, (err, css) => {
       }
     });
 });
+
+async function copyConfig() {
+  try {
+    await fs.copy(path.join(SRC_DIR, 'config'), path.join(OUTPUT, 'config'));
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+copyConfig();
