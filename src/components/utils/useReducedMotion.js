@@ -7,7 +7,8 @@ export default function useReducedMotion(): boolean {
 
   const [matches, setMatch] = useState(
     supportsMatchMedia
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+          window.matchMedia('(prefers-reduced-motion)').matches
       : false
   );
 
@@ -15,7 +16,14 @@ export default function useReducedMotion(): boolean {
     if (!supportsMatchMedia) {
       return noop => noop;
     }
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mediaQuery =
+      window.matchMedia('(prefers-reduced-motion: reduce)') ||
+      window.matchMedia('(prefers-reduced-motion)');
+
+    if (!mediaQuery) {
+      return;
+    }
+
     const handleChange = () => {
       setMatch(mediaQuery.matches);
     };
