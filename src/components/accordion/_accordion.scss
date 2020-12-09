@@ -33,6 +33,10 @@
       transition-property: height;
       height: 0;
       overflow: hidden;
+
+      @media (prefers-reduced-motion) {
+        transition: none;
+      }
     }
 
     &__content-box {
@@ -45,6 +49,10 @@
 
       &--visible {
         transform: rotate(180deg);
+      }
+
+      @media (prefers-reduced-motion) {
+        transition: none;
       }
     }
 

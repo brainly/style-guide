@@ -15,6 +15,7 @@ import Icon from '../icons/Icon';
 import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
+import useReducedMotion from '../utils/useReducedMotion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
@@ -57,6 +58,7 @@ const AccordionItem = ({
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
+  const reduceMotion = useReducedMotion();
 
   const toggleOpen = () => {
     dispatch({
@@ -98,23 +100,32 @@ const AccordionItem = ({
       if (!contentRef.current) {
         return;
       }
-      const sectionHeight = contentRef.current.scrollHeight;
 
-      requestAnimationFrame(function() {
-        if (!contentRef.current) {
-          return;
-        }
-        contentRef.current.style.height = `${sectionHeight}px`;
+      if (reduceMotion) {
+        contentRef.current.style.height = `${0}px`;
+        contentRef.current.hidden = true;
+      } else {
+        const sectionHeight = contentRef.current.scrollHeight;
 
         requestAnimationFrame(function() {
           if (!contentRef.current) {
             return;
           }
-          contentRef.current.style.height = `0px`;
+          contentRef.current.style.height = `${sectionHeight}px`;
 
-          contentRef.current.addEventListener('transitionend', onTransitionEnd);
+          requestAnimationFrame(function() {
+            if (!contentRef.current) {
+              return;
+            }
+            contentRef.current.style.height = `0px`;
+
+            contentRef.current.addEventListener(
+              'transitionend',
+              onTransitionEnd
+            );
+          });
         });
-      });
+      }
     }
 
     function expand() {
@@ -125,8 +136,12 @@ const AccordionItem = ({
       contentRef.current.hidden = false;
       const sectionHeight = contentRef.current.scrollHeight;
 
-      contentRef.current.style.height = `${sectionHeight}px`;
-      contentRef.current.addEventListener('transitionend', onTransitionEnd);
+      if (reduceMotion) {
+        contentRef.current.style.height = 'auto';
+      } else {
+        contentRef.current.style.height = `${sectionHeight}px`;
+        contentRef.current.addEventListener('transitionend', onTransitionEnd);
+      }
     }
 
     function onTransitionEnd() {
@@ -154,7 +169,7 @@ const AccordionItem = ({
       }
       content.removeEventListener('transitionend', onTransitionEnd);
     };
-  }, [isHidden]);
+  }, [isHidden, reduceMotion]);
 
   return (
     <Box
