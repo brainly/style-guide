@@ -174,4 +174,4 @@ const color = {
   ],
 };
 
-export default color;
+module.exports = color;
