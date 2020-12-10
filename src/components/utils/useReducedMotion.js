@@ -29,9 +29,9 @@ export default function useReducedMotion(): boolean {
     };
 
     handleChange();
-    mediaQuery.addEventListener('change', handleChange);
+    mediaQuery.addListener(handleChange);
     return () => {
-      mediaQuery.removeEventListener('change', handleChange);
+      mediaQuery.removeListener(handleChange);
     };
   }, [supportsMatchMedia]);
   return matches;
