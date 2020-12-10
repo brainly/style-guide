@@ -9,7 +9,6 @@ commonjs/
 .vscode
 .DS_Store
 node_modules
-*.css
 .sass-cache
 /npm-debug.log
 coverage/
