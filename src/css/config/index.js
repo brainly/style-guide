@@ -639,7 +639,7 @@ module.exports = {
     alignContent: ['responsive'],
     alignItems: ['responsive'],
     alignSelf: ['responsive'],
-    animation: ['responsive'],
+    animation: ['responsive', 'motion-safe', 'motion-reduce'],
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
     backgroundClip: ['responsive'],
