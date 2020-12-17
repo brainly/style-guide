@@ -7,7 +7,7 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(plugins.sourcemaps.init())
       .pipe(
         plugins
-          .sass({
+          .dartSass({
             outputStyle: 'compressed',
             includePaths: ['node_modules/'],
           })
