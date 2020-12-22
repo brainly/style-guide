@@ -27,14 +27,14 @@ Default.argTypes = {
 };
 
 export const WithSmallLineHeight = () => (
-  <div style={{maxWidth: '600px'}}>
+  <div style={{maxWidth: '400px'}}>
     <Breadcrumb short elements={longElements} />
   </div>
 );
 
 export const WithInlineItems = () => (
   <div style={{maxWidth: '400px'}}>
-    <Breadcrumb elements={longElements} />
+    <Breadcrumb inlineItems elements={longElements} />
   </div>
 );
 
