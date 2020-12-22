@@ -9,6 +9,7 @@ export default {
   title: 'Components/List',
   parameters: {
     component: List,
+    subcomponents: {ListItem, ListItemIcon},
   },
 };
 
