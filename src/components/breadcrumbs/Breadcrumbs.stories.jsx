@@ -15,31 +15,22 @@ export default {
   },
 };
 
-export const Default = args => <Breadcrumb {...args} elements={longElements} />;
+export const Default = args => {
+  const {elements} = args;
 
-Default.args = {};
-
-Default.argTypes = {
-  short: {control: 'boolean'},
-  adaptive: {control: 'boolean'},
-  inlineItems: {control: 'boolean'},
-  elements: {control: null},
+  return <Breadcrumb {...args} elements={elements} />;
 };
 
-export const WithSmallLineHeight = () => (
-  <div style={{maxWidth: '400px'}}>
-    <Breadcrumb short elements={longElements} />
-  </div>
-);
+Default.args = {
+  elements,
+};
+
+Default.argTypes = {
+  elements: {control: {type: 'object'}},
+};
 
 export const WithInlineItems = () => (
   <div style={{maxWidth: '400px'}}>
     <Breadcrumb inlineItems elements={longElements} />
-  </div>
-);
-
-export const Adaptive = () => (
-  <div style={{color: '#ff604b'}}>
-    <Breadcrumb adaptive elements={elements} />
   </div>
 );
