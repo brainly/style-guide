@@ -30,7 +30,11 @@ Default.args = {
 Default.argTypes = {
   children: {control: null},
   size: {control: 'select', options: SIZE},
-  items: {control: null},
+  items: {
+    control: {
+      type: 'object',
+    },
+  },
 };
 
 export const Sizes = () => (
