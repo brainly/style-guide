@@ -11,8 +11,8 @@ module.exports = function(gulp, plugins, consts) {
       .src(sassFilesSrc)
       .pipe(
         plugins
-          .sass({outputStyle: 'compressed'})
-          .on('error', plugins.sass.logError)
+          .dartSass({ outputStyle: 'compressed' })
+          .on('error', plugins.dartSass.logError)
       )
       .pipe(
         plugins.autoprefixer({
