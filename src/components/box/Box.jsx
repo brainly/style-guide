@@ -20,6 +20,7 @@ type ColorType =
   | 'gray-secondary-lightest'
   | 'gray-secondary-ultra-light'
   | 'mustard-primary'
+  | 'mustard-secondary-light'
   | 'peach'
   | 'peach-secondary'
   | 'peach-secondary-light';
@@ -38,6 +39,7 @@ export const COLOR = {
   graySecondaryLightest: 'gray-secondary-lightest',
   graySecondaryUltraLight: 'gray-secondary-ultra-light',
   mustardPrimary: 'mustard-primary',
+  mustardSecondaryLight: 'mustard-secondary-light',
   peach: 'peach',
   peachSecondary: 'peach-secondary',
   peachSecondaryLight: 'peach-secondary-light',

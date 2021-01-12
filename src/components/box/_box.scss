@@ -126,6 +126,10 @@ $includeHtml: false !default;
       background-color: $mustardPrimary;
     }
 
+    &--mustard-secondary-light {
+      background-color: $mustardSecondaryLight;
+    }
+
     &--gray-secondary-lightest {
       background-color: $graySecondaryLightest;
     }
@@ -188,6 +192,10 @@ $includeHtml: false !default;
 
     &--border-color-mustard-primary {
       border-color: $mustardPrimary;
+    }
+
+    &--border-color-mustard-secondary-light {
+      border-color: $mustardSecondaryLight;
     }
 
     &--border-color-gray-secondary-lightest {
