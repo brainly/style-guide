@@ -37,6 +37,9 @@ const Logos = () => (
     <DocsBlock info="Brainly Tutoring">
       <Logo type={TYPE.BRAINLY_TUTORING} />
     </DocsBlock>
+    <DocsBlock info="Brainly Tutoring Small">
+      <Logo type={TYPE.BRAINLY_TUTORING_SMALL} />
+    </DocsBlock>
   </div>
 );
 
