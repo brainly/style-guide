@@ -18,6 +18,8 @@ $includeHtml: false !default;
     width: $radioSizeXXS;
     height: $radioSizeXXS;
     min-height: $radioSizeXXS;
+    display: inline-flex;
+    align-items: baseline;
 
     &__element {
       opacity: 0;
@@ -42,6 +44,11 @@ $includeHtml: false !default;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      flex: none;
+    }
+
+    &__label {
+      margin-left: 4px;
     }
   }
 
