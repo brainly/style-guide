@@ -1,6 +1,5 @@
 import React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import LabelDeprecated from 'labels-deprecated/LabelDeprecated';
 import Radio from '../Radio';
 
 const dumpProps = {onChange: () => undefined};

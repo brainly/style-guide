@@ -52,11 +52,11 @@ const Radio = (props: RadioPropsType) => {
         id={id}
       />
       <span className="sg-radio__ghost" aria-hidden />
-      {children && (
+      {children !== undefined && children !== null && (
         <Text
           size="small"
           type="span"
-          color="black"
+          color="default"
           weight="bold"
           className="sg-radio__label"
           aria-hidden="true"
