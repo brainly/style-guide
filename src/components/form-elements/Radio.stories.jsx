@@ -2,7 +2,7 @@ import React from 'react';
 import Radio from './Radio';
 
 export default {
-  title: 'Components/Radio',
+  title: 'Components/Form/Radio',
   parameters: {
     component: Radio,
   },
