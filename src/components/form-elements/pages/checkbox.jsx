@@ -8,22 +8,11 @@ const dumpProps = {onChange: () => undefined};
 const checkboxes = () => (
   <div>
     <DocsBlock info="Checkboxes">
-      <Checkbox />
-      <Checkbox checked {...dumpProps} />
-      <br />
-      <LabelDeprecated
-        secondary
-        text="Check me!"
-        htmlFor="checkbox-1"
-        iconContent={<Checkbox id="checkbox-1" />}
-      />
-      <LabelDeprecated
-        secondary
-        text="Check me!"
-        htmlFor="checkbox-2"
-        emphasised
-        iconContent={<Checkbox id="checkbox-2" />}
-      />
+      <Checkbox> First</Checkbox>
+      <Checkbox checked {...dumpProps}>
+        Second
+      </Checkbox>
+      <Checkbox> Third</Checkbox>
     </DocsBlock>
   </div>
 );

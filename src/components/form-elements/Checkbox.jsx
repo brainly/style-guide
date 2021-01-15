@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import React, {PureComponent} from 'react';
 import generateRandomString from '../../js/generateRandomString';
 import Icon from '../icons/Icon';
+import Text from '../text/Text';
 
 export type CheckboxPropsType = {
   checked?: boolean,
@@ -45,13 +46,19 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
         <div className="sg-checkbox__ghost">
           <Icon type="check" color="adaptive" size={16} />
         </div>
-        <small
-          className="sg-checkbox__label"
-          aria-hidden="true"
-          data-checked={checked}
-        >
-          {children}
-        </small>
+        {children && (
+          <Text
+            size="small"
+            type="span"
+            color="black"
+            weight="bold"
+            className="sg-radio__label"
+            aria-hidden="true"
+            data-checked={checked}
+          >
+            {children}
+          </Text>
+        )}
       </label>
     );
   }
