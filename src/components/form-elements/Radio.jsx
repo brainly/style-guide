@@ -18,7 +18,7 @@ export type RadioPropsType = {
   id?: string,
   size?: ?RadioSizeType,
   className?: string,
-  children: React$Node,
+  children?: React$Node,
   ...
 };
 

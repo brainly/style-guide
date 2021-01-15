@@ -10,7 +10,7 @@ export type CheckboxPropsType = {
   checked?: boolean,
   id?: string,
   className?: string,
-  children: React$Node,
+  children?: React$Node,
   ...
 };
 
