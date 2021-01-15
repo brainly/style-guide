@@ -7,11 +7,13 @@ const dumpProps = {onChange: () => undefined};
 const checkboxes = () => (
   <div>
     <DocsBlock info="Checkboxes">
-      <Checkbox> First</Checkbox>
-      <Checkbox checked {...dumpProps}>
-        Second
-      </Checkbox>
-      <Checkbox> Third</Checkbox>
+      <div className="sg-space-x-m">
+        <Checkbox> First</Checkbox>
+        <Checkbox checked {...dumpProps}>
+          Second
+        </Checkbox>
+        <Checkbox> Third</Checkbox>
+      </div>
     </DocsBlock>
   </div>
 );

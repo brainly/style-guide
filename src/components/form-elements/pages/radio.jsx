@@ -8,18 +8,22 @@ const dumpProps = {onChange: () => undefined};
 const radios = () => (
   <div>
     <DocsBlock info="Radio Buttons">
-      <Radio name="group1">First</Radio>
-      <Radio name="group1" checked {...dumpProps}>
-        Second
-      </Radio>
+      <div className="sg-space-x-m">
+        <Radio name="group1">First</Radio>
+        <Radio name="group1" checked {...dumpProps}>
+          Second
+        </Radio>
+      </div>
     </DocsBlock>
     <DocsBlock info="Size S">
-      <Radio size="s" name="group2">
-        First
-      </Radio>
-      <Radio size="s" name="group2" checked {...dumpProps}>
-        Second
-      </Radio>
+      <div className="sg-space-x-m">
+        <Radio size="s" name="group2">
+          First
+        </Radio>
+        <Radio size="s" name="group2" checked {...dumpProps}>
+          Second
+        </Radio>
+      </div>
     </DocsBlock>
   </div>
 );
