@@ -15,11 +15,10 @@ $includeHtml: false !default;
   .sg-radio {
     @include component();
     overflow: visible;
-    width: $radioSizeXXS;
     height: $radioSizeXXS;
     min-height: $radioSizeXXS;
     display: inline-flex;
-    align-items: baseline;
+    align-items: center;
 
     &__element {
       opacity: 0;
@@ -48,7 +47,7 @@ $includeHtml: false !default;
     }
 
     &__label {
-      margin-left: 4px;
+      margin-left: 16px;
     }
   }
 
@@ -95,7 +94,6 @@ $includeHtml: false !default;
     }
 
     &--s {
-      width: $radioSizeS;
       height: $radioSizeS;
       min-height: $radioSizeS;
       line-height: $radioSizeS;

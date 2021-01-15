@@ -3,6 +3,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import generateRandomString from '../../js/generateRandomString';
+import Text from '../text/Text';
 
 type RadioSizeType = 'xxs' | 's';
 
@@ -51,13 +52,19 @@ const Radio = (props: RadioPropsType) => {
         id={id}
       />
       <span className="sg-radio__ghost" aria-hidden />
-      <span
-        className="sg-radio__label"
-        aria-hidden="true"
-        data-checked={checked}
-      >
-        {children}
-      </span>
+      {children && (
+        <Text
+          size="small"
+          type="span"
+          color="black"
+          weight="bold"
+          className="sg-radio__label"
+          aria-hidden="true"
+          data-checked={checked}
+        >
+          {children}
+        </Text>
+      )}
     </label>
   );
 };
