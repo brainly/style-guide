@@ -50,10 +50,6 @@
       &--visible {
         transform: rotate(180deg);
       }
-
-      @media (prefers-reduced-motion) {
-        transition: none;
-      }
     }
 
     &__icon {

@@ -15,7 +15,6 @@ import Icon from '../icons/Icon';
 import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
-import useReducedMotion from '../utils/useReducedMotion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
@@ -49,16 +48,19 @@ const AccordionItem = ({
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
   const contentId = `Section_${id}`;
 
-  const {noGapBetweenElements, opened, focusedElementId, dispatch} = useContext(
-    AccordionContext
-  );
+  const {
+    noGapBetweenElements,
+    opened,
+    focusedElementId,
+    dispatch,
+    reduceMotion,
+  } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
   const isHidden = !opened[id];
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
-  const reduceMotion = useReducedMotion();
 
   const toggleOpen = () => {
     dispatch({

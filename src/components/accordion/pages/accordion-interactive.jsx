@@ -45,6 +45,10 @@ const Accordions = () => {
         {none: 'none'}
       ),
     },
+    {
+      name: 'reduceMotion',
+      values: Boolean,
+    },
   ];
 
   return (
