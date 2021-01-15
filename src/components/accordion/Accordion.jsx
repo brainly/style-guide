@@ -2,6 +2,7 @@
 
 import React, {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
+import useReducedMotion from '../utils/useReducedMotion';
 
 export const KEY_CODES = {
   '32': 'space',
@@ -43,6 +44,7 @@ type PropType = $ReadOnly<{
     | 'xxxl'
     | 'xxxxl'
     | 'none',
+  reduceMotion?: boolean,
 }>;
 
 // $FlowFixMe context doesn't need to be defined here
@@ -65,12 +67,14 @@ const Accordion = ({
   allowMultiple = false,
   className = '',
   spacing = 's',
+  reduceMotion = false,
 }: PropType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
     opened: {},
     focusedElementId: null,
   });
+  const hasReduceMotion = useReducedMotion() || reduceMotion;
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -155,6 +159,7 @@ const Accordion = ({
         opened: state.opened,
         focusedElementId: state.focusedElementId,
         dispatch,
+        reduceMotion: hasReduceMotion,
       }}
     >
       <div
