@@ -8,4 +8,10 @@ export default {
   },
 };
 
-export const Default = () => <Radio>Button</Radio>;
+export const Default = args => <Radio {...args} />;
+
+Default.args = {
+  children: 'Radio',
+};
+
+Default.argsTypes = {};

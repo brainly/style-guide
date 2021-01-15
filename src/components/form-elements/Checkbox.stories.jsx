@@ -8,4 +8,10 @@ export default {
   },
 };
 
-export const Default = () => <Checkbox>Button</Checkbox>;
+export const Default = args => <Checkbox {...args} />;
+
+Default.args = {
+  children: 'Checkbox',
+};
+
+Default.argsTypes = {};
