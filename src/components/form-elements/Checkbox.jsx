@@ -52,9 +52,8 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
             type="span"
             color="black"
             weight="bold"
-            className="sg-radio__label"
+            className="sg-checkbox__label"
             aria-hidden="true"
-            data-checked={checked}
           >
             {children}
           </Text>

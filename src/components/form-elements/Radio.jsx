@@ -60,7 +60,6 @@ const Radio = (props: RadioPropsType) => {
           weight="bold"
           className="sg-radio__label"
           aria-hidden="true"
-          data-checked={checked}
         >
           {children}
         </Text>

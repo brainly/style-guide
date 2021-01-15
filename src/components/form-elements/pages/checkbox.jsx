@@ -1,7 +1,6 @@
 import React from 'react';
 import Checkbox from '../Checkbox';
 import DocsBlock from 'components/DocsBlock';
-import LabelDeprecated from 'labels-deprecated/LabelDeprecated';
 
 const dumpProps = {onChange: () => undefined};
 
