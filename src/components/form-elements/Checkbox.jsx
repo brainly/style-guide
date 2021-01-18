@@ -43,7 +43,7 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
           id={id}
           checked={checked}
         />
-        <div className="sg-checkbox__ghost">
+        <div className="sg-checkbox__ghost" aria-hidden="true">
           <Icon type="check" color="adaptive" size={16} />
         </div>
         {children !== undefined && children !== null && (
@@ -53,7 +53,6 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
             color="default"
             weight="bold"
             className="sg-checkbox__label"
-            aria-hidden="true"
           >
             {children}
           </Text>
