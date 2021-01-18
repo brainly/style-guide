@@ -9,6 +9,12 @@ test('render', () => {
   expect(radio.find('input[type="radio"]')).toHaveLength(1);
 });
 
+test('renders with label', () => {
+  const checkbox = shallow(<Radio>Radio</Radio>);
+
+  expect(checkbox.find('Text').contains('Radio')).toEqual(true);
+});
+
 test('not checked', () => {
   const radio = shallow(<Radio />);
   const input = radio.find('input[type="radio"]');
