@@ -9,6 +9,12 @@ test('render', () => {
   expect(checkbox.find('input[type="checkbox"]')).toHaveLength(1);
 });
 
+test('renders with label', () => {
+  const checkbox = shallow(<Checkbox>Checkbox</Checkbox>);
+
+  expect(checkbox.find('Text').contains('Checkbox')).toEqual(true);
+});
+
 test('not checked', () => {
   const checkbox = shallow(<Checkbox />);
   const input = checkbox.find('input[type="checkbox"]');

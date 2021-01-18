@@ -4,11 +4,13 @@ import classNames from 'classnames';
 import React, {PureComponent} from 'react';
 import generateRandomString from '../../js/generateRandomString';
 import Icon from '../icons/Icon';
+import Text from '../text/Text';
 
 export type CheckboxPropsType = {
   checked?: boolean,
   id?: string,
   className?: string,
+  children?: React$Node,
   ...
 };
 
@@ -27,13 +29,13 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
   }
 
   render() {
-    const {checked, className, ...additionalProps} = this.props;
+    const {checked, className, children, ...additionalProps} = this.props;
     const {id} = this.state;
 
     const checkboxClass = classNames('sg-checkbox', className);
 
     return (
-      <div className={checkboxClass}>
+      <label className={checkboxClass} htmlFor={id}>
         <input
           {...additionalProps}
           className="sg-checkbox__element"
@@ -41,10 +43,21 @@ class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
           id={id}
           checked={checked}
         />
-        <label className="sg-checkbox__ghost" htmlFor={id}>
+        <div className="sg-checkbox__ghost" aria-hidden="true">
           <Icon type="check" color="adaptive" size={16} />
-        </label>
-      </div>
+        </div>
+        {children !== undefined && children !== null && (
+          <Text
+            size="small"
+            type="span"
+            color="default"
+            weight="bold"
+            className="sg-checkbox__label"
+          >
+            {children}
+          </Text>
+        )}
+      </label>
     );
   }
 }

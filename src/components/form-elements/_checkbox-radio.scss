@@ -1,4 +1,5 @@
 $radioSizeXXS: componentSize(xxs);
+$radioSizeXS: componentSize(xs);
 $radioSizeS: componentSize(s);
 $crInputColor: $white;
 $crInputBorderColor: $graySecondaryLight;
@@ -15,9 +16,11 @@ $includeHtml: false !default;
   .sg-radio {
     @include component();
     overflow: visible;
-    width: $radioSizeXXS;
-    height: $radioSizeXXS;
-    min-height: $radioSizeXXS;
+    height: $radioSizeXS;
+    min-height: $radioSizeXS;
+    display: inline-flex;
+    align-items: center;
+    padding: spacing(xxs) 0;
 
     &__element {
       opacity: 0;
@@ -42,6 +45,11 @@ $includeHtml: false !default;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      flex: none;
+    }
+
+    &__label {
+      margin-left: 16px;
     }
   }
 
@@ -88,7 +96,6 @@ $includeHtml: false !default;
     }
 
     &--s {
-      width: $radioSizeS;
       height: $radioSizeS;
       min-height: $radioSizeS;
       line-height: $radioSizeS;
