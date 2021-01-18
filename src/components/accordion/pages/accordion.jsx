@@ -10,6 +10,9 @@ const accordion = () => (
     <DocsBlock info="Allows multiple items expanded">
       <Default allowMultiple />
     </DocsBlock>
+    <DocsBlock info="Reduce motion enabled">
+      <Default reduceMotion />
+    </DocsBlock>
     <DocsBlock info="No gap between elements with first 2 elements opened by default">
       <NoGaps />
     </DocsBlock>
