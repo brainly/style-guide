@@ -15,7 +15,7 @@ const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 
 const files = glob.sync(`{/components/**/*.{js,jsx},/index.js}`, {
-  ignore: [`/**/{pages,,__mocks__}/*`, '/**/*{stories,spec}.*'],
+  ignore: [`/**/{pages,iframe-pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
   root: SOURCE_DIR,
 });
 
@@ -64,9 +64,11 @@ const program = ts.createProgram(tsFiles, options);
 
 const res = program.emit();
 
-const diagnostics = ts.getPreEmitDiagnostics(program).concat(res.diagnostics);
+const allDiagnostics = ts
+  .getPreEmitDiagnostics(program)
+  .concat(res.diagnostics);
 
-diagnostics.forEach(diagnostics => {
+allDiagnostics.forEach(diagnostics => {
   if (diagnostics.file) {
     const {line, character} = diagnostics.file.getLineAndCharacterOfPosition(
       diagnostics.start
@@ -85,7 +87,7 @@ diagnostics.forEach(diagnostics => {
 });
 
 console.log(
-  `Found ${diagnostics.length > 0 ? diagnostics.length : 'No'} errors.`
+  `Found ${allDiagnostics.length > 0 ? allDiagnostics.length : 'No'} errors.`
 );
 
 function mapExtension(extension = '') {
