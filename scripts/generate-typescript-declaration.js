@@ -39,6 +39,7 @@ files.forEach(sourceFile => {
     singleQuote: true,
     semi: false,
     prettier: true,
+    inlineUtilityTypes: true,
   });
 
   const sourceExtension = path.extname(sourceFile);
