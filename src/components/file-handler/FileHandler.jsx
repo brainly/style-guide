@@ -68,7 +68,7 @@ type PropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
+  onClose?: (SyntheticMouseEvent<HTMLButtonElement>) => void,
   /**
    * Callback, called by clicking on link
    * @example <FileHandler
