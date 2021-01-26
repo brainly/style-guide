@@ -13,8 +13,25 @@ const files = glob.sync(`${SOURCE_DIR}/**/*.jsx`, {});
 
 console.log('Source files found -', files.length);
 
-files.forEach(file => {
-  const flowCode = fs.readFileSync(file, 'utf-8');
+fs.removeSync(DEST_DIR);
+
+function mapExtension(extension = '') {
+  const map = {
+    '.js': '.ts',
+    '.jsx': '.tsx',
+  };
+
+  const ext = map[extension];
+
+  if (!ext) {
+    throw new Error(`Extension '${extension}' doesn't have equivalent in map.`);
+  }
+
+  return ext;
+}
+
+files.forEach(sourceFile => {
+  const flowCode = fs.readFileSync(sourceFile, 'utf-8');
 
   const ast = jsc(flowCode, {
     parser: flowParser(),
@@ -28,9 +45,14 @@ files.forEach(file => {
     prettier: true,
   });
 
-  fs.outputFileSync(
-    `${DEST_DIR}/${path.basename(file, path.extname(file))}.tsx`,
-    typescriptCode,
-    noop => noop
+  const sourceExtension = path.extname(sourceFile);
+  const destinationExtension = mapExtension(sourceExtension);
+
+  const relativeSourceFile = path.relative(SOURCE_DIR, sourceFile);
+  const outputFile = path.join(
+    DEST_DIR,
+    relativeSourceFile.replace(sourceExtension, destinationExtension)
   );
+
+  fs.outputFileSync(outputFile, typescriptCode, noop => noop);
 });
