@@ -33,6 +33,7 @@
     "@brainly/s3": "^4.4.0",
     "@hot-loader/react-dom": "^16.8.6",
     "@khanacademy/flow-to-ts": "^0.1.9",
+    "@microsoft/api-extractor": "^7.13.0",
     "@storybook/addon-a11y": "@next",
     "@storybook/addon-actions": "@next",
     "@storybook/addon-docs": "@next",
