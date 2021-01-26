@@ -1,3 +1,5 @@
+'use strict';
+
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs-extra');
@@ -14,21 +16,6 @@ const files = glob.sync(`${SOURCE_DIR}/**/*.jsx`, {});
 console.log('Source files found -', files.length);
 
 fs.removeSync(DEST_DIR);
-
-function mapExtension(extension = '') {
-  const map = {
-    '.js': '.ts',
-    '.jsx': '.tsx',
-  };
-
-  const ext = map[extension];
-
-  if (!ext) {
-    throw new Error(`Extension '${extension}' doesn't have equivalent in map.`);
-  }
-
-  return ext;
-}
 
 files.forEach(sourceFile => {
   const flowCode = fs.readFileSync(sourceFile, 'utf-8');
@@ -56,3 +43,18 @@ files.forEach(sourceFile => {
 
   fs.outputFileSync(outputFile, typescriptCode, noop => noop);
 });
+
+function mapExtension(extension = '') {
+  const map = {
+    '.js': '.ts',
+    '.jsx': '.tsx',
+  };
+
+  const ext = map[extension];
+
+  if (!ext) {
+    throw new Error(`Extension '${extension}' doesn't have equivalent in map.`);
+  }
+
+  return ext;
+}
