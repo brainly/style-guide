@@ -67,7 +67,6 @@ const options = {
   module: 'esnext',
   moduleResolution: ts.ModuleResolutionKind.NodeJs,
   resolveJsonModule: true,
-  isolatedModules: true,
 };
 
 console.log('Generating declaration files...');
