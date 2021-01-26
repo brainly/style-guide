@@ -1,7 +1,7 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/.*gulp-prettify
 <PROJECT_ROOT>/node_modules/@khanacademy/flow-to-ts/test.json
-[include]
+<PROJECT_ROOT>/.typescript/**
 
 [libs]
 
