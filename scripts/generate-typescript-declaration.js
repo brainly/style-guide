@@ -8,12 +8,16 @@ const fs = require('fs-extra');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const convert = require('@khanacademy/flow-to-ts/src/convert');
+const ts = require('typescript');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 
-const files = glob.sync(`${SOURCE_DIR}/**/*.jsx`, {});
+const files = glob.sync(`{/components/**/*.{js,jsx},/index.js}`, {
+  ignore: [`/**/{pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
+  root: SOURCE_DIR,
+});
 
 console.log(`Found ${files.length} source files.`);
 
@@ -44,6 +48,21 @@ files.forEach(sourceFile => {
   );
 
   fs.outputFileSync(outputFile, typescriptCode, noop => noop);
+});
+
+const tsFiles = glob.sync('typescript/**/*.tsx');
+
+const options = {
+  declaration: true,
+  emitDeclarationOnly: true,
+  declarationDir: 'dist',
+};
+
+const program = ts.createProgram(tsFiles, options);
+const res = program.emit();
+
+res.diagnostics.forEach(({messageText}) => {
+  throw messageText;
 });
 
 function mapExtension(extension = '') {
