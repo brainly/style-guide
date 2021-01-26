@@ -14,10 +14,13 @@ const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 
-const files = glob.sync(`{/components/**/*.{js,jsx},/index.js}`, {
-  ignore: [`/**/{pages,iframe-pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
-  root: SOURCE_DIR,
-});
+const files = glob.sync(
+  `{/components/**/*.{js,jsx},/js/generateRandomString.js,/index.js}`,
+  {
+    ignore: [`/**/{pages,iframe-pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
+    root: SOURCE_DIR,
+  }
+);
 
 console.log(`Found ${files.length} source files.`);
 
@@ -54,8 +57,17 @@ const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
 
 const options = {
   declaration: true,
+  emitDeclarationOnly: false,
   declarationDir: '.typescript',
-  jsx: 'preserve',
+  jsx: 'react',
+  esModuleInterop: true,
+  allowJs: false,
+  skipLibCheck: true,
+  allowSyntheticDefaultImports: true,
+  module: 'esnext',
+  moduleResolution: ts.ModuleResolutionKind.NodeJs,
+  resolveJsonModule: true,
+  isolatedModules: true,
 };
 
 console.log('Generating declaration files...');
