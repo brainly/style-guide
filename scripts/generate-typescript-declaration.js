@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 const glob = require('glob');
@@ -13,7 +15,7 @@ const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 
 const files = glob.sync(`${SOURCE_DIR}/**/*.jsx`, {});
 
-console.log('Source files found -', files.length);
+console.log(`Found ${files.length} source files.`);
 
 fs.removeSync(DEST_DIR);
 
@@ -53,7 +55,9 @@ function mapExtension(extension = '') {
   const ext = map[extension];
 
   if (!ext) {
-    throw new Error(`Extension '${extension}' doesn't have equivalent in map.`);
+    throw new Error(
+      `Extension '${extension}' doesn't have matching element in map.`
+    );
   }
 
   return ext;
