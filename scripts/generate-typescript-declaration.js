@@ -15,7 +15,7 @@ const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 
 const files = glob.sync(`{/components/**/*.{js,jsx},/index.js}`, {
-  ignore: [`/**/{pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
+  ignore: [`/**/{pages,,__mocks__}/*`, '/**/*{stories,spec}.*'],
   root: SOURCE_DIR,
 });
 
@@ -55,6 +55,7 @@ const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
 const options = {
   declaration: true,
   declarationDir: '.typescript',
+  jsx: 'preserve',
 };
 
 console.log('Generating declaration files...');
@@ -63,16 +64,28 @@ const program = ts.createProgram(tsFiles, options);
 
 const res = program.emit();
 
-res.diagnostics.forEach(diagnostic => {
-  console.error(
-    `${path.relative(ROOT_DIR, diagnostic.file.fileName)}: \n${
-      diagnostic.messageText
-    } \n`
-  );
+const diagnostics = ts.getPreEmitDiagnostics(program).concat(res.diagnostics);
+
+diagnostics.forEach(diagnostics => {
+  if (diagnostics.file) {
+    const {line, character} = diagnostics.file.getLineAndCharacterOfPosition(
+      diagnostics.start
+    );
+    const message = ts.flattenDiagnosticMessageText(
+      diagnostics.messageText,
+      '\n'
+    );
+
+    console.log(
+      `${diagnostics.file.fileName} (${line + 1}, ${character + 1}): ${message}`
+    );
+  } else {
+    console.log(ts.flattenDiagnosticMessageText(diagnostics.messageText, '\n'));
+  }
 });
 
 console.log(
-  `Found ${res.diagnostics.length > 0 ? res.diagnostics.length : 'No'} errors.`
+  `Found ${diagnostics.length > 0 ? diagnostics.length : 'No'} errors.`
 );
 
 function mapExtension(extension = '') {
