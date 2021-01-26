@@ -50,20 +50,30 @@ files.forEach(sourceFile => {
   fs.outputFileSync(outputFile, typescriptCode, noop => noop);
 });
 
-const tsFiles = glob.sync('typescript/**/*.tsx');
+const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
 
 const options = {
   declaration: true,
-  emitDeclarationOnly: true,
-  declarationDir: 'dist',
+  declarationDir: '.typescript',
 };
 
+console.log('Generating declaration files...');
+
 const program = ts.createProgram(tsFiles, options);
+
 const res = program.emit();
 
-res.diagnostics.forEach(({messageText}) => {
-  throw messageText;
+res.diagnostics.forEach(diagnostic => {
+  console.error(
+    `${path.relative(ROOT_DIR, diagnostic.file.fileName)}: \n${
+      diagnostic.messageText
+    } \n`
+  );
 });
+
+console.log(
+  `Found ${res.diagnostics.length > 0 ? res.diagnostics.length : 'No'} errors.`
+);
 
 function mapExtension(extension = '') {
   const map = {
