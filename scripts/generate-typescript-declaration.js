@@ -33,7 +33,17 @@ files.forEach(sourceFile => {
     parser: flowParser(),
   });
 
-  const transformedCode = ast.toSource();
+  let transformedCode = ast.toSource();
+
+  // Code transformations before converting to typescript
+  // to remove incompatibilities weren't caught by flow-to-ts
+
+  // Remove generic parameters from forwardRef as Flow uses opposite order
+  // forwardRef<Prop, Element> -> forwardRef
+  if (ast.find(jsc.Identifier, {name: 'forwardRef'}).length) {
+    transformedCode = transformedCode.replace(/forwardRef<.*>/g, 'forwardRef');
+  }
+
   const typescriptCode = convert(transformedCode, {
     printWidth: 80,
     singleQuote: true,
