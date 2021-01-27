@@ -9,10 +9,13 @@ import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
 
-export const COUNTER_SIZE = Object.freeze({
+export const COUNTER_SIZE: {
   XS: 'xs',
   XXS: 'xxs',
-});
+} = {
+  XS: 'xs',
+  XXS: 'xxs',
+};
 
 export type CounterPropsType = {
   /**

@@ -22,14 +22,27 @@ export type LabelType =
   | 'transparent'
   | 'transparent-color';
 
-export const LABEL_TYPE = {
+export const LABEL_TYPE: {
+  DEFAULT: 'default',
+  SOLID: 'solid',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_COLOR: 'transparent-color',
+} = {
   DEFAULT: 'default',
   SOLID: 'solid',
   TRANSPARENT: 'transparent',
   TRANSPARENT_COLOR: 'transparent-color',
 };
 
-export const COLORS_SOLID_MAP = {
+export const COLORS_SOLID_MAP: {
+  blue: 'blue-primary',
+  mint: 'mint-primary',
+  lavender: 'lavender-primary',
+  peach: 'peach-primary',
+  mustard: 'mustard-primary',
+  gray: 'gray-secondary',
+  achromatic: 'black',
+} = {
   blue: 'blue-primary',
   mint: 'mint-primary',
   lavender: 'lavender-primary',
@@ -39,7 +52,15 @@ export const COLORS_SOLID_MAP = {
   achromatic: 'black',
 };
 
-export const COLORS_DEFAULT_MAP = {
+export const COLORS_DEFAULT_MAP: {
+  blue: 'blue-secondary-light',
+  mint: 'mint-secondary-light',
+  lavender: 'lavender-secondary-light',
+  peach: 'peach-secondary-light',
+  mustard: 'mustard-secondary-light',
+  gray: 'gray-secondary-light',
+  achromatic: 'white',
+} = {
   blue: 'blue-secondary-light',
   mint: 'mint-secondary-light',
   lavender: 'lavender-secondary-light',
@@ -49,7 +70,15 @@ export const COLORS_DEFAULT_MAP = {
   achromatic: 'white',
 };
 
-const TRANSPARENT_COLOR_TEXT_MAP = {
+const TRANSPARENT_COLOR_TEXT_MAP: {
+  blue: 'blue-dark',
+  mint: 'mint-dark',
+  lavender: 'lavender-dark',
+  peach: 'peach-dark',
+  mustard: 'mustard-dark',
+  gray: 'gray-secondary',
+  achromatic: 'default',
+} = {
   blue: 'blue-dark',
   mint: 'mint-dark',
   lavender: 'lavender-dark',
@@ -59,7 +88,15 @@ const TRANSPARENT_COLOR_TEXT_MAP = {
   achromatic: 'default',
 };
 
-const TRANSPARENT_ICON_COLOR_MAP = {
+const TRANSPARENT_ICON_COLOR_MAP: {
+  blue: 'blue',
+  mint: 'mint',
+  lavender: 'lavender',
+  peach: 'peach',
+  mustard: 'mustard',
+  gray: 'gray-secondary',
+  achromatic: 'dark',
+} = {
   blue: 'blue',
   mint: 'mint',
   lavender: 'lavender',
@@ -69,7 +106,15 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   achromatic: 'dark',
 };
 
-export const LABEL_COLORS_SET = {
+export const LABEL_COLORS_SET: {
+  BLUE: 'blue',
+  MINT: 'mint',
+  LAVENDER: 'lavender',
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+  GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
+} = {
   BLUE: 'blue',
   MINT: 'mint',
   LAVENDER: 'lavender',

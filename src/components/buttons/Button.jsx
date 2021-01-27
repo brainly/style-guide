@@ -3,20 +3,43 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-export const BUTTON_SIZE = Object.freeze({
+export const BUTTON_SIZE: {
   L: 'l',
   M: 'm',
   S: 's',
-});
+} = {
+  L: 'l',
+  M: 'm',
+  S: 's',
+};
 
-const TOGGLE_BUTTON_TYPE = Object.freeze({
+const TOGGLE_BUTTON_TYPE: {
   SOLID_LIGHT: 'solid-light',
   OUTLINE: 'outline',
   TRANSPARENT: 'transparent',
   TRANSPARENT_LIGHT: 'transparent-light',
-});
+} = {
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
+};
 
-export const BUTTON_TYPE = Object.freeze({
+export const BUTTON_TYPE: {
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
+  SOLID: 'solid',
+  SOLID_INVERTED: 'solid-inverted',
+  SOLID_BLUE: 'solid-blue',
+  SOLID_MINT: 'solid-mint',
+  TRANSPARENT_PEACH: 'transparent-peach',
+  TRANSPARENT_MUSTARD: 'transparent-mustard',
+  TRANSPARENT_BLUE: 'transparent-blue',
+  TRANSPARENT_INVERTED: 'transparent-inverted',
+  FACEBOOK: 'facebook',
+} = {
   ...TOGGLE_BUTTON_TYPE,
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
@@ -27,13 +50,17 @@ export const BUTTON_TYPE = Object.freeze({
   TRANSPARENT_BLUE: 'transparent-blue',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
-});
+};
 
-export const BUTTON_TOGGLE = Object.freeze({
+export const BUTTON_TOGGLE: {
   PEACH: 'peach',
   MUSTARD: 'mustard',
   BLUE: 'blue',
-});
+} = {
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+  BLUE: 'blue',
+};
 
 type ButtonSizeType = 'l' | 'm' | 's';
 

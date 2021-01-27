@@ -13,7 +13,11 @@ type SeparatorHorizontalPropsType = {
   ...
 };
 
-export const TYPE = {
+export const TYPE: {
+  NORMAL: 'normal',
+  SPACED: 'spaced',
+  SHORT_SPACED: 'short-spaced',
+} = {
   NORMAL: 'normal',
   SPACED: 'spaced',
   SHORT_SPACED: 'short-spaced',

@@ -9,7 +9,10 @@ const {ICON_COLOR, default: Icon} = IconModule;
 
 type IconSizeType = 'small' | 'normal';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  NORMAL: 'normal',
+} = {
   SMALL: 'small',
   NORMAL: 'normal',
 };

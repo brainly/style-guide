@@ -1,6 +1,6 @@
 // @flow strict
 
-export const HEADLINE_TYPE = Object.freeze({
+export const HEADLINE_TYPE: {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -8,9 +8,17 @@ export const HEADLINE_TYPE = Object.freeze({
   H5: 'h5',
   H6: 'h6',
   SPAN: 'span',
-});
+} = {
+  H1: 'h1',
+  H2: 'h2',
+  H3: 'h3',
+  H4: 'h4',
+  H5: 'h5',
+  H6: 'h6',
+  SPAN: 'span',
+};
 
-export const HEADLINE_SIZE = Object.freeze({
+export const HEADLINE_SIZE: {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -19,9 +27,18 @@ export const HEADLINE_SIZE = Object.freeze({
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
   XXXLARGE: 'xxxlarge',
-});
+} = {
+  XXSMALL: 'xxsmall',
+  XSMALL: 'xsmall',
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+  XLARGE: 'xlarge',
+  XXLARGE: 'xxlarge',
+  XXXLARGE: 'xxxlarge',
+};
 
-export const HEADLINE_COLOR = Object.freeze({
+export const HEADLINE_COLOR: {
   DEFAULT: 'default',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
@@ -32,17 +49,37 @@ export const HEADLINE_COLOR = Object.freeze({
   GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-});
+} = {
+  DEFAULT: 'default',
+  WHITE: 'white',
+  BLUE_DARK: 'blue-dark',
+  MINT_DARK: 'mint-dark',
+  LAVENDER_DARK: 'lavender-dark',
+  MUSTARD_DARK: 'mustard-dark',
+  PEACH_DARK: 'peach-dark',
+  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+};
 
-export const HEADLINE_TRANSFORM = Object.freeze({
+export const HEADLINE_TRANSFORM: {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize',
-});
+} = {
+  UPPERCASE: 'uppercase',
+  LOWERCASE: 'lowercase',
+  CAPITALIZE: 'capitalize',
+};
 
-export const HEADLINE_ALIGN = Object.freeze({
+export const HEADLINE_ALIGN: {
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',
   JUSTIFY: 'justify',
-});
+} = {
+  LEFT: 'to-left',
+  CENTER: 'to-center',
+  RIGHT: 'to-right',
+  JUSTIFY: 'justify',
+};
