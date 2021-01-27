@@ -1,12 +1,11 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classnames from 'classnames';
 
 type OverlayedBoxType = {
-  children?: ?Node,
-  overlay?: ?Node,
+  children?: ?React.Node,
+  overlay?: ?React.Node,
   className?: string,
   ...
 };

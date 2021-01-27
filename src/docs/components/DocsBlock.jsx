@@ -1,16 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import type {Node} from 'react';
 import cx from 'classnames';
 import InfoBlock from './docsBlock/InfoBlock';
 import ContentBlock from './docsBlock/ContentBlock';
 
 type PropsType = {
-  additionalInfo?: Node,
-  info?: Node,
-  children?: Node,
-  multiContent?: Array<Node>,
+  additionalInfo?: React.Node,
+  info?: React.Node,
+  children?: React.Node,
+  multiContent?: Array<React.Node>,
   evenColumns?: boolean,
   fullWidth?: boolean,
   toBottom?: boolean,

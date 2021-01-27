@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 export type CardPaddingType =
@@ -18,7 +17,7 @@ export const CARD_PADDING = {
 };
 
 type PropsType = {
-  children?: Node,
+  children?: React.Node,
   className?: string,
   full?: boolean,
   vertical?: boolean,

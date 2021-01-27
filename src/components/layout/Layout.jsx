@@ -1,15 +1,14 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 type PropsType = {
   className?: string,
   containerClassName?: string,
-  children: Node,
-  header?: Node,
-  footer?: Node,
+  children: React.Node,
+  header?: React.Node,
+  footer?: React.Node,
   noMaxWidth?: boolean,
   noMarginTop?: boolean,
   reversedOrder?: boolean,

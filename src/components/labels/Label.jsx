@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
 import * as IconModule from '../icons/Icon';
@@ -145,7 +144,7 @@ type PropsType = $ReadOnly<{
    *            example label
    *          </Label>
    */
-  children: Node,
+  children: React.Node,
   /**
    * Additional class names
    */

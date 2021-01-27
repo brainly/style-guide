@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 import LabelDeprecatedIcon from './subcomponents/LabelDeprecatedIcon';
 import * as IconModule from '../icons/Icon';
@@ -25,7 +24,7 @@ export const ICON_SIZE = {
 type PropsType = {
   text?: string,
   htmlFor?: string,
-  children?: ?Node,
+  children?: ?React.Node,
   iconContent?: ?React.Element<*>,
   iconColor?: IconModule.IconColorType,
   iconType?: IconModule.IconTypeType,

@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 type BubbleColorType =
@@ -46,7 +45,7 @@ export const BUBBLE_COLOR = {
 };
 
 type BubblePropsType = {
-  children: Node,
+  children: React.Node,
   className?: ?string,
   alignment?: AligmentType,
   direction: DirectionType,

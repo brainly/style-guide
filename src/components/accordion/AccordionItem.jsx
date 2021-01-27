@@ -1,13 +1,8 @@
 //@flow strict
 
-import React, {
-  useContext,
-  useLayoutEffect,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
+import {useContext, useLayoutEffect, useEffect, useRef, useState} from 'react';
+
 import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
@@ -19,9 +14,9 @@ import {AccordionContext} from './Accordion';
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 type PropType = $ReadOnly<{
-  title: Node,
+  title: React.Node,
   titleSize?: 'small' | 'large',
-  children?: Node,
+  children?: React.Node,
   className?: string,
   defaultOpened?: boolean,
   padding?: PaddingType,

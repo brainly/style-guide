@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classnames from 'classnames';
 
 export type ColorType =
@@ -44,7 +43,7 @@ export const CARD_HOLE_COLOR = {
 };
 
 type PropsType = {
-  children: Node,
+  children: React.Node,
   className?: string,
   color?: ColorType,
   ...

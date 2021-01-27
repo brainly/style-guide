@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import cx from 'classnames';
 
 export const BUTTON_SIZE = Object.freeze({
@@ -62,12 +61,12 @@ type ButtonColorType =
 
 type ButtonIconType =
   | {
-      icon?: Node,
+      icon?: React.Node,
       iconOnly?: null,
       reversedOrder?: boolean,
     }
   | {
-      icon: Node,
+      icon: React.Node,
       iconOnly?: boolean,
       reversedOrder?: null,
     };
@@ -127,7 +126,7 @@ export type ButtonPropsType = {
    *            button
    *          </Button>
    */
-  children?: Node,
+  children?: React.Node,
   /**
    * There are three sizes options for buttons, not need to be specify, default is m
    * @example <Button type="solid" size="m">

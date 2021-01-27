@@ -1,11 +1,10 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 type PropsType = {
-  items: Array<Node>,
+  items: Array<React.Node>,
   extraSpacing?: boolean,
   className?: string,
   ...

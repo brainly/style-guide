@@ -1,11 +1,10 @@
 // @flow strict
 
-import type {Node} from 'react';
 import * as React from 'react';
 import classnames from 'classnames';
 
 type PropsType = {
-  children?: Node,
+  children?: React.Node,
   partial?: boolean,
   className?: string,
   color?: ColorType,

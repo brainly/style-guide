@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 export type IconTypeType =
@@ -313,7 +312,7 @@ export type IconPropsType =
       /**
        * Children to be rendered inside Icon
        */
-      children: Node,
+      children: React.Node,
       /**
        * Additional class names
        */

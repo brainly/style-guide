@@ -8,7 +8,7 @@ export type PropsType = {
   href?: string,
   text: string,
   // $FlowFixMe
-  type?: string | (any => React$Node),
+  type?: string | (any => React.Node),
   ...
 };
 

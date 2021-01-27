@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classnames from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
@@ -114,7 +113,7 @@ export type InputPropsType = {
    * Optional Node if there should be an error message displayed
    * @example <Input errorMessage="This is an error" />
    */
-  errorMessage?: Node | string,
+  errorMessage?: React.Node,
   /**
    * Additional class names
    */

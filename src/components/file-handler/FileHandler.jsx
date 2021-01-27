@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text';
@@ -93,7 +92,7 @@ type PropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  children: Node,
+  children: React.Node,
   ...
 }>;
 

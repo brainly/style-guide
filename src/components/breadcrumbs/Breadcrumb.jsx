@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 
 type PropsType = {
@@ -9,7 +8,7 @@ type PropsType = {
   adaptive?: ?boolean,
   short?: ?boolean,
   inlineItems?: ?boolean,
-  elements: $ReadOnlyArray<Node>,
+  elements: $ReadOnlyArray<React.Node>,
   ...
 };
 

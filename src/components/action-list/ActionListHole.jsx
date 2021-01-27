@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classnames from 'classnames';
 
 type ActionListHoleSpacingType = 'xsmall' | 'small';
@@ -12,7 +11,7 @@ export const ACTION_LIST_HOLE_SPACING = {
 };
 
 type ActionListHolePropsType = {
-  children: Node,
+  children: React.Node,
   asContainer?: ?boolean,
   spacing?: ?ActionListHoleSpacingType,
   noSpacing?: ?boolean,
