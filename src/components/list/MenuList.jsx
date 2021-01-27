@@ -8,7 +8,11 @@ const {default: MenuItem} = MenuItemModule;
 
 export type SizeType = 'small' | 'normal' | 'large';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  NORMAL: 'normal',
+  LARGE: 'large',
+} = {
   SMALL: 'small',
   NORMAL: 'normal',
   LARGE: 'large',

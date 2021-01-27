@@ -6,7 +6,11 @@ import Icon from '../icons/Icon';
 
 export type TopLayerSizeType = 'small' | 'medium' | 'large';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
@@ -82,7 +86,7 @@ const TopLayer = (props: PropsType) => {
           onClick={onClose}
           onKeyDown={onCloseButtonKeyDown}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
         >
           <Icon type="close" color="gray-secondary" size={24} />
         </div>

@@ -6,7 +6,14 @@ import Icon from '../icons/Icon';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
-export const SIZE = {
+export const SIZE: {
+  XS: 'xs',
+  S: 's',
+  M: 'm',
+  L: 'l',
+  XL: 'xl',
+  XXL: 'xxl',
+} = {
   XS: 'xs',
   S: 's',
   M: 'm',

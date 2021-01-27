@@ -20,8 +20,22 @@ type AligmentType = 'start' | 'center' | 'end';
 
 type DirectionType = 'left' | 'right' | 'top' | 'bottom';
 
-export const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
-export const DIRECTION = {
+export const ALIGNMENT: {
+  START: 'start',
+  CENTER: 'center',
+  END: 'end',
+} = {
+  START: 'start',
+  CENTER: 'center',
+  END: 'end',
+};
+
+export const DIRECTION: {
+  LEFT: 'left',
+  RIGHT: 'right',
+  TOP: 'top',
+  BOTTOM: 'bottom',
+} = {
   LEFT: 'left',
   RIGHT: 'right',
   TOP: 'top',
@@ -30,7 +44,19 @@ export const DIRECTION = {
 
 const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-export const BUBBLE_COLOR = {
+export const BUBBLE_COLOR: {
+  BLUE: 'blue',
+  LAVENDER: 'lavender',
+  DARK: 'dark',
+  MINT: 'mint',
+  MINT_SECONDARY: 'mint-secondary',
+  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
+  NAVYBLUE_SECONDARY: 'navyblue-secondary',
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
+  PEACH: 'peach',
+} = {
   BLUE: 'blue',
   LAVENDER: 'lavender',
   DARK: 'dark',

@@ -5,7 +5,12 @@ import classNames from 'classnames';
 
 type SizeType = 'normal' | 'small' | 'large' | 'full';
 
-export const SIZE = {
+export const SIZE: {
+  NORMAL: 'normal',
+  SMALL: 'small',
+  LARGE: 'large',
+  FULL: 'full',
+} = {
   NORMAL: 'normal',
   SMALL: 'small',
   LARGE: 'large',

@@ -24,7 +24,24 @@ export type MathSymbolTypeType =
   | 'integral'
   | 'equation-system';
 
-export const MATH_SYMBOL_TYPE = {
+export const MATH_SYMBOL_TYPE: {
+  SQUERE_ROOT: 'squere-root',
+  NTH_ROOT: 'nth-root',
+  POWER: 'power',
+  SUBSCRIPT: 'subscript',
+  LESSEQUAL: 'less-then-or-equal',
+  GREATEREQUAL: 'greater-then-or-equal',
+  INEQUALITY: 'inequality',
+  DIVISION: 'division',
+  PI: 'pi',
+  ALPHA: 'alpha',
+  BETA: 'beta',
+  LINE: 'line',
+  LIMIT: 'limit',
+  MATRIX: 'matrix',
+  INTEGRAL: 'integral',
+  EQUATION_SYSTEM: 'equation-system',
+} = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
   POWER: 'power',
@@ -52,7 +69,11 @@ const WIDE = [
 
 export type MathSymbolSizeType = 'small' | 'medium' | 'normal';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  NORMAL: 'normal',
+} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal',
