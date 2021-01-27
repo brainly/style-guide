@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Icon, {TYPE, SIZE, ICON_COLOR} from '../Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

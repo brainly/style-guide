@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Input, {TYPE, SIZE, COLOR} from '../Input';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

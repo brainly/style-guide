@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PopupMenu from './PopupMenu';
 import {shallow} from 'enzyme';
 

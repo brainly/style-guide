@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import SeparatorVertical, {SIZE} from './SeparatorVertical';
 import {shallow} from 'enzyme';
 

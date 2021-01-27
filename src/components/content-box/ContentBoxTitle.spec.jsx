@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 import ContentBoxTitle from './ContentBoxTitle';
 import {shallow} from 'enzyme';

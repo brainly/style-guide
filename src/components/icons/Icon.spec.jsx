@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
 

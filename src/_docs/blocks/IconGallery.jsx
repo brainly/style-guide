@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import type {Node} from 'react';
 import {styled} from '@storybook/theming';
 import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';

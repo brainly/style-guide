@@ -1,6 +1,7 @@
 //@flow strict
 
-import React, {createContext, useReducer, useEffect, useRef} from 'react';
+import * as React from 'react';
+import {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
 
@@ -31,7 +32,7 @@ type ActionType =
 
 type PropType = $ReadOnly<{
   allowMultiple?: boolean,
-  children: React$Node,
+  children: React.Node,
   className?: string,
   spacing?:
     | 'xxs'

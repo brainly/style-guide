@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT, BUBBLE_COLOR} from '../Bubble';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';

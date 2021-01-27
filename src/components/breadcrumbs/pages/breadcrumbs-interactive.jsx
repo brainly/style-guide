@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Breadcrumb from '../Breadcrumb';
 import Text, {TEXT_COLOR} from 'text/Text';

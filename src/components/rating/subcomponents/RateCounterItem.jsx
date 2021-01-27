@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 
 type PropsType = {text?: string, ...};
 

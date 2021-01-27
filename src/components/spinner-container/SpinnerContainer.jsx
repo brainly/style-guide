@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import type {Node} from 'react';
 import * as SpinnerModule from '../spinner/Spinner';
 import classnames from 'classnames';

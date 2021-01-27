@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
 export const BASE_URL = 'https://styleguide.brainly.com/images/logos/';

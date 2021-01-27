@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import * as IconModule from '../../icons/Icon';
 
 const {default: Icon, ICON_COLOR} = IconModule;

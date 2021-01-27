@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import type {Node} from 'react';
 import cx from 'classnames';
 import InfoBlock from './docsBlock/InfoBlock';

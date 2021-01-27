@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Card, {CARD_PADDING} from '../Card';
 import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
 import DocsBlock from 'components/DocsBlock';

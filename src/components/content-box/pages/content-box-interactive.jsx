@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ContentBox from '../ContentBox';
 import ContentBoxActions from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import Button from 'buttons/Button';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';

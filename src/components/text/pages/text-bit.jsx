@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 

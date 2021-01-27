@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Media from '../Media';
 import Avatar from 'avatar/Avatar';

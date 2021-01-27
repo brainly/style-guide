@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Link, {LINK_SIZE, LINK_COLOR} from './Link';
 import Text from './Text';
 import {shallow} from 'enzyme';

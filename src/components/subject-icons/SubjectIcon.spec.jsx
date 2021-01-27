@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from './SubjectIcon';
 import {shallow} from 'enzyme';
 

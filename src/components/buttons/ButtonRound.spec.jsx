@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ButtonRound from './ButtonRound';
 import {shallow} from 'enzyme';
 

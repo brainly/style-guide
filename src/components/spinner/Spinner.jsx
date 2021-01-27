@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export type SpinnerSizeType = 'small' | 'xsmall' | 'xxsmall';

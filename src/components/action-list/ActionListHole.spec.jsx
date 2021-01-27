@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from './ActionListHole';
 import {shallow} from 'enzyme';
 import Button from 'buttons/Button';

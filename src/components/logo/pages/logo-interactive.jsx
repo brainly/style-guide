@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Logo, {TYPE} from '../Logo';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

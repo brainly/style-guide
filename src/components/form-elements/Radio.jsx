@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import generateRandomString from '../../js/generateRandomString';
 import Text from '../text/Text';
@@ -18,7 +18,7 @@ export type RadioPropsType = {
   id?: string,
   size?: ?RadioSizeType,
   className?: string,
-  children?: React$Node,
+  children?: React.Node,
   ...
 };
 

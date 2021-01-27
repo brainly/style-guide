@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import MenuList, {SIZE} from './MenuList';
 import Flex from '../flex/Flex';
 import Box from '../box/Box';

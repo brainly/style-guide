@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from './ActionList';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';

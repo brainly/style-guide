@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import slugify from '../slugify';
 import {HashLink as Link} from 'react-router-hash-link';
 

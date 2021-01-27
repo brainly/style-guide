@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from './Bubble';
 import {shallow} from 'enzyme';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'text/Link';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';

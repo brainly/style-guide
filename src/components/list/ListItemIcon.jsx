@@ -2,7 +2,7 @@
 
 import classNames from 'classnames';
 import type {Node} from 'react';
-import React from 'react';
+import * as React from 'react';
 
 type PropsType = {
   children?: Node,

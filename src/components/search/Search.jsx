@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import cx from 'classnames';
 import * as InputModule from '../form-elements/Input';
 import Icon from '../icons/Icon';

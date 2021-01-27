@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import SpinnerContainer from './SpinnerContainer';
 import {shallow} from 'enzyme';
 

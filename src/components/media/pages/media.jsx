@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Media from '../Media';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';

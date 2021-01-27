@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import TextBit, {
   TEXT_BIT_TYPE,
   TEXT_BIT_SIZE,

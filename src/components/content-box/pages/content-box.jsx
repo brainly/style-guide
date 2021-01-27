@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from '../ContentBox';
 import ContentBoxActions, {SIZE, ALIGNMENT} from '../ContentBoxActions';

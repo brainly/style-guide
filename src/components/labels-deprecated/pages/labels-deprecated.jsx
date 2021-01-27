@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import LabelDeprecated, {ICON_COLOR, ICON_TYPE, SIZE} from '../LabelDeprecated';
 

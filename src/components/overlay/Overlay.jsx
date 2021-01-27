@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {Node} from 'react';
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
 type PropsType = {

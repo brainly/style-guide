@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';

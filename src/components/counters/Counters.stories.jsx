@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Counter, {COUNTER_SIZE} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';

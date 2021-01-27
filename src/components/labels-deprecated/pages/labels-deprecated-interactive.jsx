@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import LabelDeprecated, {SIZE, ICON_TYPE, ICON_COLOR} from '../LabelDeprecated';
 import Checkbox from 'form-elements/Checkbox';
 import DocsActiveBlock from 'components/DocsActiveBlock';

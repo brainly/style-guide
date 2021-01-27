@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import HomeButton, {TYPE} from './HomeButton';
 import {shallow} from 'enzyme';
 

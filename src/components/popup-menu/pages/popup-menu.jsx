@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PopupMenu from '../PopupMenu';
 import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';

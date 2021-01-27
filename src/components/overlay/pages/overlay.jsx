@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 
 const OverlayExample = () => (
