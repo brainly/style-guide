@@ -79,6 +79,7 @@ export type TextPropsType = {
   breakWords?: ?boolean,
   whiteSpace?: TextWhiteSpaceType,
   className?: ?string,
+  href?: string,
   ...
 };
 
