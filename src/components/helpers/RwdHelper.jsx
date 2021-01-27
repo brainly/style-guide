@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Element} from 'react';
 import classNames from 'classnames';
 
 type RwdHelperTypeType =
@@ -21,7 +20,7 @@ export const TYPE = {
 
 type PropsType = {
   hide: RwdHelperTypeType,
-  children: Element<*> | string,
+  children: React.Element<*> | string,
   ...
 };
 

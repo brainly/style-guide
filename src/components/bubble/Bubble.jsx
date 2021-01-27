@@ -42,7 +42,7 @@ export const DIRECTION: {
   BOTTOM: 'bottom',
 };
 
-const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
+const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
 export const BUBBLE_COLOR: {
   BLUE: 'blue',

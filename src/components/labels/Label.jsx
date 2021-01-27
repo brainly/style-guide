@@ -179,7 +179,7 @@ type PropsType = $ReadOnly<{
    *            example label
    *          </Label>
    */
-  onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
+  onClose?: ?(SyntheticInputEvent<HTMLButtonElement>) => void,
   /**
    * Children to be rendered inside Label
    * @example <Label

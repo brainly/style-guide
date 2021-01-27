@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Element} from 'react';
 import classNames from 'classnames';
 import * as IconModule from '../icons/Icon';
 
@@ -26,7 +25,7 @@ type IconAsButtonPropsType = {
   size?: IconSizeType,
   color?: IconModule.IconColorType,
   type?: ?IconModule.IconTypeType,
-  children?: ?Element<*>,
+  children?: ?React.Element<*>,
   border?: boolean,
   action?: boolean,
   transparent?: boolean,

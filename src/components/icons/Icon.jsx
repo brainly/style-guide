@@ -476,8 +476,10 @@ export type IconPropsType =
 const Icon = ({
   color,
   size = 24,
+  // @ts-expect-error
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   type,
+  // @ts-expect-error
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   children,
   tagType = 'div',
