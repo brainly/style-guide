@@ -60,7 +60,7 @@ export const MATH_SYMBOL_TYPE: {
   EQUATION_SYSTEM: 'equation-system',
 };
 
-const WIDE = [
+const WIDE: Array<string> = [
   MATH_SYMBOL_TYPE.LIMIT,
   MATH_SYMBOL_TYPE.MATRIX,
   MATH_SYMBOL_TYPE.INTEGRAL,
