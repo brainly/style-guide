@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, {Component} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
@@ -44,7 +44,7 @@ type PropsType = {
 
 /* eslint-disable react/default-props-match-prop-types */
 // legacy files without proper flow checks can suffer from this
-class Rating extends Component<PropsType> {
+class Rating extends React.Component<PropsType> {
   static defaultProps = {
     onChange: () => undefined,
     onStarMouseEnter: () => undefined,

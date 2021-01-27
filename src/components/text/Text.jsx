@@ -66,7 +66,7 @@ export {
 } from './textConsts';
 
 export type TextPropsType = {
-  children?: ?React.Node,
+  children?: React.Node,
   size?: TextSizeType,
   type?: TextTypeType,
   color?: ?TextColorType,
