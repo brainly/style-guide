@@ -4,8 +4,8 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 type PropsType = {
-  aside: Node,
-  contentArray: Array<Node>,
+  aside: React.Node,
+  contentArray: Array<React.Node>,
   toRight?: boolean,
   focused?: boolean,
   clickable?: boolean,

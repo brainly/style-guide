@@ -1,6 +1,6 @@
 // @flow
 
-import React, {Component} from 'react';
+import * as React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR} from 'icon-as-button/IconAsButton';
 
 type PropsType = {
@@ -9,7 +9,7 @@ type PropsType = {
   ...
 };
 
-class CodeBlock extends Component<PropsType> {
+class CodeBlock extends React.Component<PropsType> {
   componentDidMount() {
     this.prepareClipboard();
   }
