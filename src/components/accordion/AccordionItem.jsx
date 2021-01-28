@@ -1,6 +1,8 @@
 //@flow strict
 
+// eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
+// eslint-disable-next-line import/no-duplicates
 import {useContext, useLayoutEffect, useEffect, useRef, useState} from 'react';
 
 import cx from 'classnames';
@@ -74,7 +76,7 @@ const AccordionItem = ({
   function handleBlur() {
     dispatch({
       type: 'accordion/SET_FOCUSED',
-      payload: {id: null},
+      payload: {id: ''},
     });
   }
 

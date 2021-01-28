@@ -1,6 +1,8 @@
 //@flow strict
 
+// eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
+// eslint-disable-next-line import/no-duplicates
 import {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
@@ -11,7 +13,8 @@ export const KEY_CODES = {
 };
 
 type OpenedItemsType = {
-  [key: string]: boolean,
+  [string]: boolean,
+  ...,
 };
 
 type StateType = $ReadOnly<{
@@ -48,8 +51,16 @@ type PropType = $ReadOnly<{
   reduceMotion?: boolean,
 }>;
 
-// $FlowFixMe context doesn't need to be defined here
-export const AccordionContext = createContext();
+type ContextType = {
+  noGapBetweenElements: boolean,
+  opened: OpenedItemsType,
+  focusedElementId: string | null,
+  dispatch: (action: ActionType) => void,
+  reduceMotion: boolean,
+  ...
+};
+
+export const AccordionContext = createContext<ContextType>({});
 
 export const spaceClasses = {
   xxs: 'sg-space-y-xxs',
@@ -71,7 +82,7 @@ const Accordion = ({
   reduceMotion = false,
 }: PropType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const [state, dispatch] = useReducer<StateType, ActionType>(reducer, {
+  const [state, dispatch] = useReducer(reducer, {
     opened: {},
     focusedElementId: null,
   });
