@@ -16,7 +16,7 @@ export const SIZE: {
   NORMAL: 'normal',
 };
 
-const ICON_SIZE = {
+const ICON_SIZE: {[string]: 24, ...} = {
   [SIZE.SMALL]: 24, // based on current usage
   [SIZE.NORMAL]: 24,
 };
