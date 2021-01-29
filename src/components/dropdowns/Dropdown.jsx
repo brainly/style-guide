@@ -1,6 +1,8 @@
 // @flow strict
 
+// eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
+// eslint-disable-next-line import/no-duplicates
 import {useEffect, useState, useRef} from 'react';
 import classNames from 'classnames';
 

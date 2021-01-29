@@ -73,15 +73,15 @@ class Rating extends React.Component<PropsType> {
   }
 
   createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => () => this.onClick(rangeIndex)
-    );
+    this.starsOnClickFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => () => this.onClick(rangeIndex));
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
-    );
+    this.starsMouseEnterFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
   }
 
   onClick = (index: number) => {
