@@ -9,8 +9,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "outDir": "lib"
+    "skipLibCheck": true
   },
   "include": [
     ".typescript/**/*"
