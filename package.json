@@ -7,8 +7,8 @@
   "license": "GPL-3.0-only",
   "module": "esm/index.js",
   "main": "commonjs/index.js",
-  "types": "commonjs/brainly-style-guide.d.ts",
-  "typings": "commonjs/brainly-style-guide.d.ts",
+  "types": "types/brainly-style-guide.d.ts",
+  "typings": "types/brainly-style-guide.d.ts",
   "files": [
     "src/",
     "esm/",
