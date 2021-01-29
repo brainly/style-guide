@@ -7,11 +7,14 @@
   "license": "GPL-3.0-only",
   "module": "esm/index.js",
   "main": "commonjs/index.js",
+  "types": "commonjs/brainly-style-guide.d.ts",
+  "typings": "commonjs/brainly-style-guide.d.ts",
   "files": [
     "src/",
     "esm/",
     "commonjs/",
-    "css/"
+    "css/",
+    "types/"
   ],
   "engines": {
     "node": ">=8.0.0",

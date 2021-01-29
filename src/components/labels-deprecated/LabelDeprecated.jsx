@@ -3,9 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import LabelDeprecatedIcon from './subcomponents/LabelDeprecatedIcon';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR, TYPE: ICON_TYPE} = IconModule;
+import type {IconColorType, IconTypeType} from '../icons/Icon';
+import {ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
 
 type SizeType = 'small' | 'normal' | 'large';
 
@@ -26,8 +25,8 @@ type PropsType = {
   htmlFor?: string,
   children?: ?React.Node,
   iconContent?: ?React.Element<*>,
-  iconColor?: IconModule.IconColorType,
-  iconType?: IconModule.IconTypeType,
+  iconColor?: IconColorType,
+  iconType?: IconTypeType,
   size?: SizeType,
   number?: number,
   secondary?: boolean,

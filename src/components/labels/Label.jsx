@@ -3,9 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
-import * as IconModule from '../icons/Icon';
-
-const {default: Icon, TYPE: ICON_TYPE} = IconModule;
+import Icon, {TYPE as ICON_TYPE} from '../icons/Icon';
+import type {IconTypeType} from '../icons/Icon';
 
 export type LabelColorType =
   | 'blue'
@@ -167,7 +166,7 @@ type PropsType = $ReadOnly<{
    *          </Label>
    * @see type="iconType" https://styleguide.brainly.com/latest/docs/interactive.html?iconType=heart#labels
    */
-  iconType?: IconModule.IconTypeType,
+  iconType?: IconTypeType,
   /**
    * Callback, called by clicking on **close** button. If specified, button will be added automatically
    * @example <Label

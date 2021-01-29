@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import * as MenuItemModule from './subcomponents/MenuItem';
-
-const {default: MenuItem} = MenuItemModule;
+import type {PropsType as MenuItemModulePropsType} from './subcomponents/MenuItem';
+import MenuItem from './subcomponents/MenuItem';
 
 export type SizeType = 'small' | 'normal' | 'large';
 
@@ -21,7 +20,7 @@ export const SIZE: {
 type PropsType = {
   size?: SizeType,
   className?: string,
-  items?: Array<MenuItemModule.PropsType>,
+  items?: Array<MenuItemModulePropsType>,
   ...
 };
 

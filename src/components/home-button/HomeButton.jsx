@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import * as LogoModule from '../logo/Logo';
-
-const {TYPE, BASE_URL, LOGOS} = LogoModule;
+import type {LogoTypeType} from '../logo/Logo';
+import {TYPE, BASE_URL, LOGOS} from '../logo/Logo';
 
 const ICONS = {
   brainly: 'brainly-mobile-6879551770',
@@ -15,7 +14,7 @@ const ICONS = {
 };
 
 type PropsType = {
-  type?: LogoModule.LogoTypeType,
+  type?: LogoTypeType,
   href?: string,
   className?: string,
   altTag?: string,

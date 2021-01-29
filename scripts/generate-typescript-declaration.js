@@ -9,10 +9,12 @@ const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const convert = require('@khanacademy/flow-to-ts/src/convert');
 const ts = require('typescript');
+const apiExtractor = require('@microsoft/api-extractor');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, '.typescript');
+const TYPES_DIR = path.join(ROOT_DIR, 'types');
 
 const files = glob.sync(
   `{/components/**/*.{js,jsx},/js/generateRandomString.js,/index.js}`,
@@ -111,6 +113,35 @@ allDiagnostics.forEach(diagnostics => {
 console.log(
   `Found ${allDiagnostics.length > 0 ? allDiagnostics.length : 'No'} errors.`
 );
+
+// Extract API
+// Combine all d.ts files into one library.d.ts
+
+console.log('Generating library API declaration...');
+
+const apiExtractorJsonPath = path.join(ROOT_DIR, 'api-extractor.json');
+
+const extractorConfig = apiExtractor.ExtractorConfig.loadFileAndPrepare(
+  apiExtractorJsonPath
+);
+
+fs.ensureDirSync(TYPES_DIR);
+
+const extractorResult = apiExtractor.Extractor.invoke(extractorConfig, {
+  localBuild: true,
+  showVerboseMessages: true,
+});
+
+if (extractorResult.succeeded) {
+  console.log(`API Extractor completed successfully`);
+  process.exitCode = 0;
+} else {
+  console.error(
+    `API Extractor completed with ${extractorResult.errorCount} errors` +
+      ` and ${extractorResult.warningCount} warnings`
+  );
+  process.exitCode = 1;
+}
 
 function mapExtension(extension = '') {
   const map = {

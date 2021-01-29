@@ -2,6 +2,7 @@ dist/
 esm/
 commonjs/
 /css/
+types/
 .scss-lint.yml
 .editorconfig
 .eslintrc-es5
@@ -17,6 +18,7 @@ yarn-error.log
 .storybook-static
 .cache
 .typescript
+temp
 
 # Generated images
 /src/images/*.js

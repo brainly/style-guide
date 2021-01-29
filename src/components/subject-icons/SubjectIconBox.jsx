@@ -2,15 +2,14 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import * as SubjectIconModule from './SubjectIcon';
-
-const {default: SubjectIcon, TYPE, SIZE} = SubjectIconModule;
+import type {IconTypeType, SizeType} from './SubjectIcon';
+import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
 
 type PropsType = {
   className?: string,
   darker?: boolean,
-  type: SubjectIconModule.IconTypeType,
-  size?: SubjectIconModule.SizeType,
+  type: IconTypeType,
+  size?: SizeType,
   ...
 };
 

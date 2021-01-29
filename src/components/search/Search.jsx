@@ -2,17 +2,16 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import * as InputModule from '../form-elements/Input';
+import Input, {COLOR, SIZE} from '../form-elements/Input';
+import type {InputPropsType} from '../form-elements/Input';
 import Icon from '../icons/Icon';
 import Button from '../buttons/Button';
-
-const {default: Input, COLOR, SIZE} = InputModule;
 
 type PropsType = {
   inputClassName?: string,
   withRoundButton?: boolean,
   ...
-} & InputModule.InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
+} & InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
 
 const Search = ({
   /**

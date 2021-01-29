@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import * as IconModule from '../icons/Icon';
+import type {IconColorType} from '../icons/Icon';
+import {ICON_COLOR} from '../icons/Icon';
 
 export type IconTypeType =
   | 'accountancy'
@@ -260,7 +261,7 @@ type PropsType = {
   className?: string,
   type: IconTypeType,
   size?: SizeType,
-  monoColor?: IconModule.IconColorType,
+  monoColor?: IconColorType,
   ...
 };
 
@@ -276,7 +277,7 @@ const SubjectIcon = ({
     {
       [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
       [`sg-subject-icon--${String(monoColor)}`]:
-        monoColor !== IconModule.ICON_COLOR.LIGHT && monoColor !== undefined,
+        monoColor !== ICON_COLOR.LIGHT && monoColor !== undefined,
     },
     className
   );

@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR} = IconModule;
+import {ICON_COLOR} from '../icons/Icon';
+import type {IconColorType} from '../icons/Icon';
 
 export type MathSymbolTypeType =
   | 'squere-root'
@@ -82,7 +81,7 @@ export const SIZE: {
 type PropsType = {
   type: MathSymbolTypeType,
   size?: MathSymbolSizeType,
-  color?: IconModule.IconColorType,
+  color?: IconColorType,
   className?: string,
   ...
 };

@@ -2,9 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR, default: Icon} = IconModule;
+import type {IconColorType, IconTypeType} from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type IconSizeType = 'small' | 'normal';
 
@@ -23,8 +22,8 @@ const ICON_SIZE: {[string]: 24, ...} = {
 
 type IconAsButtonPropsType = {
   size?: IconSizeType,
-  color?: IconModule.IconColorType,
-  type?: ?IconModule.IconTypeType,
+  color?: IconColorType,
+  type?: ?IconTypeType,
   children?: ?React.Element<*>,
   border?: boolean,
   action?: boolean,
