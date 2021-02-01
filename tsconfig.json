@@ -3,15 +3,16 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
+    "resolveJsonModule": true,
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true,
-    "jsx": "react",
+    "emitDeclarationOnly": false,
+    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": false
   },
-  "include": [
-    ".typescript/**/*"
-  ]
+  "include": [".typescript/**/*"]
 }

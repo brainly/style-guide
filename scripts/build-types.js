@@ -10,6 +10,7 @@ const flowParser = require('jscodeshift/parser/flow');
 const convert = require('@khanacademy/flow-to-ts/src/convert');
 const ts = require('typescript');
 const apiExtractor = require('@microsoft/api-extractor');
+const tsConfig = require('../tsconfig.json');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
@@ -69,19 +70,7 @@ files.forEach(sourceFile => {
 
 const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
 
-const options = {
-  declaration: true,
-  emitDeclarationOnly: false,
-  declarationDir: '.typescript',
-  jsx: 'react',
-  allowJs: false,
-  skipLibCheck: true,
-  esModuleInterop: true,
-  allowSyntheticDefaultImports: true,
-  module: 'esnext',
-  moduleResolution: ts.ModuleResolutionKind.NodeJs,
-  resolveJsonModule: true,
-};
+const options = {...tsConfig.compilerOptions, declarationDir: '.typescript'};
 
 console.log('Generating declaration files...');
 
