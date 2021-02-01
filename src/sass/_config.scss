@@ -137,7 +137,7 @@ $breakpointsMap: (
   'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
-  'large-only': '(min-width: #{$breakpointLarge})' // deprecated
+  'large-only': '(min-width: #{$breakpointLarge})',
   'large-up': '(min-width: #{$breakpointLarge})',
   'xlarge-up': '(min-width: #{$breakpointXLarge})',
 );
