@@ -17,7 +17,7 @@ export const SIZE: {
   FULL: 'full',
 };
 
-type SeparatorPropsType = {
+export type SeparatorVerticalPropsType = {
   size?: SizeType,
   white?: boolean,
   grayDark?: boolean,
@@ -31,7 +31,7 @@ const Separator = ({
   grayDark,
   className,
   ...props
-}: SeparatorPropsType) => {
+}: SeparatorVerticalPropsType) => {
   const separatorClass = classNames(
     'sg-vertical-separator',
     {

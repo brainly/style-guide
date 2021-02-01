@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type LayoutContentPropsType = {
   className?: ?string,
   children: React.Node,
   noMaxWidth?: boolean,
@@ -17,7 +17,7 @@ const LayoutContent = ({
   center,
   className,
   ...props
-}: PropsType) => {
+}: LayoutContentPropsType) => {
   const layoutContentClass = classNames(
     'sg-layout__content',
     {

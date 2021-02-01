@@ -16,7 +16,7 @@ export const SIZE: {
   LARGE: 'large',
 };
 
-export type PropsType = {
+export type TopLayerPropsType = {
   children: React.Node,
   onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
   onCloseButtonKeyDown?: (
@@ -37,7 +37,7 @@ export type PropsType = {
   ...
 };
 
-const TopLayer = (props: PropsType) => {
+const TopLayer = (props: TopLayerPropsType) => {
   const {
     children,
     onClose,

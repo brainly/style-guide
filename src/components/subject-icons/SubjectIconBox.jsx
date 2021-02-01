@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type {IconTypeType, SizeType} from './SubjectIcon';
 import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
 
-type PropsType = {
+export type SubjectIconBoxPropsType = {
   className?: string,
   darker?: boolean,
   type: IconTypeType,
@@ -19,7 +19,7 @@ const SubjectIconBox = ({
   darker,
   className,
   ...props
-}: PropsType) => {
+}: SubjectIconBoxPropsType) => {
   const boxClass = classNames(
     'sg-subject-icon-box',
     {

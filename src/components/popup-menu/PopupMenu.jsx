@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type PopupMenuPropsType = {
   items: Array<React.Node>,
   extraSpacing?: boolean,
   className?: string,
@@ -15,7 +15,7 @@ const PopupMenu = ({
   extraSpacing,
   className,
   ...props
-}: PropsType) => {
+}: PopupMenuPropsType) => {
   const popupMenuClass = classNames(
     'sg-popup-menu',
     {

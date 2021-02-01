@@ -7,7 +7,7 @@ import classnames from 'classnames';
 
 export {SPINNER_SIZE} from '../spinner/Spinner';
 
-type PropsType = {
+export type SpinnerContainerPropsType = {
   loading?: boolean,
   light?: boolean,
   fullWidth?: boolean,
@@ -23,7 +23,7 @@ const SpinnerContainer = ({
   size,
   children,
   ...props
-}: PropsType) => (
+}: SpinnerContainerPropsType) => (
   <div
     {...props}
     className={classnames('sg-spinner-container', {

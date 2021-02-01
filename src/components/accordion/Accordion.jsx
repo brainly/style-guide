@@ -33,7 +33,7 @@ type ActionType =
       payload: {id: string},
     };
 
-type PropsType = $ReadOnly<{
+export type AccordionPropsType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React.Node,
   className?: string,
@@ -80,7 +80,7 @@ const Accordion = ({
   className = '',
   spacing = 's',
   reduceMotion = false,
-}: PropsType) => {
+}: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const [state, dispatch] = useReducer(reducer, {
     opened: {},

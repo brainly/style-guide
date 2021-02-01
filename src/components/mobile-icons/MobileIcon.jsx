@@ -81,7 +81,7 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   TIME_SPEED: 'time_speed',
 };
 
-type PropsType = $ReadOnly<{
+export type MobileIconPropsType = $ReadOnly<{
   type: IconTypeType,
   size?: SizeType,
   color?: IconColorType,
@@ -95,7 +95,7 @@ const MobileIcon = ({
   color = 'light',
   className,
   ...props
-}: PropsType) => {
+}: MobileIconPropsType) => {
   const iconClass = classNames(
     'sg-mobile-icon',
     {

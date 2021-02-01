@@ -3,13 +3,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type FooterPropsType = {
   children: React.Node,
   className?: string,
   ...
 };
 
-const Footer = ({children, className, ...props}: PropsType) => {
+const Footer = ({children, className, ...props}: FooterPropsType) => {
   const footerClass = classNames('sg-footer', className);
 
   return (

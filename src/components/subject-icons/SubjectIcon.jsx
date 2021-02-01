@@ -257,7 +257,7 @@ export const SIZE: {
   NORMAL: 'normal',
 };
 
-type PropsType = {
+export type SubjectIconPropsType = {
   className?: string,
   type: IconTypeType,
   size?: SizeType,
@@ -271,7 +271,7 @@ const SubjectIcon = ({
   monoColor,
   className,
   ...props
-}: PropsType) => {
+}: SubjectIconPropsType) => {
   const iconClass = classNames(
     'sg-subject-icon',
     {

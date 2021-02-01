@@ -13,7 +13,7 @@ export const TYPE = {
   INFO: 'info',
 };
 
-type PropsType = {
+export type FlashMessagePropsType = {
   text: string,
   type?: FlashMessageTypeType,
   className?: string,
@@ -25,7 +25,7 @@ const FlashMessage = ({
   type = 'default',
   className,
   ...props
-}: PropsType) => {
+}: FlashMessagePropsType) => {
   const messageClass = classNames(
     'sg-flash__message',
     {

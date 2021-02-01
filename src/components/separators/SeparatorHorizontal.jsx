@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 type SeparatorHorizontalTypeType = 'normal' | 'spaced' | 'short-spaced';
 
-type SeparatorHorizontalPropsType = {
+export type SeparatorHorizontalPropsType = {
   type?: SeparatorHorizontalTypeType,
   white?: boolean,
   grayDark?: boolean,

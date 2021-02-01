@@ -3,13 +3,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type FooterLinePropsType = {
   children: React.Node,
   className?: string,
   ...
 };
 
-const FooterLine = ({children, className, ...props}: PropsType) => {
+const FooterLine = ({children, className, ...props}: FooterLinePropsType) => {
   const footerClass = classNames('sg-footer__line', className);
 
   return (

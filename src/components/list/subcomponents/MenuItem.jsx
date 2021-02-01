@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-export type PropsType = {
+export type MenuItemPropsType = {
   className?: string,
   href?: string,
   text: string,
@@ -12,7 +12,13 @@ export type PropsType = {
   ...
 };
 
-const MenuItem = ({text, href, type, className, ...restProps}: PropsType) => {
+const MenuItem = ({
+  text,
+  href,
+  type,
+  className,
+  ...restProps
+}: MenuItemPropsType) => {
   const Type = type !== undefined ? type : 'a';
   const elementClass = classnames('sg-menu-list__link', className);
 

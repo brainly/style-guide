@@ -25,7 +25,7 @@ export const ALIGNMENT = {
   STRETCH: 'stretch',
 };
 
-type ActionListPropsType = {
+export type ActionListPropsType = {
   children: React.Node,
   toTop?: ?boolean,
   className?: ?string,

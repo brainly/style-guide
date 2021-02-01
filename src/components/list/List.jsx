@@ -3,14 +3,14 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-type PropsType = {
+export type ListPropsType = {
   children?: React.Node,
   spaced?: boolean,
   className?: string,
   ...
 };
 
-const List = ({spaced, className, children, ...props}: PropsType) => {
+const List = ({spaced, className, children, ...props}: ListPropsType) => {
   const listClass = classNames(
     'sg-list',
     {

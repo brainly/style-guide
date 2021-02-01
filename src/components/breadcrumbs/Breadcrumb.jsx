@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type BreadcrumbPropsType = {
   className?: ?string,
   adaptive?: ?boolean,
   short?: ?boolean,

@@ -3,13 +3,13 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type HeaderRightPropsType = {
   children?: React.Node,
   className?: string,
   ...
 };
 
-const HeaderRight = ({children, className, ...props}: PropsType) => {
+const HeaderRight = ({children, className, ...props}: HeaderRightPropsType) => {
   const headerClass = classnames('sg-header__right', className);
 
   return (

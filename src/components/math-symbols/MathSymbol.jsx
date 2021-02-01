@@ -78,7 +78,7 @@ export const SIZE: {
   NORMAL: 'normal',
 };
 
-type PropsType = {
+export type MathSymbolPropsType = {
   type: MathSymbolTypeType,
   size?: MathSymbolSizeType,
   color?: IconColorType,
@@ -92,7 +92,7 @@ const MathSymbol = ({
   color,
   className,
   ...props
-}: PropsType) => {
+}: MathSymbolPropsType) => {
   const isWide = WIDE.indexOf(type) !== -1;
   const iconClass = classNames(
     'sg-math-symbol-icon',

@@ -3,14 +3,19 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-type PropsType = {
+export type ListItemIconPropsType = {
   children?: React.Node,
   className?: string,
   small?: boolean,
   ...
 };
 
-const ListItemIcon = ({small, children, className, ...props}: PropsType) => {
+const ListItemIcon = ({
+  small,
+  children,
+  className,
+  ...props
+}: ListItemIconPropsType) => {
   const iconClass = classNames(
     'sg-list__icon',
     {

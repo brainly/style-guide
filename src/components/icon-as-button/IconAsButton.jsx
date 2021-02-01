@@ -20,7 +20,7 @@ const ICON_SIZE: {[string]: 24, ...} = {
   [SIZE.NORMAL]: 24,
 };
 
-type IconAsButtonPropsType = {
+export type IconAsButtonPropsType = {
   size?: IconSizeType,
   color?: IconColorType,
   type?: ?IconTypeType,

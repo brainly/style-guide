@@ -22,7 +22,7 @@ export const FILE_HANDLER_COLORS_SET = {
   WHITE: 'white',
 };
 
-type PropsType = $ReadOnly<{
+export type FileHandlerPropsType = $ReadOnly<{
   /**
    * Specify color of the background for FileHandler
    * @example <FileHandler color="white">
@@ -108,7 +108,7 @@ const FileHandler = ({
   textRef,
   className,
   ...props
-}: PropsType) => {
+}: FileHandlerPropsType) => {
   const fileHandlerClass = classNames(
     'sg-file-handler',
     {

@@ -7,7 +7,7 @@ import type {InputPropsType} from '../form-elements/Input';
 import Icon from '../icons/Icon';
 import Button from '../buttons/Button';
 
-type PropsType = {
+export type SearchPropsType = {
   inputClassName?: string,
   withRoundButton?: boolean,
   ...
@@ -45,7 +45,7 @@ const Search = ({
    * @example <Search color="white" placeholder="Find all the answers..." />
    */
   ...additionalProps
-}: PropsType) => {
+}: SearchPropsType) => {
   const baseClassName = 'sg-search';
 
   const searchClassName = cx(

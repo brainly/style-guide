@@ -13,7 +13,7 @@ const ICONS = {
   'brainly-plus': 'brainly-plus-9dd3b24a28',
 };
 
-type PropsType = {
+export type HomeButtonPropsType = {
   type?: LogoTypeType,
   href?: string,
   className?: string,
@@ -27,7 +27,7 @@ const HomeButton = ({
   className,
   altTag,
   ...props
-}: PropsType) => {
+}: HomeButtonPropsType) => {
   const buttonClass = classnames(
     'sg-home-button',
     {

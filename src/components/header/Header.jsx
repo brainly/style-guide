@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type HeaderPropsType = {
   children: React.Node,
   withDivider?: boolean,
   fixed?: boolean,
@@ -17,7 +17,7 @@ const Header = ({
   withDivider,
   className,
   ...props
-}: PropsType) => {
+}: HeaderPropsType) => {
   const headerClass = classnames(
     'sg-header',
     {

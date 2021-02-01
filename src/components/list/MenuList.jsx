@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import type {PropsType as MenuItemModulePropsType} from './subcomponents/MenuItem';
+import type {MenuItemPropsType} from './subcomponents/MenuItem';
 import MenuItem from './subcomponents/MenuItem';
 
 export type SizeType = 'small' | 'normal' | 'large';
@@ -17,10 +17,10 @@ export const SIZE: {
   LARGE: 'large',
 };
 
-type PropsType = {
+export type MenuListPropsType = {
   size?: SizeType,
   className?: string,
-  items?: Array<MenuItemModulePropsType>,
+  items?: Array<MenuItemPropsType>,
   ...
 };
 
@@ -29,7 +29,7 @@ const MenuList = ({
   size = SIZE.NORMAL,
   className,
   ...props
-}: PropsType) => {
+}: MenuListPropsType) => {
   const listClass = classNames(
     'sg-menu-list',
     {

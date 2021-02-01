@@ -70,7 +70,7 @@ export const BUBBLE_COLOR: {
   PEACH: 'peach',
 };
 
-type BubblePropsType = {
+export type BubblePropsType = {
   children: React.Node,
   className?: ?string,
   alignment?: AligmentType,

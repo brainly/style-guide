@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type OverlayPropsType = {
   children?: React.Node,
   partial?: boolean,
   className?: string,
@@ -24,7 +24,7 @@ const Overlay = ({
   className,
   color,
   ...props
-}: PropsType) => {
+}: OverlayPropsType) => {
   const overlayClass = classnames(
     'sg-overlay',
     {

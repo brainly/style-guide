@@ -18,13 +18,13 @@ export const TYPE = {
   LARGE_ONLY: 'large-only',
 };
 
-type PropsType = {
+export type RwdHelperPropsType = {
   hide: RwdHelperTypeType,
   children: React.Element<*> | string,
   ...
 };
 
-const RwdHelper = ({hide, children}: PropsType) => {
+const RwdHelper = ({hide, children}: RwdHelperPropsType) => {
   if (!children) {
     return null;
   }

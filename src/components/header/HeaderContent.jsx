@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type HeaderContentPropsType = {
   children: React.Node,
   autoHeight?: boolean,
   className?: string,
@@ -15,7 +15,7 @@ const HeaderContent = ({
   autoHeight,
   className,
   ...props
-}: PropsType) => {
+}: HeaderContentPropsType) => {
   const headerContentClass = classnames(
     'sg-header__content',
     {

@@ -20,7 +20,7 @@ export const ICON_SIZE = {
   [SIZE.LARGE]: 32,
 };
 
-type PropsType = {
+export type LabelDeprecatedPropsType = {
   text?: string,
   htmlFor?: string,
   children?: ?React.Node,
@@ -37,7 +37,7 @@ type PropsType = {
   ...
 };
 
-const LabelDeprecated = (props: PropsType) => {
+const LabelDeprecated = (props: LabelDeprecatedPropsType) => {
   const {
     size = SIZE.NORMAL,
     text,

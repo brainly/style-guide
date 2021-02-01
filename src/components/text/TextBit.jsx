@@ -85,7 +85,7 @@ export const TEXT_BIT_COLOR: {
   BLACK: 'black',
 };
 
-type TextBitPropsType = {
+export type TextBitPropsType = {
   children: React.Node,
   type?: TextBitTypeType,
   size?: TextBitSizeType,

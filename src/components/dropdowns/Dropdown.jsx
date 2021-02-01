@@ -13,7 +13,7 @@ type LinksType = $ReadOnly<{
   url: string,
 }>;
 
-type PropsType = $ReadOnly<{
+export type DropdownPropsType = $ReadOnly<{
   name: string,
   links: Array<LinksType>,
   initiallyOpened?: boolean,
@@ -28,7 +28,7 @@ const Dropdown = ({
   initiallyOpened,
   color = 'default',
   fullWidth,
-}: PropsType) => {
+}: DropdownPropsType) => {
   const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
 

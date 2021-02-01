@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type MediaPropsType = {
   aside: React.Node,
   contentArray: Array<React.Node>,
   toRight?: boolean,
@@ -18,7 +18,7 @@ type PropsType = {
   ...
 };
 
-const Media = (props: PropsType) => {
+const Media = (props: MediaPropsType) => {
   const {
     contentArray = [],
     aside,

@@ -42,14 +42,19 @@ export const CARD_HOLE_COLOR = {
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
 };
 
-type PropsType = {
+export type CardHolePropsType = {
   children: React.Node,
   className?: string,
   color?: ColorType,
   ...
 };
 
-const CardHole = ({color, children, className, ...props}: PropsType) => {
+const CardHole = ({
+  color,
+  children,
+  className,
+  ...props
+}: CardHolePropsType) => {
   const cardHoleClass = classnames(
     'sg-card__hole',
     {

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type LayoutPropsType = {
   className?: string,
   containerClassName?: string,
   children: React.Node,
@@ -29,7 +29,7 @@ const Layout = ({
   className,
   containerClassName,
   ...props
-}: PropsType) => {
+}: LayoutPropsType) => {
   const layoutClass = classNames('sg-layout', className, {
     'sg-layout--three-columns': threeColumns,
   });

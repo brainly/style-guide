@@ -31,7 +31,7 @@ export const ICON_SIZE = {
   [SIZE.XXL]: 104,
 };
 
-type PropsType = {
+export type AvatarPropsType = {
   size?: AvatarSizeType,
   border?: boolean,
   spaced?: boolean,
@@ -51,7 +51,7 @@ const Avatar = ({
   link,
   title,
   ...props
-}: PropsType) => {
+}: AvatarPropsType) => {
   const avatarClass = classNames(
     'sg-avatar',
     {

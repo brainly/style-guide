@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type ButtonRoundType = {
+export type ButtonRoundPropsType = {
   children?: ?React.Node,
   className?: ?string,
   wide?: ?boolean,
@@ -20,7 +20,7 @@ const ButtonRound = ({
   href = '#',
   className,
   ...props
-}: ButtonRoundType) => {
+}: ButtonRoundPropsType) => {
   let labelElem;
 
   if (label !== undefined && label !== null && label !== '') {

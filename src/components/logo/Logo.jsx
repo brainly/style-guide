@@ -78,14 +78,19 @@ export const LOGOS = {
   [TYPE.BRAINLY_TUTORING_SMALL]: 'brainly-tutoring-small-02c148571b',
 };
 
-type PropsType = {
+export type LogoPropsType = {
   className?: string,
   type?: LogoTypeType,
   alt?: string,
   ...
 };
 
-const Logo = ({type = TYPE.BRAINLY, className, alt, ...props}: PropsType) => {
+const Logo = ({
+  type = TYPE.BRAINLY,
+  className,
+  alt,
+  ...props
+}: LogoPropsType) => {
   const logoClass = classnames(
     'sg-logo',
     {

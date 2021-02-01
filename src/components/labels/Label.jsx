@@ -123,7 +123,7 @@ export const LABEL_COLORS_SET: {
   ACHROMATIC: 'achromatic',
 };
 
-type PropsType = $ReadOnly<{
+export type LabelPropsType = $ReadOnly<{
   /**
    * Specify type of label
    * @example <Label
@@ -204,7 +204,7 @@ const Label = ({
   color = 'achromatic',
   className,
   ...props
-}: PropsType) => {
+}: LabelPropsType) => {
   const backgroundColor =
     type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
 

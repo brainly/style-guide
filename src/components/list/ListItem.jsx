@@ -3,13 +3,13 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
-type PropsType = {
+export type ListItemPropsType = {
   children?: React.Node,
   className?: string,
   ...
 };
 
-const ListItem = ({children, className, ...props}: PropsType) => {
+const ListItem = ({children, className, ...props}: ListItemPropsType) => {
   const listItemClass = classNames('sg-list__element', className);
 
   return (

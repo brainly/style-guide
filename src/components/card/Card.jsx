@@ -16,7 +16,7 @@ export const CARD_PADDING = {
   XLARGE: 'padding-xlarge',
 };
 
-type PropsType = {
+export type CardPropsType = {
   children?: React.Node,
   className?: string,
   full?: boolean,
@@ -40,7 +40,7 @@ const Card = ({
   transparent,
   className,
   ...props
-}: PropsType) => {
+}: CardPropsType) => {
   const cardClass = classNames(
     'sg-card',
     {

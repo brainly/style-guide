@@ -3,13 +3,17 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
+export type LayoutAsideContentPropsType = {
   className?: ?string,
   children: React.Node,
   ...
 };
 
-const LayoutAsideContent = ({children, className, ...props}: PropsType) => {
+const LayoutAsideContent = ({
+  children,
+  className,
+  ...props
+}: LayoutAsideContentPropsType) => {
   const layoutClass = classnames('sg-layout__aside-content', className);
 
   return (
