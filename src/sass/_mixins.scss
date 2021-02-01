@@ -74,6 +74,7 @@
   @return $baselines * $baseline;
 }
 
+/// @deprecated Use sgResponsive instead. sgResponsive promotes mobile first approach.
 @mixin sgBreakpoint($name) {
   $media: map-get($breakpointsMap, $name);
   @if($media) {
