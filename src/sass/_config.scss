@@ -128,6 +128,8 @@ $breakpointMedium: 768px !default;
 $breakpointLarge: 1024px !default;
 $breakpointXLarge: 1280px !default;
 
+/// @deprecated Adding values to this map should be avoided.
+/// Use $responsiveBreakpointsMap
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
   'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
