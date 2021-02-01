@@ -19,7 +19,7 @@ const Breadcrumb = ({
   inlineItems,
   elements = [],
   ...props
-}: PropsType) => {
+}: BreadcrumbPropsType) => {
   const breadcrumbClass = classNames(
     'sg-breadcrumb-list',
     {
