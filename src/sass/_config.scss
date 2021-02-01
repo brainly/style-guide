@@ -126,26 +126,35 @@ $toplayerZIndex: 1000;
 // Breakpoints
 $breakpointMedium: 768px !default;
 $breakpointLarge: 1024px !default;
+$breakpointXLarge: 1280px !default;
+
+// Max width of the content
+// TODO(mskowronek): to be verified with designers
+$contentMaxWidth: 1224px;
 
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
   'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
-  'large-only': '(min-width: #{$breakpointLarge})'
+  'large-only': '(min-width: #{$breakpointLarge})' // deprecated
+  'large-up': '(min-width: #{$breakpointLarge})',
+  'xlarge-up': '(min-width: #{$breakpointXLarge})',
 );
 
 // Breakpoints map for mobile first approach usage
 $responsiveBreakpointsMap: (
   'md': '(min-width: #{$breakpointMedium})',
   'lg': '(min-width: #{$breakpointLarge})',
+  'xl': '(min-width: #{$breakpointXLarge})',
 );
 
-// Breakpoints variants for generating reposnive utility classes
+// Breakpoints variants for generating responsive utility classes
 $responsiveVariants: (
   '': '',
   md: 'md\\:',
   lg: 'lg\\:',
+  xl: 'xl\\:',
 );
 
 // Form elements configuration
