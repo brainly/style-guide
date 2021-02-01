@@ -15,7 +15,7 @@ import {AccordionContext} from './Accordion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-type PropType = $ReadOnly<{
+type PropsType = $ReadOnly<{
   title: React.Node,
   titleSize?: 'small' | 'large',
   children?: React.Node,
@@ -39,7 +39,7 @@ const AccordionItem = ({
   defaultOpened = false,
   padding = 'm',
   tabIndex = 0,
-}: PropType) => {
+}: PropsType) => {
   const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
