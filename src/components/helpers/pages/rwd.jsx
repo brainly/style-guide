@@ -5,7 +5,7 @@ import Icon, {TYPE as icoTypes, ICON_COLOR} from 'icons/Icon';
 
 const RwdHelpers = () => (
   <div>
-    <DocsBlock info="RwdHelper (deprecated)" additionalInfo="use custom ">
+    <DocsBlock info="RwdHelper (deprecated)">
       <ul>
         <li>
           <RwdHelper hide={TYPE.SMALL_ONLY}>
