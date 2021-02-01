@@ -128,10 +128,6 @@ $breakpointMedium: 768px !default;
 $breakpointLarge: 1024px !default;
 $breakpointXLarge: 1280px !default;
 
-// Max width of the content
-// TODO(mskowronek): to be verified with designers
-$contentMaxWidth: 1224px;
-
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
   'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
