@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Label, {ICON_TYPE, LABEL_COLORS_SET, LABEL_TYPE} from './Label';
 
 export default {

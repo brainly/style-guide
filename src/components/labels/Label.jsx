@@ -1,12 +1,10 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
-import * as IconModule from '../icons/Icon';
-
-const {default: Icon, TYPE: ICON_TYPE} = IconModule;
+import Icon, {TYPE as ICON_TYPE} from '../icons/Icon';
+import type {IconTypeType} from '../icons/Icon';
 
 export type LabelColorType =
   | 'blue'
@@ -23,14 +21,27 @@ export type LabelType =
   | 'transparent'
   | 'transparent-color';
 
-export const LABEL_TYPE = {
+export const LABEL_TYPE: {
+  DEFAULT: 'default',
+  SOLID: 'solid',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_COLOR: 'transparent-color',
+} = {
   DEFAULT: 'default',
   SOLID: 'solid',
   TRANSPARENT: 'transparent',
   TRANSPARENT_COLOR: 'transparent-color',
 };
 
-export const COLORS_SOLID_MAP = {
+export const COLORS_SOLID_MAP: {
+  blue: 'blue-primary',
+  mint: 'mint-primary',
+  lavender: 'lavender-primary',
+  peach: 'peach-primary',
+  mustard: 'mustard-primary',
+  gray: 'gray-secondary',
+  achromatic: 'black',
+} = {
   blue: 'blue-primary',
   mint: 'mint-primary',
   lavender: 'lavender-primary',
@@ -40,7 +51,15 @@ export const COLORS_SOLID_MAP = {
   achromatic: 'black',
 };
 
-export const COLORS_DEFAULT_MAP = {
+export const COLORS_DEFAULT_MAP: {
+  blue: 'blue-secondary-light',
+  mint: 'mint-secondary-light',
+  lavender: 'lavender-secondary-light',
+  peach: 'peach-secondary-light',
+  mustard: 'mustard-secondary-light',
+  gray: 'gray-secondary-light',
+  achromatic: 'white',
+} = {
   blue: 'blue-secondary-light',
   mint: 'mint-secondary-light',
   lavender: 'lavender-secondary-light',
@@ -50,7 +69,15 @@ export const COLORS_DEFAULT_MAP = {
   achromatic: 'white',
 };
 
-const TRANSPARENT_COLOR_TEXT_MAP = {
+const TRANSPARENT_COLOR_TEXT_MAP: {
+  blue: 'blue-dark',
+  mint: 'mint-dark',
+  lavender: 'lavender-dark',
+  peach: 'peach-dark',
+  mustard: 'mustard-dark',
+  gray: 'gray-secondary',
+  achromatic: 'default',
+} = {
   blue: 'blue-dark',
   mint: 'mint-dark',
   lavender: 'lavender-dark',
@@ -60,7 +87,15 @@ const TRANSPARENT_COLOR_TEXT_MAP = {
   achromatic: 'default',
 };
 
-const TRANSPARENT_ICON_COLOR_MAP = {
+const TRANSPARENT_ICON_COLOR_MAP: {
+  blue: 'blue',
+  mint: 'mint',
+  lavender: 'lavender',
+  peach: 'peach',
+  mustard: 'mustard',
+  gray: 'gray-secondary',
+  achromatic: 'dark',
+} = {
   blue: 'blue',
   mint: 'mint',
   lavender: 'lavender',
@@ -70,7 +105,15 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   achromatic: 'dark',
 };
 
-export const LABEL_COLORS_SET = {
+export const LABEL_COLORS_SET: {
+  BLUE: 'blue',
+  MINT: 'mint',
+  LAVENDER: 'lavender',
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+  GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
+} = {
   BLUE: 'blue',
   MINT: 'mint',
   LAVENDER: 'lavender',
@@ -80,7 +123,7 @@ export const LABEL_COLORS_SET = {
   ACHROMATIC: 'achromatic',
 };
 
-type PropsType = $ReadOnly<{
+export type LabelPropsType = $ReadOnly<{
   /**
    * Specify type of label
    * @example <Label
@@ -123,7 +166,7 @@ type PropsType = $ReadOnly<{
    *          </Label>
    * @see type="iconType" https://styleguide.brainly.com/latest/docs/interactive.html?iconType=heart#labels
    */
-  iconType?: IconModule.IconTypeType,
+  iconType?: IconTypeType,
   /**
    * Callback, called by clicking on **close** button. If specified, button will be added automatically
    * @example <Label
@@ -135,7 +178,7 @@ type PropsType = $ReadOnly<{
    *            example label
    *          </Label>
    */
-  onClose?: ?(SyntheticInputEvent<HTMLDivElement>) => mixed,
+  onClose?: ?(SyntheticInputEvent<HTMLButtonElement>) => void,
   /**
    * Children to be rendered inside Label
    * @example <Label
@@ -145,7 +188,7 @@ type PropsType = $ReadOnly<{
    *            example label
    *          </Label>
    */
-  children: Node,
+  children: React.Node,
   /**
    * Additional class names
    */
@@ -161,7 +204,7 @@ const Label = ({
   color = 'achromatic',
   className,
   ...props
-}: PropsType) => {
+}: LabelPropsType) => {
   const backgroundColor =
     type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
 

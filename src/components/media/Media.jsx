@@ -1,12 +1,11 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
-  aside: Node,
-  contentArray: Array<Node>,
+export type MediaPropsType = {
+  aside: React.Node,
+  contentArray: Array<React.Node>,
   toRight?: boolean,
   focused?: boolean,
   clickable?: boolean,
@@ -19,7 +18,7 @@ type PropsType = {
   ...
 };
 
-const Media = (props: PropsType) => {
+const Media = (props: MediaPropsType) => {
   const {
     contentArray = [],
     aside,

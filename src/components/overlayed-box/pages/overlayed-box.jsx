@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import OverlayedBox from '../OverlayedBox';
 import Avatar from 'avatar/Avatar';

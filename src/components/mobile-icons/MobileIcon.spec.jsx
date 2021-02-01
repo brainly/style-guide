@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 import {shallow} from 'enzyme';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
 import Button from 'buttons/Button';

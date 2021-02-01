@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import FlashMessage, {TYPE} from '../FlashMessage';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

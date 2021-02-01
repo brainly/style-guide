@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export type CardPaddingType =
@@ -17,8 +16,8 @@ export const CARD_PADDING = {
   XLARGE: 'padding-xlarge',
 };
 
-type PropsType = {
-  children?: Node,
+export type CardPropsType = {
+  children?: React.Node,
   className?: string,
   full?: boolean,
   vertical?: boolean,
@@ -41,7 +40,7 @@ const Card = ({
   transparent,
   className,
   ...props
-}: PropsType) => {
+}: CardPropsType) => {
   const cardClass = classNames(
     'sg-card',
     {

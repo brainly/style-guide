@@ -1,10 +1,9 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
-import * as LogoModule from '../logo/Logo';
-
-const {TYPE, BASE_URL, LOGOS} = LogoModule;
+import type {LogoTypeType} from '../logo/Logo';
+import {TYPE, BASE_URL, LOGOS} from '../logo/Logo';
 
 const ICONS = {
   brainly: 'brainly-mobile-6879551770',
@@ -14,8 +13,8 @@ const ICONS = {
   'brainly-plus': 'brainly-plus-9dd3b24a28',
 };
 
-type PropsType = {
-  type?: LogoModule.LogoTypeType,
+export type HomeButtonPropsType = {
+  type?: LogoTypeType,
   href?: string,
   className?: string,
   altTag?: string,
@@ -28,7 +27,7 @@ const HomeButton = ({
   className,
   altTag,
   ...props
-}: PropsType) => {
+}: HomeButtonPropsType) => {
   const buttonClass = classnames(
     'sg-home-button',
     {

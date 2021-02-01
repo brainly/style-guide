@@ -1,18 +1,23 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 type SizeType = 'normal' | 'small' | 'large' | 'full';
 
-export const SIZE = {
+export const SIZE: {
+  NORMAL: 'normal',
+  SMALL: 'small',
+  LARGE: 'large',
+  FULL: 'full',
+} = {
   NORMAL: 'normal',
   SMALL: 'small',
   LARGE: 'large',
   FULL: 'full',
 };
 
-type SeparatorPropsType = {
+export type SeparatorVerticalPropsType = {
   size?: SizeType,
   white?: boolean,
   grayDark?: boolean,
@@ -26,7 +31,7 @@ const Separator = ({
   grayDark,
   className,
   ...props
-}: SeparatorPropsType) => {
+}: SeparatorVerticalPropsType) => {
   const separatorClass = classNames(
     'sg-vertical-separator',
     {

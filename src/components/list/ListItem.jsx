@@ -1,16 +1,15 @@
 // @flow strict
 
 import classNames from 'classnames';
-import type {Node} from 'react';
-import React from 'react';
+import * as React from 'react';
 
-type PropsType = {
-  children?: Node,
+export type ListItemPropsType = {
+  children?: React.Node,
   className?: string,
   ...
 };
 
-const ListItem = ({children, className, ...props}: PropsType) => {
+const ListItem = ({children, className, ...props}: ListItemPropsType) => {
   const listItemClass = classNames('sg-list__element', className);
 
   return (

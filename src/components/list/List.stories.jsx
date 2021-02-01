@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemIcon from './ListItemIcon';

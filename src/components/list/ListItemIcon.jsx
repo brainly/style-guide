@@ -1,17 +1,21 @@
 // @flow strict
 
 import classNames from 'classnames';
-import type {Node} from 'react';
-import React from 'react';
+import * as React from 'react';
 
-type PropsType = {
-  children?: Node,
+export type ListItemIconPropsType = {
+  children?: React.Node,
   className?: string,
   small?: boolean,
   ...
 };
 
-const ListItemIcon = ({small, children, className, ...props}: PropsType) => {
+const ListItemIcon = ({
+  small,
+  children,
+  className,
+  ...props
+}: ListItemIconPropsType) => {
   const iconClass = classNames(
     'sg-list__icon',
     {

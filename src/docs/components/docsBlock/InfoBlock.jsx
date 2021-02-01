@@ -1,11 +1,10 @@
 // @flow
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 
 type PropsType = {
-  additionalInfo?: Node,
-  info?: Node,
+  additionalInfo?: React.Node,
+  info?: React.Node,
   ...
 };
 

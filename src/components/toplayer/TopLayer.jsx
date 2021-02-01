@@ -1,20 +1,23 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import Icon from '../icons/Icon';
 
 export type TopLayerSizeType = 'small' | 'medium' | 'large';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
 };
 
-export type PropsType = {
-  children: Node,
+export type TopLayerPropsType = {
+  children: React.Node,
   onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
   onCloseButtonKeyDown?: (
     event: SyntheticKeyboardEvent<HTMLInputElement>
@@ -34,7 +37,7 @@ export type PropsType = {
   ...
 };
 
-const TopLayer = (props: PropsType) => {
+const TopLayer = (props: TopLayerPropsType) => {
   const {
     children,
     onClose,
@@ -83,7 +86,7 @@ const TopLayer = (props: PropsType) => {
           onClick={onClose}
           onKeyDown={onCloseButtonKeyDown}
           role="button"
-          tabIndex="0"
+          tabIndex={0}
         >
           <Icon type="close" color="gray-secondary" size={24} />
         </div>

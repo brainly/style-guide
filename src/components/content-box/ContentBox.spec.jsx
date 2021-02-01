@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ContentBox, {CONTENT_BOX_SPACING_SIZE} from './ContentBox';
 import {shallow} from 'enzyme';
 

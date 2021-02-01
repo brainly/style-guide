@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import packageJSON from '../../../package.json';
 import ContentBox from '../../components/content-box/ContentBox';
 import ContentBoxHeader from '../../components/content-box/ContentBoxHeader';

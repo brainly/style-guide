@@ -1,11 +1,11 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 type SeparatorHorizontalTypeType = 'normal' | 'spaced' | 'short-spaced';
 
-type SeparatorHorizontalPropsType = {
+export type SeparatorHorizontalPropsType = {
   type?: SeparatorHorizontalTypeType,
   white?: boolean,
   grayDark?: boolean,
@@ -13,7 +13,11 @@ type SeparatorHorizontalPropsType = {
   ...
 };
 
-export const TYPE = {
+export const TYPE: {
+  NORMAL: 'normal',
+  SPACED: 'spaced',
+  SHORT_SPACED: 'short-spaced',
+} = {
   NORMAL: 'normal',
   SPACED: 'spaced',
   SHORT_SPACED: 'short-spaced',

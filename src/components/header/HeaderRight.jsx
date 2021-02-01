@@ -1,16 +1,15 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
-  children?: Node,
+export type HeaderRightPropsType = {
+  children?: React.Node,
   className?: string,
   ...
 };
 
-const HeaderRight = ({children, className, ...props}: PropsType) => {
+const HeaderRight = ({children, className, ...props}: HeaderRightPropsType) => {
   const headerClass = classnames('sg-header__right', className);
 
   return (

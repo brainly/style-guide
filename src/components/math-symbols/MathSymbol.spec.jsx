@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR} from './MathSymbol';
 import {shallow} from 'enzyme';
 

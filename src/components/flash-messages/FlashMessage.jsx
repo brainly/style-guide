@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
 
@@ -13,7 +13,7 @@ export const TYPE = {
   INFO: 'info',
 };
 
-type PropsType = {
+export type FlashMessagePropsType = {
   text: string,
   type?: FlashMessageTypeType,
   className?: string,
@@ -25,7 +25,7 @@ const FlashMessage = ({
   type = 'default',
   className,
   ...props
-}: PropsType) => {
+}: FlashMessagePropsType) => {
   const messageClass = classNames(
     'sg-flash__message',
     {

@@ -1,6 +1,9 @@
 // @flow strict
 
-import React, {useEffect, useState, useRef} from 'react';
+// eslint-disable-next-line import/no-duplicates
+import * as React from 'react';
+// eslint-disable-next-line import/no-duplicates
+import {useEffect, useState, useRef} from 'react';
 import classNames from 'classnames';
 
 import Icon from '../icons/Icon';
@@ -10,7 +13,7 @@ type LinksType = $ReadOnly<{
   url: string,
 }>;
 
-type PropsType = $ReadOnly<{
+export type DropdownPropsType = $ReadOnly<{
   name: string,
   links: Array<LinksType>,
   initiallyOpened?: boolean,
@@ -25,7 +28,7 @@ const Dropdown = ({
   initiallyOpened,
   color = 'default',
   fullWidth,
-}: PropsType) => {
+}: DropdownPropsType) => {
   const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
 

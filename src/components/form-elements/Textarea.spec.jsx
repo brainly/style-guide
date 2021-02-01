@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Textarea, {SIZE} from './Textarea';
 import {shallow, mount} from 'enzyme';
 

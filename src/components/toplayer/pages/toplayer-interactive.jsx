@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import TopLayer, {SIZE} from '../TopLayer';
 import ContentBox from 'content-box/ContentBox';

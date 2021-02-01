@@ -1,6 +1,6 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import Icon from '../icons/Icon';
 
@@ -14,15 +14,21 @@ type SelectSizeType = 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
 
-export const COLOR = Object.freeze({
+export const COLOR: {
   DEAFAULT: 'default',
   WHITE: 'white',
-});
+} = {
+  DEAFAULT: 'default',
+  WHITE: 'white',
+};
 
-export const SIZE = Object.freeze({
+export const SIZE: {
   M: 'm',
   L: 'l',
-});
+} = {
+  M: 'm',
+  L: 'l',
+};
 
 export type SelectPropsType = {
   /**

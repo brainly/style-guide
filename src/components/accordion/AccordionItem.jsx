@@ -1,13 +1,10 @@
 //@flow strict
 
-import React, {
-  useContext,
-  useLayoutEffect,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import type {Node} from 'react';
+// eslint-disable-next-line import/no-duplicates
+import * as React from 'react';
+// eslint-disable-next-line import/no-duplicates
+import {useContext, useLayoutEffect, useEffect, useRef, useState} from 'react';
+
 import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
@@ -18,10 +15,10 @@ import {AccordionContext} from './Accordion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-type PropType = $ReadOnly<{
-  title: Node,
+export type AccordionItemPropsType = $ReadOnly<{
+  title: React.Node,
   titleSize?: 'small' | 'large',
-  children?: Node,
+  children?: React.Node,
   className?: string,
   defaultOpened?: boolean,
   padding?: PaddingType,
@@ -42,7 +39,7 @@ const AccordionItem = ({
   defaultOpened = false,
   padding = 'm',
   tabIndex = 0,
-}: PropType) => {
+}: AccordionItemPropsType) => {
   const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
@@ -79,7 +76,7 @@ const AccordionItem = ({
   function handleBlur() {
     dispatch({
       type: 'accordion/SET_FOCUSED',
-      payload: {id: null},
+      payload: {id: ''},
     });
   }
 

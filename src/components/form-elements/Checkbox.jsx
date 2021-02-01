@@ -1,7 +1,7 @@
 // @flow strict
 
+import * as React from 'react';
 import classNames from 'classnames';
-import React, {PureComponent} from 'react';
 import generateRandomString from '../../js/generateRandomString';
 import Icon from '../icons/Icon';
 import Text from '../text/Text';
@@ -10,13 +10,16 @@ export type CheckboxPropsType = {
   checked?: boolean,
   id?: string,
   className?: string,
-  children?: React$Node,
+  children?: React.Node,
   ...
 };
 
 export type CheckboxStateType = {id: string, ...};
 
-class Checkbox extends PureComponent<CheckboxPropsType, CheckboxStateType> {
+class Checkbox extends React.PureComponent<
+  CheckboxPropsType,
+  CheckboxStateType
+> {
   constructor(props: CheckboxPropsType) {
     super(props);
 

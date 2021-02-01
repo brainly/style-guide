@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import RwdHelper, {TYPE} from '../RwdHelper';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from 'icons/Icon';

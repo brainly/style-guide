@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import FileHandler, {FILE_HANDLER_COLORS_SET} from '../FileHandler';
 import {TYPE as ICON_TYPE} from 'icons/Icon';

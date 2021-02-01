@@ -23,7 +23,7 @@ type TextBitColorType =
   | 'white'
   | 'black';
 
-export const TEXT_BIT_TYPE = Object.freeze({
+export const TEXT_BIT_TYPE: {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -31,16 +31,29 @@ export const TEXT_BIT_TYPE = Object.freeze({
   H5: 'h5',
   H6: 'h6',
   DIV: 'div',
-});
+} = {
+  H1: 'h1',
+  H2: 'h2',
+  H3: 'h3',
+  H4: 'h4',
+  H5: 'h5',
+  H6: 'h6',
+  DIV: 'div',
+};
 
-export const TEXT_BIT_SIZE = Object.freeze({
+export const TEXT_BIT_SIZE: {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
   XLARGE: 'xlarge',
-});
+} = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+  XLARGE: 'xlarge',
+};
 
-export const TEXT_BIT_COLOR = Object.freeze({
+export const TEXT_BIT_COLOR: {
   BLUE_PRIMARY: 'blue-primary',
   BLUE_SECONDARY: 'blue-secondary',
   MINT_PRIMARY: 'mint-primary',
@@ -55,9 +68,24 @@ export const TEXT_BIT_COLOR = Object.freeze({
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
   WHITE: 'white',
   BLACK: 'black',
-});
+} = {
+  BLUE_PRIMARY: 'blue-primary',
+  BLUE_SECONDARY: 'blue-secondary',
+  MINT_PRIMARY: 'mint-primary',
+  MINT_SECONDARY: 'mint-secondary',
+  PEACH_PRIMARY: 'peach-primary',
+  PEACH_SECONDARY: 'peach-secondary',
+  MUSTARAD_PRIMARY: 'mustard-primary',
+  MUSTARAD_SECONDARY: 'mustard-secondary',
+  LAVENDER_PRIMARY: 'lavender-primary',
+  LAVENDER_SECONDARY: 'lavender-secondary',
+  GRAY_SECONDARY: 'gray-secondary',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  WHITE: 'white',
+  BLACK: 'black',
+};
 
-type TextBitPropsType = {
+export type TextBitPropsType = {
   children: React.Node,
   type?: TextBitTypeType,
   size?: TextBitSizeType,

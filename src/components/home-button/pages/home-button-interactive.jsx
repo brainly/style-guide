@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import HomeButton, {TYPE} from '../HomeButton';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

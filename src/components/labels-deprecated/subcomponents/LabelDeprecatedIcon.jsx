@@ -5,7 +5,7 @@ import * as IconModule from '../../icons/Icon';
 
 const {default: Icon} = IconModule;
 
-type PropsType = {
+export type LabelDeprecatedIconPropsType = {
   iconContent?: ?React.Element<*>,
   iconSize?: IconModule.IconSizeType,
   iconColor?: IconModule.IconColorType,
@@ -18,7 +18,7 @@ const LabelDeprecatedIcon = ({
   iconColor,
   iconContent,
   iconSize,
-}: PropsType) => {
+}: LabelDeprecatedIconPropsType) => {
   if (iconContent) {
     return <div className="sg-label-deprecated__icon">{iconContent}</div>;
   }

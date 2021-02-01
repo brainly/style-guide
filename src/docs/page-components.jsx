@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import slugify from './slugify';
 import Avatars from 'avatar/pages/avatar-interactive';

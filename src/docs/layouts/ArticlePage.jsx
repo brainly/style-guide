@@ -1,7 +1,6 @@
 // @flow
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import Navigation from './Navigation';
 import Head from './Head';
 import navigation from '../navigation';
@@ -10,7 +9,7 @@ import site from '../config';
 
 const version = packageJSON.version;
 
-type PropsType = {children?: Node, ...};
+type PropsType = {children?: React.Node, ...};
 
 const ItemsPage = ({children}: PropsType) => (
   <html>

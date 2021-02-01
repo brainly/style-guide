@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import SubjectIconBox, {TYPE, SIZE} from '../SubjectIconBox';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

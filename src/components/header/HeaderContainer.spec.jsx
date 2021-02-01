@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import HeaderContainer from './HeaderContainer';
 import {shallow} from 'enzyme';
 

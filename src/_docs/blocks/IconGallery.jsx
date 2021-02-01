@@ -1,7 +1,6 @@
 // @flow
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import {styled} from '@storybook/theming';
 import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';
 
@@ -43,7 +42,7 @@ const List = styled.div({
 interface IconItemProps {
   name: string;
   size: number;
-  children: Node;
+  children: React.Node;
 }
 
 export const IconItem = ({name, size, children}: IconItemProps) => (
@@ -54,7 +53,7 @@ export const IconItem = ({name, size, children}: IconItemProps) => (
 );
 
 interface IconGalleryProps {
-  children: Node;
+  children: React.Node;
 }
 
 export const IconGallery = ({children, ...props}: IconGalleryProps) => (

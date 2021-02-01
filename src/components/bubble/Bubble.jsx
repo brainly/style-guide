@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 type BubbleColorType =
@@ -21,17 +20,43 @@ type AligmentType = 'start' | 'center' | 'end';
 
 type DirectionType = 'left' | 'right' | 'top' | 'bottom';
 
-export const ALIGNMENT = {START: 'start', CENTER: 'center', END: 'end'};
-export const DIRECTION = {
+export const ALIGNMENT: {
+  START: 'start',
+  CENTER: 'center',
+  END: 'end',
+} = {
+  START: 'start',
+  CENTER: 'center',
+  END: 'end',
+};
+
+export const DIRECTION: {
+  LEFT: 'left',
+  RIGHT: 'right',
+  TOP: 'top',
+  BOTTOM: 'bottom',
+} = {
   LEFT: 'left',
   RIGHT: 'right',
   TOP: 'top',
   BOTTOM: 'bottom',
 };
 
-const HORIZONTAL_DIRECTIONS = [DIRECTION.LEFT, DIRECTION.RIGHT];
+const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-export const BUBBLE_COLOR = {
+export const BUBBLE_COLOR: {
+  BLUE: 'blue',
+  LAVENDER: 'lavender',
+  DARK: 'dark',
+  MINT: 'mint',
+  MINT_SECONDARY: 'mint-secondary',
+  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
+  NAVYBLUE_SECONDARY: 'navyblue-secondary',
+  BLUE_SECONDARY: 'blue-secondary',
+  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
+  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
+  PEACH: 'peach',
+} = {
   BLUE: 'blue',
   LAVENDER: 'lavender',
   DARK: 'dark',
@@ -45,8 +70,8 @@ export const BUBBLE_COLOR = {
   PEACH: 'peach',
 };
 
-type BubblePropsType = {
-  children: Node,
+export type BubblePropsType = {
+  children: React.Node,
   className?: ?string,
   alignment?: AligmentType,
   direction: DirectionType,

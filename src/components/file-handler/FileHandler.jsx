@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text';
@@ -23,7 +22,7 @@ export const FILE_HANDLER_COLORS_SET = {
   WHITE: 'white',
 };
 
-type PropsType = $ReadOnly<{
+export type FileHandlerPropsType = $ReadOnly<{
   /**
    * Specify color of the background for FileHandler
    * @example <FileHandler color="white">
@@ -68,7 +67,7 @@ type PropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  onClose?: (SyntheticMouseEvent<HTMLDivElement>) => mixed,
+  onClose?: (SyntheticMouseEvent<HTMLButtonElement>) => void,
   /**
    * Callback, called by clicking on link
    * @example <FileHandler
@@ -93,7 +92,7 @@ type PropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  children: Node,
+  children: React.Node,
   ...
 }>;
 
@@ -109,7 +108,7 @@ const FileHandler = ({
   textRef,
   className,
   ...props
-}: PropsType) => {
+}: FileHandlerPropsType) => {
   const fileHandlerClass = classNames(
     'sg-file-handler',
     {

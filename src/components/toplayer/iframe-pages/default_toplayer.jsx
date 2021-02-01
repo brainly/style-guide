@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import TopLayer, {SIZE} from '../TopLayer';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {

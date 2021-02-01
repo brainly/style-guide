@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Breadcrumb from './Breadcrumb';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];

@@ -1,15 +1,14 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type BreadcrumbPropsType = {
   className?: ?string,
   adaptive?: ?boolean,
   short?: ?boolean,
   inlineItems?: ?boolean,
-  elements: $ReadOnlyArray<Node>,
+  elements: $ReadOnlyArray<React.Node>,
   ...
 };
 
@@ -20,7 +19,7 @@ const Breadcrumb = ({
   inlineItems,
   elements = [],
   ...props
-}: PropsType) => {
+}: BreadcrumbPropsType) => {
   const breadcrumbClass = classNames(
     'sg-breadcrumb-list',
     {

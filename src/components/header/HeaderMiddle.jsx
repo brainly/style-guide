@@ -1,16 +1,19 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
-  children?: Node,
+export type HeaderMiddlePropsType = {
+  children?: React.Node,
   className?: string,
   ...
 };
 
-const HeaderMiddle = ({children, className, ...props}: PropsType) => {
+const HeaderMiddle = ({
+  children,
+  className,
+  ...props
+}: HeaderMiddlePropsType) => {
   const headerClass = classnames('sg-header__middle', className);
 
   return (

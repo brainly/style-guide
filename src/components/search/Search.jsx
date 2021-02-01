@@ -1,18 +1,17 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import cx from 'classnames';
-import * as InputModule from '../form-elements/Input';
+import Input, {COLOR, SIZE} from '../form-elements/Input';
+import type {InputPropsType} from '../form-elements/Input';
 import Icon from '../icons/Icon';
 import Button from '../buttons/Button';
 
-const {default: Input, COLOR, SIZE} = InputModule;
-
-type PropsType = {
+export type SearchPropsType = {
   inputClassName?: string,
   withRoundButton?: boolean,
   ...
-} & InputModule.InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
+} & InputPropsType; // TODO: make back to spread (...InputModule.InputPropsType) after flow bump
 
 const Search = ({
   /**
@@ -46,7 +45,7 @@ const Search = ({
    * @example <Search color="white" placeholder="Find all the answers..." />
    */
   ...additionalProps
-}: PropsType) => {
+}: SearchPropsType) => {
   const baseClassName = 'sg-search';
 
   const searchClassName = cx(

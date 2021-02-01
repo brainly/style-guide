@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 type DirectionType =
@@ -26,8 +25,8 @@ export const ALIGNMENT = {
   STRETCH: 'stretch',
 };
 
-type ActionListPropsType = {
-  children: Node,
+export type ActionListPropsType = {
+  children: React.Node,
   toTop?: ?boolean,
   className?: ?string,
   noWrap?: ?boolean,

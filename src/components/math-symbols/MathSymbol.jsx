@@ -1,10 +1,9 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR} = IconModule;
+import {ICON_COLOR} from '../icons/Icon';
+import type {IconColorType} from '../icons/Icon';
 
 export type MathSymbolTypeType =
   | 'squere-root'
@@ -24,7 +23,24 @@ export type MathSymbolTypeType =
   | 'integral'
   | 'equation-system';
 
-export const MATH_SYMBOL_TYPE = {
+export const MATH_SYMBOL_TYPE: {
+  SQUERE_ROOT: 'squere-root',
+  NTH_ROOT: 'nth-root',
+  POWER: 'power',
+  SUBSCRIPT: 'subscript',
+  LESSEQUAL: 'less-then-or-equal',
+  GREATEREQUAL: 'greater-then-or-equal',
+  INEQUALITY: 'inequality',
+  DIVISION: 'division',
+  PI: 'pi',
+  ALPHA: 'alpha',
+  BETA: 'beta',
+  LINE: 'line',
+  LIMIT: 'limit',
+  MATRIX: 'matrix',
+  INTEGRAL: 'integral',
+  EQUATION_SYSTEM: 'equation-system',
+} = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
   POWER: 'power',
@@ -43,7 +59,7 @@ export const MATH_SYMBOL_TYPE = {
   EQUATION_SYSTEM: 'equation-system',
 };
 
-const WIDE = [
+const WIDE: Array<string> = [
   MATH_SYMBOL_TYPE.LIMIT,
   MATH_SYMBOL_TYPE.MATRIX,
   MATH_SYMBOL_TYPE.INTEGRAL,
@@ -52,16 +68,20 @@ const WIDE = [
 
 export type MathSymbolSizeType = 'small' | 'medium' | 'normal';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  NORMAL: 'normal',
+} = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal',
 };
 
-type PropsType = {
+export type MathSymbolPropsType = {
   type: MathSymbolTypeType,
   size?: MathSymbolSizeType,
-  color?: IconModule.IconColorType,
+  color?: IconColorType,
   className?: string,
   ...
 };
@@ -72,7 +92,7 @@ const MathSymbol = ({
   color,
   className,
   ...props
-}: PropsType) => {
+}: MathSymbolPropsType) => {
   const isWide = WIDE.indexOf(type) !== -1;
   const iconClass = classNames(
     'sg-math-symbol-icon',

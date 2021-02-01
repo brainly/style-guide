@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import Text from 'text/Text';
 import ComponentSettingsInput from './ComponentSettingsInput';
 import ComponentSettingsSelect from './ComponentSettingsSelect';

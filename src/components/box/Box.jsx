@@ -1,7 +1,6 @@
 // @flow strict
 
-import React, {forwardRef} from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import {__DEV__} from '../utils';
 
@@ -61,7 +60,7 @@ export type BoxPropsType = {
    * Children to be rendered inside of the Box
    * @example <Box>Text inside Box</Box>
    */
-  children: Node,
+  children: React.Node,
 
   /**
    * Additional class names
@@ -118,7 +117,7 @@ export type BoxPropsType = {
  * @example <Box>Text inside Box</Box>
  * @returns {JSX.Element} Box component
  */
-const Box = forwardRef<BoxPropsType, HTMLDivElement>(
+const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
   (
     {
       children,

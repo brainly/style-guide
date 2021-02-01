@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Flex, {FLEX_DIRECTION, FLEX_JUSTIFY_VALUES, FLEX_MARGINS} from '../Flex';
 

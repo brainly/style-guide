@@ -1,6 +1,6 @@
 //@flow
 
-import React from 'react';
+import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {Flex, Icon, Link} from '../../index';

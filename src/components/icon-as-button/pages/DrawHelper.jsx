@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import {contrastBlockCssClass} from 'components/ContrastBox';
 import IconAsButton, {ICON_COLOR} from '../IconAsButton';
 import * as IconModule from '../../icons/Icon';

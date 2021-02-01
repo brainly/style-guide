@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Button, {BUTTON_TYPE, BUTTON_SIZE, BUTTON_TOGGLE} from '../Button';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';

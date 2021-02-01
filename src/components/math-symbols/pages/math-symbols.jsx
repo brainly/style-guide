@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import MathSymbol, {MATH_SYMBOL_TYPE, ICON_COLOR} from '../MathSymbol';

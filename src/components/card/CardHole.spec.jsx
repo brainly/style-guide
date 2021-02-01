@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import CardHole, {CARD_HOLE_COLOR} from './CardHole';
 import {shallow} from 'enzyme';
 

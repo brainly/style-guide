@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
 export type ColorType =
@@ -43,14 +42,19 @@ export const CARD_HOLE_COLOR = {
   GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
 };
 
-type PropsType = {
-  children: Node,
+export type CardHolePropsType = {
+  children: React.Node,
   className?: string,
   color?: ColorType,
   ...
 };
 
-const CardHole = ({color, children, className, ...props}: PropsType) => {
+const CardHole = ({
+  color,
+  children,
+  className,
+  ...props
+}: CardHolePropsType) => {
   const cardHoleClass = classnames(
     'sg-card__hole',
     {

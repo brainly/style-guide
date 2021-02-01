@@ -1,20 +1,18 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
-import * as SpinnerModule from '../spinner/Spinner';
+import * as React from 'react';
+import type {SpinnerSizeType} from '../spinner/Spinner';
+import Spinner from '../spinner/Spinner';
 import classnames from 'classnames';
-
-const {default: Spinner} = SpinnerModule;
 
 export {SPINNER_SIZE} from '../spinner/Spinner';
 
-type PropsType = {
+export type SpinnerContainerPropsType = {
   loading?: boolean,
   light?: boolean,
   fullWidth?: boolean,
-  size?: SpinnerModule.SpinnerSizeType,
-  children?: Node,
+  size?: SpinnerSizeType,
+  children?: React.Node,
   ...
 };
 
@@ -25,7 +23,7 @@ const SpinnerContainer = ({
   size,
   children,
   ...props
-}: PropsType) => (
+}: SpinnerContainerPropsType) => (
   <div
     {...props}
     className={classnames('sg-spinner-container', {

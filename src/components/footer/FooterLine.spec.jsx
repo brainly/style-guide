@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import FooterLine from './FooterLine';
 import {shallow} from 'enzyme';
 

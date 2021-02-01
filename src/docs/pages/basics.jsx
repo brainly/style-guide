@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ItemsPage from '../layouts/ItemsPage';
 
 const basics = () => <ItemsPage navigationIdx={0} />;

@@ -1,12 +1,10 @@
 // @flow strict
 
 import * as React from 'react';
-import type {Node} from 'react';
 import classNames from 'classnames';
 import LabelDeprecatedIcon from './subcomponents/LabelDeprecatedIcon';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR, TYPE: ICON_TYPE} = IconModule;
+import type {IconColorType, IconTypeType} from '../icons/Icon';
+import {ICON_COLOR, TYPE as ICON_TYPE} from '../icons/Icon';
 
 type SizeType = 'small' | 'normal' | 'large';
 
@@ -22,13 +20,13 @@ export const ICON_SIZE = {
   [SIZE.LARGE]: 32,
 };
 
-type PropsType = {
+export type LabelDeprecatedPropsType = {
   text?: string,
   htmlFor?: string,
-  children?: ?Node,
+  children?: ?React.Node,
   iconContent?: ?React.Element<*>,
-  iconColor?: IconModule.IconColorType,
-  iconType?: IconModule.IconTypeType,
+  iconColor?: IconColorType,
+  iconType?: IconTypeType,
   size?: SizeType,
   number?: number,
   secondary?: boolean,
@@ -39,7 +37,7 @@ type PropsType = {
   ...
 };
 
-const LabelDeprecated = (props: PropsType) => {
+const LabelDeprecated = (props: LabelDeprecatedPropsType) => {
   const {
     size = SIZE.NORMAL,
     text,

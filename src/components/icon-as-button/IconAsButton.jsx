@@ -1,29 +1,30 @@
 // @flow strict
 
-import React from 'react';
-import type {Element} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
-import * as IconModule from '../icons/Icon';
-
-const {ICON_COLOR, default: Icon} = IconModule;
+import type {IconColorType, IconTypeType} from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type IconSizeType = 'small' | 'normal';
 
-export const SIZE = {
+export const SIZE: {
+  SMALL: 'small',
+  NORMAL: 'normal',
+} = {
   SMALL: 'small',
   NORMAL: 'normal',
 };
 
-const ICON_SIZE = {
+const ICON_SIZE: {[string]: 24, ...} = {
   [SIZE.SMALL]: 24, // based on current usage
   [SIZE.NORMAL]: 24,
 };
 
-type IconAsButtonPropsType = {
+export type IconAsButtonPropsType = {
   size?: IconSizeType,
-  color?: IconModule.IconColorType,
-  type?: ?IconModule.IconTypeType,
-  children?: ?Element<*>,
+  color?: IconColorType,
+  type?: ?IconTypeType,
+  children?: ?React.Element<*>,
   border?: boolean,
   action?: boolean,
   transparent?: boolean,

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
 import Counter from 'counters/Counter';
 import DocsActiveBlock from 'components/DocsActiveBlock';

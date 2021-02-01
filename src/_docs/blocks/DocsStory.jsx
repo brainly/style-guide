@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import deprecate from 'util-deprecate';
 import dedent from 'ts-dedent';
 import {

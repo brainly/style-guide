@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Accordion, {spaceClasses} from '../Accordion';
 import AccordionItem from '../AccordionItem';

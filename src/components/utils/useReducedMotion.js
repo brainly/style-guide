@@ -14,7 +14,9 @@ export default function useReducedMotion(): boolean {
 
   useEffect(() => {
     if (!supportsMatchMedia) {
-      return noop => noop;
+      return () => {
+        // do nothing
+      };
     }
     const mediaQuery =
       window.matchMedia('(prefers-reduced-motion: reduce)') ||

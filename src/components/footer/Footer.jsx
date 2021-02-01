@@ -1,16 +1,15 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
-  children: Node,
+export type FooterPropsType = {
+  children: React.Node,
   className?: string,
   ...
 };
 
-const Footer = ({children, className, ...props}: PropsType) => {
+const Footer = ({children, className, ...props}: FooterPropsType) => {
   const footerClass = classNames('sg-footer', className);
 
   return (

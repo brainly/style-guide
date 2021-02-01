@@ -1,15 +1,14 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
-type PropsType = {
+export type LayoutPropsType = {
   className?: string,
   containerClassName?: string,
-  children: Node,
-  header?: Node,
-  footer?: Node,
+  children: React.Node,
+  header?: React.Node,
+  footer?: React.Node,
   noMaxWidth?: boolean,
   noMarginTop?: boolean,
   reversedOrder?: boolean,
@@ -30,7 +29,7 @@ const Layout = ({
   className,
   containerClassName,
   ...props
-}: PropsType) => {
+}: LayoutPropsType) => {
   const layoutClass = classNames('sg-layout', className, {
     'sg-layout--three-columns': threeColumns,
   });

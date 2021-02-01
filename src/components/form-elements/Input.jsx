@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
@@ -32,7 +31,7 @@ type InputType =
   | 'url'
   | 'week';
 
-export const TYPE = Object.freeze({
+export const TYPE: {
   BUTTON: 'button',
   COLOR: 'color',
   DATE: 'date',
@@ -53,17 +52,44 @@ export const TYPE = Object.freeze({
   TIME: 'time',
   URL: 'url',
   WEEK: 'week',
-});
+} = {
+  BUTTON: 'button',
+  COLOR: 'color',
+  DATE: 'date',
+  DATETIME_LOCAL: 'datetime-local',
+  EMAIL: 'email',
+  FILE: 'file',
+  HIDDEN: 'hidden',
+  IMAGE: 'image',
+  MONTH: 'month',
+  NUMBER: 'number',
+  PASSWORD: 'password',
+  RANGE: 'range',
+  RESET: 'reset',
+  SEARCH: 'search',
+  SUBMIT: 'submit',
+  TEL: 'tel',
+  TEXT: 'text',
+  TIME: 'time',
+  URL: 'url',
+  WEEK: 'week',
+};
 
-export const SIZE = Object.freeze({
+export const SIZE: {
   L: 'l',
   M: 'm',
-});
+} = {
+  L: 'l',
+  M: 'm',
+};
 
-export const COLOR = Object.freeze({
+export const COLOR: {
   DEFAULT: 'default',
   WHITE: 'white',
-});
+} = {
+  DEFAULT: 'default',
+  WHITE: 'white',
+};
 
 export type InputPropsType = {
   /**
@@ -114,7 +140,7 @@ export type InputPropsType = {
    * Optional Node if there should be an error message displayed
    * @example <Input errorMessage="This is an error" />
    */
-  errorMessage?: Node | string,
+  errorMessage?: React.Node,
   /**
    * Additional class names
    */

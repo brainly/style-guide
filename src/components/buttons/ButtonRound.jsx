@@ -1,11 +1,10 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type ButtonRoundType = {
-  children?: ?Node,
+export type ButtonRoundPropsType = {
+  children?: ?React.Node,
   className?: ?string,
   wide?: ?boolean,
   disabled?: ?boolean,
@@ -21,7 +20,7 @@ const ButtonRound = ({
   href = '#',
   className,
   ...props
-}: ButtonRoundType) => {
+}: ButtonRoundPropsType) => {
   let labelElem;
 
   if (label !== undefined && label !== null && label !== '') {

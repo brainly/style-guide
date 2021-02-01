@@ -1,11 +1,10 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
-  children: Node,
+export type HeaderPropsType = {
+  children: React.Node,
   withDivider?: boolean,
   fixed?: boolean,
   className?: string,
@@ -18,7 +17,7 @@ const Header = ({
   withDivider,
   className,
   ...props
-}: PropsType) => {
+}: HeaderPropsType) => {
   const headerClass = classnames(
     'sg-header',
     {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_BIT_COLOR} from './TextBit';
 import {shallow, mount} from 'enzyme';
 

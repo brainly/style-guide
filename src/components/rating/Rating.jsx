@@ -1,6 +1,6 @@
 // @flow strict
 
-import React, {Component} from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
@@ -27,7 +27,7 @@ type OnMouseEnterType = (
   event: SyntheticMouseEvent<HTMLSpanElement>
 ) => mixed;
 
-type PropsType = {
+export type RatingPropsType = {
   size?: RatingSizeType,
   rate: number,
   metricSize: number,
@@ -44,7 +44,7 @@ type PropsType = {
 
 /* eslint-disable react/default-props-match-prop-types */
 // legacy files without proper flow checks can suffer from this
-class Rating extends Component<PropsType> {
+class Rating extends React.Component<RatingPropsType> {
   static defaultProps = {
     onChange: () => undefined,
     onStarMouseEnter: () => undefined,
@@ -53,7 +53,7 @@ class Rating extends Component<PropsType> {
     rate: 0,
   };
 
-  constructor(props: PropsType) {
+  constructor(props: RatingPropsType) {
     super(props);
 
     this.createStarsOnClickFunctions(this.props.metricSize);
@@ -65,7 +65,7 @@ class Rating extends Component<PropsType> {
     (SyntheticMouseEvent<HTMLSpanElement>) => mixed
   > = [];
 
-  componentWillReciveProps(nextProps: PropsType) {
+  componentWillReciveProps(nextProps: RatingPropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
       this.createStarsOnClickFunctions(nextProps.metricSize);
       this.createStarsMouseEnterFunctions(this.props.metricSize);
@@ -73,15 +73,15 @@ class Rating extends Component<PropsType> {
   }
 
   createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => () => this.onClick(rangeIndex)
-    );
+    this.starsOnClickFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => () => this.onClick(rangeIndex));
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
-    );
+    this.starsMouseEnterFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
   }
 
   onClick = (index: number) => {

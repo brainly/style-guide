@@ -1,12 +1,19 @@
 // @flow strict
 
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Icon from '../icons/Icon';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
-export const SIZE = {
+export const SIZE: {
+  XS: 'xs',
+  S: 's',
+  M: 'm',
+  L: 'l',
+  XL: 'xl',
+  XXL: 'xxl',
+} = {
   XS: 'xs',
   S: 's',
   M: 'm',
@@ -24,7 +31,7 @@ export const ICON_SIZE = {
   [SIZE.XXL]: 104,
 };
 
-type PropsType = {
+export type AvatarPropsType = {
   size?: AvatarSizeType,
   border?: boolean,
   spaced?: boolean,
@@ -44,7 +51,7 @@ const Avatar = ({
   link,
   title,
   ...props
-}: PropsType) => {
+}: AvatarPropsType) => {
   const avatarClass = classNames(
     'sg-avatar',
     {

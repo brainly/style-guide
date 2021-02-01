@@ -1,11 +1,10 @@
 // @flow strict
 
-import type {Node} from 'react';
-import React from 'react';
+import * as React from 'react';
 import classnames from 'classnames';
 
-type PropsType = {
-  children?: Node,
+export type OverlayPropsType = {
+  children?: React.Node,
   partial?: boolean,
   className?: string,
   color?: ColorType,
@@ -25,7 +24,7 @@ const Overlay = ({
   className,
   color,
   ...props
-}: PropsType) => {
+}: OverlayPropsType) => {
   const overlayClass = classnames(
     'sg-overlay',
     {

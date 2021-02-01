@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Avatar, {SIZE} from 'avatar/Avatar';
 import PopupMenu from 'popup-menu/PopupMenu';
 import ActionList from 'action-list/ActionList';

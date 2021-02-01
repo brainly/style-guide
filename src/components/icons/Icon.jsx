@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Node} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export type IconTypeType =
@@ -134,7 +133,118 @@ export type IconTagType = 'div' | 'span';
 
 export type IconSizeType = 16 | 24 | 32 | 40 | 56 | 80 | 104;
 
-export const TYPE = {
+export const TYPE: {
+  ACADEMIC_CAP: 'academic_cap',
+  ALL_QUESTIONS: 'all_questions',
+  ANSWER: 'answer',
+  ARROW_DOUBLE_DOWN: 'arrow_double_down',
+  ARROW_DOWN: 'arrow_down',
+  ARROW_LEFT: 'arrow_left',
+  ARROW_RIGHT: 'arrow_right',
+  ARROW_UP: 'arrow_up',
+  ASK_BUBBLE: 'ask_bubble',
+  ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
+  ATTACHMENT: 'attachment',
+  BELL_CHECKED: 'bell_checked',
+  BELL_OUTLINED: 'bell_outlined',
+  BOLD: 'bold',
+  BULLETED_LIST: 'bulleted_list',
+  CALENDAR: 'calendar',
+  CAMERA: 'camera',
+  CHAPTER: 'chapter',
+  CHECK: 'check',
+  CLIPBOARD: 'clipboard',
+  CLOSE: 'close',
+  COMMENT: 'comment',
+  COMMENT_OUTLINED: 'comment_outlined',
+  COUNTER: 'counter',
+  CREDIT_CARD: 'credit_card',
+  CROWN_OUTLINED: 'crown_outlined',
+  EQUATION: 'equation',
+  EXCELLENT: 'excellent',
+  EXCLAMATION_MARK: 'exclamation_mark',
+  FACEBOOK: 'facebook',
+  FILTERS: 'filters',
+  FRIEND_ADD: 'friend_add',
+  FRIEND_REMOVE: 'friend_remove',
+  FRIEND_PENDING: 'friend_pending',
+  FRIEND_CHECKED: 'friend_checked',
+  FRIENDS: 'friends',
+  FULLSCREEN: 'fullscreen',
+  HEADING: 'heading',
+  HEART: 'heart',
+  HEART_OUTLINED: 'heart_outlined',
+  IMAGE: 'image',
+  INFLUENCE: 'influence',
+  INSTRAGRAM: 'instagram',
+  ITALIC: 'italic',
+  LESS: 'less',
+  LINKEDIN: 'linkedin',
+  LOCK_WITH_PLAY: 'lock_with_play',
+  LOGOUT: 'logout',
+  MEDIUM: 'medium',
+  MENU: 'menu',
+  MESSAGES: 'messages',
+  MIC: 'mic',
+  MONEY_TRANSFER: 'money_transfer',
+  ADD_MORE: 'add_more',
+  NOTIFICATIONS: 'notifications',
+  NUMBERED_LIST: 'numbered_list',
+  OPEN_IN_NEW_TAB: 'open_in_new_tab',
+  PADLOCK: 'padlock',
+  PENCIL: 'pencil',
+  PLAY: 'play',
+  PLUS: 'plus',
+  POINTS: 'points',
+  PROFILE: 'profile',
+  PROFILE_VIEW: 'profile_view',
+  QUESTION: 'question',
+  RECENT_QUESTIONS: 'recent_questions',
+  RELOAD: 'reload',
+  REPORT_FLAG: 'report_flag',
+  REPORT_FLAG_OUTLINED: 'report_flag_outlined',
+  ROTATE: 'rotate',
+  ROTATE_90: 'rotate_90',
+  SEARCH: 'search',
+  SEEN: 'seen',
+  SETTINGS: 'settings',
+  SHARE: 'share',
+  SMS: 'sms',
+  STAR: 'star',
+  STAR_HALF: 'star_half',
+  STAR_HALF_OUTLINED: 'star_half_outlined',
+  STAR_OUTLINED: 'star_outlined',
+  SUBTITLE: 'subtitle',
+  SYMBOLS: 'symbols',
+  TITLE: 'title',
+  TOUGHEST_QUESTIONS: 'toughest_questions',
+  TRASH: 'trash',
+  TWITTER: 'twitter',
+  UNDERLINED: 'underlined',
+  UNSEEN: 'unseen',
+  VERIFIED: 'verified',
+  WARNING: 'warning',
+  YOUTUBE: 'youtube',
+  ARROW_TOP_RIGHT: 'arrow_top_right',
+  CIRCLE: 'circle',
+  CROP: 'crop',
+  CYRILLIC: 'cyrillic',
+  DRAW: 'draw',
+  DRAWING_MODE: 'drawing_mode',
+  EUROPEAN: 'european',
+  GREEK: 'greek',
+  HIGHLIGHT: 'highlight',
+  LINE: 'line',
+  MORE: 'more',
+  PAUSE: 'pause',
+  RECTANGLE: 'rectangle',
+  SUP_SUB: 'sup_sub',
+  TRIANGLE: 'triangle',
+  PI: 'pi',
+  QUOTE: 'quote',
+  SPARK: 'spark',
+  DOT: 'dot',
+} = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
@@ -247,7 +357,19 @@ export const TYPE = {
   DOT: 'dot',
 };
 
-export const ICON_COLOR = {
+export const ICON_COLOR: {
+  ADAPTIVE: 'adaptive',
+  BLUE: 'blue',
+  DARK: 'dark',
+  GRAY: 'gray',
+  GRAY_LIGHT: 'gray-light',
+  GRAY_SECONDARY: 'gray-secondary',
+  LAVENDER: 'lavender',
+  LIGHT: 'light',
+  MINT: 'mint',
+  MUSTARD: 'mustard',
+  PEACH: 'peach',
+} = {
   ADAPTIVE: 'adaptive',
   BLUE: 'blue',
   DARK: 'dark',
@@ -261,7 +383,10 @@ export const ICON_COLOR = {
   PEACH: 'peach',
 };
 
-export const ICON_TAG_TYPE = {
+export const ICON_TAG_TYPE: {
+  DIV: 'div',
+  SPAN: 'span',
+} = {
   DIV: 'div',
   SPAN: 'span',
 };
@@ -313,7 +438,7 @@ export type IconPropsType =
       /**
        * Children to be rendered inside Icon
        */
-      children: Node,
+      children: React.Node,
       /**
        * Additional class names
        */
@@ -351,8 +476,10 @@ export type IconPropsType =
 const Icon = ({
   color,
   size = 24,
+  // @ts-expect-error
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   type,
+  // @ts-expect-error
   // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   children,
   tagType = 'div',

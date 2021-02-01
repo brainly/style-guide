@@ -1,7 +1,6 @@
 // @flow strict
 
-import React from 'react';
-import type {Element} from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 type RwdHelperTypeType =
@@ -19,13 +18,13 @@ export const TYPE = {
   LARGE_ONLY: 'large-only',
 };
 
-type PropsType = {
+export type RwdHelperPropsType = {
   hide: RwdHelperTypeType,
-  children: Element<*> | string,
+  children: React.Element<*> | string,
   ...
 };
 
-const RwdHelper = ({hide, children}: PropsType) => {
+const RwdHelper = ({hide, children}: RwdHelperPropsType) => {
   if (!children) {
     return null;
   }
