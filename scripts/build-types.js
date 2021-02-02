@@ -48,6 +48,21 @@ files.forEach(sourceFile => {
     transformedCode = transformedCode.replace(/forwardRef<.*>/g, 'forwardRef');
   }
 
+  // For all inexact prop types make sure that all pass through props are declared as
+  // intersection with HTMLAttributes<HTMLElement>
+  ast
+    .find(jsc.TypeAlias)
+    .filter(path => path.node.id.name.match(/.*PropsType/))
+    .filter(path => path.node.right.inexact)
+    .forEach(path => {
+      const [start, end] = path.node.range;
+      // get code without last character which is semicolon
+      const code = transformedCode.substring(start, end - 1);
+      const newCode = `${code} & React.HTMLAttributes<HTMLElement>;`;
+
+      transformedCode = transformedCode.replace(code, newCode);
+    });
+
   const typescriptCode = convert(transformedCode, {
     printWidth: 80,
     singleQuote: true,
