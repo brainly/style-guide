@@ -53,7 +53,9 @@ files.forEach(sourceFile => {
   ast
     .find(jsc.TypeAlias)
     .filter(path => path.node.id.name.match(/.*PropsType/))
-    .filter(path => path.node.right.inexact)
+    .filter(
+      path => jsc(path).find(jsc.ObjectTypeAnnotation, {inexact: true}).length
+    )
     .forEach(path => {
       const [start, end] = path.node.range;
       // get code without last character which is semicolon
