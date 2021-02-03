@@ -56,13 +56,20 @@ files.forEach(sourceFile => {
     .filter(
       path => jsc(path).find(jsc.ObjectTypeAnnotation, {inexact: true}).length
     )
-    .forEach(path => {
-      const [start, end] = path.node.range;
-      // get code without last character which is semicolon
-      const code = transformedCode.substring(start, end - 1);
-      const newCode = `${code} & React.HTMLAttributes<HTMLElement>;`;
+    .forEach(typeAliasPath => {
+      const typeAnnotations = jsc(typeAliasPath).find(
+        jsc.ObjectTypeAnnotation,
+        {inexact: true}
+      );
 
-      transformedCode = transformedCode.replace(code, newCode);
+      // Handling union types with multiple type annotations
+      typeAnnotations.forEach(path => {
+        const code = jsc(path).toSource();
+
+        const newCode = `${code} & React.HTMLAttributes<HTMLElement>`;
+
+        transformedCode = transformedCode.replace(code, newCode);
+      });
     });
 
   const typescriptCode = convert(transformedCode, {
