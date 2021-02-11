@@ -31,3 +31,25 @@
 }
 
 // sass-lint:enable no-important
+
+@keyframes sgAnimationFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.sg-animation-fade-in-slow {
+  animation-name: sgAnimationFadeIn;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in;
+}
+
+.sg-animation-fade-in-fast {
+  animation-name: sgAnimationFadeIn;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in;
+}
