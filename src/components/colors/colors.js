@@ -67,7 +67,7 @@ const color = {
     {
       name: 'Lavender Dark 900',
       variable: '$lavenderPrimaryDark',
-      hex: '163BF3',
+      hex: '163bf3',
     },
     {
       name: 'Lavender Dark 700',
