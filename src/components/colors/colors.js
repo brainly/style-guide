@@ -15,7 +15,7 @@ const color = {
     {
       name: 'Mint Dark 900',
       variable: '$mintPrimaryDark',
-      hex: '40bd7e',
+      hex: '24a865',
     },
     {
       name: 'Mint Dark 700',
@@ -40,7 +40,7 @@ const color = {
     {
       name: 'Blue Dark 900',
       variable: '$bluePrimaryDark',
-      hex: '1d9ff5',
+      hex: '0089e3',
     },
     {
       name: 'Blue Dark 700',
@@ -67,7 +67,7 @@ const color = {
     {
       name: 'Lavender Dark 900',
       variable: '$lavenderPrimaryDark',
-      hex: '435fee',
+      hex: '163bf3',
     },
     {
       name: 'Lavender Dark 700',
@@ -92,7 +92,7 @@ const color = {
     {
       name: 'Peach Dark 900',
       variable: '$peachPrimaryDark',
-      hex: 'ff604b',
+      hex: 'ff341a',
     },
     {
       name: 'Peach Dark 700',
@@ -117,7 +117,7 @@ const color = {
     {
       name: 'Mustard Dark 900',
       variable: '$mustardPrimaryDark',
-      hex: 'eda600',
+      hex: 'c98600',
     },
     {
       name: 'Mustard Dark 700',

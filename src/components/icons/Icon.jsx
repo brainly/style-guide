@@ -30,6 +30,7 @@ export type IconTypeType =
   | 'counter'
   | 'credit_card'
   | 'crown_outlined'
+  | 'cup'
   | 'equation'
   | 'excellent'
   | 'exclamation_mark'
@@ -160,6 +161,7 @@ export const TYPE: {
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
   CROWN_OUTLINED: 'crown_outlined',
+  CUP: 'cup',
   EQUATION: 'equation',
   EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
@@ -271,6 +273,7 @@ export const TYPE: {
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
   CROWN_OUTLINED: 'crown_outlined',
+  CUP: 'cup',
   EQUATION: 'equation',
   EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
