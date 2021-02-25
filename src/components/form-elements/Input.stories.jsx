@@ -8,31 +8,7 @@ export default {
   }
 };
 
-const useInput = args => {
-  const [value, setValue] = useState(args.value);
-
-  const onChange = event => {
-    setValue(event.target.value);
-  };
-
-  return { value, onChange };
-};
-
-export const Default = args => {
-  const props = useInput(args);
-
-  return <Input {...args} {...props} />;
-};
-
-export const ErroredState = args => {
-  const props = useInput(args);
-
-  return <Input {...args} {...props} />;
-};
-
-const args = {
-  value: "Some input value"
-};
+export const Default = args => <Input {...args} />;
 
 const argTypes = {
   value: {
@@ -43,8 +19,14 @@ const argTypes = {
   }
 };
 
-Default.args = args;
+Default.args = { value: "Some input value" };
 Default.argTypes = argTypes;
 
-ErroredState.args = { ...args, errorMessage: "Some error", invalid: true };
-ErroredState.argTypes = argTypes;
+export const Invalid = args => <Input {...args} />;
+
+Invalid.args = {
+  value: "Invalid input",
+  errorMessage: "Some error",
+  invalid: true
+};
+Invalid.argTypes = argTypes;
