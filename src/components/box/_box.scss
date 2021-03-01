@@ -102,6 +102,10 @@ $includeHtml: false !default;
       background-color: $lavenderPrimary;
     }
 
+    &--lavender-secondary-ultra-light {
+      background-color: $lavenderSecondaryUltraLight;
+    }
+
     &--dark {
       background: $boxColorDark;
     }
@@ -168,6 +172,10 @@ $includeHtml: false !default;
 
     &--border-color-lavender {
       border-color: $lavenderPrimary;
+    }
+
+    &--border-color-lavender-secondary-ultra-light {
+      border-color: $lavenderSecondaryUltraLight;
     }
 
     &--border-color-dark {
