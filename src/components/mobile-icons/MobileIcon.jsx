@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 
 export type IconTypeType =
+  | 'arrow'
   | 'answer_bubble'
   | 'ask_bubble'
   | 'backward_5s'
@@ -25,7 +26,6 @@ export type IconTypeType =
   | 'keyboard'
   | 'options'
   | 'replay'
-  | 'sent'
   | 'share_on_ios'
   | 'spark'
   | 'star_outlined'
@@ -54,6 +54,7 @@ export type SizeType =
 
 export const TYPE: {[name: string]: IconTypeType, ...} = {
   ANSWER_BUBBLE: 'answer_bubble',
+  ARROW: 'arrow',
   ASK_BUBBLE: 'ask_bubble',
   BACKWARD_5S: 'backward_5s',
   BACKWARD_END: 'backward_end',
@@ -73,7 +74,6 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   KEYBOARD: 'keyboard',
   OPTIONS: 'options',
   REPLAY: 'replay',
-  SENT: 'sent',
   SHARE_ON_IOS: 'share_on_ios',
   SPARK: 'spark',
   STAR_OUTLINED: 'star_outlined',
