@@ -78,6 +78,7 @@ export type IconTypeType =
   | 'rotate_90'
   | 'search'
   | 'seen'
+  | 'send'
   | 'settings'
   | 'share'
   | 'sms'
@@ -209,6 +210,7 @@ export const TYPE: {
   ROTATE_90: 'rotate_90',
   SEARCH: 'search',
   SEEN: 'seen',
+  SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
   SMS: 'sms',
@@ -321,6 +323,7 @@ export const TYPE: {
   ROTATE_90: 'rotate_90',
   SEARCH: 'search',
   SEEN: 'seen',
+  SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
   SMS: 'sms',
