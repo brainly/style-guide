@@ -42,6 +42,7 @@ export type IconTypeType =
   | 'friend_checked'
   | 'friends'
   | 'fullscreen'
+  | 'funnel'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
@@ -174,6 +175,7 @@ export const TYPE: {
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
+  FUNNEL: 'funnel',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
@@ -287,6 +289,7 @@ export const TYPE: {
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
+  FUNNEL: 'funnel',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
