@@ -36,13 +36,13 @@ export type IconTypeType =
   | 'exclamation_mark'
   | 'facebook'
   | 'filters'
-  | 'filters_2'
   | 'friend_add'
   | 'friend_remove'
   | 'friend_pending'
   | 'friend_checked'
   | 'friends'
   | 'fullscreen'
+  | 'funnel'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
@@ -169,13 +169,13 @@ export const TYPE: {
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
-  FILTERS_2: 'filters_2',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
   FRIEND_PENDING: 'friend_pending',
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
+  FUNNEL: 'funnel',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
@@ -283,13 +283,13 @@ export const TYPE: {
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
-  FILTERS_2: 'filters_2',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
   FRIEND_PENDING: 'friend_pending',
   FRIEND_CHECKED: 'friend_checked',
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
+  FUNNEL: 'funnel',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
