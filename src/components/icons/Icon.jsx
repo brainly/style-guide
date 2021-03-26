@@ -36,6 +36,7 @@ export type IconTypeType =
   | 'exclamation_mark'
   | 'facebook'
   | 'filters'
+  | 'filters_2'
   | 'friend_add'
   | 'friend_remove'
   | 'friend_pending'
@@ -168,6 +169,7 @@ export const TYPE: {
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
+  FILTERS_2: 'filters_2',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
   FRIEND_PENDING: 'friend_pending',
@@ -281,6 +283,7 @@ export const TYPE: {
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
+  FILTERS_2: 'filters_2',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
   FRIEND_PENDING: 'friend_pending',
