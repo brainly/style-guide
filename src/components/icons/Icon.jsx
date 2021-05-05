@@ -116,7 +116,8 @@ export type IconTypeType =
   | 'pi'
   | 'quote'
   | 'spark'
-  | 'dot';
+  | 'dot'
+  | 'clear';
 
 export type IconColorType =
   | 'adaptive'
@@ -250,6 +251,7 @@ export const TYPE: {
   QUOTE: 'quote',
   SPARK: 'spark',
   DOT: 'dot',
+  CLEAR: 'clear',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
@@ -364,6 +366,7 @@ export const TYPE: {
   QUOTE: 'quote',
   SPARK: 'spark',
   DOT: 'dot',
+  CLEAR: 'clear',
 };
 
 export const ICON_COLOR: {
