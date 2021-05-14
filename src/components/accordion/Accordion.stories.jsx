@@ -4,6 +4,7 @@ import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {Flex, Icon, Link} from '../../index';
+import Button from 'buttons/Button';
 
 export default {
   title: 'Layout/Accordion',
@@ -100,3 +101,56 @@ export const NoGaps = () => (
     </AccordionItem>
   </Accordion>
 );
+
+export const ControlledSingle = () => {
+  const accordionsIds = ['id-1', 'id-2', 'id-3'];
+  const [index, setIndex] = React.useState(accordionsIds[0]);
+
+  const setNewIndex = id => setIndex(id);
+
+  return (
+    <>
+      {accordionsIds.map(id => (
+        <Button type="solid-light" key={id} onClick={() => setNewIndex(id)}>
+          open {id} button
+        </Button>
+      ))}
+
+      <Accordion onChange={setNewIndex} index={index}>
+        {accordionsIds.map(id => (
+          <AccordionItem title={copy.title} key={id} customId={id}>
+            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </>
+  );
+};
+
+export const ControlledMultiple = () => {
+  const accordionsIds = ['id-1', 'id-2', 'id-3'];
+  const [index, setIndex] = React.useState(['id-1', 'id-2']);
+
+  const setNewIndex = id =>
+    setIndex(prev =>
+      prev.includes(id) ? prev.filter(prevId => prevId !== id) : [...prev, id]
+    );
+
+  return (
+    <>
+      {accordionsIds.map(id => (
+        <Button type="solid-light" key={id} onClick={() => setNewIndex(id)}>
+          toggle {id} button
+        </Button>
+      ))}
+      {/* allowMultiple needs to be passed if we want to controll multiple items */}
+      <Accordion onChange={setNewIndex} index={index} allowMultiple>
+        {accordionsIds.map(id => (
+          <AccordionItem title={copy.title} key={id} customId={id}>
+            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </>
+  );
+};

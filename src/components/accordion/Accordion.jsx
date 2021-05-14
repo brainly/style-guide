@@ -6,6 +6,7 @@ import * as React from 'react';
 import {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
+import displayWarning from '../utils/displayWarning';
 
 export const KEY_CODES = {
   '32': 'space',
@@ -31,6 +32,10 @@ type ActionType =
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
+    }
+  | {
+      type: 'accordion/OVERWRITE_OPENED',
+      payload: {opened: OpenedItemsType},
     };
 
 export type AccordionPropsType = $ReadOnly<{
@@ -49,6 +54,8 @@ export type AccordionPropsType = $ReadOnly<{
     | 'xxxxl'
     | 'none',
   reduceMotion?: boolean,
+  index?: string | [string],
+  onChange?: string => void,
 }>;
 
 type ContextType = {
@@ -57,6 +64,7 @@ type ContextType = {
   focusedElementId: string | null,
   dispatch: (action: ActionType) => void,
   reduceMotion: boolean,
+
   ...
 };
 
@@ -80,13 +88,52 @@ const Accordion = ({
   className = '',
   spacing = 's',
   reduceMotion = false,
+  index,
+  onChange,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const isControlled = useRef<boolean>(index !== undefined && !!onChange);
   const [state, dispatch] = useReducer(reducer, {
     opened: {},
     focusedElementId: null,
   });
   const hasReduceMotion = useReducedMotion() || reduceMotion;
+
+  useEffect(() => {
+    const isCallbackMissing = index !== undefined && !onChange;
+    const isComponentChangedToUncontrolled = isControlled.current && !index;
+    const isAllowMultiplePassedForControlled =
+      isControlled.current && allowMultiple;
+
+    displayWarning(
+      !isCallbackMissing,
+      'You need to pass onChange to use controlled Accordion'
+    );
+
+    displayWarning(
+      !isComponentChangedToUncontrolled,
+      'You cannot change Accordion from controlled to uncontrolled variant'
+    );
+
+    displayWarning(
+      !isAllowMultiplePassedForControlled,
+      'allowMultiple is not working in controlled Accordion'
+    );
+  }, [index, onChange, allowMultiple]);
+
+  useEffect(() => {
+    if (index !== undefined && onChange) {
+      const indexArray = index && typeof index === 'string' ? [index] : index;
+      const newState = indexArray.reduce((obj, index) => {
+        return {...obj, [index]: true};
+      }, {});
+
+      dispatch({
+        type: 'accordion/OVERWRITE_OPENED',
+        payload: {opened: newState},
+      });
+    }
+  }, [onChange, index]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -128,6 +175,8 @@ const Accordion = ({
       case 'accordion/SET_OPENED': {
         const {id, value} = action.payload;
 
+        onChange?.(id);
+
         return {
           ...state,
           opened: getUpdatedOpenedItems(state.opened, id, value),
@@ -138,6 +187,8 @@ const Accordion = ({
         const {opened, focusedElementId} = state;
 
         if (focusedElementId === null) return state;
+
+        onChange?.(focusedElementId);
 
         return {
           ...state,
@@ -153,6 +204,15 @@ const Accordion = ({
         return {
           ...state,
           focusedElementId: action.payload.id,
+        };
+      }
+
+      case 'accordion/OVERWRITE_OPENED': {
+        const {opened} = action.payload;
+
+        return {
+          ...state,
+          opened,
         };
       }
 
