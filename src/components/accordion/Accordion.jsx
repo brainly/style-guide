@@ -6,7 +6,7 @@ import * as React from 'react';
 import {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
-import displayWarning from '../utils/displayWarning';
+import invariant from '../utils/invariant';
 
 export const KEY_CODES = {
   '32': 'space',
@@ -105,17 +105,17 @@ const Accordion = ({
     const isAllowMultiplePassedForControlled =
       isControlled.current && allowMultiple;
 
-    displayWarning(
+    invariant(
       !isCallbackMissing,
       'You need to pass onChange to use controlled Accordion'
     );
 
-    displayWarning(
+    invariant(
       !isComponentChangedToUncontrolled,
       'You cannot change Accordion from controlled to uncontrolled variant'
     );
 
-    displayWarning(
+    invariant(
       !isAllowMultiplePassedForControlled,
       'allowMultiple is not working in controlled Accordion'
     );
