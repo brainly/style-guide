@@ -118,7 +118,7 @@ export const ControlledSingle = () => {
 
       <Accordion onChange={setNewIndex} index={index}>
         {accordionsIds.map(id => (
-          <AccordionItem title={copy.title} key={id} customId={id}>
+          <AccordionItem title={copy.title} key={id} id={id}>
             {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
           </AccordionItem>
         ))}
@@ -146,7 +146,7 @@ export const ControlledMultiple = () => {
       {/* allowMultiple needs to be passed if we want to controll multiple items */}
       <Accordion onChange={setNewIndex} index={index} allowMultiple>
         {accordionsIds.map(id => (
-          <AccordionItem title={copy.title} key={id} customId={id}>
+          <AccordionItem title={copy.title} key={id} id={id}>
             {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
           </AccordionItem>
         ))}

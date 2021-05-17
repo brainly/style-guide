@@ -23,7 +23,7 @@ export type AccordionItemPropsType = $ReadOnly<{
   defaultOpened?: boolean,
   padding?: PaddingType,
   tabIndex?: number,
-  customId?: string,
+  id?: string,
 }>;
 
 function generateId() {
@@ -40,7 +40,7 @@ const AccordionItem = ({
   defaultOpened = false,
   padding = 'm',
   tabIndex = 0,
-  customId,
+  id: customId,
 }: AccordionItemPropsType) => {
   const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
