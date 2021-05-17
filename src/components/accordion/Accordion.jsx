@@ -235,12 +235,7 @@ const Accordion = ({
         reduceMotion: hasReduceMotion,
       }}
     >
-      <div
-        ref={wrapperRef}
-        className={cx(spaceClass, className)}
-        data-allow-multiple={allowMultiple}
-        data-allow-toggle={!allowMultiple}
-      >
+      <div ref={wrapperRef} className={cx(spaceClass, className)}>
         {children}
       </div>
     </AccordionContext.Provider>
