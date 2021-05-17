@@ -4,7 +4,6 @@ import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {Flex, Icon, Link} from '../../index';
-import Button from 'buttons/Button';
 
 export default {
   title: 'Layout/Accordion',
@@ -102,55 +101,31 @@ export const NoGaps = () => (
   </Accordion>
 );
 
-export const ControlledSingle = () => {
-  const accordionsIds = ['id-1', 'id-2', 'id-3'];
-  const [index, setIndex] = React.useState(accordionsIds[0]);
+const CONTROLLED_ACCORDION_IDS = [
+  'accrodion item 1',
+  'accordion item 2',
+  'accordion item 3',
+];
 
-  const setNewIndex = id => setIndex(id);
-
-  return (
-    <>
-      {accordionsIds.map(id => (
-        <Button type="solid-light" key={id} onClick={() => setNewIndex(id)}>
-          open {id} button
-        </Button>
-      ))}
-
-      <Accordion onChange={setNewIndex} index={index}>
-        {accordionsIds.map(id => (
-          <AccordionItem title={copy.title} key={id} id={id}>
-            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </>
-  );
+let currentAccordionId = null;
+const setCurrentAccordionId = id => {
+  currentAccordionId = id;
 };
 
-export const ControlledMultiple = () => {
-  const accordionsIds = ['id-1', 'id-2', 'id-3'];
-  const [index, setIndex] = React.useState(['id-1', 'id-2']);
+export const Controlled = (args: any) => (
+  <Accordion onChange={setCurrentAccordionId} {...args}>
+    {CONTROLLED_ACCORDION_IDS.map(id => (
+      <AccordionItem title={copy.title} key={id} id={id}>
+        {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+      </AccordionItem>
+    ))}
+  </Accordion>
+);
 
-  const setNewIndex = id =>
-    setIndex(prev =>
-      prev.includes(id) ? prev.filter(prevId => prevId !== id) : [...prev, id]
-    );
+Controlled.args = {
+  index: currentAccordionId,
+};
 
-  return (
-    <>
-      {accordionsIds.map(id => (
-        <Button type="solid-light" key={id} onClick={() => setNewIndex(id)}>
-          toggle {id} button
-        </Button>
-      ))}
-      {/* allowMultiple needs to be passed if we want to controll multiple items */}
-      <Accordion onChange={setNewIndex} index={index} allowMultiple>
-        {accordionsIds.map(id => (
-          <AccordionItem title={copy.title} key={id} id={id}>
-            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </>
-  );
+Controlled.argTypes = {
+  index: {control: {type: 'select', options: CONTROLLED_ACCORDION_IDS}},
 };
