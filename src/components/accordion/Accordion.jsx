@@ -92,7 +92,7 @@ const Accordion = ({
   onChange,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isControlled = useRef<boolean>(index !== undefined && !!onChange);
+  const isControlled = useRef<boolean>(index !== undefined);
   const [state, dispatch] = useReducer(reducer, {
     opened: {},
     focusedElementId: null,
@@ -101,7 +101,8 @@ const Accordion = ({
 
   useEffect(() => {
     const isCallbackMissing = index !== undefined && !onChange;
-    const isComponentChangedToUncontrolled = isControlled.current && !index;
+    const isComponentChangedToUncontrolled =
+      isControlled.current && index === undefined;
     const isAllowMultiplePassedForControlled =
       isControlled.current && allowMultiple;
 
@@ -122,7 +123,7 @@ const Accordion = ({
   }, [index, onChange, allowMultiple]);
 
   useEffect(() => {
-    if (index !== undefined && onChange) {
+    if (index !== undefined) {
       const indexArray = index && typeof index === 'string' ? [index] : index;
       const newState = indexArray.reduce((obj, index) => {
         return {...obj, [index]: true};
@@ -133,7 +134,7 @@ const Accordion = ({
         payload: {opened: newState},
       });
     }
-  }, [onChange, index]);
+  }, [index]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
