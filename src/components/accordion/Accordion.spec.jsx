@@ -163,4 +163,101 @@ describe('<Accordion>', () => {
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
   });
+
+  it('expands controlled items when index is type of array', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion index={accordionIds} onChange={() => undefined}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
+  });
+
+  it('expands controlled item when index is type of string', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion index={accordionIds[0]} onChange={() => undefined}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
+  });
+
+  it('expands controlled item when index is type of string', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion index={accordionIds[0]} onChange={() => undefined}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
+  });
+
+  it('hides all controlled items when index is null', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion index={null} onChange={() => undefined}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(0);
+  });
+
+  it('calls callback when cliking on item', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const handleOnChange = jest.fn();
+    const accordion = mount(
+      <Accordion index={accordionIds[0]} onChange={handleOnChange}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    const item = accordionIds[0];
+
+    accordion
+      .find({title: item})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+
+    expect(handleOnChange).toHaveBeenCalled();
+    expect(handleOnChange).toHaveBeenCalledWith(item);
+  });
 });
