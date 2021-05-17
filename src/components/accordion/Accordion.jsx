@@ -124,7 +124,7 @@ const Accordion = ({
 
   useEffect(() => {
     if (index !== undefined) {
-      const indexArray = index && typeof index === 'string' ? [index] : index;
+      const indexArray = typeof index === 'string' ? [index] : index;
       const newState = indexArray.reduce((obj, index) => {
         return {...obj, [index]: true};
       }, {});
