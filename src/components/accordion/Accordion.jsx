@@ -131,33 +131,6 @@ const Accordion = ({
     );
   }
 
-  const [prevIndex, setPrevIndex] = useState(index);
-
-  if (isControlled) {
-    if (index !== prevIndex) {
-      setPrevIndex(index);
-
-      if (index === null) {
-        dispatch({
-          type: 'accordion/OVERWRITE_OPENED',
-          payload: {opened: {}},
-        });
-        return;
-      }
-
-      const indexArray = typeof index === 'string' ? [index] : index;
-      const newState = indexArray.reduce(
-        (obj, index) => ({...obj, [index]: true}),
-        {}
-      );
-
-      dispatch({
-        type: 'accordion/OVERWRITE_OPENED',
-        payload: {opened: newState},
-      });
-    }
-  }
-
   const [state, dispatch] = useReducer(reducer, {
     opened: {},
     focusedElementId: null,
@@ -197,6 +170,33 @@ const Accordion = ({
     value: boolean
   ) {
     return allowMultiple ? {...opened, [id]: value} : {[id]: value};
+  }
+
+  const [prevIndex, setPrevIndex] = useState(index);
+
+  if (isControlled) {
+    if (index !== prevIndex) {
+      setPrevIndex(index);
+
+      if (index === null) {
+        dispatch({
+          type: 'accordion/OVERWRITE_OPENED',
+          payload: {opened: {}},
+        });
+        return;
+      }
+
+      const indexArray = typeof index === 'string' ? [index] : index;
+      const newState = indexArray.reduce(
+        (obj, index) => ({...obj, [index]: true}),
+        {}
+      );
+
+      dispatch({
+        type: 'accordion/OVERWRITE_OPENED',
+        payload: {opened: newState},
+      });
+    }
   }
 
   function reducer(state: StateType, action: ActionType): StateType {
