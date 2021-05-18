@@ -122,7 +122,7 @@ const Accordion = ({
 
     invariant(
       !hasComponentChangedToControlled,
-      'You cannot change Accordion component from uncontrolled to uncontrolled variant.'
+      'You cannot change Accordion component from uncontrolled to controlled variant.'
     );
 
     invariant(
