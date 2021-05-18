@@ -2,7 +2,6 @@
 
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
-// eslint-disable-next-line import/no-duplicates
 import {
   createContext,
   useReducer,
@@ -11,6 +10,7 @@ import {
   useCallback,
   useMemo,
   useState,
+  // eslint-disable-next-line import/no-duplicates
 } from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
