@@ -163,4 +163,28 @@ describe('<Accordion>', () => {
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
   });
+
+  it('renders span with link styles when title is string', () => {
+    const accordion = mount(
+      <Accordion>
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+
+    expect(accordion.find('.sg-text--link').exists()).toBe(true);
+    expect(accordion.find('.sg-accordion-item__title').exists()).toBe(false);
+  });
+
+  it('renders span when title is not string', () => {
+    const accordion = mount(
+      <Accordion>
+        <AccordionItem title={<div>info</div>}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+
+    expect(accordion.find('.sg-text--link').exists()).toBe(false);
+    expect(accordion.find('.sg-accordion-item__title').exists()).toBe(true);
+  });
 });
