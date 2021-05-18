@@ -177,8 +177,6 @@ const Accordion = ({
       case 'accordion/SET_OPENED': {
         const {id, value} = action.payload;
 
-        onChange?.(id);
-
         return {
           ...state,
           opened: getUpdatedOpenedItems(state.opened, id, value),
@@ -189,8 +187,6 @@ const Accordion = ({
         const {opened, focusedElementId} = state;
 
         if (focusedElementId === null) return state;
-
-        onChange?.(focusedElementId);
 
         return {
           ...state,
