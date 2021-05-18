@@ -107,23 +107,29 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion item 3',
 ];
 
-let currentAccordionId = null;
-const setCurrentAccordionId = id => {
-  currentAccordionId = id;
+export const Controlled = (args: any) => {
+  const [prevIndex, setPrevIndex] = React.useState();
+  const [index, setIndex] = React.useState(null);
+  const setNewIndex = id => setIndex(id);
+
+  if (args.index !== prevIndex) {
+    setPrevIndex(args.index);
+    setIndex(args.index);
+  }
+
+  return (
+    <Accordion onChange={setNewIndex} index={index}>
+      {CONTROLLED_ACCORDION_IDS.map(id => (
+        <AccordionItem title={copy.title} key={id} id={id}>
+          {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
 };
 
-export const Controlled = (args: any) => (
-  <Accordion onChange={setCurrentAccordionId} {...args}>
-    {CONTROLLED_ACCORDION_IDS.map(id => (
-      <AccordionItem title={copy.title} key={id} id={id}>
-        {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-      </AccordionItem>
-    ))}
-  </Accordion>
-);
-
 Controlled.args = {
-  index: currentAccordionId,
+  index: CONTROLLED_ACCORDION_IDS[0],
 };
 
 Controlled.argTypes = {
