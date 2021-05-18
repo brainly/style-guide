@@ -3,7 +3,15 @@
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
 // eslint-disable-next-line import/no-duplicates
-import {createContext, useReducer, useEffect, useRef} from 'react';
+import {
+  createContext,
+  useReducer,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
 import {__DEV__} from '../utils';
@@ -123,36 +131,38 @@ const Accordion = ({
     );
   }
 
+  const [prevIndex, setPrevIndex] = useState(index);
+
+  if (isControlled) {
+    if (index !== prevIndex) {
+      setPrevIndex(index);
+
+      if (index === null) {
+        dispatch({
+          type: 'accordion/OVERWRITE_OPENED',
+          payload: {opened: {}},
+        });
+        return;
+      }
+
+      const indexArray = typeof index === 'string' ? [index] : index;
+      const newState = indexArray.reduce(
+        (obj, index) => ({...obj, [index]: true}),
+        {}
+      );
+
+      dispatch({
+        type: 'accordion/OVERWRITE_OPENED',
+        payload: {opened: newState},
+      });
+    }
+  }
+
   const [state, dispatch] = useReducer(reducer, {
     opened: {},
     focusedElementId: null,
   });
   const hasReduceMotion = useReducedMotion() || reduceMotion;
-
-  useEffect(() => {
-    if (index === undefined) {
-      return;
-    }
-
-    if (index === null) {
-      dispatch({
-        type: 'accordion/OVERWRITE_OPENED',
-        payload: {opened: {}},
-      });
-      return;
-    }
-
-    const indexArray = typeof index === 'string' ? [index] : index;
-    const newState = indexArray.reduce(
-      (obj, index) => ({...obj, [index]: true}),
-      {}
-    );
-
-    dispatch({
-      type: 'accordion/OVERWRITE_OPENED',
-      payload: {opened: newState},
-    });
-  }, [index]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -243,16 +253,40 @@ const Accordion = ({
   const noGapBetweenElements = spacing === 'none';
   const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
+  const onItemSelect = useCallback(
+    (id, value) => {
+      onChange?.(id);
+
+      if (!isControlled) {
+        dispatch({
+          type: 'accordion/SET_OPENED',
+          payload: {id, value},
+        });
+      }
+    },
+    [isControlled, onChange]
+  );
+
+  const context = useMemo(
+    () => ({
+      noGapBetweenElements,
+      opened: state.opened,
+      focusedElementId: state.focusedElementId,
+      dispatch,
+      reduceMotion: hasReduceMotion,
+      onItemSelect,
+    }),
+    [
+      hasReduceMotion,
+      noGapBetweenElements,
+      onItemSelect,
+      state.focusedElementId,
+      state.opened,
+    ]
+  );
+
   return (
-    <AccordionContext.Provider
-      value={{
-        noGapBetweenElements,
-        opened: state.opened,
-        focusedElementId: state.focusedElementId,
-        dispatch,
-        reduceMotion: hasReduceMotion,
-      }}
-    >
+    <AccordionContext.Provider value={context}>
       <div ref={wrapperRef} className={cx(spaceClass, className)}>
         {children}
       </div>

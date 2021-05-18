@@ -55,6 +55,7 @@ const AccordionItem = ({
     focusedElementId,
     dispatch,
     reduceMotion,
+    onItemSelect,
   } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -64,10 +65,11 @@ const AccordionItem = ({
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
   const toggleOpen = () => {
-    dispatch({
-      type: 'accordion/SET_OPENED',
-      payload: {id, value: isHidden},
-    });
+    // dispatch({
+    //   type: 'accordion/SET_OPENED',
+    //   payload: {id, value: isHidden},
+    // });
+    onItemSelect(id, isHidden);
   };
 
   function handleFocus() {
