@@ -172,33 +172,6 @@ const Accordion = ({
     return allowMultiple ? {...opened, [id]: value} : {[id]: value};
   }
 
-  const [prevIndex, setPrevIndex] = useState(index);
-
-  if (isControlled) {
-    if (index !== prevIndex) {
-      setPrevIndex(index);
-
-      if (index === null) {
-        dispatch({
-          type: 'accordion/OVERWRITE_OPENED',
-          payload: {opened: {}},
-        });
-        return;
-      }
-
-      const indexArray = typeof index === 'string' ? [index] : index;
-      const newState = indexArray.reduce(
-        (obj, index) => ({...obj, [index]: true}),
-        {}
-      );
-
-      dispatch({
-        type: 'accordion/OVERWRITE_OPENED',
-        payload: {opened: newState},
-      });
-    }
-  }
-
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
       case 'accordion/SET_OPENED': {
@@ -284,6 +257,33 @@ const Accordion = ({
       state.opened,
     ]
   );
+
+  const [prevIndex, setPrevIndex] = useState();
+
+  if (isControlled) {
+    if (index !== prevIndex) {
+      setPrevIndex(index);
+
+      if (index === null) {
+        dispatch({
+          type: 'accordion/OVERWRITE_OPENED',
+          payload: {opened: {}},
+        });
+        return;
+      }
+
+      const indexArray = typeof index === 'string' ? [index] : index;
+      const newState = indexArray.reduce(
+        (obj, index) => ({...obj, [index]: true}),
+        {}
+      );
+
+      dispatch({
+        type: 'accordion/OVERWRITE_OPENED',
+        payload: {opened: newState},
+      });
+    }
+  }
 
   return (
     <AccordionContext.Provider value={context}>

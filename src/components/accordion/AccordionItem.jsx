@@ -20,7 +20,6 @@ export type AccordionItemPropsType = $ReadOnly<{
   titleSize?: 'small' | 'large',
   children?: React.Node,
   className?: string,
-  defaultOpened?: boolean,
   padding?: PaddingType,
   tabIndex?: number,
   id?: string,
@@ -37,12 +36,10 @@ const AccordionItem = ({
   titleSize = 'large',
   children,
   className = '',
-  defaultOpened = false,
   padding = 'm',
   tabIndex = 0,
   id: customId,
 }: AccordionItemPropsType) => {
-  const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(
     customId ?? `AccordionItem_${generateId()}`
@@ -65,10 +62,6 @@ const AccordionItem = ({
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
   const toggleOpen = () => {
-    // dispatch({
-    //   type: 'accordion/SET_OPENED',
-    //   payload: {id, value: isHidden},
-    // });
     onItemSelect(id, isHidden);
   };
 
@@ -85,18 +78,6 @@ const AccordionItem = ({
       payload: {id: ''},
     });
   }
-
-  useEffect(() => {
-    if (defaultOpened) {
-      dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {id, value: true},
-      });
-    }
-
-    hasRendered.current = true;
-    //eslint-disable-next-line
-  }, []);
 
   useLayoutEffect(() => {
     const content = contentRef.current;
@@ -163,8 +144,6 @@ const AccordionItem = ({
 
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
-
-    if (hasRendered.current === false) return;
 
     isHidden ? collapse() : expand();
 
