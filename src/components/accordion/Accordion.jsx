@@ -35,16 +35,12 @@ type StateType = $ReadOnly<{
 type ActionType =
   | {
       type: 'accordion/SET_OPENED',
-      payload: {id: string, value: boolean},
+      payload: {opened: OpenedItemsType},
     }
   | {type: 'accordion/KEYBOARD_SET_OPENED'}
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
-    }
-  | {
-      type: 'accordion/OVERWRITE_OPENED',
-      payload: {opened: OpenedItemsType},
     };
 
 export type AccordionPropsType = $ReadOnly<{
@@ -164,22 +160,21 @@ const Accordion = ({
     };
   }, [state.focusedElementId]);
 
-  function getUpdatedOpenedItems(
-    opened: OpenedItemsType,
-    id: string,
-    value: boolean
-  ) {
-    return allowMultiple ? {...opened, [id]: value} : {[id]: value};
-  }
+  const getUpdatedOpenedItems = useCallback(
+    (opened: OpenedItemsType, id: string, value: boolean) => {
+      return allowMultiple ? {...opened, [id]: value} : {[id]: value};
+    },
+    [allowMultiple]
+  );
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
       case 'accordion/SET_OPENED': {
-        const {id, value} = action.payload;
+        const {opened} = action.payload;
 
         return {
           ...state,
-          opened: getUpdatedOpenedItems(state.opened, id, value),
+          opened,
         };
       }
 
@@ -205,15 +200,6 @@ const Accordion = ({
         };
       }
 
-      case 'accordion/OVERWRITE_OPENED': {
-        const {opened} = action.payload;
-
-        return {
-          ...state,
-          opened,
-        };
-      }
-
       default:
         return state;
     }
@@ -229,11 +215,13 @@ const Accordion = ({
       if (!isControlled) {
         dispatch({
           type: 'accordion/SET_OPENED',
-          payload: {id, value},
+          payload: {
+            opened: getUpdatedOpenedItems(state.opened, id, value),
+          },
         });
       }
     },
-    [isControlled, onChange]
+    [getUpdatedOpenedItems, isControlled, onChange, state.opened]
   );
 
   const context = useMemo(
@@ -262,7 +250,7 @@ const Accordion = ({
 
       if (index === null) {
         dispatch({
-          type: 'accordion/OVERWRITE_OPENED',
+          type: 'accordion/SET_OPENED',
           payload: {opened: {}},
         });
         return;
@@ -275,7 +263,7 @@ const Accordion = ({
       );
 
       dispatch({
-        type: 'accordion/OVERWRITE_OPENED',
+        type: 'accordion/SET_OPENED',
         payload: {opened: newState},
       });
     }
