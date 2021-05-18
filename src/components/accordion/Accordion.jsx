@@ -112,7 +112,7 @@ const Accordion = ({
     invariant(
       !isCallbackMissing,
       // eslint-disable-next-line max-len
-      ' You provided a `index` prop to a Accordion without an `onChange` handler. This will prevent user interaction with the component.'
+      ' You provided an `index` prop to a Accordion without an `onChange` handler. Interacting with accordion elements will not toggle between the collapsed and expanded states.'
     );
 
     invariant(
