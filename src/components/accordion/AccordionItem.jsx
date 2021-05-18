@@ -58,6 +58,7 @@ const AccordionItem = ({
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
+  const isTitleString = typeof title === 'string';
 
   const toggleOpen = () => {
     dispatch({
@@ -205,14 +206,18 @@ const AccordionItem = ({
           justifyContent="space-between"
           alignItems="center"
         >
-          <Link
-            size={titleSize}
-            color="black"
-            weight="bold"
-            underlined={isHighlighted}
-          >
-            {title}
-          </Link>
+          {isTitleString ? (
+            <Link
+              size={titleSize}
+              color="black"
+              weight="bold"
+              underlined={isHighlighted}
+            >
+              {title}
+            </Link>
+          ) : (
+            <span className="sg-accordion-item__title">{title}</span>
+          )}
           <Flex
             justifyContent="center"
             alignItems="center"
