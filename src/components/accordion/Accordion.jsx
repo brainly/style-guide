@@ -6,6 +6,7 @@ import * as React from 'react';
 import {createContext, useReducer, useEffect, useRef} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
+import {__DEV__} from '../utils';
 import invariant from '../utils/invariant';
 
 export const KEY_CODES = {
@@ -92,35 +93,41 @@ const Accordion = ({
   onChange,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isControlled = useRef<boolean>(index !== undefined);
-  const [state, dispatch] = useReducer(reducer, {
-    opened: {},
-    focusedElementId: null,
-  });
-  const hasReduceMotion = useReducedMotion() || reduceMotion;
+  const isControlled = index !== undefined;
+  const wasControlled = useRef<boolean>(isControlled);
+  const isCallbackMissing = isControlled && !onChange;
+  const hasComponentChangedToUncontrolled = wasControlled && !isControlled;
+  const hasComponentChangedToControlled = !wasControlled && isControlled;
+  const isAllowMultiplePassedForControlled = isControlled && allowMultiple;
 
-  useEffect(() => {
-    const isCallbackMissing = index !== undefined && !onChange;
-    const isComponentChangedToUncontrolled =
-      isControlled.current && index === undefined;
-    const isAllowMultiplePassedForControlled =
-      isControlled.current && allowMultiple;
-
+  if (__DEV__) {
     invariant(
       !isCallbackMissing,
-      'You need to pass onChange to use controlled Accordion'
+      // eslint-disable-next-line max-len
+      ' You provided a `index` prop to a Accordion without an `onChange` handler. This will prevent user interaction with the component.'
     );
 
     invariant(
-      !isComponentChangedToUncontrolled,
-      'You cannot change Accordion from controlled to uncontrolled variant'
+      !hasComponentChangedToUncontrolled,
+      'You cannot change Accordion component from controlled to uncontrolled variant.'
+    );
+
+    invariant(
+      !hasComponentChangedToControlled,
+      'You cannot change Accordion component from uncontrolled to uncontrolled variant.'
     );
 
     invariant(
       !isAllowMultiplePassedForControlled,
       'allowMultiple is not working in controlled Accordion'
     );
-  }, [index, onChange, allowMultiple]);
+  }
+
+  const [state, dispatch] = useReducer(reducer, {
+    opened: {},
+    focusedElementId: null,
+  });
+  const hasReduceMotion = useReducedMotion() || reduceMotion;
 
   useEffect(() => {
     if (index === undefined) {
