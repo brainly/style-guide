@@ -3,7 +3,7 @@
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
 // eslint-disable-next-line import/no-duplicates
-import {useContext, useEffect, useRef, useState} from 'react';
+import {useContext, useLayoutEffect, useRef, useState} from 'react';
 
 import cx from 'classnames';
 import Box from '../box/Box';
@@ -79,7 +79,7 @@ const AccordionItem = ({
     });
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const content = contentRef.current;
 
     function collapse() {
