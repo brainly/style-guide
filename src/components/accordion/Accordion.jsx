@@ -272,7 +272,7 @@ const Accordion = ({
 
   const onItemSelect = useCallback(
     (id, value) => {
-      onChange?.(id);
+      onChange && onChange(id);
 
       if (!isControlled) {
         dispatch({
