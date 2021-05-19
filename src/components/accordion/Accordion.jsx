@@ -242,6 +242,29 @@ const Accordion = ({
     }
   }
 
+  const [prevIndex, setPrevIndex] = useState();
+
+  if (isControlled) {
+    if (index !== prevIndex) {
+      setPrevIndex(index);
+
+      // index || '' is to satisfy flow.
+      // isControlled flag is true when index !== undefined but this condition is not interpreted
+      // correctly by flow causing type error. Replacing isControlled with index !== undefined would work but using isControlled is more clear
+      const indexArray = Array.isArray(index) ? index : [index || ''];
+
+      const newState = indexArray.reduce(
+        (obj, idx) => ({...obj, [idx]: true}),
+        {}
+      );
+
+      dispatch({
+        type: 'accordion/SET_OPENED',
+        payload: {opened: newState},
+      });
+    }
+  }
+
   const noGapBetweenElements = spacing === 'none';
   const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
@@ -278,24 +301,6 @@ const Accordion = ({
       state.opened,
     ]
   );
-
-  const [prevIndex, setPrevIndex] = useState();
-
-  if (isControlled) {
-    if (index !== prevIndex) {
-      setPrevIndex(index);
-
-      const indexArray = !Array.isArray(index) ? [index] : index;
-      const newState = indexArray
-        .filter(item => item !== null)
-        .reduce((obj, index) => ({...obj, [index]: true}), {});
-
-      dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {opened: newState},
-      });
-    }
-  }
 
   return (
     <AccordionContext.Provider value={context}>
