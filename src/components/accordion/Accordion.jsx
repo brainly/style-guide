@@ -253,19 +253,18 @@ const Accordion = ({
           type: 'accordion/SET_OPENED',
           payload: {opened: {}},
         });
-        return;
+      } else {
+        const indexArray = typeof index === 'string' ? [index] : index;
+        const newState = indexArray.reduce(
+          (obj, index) => ({...obj, [index]: true}),
+          {}
+        );
+
+        dispatch({
+          type: 'accordion/SET_OPENED',
+          payload: {opened: newState},
+        });
       }
-
-      const indexArray = typeof index === 'string' ? [index] : index;
-      const newState = indexArray.reduce(
-        (obj, index) => ({...obj, [index]: true}),
-        {}
-      );
-
-      dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {opened: newState},
-      });
     }
   }
 
