@@ -108,28 +108,3 @@ Controlled.args = {
 Controlled.argTypes = {
   index: {control: {type: 'select', options: CONTROLLED_ACCORDION_IDS}},
 };
-
-export const ControlledSingle = () => {
-  const accordionsIds = ['id-1', 'id-2', 'id-3'];
-  const [index, setIndex] = React.useState(accordionsIds[0]);
-
-  const setNewIndex = id => setIndex(id);
-
-  return (
-    <div>
-      {accordionsIds.map(id => (
-        <Button type="solid-light" key={id} onClick={() => setNewIndex(id)}>
-          open {id} button
-        </Button>
-      ))}
-
-      <Accordion onChange={setNewIndex} index={index}>
-        {accordionsIds.map(id => (
-          <AccordionItem title={copy.title} key={id} id={id}>
-            {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
-  );
-};
