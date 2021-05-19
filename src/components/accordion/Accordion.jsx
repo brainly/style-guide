@@ -69,7 +69,7 @@ type ContextType = {
   focusedElementId: string | null,
   dispatch: (action: ActionType) => void,
   reduceMotion: boolean,
-
+  onItemSelect: (id: string, value: boolean) => void,
   ...
 };
 
