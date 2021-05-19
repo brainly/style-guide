@@ -3,7 +3,7 @@
 import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import {Flex, Icon, Link, Button} from '../../index';
+import {Flex, Icon, Link} from '../../index';
 
 export default {
   title: 'Layout/Accordion',
@@ -20,7 +20,7 @@ export default {
     },
   },
 };
-
+k;
 const copy = {
   title: 'Is this title for accordion?',
   description:
