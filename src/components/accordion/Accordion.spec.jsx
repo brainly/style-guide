@@ -149,11 +149,11 @@ describe('<Accordion>', () => {
 
   it('by default expands items that have "defaultOpened" prop', () => {
     const accordion = mount(
-      <Accordion allowMultiple>
-        <AccordionItem title="Item 1" defaultOpened>
+      <Accordion allowMultiple defaultIndex={['id-1', 'id-2']}>
+        <AccordionItem title="Item 1" id="id-1">
           Accordion Item Description
         </AccordionItem>
-        <AccordionItem title="Item 2" defaultOpened>
+        <AccordionItem title="Item 2" id="id-2">
           Accordion Item Description
         </AccordionItem>
         <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
