@@ -82,7 +82,7 @@ const CONTROLLED_ACCORDION_IDS = [
 
 export const Controlled = (args: any) => {
   const [prevIndex, setPrevIndex] = React.useState();
-  const [index, setIndex] = React.useState(null);
+  const [index, setIndex] = React.useState('');
   const setNewIndex = id => setIndex(id);
 
   if (args.index !== prevIndex) {
