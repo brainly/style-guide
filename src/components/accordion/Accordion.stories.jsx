@@ -20,7 +20,7 @@ export default {
     },
   },
 };
-k;
+
 const copy = {
   title: 'Is this title for accordion?',
   description:
