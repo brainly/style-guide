@@ -60,6 +60,7 @@ export type AccordionPropsType = $ReadOnly<{
     | 'none',
   reduceMotion?: boolean,
   index?: string | [string] | null,
+  defaultIndex?: string | [string] | null,
   onChange?: string => void,
 }>;
 
@@ -93,6 +94,7 @@ const Accordion = ({
   className = '',
   spacing = 's',
   reduceMotion = false,
+  defaultIndex,
   index,
   onChange,
 }: AccordionPropsType) => {
@@ -127,9 +129,33 @@ const Accordion = ({
     );
   }
 
-  const [state, dispatch] = useReducer(reducer, {
-    opened: {},
-    focusedElementId: null,
+  const [state, dispatch] = useReducer(reducer, null, () => {
+    if (isControlled) {
+      return {
+        opened: {},
+        focusedElementId: null,
+      };
+    }
+
+    if (defaultIndex !== undefined) {
+      const indexArray = !Array.isArray(defaultIndex)
+        ? [defaultIndex]
+        : defaultIndex;
+
+      const newState = indexArray
+        .filter(item => item !== null)
+        .reduce((obj, index) => ({...obj, [index]: true}), {});
+
+      return {
+        opened: newState,
+        focusedElementId: null,
+      };
+    }
+
+    return {
+      opened: {},
+      focusedElementId: null,
+    };
   });
   const hasReduceMotion = useReducedMotion() || reduceMotion;
 

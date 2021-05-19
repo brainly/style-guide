@@ -85,11 +85,11 @@ export const Default = (args: any) => (
 );
 
 export const NoGaps = () => (
-  <Accordion spacing="none" allowMultiple>
-    <AccordionItem title={copy.title} defaultOpened>
+  <Accordion spacing="none" allowMultiple defaultIndex={['first', 'second']}>
+    <AccordionItem title={copy.title} id="first">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
-    <AccordionItem title={copy.title} defaultOpened>
+    <AccordionItem title={copy.title} id="second">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
     <AccordionItem title={copy.title}>
