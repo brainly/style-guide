@@ -127,6 +127,16 @@ const Accordion = ({
       !isAllowMultiplePassedForControlled,
       'allowMultiple is not working in controlled Accordion'
     );
+
+    invariant(
+      !(
+        !allowMultiple &&
+        Array.isArray(defaultIndex) &&
+        defaultIndex.length > 1
+      ),
+      // eslint-disable-next-line max-len
+      'defaultIndex is an array with more than 1 element but allowMultiple prop is not set. The first item from the array was picked as a default index. Set allowMultiple attribute or provide only one default index.'
+    );
   }
 
   const getUpdatedOpenedItems = useCallback(
@@ -151,6 +161,7 @@ const Accordion = ({
 
       const newState = indexArray
         .filter(item => item !== null)
+        .filter((item, index) => (allowMultiple ? true : index < 1))
         .reduce((obj, index) => ({...obj, [index]: true}), {});
 
       return {
