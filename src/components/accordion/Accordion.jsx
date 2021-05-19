@@ -100,7 +100,7 @@ const Accordion = ({
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isControlled = index !== undefined;
-  const wasControlled = useRef<boolean>(isControlled);
+  const {current: wasControlled} = useRef<boolean>(isControlled);
   const isCallbackMissing = isControlled && !onChange;
   const hasComponentChangedToUncontrolled = wasControlled && !isControlled;
   const hasComponentChangedToControlled = !wasControlled && isControlled;
