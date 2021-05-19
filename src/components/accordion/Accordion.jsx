@@ -59,7 +59,7 @@ export type AccordionPropsType = $ReadOnly<{
     | 'xxxxl'
     | 'none',
   reduceMotion?: boolean,
-  index?: string | [string],
+  index?: string | [string] | null,
   onChange?: string => void,
 }>;
 
