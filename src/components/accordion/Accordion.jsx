@@ -59,8 +59,8 @@ export type AccordionPropsType = $ReadOnly<{
     | 'xxxxl'
     | 'none',
   reduceMotion?: boolean,
-  index?: string | [string] | null,
-  defaultIndex?: string | [string] | null,
+  index?: string | Array<string>,
+  defaultIndex?: string | Array<string>,
   onChange?: string => void,
 }>;
 
@@ -274,23 +274,15 @@ const Accordion = ({
     if (index !== prevIndex) {
       setPrevIndex(index);
 
-      if (index === null) {
-        dispatch({
-          type: 'accordion/SET_OPENED',
-          payload: {opened: {}},
-        });
-      } else {
-        const indexArray = typeof index === 'string' ? [index] : index;
-        const newState = indexArray.reduce(
-          (obj, index) => ({...obj, [index]: true}),
-          {}
-        );
+      const indexArray = !Array.isArray(index) ? [index] : index;
+      const newState = indexArray
+        .filter(item => item !== null)
+        .reduce((obj, index) => ({...obj, [index]: true}), {});
 
-        dispatch({
-          type: 'accordion/SET_OPENED',
-          payload: {opened: newState},
-        });
-      }
+      dispatch({
+        type: 'accordion/SET_OPENED',
+        payload: {opened: newState},
+      });
     }
   }
 
