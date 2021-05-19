@@ -48,7 +48,7 @@ const AccordionItem = ({
 
   const {
     noGapBetweenElements,
-    opened,
+    expanded,
     focusedElementId,
     dispatch,
     reduceMotion,
@@ -56,13 +56,13 @@ const AccordionItem = ({
   } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
-  const isHidden = !opened[id];
+  const isCollapsed = !expanded[id];
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
 
   const toggleOpen = () => {
-    onItemSelect(id, isHidden);
+    onItemSelect(id, isCollapsed);
   };
 
   function handleFocus() {
@@ -145,7 +145,7 @@ const AccordionItem = ({
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
-    isHidden ? collapse() : expand();
+    isCollapsed ? collapse() : expand();
 
     return () => {
       if (!content) {
@@ -153,7 +153,7 @@ const AccordionItem = ({
       }
       content.removeEventListener('transitionend', onTransitionEnd);
     };
-  }, [isHidden, reduceMotion]);
+  }, [isCollapsed, reduceMotion]);
 
   return (
     <Box
@@ -179,7 +179,7 @@ const AccordionItem = ({
         onMouseLeave={() => setIsHovered(false)}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        aria-expanded={!isHidden}
+        aria-expanded={!isCollapsed}
         aria-controls={contentId}
         id={id}
         role="button"
@@ -209,7 +209,7 @@ const AccordionItem = ({
               type="arrow_down"
               color="dark"
               className={cx('sg-accordion-item__arrow', {
-                'sg-accordion-item__arrow--visible': !isHidden,
+                'sg-accordion-item__arrow--visible': !isCollapsed,
               })}
             />
           </Flex>

@@ -58,7 +58,7 @@ export const Default = (args: any) => (
 );
 
 export const NoGaps = () => (
-  <Accordion spacing="none" allowMultiple defaultIndex={['first', 'second']}>
+  <Accordion spacing="none" allowMultiple defaultExpanded={['first', 'second']}>
     <AccordionItem title={copy.title} id="first">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
@@ -81,17 +81,17 @@ const CONTROLLED_ACCORDION_IDS = [
 ];
 
 export const Controlled = (args: any) => {
-  const [prevIndex, setPrevIndex] = React.useState();
-  const [index, setIndex] = React.useState('');
-  const setNewIndex = id => setIndex(id);
+  const [prevExpanded, setPrevExpanded] = React.useState();
+  const [expanded, setExpanded] = React.useState('');
+  const handleChange = id => setExpanded(id);
 
-  if (args.index !== prevIndex) {
-    setPrevIndex(args.index);
-    setIndex(args.index);
+  if (args.expanded !== prevExpanded) {
+    setPrevExpanded(args.expanded);
+    setExpanded(args.expanded);
   }
 
   return (
-    <Accordion onChange={setNewIndex} index={index}>
+    <Accordion onChange={handleChange} expanded={expanded}>
       {CONTROLLED_ACCORDION_IDS.map(id => (
         <AccordionItem title={copy.title} key={id} id={id}>
           {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
@@ -102,9 +102,9 @@ export const Controlled = (args: any) => {
 };
 
 Controlled.args = {
-  index: CONTROLLED_ACCORDION_IDS[0],
+  expanded: CONTROLLED_ACCORDION_IDS[0],
 };
 
 Controlled.argTypes = {
-  index: {control: {type: 'select', options: CONTROLLED_ACCORDION_IDS}},
+  expanded: {control: {type: 'select', options: CONTROLLED_ACCORDION_IDS}},
 };

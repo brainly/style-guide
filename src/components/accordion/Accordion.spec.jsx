@@ -147,9 +147,9 @@ describe('<Accordion>', () => {
     ).toEqual('gray-secondary-lightest');
   });
 
-  it('by default expands items that have "defaultOpened" prop', () => {
+  it('by default expands items that have "defaultExpanded" prop', () => {
     const accordion = mount(
-      <Accordion allowMultiple defaultIndex={['id-1', 'id-2']}>
+      <Accordion allowMultiple defaultExpanded={['id-1', 'id-2']}>
         <AccordionItem title="Item 1" id="id-1">
           Accordion Item Description
         </AccordionItem>
@@ -164,10 +164,10 @@ describe('<Accordion>', () => {
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
   });
 
-  it('expands controlled items when index is type of array', () => {
+  it('expands controlled items when expanded is type of array', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const accordion = mount(
-      <Accordion index={accordionIds} onChange={() => undefined}>
+      <Accordion expanded={accordionIds} onChange={() => undefined}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
             Accordion Item Description
@@ -182,10 +182,10 @@ describe('<Accordion>', () => {
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
   });
 
-  it('expands controlled item when index is type of string', () => {
+  it('expands controlled item when expanded is type of string', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const accordion = mount(
-      <Accordion index={accordionIds[0]} onChange={() => undefined}>
+      <Accordion expanded={accordionIds[0]} onChange={noop => noop}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
             Accordion Item Description
@@ -200,10 +200,10 @@ describe('<Accordion>', () => {
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
   });
 
-  it('expands controlled item when index is type of string', () => {
+  it('expands controlled item when expanded is type of string', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const accordion = mount(
-      <Accordion index={accordionIds[0]} onChange={() => undefined}>
+      <Accordion expanded={accordionIds[0]} onChange={noop => noop}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
             Accordion Item Description
@@ -216,31 +216,13 @@ describe('<Accordion>', () => {
       accordionIds.length
     );
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
-  });
-
-  it('hides all controlled items when index is null', () => {
-    const accordionIds = ['id-1', 'id-2', 'id-3'];
-    const accordion = mount(
-      <Accordion index={null} onChange={() => undefined}>
-        {accordionIds.map(id => (
-          <AccordionItem title={id} id={id} key={id}>
-            Accordion Item Description
-          </AccordionItem>
-        ))}
-      </Accordion>
-    );
-
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(0);
   });
 
   it('calls callback when cliking on item', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const handleOnChange = jest.fn();
     const accordion = mount(
-      <Accordion index={accordionIds[0]} onChange={handleOnChange}>
+      <Accordion expanded={accordionIds[0]} onChange={handleOnChange}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
             Accordion Item Description

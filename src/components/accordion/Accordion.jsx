@@ -22,22 +22,22 @@ export const KEY_CODES = {
   '13': 'enter',
 };
 
-type OpenedItemsType = {
+type ExpandedItemsType = {
   [string]: boolean,
   ...,
 };
 
 type StateType = $ReadOnly<{
-  opened: OpenedItemsType,
+  expanded: ExpandedItemsType,
   focusedElementId: string | null,
 }>;
 
 type ActionType =
   | {
-      type: 'accordion/SET_OPENED',
-      payload: {opened: OpenedItemsType},
+      type: 'accordion/SET_EXPANDED',
+      payload: {expanded: ExpandedItemsType},
     }
-  | {type: 'accordion/KEYBOARD_SET_OPENED'}
+  | {type: 'accordion/KEYBOARD_SET_EXPANDED'}
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
@@ -59,14 +59,14 @@ export type AccordionPropsType = $ReadOnly<{
     | 'xxxxl'
     | 'none',
   reduceMotion?: boolean,
-  index?: string | Array<string>,
-  defaultIndex?: string | Array<string>,
+  expanded?: string | Array<string>,
+  defaultExpanded?: string | Array<string>,
   onChange?: string => void,
 }>;
 
 type ContextType = {
   noGapBetweenElements: boolean,
-  opened: OpenedItemsType,
+  expanded: ExpandedItemsType,
   focusedElementId: string | null,
   dispatch: (action: ActionType) => void,
   reduceMotion: boolean,
@@ -94,12 +94,12 @@ const Accordion = ({
   className = '',
   spacing = 's',
   reduceMotion = false,
-  defaultIndex,
-  index,
+  defaultExpanded,
+  expanded,
   onChange,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const isControlled = index !== undefined;
+  const isControlled = expanded !== undefined;
   const {current: wasControlled} = useRef<boolean>(isControlled);
   const isCallbackMissing = isControlled && !onChange;
   const hasComponentChangedToUncontrolled = wasControlled && !isControlled;
@@ -110,7 +110,7 @@ const Accordion = ({
     invariant(
       !isCallbackMissing,
       // eslint-disable-next-line max-len
-      ' You provided an `index` prop to a Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
+      ' You provided an `expanded` prop to a Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
     );
 
     invariant(
@@ -131,17 +131,17 @@ const Accordion = ({
     invariant(
       !(
         !allowMultiple &&
-        Array.isArray(defaultIndex) &&
-        defaultIndex.length > 1
+        Array.isArray(defaultExpanded) &&
+        defaultExpanded.length > 1
       ),
       // eslint-disable-next-line max-len
-      'defaultIndex is an array with more than 1 element but allowMultiple prop is not set. The first item from the array was picked as a default index. Set allowMultiple attribute or provide only one default index.'
+      'defaultExpanded is an array with more than 1 element but allowMultiple prop is not set. The first value from the array was picked as a default expanded. Set allowMultiple attribute or provide only one default expanded.'
     );
   }
 
   const getUpdatedOpenedItems = useCallback(
-    (opened: OpenedItemsType, id: string, value: boolean) => {
-      return allowMultiple ? {...opened, [id]: value} : {[id]: value};
+    (expanded: ExpandedItemsType, id: string, value: boolean) => {
+      return allowMultiple ? {...expanded, [id]: value} : {[id]: value};
     },
     [allowMultiple]
   );
@@ -149,29 +149,29 @@ const Accordion = ({
   const [state, dispatch] = useReducer(reducer, null, () => {
     if (isControlled) {
       return {
-        opened: {},
+        expanded: {},
         focusedElementId: null,
       };
     }
 
-    if (defaultIndex !== undefined) {
-      const indexArray = !Array.isArray(defaultIndex)
-        ? [defaultIndex]
-        : defaultIndex;
+    if (defaultExpanded !== undefined) {
+      const expandedArray = !Array.isArray(defaultExpanded)
+        ? [defaultExpanded]
+        : defaultExpanded;
 
-      const newState = indexArray
+      const newState = expandedArray
         .filter(item => item !== null)
-        .filter((item, index) => (allowMultiple ? true : index < 1))
-        .reduce((obj, index) => ({...obj, [index]: true}), {});
+        .filter((item, idx) => (allowMultiple ? true : idx < 1))
+        .reduce((obj, idx) => ({...obj, [idx]: true}), {});
 
       return {
-        opened: newState,
+        expanded: newState,
         focusedElementId: null,
       };
     }
 
     return {
-      opened: {},
+      expanded: {},
       focusedElementId: null,
     };
   });
@@ -191,7 +191,7 @@ const Accordion = ({
           event.preventDefault();
         }
 
-        dispatch({type: 'accordion/KEYBOARD_SET_OPENED'});
+        dispatch({type: 'accordion/KEYBOARD_SET_EXPANDED'});
       }
     }
 
@@ -206,26 +206,26 @@ const Accordion = ({
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
-      case 'accordion/SET_OPENED': {
-        const {opened} = action.payload;
+      case 'accordion/SET_EXPANDED': {
+        const {expanded} = action.payload;
 
         return {
           ...state,
-          opened,
+          expanded,
         };
       }
 
-      case 'accordion/KEYBOARD_SET_OPENED': {
-        const {opened, focusedElementId} = state;
+      case 'accordion/KEYBOARD_SET_EXPANDED': {
+        const {expanded, focusedElementId} = state;
 
         if (focusedElementId === null) return state;
 
         return {
           ...state,
-          opened: getUpdatedOpenedItems(
-            state.opened,
+          expanded: getUpdatedOpenedItems(
+            state.expanded,
             focusedElementId,
-            !opened[focusedElementId]
+            !expanded[focusedElementId]
           ),
         };
       }
@@ -245,22 +245,24 @@ const Accordion = ({
   const [prevIndex, setPrevIndex] = useState();
 
   if (isControlled) {
-    if (index !== prevIndex) {
-      setPrevIndex(index);
+    if (expanded !== prevIndex) {
+      setPrevIndex(expanded);
 
-      // index || '' is to satisfy flow.
-      // isControlled flag is true when index !== undefined but this condition is not interpreted
-      // correctly by flow causing type error. Replacing isControlled with index !== undefined would work but using isControlled is more clear
-      const indexArray = Array.isArray(index) ? index : [index || ''];
+      // expanded || '' is to satisfy flow.
+      // isControlled flag is true when expanded !== undefined but this condition is not interpreted
+      // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
+      const expandedArray = Array.isArray(expanded)
+        ? expanded
+        : [expanded || ''];
 
-      const newState = indexArray.reduce(
+      const newState = expandedArray.reduce(
         (obj, idx) => ({...obj, [idx]: true}),
         {}
       );
 
       dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {opened: newState},
+        type: 'accordion/SET_EXPANDED',
+        payload: {expanded: newState},
       });
     }
   }
@@ -274,20 +276,20 @@ const Accordion = ({
 
       if (!isControlled) {
         dispatch({
-          type: 'accordion/SET_OPENED',
+          type: 'accordion/SET_EXPANDED',
           payload: {
-            opened: getUpdatedOpenedItems(state.opened, id, value),
+            expanded: getUpdatedOpenedItems(state.expanded, id, value),
           },
         });
       }
     },
-    [getUpdatedOpenedItems, isControlled, onChange, state.opened]
+    [getUpdatedOpenedItems, isControlled, onChange, state.expanded]
   );
 
   const context = useMemo(
     () => ({
       noGapBetweenElements,
-      opened: state.opened,
+      expanded: state.expanded,
       focusedElementId: state.focusedElementId,
       dispatch,
       reduceMotion: hasReduceMotion,
@@ -298,7 +300,7 @@ const Accordion = ({
       noGapBetweenElements,
       onItemSelect,
       state.focusedElementId,
-      state.opened,
+      state.expanded,
     ]
   );
 
