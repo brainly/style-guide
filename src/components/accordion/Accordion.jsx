@@ -129,6 +129,13 @@ const Accordion = ({
     );
   }
 
+  const getUpdatedOpenedItems = useCallback(
+    (opened: OpenedItemsType, id: string, value: boolean) => {
+      return allowMultiple ? {...opened, [id]: value} : {[id]: value};
+    },
+    [allowMultiple]
+  );
+
   const [state, dispatch] = useReducer(reducer, null, () => {
     if (isControlled) {
       return {
@@ -185,13 +192,6 @@ const Accordion = ({
       wrapper.removeEventListener('keydown', handleKeyDown);
     };
   }, [state.focusedElementId]);
-
-  const getUpdatedOpenedItems = useCallback(
-    (opened: OpenedItemsType, id: string, value: boolean) => {
-      return allowMultiple ? {...opened, [id]: value} : {[id]: value};
-    },
-    [allowMultiple]
-  );
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
