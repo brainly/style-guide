@@ -2,6 +2,7 @@ import * as React from 'react';
 import {mount} from 'enzyme';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
+import Link from '../text/Link';
 
 describe('<Accordion>', () => {
   it('renders', () => {
@@ -162,5 +163,27 @@ describe('<Accordion>', () => {
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
+  });
+
+  it('renders Link when title is string', () => {
+    const accordion = mount(
+      <Accordion>
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+
+    expect(accordion.find(Link).exists()).toBe(true);
+  });
+
+  it('does not render Link when title is not string', () => {
+    const accordion = mount(
+      <Accordion>
+        <AccordionItem title={<div>info</div>}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+
+    expect(accordion.find(Link).exists()).toBe(false);
   });
 });
