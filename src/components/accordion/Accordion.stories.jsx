@@ -18,6 +18,21 @@ export default {
         disable: true,
       },
     },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+    defaultExpanded: {
+      control: {
+        type: 'array',
+      },
+    },
+    expanded: {
+      control: {
+        type: 'array',
+      },
+    },
   },
 };
 
@@ -57,8 +72,8 @@ export const Default = (args: any) => (
   </Accordion>
 );
 
-export const NoGaps = () => (
-  <Accordion spacing="none" allowMultiple defaultExpanded={['first', 'second']}>
+export const NoGaps = (args: any) => (
+  <Accordion {...args}>
     <AccordionItem title={copy.title} id="first">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
@@ -74,6 +89,12 @@ export const NoGaps = () => (
   </Accordion>
 );
 
+NoGaps.args = {
+  spacing: 'none',
+  allowMultiple: true,
+  defaultExpanded: ['first', 'second'],
+};
+
 const CONTROLLED_ACCORDION_IDS = [
   'accrodion item 1',
   'accordion item 2',
@@ -85,13 +106,15 @@ export const Controlled = (args: any) => {
   const [expanded, setExpanded] = React.useState('');
   const handleChange = id => setExpanded(id);
 
-  if (args.expanded !== prevExpanded) {
-    setPrevExpanded(args.expanded);
-    setExpanded(args.expanded);
+  const {expanded: propsExpanded, ...props} = args;
+
+  if (propsExpanded !== prevExpanded) {
+    setPrevExpanded(propsExpanded);
+    setExpanded(propsExpanded);
   }
 
   return (
-    <Accordion onChange={handleChange} expanded={expanded}>
+    <Accordion onChange={handleChange} expanded={expanded} {...props}>
       {CONTROLLED_ACCORDION_IDS.map(id => (
         <AccordionItem title={copy.title} key={id} id={id}>
           {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
@@ -106,5 +129,9 @@ Controlled.args = {
 };
 
 Controlled.argTypes = {
-  expanded: {control: {type: 'select', options: CONTROLLED_ACCORDION_IDS}},
+  expanded: {
+    control: {type: 'select', options: CONTROLLED_ACCORDION_IDS},
+  },
+  allowMultiple: {control: null},
+  defaultExpanded: {control: null},
 };
