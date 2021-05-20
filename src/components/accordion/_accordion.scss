@@ -28,6 +28,10 @@
       }
     }
 
+    &__title {
+      flex: auto;
+    }
+
     &__content {
       transition: 0.2s ease-out;
       transition-property: height;
