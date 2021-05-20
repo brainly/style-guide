@@ -161,7 +161,7 @@ const Accordion = ({
 
       const newState = expandedArray
         .filter(item => item !== null)
-        .filter((item, idx) => (allowMultiple ? true : idx < 1))
+        .filter((item, idx) => (allowMultiple || idx < 1))
         .reduce((obj, idx) => ({...obj, [idx]: true}), {});
 
       return {
