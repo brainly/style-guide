@@ -155,9 +155,9 @@ const Accordion = ({
     }
 
     if (defaultExpanded !== undefined) {
-      const expandedArray = !Array.isArray(defaultExpanded)
-        ? [defaultExpanded]
-        : defaultExpanded;
+      const expandedArray = Array.isArray(defaultExpanded)
+        ? defaultExpanded
+        : [defaultExpanded];
 
       const newState = expandedArray
         .filter(item => item !== null)
