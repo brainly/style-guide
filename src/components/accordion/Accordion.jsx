@@ -237,10 +237,10 @@ const Accordion = ({
     }
   }
 
-  const [prevIndex, setPrevIndex] = useState();
+  const [prevExpanded, setPrevExpanded] = useState();
 
-  if (isControlled && expanded !== prevIndex) {
-    setPrevIndex(expanded);
+  if (isControlled && expanded !== prevExpanded) {
+    setPrevExpanded(expanded);
 
     // expanded || '' is to satisfy flow.
     // isControlled flag is true when expanded !== undefined but this condition is not interpreted
