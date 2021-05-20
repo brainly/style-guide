@@ -200,24 +200,6 @@ describe('<Accordion>', () => {
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
   });
 
-  it('expands controlled item when expanded is type of string', () => {
-    const accordionIds = ['id-1', 'id-2', 'id-3'];
-    const accordion = mount(
-      <Accordion expanded={accordionIds[0]} onChange={noop => noop}>
-        {accordionIds.map(id => (
-          <AccordionItem title={id} id={id} key={id}>
-            Accordion Item Description
-          </AccordionItem>
-        ))}
-      </Accordion>
-    );
-
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
-  });
-
   it('calls callback when cliking on item', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const handleOnChange = jest.fn();
