@@ -101,30 +101,26 @@ const Accordion = ({
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isControlled = expanded !== undefined;
   const {current: wasControlled} = useRef<boolean>(isControlled);
-  const isCallbackMissing = isControlled && !onChange;
-  const hasComponentChangedToUncontrolled = wasControlled && !isControlled;
-  const hasComponentChangedToControlled = !wasControlled && isControlled;
-  const isAllowMultiplePassedForControlled = isControlled && allowMultiple;
 
   if (__DEV__) {
     invariant(
-      !isCallbackMissing,
+      !(isControlled && !onChange),
       // eslint-disable-next-line max-len
       ' You provided an `expanded` prop to a Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
     );
 
     invariant(
-      !hasComponentChangedToUncontrolled,
+      !(wasControlled && !isControlled),
       'You cannot change Accordion component from controlled to uncontrolled variant.'
     );
 
     invariant(
-      !hasComponentChangedToControlled,
+      !(!wasControlled && isControlled),
       'You cannot change Accordion component from uncontrolled to controlled variant.'
     );
 
     invariant(
-      !isAllowMultiplePassedForControlled,
+      !(isControlled && allowMultiple),
       'allowMultiple is not working in controlled Accordion'
     );
 
