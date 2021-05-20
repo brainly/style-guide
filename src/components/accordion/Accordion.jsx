@@ -161,7 +161,7 @@ const Accordion = ({
 
       const newState = expandedArray
         .filter(item => item !== null)
-        .filter((item, idx) => (allowMultiple || idx < 1))
+        .filter((item, idx) => allowMultiple || idx < 1)
         .reduce((obj, idx) => ({...obj, [idx]: true}), {});
 
       return {
@@ -244,27 +244,23 @@ const Accordion = ({
 
   const [prevIndex, setPrevIndex] = useState();
 
-  if (isControlled) {
-    if (expanded !== prevIndex) {
-      setPrevIndex(expanded);
+  if (isControlled && expanded !== prevIndex) {
+    setPrevIndex(expanded);
 
-      // expanded || '' is to satisfy flow.
-      // isControlled flag is true when expanded !== undefined but this condition is not interpreted
-      // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
-      const expandedArray = Array.isArray(expanded)
-        ? expanded
-        : [expanded || ''];
+    // expanded || '' is to satisfy flow.
+    // isControlled flag is true when expanded !== undefined but this condition is not interpreted
+    // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
+    const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ''];
 
-      const newState = expandedArray.reduce(
-        (obj, idx) => ({...obj, [idx]: true}),
-        {}
-      );
+    const newState = expandedArray.reduce(
+      (obj, idx) => ({...obj, [idx]: true}),
+      {}
+    );
 
-      dispatch({
-        type: 'accordion/SET_EXPANDED',
-        payload: {expanded: newState},
-      });
-    }
+    dispatch({
+      type: 'accordion/SET_EXPANDED',
+      payload: {expanded: newState},
+    });
   }
 
   const noGapBetweenElements = spacing === 'none';
