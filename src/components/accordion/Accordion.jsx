@@ -2,32 +2,39 @@
 
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
-// eslint-disable-next-line import/no-duplicates
-import {createContext, useReducer, useEffect, useRef} from 'react';
+import {
+  createContext,
+  useReducer,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+  useState,
+  // eslint-disable-next-line import/no-duplicates
+} from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
+import {__DEV__} from '../utils';
+import invariant from '../utils/invariant';
 
 export const KEY_CODES = {
   '32': 'space',
   '13': 'enter',
 };
 
-type OpenedItemsType = {
-  [string]: boolean,
-  ...,
-};
+type ExpandedItemsType = Array<string>;
 
 type StateType = $ReadOnly<{
-  opened: OpenedItemsType,
+  expanded: ExpandedItemsType,
   focusedElementId: string | null,
 }>;
 
 type ActionType =
   | {
-      type: 'accordion/SET_OPENED',
-      payload: {id: string, value: boolean},
+      type: 'accordion/SET_EXPANDED',
+      payload: {expanded: ExpandedItemsType},
     }
-  | {type: 'accordion/KEYBOARD_SET_OPENED'}
+  | {type: 'accordion/KEYBOARD_SET_EXPANDED'}
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
@@ -49,14 +56,18 @@ export type AccordionPropsType = $ReadOnly<{
     | 'xxxxl'
     | 'none',
   reduceMotion?: boolean,
+  expanded?: string | Array<string>,
+  defaultExpanded?: string | Array<string>,
+  onChange?: string => void,
 }>;
 
 type ContextType = {
   noGapBetweenElements: boolean,
-  opened: OpenedItemsType,
+  expanded: ExpandedItemsType,
   focusedElementId: string | null,
   dispatch: (action: ActionType) => void,
   reduceMotion: boolean,
+  onItemSelect: (id: string, value: boolean) => void,
   ...
 };
 
@@ -80,11 +91,84 @@ const Accordion = ({
   className = '',
   spacing = 's',
   reduceMotion = false,
+  defaultExpanded,
+  expanded,
+  onChange,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
-  const [state, dispatch] = useReducer(reducer, {
-    opened: {},
-    focusedElementId: null,
+  const isControlled = expanded !== undefined;
+  const {current: wasControlled} = useRef<boolean>(isControlled);
+
+  if (__DEV__) {
+    invariant(
+      !(isControlled && !onChange),
+      // eslint-disable-next-line max-len
+      ' You provided an `expanded` prop to a Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
+    );
+
+    invariant(
+      !(wasControlled && !isControlled),
+      'You cannot change Accordion component from controlled to uncontrolled variant.'
+    );
+
+    invariant(
+      !(!wasControlled && isControlled),
+      'You cannot change Accordion component from uncontrolled to controlled variant.'
+    );
+
+    invariant(
+      !(isControlled && allowMultiple),
+      'allowMultiple is not working in controlled Accordion'
+    );
+
+    invariant(
+      !(
+        !allowMultiple &&
+        Array.isArray(defaultExpanded) &&
+        defaultExpanded.length > 1
+      ),
+      // eslint-disable-next-line max-len
+      'defaultExpanded is an array with more than 1 element but allowMultiple prop is not set. The first value from the array was picked as a default expanded. Set allowMultiple attribute or provide only one default expanded.'
+    );
+  }
+
+  const getUpdatedOpenedItems = useCallback(
+    (expanded: ExpandedItemsType, id: string, value: boolean) => {
+      if (value) {
+        return allowMultiple ? [...new Set([...expanded, id])] : [id];
+      }
+      return allowMultiple ? expanded.filter(item => item !== id) : [];
+    },
+    [allowMultiple]
+  );
+
+  const [state, dispatch] = useReducer(reducer, null, () => {
+    if (isControlled) {
+      return {
+        expanded: [],
+        focusedElementId: null,
+      };
+    }
+
+    if (defaultExpanded !== undefined) {
+      const expandedArray = Array.isArray(defaultExpanded)
+        ? defaultExpanded
+        : [defaultExpanded];
+
+      const newState = expandedArray.filter(
+        (item, idx) => allowMultiple || idx < 1
+      );
+
+      return {
+        expanded: newState,
+        focusedElementId: null,
+      };
+    }
+
+    return {
+      expanded: [],
+      focusedElementId: null,
+    };
   });
   const hasReduceMotion = useReducedMotion() || reduceMotion;
 
@@ -102,7 +186,7 @@ const Accordion = ({
           event.preventDefault();
         }
 
-        dispatch({type: 'accordion/KEYBOARD_SET_OPENED'});
+        dispatch({type: 'accordion/KEYBOARD_SET_EXPANDED'});
       }
     }
 
@@ -115,36 +199,28 @@ const Accordion = ({
     };
   }, [state.focusedElementId]);
 
-  function getUpdatedOpenedItems(
-    opened: OpenedItemsType,
-    id: string,
-    value: boolean
-  ) {
-    return allowMultiple ? {...opened, [id]: value} : {[id]: value};
-  }
-
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
-      case 'accordion/SET_OPENED': {
-        const {id, value} = action.payload;
+      case 'accordion/SET_EXPANDED': {
+        const {expanded} = action.payload;
 
         return {
           ...state,
-          opened: getUpdatedOpenedItems(state.opened, id, value),
+          expanded,
         };
       }
 
-      case 'accordion/KEYBOARD_SET_OPENED': {
-        const {opened, focusedElementId} = state;
+      case 'accordion/KEYBOARD_SET_EXPANDED': {
+        const {expanded, focusedElementId} = state;
 
         if (focusedElementId === null) return state;
 
         return {
           ...state,
-          opened: getUpdatedOpenedItems(
-            state.opened,
+          expanded: getUpdatedOpenedItems(
+            state.expanded,
             focusedElementId,
-            !opened[focusedElementId]
+            !expanded.includes(focusedElementId)
           ),
         };
       }
@@ -161,25 +237,62 @@ const Accordion = ({
     }
   }
 
+  const [prevExpanded, setPrevExpanded] = useState();
+
+  if (isControlled && expanded !== prevExpanded) {
+    setPrevExpanded(expanded);
+
+    // expanded || '' is to satisfy flow.
+    // isControlled flag is true when expanded !== undefined but this condition is not interpreted
+    // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
+    const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ''];
+
+    dispatch({
+      type: 'accordion/SET_EXPANDED',
+      payload: {expanded: expandedArray},
+    });
+  }
+
   const noGapBetweenElements = spacing === 'none';
   const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
+  const onItemSelect = useCallback(
+    (id, value) => {
+      onChange && onChange(id);
+
+      if (!isControlled) {
+        dispatch({
+          type: 'accordion/SET_EXPANDED',
+          payload: {
+            expanded: getUpdatedOpenedItems(state.expanded, id, value),
+          },
+        });
+      }
+    },
+    [getUpdatedOpenedItems, isControlled, onChange, state.expanded]
+  );
+
+  const context = useMemo(
+    () => ({
+      noGapBetweenElements,
+      expanded: state.expanded,
+      focusedElementId: state.focusedElementId,
+      dispatch,
+      reduceMotion: hasReduceMotion,
+      onItemSelect,
+    }),
+    [
+      hasReduceMotion,
+      noGapBetweenElements,
+      onItemSelect,
+      state.focusedElementId,
+      state.expanded,
+    ]
+  );
+
   return (
-    <AccordionContext.Provider
-      value={{
-        noGapBetweenElements,
-        opened: state.opened,
-        focusedElementId: state.focusedElementId,
-        dispatch,
-        reduceMotion: hasReduceMotion,
-      }}
-    >
-      <div
-        ref={wrapperRef}
-        className={cx(spaceClass, className)}
-        data-allow-multiple={allowMultiple}
-        data-allow-toggle={!allowMultiple}
-      >
+    <AccordionContext.Provider value={context}>
+      <div ref={wrapperRef} className={cx(spaceClass, className)}>
         {children}
       </div>
     </AccordionContext.Provider>

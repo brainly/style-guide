@@ -148,13 +148,13 @@ describe('<Accordion>', () => {
     ).toEqual('gray-secondary-lightest');
   });
 
-  it('by default expands items that have "defaultOpened" prop', () => {
+  it('by default expands items that have "defaultExpanded" prop', () => {
     const accordion = mount(
-      <Accordion allowMultiple>
-        <AccordionItem title="Item 1" defaultOpened>
+      <Accordion allowMultiple defaultExpanded={['id-1', 'id-2']}>
+        <AccordionItem title="Item 1" id="id-1">
           Accordion Item Description
         </AccordionItem>
-        <AccordionItem title="Item 2" defaultOpened>
+        <AccordionItem title="Item 2" id="id-2">
           Accordion Item Description
         </AccordionItem>
         <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
@@ -163,6 +163,67 @@ describe('<Accordion>', () => {
 
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
+  });
+
+  it('expands controlled items when expanded is type of array', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion expanded={accordionIds} onChange={() => undefined}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
+  });
+
+  it('expands controlled item when expanded is type of string', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const accordion = mount(
+      <Accordion expanded={accordionIds[0]} onChange={noop => noop}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
+      accordionIds.length
+    );
+    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
+  });
+
+  it('calls callback when cliking on item', () => {
+    const accordionIds = ['id-1', 'id-2', 'id-3'];
+    const handleOnChange = jest.fn();
+    const accordion = mount(
+      <Accordion expanded={accordionIds[0]} onChange={handleOnChange}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
+
+    const item = accordionIds[0];
+
+    accordion
+      .find({title: item})
+      .find({role: 'button'})
+      .hostNodes()
+      .simulate('click');
+
+    expect(handleOnChange).toHaveBeenCalled();
+    expect(handleOnChange).toHaveBeenCalledWith(item);
   });
 
   it('renders Link when title is string', () => {

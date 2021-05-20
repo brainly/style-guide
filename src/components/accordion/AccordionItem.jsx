@@ -3,7 +3,7 @@
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
 // eslint-disable-next-line import/no-duplicates
-import {useContext, useLayoutEffect, useEffect, useRef, useState} from 'react';
+import {useContext, useEffect, useRef, useState} from 'react';
 
 import cx from 'classnames';
 import Box from '../box/Box';
@@ -20,9 +20,9 @@ export type AccordionItemPropsType = $ReadOnly<{
   titleSize?: 'small' | 'large',
   children?: React.Node,
   className?: string,
-  defaultOpened?: boolean,
   padding?: PaddingType,
   tabIndex?: number,
+  id?: string,
 }>;
 
 function generateId() {
@@ -36,35 +36,34 @@ const AccordionItem = ({
   titleSize = 'large',
   children,
   className = '',
-  defaultOpened = false,
   padding = 'm',
   tabIndex = 0,
+  id: customId,
 }: AccordionItemPropsType) => {
-  const hasRendered = useRef(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const {current: id} = useRef<string>(`AccordionItem_${generateId()}`);
+  const {current: id} = useRef<string>(
+    customId ?? `AccordionItem_${generateId()}`
+  );
   const contentId = `Section_${id}`;
 
   const {
     noGapBetweenElements,
-    opened,
+    expanded,
     focusedElementId,
     dispatch,
     reduceMotion,
+    onItemSelect,
   } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
-  const isHidden = !opened[id];
+  const isCollapsed = !expanded.includes(id);
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
   const isTitleString = typeof title === 'string';
 
   const toggleOpen = () => {
-    dispatch({
-      type: 'accordion/SET_OPENED',
-      payload: {id, value: isHidden},
-    });
+    onItemSelect(id, isCollapsed);
   };
 
   function handleFocus() {
@@ -82,18 +81,6 @@ const AccordionItem = ({
   }
 
   useEffect(() => {
-    if (defaultOpened) {
-      dispatch({
-        type: 'accordion/SET_OPENED',
-        payload: {id, value: true},
-      });
-    }
-
-    hasRendered.current = true;
-    //eslint-disable-next-line
-  }, []);
-
-  useLayoutEffect(() => {
     const content = contentRef.current;
 
     function collapse() {
@@ -159,9 +146,7 @@ const AccordionItem = ({
       contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
-    if (hasRendered.current === false) return;
-
-    isHidden ? collapse() : expand();
+    isCollapsed ? collapse() : expand();
 
     return () => {
       if (!content) {
@@ -169,7 +154,7 @@ const AccordionItem = ({
       }
       content.removeEventListener('transitionend', onTransitionEnd);
     };
-  }, [isHidden, reduceMotion]);
+  }, [isCollapsed, reduceMotion]);
 
   return (
     <Box
@@ -195,7 +180,7 @@ const AccordionItem = ({
         onMouseLeave={() => setIsHovered(false)}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        aria-expanded={!isHidden}
+        aria-expanded={!isCollapsed}
         aria-controls={contentId}
         id={id}
         role="button"
@@ -229,7 +214,7 @@ const AccordionItem = ({
               type="arrow_down"
               color="dark"
               className={cx('sg-accordion-item__arrow', {
-                'sg-accordion-item__arrow--visible': !isHidden,
+                'sg-accordion-item__arrow--visible': !isCollapsed,
               })}
             />
           </Flex>

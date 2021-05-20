@@ -18,6 +18,21 @@ export default {
         disable: true,
       },
     },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+    defaultExpanded: {
+      control: {
+        type: 'array',
+      },
+    },
+    expanded: {
+      control: {
+        type: 'array',
+      },
+    },
   },
 };
 
@@ -54,25 +69,15 @@ export const Default = (args: any) => (
     <AccordionItem title={copy.title}>
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
-    <AccordionItem title={copy.title}>
+  </Accordion>
+);
+
+export const NoGaps = (args: any) => (
+  <Accordion {...args}>
+    <AccordionItem title={copy.title} id="first">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
+    <AccordionItem title={copy.title} id="second">
       {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
     </AccordionItem>
     <AccordionItem title={copy.title}>
@@ -84,19 +89,49 @@ export const Default = (args: any) => (
   </Accordion>
 );
 
-export const NoGaps = () => (
-  <Accordion spacing="none" allowMultiple>
-    <AccordionItem title={copy.title} defaultOpened>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title} defaultOpened>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-  </Accordion>
-);
+NoGaps.args = {
+  spacing: 'none',
+  allowMultiple: true,
+  defaultExpanded: ['first', 'second'],
+};
+
+const CONTROLLED_ACCORDION_IDS = [
+  'accrodion item 1',
+  'accordion item 2',
+  'accordion item 3',
+];
+
+export const Controlled = (args: any) => {
+  const [prevExpanded, setPrevExpanded] = React.useState();
+  const [expanded, setExpanded] = React.useState('');
+  const handleChange = id => setExpanded(id);
+
+  const {expanded: propsExpanded, ...props} = args;
+
+  if (propsExpanded !== prevExpanded) {
+    setPrevExpanded(propsExpanded);
+    setExpanded(propsExpanded);
+  }
+
+  return (
+    <Accordion onChange={handleChange} expanded={expanded} {...props}>
+      {CONTROLLED_ACCORDION_IDS.map(id => (
+        <AccordionItem title={copy.title} key={id} id={id}>
+          {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+        </AccordionItem>
+      ))}
+    </Accordion>
+  );
+};
+
+Controlled.args = {
+  expanded: CONTROLLED_ACCORDION_IDS[0],
+};
+
+Controlled.argTypes = {
+  expanded: {
+    control: {type: 'select', options: CONTROLLED_ACCORDION_IDS},
+  },
+  allowMultiple: {control: null},
+  defaultExpanded: {control: null},
+};
