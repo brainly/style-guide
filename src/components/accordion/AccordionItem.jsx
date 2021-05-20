@@ -56,7 +56,7 @@ const AccordionItem = ({
   } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
-  const isCollapsed = !expanded[id];
+  const isCollapsed = !expanded.includes(id);
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;

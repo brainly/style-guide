@@ -22,10 +22,7 @@ export const KEY_CODES = {
   '13': 'enter',
 };
 
-type ExpandedItemsType = {
-  [string]: boolean,
-  ...,
-};
+type ExpandedItemsType = Array<string>;
 
 type StateType = $ReadOnly<{
   expanded: ExpandedItemsType,
@@ -137,7 +134,10 @@ const Accordion = ({
 
   const getUpdatedOpenedItems = useCallback(
     (expanded: ExpandedItemsType, id: string, value: boolean) => {
-      return allowMultiple ? {...expanded, [id]: value} : {[id]: value};
+      if (value) {
+        return allowMultiple ? [...new Set([...expanded, id])] : [id];
+      }
+      return allowMultiple ? expanded.filter(item => item !== id) : [];
     },
     [allowMultiple]
   );
@@ -145,7 +145,7 @@ const Accordion = ({
   const [state, dispatch] = useReducer(reducer, null, () => {
     if (isControlled) {
       return {
-        expanded: {},
+        expanded: [],
         focusedElementId: null,
       };
     }
@@ -155,10 +155,9 @@ const Accordion = ({
         ? defaultExpanded
         : [defaultExpanded];
 
-      const newState = expandedArray
-        .filter(item => item !== null)
-        .filter((item, idx) => allowMultiple || idx < 1)
-        .reduce((obj, idx) => ({...obj, [idx]: true}), {});
+      const newState = expandedArray.filter(
+        (item, idx) => allowMultiple || idx < 1
+      );
 
       return {
         expanded: newState,
@@ -167,7 +166,7 @@ const Accordion = ({
     }
 
     return {
-      expanded: {},
+      expanded: [],
       focusedElementId: null,
     };
   });
@@ -221,7 +220,7 @@ const Accordion = ({
           expanded: getUpdatedOpenedItems(
             state.expanded,
             focusedElementId,
-            !expanded[focusedElementId]
+            !expanded.includes(focusedElementId)
           ),
         };
       }
@@ -248,14 +247,9 @@ const Accordion = ({
     // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
     const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ''];
 
-    const newState = expandedArray.reduce(
-      (obj, idx) => ({...obj, [idx]: true}),
-      {}
-    );
-
     dispatch({
       type: 'accordion/SET_EXPANDED',
-      payload: {expanded: newState},
+      payload: {expanded: expandedArray},
     });
   }
 
