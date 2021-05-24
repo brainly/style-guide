@@ -9,3 +9,13 @@ export default {
 };
 
 export const Default = args => <Spinner {...args} />;
+
+export const Light = args => <Spinner {...args} />;
+
+Light.args = {
+  light: true,
+};
+
+Light.parameters = {
+  backgrounds: {default: 'dark'},
+};
