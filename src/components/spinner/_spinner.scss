@@ -11,13 +11,13 @@
   animation: spinner-animation 0.65s infinite linear;
 
   &--small {
-    width: gutter(1);
-    height: gutter(1);
+    width: gutter(4 / 3);
+    height: gutter(4 / 3);
   }
 
   &--xsmall {
-    width: gutter(5 / 6);
-    height: gutter(5 / 6);
+    width: gutter(1);
+    height: gutter(1);
   }
 
   &--xxsmall {

@@ -18,7 +18,12 @@ export type SpinnerPropsType = {
   ...
 };
 
-const Spinner = ({light, size, className, ...props}: SpinnerPropsType) => {
+const Spinner = ({
+  light,
+  size = SPINNER_SIZE.SMALL,
+  className,
+  ...props
+}: SpinnerPropsType) => {
   const spinnerClassNames = classNames(
     'sg-spinner',
     {
