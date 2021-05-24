@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner, {SPINNER_SIZE} from './Spinner';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
 
 export default {
   title: 'Components/Spinner',
@@ -20,12 +20,16 @@ export const Sizes = () => (
   </div>
 );
 
-export const Light = args => <Spinner {...args} />;
+export const Colors = () => (
+  <div style={{display: 'flex'}}>
+    {Object.values(SPINNER_COLOR).map((color, index) => (
+      <div key={index} style={{padding: 8}}>
+        <Spinner color={color} />
+      </div>
+    ))}
+  </div>
+);
 
-Light.args = {
-  light: true,
-};
-
-Light.parameters = {
+Colors.parameters = {
   backgrounds: {default: 'dark'},
 };

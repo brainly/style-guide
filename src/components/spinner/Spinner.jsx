@@ -5,21 +5,38 @@ import classNames from 'classnames';
 
 export type SpinnerSizeType = 'small' | 'xsmall' | 'xxsmall';
 
+export type SpinnerColorType =
+  | 'black'
+  | 'white'
+  | 'gray'
+  | 'peach'
+  | 'mustard'
+  | 'blue';
+
 export const SPINNER_SIZE = {
   SMALL: 'small',
   XSMALL: 'xsmall',
   XXSMALL: 'xxsmall',
 };
 
+export const SPINNER_COLOR = {
+  BLACK: 'black',
+  WHITE: 'white',
+  GRAY: 'gray',
+  PEACH: 'peach',
+  MUSTARD: 'mustard',
+  BLUE: 'blue',
+};
+
 export type SpinnerPropsType = {
-  light?: boolean,
+  color?: SpinnerColorType,
   size?: SpinnerSizeType,
   className?: string,
   ...
 };
 
 const Spinner = ({
-  light,
+  color = SPINNER_COLOR.BLACK,
   size = SPINNER_SIZE.SMALL,
   className,
   ...props
@@ -27,7 +44,7 @@ const Spinner = ({
   const spinnerClassNames = classNames(
     'sg-spinner',
     {
-      'sg-spinner--light': light,
+      [`sg-spinner--${String(color)}`]: color,
       [`sg-spinner--${String(size)}`]: size,
     },
     className

@@ -26,9 +26,34 @@
     border-width: 2px;
   }
 
-  &--light {
+  &--black {
+    border-bottom-color: $grayPrimary;
+    border-left-color: $grayPrimary;
+  }
+
+  &--white {
     border-bottom-color: $white;
     border-left-color: $white;
+  }
+
+  &--gray {
+    border-bottom-color: $graySecondary;
+    border-left-color: $graySecondary;
+  }
+
+  &--peach {
+    border-bottom-color: $peachPrimary;
+    border-left-color: $peachPrimary;
+  }
+
+  &--mustard {
+    border-bottom-color: $mustardPrimary;
+    border-left-color: $mustardPrimary;
+  }
+
+  &--blue {
+    border-bottom-color: $bluePrimary;
+    border-left-color: $bluePrimary;
   }
 }
 
