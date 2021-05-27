@@ -27,8 +27,8 @@
   }
 
   &--black {
-    border-bottom-color: $grayPrimary;
-    border-left-color: $grayPrimary;
+    border-bottom-color: $black;
+    border-left-color: $black;
   }
 
   &--white {
@@ -36,22 +36,27 @@
     border-left-color: $white;
   }
 
-  &--gray {
+  &--gray-900 {
+    border-bottom-color: $grayPrimary;
+    border-left-color: $grayPrimary;
+  }
+
+  &--gray-700 {
     border-bottom-color: $graySecondary;
     border-left-color: $graySecondary;
   }
 
-  &--peach {
+  &--peach-700 {
     border-bottom-color: $peachPrimary;
     border-left-color: $peachPrimary;
   }
 
-  &--mustard {
+  &--mustard-700 {
     border-bottom-color: $mustardPrimary;
     border-left-color: $mustardPrimary;
   }
 
-  &--blue {
+  &--blue-700 {
     border-bottom-color: $bluePrimary;
     border-left-color: $bluePrimary;
   }

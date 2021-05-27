@@ -8,10 +8,11 @@ export type SpinnerSizeType = 'small' | 'xsmall' | 'xxsmall';
 export type SpinnerColorType =
   | 'black'
   | 'white'
-  | 'gray'
-  | 'peach'
-  | 'mustard'
-  | 'blue';
+  | 'gray-900'
+  | 'gray-700'
+  | 'peach-700'
+  | 'mustard-700'
+  | 'blue-700';
 
 export const SPINNER_SIZE = {
   SMALL: 'small',
@@ -22,10 +23,11 @@ export const SPINNER_SIZE = {
 export const SPINNER_COLOR = {
   BLACK: 'black',
   WHITE: 'white',
-  GRAY: 'gray',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  BLUE: 'blue',
+  GRAY900: 'gray-900',
+  GRAY700: 'gray-700',
+  PEACH700: 'peach-700',
+  MUSTARD700: 'mustard-700',
+  BLUE700: 'blue-700',
 };
 
 export type SpinnerPropsType = {
