@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Spinner, {SPINNER_SIZE} from '../Spinner';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../Spinner';
 
 const Spinners = () => (
   <>
@@ -17,11 +17,17 @@ const Spinners = () => (
     <DocsBlock info="XXSmall">
       <Spinner size={SPINNER_SIZE.XXSMALL} />
     </DocsBlock>
-    <DocsBlock info="Light">
-      <ContrastBox>
-        <Spinner light />
-      </ContrastBox>
-    </DocsBlock>
+    {Object.values(SPINNER_COLOR).map(color => (
+      <DocsBlock key={color} info={color}>
+        {color === 'white' ? (
+          <ContrastBox>
+            <Spinner color={color} />
+          </ContrastBox>
+        ) : (
+          <Spinner color={color} />
+        )}
+      </DocsBlock>
+    ))}
   </>
 );
 

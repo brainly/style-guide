@@ -11,13 +11,13 @@
   animation: spinner-animation 0.65s infinite linear;
 
   &--small {
-    width: gutter(1);
-    height: gutter(1);
+    width: gutter(4 / 3);
+    height: gutter(4 / 3);
   }
 
   &--xsmall {
-    width: gutter(5 / 6);
-    height: gutter(5 / 6);
+    width: gutter(1);
+    height: gutter(1);
   }
 
   &--xxsmall {
@@ -26,9 +26,39 @@
     border-width: 2px;
   }
 
-  &--light {
+  &--black {
+    border-bottom-color: $black;
+    border-left-color: $black;
+  }
+
+  &--white {
     border-bottom-color: $white;
     border-left-color: $white;
+  }
+
+  &--gray-900 {
+    border-bottom-color: $grayPrimary;
+    border-left-color: $grayPrimary;
+  }
+
+  &--gray-700 {
+    border-bottom-color: $graySecondary;
+    border-left-color: $graySecondary;
+  }
+
+  &--peach-700 {
+    border-bottom-color: $peachPrimary;
+    border-left-color: $peachPrimary;
+  }
+
+  &--mustard-700 {
+    border-bottom-color: $mustardPrimary;
+    border-left-color: $mustardPrimary;
+  }
+
+  &--blue-700 {
+    border-bottom-color: $bluePrimary;
+    border-left-color: $bluePrimary;
   }
 }
 

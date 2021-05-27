@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner, {SPINNER_SIZE} from './Spinner';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -16,11 +16,13 @@ test('SPINNER_SIZE', () => {
   expect(component.hasClass('sg-spinner--xsmall')).toEqual(true);
 });
 
-test('light', () => {
-  const component = shallow(<Spinner light />);
+test('colors', () => {
+  Object.values(SPINNER_COLOR).forEach(color => {
+    const component = shallow(<Spinner color={color} />);
 
-  expect(component).toHaveLength(1);
-  expect(component.hasClass('sg-spinner--light')).toEqual(true);
+    expect(component).toHaveLength(1);
+    expect(component.hasClass(`sg-spinner--${color}`)).toEqual(true);
+  });
 });
 
 test('className', () => {

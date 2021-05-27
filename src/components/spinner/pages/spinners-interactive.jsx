@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner, {SPINNER_SIZE} from '../Spinner';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../Spinner';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Spinners = () => {
@@ -9,8 +9,8 @@ const Spinners = () => {
       values: SPINNER_SIZE,
     },
     {
-      name: 'light',
-      values: Boolean,
+      name: 'color',
+      values: SPINNER_COLOR,
     },
   ];
 
