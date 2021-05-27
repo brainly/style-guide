@@ -1,6 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
+// import {Spinner} from '../..';
 import cx from 'classnames';
 
 export const BUTTON_SIZE: {
@@ -11,18 +12,6 @@ export const BUTTON_SIZE: {
   L: 'l',
   M: 'm',
   S: 's',
-};
-
-const TOGGLE_BUTTON_TYPE: {
-  SOLID_LIGHT: 'solid-light',
-  OUTLINE: 'outline',
-  TRANSPARENT: 'transparent',
-  TRANSPARENT_LIGHT: 'transparent-light',
-} = {
-  SOLID_LIGHT: 'solid-light',
-  OUTLINE: 'outline',
-  TRANSPARENT: 'transparent',
-  TRANSPARENT_LIGHT: 'transparent-light',
 };
 
 export const BUTTON_TYPE: {
@@ -40,7 +29,10 @@ export const BUTTON_TYPE: {
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
 } = {
-  ...TOGGLE_BUTTON_TYPE,
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
   SOLID_BLUE: 'solid-blue',
@@ -62,45 +54,62 @@ export const BUTTON_TOGGLE: {
   BLUE: 'blue',
 };
 
+type ButtonType =
+  | 'solid-light'
+  | 'outline'
+  | 'transparent'
+  | 'transparent-light'
+  | 'solid'
+  | 'solid-inverted'
+  | 'solid-blue'
+  | 'solid-mint'
+  | 'transparent-peach'
+  | 'transparent-mustard'
+  | 'transparent-blue'
+  | 'transparent-inverted'
+  | 'facebook';
+
+type ButtonToggleType = 'peach' | 'mustard' | 'blue';
+
 type ButtonSizeType = 'l' | 'm' | 's';
 
-type ButtonColorType =
-  | {
-      type: $Values<typeof BUTTON_TYPE>,
-      toggle?: null,
-    }
-  | {
-      type: $Values<typeof TOGGLE_BUTTON_TYPE>,
-      toggle?: $Values<typeof BUTTON_TOGGLE> | null,
-    }
-  | {
-      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
-      toggle?: 'peach' | null,
-    }
-  | {
-      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
-      toggle?: 'mustard' | null,
-    }
-  | {
-      type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
-      toggle?: 'blue' | null,
-    };
+// type ButtonColorType =
+//   | {
+//       type: $Values<typeof BUTTON_TYPE>,
+//       toggle?: null,
+//     }
+//   | {
+//       type: $Values<typeof TOGGLE_BUTTON_TYPE>,
+//       toggle?: $Values<typeof BUTTON_TOGGLE> | null,
+//     }
+//   | {
+//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
+//       toggle?: 'peach' | null,
+//     }
+//   | {
+//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
+//       toggle?: 'mustard' | null,
+//     }
+//   | {
+//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
+//       toggle?: 'blue' | null,
+//     };
 
-type ButtonIconType =
-  | {
-      icon?: React.Node,
-      iconOnly?: null,
-      reversedOrder?: boolean,
-    }
-  | {
-      icon: React.Node,
-      iconOnly?: boolean,
-      reversedOrder?: null,
-    };
+// type ButtonIconType =
+//   | {
+//       icon?: React.Node,
+//       iconOnly?: null,
+//       reversedOrder?: boolean,
+//     }
+//   | {
+//       icon: React.Node,
+//       iconOnly?: boolean,
+//       reversedOrder?: null,
+//     };
 
 export type ButtonPropsType = {
   /**
-   * type: Specify type of the button that you want to use
+   * Specify type of the button that you want to use
    * @example <Button type="solid">
    *            button
    *          </Button>
@@ -118,13 +127,15 @@ export type ButtonPropsType = {
    * @see type="transparent-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-blue"#buttons
    * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
    *
-   * toggle: optional union available just for selected type of buttons
-   *
-   * @example <Button type="solid-light" toggle="peach">
-   *            button
-   *          </Button>
    */
-  ...ButtonColorType,
+  type: ButtonType,
+  /**
+   * Set toggle state of the button.
+   * Caution: Toggle property work with for specific button types:
+   * `solid-light`,`outline`, `transparent`, `transparent-light`, `transparent-peach`,
+   * `transparent-mustard`, `transparent-blue`
+   */
+  toggle?: ButtonToggleType,
   /**
    * You can render icon inside each type of button on the left side
    * @example <Button
@@ -143,7 +154,9 @@ export type ButtonPropsType = {
    *            Login with Facebook
    *          </Button>
    */
-  ...ButtonIconType,
+  icon?: React.Node,
+  iconOnly?: boolean,
+  reversedOrder?: boolean,
   /**
    * Children to be rendered inside Button
    * @example <Button
@@ -179,6 +192,11 @@ export type ButtonPropsType = {
    */
   disabled?: boolean,
   /**
+   * Show loading state. By default loading state make button disabled and
+   * keep button's width unchanged.
+   */
+  loading?: boolean,
+  /**
    * Optional boolean for full width button
    * @example <Button type="solid-mint" fullWidth>
    *            button
@@ -194,24 +212,27 @@ export type ButtonPropsType = {
 
 const Button = ({
   size,
-  type,
+  type = 'solid',
   icon,
   iconOnly,
   reversedOrder,
   href,
   fullWidth,
   disabled,
+  loading,
   toggle,
   children,
   className,
   ...props
 }: ButtonPropsType) => {
+  const isDisabled = disabled || loading;
+
   const btnClass = cx(
     'sg-button',
     {
       [`sg-button--${String(size)}`]: size,
       [`sg-button--${String(type)}`]: type,
-      'sg-button--disabled': disabled,
+      'sg-button--disabled': isDisabled,
       'sg-button--full-width': fullWidth,
       'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
@@ -237,7 +258,7 @@ const Button = ({
       {...props}
       className={btnClass}
       href={href}
-      disabled={disabled}
+      disabled={isDisabled}
       role={href !== undefined ? 'button' : undefined}
     >
       {ico}

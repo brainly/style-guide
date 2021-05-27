@@ -8,5 +8,9 @@ export default {
   },
 };
 
-export const Default = () => <Button>Button</Button>;
+export const Default = args => <Button {...args} />;
+
+Default.args = {
+  children: 'Button',
+};
 export const Outline = () => <Button type="outline">Button</Button>;
