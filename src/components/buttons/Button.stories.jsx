@@ -5,7 +5,7 @@ import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 const allIcons = Object.entries(ICON_TYPES).reduce(
   (acc, [key, type]) => ({
     ...acc,
-    [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />,
+    [key]: type,
   }),
   {}
 );
@@ -25,9 +25,15 @@ export default {
   },
 };
 
-export const Default = args => <Button {...args} />;
+export const Default = ({icon, ...args}) => (
+  <Button
+    icon={icon && <Icon type={icon} color={ICON_COLOR.ADAPTIVE} size={24} />}
+    {...args}
+  />
+);
 
 Default.args = {
   children: 'Button',
 };
+
 export const Outline = () => <Button type="outline">Button</Button>;
