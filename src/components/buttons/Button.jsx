@@ -3,6 +3,8 @@
 import * as React from 'react';
 // import {Spinner} from '../..';
 import cx from 'classnames';
+import {__DEV__} from '../utils';
+import invariant from '../utils/invariant';
 
 export const BUTTON_SIZE: {
   L: 'l',
@@ -225,6 +227,50 @@ const Button = ({
   className,
   ...props
 }: ButtonPropsType) => {
+  if (__DEV__) {
+    invariant(
+      toggle === 'blue' &&
+        [
+          'solid-light',
+          'outline',
+          'transparent',
+          'transparent-light',
+          'transparent-blue',
+        ].includes(type),
+      `Value of toggle property '${String(
+        toggle
+      )}' has no effect when button type is set to '${type}'`
+    );
+
+    invariant(
+      toggle === 'peach' &&
+        [
+          'solid-light',
+          'outline',
+          'transparent',
+          'transparent-light',
+          'transparent-peach',
+        ].includes(type),
+      `Value of toggle property '${String(
+        toggle
+      )}' has no effect when button type is set to '${type}'`
+    );
+
+    invariant(
+      toggle === 'mustard' &&
+        [
+          'solid-light',
+          'outline',
+          'transparent',
+          'transparent-light',
+          'transparent-mustard',
+        ].includes(type),
+      `Value of toggle property '${String(
+        toggle
+      )}' has no effect when button type is set to '${type}'`
+    );
+  }
+
   const isDisabled = disabled || loading;
 
   const btnClass = cx(
