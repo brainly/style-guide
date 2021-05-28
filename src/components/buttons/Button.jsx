@@ -119,8 +119,9 @@ export type ButtonPropsType = {
    *          >
    *            Login with Facebook
    *          </Button>
-   *
-   * iconOnly: optional and available when icon is set. it hides button's text
+   */
+  icon?: React.Node,
+  /** Optional and available when icon is set. it hides button's text
    * @example <Button
    *            icon={<Icon type="facebook" color="light" size={24} />}
    *            iconOnly
@@ -128,9 +129,11 @@ export type ButtonPropsType = {
    *          >
    *            Login with Facebook
    *          </Button>
-   */
-  icon?: React.Node,
+   * */
   iconOnly?: boolean,
+  /**
+   * Reverses order of icon and text. Effective only when icon is set.
+   */
   reversedOrder?: boolean,
   /**
    * Children to be rendered inside Button
@@ -167,8 +170,8 @@ export type ButtonPropsType = {
    */
   disabled?: boolean,
   /**
-   * Show loading state. By default loading state make button disabled and
-   * keep button's width unchanged.
+   * Show loading state. By default loading state make button disabled while
+   * showing spinner inside and keep button's width unchanged.
    */
   loading?: boolean,
   /**
