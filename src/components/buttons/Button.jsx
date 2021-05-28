@@ -277,7 +277,9 @@ const Button = ({
       disabled={isDisabled}
       role={href !== undefined ? 'button' : undefined}
     >
-      {loading && <Spinner size={SPINNER_SIZE_MAP[size]} />}
+      {loading && (
+        <Spinner size={SPINNER_SIZE_MAP[size]} className="sg-button__spinner" />
+      )}
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
       <span className="sg-button__text">{children}</span>
