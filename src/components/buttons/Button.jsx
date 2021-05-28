@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import {Spinner} from '../..';
+import Spinner, {SPINNER_SIZE} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__} from '../utils';
 import invariant from '../utils/invariant';
@@ -14,6 +14,12 @@ export const BUTTON_SIZE: {
   L: 'l',
   M: 'm',
   S: 's',
+};
+
+const SPINNER_SIZE_MAP = {
+  [BUTTON_SIZE.L]: SPINNER_SIZE.SMALL,
+  [BUTTON_SIZE.M]: SPINNER_SIZE.XSMALL,
+  [BUTTON_SIZE.S]: SPINNER_SIZE.XXSMALL,
 };
 
 export const BUTTON_TYPE: {
@@ -189,7 +195,7 @@ export type ButtonPropsType = {
 };
 
 const Button = ({
-  size,
+  size = 'm',
   type = 'solid',
   icon,
   iconOnly,
@@ -266,7 +272,7 @@ const Button = ({
       disabled={isDisabled}
       role={href !== undefined ? 'button' : undefined}
     >
-      {loading && <Spinner />}
+      {loading && <Spinner size={SPINNER_SIZE_MAP[size]} />}
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
       <span className="sg-button__text">{children}</span>
