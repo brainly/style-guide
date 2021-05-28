@@ -82,40 +82,6 @@ const TOGGLE_BUTTON_TYPES = [
   'transparent-light',
 ];
 
-// type ButtonColorType =
-//   | {
-//       type: $Values<typeof BUTTON_TYPE>,
-//       toggle?: null,
-//     }
-//   | {
-//       type: $Values<typeof TOGGLE_BUTTON_TYPE>,
-//       toggle?: $Values<typeof BUTTON_TOGGLE> | null,
-//     }
-//   | {
-//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-peach',
-//       toggle?: 'peach' | null,
-//     }
-//   | {
-//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-mustard',
-//       toggle?: 'mustard' | null,
-//     }
-//   | {
-//       type: $Values<typeof TOGGLE_BUTTON_TYPE> | 'transparent-blue',
-//       toggle?: 'blue' | null,
-//     };
-
-// type ButtonIconType =
-//   | {
-//       icon?: React.Node,
-//       iconOnly?: null,
-//       reversedOrder?: boolean,
-//     }
-//   | {
-//       icon: React.Node,
-//       iconOnly?: boolean,
-//       reversedOrder?: null,
-//     };
-
 export type ButtonPropsType = {
   /**
    * Specify type of the button that you want to use
@@ -242,7 +208,7 @@ const Button = ({
       ),
       `Value of toggle property '${String(
         toggle
-      )}' has no effect when button type is set to '${type}'`
+      )}' has no effect when button type is set to '${type}'.`
     );
 
     invariant(
@@ -252,7 +218,7 @@ const Button = ({
       ),
       `Value of toggle property '${String(
         toggle
-      )}' has no effect when button type is set to '${type}'`
+      )}' has no effect when button type is set to '${type}'.`
     );
 
     invariant(
@@ -262,7 +228,17 @@ const Button = ({
       ),
       `Value of toggle property '${String(
         toggle
-      )}' has no effect when button type is set to '${type}'`
+      )}' has no effect when button type is set to '${type}'.`
+    );
+
+    invariant(
+      !(iconOnly && !icon),
+      `Using 'iconOnly' property has no effect when 'icon' property is not set.`
+    );
+
+    invariant(
+      !(iconOnly && reversedOrder),
+      `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
     );
   }
 
