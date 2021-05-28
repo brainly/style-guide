@@ -236,23 +236,30 @@ const Button = ({
 }: ButtonPropsType) => {
   if (__DEV__) {
     invariant(
-      toggle === 'blue' &&
-        [...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type),
+      !(
+        toggle === 'blue' &&
+        ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)
+      ),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
     );
 
     invariant(
-      toggle === 'peach' && [...TOGGLE_BUTTON_TYPES].includes(type),
+      !(
+        toggle === 'peach' &&
+        ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)
+      ),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
     );
 
     invariant(
-      toggle === 'mustard' &&
-        [...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type),
+      !(
+        toggle === 'mustard' &&
+        ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type)
+      ),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
