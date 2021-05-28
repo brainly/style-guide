@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-// import {Spinner} from '../..';
+import {Spinner} from '../..';
 import cx from 'classnames';
 import {__DEV__} from '../utils';
 import invariant from '../utils/invariant';
@@ -206,28 +206,12 @@ const Button = ({
   if (__DEV__) {
     invariant(
       !(
-        toggle === 'blue' &&
-        ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)
-      ),
-      `Value of toggle property '${String(
-        toggle
-      )}' has no effect when button type is set to '${type}'.`
-    );
-
-    invariant(
-      !(
-        toggle === 'peach' &&
-        ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)
-      ),
-      `Value of toggle property '${String(
-        toggle
-      )}' has no effect when button type is set to '${type}'.`
-    );
-
-    invariant(
-      !(
-        toggle === 'mustard' &&
-        ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type)
+        (toggle === 'blue' &&
+          ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)) ||
+        (toggle === 'peach' &&
+          ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)) ||
+        (toggle === 'mustard' &&
+          ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type))
       ),
       `Value of toggle property '${String(
         toggle
@@ -253,6 +237,7 @@ const Button = ({
       [`sg-button--${String(size)}`]: size,
       [`sg-button--${String(type)}`]: type,
       'sg-button--disabled': isDisabled,
+      'sg-button--loading': loading,
       'sg-button--full-width': fullWidth,
       'sg-button--icon-only': Boolean(icon) && iconOnly,
       [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
@@ -281,6 +266,7 @@ const Button = ({
       disabled={isDisabled}
       role={href !== undefined ? 'button' : undefined}
     >
+      {loading && <Spinner />}
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
       <span className="sg-button__text">{children}</span>
