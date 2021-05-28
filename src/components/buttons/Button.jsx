@@ -75,6 +75,13 @@ type ButtonToggleType = 'peach' | 'mustard' | 'blue';
 
 type ButtonSizeType = 'l' | 'm' | 's';
 
+const TOGGLE_BUTTON_TYPES = [
+  'solid-light',
+  'outline',
+  'transparent',
+  'transparent-light',
+];
+
 // type ButtonColorType =
 //   | {
 //       type: $Values<typeof BUTTON_TYPE>,
@@ -230,27 +237,14 @@ const Button = ({
   if (__DEV__) {
     invariant(
       toggle === 'blue' &&
-        [
-          'solid-light',
-          'outline',
-          'transparent',
-          'transparent-light',
-          'transparent-blue',
-        ].includes(type),
+        [...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
     );
 
     invariant(
-      toggle === 'peach' &&
-        [
-          'solid-light',
-          'outline',
-          'transparent',
-          'transparent-light',
-          'transparent-peach',
-        ].includes(type),
+      toggle === 'peach' && [...TOGGLE_BUTTON_TYPES].includes(type),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
@@ -258,13 +252,7 @@ const Button = ({
 
     invariant(
       toggle === 'mustard' &&
-        [
-          'solid-light',
-          'outline',
-          'transparent',
-          'transparent-light',
-          'transparent-mustard',
-        ].includes(type),
+        [...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type),
       `Value of toggle property '${String(
         toggle
       )}' has no effect when button type is set to '${type}'`
