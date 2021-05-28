@@ -230,6 +230,11 @@ const Button = ({
     );
 
     invariant(
+      !(reversedOrder && !icon),
+      `Using 'reversedOrder' property has no effect when 'icon' property is not set.`
+    );
+
+    invariant(
       !(iconOnly && reversedOrder),
       `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
     );
