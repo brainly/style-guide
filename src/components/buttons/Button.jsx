@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import Spinner, {SPINNER_SIZE} from '../spinner/Spinner';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__} from '../utils';
 import invariant from '../utils/invariant';
@@ -14,12 +14,6 @@ export const BUTTON_SIZE: {
   L: 'l',
   M: 'm',
   S: 's',
-};
-
-const SPINNER_SIZE_MAP = {
-  [BUTTON_SIZE.L]: SPINNER_SIZE.SMALL,
-  [BUTTON_SIZE.M]: SPINNER_SIZE.XSMALL,
-  [BUTTON_SIZE.S]: SPINNER_SIZE.XXSMALL,
 };
 
 export const BUTTON_TYPE: {
@@ -60,6 +54,28 @@ export const BUTTON_TOGGLE: {
   PEACH: 'peach',
   MUSTARD: 'mustard',
   BLUE: 'blue',
+};
+
+const SPINNER_SIZE_MAP = {
+  [BUTTON_SIZE.L]: SPINNER_SIZE.SMALL,
+  [BUTTON_SIZE.M]: SPINNER_SIZE.XSMALL,
+  [BUTTON_SIZE.S]: SPINNER_SIZE.XXSMALL,
+};
+
+const SPINNER_COLOR_MAP = {
+  [BUTTON_TYPE.SOLID]: SPINNER_COLOR.WHITE,
+  [BUTTON_TYPE.SOLID_INVERTED]: SPINNER_COLOR.BLACK,
+  [BUTTON_TYPE.SOLID_BLUE]: SPINNER_COLOR.WHITE,
+  [BUTTON_TYPE.SOLID_MINT]: SPINNER_COLOR.WHITE,
+  [BUTTON_TYPE.SOLID_LIGHT]: SPINNER_COLOR.BLACK,
+  [BUTTON_TYPE.OUTLINE]: SPINNER_COLOR.BLACK,
+  [BUTTON_TYPE.TRANSPARENT]: SPINNER_COLOR.BLACK,
+  [BUTTON_TYPE.TRANSPARENT_LIGHT]: SPINNER_COLOR.GRAY700,
+  [BUTTON_TYPE.TRANSPARENT_PEACH]: SPINNER_COLOR.PEACH700,
+  [BUTTON_TYPE.TRANSPARENT_MUSTARD]: SPINNER_COLOR.MUSTARD700,
+  [BUTTON_TYPE.TRANSPARENT_BLUE]: SPINNER_COLOR.BLUE700,
+  [BUTTON_TYPE.TRANSPARENT_INVERTED]: SPINNER_COLOR.WHITE,
+  [BUTTON_TYPE.FACEBOOK]: SPINNER_COLOR.WHITE,
 };
 
 type ButtonType =
@@ -278,7 +294,11 @@ const Button = ({
       role={href !== undefined ? 'button' : undefined}
     >
       {loading && (
-        <Spinner size={SPINNER_SIZE_MAP[size]} className="sg-button__spinner" />
+        <Spinner
+          size={SPINNER_SIZE_MAP[size]}
+          color={SPINNER_COLOR_MAP[type]}
+          className="sg-button__spinner"
+        />
       )}
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
