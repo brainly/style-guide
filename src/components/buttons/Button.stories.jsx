@@ -35,5 +35,3 @@ export const Default = ({icon, ...args}) => (
 Default.args = {
   children: 'Button',
 };
-
-export const Outline = () => <Button type="outline">Button</Button>;
