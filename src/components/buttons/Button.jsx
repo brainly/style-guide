@@ -280,7 +280,11 @@ const Button = ({
   let ico;
 
   if (icon !== undefined && icon !== null) {
-    ico = <span className={iconClass}>{icon}</span>;
+    ico = (
+      <span className={iconClass} aria-hidden={loading}>
+        {icon}
+      </span>
+    );
   }
 
   const TypeToRender = href !== undefined ? 'a' : 'button';
@@ -302,7 +306,9 @@ const Button = ({
       )}
       {ico}
       {/* As soon as we have Proxima fixed, we could remove that span */}
-      <span className="sg-button__text">{children}</span>
+      <span className="sg-button__text" aria-hidden={loading}>
+        {children}
+      </span>
     </TypeToRender>
   );
 };
