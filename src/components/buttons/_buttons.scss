@@ -74,7 +74,7 @@ $largeButtonSize: componentSize(l);
   }
 
   &__spinner {
-    position:absolute;
+    position: absolute;
   }
 
   &--m {
@@ -120,7 +120,7 @@ $largeButtonSize: componentSize(l);
     .sg-button__text {
       opacity: 0;
     }
-  
+
     .sg-button__icon {
       opacity: 0;
     }
@@ -359,7 +359,8 @@ $largeButtonSize: componentSize(l);
       margin: 0;
     }
 
-    .sg-button__text { // if defined it's available for screen readers
+    .sg-button__text {
+      // if defined it's available for screen readers
       position: absolute;
       width: 1px;
       height: 1px;

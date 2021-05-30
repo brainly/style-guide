@@ -3,13 +3,17 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": [
-    "brainly-react"
-  ],
+  "extends": ["brainly-react"],
   "rules": {
     "max-len": ["error", { "code": 120, "ignoreComments": true }],
     "react/no-multi-comp": "off"
   },
+  "overrides": [
+    {
+      "files": ["*.stories.{js,jsx}"],
+      "rules": { "react/prop-types": "off" }
+    }
+  ],
   "globals": {
     "hljs": "readonly",
     "html_beautify": "readonly"
