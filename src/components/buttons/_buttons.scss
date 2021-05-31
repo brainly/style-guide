@@ -109,7 +109,7 @@ $largeButtonSize: componentSize(l);
 
   &--disabled {
     opacity: 0.45;
-    cursor: default;
+    cursor: not-allowed;
   }
 
   &--full-width {
