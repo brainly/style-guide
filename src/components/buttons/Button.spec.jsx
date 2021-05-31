@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Spinner, Icon} from '../..';
 import Button, {BUTTON_TYPE} from './Button';
 import {shallow} from 'enzyme';
 
@@ -88,4 +89,22 @@ test('with icon - reversed order', () => {
 
   expect(button.contains(icon)).toEqual(true);
   expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
+});
+
+test('in loading state button shows spinner and becomes disabled', () => {
+  const button = shallow(<Button loading>Some text</Button>);
+
+  expect(button.find(Spinner).exists()).toBe(true);
+  expect(button.is('[disabled]')).toEqual(true);
+});
+
+test('in loading state button shows spinner while hiding label and icon', () => {
+  const button = shallow(
+    <Button loading icon={<Icon type="heart" size="24" color="adaptive" />}>
+      Some text
+    </Button>
+  );
+
+  expect(button.hasClass('sg-button--loading')).toEqual(true);
+  expect(button.find(Spinner).exists()).toBe(true);
 });

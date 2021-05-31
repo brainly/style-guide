@@ -73,6 +73,10 @@ $largeButtonSize: componentSize(l);
     }
   }
 
+  &__spinner {
+    position: absolute;
+  }
+
   &--m {
     height: $mediumButtonSize;
   }
@@ -105,11 +109,21 @@ $largeButtonSize: componentSize(l);
 
   &--disabled {
     opacity: 0.45;
-    cursor: default;
+    cursor: not-allowed;
   }
 
   &--full-width {
     width: 100%;
+  }
+
+  &--loading {
+    .sg-button__text {
+      opacity: 0;
+    }
+
+    .sg-button__icon {
+      opacity: 0;
+    }
   }
 
   // BUTTON TYPES
@@ -345,7 +359,8 @@ $largeButtonSize: componentSize(l);
       margin: 0;
     }
 
-    .sg-button__text { // if defined it's available for screen readers
+    .sg-button__text {
+      // if defined it's available for screen readers
       position: absolute;
       width: 1px;
       height: 1px;
