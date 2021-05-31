@@ -34,6 +34,10 @@ const Buttons = () => {
       values: Boolean,
     },
     {
+      name: 'loading',
+      values: Boolean,
+    },
+    {
       name: 'fullWidth',
       values: Boolean,
     },
