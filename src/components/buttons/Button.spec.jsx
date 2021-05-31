@@ -99,13 +99,12 @@ test('in loading state button shows spinner and becomes disabled', () => {
 });
 
 test('in loading state button shows spinner while hiding label and icon', () => {
-  const button = mount(
+  const button = shallow(
     <Button loading icon={<Icon type="heart" size="24" color="adaptive" />}>
       Some text
     </Button>
   );
 
-  expect(button.find('.sg-button__text').is('[aria-hidden]')).toBe(true);
-  expect(button.find('.sg-button__icon').is('[aria-hidden]')).toBe(true);
+  expect(button.hasClass('sg-button--loading')).toEqual(true);
   expect(button.find(Spinner).exists()).toBe(true);
 });
