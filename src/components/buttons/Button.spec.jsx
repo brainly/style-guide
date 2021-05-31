@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Spinner, Icon} from '../..';
 import Button, {BUTTON_TYPE} from './Button';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
 
 test('render', () => {
   const button = shallow(<Button>Some text</Button>);
