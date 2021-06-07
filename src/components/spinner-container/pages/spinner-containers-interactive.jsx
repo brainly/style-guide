@@ -1,5 +1,8 @@
 import * as React from 'react';
-import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
+import SpinnerContainer, {
+  SPINNER_SIZE,
+  SPINNER_COLOR,
+} from '../SpinnerContainer';
 import Button from 'buttons/Button';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -14,8 +17,8 @@ const SpinnerContainers = () => {
       values: Boolean,
     },
     {
-      name: 'light',
-      values: Boolean,
+      name: 'color',
+      values: SPINNER_COLOR,
     },
     {
       name: 'fullWidth',

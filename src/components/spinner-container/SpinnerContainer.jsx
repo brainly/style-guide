@@ -4,6 +4,7 @@ import * as React from 'react';
 import Spinner from '../spinner/Spinner';
 import classnames from 'classnames';
 
+export {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 export type SpinnerContainerSizeType = 'small' | 'xsmall' | 'xxsmall';
 
 export type SpinnerContainerColorType =
