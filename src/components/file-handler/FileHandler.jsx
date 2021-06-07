@@ -144,7 +144,7 @@ const FileHandler = ({
   return (
     <div {...props} className={fileHandlerClass}>
       <div className="sg-file-handler__icon">
-        {loading ? <Spinner size="small" /> : thumbnail}
+        {loading ? <Spinner size="xsmall" /> : thumbnail}
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         {src !== undefined ? (

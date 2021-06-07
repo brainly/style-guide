@@ -38,7 +38,7 @@ export type SpinnerPropsType = {
 };
 
 const Spinner = ({
-  color = SPINNER_COLOR.BLACK,
+  color = SPINNER_COLOR.GRAY900,
   size = SPINNER_SIZE.SMALL,
   className,
   ...props

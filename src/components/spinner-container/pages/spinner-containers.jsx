@@ -23,7 +23,7 @@ const SpinnerContainers = () => (
           Ask your question
         </Button>
       </SpinnerContainer>
-      <SpinnerContainer loading light size={SPINNER_SIZE.SMALL}>
+      <SpinnerContainer loading color="white" size={SPINNER_SIZE.SMALL}>
         <Button disabled={IS_LOADING} type="solid">
           Ask your question
         </Button>
@@ -39,7 +39,7 @@ const SpinnerContainers = () => (
           Ask your question
         </Button>
       </SpinnerContainer>
-      <SpinnerContainer loading light size={SPINNER_SIZE.XSMALL}>
+      <SpinnerContainer loading color="white" size={SPINNER_SIZE.XSMALL}>
         <Button disabled={IS_LOADING} type="solid">
           Ask your question
         </Button>
@@ -71,8 +71,8 @@ const SpinnerContainers = () => (
       </SpinnerContainer>
     </DocsBlock>
 
-    <DocsBlock info="with Box" additionalInfo="(light)">
-      <SpinnerContainer loading light>
+    <DocsBlock info="with Box" additionalInfo="color white">
+      <SpinnerContainer loading color="white">
         <Box color={COLOR.blueSecondary}>
           blue-secondary (no border by default)
         </Box>

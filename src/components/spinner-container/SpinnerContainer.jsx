@@ -1,24 +1,33 @@
 // @flow strict
 
 import * as React from 'react';
-import type {SpinnerSizeType} from '../spinner/Spinner';
 import Spinner from '../spinner/Spinner';
 import classnames from 'classnames';
 
-export {SPINNER_SIZE} from '../spinner/Spinner';
+export {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
+export type SpinnerContainerSizeType = 'small' | 'xsmall' | 'xxsmall';
+
+export type SpinnerContainerColorType =
+  | 'black'
+  | 'white'
+  | 'gray-900'
+  | 'gray-700'
+  | 'peach-700'
+  | 'mustard-700'
+  | 'blue-700';
 
 export type SpinnerContainerPropsType = {
   loading?: boolean,
-  light?: boolean,
+  color?: SpinnerContainerColorType,
   fullWidth?: boolean,
-  size?: SpinnerSizeType,
+  size?: SpinnerContainerSizeType,
   children?: React.Node,
   ...
 };
 
 const SpinnerContainer = ({
   loading,
-  light,
+  color,
   fullWidth,
   size,
   children,
@@ -33,7 +42,7 @@ const SpinnerContainer = ({
     {children}
     {loading === true && (
       <div className="sg-spinner-container__overlay">
-        <Spinner light={light} size={size} />
+        <Spinner color={color} size={size} />
       </div>
     )}
   </div>
