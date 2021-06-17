@@ -11,7 +11,7 @@ $includeHtml: false !default;
     height: $logoDefaultHeight;
     width: $logoDefaultWidth;
 
-    @include sgBreakpoint(medium-up) {
+    @include sgResponsive(md) {
       height: $logoLargeHeight;
       width: $logoLargeWidth;
     }
@@ -21,7 +21,7 @@ $includeHtml: false !default;
       width: $logoDefaultWidth;
       height: 68px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: $logoLargeWidth;
         height: 92px;
       }
@@ -35,7 +35,7 @@ $includeHtml: false !default;
       width: $logoDefaultWidth;
       height: 90px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: $logoLargeWidth;
         height: 120px;
       }
@@ -45,7 +45,7 @@ $includeHtml: false !default;
       width: $logoDefaultWidth;
       height: 72px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: $logoLargeWidth;
         height: 96px;
       }
@@ -54,7 +54,7 @@ $includeHtml: false !default;
     &--eodev {
       width: 114px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: 154px;
       }
     }
@@ -62,7 +62,7 @@ $includeHtml: false !default;
     &--nosdevoirs {
       width: 161px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: 217px;
       }
     }
@@ -70,7 +70,7 @@ $includeHtml: false !default;
     &--znanija {
       width: 131px;
 
-      @include sgBreakpoint(medium-up) {
+      @include sgResponsive(md) {
         width: 176px;
       }
     }
