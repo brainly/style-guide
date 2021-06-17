@@ -89,7 +89,7 @@ export type IconTypeType =
   | 'star_outlined'
   | 'subtitle'
   | 'symbols'
-  | 'texbook'
+  | 'textbook'
   | 'title'
   | 'toughest_questions'
   | 'trash'
