@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import type { IconColorType } from '../icons/Icon';
+import type {IconColorType} from '../icons/Icon';
 
 export type IconTypeType =
   | 'arrow'
@@ -52,7 +52,7 @@ export type SizeType =
   | 14
   | 10;
 
-export const TYPE: { [name: string]: IconTypeType, ... } = {
+export const TYPE: {[name: string]: IconTypeType, ...} = {
   ANSWER_BUBBLE: 'answer_bubble',
   ARROW: 'arrow',
   ASK_BUBBLE: 'ask_bubble',
@@ -103,7 +103,7 @@ const MobileIcon = ({
       [`sg-mobile-icon--x${size}`]: size,
       [`sg-mobile-icon--${String(color)}`]: color !== 'light',
     },
-    className,
+    className
   );
   const iconType = `#icon-mobile-${type}`;
 
@@ -115,4 +115,4 @@ const MobileIcon = ({
 };
 
 export default MobileIcon;
-export { ICON_COLOR } from '../icons/Icon';
+export {ICON_COLOR} from '../icons/Icon';

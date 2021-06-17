@@ -507,7 +507,7 @@ const Icon = ({
       [`sg-icon--${String(color)}`]: color,
       [`sg-icon--x${String(size)}`]: size,
     },
-    className,
+    className
   );
 
   const iconType = `#icon-${type}`;
