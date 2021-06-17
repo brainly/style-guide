@@ -89,6 +89,7 @@ export type IconTypeType =
   | 'star_outlined'
   | 'subtitle'
   | 'symbols'
+  | 'textbook'
   | 'title'
   | 'toughest_questions'
   | 'trash'
@@ -223,6 +224,7 @@ export const TYPE: {
   STAR_OUTLINED: 'star_outlined',
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
+  TEXTBOOK: 'textbook',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
@@ -338,6 +340,7 @@ export const TYPE: {
   STAR_OUTLINED: 'star_outlined',
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
+  TEXTBOOK: 'textbook',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
