@@ -41,6 +41,16 @@ $includeHtml: false !default;
       }
     }
 
+    &--brainly-tutoring-small {
+      width: $logoDefaultWidth;
+      height: 72px;
+
+      @include sgBreakpoint(medium-up) {
+        width: $logoLargeWidth;
+        height: 96px;
+      }
+    }
+
     &--eodev {
       width: 114px;
 
