@@ -82,6 +82,7 @@ export type IconTypeType =
   | 'send'
   | 'settings'
   | 'share'
+  | 'shield'
   | 'sms'
   | 'star'
   | 'star_half'
@@ -217,6 +218,7 @@ export const TYPE: {
   SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
+  SHIELD: 'shield',
   SMS: 'sms',
   STAR: 'star',
   STAR_HALF: 'star_half',
@@ -333,6 +335,7 @@ export const TYPE: {
   SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
+  SHIELD: 'shield',
   SMS: 'sms',
   STAR: 'star',
   STAR_HALF: 'star_half',
