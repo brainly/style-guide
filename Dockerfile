@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:8.1
+FROM mhart/alpine-node:14
 
 WORKDIR /style-guide
 

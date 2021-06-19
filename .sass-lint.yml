@@ -1,0 +1,7 @@
+options:
+  config-file: 'node_modules/sass-lint-config-brainly/.sass-lint.yml'
+rules:
+  # Enforce that mixins should be written before declarations in a ruleset.
+  mixins-before-declarations:
+    - 2
+    - exclude: ['sgBreakpoint', 'sgResponsive']
