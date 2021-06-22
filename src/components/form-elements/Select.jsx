@@ -10,6 +10,12 @@ type OptionsPropsType = {
   ...
 };
 
+type GroupedOptionsPropsType = {
+  label: string,
+  options: Array<OptionsPropsType>,
+  ...
+};
+
 type SelectSizeType = 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
@@ -76,11 +82,23 @@ export type SelectPropsType = {
    */
   options?: Array<OptionsPropsType>,
   /**
+   * Optional array of grouped options of the select
+   * @example <Select size="m" options={[{"label": "Label title","items": [{ "value": "option1", "text": "Option1" },{ "value": "option2", "text": "Select selector" }]}]
+} />
+   */
+  groupedOptions?: Array<GroupedOptionsPropsType>,
+  /**
    * Additional class names
    */
   className?: string,
   ...
 };
+
+const getOptionElement = ({value, text}: OptionsPropsType) => (
+  <option key={value} value={value}>
+    {text}
+  </option>
+);
 
 const Select = (props: SelectPropsType) => {
   const {
@@ -93,6 +111,7 @@ const Select = (props: SelectPropsType) => {
     color,
     className,
     options = [],
+    groupedOptions = [],
     ...additionalProps
   } = props;
 
@@ -100,6 +119,14 @@ const Select = (props: SelectPropsType) => {
     throw {
       name: 'WrongValidation',
       message: 'Select can be either valid or invalid!',
+    };
+  }
+
+  if (options.length && groupedOptions.length) {
+    throw {
+      name: 'WrongOptions',
+      message:
+        'Select: should passed be either options or groupedOptions prop!',
     };
   }
 
@@ -115,11 +142,16 @@ const Select = (props: SelectPropsType) => {
     },
     className
   );
-  const optionsElements = options.map(({value, text}) => (
-    <option key={value} value={value}>
-      {text}
-    </option>
-  ));
+
+  const optionsElements =
+    (options.length && options.map(getOptionElement)) ||
+    (groupedOptions.length &&
+      groupedOptions.map(({options, label}) => (
+        <optgroup key={label} label={label}>
+          {options.map(getOptionElement)}
+        </optgroup>
+      ))) ||
+    [];
 
   return (
     <div className={selectClass}>

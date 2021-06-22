@@ -62,6 +62,16 @@ import {Select} from 'style-guide';
     {value: 'option1', text: 'Option1'},
     {value: 'option2', text: 'Option2'}
 ]} />
+
+<Select groupedOptions={[
+    {
+        label: 'Label',
+        options: [
+            {value: 'option1', text: 'Option1'},
+            {value: 'option2', text: 'Option2'}
+        ]
+    }
+]} />
 ```
 
 ```HTML
@@ -70,5 +80,13 @@ import {Select} from 'style-guide';
     <option value="option2">Select selector</option>
     <option value="option3">Select selector</option>
 </select>
+
+<select class="sg-select__element">
+    <optgroup label="Label">
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+    </optgroup>
+</select>
+
 ```
 
