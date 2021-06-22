@@ -143,15 +143,14 @@ const Select = (props: SelectPropsType) => {
     className
   );
 
-  const optionsElements =
-    (options.length && options.map(getOptionElement)) ||
-    (groupedOptions.length &&
+  const flatOptionsElements = (options.length && options.map(getOptionElement));
+  const groupedOptionsElements = (groupedOptions.length &&
       groupedOptions.map(({options, label}) => (
         <optgroup key={label} label={label}>
           {options.map(getOptionElement)}
-        </optgroup>
-      ))) ||
-    [];
+        </optgroup>);
+        
+  const optionsElements = flatOptionsElements || groupedOptionsElements || [];
 
   return (
     <div className={selectClass}>
