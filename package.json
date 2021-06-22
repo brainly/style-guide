@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "188.0.1",
+  "version": "188.1.1",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -116,7 +116,7 @@
   },
   "scripts": {
     "js-lint": "yarn run eslint --ext .js --ext .jsx src/",
-    "scss-lint": "sass-lint -c node_modules/sass-lint-config-brainly/.sass-lint.yml -v -q 'src/**/*.scss'",
+    "scss-lint": "sass-lint -c .sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
     "build": "gulp build",

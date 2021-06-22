@@ -82,6 +82,7 @@ export type IconTypeType =
   | 'send'
   | 'settings'
   | 'share'
+  | 'shield'
   | 'sms'
   | 'star'
   | 'star_half'
@@ -89,6 +90,7 @@ export type IconTypeType =
   | 'star_outlined'
   | 'subtitle'
   | 'symbols'
+  | 'textbook'
   | 'title'
   | 'toughest_questions'
   | 'trash'
@@ -216,6 +218,7 @@ export const TYPE: {
   SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
+  SHIELD: 'shield',
   SMS: 'sms',
   STAR: 'star',
   STAR_HALF: 'star_half',
@@ -223,6 +226,7 @@ export const TYPE: {
   STAR_OUTLINED: 'star_outlined',
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
+  TEXTBOOK: 'textbook',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
@@ -331,6 +335,7 @@ export const TYPE: {
   SEND: 'send',
   SETTINGS: 'settings',
   SHARE: 'share',
+  SHIELD: 'shield',
   SMS: 'sms',
   STAR: 'star',
   STAR_HALF: 'star_half',
@@ -338,6 +343,7 @@ export const TYPE: {
   STAR_OUTLINED: 'star_outlined',
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
+  TEXTBOOK: 'textbook',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',

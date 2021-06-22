@@ -78,6 +78,7 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   SPARK: 'spark',
   STAR_OUTLINED: 'star_outlined',
   TEXT: 'text',
+  TEXTBOOK: 'textbook',
   TIME_SPEED: 'time_speed',
 };
 
