@@ -8,10 +8,17 @@ const exampleOptions = [
 ];
 
 const exampleGroupedOptions = [
+  {value: 'option1', text: 'Option1'},
+  {value: 'option2', text: 'Select selector'},
   {
-    label: 'Label',
-    options: exampleOptions,
+    label: 'Label text',
+    options: [
+      {value: 'option31', text: 'Option1'},
+      {value: 'option32', text: 'Select selector'},
+      {value: 'option33', text: 'Select selector'},
+    ],
   },
+  {value: 'option4', text: 'Select selector'},
 ];
 
 const voidFunction = () => undefined;
@@ -29,16 +36,14 @@ test('render options', () => {
 });
 
 test('render grouped options', () => {
-  const select = shallow(<Select groupedOptions={exampleGroupedOptions} />);
+  const select = shallow(<Select options={exampleGroupedOptions} />);
 
-  expect(select.find('option')).toHaveLength(
-    exampleGroupedOptions[0].options.length
-  );
+  expect(select.find('option')).toHaveLength(6);
 
   const optGroup = select.find('optgroup');
 
-  expect(optGroup).toHaveLength(exampleGroupedOptions.length);
-  expect(optGroup.prop('label')).toEqual(exampleGroupedOptions[0].label);
+  expect(optGroup).toHaveLength(1);
+  expect(optGroup.prop('label')).toEqual('Label text');
 });
 
 test('choose options', () => {
@@ -93,13 +98,5 @@ test('capitalized', () => {
 test('error when both valid and invalid', () => {
   expect(() => {
     shallow(<Select valid invalid />);
-  }).toThrow();
-});
-
-test('error when passed both options and groupedOptions', () => {
-  expect(() => {
-    shallow(
-      <Select options={exampleOptions} groupedOptions={exampleGroupedOptions} />
-    );
   }).toThrow();
 });
