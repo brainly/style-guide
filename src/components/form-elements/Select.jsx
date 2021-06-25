@@ -7,13 +7,11 @@ import Icon from '../icons/Icon';
 type OptionsPropsType = {
   value: string,
   text: string,
-  ...
 };
 
 type GroupedOptionsPropsType = {
   label: string,
-  options: Array<OptionsPropsType>,
-  ...
+  options: $ReadOnlyArray<OptionsPropsType>,
 };
 
 type SelectSizeType = 'm' | 'l';
@@ -78,15 +76,10 @@ export type SelectPropsType = {
   fullWidth?: boolean,
   /**
    * Optional array of options of the select
-   * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @example <Select size="m" options={[{value:"option1",text:"Option1"},{label:"Label title",options:[{value:"option1",text:"Option1"},{value:"option2",text:"Select selector"}]},{value:"option2",text:"Select selector"}]} />
    */
-  options?: Array<OptionsPropsType>,
+  options?: $ReadOnlyArray<GroupedOptionsPropsType | OptionsPropsType>,
   /**
-   * Optional array of grouped options of the select
-   * @example <Select size="m" options={[{"label": "Label title","items": [{ "value": "option1", "text": "Option1" },{ "value": "option2", "text": "Select selector" }]}]
-} />
-   */
-  groupedOptions?: Array<GroupedOptionsPropsType>,
   /**
    * Additional class names
    */
@@ -111,7 +104,6 @@ const Select = (props: SelectPropsType) => {
     color,
     className,
     options = [],
-    groupedOptions = [],
     ...additionalProps
   } = props;
 
@@ -119,14 +111,6 @@ const Select = (props: SelectPropsType) => {
     throw {
       name: 'WrongValidation',
       message: 'Select can be either valid or invalid!',
-    };
-  }
-
-  if (options.length && groupedOptions.length) {
-    throw {
-      name: 'WrongOptions',
-      message:
-        'Select: should passed be either options or groupedOptions prop!',
     };
   }
 
@@ -143,14 +127,21 @@ const Select = (props: SelectPropsType) => {
     className
   );
 
-  const flatOptionsElements = (options.length && options.map(getOptionElement));
-  const groupedOptionsElements = (groupedOptions.length &&
-      groupedOptions.map(({options, label}) => (
-        <optgroup key={label} label={label}>
-          {options.map(getOptionElement)}
-        </optgroup>);
-        
-  const optionsElements = flatOptionsElements || groupedOptionsElements || [];
+  const optionsElements = options.map(item => {
+    if (item.options) {
+      return (
+        <optgroup key={item.label} label={item.label}>
+          {item.options.map(getOptionElement)}
+        </optgroup>
+      );
+    }
+
+    if (item.text && item.value) {
+      return getOptionElement(item);
+    }
+
+    return null;
+  });
 
   return (
     <div className={selectClass}>
