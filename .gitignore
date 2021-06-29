@@ -3,6 +3,7 @@ esm/
 commonjs/
 /css/
 types/
+/assets/
 .scss-lint.yml
 .editorconfig
 .eslintrc-es5
