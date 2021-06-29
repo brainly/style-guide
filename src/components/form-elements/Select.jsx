@@ -127,10 +127,10 @@ const Select = (props: SelectPropsType) => {
     className
   );
 
-  const optionsElements = options.map(item => {
+  const optionsElements = options.map((item, index) => {
     if (item.options) {
       return (
-        <optgroup key={item.label} label={item.label}>
+        <optgroup key={item.label + index} label={item.label}>
           {item.options.map(getOptionElement)}
         </optgroup>
       );
