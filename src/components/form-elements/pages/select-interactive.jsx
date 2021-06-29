@@ -9,10 +9,12 @@ const exampleOptions = [
 ];
 
 const exampleGroupedOptions = [
+  {value: 'option0', text: 'Option 0'},
   {
     label: 'Label',
     options: exampleOptions,
   },
+  {value: 'option4', text: 'Option 4'},
 ];
 
 const Selects = () => {
@@ -47,7 +49,7 @@ const Selects = () => {
       </DocsActiveBlock>
 
       <DocsActiveBlock backgroundColor="dark" settings={settings}>
-        <Select groupedOptions={exampleGroupedOptions} size="m" color="white" />
+        <Select options={exampleGroupedOptions} size="m" color="white" />
       </DocsActiveBlock>
     </div>
   );
