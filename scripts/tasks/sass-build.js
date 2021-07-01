@@ -28,6 +28,7 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(plugins.rename('style-guide.css'))
       .pipe(plugins.sourcemaps.write('.'))
       .pipe(gulp.dest(consts.VERSIONED_DIST))
+      .pipe(gulp.dest(consts.CSS_OUTPUT_DIR))
       .on('error', done)
       .on('end', done);
   };
