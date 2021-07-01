@@ -7,6 +7,7 @@ const pkg = require('./package');
 const plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*'],
 });
+const CONSTANTS = require('./scripts/constants');
 
 plugins.path = path;
 
@@ -39,6 +40,7 @@ const consts = {
   get LATEST_DIST() {
     return path.join(this.DIST, 'latest');
   },
+  ...CONSTANTS,
 };
 
 function getTask(task, options = {}) {
@@ -110,7 +112,7 @@ gulp.task(
 
 gulp.task(
   'build-assets',
-  gulp.series('clean:assets', 'svgs-generate', 'copy-assets')
+  gulp.series('clean:assets', 'sass:build', 'svgs-generate', 'copy-assets')
 );
 
 gulp.task(
