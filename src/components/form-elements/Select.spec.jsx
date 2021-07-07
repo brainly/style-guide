@@ -7,20 +7,6 @@ const exampleOptions = [
   {value: 'test2', text: 'test2'},
 ];
 
-const exampleGroupedOptions = [
-  {value: 'option1', text: 'Option1'},
-  {value: 'option2', text: 'Select selector'},
-  {
-    label: 'Label text',
-    options: [
-      {value: 'option31', text: 'Option1'},
-      {value: 'option32', text: 'Select selector'},
-      {value: 'option33', text: 'Select selector'},
-    ],
-  },
-  {value: 'option4', text: 'Select selector'},
-];
-
 const voidFunction = () => undefined;
 
 test('render', () => {
@@ -33,17 +19,6 @@ test('render options', () => {
   const select = shallow(<Select options={exampleOptions} />);
 
   expect(select.find('option')).toHaveLength(exampleOptions.length);
-});
-
-test('render grouped options', () => {
-  const select = shallow(<Select options={exampleGroupedOptions} />);
-
-  expect(select.find('option')).toHaveLength(6);
-
-  const optGroup = select.find('optgroup');
-
-  expect(optGroup).toHaveLength(1);
-  expect(optGroup.prop('label')).toEqual('Label text');
 });
 
 test('choose options', () => {

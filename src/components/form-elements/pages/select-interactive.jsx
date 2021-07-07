@@ -8,15 +8,6 @@ const exampleOptions = [
   {value: 'option3', text: 'Option 3'},
 ];
 
-const exampleGroupedOptions = [
-  {value: 'option0', text: 'Option 0'},
-  {
-    label: 'Label',
-    options: exampleOptions,
-  },
-  {value: 'option4', text: 'Option 4'},
-];
-
 const Selects = () => {
   const settings = [
     {
@@ -46,10 +37,6 @@ const Selects = () => {
     <div>
       <DocsActiveBlock backgroundColor="dark" settings={settings}>
         <Select options={exampleOptions} size="m" color="white" />
-      </DocsActiveBlock>
-
-      <DocsActiveBlock backgroundColor="dark" settings={settings}>
-        <Select options={exampleGroupedOptions} size="m" color="white" />
       </DocsActiveBlock>
     </div>
   );

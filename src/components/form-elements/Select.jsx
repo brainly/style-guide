@@ -7,11 +7,7 @@ import Icon from '../icons/Icon';
 type OptionsPropsType = {
   value: string,
   text: string,
-};
-
-type GroupedOptionsPropsType = {
-  label: string,
-  options: $ReadOnlyArray<OptionsPropsType>,
+  ...
 };
 
 type SelectSizeType = 'm' | 'l';
@@ -76,22 +72,15 @@ export type SelectPropsType = {
   fullWidth?: boolean,
   /**
    * Optional array of options of the select
-   * @example <Select size="m" options={[{value:"option1",text:"Option1"},{label:"Label title",options:[{value:"option1",text:"Option1"},{value:"option2",text:"Select selector"}]},{value:"option2",text:"Select selector"}]} />
+   * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
    */
-  options?: $ReadOnlyArray<GroupedOptionsPropsType | OptionsPropsType>,
-  /**
+  options?: Array<OptionsPropsType>,
   /**
    * Additional class names
    */
   className?: string,
   ...
 };
-
-const getOptionElement = ({value, text}: OptionsPropsType) => (
-  <option key={value} value={value}>
-    {text}
-  </option>
-);
 
 const Select = (props: SelectPropsType) => {
   const {
@@ -126,22 +115,11 @@ const Select = (props: SelectPropsType) => {
     },
     className
   );
-
-  const optionsElements = options.map((item, index) => {
-    if (item.options) {
-      return (
-        <optgroup key={item.label + index} label={item.label}>
-          {item.options.map(getOptionElement)}
-        </optgroup>
-      );
-    }
-
-    if (item.text && item.value) {
-      return getOptionElement(item);
-    }
-
-    return null;
-  });
+  const optionsElements = options.map(({value, text}) => (
+    <option key={value} value={value}>
+      {text}
+    </option>
+  ));
 
   return (
     <div className={selectClass}>

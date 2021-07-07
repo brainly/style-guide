@@ -9,21 +9,6 @@ const exampleOptions = [
   {value: 'option2', text: 'Select selector'},
   {value: 'option3', text: 'Select selector'},
 ];
-
-const exampleGroupedOptions = [
-  {value: 'option1', text: 'Option1'},
-  {value: 'option2', text: 'Select selector'},
-  {
-    label: 'Label text',
-    options: [
-      {value: 'option21', text: 'Option1'},
-      {value: 'option22', text: 'Select selector'},
-      {value: 'option23', text: 'Select selector'},
-    ],
-  },
-  {value: 'option3', text: 'Select selector'},
-];
-
 const exampleProps = {
   options: exampleOptions,
   value: exampleOptions[1].value,
@@ -71,9 +56,6 @@ const selects = () => (
     </DocsBlock>
     <DocsBlock info="Full width">
       <Select {...exampleProps} fullWidth />
-    </DocsBlock>
-    <DocsBlock info="With grouped options">
-      <Select {...exampleProps} options={exampleGroupedOptions} fullWidth />
     </DocsBlock>
   </div>
 );
