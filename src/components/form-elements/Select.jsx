@@ -136,7 +136,7 @@ const Select = (props: SelectPropsType) => {
       );
     }
 
-    if (item.text && item.value) {
+    if (item.text || item.value) {
       return getOptionElement(item);
     }
 
