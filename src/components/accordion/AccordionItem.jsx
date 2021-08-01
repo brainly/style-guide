@@ -180,11 +180,7 @@ const AccordionItem = ({
         onMouseLeave={() => setIsHovered(false)}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        aria-expanded={!isCollapsed}
-        aria-controls={contentId}
         id={id}
-        role="button"
-        tabIndex={tabIndex}
       >
         <Flex
           direction="row"
@@ -225,8 +221,6 @@ const AccordionItem = ({
         ref={contentRef}
         className="sg-accordion-item__content"
         id={contentId}
-        role="region"
-        aria-labelledby={id}
         hidden
       >
         <Box padding={padding} className="sg-accordion-item__content-box">

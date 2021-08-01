@@ -37,10 +37,6 @@
       transition-property: height;
       height: 0;
       overflow: hidden;
-
-      @media (prefers-reduced-motion) {
-        transition: none;
-      }
     }
 
     &__content-box {
