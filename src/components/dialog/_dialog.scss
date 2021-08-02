@@ -1,0 +1,40 @@
+.dialog__overlay {
+  background: rgba(0,0,0,.3);
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.dialog__content {
+  padding: 32px;
+  padding-top: 40px;
+  position: relative;
+  background: #fff;
+  margin: 10vh auto;
+  outline: none;
+  width: 50vw;
+}
+
+.dialog__close-button {
+  font-size: 24px;
+  border: none;
+  padding: 5px;
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

@@ -14,7 +14,16 @@ export const Default = () => {
   return (
     <div>
       <button onClick={() => setOpen(true)}>Open dialog</button>
-      <Dialog isOpen={open}>Content</Dialog>
+      <Dialog
+        isOpen={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+        aria-labelledby="dialog-label"
+      >
+        <h2 id="dialog-label">Dialog</h2>
+        <p>Hello! I am accessible dialog component.</p>
+      </Dialog>
     </div>
   );
 };
