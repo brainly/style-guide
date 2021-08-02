@@ -181,6 +181,10 @@ const AccordionItem = ({
         onFocus={handleFocus}
         onBlur={handleBlur}
         id={id}
+        role="button"
+        tabIndex={tabIndex}
+        aria-expanded={!isCollapsed}
+        aria-controls={contentId}
       >
         <Flex
           direction="row"
@@ -222,6 +226,8 @@ const AccordionItem = ({
         className="sg-accordion-item__content"
         id={contentId}
         hidden
+        role="region"
+        aria-labelledby={id}
       >
         <Box padding={padding} className="sg-accordion-item__content-box">
           <Text>{children}</Text>
