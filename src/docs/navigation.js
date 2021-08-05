@@ -6,7 +6,6 @@ import select from '../components/form-elements/pages/select';
 import textInput from '../components/form-elements/pages/input';
 import textarea from '../components/form-elements/pages/textarea';
 import formElements from '../components/form-elements/pages/formElements';
-import labelsDeprecated from '../components/labels-deprecated/pages/labels-deprecated';
 import labels from '../components/labels/pages/labels';
 import fileHandlers from '../components/file-handler/pages/file-handlers';
 import overlay from '../components/overlay/pages/overlay';
@@ -123,10 +122,6 @@ const navigation = [
       {
         name: 'Avatars',
         component: avatar,
-      },
-      {
-        name: 'Labels (deprecated)',
-        component: labelsDeprecated,
       },
       {
         name: 'Labels',

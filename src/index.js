@@ -74,8 +74,6 @@ export {default as Icon} from './components/icons/Icon';
 export type {IconPropsType} from './components/icons/Icon';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
 export type {MobileIconPropsType} from './components/mobile-icons/MobileIcon';
-export {default as LabelDeprecated} from './components/labels-deprecated/LabelDeprecated';
-export type {LabelDeprecatedPropsType} from './components/labels-deprecated/LabelDeprecated';
 export {default as Label} from './components/labels/Label';
 export type {LabelPropsType} from './components/labels/Label';
 export {default as FileHandler} from './components/file-handler/FileHandler';

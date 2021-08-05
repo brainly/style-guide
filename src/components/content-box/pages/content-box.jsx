@@ -8,12 +8,9 @@ import ContentBoxHeader from '../ContentBoxHeader';
 import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import LabelDeprecated, {
-  ICON_COLOR,
-  ICON_TYPE,
-} from 'labels-deprecated/LabelDeprecated';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
+import Icon from 'icons/Icon';
 import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
@@ -329,15 +326,11 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="solid-inverted">
-            <LabelDeprecated
-              text="Thank you"
-              number={21}
-              iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE}
-              secondary
-              unstyled
-            />
+          <Button
+            type="transparent-peach"
+            icon={<Icon type="heart" color="peach" />}
+          >
+            Thank you
           </Button>
           <Rating rate={2} counter={34} active />
         </ContentBoxActions>
@@ -362,15 +355,11 @@ const ContentBoxes = () => (
         </ContentBoxContent>
         <ContentBoxActions>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="solid-inverted">
-            <LabelDeprecated
-              text="Thank you"
-              number={21}
-              iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE}
-              secondary
-              unstyled
-            />
+          <Button
+            type="transparent-peach"
+            icon={<Icon type="heart" color="peach" />}
+          >
+            Thank you
           </Button>
           <Rating rate={2} counter={34} active />
         </ContentBoxActions>
@@ -442,15 +431,11 @@ const ContentBoxes = () => (
               </Link>,
             ]}
           />
-          <Button type="solid-inverted">
-            <LabelDeprecated
-              text="Thank you"
-              number={21}
-              iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE}
-              secondary
-              unstyled
-            />
+          <Button
+            type="transparent-peach"
+            icon={<Icon type="heart" color="peach" />}
+          >
+            Thank you
           </Button>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
@@ -460,15 +445,11 @@ const ContentBoxes = () => (
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumbs elements={breadcrumbsSpaced2} />
-          <Button type="solid-inverted">
-            <LabelDeprecated
-              text="Thank you"
-              number={21}
-              iconType={ICON_TYPE.HEART}
-              iconColor={ICON_COLOR.ADAPTIVE}
-              secondary
-              unstyled
-            />
+          <Button
+            type="transparent-peach"
+            icon={<Icon type="heart" color="peach" />}
+          >
+            Thank you
           </Button>
           <Rating rate={3} counter={34} active />
         </ContentBoxActions>
