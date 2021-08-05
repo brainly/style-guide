@@ -6,11 +6,7 @@ import Headline, {
   HEADLINE_TYPE,
   HEADLINE_COLOR,
 } from 'text/Headline';
-import LabelDeprecated, {
-  SIZE as LABEL_SIZE,
-  ICON_COLOR,
-  ICON_TYPE,
-} from 'labels-deprecated/LabelDeprecated';
+import Label from 'labels/Label';
 import Icon from 'icons/Icon';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
 
@@ -112,12 +108,7 @@ const ActionLists = () => (
     <DocsBlock info="Space between">
       <ActionList direction={DIRECTION.SPACE_BETWEEN}>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.ANSWER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="answer" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -126,15 +117,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.COUNTER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="counter" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -143,7 +129,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">
@@ -156,12 +142,7 @@ const ActionLists = () => (
     <DocsBlock info="Space around">
       <ActionList direction={DIRECTION.SPACE_AROUND}>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.ANSWER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="answer" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -170,15 +151,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.COUNTER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="counter" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -187,7 +163,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">
@@ -200,12 +176,7 @@ const ActionLists = () => (
     <DocsBlock info="Space evenly">
       <ActionList direction={DIRECTION.SPACE_EVENLY}>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.ANSWER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="answer" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -214,15 +185,10 @@ const ActionLists = () => (
             >
               0/5
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
-          <LabelDeprecated
-            iconType={ICON_TYPE.COUNTER}
-            iconColor={ICON_COLOR.GRAY_SECONDARY}
-            secondary
-            size={LABEL_SIZE.SMALL}
-          >
+          <Label iconType="counter" transparent>
             <Text
               size={TEXT_SIZE.SMALL}
               weight={TEXT_WEIGHT.BOLD}
@@ -231,7 +197,7 @@ const ActionLists = () => (
             >
               2d: 00h
             </Text>
-          </LabelDeprecated>
+          </Label>
         </ActionListHole>
         <ActionListHole>
           <Button type="secondary" size="small">
@@ -247,7 +213,7 @@ const ActionLists = () => (
         <ContrastBox key={1} narrow>
           <ActionList noWrap>
             <ActionListHole>
-              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+              <Icon type="messages" size={24} />
             </ActionListHole>
             <ActionListHole>
               <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>
@@ -259,7 +225,7 @@ const ActionLists = () => (
         <ContrastBox key={2} narrow>
           <ActionList>
             <ActionListHole>
-              <Icon type={ICON_TYPE.MESSAGES} size={24} />
+              <Icon type="messages" size={24} />
             </ActionListHole>
             <ActionListHole>
               <Text type={TEXT_TYPE.P} color={TEXT_COLOR.WHITE}>

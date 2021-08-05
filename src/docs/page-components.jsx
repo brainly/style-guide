@@ -15,7 +15,6 @@ import Cards from 'card/pages/card-interactive';
 import ActionLists from 'action-list/pages/action-list-interactive';
 import Ratings from 'rating/pages/rating-interactive';
 import Icons from 'icons/pages/icons-interactive';
-import LabelsDeprecated from 'labels-deprecated/pages/labels-deprecated-interactive';
 import Labels from 'labels/pages/labels-interactive';
 import FileHandlers from 'file-handler/pages/file-handlers-interactive';
 import Separators from 'separators/pages/separators-interactive';
@@ -61,7 +60,6 @@ const demos = {
   'Action List': <ActionLists />,
   Rating: <Ratings />,
   Icons: <Icons />,
-  LabelsDeprecated: <LabelsDeprecated />,
   Labels: <Labels />,
   FileHandlers: <FileHandlers />,
   Separators: <Separators />,
