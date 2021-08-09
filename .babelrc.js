@@ -22,7 +22,8 @@ module.exports = api => {
     ],
     env: {
       test: {
-        presets: [babelEnv({ modules: "auto" })]
+        presets: [babelEnv({ modules: "auto" })],
+        plugins: [["@babel/plugin-transform-runtime"]]
       },
       commonjs: {
         presets: [babelEnv({ modules: "auto" })],
