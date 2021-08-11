@@ -248,11 +248,14 @@ const Label = ({
           <Icon type={iconType} color={iconColor} size={16} />
         </div>
       )}
-      <span className="sg-label__text">
-        <Text size="small" weight="bold" color={textColor}>
-          {children}
-        </Text>
-      </span>
+      <Text
+        size="small"
+        weight="bold"
+        color={textColor}
+        className="sg-label__text"
+      >
+        {children}
+      </Text>
       {onClose ? (
         <button className="sg-label__close-button" onClick={onClose}>
           <Icon type="close" color={closeIconColor} size={16} />
