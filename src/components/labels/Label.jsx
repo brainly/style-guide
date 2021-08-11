@@ -257,7 +257,12 @@ const Label = ({
         {children}
       </Text>
       {onClose ? (
-        <button className="sg-label__close-button" onClick={onClose}>
+        <button
+          className="sg-label__close-button"
+          onClick={onClose}
+          title="close"
+          aria-label="close"
+        >
           <Icon type="close" color={closeIconColor} size={16} />
         </button>
       ) : null}

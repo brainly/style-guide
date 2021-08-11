@@ -787,7 +787,12 @@ const Labels = () => (
             width: '300px',
           }}
         >
-          <Label iconType="heart" color="blue" onClose={closeCallback}>
+          <Label
+            iconType="heart"
+            color="blue"
+            onClose={closeCallback}
+            title="Long long long text"
+          >
             Long long long text
           </Label>
         </ContrastBox>
@@ -797,7 +802,12 @@ const Labels = () => (
             marginTop: '10px',
           }}
         >
-          <Label iconType="heart" color="blue" onClose={closeCallback}>
+          <Label
+            iconType="heart"
+            color="blue"
+            onClose={closeCallback}
+            title="Long long long text"
+          >
             Long long long text
           </Label>
         </ContrastBox>

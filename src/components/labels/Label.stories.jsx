@@ -62,6 +62,7 @@ const onCloseMock = () => {};
 
 LongText.args = {
   ...Default.args,
+  title: 'Long long long text',
   children: 'Very very long label',
   onClose: {control: onCloseMock},
 };
