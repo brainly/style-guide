@@ -2,6 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Label from '../Label';
 import Flex from '../../flex/Flex';
+import ContrastBox from 'components/ContrastBox';
 
 const closeCallback = () => undefined;
 
@@ -777,6 +778,39 @@ const Labels = () => (
           <br />
           <br />
         </Flex>
+      </Flex>
+    </DocsBlock>
+    <DocsBlock info="Long text">
+      <Flex direction="column">
+        <ContrastBox
+          style={{
+            width: '300px',
+          }}
+        >
+          <Label
+            iconType="heart"
+            color="blue"
+            onClose={closeCallback}
+            title="Long long long text"
+          >
+            Long long long text
+          </Label>
+        </ContrastBox>
+        <ContrastBox
+          style={{
+            width: '200px',
+            marginTop: '10px',
+          }}
+        >
+          <Label
+            iconType="heart"
+            color="blue"
+            onClose={closeCallback}
+            title="Long long long text"
+          >
+            Long long long text
+          </Label>
+        </ContrastBox>
       </Flex>
     </DocsBlock>
   </div>

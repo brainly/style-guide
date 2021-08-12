@@ -27,3 +27,44 @@ Default.argTypes = {
   type: {control: {type: 'select', options: LABEL_TYPE}},
   onClose: {control: null},
 };
+
+export const LongText = args => {
+  const {children} = args;
+
+  return (
+    <div>
+      <div
+        style={{
+          width: '300px',
+          background: 'lightgray',
+          padding: '20px',
+        }}
+      >
+        <Label {...args}>{children}</Label>
+      </div>
+
+      <div
+        style={{
+          width: '200px',
+          background: 'lightgray',
+          padding: '20px',
+          marginTop: '10px',
+        }}
+      >
+        <Label {...args}>{children}</Label>
+      </div>
+    </div>
+  );
+};
+
+// eslint-disable-next-line
+const onCloseMock = () => {};
+
+LongText.args = {
+  ...Default.args,
+  title: 'Long long long text',
+  children: 'Very very long label',
+  onClose: {control: onCloseMock},
+};
+
+LongText.argTypes = Default.argTypes;
