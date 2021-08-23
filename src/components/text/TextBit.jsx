@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div';
+type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 
 type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
 
@@ -31,6 +31,7 @@ export const TEXT_BIT_TYPE: {
   H5: 'h5',
   H6: 'h6',
   DIV: 'div',
+  SPAN: 'span',
 } = {
   H1: 'h1',
   H2: 'h2',
@@ -39,6 +40,7 @@ export const TEXT_BIT_TYPE: {
   H5: 'h5',
   H6: 'h6',
   DIV: 'div',
+  SPAN: 'span',
 };
 
 export const TEXT_BIT_SIZE: {
@@ -91,22 +93,25 @@ export type TextBitPropsType = {
   size?: TextBitSizeType,
   color?: ?TextBitColorType,
   className?: ?string,
+  inherited?: boolean,
   ...
 };
 
 const TextBit = ({
   children,
   type = TEXT_BIT_TYPE.H1,
-  size = TEXT_BIT_SIZE.MEDIUM,
+  size,
   color,
   className,
+  inherited,
   ...props
 }: TextBitPropsType) => {
   const Type = type;
   const textClass = classNames(
     'sg-text-bit',
     {
-      [`sg-text-bit--${size}`]: size && size !== TEXT_BIT_SIZE.MEDIUM,
+      'sg-text-bit--inherited': inherited,
+      [`sg-text-bit--${String(size)}`]: size && size !== TEXT_BIT_SIZE.MEDIUM,
       [`sg-text-bit--${color || ''}`]: color,
     },
     className

@@ -24,12 +24,28 @@ const TextBits = () => {
       name: 'notResponsive',
       values: Boolean,
     },
+    {
+      name: 'inherited',
+      values: Boolean,
+    },
   ];
 
   return (
     <div>
       <DocsActiveBlock settings={settings}>
         <TextBit>What do you need to know?</TextBit>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <TextBit>
+          TextBit{' '}
+          <TextBit
+            inherited
+            type="span"
+            color={TEXT_BIT_COLOR.LAVENDER_PRIMARY}
+          >
+            nested TextBit with inherited styles
+          </TextBit>
+        </TextBit>
       </DocsActiveBlock>
     </div>
   );
