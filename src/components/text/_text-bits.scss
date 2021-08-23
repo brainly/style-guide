@@ -12,7 +12,6 @@ $bitSizes: (
 }
 
 @if ($includeHtml) {
-
   .sg-text-bit {
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
@@ -21,6 +20,13 @@ $bitSizes: (
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
+
+    &--inherited {
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      font-weight: inherit;
+    }
 
     &--small {
       @include uppercaseText(0);
