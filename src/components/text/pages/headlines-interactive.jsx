@@ -57,11 +57,9 @@ const Headlines = () => {
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <Headline>
-          This is parent Headline component, containing{' '}
+          Parent Headline component{' '}
           <Headline inherited type="span" color={TEXT_COLOR.PEACH_DARK}>
-            nested Headline with prop inherited=true inheriting styles from
-            parent though still is able to override some of them with props
-            (color=peach).
+            nested Headline inheriting styles from parent Headline
           </Headline>
         </Headline>
       </DocsActiveBlock>

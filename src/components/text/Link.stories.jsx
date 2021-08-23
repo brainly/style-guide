@@ -26,9 +26,9 @@ Nested.args = {
   color: TEXT_COLOR.PEACH_DARK,
   children: (
     <>
-      This is outer Link{' '}
+      Outer Link{' '}
       <Link inherited type="span">
-        [this is nested Link with inherited styles]
+        nested Link with inherited styles
       </Link>
     </>
   ),

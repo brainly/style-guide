@@ -26,9 +26,9 @@ Nested.args = {
   color: TEXT_COLOR.PEACH_DARK,
   children: (
     <>
-      This is outer Text{' '}
+      Outer Text{' '}
       <Text inherited type="span">
-        [this is nested Text with inherited styles]
+        nested Text with inherited styles
       </Text>
     </>
   ),

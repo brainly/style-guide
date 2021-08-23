@@ -26,9 +26,9 @@ Nested.args = {
   color: TEXT_COLOR.PEACH_DARK,
   children: (
     <>
-      This is outer Headline{' '}
+      Outer headline{' '}
       <Headline inherited type="span">
-        [this is nested Headline with inherited styles]
+        nested Headline with inherited styles
       </Headline>
     </>
   ),

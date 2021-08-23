@@ -73,11 +73,9 @@ const Nested = () => {
   return (
     <DocsActiveBlock settings={settings}>
       <Text>
-        This is parent Text component, containing{' '}
+        Parent Text component{' '}
         <Text inherited type="span" color={TEXT_COLOR.PEACH_DARK}>
-          nested Text with prop inherited=true inheriting styles from parent
-          though still is able to override some of them with props
-          (color=peach).
+          nested Text inheriting styles from parent Text
         </Text>
       </Text>
     </DocsActiveBlock>
