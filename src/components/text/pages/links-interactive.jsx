@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'text/Link';
+import {TEXT_COLOR} from 'text/textConsts';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -25,6 +26,10 @@ const Links = () => {
       name: 'underlined',
       values: Boolean,
     },
+    {
+      name: 'inherited',
+      values: Boolean,
+    },
   ];
 
   return (
@@ -40,6 +45,14 @@ const Links = () => {
           weight={LINK_WEIGHT.REGULAR}
         >
           Terms of use
+        </Link>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Link>
+          Parent Link component{' '}
+          <Link inherited type="span" color={TEXT_COLOR.MINT_DARK}>
+            nested Link inheriting styles from parent Link
+          </Link>
         </Link>
       </DocsActiveBlock>
     </div>

@@ -53,25 +53,28 @@ export type HeadlinePropsType = {
   align?: ?HeadlineAlignType,
   className?: ?string,
   extraBold?: ?boolean,
+  inherited?: ?boolean,
   ...
 };
 
 const Headline = ({
   children,
   type = HEADLINE_TYPE.H1,
-  size = HEADLINE_SIZE.MEDIUM,
+  size,
   extraBold,
   transform,
   align,
   color,
   className,
+  inherited = false,
   ...props
 }: HeadlinePropsType) => {
   const Type = type;
   const headlineClass = classNames(
     'sg-headline',
     {
-      [`sg-headline--${size}`]: size !== HEADLINE_SIZE.MEDIUM,
+      'sg-headline--inherited': inherited,
+      [`sg-headline--${String(size)}`]: size !== HEADLINE_SIZE.MEDIUM,
       [`sg-headline--${String(color)}`]: color,
       [`sg-headline--${String(transform)}`]: transform,
       [`sg-headline--${align || ''}`]: align,

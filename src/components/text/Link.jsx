@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Text from './Text';
 import {
   TEXT_TYPE,
-  LINK_COLOR,
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
@@ -65,6 +64,7 @@ export type LinkPropsType = {
   emphasised?: boolean,
   disabled?: boolean,
   className?: ?string,
+  inherited?: boolean,
   ...
 };
 
@@ -79,17 +79,19 @@ const Link = (props: LinkPropsType) => {
   const {
     children,
     href,
-    color = LINK_COLOR.BLUE_DARK,
+    color,
     underlined = false,
     unstyled = false,
     emphasised = true, // backward compatibility
     disabled = false, // backward compatibility
     weight,
     className,
+    inherited = false,
     ...additionalProps
   } = props;
   const linkClass = classNames(
     {
+      [`sg-text--inherited`]: inherited,
       'sg-text--link': !underlined && !unstyled,
       'sg-text--link-underlined': underlined && !unstyled,
       'sg-text--link-unstyled': !underlined && unstyled,

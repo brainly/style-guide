@@ -55,6 +55,14 @@ $headlineSizes: (
     font-weight: $fontWeightBold;
     max-width: 100%;
 
+    &--inherited {
+      display: revert;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
     &--xxsmall {
       @include headlineTypeSizeVariant(xxsmall);
     }

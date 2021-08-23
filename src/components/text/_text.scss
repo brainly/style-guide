@@ -3,36 +3,36 @@ $includeHtml: false !default;
 $bodyTextSizes: (
   xxxlarge: (
     fontSize: 66px,
-    lineHeight: 88px
+    lineHeight: 88px,
   ),
   xxlarge: (
     fontSize: 45px,
-    lineHeight: 60px
+    lineHeight: 60px,
   ),
   xlarge: (
     fontSize: 33px,
-    lineHeight: 44px
+    lineHeight: 44px,
   ),
   large: (
     fontSize: 24px,
-    lineHeight: 32px
+    lineHeight: 32px,
   ),
   medium: (
     fontSize: 18px,
-    lineHeight: 24px
+    lineHeight: 24px,
   ),
   small: (
     fontSize: 15px,
-    lineHeight: 20px
+    lineHeight: 20px,
   ),
   xsmall: (
     fontSize: 12px,
-    lineHeight: 16px
+    lineHeight: 16px,
   ),
   xxsmall: (
     fontSize: 9px,
-    lineHeight: 12px
-  )
+    lineHeight: 12px,
+  ),
 );
 
 @function getBodyTextSizeFromMap($map, $keys...) {
@@ -48,12 +48,19 @@ $bodyTextSizes: (
 }
 
 @if ($includeHtml) {
-
   .sg-text {
     @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;
     font-weight: $fontWeightNormal;
     color: $black;
+
+    &--inherited {
+      font-size: inherit;
+      line-height: inherit;
+      font-family: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
 
     &--container {
       position: relative;
@@ -90,6 +97,7 @@ $bodyTextSizes: (
     &--link {
       cursor: pointer;
       text-decoration: none;
+      color: $bluePrimaryDark;
 
       &:hover,
       &:active {
