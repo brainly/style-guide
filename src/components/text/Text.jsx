@@ -80,14 +80,15 @@ export type TextPropsType = {
   whiteSpace?: TextWhiteSpaceType,
   className?: ?string,
   href?: string,
+  inherited?: boolean,
   ...
 };
 
 const Text = ({
   children,
   type = TEXT_TYPE.DIV,
-  size = TEXT_SIZE.MEDIUM,
-  weight = TEXT_WEIGHT.REGULAR,
+  size,
+  weight,
   color,
   transform,
   align,
@@ -97,12 +98,14 @@ const Text = ({
   breakWords,
   whiteSpace,
   className,
+  inherited = false,
   ...props
 }: TextPropsType) => {
   const Type = type;
   const textClass = classNames(
     'sg-text',
     {
+      'sg-text--inherited': inherited,
       [`sg-text--${String(size)}`]: size !== TEXT_SIZE.MEDIUM,
       [`sg-text--${String(color)}`]: color,
       [`sg-text--${String(weight)}`]: weight !== TEXT_WEIGHT.REGULAR,
