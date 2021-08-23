@@ -6,6 +6,7 @@ import Headline, {
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
+import {TEXT_COLOR} from 'text/textConsts';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Headlines = () => {
@@ -34,6 +35,10 @@ const Headlines = () => {
       name: 'extraBold',
       values: Boolean,
     },
+    {
+      name: 'inherited',
+      values: Boolean,
+    },
   ];
 
   return (
@@ -48,6 +53,16 @@ const Headlines = () => {
           color={HEADLINE_COLOR.WHITE}
         >
           We&apos;ve got your back!
+        </Headline>
+      </DocsActiveBlock>
+      <DocsActiveBlock settings={settings}>
+        <Headline>
+          This is parent Headline component, containing{' '}
+          <Headline inherited type="span" color={TEXT_COLOR.PEACH_DARK}>
+            nested Headline with prop inherited=true inheriting styles from
+            parent though still is able to override some of them with props
+            (color=peach).
+          </Headline>
         </Headline>
       </DocsActiveBlock>
     </div>
