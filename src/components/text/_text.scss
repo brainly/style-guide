@@ -190,6 +190,10 @@ $bodyTextSizes: (
       color: $white;
     }
 
+    &--black {
+      color: $black;
+    }
+
     // backward compatibility for html, it should be replaced with sg-text--gray-primary
     &--gray {
       color: $grayPrimary;
