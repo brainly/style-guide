@@ -56,7 +56,6 @@ const Radio = (props: RadioPropsType) => {
         <Text
           size="small"
           type="span"
-          color="default"
           weight="bold"
           className="sg-radio__label"
         >

@@ -17,7 +17,7 @@ export type HeadlineSizeType =
   | 'xxxlarge';
 
 export type HeadlineColorType =
-  | 'default'
+  | 'black'
   | 'white'
   | 'gray'
   | 'gray-secondary'
@@ -74,7 +74,7 @@ const Headline = ({
     'sg-headline',
     {
       'sg-headline--inherited': inherited,
-      [`sg-headline--${String(size)}`]: size !== HEADLINE_SIZE.MEDIUM,
+      [`sg-headline--${String(size)}`]: size && size !== HEADLINE_SIZE.MEDIUM,
       [`sg-headline--${String(color)}`]: color,
       [`sg-headline--${String(transform)}`]: transform,
       [`sg-headline--${align || ''}`]: align,

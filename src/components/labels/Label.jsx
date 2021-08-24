@@ -76,7 +76,7 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   peach: 'peach-dark',
   mustard: 'mustard-dark',
   gray: 'gray-secondary',
-  achromatic: 'default',
+  achromatic: 'black',
 } = {
   blue: 'blue-dark',
   mint: 'mint-dark',
@@ -84,7 +84,7 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   peach: 'peach-dark',
   mustard: 'mustard-dark',
   gray: 'gray-secondary',
-  achromatic: 'default',
+  achromatic: 'black',
 };
 
 const TRANSPARENT_ICON_COLOR_MAP: {
@@ -222,7 +222,7 @@ const Label = ({
 
   const textColor =
     type === 'default' || type === 'transparent'
-      ? 'default'
+      ? 'black'
       : type === 'solid'
       ? 'white'
       : TRANSPARENT_COLOR_TEXT_MAP[color];

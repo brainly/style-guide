@@ -33,7 +33,7 @@ export type TextSizeType =
   | 'xxxlarge';
 
 export type TextColorType =
-  | 'default'
+  | 'black'
   | 'white'
   | 'gray'
   | 'gray-secondary'
@@ -106,9 +106,9 @@ const Text = ({
     'sg-text',
     {
       'sg-text--inherited': inherited,
-      [`sg-text--${String(size)}`]: size !== TEXT_SIZE.MEDIUM,
+      [`sg-text--${String(size)}`]: size && size !== TEXT_SIZE.MEDIUM,
       [`sg-text--${String(color)}`]: color,
-      [`sg-text--${String(weight)}`]: weight !== TEXT_WEIGHT.REGULAR,
+      [`sg-text--${String(weight)}`]: weight && weight !== TEXT_WEIGHT.REGULAR,
       [`sg-text--${transform || ''}`]: transform,
       [`sg-text--${align || ''}`]: align,
       'sg-text--container': asContainer,

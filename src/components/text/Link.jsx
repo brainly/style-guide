@@ -95,7 +95,7 @@ const Link = (props: LinkPropsType) => {
       'sg-text--link': !underlined && !unstyled,
       'sg-text--link-underlined': underlined && !unstyled,
       'sg-text--link-unstyled': !underlined && unstyled,
-      'sg-text--bold': emphasised,
+      'sg-text--bold': emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
       [`sg-text--${String(weight)}`]: weight,
