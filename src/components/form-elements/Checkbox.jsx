@@ -53,7 +53,6 @@ class Checkbox extends React.PureComponent<
           <Text
             size="small"
             type="span"
-            color="default"
             weight="bold"
             className="sg-checkbox__label"
           >

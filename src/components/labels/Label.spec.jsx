@@ -96,7 +96,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(true);
     expect(closeIcon.prop('color')).toBe('dark');
     expect(heartIcon.prop('color')).toBe('dark');
-    expect(label.find(Text).prop('color')).toBe('default');
+    expect(label.find(Text).prop('color')).toBe('black');
   });
 
   test('has proper styles if solid', () => {
@@ -144,7 +144,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
     expect(closeIcon.prop('color')).toBe('dark');
     expect(heartIcon.prop('color')).toBe('mint');
-    expect(label.find(Text).prop('color')).toBe('default');
+    expect(label.find(Text).prop('color')).toBe('black');
     expect(label.find('div').find(Icon)).toHaveLength(2);
   });
 
