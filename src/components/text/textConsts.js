@@ -51,7 +51,7 @@ export const TEXT_SIZE: {
 export const SIZE = TEXT_SIZE; // backward compatibility
 
 export const TEXT_COLOR: {
-  DEFAULT: 'default',
+  BLACK: 'black',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
   MINT_DARK: 'mint-dark',
@@ -62,7 +62,7 @@ export const TEXT_COLOR: {
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
 } = {
-  DEFAULT: 'default',
+  BLACK: 'black',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
   MINT_DARK: 'mint-dark',
