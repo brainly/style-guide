@@ -39,7 +39,7 @@ export const HEADLINE_SIZE: {
 };
 
 export const HEADLINE_COLOR: {
-  DEFAULT: 'default',
+  BLACK: 'black',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
   MINT_DARK: 'mint-dark',
@@ -50,7 +50,7 @@ export const HEADLINE_COLOR: {
   GRAY_SECONDARY: 'gray-secondary',
   GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
 } = {
-  DEFAULT: 'default',
+  BLACK: 'black',
   WHITE: 'white',
   BLUE_DARK: 'blue-dark',
   MINT_DARK: 'mint-dark',
