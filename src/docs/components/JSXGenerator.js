@@ -23,7 +23,8 @@ function generateJSX(component) {
     return component;
   }
 
-  const type = component.type.name || component.type;
+  const type =
+    component.type.name || component.type.displayName || component.type;
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
     .filter(key => component.props[key] !== undefined)
