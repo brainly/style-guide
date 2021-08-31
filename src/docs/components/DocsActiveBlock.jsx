@@ -166,7 +166,14 @@ class DocsActiveBlock extends Component<PropsType, StateType> {
     let code;
 
     if (this.state.renderNormally) {
-      component = React.cloneElement(this.props.children, this.getCleanProps());
+      try {
+        component = React.cloneElement(
+          this.props.children,
+          this.getCleanProps()
+        );
+      } catch (e) {
+        component = <div className="docs-active-block__error">{e.message}</div>;
+      }
 
       if (this.state.showCode === 'jsx') {
         const jsx = generateJSX(component);

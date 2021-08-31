@@ -12,13 +12,21 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   &--gray .docs-active-block__component {
     background-color: $graySecondaryLightest;
     background-size: 41px 40px;
-    background-image: radial-gradient(circle, $grayPrimary 1px, $docsActiveBlockTransparent 1px);
+    background-image: radial-gradient(
+      circle,
+      $grayPrimary 1px,
+      $docsActiveBlockTransparent 1px
+    );
   }
 
   &--dark .docs-active-block__component {
     background-color: $grayPrimary;
     background-size: 41px 40px;
-    background-image: radial-gradient(circle, $grayPrimary 1px, $docsActiveBlockTransparent 1px);
+    background-image: radial-gradient(
+      circle,
+      $grayPrimary 1px,
+      $docsActiveBlockTransparent 1px
+    );
   }
 
   &__label {
@@ -61,6 +69,10 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
     &:hover {
       opacity: 1;
     }
+  }
+
+  &__error {
+    color: $peachPrimaryDark;
   }
 
   // Hack to display overlay only in the docs active block, not full screen
