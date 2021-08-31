@@ -91,6 +91,10 @@ export type IconTypeType =
   | 'subtitle'
   | 'symbols'
   | 'textbook'
+  | 'thumb_down'
+  | 'thumb_down_outlined'
+  | 'thumb_up'
+  | 'thumb_up_outlined'
   | 'title'
   | 'toughest_questions'
   | 'trash'
@@ -227,6 +231,10 @@ export const TYPE: {
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
   TEXTBOOK: 'textbook',
+  THUMB_DOWN: 'thumb_down',
+  THUMB_DOWN_OUTLINED: 'thumb_down_outlined',
+  THUMB_UP: 'thumb_up',
+  THUMB_UP_OUTLINED: 'thumb_up_outlined',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
@@ -344,6 +352,10 @@ export const TYPE: {
   SUBTITLE: 'subtitle',
   SYMBOLS: 'symbols',
   TEXTBOOK: 'textbook',
+  THUMB_DOWN: 'thumb_down',
+  THUMB_DOWN_OUTLINED: 'thumb_down_outlined',
+  THUMB_UP: 'thumb_up',
+  THUMB_UP_OUTLINED: 'thumb_up_outlined',
   TITLE: 'title',
   TOUGHEST_QUESTIONS: 'toughest_questions',
   TRASH: 'trash',
