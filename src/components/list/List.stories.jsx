@@ -11,26 +11,20 @@ export default {
     component: List,
     subcomponents: {ListItem, ListItemIcon},
   },
+  argTypes: {
+    children: {control: null},
+    spaced: {control: 'boolean'},
+  },
+  args: {
+    children: [
+      <ListItem key="one">Element one</ListItem>,
+      <ListItem key="two">Element two</ListItem>,
+      <ListItem key="three">Element three</ListItem>,
+    ],
+  },
 };
 
-export const Default = args => {
-  return (
-    <List {...args}>
-      <ListItem>Element one</ListItem>
-      <ListItem>Element two</ListItem>
-      <ListItem>Element three</ListItem>
-    </List>
-  );
-};
-
-Default.args = {
-  children: null,
-};
-
-Default.argTypes = {
-  children: {control: null},
-  spaced: {control: 'boolean'},
-};
+export const Default = args => <List {...args} />;
 
 export const WithIcon = () => (
   <List>

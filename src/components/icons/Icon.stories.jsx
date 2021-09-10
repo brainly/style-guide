@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
+import Flex from '../flex/Flex';
+import {StoryVariant} from '../../../.storybook/utils';
 
 export default {
   title: 'Components/Icon',
@@ -13,13 +15,46 @@ export default {
     color: {control: {type: 'select', options: ICON_COLOR}},
     className: {control: {type: 'text'}},
   },
+  args: {
+    type: TYPE.ACADEMIC_CAP,
+    color: ICON_COLOR.ADAPTIVE,
+  },
 };
 
-export const Default = args => {
-  return <Icon {...args} />;
-};
+export const Default = args => <Icon {...args} />;
 
-Default.args = {
-  type: TYPE.ACADEMIC_CAP,
-  color: ICON_COLOR.ADAPTIVE,
-};
+export const Colors = args => (
+  <Flex wrap>
+    {Object.values(ICON_COLOR).map(color => (
+      <StoryVariant label={`color - ${color}`} width={200} key={color}>
+        {color === 'LIGHT' ? (
+          <div className="sg-story-variant-dark-box">
+            <Icon {...args} color={color} />
+          </div>
+        ) : (
+          <Icon {...args} color={color} />
+        )}
+      </StoryVariant>
+    ))}
+  </Flex>
+);
+
+export const Sizes = args => (
+  <div>
+    {Object.values(SIZE).map(size => (
+      <StoryVariant label={`size - ${size}`} width={200} key={size}>
+        <Icon {...args} size={size} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const Types = args => (
+  <Flex wrap>
+    {Object.values(TYPE).map(type => (
+      <StoryVariant label={`type- ${type}`} width={200} key={type}>
+        <Icon {...args} type={type} />
+      </StoryVariant>
+    ))}
+  </Flex>
+);

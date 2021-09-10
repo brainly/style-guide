@@ -14,16 +14,13 @@ export default {
       },
     },
   },
+  args: {
+    children: [
+      <FooterLine key="1">line</FooterLine>,
+      <FooterLine key="2">line</FooterLine>,
+      <FooterLine key="3">line</FooterLine>,
+    ],
+  },
 };
 
-export const Default = args => {
-  return <Footer {...args} />;
-};
-
-Default.args = {
-  children: [
-    <FooterLine key="1">line</FooterLine>,
-    <FooterLine key="2">line</FooterLine>,
-    <FooterLine key="3">line</FooterLine>,
-  ],
-};
+export const Default = args => <Footer {...args} />;

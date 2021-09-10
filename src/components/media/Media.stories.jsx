@@ -23,18 +23,29 @@ export default {
       },
     },
   },
+  args: {
+    aside: <Avatar />,
+    contentArray: [
+      <Text key="1" weight="bold">
+        The Goat
+      </Text>,
+      'Master',
+    ],
+  },
 };
 
-export const Default = args => {
-  return <Media {...args} />;
-};
+export const Default = args => <Media {...args} />;
 
-Default.args = {
-  aside: <Avatar />,
-  contentArray: [
-    <Text key="1" weight="bold">
-      The Goat
-    </Text>,
-    'Master',
-  ],
+export const ToRight = args => <Media {...args} toRight />;
+
+export const Focused = args => <Media {...args} focused />;
+
+export const GraySecondaryLightClickable = args => (
+  <Media {...args} graySecondaryLight clickable />
+);
+
+GraySecondaryLightClickable.parameters = {
+  backgrounds: {
+    default: 'light',
+  },
 };

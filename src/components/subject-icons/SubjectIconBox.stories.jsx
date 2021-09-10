@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {StoryVariant} from '../../../.storybook/utils';
+import Flex from '../flex/Flex';
 import SubjectIconBox, {TYPE, SIZE} from './SubjectIconBox';
 
 export default {
@@ -14,12 +16,39 @@ export default {
       control: {type: 'select', options: SIZE},
     },
   },
+  args: {
+    type: TYPE.ACCOUNTANCY,
+  },
 };
 
-export const Default = args => {
-  return <SubjectIconBox {...args} />;
-};
+export const Default = args => <SubjectIconBox {...args} />;
 
-Default.args = {
-  type: TYPE.ACCOUNTANCY,
-};
+export const Types = args => (
+  <Flex wrap>
+    {Object.values(TYPE).map(type => (
+      <StoryVariant label={`type - ${type}`} width={200} key={type}>
+        <SubjectIconBox {...args} type={type} />
+      </StoryVariant>
+    ))}
+  </Flex>
+);
+
+export const Sizes = args => (
+  <div>
+    {Object.values(SIZE).map(size => (
+      <StoryVariant label={`size - ${size}`} key={size}>
+        <SubjectIconBox {...args} size={size} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const Darker = args => (
+  <Flex wrap>
+    {Object.values(TYPE).map(type => (
+      <StoryVariant label={`type - ${type}`} width={200} key={type}>
+        <SubjectIconBox {...args} type={type} darker />
+      </StoryVariant>
+    ))}
+  </Flex>
+);

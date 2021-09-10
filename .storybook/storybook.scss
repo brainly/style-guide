@@ -1,0 +1,25 @@
+@import '../src/sass/config';
+@import '../src/sass/mixins';
+@import '../src/components/buttons/buttons.stories';
+
+.sg-story {
+  display: flex;
+
+  &-variant {
+    margin-bottom: spacing(l);
+
+    &__name {
+      margin-bottom: spacing(s);
+    }
+
+    &-dark-box {
+      background: $graySecondary;
+      padding: spacing(m);
+    }
+
+    &-border-box {
+      border: 1px solid $graySecondary;
+      padding: spacing(m);
+    }
+  }
+}

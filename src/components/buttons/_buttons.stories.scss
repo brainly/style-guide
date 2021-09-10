@@ -1,0 +1,11 @@
+.sg-button-stories-table {
+  td,
+  th {
+    vertical-align: top;
+    padding: 10px;
+
+    &:first-of-type {
+      text-align: left;
+    }
+  }
+}

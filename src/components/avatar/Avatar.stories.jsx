@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {StoryVariant} from '../../../.storybook/utils';
 import Avatar, {SIZE} from './Avatar';
 
 export default {
@@ -6,69 +7,37 @@ export default {
   parameters: {
     component: Avatar,
   },
-};
-
-export const Default = args => <Avatar {...args} />;
-
-Default.args = {};
-
-Default.argTypes = {
-  size: {control: {type: 'select', options: SIZE}},
-  border: {control: 'boolean'},
-  spaced: {control: 'boolean'},
-  imgSrc: {
-    control: {
-      type: 'select',
-      options: ['', 'https://source.unsplash.com/240x240/?cat'],
+  argTypes: {
+    size: {control: {type: 'select', options: SIZE}},
+    border: {control: 'boolean'},
+    spaced: {control: 'boolean'},
+    imgSrc: {
+      control: {
+        type: 'select',
+        options: ['', 'https://source.unsplash.com/240x240/?cat'],
+      },
     },
   },
 };
 
+export const Default = args => <Avatar {...args} />;
+
 export const Sizes = () => (
   <div>
-    {Object.values(SIZE).map((size, index) => (
-      <Avatar key={index} size={size} />
+    {Object.values(SIZE).map(size => (
+      <StoryVariant key={size} label={`size - ${size}`}>
+        <Avatar size={size} />
+      </StoryVariant>
     ))}
   </div>
 );
 
-export const SizesWithBorder = () => (
-  <div>
-    {Object.values(SIZE).map((size, index) => (
-      <Avatar key={index} size={size} border />
-    ))}
-  </div>
-);
+export const WithBorder = () => <Avatar size="l" border />;
 
-SizesWithBorder.parameters = {
+WithBorder.parameters = {
   backgrounds: {default: 'dark'},
 };
 
-export const ImageSizes = () => (
-  <div>
-    {Object.values(SIZE).map((size, index) => (
-      <Avatar
-        key={index}
-        size={size}
-        imgSrc="https://source.unsplash.com/240x240/?cat"
-      />
-    ))}
-  </div>
+export const CustomImage = () => (
+  <Avatar size="l" imgSrc="https://source.unsplash.com/240x240/?cat" />
 );
-
-export const ImageSizesWithBorder = () => (
-  <div>
-    {Object.values(SIZE).map((size, index) => (
-      <Avatar
-        key={index}
-        size={size}
-        imgSrc="https://source.unsplash.com/240x240/?cat"
-        border
-      />
-    ))}
-  </div>
-);
-
-ImageSizesWithBorder.parameters = {
-  backgrounds: {default: 'dark'},
-};

@@ -1,5 +1,8 @@
 import * as React from 'react';
-import SubjectIcon, {TYPE, ICON_COLOR} from './SubjectIcon';
+import SubjectIcon, {TYPE, ICON_COLOR, SIZE} from './SubjectIcon';
+import hex from '../colors/hex';
+import Flex from '../flex/Flex';
+import {StoryVariant} from '../../../.storybook/utils';
 
 export default {
   title: 'Components/SubjectIcon',
@@ -14,12 +17,63 @@ export default {
       },
     },
   },
+  args: {
+    type: TYPE.ACCOUNTANCY,
+  },
 };
 
-export const Default = args => {
-  return <SubjectIcon {...args} />;
-};
+export const Default = args => <SubjectIcon {...args} />;
 
-Default.args = {
-  type: TYPE.ACCOUNTANCY,
-};
+export const Types = args => (
+  <Flex wrap>
+    {Object.values(TYPE).map(type => (
+      <StoryVariant label={`type - ${type}`} width={200} key={type}>
+        <SubjectIcon {...args} type={type} />
+      </StoryVariant>
+    ))}
+  </Flex>
+);
+
+export const Sizes = args => (
+  <div>
+    {Object.values(SIZE).map(size => (
+      <StoryVariant label={`size - ${size}`} key={size}>
+        <SubjectIcon {...args} size={size} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const MonoColor = args => (
+  <div>
+    <Flex wrap>
+      {Object.values(ICON_COLOR).map(color => (
+        <StoryVariant
+          width={200}
+          label={`color - ${color}`}
+          style={{
+            width: '200px',
+            background:
+              color === ICON_COLOR.LIGHT ? hex.graySecondary : 'transparent',
+          }}
+          key={color}
+        >
+          {color === ICON_COLOR.LIGHT ? (
+            <div className="sg-story-variant-dark-box">
+              <SubjectIcon {...args} monoColor={color} />
+            </div>
+          ) : (
+            <SubjectIcon {...args} monoColor={color} />
+          )}
+        </StoryVariant>
+      ))}
+    </Flex>
+    <Flex wrap>
+      {Object.values(TYPE).map(type => (
+        <StoryVariant label={type} width={200} key={type}>
+          <SubjectIcon {...args} monoColor={ICON_COLOR.BLUE} type={type} />
+        </StoryVariant>
+      ))}
+    </Flex>
+  </div>
+);

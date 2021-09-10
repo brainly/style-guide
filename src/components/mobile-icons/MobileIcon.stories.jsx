@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {StoryVariant} from '../../../.storybook/utils';
+import Flex from '../flex/Flex';
 import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 
 export default {
@@ -14,13 +16,21 @@ export default {
       },
     },
   },
+  args: {
+    type: TYPE.ANSWER_BUBBLE,
+    color: ICON_COLOR.ADAPTIVE,
+    size: 'medium',
+  },
 };
 
-export const Default = args => {
-  return <MobileIcon {...args} />;
-};
+export const Default = args => <MobileIcon {...args} />;
 
-Default.args = {
-  type: TYPE.ANSWER_BUBBLE,
-  color: ICON_COLOR.ADAPTIVE,
-};
+export const Types = args => (
+  <Flex wrap>
+    {Object.values(TYPE).map(type => (
+      <StoryVariant label={`type - ${type}`} width={200} key={type}>
+        <MobileIcon {...args} type={type} />
+      </StoryVariant>
+    ))}
+  </Flex>
+);

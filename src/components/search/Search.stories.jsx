@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {StoryVariant} from '../../../.storybook/utils';
 import Search, {SIZE, COLOR} from './Search';
 
 export default {
@@ -21,12 +22,21 @@ export default {
     color: {control: {type: 'select', options: COLOR}},
     placeholder: {control: {type: 'text'}},
   },
+  args: {
+    placeholder: 'Find all the answers...',
+  },
 };
 
-export const Default = args => {
-  return <Search {...args} />;
-};
+export const Default = args => <Search {...args} />;
 
-Default.args = {
-  placeholder: 'Find all the answers...',
-};
+export const Sizes = args => (
+  <div>
+    {Object.values(SIZE).map(size => (
+      <StoryVariant label={`size - ${size}`} key={size}>
+        <Search {...args} size={size} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const RoundedButton = args => <Search {...args} withRoundButton />;

@@ -3,9 +3,9 @@ import Breadcrumb from './Breadcrumb';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 const longElements = [
-  "I'm so long and there is so little space there",
-  'The second element is also very talkative',
-  'Lorem ipsum has many many words',
+  'Laboris fugiat anim dolore ipsum amet enim eiusmod',
+  'Ea anim proident quis est Lorem dolore',
+  'Ullamco dolore officia eiusmod aute id proident eiusmod dolor enim occaecat duis duis.',
 ];
 
 export default {
@@ -13,24 +13,47 @@ export default {
   parameters: {
     component: Breadcrumb,
   },
+  argTypes: {
+    elements: {
+      control: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    elements,
+  },
 };
 
-export const Default = args => {
-  const {elements} = args;
+export const Default = args => <Breadcrumb {...args} />;
 
-  return <Breadcrumb {...args} elements={elements} />;
-};
-
-Default.args = {
-  elements,
-};
-
-Default.argTypes = {
-  elements: {control: {type: 'object'}},
-};
-
-export const WithInlineItems = () => (
+export const Compact = args => (
   <div style={{maxWidth: '400px'}}>
-    <Breadcrumb inlineItems elements={longElements} />
+    <Breadcrumb {...args} short />
   </div>
 );
+
+Compact.args = {
+  elements: longElements,
+};
+
+export const InheritedColor = args => (
+  <div
+    style={{
+      color: 'blue',
+    }}
+  >
+    <div>Parent</div>
+    <Breadcrumb {...args} adaptive />
+  </div>
+);
+
+export const FullLines = args => (
+  <div style={{maxWidth: '400px'}}>
+    <Breadcrumb {...args} inlineItems />
+  </div>
+);
+
+FullLines.args = {
+  elements: longElements,
+};

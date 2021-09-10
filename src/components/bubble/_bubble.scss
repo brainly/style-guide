@@ -21,7 +21,6 @@ $includeHtml: false !default;
 }
 
 @if ($includeHtml) {
-
   .sg-bubble {
     background: $bubbleBackground;
     border-color: $bubbleBackground;

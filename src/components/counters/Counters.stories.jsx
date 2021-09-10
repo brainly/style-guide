@@ -2,72 +2,49 @@ import * as React from 'react';
 import Counter, {COUNTER_SIZE} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
+import {StoryVariant} from '../../../.storybook/utils';
 
 export default {
   title: 'Components/Counter',
   parameters: {
     component: Counter,
   },
+  args: {
+    children: '25',
+    size: 'xs',
+  },
+  argTypes: {
+    size: {control: {type: 'select', options: COUNTER_SIZE}},
+    withAnimation: {control: 'boolean'},
+    icon: {control: {type: 'select', options: Object.values(ICON_TYPE)}},
+  },
 };
 
-export const Default = args => {
-  const {children} = args;
+export const Default = args => <Counter {...args} />;
 
-  return <Counter {...args}>{children}</Counter>;
-};
-
-Default.args = {
-  children: '25',
-};
-
-Default.argTypes = {
-  size: {control: {type: 'select', options: COUNTER_SIZE}},
-  withAnimation: {control: 'boolean'},
-  icon: {control: {type: 'select', options: Object.values(ICON_TYPE)}},
-};
-
-export const Sizes = () => (
+export const Sizes = args => (
   <div>
-    <Flex alignItems="flex-end">
-      <Flex marginLeft="xs">
-        <Counter size="xs">1</Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xs">12345</Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xxs">1</Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xxs">12345</Counter>
-      </Flex>
-    </Flex>
+    {Object.values(COUNTER_SIZE).map(size => (
+      <StoryVariant key={size} label={`size - ${size}`}>
+        <Counter {...args} size={size}>
+          1
+        </Counter>
+        <Counter {...args} size={size}>
+          12345
+        </Counter>
+      </StoryVariant>
+    ))}
   </div>
 );
 
-export const WithIcon = () => (
-  <div>
-    <Flex alignItems="flex-end">
-      <Flex marginLeft="xs">
-        <Counter size="xs" icon="points">
-          1
+export const WithIcon = args => (
+  <Flex wrap>
+    {Object.values(ICON_TYPE).map(icon => (
+      <StoryVariant width={200} label={`icon - ${icon}`} key={icon}>
+        <Counter {...args} icon={icon}>
+          123
         </Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xs" icon="points">
-          12345
-        </Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xxs" icon="points">
-          1
-        </Counter>
-      </Flex>
-      <Flex marginLeft="xs">
-        <Counter size="xxs" icon="points">
-          12345
-        </Counter>
-      </Flex>
-    </Flex>
-  </div>
+      </StoryVariant>
+    ))}
+  </Flex>
 );
