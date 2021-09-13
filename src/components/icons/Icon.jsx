@@ -137,6 +137,7 @@ export type IconColorType =
   | 'mint'
   | 'mustard'
   | 'blue-dark'
+  | 'peach-dark'
   | 'peach';
 
 export type IconTagType = 'div' | 'span';
@@ -400,6 +401,7 @@ export const ICON_COLOR: {
   MUSTARD: 'mustard',
   PEACH: 'peach',
   BLUE_DARK: 'blue-dark',
+  PEACH_DARK: 'peach-dark',
 } = {
   ADAPTIVE: 'adaptive',
   BLUE: 'blue',
@@ -413,6 +415,7 @@ export const ICON_COLOR: {
   MUSTARD: 'mustard',
   PEACH: 'peach',
   BLUE_DARK: 'blue-dark',
+  PEACH_DARK: 'peach-dark',
 };
 
 export const ICON_TAG_TYPE: {
