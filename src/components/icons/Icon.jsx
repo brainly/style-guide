@@ -399,6 +399,7 @@ export const ICON_COLOR: {
   MINT: 'mint',
   MUSTARD: 'mustard',
   PEACH: 'peach',
+  NAVY_BLUE: 'navy-blue',
 } = {
   ADAPTIVE: 'adaptive',
   BLUE: 'blue',
@@ -411,6 +412,7 @@ export const ICON_COLOR: {
   MINT: 'mint',
   MUSTARD: 'mustard',
   PEACH: 'peach',
+  NAVY_BLUE: 'navy-blue',
 };
 
 export const ICON_TAG_TYPE: {
