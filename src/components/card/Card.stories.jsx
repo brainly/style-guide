@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Card from './Card';
-import CardHole, {CARD_HOLE_COLOR} from './CardHole';
+import CardHole from './CardHole';
 
 export default {
   title: 'Components/Card',
@@ -20,9 +20,7 @@ export const Default = args => {
   return (
     <Card {...args}>
       <CardHole>This is card content top</CardHole>
-      <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHTEST}>
-        This is card content bottom
-      </CardHole>
+      <CardHole>This is card content bottom</CardHole>
     </Card>
   );
 };

@@ -6,12 +6,11 @@ export default {
   parameters: {
     component: Checkbox,
   },
+  args: {
+    children: 'Checkbox',
+  },
 };
 
 export const Default = args => <Checkbox {...args} />;
 
-Default.args = {
-  children: 'Checkbox',
-};
-
-Default.argsTypes = {};
+export const Checked = args => <Checkbox {...args} checked />;

@@ -1,5 +1,6 @@
 import React from 'react';
-import Box, {PADDING} from './Box';
+import {StoryVariant} from '../../../.storybook/utils';
+import Box, {PADDING, COLOR} from './Box';
 
 export default {
   title: 'Layout/Box',
@@ -31,21 +32,54 @@ export default {
       },
     },
   },
+  args: {
+    children: 'Text inside Box with border',
+  },
 };
 
-export const Default = args => {
-  return <Box {...args} />;
+export const Default = args => <Box {...args} />;
+
+export const Colors = args => (
+  <div>
+    {Object.values(COLOR).map(color => (
+      <StoryVariant key={color} label={`color - ${color}`}>
+        <Box {...args} color={color} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const Paddings = args => (
+  <div>
+    {Object.values(PADDING).map(padding => (
+      <StoryVariant label={`padding - ${padding}`} key={padding}>
+        <Box {...args} color={COLOR.blue} padding={padding} />
+      </StoryVariant>
+    ))}
+  </div>
+);
+
+export const Borders = args => {
+  return (
+    <div>
+      {Object.values(COLOR).map(color => (
+        <StoryVariant label={`border color - ${color}`} key={color}>
+          {color === COLOR.light ? (
+            <div className="sg-story-variant-dark-box">
+              <Box
+                {...args}
+                color={COLOR.blue}
+                border
+                borderColor={COLOR[color]}
+              />
+            </div>
+          ) : (
+            <Box {...args} border borderColor={color} />
+          )}
+        </StoryVariant>
+      ))}
+    </div>
+  );
 };
 
-Default.args = {
-  children: 'Text inside default Box',
-};
-
-export const WithBorder = args => {
-  return <Box {...args} />;
-};
-
-WithBorder.args = {
-  border: true,
-  children: 'Text inside Box with border',
-};
+export const Shadow = args => <Box {...args} color={COLOR.blue} shadow />;

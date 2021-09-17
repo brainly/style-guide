@@ -8,12 +8,13 @@ import {
 } from '@storybook/addon-docs/blocks';
 import theme from './theme';
 
-import { Canvas } from 'blocks/Canvas';
-import { Primary } from 'blocks/Primary';
-import { Stories } from 'blocks/Stories';
+import {Canvas} from 'blocks/Canvas';
+import {Primary} from 'blocks/Primary';
+import {Stories} from 'blocks/Stories';
 
 // load all styles
 import '../src/main.scss';
+import './storybook.scss';
 
 // load generated icons
 import '../src/images/icons';
@@ -43,8 +44,7 @@ export const parameters = {
       Canvas,
     },
   },
-  controls: { hideNoControlsWarning: true },
-  layout: 'centered',
+  controls: {hideNoControlsWarning: true},
   options: {
     storySort: {
       order: [

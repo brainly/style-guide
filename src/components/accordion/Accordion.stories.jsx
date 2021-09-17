@@ -3,7 +3,27 @@
 import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import {Flex, Icon, Link} from '../../index';
+
+const copy = {
+  title: 'Is this title for accordion?',
+  description:
+    // eslint-disable-next-line max-len
+    "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
+  cta: 'Learn more',
+  url: '#',
+};
+
+const items = [
+  <AccordionItem title={copy.title} id="accordion-item-1" key="1">
+    {copy.description}
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="2">
+    {copy.description}
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="3">
+    {copy.description}
+  </AccordionItem>,
+];
 
 export default {
   title: 'Layout/Accordion',
@@ -34,66 +54,13 @@ export default {
       },
     },
   },
+  args: {
+    allowMultiple: true,
+    children: items,
+  },
 };
 
-const copy = {
-  title: 'Is this title for accordion?',
-  description:
-    // eslint-disable-next-line max-len
-    "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
-  cta: 'Learn more',
-  url: '#',
-};
-
-const CallToAction = ({url, cta}: {url: string, cta: string}) => {
-  return (
-    <Flex marginTop="s">
-      <Link href={url}>
-        <Flex inlineFlex alignItems="center">
-          <span>{cta}</span>
-          <Icon type="arrow_right" color="blue" size={16} />
-        </Flex>
-      </Link>
-    </Flex>
-  );
-};
-
-export const Default = (args: any) => (
-  <Accordion {...args}>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-  </Accordion>
-);
-
-export const NoGaps = (args: any) => (
-  <Accordion {...args}>
-    <AccordionItem title={copy.title} id="first">
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title} id="second">
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-    <AccordionItem title={copy.title}>
-      {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
-    </AccordionItem>
-  </Accordion>
-);
-
-NoGaps.args = {
-  spacing: 'none',
-  allowMultiple: true,
-  defaultExpanded: ['first', 'second'],
-};
+export const Default = (args: any) => <Accordion {...args} />;
 
 const CONTROLLED_ACCORDION_IDS = [
   'accrodion item 1',
@@ -101,7 +68,7 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion item 3',
 ];
 
-export const Controlled = (args: any) => {
+export const Expanded = (args: any) => {
   const [prevExpanded, setPrevExpanded] = React.useState();
   const [expanded, setExpanded] = React.useState('');
   const handleChange = id => setExpanded(id);
@@ -117,21 +84,22 @@ export const Controlled = (args: any) => {
     <Accordion onChange={handleChange} expanded={expanded} {...props}>
       {CONTROLLED_ACCORDION_IDS.map(id => (
         <AccordionItem title={copy.title} key={id} id={id}>
-          {copy.description} <CallToAction url={copy.url} cta={copy.cta} />
+          {copy.description}
         </AccordionItem>
       ))}
     </Accordion>
   );
 };
 
-Controlled.args = {
+Expanded.args = {
   expanded: CONTROLLED_ACCORDION_IDS[0],
+  reduceMotion: true,
 };
 
-Controlled.argTypes = {
-  expanded: {
-    control: {type: 'select', options: CONTROLLED_ACCORDION_IDS},
-  },
-  allowMultiple: {control: null},
-  defaultExpanded: {control: null},
+export const NoGaps = (args: any) => <Accordion {...args} spacing="none" />;
+
+export const ReducedMotion = (args: any) => <Accordion {...args} />;
+
+ReducedMotion.args = {
+  reduceMotion: true,
 };

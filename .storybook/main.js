@@ -14,7 +14,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  webpackFinal: (config) => {
+  webpackFinal: config => {
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
 
     config.module.rules = [
@@ -39,7 +39,7 @@ module.exports = {
                 '@babel/preset-typescript',
                 IS_PRODUCTION && [
                   'babel-preset-minify',
-                  { builtIns: false, mangle: false },
+                  {builtIns: false, mangle: false},
                 ],
                 '@babel/preset-react',
                 '@babel/preset-flow',
@@ -48,12 +48,12 @@ module.exports = {
                 '@babel/plugin-proposal-object-rest-spread',
                 '@babel/plugin-proposal-class-properties',
                 '@babel/plugin-syntax-dynamic-import',
-                ['babel-plugin-emotion', { sourceMap: true, autoLabel: true }],
+                ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
                 'babel-plugin-macros',
                 'babel-plugin-add-react-displayname',
                 [
                   'babel-plugin-react-docgen',
-                  { DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES' },
+                  {DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES'},
                 ],
               ],
             },
@@ -64,14 +64,17 @@ module.exports = {
       {
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
-        include: path.resolve(__dirname, '../src/main.scss'),
+        include: [
+          path.resolve(__dirname, '../src/main.scss'),
+          path.resolve(__dirname, './storybook.scss'),
+        ],
       },
       {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
         include: path.join(SOURCE_DIR, 'images'),
         options: {
-          symbolId: (filePath) => {
+          symbolId: filePath => {
             const pathParts = filePath.split(path.sep);
             const symbol = path.basename(filePath, '.svg');
 
@@ -98,7 +101,7 @@ module.exports = {
       SOURCE_COMPONENTS_DIR,
       SOURCE_DOCS_DIR,
       path.join(SOURCE_DIR, 'images'),
-      'node_modules',
+      'node_modules'
     );
 
     return config;
