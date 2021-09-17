@@ -42,7 +42,7 @@ export const Sizes = args => (
 );
 
 export const Colors = args => (
-  <Flex>
+  <Flex wrap>
     {Object.values(ICON_COLOR).map(color => (
       <StoryVariant label={color} color={color} width={200} key={color}>
         {color === 'light' ? (

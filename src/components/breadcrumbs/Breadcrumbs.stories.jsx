@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Breadcrumb from './Breadcrumb';
+import hex from '../colors/hex';
 
 const elements = ['Comments (9)', 'Report', 'Follow'];
 const longElements = [
@@ -27,20 +28,20 @@ export default {
 
 export const Default = args => <Breadcrumb {...args} />;
 
-export const Compact = args => (
+export const Short = args => (
   <div style={{maxWidth: '400px'}}>
     <Breadcrumb {...args} short />
   </div>
 );
 
-Compact.args = {
+Short.args = {
   elements: longElements,
 };
 
-export const InheritedColor = args => (
+export const Adaptive = args => (
   <div
     style={{
-      color: 'blue',
+      color: hex.lavenderPrimary,
     }}
   >
     <div>Parent</div>

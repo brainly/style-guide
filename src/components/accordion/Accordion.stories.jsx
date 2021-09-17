@@ -3,7 +3,6 @@
 import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import {StoryVariant} from '../../../.storybook/utils';
 
 const copy = {
   title: 'Is this title for accordion?',
@@ -97,28 +96,7 @@ Expanded.args = {
   reduceMotion: true,
 };
 
-const spacings = [
-  'xxs',
-  'xs',
-  's',
-  'm',
-  'l',
-  'xl',
-  'xxl',
-  'xxxl',
-  'xxxxl',
-  'none',
-];
-
-export const Spacing = (args: any) => (
-  <div>
-    {spacings.map(spacing => (
-      <StoryVariant key={spacing} label={`spacing - ${spacing}`}>
-        <Accordion {...args} spacing={spacing} />
-      </StoryVariant>
-    ))}
-  </div>
-);
+export const NoGaps = (args: any) => <Accordion {...args} spacing="none" />;
 
 export const ReducedMotion = (args: any) => <Accordion {...args} />;
 

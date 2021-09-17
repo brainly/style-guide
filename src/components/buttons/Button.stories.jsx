@@ -48,10 +48,12 @@ export const Buttons = args => (
       {Object.values(BUTTON_TYPE).map(buttonType => (
         <tr
           style={{
-            backgroundColor:
-              buttonType === 'SOLID_INVERTED'
-                ? hex.graySecondary
-                : 'transparent',
+            backgroundColor: [
+              'solid-inverted',
+              'transparent-inverted',
+            ].includes(buttonType)
+              ? hex.graySecondary
+              : 'transparent',
           }}
           key={buttonType}
         >
@@ -93,10 +95,10 @@ export const Buttons = args => (
           </td>
           <td>
             {[
-              'SOLID_LIGHT',
-              'OUTLINE',
-              'TRANSPARENT',
-              'TRANSPARENT_LIGHT',
+              'solid-light',
+              'outline',
+              'transparent',
+              'transparent-light',
             ].includes(buttonType)
               ? ['peach', 'mustard', 'blue'].map(toggleType => (
                   <div style={{marginBottom: '10px'}} key={toggleType}>
