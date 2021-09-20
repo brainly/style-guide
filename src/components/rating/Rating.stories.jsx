@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import Rating, {RATING_SIZE} from './Rating';
 
 export default {

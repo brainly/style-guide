@@ -66,7 +66,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
         include: [
           path.resolve(__dirname, '../src/main.scss'),
-          path.resolve(__dirname, './storybook.scss'),
+          path.resolve(__dirname, '../src/_docs/styles.scss'),
         ],
       },
       {

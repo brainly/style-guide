@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoryVariant, StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 import Input, {SIZE, COLOR, TYPE} from './Input';
 
 const ARGS_PER_TYPE = {

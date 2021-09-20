@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Dropdown from './Dropdown';
-import {StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/Dropdown',

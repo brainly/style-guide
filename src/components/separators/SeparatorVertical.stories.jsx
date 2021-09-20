@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SeparatorVertical, {SIZE} from './SeparatorVertical';
 import Flex from '../flex/Flex';
-import {StoryVariant, StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/separators/SeparatorVertical',

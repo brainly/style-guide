@@ -2,7 +2,8 @@ import * as React from 'react';
 import Button, {BUTTON_SIZE, BUTTON_TYPE} from './Button';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariantTable} from '../../_docs/utils';
+import Headline from '../text/Headline';
 
 const allIcons = Object.entries(ICON_TYPES).reduce(
   (acc, [key, type]) => ({
@@ -33,15 +34,65 @@ export default {
 export const Default = args => <Button {...args} />;
 
 export const Buttons = args => (
-  <table className="sg-button-stories-table">
+  <StoryVariantTable>
     <thead>
       <tr>
-        <th>type/state</th>
-        <th>default</th>
-        <th>disabled</th>
-        <th>with icon/reversed order</th>
-        <th>icon only</th>
-        <th>toggle</th>
+        <th />
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary"
+            size="small"
+          >
+            default
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary"
+            size="small"
+          >
+            disabled
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary"
+            size="small"
+          >
+            with icon
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary"
+            size="small"
+          >
+            icon only
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary"
+            size="small"
+          >
+            toggle
+          </Headline>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -52,12 +103,26 @@ export const Buttons = args => (
               'solid-inverted',
               'transparent-inverted',
             ].includes(buttonType)
-              ? hex.graySecondary
+              ? hex.black
               : 'transparent',
           }}
           key={buttonType}
         >
-          <td>{buttonType.toLowerCase()}</td>
+          <td>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color={
+                ['solid-inverted', 'transparent-inverted'].includes(buttonType)
+                  ? 'white'
+                  : 'gray-secondary'
+              }
+              size="small"
+            >
+              {buttonType.toLowerCase()}
+            </Headline>
+          </td>
           <td>
             <Button {...args} type={buttonType} />
           </td>
@@ -127,15 +192,14 @@ export const Buttons = args => (
         </tr>
       ))}
     </tbody>
-  </table>
+  </StoryVariantTable>
 );
 
 export const Sizes = args => (
-  <div>
-    {Object.values(BUTTON_SIZE).map(size => (
-      <StoryVariant key={size} label={`size - ${size}`}>
-        <Button {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
+  <StoryVariantTable
+    rowNames={Object.values(BUTTON_SIZE)}
+    matrix={Object.values(BUTTON_SIZE).map(size => [
+      <Button key={size} {...args} size={size} />,
+    ])}
+  />
 );

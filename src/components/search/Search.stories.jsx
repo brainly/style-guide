@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import Search, {SIZE, COLOR} from './Search';
 
 export default {

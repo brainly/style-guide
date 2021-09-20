@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import TopLayer, {SIZE} from './TopLayer';
 import hex from '../colors/hex';
 import ContentBox, {CONTENT_BOX_SPACING_SIZE} from '../content-box/ContentBox';

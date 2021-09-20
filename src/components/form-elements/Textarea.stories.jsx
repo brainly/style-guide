@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Textarea, {TEXTAREA_COLOR, SIZE} from './Textarea';
-import {StoryVariant, StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/Textarea',
