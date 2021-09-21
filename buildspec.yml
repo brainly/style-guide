@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - yarn
+  build:
+    commands:
+      - yarn build-storybook
+  post_build:
+    commands:
+      - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
+      - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
+
+artifacts:
+  name: '$GIT_BRANCH'
+  files:
+    - '.storybook/public/**/*/'
