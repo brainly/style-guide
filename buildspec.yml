@@ -6,6 +6,7 @@ phases:
       - yarn
   build:
     commands:
+      - yarn build
       - yarn build-storybook
   post_build:
     commands:
