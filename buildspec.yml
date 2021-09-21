@@ -15,4 +15,4 @@ phases:
 artifacts:
   name: '$GIT_BRANCH'
   files:
-    - '.storybook/public/**/*/'
+    - '.storybook-static/**/*'
