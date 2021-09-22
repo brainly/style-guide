@@ -7,8 +7,8 @@ import * as React from 'react';
 import {styled} from '@storybook/theming';
 import {transparentize} from 'polished';
 
-import {withReset} from '@storybook/components/dist/typography/shared';
-import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
+import {withReset} from '@storybook/components/dist/esm/typography/shared';
+import {getBlockBackgroundStyle} from '@storybook/components/dist/esm/blocks/BlockBackgroundStyles';
 
 export const Label = styled.div<{}>(({theme}) => ({
   marginRight: 16,

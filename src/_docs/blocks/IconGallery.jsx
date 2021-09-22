@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {styled} from '@storybook/theming';
-import {ResetWrapper} from '@storybook/components/dist/typography/DocumentFormatting';
+import {ResetWrapper} from '@storybook/components/dist/esm/typography/DocumentFormatting';
 
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,

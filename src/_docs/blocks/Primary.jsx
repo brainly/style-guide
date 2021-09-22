@@ -1,9 +1,9 @@
 // @flow
 
 import React, {useContext} from 'react';
-import {DocsContext} from '@storybook/addon-docs/dist/blocks/DocsContext';
+import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import {DocsStory} from './DocsStory';
-import {getDocsStories} from '@storybook/addon-docs/dist/blocks/utils';
+import {getDocsStories} from '@storybook/addon-docs/dist/esm/blocks/utils';
 
 interface PrimaryProps {
   name?: string;
