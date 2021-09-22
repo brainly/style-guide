@@ -51,8 +51,12 @@ export const StoryVariant = ({
 
 type StoryVariantTablePropsType = {
   children: React.Node,
+  className?: string,
 };
 
-export const StoryVariantTable = ({children}: StoryVariantTablePropsType) => (
-  <table className="sg-story-variant-table">{children}</table>
+export const StoryVariantTable = ({
+  children,
+  className,
+}): StoryVariantTablePropsType => (
+  <table className={`sg-story-variant-table ${className}`}>{children}</table>
 );
