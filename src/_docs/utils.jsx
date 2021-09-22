@@ -56,7 +56,7 @@ type StoryVariantTablePropsType = {
 
 export const StoryVariantTable = ({
   children,
-  className,
-}): StoryVariantTablePropsType => (
+  className = '',
+}: StoryVariantTablePropsType) => (
   <table className={`sg-story-variant-table ${className}`}>{children}</table>
 );
