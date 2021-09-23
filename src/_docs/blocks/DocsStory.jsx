@@ -5,13 +5,12 @@ import deprecate from 'util-deprecate';
 import dedent from 'ts-dedent';
 import {
   Subheading,
-  DocsStoryProps,
   Anchor,
   Description,
   Story,
-} from '@storybook/addon-docs/dist/blocks';
-
+} from '@storybook/addon-docs/dist/esm/blocks';
 import {Canvas} from './Canvas';
+import type {DocsStoryPropsType} from './types';
 
 const warnStoryDescription = deprecate(
   () => null,
@@ -28,7 +27,7 @@ export const DocsStory = ({
   expanded = true,
   withToolbar = false,
   parameters = {},
-}: DocsStoryProps) => {
+}: DocsStoryPropsType) => {
   let description;
   const {docs} = parameters;
 

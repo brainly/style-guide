@@ -7,10 +7,10 @@ import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
 import {resetComponents} from '@storybook/components/html';
 import {Preview as PurePreview} from './Preview';
-import {getDocsStories} from '@storybook/addon-docs/dist/blocks/utils';
-import {DocsContext} from '@storybook/addon-docs/dist/blocks/DocsContext';
-import {SourceContext} from '@storybook/addon-docs/dist/blocks/SourceContainer';
-import {getSourceProps} from '@storybook/addon-docs/dist/blocks/Source';
+import {getDocsStories} from '@storybook/addon-docs/dist/esm/blocks/utils';
+import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
+import {SourceContext} from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
+import {getSourceProps} from '@storybook/addon-docs/dist/esm/blocks/Source';
 import prettier from 'prettier/standalone';
 import parserBabel from 'prettier/parser-babylon';
 

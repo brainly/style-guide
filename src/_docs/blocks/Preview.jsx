@@ -5,14 +5,15 @@ import type {Element} from 'react';
 import {darken} from 'polished';
 import {styled} from '@storybook/theming';
 
-import {getBlockBackgroundStyle} from '@storybook/components/dist/blocks/BlockBackgroundStyles';
-import {Source, SourceProps} from '@storybook/components/dist/blocks/Source';
+import {getBlockBackgroundStyle} from '@storybook/components/dist/esm/blocks/BlockBackgroundStyles';
+import {Source} from '@storybook/components/dist/esm/blocks/Source';
+import {SourceProps} from '@storybook/components';
 import {
   ActionBar,
-  ActionItem,
-} from '@storybook/components/dist/ActionBar/ActionBar';
-import {Toolbar} from '@storybook/components/dist/blocks/Toolbar';
-import {ZoomContext} from '@storybook/components/dist/blocks/ZoomContext';
+  ActionButton,
+} from '@storybook/components/dist/esm/ActionBar/ActionBar';
+import {Toolbar} from '@storybook/components/dist/esm/blocks/Toolbar';
+import {ZoomContext} from '@storybook/components/dist/esm/blocks/ZoomContext';
 
 export interface PreviewProps {
   isColumn?: boolean;
@@ -21,7 +22,7 @@ export interface PreviewProps {
   isExpanded?: boolean;
   withToolbar?: boolean;
   className?: string;
-  additionalActions?: Array<ActionItem>;
+  additionalActions?: Array<ActionButton>;
   children: Element<*>;
 }
 
@@ -111,7 +112,7 @@ const PreviewContainer = styled.div(
 
 interface SourceItem {
   source?: any;
-  actionItem: ActionItem;
+  actionItem: ActionButton;
 }
 
 const getSource = (

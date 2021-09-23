@@ -2,10 +2,10 @@
 
 import React, {useContext} from 'react';
 import type {Element} from 'react';
-import {DocsContext} from '@storybook/addon-docs/dist/blocks/DocsContext';
-import {Heading} from '@storybook/addon-docs/dist/blocks/Heading';
-import {getDocsStories} from '@storybook/addon-docs/dist/blocks/utils';
-import {DocsStoryProps} from '@storybook/addon-docs/dist/blocks/types';
+import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
+import {Heading} from '@storybook/addon-docs/dist/esm/blocks/Heading';
+import {getDocsStories} from '@storybook/addon-docs/dist/esm/blocks/utils';
+import type {DocsStoryPropsType} from './types';
 import {DocsStory} from './DocsStory';
 
 interface StoriesProps {
@@ -17,7 +17,7 @@ export const Stories = ({title, includePrimary = false}: StoriesProps) => {
   const context = useContext(DocsContext);
   const componentStories = getDocsStories(context);
 
-  const stories: Array<DocsStoryProps> = [
+  const stories: Array<DocsStoryPropsType> = [
     ...(!includePrimary ? componentStories.slice(1) : componentStories),
   ];
 
