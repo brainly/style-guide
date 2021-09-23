@@ -2,7 +2,7 @@ import * as React from 'react';
 import FileHandler, {FILE_HANDLER_COLORS_SET} from './FileHandler';
 import {TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/FileHandler',

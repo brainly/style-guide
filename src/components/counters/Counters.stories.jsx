@@ -2,7 +2,7 @@ import * as React from 'react';
 import Counter, {COUNTER_SIZE} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/Counter',

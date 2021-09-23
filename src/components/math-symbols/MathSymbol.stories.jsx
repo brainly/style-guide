@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import MathSymbol, {MATH_SYMBOL_TYPE, ICON_COLOR, SIZE} from './MathSymbol';
 import Flex from '../flex/Flex';
 

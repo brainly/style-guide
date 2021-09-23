@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import Logo, {TYPE} from './Logo';
 
 export default {

@@ -1,6 +1,9 @@
 import * as React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import Headline from '../text/Headline';
 import Avatar, {SIZE} from './Avatar';
+import {StoryVariantTable} from '../../_docs/utils';
+import Flex from '../flex/Flex';
+import hex from '../colors/hex';
 
 export default {
   title: 'Components/Avatar',
@@ -22,22 +25,82 @@ export default {
 
 export const Default = args => <Avatar {...args} />;
 
-export const Sizes = () => (
-  <div>
-    {Object.values(SIZE).map(size => (
-      <StoryVariant key={size} label={`size - ${size}`}>
-        <Avatar size={size} />
-      </StoryVariant>
-    ))}
-  </div>
-);
-
-export const WithBorder = () => <Avatar size="l" border />;
-
-WithBorder.parameters = {
-  backgrounds: {default: 'dark'},
-};
-
-export const CustomImage = () => (
-  <Avatar size="l" imgSrc="https://source.unsplash.com/240x240/?cat" />
+export const SizeBorderImage = args => (
+  <StoryVariantTable>
+    <thead>
+      <tr>
+        <th />
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            no border
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            border
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            image
+          </Headline>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.values(SIZE).map(size => (
+        <tr key={size}>
+          <td>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              {size}
+            </Headline>
+          </td>
+          <td>
+            <Flex justifyContent="center">
+              <Avatar key={size} {...args} size={size} />
+            </Flex>
+          </td>
+          <td style={{backgroundColor: hex.graySecondaryLight}}>
+            <Flex justifyContent="center">
+              <Avatar key={size} {...args} size={size} border />
+            </Flex>
+          </td>
+          <td>
+            <Flex justifyContent="center">
+              <Avatar
+                key={size}
+                {...args}
+                size={size}
+                imgSrc="https://source.unsplash.com/240x240/?cat"
+              />
+            </Flex>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </StoryVariantTable>
 );

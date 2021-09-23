@@ -1,6 +1,6 @@
 import * as React from 'react';
 import MenuList, {SIZE} from './MenuList';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 
 const menuItem1 = {text: 'Element one', href: '#'};
 const menuItem2 = {text: 'Element two', href: '#'};

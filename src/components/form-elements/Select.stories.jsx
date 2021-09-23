@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant, StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 import Select, {COLOR, SIZE} from './Select';
 
 export default {

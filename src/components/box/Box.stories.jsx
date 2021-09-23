@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 import Box, {PADDING, COLOR} from './Box';
 
 export default {

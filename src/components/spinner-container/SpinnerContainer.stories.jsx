@@ -4,7 +4,7 @@ import SpinnerContainer, {
   SPINNER_SIZE,
 } from './SpinnerContainer';
 import Box from '../box/Box';
-import {StoryVariant, StoryVariantBorderBox} from '../../../.storybook/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/SpinnerContainer',

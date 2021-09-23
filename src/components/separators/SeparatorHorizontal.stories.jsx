@@ -1,6 +1,6 @@
 import * as React from 'react';
 import SeparatorHorizontal, {TYPE} from './SeparatorHorizontal';
-import {StoryVariant} from '../../../.storybook/utils';
+import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/separators/SeparatorHorizontal',

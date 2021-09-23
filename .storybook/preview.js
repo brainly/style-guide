@@ -7,6 +7,7 @@ import {
   PRIMARY_STORY,
 } from '@storybook/addon-docs/blocks';
 import theme from './theme';
+import hex from '../src/components/colors/hex';
 
 import {Canvas} from 'blocks/Canvas';
 import {Primary} from 'blocks/Primary';
@@ -14,7 +15,7 @@ import {Stories} from 'blocks/Stories';
 
 // load all styles
 import '../src/main.scss';
-import './storybook.scss';
+import '../src/_docs/styles.scss';
 
 // load generated icons
 import '../src/images/icons';
@@ -37,6 +38,14 @@ const Page = () => {
 };
 
 export const parameters = {
+  backgrounds: {
+    values: [
+      {
+        name: 'gray-secondary-light',
+        value: hex.graySecondaryLight,
+      },
+    ],
+  },
   docs: {
     page: Page,
     theme,

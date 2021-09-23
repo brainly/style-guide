@@ -1,6 +1,6 @@
-@import '../src/sass/config';
-@import '../src/sass/mixins';
-@import '../src/components/buttons/buttons.stories';
+@import '../sass/config';
+@import '../sass/mixins';
+@import '../components/buttons/buttons.stories';
 
 .sg-story {
   display: flex;
@@ -20,6 +20,18 @@
     &-border-box {
       border: 1px solid $graySecondary;
       padding: spacing(m);
+    }
+  }
+
+  &-variant-table {
+    td {
+      padding: spacing(m);
+      white-space: nowrap;
+    }
+
+    th {
+      padding: spacing(m);
+      white-space: nowrap;
     }
   }
 }
