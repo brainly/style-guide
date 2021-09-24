@@ -73,7 +73,10 @@ export type {IconAsButtonPropsType} from './components/icon-as-button/IconAsButt
 export {default as Icon} from './components/icons/Icon';
 export type {IconPropsType} from './components/icons/Icon';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
-export type {MobileIconPropsType} from './components/mobile-icons/MobileIcon';
+export type {
+  MobileIconPropsType,
+  IconTypeType as MobileIconTypeType,
+} from './components/mobile-icons/MobileIcon';
 export {default as Label} from './components/labels/Label';
 export type {LabelPropsType} from './components/labels/Label';
 export {default as FileHandler} from './components/file-handler/FileHandler';
@@ -118,7 +121,10 @@ export {default as Spinner} from './components/spinner/Spinner';
 export type {SpinnerPropsType} from './components/spinner/Spinner';
 export {default as SpinnerContainer} from './components/spinner-container/SpinnerContainer';
 export type {SpinnerContainerPropsType} from './components/spinner-container/SpinnerContainer';
-export {default as SubjectIcon} from './components/subject-icons/SubjectIcon';
+export {
+  default as SubjectIcon,
+  IconTypeType as SubjectIconTypeType,
+} from './components/subject-icons/SubjectIcon';
 export type {SubjectIconPropsType} from './components/subject-icons/SubjectIcon';
 export {default as SubjectIconBox} from './components/subject-icons/SubjectIconBox';
 export type {SubjectIconBoxPropsType} from './components/subject-icons/SubjectIconBox';
