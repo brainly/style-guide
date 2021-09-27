@@ -101,7 +101,10 @@ export type {ListItemIconPropsType} from './components/list/ListItemIcon';
 export {default as MenuList} from './components/list/MenuList';
 export type {MenuListPropsType} from './components/list/MenuList';
 export {default as Logo} from './components/logo/Logo';
-export type {LogoPropsType} from './components/logo/Logo';
+export type {
+  LogoPropsType,
+  LogoTypeType as LogoType,
+} from './components/logo/Logo';
 export {default as MathSymbol} from './components/math-symbols/MathSymbol';
 export type {
   MathSymbolPropsType,
