@@ -75,7 +75,7 @@ export type {IconPropsType} from './components/icons/Icon';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
 export type {
   MobileIconPropsType,
-  IconTypeType as MobileIconTypeType,
+  IconTypeType as MobileIconType,
 } from './components/mobile-icons/MobileIcon';
 export {default as Label} from './components/labels/Label';
 export type {LabelPropsType} from './components/labels/Label';
@@ -123,7 +123,7 @@ export {default as SpinnerContainer} from './components/spinner-container/Spinne
 export type {SpinnerContainerPropsType} from './components/spinner-container/SpinnerContainer';
 export {
   default as SubjectIcon,
-  IconTypeType as SubjectIconTypeType,
+  IconTypeType as SubjectIconType,
 } from './components/subject-icons/SubjectIcon';
 export type {SubjectIconPropsType} from './components/subject-icons/SubjectIcon';
 export {default as SubjectIconBox} from './components/subject-icons/SubjectIconBox';
