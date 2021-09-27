@@ -71,7 +71,10 @@ export type {HomeButtonPropsType} from './components/home-button/HomeButton';
 export {default as IconAsButton} from './components/icon-as-button/IconAsButton';
 export type {IconAsButtonPropsType} from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
-export type {IconPropsType} from './components/icons/Icon';
+export type {
+  IconPropsType,
+  IconTypeType as IconType,
+} from './components/icons/Icon';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
 export type {
   MobileIconPropsType,
@@ -100,7 +103,10 @@ export type {MenuListPropsType} from './components/list/MenuList';
 export {default as Logo} from './components/logo/Logo';
 export type {LogoPropsType} from './components/logo/Logo';
 export {default as MathSymbol} from './components/math-symbols/MathSymbol';
-export type {MathSymbolPropsType} from './components/math-symbols/MathSymbol';
+export type {
+  MathSymbolPropsType,
+  MathSymbolTypeType as MathSymbolType,
+} from './components/math-symbols/MathSymbol';
 export {default as Media} from './components/media/Media';
 export type {MediaPropsType} from './components/media/Media';
 export {default as Overlay} from './components/overlay/Overlay';
