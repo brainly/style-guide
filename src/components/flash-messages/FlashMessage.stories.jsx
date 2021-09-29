@@ -33,7 +33,7 @@ export const Types = args => (
             {type}
           </Headline>
         </td>
-        <td>
+        <td width="500">
           <FlashMessage {...args} type={type} />
         </td>
       </tr>
