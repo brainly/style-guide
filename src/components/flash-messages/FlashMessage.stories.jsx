@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
+import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
 import FlashMessage from './FlashMessage';
 
