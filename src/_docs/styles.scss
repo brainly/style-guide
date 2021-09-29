@@ -18,8 +18,9 @@
     }
 
     &-border-box {
-      border: 1px solid $graySecondary;
+      border: 1px solid $graySecondaryLight;
       padding: spacing(m);
+      border-radius: 5px;
     }
   }
 

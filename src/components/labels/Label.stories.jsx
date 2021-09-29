@@ -1,6 +1,37 @@
 import * as React from 'react';
-import Label, {ICON_TYPE, LABEL_COLORS_SET, LABEL_TYPE} from './Label';
-import Flex from '../flex/Flex';
+import Label, {
+  ICON_TYPE,
+  LABEL_COLORS_SET,
+  LABEL_TYPE,
+  COLORS_DEFAULT_MAP,
+  COLORS_SOLID_MAP,
+} from './Label';
+import {StoryVariantTable} from '../../_docs/utils';
+import Headline from '../text/Headline';
+import hex from '../colors/hex';
+
+const onCloseMock = () => null;
+const onClickMock = () => null;
+
+const TRANSPARENT_COLOR_TEXT_MAP = {
+  blue: 'blue',
+  mint: 'mint',
+  lavender: 'lavender',
+  peach: 'peach',
+  mustard: 'mustard',
+  gray: 'gray-secondary',
+  achromatic: 'dark',
+};
+
+const TRANSPARENT_ICON_COLOR_MAP = {
+  blue: 'blue',
+  mint: 'mint',
+  lavender: 'lavender',
+  peach: 'peach',
+  mustard: 'mustard',
+  gray: 'gray-secondary',
+  achromatic: 'dark',
+};
 
 export default {
   title: 'Components/Label',
@@ -8,9 +39,8 @@ export default {
     component: Label,
   },
   args: {
-    iconType: 'heart',
-    color: 'blue',
     type: 'default',
+    onClick: onClickMock,
     children: 'label',
   },
   argTypes: {
@@ -23,756 +53,330 @@ export default {
 
 export const Default = args => <Label {...args} />;
 
-// eslint-disable-next-line
-const closeCallback = () => {};
-
-export const Light = () => (
-  <Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="default">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="default">
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="default">
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="default">
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="default">
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="default">
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="default"> label</Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="default" onClose={closeCallback}>
-        {' '}
-        label
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="default" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column">
-      <Label
-        color="blue"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mint"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="lavender"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="peach"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mustard"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="gray"
-        type="default"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="default" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-  </Flex>
-);
-
-export const Solid = () => (
-  <Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="solid">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="solid">label</Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="solid" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="solid" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column">
-      <Label color="blue" type="solid" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="solid" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="lavender"
-        type="solid"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="peach"
-        type="solid"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mustard"
-        type="solid"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="solid" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="solid" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-  </Flex>
-);
-
-export const Transparent = () => (
-  <Flex>
-    <Flex direction="column" marginRight="l" style={{visibility: 'hidden'}}>
-      <Label color="blue" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent">label</Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l" style={{visibility: 'hidden'}}>
-      <Label color="blue" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column">
-      <Label
-        color="blue"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mint"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="lavender"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="peach"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mustard"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="gray"
-        type="transparent"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-  </Flex>
-);
-
-export const TransparentColor = () => (
-  <Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent-color">
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent-color">label</Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent-color" onClose={closeCallback}>
-        label
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column" marginRight="l">
-      <Label color="blue" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mint" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="lavender" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="peach" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="mustard" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label color="gray" type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent-color" iconType="heart">
-        {' '}
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-    <Flex direction="column">
-      <Label
-        color="blue"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mint"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="lavender"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="peach"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="mustard"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label
-        color="gray"
-        type="transparent-color"
-        iconType="heart"
-        onClose={closeCallback}
-      >
-        label with icon
-      </Label>
-      <br />
-      <br />
-      <Label type="transparent-color" iconType="heart" onClose={closeCallback}>
-        label with icon
-      </Label>
-      <br />
-      <br />
-    </Flex>
-  </Flex>
+export const Types = args => (
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default (no icon, close)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default (icon)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default (icon, close)
+          </Headline>
+        </td>
+      </tr>
+      {Object.keys(COLORS_DEFAULT_MAP).map(color => (
+        <tr key={color}>
+          <td
+            style={{
+              backgroundColor:
+                color === 'achromatic' ? hex.black : 'transparent',
+            }}
+          >
+            <Label {...args} color={color}>
+              label
+            </Label>
+          </td>
+          <td
+            style={{
+              backgroundColor:
+                color === 'achromatic' ? hex.black : 'transparent',
+            }}
+          >
+            <Label {...args} color={color} onClose={onCloseMock}>
+              label
+            </Label>
+          </td>
+          <td
+            style={{
+              backgroundColor:
+                color === 'achromatic' ? hex.black : 'transparent',
+            }}
+          >
+            <Label {...args} color={color} iconType="attachment">
+              label with icon
+            </Label>
+          </td>
+          <td
+            style={{
+              backgroundColor:
+                color === 'achromatic' ? hex.black : 'transparent',
+            }}
+          >
+            <Label
+              {...args}
+              color={color}
+              onClose={onCloseMock}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+        </tr>
+      ))}
+      <tr>
+        <td style={{height: '100px'}} />
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            solid
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            solid (no icon, close)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            solid (icon)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            solid (icon, close)
+          </Headline>
+        </td>
+      </tr>
+      {Object.keys(COLORS_SOLID_MAP).map(color => (
+        <tr key={color}>
+          <td>
+            <Label {...args} type="solid" color={color}>
+              label
+            </Label>
+          </td>
+          <td>
+            <Label {...args} type="solid" color={color} onClose={onCloseMock}>
+              label
+            </Label>
+          </td>
+          <td>
+            <Label {...args} type="solid" color={color} iconType="attachment">
+              label with icon
+            </Label>
+          </td>
+          <td>
+            <Label
+              {...args}
+              type="solid"
+              color={color}
+              onClose={onCloseMock}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+        </tr>
+      ))}
+      <tr>
+        <td style={{height: '100px'}} />
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent color
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent color (close)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent color (icon)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent color (icon, close)
+          </Headline>
+        </td>
+      </tr>
+      {Object.keys(TRANSPARENT_COLOR_TEXT_MAP).map(color => (
+        <tr key={color}>
+          <td>
+            <Label {...args} type={LABEL_TYPE.TRANSPARENT_COLOR} color={color}>
+              label
+            </Label>
+          </td>
+          <td>
+            <Label
+              {...args}
+              type={LABEL_TYPE.TRANSPARENT_COLOR}
+              color={color}
+              onClose={onCloseMock}
+            >
+              label
+            </Label>
+          </td>
+          <td>
+            <Label
+              {...args}
+              type={LABEL_TYPE.TRANSPARENT_COLOR}
+              color={color}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+          <td>
+            <Label
+              {...args}
+              type={LABEL_TYPE.TRANSPARENT_COLOR}
+              color={color}
+              onClose={onCloseMock}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+        </tr>
+      ))}
+      <tr>
+        <td style={{height: '100px'}} />
+      </tr>
+      <tr>
+        <td />
+        <td />
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent (icon)
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            transparent (icon, close)
+          </Headline>
+        </td>
+      </tr>
+      {Object.keys(TRANSPARENT_ICON_COLOR_MAP).map(color => (
+        <tr key={color}>
+          <td />
+          <td />
+          <td>
+            <Label
+              {...args}
+              type={LABEL_TYPE.TRANSPARENT}
+              color={color}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+          <td>
+            <Label
+              {...args}
+              type={LABEL_TYPE.TRANSPARENT}
+              color={color}
+              onClose={onCloseMock}
+              iconType="attachment"
+            >
+              label with icon
+            </Label>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </StoryVariantTable>
 );
 
 export const LongText = args => {
@@ -780,20 +384,40 @@ export const LongText = args => {
 
   return (
     <div>
+      <Headline
+        extraBold
+        transform="uppercase"
+        size="medium"
+        color="gray-secondary-light"
+      >
+        wide
+      </Headline>
       <div
         style={{
-          width: '300px',
-          background: 'lightgray',
+          width: '250px',
+          border: '1px solid',
+          borderColor: hex.graySecondaryLight,
           padding: '20px',
+          marginTop: '10px',
         }}
       >
         <Label {...args}>{children}</Label>
       </div>
 
+      <Headline
+        extraBold
+        transform="uppercase"
+        size="medium"
+        style={{marginTop: 20}}
+        color="gray-secondary-light"
+      >
+        narrow
+      </Headline>
       <div
         style={{
-          width: '200px',
-          background: 'lightgray',
+          width: '150px',
+          border: '1px solid',
+          borderColor: hex.graySecondaryLight,
           padding: '20px',
           marginTop: '10px',
         }}
@@ -804,14 +428,10 @@ export const LongText = args => {
   );
 };
 
-// eslint-disable-next-line
-const onCloseMock = () => {};
-
 LongText.args = {
-  ...Default.args,
   title: 'Long long long text',
   children: 'Very very long label',
   onClose: {control: onCloseMock},
+  color: LABEL_COLORS_SET.BLUE,
+  onClick: onClickMock,
 };
-
-LongText.argTypes = Default.argTypes;
