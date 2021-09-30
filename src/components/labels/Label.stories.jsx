@@ -379,7 +379,7 @@ export const Types = args => (
   </StoryVariantTable>
 );
 
-export const LongText = args => {
+export const TrimmedText = args => {
   const {children} = args;
 
   return (
@@ -428,7 +428,7 @@ export const LongText = args => {
   );
 };
 
-LongText.args = {
+TrimmedText.args = {
   title: 'Long long long text',
   children: 'Very very long label',
   onClose: {control: onCloseMock},
