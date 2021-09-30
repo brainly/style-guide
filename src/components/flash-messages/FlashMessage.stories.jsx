@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariantTable} from '../../_docs/utils';
+import Headline from '../text/Headline';
 import FlashMessage from './FlashMessage';
 
 export default {
@@ -8,7 +9,7 @@ export default {
     component: FlashMessage,
   },
   args: {
-    text: 'I have never seen a code like this before...',
+    text: 'Example flash message text',
   },
 };
 
@@ -17,11 +18,25 @@ export const Default = args => {
 };
 
 export const Types = args => (
-  <div>
+  <StoryVariantTable>
     {['default', 'success', 'error', 'info'].map(type => (
-      <StoryVariant label={`type - ${type}`} key={type}>
-        <FlashMessage {...args} type={type} />
-      </StoryVariant>
+      <tr key={type}>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            {type}
+          </Headline>
+        </td>
+        <td width="500">
+          <FlashMessage {...args} type={type} />
+        </td>
+      </tr>
     ))}
-  </div>
+  </StoryVariantTable>
 );
