@@ -1,7 +1,88 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../_docs/utils';
+import Headline from '../text/Headline';
+import classnames from 'classnames';
+
+const systemIconTypes = [
+  TYPE.ALL_QUESTIONS,
+  TYPE.RECENT_QUESTIONS,
+  TYPE.TOUGHEST_QUESTIONS,
+  TYPE.POINTS,
+  TYPE.PENCIL,
+  TYPE.REPORT_FLAG,
+  TYPE.PLAY,
+  TYPE.SMS,
+  TYPE.MONEY_TRANSFER,
+  TYPE.COUNTER,
+  TYPE.MESSAGES,
+  TYPE.CREDIT_CARD,
+  TYPE.VERIFIED,
+  TYPE.HEART,
+  TYPE.STAR_HALF,
+  TYPE.EXCELLENT,
+  TYPE.STAR,
+  TYPE.SEEN,
+  TYPE.UNSEEN,
+  TYPE.PADLOCK,
+  TYPE.QUESTION,
+  TYPE.SETTINGS,
+  TYPE.LOCK_WITH_PLAY,
+  TYPE.LOGOUT,
+  TYPE.RELOAD,
+  TYPE.ANSWER,
+  TYPE.ROTATE,
+  TYPE.SEARCH,
+  TYPE.SHARE,
+  TYPE.ARROW_LEFT,
+  TYPE.ARROW_RIGHT,
+  TYPE.ARROW_UP,
+  TYPE.ARROW_DOWN,
+  TYPE.ARROW_DOUBLE_DOWN,
+  TYPE.MENU,
+  TYPE.CLOSE,
+  TYPE.PLUS,
+  TYPE.CHECK,
+  TYPE.EXCLAMATION_MARK,
+  TYPE.INFLUENCE,
+  TYPE.NOTIFICATIONS,
+  TYPE.PROFILE,
+  TYPE.FRIENDS,
+  TYPE.PROFILE_VIEW,
+  TYPE.ASK_PARENT_TO_PAY,
+  TYPE.OPEN_IN_NEW_TAB,
+  TYPE.ACADEMIC_CAP,
+  TYPE.CALENDAR,
+  TYPE.FRIEND_PENDING,
+  TYPE.FULLSCREEN,
+];
+
+const editorIconTypes = [
+  TYPE.BOLD,
+  TYPE.ITALIC,
+  TYPE.UNDERLINED,
+  TYPE.TITLE,
+  TYPE.SUBTITLE,
+  TYPE.HEADING,
+  TYPE.NUMBERED_LIST,
+  TYPE.BULLETED_LIST,
+  TYPE.MIC,
+  TYPE.ATTACHMENT,
+  TYPE.IMAGE,
+  TYPE.EQUATION,
+  TYPE.SYMBOLS,
+  TYPE.MORE,
+  TYPE.LESS,
+];
+
+const socialMediaIconTypes = [
+  TYPE.FACEBOOK,
+  TYPE.INSTRAGRAM,
+  TYPE.LINKEDIN,
+  TYPE.MEDIUM,
+  TYPE.TWITTER,
+  TYPE.YOUTUBE,
+];
 
 export default {
   title: 'Components/Icon',
@@ -18,43 +99,90 @@ export default {
   args: {
     type: TYPE.ACADEMIC_CAP,
     color: ICON_COLOR.ADAPTIVE,
+    size: 32,
   },
 };
 
 export const Default = args => <Icon {...args} />;
 
+export const Types = args => (
+  <div>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10}}
+    >
+      system icons
+    </Headline>
+    <Flex wrap>
+      {systemIconTypes.map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      editor icons
+    </Headline>
+    <Flex wrap>
+      {editorIconTypes.map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      social media icons
+    </Headline>
+    <Flex wrap>
+      {socialMediaIconTypes.map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+  </div>
+);
+
 export const Colors = args => (
   <Flex wrap>
     {Object.values(ICON_COLOR).map(color => (
-      <StoryVariant label={`color - ${color}`} width={200} key={color}>
-        {color === 'LIGHT' ? (
-          <div className="sg-story-variant-dark-box">
-            <Icon {...args} color={color} />
-          </div>
-        ) : (
-          <Icon {...args} color={color} />
-        )}
-      </StoryVariant>
+      <div
+        key={color}
+        className={classnames('sg-icon-story-variant', {
+          'sg-story-variant-dark-box': color === ICON_COLOR.LIGHT,
+        })}
+        style={{padding: 10}}
+      >
+        <Icon {...args} color={color} />
+      </div>
     ))}
   </Flex>
 );
 
 export const Sizes = args => (
-  <div>
+  <Flex alignItems="center">
     {Object.values(SIZE).map(size => (
-      <StoryVariant label={`size - ${size}`} width={200} key={size}>
+      <div className="sg-icon-story-variant" key={size}>
         <Icon {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
-);
-
-export const Types = args => (
-  <Flex wrap>
-    {Object.values(TYPE).map(type => (
-      <StoryVariant label={`type- ${type}`} width={200} key={type}>
-        <Icon {...args} type={type} />
-      </StoryVariant>
+      </div>
     ))}
   </Flex>
 );
