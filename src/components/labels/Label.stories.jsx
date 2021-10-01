@@ -10,8 +10,7 @@ import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
 import hex from '../colors/hex';
 
-const onCloseMock = () => null;
-const onClickMock = () => null;
+const noop = () => null;
 
 const TRANSPARENT_COLOR_TEXT_MAP = {
   blue: 'blue',
@@ -40,7 +39,6 @@ export default {
   },
   args: {
     type: 'default',
-    onClick: onClickMock,
     children: 'label',
   },
   argTypes: {
@@ -120,7 +118,7 @@ export const Types = args => (
                 color === 'achromatic' ? hex.black : 'transparent',
             }}
           >
-            <Label {...args} color={color} onClose={onCloseMock}>
+            <Label {...args} color={color} onClose={noop}>
               label
             </Label>
           </td>
@@ -140,12 +138,7 @@ export const Types = args => (
                 color === 'achromatic' ? hex.black : 'transparent',
             }}
           >
-            <Label
-              {...args}
-              color={color}
-              onClose={onCloseMock}
-              iconType="attachment"
-            >
+            <Label {...args} color={color} onClose={noop} iconType="attachment">
               label with icon
             </Label>
           </td>
@@ -208,7 +201,7 @@ export const Types = args => (
             </Label>
           </td>
           <td>
-            <Label {...args} type="solid" color={color} onClose={onCloseMock}>
+            <Label {...args} type="solid" color={color} onClose={noop}>
               label
             </Label>
           </td>
@@ -222,7 +215,7 @@ export const Types = args => (
               {...args}
               type="solid"
               color={color}
-              onClose={onCloseMock}
+              onClose={noop}
               iconType="attachment"
             >
               label with icon
@@ -291,7 +284,7 @@ export const Types = args => (
               {...args}
               type={LABEL_TYPE.TRANSPARENT_COLOR}
               color={color}
-              onClose={onCloseMock}
+              onClose={noop}
             >
               label
             </Label>
@@ -311,7 +304,7 @@ export const Types = args => (
               {...args}
               type={LABEL_TYPE.TRANSPARENT_COLOR}
               color={color}
-              onClose={onCloseMock}
+              onClose={noop}
               iconType="attachment"
             >
               label with icon
@@ -367,7 +360,7 @@ export const Types = args => (
               {...args}
               type={LABEL_TYPE.TRANSPARENT}
               color={color}
-              onClose={onCloseMock}
+              onClose={noop}
               iconType="attachment"
             >
               label with icon
@@ -431,7 +424,6 @@ export const TrimmedText = args => {
 TrimmedText.args = {
   title: 'Long long long text',
   children: 'Very very long label',
-  onClose: {control: onCloseMock},
+  onClose: {control: noop},
   color: LABEL_COLORS_SET.BLUE,
-  onClick: onClickMock,
 };
