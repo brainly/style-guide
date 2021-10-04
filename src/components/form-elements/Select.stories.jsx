@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
-import Select, {COLOR, SIZE} from './Select';
+import {StoryVariantTable} from '../../_docs/utils';
+import Headline from '../text/Headline';
+import Select, {SIZE} from './Select';
+import hex from '../colors/hex';
 
 export default {
   title: 'Components/Form/Select',
@@ -15,6 +17,7 @@ export default {
     },
   },
   args: {
+    fullWidth: true,
     options: [
       {
         value: '1',
@@ -30,42 +33,154 @@ export default {
 
 export const Default = args => <Select {...args} />;
 
-export const Valid = args => <Select {...args} valid />;
-
-export const Invalid = args => <Select {...args} invalid />;
-
-export const Capitalized = args => <Select {...args} capitalized />;
-
-export const Colors = args => (
-  <div>
-    {Object.values(COLOR).map(color => {
-      return (
-        <StoryVariant label={`color - ${color}`} key={color}>
-          {color === 'WHITE' ? (
-            <div className="sg-story-variant-dark-box">
-              <Select {...args} color={color} />
-            </div>
-          ) : (
-            <Select {...args} color={color} />
-          )}
-        </StoryVariant>
-      );
-    })}
-  </div>
-);
-
 export const Sizes = args => (
-  <div>
-    {Object.values(SIZE).map(size => (
-      <StoryVariant label={`size - ${size}`} key={size}>
-        <Select {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
+  <StoryVariantTable>
+    <tbody>
+      {Object.values(SIZE).map(size => (
+        <tr key={size}>
+          <td>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              {size}
+            </Headline>
+          </td>
+          <td>
+            <Select {...args} size={size} />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </StoryVariantTable>
 );
 
-export const FullWidth = args => (
-  <StoryVariantBorderBox>
-    <Select {...args} fullWidth />
-  </StoryVariantBorderBox>
+export const StylesAndStates = args => (
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td />
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            neutral state
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            disabled state
+          </Headline>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default
+          </Headline>
+        </td>
+        <td>
+          <Select {...args} />
+        </td>
+        <td>
+          <Select {...args} disabled />
+        </td>
+      </tr>
+      <tr style={{backgroundColor: hex.black}}>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            white
+          </Headline>
+        </td>
+        <td>
+          <Select {...args} color="white" />
+        </td>
+        <td>
+          <Select {...args} color="white" disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            valid
+          </Headline>
+        </td>
+        <td>
+          <Select {...args} valid />
+        </td>
+        <td>
+          <Select {...args} valid disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            invalid
+          </Headline>
+        </td>
+        <td>
+          <Select {...args} invalid />
+        </td>
+        <td>
+          <Select {...args} invalid disabled />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            capitalized
+          </Headline>
+        </td>
+        <td>
+          <Select {...args} capitalized />
+        </td>
+        <td>
+          <Select {...args} capitalized disabled />
+        </td>
+      </tr>
+    </tbody>
+  </StoryVariantTable>
 );
