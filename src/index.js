@@ -71,6 +71,7 @@ export type {HomeButtonPropsType} from './components/home-button/HomeButton';
 export {default as IconAsButton} from './components/icon-as-button/IconAsButton';
 export type {IconAsButtonPropsType} from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
+export {getIconGroup} from './components/icons/get-icon-group';
 export type {
   IconPropsType,
   IconTypeType as IconType,
