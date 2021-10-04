@@ -1,76 +1,8 @@
 import React from 'react';
-import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
-import Input, {SIZE, COLOR, TYPE} from './Input';
-
-const ARGS_PER_TYPE = {
-  BUTTON: {
-    value: 'button',
-  },
-  COLOR: {
-    value: '#e66465',
-  },
-  DATE: {
-    value: '2000-01-01',
-  },
-  DATETIME_LOCAL: {
-    value: '2018-06-12T19:30',
-  },
-  EMAIL: {
-    value: 'user@brainly.pl',
-  },
-  FILE: {
-    value: '',
-  },
-  HIDDEN: {
-    value: '',
-  },
-  IMAGE: {
-    src: 'https://source.unsplash.com/240x240/?cat',
-  },
-  MONTH: {
-    value: '2018-05',
-  },
-  NUMBER: {
-    value: '123123',
-  },
-  PASSWORD: {
-    value: 'password',
-  },
-  RANGE: {
-    value: 90,
-    min: 0,
-    max: 100,
-    step: 10,
-  },
-  RESET: {
-    value: 'reset form',
-  },
-  SEARCH: {
-    value: 'search',
-  },
-  SUBMIT: {
-    value: 'submit',
-  },
-  TEL: {
-    value: '+123097786',
-  },
-  TEXT: {
-    value: 'text',
-  },
-  TIME: {
-    value: '16:00',
-    min: '9:00',
-    max: '18:00',
-  },
-  URL: {
-    value: 'http://brainly.com',
-  },
-  WEEK: {
-    value: '2018-W18',
-    min: '2018-W18',
-    max: '2018-W26',
-  },
-};
+import {StoryVariantBorderBox, StoryVariantTable} from '../../_docs/utils';
+import hex from '../colors/hex';
+import Headline from '../text/Headline';
+import Input, {SIZE, COLOR} from './Input';
 
 export default {
   title: 'Components/Form/Input',
@@ -85,61 +17,210 @@ export default {
       type: {name: 'string', required: false},
     },
   },
-  args: {value: 'Some input value', type: 'text'},
+  args: {value: 'Some input value', type: 'text', placeholder: 'placeholder'},
 };
 
 export const Default = args => <Input {...args} />;
 
-export const Types = args => (
-  <div>
-    {Object.values(TYPE).map(type => (
-      <StoryVariant label={`type - ${type}`} key={type}>
-        <Input {...args} type={type} {...ARGS_PER_TYPE} />
-      </StoryVariant>
-    ))}
-  </div>
-);
-
 export const Sizes = args => (
-  <div>
-    {Object.values(SIZE).map(size => (
-      <StoryVariant label={`size - ${size}`} key={size}>
-        <Input {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td />
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-center"
+          >
+            default
+          </Headline>
+        </td>
+      </tr>
+      {Object.values(SIZE).map(size => (
+        <tr key={size}>
+          <td>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              {size}
+            </Headline>
+          </td>
+          <td>
+            <Input {...args} size={size} />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </StoryVariantTable>
 );
 
-export const Colors = args => (
-  <div>
-    {Object.values(COLOR).map(color => (
-      <StoryVariant key={color}>
-        {color === 'WHITE' ? (
-          <div className="sg-story-variant-dark-box">
-            <Input {...args} color={color} />
-          </div>
-        ) : (
-          <Input {...args} color={color} />
-        )}
-      </StoryVariant>
-    ))}
-  </div>
+export const StylesAndTypes = args => (
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td />
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-center"
+          >
+            neutral state
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-center"
+          >
+            filled state
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-center"
+          >
+            disabled state
+          </Headline>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            default
+          </Headline>
+        </td>
+        <td>
+          <Input {...args} value="" />
+        </td>
+        <td>
+          <Input {...args} />
+        </td>
+        <td>
+          <Input {...args} disabled />
+        </td>
+      </tr>
+      <tr style={{backgroundColor: hex.black}}>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            white
+          </Headline>
+        </td>
+        <td>
+          <Input {...args} value="" color={COLOR.WHITE} />
+        </td>
+        <td>
+          <Input {...args} color={COLOR.WHITE} />
+        </td>
+        <td>
+          <Input {...args} disabled color={COLOR.WHITE} />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            valid
+          </Headline>
+        </td>
+        <td>
+          <Input {...args} value="" valid />
+        </td>
+        <td>
+          <Input {...args} valid />
+        </td>
+        <td />
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            invalid
+          </Headline>
+        </td>
+        <td>
+          <Input {...args} value="" invalid />
+        </td>
+        <td>
+          <Input {...args} invalid />
+        </td>
+        <td />
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+            align="to-right"
+          >
+            invalid with message
+          </Headline>
+        </td>
+        <td>
+          <Input
+            {...args}
+            value=""
+            invalid
+            errorMessage="Something went wrong"
+          />
+        </td>
+        <td>
+          <Input {...args} invalid errorMessage="Something went wrong" />
+        </td>
+        <td />
+      </tr>
+    </tbody>
+  </StoryVariantTable>
 );
-
-export const Invalid = args => <Input {...args} />;
-
-Invalid.args = {
-  value: 'Invalid input',
-  errorMessage: 'Some error',
-  invalid: true,
-};
-
-export const Valid = args => <Input {...args} />;
-
-Valid.args = {
-  value: 'Valid input',
-  valid: true,
-};
 
 export const FullWidth = args => (
   <StoryVariantBorderBox>
