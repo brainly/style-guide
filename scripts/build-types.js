@@ -65,7 +65,7 @@ files.forEach(sourceFile => {
       // Handling union types with multiple type annotations
       typeAnnotations.forEach(path => {
         const code = jsc(path).toSource();
-        const newCode = `${code} & React.AllHTMLAttributes<HTMLElement>`;
+        const newCode = `${code} & React.HTMLAttributes<HTMLElement>`;
 
         transformedCode = transformedCode.replace(code, newCode);
       });

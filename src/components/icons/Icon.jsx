@@ -48,6 +48,7 @@ export type IconTypeType =
   | 'heart_outlined'
   | 'image'
   | 'influence'
+  | 'info'
   | 'instagram'
   | 'italic'
   | 'less'
@@ -189,6 +190,7 @@ export const TYPE: {
   HEART_OUTLINED: 'heart_outlined',
   IMAGE: 'image',
   INFLUENCE: 'influence',
+  INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   LESS: 'less',
@@ -310,6 +312,7 @@ export const TYPE: {
   HEART_OUTLINED: 'heart_outlined',
   IMAGE: 'image',
   INFLUENCE: 'influence',
+  INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   LESS: 'less',
