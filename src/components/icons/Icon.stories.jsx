@@ -84,6 +84,58 @@ const socialMediaIconTypes = [
   TYPE.YOUTUBE,
 ];
 
+const otherIcons = [
+  TYPE.ASK_BUBBLE,
+  TYPE.BELL_CHECKED,
+  TYPE.BELL_OUTLINED,
+  TYPE.CAMERA,
+  TYPE.CHAPTER,
+  TYPE.CLIPBOARD,
+  TYPE.COMMENT,
+  TYPE.COMMENT_OUTLINED,
+  TYPE.CROWN_OUTLINED,
+  TYPE.CUP,
+  TYPE.FILTERS,
+  TYPE.FRIEND_ADD,
+  TYPE.FRIEND_REMOVE,
+  TYPE.FRIEND_CHECKED,
+  TYPE.FUNNEL,
+  TYPE.HEART_OUTLINED,
+  TYPE.ADD_MORE,
+  TYPE.REPORT_FLAG_OUTLINED,
+  TYPE.ROTATE_90,
+  TYPE.SEND,
+  TYPE.SHIELD,
+  TYPE.STAR_HALF_OUTLINED,
+  TYPE.STAR_OUTLINED,
+  TYPE.TEXTBOOK,
+  TYPE.THUMB_DOWN,
+  TYPE.THUMB_DOWN_OUTLINED,
+  TYPE.THUMB_UP,
+  TYPE.THUMB_UP_OUTLINED,
+  TYPE.TRASH,
+  TYPE.WARNING,
+  TYPE.ARROW_TOP_RIGHT,
+  TYPE.CIRCLE,
+  TYPE.CROP,
+  TYPE.CYRILLIC,
+  TYPE.DRAW,
+  TYPE.DRAWING_MODE,
+  TYPE.EUROPEAN,
+  TYPE.GREEK,
+  TYPE.HIGHLIGHT,
+  TYPE.LINE,
+  TYPE.PAUSE,
+  TYPE.RECTANGLE,
+  TYPE.SUP_SUB,
+  TYPE.TRIANGLE,
+  TYPE.PI,
+  TYPE.QUOTE,
+  TYPE.SPARK,
+  TYPE.DOT,
+  TYPE.CLEAR,
+];
+
 export default {
   title: 'Components/Icon',
   parameters: {
@@ -153,6 +205,23 @@ export const Types = args => (
     </Headline>
     <Flex wrap>
       {socialMediaIconTypes.map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      other icons
+    </Headline>
+    <Flex wrap>
+      {otherIcons.map(type => (
         <div className="sg-icon-story-variant" key={type}>
           <Icon key={type} {...args} type={type} />
         </div>
