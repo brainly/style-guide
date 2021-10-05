@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariantTable} from '../../_docs/utils';
+import hex from '../colors/hex';
+import Flex from '../flex/Flex';
+import Headline from '../text/Headline';
 import Search, {SIZE, COLOR} from './Search';
 
 export default {
@@ -30,13 +33,198 @@ export default {
 export const Default = args => <Search {...args} />;
 
 export const Sizes = args => (
-  <div>
-    {Object.values(SIZE).map(size => (
-      <StoryVariant label={`size - ${size}`} key={size}>
-        <Search {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td />
+        <td>
+          <Flex justifyContent="center">
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              default
+            </Headline>
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              round button
+            </Headline>
+          </Flex>
+        </td>
+      </tr>
+      {Object.values(SIZE).map(size => (
+        <tr key={size}>
+          <td>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              {size}
+            </Headline>
+          </td>
+          <td>
+            <Flex justifyContent="center">
+              <Search {...args} size={size} />
+            </Flex>
+          </td>
+          <td>
+            <Flex justifyContent="center">
+              <Search {...args} size={size} withRoundButton />
+            </Flex>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </StoryVariantTable>
 );
 
-export const RoundedButton = args => <Search {...args} withRoundButton />;
+export const StylesAndStates = args => (
+  <StoryVariantTable>
+    <tbody>
+      <tr>
+        <td />
+        <td>
+          <Flex justifyContent="center">
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              neutral state
+            </Headline>
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              filled state
+            </Headline>
+          </Flex>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            default
+          </Headline>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} />
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} value="some" />
+          </Flex>
+        </td>
+      </tr>
+      <tr
+        style={{
+          backgroundColor: hex.black,
+        }}
+      >
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="white"
+            size="medium"
+          >
+            white
+          </Headline>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} />
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} value="some" />
+          </Flex>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
+            round button
+          </Headline>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} withRoundButton />
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} value="some" withRoundButton />
+          </Flex>
+        </td>
+      </tr>
+      <tr
+        style={{
+          backgroundColor: hex.black,
+        }}
+      >
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="white"
+            size="medium"
+          >
+            white round button
+          </Headline>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} withRoundButton />
+          </Flex>
+        </td>
+        <td>
+          <Flex justifyContent="center">
+            <Search {...args} value="some" withRoundButton />
+          </Flex>
+        </td>
+      </tr>
+    </tbody>
+  </StoryVariantTable>
+);
