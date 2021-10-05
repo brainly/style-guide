@@ -10,6 +10,7 @@ type ColorType =
   | 'light'
   | 'blue'
   | 'lavender'
+  | 'lavender-secondary-light'
   | 'lavender-secondary-ultra-light'
   | 'mint'
   | 'mint-secondary'
@@ -30,6 +31,7 @@ export const COLOR = {
   light: 'light',
   blue: 'blue',
   lavender: 'lavender',
+  lavenderSecondaryLight: 'lavender-secondary-light',
   lavenderSecondaryUltraLight: 'lavender-secondary-ultra-light',
   mint: 'mint',
   mintSecondary: 'mint-secondary',
