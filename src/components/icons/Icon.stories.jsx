@@ -1,7 +1,9 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../_docs/utils';
+import Headline from '../text/Headline';
+import classnames from 'classnames';
+import {getIconGroup} from './get-icon-group';
 
 export default {
   title: 'Components/Icon',
@@ -18,43 +20,138 @@ export default {
   args: {
     type: TYPE.ACADEMIC_CAP,
     color: ICON_COLOR.ADAPTIVE,
+    size: 32,
   },
 };
 
+const groups = Object.values(TYPE).reduce((acc, next) => {
+  const groupName = getIconGroup(next);
+
+  if (!acc[groupName]) {
+    acc[groupName] = [];
+  }
+
+  acc[groupName].push(next);
+
+  return acc;
+}, {});
+
 export const Default = args => <Icon {...args} />;
+
+export const Types = args => (
+  <div>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10}}
+    >
+      essential icons
+    </Headline>
+    <Flex wrap>
+      {groups['Essential'].map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      Editor and Media icons
+    </Headline>
+    <Flex wrap>
+      {groups['Editor and Media'].map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      social icons
+    </Headline>
+    <Flex wrap>
+      {groups['Social'].map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      social media icons
+    </Headline>
+    <Flex wrap>
+      {groups['Social Media'].map(type => (
+        <div className="sg-icon-story-variant" key={type}>
+          <Icon key={type} {...args} type={type} />
+        </div>
+      ))}
+    </Flex>
+    <Headline
+      extraBold
+      transform="uppercase"
+      type="span"
+      color="gray-secondary-light"
+      size="medium"
+      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+    >
+      navigation icons
+    </Headline>
+    <Flex wrap>
+      {groups['Navigation'].map(type =>
+        type ? (
+          <div className="sg-icon-story-variant" key={type}>
+            <Icon key={type} {...args} type={type} />
+          </div>
+        ) : null
+      )}
+    </Flex>
+  </div>
+);
 
 export const Colors = args => (
   <Flex wrap>
     {Object.values(ICON_COLOR).map(color => (
-      <StoryVariant label={`color - ${color}`} width={200} key={color}>
-        {color === 'LIGHT' ? (
-          <div className="sg-story-variant-dark-box">
-            <Icon {...args} color={color} />
-          </div>
-        ) : (
-          <Icon {...args} color={color} />
-        )}
-      </StoryVariant>
+      <div
+        key={color}
+        className={classnames('sg-icon-story-variant', {
+          'sg-story-variant-dark-box': color === ICON_COLOR.LIGHT,
+        })}
+        style={{padding: 10}}
+      >
+        <Icon {...args} color={color} />
+      </div>
     ))}
   </Flex>
 );
 
 export const Sizes = args => (
-  <div>
+  <Flex alignItems="center">
     {Object.values(SIZE).map(size => (
-      <StoryVariant label={`size - ${size}`} width={200} key={size}>
+      <div className="sg-icon-story-variant" key={size}>
         <Icon {...args} size={size} />
-      </StoryVariant>
-    ))}
-  </div>
-);
-
-export const Types = args => (
-  <Flex wrap>
-    {Object.values(TYPE).map(type => (
-      <StoryVariant label={`type- ${type}`} width={200} key={type}>
-        <Icon {...args} type={type} />
-      </StoryVariant>
+      </div>
     ))}
   </Flex>
 );
