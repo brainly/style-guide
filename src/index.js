@@ -71,15 +71,9 @@ export type {HomeButtonPropsType} from './components/home-button/HomeButton';
 export {default as IconAsButton} from './components/icon-as-button/IconAsButton';
 export type {IconAsButtonPropsType} from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
-export type {
-  IconPropsType,
-  IconTypeType as IconType,
-} from './components/icons/Icon';
+export {getIconGroup} from './components/icons/get-icon-group';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
-export type {
-  MobileIconPropsType,
-  IconTypeType as MobileIconType,
-} from './components/mobile-icons/MobileIcon';
+export type {MobileIconPropsType} from './components/mobile-icons/MobileIcon';
 export {default as Label} from './components/labels/Label';
 export type {LabelPropsType} from './components/labels/Label';
 export {default as FileHandler} from './components/file-handler/FileHandler';
@@ -101,15 +95,9 @@ export type {ListItemIconPropsType} from './components/list/ListItemIcon';
 export {default as MenuList} from './components/list/MenuList';
 export type {MenuListPropsType} from './components/list/MenuList';
 export {default as Logo} from './components/logo/Logo';
-export type {
-  LogoPropsType,
-  LogoTypeType as LogoType,
-} from './components/logo/Logo';
+export type {LogoPropsType} from './components/logo/Logo';
 export {default as MathSymbol} from './components/math-symbols/MathSymbol';
-export type {
-  MathSymbolPropsType,
-  MathSymbolTypeType as MathSymbolType,
-} from './components/math-symbols/MathSymbol';
+export type {MathSymbolPropsType} from './components/math-symbols/MathSymbol';
 export {default as Media} from './components/media/Media';
 export type {MediaPropsType} from './components/media/Media';
 export {default as Overlay} from './components/overlay/Overlay';
@@ -130,10 +118,7 @@ export {default as Spinner} from './components/spinner/Spinner';
 export type {SpinnerPropsType} from './components/spinner/Spinner';
 export {default as SpinnerContainer} from './components/spinner-container/SpinnerContainer';
 export type {SpinnerContainerPropsType} from './components/spinner-container/SpinnerContainer';
-export {
-  default as SubjectIcon,
-  IconTypeType as SubjectIconType,
-} from './components/subject-icons/SubjectIcon';
+export {default as SubjectIcon} from './components/subject-icons/SubjectIcon';
 export type {SubjectIconPropsType} from './components/subject-icons/SubjectIcon';
 export {default as SubjectIconBox} from './components/subject-icons/SubjectIconBox';
 export type {SubjectIconBoxPropsType} from './components/subject-icons/SubjectIconBox';
