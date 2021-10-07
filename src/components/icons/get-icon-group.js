@@ -32,6 +32,7 @@ const iconMap = {
     'funnel',
     'textbook',
     'shield',
+    'globe',
   ],
   Social: [
     'ask_parent_to_pay',

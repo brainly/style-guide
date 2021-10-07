@@ -43,6 +43,7 @@ export type IconTypeType =
   | 'friends'
   | 'fullscreen'
   | 'funnel'
+  | 'globe'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
@@ -185,6 +186,7 @@ export const TYPE: {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GLOBE: 'globe',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
@@ -307,6 +309,7 @@ export const TYPE: {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GLOBE: 'globe',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
