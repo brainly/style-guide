@@ -184,3 +184,16 @@ export const StylesAndStates = args => (
     </tbody>
   </StoryVariantTable>
 );
+
+export const WithValueChange = args => {
+  const [value, setValue] = React.useState();
+
+  return (
+    <Select
+      {...args}
+      fullWidth={false}
+      value={value}
+      onChange={e => setValue(e.currentTarget.value)}
+    />
+  );
+};
