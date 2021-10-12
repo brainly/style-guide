@@ -80,7 +80,9 @@ $includeHtml: false !default;
           $graySecondaryLight,
           80%
         );
-        border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px
+          solid
+          mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
       }
     }
 
@@ -110,9 +112,16 @@ $includeHtml: false !default;
       }
     }
 
-    &--valid {
+    &--selected,
+    &--valid,
+    &--invalid {
       .sg-select__element {
         color: $black;
+      }
+    }
+
+    &--valid {
+      .sg-select__element {
         font-weight: normal;
         border: 2px solid $formElementValidColor;
       }
@@ -131,7 +140,6 @@ $includeHtml: false !default;
 
     &--invalid {
       .sg-select__element {
-        color: $black;
         font-weight: normal;
         border: 2px solid $formElementInvalidColor;
       }

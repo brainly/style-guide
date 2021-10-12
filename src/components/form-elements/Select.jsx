@@ -117,6 +117,7 @@ const Select = (props: SelectPropsType) => {
   const selectClass = classnames(
     'sg-select',
     {
+      'sg-select--selected': value,
       'sg-select--valid': valid,
       'sg-select--invalid': invalid,
       'sg-select--capitalized': capitalized,
