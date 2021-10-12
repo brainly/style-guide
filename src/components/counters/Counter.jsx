@@ -9,6 +9,13 @@ import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
 
+type ColorType = 'peach-900' | 'blue-900';
+
+export const COUNTER_COLOR = {
+  'PEACH-900': 'peach-900',
+  'BLUE-900': 'blue-900',
+};
+
 export const COUNTER_SIZE: {
   XS: 'xs',
   XXS: 'xxs',
@@ -42,6 +49,11 @@ export type CounterPropsType = {
    */
   size?: ?CounterSizeType,
   /**
+   * Counter background color
+   * @example <Counter color="blue-900">1</Counter>
+   */
+  color?: ?ColorType,
+  /**
    * Optional boolean for counter with animation
    * @example <Counter type="basic" withAnimation>
    *            12
@@ -60,6 +72,7 @@ const Counter = ({
   children,
   className,
   size,
+  color = COUNTER_COLOR['PEACH-900'],
   withAnimation,
   ...props
 }: CounterPropsType) => {
@@ -67,6 +80,7 @@ const Counter = ({
     'sg-counter',
     {
       [`sg-counter--${String(size)}`]: size,
+      [`sg-counter--${String(color)}`]: color,
       'sg-counter--with-animation': withAnimation,
       'sg-counter--with-icon': icon,
     },
