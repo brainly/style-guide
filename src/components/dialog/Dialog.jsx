@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import {__DEV__, invariant} from '../utils';
 
-export type DialogPropsType = $ReadOnly<{
+export type DialogPropsType = {
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
+  fullscreen?: boolean,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
@@ -16,54 +16,19 @@ export type DialogPropsType = $ReadOnly<{
    */
   scroll?: 'inside' | 'outside',
   /**
-   * Specify the modal behavior of a dialog.
-   *
-   * ```
-   * | feature                         | 'none' | 'events-only' | 'events-and-close-button' |
-   * |---------------------------------|--------|---------------|---------------------------|
-   * | renders default close button    |   -    |       -       |             X             |
-   * | click on button fires `onClose` |   -    |       -       |             X             |
-   * | click on overlay fires `onClose`|   -    |       X       |             X             |
-   * | escape keyup fires `onClose`    |   -    |       X       |             X             |
-   * ```
+   * Fires on the user's actions: the Escape key, click outside the dialog.
    */
-  modal?: 'events-only' | 'events-and-close-button' | 'none',
-  /**
-   * Both mobile and desktop views are in fullscreen mode.
-   */
-  fullscreen?: boolean,
-  noPadding?: boolean,
-  // noCloseEvents?: boolean,
-  // noCloseButton?: boolean,
+  onEscapeAction?: () => void,
+};
 
-  // padding?: 'm' | 'none',
-  // closeEvents?: 'all' | 'none',
-  // closeButton?: 'default' | 'custom',
-  onClose?: () => void,
-}>;
-
-const Dialog = (props: DialogPropsType, ref) => {
+const Dialog = (props: DialogPropsType) => {
   const {
     children,
     size = 'm',
-    scroll = 'outside',
-    modal = 'events-and-close-button',
     fullscreen = false,
-    noPadding = false,
-    onClose,
+    scroll = 'outside',
+    onEscapeAction,
   } = props;
-
-  if (__DEV__) {
-    invariant(
-      !(modal && !onClose),
-      'modal prop requires onClose callback to be defined'
-    );
-
-    invariant(
-      !(onClose && !modal),
-      'onClose callback requires modal prop to be defined'
-    );
-  }
 
   const overlayClass = cx('sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
@@ -74,18 +39,31 @@ const Dialog = (props: DialogPropsType, ref) => {
     `sg-dialog__container--size-${size}`,
     {
       'sg-dialog__container--scroll': scroll === 'outside',
-      'sg-dialog__container--no-padding': noPadding,
       'sg-dialog__container--fullscreen': fullscreen,
     }
   );
 
+  function handleOverlayClick(e: SyntheticMouseEvent<HTMLDivElement>) {
+    if (e.target === e.currentTarget) {
+      onEscapeAction?.();
+    }
+  }
+
+  function handleOverlayKeyup(e: SyntheticKeyboardEvent<HTMLDivElement>) {
+    if (e.key === 'Escape') {
+      onEscapeAction?.();
+    }
+  }
+
   return (
-    <div className={overlayClass}>
-      <div ref={ref} className={containerClass}>
-        {children}
-      </div>
+    <div
+      className={overlayClass}
+      onClick={onEscapeAction ? handleOverlayClick : undefined}
+      onKeyUp={onEscapeAction ? handleOverlayKeyup : undefined}
+    >
+      <div className={containerClass}>{children}</div>
     </div>
   );
 };
 
-export default React.forwardRef<DialogPropsType, HTMLElement>(Dialog);
+export default Dialog;

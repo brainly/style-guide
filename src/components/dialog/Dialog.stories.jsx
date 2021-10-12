@@ -1,61 +1,65 @@
-// @flow
-
 import * as React from 'react';
-import Dialog from './Dialog';
 import Button from '../buttons/Button';
-// import Flex from '../flex/Flex';
+import Flex from '../flex/Flex';
+import Headline from '../text/Headline';
+
+import Dialog from './Dialog';
+import DialogHeader from './DialogHeader';
+import DialogContent from './DialogContent';
 
 export default {
   title: 'Layout/Dialog',
-  component: Dialog,
   parameters: {
-    layout: 'padded',
-  },
-  argTypes: {
-    children: {
-      control: {
-        disable: true,
-      },
-    },
-    onClose: {
-      table: {
-        category: 'Events',
-      },
-    },
+    component: Dialog,
   },
 };
 
-export const Default = (args: any) => {
+export const Default = args => {
   return (
     <Dialog {...args}>
-      <p>content</p>
+      <DialogContent>{contentExample}</DialogContent>
     </Dialog>
   );
 };
 
-export const CustomButton = (args: any) => {
+export const DefaultCloseButton = args => {
   return (
     <Dialog {...args}>
-      <p>content</p>
-      <Button type="solid-light">close</Button>
+      <DialogHeader onCloseButtonClick={() => undefined} />
+      <DialogContent>{contentExample}</DialogContent>
     </Dialog>
   );
 };
 
-CustomButton.args = {
-  modal: 'events-only',
-};
-
-export const CustomAlert = (args: any) => {
+export const CustomCloseButton = args => {
   return (
     <Dialog {...args}>
-      <p>choose</p>
-      <Button type="solid">NO</Button>
-      <Button type="outline">YES</Button>
+      <DialogContent>
+        <Flex marginBottom="m">{contentExample}</Flex>
+        <Flex justifyContent="flex-end" className="sg-space-x-s">
+          <Button type="outline">CANCEL</Button>
+          <Button type="solid">PROCEED</Button>
+        </Flex>
+      </DialogContent>
     </Dialog>
   );
 };
 
-CustomAlert.args = {
-  modal: 'none',
+export const Header = args => {
+  return (
+    <Dialog {...args}>
+      <DialogHeader onCloseButtonClick={() => undefined}>
+        <Flex marginBottom="m">
+          <Headline>
+            Are you sure you want to stop asking this question?
+          </Headline>
+        </Flex>
+      </DialogHeader>
+      <DialogContent>{contentExample}</DialogContent>
+    </Dialog>
+  );
 };
+
+const contentExample =
+  // eslint-disable-next-line max-len
+  'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';

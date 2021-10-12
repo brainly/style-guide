@@ -1,0 +1,77 @@
+.sg-dialog {
+  &__overlay {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    @include sgResponsive(md) {
+      align-items: center;
+    }
+
+    &--scroll {}
+  }
+
+  &__container {
+    position: relative;
+    background-color: $white;
+    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    box-shadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+
+    @include sgResponsive(md) {
+      border-radius: $borderRadiusDefault;
+      margin-right: spacing(m);
+      margin-left: spacing(m);
+
+      &--size-s {
+        max-width: 392px;
+      }
+  
+      &--size-m {
+        max-width: 600px;
+      }
+  
+      &--size-l {
+        max-width: 808px;
+      }
+  
+      &--size-xl {
+        max-width: 1016px;
+      }
+    }
+
+    &--scroll {}
+
+    &--fullscreen {}
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: spacing(xs);
+  }
+
+  &__header,
+  &__content {
+    padding: spacing(m);
+
+    @include sgResponsive(md) {
+      padding: spacing(l);
+    }
+  }
+
+  &__header {
+    padding-bottom: 0;
+    padding-right: spacing(l) + spacing(xs);
+  }
+
+  &__header + &__content {
+    padding-top: 0;
+  }
+}
