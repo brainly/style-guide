@@ -14,9 +14,8 @@ export type DialogPropsType = $ReadOnly<{
    */
   scroll?: 'inside' | 'outside',
   /**
-   * Fires on the user's actions:
-   * - Click outside the dialog
-   * - Escape key
+   * Fires on the user's actions such as click
+   * outside the dialog or the Escape key.
    */
   onDismiss?: () => void,
 }>;
