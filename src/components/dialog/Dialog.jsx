@@ -2,68 +2,76 @@
 
 import * as React from 'react';
 import cx from 'classnames';
+import {__DEV__} from '../utils';
 
-export type DialogPropsType = {
+export type DialogPropsType = $ReadOnly<{
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
-   *
-   * - `inside` - height is equal to the viewport and the dialog scrolls
-   * - `outside` - height is equal to the content and the overlay scrolls
    */
   scroll?: 'inside' | 'outside',
   /**
-   * Fires on the user's actions: the Escape key, click outside the dialog.
+   * Fires on the user's actions:
+   * - Click outside the dialog
+   * - Escape key
    */
-  onEscapeAction?: () => void,
-};
+  onDismiss?: () => void,
+}>;
 
-const Dialog = (props: DialogPropsType) => {
-  const {
-    children,
-    size = 'm',
-    fullscreen = false,
-    scroll = 'outside',
-    onEscapeAction,
-  } = props;
+const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
+  (props: DialogPropsType, ref) => {
+    const {
+      children,
+      size = 'm',
+      fullscreen = false,
+      scroll = 'outside',
+      onDismiss,
+    } = props;
 
-  const overlayClass = cx('sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll': scroll === 'outside',
-  });
+    const overlayClass = cx('sg-dialog__overlay', {
+      'sg-dialog__overlay--scroll': scroll === 'outside',
+    });
 
-  const containerClass = cx(
-    'sg-dialog__container',
-    `sg-dialog__container--size-${size}`,
-    {
-      'sg-dialog__container--scroll': scroll === 'outside',
-      'sg-dialog__container--fullscreen': fullscreen,
+    const containerClass = cx(
+      'sg-dialog__container',
+      `sg-dialog__container--size-${size}`,
+      {
+        'sg-dialog__container--scroll': scroll === 'inside',
+        'sg-dialog__container--fullscreen': fullscreen,
+      }
+    );
+
+    function handleOverlayClick(e: SyntheticMouseEvent<HTMLDivElement>) {
+      if (e.target === e.currentTarget && onDismiss) {
+        onDismiss();
+      }
     }
-  );
 
-  function handleOverlayClick(e: SyntheticMouseEvent<HTMLDivElement>) {
-    if (e.target === e.currentTarget) {
-      onEscapeAction?.();
+    function handleOverlayKeyup(e: SyntheticKeyboardEvent<HTMLDivElement>) {
+      if (e.key === 'Escape' && onDismiss) {
+        onDismiss();
+      }
     }
+
+    return (
+      <div
+        className={overlayClass}
+        onClick={onDismiss ? handleOverlayClick : undefined}
+        onKeyUp={onDismiss ? handleOverlayKeyup : undefined}
+      >
+        <div ref={ref} className={containerClass}>
+          {children}
+        </div>
+      </div>
+    );
   }
+);
 
-  function handleOverlayKeyup(e: SyntheticKeyboardEvent<HTMLDivElement>) {
-    if (e.key === 'Escape') {
-      onEscapeAction?.();
-    }
-  }
-
-  return (
-    <div
-      className={overlayClass}
-      onClick={onEscapeAction ? handleOverlayClick : undefined}
-      onKeyUp={onEscapeAction ? handleOverlayKeyup : undefined}
-    >
-      <div className={containerClass}>{children}</div>
-    </div>
-  );
-};
+if (__DEV__) {
+  Dialog.displayName = 'Dialog';
+}
 
 export default Dialog;

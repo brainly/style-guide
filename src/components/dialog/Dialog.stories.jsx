@@ -1,64 +1,66 @@
+// @flow
+
 import * as React from 'react';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 
 import Dialog from './Dialog';
-import DialogHeader from './DialogHeader';
-import DialogContent from './DialogContent';
+import DialogHead from './DialogHead';
+import DialogBody from './DialogBody';
+import DialogCloseButton from './DialogCloseButton';
 
 export default {
   title: 'Layout/Dialog',
   parameters: {
     component: Dialog,
+    docs: {
+      inlineStories: false,
+    },
+  },
+  argTypes: {
+    children: {
+      control: {
+        disable: true,
+      },
+    },
   },
 };
 
-export const Default = args => {
-  return (
-    <Dialog {...args}>
-      <DialogContent>{contentExample}</DialogContent>
-    </Dialog>
-  );
-};
+export const Default = (args: any) => (
+  <Dialog {...args}>
+    <DialogBody>{contentExample}</DialogBody>
+  </Dialog>
+);
 
-export const DefaultCloseButton = args => {
-  return (
-    <Dialog {...args}>
-      <DialogHeader onCloseButtonClick={() => undefined} />
-      <DialogContent>{contentExample}</DialogContent>
-    </Dialog>
-  );
-};
+export const Head = (args: any) => (
+  <Dialog {...args}>
+    <DialogHead>
+      <Headline>Are you sure you want to stop asking this question?</Headline>
+    </DialogHead>
+    <DialogCloseButton onClick={() => undefined} />
+    <DialogBody>{contentExample}</DialogBody>
+  </Dialog>
+);
 
-export const CustomCloseButton = args => {
-  return (
-    <Dialog {...args}>
-      <DialogContent>
-        <Flex marginBottom="m">{contentExample}</Flex>
-        <Flex justifyContent="flex-end" className="sg-space-x-s">
-          <Button type="outline">CANCEL</Button>
-          <Button type="solid">PROCEED</Button>
-        </Flex>
-      </DialogContent>
-    </Dialog>
-  );
-};
+export const CloseButton = (args: any) => (
+  <Dialog {...args}>
+    <DialogCloseButton onClick={() => undefined} />
+    <DialogBody>{contentExample}</DialogBody>
+  </Dialog>
+);
 
-export const Header = args => {
-  return (
-    <Dialog {...args}>
-      <DialogHeader onCloseButtonClick={() => undefined}>
-        <Flex marginBottom="m">
-          <Headline>
-            Are you sure you want to stop asking this question?
-          </Headline>
-        </Flex>
-      </DialogHeader>
-      <DialogContent>{contentExample}</DialogContent>
-    </Dialog>
-  );
-};
+export const CustomButtons = (args: any) => (
+  <Dialog {...args}>
+    <DialogBody>
+      <Flex marginBottom="m">{contentExample}</Flex>
+      <Flex justifyContent="flex-end" className="sg-space-x-s">
+        <Button type="outline">cancel</Button>
+        <Button type="solid">proceed</Button>
+      </Flex>
+    </DialogBody>
+  </Dialog>
+);
 
 const contentExample =
   // eslint-disable-next-line max-len

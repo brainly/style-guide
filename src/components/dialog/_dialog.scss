@@ -1,8 +1,19 @@
+$paddingHead: 48px;
+$paddingSmall: spacing(m);
+$paddingMedium: spacing(l);
+
+$dialogMaxWidthMap: (
+  's': 392px,
+  'm': 600px,
+  'l': 808px,
+  'xl': 1016px,
+);
+
 .sg-dialog {
   &__overlay {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -10,68 +21,68 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
 
-    @include sgResponsive(md) {
-      align-items: center;
+    &--scroll {
+      overflow: auto;
     }
-
-    &--scroll {}
   }
 
   &__container {
+    display: flex;
+    flex-direction: column;
     position: relative;
     background-color: $white;
     border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
     box-shadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0;
 
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
-      margin-right: spacing(m);
       margin-left: spacing(m);
+      margin-right: spacing(m);
+      margin-bottom: auto;
 
-      &--size-s {
-        max-width: 392px;
-      }
-  
-      &--size-m {
-        max-width: 600px;
-      }
-  
-      &--size-l {
-        max-width: 808px;
-      }
-  
-      &--size-xl {
-        max-width: 1016px;
+      @each $sizeName, $maxWidth in $dialogMaxWidthMap {
+        &--size-#{$sizeName} {
+          max-width: #{$maxWidth};
+        }
       }
     }
 
-    &--scroll {}
+    &--scroll {
+      overflow: auto;
+      max-height: 100%;
+    }
 
     &--fullscreen {}
   }
 
-  &__close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: spacing(xs);
-  }
-
-  &__header,
-  &__content {
-    padding: spacing(m);
+  &__head {
+    padding-top: $paddingSmall;
+    padding-left: $paddingSmall;
+    padding-right: $paddingHead;
 
     @include sgResponsive(md) {
-      padding: spacing(l);
+      padding-top: $paddingMedium;
+      padding-left: $paddingMedium;
+      padding-right: $paddingHead;
     }
   }
 
-  &__header {
-    padding-bottom: 0;
-    padding-right: spacing(l) + spacing(xs);
+  &__body {
+    padding: $paddingSmall;
+    overflow: auto;
+
+    @include sgResponsive(md) {
+      padding: $paddingMedium;
+    }
   }
 
-  &__header + &__content {
-    padding-top: 0;
+  &__close-button {
+    margin: spacing(xs);
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
