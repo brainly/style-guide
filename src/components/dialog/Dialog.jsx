@@ -82,6 +82,7 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
 
     return (
       <div
+        role="dialog"
         className={overlayClass}
         onClick={onDismiss ? handleOverlayClick : undefined}
       >

@@ -14,52 +14,50 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
       return;
     }
 
+    let isTabbing = false;
     let isTabbingBackward = false;
 
-    function handleTabKeydown(event: KeyboardEvent) {
-      isTabbingBackward = event.key === 'Tab' && event.shiftKey;
+    function handleKeydown(event: KeyboardEvent) {
+      isTabbing = event.key === 'Tab';
+      isTabbingBackward = isTabbing && event.shiftKey;
     }
 
-    function handleTabKeyup() {
+    function handleKeyup() {
+      isTabbing = false;
       isTabbingBackward = false;
     }
 
-    function handleBeforeFocusChange(event: FocusEvent) {
-      // https://developer.mozilla.org/en-US/docs/Web/API/Element/focusout_event
-      // when tabbing in or out a page, the relatedTarget
-      // property may be set to null for security reasons
-      const nextElement = event.relatedTarget;
-
-      if (
-        !(nextElement instanceof Node) ||
-        dialogElement.contains(nextElement)
-      ) {
+    function handleFocusBeforeChange(event: FocusEvent) {
+      if (!isTabbing) {
         return;
       }
 
-      // prevent focusing on the next element
-      // when it is outside the dialog parent
-      event.preventDefault();
+      // https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event
+      const nextElement = event.target;
 
-      const focusableElements = dialogElement.querySelectorAll(
-        FOCUSABLE_ELEMENT_SELECTOR
-      );
+      // Should focus back on the element inside when
+      // the next element is outside the dialog parent.
+      if (nextElement instanceof Node && !dialogElement.contains(nextElement)) {
+        const focusableElements = dialogElement.querySelectorAll(
+          FOCUSABLE_ELEMENT_SELECTOR
+        );
 
-      if (isTabbingBackward) {
-        focusableElements[focusableElements.length - 1]?.focus();
-      } else {
-        focusableElements[0]?.focus();
+        if (isTabbingBackward) {
+          focusableElements[focusableElements.length - 1]?.focus();
+        } else {
+          focusableElements[0]?.focus();
+        }
       }
     }
 
-    window.addEventListener('keydown', handleTabKeydown);
-    window.addEventListener('keyup', handleTabKeyup);
-    dialogElement.addEventListener('focusout', handleBeforeFocusChange);
+    window.addEventListener('keydown', handleKeydown);
+    window.addEventListener('keyup', handleKeyup);
+    window.addEventListener('focusin', handleFocusBeforeChange);
 
     return () => {
-      window.addEventListener('keydown', handleTabKeydown);
-      window.addEventListener('keyup', handleTabKeyup);
-      dialogElement.removeEventListener('focusout', handleBeforeFocusChange);
+      window.removeEventListener('keydown', handleKeydown);
+      window.removeEventListener('keyup', handleKeyup);
+      window.removeEventListener('focusin', handleFocusBeforeChange);
     };
   }, [ref]);
 }
