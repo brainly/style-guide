@@ -21,15 +21,16 @@ export type DialogPropsType = $ReadOnly<{
 }>;
 
 const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
-  (props: DialogPropsType, ref) => {
-    const {
+  (
+    {
       children,
       size = 'm',
       fullscreen = false,
       scroll = 'outside',
       onDismiss,
-    } = props;
-
+    }: DialogPropsType,
+    ref
+  ) => {
     const overlayClass = cx('sg-dialog__overlay', {
       'sg-dialog__overlay--scroll': scroll === 'outside',
     });

@@ -1,4 +1,4 @@
-// @flow strict
+// @flow
 
 import * as React from 'react';
 import Button from '../buttons/Button';
@@ -9,12 +9,11 @@ import Dialog from './Dialog';
 import DialogHead from './DialogHead';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
-import type {DialogPropsType} from './Dialog';
 
 export default {
   title: 'Layout/Dialog',
+  component: Dialog,
   parameters: {
-    component: Dialog,
     docs: {
       inlineStories: false,
     },
@@ -31,20 +30,20 @@ export default {
   },
 };
 
-export const Default = (args: DialogPropsType) => (
+export const Default = (args: any) => (
   <Dialog {...args}>
     <DialogBody>{contentExample}</DialogBody>
   </Dialog>
 );
 
-export const CloseButton = (args: DialogPropsType) => (
+export const CloseButton = (args: any) => (
   <Dialog {...args}>
-    <DialogCloseButton onClick={args.onDismiss || noop} />
+    <DialogCloseButton onClick={args.onDismiss} />
     <DialogBody>{contentExample}</DialogBody>
   </Dialog>
 );
 
-export const CustomButtons = (args: DialogPropsType) => (
+export const CustomButtons = (args: any) => (
   <Dialog {...args}>
     <DialogBody>
       <Flex marginBottom="m">{contentExample}</Flex>
@@ -56,9 +55,9 @@ export const CustomButtons = (args: DialogPropsType) => (
   </Dialog>
 );
 
-export const Head = (args: DialogPropsType) => (
+export const Head = (args: any) => (
   <Dialog {...args}>
-    <DialogCloseButton onClick={() => undefined} />
+    <DialogCloseButton onClick={args.onDismiss} />
     <DialogHead>
       <Flex marginBottom="m">
         <Headline>Are you sure you want to stop asking this question?</Headline>
@@ -71,5 +70,3 @@ export const Head = (args: DialogPropsType) => (
 const contentExample =
   // eslint-disable-next-line max-len
   'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';
-
-const noop = () => undefined;
