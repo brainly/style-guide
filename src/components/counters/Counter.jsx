@@ -12,8 +12,8 @@ type CounterSizeType = 'xs' | 'xxs';
 type ColorType = 'peach-900' | 'blue-900';
 
 export const COUNTER_COLOR = {
-  'PEACH-900': 'peach-900',
-  'BLUE-900': 'blue-900',
+  PEACH900: 'peach-900',
+  BLUE900: 'blue-900',
 };
 
 export const COUNTER_SIZE: {
@@ -72,7 +72,7 @@ const Counter = ({
   children,
   className,
   size,
-  color = COUNTER_COLOR['PEACH-900'],
+  color = COUNTER_COLOR.PEACH900,
   withAnimation,
   ...props
 }: CounterPropsType) => {
