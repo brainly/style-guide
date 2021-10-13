@@ -30,19 +30,20 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
       scroll = 'outside',
       onDismiss,
     }: DialogPropsType,
-    ref
+    propRef
   ) => {
     const localRef = React.useRef(null);
     const setRefs = React.useCallback(
       node => {
         localRef.current = node;
-        if (typeof ref === 'function') {
-          ref(node);
-        } else if (ref !== null) {
-          ref.current = node;
+
+        if (typeof propRef === 'function') {
+          propRef(node);
+        } else if (propRef) {
+          propRef.current = node;
         }
       },
-      [ref]
+      [propRef]
     );
 
     useFocusTrap(localRef);
