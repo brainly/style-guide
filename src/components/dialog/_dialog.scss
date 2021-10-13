@@ -1,6 +1,8 @@
-$offsetForCloseButton: 48px;
-$paddingSmall: spacing(m);
-$paddingMedium: spacing(l);
+$dialogSmallPadding: spacing(m);
+$dialogMediumPadding: spacing(l);
+$dialogOffsetForCloseButton: 48px;
+
+$dialogBoxShadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
 
 $dialogMaxWidthMap: (
   's': 392px,
@@ -21,6 +23,10 @@ $dialogMaxWidthMap: (
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
 
+    @include sgResponsive(md) {
+      padding: spacing(m);
+    }
+
     &--scroll {
       overflow: auto;
     }
@@ -32,15 +38,13 @@ $dialogMaxWidthMap: (
     position: relative;
     background-color: $white;
     border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
-    box-shadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: $dialogBoxShadow;
     width: 100%;
     margin-top: auto;
     margin-bottom: 0;
 
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
-      margin-left: spacing(m);
-      margin-right: spacing(m);
       margin-bottom: auto;
 
       @each $sizeName, $maxWidth in $dialogMaxWidthMap {
@@ -55,27 +59,37 @@ $dialogMaxWidthMap: (
       max-height: 100%;
     }
 
-    &--fullscreen {}
+    &--fullscreen {
+      border-radius: 0;
+      box-shadow: none;
+      max-width: 100%;
+      min-height: 100%;
+
+      @include sgResponsive(md) {
+        border-radius: $borderRadiusDefault;
+        box-shadow: $dialogBoxShadow;
+      }
+    }
   }
 
   &__header {
-    padding-top: $paddingSmall;
-    padding-left: $paddingSmall;
-    padding-right: $offsetForCloseButton;
+    padding-top: $dialogSmallPadding;
+    padding-left: $dialogSmallPadding;
+    padding-right: $dialogOffsetForCloseButton;
 
     @include sgResponsive(md) {
-      padding-top: $paddingMedium;
-      padding-left: $paddingMedium;
-      padding-right: $offsetForCloseButton;
+      padding-top: $dialogMediumPadding;
+      padding-left: $dialogMediumPadding;
+      padding-right: $dialogOffsetForCloseButton;
     }
   }
 
   &__body {
-    padding: $paddingSmall;
     overflow: auto;
+    padding: $dialogSmallPadding;
 
     @include sgResponsive(md) {
-      padding: $paddingMedium;
+      padding: $dialogMediumPadding;
     }
   }
 

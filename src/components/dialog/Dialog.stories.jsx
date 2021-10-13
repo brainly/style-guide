@@ -55,7 +55,7 @@ export const CustomButtons = (args: any) => (
   </Dialog>
 );
 
-export const Head = (args: any) => (
+export const Header = (args: any) => (
   <Dialog {...args}>
     <DialogCloseButton onClick={args.onDismiss} />
     <DialogHeader>
@@ -63,10 +63,12 @@ export const Head = (args: any) => (
         <Headline>Are you sure you want to stop asking this question?</Headline>
       </Flex>
     </DialogHeader>
-    <DialogBody>{contentExample}</DialogBody>
+    <DialogBody>{longContentExample}</DialogBody>
   </Dialog>
 );
 
 const contentExample =
   // eslint-disable-next-line max-len
   'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';
+
+const longContentExample = contentExample.repeat(3);
