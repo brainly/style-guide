@@ -80,9 +80,7 @@ $includeHtml: false !default;
           $graySecondaryLight,
           80%
         );
-        border: 2px
-          solid
-          mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
       }
     }
 
