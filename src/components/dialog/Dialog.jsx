@@ -15,7 +15,7 @@ export type DialogPropsType = $ReadOnly<{
   scroll?: 'inside' | 'outside',
   /**
    * Fires on the user's actions such as click
-   * outside the dialog or the Escape key.
+   * outside the Dialog or the Escape key.
    */
   onDismiss?: () => void,
 }>;
@@ -43,23 +43,30 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
       }
     );
 
-    function handleOverlayClick(e: SyntheticMouseEvent<HTMLDivElement>) {
-      if (e.target === e.currentTarget && onDismiss) {
-        onDismiss();
-      }
-    }
+    const handleOverlayClick = React.useCallback(
+      (e: SyntheticMouseEvent<HTMLDivElement>) => {
+        if (onDismiss && e.target === e.currentTarget) {
+          onDismiss();
+        }
+      },
+      [onDismiss]
+    );
 
-    function handleOverlayKeyup(e: SyntheticKeyboardEvent<HTMLDivElement>) {
-      if (e.key === 'Escape' && onDismiss) {
-        onDismiss();
+    React.useEffect(() => {
+      function handleEscapeKey(e: KeyboardEvent) {
+        if (onDismiss && e.key === 'Escape') {
+          onDismiss();
+        }
       }
-    }
+
+      window.addEventListener('keyup', handleEscapeKey);
+      return () => window.removeEventListener('keyup', handleEscapeKey);
+    }, [onDismiss]);
 
     return (
       <div
         className={overlayClass}
         onClick={onDismiss ? handleOverlayClick : undefined}
-        onKeyUp={onDismiss ? handleOverlayKeyup : undefined}
       >
         <div ref={ref} className={containerClass}>
           {children}
