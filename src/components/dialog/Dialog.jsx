@@ -3,6 +3,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import {__DEV__} from '../utils';
+import {useFocusTrap} from './useFocusTrap';
 
 export type DialogPropsType = $ReadOnly<{
   children: React.Node,
@@ -31,6 +32,41 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
     }: DialogPropsType,
     ref
   ) => {
+    const localRef = React.useRef(null);
+    const setRefs = React.useCallback(
+      node => {
+        localRef.current = node;
+        if (typeof ref === 'function') {
+          ref(node);
+        } else if (ref !== null) {
+          ref.current = node;
+        }
+      },
+      [ref]
+    );
+
+    useFocusTrap(localRef);
+
+    React.useEffect(() => {
+      function handleEscapeKey(e: KeyboardEvent) {
+        if (onDismiss && e.key === 'Escape') {
+          onDismiss();
+        }
+      }
+
+      window.addEventListener('keyup', handleEscapeKey);
+      return () => window.removeEventListener('keyup', handleEscapeKey);
+    }, [onDismiss]);
+
+    const handleOverlayClick = React.useCallback(
+      (e: SyntheticMouseEvent<HTMLDivElement>) => {
+        if (onDismiss && e.target === e.currentTarget) {
+          onDismiss();
+        }
+      },
+      [onDismiss]
+    );
+
     const overlayClass = cx('sg-dialog__overlay', {
       'sg-dialog__overlay--scroll': scroll === 'outside',
     });
@@ -44,32 +80,12 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
       }
     );
 
-    const handleOverlayClick = React.useCallback(
-      (e: SyntheticMouseEvent<HTMLDivElement>) => {
-        if (onDismiss && e.target === e.currentTarget) {
-          onDismiss();
-        }
-      },
-      [onDismiss]
-    );
-
-    React.useEffect(() => {
-      function handleEscapeKey(e: KeyboardEvent) {
-        if (onDismiss && e.key === 'Escape') {
-          onDismiss();
-        }
-      }
-
-      window.addEventListener('keyup', handleEscapeKey);
-      return () => window.removeEventListener('keyup', handleEscapeKey);
-    }, [onDismiss]);
-
     return (
       <div
         className={overlayClass}
         onClick={onDismiss ? handleOverlayClick : undefined}
       >
-        <div ref={ref} className={containerClass}>
+        <div ref={setRefs} className={containerClass}>
           {children}
         </div>
       </div>
