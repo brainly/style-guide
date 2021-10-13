@@ -1,4 +1,4 @@
-$paddingHead: 48px;
+$offsetForCloseButton: 48px;
 $paddingSmall: spacing(m);
 $paddingMedium: spacing(l);
 
@@ -61,12 +61,12 @@ $dialogMaxWidthMap: (
   &__head {
     padding-top: $paddingSmall;
     padding-left: $paddingSmall;
-    padding-right: $paddingHead;
+    padding-right: $offsetForCloseButton;
 
     @include sgResponsive(md) {
       padding-top: $paddingMedium;
       padding-left: $paddingMedium;
-      padding-right: $paddingHead;
+      padding-right: $offsetForCloseButton;
     }
   }
 
@@ -77,6 +77,10 @@ $dialogMaxWidthMap: (
     @include sgResponsive(md) {
       padding: $paddingMedium;
     }
+  }
+
+  &__head + &__body {
+    padding-top: 0;
   }
 
   &__close-button {
