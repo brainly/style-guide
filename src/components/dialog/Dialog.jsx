@@ -82,11 +82,10 @@ const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
 
     return (
       <div
-        role="dialog"
         className={overlayClass}
         onClick={onDismiss ? handleOverlayClick : undefined}
       >
-        <div ref={setRefs} className={containerClass}>
+        <div ref={setRefs} role="dialog" className={containerClass}>
           {children}
         </div>
       </div>
