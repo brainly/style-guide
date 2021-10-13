@@ -7,6 +7,14 @@ const FOCUSABLE_ELEMENT_SELECTOR =
   'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not(disabled), iframe, [tabindex="0"], [tabindex]:not([tabindex="-1"])';
 
 export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
+  const originalActiveElement = React.useRef();
+
+  React.useEffect(() => {
+    // Should restore original focus on unmount.
+    originalActiveElement.current = document.activeElement;
+    return () => originalActiveElement.current?.focus();
+  }, []);
+
   React.useEffect(() => {
     const dialogElement = ref.current;
 

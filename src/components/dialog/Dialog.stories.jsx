@@ -67,6 +67,42 @@ export const Header = (args: any) => (
   </Dialog>
 );
 
+export const DismissFunctionalities = (args: any) => {
+  const [currentId, setCurrentId] = React.useState(null);
+  const handleDismiss = () => setCurrentId(null);
+
+  return (
+    <>
+      <div className="sg-space-x-xs">
+        {['A', 'B', 'C', 'D'].map(id => (
+          <Button key={id} type="outline" onClick={() => setCurrentId(id)}>
+            {id}
+          </Button>
+        ))}
+      </div>
+
+      {currentId !== null && (
+        <Dialog {...args} onDismiss={handleDismiss}>
+          <DialogHeader>
+            <Flex marginBottom="m">
+              <Headline>{currentId}) Hello Dialog</Headline>
+            </Flex>
+          </DialogHeader>
+          <DialogBody>
+            <Flex marginBottom="m">{contentExample}</Flex>
+            <Flex justifyContent="flex-end" className="sg-space-x-s">
+              <Button type="outline" onClick={handleDismiss}>
+                cancel
+              </Button>
+              <Button type="solid">proceed</Button>
+            </Flex>
+          </DialogBody>
+        </Dialog>
+      )}
+    </>
+  );
+};
+
 const contentExample =
   // eslint-disable-next-line max-len
   'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';
