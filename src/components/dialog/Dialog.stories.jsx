@@ -6,7 +6,7 @@ import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 
 import Dialog from './Dialog';
-import DialogHead from './DialogHead';
+import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
 
@@ -58,11 +58,11 @@ export const CustomButtons = (args: any) => (
 export const Head = (args: any) => (
   <Dialog {...args}>
     <DialogCloseButton onClick={args.onDismiss} />
-    <DialogHead>
+    <DialogHeader>
       <Flex marginBottom="m">
         <Headline>Are you sure you want to stop asking this question?</Headline>
       </Flex>
-    </DialogHead>
+    </DialogHeader>
     <DialogBody>{contentExample}</DialogBody>
   </Dialog>
 );

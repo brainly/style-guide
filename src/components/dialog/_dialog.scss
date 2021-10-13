@@ -58,7 +58,7 @@ $dialogMaxWidthMap: (
     &--fullscreen {}
   }
 
-  &__head {
+  &__header {
     padding-top: $paddingSmall;
     padding-left: $paddingSmall;
     padding-right: $offsetForCloseButton;
@@ -79,7 +79,7 @@ $dialogMaxWidthMap: (
     }
   }
 
-  &__head + &__body {
+  &__header + &__body {
     padding-top: 0;
   }
 
