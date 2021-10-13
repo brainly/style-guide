@@ -24,7 +24,7 @@ export default {
 
 export const Default = args => <Counter {...args} />;
 
-export const SizesAndTypes = args => (
+export const SizesColorsAndTypes = args => (
   <div>
     <StoryVariantTable>
       <thead>
@@ -39,6 +39,17 @@ export const SizesAndTypes = args => (
               size="medium"
             >
               default
+            </Headline>
+          </th>
+          <th>
+            <Headline
+              extraBold
+              transform="uppercase"
+              type="span"
+              color="gray-secondary-light"
+              size="medium"
+            >
+              blue
             </Headline>
           </th>
           <th>
@@ -71,6 +82,13 @@ export const SizesAndTypes = args => (
             <td>
               <Flex justifyContent="center">
                 <Counter key={size} {...args} size={size}>
+                  2
+                </Counter>
+              </Flex>
+            </td>
+            <td>
+              <Flex justifyContent="center">
+                <Counter key={size} {...args} size={size} color="blue-900">
                   2
                 </Counter>
               </Flex>
