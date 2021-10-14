@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import {__DEV__} from '../utils';
 import {useFocusTrap} from './useFocusTrap';
 
 export type DialogPropsType = $ReadOnly<{
@@ -21,81 +20,60 @@ export type DialogPropsType = $ReadOnly<{
   onDismiss?: () => void,
 }>;
 
-const Dialog = React.forwardRef<DialogPropsType, HTMLElement>(
-  (
+function Dialog({
+  children,
+  size = 'm',
+  fullscreen = false,
+  scroll = 'outside',
+  onDismiss,
+}: DialogPropsType) {
+  const containerRef = React.useRef(null);
+
+  useFocusTrap(containerRef);
+
+  React.useEffect(() => {
+    function handleEscapeKey(e: KeyboardEvent) {
+      if (onDismiss && e.key === 'Escape') {
+        onDismiss();
+      }
+    }
+
+    window.addEventListener('keyup', handleEscapeKey);
+    return () => window.removeEventListener('keyup', handleEscapeKey);
+  }, [onDismiss]);
+
+  const handleOverlayClick = React.useCallback(
+    (e: SyntheticMouseEvent<HTMLDivElement>) => {
+      if (onDismiss && e.target === e.currentTarget) {
+        onDismiss();
+      }
+    },
+    [onDismiss]
+  );
+
+  const overlayClass = cx('sg-dialog__overlay', {
+    'sg-dialog__overlay--scroll': scroll === 'outside',
+  });
+
+  const containerClass = cx(
+    'sg-dialog__container',
+    `sg-dialog__container--size-${size}`,
     {
-      children,
-      size = 'm',
-      fullscreen = false,
-      scroll = 'outside',
-      onDismiss,
-    }: DialogPropsType,
-    propRef
-  ) => {
-    const localRef = React.useRef(null);
-    const setRefs = React.useCallback(
-      node => {
-        localRef.current = node;
+      'sg-dialog__container--scroll': scroll === 'inside',
+      'sg-dialog__container--fullscreen': fullscreen,
+    }
+  );
 
-        if (typeof propRef === 'function') {
-          propRef(node);
-        } else if (propRef) {
-          propRef.current = node;
-        }
-      },
-      [propRef]
-    );
-
-    useFocusTrap(localRef);
-
-    React.useEffect(() => {
-      function handleEscapeKey(e: KeyboardEvent) {
-        if (onDismiss && e.key === 'Escape') {
-          onDismiss();
-        }
-      }
-
-      window.addEventListener('keyup', handleEscapeKey);
-      return () => window.removeEventListener('keyup', handleEscapeKey);
-    }, [onDismiss]);
-
-    const handleOverlayClick = React.useCallback(
-      (e: SyntheticMouseEvent<HTMLDivElement>) => {
-        if (onDismiss && e.target === e.currentTarget) {
-          onDismiss();
-        }
-      },
-      [onDismiss]
-    );
-
-    const overlayClass = cx('sg-dialog__overlay', {
-      'sg-dialog__overlay--scroll': scroll === 'outside',
-    });
-
-    const containerClass = cx(
-      'sg-dialog__container',
-      `sg-dialog__container--size-${size}`,
-      {
-        'sg-dialog__container--scroll': scroll === 'inside',
-        'sg-dialog__container--fullscreen': fullscreen,
-      }
-    );
-
-    return (
-      <div
-        className={overlayClass}
-        onClick={onDismiss ? handleOverlayClick : undefined}
-      >
-        <div ref={setRefs} role="dialog" className={containerClass}>
-          {children}
-        </div>
+  return (
+    <div
+      className={overlayClass}
+      onClick={onDismiss ? handleOverlayClick : undefined}
+    >
+      <div role="dialog" ref={containerRef} className={containerClass}>
+        {children}
       </div>
-    );
-  }
-);
-
-if (__DEV__) {
-  Dialog.displayName = 'Dialog';
+    </div>
+  );
 }
 
 export default Dialog;

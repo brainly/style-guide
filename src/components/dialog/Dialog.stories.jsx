@@ -67,7 +67,7 @@ export const Header = (args: any) => (
   </Dialog>
 );
 
-export const DismissFunctionalities = (args: any) => {
+export const DismissActions = (args: any) => {
   const [currentId, setCurrentId] = React.useState(null);
   const handleDismiss = () => setCurrentId(null);
 
@@ -99,6 +99,11 @@ export const DismissFunctionalities = (args: any) => {
           </DialogBody>
         </Dialog>
       )}
+
+      {/* The current trap implementation may exit the window
+      and focus on the browser's search bar when the dialog is
+      the first/last focusable element in the DOM. */}
+      <a href="/" />
     </>
   );
 };

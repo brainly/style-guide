@@ -35,17 +35,18 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
       isTabbingBackward = false;
     }
 
-    function handleFocusBeforeChange(event: FocusEvent) {
+    function handleFocusChange(event: FocusEvent) {
       if (!isTabbing) {
         return;
       }
-
-      // https://developer.mozilla.org/en-US/docs/Web/API/Element/focusin_event
-      const nextElement = event.target;
+      const activeElement = event.target;
 
       // Should focus back on the element inside when
-      // the next element is outside the dialog parent.
-      if (nextElement instanceof Node && !dialogElement.contains(nextElement)) {
+      // the active element is outside the dialog parent.
+      if (
+        activeElement instanceof Node &&
+        !dialogElement.contains(activeElement)
+      ) {
         const focusableElements = dialogElement.querySelectorAll(
           FOCUSABLE_ELEMENT_SELECTOR
         );
@@ -60,12 +61,12 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
 
     window.addEventListener('keydown', handleKeydown);
     window.addEventListener('keyup', handleKeyup);
-    window.addEventListener('focusin', handleFocusBeforeChange);
+    window.addEventListener('focusin', handleFocusChange);
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
       window.removeEventListener('keyup', handleKeyup);
-      window.removeEventListener('focusin', handleFocusBeforeChange);
+      window.removeEventListener('focusin', handleFocusChange);
     };
   }, [ref]);
 }
