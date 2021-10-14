@@ -11,7 +11,7 @@ import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
 
 export default {
-  title: 'Layout/Dialog',
+  title: 'Components/Dialog',
   component: Dialog,
   parameters: {
     docs: {

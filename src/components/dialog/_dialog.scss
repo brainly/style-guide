@@ -1,7 +1,7 @@
 $dialogSmallPadding: spacing(m);
 $dialogMediumPadding: spacing(l);
 $dialogOffsetForCloseButton: 48px;
-
+$dialogAnimationDuration: 260ms;
 $dialogBoxShadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
 
 $dialogMaxWidthMap: (
@@ -22,6 +22,7 @@ $dialogMaxWidthMap: (
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
+    animation: dialogOverlayAnimation forwards $dialogAnimationDuration;
 
     @include sgResponsive(md) {
       padding: spacing(m);
@@ -37,6 +38,7 @@ $dialogMaxWidthMap: (
     flex-direction: column;
     position: relative;
     background-color: $white;
+    animation: dialogContainerAnimation forwards $dialogAnimationDuration;
     border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
     box-shadow: $dialogBoxShadow;
     width: 100%;
@@ -102,5 +104,23 @@ $dialogMaxWidthMap: (
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+@keyframes dialogOverlayAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes dialogContainerAnimation {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
   }
 }
