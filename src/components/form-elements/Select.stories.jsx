@@ -190,7 +190,16 @@ export const WithValueChange = args => {
 
   return (
     <Select
-      {...args}
+      {...{
+        ...args,
+        options: [
+          {
+            value: '',
+            text: 'Select option',
+          },
+          ...args.options,
+        ],
+      }}
       fullWidth={false}
       value={value}
       onChange={e => setValue(e.currentTarget.value)}
