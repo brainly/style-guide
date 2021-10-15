@@ -82,6 +82,17 @@ export const StylesAndStates = args => (
             color="gray-secondary-light"
             size="medium"
           >
+            selected state
+          </Headline>
+        </td>
+        <td>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="gray-secondary-light"
+            size="medium"
+          >
             disabled state
           </Headline>
         </td>
@@ -100,6 +111,9 @@ export const StylesAndStates = args => (
         </td>
         <td>
           <Select {...args} />
+        </td>
+        <td>
+          <Select {...args} value="1" />
         </td>
         <td>
           <Select {...args} disabled />
@@ -121,6 +135,9 @@ export const StylesAndStates = args => (
           <Select {...args} color="white" />
         </td>
         <td>
+          <Select {...args} color="white" value="1" />
+        </td>
+        <td>
           <Select {...args} color="white" disabled />
         </td>
       </tr>
@@ -138,6 +155,9 @@ export const StylesAndStates = args => (
         </td>
         <td>
           <Select {...args} valid />
+        </td>
+        <td>
+          <Select {...args} valid value="1" />
         </td>
         <td>
           <Select {...args} valid disabled />
@@ -159,6 +179,9 @@ export const StylesAndStates = args => (
           <Select {...args} invalid />
         </td>
         <td>
+          <Select {...args} invalid value="1" />
+        </td>
+        <td>
           <Select {...args} invalid disabled />
         </td>
       </tr>
@@ -176,6 +199,9 @@ export const StylesAndStates = args => (
         </td>
         <td>
           <Select {...args} capitalized />
+        </td>
+        <td>
+          <Select {...args} capitalized value="1" />
         </td>
         <td>
           <Select {...args} capitalized disabled />
