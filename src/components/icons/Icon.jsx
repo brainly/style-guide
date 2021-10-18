@@ -29,10 +29,10 @@ export type IconTypeType =
   | 'comment_outlined'
   | 'counter'
   | 'credit_card'
+  | 'crown'
   | 'crown_outlined'
   | 'cup'
   | 'equation'
-  | 'excellent'
   | 'exclamation_mark'
   | 'facebook'
   | 'filters'
@@ -57,6 +57,7 @@ export type IconTypeType =
   | 'lock_with_play'
   | 'logout'
   | 'medium'
+  | 'megaphone'
   | 'menu'
   | 'messages'
   | 'mic'
@@ -172,10 +173,10 @@ export const TYPE: {
   COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
+  CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
   EQUATION: 'equation',
-  EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
@@ -200,6 +201,7 @@ export const TYPE: {
   LOCK_WITH_PLAY: 'lock_with_play',
   LOGOUT: 'logout',
   MEDIUM: 'medium',
+  MEGAPHONE: 'megaphone',
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',
@@ -295,10 +297,10 @@ export const TYPE: {
   COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
+  CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
   EQUATION: 'equation',
-  EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   FILTERS: 'filters',
@@ -323,6 +325,7 @@ export const TYPE: {
   LOCK_WITH_PLAY: 'lock_with_play',
   LOGOUT: 'logout',
   MEDIUM: 'medium',
+  MEGAPHONE: 'megaphone',
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',
