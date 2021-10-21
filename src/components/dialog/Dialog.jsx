@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import cx from 'classnames';
+import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
 
 export type DialogPropsType = $ReadOnly<{
@@ -29,6 +30,7 @@ function Dialog({
 }: DialogPropsType) {
   const containerRef = React.useRef(null);
 
+  useBodyNoScroll();
   useFocusTrap(containerRef);
 
   React.useEffect(() => {
