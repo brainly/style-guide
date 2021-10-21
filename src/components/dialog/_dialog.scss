@@ -11,6 +11,13 @@ $dialogMaxWidthMap: (
   'xl': 1016px,
 );
 
+// ux motion tokens
+$durationQuick02: 120ms;
+$durationModerate01: 180ms;
+$easingMotionLinear: linear;
+$easingMotionEntry: cubic-bezier(0.1, 0, 0, 1);
+$easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
+
 .sg-dialog {
   &__overlay {
     display: flex;
@@ -21,11 +28,29 @@ $dialogMaxWidthMap: (
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-    animation: dialogOverlayAnimation forwards $dialogAnimationDuration;
 
     @include sgResponsive(md) {
       padding: spacing(m);
+    }
+
+    &::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      transition-property: opacity;
+      transition-duration: $durationQuick02;
+      transition-timing-function: $easingMotionLinear;
+      opacity: 0;
+    }
+
+    &--active {
+      &::before {
+        opacity: 1;
+      }
     }
 
     &--scroll {
@@ -44,6 +69,11 @@ $dialogMaxWidthMap: (
     width: 100%;
     margin-top: auto;
     margin-bottom: 0;
+    transition-property: transform, opacity;
+    transition-duration: $durationModerate01;
+    transition-timing-function: $easingMotionExit;
+    transform: translate3d(0, 32px, 0);
+    opacity: 0;
 
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
@@ -54,6 +84,13 @@ $dialogMaxWidthMap: (
           max-width: #{$maxWidth};
         }
       }
+    }
+
+    &--active {
+      transition-duration: $durationModerate01;
+      transition-timing-function: $easingMotionEntry;
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
     }
 
     &--scroll {
@@ -104,23 +141,5 @@ $dialogMaxWidthMap: (
     position: absolute;
     top: 0;
     right: 0;
-  }
-}
-
-@keyframes dialogOverlayAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes dialogContainerAnimation {
-  0% {
-    transform: translate3d(0, 100%, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
   }
 }

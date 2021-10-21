@@ -2,10 +2,17 @@
 
 import * as React from 'react';
 import cx from 'classnames';
+import {__DEV__} from '../utils';
+
 import {useBodyNoScroll} from './useBodyNoScroll';
+import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
+const durationModerate01 = 180;
+const UNMOUNT_DELAY = durationModerate01;
+
 export type DialogPropsType = $ReadOnly<{
+  active: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
@@ -22,6 +29,7 @@ export type DialogPropsType = $ReadOnly<{
 }>;
 
 function Dialog({
+  active,
   children,
   size = 'm',
   fullscreen = false,
@@ -31,18 +39,8 @@ function Dialog({
   const containerRef = React.useRef(null);
 
   useBodyNoScroll();
+  useEscapeKey(onDismiss);
   useFocusTrap(containerRef);
-
-  React.useEffect(() => {
-    function handleEscapeKey(e: KeyboardEvent) {
-      if (onDismiss && e.key === 'Escape') {
-        onDismiss();
-      }
-    }
-
-    window.addEventListener('keyup', handleEscapeKey);
-    return () => window.removeEventListener('keyup', handleEscapeKey);
-  }, [onDismiss]);
 
   const handleOverlayClick = React.useCallback(
     (e: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -55,6 +53,7 @@ function Dialog({
 
   const overlayClass = cx('sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
+    'sg-dialog__overlay--active': active,
   });
 
   const containerClass = cx(
@@ -63,6 +62,7 @@ function Dialog({
     {
       'sg-dialog__container--scroll': scroll === 'inside',
       'sg-dialog__container--fullscreen': fullscreen,
+      'sg-dialog__container--active': active,
     }
   );
 
@@ -78,4 +78,42 @@ function Dialog({
   );
 }
 
-export default Dialog;
+function WrappedDialogWithExitTransition({
+  active,
+  ...otherProps
+}: DialogPropsType) {
+  const [mounted, setMounted] = React.useState<boolean>(active);
+
+  if (active && !mounted) {
+    setMounted(true);
+  }
+
+  // CSS3 transition requires an activated variable to be one
+  // render behind the active prop to trigger a transition.
+  const [activated, setActivated] = React.useState<boolean>(false);
+
+  // enter transition
+  React.useLayoutEffect(() => {
+    if (mounted) setActivated(true);
+  }, [mounted]);
+
+  // exit transition and unmount
+  React.useLayoutEffect(() => {
+    if (active) return;
+
+    setActivated(false);
+    const timeoutId = setTimeout(() => {
+      setMounted(false);
+    }, UNMOUNT_DELAY);
+
+    return () => clearTimeout(timeoutId);
+  }, [active]);
+
+  return mounted ? <Dialog {...otherProps} active={activated} /> : null;
+}
+
+if (__DEV__) {
+  WrappedDialogWithExitTransition.displayName = 'Dialog';
+}
+
+export default WrappedDialogWithExitTransition;

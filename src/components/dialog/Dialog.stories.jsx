@@ -81,32 +81,28 @@ export const DismissActions = (args: any) => {
         ))}
       </div>
 
-      {currentId !== null && (
-        <>
-          <Dialog {...args} onDismiss={handleDismiss}>
-            <DialogHeader>
-              <Flex marginBottom="m">
-                <Headline>Title of Dialog {currentId}</Headline>
-              </Flex>
-            </DialogHeader>
-            <DialogBody>
-              <Flex marginBottom="m">{contentExample}</Flex>
-              <Flex justifyContent="flex-end" className="sg-space-x-s">
-                <Button type="outline" onClick={handleDismiss}>
-                  cancel
-                </Button>
-                <Button type="solid">proceed</Button>
-              </Flex>
-            </DialogBody>
-          </Dialog>
+      <Dialog {...args} onDismiss={handleDismiss} active={currentId !== null}>
+        <DialogHeader>
+          <Flex marginBottom="m">
+            <Headline>Title of Dialog {currentId}</Headline>
+          </Flex>
+        </DialogHeader>
+        <DialogBody>
+          <Flex marginBottom="m">{contentExample}</Flex>
+          <Flex justifyContent="flex-end" className="sg-space-x-s">
+            <Button type="outline" onClick={handleDismiss}>
+              cancel
+            </Button>
+            <Button type="solid">proceed</Button>
+          </Flex>
+        </DialogBody>
+      </Dialog>
 
-          {/* Native keyboard navigation allows the user to leave the window
-          at the beginning/end of the DOM tree. Current useFocusTrap doesn't
-          change this, but it can be an issue for Storybook iframes. We can
-          fix this example by adding a focusable element after the dialog */}
-          <a href="/" />
-        </>
-      )}
+      {/* Native keyboard navigation allows the user to leave the window
+      at the beginning/end of the DOM tree. Current useFocusTrap doesn't
+      change this, but it can be an issue for Storybook iframes. We can
+      fix this example by adding a focusable element after the dialog */}
+      <a href="/" />
     </>
   );
 };
