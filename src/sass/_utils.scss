@@ -57,3 +57,19 @@
 .sg-cursor-pointer {
   cursor: pointer;
 }
+
+.sg-elevation-shadow {
+  box-shadow: $elevationShadowSmall;
+
+  &--small {
+    box-shadow: $elevationShadowSmall;
+  }
+
+  &--medium {
+    box-shadow: $elevationShadowMedium;
+  }
+
+  &--large {
+    box-shadow: $elevationShadowLarge;
+  }
+}
