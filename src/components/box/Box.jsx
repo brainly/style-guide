@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {__DEV__} from '../utils';
 
 // TODO get list of colors from design team
 type ColorType =
@@ -157,8 +156,6 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
   }
 );
 
-if (__DEV__) {
-  Box.displayName = 'Box';
-}
+Box.displayName = 'Box';
 
 export default Box;
