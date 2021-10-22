@@ -1,9 +1,6 @@
 import * as React from 'react';
-import RwdHelper, {TYPE} from '../RwdHelper';
 import DocsBlock from 'components/DocsBlock';
-import Icon, {TYPE as icoTypes, ICON_COLOR} from 'icons/Icon';
 import Box from '../../box/Box';
-import Flex from '../../flex/Flex';
 
 const ElevationShadows = () => (
   <div>
