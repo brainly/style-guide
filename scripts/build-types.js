@@ -49,7 +49,7 @@ files.forEach(sourceFile => {
   }
 
   // For all inexact prop types make sure that all pass through props are declared as
-  // intersection with HTMLAttributes<HTMLElement>
+  // intersection with AllHTMLAttributes<HTMLElement>
   ast
     .find(jsc.TypeAlias)
     .filter(path => path.node.id.name.match(/.*PropsType/))
@@ -65,7 +65,13 @@ files.forEach(sourceFile => {
       // Handling union types with multiple type annotations
       typeAnnotations.forEach(path => {
         const code = jsc(path).toSource();
-        const newCode = `${code} & React.HTMLAttributes<HTMLElement>`;
+        const originalPropKeys = path.value.properties.map(prop => {
+          return prop.key.name;
+        });
+
+        const newCode = `${code} & Omit<React.AllHTMLAttributes<HTMLElement>, ${originalPropKeys
+          .map(orgPropKey => `'${orgPropKey}'`)
+          .join(' | ')}>`;
 
         transformedCode = transformedCode.replace(code, newCode);
       });
