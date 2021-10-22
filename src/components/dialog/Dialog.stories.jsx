@@ -71,25 +71,33 @@ export const Header = (args: any) => (
 );
 
 export const DismissActions = (args: any) => {
-  const [currentId, setCurrentId] = React.useState(null);
-  const handleDismiss = () => setCurrentId(null);
+  const [letter, setLetter] = React.useState();
+  const [active, setActive] = React.useState(false);
+  const handleDismiss = () => setActive(false);
 
   return (
     <div>
       <pre>{'ᐯ\n'.repeat(10)}</pre>
 
       <div className="sg-space-x-xs">
-        {['A', 'B', 'C', 'D'].map(id => (
-          <Button key={id} type="outline" onClick={() => setCurrentId(id)}>
-            {id}
+        {['A', 'B', 'C', 'D'].map(letter => (
+          <Button
+            key={letter}
+            type="outline"
+            onClick={() => {
+              setLetter(letter);
+              setActive(true);
+            }}
+          >
+            {letter}
           </Button>
         ))}
       </div>
 
-      <Dialog {...args} onDismiss={handleDismiss} active={currentId !== null}>
+      <Dialog {...args} onDismiss={handleDismiss} active={active}>
         <DialogHeader>
           <Flex marginBottom="m">
-            <Headline>Title of Dialog {currentId}</Headline>
+            <Headline>Title of Dialog {letter}</Headline>
           </Flex>
         </DialogHeader>
         <DialogBody>
