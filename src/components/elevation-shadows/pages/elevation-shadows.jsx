@@ -4,7 +4,7 @@ import Box from '../../box/Box';
 
 const ElevationShadows = () => (
   <div>
-    <DocsBlock info="Elevation shadows">
+    <DocsBlock>
       <div
         style={{
           display: 'flex',
