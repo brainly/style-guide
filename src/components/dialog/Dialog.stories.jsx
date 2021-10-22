@@ -18,6 +18,9 @@ export default {
       inlineStories: false,
     },
   },
+  args: {
+    active: false,
+  },
   argTypes: {
     children: {
       control: {
@@ -63,7 +66,7 @@ export const Header = (args: any) => (
         <Headline>Are you sure you want to stop asking this question?</Headline>
       </Flex>
     </DialogHeader>
-    <DialogBody>{longContentExample}</DialogBody>
+    <DialogBody>{contentExample.repeat(3)}</DialogBody>
   </Dialog>
 );
 
@@ -72,7 +75,9 @@ export const DismissActions = (args: any) => {
   const handleDismiss = () => setCurrentId(null);
 
   return (
-    <>
+    <div>
+      <pre>{'ᐯ\n'.repeat(10)}</pre>
+
       <div className="sg-space-x-xs">
         {['A', 'B', 'C', 'D'].map(id => (
           <Button key={id} type="outline" onClick={() => setCurrentId(id)}>
@@ -103,12 +108,20 @@ export const DismissActions = (args: any) => {
       change this, but it can be an issue for Storybook iframes. We can
       fix this example by adding a focusable element after the dialog */}
       <a href="/" />
-    </>
+
+      <pre>{'ᐱ\n'.repeat(10)}</pre>
+    </div>
   );
+};
+
+DismissActions.argTypes = {
+  active: {
+    control: {
+      disable: true,
+    },
+  },
 };
 
 const contentExample =
   // eslint-disable-next-line max-len
   'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';
-
-const longContentExample = contentExample.repeat(3);

@@ -9,7 +9,6 @@ import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
 const durationModerate01 = 180;
-const UNMOUNT_DELAY = durationModerate01;
 
 export type DialogPropsType = $ReadOnly<{
   active: boolean,
@@ -84,13 +83,13 @@ function WrappedDialogWithExitTransition({
 }: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(active);
 
+  // CSS3 transition requires an activated value to be one
+  // paint behind the mounted value to trigger a transition.
+  const [activated, setActivated] = React.useState<boolean>(false);
+
   if (active && !mounted) {
     setMounted(true);
   }
-
-  // CSS3 transition requires an activated variable to be one
-  // render behind the active prop to trigger a transition.
-  const [activated, setActivated] = React.useState<boolean>(false);
 
   // enter transition
   React.useLayoutEffect(() => {
@@ -100,13 +99,14 @@ function WrappedDialogWithExitTransition({
   // exit transition and unmount
   React.useLayoutEffect(() => {
     if (active) return;
-
     setActivated(false);
-    const timeoutId = setTimeout(() => {
-      setMounted(false);
-    }, UNMOUNT_DELAY);
 
-    return () => clearTimeout(timeoutId);
+    const unmountDelay = durationModerate01;
+    const unmountTimeout = setTimeout(() => {
+      setMounted(false);
+    }, unmountDelay);
+
+    return () => clearTimeout(unmountTimeout);
   }, [active]);
 
   return mounted ? <Dialog {...otherProps} active={activated} /> : null;
