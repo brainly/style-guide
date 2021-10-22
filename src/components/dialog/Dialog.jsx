@@ -2,16 +2,13 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import {__DEV__} from '../utils';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
-const durationModerate01 = 180;
-
-export type DialogPropsType = $ReadOnly<{
-  active: boolean,
+type BasePropsType = $ReadOnly<{
+  open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
@@ -27,14 +24,24 @@ export type DialogPropsType = $ReadOnly<{
   onDismiss?: () => void,
 }>;
 
-function Dialog({
-  active,
+export type DialogPropsType = $ReadOnly<{
+  ...BasePropsType,
+  onEntryTransitionEnd?: () => void,
+  onExitTransitionEnd?: () => void,
+}>;
+
+function BaseDialog({
+  open,
   children,
   size = 'm',
   fullscreen = false,
   scroll = 'outside',
   onDismiss,
-}: DialogPropsType) {
+  onTransitionEnd,
+}: {
+  ...BasePropsType,
+  onTransitionEnd: (event: TransitionEvent) => void,
+}) {
   const containerRef = React.useRef(null);
 
   useBodyNoScroll();
@@ -42,8 +49,8 @@ function Dialog({
   useFocusTrap(containerRef);
 
   const handleOverlayClick = React.useCallback(
-    (e: SyntheticMouseEvent<HTMLDivElement>) => {
-      if (onDismiss && e.target === e.currentTarget) {
+    (event: SyntheticMouseEvent<HTMLDivElement>) => {
+      if (onDismiss && event.target === event.currentTarget) {
         onDismiss();
       }
     },
@@ -52,7 +59,7 @@ function Dialog({
 
   const overlayClass = cx('sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
-    'sg-dialog__overlay--active': active,
+    'sg-dialog__overlay--open': open,
   });
 
   const containerClass = cx(
@@ -61,7 +68,7 @@ function Dialog({
     {
       'sg-dialog__container--scroll': scroll === 'inside',
       'sg-dialog__container--fullscreen': fullscreen,
-      'sg-dialog__container--active': active,
+      'sg-dialog__container--open': open,
     }
   );
 
@@ -70,50 +77,74 @@ function Dialog({
       className={overlayClass}
       onClick={onDismiss ? handleOverlayClick : undefined}
     >
-      <div role="dialog" ref={containerRef} className={containerClass}>
+      <div
+        role="dialog"
+        ref={containerRef}
+        className={containerClass}
+        onTransitionEnd={onTransitionEnd}
+      >
         {children}
       </div>
     </div>
   );
 }
 
-function WrappedDialogWithExitTransition({
-  active,
+function Dialog({
+  open,
+  onEntryTransitionEnd,
+  onExitTransitionEnd,
   ...otherProps
 }: DialogPropsType) {
-  const [mounted, setMounted] = React.useState<boolean>(active);
+  const [mounted, setMounted] = React.useState<boolean>(open);
 
-  // CSS3 transition requires an activated value to be one
-  // paint behind the mounted value to trigger a transition.
-  const [activated, setActivated] = React.useState<boolean>(false);
+  // CSS3 transition requires a deferredOpen value to be one
+  // paint behind the actual open prop to trigger a transition.
+  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
-  if (active && !mounted) {
-    setMounted(true);
-  }
+  React.useEffect(() => {
+    if (open) {
+      setMounted(true);
+    } else {
+      setDeferredOpen(false);
+    }
+  }, [open]);
 
-  // enter transition
-  React.useLayoutEffect(() => {
-    if (mounted) setActivated(true);
+  React.useEffect(() => {
+    if (mounted) {
+      setDeferredOpen(true);
+    }
   }, [mounted]);
 
-  // exit transition and unmount
-  React.useLayoutEffect(() => {
-    if (active) return;
-    setActivated(false);
+  const handleTransitionEnd = React.useCallback(
+    (event: TransitionEvent) => {
+      if (
+        event.target !== event.currentTarget ||
+        event.propertyName !== 'transform'
+      ) {
+        return;
+      }
 
-    const unmountDelay = durationModerate01;
-    const unmountTimeout = setTimeout(() => {
-      setMounted(false);
-    }, unmountDelay);
+      if (open) {
+        if (onEntryTransitionEnd) {
+          onEntryTransitionEnd();
+        }
+      } else {
+        setMounted(false);
+        if (onExitTransitionEnd) {
+          onExitTransitionEnd();
+        }
+      }
+    },
+    [open, onEntryTransitionEnd, onExitTransitionEnd]
+  );
 
-    return () => clearTimeout(unmountTimeout);
-  }, [active]);
-
-  return mounted ? <Dialog {...otherProps} active={activated} /> : null;
+  return mounted ? (
+    <BaseDialog
+      {...otherProps}
+      onTransitionEnd={handleTransitionEnd}
+      open={deferredOpen}
+    />
+  ) : null;
 }
 
-if (__DEV__) {
-  WrappedDialogWithExitTransition.displayName = 'Dialog';
-}
-
-export default WrappedDialogWithExitTransition;
+export default Dialog;

@@ -15,11 +15,12 @@ export default {
   component: Dialog,
   parameters: {
     docs: {
-      inlineStories: false,
+      inlineStories: false, // causes an issue with args of Docs
+      iframeHeight: 500,
     },
   },
   args: {
-    active: false,
+    open: true,
   },
   argTypes: {
     children: {
@@ -30,35 +31,16 @@ export default {
     onDismiss: {
       action: 'onDismiss',
     },
+    onEntryTransitionEnd: {
+      action: 'onEntryTransitionEnd',
+    },
+    onExitTransitionEnd: {
+      action: 'onExitTransitionEnd',
+    },
   },
 };
 
 export const Default = (args: any) => (
-  <Dialog {...args}>
-    <DialogBody>{contentExample}</DialogBody>
-  </Dialog>
-);
-
-export const CloseButton = (args: any) => (
-  <Dialog {...args}>
-    <DialogCloseButton onClick={args.onDismiss} />
-    <DialogBody>{contentExample}</DialogBody>
-  </Dialog>
-);
-
-export const CustomButtons = (args: any) => (
-  <Dialog {...args}>
-    <DialogBody>
-      <Flex marginBottom="m">{contentExample}</Flex>
-      <Flex justifyContent="flex-end" className="sg-space-x-s">
-        <Button type="outline">cancel</Button>
-        <Button type="solid">proceed</Button>
-      </Flex>
-    </DialogBody>
-  </Dialog>
-);
-
-export const Header = (args: any) => (
   <Dialog {...args}>
     <DialogCloseButton onClick={args.onDismiss} />
     <DialogHeader>
@@ -66,70 +48,22 @@ export const Header = (args: any) => (
         <Headline>Are you sure you want to stop asking this question?</Headline>
       </Flex>
     </DialogHeader>
-    <DialogBody>{contentExample.repeat(3)}</DialogBody>
+    <DialogBody>
+      <Flex marginBottom="m">
+        Information you provide to us directly. We may collect personal
+        information, such as your name, address, telephone number, date of
+        birth, payment information, and e-mail address when you when you
+        register for our Service, sign up for our mailing list, enter a contest
+        or sweepstakes, or otherwise communicate with us. We may also collect
+        any communications between you and Brainly and any other information you
+        provide to Brainly
+      </Flex>
+      <Flex justifyContent="flex-end" className="sg-space-x-s">
+        <Button type="outline" onClick={args.onDismiss}>
+          cancel
+        </Button>
+        <Button type="solid">proceed</Button>
+      </Flex>
+    </DialogBody>
   </Dialog>
 );
-
-export const DismissActions = (args: any) => {
-  const [letter, setLetter] = React.useState();
-  const [active, setActive] = React.useState(false);
-  const handleDismiss = () => setActive(false);
-
-  return (
-    <div>
-      <pre>{'ᐯ\n'.repeat(10)}</pre>
-
-      <div className="sg-space-x-xs">
-        {['A', 'B', 'C', 'D'].map(letter => (
-          <Button
-            key={letter}
-            type="outline"
-            onClick={() => {
-              setLetter(letter);
-              setActive(true);
-            }}
-          >
-            {letter}
-          </Button>
-        ))}
-      </div>
-
-      <Dialog {...args} onDismiss={handleDismiss} active={active}>
-        <DialogHeader>
-          <Flex marginBottom="m">
-            <Headline>Title of Dialog {letter}</Headline>
-          </Flex>
-        </DialogHeader>
-        <DialogBody>
-          <Flex marginBottom="m">{contentExample}</Flex>
-          <Flex justifyContent="flex-end" className="sg-space-x-s">
-            <Button type="outline" onClick={handleDismiss}>
-              cancel
-            </Button>
-            <Button type="solid">proceed</Button>
-          </Flex>
-        </DialogBody>
-      </Dialog>
-
-      {/* Native keyboard navigation allows the user to leave the window
-      at the beginning/end of the DOM tree. Current useFocusTrap doesn't
-      change this, but it can be an issue for Storybook iframes. We can
-      fix this example by adding a focusable element after the dialog */}
-      <a href="/" />
-
-      <pre>{'ᐱ\n'.repeat(10)}</pre>
-    </div>
-  );
-};
-
-DismissActions.argTypes = {
-  active: {
-    control: {
-      disable: true,
-    },
-  },
-};
-
-const contentExample =
-  // eslint-disable-next-line max-len
-  'Information you provide to us directly. We may collect personal information, such as your name, address, telephone number, date of birth, payment information, and e-mail address when you when you register for our Service, sign up for our mailing list, enter a contest or sweepstakes, or otherwise communicate with us. We may also collect any communications between you and Brainly and any other information you provide to Brainly';

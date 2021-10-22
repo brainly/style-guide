@@ -47,7 +47,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       opacity: 0;
     }
 
-    &--active {
+    &--open {
       &::before {
         opacity: 1;
       }
@@ -86,7 +86,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       }
     }
 
-    &--active {
+    &--open {
       transition-duration: $durationModerate01;
       transition-timing-function: $easingMotionEntry;
       transform: translate3d(0, 0, 0);
