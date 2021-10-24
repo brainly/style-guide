@@ -15,7 +15,11 @@ export default {
   component: Dialog,
   parameters: {
     docs: {
-      inlineStories: false, // causes an issue with args of Docs
+      /**
+       * inlineStories=false causes an issue with DocsPage Controls
+       * https://github.com/storybookjs/storybook/issues/11908
+       */
+      inlineStories: false,
       iframeHeight: 500,
     },
   },
