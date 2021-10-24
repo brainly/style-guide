@@ -30,12 +30,21 @@ export default {
     },
     onDismiss: {
       action: 'onDismiss',
+      table: {
+        category: 'Events',
+      },
     },
     onEntryTransitionEnd: {
       action: 'onEntryTransitionEnd',
+      table: {
+        category: 'Events',
+      },
     },
     onExitTransitionEnd: {
       action: 'onExitTransitionEnd',
+      table: {
+        category: 'Events',
+      },
     },
   },
 };

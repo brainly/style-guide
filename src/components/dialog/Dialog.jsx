@@ -97,23 +97,17 @@ function Dialog({
 }: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(open);
 
+  if (open && !mounted) {
+    setMounted(true);
+  }
+
   // CSS3 transition requires a deferredOpen value to be one
   // paint behind the actual open prop to trigger a transition.
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (open) {
-      setMounted(true);
-    } else {
-      setDeferredOpen(false);
-    }
+    setDeferredOpen(open);
   }, [open]);
-
-  React.useEffect(() => {
-    if (mounted) {
-      setDeferredOpen(true);
-    }
-  }, [mounted]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {

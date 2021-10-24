@@ -1,24 +1,19 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
-import {act} from 'react-dom/test-utils';
 import Dialog from './Dialog';
 
 window.scrollTo = jest.fn();
 
 describe('<Dialog>', () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
   it('renders children', () => {
-    const wrapper = mount(<Dialog active>content text</Dialog>);
+    const wrapper = mount(<Dialog open>content text</Dialog>);
 
     expect(wrapper.containsMatchingElement('content text')).toBe(true);
   });
 
   it('renders proper size', () => {
     const wrapper = mount(
-      <Dialog size="xl" active>
+      <Dialog size="xl" open>
         content text
       </Dialog>
     );
@@ -28,7 +23,7 @@ describe('<Dialog>', () => {
 
   it('renders outside scroll', () => {
     const wrapper = mount(
-      <Dialog scroll="outside" active>
+      <Dialog scroll="outside" open>
         content text
       </Dialog>
     );
@@ -38,7 +33,7 @@ describe('<Dialog>', () => {
 
   it('renders inside scroll', () => {
     const wrapper = mount(
-      <Dialog scroll="inside" active>
+      <Dialog scroll="inside" open>
         content text
       </Dialog>
     );
@@ -50,7 +45,7 @@ describe('<Dialog>', () => {
     const onDismiss = jest.fn();
 
     mount(
-      <Dialog onDismiss={onDismiss} active>
+      <Dialog onDismiss={onDismiss} open>
         content text
       </Dialog>
     );
@@ -62,7 +57,7 @@ describe('<Dialog>', () => {
   it('fires onDismiss callback on overlay click', () => {
     const onDismiss = jest.fn();
     const wrapper = mount(
-      <Dialog onDismiss={onDismiss} active>
+      <Dialog onDismiss={onDismiss} open>
         content text
       </Dialog>
     );
@@ -72,14 +67,15 @@ describe('<Dialog>', () => {
   });
 
   it('returns null after exit transition', () => {
-    const wrapper = mount(<Dialog active>content text</Dialog>);
+    const wrapper = mount(<Dialog open>content text</Dialog>);
 
     expect(wrapper.isEmptyRender()).toBe(false);
 
-    wrapper.setProps({active: false});
-    act(() => jest.runAllTimers());
+    wrapper.setProps({open: false});
+    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
+      propertyName: 'transform',
+    });
 
-    wrapper.update();
     expect(wrapper.isEmptyRender()).toBe(true);
   });
 });
