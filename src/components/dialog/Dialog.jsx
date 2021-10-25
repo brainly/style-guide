@@ -7,7 +7,7 @@ import {useBodyNoScroll} from './useBodyNoScroll';
 import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
-type BasePropsType = $ReadOnly<{
+type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
@@ -22,22 +22,13 @@ type BasePropsType = $ReadOnly<{
    * outside the Dialog or the Escape key.
    */
   onDismiss?: () => void,
-}>;
-
-type InternalDialogPropsType = $ReadOnly<{
-  ...BasePropsType,
-  onTransitionEnd: (event: TransitionEvent) => void,
-}>;
-
-export type DialogPropsType = $ReadOnly<{
-  ...BasePropsType,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
 }>;
 
 /**
  * The react-docgen has a problem with default values
- * of nested components (see InternalDialog inside the
+ * of nested components (see BaseDialog inside the
  * Dialog) and this is for documentation purposes.
  */
 Dialog.defaultProps = ({
@@ -47,18 +38,19 @@ Dialog.defaultProps = ({
 }: $Shape<DialogPropsType>);
 
 /**
- * Dialog component controls mounting and transitions
- * when InternalDialog controls its own states.
+ * Dialog component controls mounting when
+ * BaseDialog controls its own states.
  */
-function InternalDialog({
+function BaseDialog({
   open,
   children,
   size = 'm',
   fullscreen = false,
   scroll = 'outside',
   onDismiss,
-  onTransitionEnd,
-}: InternalDialogPropsType) {
+  onEntryTransitionEnd,
+  onExitTransitionEnd,
+}: DialogPropsType) {
   const containerRef = React.useRef(null);
 
   useBodyNoScroll();
@@ -72,6 +64,26 @@ function InternalDialog({
       }
     },
     [onDismiss]
+  );
+
+  const handleTransitionEnd = React.useCallback(
+    (event: TransitionEvent) => {
+      if (
+        event.target !== event.currentTarget ||
+        event.propertyName !== 'transform'
+      ) {
+        return;
+      }
+
+      if (open) {
+        if (onEntryTransitionEnd) {
+          onEntryTransitionEnd();
+        }
+      } else if (onExitTransitionEnd) {
+        onExitTransitionEnd();
+      }
+    },
+    [open, onEntryTransitionEnd, onExitTransitionEnd]
   );
 
   const overlayClass = cx('sg-dialog__overlay', {
@@ -101,7 +113,7 @@ function InternalDialog({
         role="dialog"
         ref={containerRef}
         className={containerClass}
-        onTransitionEnd={onTransitionEnd}
+        onTransitionEnd={handleTransitionEnd}
       >
         {children}
       </div>
@@ -110,12 +122,7 @@ function InternalDialog({
   );
 }
 
-function Dialog({
-  open,
-  onEntryTransitionEnd,
-  onExitTransitionEnd,
-  ...otherProps
-}: DialogPropsType) {
+function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(open);
 
   if (open && !mounted) {
@@ -130,33 +137,19 @@ function Dialog({
     setDeferredOpen(open);
   }, [open]);
 
-  const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
-      if (
-        event.target !== event.currentTarget ||
-        event.propertyName !== 'transform'
-      ) {
-        return;
-      }
+  const handleExitTransitionEnd = React.useCallback(() => {
+    setMounted(false);
 
-      if (open) {
-        if (onEntryTransitionEnd) {
-          onEntryTransitionEnd();
-        }
-      } else {
-        setMounted(false);
-        if (onExitTransitionEnd) {
-          onExitTransitionEnd();
-        }
-      }
-    },
-    [open, onEntryTransitionEnd, onExitTransitionEnd]
-  );
+    // proxy an actual event
+    if (onExitTransitionEnd) {
+      onExitTransitionEnd();
+    }
+  }, [onExitTransitionEnd]);
 
   return mounted ? (
-    <InternalDialog
+    <BaseDialog
       {...otherProps}
-      onTransitionEnd={handleTransitionEnd}
+      onExitTransitionEnd={handleExitTransitionEnd}
       open={deferredOpen}
     />
   ) : null;
