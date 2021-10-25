@@ -30,6 +30,17 @@ export type DialogPropsType = $ReadOnly<{
   onExitTransitionEnd?: () => void,
 }>;
 
+/**
+ * The react-docgen has a problem with default values
+ * of nested components (see BaseDialog inside Dialog)
+ * and it's for documentation purposes.
+ */
+Dialog.defaultProps = ({
+  size: 'm',
+  fullscreen: false,
+  scroll: 'outside',
+}: $Shape<DialogPropsType>);
+
 function BaseDialog({
   open,
   children,

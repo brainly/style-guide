@@ -68,7 +68,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     margin-bottom: 0;
     transition-property: transform, opacity;
     transition-duration: $durationModerate01;
-    transition-timing-function: $easingMotionExit;
+    transition-timing-function: $easingMotionExit, $easingMotionLinear;
     transform: translate3d(0, 32px, 0);
     opacity: 0;
 

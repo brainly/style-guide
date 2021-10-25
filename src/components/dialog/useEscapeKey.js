@@ -8,10 +8,10 @@ export function useEscapeKey(callback?: () => void) {
       if (callback && event.key === 'Escape') callback();
     }
 
-    window.addEventListener('keyup', handleEscapeKey);
+    document.addEventListener('keyup', handleEscapeKey);
 
     return () => {
-      window.removeEventListener('keyup', handleEscapeKey);
+      document.removeEventListener('keyup', handleEscapeKey);
     };
   }, [callback]);
 }

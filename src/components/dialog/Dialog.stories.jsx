@@ -25,6 +25,7 @@ export default {
   },
   args: {
     open: true,
+    fullscreen: false,
   },
   argTypes: {
     children: {
