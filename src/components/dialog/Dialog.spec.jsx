@@ -54,7 +54,7 @@ describe('<Dialog>', () => {
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('fires onDismiss callback on overlay click', () => {
+  it('fires onDismiss callback on Overlay click', () => {
     const onDismiss = jest.fn();
     const wrapper = mount(
       <Dialog onDismiss={onDismiss} open>
@@ -64,6 +64,37 @@ describe('<Dialog>', () => {
 
     wrapper.find('.sg-dialog__overlay').simulate('click');
     expect(onDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('fires onEntryTransitionEnd callback on entry', () => {
+    const onEntryTransitionEnd = jest.fn();
+    const wrapper = mount(
+      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
+        content text
+      </Dialog>
+    );
+
+    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
+      propertyName: 'transform',
+    });
+
+    expect(onEntryTransitionEnd).toHaveBeenCalledTimes(1);
+  });
+
+  it('fires onExitTransitionEnd callback on exit', () => {
+    const onExitTransitionEnd = jest.fn();
+    const wrapper = mount(
+      <Dialog onExitTransitionEnd={onExitTransitionEnd} open>
+        content text
+      </Dialog>
+    );
+
+    wrapper.setProps({open: false});
+    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
+      propertyName: 'transform',
+    });
+
+    expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
   });
 
   it('returns null after exit transition', () => {
