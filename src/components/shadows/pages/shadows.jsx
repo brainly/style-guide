@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Box from '../../box/Box';
 
-const ElevationShadows = () => (
+const Shadows = () => (
   <div>
     <DocsBlock>
       <div
@@ -14,16 +14,12 @@ const ElevationShadows = () => (
       >
         <div>
           Small
-          <Box
-            className="sg-elevation-shadow"
-            padding="xl"
-            style={{marginTop: '20px'}}
-          />
+          <Box className="sg-shadow" padding="xl" style={{marginTop: '20px'}} />
         </div>
         <div>
           Medium
           <Box
-            className="sg-elevation-shadow--medium"
+            className="sg-shadow--medium"
             padding="xl"
             style={{marginTop: '20px'}}
           />
@@ -31,7 +27,7 @@ const ElevationShadows = () => (
         <div>
           Large
           <Box
-            className="sg-elevation-shadow--large"
+            className="sg-shadow--large"
             padding="xl"
             style={{marginTop: '20px'}}
           />
@@ -41,4 +37,4 @@ const ElevationShadows = () => (
   </div>
 );
 
-export default ElevationShadows;
+export default Shadows;

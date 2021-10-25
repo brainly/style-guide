@@ -51,7 +51,7 @@ import SpaceBetween from '../sass/pages/utils/space-between';
 import Cursor from '../sass/pages/utils/cursor';
 import Animations from '../sass/pages/utils/animations';
 import accordion from '../components/accordion/pages/accordion';
-import ElevationShadows from '../components/elevation-shadows/pages/elevation-shadows';
+import Shadows from '../components/shadows/pages/shadows';
 
 const navigation = [
   {
@@ -104,8 +104,8 @@ const navigation = [
         component: rwd,
       },
       {
-        name: 'Elevation Shadows',
-        component: ElevationShadows,
+        name: 'Shadows',
+        component: Shadows,
       },
     ],
   },
