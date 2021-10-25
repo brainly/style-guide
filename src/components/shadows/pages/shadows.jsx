@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Box from '../../box/Box';
 
-const ElevationShadows = () => (
+const Shadows = () => (
   <div>
     <DocsBlock>
       <div
@@ -41,4 +41,4 @@ const ElevationShadows = () => (
   </div>
 );
 
-export default ElevationShadows;
+export default Shadows;

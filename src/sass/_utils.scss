@@ -59,17 +59,17 @@
 }
 
 .sg-elevation-shadow {
-  box-shadow: $elevationShadowSmall;
+  box-shadow: $shadowSmall;
 
   &--small {
-    box-shadow: $elevationShadowSmall;
+    box-shadow: $shadowSmall;
   }
 
   &--medium {
-    box-shadow: $elevationShadowMedium;
+    box-shadow: $shadowMedium;
   }
 
   &--large {
-    box-shadow: $elevationShadowLarge;
+    box-shadow: $shadowLarge;
   }
 }
