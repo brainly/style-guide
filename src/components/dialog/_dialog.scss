@@ -2,6 +2,7 @@ $dialogSmallPadding: spacing(m);
 $dialogMediumPadding: spacing(l);
 $dialogOffsetForCloseButton: 48px;
 $dialogBoxShadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+$dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
 
 $dialogMaxWidthMap: (
   's': 392px,
@@ -32,13 +33,13 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     }
 
     &::before {
-      content: "";
+      content: '';
       position: fixed;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: $dialogOverlayBackgroundColor;
       transition-property: opacity;
       transition-duration: $durationModerate01;
       transition-timing-function: $easingMotionLinear;
