@@ -50,7 +50,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
-    global.dispatchEvent(new KeyboardEvent('keyup', {key: 'Escape'}));
+    document.dispatchEvent(new KeyboardEvent('keyup', {key: 'Escape'}));
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
