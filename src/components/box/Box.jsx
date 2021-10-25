@@ -120,42 +120,38 @@ export type BoxPropsType = {
  * @example <Box>Text inside Box</Box>
  * @returns {JSX.Element} Box component
  */
-const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
-  (
+const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(function Box(
+  {
+    children,
+    className,
+    color,
+    padding = 'm',
+    border = false,
+    borderColor = 'gray-secondary-lightest',
+    noBorderRadius = false,
+    shadow = false,
+    ...props
+  }: BoxPropsType,
+  ref
+) {
+  const classes = classNames(
+    'sg-box',
     {
-      children,
-      className,
-      color,
-      padding = 'm',
-      border = false,
-      borderColor = 'gray-secondary-lightest',
-      noBorderRadius = false,
-      shadow = false,
-      ...props
-    }: BoxPropsType,
-    ref
-  ) => {
-    const classes = classNames(
-      'sg-box',
-      {
-        [`sg-box--${String(color)}`]: color,
-        [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
-        [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
-        'sg-box--border': border,
-        'sg-box--shadow': shadow,
-        'sg-box--no-border-radius': noBorderRadius,
-      },
-      className
-    );
+      [`sg-box--${String(color)}`]: color,
+      [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
+      [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
+      'sg-box--border': border,
+      'sg-box--shadow': shadow,
+      'sg-box--no-border-radius': noBorderRadius,
+    },
+    className
+  );
 
-    return (
-      <div {...props} className={classes} ref={ref}>
-        {children}
-      </div>
-    );
-  }
-);
-
-Box.displayName = 'Box';
+  return (
+    <div {...props} className={classes} ref={ref}>
+      {children}
+    </div>
+  );
+});
 
 export default Box;
