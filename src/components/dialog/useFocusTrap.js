@@ -2,71 +2,112 @@
 
 import * as React from 'react';
 
-const FOCUSABLE_ELEMENT_SELECTOR =
-  // eslint-disable-next-line max-len
-  'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not(disabled), iframe, [tabindex="0"], [tabindex]:not([tabindex="-1"])';
-
 export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
-  const originalActiveElement = React.useRef();
-
   React.useEffect(() => {
-    // Should restore original focus on unmount.
-    originalActiveElement.current = document.activeElement;
-    return () => originalActiveElement.current?.focus();
-  }, []);
-
-  React.useEffect(() => {
+    const originalActiveElement = document.activeElement;
     const dialogElement = ref.current;
 
     if (!dialogElement) {
       return;
     }
 
-    let isTabbing = false;
-    let isTabbingBackward = false;
+    // Initial focus
+    focusFirstDescendant(dialogElement);
+
+    let isTabbingForward = false;
 
     function handleKeydown(event: KeyboardEvent) {
-      isTabbing = event.key === 'Tab';
-      isTabbingBackward = isTabbing && event.shiftKey;
+      isTabbingForward = event.key === 'Tab' && !event.shiftKey;
     }
 
     function handleKeyup() {
-      isTabbing = false;
-      isTabbingBackward = false;
+      isTabbingForward = false;
     }
 
-    function handleFocusChange(event: FocusEvent) {
-      if (!isTabbing) {
+    function handleFocusTrap(event: FocusEvent) {
+      if (
+        event.target instanceof Node &&
+        dialogElement.contains(event.target)
+      ) {
         return;
       }
-      const activeElement = event.target;
 
-      // Should focus back on the element inside when
-      // the active element is outside the dialog parent.
-      if (
-        activeElement instanceof Node &&
-        !dialogElement.contains(activeElement)
-      ) {
-        const focusableElements = dialogElement.querySelectorAll(
-          FOCUSABLE_ELEMENT_SELECTOR
-        );
-
-        if (isTabbingBackward) {
-          focusableElements[focusableElements.length - 1]?.focus();
-        } else {
-          focusableElements[0]?.focus();
-        }
+      if (isTabbingForward) {
+        focusFirstDescendant(dialogElement);
+      } else {
+        focusLastDescendant(dialogElement);
       }
     }
 
-    window.addEventListener('keydown', handleKeydown);
-    window.addEventListener('keyup', handleKeyup);
-    window.addEventListener('focusin', handleFocusChange);
+    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keyup', handleKeyup);
+    document.addEventListener('focusin', handleFocusTrap);
 
     return () => {
-      window.removeEventListener('keydown', handleKeydown);
-      window.removeEventListener('keyup', handleKeyup);
-      window.removeEventListener('focusin', handleFocusChange);
+      document.removeEventListener('keydown', handleKeydown);
+      document.removeEventListener('keyup', handleKeyup);
+      document.removeEventListener('focusin', handleFocusTrap);
+
+      // Should restore original focus on unmount.
+      originalActiveElement?.focus();
     };
   }, [ref]);
+}
+
+// https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/js/dialog.js
+function focusFirstDescendant(element: HTMLElement) {
+  for (let i = 0; i < element.children.length; i++) {
+    const child = element.children[i];
+
+    if (attemptFocus(child) || focusFirstDescendant(child)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function focusLastDescendant(element: HTMLElement) {
+  for (let i = element.children.length - 1; i >= 0; i--) {
+    const child = element.children[i];
+
+    if (attemptFocus(child) || focusLastDescendant(child)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function attemptFocus(element: HTMLElement) {
+  if (!isFocusable(element)) {
+    return false;
+  }
+
+  try {
+    element.focus();
+  } catch {}
+
+  return document.activeElement === element;
+}
+
+// https://w3c.github.io/aria-practices/examples/js/utils.js
+function isFocusable(element: HTMLElement) {
+  if (element.tabIndex < 0 || element.getAttribute('disabled')) {
+    return false;
+  }
+
+  switch (element.nodeName) {
+    case 'A':
+      return (
+        !!element.getAttribute('href') &&
+        element.getAttribute('rel') !== 'ignore'
+      );
+    case 'INPUT':
+      return element.getAttribute('type') !== 'hidden';
+    case 'BUTTON':
+    case 'SELECT':
+    case 'TEXTAREA':
+      return true;
+    default:
+      return false;
+  }
 }
