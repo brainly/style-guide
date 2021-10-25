@@ -24,6 +24,11 @@ type BasePropsType = $ReadOnly<{
   onDismiss?: () => void,
 }>;
 
+type InternalDialogPropsType = $ReadOnly<{
+  ...BasePropsType,
+  onTransitionEnd: (event: TransitionEvent) => void,
+}>;
+
 export type DialogPropsType = $ReadOnly<{
   ...BasePropsType,
   onEntryTransitionEnd?: () => void,
@@ -32,8 +37,8 @@ export type DialogPropsType = $ReadOnly<{
 
 /**
  * The react-docgen has a problem with default values
- * of nested components (see BaseDialog inside Dialog)
- * and it's for documentation purposes.
+ * of nested components (see InternalDialog inside the
+ * Dialog) and this is for documentation purposes.
  */
 Dialog.defaultProps = ({
   size: 'm',
@@ -41,7 +46,11 @@ Dialog.defaultProps = ({
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
 
-function BaseDialog({
+/**
+ * Dialog component controls mounting and transitions
+ * when InternalDialog controls its own states.
+ */
+function InternalDialog({
   open,
   children,
   size = 'm',
@@ -49,10 +58,7 @@ function BaseDialog({
   scroll = 'outside',
   onDismiss,
   onTransitionEnd,
-}: {
-  ...BasePropsType,
-  onTransitionEnd: (event: TransitionEvent) => void,
-}) {
+}: InternalDialogPropsType) {
   const containerRef = React.useRef(null);
 
   useBodyNoScroll();
@@ -148,7 +154,7 @@ function Dialog({
   );
 
   return mounted ? (
-    <BaseDialog
+    <InternalDialog
       {...otherProps}
       onTransitionEnd={handleTransitionEnd}
       open={deferredOpen}
