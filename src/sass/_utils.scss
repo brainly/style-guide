@@ -61,15 +61,15 @@
 .sg-shadow {
   box-shadow: $shadowSmall;
 
-  &--small {
+  &-small {
     box-shadow: $shadowSmall;
   }
 
-  &--medium {
+  &-medium {
     box-shadow: $shadowMedium;
   }
 
-  &--large {
+  &-large {
     box-shadow: $shadowLarge;
   }
 }

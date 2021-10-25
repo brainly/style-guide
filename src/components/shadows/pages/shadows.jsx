@@ -19,7 +19,7 @@ const Shadows = () => (
         <div>
           Medium
           <Box
-            className="sg-shadow--medium"
+            className="sg-shadow-medium"
             padding="xl"
             style={{marginTop: '20px'}}
           />
@@ -27,7 +27,7 @@ const Shadows = () => (
         <div>
           Large
           <Box
-            className="sg-shadow--large"
+            className="sg-shadow-large"
             padding="xl"
             style={{marginTop: '20px'}}
           />
