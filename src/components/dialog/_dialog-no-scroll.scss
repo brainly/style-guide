@@ -1,0 +1,10 @@
+.sg-dialog-no-scroll {
+  position: fixed;
+  overflow: hidden; // fixes scrolling issue on the iOS & Android
+  left: 0;
+  right: 0;
+
+  @include sgResponsive(md) {
+    overflow-y: scroll; // prevents content from jumping with visible scrollbars
+  }
+}
