@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Counter, {COUNTER_SIZE} from '../Counter';
+import Counter, {COUNTER_SIZE, COUNTER_COLOR} from '../Counter';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Counters = () => {
@@ -7,6 +7,10 @@ const Counters = () => {
     {
       name: 'size',
       values: COUNTER_SIZE,
+    },
+    {
+      name: 'color',
+      values: COUNTER_COLOR,
     },
     {
       name: 'withAnimation',

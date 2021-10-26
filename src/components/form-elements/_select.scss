@@ -110,9 +110,16 @@ $includeHtml: false !default;
       }
     }
 
-    &--valid {
+    &--selected,
+    &--valid,
+    &--invalid {
       .sg-select__element {
         color: $black;
+      }
+    }
+
+    &--valid {
+      .sg-select__element {
         font-weight: normal;
         border: 2px solid $formElementValidColor;
       }
@@ -131,7 +138,6 @@ $includeHtml: false !default;
 
     &--invalid {
       .sg-select__element {
-        color: $black;
         font-weight: normal;
         border: 2px solid $formElementInvalidColor;
       }

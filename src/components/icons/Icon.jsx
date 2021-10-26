@@ -29,10 +29,10 @@ export type IconTypeType =
   | 'comment_outlined'
   | 'counter'
   | 'credit_card'
+  | 'crown'
   | 'crown_outlined'
   | 'cup'
   | 'equation'
-  | 'excellent'
   | 'exclamation_mark'
   | 'facebook'
   | 'google'
@@ -45,11 +45,13 @@ export type IconTypeType =
   | 'friends'
   | 'fullscreen'
   | 'funnel'
+  | 'globe'
   | 'heading'
   | 'heart'
   | 'heart_outlined'
   | 'image'
   | 'influence'
+  | 'info'
   | 'instagram'
   | 'italic'
   | 'less'
@@ -57,6 +59,7 @@ export type IconTypeType =
   | 'lock_with_play'
   | 'logout'
   | 'medium'
+  | 'megaphone'
   | 'menu'
   | 'messages'
   | 'mic'
@@ -172,10 +175,10 @@ export const TYPE: {
   COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
+  CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
   EQUATION: 'equation',
-  EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   GOOGLE: 'google',
@@ -188,11 +191,13 @@ export const TYPE: {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GLOBE: 'globe',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
   IMAGE: 'image',
   INFLUENCE: 'influence',
+  INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   LESS: 'less',
@@ -200,6 +205,7 @@ export const TYPE: {
   LOCK_WITH_PLAY: 'lock_with_play',
   LOGOUT: 'logout',
   MEDIUM: 'medium',
+  MEGAPHONE: 'megaphone',
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',
@@ -295,10 +301,10 @@ export const TYPE: {
   COMMENT_OUTLINED: 'comment_outlined',
   COUNTER: 'counter',
   CREDIT_CARD: 'credit_card',
+  CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
   EQUATION: 'equation',
-  EXCELLENT: 'excellent',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
   GOOGLE: 'google',
@@ -311,11 +317,13 @@ export const TYPE: {
   FRIENDS: 'friends',
   FULLSCREEN: 'fullscreen',
   FUNNEL: 'funnel',
+  GLOBE: 'globe',
   HEADING: 'heading',
   HEART: 'heart',
   HEART_OUTLINED: 'heart_outlined',
   IMAGE: 'image',
   INFLUENCE: 'influence',
+  INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
   LESS: 'less',
@@ -323,6 +331,7 @@ export const TYPE: {
   LOCK_WITH_PLAY: 'lock_with_play',
   LOGOUT: 'logout',
   MEDIUM: 'medium',
+  MEGAPHONE: 'megaphone',
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',

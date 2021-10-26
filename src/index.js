@@ -71,7 +71,7 @@ export type {HomeButtonPropsType} from './components/home-button/HomeButton';
 export {default as IconAsButton} from './components/icon-as-button/IconAsButton';
 export type {IconAsButtonPropsType} from './components/icon-as-button/IconAsButton';
 export {default as Icon} from './components/icons/Icon';
-export type {IconPropsType} from './components/icons/Icon';
+export {getIconGroup} from './components/icons/get-icon-group';
 export {default as MobileIcon} from './components/mobile-icons/MobileIcon';
 export type {MobileIconPropsType} from './components/mobile-icons/MobileIcon';
 export {default as Label} from './components/labels/Label';

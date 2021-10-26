@@ -12,7 +12,7 @@ $counterSizeXS: componentSize(xs);
     display: inline-flex;
     justify-content: center;
     align-content: center;
-    background-color: $peachPrimary;
+    background-color: $peachPrimaryDark;
     cursor: default;
 
     &__text {
@@ -25,9 +25,12 @@ $counterSizeXS: componentSize(xs);
       top: 3px;
     }
 
-    // only one color for now, counter for notifications
-    &--peach {
-      background-color: $peachPrimary;
+    &--peach-900 {
+      background-color: $peachPrimaryDark;
+    }
+
+    &--blue-900 {
+      background-color: $bluePrimaryDark;
     }
 
     &--with-icon {
