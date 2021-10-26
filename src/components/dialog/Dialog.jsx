@@ -18,8 +18,8 @@ type DialogPropsType = $ReadOnly<{
    */
   scroll?: 'inside' | 'outside',
   /**
-   * Fires on the user's actions such as click
-   * outside the Dialog or the Escape key.
+   * Fires on user actions like clicking outside
+   * the Dialog or the Escape key.
    */
   onDismiss?: () => void,
   onEntryTransitionEnd?: () => void,
@@ -38,7 +38,7 @@ Dialog.defaultProps = ({
 }: $Shape<DialogPropsType>);
 
 /**
- * Dialog component controls mounting when
+ * The Dialog component controls mounting when
  * BaseDialog controls its own states.
  */
 function BaseDialog({
@@ -129,14 +129,6 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
     setMounted(true);
   }
 
-  // CSS3 transition requires a deferredOpen value to be one
-  // paint behind the actual open prop to trigger a transition.
-  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    setDeferredOpen(open);
-  }, [open]);
-
   const handleExitTransitionEnd = React.useCallback(() => {
     setMounted(false);
 
@@ -145,6 +137,14 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
       onExitTransitionEnd();
     }
   }, [onExitTransitionEnd]);
+
+  /**
+   * CSS3 transition requires a deferredOpen value to be one
+   * paint behind the actual open prop to trigger a transition.
+   */
+  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
+
+  React.useEffect(() => setDeferredOpen(open), [open]);
 
   return mounted ? (
     <BaseDialog
