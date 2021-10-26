@@ -1,6 +1,7 @@
 function svgSymbolCleanUp(config, shape, sprite, callback) {
   const symbol = shape.dom.documentElement;
   const childNodes = shape.dom.documentElement.childNodes;
+  const hasFixedColors = symbol.getAttribute('data-fixedcolors');
 
   symbol.setAttribute('style', 'overflow: visible');
 
@@ -9,7 +10,10 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
       if (config.removeClass) {
         childNodes[i].removeAttribute('class');
       }
-      childNodes[i].removeAttribute('fill');
+
+      if (!hasFixedColors) {
+        childNodes[i].removeAttribute('fill');
+      }
     }
   }
   callback(null);
