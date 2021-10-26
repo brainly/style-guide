@@ -1,0 +1,142 @@
+$dialogSmallPadding: spacing(m);
+$dialogMediumPadding: spacing(l);
+$dialogOffsetForCloseButton: 48px;
+$dialogBoxShadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+$dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
+
+$dialogMaxWidthMap: (
+  's': 392px,
+  'm': 600px,
+  'l': 808px,
+  'xl': 1016px,
+);
+
+// ux motion tokens
+$durationModerate01: 180ms;
+$easingMotionLinear: linear;
+$easingMotionEntry: cubic-bezier(0.1, 0, 0, 1);
+$easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
+
+.sg-dialog {
+  &__overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include sgResponsive(md) {
+      padding: spacing(m);
+    }
+
+    &::before {
+      content: '';
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $dialogOverlayBackgroundColor;
+      transition-property: opacity;
+      transition-duration: $durationModerate01;
+      transition-timing-function: $easingMotionLinear;
+      opacity: 0;
+    }
+
+    &--open {
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &--scroll {
+      overflow: auto;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $white;
+    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    box-shadow: $dialogBoxShadow;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0;
+    transition-property: transform, opacity;
+    transition-duration: $durationModerate01;
+    transition-timing-function: $easingMotionExit, $easingMotionLinear;
+    transform: translate3d(0, 32px, 0);
+    opacity: 0;
+
+    @include sgResponsive(md) {
+      border-radius: $borderRadiusDefault;
+      margin-bottom: auto;
+
+      @each $sizeName, $maxWidth in $dialogMaxWidthMap {
+        &--size-#{$sizeName} {
+          max-width: #{$maxWidth};
+        }
+      }
+    }
+
+    &--open {
+      transition-timing-function: $easingMotionEntry;
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    &--scroll {
+      overflow: auto;
+      max-height: 100%;
+    }
+
+    &--fullscreen {
+      border-radius: 0;
+      box-shadow: none;
+      max-width: 100%;
+      min-height: 100%;
+
+      @include sgResponsive(md) {
+        border-radius: $borderRadiusDefault;
+        box-shadow: $dialogBoxShadow;
+      }
+    }
+  }
+
+  &__header {
+    padding-top: $dialogSmallPadding;
+    padding-left: $dialogSmallPadding;
+    padding-right: $dialogOffsetForCloseButton;
+
+    @include sgResponsive(md) {
+      padding-top: $dialogMediumPadding;
+      padding-left: $dialogMediumPadding;
+      padding-right: $dialogOffsetForCloseButton;
+    }
+  }
+
+  &__body {
+    overflow: auto;
+    padding: $dialogSmallPadding;
+
+    @include sgResponsive(md) {
+      padding: $dialogMediumPadding;
+    }
+  }
+
+  &__header + &__body {
+    padding-top: 0;
+  }
+
+  &__close-button {
+    margin: spacing(xs);
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
