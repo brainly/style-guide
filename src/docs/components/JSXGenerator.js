@@ -18,18 +18,13 @@ function propToString(prop, inJS = false) {
   return wrapInBraces ? `{${result}}` : result;
 }
 
-const getTypeName = type => type?.name || type?.displayName || '';
-
 function generateJSX(component) {
   if (!React.isValidElement(component)) {
     return component;
   }
 
   const type =
-    getTypeName(component.type) ||
-    getTypeName(component.type.render) ||
-    component.type;
-
+    component.type.name || component.type.displayName || component.type;
   let jsxProps = Object.keys(component.props)
     .filter(key => key !== 'children')
     .filter(key => component.props[key] !== undefined)
