@@ -15,7 +15,7 @@ $includeHtml: false !default;
     }
 
     &--shadow {
-      box-shadow: $containerShadow;
+      box-shadow: $shadowMedium;
     }
 
     &--no-border-radius {

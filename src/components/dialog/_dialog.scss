@@ -1,7 +1,7 @@
 $dialogSmallPadding: spacing(m);
 $dialogMediumPadding: spacing(l);
 $dialogOffsetForCloseButton: 48px;
-$dialogBoxShadow: 0 3px 32px 0 rgba(0, 0, 0, 0.1);
+$dialogBoxShadow: $shadowLarge;
 $dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
 
 $dialogMaxWidthMap: (
