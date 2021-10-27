@@ -5,7 +5,7 @@ export default {
   title: 'Components/Shadows',
 };
 
-export const Default = () => {
+export const Types = () => {
   return (
     <div
       style={{
