@@ -149,6 +149,8 @@ const iconMap = {
     'medium',
     'twitter',
     'youtube',
+    'google',
+    'apple',
   ],
 };
 
