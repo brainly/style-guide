@@ -131,8 +131,7 @@ $breakpointXLarge: 1280px !default;
 /// Use $responsiveBreakpointsMap
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
-  'medium-only':
-    '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
+  'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})',
