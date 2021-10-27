@@ -35,6 +35,8 @@ export type IconTypeType =
   | 'equation'
   | 'exclamation_mark'
   | 'facebook'
+  | 'google'
+  | 'apple'
   | 'filters'
   | 'friend_add'
   | 'friend_remove'
@@ -179,6 +181,8 @@ export const TYPE: {
   EQUATION: 'equation',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
+  GOOGLE: 'google',
+  APPLE: 'apple',
   FILTERS: 'filters',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
@@ -303,6 +307,8 @@ export const TYPE: {
   EQUATION: 'equation',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
+  GOOGLE: 'google',
+  APPLE: 'apple',
   FILTERS: 'filters',
   FRIEND_ADD: 'friend_add',
   FRIEND_REMOVE: 'friend_remove',
