@@ -11,6 +11,7 @@ export const Row = props => (
       display: 'flex',
       marginBottom: '50px',
       textAlign: 'left',
+      alignItems: 'center',
     }}
   >
     {props.children}
@@ -18,13 +19,13 @@ export const Row = props => (
 );
 
 export const ColumnTitle = props => (
-  <Text size="small" weight="bold" style={{width: '33%'}}>
+  <Text weight="bold" style={{width: '20%'}}>
     {props.children}
   </Text>
 );
 
 export const Cell = props => (
-  <Text size="small" style={{width: '33%'}}>
+  <Text size="small" style={{width: '20%'}}>
     {props.children}
   </Text>
 );
@@ -37,21 +38,17 @@ You can use following single purpose flexible classes to highlight differences i
 
 <Row>
   <ColumnTitle>Utility class:</ColumnTitle>
-  <ColumnTitle>CSS:</ColumnTitle>
   <ColumnTitle>Preview:</ColumnTitle>
 </Row>
 <Row>
   <Cell>.sg-shadow-small</Cell>
-  <Cell>0 2px 8px 0 rgba($grayPrimary, 0.2);</Cell>
   <Box className="sg-shadow" padding="xl" style={{width: 'auto'}} />
 </Row>
 <Row>
   <Cell>.sg-shadow-medium</Cell>
-  <Cell>0 4px 16px 0 rgba($grayPrimary, 0.2);</Cell>
   <Box className="sg-shadow-medium" padding="xl" style={{width: 'auto'}} />
 </Row>
 <Row>
   <Cell>.sg-shadow-large</Cell>
-  <Cell>0 8px 32px 0 rgba($grayPrimary, 0.2);</Cell>
   <Box className="sg-shadow-large" padding="xl" style={{width: 'auto'}} />
 </Row>
