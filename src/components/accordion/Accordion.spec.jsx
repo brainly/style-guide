@@ -3,6 +3,7 @@ import {mount} from 'enzyme';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import Link from '../text/Link';
+import Box from '../box/Box';
 
 describe('<Accordion>', () => {
   it('renders', () => {
@@ -125,7 +126,7 @@ describe('<Accordion>', () => {
 
     expect(
       accordion
-        .find('Box')
+        .find(Box)
         .at(0)
         .hasClass('sg-accordion-item--no-gap')
     ).toBe(true);
@@ -142,7 +143,7 @@ describe('<Accordion>', () => {
 
     expect(
       accordion
-        .find('Box')
+        .find(Box)
         .at(0)
         .prop('borderColor')
     ).toEqual('gray-secondary-lightest');
