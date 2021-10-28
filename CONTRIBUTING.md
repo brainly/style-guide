@@ -115,7 +115,7 @@ Go to these links to find documentation about [the Flexbox component](src/compon
 
 ### Adding icons process
 1. Your svg file has to be exported with a `viewBox="0 0 512 512"`.
-2. Clean up the file: keep only `xmlns` and `viewBox` attributes on `svg` tag and remove the rest. There is no need to optimize a `<path>` since it will be optimized during build process with [svgo](https://www.npmjs.com/package/svgo).
+2. Clean up the file: keep only `xmlns` and `viewBox` attributes on `svg` tag and remove the rest (eventually you can use `data-fixedcolors` attribute on `svg` icon which has to have fixed colors for some reason). There is no need to optimize a `<path>` since it will be optimized during build process with [svgo](https://www.npmjs.com/package/svgo).
 3. Add a title (usually it's the same as a file name).
 
 Now, your file should look like:
@@ -126,14 +126,15 @@ Now, your file should look like:
   </svg>
 ```
 
-4. Add svg file to `src/components/icons` (in case of a basic icon), use `snake_case` as a naming convention.
-5. Define a new icon type in [Icon.jsx](src/components/icons/Icon.jsx).
+4. Add svg file to `src/images/icons` (in case of a basic icon), or relevant folder from `src/images` directory. Use `snake_case` as a naming convention.
+5. Define a new icon type in [Icon.jsx](src/components/icons/Icon.jsx). Add icon to a particular icon group in [get-icon-group.js](src/components/icons/get-icon-group.js)
 6. Run `yarn build` or `yarn watch` to re-generate icons.
-7. Go to icons section (`docs/basics.html#icons`) and find your newly added icon.
+7. Go to icons section at [/docs/basics.html#icons](http://localhost:8000/dev/docs/basics.html#icons) and find your newly added icon.
 8. Follow standard process of introducing changes to the style-guide.
 9. After releasing your changes, to use a new icon in your project you need to update the `src` of the icons in `<script>` you include on your page. This `src` is avaialble on the main page of docs (`/docs`).
 
 example:
+
 ```
 <script src="https://styleguide.brainly.com/images/icons-0c5f18cafc.js"></script>
 ```
