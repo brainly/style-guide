@@ -2,6 +2,20 @@ import {Meta, Story} from '@storybook/addon-docs/blocks';
 import Box from '../../components/box/Box';
 import Text from '../../components/text/Text';
 
+export const Row = props => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: '0 20px',
+      marginBottom: '50px',
+    }}
+  >
+    {props.children}
+  </div>
+);
+
 <Meta title="Foundation ✨/Shadows" />
 
 # Shadows
@@ -20,81 +34,43 @@ Elevation is a visual effect that makes an object appear to float above a surfac
 
 Components that are higher to draw a little more attention to themselves, but not much. They may have some interaction inside of it (e.g., dropdown, toast).
 
-<div
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 20px',
-    marginBottom: '50px'
-  }}
->
+<Row>
   <Text size="small">
-    <Text weight="bold">
-      Token:
-    </Text>
+    <Text weight="bold">Token:</Text>
     $shadowSmall
   </Text>
   <Text size="small">
-    <Text weight="bold">
-      CSS:
-    </Text>
-    0 2px 8px 0 rgba($grayPrimary, 0.2);
+    <Text weight="bold">CSS:</Text>0 2px 8px 0 rgba($grayPrimary, 0.2);
   </Text>
   <Box className="sg-shadow" padding="xl" style={{width: 'auto'}} />
-</div>
+</Row>
 
 ### Medium
 
 Components that are intended to be engaged themselves. They are slightly higher to communicate the affordance of interaction (e.g., notification, bubble, user menu).
 
-<div
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 20px',
-    marginBottom: '50px'
-  }}
->
+<Row>
   <Text size="small">
-    <Text weight="bold">
-      Token:
-    </Text>
+    <Text weight="bold">Token:</Text>
     $shadowMedium
   </Text>
   <Text size="small">
-    <Text weight="bold">
-      CSS:
-    </Text>
-    0 4px 16px 0 rgba($grayPrimary, 0.2);
+    <Text weight="bold">CSS:</Text>0 4px 16px 0 rgba($grayPrimary, 0.2);
   </Text>
   <Box className="sg-shadow-medium" padding="xl" style={{width: 'auto'}} />
-</div>
+</Row>
 
 ### Large
 
 Components that are highest to draw the most attention to themselves. They usually have some interaction inside of it (e.g., dialog, toplayer, bottom sheet drawer).
 
-<div
-  style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '0 20px' 
-  }}
->
+<Row>
   <Text size="small">
-    <Text weight="bold">
-      Token:
-    </Text>
+    <Text weight="bold">Token:</Text>
     $shadowLarge
   </Text>
   <Text size="small">
-    <Text weight="bold">
-      CSS:
-    </Text>
-    0 8px 32px 0 rgba($grayPrimary, 0.2);
+    <Text weight="bold">CSS:</Text>0 8px 32px 0 rgba($grayPrimary, 0.2);
   </Text>
   <Box className="sg-shadow-large" padding="xl" style={{width: 'auto'}} />
-</div>
+</Row>
