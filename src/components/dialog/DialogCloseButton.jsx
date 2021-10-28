@@ -19,6 +19,7 @@ const DialogCloseButton = ({
     className={cx('sg-dialog__close-button', className)}
     icon={<Icon type="close" color="dark" size={24} />}
     onClick={onClick}
+    aria-label="close"
     iconOnly
   />
 );

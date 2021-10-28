@@ -13,6 +13,9 @@ export type DialogPropsType = $ReadOnly<{
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
   reduceMotion?: boolean,
+  labelledBy?: string,
+  label?: string,
+  describedBy?: string,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
@@ -50,6 +53,9 @@ function BaseDialog({
   fullscreen = false,
   reduceMotion = false,
   scroll = 'outside',
+  labelledBy,
+  label,
+  describedBy,
   onDismiss,
   onEntryTransitionEnd,
   onExitTransitionEnd,
@@ -140,6 +146,10 @@ function BaseDialog({
         ref={containerRef}
         className={containerClass}
         onTransitionEnd={handleTransitionEnd}
+        aria-modal="true"
+        aria-labelledby={labelledBy}
+        aria-label={label}
+        aria-describedby={describedBy}
       >
         {children}
       </div>
