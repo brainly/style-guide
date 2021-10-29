@@ -112,7 +112,7 @@ function isFocusable(element: HTMLElement) {
     case 'TEXTAREA':
       return true;
     default: {
-      return element.tabIndex === -1;
+      return element.tabIndex >= -1;
     }
   }
 }
