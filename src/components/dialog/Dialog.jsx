@@ -73,6 +73,12 @@ function BaseDialog({
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
+  /**
+   * The name of transition with the longest duration, because
+   * a component can have an animation of many properties.
+   */
+  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
+
   React.useEffect(() => {
     setDeferredOpen(open);
   }, [open]);
