@@ -25,7 +25,7 @@ $includeHtml: false !default;
     background: $bubbleBackground;
     border-color: $bubbleBackground;
     border-radius: $borderRadiusDefault;
-    box-shadow: $elevatedContainerShadow;
+    box-shadow: $shadowMedium;
     padding: gutter(0.5) gutter(1);
     position: relative;
 

@@ -1,0 +1,54 @@
+import {Meta} from '@storybook/addon-docs';
+import {version} from '../../../../package.json';
+import {Link} from '../../..';
+import Label from '../../../components/labels/Label';
+import Box from '../../../components/box/Box';
+import Text from '../../../components/text/Text';
+
+export const Row = props => (
+  <div
+    style={{
+      display: 'flex',
+      marginBottom: '50px',
+      textAlign: 'left',
+      alignItems: 'center',
+    }}
+  >
+    {props.children}
+  </div>
+);
+
+export const ColumnTitle = props => (
+  <Text weight="bold" style={{width: '20%'}}>
+    {props.children}
+  </Text>
+);
+
+export const Cell = props => (
+  <Text size="small" style={{width: '20%'}}>
+    {props.children}
+  </Text>
+);
+
+<Meta title="Utilities/Shadows" />
+
+# Shadows
+
+You can use following single purpose flexible classes to highlight differences in elevation between two surfaces. All classes are based on the [Design System shadow tokens](/story/foundation-✨-shadows--page).
+
+<Row>
+  <ColumnTitle>Utility class:</ColumnTitle>
+  <ColumnTitle>Preview:</ColumnTitle>
+</Row>
+<Row>
+  <Cell>.sg-shadow-small</Cell>
+  <Box className="sg-shadow" padding="xl" style={{width: 'auto'}} />
+</Row>
+<Row>
+  <Cell>.sg-shadow-medium</Cell>
+  <Box className="sg-shadow-medium" padding="xl" style={{width: 'auto'}} />
+</Row>
+<Row>
+  <Cell>.sg-shadow-large</Cell>
+  <Box className="sg-shadow-large" padding="xl" style={{width: 'auto'}} />
+</Row>

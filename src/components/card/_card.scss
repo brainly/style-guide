@@ -1,11 +1,10 @@
 $cardBorderColor: $graySecondaryLight;
 $cardBorderSize: 1px;
-$cardShadow: 0 1px 3px 2px rgba(0, 0, 0, 0.05);
+$cardShadow: $shadowSmall;
 
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-card {
     @include component();
     display: inline-flex;
@@ -34,7 +33,7 @@ $includeHtml: false !default;
       .sg-card__hole {
         align-self: stretch;
         flex: 1;
-        }
+      }
     }
 
     &--with-shadow {
@@ -46,7 +45,6 @@ $includeHtml: false !default;
     }
 
     &--centered {
-
       .sg-card__hole {
         display: flex;
         flex-wrap: wrap;
@@ -56,28 +54,24 @@ $includeHtml: false !default;
     }
 
     &--padding-small {
-
       .sg-card__hole {
         padding: gutter(2 / 3);
       }
     }
 
     &--padding-normal {
-
       .sg-card__hole {
         padding: gutter(1);
       }
     }
 
     &--padding-large {
-
       .sg-card__hole {
         padding: gutter(4 / 3);
       }
     }
 
     &--padding-xlarge {
-
       .sg-card__hole {
         padding: gutter(8 / 3);
       }

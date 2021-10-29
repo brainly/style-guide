@@ -52,10 +52,6 @@ $buttonPrimaryFbHoverColor: #4367a9;
 // $mustardSecondaryUltraLight $peachSecondaryUltraLight $peachSecondary $graySecondaryLighter
 
 // Shadows
-$defaultBottomShadowColor: rgba(0, 0, 0, 0.1);
-$defaultBottomShadow: 0 2px 6px 0 $defaultBottomShadowColor;
-$containerShadow: 0 1px 12px 0 rgba(2, 10, 27, 0.15);
-$elevatedContainerShadow: 0 3px 32px 0 rgba(2, 10, 27, 0.15);
 $shadowSmall: 0 2px 8px 0 rgba($grayPrimary, 0.2);
 $shadowMedium: 0 4px 16px 0 rgba($grayPrimary, 0.2);
 $shadowLarge: 0 8px 32px 0 rgba($grayPrimary, 0.2);
@@ -73,18 +69,18 @@ $baseline: 1.5rem;
 
 // Typo
 $fontSizes: (
-  default: 1rem,        // 16px
-  xsmall: 0.625rem,     // 10px
-  small: 0.875rem,      // 14px
-  medium: 0.9375rem,    // 15px
-  large: 3.625rem,      // 58px
-  xlarge: 4.5rem,       // 72px
-  xxlarge: 5rem,        // 80px
-  obscure: 0.75rem,     // 12px
-  standout: 1.125rem,   // 18px
+  default: 1rem, // 16px
+  xsmall: 0.625rem, // 10px
+  small: 0.875rem, // 14px
+  medium: 0.9375rem, // 15px
+  large: 3.625rem, // 58px
+  xlarge: 4.5rem, // 72px
+  xxlarge: 5rem, // 80px
+  obscure: 0.75rem, // 12px
+  standout: 1.125rem, // 18px
   subheadline: 1.25rem, // 20px
-  headline: 1.5rem,     // 24px
-  subheader: 2.75rem,   // 44px
+  headline: 1.5rem, // 24px
+  subheader: 2.75rem, // 44px
   header: 3rem,
 );
 
