@@ -12,6 +12,7 @@ export type DialogPropsType = $ReadOnly<{
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
+  reduceMotion?: boolean,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
@@ -34,6 +35,7 @@ export type DialogPropsType = $ReadOnly<{
 Dialog.defaultProps = ({
   size: 'm',
   fullscreen: false,
+  reduceMotion: false,
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
 
@@ -46,6 +48,7 @@ function BaseDialog({
   children,
   size = 'm',
   fullscreen = false,
+  reduceMotion = false,
   scroll = 'outside',
   onDismiss,
   onEntryTransitionEnd,
@@ -59,6 +62,12 @@ function BaseDialog({
    * paint behind the actual open prop to trigger a transition.
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
+
+  /**
+   * The name of transition with the longest duration, because
+   * a component can have an animation of many properties.
+   */
+  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
 
   React.useEffect(() => {
     setDeferredOpen(open);
@@ -81,16 +90,11 @@ function BaseDialog({
     [onDismiss]
   );
 
-  /**
-   * The name of transition with the longest duration, because
-   * a component can have an animation of many properties.
-   */
-  const lastPropertyName = exiting ? 'opacity' : 'transform';
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
       if (
         event.target !== event.currentTarget ||
-        event.propertyName !== lastPropertyName
+        event.propertyName !== lastTransitionName
       ) {
         return;
       }
@@ -103,7 +107,7 @@ function BaseDialog({
         onExitTransitionEnd();
       }
     },
-    [open, lastPropertyName, onEntryTransitionEnd, onExitTransitionEnd]
+    [open, lastTransitionName, onEntryTransitionEnd, onExitTransitionEnd]
   );
 
   const overlayClass = cx('sg-dialog__overlay', {
@@ -119,6 +123,7 @@ function BaseDialog({
       'sg-dialog__container--fullscreen': fullscreen,
       'sg-dialog__container--open': deferredOpen,
       'sg-dialog__container--exiting': exiting,
+      'sg-dialog__container--reduce-motion': reduceMotion,
     }
   );
 
