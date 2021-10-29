@@ -26,6 +26,7 @@ export default {
   args: {
     open: true,
     fullscreen: false,
+    reduceMotion: false,
   },
   argTypes: {
     children: {

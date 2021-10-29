@@ -4,6 +4,10 @@ $dialogOffsetForCloseButton: 48px;
 $dialogBoxShadow: $shadowLarge;
 $dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
 
+$dialogSlideWindowDistance: 32px;
+$dialogSlideFullscreenSmallDistance: 24px;
+$dialogSlideFullscreenMediumDistance: 38px;
+
 $dialogMaxWidthMap: (
   's': 392px,
   'm': 600px,
@@ -12,7 +16,9 @@ $dialogMaxWidthMap: (
 );
 
 // ux motion tokens
-$durationModerate01: 180ms;
+$durationQuick02: 120ms;
+$durationModerate02: 260ms;
+$durationGentle01: 320ms;
 $easingMotionLinear: linear;
 $easingMotionEntry: cubic-bezier(0.1, 0, 0, 1);
 $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
@@ -41,7 +47,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       height: 100%;
       background-color: $dialogOverlayBackgroundColor;
       transition-property: opacity;
-      transition-duration: $durationModerate01;
+      transition-duration: $durationQuick02;
       transition-timing-function: $easingMotionLinear;
       opacity: 0;
     }
@@ -68,9 +74,9 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     margin-top: auto;
     margin-bottom: 0;
     transition-property: transform, opacity;
-    transition-duration: $durationModerate01;
+    transition-duration: $durationModerate02, $durationQuick02;
     transition-timing-function: $easingMotionExit, $easingMotionLinear;
-    transform: translate3d(0, 32px, 0);
+    transform: translate3d(0, $dialogSlideWindowDistance, 0);
     opacity: 0;
 
     @include sgResponsive(md) {
@@ -84,10 +90,19 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       }
     }
 
-    &--open {
-      transition-timing-function: $easingMotionEntry;
-      transform: translate3d(0, 0, 0);
-      opacity: 1;
+    &--fullscreen {
+      transition-duration: $durationGentle01, $durationQuick02;
+      transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
+      border-radius: 0;
+      box-shadow: none;
+      max-width: 100%;
+      min-height: 100%;
+
+      @include sgResponsive(md) {
+        transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
+        border-radius: $borderRadiusDefault;
+        box-shadow: $dialogBoxShadow;
+      }
     }
 
     &--scroll {
@@ -95,16 +110,15 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       max-height: 100%;
     }
 
-    &--fullscreen {
-      border-radius: 0;
-      box-shadow: none;
-      max-width: 100%;
-      min-height: 100%;
+    &--exiting,
+    &--reduce-motion {
+      transform: translate3d(0, 0, 0);
+    }
 
-      @include sgResponsive(md) {
-        border-radius: $borderRadiusDefault;
-        box-shadow: $dialogBoxShadow;
-      }
+    &--open {
+      transition-timing-function: $easingMotionEntry, $easingMotionLinear;
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
     }
   }
 
