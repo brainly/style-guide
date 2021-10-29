@@ -57,6 +57,10 @@ function BaseDialog({
   const containerRef = React.useRef(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
 
+  if (exiting === open) {
+    setExiting(!open);
+  }
+
   /**
    * The name of transition with the longest duration, because
    * a component can have an animation of many properties.
@@ -72,10 +76,6 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
   }, [open]);
-
-  if (exiting === open) {
-    setExiting(!open);
-  }
 
   useBodyNoScroll();
   useEscapeKey(onDismiss);
