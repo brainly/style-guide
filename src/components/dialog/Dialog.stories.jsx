@@ -72,7 +72,6 @@ export const Default = (args: any) => {
         onDismiss={handleDismiss}
         labelledBy={headerId}
       >
-        dialog body here
         <DialogCloseButton onClick={handleDismiss} />
         <DialogHeader id={headerId}>
           <Flex marginBottom="m">

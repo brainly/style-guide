@@ -138,9 +138,6 @@ function BaseDialog({
       className={overlayClass}
       onClick={onDismiss ? handleOverlayClick : undefined}
     >
-      {/* Bracket the dialog with two invisible, focusable nodes to keep
-      focus inside the page when the dialog is the first or last node. */}
-      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -150,10 +147,10 @@ function BaseDialog({
         aria-labelledby={labelledBy}
         aria-label={label}
         aria-describedby={describedBy}
+        tabIndex="-1"
       >
         {children}
       </div>
-      <div tabIndex="0" />
     </div>
   );
 }

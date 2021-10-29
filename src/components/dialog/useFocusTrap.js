@@ -12,7 +12,7 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
     }
 
     // Initial focus
-    focusFirstDescendant(dialogElement);
+    focusDescendant(dialogElement, true);
 
     let isTabbingForward = true;
 
@@ -32,11 +32,7 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
         return;
       }
 
-      if (isTabbingForward) {
-        focusFirstDescendant(dialogElement);
-      } else {
-        focusLastDescendant(dialogElement);
-      }
+      focusDescendant(dialogElement, isTabbingForward);
     }
 
     document.addEventListener('keydown', handleKeydown);
@@ -54,6 +50,14 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
   }, [ref]);
 }
 
+function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
+  const descendantFocused = isTabbingForward
+    ? focusFirstDescendant(element)
+    : focusLastDescendant(element);
+
+  return descendantFocused || attemptFocus(element);
+}
+
 // https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/js/dialog.js
 function focusFirstDescendant(element: HTMLElement) {
   for (let i = 0; i < element.children.length; i++) {
@@ -63,9 +67,6 @@ function focusFirstDescendant(element: HTMLElement) {
       return true;
     }
   }
-  // if (attemptFocus(element)) {
-  //   return true;
-  // }
   return false;
 }
 
@@ -77,9 +78,6 @@ function focusLastDescendant(element: HTMLElement) {
       return true;
     }
   }
-  // if (attemptFocus(element)) {
-  //   return true;
-  // }
   return false;
 }
 
@@ -114,10 +112,7 @@ function isFocusable(element: HTMLElement) {
     case 'TEXTAREA':
       return true;
     default: {
-      // const isTabIndexNeg = element.tabIndex === -1;
-
-      // return isTabIndexNeg;
-      return false;
+      return element.tabIndex === -1;
     }
   }
 }
