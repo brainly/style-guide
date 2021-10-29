@@ -7,7 +7,7 @@ import {useBodyNoScroll} from './useBodyNoScroll';
 import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
-type DialogPropsType = $ReadOnly<{
+export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl',
@@ -38,8 +38,8 @@ Dialog.defaultProps = ({
 }: $Shape<DialogPropsType>);
 
 /**
- * The Dialog component controls mounting when
- * BaseDialog controls its own states.
+ * The Dialog component controls mounting
+ * when BaseDialog controls its own states.
  */
 function BaseDialog({
   open,
@@ -52,6 +52,21 @@ function BaseDialog({
   onExitTransitionEnd,
 }: DialogPropsType) {
   const containerRef = React.useRef(null);
+  const [exiting, setExiting] = React.useState<boolean>(false);
+
+  /**
+   * CSS3 transition requires a deferredOpen value to be one
+   * paint behind the actual open prop to trigger a transition.
+   */
+  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    setDeferredOpen(open);
+  }, [open]);
+
+  if (exiting === open) {
+    setExiting(!open);
+  }
 
   useBodyNoScroll();
   useEscapeKey(onDismiss);
@@ -66,11 +81,16 @@ function BaseDialog({
     [onDismiss]
   );
 
+  /**
+   * The name of transition with the longest duration, because
+   * a component can have an animation of many properties.
+   */
+  const lastPropertyName = exiting ? 'opacity' : 'transform';
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
       if (
         event.target !== event.currentTarget ||
-        event.propertyName !== 'transform'
+        event.propertyName !== lastPropertyName
       ) {
         return;
       }
@@ -83,12 +103,12 @@ function BaseDialog({
         onExitTransitionEnd();
       }
     },
-    [open, onEntryTransitionEnd, onExitTransitionEnd]
+    [open, lastPropertyName, onEntryTransitionEnd, onExitTransitionEnd]
   );
 
   const overlayClass = cx('sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
-    'sg-dialog__overlay--open': open,
+    'sg-dialog__overlay--open': deferredOpen,
   });
 
   const containerClass = cx(
@@ -97,7 +117,8 @@ function BaseDialog({
     {
       'sg-dialog__container--scroll': scroll === 'inside',
       'sg-dialog__container--fullscreen': fullscreen,
-      'sg-dialog__container--open': open,
+      'sg-dialog__container--open': deferredOpen,
+      'sg-dialog__container--exiting': exiting,
     }
   );
 
@@ -138,19 +159,11 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
     }
   }, [onExitTransitionEnd]);
 
-  /**
-   * CSS3 transition requires a deferredOpen value to be one
-   * paint behind the actual open prop to trigger a transition.
-   */
-  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
-
-  React.useEffect(() => setDeferredOpen(open), [open]);
-
   return mounted ? (
     <BaseDialog
       {...otherProps}
       onExitTransitionEnd={handleExitTransitionEnd}
-      open={deferredOpen}
+      open={open}
     />
   ) : null;
 }

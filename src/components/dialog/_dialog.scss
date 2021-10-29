@@ -110,8 +110,12 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       max-height: 100%;
     }
 
+    &--exiting {
+      transform: translate3d(0, 0, 0);
+    }
+
     &--open {
-      transition-timing-function: $easingMotionEntry;
+      transition-timing-function: $easingMotionEntry, $easingMotionLinear;
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
