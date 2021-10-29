@@ -6,14 +6,13 @@ $layoutMaxWidth: 1024px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-toplayer {
     display: flex;
     flex-direction: column;
     overflow: visible;
     border-radius: $borderRadiusDefault;
     width: 100%;
-    box-shadow: $elevatedContainerShadow;
+    box-shadow: $shadowLarge;
     background-color: $toplayerBackgroundColor;
     position: relative;
 
@@ -72,7 +71,7 @@ $includeHtml: false !default;
       .sg-toplayer__wrapper {
         @include sgBreakpoint(medium-up) {
           @include image2x($sgImagesPath + 'bug_box@2x.png', 299px, 248px);
-          background-image: url($sgImagesPath + 'bug_box.png');
+          background-image: url($sgImagesPath+'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
         }
@@ -93,7 +92,9 @@ $includeHtml: false !default;
       margin: gutter(1 / 2);
       // sass-lint:disable no-duplicate-properties
       min-height: 100%;
-      min-height: calc(100% - #{gutter(1)}); // https://github.com/sass/sass/issues/818
+      min-height: calc(
+        100% - #{gutter(1)}
+      ); // https://github.com/sass/sass/issues/818
       // sass-lint:enable no-duplicate-properties
 
       @include sgBreakpoint(medium-up) {
@@ -134,5 +135,4 @@ $includeHtml: false !default;
       min-height: rhythm(2);
     }
   }
-
 }

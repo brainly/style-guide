@@ -52,6 +52,7 @@ import Cursor from '../sass/pages/utils/cursor';
 import Animations from '../sass/pages/utils/animations';
 import accordion from '../components/accordion/pages/accordion';
 import Shadows from '../components/shadows/pages/shadows';
+import ShadowsUtils from '../sass/pages/utils/shadows';
 
 const navigation = [
   {
@@ -296,6 +297,10 @@ const navigation = [
       {
         name: 'Cursor',
         component: Cursor,
+      },
+      {
+        name: 'Shadows',
+        component: ShadowsUtils,
       },
     ],
   },
