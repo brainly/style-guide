@@ -14,14 +14,14 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
     // Initial focus
     focusFirstDescendant(dialogElement);
 
-    let isTabbingForward = false;
+    let isTabbingForward = true;
 
     function handleKeydown(event: KeyboardEvent) {
       isTabbingForward = event.key === 'Tab' && !event.shiftKey;
     }
 
     function handleKeyup() {
-      isTabbingForward = false;
+      isTabbingForward = true;
     }
 
     function handleFocusTrap(event: FocusEvent) {
@@ -63,6 +63,9 @@ function focusFirstDescendant(element: HTMLElement) {
       return true;
     }
   }
+  // if (attemptFocus(element)) {
+  //   return true;
+  // }
   return false;
 }
 
@@ -74,6 +77,9 @@ function focusLastDescendant(element: HTMLElement) {
       return true;
     }
   }
+  // if (attemptFocus(element)) {
+  //   return true;
+  // }
   return false;
 }
 
@@ -91,7 +97,7 @@ function attemptFocus(element: HTMLElement) {
 
 // https://w3c.github.io/aria-practices/examples/js/utils.js
 function isFocusable(element: HTMLElement) {
-  if (element.tabIndex < 0 || element.getAttribute('disabled')) {
+  if (element.tabIndex < -1 || element.getAttribute('disabled')) {
     return false;
   }
 
@@ -107,7 +113,11 @@ function isFocusable(element: HTMLElement) {
     case 'SELECT':
     case 'TEXTAREA':
       return true;
-    default:
+    default: {
+      // const isTabIndexNeg = element.tabIndex === -1;
+
+      // return isTabIndexNeg;
       return false;
+    }
   }
 }
