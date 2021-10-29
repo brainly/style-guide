@@ -68,12 +68,6 @@ function BaseDialog({
   const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
 
   /**
-   * The name of transition with the longest duration, because
-   * a component can have an animation of many properties.
-   */
-  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
-
-  /**
    * CSS3 transition requires a deferredOpen value to be one
    * paint behind the actual open prop to trigger a transition.
    */
