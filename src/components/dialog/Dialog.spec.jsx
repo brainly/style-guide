@@ -91,7 +91,7 @@ describe('<Dialog>', () => {
 
     wrapper.setProps({open: false});
     wrapper.find('[role="dialog"]').simulate('transitionEnd', {
-      propertyName: 'transform',
+      propertyName: 'opacity',
     });
 
     expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
@@ -104,7 +104,7 @@ describe('<Dialog>', () => {
 
     wrapper.setProps({open: false});
     wrapper.find('[role="dialog"]').simulate('transitionEnd', {
-      propertyName: 'transform',
+      propertyName: 'opacity',
     });
 
     expect(wrapper.isEmptyRender()).toBe(true);
