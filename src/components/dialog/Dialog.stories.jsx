@@ -58,6 +58,7 @@ export default {
 export const Default = (args: any) => {
   const [open, setOpen] = React.useState(false);
   const handleDismiss = () => setOpen(false);
+  const headerId = 'dialog-header';
 
   return (
     <div>
@@ -65,9 +66,14 @@ export const Default = (args: any) => {
         open dialog
       </Button>
 
-      <Dialog {...args} open={open} onDismiss={handleDismiss}>
+      <Dialog
+        {...args}
+        open={open}
+        onDismiss={handleDismiss}
+        labelledBy={headerId}
+      >
         <DialogCloseButton onClick={handleDismiss} />
-        <DialogHeader>
+        <DialogHeader id={headerId}>
           <Flex marginBottom="m">
             <Headline>
               Are you sure you want to stop asking this question?

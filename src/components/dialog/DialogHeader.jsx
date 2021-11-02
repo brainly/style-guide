@@ -6,10 +6,13 @@ import cx from 'classnames';
 export type DialogHeaderPropsType = $ReadOnly<{
   children: React.Node,
   className?: string,
+  id?: string,
 }>;
 
-const DialogHeader = ({children, className}: DialogHeaderPropsType) => (
-  <div className={cx('sg-dialog__header', className)}>{children}</div>
+const DialogHeader = ({children, className, id}: DialogHeaderPropsType) => (
+  <div className={cx('sg-dialog__header', className)} id={id}>
+    {children}
+  </div>
 );
 
 export default DialogHeader;
