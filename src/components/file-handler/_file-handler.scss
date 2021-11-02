@@ -1,12 +1,12 @@
 .sg-file-handler {
   display: inline-flex;
-  justify-content: center;
   align-items: center;
   height: componentSize(m);
   border-radius: 6px;
   padding: spacing(xs);
   padding-right: 12px;
   cursor: default;
+  max-width: 100%;
 
   &__icon {
     display: flex;
@@ -26,6 +26,7 @@
   &__text {
     position: relative;
     top: 1px;
+    min-width: 0;
   }
 
   &__close-button {
