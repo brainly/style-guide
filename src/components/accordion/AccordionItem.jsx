@@ -55,10 +55,12 @@ const AccordionItem = ({
     dispatch,
     reduceMotion,
     onItemSelect,
+    isControlled,
   } = useContext(AccordionContext);
   const [isHovered, setIsHovered] = useState(false);
 
   const isCollapsed = !expanded.includes(id);
+  const isDisabled = !isCollapsed && isControlled;
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
@@ -185,6 +187,7 @@ const AccordionItem = ({
           onBlur={handleBlur}
           aria-expanded={!isCollapsed}
           aria-controls={contentId}
+          aria-disabled={isDisabled}
           role="button"
           tabIndex={tabIndex}
         >

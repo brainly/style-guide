@@ -67,6 +67,7 @@ type ContextType = {
   dispatch: (action: ActionType) => void,
   reduceMotion: boolean,
   onItemSelect: (id: string, value: boolean) => void,
+  isControlled: boolean,
   ...
 };
 
@@ -279,6 +280,7 @@ const Accordion = ({
       dispatch,
       reduceMotion: hasReduceMotion,
       onItemSelect,
+      isControlled,
     }),
     [
       hasReduceMotion,
@@ -286,6 +288,7 @@ const Accordion = ({
       onItemSelect,
       state.focusedElementId,
       state.expanded,
+      isControlled,
     ]
   );
 
