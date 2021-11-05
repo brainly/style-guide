@@ -172,8 +172,8 @@ Following headlines should be used in release notes:
 - Dependency Updates
 - Documentation
 
-
 #### Troubleshooting
+
 * `npm publish` throws `PUT https://registry.npmjs.org/brainly-style-guide - Not found` - run `npm login` and try again
 
 #### Code Style
