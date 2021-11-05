@@ -159,6 +159,20 @@ To bump the version correctly you should follow these steps:
 4. Publish your newly prepared version of style-guide to NPM registry with `npm publish` command (do it from a fresh master branch containing commits with your changes and bumped version).
 5. Remember to let know contributors (before merge their PR, just mention in the comment that we are releasing a new version of the library) and Brainly engineers (slack channel would be a perfect place for that), that new version was released and it's ready to use.
 
+#### Release Notes Template
+
+Release notes title format contains tag and date: `[TAG] (Date)`. For example `v198.3.0 (4 Nov 2021)`
+
+Following headlines should be used in release notes:
+
+- Breaking Changes
+- Features
+- Bug Fixes
+- Maintenance
+- Dependency Updates
+- Documentation
+
+
 #### Troubleshooting
 * `npm publish` throws `PUT https://registry.npmjs.org/brainly-style-guide - Not found` - run `npm login` and try again
 
