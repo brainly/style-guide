@@ -138,7 +138,8 @@
     "prepublishOnly": "yarn package-prepare",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
-    "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public"
+    "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
+    "chromatic": "npx chromatic --project-token=5ef54a1fca5c --exit-zero-on-changes"
   },
   "jest": {
     "setupFiles": [
