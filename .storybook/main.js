@@ -7,8 +7,14 @@ const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 
+console.log(process.env);
+
 module.exports = {
-  stories: ['../src/**/*.stories.@(jsx|mdx)'],
+  stories: [
+    process.env.CHROMATIC === 'true'
+      ? '../src/**/*.chromatic-stories.@(jsx|mdx)'
+      : '../src/**/*.stories.@(jsx|mdx)',
+  ],
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
@@ -66,6 +72,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
         include: [
           path.resolve(__dirname, '../src/main.scss'),
+          path.resolve(__dirname, '../src/chromatic/styles.scss'),
           path.resolve(__dirname, '../src/_docs/styles.scss'),
         ],
       },

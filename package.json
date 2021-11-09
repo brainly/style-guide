@@ -64,6 +64,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "fast-glob": "^3.2.7",
     "file-loader": "^4.1.0",
     "flow-bin": "^0.112.0",
     "fs-extra": "^9.0.1",
@@ -139,7 +140,7 @@
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
-    "chromatic": "npx chromatic --project-token=5ef54a1fca5c --exit-zero-on-changes"
+    "chromatic": "CHROMATIC=true npx chromatic --project-token=940abc073970 --exit-zero-on-changes"
   },
   "jest": {
     "setupFiles": [
