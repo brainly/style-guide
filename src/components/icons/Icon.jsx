@@ -7,6 +7,7 @@ export type IconTypeType =
   | 'academic_cap'
   | 'all_questions'
   | 'answer'
+  | 'answers'
   | 'arrow_double_down'
   | 'arrow_down'
   | 'arrow_left'
@@ -75,6 +76,7 @@ export type IconTypeType =
   | 'points'
   | 'profile'
   | 'profile_view'
+  | 'profile_settings'
   | 'question'
   | 'recent_questions'
   | 'reload'
@@ -153,6 +155,7 @@ export const TYPE: {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
+  ANSWERS: 'answers',
   ARROW_DOUBLE_DOWN: 'arrow_double_down',
   ARROW_DOWN: 'arrow_down',
   ARROW_LEFT: 'arrow_left',
@@ -221,6 +224,7 @@ export const TYPE: {
   POINTS: 'points',
   PROFILE: 'profile',
   PROFILE_VIEW: 'profile_view',
+  PROFILE_SETTINGS: 'profile_settings',
   QUESTION: 'question',
   RECENT_QUESTIONS: 'recent_questions',
   RELOAD: 'reload',
@@ -279,6 +283,7 @@ export const TYPE: {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
+  ANSWERS: 'answers',
   ARROW_DOUBLE_DOWN: 'arrow_double_down',
   ARROW_DOWN: 'arrow_down',
   ARROW_LEFT: 'arrow_left',
@@ -347,6 +352,7 @@ export const TYPE: {
   POINTS: 'points',
   PROFILE: 'profile',
   PROFILE_VIEW: 'profile_view',
+  PROFILE_SETTINGS: 'profile_settings',
   QUESTION: 'question',
   RECENT_QUESTIONS: 'recent_questions',
   RELOAD: 'reload',
