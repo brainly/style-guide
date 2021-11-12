@@ -21,11 +21,11 @@ export type DialogPropsType = $ReadOnly<{
    * the content is longer than the viewport.
    */
   scroll?: 'inside' | 'outside',
+  zIndex?: number | string,
   /**
    * Fires on user actions like clicking outside
    * the Dialog or the Escape key.
    */
-  zIndex?: number,
   onDismiss?: () => void,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
