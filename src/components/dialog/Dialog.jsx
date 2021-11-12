@@ -25,6 +25,7 @@ export type DialogPropsType = $ReadOnly<{
    * Fires on user actions like clicking outside
    * the Dialog or the Escape key.
    */
+  zIndex?: number,
   onDismiss?: () => void,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
@@ -56,6 +57,7 @@ function BaseDialog({
   labelledBy,
   label,
   describedBy,
+  zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
   onExitTransitionEnd,
@@ -136,6 +138,7 @@ function BaseDialog({
   return (
     <div
       className={overlayClass}
+      style={{zIndex}}
       onClick={onDismiss ? handleOverlayClick : undefined}
     >
       {/* `useFocusTrap` is based on checking whether the new focused

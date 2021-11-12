@@ -109,4 +109,16 @@ describe('<Dialog>', () => {
 
     expect(wrapper.isEmptyRender()).toBe(true);
   });
+
+  it('sets given zIndex', () => {
+    const wrapper = mount(
+      <Dialog open zIndex={10}>
+        content text
+      </Dialog>
+    );
+
+    const dialogOverlay = wrapper.find('.sg-dialog__overlay');
+
+    expect(dialogOverlay.props().style.zIndex).toEqual(10);
+  });
 });
