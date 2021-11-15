@@ -179,8 +179,8 @@ $durationModerate2: 260ms; // Modals, Toast, Dialog, Notification
 $durationGentle1: 320ms; // Bottom Sheet, Card Expand
 $durationGentle2: 400ms; // Advanced Animations
 
-$easingRegular: cubic-bezier(0.35, 0.00, 0.10, 1.00);
-$easingEntry: cubic-bezier(0.10, 0.00, 0.00, 1.00);
-$easingExit: cubic-bezier(0.30, 0.00, 1.00, 0.80);
-$easingLinear: cubic-bezier(0.00, 0.00, 0.00, 0.00);
+$easingRegular: cubic-bezier(0.35, 0, 0.1, 1);
+$easingEntry: cubic-bezier(0.1, 0, 0, 1);
+$easingExit: cubic-bezier(0.3, 0, 1, 0.8);
+$easingLinear: cubic-bezier(0, 0, 0, 0);
 
