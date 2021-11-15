@@ -585,9 +585,12 @@ const Icon = ({
   const titleFallback = String(type).replace(/_/g, ' ');
   const descId = `desc-${idSuffix}`;
   const labelledBy = description ? `${titleId} ${descId}` : titleId;
+  const ariaLabel = type
+    ? undefined
+    : [title, description].filter(Boolean).join(', ');
 
   return (
-    <Tag {...props} className={iconClass}>
+    <Tag {...props} className={iconClass} aria-label={ariaLabel}>
       {type ? (
         <svg
           className="sg-icon__svg"
