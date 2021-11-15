@@ -591,7 +591,7 @@ const Icon = ({
 
   const idSuffix = generateIdSuffix(type);
   const titleId = `title-${idSuffix}`;
-  const titleFallback = type.replaceAll('_', ' ');
+  const titleFallback = String(type).replace(/_/g, ' ');
   const descId = `desc-${idSuffix}`;
   const labelledBy = description ? `${titleId} ${descId}` : titleId;
 
