@@ -482,6 +482,18 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      /**
+       * An accessible, short-text description; defaults to `type`
+       */
+      title?: string,
+      /**
+       * An accessible, long-text description
+       */
+      description?: string,
+      /**
+       * Provides semantic meaning to content, defaults to "img"
+       */
+      role?: string,
       ...
     }
   | {
@@ -520,8 +532,28 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      /**
+       * An accessible, short-text description; defaults to `type`
+       */
+      title?: string,
+      /**
+       * An accessible, long-text description
+       */
+      description?: string,
+      /**
+       * Provides semantic meaning to a svg, defaults to "img"
+       */
+      role?: string,
       ...
     };
+
+function generateIdSuffix(type: string) {
+  const randomIndex = Math.random()
+    .toString(36)
+    .substring(7);
+
+  return `${type}-${randomIndex}`;
+}
 
 const Icon = ({
   color,
@@ -534,6 +566,9 @@ const Icon = ({
   children,
   tagType = 'div',
   className,
+  title,
+  description,
+  role = 'img',
   ...props
 }: IconPropsType) => {
   const iconClass = classNames(
@@ -548,11 +583,24 @@ const Icon = ({
   const iconType = `#icon-${type}`;
   const Tag = tagType;
 
+  const idSuffix = generateIdSuffix(type);
+  const titleId = `title-${idSuffix}`;
+  const titleFallback = type.replaceAll('_', ' ');
+  const descId = `desc-${idSuffix}`;
+  const labelledBy = description ? `${titleId} ${descId}` : titleId;
+
   return (
     <Tag {...props} className={iconClass}>
       {type ? (
-        <svg className="sg-icon__svg">
-          <use xlinkHref={iconType} />
+        <svg
+          className="sg-icon__svg"
+          role={role}
+          aria-labelledby={labelledBy}
+          focusable="false"
+        >
+          <title id={titleId}>{title || titleFallback}</title>
+          {description && <desc id={descId}>{description}</desc>}
+          <use xlinkHref={iconType} role="presentation" />
         </svg>
       ) : (
         children
