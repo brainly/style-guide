@@ -496,10 +496,6 @@ export type IconPropsType =
        * An accessible, long-text description
        */
       description?: string,
-      /**
-       * Provides semantic meaning to content, defaults to "img"
-       */
-      role?: string,
       ...
     }
   | {
@@ -546,10 +542,6 @@ export type IconPropsType =
        * An accessible, long-text description
        */
       description?: string,
-      /**
-       * Provides semantic meaning to a svg, defaults to "img"
-       */
-      role?: string,
       ...
     };
 
@@ -574,7 +566,6 @@ const Icon = ({
   className,
   title,
   description,
-  role = 'img',
   ...props
 }: IconPropsType) => {
   const iconClass = classNames(
@@ -600,13 +591,13 @@ const Icon = ({
       {type ? (
         <svg
           className="sg-icon__svg"
-          role={role}
+          role="img"
           aria-labelledby={labelledBy}
           focusable="false"
         >
           <title id={titleId}>{title || titleFallback}</title>
           {description && <desc id={descId}>{description}</desc>}
-          <use xlinkHref={iconType} role="presentation" />
+          <use xlinkHref={iconType} aria-hidden="true" />
         </svg>
       ) : (
         children
