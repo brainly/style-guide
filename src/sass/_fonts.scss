@@ -6,6 +6,8 @@ $proximaNovaBoldWoff2Path: $sgFontsPath + 'ProximaNova-Bold.woff2';
 $proximaNovaBoldWoffPath: $sgFontsPath + 'ProximaNova-Bold.woff';
 $proximaNovaBlackWoff2Path: $sgFontsPath + 'ProximaNova-Black.woff2';
 $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
+$untitledSerifRegularWoff2Path: $sgFontsPath + 'UntitledSerif-Regular.woff2';
+$untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
 @if ($includeHtml and $includeFonts) {
 
@@ -33,6 +35,16 @@ $proximaNovaBlackWoffPath: $sgFontsPath + 'ProximaNova-Black.woff';
     font-family: $fontFamilyProximaNova;
     src: url($proximaNovaBlackWoff2Path) format('woff2'), url($proximaNovaBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
+    font-style: normal;
+    // sass-lint:disable no-misspelled-properties
+    font-display: swap;
+    // sass-lint:enable no-misspelled-properties
+  }
+
+  @font-face {
+    font-family: $fontFamilyUntitledSerif;
+    src: url($untitledSerifRegularWoff2Path) format('woff2'), url($untitledSerifRegularWoffPath) format('woff');
+    font-weight: $fontWeightNormal;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties
     font-display: swap;
