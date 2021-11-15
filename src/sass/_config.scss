@@ -169,3 +169,18 @@ $formElementValidColor: $mintPrimary;
 $formElementInvalidColor: $peachPrimary;
 $formElementStandardBorderRadius: 20px;
 $formElementLargeBorderRadius: 28px;
+
+// Motion animation durations
+$durationInstant: 0ms; // Text change
+$durationQuick1: 80ms; // Checkboxes, Radio Buttons, Hover
+$durationQuick2: 120ms; // Toggles, Tabs, Color, Fade
+$durationModerate1: 180ms; // Dropdowns, Tooltips
+$durationModerate2: 260ms; // Modals, Toast, Dialog, Notification
+$durationGentle1: 320ms; // Bottom Sheet, Card Expand
+$durationGentle2: 400ms; // Advanced Animations
+
+$easingRegular: cubic-bezier(0.35, 0.00, 0.10, 1.00);
+$easingEntry: cubic-bezier(0.10, 0.00, 0.00, 1.00);
+$easingExit: cubic-bezier(0.30, 0.00, 1.00, 0.80);
+$easingLinear: cubic-bezier(0.00, 0.00, 0.00, 0.00);
+
