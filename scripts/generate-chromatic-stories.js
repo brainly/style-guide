@@ -7,16 +7,12 @@ const storiesPaths = fg.sync('src/**/*.stories.jsx');
 storiesPaths.forEach(storiesPath => {
   const parsedPath = path.parse(storiesPath);
   const componentName = parsedPath.name.split('.')[0];
-  const chromaticStoriesPath = storiesPath
-    .split('/')
-    .slice(0, -1)
-    .join('/');
 
   if (
     !fs.existsSync(
       path.resolve(
         __dirname,
-        `../${chromaticStoriesPath}`,
+        `../${parsedPath.dir}`,
         `${componentName}.chromatic.stories.jsx`
       )
     )
@@ -24,7 +20,7 @@ storiesPaths.forEach(storiesPath => {
     fs.writeFileSync(
       path.resolve(
         __dirname,
-        `../${chromaticStoriesPath}`,
+        `../${parsedPath.dir}`,
         `${componentName}.chromatic.stories.jsx`
       ),
       `import * as ${componentName} from './${parsedPath.base}';
