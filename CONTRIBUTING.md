@@ -90,7 +90,7 @@ If you already have storybook stories, you can use them also for Chromatic. Run 
 $ node ./scripts/generate-chromatic-stories.js
 ```
 
-which looks for `{component_name}.chromatic.stories.jsx` files and generates `{component_name}.chromatic.stories.jsx` for each of them(if not exists). Created files have single exported story(Default). You can extend it with your stories if needed.
+which looks for `{component_name}.stories.jsx` files and generates `{component_name}.chromatic.stories.jsx` for each of them(if not exists). Created files have single exported story(Default). You can extend it with chromatic specific stories if needed.
 
 ### Importing Dependencies
 
