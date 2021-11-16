@@ -5,11 +5,8 @@ const fg = require('fast-glob');
 const storiesPaths = fg.sync('src/**/*.stories.jsx');
 
 storiesPaths.forEach(storiesPath => {
-  let componentName = storiesPath.split('.')[0].split('/');
-
-  componentName = componentName[componentName.length - 1];
-
-  const subdirsCount = storiesPath.split('/').length - 2;
+  const parsedPath = path.parse(storiesPath);
+  const componentName = parsedPath.name.split('.')[0];
   const chromaticStoriesPath = storiesPath
     .split('/')
     .slice(0, -1)
@@ -21,10 +18,11 @@ storiesPaths.forEach(storiesPath => {
       `../${chromaticStoriesPath}`,
       `${componentName}.chromatic-stories.jsx`
     ),
-    `import * as ${componentName} from './${componentName}.stories.jsx';
-import {mergeStories} from '${new Array(subdirsCount)
-      .fill('../')
-      .join('')}chromatic/utils';
+    `import * as ${componentName} from './${parsedPath.base}';
+import {mergeStories} from '${path.relative(
+      parsedPath.dir,
+      'src/chromatic/utils'
+    )}';
 
 export const Default = mergeStories(${componentName});
 
