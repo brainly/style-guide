@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const fg = require('fast-glob');
+const fg = require('glob');
 
 const storiesPaths = fg.sync('src/**/*.stories.jsx');
 
