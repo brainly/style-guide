@@ -12,21 +12,31 @@ storiesPaths.forEach(storiesPath => {
     .slice(0, -1)
     .join('/');
 
-  fs.writeFileSync(
-    path.resolve(
-      __dirname,
-      `../${chromaticStoriesPath}`,
-      `${componentName}.chromatic.stories.jsx`
-    ),
-    `import * as ${componentName} from './${parsedPath.base}';
+  if (
+    !fs.existsSync(
+      path.resolve(
+        __dirname,
+        `../${chromaticStoriesPath}`,
+        `${componentName}.chromatic.stories.jsx`
+      )
+    )
+  ) {
+    fs.writeFileSync(
+      path.resolve(
+        __dirname,
+        `../${chromaticStoriesPath}`,
+        `${componentName}.chromatic.stories.jsx`
+      ),
+      `import * as ${componentName} from './${parsedPath.base}';
 import {mergeStories} from '${path.relative(
-      parsedPath.dir,
-      'src/chromatic/utils'
-    )}';
+        parsedPath.dir,
+        'src/chromatic/utils'
+      )}';
 
 export const Default = mergeStories(${componentName});
 
 export default ${componentName}.default;
 `
-  );
+    );
+  }
 });
