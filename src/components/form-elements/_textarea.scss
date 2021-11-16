@@ -38,6 +38,14 @@ $includeHtml: false !default;
       }
     }
 
+    &:disabled {
+      background-color: $formElementDisabledBackgroundColor;
+
+      &::placeholder {
+        color: $formElementDisabledPlacholderTextColor;
+      }
+    }
+
     &:hover {
       background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
       border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
@@ -120,12 +128,10 @@ $includeHtml: false !default;
     }
 
     &__wrapper {
-
       &--full-width {
         width: 100%;
         max-width: 100%;
       }
     }
   }
-
 }
