@@ -13,11 +13,15 @@ export type DialogPropsType = $ReadOnly<{
   size?: 's' | 'm' | 'l' | 'xl',
   fullscreen?: boolean,
   reduceMotion?: boolean,
+  labelledBy?: string,
+  label?: string,
+  describedBy?: string,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
    */
   scroll?: 'inside' | 'outside',
+  zIndex?: number | string,
   /**
    * Fires on user actions like clicking outside
    * the Dialog or the Escape key.
@@ -50,6 +54,10 @@ function BaseDialog({
   fullscreen = false,
   reduceMotion = false,
   scroll = 'outside',
+  labelledBy,
+  label,
+  describedBy,
+  zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
   onExitTransitionEnd,
@@ -130,16 +138,24 @@ function BaseDialog({
   return (
     <div
       className={overlayClass}
+      style={{zIndex}}
       onClick={onDismiss ? handleOverlayClick : undefined}
     >
-      {/* Bracket the dialog with two invisible, focusable nodes to keep
-      focus inside the page when the dialog is the first or last node. */}
+      {/* `useFocusTrap` is based on checking whether the new focused
+      node is a descendants of the container. In order to detect
+      the focus event when the dialog is the first or last node,
+      bracket the dialog with two invisible, focusable nodes. */}
       <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
         className={containerClass}
         onTransitionEnd={handleTransitionEnd}
+        aria-modal="true"
+        aria-labelledby={labelledBy}
+        aria-label={label}
+        aria-describedby={describedBy}
+        tabIndex="-1"
       >
         {children}
       </div>

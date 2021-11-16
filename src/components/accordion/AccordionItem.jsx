@@ -23,6 +23,7 @@ export type AccordionItemPropsType = $ReadOnly<{
   padding?: PaddingType,
   tabIndex?: number,
   id?: string,
+  headingLevel?: number,
 }>;
 
 function generateId() {
@@ -39,6 +40,7 @@ const AccordionItem = ({
   padding = 'm',
   tabIndex = 0,
   id: customId,
+  headingLevel = 2,
 }: AccordionItemPropsType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(
@@ -170,56 +172,57 @@ const AccordionItem = ({
       )}
       padding={null}
     >
-      <Box
-        padding={padding}
-        className={cx('sg-accordion-item__button', {
-          'sg-accordion-item__button--focused': isFocused,
-        })}
-        onClick={toggleOpen}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        aria-expanded={!isCollapsed}
-        aria-controls={contentId}
-        id={id}
-        role="button"
-        tabIndex={tabIndex}
-      >
-        <Flex
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
+      <div role="heading" aria-level={headingLevel} id={id}>
+        <Box
+          padding={padding}
+          className={cx('sg-accordion-item__button', {
+            'sg-accordion-item__button--focused': isFocused,
+          })}
+          onClick={toggleOpen}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          aria-expanded={!isCollapsed}
+          aria-controls={contentId}
+          role="button"
+          tabIndex={tabIndex}
         >
-          {isTitleString ? (
-            <Link
-              size={titleSize}
-              color="black"
-              weight="bold"
-              underlined={isHighlighted}
-            >
-              {title}
-            </Link>
-          ) : (
-            <span className="sg-accordion-item__title">{title}</span>
-          )}
           <Flex
-            justifyContent="center"
+            direction="row"
+            justifyContent="space-between"
             alignItems="center"
-            className={cx('sg-accordion-item__icon', {
-              'sg-accordion-item__icon--hover': isHighlighted,
-            })}
           >
-            <Icon
-              type="arrow_down"
-              color="dark"
-              className={cx('sg-accordion-item__arrow', {
-                'sg-accordion-item__arrow--visible': !isCollapsed,
+            {isTitleString ? (
+              <Link
+                size={titleSize}
+                color="black"
+                weight="bold"
+                underlined={isHighlighted}
+              >
+                {title}
+              </Link>
+            ) : (
+              <span className="sg-accordion-item__title">{title}</span>
+            )}
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              className={cx('sg-accordion-item__icon', {
+                'sg-accordion-item__icon--hover': isHighlighted,
               })}
-            />
+            >
+              <Icon
+                type="arrow_down"
+                color="dark"
+                className={cx('sg-accordion-item__arrow', {
+                  'sg-accordion-item__arrow--visible': !isCollapsed,
+                })}
+              />
+            </Flex>
           </Flex>
-        </Flex>
-      </Box>
+        </Box>
+      </div>
 
       <div
         ref={contentRef}
