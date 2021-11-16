@@ -1,5 +1,6 @@
 const path = require('path');
 const argv = require('yargs').argv;
+const glob = require('glob');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
@@ -7,14 +8,18 @@ const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 
-console.log(process.env);
+async function findStories() {
+  return glob
+    .sync('src/**/*.stories.jsx')
+    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
+    .map(storiesPath => path.relative(__dirname, storiesPath));
+}
 
 module.exports = {
-  stories: [
+  stories:
     process.env.CHROMATIC === 'true'
-      ? '../src/**/*.chromatic-stories.@(jsx|mdx)'
-      : '../src/**/*.stories.@(jsx|mdx)',
-  ],
+      ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
+      : findStories(),
   addons: [
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',

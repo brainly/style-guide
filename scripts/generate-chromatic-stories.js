@@ -16,7 +16,7 @@ storiesPaths.forEach(storiesPath => {
     path.resolve(
       __dirname,
       `../${chromaticStoriesPath}`,
-      `${componentName}.chromatic-stories.jsx`
+      `${componentName}.chromatic.stories.jsx`
     ),
     `import * as ${componentName} from './${parsedPath.base}';
 import {mergeStories} from '${path.relative(
