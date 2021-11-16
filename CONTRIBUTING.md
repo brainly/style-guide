@@ -14,9 +14,9 @@ Hi 👋 Thanks for considering contributing! The aim of this doc is to guide you
 
 ### Requirements
 
- - [NodeJS](https://nodejs.org/en/) version 8+
- - [Yarn](https://yarnpkg.com)
- 
+- [NodeJS](https://nodejs.org/en/) version 8+
+- [Yarn](https://yarnpkg.com)
+
 ### Step by Step Guide
 
 1. Clone this repository.
@@ -38,12 +38,14 @@ We use the BEM naming convetion.
 We have a standardized set of words you should use when adding modifiers to blocks.
 
 - If your component changes only in one dimension:
-  - width:  `xnarrow` `narrow` `wide` `xwide` `full-width`
+
+  - width: `xnarrow` `narrow` `wide` `xwide` `full-width`
   - height: `xshort` `short` `tall` `xtall` `full-height`
 
 - If it changes in both dimensions: `xsmall` `small` `large` `xlarge`
 
 - Behavior changes:
+
   - `non-responsive`
   - `obscured` vs `standout`
   - `disabled`
@@ -59,15 +61,16 @@ All components are **responsive** by default, so there is no need for modifiers 
 ## React
 
 Each component/container should have its own file.
-Components are dumb and should be written in pure function form. 
+Components are dumb and should be written in pure function form.
 Each file should export the default module like so:
+
 ```
 export default ComponentName;
 ```
 
 ### File Location
 
-Component and container files should be located next to `.scss` files in `src/components` directory. 
+Component and container files should be located next to `.scss` files in `src/components` directory.
 Documentation pages for components should be located in same directory in a subdirectory called `pages`.
 
 ### Tests
@@ -75,16 +78,32 @@ Documentation pages for components should be located in same directory in a subd
 Each component should be tested. We are using [jest](https://facebook.github.io/jest/) as a test runner/framework.
 Test files should be located next to component/container file with extension `.spec.js`
 
+### Storybook & Chromatic
+
+All components should have storybook stories. Put those stories in `{component_name}.stories.jsx` next to component.
+
+There is also Chromatic visual regression tool which uses storybook stories to run tests. It is integrated with Github and being run on pull requests.
+
+If you already have storybook stories, you can use them also for Chromatic. Run script:
+
+```
+$ node ./scripts/generate-chromatic-stories.js
+```
+
+which looks for `{component_name}.stories.jsx` files and generates `{component_name}.chromatic.stories.jsx` for each of them(if not exists). Created files have single exported story(Default). You can extend it with chromatic specific stories if needed.
+
 ### Importing Dependencies
 
 When importing dependencies, we are using global imports instead of relative ones.
 
 Bad:
+
 ```
 import Button, {types as buttonTypes} from '../../buttons/Button';
 ```
 
 Good:
+
 ```
 import Button, {BUTTON_TYPE} from 'components/buttons/Button';
 ```
@@ -96,6 +115,7 @@ import Button from 'components/buttons/Button';
 
 <Button type="solid">Button</Button>
 ```
+
 #### Components options
 
 Component options should be stored in a `const` object.
@@ -106,19 +126,23 @@ const ALIGNMENT = {START: 'start', END: 'end'};
 ```
 
 Each component should export its configuration options (if it have some).
+
 ```
 export {DIRECTION, ALIGNMENT};
 ```
 
 ### Layout and Helpers Documentation
+
 Go to these links to find documentation about [the Flexbox component](src/components/flex/README.md) and documentation regarding [SASS mixins](src/sass/README.md).
 
 ### Adding icons process
+
 1. Your svg file has to be exported with a `viewBox="0 0 512 512"`.
 2. Clean up the file: keep only `xmlns` and `viewBox` attributes on `svg` tag and remove the rest (eventually you can use `data-fixedcolors` attribute on `svg` icon which has to have fixed colors for some reason). There is no need to optimize a `<path>` since it will be optimized during build process with [svgo](https://www.npmjs.com/package/svgo).
 3. Add a title (usually it's the same as a file name).
 
 Now, your file should look like:
+
 ```
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <title>cheeseburger</title>
@@ -146,7 +170,7 @@ example:
 This project uses semver versioning. We follow [SemVer](https://semver.org/):
 
 1. Bump first number - If your release breaks public API in any way - e.g. removed method, renamed class, different default parameters for method, new required parameters, removing components.
-2. Bump second number - If your release only extends public API and improves support, add new components, improves CSS. 
+2. Bump second number - If your release only extends public API and improves support, add new components, improves CSS.
 3. Bump the last number - Finally, if your release only fixes a bug w/o any API changes or introducing new features bump the last number.
 
 To simplify version bumping you can use [`yarn version`](https://yarnpkg.com/lang/en/docs/cli/version/). It will patch `package.json`, create a corresponding commit, create a tag, and push those to git changes.
@@ -174,7 +198,7 @@ Following headlines should be used in release notes:
 
 #### Troubleshooting
 
-* `npm publish` throws `PUT https://registry.npmjs.org/brainly-style-guide - Not found` - run `npm login` and try again
+- `npm publish` throws `PUT https://registry.npmjs.org/brainly-style-guide - Not found` - run `npm login` and try again
 
 #### Code Style
 
