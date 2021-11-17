@@ -25,5 +25,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: true
+          autoAcceptChanges: true
         env:
           CHROMATIC: true
