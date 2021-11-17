@@ -21,7 +21,15 @@ export type LogoTypeType =
   | 'brainly-plus-inverse'
   | 'brainly-plus-small'
   | 'brainly-tutoring'
-  | 'brainly-tutoring-small';
+  | 'brainly-tutoring-small'
+  | 'brainly-logotype-tutor'
+  | 'logo-tutor'
+  | 'logo-math-solver'
+  | 'logo-community-qa'
+  | 'logo-textbook-detective'
+  | 'brainly-logotype-math-solver'
+  | 'brainly-logotype-community-qa'
+  | 'brainly-logotype-textbook-detective';
 
 export const TYPE: {
   BRAINLY: 'brainly',
@@ -40,6 +48,14 @@ export const TYPE: {
   BRAINLY_PLUS_SMALL: 'brainly-plus-small',
   BRAINLY_TUTORING: 'brainly-tutoring',
   BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small',
+  LOGO_TUTOR: 'logo-tutor',
+  LOGO_MATH_SOLVER: 'logo-math-solver',
+  LOGO_COMMUNITY_QA: 'logo-community-qa',
+  LOGO_TEXTBOOK_DETECTIVE: 'logo-textbook-detective',
+  BRAINLY_LOGOTYPE_TUTOR: 'brainly-logotype-tutor',
+  BRAINLY_LOGOTYPE_MATH_SOLVER: 'brainly-logotype-math-solver',
+  BRAINLY_LOGOTYPE_COMMUNITY_QA: 'brainly-logotype-community-qa',
+  BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective',
 } = {
   BRAINLY: 'brainly',
   BRAINLY_MOBILE: 'brainly-mobile',
@@ -57,6 +73,14 @@ export const TYPE: {
   BRAINLY_PLUS_SMALL: 'brainly-plus-small',
   BRAINLY_TUTORING: 'brainly-tutoring',
   BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small',
+  LOGO_TUTOR: 'logo-tutor',
+  LOGO_MATH_SOLVER: 'logo-math-solver',
+  LOGO_COMMUNITY_QA: 'logo-community-qa',
+  LOGO_TEXTBOOK_DETECTIVE: 'logo-textbook-detective',
+  BRAINLY_LOGOTYPE_TUTOR: 'brainly-logotype-tutor',
+  BRAINLY_LOGOTYPE_MATH_SOLVER: 'brainly-logotype-math-solver',
+  BRAINLY_LOGOTYPE_COMMUNITY_QA: 'brainly-logotype-community-qa',
+  BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective',
 };
 
 export const LOGOS = {
@@ -76,6 +100,17 @@ export const LOGOS = {
   [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-57d2d0c2e9',
   [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-94373373cc',
   [TYPE.BRAINLY_TUTORING_SMALL]: 'brainly-tutoring-small-02c148571b',
+  [TYPE.LOGO_TUTOR]: 'product/logo-tutor-53d6052aac',
+  [TYPE.LOGO_COMMUNITY_QA]: 'product/logo-community-qa-4f24dc82d9',
+  [TYPE.LOGO_TEXTBOOK_DETECTIVE]: 'product/logo-textbook-detective-5b2274c6a9',
+  [TYPE.LOGO_MATH_SOLVER]: 'product/logo-math-solver-8171e2920a',
+  [TYPE.BRAINLY_LOGOTYPE_TUTOR]: 'product/brainly-logotype-tutor-426af0340d',
+  [TYPE.BRAINLY_LOGOTYPE_COMMUNITY_QA]:
+    'product/brainly-logotype-community-qa-a864b76316',
+  [TYPE.BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE]:
+    'product/brainly-logotype-textbook-detective-ff526a79b8',
+  [TYPE.BRAINLY_LOGOTYPE_MATH_SOLVER]:
+    'product/brainly-logotype-math-solver-16a98c8e00',
 };
 
 export type LogoPropsType = {
