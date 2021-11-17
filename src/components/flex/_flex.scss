@@ -10,98 +10,147 @@ $flexSpacingsMap: (
   'xxxxl': spacing(xxxxl),
 );
 
-$marginSides: (
-  top
-  right
-  bottom
-  left
-);
+$marginSides: (top right bottom left);
 
-$flexProps: (
-  justify-content
-  align-items
-  align-self
-);
-$flexJustifyValues: (
-  space-between
-  space-evenly
-  space-around
-);
-$flexAlignmentValues: (
-  center
-  flex-start
-  flex-end
-  baseline
-  stretch
-);
+$flexProps: (justify-content align-items align-self);
+$flexJustifyValues: (space-between space-evenly space-around);
+$flexAlignmentValues: (center flex-start flex-end baseline stretch);
+
+@mixin makeResponsive($class) {
+  @each $breakpoint, $variant in $responsiveVariants {
+    @include sgResponsive($breakpoint) {
+      .#{$variant}#{$class} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin makeResponsive($responsiveVariant, $class) {
+  .#{$responsiveVariant}#{$class} {
+    @content;
+  }
+}
 
 .sg-flex {
   display: flex;
 
-  &--full-width {
-    width: 100%;
-  }
+  // @each $propName in $flexProps {
+  //   @each $propValue in $flexAlignmentValues {
+  //     &--#{$propName}-#{$propValue} {
+  //       #{$propName}: #{$propValue};
+  //     }
+  //   }
+  // }
 
-  &--full-height {
-    height: 100%;
-  }
+  // @each $sizeName, $size in $flexSpacingsMap {
+  //   &--margin-#{$sizeName} {
+  //     margin: #{$size};
+  //   }
+  // }
 
-  &--no-shrink {
-    flex-shrink: 0;
-  }
+  // @each $sizeName, $size in $flexSpacingsMap {
+  //   @each $side in $marginSides {
+  //     &--margin-#{$side}-#{$sizeName} {
+  //       margin-#{$side}: #{$size};
+  //     }
+  //   }
+  // }
+}
 
-  &--inline {
-    display: inline-flex;
-  }
-
-  &--column {
-    flex-direction: column;
-  }
-
-  &--column-reverse {
-    flex-direction: column-reverse;
-  }
-
-  &--row {
-    flex-direction: row;
-  }
-
-  &--row-reverse {
-    flex-direction: row-reverse;
-  }
-
-  &--wrap {
-    flex-wrap: wrap;
-  }
-
-  &--wrap-reverse {
-    flex-wrap: wrap-reverse;
-  }
-
-  @each $value in $flexJustifyValues {
-    &--justify-content-#{$value} {
-      justify-content: #{$value};
+@each $breakpoint, $variant in $responsiveVariants {
+  @include sgResponsive($breakpoint) {
+    @include makeResponsive($variant, 'sg-flex--full-width') {
+      width: 100%;
     }
-  }
 
-  @each $propName in $flexProps {
-    @each $propValue in $flexAlignmentValues {
-      &--#{$propName}-#{$propValue} {
-        #{$propName}: #{$propValue};
+    @include makeResponsive($variant, 'sg-flex--auto-width') {
+      width: auto;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--full-height') {
+      height: 100%;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--auto-height') {
+      height: auto;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--no-shrink') {
+      flex-shrink: 0;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--shrink-1') {
+      flex-shrink: 1;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--inline') {
+      display: inline-flex;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--flex') {
+      display: flex;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--wrap') {
+      flex-wrap: wrap;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--wrap-reverse') {
+      flex-wrap: wrap-reverse;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--nowrap') {
+      flex-wrap: nowrap;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--column') {
+      flex-direction: column;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--column-reverse') {
+      flex-direction: column-reverse;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--row') {
+      flex-direction: row;
+    }
+
+    @include makeResponsive($variant, 'sg-flex--row-reverse') {
+      flex-direction: row-reverse;
+    }
+
+    @each $value in $flexJustifyValues {
+      @include makeResponsive($variant, 'sg-flex--justify-content-#{$value}') {
+        justify-content: #{$value};
       }
     }
-  }
 
-  @each $sizeName, $size in $flexSpacingsMap {
-    &--margin-#{$sizeName} {
-      margin: #{$size};
+    @each $propName in $flexProps {
+      @each $propValue in $flexAlignmentValues {
+        @include makeResponsive(
+          $variant,
+          'sg-flex--#{$propName}-#{$propValue}'
+        ) {
+          #{$propName}: #{$propValue};
+        }
+      }
     }
-  }
 
-  @each $sizeName, $size in $flexSpacingsMap {
-    @each $side in $marginSides {
-      &--margin-#{$side}-#{$sizeName} {
-        margin-#{$side}: #{$size};
+    @each $sizeName, $size in $flexSpacingsMap {
+      @include makeResponsive($variant, 'sg-flex--margin-#{$sizeName}') {
+        margin: #{$size};
+      }
+    }
+
+    @each $sizeName, $size in $flexSpacingsMap {
+      @each $side in $marginSides {
+        @include makeResponsive(
+          $variant,
+          'sg-flex--margin-#{$side}-#{$sizeName}'
+        ) {
+          margin-#{$side}: #{$size};
+        }
       }
     }
   }
