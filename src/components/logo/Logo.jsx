@@ -100,7 +100,7 @@ export const LOGOS = {
   [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-57d2d0c2e9',
   [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-94373373cc',
   [TYPE.BRAINLY_TUTORING_SMALL]: 'brainly-tutoring-small-02c148571b',
-  [TYPE.BRAINLY_LOGOTYPE_TUTOR]: 'product/brainly-tutor-426af0340d',
+  [TYPE.BRAINLY_LOGOTYPE_TUTOR]: 'product/brainly-logotype-tutor-426af0340d',
   [TYPE.BRAINLY_LOGO_TUTOR]: 'product/brainly-logo-tutor-53d6052aac',
   [TYPE.BRAINLY_LOGOTYPE_COMMUNITY_QA]:
     'product/brainly-logotype-community-qa-a864b76316',
