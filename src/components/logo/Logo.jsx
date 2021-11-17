@@ -74,7 +74,7 @@ export const TYPE: {
   BRAINLY_TUTORING: 'brainly-tutoring',
   BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small',
   BRAINLY_LOGOTYPE_TUTOR: 'brainly-logotype-tutor',
-  BRAINLY_LOGO_TUTOR: 'brainly-logo-tutor-small',
+  BRAINLY_LOGO_TUTOR: 'brainly-logo-tutor',
   BRAINLY_LOGOTYPE_MATH_SOLVER: 'brainly-logotype-math-solver',
   BRAINLY_LOGO_MATH_SOLVER: 'brainly-logo-math-solver',
   BRAINLY_LOGOTYPE_COMMUNITY_QA: 'brainly-logotype-community-qa',
