@@ -15,14 +15,6 @@ $dialogMaxWidthMap: (
   'xl': 1016px,
 );
 
-// ux motion tokens
-$durationQuick02: 120ms;
-$durationModerate02: 260ms;
-$durationGentle01: 320ms;
-$easingMotionLinear: linear;
-$easingMotionEntry: cubic-bezier(0.1, 0, 0, 1);
-$easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
-
 .sg-dialog {
   &__overlay {
     display: flex;
@@ -47,8 +39,8 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
       height: 100%;
       background-color: $dialogOverlayBackgroundColor;
       transition-property: opacity;
-      transition-duration: $durationQuick02;
-      transition-timing-function: $easingMotionLinear;
+      transition-duration: $durationQuick2;
+      transition-timing-function: $easingLinear;
       opacity: 0;
     }
 
@@ -74,8 +66,8 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     margin-top: auto;
     margin-bottom: 0;
     transition-property: transform, opacity;
-    transition-duration: $durationModerate02, $durationQuick02;
-    transition-timing-function: $easingMotionExit, $easingMotionLinear;
+    transition-duration: $durationModerate2, $durationQuick2;
+    transition-timing-function: $easingExit, $easingLinear;
     transform: translate3d(0, $dialogSlideWindowDistance, 0);
     opacity: 0;
 
@@ -91,7 +83,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     }
 
     &--fullscreen {
-      transition-duration: $durationGentle01, $durationQuick02;
+      transition-duration: $durationGentle1, $durationQuick2;
       transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
       border-radius: 0;
       box-shadow: none;
@@ -120,7 +112,7 @@ $easingMotionExit: cubic-bezier(0.3, 0, 1, 0.8);
     }
 
     &--open {
-      transition-timing-function: $easingMotionEntry, $easingMotionLinear;
+      transition-timing-function: $easingEntry, $easingLinear;
       transform: translate3d(0, 0, 0);
       opacity: 1;
     }
