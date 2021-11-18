@@ -53,6 +53,7 @@ import Animations from '../sass/pages/utils/animations';
 import accordion from '../components/accordion/pages/accordion';
 import Shadows from '../components/shadows/pages/shadows';
 import ShadowsUtils from '../sass/pages/utils/shadows';
+import UXMotion from '../sass/pages/utils/uxmotion';
 
 const navigation = [
   {
@@ -107,6 +108,10 @@ const navigation = [
       {
         name: 'Shadows',
         component: Shadows,
+      },
+      {
+        name: 'UX Motion',
+        component: UXMotion,
       },
     ],
   },

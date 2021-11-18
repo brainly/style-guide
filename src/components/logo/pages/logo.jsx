@@ -40,6 +40,30 @@ const Logos = () => (
     <DocsBlock info="Brainly Tutoring Small">
       <Logo type={TYPE.BRAINLY_TUTORING_SMALL} />
     </DocsBlock>
+    <DocsBlock info="Product Logo - Tutor">
+      <Logo type={TYPE.LOGO_TUTOR} />
+    </DocsBlock>
+    <DocsBlock info="Product Logo - Math Solver">
+      <Logo type={TYPE.LOGO_MATH_SOLVER} />
+    </DocsBlock>
+    <DocsBlock info="Product Logo - Community QA">
+      <Logo type={TYPE.LOGO_COMMUNITY_QA} />
+    </DocsBlock>
+    <DocsBlock info="Product Logo - Textbook Detective">
+      <Logo type={TYPE.LOGO_TEXTBOOK_DETECTIVE} />
+    </DocsBlock>
+    <DocsBlock info="Product Logotype - Brainly Tutor">
+      <Logo type={TYPE.BRAINLY_LOGOTYPE_TUTOR} />
+    </DocsBlock>
+    <DocsBlock info="Product Logotype - Brainly Community QA">
+      <Logo type={TYPE.BRAINLY_LOGOTYPE_COMMUNITY_QA} />
+    </DocsBlock>
+    <DocsBlock info="Product Logotype - Brainly Textbook Detective">
+      <Logo type={TYPE.BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE} />
+    </DocsBlock>
+    <DocsBlock info="Product Logotype - Brainly Math Solver">
+      <Logo type={TYPE.BRAINLY_LOGOTYPE_MATH_SOLVER} />
+    </DocsBlock>
   </div>
 );
 

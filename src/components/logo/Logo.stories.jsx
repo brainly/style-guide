@@ -20,3 +20,15 @@ export const Types = args => (
     ))}
   </div>
 );
+
+export const ProductLogos = args => (
+  <div>
+    {Object.values(TYPE)
+      .filter(type => type.includes('logo'))
+      .map(type => (
+        <StoryVariant label={`type - ${type}`} key={type}>
+          <Logo {...args} type={type} />
+        </StoryVariant>
+      ))}
+  </div>
+);
