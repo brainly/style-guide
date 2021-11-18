@@ -173,7 +173,6 @@ $formElementStandardBorderRadius: 20px;
 $formElementLargeBorderRadius: 28px;
 
 // Motion animation durations
-/* eslint-disable no-unused-vars */
 $durationInstant: 0ms; // Text change
 $durationQuick1: 80ms; // Checkboxes, Radio Buttons, Hover
 $durationQuick2: 120ms; // Toggles, Tabs, Color, Fade
@@ -186,4 +185,6 @@ $easingRegular: cubic-bezier(0.35, 0, 0.1, 1);
 $easingEntry: cubic-bezier(0.1, 0, 0, 1);
 $easingExit: cubic-bezier(0.3, 0, 1, 0.8);
 $easingLinear: linear;
-/* eslint-enable no-unused-vars */
+
+// this comment exists to suppress errors about these unused variables:
+// $durationGentle2 $durationInstant $durationModerate1 $durationQuick1 $easingRegular
