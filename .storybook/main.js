@@ -10,7 +10,7 @@ const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 
 async function findStories() {
   return glob
-    .sync('src/**/*.stories.jsx')
+    .sync('src/**/*.stories.@(jsx|mdx)')
     .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
