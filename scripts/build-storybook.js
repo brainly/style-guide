@@ -19,7 +19,9 @@ client.s3.getObject(
       execSync('yarn build-storybook');
       fs.writeFileSync('.storybook-static/.sg-version', `${version}`, 'utf-8');
     } else {
-      console.log('No version change detected, skipping storybook build.');
+      console.log(
+        'No version change detected in package.json, skipping storybook build.'
+      );
     }
   }
 );
