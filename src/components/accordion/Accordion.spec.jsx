@@ -178,9 +178,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
   });
 
@@ -196,9 +196,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
   });
 
