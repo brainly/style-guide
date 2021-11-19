@@ -18,6 +18,8 @@ client.s3.getObject(
     if (!data || (data && data.toString('utf-8') !== version)) {
       execSync('yarn build-storybook');
       fs.writeFileSync('.storybook-static/.sg-version', `${version}`, 'utf-8');
+    } else {
+      console.log('No version change detected, skipping storybook build.');
     }
   }
 );
