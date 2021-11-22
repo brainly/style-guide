@@ -9,17 +9,12 @@ $iconSizes: 16, 24, 32, 40, 56, 80, 104;
   .sg-icon {
     @include iconColor();
 
-    color: $white;
-    fill: currentColor;
+    fill: $white;
     max-width: 24px;
     max-height: 24px;
     height: 24px;
     width: 24px;
     flex-shrink: 0;
-
-    @media (forced-colors: active) {
-      fill: CanvasText;
-    }
 
     @each $size in $iconSizes {
       &--x#{$size} {
