@@ -174,9 +174,3 @@ export const JustifyAndAlign = () => (
     </div>
   </div>
 );
-
-export const ResponsiveProps = () => (
-  <div style={{width: 300}}>
-    <Flex marginLeft={['s', 'm', null, 'l']}>dsa</Flex>
-  </div>
-);
