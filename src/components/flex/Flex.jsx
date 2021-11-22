@@ -9,9 +9,16 @@ import {
   FLEX_MARGINS,
 } from './FlexConsts';
 
-function generateResponsiveClassNames(createBaseClassName, prop: object) {
+function generateResponsiveClassNames<T>(
+  createBaseClassName: T => string,
+  prop?: ResponsivePropType<T>
+): Array<string> {
   if (!prop) {
     return [];
+  }
+
+  if (typeof prop !== 'object') {
+    return [createBaseClassName(prop)];
   }
 
   return ['sm', 'md', 'lg', 'xl']
@@ -24,7 +31,7 @@ function generateResponsiveClassNames(createBaseClassName, prop: object) {
 }
 
 type ResponsivePropType<T> =
-  | Array<T>
+  | T
   | {
       sm: T,
       md: T,
@@ -318,7 +325,7 @@ const Flex = React.forwardRef<FlexPropsType, HTMLElement>(
         inlineFlex
       ),
       ...generateResponsiveClassNames(
-        propValue => `sg-flex--justify-content-${propValue}`,
+        (propValue: string) => `sg-flex--justify-content-${propValue}`,
         justifyContent
       ),
       ...generateResponsiveClassNames(

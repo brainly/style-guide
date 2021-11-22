@@ -34,28 +34,6 @@ $flexAlignmentValues: (center flex-start flex-end baseline stretch);
 
 .sg-flex {
   display: flex;
-
-  // @each $propName in $flexProps {
-  //   @each $propValue in $flexAlignmentValues {
-  //     &--#{$propName}-#{$propValue} {
-  //       #{$propName}: #{$propValue};
-  //     }
-  //   }
-  // }
-
-  // @each $sizeName, $size in $flexSpacingsMap {
-  //   &--margin-#{$sizeName} {
-  //     margin: #{$size};
-  //   }
-  // }
-
-  // @each $sizeName, $size in $flexSpacingsMap {
-  //   @each $side in $marginSides {
-  //     &--margin-#{$side}-#{$sizeName} {
-  //       margin-#{$side}: #{$size};
-  //     }
-  //   }
-  // }
 }
 
 @each $breakpoint, $variant in $responsiveVariants {
