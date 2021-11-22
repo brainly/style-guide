@@ -177,15 +177,6 @@ export const JustifyAndAlign = () => (
 
 export const ResponsiveProps = () => (
   <div style={{width: 300}}>
-    <Flex
-      marginLeft={{
-        sm: 's',
-        md: 'm',
-        lg: 'l',
-        xl: 'xxxxl',
-      }}
-    >
-      dsa
-    </Flex>
+    <Flex marginLeft={['s', 'm', null, 'l']}>dsa</Flex>
   </div>
 );

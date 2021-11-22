@@ -21,6 +21,26 @@ function generateResponsiveClassNames<T>(
     return [createBaseClassName(prop)];
   }
 
+  if (Array.isArray(prop)) {
+    const breakpoints = ['', 'md', 'lg', 'xl'];
+
+    return (prop.length > 4 ? prop.slice(0, 4) : prop).reduce(
+      (acc, propBreakpointValue, index) => {
+        if (propBreakpointValue === null || propBreakpointValue === undefined) {
+          return acc;
+        } else {
+          acc.push(
+            `${
+              breakpoints[index] ? `${breakpoints[index]}:` : ''
+            }${createBaseClassName(propBreakpointValue)}`
+          );
+          return acc;
+        }
+      },
+      []
+    );
+  }
+
   return ['sm', 'md', 'lg', 'xl']
     .filter(breakpoint => Object.keys(prop).includes(breakpoint))
     .map(breakpoint =>
@@ -32,6 +52,7 @@ function generateResponsiveClassNames<T>(
 
 type ResponsivePropType<T> =
   | T
+  | Array<T>
   | {
       sm: T,
       md: T,
