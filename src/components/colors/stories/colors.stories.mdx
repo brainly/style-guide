@@ -17,48 +17,10 @@ Base colors should be applied most frequently across our UI elements whereas sup
 
 ## Core colors
 
-Our primary color palette consists of Blue, Mint, Black, White and their variants. These colors represent our visual brand identity.
-
-- Use blue color for information
-- Use mint color for positive actions and to indicate success, safe, right
+Our primary color palette consists of black, white, gray, blue, green, purple, red, yellow and their variants. These colors represent our visual brand identity.
 
 <ColorPalette>
   {color.core.map(({ name, variable, hex }) => (
-    <ColorItem
-      key={name}
-      title={name}
-      subtitle={variable}
-      colors={[`#${hex}`]}
-    />
-  ))}
-</ColorPalette>
-
-## Additional colors
-
-Our second color palette is made up of Lavender, Mustard and Peach tones. These colors are used to highlight certain components and should never be dominant.
-
-- Use mustard color for warnings, alerts and cautions
-- Use peach color for destructive actions and errors
-
-<ColorPalette>
-  {color.additional.map(({ name, variable, hex }) => (
-    <ColorItem
-      key={name}
-      title={name}
-      subtitle={variable}
-      colors={[`#${hex}`]}
-    />
-  ))}
-</ColorPalette>
-
-## Neutral Colors
-
-This palette contains colors of very low saturation - close to gray. These are not Brainly brand colors, but they are the very foundation of our information hierarchy. Used for common text and backgrounds, these colors are the baseline that allows the others to stand out.
-
-However, they can also be used to lowlight a disabled component.
-
-<ColorPalette>
-  {color.neutrals.map(({ name, variable, hex }) => (
     <ColorItem
       key={name}
       title={name}
