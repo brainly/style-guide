@@ -1,7 +1,7 @@
 // @flow strict
 
 const color = {
-  fullColorPalette: [
+  core: [
     {
       name: 'black',
       variable: '$black',
@@ -221,13 +221,6 @@ const color = {
       name: 'gray-10',
       variable: '$gray-10',
       hex: 'F5F8FA',
-    },
-  ],
-  text: [
-    {
-      name: 'black',
-      variable: '$black',
-      hex: '000000',
     },
   ],
 };
