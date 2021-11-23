@@ -1,53 +1,53 @@
 @mixin iconColor() {
   &--adaptive {
-    color: inherit;
+    fill: inherit;
   }
 
   &--light { //default
-    color: $white;
+    fill: $white;
   }
 
   &--gray {
-    color: $grayPrimary;
+    fill: $grayPrimary;
   }
 
   &--gray-secondary {
-    color: $graySecondary;
+    fill: $graySecondary;
   }
 
   &--gray-light {
-    color: $graySecondaryLight;
+    fill: $graySecondaryLight;
   }
 
   &--blue {
-    color: $bluePrimary;
+    fill: $bluePrimary;
   }
 
   &--blue-dark {
-    color: $bluePrimaryDark;
+    fill: $bluePrimaryDark;
   }
 
   &--mustard {
-    color: $mustardPrimary;
+    fill: $mustardPrimary;
   }
 
   &--lavender {
-    color: $lavenderPrimary;
+    fill: $lavenderPrimary;
   }
 
   &--peach {
-    color: $peachPrimary;
+    fill: $peachPrimary;
   }
 
   &--peach-dark {
-    color: $peachPrimaryDark;
+    fill: $peachPrimaryDark;
   }
 
   &--dark {
-    color: $black;
+    fill: $black;
   }
 
   &--mint {
-    color: $mintPrimary;
+    fill: $mintPrimary;
   }
 }
