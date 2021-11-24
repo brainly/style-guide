@@ -52,7 +52,7 @@ function generateResponsiveClassNames<T>(
 
 type ResponsivePropType<T> =
   | T
-  | Array<T>
+  | Array<?T>
   | {
       sm: T,
       md: T,
