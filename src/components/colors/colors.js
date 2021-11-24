@@ -223,6 +223,120 @@ const color = {
       hex: 'F5F8FA',
     },
   ],
+  text: [
+    {
+      name: 'text-black',
+      variable: '$black',
+      hex: '000000',
+    },
+    {
+      name: 'text-white',
+      variable: '$white',
+      hex: 'ffffff',
+    },
+    {
+      name: 'text-blue-50',
+      variable: '$blue-50',
+      hex: '0089E3',
+    },
+    {
+      name: 'text-green-50',
+      variable: '$green-50',
+      hex: '24A865',
+    },
+    {
+      name: 'text-indigo-50',
+      variable: '$indigo-50',
+      hex: '163BF3',
+    },
+    {
+      name: 'text-red-50',
+      variable: '$red-50',
+      hex: 'FF341A',
+    },
+    {
+      name: 'text-yellow-50',
+      variable: '$yellow-50',
+      hex: 'C98600',
+    },
+    {
+      name: 'text-gray-60',
+      variable: '$gray-60',
+      hex: '46535F',
+    },
+    {
+      name: 'text-gray-50',
+      variable: '$gray-50',
+      hex: '687B8C',
+    },
+    {
+      name: 'text-gray-40',
+      variable: '$gray-40',
+      hex: 'C3D1DD',
+    },
+  ],
+  icon: [
+    {
+      name: 'icon-black',
+      variable: '$black',
+      hex: '000000',
+    },
+    {
+      name: 'icon-white',
+      variable: '$white',
+      hex: 'ffffff',
+    },
+    {
+      name: 'icon-blue-50',
+      variable: '$blue-50',
+      hex: '0089E3',
+    },
+    {
+      name: 'icon-blue-40',
+      variable: '$blue-40',
+      hex: '4FB3F6',
+    },
+    {
+      name: 'icon-green-40',
+      variable: '$green-40',
+      hex: '60D399',
+    },
+    {
+      name: 'icon-indigo-40',
+      variable: '$indigo-40',
+      hex: '6D83F3',
+    },
+    {
+      name: 'icon-red-50',
+      variable: '$red-50',
+      hex: 'FF341A',
+    },
+    {
+      name: 'icon-red-40',
+      variable: '$red-40',
+      hex: 'FF7968',
+    },
+    {
+      name: 'icon-yellow-40',
+      variable: '$yellow-40',
+      hex: 'FBBE2E',
+    },
+    {
+      name: 'icon-gray-60',
+      variable: '$gray-60',
+      hex: '46535F',
+    },
+    {
+      name: 'icon-gray-50',
+      variable: '$gray-50',
+      hex: '687B8C',
+    },
+    {
+      name: 'icon-gray-40',
+      variable: '$gray-40',
+      hex: 'C3D1DD',
+    },
+  ],
 };
 
 module.exports = color;
