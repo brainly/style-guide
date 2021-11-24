@@ -17,10 +17,41 @@ Base colors should be applied most frequently across our UI elements whereas sup
 
 ## Full-color palette
 
-Our primary color palette consists of black, white, gray, blue, green, purple, red, yellow and their variants. These colors represent our visual brand identity.
+Our color palette consists of black, white, gray, blue, green, purple, red, yellow and their variants. These colors represent our visual brand identity.
 
 <ColorPalette>
   {color.fullColorPalette.map(({ name, variable, hex }) => (
+    <ColorItem
+      key={name}
+      title={name}
+      subtitle={variable}
+      colors={[`#${hex}`]}
+    />
+  ))}
+</ColorPalette>
+
+
+## Text colors
+
+Below are colors that should be used for texts.
+
+<ColorPalette>
+  {color.text.map(({ name, variable, hex }) => (
+    <ColorItem
+      key={name}
+      title={name}
+      subtitle={variable}
+      colors={[`#${hex}`]}
+    />
+  ))}
+</ColorPalette>
+
+## Icon colors
+
+Below are colors that should be used for icons.
+
+<ColorPalette>
+  {color.icon.map(({ name, variable, hex }) => (
     <ColorItem
       key={name}
       title={name}
