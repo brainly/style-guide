@@ -4,9 +4,9 @@ import DocsBlock from 'components/DocsBlock';
 
 const colors = () => (
   <div>
-    <DocsBlock info="Core colors">
+    <DocsBlock info="Full-color palette">
       <ol className="colors-list">
-        {color.core.map(({name, variable, hex}) => (
+        {color.fullColorPalette.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}
