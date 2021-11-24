@@ -174,3 +174,9 @@ export const JustifyAndAlign = () => (
     </div>
   </div>
 );
+
+export const ResponsiveProps = () => (
+  <Flex fullWidth={[true, true, null, false]}>
+        <div>test</div>
+      </Flex>
+);

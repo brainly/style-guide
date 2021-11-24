@@ -101,4 +101,75 @@ describe('<Flex>', () => {
         .is('ul')
     ).toEqual(true);
   });
+
+  it('renders responsive props passed as object', () => {
+    const component = shallow(
+      <Flex
+        fullWidth={{
+          sm: true,
+          md: false,
+          lg: true,
+          xl: true,
+        }}
+      >
+        <div>test</div>
+      </Flex>
+    );
+
+    expect(
+      component.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--auto-width lg:sg-flex--full-width xl:sg-flex--full-width'
+      )
+    ).toHaveLength(1);
+  });
+
+  it('renders responsive class names with prop passed as array', () => {
+    const component = shallow(
+      <Flex fullWidth={[true, true, false, false]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    expect(
+      component.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+  });
+
+  it('renders responsive class names with prop passed as array', () => {
+    const component = shallow(
+      <Flex fullWidth={[true, true, false, false]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    expect(
+      component.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+  });
+
+  it('renders responsive class names when passed null or undefined as item', () => {
+    const component = shallow(
+      <Flex fullWidth={[true, true, null, false]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    expect(
+      component.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+  });
 });
