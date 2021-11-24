@@ -1,7 +1,7 @@
 // @flow strict
 
 const color = {
-  core: [
+  fullColorPalette: [
     {
       name: 'black',
       variable: '$black',
@@ -83,38 +83,38 @@ const color = {
       hex: 'F0FAF5',
     },
     {
-      name: 'purple-70',
-      variable: '$purple-70',
+      name: 'indigo-70',
+      variable: '$indigo-70',
       hex: '0C114D',
     },
     {
-      name: 'purple-60',
-      variable: '$purple-60',
+      name: 'indigo-60',
+      variable: '$indigo-60',
       hex: '133191',
     },
     {
-      name: 'purple-50',
-      variable: '$purple-50',
+      name: 'indigo-50',
+      variable: '$indigo-50',
       hex: '163BF3',
     },
     {
-      name: 'purple-40',
-      variable: '$purple-40',
+      name: 'indigo-40',
+      variable: '$indigo-40',
       hex: '6D83F3',
     },
     {
-      name: 'purple-30',
-      variable: '$purple-30',
+      name: 'indigo-30',
+      variable: '$indigo-30',
       hex: 'BDC7FB',
     },
     {
-      name: 'purple-20',
-      variable: '$purple-20',
+      name: 'indigo-20',
+      variable: '$indigo-20',
       hex: 'EBEEFF',
     },
     {
-      name: 'purple-10',
-      variable: '$purple-10',
+      name: 'indigo-10',
+      variable: '$indigo-10',
       hex: 'F2F4FF',
     },
     {
