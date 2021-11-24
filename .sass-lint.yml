@@ -5,3 +5,8 @@ rules:
   mixins-before-declarations:
     - 2
     - exclude: ['sgBreakpoint', 'sgResponsive']
+  variable-name-format:
+    - 2
+    - allow-leading-underscore: true
+      convention: ^(([a-z][a-zA-Z0-9]+)+|[a-z\-0-9]+)$
+      convention-explanation: 'Variable must be either camelcase or hyphenatedlowercase'
