@@ -10,3 +10,4 @@ rules:
     - allow-leading-underscore: true
       convention: ^(([a-z][a-zA-Z0-9]+)+|[a-z\-0-9]+)$
       convention-explanation: 'Variable must be either camelcase or hyphenatedlowercase'
+  no-css-comments: 0
