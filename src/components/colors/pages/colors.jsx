@@ -41,7 +41,6 @@ const colors = () => (
         ))}
       </ol>
     </DocsBlock>
-
   </div>
 );
 
