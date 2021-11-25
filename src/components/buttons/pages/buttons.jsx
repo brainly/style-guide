@@ -66,7 +66,7 @@ const Buttons = () => {
           style={{
             backgroundColor:
               type === 'transparent-inverted' || type === 'solid-inverted'
-                ? hex.graySecondary
+                ? hex['gray-50']
                 : null,
             paddingTop: '8px',
             paddingLeft: '16px',

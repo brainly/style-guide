@@ -41,7 +41,7 @@ Short.args = {
 export const Adaptive = args => (
   <div
     style={{
-      color: hex.lavenderPrimary,
+      color: hex['indigo-40'],
     }}
   >
     <div>Parent</div>
