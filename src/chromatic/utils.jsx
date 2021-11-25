@@ -3,10 +3,7 @@ import './styles.scss';
 
 export const mergeStories = module => {
   const stories = Object.keys(module)
-    .filter(
-      moduleExports =>
-        moduleExports !== 'Default' && moduleExports !== 'default'
-    )
+    .filter(moduleExports => moduleExports !== 'default')
     .map(moduleExportName => {
       return {
         name: moduleExportName,
