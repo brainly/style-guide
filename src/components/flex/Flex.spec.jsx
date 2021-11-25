@@ -134,6 +134,16 @@ describe('<Flex>', () => {
       </Flex>
     );
 
+    const componentWithInvalidBreakpoints = shallow(
+      <Flex
+        fullWidth={{
+          foo: 'bar',
+        }}
+      >
+        <div>test</div>
+      </Flex>
+    );
+
     expect(
       componentWithAllBreakpoints.findWhere(
         node =>
@@ -152,6 +162,12 @@ describe('<Flex>', () => {
 
     expect(
       componentWithNoBreakpoints.findWhere(
+        node => node.prop('className') === 'sg-flex'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithInvalidBreakpoints.findWhere(
         node => node.prop('className') === 'sg-flex'
       )
     ).toHaveLength(1);
