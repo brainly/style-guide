@@ -162,9 +162,9 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $mustardSecondaryLight, 12%);
-      background-color: $mustardSecondaryLight;
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $yellow-20, 12%);
+      background-color: $yellow-20;
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
@@ -188,9 +188,9 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      border-color: $mustardPrimary;
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      border-color: $yellow-40;
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
@@ -212,8 +212,8 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
@@ -234,8 +234,8 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
@@ -263,13 +263,13 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-mustard {
-    @include buttonHover($mustardPrimary, $transparent, 12%);
+    @include buttonHover($yellow-40, $transparent, 12%);
     background-color: $transparent;
-    color: $mustardPrimary;
-    fill: $mustardPrimary;
+    color: $yellow-40;
+    fill: $yellow-40;
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
+      @include buttonHover($yellow-40, $transparent, 12%);
     }
   }
 

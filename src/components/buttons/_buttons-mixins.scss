@@ -180,15 +180,15 @@ $buttonPrimaryFbHoverColor: #4367a9;
 
   // mark as best answer
   &--active-mustard {
-    color: $mustardPrimary;
+    color: $yellow-40;
 
     &:hover,
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($mustardPrimary, $transparentWhite, 12%);
-      color: $mustardPrimary;
-      fill: $mustardPrimary;
+      background-color: mix($yellow-40, $transparentWhite, 12%);
+      color: $yellow-40;
+      fill: $yellow-40;
     }
 
     &.sg-button-outline--disabled {
@@ -196,8 +196,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
       &:active,
       &:focus {
         background-color: $buttonActiveInverseColor;
-        color: $mustardPrimary;
-        fill: $mustardPrimary;
+        color: $yellow-40;
+        fill: $yellow-40;
       }
     }
   }

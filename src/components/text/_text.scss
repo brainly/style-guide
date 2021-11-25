@@ -226,12 +226,12 @@ $bodyTextSizes: (
     }
 
     &--mustard-dark {
-      color: $mustardPrimaryDark;
+      color: $yellow-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--mustard-dark
     &--mustard {
-      color: $mustardPrimaryDark;
+      color: $yellow-50;
     }
 
     &--lavender-dark {
