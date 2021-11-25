@@ -119,15 +119,15 @@ $includeHtml: false !default;
     }
 
     &--peach {
-      background-color: $peachPrimary;
+      background-color: $red-40;
     }
 
     &--peach-secondary {
-      background-color: $peachSecondary;
+      background-color: $red-30;
     }
 
     &--peach-secondary-light {
-      background-color: $peachSecondaryLight;
+      background-color: $red-20;
     }
 
     &--mustard-primary {
@@ -195,15 +195,15 @@ $includeHtml: false !default;
     }
 
     &--border-color-peach {
-      border-color: $peachPrimary;
+      border-color: $red-40;
     }
 
     &--border-color-peach-secondary {
-      border-color: $peachSecondary;
+      border-color: $red-30;
     }
 
     &--border-color-peach-secondary-light {
-      border-color: $peachSecondaryLight;
+      border-color: $red-20;
     }
 
     &--border-color-mustard-primary {

@@ -12,7 +12,7 @@ $counterSizeXS: componentSize(xs);
     display: inline-flex;
     justify-content: center;
     align-content: center;
-    background-color: $peachPrimaryDark;
+    background-color: $red-50;
     cursor: default;
 
     &__text {
@@ -26,7 +26,7 @@ $counterSizeXS: componentSize(xs);
     }
 
     &--peach-900 {
-      background-color: $peachPrimaryDark;
+      background-color: $red-50;
     }
 
     &--blue-900 {

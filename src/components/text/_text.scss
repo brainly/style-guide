@@ -239,12 +239,12 @@ $bodyTextSizes: (
     }
 
     &--peach-dark {
-      color: $peachPrimaryDark;
+      color: $red-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--peach-dark
     &--peach {
-      color: $peachPrimaryDark;
+      color: $red-50;
     }
   }
 }

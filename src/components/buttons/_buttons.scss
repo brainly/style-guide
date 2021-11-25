@@ -156,9 +156,9 @@ $largeButtonSize: componentSize(l);
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $peachSecondaryLight, 12%);
-      background-color: $peachSecondaryLight;
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $red-20, 12%);
+      background-color: $red-20;
+      fill: $red-40;
     }
 
     &-toggle-mustard {
@@ -182,9 +182,9 @@ $largeButtonSize: componentSize(l);
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      border-color: $peachPrimary;
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      border-color: $red-40;
+      fill: $red-40;
     }
 
     &-toggle-mustard {
@@ -207,8 +207,8 @@ $largeButtonSize: componentSize(l);
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      fill: $red-40;
     }
 
     &-toggle-mustard {
@@ -229,8 +229,8 @@ $largeButtonSize: componentSize(l);
     fill: $graySecondary;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      fill: $red-40;
     }
 
     &-toggle-mustard {
@@ -252,13 +252,13 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-peach {
-    @include buttonHover($peachPrimary, $transparent, 12%);
+    @include buttonHover($red-40, $transparent, 12%);
     background-color: $transparent;
-    color: $peachPrimary;
-    fill: $peachPrimary;
+    color: $red-40;
+    fill: $red-40;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
+      @include buttonHover($red-40, $transparent, 12%);
     }
   }
 

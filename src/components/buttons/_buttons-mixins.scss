@@ -2,7 +2,7 @@ $buttonAltColor: $blue-40;
 $buttonDarkColor: $black;
 
 $buttonActiveInverseColor: $white;
-$buttonActiveInverseFontColor: $peachPrimary;
+$buttonActiveInverseFontColor: $red-40;
 
 $buttonActiveScale: scale(0.985);
 $transparentWhite: rgba(255, 255, 255, 0);
@@ -204,15 +204,15 @@ $buttonPrimaryFbHoverColor: #4367a9;
 
   // thank you button
   &--active-inverse {
-    color: $peachPrimary;
+    color: $red-40;
 
     &:hover,
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($peachPrimary, $transparentWhite, 12%);
-      color: $peachPrimary;
-      fill: $peachPrimary;
+      background-color: mix($red-40, $transparentWhite, 12%);
+      color: $red-40;
+      fill: $red-40;
     }
 
     &.sg-button-outline--disabled {
