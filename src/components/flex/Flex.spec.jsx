@@ -103,7 +103,7 @@ describe('<Flex>', () => {
   });
 
   it('renders responsive props passed as object', () => {
-    const component = shallow(
+    const componentWithAllBreakpoints = shallow(
       <Flex
         fullWidth={{
           sm: true,
@@ -116,59 +116,128 @@ describe('<Flex>', () => {
       </Flex>
     );
 
+    const componentWithSomeBreakpoints = shallow(
+      <Flex
+        fullWidth={{
+          sm: true,
+          md: false,
+          lg: true,
+        }}
+      >
+        <div>test</div>
+      </Flex>
+    );
+
+    const componentWithNoBreakpoints = shallow(
+      <Flex fullWidth={{}}>
+        <div>test</div>
+      </Flex>
+    );
+
     expect(
-      component.findWhere(
+      componentWithAllBreakpoints.findWhere(
         node =>
           node.prop('className') ===
           'sg-flex sg-flex--full-width md:sg-flex--auto-width lg:sg-flex--full-width xl:sg-flex--full-width'
       )
     ).toHaveLength(1);
-  });
-
-  it('renders responsive class names with prop passed as array', () => {
-    const component = shallow(
-      <Flex fullWidth={[true, true, false, false]}>
-        <div>test</div>
-      </Flex>
-    );
 
     expect(
-      component.findWhere(
+      componentWithSomeBreakpoints.findWhere(
         node =>
           node.prop('className') ===
-          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
+          'sg-flex sg-flex--full-width md:sg-flex--auto-width lg:sg-flex--full-width'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithNoBreakpoints.findWhere(
+        node => node.prop('className') === 'sg-flex'
       )
     ).toHaveLength(1);
   });
 
   it('renders responsive class names with prop passed as array', () => {
-    const component = shallow(
+    const componentWithAllBreakpoints = shallow(
       <Flex fullWidth={[true, true, false, false]}>
         <div>test</div>
       </Flex>
     );
 
-    expect(
-      component.findWhere(
-        node =>
-          node.prop('className') ===
-          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
-      )
-    ).toHaveLength(1);
-  });
-
-  it('renders responsive class names when passed null or undefined as item', () => {
-    const component = shallow(
+    const componentWithNullBreakpoints = shallow(
       <Flex fullWidth={[true, true, null, false]}>
         <div>test</div>
       </Flex>
     );
 
+    const componentWithUndefinedBreakpoints = shallow(
+      <Flex fullWidth={[true, true, undefined, false]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    const componentWithSkippedBreakpoints = shallow(
+      // eslint-disable-next-line no-sparse-arrays
+      <Flex fullWidth={[true, true, , false]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    const componentWithNoBreakpoints = shallow(
+      <Flex fullWidth={[]}>
+        <div>test</div>
+      </Flex>
+    );
+
+    const componentWithTooManyBreakpoints = shallow(
+      <Flex fullWidth={[true, true, false, false, true, true, true]}>
+        <div>test</div>
+      </Flex>
+    );
+
     expect(
-      component.findWhere(
+      componentWithAllBreakpoints.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithNullBreakpoints.findWhere(
         node =>
           node.prop('className') ===
           'sg-flex sg-flex--full-width md:sg-flex--full-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithUndefinedBreakpoints.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithSkippedBreakpoints.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width xl:sg-flex--auto-width'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithNoBreakpoints.findWhere(
+        node => node.prop('className') === 'sg-flex'
+      )
+    ).toHaveLength(1);
+
+    expect(
+      componentWithTooManyBreakpoints.findWhere(
+        node =>
+          node.prop('className') ===
+          'sg-flex sg-flex--full-width md:sg-flex--full-width lg:sg-flex--auto-width xl:sg-flex--auto-width'
       )
     ).toHaveLength(1);
   });
