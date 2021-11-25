@@ -145,8 +145,8 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-mint {
-    @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
-    background-color: $mintPrimary;
+    @include buttonHover($green-50, $green-40, 80%);
+    background-color: $green-40;
   }
 
   &--solid-light {

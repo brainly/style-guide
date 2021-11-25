@@ -71,19 +71,19 @@ $includeHtml: false !default;
     }
 
     &--mint {
-      background-color: $mintPrimary;
+      background-color: $green-40;
     }
 
     &--mint-secondary {
-      background-color: $mintSecondary;
+      background-color: $green-30;
     }
 
     &--mint-secondary-light {
-      background-color: $mintSecondaryLight;
+      background-color: $green-20;
     }
 
     &--mint-secondary-ultra-light {
-      background-color: $mintSecondaryUltraLight;
+      background-color: $green-10;
     }
 
     &--blue {
@@ -147,19 +147,19 @@ $includeHtml: false !default;
     }
 
     &--border-color-mint {
-      border-color: $mintPrimary;
+      border-color: $green-40;
     }
 
     &--border-color-mint-secondary {
-      border-color: $mintSecondary;
+      border-color: $green-30;
     }
 
     &--border-color-mint-secondary-light {
-      border-color: $mintSecondaryLight;
+      border-color: $green-20;
     }
 
     &--border-color-mint-secondary-ultra-light {
-      border-color: $mintSecondaryUltraLight;
+      border-color: $green-10;
     }
 
     &--border-color-blue {

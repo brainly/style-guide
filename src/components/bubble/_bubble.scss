@@ -154,18 +154,18 @@ $includeHtml: false !default;
     }
 
     &--mint {
-      background-color: $mintPrimary;
-      border-color: $mintPrimary;
+      background-color: $green-40;
+      border-color: $green-40;
     }
 
     &--mint-secondary {
-      background-color: $mintSecondary;
-      border-color: $mintSecondary;
+      background-color: $green-30;
+      border-color: $green-30;
     }
 
     &--mint-secondary-light {
-      background-color: $mintSecondaryLight;
-      border-color: $mintSecondaryLight;
+      background-color: $green-20;
+      border-color: $green-20;
     }
 
     &--blue {

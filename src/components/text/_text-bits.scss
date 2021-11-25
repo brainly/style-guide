@@ -16,7 +16,7 @@ $bitSizes: (
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
     line-height: getBitSize(medium);
-    color: $mintSecondary;
+    color: $green-30;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
@@ -53,11 +53,11 @@ $bitSizes: (
     }
 
     &--mint-primary {
-      color: $mintPrimary;
+      color: $green-40;
     }
 
     &--mint-secondary {
-      color: $mintSecondary;
+      color: $green-30;
     }
 
     &--peach-primary {

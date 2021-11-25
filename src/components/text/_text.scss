@@ -208,12 +208,12 @@ $bodyTextSizes: (
     }
 
     &--mint-dark {
-      color: $mintPrimaryDark;
+      color: $green-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--mint-dark
     &--mint {
-      color: $mintPrimaryDark;
+      color: $green-50;
     }
 
     &--blue-dark {
