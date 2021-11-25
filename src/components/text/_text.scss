@@ -97,7 +97,7 @@ $bodyTextSizes: (
     &--link {
       cursor: pointer;
       text-decoration: none;
-      color: $bluePrimaryDark;
+      color: $blue-50;
 
       &:hover,
       &:active {
@@ -217,12 +217,12 @@ $bodyTextSizes: (
     }
 
     &--blue-dark {
-      color: $bluePrimaryDark;
+      color: $blue-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--blue-dark
     &--blue {
-      color: $bluePrimaryDark;
+      color: $blue-50;
     }
 
     &--mustard-dark {

@@ -169,18 +169,18 @@ $includeHtml: false !default;
     }
 
     &--blue {
-      background-color: $bluePrimary;
-      border-color: $bluePrimary;
+      background-color: $blue-40;
+      border-color: $blue-40;
     }
 
     &--blue-secondary {
-      background-color: $blueSecondary;
-      border-color: $blueSecondary;
+      background-color: $blue-30;
+      border-color: $blue-30;
     }
 
     &--blue-secondary-light {
-      background-color: $blueSecondaryLight;
-      border-color: $blueSecondaryLight;
+      background-color: $blue-20;
+      border-color: $blue-20;
     }
 
     &--lavender {

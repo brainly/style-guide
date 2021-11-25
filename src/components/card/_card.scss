@@ -81,15 +81,15 @@ $includeHtml: false !default;
       width: 100%;
 
       &--blue {
-        background-color: $bluePrimary;
+        background-color: $blue-40;
       }
 
       &--blue-secondary {
-        background-color: $blueSecondary;
+        background-color: $blue-30;
       }
 
       &--blue-secondary-light {
-        background-color: $blueSecondaryLight;
+        background-color: $blue-20;
       }
 
       &--lavender {

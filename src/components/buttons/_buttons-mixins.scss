@@ -1,4 +1,4 @@
-$buttonAltColor: $bluePrimary;
+$buttonAltColor: $blue-40;
 $buttonDarkColor: $black;
 
 $buttonActiveInverseColor: $white;
@@ -64,8 +64,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
-      border-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
+      background-color: mix($blue-50, $buttonAltColor, 80%);
+      border-color: mix($blue-50, $buttonAltColor, 80%);
     }
 
     &.sg-button-solid--disabled,

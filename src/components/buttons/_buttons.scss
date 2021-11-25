@@ -140,8 +140,8 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-blue {
-    @include buttonHover($bluePrimaryDark, $bluePrimary, 80%);
-    background-color: $bluePrimary;
+    @include buttonHover($blue-50, $blue-40, 80%);
+    background-color: $blue-40;
   }
 
   &--solid-mint {
@@ -168,9 +168,9 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $blueSecondaryLight, 12%);
-      background-color: $blueSecondaryLight;
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $blue-20, 12%);
+      background-color: $blue-20;
+      fill: $blue-40;
     }
   }
 
@@ -194,9 +194,9 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      border-color: $bluePrimary;
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      border-color: $blue-40;
+      fill: $blue-40;
     }
   }
 
@@ -217,8 +217,8 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      fill: $blue-40;
     }
   }
 
@@ -239,8 +239,8 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      fill: $blue-40;
     }
   }
 
@@ -274,13 +274,13 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-blue {
-    @include buttonHover($bluePrimary, $transparent, 12%);
+    @include buttonHover($blue-40, $transparent, 12%);
     background-color: $transparent;
-    color: $bluePrimary;
-    fill: $bluePrimary;
+    color: $blue-40;
+    fill: $blue-40;
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
+      @include buttonHover($blue-40, $transparent, 12%);
     }
   }
 
