@@ -4,9 +4,9 @@ import DocsBlock from 'components/DocsBlock';
 
 const colors = () => (
   <div>
-    <DocsBlock info="Core colors">
+    <DocsBlock info="Full-color palette">
       <ol className="colors-list">
-        {color.core.map(({name, variable, hex}) => (
+        {color.fullColorPalette.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}
@@ -16,9 +16,10 @@ const colors = () => (
         ))}
       </ol>
     </DocsBlock>
-    <DocsBlock info="Additional colors">
+
+    <DocsBlock info="Text colors">
       <ol className="colors-list">
-        {color.additional.map(({name, variable, hex}) => (
+        {color.text.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}
@@ -28,9 +29,9 @@ const colors = () => (
         ))}
       </ol>
     </DocsBlock>
-    <DocsBlock info="Neutrals">
+    <DocsBlock info="Icon colors">
       <ol className="colors-list">
-        {color.neutrals.map(({name, variable, hex}) => (
+        {color.icon.map(({name, variable, hex}) => (
           <li className="color-box" style={{background: `#${hex}`}} key={name}>
             <span className="color-box__name">
               {name} / #{hex}

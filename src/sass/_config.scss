@@ -46,10 +46,94 @@ $transparent: rgba(255, 255, 255, 0);
 $buttonPrimaryFbColor: #3c5b96;
 $buttonPrimaryFbHoverColor: #4367a9;
 
+// New colors system ⬇️
+$blue-70: #002238;
+$blue-60: #014a82;
+$blue-50: #0089e3;
+$blue-40: #4fb3f6;
+$blue-30: #b9e2fe;
+$blue-20: #d9f0ff;
+$blue-10: #edf8ff;
+
+$green-70: #002e13;
+$green-60: #00672e;
+$green-50: #24a865;
+$green-40: #60d399;
+$green-30: #9ce8c2;
+$green-20: #e3f7ed;
+$green-10: #f0faf5;
+
+$indigo-70: #0c114d;
+$indigo-60: #133191;
+$indigo-50: #163bf3;
+$indigo-40: #6d83f3;
+$indigo-30: #bdc7fb;
+$indigo-20: #ebeeff;
+$indigo-10: #f2f4ff;
+
+$red-70: #8d1a00;
+$red-60: #cf1d00;
+$red-50: #ff341a;
+$red-40: #ff7968;
+$red-30: #ffc7bf;
+$red-20: #ffe8e5;
+$red-10: #fff1f0;
+
+$yellow-70: #5b3100;
+$yellow-60: #935000;
+$yellow-50: #c98600;
+$yellow-40: #fbbe2e;
+$yellow-30: #fedd8e;
+$yellow-20: #fff3d6;
+$yellow-10: #fffaf0;
+
+$gray-70: #323c45;
+$gray-60: #46535f;
+$gray-50: #687b8c;
+$gray-40: #c3d1dd;
+$gray-30: #e1eaf1;
+$gray-20: #ebf2f7;
+$gray-10: #f5f8fa;
+
+// Text color tokens ⬇️
+$text-white: $white;
+$text-black: $black;
+$text-blue-60: $blue-60;
+$text-blue-40: $blue-40;
+$text-green-60: $green-60;
+$text-green-40: $green-40;
+$text-indigo-60: $indigo-60;
+$text-indigo-40: $indigo-40;
+$text-red-60: $red-60;
+$text-red-40: $red-40;
+$text-yellow-60: $yellow-60;
+$text-yellow-40: $yellow-40;
+$text-gray-70: $gray-70;
+$text-gray-60: $gray-60;
+$text-gray-40: $gray-40;
+
+// Icon color tokens ⬇️
+$icon-white: $white;
+$icon-black: $black;
+$icon-blue-50: $blue-50;
+$icon-green-50: $green-50;
+$icon-indigo-50: $indigo-50;
+$icon-red-50: $red-50;
+$icon-yellow-50: $yellow-50;
+$icon-gray-60: $gray-60;
+$icon-gray-50: $gray-50;
+$icon-gray-40: $gray-40;
+
 // this comment exists to suppress errors about these unused variables:
 // $mintPrimaryDark $bluePrimaryDark $lavenderPrimaryDark $peachPrimaryDark $mustardPrimaryDark
 // $blueSecondaryUltraLight $lavenderSecondaryUltraLight $mintSecondaryUltraLight
 // $mustardSecondaryUltraLight $peachSecondaryUltraLight $peachSecondary $graySecondaryLighter
+// $blue-10 $blue-20 $blue-30 $blue-70 $gray-10 $gray-20 $gray-30 $green-10 $green-20 $green-30
+// $green-70 $icon-black $icon-blue-50 $icon-gray-40 $icon-gray-50 $icon-gray-60 $icon-green-50
+// $icon-indigo-50 $icon-red-50 $icon-white $icon-yellow-50 $indigo-10 $indigo-20 $indigo-30 $indigo-70 
+// $red-10 $red-20 $red-30 $red-70 $text-black $text-blue-40 $text-blue-60 $text-gray-40 $text-gray-60 
+// $text-gray-70 $text-green-40 $text-green-60 $text-indigo-40 $text-indigo-60 $text-red-40 $text-red-60 
+// $text-white $text-yellow-40 $text-yellow-60 $yellow-10 $yellow-20 $yellow-30 $yellow-70
 
 // Shadows
 $shadowSmall: 0 2px 8px 0 rgba($grayPrimary, 0.2);

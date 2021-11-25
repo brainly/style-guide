@@ -54,7 +54,7 @@ export const MonoColor = args => (
           style={{
             width: '200px',
             background:
-              color === ICON_COLOR.LIGHT ? hex.graySecondary : 'transparent',
+              color === ICON_COLOR.LIGHT ? hex['gray-50'] : 'transparent',
           }}
           key={color}
         >

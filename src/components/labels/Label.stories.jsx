@@ -389,7 +389,7 @@ export const TrimmedText = args => {
         style={{
           width: '250px',
           border: '1px solid',
-          borderColor: hex.graySecondaryLight,
+          borderColor: hex['gray-40'],
           padding: '20px',
           marginTop: '10px',
         }}
@@ -410,7 +410,7 @@ export const TrimmedText = args => {
         style={{
           width: '150px',
           border: '1px solid',
-          borderColor: hex.graySecondaryLight,
+          borderColor: hex['gray-40'],
           padding: '20px',
           marginTop: '10px',
         }}

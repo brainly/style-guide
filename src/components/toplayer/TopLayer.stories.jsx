@@ -13,7 +13,7 @@ const Container = Story => (
       position: 'relative',
       width: '100%',
       boxSizing: 'border-box',
-      background: hex.graySecondary,
+      background: hex['gray-50'],
       padding: 15,
       display: 'flex',
     }}

@@ -84,7 +84,7 @@ export const SizeBorderImage = args => (
               <Avatar key={size} {...args} size={size} />
             </Flex>
           </td>
-          <td style={{backgroundColor: hex.graySecondaryLight}}>
+          <td style={{backgroundColor: hex['gray-40']}}>
             <Flex justifyContent="center">
               <Avatar key={size} {...args} size={size} border />
             </Flex>
