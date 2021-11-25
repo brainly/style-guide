@@ -42,22 +42,26 @@ function generateResponsiveClassNames<T>(
   }
 
   return ['sm', 'md', 'lg', 'xl']
-    .filter(breakpoint => Object.keys(prop).includes(breakpoint))
-    .map(breakpoint =>
-      breakpoint === 'sm'
-        ? createBaseClassName(prop[breakpoint])
-        : `${breakpoint}:${createBaseClassName(prop[breakpoint])}`
-    );
+    .map(breakpoint => {
+      if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
+        return '';
+      } else {
+        return breakpoint === 'sm'
+          ? createBaseClassName(prop[breakpoint])
+          : `${breakpoint}:${createBaseClassName(prop[breakpoint])}`;
+      }
+    })
+    .filter(className => className);
 }
 
 type ResponsivePropType<T> =
   | T
   | Array<?T>
   | {
-      sm: T,
-      md: T,
-      lg: T,
-      xl: T,
+      sm?: T,
+      md?: T,
+      lg?: T,
+      xl?: T,
     };
 
 type FlexContainerType =
