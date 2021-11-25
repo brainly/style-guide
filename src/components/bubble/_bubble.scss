@@ -189,8 +189,8 @@ $includeHtml: false !default;
     }
 
     &--dark {
-      background-color: $graySecondaryLight;
-      border-color: $graySecondaryLight;
+      background-color: $gray-40;
+      border-color: $gray-40;
     }
 
     &--peach {
@@ -199,8 +199,8 @@ $includeHtml: false !default;
     }
 
     &--gray-secondary-lightest {
-      background-color: $graySecondaryLightest;
-      border-color: $graySecondaryLightest;
+      background-color: $gray-20;
+      border-color: $gray-20;
     }
   }
 }

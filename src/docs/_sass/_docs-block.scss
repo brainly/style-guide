@@ -11,7 +11,7 @@
   }
 
   &__header {
-    color: $grayPrimary;
+    color: $gray-70;
     display: block;
     font-size: 24px;
     font-weight: $fontWeightNormal;
@@ -74,7 +74,7 @@
   }
 
   &__contrast-box {
-    background-color: $graySecondary;
+    background-color: $gray-50;
     padding: $baseline;
     display: inline-block;
 
@@ -96,7 +96,7 @@
     }
 
     &--light {
-      background-color: $graySecondaryLightest;
+      background-color: $gray-20;
     }
   }
 

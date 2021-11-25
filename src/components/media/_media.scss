@@ -1,8 +1,8 @@
 $mediaBackgroundColor: $white;
 $mediaFocusedBackgroundColor: $blue-20;
-$mediaClickableBackgroundColor: $graySecondaryLight;
+$mediaClickableBackgroundColor: $gray-40;
 $mediaItemColor: $black;
-$mediaItemSecondaryColor: $grayPrimary;
+$mediaItemSecondaryColor: $gray-70;
 
 .sg-media {
   display: flex;
@@ -26,7 +26,7 @@ $mediaItemSecondaryColor: $grayPrimary;
   }
 
   &--gray-secondary-light {
-    background-color: $graySecondaryLightest;
+    background-color: $gray-20;
   }
 
   &--clickable {

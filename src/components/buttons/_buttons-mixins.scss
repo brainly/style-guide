@@ -86,8 +86,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($grayPrimary, $buttonDarkColor, 80%);
-      border-color: mix($grayPrimary, $buttonDarkColor, 80%);
+      background-color: mix($gray-70, $buttonDarkColor, 80%);
+      border-color: mix($gray-70, $buttonDarkColor, 80%);
     }
 
     &.sg-button-solid--disabled,
@@ -137,8 +137,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($graySecondaryUltraLight, $white, 80%);
-      border-color: mix($graySecondaryUltraLight, $white, 80%);
+      background-color: mix($gray-10, $white, 80%);
+      border-color: mix($gray-10, $white, 80%);
     }
 
     &.sg-button-solid--disabled,

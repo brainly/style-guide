@@ -1,5 +1,5 @@
-$boxBorderColor: $graySecondaryLightest;
-$boxColorDark: $graySecondaryLight;
+$boxBorderColor: $gray-20;
+$boxColorDark: $gray-40;
 $boxColorLight: $white;
 $boxBorderSize: 2px;
 
@@ -139,11 +139,11 @@ $includeHtml: false !default;
     }
 
     &--gray-secondary-lightest {
-      background-color: $graySecondaryLightest;
+      background-color: $gray-20;
     }
 
     &--gray-secondary-ultra-light {
-      background-color: $graySecondaryUltraLight;
+      background-color: $gray-10;
     }
 
     &--border-color-mint {
@@ -215,11 +215,11 @@ $includeHtml: false !default;
     }
 
     &--border-color-gray-secondary-lightest {
-      border-color: $graySecondaryLightest;
+      border-color: $gray-20;
     }
 
     &--border-color-gray-secondary-ultra-light {
-      border-color: $graySecondaryUltraLight;
+      border-color: $gray-10;
     }
   }
 }

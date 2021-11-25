@@ -128,12 +128,12 @@ $largeButtonSize: componentSize(l);
 
   // BUTTON TYPES
   &--solid {
-    @include buttonHover($grayPrimary, $black, 80%);
+    @include buttonHover($gray-70, $black, 80%);
     background-color: $black;
   }
 
   &--solid-inverted {
-    @include buttonHover($graySecondaryUltraLight, $white, 80%);
+    @include buttonHover($gray-10, $white, 80%);
     background-color: $white;
     color: $black;
     fill: $black;
@@ -150,8 +150,8 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-light {
-    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 12%);
-    background-color: $graySecondaryLightest;
+    @include buttonHover($gray-40, $gray-20, 12%);
+    background-color: $gray-20;
     color: $black;
     fill: $black;
 
@@ -175,7 +175,7 @@ $largeButtonSize: componentSize(l);
   }
 
   &--outline {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     border: 2px solid $black;
     color: $black;
@@ -201,7 +201,7 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     color: $black;
     fill: $black;
@@ -223,10 +223,10 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-light {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
-    color: $graySecondary;
-    fill: $graySecondary;
+    color: $gray-50;
+    fill: $gray-50;
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);

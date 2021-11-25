@@ -196,15 +196,15 @@ $bodyTextSizes: (
 
     // backward compatibility for html, it should be replaced with sg-text--gray-primary
     &--gray {
-      color: $grayPrimary;
+      color: $gray-70;
     }
 
     &--gray-secondary {
-      color: $graySecondary;
+      color: $gray-50;
     }
 
     &--gray-secondary-light {
-      color: $graySecondaryLight;
+      color: $gray-40;
     }
 
     &--mint-dark {
