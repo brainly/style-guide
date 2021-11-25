@@ -99,15 +99,15 @@ $includeHtml: false !default;
     }
 
     &--lavender {
-      background-color: $lavenderPrimary;
+      background-color: $indigo-40;
     }
 
     &--lavender-secondary-ultra-light {
-      background-color: $lavenderSecondaryUltraLight;
+      background-color: $indigo-10;
     }
 
     &--lavender-secondary-light {
-      background-color: $lavenderSecondaryLight;
+      background-color: $indigo-20;
     }
 
     &--dark {
@@ -175,15 +175,15 @@ $includeHtml: false !default;
     }
 
     &--border-color-lavender {
-      border-color: $lavenderPrimary;
+      border-color: $indigo-40;
     }
 
     &--border-color-lavender-secondary-ultra-light {
-      border-color: $lavenderSecondaryUltraLight;
+      border-color: $indigo-10;
     }
 
     &--border-color-lavender-secondary-light {
-      border-color: $lavenderSecondaryLight;
+      border-color: $indigo-20;
     }
 
     &--border-color-dark {
