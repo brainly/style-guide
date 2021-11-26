@@ -19,7 +19,7 @@ export default {
   },
   args: {
     type: TYPE.ACADEMIC_CAP,
-    color: ICON_COLOR['icon-black'],
+    color: ICON_COLOR.ADAPTIVE,
     size: 32,
   },
 };

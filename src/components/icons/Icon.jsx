@@ -133,6 +133,7 @@ export type IconTypeType =
   | 'clear';
 
 export type IconColorType =
+  | 'adaptive'
   | 'icon-black'
   | 'icon-white'
   | 'icon-blue-50'
@@ -407,6 +408,7 @@ export const TYPE: {
 };
 
 export const ICON_COLOR: {
+  ADAPTIVE: 'adaptive',
   'icon-black': 'icon-black',
   'icon-white': 'icon-white',
   'icon-blue-50': 'icon-blue-50',
@@ -418,6 +420,7 @@ export const ICON_COLOR: {
   'icon-gray-50': 'icon-gray-50',
   'icon-gray-40': 'icon-gray-40',
 } = {
+  ADAPTIVE: 'adaptive',
   'icon-black': 'icon-black',
   'icon-white': 'icon-white',
   'icon-blue-50': 'icon-blue-50',
@@ -449,7 +452,7 @@ export type IconPropsType =
       /**
        * Icons colors example, see more in SG interactive
        * @example <Icon color="icon-black" type="answer" />
-       * @see color="icon-black" https://styleguide.brainly.com/latest/docs/interactive.html?color=icon-black#icons
+       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
        */
       color?: ?IconColorType,
       /**
@@ -493,7 +496,7 @@ export type IconPropsType =
       /**
        * Icons colors example, see more in SG interactive
        * @example <Icon color="icon-black" type="answer" />
-       * @see color="icon-black" https://styleguide.brainly.com/latest/docs/interactive.html?color=icon-black#icons
+       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
        */
       color?: ?IconColorType,
       /**
