@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import MobileIcon, {TYPE} from '../MobileIcon';
+import MobileIcon, {TYPE, ICON_COLOR} from '../MobileIcon';
 
 const mobileIcons = () => (
   <div>
@@ -8,7 +8,7 @@ const mobileIcons = () => (
       <ul className="icons-list">
         {Object.values(TYPE).map(type => (
           <li className="icons-list__element" key={type}>
-            <MobileIcon size="medium" color="dark" type={type} />
+            <MobileIcon size="medium" color={ICON_COLOR['icon-black']} type={type} />
             <span>&nbsp; - {type}</span>
           </li>
         ))}
