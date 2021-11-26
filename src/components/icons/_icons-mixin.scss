@@ -1,53 +1,41 @@
 @mixin iconColor() {
-  &--adaptive {
-    fill: inherit;
+  &--icon-black {
+    fill: $icon-black;
   }
 
-  &--light { //default
-    fill: $white;
+  &--icon-white {
+    fill: $icon-white;
   }
 
-  &--gray {
-    fill: $gray-70;
+  &--icon-gray-60 {
+    fill: $icon-gray-60;
   }
 
-  &--gray-secondary {
-    fill: $gray-50;
+  &--icon-gray-50 {
+    fill: $icon-gray-50;
   }
 
-  &--gray-light {
-    fill: $gray-40;
+  &--icon-gray-40 {
+    fill: $icon-gray-40;
   }
 
-  &--blue {
-    fill: $blue-40;
+  &--icon-blue-50 {
+    fill: $icon-blue-50;
   }
 
-  &--blue-dark {
-    fill: $blue-50;
+  &--icon-indigo-50 {
+    fill: $icon-indigo-50;
   }
 
-  &--mustard {
-    fill: $yellow-40;
+  &--icon-green-50 {
+    fill: $icon-green-50;
   }
 
-  &--lavender {
-    fill: $indigo-40;
+  &--icon-yellow-50 {
+    fill: $icon-yellow-50;
   }
 
-  &--peach {
-    fill: $red-40;
-  }
-
-  &--peach-dark {
-    fill: $red-50;
-  }
-
-  &--dark {
-    fill: $black;
-  }
-
-  &--mint {
-    fill: $green-40;
+  &--icon-red-50 {
+    fill: $icon-red-50;
   }
 }

@@ -133,19 +133,16 @@ export type IconTypeType =
   | 'clear';
 
 export type IconColorType =
-  | 'adaptive'
-  | 'blue'
-  | 'dark'
-  | 'gray'
-  | 'gray-light'
-  | 'gray-secondary'
-  | 'lavender'
-  | 'light'
-  | 'mint'
-  | 'mustard'
-  | 'blue-dark'
-  | 'peach-dark'
-  | 'peach';
+  | 'icon-black'
+  | 'icon-white'
+  | 'icon-blue-50'
+  | 'icon-indigo-50'
+  | 'icon-green-50'
+  | 'icon-yellow-50'
+  | 'icon-red-50'
+  | 'icon-gray-60'
+  | 'icon-gray-50'
+  | 'icon-gray-40';
 
 export type IconTagType = 'div' | 'span';
 
@@ -410,33 +407,27 @@ export const TYPE: {
 };
 
 export const ICON_COLOR: {
-  ADAPTIVE: 'adaptive',
-  BLUE: 'blue',
-  DARK: 'dark',
-  GRAY: 'gray',
-  GRAY_LIGHT: 'gray-light',
-  GRAY_SECONDARY: 'gray-secondary',
-  LAVENDER: 'lavender',
-  LIGHT: 'light',
-  MINT: 'mint',
-  MUSTARD: 'mustard',
-  PEACH: 'peach',
-  BLUE_DARK: 'blue-dark',
-  PEACH_DARK: 'peach-dark',
+  'icon-black': 'icon-black',
+  'icon-white': 'icon-white',
+  'icon-blue-50': 'icon-blue-50',
+  'icon-indigo-50': 'icon-indigo-50',
+  'icon-green-50': 'icon-green-50',
+  'icon-yellow-50': 'icon-yellow-50',
+  'icon-red-50': 'icon-red-50',
+  'icon-gray-60': 'icon-gray-60',
+  'icon-gray-50': 'icon-gray-50',
+  'icon-gray-40': 'icon-gray-40',
 } = {
-  ADAPTIVE: 'adaptive',
-  BLUE: 'blue',
-  DARK: 'dark',
-  GRAY: 'gray',
-  GRAY_LIGHT: 'gray-light',
-  GRAY_SECONDARY: 'gray-secondary',
-  LAVENDER: 'lavender',
-  LIGHT: 'light',
-  MINT: 'mint',
-  MUSTARD: 'mustard',
-  PEACH: 'peach',
-  BLUE_DARK: 'blue-dark',
-  PEACH_DARK: 'peach-dark',
+  'icon-black': 'icon-black',
+  'icon-white': 'icon-white',
+  'icon-blue-50': 'icon-blue-50',
+  'icon-indigo-50': 'icon-indigo-50',
+  'icon-green-50': 'icon-green-50',
+  'icon-yellow-50': 'icon-yellow-50',
+  'icon-red-50': 'icon-red-50',
+  'icon-gray-60': 'icon-gray-60',
+  'icon-gray-50': 'icon-gray-50',
+  'icon-gray-40': 'icon-gray-40',
 };
 
 export const ICON_TAG_TYPE: {
