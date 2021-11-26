@@ -10,7 +10,7 @@ type PropsType = {color: IconModule.IconColorType, ...};
 
 const DrawHelper = (props: PropsType) => {
   const liClass = classnames('icons-list__element', {
-    [contrastBlockCssClass]: props.color === ICON_COLOR.LIGHT,
+    [contrastBlockCssClass]: props.color === ICON_COLOR['icon-white'],
   });
   const liStyle = {padding: 0, fill: ''};
 

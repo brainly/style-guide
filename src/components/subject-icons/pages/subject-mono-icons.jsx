@@ -13,7 +13,7 @@ const subjectMonoIcons = () => (
               className="icons-list__element icons-list__element--wide"
               key={type}
             >
-              <SubjectIcon type={type} monoColor={ICON_COLOR.LIGHT} />
+              <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
               <span className="icons-list__element-info">&nbsp; - {type}</span>
             </li>
           ))}

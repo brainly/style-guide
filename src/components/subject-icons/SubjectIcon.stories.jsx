@@ -54,11 +54,11 @@ export const MonoColor = args => (
           style={{
             width: '200px',
             background:
-              color === ICON_COLOR.LIGHT ? hex['gray-50'] : 'transparent',
+              color === ICON_COLOR['icon-white'] ? hex['gray-50'] : 'transparent',
           }}
           key={color}
         >
-          {color === ICON_COLOR.LIGHT ? (
+          {color === ICON_COLOR['icon-white'] ? (
             <div className="sg-story-variant-dark-box">
               <SubjectIcon {...args} monoColor={color} />
             </div>
@@ -71,7 +71,7 @@ export const MonoColor = args => (
     <Flex wrap>
       {Object.values(TYPE).map(type => (
         <StoryVariant label={type} width={200} key={type}>
-          <SubjectIcon {...args} monoColor={ICON_COLOR.BLUE} type={type} />
+          <SubjectIcon {...args} monoColor={ICON_COLOR['icon-blue-50']} type={type} />
         </StoryVariant>
       ))}
     </Flex>

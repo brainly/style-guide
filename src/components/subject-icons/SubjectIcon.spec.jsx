@@ -28,7 +28,7 @@ test('size', () => {
 test('mono', () => {
   const type = TYPE.LANGUAGE;
   const icon = shallow(
-    <SubjectIcon type={type} monoColor={ICON_COLOR.LIGHT} />
+    <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
   );
   const use = icon.find('use');
 

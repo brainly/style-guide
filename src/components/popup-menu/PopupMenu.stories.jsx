@@ -31,17 +31,17 @@ export const ExampleUsage = () => (
     items={[
       <IconAsButton
         key={1}
-        color={ICON_COLOR.GRAY_SECONDARY}
+        color={ICON_COLOR['icon-gray-50']}
         type={TYPE.NOTIFICATIONS}
       />,
       <IconAsButton
         key={2}
-        color={ICON_COLOR.GRAY_SECONDARY}
+        color={ICON_COLOR['icon-gray-50']}
         type={TYPE.MESSAGES}
       />,
       <IconAsButton
         key={3}
-        color={ICON_COLOR.GRAY_SECONDARY}
+        color={ICON_COLOR['icon-gray-50']}
         type={TYPE.FRIENDS}
       />,
       <Avatar key={4} imgSrc="https://source.unsplash.com/64x64/?moose" />,

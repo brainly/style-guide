@@ -15,7 +15,7 @@ test('render', () => {
 
 test('colors', () => {
   const type = TYPE.ANSWER;
-  const color = ICON_COLOR.DARK;
+  const color = ICON_COLOR['icon-black'];
   const iconAsButton = shallow(<IconAsButton type={type} color={color} />);
 
   expect(iconAsButton.hasClass('sg-icon-as-button--dark')).toEqual(true);

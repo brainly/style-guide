@@ -80,7 +80,7 @@ import {Button} from 'style-guide';
 {/* Example of the thank you button created with link button */}
 <Button
   type="transparent-peach"
-  icon={<Icon type={iconTypes.HEART} color={ICON_COLOR.PEACH} size={24} />}
+  icon={<Icon type={iconTypes.HEART} color={ICON_COLOR['icon-red-50']} size={24} />}
 >
   Thank you
 </Button>

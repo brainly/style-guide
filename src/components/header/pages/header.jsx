@@ -60,7 +60,7 @@ const Headers = () => (
                     <IconAsButton
                       type={ICON_TYPE.MESSAGES}
                       transparent
-                      color={ICON_COLOR.DARK}
+                      color={ICON_COLOR['icon-black']}
                       overlay={<Counter size="small">1</Counter>}
                     />
                     <IconAsButton transparent>
@@ -74,7 +74,7 @@ const Headers = () => (
                   <HeaderRight>
                     <IconAsButton
                       type={ICON_TYPE.MENU}
-                      color={ICON_COLOR.DARK}
+                      color={ICON_COLOR['icon-black']}
                     />
                   </HeaderRight>
                 </div>
@@ -109,7 +109,7 @@ const Headers = () => (
                     <IconAsButton
                       type={ICON_TYPE.MESSAGES}
                       transparent
-                      color={ICON_COLOR.DARK}
+                      color={ICON_COLOR['icon-black']}
                       overlay={<Counter size="small">1</Counter>}
                     />
                     <IconAsButton transparent>
@@ -123,7 +123,7 @@ const Headers = () => (
                   <HeaderRight>
                     <IconAsButton
                       type={ICON_TYPE.MENU}
-                      color={ICON_COLOR.DARK}
+                      color={ICON_COLOR['icon-black']}
                     />
                   </HeaderRight>
                 </div>
@@ -168,7 +168,7 @@ const Headers = () => (
                   <HeaderRight>
                     <IconAsButton
                       type={ICON_TYPE.MENU}
-                      color={ICON_COLOR.DARK}
+                      color={ICON_COLOR['icon-black']}
                     />
                   </HeaderRight>
                 </div>
