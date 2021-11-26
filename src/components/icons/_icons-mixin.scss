@@ -1,4 +1,8 @@
 @mixin iconColor() {
+  &--adaptive {
+    fill: inherit;
+  }
+
   &--icon-black {
     fill: $icon-black;
   }

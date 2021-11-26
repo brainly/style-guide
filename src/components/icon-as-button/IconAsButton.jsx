@@ -65,7 +65,7 @@ const IconAsButton = ({
 
   if (type) {
     content = (
-      <Icon type={type} color={ICON_COLOR['icon-black']} size={ICON_SIZE[size]} />
+      <Icon type={type} size={ICON_SIZE[size]} color="adaptive" />
     );
   } else {
     content = children;
