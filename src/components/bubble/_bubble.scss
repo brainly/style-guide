@@ -154,53 +154,53 @@ $includeHtml: false !default;
     }
 
     &--mint {
-      background-color: $mintPrimary;
-      border-color: $mintPrimary;
+      background-color: $green-40;
+      border-color: $green-40;
     }
 
     &--mint-secondary {
-      background-color: $mintSecondary;
-      border-color: $mintSecondary;
+      background-color: $green-30;
+      border-color: $green-30;
     }
 
     &--mint-secondary-light {
-      background-color: $mintSecondaryLight;
-      border-color: $mintSecondaryLight;
+      background-color: $green-20;
+      border-color: $green-20;
     }
 
     &--blue {
-      background-color: $bluePrimary;
-      border-color: $bluePrimary;
+      background-color: $blue-40;
+      border-color: $blue-40;
     }
 
     &--blue-secondary {
-      background-color: $blueSecondary;
-      border-color: $blueSecondary;
+      background-color: $blue-30;
+      border-color: $blue-30;
     }
 
     &--blue-secondary-light {
-      background-color: $blueSecondaryLight;
-      border-color: $blueSecondaryLight;
+      background-color: $blue-20;
+      border-color: $blue-20;
     }
 
     &--lavender {
-      background-color: $lavenderPrimary;
-      border-color: $lavenderPrimary;
+      background-color: $indigo-40;
+      border-color: $indigo-40;
     }
 
     &--dark {
-      background-color: $graySecondaryLight;
-      border-color: $graySecondaryLight;
+      background-color: $gray-40;
+      border-color: $gray-40;
     }
 
     &--peach {
-      background-color: $peachPrimary;
-      border-color: $peachPrimary;
+      background-color: $red-40;
+      border-color: $red-40;
     }
 
     &--gray-secondary-lightest {
-      background-color: $graySecondaryLightest;
-      border-color: $graySecondaryLightest;
+      background-color: $gray-20;
+      border-color: $gray-20;
     }
   }
 }

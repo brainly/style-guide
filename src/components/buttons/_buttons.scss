@@ -128,119 +128,119 @@ $largeButtonSize: componentSize(l);
 
   // BUTTON TYPES
   &--solid {
-    @include buttonHover($grayPrimary, $black, 80%);
+    @include buttonHover($gray-70, $black, 80%);
     background-color: $black;
   }
 
   &--solid-inverted {
-    @include buttonHover($graySecondaryUltraLight, $white, 80%);
+    @include buttonHover($gray-10, $white, 80%);
     background-color: $white;
     color: $black;
     fill: $black;
   }
 
   &--solid-blue {
-    @include buttonHover($bluePrimaryDark, $bluePrimary, 80%);
-    background-color: $bluePrimary;
+    @include buttonHover($blue-50, $blue-40, 80%);
+    background-color: $blue-40;
   }
 
   &--solid-mint {
-    @include buttonHover($mintPrimaryDark, $mintPrimary, 80%);
-    background-color: $mintPrimary;
+    @include buttonHover($green-50, $green-40, 80%);
+    background-color: $green-40;
   }
 
   &--solid-light {
-    @include buttonHover($graySecondaryLight, $graySecondaryLightest, 12%);
-    background-color: $graySecondaryLightest;
+    @include buttonHover($gray-40, $gray-20, 12%);
+    background-color: $gray-20;
     color: $black;
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $peachSecondaryLight, 12%);
-      background-color: $peachSecondaryLight;
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $red-20, 12%);
+      background-color: $red-20;
+      fill: $red-40;
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $mustardSecondaryLight, 12%);
-      background-color: $mustardSecondaryLight;
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $yellow-20, 12%);
+      background-color: $yellow-20;
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $blueSecondaryLight, 12%);
-      background-color: $blueSecondaryLight;
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $blue-20, 12%);
+      background-color: $blue-20;
+      fill: $blue-40;
     }
   }
 
   &--outline {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     border: 2px solid $black;
     color: $black;
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      border-color: $peachPrimary;
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      border-color: $red-40;
+      fill: $red-40;
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      border-color: $mustardPrimary;
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      border-color: $yellow-40;
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      border-color: $bluePrimary;
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      border-color: $blue-40;
+      fill: $blue-40;
     }
   }
 
   &--transparent {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     color: $black;
     fill: $black;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      fill: $red-40;
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      fill: $blue-40;
     }
   }
 
   &--transparent-light {
-    @include buttonHover($graySecondary, $transparent, 12%);
+    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
-    color: $graySecondary;
-    fill: $graySecondary;
+    color: $gray-50;
+    fill: $gray-50;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
-      fill: $peachPrimary;
+      @include buttonHover($red-40, $transparent, 12%);
+      fill: $red-40;
     }
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
-      fill: $mustardPrimary;
+      @include buttonHover($yellow-40, $transparent, 12%);
+      fill: $yellow-40;
     }
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
-      fill: $bluePrimary;
+      @include buttonHover($blue-40, $transparent, 12%);
+      fill: $blue-40;
     }
   }
 
@@ -252,35 +252,35 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-peach {
-    @include buttonHover($peachPrimary, $transparent, 12%);
+    @include buttonHover($red-40, $transparent, 12%);
     background-color: $transparent;
-    color: $peachPrimary;
-    fill: $peachPrimary;
+    color: $red-40;
+    fill: $red-40;
 
     &-toggle-peach {
-      @include buttonHover($peachPrimary, $transparent, 12%);
+      @include buttonHover($red-40, $transparent, 12%);
     }
   }
 
   &--transparent-mustard {
-    @include buttonHover($mustardPrimary, $transparent, 12%);
+    @include buttonHover($yellow-40, $transparent, 12%);
     background-color: $transparent;
-    color: $mustardPrimary;
-    fill: $mustardPrimary;
+    color: $yellow-40;
+    fill: $yellow-40;
 
     &-toggle-mustard {
-      @include buttonHover($mustardPrimary, $transparent, 12%);
+      @include buttonHover($yellow-40, $transparent, 12%);
     }
   }
 
   &--transparent-blue {
-    @include buttonHover($bluePrimary, $transparent, 12%);
+    @include buttonHover($blue-40, $transparent, 12%);
     background-color: $transparent;
-    color: $bluePrimary;
-    fill: $bluePrimary;
+    color: $blue-40;
+    fill: $blue-40;
 
     &-toggle-blue {
-      @include buttonHover($bluePrimary, $transparent, 12%);
+      @include buttonHover($blue-40, $transparent, 12%);
     }
   }
 

@@ -1,8 +1,8 @@
-$buttonAltColor: $bluePrimary;
+$buttonAltColor: $blue-40;
 $buttonDarkColor: $black;
 
 $buttonActiveInverseColor: $white;
-$buttonActiveInverseFontColor: $peachPrimary;
+$buttonActiveInverseFontColor: $red-40;
 
 $buttonActiveScale: scale(0.985);
 $transparentWhite: rgba(255, 255, 255, 0);
@@ -43,8 +43,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
   &:active:focus {
     box-shadow: none;
     text-decoration: none;
-    background-color: mix($mintPrimaryDark, $mintPrimary, 80%);
-    border-color: mix($mintPrimaryDark, $mintPrimary, 80%);
+    background-color: mix($green-50, $green-40, 80%);
+    border-color: mix($green-50, $green-40, 80%);
   }
 
   &.sg-button-solid--disabled,
@@ -52,8 +52,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:hover,
     &:active,
     &:focus {
-      background-color: $mintPrimary;
-      border-color: $mintPrimary;
+      background-color: $green-40;
+      border-color: $green-40;
     }
   }
 
@@ -64,8 +64,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
-      border-color: mix($bluePrimaryDark, $buttonAltColor, 80%);
+      background-color: mix($blue-50, $buttonAltColor, 80%);
+      border-color: mix($blue-50, $buttonAltColor, 80%);
     }
 
     &.sg-button-solid--disabled,
@@ -86,8 +86,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($grayPrimary, $buttonDarkColor, 80%);
-      border-color: mix($grayPrimary, $buttonDarkColor, 80%);
+      background-color: mix($gray-70, $buttonDarkColor, 80%);
+      border-color: mix($gray-70, $buttonDarkColor, 80%);
     }
 
     &.sg-button-solid--disabled,
@@ -137,8 +137,8 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($graySecondaryUltraLight, $white, 80%);
-      border-color: mix($graySecondaryUltraLight, $white, 80%);
+      background-color: mix($gray-10, $white, 80%);
+      border-color: mix($gray-10, $white, 80%);
     }
 
     &.sg-button-solid--disabled,
@@ -180,15 +180,15 @@ $buttonPrimaryFbHoverColor: #4367a9;
 
   // mark as best answer
   &--active-mustard {
-    color: $mustardPrimary;
+    color: $yellow-40;
 
     &:hover,
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($mustardPrimary, $transparentWhite, 12%);
-      color: $mustardPrimary;
-      fill: $mustardPrimary;
+      background-color: mix($yellow-40, $transparentWhite, 12%);
+      color: $yellow-40;
+      fill: $yellow-40;
     }
 
     &.sg-button-outline--disabled {
@@ -196,23 +196,23 @@ $buttonPrimaryFbHoverColor: #4367a9;
       &:active,
       &:focus {
         background-color: $buttonActiveInverseColor;
-        color: $mustardPrimary;
-        fill: $mustardPrimary;
+        color: $yellow-40;
+        fill: $yellow-40;
       }
     }
   }
 
   // thank you button
   &--active-inverse {
-    color: $peachPrimary;
+    color: $red-40;
 
     &:hover,
     &:focus,
     &:active,
     &:active:focus {
-      background-color: mix($peachPrimary, $transparentWhite, 12%);
-      color: $peachPrimary;
-      fill: $peachPrimary;
+      background-color: mix($red-40, $transparentWhite, 12%);
+      color: $red-40;
+      fill: $red-40;
     }
 
     &.sg-button-outline--disabled {

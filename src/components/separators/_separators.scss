@@ -1,4 +1,4 @@
-$separatorColor: $graySecondaryLight;
+$separatorColor: $gray-40;
 $separatorHeight: rhythm(0.75);
 $separatorSpacing: 15px;
 $separatorHeightSmall: rhythm(0.417);
@@ -37,7 +37,7 @@ $includeHtml: false !default;
     }
 
     &--gray-dark {
-      border-color: $graySecondary;
+      border-color: $gray-50;
     }
   }
 }

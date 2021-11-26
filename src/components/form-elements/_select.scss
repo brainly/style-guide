@@ -12,7 +12,7 @@ $includeHtml: false !default;
       padding: 0 36px 0 spacing(s);
       appearance: none;
       width: 100%;
-      border: 2px solid $graySecondaryLightest;
+      border: 2px solid $gray-20;
       font-size: $formElementDefaultFontSize;
       color: $formElementPlacholderTextColor;
       height: $formElementSizeM;
@@ -26,7 +26,7 @@ $includeHtml: false !default;
       &:hover,
       &:focus,
       &:active {
-        border-color: $graySecondaryLightest;
+        border-color: $gray-20;
       }
     }
 
@@ -50,7 +50,7 @@ $includeHtml: false !default;
       &.sg-select--valid {
         &:hover {
           .sg-select__element {
-            background-color: mix($white, $graySecondaryUltraLight, 12%);
+            background-color: mix($white, $gray-10, 12%);
             border: 2px solid $formElementValidColor;
           }
         }
@@ -59,7 +59,7 @@ $includeHtml: false !default;
       &.sg-select--invalid {
         &:hover {
           .sg-select__element {
-            background-color: mix($white, $graySecondaryUltraLight, 12%);
+            background-color: mix($white, $gray-10, 12%);
             border: 2px solid $formElementInvalidColor;
           }
         }
@@ -67,8 +67,8 @@ $includeHtml: false !default;
 
       &:hover {
         .sg-select__element {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
-          border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+          background-color: mix($white, $gray-10, 12%);
+          border: 2px solid mix($white, $gray-10, 12%);
         }
       }
     }
@@ -77,10 +77,10 @@ $includeHtml: false !default;
       .sg-select__element {
         background-color: mix(
           $formElementDefaultBackgroundColor,
-          $graySecondaryLight,
+          $gray-40,
           80%
         );
-        border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        border: 2px solid mix($formElementDefaultBackgroundColor, $gray-40, 80%);
       }
     }
 
@@ -128,7 +128,7 @@ $includeHtml: false !default;
         .sg-select__element {
           background-color: mix(
             $formElementDefaultBackgroundColor,
-            $graySecondaryLight,
+            $gray-40,
             80%
           );
           border: 2px solid $formElementValidColor;
@@ -146,7 +146,7 @@ $includeHtml: false !default;
         .sg-select__element {
           background-color: mix(
             $formElementDefaultBackgroundColor,
-            $graySecondaryLight,
+            $gray-40,
             80%
           );
           border: 2px solid $formElementInvalidColor;

@@ -16,7 +16,7 @@ $bitSizes: (
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
     line-height: getBitSize(medium);
-    color: $mintSecondary;
+    color: $green-30;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
@@ -45,51 +45,51 @@ $bitSizes: (
     }
 
     &--blue-primary {
-      color: $bluePrimary;
+      color: $blue-40;
     }
 
     &--blue-secondary {
-      color: $blueSecondary;
+      color: $blue-30;
     }
 
     &--mint-primary {
-      color: $mintPrimary;
+      color: $green-40;
     }
 
     &--mint-secondary {
-      color: $mintSecondary;
+      color: $green-30;
     }
 
     &--peach-primary {
-      color: $peachPrimary;
+      color: $red-40;
     }
 
     &--peach-secondary {
-      color: $peachSecondary;
+      color: $red-30;
     }
 
     &--lavender-primary {
-      color: $lavenderPrimary;
+      color: $indigo-40;
     }
 
     &--lavender-secondary {
-      color: $lavenderSecondary;
+      color: $indigo-30;
     }
 
     &--mustard-primary {
-      color: $mustardPrimary;
+      color: $yellow-40;
     }
 
     &--mustard-secondary {
-      color: $mustardSecondary;
+      color: $yellow-30;
     }
 
     &--gray-secondary {
-      color: $graySecondary;
+      color: $gray-50;
     }
 
     &--gray-secondary-light {
-      color: $graySecondaryLight;
+      color: $gray-40;
     }
 
     &--white {

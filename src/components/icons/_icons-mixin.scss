@@ -8,39 +8,39 @@
   }
 
   &--gray {
-    fill: $grayPrimary;
+    fill: $gray-70;
   }
 
   &--gray-secondary {
-    fill: $graySecondary;
+    fill: $gray-50;
   }
 
   &--gray-light {
-    fill: $graySecondaryLight;
+    fill: $gray-40;
   }
 
   &--blue {
-    fill: $bluePrimary;
+    fill: $blue-40;
   }
 
   &--blue-dark {
-    fill: $bluePrimaryDark;
+    fill: $blue-50;
   }
 
   &--mustard {
-    fill: $mustardPrimary;
+    fill: $yellow-40;
   }
 
   &--lavender {
-    fill: $lavenderPrimary;
+    fill: $indigo-40;
   }
 
   &--peach {
-    fill: $peachPrimary;
+    fill: $red-40;
   }
 
   &--peach-dark {
-    fill: $peachPrimaryDark;
+    fill: $red-50;
   }
 
   &--dark {
@@ -48,6 +48,6 @@
   }
 
   &--mint {
-    fill: $mintPrimary;
+    fill: $green-40;
   }
 }

@@ -5,7 +5,7 @@ All the form elements at Brainly have to basic variants in terms of:
 
     | Color | Value | 
     | :- | :- | 
-    | default | $graySecondaryLightest |
+    | default | $gray-20 |
     | white | $white |
 
 2. Size

@@ -10,23 +10,23 @@
   line-height: rhythm(5 / 6);
   border-radius: 50px;
   outline: 0;
-  background-color: $graySecondaryLightest;
+  background-color: $gray-20;
   cursor: pointer;
   user-select: none;
   appearance: none;
-  border: 2px solid $graySecondaryLightest;
+  border: 2px solid $gray-20;
 
   &:hover {
-    border-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
-    background-color: mix($graySecondaryLight, $graySecondaryLightest, 16%);
+    border-color: mix($gray-40, $gray-20, 16%);
+    background-color: mix($gray-40, $gray-20, 16%);
   }
 
   &--opened {
     background-color: $white;
-    border-color: $graySecondaryLight;
+    border-color: $gray-40;
 
     &:hover {
-      background-color: mix($white, $graySecondaryUltraLight, 12%);
+      background-color: mix($white, $gray-10, 12%);
     }
 
     .sg-dropdown__items {
@@ -69,7 +69,7 @@
     text-decoration: none;
 
     &:hover {
-      background-color: $graySecondaryLightest;
+      background-color: $gray-20;
     }
   }
 

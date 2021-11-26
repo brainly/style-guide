@@ -1,5 +1,5 @@
 $horizontalSeparatorHeight: 0.0625rem;
-$horizontalSeparatorColor: $graySecondaryLight;
+$horizontalSeparatorColor: $gray-40;
 
 $includeHtml: false !default;
 
@@ -30,7 +30,7 @@ $includeHtml: false !default;
     }
 
     &--gray-dark {
-      border-color: $graySecondary;
+      border-color: $gray-50;
     }
   }
 }
