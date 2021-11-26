@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
@@ -79,7 +79,7 @@ const Avatar = ({
         <Icon
           className="sg-avatar__icon"
           type="profile"
-          color="gray-light"
+          color={ICON_COLOR['icon-gray-40']}
           size={ICON_SIZE[size]}
         />
       </div>
