@@ -448,8 +448,8 @@ export type IconPropsType =
       className?: ?string,
       /**
        * Icons colors example, see more in SG interactive
-       * @example <Icon color="dark" type="answer" />
-       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+       * @example <Icon color="icon-black" type="answer" />
+       * @see color="icon-black" https://styleguide.brainly.com/latest/docs/interactive.html?color=icon-black#icons
        */
       color?: ?IconColorType,
       /**
@@ -492,8 +492,8 @@ export type IconPropsType =
       className?: ?string,
       /**
        * Icons colors example, see more in SG interactive
-       * @example <Icon color="dark" type="answer" />
-       * @see color="adaptive" https://styleguide.brainly.com/latest/docs/interactive.html?color=adaptive#icons
+       * @example <Icon color="icon-black" type="answer" />
+       * @see color="icon-black" https://styleguide.brainly.com/latest/docs/interactive.html?color=icon-black#icons
        */
       color?: ?IconColorType,
       /**
