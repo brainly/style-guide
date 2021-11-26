@@ -14,7 +14,7 @@ const DrawHelper = (props: PropsType) => {
   });
   const liStyle = {padding: 0, fill: ''};
 
-  if (props.color === ICON_COLOR.ADAPTIVE) {
+  if (props.color === ICON_COLOR['icon-black']) {
     liStyle.fill = '#ff00ff';
   }
 

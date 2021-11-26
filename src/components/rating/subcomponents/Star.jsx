@@ -9,7 +9,7 @@ export type StarPropsType = {size?: IconModule.IconSizeType, ...};
 
 const Star = ({size, ...props}: StarPropsType) => (
   <span {...props} className="sg-rate-box__star">
-    <Icon type="star" size={size} color={ICON_COLOR.ADAPTIVE} />
+    <Icon type="star" size={size} color={ICON_COLOR['icon-black']} />
   </span>
 );
 
