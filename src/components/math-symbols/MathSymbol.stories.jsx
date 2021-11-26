@@ -15,7 +15,7 @@ export default {
   },
   args: {
     type: MATH_SYMBOL_TYPE.ALPHA,
-    color: ICON_COLOR.ADAPTIVE,
+    color: ICON_COLOR['icon-black'],
   },
 };
 

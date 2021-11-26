@@ -18,7 +18,7 @@ export default {
   },
   args: {
     type: TYPE.ANSWER_BUBBLE,
-    color: ICON_COLOR.ADAPTIVE,
+    color: ICON_COLOR['icon-black'],
     size: 'medium',
   },
 };
