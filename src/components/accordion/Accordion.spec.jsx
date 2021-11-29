@@ -4,9 +4,10 @@ import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import Link from '../text/Link';
 import Box from '../box/Box';
+import {testA11y} from '../../axe';
 
 describe('<Accordion>', () => {
-  it('renders', () => {
+  it('renders with named items', () => {
     const accordion = mount(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
@@ -18,6 +19,20 @@ describe('<Accordion>', () => {
         .find(AccordionItem)
         .containsMatchingElement('Accordion Item Description')
     ).toBe(true);
+
+    const headingProps = accordion
+      .find({title: 'Item 1'})
+      .find({role: 'heading'})
+      .props();
+
+    expect(
+      accordion
+        .find({title: 'Item 1'})
+        .find({role: 'region'})
+        .prop('aria-labelledby')
+    ).toEqual(headingProps.id);
+
+    expect(headingProps['aria-level']).toEqual(2);
   });
 
   it('has collapsed items by default', () => {
@@ -33,6 +48,8 @@ describe('<Accordion>', () => {
         .hostNodes()
         .prop('aria-expanded')
     ).toBe(false);
+
+    expect(accordion.find({role: 'region'}).prop('hidden')).toBe(true);
   });
 
   it('expands items after click', () => {
@@ -54,6 +71,13 @@ describe('<Accordion>', () => {
         .prop('aria-expanded')
     ).toBe(true);
 
+    expect(
+      accordion
+        .find({role: 'button'})
+        .hostNodes()
+        .prop('aria-controls')
+    ).toBe(accordion.find({role: 'region'}).prop('id'));
+
     expect(accordion.find('.sg-accordion-item__content--hidden')).toHaveLength(
       0
     );
@@ -62,24 +86,30 @@ describe('<Accordion>', () => {
   it('expands one item at a time when "allowMultiple" is set to false', () => {
     const accordion = mount(
       <Accordion>
-        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
-        <AccordionItem title="Item 2">Accordion Item Description</AccordionItem>
-        <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
+        <AccordionItem title="Item 1" id="item1">
+          Accordion Item Description
+        </AccordionItem>
+        <AccordionItem title="Item 2" id="item2">
+          Accordion Item Description
+        </AccordionItem>
+        <AccordionItem title="Item 3" id="item3">
+          Accordion Item Description
+        </AccordionItem>
       </Accordion>
     );
 
     accordion
-      .find({title: 'Item 1'})
+      .find({id: 'item1'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
     accordion
-      .find({title: 'Item 2'})
+      .find({id: 'item2'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
     accordion
-      .find({title: 'Item 3'})
+      .find({id: 'item3'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
@@ -247,5 +277,21 @@ describe('<Accordion>', () => {
     );
 
     expect(accordion.find(Link).exists()).toBe(false);
+  });
+
+  describe('A11y', () => {
+    it('renders accordion with expanded and collapsed items', async () => {
+      const accordionIds = ['id-1', 'id-2'];
+
+      await testA11y(
+        <Accordion defaultExpanded={accordionIds[0]}>
+          {accordionIds.map(id => (
+            <AccordionItem title={id} id={id} key={id}>
+              Accordion Item Description
+            </AccordionItem>
+          ))}
+        </Accordion>
+      );
+    });
   });
 });
