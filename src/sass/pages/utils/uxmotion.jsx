@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 
 const index = () => (
   <div>
-    <DocsBlock info="Motion animation durations">
+    <DocsBlock info="Animation durations">
       <ul>
         <li>
           <code>$durationInstant</code>: 0ms
@@ -28,19 +28,19 @@ const index = () => (
         </li>
       </ul>
     </DocsBlock>
-    <DocsBlock info="Transition timing functions">
+    <DocsBlock info="Easing types">
       <ul>
         <li>
-          <code>$easingRegular</code>: 0ms
+          <code>$easingRegular</code>: cubic-bezier(0.35, 0, 0.1, 1);
         </li>
         <li>
-          <code>$easingEntry</code>: 80ms
+          <code>$easingEntry</code>: cubic-bezier(0.1, 0, 0, 1);
         </li>
         <li>
-          <code>$easingExit</code>: 120ms
+          <code>$easingExit</code>: cubic-bezier(0.3, 0, 1, 0.8);
         </li>
         <li>
-          <code>$easingLinear</code>: 180ms
+          <code>$easingLinear</code>: linear
         </li>
       </ul>
     </DocsBlock>

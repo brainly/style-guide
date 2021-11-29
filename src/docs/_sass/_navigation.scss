@@ -11,7 +11,7 @@
 
   background-color: $white;
   padding: 5px 10px;
-  box-shadow: $grayPrimary 0 0 10px -2px;
+  box-shadow: $gray-70 0 0 10px -2px;
 
   &__home {
     display: inline-block;
@@ -35,7 +35,7 @@
       top: 100%;
       left: 0;
       background: $white;
-      border: solid $graySecondaryLight 1px;
+      border: solid $gray-40 1px;
       padding: 0;
       width: 100%;
       list-style: none;
@@ -56,12 +56,12 @@
 
           &:hover,
           &:focus {
-            background: $graySecondaryLight;
+            background: $gray-40;
           }
         }
 
         &.active {
-          background: $graySecondaryLight;
+          background: $gray-40;
         }
       }
     }
@@ -80,7 +80,7 @@
       top: 100%;
       left: 0;
       background: $white;
-      border: solid $graySecondaryLight 1px;
+      border: solid $gray-40 1px;
       padding: 0;
       flex-wrap: wrap;
       width: 400px;
@@ -104,7 +104,7 @@
       padding: 0;
 
       &:hover {
-        background: $graySecondaryLight;
+        background: $gray-40;
 
         > ul {
           display: flex;

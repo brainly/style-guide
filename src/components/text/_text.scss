@@ -97,7 +97,7 @@ $bodyTextSizes: (
     &--link {
       cursor: pointer;
       text-decoration: none;
-      color: $bluePrimaryDark;
+      color: $blue-50;
 
       &:hover,
       &:active {
@@ -196,55 +196,55 @@ $bodyTextSizes: (
 
     // backward compatibility for html, it should be replaced with sg-text--gray-primary
     &--gray {
-      color: $grayPrimary;
+      color: $gray-70;
     }
 
     &--gray-secondary {
-      color: $graySecondary;
+      color: $gray-50;
     }
 
     &--gray-secondary-light {
-      color: $graySecondaryLight;
+      color: $gray-40;
     }
 
     &--mint-dark {
-      color: $mintPrimaryDark;
+      color: $green-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--mint-dark
     &--mint {
-      color: $mintPrimaryDark;
+      color: $green-50;
     }
 
     &--blue-dark {
-      color: $bluePrimaryDark;
+      color: $blue-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--blue-dark
     &--blue {
-      color: $bluePrimaryDark;
+      color: $blue-50;
     }
 
     &--mustard-dark {
-      color: $mustardPrimaryDark;
+      color: $yellow-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--mustard-dark
     &--mustard {
-      color: $mustardPrimaryDark;
+      color: $yellow-50;
     }
 
     &--lavender-dark {
-      color: $lavenderPrimaryDark;
+      color: $indigo-50;
     }
 
     &--peach-dark {
-      color: $peachPrimaryDark;
+      color: $red-50;
     }
 
     // backward compatibility for html, it should be replaced with sg-text--peach-dark
     &--peach {
-      color: $peachPrimaryDark;
+      color: $red-50;
     }
   }
 }

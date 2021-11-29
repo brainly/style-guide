@@ -14,12 +14,12 @@
     }
 
     &-dark-box {
-      background: $graySecondary;
+      background: $gray-50;
       padding: spacing(m);
     }
 
     &-border-box {
-      border: 1px solid $graySecondaryLight;
+      border: 1px solid $gray-40;
       padding: spacing(m);
       border-radius: 5px;
     }

@@ -7,7 +7,7 @@
       border-top: none;
 
       &:first-child {
-        border-top: 2px solid $graySecondaryLightest;
+        border-top: 2px solid $gray-20;
         border-top-left-radius: $borderRadiusDefault;
         border-top-right-radius: $borderRadiusDefault;
       }
@@ -63,7 +63,7 @@
       flex: none;
 
       &--hover {
-        background: $graySecondaryLightest;
+        background: $gray-20;
       }
     }
   }

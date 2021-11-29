@@ -1,6 +1,6 @@
 .sg-spinner {
   background-color: transparent;
-  border: 3px solid $grayPrimary;
+  border: 3px solid $gray-70;
   border-radius: 50%;
   border-top-color: transparent;
   border-right-color: transparent;
@@ -37,28 +37,28 @@
   }
 
   &--gray-900 {
-    border-bottom-color: $grayPrimary;
-    border-left-color: $grayPrimary;
+    border-bottom-color: $gray-70;
+    border-left-color: $gray-70;
   }
 
   &--gray-700 {
-    border-bottom-color: $graySecondary;
-    border-left-color: $graySecondary;
+    border-bottom-color: $gray-50;
+    border-left-color: $gray-50;
   }
 
   &--peach-700 {
-    border-bottom-color: $peachPrimary;
-    border-left-color: $peachPrimary;
+    border-bottom-color: $red-40;
+    border-left-color: $red-40;
   }
 
   &--mustard-700 {
-    border-bottom-color: $mustardPrimary;
-    border-left-color: $mustardPrimary;
+    border-bottom-color: $yellow-40;
+    border-left-color: $yellow-40;
   }
 
   &--blue-700 {
-    border-bottom-color: $bluePrimary;
-    border-left-color: $bluePrimary;
+    border-bottom-color: $blue-40;
+    border-left-color: $blue-40;
   }
 }
 

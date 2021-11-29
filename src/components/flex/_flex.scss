@@ -109,7 +109,7 @@ $flexAlignmentValues: (
 
 // helper class just for add spacing documentation into SG
 .doc-spacing {
-  background-color: $blueSecondary;
+  background-color: $blue-30;
   margin-right: spacing(xl);
 
   @each $sizeName, $size in $flexSpacingsMap {

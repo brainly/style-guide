@@ -1,4 +1,4 @@
-$cardBorderColor: $graySecondaryLight;
+$cardBorderColor: $gray-40;
 $cardBorderSize: 1px;
 $cardShadow: $shadowSmall;
 
@@ -81,71 +81,71 @@ $includeHtml: false !default;
       width: 100%;
 
       &--blue {
-        background-color: $bluePrimary;
+        background-color: $blue-40;
       }
 
       &--blue-secondary {
-        background-color: $blueSecondary;
+        background-color: $blue-30;
       }
 
       &--blue-secondary-light {
-        background-color: $blueSecondaryLight;
+        background-color: $blue-20;
       }
 
       &--lavender {
-        background-color: $lavenderPrimary;
+        background-color: $indigo-40;
       }
 
       &--lavender-secondary {
-        background-color: $lavenderSecondary;
+        background-color: $indigo-30;
       }
 
       &--lavender-secondary-light {
-        background-color: $lavenderSecondaryLight;
+        background-color: $indigo-20;
       }
 
       &--mint {
-        background-color: $mintPrimary;
+        background-color: $green-40;
       }
 
       &--mint-secondary {
-        background-color: $mintSecondary;
+        background-color: $green-30;
       }
 
       &--mint-secondary-light {
-        background-color: $mintSecondaryLight;
+        background-color: $green-20;
       }
 
       &--mustard {
-        background-color: $mustardPrimary;
+        background-color: $yellow-40;
       }
 
       &--mustard-secondary {
-        background-color: $mustardSecondary;
+        background-color: $yellow-30;
       }
 
       &--mustard-secondary-light {
-        background-color: $mustardSecondaryLight;
+        background-color: $yellow-20;
       }
 
       &--gray {
-        background-color: $grayPrimary;
+        background-color: $gray-70;
       }
 
       &--gray-secondary {
-        background-color: $graySecondary;
+        background-color: $gray-50;
       }
 
       &--gray-secondary-light {
-        background-color: $graySecondaryLight;
+        background-color: $gray-40;
       }
 
       &--gray-secondary-lightest {
-        background-color: $graySecondaryLightest;
+        background-color: $gray-20;
       }
 
       &--gray-secondary-ultra-light {
-        background-color: $graySecondaryUltraLight;
+        background-color: $gray-10;
       }
     }
   }

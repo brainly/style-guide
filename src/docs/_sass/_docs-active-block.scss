@@ -10,21 +10,21 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   }
 
   &--gray .docs-active-block__component {
-    background-color: $graySecondaryLightest;
+    background-color: $gray-20;
     background-size: 41px 40px;
     background-image: radial-gradient(
       circle,
-      $grayPrimary 1px,
+      $gray-70 1px,
       $docsActiveBlockTransparent 1px
     );
   }
 
   &--dark .docs-active-block__component {
-    background-color: $grayPrimary;
+    background-color: $gray-70;
     background-size: 41px 40px;
     background-image: radial-gradient(
       circle,
-      $grayPrimary 1px,
+      $gray-70 1px,
       $docsActiveBlockTransparent 1px
     );
   }
@@ -55,7 +55,7 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
     flex-direction: column;
     width: 300px;
     border: none;
-    border-left: solid $grayPrimary 1px;
+    border-left: solid $gray-70 1px;
     padding-left: gutter(3 / 4);
   }
 
@@ -72,7 +72,7 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   }
 
   &__error {
-    color: $peachPrimaryDark;
+    color: $red-50;
   }
 
   // Hack to display overlay only in the docs active block, not full screen

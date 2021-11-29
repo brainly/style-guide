@@ -1,9 +1,9 @@
 $rateHeight: componentSize(s);
-$rateStarColor: $graySecondary;
-$rateStarCheckedColor: $mustardPrimary;
-$rateStarActiveColor: $graySecondaryLight;
-$rateStarActiveCheckedColor: $mustardSecondary;
-$rateCounterColor: $graySecondary;
+$rateStarColor: $gray-50;
+$rateStarCheckedColor: $yellow-40;
+$rateStarActiveColor: $gray-40;
+$rateStarActiveCheckedColor: $yellow-30;
+$rateCounterColor: $gray-50;
 $rateFontSize: fontSize(obscure);
 $rateIconSize: componentSize(xs);
 $rateSFontSize: fontSize(small);

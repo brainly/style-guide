@@ -19,7 +19,7 @@ $includeHtml: false !default;
     &:focus:hover,
     &:active:hover {
       background-color: $white;
-      border: 2px solid $graySecondaryLight;
+      border: 2px solid $gray-40;
 
       &::placeholder {
         visibility: visible;
@@ -35,8 +35,8 @@ $includeHtml: false !default;
     }
 
     &:hover {
-      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+      background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
+      border: 2px solid mix($formElementDefaultBackgroundColor, $gray-40, 80%);
     }
 
     &--white {
@@ -45,20 +45,20 @@ $includeHtml: false !default;
       border-radius: $formElementStandardBorderRadius;
 
       &:hover {
-        background-color: mix($white, $graySecondaryUltraLight, 12%);
-        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+        background-color: mix($white, $gray-10, 12%);
+        border: 2px solid mix($white, $gray-10, 12%);
       }
 
       &.sg-input--valid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementValidColor;
         }
       }
 
       &.sg-input--invalid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementValidColor;
         }
       }
@@ -79,7 +79,7 @@ $includeHtml: false !default;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
         border: 2px solid $formElementValidColor;
       }
     }
@@ -99,7 +99,7 @@ $includeHtml: false !default;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+        background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
         border: 2px solid $formElementInvalidColor;
       }
     }

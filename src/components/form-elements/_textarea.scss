@@ -47,8 +47,8 @@ $includeHtml: false !default;
     }
 
     &:hover {
-      background-color: mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
-      border: 2px solid mix($formElementDefaultBackgroundColor, $graySecondaryLight, 80%);
+      background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
+      border: 2px solid mix($formElementDefaultBackgroundColor, $gray-40, 80%);
     }
 
     &--white {
@@ -57,21 +57,21 @@ $includeHtml: false !default;
 
       &.sg-textarea--valid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementValidColor;
         }
       }
 
       &.sg-textarea--invalid {
         &:hover {
-          background-color: mix($white, $graySecondaryUltraLight, 12%);
+          background-color: mix($white, $gray-10, 12%);
           border: 2px solid $formElementInvalidColor;
         }
       }
 
       &:hover {
-        background-color: mix($white, $graySecondaryUltraLight, 12%);
-        border: 2px solid mix($white, $graySecondaryUltraLight, 12%);
+        background-color: mix($white, $gray-10, 12%);
+        border: 2px solid mix($white, $gray-10, 12%);
       }
     }
 
