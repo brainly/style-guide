@@ -87,22 +87,23 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   achromatic: 'black',
 };
 
+// TODO: Change this map after Text color changes
 const TRANSPARENT_ICON_COLOR_MAP: {
-  'icon-blue-50': 'icon-blue-50',
-  'icon-green-50': 'icon-green-50',
-  'icon-indigo-50': 'icon-indigo-50',
-  'icon-red-50': 'icon-red-50',
-  'icon-yellow-50': 'icon-yellow-50',
-  'icon-gray-50': 'icon-gray-50',
-  'icon-black': 'icon-black',
+  blue: 'icon-blue-50',
+  mint: 'icon-green-50',
+  lavender: 'icon-indigo-50',
+  peach: 'icon-red-50',
+  mustard: 'icon-yellow-50',
+  gray: 'icon-gray-50',
+  achromatic: 'icon-black',
 } = {
-  'icon-blue-50': 'icon-blue-50',
-  'icon-green-50': 'icon-green-50',
-  'icon-indigo-50': 'icon-indigo-50',
-  'icon-red-50': 'icon-red-50',
-  'icon-yellow-50': 'icon-yellow-50',
-  'icon-gray-50': 'icon-gray-50',
-  'icon-black': 'icon-black',
+  blue: 'icon-blue-50',
+  mint: 'icon-green-50',
+  lavender: 'icon-indigo-50',
+  peach: 'icon-red-50',
+  mustard: 'icon-yellow-50',
+  gray: 'icon-gray-50',
+  achromatic: 'icon-black',
 };
 
 export const LABEL_COLORS_SET: {
