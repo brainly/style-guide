@@ -161,7 +161,13 @@ const Buttons = () => {
         <Button
           size="l"
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={32} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={32}
+            />
+          }
         >
           {buttonsText}
         </Button>
@@ -169,7 +175,13 @@ const Buttons = () => {
         <Button
           size="l"
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={32} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={32}
+            />
+          }
           iconOnly
         >
           {buttonsText}
@@ -177,14 +189,26 @@ const Buttons = () => {
         &nbsp;
         <Button
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={24} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={24}
+            />
+          }
         >
           {buttonsText}
         </Button>
         &nbsp;
         <Button
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={24} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={24}
+            />
+          }
           iconOnly
         >
           {buttonsText}
@@ -193,7 +217,13 @@ const Buttons = () => {
         <Button
           size="s"
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={16} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={16}
+            />
+          }
         >
           {buttonsText}
         </Button>
@@ -201,7 +231,13 @@ const Buttons = () => {
         <Button
           size="s"
           type="solid-blue"
-          icon={<Icon type="heart_outlined" color={ICON_COLOR['icon-white']} size={16} />}
+          icon={
+            <Icon
+              type="heart_outlined"
+              color={ICON_COLOR['icon-white']}
+              size={16}
+            />
+          }
           iconOnly
         >
           {buttonsText}

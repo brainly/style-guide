@@ -58,7 +58,10 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR['icon-black']} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR['icon-black']}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>

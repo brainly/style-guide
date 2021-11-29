@@ -85,7 +85,10 @@ export const WithComponents = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR['icon-black']} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>
@@ -130,7 +133,10 @@ export const WithBottomDivider = () => (
         <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
           <div>
             <HeaderRight>
-              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR['icon-black']} />
+              <IconAsButton
+                type={ICON_TYPE.MENU}
+                color={ICON_COLOR['icon-black']}
+              />
             </HeaderRight>
           </div>
         </RWDHelper>
@@ -171,7 +177,10 @@ export const AutoHeight = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR['icon-black']} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>
@@ -219,7 +228,10 @@ export const FixedHeader = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR['icon-black']} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>

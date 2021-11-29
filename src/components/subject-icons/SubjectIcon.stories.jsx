@@ -54,7 +54,9 @@ export const MonoColor = args => (
           style={{
             width: '200px',
             background:
-              color === ICON_COLOR['icon-white'] ? hex['gray-50'] : 'transparent',
+              color === ICON_COLOR['icon-white']
+                ? hex['gray-50']
+                : 'transparent',
           }}
           key={color}
         >
@@ -71,7 +73,11 @@ export const MonoColor = args => (
     <Flex wrap>
       {Object.values(TYPE).map(type => (
         <StoryVariant label={type} width={200} key={type}>
-          <SubjectIcon {...args} monoColor={ICON_COLOR['icon-blue-50']} type={type} />
+          <SubjectIcon
+            {...args}
+            monoColor={ICON_COLOR['icon-blue-50']}
+            type={type}
+          />
         </StoryVariant>
       ))}
     </Flex>

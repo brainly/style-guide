@@ -17,7 +17,11 @@ const Helpers = () => {
       <DocsActiveBlock settings={settings}>
         <RwdHelper hide={TYPE.MEDIUM_DOWN}>
           <span>
-            <Icon type={ICON_TYPE.HEART} color={ICON_COLOR['icon-red-50']} size={32} />
+            <Icon
+              type={ICON_TYPE.HEART}
+              color={ICON_COLOR['icon-red-50']}
+              size={32}
+            />
           </span>
         </RwdHelper>
       </DocsActiveBlock>
