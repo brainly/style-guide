@@ -30,19 +30,19 @@ export const WithIcon = () => (
   <List>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element one</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element two</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element three</Text>
     </ListItem>
@@ -53,19 +53,19 @@ export const WithSmallerIconSpacing = () => (
   <List>
     <ListItem>
       <ListItemIcon small>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element one</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon small>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element two</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon small>
-        <Icon color="dark" type="arrow_right" size={16} />
+        <Icon color="icon-black" type="arrow_right" size={16} />
       </ListItemIcon>
       <Text>Element three</Text>
     </ListItem>
@@ -76,19 +76,19 @@ export const WithSpacedItems = () => (
   <List spaced>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="dot" size={16} />
+        <Icon color="icon-black" type="dot" size={16} />
       </ListItemIcon>
       <Text>Element one</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="dot" size={16} />
+        <Icon color="icon-black" type="dot" size={16} />
       </ListItemIcon>
       <Text>Element two</Text>
     </ListItem>
     <ListItem>
       <ListItemIcon>
-        <Icon color="dark" type="dot" size={16} />
+        <Icon color="icon-black" type="dot" size={16} />
       </ListItemIcon>
       <Text>Element three</Text>
     </ListItem>
