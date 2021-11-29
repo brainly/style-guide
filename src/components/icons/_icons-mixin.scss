@@ -1,4 +1,11 @@
 @mixin iconColor() {
+  color: $white;
+  fill: currentColor;
+
+  @media (forced-colors: active) {
+    fill: CanvasText;
+  }
+  
   &--adaptive {
     color: inherit;
   }
