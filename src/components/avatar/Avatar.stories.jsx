@@ -21,11 +21,18 @@ export default {
       },
     },
   },
+  args: {
+    imgSrc: '/cat.jpeg',
+  },
 };
 
-export const Default = args => <Avatar {...args} />;
+export const Default = (args) => <Avatar {...args} />;
 
-export const SizeBorderImage = args => (
+Default.args = {
+  imgSrc: null,
+};
+
+export const SizeBorderImage = (args) => (
   <StoryVariantTable>
     <thead>
       <tr>
@@ -66,7 +73,7 @@ export const SizeBorderImage = args => (
       </tr>
     </thead>
     <tbody>
-      {Object.values(SIZE).map(size => (
+      {Object.values(SIZE).map((size) => (
         <tr key={size}>
           <td>
             <Headline
@@ -81,22 +88,17 @@ export const SizeBorderImage = args => (
           </td>
           <td>
             <Flex justifyContent="center">
-              <Avatar key={size} {...args} size={size} />
+              <Avatar key={size} {...args} size={size} imgSrc={null} />
             </Flex>
           </td>
           <td style={{backgroundColor: hex['gray-40']}}>
             <Flex justifyContent="center">
-              <Avatar key={size} {...args} size={size} border />
+              <Avatar key={size} {...args} size={size} border imgSrc={null} />
             </Flex>
           </td>
           <td>
             <Flex justifyContent="center">
-              <Avatar
-                key={size}
-                {...args}
-                size={size}
-                imgSrc="https://source.unsplash.com/240x240/?cat"
-              />
+              <Avatar key={size} {...args} size={size} />
             </Flex>
           </td>
         </tr>

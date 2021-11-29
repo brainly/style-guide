@@ -1,6 +1,10 @@
 const path = require('path');
 const argv = require('yargs').argv;
 const glob = require('glob');
+const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
+const revHash = require('rev-hash');
+const fs = require('fs');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
@@ -11,13 +15,13 @@ const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 async function findStories() {
   return glob
     .sync('src/**/*.stories.@(jsx|mdx)')
-    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
-    .map(storiesPath => path.relative(__dirname, storiesPath));
+    .filter((storiesPath) => !storiesPath.includes('.chromatic.stories.'))
+    .map((storiesPath) => path.relative(__dirname, storiesPath));
 }
 
 module.exports = {
   stories:
-    process.env.CHROMATIC === 'true'
+    process.env.STORYBOOK_ENV === 'chromatic'
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
       : findStories(),
   addons: [
@@ -25,9 +29,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  webpackFinal: config => {
+  webpackFinal: (config) => {
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
-
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
       ...config.module.rules.slice(1),
@@ -64,7 +67,9 @@ module.exports = {
                 'babel-plugin-add-react-displayname',
                 [
                   'babel-plugin-react-docgen',
-                  {DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES'},
+                  {
+                    DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+                  },
                 ],
               ],
             },
@@ -81,33 +86,81 @@ module.exports = {
           path.resolve(__dirname, '../src/_docs/styles.scss'),
         ],
       },
-      {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        include: path.join(SOURCE_DIR, 'images'),
-        options: {
-          symbolId: filePath => {
-            const pathParts = filePath.split(path.sep);
-            const symbol = path.basename(filePath, '.svg');
+    ];
 
-            switch (pathParts[pathParts.length - 2]) {
-              case 'math-symbols':
-                return `sg-math-symbol-icon-${symbol}`;
-              case 'icons':
-                return `icon-${symbol}`;
-              case 'subjects':
-                return `icon-subject-${symbol}`;
-              case 'subjects-mono':
-                return `icon-subject-mono-${symbol}`;
-              case 'mobile-icons':
-                return `icon-mobile-${symbol}`;
-              default:
-                return symbol;
-            }
-          },
+    // remove default storybook svg loader
+    config.module.rules = config.module.rules.map((rule) => {
+      if (rule.test && rule.test.toString().includes('svg')) {
+        const test = rule.test
+          .toString()
+          .replace('svg|', '')
+          .replace(/\//g, '');
+        return {...rule, test: new RegExp(test)};
+      } else {
+        return rule;
+      }
+    });
+
+    config.module.rules.push({
+      test: /\.svg$/,
+      loader: 'svg-sprite-loader',
+      sideEffects: true,
+      options: {
+        symbolId: (filePath) => {
+          const pathParts = filePath.split(path.sep);
+          const symbol = path.basename(filePath, '.svg');
+
+          switch (pathParts[pathParts.length - 2]) {
+            case 'math-symbols':
+              return `sg-math-symbol-icon-${symbol}`;
+            case 'icons':
+              return `icon-${symbol}`;
+            case 'subjects':
+              return `icon-subject-${symbol}`;
+            case 'subjects-mono':
+              return `icon-subject-mono-${symbol}`;
+            case 'mobile-icons':
+              return `icon-mobile-${symbol}`;
+            default:
+              return symbol;
+          }
         },
       },
-    ];
+    });
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
+      }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: `${path.resolve(__dirname, '../src/images/logos')}/**/*`,
+            context: path.resolve(__dirname, '../src'),
+            to: ({context, absoluteFilename}) => {
+              const hash = revHash(fs.readFileSync(absoluteFilename));
+
+              return `${path.join(
+                __dirname,
+                'public'
+              )}/[path][name]-${hash}.[ext]`;
+            },
+          },
+          {
+            from: `${path.resolve(__dirname, '../src/fonts')}/**/*`,
+            context: path.resolve(__dirname, '../src'),
+            to: ({context, absoluteFilename}) => {
+              const hash = revHash(fs.readFileSync(absoluteFilename));
+
+              return `${path.join(
+                __dirname,
+                'public'
+              )}/[path][name]-${hash}.[ext]`;
+            },
+          },
+        ],
+      })
+    );
 
     config.resolve.modules.push(
       SOURCE_COMPONENTS_DIR,
