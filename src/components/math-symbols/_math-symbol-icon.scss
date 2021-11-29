@@ -3,7 +3,8 @@
 .sg-math-symbol-icon {
   height: 64px;
   width: 64px;
-  fill: $icon-white;
+  color: $icon-white;
+  fill: currentColor;
 
   &--wide {
     width: 128px;
