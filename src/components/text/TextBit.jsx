@@ -8,20 +8,19 @@ type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
 
 type TextBitColorType =
-  | 'blue-primary'
-  | 'blue-secondary'
-  | 'mint-primary'
-  | 'mint-secondary'
-  | 'lavender-primary'
-  | 'lavender-secondary'
-  | 'peach-primary'
-  | 'peach-secondary'
-  | 'mustard-primary'
-  | 'mustard-secondary'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'white'
-  | 'black';
+  | 'text-black'
+  | 'text-gray-60'
+  | 'text-gray-40'
+  | 'text-blue-60'
+  | 'text-blue-40'
+  | 'text-green-60'
+  | 'text-green-40'
+  | 'text-indigo-60'
+  | 'text-indigo-40'
+  | 'text-red-60'
+  | 'text-red-40'
+  | 'text-yellow-60'
+  | 'text-yellow-40';
 
 export const TEXT_BIT_TYPE: {
   H1: 'h1',
@@ -56,35 +55,33 @@ export const TEXT_BIT_SIZE: {
 };
 
 export const TEXT_BIT_COLOR: {
-  BLUE_PRIMARY: 'blue-primary',
-  BLUE_SECONDARY: 'blue-secondary',
-  MINT_PRIMARY: 'mint-primary',
-  MINT_SECONDARY: 'mint-secondary',
-  PEACH_PRIMARY: 'peach-primary',
-  PEACH_SECONDARY: 'peach-secondary',
-  MUSTARAD_PRIMARY: 'mustard-primary',
-  MUSTARAD_SECONDARY: 'mustard-secondary',
-  LAVENDER_PRIMARY: 'lavender-primary',
-  LAVENDER_SECONDARY: 'lavender-secondary',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-  WHITE: 'white',
-  BLACK: 'black',
+  'text-black': 'text-black',
+  'text-gray-60': 'text-gray-60',
+  'text-gray-40': 'text-gray-40',
+  'text-blue-60': 'text-blue-60',
+  'text-blue-40': 'text-blue-40',
+  'text-green-60': 'text-green-60',
+  'text-green-40': 'text-green-40',
+  'text-indigo-60': 'text-indigo-60',
+  'text-indigo-40': 'text-indigo-40',
+  'text-red-60': 'text-red-60',
+  'text-red-40': 'text-red-40',
+  'text-yellow-60': 'text-yellow-60',
+  'text-yellow-40': 'text-yellow-40',
 } = {
-  BLUE_PRIMARY: 'blue-primary',
-  BLUE_SECONDARY: 'blue-secondary',
-  MINT_PRIMARY: 'mint-primary',
-  MINT_SECONDARY: 'mint-secondary',
-  PEACH_PRIMARY: 'peach-primary',
-  PEACH_SECONDARY: 'peach-secondary',
-  MUSTARAD_PRIMARY: 'mustard-primary',
-  MUSTARAD_SECONDARY: 'mustard-secondary',
-  LAVENDER_PRIMARY: 'lavender-primary',
-  LAVENDER_SECONDARY: 'lavender-secondary',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-  WHITE: 'white',
-  BLACK: 'black',
+  'text-black': 'text-black',
+  'text-gray-60': 'text-gray-60',
+  'text-gray-40': 'text-gray-40',
+  'text-blue-60': 'text-blue-60',
+  'text-blue-40': 'text-blue-40',
+  'text-green-60': 'text-green-60',
+  'text-green-40': 'text-green-40',
+  'text-indigo-60': 'text-indigo-60',
+  'text-indigo-40': 'text-indigo-40',
+  'text-red-60': 'text-red-60',
+  'text-red-40': 'text-red-40',
+  'text-yellow-60': 'text-yellow-60',
+  'text-yellow-40': 'text-yellow-40',
 };
 
 export type TextBitPropsType = {

@@ -28,8 +28,8 @@ test('type', () => {
 
 test('color', () => {
   const textBit = shallow(
-    <TextBit color={TEXT_BIT_COLOR.BLUE_SECONDARY}>Test</TextBit>
+    <TextBit color={TEXT_BIT_COLOR['text-blue-40']}>Test</TextBit>
   );
 
-  expect(textBit.hasClass('sg-text-bit--blue-secondary')).toBeTruthy();
+  expect(textBit.hasClass('sg-text-bit--text-blue-40')).toBeTruthy();
 });

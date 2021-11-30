@@ -16,7 +16,7 @@ $bitSizes: (
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
     line-height: getBitSize(medium);
-    color: $green-30;
+    color: $text-green-40;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
@@ -44,60 +44,56 @@ $bitSizes: (
       line-height: getBitSize(xlarge);
     }
 
-    &--blue-primary {
-      color: $blue-40;
+    &--text-black {
+      color: $text-black;
     }
 
-    &--blue-secondary {
-      color: $blue-30;
+    &--text-gray-60 {
+      color: $text-gray-60;
     }
 
-    &--mint-primary {
-      color: $green-40;
+    &--text-gray-40 {
+      color: $text-gray-40;
     }
 
-    &--mint-secondary {
-      color: $green-30;
+    &--text-blue-60 {
+      color: $text-blue-60;
     }
 
-    &--peach-primary {
-      color: $red-40;
+    &--text-blue-40 {
+      color: $text-blue-40;
     }
 
-    &--peach-secondary {
-      color: $red-30;
+    &--text-green-60 {
+      color: $text-green-60;
     }
 
-    &--lavender-primary {
-      color: $indigo-40;
+    &--text-green-40 {
+      color: $text-green-40;
     }
 
-    &--lavender-secondary {
-      color: $indigo-30;
+    &--text-indigo-60 {
+      color: $text-indigo-60;
     }
 
-    &--mustard-primary {
-      color: $yellow-40;
+    &--text-indigo-40 {
+      color: $text-indigo-40;
     }
 
-    &--mustard-secondary {
-      color: $yellow-30;
+    &--text-red-60 {
+      color: $text-red-60;
     }
 
-    &--gray-secondary {
-      color: $gray-50;
+    &--text-red-40 {
+      color: $text-red-40;
     }
 
-    &--gray-secondary-light {
-      color: $gray-40;
+    &--text-yellow-60 {
+      color: $text-yellow-60;
     }
 
-    &--white {
-      color: $white;
-    }
-
-    &--black {
-      color: $black;
+    &--text-yellow-40 {
+      color: $text-yellow-40;
     }
   }
 }
