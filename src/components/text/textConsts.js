@@ -51,46 +51,40 @@ export const TEXT_SIZE: {
 export const SIZE = TEXT_SIZE; // backward compatibility
 
 export const TEXT_COLOR: {
-  BLACK: 'black',
-  WHITE: 'white',
-  BLUE_DARK: 'blue-dark',
-  MINT_DARK: 'mint-dark',
-  LAVENDER_DARK: 'lavender-dark',
-  MUSTARD_DARK: 'mustard-dark',
-  PEACH_DARK: 'peach-dark',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  'text-black': 'text-black',
+  'text-white': 'text-white',
+  'text-gray-70': 'text-gray-70',
+  'text-gray-60': 'text-gray-60',
+  'text-gray-40': 'text-gray-40',
+  'text-blue-60': 'text-blue-60',
+  'text-blue-40': 'text-blue-40',
+  'text-green-60': 'text-green-60',
+  'text-green-40': 'text-green-40',
+  'text-indigo-60': 'text-indigo-60',
+  'text-indigo-40': 'text-indigo-40',
+  'text-red-60': 'text-red-60',
+  'text-red-40': 'text-red-40',
+  'text-yellow-60': 'text-yellow-60',
+  'text-yellow-40': 'text-yellow-40';
 } = {
-  BLACK: 'black',
-  WHITE: 'white',
-  BLUE_DARK: 'blue-dark',
-  MINT_DARK: 'mint-dark',
-  LAVENDER_DARK: 'lavender-dark',
-  MUSTARD_DARK: 'mustard-dark',
-  PEACH_DARK: 'peach-dark',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  'text-black': 'text-black',
+  'text-white': 'text-white',
+  'text-gray-70': 'text-gray-70',
+  'text-gray-60': 'text-gray-60',
+  'text-gray-40': 'text-gray-40',
+  'text-blue-60': 'text-blue-60',
+  'text-blue-40': 'text-blue-40',
+  'text-green-60': 'text-green-60',
+  'text-green-40': 'text-green-40',
+  'text-indigo-60': 'text-indigo-60',
+  'text-indigo-40': 'text-indigo-40',
+  'text-red-60': 'text-red-60',
+  'text-red-40': 'text-red-40',
+  'text-yellow-60': 'text-yellow-60',
+  'text-yellow-40': 'text-yellow-40';
 };
 
-export const LINK_COLOR: {
-  BLUE_DARK: 'blue-dark',
-  WHITE: 'white',
-  MINT_DARK: 'mint-dark',
-  BLACK: 'black',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-} = {
-  BLUE_DARK: 'blue-dark',
-  WHITE: 'white',
-  MINT_DARK: 'mint-dark',
-  BLACK: 'black',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-};
+export const LINK_COLOR = TEXT_COLOR;
 
 export const COLOR = TEXT_COLOR; // backward compatibility
 
