@@ -95,44 +95,44 @@ $headlineSizes: (
       font-weight: $fontWeightBlack;
     }
 
-    &--white {
-      color: $white;
+    &--text-white {
+      color: $text-white;
     }
 
-    &--black {
-      color: $black;
+    &--text-black {
+      color: $text-black;
     }
 
-    &--gray {
-      color: $gray-70;
+    &--text-gray-70 {
+      color: $text-gray-70;
     }
 
-    &--gray-secondary {
-      color: $gray-50;
+    &--text-gray-60 {
+      color: $text-gray-60;
     }
 
-    &--gray-secondary-light {
-      color: $gray-40;
+    &--text-gray-40 {
+      color: $text-gray-40;
     }
 
-    &--mint-dark {
-      color: $green-50;
+    &--text-blue-60 {
+      color: $text-blue-60;
     }
 
-    &--blue-dark {
-      color: $blue-50;
+    &--text-green-60 {
+      color: $text-green-60;
     }
 
-    &--mustard-dark {
-      color: $yellow-50;
+    &--text-indigo-60 {
+      color: $text-indigo-60;
     }
 
-    &--lavender-dark {
-      color: $indigo-50;
+    &--text-red-60 {
+      color: $text-red-60;
     }
 
-    &--peach-dark {
-      color: $red-50;
+    &--text-yellow-60 {
+      color: $text-yellow-60;
     }
 
     &--uppercase {

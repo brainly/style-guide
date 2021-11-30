@@ -17,16 +17,16 @@ export type HeadlineSizeType =
   | 'xxxlarge';
 
 export type HeadlineColorType =
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'mint-dark'
-  | 'peach-dark'
-  | 'lavender-dark'
-  | 'mustard-dark'
-  | 'blue-dark';
+  | 'text-black'
+  | 'text-white'
+  | 'text-gray-70'
+  | 'text-gray-60'
+  | 'text-gray-40'
+  | 'text-blue-60'
+  | 'text-green-60'
+  | 'text-indigo-60'
+  | 'text-red-60'
+  | 'text-yellow-60';
 
 export type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
