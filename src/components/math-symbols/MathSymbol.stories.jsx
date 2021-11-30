@@ -45,7 +45,7 @@ export const Colors = args => (
   <Flex wrap>
     {Object.values(ICON_COLOR).map(color => (
       <StoryVariant label={color} color={color} width={200} key={color}>
-        {color === 'light' ? (
+        {color === 'icon-white' ? (
           <div className="sg-story-variant-dark-box">
             <MathSymbol {...args} size={color} />
           </div>
