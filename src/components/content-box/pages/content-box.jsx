@@ -10,7 +10,7 @@ import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
-import Icon from 'icons/Icon';
+import Icon, {ICON_COLOR} from 'icons/Icon';
 import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
@@ -328,7 +328,7 @@ const ContentBoxes = () => (
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button
             type="transparent-peach"
-            icon={<Icon type="heart" color="peach" />}
+            icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
           </Button>
@@ -357,7 +357,7 @@ const ContentBoxes = () => (
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button
             type="transparent-peach"
-            icon={<Icon type="heart" color="peach" />}
+            icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
           </Button>
@@ -433,7 +433,7 @@ const ContentBoxes = () => (
           />
           <Button
             type="transparent-peach"
-            icon={<Icon type="heart" color="peach" />}
+            icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
           </Button>
@@ -447,7 +447,7 @@ const ContentBoxes = () => (
           <Breadcrumbs elements={breadcrumbsSpaced2} />
           <Button
             type="transparent-peach"
-            icon={<Icon type="heart" color="peach" />}
+            icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
           </Button>

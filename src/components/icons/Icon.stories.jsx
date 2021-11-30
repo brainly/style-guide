@@ -136,7 +136,7 @@ export const Colors = args => (
       <div
         key={color}
         className={classnames('sg-icon-story-variant', {
-          'sg-story-variant-dark-box': color === ICON_COLOR.LIGHT,
+          'sg-story-variant-dark-box': color === ICON_COLOR['icon-white'],
         })}
         style={{padding: 10}}
       >

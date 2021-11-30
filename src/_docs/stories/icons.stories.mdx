@@ -24,7 +24,7 @@ Comonly used icon set. Contains _editor icons_, _system icons_ and _social media
 <IconGallery>
   {Object.values(TYPE).map((type) => (
     <IconItem name={type} key={type}>
-      <Icon size={32} color="dark" type={type} />
+      <Icon size={32} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
   ))}
 </IconGallery>
@@ -36,7 +36,7 @@ Icons used in © Brainly mobile application.
 <IconGallery>
   {Object.values(MOBILE_TYPE).map((type) => (
     <IconItem name={type} key={type}>
-      <MobileIcon size={32} color="dark" type={type} />
+      <MobileIcon size={32} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
   ))}
 </IconGallery>
@@ -60,7 +60,7 @@ Icon set for subject related content - monochromatic version.
 <IconGallery>
   {Object.values(SUBJECT_TYPE).map((type) => (
     <IconItem name={type} key={type}>
-      <SubjectIcon type={type} size="small" monoColor="gray" />
+      <SubjectIcon type={type} size="small" monoColor={ICON_COLOR['icon-gray-70']} />
     </IconItem>
   ))}
 </IconGallery>
@@ -72,7 +72,7 @@ Icon set used in rich text editor.
 <IconGallery>
   {Object.values(MATH_SYMBOL_TYPE).map((type) => (
     <IconItem name={type} key={type}>
-      <MathSymbol type={type} color="dark" size="small" />
+      <MathSymbol type={type} color={ICON_COLOR['icon-gray-70']} size="small" />
     </IconItem>
   ))}
 </IconGallery>

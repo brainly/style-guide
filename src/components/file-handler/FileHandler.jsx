@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Text from '../text/Text';
 import Link from '../text/Link';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 
 import type {IconTypeType} from '../icons/Icon';
@@ -137,7 +137,7 @@ const FileHandler = ({
       />
     ) : (
       <a {...clickProps}>
-        <Icon type={iconType} size={24} color="dark" />
+        <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
       </a>
     );
 
@@ -159,7 +159,7 @@ const FileHandler = ({
       </span>
       {onClose && (
         <button className="sg-file-handler__close-button" onClick={onClose}>
-          <Icon type="close" size={16} color="dark" />
+          <Icon type="close" size={16} color={ICON_COLOR['icon-black']} />
         </button>
       )}
     </div>

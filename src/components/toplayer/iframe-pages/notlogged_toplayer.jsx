@@ -30,7 +30,7 @@ const content = (
           <ListItemIcon>
             <Icon
               type={ICON_TYPE.PLUS}
-              color={ICON_COLOR.GRAY_SECONDARY}
+              color={ICON_COLOR['icon-gray-50']}
               size={18}
             />
           </ListItemIcon>
@@ -42,7 +42,7 @@ const content = (
           <ListItemIcon>
             <Icon
               type={ICON_TYPE.PLUS}
-              color={ICON_COLOR.GRAY_SECONDARY}
+              color={ICON_COLOR['icon-gray-50']}
               size={18}
             />
           </ListItemIcon>
@@ -52,7 +52,7 @@ const content = (
           <ListItemIcon>
             <Icon
               type={ICON_TYPE.PLUS}
-              color={ICON_COLOR.GRAY_SECONDARY}
+              color={ICON_COLOR['icon-gray-50']}
               size={18}
             />
           </ListItemIcon>

@@ -4,7 +4,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import Input, {COLOR, SIZE} from '../form-elements/Input';
 import type {InputPropsType} from '../form-elements/Input';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 import Button from '../buttons/Button';
 
 export type SearchPropsType = {
@@ -86,7 +86,7 @@ const Search = ({
         <button className={`${baseClassName}__icon`}>
           <Icon
             type="search"
-            color="gray-secondary"
+            color={ICON_COLOR['icon-gray-50']}
             size={size === 'l' ? 24 : 16}
           />
         </button>

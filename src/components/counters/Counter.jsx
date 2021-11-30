@@ -4,7 +4,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
@@ -117,7 +117,7 @@ const Counter = ({
           <Icon
             type={icon}
             size={size === 'xxs' ? 16 : 24}
-            color="dark"
+            color={ICON_COLOR['icon-black']}
             className="sg-counter__icon"
           />
         </Flex>

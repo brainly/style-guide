@@ -43,7 +43,10 @@ const IconsAsButtons = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <IconAsButton color={ICON_COLOR.GRAY} type={TYPE.ATTACHMENT} />
+        <IconAsButton
+          color={ICON_COLOR['icon-gray-70']}
+          type={TYPE.ATTACHMENT}
+        />
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={settings}>

@@ -8,7 +8,7 @@ const icons = () => (
       <ul className="icons-list">
         {Object.values(TYPE).map(type => (
           <li className="icons-list__element" key={type}>
-            <Icon size={32} color="dark" type={type} />
+            <Icon size={32} color={ICON_COLOR['icon-black']} type={type} />
             <span>&nbsp; - {type}</span>
           </li>
         ))}
@@ -22,7 +22,7 @@ const icons = () => (
             className="icons-list__element icons-list__element--wider"
             key={size}
           >
-            <Icon color="dark" size={size} type="answer" />
+            <Icon color={ICON_COLOR['icon-black']} size={size} type="answer" />
             <span>&nbsp; - {size}</span>
           </li>
         ))}
@@ -43,7 +43,7 @@ const icons = () => (
     <DocsBlock info="Custom SVG">
       <ul className="icons-list">
         <li className="icons-list__element">
-          <Icon color="peach" size="32">
+          <Icon color={ICON_COLOR['icon-red-50']} size="32">
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path

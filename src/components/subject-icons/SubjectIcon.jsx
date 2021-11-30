@@ -277,7 +277,7 @@ const SubjectIcon = ({
     {
       [`sg-subject-icon--${size}`]: size !== SIZE.NORMAL,
       [`sg-subject-icon--${String(monoColor)}`]:
-        monoColor !== ICON_COLOR.LIGHT && monoColor !== undefined,
+        monoColor !== ICON_COLOR['icon-white'] && monoColor !== undefined,
     },
     className
   );

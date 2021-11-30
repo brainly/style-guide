@@ -337,9 +337,9 @@ const color = {
       hex: 'c98600',
     },
     {
-      name: 'icon-gray-60',
-      variable: '$icon-gray-60',
-      hex: '46535f',
+      name: 'icon-gray-70',
+      variable: '$icon-gray-70',
+      hex: '323C45',
     },
     {
       name: 'icon-gray-50',

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type OptionsPropsType = {
   value: string,
@@ -149,7 +149,7 @@ const Select = (props: SelectPropsType) => {
       <div className="sg-select__icon">
         <Icon
           type="arrow_down"
-          color="gray-secondary"
+          color={ICON_COLOR['icon-gray-50']}
           size={size === 'l' ? 24 : 16}
         />
       </div>

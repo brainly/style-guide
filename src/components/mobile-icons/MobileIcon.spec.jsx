@@ -19,7 +19,7 @@ test('type passed to xlink:href', () => {
 
 test('colors', () => {
   const type = TYPE.ANSWER_BUBBLE;
-  const color = ICON_COLOR.DARK;
+  const color = ICON_COLOR['icon-black'];
   const icon = shallow(<MobileIcon type={type} color={color} />);
 
   expect(icon.hasClass(`sg-mobile-icon--${color}`)).toEqual(true);
