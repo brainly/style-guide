@@ -127,7 +127,7 @@ $includeHtml: false !default;
 
     @include colorTheme('icon-white', $iconAsButtonLightColor, $iconAsButtonLightActiveColor, $iconAsButtonColor);
     @include colorTheme('icon-black', $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
-    @include colorTheme('icon-gray-60', $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
+    @include colorTheme('icon-gray-70', $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
     @include colorTheme('icon-gray-50', $iconAsButtonGraySecondaryColor, $iconAsButtonGraySecondaryActiveColor);
     @include colorTheme('icon-gray-40', $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
     @include colorTheme('icon-green-50', $iconAsButtonMintColor, $iconAsButtonMintActiveColor);

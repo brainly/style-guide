@@ -44,7 +44,7 @@ const IconsAsButtons = () => {
     <div>
       <DocsActiveBlock settings={settings}>
         <IconAsButton
-          color={ICON_COLOR['icon-gray-60']}
+          color={ICON_COLOR['icon-gray-70']}
           type={TYPE.ATTACHMENT}
         />
       </DocsActiveBlock>

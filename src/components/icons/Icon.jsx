@@ -141,7 +141,7 @@ export type IconColorType =
   | 'icon-green-50'
   | 'icon-yellow-50'
   | 'icon-red-50'
-  | 'icon-gray-60'
+  | 'icon-gray-70'
   | 'icon-gray-50'
   | 'icon-gray-40';
 
@@ -416,7 +416,7 @@ export const ICON_COLOR: {
   'icon-green-50': 'icon-green-50',
   'icon-yellow-50': 'icon-yellow-50',
   'icon-red-50': 'icon-red-50',
-  'icon-gray-60': 'icon-gray-60',
+  'icon-gray-70': 'icon-gray-70',
   'icon-gray-50': 'icon-gray-50',
   'icon-gray-40': 'icon-gray-40',
 } = {
@@ -428,7 +428,7 @@ export const ICON_COLOR: {
   'icon-green-50': 'icon-green-50',
   'icon-yellow-50': 'icon-yellow-50',
   'icon-red-50': 'icon-red-50',
-  'icon-gray-60': 'icon-gray-60',
+  'icon-gray-70': 'icon-gray-70',
   'icon-gray-50': 'icon-gray-50',
   'icon-gray-40': 'icon-gray-40',
 };
