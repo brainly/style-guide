@@ -11,7 +11,7 @@ $largeButtonSize: componentSize(l);
   }
 }
 
-@mixin iconColor($color) {
+@mixin buttonIconColor($color) {
   & .sg-button__icon {
     color: $color;
   }
@@ -160,19 +160,19 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $red-20, 12%);
-      @include iconColor($red-40);
+      @include buttonIconColor($red-40);
       background-color: $red-20;
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $yellow-20, 12%);
-      @include iconColor($yellow-40);
+      @include buttonIconColor($yellow-40);
       background-color: $yellow-20;
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $blue-20, 12%);
-      @include iconColor($blue-40);
+      @include buttonIconColor($blue-40);
       background-color: $blue-20;
     }
   }
@@ -185,19 +185,19 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include iconColor($red-40);
+      @include buttonIconColor($red-40);
       border-color: $red-40;
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include iconColor($yellow-40);
+      @include buttonIconColor($yellow-40);
       border-color: $yellow-40;
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include iconColor($blue-40);
+      @include buttonIconColor($blue-40);
       border-color: $blue-40;
     }
   }
@@ -209,17 +209,17 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include iconColor($red-40);
+      @include buttonIconColor($red-40);
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include iconColor($yellow-40);
+      @include buttonIconColor($yellow-40);
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include iconColor($blue-40);
+      @include buttonIconColor($blue-40);
     }
   }
 
@@ -230,17 +230,17 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include iconColor($red-40);
+      @include buttonIconColor($red-40);
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include iconColor($yellow-40);
+      @include buttonIconColor($yellow-40);
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include iconColor($blue-40);
+      @include buttonIconColor($blue-40);
     }
   }
 
