@@ -52,7 +52,7 @@ $bodyTextSizes: (
     @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;
     font-weight: $fontWeightNormal;
-    color: $black;
+    color: $text-black;
 
     &--inherited {
       font-size: inherit;
@@ -97,7 +97,7 @@ $bodyTextSizes: (
     &--link {
       cursor: pointer;
       text-decoration: none;
-      color: $blue-50;
+      color: $text-blue-60;
 
       &:hover,
       &:active {
@@ -186,65 +186,64 @@ $bodyTextSizes: (
       white-space: nowrap;
     }
 
-    &--white {
-      color: $white;
+    &--text-white {
+      color: $text-white;
     }
 
-    &--black {
-      color: $black;
+    &--text-black {
+      color: $text-black;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--gray-primary
-    &--gray {
-      color: $gray-70;
+    &--text-gray-70 {
+      color: $text-gray-70;
     }
 
-    &--gray-secondary {
-      color: $gray-50;
+    &--text-gray-60 {
+      color: $text-gray-60;
     }
 
-    &--gray-secondary-light {
-      color: $gray-40;
+    &--text-gray-40 {
+      color: $text-gray-40;
     }
 
-    &--mint-dark {
-      color: $green-50;
+    &--text-blue-60 {
+      color: $text-blue-60;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--mint-dark
-    &--mint {
-      color: $green-50;
+    &--text-blue-40 {
+      color: $text-blue-40;
     }
 
-    &--blue-dark {
-      color: $blue-50;
+    &--text-green-60 {
+      color: $text-green-60;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--blue-dark
-    &--blue {
-      color: $blue-50;
+    &--text-green-40 {
+      color: $text-green-40;
     }
 
-    &--mustard-dark {
-      color: $yellow-50;
+    &--text-indigo-60 {
+      color: $text-indigo-60;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--mustard-dark
-    &--mustard {
-      color: $yellow-50;
+    &--text-indigo-40 {
+      color: $text-indigo-40;
     }
 
-    &--lavender-dark {
-      color: $indigo-50;
+    &--text-red-60 {
+      color: $text-red-60;
     }
 
-    &--peach-dark {
-      color: $red-50;
+    &--text-red-40 {
+      color: $text-red-40;
     }
 
-    // backward compatibility for html, it should be replaced with sg-text--peach-dark
-    &--peach {
-      color: $red-50;
+    &--text-yellow-60 {
+      color: $text-yellow-60;
+    }
+
+    &--text-yellow-40 {
+      color: $text-yellow-40;
     }
   }
 }

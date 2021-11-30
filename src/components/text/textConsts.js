@@ -65,7 +65,7 @@ export const TEXT_COLOR: {
   'text-red-60': 'text-red-60',
   'text-red-40': 'text-red-40',
   'text-yellow-60': 'text-yellow-60',
-  'text-yellow-40': 'text-yellow-40';
+  'text-yellow-40': 'text-yellow-40'
 } = {
   'text-black': 'text-black',
   'text-white': 'text-white',
@@ -81,7 +81,7 @@ export const TEXT_COLOR: {
   'text-red-60': 'text-red-60',
   'text-red-40': 'text-red-40',
   'text-yellow-60': 'text-yellow-60',
-  'text-yellow-40': 'text-yellow-40';
+  'text-yellow-40': 'text-yellow-40'
 };
 
 export const LINK_COLOR = TEXT_COLOR;
