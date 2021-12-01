@@ -110,6 +110,7 @@ $text-yellow-60: $yellow-60;
 $text-yellow-40: $yellow-40;
 $text-gray-70: $gray-70;
 $text-gray-60: $gray-60;
+$text-gray-50: $gray-50;
 $text-gray-40: $gray-40;
 
 // Icon color tokens ⬇️
@@ -125,16 +126,16 @@ $icon-gray-50: $gray-50;
 $icon-gray-40: $gray-40;
 
 // this comment exists to suppress errors about these unused variables:
-// $bluePrimary $bluePrimaryDark $blueSecondary $blueSecondaryLight $blueSecondaryUltraLight 
+// $bluePrimary $bluePrimaryDark $blueSecondary $blueSecondaryLight $blueSecondaryUltraLight
 // $graySecondaryLighter $lavenderPrimary $lavenderPrimaryDark $lavenderSecondary $lavenderSecondaryLight
 // $lavenderSecondaryUltraLight $mintPrimaryDark $mintSecondary $mintSecondaryLight $mintSecondaryUltraLight
 // $mustardPrimary $mustardPrimaryDark $mustardSecondary $mustardSecondaryLight $mustardSecondaryUltraLight
 // $peachPrimaryDark $peachSecondary $peachSecondaryLight $peachSecondaryUltraLight
 // $blue-10 $blue-20 $blue-30 $blue-70 $gray-10 $gray-20 $gray-30 $green-10 $green-20 $green-30
 // $green-70 $icon-black $icon-blue-50 $icon-gray-40 $icon-gray-50 $icon-gray-70 $icon-green-50
-// $icon-indigo-50 $icon-red-50 $icon-white $icon-yellow-50 $indigo-10 $indigo-20 $indigo-30 $indigo-70 
-// $red-10 $red-20 $red-30 $red-70 $text-black $text-blue-40 $text-blue-60 $text-gray-40 $text-gray-60 
-// $text-gray-70 $text-green-40 $text-green-60 $text-indigo-40 $text-indigo-60 $text-red-40 $text-red-60 
+// $icon-indigo-50 $icon-red-50 $icon-white $icon-yellow-50 $indigo-10 $indigo-20 $indigo-30 $indigo-70
+// $red-10 $red-20 $red-30 $red-70 $text-black $text-blue-40 $text-blue-60 $text-gray-40 $text-gray-60
+// $text-gray-70 $text-green-40 $text-green-60 $text-indigo-40 $text-indigo-60 $text-red-40 $text-red-60
 // $text-white $text-yellow-40 $text-yellow-60 $yellow-10 $yellow-20 $yellow-30 $yellow-70
 
 // Shadows
@@ -156,19 +157,31 @@ $baseline: 1.5rem;
 
 // Typo
 $fontSizes: (
-  default: 1rem, // 16px
-  xsmall: 0.625rem, // 10px
-  small: 0.875rem, // 14px
-  medium: 0.9375rem, // 15px
-  large: 3.625rem, // 58px
-  xlarge: 4.5rem, // 72px
-  xxlarge: 5rem, // 80px
-  obscure: 0.75rem, // 12px
-  standout: 1.125rem, // 18px
-  subheadline: 1.25rem, // 20px
-  headline: 1.5rem, // 24px
-  subheader: 2.75rem, // 44px
-  header: 3rem,
+  default: 1rem,
+  // 16px
+    xsmall: 0.625rem,
+  // 10px
+    small: 0.875rem,
+  // 14px
+    medium: 0.9375rem,
+  // 15px
+    large: 3.625rem,
+  // 58px
+    xlarge: 4.5rem,
+  // 72px
+    xxlarge: 5rem,
+  // 80px
+    obscure: 0.75rem,
+  // 12px
+    standout: 1.125rem,
+  // 18px
+    subheadline: 1.25rem,
+  // 20px
+    headline: 1.5rem,
+  // 24px
+    subheader: 2.75rem,
+  // 44px
+    header: 3rem,
 );
 
 // Layout
@@ -177,8 +190,9 @@ $layoutDefaultPadding: 24px;
 
 // Spacings
 $sizesSetup: (
-  xxs: 4px, // additional for very small components, like icons
-  xs: 8px,
+  xxs: 4px,
+  // additional for very small components, like icons
+    xs: 8px,
   s: 16px,
   m: 24px,
   l: 40px,
@@ -218,7 +232,8 @@ $breakpointXLarge: 1280px !default;
 /// Use $responsiveBreakpointsMap
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
-  'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
+  'medium-only':
+    '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})',
