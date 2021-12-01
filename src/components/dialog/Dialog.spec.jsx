@@ -1,10 +1,6 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
 import Dialog from './Dialog';
-import DialogHeader from './DialogHeader';
-import DialogBody from './DialogBody';
-import DialogCloseButton from './DialogCloseButton';
-import {testA11y} from '../../axe';
 
 window.scrollTo = jest.fn();
 
@@ -124,68 +120,5 @@ describe('<Dialog>', () => {
     const dialogOverlay = wrapper.find('.sg-dialog__overlay');
 
     expect(dialogOverlay.props().style.zIndex).toEqual(10);
-  });
-
-  describe('A11y', () => {
-    it('has label, "dialog" role and aria-modal', async () => {
-      const wrapper = mount(
-        <Dialog open label="Dialog label">
-          content text
-        </Dialog>
-      );
-
-      await testA11y(wrapper);
-
-      expect(wrapper.find('[role="dialog"][aria-modal]')).toBeTruthy();
-    });
-
-    it('is described by <DialogBody/> ', async () => {
-      const descId = 'desc-id';
-
-      await testA11y(
-        <Dialog open describedBy={descId} label="Dialog label">
-          <DialogBody id={descId}>
-            Information you provide to us directly.
-          </DialogBody>
-        </Dialog>
-      );
-    });
-
-    it('moves focus to first tabbable element when opens', async () => {
-      const wrapper = mount(
-        <Dialog open label="Dialog label">
-          <button id="button">button</button>
-        </Dialog>
-      );
-
-      expect(wrapper.find('#button').getDOMNode()).toEqual(
-        document.activeElement
-      );
-    });
-
-    it('has focus when it opens and there are no children', async () => {
-      const wrapper = mount(
-        <Dialog open label="Dialog label">
-          content text
-        </Dialog>
-      );
-
-      expect(wrapper.find('[role="dialog"]').getDOMNode()).toEqual(
-        document.activeElement
-      );
-    });
-
-    it('has <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {
-      const headerId = 'header-id';
-      const onDismiss = jest.fn();
-
-      await testA11y(
-        <Dialog open labelledBy={headerId}>
-          <DialogCloseButton onClick={onDismiss} />
-          <DialogHeader id={headerId}>Header</DialogHeader>
-          <DialogBody>Information you provide to us directly.</DialogBody>
-        </Dialog>
-      );
-    });
   });
 });
