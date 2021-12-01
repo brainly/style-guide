@@ -39,7 +39,7 @@ export const StoryVariant = ({
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-50']}
+      color={HEADLINE_COLOR['text-gray-60']}
       size="xsmall"
       className="sg-story-variant__name"
     >

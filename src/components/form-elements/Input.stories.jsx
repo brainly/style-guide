@@ -199,7 +199,6 @@ export const StylesAndTypes = args => (
             transform="uppercase"
             type="span"
             color={HEADLINE_COLOR['text-gray-40']}
-            color="gray-secondary-light"
             size="medium"
             align="to-right"
           >
