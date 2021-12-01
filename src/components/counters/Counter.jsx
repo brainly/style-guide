@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import Text from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
@@ -97,7 +97,7 @@ const Counter = ({
           : 'small'
       }
       weight="bold"
-      color="white"
+      color={TEXT_COLOR['text-white']}
       className={
         size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }

@@ -73,7 +73,7 @@ const TextExamples = () => {
         <Text
           type={TEXT_TYPE.H2}
           size={size}
-          color={TEXT_COLOR.GRAY}
+          color={TEXT_COLOR['text-gray-70']}
           weight={weight}
           key={size + weight}
         >
@@ -84,7 +84,7 @@ const TextExamples = () => {
   });
 
   getValues(TEXT_COLOR, false).forEach(color => {
-    if (color === TEXT_COLOR.WHITE) {
+    if (color === TEXT_COLOR['text-white']) {
       colorVariant.push(
         <ContrastBox key={color}>
           <Text type={TEXT_TYPE.H2} color={color}>
@@ -131,7 +131,7 @@ const TextExamples = () => {
           href="#"
           weight={LINK_WEIGHT.BOLD}
           size={LINK_SIZE.LARGE}
-          color={TEXT_COLOR.MINT_DARK}
+          color={TEXT_COLOR['text-green-60']}
           underlined
         >
           link / bold / mint / xlarge / underlined

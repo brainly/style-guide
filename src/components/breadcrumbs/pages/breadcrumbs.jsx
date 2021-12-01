@@ -21,7 +21,7 @@ const breadcrumbs = () => (
     </DocsBlock>
 
     <DocsBlock info="Adaptive">
-      <Text color={TEXT_COLOR.MINT}>
+      <Text color={TEXT_COLOR['text-green-60']}>
         <Breadcrumb elements={elements} adaptive />
       </Text>
     </DocsBlock>

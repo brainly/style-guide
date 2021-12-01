@@ -9,7 +9,7 @@ import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
-import Text from 'text/Text';
+import Text, {TEXT_COLOR} from 'text/Text';
 import Icon, {ICON_COLOR} from 'icons/Icon';
 import Link, {LINK_COLOR} from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
@@ -144,7 +144,7 @@ const examplePart2 = (
 const ContentBoxes = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color="peach-dark">
+      <Text color={TEXT_COLOR['text-red-60']}>
         This component is deprecated, please use{' '}
         <Link href="./containers.html#flexbox">Flex</Link> instead
       </Text>

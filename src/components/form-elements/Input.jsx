@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Text from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text';
 import Flex from '../flex/Flex';
 
 type InputSizeType = 'm' | 'l';
@@ -211,7 +211,10 @@ const Input = (props: InputPropsType) => {
         marginLeft={size === 'm' ? 's' : 'm'}
         marginRight={size === 'm' ? 's' : 'm'}
       >
-        <Text size={size === 'm' ? 'xsmall' : 'small'} color="peach-dark">
+        <Text
+          size={size === 'm' ? 'xsmall' : 'small'}
+          color={TEXT_COLOR['text-red-60']}
+        >
           {errorMessage}
         </Text>
       </Flex>

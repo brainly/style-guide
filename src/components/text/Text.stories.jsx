@@ -23,7 +23,7 @@ export const Nested = args => <Text {...args} />;
 
 Nested.args = {
   type: 'h2',
-  color: TEXT_COLOR.PEACH_DARK,
+  color: TEXT_COLOR['text-red-60'],
   children: (
     <>
       Outer Text{' '}

@@ -64,7 +64,7 @@ const Footers = () => (
           <Text
             type={TEXT_TYPE.SPAN}
             size={TEXT_SIZE.SMALL}
-            color={TEXT_COLOR.GRAY}
+            color={TEXT_COLOR['text-gray-70']}
             weight={TEXT_WEIGHT.BOLD}
           >
             Strona korzysta z plików cookie w celu realizacji usług zgodnie z{' '}

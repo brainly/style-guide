@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Counter from '../Counter';
-import Text from '../../text/Text';
+import Text, {TEXT_COLOR} from '../../text/Text';
 
 const Counters = () => (
   <div>
@@ -21,7 +21,12 @@ const Counters = () => (
     <DocsBlock info="Counter with icon">
       <Counter icon="points">
         +10{' '}
-        <Text type="span" size="small" color="gray-secondary" weight="bold">
+        <Text
+          type="span"
+          size="small"
+          color={TEXT_COLOR['text-gray-60']}
+          weight="bold"
+        >
           pts
         </Text>
       </Counter>

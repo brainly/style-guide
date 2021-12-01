@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
-import Text from '../../text/Text';
+import Text, {TEXT_COLOR} from '../../text/Text';
 import Link from '../../text/Link';
 import Flex from '../../flex/Flex';
 import DrawHelper from './DrawHelper';
@@ -9,7 +9,7 @@ import DrawHelper from './DrawHelper';
 const icons = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color="peach-dark">
+      <Text color={TEXT_COLOR['text-red-60']}>
         This component is deprecated, please use{' '}
         <Link href="./components.html#buttons">
           Buttons with iconOnly option

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Text from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text';
 import Flex from '../flex/Flex';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
@@ -147,7 +147,7 @@ const Textarea = (props: TextareaPropsType) => {
         value={value}
       />
       <Flex marginTop="xxs" marginLeft="s" marginRight="s">
-        <Text size="xsmall" color="peach-dark">
+        <Text size="xsmall" color={TEXT_COLOR['text-red-60']}>
           {errorMessage}
         </Text>
       </Flex>

@@ -33,7 +33,7 @@ test('text-white', () => {
     <Headline color={HEADLINE_COLOR['text-white']}>Test</Headline>
   );
 
-  expect(text.hasClass('sg-headline--white')).toBeTruthy();
+  expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
 });
 
 test('default size', () => {
