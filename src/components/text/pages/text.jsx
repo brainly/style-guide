@@ -102,7 +102,7 @@ const TextExamples = () => {
   });
 
   getValues(LINK_COLOR, false).forEach(color => {
-    if (color !== LINK_COLOR.WHITE) {
+    if (color !== LINK_COLOR['text-white']) {
       linkcolorVariant.push(
         <li key={color}>
           <Link
@@ -144,11 +144,11 @@ const TextExamples = () => {
             <ContrastBox>
               <Link
                 href="#"
-                color={LINK_COLOR.WHITE}
+                color={LINK_COLOR['text-white']}
                 weight={LINK_WEIGHT.BOLD}
                 size={LINK_SIZE.LARGE}
               >
-                link - {LINK_COLOR.WHITE}
+                link - {LINK_COLOR['text-white']}
               </Link>
             </ContrastBox>
           </li>

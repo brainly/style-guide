@@ -17,26 +17,26 @@ import SeparatorVertical from 'separators/SeparatorVertical';
 import Flex from 'flex/Flex';
 
 const link1 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color={LINK_COLOR['text-gray-70']}>
     Math
   </Link>
 );
 const link2 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color={LINK_COLOR['text-gray-70']}>
     10 pts
   </Link>
 );
 const link3 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color={LINK_COLOR['text-gray-70']}>
     2 min ago
   </Link>
 );
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [
-  <Link key={1} color={LINK_COLOR.GRAY}>
+  <Link key={1} color={LINK_COLOR['text-gray-70']}>
     Katie
   </Link>,
-  <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+  <Link key={2} href="#" color={LINK_COLOR['text-gray-70']}>
     Answerer
   </Link>,
 ];

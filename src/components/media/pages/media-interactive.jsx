@@ -7,7 +7,7 @@ import Link, {LINK_COLOR} from 'text/Link';
 const MediaExamples = () => {
   const defaultProps = {
     contentArray: [
-      <Link key={1} color={LINK_COLOR.GRAY}>
+      <Link key={1} color={LINK_COLOR['text-gray-70']}>
         The Goat
       </Link>,
       <span key={2}>Master </span>,

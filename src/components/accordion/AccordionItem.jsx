@@ -9,7 +9,7 @@ import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
-import Link from '../text/Link';
+import Link, {LINK_COLOR} from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
 
@@ -196,7 +196,7 @@ const AccordionItem = ({
             {isTitleString ? (
               <Link
                 size={titleSize}
-                color="black"
+                color={LINK_COLOR['text-black']}
                 weight="bold"
                 underlined={isHighlighted}
               >

@@ -40,7 +40,7 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link
           href="#"
-          color={LINK_COLOR.MINT}
+          color={LINK_COLOR['text-green-60']}
           size={LINK_SIZE.SMALL}
           weight={LINK_WEIGHT.REGULAR}
         >

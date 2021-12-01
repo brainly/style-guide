@@ -33,7 +33,7 @@ test('color', () => {
     <Link color={LINK_COLOR['text-white']}>Test</Link>
   ).dive();
 
-  expect(link.hasClass('sg-text--white')).toBeTruthy();
+  expect(link.hasClass('sg-text--text-white')).toBeTruthy();
 });
 
 test('unstyled', () => {

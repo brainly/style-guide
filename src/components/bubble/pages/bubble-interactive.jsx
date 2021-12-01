@@ -60,10 +60,10 @@ const Bubbles = () => {
                 <ActionListHole>
                   <Breadcrumb
                     elements={[
-                      <Link key={1} color={LINK_COLOR.GRAY}>
+                      <Link key={1} color={LINK_COLOR['text-gray-70']}>
                         Katie
                       </Link>,
-                      <Link key={2} color={LINK_COLOR.GRAY}>
+                      <Link key={2} color={LINK_COLOR['text-gray-70']}>
                         a few seconds ago
                       </Link>,
                     ]}
