@@ -64,30 +64,24 @@ describe('<Accordion>', () => {
   it('expands one item at a time when "allowMultiple" is set to false', () => {
     const accordion = mount(
       <Accordion>
-        <AccordionItem title="Item 1" id="item1">
-          Accordion Item Description
-        </AccordionItem>
-        <AccordionItem title="Item 2" id="item2">
-          Accordion Item Description
-        </AccordionItem>
-        <AccordionItem title="Item 3" id="item3">
-          Accordion Item Description
-        </AccordionItem>
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+        <AccordionItem title="Item 2">Accordion Item Description</AccordionItem>
+        <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
       </Accordion>
     );
 
     accordion
-      .find({id: 'item1'})
+      .find({title: 'Item 1'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
     accordion
-      .find({id: 'item2'})
+      .find({title: 'Item 2'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
     accordion
-      .find({id: 'item3'})
+      .find({title: 'Item 3'})
       .find({role: 'button'})
       .hostNodes()
       .simulate('click');
