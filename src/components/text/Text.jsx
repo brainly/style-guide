@@ -37,6 +37,7 @@ export type TextColorType =
   | 'text-white'
   | 'text-gray-70'
   | 'text-gray-60'
+  | 'text-gray-50'
   | 'text-gray-40'
   | 'text-blue-60'
   | 'text-blue-40'
