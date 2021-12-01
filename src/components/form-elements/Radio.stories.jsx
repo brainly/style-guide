@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
 import Radio, {RADIO_SIZE} from './Radio';
-import Headline from '../text/Headline';
+import Headline, {HEADLINE_COLOR} from '../text/Headline';
 import Flex from '../flex/Flex';
 
 export default {
@@ -24,7 +24,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             neutral state
@@ -35,7 +35,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             checked state
@@ -48,7 +48,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >
@@ -84,7 +84,7 @@ export const Sizes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             neutral state
@@ -95,7 +95,7 @@ export const Sizes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             checked state
@@ -109,7 +109,7 @@ export const Sizes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
               align="to-right"
             >

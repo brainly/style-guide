@@ -1,7 +1,7 @@
 import React from 'react';
 import {StoryVariantBorderBox, StoryVariantTable} from '../../_docs/utils';
 import hex from '../colors/hex';
-import Headline from '../text/Headline';
+import Headline, {HEADLINE_COLOR} from '../text/Headline';
 import Input, {SIZE, COLOR} from './Input';
 
 export default {
@@ -32,7 +32,7 @@ export const Sizes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-center"
           >
@@ -47,7 +47,7 @@ export const Sizes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
             >
               {size}
@@ -72,7 +72,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-center"
           >
@@ -84,7 +84,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-center"
           >
@@ -96,7 +96,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-center"
           >
@@ -110,7 +110,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >
@@ -133,7 +133,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >
@@ -156,7 +156,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >
@@ -177,7 +177,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >
@@ -198,6 +198,7 @@ export const StylesAndTypes = args => (
             extraBold
             transform="uppercase"
             type="span"
+            color={HEADLINE_COLOR['text-gray-40']}
             color="gray-secondary-light"
             size="medium"
             align="to-right"

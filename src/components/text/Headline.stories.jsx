@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Headline from './Headline';
-import {TEXT_COLOR} from './textConsts';
+import Headline, {HEADLINE_COLOR} from './Headline';
 
 export default {
   title: 'Components/Headline',
@@ -23,7 +22,7 @@ export const Nested = args => <Headline {...args} />;
 
 Nested.args = {
   type: 'h2',
-  color: TEXT_COLOR.PEACH_DARK,
+  color: HEADLINE_COLOR['text-red-60'],
   children: (
     <>
       Outer headline{' '}

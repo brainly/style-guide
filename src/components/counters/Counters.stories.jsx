@@ -3,7 +3,7 @@ import Counter, {COUNTER_SIZE} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import {StoryVariantTable} from '../../_docs/utils';
-import Headline from '../text/Headline';
+import Headline, {HEADLINE_COLOR} from '../text/Headline';
 import Text from '../text/Text';
 
 export default {
@@ -35,7 +35,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
             >
               default
@@ -46,7 +46,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
             >
               blue
@@ -57,7 +57,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
             >
               with icon
@@ -73,7 +73,7 @@ export const SizesColorsAndTypes = args => (
                 extraBold
                 transform="uppercase"
                 type="span"
-                color="gray-secondary-light"
+                color={HEADLINE_COLOR['text-gray-40']}
                 size="medium"
               >
                 {size}

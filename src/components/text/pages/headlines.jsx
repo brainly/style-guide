@@ -78,7 +78,7 @@ const Headlines = () => {
   });
 
   getValues(HEADLINE_COLOR, false).forEach(color => {
-    if (color !== HEADLINE_COLOR.WHITE) {
+    if (color !== HEADLINE_COLOR['text-white']) {
       colorsVariants.push(
         <Headline
           key={color}

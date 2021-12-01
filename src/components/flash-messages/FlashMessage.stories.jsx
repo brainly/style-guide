@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
-import Headline from '../text/Headline';
+import Headline, {HEADLINE_COLOR} from '../text/Headline';
 import FlashMessage from './FlashMessage';
 
 export default {
@@ -26,7 +26,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >

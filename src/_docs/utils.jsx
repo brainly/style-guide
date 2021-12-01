@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Text from '../components/text/Text';
-import Headline from '../components/text/Headline';
+import Headline, {HEADLINE_COLOR} from '../components/text/Headline';
 
 type StoryVariantBorderBoxPropsType = {
   children: React.Node,
@@ -39,7 +39,7 @@ export const StoryVariant = ({
       extraBold
       transform="uppercase"
       type="span"
-      color="gray-secondary"
+      color={HEADLINE_COLOR['text-gray-50']}
       size="xsmall"
       className="sg-story-variant__name"
     >

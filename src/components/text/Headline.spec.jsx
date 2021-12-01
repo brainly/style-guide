@@ -28,8 +28,10 @@ test('type', () => {
   expect(headline.props().type).toEqual(HEADLINE_TYPE.H3);
 });
 
-test('light', () => {
-  const text = shallow(<Headline color={HEADLINE_COLOR.WHITE}>Test</Headline>);
+test('text-white', () => {
+  const text = shallow(
+    <Headline color={HEADLINE_COLOR['text-white']}>Test</Headline>
+  );
 
   expect(text.hasClass('sg-headline--white')).toBeTruthy();
 });

@@ -6,7 +6,6 @@ import Headline, {
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
-import {TEXT_COLOR} from 'text/textConsts';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Headlines = () => {
@@ -50,7 +49,7 @@ const Headlines = () => {
         <Headline
           type={HEADLINE_TYPE.H2}
           size={HEADLINE_SIZE.SMALL}
-          color={HEADLINE_COLOR.WHITE}
+          color={HEADLINE_COLOR['text-white']}
         >
           We&apos;ve got your back!
         </Headline>
@@ -58,7 +57,11 @@ const Headlines = () => {
       <DocsActiveBlock settings={settings}>
         <Headline>
           Parent Headline component{' '}
-          <Headline inherited type="span" color={TEXT_COLOR.MINT_DARK}>
+          <Headline
+            inherited
+            type="span"
+            color={HEADLINE_COLOR['text-green-60']}
+          >
             nested Headline inheriting styles from parent Headline
           </Headline>
         </Headline>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Headline from '../text/Headline';
+import Headline, {HEADLINE_COLOR} from '../text/Headline';
 import Avatar, {SIZE} from './Avatar';
 import {StoryVariantTable} from '../../_docs/utils';
 import Flex from '../flex/Flex';
@@ -42,7 +42,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             no border
@@ -53,7 +53,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             border
@@ -64,7 +64,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color={HEADLINE_COLOR['text-gray-40']}
             size="medium"
           >
             image
@@ -80,7 +80,7 @@ export const SizeBorderImage = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color={HEADLINE_COLOR['text-gray-40']}
               size="medium"
             >
               {size}

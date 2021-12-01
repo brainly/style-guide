@@ -400,7 +400,7 @@ const ActionLists = () => (
             <Headline
               size={HEADLINE_SIZE.XXXLARGE}
               type={HEADLINE_TYPE.SPAN}
-              color={HEADLINE_COLOR.LIGHT}
+              color={HEADLINE_COLOR['text-white']}
             >
               $14.95
             </Headline>
@@ -421,7 +421,7 @@ const ActionLists = () => (
             <Headline
               size={HEADLINE_SIZE.XXXLARGE}
               type={HEADLINE_TYPE.SPAN}
-              color={HEADLINE_COLOR.LIGHT}
+              color={HEADLINE_COLOR['text-white']}
             >
               $14.95
             </Headline>
