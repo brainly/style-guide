@@ -4,10 +4,9 @@ import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import Link from '../text/Link';
 import Box from '../box/Box';
-import {testA11y} from '../../axe';
 
 describe('<Accordion>', () => {
-  it('renders with named items', () => {
+  it('renders with items', () => {
     const accordion = mount(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
@@ -19,20 +18,6 @@ describe('<Accordion>', () => {
         .find(AccordionItem)
         .containsMatchingElement('Accordion Item Description')
     ).toBe(true);
-
-    const headingProps = accordion
-      .find({title: 'Item 1'})
-      .find({role: 'heading'})
-      .props();
-
-    expect(
-      accordion
-        .find({title: 'Item 1'})
-        .find({role: 'region'})
-        .prop('aria-labelledby')
-    ).toEqual(headingProps.id);
-
-    expect(headingProps['aria-level']).toEqual(2);
   });
 
   it('has collapsed items by default', () => {
@@ -70,13 +55,6 @@ describe('<Accordion>', () => {
         .hostNodes()
         .prop('aria-expanded')
     ).toBe(true);
-
-    expect(
-      accordion
-        .find({role: 'button'})
-        .hostNodes()
-        .prop('aria-controls')
-    ).toBe(accordion.find({role: 'region'}).prop('id'));
 
     expect(accordion.find('.sg-accordion-item__content--hidden')).toHaveLength(
       0
@@ -208,9 +186,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
   });
 
@@ -226,9 +204,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
   });
 
@@ -277,21 +255,5 @@ describe('<Accordion>', () => {
     );
 
     expect(accordion.find(Link).exists()).toBe(false);
-  });
-
-  describe('A11y', () => {
-    it('renders accordion with expanded and collapsed items', async () => {
-      const accordionIds = ['id-1', 'id-2'];
-
-      await testA11y(
-        <Accordion defaultExpanded={accordionIds[0]}>
-          {accordionIds.map(id => (
-            <AccordionItem title={id} id={id} key={id}>
-              Accordion Item Description
-            </AccordionItem>
-          ))}
-        </Accordion>
-      );
-    });
   });
 });

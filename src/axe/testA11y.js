@@ -1,5 +1,6 @@
 import axe from './axeSetup';
-import {mount, ReactWrapper} from 'enzyme';
+import React from 'react';
+import {render} from '@testing-library/react';
 
 /**
  * Wrapper for jest-axe
@@ -14,17 +15,20 @@ import {mount, ReactWrapper} from 'enzyme';
  * ```jsx
  *  it('should have no a11y violations after Esc keyup', async () => {
  *    const onDismiss = jest.fn();
- *    const wrapper = mount(<MyComponent />);
- *    await testA11y(wrapper, options);
- *    document.dispatchEvent(new KeyboardEvent('keyup', {key: 'Escape'}));
- *    await testA11y(wrapper, options);
+ *    const { container } = render(<MyComponent />);
+ *    await testA11y(container, options);
+ *    fireEvent.keyDown(container, { key: 'Esc' });
+ *    await testA11y(container, options);
  *  });
  * ```
  */
 
 export default async function testA11y(node, axeOptions) {
-  const wrapper = node instanceof ReactWrapper ? node : mount(node);
-  const results = await axe(wrapper.getDOMNode(), axeOptions);
+  const container = React.isValidElement(node)
+    ? render(node, axeOptions).container
+    : node;
+
+  const results = await axe(container, axeOptions);
 
   expect(results).toHaveNoViolations();
 }
