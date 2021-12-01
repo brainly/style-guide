@@ -84,7 +84,7 @@ export const TEXT_COLOR: {
   'text-yellow-40': 'text-yellow-40',
 };
 
-export const LINK_COLOR = {
+export const LINK_COLOR: {
   'text-black': 'text-black',
   'text-white': 'text-white',
   'text-gray-70': 'text-gray-70',
