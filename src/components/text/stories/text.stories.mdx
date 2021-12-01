@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Typeset, TypeSpecimen, Label } from 'blocks/Typeset';
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Typeset, TypeSpecimen, Label} from 'blocks/Typeset';
 import Text from '../Text';
-import Link, { LINK_WEIGHT, LINK_SIZE, LINK_COLOR } from '../Link';
+import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
@@ -17,7 +17,7 @@ import Headline, {
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
-import TextBit, { TEXT_BIT_SIZE, TEXT_BIT_COLOR } from '../TextBit';
+import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 
 <Meta title="Foundation ✨/Typography" />
 
@@ -65,22 +65,22 @@ export const textBitSizesMap = [
   },
 ];
 
-export const TextBitExamples = (extraBold) => {
+export const TextBitExamples = extraBold => {
   const sizesVariants = [];
   getValues(TEXT_BIT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textBitSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      textBitSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizesVariants.push(
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
-          <TextBit key="size" size={size} color={TEXT_BIT_COLOR.BLACK}>
+          <TextBit key="size" size={size} color={TEXT_BIT_COLOR['text-black']}>
             Text Bit
           </TextBit>
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizesVariants;
@@ -138,14 +138,14 @@ export const headlineSizesMap = [
   },
 ];
 
-export const HeadlineExamples = (extraBold) => {
+export const HeadlineExamples = extraBold => {
   const sizeVariant = [];
   getValues(HEADLINE_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      textSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
         <TypeSpecimen key={size}>
@@ -158,7 +158,7 @@ export const HeadlineExamples = (extraBold) => {
           >
             Headline
           </Headline>
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizeVariant;
@@ -219,14 +219,14 @@ export const textSizesMap = [
   },
 ];
 
-export const TextExamples = (weight) => {
+export const TextExamples = weight => {
   const sizeVariant = [];
   getValues(TEXT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      textSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
         <TypeSpecimen key={size}>
@@ -240,7 +240,7 @@ export const TextExamples = (weight) => {
           >
             Body text
           </Text>,
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizeVariant;

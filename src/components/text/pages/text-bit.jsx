@@ -41,7 +41,7 @@ const TextBitExamples = () => {
     );
 
     sizesVariants.push(
-      <TextBit key="size" size={size} color={TEXT_BIT_COLOR.PEACH_PRIMARY}>
+      <TextBit key="size" size={size} color={TEXT_BIT_COLOR['text-red-40']}>
         {text} - {size} - {itemSize}
       </TextBit>
     );

@@ -25,7 +25,7 @@ Nested.args = {
   children: (
     <>
       TextBit{' '}
-      <TextBit inherited type="span" color={TEXT_BIT_COLOR.LAVENDER_PRIMARY}>
+      <TextBit inherited type="span" color={TEXT_BIT_COLOR['text-indigo-40']}>
         nested TextBit
       </TextBit>
     </>
