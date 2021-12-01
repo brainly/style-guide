@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from './Link';
-import {TEXT_COLOR} from './textConsts';
+import {LINK_COLOR} from './textConsts';
 
 export default {
   title: 'Components/Link',
@@ -23,7 +23,7 @@ export const Nested = args => <Link {...args} />;
 
 Nested.args = {
   type: 'h2',
-  color: TEXT_COLOR.PEACH_DARK,
+  color: LINK_COLOR['text-green-60'],
   children: (
     <>
       Outer Link{' '}

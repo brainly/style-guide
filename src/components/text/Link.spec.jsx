@@ -29,7 +29,9 @@ test('size', () => {
 });
 
 test('color', () => {
-  const link = shallow(<Link color={LINK_COLOR.WHITE}>Test</Link>).dive();
+  const link = shallow(
+    <Link color={LINK_COLOR['text-white']}>Test</Link>
+  ).dive();
 
   expect(link.hasClass('sg-text--white')).toBeTruthy();
 });

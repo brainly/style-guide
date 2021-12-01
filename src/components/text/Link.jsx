@@ -34,13 +34,13 @@ type TextSizeType =
   | 'xxxlarge';
 
 type LinkColorType =
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'mint-dark'
-  | 'blue-dark';
+  | 'text-black'
+  | 'text-white'
+  | 'text-gray-70'
+  | 'text-gray-60'
+  | 'text-gray-50'
+  | 'text-blue-60'
+  | 'text-green-60';
 
 type TextWeightType = 'regular' | 'bold';
 
