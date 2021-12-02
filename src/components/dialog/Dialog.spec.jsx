@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
 import Dialog from './Dialog';
-import {testA11y} from '../../axe';
 
 window.scrollTo = jest.fn();
 
@@ -121,28 +120,5 @@ describe('<Dialog>', () => {
     const dialogOverlay = wrapper.find('.sg-dialog__overlay');
 
     expect(dialogOverlay.props().style.zIndex).toEqual(10);
-  });
-
-  describe('A11y', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(
-        <Dialog open label="Dialog label">
-          content text
-        </Dialog>
-      );
-    });
-
-    it('should have no a11y violations after dismissing', async () => {
-      const onDismiss = jest.fn();
-      const wrapper = mount(
-        <Dialog onDismiss={onDismiss} open label="Dialog label">
-          content text
-        </Dialog>
-      );
-
-      await testA11y(wrapper);
-      document.dispatchEvent(new KeyboardEvent('keyup', {key: 'Escape'}));
-      await testA11y(wrapper);
-    });
   });
 });
