@@ -26,13 +26,13 @@ export default {
   },
 };
 
-export const Default = (args) => <Avatar {...args} />;
+export const Default = args => <Avatar {...args} />;
 
 Default.args = {
   imgSrc: null,
 };
 
-export const SizeBorderImage = (args) => (
+export const SizeBorderImage = args => (
   <StoryVariantTable>
     <thead>
       <tr>
@@ -73,7 +73,7 @@ export const SizeBorderImage = (args) => (
       </tr>
     </thead>
     <tbody>
-      {Object.values(SIZE).map((size) => (
+      {Object.values(SIZE).map(size => (
         <tr key={size}>
           <td>
             <Headline
