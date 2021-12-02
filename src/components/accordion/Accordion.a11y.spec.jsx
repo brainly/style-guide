@@ -1,33 +1,9 @@
 import * as React from 'react';
-import {
-  render,
-  fireEvent,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import {render, waitForElementToBeRemoved} from '@testing-library/react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {testA11y} from '../../axe';
-
-const key = {
-  enter: {
-    key: 'Enter',
-    code: 'Enter',
-    keyCode: 13,
-    charCode: 13,
-  },
-  space: {
-    key: 'Space',
-    code: 'Space',
-    keyCode: 32,
-    charCode: 32,
-  },
-  tab: {
-    key: 'Tab',
-    code: 'Tab',
-    keyCode: 9,
-    charCode: 9,
-  },
-};
+import userEvent from '@testing-library/user-event';
 
 describe('Accordion a11y', () => {
   it('renders accordion with expanded and collapsed items', async () => {
@@ -78,14 +54,14 @@ describe('Accordion a11y', () => {
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeFalsy();
-
-    item.focus();
-    fireEvent.keyDown(accordion.getByText(accordionId), key.enter);
+    accordion.getByRole('button').focus();
+    expect(item).toEqual(document.activeElement);
+    userEvent.keyboard('{enter}');
 
     expect(item.getAttribute('aria-expanded')).toEqual('true');
     expect(accordion.getByRole('region')).toBeTruthy();
 
-    fireEvent.keyDown(accordion.getByText(accordionId), key.space);
+    userEvent.keyboard('{space}');
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     waitForElementToBeRemoved(accordion.queryByRole('region'));

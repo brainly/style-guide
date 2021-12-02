@@ -1,22 +1,13 @@
 import * as React from 'react';
-import {
-  render,
-  fireEvent,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import {render, waitForElementToBeRemoved} from '@testing-library/react';
 import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
 import {testA11y} from '../../axe';
 import Dialog from './Dialog';
+import userEvent from '@testing-library/user-event';
 
 window.scrollTo = jest.fn();
-const esc = {
-  key: 'Escape',
-  code: 'Escape',
-  keyCode: 27,
-  charCode: 27,
-};
 
 describe('Dialog a11y', () => {
   it('renders with <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {
@@ -86,7 +77,7 @@ describe('Dialog a11y', () => {
   it('closes on Esc key', () => {
     const dialog = render(<Dialog open>content text</Dialog>);
 
-    fireEvent.keyDown(dialog.getByRole('dialog'), esc);
+    userEvent.keyboard('{esc}');
 
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
@@ -101,10 +92,7 @@ describe('Dialog a11y', () => {
       </div>
     );
 
-    fireEvent.focus(dialog.getByText(buttonText));
-    expect(dialog.getByText(buttonText)).not.toEqual(document.activeElement);
-
-    fireEvent.click(dialog.getByText(buttonText));
+    userEvent.click(dialog.getByText(buttonText));
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
 });
