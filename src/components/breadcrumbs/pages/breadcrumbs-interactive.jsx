@@ -25,7 +25,7 @@ const Breadcrumbs = () => {
     <div>
       <DocsActiveBlock
         settings={settings}
-        wrapper={<Text color={TEXT_COLOR['text-green-60']} />}
+        wrapper={<Text color="text-green-60" />}
         contentAfter=" Lorem Ipsum"
         contentBefore="Lorem Ipsum "
       >

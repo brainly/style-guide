@@ -26,7 +26,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
             align="to-right"
           >

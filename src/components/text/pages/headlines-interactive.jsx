@@ -49,7 +49,7 @@ const Headlines = () => {
         <Headline
           type={HEADLINE_TYPE.H2}
           size={HEADLINE_SIZE.SMALL}
-          color={TEXT_COLOR['text-white']}
+          color="text-white"
         >
           We&apos;ve got your back!
         </Headline>
@@ -60,7 +60,7 @@ const Headlines = () => {
           <Headline
             inherited
             type="span"
-            color={TEXT_COLOR['text-green-60']}
+            color="text-green-60"
           >
             nested Headline inheriting styles from parent Headline
           </Headline>

@@ -17,26 +17,26 @@ import SeparatorVertical from 'separators/SeparatorVertical';
 import Flex from 'flex/Flex';
 
 const link1 = (
-  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
+  <Link href="#" color="text-gray-70">
     Math
   </Link>
 );
 const link2 = (
-  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
+  <Link href="#" color="text-gray-70">
     10 pts
   </Link>
 );
 const link3 = (
-  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
+  <Link href="#" color="text-gray-70">
     2 min ago
   </Link>
 );
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [
-  <Link key={1} color={TEXT_COLOR['text-gray-70']}>
+  <Link key={1} color="text-gray-70">
     Katie
   </Link>,
-  <Link key={2} href="#" color={TEXT_COLOR['text-gray-70']}>
+  <Link key={2} href="#" color="text-gray-70">
     Answerer
   </Link>,
 ];
@@ -144,7 +144,7 @@ const examplePart2 = (
 const ContentBoxes = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color={TEXT_COLOR['text-red-60']}>
+      <Text color="text-red-60">
         This component is deprecated, please use{' '}
         <Link href="./containers.html#flexbox">Flex</Link> instead
       </Text>

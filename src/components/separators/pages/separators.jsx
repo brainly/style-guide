@@ -55,7 +55,7 @@ const Separators = () => (
         <Text
           type={TEXT_TYPE.P}
           size={TEXT_SIZE.SMALL}
-          color={TEXT_COLOR['text-gray-70']}
+          color="text-gray-70"
           weight={TEXT_WEIGHT.BOLD}
         >
           answers
@@ -69,7 +69,7 @@ const Separators = () => (
         <Text
           type={TEXT_TYPE.P}
           size={TEXT_SIZE.SMALL}
-          color={TEXT_COLOR['text-gray-70']}
+          color="text-gray-70"
           weight={TEXT_WEIGHT.BOLD}
         >
           answers

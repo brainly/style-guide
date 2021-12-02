@@ -43,7 +43,7 @@ const Cards = () => {
       <DocsActiveBlock settings={settings}>
         <Card padding={CARD_PADDING.SMALL}>
           <CardHole>
-            <Text type={TEXT_TYPE.P} color={TEXT_COLOR['text-black']}>
+            <Text type={TEXT_TYPE.P} color="text-black">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
               rhoncus turpis quis dolor suscipit, a mattis nunc posuere. Duis
               lacinia mauris quis tempus varius. Donec consectetur bibendum

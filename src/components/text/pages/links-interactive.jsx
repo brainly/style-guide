@@ -39,7 +39,7 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link
           href="#"
-          color={TEXT_COLOR['text-green-60']}
+          color="text-green-60"
           size={LINK_SIZE.SMALL}
           weight={LINK_WEIGHT.REGULAR}
         >
@@ -49,7 +49,7 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link>
           Parent Link component{' '}
-          <Link inherited type="span" color={TEXT_COLOR['text-green-60']}>
+          <Link inherited type="span" color="text-green-60">
             nested Link inheriting styles from parent Link
           </Link>
         </Link>

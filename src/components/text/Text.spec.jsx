@@ -38,7 +38,7 @@ test('type - label', () => {
 });
 
 test('color', () => {
-  const text = shallow(<Text color={TEXT_COLOR['text-green-60']}>Test</Text>);
+  const text = shallow(<Text color="text-green-60">Test</Text>);
 
   expect(text.hasClass('sg-text--text-green-60')).toBeTruthy();
 });

@@ -73,7 +73,7 @@ const TextExamples = () => {
         <Text
           type={TEXT_TYPE.H2}
           size={size}
-          color={TEXT_COLOR['text-gray-70']}
+          color="text-gray-70"
           weight={weight}
           key={size + weight}
         >
@@ -131,7 +131,7 @@ const TextExamples = () => {
           href="#"
           weight={LINK_WEIGHT.BOLD}
           size={LINK_SIZE.LARGE}
-          color={TEXT_COLOR['text-green-60']}
+          color="text-green-60"
           underlined
         >
           link / bold / mint / xlarge / underlined
@@ -144,11 +144,11 @@ const TextExamples = () => {
             <ContrastBox>
               <Link
                 href="#"
-                color={TEXT_COLOR['text-white']}
+                color="text-white"
                 weight={LINK_WEIGHT.BOLD}
                 size={LINK_SIZE.LARGE}
               >
-                link - {TEXT_COLOR['text-white']}
+                link - "text-white"
               </Link>
             </ContrastBox>
           </li>

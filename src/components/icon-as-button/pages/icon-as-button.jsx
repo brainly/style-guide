@@ -9,7 +9,7 @@ import DrawHelper from './DrawHelper';
 const icons = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color={TEXT_COLOR['text-red-60']}>
+      <Text color="text-red-60">
         This component is deprecated, please use{' '}
         <Link href="./components.html#buttons">
           Buttons with iconOnly option

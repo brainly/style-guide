@@ -43,7 +43,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             default
@@ -54,7 +54,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             disabled
@@ -65,7 +65,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             loading
@@ -76,7 +76,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             with icon
@@ -87,7 +87,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             icon only
@@ -98,7 +98,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             toggle
@@ -149,7 +149,7 @@ export const Types = args => (
                   ['solid-inverted', 'transparent-inverted'].includes(
                     buttonType
                   )
-                    ? TEXT_COLOR['text-white']
+                    ? "text-white"
                     : TEXT_COLOR['text-gray-40']
                 }
                 size="medium"
@@ -235,7 +235,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     solid default
@@ -246,7 +246,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     solid icon left
@@ -257,7 +257,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     solid icon right
@@ -271,7 +271,7 @@ export const Sizes = args => (
                       extraBold
                       transform="uppercase"
                       type="span"
-                      color={TEXT_COLOR['text-gray-40']}
+                      color="text-gray-40"
                       size="medium"
                     >
                       {size}
@@ -315,7 +315,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     transparent default
@@ -326,7 +326,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     transparent icon left
@@ -337,7 +337,7 @@ export const Sizes = args => (
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color={TEXT_COLOR['text-gray-40']}
+                    color="text-gray-40"
                     size="medium"
                   >
                     transparent icon right
@@ -351,7 +351,7 @@ export const Sizes = args => (
                       extraBold
                       transform="uppercase"
                       type="span"
-                      color={TEXT_COLOR['text-gray-40']}
+                      color="text-gray-40"
                       size="medium"
                     >
                       {size}

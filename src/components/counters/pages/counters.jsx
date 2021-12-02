@@ -24,7 +24,7 @@ const Counters = () => (
         <Text
           type="span"
           size="small"
-          color={TEXT_COLOR['text-gray-60']}
+          color="text-gray-60"
           weight="bold"
         >
           pts

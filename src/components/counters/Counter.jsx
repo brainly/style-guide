@@ -97,7 +97,7 @@ const Counter = ({
           : 'small'
       }
       weight="bold"
-      color={TEXT_COLOR['text-white']}
+      color="text-white"
       className={
         size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }

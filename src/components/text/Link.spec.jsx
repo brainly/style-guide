@@ -30,7 +30,7 @@ test('size', () => {
 
 test('color', () => {
   const link = shallow(
-    <Link color={TEXT_COLOR['text-white']}>Test</Link>
+    <Link color="text-white">Test</Link>
   ).dive();
 
   expect(link.hasClass('sg-text--text-white')).toBeTruthy();

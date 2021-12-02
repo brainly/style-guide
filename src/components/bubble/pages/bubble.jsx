@@ -99,10 +99,10 @@ const Bubbles = () => (
             </Flex>
             <Breadcrumb
               elements={[
-                <Link key={1} href="#" color={TEXT_COLOR['text-gray-70']}>
+                <Link key={1} href="#" color="text-gray-70">
                   Katie
                 </Link>,
-                <Link key={2} href="#" color={TEXT_COLOR['text-gray-70']}>
+                <Link key={2} href="#" color="text-gray-70">
                   a few seconds ago
                 </Link>,
               ]}

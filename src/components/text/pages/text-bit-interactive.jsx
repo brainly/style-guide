@@ -41,7 +41,7 @@ const TextBits = () => {
           <TextBit
             inherited
             type="span"
-            color={TEXT_COLOR['text-indigo-40']}
+            color="text-indigo-40"
           >
             nested TextBit with inherited styles
           </TextBit>

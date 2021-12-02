@@ -32,7 +32,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
     return (
       <div className="docs-active-block__settings">
         <ActionList>
-          <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR['text-gray-70']}>
+          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
             Code:
             <label className="docs-active-block__label">
               <Radio
@@ -60,7 +60,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
             </label>
           </Text>
           <SeparatorVertical />
-          <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR['text-gray-70']}>
+          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
             Background:
             <label className="docs-active-block__label">
               <Radio

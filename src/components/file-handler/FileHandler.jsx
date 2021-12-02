@@ -148,7 +148,7 @@ const FileHandler = ({
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         {src !== undefined ? (
-          <Link {...clickProps} size="small" color={TEXT_COLOR['text-black']}>
+          <Link {...clickProps} size="small" color="text-black">
             {children}
           </Link>
         ) : (

@@ -60,7 +60,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             default
@@ -71,7 +71,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             default (no icon, close)
@@ -82,7 +82,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             default (icon)
@@ -93,7 +93,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             default (icon, close)
@@ -153,7 +153,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             solid
@@ -164,7 +164,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             solid (no icon, close)
@@ -175,7 +175,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             solid (icon)
@@ -186,7 +186,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             solid (icon, close)
@@ -232,7 +232,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent color
@@ -243,7 +243,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent color (close)
@@ -254,7 +254,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent color (icon)
@@ -265,7 +265,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent color (icon, close)
@@ -323,7 +323,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent (icon)
@@ -334,7 +334,7 @@ export const Types = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={TEXT_COLOR['text-gray-40']}
+            color="text-gray-40"
             size="medium"
           >
             transparent (icon, close)
@@ -381,7 +381,7 @@ export const TrimmedText = args => {
         extraBold
         transform="uppercase"
         size="medium"
-        color={TEXT_COLOR['text-gray-40']}
+        color="text-gray-40"
       >
         wide
       </Headline>
@@ -402,7 +402,7 @@ export const TrimmedText = args => {
         transform="uppercase"
         size="medium"
         style={{marginTop: 20}}
-        color={TEXT_COLOR['text-gray-40']}
+        color="text-gray-40"
       >
         narrow
       </Headline>

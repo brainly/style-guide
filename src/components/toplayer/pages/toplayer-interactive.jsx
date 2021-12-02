@@ -84,7 +84,7 @@ const Toplayers = () => {
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
               <TextBit
-                color={TEXT_COLOR['text-blue-40']}
+                color="text-blue-40"
                 type={TEXT_BIT_TYPE.H1}
               >
                 The world&apos;s largest learning community

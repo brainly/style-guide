@@ -213,7 +213,7 @@ const Input = (props: InputPropsType) => {
       >
         <Text
           size={size === 'm' ? 'xsmall' : 'small'}
-          color={TEXT_COLOR['text-red-60']}
+          color="text-red-60"
         >
           {errorMessage}
         </Text>

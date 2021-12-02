@@ -30,7 +30,7 @@ test('type', () => {
 
 test('text-white', () => {
   const text = shallow(
-    <Headline color={TEXT_COLOR['text-white']}>Test</Headline>
+    <Headline color="text-white">Test</Headline>
   );
 
   expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
