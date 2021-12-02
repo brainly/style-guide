@@ -10,7 +10,7 @@ import Avatar from 'avatar/Avatar';
 import Text from 'text/Text';
 import ActionList from 'action-list/ActionList';
 import ActionListHole from 'action-list/ActionListHole';
-import Link, {TEXT_COLOR} from 'text/Link';
+import Link from 'text/Link';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 

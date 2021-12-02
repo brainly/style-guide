@@ -57,11 +57,7 @@ const Headlines = () => {
       <DocsActiveBlock settings={settings}>
         <Headline>
           Parent Headline component{' '}
-          <Headline
-            inherited
-            type="span"
-            color="text-green-60"
-          >
+          <Headline inherited type="span" color="text-green-60">
             nested Headline inheriting styles from parent Headline
           </Headline>
         </Headline>

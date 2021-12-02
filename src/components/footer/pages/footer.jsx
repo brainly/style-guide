@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import Footer from '../Footer';
 import FooterLine from '../FooterLine';
-import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
+import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
 
 import Link from 'text/Link';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';

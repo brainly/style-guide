@@ -1,7 +1,7 @@
 import React from 'react';
 import {StoryVariantBorderBox, StoryVariantTable} from '../../_docs/utils';
 import hex from '../colors/hex';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import Input, {SIZE, COLOR} from './Input';
 
 export default {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextBit, {TEXT_COLOR} from './TextBit';
+import TextBit from './TextBit';
 
 export default {
   title: 'Components/TextBit',

@@ -2,7 +2,6 @@ import * as React from 'react';
 import Headline, {
   HEADLINE_SIZE,
   HEADLINE_TYPE,
-  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './Headline';
@@ -29,9 +28,7 @@ test('type', () => {
 });
 
 test('text-white', () => {
-  const text = shallow(
-    <Headline color="text-white">Test</Headline>
-  );
+  const text = shallow(<Headline color="text-white">Test</Headline>);
 
   expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
 });

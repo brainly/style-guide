@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import FlashMessage from './FlashMessage';
 
 export default {

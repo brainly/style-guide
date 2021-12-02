@@ -9,7 +9,7 @@ import ContentBoxContent, {
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Button from 'buttons/Button';
 import Text, {TEXT_WEIGHT} from 'text/Text';
-import TextBit, {TEXT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
+import TextBit, {TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -83,10 +83,7 @@ const Toplayers = () => {
         <TopLayer size={SIZE.MEDIUM} lead withBugbox>
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-              <TextBit
-                color="text-blue-40"
-                type={TEXT_BIT_TYPE.H1}
-              >
+              <TextBit color="text-blue-40" type={TEXT_BIT_TYPE.H1}>
                 The world&apos;s largest learning community
               </TextBit>
               <Headline type={HEADLINE_TYPE.H2}>Why join Brainly?</Headline>

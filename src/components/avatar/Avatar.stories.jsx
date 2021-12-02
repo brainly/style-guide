@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import Avatar, {SIZE} from './Avatar';
 import {StoryVariantTable} from '../../_docs/utils';
 import Flex from '../flex/Flex';

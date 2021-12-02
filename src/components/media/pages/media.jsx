@@ -3,7 +3,7 @@ import Media from '../Media';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar from 'avatar/Avatar';
-import Link, {TEXT_COLOR} from 'text/Link';
+import Link from 'text/Link';
 
 const defaultProps = {
   contentArray: [

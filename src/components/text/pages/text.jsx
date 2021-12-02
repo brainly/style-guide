@@ -148,7 +148,7 @@ const TextExamples = () => {
                 weight={LINK_WEIGHT.BOLD}
                 size={LINK_SIZE.LARGE}
               >
-                link - "text-white"
+                link - text-white
               </Link>
             </ContrastBox>
           </li>

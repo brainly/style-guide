@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
 import Flex from '../flex/Flex';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import classnames from 'classnames';
 import {getIconGroup} from './get-icon-group';
 

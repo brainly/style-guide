@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Headline, {TEXT_COLOR} from './Headline';
+import Headline from './Headline';
+import {TEXT_COLOR} from './textConsts';
 
 export default {
   title: 'Components/Headline',

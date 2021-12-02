@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
 import Flex from '../flex/Flex';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import Checkbox from './Checkbox';
 
 export default {

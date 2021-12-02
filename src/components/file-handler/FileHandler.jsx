@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text';
-import Link, {TEXT_COLOR} from '../text/Link';
+import Link from '../text/Link';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 

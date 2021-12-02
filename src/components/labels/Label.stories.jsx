@@ -7,7 +7,7 @@ import Label, {
   COLORS_SOLID_MAP,
 } from './Label';
 import {StoryVariantTable} from '../../_docs/utils';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import hex from '../colors/hex';
 
 const noop = () => null;

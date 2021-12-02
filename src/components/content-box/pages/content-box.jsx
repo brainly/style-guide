@@ -9,7 +9,7 @@ import Button from 'buttons/Button';
 import Breadcrumbs from 'breadcrumbs/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
-import Text, {TEXT_COLOR} from 'text/Text';
+import Text from 'text/Text';
 import Icon, {ICON_COLOR} from 'icons/Icon';
 import Link from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';

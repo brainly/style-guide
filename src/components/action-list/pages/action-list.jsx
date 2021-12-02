@@ -4,7 +4,7 @@ import Button from 'buttons/Button';
 import Headline, {HEADLINE_SIZE, HEADLINE_TYPE} from 'text/Headline';
 import Label from 'labels/Label';
 import Icon from 'icons/Icon';
-import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
+import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
 
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';

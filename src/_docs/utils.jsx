@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Text from '../components/text/Text';
-import Headline, {TEXT_COLOR} from '../components/text/Headline';
+import Headline from '../components/text/Headline';
 
 type StoryVariantBorderBoxPropsType = {
   children: React.Node,

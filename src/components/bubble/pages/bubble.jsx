@@ -9,7 +9,7 @@ import Button from 'buttons/Button';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
-import Link, {TEXT_COLOR} from 'text/Link';
+import Link from 'text/Link';
 import Flex from 'flex/Flex';
 
 const Bubbles = () => (

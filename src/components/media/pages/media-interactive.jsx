@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Media from '../Media';
 import Avatar from 'avatar/Avatar';
-import Link, {TEXT_COLOR} from 'text/Link';
+import Link from 'text/Link';
 
 const MediaExamples = () => {
   const defaultProps = {

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Text from './Text';
-import {TEXT_COLOR} from './textConsts';
+import Text, {TEXT_COLOR} from './Text';
 
 export default {
   title: 'Components/Text',

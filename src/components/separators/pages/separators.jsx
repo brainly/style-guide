@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import Text, {TEXT_COLOR, TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
+import Text, {TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
 
 import Link from 'text/Link';
 import SeparatorVertical, {SIZE} from '../SeparatorVertical';

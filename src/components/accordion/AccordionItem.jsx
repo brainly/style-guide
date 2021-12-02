@@ -9,7 +9,7 @@ import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
-import Link, {TEXT_COLOR} from '../text/Link';
+import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
 

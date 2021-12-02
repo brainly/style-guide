@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Text, {TEXT_COLOR} from '../text/Text';
+import Text from '../text/Text';
 import Flex from '../flex/Flex';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';

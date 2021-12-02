@@ -4,7 +4,7 @@ import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
-import Text, {TEXT_COLOR} from '../text/Text';
+import Text from '../text/Text';
 
 export default {
   title: 'Components/Counter',
@@ -102,11 +102,7 @@ export const SizesColorsAndTypes = args => (
                   size={size}
                 >
                   +15
-                  <Text
-                    type="span"
-                    color="text-gray-60"
-                    inherited
-                  >
+                  <Text type="span" color="text-gray-60" inherited>
                     {size !== 'xxs' && ` pts`}{' '}
                   </Text>
                 </Counter>

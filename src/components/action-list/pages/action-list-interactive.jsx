@@ -2,7 +2,7 @@ import * as React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from '../ActionList';
 import Button from 'buttons/Button';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
-import Text, {TEXT_TYPE, TEXT_COLOR} from 'text/Text';
+import Text, {TEXT_TYPE} from 'text/Text';
 
 import ActionListHole from '../ActionListHole';
 import DocsActiveBlock from 'components/DocsActiveBlock';

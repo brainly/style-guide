@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
 import Radio, {RADIO_SIZE} from './Radio';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import Flex from '../flex/Flex';
 
 export default {

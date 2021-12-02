@@ -3,7 +3,6 @@ import Text from './Text';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
-  TEXT_COLOR,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,

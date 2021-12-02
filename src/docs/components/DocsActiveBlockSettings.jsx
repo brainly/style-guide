@@ -4,7 +4,7 @@ import ActionList from 'action-list/ActionList';
 import Radio from 'form-elements/Radio';
 import * as React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import Text, {TEXT_COLOR, TEXT_SIZE} from 'text/Text';
+import Text, {TEXT_SIZE} from 'text/Text';
 import generateRandomString from '../../js/generateRandomString';
 
 type PropsType = {

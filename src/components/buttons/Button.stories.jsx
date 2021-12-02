@@ -3,7 +3,7 @@ import Button, {BUTTON_SIZE, BUTTON_TYPE} from './Button';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
 import {StoryVariantTable} from '../../_docs/utils';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 
 const allIcons = Object.entries(ICON_TYPES).reduce(
   (acc, [key, type]) => ({
@@ -149,8 +149,8 @@ export const Types = args => (
                   ['solid-inverted', 'transparent-inverted'].includes(
                     buttonType
                   )
-                    ? "text-white"
-                    : TEXT_COLOR['text-gray-40']
+                    ? 'text-white'
+                    : 'text-gray-40'
                 }
                 size="medium"
               >

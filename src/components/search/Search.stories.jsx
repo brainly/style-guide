@@ -2,7 +2,7 @@ import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
-import Headline, {TEXT_COLOR} from '../text/Headline';
+import Headline from '../text/Headline';
 import Search, {SIZE, COLOR} from './Search';
 
 export default {
