@@ -2,7 +2,7 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Text from '../Text';
-import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
+import Link, {LINK_WEIGHT, LINK_SIZE} from '../Link';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
@@ -101,8 +101,8 @@ const TextExamples = () => {
     }
   });
 
-  getValues(LINK_COLOR, false).forEach(color => {
-    if (color !== LINK_COLOR['text-white']) {
+  getValues(TEXT_COLOR, false).forEach(color => {
+    if (color !== TEXT_COLOR['text-white']) {
       linkcolorVariant.push(
         <li key={color}>
           <Link
@@ -144,11 +144,11 @@ const TextExamples = () => {
             <ContrastBox>
               <Link
                 href="#"
-                color={LINK_COLOR['text-white']}
+                color={TEXT_COLOR['text-white']}
                 weight={LINK_WEIGHT.BOLD}
                 size={LINK_SIZE.LARGE}
               >
-                link - {LINK_COLOR['text-white']}
+                link - {TEXT_COLOR['text-white']}
               </Link>
             </ContrastBox>
           </li>

@@ -2,25 +2,12 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import type {TextColorType} from './Text';
+import {TEXT_COLOR} from './textConsts';
 
 type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 
 type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
-
-type TextBitColorType =
-  | 'text-black'
-  | 'text-gray-60'
-  | 'text-gray-40'
-  | 'text-blue-60'
-  | 'text-blue-40'
-  | 'text-green-60'
-  | 'text-green-40'
-  | 'text-indigo-60'
-  | 'text-indigo-40'
-  | 'text-red-60'
-  | 'text-red-40'
-  | 'text-yellow-60'
-  | 'text-yellow-40';
 
 export const TEXT_BIT_TYPE: {
   H1: 'h1',
@@ -54,41 +41,13 @@ export const TEXT_BIT_SIZE: {
   XLARGE: 'xlarge',
 };
 
-export const TEXT_BIT_COLOR: {
-  'text-black': 'text-black',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-40': 'text-gray-40',
-  'text-blue-60': 'text-blue-60',
-  'text-blue-40': 'text-blue-40',
-  'text-green-60': 'text-green-60',
-  'text-green-40': 'text-green-40',
-  'text-indigo-60': 'text-indigo-60',
-  'text-indigo-40': 'text-indigo-40',
-  'text-red-60': 'text-red-60',
-  'text-red-40': 'text-red-40',
-  'text-yellow-60': 'text-yellow-60',
-  'text-yellow-40': 'text-yellow-40',
-} = {
-  'text-black': 'text-black',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-40': 'text-gray-40',
-  'text-blue-60': 'text-blue-60',
-  'text-blue-40': 'text-blue-40',
-  'text-green-60': 'text-green-60',
-  'text-green-40': 'text-green-40',
-  'text-indigo-60': 'text-indigo-60',
-  'text-indigo-40': 'text-indigo-40',
-  'text-red-60': 'text-red-60',
-  'text-red-40': 'text-red-40',
-  'text-yellow-60': 'text-yellow-60',
-  'text-yellow-40': 'text-yellow-40',
-};
+export {TEXT_COLOR};
 
 export type TextBitPropsType = {
   children: React.Node,
   type?: TextBitTypeType,
   size?: TextBitSizeType,
-  color?: ?TextBitColorType,
+  color?: ?TextColorType,
   className?: ?string,
   inherited?: boolean,
   ...

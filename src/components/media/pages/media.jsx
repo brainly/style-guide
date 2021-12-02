@@ -3,11 +3,11 @@ import Media from '../Media';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar from 'avatar/Avatar';
-import Link, {LINK_COLOR} from 'text/Link';
+import Link, {TEXT_COLOR} from 'text/Link';
 
 const defaultProps = {
   contentArray: [
-    <Link key={1} color={LINK_COLOR['text-gray-70']}>
+    <Link key={1} color={TEXT_COLOR['text-gray-70']}>
       The Goat
     </Link>,
     <span key={2}>Master </span>,

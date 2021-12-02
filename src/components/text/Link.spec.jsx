@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link, {LINK_SIZE, LINK_COLOR} from './Link';
+import Link, {LINK_SIZE, TEXT_COLOR} from './Link';
 import Text from './Text';
 import {shallow} from 'enzyme';
 
@@ -30,7 +30,7 @@ test('size', () => {
 
 test('color', () => {
   const link = shallow(
-    <Link color={LINK_COLOR['text-white']}>Test</Link>
+    <Link color={TEXT_COLOR['text-white']}>Test</Link>
   ).dive();
 
   expect(link.hasClass('sg-text--text-white')).toBeTruthy();

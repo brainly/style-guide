@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text';
-import Link, {LINK_COLOR} from '../text/Link';
+import Link, {TEXT_COLOR} from '../text/Link';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 
@@ -148,7 +148,7 @@ const FileHandler = ({
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         {src !== undefined ? (
-          <Link {...clickProps} size="small" color={LINK_COLOR['text-black']}>
+          <Link {...clickProps} size="small" color={TEXT_COLOR['text-black']}>
             {children}
           </Link>
         ) : (

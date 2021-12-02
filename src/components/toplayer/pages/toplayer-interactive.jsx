@@ -9,7 +9,7 @@ import ContentBoxContent, {
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Button from 'buttons/Button';
 import Text, {TEXT_WEIGHT} from 'text/Text';
-import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
+import TextBit, {TEXT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -84,7 +84,7 @@ const Toplayers = () => {
           <ContentBox>
             <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
               <TextBit
-                color={TEXT_BIT_COLOR['text-blue-40']}
+                color={TEXT_COLOR['text-blue-40']}
                 type={TEXT_BIT_TYPE.H1}
               >
                 The world&apos;s largest learning community

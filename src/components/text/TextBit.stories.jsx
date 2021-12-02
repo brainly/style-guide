@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_COLOR} from './TextBit';
+import TextBit, {TEXT_COLOR} from './TextBit';
 
 export default {
   title: 'Components/TextBit',
@@ -25,7 +25,7 @@ Nested.args = {
   children: (
     <>
       TextBit{' '}
-      <TextBit inherited type="span" color={TEXT_BIT_COLOR['text-indigo-40']}>
+      <TextBit inherited type="span" color={TEXT_COLOR['text-indigo-40']}>
         nested TextBit
       </TextBit>
     </>

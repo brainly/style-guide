@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {StoryVariantTable} from '../../_docs/utils';
 import Flex from '../flex/Flex';
-import Headline, {HEADLINE_COLOR} from '../text/Headline';
+import Headline, {TEXT_COLOR} from '../text/Headline';
 import Checkbox from './Checkbox';
 
 export default {
@@ -23,7 +23,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={HEADLINE_COLOR['text-gray-40']}
+            color={TEXT_COLOR['text-gray-40']}
             size="medium"
           >
             neutral state
@@ -34,7 +34,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={HEADLINE_COLOR['text-gray-40']}
+            color={TEXT_COLOR['text-gray-40']}
             size="medium"
           >
             checked state
@@ -47,7 +47,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color={HEADLINE_COLOR['text-gray-40']}
+            color={TEXT_COLOR['text-gray-40']}
             size="medium"
             align="to-right"
           >

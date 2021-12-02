@@ -11,32 +11,32 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
 import Text, {TEXT_COLOR} from 'text/Text';
 import Icon, {ICON_COLOR} from 'icons/Icon';
-import Link, {LINK_COLOR} from 'text/Link';
+import Link from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import Flex from 'flex/Flex';
 
 const link1 = (
-  <Link href="#" color={LINK_COLOR['text-gray-70']}>
+  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
     Math
   </Link>
 );
 const link2 = (
-  <Link href="#" color={LINK_COLOR['text-gray-70']}>
+  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
     10 pts
   </Link>
 );
 const link3 = (
-  <Link href="#" color={LINK_COLOR['text-gray-70']}>
+  <Link href="#" color={TEXT_COLOR['text-gray-70']}>
     2 min ago
   </Link>
 );
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [
-  <Link key={1} color={LINK_COLOR['text-gray-70']}>
+  <Link key={1} color={TEXT_COLOR['text-gray-70']}>
     Katie
   </Link>,
-  <Link key={2} href="#" color={LINK_COLOR['text-gray-70']}>
+  <Link key={2} href="#" color={TEXT_COLOR['text-gray-70']}>
     Answerer
   </Link>,
 ];

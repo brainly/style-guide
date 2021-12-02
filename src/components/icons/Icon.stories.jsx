@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
 import Flex from '../flex/Flex';
-import Headline, {HEADLINE_COLOR} from '../text/Headline';
+import Headline, {TEXT_COLOR} from '../text/Headline';
 import classnames from 'classnames';
 import {getIconGroup} from './get-icon-group';
 
@@ -44,7 +44,7 @@ export const Types = args => (
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-40']}
+      color={TEXT_COLOR['text-gray-40']}
       size="medium"
       style={{marginBottom: 10, marginLeft: 10}}
     >
@@ -61,7 +61,7 @@ export const Types = args => (
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-40']}
+      color={TEXT_COLOR['text-gray-40']}
       size="medium"
       style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
     >
@@ -78,7 +78,7 @@ export const Types = args => (
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-40']}
+      color={TEXT_COLOR['text-gray-40']}
       size="medium"
       style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
     >
@@ -95,7 +95,7 @@ export const Types = args => (
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-40']}
+      color={TEXT_COLOR['text-gray-40']}
       size="medium"
       style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
     >
@@ -112,7 +112,7 @@ export const Types = args => (
       extraBold
       transform="uppercase"
       type="span"
-      color={HEADLINE_COLOR['text-gray-40']}
+      color={TEXT_COLOR['text-gray-40']}
       size="medium"
       style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
     >

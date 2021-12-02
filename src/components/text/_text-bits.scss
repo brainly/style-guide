@@ -28,6 +28,8 @@ $bitSizes: (
       font-weight: inherit;
     }
 
+    @import './text-colors';
+
     &--small {
       @include uppercaseText(0);
       font-size: getBitSize(small);
@@ -42,58 +44,6 @@ $bitSizes: (
     &--xlarge {
       font-size: getBitSize(xlarge);
       line-height: getBitSize(xlarge);
-    }
-
-    &--text-black {
-      color: $text-black;
-    }
-
-    &--text-gray-60 {
-      color: $text-gray-60;
-    }
-
-    &--text-gray-40 {
-      color: $text-gray-40;
-    }
-
-    &--text-blue-60 {
-      color: $text-blue-60;
-    }
-
-    &--text-blue-40 {
-      color: $text-blue-40;
-    }
-
-    &--text-green-60 {
-      color: $text-green-60;
-    }
-
-    &--text-green-40 {
-      color: $text-green-40;
-    }
-
-    &--text-indigo-60 {
-      color: $text-indigo-60;
-    }
-
-    &--text-indigo-40 {
-      color: $text-indigo-40;
-    }
-
-    &--text-red-60 {
-      color: $text-red-60;
-    }
-
-    &--text-red-40 {
-      color: $text-red-40;
-    }
-
-    &--text-yellow-60 {
-      color: $text-yellow-60;
-    }
-
-    &--text-yellow-40 {
-      color: $text-yellow-40;
     }
   }
 }

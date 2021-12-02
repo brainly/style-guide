@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_BIT_COLOR} from './TextBit';
+import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE, TEXT_COLOR} from './TextBit';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
@@ -28,7 +28,7 @@ test('type', () => {
 
 test('color', () => {
   const textBit = shallow(
-    <TextBit color={TEXT_BIT_COLOR['text-blue-40']}>Test</TextBit>
+    <TextBit color={TEXT_COLOR['text-blue-40']}>Test</TextBit>
   );
 
   expect(textBit.hasClass('sg-text-bit--text-blue-40')).toBeTruthy();

@@ -86,24 +86,6 @@ export const TEXT_COLOR: {
   'text-yellow-40': 'text-yellow-40',
 };
 
-export const LINK_COLOR: {
-  'text-black': 'text-black',
-  'text-white': 'text-white',
-  'text-gray-70': 'text-gray-70',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-50': 'text-gray-50',
-  'text-blue-60': 'text-blue-60',
-  'text-green-60': 'text-green-60',
-} = {
-  'text-black': 'text-black',
-  'text-white': 'text-white',
-  'text-gray-70': 'text-gray-70',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-50': 'text-gray-50',
-  'text-blue-60': 'text-blue-60',
-  'text-green-60': 'text-green-60',
-};
-
 export const COLOR = TEXT_COLOR; // backward compatibility
 
 export const TEXT_WEIGHT: {

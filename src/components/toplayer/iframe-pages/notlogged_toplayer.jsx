@@ -8,7 +8,7 @@ import ContentBoxContent, {
 import Text, {TEXT_WEIGHT} from 'text/Text';
 
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
-import TextBit, {TEXT_BIT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
+import TextBit, {TEXT_COLOR, TEXT_BIT_TYPE} from 'text/TextBit';
 import List from 'list/List';
 import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
@@ -18,7 +18,7 @@ import Overlay from 'overlay/Overlay';
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>
-      <TextBit color={TEXT_BIT_COLOR['text-blue-40']} type={TEXT_BIT_TYPE.H1}>
+      <TextBit color={TEXT_COLOR['text-blue-40']} type={TEXT_BIT_TYPE.H1}>
         The world&apos;s largest learning community
       </TextBit>
     </ContentBoxContent>

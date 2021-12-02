@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
-import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
+import TextBit, {TEXT_BIT_SIZE, TEXT_COLOR} from '../TextBit';
 
 const text = "We've got your back!";
 
@@ -41,13 +41,13 @@ const TextBitExamples = () => {
     );
 
     sizesVariants.push(
-      <TextBit key="size" size={size} color={TEXT_BIT_COLOR['text-red-40']}>
+      <TextBit key="size" size={size} color={TEXT_COLOR['text-red-40']}>
         {text} - {size} - {itemSize}
       </TextBit>
     );
   });
 
-  getValues(TEXT_BIT_COLOR, false).forEach(color => {
+  getValues(TEXT_COLOR, false).forEach(color => {
     colorsVariants.push(
       <TextBit key="color" size={TEXT_BIT_SIZE.MEDIUM} color={color}>
         {text} - {color}

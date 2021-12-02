@@ -4,7 +4,7 @@ import Footer from '../Footer';
 import FooterLine from '../FooterLine';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_COLOR, TEXT_WEIGHT} from 'text/Text';
 
-import Link, {LINK_COLOR} from 'text/Link';
+import Link from 'text/Link';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
 
 const Footers = () => (
@@ -21,19 +21,19 @@ const Footers = () => (
         <FooterLine>
           <Breadcrumb
             elements={[
-              <Link key={1} href="#" color={LINK_COLOR['text-gray-70']}>
+              <Link key={1} href="#" color={TEXT_COLOR['text-gray-70']}>
                 Regularmin
               </Link>,
-              <Link key={2} href="#" color={LINK_COLOR['text-gray-70']}>
+              <Link key={2} href="#" color={TEXT_COLOR['text-gray-70']}>
                 Kontakt
               </Link>,
-              <Link key={3} href="#" color={LINK_COLOR['text-gray-70']}>
+              <Link key={3} href="#" color={TEXT_COLOR['text-gray-70']}>
                 Jak zdobyć punkty?
               </Link>,
-              <Link key={4} href="#" color={LINK_COLOR['text-gray-70']}>
+              <Link key={4} href="#" color={TEXT_COLOR['text-gray-70']}>
                 O nas
               </Link>,
-              <Link key={5} href="#" color={LINK_COLOR['text-gray-70']}>
+              <Link key={5} href="#" color={TEXT_COLOR['text-gray-70']}>
                 Kariera
               </Link>,
             ]}

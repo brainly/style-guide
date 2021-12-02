@@ -2,7 +2,7 @@ import * as React from 'react';
 import Headline, {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
+  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
@@ -20,7 +20,7 @@ const Headlines = () => {
     },
     {
       name: 'color',
-      values: HEADLINE_COLOR,
+      values: TEXT_COLOR,
     },
     {
       name: 'transform',
@@ -49,7 +49,7 @@ const Headlines = () => {
         <Headline
           type={HEADLINE_TYPE.H2}
           size={HEADLINE_SIZE.SMALL}
-          color={HEADLINE_COLOR['text-white']}
+          color={TEXT_COLOR['text-white']}
         >
           We&apos;ve got your back!
         </Headline>
@@ -60,7 +60,7 @@ const Headlines = () => {
           <Headline
             inherited
             type="span"
-            color={HEADLINE_COLOR['text-green-60']}
+            color={TEXT_COLOR['text-green-60']}
           >
             nested Headline inheriting styles from parent Headline
           </Headline>

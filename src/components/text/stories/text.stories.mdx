@@ -1,7 +1,7 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {Typeset, TypeSpecimen, Label} from 'blocks/Typeset';
 import Text from '../Text';
-import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
+import Link, {LINK_WEIGHT, LINK_SIZE, TEXT_COLOR} from '../Link';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
@@ -13,11 +13,11 @@ import {
 import Headline, {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
+  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
-import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
+import TextBit, {TEXT_BIT_SIZE, TEXT_COLOR} from '../TextBit';
 
 <Meta title="Foundation ✨/Typography" />
 
@@ -77,7 +77,7 @@ export const TextBitExamples = extraBold => {
       sizesVariants.push(
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
-          <TextBit key="size" size={size} color={TEXT_BIT_COLOR['text-black']}>
+          <TextBit key="size" size={size} color={TEXT_COLOR['text-black']}>
             Text Bit
           </TextBit>
         </TypeSpecimen>

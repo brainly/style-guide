@@ -3,6 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
+import {TEXT_COLOR} from './Text';
+import type {TextColorType} from './Text';
 
 export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -16,18 +18,6 @@ export type HeadlineSizeType =
   | 'xxlarge'
   | 'xxxlarge';
 
-export type HeadlineColorType =
-  | 'text-black'
-  | 'text-white'
-  | 'text-gray-70'
-  | 'text-gray-60'
-  | 'text-gray-40'
-  | 'text-blue-60'
-  | 'text-green-60'
-  | 'text-indigo-60'
-  | 'text-red-60'
-  | 'text-yellow-60';
-
 export type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 export type HeadlineAlignType =
@@ -39,16 +29,17 @@ export type HeadlineAlignType =
 export {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './headlineConsts';
+
+export {TEXT_COLOR};
 
 export type HeadlinePropsType = {
   children?: React.Node,
   size?: HeadlineSizeType,
   type?: HeadlineTypeType,
-  color?: ?HeadlineColorType,
+  color?: ?TextColorType,
   transform?: ?HeadlineTransformType,
   align?: ?HeadlineAlignType,
   className?: ?string,

@@ -4,7 +4,7 @@ import ContrastBox from 'components/ContrastBox';
 import Headline, {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
+  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
@@ -77,8 +77,8 @@ const Headlines = () => {
     });
   });
 
-  getValues(HEADLINE_COLOR, false).forEach(color => {
-    if (color !== HEADLINE_COLOR['text-white']) {
+  getValues(TEXT_COLOR, false).forEach(color => {
+    if (color !== TEXT_COLOR['text-white']) {
       colorsVariants.push(
         <Headline
           key={color}

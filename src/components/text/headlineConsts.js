@@ -38,30 +38,6 @@ export const HEADLINE_SIZE: {
   XXXLARGE: 'xxxlarge',
 };
 
-export const HEADLINE_COLOR: {
-  'text-black': 'text-black',
-  'text-white': 'text-white',
-  'text-gray-70': 'text-gray-70',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-40': 'text-gray-40',
-  'text-blue-60': 'text-blue-60',
-  'text-green-60': 'text-green-60',
-  'text-indigo-60': 'text-indigo-60',
-  'text-red-60': 'text-red-60',
-  'text-yellow-60': 'text-yellow-60',
-} = {
-  'text-black': 'text-black',
-  'text-white': 'text-white',
-  'text-gray-70': 'text-gray-70',
-  'text-gray-60': 'text-gray-60',
-  'text-gray-40': 'text-gray-40',
-  'text-blue-60': 'text-blue-60',
-  'text-green-60': 'text-green-60',
-  'text-indigo-60': 'text-indigo-60',
-  'text-red-60': 'text-red-60',
-  'text-yellow-60': 'text-yellow-60',
-};
-
 export const HEADLINE_TRANSFORM: {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
