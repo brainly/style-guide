@@ -46,7 +46,7 @@ const SmallDeviceExample = () => (
                   <IconAsButton
                     type={ICON_TYPE.MESSAGES}
                     transparent
-                    color={ICON_COLOR.DARK}
+                    color={ICON_COLOR['icon-black']}
                     overlay={<Counter size="small">1</Counter>}
                   />
                   <IconAsButton transparent>
@@ -58,7 +58,10 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
               <div>
                 <HeaderRight>
-                  <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
+                  <IconAsButton
+                    type={ICON_TYPE.MENU}
+                    color={ICON_COLOR['icon-black']}
+                  />
                 </HeaderRight>
               </div>
             </RWDHelper>

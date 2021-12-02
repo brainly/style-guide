@@ -3,51 +3,43 @@
     fill: inherit;
   }
 
-  &--light { //default
-    fill: $white;
+  &--icon-black {
+    fill: $icon-black;
   }
 
-  &--gray {
-    fill: $gray-70;
+  &--icon-white {
+    fill: $icon-white;
   }
 
-  &--gray-secondary {
-    fill: $gray-50;
+  &--icon-gray-70 {
+    fill: $icon-gray-70;
   }
 
-  &--gray-light {
-    fill: $gray-40;
+  &--icon-gray-50 {
+    fill: $icon-gray-50;
   }
 
-  &--blue {
-    fill: $blue-40;
+  &--icon-gray-40 {
+    fill: $icon-gray-40;
   }
 
-  &--blue-dark {
-    fill: $blue-50;
+  &--icon-blue-50 {
+    fill: $icon-blue-50;
   }
 
-  &--mustard {
-    fill: $yellow-40;
+  &--icon-indigo-50 {
+    fill: $icon-indigo-50;
   }
 
-  &--lavender {
-    fill: $indigo-40;
+  &--icon-green-50 {
+    fill: $icon-green-50;
   }
 
-  &--peach {
-    fill: $red-40;
+  &--icon-yellow-50 {
+    fill: $icon-yellow-50;
   }
 
-  &--peach-dark {
-    fill: $red-50;
-  }
-
-  &--dark {
-    fill: $black;
-  }
-
-  &--mint {
-    fill: $green-40;
+  &--icon-red-50 {
+    fill: $icon-red-50;
   }
 }

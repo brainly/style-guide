@@ -135,7 +135,7 @@ export type ButtonPropsType = {
   /**
    * You can render icon inside each type of button on the left side
    * @example <Button
-   *           icon={<Icon type="facebook" color="light" size={24} />}
+   *           icon={<Icon type="facebook" color="icon-white" size={24} />}
    *           type="facebook"
    *          >
    *            Login with Facebook
@@ -144,7 +144,7 @@ export type ButtonPropsType = {
   icon?: React.Node,
   /** Optional and available when icon is set. it hides button's text
    * @example <Button
-   *            icon={<Icon type="facebook" color="light" size={24} />}
+   *            icon={<Icon type="facebook" color="icon-white" size={24} />}
    *            iconOnly
    *            type="facebook"
    *          >
@@ -159,7 +159,7 @@ export type ButtonPropsType = {
   /**
    * Children to be rendered inside Button
    * @example <Button
-   *           icon={<Icon type="answer" color="light" size={24} />}
+   *           icon={<Icon type="answer" color="icon-white" size={24} />}
    *           type="solid"
    *          >
    *            button

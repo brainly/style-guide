@@ -19,7 +19,7 @@ test('type passed to xlink:href', () => {
 
 test('colors', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
-  const color = ICON_COLOR.DARK;
+  const color = ICON_COLOR['icon-black'];
   const icon = shallow(<MathSymbol type={type} color={color} />);
 
   expect(icon.hasClass(`sg-math-symbol-icon--${color}`)).toEqual(true);

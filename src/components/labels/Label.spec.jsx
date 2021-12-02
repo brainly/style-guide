@@ -40,7 +40,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-primary')).toBe(true);
   });
 
-  test('dark close button if default', () => {
+  test('icon-black color close button is default', () => {
     const mockCallback = jest.fn();
     const label = shallow(
       <Label type="default" color="mint" onClose={mockCallback}>
@@ -55,7 +55,7 @@ describe('Label', () => {
         .find('div')
         .find(Icon)
         .prop('color')
-    ).toBe('dark');
+    ).toBe('icon-black');
   });
 
   test('clicking on close button calls onClose', () => {
@@ -94,8 +94,8 @@ describe('Label', () => {
       .findWhere(el => el.prop('type') === 'heart');
 
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(true);
-    expect(closeIcon.prop('color')).toBe('dark');
-    expect(heartIcon.prop('color')).toBe('dark');
+    expect(closeIcon.prop('color')).toBe('icon-black');
+    expect(heartIcon.prop('color')).toBe('icon-black');
     expect(label.find(Text).prop('color')).toBe('black');
   });
 
@@ -115,8 +115,8 @@ describe('Label', () => {
       .findWhere(el => el.prop('type') === 'heart');
 
     expect(label.hasClass('sg-label--mint-primary')).toBe(true);
-    expect(closeIcon.prop('color')).toBe('light');
-    expect(heartIcon.prop('color')).toBe('light');
+    expect(closeIcon.prop('color')).toBe('icon-white');
+    expect(heartIcon.prop('color')).toBe('icon-white');
     expect(label.find(Text).prop('color')).toBe('white');
   });
 
@@ -142,8 +142,8 @@ describe('Label', () => {
 
     expect(label.hasClass('sg-label--mint-primary')).toBe(false);
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
-    expect(closeIcon.prop('color')).toBe('dark');
-    expect(heartIcon.prop('color')).toBe('mint');
+    expect(closeIcon.prop('color')).toBe('icon-black');
+    expect(heartIcon.prop('color')).toBe('icon-green-50');
     expect(label.find(Text).prop('color')).toBe('black');
     expect(label.find('div').find(Icon)).toHaveLength(2);
   });
@@ -170,8 +170,8 @@ describe('Label', () => {
 
     expect(label.hasClass('sg-label--mint-primary')).toBe(false);
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
-    expect(closeIcon.prop('color')).toBe('mint');
-    expect(heartIcon.prop('color')).toBe('mint');
+    expect(closeIcon.prop('color')).toBe('icon-green-50');
+    expect(heartIcon.prop('color')).toBe('icon-green-50');
     expect(label.find(Text).prop('color')).toBe('mint-dark');
   });
 });

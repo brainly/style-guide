@@ -61,9 +61,9 @@ export default {
 export const Default = (args: any) => <Accordion {...args} />;
 
 const CONTROLLED_ACCORDION_IDS = [
-  'accrodion item 1',
-  'accordion item 2',
-  'accordion item 3',
+  'accordion_item_1',
+  'accordion_item_2',
+  'accordion_item_3',
 ];
 
 export const Expanded = (args: any) => {

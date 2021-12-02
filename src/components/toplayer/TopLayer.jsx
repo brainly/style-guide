@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 export type TopLayerSizeType = 'small' | 'medium' | 'large';
 
@@ -88,7 +88,7 @@ const TopLayer = (props: TopLayerPropsType) => {
           role="button"
           tabIndex={0}
         >
-          <Icon type="close" color="gray-secondary" size={24} />
+          <Icon type="close" color={ICON_COLOR['icon-gray-50']} size={24} />
         </div>
       ) : null}
       <div className={toplayerWrapperClassName}>{children}</div>

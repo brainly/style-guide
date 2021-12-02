@@ -3,7 +3,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import Button from '../buttons/Button';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 export type DialogCloseButtonPropsType = $ReadOnly<{
   onClick: () => void,
@@ -19,7 +19,7 @@ const DialogCloseButton = ({
   <Button
     type="transparent"
     className={cx('sg-dialog__close-button', className)}
-    icon={<Icon type="close" color="dark" size={24} />}
+    icon={<Icon type="close" color={ICON_COLOR['icon-black']} size={24} />}
     onClick={onClick}
     aria-label={label}
     iconOnly

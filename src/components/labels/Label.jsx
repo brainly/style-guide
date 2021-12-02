@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
-import Icon, {TYPE as ICON_TYPE} from '../icons/Icon';
+import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
 export type LabelColorType =
@@ -87,22 +87,23 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   achromatic: 'black',
 };
 
+// TODO: Change this map after Text color changes
 const TRANSPARENT_ICON_COLOR_MAP: {
-  blue: 'blue',
-  mint: 'mint',
-  lavender: 'lavender',
-  peach: 'peach',
-  mustard: 'mustard',
-  gray: 'gray-secondary',
-  achromatic: 'dark',
+  blue: 'icon-blue-50',
+  mint: 'icon-green-50',
+  lavender: 'icon-indigo-50',
+  peach: 'icon-red-50',
+  mustard: 'icon-yellow-50',
+  gray: 'icon-gray-50',
+  achromatic: 'icon-black',
 } = {
-  blue: 'blue',
-  mint: 'mint',
-  lavender: 'lavender',
-  peach: 'peach',
-  mustard: 'mustard',
-  gray: 'gray-secondary',
-  achromatic: 'dark',
+  blue: 'icon-blue-50',
+  mint: 'icon-green-50',
+  lavender: 'icon-indigo-50',
+  peach: 'icon-red-50',
+  mustard: 'icon-yellow-50',
+  gray: 'icon-gray-50',
+  achromatic: 'icon-black',
 };
 
 export const LABEL_COLORS_SET: {
@@ -229,16 +230,16 @@ const Label = ({
 
   const iconColor =
     type === 'default'
-      ? 'dark'
+      ? ICON_COLOR['icon-black']
       : type === 'solid'
-      ? 'light'
+      ? ICON_COLOR['icon-white']
       : TRANSPARENT_ICON_COLOR_MAP[color];
 
   const closeIconColor =
     type === 'default' || type === 'transparent'
-      ? 'dark'
+      ? ICON_COLOR['icon-black']
       : type === 'solid'
-      ? 'light'
+      ? ICON_COLOR['icon-white']
       : TRANSPARENT_ICON_COLOR_MAP[color];
 
   return (

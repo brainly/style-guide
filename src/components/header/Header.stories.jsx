@@ -73,7 +73,7 @@ export const WithComponents = () => (
                 <IconAsButton
                   type={ICON_TYPE.MESSAGES}
                   transparent
-                  color={ICON_COLOR.DARK}
+                  color={ICON_COLOR['icon-black']}
                   overlay={<Counter size="small">1</Counter>}
                 />
                 <IconAsButton transparent>
@@ -85,7 +85,10 @@ export const WithComponents = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>
@@ -118,7 +121,7 @@ export const WithBottomDivider = () => (
               <IconAsButton
                 type={ICON_TYPE.MESSAGES}
                 transparent
-                color={ICON_COLOR.DARK}
+                color={ICON_COLOR['icon-black']}
                 overlay={<Counter size="small">1</Counter>}
               />
               <IconAsButton transparent>
@@ -130,7 +133,10 @@ export const WithBottomDivider = () => (
         <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
           <div>
             <HeaderRight>
-              <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
+              <IconAsButton
+                type={ICON_TYPE.MENU}
+                color={ICON_COLOR['icon-black']}
+              />
             </HeaderRight>
           </div>
         </RWDHelper>
@@ -171,7 +177,10 @@ export const AutoHeight = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>
@@ -219,7 +228,10 @@ export const FixedHeader = () => (
           <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
             <div>
               <HeaderRight>
-                <IconAsButton type={ICON_TYPE.MENU} color={ICON_COLOR.DARK} />
+                <IconAsButton
+                  type={ICON_TYPE.MENU}
+                  color={ICON_COLOR['icon-black']}
+                />
               </HeaderRight>
             </div>
           </RWDHelper>

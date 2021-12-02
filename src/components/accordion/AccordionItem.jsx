@@ -8,7 +8,7 @@ import {useContext, useEffect, useRef, useState} from 'react';
 import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
@@ -214,7 +214,7 @@ const AccordionItem = ({
             >
               <Icon
                 type="arrow_down"
-                color="dark"
+                color={ICON_COLOR['icon-black']}
                 className={cx('sg-accordion-item__arrow', {
                   'sg-accordion-item__arrow--visible': !isCollapsed,
                 })}

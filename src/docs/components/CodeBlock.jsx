@@ -78,7 +78,7 @@ class CodeBlock extends React.Component<PropsType> {
           <IconAsButton
             title="Copy to the clipboard"
             type={TYPE.ANSWER}
-            color={ICON_COLOR.DARK}
+            color={ICON_COLOR['icon-black']}
           />
         </div>
       </div>

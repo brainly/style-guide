@@ -37,7 +37,7 @@ const ListItems = () => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon
-                  color={ICON_COLOR.LIGHT}
+                  color={ICON_COLOR['icon-white']}
                   type={ICON_TYPE.ARROW_RIGHT}
                   size={18}
                 />
@@ -55,7 +55,7 @@ const ListItems = () => (
             <ListItem key={index}>
               <ListItemIcon small>
                 <Icon
-                  color={ICON_COLOR.LIGHT}
+                  color={ICON_COLOR['icon-white']}
                   type={ICON_TYPE.ARROW_RIGHT}
                   size={14}
                 />
@@ -73,7 +73,7 @@ const ListItems = () => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon
-                  color={ICON_COLOR.LIGHT}
+                  color={ICON_COLOR['icon-white']}
                   type={ICON_TYPE.ARROW_RIGHT}
                   size={18}
                 />
@@ -91,7 +91,7 @@ const ListItems = () => (
             <ListItem key={index}>
               <ListItemIcon>
                 <Icon
-                  color={ICON_COLOR.LIGHT}
+                  color={ICON_COLOR['icon-white']}
                   type={ICON_TYPE.ARROW_RIGHT}
                   size={18}
                 />
@@ -109,7 +109,7 @@ const ListItems = () => (
             <ListItem key={index}>
               <ListItemIcon small>
                 <Icon
-                  color={ICON_COLOR.LIGHT}
+                  color={ICON_COLOR['icon-white']}
                   type={ICON_TYPE.ARROW_RIGHT}
                   size={14}
                 />

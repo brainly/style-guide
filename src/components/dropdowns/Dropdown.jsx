@@ -6,7 +6,7 @@ import * as React from 'react';
 import {useEffect, useState, useRef} from 'react';
 import classNames from 'classnames';
 
-import Icon from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type LinksType = $ReadOnly<{
   label: string,
@@ -63,7 +63,7 @@ const Dropdown = ({
       <Icon
         type={open ? 'arrow_up' : 'arrow_down'}
         size={24}
-        color="gray"
+        color={ICON_COLOR['icon-gray-70']}
         className="sg-dropdown__icon"
       />
 

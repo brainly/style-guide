@@ -25,7 +25,7 @@ const SubjectIcons = () => {
         <SubjectIcon type={TYPE.MATHEMATICS} />
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <SubjectIcon type={TYPE.BIOLOGY} monoColor={ICON_COLOR.LIGHT} />
+        <SubjectIcon type={TYPE.BIOLOGY} monoColor={ICON_COLOR['icon-white']} />
       </DocsActiveBlock>
     </div>
   );

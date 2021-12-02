@@ -10,7 +10,11 @@ const RwdHelpers = () => (
         <li>
           <RwdHelper hide={TYPE.SMALL_ONLY}>
             <span>
-              <Icon type={icoTypes.HEART} color={ICON_COLOR.PEACH} size={14} />
+              <Icon
+                type={icoTypes.HEART}
+                color={ICON_COLOR['icon-red-50']}
+                size={14}
+              />
             </span>
           </RwdHelper>
           - hidden for small screens
@@ -19,7 +23,11 @@ const RwdHelpers = () => (
         <li>
           <RwdHelper hide={TYPE.MEDIUM_ONLY}>
             <span>
-              <Icon type={icoTypes.HEART} color={ICON_COLOR.PEACH} size={14} />
+              <Icon
+                type={icoTypes.HEART}
+                color={ICON_COLOR['icon-red-50']}
+                size={14}
+              />
             </span>
           </RwdHelper>
           - hidden for medium screens
@@ -28,7 +36,11 @@ const RwdHelpers = () => (
         <li>
           <RwdHelper hide={TYPE.MEDIUM_DOWN}>
             <span>
-              <Icon type={icoTypes.HEART} color={ICON_COLOR.PEACH} size={14} />
+              <Icon
+                type={icoTypes.HEART}
+                color={ICON_COLOR['icon-red-50']}
+                size={14}
+              />
             </span>
           </RwdHelper>
           - hidden for small and medium screens
@@ -37,7 +49,11 @@ const RwdHelpers = () => (
         <li>
           <RwdHelper hide={TYPE.MEDIUM_UP}>
             <span>
-              <Icon type={icoTypes.HEART} color={ICON_COLOR.PEACH} size={14} />
+              <Icon
+                type={icoTypes.HEART}
+                color={ICON_COLOR['icon-red-50']}
+                size={14}
+              />
             </span>
           </RwdHelper>
           - hidden for medium and large screens
@@ -46,7 +62,11 @@ const RwdHelpers = () => (
         <li>
           <RwdHelper hide={TYPE.LARGE_ONLY}>
             <span>
-              <Icon type={icoTypes.HEART} color={ICON_COLOR.PEACH} size={14} />
+              <Icon
+                type={icoTypes.HEART}
+                color={ICON_COLOR['icon-red-50']}
+                size={14}
+              />
             </span>
           </RwdHelper>
           - hidden for large screens
