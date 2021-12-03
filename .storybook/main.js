@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const revHash = require('rev-hash');
 const fs = require('fs');
+const svgoConfigs = require('../svgo.config.js');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
@@ -101,39 +102,125 @@ module.exports = {
       }
     });
 
+    // config.module.rules.push({
+    //   test: /\.svg$/,
+    //   sideEffects: true,
+    //   use: [
+    //     {
+    //       loader: 'svg-sprite-loader',
+    //       options: {
+    //         symbolId: (filePath) => {
+    //           const pathParts = filePath.split(path.sep);
+    //           const symbol = path.basename(filePath, '.svg');
+
+    //           switch (pathParts[pathParts.length - 2]) {
+    //             case 'math-symbols':
+    //               return `sg-math-symbol-icon-${symbol}`;
+    //             case 'icons':
+    //               return `icon-${symbol}`;
+    //             case 'subjects':
+    //               return `icon-subject-${symbol}`;
+    //             case 'subjects-mono':
+    //               return `icon-subject-mono-${symbol}`;
+    //             case 'mobile-icons':
+    //               return `icon-mobile-${symbol}`;
+    //             default:
+    //               return symbol;
+    //           }
+    //         },
+    //       },
+    //     },
+    //     {
+    //       loader: 'svgo-loader',
+    //       options: {
+    //         configFile: svgoConfigs.icons,
+    //       },
+    //     },
+    //   ],
+    // });
+
     config.module.rules.push({
-      test: /\.svg$/,
+      test: /\/icons\/.*\.svg$/,
+      include: [path.resolve(__dirname, '../src/images/icons')],
       sideEffects: true,
       use: [
         {
           loader: 'svg-sprite-loader',
           options: {
-            symbolId: (filePath) => {
-              const pathParts = filePath.split(path.sep);
-              const symbol = path.basename(filePath, '.svg');
-
-              switch (pathParts[pathParts.length - 2]) {
-                case 'math-symbols':
-                  return `sg-math-symbol-icon-${symbol}`;
-                case 'icons':
-                  return `icon-${symbol}`;
-                case 'subjects':
-                  return `icon-subject-${symbol}`;
-                case 'subjects-mono':
-                  return `icon-subject-mono-${symbol}`;
-                case 'mobile-icons':
-                  return `icon-mobile-${symbol}`;
-                default:
-                  return symbol;
-              }
-            },
+            symbolId: 'icon-[name]',
           },
         },
         {
           loader: 'svgo-loader',
+          options: svgoConfigs.icons,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/math-symbols\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
           options: {
-            configFile: path.join(__dirname, '../svgo.config.js'),
+            symbolId: 'sg-math-symbol-icon-[name]',
           },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.mathSymbols,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/mobile-icons\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-mobile-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.mathSymbols,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/subjects\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-subject-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.subjectIcons,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /subjects-mono\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-subject-mono-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.subjectMonoIcons,
         },
       ],
     });
