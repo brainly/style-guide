@@ -1,19 +1,17 @@
 module.exports = {
   name: 'svg-symbol-cleanup',
   type: 'perItem',
-  fn: ast => {
-    if (
-      ast.name === 'svg' &&
-      ast.attributes &&
-      ast.attributes['data-fixedcolors'] !== 'true'
-    ) {
-      ast.children.forEach(child => {
+  fn: (node, params) => {
+    if (node.name === 'svg' && node.attributes['data-fixedcolors'] !== 'true') {
+      node.children.forEach((child) => {
+        if (params.removeClass) {
+          delete child.attributes.class;
+        }
+
         if (child.attributes.fill) {
-          child.attributes.fill = '';
+          delete child.attributes.fill;
         }
       });
     }
-
-    // @TODO: implement remove class process from /scripts/svgs-generate.js
   },
 };
