@@ -2,9 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import {LOGOS_BASE_URL} from '../../config';
-
-export const BASE_URL = LOGOS_BASE_URL;
+import {LOGOS_BASE_URL as BASE_URL} from '../../config';
 
 export type LogoTypeType =
   | 'brainly'
