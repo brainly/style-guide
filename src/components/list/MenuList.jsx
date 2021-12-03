@@ -24,6 +24,8 @@ export type MenuListPropsType = {
   ...
 };
 
+// deprecated
+
 const MenuList = ({
   items = [],
   size = SIZE.NORMAL,
