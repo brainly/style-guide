@@ -10,6 +10,8 @@ export type PopupMenuPropsType = {
   ...
 };
 
+// deprecated
+
 const PopupMenu = ({
   items = [],
   extraSpacing,
