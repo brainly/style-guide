@@ -102,43 +102,6 @@ module.exports = {
       }
     });
 
-    // config.module.rules.push({
-    //   test: /\.svg$/,
-    //   sideEffects: true,
-    //   use: [
-    //     {
-    //       loader: 'svg-sprite-loader',
-    //       options: {
-    //         symbolId: (filePath) => {
-    //           const pathParts = filePath.split(path.sep);
-    //           const symbol = path.basename(filePath, '.svg');
-
-    //           switch (pathParts[pathParts.length - 2]) {
-    //             case 'math-symbols':
-    //               return `sg-math-symbol-icon-${symbol}`;
-    //             case 'icons':
-    //               return `icon-${symbol}`;
-    //             case 'subjects':
-    //               return `icon-subject-${symbol}`;
-    //             case 'subjects-mono':
-    //               return `icon-subject-mono-${symbol}`;
-    //             case 'mobile-icons':
-    //               return `icon-mobile-${symbol}`;
-    //             default:
-    //               return symbol;
-    //           }
-    //         },
-    //       },
-    //     },
-    //     {
-    //       loader: 'svgo-loader',
-    //       options: {
-    //         configFile: svgoConfigs.icons,
-    //       },
-    //     },
-    //   ],
-    // });
-
     config.module.rules.push({
       test: /\/icons\/.*\.svg$/,
       include: [path.resolve(__dirname, '../src/images/icons')],

@@ -1,49 +1,26 @@
-const svgSymbolCleanupPlugin = require('./scripts/plugins/svg-symbol-cleanup-plugin.js');
+const removeFillNonFixedColors = require('./scripts/plugins/svgo-plugin-remove-fill-non-fixed-colors.js');
+
+const removeClass = {
+  name: 'removeAttrs',
+  params: {
+    attrs: 'class',
+  },
+};
 
 module.exports = {
   subjectIcons: {
-    plugins: [
-      Object.assign({}, svgSymbolCleanupPlugin, {
-        params: {
-          removeClass: false,
-        },
-      }),
-    ],
+    plugins: [removeFillNonFixedColors],
   },
   subjectMonoIcons: {
-    plugins: [
-      Object.assign({}, svgSymbolCleanupPlugin, {
-        params: {
-          removeClass: true,
-        },
-      }),
-    ],
+    plugins: [removeClass, removeFillNonFixedColors],
   },
   icons: {
-    plugins: [
-      Object.assign({}, svgSymbolCleanupPlugin, {
-        params: {
-          removeClass: true,
-        },
-      }),
-    ],
+    plugins: [removeClass, removeFillNonFixedColors],
   },
   mathSymbols: {
-    plugins: [
-      Object.assign({}, svgSymbolCleanupPlugin, {
-        params: {
-          removeClass: true,
-        },
-      }),
-    ],
+    plugins: [removeClass, removeFillNonFixedColors],
   },
   mobileIcons: {
-    plugins: [
-      Object.assign({}, svgSymbolCleanupPlugin, {
-        params: {
-          removeClass: true,
-        },
-      }),
-    ],
+    plugins: [removeClass, removeFillNonFixedColors],
   },
 };
