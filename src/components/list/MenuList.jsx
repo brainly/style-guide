@@ -24,7 +24,7 @@ export type MenuListPropsType = {
   ...
 };
 
-// deprecated
+// This component is deprecated
 
 const MenuList = ({
   items = [],

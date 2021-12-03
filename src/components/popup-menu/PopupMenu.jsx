@@ -10,7 +10,7 @@ export type PopupMenuPropsType = {
   ...
 };
 
-// deprecated
+// This component is deprecated
 
 const PopupMenu = ({
   items = [],
