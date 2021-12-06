@@ -2,7 +2,6 @@ const path = require('path');
 const argv = require('yargs').argv;
 const glob = require('glob');
 const webpack = require('webpack');
-const CopyPlugin = require('copy-webpack-plugin');
 const revHash = require('rev-hash');
 const fs = require('fs');
 const svgoConfigs = require('../svgo.config.js');
@@ -188,37 +187,27 @@ module.exports = {
       ],
     });
 
+    config.module.rules.push({
+      test: /logos\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            context: path.resolve(__dirname, '../src'),
+            name: (absoluteFilename) => {
+              console.log(absoluteFilename);
+              const hash = revHash(fs.readFileSync(absoluteFilename));
+              return `[path][name]-${hash}.[ext]`;
+            },
+          },
+        },
+      ],
+    });
+
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
-      }),
-      new CopyPlugin({
-        patterns: [
-          {
-            from: `${path.resolve(__dirname, '../src/images/logos')}/**/*`,
-            context: path.resolve(__dirname, '../src'),
-            to: ({context, absoluteFilename}) => {
-              const hash = revHash(fs.readFileSync(absoluteFilename));
-
-              return `${path.join(
-                __dirname,
-                'public'
-              )}/[path][name]-${hash}.[ext]`;
-            },
-          },
-          {
-            from: `${path.resolve(__dirname, '../src/fonts')}/**/*`,
-            context: path.resolve(__dirname, '../src'),
-            to: ({context, absoluteFilename}) => {
-              const hash = revHash(fs.readFileSync(absoluteFilename));
-
-              return `${path.join(
-                __dirname,
-                'public'
-              )}/[path][name]-${hash}.[ext]`;
-            },
-          },
-        ],
       })
     );
 

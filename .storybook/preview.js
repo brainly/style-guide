@@ -21,6 +21,7 @@ function importAll(r) {
   r.keys().forEach(r);
 }
 
+importAll(require.context('../src/images/logos', true, /\.svg$/));
 importAll(require.context('../src/images/icons', true, /\.svg$/));
 importAll(require.context('../src/images/subjects', true, /\.svg$/));
 importAll(require.context('../src/images/subjects-mono', true, /\.svg$/));
