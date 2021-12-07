@@ -54,7 +54,6 @@
     "babel-jest": "^20.0.3",
     "babel-loader": "^8.0.5",
     "concurrently": "^5.0.2",
-    "copy-webpack-plugin": "^6.4.0",
     "css-loader": "^3.1.0",
     "del": "^2.2.0",
     "enzyme": "^3.1.0",

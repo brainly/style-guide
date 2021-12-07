@@ -25,7 +25,3 @@ temp
 /src/images/*.js
 /src/docs/_includes/components/
 /src/docs/_data/package.json
-
-# Generated assets for storybook
-.storybook/public/images
-.storybook/public/fonts
