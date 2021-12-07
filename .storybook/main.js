@@ -1,6 +1,10 @@
 const path = require('path');
 const argv = require('yargs').argv;
 const glob = require('glob');
+const webpack = require('webpack');
+const revHash = require('rev-hash');
+const fs = require('fs');
+const svgoConfigs = require('../svgo.config.js');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
@@ -11,13 +15,13 @@ const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 async function findStories() {
   return glob
     .sync('src/**/*.stories.@(jsx|mdx)')
-    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
-    .map(storiesPath => path.relative(__dirname, storiesPath));
+    .filter((storiesPath) => !storiesPath.includes('.chromatic.stories.'))
+    .map((storiesPath) => path.relative(__dirname, storiesPath));
 }
 
 module.exports = {
   stories:
-    process.env.CHROMATIC === 'true'
+    process.env.STORYBOOK_ENV === 'chromatic'
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
       : findStories(),
   addons: [
@@ -25,9 +29,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  webpackFinal: config => {
+  webpackFinal: (config) => {
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
-
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
       ...config.module.rules.slice(1),
@@ -64,7 +67,9 @@ module.exports = {
                 'babel-plugin-add-react-displayname',
                 [
                   'babel-plugin-react-docgen',
-                  {DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES'},
+                  {
+                    DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+                  },
                 ],
               ],
             },
@@ -81,33 +86,130 @@ module.exports = {
           path.resolve(__dirname, '../src/_docs/styles.scss'),
         ],
       },
-      {
-        test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        include: path.join(SOURCE_DIR, 'images'),
-        options: {
-          symbolId: filePath => {
-            const pathParts = filePath.split(path.sep);
-            const symbol = path.basename(filePath, '.svg');
+    ];
 
-            switch (pathParts[pathParts.length - 2]) {
-              case 'math-symbols':
-                return `sg-math-symbol-icon-${symbol}`;
-              case 'icons':
-                return `icon-${symbol}`;
-              case 'subjects':
-                return `icon-subject-${symbol}`;
-              case 'subjects-mono':
-                return `icon-subject-mono-${symbol}`;
-              case 'mobile-icons':
-                return `icon-mobile-${symbol}`;
-              default:
-                return symbol;
-            }
+    // remove default storybook svg loader
+    config.module.rules = config.module.rules.map((rule) => {
+      if (rule.test && rule.test.toString().includes('svg')) {
+        const test = rule.test
+          .toString()
+          .replace('svg|', '')
+          .replace(/\//g, '');
+        return {...rule, test: new RegExp(test)};
+      } else {
+        return rule;
+      }
+    });
+
+    config.module.rules.push({
+      test: /\/icons\/.*\.svg$/,
+      include: [path.resolve(__dirname, '../src/images/icons')],
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-[name]',
           },
         },
-      },
-    ];
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.icons,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/math-symbols\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'sg-math-symbol-icon-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.mathSymbols,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/mobile-icons\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-mobile-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.mathSymbols,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /\/subjects\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-subject-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.subjectIcons,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /subjects-mono\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'svg-sprite-loader',
+          options: {
+            symbolId: 'icon-subject-mono-[name]',
+          },
+        },
+        {
+          loader: 'svgo-loader',
+          options: svgoConfigs.subjectMonoIcons,
+        },
+      ],
+    });
+
+    config.module.rules.push({
+      test: /logos\/.*\.svg$/,
+      sideEffects: true,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            context: path.resolve(__dirname, '../src'),
+            name: (absoluteFilename) => {
+              console.log(absoluteFilename);
+              const hash = revHash(fs.readFileSync(absoluteFilename));
+              return `[path][name]-${hash}.[ext]`;
+            },
+          },
+        },
+      ],
+    });
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
+      })
+    );
 
     config.resolve.modules.push(
       SOURCE_COMPONENTS_DIR,

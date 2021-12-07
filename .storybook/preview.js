@@ -17,12 +17,16 @@ import {Stories} from 'blocks/Stories';
 import '../src/main.scss';
 import '../src/_docs/styles.scss';
 
-// load generated icons
-import '../src/images/icons';
-import '../src/images/subjects-icons';
-import '../src/images/subjects-mono-icons';
-import '../src/images/math-symbols-icons';
-import '../src/images/mobile-icons';
+function importAll(r) {
+  r.keys().forEach(r);
+}
+
+importAll(require.context('../src/images/logos', true, /\.svg$/));
+importAll(require.context('../src/images/icons', true, /\.svg$/));
+importAll(require.context('../src/images/subjects', true, /\.svg$/));
+importAll(require.context('../src/images/subjects-mono', true, /\.svg$/));
+importAll(require.context('../src/images/math-symbols', true, /\.svg$/));
+importAll(require.context('../src/images/mobile-icons', true, /\.svg$/));
 
 const Page = () => {
   return (

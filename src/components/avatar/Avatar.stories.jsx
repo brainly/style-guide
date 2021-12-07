@@ -22,7 +22,7 @@ export default {
     },
   },
   args: {
-    imgSrc: '/images/cat.jpeg',
+    imgSrc: '/cat.jpeg',
   },
 };
 
