@@ -34,6 +34,8 @@ export type IconAsButtonPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const IconAsButton = ({
   color,
   size = SIZE.NORMAL,
