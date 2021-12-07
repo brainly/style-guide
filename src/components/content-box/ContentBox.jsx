@@ -24,6 +24,8 @@ export type ContentBoxPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const ContentBox = ({
   children,
   spacedTop,
