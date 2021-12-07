@@ -113,7 +113,7 @@ const MathSymbol = ({
   return (
     <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
       <title id={titleId}>{title || defaultTitle}</title>
-      <use xlinkHref={iconType} />
+      <use xlinkHref={iconType} arya-hidden="true" />
     </svg>
   );
 };
