@@ -6,10 +6,10 @@ import { styled } from '@storybook/theming';
 const Label = styled.div(({ theme }) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s1,
-  fontWeight: 'bold',
-  color: '#fff',
+  fontWeight: '400',
+  color: '#5b3100',
   lineHeight: 1.2,
-  backgroundColor: '#ff7968',
+  backgroundColor: '#fff3d6',
   borderRadius: 4,
   padding: '2px 4px',
   display: 'inline',
@@ -24,7 +24,7 @@ addons.setConfig({
   sidebar: {
     renderLabel: (story) => {
       console.log(story);
-      if(story.isComponent && !story.isLeaf) {
+      if (story.isComponent && !story.isLeaf) {
         return (
           <span>
             {story.name} <Label>deprecated</Label>
