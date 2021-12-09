@@ -23,6 +23,7 @@ export default {
   },
   args: {
     imgSrc: '/cat.jpeg',
+    link: '#',
   },
 };
 
