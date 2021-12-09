@@ -31,12 +31,12 @@ test('type', () => {
   expect(headline.props().type).toEqual(SUBHEADING_TYPE.H3);
 });
 
-test('light', () => {
+test('color', () => {
   const text = shallow(
-    <Subheading color={SUBHEADING_COLOR.WHITE}>Test</Subheading>
+    <Subheading color={SUBHEADING_COLOR.TEXT_WHITE}>Test</Subheading>
   );
 
-  expect(text.hasClass('sg-subheading--white')).toBeTruthy();
+  expect(text.hasClass('sg-subheading--text-white')).toBeTruthy();
 });
 
 test('default size', () => {
