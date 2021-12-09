@@ -1,0 +1,7 @@
+{
+  "components": [
+    { "componentName": "IconAsButton", "className": "sg-icon-as-button" },
+    { "componentName": "ContentBox", "className": "sg-content-box" },
+    { "componentName": "ActionList", "className": "sg-actions-list" }
+  ]
+}
