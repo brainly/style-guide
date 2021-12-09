@@ -37,8 +37,9 @@ export type AvatarPropsType = {
   spaced?: boolean,
   imgSrc?: string,
   className?: string,
-  title?: string,
   link?: string,
+  linkLabel?: string,
+  alt?: string,
   ...
 };
 
@@ -49,7 +50,8 @@ const Avatar = ({
   imgSrc,
   className,
   link,
-  title,
+  linkLabel,
+  alt = '',
   ...props
 }: AvatarPropsType) => {
   const avatarClass = classNames(
@@ -62,34 +64,27 @@ const Avatar = ({
     className
   );
 
-  let avatarContent;
+  const isImgSrcDefined =
+    imgSrc !== undefined && imgSrc !== null && imgSrc !== '';
 
-  if (imgSrc !== undefined && imgSrc !== null && imgSrc !== '') {
-    avatarContent = (
-      <img
-        className="sg-avatar__image"
-        src={imgSrc}
-        alt={title}
-        title={title}
+  const avatarContent = isImgSrcDefined ? (
+    <img className="sg-avatar__image" src={imgSrc} alt={alt} />
+  ) : (
+    <div className="sg-avatar__image sg-avatar__image--icon">
+      <Icon
+        className="sg-avatar__icon"
+        type="profile"
+        color={ICON_COLOR['icon-gray-40']}
+        size={ICON_SIZE[size]}
+        aria-hidden="true"
       />
-    );
-  } else {
-    avatarContent = (
-      <div className="sg-avatar__image sg-avatar__image--icon" title={title}>
-        <Icon
-          className="sg-avatar__icon"
-          type="profile"
-          color={ICON_COLOR['icon-gray-40']}
-          size={ICON_SIZE[size]}
-        />
-      </div>
-    );
-  }
+    </div>
+  );
 
   return (
     <div {...props} className={avatarClass}>
       {link !== undefined && link !== '' ? (
-        <a href={link} title={title}>
+        <a href={link} aria-label={linkLabel}>
           {avatarContent}
         </a>
       ) : (
