@@ -37,27 +37,27 @@ export const SUBHEADING_SIZE: {
 };
 
 export const SUBHEADING_COLOR: {
-  BLACK: 'black',
-  WHITE: 'white',
-  BLUE_DARK: 'blue-dark',
-  MINT_DARK: 'mint-dark',
-  LAVENDER_DARK: 'lavender-dark',
-  MUSTARD_DARK: 'mustard-dark',
-  PEACH_DARK: 'peach-dark',
-  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  TEXT_BLACK: 'text-black',
+  TEXT_WHITE: 'text-white',
+  TEXT_BLUE_60: 'text-blue-60',
+  TEXT_GREEN_60: 'text-green-60',
+  TEXT_INDIGO_60: 'text-indigo-60',
+  TEXT_YELLOW_60: 'text-yellow-60',
+  TEXT_RED_60: 'text-red-60',
+  TEXT_GRAY_70: 'text-gray-70',
+  TEXT_GRAY_60: 'text-gray-60',
+  TEXT_GRAY_40: 'text-gray-40',
 } = {
-  BLACK: 'black',
-  WHITE: 'white',
-  BLUE_DARK: 'blue-dark',
-  MINT_DARK: 'mint-dark',
-  LAVENDER_DARK: 'lavender-dark',
-  MUSTARD_DARK: 'mustard-dark',
-  PEACH_DARK: 'peach-dark',
-  GRAY: 'gray', //this name should be changed into GRAY_PRIMARY in the future maybe
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
+  TEXT_BLACK: 'text-black',
+  TEXT_WHITE: 'text-white',
+  TEXT_BLUE_60: 'text-blue-60',
+  TEXT_GREEN_60: 'text-green-60',
+  TEXT_INDIGO_60: 'text-indigo-60',
+  TEXT_YELLOW_60: 'text-yellow-60',
+  TEXT_RED_60: 'text-red-60',
+  TEXT_GRAY_70: 'text-gray-70',
+  TEXT_GRAY_60: 'text-gray-60',
+  TEXT_GRAY_40: 'text-gray-40',
 };
 
 export const SUBHEADING_TRANSFORM: {

@@ -23,16 +23,16 @@ export type SubheadingSizeType =
   | 'xxxlarge';
 
 export type SubheadingColorType =
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'mint-dark'
-  | 'peach-dark'
-  | 'lavender-dark'
-  | 'mustard-dark'
-  | 'blue-dark';
+  | 'text-black'
+  | 'text-white'
+  | 'text-gray-70'
+  | 'text-gray-60'
+  | 'text-gray-40'
+  | 'text-green-60'
+  | 'text-red-60'
+  | 'text-indigo-60'
+  | 'text-yellow-60'
+  | 'tetx-blue-60';
 
 export type SubheadingTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
