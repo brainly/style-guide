@@ -43,6 +43,7 @@ import ContentBoxes from 'content-box/pages/content-box-interactive';
 import Spinners from 'spinner/pages/spinners-interactive';
 import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
 import Accordion from 'accordion/pages/accordion-interactive';
+import Subheadings from 'text/pages/subheadings-interactive';
 
 const demos = {
   Accordion: <Accordion />,
@@ -65,6 +66,7 @@ const demos = {
   Separators: <Separators />,
   Text: <Texts />,
   Headlines: <Headlines />,
+  Subheadings: <Subheadings />,
   Links: <Links />,
   'Text Bit': <TextBits />,
   'Popup Menu': <PopupMenus />,
