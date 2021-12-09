@@ -67,31 +67,33 @@ const Avatar = ({
   const isImgSrcDefined =
     imgSrc !== undefined && imgSrc !== null && imgSrc !== '';
 
-  const avatarContent = isImgSrcDefined ? (
-    <img className="sg-avatar__image" src={imgSrc} alt={alt} />
-  ) : (
-    <div className="sg-avatar__image sg-avatar__image--icon">
-      <Icon
-        className="sg-avatar__icon"
-        type="profile"
-        color={ICON_COLOR['icon-gray-40']}
-        size={ICON_SIZE[size]}
-        aria-hidden="true"
-      />
-    </div>
-  );
-
-  return (
+  const avatarContent = (
     <div {...props} className={avatarClass}>
-      {link !== undefined && link !== '' ? (
-        <a href={link} aria-label={linkLabel}>
-          {avatarContent}
-        </a>
+      {' '}
+      {isImgSrcDefined ? (
+        <img className="sg-avatar__image" src={imgSrc} alt={alt} />
       ) : (
-        avatarContent
+        <div className="sg-avatar__image sg-avatar__image--icon">
+          <Icon
+            className="sg-avatar__icon"
+            type="profile"
+            color={ICON_COLOR['icon-gray-40']}
+            size={ICON_SIZE[size]}
+            aria-hidden="true"
+          />
+        </div>
       )}
     </div>
   );
+
+  if (link !== undefined && link !== '') {
+    return (
+      <a href={link} aria-label={linkLabel} className="sg-avatar__wrapper-link">
+        {avatarContent}
+      </a>
+    );
+  }
+  return avatarContent;
 };
 
 export default Avatar;
