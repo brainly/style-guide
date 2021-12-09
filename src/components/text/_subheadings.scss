@@ -1,0 +1,155 @@
+$includeHtml: false !default;
+
+$subheadingSizes: (
+  xxxlarge: (
+    fontSize: 78px,
+    lineHeight: 88px,
+  ),
+  xxlarge: (
+    fontSize: 53px,
+    lineHeight: 60px,
+  ),
+  xlarge: (
+    fontSize: 43px,
+    lineHeight: 48px,
+  ),
+  large: (
+    fontSize: 28px,
+    lineHeight: 32px,
+  ),
+  medium: (
+    fontSize: 21px,
+    lineHeight: 24px,
+  ),
+  small: (
+    fontSize: 18px,
+    lineHeight: 20px,
+  ),
+  xsmall: (
+    fontSize: 14px,
+    lineHeight: 16px,
+  ),
+);
+
+@function getSubheadingSizeFromMap($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin subheadingTypeSizeVariant($size) {
+  font-size: getSubheadingSizeFromMap($subheadingSizes, $size, 'fontSize');
+  line-height: getSubheadingSizeFromMap($subheadingSizes, $size, 'lineHeight');
+}
+
+@if ($includeHtml) {
+  .sg-subheading {
+    @include subheadingTypeSizeVariant(medium);
+    font-family: $fontFamilyUntitledSerif;
+    display: block;
+    color: $black;
+    font-weight: $fontWeightBold;
+    max-width: 100%;
+
+    &--inherited {
+      display: revert;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    &--xsmall {
+      @include subheadingTypeSizeVariant(xsmall);
+    }
+
+    &--small {
+      @include subheadingTypeSizeVariant(small);
+    }
+
+    &--large {
+      @include subheadingTypeSizeVariant(large);
+    }
+
+    &--xlarge {
+      @include subheadingTypeSizeVariant(xlarge);
+    }
+
+    &--xxlarge {
+      @include subheadingTypeSizeVariant(xxlarge);
+    }
+
+    &--xxxlarge {
+      @include subheadingTypeSizeVariant(xxxlarge);
+    }
+
+    &--white {
+      color: $white;
+    }
+
+    &--black {
+      color: $black;
+    }
+
+    &--gray {
+      color: $gray-70;
+    }
+
+    &--gray-secondary {
+      color: $gray-50;
+    }
+
+    &--gray-secondary-light {
+      color: $gray-40;
+    }
+
+    &--mint-dark {
+      color: $green-50;
+    }
+
+    &--blue-dark {
+      color: $blue-50;
+    }
+
+    &--mustard-dark {
+      color: $yellow-50;
+    }
+
+    &--lavender-dark {
+      color: $indigo-50;
+    }
+
+    &--peach-dark {
+      color: $red-50;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+
+    &--to-left {
+      text-align: left;
+    }
+
+    &--to-right {
+      text-align: right;
+    }
+
+    &--to-center {
+      text-align: center;
+    }
+
+    &--justify {
+      text-align: justify;
+    }
+  }
+}
