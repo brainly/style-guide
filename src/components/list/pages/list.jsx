@@ -7,6 +7,7 @@ import ListItem from '../ListItem';
 import ListItemIcon from '../ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
 import Text, {TEXT_SIZE} from 'text/Text';
+import Flex from '../../flex/Flex';
 
 import MenuList, {SIZE} from '../MenuList';
 
@@ -27,6 +28,14 @@ const menuItem1 = {text: firstString, href: '#'};
 const menuItem2 = {text: secondString, href: '#'};
 const menuItem3 = {text: thirdString, href: '#'};
 const menuItems = [menuItem1, menuItem2, menuItem3];
+
+const componentIsDeprecated = (
+  <Flex marginBottom="m">
+    <Text color="peach-dark" size="small">
+      This component is deprecated
+    </Text>
+  </Flex>
+);
 
 const ListItems = () => (
   <div>
@@ -121,21 +130,32 @@ const ListItems = () => (
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Menu list">
-      <ContentBox>
-        <MenuList items={menuItems} />
-      </ContentBox>
-    </DocsBlock>
-    <DocsBlock info="Menu list - small">
-      <ContentBox>
-        <MenuList items={menuItems} size={SIZE.SMALL} />
-      </ContentBox>
-    </DocsBlock>
-    <DocsBlock info="Menu list - large">
-      <ContentBox>
-        <MenuList items={menuItems} size={SIZE.LARGE} />
-      </ContentBox>
-    </DocsBlock>
+    <div>
+      <DocsBlock
+        info="Menu list (deprecated)"
+        additionalInfo={componentIsDeprecated}
+      >
+        <ContentBox>
+          <MenuList items={menuItems} />
+        </ContentBox>
+      </DocsBlock>
+      <DocsBlock
+        info="Menu list - small (deprecated)"
+        additionalInfo={componentIsDeprecated}
+      >
+        <ContentBox>
+          <MenuList items={menuItems} size={SIZE.SMALL} />
+        </ContentBox>
+      </DocsBlock>
+      <DocsBlock
+        info="Menu list - large (deprecated)"
+        additionalInfo={componentIsDeprecated}
+      >
+        <ContentBox>
+          <MenuList items={menuItems} size={SIZE.LARGE} />
+        </ContentBox>
+      </DocsBlock>
+    </div>
   </div>
 );
 

@@ -35,6 +35,8 @@ export type ActionListPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const ActionList = ({
   children,
   toTop,

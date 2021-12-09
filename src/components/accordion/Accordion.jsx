@@ -102,7 +102,7 @@ const Accordion = ({
     invariant(
       !(isControlled && !onChange),
       // eslint-disable-next-line max-len
-      ' You provided an `expanded` prop to a Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
+      'You provided an `expanded` prop to an Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
     );
 
     invariant(

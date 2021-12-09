@@ -6,7 +6,7 @@ import Link from '../text/Link';
 import Box from '../box/Box';
 
 describe('<Accordion>', () => {
-  it('renders', () => {
+  it('renders with items', () => {
     const accordion = mount(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
@@ -33,6 +33,8 @@ describe('<Accordion>', () => {
         .hostNodes()
         .prop('aria-expanded')
     ).toBe(false);
+
+    expect(accordion.find({role: 'region'}).prop('hidden')).toBe(true);
   });
 
   it('expands items after click', () => {
@@ -178,9 +180,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
   });
 
@@ -196,9 +198,9 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(accordion.find('[aria-labelledby]').hostNodes()).toHaveLength(
-      accordionIds.length
-    );
+    expect(
+      accordion.find('[role="region"][aria-labelledby]').hostNodes()
+    ).toHaveLength(accordionIds.length);
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
   });
 

@@ -3,7 +3,8 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import type {LogoTypeType} from '../logo/Logo';
-import {TYPE, BASE_URL, LOGOS} from '../logo/Logo';
+import {LOGOS_BASE_URL as BASE_URL} from '../../config';
+import {TYPE, LOGOS} from '../logo/Logo';
 
 const ICONS = {
   brainly: 'brainly-mobile-6879551770',

@@ -9,6 +9,61 @@ import {
   FLEX_MARGINS,
 } from './FlexConsts';
 
+function generateResponsiveClassNames<T>(
+  createBaseClassName: T => string,
+  prop?: ResponsivePropType<T>
+): Array<string> {
+  if (!prop) {
+    return [];
+  }
+
+  if (typeof prop !== 'object') {
+    return [createBaseClassName(prop)];
+  }
+
+  if (Array.isArray(prop)) {
+    const breakpoints = ['', 'md', 'lg', 'xl'];
+
+    return (prop.length > 4 ? prop.slice(0, 4) : prop).reduce(
+      (acc, propBreakpointValue, index) => {
+        if (propBreakpointValue === null || propBreakpointValue === undefined) {
+          return acc;
+        } else {
+          acc.push(
+            `${
+              breakpoints[index] ? `${breakpoints[index]}:` : ''
+            }${createBaseClassName(propBreakpointValue)}`
+          );
+          return acc;
+        }
+      },
+      []
+    );
+  }
+
+  return ['sm', 'md', 'lg', 'xl']
+    .map(breakpoint => {
+      if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
+        return '';
+      } else {
+        return breakpoint === 'sm'
+          ? createBaseClassName(prop[breakpoint])
+          : `${breakpoint}:${createBaseClassName(prop[breakpoint])}`;
+      }
+    })
+    .filter(className => className);
+}
+
+type ResponsivePropType<T> =
+  | T
+  | Array<?T>
+  | {
+      sm?: T,
+      md?: T,
+      lg?: T,
+      xl?: T,
+    };
+
 type FlexContainerType =
   | 'a'
   | 'article'
@@ -95,21 +150,21 @@ export type FlexPropsType = {
    *            component content
    *          </Flex>
    */
-  fullWidth?: boolean,
+  fullWidth?: ResponsivePropType<boolean>,
   /**
    * component will be rendered on 100% height of a parent
    * @example <Flex fullHeight>
    *            component content
    *          </Flex>
    */
-  fullHeight?: boolean,
+  fullHeight?: ResponsivePropType<boolean>,
   /**
    * It will set flex-shirnk to 0
    * @example <Flex noShrink>
    *            component content
    *          </Flex>
    */
-  noShrink?: boolean,
+  noShrink?: ResponsivePropType<boolean>,
   /**
    * Specify flex direction
    * @example <Flex direction="column">
@@ -120,7 +175,7 @@ export type FlexPropsType = {
    * @see direction=row https://styleguide.brainly.com/latest/docs/interactive.html?direction=row#flexbox
    * @see direction=row-reverse https://styleguide.brainly.com/latest/docs/interactive.html?direction=row-reverse#flexbox
    */
-  direction?: FlexDirectionType,
+  direction?: ResponsivePropType<FlexDirectionType>,
   /**
    * Specify flex justify content
    * @example <Flex justifyContent="space-between">
@@ -135,7 +190,7 @@ export type FlexPropsType = {
    * @see justifyContent=space-evenly https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=space-evenly#flexbox
    * @see justifyContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?justifyContent=stretch#flexbox
    */
-  justifyContent?: FlexJustifyValuesType,
+  justifyContent?: ResponsivePropType<FlexJustifyValuesType>,
   /**
    * Specify flex align content
    * @example <Flex alignContent="center">
@@ -147,7 +202,7 @@ export type FlexPropsType = {
    * @see alignContent=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=baseline#flexbox
    * @see alignContent=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
    */
-  alignContent?: FlexAlignmentValuesType,
+  alignContent?: ResponsivePropType<FlexAlignmentValuesType>,
   /**
    * Specify flex align items
    * @example <Flex alignItems="center">
@@ -159,7 +214,7 @@ export type FlexPropsType = {
    * @see alignItems=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignItems=baseline#flexbox
    * @see alignItems=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignContent=stretch#flexbox
    */
-  alignItems?: FlexAlignmentValuesType,
+  alignItems?: ResponsivePropType<FlexAlignmentValuesType>,
   /**
    * Specify flex align self
    * @example <Flex alignSelf="center">
@@ -171,63 +226,63 @@ export type FlexPropsType = {
    * @see alignSelf=baseline https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=baseline#flexbox
    * @see alignSelf=stretch https://styleguide.brainly.com/latest/docs/interactive.html?alignSelf=stretch#flexbox
    */
-  alignSelf?: FlexAlignmentValuesType,
+  alignSelf?: ResponsivePropType<FlexAlignmentValuesType>,
   /**
    * It will set flex display to inline-flex
    * @example <Flex inlineFlex>
    *            component content
    *          </Flex>
    */
-  inlineFlex?: boolean,
+  inlineFlex?: ResponsivePropType<boolean>,
   /**
    * It will wrap component
    * @example <Flex wrap>
    *            component content
    *          </Flex>
    */
-  wrap?: boolean,
+  wrap?: ResponsivePropType<boolean>,
   /**
    * It will wrap reverse component
    * @example <Flex wrapReverse>
    *            component content
    *          </Flex>
    */
-  wrapReverse?: boolean,
+  wrapReverse?: ResponsivePropType<boolean>,
   /**
    * Specify margin for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex margin="m">
    *            component content
    *          </Flex>
    */
-  margin?: FlexMarginsType,
+  margin?: ResponsivePropType<FlexMarginsType>,
   /**
    * Specify margin top for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginTop="m">
    *            component content
    *          </Flex>
    */
-  marginTop?: FlexMarginsType,
+  marginTop?: ResponsivePropType<FlexMarginsType>,
   /**
    * Specify margin right for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginRight="m">
    *            component content
    *          </Flex>
    */
-  marginRight?: FlexMarginsType,
+  marginRight?: ResponsivePropType<FlexMarginsType>,
   /**
    * Specify margin bottom for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginBottom="m">
    *            component content
    *          </Flex>
    */
-  marginBottom?: FlexMarginsType,
+  marginBottom?: ResponsivePropType<FlexMarginsType>,
   /**
    * Specify margin left for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginLeft="m">
    *            component content
    *          </Flex>
    */
-  marginLeft?: FlexMarginsType,
+  marginLeft?: ResponsivePropType<FlexMarginsType>,
   ...
 };
 
@@ -258,27 +313,86 @@ const Flex = React.forwardRef<FlexPropsType, HTMLElement>(
 
     const flexClass = classNames(
       'sg-flex',
-      {
-        'sg-flex--full-width': fullWidth,
-        'sg-flex--full-height': fullHeight,
-        'sg-flex--no-shrink': noShrink,
-        'sg-flex--inline': inlineFlex,
-        [`sg-flex--align-items-${alignItems || ''}`]: alignItems,
-        [`sg-flex--align-content-${alignContent || ''}`]: alignContent,
-        [`sg-flex--align-self-${alignSelf || ''}`]: alignSelf,
-        [`sg-flex--justify-content-${justifyContent || ''}`]: justifyContent,
-        'sg-flex--wrap': wrap,
-        'sg-flex--wrap-reverse': wrapReverse,
-        'sg-flex--column': direction === FLEX_DIRECTION.COLUMN,
-        'sg-flex--column-reverse': direction === FLEX_DIRECTION.COLUMN_REVERSE,
-        'sg-flex--row': direction === FLEX_DIRECTION.ROW,
-        'sg-flex--row-reverse': direction === FLEX_DIRECTION.ROW_REVERSE,
-        [`sg-flex--margin-${margin || ''}`]: margin,
-        [`sg-flex--margin-top-${marginTop || ''}`]: marginTop,
-        [`sg-flex--margin-right-${marginRight || ''}`]: marginRight,
-        [`sg-flex--margin-bottom-${marginBottom || ''}`]: marginBottom,
-        [`sg-flex--margin-left-${marginLeft || ''}`]: marginLeft,
-      },
+      ...generateResponsiveClassNames(
+        propValue =>
+          propValue === true ? `sg-flex--full-width` : `sg-flex--auto-width`,
+        fullWidth
+      ),
+      ...generateResponsiveClassNames(
+        propValue =>
+          propValue === true ? `sg-flex--full-height` : `sg-flex--auto-height`,
+        fullHeight
+      ),
+      ...generateResponsiveClassNames(
+        propValue =>
+          propValue === true ? `sg-flex--no-shrink` : `sg-flex--shrink-1`,
+        noShrink
+      ),
+      ...generateResponsiveClassNames(
+        propValue => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
+        inlineFlex
+      ),
+      ...generateResponsiveClassNames(direction => {
+        if (direction === FLEX_DIRECTION.COLUMN) {
+          return 'sg-flex--column';
+        } else if (direction === FLEX_DIRECTION.COLUMN_REVERSE) {
+          return 'sg-flex--column-reverse';
+        } else if (direction === FLEX_DIRECTION.ROW) {
+          return 'sg-flex--row';
+        } else if (direction === FLEX_DIRECTION.ROW_REVERSE) {
+          return 'sg-flex--row-reverse';
+        } else {
+          return 'sg-flex--row';
+        }
+      }, direction),
+      ...generateResponsiveClassNames(
+        propValue => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
+        inlineFlex
+      ),
+      ...generateResponsiveClassNames(
+        (propValue: string) => `sg-flex--justify-content-${propValue}`,
+        justifyContent
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--align-items-${propValue}`,
+        alignItems
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--align-content-${propValue}`,
+        alignContent
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--align-self-${propValue}`,
+        alignSelf
+      ),
+      ...generateResponsiveClassNames(
+        propValue => (propValue ? 'sg-flex--wrap' : 'sg-flex--nowrap'),
+        wrap
+      ),
+      ...generateResponsiveClassNames(
+        propValue => (propValue ? 'sg-flex--wrap-reverse' : 'sg-flex--nowrap'),
+        wrapReverse
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--margin-${propValue}`,
+        margin
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--margin-top-${propValue}`,
+        marginTop
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--margin-right-${propValue}`,
+        marginRight
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--margin-bottom-${propValue}`,
+        marginBottom
+      ),
+      ...generateResponsiveClassNames(
+        propValue => `sg-flex--margin-left-${propValue}`,
+        marginLeft
+      ),
       className
     );
 

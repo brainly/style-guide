@@ -24,6 +24,8 @@ export type MenuListPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const MenuList = ({
   items = [],
   size = SIZE.NORMAL,

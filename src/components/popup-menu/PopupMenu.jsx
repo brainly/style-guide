@@ -10,6 +10,8 @@ export type PopupMenuPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const PopupMenu = ({
   items = [],
   extraSpacing,

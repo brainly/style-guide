@@ -246,7 +246,7 @@ const navigation = [
         component: overlayedBox,
       },
       {
-        name: 'Popup Menu',
+        name: 'Popup Menu (deprecated)',
         component: popupMenu,
       },
       {
