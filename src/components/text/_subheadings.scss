@@ -60,6 +60,8 @@ $subheadingSizes: (
       color: inherit;
     }
 
+    @include textColor();
+
     &--xsmall {
       @include subheadingTypeSizeVariant(xsmall);
     }
@@ -82,46 +84,6 @@ $subheadingSizes: (
 
     &--xxxlarge {
       @include subheadingTypeSizeVariant(xxxlarge);
-    }
-
-    &--text-white {
-      color: $text-white;
-    }
-
-    &--text-black {
-      color: $text-black;
-    }
-
-    &--text-gray-70 {
-      color: $text-gray-70;
-    }
-
-    &--text-gray-60 {
-      color: $text-gray-60;
-    }
-
-    &--text-gray-40 {
-      color: $text-gray-40;
-    }
-
-    &--text-green-60 {
-      color: $text-green-60;
-    }
-
-    &--text-blue-60 {
-      color: $text-blue-60;
-    }
-
-    &--text-yellow-60 {
-      color: $text-yellow-60;
-    }
-
-    &--text-indigo-60 {
-      color: $text-indigo-60;
-    }
-
-    &--text-red-60 {
-      color: $text-red-60;
     }
 
     &--uppercase {
