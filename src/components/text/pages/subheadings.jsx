@@ -4,10 +4,10 @@ import ContrastBox from 'components/ContrastBox';
 import Subheading, {
   SUBHEADING_TYPE,
   SUBHEADING_SIZE,
-  SUBHEADING_COLOR,
   SUBHEADING_TRANSFORM,
   SUBHEADING_ALIGN,
 } from '../Subheading';
+import {TEXT_COLOR} from '../Text';
 
 const text = "We've got your back!";
 
@@ -73,8 +73,8 @@ const Subheadings = () => {
     });
   });
 
-  getValues(SUBHEADING_COLOR, false).forEach(color => {
-    if (color !== SUBHEADING_COLOR.WHITE) {
+  getValues(TEXT_COLOR, false).forEach(color => {
+    if (color !== TEXT_COLOR['text-white']) {
       colorsVariants.push(
         <Subheading
           key={color}

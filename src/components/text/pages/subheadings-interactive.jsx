@@ -2,10 +2,10 @@ import * as React from 'react';
 import Subheading, {
   SUBHEADING_TYPE,
   SUBHEADING_SIZE,
-  SUBHEADING_COLOR,
   SUBHEADING_TRANSFORM,
   SUBHEADING_ALIGN,
 } from '../Subheading';
+import {TEXT_COLOR} from '../Text';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
 const Headlines = () => {
@@ -20,7 +20,7 @@ const Headlines = () => {
     },
     {
       name: 'color',
-      values: SUBHEADING_COLOR,
+      values: TEXT_COLOR,
     },
     {
       name: 'transform',
@@ -45,15 +45,15 @@ const Headlines = () => {
         <Subheading
           type={SUBHEADING_TYPE.H2}
           size={SUBHEADING_SIZE.SMALL}
-          color={SUBHEADING_COLOR.WHITE}
+          color={TEXT_COLOR['text-white']}
         >
           We&apos;ve got your back!
         </Subheading>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Subheading>
+        <Subheading color={TEXT_COLOR['text-red-60']}>
           Parent Subheading component{' '}
-          <Subheading inherited type="span" color={SUBHEADING_COLOR.MINT_DARK}>
+          <Subheading inherited type="span">
             nested Subheading inheriting styles from parent Subheading
           </Subheading>
         </Subheading>
