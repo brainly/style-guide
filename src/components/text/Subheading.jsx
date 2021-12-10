@@ -32,7 +32,7 @@ export type SubheadingColorType =
   | 'text-red-60'
   | 'text-indigo-60'
   | 'text-yellow-60'
-  | 'tetx-blue-60';
+  | 'text-blue-60';
 
 export type SubheadingTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
