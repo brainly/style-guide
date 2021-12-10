@@ -1,3 +1,5 @@
+@import './text-colors-mixin';
+
 $includeHtml: false !default;
 
 $headlineSizes: (
@@ -63,7 +65,7 @@ $headlineSizes: (
       color: inherit;
     }
 
-    @import './text-colors';
+    @include textColor();
 
     &--xxsmall {
       @include headlineTypeSizeVariant(xxsmall);

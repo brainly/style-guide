@@ -1,3 +1,5 @@
+@import './text-colors-mixin';
+
 $includeHtml: false !default;
 
 $bodyTextSizes: (
@@ -186,6 +188,6 @@ $bodyTextSizes: (
       white-space: nowrap;
     }
 
-    @import './text-colors';
+    @include textColor();
   }
 }
