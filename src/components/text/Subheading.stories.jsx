@@ -1,11 +1,8 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import Subheading from './Subheading';
-import {
-  SUBHEADING_ALIGN,
-  SUBHEADING_COLOR,
-  SUBHEADING_SIZE,
-} from './subheadingConsts';
+import {SUBHEADING_ALIGN, SUBHEADING_SIZE} from './subheadingConsts';
+import {TEXT_COLOR} from './Text';
 
 export default {
   title: 'Components/Subheading',
@@ -26,11 +23,11 @@ Default.argTypes = {
 
 export const Colors = args => (
   <div>
-    {Object.values(SUBHEADING_COLOR).map(color => (
+    {Object.values(TEXT_COLOR).map(color => (
       <div
         key={color}
         className={classnames({
-          'sg-story-variant-dark-box': color === SUBHEADING_COLOR.TEXT_WHITE,
+          'sg-story-variant-dark-box': color === TEXT_COLOR['text-white'],
         })}
         style={{padding: 10}}
       >
@@ -73,7 +70,7 @@ export const Nested = args => <Subheading {...args} />;
 
 Nested.args = {
   type: 'h2',
-  color: SUBHEADING_COLOR.TEXT_RED_60,
+  color: TEXT_COLOR['text-red-60'],
   children: (
     <>
       Outer subheading{' '}

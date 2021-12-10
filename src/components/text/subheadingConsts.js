@@ -36,30 +36,6 @@ export const SUBHEADING_SIZE: {
   XXXLARGE: 'xxxlarge',
 };
 
-export const SUBHEADING_COLOR: {
-  TEXT_BLACK: 'text-black',
-  TEXT_WHITE: 'text-white',
-  TEXT_BLUE_60: 'text-blue-60',
-  TEXT_GREEN_60: 'text-green-60',
-  TEXT_INDIGO_60: 'text-indigo-60',
-  TEXT_YELLOW_60: 'text-yellow-60',
-  TEXT_RED_60: 'text-red-60',
-  TEXT_GRAY_70: 'text-gray-70',
-  TEXT_GRAY_60: 'text-gray-60',
-  TEXT_GRAY_40: 'text-gray-40',
-} = {
-  TEXT_BLACK: 'text-black',
-  TEXT_WHITE: 'text-white',
-  TEXT_BLUE_60: 'text-blue-60',
-  TEXT_GREEN_60: 'text-green-60',
-  TEXT_INDIGO_60: 'text-indigo-60',
-  TEXT_YELLOW_60: 'text-yellow-60',
-  TEXT_RED_60: 'text-red-60',
-  TEXT_GRAY_70: 'text-gray-70',
-  TEXT_GRAY_60: 'text-gray-60',
-  TEXT_GRAY_40: 'text-gray-40',
-};
-
 export const SUBHEADING_TRANSFORM: {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',

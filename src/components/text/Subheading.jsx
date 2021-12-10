@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {SUBHEADING_TYPE, SUBHEADING_SIZE} from './subheadingConsts';
+import type {TextColorType} from './Text';
 
 export type SubheadingTypeType =
   | 'span'
@@ -22,18 +23,6 @@ export type SubheadingSizeType =
   | 'xxlarge'
   | 'xxxlarge';
 
-export type SubheadingColorType =
-  | 'text-black'
-  | 'text-white'
-  | 'text-gray-70'
-  | 'text-gray-60'
-  | 'text-gray-40'
-  | 'text-green-60'
-  | 'text-red-60'
-  | 'text-indigo-60'
-  | 'text-yellow-60'
-  | 'text-blue-60';
-
 export type SubheadingTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 export type SubheadingAlignType =
@@ -45,16 +34,17 @@ export type SubheadingAlignType =
 export {
   SUBHEADING_TYPE,
   SUBHEADING_SIZE,
-  SUBHEADING_COLOR,
   SUBHEADING_TRANSFORM,
   SUBHEADING_ALIGN,
 } from './subheadingConsts';
+
+export {TEXT_COLOR} from './Text';
 
 export type SubheadingPropsType = {
   children?: React.Node,
   size?: SubheadingSizeType,
   type?: SubheadingTypeType,
-  color?: ?SubheadingColorType,
+  color?: ?TextColorType,
   transform?: ?SubheadingTransformType,
   align?: ?SubheadingAlignType,
   className?: ?string,

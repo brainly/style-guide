@@ -4,10 +4,10 @@ import {mount, shallow} from 'enzyme';
 import {
   SUBHEADING_SIZE,
   SUBHEADING_TYPE,
-  SUBHEADING_COLOR,
   SUBHEADING_ALIGN,
   SUBHEADING_TRANSFORM,
 } from './subheadingConsts';
+import {TEXT_COLOR} from './Text';
 
 test('render', () => {
   const subheading = shallow(<Subheading>Test</Subheading>);
@@ -33,7 +33,7 @@ test('type', () => {
 
 test('color', () => {
   const text = shallow(
-    <Subheading color={SUBHEADING_COLOR.TEXT_WHITE}>Test</Subheading>
+    <Subheading color={TEXT_COLOR['text-white']}>Test</Subheading>
   );
 
   expect(text.hasClass('sg-subheading--text-white')).toBeTruthy();
