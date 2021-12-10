@@ -74,7 +74,7 @@ const Nested = () => {
     <DocsActiveBlock settings={settings}>
       <Text>
         Parent Text component{' '}
-        <Text inherited type="span" color={TEXT_COLOR.MINT_DARK}>
+        <Text inherited type="span" color="text-green-60">
           nested Text inheriting styles from parent Text
         </Text>
       </Text>

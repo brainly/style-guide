@@ -35,7 +35,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               default
@@ -46,7 +46,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               blue
@@ -57,7 +57,7 @@ export const SizesColorsAndTypes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               with icon
@@ -73,7 +73,7 @@ export const SizesColorsAndTypes = args => (
                 extraBold
                 transform="uppercase"
                 type="span"
-                color="gray-secondary-light"
+                color="text-gray-40"
                 size="medium"
               >
                 {size}
@@ -102,7 +102,7 @@ export const SizesColorsAndTypes = args => (
                   size={size}
                 >
                   +15
-                  <Text type="span" color="gray-secondary" inherited>
+                  <Text type="span" color="text-gray-60" inherited>
                     {size !== 'xxs' && ` pts`}{' '}
                   </Text>
                 </Counter>

@@ -17,28 +17,28 @@ const index = () => (
       used across all language versions of the Brainly website (e.g.
       <a
         href="https://brainly.com"
-        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+        className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
       >
         brainly.com
       </a>
       ,
       <a
         href="https://znanija.com"
-        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+        className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
       >
         znanija.com
       </a>
       ,
       <a
         href="https://nosdevoirs.fr/"
-        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+        className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
       >
         nosdevoirs.fr
       </a>
       ), on our corporate website (
       <a
         href="https://brainly.co"
-        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+        className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
       >
         brainly.co
       </a>
@@ -75,7 +75,7 @@ const index = () => (
             <p className="sg-text">
               <a
                 href="./basics.html#icons"
-                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+                className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
               >
                 Basic icons
               </a>
@@ -98,7 +98,7 @@ const index = () => (
             <p className="sg-text">
               <a
                 href="./basics.html#subject-icons"
-                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+                className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
               >
                 Subject icons
               </a>
@@ -121,7 +121,7 @@ const index = () => (
             <p className="sg-text">
               <a
                 href="./basics.html#subject-mono-icons"
-                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+                className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
               >
                 Subject mono icons
               </a>
@@ -144,7 +144,7 @@ const index = () => (
             <p className="sg-text">
               <a
                 href="./basics.html#math-symbols"
-                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+                className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
               >
                 Math Symbols
               </a>
@@ -167,7 +167,7 @@ const index = () => (
             <p className="sg-text">
               <a
                 href="./basics.html#mobile-icons"
-                className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+                className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
               >
                 Mobile Icons
               </a>
@@ -193,7 +193,7 @@ const index = () => (
       contribute check it out on
       <a
         href="https://github.com/brainly/style-guide"
-        className="sg-text sg-text--blue-dark sg-text--bold sg-text--link"
+        className="sg-text sg-text--text-blue-60 sg-text--bold sg-text--link"
       >
         GitHub
       </a>

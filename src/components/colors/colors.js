@@ -295,6 +295,11 @@ const color = {
       hex: '46535f',
     },
     {
+      name: 'text-gray-50',
+      variable: '$text-gray-50',
+      hex: '687b8c',
+    },
+    {
       name: 'text-gray-40',
       variable: '$text-gray-40',
       hex: 'c3d1dd',

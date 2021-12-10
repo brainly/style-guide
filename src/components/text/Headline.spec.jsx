@@ -2,7 +2,6 @@ import * as React from 'react';
 import Headline, {
   HEADLINE_SIZE,
   HEADLINE_TYPE,
-  HEADLINE_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './Headline';
@@ -28,10 +27,10 @@ test('type', () => {
   expect(headline.props().type).toEqual(HEADLINE_TYPE.H3);
 });
 
-test('light', () => {
-  const text = shallow(<Headline color={HEADLINE_COLOR.WHITE}>Test</Headline>);
+test('text-white', () => {
+  const text = shallow(<Headline color="text-white">Test</Headline>);
 
-  expect(text.hasClass('sg-headline--white')).toBeTruthy();
+  expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
 });
 
 test('default size', () => {

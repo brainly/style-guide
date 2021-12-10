@@ -55,6 +55,7 @@ export type IconTypeType =
   | 'info'
   | 'instagram'
   | 'italic'
+  | 'keyboard'
   | 'less'
   | 'linkedin'
   | 'lock_with_play'
@@ -201,6 +202,7 @@ export const TYPE: {
   INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
+  KEYBOARD: 'keyboard',
   LESS: 'less',
   LINKEDIN: 'linkedin',
   LOCK_WITH_PLAY: 'lock_with_play',
@@ -329,6 +331,7 @@ export const TYPE: {
   INFO: 'info',
   INSTRAGRAM: 'instagram',
   ITALIC: 'italic',
+  KEYBOARD: 'keyboard',
   LESS: 'less',
   LINKEDIN: 'linkedin',
   LOCK_WITH_PLAY: 'lock_with_play',

@@ -13,7 +13,7 @@ import {
 import Headline, {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
+  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
@@ -66,19 +66,19 @@ export const textBitSizesMap = [
   },
 ];
 
-export const TextBitExamples = (extraBold) => {
+export const TextBitExamples = extraBold => {
   const sizesVariants = [];
   getValues(TEXT_BIT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textBitSizesMap.map((item) =>
+      textBitSizesMap.map(item =>
         item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizesVariants.push(
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
-          <TextBit key="size" size={size} color={TEXT_BIT_COLOR.BLACK}>
+          <TextBit key="size" size={size} color="text-black">
             Text Bit
           </TextBit>
         </TypeSpecimen>
@@ -139,13 +139,13 @@ export const headlineSizesMap = [
   },
 ];
 
-export const HeadlineExamples = (extraBold) => {
+export const HeadlineExamples = extraBold => {
   const sizeVariant = [];
   getValues(HEADLINE_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      headlineSizesMap.map((item) =>
+      headlineSizesMap.map(item =>
         item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
@@ -222,9 +222,9 @@ export const SubheadingExamples = () => {
   const sizeVariant = [];
   getValues(SUBHEADING_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      subheadingSizesMap.map((item) =>
+      subheadingSizesMap.map(item =>
         item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
@@ -289,13 +289,13 @@ export const textSizesMap = [
   },
 ];
 
-export const TextExamples = (weight) => {
+export const TextExamples = weight => {
   const sizeVariant = [];
   getValues(TEXT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textSizesMap.map((item) =>
+      textSizesMap.map(item =>
         item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
@@ -304,7 +304,7 @@ export const TextExamples = (weight) => {
           <Text
             type={TEXT_TYPE.H2}
             size={size}
-            color={TEXT_COLOR.GRAY}
+            color="text-gray-70"
             weight={weight}
             key={size + weight}
           >

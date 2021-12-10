@@ -9,7 +9,7 @@ import Button from 'buttons/Button';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
 import Breadcrumb from 'breadcrumbs/Breadcrumb';
-import Link, {LINK_COLOR} from 'text/Link';
+import Link from 'text/Link';
 import Flex from 'flex/Flex';
 
 const Bubbles = () => (
@@ -99,10 +99,10 @@ const Bubbles = () => (
             </Flex>
             <Breadcrumb
               elements={[
-                <Link key={1} href="#" color={LINK_COLOR.GRAY}>
+                <Link key={1} href="#" color="text-gray-70">
                   Katie
                 </Link>,
-                <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+                <Link key={2} href="#" color="text-gray-70">
                   a few seconds ago
                 </Link>,
               ]}

@@ -96,7 +96,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-black');
-    expect(label.find(Text).prop('color')).toBe('black');
+    expect(label.find(Text).prop('color')).toBe('text-black');
   });
 
   test('has proper styles if solid', () => {
@@ -117,7 +117,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-primary')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-white');
     expect(heartIcon.prop('color')).toBe('icon-white');
-    expect(label.find(Text).prop('color')).toBe('white');
+    expect(label.find(Text).prop('color')).toBe('text-white');
   });
 
   test('has proper styles if transparent', () => {
@@ -144,7 +144,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-green-50');
-    expect(label.find(Text).prop('color')).toBe('black');
+    expect(label.find(Text).prop('color')).toBe('text-black');
     expect(label.find('div').find(Icon)).toHaveLength(2);
   });
 
@@ -172,6 +172,6 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-green-50');
     expect(heartIcon.prop('color')).toBe('icon-green-50');
-    expect(label.find(Text).prop('color')).toBe('mint-dark');
+    expect(label.find(Text).prop('color')).toBe('text-green-60');
   });
 });
