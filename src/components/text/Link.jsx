@@ -3,12 +3,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
+import type {TextColorType} from './Text';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
+  TEXT_COLOR,
 } from './textConsts';
 
 type TextTypeType =
@@ -33,15 +35,6 @@ type TextSizeType =
   | 'xxlarge'
   | 'xxxlarge';
 
-type LinkColorType =
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'mint-dark'
-  | 'blue-dark';
-
 type TextWeightType = 'regular' | 'bold';
 
 type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
@@ -53,7 +46,7 @@ export type LinkPropsType = {
   href?: ?string,
   size?: TextSizeType,
   type?: TextTypeType,
-  color?: ?LinkColorType,
+  color?: ?TextColorType,
   weight?: TextWeightType,
   transform?: ?TextTransformType,
   align?: ?TextAlignType,
@@ -68,7 +61,7 @@ export type LinkPropsType = {
   ...
 };
 
-export {LINK_COLOR} from './textConsts';
+export {TEXT_COLOR};
 export const LINK_TYPE = TEXT_TYPE;
 export const LINK_SIZE = TEXT_SIZE;
 export const LINK_WEIGHT = TEXT_WEIGHT;

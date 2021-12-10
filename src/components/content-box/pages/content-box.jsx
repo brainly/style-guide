@@ -11,32 +11,32 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
 import Icon, {ICON_COLOR} from 'icons/Icon';
-import Link, {LINK_COLOR} from 'text/Link';
+import Link from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import Flex from 'flex/Flex';
 
 const link1 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color="text-gray-70">
     Math
   </Link>
 );
 const link2 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color="text-gray-70">
     10 pts
   </Link>
 );
 const link3 = (
-  <Link href="#" color={LINK_COLOR.GRAY}>
+  <Link href="#" color="text-gray-70">
     2 min ago
   </Link>
 );
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [
-  <Link key={1} color={LINK_COLOR.GRAY}>
+  <Link key={1} color="text-gray-70">
     Katie
   </Link>,
-  <Link key={2} href="#" color={LINK_COLOR.GRAY}>
+  <Link key={2} href="#" color="text-gray-70">
     Answerer
   </Link>,
 ];
@@ -144,7 +144,7 @@ const examplePart2 = (
 const ContentBoxes = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color="peach-dark">
+      <Text color="text-red-60">
         This component is deprecated, please use{' '}
         <Link href="./containers.html#flexbox">Flex</Link> instead
       </Text>

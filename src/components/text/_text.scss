@@ -1,3 +1,5 @@
+@import './text-colors-mixin';
+
 $includeHtml: false !default;
 
 $bodyTextSizes: (
@@ -52,7 +54,7 @@ $bodyTextSizes: (
     @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;
     font-weight: $fontWeightNormal;
-    color: $black;
+    color: $text-black;
 
     &--inherited {
       font-size: inherit;
@@ -97,7 +99,7 @@ $bodyTextSizes: (
     &--link {
       cursor: pointer;
       text-decoration: none;
-      color: $blue-50;
+      color: $text-blue-60;
 
       &:hover,
       &:active {
@@ -186,65 +188,6 @@ $bodyTextSizes: (
       white-space: nowrap;
     }
 
-    &--white {
-      color: $white;
-    }
-
-    &--black {
-      color: $black;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--gray-primary
-    &--gray {
-      color: $gray-70;
-    }
-
-    &--gray-secondary {
-      color: $gray-50;
-    }
-
-    &--gray-secondary-light {
-      color: $gray-40;
-    }
-
-    &--mint-dark {
-      color: $green-50;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--mint-dark
-    &--mint {
-      color: $green-50;
-    }
-
-    &--blue-dark {
-      color: $blue-50;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--blue-dark
-    &--blue {
-      color: $blue-50;
-    }
-
-    &--mustard-dark {
-      color: $yellow-50;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--mustard-dark
-    &--mustard {
-      color: $yellow-50;
-    }
-
-    &--lavender-dark {
-      color: $indigo-50;
-    }
-
-    &--peach-dark {
-      color: $red-50;
-    }
-
-    // backward compatibility for html, it should be replaced with sg-text--peach-dark
-    &--peach {
-      color: $red-50;
-    }
+    @include textColor();
   }
 }

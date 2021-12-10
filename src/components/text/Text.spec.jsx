@@ -3,7 +3,6 @@ import Text from './Text';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
-  TEXT_COLOR,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
@@ -38,9 +37,9 @@ test('type - label', () => {
 });
 
 test('color', () => {
-  const text = shallow(<Text color={TEXT_COLOR.MINT_DARK}>Test</Text>);
+  const text = shallow(<Text color="text-green-60">Test</Text>);
 
-  expect(text.hasClass('sg-text--mint-dark')).toBeTruthy();
+  expect(text.hasClass('sg-text--text-green-60')).toBeTruthy();
 });
 
 test('weight', () => {

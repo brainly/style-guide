@@ -33,16 +33,22 @@ export type TextSizeType =
   | 'xxxlarge';
 
 export type TextColorType =
-  | 'black'
-  | 'white'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'mint-dark'
-  | 'peach-dark'
-  | 'mustard-dark'
-  | 'lavender-dark'
-  | 'blue-dark';
+  | 'text-black'
+  | 'text-white'
+  | 'text-gray-70'
+  | 'text-gray-60'
+  | 'text-gray-50'
+  | 'text-gray-40'
+  | 'text-blue-60'
+  | 'text-blue-40'
+  | 'text-green-60'
+  | 'text-green-40'
+  | 'text-indigo-60'
+  | 'text-indigo-40'
+  | 'text-red-60'
+  | 'text-red-40'
+  | 'text-yellow-60'
+  | 'text-yellow-40';
 
 export type TextWeightType = 'regular' | 'bold';
 

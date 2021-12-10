@@ -1,3 +1,5 @@
+@import './text-colors-mixin';
+
 $includeHtml: false !default;
 
 $headlineSizes: (
@@ -63,6 +65,8 @@ $headlineSizes: (
       color: inherit;
     }
 
+    @include textColor();
+
     &--xxsmall {
       @include headlineTypeSizeVariant(xxsmall);
     }
@@ -93,46 +97,6 @@ $headlineSizes: (
 
     &--extra-bold {
       font-weight: $fontWeightBlack;
-    }
-
-    &--white {
-      color: $white;
-    }
-
-    &--black {
-      color: $black;
-    }
-
-    &--gray {
-      color: $gray-70;
-    }
-
-    &--gray-secondary {
-      color: $gray-50;
-    }
-
-    &--gray-secondary-light {
-      color: $gray-40;
-    }
-
-    &--mint-dark {
-      color: $green-50;
-    }
-
-    &--blue-dark {
-      color: $blue-50;
-    }
-
-    &--mustard-dark {
-      color: $yellow-50;
-    }
-
-    &--lavender-dark {
-      color: $indigo-50;
-    }
-
-    &--peach-dark {
-      color: $red-50;
     }
 
     &--uppercase {

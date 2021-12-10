@@ -43,7 +43,7 @@ export const Sizes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               default
@@ -56,7 +56,7 @@ export const Sizes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               round button
@@ -71,7 +71,7 @@ export const Sizes = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               {size}
@@ -104,7 +104,7 @@ export const StylesAndStates = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               neutral state
@@ -117,7 +117,7 @@ export const StylesAndStates = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               filled state
@@ -131,7 +131,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             default
@@ -158,7 +158,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="white"
+            color="text-white"
             size="medium"
           >
             white
@@ -181,7 +181,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             round button
@@ -208,7 +208,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="white"
+            color="text-white"
             size="medium"
           >
             white round button

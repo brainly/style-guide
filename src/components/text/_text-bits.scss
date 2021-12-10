@@ -1,3 +1,5 @@
+@import './text-colors-mixin';
+
 $includeHtml: false !default;
 
 $bitSizes: (
@@ -16,7 +18,7 @@ $bitSizes: (
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
     line-height: getBitSize(medium);
-    color: $green-30;
+    color: $text-green-40;
     font-weight: $fontWeightBlack;
     margin: 0;
     position: relative;
@@ -27,6 +29,8 @@ $bitSizes: (
       color: inherit;
       font-weight: inherit;
     }
+
+    @include textColor();
 
     &--small {
       @include uppercaseText(0);
@@ -42,62 +46,6 @@ $bitSizes: (
     &--xlarge {
       font-size: getBitSize(xlarge);
       line-height: getBitSize(xlarge);
-    }
-
-    &--blue-primary {
-      color: $blue-40;
-    }
-
-    &--blue-secondary {
-      color: $blue-30;
-    }
-
-    &--mint-primary {
-      color: $green-40;
-    }
-
-    &--mint-secondary {
-      color: $green-30;
-    }
-
-    &--peach-primary {
-      color: $red-40;
-    }
-
-    &--peach-secondary {
-      color: $red-30;
-    }
-
-    &--lavender-primary {
-      color: $indigo-40;
-    }
-
-    &--lavender-secondary {
-      color: $indigo-30;
-    }
-
-    &--mustard-primary {
-      color: $yellow-40;
-    }
-
-    &--mustard-secondary {
-      color: $yellow-30;
-    }
-
-    &--gray-secondary {
-      color: $gray-50;
-    }
-
-    &--gray-secondary-light {
-      color: $gray-40;
-    }
-
-    &--white {
-      color: $white;
-    }
-
-    &--black {
-      color: $black;
     }
   }
 }

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import Text from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
@@ -70,21 +70,21 @@ export const COLORS_DEFAULT_MAP: {
 };
 
 const TRANSPARENT_COLOR_TEXT_MAP: {
-  blue: 'blue-dark',
-  mint: 'mint-dark',
-  lavender: 'lavender-dark',
-  peach: 'peach-dark',
-  mustard: 'mustard-dark',
-  gray: 'gray-secondary',
-  achromatic: 'black',
+  blue: 'text-blue-60',
+  mint: 'text-green-60',
+  lavender: 'text-indigo-60',
+  peach: 'text-red-60',
+  mustard: 'text-yellow-60',
+  gray: 'text-gray-50',
+  achromatic: 'text-black',
 } = {
-  blue: 'blue-dark',
-  mint: 'mint-dark',
-  lavender: 'lavender-dark',
-  peach: 'peach-dark',
-  mustard: 'mustard-dark',
-  gray: 'gray-secondary',
-  achromatic: 'black',
+  blue: 'text-blue-60',
+  mint: 'text-green-60',
+  lavender: 'text-indigo-60',
+  peach: 'text-red-60',
+  mustard: 'text-yellow-60',
+  gray: 'text-gray-50',
+  achromatic: 'text-black',
 };
 
 // TODO: Change this map after Text color changes
@@ -223,9 +223,9 @@ const Label = ({
 
   const textColor =
     type === 'default' || type === 'transparent'
-      ? 'black'
+      ? TEXT_COLOR['text-black']
       : type === 'solid'
-      ? 'white'
+      ? TEXT_COLOR['text-white']
       : TRANSPARENT_COLOR_TEXT_MAP[color];
 
   const iconColor =

@@ -4,7 +4,7 @@ import ActionList from 'action-list/ActionList';
 import Radio from 'form-elements/Radio';
 import * as React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import Text, {TEXT_COLOR, TEXT_SIZE} from 'text/Text';
+import Text, {TEXT_SIZE} from 'text/Text';
 import generateRandomString from '../../js/generateRandomString';
 
 type PropsType = {
@@ -32,7 +32,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
     return (
       <div className="docs-active-block__settings">
         <ActionList>
-          <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY}>
+          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
             Code:
             <label className="docs-active-block__label">
               <Radio
@@ -60,7 +60,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
             </label>
           </Text>
           <SeparatorVertical />
-          <Text size={TEXT_SIZE.SMALL} color={TEXT_COLOR.GRAY}>
+          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
             Background:
             <label className="docs-active-block__label">
               <Radio

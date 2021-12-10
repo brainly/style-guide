@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Link, {LINK_SIZE, LINK_COLOR, LINK_WEIGHT} from 'text/Link';
-import {TEXT_COLOR} from 'text/textConsts';
+import Link, {LINK_SIZE, TEXT_COLOR, LINK_WEIGHT} from 'text/Link';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -12,7 +11,7 @@ const Links = () => {
     },
     {
       name: 'color',
-      values: LINK_COLOR,
+      values: TEXT_COLOR,
     },
     {
       name: 'href',
@@ -40,7 +39,7 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link
           href="#"
-          color={LINK_COLOR.MINT}
+          color="text-green-60"
           size={LINK_SIZE.SMALL}
           weight={LINK_WEIGHT.REGULAR}
         >
@@ -50,7 +49,7 @@ const Links = () => {
       <DocsActiveBlock settings={settings}>
         <Link>
           Parent Link component{' '}
-          <Link inherited type="span" color={TEXT_COLOR.MINT_DARK}>
+          <Link inherited type="span" color="text-green-60">
             nested Link inheriting styles from parent Link
           </Link>
         </Link>

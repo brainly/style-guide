@@ -42,7 +42,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             no border
@@ -53,7 +53,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             border
@@ -64,7 +64,7 @@ export const SizeBorderImage = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             image
@@ -80,7 +80,7 @@ export const SizeBorderImage = args => (
               extraBold
               transform="uppercase"
               type="span"
-              color="gray-secondary-light"
+              color="text-gray-40"
               size="medium"
             >
               {size}

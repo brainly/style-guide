@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 
 const defaultProps = {
   contentArray: [
-    <span key={1} className="sg-text sg-text--gray sg-text--link">
+    <span key={1} className="sg-text sg-text--text-gray-70 sg-text--link">
       The Goat
     </span>,
     <span key={2}>Master </span>,
