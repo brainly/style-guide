@@ -196,7 +196,7 @@ const AccordionItem = ({
             {isTitleString ? (
               <Link
                 size={titleSize}
-                color="black"
+                color="text-black"
                 weight="bold"
                 underlined={isHighlighted}
               >

@@ -1,8 +1,6 @@
-@import './text-colors-mixin';
-
 $includeHtml: false !default;
 
-$headlineSizes: (
+$subheadlineSizes: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -12,8 +10,8 @@ $headlineSizes: (
     lineHeight: 60px,
   ),
   xlarge: (
-    fontSize: 39px,
-    lineHeight: 44px,
+    fontSize: 43px,
+    lineHeight: 48px,
   ),
   large: (
     fontSize: 28px,
@@ -31,27 +29,28 @@ $headlineSizes: (
     fontSize: 14px,
     lineHeight: 16px,
   ),
-  xxsmall: (
-    fontSize: 10px,
-    lineHeight: 12px,
-  ),
 );
 
-@function getHeadLineSizeFromMap($map, $keys...) {
+@function getSubheadlineSizeFromMap($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
   }
   @return $map;
 }
 
-@mixin headlineTypeSizeVariant($size) {
-  font-size: getHeadLineSizeFromMap($headlineSizes, $size, 'fontSize');
-  line-height: getHeadLineSizeFromMap($headlineSizes, $size, 'lineHeight');
+@mixin subheadlineTypeSizeVariant($size) {
+  font-size: getSubheadlineSizeFromMap($subheadlineSizes, $size, 'fontSize');
+  line-height: getSubheadlineSizeFromMap(
+    $subheadlineSizes,
+    $size,
+    'lineHeight'
+  );
 }
 
 @if ($includeHtml) {
-  .sg-headline {
-    @include headlineTypeSizeVariant(medium);
+  .sg-subheadline {
+    @include subheadlineTypeSizeVariant(medium);
+    font-family: $fontFamilyUntitledSerif;
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
@@ -67,36 +66,28 @@ $headlineSizes: (
 
     @include textColor();
 
-    &--xxsmall {
-      @include headlineTypeSizeVariant(xxsmall);
-    }
-
     &--xsmall {
-      @include headlineTypeSizeVariant(xsmall);
+      @include subheadlineTypeSizeVariant(xsmall);
     }
 
     &--small {
-      @include headlineTypeSizeVariant(small);
+      @include subheadlineTypeSizeVariant(small);
     }
 
     &--large {
-      @include headlineTypeSizeVariant(large);
+      @include subheadlineTypeSizeVariant(large);
     }
 
     &--xlarge {
-      @include headlineTypeSizeVariant(xlarge);
+      @include subheadlineTypeSizeVariant(xlarge);
     }
 
     &--xxlarge {
-      @include headlineTypeSizeVariant(xxlarge);
+      @include subheadlineTypeSizeVariant(xxlarge);
     }
 
     &--xxxlarge {
-      @include headlineTypeSizeVariant(xxxlarge);
-    }
-
-    &--extra-bold {
-      font-weight: $fontWeightBlack;
+      @include subheadlineTypeSizeVariant(xxxlarge);
     }
 
     &--uppercase {

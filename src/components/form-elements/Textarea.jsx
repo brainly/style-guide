@@ -147,7 +147,7 @@ const Textarea = (props: TextareaPropsType) => {
         value={value}
       />
       <Flex marginTop="xxs" marginLeft="s" marginRight="s">
-        <Text size="xsmall" color="peach-dark">
+        <Text size="xsmall" color="text-red-60">
           {errorMessage}
         </Text>
       </Flex>

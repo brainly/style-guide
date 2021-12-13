@@ -211,7 +211,7 @@ const Input = (props: InputPropsType) => {
         marginLeft={size === 'm' ? 's' : 'm'}
         marginRight={size === 'm' ? 's' : 'm'}
       >
-        <Text size={size === 'm' ? 'xsmall' : 'small'} color="peach-dark">
+        <Text size={size === 'm' ? 'xsmall' : 'small'} color="text-red-60">
           {errorMessage}
         </Text>
       </Flex>

@@ -86,7 +86,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             neutral state
@@ -97,7 +97,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             Filled state
@@ -108,7 +108,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             disabled state
@@ -121,7 +121,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             default
@@ -143,7 +143,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             white
@@ -165,7 +165,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             valid
@@ -184,7 +184,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             invalid
@@ -203,7 +203,7 @@ export const StylesAndStates = args => (
             extraBold
             transform="uppercase"
             type="span"
-            color="gray-secondary-light"
+            color="text-gray-40"
             size="medium"
           >
             invalid <br /> with message

@@ -1,6 +1,6 @@
 // @flow strict
 
-export const HEADLINE_TYPE: {
+export const SUBHEADLINE_TYPE: {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -18,8 +18,7 @@ export const HEADLINE_TYPE: {
   SPAN: 'span',
 };
 
-export const HEADLINE_SIZE: {
-  XXSMALL: 'xxsmall',
+export const SUBHEADLINE_SIZE: {
   XSMALL: 'xsmall',
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -28,7 +27,6 @@ export const HEADLINE_SIZE: {
   XXLARGE: 'xxlarge',
   XXXLARGE: 'xxxlarge',
 } = {
-  XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -38,7 +36,7 @@ export const HEADLINE_SIZE: {
   XXXLARGE: 'xxxlarge',
 };
 
-export const HEADLINE_TRANSFORM: {
+export const SUBHEADLINE_TRANSFORM: {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize',
@@ -48,7 +46,7 @@ export const HEADLINE_TRANSFORM: {
   CAPITALIZE: 'capitalize',
 };
 
-export const HEADLINE_ALIGN: {
+export const SUBHEADLINE_ALIGN: {
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',

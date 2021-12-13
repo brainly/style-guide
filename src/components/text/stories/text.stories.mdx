@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { Typeset, TypeSpecimen, Label } from 'blocks/Typeset';
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Typeset, TypeSpecimen, Label} from 'blocks/Typeset';
 import Text from '../Text';
-import Link, { LINK_WEIGHT, LINK_SIZE, LINK_COLOR } from '../Link';
+import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
@@ -13,11 +13,12 @@ import {
 import Headline, {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
-  HEADLINE_COLOR,
+  TEXT_COLOR,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from '../Headline';
-import TextBit, { TEXT_BIT_SIZE, TEXT_BIT_COLOR } from '../TextBit';
+import Subheadline, {SUBHEADLINE_TYPE, SUBHEADLINE_SIZE} from '../Subheadline';
+import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
 
 <Meta title="Foundation ✨/Typography" />
 
@@ -36,7 +37,7 @@ Proxima Nova combines modern proportions with a geometric appearance and has bec
 Our typography system is a balanced hierarchy of text styles used throughout Brainly.
 This helps users quickly find information by emphasizing important parts and enhancing legibility overall.
 Our system also lets us align typography with other visual elements while keeping it all on the 8-point grid. We use hierarchy that includes:
-[Text Bits ↓](#text-bit), [Headlines ↓](#headlines) and [Body Text ↓](#body-text).
+[Text Bits ↓](#text-bit), [Headlines ↓](#headlines), [Subheadlines ↓](#subheadlines), [Body Text ↓](#body-text).
 
 ## Text Bit
 
@@ -65,22 +66,22 @@ export const textBitSizesMap = [
   },
 ];
 
-export const TextBitExamples = (extraBold) => {
+export const TextBitExamples = extraBold => {
   const sizesVariants = [];
   getValues(TEXT_BIT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textBitSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      textBitSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizesVariants.push(
         <TypeSpecimen key={size}>
           <Label>{size}</Label>
-          <TextBit key="size" size={size} color={TEXT_BIT_COLOR.BLACK}>
+          <TextBit key="size" size={size} color="text-black">
             Text Bit
           </TextBit>
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizesVariants;
@@ -138,14 +139,14 @@ export const headlineSizesMap = [
   },
 ];
 
-export const HeadlineExamples = (extraBold) => {
+export const HeadlineExamples = extraBold => {
   const sizeVariant = [];
   getValues(HEADLINE_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      headlineSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
         <TypeSpecimen key={size}>
@@ -158,7 +159,7 @@ export const HeadlineExamples = (extraBold) => {
           >
             Headline
           </Headline>
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizeVariant;
@@ -173,6 +174,75 @@ export const HeadlineExamples = (extraBold) => {
 **Weight**: 700
 
 <Typeset>{HeadlineExamples(false)}</Typeset>
+
+## Subheadlines
+
+Subheadlines is reserved for marketing use only. Do not apply it on product pages and in the mobile application.
+
+We assumed that a ratio between line height and font size of subheadlines will be always constant and close as much as possible to a value of 1.125. This will provide us with the same proportions of text for each level on the scale.
+
+`Line height / Font Size = 1.125`
+
+In order to keep our typographic system on the grid, we chose the line-height values so that they always are a multiple of 4. Then we calculated the font sizes from the proportions:
+
+`Font Size = Line Height / 1.125`
+
+export const subheadlineSizesMap = [
+  {
+    type: 'xsmall',
+    fontSize: '14px',
+  },
+  {
+    type: 'small',
+    fontSize: '18px',
+  },
+  {
+    type: 'medium',
+    fontSize: '21px',
+  },
+  {
+    type: 'large',
+    fontSize: '28px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '43px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '53px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '78px',
+  },
+];
+
+export const SubheadlineExamples = () => {
+  const sizeVariant = [];
+  getValues(SUBHEADLINE_SIZE, false)
+    .reverse()
+    .forEach(size => {
+      let itemSize;
+      subheadlineSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Subheadline key={size} type={SUBHEADLINE_TYPE.H2} size={size}>
+            Headline
+          </Subheadline>
+        </TypeSpecimen>
+      );
+    });
+  return sizeVariant;
+};
+
+**Font**: Untitled Serif
+**Weight**: 400
+
+<Typeset>{SubheadlineExamples()}</Typeset>
 
 ## Body Text
 
@@ -219,14 +289,14 @@ export const textSizesMap = [
   },
 ];
 
-export const TextExamples = (weight) => {
+export const TextExamples = weight => {
   const sizeVariant = [];
   getValues(TEXT_SIZE, false)
     .reverse()
-    .forEach((size) => {
+    .forEach(size => {
       let itemSize;
-      textSizesMap.map((item) =>
-        item.type === size ? (itemSize = `${item.fontSize}`) : null,
+      textSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
       sizeVariant.push(
         <TypeSpecimen key={size}>
@@ -234,13 +304,13 @@ export const TextExamples = (weight) => {
           <Text
             type={TEXT_TYPE.H2}
             size={size}
-            color={TEXT_COLOR.GRAY}
+            color="text-gray-70"
             weight={weight}
             key={size + weight}
           >
             Body text
           </Text>,
-        </TypeSpecimen>,
+        </TypeSpecimen>
       );
     });
   return sizeVariant;

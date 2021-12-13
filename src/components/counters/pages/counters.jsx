@@ -21,7 +21,7 @@ const Counters = () => (
     <DocsBlock info="Counter with icon">
       <Counter icon="points">
         +10{' '}
-        <Text type="span" size="small" color="gray-secondary" weight="bold">
+        <Text type="span" size="small" color="text-gray-60" weight="bold">
           pts
         </Text>
       </Counter>
