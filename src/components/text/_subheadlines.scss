@@ -1,6 +1,6 @@
 $includeHtml: false !default;
 
-$subheadingSizes: (
+$subheadlineSizes: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -31,21 +31,25 @@ $subheadingSizes: (
   ),
 );
 
-@function getSubheadingSizeFromMap($map, $keys...) {
+@function getSubheadlineSizeFromMap($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
   }
   @return $map;
 }
 
-@mixin subheadingTypeSizeVariant($size) {
-  font-size: getSubheadingSizeFromMap($subheadingSizes, $size, 'fontSize');
-  line-height: getSubheadingSizeFromMap($subheadingSizes, $size, 'lineHeight');
+@mixin subheadlineTypeSizeVariant($size) {
+  font-size: getSubheadlineSizeFromMap($subheadlineSizes, $size, 'fontSize');
+  line-height: getSubheadlineSizeFromMap(
+    $subheadlineSizes,
+    $size,
+    'lineHeight'
+  );
 }
 
 @if ($includeHtml) {
-  .sg-subheading {
-    @include subheadingTypeSizeVariant(medium);
+  .sg-subheadline {
+    @include subheadlineTypeSizeVariant(medium);
     font-family: $fontFamilyUntitledSerif;
     display: block;
     color: $black;
@@ -63,27 +67,27 @@ $subheadingSizes: (
     @include textColor();
 
     &--xsmall {
-      @include subheadingTypeSizeVariant(xsmall);
+      @include subheadlineTypeSizeVariant(xsmall);
     }
 
     &--small {
-      @include subheadingTypeSizeVariant(small);
+      @include subheadlineTypeSizeVariant(small);
     }
 
     &--large {
-      @include subheadingTypeSizeVariant(large);
+      @include subheadlineTypeSizeVariant(large);
     }
 
     &--xlarge {
-      @include subheadingTypeSizeVariant(xlarge);
+      @include subheadlineTypeSizeVariant(xlarge);
     }
 
     &--xxlarge {
-      @include subheadingTypeSizeVariant(xxlarge);
+      @include subheadlineTypeSizeVariant(xxlarge);
     }
 
     &--xxxlarge {
-      @include subheadingTypeSizeVariant(xxxlarge);
+      @include subheadlineTypeSizeVariant(xxxlarge);
     }
 
     &--uppercase {

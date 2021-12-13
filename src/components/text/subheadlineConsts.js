@@ -1,6 +1,6 @@
 // @flow strict
 
-export const SUBHEADING_TYPE: {
+export const SUBHEADLINE_TYPE: {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -18,7 +18,7 @@ export const SUBHEADING_TYPE: {
   SPAN: 'span',
 };
 
-export const SUBHEADING_SIZE: {
+export const SUBHEADLINE_SIZE: {
   XSMALL: 'xsmall',
   SMALL: 'small',
   MEDIUM: 'medium',
@@ -36,7 +36,7 @@ export const SUBHEADING_SIZE: {
   XXXLARGE: 'xxxlarge',
 };
 
-export const SUBHEADING_TRANSFORM: {
+export const SUBHEADLINE_TRANSFORM: {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize',
@@ -46,7 +46,7 @@ export const SUBHEADING_TRANSFORM: {
   CAPITALIZE: 'capitalize',
 };
 
-export const SUBHEADING_ALIGN: {
+export const SUBHEADLINE_ALIGN: {
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',

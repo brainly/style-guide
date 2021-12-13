@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Subheading, {
-  SUBHEADING_TYPE,
-  SUBHEADING_SIZE,
-  SUBHEADING_TRANSFORM,
-  SUBHEADING_ALIGN,
-} from '../Subheading';
+import Subheadline, {
+  SUBHEADLINE_TYPE,
+  SUBHEADLINE_SIZE,
+  SUBHEADLINE_TRANSFORM,
+  SUBHEADLINE_ALIGN,
+} from '../Subheadline';
 import {TEXT_COLOR} from '../Text';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
@@ -12,11 +12,11 @@ const Headlines = () => {
   const settings = [
     {
       name: 'type',
-      values: SUBHEADING_TYPE,
+      values: SUBHEADLINE_TYPE,
     },
     {
       name: 'size',
-      values: SUBHEADING_SIZE,
+      values: SUBHEADLINE_SIZE,
     },
     {
       name: 'color',
@@ -24,11 +24,11 @@ const Headlines = () => {
     },
     {
       name: 'transform',
-      values: SUBHEADING_TRANSFORM,
+      values: SUBHEADLINE_TRANSFORM,
     },
     {
       name: 'align',
-      values: SUBHEADING_ALIGN,
+      values: SUBHEADLINE_ALIGN,
     },
     {
       name: 'inherited',
@@ -39,24 +39,24 @@ const Headlines = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Subheading>Lorem Ipsum</Subheading>
+        <Subheadline>Lorem Ipsum</Subheadline>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings} backgroundColor="dark">
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.SMALL}
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.SMALL}
           color={TEXT_COLOR['text-white']}
         >
           We&apos;ve got your back!
-        </Subheading>
+        </Subheadline>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Subheading color={TEXT_COLOR['text-red-60']}>
-          Parent Subheading component{' '}
-          <Subheading inherited type="span">
-            nested Subheading inheriting styles from parent Subheading
-          </Subheading>
-        </Subheading>
+        <Subheadline color={TEXT_COLOR['text-red-60']}>
+          Parent Subheadline component{' '}
+          <Subheadline inherited type="span">
+            nested Subheadline inheriting styles from parent Subheadline
+          </Subheadline>
+        </Subheadline>
       </DocsActiveBlock>
     </div>
   );

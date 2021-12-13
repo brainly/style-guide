@@ -1,17 +1,17 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
-import Subheading, {
-  SUBHEADING_TYPE,
-  SUBHEADING_SIZE,
-  SUBHEADING_TRANSFORM,
-  SUBHEADING_ALIGN,
-} from '../Subheading';
+import Subheadline, {
+  SUBHEADLINE_TYPE,
+  SUBHEADLINE_SIZE,
+  SUBHEADLINE_TRANSFORM,
+  SUBHEADLINE_ALIGN,
+} from '../Subheadline';
 import {TEXT_COLOR} from '../Text';
 
 const text = "We've got your back!";
 
-const subheadingSizesMap = [
+const subheadlineSizesMap = [
   {
     type: 'xsmall',
     fontSize: '14px',
@@ -48,27 +48,27 @@ function getValues(object, addUndefined = true) {
     : Object.values(object);
 }
 
-const Subheadings = () => {
+const Subheadlines = () => {
   const standard = [];
   const colorsVariants = [];
 
-  getValues(SUBHEADING_SIZE, false).forEach(size => {
+  getValues(SUBHEADLINE_SIZE, false).forEach(size => {
     [false, true].forEach(extraBold => {
       let itemSize;
 
-      subheadingSizesMap.map(item =>
+      subheadlineSizesMap.map(item =>
         item.type === size ? (itemSize = `${item.fontSize}`) : null
       );
 
       standard.push(
-        <Subheading
+        <Subheadline
           key={size}
-          type={SUBHEADING_TYPE.H2}
+          type={SUBHEADLINE_TYPE.H2}
           size={size}
           extraBold={extraBold}
         >
           {text} - {size} - {itemSize}
-        </Subheading>
+        </Subheadline>
       );
     });
   });
@@ -76,25 +76,25 @@ const Subheadings = () => {
   getValues(TEXT_COLOR, false).forEach(color => {
     if (color !== TEXT_COLOR['text-white']) {
       colorsVariants.push(
-        <Subheading
+        <Subheadline
           key={color}
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
           color={color}
         >
           {text} - {color}
-        </Subheading>
+        </Subheadline>
       );
     } else {
       colorsVariants.push(
         <ContrastBox key={color}>
-          <Subheading
-            type={SUBHEADING_TYPE.H2}
-            size={SUBHEADING_SIZE.MEDIUM}
+          <Subheadline
+            type={SUBHEADLINE_TYPE.H2}
+            size={SUBHEADLINE_SIZE.MEDIUM}
             color={color}
           >
             {text} - {color}
-          </Subheading>
+          </Subheadline>
         </ContrastBox>
       );
     }
@@ -105,52 +105,52 @@ const Subheadings = () => {
       <DocsBlock info="Size and weight variant">{standard}</DocsBlock>
       <DocsBlock info="Colors variants">{colorsVariants}</DocsBlock>
       <DocsBlock info="Examples">
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          transform={SUBHEADING_TRANSFORM.CAPITALIZE}
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          transform={SUBHEADLINE_TRANSFORM.CAPITALIZE}
         >
           {text} - capitalize
-        </Subheading>
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          transform={SUBHEADING_TRANSFORM.LOWERCASE}
+        </Subheadline>
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          transform={SUBHEADLINE_TRANSFORM.LOWERCASE}
         >
           {text} - lowercase
-        </Subheading>
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          transform={SUBHEADING_TRANSFORM.UPPERCASE}
+        </Subheadline>
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          transform={SUBHEADLINE_TRANSFORM.UPPERCASE}
         >
           {text} - uppercase
-        </Subheading>
+        </Subheadline>
         <br />
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          align={SUBHEADING_ALIGN.LEFT}
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          align={SUBHEADLINE_ALIGN.LEFT}
         >
           {text} - align left
-        </Subheading>
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          align={SUBHEADING_ALIGN.CENTER}
+        </Subheadline>
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          align={SUBHEADLINE_ALIGN.CENTER}
         >
           {text} - align center
-        </Subheading>
-        <Subheading
-          type={SUBHEADING_TYPE.H2}
-          size={SUBHEADING_SIZE.MEDIUM}
-          align={SUBHEADING_ALIGN.RIGHT}
+        </Subheadline>
+        <Subheadline
+          type={SUBHEADLINE_TYPE.H2}
+          size={SUBHEADLINE_SIZE.MEDIUM}
+          align={SUBHEADLINE_ALIGN.RIGHT}
         >
           {text} - align right
-        </Subheading>
+        </Subheadline>
       </DocsBlock>
     </>
   );
 };
 
-export default Subheadings;
+export default Subheadlines;

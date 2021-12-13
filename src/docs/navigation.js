@@ -16,7 +16,7 @@ import rating from '../components/rating/pages/rating';
 import buttons from '../components/buttons/pages/buttons';
 import text from '../components/text/pages/text';
 import headlines from '../components/text/pages/headlines';
-import subheadings from '../components/text/pages/subheadings';
+import subheadlines from '../components/text/pages/subheadlines';
 import textBit from '../components/text/pages/text-bit';
 import header from '../components/header/pages/header';
 import actionList from '../components/action-list/pages/action-list';
@@ -75,9 +75,9 @@ const navigation = [
         component: headlines,
       },
       {
-        name: 'Subheadings',
-        location: 'text/subheadings',
-        component: subheadings,
+        name: 'Subheadlines',
+        location: 'text/subheadlines',
+        component: subheadlines,
       },
       {
         name: 'Text Bit',

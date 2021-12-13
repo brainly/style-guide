@@ -1,17 +1,17 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import Subheading from './Subheading';
-import {SUBHEADING_ALIGN, SUBHEADING_SIZE} from './subheadingConsts';
+import Subheadline from './Subheadline';
+import {SUBHEADLINE_ALIGN, SUBHEADLINE_SIZE} from './subheadlineConsts';
 import {TEXT_COLOR} from './Text';
 
 export default {
-  title: 'Components/Subheading',
+  title: 'Components/Subheadline',
   parameters: {
-    component: Subheading,
+    component: Subheadline,
   },
 };
 
-export const Default = args => <Subheading {...args} />;
+export const Default = args => <Subheadline {...args} />;
 
 Default.args = {
   children: 'Some text',
@@ -31,9 +31,9 @@ export const Colors = args => (
         })}
         style={{padding: 10}}
       >
-        <Subheading {...args} color={color}>
-          Subheading
-        </Subheading>
+        <Subheadline {...args} color={color}>
+          Subheadline
+        </Subheadline>
       </div>
     ))}
   </div>
@@ -41,11 +41,11 @@ export const Colors = args => (
 
 export const Sizes = args => (
   <div>
-    {Object.values(SUBHEADING_SIZE).map(size => (
+    {Object.values(SUBHEADLINE_SIZE).map(size => (
       <div key={size} style={{padding: 10}}>
-        <Subheading {...args} color={size}>
-          Subheading
-        </Subheading>
+        <Subheadline {...args} color={size}>
+          Subheadline
+        </Subheadline>
       </div>
     ))}
   </div>
@@ -53,30 +53,30 @@ export const Sizes = args => (
 
 export const Alignments = args => (
   <div>
-    {Object.values(SUBHEADING_ALIGN).map(alignment => (
+    {Object.values(SUBHEADLINE_ALIGN).map(alignment => (
       <div
         key={alignment}
         style={{padding: 10, border: '1px solid lightgray', marginBottom: 10}}
       >
-        <Subheading {...args} align={alignment}>
-          Subheading
-        </Subheading>
+        <Subheadline {...args} align={alignment}>
+          Subheadline
+        </Subheadline>
       </div>
     ))}
   </div>
 );
 
-export const Nested = args => <Subheading {...args} />;
+export const Nested = args => <Subheadline {...args} />;
 
 Nested.args = {
   type: 'h2',
   color: TEXT_COLOR['text-red-60'],
   children: (
     <>
-      Outer subheading{' '}
-      <Subheading inherited type="span">
-        nested subheading with inherited styles
-      </Subheading>
+      Outer subheadline{' '}
+      <Subheadline inherited type="span">
+        nested subheadline with inherited styles
+      </Subheadline>
     </>
   ),
 };
