@@ -211,7 +211,7 @@ export const Types = args => (
               <Button
                 {...args}
                 type={buttonType}
-                icon={<Icon type={ICON_TYPES.HEART} color="adaptive" />}
+                icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
               />
             ) : null}
           </td>
