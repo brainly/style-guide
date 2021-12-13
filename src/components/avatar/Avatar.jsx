@@ -69,7 +69,6 @@ const Avatar = ({
 
   const avatarContent = (
     <div {...props} className={avatarClass}>
-      {' '}
       {isImgSrcDefined ? (
         <img className="sg-avatar__image" src={imgSrc} alt={alt} />
       ) : (

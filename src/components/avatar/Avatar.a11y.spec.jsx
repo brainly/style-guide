@@ -32,6 +32,19 @@ describe('Avatar a11y', () => {
     expect(screen.getByAltText(imgAlt)).toBeTruthy();
   });
 
+  it('renders avatar with link and image that has alt text', async () => {
+    const imgAlt = 'image alt';
+    const label = 'link label';
+    const avatar = render(
+      <Avatar imgSrc="#" alt={imgAlt} link="#" linkLabel={label} />
+    );
+
+    await testA11y(avatar.container);
+    expect(avatar.getByRole('img')).toBeTruthy();
+    expect(screen.getByAltText(imgAlt)).toBeTruthy();
+    expect(avatar.getByRole('link', {name: label})).toBeTruthy();
+  });
+
   it('is focusable if link is provided', async () => {
     const label = 'link label';
     const avatar = render(<Avatar link="#" imgSrc="#" linkLabel={label} />);
