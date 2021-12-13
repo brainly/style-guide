@@ -9,7 +9,6 @@ $iconSizes: 16, 24, 32, 40, 56, 80, 104;
   .sg-icon {
     @include iconColor();
 
-    fill: $icon-white;
     max-width: 24px;
     max-height: 24px;
     height: 24px;
