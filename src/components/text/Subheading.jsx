@@ -54,7 +54,7 @@ export type SubheadingPropsType = {
 
 const Subheading = ({
   children,
-  type = SUBHEADING_TYPE.H1,
+  type = SUBHEADING_TYPE.H2,
   size,
   transform,
   align,
