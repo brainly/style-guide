@@ -7,14 +7,14 @@ $includeHtml: false !default;
     overflow: visible;
 
     &__icon {
-      transition: fill 0.3s ease-out;
+      transition: color 0.3s ease-out;
       position: absolute;
       top: 0;
       bottom: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      fill: $white;
+      color: $white;
       background: none;
       border: none;
       right: 5px;
@@ -25,7 +25,7 @@ $includeHtml: false !default;
     }
 
     &__input:focus + &__icon {
-      fill: $gray-50;
+      color: $gray-50;
     }
 
     &--full-width {
