@@ -5,13 +5,18 @@ import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
 describe('Avatar a11y', () => {
-  it('renders empty avatar ', async () => {
-    const alt = 'alt';
-    const avatar = render(<Avatar alt={alt} />);
+  describe('imgSrc and link is not provided', () => {
+    it('renders avatar removed from a11y tree', async () => {
+      const alt = 'alt';
+      const avatar = render(<Avatar alt={alt} />);
 
-    await testA11y(avatar.container);
-    expect(avatar.queryByRole('img')).toBeFalsy();
-    expect(avatar.queryByAltText(alt)).toBeFalsy();
+      expect(avatar.queryByRole('img')).toBeFalsy();
+      expect(avatar.queryByAltText(alt)).toBeFalsy();
+    });
+
+    it('should have no a11y violations', async () => {
+      await testA11y(<Avatar />);
+    });
   });
 
   it('renders empty avatar with link and label', async () => {
