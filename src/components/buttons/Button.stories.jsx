@@ -173,7 +173,7 @@ export const Types = args => (
             <Button
               {...args}
               type={buttonType}
-              icon={<Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />}
+              icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
             />
           </td>
           <td>
@@ -181,7 +181,7 @@ export const Types = args => (
               {...args}
               type={buttonType}
               iconOnly
-              icon={<Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />}
+              icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
             />
           </td>
           <td>
@@ -195,7 +195,7 @@ export const Types = args => (
                   <div style={{marginBottom: '15px'}} key={toggleType}>
                     <Button
                       {...args}
-                      icon={<Icon type={ICON_TYPES.HEART} color="adaptive" />}
+                      icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
                       type={buttonType}
                       toggle={toggleType}
                     />
@@ -286,7 +286,7 @@ export const Sizes = args => (
                     <Button
                       {...args}
                       size={size}
-                      icon={<Icon type={ICON_TYPES.ANSWER} color="adaptive" />}
+                      icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
                     >
                       button
                     </Button>
@@ -295,7 +295,7 @@ export const Sizes = args => (
                     <Button
                       {...args}
                       size={size}
-                      icon={<Icon type={ICON_TYPES.ANSWER} color="adaptive" />}
+                      icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
                       reversedOrder
                     >
                       button
@@ -366,7 +366,7 @@ export const Sizes = args => (
                     <Button
                       {...args}
                       size={size}
-                      icon={<Icon type={ICON_TYPES.ANSWER} color="adaptive" />}
+                      icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
                       type="transparent"
                     >
                       button
@@ -376,7 +376,7 @@ export const Sizes = args => (
                     <Button
                       {...args}
                       size={size}
-                      icon={<Icon type={ICON_TYPES.ANSWER} color="adaptive" />}
+                      icon={<Icon type={ICON_TYPES.CHECK} color="adaptive" />}
                       reversedOrder
                       type="transparent"
                     >
