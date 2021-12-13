@@ -1,0 +1,121 @@
+$includeHtml: false !default;
+
+$subheadlineSizes: (
+  xxxlarge: (
+    fontSize: 78px,
+    lineHeight: 88px,
+  ),
+  xxlarge: (
+    fontSize: 53px,
+    lineHeight: 60px,
+  ),
+  xlarge: (
+    fontSize: 43px,
+    lineHeight: 48px,
+  ),
+  large: (
+    fontSize: 28px,
+    lineHeight: 32px,
+  ),
+  medium: (
+    fontSize: 21px,
+    lineHeight: 24px,
+  ),
+  small: (
+    fontSize: 18px,
+    lineHeight: 20px,
+  ),
+  xsmall: (
+    fontSize: 14px,
+    lineHeight: 16px,
+  ),
+);
+
+@function getSubheadlineSizeFromMap($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@mixin subheadlineTypeSizeVariant($size) {
+  font-size: getSubheadlineSizeFromMap($subheadlineSizes, $size, 'fontSize');
+  line-height: getSubheadlineSizeFromMap(
+    $subheadlineSizes,
+    $size,
+    'lineHeight'
+  );
+}
+
+@if ($includeHtml) {
+  .sg-subheadline {
+    @include subheadlineTypeSizeVariant(medium);
+    font-family: $fontFamilyUntitledSerif;
+    display: block;
+    color: $black;
+    font-weight: $fontWeightBold;
+    max-width: 100%;
+
+    &--inherited {
+      display: revert;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    @include textColor();
+
+    &--xsmall {
+      @include subheadlineTypeSizeVariant(xsmall);
+    }
+
+    &--small {
+      @include subheadlineTypeSizeVariant(small);
+    }
+
+    &--large {
+      @include subheadlineTypeSizeVariant(large);
+    }
+
+    &--xlarge {
+      @include subheadlineTypeSizeVariant(xlarge);
+    }
+
+    &--xxlarge {
+      @include subheadlineTypeSizeVariant(xxlarge);
+    }
+
+    &--xxxlarge {
+      @include subheadlineTypeSizeVariant(xxxlarge);
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--lowercase {
+      text-transform: lowercase;
+    }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
+
+    &--to-left {
+      text-align: left;
+    }
+
+    &--to-right {
+      text-align: right;
+    }
+
+    &--to-center {
+      text-align: center;
+    }
+
+    &--justify {
+      text-align: justify;
+    }
+  }
+}

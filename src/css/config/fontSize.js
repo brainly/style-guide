@@ -11,6 +11,15 @@ module.exports = {
   'headline-normal': ['21px', {lineHeight: '24px'}],
   'headline-small': ['18px', {lineHeight: '20px'}],
   'headline-xsmall': ['14px', {lineHeight: '16px'}],
+  'headline-xxsmall': ['10px', {lineHeight: '12px'}],
+  // Subheadlines
+  'subheadline-xxxlarge': ['78px', {lineHeight: '88px'}],
+  'subheadline-xxlarge': ['53px', {lineHeight: '60px'}],
+  'subheadline-xlarge': ['43px', {lineHeight: '48px'}],
+  'subheadline-large': ['28px', {lineHeight: '32px'}],
+  'subheadline-normal': ['21px', {lineHeight: '24px'}],
+  'subheadline-small': ['18px', {lineHeight: '20px'}],
+  'subheadline-xsmall': ['14px', {lineHeight: '16px'}],
   // Body
   'body-xxlarge': ['45px', {lineHeight: '60px'}],
   'body-xlarge': ['33px', {lineHeight: '44px'}],
