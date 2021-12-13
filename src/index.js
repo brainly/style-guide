@@ -140,6 +140,8 @@ export {default as SubjectIconBox} from './components/subject-icons/SubjectIconB
 export type {SubjectIconBoxPropsType} from './components/subject-icons/SubjectIconBox';
 export {default as Headline} from './components/text/Headline';
 export type {HeadlinePropsType} from './components/text/Headline';
+export {default as Subheadline} from './components/text/Subheadline';
+export type {SubheadlinePropsType} from './components/text/Subheadline';
 export {default as Link} from './components/text/Link';
 export type {LinkPropsType} from './components/text/Link';
 export {default as Text} from './components/text/Text';
