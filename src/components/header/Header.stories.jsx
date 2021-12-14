@@ -20,8 +20,8 @@ import IconAsButton, {
 
 export default {
   title: 'Components/Header',
+  component: Header,
   parameters: {
-    component: Header,
     layout: 'default',
   },
   argTypes: {

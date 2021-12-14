@@ -7,9 +7,7 @@ import Search, {SIZE, COLOR} from './Search';
 
 export default {
   title: 'Components/Search',
-  parameters: {
-    component: Search,
-  },
+  component: Search,
   argTypes: {
     className: {
       control: {

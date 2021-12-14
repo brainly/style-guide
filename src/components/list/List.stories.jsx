@@ -7,10 +7,8 @@ import Text from '../text/Text';
 
 export default {
   title: 'Components/List',
-  parameters: {
-    component: List,
-    subcomponents: {ListItem, ListItemIcon},
-  },
+  component: List,
+  subcomponents: {ListItem, ListItemIcon},
   argTypes: {
     children: {control: null},
     spaced: {control: 'boolean'},

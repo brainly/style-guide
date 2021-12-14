@@ -4,9 +4,7 @@ import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/separators/SeparatorHorizontal',
-  parameters: {
-    component: SeparatorHorizontal,
-  },
+  component: SeparatorHorizontal,
 };
 
 export const Default = args => {

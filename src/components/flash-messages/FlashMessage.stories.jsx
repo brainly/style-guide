@@ -5,9 +5,7 @@ import FlashMessage from './FlashMessage';
 
 export default {
   title: 'Components/FlashMessage',
-  parameters: {
-    component: FlashMessage,
-  },
+  component: FlashMessage,
   args: {
     text: 'Example flash message text',
   },

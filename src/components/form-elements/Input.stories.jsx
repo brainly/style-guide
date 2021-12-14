@@ -6,9 +6,7 @@ import Input, {SIZE, COLOR} from './Input';
 
 export default {
   title: 'Components/Form/Input',
-  parameters: {
-    component: Input,
-  },
+  component: Input,
   argTypes: {
     value: {
       type: {name: 'string', required: false},

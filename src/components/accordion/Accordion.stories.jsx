@@ -66,7 +66,7 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion_item_3',
 ];
 
-export const Expanded = (args: any) => {
+export const Expanded = (args: any = {}) => {
   const [prevExpanded, setPrevExpanded] = React.useState();
   const [expanded, setExpanded] = React.useState('');
   const handleChange = id => setExpanded(id);
@@ -94,7 +94,9 @@ Expanded.args = {
   reduceMotion: true,
 };
 
-export const NoGaps = (args: any) => <Accordion {...args} spacing="none" />;
+export const NoGaps = (args: any) => {
+  return <Accordion {...args} spacing="none" />;
+};
 
 export const ReducedMotion = (args: any) => <Accordion {...args} />;
 

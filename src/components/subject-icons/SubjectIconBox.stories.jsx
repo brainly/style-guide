@@ -5,9 +5,7 @@ import SubjectIconBox, {TYPE, SIZE} from './SubjectIconBox';
 
 export default {
   title: 'Components/SubjectIconBox',
-  parameters: {
-    component: SubjectIconBox,
-  },
+  component: SubjectIconBox,
   argTypes: {
     type: {
       control: {type: 'select', options: TYPE},

@@ -3,9 +3,7 @@ import Layout from './Layout';
 
 export default {
   title: 'Components/Layout',
-  parameters: {
-    component: Layout,
-  },
+  component: Layout,
   argTypes: {
     children: {
       control: {

@@ -4,9 +4,7 @@ import FooterLine from './FooterLine';
 
 export default {
   title: 'Components/Footer',
-  parameters: {
-    component: Footer,
-  },
+  component: Footer,
   argTypes: {
     children: {
       control: {

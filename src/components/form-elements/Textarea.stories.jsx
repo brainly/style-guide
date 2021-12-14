@@ -10,9 +10,7 @@ import hex from '../colors/hex';
 
 export default {
   title: 'Components/Textarea',
-  parameters: {
-    component: Textarea,
-  },
+  component: Textarea,
   argTypes: {
     type: {
       control: {

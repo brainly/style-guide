@@ -11,9 +11,7 @@ const longElements = [
 
 export default {
   title: 'Components/Breadcrumbs',
-  parameters: {
-    component: Breadcrumb,
-  },
+  component: Breadcrumb,
   argTypes: {
     elements: {
       control: {

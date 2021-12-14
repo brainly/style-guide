@@ -15,9 +15,7 @@ const allIcons = Object.entries(ICON_TYPES).reduce(
 
 export default {
   title: 'Components/Button',
-  parameters: {
-    component: Button,
-  },
+  component: Button,
   argTypes: {
     icon: {
       control: {

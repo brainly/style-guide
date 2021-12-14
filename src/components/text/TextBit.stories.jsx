@@ -3,9 +3,7 @@ import TextBit from './TextBit';
 
 export default {
   title: 'Components/TextBit',
-  parameters: {
-    component: TextBit,
-  },
+  component: TextBit,
 };
 
 export const Default = args => <TextBit {...args} />;

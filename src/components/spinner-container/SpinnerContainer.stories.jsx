@@ -8,9 +8,7 @@ import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/SpinnerContainer',
-  parameters: {
-    component: SpinnerContainer,
-  },
+  component: SpinnerContainer,
   args: {
     children: (
       <Box color="mint-secondary-light">

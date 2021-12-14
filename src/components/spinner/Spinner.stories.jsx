@@ -5,9 +5,7 @@ import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
 
 export default {
   title: 'Components/Spinner',
-  parameters: {
-    component: Spinner,
-  },
+  component: Spinner,
 };
 
 export const Default = args => <Spinner {...args} />;

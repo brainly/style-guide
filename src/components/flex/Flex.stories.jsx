@@ -5,9 +5,7 @@ import Box, {COLOR} from '../box/Box';
 
 export default {
   title: 'Components/Flex',
-  parameters: {
-    component: Flex,
-  },
+  component: Flex,
   argTypes: {
     children: {
       control: {

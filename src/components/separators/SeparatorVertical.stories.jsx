@@ -5,9 +5,7 @@ import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/separators/SeparatorVertical',
-  parameters: {
-    component: SeparatorVertical,
-  },
+  component: SeparatorVertical,
 };
 
 export const Default = args => (
