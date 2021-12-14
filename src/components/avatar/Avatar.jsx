@@ -38,7 +38,7 @@ export type AvatarPropsType = {
   imgSrc?: string,
   className?: string,
   link?: string,
-  linkLabel?: string,
+  ariaLinkLabel?: string,
   alt?: string,
   ...
 };
@@ -50,7 +50,7 @@ const Avatar = ({
   imgSrc,
   className,
   link,
-  linkLabel,
+  ariaLinkLabel,
   alt = '',
   ...props
 }: AvatarPropsType) => {
@@ -87,7 +87,11 @@ const Avatar = ({
 
   if (link !== undefined && link !== '') {
     return (
-      <a href={link} aria-label={linkLabel} className="sg-avatar__wrapper-link">
+      <a
+        href={link}
+        aria-label={ariaLinkLabel}
+        className="sg-avatar__wrapper-link"
+      >
         {avatarContent}
       </a>
     );
