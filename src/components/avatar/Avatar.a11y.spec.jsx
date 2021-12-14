@@ -4,53 +4,44 @@ import Avatar from './Avatar';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
-describe('Avatar a11y', () => {
-  describe('imgSrc and link is not provided', () => {
-    it('renders avatar removed from a11y tree', async () => {
-      const alt = 'alt';
-      const avatar = render(<Avatar alt={alt} />);
+describe('Avatar', () => {
+  it('renders avatar removed from a11y tree when imgSrc and link are not provided', () => {
+    const alt = 'alt';
+    const avatar = render(<Avatar alt={alt} />);
 
-      expect(avatar.queryByRole('img')).toBeFalsy();
-      expect(avatar.queryByAltText(alt)).toBeFalsy();
-    });
-
-    it('should have no a11y violations', async () => {
-      await testA11y(<Avatar />);
-    });
+    expect(avatar.queryByRole('img')).toBeFalsy();
+    expect(avatar.queryByAltText(alt)).toBeFalsy();
   });
 
-  it('renders empty avatar with link and label', async () => {
+  it('renders avatar only as an accessible link when imgSrc is not provided', () => {
     const label = 'link label';
     const avatar = render(<Avatar link="#" linkLabel={label} />);
 
-    await testA11y(avatar.container);
     expect(avatar.getByRole('link', {name: label})).toBeTruthy();
     expect(avatar.queryByRole('img')).toBeFalsy();
   });
 
-  it('renders avatar with image that has alt text', async () => {
+  it('renders avatar with an accessible image', () => {
     const imgAlt = 'image alt';
     const avatar = render(<Avatar imgSrc="#" alt={imgAlt} />);
 
-    await testA11y(avatar.container);
     expect(avatar.getByRole('img')).toBeTruthy();
     expect(screen.getByAltText(imgAlt)).toBeTruthy();
   });
 
-  it('renders avatar with link and image that has alt text', async () => {
+  it('renders avatar with an accessible link and an accessible image', () => {
     const imgAlt = 'image alt';
     const label = 'link label';
     const avatar = render(
       <Avatar imgSrc="#" alt={imgAlt} link="#" linkLabel={label} />
     );
 
-    await testA11y(avatar.container);
     expect(avatar.getByRole('img')).toBeTruthy();
     expect(screen.getByAltText(imgAlt)).toBeTruthy();
     expect(avatar.getByRole('link', {name: label})).toBeTruthy();
   });
 
-  it('is focusable if link is provided', async () => {
+  it('is focusable if link is provided', () => {
     const label = 'link label';
     const avatar = render(<Avatar link="#" imgSrc="#" linkLabel={label} />);
 
@@ -59,12 +50,30 @@ describe('Avatar a11y', () => {
     expect(avatar.getByRole('link')).toEqual(document.activeElement);
   });
 
-  it('is not focusable if link is not provided', async () => {
+  it('is not focusable if link is not provided', () => {
     const label = 'link label';
     const avatar = render(<Avatar imgSrc="#" alt={label} />);
 
     userEvent.click(avatar.getByAltText(label));
 
     expect(document.body).toEqual(document.activeElement);
+  });
+});
+
+describe('Avatar a11y', () => {
+  it('should have no a11y violations when imgSrc and link are not provided', async () => {
+    await testA11y(<Avatar />);
+  });
+
+  it('should have no a11y violations when only link and label are provided', async () => {
+    await testA11y(<Avatar link="#" linkLabel="label" />);
+  });
+
+  it('should have no a11y violations when imgSrc and alt are provided', async () => {
+    await testA11y(<Avatar imgSrc="#" alt="alt" />);
+  });
+
+  it('should have no a11y violations when link, label, imgSrc and alt are provided', async () => {
+    await testA11y(<Avatar imgSrc="#" alt="alt" link="#" linkLabel="label" />);
   });
 });
