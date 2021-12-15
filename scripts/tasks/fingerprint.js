@@ -20,6 +20,7 @@ module.exports = function(gulp, plugins, consts) {
       .pipe(plugins.rev())
       .pipe(gulp.dest(consts.DIST)) // write rev'd assets to build dir
       .pipe(plugins.rev.manifest())
+      .pipe(gulp.dest(consts.DIST))
       .pipe(gulp.dest(consts.VERSIONED_DIST)); // write manifest to build dir
   };
 };

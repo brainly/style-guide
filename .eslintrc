@@ -17,6 +17,7 @@
   "globals": {
     "hljs": "readonly",
     "html_beautify": "readonly",
-    "STYLE_GUIDE_ENV": "readonly"
+    "STYLE_GUIDE_ENV": "readonly",
+    "STYLE_GUIDE_VERSION": "readonly"
   }
 }
