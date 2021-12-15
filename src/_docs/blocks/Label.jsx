@@ -1,4 +1,5 @@
-import * as React from 'react';
+// @flow
+
 import {styled} from '@storybook/theming';
 
 const Label = styled.div(({theme}) => ({
