@@ -28,9 +28,9 @@ const Badge = styled.div`
   ${props =>
     (props.status === 'neutral' || props.status === undefined) &&
     css`
-      color: rgb(68, 68, 68);
-      background: rgb(238, 238, 238);
-      box-shadow: rgb(68 68 68 / 10%) 0px 0px 0px 1px inset;
+      color: rgb(50 60 69);
+      background: rgb(245 248 250);
+      box-shadow: rgb(70 83 95 / 10%) 0px 0px 0px 1px;
     `};
 `;
 

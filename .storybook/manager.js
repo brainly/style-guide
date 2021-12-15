@@ -11,7 +11,7 @@ addons.setConfig({
   sidebarAnimations: true,
   sidebar: {
     renderLabel: (story) => {
-      isDeprecated = deprecated.components.find(
+      const isDeprecated = deprecated.components.find(
         (item) =>
           item.componentName?.toLowerCase() === story.name?.toLowerCase(),
       );
@@ -19,7 +19,7 @@ addons.setConfig({
         return (
           <span>
             <span style={{ marginRight: '8px' }}>{story.name}</span>
-            <Badge status="warning">deprecated</Badge>
+            <Badge status="neutral">deprecated</Badge>
           </span>
         );
       }
