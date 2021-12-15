@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import {LOGOS_BASE_URL as BASE_URL} from '../../config';
+import {LOGO_URLS} from './logo-url';
 
 export type LogoTypeType =
   | 'brainly'
@@ -82,36 +82,6 @@ export const TYPE: {
   BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective',
 };
 
-export const LOGOS = {
-  [TYPE.BRAINLY]: 'brainly-5c4a769505',
-  [TYPE.BRAINLY_MOBILE]: 'brainly-mobile-6879551770',
-  [TYPE.EODEV]: 'eodev-a3f09bec5e',
-  [TYPE.EODEV_MOBILE]: 'eodev-mobile-bfdc46ee89',
-  [TYPE.NOSDEVOIRS]: 'nosdevoirs-5b0b83e2b7',
-  [TYPE.NOSDEVOIRS_MOBILE]: 'nosdevoirs-mobile-2caead9ada',
-  [TYPE.ZNANIJA]: 'znanija-63fd07a2eb',
-  [TYPE.ZNANIJA_MOBILE]: 'znanija-mobile-200611d052',
-  [TYPE.ZNANIJA_PLUS]: 'znanija-plus-337423fa26',
-  [TYPE.ZNANIJA_PLUS_INVERSE]: 'znanija-plus-inverse-fdb3d35877',
-  [TYPE.ZNANIJA_PLUS_SMALL]: 'znanija-plus-small-495ddebd8c',
-  [TYPE.BRAINLY_PLUS]: 'brainly-plus-3f4fae7ad9',
-  [TYPE.BRAINLY_PLUS_INVERSE]: 'brainly-plus-inverse-c687c7219e',
-  [TYPE.BRAINLY_PLUS_SMALL]: 'brainly-plus-small-57d2d0c2e9',
-  [TYPE.BRAINLY_TUTORING]: 'brainly-tutoring-94373373cc',
-  [TYPE.BRAINLY_TUTORING_SMALL]: 'brainly-tutoring-small-02c148571b',
-  [TYPE.LOGO_TUTOR]: 'product/logo-tutor-53d6052aac',
-  [TYPE.LOGO_COMMUNITY_QA]: 'product/logo-community-qa-4f24dc82d9',
-  [TYPE.LOGO_TEXTBOOK_DETECTIVE]: 'product/logo-textbook-detective-5b2274c6a9',
-  [TYPE.LOGO_MATH_SOLVER]: 'product/logo-math-solver-8171e2920a',
-  [TYPE.BRAINLY_LOGOTYPE_TUTOR]: 'product/brainly-logotype-tutor-426af0340d',
-  [TYPE.BRAINLY_LOGOTYPE_COMMUNITY_QA]:
-    'product/brainly-logotype-community-qa-a864b76316',
-  [TYPE.BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE]:
-    'product/brainly-logotype-textbook-detective-ff526a79b8',
-  [TYPE.BRAINLY_LOGOTYPE_MATH_SOLVER]:
-    'product/brainly-logotype-math-solver-16a98c8e00',
-};
-
 export type LogoPropsType = {
   className?: string,
   type?: LogoTypeType,
@@ -132,8 +102,7 @@ const Logo = ({
     },
     className
   );
-
-  const logoPath = `${BASE_URL}${LOGOS[type]}.svg`;
+  const logoPath = `${LOGO_URLS[type]}`;
 
   return (
     <div {...props} className={logoClass}>

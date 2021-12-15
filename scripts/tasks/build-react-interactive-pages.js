@@ -1,6 +1,7 @@
 const through = require('through2');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const argv = require('yargs').argv;
 
 const coreConfig = {
   target: 'node',
@@ -26,7 +27,7 @@ module.exports = function(gulp, plugins, consts) {
         'process.env.NODE_ENV': JSON.stringify(
           consts.IS_PRODUCTION ? 'production' : 'development'
         ),
-        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
+        STYLE_GUIDE_ENV: JSON.stringify(argv.production ? 'prod' : 'dev'),
       }),
     ];
 
