@@ -2,8 +2,7 @@ import * as React from 'react';
 import { addons } from '@storybook/addons';
 import theme from './theme';
 import deprecated from '../deprecated.json';
-import {Label} from '../src/_docs/blocks/Label'
-
+import { Badge } from '../src/_docs/blocks/Badge';
 
 addons.setConfig({
   theme,
@@ -12,11 +11,15 @@ addons.setConfig({
   sidebarAnimations: true,
   sidebar: {
     renderLabel: (story) => {
-      console.log(story);
-      if (story.isComponent && !story.isLeaf) {
+      isDeprecated = deprecated.components.find(
+        (item) =>
+          item.componentName?.toLowerCase() === story.name?.toLowerCase(),
+      );
+      if (story.isComponent && !story.isLeaf && isDeprecated) {
         return (
           <span>
-            {story.name} <Label>deprecated</Label>
+            <span style={{ marginRight: '8px' }}>{story.name}</span>
+            <Badge status="warning">deprecated</Badge>
           </span>
         );
       }
