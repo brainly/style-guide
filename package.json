@@ -15,7 +15,8 @@
     "commonjs/",
     "css/",
     "assets/",
-    "types/"
+    "types/",
+    "deprecated.yaml"
   ],
   "engines": {
     "node": ">=8.0.0",
@@ -120,6 +121,7 @@
     "webpack": "^4.6.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
+    "yaml": "^1.10.2",
     "yargs": "^4.3.1"
   },
   "scripts": {
@@ -139,9 +141,10 @@
     "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-css": "node ./scripts/build-css.js",
+    "package-deprecated": "node ./scripts/build-deprecated-list.js",
     "package-assets": "gulp build-assets",
     "package-types": "node ./scripts/build-types.js",
-    "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm,css' 'yarn run package-commonjs' 'yarn run package-esm' 'yarn run package-css' 'yarn run package-assets' 'yarn run package-types'",
+    "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm,css' 'yarn run package-commonjs' 'yarn run package-esm' 'yarn run package-css' 'yarn run package-assets' 'yarn run package-types' 'yarn run package-deprecated'",
     "prepublishOnly": "yarn package-prepare",
     "storybook": "STORYBOOK_ENV=dev start-storybook -p 6006 -s ./.storybook/public",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006 -s ./.storybook/public",
