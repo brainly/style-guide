@@ -4,8 +4,8 @@ import Box, {PADDING, COLOR} from './Box';
 
 export default {
   title: 'Layout/Box',
+  component: Box,
   parameters: {
-    component: Box,
     description:
       'Container for grouping elements. It provides padding, background color, border and shadow.',
   },

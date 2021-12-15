@@ -3,9 +3,7 @@ import Text, {TEXT_COLOR} from './Text';
 
 export default {
   title: 'Components/Text',
-  parameters: {
-    component: Text,
-  },
+  component: Text,
 };
 
 export const Default = args => <Text {...args} />;

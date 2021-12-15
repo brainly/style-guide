@@ -5,9 +5,7 @@ import HomeButton, {TYPE} from './HomeButton';
 
 export default {
   title: 'Components/HomeButton',
-  parameters: {
-    component: HomeButton,
-  },
+  component: HomeButton,
   argTypes: {
     type: {
       control: {

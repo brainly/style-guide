@@ -24,9 +24,7 @@ const Container = Story => (
 
 export default {
   title: 'Components/TopLayer',
-  parameters: {
-    component: TopLayer,
-  },
+  component: TopLayer,
   argTypes: {
     children: {
       control: {

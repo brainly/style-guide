@@ -7,9 +7,7 @@ import {getIconGroup} from './get-icon-group';
 
 export default {
   title: 'Components/Icon',
-  parameters: {
-    component: Icon,
-  },
+  component: Icon,
   argTypes: {
     type: {control: {type: 'select', options: TYPE}},
     tagType: {control: {type: 'select', options: ICON_TAG_TYPE}},

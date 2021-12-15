@@ -3,9 +3,7 @@ import RwdHelper, {TYPE} from './RwdHelper';
 
 export default {
   title: 'Components/RwdHelper',
-  parameters: {
-    component: RwdHelper,
-  },
+  component: RwdHelper,
   argTypes: {
     children: {
       control: {

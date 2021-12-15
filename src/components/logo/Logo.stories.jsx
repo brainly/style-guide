@@ -4,9 +4,7 @@ import Logo, {TYPE} from './Logo';
 
 export default {
   title: 'Components/Logo',
-  parameters: {
-    component: Logo,
-  },
+  component: Logo,
 };
 
 export const Default = args => <Logo {...args} />;

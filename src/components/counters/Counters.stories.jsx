@@ -8,9 +8,7 @@ import Text from '../text/Text';
 
 export default {
   title: 'Components/Counter',
-  parameters: {
-    component: Counter,
-  },
+  component: Counter,
   args: {
     children: '25',
     size: 'xs',

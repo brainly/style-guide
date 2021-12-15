@@ -6,9 +6,7 @@ import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/SubjectIcon',
-  parameters: {
-    component: SubjectIcon,
-  },
+  component: SubjectIcon,
   argTypes: {
     monoColor: {
       control: {

@@ -5,9 +5,7 @@ import Flex from '../flex/Flex';
 
 export default {
   title: 'Components/Overlay',
-  parameters: {
-    component: Overlay,
-  },
+  component: Overlay,
   argTypes: {
     color: {
       control: {

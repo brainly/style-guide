@@ -6,9 +6,7 @@ import Flex from '../flex/Flex';
 
 export default {
   title: 'Components/Form/Radio',
-  parameters: {
-    component: Radio,
-  },
+  component: Radio,
   args: {},
 };
 

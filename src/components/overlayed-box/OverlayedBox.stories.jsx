@@ -5,9 +5,7 @@ import Counter from '../counters/Counter';
 
 export default {
   title: 'Components/OverlayedBox',
-  parameters: {
-    component: OverlayedBox,
-  },
+  component: OverlayedBox,
   argTypes: {
     children: {
       control: {

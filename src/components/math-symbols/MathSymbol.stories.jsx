@@ -5,9 +5,7 @@ import Flex from '../flex/Flex';
 
 export default {
   title: 'Components/MathSymbol',
-  parameters: {
-    component: MathSymbol,
-  },
+  component: MathSymbol,
   argTypes: {
     color: {
       control: {type: 'select', options: ICON_COLOR},

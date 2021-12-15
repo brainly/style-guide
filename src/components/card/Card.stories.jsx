@@ -4,9 +4,7 @@ import CardHole from './CardHole';
 
 export default {
   title: 'Components/Card',
-  parameters: {
-    component: Card,
-  },
+  component: Card,
   argTypes: {
     children: {
       control: {

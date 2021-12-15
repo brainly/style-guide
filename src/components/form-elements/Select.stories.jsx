@@ -6,9 +6,7 @@ import hex from '../colors/hex';
 
 export default {
   title: 'Components/Form/Select',
-  parameters: {
-    component: Select,
-  },
+  component: Select,
   argTypes: {
     options: {
       control: {

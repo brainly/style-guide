@@ -4,9 +4,7 @@ import {TEXT_COLOR} from './textConsts';
 
 export default {
   title: 'Components/Headline',
-  parameters: {
-    component: Headline,
-  },
+  component: Headline,
 };
 
 export const Default = args => <Headline {...args} />;
