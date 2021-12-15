@@ -3,6 +3,7 @@ import { addons } from '@storybook/addons';
 import theme from './theme';
 import deprecated from '../deprecated.json';
 import { Badge } from '../src/_docs/blocks/Badge';
+import { Label } from '../src/_docs/blocks/Label';
 
 addons.setConfig({
   theme,
@@ -15,12 +16,11 @@ addons.setConfig({
         (item) =>
           item.componentName?.toLowerCase() === story.name?.toLowerCase(),
       );
-      if (story.isComponent && !story.isLeaf && isDeprecated) {
+      if (story.isComponent && !story.isLeaf) {
         return (
-          <span>
-            <span style={{ marginRight: '8px' }}>{story.name}</span>
-            <Badge status="neutral">deprecated</Badge>
-          </span>
+          <Label status={<Badge color="neutral">deprecated</Badge>}>
+            {story.name}
+          </Label>
         );
       }
       return story.name;
