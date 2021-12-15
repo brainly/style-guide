@@ -14,6 +14,7 @@ const Label = styled.div(({theme}) => ({
   display: 'inline-block',
   marginLeft: '4px',
   border: '1px solid #c3d1dd',
+  textTransform: 'capitalize',
 }));
 
 export {Label};
