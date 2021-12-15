@@ -12,7 +12,7 @@ const Label = styled.div(({theme}) => ({
   borderRadius: '8px',
   padding: '0px 7px',
   display: 'inline-block',
-  marginLeft: '8px',
+  marginLeft: '4px',
   border: '1px solid #c3d1dd',
 }));
 
