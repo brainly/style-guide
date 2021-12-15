@@ -16,14 +16,14 @@ const Badge = styled.div`
     css`
       color: rgb(68, 128, 40);
       background: rgb(225, 255, 212);
-      box-shadow: rgb(68 128 40 / 10%) 0px 0px 0px 1px inset;
+      box-shadow: rgb(68 128 40 / 10%) 0px 0px 0px 1px;
     `};
   ${props =>
     props.status === 'warning' &&
     css`
       color: rgb(161, 92, 32);
       background: rgb(255, 245, 207);
-      box-shadow: rgb(161 92 32 / 10%) 0px 0px 0px 1px inset;
+      box-shadow: rgb(161 92 32 / 10%) 0px 0px 0px 1px;
     `};
   ${props =>
     (props.status === 'neutral' || props.status === undefined) &&
