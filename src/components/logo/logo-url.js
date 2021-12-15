@@ -1,7 +1,8 @@
 // @flow strict
 
-const LOGO_SOURCE_PATHS = require('./logotypes.json');
-const pkg = require('../../../package.json');
+import LOGO_SOURCE_PATHS from './logotypes';
+
+declare var STYLE_GUIDE_ENV: string;
 
 const assetsBaseUrls = {
   dev: '/',
@@ -13,8 +14,8 @@ let logoUrls;
 if (STYLE_GUIDE_ENV === 'storybook-dev' || STYLE_GUIDE_ENV === 'beta-dev') {
   logoUrls = LOGO_SOURCE_PATHS;
 } else {
-  const ver = STYLE_GUIDE_ENV === 'prod' ? pkg.version : 'dev';
-  const manifest = require(`../../../dist/${ver}/rev-manifest.json`);
+  // $FlowFixMe
+  const manifest = require(`../../../dist/rev-manifest.json`);
 
   logoUrls = Object.keys(LOGO_SOURCE_PATHS).reduce((acc, next) => {
     acc[next] = `${assetsBaseUrls[STYLE_GUIDE_ENV]}${

@@ -27,4 +27,4 @@ jobs:
           exitZeroOnChanges: true
           autoAcceptChanges: 'master'
         env:
-          STORYBOOK_ENV: 'chromatic'
+          CHROMATIC: 'true'
