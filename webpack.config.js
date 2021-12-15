@@ -3,6 +3,7 @@ const path = require('path');
 const argv = require('yargs').argv;
 const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = argv.production ? pkg.version : 'dev';
@@ -11,7 +12,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const VERSIONED_DIST_DIR = path.join(DIST_DIR, VERSION);
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
-const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
+const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/');
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -38,9 +39,23 @@ module.exports = () => {
           },
         },
         {
+          test: /\/logos\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                context: path.resolve(__dirname, './src'),
+                name: '[path][name].[ext]',
+              },
+            },
+          ],
+        },
+        {
           test: /\.svg$/,
           loader: 'svg-sprite-loader',
           include: path.join(SOURCE_DIR, 'images'),
+          exclude: path.join(SOURCE_DIR, 'images/logos'),
           options: {
             symbolId: filePath => {
               const pathParts = filePath.split(path.sep);
@@ -128,7 +143,6 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: DIST_DIR_OUTPUT,
-      publicPath: '/',
     },
     resolve: {
       extensions: ['.js', '.jsx'],
@@ -145,6 +159,9 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(SOURCE_DOCS_DIR, 'index.html'),
+      }),
+      new webpack.DefinePlugin({
+        STYLE_GUIDE_ENV: JSON.stringify('beta-dev'),
       }),
     ],
     devtool: IS_PRODUCTION ? 'source-map' : 'eval',
@@ -164,7 +181,7 @@ module.exports = () => {
         : undefined,
     },
     devServer: {
-      contentBase: path.join(VERSIONED_DIST_DIR, 'docs'),
+      contentBase: path.join(DIST_DIR_OUTPUT),
       index: 'index.html',
       watchContentBase: true,
       historyApiFallback: {

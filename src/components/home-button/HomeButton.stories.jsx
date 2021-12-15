@@ -25,7 +25,13 @@ export const Default = args => <HomeButton {...args} />;
 
 export const Types = args => (
   <Flex wrap>
-    {Object.values(TYPE).map(type => (
+    {[
+      TYPE.BRAINLY,
+      TYPE.EODEV,
+      TYPE.NOSDEVOIRS,
+      TYPE.ZNANIJA,
+      TYPE.BRAINLY_PLUS,
+    ].map(type => (
       <StoryVariant width={200} label={`type - ${type}`} key={type}>
         <HomeButton {...args} type={type} />
       </StoryVariant>

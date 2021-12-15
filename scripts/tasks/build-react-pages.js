@@ -5,6 +5,7 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const rename = require('gulp-rename');
 const prettify = require('gulp-prettify');
+const argv = require('yargs').argv;
 
 // create external modules for webpack to not include it in bundles.
 const nodeModules = {};
@@ -47,6 +48,11 @@ module.exports = function(gulp, plugins, consts, options) {
         path: jsPath,
         libraryTarget: 'commonjs2',
       },
+      plugins: [
+        new webpack.DefinePlugin({
+          STYLE_GUIDE_ENV: JSON.stringify(argv.production ? 'prod' : 'dev'),
+        }),
+      ],
     });
 
     webpack(config, function(err, stats) {

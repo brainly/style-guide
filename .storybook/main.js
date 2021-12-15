@@ -2,15 +2,14 @@ const path = require('path');
 const argv = require('yargs').argv;
 const glob = require('glob');
 const webpack = require('webpack');
-const revHash = require('rev-hash');
 const fs = require('fs');
 const svgoConfigs = require('../svgo.config.js');
 
 const IS_PRODUCTION = Boolean(argv.production);
-const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
 const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
+const styleGuideEnv = argv.production ? 'prod' : 'storybook-dev';
 
 async function findStories() {
   return glob
@@ -21,7 +20,7 @@ async function findStories() {
 
 module.exports = {
   stories:
-    process.env.STORYBOOK_ENV === 'chromatic'
+    process.env.CHROMATIC === 'true'
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
       : findStories(),
   addons: [
@@ -195,10 +194,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             context: path.resolve(__dirname, '../src'),
-            name: absoluteFilename => {
-              const hash = revHash(fs.readFileSync(absoluteFilename));
-              return `[path][name]-${hash}.[ext]`;
-            },
+            name: '[path][name].[ext]',
           },
         },
       ],
@@ -206,7 +202,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
+        STYLE_GUIDE_ENV: JSON.stringify(styleGuideEnv),
       })
     );
 
