@@ -7,13 +7,14 @@ const Label = styled.div(({ theme }) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s1,
   fontWeight: '400',
-  color: '#5b3100',
-  lineHeight: 1.2,
-  backgroundColor: '#fff3d6',
-  borderRadius: 4,
-  padding: '2px 4px',
-  display: 'inline',
+  lineHeight: '14px',
+  color: '#46535f',
+  backgroundColor: '#fff',
+  borderRadius: '8px',
+  padding: '0px 7px',
+  display: 'inline-block',
   marginLeft: '8px',
+  border: '1px solid #c3d1dd',
 }));
 
 addons.setConfig({
