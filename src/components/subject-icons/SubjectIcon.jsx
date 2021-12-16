@@ -262,7 +262,6 @@ export type SubjectIconPropsType = {
   type: IconTypeType,
   size?: SizeType,
   monoColor?: IconColorType,
-  title?: string,
   ...
 };
 
@@ -271,7 +270,6 @@ const SubjectIcon = ({
   size = SIZE.NORMAL,
   monoColor,
   className,
-  title,
   ...props
 }: SubjectIconPropsType) => {
   const iconClass = classNames(
@@ -284,13 +282,10 @@ const SubjectIcon = ({
     className
   );
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
-  const titleId = `sg-math-symbol-icon-${type}-title`;
-  const defaultTitle = type.replace(/-alt$/g, '').replace(/-/g, ' ');
 
   return (
-    <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
-      <title id={titleId}>{title || defaultTitle}</title>
-      <use xlinkHref={iconType} aria-hidden="true" />
+    <svg {...props} className={iconClass}>
+      <use xlinkHref={iconType} />
     </svg>
   );
 };
