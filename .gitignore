@@ -4,6 +4,7 @@ commonjs/
 /css/
 types/
 /assets/
+deprecated.yaml
 .scss-lint.yml
 .editorconfig
 .eslintrc-es5
