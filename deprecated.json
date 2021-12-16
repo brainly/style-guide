@@ -2,6 +2,8 @@
   "components": [
     { "componentName": "IconAsButton", "className": "sg-icon-as-button" },
     { "componentName": "ContentBox", "className": "sg-content-box" },
-    { "componentName": "ActionList", "className": "sg-actions-list" }
+    { "componentName": "ActionList", "className": "sg-actions-list" },
+    { "componentName": "MenuList", "className": "sg-menu-list" },
+    { "componentName": "PopupMenu", "className": "sg-popup-menu" }
   ]
 }
