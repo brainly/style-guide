@@ -11,7 +11,11 @@ const assetsBaseUrls = {
 
 let logoUrls;
 
-if (STYLE_GUIDE_ENV === 'storybook-dev' || STYLE_GUIDE_ENV === 'beta-dev') {
+if (
+  STYLE_GUIDE_ENV === 'storybook-dev' ||
+  STYLE_GUIDE_ENV === 'beta-dev' ||
+  STYLE_GUIDE_ENV === 'test'
+) {
   logoUrls = LOGO_SOURCE_PATHS;
 } else {
   // $FlowFixMe
