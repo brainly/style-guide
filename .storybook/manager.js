@@ -16,7 +16,7 @@ addons.setConfig({
         (item) =>
           item.componentName?.toLowerCase() === story.name?.toLowerCase(),
       );
-      if (story.isComponent && !story.isLeaf && isDeprected) {
+      if (story.isComponent && !story.isLeaf && isDeprecated) {
         return (
           <Label status={<Badge color="neutral">deprecated</Badge>}>
             {story.name}
