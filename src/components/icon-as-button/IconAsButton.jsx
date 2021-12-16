@@ -31,6 +31,7 @@ export type IconAsButtonPropsType = {
   active?: boolean,
   href?: string,
   className?: string,
+  title?: string,
   ...
 };
 
@@ -46,6 +47,7 @@ const IconAsButton = ({
   active,
   border,
   className,
+  title,
   ...props
 }: IconAsButtonPropsType) => {
   const buttonClass = classNames(
@@ -67,7 +69,12 @@ const IconAsButton = ({
 
   if (type) {
     content = (
-      <Icon type={type} size={ICON_SIZE[size]} color={ICON_COLOR.ADAPTIVE} />
+      <Icon
+        type={type}
+        color={ICON_COLOR.ADAPTIVE}
+        size={ICON_SIZE[size]}
+        title={title}
+      />
     );
   } else {
     content = children;

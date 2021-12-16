@@ -30,10 +30,9 @@ describe('Accordion a11y', () => {
       </Accordion>
     );
 
-    const heading = accordion.getByRole('heading');
+    const heading = accordion.getByRole('heading', {name: title});
 
     expect(heading.getAttribute('aria-level')).toBeTruthy();
-    expect(heading.textContent).toBe(title);
 
     expect(accordion.getByRole('region', {name: title})).toBeTruthy();
     expect(accordion.getByRole('button').getAttribute('aria-controls')).toEqual(
