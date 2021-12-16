@@ -485,6 +485,14 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      /**
+       * An accessible, short-text description; defaults to `type`
+       */
+      title?: string,
+      /**
+       * An accessible, long-text description
+       */
+      description?: string,
       ...
     }
   | {
@@ -523,8 +531,24 @@ export type IconPropsType =
                   </Button>
       */
       tagType?: IconTagType,
+      /**
+       * An accessible, short-text description; defaults to `type`
+       */
+      title?: string,
+      /**
+       * An accessible, long-text description
+       */
+      description?: string,
       ...
     };
+
+function generateIdSuffix(type: string) {
+  const randomIndex = Math.random()
+    .toString(36)
+    .substring(7);
+
+  return `${type}-${randomIndex}`;
+}
 
 const Icon = ({
   color = ICON_COLOR['icon-white'],
@@ -537,6 +561,8 @@ const Icon = ({
   children,
   tagType = 'div',
   className,
+  title,
+  description,
   ...props
 }: IconPropsType) => {
   const iconClass = classNames(
@@ -551,11 +577,27 @@ const Icon = ({
   const iconType = `#icon-${type}`;
   const Tag = tagType;
 
+  const idSuffix = generateIdSuffix(type);
+  const titleId = `title-${idSuffix}`;
+  const titleFallback = String(type).replace(/_/g, ' ');
+  const descId = `desc-${idSuffix}`;
+  const labelledBy = description ? `${titleId} ${descId}` : titleId;
+  const ariaLabel = type
+    ? undefined
+    : [title, description].filter(Boolean).join(', ');
+
   return (
-    <Tag {...props} className={iconClass}>
+    <Tag {...props} className={iconClass} aria-label={ariaLabel}>
       {type ? (
-        <svg className="sg-icon__svg">
-          <use xlinkHref={iconType} />
+        <svg
+          className="sg-icon__svg"
+          role="img"
+          aria-labelledby={labelledBy}
+          focusable="false"
+        >
+          <title id={titleId}>{title || titleFallback}</title>
+          {description && <desc id={descId}>{description}</desc>}
+          <use xlinkHref={iconType} aria-hidden="true" />
         </svg>
       ) : (
         children

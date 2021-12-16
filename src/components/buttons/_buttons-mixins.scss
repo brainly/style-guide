@@ -188,7 +188,6 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:active:focus {
       background-color: mix($yellow-40, $transparentWhite, 12%);
       color: $yellow-40;
-      fill: $yellow-40;
     }
 
     &.sg-button-outline--disabled {
@@ -197,7 +196,6 @@ $buttonPrimaryFbHoverColor: #4367a9;
       &:focus {
         background-color: $buttonActiveInverseColor;
         color: $yellow-40;
-        fill: $yellow-40;
       }
     }
   }
@@ -212,7 +210,6 @@ $buttonPrimaryFbHoverColor: #4367a9;
     &:active:focus {
       background-color: mix($red-40, $transparentWhite, 12%);
       color: $red-40;
-      fill: $red-40;
     }
 
     &.sg-button-outline--disabled {
@@ -221,7 +218,6 @@ $buttonPrimaryFbHoverColor: #4367a9;
       &:focus {
         background-color: $buttonActiveInverseColor;
         color: $buttonActiveInverseFontColor;
-        fill: $buttonActiveInverseFontColor;
       }
     }
   }

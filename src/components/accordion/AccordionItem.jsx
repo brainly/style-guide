@@ -218,6 +218,7 @@ const AccordionItem = ({
                 className={cx('sg-accordion-item__arrow', {
                   'sg-accordion-item__arrow--visible': !isCollapsed,
                 })}
+                aria-hidden="true"
               />
             </Flex>
           </Flex>
