@@ -27,16 +27,16 @@ $includeHtml: false !default;
 
 @mixin colorTheme($modifierName, $color, $colorActive, $actionForegroundColor: $iconAsButtonActionColor) {
   &.sg-icon-as-button--#{$modifierName} {
-    color: $color;
+    fill: $color;
 
     @media (hover: hover) {
       &:hover {
-        color: $colorActive;
+        fill: $colorActive;
       }
     }
 
     &:active {
-      color: $colorActive;
+      fill: $colorActive;
     }
 
     .sg-icon-as-button__hole {
@@ -47,7 +47,7 @@ $includeHtml: false !default;
   &.sg-icon-as-button--action {
     &:active {
       &.sg-icon-as-button--#{$modifierName} {
-        color: $actionForegroundColor;
+        fill: $actionForegroundColor;
         background: $color;
       }
     }
@@ -55,7 +55,7 @@ $includeHtml: false !default;
     @media (hover: hover) {
       &:hover {
         &.sg-icon-as-button--#{$modifierName} {
-          color: $actionForegroundColor;
+          fill: $actionForegroundColor;
           background: $color;
         }
       }
@@ -64,7 +64,7 @@ $includeHtml: false !default;
 
   &--action-active {
     &.sg-icon-as-button--#{$modifierName} {
-      color: $actionForegroundColor;
+      fill: $actionForegroundColor;
       background: $color;
     }
   }
@@ -78,15 +78,15 @@ $includeHtml: false !default;
     padding: 0;
     cursor: pointer;
     overflow: visible;
-    color: $iconAsButtonColor;
+    fill: $iconAsButtonColor;
 
     &:active {
-      color: $iconAsButtonActiveColor;
+      fill: $iconAsButtonActiveColor;
     }
 
     @media (hover: hover) {
       &:hover {
-        color: $iconAsButtonActiveColor;
+        fill: $iconAsButtonActiveColor;
       }
     }
 
@@ -106,11 +106,11 @@ $includeHtml: false !default;
     }
 
     &--adaptive {
-      color: inherit;
+      fill: inherit;
 
       &:hover,
       &:active {
-        color: inherit;
+        fill: inherit;
       }
 
       .sg-icon-as-button__hole {
@@ -137,12 +137,12 @@ $includeHtml: false !default;
     @include colorTheme('icon-red-50', $iconAsButtonPeachColor, $iconAsButtonPeachActiveColor);
 
     &--action {
-      transition: background 0.3s ease-out, color 0.3s ease-out;
+      transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
     }
 
     &--transparent {
-      transition: background 0.3s ease-out, color 0.3s ease-out;
+      transition: background 0.3s ease-out, fill 0.3s ease-out;
       border-radius: 50%;
 
       &:active {
@@ -158,21 +158,21 @@ $includeHtml: false !default;
 
     &--action-active {
       background: $iconAsButtonColor;
-      color: $iconAsButtonActionColor;
+      fill: $iconAsButtonActionColor;
       border-radius: 50%;
 
       &.sg-icon-as-button--adaptive {
-        color: inherit;
+        fill: inherit;
         background: inherit;
       }
     }
 
     &--transparent-active {
-      color: $iconAsButtonColor;
+      fill: $iconAsButtonColor;
       background: $iconAsButtonTransparentColor;
 
       &.sg-icon-as-button--adaptive {
-        color: inherit;
+        fill: inherit;
       }
     }
   }
