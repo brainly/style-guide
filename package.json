@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "203.1.0",
+  "version": "203.3.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -138,8 +138,8 @@
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
     "package-clean": "yarn rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
-    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
-    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/config.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/config.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-css": "node ./scripts/build-css.js",
     "package-deprecated": "node ./scripts/build-deprecated-list.js",
     "package-assets": "gulp build-assets",
