@@ -46,20 +46,20 @@ $includeHtml: false !default;
       .sg-rate-box__background-stars {
 
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
-          color: $rateStarColor;
+          fill: $rateStarColor;
         }
 
         &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
-          color: $rateStarActiveColor;
+          fill: $rateStarActiveColor;
         }
 
         &:hover .sg-rate-box__star {
-          color: $rateStarCheckedColor;
-          transition: color 0.1s ease-in;
+          fill: $rateStarCheckedColor;
+          transition: fill 0.1s ease-in;
         }
 
         &:active:hover .sg-rate-box__star {
-          color: $rateStarActiveCheckedColor;
+          fill: $rateStarActiveCheckedColor;
           transition: none;
         }
       }
@@ -71,12 +71,12 @@ $includeHtml: false !default;
 
     &__background-stars {
       display: flex;
-      color: $rateStarColor;
+      fill: $rateStarColor;
     }
 
     &__filled-stars {
       display: flex;
-      color: $rateStarCheckedColor;
+      fill: $rateStarCheckedColor;
 
       position: absolute;
       left: 0;
