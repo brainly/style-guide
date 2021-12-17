@@ -22,6 +22,11 @@ export const FILE_HANDLER_COLORS_SET = {
   WHITE: 'white',
 };
 
+export interface AriaStatusLabelType {
+  loading?: string;
+  uploaded?: string;
+}
+
 export type FileHandlerPropsType = $ReadOnly<{
   /**
    * Specify color of the background for FileHandler
@@ -93,6 +98,16 @@ export type FileHandlerPropsType = $ReadOnly<{
    *          </FileHandler>
    */
   children: React.Node,
+  /**
+   * An accessible, short-text description of `onClose` action,
+   * defaults to 'Close'
+   */
+  ariaCloseButtonLabel?: string,
+  /**
+   * An accessible, short-text description for loading
+   * and uploded status.
+   */
+  statusLabel?: AriaStatusLabelType,
   ...
 }>;
 
@@ -107,6 +122,8 @@ const FileHandler = ({
   onClick,
   textRef,
   className,
+  ariaCloseButtonLabel = 'Close',
+  statusLabel,
   ...props
 }: FileHandlerPropsType) => {
   const fileHandlerClass = classNames(
@@ -127,19 +144,17 @@ const FileHandler = ({
           rel: 'noopener noreferrer',
         };
 
-  const thumbnail =
-    thumbnailSrc !== undefined ? (
-      <img
-        {...clickProps}
-        src={thumbnailSrc}
-        alt=""
-        className="cursor-pointer"
-      />
-    ) : (
-      <a {...clickProps}>
+  const ThumbnailTag = clickProps.onClick ? 'button' : 'a';
+
+  const thumbnail = (
+    <ThumbnailTag {...clickProps} aria-hidden>
+      {thumbnailSrc !== undefined ? (
+        <img src={thumbnailSrc} alt="" className="cursor-pointer" />
+      ) : (
         <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
-      </a>
-    );
+      )}
+    </ThumbnailTag>
+  );
 
   return (
     <div {...props} className={fileHandlerClass}>
@@ -147,6 +162,11 @@ const FileHandler = ({
         {loading ? <Spinner size="xsmall" /> : thumbnail}
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
+        <span className="sg-visually-hidden" aria-live="polite">
+          {loading
+            ? statusLabel?.loading || 'loading'
+            : statusLabel?.uploaded || 'uploaded'}
+        </span>
         {src !== undefined ? (
           <Link {...clickProps} size="small" color="text-black">
             {children}
@@ -158,7 +178,11 @@ const FileHandler = ({
         )}
       </span>
       {onClose && (
-        <button className="sg-file-handler__close-button" onClick={onClose}>
+        <button
+          className="sg-file-handler__close-button"
+          onClick={onClose}
+          aria-label={ariaCloseButtonLabel}
+        >
           <Icon type="close" size={16} color={ICON_COLOR['icon-black']} />
         </button>
       )}
