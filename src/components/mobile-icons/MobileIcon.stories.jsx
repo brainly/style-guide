@@ -5,9 +5,7 @@ import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 
 export default {
   title: 'Components/MobileIcon',
-  parameters: {
-    component: MobileIcon,
-  },
+  component: MobileIcon,
   argTypes: {
     color: {
       control: {

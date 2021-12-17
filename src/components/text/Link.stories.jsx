@@ -4,9 +4,7 @@ import {TEXT_COLOR} from './textConsts';
 
 export default {
   title: 'Components/Link',
-  parameters: {
-    component: Link,
-  },
+  component: Link,
 };
 
 export const Default = args => <Link {...args} />;

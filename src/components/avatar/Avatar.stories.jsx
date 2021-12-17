@@ -7,9 +7,7 @@ import hex from '../colors/hex';
 
 export default {
   title: 'Components/Avatar',
-  parameters: {
-    component: Avatar,
-  },
+  component: Avatar,
   argTypes: {
     size: {control: {type: 'select', options: SIZE}},
     border: {control: 'boolean'},

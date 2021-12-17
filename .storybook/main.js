@@ -15,8 +15,8 @@ const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 async function findStories() {
   return glob
     .sync('src/**/*.stories.@(jsx|mdx)')
-    .filter((storiesPath) => !storiesPath.includes('.chromatic.stories.'))
-    .map((storiesPath) => path.relative(__dirname, storiesPath));
+    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
+    .map(storiesPath => path.relative(__dirname, storiesPath));
 }
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  webpackFinal: (config) => {
+  webpackFinal: config => {
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
@@ -89,7 +89,7 @@ module.exports = {
     ];
 
     // remove default storybook svg loader
-    config.module.rules = config.module.rules.map((rule) => {
+    config.module.rules = config.module.rules.map(rule => {
       if (rule.test && rule.test.toString().includes('svg')) {
         const test = rule.test
           .toString()
@@ -195,8 +195,7 @@ module.exports = {
           loader: 'file-loader',
           options: {
             context: path.resolve(__dirname, '../src'),
-            name: (absoluteFilename) => {
-              console.log(absoluteFilename);
+            name: absoluteFilename => {
               const hash = revHash(fs.readFileSync(absoluteFilename));
               return `[path][name]-${hash}.[ext]`;
             },

@@ -6,9 +6,7 @@ import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/FileHandler',
-  parameters: {
-    component: FileHandler,
-  },
+  component: FileHandler,
   argTypes: {
     children: {
       control: {

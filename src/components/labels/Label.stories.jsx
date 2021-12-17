@@ -34,9 +34,7 @@ const TRANSPARENT_ICON_COLOR_MAP = {
 
 export default {
   title: 'Components/Label',
-  parameters: {
-    component: Label,
-  },
+  component: Label,
   args: {
     type: 'default',
     children: 'label',
@@ -372,7 +370,7 @@ export const Types = args => (
   </StoryVariantTable>
 );
 
-export const TrimmedText = args => {
+export const TrimmedText = (args = {}) => {
   const {children} = args;
 
   return (

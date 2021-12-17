@@ -4,9 +4,7 @@ import {StoryVariantBorderBox} from '../../_docs/utils';
 
 export default {
   title: 'Components/Dropdown',
-  parameters: {
-    component: Dropdown,
-  },
+  component: Dropdown,
   argTypes: {
     links: {
       control: {
@@ -48,8 +46,12 @@ export const FullWidth = args => (
   </StoryVariantBorderBox>
 );
 
-export const opened = args => (
+export const Opened = (args = {}) => (
   <div style={{paddingTop: 100}}>
-    <Dropdown {...args} initiallyOpened />
+    <Dropdown {...args} />
   </div>
 );
+
+Opened.args = {
+  initiallyOpened: true,
+};

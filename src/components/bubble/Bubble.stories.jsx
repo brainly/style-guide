@@ -4,9 +4,7 @@ import Bubble, {DIRECTION, ALIGNMENT, BUBBLE_COLOR} from './Bubble';
 
 export default {
   title: 'Layout/Bubble',
-  parameters: {
-    component: Bubble,
-  },
+  component: Bubble,
   argTypes: {
     direction: {control: {type: 'select', options: DIRECTION}},
     color: {control: {type: 'select', options: BUBBLE_COLOR}},

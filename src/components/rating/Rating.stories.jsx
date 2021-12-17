@@ -4,9 +4,7 @@ import Rating, {RATING_SIZE} from './Rating';
 
 export default {
   title: 'Components/Rating',
-  parameters: {
-    component: Rating,
-  },
+  component: Rating,
   args: {
     rate: 2.4,
     counterText: '34 votes',

@@ -3,12 +3,7 @@
 import * as React from 'react';
 import deprecate from 'util-deprecate';
 import dedent from 'ts-dedent';
-import {
-  Subheading,
-  Anchor,
-  Description,
-  Story,
-} from '@storybook/addon-docs/dist/esm/blocks';
+import {Subheading, Anchor, Description, Story} from '@storybook/addon-docs';
 import {Canvas} from './Canvas';
 import type {DocsStoryPropsType} from './types';
 

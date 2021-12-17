@@ -5,8 +5,8 @@ import Avatar from '../avatar/Avatar';
 
 export default {
   title: 'Components/Media',
+  component: Media,
   parameters: {
-    component: Media,
     backgrounds: {
       default: 'dark',
     },

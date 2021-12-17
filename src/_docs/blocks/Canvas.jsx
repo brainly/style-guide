@@ -7,7 +7,6 @@ import {MDXProvider} from '@mdx-js/react';
 import {toId, storyNameFromExport} from '@storybook/csf';
 import {resetComponents} from '@storybook/components/html';
 import {Preview as PurePreview} from './Preview';
-import {getDocsStories} from '@storybook/addon-docs/dist/esm/blocks/utils';
 import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import {SourceContext} from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
 import {getSourceProps} from '@storybook/addon-docs/dist/esm/blocks/Source';
@@ -53,7 +52,7 @@ const getPreviewProps = (
   );
 
   // Get original stories from document
-  const componentStories = getDocsStories(docsContext);
+  const componentStories = docsContext.componentStories();
 
   // Find matching stories from all listed in current document
   const currentStories = componentStories.filter(story =>
@@ -64,7 +63,7 @@ const getPreviewProps = (
   const htmlCode = prettier.format(
     currentStories
       .map(story => {
-        const staticMarkup = renderToStaticMarkup(story.storyFn());
+        const staticMarkup = renderToStaticMarkup(story.originalStoryFn());
 
         return staticMarkup;
       })
