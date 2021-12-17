@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+import {__DEV__, invariant} from '../utils';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
@@ -66,6 +67,18 @@ const Avatar = ({
 
   const isImgSrcDefined =
     imgSrc !== undefined && imgSrc !== null && imgSrc !== '';
+
+  if (__DEV__) {
+    invariant(
+      !(ariaLinkLabel && !link),
+      'Using `ariaLinkLabel` prop has no effect when `link` prop is not set.'
+    );
+
+    invariant(
+      !(alt && !isImgSrcDefined),
+      'Using `alt` prop has no effect when `imgSrc` prop is not set.'
+    );
+  }
 
   const avatarContent = (
     <div {...props} className={avatarClass}>
