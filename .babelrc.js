@@ -22,9 +22,7 @@ module.exports = (api) => {
       [
         'transform-define',
         {
-          'process.env.STORYBOOK_ENV': JSON.stringify(
-            process.env.STORYBOOK_ENV,
-          ),
+          'process.env.STORYBOOK_ENV': process.env.STORYBOOK_ENV,
         },
       ],
     ],
