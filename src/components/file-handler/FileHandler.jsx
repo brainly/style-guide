@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Text from '../text/Text';
 import Link from '../text/Link';
-import Icon, {ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 
 import type {IconTypeType} from '../icons/Icon';
@@ -22,10 +22,10 @@ export const FILE_HANDLER_COLORS_SET = {
   WHITE: 'white',
 };
 
-export interface AriaStatusLabelType {
-  loading?: string;
-  uploaded?: string;
-}
+type AriaStatusLabelType = {
+  loading?: string,
+  uploaded?: string,
+};
 
 export type FileHandlerPropsType = $ReadOnly<{
   /**
@@ -147,6 +147,7 @@ const FileHandler = ({
   const buttonEventProps = {
     onClick: preventedOnClick,
     onKeyDown: e => {
+      // 32 - space, 13 - enter
       if (e.keyCode === 32 || e.keyCode === 13) {
         return preventedOnClick && preventedOnClick(e);
       }
@@ -166,7 +167,7 @@ const FileHandler = ({
     thumbnailSrc !== undefined ? (
       <img src={thumbnailSrc} alt="" className="cursor-pointer" />
     ) : (
-      <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
+      <Icon type={iconType} size={24} color="icon-black" />
     );
 
   const interactiveThumbnail = isActionProvided ? (
@@ -210,7 +211,7 @@ const FileHandler = ({
           onClick={onClose}
           aria-label={ariaCloseButtonLabel}
         >
-          <Icon type="close" size={16} color={ICON_COLOR['icon-black']} />
+          <Icon type="close" size={16} color="icon-black" />
         </button>
       )}
     </div>

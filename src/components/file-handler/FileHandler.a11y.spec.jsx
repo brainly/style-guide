@@ -5,7 +5,7 @@ import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
 describe('FileHandler', () => {
-  it('fires onClick on click, space and enter', () => {
+  it('has onClick, so it acts like a button: fires onClick on click, space and enter', () => {
     const handleOnClick = jest.fn();
     const fileName = 'file name';
     const fileHandler = render(
@@ -20,16 +20,12 @@ describe('FileHandler', () => {
     expect(handleOnClick).toHaveBeenCalledTimes(3);
   });
 
-  it('passes src to link href and does not act on space', () => {
+  it('has src, so it acts like a link: passes src to link href', () => {
     const src = '#src';
     const fileName = 'file name';
     const fileHandler = render(<FileHandler src={src}>{fileName}</FileHandler>);
 
-    fileHandler.getByText(fileName).focus();
-    userEvent.keyboard('{space}');
-
     expect(fileHandler.getByRole('link').href).toContain(src);
-    expect(window.location.href).not.toContain(src);
   });
 
   it('should have status in accessibility tree', () => {
