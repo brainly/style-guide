@@ -29,12 +29,10 @@ export default {
     children: 'text',
   },
 };
-const src =
-  'https://m.natemat.pl/2f2a60ad79764b5466234d249d17adc8,800,450,1,0.jpg';
 
-export const Default = args => (
-  <FileHandler {...args} src={src} thumbnailSrc={src} />
-);
+const src = 'https://source.unsplash.com/240x240/?cat';
+
+export const Default = args => <FileHandler {...args} />;
 
 export const Colors = args => (
   <div>
@@ -60,6 +58,10 @@ export const Icons = args => (
       </StoryVariant>
     ))}
   </Flex>
+);
+
+export const WithThumbnail = args => (
+  <FileHandler {...args} thumbnailSrc={src} />
 );
 
 export const Loading = args => <FileHandler {...args} loading />;
