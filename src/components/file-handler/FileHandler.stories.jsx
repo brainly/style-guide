@@ -29,8 +29,12 @@ export default {
     children: 'text',
   },
 };
+const src =
+  'https://m.natemat.pl/2f2a60ad79764b5466234d249d17adc8,800,450,1,0.jpg';
 
-export const Default = args => <FileHandler {...args} />;
+export const Default = args => (
+  <FileHandler {...args} src={src} thumbnailSrc={src} />
+);
 
 export const Colors = args => (
   <div>

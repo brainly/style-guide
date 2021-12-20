@@ -135,40 +135,67 @@ const FileHandler = ({
     className
   );
 
-  const clickProps =
-    thumbnailSrc !== undefined && onClick
-      ? {onClick}
-      : {
-          href: src,
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        };
+  const preventedOnClick =
+    onClick &&
+    (e => {
+      e.preventDefault();
+      return onClick();
+    });
 
-  const ThumbnailTag = clickProps.onClick ? 'button' : 'a';
+  const isActionProvided = src !== undefined || preventedOnClick;
 
-  const thumbnail = (
-    <ThumbnailTag {...clickProps} aria-hidden>
-      {thumbnailSrc !== undefined ? (
-        <img src={thumbnailSrc} alt="" className="cursor-pointer" />
-      ) : (
-        <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
-      )}
-    </ThumbnailTag>
+  const buttonEventProps = {
+    onClick: preventedOnClick,
+    onKeyDown: e => {
+      if (e.keyCode === 32 || e.keyCode === 13) {
+        return preventedOnClick && preventedOnClick(e);
+      }
+    },
+  };
+
+  const clickProps = preventedOnClick
+    ? buttonEventProps
+    : {
+        href: src,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      };
+
+  const role = clickProps.onClick && 'button';
+  const thumbnail =
+    thumbnailSrc !== undefined ? (
+      <img src={thumbnailSrc} alt="" className="cursor-pointer" />
+    ) : (
+      <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
+    );
+
+  const interactiveThumbnail = isActionProvided ? (
+    <a {...clickProps} role={role} tabIndex="0" aria-hidden>
+      {thumbnail}
+    </a>
+  ) : (
+    thumbnail
   );
 
   return (
     <div {...props} className={fileHandlerClass}>
       <div className="sg-file-handler__icon">
-        {loading ? <Spinner size="xsmall" /> : thumbnail}
+        {loading ? <Spinner size="xsmall" /> : interactiveThumbnail}
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         <span className="sg-visually-hidden" aria-live="polite">
-          {loading
+          {loading || isActionProvided
             ? statusLabel?.loading || 'loading'
             : statusLabel?.uploaded || 'uploaded'}
         </span>
-        {src !== undefined ? (
-          <Link {...clickProps} size="small" color="text-black">
+        {isActionProvided ? (
+          <Link
+            {...clickProps}
+            size="small"
+            color="text-black"
+            role={role}
+            tabIndex="0"
+          >
             {children}
           </Link>
         ) : (

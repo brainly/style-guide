@@ -12,7 +12,11 @@
     display: flex;
     margin-right: spacing(xs);
 
-    > img {
+    & a {
+      display: flex;
+    }
+
+    & img {
       width: 24px;
       max-height: 24px;
       border-radius: 4px;
