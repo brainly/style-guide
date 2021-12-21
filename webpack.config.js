@@ -4,6 +4,8 @@ const argv = require('yargs').argv;
 const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const revHash = require('rev-hash');
+const fs = require('fs');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = argv.production ? pkg.version : 'dev';
@@ -46,7 +48,10 @@ module.exports = () => {
               loader: 'file-loader',
               options: {
                 context: path.resolve(__dirname, './src'),
-                name: '[path][name].[ext]',
+                name: absoluteFilename => {
+                  const hash = revHash(fs.readFileSync(absoluteFilename));
+                  return `[path][name]-${hash}.[ext]`;
+                },
               },
             },
           ],
@@ -89,6 +94,15 @@ module.exports = () => {
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
               'react-hot-loader/babel',
+              [
+                'transform-define',
+                {
+                  LOGO_BASE_URL:
+                    IS_PRODUCTION === 'prod'
+                      ? 'https://styleguide.brainly.com/'
+                      : '/',
+                },
+              ],
             ],
             env: {
               test: {
@@ -159,9 +173,6 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.join(SOURCE_DOCS_DIR, 'index.html'),
-      }),
-      new webpack.DefinePlugin({
-        STYLE_GUIDE_ENV: JSON.stringify('beta-dev'),
       }),
     ],
     devtool: IS_PRODUCTION ? 'source-map' : 'eval',

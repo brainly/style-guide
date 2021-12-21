@@ -5,18 +5,17 @@
   "parser": "babel-eslint",
   "extends": ["brainly-react"],
   "rules": {
-    "max-len": ["error", { "code": 120, "ignoreComments": true }],
+    "max-len": ["error", {"code": 120, "ignoreComments": true}],
     "react/no-multi-comp": "off"
   },
   "overrides": [
     {
       "files": ["*.stories.{js,jsx}"],
-      "rules": { "react/prop-types": "off" }
+      "rules": {"react/prop-types": "off"}
     }
   ],
   "globals": {
     "hljs": "readonly",
-    "html_beautify": "readonly",
-    "STYLE_GUIDE_ENV": "readonly"
+    "html_beautify": "readonly"
   }
 }

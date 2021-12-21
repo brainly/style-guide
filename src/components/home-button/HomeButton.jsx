@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import type {LogoTypeType} from '../logo/Logo';
-import {LOGO_URLS} from '../logo/logo-url';
+import {getLogoUrl} from '../../logo-url';
 import {TYPE} from '../logo/Logo';
 
 const ICONS = {
@@ -36,9 +36,9 @@ const HomeButton = ({
     },
     className
   );
-  const logoPath = `${LOGO_URLS[type]}`;
+  const logoPath = `${getLogoUrl(type)}`;
   // $FlowFixMe - some icons are missing, we will investigate why
-  const mobilePath = `${LOGO_URLS[ICONS[type]]}`;
+  const mobilePath = `${getLogoUrl(ICONS[type])}`;
 
   return (
     <a {...props} href={href} className={buttonClass}>

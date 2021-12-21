@@ -121,3 +121,5 @@ gulp.task(
 );
 
 gulp.task('deploy', gulp.series('build', 'upload-files'));
+
+gulp.task('logo-paths', getTask('logo-paths'));

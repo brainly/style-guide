@@ -1,18 +1,21 @@
-const babelEnv = (params) => [
+const argv = require('yargs').argv;
+
+const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
     {
       targets: '> 0.2%, not dead, not ie < 11',
     },
-    params,
+    params
   ),
 ];
 
-module.exports = (api) => {
+module.exports = api => {
+  console.log('.babelrc !!!!!!!!!!!!');
   api.cache(true);
   return {
     presets: [
-      babelEnv({ modules: false }),
+      babelEnv({modules: false}),
       '@babel/preset-react',
       '@babel/preset-flow',
     ],
@@ -22,23 +25,21 @@ module.exports = (api) => {
       [
         'transform-define',
         {
-          'process.env.STORYBOOK_ENV': JSON.stringify(
-            process.env.STORYBOOK_ENV,
-          ),
+          LOGO_BASE_URL: 'https://styleguide.brainly.com/',
         },
       ],
     ],
     env: {
       test: {
-        presets: [babelEnv({ modules: 'auto' })],
+        presets: [babelEnv({modules: 'auto'})],
         plugins: [['@babel/plugin-transform-runtime']],
       },
       commonjs: {
-        presets: [babelEnv({ modules: 'auto' })],
+        presets: [babelEnv({modules: 'auto'})],
       },
       esm: {
-        presets: [babelEnv({ modules: false })],
-        plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
+        presets: [babelEnv({modules: false})],
+        plugins: [['@babel/plugin-transform-runtime', {useESModules: true}]],
       },
     },
   };

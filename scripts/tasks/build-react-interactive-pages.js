@@ -1,25 +1,37 @@
 const through = require('through2');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const argv = require('yargs').argv;
-
-const coreConfig = {
-  target: 'node',
-  module: {
-    rules: [
-      {
-        test: /\.js|jsx?$/,
-        loader: 'babel-loader',
-      },
-    ],
-  },
-  externals: {
-    html_beautify: 'html_beautify',
-    hljs: 'hljs',
-  },
-};
 
 module.exports = function(gulp, plugins, consts) {
+  const coreConfig = {
+    target: 'node',
+    module: {
+      rules: [
+        {
+          test: /\.js|jsx?$/,
+          loader: 'babel-loader',
+          exclude: /\.json$/,
+          options: {
+            plugins: [
+              [
+                'transform-define',
+                {
+                  LOGO_BASE_URL: consts.IS_PRODUCTION
+                    ? 'https://styleguide.brainly.com/'
+                    : '/',
+                },
+              ],
+            ],
+          },
+        },
+      ],
+    },
+    externals: {
+      html_beautify: 'html_beautify',
+      hljs: 'hljs',
+    },
+  };
+
   const createWebpackBundles = function(file, enc, cb) {
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs/', 'js/');
     const webpackPlugins = [
@@ -27,7 +39,6 @@ module.exports = function(gulp, plugins, consts) {
         'process.env.NODE_ENV': JSON.stringify(
           consts.IS_PRODUCTION ? 'production' : 'development'
         ),
-        STYLE_GUIDE_ENV: JSON.stringify(argv.production ? 'prod' : 'dev'),
       }),
     ];
 
@@ -62,9 +73,9 @@ module.exports = function(gulp, plugins, consts) {
       },
     });
 
-    webpack(config, function(err) {
-      if (err) {
-        console.error(err);
+    webpack(config, function(err, stats) {
+      if (err || stats.hasErrors()) {
+        console.error(err, info.errors);
         return;
       }
       cb(null, file);

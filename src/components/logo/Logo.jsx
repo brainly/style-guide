@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import {LOGO_URLS} from './logo-url';
+// $FlowFixMe
+import {getLogoUrl} from '../../logo-url';
 
 export type LogoTypeType =
   | 'brainly'
@@ -102,7 +103,7 @@ const Logo = ({
     },
     className
   );
-  const logoPath = `${LOGO_URLS[type]}`;
+  const logoPath = `${getLogoUrl(type)}`;
 
   return (
     <div {...props} className={logoClass}>

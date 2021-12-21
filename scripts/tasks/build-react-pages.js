@@ -5,7 +5,6 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const rename = require('gulp-rename');
 const prettify = require('gulp-prettify');
-const argv = require('yargs').argv;
 
 // create external modules for webpack to not include it in bundles.
 const nodeModules = {};
@@ -14,21 +13,33 @@ fs.readdirSync('node_modules')
   .filter(dir => dir !== '.bin')
   .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
 
-const coreConfig = {
-  target: 'node',
-  module: {
-    rules: [
-      {
-        test: /\.js|jsx?$/,
-        exclude: /\.json$/,
-        loader: 'babel-loader',
-      },
-    ],
-  },
-  externals: nodeModules,
-};
-
 module.exports = function(gulp, plugins, consts, options) {
+  const coreConfig = {
+    target: 'node',
+    module: {
+      rules: [
+        {
+          test: /\.js|jsx?$/,
+          exclude: /\.json$/,
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              [
+                'transform-define',
+                {
+                  LOGO_BASE_URL: consts.IS_PRODUCTION
+                    ? 'https://styleguide.brainly.com/'
+                    : '/',
+                },
+              ],
+            ],
+          },
+        },
+      ],
+    },
+    externals: nodeModules,
+  };
+
   const createWebpackBundles = function(file, enc, cb) {
     const pathArray = file.path.replace(consts.SRC, '').split('/');
     const fileNameWithExtension = pathArray.pop();
@@ -48,11 +59,6 @@ module.exports = function(gulp, plugins, consts, options) {
         path: jsPath,
         libraryTarget: 'commonjs2',
       },
-      plugins: [
-        new webpack.DefinePlugin({
-          STYLE_GUIDE_ENV: JSON.stringify(argv.production ? 'prod' : 'dev'),
-        }),
-      ],
     });
 
     webpack(config, function(err, stats) {
