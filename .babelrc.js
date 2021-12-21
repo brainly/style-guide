@@ -1,8 +1,8 @@
 const babelEnv = params => [
-  "@babel/preset-env",
+  '@babel/preset-env',
   Object.assign(
     {
-      targets: "> 0.2%, not dead, not ie < 11",
+      targets: '> 0.2%, not dead, not ie < 11',
     },
     params
   ),
@@ -13,30 +13,30 @@ module.exports = api => {
   return {
     presets: [
       babelEnv({modules: false}),
-      "@babel/preset-react",
-      "@babel/preset-flow",
+      '@babel/preset-react',
+      '@babel/preset-flow',
     ],
     plugins: [
-      "@babel/plugin-proposal-object-rest-spread",
-      "@babel/plugin-proposal-class-properties",
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-proposal-class-properties',
       [
-        "transform-define",
+        'transform-define',
         {
-          LOGO_BASE_URL: "https://styleguide.brainly.com/"
+          LOGO_BASE_URL: 'https://styleguide.brainly.com/',
         },
       ],
     ],
     env: {
       test: {
-        presets: [babelEnv({modules: "auto"})],
-        plugins: [["@babel/plugin-transform-runtime"]],
+        presets: [babelEnv({modules: 'auto'})],
+        plugins: [['@babel/plugin-transform-runtime']],
       },
       commonjs: {
-        presets: [babelEnv({modules: "auto"})],
+        presets: [babelEnv({modules: 'auto'})],
       },
       esm: {
         presets: [babelEnv({modules: false})],
-        plugins: [["@babel/plugin-transform-runtime", {useESModules: true}]],
+        plugins: [['@babel/plugin-transform-runtime', {useESModules: true}]],
       },
     },
   };
