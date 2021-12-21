@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-// $FlowFixMe
 import {getLogoUrl} from '../../logo-url';
 
 export type LogoTypeType =
