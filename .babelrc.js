@@ -22,7 +22,7 @@ module.exports = api => {
       [
         "transform-define",
         {
-          LOGO_BASE_URL: "https://styleguide.brainly.com/",
+          LOGO_BASE_URL: "https://styleguide.brainly.com/"
         },
       ],
     ],
