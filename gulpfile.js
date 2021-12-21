@@ -91,6 +91,8 @@ gulp.task('copy-latest', getTask('copy-latest'));
 
 gulp.task('copy-assets', getTask('copy-assets'));
 
+gulp.task('logo-paths', getTask('logo-paths'));
+
 gulp.task(
   'build',
   gulp.series(
@@ -122,5 +124,3 @@ gulp.task(
 );
 
 gulp.task('deploy', gulp.series('build', 'upload-files'));
-
-gulp.task('logo-paths', getTask('logo-paths'));
