@@ -4,17 +4,17 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 type BubbleColorType =
-  | 'blue'
-  | 'lavender'
-  | 'dark'
-  | 'mint'
-  | 'mint-secondary'
-  | 'mint-secondary-light'
-  | 'navyblue-secondary'
-  | 'blue-secondary'
-  | 'blue-secondary-light'
-  | 'gray-secondary-lightest'
-  | 'peach';
+  | 'white'
+  | 'gray-40'
+  | 'gray-20'
+  | 'blue-40'
+  | 'blue-30'
+  | 'blue-20'
+  | 'indigo-40'
+  | 'green-40'
+  | 'green-30'
+  | 'green-20'
+  | 'red-40';
 
 type AligmentType = 'start' | 'center' | 'end';
 
@@ -45,29 +45,29 @@ export const DIRECTION: {
 const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
 export const BUBBLE_COLOR: {
-  BLUE: 'blue',
-  LAVENDER: 'lavender',
-  DARK: 'dark',
-  MINT: 'mint',
-  MINT_SECONDARY: 'mint-secondary',
-  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
-  NAVYBLUE_SECONDARY: 'navyblue-secondary',
-  BLUE_SECONDARY: 'blue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
-  PEACH: 'peach',
+  'white': 'white',
+  'gray-40': 'gray-40',
+  'gray-20': 'gray-20',
+  'blue-40': 'blue-40',
+  'blue-30': 'blue-30',
+  'blue-20': 'blue-20',
+  'indigo-40': 'indigo-40',
+  'green-40': 'green-40',
+  'green-30': 'green-30',
+  'green-20': 'green-20',
+  'red-40': 'red-40',
 } = {
-  BLUE: 'blue',
-  LAVENDER: 'lavender',
-  DARK: 'dark',
-  MINT: 'mint',
-  MINT_SECONDARY: 'mint-secondary',
-  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
-  NAVYBLUE_SECONDARY: 'navyblue-secondary',
-  BLUE_SECONDARY: 'blue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-lightest',
-  PEACH: 'peach',
+  'white': 'white',
+  'gray-40': 'gray-40',
+  'gray-20': 'gray-20',
+  'blue-40': 'blue-40',
+  'blue-30': 'blue-30',
+  'blue-20': 'blue-20',
+  'indigo-40': 'indigo-40',
+  'green-40': 'green-40',
+  'green-30': 'green-30',
+  'green-20': 'green-20',
+  'red-40': 'red-40',
 };
 
 export type BubblePropsType = {
@@ -84,7 +84,7 @@ export type BubblePropsType = {
 const Bubble = ({
   alignment = ALIGNMENT.CENTER,
   direction,
-  color,
+  color = BUBBLE_COLOR.white,
   full,
   noShadow,
   children,

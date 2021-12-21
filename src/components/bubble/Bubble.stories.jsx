@@ -51,7 +51,7 @@ export const Directions = args => (
 );
 
 Directions.args = {
-  color: BUBBLE_COLOR.BLUE,
+  color: BUBBLE_COLOR['blue-40'],
 };
 
 export const Alignments = args => (
@@ -65,7 +65,7 @@ export const Alignments = args => (
 );
 
 Alignments.args = {
-  color: BUBBLE_COLOR.BLUE,
+  color: BUBBLE_COLOR['blue-40'],
 };
 
 export const FullHeight = args => (
@@ -75,11 +75,11 @@ export const FullHeight = args => (
 );
 
 FullHeight.args = {
-  color: BUBBLE_COLOR.BLUE,
+  color: BUBBLE_COLOR['blue-40'],
 };
 
 export const NoShadow = args => <Bubble {...args} noShadow />;
 
 NoShadow.args = {
-  color: BUBBLE_COLOR.BLUE,
+  color: BUBBLE_COLOR['blue-40'],
 };
