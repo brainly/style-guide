@@ -14,7 +14,7 @@ const DIST_DIR = path.join(__dirname, 'dist');
 const VERSIONED_DIST_DIR = path.join(DIST_DIR, VERSION);
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
-const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/');
+const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
 const babelEnv = params => [
   '@babel/preset-env',
