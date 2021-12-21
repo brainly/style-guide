@@ -45,7 +45,7 @@ export const DIRECTION: {
 const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
 export const BUBBLE_COLOR: {
-  'white': 'white',
+  white: 'white',
   'gray-40': 'gray-40',
   'gray-20': 'gray-20',
   'blue-40': 'blue-40',
@@ -57,7 +57,7 @@ export const BUBBLE_COLOR: {
   'green-20': 'green-20',
   'red-40': 'red-40',
 } = {
-  'white': 'white',
+  white: 'white',
   'gray-40': 'gray-40',
   'gray-20': 'gray-20',
   'blue-40': 'blue-40',
