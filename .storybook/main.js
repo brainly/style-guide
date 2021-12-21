@@ -43,12 +43,12 @@ module.exports = {
     ];
 
     if (STORYBOOK_ENV !== 'prod') {
-      plugins.push([
+      babelPlugins.push([
         'transform-define',
         {
           LOGO_BASE_URL: '',
         },
-      ])
+      ]);
     }
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
