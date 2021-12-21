@@ -157,6 +157,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: DIST_DIR_OUTPUT,
+      publicPath: '/',
     },
     resolve: {
       extensions: ['.js', '.jsx'],
@@ -192,7 +193,7 @@ module.exports = () => {
         : undefined,
     },
     devServer: {
-      contentBase: path.join(DIST_DIR_OUTPUT),
+      contentBase: path.join(VERSIONED_DIST_DIR, 'docs'),
       index: 'index.html',
       watchContentBase: true,
       historyApiFallback: {
