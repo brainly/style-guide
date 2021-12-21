@@ -1,3 +1,5 @@
+const prettier = require('prettier');
+
 module.exports = function(gulp, plugins, consts) {
   return function() {
     const logos = plugins.path.join(consts.SRC, 'images', 'logos', '*');
@@ -20,7 +22,7 @@ module.exports = function(gulp, plugins, consts) {
                 });
               }, {});
 
-              return JSON.stringify(output);
+              return prettier.format(JSON.stringify(output), {parser: 'json'});
             },
           },
         })
