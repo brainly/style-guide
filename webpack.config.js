@@ -3,7 +3,6 @@ const path = require('path');
 const argv = require('yargs').argv;
 const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
 const revHash = require('rev-hash');
 const fs = require('fs');
 
