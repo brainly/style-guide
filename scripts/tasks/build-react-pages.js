@@ -14,6 +14,16 @@ fs.readdirSync('node_modules')
   .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
 
 module.exports = function(gulp, plugins, consts, options) {
+  const babelPlugins = !consts.IS_PRODUCTION
+    ? [
+        [
+          'transform-define',
+          {
+            LOGO_BASE_URL: '/',
+          },
+        ],
+      ]
+    : [];
   const coreConfig = {
     target: 'node',
     module: {
@@ -23,16 +33,7 @@ module.exports = function(gulp, plugins, consts, options) {
           exclude: /\.json$/,
           loader: 'babel-loader',
           options: {
-            plugins: [
-              [
-                'transform-define',
-                {
-                  LOGO_BASE_URL: consts.IS_PRODUCTION
-                    ? 'https://styleguide.brainly.com/'
-                    : '/',
-                },
-              ],
-            ],
+            plugins: babelPlugins,
           },
         },
       ],

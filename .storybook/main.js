@@ -27,6 +27,29 @@ module.exports = {
     '@storybook/addon-links',
   ],
   webpackFinal: config => {
+    const babelPlugins = [
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-syntax-dynamic-import',
+      ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
+      'babel-plugin-macros',
+      'babel-plugin-add-react-displayname',
+      [
+        'babel-plugin-react-docgen',
+        {
+          DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+        },
+      ],
+    ];
+
+    if (STORYBOOK_ENV !== 'prod') {
+      plugins.push([
+        'transform-define',
+        {
+          LOGO_BASE_URL: '',
+        },
+      ])
+    }
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
@@ -51,29 +74,7 @@ module.exports = {
                 '@babel/preset-react',
                 '@babel/preset-flow',
               ],
-              plugins: [
-                '@babel/plugin-proposal-object-rest-spread',
-                '@babel/plugin-proposal-class-properties',
-                '@babel/plugin-syntax-dynamic-import',
-                ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
-                'babel-plugin-macros',
-                'babel-plugin-add-react-displayname',
-                [
-                  'babel-plugin-react-docgen',
-                  {
-                    DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
-                  },
-                ],
-                [
-                  'transform-define',
-                  {
-                    LOGO_BASE_URL:
-                      STORYBOOK_ENV === 'prod'
-                        ? 'https://styleguide.brainly.com/'
-                        : '',
-                  },
-                ],
-              ],
+              plugins: babelPlugins,
             },
           },
         ],

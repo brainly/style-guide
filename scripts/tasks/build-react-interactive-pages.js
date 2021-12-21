@@ -3,6 +3,17 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function(gulp, plugins, consts) {
+  const babelPlugins = !consts.IS_PRODUCTION
+    ? [
+        [
+          'transform-define',
+          {
+            LOGO_BASE_URL: '/',
+          },
+        ],
+      ]
+    : [];
+
   const coreConfig = {
     target: 'node',
     module: {
@@ -12,16 +23,7 @@ module.exports = function(gulp, plugins, consts) {
           loader: 'babel-loader',
           exclude: /\.json$/,
           options: {
-            plugins: [
-              [
-                'transform-define',
-                {
-                  LOGO_BASE_URL: consts.IS_PRODUCTION
-                    ? 'https://styleguide.brainly.com/'
-                    : '/',
-                },
-              ],
-            ],
+            plugins: babelPlugins,
           },
         },
       ],
@@ -74,6 +76,8 @@ module.exports = function(gulp, plugins, consts) {
     });
 
     webpack(config, function(err, stats) {
+      const info = stats.toJson();
+
       if (err || stats.hasErrors()) {
         console.error(err, info.errors);
         return;
