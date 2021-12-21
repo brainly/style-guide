@@ -166,7 +166,7 @@ example:
 ### Adding logotypes
 
 1. Add new logo svg file to `src/images/logos`
-2. Run `npm logo-paths`
+2. Run `yarn logo-paths`
 3. Now you can use file name as logo `type` prop in `Logo` component
 
 ## Technical Discipline

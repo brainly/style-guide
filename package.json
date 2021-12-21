@@ -147,7 +147,7 @@
     "package-types": "node ./scripts/build-types.js",
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm,css' 'yarn run package-commonjs' 'yarn run package-esm' 'yarn run package-css' 'yarn run package-assets' 'yarn run package-types' 'yarn run package-deprecated'",
     "prepublishOnly": "yarn package-prepare",
-    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
+    "storybook": "STORYBOOK_ENV=dev start-storybook -p 6006 -s ./.storybook/public",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006 -s ./.storybook/public",
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
