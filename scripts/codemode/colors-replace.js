@@ -19,8 +19,6 @@ const files = glob.sync('/**/*.{jsx,tsx}', {
     '*/node_modules/*',
     'node_modules/*',
     '**/node_modules/*',
-    '*.min.js',
-    '*.yml',
     './script',
   ],
   root: SOURCE_DIR,
