@@ -15,6 +15,8 @@ const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
+process.env.DOCS_ENV = process.env.DOCS_ENV || 'dev';
+
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
@@ -49,6 +51,7 @@ module.exports = () => {
                 context: path.resolve(__dirname, './src'),
                 name: absoluteFilename => {
                   const hash = revHash(fs.readFileSync(absoluteFilename));
+
                   return `[path][name]-${hash}.[ext]`;
                 },
               },
@@ -93,15 +96,6 @@ module.exports = () => {
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
               'react-hot-loader/babel',
-              [
-                'transform-define',
-                {
-                  LOGO_BASE_URL:
-                    IS_PRODUCTION === 'prod'
-                      ? 'https://styleguide.brainly.com/'
-                      : '/',
-                },
-              ],
             ],
             env: {
               test: {

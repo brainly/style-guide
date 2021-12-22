@@ -3,17 +3,6 @@ const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function(gulp, plugins, consts) {
-  const babelPlugins = !consts.IS_PRODUCTION
-    ? [
-        [
-          'transform-define',
-          {
-            LOGO_BASE_URL: '/',
-          },
-        ],
-      ]
-    : [];
-
   const coreConfig = {
     target: 'node',
     module: {
@@ -22,9 +11,6 @@ module.exports = function(gulp, plugins, consts) {
           test: /\.js|jsx?$/,
           loader: 'babel-loader',
           exclude: /\.json$/,
-          options: {
-            plugins: babelPlugins,
-          },
         },
       ],
     },

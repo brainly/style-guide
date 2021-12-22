@@ -14,16 +14,6 @@ fs.readdirSync('node_modules')
   .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
 
 module.exports = function(gulp, plugins, consts, options) {
-  const babelPlugins = !consts.IS_PRODUCTION
-    ? [
-        [
-          'transform-define',
-          {
-            LOGO_BASE_URL: '/',
-          },
-        ],
-      ]
-    : [];
   const coreConfig = {
     target: 'node',
     module: {
@@ -32,9 +22,6 @@ module.exports = function(gulp, plugins, consts, options) {
           test: /\.js|jsx?$/,
           exclude: /\.json$/,
           loader: 'babel-loader',
-          options: {
-            plugins: babelPlugins,
-          },
         },
       ],
     },

@@ -7,7 +7,8 @@ const svgoConfigs = require('../svgo.config.js');
 const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
-const STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'prod';
+
+process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
 async function findStories() {
   return glob
@@ -18,7 +19,7 @@ async function findStories() {
 
 module.exports = {
   stories:
-    STORYBOOK_ENV === 'chromatic'
+    process.env.STORYBOOK_ENV === 'chromatic'
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
       : findStories(),
   addons: [
@@ -42,14 +43,14 @@ module.exports = {
       ],
     ];
 
-    if (STORYBOOK_ENV !== 'prod') {
-      babelPlugins.push([
-        'transform-define',
-        {
-          LOGO_BASE_URL: '',
-        },
-      ]);
-    }
+    // if (process.env.STORYBOOK_ENV !== 'prod') {
+    //   babelPlugins.push([
+    //     'transform-define',
+    //     {
+    //       LOGO_BASE_URL: '',
+    //     },
+    //   ]);
+    // }
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files

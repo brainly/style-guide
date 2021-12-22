@@ -1,18 +1,34 @@
-const babelEnv = (params) => [
+const argv = require('yargs').argv;
+const IS_PRODUCTION = Boolean(argv.production);
+
+const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
     {
       targets: '> 0.2%, not dead, not ie < 11',
     },
-    params,
+    params
   ),
 ];
 
-module.exports = (api) => {
+let logoBaseUrl;
+
+if (
+  process.env.STORYBOOK_ENV === 'dev' ||
+  process.env.STORYBOOK_ENV === 'chromatic'
+) {
+  logoBaseUrl = '';
+} else if (process.env.DOCS_ENV === 'dev') {
+  logoBaseUrl = '/';
+} else {
+  logoBaseUrl = 'https://styleguide.brainly.com/';
+}
+
+module.exports = api => {
   api.cache(true);
   return {
     presets: [
-      babelEnv({ modules: false }),
+      babelEnv({modules: false}),
       '@babel/preset-react',
       '@babel/preset-flow',
     ],
@@ -22,21 +38,21 @@ module.exports = (api) => {
       [
         'transform-define',
         {
-          LOGO_BASE_URL: 'https://styleguide.brainly.com/',
+          LOGO_BASE_URL: logoBaseUrl,
         },
       ],
     ],
     env: {
       test: {
-        presets: [babelEnv({ modules: 'auto' })],
+        presets: [babelEnv({modules: 'auto'})],
         plugins: [['@babel/plugin-transform-runtime']],
       },
       commonjs: {
-        presets: [babelEnv({ modules: 'auto' })],
+        presets: [babelEnv({modules: 'auto'})],
       },
       esm: {
-        presets: [babelEnv({ modules: false })],
-        plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]],
+        presets: [babelEnv({modules: false})],
+        plugins: [['@babel/plugin-transform-runtime', {useESModules: true}]],
       },
     },
   };
