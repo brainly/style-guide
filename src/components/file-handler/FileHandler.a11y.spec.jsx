@@ -18,20 +18,28 @@ describe('FileHandler', () => {
     userEvent.keyboard('{enter}');
 
     expect(handleOnClick).toHaveBeenCalledTimes(3);
+    expect(fileHandler.getByRole('button')).toBeTruthy();
   });
 
   it('has src, so it acts like a link: passes src to link href', () => {
     const src = '#src';
     const fileName = 'file name';
-    const fileHandler = render(<FileHandler src={src}>{fileName}</FileHandler>);
+    const fileHandler = render(
+      <FileHandler src={src} thumbnailSrc={src}>
+        {fileName}
+      </FileHandler>
+    );
 
     expect(fileHandler.getByRole('link').href).toContain(src);
+    expect(fileHandler.queryByRole('img')).toBeFalsy();
   });
 
-  it('should have status in accessibility tree', () => {
+  it('should have a noticeable status in accessibility tree', () => {
     const fileHandler = render(<FileHandler loading />);
 
-    expect(fileHandler.getByText('loading')).toBeTruthy();
+    expect(fileHandler.getByText('loading').getAttribute('aria-live')).toEqual(
+      'polite'
+    );
   });
 });
 
@@ -56,6 +64,14 @@ describe('FileHandler a11y', () => {
 
     await testA11y(
       <FileHandler onClick={handleOnClick}>file name</FileHandler>
+    );
+  });
+
+  it('should have no a11y violations when onClose is provided', async () => {
+    const handleOnClose = jest.fn();
+
+    await testA11y(
+      <FileHandler onClose={handleOnClose}>file name</FileHandler>
     );
   });
 });
