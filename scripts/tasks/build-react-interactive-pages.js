@@ -26,7 +26,6 @@ module.exports = function(gulp, plugins, consts) {
         'process.env.NODE_ENV': JSON.stringify(
           consts.IS_PRODUCTION ? 'production' : 'development'
         ),
-        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
       }),
     ];
 

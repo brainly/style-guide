@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+import {__DEV__, invariant} from '../utils';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
@@ -37,8 +38,9 @@ export type AvatarPropsType = {
   spaced?: boolean,
   imgSrc?: string,
   className?: string,
-  title?: string,
   link?: string,
+  ariaLinkLabel?: string,
+  alt?: string,
   ...
 };
 
@@ -49,7 +51,8 @@ const Avatar = ({
   imgSrc,
   className,
   link,
-  title,
+  ariaLinkLabel,
+  alt = '',
   ...props
 }: AvatarPropsType) => {
   const avatarClass = classNames(
@@ -62,41 +65,51 @@ const Avatar = ({
     className
   );
 
-  let avatarContent;
+  const isImgSrcDefined =
+    imgSrc !== undefined && imgSrc !== null && imgSrc !== '';
 
-  if (imgSrc !== undefined && imgSrc !== null && imgSrc !== '') {
-    avatarContent = (
-      <img
-        className="sg-avatar__image"
-        src={imgSrc}
-        alt={title}
-        title={title}
-      />
+  if (__DEV__) {
+    invariant(
+      !(ariaLinkLabel && !link),
+      'Using `ariaLinkLabel` prop has no effect when `link` prop is not set.'
     );
-  } else {
-    avatarContent = (
-      <div className="sg-avatar__image sg-avatar__image--icon" title={title}>
-        <Icon
-          className="sg-avatar__icon"
-          type="profile"
-          color={ICON_COLOR['icon-gray-40']}
-          size={ICON_SIZE[size]}
-        />
-      </div>
+
+    invariant(
+      !(alt && !isImgSrcDefined),
+      'Using `alt` prop has no effect when `imgSrc` prop is not set.'
     );
   }
 
-  return (
+  const avatarContent = (
     <div {...props} className={avatarClass}>
-      {link !== undefined && link !== '' ? (
-        <a href={link} title={title}>
-          {avatarContent}
-        </a>
+      {isImgSrcDefined ? (
+        <img className="sg-avatar__image" src={imgSrc} alt={alt} />
       ) : (
-        avatarContent
+        <div className="sg-avatar__image sg-avatar__image--icon">
+          <Icon
+            className="sg-avatar__icon"
+            type="profile"
+            color={ICON_COLOR['icon-gray-40']}
+            size={ICON_SIZE[size]}
+            aria-hidden="true"
+          />
+        </div>
       )}
     </div>
   );
+
+  if (link !== undefined && link !== '') {
+    return (
+      <a
+        href={link}
+        aria-label={ariaLinkLabel}
+        className="sg-avatar__wrapper-link"
+      >
+        {avatarContent}
+      </a>
+    );
+  }
+  return avatarContent;
 };
 
 export default Avatar;

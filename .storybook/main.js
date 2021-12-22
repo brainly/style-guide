@@ -204,12 +204,6 @@ module.exports = {
       ],
     });
 
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        'process.env.STORYBOOK_ENV': JSON.stringify(process.env.STORYBOOK_ENV),
-      })
-    );
-
     config.resolve.modules.push(
       SOURCE_COMPONENTS_DIR,
       SOURCE_DOCS_DIR,
