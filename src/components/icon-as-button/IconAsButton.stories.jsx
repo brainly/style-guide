@@ -4,7 +4,6 @@ import Flex from '../flex/Flex';
 import {TYPE as ICON_TYPES} from 'icons/Icon';
 import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
-import {getIconGroup} from 'icons/get-icon-group';
 import classnames from 'classnames';
 
 export default {
@@ -21,115 +20,104 @@ export default {
   },
   args: {
     type: ICON_TYPES.ACADEMIC_CAP,
-    color: ICON_COLOR.ADAPTIVE,
+    color: ICON_COLOR['icon-black'],
     size: SIZE.NORMAL,
   },
 };
 
-const groups = Object.values(ICON_TYPES).reduce((acc, next) => {
-  const groupName = getIconGroup(next);
-
-  if (!acc[groupName]) {
-    acc[groupName] = [];
-  }
-
-  acc[groupName].push(next);
-
-  return acc;
-}, {});
-
 export const Default = args => <IconAsButton {...args} />;
 
 export const Types = args => (
-  <div>
-    <Headline
-      extraBold
-      transform="uppercase"
-      type="span"
-      color="text-gray-40"
-      size="medium"
-      style={{marginBottom: 10, marginLeft: 10}}
-    >
-      essential icons
-    </Headline>
-    <Flex wrap>
-      {groups['Essential'].map(type => (
-        <div className="sg-icon-story-variant" key={type}>
-          <IconAsButton key={type} {...args} type={type} />
-        </div>
+  <StoryVariantTable className="sg-button-stories-table">
+    <thead>
+      <tr>
+        <th />
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+          >
+            default
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+          >
+            border
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+          >
+            action
+          </Headline>
+        </th>
+        <th>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+          >
+            transparent
+          </Headline>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {Object.values(SIZE).map(size => (
+        <tr key={size}>
+          <td>
+            <div
+              style={{
+                height: 40,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+            >
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                {size.toLowerCase()}
+              </Headline>
+            </div>
+          </td>
+          <td>
+            <div>
+              <IconAsButton {...args} size={size} />
+            </div>
+          </td>
+          <td>
+            <IconAsButton {...args} size={size} border />
+          </td>
+          <td>
+            <IconAsButton {...args} size={size} action />
+          </td>
+          <td>
+            <IconAsButton {...args} size={size} transparent />
+          </td>
+        </tr>
       ))}
-    </Flex>
-    <Headline
-      extraBold
-      transform="uppercase"
-      type="span"
-      color="text-gray-40"
-      size="medium"
-      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
-    >
-      Editor and Media icons
-    </Headline>
-    <Flex wrap>
-      {groups['Editor and Media'].map(type => (
-        <div className="sg-icon-story-variant" key={type}>
-          <IconAsButton key={type} {...args} type={type} />
-        </div>
-      ))}
-    </Flex>
-    <Headline
-      extraBold
-      transform="uppercase"
-      type="span"
-      color="text-gray-40"
-      size="medium"
-      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
-    >
-      social icons
-    </Headline>
-    <Flex wrap>
-      {groups['Social'].map(type => (
-        <div className="sg-icon-story-variant" key={type}>
-          <IconAsButton key={type} {...args} type={type} />
-        </div>
-      ))}
-    </Flex>
-    <Headline
-      extraBold
-      transform="uppercase"
-      type="span"
-      color="text-gray-40"
-      size="medium"
-      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
-    >
-      social media icons
-    </Headline>
-    <Flex wrap>
-      {groups['Social Media'].map(type => (
-        <div className="sg-icon-story-variant" key={type}>
-          <IconAsButton key={type} {...args} type={type} />
-        </div>
-      ))}
-    </Flex>
-    <Headline
-      extraBold
-      transform="uppercase"
-      type="span"
-      color="text-gray-40"
-      size="medium"
-      style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
-    >
-      navigation icons
-    </Headline>
-    <Flex wrap>
-      {groups['Navigation'].map(type =>
-        type ? (
-          <div className="sg-icon-story-variant" key={type}>
-            <IconAsButton key={type} {...args} type={type} />
-          </div>
-        ) : null
-      )}
-    </Flex>
-  </div>
+    </tbody>
+  </StoryVariantTable>
 );
 
 export const Colors = args => (
@@ -146,37 +134,4 @@ export const Colors = args => (
       </div>
     ))}
   </Flex>
-);
-
-export const Sizes = args => (
-  <StoryVariantTable>
-    <tbody>
-      <tr>
-        <td>
-          <StoryVariantTable>
-            <tbody>
-              {Object.values(SIZE).map(size => (
-                <tr key={size}>
-                  <td>
-                    <Headline
-                      extraBold
-                      transform="uppercase"
-                      type="span"
-                      color="text-gray-40"
-                      size="normal"
-                    >
-                      {size}
-                    </Headline>
-                  </td>
-                  <td style={{width: '100px', 'text-align': 'center'}}>
-                    <IconAsButton {...args} size={size} border />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </StoryVariantTable>
-        </td>
-      </tr>
-    </tbody>
-  </StoryVariantTable>
 );
