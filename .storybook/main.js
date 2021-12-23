@@ -43,14 +43,6 @@ module.exports = {
       ],
     ];
 
-    // if (process.env.STORYBOOK_ENV !== 'prod') {
-    //   babelPlugins.push([
-    //     'transform-define',
-    //     {
-    //       LOGO_BASE_URL: '',
-    //     },
-    //   ]);
-    // }
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
@@ -61,7 +53,6 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: `.cache/storybook`,
               presets: [
                 [
                   '@babel/preset-env',

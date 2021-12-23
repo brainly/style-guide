@@ -1,7 +1,7 @@
 // @flow strict
 
 // $FlowFixMe
-import LOGO_SOURCE_PATHS from './logos.json';
+import LOGO_SOURCE_PATHS from './logos';
 
 declare var LOGO_BASE_URL: string;
 

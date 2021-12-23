@@ -15,8 +15,6 @@ const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
-process.env.DOCS_ENV = process.env.DOCS_ENV || 'dev';
-
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
@@ -192,6 +190,9 @@ module.exports = () => {
       historyApiFallback: {
         disableDotRule: true,
       },
+    },
+    watchOptions: {
+      ignored: /src\/logos\.js/,
     },
   };
 

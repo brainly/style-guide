@@ -10,7 +10,7 @@ module.exports = function(gulp, plugins, consts) {
       })
       .pipe(plugins.rev())
       .pipe(
-        plugins.rev.manifest('logos.json', {
+        plugins.rev.manifest('logos.js', {
           transformer: {
             parse: JSON.parse,
             stringify(src) {
@@ -22,7 +22,14 @@ module.exports = function(gulp, plugins, consts) {
                 });
               }, {});
 
-              return prettier.format(JSON.stringify(output), {parser: 'json'});
+              return prettier.format(
+                `// @flow strict
+                
+                module.exports = ${JSON.stringify(output)}`,
+                {
+                  parser: 'babel',
+                }
+              );
             },
           },
         })

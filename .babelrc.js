@@ -1,6 +1,3 @@
-const argv = require('yargs').argv;
-const IS_PRODUCTION = Boolean(argv.production);
-
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
@@ -13,19 +10,21 @@ const babelEnv = params => [
 
 let logoBaseUrl;
 
-if (
-  process.env.STORYBOOK_ENV === 'dev' ||
-  process.env.STORYBOOK_ENV === 'chromatic'
-) {
-  logoBaseUrl = '';
-} else if (process.env.DOCS_ENV === 'dev') {
-  logoBaseUrl = '/';
-} else {
-  logoBaseUrl = 'https://styleguide.brainly.com/';
-}
-
 module.exports = api => {
+  const nodeEnv = api.env();
   api.cache(true);
+
+  if (
+    process.env.STORYBOOK_ENV === 'dev' ||
+    process.env.STORYBOOK_ENV === 'chromatic'
+  ) {
+    logoBaseUrl = '';
+  } else if (nodeEnv === 'development') {
+    logoBaseUrl = '/';
+  } else {
+    logoBaseUrl = 'https://styleguide.brainly.com/';
+  }
+
   return {
     presets: [
       babelEnv({modules: false}),
@@ -33,6 +32,7 @@ module.exports = api => {
       '@babel/preset-flow',
     ],
     plugins: [
+      'codegen',
       '@babel/plugin-proposal-object-rest-spread',
       '@babel/plugin-proposal-class-properties',
       [

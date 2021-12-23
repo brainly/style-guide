@@ -11,8 +11,6 @@ const CONSTANTS = require('./scripts/constants');
 
 plugins.path = path;
 
-process.env.DOCS_ENV = argv.production ? 'prod' : 'dev';
-
 const consts = {
   PROJECT_DIR: __dirname,
   IS_PRODUCTION: Boolean(argv.production),
