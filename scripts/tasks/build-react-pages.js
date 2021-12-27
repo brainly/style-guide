@@ -13,21 +13,21 @@ fs.readdirSync('node_modules')
   .filter(dir => dir !== '.bin')
   .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
 
-const coreConfig = {
-  target: 'node',
-  module: {
-    rules: [
-      {
-        test: /\.js|jsx?$/,
-        exclude: /\.json$/,
-        loader: 'babel-loader',
-      },
-    ],
-  },
-  externals: nodeModules,
-};
-
 module.exports = function(gulp, plugins, consts, options) {
+  const coreConfig = {
+    target: 'node',
+    module: {
+      rules: [
+        {
+          test: /\.js|jsx?$/,
+          exclude: /\.json$/,
+          loader: 'babel-loader',
+        },
+      ],
+    },
+    externals: nodeModules,
+  };
+
   const createWebpackBundles = function(file, enc, cb) {
     const pathArray = file.path.replace(consts.SRC, '').split('/');
     const fileNameWithExtension = pathArray.pop();
