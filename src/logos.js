@@ -1,1 +1,1 @@
-import /* codegen */ './logo-paths-codegen';
+import /* codegen */ './logos.codegen';
