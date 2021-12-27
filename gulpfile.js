@@ -91,8 +91,6 @@ gulp.task('copy-latest', getTask('copy-latest'));
 
 gulp.task('copy-assets', getTask('copy-assets'));
 
-gulp.task('logo-paths', getTask('logo-paths'));
-
 gulp.task(
   'build',
   gulp.series(
@@ -100,7 +98,6 @@ gulp.task(
     'sass:build',
     'sass:docs-build',
     'svgs-generate',
-    'logo-paths',
     'build:react-pages',
     'build:react-iframe-pages',
     'build:react-interactive-pages',
