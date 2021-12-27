@@ -121,4 +121,4 @@ gulp.task(
 );
 
 gulp.task('deploy', gulp.series('build', 'upload-files'));
-console.log('github commit check with storybook url test 8')
+console.log('github commit check with storybook url test 9')
