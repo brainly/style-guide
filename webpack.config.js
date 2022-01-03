@@ -3,6 +3,8 @@ const path = require('path');
 const argv = require('yargs').argv;
 const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const revHash = require('rev-hash');
+const fs = require('fs');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = argv.production ? pkg.version : 'dev';
@@ -38,9 +40,27 @@ module.exports = () => {
           },
         },
         {
+          test: /\/logos\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                context: path.resolve(__dirname, './src'),
+                name: absoluteFilename => {
+                  const hash = revHash(fs.readFileSync(absoluteFilename));
+
+                  return `[path][name]-${hash}.[ext]`;
+                },
+              },
+            },
+          ],
+        },
+        {
           test: /\.svg$/,
           loader: 'svg-sprite-loader',
           include: path.join(SOURCE_DIR, 'images'),
+          exclude: path.join(SOURCE_DIR, 'images/logos'),
           options: {
             symbolId: filePath => {
               const pathParts = filePath.split(path.sep);
@@ -170,6 +190,9 @@ module.exports = () => {
       historyApiFallback: {
         disableDotRule: true,
       },
+    },
+    watchOptions: {
+      ignored: /src\/logos\.js/,
     },
   };
 

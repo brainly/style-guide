@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - yarn build
-      - node ./scripts/build-storybook.js
+      - NODE_ENV=production node ./scripts/build-storybook.js
   post_build:
     commands:
       - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}

@@ -1,16 +1,14 @@
 const path = require('path');
-const argv = require('yargs').argv;
 const glob = require('glob');
-const webpack = require('webpack');
 const revHash = require('rev-hash');
 const fs = require('fs');
 const svgoConfigs = require('../svgo.config.js');
 
-const IS_PRODUCTION = Boolean(argv.production);
-const VERSION = IS_PRODUCTION ? pkg.version : 'dev';
 const SOURCE_DIR = path.join(__dirname, '../src');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
+
+process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
 async function findStories() {
   return glob
@@ -30,6 +28,21 @@ module.exports = {
     '@storybook/addon-links',
   ],
   webpackFinal: config => {
+    const babelPlugins = [
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-syntax-dynamic-import',
+      ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
+      'babel-plugin-macros',
+      'babel-plugin-add-react-displayname',
+      [
+        'babel-plugin-react-docgen',
+        {
+          DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+        },
+      ],
+    ];
+
     // change 'sideEffects' flag to true in package.json in order to include scss files in static build
     config.module.rules = [
       // remove default loader for jsx, tsx and mjs files
@@ -40,7 +53,6 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: `.cache/storybook`,
               presets: [
                 [
                   '@babel/preset-env',
@@ -51,27 +63,10 @@ module.exports = {
                   },
                 ],
                 '@babel/preset-typescript',
-                IS_PRODUCTION && [
-                  'babel-preset-minify',
-                  {builtIns: false, mangle: false},
-                ],
                 '@babel/preset-react',
                 '@babel/preset-flow',
-              ].filter(Boolean),
-              plugins: [
-                '@babel/plugin-proposal-object-rest-spread',
-                '@babel/plugin-proposal-class-properties',
-                '@babel/plugin-syntax-dynamic-import',
-                ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
-                'babel-plugin-macros',
-                'babel-plugin-add-react-displayname',
-                [
-                  'babel-plugin-react-docgen',
-                  {
-                    DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
-                  },
-                ],
               ],
+              plugins: babelPlugins,
             },
           },
         ],

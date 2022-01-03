@@ -4848,6 +4848,15 @@ babel-plugin-apply-mdx-type-prop@1.6.22:
     "@babel/helper-plugin-utils" "7.10.4"
     "@mdx-js/util" "1.6.22"
 
+babel-plugin-codegen@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/babel-plugin-codegen/-/babel-plugin-codegen-4.1.5.tgz#01a24e3014fb13207bca3cb4fad16d9824ea8cfb"
+  integrity sha512-mId3XW/ndFe7kqUdDUPvMhzYC7ST2gC+C20pO2jVVRQqlHrB1KbMpI/mpawX3DKkAmAuAzWVcBFHb5ULRyNl4A==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    babel-plugin-macros "^3.0.1"
+    require-from-string "^2.0.2"
+
 babel-plugin-dynamic-import-node@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-2.3.3.tgz#84fda19c976ec5c6defef57f9427b3def66e17a3"
@@ -9604,6 +9613,13 @@ hasha@^2.2.0:
   dependencies:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
+
+hasha@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/hasha/-/hasha-3.0.0.tgz#52a32fab8569d41ca69a61ff1a214f8eb7c8bd39"
+  integrity sha1-UqMvq4Vp1BymmmH/GiFPjrfIvTk=
+  dependencies:
+    is-stream "^1.0.1"
 
 hast-to-hyperscript@^9.0.0:
   version "9.0.0"
@@ -15651,10 +15667,24 @@ reusify@^1.0.4:
   resolved "https://registry.yarnpkg.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
+rev-file@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/rev-file/-/rev-file-3.0.0.tgz#9bb027bee2efb820d14885c85f8c2934f458ce0b"
+  integrity sha512-13vXpZB+84ZnT8SmbOb+54Vaj0BjLPjn9Q3o9pjNvReyGvMAx9LlFHcanP8WPhDb6ke+eZdNxKM8L1CeB3lsoQ==
+  dependencies:
+    hasha "^3.0.0"
+    rev-hash "^2.0.0"
+    rev-path "^1.0.0"
+
 rev-hash@1.0.0, rev-hash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/rev-hash/-/rev-hash-1.0.0.tgz#96993959ea9bfb1c59b13adf02ac2e34bb373603"
   integrity sha1-lpk5Weqb+xxZsTrfAqwuNLs3NgM=
+
+rev-hash@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/rev-hash/-/rev-hash-2.0.0.tgz#7720a236ed0c258df3e64bec03ec048b05b924c4"
+  integrity sha1-dyCiNu0MJY3z5kvsA+wEiwW5JMQ=
 
 rev-path@^1.0.0:
   version "1.0.0"
