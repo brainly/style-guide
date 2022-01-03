@@ -55,6 +55,7 @@ import accordion from '../components/accordion/pages/accordion';
 import Shadows from '../components/shadows/pages/shadows';
 import ShadowsUtils from '../sass/pages/utils/shadows';
 import UXMotion from '../sass/pages/utils/uxmotion';
+import VisuallyHidden from '../sass/pages/utils/visually-hidden';
 
 const navigation = [
   {
@@ -312,6 +313,10 @@ const navigation = [
       {
         name: 'Shadows',
         component: ShadowsUtils,
+      },
+      {
+        name: 'Visually Hidden',
+        component: VisuallyHidden,
       },
     ],
   },
