@@ -33,7 +33,7 @@ export default {
     },
   },
   args: {
-    children: 'Text inside Box with border',
+    children: 'Text inside Box',
   },
 };
 
@@ -53,7 +53,7 @@ export const Paddings = args => (
   <div>
     {Object.values(PADDING).map(padding => (
       <StoryVariant label={`padding - ${padding}`} key={padding}>
-        <Box {...args} color={COLOR.blue} padding={padding} />
+        <Box {...args} color="blue-40" padding={padding} />
       </StoryVariant>
     ))}
   </div>
@@ -64,11 +64,11 @@ export const Borders = args => {
     <div>
       {Object.values(COLOR).map(color => (
         <StoryVariant label={`border color - ${color}`} key={color}>
-          {color === COLOR.light ? (
+          {color === COLOR.white ? (
             <div className="sg-story-variant-dark-box">
               <Box
                 {...args}
-                color={COLOR.blue}
+                color="blue-40"
                 border
                 borderColor={COLOR[color]}
               />
@@ -82,4 +82,4 @@ export const Borders = args => {
   );
 };
 
-export const Shadow = args => <Box {...args} color={COLOR.blue} shadow />;
+export const Shadow = args => <Box {...args} color="blue-40" shadow />;
