@@ -108,7 +108,7 @@ const formElements = () => (
       </ContrastBox>
     </Flex>
     <Flex>
-      <Box color="gray-secondary-lightest" style={{width: '320px'}}>
+      <Box color="gray-20" style={{width: '320px'}}>
         <Flex direction="column" marginBottom="m">
           <Flex marginBottom="xs">
             <Headline size="small">Sign up with your email address</Headline>
