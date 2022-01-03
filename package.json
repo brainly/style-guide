@@ -54,6 +54,7 @@
     "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
     "babel-loader": "^8.0.5",
+    "babel-plugin-codegen": "^4.1.5",
     "babel-plugin-transform-define": "^2.0.1",
     "concurrently": "^5.0.2",
     "css-loader": "^3.1.0",
@@ -107,6 +108,7 @@
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.2",
     "react-test-renderer": "^16.2.0",
+    "rev-file": "3.0.0",
     "rev-hash": "1.0.0",
     "rimraf": "^3.0.0",
     "sass-lint": "^1.10.2",
@@ -132,26 +134,26 @@
     "js-typecheck": "flow && node ./scripts/build-types.js",
     "build": "gulp build",
     "start": "http-server ./dist -p 8000",
-    "deploy": "gulp deploy",
+    "deploy": "NODE_ENV=production gulp deploy",
     "postversion": "git push && git push --tags",
     "watch": "gulp build && gulp watch & yarn start",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-typecheck && yarn run js-lint && jest",
     "eslint": "./node_modules/.bin/eslint",
     "beta:watch": "webpack-dev-server --hot --inline --open --watch --mode=development",
     "package-clean": "yarn rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
-    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/config.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
-    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/config.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-esm": "BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.js' --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/logo-url.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.js' --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/logo-url.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
     "package-css": "node ./scripts/build-css.js",
     "package-deprecated": "node ./scripts/build-deprecated-list.js",
     "package-assets": "gulp build-assets",
     "package-types": "node ./scripts/build-types.js",
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm,css' 'yarn run package-commonjs' 'yarn run package-esm' 'yarn run package-css' 'yarn run package-assets' 'yarn run package-types' 'yarn run package-deprecated'",
     "prepublishOnly": "yarn package-prepare",
-    "storybook": "STORYBOOK_ENV=dev start-storybook -p 6006 -s ./.storybook/public",
+    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006 -s ./.storybook/public",
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
-    "chromatic": "STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes"
+    "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes"
   },
   "jest": {
     "setupFiles": [
@@ -166,7 +168,7 @@
       "src/docs"
     ],
     "transform": {
-      ".*": "babel-jest"
+      ".jsx?$": "babel-jest"
     }
   },
   "sideEffects": [

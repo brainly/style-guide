@@ -163,6 +163,11 @@ example:
 <script src="https://styleguide.brainly.com/images/icons-0c5f18cafc.js"></script>
 ```
 
+### Adding logotypes
+
+1. Add new logo svg file to `src/images/logos`
+2. Now you can use file name as logo `type` prop in `Logo` component
+
 ## Technical Discipline
 
 #### Bumping the Release Version - this part is for [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
