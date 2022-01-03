@@ -30,6 +30,10 @@ export default {
   },
 };
 
+const src =
+  // eslint-disable-next-line max-len
+  'https://images.unsplash.com/photo-1558349699-1e1c38c05eeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=240&q=80';
+
 export const Default = args => <FileHandler {...args} />;
 
 export const Colors = args => (
@@ -56,6 +60,10 @@ export const Icons = args => (
       </StoryVariant>
     ))}
   </Flex>
+);
+
+export const WithThumbnail = args => (
+  <FileHandler {...args} thumbnailSrc={src} />
 );
 
 export const Loading = args => <FileHandler {...args} loading />;
