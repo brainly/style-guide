@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - yarn build
-      - STORYBOOK_ENV=dev yarn build-storybook
+      - yarn build-storybook
   post_build:
     commands:
       - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
