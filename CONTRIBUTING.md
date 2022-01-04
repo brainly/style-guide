@@ -210,3 +210,21 @@ Following headlines should be used in release notes:
 
 All linter settings are based on our standarized [frontend tools configs](https://github.com/brainly/frontend-tools-configs/).
 To run the linters (and tests) you should use `yarn test`.
+
+If you want to enable auto-formatting in VSCode, install eslint plugin and add this to your workspace settings(`.vscode/settings.json`):
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+Prettier rules are used by eslint config, however we don't recomment using VSCode prettier plugin because it may interfere with eslint and sasslint. If you already have it installed, you can add this to your `.vscode/settings.json` to disable plugin for styleguide workspace:
+
+```json
+{
+  "prettier.enable": false
+}
+```
