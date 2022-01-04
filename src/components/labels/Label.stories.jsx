@@ -14,21 +14,21 @@ const noop = () => null;
 
 const TRANSPARENT_COLOR_TEXT_MAP = {
   blue: 'blue',
-  mint: 'mint',
-  lavender: 'lavender',
-  peach: 'peach',
-  mustard: 'mustard',
-  gray: 'gray-secondary',
+  green: 'green',
+  indigo: 'indigo',
+  red: 'red',
+  yellow: 'yellow',
+  gray: 'gray',
   achromatic: 'dark',
 };
 
 const TRANSPARENT_ICON_COLOR_MAP = {
   blue: 'blue',
-  mint: 'mint',
-  lavender: 'lavender',
-  peach: 'peach',
-  mustard: 'mustard',
-  gray: 'gray-secondary',
+  green: 'green',
+  indigo: 'indigo',
+  red: 'red',
+  yellow: 'yellow',
+  gray: 'gray',
   achromatic: 'dark',
 };
 

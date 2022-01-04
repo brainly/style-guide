@@ -13,7 +13,7 @@ describe('Label', () => {
     );
 
     expect(label.hasClass('sg-label')).toBe(true);
-    expect(label.hasClass('sg-label--blue-secondary-light')).toBe(true);
+    expect(label.hasClass('sg-label--blue-20')).toBe(true);
   });
 
   test('render with icon', () => {
@@ -31,19 +31,19 @@ describe('Label', () => {
 
   test('render type solid', () => {
     const label = shallow(
-      <Label type="solid" color="mint">
+      <Label type="solid" color="green">
         example label
       </Label>
     );
 
     expect(label.hasClass('sg-label')).toBe(true);
-    expect(label.hasClass('sg-label--mint-primary')).toBe(true);
+    expect(label.hasClass('sg-label--green-50')).toBe(true);
   });
 
   test('icon-black color close button is default', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="default" color="mint" onClose={mockCallback}>
+      <Label type="default" color="green" onClose={mockCallback}>
         example label
       </Label>
     );
@@ -61,7 +61,7 @@ describe('Label', () => {
   test('clicking on close button calls onClose', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="solid" color="mint" onClose={mockCallback}>
+      <Label type="solid" color="green" onClose={mockCallback}>
         example label
       </Label>
     );
@@ -78,7 +78,7 @@ describe('Label', () => {
     const label = shallow(
       <Label
         type="default"
-        color="mint"
+        color="green"
         iconType="heart"
         onClose={mockCallback}
       >
@@ -93,7 +93,7 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(true);
+    expect(label.hasClass('sg-label--mint-20')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-black');
     expect(label.find(Text).prop('color')).toBe('text-black');
@@ -102,7 +102,7 @@ describe('Label', () => {
   test('has proper styles if solid', () => {
     const mockCallback = jest.fn();
     const label = shallow(
-      <Label type="solid" color="mint" iconType="heart" onClose={mockCallback}>
+      <Label type="solid" color="green" iconType="heart" onClose={mockCallback}>
         default label
       </Label>
     );
@@ -114,7 +114,7 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--mint-primary')).toBe(true);
+    expect(label.hasClass('sg-label--green-50')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-white');
     expect(heartIcon.prop('color')).toBe('icon-white');
     expect(label.find(Text).prop('color')).toBe('text-white');
@@ -125,7 +125,7 @@ describe('Label', () => {
     const label = shallow(
       <Label
         type="transparent"
-        color="mint"
+        color="green"
         iconType="heart"
         onClose={mockCallback}
       >
@@ -140,8 +140,8 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--mint-primary')).toBe(false);
-    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
+    expect(label.hasClass('sg-label--green-50')).toBe(false);
+    expect(label.hasClass('sg-label--green-20')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-green-50');
     expect(label.find(Text).prop('color')).toBe('text-black');
@@ -153,7 +153,7 @@ describe('Label', () => {
     const label = shallow(
       <Label
         type="transparent-color"
-        color="mint"
+        color="green"
         iconType="heart"
         onClose={mockCallback}
       >
@@ -168,8 +168,8 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--mint-primary')).toBe(false);
-    expect(label.hasClass('sg-label--mint-secondary-light')).toBe(false);
+    expect(label.hasClass('sg-label--green-50')).toBe(false);
+    expect(label.hasClass('sg-label--green-20')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-green-50');
     expect(heartIcon.prop('color')).toBe('icon-green-50');
     expect(label.find(Text).prop('color')).toBe('text-green-60');
