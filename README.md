@@ -32,7 +32,6 @@ We officially support the following browsers (based on real user trafic from our
 | Opera             | 33+      |
 | Opera Mini        | 7+       |
 | Edge              | 12+      |
-| Internet Explorer | 11+      |
 
 Note: You can find all recent stats in [our analytics](https://analytics.google.com/analytics/web/#report/visitors-browser/a85994882w128325453p132056054/) (INTERNAL)
 
