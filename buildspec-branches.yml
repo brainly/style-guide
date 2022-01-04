@@ -14,7 +14,7 @@ phases:
       - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
 
 artifacts:
-  name: 'branches/$GIT_BRANCH'
+  name: 'branch/$GIT_BRANCH'
   files:
     - '**/*'
   base-directory: '.storybook-static'
