@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import Text from '../text/Text';
 import Link from '../text/Link';
-import Icon, {ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 
 import type {IconTypeType} from '../icons/Icon';
@@ -20,6 +20,11 @@ export const COLORS_MAP = {
 export const FILE_HANDLER_COLORS_SET = {
   GRAY: 'gray',
   WHITE: 'white',
+};
+
+type AriaStatusLabelType = {
+  loading?: string,
+  uploaded?: string,
 };
 
 export type FileHandlerPropsType = $ReadOnly<{
@@ -93,6 +98,16 @@ export type FileHandlerPropsType = $ReadOnly<{
    *          </FileHandler>
    */
   children: React.Node,
+  /**
+   * An accessible, short-text description of `onClose` action,
+   * defaults to 'Close'
+   */
+  ariaCloseButtonLabel?: string,
+  /**
+   * An accessible, short-text description for loading
+   * and uploded status.
+   */
+  statusLabel?: AriaStatusLabelType,
   ...
 }>;
 
@@ -107,6 +122,8 @@ const FileHandler = ({
   onClick,
   textRef,
   className,
+  ariaCloseButtonLabel = 'Close',
+  statusLabel,
   ...props
 }: FileHandlerPropsType) => {
   const fileHandlerClass = classNames(
@@ -118,37 +135,68 @@ const FileHandler = ({
     className
   );
 
-  const clickProps =
-    thumbnailSrc !== undefined && onClick
-      ? {onClick}
-      : {
-          href: src,
-          target: '_blank',
-          rel: 'noopener noreferrer',
-        };
+  const preventedOnClick =
+    onClick &&
+    (e => {
+      e.preventDefault();
+      return onClick();
+    });
 
+  const isActionProvided = src !== undefined || preventedOnClick;
+
+  const buttonEventProps = {
+    onClick: preventedOnClick,
+    onKeyDown: e => {
+      // 32 - space, 13 - enter
+      if (e.keyCode === 32 || e.keyCode === 13) {
+        return preventedOnClick && preventedOnClick(e);
+      }
+    },
+  };
+
+  const clickProps = preventedOnClick
+    ? buttonEventProps
+    : {
+        href: src,
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      };
+
+  const role = clickProps.onClick && 'button';
   const thumbnail =
     thumbnailSrc !== undefined ? (
-      <img
-        {...clickProps}
-        src={thumbnailSrc}
-        alt=""
-        className="cursor-pointer"
-      />
+      <img src={thumbnailSrc} alt="" className="cursor-pointer" />
     ) : (
-      <a {...clickProps}>
-        <Icon type={iconType} size={24} color={ICON_COLOR['icon-black']} />
-      </a>
+      <Icon type={iconType} size={24} color="icon-black" />
     );
+
+  const interactiveThumbnail = isActionProvided ? (
+    <a {...clickProps} role={role} tabIndex="0" aria-hidden>
+      {thumbnail}
+    </a>
+  ) : (
+    thumbnail
+  );
 
   return (
     <div {...props} className={fileHandlerClass}>
       <div className="sg-file-handler__icon">
-        {loading ? <Spinner size="xsmall" /> : thumbnail}
+        {loading ? <Spinner size="xsmall" /> : interactiveThumbnail}
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
-        {src !== undefined ? (
-          <Link {...clickProps} size="small" color="text-black">
+        <span className="sg-visually-hidden" aria-live="polite">
+          {loading || isActionProvided
+            ? statusLabel?.loading || 'loading'
+            : statusLabel?.uploaded || 'uploaded'}
+        </span>
+        {isActionProvided ? (
+          <Link
+            {...clickProps}
+            size="small"
+            color="text-black"
+            role={role}
+            tabIndex="0"
+          >
             {children}
           </Link>
         ) : (
@@ -158,8 +206,12 @@ const FileHandler = ({
         )}
       </span>
       {onClose && (
-        <button className="sg-file-handler__close-button" onClick={onClose}>
-          <Icon type="close" size={16} color={ICON_COLOR['icon-black']} />
+        <button
+          className="sg-file-handler__close-button"
+          onClick={onClose}
+          aria-label={ariaCloseButtonLabel}
+        >
+          <Icon type="close" size={16} color="icon-black" />
         </button>
       )}
     </div>
