@@ -14,8 +14,8 @@ Hi 👋 Thanks for considering contributing! The aim of this doc is to guide you
 
 ### Requirements
 
-- [NodeJS](https://nodejs.org/en/) version 8+
-- [Yarn](https://yarnpkg.com)
+- [NodeJS](https://nodejs.org/en/) version >= 10.13.0
+- [Yarn](https://yarnpkg.com) >= 1.3.2
 
 ### Step by Step Guide
 
@@ -166,7 +166,8 @@ example:
 ### Adding logotypes
 
 1. Add new logo svg file to `src/images/logos`
-2. Now you can use file name as logo `type` prop in `Logo` component
+2. Update typings with new logo type using filename(without extension)
+3. Use new logo type as prop `type` in `Logo` component
 
 ## Technical Discipline
 
