@@ -6,7 +6,7 @@ import Flex, {
   FLEX_MARGINS,
 } from '../Flex';
 
-import Box, {COLOR} from '../../box/Box';
+import Box from '../../box/Box';
 import queryString from 'query-string';
 
 import DocsActiveBlock from 'components/DocsActiveBlock';

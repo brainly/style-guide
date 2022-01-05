@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Flex, {FLEX_DIRECTION, FLEX_MARGINS, FLEX_JUSTIFY_VALUES} from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
-import Box, {COLOR} from '../box/Box';
+import Box from '../box/Box';
 
 export default {
   title: 'Components/Flex',

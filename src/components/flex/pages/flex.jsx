@@ -4,7 +4,7 @@ import Flex, {FLEX_DIRECTION, FLEX_JUSTIFY_VALUES, FLEX_MARGINS} from '../Flex';
 
 import Text, {TEXT_SIZE} from '../../text/Text';
 import Link, {LINK_SIZE} from '../../text/Link';
-import Box, {COLOR} from '../../box/Box';
+import Box from '../../box/Box';
 import SeparatorHorizontal, {TYPE} from '../../separators/SeparatorHorizontal';
 
 const Flexbox = () => (
@@ -112,9 +112,7 @@ const Flexbox = () => (
           <Box color="blue-40">I am a flex element with margin bottom M</Box>
         </Flex>
         <Flex>
-          <Box color="blue-30">
-            I am a second flex element in the column
-          </Box>
+          <Box color="blue-30">I am a second flex element in the column</Box>
         </Flex>
       </Flex>
       <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
@@ -122,9 +120,7 @@ const Flexbox = () => (
           <Box color="blue-40">I am a flex element with margin right M</Box>
         </Flex>
         <Flex>
-          <Box color="blue-30">
-            I am a second flex element in the row
-          </Box>
+          <Box color="blue-30">I am a second flex element in the row</Box>
         </Flex>
       </Flex>
     </DocsBlock>

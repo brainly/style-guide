@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
 import Button from 'buttons/Button';
 
-import Box, {COLOR} from 'box/Box';
+import Box from 'box/Box';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
