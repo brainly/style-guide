@@ -47,7 +47,7 @@ test('borderColor', () => {
   );
   const box = shallow(boxComponent);
 
-  expect(box.hasClass('sg-box--border-green-40')).toEqual(true);
+  expect(box.hasClass('sg-box--border-color-green-40')).toEqual(true);
 });
 
 test('default padding', () => {

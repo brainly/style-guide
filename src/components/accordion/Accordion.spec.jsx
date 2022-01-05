@@ -148,7 +148,7 @@ describe('<Accordion>', () => {
         .find(Box)
         .at(0)
         .prop('borderColor')
-    ).toEqual('gray-secondary-lightest');
+    ).toEqual('gray-20');
   });
 
   it('by default expands items that have "defaultExpanded" prop', () => {
