@@ -19,6 +19,8 @@ export type IconTypeType =
   | 'bell_checked'
   | 'bell_outlined'
   | 'bold'
+  | 'bulb'
+  | 'bulb_checked'
   | 'bulleted_list'
   | 'calendar'
   | 'camera'
@@ -33,6 +35,7 @@ export type IconTypeType =
   | 'crown'
   | 'crown_outlined'
   | 'cup'
+  | 'envelope'
   | 'equation'
   | 'exclamation_mark'
   | 'facebook'
@@ -166,6 +169,8 @@ export const TYPE: {
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
   BOLD: 'bold',
+  BULB: 'bulb',
+  BULB_CHECKED: 'bulb_checked',
   BULLETED_LIST: 'bulleted_list',
   CALENDAR: 'calendar',
   CAMERA: 'camera',
@@ -180,6 +185,7 @@ export const TYPE: {
   CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
+  ENVELOPE: 'envelope',
   EQUATION: 'equation',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
@@ -295,6 +301,8 @@ export const TYPE: {
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
   BOLD: 'bold',
+  BULB: 'bulb',
+  BULB_CHECKED: 'bulb_checked',
   BULLETED_LIST: 'bulleted_list',
   CALENDAR: 'calendar',
   CAMERA: 'camera',
@@ -309,6 +317,7 @@ export const TYPE: {
   CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
+  ENVELOPE: 'envelope',
   EQUATION: 'equation',
   EXCLAMATION_MARK: 'exclamation_mark',
   FACEBOOK: 'facebook',
