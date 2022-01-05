@@ -9,7 +9,7 @@ Documentation is an esential part of this project. You can see its latest versio
 - Basics - colors, fonts, icons, simple components
 - Components - complex components
 - Containers - components that host other components
-- Interactive - new, interactive version of the style guide docs that we are experimenting with
+- Interactive - interactive version of the style guide docs that we are experimenting with
 
 ## How to use it
 
