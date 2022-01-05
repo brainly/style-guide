@@ -86,11 +86,19 @@ There is also Chromatic visual regression tool which uses storybook stories to r
 
 If you already have storybook stories, you can use them also for Chromatic. Run script:
 
-```
-$ node ./scripts/generate-chromatic-stories.js
+```bash
+$ node ./scripts/generate-chromatic-stories.js /path-to-your-storybook-file
 ```
 
-which looks for `{component_name}.stories.jsx` files and generates `{component_name}.chromatic.stories.jsx` for each of them(if not exists). Created files have single exported story(Default). You can extend it with chromatic specific stories if needed.
+It will generate script for Chromatic. That script just use existing component storybook stories, but you can modify it to omit or add some extra stories. Run storybook locally to check stories seen by Chromatic:
+
+```bash
+$ yarn storybook-chromatic
+```
+
+Then commit file and check Github PR to see Chromatic check status.
+
+You can find more details how to work with Chromatic [Confluence(INTERNAL)](https://brainly.atlassian.net/wiki/spaces/DesignSystem/pages/939786571/Chromatic+in+the+Style+Guide)
 
 ### Importing Dependencies
 
@@ -209,3 +217,21 @@ Following headlines should be used in release notes:
 
 All linter settings are based on our standarized [frontend tools configs](https://github.com/brainly/frontend-tools-configs/).
 To run the linters (and tests) you should use `yarn test`.
+
+If you want to enable auto-formatting in VSCode, install eslint plugin and add this to your workspace settings(`.vscode/settings.json`):
+
+```json
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+Prettier rules are used by eslint config, however we don't recomment using VSCode prettier plugin because it may interfere with eslint and sasslint. If you already have it installed, you can add this to your `.vscode/settings.json` to disable plugin for styleguide workspace:
+
+```json
+{
+  "prettier.enable": false
+}
+```
