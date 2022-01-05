@@ -93,7 +93,7 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--mint-20')).toBe(true);
+    expect(label.hasClass('sg-label--green-20')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-black');
     expect(label.find(Text).prop('color')).toBe('text-black');
