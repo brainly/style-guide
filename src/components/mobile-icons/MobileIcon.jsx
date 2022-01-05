@@ -17,6 +17,7 @@ export type IconTypeType =
   | 'crown'
   | 'crown_outlined'
   | 'cup'
+  | 'cursor_select'
   | 'filters'
   | 'flashlight_off'
   | 'flashlight_on'
@@ -65,6 +66,7 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
+  CURSOR_SELECT: 'cursor_select',
   FILTERS: 'filters',
   FLASHLIGHT_OFF: 'flashlight_off',
   FLASHLIGHT_ON: 'flashlight_on',

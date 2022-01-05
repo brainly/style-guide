@@ -133,6 +133,7 @@ const iconMap = {
     'arrow_right',
     'arrow_up',
     'close',
+    'cursor_select',
     'fullscreen',
     'less',
     'logout',
