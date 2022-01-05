@@ -16,25 +16,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="default">
+          <Label color="green" type="default">
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="default">
+          <Label color="indigo" type="default">
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="default">
+          <Label color="red" type="default">
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="default">
+          <Label color="yellow" type="default">
             {' '}
             label
           </Label>
@@ -57,25 +57,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="default" onClose={closeCallback}>
+          <Label color="green" type="default" onClose={closeCallback}>
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="default" onClose={closeCallback}>
+          <Label color="indigo" type="default" onClose={closeCallback}>
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="default" onClose={closeCallback}>
+          <Label color="red" type="default" onClose={closeCallback}>
             {' '}
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="default" onClose={closeCallback}>
+          <Label color="yellow" type="default" onClose={closeCallback}>
             {' '}
             label
           </Label>
@@ -101,25 +101,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="default" iconType="heart">
+          <Label color="green" type="default" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="default" iconType="heart">
+          <Label color="indigo" type="default" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="peach" type="default" iconType="heart">
+          <Label color="red" type="default" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="default" iconType="heart">
+          <Label color="yellow" type="default" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -150,7 +150,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mint"
+            color="green"
             type="default"
             iconType="heart"
             onClose={closeCallback}
@@ -160,7 +160,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="lavender"
+            color="indigo"
             type="default"
             iconType="heart"
             onClose={closeCallback}
@@ -170,7 +170,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="peach"
+            color="red"
             type="default"
             iconType="heart"
             onClose={closeCallback}
@@ -180,7 +180,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mustard"
+            color="yellow"
             type="default"
             iconType="heart"
             onClose={closeCallback}
@@ -215,22 +215,22 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="solid">
+          <Label color="green" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="solid">
+          <Label color="indigo" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="solid">
+          <Label color="red" type="solid">
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="solid">
+          <Label color="yellow" type="solid">
             label
           </Label>
           <br />
@@ -250,22 +250,22 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="solid" onClose={closeCallback}>
+          <Label color="green" type="solid" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="solid" onClose={closeCallback}>
+          <Label color="indigo" type="solid" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="solid" onClose={closeCallback}>
+          <Label color="red" type="solid" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="solid" onClose={closeCallback}>
+          <Label color="yellow" type="solid" onClose={closeCallback}>
             label
           </Label>
           <br />
@@ -288,25 +288,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="solid" iconType="heart">
+          <Label color="green" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="solid" iconType="heart">
+          <Label color="indigo" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="peach" type="solid" iconType="heart">
+          <Label color="red" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="solid" iconType="heart">
+          <Label color="yellow" type="solid" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -337,7 +337,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mint"
+            color="green"
             type="solid"
             iconType="heart"
             onClose={closeCallback}
@@ -347,7 +347,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="lavender"
+            color="indigo"
             type="solid"
             iconType="heart"
             onClose={closeCallback}
@@ -357,7 +357,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="peach"
+            color="red"
             type="solid"
             iconType="heart"
             onClose={closeCallback}
@@ -367,7 +367,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mustard"
+            color="yellow"
             type="solid"
             iconType="heart"
             onClose={closeCallback}
@@ -402,22 +402,22 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent">
+          <Label color="green" type="transparent">
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="transparent">
+          <Label color="indigo" type="transparent">
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent">
+          <Label color="red" type="transparent">
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="transparent">
+          <Label color="yellow" type="transparent">
             label
           </Label>
           <br />
@@ -437,22 +437,22 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent" onClose={closeCallback}>
+          <Label color="green" type="transparent" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="transparent" onClose={closeCallback}>
+          <Label color="indigo" type="transparent" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent" onClose={closeCallback}>
+          <Label color="red" type="transparent" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="transparent" onClose={closeCallback}>
+          <Label color="yellow" type="transparent" onClose={closeCallback}>
             label
           </Label>
           <br />
@@ -475,25 +475,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent" iconType="heart">
+          <Label color="green" type="transparent" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="transparent" iconType="heart">
+          <Label color="indigo" type="transparent" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent" iconType="heart">
+          <Label color="red" type="transparent" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="transparent" iconType="heart">
+          <Label color="yellow" type="transparent" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -524,7 +524,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mint"
+            color="green"
             type="transparent"
             iconType="heart"
             onClose={closeCallback}
@@ -534,7 +534,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="lavender"
+            color="indigo"
             type="transparent"
             iconType="heart"
             onClose={closeCallback}
@@ -544,7 +544,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="peach"
+            color="red"
             type="transparent"
             iconType="heart"
             onClose={closeCallback}
@@ -554,7 +554,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mustard"
+            color="yellow"
             type="transparent"
             iconType="heart"
             onClose={closeCallback}
@@ -589,22 +589,22 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent-color">
+          <Label color="green" type="transparent-color">
             label
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="transparent-color">
+          <Label color="indigo" type="transparent-color">
             label
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent-color">
+          <Label color="red" type="transparent-color">
             label
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="transparent-color">
+          <Label color="yellow" type="transparent-color">
             label
           </Label>
           <br />
@@ -624,13 +624,13 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent-color" onClose={closeCallback}>
+          <Label color="green" type="transparent-color" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
           <Label
-            color="lavender"
+            color="indigo"
             type="transparent-color"
             onClose={closeCallback}
           >
@@ -638,13 +638,13 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent-color" onClose={closeCallback}>
+          <Label color="red" type="transparent-color" onClose={closeCallback}>
             label
           </Label>
           <br />
           <br />
           <Label
-            color="mustard"
+            color="yellow"
             type="transparent-color"
             onClose={closeCallback}
           >
@@ -670,25 +670,25 @@ const Labels = () => (
           </Label>
           <br />
           <br />
-          <Label color="mint" type="transparent-color" iconType="heart">
+          <Label color="green" type="transparent-color" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="lavender" type="transparent-color" iconType="heart">
+          <Label color="indigo" type="transparent-color" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="peach" type="transparent-color" iconType="heart">
+          <Label color="red" type="transparent-color" iconType="heart">
             {' '}
             label with icon
           </Label>
           <br />
           <br />
-          <Label color="mustard" type="transparent-color" iconType="heart">
+          <Label color="yellow" type="transparent-color" iconType="heart">
             {' '}
             label with icon
           </Label>
@@ -719,7 +719,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mint"
+            color="green"
             type="transparent-color"
             iconType="heart"
             onClose={closeCallback}
@@ -729,7 +729,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="lavender"
+            color="indigo"
             type="transparent-color"
             iconType="heart"
             onClose={closeCallback}
@@ -739,7 +739,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="peach"
+            color="red"
             type="transparent-color"
             iconType="heart"
             onClose={closeCallback}
@@ -749,7 +749,7 @@ const Labels = () => (
           <br />
           <br />
           <Label
-            color="mustard"
+            color="yellow"
             type="transparent-color"
             iconType="heart"
             onClose={closeCallback}
