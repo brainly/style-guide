@@ -3,7 +3,7 @@ import DocsBlock from 'components/DocsBlock';
 import SpinnerContainer, {SPINNER_SIZE} from '../SpinnerContainer';
 import Button from 'buttons/Button';
 
-import Box, {COLOR} from 'box/Box';
+import Box from 'box/Box';
 import ContentBox from 'content-box/ContentBox';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
@@ -73,9 +73,7 @@ const SpinnerContainers = () => (
 
     <DocsBlock info="with Box" additionalInfo="color white">
       <SpinnerContainer loading color="white">
-        <Box color={COLOR.blueSecondary}>
-          blue-secondary (no border by default)
-        </Box>
+        <Box color="blue-30">blue-secondary (no border by default)</Box>
       </SpinnerContainer>
     </DocsBlock>
   </div>

@@ -11,7 +11,7 @@ export default {
   component: SpinnerContainer,
   args: {
     children: (
-      <Box color="mint-secondary-light">
+      <Box color="green-20">
         Any component could be wrapped into spinner container.
       </Box>
     ),
@@ -39,7 +39,7 @@ export const Colors = args => (
 export const FullWidth = args => (
   <StoryVariantBorderBox>
     <SpinnerContainer {...args} loading fullWidth>
-      <Box color="mint-secondary-light">Full width</Box>
+      <Box color="green-20">Full width</Box>
     </SpinnerContainer>
   </StoryVariantBorderBox>
 );

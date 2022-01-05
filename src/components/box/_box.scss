@@ -1,6 +1,3 @@
-$boxBorderColor: $gray-20;
-$boxColorDark: $gray-40;
-$boxColorLight: $white;
 $boxBorderSize: 2px;
 
 $includeHtml: false !default;
@@ -11,7 +8,7 @@ $includeHtml: false !default;
     border-radius: $borderRadiusDefault;
 
     &--border {
-      border: $boxBorderSize solid $boxBorderColor;
+      border: $boxBorderSize solid $gray-20;
     }
 
     &--shadow {
@@ -70,156 +67,166 @@ $includeHtml: false !default;
       padding: (spacing(xl) - $boxBorderSize);
     }
 
-    &--mint {
-      background-color: $green-40;
+    // Background colors
+    &--transparent {
+      background-color: transparent;
     }
 
-    &--mint-secondary {
-      background-color: $green-30;
+    &--white {
+      background: $white;
     }
 
-    &--mint-secondary-light {
-      background-color: $green-20;
+    &--gray-40 {
+      background: $gray-40;
     }
 
-    &--mint-secondary-ultra-light {
-      background-color: $green-10;
-    }
-
-    &--blue {
-      background-color: $blue-40;
-    }
-
-    &--blue-secondary {
-      background-color: $blue-30;
-    }
-
-    &--blue-secondary-light {
-      background-color: $blue-20;
-    }
-
-    &--lavender {
-      background-color: $indigo-40;
-    }
-
-    &--lavender-secondary-ultra-light {
-      background-color: $indigo-10;
-    }
-
-    &--lavender-secondary-light {
-      background-color: $indigo-20;
-    }
-
-    &--dark {
-      background: $boxColorDark;
-    }
-
-    &--light {
-      background: $boxColorLight;
-    }
-
-    &--peach {
-      background-color: $red-40;
-    }
-
-    &--peach-secondary {
-      background-color: $red-30;
-    }
-
-    &--peach-secondary-light {
-      background-color: $red-20;
-    }
-
-    &--mustard-primary {
-      background-color: $yellow-40;
-    }
-
-    &--mustard-secondary-light {
-      background-color: $yellow-20;
-    }
-
-    &--gray-secondary-lightest {
+    &--gray-20 {
       background-color: $gray-20;
     }
 
-    &--gray-secondary-ultra-light {
+    &--gray-10 {
       background-color: $gray-10;
     }
 
-    &--border-color-mint {
-      border-color: $green-40;
+    &--blue-40 {
+      background-color: $blue-40;
     }
 
-    &--border-color-mint-secondary {
-      border-color: $green-30;
+    &--blue-30 {
+      background-color: $blue-30;
     }
 
-    &--border-color-mint-secondary-light {
-      border-color: $green-20;
+    &--blue-20 {
+      background-color: $blue-20;
     }
 
-    &--border-color-mint-secondary-ultra-light {
-      border-color: $green-10;
+    &--green-40 {
+      background-color: $green-40;
     }
 
-    &--border-color-blue {
-      border-color: $blue-40;
+    &--green-30 {
+      background-color: $green-30;
     }
 
-    &--border-color-blue-secondary {
-      border-color: $blue-30;
+    &--green-20 {
+      background-color: $green-20;
     }
 
-    &--border-color-blue-secondary-light {
-      border-color: $blue-20;
+    &--green-10 {
+      background-color: $green-10;
     }
 
-    &--border-color-lavender {
-      border-color: $indigo-40;
+    &--indigo-40 {
+      background-color: $indigo-40;
     }
 
-    &--border-color-lavender-secondary-ultra-light {
-      border-color: $indigo-10;
+    &--indigo-20 {
+      background-color: $indigo-20;
     }
 
-    &--border-color-lavender-secondary-light {
-      border-color: $indigo-20;
+    &--indigo-10 {
+      background-color: $indigo-10;
     }
 
-    &--border-color-dark {
-      border-color: $boxColorDark;
+    &--red-40 {
+      background-color: $red-40;
     }
 
-    &--border-color-light {
-      border-color: $boxColorLight;
+    &--red-30 {
+      background-color: $red-30;
     }
 
-    &--border-color-peach {
-      border-color: $red-40;
+    &--red-20 {
+      background-color: $red-20;
     }
 
-    &--border-color-peach-secondary {
-      border-color: $red-30;
+    &--yellow-40 {
+      background-color: $yellow-40;
     }
 
-    &--border-color-peach-secondary-light {
-      border-color: $red-20;
+    &--yellow-20 {
+      background-color: $yellow-20;
     }
 
-    &--border-color-mustard-primary {
-      border-color: $yellow-40;
+    // Border colors
+    &--border-color-transparent {
+      border-color: transparent;
     }
 
-    &--border-color-mustard-secondary-light {
-      border-color: $yellow-20;
+    &--border-color-white {
+      border-color: $white;
     }
 
-    &--border-color-gray-secondary-lightest {
+    &--border-color-gray-40 {
+      border-color: $gray-40;
+    }
+
+    &--border-color-gray-20 {
       border-color: $gray-20;
     }
 
-    &--border-color-gray-secondary-ultra-light {
+    &--border-color-gray-10 {
       border-color: $gray-10;
+    }
+
+    &--border-color-blue-40 {
+      border-color: $blue-40;
+    }
+
+    &--border-color-blue-30 {
+      border-color: $blue-30;
+    }
+
+    &--border-color-blue-20 {
+      border-color: $blue-20;
+    }
+
+    &--border-color-green-40 {
+      border-color: $green-40;
+    }
+
+    &--border-color-green-30 {
+      border-color: $green-30;
+    }
+
+    &--border-color-green-20 {
+      border-color: $green-20;
+    }
+
+    &--border-color-green-10 {
+      border-color: $green-10;
+    }
+
+    &--border-color-indigo-40 {
+      border-color: $indigo-40;
+    }
+
+    &--border-color-indigo-20 {
+      border-color: $indigo-20;
+    }
+
+    &--border-color-indigo-10 {
+      border-color: $indigo-10;
+    }
+
+    &--border-color-red-40 {
+      border-color: $red-40;
+    }
+
+    &--border-color-red-30 {
+      border-color: $red-30;
+    }
+
+    &--border-color-red-20 {
+      border-color: $red-20;
+    }
+
+    &--border-color-yellow-40 {
+      border-color: $yellow-40;
+    }
+
+    &--border-color-yellow-20 {
+      border-color: $yellow-20;
     }
   }
 }

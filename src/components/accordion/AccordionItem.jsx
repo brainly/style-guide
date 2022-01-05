@@ -160,9 +160,9 @@ const AccordionItem = ({
 
   return (
     <Box
-      color="light"
+      color="white"
       border
-      borderColor={isBorderHighlighted ? 'dark' : 'gray-secondary-lightest'}
+      borderColor={isBorderHighlighted ? 'gray-40' : 'gray-20'}
       className={cx(
         'sg-accordion-item',
         {

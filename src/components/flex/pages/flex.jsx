@@ -4,7 +4,7 @@ import Flex, {FLEX_DIRECTION, FLEX_JUSTIFY_VALUES, FLEX_MARGINS} from '../Flex';
 
 import Text, {TEXT_SIZE} from '../../text/Text';
 import Link, {LINK_SIZE} from '../../text/Link';
-import Box, {COLOR} from '../../box/Box';
+import Box from '../../box/Box';
 import SeparatorHorizontal, {TYPE} from '../../separators/SeparatorHorizontal';
 
 const Flexbox = () => (
@@ -109,22 +109,18 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.blue}>I am a flex element with margin bottom M</Box>
+          <Box color="blue-40">I am a flex element with margin bottom M</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>
-            I am a second flex element in the column
-          </Box>
+          <Box color="blue-30">I am a second flex element in the column</Box>
         </Flex>
       </Flex>
       <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.blue}>I am a flex element with margin right M</Box>
+          <Box color="blue-40">I am a flex element with margin right M</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>
-            I am a second flex element in the row
-          </Box>
+          <Box color="blue-30">I am a second flex element in the row</Box>
         </Flex>
       </Flex>
     </DocsBlock>
@@ -136,10 +132,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex>
-          <Box color={COLOR.blue}>space between</Box>
+          <Box color="blue-40">space between</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>space between</Box>
+          <Box color="blue-30">space between</Box>
         </Flex>
       </Flex>
       <Flex
@@ -149,10 +145,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex>
-          <Box color={COLOR.blue}>space around</Box>
+          <Box color="blue-40">space around</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>space around</Box>
+          <Box color="blue-30">space around</Box>
         </Flex>
       </Flex>
       <Flex
@@ -162,10 +158,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.blue}>flex start</Box>
+          <Box color="blue-40">flex start</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>flex start</Box>
+          <Box color="blue-30">flex start</Box>
         </Flex>
       </Flex>
       <Flex
@@ -175,10 +171,10 @@ const Flexbox = () => (
         fullWidth
       >
         <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color={COLOR.blue}>flex end</Box>
+          <Box color="blue-40">flex end</Box>
         </Flex>
         <Flex>
-          <Box color={COLOR.blueSecondary}>flex end</Box>
+          <Box color="blue-30">flex end</Box>
         </Flex>
       </Flex>
     </DocsBlock>
