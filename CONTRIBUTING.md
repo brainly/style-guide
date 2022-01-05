@@ -14,8 +14,8 @@ Hi 👋 Thanks for considering contributing! The aim of this doc is to guide you
 
 ### Requirements
 
-- [NodeJS](https://nodejs.org/en/) version 8+
-- [Yarn](https://yarnpkg.com)
+- [NodeJS](https://nodejs.org/en/) version >= 10.13.0
+- [Yarn](https://yarnpkg.com) >= 1.3.2
 
 ### Step by Step Guide
 
@@ -86,11 +86,19 @@ There is also Chromatic visual regression tool which uses storybook stories to r
 
 If you already have storybook stories, you can use them also for Chromatic. Run script:
 
-```
-$ node ./scripts/generate-chromatic-stories.js
+```bash
+$ node ./scripts/generate-chromatic-stories.js /path-to-your-storybook-file
 ```
 
-which looks for `{component_name}.stories.jsx` files and generates `{component_name}.chromatic.stories.jsx` for each of them(if not exists). Created files have single exported story(Default). You can extend it with chromatic specific stories if needed.
+It will generate script for Chromatic. That script just use existing component storybook stories, but you can modify it to omit or add some extra stories. Run storybook locally to check stories seen by Chromatic:
+
+```bash
+$ yarn storybook-chromatic
+```
+
+Then commit file and check Github PR to see Chromatic check status.
+
+You can find more details how to work with Chromatic [Confluence(INTERNAL)](https://brainly.atlassian.net/wiki/spaces/DesignSystem/pages/939786571/Chromatic+in+the+Style+Guide)
 
 ### Importing Dependencies
 
@@ -166,7 +174,8 @@ example:
 ### Adding logotypes
 
 1. Add new logo svg file to `src/images/logos`
-2. Now you can use file name as logo `type` prop in `Logo` component
+2. Update typings with new logo type using filename(without extension)
+3. Use new logo type as prop `type` in `Logo` component
 
 ## Technical Discipline
 
