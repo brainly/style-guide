@@ -1,18 +1,15 @@
-![Brainly Style Guide](https://i.imgur.com/mnmDILk.png)
-
-[![Build Status](https://travis-ci.org/brainly/style-guide.svg)](https://travis-ci.org/brainly/style-guide)
-[![Dependency Status](https://david-dm.org/brainly/style-guide.svg)](https://david-dm.org/brainly/style-guide)
-[![devDependency Status](https://david-dm.org/brainly/style-guide/dev-status.svg)](https://david-dm.org/brainly/style-guide#info=devDependencies)
+![Brainly Style Guide](cover.png)
 
 This project is a living style guide of all basic front-end components used at Brainly.
 
 ## Documentation
 
 Documentation is an esential part of this project. You can see its latest version on [styleguide.brainly.com](https://styleguide.brainly.com). New version of the docs is deployed with every merge to master. You can also browse older versions by changing version number in the URL. Documentation is splitted into four sections:
-  * Basics - colors, fonts, icons, simple components
-  * Components - complex components
-  * Containers - components that host other components
-  * Interactive - new, interactive version of the style guide docs that we are experimenting with
+
+- Basics - colors, fonts, icons, simple components
+- Components - complex components
+- Containers - components that host other components
+- Interactive - interactive version of the style guide docs that we are experimenting with
 
 ## How to use it
 
@@ -22,22 +19,19 @@ All components can be used in both HTML and JSX. In both cases you have to inclu
 
 We officially support the following browsers (based on real user trafic from our analytics):
 
-| Browser | Versions  | Total share in global traffic |
-| ---- | ---- | ---- |
-| Google Chrome | 28+ | 60.77% |
-| Safari | 7+ | 12.52% |
-| Samsung Internet | 1.1+ | 3.99% |
-| YaBrowser | 15+ | 3.99% |
-| Android Webview | 30+ | 3.85% |
-| Firefox | 42+ | 3.32% |
-| UCBrowser | 8+ | 2.90% |
-| Android Browser | 4.0+ | 2.11% |
-| Opera | 33+ | 2.06% |
-| Opera Mini | 7+ | 1.29% |
-| Edge | 12+ | 1.28% |
-| Internet Explorer | 11+ | 1.05% |
-
-Last updated: 19.12.2017
+| Browser           | Versions |
+| ----------------- | -------- |
+| Google Chrome     | 28+      |
+| Safari            | 7+       |
+| Samsung Internet  | 1.1+     |
+| YaBrowser         | 15+      |
+| Android Webview   | 30+      |
+| Firefox           | 42+      |
+| UCBrowser         | 8+       |
+| Android Browser   | 4.0+     |
+| Opera             | 33+      |
+| Opera Mini        | 7+       |
+| Edge              | 12+      |
 
 Note: You can find all recent stats in [our analytics](https://analytics.google.com/analytics/web/#report/visitors-browser/a85994882w128325453p132056054/) (INTERNAL)
 
