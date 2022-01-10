@@ -12,6 +12,7 @@ const SOURCE_DIR = path.join(__dirname, 'src');
 const DIST_DIR = path.join(__dirname, 'dist');
 const VERSIONED_DIST_DIR = path.join(DIST_DIR, VERSION);
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
+const SOURCE_DOCS2_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
@@ -94,6 +95,16 @@ module.exports = () => {
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
               'react-hot-loader/babel',
+              '@babel/plugin-syntax-dynamic-import',
+              ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
+              'babel-plugin-macros',
+              'babel-plugin-add-react-displayname',
+              [
+                'babel-plugin-react-docgen',
+                {
+                  DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+                },
+              ],
             ],
             env: {
               test: {
@@ -101,6 +112,7 @@ module.exports = () => {
               },
             },
           },
+          exclude: [/node_modules/],
         },
         {
           test: /\.scss$/,
@@ -155,6 +167,7 @@ module.exports = () => {
       modules: [
         SOURCE_COMPONENTS_DIR,
         SOURCE_DOCS_DIR,
+        SOURCE_DOCS2_DIR,
         path.join(SOURCE_DIR, 'images'),
         'node_modules',
       ],
