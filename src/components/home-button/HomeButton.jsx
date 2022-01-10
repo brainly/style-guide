@@ -27,7 +27,7 @@ const HomeButton = ({
   type = TYPE.BRAINLY,
   href = '#',
   className,
-  alt,
+  alt = '',
   'aria-label': ariaLabel,
   ...props
 }: HomeButtonPropsType) => {
