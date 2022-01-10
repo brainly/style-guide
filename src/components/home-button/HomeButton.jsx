@@ -18,7 +18,8 @@ export type HomeButtonPropsType = {
   type?: LogoTypeType,
   href?: string,
   className?: string,
-  altTag?: string,
+  alt?: string,
+  'aria-label'?: string,
   ...
 };
 
@@ -26,7 +27,8 @@ const HomeButton = ({
   type = TYPE.BRAINLY,
   href = '#',
   className,
-  altTag,
+  alt,
+  'aria-label': ariaLabel,
   ...props
 }: HomeButtonPropsType) => {
   const buttonClass = classnames(
@@ -40,14 +42,17 @@ const HomeButton = ({
   // $FlowFixMe - some icons are missing, we will investigate why
   const mobilePath = `${getLogoUrl(ICONS[type])}`;
 
+  const defaultAriaLabel = `${type.replace(/-/g, ' ')} home`;
+
   return (
-    <a {...props} href={href} className={buttonClass}>
-      <img
-        className="sg-home-button__logo-small"
-        src={mobilePath}
-        alt={altTag}
-      />
-      <img className="sg-home-button__logo-big" src={logoPath} alt={altTag} />
+    <a
+      {...props}
+      href={href}
+      className={buttonClass}
+      aria-label={ariaLabel || defaultAriaLabel}
+    >
+      <img className="sg-home-button__logo-small" src={mobilePath} alt={alt} />
+      <img className="sg-home-button__logo-big" src={logoPath} alt={alt} />
     </a>
   );
 };
