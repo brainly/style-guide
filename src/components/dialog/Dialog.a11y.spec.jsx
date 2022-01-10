@@ -15,7 +15,7 @@ describe('Dialog a11y', () => {
     const onDismiss = jest.fn();
 
     await testA11y(
-      <Dialog open labelledBy={headerId}>
+      <Dialog open aria-labelledby={headerId}>
         <DialogCloseButton onClick={onDismiss} />
         <DialogHeader id={headerId}>Header</DialogHeader>
         <DialogBody>Information you provide to us directly.</DialogBody>
@@ -26,7 +26,7 @@ describe('Dialog a11y', () => {
   it('has "dialog" role and aria-modal', async () => {
     const label = 'Dialog label';
     const dialog = render(
-      <Dialog open label={label}>
+      <Dialog open aria-label={label}>
         content text
       </Dialog>
     );
@@ -39,7 +39,7 @@ describe('Dialog a11y', () => {
   it('is described by <DialogBody/> ', async () => {
     const descId = 'desc-id';
     const dialog = render(
-      <Dialog open describedBy={descId} label="Dialog label">
+      <Dialog open aria-describedby={descId} aria-label="Dialog label">
         <DialogBody id={descId}>
           Information you provide to us directly.
         </DialogBody>
@@ -56,7 +56,7 @@ describe('Dialog a11y', () => {
   it('moves focus to first tabbable element when opens', async () => {
     const buttonText = 'button';
     const dialog = render(
-      <Dialog open label="Dialog label">
+      <Dialog open aria-label="Dialog label">
         <button id="button">{buttonText}</button>
       </Dialog>
     );
@@ -66,7 +66,7 @@ describe('Dialog a11y', () => {
 
   it('has focus when it opens and there are no children', async () => {
     const dialog = render(
-      <Dialog open label="Dialog label">
+      <Dialog open aria-label="Dialog label">
         content text
       </Dialog>
     );
