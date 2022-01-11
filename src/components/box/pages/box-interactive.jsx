@@ -43,7 +43,7 @@ const Boxes = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Box color="mint-secondary-light" {...urlParams}>
+        <Box color="green-20" {...urlParams}>
           <Flex>
             <Flex marginRight="s">
               <Icon type="verified" color="adaptive" />

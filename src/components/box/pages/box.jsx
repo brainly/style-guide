@@ -60,14 +60,14 @@ const Boxes = () => (
           .reverse()
           .map(padding => (
             <Flex key={padding} marginRight="s" marginBottom="s">
-              <Box color="peach-secondary-light" padding={padding}>
+              <Box color="red-20" padding={padding}>
                 <Text size="small">Padding {padding}</Text>
               </Box>
             </Flex>
           ))}
 
         <Flex marginRight="s" marginBottom="s">
-          <Box color="peach-secondary-light" padding={null}>
+          <Box color="red-20" padding={null}>
             <Text size="small">No padding</Text>
           </Box>
         </Flex>
@@ -77,7 +77,7 @@ const Boxes = () => (
     <DocsBlock info="No border radius">
       <Flex wrap>
         <Flex marginRight="s" marginBottom="s">
-          <Box color="blue-secondary-light" noBorderRadius>
+          <Box color="blue-20" noBorderRadius>
             <Text size="small">No border radius</Text>
           </Box>
         </Flex>
@@ -85,7 +85,7 @@ const Boxes = () => (
     </DocsBlock>
 
     <DocsBlock info="Example usage">
-      <Box color="mint-secondary-light">
+      <Box color="green-20">
         <Flex>
           <Flex marginRight="s">
             <Icon type="verified" color="adaptive" />

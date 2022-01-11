@@ -22,7 +22,7 @@ export default {
   args: {
     children: (
       <Flex fullHeight alignItems="center">
-        <Box color="light">content example</Box>
+        <Box color="white">content example</Box>
       </Flex>
     ),
   },

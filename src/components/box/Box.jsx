@@ -3,48 +3,49 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-// TODO get list of colors from design team
 type ColorType =
-  | 'dark'
-  | 'light'
-  | 'blue'
-  | 'lavender'
-  | 'lavender-secondary-light'
-  | 'lavender-secondary-ultra-light'
-  | 'mint'
-  | 'mint-secondary'
-  | 'mint-secondary-light'
-  | 'mint-secondary-ultra-light'
-  | 'blue-secondary'
-  | 'blue-secondary-light'
-  | 'gray-secondary-lightest'
-  | 'gray-secondary-ultra-light'
-  | 'mustard-primary'
-  | 'mustard-secondary-light'
-  | 'peach'
-  | 'peach-secondary'
-  | 'peach-secondary-light';
+  | 'transparent'
+  | 'white'
+  | 'gray-40'
+  | 'gray-20'
+  | 'gray-10'
+  | 'blue-40'
+  | 'blue-30'
+  | 'blue-20'
+  | 'green-40'
+  | 'green-30'
+  | 'green-20'
+  | 'green-10'
+  | 'indigo-40'
+  | 'indigo-20'
+  | 'indigo-10'
+  | 'red-40'
+  | 'red-30'
+  | 'red-20'
+  | 'yellow-40'
+  | 'yellow-20';
 
 export const COLOR = {
-  dark: 'dark',
-  light: 'light',
-  blue: 'blue',
-  lavender: 'lavender',
-  lavenderSecondaryLight: 'lavender-secondary-light',
-  lavenderSecondaryUltraLight: 'lavender-secondary-ultra-light',
-  mint: 'mint',
-  mintSecondary: 'mint-secondary',
-  mindSecondaryLight: 'mint-secondary-light',
-  mintSecondaryUltraLight: 'mint-secondary-ultra-light',
-  blueSecondary: 'blue-secondary',
-  blueSecondaryLight: 'blue-secondary-light',
-  graySecondaryLightest: 'gray-secondary-lightest',
-  graySecondaryUltraLight: 'gray-secondary-ultra-light',
-  mustardPrimary: 'mustard-primary',
-  mustardSecondaryLight: 'mustard-secondary-light',
-  peach: 'peach',
-  peachSecondary: 'peach-secondary',
-  peachSecondaryLight: 'peach-secondary-light',
+  transparent: 'transparent',
+  white: 'white',
+  'gray-40': 'gray-40',
+  'gray-20': 'gray-20',
+  'gray-10': 'gray-10',
+  'blue-40': 'blue-40',
+  'blue-30': 'blue-30',
+  'blue-20': 'blue-20',
+  'green-40': 'green-40',
+  'green-30': 'green-30',
+  'green-20': 'green-20',
+  'green-10': 'green-10',
+  'indigo-40': 'indigo-40',
+  'indigo-20': 'indigo-20',
+  'indigo-10': 'indigo-10',
+  'red-40': 'red-40',
+  'red-30': 'red-30',
+  'red-20': 'red-20',
+  'yellow-40': 'yellow-40',
+  'yellow-20': 'yellow-20',
 };
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
@@ -72,7 +73,7 @@ export type BoxPropsType = {
 
   /**
    * Box background color
-   * @example <Box color="mint-secondary">Text on a mint background</Box>
+   * @example <Box color="green-30">Text on a 'green-30' background</Box>
    */
   color?: ?ColorType,
 
@@ -105,7 +106,7 @@ export type BoxPropsType = {
 
   /**
    * Border color (works only with `border` prop)
-   * @example <Box border borderColor="mint">Text inside Box with mint border</Box>
+   * @example <Box border borderColor="green-40">Text inside Box with 'green-40' border</Box>
    */
   borderColor?: ?ColorType,
   ...
@@ -125,10 +126,10 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
     {
       children,
       className,
-      color,
+      color = COLOR.transparent,
       padding = 'm',
       border = false,
-      borderColor = 'gray-secondary-lightest',
+      borderColor = COLOR['gray-20'],
       noBorderRadius = false,
       shadow = false,
       ...props

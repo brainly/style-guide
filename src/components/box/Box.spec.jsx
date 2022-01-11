@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 
-import Box, {COLOR, PADDING} from './Box';
+import Box, {PADDING} from './Box';
 
 test('render', () => {
   const box = shallow(<Box>some text</Box>);
@@ -10,9 +10,9 @@ test('render', () => {
 });
 
 test('colors', () => {
-  const box = shallow(<Box color={COLOR.mint}>some text</Box>);
+  const box = shallow(<Box color="green-40">some text</Box>);
 
-  expect(box.hasClass(`sg-box--mint`)).toEqual(true);
+  expect(box.hasClass(`sg-box--green-40`)).toEqual(true);
 });
 
 test('shadow', () => {
@@ -41,13 +41,13 @@ test('border', () => {
 
 test('borderColor', () => {
   const boxComponent = (
-    <Box border borderColor={COLOR.mint}>
+    <Box border borderColor="green-40">
       some text
     </Box>
   );
   const box = shallow(boxComponent);
 
-  expect(box.hasClass('sg-box--border-color-mint')).toEqual(true);
+  expect(box.hasClass('sg-box--border-color-green-40')).toEqual(true);
 });
 
 test('default padding', () => {

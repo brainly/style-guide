@@ -21,7 +21,7 @@ const ShadowsUtils = () => (
       Set component box shadow
       <CodeBlock type="css">{'.sg-shadow-{small, medium, large}'}</CodeBlock>
       <DocsActiveBlock topSpace settings={responsiveSettings}>
-        <Box padding="xl" style={{width: 'auto', background: 'white'}} />
+        <Box padding="xl" color="white" style={{width: 'auto'}} />
       </DocsActiveBlock>
     </DocsBlock>
   </div>

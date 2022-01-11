@@ -71,15 +71,4 @@ describe('FileHandler', () => {
     expect(fileHandler.find(Spinner)).toHaveLength(1);
     expect(fileHandler.find(Icon)).toHaveLength(0);
   });
-
-  test('passes onClick when onClick and thumbnailSrc', () => {
-    const fileHandler = shallow(
-      <FileHandler onClick={mockCallback} thumbnailSrc="thumbnailSrc">
-        example text
-      </FileHandler>
-    );
-
-    expect(fileHandler.find('img').prop('onClick')).toBe(mockCallback);
-    expect(fileHandler.find(Icon)).toHaveLength(0);
-  });
 });

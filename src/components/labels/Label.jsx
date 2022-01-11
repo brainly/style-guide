@@ -8,10 +8,10 @@ import type {IconTypeType} from '../icons/Icon';
 
 export type LabelColorType =
   | 'blue'
-  | 'mint'
-  | 'lavender'
-  | 'peach'
-  | 'mustard'
+  | 'green'
+  | 'indigo'
+  | 'red'
+  | 'yellow'
   | 'gray'
   | 'achromatic';
 
@@ -34,92 +34,91 @@ export const LABEL_TYPE: {
 };
 
 export const COLORS_SOLID_MAP: {
-  blue: 'blue-primary',
-  mint: 'mint-primary',
-  lavender: 'lavender-primary',
-  peach: 'peach-primary',
-  mustard: 'mustard-primary',
-  gray: 'gray-secondary',
+  blue: 'blue-50',
+  green: 'green-50',
+  indigo: 'indigo-50',
+  red: 'red-50',
+  yellow: 'yellow-50',
+  gray: 'gray-50',
   achromatic: 'black',
 } = {
-  blue: 'blue-primary',
-  mint: 'mint-primary',
-  lavender: 'lavender-primary',
-  peach: 'peach-primary',
-  mustard: 'mustard-primary',
-  gray: 'gray-secondary',
+  blue: 'blue-50',
+  green: 'green-50',
+  indigo: 'indigo-50',
+  red: 'red-50',
+  yellow: 'yellow-50',
+  gray: 'gray-50',
   achromatic: 'black',
 };
 
 export const COLORS_DEFAULT_MAP: {
-  blue: 'blue-secondary-light',
-  mint: 'mint-secondary-light',
-  lavender: 'lavender-secondary-light',
-  peach: 'peach-secondary-light',
-  mustard: 'mustard-secondary-light',
-  gray: 'gray-secondary-light',
+  blue: 'blue-20',
+  green: 'green-20',
+  indigo: 'indigo-20',
+  red: 'red-20',
+  yellow: 'yellow-20',
+  gray: 'gray-20',
   achromatic: 'white',
 } = {
-  blue: 'blue-secondary-light',
-  mint: 'mint-secondary-light',
-  lavender: 'lavender-secondary-light',
-  peach: 'peach-secondary-light',
-  mustard: 'mustard-secondary-light',
-  gray: 'gray-secondary-light',
+  blue: 'blue-20',
+  green: 'green-20',
+  indigo: 'indigo-20',
+  red: 'red-20',
+  yellow: 'yellow-20',
+  gray: 'gray-20',
   achromatic: 'white',
 };
 
 const TRANSPARENT_COLOR_TEXT_MAP: {
   blue: 'text-blue-60',
-  mint: 'text-green-60',
-  lavender: 'text-indigo-60',
-  peach: 'text-red-60',
-  mustard: 'text-yellow-60',
+  green: 'text-green-60',
+  indigo: 'text-indigo-60',
+  red: 'text-red-60',
+  yellow: 'text-yellow-60',
   gray: 'text-gray-50',
   achromatic: 'text-black',
 } = {
   blue: 'text-blue-60',
-  mint: 'text-green-60',
-  lavender: 'text-indigo-60',
-  peach: 'text-red-60',
-  mustard: 'text-yellow-60',
+  green: 'text-green-60',
+  indigo: 'text-indigo-60',
+  red: 'text-red-60',
+  yellow: 'text-yellow-60',
   gray: 'text-gray-50',
   achromatic: 'text-black',
 };
 
-// TODO: Change this map after Text color changes
 const TRANSPARENT_ICON_COLOR_MAP: {
   blue: 'icon-blue-50',
-  mint: 'icon-green-50',
-  lavender: 'icon-indigo-50',
-  peach: 'icon-red-50',
-  mustard: 'icon-yellow-50',
+  green: 'icon-green-50',
+  indigo: 'icon-indigo-50',
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
   gray: 'icon-gray-50',
   achromatic: 'icon-black',
 } = {
   blue: 'icon-blue-50',
-  mint: 'icon-green-50',
-  lavender: 'icon-indigo-50',
-  peach: 'icon-red-50',
-  mustard: 'icon-yellow-50',
+  green: 'icon-green-50',
+  indigo: 'icon-indigo-50',
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
   gray: 'icon-gray-50',
   achromatic: 'icon-black',
 };
 
 export const LABEL_COLORS_SET: {
   BLUE: 'blue',
-  MINT: 'mint',
-  LAVENDER: 'lavender',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
+  GREEN: 'green',
+  INDIGO: 'indigo',
+  RED: 'red',
+  YELLOW: 'yellow',
   GRAY: 'gray',
   ACHROMATIC: 'achromatic',
 } = {
   BLUE: 'blue',
-  MINT: 'mint',
-  LAVENDER: 'lavender',
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
+  GREEN: 'green',
+  INDIGO: 'indigo',
+  RED: 'red',
+  YELLOW: 'yellow',
   GRAY: 'gray',
   ACHROMATIC: 'achromatic',
 };
@@ -148,10 +147,10 @@ export type LabelPropsType = $ReadOnly<{
    *            example label
    *          </Label>
    * @see color="blue" https://styleguide.brainly.com/latest/docs/interactive.html?color="blue"#labels
-   * @see color="mint" https://styleguide.brainly.com/latest/docs/interactive.html?color="mint"#labels
-   * @see color="lavender" https://styleguide.brainly.com/latest/docs/interactive.html?color="lavender"#labels
-   * @see color="peach" https://styleguide.brainly.com/latest/docs/interactive.html?color="peach"#labels
-   * @see color="mustard" https://styleguide.brainly.com/latest/docs/interactive.html?color="mustard"#labels
+   * @see color="green" https://styleguide.brainly.com/latest/docs/interactive.html?color="green"#labels
+   * @see color="indigo" https://styleguide.brainly.com/latest/docs/interactive.html?color="indigo"#labels
+   * @see color="red" https://styleguide.brainly.com/latest/docs/interactive.html?color="red"#labels
+   * @see color="yellow" https://styleguide.brainly.com/latest/docs/interactive.html?color="yellow"#labels
    * @see color="gray" https://styleguide.brainly.com/latest/docs/interactive.html?color="gray"#labels
    * @see color="achromatic" https://styleguide.brainly.com/latest/docs/interactive.html?color="achromatic"#labels
    */
