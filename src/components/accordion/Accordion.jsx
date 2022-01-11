@@ -14,7 +14,7 @@ import {
 } from 'react';
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
-import {__DEV__, invariant} from '../utils';
+import { __DEV__, invariant } from '../utils';
 
 export const KEY_CODES = {
   '32': 'space',
