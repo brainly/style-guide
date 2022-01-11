@@ -94,12 +94,7 @@ describe('<Flex>', () => {
       </Flex>
     );
 
-    expect(
-      component
-        .find('div')
-        .parent()
-        .is('ul')
-    ).toEqual(true);
+    expect(component.find('div').parent().is('ul')).toEqual(true);
   });
 
   const responsivePropsCases = [

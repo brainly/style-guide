@@ -7726,10 +7726,10 @@ eslint-config-brainly@^2.4.0:
   resolved "https://registry.yarnpkg.com/eslint-config-brainly/-/eslint-config-brainly-2.4.0.tgz#a80803694a493b90ce5fe87af46e740faa809321"
   integrity sha512-/JkzELwqIbiKVmjfhLh4R+gv8MPSBg2UyTWggTVeuU6/+5FT7F0w1rIBm6YVc2dR186DtllwSGLic8gcg43N0g==
 
-eslint-config-prettier@^8.3.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
-  integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
+eslint-config-prettier@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-7.2.0.tgz#f4a4bd2832e810e8cc7c1411ec85b3e85c0c53f9"
+  integrity sha512-rV4Qu0C3nfJKPOAhFujFxB7RMP+URFyQqqOZW9DMRD7ZDTFyjaIlETU3xzHELt++4ugC0+Jm084HQYkkJe+Ivg==
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"

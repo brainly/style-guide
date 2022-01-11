@@ -63,7 +63,7 @@
     "enzyme-adapter-react-16": "^1.0.1",
     "eslint": "^7.18.0",
     "eslint-config-brainly-react": "^2.7.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-flowtype": "^4.2.0",
     "eslint-plugin-import": "^2.18.2",
@@ -134,7 +134,7 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "js-lint": "yarn run eslint --ext .js --ext .jsx src/",
+    "js-lint": "eslint --ext .js --ext .jsx src/",
     "scss-lint": "sass-lint -c .sass-lint.yml -v -q 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
@@ -160,7 +160,7 @@
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
-    "prettier": "prettier --check src"
+    "prettier": "prettier --write src"
   },
   "jest": {
     "setupFiles": [

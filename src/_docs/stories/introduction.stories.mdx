@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import {Meta} from '@storybook/addon-docs/blocks';
 import GitHubButton from 'react-github-btn';
-import { version } from '../../../package.json';
+import {version} from '../../../package.json';
 import Link from 'text/Link';
 import TextBit from 'text/TextBit';
 import Text from 'text/Text';
@@ -8,11 +8,11 @@ import Label from 'labels/Label';
 import Logo from 'logo/Logo';
 import Flex from 'flex/Flex';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
-import { Source } from '@storybook/components';
+import {Source} from '@storybook/components';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
-<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+<div style={{display: 'flex', justifyContent: 'flex-end'}}>
   <GitHubButton
     href="https://github.com/brainly/style-guide"
     data-icon="octicon-star"
@@ -28,7 +28,7 @@ import { Source } from '@storybook/components';
   <Flex
     direction="column"
     alignItems="flex-end"
-    style={{ position: 'relative' }}
+    style={{position: 'relative'}}
     className="sg-space-x-xs"
   >
     <Text size="small" weight="bold" color="text-gray-40">
@@ -83,7 +83,7 @@ yarn add brainly-style-guide
 ```jsx
 // Following line is required if you don't use css from public cdn
 import 'brainly-style-guide/src/sass/main.scss';
-import { Button } from 'brainly-style-guide';
+import {Button} from 'brainly-style-guide';
 
 const App = () => {
   return (

@@ -35,14 +35,16 @@ function addClassActive(index) {
 function searchElements(query) {
   query = query.toLowerCase();
 
-  return Array.from(document.querySelectorAll('a.js-searchable')).filter(function (link) {
-    return link.innerText.trim().toLowerCase().indexOf(query) !== -1;
-  }).map(function (link) {
-    return {
-      text: link.innerText,
-      link: link.href
-    }
-  });
+  return Array.from(document.querySelectorAll('a.js-searchable'))
+    .filter(function (link) {
+      return link.innerText.trim().toLowerCase().indexOf(query) !== -1;
+    })
+    .map(function (link) {
+      return {
+        text: link.innerText,
+        link: link.href,
+      };
+    });
 }
 
 $searchBox.addEventListener('input', function () {
@@ -91,7 +93,8 @@ $searchBox.addEventListener('keydown', function (e) {
     }
   }
 
-  if (arrowup) {   //arrowup
+  if (arrowup) {
+    //arrowup
     e.preventDefault();
     previousActive = active;
     active--;
