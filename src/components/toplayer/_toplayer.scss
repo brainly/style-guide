@@ -71,7 +71,7 @@ $includeHtml: false !default;
       .sg-toplayer__wrapper {
         @include sgBreakpoint(medium-up) {
           @include image2x($sgImagesPath + 'bug_box@2x.png', 299px, 248px);
-          background-image: url($sgImagesPath+'bug_box.png');
+          background-image: url($sgImagesPath + 'bug_box.png');
           background-repeat: no-repeat;
           background-position: bottom right;
         }

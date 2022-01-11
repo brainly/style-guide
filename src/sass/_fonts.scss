@@ -10,10 +10,10 @@ $untitledSerifRegularWoff2Path: $sgFontsPath + 'UntitledSerif-Regular.woff2';
 $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
 @if ($includeHtml and $includeFonts) {
-
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaRegularWoff2Path) format('woff2'), url($proximaNovaRegularWoffPath) format('woff');
+    src: url($proximaNovaRegularWoff2Path) format('woff2'),
+      url($proximaNovaRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties
@@ -23,7 +23,8 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaBoldWoff2Path) format('woff2'), url($proximaNovaBoldWoffPath) format('woff');
+    src: url($proximaNovaBoldWoff2Path) format('woff2'),
+      url($proximaNovaBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties
@@ -33,7 +34,8 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
   @font-face {
     font-family: $fontFamilyProximaNova;
-    src: url($proximaNovaBlackWoff2Path) format('woff2'), url($proximaNovaBlackWoffPath) format('woff');
+    src: url($proximaNovaBlackWoff2Path) format('woff2'),
+      url($proximaNovaBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties
@@ -43,7 +45,8 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
 
   @font-face {
     font-family: $fontFamilyUntitledSerif;
-    src: url($untitledSerifRegularWoff2Path) format('woff2'), url($untitledSerifRegularWoffPath) format('woff');
+    src: url($untitledSerifRegularWoff2Path) format('woff2'),
+      url($untitledSerifRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
     // sass-lint:disable no-misspelled-properties

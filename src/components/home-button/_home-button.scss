@@ -5,7 +5,6 @@ $homeButtonDefaultWidth: 81px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-home-button {
     @include component();
 

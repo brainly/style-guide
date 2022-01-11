@@ -6,25 +6,30 @@
 // To automatically ignore empty children use "empty" class variant e.g. empty:sg-space-y-m
 @each $breakpoint, $variant in $responsiveVariants {
   @include sgResponsive($breakpoint) {
-    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:')
-    {
+    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:') {
       .#{$variant}#{$name}sg-space-y-0 > * + *:not(.sg-space-ignore)#{$pseudo} {
         margin-top: 0 !important;
       }
 
-      .#{$variant}#{$name}sg-space-x-0 > * + * :not(.sg-space-ignore)#{$pseudo} {
+      .#{$variant}#{$name}sg-space-x-0
+        > *
+        + *
+        :not(.sg-space-ignore)#{$pseudo} {
         margin-left: 0 !important;
       }
 
       @each $sizeName, $size in $sizesSetup {
-        .#{$variant}#{$name}sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore)#{$pseudo} {
+        .#{$variant}#{$name}sg-space-y-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
           margin-top: $size !important;
         }
 
-        .#{$variant}#{$name}sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore)#{$pseudo} {
+        .#{$variant}#{$name}sg-space-x-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
           margin-left: $size !important;
         }
-
       }
     }
   }

@@ -4,7 +4,6 @@ $overlayBackgroundColor: $overlayBackgroundColorBlue;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-overlay {
     background-color: $overlayBackgroundColor;
     position: fixed;
@@ -34,5 +33,4 @@ $includeHtml: false !default;
       background-color: $overlayBackgroundColorBlue;
     }
   }
-
 }

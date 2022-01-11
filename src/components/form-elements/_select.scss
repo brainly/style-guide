@@ -80,7 +80,9 @@ $includeHtml: false !default;
           $gray-40,
           80%
         );
-        border: 2px solid mix($formElementDefaultBackgroundColor, $gray-40, 80%);
+        border: 2px
+          solid
+          mix($formElementDefaultBackgroundColor, $gray-40, 80%);
       }
     }
 

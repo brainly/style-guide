@@ -1,7 +1,6 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-overlayed-box {
     @include component();
     display: inline-flex;
@@ -12,8 +11,8 @@ $includeHtml: false !default;
     &__overlay {
       @include componentsContainer();
       position: absolute;
-      right: - gutter(0.2);
-      top: - gutter(0.2);
+      right: -gutter(0.2);
+      top: -gutter(0.2);
     }
   }
 }

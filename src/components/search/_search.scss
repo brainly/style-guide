@@ -1,7 +1,6 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-search {
     @include component();
     overflow: visible;
