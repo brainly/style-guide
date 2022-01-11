@@ -115,6 +115,12 @@
     "sass-lint-config-brainly": "^1.0.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^14.2.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-scss": "^4.1.0",
     "svg-sprite-loader": "^6.0.11",
     "svgo-loader": "^3.0.0",
     "tailwindcss": "^2.0.1",
@@ -153,7 +159,8 @@
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006 -s ./.storybook/public",
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
-    "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes"
+    "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
+    "prettier": "prettier --check src"
   },
   "jest": {
     "setupFiles": [
