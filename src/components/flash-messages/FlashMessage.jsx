@@ -35,7 +35,7 @@ const FlashMessage = ({
   );
 
   return (
-    <div {...props} className="sg-flash">
+    <div {...props} aria-live="assertive" className="sg-flash" role="alert">
       <div className={messageClass}>
         <Text size="small" weight="bold" align="to-center">
           {text}
