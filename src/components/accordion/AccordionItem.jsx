@@ -23,7 +23,7 @@ export type AccordionItemPropsType = $ReadOnly<{
   padding?: PaddingType,
   tabIndex?: number,
   id?: string,
-  headingLevel?: number,
+  ariaHeadingLevel?: number,
 }>;
 
 function generateId() {
@@ -40,7 +40,7 @@ const AccordionItem = ({
   padding = 'm',
   tabIndex = 0,
   id: customId,
-  headingLevel = 2,
+  ariaHeadingLevel = 2,
 }: AccordionItemPropsType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(
@@ -172,7 +172,7 @@ const AccordionItem = ({
       )}
       padding={null}
     >
-      <div role="heading" aria-level={headingLevel} id={id}>
+      <div role="heading" aria-level={ariaHeadingLevel} id={id}>
         <Box
           padding={padding}
           className={cx('sg-accordion-item__button', {
