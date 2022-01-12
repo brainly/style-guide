@@ -82,6 +82,22 @@ export const TYPE: {
   BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective',
 };
 
+function getDefaultAlt(type: LogoTypeType) {
+  const replacers = [
+    {regexp: /-mobile/g, newSubstr: ''},
+    {regexp: /-inverse/g, newSubstr: ''},
+    {regexp: /-small/g, newSubstr: ''},
+    {regexp: /-logotype-/g, newSubstr: ' '},
+    {regexp: /logo-/g, newSubstr: ''},
+    {regexp: /-/g, newSubstr: ' '},
+  ];
+
+  return replacers.reduce(
+    (alt, {regexp, newSubstr}) => alt.replace(regexp, newSubstr),
+    type
+  );
+}
+
 export type LogoPropsType = {
   className?: string,
   type?: LogoTypeType,
@@ -104,9 +120,11 @@ const Logo = ({
   );
   const logoPath = `${getLogoUrl(type)}`;
 
+  const defaultAlt = getDefaultAlt(type);
+
   return (
     <div {...props} className={logoClass}>
-      <img className="sg-logo__image" src={logoPath} alt={alt} />
+      <img className="sg-logo__image" src={logoPath} alt={alt ?? defaultAlt} />
     </div>
   );
 };
