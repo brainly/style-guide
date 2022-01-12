@@ -1,7 +1,7 @@
 {
-  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
   "files": {
-    "include": "**/*.s+(a|c)ss",
+    "include": "**/*.scss",
     "ignore": ["**/node_modules/**", "**/vendor/**"]
   },
   "options": {
@@ -9,41 +9,28 @@
     "merge-default-rules": false
   },
   "rules": {
-    "string-quotes": null,
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": true,
+    "order/properties-alphabetical-order": null,
+    "order/order": null,
+    "max-nesting-depth": null,
+    "selector-class-pattern": [
+      "[a-z0-9_\\\\-]+$",
+      {
+        "message": "Selector should be written in lowercase with hyphens and possibly in BEM structure (selector-class-pattern)"
+      }
+    ],
     "scss/dollar-variable-pattern": null,
-    "scss/at-rule-conditional-no-parentheses": null,
-    "selector-class-pattern": null,
-    "scss/operator-no-unspaced": null,
-    "value-keyword-case": null,
-    "function-name-case": null,
-    "no-descending-specificity": null,
-    "max-empty-lines": null,
-    "declaration-empty-line-before": null,
-    "declaration-colon-newline-after": null,
-    "alpha-value-notation": null,
-    "color-function-notation": null,
-    "scss/at-mixin-argumentless-call-parentheses": null,
-    "scss/dollar-variable-empty-line-before": null,
-    "scss/no-global-function-names": null,
-    "scss/at-import-partial-extension": null,
-    "scss/double-slash-comment-empty-line-before": null,
-    "block-closing-brace-empty-line-before": null,
-    "color-hex-length": null,
-    "scss/at-mixin-pattern": null,
+    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9]+[a-zA-Z0-9]+)?$",
+    "selector-max-id": null,
     "rule-empty-line-before": null,
+    "selector-max-compound-selectors": null,
+    "length-zero-no-unit": null,
+    "declaration-colon-space-after": "always",
+    "scss/selector-no-redundant-nesting-selector": null,
+    "declaration-property-value-disallowed-list": null,
+    "max-line-length": 120,
+    "selector-no-qualifying-type": null,
     "scss/at-function-pattern": null,
-    "declaration-block-no-redundant-longhand-properties": null,
-    "at-rule-empty-line-before": null,
     "property-no-vendor-prefix": null,
-    "at-rule-name-space-after": null,
-    "scss/double-slash-comment-whitespace-inside": null,
-    "scss/at-if-no-null": null,
-    "font-family-no-duplicate-names": null,
-    "block-opening-brace-space-before": null,
-    "keyframes-name-pattern": null,
-    "no-duplicate-selectors": null,
-    "indentation": null
+    "color-hex-length": null
   }
 }
