@@ -158,7 +158,8 @@
     "storybook-docs": "start-storybook --docs -p 6006 -s ./.storybook/public",
     "build-storybook": "build-storybook -c .storybook -o .storybook-static -s ./.storybook/public",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
-    "prettier": "prettier --check src"
+    "prettier-check": "prettier --check src",
+    "prettier-fix": "prettier --write src"
   },
   "jest": {
     "setupFiles": [
