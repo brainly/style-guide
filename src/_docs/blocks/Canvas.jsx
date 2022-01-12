@@ -10,8 +10,8 @@ import {Preview as PurePreview} from './Preview';
 import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
 import {SourceContext} from '@storybook/addon-docs/dist/esm/blocks/SourceContainer';
 import {getSourceProps} from '@storybook/addon-docs/dist/esm/blocks/Source';
-import prettier from 'prettier/standalone';
-import parserBabel from 'prettier/parser-babylon';
+import prettier from 'prettier';
+import parserBabel from 'prettier/parser-babel';
 
 export const SourceState = {
   OPEN: 'open',
