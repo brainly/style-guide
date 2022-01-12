@@ -1,25 +1,10 @@
 const through = require('through2');
 const webpack = require('webpack');
-const TerserPlugin = require('terser-webpack-plugin');
+const baseWebpackConfigFn = require('../../webpack.config');
+
+const baseWebpackConfig = baseWebpackConfigFn();
 
 module.exports = function(gulp, plugins, consts) {
-  const coreConfig = {
-    target: 'node',
-    module: {
-      rules: [
-        {
-          test: /\.js|jsx?$/,
-          loader: 'babel-loader',
-          exclude: /\.json$/,
-        },
-      ],
-    },
-    externals: {
-      html_beautify: 'html_beautify',
-      hljs: 'hljs',
-    },
-  };
-
   const createWebpackBundles = function(file, enc, cb) {
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, 'docs/', 'js/');
     const webpackPlugins = [
@@ -30,7 +15,7 @@ module.exports = function(gulp, plugins, consts) {
       }),
     ];
 
-    const config = Object.assign({}, coreConfig, {
+    const config = Object.assign({}, baseWebpackConfig, {
       entry: {
         [plugins.path.basename(file.path)]: file.path,
       },
@@ -38,27 +23,9 @@ module.exports = function(gulp, plugins, consts) {
         filename: '[name].bundle.js',
         path: jsPath,
       },
-      resolve: {
-        extensions: ['.js', '.jsx'],
-        modules: [consts.COMPONENTS, consts.DOCS, 'node_modules'],
-      },
       plugins: webpackPlugins,
       devtool: consts.IS_PRODUCTION ? 'source-map' : 'eval',
-      optimization: {
-        minimize: consts.IS_PRODUCTION,
-        minimizer: consts.IS_PRODUCTION
-          ? [
-              new TerserPlugin({
-                sourceMap: true,
-                parallel: true,
-                terserOptions: {
-                  keep_classnames: true,
-                  keep_fnames: true,
-                },
-              }),
-            ]
-          : undefined,
-      },
+      mode: consts.IS_PRODUCTION ? 'production' : 'development',
     });
 
     webpack(config, function(err, stats) {
