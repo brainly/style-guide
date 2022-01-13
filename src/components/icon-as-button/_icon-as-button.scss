@@ -5,7 +5,10 @@ $iconAsButtonLightActiveColor: rgba($iconAsButtonLightColor, 0.7);
 $iconAsButtonGrayColor: $gray-70;
 $iconAsButtonGrayActiveColor: rgba($iconAsButtonGrayColor, 0.7);
 $iconAsButtonGraySecondaryColor: $gray-50;
-$iconAsButtonGraySecondaryActiveColor: rgba($iconAsButtonGraySecondaryColor, 0.7);
+$iconAsButtonGraySecondaryActiveColor: rgba(
+  $iconAsButtonGraySecondaryColor,
+  0.7
+);
 $iconAsButtonGrayLightColor: $gray-40;
 $iconAsButtonGrayLightActiveColor: rgba($iconAsButtonGrayLightColor, 0.7);
 $iconAsButtonDarkColor: $black;
@@ -25,7 +28,12 @@ $iconAsButtonBlueActiveColor: rgba($iconAsButtonBlueColor, 0.7);
 
 $includeHtml: false !default;
 
-@mixin colorTheme($modifierName, $color, $colorActive, $actionForegroundColor: $iconAsButtonActionColor) {
+@mixin colorTheme(
+  $modifierName,
+  $color,
+  $colorActive,
+  $actionForegroundColor: $iconAsButtonActionColor
+) {
   &.sg-icon-as-button--#{$modifierName} {
     color: $color;
 
@@ -125,16 +133,57 @@ $includeHtml: false !default;
       }
     }
 
-    @include colorTheme('icon-white', $iconAsButtonLightColor, $iconAsButtonLightActiveColor, $iconAsButtonColor);
-    @include colorTheme('icon-black', $iconAsButtonDarkColor, $iconAsButtonDarkActiveColor);
-    @include colorTheme('icon-gray-70', $iconAsButtonGrayColor, $iconAsButtonGrayActiveColor);
-    @include colorTheme('icon-gray-50', $iconAsButtonGraySecondaryColor, $iconAsButtonGraySecondaryActiveColor);
-    @include colorTheme('icon-gray-40', $iconAsButtonGrayLightColor, $iconAsButtonGrayLightActiveColor);
-    @include colorTheme('icon-green-50', $iconAsButtonMintColor, $iconAsButtonMintActiveColor);
-    @include colorTheme('icon-blue-50', $iconAsButtonBlueColor, $iconAsButtonBlueActiveColor);
-    @include colorTheme('icon-yellow-50', $iconAsButtonMustardColor, $iconAsButtonMustardActiveColor);
-    @include colorTheme('icon-indigo-50', $iconAsButtonLavenderColor, $iconAsButtonLavenderActiveColor);
-    @include colorTheme('icon-red-50', $iconAsButtonPeachColor, $iconAsButtonPeachActiveColor);
+    @include colorTheme(
+      'icon-white',
+      $iconAsButtonLightColor,
+      $iconAsButtonLightActiveColor,
+      $iconAsButtonColor
+    );
+    @include colorTheme(
+      'icon-black',
+      $iconAsButtonDarkColor,
+      $iconAsButtonDarkActiveColor
+    );
+    @include colorTheme(
+      'icon-gray-70',
+      $iconAsButtonGrayColor,
+      $iconAsButtonGrayActiveColor
+    );
+    @include colorTheme(
+      'icon-gray-50',
+      $iconAsButtonGraySecondaryColor,
+      $iconAsButtonGraySecondaryActiveColor
+    );
+    @include colorTheme(
+      'icon-gray-40',
+      $iconAsButtonGrayLightColor,
+      $iconAsButtonGrayLightActiveColor
+    );
+    @include colorTheme(
+      'icon-green-50',
+      $iconAsButtonMintColor,
+      $iconAsButtonMintActiveColor
+    );
+    @include colorTheme(
+      'icon-blue-50',
+      $iconAsButtonBlueColor,
+      $iconAsButtonBlueActiveColor
+    );
+    @include colorTheme(
+      'icon-yellow-50',
+      $iconAsButtonMustardColor,
+      $iconAsButtonMustardActiveColor
+    );
+    @include colorTheme(
+      'icon-indigo-50',
+      $iconAsButtonLavenderColor,
+      $iconAsButtonLavenderActiveColor
+    );
+    @include colorTheme(
+      'icon-red-50',
+      $iconAsButtonPeachColor,
+      $iconAsButtonPeachActiveColor
+    );
 
     &--action {
       transition: background 0.3s ease-out, color 0.3s ease-out;

@@ -1,0 +1,36 @@
+{
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-prettier"],
+  "files": {
+    "include": "**/*.scss",
+    "ignore": ["**/node_modules/**", "**/vendor/**"]
+  },
+  "options": {
+    "formatter": "stylish",
+    "merge-default-rules": false
+  },
+  "rules": {
+    "order/properties-alphabetical-order": null,
+    "order/order": null,
+    "max-nesting-depth": null,
+    "selector-class-pattern": [
+      "[a-z0-9_\\\\-]+$",
+      {
+        "message": "Selector should be written in lowercase with hyphens and possibly in BEM structure (selector-class-pattern)"
+      }
+    ],
+    "scss/dollar-variable-pattern": null,
+    "scss/at-mixin-pattern": "^[a-z]+([a-zA-Z0-9]+[a-zA-Z0-9]+)?$",
+    "selector-max-id": null,
+    "rule-empty-line-before": null,
+    "selector-max-compound-selectors": null,
+    "length-zero-no-unit": null,
+    "declaration-colon-space-after": "always",
+    "scss/selector-no-redundant-nesting-selector": null,
+    "declaration-property-value-disallowed-list": null,
+    "max-line-length": 120,
+    "selector-no-qualifying-type": null,
+    "scss/at-function-pattern": null,
+    "property-no-vendor-prefix": null,
+    "color-hex-length": null
+  }
+}

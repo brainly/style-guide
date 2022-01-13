@@ -1,6 +1,6 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import { IconItem, IconGallery } from 'blocks/IconGallery';
-import Icon, { TYPE, ICON_COLOR, SIZE } from '../../components/icons/Icon';
+import {Meta, Story} from '@storybook/addon-docs/blocks';
+import {IconItem, IconGallery} from 'blocks/IconGallery';
+import Icon, {TYPE, ICON_COLOR, SIZE} from '../../components/icons/Icon';
 import MobileIcon, {
   TYPE as MOBILE_TYPE,
 } from '../../components/mobile-icons/MobileIcon';
@@ -22,7 +22,7 @@ All rights reserved © Brainly. If you want to use our icons for other then Brai
 Comonly used icon set. Contains _editor icons_, _system icons_ and _social media icons_.
 
 <IconGallery>
-  {Object.values(TYPE).map((type) => (
+  {Object.values(TYPE).map(type => (
     <IconItem name={type} key={type}>
       <Icon size={32} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
@@ -34,7 +34,7 @@ Comonly used icon set. Contains _editor icons_, _system icons_ and _social media
 Icons used in © Brainly mobile application.
 
 <IconGallery>
-  {Object.values(MOBILE_TYPE).map((type) => (
+  {Object.values(MOBILE_TYPE).map(type => (
     <IconItem name={type} key={type}>
       <MobileIcon size={32} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
@@ -46,7 +46,7 @@ Icons used in © Brainly mobile application.
 Icon set for subject related content.
 
 <IconGallery>
-  {Object.values(SUBJECT_TYPE).map((type) => (
+  {Object.values(SUBJECT_TYPE).map(type => (
     <IconItem name={type} key={type}>
       <SubjectIcon type={type} size="small" />
     </IconItem>
@@ -58,9 +58,13 @@ Icon set for subject related content.
 Icon set for subject related content - monochromatic version.
 
 <IconGallery>
-  {Object.values(SUBJECT_TYPE).map((type) => (
+  {Object.values(SUBJECT_TYPE).map(type => (
     <IconItem name={type} key={type}>
-      <SubjectIcon type={type} size="small" monoColor={ICON_COLOR['icon-gray-70']} />
+      <SubjectIcon
+        type={type}
+        size="small"
+        monoColor={ICON_COLOR['icon-gray-70']}
+      />
     </IconItem>
   ))}
 </IconGallery>
@@ -70,7 +74,7 @@ Icon set for subject related content - monochromatic version.
 Icon set used in rich text editor.
 
 <IconGallery>
-  {Object.values(MATH_SYMBOL_TYPE).map((type) => (
+  {Object.values(MATH_SYMBOL_TYPE).map(type => (
     <IconItem name={type} key={type}>
       <MathSymbol type={type} color={ICON_COLOR['icon-gray-70']} size="small" />
     </IconItem>

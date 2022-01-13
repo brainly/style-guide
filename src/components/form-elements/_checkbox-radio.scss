@@ -11,7 +11,6 @@ $crInputActiveColor: rgba($crInputColor, 0.7);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-checkbox,
   .sg-radio {
     @include component();
@@ -54,7 +53,6 @@ $includeHtml: false !default;
   }
 
   .sg-checkbox {
-
     &__ghost {
       border-radius: 20%;
     }

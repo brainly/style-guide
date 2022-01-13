@@ -6,7 +6,6 @@ $footerLayoutMaximumWidth: 1024px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-footer {
     background-color: $footerBackgroundColorSmall;
 
@@ -39,5 +38,4 @@ $includeHtml: false !default;
       }
     }
   }
-
 }

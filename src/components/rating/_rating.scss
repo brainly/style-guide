@@ -12,7 +12,6 @@ $rateSIconSize: componentSize(s);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-rate-box {
     @include component();
     display: flex;
@@ -44,7 +43,6 @@ $includeHtml: false !default;
       }
 
       .sg-rate-box__background-stars {
-
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
           color: $rateStarColor;
         }
@@ -128,7 +126,7 @@ $includeHtml: false !default;
       .sg-rate-box__star {
         height: $rateSIconSize;
         width: $rateSIconSize;
-        }
+      }
 
       .sg-rate-box__counter,
       .sg-rate-box__rate {
@@ -137,5 +135,4 @@ $includeHtml: false !default;
       }
     }
   }
-
 }

@@ -157,18 +157,18 @@ $baseline: 1.5rem;
 
 // Typo
 $fontSizes: (
-  default: 1rem, // 16px
-  xsmall: 0.625rem, // 10px
-  small: 0.875rem, // 14px
-  medium: 0.9375rem, // 15px
-  large: 3.625rem, // 58px
-  xlarge: 4.5rem, // 72px
-  xxlarge: 5rem, // 80px
-  obscure: 0.75rem, // 12px
-  standout: 1.125rem, // 18px
-  subheadline: 1.25rem, // 20px
-  headline: 1.5rem, // 24px
-  subheader: 2.75rem, // 44px
+  default: 1rem /* 16px */,
+  xsmall: 0.625rem /* 10px */,
+  small: 0.875rem /* 14px */,
+  medium: 0.9375rem /* 15px */,
+  large: 3.625rem /* 58px */,
+  xlarge: 4.5rem /* 72px */,
+  xxlarge: 5rem /* 80px */,
+  obscure: 0.75rem /* 12px */,
+  standout: 1.125rem /* 18px */,
+  subheadline: 1.25rem /* 20px */,
+  headline: 1.5rem /* 24px */,
+  subheader: 2.75rem /* 44px */,
   header: 3rem,
 );
 
@@ -178,7 +178,7 @@ $layoutDefaultPadding: 24px;
 
 // Spacings
 $sizesSetup: (
-  xxs: 4px, // additional for very small components, like icons
+  xxs: 4px /* additional for very small components, like icons */,
   xs: 8px,
   s: 16px,
   m: 24px,
@@ -219,7 +219,8 @@ $breakpointXLarge: 1280px !default;
 /// Use $responsiveBreakpointsMap
 $breakpointsMap: (
   'small-only': '(max-width: #{$breakpointMedium - 1px})',
-  'medium-only': '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
+  'medium-only':
+    '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
   'medium-down': '(max-width: #{$breakpointLarge - 1px})',
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})',

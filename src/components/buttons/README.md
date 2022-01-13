@@ -8,8 +8,8 @@ Buttons are created to help user to make actions, choices and to move around the
 import {Button} from 'style-guide';
 
 <Button type="solid-blue" size="small">
-    I am solid small button
-</Button>
+  I am solid small button
+</Button>;
 ```
 
 ```HTML
@@ -21,6 +21,7 @@ import {Button} from 'style-guide';
 ### Types of buttons on Brainly and examples of usage
 
 #### Primary buttons
+
 There are 4 types of solid buttons avalaible, that are used as main action buttons on Brainly, like asking questions, login or register
 
 ```jsx
@@ -44,18 +45,17 @@ import {Button} from 'style-guide';
 ```
 
 #### Secondary buttons
+
 We have one outline button, e.g answer button on feed, which is white with black border
 
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="outline">
-    I am white button with border
-</Button>
-
+<Button type="outline">I am white button with border</Button>;
 ```
 
 #### Link buttons
+
 We have 4 link buttons avalaible, black, white, peach and mustard. They are also used to create `thank you` and `mark as best` buttons
 
 ```jsx
@@ -87,17 +87,17 @@ import {Button} from 'style-guide';
 ```
 
 #### Additional buttons
+
 There is also 1 additional button created for special case: facebook button, which has custom color from outside the palette.
 
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="facebook">
-    I am FB button
-</Button>
+<Button type="facebook">I am FB button</Button>;
 ```
 
 #### Buttons with icons
+
 We have 3 possible options in our style-guide regarding buttons with icons, each have a standard icon size, which should be perserve.
 
 ```jsx
@@ -138,11 +138,11 @@ import {Button} from 'style-guide';
 </button>
 ```
 
-| Prop name | Type | Default | Description |
-| :- | :- | :-: | :- |
-| size | String | `medium`| use `small`, `medium` or `large` to set the size of the Button
-| type | String |`solid` | use `solid`, `solid-inverted`, `solid-blue`, `solid-mint`,`outline`, `transparent`, `transparent-inverted`, `transparent-peach`, `transparent-mustard`, `facebook` to set the type of the Button
-| href | String | `button` | sets the HTML tag for the component |
-| disabled | Boolean | `false` | sets the `disabled` attribute on the Button |
-| fullWidth | Boolean | `false` | adds class responsible for making button 100% of it's parent |
-| icon | Node |  | optional icon inserted on the left side |
+| Prop name | Type    | Default  | Description                                                                                                                                                                                      |
+| :-------- | :------ | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| size      | String  | `medium` | use `small`, `medium` or `large` to set the size of the Button                                                                                                                                   |
+| type      | String  | `solid`  | use `solid`, `solid-inverted`, `solid-blue`, `solid-mint`,`outline`, `transparent`, `transparent-inverted`, `transparent-peach`, `transparent-mustard`, `facebook` to set the type of the Button |
+| href      | String  | `button` | sets the HTML tag for the component                                                                                                                                                              |
+| disabled  | Boolean | `false`  | sets the `disabled` attribute on the Button                                                                                                                                                      |
+| fullWidth | Boolean | `false`  | adds class responsible for making button 100% of it's parent                                                                                                                                     |
+| icon      | Node    |          | optional icon inserted on the left side                                                                                                                                                          |

@@ -1,9 +1,7 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-content-box {
-
     &__title {
       @include componentsContainer();
       min-height: rhythm(2);
@@ -95,7 +93,6 @@ $includeHtml: false !default;
     &__title,
     &__header,
     &__actions {
-
       &--spaced-bottom {
         margin-bottom: rhythm(0.5);
       }
@@ -153,5 +150,4 @@ $includeHtml: false !default;
       }
     }
   }
-
 }

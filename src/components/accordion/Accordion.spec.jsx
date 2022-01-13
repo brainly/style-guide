@@ -28,10 +28,7 @@ describe('<Accordion>', () => {
     );
 
     expect(
-      accordion
-        .find({role: 'button'})
-        .hostNodes()
-        .prop('aria-expanded')
+      accordion.find({role: 'button'}).hostNodes().prop('aria-expanded')
     ).toBe(false);
 
     expect(accordion.find({role: 'region'}).prop('hidden')).toBe(true);
@@ -50,10 +47,7 @@ describe('<Accordion>', () => {
     accordionItemButton.simulate('click');
 
     expect(
-      accordion
-        .find({role: 'button'})
-        .hostNodes()
-        .prop('aria-expanded')
+      accordion.find({role: 'button'}).hostNodes().prop('aria-expanded')
     ).toBe(true);
 
     expect(accordion.find('.sg-accordion-item__content--hidden')).toHaveLength(
@@ -127,10 +121,7 @@ describe('<Accordion>', () => {
     );
 
     expect(
-      accordion
-        .find(Box)
-        .at(0)
-        .hasClass('sg-accordion-item--no-gap')
+      accordion.find(Box).at(0).hasClass('sg-accordion-item--no-gap')
     ).toBe(true);
   });
 
@@ -143,12 +134,7 @@ describe('<Accordion>', () => {
 
     accordion.find({title: 'Item 1'}).simulate('mouseenter');
 
-    expect(
-      accordion
-        .find(Box)
-        .at(0)
-        .prop('borderColor')
-    ).toEqual('gray-20');
+    expect(accordion.find(Box).at(0).prop('borderColor')).toEqual('gray-20');
   });
 
   it('by default expands items that have "defaultExpanded" prop', () => {
