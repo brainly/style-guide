@@ -4,42 +4,42 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 export type ColorType =
-  | 'blue'
-  | 'blue-secondary'
-  | 'blue-secondary-light'
-  | 'lavender'
-  | 'lavender-secondary'
-  | 'lavender-secondary-light'
-  | 'mint'
-  | 'mint-secondary'
-  | 'mint-secondary-light'
-  | 'mustard'
-  | 'mustard-secondary'
-  | 'mustard-secondary-light'
-  | 'gray'
-  | 'gray-secondary'
-  | 'gray-secondary-light'
-  | 'gray-secondary-lightest'
-  | 'gray-secondary-ultra-light';
+  | 'gray-70'
+  | 'gray-50'
+  | 'gray-40'
+  | 'gray-20'
+  | 'gray-10'
+  | 'blue-40'
+  | 'blue-30'
+  | 'blue-20'
+  | 'green-40'
+  | 'green-30'
+  | 'green-20'
+  | 'indigo-40'
+  | 'indigo-30'
+  | 'indigo-20'
+  | 'yellow-40'
+  | 'yellow-30'
+  | 'yellow-20';
 
 export const CARD_HOLE_COLOR = {
-  BLUE: 'blue',
-  BLUE_SECONDARY: 'blue-secondary',
-  BLUE_SECONDARY_LIGHT: 'blue-secondary-light',
-  LAVENDER: 'lavender',
-  LAVENDER_SECONDARY: 'lavender-secondary',
-  LAVENDER_SECONDARY_LIGHT: 'lavender-secondary-light',
-  MINT: 'mint',
-  MINT_SECONDARY: 'mint-secondary',
-  MINT_SECONDARY_LIGHT: 'mint-secondary-light',
-  MUSTARD: 'mustard',
-  MUSTARD_SECONDARY: 'mustard-secondary',
-  MUSTARD_SECONDARY_LIGHT: 'mustard-secondary-light',
-  GRAY: 'gray',
-  GRAY_SECONDARY: 'gray-secondary',
-  GRAY_SECONDARY_LIGHT: 'gray-secondary-light',
-  GRAY_SECONDARY_LIGHTEST: 'gray-secondary-lightest',
-  GRAY_SECONDARY_ULTRA_LIGHT: 'gray-secondary-ultra-light',
+  'gray-70': 'gray-70',
+  'gray-50': 'gray-50',
+  'gray-40': 'gray-40',
+  'gray-20': 'gray-20',
+  'gray-10': 'gray-10',
+  'blue-40': 'blue-40',
+  'blue-30': 'blue-30',
+  'blue-20': 'blue-20',
+  'green-40': 'green-40',
+  'green-30': 'green-30',
+  'green-20': 'green-20',
+  'indigo-40': 'indigo-40',
+  'indigo-30': 'indigo-30',
+  'indigo-20': 'indigo-20',
+  'yellow-40': 'yellow-40',
+  'yellow-30': 'yellow-30',
+  'yellow-20': 'yellow-20',
 };
 
 export type CardHolePropsType = {

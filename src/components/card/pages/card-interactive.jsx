@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Card, {CARD_PADDING} from '../Card';
-import CardHole, {CARD_HOLE_COLOR} from '../CardHole';
+import CardHole from '../CardHole';
 import Button from 'buttons/Button';
 import Text, {TEXT_TYPE} from 'text/Text';
 
@@ -50,7 +50,7 @@ const Cards = () => {
               pretium.
             </Text>
           </CardHole>
-          <CardHole color={CARD_HOLE_COLOR.GRAY}>
+          <CardHole color="gray-70">
             <Button type="solid-blue">Ask your question</Button>
           </CardHole>
         </Card>
