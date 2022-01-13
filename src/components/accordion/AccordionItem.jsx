@@ -23,13 +23,11 @@ export type AccordionItemPropsType = $ReadOnly<{
   padding?: PaddingType,
   tabIndex?: number,
   id?: string,
-  headingLevel?: number,
+  ariaHeadingLevel?: number,
 }>;
 
 function generateId() {
-  return Math.random()
-    .toString(36)
-    .substring(7);
+  return Math.random().toString(36).substring(7);
 }
 
 const AccordionItem = ({
@@ -40,7 +38,7 @@ const AccordionItem = ({
   padding = 'm',
   tabIndex = 0,
   id: customId,
-  headingLevel = 2,
+  ariaHeadingLevel = 2,
 }: AccordionItemPropsType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
   const {current: id} = useRef<string>(
@@ -96,13 +94,13 @@ const AccordionItem = ({
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
 
-        requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
           if (!contentRef.current) {
             return;
           }
           contentRef.current.style.height = `${sectionHeight}px`;
 
-          requestAnimationFrame(function() {
+          requestAnimationFrame(function () {
             if (!contentRef.current) {
               return;
             }
@@ -172,7 +170,7 @@ const AccordionItem = ({
       )}
       padding={null}
     >
-      <div role="heading" aria-level={headingLevel} id={id}>
+      <div role="heading" aria-level={ariaHeadingLevel} id={id}>
         <Box
           padding={padding}
           className={cx('sg-accordion-item__button', {

@@ -552,9 +552,7 @@ export type IconPropsType =
     };
 
 function generateIdSuffix(type: string) {
-  const randomIndex = Math.random()
-    .toString(36)
-    .substring(7);
+  const randomIndex = Math.random().toString(36).substring(7);
 
   return `${type}-${randomIndex}`;
 }

@@ -79,7 +79,11 @@ $includeHtml: false !default;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
+        background-color: mix(
+          $formElementDefaultBackgroundColor,
+          $gray-40,
+          80%
+        );
         border: 2px solid $formElementValidColor;
       }
     }
@@ -99,7 +103,11 @@ $includeHtml: false !default;
       }
 
       &:hover {
-        background-color: mix($formElementDefaultBackgroundColor, $gray-40, 80%);
+        background-color: mix(
+          $formElementDefaultBackgroundColor,
+          $gray-40,
+          80%
+        );
         border: 2px solid $formElementInvalidColor;
       }
     }

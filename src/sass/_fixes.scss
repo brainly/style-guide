@@ -10,8 +10,6 @@
   // these styles fixes the vertical centering and visibility of label text on opera mini
   //   https://github.com/brainly/style-guide/issues/482
   //   https://github.com/brainly/style-guide/issues/489
-  // sass-lint:disable no-important
   line-height: 1 !important;
-  // sass-lint:enable no-important
   overflow: visible;
 }

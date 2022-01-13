@@ -4,7 +4,6 @@ $horizontalSeparatorColor: $gray-40;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-horizontal-separator {
     @include component();
     min-height: 0;

@@ -12,7 +12,7 @@ export const RATING_SIZE = {
   S: 's',
 };
 
-const generateArrayRange = function(range: number): Array<number> {
+const generateArrayRange = function (range: number): Array<number> {
   const array = Array(range);
 
   for (let i = 0; i < range; i++) {
@@ -73,15 +73,15 @@ class Rating extends React.Component<RatingPropsType> {
   }
 
   createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(
-      metricSize
-    ).map(rangeIndex => () => this.onClick(rangeIndex));
+    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => () => this.onClick(rangeIndex)
+    );
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(
-      metricSize
-    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
+    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
+    );
   }
 
   onClick = (index: number) => {

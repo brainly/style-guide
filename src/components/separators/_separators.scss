@@ -7,7 +7,6 @@ $separatorSpacingSmall: 10px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-vertical-separator {
     @include component();
     min-height: 0;

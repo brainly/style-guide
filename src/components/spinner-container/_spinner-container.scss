@@ -1,7 +1,6 @@
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-spinner-container {
     position: relative;
     display: inline-flex;
@@ -23,5 +22,4 @@ $includeHtml: false !default;
       right: 0;
     }
   }
-
 }
