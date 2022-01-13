@@ -1,18 +1,14 @@
 import * as React from 'react';
 import Card, {CARD_PADDING} from './Card';
-import CardHole, {CARD_HOLE_COLOR} from './CardHole';
+import CardHole from './CardHole';
 import {shallow} from 'enzyme';
 
 describe('Card', () => {
   test('render', () => {
     const card = shallow(
       <Card>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
@@ -22,12 +18,8 @@ describe('Card', () => {
   test('full', () => {
     const card = shallow(
       <Card full>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
@@ -37,12 +29,8 @@ describe('Card', () => {
   test('vertical', () => {
     const card = shallow(
       <Card vertical>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
@@ -52,12 +40,8 @@ describe('Card', () => {
   test('centered', () => {
     const card = shallow(
       <Card centered>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
@@ -68,12 +52,8 @@ describe('Card', () => {
     const padding = CARD_PADDING.SMALL;
     const card = shallow(
       <Card padding={padding}>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
@@ -84,12 +64,8 @@ describe('Card', () => {
     const padding = CARD_PADDING.LARGE;
     const card = shallow(
       <Card padding={padding}>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY_LIGHT}>
-          This is card top
-        </CardHole>
-        <CardHole color={CARD_HOLE_COLOR.GRAY_SECONDARY}>
-          This is card bottom
-        </CardHole>
+        <CardHole color="gray-40">This is card top</CardHole>
+        <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
