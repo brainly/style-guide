@@ -16,9 +16,7 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
       url($proximaNovaRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
-    // sass-lint:disable no-misspelled-properties
     font-display: swap;
-    // sass-lint:enable no-misspelled-properties
   }
 
   @font-face {
@@ -27,9 +25,7 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
       url($proximaNovaBoldWoffPath) format('woff');
     font-weight: $fontWeightBold;
     font-style: normal;
-    // sass-lint:disable no-misspelled-properties
     font-display: swap;
-    // sass-lint:enable no-misspelled-properties
   }
 
   @font-face {
@@ -38,9 +34,7 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
       url($proximaNovaBlackWoffPath) format('woff');
     font-weight: $fontWeightBlack;
     font-style: normal;
-    // sass-lint:disable no-misspelled-properties
     font-display: swap;
-    // sass-lint:enable no-misspelled-properties
   }
 
   @font-face {
@@ -49,8 +43,6 @@ $untitledSerifRegularWoffPath: $sgFontsPath + 'UntitledSerif-Regular.woff';
       url($untitledSerifRegularWoffPath) format('woff');
     font-weight: $fontWeightNormal;
     font-style: normal;
-    // sass-lint:disable no-misspelled-properties
     font-display: swap;
-    // sass-lint:enable no-misspelled-properties
   }
 }

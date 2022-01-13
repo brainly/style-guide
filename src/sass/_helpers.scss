@@ -13,9 +13,7 @@ $includeHtml: false !default;
     /// @deprecated Use sgResponsive mixin instead. sgResponsive promotes mobile first approach.
     .sg-hide-for-#{$breakpointName} {
       @include sgBreakpoint($breakpointName) {
-        //sass-lint:disable no-important
         display: none !important;
-        //sass-lint:enable no-important
       }
     }
   }
