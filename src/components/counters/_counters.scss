@@ -12,6 +12,7 @@ $counterSizeXS: componentSize(xs);
     display: inline-flex;
     justify-content: center;
     align-content: center;
+    flex-shrink: 0;
     background-color: $red-50;
     cursor: default;
 
