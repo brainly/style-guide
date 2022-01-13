@@ -1,36 +1,38 @@
 // Utils are meant to override other styles (See 7-1 or ITCSS for reference)
-// sass-lint:disable no-important
 
 // Space between (Lobotomized owl) util for controlling the space between child elements.
 // You can take the child out of the layout area by giving the child a .sg-space-ignore class.
 // To automatically ignore empty children use "empty" class variant e.g. empty:sg-space-y-m
 @each $breakpoint, $variant in $responsiveVariants {
   @include sgResponsive($breakpoint) {
-    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:')
-    {
+    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:') {
       .#{$variant}#{$name}sg-space-y-0 > * + *:not(.sg-space-ignore)#{$pseudo} {
         margin-top: 0 !important;
       }
 
-      .#{$variant}#{$name}sg-space-x-0 > * + * :not(.sg-space-ignore)#{$pseudo} {
+      .#{$variant}#{$name}sg-space-x-0
+        > *
+        + *
+        :not(.sg-space-ignore)#{$pseudo} {
         margin-left: 0 !important;
       }
 
       @each $sizeName, $size in $sizesSetup {
-        .#{$variant}#{$name}sg-space-y-#{$sizeName} > * + *:not(.sg-space-ignore)#{$pseudo} {
+        .#{$variant}#{$name}sg-space-y-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
           margin-top: $size !important;
         }
 
-        .#{$variant}#{$name}sg-space-x-#{$sizeName} > * + *:not(.sg-space-ignore)#{$pseudo} {
+        .#{$variant}#{$name}sg-space-x-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
           margin-left: $size !important;
         }
-
       }
     }
   }
 }
-
-// sass-lint:enable no-important
 
 @keyframes sgAnimationFadeIn {
   0% {

@@ -1,4 +1,4 @@
-(function() {
+(function () {
   var svgWrapper = document.createElement('div');
   svgWrapper.style.display = 'none';
   svgWrapper.innerHTML = '#SVG#';

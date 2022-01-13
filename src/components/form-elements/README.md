@@ -1,20 +1,20 @@
 # Form elements
 
 All the form elements at Brainly have to basic variants in terms of:
+
 1. Color
 
-    | Color | Value | 
-    | :- | :- | 
-    | default | $gray-20 |
-    | white | $white |
+   | Color   | Value    |
+   | :------ | :------- |
+   | default | $gray-20 |
+   | white   | $white   |
 
 2. Size
 
-    | Size | Value | 
-    | :- | :- | 
-    | normal | 40px |
-    | large | 56px |
-
+   | Size   | Value |
+   | :----- | :---- |
+   | normal | 40px  |
+   | large  | 56px  |
 
 As form elements we consider:
 
@@ -26,11 +26,11 @@ Examples of usage:
 import {Input} from 'style-guide';
 
 <Input
-    size="large"
-    placeholder="This is invalid example"
-    invalid
-    color="white"
-/>
+  size="large"
+  placeholder="This is invalid example"
+  invalid
+  color="white"
+/>;
 ```
 
 ```HTML
@@ -44,7 +44,7 @@ Examples of usage:
 ```jsx
 import {Textarea} from 'style-guide';
 
-<Textarea placeholder="placeholder" color="white" />
+<Textarea placeholder="placeholder" color="white" />;
 ```
 
 ```HTML
@@ -93,4 +93,3 @@ import {Select} from 'style-guide';
 </select>
 
 ```
-

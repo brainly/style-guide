@@ -27,9 +27,7 @@ export type AccordionItemPropsType = $ReadOnly<{
 }>;
 
 function generateId() {
-  return Math.random()
-    .toString(36)
-    .substring(7);
+  return Math.random().toString(36).substring(7);
 }
 
 const AccordionItem = ({
@@ -96,13 +94,13 @@ const AccordionItem = ({
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
 
-        requestAnimationFrame(function() {
+        requestAnimationFrame(function () {
           if (!contentRef.current) {
             return;
           }
           contentRef.current.style.height = `${sectionHeight}px`;
 
-          requestAnimationFrame(function() {
+          requestAnimationFrame(function () {
             if (!contentRef.current) {
               return;
             }

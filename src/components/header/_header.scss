@@ -3,7 +3,6 @@ $headerHeight: rhythm(2.5); // 60px;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-header {
     width: 100%;
     margin-bottom: rhythm(3) - $headerHeight;
@@ -70,5 +69,4 @@ $includeHtml: false !default;
       }
     }
   }
-
 }

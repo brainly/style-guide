@@ -5,7 +5,6 @@ $menuListBorderColor: $gray-40;
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-
   .sg-list {
     display: block;
     margin: 0;

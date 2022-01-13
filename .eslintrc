@@ -3,15 +3,17 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": ["brainly-react"],
+  "extends": ["brainly-react", "prettier"],
   "rules": {
-    "max-len": ["error", { "code": 120, "ignoreComments": true }],
-    "react/no-multi-comp": "off"
+    "max-len": ["error", {"code": 120, "ignoreComments": true}],
+    "react/no-multi-comp": "off",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   },
   "overrides": [
     {
       "files": ["*.stories.{js,jsx}"],
-      "rules": { "react/prop-types": "off" }
+      "rules": {"react/prop-types": "off"}
     }
   ],
   "globals": {

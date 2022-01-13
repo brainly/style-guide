@@ -50,12 +50,7 @@ describe('Label', () => {
 
     expect(label.find('.sg-label__close-button')).toHaveLength(1);
     expect(label.find('div').find(Icon)).toHaveLength(1);
-    expect(
-      label
-        .find('div')
-        .find(Icon)
-        .prop('color')
-    ).toBe('icon-black');
+    expect(label.find('div').find(Icon).prop('color')).toBe('icon-black');
   });
 
   test('clicking on close button calls onClose', () => {
