@@ -1,5 +1,1 @@
-src/images/icons.js
-src/images/math-symbols-icons.js
-src/images/mobile-icons.js
-src/images/subjects-icons.js
-src/images/subjects-mono-icons.js
+src/images/**/*.js
