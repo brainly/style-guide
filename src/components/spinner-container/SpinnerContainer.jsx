@@ -1,26 +1,16 @@
 // @flow strict
 
 import * as React from 'react';
-import Spinner from '../spinner/Spinner';
+import Spinner, {SpinnerColorType, SpinnerSizeType} from '../spinner/Spinner';
 import classnames from 'classnames';
 
 export {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
-export type SpinnerContainerSizeType = 'small' | 'xsmall' | 'xxsmall';
-
-export type SpinnerContainerColorType =
-  | 'black'
-  | 'white'
-  | 'gray-900'
-  | 'gray-700'
-  | 'peach-700'
-  | 'mustard-700'
-  | 'blue-700';
 
 export type SpinnerContainerPropsType = {
   loading?: boolean,
-  color?: SpinnerContainerColorType,
+  color?: SpinnerColorType,
   fullWidth?: boolean,
-  size?: SpinnerContainerSizeType,
+  size?: SpinnerSizeType,
   children?: React.Node,
   ...
 };

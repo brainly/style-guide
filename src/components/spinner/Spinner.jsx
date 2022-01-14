@@ -8,11 +8,11 @@ export type SpinnerSizeType = 'small' | 'xsmall' | 'xxsmall';
 export type SpinnerColorType =
   | 'black'
   | 'white'
-  | 'gray-900'
-  | 'gray-700'
-  | 'peach-700'
-  | 'mustard-700'
-  | 'blue-700';
+  | 'gray-70'
+  | 'gray-50'
+  | 'red-40'
+  | 'yellow-40'
+  | 'blue-40';
 
 export const SPINNER_SIZE = {
   SMALL: 'small',
@@ -21,13 +21,13 @@ export const SPINNER_SIZE = {
 };
 
 export const SPINNER_COLOR = {
-  BLACK: 'black',
-  WHITE: 'white',
-  GRAY900: 'gray-900',
-  GRAY700: 'gray-700',
-  PEACH700: 'peach-700',
-  MUSTARD700: 'mustard-700',
-  BLUE700: 'blue-700',
+  black: 'black',
+  white: 'white',
+  'gray-70': 'gray-70',
+  'gray-50': 'gray-50',
+  'red-40': 'red-40',
+  'yellow-40': 'yellow-40',
+  'blue-40': 'blue-40',
 };
 
 export type SpinnerPropsType = {
@@ -38,7 +38,7 @@ export type SpinnerPropsType = {
 };
 
 const Spinner = ({
-  color = SPINNER_COLOR.GRAY900,
+  color = 'gray-70',
   size = SPINNER_SIZE.SMALL,
   className,
   ...props
