@@ -8,8 +8,8 @@ process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 async function findStories() {
   return glob
     .sync('src/**/*.stories.@(jsx|mdx)')
-    .filter((storiesPath) => !storiesPath.includes('.chromatic.stories.'))
-    .map((storiesPath) => path.relative(__dirname, storiesPath));
+    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
+    .map(storiesPath => path.relative(__dirname, storiesPath));
 }
 
 module.exports = {
@@ -22,12 +22,15 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
-  webpackFinal: (config) => {
+  staticDirs: ['./public'],
+  webpackFinal: config => {
     // remove default loader for jsx, tsx and mjs
-    config.module.rules = config.module.rules.filter((rule) => rule.test.toString() !== /\.js$/);
+    config.module.rules = config.module.rules.slice(1);
 
     // remove default loader for fonts
-    config.module.rules = config.module.rules.filter((rule) => !rule.test.toString().includes('woff'));
+    config.module.rules = config.module.rules.filter(
+      rule => !rule.test.toString().includes('woff')
+    );
 
     // standard rules
     config.module.rules = config.module.rules.concat(

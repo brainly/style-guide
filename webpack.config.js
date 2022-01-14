@@ -16,7 +16,7 @@ const SOURCE_DOCS_STORYBOOK_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
-const babelEnv = (params) => [
+const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
     {
@@ -48,7 +48,7 @@ module.exports = () => {
               loader: 'file-loader',
               options: {
                 context: path.resolve(__dirname, './src'),
-                name: (absoluteFilename) => {
+                name: absoluteFilename => {
                   const hash = revHash(fs.readFileSync(absoluteFilename));
 
                   return `[path][name]-${hash}.[ext]`;
@@ -63,7 +63,7 @@ module.exports = () => {
           include: path.join(SOURCE_DIR, 'images'),
           exclude: path.join(SOURCE_DIR, 'images/logos'),
           options: {
-            symbolId: (filePath) => {
+            symbolId: filePath => {
               const pathParts = filePath.split(path.sep);
               const symbol = path.basename(filePath, '.svg');
 

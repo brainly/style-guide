@@ -17,7 +17,7 @@ node_modules
 coverage/
 package-lock.json
 yarn-error.log
-.storybook-static
+storybook-static
 .cache
 .typescript
 temp
