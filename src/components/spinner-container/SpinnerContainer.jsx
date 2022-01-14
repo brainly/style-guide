@@ -1,7 +1,8 @@
 // @flow strict
 
 import * as React from 'react';
-import Spinner, {SpinnerColorType, SpinnerSizeType} from '../spinner/Spinner';
+import Spinner from '../spinner/Spinner';
+import type {SpinnerColorType, SpinnerSizeType} from '../spinner/Spinner';
 import classnames from 'classnames';
 
 export {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
