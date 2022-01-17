@@ -24,7 +24,7 @@ export const Colors = () => (
   <Flex>
     {Object.values(SPINNER_COLOR).map(color => (
       <StoryVariant label={color} width={200} key={color}>
-        {color === SPINNER_COLOR.WHITE ? (
+        {color === 'white' ? (
           <div className="sg-story-variant-dark-box">
             <Spinner color={color} />
           </div>
