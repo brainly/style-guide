@@ -79,14 +79,27 @@ $includeHtml: false !default;
       position: absolute;
       left: 0;
       overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
     }
 
     &__star {
       width: $rateIconSize;
       height: $rateIconSize;
       padding: 0 1px;
+      position: relative;
 
       flex-shrink: 0;
+    }
+
+    &__radio {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .01;
+      cursor: pointer;
+      position: absolute;
     }
 
     // counter

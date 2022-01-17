@@ -12,7 +12,7 @@ export const RATING_SIZE = {
   S: 's',
 };
 
-const generateArrayRange = function (range: number): Array<number> {
+const generateArrayRange = function(range: number): Array<number> {
   const array = Array(range);
 
   for (let i = 0; i < range; i++) {
@@ -21,6 +21,12 @@ const generateArrayRange = function (range: number): Array<number> {
 
   return array;
 };
+
+function generateName() {
+  return `rating${Math.random()
+    .toString(36)
+    .substring(7)}`;
+}
 
 type OnMouseEnterType = (
   index: number,
@@ -56,35 +62,36 @@ class Rating extends React.Component<RatingPropsType> {
   constructor(props: RatingPropsType) {
     super(props);
 
-    this.createStarsOnClickFunctions(this.props.metricSize);
+    this.createStarsOnChangeFunctions(this.props.metricSize);
     this.createStarsMouseEnterFunctions(this.props.metricSize);
+    this.name = generateName();
   }
 
-  starsOnClickFunctions: Array<() => mixed> = [];
+  starsOnChangeFunctions: Array<() => mixed> = [];
   starsMouseEnterFunctions: Array<
     (SyntheticMouseEvent<HTMLSpanElement>) => mixed
   > = [];
 
   componentWillReciveProps(nextProps: RatingPropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
-      this.createStarsOnClickFunctions(nextProps.metricSize);
+      this.createStarsOnChangeFunctions(nextProps.metricSize);
       this.createStarsMouseEnterFunctions(this.props.metricSize);
     }
   }
 
-  createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => () => this.onClick(rangeIndex)
-    );
+  createStarsOnChangeFunctions(metricSize: number) {
+    this.starsOnChangeFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => () => this.onStarChange(rangeIndex));
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
-    );
+    this.starsMouseEnterFunctions = generateArrayRange(
+      metricSize
+    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
   }
 
-  onClick = (index: number) => {
+  onStarChange = (index: number) => {
     const {onChange, active = false} = this.props;
 
     if (!active) {
@@ -133,9 +140,12 @@ class Rating extends React.Component<RatingPropsType> {
     );
 
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
-      key: rangeIndex,
       size: size === 's' ? 32 : 24,
-      onClick: this.starsOnClickFunctions[rangeIndex],
+      onChange: this.starsOnChangeFunctions[rangeIndex],
+      active,
+      name: this.name,
+      label: `${rangeIndex + 1}/${metricSize}`,
+      value: rangeIndex + 1,
     }));
 
     const rateString = rate.toLocaleString(undefined, {
@@ -143,9 +153,15 @@ class Rating extends React.Component<RatingPropsType> {
       maximumFractionDigits: 1,
     });
 
+    const label = `${activeText}, min: 1, max: ${metricSize}`;
+    const metricString = `${rate}/${metricSize}`;
+
     return (
       <div className={ratingClass}>
-        {!noLabel && <div className="sg-rate-box__rate">{rateString}</div>}
+        <p className="sg-rate-box__rate">
+          <span aria-hidden>{rateString}</span>
+          <span className="sg-visually-hidden">{metricString}</span>
+        </p>
         <div
           className="sg-rate-box__stars-container"
           onMouseLeave={this.onMouseLeave}
@@ -153,15 +169,21 @@ class Rating extends React.Component<RatingPropsType> {
           <div
             className="sg-rate-box__filled-stars"
             style={{width: `${(100 * rate) / metricSize}%`}}
+            aria-hidden
           >
             {starsProps.map(props => (
-              <Star key={props.key} {...props} />
+              <Star key={props.value} size={props.size} />
             ))}
           </div>
-          <div className="sg-rate-box__background-stars">
+          <div
+            className="sg-rate-box__background-stars"
+            role="radiogroup"
+            aria-hidden={!active}
+            aria-label={label}
+          >
             {starsProps.map(props => (
               <Star
-                key={props.key}
+                key={props.value}
                 onMouseEnter={this.starsMouseEnterFunctions[props.key]}
                 {...props}
               />

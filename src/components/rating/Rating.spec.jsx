@@ -5,6 +5,7 @@ import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
+// fix "onClick" tests
 describe('rating', () => {
   it('renders correctly', () => {
     const rating = shallow(<Rating />);
@@ -53,6 +54,7 @@ describe('rating', () => {
     expect(filledWidth).toEqual(percentageRate);
   });
 
+  // fix
   it("onchange func doesn't call when no active", () => {
     const onChange = jest.fn();
     const rate = 3;
@@ -171,31 +173,32 @@ describe('rating', () => {
 
 describe('star', () => {
   it('renders', () => {
-    const star = shallow(<Star onClick={jest.fn()} />);
+    const star = shallow(<Star />);
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
   });
 
   it('uses Icon component', () => {
     const size = 16;
-    const star = shallow(<Star size={size} onClick={jest.fn()} />);
+    const star = shallow(<Star size={size} />);
 
     expect(star.find(Icon)).toHaveLength(1);
   });
 
   it('onClick', () => {
-    const onClick = jest.fn();
-    const star = shallow(<Star onClick={onClick} />);
+    const onChange = jest.fn();
+    const star = shallow(<Star onChange={onChange} active />);
 
-    expect(onClick.mock.calls).toHaveLength(0);
+    expect(onChange.mock.calls).toHaveLength(0);
 
-    star.simulate('click');
-    expect(onClick.mock.calls).toHaveLength(1);
+    // fix
+    star.simulate('change');
+    expect(onChange.mock.calls).toHaveLength(1);
   });
 
   it('passes size to icon', () => {
     const size = 16;
-    const star = shallow(<Star size={size} onClick={jest.fn()} />);
+    const star = shallow(<Star size={size} />);
 
     const icon = star.find(Icon);
 
