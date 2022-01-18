@@ -28,7 +28,7 @@ export default {
   },
 };
 
-export const Default = (args) => (
+export const Default = args => (
   <div>
     Mollit commodo eu sit aute cillum do nostrud elit ex excepteur. Eu minim
     dolore quis laborum labore. Eu eiusmod aute tempor dolor incididunt.
@@ -36,7 +36,7 @@ export const Default = (args) => (
   </div>
 );
 
-export const Black = (args) => (
+export const Black = args => (
   <div>
     Mollit commodo eu sit aute cillum do nostrud elit ex excepteur. Eu minim
     dolore quis laborum labore. Eu eiusmod aute tempor dolor incididunt.
