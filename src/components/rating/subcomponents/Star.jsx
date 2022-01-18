@@ -10,7 +10,7 @@ export type StarPropsType = {
   name?: string,
   onChange?: () => mixed,
   active?: boolean,
-  label: string,
+  'aria-label': string,
   value?: number,
   ...
 };
@@ -20,7 +20,7 @@ const Star = ({
   name,
   onChange,
   active,
-  label,
+  'aria-label': label,
   value,
   ...props
 }: StarPropsType) => (

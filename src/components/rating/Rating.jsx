@@ -45,6 +45,7 @@ export type RatingPropsType = {
   activeText?: string,
   noLabel?: boolean,
   className?: string,
+  'aria-label'?: string,
   ...
 };
 
@@ -57,6 +58,7 @@ class Rating extends React.Component<RatingPropsType> {
     onMouseLeave: () => undefined,
     metricSize: 5,
     rate: 0,
+    'aria-label': 'current rate',
   };
 
   constructor(props: RatingPropsType) {
@@ -128,6 +130,7 @@ class Rating extends React.Component<RatingPropsType> {
       className,
       counterText,
       activeText,
+      'aria-label': label,
       noLabel = false,
     } = this.props;
     const ratingClass = classnames(
@@ -144,7 +147,7 @@ class Rating extends React.Component<RatingPropsType> {
       onChange: this.starsOnChangeFunctions[rangeIndex],
       active,
       name: this.name,
-      label: `${rangeIndex + 1}/${metricSize}`,
+      'aria-label': `${rangeIndex + 1}/${metricSize}`,
       value: rangeIndex + 1,
     }));
 
@@ -153,14 +156,14 @@ class Rating extends React.Component<RatingPropsType> {
       maximumFractionDigits: 1,
     });
 
-    const label = `${activeText}, min: 1, max: ${metricSize}`;
+    const rateLabel = `${activeText}, min: 1, max: ${metricSize}`;
     const metricString = `${rate}/${metricSize}`;
 
     return (
-      <div className={ratingClass}>
+      <div className={ratingClass} aria-label={label}>
         <p className="sg-rate-box__rate">
-          <span aria-hidden>{rateString}</span>
-          <span className="sg-visually-hidden">{metricString}</span>
+          {!noLabel && <span aria-hidden>{rateString}</span>}
+          {rate && <span className="sg-visually-hidden">{metricString}</span>}
         </p>
         <div
           className="sg-rate-box__stars-container"
@@ -179,7 +182,7 @@ class Rating extends React.Component<RatingPropsType> {
             className="sg-rate-box__background-stars"
             role="radiogroup"
             aria-hidden={!active}
-            aria-label={label}
+            aria-label={rateLabel}
           >
             {starsProps.map(props => (
               <Star

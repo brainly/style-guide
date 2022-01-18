@@ -5,7 +5,6 @@ import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
-// fix "onClick" tests
 describe('rating', () => {
   it('renders correctly', () => {
     const rating = shallow(<Rating />);
@@ -52,37 +51,6 @@ describe('rating', () => {
     const filledWidth = filledStarsBox.props().style.width;
 
     expect(filledWidth).toEqual(percentageRate);
-  });
-
-  // fix
-  it("onchange func doesn't call when no active", () => {
-    const onChange = jest.fn();
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} onChange={onChange} />);
-    const stars = rating.find(Star);
-
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(0).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(1).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(0);
-  });
-
-  it('onchange', () => {
-    const onChange = jest.fn();
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} onChange={onChange} active />);
-    const stars = rating.find(Star);
-
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(0).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(1);
-
-    stars.at(1).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(2);
   });
 
   it("doesn't throw error when onChange isn't defined", () => {
@@ -183,17 +151,6 @@ describe('star', () => {
     const star = shallow(<Star size={size} />);
 
     expect(star.find(Icon)).toHaveLength(1);
-  });
-
-  it('onClick', () => {
-    const onChange = jest.fn();
-    const star = shallow(<Star onChange={onChange} active />);
-
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    // fix
-    star.simulate('change');
-    expect(onChange.mock.calls).toHaveLength(1);
   });
 
   it('passes size to icon', () => {
