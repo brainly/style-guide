@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FileHandler, {FILE_HANDLER_COLORS_SET} from './FileHandler';
+import FileHandler, {COLORS_MAP} from './FileHandler';
 import {TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import {StoryVariant} from '../../_docs/utils';
@@ -38,7 +38,7 @@ export const Default = args => <FileHandler {...args} />;
 
 export const Colors = args => (
   <div>
-    {Object.values(FILE_HANDLER_COLORS_SET).map(color => (
+    {Object.values(COLORS_MAP).map(color => (
       <StoryVariant label={`color - ${color}`} key={color}>
         {color === 'white' ? (
           <div className="sg-story-variant-dark-box">

@@ -10,16 +10,11 @@ import Spinner from '../spinner/Spinner';
 
 import type {IconTypeType} from '../icons/Icon';
 
-export type FileHandlerColorType = 'gray' | 'white';
+export type FileHandlerColorType = 'gray-20' | 'white';
 
 export const COLORS_MAP = {
-  gray: 'gray-secondary-light',
+  'gray-20': 'gray-20',
   white: 'white',
-};
-
-export const FILE_HANDLER_COLORS_SET = {
-  GRAY: 'gray',
-  WHITE: 'white',
 };
 
 type AriaStatusLabelType = {
@@ -33,7 +28,7 @@ export type FileHandlerPropsType = $ReadOnly<{
    * @example <FileHandler color="white">
    *            text
    *          </FileHandler>
-   * @default gray
+   * @default 'gray-20'
    */
   color: FileHandlerColorType,
   /**
@@ -113,7 +108,7 @@ export type FileHandlerPropsType = $ReadOnly<{
 
 const FileHandler = ({
   children,
-  color = 'gray',
+  color = 'gray-20',
   iconType = 'attachment',
   thumbnailSrc,
   src,
