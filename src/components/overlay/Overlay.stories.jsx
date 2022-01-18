@@ -36,10 +36,10 @@ export const Default = args => (
   </div>
 );
 
-export const Dark = args => (
+export const Black = args => (
   <div>
     Mollit commodo eu sit aute cillum do nostrud elit ex excepteur. Eu minim
     dolore quis laborum labore. Eu eiusmod aute tempor dolor incididunt.
-    <Overlay {...args} color={COLOR.DARK} />
+    <Overlay {...args} color="black" />
   </div>
 );
