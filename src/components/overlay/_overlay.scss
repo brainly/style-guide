@@ -1,11 +1,9 @@
 $overlayBackgroundColorBlue: rgba($blue-40, 0.9);
-$overlayBackgroundColorDark: rgba($black, 0.4);
-$overlayBackgroundColor: $overlayBackgroundColorBlue;
+$overlayBackgroundColorBlack: rgba($black, 0.4);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
   .sg-overlay {
-    background-color: $overlayBackgroundColor;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -23,8 +21,8 @@ $includeHtml: false !default;
       position: absolute;
     }
 
-    &--dark {
-      background-color: $overlayBackgroundColorDark;
+    &--black {
+      background-color: $overlayBackgroundColorBlack;
     }
 
     &--blue {
