@@ -20,9 +20,9 @@ export default {
   },
 };
 
-export const Default = args => <Counter {...args} />;
+export const Default = (args) => <Counter {...args} />;
 
-export const SizesColorsAndTypes = args => (
+export const SizesColorsAndTypes = (args) => (
   <div>
     <StoryVariantTable>
       <thead>
@@ -64,7 +64,7 @@ export const SizesColorsAndTypes = args => (
         </tr>
       </thead>
       <tbody>
-        {Object.values(COUNTER_SIZE).map(size => (
+        {Object.values(COUNTER_SIZE).map((size) => (
           <tr key={size}>
             <td>
               <Headline
@@ -86,7 +86,7 @@ export const SizesColorsAndTypes = args => (
             </td>
             <td>
               <Flex justifyContent="center">
-                <Counter key={size} {...args} size={size} color="blue-900">
+                <Counter key={size} {...args} size={size} color="blue-50">
                   2
                 </Counter>
               </Flex>
