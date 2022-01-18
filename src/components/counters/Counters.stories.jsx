@@ -20,9 +20,9 @@ export default {
   },
 };
 
-export const Default = (args) => <Counter {...args} />;
+export const Default = args => <Counter {...args} />;
 
-export const SizesColorsAndTypes = (args) => (
+export const SizesColorsAndTypes = args => (
   <div>
     <StoryVariantTable>
       <thead>
@@ -64,7 +64,7 @@ export const SizesColorsAndTypes = (args) => (
         </tr>
       </thead>
       <tbody>
-        {Object.values(COUNTER_SIZE).map((size) => (
+        {Object.values(COUNTER_SIZE).map(size => (
           <tr key={size}>
             <td>
               <Headline
