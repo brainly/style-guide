@@ -11,7 +11,7 @@ export type MediaPropsType = {
   clickable?: boolean,
   noPadding?: boolean,
   transparent?: boolean,
-  graySecondaryLight?: boolean,
+  gray?: boolean,
   small?: boolean,
   spacedBottom?: boolean,
   className?: string,
@@ -28,7 +28,7 @@ const Media = (props: MediaPropsType) => {
     clickable,
     noPadding,
     transparent,
-    graySecondaryLight,
+    gray,
     small,
     spacedBottom,
     ...restProps
@@ -41,7 +41,7 @@ const Media = (props: MediaPropsType) => {
       'sg-media--clickable': clickable,
       'sg-media--no-padding': noPadding,
       'sg-media--transparent': transparent,
-      'sg-media--gray-secondary-light': graySecondaryLight,
+      'sg-media--gray': gray,
     },
     className
   );

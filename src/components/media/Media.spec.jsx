@@ -26,7 +26,7 @@ test('testing modifications - all on', () => {
     <Media
       {...defaultProps}
       clickable
-      graySecondaryLight
+      gray
       focused
       toRight
       small
@@ -37,7 +37,7 @@ test('testing modifications - all on', () => {
   );
 
   expect(media.hasClass('sg-media--clickable')).toEqual(true);
-  expect(media.hasClass('sg-media--gray-secondary-light')).toEqual(true);
+  expect(media.hasClass('sg-media--gray')).toEqual(true);
   expect(media.hasClass('sg-media--focused')).toEqual(true);
   expect(media.hasClass('sg-media--to-right')).toEqual(true);
   expect(media.hasClass('sg-media--transparent')).toEqual(true);
@@ -55,7 +55,7 @@ test('testing modifications - all off', () => {
   const media = shallow(<Media {...defaultProps} />);
 
   expect(media.hasClass('sg-media--clickable')).toEqual(false);
-  expect(media.hasClass('sg-media--gray-secondary-light')).toEqual(false);
+  expect(media.hasClass('sg-media--gray')).toEqual(false);
   expect(media.hasClass('sg-media--focused')).toEqual(false);
   expect(media.hasClass('sg-media--to-right')).toEqual(false);
   expect(media.hasClass('sg-media--transparent')).toEqual(false);
