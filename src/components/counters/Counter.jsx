@@ -4,16 +4,16 @@ import * as React from 'react';
 import cx from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
-import Icon, {ICON_COLOR} from '../icons/Icon';
+import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
 
-type ColorType = 'peach-900' | 'blue-900';
+type ColorType = 'red-50' | 'blue-50';
 
 export const COUNTER_COLOR = {
-  PEACH900: 'peach-900',
-  BLUE900: 'blue-900',
+  'red-50': 'red-50',
+  'blue-50': 'blue-50',
 };
 
 export const COUNTER_SIZE: {
@@ -50,7 +50,7 @@ export type CounterPropsType = {
   size?: ?CounterSizeType,
   /**
    * Counter background color
-   * @example <Counter color="blue-900">1</Counter>
+   * @example <Counter color="blue-50">1</Counter>
    */
   color?: ?ColorType,
   /**
@@ -72,7 +72,7 @@ const Counter = ({
   children,
   className,
   size,
-  color = COUNTER_COLOR.PEACH900,
+  color = 'red-50',
   withAnimation,
   ...props
 }: CounterPropsType) => {
@@ -117,7 +117,7 @@ const Counter = ({
           <Icon
             type={icon}
             size={size === 'xxs' ? 16 : 24}
-            color={ICON_COLOR['icon-black']}
+            color="icon-black"
             className="sg-counter__icon"
           />
         </Flex>
