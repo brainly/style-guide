@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SeparatorVertical, {SIZE} from './SeparatorVertical';
+import SeparatorVertical, {SIZE, COLORS_MAP} from './SeparatorVertical';
 import Flex from '../flex/Flex';
 import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 
@@ -44,21 +44,22 @@ export const Sizes = args => {
 
 export const Colors = args => (
   <div>
-    <StoryVariant label="color - white">
-      <div className="sg-story-variant-dark-box">
-        <Flex alignItems="center">
-          above
-          <SeparatorVertical {...args} white />
-          below
-        </Flex>
-      </div>
-    </StoryVariant>
-    <StoryVariant label="color - gray dark">
-      <Flex alignItems="center">
-        above
-        <SeparatorVertical {...args} grayDark />
-        below
-      </Flex>
-    </StoryVariant>
+    {Object.values(COLORS_MAP).map(color => (
+      <StoryVariant label={`color - ${color}`} key={color}>
+        {color === 'white' ? (
+          <div className="sg-story-variant-dark-box">
+            above
+            <SeparatorVertical {...args} color={color} />
+            below
+          </div>
+        ) : (
+          <div>
+            above
+            <SeparatorVertical {...args} color={color} />
+            below
+          </div>
+        )}
+      </StoryVariant>
+    ))}
   </div>
 );

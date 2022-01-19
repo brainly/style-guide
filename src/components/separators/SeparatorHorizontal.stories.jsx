@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SeparatorHorizontal, {TYPE} from './SeparatorHorizontal';
+import SeparatorHorizontal, {TYPE, COLORS_MAP} from './SeparatorHorizontal';
 import {StoryVariant} from '../../_docs/utils';
 
 export default {
@@ -33,19 +33,22 @@ export const Types = args => (
 
 export const Colors = args => (
   <div>
-    <StoryVariant label="color - white">
-      <div className="sg-story-variant-dark-box">
-        above
-        <SeparatorHorizontal {...args} white />
-        below
-      </div>
-    </StoryVariant>
-    <StoryVariant label="color - gray dark">
-      <div>
-        above
-        <SeparatorHorizontal {...args} grayDark />
-        below
-      </div>
-    </StoryVariant>
+    {Object.values(COLORS_MAP).map(color => (
+      <StoryVariant label={`color - ${color}`} key={color}>
+        {color === 'white' ? (
+          <div className="sg-story-variant-dark-box">
+            above
+            <SeparatorHorizontal {...args} color={color} />
+            below
+          </div>
+        ) : (
+          <div>
+            above
+            <SeparatorHorizontal {...args} color={color} />
+            below
+          </div>
+        )}
+      </StoryVariant>
+    ))}
   </div>
 );
