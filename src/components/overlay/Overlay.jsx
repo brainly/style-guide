@@ -13,7 +13,7 @@ export type OverlayPropsType = {
 
 export const COLOR = {
   BLUE: 'blue',
-  DARK: 'dark',
+  BLACK: 'black',
 };
 
 type ColorType = $Values<typeof COLOR>;
@@ -22,7 +22,7 @@ const Overlay = ({
   partial,
   children,
   className,
-  color,
+  color = COLOR.BLUE,
   ...props
 }: OverlayPropsType) => {
   const overlayClass = classnames(

@@ -25,7 +25,7 @@ test('partial', () => {
 });
 
 test('colors', () => {
-  const overlay = shallow(<Overlay color="dark" />);
+  const overlay = shallow(<Overlay color="black" />);
 
-  expect(overlay.hasClass('sg-overlay--dark')).toBeTruthy();
+  expect(overlay.hasClass('sg-overlay--black')).toBeTruthy();
 });
