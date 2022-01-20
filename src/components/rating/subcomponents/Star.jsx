@@ -25,7 +25,6 @@ const Star = ({
   ...props
 }: StarPropsType) => (
   <span {...props} className="sg-rate-box__star">
-    <Icon type="star" size={size} color={ICON_COLOR.ADAPTIVE} aria-hidden />
     {active && (
       <input
         type="radio"
@@ -36,6 +35,13 @@ const Star = ({
         aria-label={label}
       />
     )}
+    <Icon
+      type="star"
+      size={size}
+      color={ICON_COLOR.ADAPTIVE}
+      className="sg-rate-box__star-icon"
+      aria-hidden
+    />
   </span>
 );
 
