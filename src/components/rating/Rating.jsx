@@ -4,6 +4,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
+import {__DEV__, invariant} from '../utils';
 
 type RatingSizeType = 's' | 'xs';
 
@@ -158,6 +159,20 @@ class Rating extends React.Component<RatingPropsType> {
 
     const rateLabel = `${activeText}, min: 1, max: ${metricSize}`;
     const metricString = `${rate}/${metricSize}`;
+
+    if (__DEV__) {
+      invariant(
+        !(active && !this.props.onChange),
+        // eslint-disable-next-line max-len
+        'You provided an `active` prop to a Rating without an `onChange` handler. Users won`t be able to rate.'
+      );
+
+      invariant(
+        !(!active && this.props.onChange),
+        // eslint-disable-next-line max-len
+        'You provided an `onChange` handler to a Rating without an `active` prop. Users won`t be able to rate.'
+      );
+    }
 
     return (
       <div className={ratingClass} aria-label={label}>
