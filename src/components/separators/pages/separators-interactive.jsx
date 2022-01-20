@@ -1,8 +1,11 @@
 import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
-import SeparatorVertical, {SIZE} from '../SeparatorVertical';
-import SeparatorHorizontal, {TYPE} from '../SeparatorHorizontal';
+import SeparatorVertical, {SIZE, COLORS_MAP} from '../SeparatorVertical';
+import SeparatorHorizontal, {
+  TYPE,
+  COLORS_MAP as HORIZONTAL_COLORS_MAP,
+} from '../SeparatorHorizontal';
 
 const Separators = () => {
   const verticalSettings = [
@@ -11,12 +14,8 @@ const Separators = () => {
       values: SIZE,
     },
     {
-      name: 'white',
-      values: Boolean,
-    },
-    {
-      name: 'grayDark',
-      values: Boolean,
+      name: 'color',
+      values: COLORS_MAP,
     },
   ];
   const horizontalSettings = [
@@ -25,12 +24,8 @@ const Separators = () => {
       values: TYPE,
     },
     {
-      name: 'white',
-      values: Boolean,
-    },
-    {
-      name: 'grayDark',
-      values: Boolean,
+      name: 'color',
+      values: HORIZONTAL_COLORS_MAP,
     },
   ];
 
