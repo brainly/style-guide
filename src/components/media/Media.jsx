@@ -3,18 +3,25 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
+export const COLORS_MAP = {
+  WHITE: 'white',
+  TRANSPARENT: 'transparent',
+  FOCUSED: 'blue-20',
+  GRAY: 'gray-20',
+};
+
+type ColorType = 'white' | 'transparent' | 'blue-20' | 'gray-20';
+
 export type MediaPropsType = {
   aside: React.Node,
   contentArray: Array<React.Node>,
   toRight?: boolean,
-  focused?: boolean,
   clickable?: boolean,
   noPadding?: boolean,
-  transparent?: boolean,
-  gray?: boolean,
   small?: boolean,
   spacedBottom?: boolean,
   className?: string,
+  color?: ColorType,
   ...
 };
 
@@ -24,24 +31,20 @@ const Media = (props: MediaPropsType) => {
     aside,
     className,
     toRight,
-    focused,
     clickable,
     noPadding,
-    transparent,
-    gray,
     small,
     spacedBottom,
+    color = COLORS_MAP.WHITE,
     ...restProps
   } = props;
   const mediaClassName = classnames(
     'sg-media',
     {
       'sg-media--to-right': toRight,
-      'sg-media--focused': focused,
       'sg-media--clickable': clickable,
       'sg-media--no-padding': noPadding,
-      'sg-media--transparent': transparent,
-      'sg-media--gray': gray,
+      [`sg-media--${String(color)}`]: color,
     },
     className
   );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Media from '../Media';
+import Media, {COLORS_MAP} from '../Media';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
 import Avatar from 'avatar/Avatar';
@@ -29,15 +29,23 @@ const Medias = () => (
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Focused">
+    <DocsBlock info="Clickable">
       <ContrastBox fullWidth>
-        <Media {...defaultProps} focused />
+        <Media {...defaultProps} clickable />
       </ContrastBox>
     </DocsBlock>
 
-    <DocsBlock info="Gray secondary light - Clickable">
-      <Media {...defaultProps} graySecondaryLight clickable />
-    </DocsBlock>
+    {Object.values(COLORS_MAP).map(color => (
+      <DocsBlock key={color} info={`color ${color}`}>
+        {color === 'white' ? (
+          <ContrastBox>
+            <Media {...defaultProps} color={color} />
+          </ContrastBox>
+        ) : (
+          <Media {...defaultProps} color={color} />
+        )}
+      </DocsBlock>
+    ))}
   </div>
 );
 

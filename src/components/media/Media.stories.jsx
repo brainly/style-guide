@@ -1,14 +1,16 @@
 import * as React from 'react';
-import Media from './Media';
+import Media, {COLORS_MAP} from './Media';
 import Text from '../text/Text';
 import Avatar from '../avatar/Avatar';
+import Flex from '../flex/Flex';
+import {StoryVariant} from '../../_docs/utils';
 
 export default {
   title: 'Components/Media',
   component: Media,
   parameters: {
     backgrounds: {
-      default: 'dark',
+      default: 'gray-40',
     },
   },
   argTypes: {
@@ -38,14 +40,18 @@ export const Default = args => <Media {...args} />;
 
 export const ToRight = args => <Media {...args} toRight />;
 
-export const Focused = args => <Media {...args} focused />;
-
-export const GraySecondaryLightClickable = args => (
-  <Media {...args} graySecondaryLight clickable />
+export const Colors = args => (
+  <Flex alignItems="flex-end" wrap="true">
+    {Object.keys(COLORS_MAP).map(colorType => (
+      <StoryVariant
+        label={`${colorType} (${COLORS_MAP[colorType]})`}
+        width={200}
+        key={colorType}
+      >
+        <Media {...args} key={colorType} color={COLORS_MAP[colorType]} />
+      </StoryVariant>
+    ))}
+  </Flex>
 );
 
-GraySecondaryLightClickable.parameters = {
-  backgrounds: {
-    default: 'light',
-  },
-};
+export const Clickable = args => <Media {...args} color="gray-20" clickable />;
