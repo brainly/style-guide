@@ -17,4 +17,4 @@ artifacts:
   name: 'branches/$GIT_BRANCH'
   files:
     - '**/*'
-  base-directory: '.storybook-static'
+  base-directory: 'storybook-static'
