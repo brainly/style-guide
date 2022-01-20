@@ -14,6 +14,15 @@ describe('Rating', () => {
     expect(star.getByText(`${rate}/5`)).toBeTruthy();
   });
 
+  it('has accessible description of rate action with min & max value', () => {
+    const activeText = 'Rate this answer';
+    const rateLabel = `${activeText}, min: 1, max: 5`;
+
+    const star = render(<Rating activeText={activeText} active />);
+
+    expect(star.getByLabelText(rateLabel)).toBeTruthy();
+  });
+
   it('has radiogroup role when active', () => {
     const star = render(<Rating active />);
 
@@ -45,7 +54,8 @@ describe('Rating', () => {
 });
 
 describe('Star', () => {
-  it('has accessible label', () => {
+  it('has accessible label for radio input', () => {
+    const onChange = jest.fn();
     const label = '2/6';
 
     const star = render(
@@ -58,28 +68,45 @@ describe('Star', () => {
       />
     );
 
-    expect(star.getByLabelText(label)).toBeTruthy();
+    expect(star.getByRole('radio', label)).toBeTruthy();
   });
+
+  it('is not accessible when is not active ', () => {
+    const label = '2/6';
+    const rating = render(<Star aria-label={label} />);
+
+    expect(rating.queryByLabelText(label)).toBeFalsy();
+  });
+
   it('fires onChange on user click and space', () => {
     const onChange = jest.fn();
-    const label = '2/6';
+
     const star = render(
-      <Star
-        onChange={onChange}
-        aria-label={label}
-        value={2}
-        name="rating"
-        active
-      />
+      <div>
+        <Star
+          onChange={onChange}
+          aria-label="2/6"
+          value={2}
+          name="rating"
+          active
+        />
+        <Star
+          onChange={onChange}
+          aria-label="3/6"
+          value={3}
+          name="rating"
+          active
+        />
+      </div>
     );
 
     expect(onChange.mock.calls).toHaveLength(0);
 
-    userEvent.click(star.getByLabelText(label));
+    userEvent.click(star.getByLabelText('2/6'));
     expect(onChange.mock.calls).toHaveLength(1);
-    // fix
-    star.getByLabelText(label).focus();
-    expect(star.getByLabelText(label)).toEqual(document.activeElement);
+
+    star.getByLabelText('3/6').focus();
+    expect(star.getByLabelText('3/6')).toEqual(document.activeElement);
     userEvent.keyboard('{space}');
     expect(onChange.mock.calls).toHaveLength(2);
   });
