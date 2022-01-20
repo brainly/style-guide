@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import * as IconModule from '../../icons/Icon';
-import {__DEV__, invariant} from '../utils';
+import {__DEV__, invariant} from '../../utils';
 
 const {default: Icon, ICON_COLOR} = IconModule;
 
@@ -11,7 +11,7 @@ export type StarPropsType = {
   name?: string,
   onChange?: () => mixed,
   active?: boolean,
-  'aria-label': string,
+  'aria-label'?: string,
   value?: number,
   ...
 };

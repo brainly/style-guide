@@ -13,7 +13,7 @@ export const RATING_SIZE = {
   S: 's',
 };
 
-const generateArrayRange = function(range: number): Array<number> {
+const generateArrayRange = function (range: number): Array<number> {
   const array = Array(range);
 
   for (let i = 0; i < range; i++) {
@@ -24,9 +24,7 @@ const generateArrayRange = function(range: number): Array<number> {
 };
 
 function generateName() {
-  return `rating${Math.random()
-    .toString(36)
-    .substring(7)}`;
+  return `rating${Math.random().toString(36).substring(7)}`;
 }
 
 type OnMouseEnterType = (
@@ -70,6 +68,7 @@ class Rating extends React.Component<RatingPropsType> {
     this.name = generateName();
   }
 
+  name: string;
   starsOnChangeFunctions: Array<() => mixed> = [];
   starsMouseEnterFunctions: Array<
     (SyntheticMouseEvent<HTMLSpanElement>) => mixed
@@ -83,15 +82,15 @@ class Rating extends React.Component<RatingPropsType> {
   }
 
   createStarsOnChangeFunctions(metricSize: number) {
-    this.starsOnChangeFunctions = generateArrayRange(
-      metricSize
-    ).map(rangeIndex => () => this.onStarChange(rangeIndex));
+    this.starsOnChangeFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => () => this.onStarChange(rangeIndex)
+    );
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
-    this.starsMouseEnterFunctions = generateArrayRange(
-      metricSize
-    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
+    this.starsMouseEnterFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => event => this.onStarMouseEnter(rangeIndex, event)
+    );
   }
 
   onStarChange = (index: number) => {
@@ -157,7 +156,7 @@ class Rating extends React.Component<RatingPropsType> {
       maximumFractionDigits: 1,
     });
 
-    const rateLabel = `${activeText}, min: 1, max: ${metricSize}`;
+    const rateLabel = `${activeText || ''}, min: 1, max: ${metricSize}`;
     const metricString = `${rate}/${metricSize}`;
 
     if (__DEV__) {
@@ -202,7 +201,7 @@ class Rating extends React.Component<RatingPropsType> {
             {starsProps.map(props => (
               <Star
                 key={props.value}
-                onMouseEnter={this.starsMouseEnterFunctions[props.key]}
+                onMouseEnter={this.starsMouseEnterFunctions[props.value]}
                 {...props}
               />
             ))}

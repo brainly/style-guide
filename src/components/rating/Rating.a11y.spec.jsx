@@ -116,6 +116,13 @@ describe('Rating a11y', () => {
   it('should have no a11y violations when rating is active', async () => {
     await testA11y(<Rating active />);
   });
+  it('should have no a11y violations when rating is active and has activeText', async () => {
+    await testA11y(<Rating activeText="Rate this answer" active />);
+  });
+
+  it('should have no a11y violations when rate is provided', async () => {
+    await testA11y(<Rating rate={3.2} active />);
+  });
 
   it('should have no a11y violations when rating is not active', async () => {
     await testA11y(<Rating />);
