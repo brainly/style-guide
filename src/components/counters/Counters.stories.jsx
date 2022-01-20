@@ -86,7 +86,7 @@ export const SizesColorsAndTypes = args => (
             </td>
             <td>
               <Flex justifyContent="center">
-                <Counter key={size} {...args} size={size} color="blue-900">
+                <Counter key={size} {...args} size={size} color="blue-50">
                   2
                 </Counter>
               </Flex>

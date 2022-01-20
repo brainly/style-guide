@@ -1,13 +1,13 @@
 import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import FileHandler, {FILE_HANDLER_COLORS_SET} from '../FileHandler';
+import FileHandler, {COLORS_MAP} from '../FileHandler';
 import {TYPE as ICON_TYPE} from 'icons/Icon';
 
 const FileHandlers = () => {
   const settings = [
     {
       name: 'color',
-      values: FILE_HANDLER_COLORS_SET,
+      values: COLORS_MAP,
     },
     {
       name: 'iconType',
