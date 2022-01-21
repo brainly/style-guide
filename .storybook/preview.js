@@ -16,11 +16,13 @@ import {Stories} from 'blocks/Stories';
 // load all styles
 import '../src/main.scss';
 import '../src/_docs/styles.scss';
+import '../src/chromatic/styles.scss';
 
 function importAll(r) {
   r.keys().forEach(r);
 }
 
+// load icon sprites
 importAll(require.context('../src/images/logos', true, /\.svg$/));
 importAll(require.context('../src/images/icons', true, /\.svg$/));
 importAll(require.context('../src/images/subjects', true, /\.svg$/));

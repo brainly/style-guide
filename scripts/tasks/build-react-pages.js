@@ -5,13 +5,16 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const rename = require('gulp-rename');
 const prettify = require('gulp-prettify');
+const baseWebpackConfigFn = require('../../webpack.config');
+
+const baseWebpackConfig = baseWebpackConfigFn();
 
 // create external modules for webpack to not include it in bundles.
 const nodeModules = {};
 
 fs.readdirSync('node_modules')
-  .filter(dir => dir !== '.bin')
-  .forEach(mod => (nodeModules[mod] = `commonjs ${mod}`));
+  .filter((dir) => dir !== '.bin')
+  .forEach((mod) => (nodeModules[mod] = `commonjs ${mod}`));
 
 module.exports = function(gulp, plugins, consts, options) {
   const coreConfig = {
@@ -25,6 +28,10 @@ module.exports = function(gulp, plugins, consts, options) {
         },
       ],
     },
+    resolve: {
+      extensions: ['.js', '.jsx'],
+      modules: [consts.COMPONENTS, consts.DOCS, 'node_modules'],
+    },
     externals: nodeModules,
   };
 
@@ -34,11 +41,8 @@ module.exports = function(gulp, plugins, consts, options) {
     const relativePath = pathArray.join('/');
     const jsPath = plugins.path.join(consts.VERSIONED_DIST, relativePath);
 
-    const config = Object.assign({}, coreConfig, {
-      resolve: {
-        extensions: ['.js', '.jsx'],
-        modules: [consts.COMPONENTS, consts.DOCS, 'node_modules'],
-      },
+    const config = Object.assign({}, baseWebpackConfig, {
+      target: 'node',
       entry: {
         [fileNameWithExtension]: file.path,
       },
@@ -47,6 +51,7 @@ module.exports = function(gulp, plugins, consts, options) {
         path: jsPath,
         libraryTarget: 'commonjs2',
       },
+      externals: nodeModules,
     });
 
     webpack(config, function(err, stats) {
