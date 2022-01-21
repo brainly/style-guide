@@ -141,7 +141,10 @@ $includeHtml: false !default;
 
       font-weight: $fontWeightBold;
       color: $rateCounterColor;
-      margin: 0 gutter(1 / 4) 0 0;
+
+      & span[aria-hidden] {
+        margin: 0 gutter(1 / 4) 0 0;
+      }
     }
 
     &--s {
