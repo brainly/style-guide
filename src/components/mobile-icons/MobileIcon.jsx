@@ -12,20 +12,28 @@ export type IconTypeType =
   | 'backward_end'
   | 'barcode_scanner'
   | 'chapter'
+  | 'circle_fill'
   | 'clear'
   | 'comment'
   | 'crown'
   | 'crown_outlined'
   | 'cup'
+  | 'cursor_select'
+  | 'dashed_line'
+  | 'draw'
   | 'filters'
   | 'flashlight_off'
   | 'flashlight_on'
   | 'forward_5s'
+  | 'hand_move'
   | 'heart_outlined'
+  | 'hexagon'
   | 'info'
   | 'keyboard'
   | 'options'
   | 'replay'
+  | 'send_back'
+  | 'send_front'
   | 'share_on_ios'
   | 'spark'
   | 'star_outlined'
@@ -60,20 +68,28 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   BACKWARD_END: 'backward_end',
   BARCODE_SCANNER: 'barcode_scanner',
   CHAPTER: 'chapter',
+  CIRCLE_FILL: 'circle_fill',
   CLEAR: 'clear',
   COMMENT: 'comment',
   CROWN: 'crown',
   CROWN_OUTLINED: 'crown_outlined',
   CUP: 'cup',
+  CURSOR_SELECT: 'cursor_select',
+  DASHED_LINE: 'dashed_line',
+  DRAW: 'draw',
   FILTERS: 'filters',
   FLASHLIGHT_OFF: 'flashlight_off',
   FLASHLIGHT_ON: 'flashlight_on',
   FORWARD_5S: 'forward_5s',
+  HAND_MOVE: 'hand_move',
   HEART_OUTLINED: 'heart_outlined',
+  HEXAGON: 'hexagon',
   INFO: 'info',
   KEYBOARD: 'keyboard',
   OPTIONS: 'options',
   REPLAY: 'replay',
+  SEND_BACK: 'send_back',
+  SEND_FRONT: 'send_front',
   SHARE_ON_IOS: 'share_on_ios',
   SPARK: 'spark',
   STAR_OUTLINED: 'star_outlined',
