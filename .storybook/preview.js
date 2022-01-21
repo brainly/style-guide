@@ -47,8 +47,8 @@ export const parameters = {
   backgrounds: {
     values: [
       {
-        name: 'gray-secondary-light',
-        value: hex.graySecondaryLight,
+        name: 'gray-40',
+        value: hex['gray-40'],
       },
     ],
   },

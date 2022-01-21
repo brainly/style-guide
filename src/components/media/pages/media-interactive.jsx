@@ -1,6 +1,6 @@
 import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
-import Media from '../Media';
+import Media, {COLORS_MAP} from '../Media';
 import Avatar from 'avatar/Avatar';
 import Link from 'text/Link';
 
@@ -33,12 +33,8 @@ const MediaExamples = () => {
       values: Boolean,
     },
     {
-      name: 'transparent',
-      values: Boolean,
-    },
-    {
-      name: 'graySecondaryLight',
-      values: Boolean,
+      name: 'color',
+      values: COLORS_MAP,
     },
     {
       name: 'small',
