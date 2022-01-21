@@ -4,10 +4,10 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 export const COLORS_MAP = {
-  WHITE: 'white',
-  TRANSPARENT: 'transparent',
-  FOCUSED: 'blue-20',
-  GRAY: 'gray-20',
+  white: 'white',
+  transparent: 'transparent',
+  'blue-20': 'blue-20',
+  'gray-20': 'gray-20',
 };
 
 type ColorType = 'white' | 'transparent' | 'blue-20' | 'gray-20';
@@ -35,7 +35,7 @@ const Media = (props: MediaPropsType) => {
     noPadding,
     small,
     spacedBottom,
-    color = COLORS_MAP.WHITE,
+    color = 'white',
     ...restProps
   } = props;
   const mediaClassName = classnames(

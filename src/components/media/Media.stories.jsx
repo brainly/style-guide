@@ -42,13 +42,9 @@ export const ToRight = args => <Media {...args} toRight />;
 
 export const Colors = args => (
   <Flex alignItems="flex-end" wrap="true">
-    {Object.keys(COLORS_MAP).map(colorType => (
-      <StoryVariant
-        label={`${colorType} (${COLORS_MAP[colorType]})`}
-        width={200}
-        key={colorType}
-      >
-        <Media {...args} key={colorType} color={COLORS_MAP[colorType]} />
+    {Object.values(COLORS_MAP).map(color => (
+      <StoryVariant label={color} width={200} key={color}>
+        <Media {...args} key={color} color={color} />
       </StoryVariant>
     ))}
   </Flex>
