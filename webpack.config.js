@@ -5,6 +5,7 @@ const pkg = require('./package');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const revHash = require('rev-hash');
 const fs = require('fs');
+const svgoConfigs = require('./svgo.config.js');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = argv.production ? pkg.version : 'dev';
@@ -12,6 +13,7 @@ const SOURCE_DIR = path.join(__dirname, 'src');
 const DIST_DIR = path.join(__dirname, 'dist');
 const VERSIONED_DIST_DIR = path.join(DIST_DIR, VERSION);
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
+const SOURCE_DOCS_STORYBOOK_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
 
@@ -40,7 +42,87 @@ module.exports = () => {
           },
         },
         {
-          test: /\/logos\/.*\.svg$/,
+          test: /\/icons\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'icon-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: svgoConfigs.icons,
+            },
+          ],
+        },
+        {
+          test: /\/math-symbols\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'sg-math-symbol-icon-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: svgoConfigs.mathSymbols,
+            },
+          ],
+        },
+        {
+          test: /\/mobile-icons\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'icon-mobile-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: svgoConfigs.mathSymbols,
+            },
+          ],
+        },
+        {
+          test: /\/subjects\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'icon-subject-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: svgoConfigs.subjectIcons,
+            },
+          ],
+        },
+        {
+          test: /subjects-mono\/.*\.svg$/,
+          sideEffects: true,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                symbolId: 'icon-subject-mono-[name]',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: svgoConfigs.subjectMonoIcons,
+            },
+          ],
+        },
+        {
+          test: /logos\/.*\.svg$/,
           sideEffects: true,
           use: [
             {
@@ -57,33 +139,6 @@ module.exports = () => {
           ],
         },
         {
-          test: /\.svg$/,
-          loader: 'svg-sprite-loader',
-          include: path.join(SOURCE_DIR, 'images'),
-          exclude: path.join(SOURCE_DIR, 'images/logos'),
-          options: {
-            symbolId: filePath => {
-              const pathParts = filePath.split(path.sep);
-              const symbol = path.basename(filePath, '.svg');
-
-              switch (pathParts[pathParts.length - 2]) {
-                case 'math-symbols':
-                  return `sg-math-symbol-icon-${symbol}`;
-                case 'icons':
-                  return `icon-${symbol}`;
-                case 'subjects':
-                  return `icon-subject-${symbol}`;
-                case 'subjects-mono':
-                  return `icon-subject-mono-${symbol}`;
-                case 'mobile-icons':
-                  return `icon-mobile-${symbol}`;
-                default:
-                  return symbol;
-              }
-            },
-          },
-        },
-        {
           test: /\.js$|jsx?$/,
           loader: 'babel-loader',
           options: {
@@ -94,6 +149,16 @@ module.exports = () => {
               '@babel/plugin-proposal-object-rest-spread',
               '@babel/plugin-proposal-class-properties',
               'react-hot-loader/babel',
+              '@babel/plugin-syntax-dynamic-import',
+              ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
+              'babel-plugin-macros',
+              'babel-plugin-add-react-displayname',
+              [
+                'babel-plugin-react-docgen',
+                {
+                  DOC_GEN_COLLECTION_NAME: 'STORYBOOK_REACT_CLASSES',
+                },
+              ],
             ],
             env: {
               test: {
@@ -101,6 +166,7 @@ module.exports = () => {
               },
             },
           },
+          exclude: [/node_modules/],
         },
         {
           test: /\.scss$/,
@@ -155,6 +221,7 @@ module.exports = () => {
       modules: [
         SOURCE_COMPONENTS_DIR,
         SOURCE_DOCS_DIR,
+        SOURCE_DOCS_STORYBOOK_DIR,
         path.join(SOURCE_DIR, 'images'),
         'node_modules',
       ],
