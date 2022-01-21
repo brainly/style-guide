@@ -48,15 +48,19 @@ export const Colors = args => (
       <StoryVariant label={`color - ${color}`} key={color}>
         {color === 'white' ? (
           <div className="sg-story-variant-dark-box">
-            above
-            <SeparatorVertical {...args} color={color} />
-            below
+            <Flex alignItems="center">
+              above
+              <SeparatorVertical {...args} color={color} />
+              below
+            </Flex>
           </div>
         ) : (
           <div>
-            above
-            <SeparatorVertical {...args} color={color} />
-            below
+            <Flex alignItems="center">
+              above
+              <SeparatorVertical {...args} color={color} />
+              below
+            </Flex>
           </div>
         )}
       </StoryVariant>
