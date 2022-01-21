@@ -5,6 +5,8 @@ import classNames from 'classnames';
 
 type SizeType = 'normal' | 'small' | 'large' | 'full';
 
+type SeparatorVerticalColorType = 'white' | 'gray-50' | 'gray-40';
+
 export const SIZE: {
   NORMAL: 'normal',
   SMALL: 'small',
@@ -17,18 +19,22 @@ export const SIZE: {
   FULL: 'full',
 };
 
+export const COLORS_MAP = {
+  white: 'white',
+  'gray-50': 'gray-50',
+  'gray-40': 'gray-40',
+};
+
 export type SeparatorVerticalPropsType = {
   size?: SizeType,
-  white?: boolean,
-  grayDark?: boolean,
+  color?: SeparatorVerticalColorType,
   className?: string,
   ...
 };
 
 const Separator = ({
   size = SIZE.NORMAL,
-  white,
-  grayDark,
+  color = COLORS_MAP['gray-40'],
   className,
   ...props
 }: SeparatorVerticalPropsType) => {
@@ -36,8 +42,7 @@ const Separator = ({
     'sg-vertical-separator',
     {
       [`sg-vertical-separator--${size}`]: size !== SIZE.NORMAL,
-      'sg-vertical-separator--white': white,
-      'sg-vertical-separator--gray-dark': grayDark,
+      [`sg-vertical-separator--${String(color)}`]: color,
     },
     className
   );

@@ -5,12 +5,19 @@ import classNames from 'classnames';
 
 type SeparatorHorizontalTypeType = 'normal' | 'spaced' | 'short-spaced';
 
+type SeparatorHorizontalColorType = 'white' | 'gray-50' | 'gray-40';
+
 export type SeparatorHorizontalPropsType = {
   type?: SeparatorHorizontalTypeType,
-  white?: boolean,
-  grayDark?: boolean,
+  color?: SeparatorHorizontalColorType,
   className?: string,
   ...
+};
+
+export const COLORS_MAP = {
+  white: 'white',
+  'gray-50': 'gray-50',
+  'gray-40': 'gray-40',
 };
 
 export const TYPE: {
@@ -25,8 +32,7 @@ export const TYPE: {
 
 const SeparatorHorizontal = ({
   type = TYPE.NORMAL,
-  white,
-  grayDark,
+  color = COLORS_MAP['gray-40'],
   className,
   ...props
 }: SeparatorHorizontalPropsType) => {
@@ -34,8 +40,7 @@ const SeparatorHorizontal = ({
     'sg-horizontal-separator',
     {
       [`sg-horizontal-separator--${type}`]: type !== TYPE.NORMAL,
-      'sg-horizontal-separator--white': white,
-      'sg-horizontal-separator--gray-dark': grayDark,
+      [`sg-horizontal-separator--${String(color)}`]: color,
     },
     className
   );

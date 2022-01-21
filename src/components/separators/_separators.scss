@@ -1,4 +1,3 @@
-$separatorColor: $gray-40;
 $separatorHeight: rhythm(0.75);
 $separatorSpacing: 15px;
 $separatorHeightSmall: rhythm(0.417);
@@ -12,7 +11,8 @@ $includeHtml: false !default;
     min-height: 0;
 
     margin-right: $separatorSpacing;
-    border-right: solid $separatorColor 1px;
+    border-right-style: solid;
+    border-right-width: 1px;
     padding-right: $separatorSpacing;
     height: $separatorHeight;
     vertical-align: inherit;
@@ -35,8 +35,12 @@ $includeHtml: false !default;
       border-color: $white;
     }
 
-    &--gray-dark {
+    &--gray-50 {
       border-color: $gray-50;
+    }
+
+    &--gray-40 {
+      border-color: $gray-40;
     }
   }
 }
