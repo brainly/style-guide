@@ -5,7 +5,7 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Text, {TEXT_SIZE, TEXT_WEIGHT, TEXT_TYPE} from 'text/Text';
 
 import Link from 'text/Link';
-import SeparatorVertical, {SIZE} from '../SeparatorVertical';
+import SeparatorVertical, {SIZE, COLORS_MAP} from '../SeparatorVertical';
 import SeparatorHorizontal, {
   TYPE as SEPARATOR_TYPE,
 } from '../SeparatorHorizontal';
@@ -17,34 +17,46 @@ const Separators = () => (
       <SeparatorVertical />
       <Avatar size={AVATAR_SIZE.SMALL} />
     </DocsBlock>
-    <DocsBlock info="Small white vertical" centered>
-      <ContrastBox>
-        <Link>previous</Link>
-        <SeparatorVertical white size={SIZE.SMALL} />
-        <Link>next</Link>
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info="Small white horizontal" centered>
-      <ContrastBox>
-        <Link>previous</Link>
-        <SeparatorHorizontal white size={SIZE.SMALL} />
-        <Link>next</Link>
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info="Small grayDark vertical" centered>
-      <ContrastBox>
-        <Link>previous</Link>
-        <SeparatorVertical grayDark size={SIZE.SMALL} />
-        <Link>next</Link>
-      </ContrastBox>
-    </DocsBlock>
-    <DocsBlock info="Small grayDark horizontal" centered>
-      <ContrastBox>
-        <Link>previous</Link>
-        <SeparatorHorizontal grayDark size={SIZE.SMALL} />
-        <Link>next</Link>
-      </ContrastBox>
-    </DocsBlock>
+
+    {Object.values(COLORS_MAP).map((color, key) => (
+      <>
+        <DocsBlock info={`Vertical ${color}`} key={key}>
+          {color === 'white' ? (
+            <ContrastBox>
+              previous
+              <SeparatorVertical color={color} />
+              next
+            </ContrastBox>
+          ) : (
+            <>
+              previous
+              <SeparatorVertical color={color} />
+              next
+            </>
+          )}
+        </DocsBlock>
+        <DocsBlock
+          info={`Horizontal ${color}`}
+          key={key}
+          className={color === 'white' ? 'docs-block__contrast-box' : ''}
+        >
+          {color === 'white' ? (
+            <ContrastBox>
+              previous
+              <SeparatorHorizontal color={color} />
+              next
+            </ContrastBox>
+          ) : (
+            <>
+              previous
+              <SeparatorHorizontal color={color} />
+              next
+            </>
+          )}
+        </DocsBlock>
+      </>
+    ))}
+
     <DocsBlock info="Small" centered>
       <Link>previous</Link>
       <SeparatorVertical size={SIZE.SMALL} />
