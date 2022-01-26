@@ -53,36 +53,6 @@ describe('rating', () => {
     expect(filledWidth).toEqual(percentageRate);
   });
 
-  it("onchange func doesn't call when no active", () => {
-    const onChange = jest.fn();
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} onChange={onChange} />);
-    const stars = rating.find(Star);
-
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(0).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(1).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(0);
-  });
-
-  it('onchange', () => {
-    const onChange = jest.fn();
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} onChange={onChange} active />);
-    const stars = rating.find(Star);
-
-    expect(onChange.mock.calls).toHaveLength(0);
-
-    stars.at(0).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(1);
-
-    stars.at(1).simulate('click');
-    expect(onChange.mock.calls).toHaveLength(2);
-  });
-
   it("doesn't throw error when onChange isn't defined", () => {
     const spy = jest.spyOn(console, 'error');
 
@@ -171,31 +141,21 @@ describe('rating', () => {
 
 describe('star', () => {
   it('renders', () => {
-    const star = shallow(<Star onClick={jest.fn()} />);
+    const star = shallow(<Star />);
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
   });
 
   it('uses Icon component', () => {
     const size = 16;
-    const star = shallow(<Star size={size} onClick={jest.fn()} />);
+    const star = shallow(<Star size={size} />);
 
     expect(star.find(Icon)).toHaveLength(1);
   });
 
-  it('onClick', () => {
-    const onClick = jest.fn();
-    const star = shallow(<Star onClick={onClick} />);
-
-    expect(onClick.mock.calls).toHaveLength(0);
-
-    star.simulate('click');
-    expect(onClick.mock.calls).toHaveLength(1);
-  });
-
   it('passes size to icon', () => {
     const size = 16;
-    const star = shallow(<Star size={size} onClick={jest.fn()} />);
+    const star = shallow(<Star size={size} />);
 
     const icon = star.find(Icon);
 

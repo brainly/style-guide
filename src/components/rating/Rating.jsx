@@ -4,6 +4,7 @@ import * as React from 'react';
 import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
+import {__DEV__, invariant} from '../utils';
 
 type RatingSizeType = 's' | 'xs';
 
@@ -22,6 +23,10 @@ const generateArrayRange = function (range: number): Array<number> {
   return array;
 };
 
+function generateName() {
+  return `rating${Math.random().toString(36).substring(7)}`;
+}
+
 type OnMouseEnterType = (
   index: number,
   event: SyntheticMouseEvent<HTMLSpanElement>
@@ -39,6 +44,7 @@ export type RatingPropsType = {
   activeText?: string,
   noLabel?: boolean,
   className?: string,
+  'aria-label'?: string,
   ...
 };
 
@@ -51,30 +57,33 @@ class Rating extends React.Component<RatingPropsType> {
     onMouseLeave: () => undefined,
     metricSize: 5,
     rate: 0,
+    'aria-label': 'current rate',
   };
 
   constructor(props: RatingPropsType) {
     super(props);
 
-    this.createStarsOnClickFunctions(this.props.metricSize);
+    this.createStarsOnChangeFunctions(this.props.metricSize);
     this.createStarsMouseEnterFunctions(this.props.metricSize);
+    this.name = generateName();
   }
 
-  starsOnClickFunctions: Array<() => mixed> = [];
+  name: string;
+  starsOnChangeFunctions: Array<() => mixed> = [];
   starsMouseEnterFunctions: Array<
     (SyntheticMouseEvent<HTMLSpanElement>) => mixed
   > = [];
 
   componentWillReciveProps(nextProps: RatingPropsType) {
     if (this.props.metricSize !== nextProps.metricSize) {
-      this.createStarsOnClickFunctions(nextProps.metricSize);
+      this.createStarsOnChangeFunctions(nextProps.metricSize);
       this.createStarsMouseEnterFunctions(this.props.metricSize);
     }
   }
 
-  createStarsOnClickFunctions(metricSize: number) {
-    this.starsOnClickFunctions = generateArrayRange(metricSize).map(
-      rangeIndex => () => this.onClick(rangeIndex)
+  createStarsOnChangeFunctions(metricSize: number) {
+    this.starsOnChangeFunctions = generateArrayRange(metricSize).map(
+      rangeIndex => () => this.onStarChange(rangeIndex)
     );
   }
 
@@ -84,7 +93,7 @@ class Rating extends React.Component<RatingPropsType> {
     );
   }
 
-  onClick = (index: number) => {
+  onStarChange = (index: number) => {
     const {onChange, active = false} = this.props;
 
     if (!active) {
@@ -121,6 +130,7 @@ class Rating extends React.Component<RatingPropsType> {
       className,
       counterText,
       activeText,
+      'aria-label': label,
       noLabel = false,
     } = this.props;
     const ratingClass = classnames(
@@ -133,9 +143,12 @@ class Rating extends React.Component<RatingPropsType> {
     );
 
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
-      key: rangeIndex,
       size: size === 's' ? 32 : 24,
-      onClick: this.starsOnClickFunctions[rangeIndex],
+      onChange: this.starsOnChangeFunctions[rangeIndex],
+      active,
+      name: this.name,
+      'aria-label': `${rangeIndex + 1}/${metricSize}`,
+      value: rangeIndex + 1,
     }));
 
     const rateString = rate.toLocaleString(undefined, {
@@ -143,9 +156,29 @@ class Rating extends React.Component<RatingPropsType> {
       maximumFractionDigits: 1,
     });
 
+    const rateLabel = `${activeText || ''}, min: 1, max: ${metricSize}`;
+    const metricString = `${rate}/${metricSize}`;
+
+    if (__DEV__) {
+      invariant(
+        !(active && !this.props.onChange),
+        // eslint-disable-next-line max-len
+        'You provided an `active` prop to a Rating without an `onChange` handler. Users won`t be able to rate.'
+      );
+
+      invariant(
+        !(!active && this.props.onChange),
+        // eslint-disable-next-line max-len
+        'You provided an `onChange` handler to a Rating without an `active` prop. Users won`t be able to rate.'
+      );
+    }
+
     return (
-      <div className={ratingClass}>
-        {!noLabel && <div className="sg-rate-box__rate">{rateString}</div>}
+      <div className={ratingClass} aria-label={label}>
+        <p className="sg-rate-box__rate">
+          {!noLabel && <span aria-hidden>{rateString}</span>}
+          {rate && <span className="sg-visually-hidden">{metricString}</span>}
+        </p>
         <div
           className="sg-rate-box__stars-container"
           onMouseLeave={this.onMouseLeave}
@@ -153,16 +186,22 @@ class Rating extends React.Component<RatingPropsType> {
           <div
             className="sg-rate-box__filled-stars"
             style={{width: `${(100 * rate) / metricSize}%`}}
+            aria-hidden
           >
             {starsProps.map(props => (
-              <Star key={props.key} {...props} />
+              <Star key={props.value} size={props.size} />
             ))}
           </div>
-          <div className="sg-rate-box__background-stars">
+          <div
+            className="sg-rate-box__background-stars"
+            role="radiogroup"
+            aria-hidden={!active}
+            aria-label={rateLabel}
+          >
             {starsProps.map(props => (
               <Star
-                key={props.key}
-                onMouseEnter={this.starsMouseEnterFunctions[props.key]}
+                key={props.value}
+                onMouseEnter={this.starsMouseEnterFunctions[props.value]}
                 {...props}
               />
             ))}
