@@ -16,12 +16,6 @@ $flexProps: (justify-content align-items align-self);
 $flexJustifyValues: (space-between space-evenly space-around);
 $flexAlignmentValues: (center flex-start flex-end baseline stretch);
 
-@mixin makeResponsive($responsiveVariant, $class) {
-  .#{$responsiveVariant}#{$class} {
-    @content;
-  }
-}
-
 .sg-flex {
   display: flex;
 }
