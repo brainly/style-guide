@@ -2,12 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {
-  TEXT_TYPE,
-  TEXT_SIZE,
-  TEXT_WEIGHT,
-  TEXT_WHITE_SPACE,
-} from './textConsts';
+import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
+import {ResponsivePropType, generateResponsiveClassNames} from '../../utils';
 
 export type TextTypeType =
   | 'span'
@@ -55,7 +51,7 @@ export type TextWeightType = 'regular' | 'bold';
 export type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 export type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
-export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line';
+export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line' | 'normal';
 
 export {
   TYPE, // backward compatibility
@@ -73,17 +69,17 @@ export {
 
 export type TextPropsType = {
   children?: React.Node,
-  size?: TextSizeType,
+  size?: ResponsivePropType<TextSizeType>,
   type?: TextTypeType,
   color?: ?TextColorType,
-  weight?: TextWeightType,
-  transform?: ?TextTransformType,
-  align?: ?TextAlignType,
-  noWrap?: ?boolean,
-  asContainer?: ?boolean,
-  full?: ?boolean,
-  breakWords?: ?boolean,
-  whiteSpace?: TextWhiteSpaceType,
+  weight?: ResponsivePropType<TextWeightType>,
+  transform?: ResponsivePropType<?TextTransformType>,
+  align?: ResponsivePropType<?TextAlignType>,
+  noWrap?: ResponsivePropType<?boolean>,
+  asContainer?: ?boolean, // r?
+  full?: ResponsivePropType<?boolean>,
+  breakWords?: ResponsivePropType<?boolean>,
+  whiteSpace?: ResponsivePropType<TextWhiteSpaceType>,
   className?: ?string,
   href?: string,
   inherited?: boolean,
@@ -112,18 +108,38 @@ const Text = ({
     'sg-text',
     {
       'sg-text--inherited': inherited,
-      [`sg-text--${String(size)}`]: size && size !== TEXT_SIZE.MEDIUM,
       [`sg-text--${String(color)}`]: color,
-      [`sg-text--${String(weight)}`]: weight && weight !== TEXT_WEIGHT.REGULAR,
-      [`sg-text--${transform || ''}`]: transform,
-      [`sg-text--${align || ''}`]: align,
       'sg-text--container': asContainer,
-      'sg-text--full': full,
-      'sg-text--no-wrap': noWrap,
-      'sg-text--break-words': breakWords,
-      'sg-text--pre-wrap': whiteSpace === TEXT_WHITE_SPACE.PRE_WRAP,
-      'sg-text--pre-line': whiteSpace === TEXT_WHITE_SPACE.PRE_LINE,
     },
+    ...generateResponsiveClassNames(size => `sg-text--${size}`, size),
+    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
+    ...generateResponsiveClassNames(
+      transform => `sg-text--${transform}`,
+      transform
+    ),
+    ...generateResponsiveClassNames(align => `sg-text--${align}`, align),
+    ...generateResponsiveClassNames(
+      noWrap => (noWrap ? `sg-text--no-wrap` : 'sg-text--wrap'),
+      noWrap
+    ),
+    ...generateResponsiveClassNames(
+      full => (full ? `sg-text--full` : 'sg-text--auto'),
+      full
+    ),
+    ...generateResponsiveClassNames(
+      breakWords =>
+        breakWords ? 'sg-text--break-words' : 'sg-text--word-break-normal',
+      breakWords
+    ),
+    ...generateResponsiveClassNames(whiteSpace => {
+      if (whiteSpace === TEXT_WHITE_SPACE.PRE_WRAP) {
+        return 'sg-text--pre-wrap';
+      } else if (whiteSpace === TEXT_WHITE_SPACE.PRE_LINE) {
+        return 'sg-text--pre-line';
+      } else if (whiteSpace === TEXT_WHITE_SPACE.NORMAL) {
+        return 'sg-text--white-space-normal';
+      }
+    }, whiteSpace),
     className
   );
 

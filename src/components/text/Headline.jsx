@@ -67,7 +67,6 @@ const Headline = ({
     {
       'sg-headline--inherited': inherited,
       [`sg-headline--${String(color)}`]: color,
-      [`sg-headline--${align || ''}`]: align,
     },
     ...generateResponsiveClassNames(
       (propValue: string) => `sg-headline--${propValue}`,
@@ -81,6 +80,10 @@ const Headline = ({
       (propValue: string) =>
         propValue ? `sg-headline--extra-bold` : 'sg-headline--no-bold',
       extraBold
+    ),
+    ...generateResponsiveClassNames(
+      (propValue: string) => `sg-headline--${propValue}`,
+      align
     ),
     className
   );

@@ -123,7 +123,9 @@ export const TEXT_ALIGN: {
 export const TEXT_WHITE_SPACE: {
   PRE_WRAP: 'pre-wrap',
   PRE_LINE: 'pre-line',
+  NORMAL: 'normal',
 } = {
   PRE_WRAP: 'pre-wrap',
   PRE_LINE: 'pre-line',
+  NORMAL: 'normal',
 };

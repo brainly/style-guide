@@ -4,7 +4,7 @@ $includeHtml: false !default;
 $sizes: (xxsmall xsmall small medium large xlarge xxlarge xxxlarge);
 $transforms: (uppercase lowercase capitalize);
 
-$sizesRules: (
+$sizeRules: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -47,8 +47,8 @@ $sizesRules: (
 }
 
 @mixin headlineTypeSizeVariant($size) {
-  font-size: getHeadLineSizeFromMap($sizesRules, $size, 'fontSize');
-  line-height: getHeadLineSizeFromMap($sizesRules, $size, 'lineHeight');
+  font-size: getHeadLineSizeFromMap($sizeRules, $size, 'fontSize');
+  line-height: getHeadLineSizeFromMap($sizeRules, $size, 'lineHeight');
 }
 
 @if ($includeHtml) {
@@ -89,7 +89,7 @@ $sizesRules: (
       }
 
       @include makeResponsive($variant, 'sg-headline--no-bold') {
-        font-weight: $fontWeightNormal;
+        font-weight: $fontWeightBold;
       }
 
       @include makeResponsive($variant, 'sg-headline--to-left') {

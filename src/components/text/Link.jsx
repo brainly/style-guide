@@ -12,6 +12,7 @@ import {
   TEXT_ALIGN,
   TEXT_COLOR,
 } from './textConsts';
+import {generateResponsiveClassNames, ResponsivePropType} from '../../utils';
 
 type TextTypeType =
   | 'span'
@@ -44,14 +45,14 @@ type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 export type LinkPropsType = {
   children?: ?React.Node,
   href?: ?string,
-  size?: TextSizeType,
+  size?: ResponsivePropType<TextSizeType>,
   type?: TextTypeType,
   color?: ?TextColorType,
-  weight?: TextWeightType,
-  transform?: ?TextTransformType,
-  align?: ?TextAlignType,
-  noWrap?: ?boolean,
-  breakWords?: ?boolean,
+  weight?: ResponsivePropType<TextWeightType>,
+  transform?: ResponsivePropType<?TextTransformType>,
+  align?: ResponsivePropType<?TextAlignType>,
+  noWrap?: ResponsivePropType<?boolean>,
+  breakWords?: ResponsivePropType<?boolean>,
   underlined?: boolean,
   unstyled?: boolean,
   emphasised?: boolean,
@@ -75,7 +76,7 @@ const Link = (props: LinkPropsType) => {
     color,
     underlined = false,
     unstyled = false,
-    emphasised = true, // backward compatibility
+    emphasised = true, // backward compatibility /r
     disabled = false, // backward compatibility
     weight,
     className,
@@ -91,8 +92,8 @@ const Link = (props: LinkPropsType) => {
       'sg-text--bold': emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
-      [`sg-text--${String(weight)}`]: weight,
     },
+    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
     className
   );
 

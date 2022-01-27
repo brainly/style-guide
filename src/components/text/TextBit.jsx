@@ -4,6 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {TextColorType} from './Text';
 import {TEXT_COLOR} from './textConsts';
+import {generateResponsiveClassNames, ResponsivePropType} from '../../utils';
 
 type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 
@@ -46,7 +47,7 @@ export {TEXT_COLOR};
 export type TextBitPropsType = {
   children: React.Node,
   type?: TextBitTypeType,
-  size?: TextBitSizeType,
+  size?: ResponsivePropType<TextBitSizeType>,
   color?: ?TextColorType,
   className?: ?string,
   inherited?: boolean,
@@ -65,9 +66,9 @@ const TextBit = ({
   const Type = type;
   const textClass = classNames(
     'sg-text-bit',
+    ...generateResponsiveClassNames(size => `sg-text-bit--${size}`, size),
     {
       'sg-text-bit--inherited': inherited,
-      [`sg-text-bit--${String(size)}`]: size && size !== TEXT_BIT_SIZE.MEDIUM,
       [`sg-text-bit--${color || ''}`]: color,
     },
     className
