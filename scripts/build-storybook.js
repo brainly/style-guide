@@ -14,10 +14,10 @@ client.s3.getObject(
     Bucket: 'style-guide.brainly.com',
     Key: `.sg-version`,
   },
-  function(err, data) {
+  function (err, data) {
     if (!data || (data && data.toString('utf-8') !== version)) {
       execSync('STORYBOOK_ENV=prod yarn build-storybook');
-      fs.writeFileSync('.storybook-static/.sg-version', `${version}`, 'utf-8');
+      fs.writeFileSync('storybook-static/.sg-version', `${version}`, 'utf-8');
     } else {
       console.log(
         'No version change detected in package.json, skipping storybook build.'
