@@ -15,6 +15,10 @@ client.s3.getObject(
     Key: `.sg-version`,
   },
   function (err, data) {
+    if (err) {
+      console.log(err, err.stack);
+    }
+
     if (!data || (data && data.toString('utf-8') !== version)) {
       execSync('STORYBOOK_ENV=prod yarn build-storybook');
       fs.writeFileSync('storybook-static/.sg-version', `${version}`, 'utf-8');
