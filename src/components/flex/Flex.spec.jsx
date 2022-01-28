@@ -86,6 +86,7 @@ describe('<Flex>', () => {
 
     expect(
       component.hasClass(
+        // eslint-disable-next-line max-len
         'sg-flex--justify-content-flex-end md:sg-flex--justify-content-flex-start xl:sg-flex--justify-content-space-between'
       )
     ).toEqual(true);

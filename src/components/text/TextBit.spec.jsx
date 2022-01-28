@@ -14,6 +14,16 @@ test('size', () => {
   expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
 });
 
+test('size is responsive prop', () => {
+  const component = shallow(
+    <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
+  );
+
+  expect(
+    component.hasClass('sg-text-bit--large md:sg-text-bit--xlarge')
+  ).toEqual(true);
+});
+
 test('type', () => {
   const textBit = mount(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
 
