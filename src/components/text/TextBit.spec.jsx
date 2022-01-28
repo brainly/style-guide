@@ -14,12 +14,6 @@ test('size', () => {
   expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
 });
 
-test('should not pass size when default passed', () => {
-  const textBit = shallow(<TextBit size={TEXT_BIT_SIZE.MEDIUM}>Test</TextBit>);
-
-  expect(textBit.hasClass('sg-text-bit--medium')).toBeFalsy();
-});
-
 test('type', () => {
   const textBit = mount(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
 

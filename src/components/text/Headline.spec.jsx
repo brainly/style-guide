@@ -33,14 +33,6 @@ test('text-white', () => {
   expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
 });
 
-test('default size', () => {
-  const headline = shallow(
-    <Headline size={HEADLINE_SIZE.MEDIUM}>Test</Headline>
-  );
-
-  expect(headline.hasClass('sg-headline--medium')).toBeFalsy();
-});
-
 test('transform uppercase', () => {
   const headline = shallow(
     <Headline transform={HEADLINE_TRANSFORM.UPPERCASE}>Test</Headline>

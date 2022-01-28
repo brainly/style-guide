@@ -39,14 +39,6 @@ test('color', () => {
   expect(text.hasClass('sg-subheadline--text-white')).toBeTruthy();
 });
 
-test('default size', () => {
-  const headline = shallow(
-    <Subheadline size={SUBHEADLINE_SIZE.MEDIUM}>Test</Subheadline>
-  );
-
-  expect(headline.hasClass('sg-subheadline--medium')).toBeFalsy();
-});
-
 test('transform uppercase', () => {
   const headline = shallow(
     <Subheadline transform={SUBHEADLINE_TRANSFORM.UPPERCASE}>Test</Subheadline>
