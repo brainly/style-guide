@@ -4,7 +4,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {SUBHEADLINE_TYPE} from './subheadlineConsts';
 import type {TextColorType} from './Text';
-import {ResponsivePropType, generateResponsiveClassNames} from '../../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 export type SubheadlineTypeType =
   | 'span'

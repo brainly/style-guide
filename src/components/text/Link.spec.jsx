@@ -24,8 +24,16 @@ test('empty href', () => {
 
 test('size', () => {
   const link = shallow(<Link size={LINK_SIZE.SMALL}>Test</Link>).dive();
+  const responsiveSizeLink = shallow(
+    <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
+  ).dive();
 
   expect(link.hasClass('sg-text--small')).toBeTruthy();
+  expect(
+    responsiveSizeLink.hasClass(
+      'sg-text--xsmall md:sg-text--small xl:sg-text--large'
+    )
+  ).toBeTruthy();
 });
 
 test('color', () => {

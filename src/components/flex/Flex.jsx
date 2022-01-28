@@ -8,7 +8,8 @@ import {
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
 } from './FlexConsts';
-import {ResponsivePropType, generateResponsiveClassNames} from '../../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type FlexContainerType =
   | 'a'

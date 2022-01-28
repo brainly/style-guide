@@ -4,7 +4,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {TextColorType} from './Text';
 import {TEXT_COLOR} from './textConsts';
-import {generateResponsiveClassNames, ResponsivePropType} from '../../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 

@@ -1,4 +1,4 @@
-import {generateResponsiveClassNames} from './utils';
+import {generateResponsiveClassNames} from './responsive-props';
 
 describe('generateResponsiveClassNames', () => {
   const generateClass = prop => (prop ? 'foo' : 'bar');

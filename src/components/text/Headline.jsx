@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import {HEADLINE_TYPE} from './headlineConsts';
 import {TEXT_COLOR} from './Text';
 import type {TextColorType} from './Text';
-import {ResponsivePropType, generateResponsiveClassNames} from '../../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 

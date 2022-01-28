@@ -140,9 +140,8 @@ console.log('Generating library API declaration...');
 
 const apiExtractorJsonPath = path.join(ROOT_DIR, 'api-extractor.json');
 
-const extractorConfig = apiExtractor.ExtractorConfig.loadFileAndPrepare(
-  apiExtractorJsonPath
-);
+const extractorConfig =
+  apiExtractor.ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
 
 fs.ensureDirSync(TYPES_DIR);
 

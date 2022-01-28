@@ -3,7 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
-import {ResponsivePropType, generateResponsiveClassNames} from '../../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 export type TextTypeType =
   | 'span'
@@ -136,7 +137,7 @@ const Text = ({
         return 'sg-text--pre-wrap';
       } else if (whiteSpace === TEXT_WHITE_SPACE.PRE_LINE) {
         return 'sg-text--pre-line';
-      } else if (whiteSpace === TEXT_WHITE_SPACE.NORMAL) {
+      } else {
         return 'sg-text--white-space-normal';
       }
     }, whiteSpace),
