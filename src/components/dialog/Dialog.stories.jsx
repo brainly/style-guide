@@ -4,6 +4,7 @@ import * as React from 'react';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
+import Link from '../text/Link';
 
 import Dialog from './Dialog';
 import DialogHeader from './DialogHeader';
@@ -93,9 +94,9 @@ export const Default = (args: any) => {
             other information you provide to Brainly
           </Flex>
           <Flex marginBottom="m">
-            <Button type="solid-mint" onClick={() => setAnotherOpen(true)}>
-              open another dialog
-            </Button>
+            <Link onClick={() => setAnotherOpen(true)}>
+              Open another dialog
+            </Link>
           </Flex>
           <Flex justifyContent="flex-end" className="sg-space-x-s">
             <Button type="outline" onClick={handleDismiss}>
