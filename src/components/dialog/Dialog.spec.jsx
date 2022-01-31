@@ -44,13 +44,13 @@ describe('<Dialog>', () => {
   it('fires onDismiss callback on Escape key', () => {
     const onDismiss = jest.fn();
 
-    mount(
+    const wrapper = mount(
       <Dialog onDismiss={onDismiss} open>
         content text
       </Dialog>
     );
 
-    document.dispatchEvent(new KeyboardEvent('keyup', {key: 'Escape'}));
+    wrapper.simulate('keyUp', {key: 'Escape'});
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 

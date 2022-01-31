@@ -35,14 +35,14 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
       focusDescendant(dialogElement, isTabbingForward);
     }
 
-    document.addEventListener('keydown', handleKeydown);
-    document.addEventListener('keyup', handleKeyup);
-    document.addEventListener('focusin', handleFocusTrap);
+    dialogElement.addEventListener('keydown', handleKeydown);
+    dialogElement.addEventListener('keyup', handleKeyup);
+    dialogElement.addEventListener('focusin', handleFocusTrap);
 
     return () => {
-      document.removeEventListener('keydown', handleKeydown);
-      document.removeEventListener('keyup', handleKeyup);
-      document.removeEventListener('focusin', handleFocusTrap);
+      dialogElement.removeEventListener('keydown', handleKeydown);
+      dialogElement.removeEventListener('keyup', handleKeyup);
+      dialogElement.removeEventListener('focusin', handleFocusTrap);
 
       // Should restore original focus on unmount.
       originalActiveElement?.focus();

@@ -25,7 +25,6 @@ export default {
   },
   args: {
     open: true,
-    fullscreen: false,
     reduceMotion: false,
   },
   argTypes: {
@@ -57,8 +56,11 @@ export default {
 
 export const Default = (args: any) => {
   const [open, setOpen] = React.useState(false);
+  const [anotherOpen, setAnotherOpen] = React.useState(false);
   const handleDismiss = () => setOpen(false);
+  const handleDismissAnother = () => setAnotherOpen(false);
   const headerId = 'dialog-header';
+  const anotherHeaderId = 'another-dialog-header';
 
   return (
     <div>
@@ -90,8 +92,38 @@ export const Default = (args: any) => {
             also collect any communications between you and Brainly and any
             other information you provide to Brainly
           </Flex>
+          <Flex marginBottom="m">
+            <Button type="solid-mint" onClick={() => setAnotherOpen(true)}>
+              open another dialog
+            </Button>
+          </Flex>
           <Flex justifyContent="flex-end" className="sg-space-x-s">
             <Button type="outline" onClick={handleDismiss}>
+              cancel
+            </Button>
+            <Button type="solid">proceed</Button>
+          </Flex>
+        </DialogBody>
+      </Dialog>
+
+      <Dialog
+        {...args}
+        size="s"
+        open={anotherOpen}
+        onDismiss={handleDismissAnother}
+        labelledBy={anotherHeaderId}
+      >
+        <DialogCloseButton onClick={handleDismissAnother} />
+        <DialogHeader id={anotherHeaderId}>
+          <Flex marginBottom="m">
+            <Headline>
+              Are you really sure you want to stop asking this question?
+            </Headline>
+          </Flex>
+        </DialogHeader>
+        <DialogBody>
+          <Flex justifyContent="flex-end" className="sg-space-x-s">
+            <Button type="outline" onClick={handleDismissAnother}>
               cancel
             </Button>
             <Button type="solid">proceed</Button>
