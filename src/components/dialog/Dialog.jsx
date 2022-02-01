@@ -123,7 +123,7 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayClass = cx('sg-dialog__overlay', {
+  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
