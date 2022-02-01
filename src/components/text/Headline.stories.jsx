@@ -5,17 +5,15 @@ import {TEXT_COLOR} from './textConsts';
 export default {
   title: 'Components/Headline',
   component: Headline,
+  argTypes: {
+    children: 'string',
+  },
+  args: {
+    children: 'some text',
+  },
 };
 
 export const Default = args => <Headline {...args} />;
-
-Default.args = {
-  children: 'Some text',
-};
-
-Default.argTypes = {
-  children: 'string',
-};
 
 export const Nested = args => <Headline {...args} />;
 

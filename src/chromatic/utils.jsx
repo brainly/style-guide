@@ -18,7 +18,7 @@ export const mergeStories = module => {
       return (
         <div key={story.name}>
           <h3 className="component__story-name">{story.name}</h3>
-          <Component {...Component.args} {...module.default.args} />
+          <Component {...module.default.args} {...Component.args} />
         </div>
       );
     });

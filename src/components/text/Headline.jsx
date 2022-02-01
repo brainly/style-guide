@@ -2,9 +2,11 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {HEADLINE_SIZE, HEADLINE_TYPE} from './headlineConsts';
+import {HEADLINE_TYPE} from './headlineConsts';
 import {TEXT_COLOR} from './Text';
 import type {TextColorType} from './Text';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -37,13 +39,13 @@ export {TEXT_COLOR};
 
 export type HeadlinePropsType = {
   children?: React.Node,
-  size?: HeadlineSizeType,
+  size?: ResponsivePropType<HeadlineSizeType>,
   type?: HeadlineTypeType,
   color?: ?TextColorType,
-  transform?: ?HeadlineTransformType,
-  align?: ?HeadlineAlignType,
+  transform?: ResponsivePropType<?HeadlineTransformType>,
+  align?: ResponsivePropType<?HeadlineAlignType>,
   className?: ?string,
-  extraBold?: ?boolean,
+  extraBold?: ResponsivePropType<?boolean>,
   inherited?: ?boolean,
   ...
 };
@@ -65,12 +67,25 @@ const Headline = ({
     'sg-headline',
     {
       'sg-headline--inherited': inherited,
-      [`sg-headline--${String(size)}`]: size && size !== HEADLINE_SIZE.MEDIUM,
       [`sg-headline--${String(color)}`]: color,
-      [`sg-headline--${String(transform)}`]: transform,
-      [`sg-headline--${align || ''}`]: align,
-      'sg-headline--extra-bold': extraBold,
     },
+    ...generateResponsiveClassNames(
+      (propValue: string) => `sg-headline--${propValue}`,
+      size
+    ),
+    ...generateResponsiveClassNames(
+      (propValue: string) => `sg-headline--${propValue}`,
+      transform
+    ),
+    ...generateResponsiveClassNames(
+      (propValue: string) =>
+        propValue ? `sg-headline--extra-bold` : 'sg-headline--no-bold',
+      extraBold
+    ),
+    ...generateResponsiveClassNames(
+      (propValue: string) => `sg-headline--${propValue}`,
+      align
+    ),
     className
   );
 

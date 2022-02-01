@@ -1,8 +1,10 @@
 @import './text-colors-mixin';
 
 $includeHtml: false !default;
+$sizes: (xxsmall xsmall small medium large xlarge xxlarge xxxlarge);
+$transforms: (uppercase lowercase capitalize);
 
-$headlineSizes: (
+$sizeRules: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -45,8 +47,8 @@ $headlineSizes: (
 }
 
 @mixin headlineTypeSizeVariant($size) {
-  font-size: getHeadLineSizeFromMap($headlineSizes, $size, 'fontSize');
-  line-height: getHeadLineSizeFromMap($headlineSizes, $size, 'lineHeight');
+  font-size: getHeadLineSizeFromMap($sizeRules, $size, 'fontSize');
+  line-height: getHeadLineSizeFromMap($sizeRules, $size, 'lineHeight');
 }
 
 @if ($includeHtml) {
@@ -66,65 +68,45 @@ $headlineSizes: (
     }
 
     @include textColor();
+  }
 
-    &--xxsmall {
-      @include headlineTypeSizeVariant(xxsmall);
-    }
+  @each $breakpoint, $variant in $responsiveVariants {
+    @include sgResponsive($breakpoint) {
+      @each $size in $sizes {
+        @include makeResponsive($variant, 'sg-headline--#{$size}') {
+          @include headlineTypeSizeVariant($size);
+        }
+      }
 
-    &--xsmall {
-      @include headlineTypeSizeVariant(xsmall);
-    }
+      @each $transform in $transforms {
+        @include makeResponsive($variant, 'sg-headline--#{$transform}') {
+          text-transform: $transform;
+        }
+      }
 
-    &--small {
-      @include headlineTypeSizeVariant(small);
-    }
+      @include makeResponsive($variant, 'sg-headline--extra-bold') {
+        font-weight: $fontWeightBlack;
+      }
 
-    &--large {
-      @include headlineTypeSizeVariant(large);
-    }
+      @include makeResponsive($variant, 'sg-headline--no-bold') {
+        font-weight: $fontWeightBold;
+      }
 
-    &--xlarge {
-      @include headlineTypeSizeVariant(xlarge);
-    }
+      @include makeResponsive($variant, 'sg-headline--to-left') {
+        text-align: left;
+      }
 
-    &--xxlarge {
-      @include headlineTypeSizeVariant(xxlarge);
-    }
+      @include makeResponsive($variant, 'sg-headline--to-right') {
+        text-align: right;
+      }
 
-    &--xxxlarge {
-      @include headlineTypeSizeVariant(xxxlarge);
-    }
+      @include makeResponsive($variant, 'sg-headline--to-center') {
+        text-align: center;
+      }
 
-    &--extra-bold {
-      font-weight: $fontWeightBlack;
-    }
-
-    &--uppercase {
-      text-transform: uppercase;
-    }
-
-    &--lowercase {
-      text-transform: lowercase;
-    }
-
-    &--capitalize {
-      text-transform: capitalize;
-    }
-
-    &--to-left {
-      text-align: left;
-    }
-
-    &--to-right {
-      text-align: right;
-    }
-
-    &--to-center {
-      text-align: center;
-    }
-
-    &--justify {
-      text-align: justify;
+      @include makeResponsive($variant, 'sg-headline--justify') {
+        text-align: justify;
+      }
     }
   }
 }
