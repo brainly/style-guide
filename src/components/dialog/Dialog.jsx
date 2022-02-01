@@ -58,6 +58,7 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
 }: DialogPropsType) {
+  const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
 
@@ -82,7 +83,7 @@ function BaseDialog({
   }, [open]);
 
   useBodyNoScroll();
-  useFocusTrap(containerRef);
+  useFocusTrap({dialogRef: containerRef, overlayRef});
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -145,6 +146,7 @@ function BaseDialog({
       style={{zIndex}}
       onClick={onDismiss ? handleOverlayClick : undefined}
       onKeyUp={handleKeyUp}
+      ref={overlayRef}
     >
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect

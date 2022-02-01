@@ -94,7 +94,11 @@ export const Default = (args: any) => {
             other information you provide to Brainly
           </Flex>
           <Flex marginBottom="m">
-            <Link onClick={() => setAnotherOpen(true)}>
+            <Link
+              tabIndex="0"
+              onClick={() => setAnotherOpen(true)}
+              onKeyDown={({key}) => key === 'Enter' && setAnotherOpen(true)}
+            >
               Open another dialog
             </Link>
           </Flex>
