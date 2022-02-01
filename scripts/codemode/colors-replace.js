@@ -11,8 +11,10 @@ const flowParser = require('jscodeshift/parser/flow');
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, '/');
 
-// Search for color usages in a component:
+// TIP: Search for color usages in a component which pass string literals:
 //   new RegExp('<Headline([^>]|\n)*(color=")([^>]|\n)*[>]'),
+// or params
+//   new RegExp('<Headline([^>]|\n)*(color={)([^>]|\n)*[>]'),
 
 const files = glob.sync('/**/*.{jsx,tsx}', {
   ignore: [
@@ -105,10 +107,59 @@ const linkColorsMap = {
   'gray-light': 'text-gray-40',
 };
 
-const colorsMap = linkColorsMap;
+// Label color maps:
+const labelColorsMap = {
+  mint: 'green',
+  lavender: 'indigo',
+  peach: 'red',
+  mustard: 'yellow',
+};
 
-const componentName = 'Link';
+// Box color maps:
+const boxColorsMap = {
+  dark: 'gray-40',
+  light: 'white',
+  blue: 'blue-40',
+  lavender: 'indigo-40',
+  'lavender-secondary-light': 'indigo-20',
+  'lavender-20': 'indigo-20',
+  'lavender-10': 'indigo-10',
+  'lavender-secondary-ultra-light': 'indigo-10',
+  mint: 'green-40',
+  'mint-secondary': 'green-30',
+  'mind-secondary-light': 'green-20',
+  'mint-secondary-light': 'green-20',
+  'mint-secondary-ultra-light': 'green-10',
+  'blue-secondary': 'blue-30',
+  'blue-secondary-light': 'blue-20',
+  'gray-secondary-lightest': 'gray-20',
+  'gray-secondary-ultra-light': 'gray-10',
+  'mustard-primary': 'yellow-40',
+  'mustard-secondary-light': 'yellow-20',
+  peach: 'red-40',
+  'peach-secondary': 'red-30',
+  'peach-secondary-light': 'red-20',
+  transparent: 'transparent',
+};
 
+
+// Bubble color maps:
+const bubbleColorsMap = {
+  'navyblue-secondary': 'white',
+  'dark': 'gray-40',
+  'gray-secondary-light': 'gray-20',
+  'blue': 'blue-40',
+  'blue-secondary': 'blue-30',
+  'blue-secondary-light': 'blue-20',
+  'lavender': 'indigo-40',
+  'mint': 'green-40',
+  'mint-secondary': 'green-30',
+  'mint-secondary-light': 'green-20',
+  'peach': 'red-40',
+};
+
+const colorsMap = boxColorsMap;
+const componentName = 'Box';
 const unmatchedFiles = [];
 
 files.forEach(sourceFile => {
@@ -117,9 +168,9 @@ files.forEach(sourceFile => {
     parser: flowParser(),
   });
     
-  let wasFileFound = false;
   // Code transformations
   // Replace old color values from <componentName component
+  let wasFileFound = false;
   ast
     .find(jsc.JSXOpeningElement)
     .filter(path => path.value.name.name === componentName)
@@ -127,12 +178,15 @@ files.forEach(sourceFile => {
       const color = path.value.attributes.find(
         attribute => attribute.name && attribute.name.name === 'color'
       );
-      
-      if (color && colorsMap[color.value.value]) {
-        wasFileFound = true;
-        color.value.value = colorsMap[color.value.value];
-      } else {
-        unmatchedFiles.push(sourceFile)
+
+      if (color) {
+        if (colorsMap[color.value.value]) {
+          wasFileFound = true;
+          color.value.value = colorsMap[color.value.value];
+        } else {
+          // If there was 'color' attribute found, but it doesn't match any of strings it means there is a param or some logic
+          unmatchedFiles.push(sourceFile)
+        }
       }
     });
     
