@@ -4,14 +4,12 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
-import {useEscapeKey} from './useEscapeKey';
 import {useFocusTrap} from './useFocusTrap';
 
 export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
-  size?: 's' | 'm' | 'l' | 'xl',
-  fullscreen?: boolean,
+  size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen',
   reduceMotion?: boolean,
   'aria-labelledby'?: string,
   'aria-label'?: string,
@@ -38,7 +36,6 @@ export type DialogPropsType = $ReadOnly<{
  */
 Dialog.defaultProps = ({
   size: 'm',
-  fullscreen: false,
   reduceMotion: false,
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
@@ -51,7 +48,6 @@ function BaseDialog({
   open,
   children,
   size = 'm',
-  fullscreen = false,
   reduceMotion = false,
   scroll = 'outside',
   'aria-labelledby': ariaLabelledBy,
@@ -62,6 +58,7 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
 }: DialogPropsType) {
+  const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
 
@@ -86,8 +83,7 @@ function BaseDialog({
   }, [open]);
 
   useBodyNoScroll();
-  useEscapeKey(onDismiss);
-  useFocusTrap(containerRef);
+  useFocusTrap({dialogRef: containerRef, overlayRef});
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -118,9 +114,19 @@ function BaseDialog({
     [open, lastTransitionName, onEntryTransitionEnd, onExitTransitionEnd]
   );
 
-  const overlayClass = cx('sg-dialog__overlay', {
+  const handleKeyUp = React.useCallback(
+    event => {
+      if (onDismiss && event.key === 'Escape') {
+        onDismiss();
+      }
+    },
+    [onDismiss]
+  );
+
+  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
     'sg-dialog__overlay--scroll': scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
+    'sg-dialog__overlay--fullscreen': size === 'fullscreen',
   });
 
   const containerClass = cx(
@@ -128,7 +134,6 @@ function BaseDialog({
     `sg-dialog__container--size-${size}`,
     {
       'sg-dialog__container--scroll': scroll === 'inside',
-      'sg-dialog__container--fullscreen': fullscreen,
       'sg-dialog__container--open': deferredOpen,
       'sg-dialog__container--exiting': exiting,
       'sg-dialog__container--reduce-motion': reduceMotion,
@@ -140,6 +145,8 @@ function BaseDialog({
       className={overlayClass}
       style={{zIndex}}
       onClick={onDismiss ? handleOverlayClick : undefined}
+      onKeyUp={handleKeyUp}
+      ref={overlayRef}
     >
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect

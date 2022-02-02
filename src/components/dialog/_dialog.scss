@@ -53,6 +53,10 @@ $dialogMaxWidthMap: (
     &--scroll {
       overflow: auto;
     }
+
+    &--fullscreen {
+      padding: 0;
+    }
   }
 
   &__container {
@@ -82,7 +86,7 @@ $dialogMaxWidthMap: (
       }
     }
 
-    &--fullscreen {
+    &--size-fullscreen {
       transition-duration: $durationGentle1, $durationQuick2;
       transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
       border-radius: 0;
@@ -92,8 +96,6 @@ $dialogMaxWidthMap: (
 
       @include sgResponsive(md) {
         transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
-        border-radius: $borderRadiusDefault;
-        box-shadow: $dialogBoxShadow;
       }
     }
 
