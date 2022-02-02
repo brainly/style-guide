@@ -118,6 +118,7 @@ function BaseDialog({
     event => {
       if (onDismiss && event.key === 'Escape') {
         onDismiss();
+        event.stopPropagation();
       }
     },
     [onDismiss]
