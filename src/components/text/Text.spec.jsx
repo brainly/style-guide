@@ -6,6 +6,7 @@ import {
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
+  TEXT_WHITE_SPACE,
 } from './textConsts';
 
 import {shallow} from 'enzyme';
@@ -20,6 +21,20 @@ test('size', () => {
   const text = shallow(<Text size={TEXT_SIZE.XLARGE}>Test</Text>);
 
   expect(text.hasClass('sg-text--xlarge')).toBeTruthy();
+});
+
+it('size is responsive prop', () => {
+  const component = shallow(
+    <Text size={[TEXT_SIZE.SMALL, TEXT_SIZE.XXLARGE, null, TEXT_SIZE.XXXLARGE]}>
+      Test
+    </Text>
+  );
+
+  expect(
+    component.hasClass(
+      'sg-text--small md:sg-text--xxlarge xl:sg-text--xxxlarge'
+    )
+  ).toEqual(true);
 });
 
 test('type', () => {
@@ -48,10 +63,32 @@ test('weight', () => {
   expect(text.hasClass('sg-text--bold')).toBeTruthy();
 });
 
+it('weight is responsive prop', () => {
+  const component = shallow(
+    <Text weight={[TEXT_WEIGHT.BOLD, null, TEXT_WEIGHT.REGULAR]}>Test</Text>
+  );
+
+  expect(component.hasClass('sg-text--bold lg:sg-text--regular')).toEqual(true);
+});
+
 test('transform - uppercase', () => {
   const text = shallow(<Text transform={TEXT_TRANSFORM.UPPERCASE}>Test</Text>);
 
   expect(text.hasClass('sg-text--uppercase')).toBeTruthy();
+});
+
+it('transform is responsive prop', () => {
+  const component = shallow(
+    <Text
+      transform={[TEXT_TRANSFORM.UPPERCASE, null, TEXT_TRANSFORM.LOWERCASE]}
+    >
+      Test
+    </Text>
+  );
+
+  expect(
+    component.hasClass('sg-text--uppercase lg:sg-text--lowercase')
+  ).toEqual(true);
 });
 
 test('transform - lowercase', () => {
@@ -90,10 +127,26 @@ test('align - justify', () => {
   expect(text.hasClass('sg-text--justify')).toBeTruthy();
 });
 
+it('align is responsive prop', () => {
+  const component = shallow(
+    <Text align={[TEXT_ALIGN.JUSTIFY, null, TEXT_ALIGN.CENTER]}>Test</Text>
+  );
+
+  expect(component.hasClass('sg-text--justify lg:sg-text--to-center')).toEqual(
+    true
+  );
+});
+
 test('full', () => {
   const text = shallow(<Text full>Test</Text>);
 
   expect(text.hasClass('sg-text--full')).toBeTruthy();
+});
+
+it('full is responsive prop', () => {
+  const component = shallow(<Text full={[true, null, false]}>Test</Text>);
+
+  expect(component.hasClass('sg-text--full lg:sg-text--auto')).toEqual(true);
 });
 
 test('asContainer', () => {
@@ -108,4 +161,16 @@ test('whiteSpace', () => {
 
   expect(text1.hasClass('sg-text--pre-wrap')).toBeTruthy();
   expect(text2.hasClass('sg-text--pre-line')).toBeTruthy();
+});
+
+it('whiteSpace is responsive prop', () => {
+  const component = shallow(
+    <Text whiteSpace={[TEXT_WHITE_SPACE.NORMAL, TEXT_WHITE_SPACE.PRE_LINE]}>
+      Test
+    </Text>
+  );
+
+  expect(
+    component.hasClass('sg-text--white-space-normal md:sg-text--pre-line')
+  ).toEqual(true);
 });

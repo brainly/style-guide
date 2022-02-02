@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from './Text';
-import type {TextColorType} from './Text';
+import type {TextColorType, TextSizeType} from './Text';
 import {
   TEXT_TYPE,
   TEXT_SIZE,
@@ -12,6 +12,8 @@ import {
   TEXT_ALIGN,
   TEXT_COLOR,
 } from './textConsts';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type TextTypeType =
   | 'span'
@@ -26,7 +28,7 @@ type TextTypeType =
   | 'label'
   | 'a';
 
-type TextSizeType =
+type LinkSizeType =
   | 'xsmall'
   | 'small'
   | 'medium'
@@ -44,14 +46,14 @@ type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 export type LinkPropsType = {
   children?: ?React.Node,
   href?: ?string,
-  size?: TextSizeType,
+  size?: ResponsivePropType<LinkSizeType>,
   type?: TextTypeType,
   color?: ?TextColorType,
-  weight?: TextWeightType,
-  transform?: ?TextTransformType,
-  align?: ?TextAlignType,
-  noWrap?: ?boolean,
-  breakWords?: ?boolean,
+  weight?: ResponsivePropType<TextWeightType>,
+  transform?: ResponsivePropType<?TextTransformType>,
+  align?: ResponsivePropType<?TextAlignType>,
+  noWrap?: ResponsivePropType<?boolean>,
+  breakWords?: ResponsivePropType<?boolean>,
   underlined?: boolean,
   unstyled?: boolean,
   emphasised?: boolean,
@@ -80,8 +82,27 @@ const Link = (props: LinkPropsType) => {
     weight,
     className,
     inherited = false,
+    size,
     ...additionalProps
   } = props;
+
+  let textSize: ResponsivePropType<TextSizeType>;
+
+  if (typeof size === 'object') {
+    if (Array.isArray(size)) {
+      textSize = size.map(sizeItem => sizeItem);
+    } else {
+      textSize = {
+        sm: size.sm,
+        md: size.md,
+        lg: size.lg,
+        xl: size.xl,
+      };
+    }
+  } else if (size) {
+    textSize = size;
+  }
+
   const linkClass = classNames(
     {
       [`sg-text--inherited`]: inherited,
@@ -91,21 +112,32 @@ const Link = (props: LinkPropsType) => {
       'sg-text--bold': emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
-      [`sg-text--${String(weight)}`]: weight,
     },
+    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
     className
   );
 
   if (href === undefined || href === '' || href === null) {
     return (
-      <Text type="span" {...additionalProps} className={linkClass}>
+      <Text
+        type="span"
+        {...additionalProps}
+        className={linkClass}
+        size={textSize}
+      >
         {children}
       </Text>
     );
   }
 
   return (
-    <Text type="a" {...additionalProps} className={linkClass} href={href}>
+    <Text
+      type="a"
+      {...additionalProps}
+      className={linkClass}
+      href={href}
+      size={textSize}
+    >
       {children}
     </Text>
   );

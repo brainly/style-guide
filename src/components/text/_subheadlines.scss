@@ -1,6 +1,10 @@
-$includeHtml: false !default;
+@import './text-colors-mixin';
 
-$subheadlineSizes: (
+$includeHtml: false !default;
+$sizes: (xsmall small medium large xlarge xxlarge xxxlarge);
+$transforms: (uppercase lowercase capitalize);
+
+$sizeRules: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -39,12 +43,8 @@ $subheadlineSizes: (
 }
 
 @mixin subheadlineTypeSizeVariant($size) {
-  font-size: getSubheadlineSizeFromMap($subheadlineSizes, $size, 'fontSize');
-  line-height: getSubheadlineSizeFromMap(
-    $subheadlineSizes,
-    $size,
-    'lineHeight'
-  );
+  font-size: getSubheadlineSizeFromMap($sizeRules, $size, 'fontSize');
+  line-height: getSubheadlineSizeFromMap($sizeRules, $size, 'lineHeight');
 }
 
 @if ($includeHtml) {
@@ -65,57 +65,37 @@ $subheadlineSizes: (
     }
 
     @include textColor();
+  }
 
-    &--xsmall {
-      @include subheadlineTypeSizeVariant(xsmall);
-    }
+  @each $breakpoint, $variant in $responsiveVariants {
+    @include sgResponsive($breakpoint) {
+      @each $size in $sizes {
+        @include makeResponsive($variant, 'sg-subheadline--#{$size}') {
+          @include subheadlineTypeSizeVariant($size);
+        }
+      }
 
-    &--small {
-      @include subheadlineTypeSizeVariant(small);
-    }
+      @each $transform in $transforms {
+        @include makeResponsive($variant, 'sg-subheadline--#{$transform}') {
+          text-transform: $transform;
+        }
+      }
 
-    &--large {
-      @include subheadlineTypeSizeVariant(large);
-    }
+      @include makeResponsive($variant, 'sg-subheadline--to-left') {
+        text-align: left;
+      }
 
-    &--xlarge {
-      @include subheadlineTypeSizeVariant(xlarge);
-    }
+      @include makeResponsive($variant, 'sg-subheadline--to-right') {
+        text-align: right;
+      }
 
-    &--xxlarge {
-      @include subheadlineTypeSizeVariant(xxlarge);
-    }
+      @include makeResponsive($variant, 'sg-subheadline--to-center') {
+        text-align: center;
+      }
 
-    &--xxxlarge {
-      @include subheadlineTypeSizeVariant(xxxlarge);
-    }
-
-    &--uppercase {
-      text-transform: uppercase;
-    }
-
-    &--lowercase {
-      text-transform: lowercase;
-    }
-
-    &--capitalize {
-      text-transform: capitalize;
-    }
-
-    &--to-left {
-      text-align: left;
-    }
-
-    &--to-right {
-      text-align: right;
-    }
-
-    &--to-center {
-      text-align: center;
-    }
-
-    &--justify {
-      text-align: justify;
+      @include makeResponsive($variant, 'sg-subheadline--justify') {
+        text-align: justify;
+      }
     }
   }
 }

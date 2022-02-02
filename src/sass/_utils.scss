@@ -34,6 +34,12 @@
   }
 }
 
+@mixin makeResponsive($responsiveVariant, $class) {
+  .#{$responsiveVariant}#{$class} {
+    @content;
+  }
+}
+
 @keyframes sgAnimationFadeIn {
   0% {
     opacity: 0;

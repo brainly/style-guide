@@ -14,10 +14,14 @@ test('size', () => {
   expect(textBit.hasClass('sg-text-bit--xlarge')).toBeTruthy();
 });
 
-test('should not pass size when default passed', () => {
-  const textBit = shallow(<TextBit size={TEXT_BIT_SIZE.MEDIUM}>Test</TextBit>);
+test('size is responsive prop', () => {
+  const component = shallow(
+    <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
+  );
 
-  expect(textBit.hasClass('sg-text-bit--medium')).toBeFalsy();
+  expect(
+    component.hasClass('sg-text-bit--large md:sg-text-bit--xlarge')
+  ).toEqual(true);
 });
 
 test('type', () => {
