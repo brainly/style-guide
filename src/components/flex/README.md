@@ -18,7 +18,7 @@ import Flex, {
   <div>flex child element</div>
 </Flex>;
 ```
-
+d
 ```HTML
 <div class="sg-flex sg-flex--column sg-flex--justify-content-space-between">
     <div>flex child element</div>
