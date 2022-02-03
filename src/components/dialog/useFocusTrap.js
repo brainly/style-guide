@@ -2,12 +2,19 @@
 
 import * as React from 'react';
 
-export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
+export function useFocusTrap({
+  dialogRef,
+  overlayRef,
+}: {
+  dialogRef: {current: HTMLDivElement | null},
+  overlayRef: {current: HTMLDivElement | null},
+}) {
   React.useEffect(() => {
     const originalActiveElement = document.activeElement;
-    const dialogElement = ref.current;
+    const overlayElement = overlayRef.current;
+    const dialogElement = dialogRef.current;
 
-    if (!dialogElement) {
+    if (!dialogElement || !overlayElement) {
       return;
     }
 
@@ -31,23 +38,22 @@ export function useFocusTrap(ref: {current: HTMLDivElement | null}) {
       ) {
         return;
       }
-
       focusDescendant(dialogElement, isTabbingForward);
     }
 
-    document.addEventListener('keydown', handleKeydown);
-    document.addEventListener('keyup', handleKeyup);
-    document.addEventListener('focusin', handleFocusTrap);
+    dialogElement.addEventListener('keydown', handleKeydown);
+    dialogElement.addEventListener('keyup', handleKeyup);
+    overlayElement.addEventListener('focusin', handleFocusTrap);
 
     return () => {
-      document.removeEventListener('keydown', handleKeydown);
-      document.removeEventListener('keyup', handleKeyup);
-      document.removeEventListener('focusin', handleFocusTrap);
+      dialogElement.removeEventListener('keydown', handleKeydown);
+      dialogElement.removeEventListener('keyup', handleKeyup);
+      overlayElement.removeEventListener('focusin', handleFocusTrap);
 
       // Should restore original focus on unmount.
       originalActiveElement?.focus();
     };
-  }, [ref]);
+  }, [dialogRef, overlayRef]);
 }
 
 function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
