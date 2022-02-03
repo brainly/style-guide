@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - yarn
+  build:
+    commands:
+      - yarn build
+      - NODE_ENV=production node ./scripts/build-storybook-s3.js
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'storybook-static'
