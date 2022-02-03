@@ -1,10 +1,14 @@
 import * as React from 'react';
 import Link from './Link';
 import {TEXT_COLOR} from './textConsts';
+import A11yDoc from './Link.md';
 
 export default {
   title: 'Components/Link',
   component: Link,
+  parameters: {
+    a11yDocs: A11yDoc,
+  },
 };
 
 export const Default = args => <Link {...args} />;
