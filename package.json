@@ -16,7 +16,8 @@
     "css/",
     "assets/",
     "types/",
-    "deprecated.yaml"
+    "deprecated.yaml",
+    "codemods/"
   ],
   "engines": {
     "node": ">=8.0.0",
@@ -92,9 +93,11 @@
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.9.0",
     "husky": "^0.11.3",
+    "inquirer": "^8.2.0",
     "jest": "^24.0.0",
     "jest-axe": "^5.0.1",
-    "jscodeshift": "^0.11.0",
+    "jscodeshift": "^0.13.1",
+    "path": "^0.12.7",
     "polished": "^4.0.3",
     "postcss": "^8.4.5",
     "postcss-loader": "^4.1.0",
@@ -156,7 +159,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
     "prettier-check": "prettier --check src",
-    "prettier-fix": "prettier --write src"
+    "prettier-fix": "prettier --write src",
+    "run-codemod": "node ./codemods/cli.js"
   },
   "jest": {
     "setupFiles": [
