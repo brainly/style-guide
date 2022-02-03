@@ -6,14 +6,9 @@ phases:
       - yarn
   build:
     commands:
-      - yarn build
-  post_build:
-    commands:
-      - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
-      - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
-
+      - NODE_ENV=production node ./scripts/build-styleguide-s3.js
 artifacts:
-  name: 'branch/$GIT_BRANCH'
+  name: 'new-deploy'
   files:
     - '**/*'
-  base-directory: 'storybook-static'
+  base-directory: 'dist'
