@@ -3,7 +3,8 @@
 const glob = require('glob');
 const inquirer = require('inquirer');
 const path = require('path');
-const execSync = require('child_process').execSync;
+const exec = require('child_process').execSync;
+const chalk = require('chalk');
 
 const transformsDir = path.join(__dirname, '/', 'transforms');
 const jscodeshiftExecutable = require.resolve('.bin/jscodeshift');
@@ -39,9 +40,8 @@ async function runTransform({files, parser = 'babel', transformer}) {
 
   let args = [];
 
-  args.push(jscodeshiftExecutable);
-
-  args.push('--verbose=2');
+  args.push('--verbose=0');
+  // args.push('--dry');
 
   args.push('--ignore-pattern=**/node_modules/**');
 
@@ -57,16 +57,14 @@ async function runTransform({files, parser = 'babel', transformer}) {
 
   args = args.concat(files);
 
-  const command = args.join(' ');
+  console.log(`Executing: ${chalk.yellow(`jscodeshift ${args.join(' ')}`)}`);
 
-  console.log(`Executing command: ${command}`);
+  const command = [jscodeshiftExecutable, ...args].join(' ');
 
-  const result = execSync(command, {encoding: 'utf-8'});
-
-  console.log(result);
-
-  if (result.error) {
-    throw result.error;
+  try {
+    exec(command, {encoding: 'utf-8', stdio: 'inherit'});
+  } catch (err) {
+    console.log(err);
   }
 }
 
@@ -77,7 +75,7 @@ const run = () => {
         type: 'input',
         name: 'filePath',
         message: 'On which file or directory should the codemod be applied?',
-        default: '.',
+        default: './test/*',
         filter: filePath => filePath.trim(),
       },
       {
