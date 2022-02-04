@@ -33,7 +33,9 @@ const PARSER_INQUIRER_CHOICES = [
 ];
 
 const REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES = [
+  new inquirer.Separator('-===== REPLACE COLORS IN ALL COMPONENTS =====-'),
   {name: 'all', value: 'all'},
+  new inquirer.Separator('-===== OR SELECT ONES FROM THE LIST BELOW =====-'),
   {name: 'Icon', value: 'Icon'},
   {name: 'MobileIcon', value: 'MobileIcon'},
   {name: 'SubjectIcon', value: 'SubjectIcon'},
