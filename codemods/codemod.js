@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const path = require('path');
 const exec = require('child_process').execSync;
 const chalk = require('chalk');
+const yargs = require('yargs');
 
 const transformsDir = path.join(__dirname, '/', 'transforms');
 const jscodeshiftExecutable = require.resolve('.bin/jscodeshift');
@@ -35,13 +36,16 @@ function expandFilePathIfNeeded(filePath) {
   return filePath.includes('*') ? glob.sync(filePath) : filePath;
 }
 
-async function runTransform({files, parser = 'babel', transformer}) {
+async function runTransform({argv, files, parser = 'babel', transformer}) {
   const transformPath = path.join(transformsDir, `${transformer}.js`);
 
   let args = [];
 
   args.push('--verbose=0');
-  // args.push('--dry');
+
+  if (argv.dry) {
+    args.push('--dry');
+  }
 
   args.push('--ignore-pattern=**/node_modules/**');
 
@@ -69,6 +73,8 @@ async function runTransform({files, parser = 'babel', transformer}) {
 }
 
 const run = () => {
+  const argv = yargs(process.argv).argv;
+
   inquirer
     .prompt([
       {
@@ -105,6 +111,7 @@ const run = () => {
       }
 
       return runTransform({
+        argv,
         files: filesExpanded,
         parser,
         transformer,
