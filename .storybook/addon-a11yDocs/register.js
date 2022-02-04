@@ -13,12 +13,12 @@ const A11yDocs = () => {
   );
 };
 
-addons.register('a11yDocs', () => {
-  addons.add('a11yDocs/tab', {
+addons.register('a11ydocs', () => {
+  addons.add('a11ydocs/tab', {
     type: types.TAB,
     title: 'Accessibility Docs',
     render: ({active}) => active ? <A11yDocs /> : null ,
-    route: ({ storyId, refId }) => (refId ? `/a11yDocs/${refId}_${storyId}` : `/a11yDocs/${storyId}`),
+    route: ({ storyId, refId }) => (refId ? `/a11ydocs/${refId}_${storyId}` : `/a11ydocs/${storyId}`),
     match: ({ viewMode}) => viewMode === 'a11ydocs',
     paramKey: 'a11yDocs',
   });
