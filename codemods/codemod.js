@@ -32,11 +32,33 @@ const PARSER_INQUIRER_CHOICES = [
   },
 ];
 
+const REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES = [
+  {name: 'all', value: 'all'},
+  {name: 'Icon', value: 'Icon'},
+  {name: 'MobileIcon', value: 'MobileIcon'},
+  {name: 'SubjectIcon', value: 'SubjectIcon'},
+  {name: 'MathSymbol', value: 'MathSymbol'},
+  {name: 'IconAsButton', value: 'IconAsButton'},
+  {name: 'Text', value: 'Text'},
+  {name: 'TextBit', value: 'TextBit'},
+  {name: 'Link', value: 'Link'},
+  {name: 'Headline', value: 'Headline'},
+  {name: 'Bubble', value: 'Bubble'},
+  {name: 'Box', value: 'Box'},
+  {name: 'Label', value: 'Label'},
+  {name: 'CardHole', value: 'CardHole'},
+  {name: 'Spinner', value: 'Spinner'},
+  {name: 'SpinnerContainer', value: 'SpinnerContainer'},
+  {name: 'Counter', value: 'Counter'},
+  {name: 'Overlay', value: 'Overlay'},
+  {name: 'FileHandler', value: 'FileHandler'},
+];
+
 function expandFilePathIfNeeded(filePath) {
   return filePath.includes('*') ? glob.sync(filePath) : filePath;
 }
 
-async function runTransform({argv, files, parser = 'babel', transformer}) {
+async function runTransform({argv, files, parser, transformer, components}) {
   const transformPath = path.join(transformsDir, `${transformer}.js`);
 
   let args = [];
@@ -56,6 +78,8 @@ async function runTransform({argv, files, parser = 'babel', transformer}) {
   } else {
     args.push('--extensions=jsx,js');
   }
+
+  if (components) args.push(`--components=${components.join(',')}`);
 
   args = args.concat(['--transform', transformPath]);
 
@@ -99,9 +123,18 @@ const run = () => {
         pageSize: TRANSFORMER_INQUIRER_CHOICES.length,
         choices: TRANSFORMER_INQUIRER_CHOICES,
       },
+      {
+        type: 'checkbox',
+        name: 'components',
+        message: 'To which components would you like to apply new colors?',
+        default: 'all',
+        when: answers => answers.transformer === 'replace-colors-rebranding',
+        pageSize: REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES.length,
+        choices: REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES,
+      },
     ])
     .then(answers => {
-      const {filePath, transformer, parser} = answers;
+      const {filePath, transformer, parser, components} = answers;
 
       const filesExpanded = expandFilePathIfNeeded(filePath);
 
@@ -115,6 +148,7 @@ const run = () => {
         files: filesExpanded,
         parser,
         transformer,
+        components,
       });
     });
 };
