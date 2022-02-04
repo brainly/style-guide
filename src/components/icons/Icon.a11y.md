@@ -10,7 +10,7 @@
 | **Should** have role `img`                        |                                                                           | Implementation: DONE<br />Tests: DONE    |
 | **Should** hide SVG paths from accessibility tree |                                                                           | Implementation: DONE<br />Tests: BLOCKED |
 | **Should** respect Windows High Contrast theme    |                                                                           | Implementation: DONE<br />Tests: BLOCKED |
-| **Can** have an accessible description            | Can be named by setting a value for `description` prop.                   | Implementation: DONE<br />Tests: Done    |
+| **Can** have an accessible description            | Can be named by setting a value for `description` prop.                   | Implementation: DONE<br />Tests: DONE    |
 
 <br/>
 <br/>

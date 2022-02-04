@@ -7,7 +7,7 @@
 | Pattern                             | Comment                                                                                   | Status                                |
 | ----------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------- |
 | **Should** have an accessible name  | Can be named by setting a value for `aria-label` prop (defaults to `"{logo type} home")`. | Implementation: DONE<br />Tests: DONE |
-| **Can** have an accessible alt text |                                                                                           | Implementation: DONE<br />Tests: Done |
+| **Can** have an accessible alt text |                                                                                           | Implementation: DONE<br />Tests: DONE |
 
 <br/>
 <br/>
