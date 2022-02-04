@@ -218,7 +218,13 @@ module.exports = (file, api, options) => {
       } else {
         // If there was 'color' attribute found, but it doesn't match any of strings it means there is a param or some logic
         // unmatchedFiles.push(file.path);
-        console.log(chalk.cyan('unmatched:'), file.path);
+        const columnNumber = colorAttr.value.loc.start.column;
+        const lineNumber = colorAttr.value.loc.start.line;
+
+        console.log(
+          chalk.cyan('unmatched:'),
+          `${file.path}:${lineNumber}:${columnNumber}`
+        );
       }
     });
 
