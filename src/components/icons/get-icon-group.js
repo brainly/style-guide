@@ -100,7 +100,7 @@ const iconMap = {
     'rotate',
     'rotate_90',
     'send_back',
-    'send_front',
+    'bring_front',
     'subtitle',
     'symbols',
     'title',
