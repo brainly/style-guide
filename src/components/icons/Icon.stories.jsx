@@ -4,6 +4,7 @@ import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 import classnames from 'classnames';
 import {getIconGroup} from './get-icon-group';
+import A11yDocs from './Icon.a11y.md';
 
 export default {
   title: 'Components/Icon',
@@ -19,6 +20,9 @@ export default {
     type: TYPE.ACADEMIC_CAP,
     color: ICON_COLOR.ADAPTIVE,
     size: 32,
+  },
+  parameters: {
+    a11yDocs: A11yDocs,
   },
 };
 

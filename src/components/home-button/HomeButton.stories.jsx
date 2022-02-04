@@ -2,6 +2,7 @@ import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Flex from '../flex/Flex';
 import HomeButton, {TYPE} from './HomeButton';
+import A11yDocs from './HomeButton.a11y.md';
 
 export default {
   title: 'Components/HomeButton',
@@ -18,6 +19,9 @@ export default {
   args: {
     type: TYPE.BRAINLY,
     href: 'https://brainly.com',
+  },
+  parameters: {
+    a11yDocs: A11yDocs,
   },
 };
 

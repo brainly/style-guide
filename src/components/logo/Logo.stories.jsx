@@ -1,10 +1,14 @@
 import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Logo, {TYPE} from './Logo';
+import A11yDocs from './Logo.a11y.md';
 
 export default {
   title: 'Components/Logo',
   component: Logo,
+  parameters: {
+    a11yDocs: A11yDocs,
+  },
 };
 
 export const Default = args => <Logo {...args} />;
