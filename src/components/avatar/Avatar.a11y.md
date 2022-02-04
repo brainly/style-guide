@@ -4,12 +4,12 @@
 
 ## Default
 
-| Pattern | Comment | Status |
-| --- | --- | --- |
-| **Should** be removed from accessibility tree if it does not have an accessible name set | `alt` prop defaults to `""`. | Implementation: DONE<br />Tests: DONE|
-| **Should** be unique per user | | Implementation: TO DO<br />Tests: TO DO |
-| **Should** have role `img` | | Implementation: DONE<br />Tests: DONE |
-| **Can** have an accessible name | **Can** be named by setting a value for `alt` prop. | Implementation: DONE<br />Tests: DONE |
+| Pattern                                                                                  | Comment                                             | Status                                  |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------- |
+| **Should** be removed from accessibility tree if it does not have an accessible name set | `alt` prop defaults to `""`.                        | Implementation: DONE<br />Tests: DONE   |
+| **Should** be unique per user                                                            |                                                     | Implementation: TO DO<br />Tests: TO DO |
+| **Should** have role `img`                                                               |                                                     | Implementation: DONE<br />Tests: DONE   |
+| **Can** have an accessible name                                                          | **Can** be named by setting a value for `alt` prop. | Implementation: DONE<br />Tests: DONE   |
 
 > <mark>By default, `Avatar` is treated as a decorative image.</mark>
 
@@ -17,10 +17,10 @@
 
 ## With a `link`
 
-| Pattern | Comment | Status |
-| --- | --- | --- |
-| **Should** have an accessible name | Link should be named by setting a value for `ariaLinkLabel` prop. | Implementation: DONE<br />Tests: DONE|
-| **Should** be focusable and have a visible focus style | | Implementation: DONE<br />Tests: DONE |
+| Pattern                                                | Comment                                                           | Status                                |
+| ------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------- |
+| **Should** have an accessible name                     | Link should be named by setting a value for `ariaLinkLabel` prop. | Implementation: DONE<br />Tests: DONE |
+| **Should** be focusable and have a visible focus style |                                                                   | Implementation: DONE<br />Tests: DONE |
 
 > <mark>If `ariaLinkLabel` is not set, `Avatar` is removed from accessibility tree and link is not accessible.</mark>
 
@@ -34,37 +34,36 @@
 ### Code examples
 
 - hidden from accessibility tree
-  
-  ```jsx
-  <Avatar
-    imgSrc="/user/avatar.jpg"
-  />
-  ```
+
+<!-- prettier-ignore -->
+```jsx
+<Avatar
+  imgSrc="/user/avatar.jpg"
+/>
+```
 
 - with accessible name
-  
-  ```jsx
-  <Avatar
-    imgSrc="/user/avatar.jpg"
-    alt="Face with a moustache"
-  />
-  ```
+
+<!-- prettier-ignore -->
+```jsx
+<Avatar
+  imgSrc="/user/avatar.jpg"
+  alt="Face with a moustache"
+/>
+```
 
 - with accessible link
-  
-  ```jsx
-  <Avatar
-    link="/profile"
-    imgSrc="/user/avatar.jpg"
-    ariaLinkLabel="your profile"
-  />
-  ```
+
+```jsx
+<Avatar
+  link="/profile"
+  imgSrc="/user/avatar.jpg"
+  ariaLinkLabel="your profile"
+/>
+```
+
 <br/>
 
 ### Accessible name decision tree
+
 ![If the link prop is set and the user name is presented nearby, provide ariaLinkLabel. If the link is set but the username is missing, provide ariaLinkLabel and alt. If the link is not set and the username is missing, provide the username in alt. If the link is not set and the username is presented nearby, the avatar is purely decorative.](/avatar-a11y-diagram.jpeg)
-
-
-
-
-
