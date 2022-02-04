@@ -161,6 +161,13 @@ module.exports = (file, api, options) => {
       );
 
       if (color) {
+        // Check if this color was already changed
+        const isCorrectColor = Object.values(colorsMap).includes(
+          color.value.value
+        );
+
+        if (isCorrectColor) return;
+
         if (colorsMap[color.value.value]) {
           wasMatchFound = true;
           color.value.value = colorsMap[color.value.value];
