@@ -20,7 +20,7 @@
 | Pattern                                                | Comment                                                           | Status                                |
 | ------------------------------------------------------ | ----------------------------------------------------------------- | ------------------------------------- |
 | **Should** have an accessible name                     | Link should be named by setting a value for `ariaLinkLabel` prop. | Implementation: DONE<br />Tests: DONE |
-| **Should** be focusable and have a visible focus style |                                                                   | Implementation: DONE<br />Tests: DONE |
+| **Should** be focusable and have a visible focus style | Browser focus style is used                                       | Implementation: DONE<br />Tests: DONE |
 
 > <mark>If `ariaLinkLabel` is not set, `Avatar` is removed from accessibility tree and link is not accessible.</mark>
 

@@ -10,6 +10,7 @@
 | **Should** announce an uploading status                             | Status has `aria-live="polite"`                                                  | Implementation: DONE<br />Tests: DONE    |
 | **Should** have a thumbnail hidden from accessibility tree          |                                                                                  | Implementation: DONE<br />Tests: DONE    |
 | **Should** be focusable by tabbing                                  |                                                                                  | Implementation: DONE<br />Tests: BLOCKED |
+| **Should** have distinctive focus style                             | Browser focus style is used                                                      | Implementation: DONE<br />Tests: BLOCKED |
 | **Can** have a close button with an accessible name                 | Name defaults to `'Close'`                                                       | Implementation: DONE<br />Tests: DONE    |
 
 <br/>
