@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Rating, {RATING_SIZE} from './Rating';
+import A11yDocs from './Rating.a11y.md';
 
 export default {
   title: 'Components/Rating',
@@ -9,6 +10,9 @@ export default {
     rate: 2.4,
     counterText: '34 votes',
     activeText: 'Rate!',
+  },
+  parameters: {
+    a11yDocs: A11yDocs,
   },
 };
 
