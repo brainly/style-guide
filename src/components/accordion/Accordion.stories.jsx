@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
+import A11yDocs from './Accordion.a11y.md';
 
 const copy = {
   title: 'Is this title for accordion?',
@@ -29,6 +30,7 @@ export default {
   subcomponents: {AccordionItem},
   parameters: {
     layout: 'padded',
+    a11yDocs: A11yDocs,
   },
   argTypes: {
     children: {
