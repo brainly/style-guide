@@ -8,7 +8,7 @@ import Headline from '../text/Headline';
 const allIcons = Object.entries(ICON_TYPES).reduce(
   (acc, [key, type]) => ({
     ...acc,
-    [key]: type,
+    [key]: <Icon type={type} color="adaptive" />,
   }),
   {}
 );
