@@ -33,7 +33,7 @@ export type IconTypeType =
   | 'options'
   | 'replay'
   | 'send_back'
-  | 'send_front'
+  | 'bring_front'
   | 'share_on_ios'
   | 'spark'
   | 'star_outlined'
@@ -89,7 +89,7 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   OPTIONS: 'options',
   REPLAY: 'replay',
   SEND_BACK: 'send_back',
-  SEND_FRONT: 'send_front',
+  BRING_FRONT: 'bring_front',
   SHARE_ON_IOS: 'share_on_ios',
   SPARK: 'spark',
   STAR_OUTLINED: 'star_outlined',
