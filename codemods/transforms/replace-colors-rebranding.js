@@ -173,6 +173,24 @@ const componentsColorsMap = {
   FileHandler: fileHandlerColorsMap,
 };
 
+const createFileMessage = ({astNode, parentNodeName, filePath}) => {
+  const columnNumber = astNode.value.loc.start.column;
+  const lineNumber = astNode.value.loc.start.line;
+
+  let logMessage = `${chalk.cyan(
+    'unmatched:'
+  )}${filePath}:${lineNumber}:${columnNumber}`;
+
+  if (astNode.value.type === 'Literal')
+    logMessage += chalk.magenta(
+      ` <- unrecognized string literal in ${parentNodeName}`
+    );
+  else
+    logMessage += chalk.yellow(` <- use of custom prop in ${parentNodeName}`);
+
+  return logMessage;
+};
+
 module.exports = (file, api, options) => {
   const jsc = api.jscodeshift;
   const root = jsc(file.source);
@@ -216,14 +234,14 @@ module.exports = (file, api, options) => {
         wasMatchFound = true;
         colorAttr.value.value = colorsMap[colorAttr.value.value];
       } else {
-        // If there was 'color' attribute found, but it doesn't match any of strings it means there is a param or some logic
-        // unmatchedFiles.push(file.path);
-        const columnNumber = colorAttr.value.loc.start.column;
-        const lineNumber = colorAttr.value.loc.start.line;
-
+        // If there was 'color' attribute found, but it doesn't match any of color maps it means there is a custom string literal or param used.
+        // Print the info.
         console.log(
-          chalk.cyan('unmatched:'),
-          `${file.path}:${lineNumber}:${columnNumber}`
+          createFileMessage({
+            astNode: colorAttr,
+            filePath: file.path,
+            parentNodeName: currentComponentName,
+          })
         );
       }
     });
