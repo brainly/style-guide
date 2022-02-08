@@ -198,6 +198,9 @@ const run = async () => {
         transformer,
         componentsSet,
       });
+    })
+    .then(() => {
+      console.log('✨ Thanks for using our script! ✨');
     });
 };
 
