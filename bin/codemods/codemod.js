@@ -88,7 +88,7 @@ async function runTransform({
 
   args.push('--ignore-pattern=**/node_modules/**');
 
-  args.push('--parser', parser);
+  args.push(`--parser=${parser}`);
 
   if (parser === 'tsx') {
     args.push('--extensions=tsx,ts,jsx,js');
@@ -98,7 +98,7 @@ async function runTransform({
 
   if (componentsSet) args.push(`--components=${componentsSet.join(',')}`);
 
-  args = args.concat(['--transform', transformPath]);
+  args = args.concat(`--transform=${transformPath}`);
 
   args = args.concat(files);
 
@@ -140,7 +140,7 @@ const run = async () => {
         type: 'input',
         name: 'filePath',
         message: 'On which file or directory should the codemod be applied?',
-        default: './test/*',
+        default: '.',
         filter: filePath => filePath.trim(),
       },
       {
