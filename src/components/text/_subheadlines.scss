@@ -1,10 +1,10 @@
 @import './text-colors-mixin';
 
 $includeHtml: false !default;
-$sizes: (xsmall small medium large xlarge xxlarge xxxlarge);
-$transforms: (uppercase lowercase capitalize);
+$subheadlineSizes: (xsmall small medium large xlarge xxlarge xxxlarge);
+$subheadlineTransforms: (uppercase lowercase capitalize);
 
-$sizeRules: (
+$subheadlineSizeRules: (
   xxxlarge: (
     fontSize: 78px,
     lineHeight: 88px,
@@ -43,8 +43,16 @@ $sizeRules: (
 }
 
 @mixin subheadlineTypeSizeVariant($size) {
-  font-size: getSubheadlineSizeFromMap($sizeRules, $size, 'fontSize');
-  line-height: getSubheadlineSizeFromMap($sizeRules, $size, 'lineHeight');
+  font-size: getSubheadlineSizeFromMap(
+    $subheadlineSizeRules,
+    $size,
+    'fontSize'
+  );
+  line-height: getSubheadlineSizeFromMap(
+    $subheadlineSizeRules,
+    $size,
+    'lineHeight'
+  );
 }
 
 @if ($includeHtml) {
@@ -69,13 +77,13 @@ $sizeRules: (
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
-      @each $size in $sizes {
+      @each $size in $subheadlineSizes {
         @include makeResponsive($variant, 'sg-subheadline--#{$size}') {
           @include subheadlineTypeSizeVariant($size);
         }
       }
 
-      @each $transform in $transforms {
+      @each $transform in $subheadlineTransforms {
         @include makeResponsive($variant, 'sg-subheadline--#{$transform}') {
           text-transform: $transform;
         }
