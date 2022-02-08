@@ -183,5 +183,5 @@
     "*.scss",
     "./src/images/*icons.js"
   ],
-  "bin": {"sg-codemods": "./bin/codemods/cli.js"}
+  "bin": {"sg-codemod": "./bin/codemods/cli.js"}
 }
