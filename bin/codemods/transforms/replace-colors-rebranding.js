@@ -5,12 +5,8 @@
 const chalk = require('chalk');
 const flowParser = require('jscodeshift/parser/flow');
 
-// TIP: Search for color usages in a component which pass string literals:
-//   new RegExp('<Headline([^>]|\n)*(color=")([^>]|\n)*[>]'),
-// or params
-//   new RegExp('<Headline([^>]|\n)*(color={)([^>]|\n)*[>]'),
-
 const iconsColorsMap = {
+  adaptive: 'adaptive',
   dark: 'icon-black',
   light: 'icon-white',
   blue: 'icon-blue-50',
@@ -192,6 +188,11 @@ const createFileMessage = ({astNode, parentNodeName, filePath}) => {
   return logMessage;
 };
 
+// TIP: Search for color usages in a component which pass string literals:
+//   new RegExp('<Headline([^>]|\n)*(color=")([^>]|\n)*[>]'),
+// or params
+//   new RegExp('<Headline([^>]|\n)*(color={)([^>]|\n)*[>]'),
+
 module.exports = (file, api, options) => {
   const jsc = api.jscodeshift;
   let astTree;
@@ -206,8 +207,6 @@ module.exports = (file, api, options) => {
 
   // Code transformations
   // Replace old color values from <componentName components
-  let wasMatchFound = false;
-
   astTree
     // Search for JSX opening elements in a file
     .find(jsc.JSXOpeningElement)
@@ -236,9 +235,8 @@ module.exports = (file, api, options) => {
 
       if (isCorrectColor) return;
 
-      // If this color needs to be changed
+      // If this color needs to be changed - replace it
       if (colorsMap[colorAttr.value.value]) {
-        wasMatchFound = true;
         colorAttr.value.value = colorsMap[colorAttr.value.value];
       } else {
         // If there was 'color' attribute found, but it doesn't match any of color maps it means there is a custom string literal or param used.
@@ -253,5 +251,5 @@ module.exports = (file, api, options) => {
       }
     });
 
-  if (wasMatchFound) return astTree.toSource();
+  return astTree.toSource();
 };
