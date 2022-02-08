@@ -3,6 +3,7 @@
 'use strict';
 
 const chalk = require('chalk');
+const flowParser = require('jscodeshift/parser/flow');
 
 // TIP: Search for color usages in a component which pass string literals:
 //   new RegExp('<Headline([^>]|\n)*(color=")([^>]|\n)*[>]'),
@@ -178,7 +179,7 @@ const createFileMessage = ({astNode, parentNodeName, filePath}) => {
   const lineNumber = astNode.value.loc.start.line;
 
   let logMessage = `${chalk.cyan(
-    'unmatched:'
+    'unmatched: '
   )}${filePath}:${lineNumber}:${columnNumber}`;
 
   if (astNode.value.type === 'Literal')
@@ -193,7 +194,13 @@ const createFileMessage = ({astNode, parentNodeName, filePath}) => {
 
 module.exports = (file, api, options) => {
   const jsc = api.jscodeshift;
-  const root = jsc(file.source);
+  let astTree;
+
+  if (options.parser === 'flow') {
+    astTree = jsc(file.source, {
+      parser: flowParser(),
+    });
+  } else astTree = jsc(file.source);
 
   const componentsArr = options.components.split(',');
 
@@ -201,7 +208,7 @@ module.exports = (file, api, options) => {
   // Replace old color values from <componentName components
   let wasMatchFound = false;
 
-  root
+  astTree
     // Search for JSX opening elements in a file
     .find(jsc.JSXOpeningElement)
     // Check if we should modify all components
@@ -246,5 +253,5 @@ module.exports = (file, api, options) => {
       }
     });
 
-  if (wasMatchFound) return root.toSource();
+  if (wasMatchFound) return astTree.toSource();
 };
