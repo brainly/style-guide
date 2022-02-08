@@ -5,7 +5,7 @@ const inquirer = require('inquirer');
 const path = require('path');
 const exec = require('child_process').execSync;
 const chalk = require('chalk');
-const yargs = require('yargs');
+const meow = require('meow');
 
 const transformsDir = path.join(__dirname, '/', 'transforms');
 const jscodeshiftExecutable = require.resolve('.bin/jscodeshift');
@@ -60,15 +60,19 @@ function expandFilePathIfNeeded(filePath) {
   return filePath.includes('*') ? glob.sync(filePath) : filePath;
 }
 
-async function runTransform({argv, files, parser, transformer, components}) {
+async function runTransform({flags, files, parser, transformer, components}) {
   const transformPath = path.join(transformsDir, `${transformer}.js`);
 
   let args = [];
 
   args.push('--verbose=0');
 
-  if (argv.dry) {
+  if (flags.dry) {
     args.push('--dry');
+  }
+
+  if (flags.jscodeshift) {
+    args.push(flags.jscodeshift);
   }
 
   args.push('--ignore-pattern=**/node_modules/**');
@@ -98,8 +102,26 @@ async function runTransform({argv, files, parser, transformer, components}) {
   }
 }
 
-const run = () => {
-  const argv = yargs(process.argv).argv;
+const run = async () => {
+  const cli = meow(
+    {
+      description: 'Codemods for updating React APIs.',
+      help: `
+    Usage
+      $ yarn sg-codemod <...options>
+    Options
+      --dry          Dry run (no changes are made to files)
+      --jscodeshift  (Advanced) Pass options directly to jscodeshift
+    `,
+    },
+    {
+      boolean: ['dry', 'help'],
+      string: ['_'],
+      alias: {
+        h: 'help',
+      },
+    }
+  );
 
   inquirer
     .prompt([
@@ -146,7 +168,7 @@ const run = () => {
       }
 
       return runTransform({
-        argv,
+        flags: cli.flags,
         files: filesExpanded,
         parser,
         transformer,
