@@ -17,6 +17,7 @@ client.s3.getObject(
   function (err, data) {
     if (err) {
       console.log(err, err.stack);
+      return;
     }
 
     if (!data || (data && data.toString('utf-8') !== version)) {

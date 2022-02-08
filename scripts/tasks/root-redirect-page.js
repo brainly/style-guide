@@ -8,9 +8,17 @@ module.exports = function (gulp, plugins, consts) {
       'utf8'
     );
 
+    let version;
+
+    if (consts.VERSION.includes('-beta')) {
+      version = consts.VERSION.slice(0, consts.VERSION.indexOf('-beta'));
+    } else {
+      version = consts.VERSION;
+    }
+
     redirectPageContent = redirectPageContent.replace(
       /#LATEST_VERSION#/g,
-      consts.VERSION
+      version
     );
 
     fs.writeFileSync(outputPath, redirectPageContent);

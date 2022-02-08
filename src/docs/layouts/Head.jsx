@@ -19,6 +19,7 @@ type PropsType = {
 
 const Head = ({page = {}, site = {}}: PropsType) => (
   <head>
+    <base href={site.baseurl} />
     <meta charSet="utf-8" />
     <title>{page.title || site.title}</title>
     <meta name="description" content={page.excerpt || site.description} />
