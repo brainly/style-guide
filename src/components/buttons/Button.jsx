@@ -209,101 +209,109 @@ export type ButtonPropsType = {
   ...
 };
 
-const Button = ({
-  size = 'm',
-  type = 'solid',
-  icon,
-  iconOnly,
-  reversedOrder,
-  href,
-  fullWidth,
-  disabled,
-  loading,
-  toggle,
-  children,
-  className,
-  ...props
-}: ButtonPropsType) => {
-  if (__DEV__) {
-    invariant(
-      !(
-        (toggle === 'blue' &&
-          ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)) ||
-        (toggle === 'peach' &&
-          ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)) ||
-        (toggle === 'mustard' &&
-          ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type))
-      ),
-      `Value of toggle property '${String(
-        toggle
-      )}' has no effect when button type is set to '${type}'.`
-    );
-
-    invariant(
-      !(iconOnly && !icon),
-      `Using 'iconOnly' property has no effect when 'icon' property is not set.`
-    );
-
-    invariant(
-      !(reversedOrder && !icon),
-      `Using 'reversedOrder' property has no effect when 'icon' property is not set.`
-    );
-
-    invariant(
-      !(iconOnly && reversedOrder),
-      `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
-    );
-  }
-
-  const isDisabled = disabled || loading;
-
-  const btnClass = cx(
-    'sg-button',
+const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
+  (
     {
-      [`sg-button--${String(size)}`]: size,
-      [`sg-button--${String(type)}`]: type,
-      'sg-button--disabled': isDisabled,
-      'sg-button--loading': loading,
-      'sg-button--full-width': fullWidth,
-      'sg-button--icon-only': Boolean(icon) && iconOnly,
-      [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
-      'sg-button--reversed-order': reversedOrder,
-    },
-    className
-  );
+      size = 'm',
+      type = 'solid',
+      icon,
+      iconOnly,
+      reversedOrder,
+      href,
+      fullWidth,
+      disabled,
+      loading,
+      toggle,
+      children,
+      className,
+      ...props
+    }: ButtonPropsType,
+    ref
+  ) => {
+    if (__DEV__) {
+      invariant(
+        !(
+          (toggle === 'blue' &&
+            ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)) ||
+          (toggle === 'peach' &&
+            ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)) ||
+          (toggle === 'mustard' &&
+            ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type))
+        ),
+        `Value of toggle property '${String(
+          toggle
+        )}' has no effect when button type is set to '${type}'.`
+      );
 
-  const iconClass = cx('sg-button__icon', {
-    [`sg-button__icon--${size || ''}`]: size,
-  });
+      invariant(
+        !(iconOnly && !icon),
+        `Using 'iconOnly' property has no effect when 'icon' property is not set.`
+      );
 
-  let ico;
+      invariant(
+        !(reversedOrder && !icon),
+        `Using 'reversedOrder' property has no effect when 'icon' property is not set.`
+      );
 
-  if (icon !== undefined && icon !== null) {
-    ico = <span className={iconClass}>{icon}</span>;
+      invariant(
+        !(iconOnly && reversedOrder),
+        `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
+      );
+    }
+
+    const isDisabled = disabled || loading;
+
+    const btnClass = cx(
+      'sg-button',
+      {
+        [`sg-button--${String(size)}`]: size,
+        [`sg-button--${String(type)}`]: type,
+        'sg-button--disabled': isDisabled,
+        'sg-button--loading': loading,
+        'sg-button--full-width': fullWidth,
+        'sg-button--icon-only': Boolean(icon) && iconOnly,
+        [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
+        'sg-button--reversed-order': reversedOrder,
+      },
+      className
+    );
+
+    const iconClass = cx('sg-button__icon', {
+      [`sg-button__icon--${size || ''}`]: size,
+    });
+
+    let ico;
+
+    if (icon !== undefined && icon !== null) {
+      ico = <span className={iconClass}>{icon}</span>;
+    }
+
+    const TypeToRender = href !== undefined ? 'a' : 'button';
+
+    return (
+      <TypeToRender
+        {...props}
+        className={btnClass}
+        href={href}
+        disabled={isDisabled}
+        role={href !== undefined ? 'button' : undefined}
+        ref={ref}
+      >
+        {loading && (
+          <Spinner
+            size={SPINNER_SIZE_MAP[size]}
+            color={SPINNER_COLOR_MAP[type]}
+            className="sg-button__spinner"
+          />
+        )}
+        {ico}
+        {/* As soon as we have Proxima fixed, we could remove that span */}
+        <span className="sg-button__text">{children}</span>
+      </TypeToRender>
+    );
   }
+);
 
-  const TypeToRender = href !== undefined ? 'a' : 'button';
-
-  return (
-    <TypeToRender
-      {...props}
-      className={btnClass}
-      href={href}
-      disabled={isDisabled}
-      role={href !== undefined ? 'button' : undefined}
-    >
-      {loading && (
-        <Spinner
-          size={SPINNER_SIZE_MAP[size]}
-          color={SPINNER_COLOR_MAP[type]}
-          className="sg-button__spinner"
-        />
-      )}
-      {ico}
-      {/* As soon as we have Proxima fixed, we could remove that span */}
-      <span className="sg-button__text">{children}</span>
-    </TypeToRender>
-  );
-};
+Button.displayName = 'Button';
 
 export default Button;
