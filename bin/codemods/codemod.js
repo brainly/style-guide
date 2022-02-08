@@ -12,7 +12,7 @@ const jscodeshiftExecutable = require.resolve('.bin/jscodeshift');
 
 const TRANSFORMER_INQUIRER_CHOICES = [
   {
-    name: 'replace-colors-rebranding: Replaces old colors.',
+    name: 'replace-colors-rebranding: Replaces old colors. 🌈',
     value: 'replace-colors-rebranding',
   },
 ];
@@ -32,35 +32,38 @@ const PARSER_INQUIRER_CHOICES = [
   },
 ];
 
-const REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES = [
-  new inquirer.Separator('-===== REPLACE COLORS IN ALL COMPONENTS =====-'),
-  {name: 'all', value: 'all'},
-  new inquirer.Separator('-===== OR SELECT ONES FROM THE LIST BELOW =====-'),
-  {name: 'Icon', value: 'Icon'},
-  {name: 'MobileIcon', value: 'MobileIcon'},
-  {name: 'SubjectIcon', value: 'SubjectIcon'},
-  {name: 'MathSymbol', value: 'MathSymbol'},
-  {name: 'IconAsButton', value: 'IconAsButton'},
-  {name: 'Text', value: 'Text'},
-  {name: 'TextBit', value: 'TextBit'},
-  {name: 'Link', value: 'Link'},
-  {name: 'Headline', value: 'Headline'},
-  {name: 'Bubble', value: 'Bubble'},
-  {name: 'Box', value: 'Box'},
-  {name: 'Label', value: 'Label'},
-  {name: 'CardHole', value: 'CardHole'},
-  {name: 'Spinner', value: 'Spinner'},
-  {name: 'SpinnerContainer', value: 'SpinnerContainer'},
-  {name: 'Counter', value: 'Counter'},
-  {name: 'Overlay', value: 'Overlay'},
-  {name: 'FileHandler', value: 'FileHandler'},
+const COMPONENTS_NAMES_INQUIRER_CHOICES = [
+  'Icon',
+  'MobileIcon',
+  'SubjectIcon',
+  'MathSymbol',
+  'IconAsButton',
+  'Text',
+  'TextBit',
+  'Link',
+  'Headline',
+  'Bubble',
+  'Box',
+  'Label',
+  'CardHole',
+  'Spinner',
+  'SpinnerContainer',
+  'Counter',
+  'Overlay',
+  'FileHandler',
 ];
 
 function expandFilePathIfNeeded(filePath) {
   return filePath.includes('*') ? glob.sync(filePath) : filePath;
 }
 
-async function runTransform({flags, files, parser, transformer, components}) {
+async function runTransform({
+  flags,
+  files,
+  parser,
+  transformer,
+  componentsSet,
+}) {
   const transformPath = path.join(transformsDir, `${transformer}.js`);
 
   let args = [];
@@ -85,7 +88,7 @@ async function runTransform({flags, files, parser, transformer, components}) {
     args.push('--extensions=jsx,js');
   }
 
-  if (components) args.push(`--components=${components.join(',')}`);
+  if (componentsSet) args.push(`--components=${componentsSet.join(',')}`);
 
   args = args.concat(['--transform', transformPath]);
 
@@ -148,17 +151,30 @@ const run = async () => {
         choices: TRANSFORMER_INQUIRER_CHOICES,
       },
       {
-        type: 'checkbox',
-        name: 'components',
-        message: 'To which components would you like to apply new colors?',
-        default: 'all',
+        type: 'list',
+        name: 'componentsSetType',
+        message: 'To which components would you like to apply the transform?',
+        pageSize: 2,
+        choices: [
+          {name: '✨ all ✨', value: 'all'},
+          {name: 'or select from a list below ⬇️', value: 'custom'},
+        ],
         when: answers => answers.transformer === 'replace-colors-rebranding',
-        pageSize: REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES.length,
-        choices: REBRANDING_COMPONENTS_NAMES_INQUIRER_CHOICES,
+      },
+      {
+        type: 'checkbox',
+        name: 'componentsSet',
+        message: 'Select components from a list:',
+        when: answers => answers.componentsSetType !== 'all',
+        pageSize: COMPONENTS_NAMES_INQUIRER_CHOICES.length,
+        choices: COMPONENTS_NAMES_INQUIRER_CHOICES,
       },
     ])
     .then(answers => {
-      const {filePath, transformer, parser, components} = answers;
+      const {filePath, transformer, parser, componentsSetType} = answers;
+      let {componentsSet} = answers;
+
+      if (componentsSetType === 'all') componentsSet = ['all'];
 
       const filesExpanded = expandFilePathIfNeeded(filePath);
 
@@ -172,7 +188,7 @@ const run = async () => {
         files: filesExpanded,
         parser,
         transformer,
-        components,
+        componentsSet,
       });
     });
 };
