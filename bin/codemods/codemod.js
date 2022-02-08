@@ -53,8 +53,16 @@ const COMPONENTS_NAMES_INQUIRER_CHOICES = [
   'FileHandler',
 ];
 
-function expandFilePathIfNeeded(filePath) {
-  return filePath.includes('*') ? glob.sync(filePath) : filePath;
+function expandFilePathIfNeeded(filePath, parser) {
+  let extensions = '{jsx,js}';
+
+  if (parser === 'tsx') {
+    extensions = '{tsx,ts,jsx,js}';
+  }
+
+  return filePath.includes('*')
+    ? glob.sync(`${filePath}${extensions}`)
+    : filePath;
 }
 
 async function runTransform({
@@ -176,7 +184,7 @@ const run = async () => {
 
       if (componentsSetType === 'all') componentsSet = ['all'];
 
-      const filesExpanded = expandFilePathIfNeeded(filePath);
+      const filesExpanded = expandFilePathIfNeeded(filePath, parser);
 
       if (!filesExpanded.length) {
         console.log(`No files found matching ${filePath.join(' ')}`);
