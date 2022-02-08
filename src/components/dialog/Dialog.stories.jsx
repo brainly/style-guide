@@ -23,6 +23,7 @@ export default {
        */
       inlineStories: false,
       iframeHeight: 500,
+      // extractComponentDescription: () => A11yDocs,
     },
     a11yDocs: A11yDocs,
   },
