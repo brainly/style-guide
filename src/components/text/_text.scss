@@ -1,10 +1,10 @@
 @import './text-colors-mixin';
 
 $includeHtml: false !default;
-$sizes: (xxsmall xsmall small medium large xlarge xxlarge xxxlarge);
-$transforms: (uppercase lowercase capitalize);
+$bodyTextSizes: (xxsmall xsmall small medium large xlarge xxlarge xxxlarge);
+$bodyTextTransforms: (uppercase lowercase capitalize);
 
-$sizeRules: (
+$bodyTextSizeRules: (
   xxxlarge: (
     fontSize: 66px,
     lineHeight: 88px,
@@ -47,8 +47,8 @@ $sizeRules: (
 }
 
 @mixin bodyTextTypeSizeVariant($size) {
-  font-size: getBodyTextSizeFromMap($sizeRules, $size, 'fontSize');
-  line-height: getBodyTextSizeFromMap($sizeRules, $size, 'lineHeight');
+  font-size: getBodyTextSizeFromMap($bodyTextSizeRules, $size, 'fontSize');
+  line-height: getBodyTextSizeFromMap($bodyTextSizeRules, $size, 'lineHeight');
 }
 
 @if ($includeHtml) {
@@ -111,7 +111,7 @@ $sizeRules: (
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
-      @each $size in $sizes {
+      @each $size in $bodyTextSizes {
         @include makeResponsive($variant, 'sg-text--#{$size}') {
           @include bodyTextTypeSizeVariant($size);
         }
@@ -125,7 +125,7 @@ $sizeRules: (
         font-weight: $fontWeightNormal;
       }
 
-      @each $transform in $transforms {
+      @each $transform in $bodyTextTransforms {
         @include makeResponsive($variant, 'sg-text--#{transform}') {
           text-transform: $transform;
         }
