@@ -24,7 +24,13 @@
     "yarn": "^1.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "chalk": "4.1.2",
+    "classnames": "^2.2.5",
+    "glob": "^7.2.0",
+    "inquirer": "^8.2.0",
+    "jscodeshift": "^0.13.1",
+    "meow": "^5.0.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -57,7 +63,6 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-codegen": "^4.1.5",
     "babel-plugin-transform-define": "^2.0.1",
-    "chalk": "4.1.2",
     "concurrently": "^5.0.2",
     "css-loader": "^3.1.0",
     "del": "^2.2.0",
@@ -75,7 +80,6 @@
     "file-loader": "^4.1.0",
     "flow-bin": "^0.112.0",
     "fs-extra": "^9.0.1",
-    "glob": "^7.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-base64": "^0.1.3",
@@ -94,12 +98,8 @@
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.9.0",
     "husky": "^0.11.3",
-    "inquirer": "^8.2.0",
     "jest": "^24.0.0",
     "jest-axe": "^5.0.1",
-    "jscodeshift": "^0.13.1",
-    "meow": "^5.0.0",
-    "path": "^0.12.7",
     "polished": "^4.0.3",
     "postcss": "^8.4.5",
     "postcss-loader": "^4.1.0",
