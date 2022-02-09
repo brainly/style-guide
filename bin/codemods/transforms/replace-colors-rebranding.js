@@ -58,6 +58,9 @@ const linkColorsMap = {
 };
 
 const labelColorsMap = {
+  blue: 'blue',
+  gray: 'gray',
+  achromatic: 'achromatic',
   mint: 'green',
   lavender: 'indigo',
   peach: 'red',
