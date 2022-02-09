@@ -228,18 +228,23 @@ module.exports = (file, api, options) => {
       const currentComponentName = path.value.name.name;
       const colorsMap = componentsColorsMap[currentComponentName];
 
+      // If component does not exist in the colors map
+      if (!colorsMap) return;
+
       // Check if this color was already changed to correct one
       const isCorrectColor = Object.values(colorsMap).includes(
         colorAttr.value.value
       );
 
+      // If correct color is already used
       if (isCorrectColor) return;
 
       // If this color needs to be changed - replace it
       if (colorsMap[colorAttr.value.value]) {
         colorAttr.value.value = colorsMap[colorAttr.value.value];
       } else {
-        // If there was 'color' attribute found, but it doesn't match any of color maps it means there is a custom string literal or param used.
+        // If there was 'color' attribute found, but it doesn't match any color in the color maps
+        // it means there is a custom string literal or param used.
         // Print the info.
         console.log(
           createFileMessage({
