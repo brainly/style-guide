@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import {__DEV__, invariant} from '../utils';
 import Text from './Text';
 import type {TextColorType, TextSizeType} from './Text';
 import {
@@ -63,6 +64,12 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
+  download?: string,
+  hreflang?: string,
+  ping?: string,
+  referrerpolicy?: string,
+  rel?: string,
+  target?: string,
   onClick?: () => mixed,
   ...
 };
@@ -91,6 +98,12 @@ const Link = (props: LinkPropsType) => {
     type,
     onClick,
     'aria-label': ariaLabel,
+    download,
+    hreflang,
+    ping,
+    referrerpolicy,
+    rel,
+    target,
     ...additionalProps
   } = props;
 
@@ -109,6 +122,27 @@ const Link = (props: LinkPropsType) => {
     }
   } else if (size) {
     textSize = size;
+  }
+
+  if (__DEV__) {
+    invariant(
+      !(as === 'a' && (href === null || href === undefined)),
+      'An anchor element without a href will be accessible only for users with a pointing device.'
+    );
+
+    invariant(
+      !(
+        as === 'button' &&
+        (href ||
+          hreflang ||
+          download ||
+          ping ||
+          referrerpolicy ||
+          rel ||
+          target)
+      ),
+      'An anchor-related prop is not working for a button.'
+    );
   }
 
   const linkClass = classNames(
@@ -139,6 +173,7 @@ const Link = (props: LinkPropsType) => {
             className="sg-visually-hidden"
             onClick={onClick}
             disabled={disabled}
+            type="button"
           />
         </label>
       </Text>
