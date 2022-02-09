@@ -53,16 +53,8 @@ const COMPONENTS_NAMES_INQUIRER_CHOICES = [
   'FileHandler',
 ];
 
-function expandFilePathIfNeeded(filePath, parser) {
-  let extensions = '{jsx,js}';
-
-  if (parser === 'tsx') {
-    extensions = '{tsx,ts,jsx,js}';
-  }
-
-  return filePath.includes('*')
-    ? glob.sync(`${filePath}${extensions}`)
-    : filePath;
+function useGlob(filePath) {
+  return glob.sync(filePath);
 }
 
 async function runTransform({
@@ -121,12 +113,13 @@ const run = async () => {
     Usage
       $ yarn sg-codemod <...options>
     Options
-      --dry          Dry run (no changes are made to files)
-      --jscodeshift  (Advanced) Pass options directly to jscodeshift
+      --dry                       Dry run (no changes are made to files)
+      --glob                      Use glob pattern to match files
+      --jscodeshift  (Advanced)   Pass options directly to jscodeshift
     `,
     },
     {
-      boolean: ['dry', 'help'],
+      boolean: ['dry', 'help', 'glob'],
       string: ['_'],
       alias: {
         h: 'help',
@@ -184,16 +177,16 @@ const run = async () => {
 
       if (componentsSetType === 'all') componentsSet = ['all'];
 
-      const filesExpanded = expandFilePathIfNeeded(filePath, parser);
+      const files = cli.flags.glob ? useGlob(filePath) : filePath;
 
-      if (!filesExpanded.length) {
-        console.log(`No files found matching ${filePath.join(' ')}`);
+      if (!files.length) {
+        console.log(`No files found matching ${filePath}`);
         return null;
       }
 
       return runTransform({
         flags: cli.flags,
-        files: filesExpanded,
+        files,
         parser,
         transformer,
         componentsSet,
