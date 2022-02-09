@@ -25,8 +25,7 @@ type TextTypeType =
   | 'h5'
   | 'h6'
   | 'div'
-  | 'label'
-  | 'a';
+  | 'label';
 
 type LinkSizeType =
   | 'xsmall'
@@ -43,8 +42,11 @@ type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
+type ElementType = 'a' | 'button';
+
 export type LinkPropsType = {
   children?: ?React.Node,
+  as?: ?ElementType,
   href?: ?string,
   size?: ResponsivePropType<LinkSizeType>,
   type?: TextTypeType,
@@ -60,6 +62,8 @@ export type LinkPropsType = {
   disabled?: boolean,
   className?: ?string,
   inherited?: boolean,
+  'aria-label'?: string,
+  onClick?: () => mixed,
   ...
 };
 
@@ -73,6 +77,7 @@ export const LINK_ALIGN = TEXT_ALIGN;
 const Link = (props: LinkPropsType) => {
   const {
     children,
+    as = 'a',
     href,
     color,
     underlined = false,
@@ -83,6 +88,9 @@ const Link = (props: LinkPropsType) => {
     className,
     inherited = false,
     size,
+    type,
+    onClick,
+    'aria-label': ariaLabel,
     ...additionalProps
   } = props;
 
@@ -117,13 +125,33 @@ const Link = (props: LinkPropsType) => {
     className
   );
 
-  if (href === undefined || href === '' || href === null) {
+  if (as === 'button') {
     return (
       <Text
-        type="span"
+        type={type || 'span'}
         {...additionalProps}
         className={linkClass}
         size={textSize}
+      >
+        <label className="sg-text--link-label" aria-label={ariaLabel}>
+          {children}
+          <button
+            className="sg-visually-hidden"
+            onClick={onClick}
+            disabled={disabled}
+          />
+        </label>
+      </Text>
+    );
+  }
+
+  if (disabled) {
+    return (
+      <Text
+        type={type || 'span'}
+        {...additionalProps}
+        className={linkClass}
+        aria-label={ariaLabel}
       >
         {children}
       </Text>
@@ -131,14 +159,18 @@ const Link = (props: LinkPropsType) => {
   }
 
   return (
-    <Text
-      type="a"
-      {...additionalProps}
-      className={linkClass}
-      href={href}
-      size={textSize}
-    >
-      {children}
+    <Text type={type}>
+      <Text
+        type="a"
+        {...additionalProps}
+        className={linkClass}
+        href={href}
+        inherited
+        aria-label={ariaLabel}
+        size={textSize}
+      >
+        {children}
+      </Text>
     </Text>
   );
 };
