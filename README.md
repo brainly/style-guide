@@ -19,19 +19,19 @@ All components can be used in both HTML and JSX. In both cases you have to inclu
 
 We officially support the following browsers (based on real user trafic from our analytics):
 
-| Browser           | Versions |
-| ----------------- | -------- |
-| Google Chrome     | 28+      |
-| Safari            | 7+       |
-| Samsung Internet  | 1.1+     |
-| YaBrowser         | 15+      |
-| Android Webview   | 30+      |
-| Firefox           | 42+      |
-| UCBrowser         | 8+       |
-| Android Browser   | 4.0+     |
-| Opera             | 33+      |
-| Opera Mini        | 7+       |
-| Edge              | 12+      |
+| Browser          | Versions |
+| ---------------- | -------- |
+| Google Chrome    | 28+      |
+| Safari           | 7+       |
+| Samsung Internet | 1.1+     |
+| YaBrowser        | 15+      |
+| Android Webview  | 30+      |
+| Firefox          | 42+      |
+| UCBrowser        | 8+       |
+| Android Browser  | 4.0+     |
+| Opera            | 33+      |
+| Opera Mini       | 7+       |
+| Edge             | 12+      |
 
 Note: You can find all recent stats in [our analytics](https://analytics.google.com/analytics/web/#report/visitors-browser/a85994882w128325453p132056054/) (INTERNAL)
 
@@ -42,3 +42,21 @@ We welcome all issue reports and pull requests ❤️ If you'd like to contribut
 ## Caveats
 
 - Package "s3" has been forked to @brainly organization. One of dependencies of this package (graceful-fs) was causing our builds to fail. Since this package is no longer maintained, we decided to fork it and make needed updates. As a long-term solution, we need to switch "s3" package to something more up-to-date.
+
+## Codemods
+
+We created a CLI tool that runs codemods with [jscodeshift](https://github.com/facebook/jscodeshift) to batch refactor code.
+Usage:
+
+```sh
+yarn sg-codemod [...options]
+```
+
+where `options` are:
+
+- `--help` - display help
+- `--dry` - dry run (no changes are made to files)
+- `--glob` - use glob pattern to match files
+- `--jscodeshift` - pass options directly to jscodeshift
+
+Read more [here](CODEMODS.md).

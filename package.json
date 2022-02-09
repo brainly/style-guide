@@ -16,14 +16,21 @@
     "css/",
     "assets/",
     "types/",
-    "deprecated.yaml"
+    "deprecated.yaml",
+    "bin/"
   ],
   "engines": {
     "node": ">=8.0.0",
     "yarn": "^1.0.0"
   },
   "dependencies": {
-    "classnames": "^2.2.5"
+    "chalk": "4.1.2",
+    "classnames": "^2.2.5",
+    "glob": "^7.2.0",
+    "inquirer": "^8.2.0",
+    "jscodeshift": "^0.13.1",
+    "meow": "^5.0.0",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -73,7 +80,6 @@
     "file-loader": "^4.1.0",
     "flow-bin": "^0.112.0",
     "fs-extra": "^9.0.1",
-    "glob": "^7.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-base64": "^0.1.3",
@@ -94,7 +100,6 @@
     "husky": "^0.11.3",
     "jest": "^24.0.0",
     "jest-axe": "^5.0.1",
-    "jscodeshift": "^0.11.0",
     "polished": "^4.0.3",
     "postcss": "^8.4.5",
     "postcss-loader": "^4.1.0",
@@ -156,7 +161,8 @@
     "build-storybook": "build-storybook",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
     "prettier-check": "prettier --check src",
-    "prettier-fix": "prettier --write src"
+    "prettier-fix": "prettier --write src",
+    "run-codemod": "node ./bin/codemods/cli.js"
   },
   "jest": {
     "setupFiles": [
@@ -177,5 +183,8 @@
   "sideEffects": [
     "*.scss",
     "./src/images/*icons.js"
-  ]
+  ],
+  "bin": {
+    "sg-codemod": "./bin/codemods/cli.js"
+  }
 }
