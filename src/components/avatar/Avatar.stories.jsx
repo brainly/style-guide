@@ -4,7 +4,6 @@ import Avatar, {SIZE} from './Avatar';
 import {StoryVariantTable} from '../../_docs/utils';
 import Flex from '../flex/Flex';
 import hex from '../colors/hex';
-import A11yDocs from './Avatar.a11y.md';
 
 export default {
   title: 'Components/Avatar',
@@ -23,9 +22,6 @@ export default {
   args: {
     imgSrc: '/cat.jpeg',
     link: '#',
-  },
-  parameters: {
-    a11yDocs: A11yDocs,
   },
 };
 

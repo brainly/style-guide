@@ -10,7 +10,6 @@ import Dialog from './Dialog';
 import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
-import A11yDocs from './Dialog.a11y.md';
 
 export default {
   title: 'Components/Dialog',
@@ -23,9 +22,7 @@ export default {
        */
       inlineStories: false,
       iframeHeight: 500,
-      // extractComponentDescription: () => A11yDocs,
     },
-    a11yDocs: A11yDocs,
   },
   args: {
     open: true,

@@ -2,7 +2,6 @@ import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import MathSymbol, {MATH_SYMBOL_TYPE, ICON_COLOR, SIZE} from './MathSymbol';
 import Flex from '../flex/Flex';
-import A11yDocs from './MathSymbol.a11y.md';
 
 export default {
   title: 'Components/MathSymbol',
@@ -15,9 +14,6 @@ export default {
   args: {
     type: MATH_SYMBOL_TYPE.ALPHA,
     color: ICON_COLOR.ADAPTIVE,
-  },
-  parameters: {
-    a11yDocs: A11yDocs,
   },
 };
 

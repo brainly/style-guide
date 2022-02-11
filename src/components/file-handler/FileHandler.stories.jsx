@@ -3,7 +3,6 @@ import FileHandler, {COLORS_MAP} from './FileHandler';
 import {TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import {StoryVariant} from '../../_docs/utils';
-import A11yDocs from './FileHandler.a11y.md';
 
 export default {
   title: 'Components/FileHandler',
@@ -28,9 +27,6 @@ export default {
   },
   args: {
     children: 'text',
-  },
-  parameters: {
-    a11yDocs: A11yDocs,
   },
 };
 

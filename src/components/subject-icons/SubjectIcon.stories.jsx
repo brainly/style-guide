@@ -3,7 +3,6 @@ import SubjectIcon, {TYPE, ICON_COLOR, SIZE} from './SubjectIcon';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 import {StoryVariant} from '../../_docs/utils';
-import A11yDocs from './SubjectIcon.a11y.md';
 
 export default {
   title: 'Components/SubjectIcon',
@@ -18,9 +17,6 @@ export default {
   },
   args: {
     type: TYPE.ACCOUNTANCY,
-  },
-  parameters: {
-    a11yDocs: A11yDocs,
   },
 };
 

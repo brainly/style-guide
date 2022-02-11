@@ -21,7 +21,6 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-essentials',
     '@storybook/addon-links',
-    // './addon-a11ydocs/register.js'
   ],
   staticDirs: ['./public'],
   webpackFinal: config => {
