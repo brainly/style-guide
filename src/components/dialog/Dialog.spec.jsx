@@ -89,7 +89,7 @@ describe('<Dialog>', () => {
     expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
   });
 
-  it('does not fire onEntryTransitionEnd callback before mount', () => {
+  it('does not fire onEntryTransitionEnd callback before open', () => {
     const onEntryTransitionEnd = jest.fn();
 
     mount(
@@ -101,7 +101,7 @@ describe('<Dialog>', () => {
     expect(onEntryTransitionEnd).toHaveBeenCalledTimes(0);
   });
 
-  it('does not fire onExitTransitionEnd callback before mount', () => {
+  it('does not fire onExitTransitionEnd callback before open', () => {
     const onExitTransitionEnd = jest.fn();
 
     mount(
