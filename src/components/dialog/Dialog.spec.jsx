@@ -89,6 +89,30 @@ describe('<Dialog>', () => {
     expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
   });
 
+  it('does not fire onEntryTransitionEnd callback before mount', () => {
+    const onEntryTransitionEnd = jest.fn();
+
+    mount(
+      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
+
+    expect(onEntryTransitionEnd).toHaveBeenCalledTimes(0);
+  });
+
+  it('does not fire onExitTransitionEnd callback before mount', () => {
+    const onExitTransitionEnd = jest.fn();
+
+    mount(
+      <Dialog onExitTransitionEnd={onExitTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
+
+    expect(onExitTransitionEnd).toHaveBeenCalledTimes(0);
+  });
+
   it('returns null after exit transition', () => {
     const wrapper = mount(<Dialog open>content text</Dialog>);
 
