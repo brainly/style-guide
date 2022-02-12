@@ -43,7 +43,6 @@ describe('<Dialog>', () => {
 
   it('fires onDismiss callback on Escape key', () => {
     const onDismiss = jest.fn();
-
     const wrapper = mount(
       <Dialog onDismiss={onDismiss} open>
         content text
@@ -68,15 +67,12 @@ describe('<Dialog>', () => {
 
   it('fires onEntryTransitionEnd callback on entry', () => {
     const onEntryTransitionEnd = jest.fn();
-    const wrapper = mount(
+
+    mount(
       <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
         content text
       </Dialog>
     );
-
-    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
-      propertyName: 'transform',
-    });
 
     expect(onEntryTransitionEnd).toHaveBeenCalledTimes(1);
   });
@@ -90,10 +86,6 @@ describe('<Dialog>', () => {
     );
 
     wrapper.setProps({open: false});
-    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
-      propertyName: 'opacity',
-    });
-
     expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
   });
 
@@ -103,9 +95,7 @@ describe('<Dialog>', () => {
     expect(wrapper.isEmptyRender()).toBe(false);
 
     wrapper.setProps({open: false});
-    wrapper.find('[role="dialog"]').simulate('transitionEnd', {
-      propertyName: 'opacity',
-    });
+    wrapper.update();
 
     expect(wrapper.isEmptyRender()).toBe(true);
   });
