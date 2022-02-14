@@ -59,7 +59,7 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
-  onClick?: () => mixed,
+  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
   ...
 };
 
@@ -120,6 +120,7 @@ const Link = (props: LinkPropsType) => {
             anchorRelatedProps.includes(p)
           ))
       ),
+      // $FlowFixMe
       `An anchor-related prop is not working for as="button": ${Object.keys(
         additionalProps
       )}`
@@ -145,8 +146,8 @@ const Link = (props: LinkPropsType) => {
   if (as === 'button') {
     return (
       <Text
-        type="label"
         {...additionalProps}
+        type="label"
         className={linkClass}
         size={textSize}
       >
@@ -168,9 +169,9 @@ const Link = (props: LinkPropsType) => {
 
   return (
     <Text
-      type={linkType}
       {...additionalProps}
-      href={href}
+      type={linkType}
+      href={href || ''}
       className={linkClass}
       size={textSize}
       aria-label={ariaLabel}

@@ -77,7 +77,7 @@ export type FileHandlerPropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  onClick?: () => mixed,
+  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
   /**
    * Additional function to set ref for text
    */
@@ -130,12 +130,13 @@ const FileHandler = ({
     className
   );
 
-  const preventedOnClick =
-    onClick &&
-    (e => {
-      e.preventDefault();
-      return onClick();
-    });
+  const preventedOnClick = (e: KeyboardEvent | MouseEvent) => {
+    if (!onClick) {
+      return;
+    }
+    e.preventDefault();
+    return onClick(e);
+  };
 
   const isActionProvided = src !== undefined || preventedOnClick;
 
