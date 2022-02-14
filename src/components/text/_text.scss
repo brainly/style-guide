@@ -82,7 +82,7 @@ $bodyTextSizeRules: (
     }
 
     &--link-label {
-      cursor: inherit;
+      cursor: pointer;
 
       &:focus-within {
         outline: 5px auto Highlight;

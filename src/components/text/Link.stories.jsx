@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from './Link';
+import Text from './Text';
 import {TEXT_COLOR} from './textConsts';
 
 export default {
@@ -19,19 +20,17 @@ Default.argTypes = {
   href: '#',
 };
 
-export const Nested = args => <Link {...args} />;
+export const Nested = args => (
+  <Text type="h2" color={TEXT_COLOR['text-red-60']}>
+    Outer link-
+    <Link {...args} />
+  </Text>
+);
 
 Nested.args = {
-  type: 'h2',
-  color: TEXT_COLOR['text-red-60'],
-  children: (
-    <>
-      Outer Link{' '}
-      <Link inherited as="button">
-        nested Link with inherited styles
-      </Link>
-    </>
-  ),
+  inherited: true,
+  as: 'button',
+  children: 'nested Link with inherited styles',
 };
 
 Nested.argTypes = {
