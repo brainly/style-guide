@@ -4,6 +4,7 @@
 import * as React from 'react';
 // eslint-disable-next-line import/no-duplicates
 import {useContext, useEffect, useRef, useState} from 'react';
+import {generateId} from '../utils';
 
 import cx from 'classnames';
 import Box from '../box/Box';
@@ -25,10 +26,6 @@ export type AccordionItemPropsType = $ReadOnly<{
   id?: string,
   ariaHeadingLevel?: number,
 }>;
-
-function generateId() {
-  return Math.random().toString(36).substring(7);
-}
 
 const AccordionItem = ({
   title,
