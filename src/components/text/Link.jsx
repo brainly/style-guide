@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {__DEV__, invariant} from '../utils';
+import {__DEV__, invariant, generateId} from '../utils';
 import Text from './Text';
 import type {TextColorType, TextSizeType} from './Text';
 import {
@@ -58,7 +58,7 @@ export type LinkPropsType = {
   disabled?: boolean,
   className?: ?string,
   inherited?: boolean,
-  ariaNewTabLabel?: string,
+  'aria-label'?: string,
   onClick?: () => mixed,
   ...
 };
@@ -83,9 +83,11 @@ const Link = (props: LinkPropsType) => {
     className,
     inherited = false,
     size,
+    'aria-label': ariaLabel,
     onClick,
     ...additionalProps
   } = props;
+  const {current: labelId} = React.useRef(generateId());
 
   let textSize: ResponsivePropType<TextSizeType>;
 
@@ -111,12 +113,16 @@ const Link = (props: LinkPropsType) => {
     );
 
     invariant(
-      !(as === 'button' &&
+      !(
+        as === 'button' &&
         (href ||
           Object.keys(additionalProps).some(p =>
             anchorRelatedProps.includes(p)
-          )),
-      'An anchor-related prop is not working for a button.')
+          ))
+      ),
+      `An anchor-related prop is not working for as="button": ${Object.keys(
+        additionalProps
+      )}`
     );
   }
 
@@ -144,12 +150,15 @@ const Link = (props: LinkPropsType) => {
         className={linkClass}
         size={textSize}
       >
-        {children}
+        <span id={labelId} aria-label={ariaLabel} aria-hidden>
+          {children}
+        </span>
         <button
           className="sg-visually-hidden"
           onClick={onClick}
           disabled={disabled}
           type="button"
+          aria-labelledby={labelId}
         />
       </Text>
     );
@@ -164,6 +173,7 @@ const Link = (props: LinkPropsType) => {
       href={href}
       className={linkClass}
       size={textSize}
+      aria-label={ariaLabel}
     >
       {children}
     </Text>
