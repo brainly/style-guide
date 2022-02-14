@@ -34,7 +34,7 @@ const Links = () => {
   return (
     <div>
       <DocsActiveBlock settings={settings}>
-        <Link>Comments (9)</Link>
+        <Link as="button">Comments (9)</Link>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
         <Link
@@ -47,9 +47,9 @@ const Links = () => {
         </Link>
       </DocsActiveBlock>
       <DocsActiveBlock settings={settings}>
-        <Link>
+        <Link as="button">
           Parent Link component{' '}
-          <Link inherited type="span" color="text-green-60">
+          <Link href="#" inherited type="span" color="text-green-60">
             nested Link inheriting styles from parent Link
           </Link>
         </Link>

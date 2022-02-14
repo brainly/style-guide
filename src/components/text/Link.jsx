@@ -108,7 +108,7 @@ const Link = (props: LinkPropsType) => {
 
   if (__DEV__) {
     invariant(
-      !(as === 'a' && (href === null || href === undefined)),
+      !(as === 'a' && !disabled && (href === null || href === undefined)),
       'An anchor element without a href will be accessible only for users with a pointing device.'
     );
 

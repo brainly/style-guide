@@ -194,6 +194,7 @@ const AccordionItem = ({
                 color="text-black"
                 weight="bold"
                 underlined={isHighlighted}
+                disabled
               >
                 {title}
               </Link>

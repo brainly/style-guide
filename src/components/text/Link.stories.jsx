@@ -11,10 +11,12 @@ export const Default = args => <Link {...args} />;
 
 Default.args = {
   children: 'Some text',
+  href: '#',
 };
 
 Default.argTypes = {
   children: 'string',
+  href: '#',
 };
 
 export const Nested = args => <Link {...args} />;
@@ -25,7 +27,7 @@ Nested.args = {
   children: (
     <>
       Outer Link{' '}
-      <Link inherited type="span">
+      <Link inherited as="button">
         nested Link with inherited styles
       </Link>
     </>

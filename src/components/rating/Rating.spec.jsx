@@ -59,7 +59,7 @@ describe('rating', () => {
     console.error = jest.fn();
 
     const rate = 3;
-    const rating = mount(<Rating rate={rate} active />);
+    const rating = mount(<Rating rate={rate} />);
     const stars = rating.find(Star);
 
     stars.at(0).simulate('click');
