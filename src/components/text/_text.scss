@@ -126,7 +126,7 @@ $bodyTextSizeRules: (
       }
 
       @each $transform in $bodyTextTransforms {
-        @include makeResponsive($variant, 'sg-text--#{transform}') {
+        @include makeResponsive($variant, 'sg-text--#{$transform}') {
           text-transform: $transform;
         }
       }
