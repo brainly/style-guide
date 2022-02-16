@@ -10,8 +10,8 @@ const client = s3.createClient({
 
 client.s3.headObject(
   {
-    Bucket: 'styleguide.brainly.com',
-    Key: `new-deploy/${version}/style-guide.css`,
+    Bucket: 'styleguide-prod.brainly.com',
+    Key: `${version}/style-guide.css`,
   },
   function (err) {
     if (err) {
