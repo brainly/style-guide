@@ -8,7 +8,6 @@ phases:
     commands:
       - NODE_ENV=production node ./scripts/build-styleguide-s3.js
 artifacts:
-  name: 'new-deploy'
   files:
     - '**/*'
   base-directory: 'dist'
