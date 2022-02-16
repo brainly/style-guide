@@ -7,7 +7,8 @@ import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
 
 // https://github.com/jsdom/jsdom/issues/1781
-const supportsTransitions = window.TransitionEvent !== undefined;
+const supportsTransitions = () =>
+  Boolean(window && window.TransitionEvent !== undefined);
 
 export type DialogPropsType = $ReadOnly<{
   open: boolean,
@@ -94,7 +95,7 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
 
-    if (!supportsTransitions) {
+    if (!supportsTransitions()) {
       fireTransitionEndCallbacks();
     }
   }, [open, fireTransitionEndCallbacks]);
@@ -170,7 +171,9 @@ function BaseDialog({
         role="dialog"
         ref={containerRef}
         className={containerClass}
-        onTransitionEnd={supportsTransitions ? handleTransitionEnd : undefined}
+        onTransitionEnd={
+          supportsTransitions() ? handleTransitionEnd : undefined
+        }
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
