@@ -8,7 +8,7 @@ const client = s3.createClient({
   },
 });
 
-client.s3.headObject(
+client.s3.getObject(
   {
     Bucket: 'styleguide-prod.brainly.com',
     Key: `${version}/style-guide.css`,
