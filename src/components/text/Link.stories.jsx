@@ -22,7 +22,7 @@ Default.argTypes = {
 
 export const Nested = args => (
   <Text type="h2" color={TEXT_COLOR['text-red-60']}>
-    Outer link-
+    Outer text-
     <Link {...args} />
   </Text>
 );
