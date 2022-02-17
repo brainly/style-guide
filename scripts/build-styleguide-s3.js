@@ -8,14 +8,14 @@ const client = s3.createClient({
   },
 });
 
-client.s3.headObject(
+client.s3.getObject(
   {
-    Bucket: 'styleguide.brainly.com',
-    Key: `new-deploy/${version}/style-guide.css`,
+    Bucket: 'styleguide-prod.brainly.com',
+    Key: `${version}/style-guide.css`,
   },
   function (err) {
     if (err) {
-      if (err.name === 'NotFound') {
+      if (err.name === 'AccessDenied') {
         execSync('yarn build');
       } else {
         console.log(err, err.stack);
