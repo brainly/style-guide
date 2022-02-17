@@ -10,18 +10,16 @@ module.exports = function (gulp, plugins, consts) {
 
     let version;
 
-    if (consts.VERSION.includes('-beta')) {
-      version = consts.VERSION.slice(0, consts.VERSION.indexOf('-beta'));
-    } else {
+    if (!consts.VERSION.includes('-beta')) {
       version = consts.VERSION;
+      redirectPageContent = redirectPageContent.replace(
+        /#LATEST_VERSION#/g,
+        version
+      );
+
+      fs.writeFileSync(outputPath, redirectPageContent);
     }
 
-    redirectPageContent = redirectPageContent.replace(
-      /#LATEST_VERSION#/g,
-      version
-    );
-
-    fs.writeFileSync(outputPath, redirectPageContent);
     next();
   };
 };

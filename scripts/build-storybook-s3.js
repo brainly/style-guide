@@ -16,11 +16,12 @@ client.s3.getObject(
   },
   function (err, data) {
     if (err) {
-      console.log(err, err.stack);
-      return;
-    }
-
-    if (!data || (data && data.toString('utf-8') !== version)) {
+      if (err.name === 'AccessDenied') {
+        execSync('yarn build');
+      } else {
+        console.log(err, err.stack);
+      }
+    } else if (!data || (data && data.toString('utf-8') !== version)) {
       execSync('STORYBOOK_ENV=prod yarn build-storybook');
       fs.writeFileSync('storybook-static/.sg-version', `${version}`, 'utf-8');
     } else {

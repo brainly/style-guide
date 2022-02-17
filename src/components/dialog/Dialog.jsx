@@ -6,6 +6,10 @@ import cx from 'classnames';
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
 
+// https://github.com/jsdom/jsdom/issues/1781
+const supportsTransitions = () =>
+  Boolean(window && window.TransitionEvent !== undefined);
+
 export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
@@ -78,12 +82,41 @@ function BaseDialog({
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
+  const fireTransitionEndCallbacks = React.useCallback(() => {
+    if (open) {
+      if (onEntryTransitionEnd) {
+        onEntryTransitionEnd();
+      }
+    } else if (onExitTransitionEnd) {
+      onExitTransitionEnd();
+    }
+  }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
+
   React.useEffect(() => {
     setDeferredOpen(open);
-  }, [open]);
+
+    if (!supportsTransitions()) {
+      fireTransitionEndCallbacks();
+    }
+  }, [open, fireTransitionEndCallbacks]);
 
   useBodyNoScroll();
-  useFocusTrap({dialogRef: containerRef, overlayRef});
+  useFocusTrap({
+    dialogRef: containerRef,
+    overlayRef,
+  });
+
+  const handleTransitionEnd = React.useCallback(
+    (event: TransitionEvent) => {
+      if (
+        event.target === event.currentTarget &&
+        event.propertyName === lastTransitionName
+      ) {
+        fireTransitionEndCallbacks();
+      }
+    },
+    [fireTransitionEndCallbacks, lastTransitionName]
+  );
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -94,28 +127,8 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
-      if (
-        event.target !== event.currentTarget ||
-        event.propertyName !== lastTransitionName
-      ) {
-        return;
-      }
-
-      if (open) {
-        if (onEntryTransitionEnd) {
-          onEntryTransitionEnd();
-        }
-      } else if (onExitTransitionEnd) {
-        onExitTransitionEnd();
-      }
-    },
-    [open, lastTransitionName, onEntryTransitionEnd, onExitTransitionEnd]
-  );
-
   const handleKeyUp = React.useCallback(
-    event => {
+    (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
       if (onDismiss && event.key === 'Escape') {
         onDismiss();
         event.stopPropagation();
@@ -158,7 +171,9 @@ function BaseDialog({
         role="dialog"
         ref={containerRef}
         className={containerClass}
-        onTransitionEnd={handleTransitionEnd}
+        onTransitionEnd={
+          supportsTransitions() ? handleTransitionEnd : undefined
+        }
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
