@@ -45,16 +45,28 @@ const Footers = () => (
               adaptive
               elements={[
                 <Text key={1} type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-                  United States: <Link target="_blank">brainly.com</Link>
+                  United States:{' '}
+                  <Link href="#" target="_blank">
+                    brainly.com
+                  </Link>
                 </Text>,
                 <Text key={2} type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-                  Poland: <Link target="_blank">brainly.pl</Link>
+                  Poland:{' '}
+                  <Link href="#" target="_blank">
+                    brainly.pl
+                  </Link>
                 </Text>,
                 <Text key={3} type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-                  Russia/Ukraine: <Link target="_blank">znanija.com</Link>
+                  Russia/Ukraine:{' '}
+                  <Link href="#" target="_blank">
+                    znanija.com
+                  </Link>
                 </Text>,
                 <Text key={4} type={TEXT_TYPE.SPAN} size={TEXT_SIZE.SMALL}>
-                  Latam: <Link target="_blank">brainly.lat</Link>
+                  Latam:{' '}
+                  <Link href="#" target="_blank">
+                    brainly.lat
+                  </Link>
                 </Text>,
               ]}
             />
@@ -68,8 +80,8 @@ const Footers = () => (
             weight={TEXT_WEIGHT.BOLD}
           >
             Strona korzysta z plików cookie w celu realizacji usług zgodnie z{' '}
-            <Link>polityką cookie</Link>. Możesz określić warunki przechowywania
-            lub dostępu do cookie w Twojej przeglądarce.
+            <Link href="#">polityką cookie</Link>. Możesz określić warunki
+            przechowywania lub dostępu do cookie w Twojej przeglądarce.
           </Text>
         </FooterLine>
       </Footer>

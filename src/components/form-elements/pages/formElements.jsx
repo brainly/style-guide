@@ -28,7 +28,10 @@ const formElements = () => (
             </Flex>
             <Flex marginBottom="m">
               <Text size="small">
-                Already have an account? <Link size="small">Log in here</Link>
+                Already have an account?{' '}
+                <Link href="#" size="small">
+                  Log in here
+                </Link>
               </Text>
             </Flex>
 
@@ -115,7 +118,10 @@ const formElements = () => (
           </Flex>
           <Flex marginBottom="m">
             <Text size="small">
-              Already have an account? <Link size="small">Log in here</Link>
+              Already have an account?{' '}
+              <Link href="#" size="small">
+                Log in here
+              </Link>
             </Text>
           </Flex>
 

@@ -7,7 +7,7 @@ import Link from 'text/Link';
 const MediaExamples = () => {
   const defaultProps = {
     contentArray: [
-      <Link key={1} color="text-gray-70">
+      <Link href="#" key={1} color="text-gray-70">
         The Goat
       </Link>,
       <span key={2}>Master </span>,

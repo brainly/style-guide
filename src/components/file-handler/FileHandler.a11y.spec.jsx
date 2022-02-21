@@ -12,9 +12,11 @@ describe('FileHandler', () => {
       <FileHandler onClick={handleOnClick}>{fileName}</FileHandler>
     );
 
-    userEvent.click(fileHandler.getByText(fileName));
+    userEvent.click(fileHandler.getByRole('button', {name: fileName}));
+    expect(handleOnClick).toHaveBeenCalledTimes(1);
     fileHandler.getByText(fileName).focus();
     userEvent.keyboard('{space}');
+    expect(handleOnClick).toHaveBeenCalledTimes(2);
     userEvent.keyboard('{enter}');
 
     expect(handleOnClick).toHaveBeenCalledTimes(3);

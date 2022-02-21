@@ -58,9 +58,9 @@ const Separators = () => (
     ))}
 
     <DocsBlock info="Small" centered>
-      <Link>previous</Link>
+      <Link href="#">previous</Link>
       <SeparatorVertical size={SIZE.SMALL} />
-      <Link>next</Link>
+      <Link href="#">next</Link>
     </DocsBlock>
     <DocsBlock info="Large" centered>
       <div>
