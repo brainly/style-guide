@@ -77,7 +77,7 @@ export type FileHandlerPropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  onClick?: () => mixed,
+  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
   /**
    * Additional function to set ref for text
    */
@@ -130,27 +130,10 @@ const FileHandler = ({
     className
   );
 
-  const preventedOnClick =
-    onClick &&
-    (e => {
-      e.preventDefault();
-      return onClick();
-    });
+  const isActionProvided = src !== undefined || onClick;
 
-  const isActionProvided = src !== undefined || preventedOnClick;
-
-  const buttonEventProps = {
-    onClick: preventedOnClick,
-    onKeyDown: e => {
-      // 32 - space, 13 - enter
-      if (e.keyCode === 32 || e.keyCode === 13) {
-        return preventedOnClick && preventedOnClick(e);
-      }
-    },
-  };
-
-  const clickProps = preventedOnClick
-    ? buttonEventProps
+  const clickProps = onClick
+    ? {onClick}
     : {
         href: src,
         target: '_blank',
@@ -158,6 +141,8 @@ const FileHandler = ({
       };
 
   const role = clickProps.onClick && 'button';
+  const asLink = clickProps.onClick ? 'button' : 'a';
+
   const thumbnail =
     thumbnailSrc !== undefined ? (
       <img src={thumbnailSrc} alt="" className="cursor-pointer" />
@@ -185,13 +170,7 @@ const FileHandler = ({
             : statusLabel?.uploaded || 'uploaded'}
         </span>
         {isActionProvided ? (
-          <Link
-            {...clickProps}
-            size="small"
-            color="text-black"
-            role={role}
-            tabIndex="0"
-          >
+          <Link {...clickProps} size="small" color="text-black" as={asLink}>
             {children}
           </Link>
         ) : (

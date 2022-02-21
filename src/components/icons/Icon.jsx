@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import {generateId} from '../utils';
 
 export type IconTypeType =
   | 'academic_cap'
@@ -552,9 +553,7 @@ export type IconPropsType =
     };
 
 function generateIdSuffix(type: string) {
-  const randomIndex = Math.random().toString(36).substring(7);
-
-  return `${type}-${randomIndex}`;
+  return `${type}-${generateId()}`;
 }
 
 const Icon = ({

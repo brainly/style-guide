@@ -33,7 +33,7 @@ const link3 = (
 );
 const breadcrumbs = [link1, link2, link3];
 const breadcrumbsSpaced = [
-  <Link key={1} color="text-gray-70">
+  <Link key={1} href="#" color="text-gray-70">
     Katie
   </Link>,
   <Link key={2} href="#" color="text-gray-70">
@@ -41,7 +41,9 @@ const breadcrumbsSpaced = [
   </Link>,
 ];
 const breadcrumbsSpaced2 = [
-  <Link key={1}>Comments (9)</Link>,
+  <Link key={1} as="button">
+    Comments (9)
+  </Link>,
   <Link key={2} href="#">
     Report
   </Link>,

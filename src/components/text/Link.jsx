@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import {__DEV__, invariant, generateId} from '../utils';
 import Text from './Text';
 import type {TextColorType, TextSizeType} from './Text';
 import {
-  TEXT_TYPE,
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
@@ -15,18 +15,14 @@ import {
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-type TextTypeType =
-  | 'span'
-  | 'p'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'div'
-  | 'label'
-  | 'a';
+const anchorRelatedProps = [
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
+  'target',
+];
 
 type LinkSizeType =
   | 'xsmall'
@@ -43,11 +39,13 @@ type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 
 type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
+type ElementType = 'a' | 'button';
+
 export type LinkPropsType = {
   children?: ?React.Node,
+  as?: ?ElementType,
   href?: ?string,
   size?: ResponsivePropType<LinkSizeType>,
-  type?: TextTypeType,
   color?: ?TextColorType,
   weight?: ResponsivePropType<TextWeightType>,
   transform?: ResponsivePropType<?TextTransformType>,
@@ -60,11 +58,12 @@ export type LinkPropsType = {
   disabled?: boolean,
   className?: ?string,
   inherited?: boolean,
+  'aria-label'?: string,
+  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
   ...
 };
 
 export {TEXT_COLOR};
-export const LINK_TYPE = TEXT_TYPE;
 export const LINK_SIZE = TEXT_SIZE;
 export const LINK_WEIGHT = TEXT_WEIGHT;
 export const LINK_TRANSFORM = TEXT_TRANSFORM;
@@ -73,6 +72,7 @@ export const LINK_ALIGN = TEXT_ALIGN;
 const Link = (props: LinkPropsType) => {
   const {
     children,
+    as = 'a',
     href,
     color,
     underlined = false,
@@ -83,8 +83,11 @@ const Link = (props: LinkPropsType) => {
     className,
     inherited = false,
     size,
+    'aria-label': ariaLabel,
+    onClick,
     ...additionalProps
   } = props;
+  const {current: labelId} = React.useRef(generateId());
 
   let textSize: ResponsivePropType<TextSizeType>;
 
@@ -103,6 +106,27 @@ const Link = (props: LinkPropsType) => {
     textSize = size;
   }
 
+  if (__DEV__) {
+    invariant(
+      !(as === 'a' && !disabled && (href === null || href === undefined)),
+      'An anchor element without a href will be accessible only for users with a pointing device.'
+    );
+
+    invariant(
+      !(
+        as === 'button' &&
+        (href ||
+          Object.keys(additionalProps).some(p =>
+            anchorRelatedProps.includes(p)
+          ))
+      ),
+      // $FlowFixMe
+      `An anchor-related prop is not working for as="button": ${Object.keys(
+        additionalProps
+      )}`
+    );
+  }
+
   const linkClass = classNames(
     {
       [`sg-text--inherited`]: inherited,
@@ -112,31 +136,45 @@ const Link = (props: LinkPropsType) => {
       'sg-text--bold': emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
+      [`sg-text--${String(weight)}`]: weight,
+      'sg-text--link-label': as === 'button',
     },
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
     className
   );
 
-  if (href === undefined || href === '' || href === null) {
+  if (as === 'button') {
     return (
       <Text
-        type="span"
         {...additionalProps}
+        type="label"
         className={linkClass}
         size={textSize}
       >
-        {children}
+        <span id={labelId} aria-label={ariaLabel} aria-hidden>
+          {children}
+        </span>
+        <button
+          className="sg-visually-hidden"
+          onClick={onClick}
+          disabled={disabled}
+          type="button"
+          aria-labelledby={labelId}
+        />
       </Text>
     );
   }
 
+  const linkType = disabled ? 'span' : 'a';
+
   return (
     <Text
-      type="a"
       {...additionalProps}
+      type={linkType}
+      href={href || ''}
       className={linkClass}
-      href={href}
       size={textSize}
+      aria-label={ariaLabel}
     >
       {children}
     </Text>
