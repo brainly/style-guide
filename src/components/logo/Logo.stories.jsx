@@ -1,10 +1,16 @@
 import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Logo, {TYPE} from './Logo';
+import MDX from './Logo.mdx';
 
 export default {
   title: 'Components/Logo',
   component: Logo,
+  parameters: {
+    docs: {
+      page: MDX,
+    },
+  },
 };
 
 export const Default = args => <Logo {...args} />;
