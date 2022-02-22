@@ -32,7 +32,10 @@ export function useFocusTrap({
     }
 
     function handleFocusTrap(event: FocusEvent) {
-      if (event.target.nodeName && dialogElement.contains(event.target)) {
+      if (
+        event.target instanceof Node &&
+        dialogElement.contains(event.target)
+      ) {
         return;
       }
       focusDescendant(dialogElement, isTabbingForward);
