@@ -44,7 +44,6 @@ import Spinners from 'spinner/pages/spinners-interactive';
 import SpinnerContainers from 'spinner-container/pages/spinner-containers-interactive';
 import Accordion from 'accordion/pages/accordion-interactive';
 import Subheadlines from 'text/pages/subheadlines-interactive';
-import Dialogs from 'dialog/pages/dialog-interactive';
 
 const demos = {
   Accordion: <Accordion />,
@@ -52,7 +51,6 @@ const demos = {
   Bubbles: <Bubbles />,
   Buttons: <Buttons />,
   Counters: <Counters />,
-  Dialogs: <Dialogs />,
   'Icon as a button': <IconsAsButtons />,
   'Subject icons': <SubjectIcons />,
   'Subject icon box': <Subjects />,
