@@ -7,9 +7,7 @@ const Dialogs = () => {
   return (
     <div>
       <DocsBlock info="Dialog">
-        Please go to{' '}
-        <Link href="interactive.html#dialogs">interactive docs</Link> or see
-        Dialog documentation in the{' '}
+        Please see Dialog documentation in the{' '}
         <Link
           href="https://style-guide.brainly.com/?path=/story/components-dialog--default"
           target="_blank"
