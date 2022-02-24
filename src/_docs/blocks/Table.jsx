@@ -1,24 +1,45 @@
 // @flow
 
-import React, {useContext} from 'react';
-import {DocsContext} from '@storybook/addon-docs/dist/esm/blocks/DocsContext';
-import {DocsStory} from './DocsStory';
+import React from 'react';
+import {styled, css} from '@storybook/theming';
+
+const StyledTable = styled.table(({theme}) => ({
+  fontFamily: theme.typography.fonts.base,
+  lineHeight: 1.4,
+  fontSize: theme.typography.size.s2,
+  color: theme.color.defaultText,
+  marginTop: 10,
+}));
+
+const StyledHeading = styled.th(() => ({
+  fontWeight: 'bold',
+  color: '#333333',
+  border: '1px solid rgba(0,0,0,.1)',
+  margin: '0',
+  padding: '6px 13px',
+}));
+
+const StyledCell = styled.td(() => ({
+  border: '1px solid rgba(0,0,0,.1)',
+  margin: '0',
+  padding: '6px 13px',
+}));
 
 interface PropsTypes {
   name?: string;
 }
 
 const Cell = ({content}) => (
-  <td dangerouslySetInnerHTML={{__html: content}}></td>
+  <StyledCell dangerouslySetInnerHTML={{__html: content}}></StyledCell>
 );
 
 const Heading = ({content}) => (
-  <th dangerouslySetInnerHTML={{__html: content}}></th>
+  <StyledHeading dangerouslySetInnerHTML={{__html: content}}></StyledHeading>
 );
 
 const Table = ({headings, rows}) => {
   return (
-    <table className="sbdocs sbdocs-table css-1jphud">
+    <StyledTable className="sbdocs sbdocs-table">
       <thead>
         <tr>
           {headings.map((content, index) => (
@@ -35,7 +56,7 @@ const Table = ({headings, rows}) => {
           </tr>
         ))}
       </tbody>
-    </table>
+    </StyledTable>
   );
 };
 
