@@ -66,14 +66,14 @@ export type TransitionPropertyObjectType = $ReadOnly<{
  * As an array to composite different animations
  * https://css-tricks.com/additive-animation-web-animations-api/
  */
-export type TransitionEffectStateType =
+export type TransitionEffectPhaseType =
   | TransitionPropertyObjectType
   | Array<TransitionPropertyObjectType>;
 
 export type TransitionEffectType = $ReadOnly<{
-  initial?: TransitionEffectStateType,
-  animate?: TransitionEffectStateType,
-  exit?: TransitionEffectStateType,
+  initial?: TransitionEffectPhaseType,
+  animate?: TransitionEffectPhaseType,
+  exit?: TransitionEffectPhaseType,
 }>;
 
 export type TransitionMotionPropsType = $ReadOnly<{

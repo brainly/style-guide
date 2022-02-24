@@ -1,12 +1,12 @@
 // @flow strict
 
-import type {TransitionEffectStateType} from './Transition';
+import type {TransitionEffectPhaseType} from './Transition';
 
 export interface TransitionEffectAnimatorType {
   animate(
     element: HTMLElement,
-    from?: TransitionEffectStateType,
-    to?: TransitionEffectStateType
+    from?: TransitionEffectPhaseType,
+    to?: TransitionEffectPhaseType
   ): void;
   cleanup(element: HTMLElement): void;
   finished(element: HTMLElement): boolean;

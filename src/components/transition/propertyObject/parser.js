@@ -5,6 +5,7 @@ import type {
   TransitionDurationType,
   TransitionTranslateType,
   TransitionPropertyObjectType,
+  TransitionEffectPhaseType,
 } from '../Transition';
 import {getOpacity} from './opacity';
 import {getScale} from './scale';
@@ -29,7 +30,7 @@ export type ParsedPropertyObjectType = $ReadOnly<{
   scale: ParsedPropertyType<number>,
 }>;
 
-export const parsePropertyObject = (
+export const parseTransitionPropertyObject = (
   props: TransitionPropertyObjectType
 ): ParsedPropertyObjectType => ({
   className: props.className || '',
@@ -40,3 +41,12 @@ export const parsePropertyObject = (
   opacity: getOpacity(props),
   scale: getScale(props),
 });
+
+export const parseTransitionEffectPhase = (
+  phase: TransitionEffectPhaseType
+): Array<ParsedPropertyObjectType> => {
+  if (Array.isArray(phase)) {
+    return phase.map(parseTransitionPropertyObject);
+  }
+  return [parseTransitionPropertyObject(phase)];
+};
