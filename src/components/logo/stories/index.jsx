@@ -1,21 +1,10 @@
 import * as React from 'react';
-import {StoryVariant} from '../../_docs/utils';
-import Logo, {TYPE} from './Logo';
-import MDX from './Logo.mdx';
+import {StoryVariant} from '../../../_docs/utils';
+import Logo, {TYPE} from '../Logo';
 
-export default {
-  title: 'Components/Logo',
-  component: Logo,
-  parameters: {
-    docs: {
-      page: MDX,
-    },
-  },
-};
+const Default = args => <Logo {...args} />;
 
-export const Default = args => <Logo {...args} />;
-
-export const Types = args => (
+const Types = args => (
   <div>
     {Object.values(TYPE).map(type => (
       <StoryVariant label={`type - ${type}`} key={type}>
@@ -25,7 +14,7 @@ export const Types = args => (
   </div>
 );
 
-export const ProductLogos = args => (
+const ProductLogos = args => (
   <div>
     {Object.values(TYPE)
       .filter(type => type.includes('logo'))
@@ -36,3 +25,5 @@ export const ProductLogos = args => (
       ))}
   </div>
 );
+
+export {Default, Types, ProductLogos};

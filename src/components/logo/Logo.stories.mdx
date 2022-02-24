@@ -1,0 +1,86 @@
+import {ArgsTable, Meta, Story} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import Table from '../../_docs/blocks/Table';
+import {Preview} from '../../_docs/blocks/Preview';
+
+import Logo, {TYPE} from './Logo';
+import {Default, Types, ProductLogos} from './stories/';
+
+<Meta title="Components/Logo" component={Logo} />
+
+# Logo
+
+Table of contents:
+
+- [Props](#props)
+- [Stories](#stories)
+- [Accesibility](#accessibility)
+
+## Props
+
+<ArgsTable of={Logo} />
+
+## Stories
+
+### Default
+
+<Preview withSource={true}>
+  <Story name="Default">
+    <Default />
+  </Story>
+</Preview>
+
+### Types
+
+<Preview withSource={true}>
+  <Story name="Types">
+    <Types />
+  </Story>
+</Preview>
+
+### ProductLogos
+
+<Preview withSource={true}>
+  <Story name="ProductLogos">
+    <ProductLogos />
+  </Story>
+</Preview>
+
+# Accessibility
+
+## Rules
+
+<Table
+  headings={['Pattern', 'Comment', 'Status']}
+  rows={[
+    {
+      pattern: `<strong>Should</strong> have an accessible alt text`,
+      comment: `Can be named by setting a value for <code>alt</code> prop (defaults
+            to logo type).`,
+      status: `Implementation: DONE
+            <br />
+            Tests: DONE`,
+    },
+  ]}
+/>
+
+## Usage
+
+<br />
+
+## Code examples
+
+- basic
+
+```jsx
+<Logo />
+```
+
+- with an alt text
+
+<!-- prettier-ignore -->
+```jsx
+<Logo
+  alt="Brainly Plus Extra Special"
+/>
+```
