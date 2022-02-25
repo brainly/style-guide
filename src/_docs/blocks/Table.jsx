@@ -1,9 +1,10 @@
 // @flow
 
 import React from 'react';
-import {styled, css} from '@storybook/theming';
+import {styled} from '@storybook/theming';
 
 const StyledTable = styled.table(({theme}) => ({
+  width: '100%',
   fontFamily: theme.typography.fonts.base,
   lineHeight: 1.4,
   fontSize: theme.typography.size.s2,
@@ -48,8 +49,8 @@ const Table = ({headings, rows}) => {
         </tr>
       </thead>
       <tbody>
-        {rows.map(row => (
-          <tr>
+        {rows.map((row, index) => (
+          <tr key={index}>
             <Cell content={row.pattern} />
             <Cell content={row.comment} />
             <Cell content={row.status} />
