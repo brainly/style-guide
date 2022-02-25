@@ -61,4 +61,4 @@ const Table = ({headings, rows}) => {
   );
 };
 
-export default Table;
+export {Table};
