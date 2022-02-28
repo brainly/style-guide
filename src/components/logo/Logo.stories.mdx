@@ -1,9 +1,8 @@
-import {ArgsTable, Meta, Story} from '@storybook/addon-docs';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../_docs/utils';
 import {Preview, Table} from '../../_docs/blocks/';
 
 import Logo, {TYPE} from './Logo';
-import {Default, Types, ProductLogos} from './stories/';
 
 <Meta title="Components/Logo" component={Logo} />
 
@@ -23,27 +22,43 @@ Table of contents:
 
 ### Default
 
-<Preview withSource={true}>
-  <Story name="Default">
-    <Default />
-  </Story>
-</Preview>
+<Canvas>
+  <Story name="Default">{args => <Logo {...args} />}</Story>
+</Canvas>
 
 ### Types
 
-<Preview withSource={true}>
+<Canvas>
   <Story name="Types">
-    <Types />
+    {args => (
+      <div>
+        {Object.values(TYPE).map(type => (
+          <StoryVariant label={`type - ${type}`} key={type}>
+            <Logo {...args} type={type} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
   </Story>
-</Preview>
+</Canvas>
 
 ### Product logos
 
-<Preview withSource={true}>
+<Canvas>
   <Story name="ProductLogos">
-    <ProductLogos />
+    {args => (
+      <div>
+        {Object.values(TYPE)
+          .filter(type => type.includes('logo'))
+          .map(type => (
+            <StoryVariant label={`type - ${type}`} key={type}>
+              <Logo {...args} type={type} />
+            </StoryVariant>
+          ))}
+      </div>
+    )}
   </Story>
-</Preview>
+</Canvas>
 
 # Accessibility
 
