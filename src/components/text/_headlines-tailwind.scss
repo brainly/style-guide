@@ -1,0 +1,20 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-headline {
+    font-size: 21px;
+    line-height: 24px;
+    display: block;
+    color: $black;
+    font-weight: $fontWeightBold;
+    max-width: 100%;
+
+    &--inherited {
+      display: revert;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+  }
+}

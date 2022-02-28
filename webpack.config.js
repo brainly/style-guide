@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const revHash = require('rev-hash');
 const fs = require('fs');
 const svgoConfigs = require('./svgo.config.js');
+const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
 
 const IS_PRODUCTION = Boolean(argv.production);
 const VERSION = argv.production ? pkg.version : 'dev';
@@ -16,6 +18,7 @@ const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const SOURCE_DOCS_STORYBOOK_DIR = path.join(SOURCE_DIR, '_docs');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const DIST_DIR_OUTPUT = path.join(VERSIONED_DIST_DIR, 'docs/', 'js/');
+const CONSTANTS = require('./scripts/constants');
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -181,9 +184,10 @@ module.exports = () => {
               options: {
                 postcssOptions: {
                   plugins: [
-                    require('autoprefixer')({
+                    autoprefixer({
                       cascade: false,
                     }),
+                    [tailwindcss(CONSTANTS.CSS_CONFIG)],
                   ],
                 },
               },
