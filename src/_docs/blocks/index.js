@@ -6,7 +6,6 @@ export {Label} from './Label';
 export {Preview} from './Preview';
 export {default as Primary} from './Primary';
 export {default as Stories} from './Stories';
-export {Table} from './Table';
 export {
   Typeset,
   Label as TypesetLabel,

@@ -1,6 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../_docs/utils';
-import {Preview, Table} from '../../_docs/blocks/';
+import {Preview} from '../../_docs/blocks/';
 
 import Logo, {TYPE} from './Logo';
 
@@ -64,25 +64,13 @@ Table of contents:
 
 ## Rules
 
-<Table
-  headings={['Pattern', 'Comment', 'Status']}
-  rows={[
-    {
-      pattern: `<strong>Should</strong> have an accessible alt text`,
-      comment: `Can be named by setting a value for <code>alt</code> prop (defaults
-            to logo type).`,
-      status: `Implementation: DONE
-            <br />
-            Tests: DONE`,
-    },
-  ]}
-/>
+| Pattern                                | Comment                                                                 | Status                                |
+| -------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------- |
+| **Should** have an accessible alt text | Can be named by setting a value for `alt` prop (defaults to logo type). | Implementation: DONE<br />Tests: DONE |
 
 ## Usage
 
-<br />
-
-## Code examples
+### Code examples
 
 - with an `alt` text
 
