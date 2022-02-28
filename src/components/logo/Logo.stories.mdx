@@ -3,6 +3,7 @@ import {StoryVariant} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
 
 import Logo, {TYPE} from './Logo';
+import LogoA11y from './stories/Logo.a11y.mdx';
 
 <Meta title="Components/Logo" component={Logo} />
 
@@ -60,23 +61,4 @@ Table of contents:
   </Story>
 </Canvas>
 
-# Accessibility
-
-## Rules
-
-| Pattern                                | Comment                                                                 | Status                                |
-| -------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------- |
-| **Should** have an accessible alt text | Can be named by setting a value for `alt` prop (defaults to logo type). | Implementation: DONE<br />Tests: DONE |
-
-## Usage
-
-### Code examples
-
-- with an `alt` text
-
-<!-- prettier-ignore -->
-```jsx
-<Logo
-  alt="Brainly Plus Extra Special"
-/>
-```
+<LogoA11y />
