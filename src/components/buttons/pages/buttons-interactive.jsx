@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Button, {BUTTON_TYPE, BUTTON_SIZE, BUTTON_TOGGLE} from '../Button';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
-const ButtonControl = props => {
+const ButtonIconAligner = props => {
   let iconElement;
 
   if (props.icon) {
@@ -92,14 +93,14 @@ const Buttons = () => {
   return (
     <div>
       <DocsActiveBlock settings={buttonsSettings}>
-        <ButtonControl type={BUTTON_TYPE.SOLID_BLUE}>
+        <ButtonIconAligner type={BUTTON_TYPE.SOLID_BLUE}>
           Ask your question
-        </ButtonControl>
+        </ButtonIconAligner>
       </DocsActiveBlock>
       <DocsActiveBlock settings={buttonsSettings}>
-        <ButtonControl icon={allIcons.ANSWER} type={BUTTON_TYPE.SOLID}>
+        <ButtonIconAligner icon={allIcons.ANSWER} type={BUTTON_TYPE.SOLID}>
           Answer
-        </ButtonControl>
+        </ButtonIconAligner>
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={roundSettings}>
