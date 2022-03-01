@@ -5,9 +5,94 @@ const fontFamily = require('./fontFamily');
 const fontSize = require('./fontSize');
 const fontWeight = require('./fontWeight');
 const zIndex = require('./zIndex');
+const jsc = require('jscodeshift');
+const flowParser = require('jscodeshift/parser/flow');
 
 module.exports = {
-  purge: [],
+  content: {
+    files: ['./src/**/*.{js,jsx}'],
+    transform: {
+      js: content => {
+        return content;
+      },
+      jsx: content => {
+        const ast = jsc(content, {
+          parser: flowParser(),
+        });
+
+        const twClassComment = ast.find(jsc.Comment).filter(path => {
+          return (
+            path.value.type === 'Line' && path.value.value.includes('@tw-class')
+          );
+        });
+
+        if (twClassComment.length > 0) {
+          twClassComment.map(comment => {
+            const value = comment.value.value;
+            const tokens = value.split(' ').splice(2);
+
+            // find main segment
+            const mainFromComment = tokens.find(token =>
+              token.includes('main:')
+            );
+            let main;
+
+            if (mainFromComment) {
+              main = mainFromComment.split(':')[1];
+            } else {
+              return comment;
+            }
+
+            // find rule segment
+            const rules = [];
+            const rulesFromComment = tokens.find(token =>
+              token.includes('rules:')
+            );
+
+            if (rulesFromComment) {
+              const ruleTypes = rulesFromComment.split(':')[1].split(',');
+
+              ruleTypes.forEach(ruleType => {
+                rules.push(ruleType);
+              });
+            } else {
+              return comment;
+            }
+
+            // find variant segment
+            const variants = [];
+            const variantsFromComments = tokens.find(token =>
+              token.includes('variants:')
+            );
+
+            if (variantsFromComments) {
+              variants.push('');
+
+              const variantTypes = variantsFromComments
+                .split(':')[1]
+                .split(',');
+
+              variantTypes.forEach(variantType => {
+                if (variantType === 'screens') {
+                  variants.push(...Object.keys(screens).map(key => `${key}-`));
+                }
+              });
+            }
+
+            comment.value.value = '';
+
+            rules.forEach(rule => {
+              variants.forEach(variant => {
+                comment.value.value += ` ${variant}${main}${rule}`;
+              });
+            });
+          });
+        }
+
+        return ast.toSource();
+      },
+    },
+  },
   presets: [],
   darkMode: 'media',
   theme: {

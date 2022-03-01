@@ -92,6 +92,7 @@ const HeadlineTailwind = ({
       extraBold
     ),
     ...generateResponsiveClassNames(
+      // @tw-class variants:screens main:sg-headline-- rules:text-left,text-right,text-center,text-justify
       (propValue: string) => `sg-headline--${tailwindClassMap[propValue]}`,
       align
     ),
