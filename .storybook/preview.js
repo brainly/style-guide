@@ -67,4 +67,9 @@ export const parameters = {
       ],
     },
   },
+  previewTabs: {
+    'storybook/docs/panel': {
+      hidden: process.env.STORYBOOK_ENV === 'chromatic',
+    },
+  },
 };
