@@ -82,13 +82,18 @@ function BaseDialog({
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
+  const [hasFinishedTransition, setHasFinishedTransition] =
+    React.useState<boolean>(false);
+
   const fireTransitionEndCallbacks = React.useCallback(() => {
     if (open) {
       if (onEntryTransitionEnd) {
         onEntryTransitionEnd();
+        setHasFinishedTransition(true);
       }
     } else if (onExitTransitionEnd) {
       onExitTransitionEnd();
+      setHasFinishedTransition(false);
     }
   }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
 
@@ -138,7 +143,7 @@ function BaseDialog({
   );
 
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll': scroll === 'outside',
+    'sg-dialog__overlay--scroll': hasFinishedTransition && scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
   });
