@@ -174,6 +174,7 @@ const Link = (props: LinkPropsType) => {
       href={href || ''}
       className={linkClass}
       size={textSize}
+      onClick={onClick}
       aria-label={ariaLabel}
     >
       {children}
