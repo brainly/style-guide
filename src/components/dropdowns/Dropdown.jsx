@@ -79,7 +79,7 @@ const Dropdown = ({
               key={index}
               href={link.url}
               className="sg-dropdown__item"
-              onClick={e => onItemSelect(e, link)}
+              onClick={onItemSelect ? e => onItemSelect(e, link) : undefined}
             >
               {link.label}
             </a>
