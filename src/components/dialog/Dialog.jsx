@@ -89,11 +89,9 @@ function BaseDialog({
     if (open) {
       if (onEntryTransitionEnd) {
         onEntryTransitionEnd();
-        setHasFinishedTransition(true);
       }
     } else if (onExitTransitionEnd) {
       onExitTransitionEnd();
-      setHasFinishedTransition(false);
     }
   }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
 
@@ -102,6 +100,7 @@ function BaseDialog({
 
     if (!supportsTransitions()) {
       fireTransitionEndCallbacks();
+      setHasFinishedTransition(true);
     }
   }, [open, fireTransitionEndCallbacks]);
 
@@ -118,6 +117,7 @@ function BaseDialog({
         event.propertyName === lastTransitionName
       ) {
         fireTransitionEndCallbacks();
+        setHasFinishedTransition(true);
       }
     },
     [fireTransitionEndCallbacks, lastTransitionName]
