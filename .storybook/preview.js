@@ -9,7 +9,6 @@ import {
 import theme from './theme';
 import hex from '../src/components/colors/hex';
 
-import {Canvas} from 'blocks/Canvas';
 import {Primary} from 'blocks/Primary';
 import {Stories} from 'blocks/Stories';
 
@@ -55,9 +54,6 @@ export const parameters = {
   docs: {
     page: Page,
     theme,
-    components: {
-      Canvas,
-    },
   },
   controls: {hideNoControlsWarning: true},
   options: {
@@ -69,6 +65,11 @@ export const parameters = {
         'Layout',
         'Utilities',
       ],
+    },
+  },
+  previewTabs: {
+    'storybook/docs/panel': {
+      hidden: process.env.STORYBOOK_ENV === 'chromatic',
     },
   },
 };
