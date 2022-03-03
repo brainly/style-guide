@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import {HEADLINE_TYPE} from './headlineConsts';
 import {TEXT_COLOR} from './Text';
 import type {TextColorType} from './Text';
-import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
 export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -34,16 +33,6 @@ export {
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './headlineConsts';
-
-const tailwindClassMap = {
-  'to-left': 'text-left',
-  'to-right': 'text-right',
-  'to-center': 'text-center',
-  justify: 'text-justify',
-  uppercase: 'uppercase',
-  lowercase: 'lowercase',
-  capitalize: 'capitalize',
-};
 
 export {TEXT_COLOR};
 
@@ -74,28 +63,43 @@ const HeadlineTailwind = ({
 }: HeadlinePropsType) => {
   const Type = type;
   const headlineClass = classNames(
-    'sg-headline',
+    'headline-normal block black bold max-w-full',
     {
       'sg-headline--inherited': inherited,
-      [`text-${String(color)}`]: color,
+      'text-black': color === 'text-black',
+      'text-white': color === 'text-white',
+      'text-gray-70': color === 'text-gray-70',
+      'text-gray-60': color === 'text-gray-60',
+      'text-gray-50': color === 'text-gray-50',
+      'text-gray-40': color === 'text-gray-40',
+      'text-blue-60': color === 'text-blue-60',
+      'text-blue-40': color === 'text-blue-40',
+      'text-green-60': color === 'text-green-60',
+      'text-green-40': color === 'text-green-40',
+      'text-indigo-60': color === 'text-indigo-60',
+      'text-indigo-40': color === 'text-indigo-40',
+      'text-red-60': color === 'text-red-60',
+      'text-red-40': color === 'text-red-40',
+      'text-yellow-60': color === 'text-yellow-60',
+      'text-yellow-40': color === 'text-yellow-40',
+      'headline-xxsmall': size === 'xxsmall',
+      'headline-xsmall': size === 'xsmall',
+      'headline-small': size === 'small',
+      'headline-medium': size === 'medium',
+      'headline-large': size === 'large',
+      'headline-xlarge': size === 'xlarge',
+      'headline-xxlarge': size === 'xxlarge',
+      'headline-xxxlarge': size === 'xxxlarge',
+      uppercase: transform === 'uppercase',
+      lowercase: transform === 'lowercase',
+      capitalize: transform === 'capitalize',
+      'font-black': extraBold,
+      'font-bold': !extraBold,
+      'text-left': align === 'to-left',
+      'text-center': align === 'to-center',
+      'text-right': align === 'to-right',
+      'text-justify': align === 'justify',
     },
-    ...generateResponsiveClassNames(
-      (propValue: string) => `text-headline-${propValue}`,
-      size
-    ),
-    ...generateResponsiveClassNames(
-      (propValue: string) => `${tailwindClassMap[propValue]}`,
-      transform
-    ),
-    ...generateResponsiveClassNames(
-      (propValue: string) => (propValue ? `font-black` : 'font-bold'),
-      extraBold
-    ),
-    ...generateResponsiveClassNames(
-      // @tw-class variants:screens main:sg-headline-- rules:text-left,text-right,text-center,text-justify
-      (propValue: string) => `sg-headline--${tailwindClassMap[propValue]}`,
-      align
-    ),
     className
   );
 

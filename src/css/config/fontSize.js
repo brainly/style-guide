@@ -27,4 +27,8 @@ module.exports = {
   'body-normal': ['18px', {lineHeight: '18px'}],
   'body-small': ['15px', {lineHeight: '20px'}],
   'body-xsmall': ['12px', {lineHeight: '16px'}],
+  // Button
+  'button-text-large': ['21px', {lineHeight: '21px'}],
+  'button-text-normal': ['15px', {lineHeight: '15px'}],
+  'button-text-small': ['12px', {lineHeight: '12px'}],
 };
