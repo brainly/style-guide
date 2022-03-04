@@ -85,7 +85,7 @@ function BaseDialog({
   const [hasFinishedTransition, setHasFinishedTransition] =
     React.useState<boolean>(false);
 
-  const [showScrollbarsInitially, setShowScrollbarsInitially] =
+  const [isDialogHigherThanScreen, setIsDialogHigherThanScreen] =
     React.useState<boolean>(false);
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
@@ -109,12 +109,16 @@ function BaseDialog({
   }, [open, fireTransitionEndCallbacks]);
 
   React.useEffect(() => {
+    /**
+     * Check if Dialog itself is higher than the overlay.
+     * We need to check this, so we can determine if we should show scrollbars on the Dialog.
+     */
     if (open) {
       const dialogHeight = containerRef.current?.getBoundingClientRect().height;
       const overlayHeight = overlayRef.current?.getBoundingClientRect().height;
 
       if (!dialogHeight || !overlayHeight) return;
-      if (dialogHeight > overlayHeight) setShowScrollbarsInitially(true);
+      if (dialogHeight > overlayHeight) setIsDialogHigherThanScreen(true);
     }
   }, [open, containerRef, overlayRef]);
 
@@ -157,7 +161,7 @@ function BaseDialog({
 
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
     'sg-dialog__overlay--scroll':
-      (showScrollbarsInitially || hasFinishedTransition) &&
+      (isDialogHigherThanScreen || hasFinishedTransition) &&
       scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
