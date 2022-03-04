@@ -85,7 +85,7 @@ function BaseDialog({
   const [hasFinishedTransition, setHasFinishedTransition] =
     React.useState<boolean>(false);
 
-  const [isDialogHigherThanScreen, setIsDialogHigherThanScreen] =
+  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
@@ -118,7 +118,7 @@ function BaseDialog({
       const overlayHeight = overlayRef.current?.getBoundingClientRect().height;
 
       if (!dialogHeight || !overlayHeight) return;
-      if (dialogHeight > overlayHeight) setIsDialogHigherThanScreen(true);
+      if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
     }
   }, [open, containerRef, overlayRef]);
 
@@ -161,7 +161,7 @@ function BaseDialog({
 
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
     'sg-dialog__overlay--scroll':
-      (isDialogHigherThanScreen || hasFinishedTransition) &&
+      (isDialogHigherThanOverlay || hasFinishedTransition) &&
       scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
