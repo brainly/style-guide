@@ -89,7 +89,7 @@ function BaseDialog({
     React.useState<boolean>(false);
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
-    if (!hasFinishedTransition) setHasFinishedTransition(true);
+    setHasFinishedTransition(true);
 
     if (open) {
       if (onEntryTransitionEnd) {
@@ -98,7 +98,7 @@ function BaseDialog({
     } else if (onExitTransitionEnd) {
       onExitTransitionEnd();
     }
-  }, [open, hasFinishedTransition, onEntryTransitionEnd, onExitTransitionEnd]);
+  }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
 
   React.useEffect(() => {
     setDeferredOpen(open);
