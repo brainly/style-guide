@@ -86,6 +86,8 @@ function BaseDialog({
     React.useState<boolean>(false);
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
+    if (!hasFinishedTransition) setHasFinishedTransition(true);
+
     if (open) {
       if (onEntryTransitionEnd) {
         onEntryTransitionEnd();
@@ -100,7 +102,6 @@ function BaseDialog({
 
     if (!supportsTransitions()) {
       fireTransitionEndCallbacks();
-      setHasFinishedTransition(true);
     }
   }, [open, fireTransitionEndCallbacks]);
 
@@ -117,7 +118,6 @@ function BaseDialog({
         event.propertyName === lastTransitionName
       ) {
         fireTransitionEndCallbacks();
-        setHasFinishedTransition(true);
       }
     },
     [fireTransitionEndCallbacks, lastTransitionName]
