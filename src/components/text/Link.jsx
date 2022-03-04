@@ -59,7 +59,7 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
-  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
+  onClick?: MouseEventHandler,
   ...
 };
 
