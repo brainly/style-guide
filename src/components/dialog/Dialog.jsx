@@ -85,6 +85,9 @@ function BaseDialog({
   const [hasFinishedTransition, setHasFinishedTransition] =
     React.useState<boolean>(false);
 
+  const [showScrollbarsInitially, setShowScrollbarsInitially] =
+    React.useState<boolean>(false);
+
   const fireTransitionEndCallbacks = React.useCallback(() => {
     if (!hasFinishedTransition) setHasFinishedTransition(true);
 
@@ -104,6 +107,15 @@ function BaseDialog({
       fireTransitionEndCallbacks();
     }
   }, [open, fireTransitionEndCallbacks]);
+
+  React.useEffect(() => {
+    if (open && containerRef.current && overlayRef.current) {
+      const dialogHeight = containerRef.current.getBoundingClientRect().height;
+      const overlayHeight = overlayRef.current.getBoundingClientRect().height;
+
+      if (dialogHeight > overlayHeight) setShowScrollbarsInitially(true);
+    }
+  }, [open, containerRef, overlayRef]);
 
   useBodyNoScroll();
   useFocusTrap({
@@ -143,7 +155,9 @@ function BaseDialog({
   );
 
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll': hasFinishedTransition && scroll === 'outside',
+    'sg-dialog__overlay--scroll':
+      (showScrollbarsInitially || hasFinishedTransition) &&
+      scroll === 'outside',
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
   });
