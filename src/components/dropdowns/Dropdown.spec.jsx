@@ -64,9 +64,9 @@ describe('<Dropdown />', () => {
     expect(component.find('.sg-dropdown__items')).toHaveLength(0);
   });
 
-  it('should pass event and link to onSelectHanlder', () => {
+  it('should call onSelectHanlder when link is clicked', () => {
     const onItemSelect = jest.fn();
-    const component = mount(
+    const component = shallow(
       <Dropdown {...testProps} onItemSelect={onItemSelect} />
     );
 
@@ -77,7 +77,7 @@ describe('<Dropdown />', () => {
     link.simulate('click');
 
     expect(onItemSelect).toHaveBeenCalledTimes(1);
-    expect(onItemSelect).toHaveBeenCalledWith(expect.anything(), {
+    expect(onItemSelect).toHaveBeenCalledWith(undefined, {
       label: 'text-1',
       url: 'url-1',
     });
