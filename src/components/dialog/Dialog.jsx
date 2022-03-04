@@ -98,7 +98,7 @@ function BaseDialog({
     } else if (onExitTransitionEnd) {
       onExitTransitionEnd();
     }
-  }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
+  }, [open, hasFinishedTransition, onEntryTransitionEnd, onExitTransitionEnd]);
 
   React.useEffect(() => {
     setDeferredOpen(open);
