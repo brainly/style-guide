@@ -109,10 +109,15 @@ function BaseDialog({
   }, [open, fireTransitionEndCallbacks]);
 
   React.useEffect(() => {
-    if (open && containerRef.current && overlayRef.current) {
-      const dialogHeight = containerRef.current.getBoundingClientRect().height;
-      const overlayHeight = overlayRef.current.getBoundingClientRect().height;
+    if (open) {
+      const dialogHeight =
+        containerRef.current &&
+        containerRef.current.getBoundingClientRect().height;
 
+      const overlayHeight =
+        overlayRef.current && overlayRef.current.getBoundingClientRect().height;
+
+      if (!dialogHeight || !overlayHeight) return;
       if (dialogHeight > overlayHeight) setShowScrollbarsInitially(true);
     }
   }, [open, containerRef, overlayRef]);
