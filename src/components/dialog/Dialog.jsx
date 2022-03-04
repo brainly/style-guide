@@ -111,11 +111,8 @@ function BaseDialog({
   React.useEffect(() => {
     if (open) {
       const dialogHeight =
-        containerRef.current &&
-        containerRef.current.getBoundingClientRect().height;
-
-      const overlayHeight =
-        overlayRef.current && overlayRef.current.getBoundingClientRect().height;
+        containerRef?.current?.getBoundingClientRect().height;
+      const overlayHeight = overlayRef?.current?.getBoundingClientRect().height;
 
       if (!dialogHeight || !overlayHeight) return;
       if (dialogHeight > overlayHeight) setShowScrollbarsInitially(true);
