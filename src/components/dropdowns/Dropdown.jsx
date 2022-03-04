@@ -19,6 +19,10 @@ export type DropdownPropsType = $ReadOnly<{
   initiallyOpened?: boolean,
   color?: 'default' | 'white',
   fullWidth?: boolean,
+  onItemSelect?: (
+    e: SyntheticEvent<HTMLAnchorElement>,
+    link: LinksType
+  ) => void,
 }>;
 
 // if possible, use Select component instead
@@ -28,6 +32,7 @@ const Dropdown = ({
   initiallyOpened,
   color = 'default',
   fullWidth,
+  onItemSelect,
 }: DropdownPropsType) => {
   const [open, setOpen] = useState(initiallyOpened || false);
   const clickedInside = useRef(false);
@@ -70,7 +75,12 @@ const Dropdown = ({
       {open && (
         <div className="sg-dropdown__items">
           {links.map((link, index) => (
-            <a key={index} href={link.url} className="sg-dropdown__item">
+            <a
+              key={index}
+              href={link.url}
+              className="sg-dropdown__item"
+              onClick={onItemSelect ? e => onItemSelect(e, link) : undefined}
+            >
               {link.label}
             </a>
           ))}

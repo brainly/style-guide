@@ -63,4 +63,23 @@ describe('<Dropdown />', () => {
     component.update();
     expect(component.find('.sg-dropdown__items')).toHaveLength(0);
   });
+
+  it('should call onSelectHanlder when link is clicked', () => {
+    const onItemSelect = jest.fn();
+    const component = shallow(
+      <Dropdown {...testProps} onItemSelect={onItemSelect} />
+    );
+
+    component.simulate('click');
+
+    const link = component.find('a').at(0);
+
+    link.simulate('click');
+
+    expect(onItemSelect).toHaveBeenCalledTimes(1);
+    expect(onItemSelect).toHaveBeenCalledWith(undefined, {
+      label: 'text-1',
+      url: 'url-1',
+    });
+  });
 });
