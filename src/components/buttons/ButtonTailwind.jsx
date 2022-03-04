@@ -293,15 +293,11 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'h-10': size === BUTTON_SIZE.M,
         'rounded-[28px]': size === BUTTON_SIZE.L,
         'h-14': size === BUTTON_SIZE.L,
-        'pt-0': size === BUTTON_SIZE.L || size === BUTTON_SIZE.S,
-        'pb-0': size === BUTTON_SIZE.L || BUTTON_SIZE.S,
-        'pl-7': size === BUTTON_SIZE.L,
-        'pr-7': size === BUTTON_SIZE.L,
+        'px-s': size === BUTTON_SIZE.S,
+        'px-7': size === BUTTON_SIZE.L,
         'button-text-large': size === BUTTON_SIZE.L,
         'rounded-2xl': size === BUTTON_SIZE.S,
         'h-8': size === BUTTON_SIZE.S,
-        'pl-s': size === BUTTON_SIZE.S,
-        'pr-s': size === BUTTON_SIZE.S,
         'button-text-small': size === BUTTON_SIZE.S,
         'bg-black': type === BUTTON_TYPE.SOLID,
         'bg-white': type === BUTTON_TYPE.SOLID_INVERTED,
@@ -319,9 +315,11 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'bg-transparent':
           type === BUTTON_TYPE.OUTLINE ||
           type === BUTTON_TYPE.TRANSPARENT ||
-          BUTTON_TYPE.TRANSPARENT_LIGHT ||
-          BUTTON_TYPE.TRANSPARENT_INVERTED ||
-          BUTTON_TYPE.TRANSPARENT_PEACH,
+          type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+          type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+          type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+          type === BUTTON_TYPE.TRANSPARENT_BLUE,
         'border-2': type === BUTTON_TYPE.OUTLINE,
         'border-solid': type === BUTTON_TYPE.OUTLINE,
         'border-black': type === BUTTON_TYPE.OUTLINE,
@@ -331,9 +329,37 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           type === BUTTON_TYPE.OUTLINE || toggle === BUTTON_TOGGLE.MUSTARD,
         'border-blue-40':
           type === BUTTON_TYPE.OUTLINE || toggle === BUTTON_TOGGLE.BLUE,
-        'text-gray-50': BUTTON_TYPE.TRANSPARENT_LIGHT,
-        'text-white': BUTTON_TYPE.TRANSPARENT_INVERTED,
-        'text-red-40': BUTTON_TYPE.TRANSPARENT_PEACH,
+        'text-gray-50': type === BUTTON_TYPE.TRANSPARENT_LIGHT,
+        'text-white':
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED &&
+          type === BUTTON_TYPE.FACEBOOK,
+        'text-red-40': type === BUTTON_TYPE.TRANSPARENT_PEACH,
+        'text-yellow-40': type === BUTTON_TYPE.TRANSPARENT_MUSTARD,
+        'text-blue-40': type === BUTTON_TYPE.TRANSPARENT_BLUE,
+        'px-2.5':
+          type === BUTTON_TYPE.TRANSPARENT ||
+          type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+          type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+          type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+          type === BUTTON_TYPE.TRANSPARENT_BLUE,
+        'px-[14px]':
+          size === BUTTON_SIZE.L ||
+          type === BUTTON_TYPE.TRANSPARENT ||
+          type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+          type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+          type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+          type === BUTTON_TYPE.TRANSPARENT_BLUE,
+        'px-xs':
+          size === BUTTON_SIZE.S ||
+          type === BUTTON_TYPE.TRANSPARENT ||
+          type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+          type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+          type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+          type === BUTTON_TYPE.TRANSPARENT_BLUE,
+        'bg-facebook': type === BUTTON_TYPE.FACEBOOK,
       },
       className
     );

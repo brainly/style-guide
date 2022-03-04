@@ -262,8 +262,8 @@ $largeButtonSize: componentSize(l);
 
   &--transparent-mustard {
     @include buttonHover($yellow-40, $transparent, 12%);
-    background-color: $transparent;
-    color: $yellow-40;
+    // background-color: $transparent;
+    // color: $yellow-40;
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
@@ -272,8 +272,8 @@ $largeButtonSize: componentSize(l);
 
   &--transparent-blue {
     @include buttonHover($blue-40, $transparent, 12%);
-    background-color: $transparent;
-    color: $blue-40;
+    // background-color: $transparent;
+    // color: $blue-40;
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
@@ -286,14 +286,14 @@ $largeButtonSize: componentSize(l);
   &--transparent-peach,
   &--transparent-mustard,
   &--transparent-blue {
-    padding: 0 10px;
+    // padding: 0 10px;
 
     &.sg-button--l {
-      padding: 0 14px;
+      // padding: 0 14px;
     }
 
     &.sg-button--s {
-      padding: 0 spacing(xs);
+      // padding: 0 spacing(xs);
     }
 
     &.sg-button--reversed-order {
@@ -323,8 +323,8 @@ $largeButtonSize: componentSize(l);
   }
 
   &--facebook {
-    background-color: $buttonPrimaryFbColor;
-    color: $white;
+    // background-color: $buttonPrimaryFbColor;
+    // color: $white;
 
     &:hover:not([disabled]),
     &:focus:not([disabled]),

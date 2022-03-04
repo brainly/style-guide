@@ -357,6 +357,13 @@ const color = {
       hex: 'c3d1dd',
     },
   ],
+  button: [
+    {
+      name: 'facebook',
+      variable: '$buttonPrimaryFbColor',
+      hex: '3c5b96',
+    },
+  ],
 };
 
 module.exports = color;
