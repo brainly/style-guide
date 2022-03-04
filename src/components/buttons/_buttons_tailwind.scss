@@ -160,19 +160,19 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $red-20, 12%);
-      @include buttonIconColor($red-40);
+      // @include buttonIconColor($red-40);
       // background-color: $red-20;
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $yellow-20, 12%);
-      @include buttonIconColor($yellow-40);
+      // @include buttonIconColor($yellow-40);
       // background-color: $yellow-20;
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $blue-20, 12%);
-      @include buttonIconColor($blue-40);
+      // @include buttonIconColor($blue-40);
       // background-color: $blue-20;
     }
   }
@@ -185,19 +185,19 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
+      // @include buttonIconColor($red-40);
       // border-color: $red-40;
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
+      // @include buttonIconColor($yellow-40);
       // border-color: $yellow-40;
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
+      // @include buttonIconColor($blue-40);
       // border-color: $blue-40;
     }
   }
@@ -209,17 +209,17 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
+      // @include buttonIconColor($red-40);
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
+      // @include buttonIconColor($yellow-40);
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
+      // @include buttonIconColor($blue-40);
     }
   }
 
@@ -230,17 +230,17 @@ $largeButtonSize: componentSize(l);
 
     &-toggle-peach {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
+      // @include buttonIconColor($red-40);
     }
 
     &-toggle-mustard {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
+      // @include buttonIconColor($yellow-40);
     }
 
     &-toggle-blue {
       @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
+      // @include buttonIconColor($blue-40);
     }
   }
 
@@ -314,10 +314,10 @@ $largeButtonSize: componentSize(l);
     }
 
     .sg-button__icon {
-      margin-left: -2px;
+      // margin-left: -2px;
 
       &--l {
-        margin-left: -3px;
+        // margin-left: -3px;
       }
     }
   }
@@ -330,41 +330,41 @@ $largeButtonSize: componentSize(l);
     &:focus:not([disabled]),
     &:active:not([disabled]),
     &:active:focus:not([disabled]) {
-      background-color: $buttonPrimaryFbHoverColor;
-      border-color: $buttonPrimaryFbHoverColor;
+      // background-color: $buttonPrimaryFbHoverColor;
+      // border-color: $buttonPrimaryFbHoverColor;
     }
   }
 
   &--icon-only {
-    padding: 0;
-    width: $mediumButtonSize;
+    // padding: 0;
+    // width: $mediumButtonSize;
 
     &.sg-button--s {
-      width: $smallButtonSize;
+      // width: $smallButtonSize;
     }
 
     &.sg-button--m {
-      width: $mediumButtonSize;
+      // width: $mediumButtonSize;
     }
 
     &.sg-button--l {
-      width: $largeButtonSize;
+      // width: $largeButtonSize;
     }
 
     .sg-button__icon {
-      margin: 0;
+      // margin: 0;
     }
 
     .sg-button__text {
       // if defined it's available for screen readers
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
+      // position: absolute;
+      // width: 1px;
+      // height: 1px;
+      // padding: 0;
+      // margin: -1px;
+      // overflow: hidden;
       clip: rect(0, 0, 0, 0);
-      border: none;
+      // border: none;
     }
   }
 }

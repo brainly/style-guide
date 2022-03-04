@@ -360,6 +360,21 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
           type === BUTTON_TYPE.TRANSPARENT_BLUE,
         'bg-facebook': type === BUTTON_TYPE.FACEBOOK,
+        'p-0': Boolean(icon) && iconOnly,
+        'w-10':
+          (Boolean(icon) && iconOnly) ||
+          (Boolean(icon) && iconOnly && size === BUTTON_SIZE.M),
+        'w-8': Boolean(icon) && iconOnly && size === BUTTON_SIZE.S,
+        'w-14': Boolean(icon) && iconOnly && size === BUTTON_SIZE.L,
+        'hover:not(disabled):bg-facebook': BUTTON_TYPE.FACEBOOK,
+        'focus:not(disabled):bg-facebook': BUTTON_TYPE.FACEBOOK,
+        'active:not(disabled):bg-facebook': BUTTON_TYPE.FACEBOOK,
+        'active:focus:not(disabled):bg-facebook': BUTTON_TYPE.FACEBOOK,
+        'hover:not(disabled):border-facebook-hover': BUTTON_TYPE.FACEBOOK,
+        'focus:not(disabled):border-facebook-hover': BUTTON_TYPE.FACEBOOK,
+        'active:not(disabled):border-facebook-hover': BUTTON_TYPE.FACEBOOK,
+        'active:focus:not(disabled):border-facebook-hover':
+          BUTTON_TYPE.FACEBOOK,
       },
       className
     );
@@ -372,6 +387,13 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       {
         'opacity-0': loading,
         't-px': size === BUTTON_SIZE.S,
+        absolute: Boolean(icon) && iconOnly,
+        'w-px': Boolean(icon) && iconOnly,
+        'h-px': Boolean(icon) && iconOnly,
+        'p-0': Boolean(icon) && iconOnly,
+        '-m-px': Boolean(icon) && iconOnly,
+        'overflow-hidden': Boolean(icon) && iconOnly,
+        'border-none': Boolean(icon) && iconOnly,
       }
     );
 
@@ -402,6 +424,37 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       'mr-[12px]': size === BUTTON_SIZE.L,
       '-ml-[6px]': size === BUTTON_SIZE.L,
       '-mr-[6px]': size === BUTTON_SIZE.L && reversedOrder,
+      'm-0': Boolean(icon) && iconOnly,
+      '-ml-0.5':
+        type === BUTTON_TYPE.TRANSPARENT ||
+        type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+        type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+        type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+        type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+        type === BUTTON_TYPE.TRANSPARENT_BLUE,
+      '-ml-[3px]':
+        size === BUTTON_SIZE.L ||
+        type === BUTTON_TYPE.TRANSPARENT ||
+        type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+        type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+        type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+        type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+        type === BUTTON_TYPE.TRANSPARENT_BLUE,
+      'text-red-40':
+        (type === BUTTON_TYPE.SOLID_LIGHT && BUTTON_TOGGLE.PEACH) ||
+        (type === BUTTON_TYPE.OUTLINE && BUTTON_TOGGLE.PEACH) ||
+        (type === BUTTON_TYPE.TRANSPARENT && BUTTON_TOGGLE.PEACH) ||
+        (type === BUTTON_TYPE.TRANSPARENT_LIGHT && BUTTON_TOGGLE.PEACH),
+      'text-yellow-40':
+        (type === BUTTON_TYPE.SOLID_LIGHT && BUTTON_TOGGLE.MUSTARD) ||
+        (type === BUTTON_TYPE.OUTLINE && BUTTON_TOGGLE.MUSTARD) ||
+        (type === BUTTON_TYPE.TRANSPARENT && BUTTON_TOGGLE.MUSTARD) ||
+        (type === BUTTON_TYPE.TRANSPARENT_LIGHT && BUTTON_TOGGLE.MUSTARD),
+      'text-blue-40':
+        (type === BUTTON_TYPE.SOLID_LIGHT && BUTTON_TOGGLE.BLUE) ||
+        (type === BUTTON_TYPE.OUTLINE && BUTTON_TOGGLE.BLUE) ||
+        (type === BUTTON_TYPE.TRANSPARENT && BUTTON_TOGGLE.BLUE) ||
+        (type === BUTTON_TYPE.TRANSPARENT_LIGHT && BUTTON_TOGGLE.BLUE),
     });
 
     let ico;

@@ -363,6 +363,11 @@ const color = {
       variable: '$buttonPrimaryFbColor',
       hex: '3c5b96',
     },
+    {
+      name: 'facebook-hover',
+      variable: '$buttonPrimaryFbHoverColor',
+      hex: '4367a9',
+    },
   ],
 };
 
