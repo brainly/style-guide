@@ -119,7 +119,11 @@ function BaseTransition({
     effect: null,
   });
 
-  React.useEffect(() => {
+  /**
+   * The useLayoutEffect because of possible flicking
+   * issues while using a regular useEffect hook.
+   */
+  React.useLayoutEffect(() => {
     const currentProps = {active, effect};
     const element = containerRef.current;
 
