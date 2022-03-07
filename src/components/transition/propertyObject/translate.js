@@ -2,13 +2,15 @@
 
 import type {
   TransitionPropertyObjectType,
-  TransitionTranslateDefinedType,
+  TransitionPredefinedTranslateType,
   TransitionTranslateType,
 } from '../Transition';
 import type {ParsedPropertyType} from './parser';
 
-const DEFAULT_VALUE = '0px';
-const TRANSLATE_VALUES: {[key: TransitionTranslateDefinedType]: string, ...} = {
+const TRANSLATE_VALUES: {
+  [key: TransitionPredefinedTranslateType]: string,
+  ...
+} = {
   xxs: '4px',
   xs: '8px',
   s: '16px',
@@ -16,6 +18,8 @@ const TRANSLATE_VALUES: {[key: TransitionTranslateDefinedType]: string, ...} = {
   l: '40px',
   xl: '64px',
 };
+
+const DEFAULT_VALUE = '0px';
 
 function getTranslateValue(translate?: TransitionTranslateType) {
   if (translate === undefined) {

@@ -1,9 +1,6 @@
 // @flow strict
 
 import type {
-  TransitionEasingType,
-  TransitionDurationType,
-  TransitionTranslateType,
   TransitionPropertyObjectType,
   TransitionEffectPhaseType,
 } from '../Transition';
@@ -20,33 +17,31 @@ export type ParsedPropertyType<T> = $ReadOnly<{
   value: string,
 }>;
 
-export type ParsedPropertyObjectType = $ReadOnly<{
-  className: string,
-  easing: ParsedPropertyType<TransitionEasingType>,
-  duration: ParsedPropertyType<TransitionDurationType>,
-  translateX: ParsedPropertyType<TransitionTranslateType>,
-  translateY: ParsedPropertyType<TransitionTranslateType>,
-  opacity: ParsedPropertyType<number>,
-  scale: ParsedPropertyType<number>,
-}>;
+export type ParsedPropertyObjectType = $Call<
+  typeof parseTransitionPropertyObject,
+  TransitionPropertyObjectType
+>;
 
-export const parseTransitionPropertyObject = (
+export function parseTransitionPropertyObject(
   props: TransitionPropertyObjectType
-): ParsedPropertyObjectType => ({
-  className: props.className || '',
-  easing: getTransitionTimingFunction(props),
-  duration: getTransitionDuration(props),
-  translateX: getTranslateX(props),
-  translateY: getTranslateY(props),
-  opacity: getOpacity(props),
-  scale: getScale(props),
-});
+) {
+  return {
+    className: props.className || '',
+    easing: getTransitionTimingFunction(props),
+    duration: getTransitionDuration(props),
+    translateX: getTranslateX(props),
+    translateY: getTranslateY(props),
+    opacity: getOpacity(props),
+    scale: getScale(props),
+  };
+}
 
-export const parseTransitionEffectPhase = (
+export function parseTransitionEffectPhase(
   phase: TransitionEffectPhaseType
-): Array<ParsedPropertyObjectType> => {
+): Array<ParsedPropertyObjectType> {
   if (Array.isArray(phase)) {
     return phase.map(parseTransitionPropertyObject);
   }
+
   return [parseTransitionPropertyObject(phase)];
-};
+}

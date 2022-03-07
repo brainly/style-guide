@@ -2,11 +2,12 @@
 
 import type {
   TransitionEasingType,
+  TransitionPredefinedEasingType,
   TransitionPropertyObjectType,
 } from '../Transition';
 import type {ParsedPropertyType} from './parser';
 
-const EASING_VALUES: {[key: TransitionEasingType]: string, ...} = {
+const EASING_VALUES: {[key: TransitionPredefinedEasingType]: string, ...} = {
   regular: 'cubic-bezier(0.35, 0, 0.1, 1)',
   entry: 'cubic-bezier(0.1, 0, 0, 1)',
   exit: 'cubic-bezier(0.3, 0, 1, 0.8)',

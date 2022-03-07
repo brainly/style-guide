@@ -8,13 +8,13 @@ import {createCSSTransitionAnimator} from './cssTransitionAnimator';
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
 
-export type TransitionEasingDefinedType =
+export type TransitionPredefinedEasingType =
   | 'regular'
   | 'entry'
   | 'exit'
   | 'linear';
 
-export type TransitionDurationDefinedType =
+export type TransitionPredefinedDurationType =
   | 'instant'
   | 'quick1'
   | 'quick2'
@@ -23,7 +23,7 @@ export type TransitionDurationDefinedType =
   | 'gentle1'
   | 'gentle2';
 
-export type TransitionTranslateDefinedType =
+export type TransitionPredefinedTranslateType =
   | 'xxs'
   | 'xs'
   | 's'
@@ -31,12 +31,12 @@ export type TransitionTranslateDefinedType =
   | 'l'
   | 'xl';
 
-export type TransitionEasingType = TransitionEasingDefinedType;
+export type TransitionEasingType = TransitionPredefinedEasingType;
 
-export type TransitionDurationType = TransitionDurationDefinedType | number;
+export type TransitionDurationType = TransitionPredefinedDurationType | number;
 
 export type TransitionTranslateType =
-  | TransitionTranslateDefinedType
+  | TransitionPredefinedTranslateType
   | number
   | string;
 
@@ -63,8 +63,7 @@ export type TransitionPropertyObjectType = $ReadOnly<{
 }>;
 
 /**
- * As an array to composite different animations
- * https://css-tricks.com/additive-animation-web-animations-api/
+ * As an array to composite different transitions into one motion.
  */
 export type TransitionEffectPhaseType =
   | TransitionPropertyObjectType
