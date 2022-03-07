@@ -1,0 +1,85 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+
+import AccordionA11y from './stories/Accordion.a11y.mdx';
+import Accordion from './Accordion';
+import AccordionItem from './AccordionItem';
+import {
+  storyItems,
+  Default,
+  Expanded,
+  ExpandedArgs,
+  NoGaps,
+  ReducedMotion,
+  ReducedMotionArgs,
+} from './stories/stories';
+
+<Meta
+  title="Layout/Accordion"
+  component={Accordion}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+    defaultExpanded: {
+      control: {
+        type: 'array',
+      },
+    },
+    expanded: {
+      control: {
+        type: 'array',
+      },
+    },
+  }}
+  args={{
+    allowMultiple: true,
+    children: storyItems,
+  }}
+/>
+
+# Accordion
+
+- [Stories](#stories)
+- [Accesibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Expanded
+
+<Canvas>
+  <Story name="Expanded" args={{...ExpandedArgs}}>
+    {Expanded.bind({})}
+  </Story>
+</Canvas>
+
+### No Gaps
+
+<Canvas>
+  <Story name="NoGaps">{NoGaps.bind({})}</Story>
+</Canvas>
+
+### Reduced Motion
+
+<Canvas>
+  <Story name="ReducedMotion" args={{...ReducedMotionArgs}}>
+    {ReducedMotion.bind({})}
+  </Story>
+</Canvas>
+
+<AccordionA11y />

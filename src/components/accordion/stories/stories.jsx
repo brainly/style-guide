@@ -1,8 +1,8 @@
 //@flow
 
 import * as React from 'react';
-import Accordion from './Accordion';
-import AccordionItem from './AccordionItem';
+import Accordion from '../Accordion';
+import AccordionItem from '../AccordionItem';
 
 const copy = {
   title: 'Is this title for accordion?',
@@ -11,7 +11,7 @@ const copy = {
     "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
 };
 
-const items = [
+export const storyItems = [
   <AccordionItem title={copy.title} id="accordion-item-1" key="1">
     {copy.description}
   </AccordionItem>,
@@ -23,41 +23,6 @@ const items = [
   </AccordionItem>,
 ];
 
-export default {
-  title: 'Layout/Accordion',
-  component: Accordion,
-  subcomponents: {AccordionItem},
-  parameters: {
-    layout: 'padded',
-  },
-  argTypes: {
-    children: {
-      control: {
-        disable: true,
-      },
-    },
-    onChange: {
-      table: {
-        category: 'Events',
-      },
-    },
-    defaultExpanded: {
-      control: {
-        type: 'array',
-      },
-    },
-    expanded: {
-      control: {
-        type: 'array',
-      },
-    },
-  },
-  args: {
-    allowMultiple: true,
-    children: items,
-  },
-};
-
 export const Default = (args: any) => <Accordion {...args} />;
 
 const CONTROLLED_ACCORDION_IDS = [
@@ -66,7 +31,7 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion_item_3',
 ];
 
-export const Expanded = (args: any = {}) => {
+export const Expanded = (args: any) => {
   const [prevExpanded, setPrevExpanded] = React.useState();
   const [expanded, setExpanded] = React.useState('');
   const handleChange = id => setExpanded(id);
@@ -88,8 +53,7 @@ export const Expanded = (args: any = {}) => {
     </Accordion>
   );
 };
-
-Expanded.args = {
+export const ExpandedArgs = {
   expanded: CONTROLLED_ACCORDION_IDS[0],
   reduceMotion: true,
 };
@@ -100,6 +64,6 @@ export const NoGaps = (args: any) => {
 
 export const ReducedMotion = (args: any) => <Accordion {...args} />;
 
-ReducedMotion.args = {
+export const ReducedMotionArgs = {
   reduceMotion: true,
 };
