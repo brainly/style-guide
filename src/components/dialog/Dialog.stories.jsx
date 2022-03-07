@@ -95,8 +95,12 @@ export const Default = (args: any) => {
           </Flex>
           <Flex marginBottom="m">
             <Link
+              as="button"
               tabIndex="0"
-              onClick={() => setAnotherOpen(true)}
+              onClick={() => {
+                console.log('here!');
+                setAnotherOpen(true);
+              }}
               onKeyDown={({key}) => key === 'Enter' && setAnotherOpen(true)}
             >
               Open another dialog
