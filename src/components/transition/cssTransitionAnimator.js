@@ -25,19 +25,27 @@ type CSSTransitionStylesType = {
 };
 
 export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
-  const DEFAULT_STYLES = buildTransitionStyles(parseTransitionEffectPhase({}));
-  const TRANSITION_PROPERTIES = Object.keys(DEFAULT_STYLES.properties);
-  const NO_TRANSITIONS = 0;
+  const IDLE_STYLES = buildTransitionStyles(parseTransitionEffectPhase({}));
+  const NO_REMAINING_PROPERTIES = 0;
 
-  let remainingTransitionPropertiesToChange = NO_TRANSITIONS;
+  /**
+   * The amount of actual CSS `transition-properties` that
+   * will change during a single transition motion.
+   *
+   * @example
+   * ```css
+   * transition-property: transform, opacity;
+   * ```
+   */
+  let remainingPropertiesToChange = NO_REMAINING_PROPERTIES;
 
   function animate(
     element: HTMLElement,
     from?: TransitionEffectPhaseType,
     to?: TransitionEffectPhaseType
   ) {
-    let fromStyles = DEFAULT_STYLES;
-    let toStyles = DEFAULT_STYLES;
+    let fromStyles = IDLE_STYLES;
+    let toStyles = IDLE_STYLES;
 
     if (from !== undefined) {
       fromStyles = buildTransitionStyles(parseTransitionEffectPhase(from));
@@ -50,14 +58,15 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
       addElementStyles(element, toStyles);
     }
 
-    remainingTransitionPropertiesToChange = TRANSITION_PROPERTIES.reduce(
-      (sum, key) => {
-        const willPropertyChange =
-          fromStyles.properties[key].value !== toStyles.properties[key].value;
+    remainingPropertiesToChange = Object.keys(IDLE_STYLES.properties).reduce(
+      (sum, prop) => {
+        const fromProperty = fromStyles.properties[prop];
+        const toProperty = toStyles.properties[prop];
+        const willPropertyChange = fromProperty.value !== toProperty.value;
 
         return sum + Number(willPropertyChange);
       },
-      NO_TRANSITIONS
+      NO_REMAINING_PROPERTIES
     );
   }
 
@@ -67,16 +76,16 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
   ) {
     const {classNames, properties} = styles;
 
-    // using arrays, we keep the same property
+    // by using arrays, we keep the same property
     // order in each transition-* related style
     const transitionProperty = [];
     const transitionDuration = [];
     const transitionTimingFunction = [];
 
-    Object.keys(properties).forEach(key => {
-      transitionProperty.push(key);
-      transitionDuration.push(properties[key].duration);
-      transitionTimingFunction.push(properties[key].timingFunction);
+    Object.keys(properties).forEach(prop => {
+      transitionProperty.push(prop);
+      transitionDuration.push(properties[prop].duration);
+      transitionTimingFunction.push(properties[prop].timingFunction);
     });
 
     element.className = classNames.join(' ');
@@ -212,7 +221,7 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
 
   return {
     animate,
-    finished: () => --remainingTransitionPropertiesToChange <= NO_TRANSITIONS,
+    finished: () => --remainingPropertiesToChange <= NO_REMAINING_PROPERTIES,
     cleanup: (element: HTMLElement) => removeElementStyles(element),
   };
 }

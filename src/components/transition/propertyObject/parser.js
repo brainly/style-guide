@@ -22,9 +22,13 @@ export type ParsedPropertyObjectType = $Call<
   TransitionPropertyObjectType
 >;
 
-export function parseTransitionPropertyObject(
-  props: TransitionPropertyObjectType
-) {
+export function parseTransitionEffectPhase(phase: TransitionEffectPhaseType) {
+  return (Array.isArray(phase) ? phase : [phase]).map<ParsedPropertyObjectType>(
+    parseTransitionPropertyObject
+  );
+}
+
+function parseTransitionPropertyObject(props: TransitionPropertyObjectType) {
   return {
     className: props.className || '',
     easing: getTransitionTimingFunction(props),
@@ -34,14 +38,4 @@ export function parseTransitionPropertyObject(
     opacity: getOpacity(props),
     scale: getScale(props),
   };
-}
-
-export function parseTransitionEffectPhase(
-  phase: TransitionEffectPhaseType
-): Array<ParsedPropertyObjectType> {
-  if (Array.isArray(phase)) {
-    return phase.map(parseTransitionPropertyObject);
-  }
-
-  return [parseTransitionPropertyObject(phase)];
 }
