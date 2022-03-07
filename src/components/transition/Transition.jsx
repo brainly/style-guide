@@ -82,6 +82,7 @@ export type TransitionMotionPropsType = $ReadOnly<{
 
 export type TransitionPropsType = $ReadOnly<{
   ...TransitionMotionPropsType,
+  delay?: number,
   children: React.Node,
   onTransitionStart?: (effect: TransitionEffectType) => void,
   onTransitionEnd?: (effect: TransitionEffectType) => void,
@@ -90,6 +91,9 @@ export type TransitionPropsType = $ReadOnly<{
 function BaseTransition({
   active,
   effect,
+  // todo: implement delay of transition phases
+  // eslint-disable-next-line no-unused-vars
+  delay = 0,
   children,
   onTransitionStart,
   onTransitionEnd,
