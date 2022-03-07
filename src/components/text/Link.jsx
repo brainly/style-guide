@@ -59,7 +59,9 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
-  onClick?: (e: MouseEvent) => mixed,
+  onClick?: (
+    SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => mixed,
   ...
 };
 
