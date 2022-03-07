@@ -59,7 +59,9 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
-  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
+  onClick?: (
+    SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => mixed,
   ...
 };
 
@@ -166,6 +168,11 @@ const Link = (props: LinkPropsType) => {
   }
 
   const linkType = disabled ? 'span' : 'a';
+  const onLinkClick = e => {
+    if (!disabled && onClick) {
+      onClick(e);
+    }
+  };
 
   return (
     <Text
@@ -174,6 +181,7 @@ const Link = (props: LinkPropsType) => {
       href={href || ''}
       className={linkClass}
       size={textSize}
+      onClick={onLinkClick}
       aria-label={ariaLabel}
     >
       {children}
