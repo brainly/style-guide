@@ -158,13 +158,8 @@ function BaseTransition({
         return;
       }
 
-      if (
-        event.target instanceof HTMLElement &&
-        animator.finished(event.target)
-      ) {
-        if (onTransitionEnd && effect) {
-          onTransitionEnd(effect);
-        }
+      if (animator.finished() && onTransitionEnd && effect) {
+        onTransitionEnd(effect);
       }
     },
     [animator, onTransitionEnd, effect]

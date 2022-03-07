@@ -9,5 +9,5 @@ export interface TransitionEffectAnimatorType {
     to?: TransitionEffectPhaseType
   ): void;
   cleanup(element: HTMLElement): void;
-  finished(element: HTMLElement): boolean;
+  finished(): boolean;
 }
