@@ -14,13 +14,13 @@ const allIcons = Object.entries(ICON_TYPES).reduce(
 );
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/ButtonTailwind',
   component: Button,
   argTypes: {
     icon: {
       control: {
         type: 'select',
-        options: allIcons,
+        options: ICON_TYPES,
       },
     },
   },
@@ -29,7 +29,28 @@ export default {
   },
 };
 
-export const Default = args => <Button {...args} />;
+export const Default = args => {
+  let iconSize;
+
+  if (args.size === BUTTON_SIZE.S) {
+    iconSize = 16;
+  } else if (args.size === BUTTON_SIZE.M) {
+    iconSize = 24;
+  } else if (args.size === BUTTON_SIZE.L) {
+    iconSize = 32;
+  }
+
+  return (
+    <Button
+      {...args}
+      icon={
+        args.icon ? (
+          <Icon size={iconSize} type={args.icon} color="adaptive" />
+        ) : null
+      }
+    />
+  );
+};
 
 export const Types = args => (
   <StoryVariantTable className="sg-button-stories-table">
