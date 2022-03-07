@@ -82,7 +82,6 @@ export type TransitionMotionPropsType = $ReadOnly<{
 
 export type TransitionPropsType = $ReadOnly<{
   ...TransitionMotionPropsType,
-  // delay?: number, // unimplemented
   children: React.Node,
   onTransitionStart?: (effect: TransitionEffectType) => void,
   onTransitionEnd?: (effect: TransitionEffectType) => void,
@@ -91,7 +90,6 @@ export type TransitionPropsType = $ReadOnly<{
 function BaseTransition({
   active,
   effect,
-  // delay = 0,
   children,
   onTransitionStart,
   onTransitionEnd,
@@ -191,14 +189,16 @@ export default function Transition({
 
   const handleTransitionEnd = React.useCallback(
     (effect: TransitionEffectType) => {
-      setMounted(false);
+      if (!active) {
+        setMounted(false);
+      }
 
       // proxy the actual event
       if (onTransitionEnd) {
         onTransitionEnd(effect);
       }
     },
-    [onTransitionEnd]
+    [active, onTransitionEnd]
   );
 
   return mounted ? (
