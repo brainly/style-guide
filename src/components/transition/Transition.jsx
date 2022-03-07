@@ -152,7 +152,7 @@ function BaseTransition({
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
-      // should ignore transitions of the own children
+      // should ignore transitions of its own descendants
       if (event.target !== event.currentTarget) {
         return;
       }
