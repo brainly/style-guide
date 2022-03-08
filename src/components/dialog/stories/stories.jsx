@@ -1,59 +1,15 @@
 // @flow
 
 import * as React from 'react';
-import Button from '../buttons/Button';
-import Flex from '../flex/Flex';
-import Headline from '../text/Headline';
-import Link from '../text/Link';
+import Button from '../../buttons/Button';
+import Flex from '../../flex/Flex';
+import Headline from '../../text/Headline';
+import Link from '../../text/Link';
 
-import Dialog from './Dialog';
-import DialogHeader from './DialogHeader';
-import DialogBody from './DialogBody';
-import DialogCloseButton from './DialogCloseButton';
-
-export default {
-  title: 'Components/Dialog',
-  component: Dialog,
-  parameters: {
-    docs: {
-      /**
-       * inlineStories=false causes an issue with DocsPage Controls
-       * https://github.com/storybookjs/storybook/issues/11908
-       */
-      inlineStories: false,
-      iframeHeight: 500,
-    },
-  },
-  args: {
-    open: true,
-    reduceMotion: false,
-  },
-  argTypes: {
-    children: {
-      control: {
-        disable: true,
-      },
-    },
-    onDismiss: {
-      action: 'onDismiss',
-      table: {
-        category: 'Events',
-      },
-    },
-    onEntryTransitionEnd: {
-      action: 'onEntryTransitionEnd',
-      table: {
-        category: 'Events',
-      },
-    },
-    onExitTransitionEnd: {
-      action: 'onExitTransitionEnd',
-      table: {
-        category: 'Events',
-      },
-    },
-  },
-};
+import Dialog from '../Dialog';
+import DialogHeader from '../DialogHeader';
+import DialogBody from '../DialogBody';
+import DialogCloseButton from '../DialogCloseButton';
 
 export const Default = (args: any) => {
   const [open, setOpen] = React.useState(false);
@@ -137,16 +93,4 @@ export const Default = (args: any) => {
       </Dialog>
     </div>
   );
-};
-
-Default.args = {
-  open: false,
-};
-
-Default.argTypes = {
-  open: {
-    control: {
-      disable: true,
-    },
-  },
 };
