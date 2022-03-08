@@ -266,10 +266,11 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     const btnClass = cx(
       'relative inline-flex justify-center items-center rounded-[20px] whitespace-nowrap no-underline button-text-normal font-bold uppercase duration-200 ease-in-out cursor-pointer box-border [will-change:background-color,border-color] [transition-property:background-color,border-color]',
       {
-        'rounded-[28px] h-l px-[28px] text-button-text-large':
-          size === BUTTON_SIZE.L,
-        'h-m px-[20px]': size === BUTTON_SIZE.M,
-        'rounded-2xl h-s': size === BUTTON_SIZE.S,
+        'rounded-[28px] h-l text-button-text-large': size === BUTTON_SIZE.L,
+        'px-[28px]': size === BUTTON_SIZE.L && !iconOnly,
+        'h-m': size === BUTTON_SIZE.M,
+        'px-[20px]': size === BUTTON_SIZE.M && !iconOnly,
+        'rounded-2xl h-s text-button-text-small': size === BUTTON_SIZE.S,
         'px-s': size === BUTTON_SIZE.S && !iconOnly,
         'text-white bg-black hover:not(:disabled):bg-white focus:not(:disabled):bg-[#283037] active:bg-[#283037] active:focus:not(:disabled):bg-[#283037]':
           type === BUTTON_TYPE.SOLID,
@@ -357,10 +358,11 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       className
     );
 
-    const btnTextClasses = cx('relative flex items-center', {
+    const btnTextClasses = cx('flex items-center', {
+      relative: !iconOnly,
       'opacity-0': loading,
       't-px': size === BUTTON_SIZE.S,
-      'absolute w-px h-px p-0 -m-px overflow-hidden border-none clip-[rect(0,0,0,0)]':
+      'absolute w-px h-px p-0 -m-px overflow-hidden border-none [clip:rect(0,0,0,0)]':
         Boolean(icon) && iconOnly,
     });
 
@@ -376,7 +378,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         type.includes('transparent') && reversedOrder && size === BUTTON_SIZE.S,
       'ml-[12px] -mr-[-3px]':
         type.includes('transparent') && reversedOrder && size === BUTTON_SIZE.L,
-      'mr-[12px] -ml-[6px]': size === BUTTON_SIZE.L,
+      'mr-[12px] -ml-[6px]': size === BUTTON_SIZE.L && !iconOnly,
       '-mr-[6px] ml-[12px]': size === BUTTON_SIZE.L && reversedOrder,
       'm-0': Boolean(icon) && iconOnly,
       '-ml-0.5': type.includes('transparent'),
