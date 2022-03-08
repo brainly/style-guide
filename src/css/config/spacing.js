@@ -10,13 +10,12 @@ module.exports = {
   3.5: '0.875rem',
 
   // generating spacing values from 4-100
-  ...Array.from({length: 100 - 4}).map((_, _index) => {
+  ...Array.from({length: 100 - 4}).reduce((acc, next, _index) => {
     const index = _index + 4;
 
-    return {
-      [index]: `${index / 4}rem`,
-    };
-  }),
+    acc[index] = `${index / 4}rem`;
+    return acc;
+  }, []),
 
   xxs: '4px',
   xs: '8px',

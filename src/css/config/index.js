@@ -7,6 +7,7 @@ const fontWeight = require('./fontWeight');
 const zIndex = require('./zIndex');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
+const componentSize = require('./componentSize');
 
 module.exports = {
   content: {
@@ -335,9 +336,9 @@ module.exports = {
       5: 'repeat(5, minmax(0, 1fr))',
       6: 'repeat(6, minmax(0, 1fr))',
     },
-    height: theme => ({
+    height: () => ({
       auto: 'auto',
-      ...theme('spacing'),
+      ...componentSize,
       '1/2': '50%',
       '1/3': '33.333333%',
       '2/3': '66.666667%',

@@ -264,20 +264,22 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     const isDisabled = disabled || loading;
 
     const btnClass = cx(
-      'relative inline-flex justify-center items-center h-10 rounded-[20px] border-none whitespace-nowrap no-underline button-text-normal font-bold uppercase pl-[20px] pr-[20px] duration-200 ease-in-out cursor-pointer box-border [will-change:background-color,border-color] [transition-property:background-color,border-color]',
+      'relative inline-flex justify-center items-center rounded-[20px] whitespace-nowrap no-underline button-text-normal font-bold uppercase duration-200 ease-in-out cursor-pointer box-border [will-change:background-color,border-color] [transition-property:background-color,border-color]',
       {
-        'rounded-[28px] h-14 px-7 button-text-large': size === BUTTON_SIZE.L,
-        'h-10': size === BUTTON_SIZE.M,
-        'px-s rounded-2xl h-8': size === BUTTON_SIZE.S,
-        'bg-black hover:not(:disabled):bg-white focus:not(:disabled):bg-[#283037] active:bg-[#283037] active:focus:not(:disabled):bg-[#283037]':
+        'rounded-[28px] h-l px-[28px] text-button-text-large':
+          size === BUTTON_SIZE.L,
+        'h-m px-[20px]': size === BUTTON_SIZE.M,
+        'rounded-2xl h-s': size === BUTTON_SIZE.S,
+        'px-s': size === BUTTON_SIZE.S && !iconOnly,
+        'text-white bg-black hover:not(:disabled):bg-white focus:not(:disabled):bg-[#283037] active:bg-[#283037] active:focus:not(:disabled):bg-[#283037]':
           type === BUTTON_TYPE.SOLID,
-        'bg-blue-40 hover:not(:disabled):bg-[#1091e7] focus:not(:disabled):bg-[#1091e7] active:not(:disabled):bg-[#1091e7] active:focus:not(:disabled):bg-[#1091e7]':
+        'text-white bg-blue-40 hover:not(:disabled):bg-[#1091e7] focus:not(:disabled):bg-[#1091e7] active:not(:disabled):bg-[#1091e7] active:focus:not(:disabled):bg-[#1091e7]':
           type === BUTTON_TYPE.SOLID_BLUE,
         'bg-white text-black hover:not(:disabled):bg-[#f7f9fb] focus:not(:disabled):bg-[#f7f9fb] active:not(:disabled):bg-[#f7f9fb] active:focus:not(:disabled):bg-[#f7f9fb]':
           type === BUTTON_TYPE.SOLID_INVERTED,
-        'bg-gray-40 text-black hover:not(:disabled):bg-[#e6eef4] focus:not(:disabled):bg-[#e6eef4] active:not(:disabled):bg-[#e6eef4] active:focus:not(:disabled):bg-[#e6eef4]':
-          type === BUTTON_TYPE.SOLID_LIGHT,
-        'bg-green-40 hover:not(:disabled):bg-[#30b16f] focus:not(:disabled):bg-[#30b16f] active:not(:disabled):bg-[#30b16f] active:focus:not(:disabled):bg-[#30b16f]':
+        'text-black bg-gray-20 hover:not(:disabled):bg-[#e6eef4] focus:not(:disabled):bg-[#e6eef4] active:not(:disabled):bg-[#e6eef4] active:focus:not(:disabled):bg-[#e6eef4]':
+          type === BUTTON_TYPE.SOLID_LIGHT && !toggle,
+        'text-white bg-green-40 hover:not(:disabled):bg-[#30b16f] focus:not(:disabled):bg-[#30b16f] active:not(:disabled):bg-[#30b16f] active:focus:not(:disabled):bg-[#30b16f]':
           type === BUTTON_TYPE.SOLID_MINT,
         'bg-transparent text-black px-2.5 hover:not(:disabled):bg-[#687b8c1f focus:not(:disabled):bg-[#687b8c1f] active:not(:disabled):bg-[#687b8c1f] active:focus:not(:disabled):bg-[#687b8c1f]':
           type === BUTTON_TYPE.TRANSPARENT,
@@ -297,16 +299,16 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           type === BUTTON_TYPE.FACEBOOK,
         'cursor-not-allowed opacity-40': isDisabled,
         'w-full': fullWidth,
-        'p-0 w-10 sg-button--icon-only': Boolean(icon) && iconOnly,
+        'p-0 sg-button--icon-only': Boolean(icon) && iconOnly,
         'w-10': Boolean(icon) && iconOnly && size === BUTTON_SIZE.M,
         'w-8': Boolean(icon) && iconOnly && size === BUTTON_SIZE.S,
         'w-14': Boolean(icon) && iconOnly && size === BUTTON_SIZE.L,
         'flex-row-reverse': reversedOrder,
-        'hover:not(:disabled):bg-[#ffdbd6] focus:not(:disabled):bg-[#ffdbd6] active:not(:disabled):bg-[#ffdbd6] active:focus:not(:disabled):bg-[#ffdbd6]':
+        'bg-red-20 hover:not(:disabled):bg-[#ffdbd6] focus:not(:disabled):bg-[#ffdbd6] active:not(:disabled):bg-[#ffdbd6] active:focus:not(:disabled):bg-[#ffdbd6]':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.PEACH,
-        'hover:not(:disabled):bg-[#ffedc2] focus:not(:disabled):bg-[#ffedc2] active:not(:disabled):bg-[#ffedc2] active:focus:not(:disabled):bg-[#ffedc2]':
+        'bg-yellow-20 hover:not(:disabled):bg-[#ffedc2] focus:not(:disabled):bg-[#ffedc2] active:not(:disabled):bg-[#ffedc2] active:focus:not(:disabled):bg-[#ffedc2]':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.MUSTARD,
-        'hover:not(:disabled):bg-[#c8e9fe] focus:not(:disabled):bg-[#c8e9fe] active:not(:disabled):bg-[#c8e9fe] active:focus:not(:disabled):bg-[#c8e9fe]':
+        'bg-blue-20 hover:not(:disabled):bg-[#c8e9fe] focus:not(:disabled):bg-[#c8e9fe] active:not(:disabled):bg-[#c8e9fe] active:focus:not(:disabled):bg-[#c8e9fe]':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.BLUE,
         'border-red-40 hover:not(:disabled):bg-[#ff79681f] focus:not(:disabled):bg-[#ff79681f] active:not(:disabled):bg-[#ff79681f] active:focus:not(:disabled):bg-[#ff79681f]':
           type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.PEACH,
@@ -355,16 +357,16 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       className
     );
 
-    const btnTextClasses = cx('text-white relative flex items-center', {
+    const btnTextClasses = cx('relative flex items-center', {
       'opacity-0': loading,
       't-px': size === BUTTON_SIZE.S,
       'absolute w-px h-px p-0 -m-px overflow-hidden border-none clip-[rect(0,0,0,0)]':
         Boolean(icon) && iconOnly,
     });
 
-    const iconClass = cx('inline-flex mr-m -ml-xxs', {
-      '-ml-xxs mr-[6px]': size === BUTTON_SIZE.S,
-      [`sg-button__icon--${size || ''}`]: size,
+    const iconClass = cx('inline-flex', {
+      'mr-m -ml-xxs': !iconOnly,
+      '-ml-xxs mr-[6px]': size === BUTTON_SIZE.S && !iconOnly,
       'opacity-0': loading,
       '-mr-xxs ml-[6px]': size === BUTTON_SIZE.S && reversedOrder,
       '-mr-xxs ml-xxs': reversedOrder,
