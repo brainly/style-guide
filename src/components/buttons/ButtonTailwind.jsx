@@ -272,32 +272,43 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'px-[20px]': size === BUTTON_SIZE.M && !iconOnly,
         'rounded-2xl h-s text-button-text-small': size === BUTTON_SIZE.S,
         'px-s': size === BUTTON_SIZE.S && !iconOnly,
-        'text-white bg-black hover:not(:disabled):bg-white focus:not(:disabled):bg-[#283037] active:bg-[#283037] active:focus:not(:disabled):bg-[#283037]':
-          type === BUTTON_TYPE.SOLID,
-        'text-white bg-blue-40 hover:not(:disabled):bg-[#1091e7] focus:not(:disabled):bg-[#1091e7] active:not(:disabled):bg-[#1091e7] active:focus:not(:disabled):bg-[#1091e7]':
-          type === BUTTON_TYPE.SOLID_BLUE,
-        'bg-white text-black hover:not(:disabled):bg-[#f7f9fb] focus:not(:disabled):bg-[#f7f9fb] active:not(:disabled):bg-[#f7f9fb] active:focus:not(:disabled):bg-[#f7f9fb]':
-          type === BUTTON_TYPE.SOLID_INVERTED,
-        'text-black bg-gray-20 hover:not(:disabled):bg-[#e6eef4] focus:not(:disabled):bg-[#e6eef4] active:not(:disabled):bg-[#e6eef4] active:focus:not(:disabled):bg-[#e6eef4]':
-          type === BUTTON_TYPE.SOLID_LIGHT && !toggle,
-        'text-white bg-green-40 hover:not(:disabled):bg-[#30b16f] focus:not(:disabled):bg-[#30b16f] active:not(:disabled):bg-[#30b16f] active:focus:not(:disabled):bg-[#30b16f]':
-          type === BUTTON_TYPE.SOLID_MINT,
-        'bg-transparent text-black px-2.5 hover:not(:disabled):bg-[#687b8c1f focus:not(:disabled):bg-[#687b8c1f] active:not(:disabled):bg-[#687b8c1f] active:focus:not(:disabled):bg-[#687b8c1f]':
-          type === BUTTON_TYPE.TRANSPARENT,
-        'bg-transparent text-blue-40 px-2.5 hover:not(:disabled):bg-[#4fb3f61f] focus:not(:disabled):bg-[#4fb3f61f] active:not(:disabled):bg-[#4fb3f61f] active:focus:not(:disabled):bg-[#4fb3f61f]':
+        'text-white bg-black': type === BUTTON_TYPE.SOLID,
+        'hover:bg-[#283037] focus:bg-[#283037] active:bg-[#283037] active:focus:bg-[#283037]':
+          type === BUTTON_TYPE.SOLID && !disabled,
+        'text-white bg-blue-40 ': type === BUTTON_TYPE.SOLID_BLUE,
+        'hover:bg-[#1091e7] focus:bg-[#1091e7] active:bg-[#1091e7] active:focus:bg-[#1091e7]':
+          type === BUTTON_TYPE.SOLID_BLUE && !disabled,
+        'bg-white text-black': type === BUTTON_TYPE.SOLID_INVERTED,
+        'hover:bg-[#f7f9fb] focus:bg-[#f7f9fb] active:bg-[#f7f9fb] active:focus:bg-[#f7f9fb]':
+          type === BUTTON_TYPE.SOLID_INVERTED && !disabled,
+        'text-black bg-gray-20': type === BUTTON_TYPE.SOLID_LIGHT && !toggle,
+        'hover:bg-[#e6eef4] focus:bg-[#e6eef4] active:bg-[#e6eef4] active:focus:bg-[#e6eef4]':
+          type === BUTTON_TYPE.SOLID_LIGHT && !toggle && !disabled,
+        'text-white bg-green-40': type === BUTTON_TYPE.SOLID_MINT,
+        'hover:bg-[#30b16f] focus:bg-[#30b16f] active:bg-[#30b16f] active:focus:bg-[#30b16f]':
+          type === BUTTON_TYPE.SOLID_MINT && !disabled,
+        'bg-transparent text-black px-2.5': type === BUTTON_TYPE.TRANSPARENT,
+        'hover:bg-[#687b8c1f] focus:bg-[#687b8c1f] active:bg-[#687b8c1f] active:focus:bg-[#687b8c1f]':
+          (type === BUTTON_TYPE.TRANSPARENT && !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT_LIGHT && !disabled) ||
+          (type === BUTTON_TYPE.OUTLINE && !disabled),
+        'bg-transparent text-blue-40 px-2.5':
           type === BUTTON_TYPE.TRANSPARENT_BLUE,
-        'text-white bg-transparent px-2.5 hover:not(:disabled):bg-[#ffffff1f] focus:not(:disabled):bg-[#ffffff1f] active:not(:disabled):bg-[#ffffff1f] active:focus:not(:disabled):bg-[#ffffff1f]':
+        'text-white bg-transparent px-2.5':
           type === BUTTON_TYPE.TRANSPARENT_INVERTED,
-        'bg-transparent text-gray-50 px-2.5 hover:not(:disabled):bg-[#687b8c1f] focus:not(:disabled):bg-[#687b8c1f] active:not(:disabled):bg-[#687b8c1f] active:focus:not(:disabled):bg-[#687b8c1f]':
+        'hover:bg-[#ffffff1f] focus:bg-[#ffffff1f] active:bg-[#ffffff1f] active:focus:bg-[#ffffff1f]':
+          type === BUTTON_TYPE.TRANSPARENT_INVERTED && !disabled,
+        'bg-transparent text-gray-50 px-2.5':
           type === BUTTON_TYPE.TRANSPARENT_LIGHT,
-        'bg-transparent text-yellow-40 px-2.5 hover:not(:disabled):bg-[#fbbe2e1f] focus:not(:disabled):bg-[#fbbe2e1f] active:not(:disabled):bg-[#fbbe2e1f] active:focus:not(:disabled):bg-[#fbbe2e1f]':
+        'bg-transparent text-yellow-40 px-2.5':
           type === BUTTON_TYPE.TRANSPARENT_MUSTARD,
-        'bg-transparent px-2.5 text-red-40 hover:not(:disabled):bg-[#ff79681f] focus:not(:disabled):bg-[#ff79681f] active:not(:disabled):bg-[#ff79681f] active:focus:not(:disabled):bg-[#ff79681f]':
+        'bg-transparent px-2.5 text-red-40':
           type === BUTTON_TYPE.TRANSPARENT_PEACH,
-        'text-black bg-transparent border-2 border-solid border-black hover:not(:disabled):bg-[#687b8c1f] focus:not(:disabled):bg-[#687b8c1f] active:not(:disabled):bg-[#687b8c1f] active:focus:not(:disabled):bg-[#687b8c1f]':
+        'text-black bg-transparent border-2 border-solid border-black':
           type === BUTTON_TYPE.OUTLINE,
-        'text-white bg-facebook hover:not(:disabled):bg-facebook focus:not(:disabled):bg-facebook active:focus:not(:disabled):bg-facebook hover:not(:disabled):border-facebook-hover focus:not(:disabled):border-facebook-hover active:not(:disabled):border-facebook-hover active:focus:not(:disabled):border-facebook-hover':
-          type === BUTTON_TYPE.FACEBOOK,
+        'text-white bg-facebook': type === BUTTON_TYPE.FACEBOOK,
+        'hover:bg-facebook-hover focus:bg-facebook-hover active:focus:bg-facebook-hover hover:border-facebook-hover focus:border-facebook-hover active:border-facebook-hover active:focus:border-facebook-hover':
+          type === BUTTON_TYPE.FACEBOOK && !disabled,
         'cursor-not-allowed opacity-40': isDisabled,
         'w-full': fullWidth,
         'p-0 sg-button--icon-only': Boolean(icon) && iconOnly,
@@ -305,39 +316,78 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'w-8': Boolean(icon) && iconOnly && size === BUTTON_SIZE.S,
         'w-14': Boolean(icon) && iconOnly && size === BUTTON_SIZE.L,
         'flex-row-reverse': reversedOrder,
-        'bg-red-20 hover:not(:disabled):bg-[#ffdbd6] focus:not(:disabled):bg-[#ffdbd6] active:not(:disabled):bg-[#ffdbd6] active:focus:not(:disabled):bg-[#ffdbd6]':
+        'bg-red-20':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.PEACH,
-        'bg-yellow-20 hover:not(:disabled):bg-[#ffedc2] focus:not(:disabled):bg-[#ffedc2] active:not(:disabled):bg-[#ffedc2] active:focus:not(:disabled):bg-[#ffedc2]':
+        'hover:bg-[#ffdbd6] focus:bg-[#ffdbd6] active:bg-[#ffdbd6] active:focus:bg-[#ffdbd6]':
+          type === BUTTON_TYPE.SOLID_LIGHT &&
+          toggle === BUTTON_TOGGLE.PEACH &&
+          !disabled,
+        'bg-yellow-20':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.MUSTARD,
-        'bg-blue-20 hover:not(:disabled):bg-[#c8e9fe] focus:not(:disabled):bg-[#c8e9fe] active:not(:disabled):bg-[#c8e9fe] active:focus:not(:disabled):bg-[#c8e9fe]':
+        'hover:bg-[#ffedc2] focus:bg-[#ffedc2] active:bg-[#ffedc2] active:focus:bg-[#ffedc2]':
+          type === BUTTON_TYPE.SOLID_LIGHT &&
+          toggle === BUTTON_TOGGLE.MUSTARD &&
+          !disabled,
+        'bg-blue-20':
           type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.BLUE,
-        'border-red-40 hover:not(:disabled):bg-[#ff79681f] focus:not(:disabled):bg-[#ff79681f] active:not(:disabled):bg-[#ff79681f] active:focus:not(:disabled):bg-[#ff79681f]':
+        'hover:bg-[#c8e9fe] focus:bg-[#c8e9fe] active:bg-[#c8e9fe] active:focus:bg-[#c8e9fe]':
+          type === BUTTON_TYPE.SOLID_LIGHT &&
+          toggle === BUTTON_TOGGLE.BLUE &&
+          !disabled,
+        'border-red-40':
           type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.PEACH,
-        'border-yellow-40 hover:not(:disabled):bg-[#fbbe2e1f] focus:not(:disabled):bg-[#fbbe2e1f] active:not(:disabled):bg-[#fbbe2e1f] active:focus:not(:disabled):bg-[#fbbe2e1f]':
-          type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.MUSTARD,
-        'border-blue-40 hover:not(:disabled):bg-[#4fb3f61f] focus:not(:disabled):bg-[#4fb3f61f] active:not(:disabled):bg-[#4fb3f61f] active:focus:not(:disabled):bg-[#4fb3f61f]':
-          type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.BLUE,
-        'hover:not(:disabled):bg-[#ff79681f] focus:not(:disabled):bg-[#ff79681f] active:not(:disabled):bg-[#ff79681f] active:focus:not(:disabled):bg-[#ff79681f]':
+        'hover:bg-[#ff79681f] focus:bg-[#ff79681f] active:bg-[#ff79681f] active:focus:bg-[#ff79681f]':
+          (type === BUTTON_TYPE.TRANSPARENT_PEACH && !disabled) ||
+          (type === BUTTON_TYPE.OUTLINE &&
+            toggle === BUTTON_TOGGLE.PEACH &&
+            !disabled) ||
           (type === BUTTON_TYPE.TRANSPARENT &&
-            toggle === BUTTON_TOGGLE.PEACH) ||
+            toggle === BUTTON_TOGGLE.PEACH &&
+            !disabled) ||
           (type === BUTTON_TYPE.TRANSPARENT_LIGHT &&
-            toggle === BUTTON_TOGGLE.PEACH) ||
-          (type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.PEACH),
-        'hover:not(:disabled):bg-[#fbbe2e1f] focus:not(:disabled):bg-[#fbbe2e1f] active:not(:disabled):bg-[#fbbe2e1f] active:focus:not(:disabled):bg-[#fbbe2e1f]':
-          (type === BUTTON_TYPE.TRANSPARENT &&
-            toggle === BUTTON_TOGGLE.MUSTARD) ||
-          (type === BUTTON_TYPE.TRANSPARENT_LIGHT &&
-            toggle === BUTTON_TOGGLE.MUSTARD) ||
+            toggle === BUTTON_TOGGLE.PEACH &&
+            !disabled) ||
           (type === BUTTON_TYPE.SOLID_LIGHT &&
-            toggle === BUTTON_TOGGLE.MUSTARD) ||
-          (type === BUTTON_TYPE.TRANSPARENT_MUSTARD &&
-            toggle === BUTTON_TOGGLE.MUSTARD),
-        'hover:not(:disabled):bg-[#4fb3f61f] focus:not(:disabled):bg-[#4fb3f61f] active:not(:disabled):bg-[#4fb3f61f] active:focus:not(:disabled):bg-[#4fb3f61f]':
-          (type === BUTTON_TYPE.TRANSPARENT && toggle === BUTTON_TOGGLE.BLUE) ||
-          (type === BUTTON_TYPE.SOLID_LIGHT && toggle === BUTTON_TOGGLE.BLUE) ||
+            toggle === BUTTON_TOGGLE.PEACH &&
+            !disabled),
+        'border-yellow-40':
+          type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.MUSTARD,
+        'border-blue-40':
+          type === BUTTON_TYPE.OUTLINE && toggle === BUTTON_TOGGLE.BLUE,
+        'hover:bg-[#fbbe2e1f] focus:bg-[#fbbe2e1f] active:bg-[#fbbe2e1f] active:focus:bg-[#fbbe2e1f]':
+          (type === BUTTON_TYPE.TRANSPARENT_MUSTARD && !disabled) ||
+          (type === BUTTON_TYPE.OUTLINE &&
+            toggle === BUTTON_TOGGLE.MUSTARD &&
+            !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT &&
+            toggle === BUTTON_TOGGLE.MUSTARD &&
+            !disabled) ||
           (type === BUTTON_TYPE.TRANSPARENT_LIGHT &&
-            toggle === BUTTON_TOGGLE.BLUE) ||
-          (BUTTON_TYPE.TRANSPARENT_BLUE && BUTTON_TOGGLE.BLUE),
+            toggle === BUTTON_TOGGLE.MUSTARD &&
+            !disabled) ||
+          (type === BUTTON_TYPE.SOLID_LIGHT &&
+            toggle === BUTTON_TOGGLE.MUSTARD &&
+            !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT_MUSTARD &&
+            toggle === BUTTON_TOGGLE.MUSTARD &&
+            !disabled),
+        'hover:bg-[#4fb3f61f] focus:bg-[#4fb3f61f] active:bg-[#4fb3f61f] active:focus:bg-[#4fb3f61f]':
+          (type === BUTTON_TYPE.TRANSPARENT_BLUE && !disabled) ||
+          (type === BUTTON_TYPE.OUTLINE &&
+            toggle === BUTTON_TOGGLE.BLUE &&
+            !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT &&
+            toggle === BUTTON_TOGGLE.BLUE &&
+            !disabled) ||
+          (type === BUTTON_TYPE.SOLID_LIGHT &&
+            toggle === BUTTON_TOGGLE.BLUE &&
+            !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT_LIGHT &&
+            toggle === BUTTON_TOGGLE.BLUE &&
+            !disabled) ||
+          (type === BUTTON_TYPE.TRANSPARENT_BLUE &&
+            BUTTON_TOGGLE.BLUE &&
+            !disabled),
         'px-[14px]':
           size === BUTTON_SIZE.L &&
           (type === BUTTON_TYPE.TRANSPARENT ||
@@ -367,7 +417,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     });
 
     const iconClass = cx('inline-flex', {
-      'mr-m -ml-xxs': !iconOnly,
+      'mr-xs -ml-xxs': !iconOnly,
       '-ml-xxs mr-[6px]': size === BUTTON_SIZE.S && !iconOnly,
       'opacity-0': loading,
       '-mr-xxs ml-[6px]': size === BUTTON_SIZE.S && reversedOrder,
