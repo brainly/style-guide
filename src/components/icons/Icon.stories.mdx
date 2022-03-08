@@ -1,0 +1,80 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+
+import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
+import IconA11y from './stories/Icon.a11y.mdx';
+import {Default, Types, Colors, Sizes} from './stories/stories';
+
+<Meta
+  title="Components/Icon"
+  component={Icon}
+  argTypes={{
+    type: {
+      description: 'Icon type (name)',
+      control: {type: 'select', options: TYPE},
+    },
+    tagType: {
+      description:
+        'Option to change tag to span, which allows correct HTML structure',
+      table: {
+        type: null,
+      },
+      control: {type: 'select', options: ICON_TAG_TYPE},
+    },
+    size: {
+      description: 'Icons types example',
+      table: {
+        type: null,
+      },
+      control: {type: 'select', options: SIZE},
+    },
+    color: {
+      description: 'Icons colors example',
+      table: {
+        type: null,
+      },
+      control: {type: 'select', options: ICON_COLOR},
+    },
+    className: {control: {type: 'text'}},
+  }}
+  args={{
+    type: TYPE.ACADEMIC_CAP,
+    color: ICON_COLOR.ADAPTIVE,
+    size: 32,
+  }}
+/>
+
+# Icon
+
+- [Stories](#stories)
+- [Accesibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{Default.bind({})}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Types">{Types.bind({})}</Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">{Colors.bind({})}</Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">{Sizes.bind({})}</Story>
+</Canvas>
+
+<IconA11y />

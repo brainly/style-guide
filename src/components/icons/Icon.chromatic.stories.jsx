@@ -1,6 +1,8 @@
-import * as Icon from './Icon.stories.jsx';
+import * as Icon from './Icon.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Icon);
 
-export default Icon.default;
+const {includeStories, ...meta} = Icon.default;
+
+export default meta;

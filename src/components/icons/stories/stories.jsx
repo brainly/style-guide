@@ -1,26 +1,9 @@
 import * as React from 'react';
-import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
-import Flex from '../flex/Flex';
-import Headline from '../text/Headline';
+import Icon, {TYPE, ICON_COLOR, SIZE} from '../Icon';
+import Flex from '../../flex/Flex';
+import Headline from '../../text/Headline';
 import classnames from 'classnames';
-import {getIconGroup} from './get-icon-group';
-
-export default {
-  title: 'Components/Icon',
-  component: Icon,
-  argTypes: {
-    type: {control: {type: 'select', options: TYPE}},
-    tagType: {control: {type: 'select', options: ICON_TAG_TYPE}},
-    size: {control: {type: 'select', options: SIZE}},
-    color: {control: {type: 'select', options: ICON_COLOR}},
-    className: {control: {type: 'text'}},
-  },
-  args: {
-    type: TYPE.ACADEMIC_CAP,
-    color: ICON_COLOR.ADAPTIVE,
-    size: 32,
-  },
-};
+import {getIconGroup} from '../get-icon-group';
 
 const groups = Object.values(TYPE).reduce((acc, next) => {
   const groupName = getIconGroup(next);
