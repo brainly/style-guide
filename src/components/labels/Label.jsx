@@ -36,7 +36,7 @@ export const LABEL_TYPE: {
 export const COLORS_SOLID_MAP: {
   blue: 'blue-50',
   green: 'green-50',
-  indigo: 'indigo-50',
+  indigo: 'indigo-40',
   red: 'red-50',
   yellow: 'yellow-50',
   gray: 'gray-50',
@@ -44,7 +44,7 @@ export const COLORS_SOLID_MAP: {
 } = {
   blue: 'blue-50',
   green: 'green-50',
-  indigo: 'indigo-50',
+  indigo: 'indigo-40',
   red: 'red-50',
   yellow: 'yellow-50',
   gray: 'gray-50',
