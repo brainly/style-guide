@@ -114,8 +114,13 @@ function BaseDialog({
      * We need to check this, so we can determine if we should show scrollbars on the Dialog.
      */
     if (open) {
-      const dialogHeight = containerRef.current?.getBoundingClientRect().height;
-      const overlayHeight = overlayRef.current?.getBoundingClientRect().height;
+      // Didn't use optional chaining
+      // as it causes ArgsTable and controls to not display correctly
+      const dialogHeight =
+        containerRef.current &&
+        containerRef.current.getBoundingClientRect().height;
+      const overlayHeight =
+        overlayRef.current && overlayRef.current.getBoundingClientRect().height;
 
       if (!dialogHeight || !overlayHeight) return;
       if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
