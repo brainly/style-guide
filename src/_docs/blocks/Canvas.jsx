@@ -63,7 +63,9 @@ const getPreviewProps = (
   const htmlCode = prettier.format(
     currentStories
       .map(story => {
-        const staticMarkup = renderToStaticMarkup(story.originalStoryFn());
+        const staticMarkup = renderToStaticMarkup(
+          story.originalStoryFn(story.parameters.args)
+        );
 
         return staticMarkup;
       })
