@@ -51,7 +51,7 @@ export const Default = (args: any) => {
           </Flex>
           <Flex marginBottom="m">
             <Link
-              tabIndex="0"
+              as="button"
               onClick={() => setAnotherOpen(true)}
               onKeyDown={({key}) => key === 'Enter' && setAnotherOpen(true)}
             >

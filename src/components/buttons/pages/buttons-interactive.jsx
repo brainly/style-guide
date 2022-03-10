@@ -1,14 +1,37 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Button, {BUTTON_TYPE, BUTTON_SIZE, BUTTON_TOGGLE} from '../Button';
 import ButtonRound from '../ButtonRound';
 import Icon, {TYPE as ICON_TYPES, ICON_COLOR} from 'icons/Icon';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 
+const ButtonIconAligner = props => {
+  let iconElement;
+
+  if (props.icon) {
+    let iconSize;
+
+    if (props.size === BUTTON_SIZE.S) {
+      iconSize = 16;
+    } else if (props.size === BUTTON_SIZE.M) {
+      iconSize = 24;
+    } else if (props.size === BUTTON_SIZE.L) {
+      iconSize = 32;
+    }
+
+    iconElement = (
+      <Icon type={props.icon} color={ICON_COLOR.ADAPTIVE} size={iconSize} />
+    );
+  }
+
+  return <Button {...props} icon={iconElement} />;
+};
+
 const Buttons = () => {
   const allIcons = Object.entries(ICON_TYPES).reduce(
     (acc, [key, type]) => ({
       ...acc,
-      [key]: <Icon type={type} color={ICON_COLOR.ADAPTIVE} size={24} />,
+      [key]: type,
     }),
     {}
   );
@@ -70,12 +93,14 @@ const Buttons = () => {
   return (
     <div>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button type={BUTTON_TYPE.SOLID_BLUE}>Ask your question</Button>
+        <ButtonIconAligner type={BUTTON_TYPE.SOLID_BLUE}>
+          Ask your question
+        </ButtonIconAligner>
       </DocsActiveBlock>
       <DocsActiveBlock settings={buttonsSettings}>
-        <Button icon={allIcons.ANSWER} type={BUTTON_TYPE.SOLID}>
+        <ButtonIconAligner icon={allIcons.ANSWER} type={BUTTON_TYPE.SOLID}>
           Answer
-        </Button>
+        </ButtonIconAligner>
       </DocsActiveBlock>
 
       <DocsActiveBlock settings={roundSettings}>

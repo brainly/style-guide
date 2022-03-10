@@ -77,7 +77,9 @@ export type FileHandlerPropsType = $ReadOnly<{
    *            text
    *          </FileHandler>
    */
-  onClick?: (e: KeyboardEvent | MouseEvent) => mixed,
+  onClick?: (
+    SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => mixed,
   /**
    * Additional function to set ref for text
    */

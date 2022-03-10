@@ -16,7 +16,7 @@ client.s3.getObject(
   function (err) {
     if (err) {
       if (err.name === 'AccessDenied') {
-        execSync('yarn build');
+        execSync('yarn build --production');
       } else {
         console.log(err, err.stack);
       }
