@@ -585,7 +585,7 @@ const Icon = ({
 
   const idSuffix = generateIdSuffix(type);
   const titleId = `title-${idSuffix}`;
-  const titleFallback = String(type).replace(/_/g, ' ');
+  const defaultTitle = String(type).replace(/_/g, ' ');
   const descId = `desc-${idSuffix}`;
   const labelledBy = description ? `${titleId} ${descId}` : titleId;
   const ariaLabel = type
@@ -601,7 +601,10 @@ const Icon = ({
           aria-labelledby={labelledBy}
           focusable="false"
         >
-          <title id={titleId}>{title || titleFallback}</title>
+          <text id={titleId} hidden>
+            {title || defaultTitle}
+          </text>
+          <title />
           {description && <desc id={descId}>{description}</desc>}
           <use xlinkHref={iconType} aria-hidden="true" />
         </svg>
