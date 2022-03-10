@@ -8,8 +8,7 @@ describe('Icon', () => {
     const type = 'search';
     const icon = render(<Icon type={type} />);
 
-    expect(icon.getByTitle(type)).toBeTruthy();
-    expect(icon.getByRole('img')).toBeTruthy();
+    expect(icon.getByRole('img', {name: type})).toBeTruthy();
   });
 
   it('should have an accessible description', async () => {
