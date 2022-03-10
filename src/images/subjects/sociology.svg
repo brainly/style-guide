@@ -22,7 +22,7 @@
             }
         </style>
     </defs>
-    <title>sociology</title>
+    
     <circle class="b" cx="12" cy="14" r="2" />
     <path class="b" d="M15,18.9a3,3,0,0,0-6,0H9V21a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V18.9Z" />
     <circle class="b" cx="19" cy="9" r="2" />
