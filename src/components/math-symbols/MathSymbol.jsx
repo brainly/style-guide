@@ -115,7 +115,6 @@ const MathSymbol = ({
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>
-      <title />
       <use xlinkHref={iconType} arya-hidden="true" />
     </svg>
   );

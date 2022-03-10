@@ -292,7 +292,6 @@ const SubjectIcon = ({
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>
-      <title />
       <use xlinkHref={iconType} aria-hidden="true" />
     </svg>
   );

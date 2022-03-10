@@ -604,7 +604,6 @@ const Icon = ({
           <text id={titleId} hidden>
             {title || defaultTitle}
           </text>
-          <title />
           {description && <desc id={descId}>{description}</desc>}
           <use xlinkHref={iconType} aria-hidden="true" />
         </svg>
