@@ -262,16 +262,23 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     }
 
     const isDisabled = disabled || loading;
+    const isOneOfTransparent =
+      type === BUTTON_TYPE.TRANSPARENT ||
+      type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
+      type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
+      type === BUTTON_TYPE.TRANSPARENT_PEACH ||
+      type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
+      type === BUTTON_TYPE.TRANSPARENT_BLUE;
 
     const btnClass = cx(
-      'relative inline-flex justify-center items-center rounded-[20px] whitespace-nowrap no-underline button-text-normal font-bold uppercase duration-200 ease-in-out cursor-pointer box-border [will-change:background-color,border-color] [transition-property:background-color,border-color]',
+      'relative inline-flex justify-center items-center whitespace-nowrap no-underline font-bold uppercase duration-200 ease-in-out cursor-pointer box-border [will-change:background-color,border-color] [transition-property:background-color,border-color]',
       {
         'rounded-[28px] h-l text-button-text-large': size === BUTTON_SIZE.L,
-        'px-[28px]': size === BUTTON_SIZE.L && !iconOnly,
-        'h-m': size === BUTTON_SIZE.M,
-        'px-[20px]': size === BUTTON_SIZE.M && !iconOnly,
+        'rounded-[20px] h-m button-text-normal': size === BUTTON_SIZE.M,
         'rounded-2xl h-s text-button-text-small': size === BUTTON_SIZE.S,
-        'px-s': size === BUTTON_SIZE.S && !iconOnly,
+        'px-[28px]': size === BUTTON_SIZE.L && !iconOnly && !isOneOfTransparent,
+        'px-[20px]': size === BUTTON_SIZE.M && !iconOnly && !isOneOfTransparent,
+        'px-s': size === BUTTON_SIZE.S && !iconOnly && !isOneOfTransparent,
         'text-white bg-black': type === BUTTON_TYPE.SOLID,
         'hover:bg-[#283037] focus:bg-[#283037] active:bg-[#283037] active:focus:bg-[#283037]':
           type === BUTTON_TYPE.SOLID && !disabled,
@@ -388,22 +395,8 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           (type === BUTTON_TYPE.TRANSPARENT_BLUE &&
             BUTTON_TOGGLE.BLUE &&
             !disabled),
-        'px-[14px]':
-          size === BUTTON_SIZE.L &&
-          (type === BUTTON_TYPE.TRANSPARENT ||
-            type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
-            type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
-            type === BUTTON_TYPE.TRANSPARENT_PEACH ||
-            type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
-            type === BUTTON_TYPE.TRANSPARENT_BLUE),
-        'px-xs':
-          size === BUTTON_SIZE.S &&
-          (type === BUTTON_TYPE.TRANSPARENT ||
-            type === BUTTON_TYPE.TRANSPARENT_LIGHT ||
-            type === BUTTON_TYPE.TRANSPARENT_INVERTED ||
-            type === BUTTON_TYPE.TRANSPARENT_PEACH ||
-            type === BUTTON_TYPE.TRANSPARENT_MUSTARD ||
-            type === BUTTON_TYPE.TRANSPARENT_BLUE),
+        'px-[14px]': size === BUTTON_SIZE.L && isOneOfTransparent,
+        'px-xs': size === BUTTON_SIZE.S && isOneOfTransparent,
       },
       className
     );
