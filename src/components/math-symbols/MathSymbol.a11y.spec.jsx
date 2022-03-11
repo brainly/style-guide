@@ -8,8 +8,7 @@ describe('MathSymbol', () => {
     const type = 'pi';
     const icon = render(<MathSymbol type={type} />);
 
-    expect(icon.getByTitle(type)).toBeTruthy();
-    expect(icon.getByRole('img')).toBeTruthy();
+    expect(icon.getByRole('img', {name: type})).toBeTruthy();
   });
 });
 
