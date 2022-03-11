@@ -289,7 +289,9 @@ const SubjectIcon = ({
 
   return (
     <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
-      <title id={titleId}>{title || defaultTitle}</title>
+      <text id={titleId} hidden>
+        {title || defaultTitle}
+      </text>
       <use xlinkHref={iconType} aria-hidden="true" />
     </svg>
   );

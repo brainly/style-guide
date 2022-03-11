@@ -14,7 +14,7 @@
             }
         </style>
     </defs>
-    <title>history</title>
+    
     <rect class="b" x="5.02" y="4.97" width="13.92" height="2.01" rx="0.5" ry="0.5" />
     <path class="c" d="M9,10.92a1,1,0,1,0-2,0V22H9Z" />
     <path class="c" d="M13,10.92a1,1,0,0,0-2,0V22h2Z" />
