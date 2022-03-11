@@ -1,17 +1,17 @@
-module.exports = function(gulp, plugins, consts) {
-  return function(done) {
+const sass = require('gulp-sass')(require('sass'));
+
+module.exports = function (gulp, plugins, consts) {
+  return function (done) {
     const sassFilesSrc = plugins.path.join(consts.SRC, 'sass', 'main.scss');
 
     gulp
       .src(sassFilesSrc)
       .pipe(plugins.sourcemaps.init())
       .pipe(
-        plugins
-          .sass({
-            outputStyle: 'compressed',
-            includePaths: ['node_modules/'],
-          })
-          .on('error', done)
+        sass({
+          outputStyle: 'compressed',
+          includePaths: ['node_modules/'],
+        }).on('error', done)
       )
       .pipe(
         plugins.autoprefixer({
