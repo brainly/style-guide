@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Primary colors
 $black: #000000;
 
@@ -203,7 +205,7 @@ $componentSizesSetup: (
 // Border radius
 $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
-$borderRadiusSmall: $borderRadiusDefault / 2;
+$borderRadiusSmall: math.div($borderRadiusDefault, 2);
 
 // Vertical stack
 $sgHeaderZIndex: 101;

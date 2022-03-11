@@ -1,3 +1,4 @@
+@use 'sass:math';
 $radioSizeXXS: componentSize(xxs);
 $radioSizeXS: componentSize(xs);
 $radioSizeS: componentSize(s);
@@ -77,8 +78,8 @@ $includeHtml: false !default;
         content: '';
         border-radius: 50%;
         background-color: $crInputColor;
-        width: $radioSizeXXS / 2;
-        height: $radioSizeXXS / 2;
+        width: math.div($radioSizeXXS, 2);
+        height: math.div($radioSizeXXS, 2);
       }
     }
 
@@ -109,8 +110,8 @@ $includeHtml: false !default;
         height: $radioSizeS;
 
         &::before {
-          width: $radioSizeS / 2;
-          height: $radioSizeS / 2;
+          width: math.div($radioSizeS, 2);
+          height: math.div($radioSizeS, 2);
         }
       }
     }
