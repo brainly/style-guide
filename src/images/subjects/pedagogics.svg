@@ -10,7 +10,7 @@
             }
         </style>
     </defs>
-    <title>pedagogics</title>
+    
     <rect class="b" x="2.03" y="3.99" width="20" height="14" rx="2" ry="2" />
     <circle class="c" cx="12" cy="8" r="2" />
     <path class="c" d="M15,13a3,3,0,0,0-6,0H9v5h6V13Z" />
