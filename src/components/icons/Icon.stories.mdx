@@ -1,9 +1,12 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../_docs/utils';
+import classnames from 'classnames';
 
 import Icon, {TYPE, ICON_TAG_TYPE, ICON_COLOR, SIZE} from './Icon';
 import IconA11y from './stories/Icon.a11y.mdx';
-import {Default, Types, Colors, Sizes} from './stories/stories';
+import Flex from '../flex/Flex';
+import Headline from '../text/Headline';
+import {getIconGroup} from './get-icon-group';
 
 <Meta
   title="Components/Icon"
@@ -47,12 +50,12 @@ import {Default, Types, Colors, Sizes} from './stories/stories';
 # Icon
 
 - [Stories](#stories)
-- [Accesibility](#accessibility)
+- [Accesibility](#icon-accessibility)
 
 ## Overview
 
 <Canvas>
-  <Story name="Default">{Default.bind({})}</Story>
+  <Story name="Default">{args => <Icon {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -62,19 +65,147 @@ import {Default, Types, Colors, Sizes} from './stories/stories';
 ### Types
 
 <Canvas>
-  <Story name="Types">{Types.bind({})}</Story>
+  <Story name="Types">
+    {args => {
+      const groups = Object.values(TYPE).reduce((acc, next) => {
+        const groupName = getIconGroup(next);
+        if (!acc[groupName]) {
+          acc[groupName] = [];
+        }
+        acc[groupName].push(next);
+        return acc;
+      }, {});
+      return (
+        <div>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+            style={{marginBottom: 10, marginLeft: 10}}
+          >
+            essential icons
+          </Headline>
+          <Flex wrap>
+            {groups['Essential'].map(type => (
+              <div className="sg-icon-story-variant" key={type}>
+                <Icon key={type} {...args} type={type} />
+              </div>
+            ))}
+          </Flex>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+            style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+          >
+            Editor and Media icons
+          </Headline>
+          <Flex wrap>
+            {groups['Editor and Media'].map(type => (
+              <div className="sg-icon-story-variant" key={type}>
+                <Icon key={type} {...args} type={type} />
+              </div>
+            ))}
+          </Flex>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+            style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+          >
+            social icons
+          </Headline>
+          <Flex wrap>
+            {groups['Social'].map(type => (
+              <div className="sg-icon-story-variant" key={type}>
+                <Icon key={type} {...args} type={type} />
+              </div>
+            ))}
+          </Flex>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+            style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+          >
+            social media icons
+          </Headline>
+          <Flex wrap>
+            {groups['Social Media'].map(type => (
+              <div className="sg-icon-story-variant" key={type}>
+                <Icon key={type} {...args} type={type} />
+              </div>
+            ))}
+          </Flex>
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-40"
+            size="medium"
+            style={{marginBottom: 10, marginLeft: 10, marginTop: 40}}
+          >
+            navigation icons
+          </Headline>
+          <Flex wrap>
+            {groups['Navigation'].map(type =>
+              type ? (
+                <div className="sg-icon-story-variant" key={type}>
+                  <Icon key={type} {...args} type={type} />
+                </div>
+              ) : null
+            )}
+          </Flex>
+        </div>
+      );
+    }}
+  </Story>
 </Canvas>
 
 ### Colors
 
 <Canvas>
-  <Story name="Colors">{Colors.bind({})}</Story>
+  <Story name="Colors">
+    {args => (
+      <Flex wrap>
+        {Object.values(ICON_COLOR).map(color => (
+          <div
+            key={color}
+            className={classnames('sg-icon-story-variant', {
+              'sg-story-variant-dark-box': color === ICON_COLOR['icon-white'],
+            })}
+            style={{padding: 10}}
+          >
+            <Icon {...args} color={color} />
+          </div>
+        ))}
+      </Flex>
+    )}
+  </Story>
 </Canvas>
 
 ### Sizes
 
 <Canvas>
-  <Story name="Sizes">{Sizes.bind({})}</Story>
+  <Story name="Sizes">
+    {args => (
+      <Flex alignItems="center">
+        {Object.values(SIZE).map(size => (
+          <div className="sg-icon-story-variant" key={size}>
+            <Icon {...args} size={size} />
+          </div>
+        ))}
+      </Flex>
+    )}
+  </Story>
 </Canvas>
 
 <IconA11y />
