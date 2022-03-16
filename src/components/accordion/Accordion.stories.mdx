@@ -2,21 +2,18 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import AccordionA11y from './stories/Accordion.a11y.mdx';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-
-export const copy = {
+const copy = {
   title: 'Is this title for accordion?',
   description:
     // eslint-disable-next-line max-len
     "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
 };
-
-export const CONTROLLED_ACCORDION_IDS = [
+const CONTROLLED_ACCORDION_IDS = [
   'accordion_item_1',
   'accordion_item_2',
   'accordion_item_3',
 ];
-
-export const storyItems = [
+const storyItems = [
   <AccordionItem title={copy.title} id="accordion-item-1" key="1">
     {copy.description}
   </AccordionItem>,
