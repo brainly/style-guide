@@ -1,5 +1,3 @@
-const sass = require('gulp-sass')(require('sass'));
-
 module.exports = function (gulp, plugins, consts) {
   return function (done) {
     const sassFilesSrc = plugins.path.join(consts.SRC, 'sass', 'main.scss');
@@ -8,10 +6,12 @@ module.exports = function (gulp, plugins, consts) {
       .src(sassFilesSrc)
       .pipe(plugins.sourcemaps.init())
       .pipe(
-        sass({
-          outputStyle: 'compressed',
-          includePaths: ['node_modules/'],
-        }).on('error', done)
+        plugins
+          .sass({
+            outputStyle: 'compressed',
+            includePaths: ['node_modules/'],
+          })
+          .on('error', done)
       )
       .pipe(
         plugins.autoprefixer({
