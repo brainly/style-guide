@@ -22,7 +22,7 @@ const Subjects = () => {
   return (
     <div>
       <DocsActiveBlock settings={settingsBox}>
-        <SubjectIconBox type={TYPE.ARTMUSIC} />
+        <SubjectIconBox type={TYPE.ART} />
       </DocsActiveBlock>
     </div>
   );
