@@ -1,3 +1,4 @@
+@use 'sass:math';
 $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
 
 .docs-active-block {
@@ -30,7 +31,7 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
   }
 
   &__label {
-    padding-left: gutter(1 / 3);
+    padding-left: gutter(math.div(1, 3));
   }
 
   &__component {
@@ -56,7 +57,7 @@ $docsActiveBlockTransparent: rgba(0, 0, 0, 0);
     width: 300px;
     border: none;
     border-left: solid $gray-70 1px;
-    padding-left: gutter(3 / 4);
+    padding-left: gutter(math.div(3, 4));
   }
 
   &__settings {
