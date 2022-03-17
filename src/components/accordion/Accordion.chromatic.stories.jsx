@@ -1,6 +1,8 @@
-import * as Accordion from './Accordion.stories.jsx';
+import * as Accordion from './Accordion.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Accordion);
 
-export default Accordion.default;
+const {includeStories, ...meta} = Accordion.default;
+
+export default meta;
