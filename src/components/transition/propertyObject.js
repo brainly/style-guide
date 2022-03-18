@@ -41,17 +41,17 @@ const DEFAULT_SCALE_VALUE = '1';
 
 export type ParsedPropertyObjectType = $ReadOnly<{
   className: string,
-  opacity: {
-    easing: string,
-    duration: string,
-    value: string,
-  },
   transform: {
     easing: string,
     duration: string,
     translateX: string,
     translateY: string,
     scale: string,
+    value: string,
+  },
+  opacity: {
+    easing: string,
+    duration: string,
     value: string,
   },
 }>;
@@ -69,6 +69,14 @@ export function parsePropertyObject({
 
   return {
     className: className || '',
+    transform: {
+      easing: getEasingValue((transform && transform.easing) || easing),
+      duration: getDurationValue((transform && transform.duration) || duration),
+      translateX,
+      translateY,
+      scale,
+      value: getTransformValue({translateX, translateY, scale}),
+    },
     opacity: {
       easing: getEasingValue(
         (typeof opacity === 'object' && opacity.easing) || easing
@@ -79,14 +87,6 @@ export function parsePropertyObject({
       value: getOpacityValue(
         typeof opacity === 'object' ? opacity.value : opacity
       ),
-    },
-    transform: {
-      easing: getEasingValue((transform && transform.easing) || easing),
-      duration: getDurationValue((transform && transform.duration) || duration),
-      translateX,
-      translateY,
-      scale,
-      value: getTransformValue({translateX, translateY, scale}),
     },
   };
 }

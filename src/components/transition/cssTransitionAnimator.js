@@ -6,7 +6,7 @@ import type {EffectAnimatorType} from './effectAnimator';
 import type {PropertyObjectType} from './Transition';
 
 export function createCSSTransitionAnimator(): EffectAnimatorType {
-  const PROPERTIES = ['opacity', 'transform'];
+  const PROPERTIES = ['transform', 'opacity'];
   const NO_REMAINING_PROPERTIES = 0;
 
   /**
@@ -50,7 +50,7 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
     element: HTMLElement,
     props: ParsedPropertyObjectType
   ) {
-    const {className, opacity, transform} = props;
+    const {className, transform, opacity} = props;
 
     // by using arrays, we keep the same property
     // order in each transition-* related style

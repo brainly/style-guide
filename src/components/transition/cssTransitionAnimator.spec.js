@@ -36,11 +36,22 @@ describe('createCSSTransitionAnimator()', () => {
     const animator = createCSSTransitionAnimator();
     const {element, getStylesHistory} = createMockedElement();
 
-    const from = {translateY: 24, opacity: 0};
-    const to = [
-      {translateY: 0, easing: 'entry', duration: 'moderate2'},
-      {opacity: 1, easing: 'linear', duration: 'quick2'},
-    ];
+    const from = {
+      transform: {translateY: 24},
+      opacity: 0,
+    };
+    const to = {
+      transform: {
+        translateY: 0,
+        easing: 'entry',
+        duration: 'moderate2',
+      },
+      opacity: {
+        value: 1,
+        easing: 'linear',
+        duration: 'quick2',
+      },
+    };
 
     animator.animate(element, from, to);
     expect(getStylesHistory()).toEqual([
@@ -57,35 +68,6 @@ describe('createCSSTransitionAnimator()', () => {
         transitionProperty: 'transform, opacity',
         transitionDuration: '260ms, 120ms',
         transitionTimingFunction: 'cubic-bezier(0.1, 0, 0, 1), linear',
-      },
-    ]);
-  });
-
-  it('merges PropertyObjects where next may override the previous one', () => {
-    const animator = createCSSTransitionAnimator();
-    const {element, getStylesHistory} = createMockedElement();
-
-    const from = {translateY: 24};
-    const to = [
-      {translateX: 10, duration: 'moderate2'},
-      {translateY: 10, duration: 'quick2'},
-    ];
-
-    animator.animate(element, from, to);
-    expect(getStylesHistory()).toEqual([
-      {
-        transform: 'translate3d(0px, 24px, 0px) scale3d(1, 1, 1)',
-        opacity: '1',
-        transitionProperty: 'transform, opacity',
-        transitionDuration: '0ms',
-        transitionTimingFunction: 'cubic-bezier(0.35, 0, 0.1, 1)',
-      },
-      {
-        transform: 'translate3d(10px, 10px, 0px) scale3d(1, 1, 1)',
-        opacity: '1',
-        transitionProperty: 'transform, opacity',
-        transitionDuration: '120ms, 0ms',
-        transitionTimingFunction: 'cubic-bezier(0.35, 0, 0.1, 1)',
       },
     ]);
   });
