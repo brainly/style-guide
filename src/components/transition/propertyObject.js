@@ -70,22 +70,22 @@ export function parsePropertyObject({
   return {
     className: className || '',
     transform: {
+      value: getTransformValue({translateX, translateY, scale}),
       easing: getEasingValue((transform && transform.easing) || easing),
       duration: getDurationValue((transform && transform.duration) || duration),
       translateX,
       translateY,
       scale,
-      value: getTransformValue({translateX, translateY, scale}),
     },
     opacity: {
+      value: getOpacityValue(
+        typeof opacity === 'object' ? opacity.value : opacity
+      ),
       easing: getEasingValue(
         (typeof opacity === 'object' && opacity.easing) || easing
       ),
       duration: getDurationValue(
         (typeof opacity === 'object' && opacity.duration) || duration
-      ),
-      value: getOpacityValue(
-        typeof opacity === 'object' ? opacity.value : opacity
       ),
     },
   };
