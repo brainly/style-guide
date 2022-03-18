@@ -1,3 +1,4 @@
+@use 'sass:math';
 $buttonRoundColor: $green-40;
 $buttonRoundBoxShadow: $shadowSmall;
 $buttonHRoundHoverBoxShadow: $shadowMedium;
@@ -56,8 +57,8 @@ $includeHtml: false !default;
       font-size: $buttonRoundLabelFontSize;
       border-radius: 5px;
       line-height: rhythm(1);
-      padding: 0 gutter(1 / 2);
-      margin-right: gutter(1 / 6);
+      padding: 0 gutter(math.div(1, 2));
+      margin-right: gutter(math.div(1, 6));
       background: $buttonRoundLabelBackground;
       color: $buttonRoundAddColor;
       box-shadow: $buttonRoundBoxShadow;

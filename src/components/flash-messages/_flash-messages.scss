@@ -1,3 +1,4 @@
+@use 'sass:math';
 .sg-flash {
   display: flex;
   align-items: center;
@@ -11,7 +12,7 @@
     background-color: $blue-30;
     min-height: rhythm(1);
     width: 100%;
-    padding: rhythm(1/4);
+    padding: rhythm(math.div(1, 4));
 
     &--error {
       background-color: $red-30;

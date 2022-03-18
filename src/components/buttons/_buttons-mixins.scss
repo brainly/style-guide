@@ -1,3 +1,4 @@
+@use 'sass:math';
 $buttonAltColor: $blue-40;
 $buttonDarkColor: $black;
 
@@ -223,7 +224,7 @@ $buttonPrimaryFbHoverColor: #4367a9;
   }
 
   &--fb {
-    padding: 0 $buttonPrimaryPadding 0 ($buttonPrimaryPadding / 2);
+    padding: 0 $buttonPrimaryPadding 0 math.div($buttonPrimaryPadding, 2);
     background-color: $buttonPrimaryFbColor;
 
     &:hover,

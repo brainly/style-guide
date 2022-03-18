@@ -1,5 +1,5 @@
-module.exports = function(gulp, plugins, consts) {
-  return function(done) {
+module.exports = function (gulp, plugins, consts) {
+  return function (done) {
     const sassFilesSrc = plugins.path.join(consts.SRC, 'sass', 'main.scss');
 
     gulp

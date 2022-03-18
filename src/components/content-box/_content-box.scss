@@ -1,3 +1,4 @@
+@use 'sass:math';
 $includeHtml: false !default;
 
 @if ($includeHtml) {
@@ -98,15 +99,15 @@ $includeHtml: false !default;
       }
 
       &--spaced-bottom-small {
-        margin-bottom: rhythm(1 / 3);
+        margin-bottom: rhythm(math.div(1, 3));
       }
 
       &--spaced-bottom-xsmall {
-        margin-bottom: rhythm(1 / 4);
+        margin-bottom: rhythm(math.div(1, 4));
       }
 
       &--spaced-bottom-xxsmall {
-        margin-bottom: rhythm(1 / 6);
+        margin-bottom: rhythm(math.div(1, 6));
       }
 
       &--spaced-bottom-large {
@@ -126,15 +127,15 @@ $includeHtml: false !default;
       }
 
       &--spaced-top-small {
-        margin-top: rhythm(1 / 3);
+        margin-top: rhythm(math.div(1, 3));
       }
 
       &--spaced-top-xsmall {
-        margin-top: rhythm(1 / 4);
+        margin-top: rhythm(math.div(1, 4));
       }
 
       &--spaced-top-xxsmall {
-        margin-top: rhythm(1 / 6);
+        margin-top: rhythm(math.div(1, 6));
       }
 
       &--spaced-top-large {

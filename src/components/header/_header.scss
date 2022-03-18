@@ -1,3 +1,4 @@
+@use 'sass:math';
 $headerHeight: rhythm(2.5); // 60px;
 
 $includeHtml: false !default;
@@ -28,7 +29,7 @@ $includeHtml: false !default;
       width: 100%;
       height: $headerHeight;
       max-width: $layoutMaximumWidth;
-      padding: 0 gutter(1 / 2);
+      padding: 0 gutter(math.div(1, 2));
       margin: auto;
       align-items: center;
 
