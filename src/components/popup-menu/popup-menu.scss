@@ -1,7 +1,8 @@
+@use 'sass:math';
 $sgPopupMenuBackground: $white;
-$sgPopupMenuPadding: rhythm(1 / 2);
-$sgPopupMenuTriangleBorder: rhythm(1 / 3);
-$sgPopupMenuHeight: rhythm(22 / 12); // 44px
+$sgPopupMenuPadding: rhythm(math.div(1, 2));
+$sgPopupMenuTriangleBorder: rhythm(math.div(1, 3));
+$sgPopupMenuHeight: rhythm(math.div(22, 12)); // 44px
 
 $includeHtml: false !default;
 

@@ -4,8 +4,14 @@ const gulp = require('gulp');
 const argv = require('yargs').argv;
 const path = require('path');
 const pkg = require('./package');
+const sassCompiler = require('sass');
 const plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*'],
+  postRequireTransforms: {
+    sass(sass) {
+      return sass(sassCompiler);
+    },
+  },
 });
 const CONSTANTS = require('./scripts/constants');
 

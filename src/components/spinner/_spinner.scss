@@ -1,3 +1,4 @@
+@use 'sass:math';
 .sg-spinner {
   background-color: transparent;
   border: 3px solid $gray-70;
@@ -5,14 +6,14 @@
   border-top-color: transparent;
   border-right-color: transparent;
   display: inline-block;
-  width: gutter(4 / 3);
-  height: gutter(4 / 3);
+  width: gutter(math.div(4, 3));
+  height: gutter(math.div(4, 3));
   box-sizing: border-box;
   animation: spinner-animation 0.65s infinite linear;
 
   &--small {
-    width: gutter(4 / 3);
-    height: gutter(4 / 3);
+    width: gutter(math.div(4, 3));
+    height: gutter(math.div(4, 3));
   }
 
   &--xsmall {
@@ -21,8 +22,8 @@
   }
 
   &--xxsmall {
-    width: gutter(2 / 3);
-    height: gutter(2 / 3);
+    width: gutter(math.div(2, 3));
+    height: gutter(math.div(2, 3));
     border-width: 2px;
   }
 
