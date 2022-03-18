@@ -121,13 +121,14 @@ describe('<Flex>', () => {
     ).toEqual(true);
   });
 
-  it('renders component with set margin', () => {
-    const component = shallow(
-      <Flex margin={FLEX_MARGINS.LARGE}>{children}</Flex>
-    );
+  test.each(Object.values(FLEX_MARGINS))(
+    'when margin prop is %i, class sg-flex--margin-%i should exist',
+    margin => {
+      const component = shallow(<Flex margin={margin}>{children}</Flex>);
 
-    expect(component.hasClass('sg-flex--margin-l')).toEqual(true);
-  });
+      expect(component.hasClass(`sg-flex--margin-${margin}`)).toEqual(true);
+    }
+  );
 
   it('margin is responsive prop', () => {
     const component = shallow(
@@ -150,15 +151,16 @@ describe('<Flex>', () => {
     ).toEqual(true);
   });
 
-  it('renders component with set margin top', () => {
-    const component = shallow(
-      <Flex marginTop={FLEX_MARGINS.LARGE}>{children}</Flex>
-    );
+  test.each(Object.values(FLEX_MARGINS))(
+    'when marginTop prop is %i, class sg-flex--margin-top-%i should exist',
+    margin => {
+      const component = shallow(<Flex marginTop={margin}>{children}</Flex>);
 
-    expect(component.hasClass('sg-flex--margin-top-l')).toEqual(true);
-  });
+      expect(component.hasClass(`sg-flex--margin-top-${margin}`)).toEqual(true);
+    }
+  );
 
-  it('margin top is responsive prop', () => {
+  it('marginTop is responsive prop', () => {
     const component = shallow(
       <Flex
         marginTop={[
@@ -179,15 +181,18 @@ describe('<Flex>', () => {
     ).toEqual(true);
   });
 
-  it('renders component with set margin right', () => {
-    const component = shallow(
-      <Flex marginRight={FLEX_MARGINS.LARGE}>{children}</Flex>
-    );
+  test.each(Object.values(FLEX_MARGINS))(
+    'when marginRight prop is %i, class sg-flex--margin-right-%i should exist',
+    margin => {
+      const component = shallow(<Flex marginRight={margin}>{children}</Flex>);
 
-    expect(component.hasClass('sg-flex--margin-right-l')).toEqual(true);
-  });
+      expect(component.hasClass(`sg-flex--margin-right-${margin}`)).toEqual(
+        true
+      );
+    }
+  );
 
-  it('margin right is responsive prop', () => {
+  it('marginRight is responsive prop', () => {
     const component = shallow(
       <Flex
         marginRight={[
@@ -208,15 +213,18 @@ describe('<Flex>', () => {
     ).toEqual(true);
   });
 
-  it('renders component with set margin bottom', () => {
-    const component = shallow(
-      <Flex marginBottom={FLEX_MARGINS.LARGE}>{children}</Flex>
-    );
+  test.each(Object.values(FLEX_MARGINS))(
+    'when marginBottom prop is %i, class sg-flex--margin-bottom-%i should exist',
+    margin => {
+      const component = shallow(<Flex marginBottom={margin}>{children}</Flex>);
 
-    expect(component.hasClass('sg-flex--margin-bottom-l')).toEqual(true);
-  });
+      expect(component.hasClass(`sg-flex--margin-bottom-${margin}`)).toEqual(
+        true
+      );
+    }
+  );
 
-  it('margin bottom is responsive prop', () => {
+  it('marginBottom is responsive prop', () => {
     const component = shallow(
       <Flex
         marginBottom={[
@@ -237,15 +245,18 @@ describe('<Flex>', () => {
     ).toEqual(true);
   });
 
-  it('renders component with set margin left', () => {
-    const component = shallow(
-      <Flex marginLeft={FLEX_MARGINS.LARGE}>{children}</Flex>
-    );
+  test.each(Object.values(FLEX_MARGINS))(
+    'when marginLeft prop is %i, class sg-flex--margin-left-%i should exist',
+    margin => {
+      const component = shallow(<Flex marginLeft={margin}>{children}</Flex>);
 
-    expect(component.hasClass('sg-flex--margin-left-l')).toEqual(true);
-  });
+      expect(component.hasClass(`sg-flex--margin-left-${margin}`)).toEqual(
+        true
+      );
+    }
+  );
 
-  it('margin left is responsive prop', () => {
+  it('marginLeft is responsive prop', () => {
     const component = shallow(
       <Flex
         marginLeft={[

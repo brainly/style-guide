@@ -1,8 +1,8 @@
-# Dialog accessibility
+## Dialog accessibility
 
-<br/>
+### Rules
 
-## Dialog
+#### Dialog
 
 | Pattern                                                                        | Comment                                                                                                                                                                                                                                                 | Status                                   |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
@@ -19,23 +19,16 @@
 | **Can** have a button that closes the dialog                                   | `<DialogCloseButton/>`                                                                                                                                                                                                                                  | Implementation: DONE<br />Tests: DONE    |
 | **Can** have an accessible description                                         | Can be described by a value (`IDREF`) set for the `aria-describedby` prop that refers to a visible dialog description.                                                                                                                                  | Implementation: DONE<br />Tests: DONE    |
 
-<br/>
-
-## DialogCloseButton
+#### DialogCloseButton
 
 | Pattern                                 | Comment                                                                       | Status                                   |
 | --------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------- |
 | **Should** have an accessible name      | `<DialogCloseButton/>` `aria-label` defaults to `'Close this dialog window'`. | Implementation: DONE<br />Tests: DONE    |
 | **Should** have distinctive focus style | Browser focus style is used                                                   | Implementation: DONE<br />Tests: BLOCKED |
 
-<br/>
-<br/>
+### Usage
 
-## Usage
-
-<br/>
-
-### Code examples
+#### Code examples
 
 - with label only
 
