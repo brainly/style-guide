@@ -1,31 +1,12 @@
 // @flow strict
 
-import {parseTransitionEffectPhase} from './propertyObject';
+import {parsePropertyObject} from './propertyObject';
 import type {ParsedPropertyObjectType} from './propertyObject';
-import type {TransitionEffectAnimatorType} from './effectAnimator';
-import type {TransitionEffectPhaseType} from './Transition';
+import type {EffectAnimatorType} from './effectAnimator';
+import type {PropertyObjectType} from './Transition';
 
-type CSSTransitionStylesType = {
-  classNames: Array<string>,
-  properties: {
-    transform: {
-      value: string,
-      duration: string,
-      timingFunction: string,
-      translateX: string,
-      translateY: string,
-      scale: string,
-    },
-    opacity: {
-      value: string,
-      duration: string,
-      timingFunction: string,
-    },
-  },
-};
-
-export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
-  const IDLE_STYLES = buildTransitionStyles(parseTransitionEffectPhase({}));
+export function createCSSTransitionAnimator(): EffectAnimatorType {
+  const PROPERTIES = ['opacity', 'transform'];
   const NO_REMAINING_PROPERTIES = 0;
 
   /**
@@ -41,40 +22,35 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
 
   function animate(
     element: HTMLElement,
-    from?: TransitionEffectPhaseType,
-    to?: TransitionEffectPhaseType
+    from?: PropertyObjectType,
+    to?: PropertyObjectType
   ) {
-    let fromStyles = IDLE_STYLES;
-    let toStyles = IDLE_STYLES;
+    let fromProps = parsePropertyObject({});
+    let toProps = parsePropertyObject({});
 
     if (from !== undefined) {
-      fromStyles = buildTransitionStyles(parseTransitionEffectPhase(from));
-      addElementStyles(element, fromStyles);
+      fromProps = parsePropertyObject(from);
+      addElementStyles(element, fromProps);
       forceRepaint(element);
     }
 
     if (to !== undefined) {
-      toStyles = buildTransitionStyles(parseTransitionEffectPhase(to));
-      addElementStyles(element, toStyles);
+      toProps = parsePropertyObject(to);
+      addElementStyles(element, toProps);
     }
 
-    remainingPropertiesToChange = Object.keys(IDLE_STYLES.properties).reduce(
-      (sum, prop) => {
-        const fromProperty = fromStyles.properties[prop];
-        const toProperty = toStyles.properties[prop];
-        const willPropertyChange = fromProperty.value !== toProperty.value;
+    remainingPropertiesToChange = PROPERTIES.reduce((sum, prop) => {
+      const willPropertyChange = fromProps[prop].value !== toProps[prop].value;
 
-        return sum + Number(willPropertyChange);
-      },
-      NO_REMAINING_PROPERTIES
-    );
+      return sum + Number(willPropertyChange);
+    }, NO_REMAINING_PROPERTIES);
   }
 
   function addElementStyles(
     element: HTMLElement,
-    styles: CSSTransitionStylesType
+    props: ParsedPropertyObjectType
   ) {
-    const {classNames, properties} = styles;
+    const {className, opacity, transform} = props;
 
     // by using arrays, we keep the same property
     // order in each transition-* related style
@@ -82,15 +58,15 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
     const transitionDuration = [];
     const transitionTimingFunction = [];
 
-    Object.keys(properties).forEach(prop => {
+    PROPERTIES.forEach(prop => {
       transitionProperty.push(prop);
-      transitionDuration.push(properties[prop].duration);
-      transitionTimingFunction.push(properties[prop].timingFunction);
+      transitionDuration.push(props[prop].duration);
+      transitionTimingFunction.push(props[prop].easing);
     });
 
-    element.className = classNames.join(' ');
-    element.style.transform = properties.transform.value;
-    element.style.opacity = properties.opacity.value;
+    element.className = className;
+    element.style.transform = transform.value;
+    element.style.opacity = opacity.value;
     element.style.transitionProperty = buildTransitionValue(transitionProperty);
     element.style.transitionDuration = buildTransitionValue(transitionDuration);
     element.style.transitionTimingFunction = buildTransitionValue(
@@ -109,106 +85,6 @@ export function createCSSTransitionAnimator(): TransitionEffectAnimatorType {
 
   function forceRepaint(element: HTMLElement) {
     element.offsetHeight;
-  }
-
-  function buildTransitionStyles(
-    propertyObjects: Array<ParsedPropertyObjectType>
-  ) {
-    const [first] = propertyObjects;
-
-    // initialize all fields as default
-    const result: CSSTransitionStylesType = {
-      classNames: [],
-      properties: {
-        transform: {
-          value: '',
-          duration: first.duration.default,
-          timingFunction: first.easing.default,
-          translateX: first.translateX.default,
-          translateY: first.translateY.default,
-          scale: first.scale.default,
-        },
-        opacity: {
-          value: first.opacity.default,
-          duration: first.duration.default,
-          timingFunction: first.easing.default,
-        },
-      },
-    };
-
-    /**
-     * CSS Transition does not support composite (additive) mode
-     * and all components (e.g. x, y, or scale) should be merged
-     * on a single timeline (duration and timing-function).
-     *
-     * This can be achieved by "moving" all components to the last
-     * timeline where the last component occurred.
-     *
-     * @example
-     * const before = [
-     *   {translateX: '10px', duration: '10ms'},
-     *   {translateY: '20px', duration: '20ms'},
-     * ];
-     *
-     * const after = [
-     *   {translateX: '10px', translateY: '20px', duration: '20ms'},
-     * ];
-     */
-    for (let i = 0; i < propertyObjects.length; i++) {
-      let shouldUpdateTransformTimeline = false;
-
-      const {
-        className,
-        easing,
-        duration,
-        translateX,
-        translateY,
-        opacity,
-        scale,
-      } = propertyObjects[i];
-
-      if (className !== '') {
-        result.classNames.push(className);
-      }
-
-      if (translateX.initial !== undefined) {
-        result.properties.transform.translateX = translateX.value;
-        shouldUpdateTransformTimeline = true;
-      }
-
-      if (translateY.initial !== undefined) {
-        result.properties.transform.translateY = translateY.value;
-        shouldUpdateTransformTimeline = true;
-      }
-
-      if (scale.initial !== undefined) {
-        result.properties.transform.scale = scale.value;
-        shouldUpdateTransformTimeline = true;
-      }
-
-      if (shouldUpdateTransformTimeline) {
-        result.properties.transform.duration = duration.value;
-        result.properties.transform.timingFunction = easing.value;
-      }
-
-      if (opacity.initial !== undefined) {
-        result.properties.opacity = {
-          value: opacity.value,
-          duration: duration.value,
-          timingFunction: easing.value,
-        };
-      }
-    }
-
-    result.properties.transform.value = buildTransformValue(
-      result.properties.transform
-    );
-
-    return result;
-  }
-
-  function buildTransformValue({translateX, translateY, scale}) {
-    return `translate3d(${translateX}, ${translateY}, 0px) scale3d(${scale}, ${scale}, 1)`;
   }
 
   function buildTransitionValue(values: Array<string>): string {

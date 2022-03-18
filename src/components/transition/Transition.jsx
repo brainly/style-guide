@@ -1,20 +1,16 @@
 // @flow strict
 
 import * as React from 'react';
-import type {TransitionEffectAnimatorType} from './effectAnimator';
+import type {EffectAnimatorType} from './effectAnimator';
 import {createCSSTransitionAnimator} from './cssTransitionAnimator';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
 
-export type TransitionPredefinedEasingType =
-  | 'regular'
-  | 'entry'
-  | 'exit'
-  | 'linear';
+export type PredefinedEasingType = 'regular' | 'entry' | 'exit' | 'linear';
 
-export type TransitionPredefinedDurationType =
+export type PredefinedDurationType =
   | 'instant'
   | 'quick1'
   | 'quick2'
@@ -23,69 +19,65 @@ export type TransitionPredefinedDurationType =
   | 'gentle1'
   | 'gentle2';
 
-export type TransitionPredefinedTranslateType =
-  | 'xxs'
-  | 'xs'
-  | 's'
-  | 'm'
-  | 'l'
-  | 'xl';
+export type PredefinedTranslateType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-export type TransitionEasingType = TransitionPredefinedEasingType;
+/**
+ * Props representing a single motion of a transition.
+ */
+type SingleMotionPropsType = $ReadOnly<{
+  easing?: PredefinedEasingType,
+  /**
+   * The `number` type represents the value in milliseconds [ms].
+   */
+  duration?: PredefinedDurationType | number,
+}>;
 
-export type TransitionDurationType = TransitionPredefinedDurationType | number;
-
-export type TransitionTranslateType =
-  | TransitionPredefinedTranslateType
-  | number
-  | string;
-
-export type TransitionPropertyObjectType = $ReadOnly<{
+export type PropertyObjectType = $ReadOnly<{
+  /**
+   * Parent motion props will be overwritten with child props.
+   */
+  ...SingleMotionPropsType,
   /**
    * Already existing custom classes.
    */
   className?: string,
-  easing?: TransitionEasingType,
-  /**
-   * The `number` type represents the value in milliseconds [ms].
-   */
-  duration?: TransitionDurationType,
-  /**
-   * The `number` type represents the value in pixels [px].
-   */
-  translateX?: TransitionTranslateType,
-  /**
-   * The `number` type represents the value in pixels [px].
-   */
-  translateY?: TransitionTranslateType,
-  opacity?: number,
-  scale?: number,
+  transform?: $ReadOnly<{
+    ...SingleMotionPropsType,
+    /**
+     * The `number` type represents the value in pixels [px].
+     */
+    translateX?: PredefinedTranslateType | number | string,
+    /**
+     * The `number` type represents the value in pixels [px].
+     */
+    translateY?: PredefinedTranslateType | number | string,
+    scale?: number,
+  }>,
+  opacity?:
+    | number
+    | $ReadOnly<{
+        ...SingleMotionPropsType,
+        value: number,
+      }>,
 }>;
 
-/**
- * As an array to composite different transitions into one motion.
- */
-export type TransitionEffectPhaseType =
-  | TransitionPropertyObjectType
-  | Array<TransitionPropertyObjectType>;
-
-export type TransitionEffectType = $ReadOnly<{
-  initial?: TransitionEffectPhaseType,
-  animate?: TransitionEffectPhaseType,
-  exit?: TransitionEffectPhaseType,
+type EffectType = $ReadOnly<{
+  initial?: PropertyObjectType,
+  animate?: PropertyObjectType,
+  exit?: PropertyObjectType,
 }>;
 
-export type TransitionMotionPropsType = $ReadOnly<{
+type TransitionTriggerPropsType = $ReadOnly<{
   active: boolean,
-  effect: TransitionEffectType | null,
+  effect: EffectType | null,
 }>;
 
 export type TransitionPropsType = $ReadOnly<{
-  ...TransitionMotionPropsType,
+  ...TransitionTriggerPropsType,
   delay?: number,
   children: React.Node,
-  onTransitionStart?: (effect: TransitionEffectType) => void,
-  onTransitionEnd?: (effect: TransitionEffectType) => void,
+  onTransitionStart?: (effect: EffectType) => void,
+  onTransitionEnd?: (effect: EffectType) => void,
 }>;
 
 function BaseTransition({
@@ -99,7 +91,7 @@ function BaseTransition({
   onTransitionEnd,
 }: TransitionPropsType) {
   const containerRef = React.useRef(null);
-  const animator = React.useMemo<TransitionEffectAnimatorType>(
+  const animator = React.useMemo<EffectAnimatorType>(
     () => createCSSTransitionAnimator(),
     []
   );
@@ -118,7 +110,7 @@ function BaseTransition({
    * applied to the actual DOM, and subsequent renders of
    * the virtual DOM should not have a visual result.
    */
-  const previouslyAppliedProps = React.useRef<TransitionMotionPropsType>({
+  const previouslyAppliedProps = React.useRef<TransitionTriggerPropsType>({
     active: false,
     effect: null,
   });
@@ -191,7 +183,7 @@ export default function Transition({
   }
 
   const handleTransitionEnd = React.useCallback(
-    (effect: TransitionEffectType) => {
+    (effect: EffectType) => {
       if (!active) {
         setMounted(false);
       }
@@ -220,9 +212,9 @@ function applyTransitionEffect({
   animator,
 }: {
   element: HTMLElement,
-  prevProps: TransitionMotionPropsType,
-  currentProps: TransitionMotionPropsType,
-  animator: TransitionEffectAnimatorType,
+  prevProps: TransitionTriggerPropsType,
+  currentProps: TransitionTriggerPropsType,
+  animator: EffectAnimatorType,
 }) {
   const {effect} = currentProps;
 
