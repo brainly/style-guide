@@ -30,12 +30,22 @@ export default {
   args: {
     effect: {
       initial: {
-        transform: {translateY: 24},
+        transform: {
+          translateY: 24,
+        },
         opacity: 0,
       },
       animate: {
-        transform: {translateY: 0, duration: 'moderate2', easing: 'entry'},
-        opacity: {value: 1, duration: 'quick2', easing: 'linear'},
+        transform: {
+          translateY: 0,
+          duration: 'moderate2',
+          easing: 'entry',
+        },
+        opacity: {
+          value: 1,
+          duration: 'quick2',
+          easing: 'linear',
+        },
       },
       exit: {
         opacity: 0,
