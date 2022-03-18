@@ -57,6 +57,7 @@ type FlexAlignmentValuesType =
   | 'stretch';
 
 type FlexMarginsType =
+  | 'none'
   | 'xxs'
   | 'xs'
   | 's'
@@ -196,35 +197,35 @@ export type FlexPropsType = {
    */
   wrapReverse?: ResponsivePropType<boolean>,
   /**
-   * Specify margin for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * Specify margin for flex based on spacings: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex margin="m">
    *            component content
    *          </Flex>
    */
   margin?: ResponsivePropType<FlexMarginsType>,
   /**
-   * Specify margin top for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * Specify margin top for flex based on spacings: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginTop="m">
    *            component content
    *          </Flex>
    */
   marginTop?: ResponsivePropType<FlexMarginsType>,
   /**
-   * Specify margin right for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * Specify margin right for flex based on spacings: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginRight="m">
    *            component content
    *          </Flex>
    */
   marginRight?: ResponsivePropType<FlexMarginsType>,
   /**
-   * Specify margin bottom for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * Specify margin bottom for flex based on spacings: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginBottom="m">
    *            component content
    *          </Flex>
    */
   marginBottom?: ResponsivePropType<FlexMarginsType>,
   /**
-   * Specify margin left for flex based on spacings: xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
+   * Specify margin left for flex based on spacings: none: 0px, xxs: 4px, xs: 8px, s: 16px, m: 24px, l: 40px, xl: 64px, xxl: 104px, xxxl: 168px, xxxxl: 272px
    * @example <Flex marginLeft="m">
    *            component content
    *          </Flex>
