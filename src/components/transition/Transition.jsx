@@ -83,8 +83,6 @@ export type TransitionPropsType = $ReadOnly<{
 function BaseTransition({
   active,
   effect,
-  // todo: implement delay of transition phases
-  // eslint-disable-next-line no-unused-vars
   delay = 0,
   children,
   onTransitionStart,
@@ -120,32 +118,41 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   React.useLayoutEffect(() => {
-    const currentProps = {active, effect};
-    const element = containerRef.current;
+    /**
+     * Parental component will delay mounting on active
+     * change so child should not wait once again.
+     */
+    const alreadyPerformedDelay =
+      previouslyAppliedProps.current.active === false && active === true;
 
-    if (!element) {
-      return;
-    }
+    return afterDelay(alreadyPerformedDelay ? 0 : delay, () => {
+      const currentProps = {active, effect};
+      const element = containerRef.current;
 
-    if (onTransitionStartRef.current && effect) {
-      onTransitionStartRef.current(effect);
-    }
-
-    if (!supportsTransitions()) {
-      if (onTransitionEndRef.current && effect) {
-        onTransitionEndRef.current(effect);
+      if (!element) {
+        return;
       }
-    } else {
-      applyTransitionEffect({
-        element,
-        prevProps: previouslyAppliedProps.current,
-        currentProps,
-        animator,
-      });
-    }
 
-    previouslyAppliedProps.current = currentProps;
-  }, [animator, active, effect]);
+      if (onTransitionStartRef.current && effect) {
+        onTransitionStartRef.current(effect);
+      }
+
+      if (!supportsTransitions()) {
+        if (onTransitionEndRef.current && effect) {
+          onTransitionEndRef.current(effect);
+        }
+      } else {
+        applyTransitionEffect({
+          element,
+          prevProps: previouslyAppliedProps.current,
+          currentProps,
+          animator,
+        });
+      }
+
+      previouslyAppliedProps.current = currentProps;
+    });
+  }, [animator, active, effect, delay]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
@@ -173,14 +180,19 @@ function BaseTransition({
 
 export default function Transition({
   active,
+  delay = 0,
   onTransitionEnd,
   ...otherProps
 }: TransitionPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(active);
 
-  if (active && !mounted) {
-    setMounted(true);
-  }
+  React.useLayoutEffect(() => {
+    return afterDelay(delay, () => {
+      if (active) {
+        setMounted(true);
+      }
+    });
+  }, [delay, active]);
 
   const handleTransitionEnd = React.useCallback(
     (effect: EffectType) => {
@@ -201,6 +213,7 @@ export default function Transition({
       {...otherProps}
       onTransitionEnd={handleTransitionEnd}
       active={active}
+      delay={delay}
     />
   ) : null;
 }
@@ -239,4 +252,14 @@ function applyTransitionEffect({
   }
 
   return animator.cleanup(element);
+}
+
+function afterDelay(delay: number, callback: () => void) {
+  if (delay > 0) {
+    const timeoutId = setTimeout(callback, delay);
+
+    return () => clearTimeout(timeoutId);
+  }
+
+  callback();
 }

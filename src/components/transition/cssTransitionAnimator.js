@@ -7,6 +7,7 @@ import type {PropertyObjectType} from './Transition';
 
 export function createCSSTransitionAnimator(): EffectAnimatorType {
   const PROPERTIES = ['transform', 'opacity'];
+  const DEFAULT_PARSED_PROPS = parsePropertyObject({});
   const NO_REMAINING_PROPERTIES = 0;
 
   /**
@@ -25,8 +26,8 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
     from?: PropertyObjectType,
     to?: PropertyObjectType
   ) {
-    let fromProps = parsePropertyObject({});
-    let toProps = parsePropertyObject({});
+    let fromProps = DEFAULT_PARSED_PROPS;
+    let toProps = DEFAULT_PARSED_PROPS;
 
     if (from !== undefined) {
       fromProps = parsePropertyObject(from);
