@@ -118,14 +118,7 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   React.useLayoutEffect(() => {
-    /**
-     * Parental component will delay mounting on active
-     * change so child should not wait once again.
-     */
-    const alreadyPerformedDelay =
-      previouslyAppliedProps.current.active === false && active === true;
-
-    return afterDelay(alreadyPerformedDelay ? 0 : delay, () => {
+    function performTransitionEffect() {
       const currentProps = {active, effect};
       const element = containerRef.current;
 
@@ -151,7 +144,22 @@ function BaseTransition({
       }
 
       previouslyAppliedProps.current = currentProps;
-    });
+    }
+
+    /**
+     * Parental component will delay mounting on active
+     * change so the child should not wait once again.
+     */
+    const isAlreadyDelayed =
+      previouslyAppliedProps.current.active === false && active === true;
+
+    if (isAlreadyDelayed || delay === 0) {
+      return performTransitionEffect();
+    }
+
+    const timeoutId = setTimeout(performTransitionEffect, delay);
+
+    return () => clearTimeout(timeoutId);
   }, [animator, active, effect, delay]);
 
   const handleTransitionEnd = React.useCallback(
@@ -187,16 +195,21 @@ export default function Transition({
   const [mounted, setMounted] = React.useState<boolean>(active);
 
   React.useLayoutEffect(() => {
-    return afterDelay(delay, () => {
-      if (active) {
-        setMounted(true);
+    if (active === true) {
+      const performMounting = () => setMounted(true);
+
+      if (delay === 0) {
+        return performMounting();
       }
-    });
+      const timeoutId = setTimeout(performMounting, delay);
+
+      return () => clearTimeout(timeoutId);
+    }
   }, [delay, active]);
 
   const handleTransitionEnd = React.useCallback(
     (effect: EffectType) => {
-      if (!active) {
+      if (active === false) {
         setMounted(false);
       }
 
@@ -252,14 +265,4 @@ function applyTransitionEffect({
   }
 
   return animator.cleanup(element);
-}
-
-function afterDelay(delay: number, callback: () => void) {
-  if (delay > 0) {
-    const timeoutId = setTimeout(callback, delay);
-
-    return () => clearTimeout(timeoutId);
-  }
-
-  callback();
 }
