@@ -26,22 +26,26 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
     from?: PropertyObjectType,
     to?: PropertyObjectType
   ) {
-    let fromProps = DEFAULT_PARSED_PROPS;
-    let toProps = DEFAULT_PARSED_PROPS;
+    let fromParsedProps = DEFAULT_PARSED_PROPS;
+    let toParsedProps = DEFAULT_PARSED_PROPS;
 
     if (from !== undefined) {
-      fromProps = parsePropertyObject(from);
-      addElementStyles(element, fromProps);
+      fromParsedProps = parsePropertyObject(from);
+      addElementStyles(element, fromParsedProps);
+
+      // required to paint added "from" styles
+      // before synchronously adding "to" styles
       forceRepaint(element);
     }
 
     if (to !== undefined) {
-      toProps = parsePropertyObject(to);
-      addElementStyles(element, toProps);
+      toParsedProps = parsePropertyObject(to);
+      addElementStyles(element, toParsedProps);
     }
 
     remainingPropertiesToChange = PROPERTIES.reduce((sum, prop) => {
-      const willPropertyChange = fromProps[prop].value !== toProps[prop].value;
+      const willPropertyChange =
+        fromParsedProps[prop].value !== toParsedProps[prop].value;
 
       return sum + Number(willPropertyChange);
     }, NO_REMAINING_PROPERTIES);
@@ -49,9 +53,9 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
 
   function addElementStyles(
     element: HTMLElement,
-    props: ParsedPropertyObjectType
+    parsedProps: ParsedPropertyObjectType
   ) {
-    const {className, transform, opacity} = props;
+    const {className, transform, opacity} = parsedProps;
 
     // by using arrays, we keep the same property
     // order in each transition-* related style
@@ -61,8 +65,8 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
 
     PROPERTIES.forEach(prop => {
       transitionProperty.push(prop);
-      transitionDuration.push(props[prop].duration);
-      transitionTimingFunction.push(props[prop].easing);
+      transitionDuration.push(parsedProps[prop].duration);
+      transitionTimingFunction.push(parsedProps[prop].easing);
     });
 
     element.className = className;
@@ -98,7 +102,7 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
 
   return {
     animate,
-    finished: () => --remainingPropertiesToChange <= NO_REMAINING_PROPERTIES,
     cleanup: (element: HTMLElement) => removeElementStyles(element),
+    finished: () => --remainingPropertiesToChange <= NO_REMAINING_PROPERTIES,
   };
 }
