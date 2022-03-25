@@ -4,8 +4,11 @@ import {parsePropertyObject} from './propertyObject';
 import type {ParsedPropertyObjectType} from './propertyObject';
 import type {EffectAnimatorType} from './effectAnimator';
 import type {PropertyObjectType} from './Transition';
+import type {ClassNamesRegistry} from './classNamesRegistry';
 
-export function createCSSTransitionAnimator(): EffectAnimatorType {
+export function createCSSTransitionAnimator(
+  classNamesRegistry: ClassNamesRegistry
+): EffectAnimatorType {
   const PROPERTIES = ['transform', 'opacity'];
   const DEFAULT_PARSED_PROPS = parsePropertyObject({});
   const NO_REMAINING_PROPERTIES = 0;
@@ -69,7 +72,8 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
       transitionTimingFunction.push(parsedProps[prop].easing);
     });
 
-    element.className = className;
+    classNamesRegistry.register('transition', className);
+    element.className = classNamesRegistry.toString();
     element.style.transform = transform.value;
     element.style.opacity = opacity.value;
     element.style.transitionProperty = buildTransitionValue(transitionProperty);
@@ -80,7 +84,8 @@ export function createCSSTransitionAnimator(): EffectAnimatorType {
   }
 
   function removeElementStyles(element: HTMLElement) {
-    element.className = '';
+    classNamesRegistry.register('transition', '');
+    element.className = classNamesRegistry.toString();
     element.style.transform = '';
     element.style.opacity = '';
     element.style.transitionProperty = '';

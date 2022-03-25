@@ -31,9 +31,14 @@ const createMockedElement = () => {
   };
 };
 
+const classNamesRegistry = {
+  register: jest.fn(),
+  toString: jest.fn(),
+};
+
 describe('createCSSTransitionAnimator()', () => {
   it('animates element based on given PropertyObjects', () => {
-    const animator = createCSSTransitionAnimator();
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, getStylesHistory} = createMockedElement();
 
     const from = {

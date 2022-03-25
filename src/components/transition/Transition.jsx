@@ -1,8 +1,10 @@
 // @flow strict
 
 import * as React from 'react';
+import cx from 'classnames';
 import type {EffectAnimatorType} from './effectAnimator';
 import {createCSSTransitionAnimator} from './cssTransitionAnimator';
+import {createClassNamesRegistry} from './classNamesRegistry';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
@@ -75,6 +77,8 @@ type TransitionTriggerPropsType = $ReadOnly<{
 export type TransitionPropsType = $ReadOnly<{
   ...TransitionTriggerPropsType,
   delay?: number,
+  className?: string,
+  inlined?: boolean,
   children: React.Node,
   onTransitionStart?: (effect: EffectType) => void,
   onTransitionEnd?: (effect: EffectType) => void,
@@ -84,15 +88,31 @@ function BaseTransition({
   active,
   effect,
   delay = 0,
+  className,
+  inlined,
   children,
   onTransitionStart,
   onTransitionEnd,
 }: TransitionPropsType) {
   const containerRef = React.useRef(null);
+  const classNamesRegistry = React.useMemo(createClassNamesRegistry, []);
   const animator = React.useMemo<EffectAnimatorType>(
-    () => createCSSTransitionAnimator(),
-    []
+    () => createCSSTransitionAnimator(classNamesRegistry),
+    [classNamesRegistry]
   );
+
+  const baseClassName = cx(className, {
+    'sg-transition--inlined': inlined,
+  });
+
+  React.useLayoutEffect(() => {
+    classNamesRegistry.register('base', baseClassName || '');
+    const element = containerRef.current;
+
+    if (element) {
+      element.className = classNamesRegistry.toString();
+    }
+  }, [classNamesRegistry, baseClassName]);
 
   /**
    * Changing callbacks should not trigger motion.
