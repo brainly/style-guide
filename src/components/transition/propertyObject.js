@@ -56,13 +56,10 @@ export type ParsedPropertyObjectType = $ReadOnly<{
   },
 }>;
 
-export function parsePropertyObject({
-  easing,
-  duration,
-  className,
-  transform,
-  opacity,
-}: PropertyObjectType): ParsedPropertyObjectType {
+export function parsePropertyObject(
+  props: PropertyObjectType
+): ParsedPropertyObjectType {
+  const {easing, duration, className, transform, opacity} = props;
   const translateX = getTranslateValue(transform && transform.translateX);
   const translateY = getTranslateValue(transform && transform.translateY);
   const scale = getScaleValue(transform && transform.scale);
