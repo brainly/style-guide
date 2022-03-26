@@ -23,28 +23,22 @@ export type PredefinedDurationType =
 
 export type PredefinedTranslateType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-/**
- * Props representing a single motion of a transition.
- */
-type SingleMotionPropsType = $ReadOnly<{
-  easing?: PredefinedEasingType,
+type TimingPropsType = $ReadOnly<{
   /**
    * The `number` type represents the value in milliseconds [ms].
    */
   duration?: PredefinedDurationType | number,
+  easing?: PredefinedEasingType,
 }>;
 
 export type PropertyObjectType = $ReadOnly<{
-  /**
-   * Parent motion props will be overwritten with child props.
-   */
-  ...SingleMotionPropsType,
-  /**
-   * Already existing custom classes.
-   */
+  ...TimingPropsType,
   className?: string,
   transform?: $ReadOnly<{
-    ...SingleMotionPropsType,
+    /**
+     * Overrides the general timing props for the transform property.
+     */
+    ...TimingPropsType,
     /**
      * The `number` type represents the value in pixels [px].
      */
@@ -58,7 +52,10 @@ export type PropertyObjectType = $ReadOnly<{
   opacity?:
     | number
     | $ReadOnly<{
-        ...SingleMotionPropsType,
+        /**
+         * Overrides the general timing props for the opacity property.
+         */
+        ...TimingPropsType,
         value: number,
       }>,
 }>;
@@ -106,6 +103,13 @@ function BaseTransition({
   });
 
   React.useLayoutEffect(() => {
+    /**
+     * Since the transition imperatively applies the style
+     * and className to the container element, other props
+     * changes that affect these attributes should also be
+     * imperative. The registry helps to synchronize class
+     * attribute changes.
+     */
     classNamesRegistry.register('base', baseClassName || '');
     const element = containerRef.current;
 
@@ -115,7 +119,7 @@ function BaseTransition({
   }, [classNamesRegistry, baseClassName]);
 
   /**
-   * Changing callbacks should not trigger motion.
+   * Changing callbacks should not trigger transition.
    */
   const onTransitionStartRef = React.useRef();
   const onTransitionEndRef = React.useRef();
@@ -124,9 +128,9 @@ function BaseTransition({
   onTransitionEndRef.current = onTransitionEnd;
 
   /**
-   * The transition relies on motion props that have been
-   * applied to the actual DOM, and subsequent renders of
-   * the virtual DOM should not have a visual result.
+   * The transition can be triggered by props that have been
+   * applied to the actual DOM, and subsequent renders of the
+   * virtual DOM should not produce any visual result.
    */
   const previouslyAppliedProps = React.useRef<TransitionTriggerPropsType>({
     active: false,
@@ -138,7 +142,13 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   React.useLayoutEffect(() => {
-    function performTransitionEffect() {
+    /**
+     * Parental component will delay mounting on active
+     * change so the child should not wait once again.
+     */
+    const alreadyDelayed = !previouslyAppliedProps.current.active && active;
+
+    return afterDelay(alreadyDelayed ? 0 : delay, () => {
       const currentProps = {active, effect};
       const element = containerRef.current;
 
@@ -164,22 +174,7 @@ function BaseTransition({
       }
 
       previouslyAppliedProps.current = currentProps;
-    }
-
-    /**
-     * Parental component will delay mounting on active
-     * change so the child should not wait once again.
-     */
-    const isAlreadyDelayed =
-      previouslyAppliedProps.current.active === false && active === true;
-
-    if (isAlreadyDelayed || delay === 0) {
-      return performTransitionEffect();
-    }
-
-    const timeoutId = setTimeout(performTransitionEffect, delay);
-
-    return () => clearTimeout(timeoutId);
+    });
   }, [animator, active, effect, delay]);
 
   const handleTransitionEnd = React.useCallback(
@@ -215,17 +210,12 @@ export default function Transition({
   const [mounted, setMounted] = React.useState<boolean>(active);
 
   React.useLayoutEffect(() => {
-    if (active === true) {
-      const performMounting = () => setMounted(true);
-
-      if (delay === 0) {
-        return performMounting();
+    return afterDelay(delay, () => {
+      if (active === true) {
+        setMounted(true);
       }
-      const timeoutId = setTimeout(performMounting, delay);
-
-      return () => clearTimeout(timeoutId);
-    }
-  }, [delay, active]);
+    });
+  }, [active, delay]);
 
   const handleTransitionEnd = React.useCallback(
     (effect: EffectType) => {
@@ -283,6 +273,14 @@ function applyTransitionEffect({
   if (prevProps.effect !== currentProps.effect) {
     return animator.animate(element, undefined, effect.animate);
   }
+}
 
-  return animator.cleanup(element);
+function afterDelay(delay: number, callback: () => void) {
+  if (delay > 0) {
+    const timeoutId = setTimeout(callback, delay);
+
+    return () => clearTimeout(timeoutId);
+  }
+
+  callback();
 }
