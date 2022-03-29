@@ -8,7 +8,6 @@ import {ICON_COLOR} from '../icons/Icon';
 export type IconTypeType =
   | 'accountancy'
   | 'administration'
-  | 'agricultural'
   | 'algebra'
   | 'all'
   | 'arabic'
@@ -26,7 +25,6 @@ export type IconTypeType =
   | 'egzam'
   | 'exam'
   | 'english'
-  | 'entrepreneurship'
   | 'environment'
   | 'ethics'
   | 'euskara'
@@ -48,7 +46,6 @@ export type IconTypeType =
   | 'kazach'
   | 'kazach-alt'
   | 'kyrgyz'
-  | 'korean'
   | 'language'
   | 'latin'
   | 'law'
@@ -57,7 +54,6 @@ export type IconTypeType =
   | 'logic'
   | 'mathematics'
   | 'music'
-  | 'nigerian-lang'
   | 'otherlanguages'
   | 'others'
   | 'pedagogics'
@@ -67,7 +63,6 @@ export type IconTypeType =
   | 'politics'
   | 'psychology'
   | 'religion'
-  | 'rpa-lang'
   | 'russian'
   | 'russian-alt'
   | 'science'
@@ -92,7 +87,6 @@ export type SizeType = 'small' | 'medium' | 'normal';
 export const TYPE: {
   ACCOUNTANCY: 'accountancy',
   ADMINISTRATION: 'administration',
-  AGRICULTURAL: 'agricultural',
   ALGEBRA: 'algebra',
   ALL: 'all',
   ARABIC: 'arabic',
@@ -110,7 +104,6 @@ export const TYPE: {
   EGZAM: 'egzam',
   EXAM: 'exam',
   ENGLISH: 'english',
-  ENTREPRENEURSHIP: 'entrepreneurship',
   ENVIRONMENT: 'environment',
   ETHICS: 'ethics',
   EUSKARA: 'euskara',
@@ -132,7 +125,6 @@ export const TYPE: {
   KAZACH: 'kazach',
   KAZACH_ALT: 'kazach-alt',
   KYRGYZ: 'kyrgyz',
-  KOREAN: 'korean',
   LANGUAGE: 'language',
   LATIN: 'latin',
   LAW: 'law',
@@ -141,7 +133,6 @@ export const TYPE: {
   LOGIC: 'logic',
   MATHEMATICS: 'mathematics',
   MUSIC: 'music',
-  NIGERIAN_LANG: 'nigerian-lang',
   OTHERLANGUAGES: 'otherlanguages',
   OTHERS: 'others',
   PEDAGOGICS: 'pedagogics',
@@ -151,7 +142,6 @@ export const TYPE: {
   POLITICS: 'politics',
   PSYCHOLOGY: 'psychology',
   RELIGION: 'religion',
-  RPA_LANG: 'rpa-lang',
   RUSSIAN: 'russian',
   RUSSIAN_ALT: 'russian-alt',
   SCIENCE: 'science',
@@ -173,7 +163,6 @@ export const TYPE: {
 } = {
   ACCOUNTANCY: 'accountancy',
   ADMINISTRATION: 'administration',
-  AGRICULTURAL: 'agricultural',
   ALGEBRA: 'algebra',
   ALL: 'all',
   ARABIC: 'arabic',
@@ -191,7 +180,6 @@ export const TYPE: {
   EGZAM: 'egzam',
   EXAM: 'exam',
   ENGLISH: 'english',
-  ENTREPRENEURSHIP: 'entrepreneurship',
   ENVIRONMENT: 'environment',
   ETHICS: 'ethics',
   EUSKARA: 'euskara',
@@ -213,7 +201,6 @@ export const TYPE: {
   KAZACH: 'kazach',
   KAZACH_ALT: 'kazach-alt',
   KYRGYZ: 'kyrgyz',
-  KOREAN: 'korean',
   LANGUAGE: 'language',
   LATIN: 'latin',
   LAW: 'law',
@@ -222,7 +209,6 @@ export const TYPE: {
   LOGIC: 'logic',
   MATHEMATICS: 'mathematics',
   MUSIC: 'music',
-  NIGERIAN_LANG: 'nigerian-lang',
   OTHERLANGUAGES: 'otherlanguages',
   OTHERS: 'others',
   PEDAGOGICS: 'pedagogics',
@@ -232,7 +218,6 @@ export const TYPE: {
   POLITICS: 'politics',
   PSYCHOLOGY: 'psychology',
   RELIGION: 'religion',
-  RPA_LANG: 'rpa-lang',
   RUSSIAN: 'russian',
   RUSSIAN_ALT: 'russian-alt',
   SCIENCE: 'science',
