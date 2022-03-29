@@ -6,6 +6,7 @@ import {
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
 } from './headlineConsts';
+import {formatTags} from '../../_docs/utils';
 
 export default {
   title: 'Components/Headline',
@@ -16,7 +17,7 @@ export default {
       description: '(Responsive)',
       table: {
         type: {
-          summary: Object.values(HEADLINE_SIZE).join('|'),
+          summary: formatTags(Object.values(HEADLINE_SIZE)),
         },
       },
       control: {
@@ -25,10 +26,9 @@ export default {
       },
     },
     color: {
-      description: '(Responsive)',
       table: {
         type: {
-          summary: Object.values(TEXT_COLOR).join('|'),
+          summary: formatTags(Object.values(TEXT_COLOR)),
         },
       },
       control: {
@@ -40,7 +40,7 @@ export default {
       description: '(Responsive)',
       table: {
         type: {
-          summary: Object.values(HEADLINE_TRANSFORM).join('|'),
+          summary: formatTags(Object.values(HEADLINE_TRANSFORM)),
         },
       },
       control: {
@@ -52,7 +52,7 @@ export default {
       description: '(Responsive)',
       table: {
         type: {
-          summary: Object.values(HEADLINE_ALIGN).join('|'),
+          summary: formatTags(Object.values(HEADLINE_ALIGN)),
         },
       },
       control: {
