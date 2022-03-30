@@ -1,13 +1,68 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import Subheadline from './Subheadline';
-import {SUBHEADLINE_ALIGN, SUBHEADLINE_SIZE} from './subheadlineConsts';
+import {
+  SUBHEADLINE_ALIGN,
+  SUBHEADLINE_SIZE,
+  SUBHEADLINE_TRANSFORM,
+} from './subheadlineConsts';
 import {TEXT_COLOR} from './Text';
+import {formatTags} from '../../_docs/utils';
 
 export default {
   title: 'Components/Subheadline',
-  parameters: {
-    component: Subheadline,
+  component: Subheadline,
+  argTypes: {
+    children: {
+      type: 'string',
+    },
+    size: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_SIZE)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_SIZE),
+      },
+    },
+    transform: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_TRANSFORM)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_TRANSFORM),
+      },
+    },
+    align: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_ALIGN)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_ALIGN),
+      },
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TEXT_COLOR)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(TEXT_COLOR),
+      },
+    },
   },
 };
 
