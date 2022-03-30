@@ -1,4 +1,4 @@
-<svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg data-fixedcolors="true" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="mathematics">
 <g id="Vector">
 <path d="M277.333 85.3333C277.333 73.5513 286.885 64 298.667 64H426.667C438.449 64 448 73.5513 448 85.3333V213.333C448 225.115 438.449 234.667 426.667 234.667H298.667C286.885 234.667 277.333 225.115 277.333 213.333V85.3333Z" fill="#0C114D"/>

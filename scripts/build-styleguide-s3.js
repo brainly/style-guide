@@ -26,7 +26,7 @@ client.s3.getObject(
       console.log(
         'No version change detected in package.json, skipping build.'
       );
-      // making empty dir to avoid UPLOAD_ARTIFACTS phase failing when there is no base directory
+      // making placeholder file to avoid UPLOAD_ARTIFACTS phase failing when no file is found
       const distPath = path.join(__dirname, '..', 'dist');
 
       fs.mkdirSync(distPath);
