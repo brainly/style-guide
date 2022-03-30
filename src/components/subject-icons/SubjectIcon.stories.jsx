@@ -72,8 +72,8 @@ export const MonoColor = args => (
       {Object.values(TYPE).map(type => (
         <StoryVariant label={type} width={200} key={type}>
           <SubjectIcon
-            {...args}
             monoColor={ICON_COLOR['icon-blue-50']}
+            {...args}
             type={type}
           />
         </StoryVariant>
