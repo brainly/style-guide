@@ -27,7 +27,13 @@ client.s3.getObject(
         'No version change detected in package.json, skipping build.'
       );
       // making empty dir to avoid UPLOAD_ARTIFACTS phase failing when there is no base directory
-      fs.mkdirSync(path.join(__dirname, '..', 'dist'));
+      const distPath = path.join(__dirname, '..', 'dist');
+
+      fs.mkdirSync(distPath);
+      fs.writeFileSync(
+        `${distPath}/build-styleguide-s3-placeholder`,
+        'placeholder file to upload in case build is skipped'
+      );
     }
   }
 );
