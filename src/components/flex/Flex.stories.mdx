@@ -1,14 +1,22 @@
-import * as React from 'react';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
 import Flex, {FLEX_DIRECTION, FLEX_MARGINS, FLEX_JUSTIFY_VALUES} from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
 import Box from '../box/Box';
 import {formatTags} from '../../_docs/utils';
 import {FLEX_ALIGNMENT_VALUES} from './FlexConsts';
+import FlexA11y from './Flex.a11y.mdx';
+const boxStyle = {
+  border: true,
+  borderColor: 'blue-40',
+  color: 'blue-20',
+};
 
-export default {
-  title: 'Components/Flex',
-  component: Flex,
-  argTypes: {
+<Meta
+  title="Components/Flex"
+  component={Flex}
+  argTypes={{
     children: {
       control: {
         disable: true,
@@ -206,153 +214,177 @@ export default {
         options: Object.values(FLEX_MARGINS),
       },
     },
-  },
-};
+  }}
+/>
 
-export const Default = args => {
-  return <Flex {...args} />;
-};
+# Flex
 
-Default.args = {
-  children: [
-    <div key="1">This is a element 1.</div>,
-    <div key="2">This is a element 2.</div>,
-  ],
-};
+- [Stories](#stories)
+- [Accesibility](#accessibility)
 
-export const Spacing = () => (
-  <Flex direction={FLEX_DIRECTION.ROW} wrap>
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xxs - 4px</Text>
-      <div className="doc-spacing doc-spacing--xxs" />
-    </Flex>
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xs - 8px</Text>
-      <div className="doc-spacing doc-spacing--xs" />
-    </Flex>
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>s - 16px</Text>
-      <div className="doc-spacing doc-spacing--s" />
-    </Flex>
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>m - 24px</Text>
-      <div className="doc-spacing doc-spacing--m" />
-    </Flex>
+## Overview
 
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>l - 40px</Text>
-      <div className="doc-spacing doc-spacing--l" />
-    </Flex>
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Flex>
+        <Box {...boxStyle} style={{marginRight: 10}}>
+          Flex child
+        </Box>
+        <Box {...boxStyle}>Flex child</Box>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
 
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xl - 64px</Text>
-      <div className="doc-spacing doc-spacing--xl" />
-    </Flex>
+<ArgsTable story="Default" />
 
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xxl - 104px</Text>
-      <div className="doc-spacing doc-spacing--xxl" />
-    </Flex>
+## Stories
 
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xxxl - 168px</Text>
-      <div className="doc-spacing doc-spacing--xxxl" />
-    </Flex>
+### Column
 
-    <Flex direction={FLEX_DIRECTION.COLUMN}>
-      <Text size={TEXT_SIZE.SMALL}>xxxxl - 272px</Text>
-      <div className="doc-spacing doc-spacing--xxxxl" />
-    </Flex>
-  </Flex>
-);
+<Canvas>
+  <Story name="Column">
+    {args => (
+      <Flex
+        direction={FLEX_DIRECTION.COLUMN}
+        marginBottom={FLEX_MARGINS.MEDIUM}
+        fullWidth
+      >
+        <Box {...boxStyle} style={{marginBottom: 10}}>
+          Flex child
+        </Box>
+        <Box {...boxStyle}>Flex child</Box>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
 
-export const Column = () => (
-  <Flex
-    direction={FLEX_DIRECTION.COLUMN}
-    marginBottom={FLEX_MARGINS.MEDIUM}
-    fullWidth
-  >
-    <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-      <Box color="blue-40">I am a flex element with margin bottom M</Box>
-    </Flex>
-    <Flex>
-      <Box color="blue-30">I am a second flex element in the column</Box>
-    </Flex>
-  </Flex>
-);
+### Row
 
-export const Row = () => (
-  <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
-    <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-      <Box color="blue-40">I am a flex element with margin right M</Box>
-    </Flex>
-    <Flex>
-      <Box color="blue-30">I am a second flex element in the row</Box>
-    </Flex>
-  </Flex>
-);
+<Canvas>
+  <Story name="Row">
+    {args => (
+      <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
+        <Box {...boxStyle} style={{marginRight: 10}}>
+          Flex child
+        </Box>
+        <Box {...boxStyle}>Flex child</Box>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
 
-export const JustifyAndAlign = () => (
-  <div>
-    Container
-    <div
-      style={{
-        width: '600px',
-        border: '1px solid rgba(0,0,0,.1)',
+### Justify and align
+
+<Canvas>
+  <Story name="JustifyAndAlign">
+    {args => (
+      <Flex fullWidth direction="column">
+        <Flex
+          direction={FLEX_DIRECTION.ROW}
+          marginBottom={FLEX_MARGINS.MEDIUM}
+          justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}
+          fullWidth
+        >
+          <Flex>
+            <Box {...boxStyle}>space between</Box>
+          </Flex>
+          <Flex>
+            <Box {...boxStyle}>space between</Box>
+          </Flex>
+        </Flex>
+        <Flex
+          direction={FLEX_DIRECTION.ROW}
+          marginBottom={FLEX_MARGINS.MEDIUM}
+          justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}
+          fullWidth
+        >
+          <Flex>
+            <Box {...boxStyle}>space around</Box>
+          </Flex>
+          <Flex>
+            <Box {...boxStyle}>space around</Box>
+          </Flex>
+        </Flex>
+        <Flex
+          direction={FLEX_DIRECTION.ROW}
+          marginBottom={FLEX_MARGINS.MEDIUM}
+          justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}
+          fullWidth
+        >
+          <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+            <Box {...boxStyle}>flex start</Box>
+          </Flex>
+          <Flex>
+            <Box {...boxStyle}>flex start</Box>
+          </Flex>
+        </Flex>
+        <Flex
+          direction={FLEX_DIRECTION.ROW}
+          marginBottom={FLEX_MARGINS.MEDIUM}
+          justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}
+          fullWidth
+        >
+          <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+            <Box {...boxStyle}>flex end</Box>
+          </Flex>
+          <Flex>
+            <Box {...boxStyle}>flex end</Box>
+          </Flex>
+        </Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support object and array syntax.
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Flex direction={['column', null, 'row']}>
+    <Flex
+      margin
+      fullWidth
+      marginBottom={{
+        sm: 'xs',
+        md: 'm',
+        lg: 'none',
       }}
     >
-      <Flex
-        direction={FLEX_DIRECTION.ROW}
-        marginBottom={FLEX_MARGINS.MEDIUM}
-        justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}
-        fullWidth
-      >
-        <Flex>
-          <Box color="blue-40">space between</Box>
-        </Flex>
-        <Flex>
-          <Box color="blue-30">space between</Box>
-        </Flex>
-      </Flex>
-      <Flex
-        direction={FLEX_DIRECTION.ROW}
-        marginBottom={FLEX_MARGINS.MEDIUM}
-        justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}
-        fullWidth
-      >
-        <Flex>
-          <Box color="blue-40">space around</Box>
-        </Flex>
-        <Flex>
-          <Box color="blue-30">space around</Box>
-        </Flex>
-      </Flex>
-      <Flex
-        direction={FLEX_DIRECTION.ROW}
-        marginBottom={FLEX_MARGINS.MEDIUM}
-        justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}
-        fullWidth
-      >
-        <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color="blue-40">flex start</Box>
-        </Flex>
-        <Flex>
-          <Box color="blue-30">flex start</Box>
-        </Flex>
-      </Flex>
-      <Flex
-        direction={FLEX_DIRECTION.ROW}
-        marginBottom={FLEX_MARGINS.MEDIUM}
-        justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}
-        fullWidth
-      >
-        <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-          <Box color="blue-40">flex end</Box>
-        </Flex>
-        <Flex>
-          <Box color="blue-30">flex end</Box>
-        </Flex>
-      </Flex>
-    </div>
-  </div>
-);
+      <Box {...boxStyle}>flex child</Box>
+    </Flex>
+    <Flex
+      margin
+      fullWidth
+      marginBottom={{
+        sm: 'xs',
+        md: 'm',
+        lg: 'none',
+      }}
+      marginLeft={{
+        lg: 's',
+        xl: 'l',
+      }}
+    >
+      <Box {...boxStyle}>flex child</Box>
+    </Flex>
+    <Flex
+      margin
+      fullWidth
+      marginLeft={{
+        lg: 's',
+        xl: 'l',
+      }}
+    >
+      <Box {...boxStyle}>flex child</Box>
+    </Flex>
+  </Flex>
+</Canvas>
+
+## Accessibility
+
+<FlexA11y />
