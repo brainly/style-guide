@@ -249,6 +249,7 @@ const boxStyle = {
   <Story name="Column">
     {args => (
       <Flex
+        {...args}
         direction={FLEX_DIRECTION.COLUMN}
         marginBottom={FLEX_MARGINS.MEDIUM}
         fullWidth
@@ -267,7 +268,7 @@ const boxStyle = {
 <Canvas>
   <Story name="Row">
     {args => (
-      <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
+      <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
         <Box {...boxStyle} style={{marginRight: 10}}>
           1
         </Box>
@@ -282,7 +283,7 @@ const boxStyle = {
 <Canvas>
   <Story name="JustifyAndAlign">
     {args => (
-      <Flex fullWidth direction="column">
+      <Flex {...args} fullWidth direction="column">
         <Flex
           direction={FLEX_DIRECTION.ROW}
           marginBottom={FLEX_MARGINS.MEDIUM}
@@ -355,7 +356,7 @@ Use margins to make space between components. They work in single direction `mar
       const fixedWidthBox = {style: {width: '100px'}};
       const marginTypeLabelBox = {style: {width: '100px', flexShrink: 0}};
       return (
-        <Flex fullWidth direction="column">
+        <Flex {...args} fullWidth direction="column">
           {Object.values(FLEX_MARGINS).map(marginType => (
             <Flex marginBottom={FLEX_MARGINS.SMALL}>
               <Box {...marginTypeLabelBox}>
