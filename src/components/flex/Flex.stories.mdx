@@ -229,11 +229,11 @@ const boxStyle = {
 <Canvas>
   <Story name="Default">
     {args => (
-      <Flex>
+      <Flex {...args}>
         <Box {...boxStyle} style={{marginRight: 10}}>
-          Flex child
+          1
         </Box>
-        <Box {...boxStyle}>Flex child</Box>
+        <Box {...boxStyle}>2</Box>
       </Flex>
     )}
   </Story>
@@ -254,9 +254,9 @@ const boxStyle = {
         fullWidth
       >
         <Box {...boxStyle} style={{marginBottom: 10}}>
-          Flex child
+          1
         </Box>
-        <Box {...boxStyle}>Flex child</Box>
+        <Box {...boxStyle}>2</Box>
       </Flex>
     )}
   </Story>
@@ -269,9 +269,9 @@ const boxStyle = {
     {args => (
       <Flex direction={FLEX_DIRECTION.ROW} fullWidth>
         <Box {...boxStyle} style={{marginRight: 10}}>
-          Flex child
+          1
         </Box>
-        <Box {...boxStyle}>Flex child</Box>
+        <Box {...boxStyle}>2</Box>
       </Flex>
     )}
   </Story>
@@ -392,7 +392,7 @@ Resize window to check how component is changing flex direction and item margins
         lg: 'none',
       }}
     >
-      <Box {...boxStyle}>flex child</Box>
+      <Box {...boxStyle}>1</Box>
     </Flex>
     <Flex
       margin
@@ -407,7 +407,7 @@ Resize window to check how component is changing flex direction and item margins
         xl: 'l',
       }}
     >
-      <Box {...boxStyle}>flex child</Box>
+      <Box {...boxStyle}>2</Box>
     </Flex>
     <Flex
       margin
@@ -417,7 +417,7 @@ Resize window to check how component is changing flex direction and item margins
         xl: 'l',
       }}
     >
-      <Box {...boxStyle}>flex child</Box>
+      <Box {...boxStyle}>3</Box>
     </Flex>
   </Flex>
 </Canvas>
