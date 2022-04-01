@@ -145,11 +145,15 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
         [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
         'sg-box--border': border,
-        'sg-box--no-border-radius': noBorderRadius,
       },
       ...generateResponsiveClassNames(
         shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
         shadow
+      ),
+      ...generateResponsiveClassNames(
+        noBorderRadius =>
+          noBorderRadius ? 'sg-box--no-border-radius' : 'sg-box--border-radius',
+        noBorderRadius
       ),
       className
     );

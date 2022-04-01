@@ -5,14 +5,9 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .sg-box {
     width: 100%;
-    border-radius: $borderRadiusDefault;
 
     &--border {
       border: $boxBorderSize solid $gray-20;
-    }
-
-    &--no-border-radius {
-      border-radius: 0;
     }
 
     &--padding-xxs {
@@ -235,6 +230,14 @@ $includeHtml: false !default;
 
     @include makeResponsive($variant, 'sg-box--no-shadow') {
       box-shadow: none;
+    }
+
+    @include makeResponsive($variant, 'sg-box--no-border-radius') {
+      border-radius: none;
+    }
+
+    @include makeResponsive($variant, 'sg-box--border-radius') {
+      border-radius: $borderRadiusDefault;
     }
   }
 }

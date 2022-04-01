@@ -115,3 +115,15 @@ it('shadow is responsive prop', () => {
     component.hasClass('sg-box--shadow md:sg-box--no-shadow xl:sg-box--shadow')
   ).toEqual(true);
 });
+
+it('noBorderRadius is responsive prop', () => {
+  const component = shallow(
+    <Box noBorderRadius={[false, true, null, false]}>box</Box>
+  );
+
+  expect(
+    component.hasClass(
+      'sg-box--border-radius md:sg-box--no-border-radius xl:sg-box--border-radius'
+    )
+  ).toEqual(true);
+});

@@ -42,6 +42,17 @@ export default {
         type: 'boolean',
       },
     },
+    noBorderRadius: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     children: 'Text inside Box',
