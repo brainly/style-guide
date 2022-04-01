@@ -353,118 +353,22 @@ Use margins to make space between components. They work in single direction `mar
   <Story name="Margins">
     {args => {
       const fixedWidthBox = {style: {width: '100px'}};
-      const marginTypeLabelBox = {style: {width: '100px'}};
+      const marginTypeLabelBox = {style: {width: '100px', flexShrink: 0}};
       return (
         <Flex fullWidth direction="column">
-          <Flex marginBottom={FLEX_MARGINS.SMALL}>
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.XSMALL}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.XSMALL}>
-              <Box {...boxStyle} {...fixedWidthBox} />
+          {Object.values(FLEX_MARGINS).map(marginType => (
+            <Flex marginBottom={FLEX_MARGINS.SMALL}>
+              <Box {...marginTypeLabelBox}>
+                <Text>{marginType}</Text>
+              </Box>
+              <Flex marginRight={marginType}>
+                <Box {...boxStyle} {...fixedWidthBox} />
+              </Flex>
+              <Flex>
+                <Box {...boxStyle} {...fixedWidthBox} />
+              </Flex>
             </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.SMALL}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.SMALL}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.MEDIUM}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.LARGE}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.LARGE}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.XLARGE}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.XLARGE}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.XXLARGE}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.XXLARGE}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.XXXLARGE}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.XXXLARGE}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
-          <Flex
-            marginTop={FLEX_MARGINS.SMALL}
-            marginBottom={FLEX_MARGINS.SMALL}
-          >
-            <Box {...marginTypeLabelBox}>
-              <Text>{FLEX_MARGINS.XXXXLARGE}</Text>
-            </Box>
-            <Flex marginRight={FLEX_MARGINS.XXXXLARGE}>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-            <Flex>
-              <Box {...boxStyle} {...fixedWidthBox} />
-            </Flex>
-          </Flex>
+          ))}
         </Flex>
       );
     }}
