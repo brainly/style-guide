@@ -18,9 +18,9 @@ module.exports = {
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
       : findStories(),
   addons: [
+    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
-    '@storybook/addon-essentials',
     '@storybook/addon-links',
   ],
   staticDirs: ['./public'],
