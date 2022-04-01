@@ -1,0 +1,31 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundation ✨/Responsive props" />
+
+# Responsive props
+
+Responsive props makes easy to declaratively set prop value for multiple screen sizes.
+
+## Object notation
+
+Breakpoints keys: 'sm', 'md', 'lg', 'xl' (all optional)
+
+```jsx
+<Flex marginLeft={{sm: 's', lg: 'l'}}>content</Flex>
+```
+
+result HTML:
+
+```html
+<div class="sg-flex sg-flex--margin-left-s lg:sg-flex--margin-left-l">
+  content
+</div>
+```
+
+## Array notation
+
+Breakpoints items (use in the same order): 'sm', 'md', 'lg', 'xl' (all optional, can be null or undefined)
+
+```jsx
+<Flex marginLeft={['s', 'm', null, 'l']}>content</Flex>
+```
