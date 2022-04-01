@@ -60,3 +60,5 @@ export const StoryVariantTable = ({
 }: StoryVariantTablePropsType) => (
   <table className={`sg-story-variant-table ${className}`}>{children}</table>
 );
+
+export const formatTags = (values: Array<string>): string => values.join('|');

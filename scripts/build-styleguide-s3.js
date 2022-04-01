@@ -1,6 +1,8 @@
 const {version} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
+const fs = require('fs');
+const path = require('path');
 
 const client = s3.createClient({
   s3Options: {
@@ -23,6 +25,14 @@ client.s3.getObject(
     } else {
       console.log(
         'No version change detected in package.json, skipping build.'
+      );
+      // making placeholder file to avoid UPLOAD_ARTIFACTS phase failing when no file is found
+      const distPath = path.join(__dirname, '..', 'dist');
+
+      fs.mkdirSync(distPath);
+      fs.writeFileSync(
+        `${distPath}/build-styleguide-s3-placeholder`,
+        'placeholder file to upload in case build is skipped'
       );
     }
   }

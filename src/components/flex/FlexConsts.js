@@ -47,6 +47,7 @@ export const FLEX_ALIGNMENT_VALUES: {
 };
 
 export const FLEX_MARGINS: {
+  NONE: 'none',
   XSMALL: 'xs',
   SMALL: 's',
   MEDIUM: 'm',
@@ -56,6 +57,7 @@ export const FLEX_MARGINS: {
   XXXLARGE: 'xxxl',
   XXXXLARGE: 'xxxxl',
 } = {
+  NONE: 'none',
   XSMALL: 'xs',
   SMALL: 's',
   MEDIUM: 'm',

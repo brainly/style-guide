@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Primary colors
 $black: #000000;
 
@@ -178,6 +180,7 @@ $layoutDefaultPadding: 24px;
 
 // Spacings
 $sizesSetup: (
+  none: 0px,
   xxs: 4px /* additional for very small components, like icons */,
   xs: 8px,
   s: 16px,
@@ -203,7 +206,7 @@ $componentSizesSetup: (
 // Border radius
 $borderRadiusDefault: 8px;
 $borderRadiusLarge: $borderRadiusDefault * 1.5;
-$borderRadiusSmall: $borderRadiusDefault / 2;
+$borderRadiusSmall: math.div($borderRadiusDefault, 2);
 
 // Vertical stack
 $sgHeaderZIndex: 101;
@@ -275,4 +278,4 @@ $easingExit: cubic-bezier(0.3, 0, 1, 0.8);
 $easingLinear: linear;
 
 // this comment exists to suppress errors about these unused variables:
-// $durationGentle2 $durationInstant $durationModerate1 $durationQuick1 $easingRegular
+// $durationGentle2 $durationGentle1 $durationInstant $durationModerate1 $durationQuick1 $easingRegular

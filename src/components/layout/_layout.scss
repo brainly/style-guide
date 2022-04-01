@@ -1,10 +1,11 @@
+@use 'sass:math';
 $layoutMaxWidth: 1024px;
 $layoutWideMaxWidth: 1280px;
 $layoutAsideWidth: 320px;
 $layoutSecondaryWidth: 200px;
 $layoutMediumContentMaxWidth: 660px;
 $layoutContainerMarginTop: $headerHeight;
-$layoutGapWidth: gutter(5 / 6);
+$layoutGapWidth: gutter(math.div(5, 6));
 
 $includeHtml: false !default;
 
@@ -57,7 +58,7 @@ $includeHtml: false !default;
         align-items: flex-start;
         flex-direction: row;
         flex-wrap: wrap;
-        padding: gutter(1 / 2);
+        padding: gutter(math.div(1, 2));
         max-width: $layoutMaxWidth;
         background-color: $gray-20;
       }

@@ -1,0 +1,36 @@
+## Accessibility
+
+### Rules
+
+| Pattern                                              | Comment                                                 | Status                                |
+| ---------------------------------------------------- | ------------------------------------------------------- | ------------------------------------- |
+| **Should** have role `separator`                     |                                                         | Implementation: DONE<br />Tests: DONE |
+| **Should** have proper orientation                   | `aria-orientation` defaults to `"horizontal"`           | Implementation: DONE<br />Tests: DONE |
+| **Should** have 3:1 contrast ratio to the background | Selected `color` should relate to the background color. | Implementation: DONE<br />Tests: N/A  |
+
+### Usage
+
+#### Code examples
+
+- SeparatorVertical
+
+<!-- prettier-ignore -->
+```jsx
+<SeparatorVertical/>
+```
+
+- SeparatorHorizontal
+
+<!-- prettier-ignore -->
+```jsx
+<SeparatorHorizontal />
+```
+
+- with proper contrast ratio to white background
+
+<!-- prettier-ignore -->
+```jsx
+<SeparatorHorizontal
+  color="gray-50"
+/>
+```

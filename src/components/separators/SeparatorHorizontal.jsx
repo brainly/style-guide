@@ -45,7 +45,7 @@ const SeparatorHorizontal = ({
     className
   );
 
-  return <div {...props} className={separatorClass} />;
+  return <div {...props} className={separatorClass} role="separator" />;
 };
 
 export default SeparatorHorizontal;

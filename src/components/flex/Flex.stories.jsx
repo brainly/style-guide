@@ -2,6 +2,8 @@ import * as React from 'react';
 import Flex, {FLEX_DIRECTION, FLEX_MARGINS, FLEX_JUSTIFY_VALUES} from './Flex';
 import Text, {TEXT_SIZE} from '../text/Text';
 import Box from '../box/Box';
+import {formatTags} from '../../_docs/utils';
+import {FLEX_ALIGNMENT_VALUES} from './FlexConsts';
 
 export default {
   title: 'Components/Flex',
@@ -16,6 +18,192 @@ export default {
       defaultValue: 'div',
       table: {
         defaultValue: {summary: 'div'},
+      },
+    },
+    fullWidth: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    fullHeight: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    noShrink: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    direction: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_DIRECTION)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_DIRECTION),
+      },
+    },
+    justifyContent: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_JUSTIFY_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_JUSTIFY_VALUES),
+      },
+    },
+    alignContent: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    alignItems: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    alignSelf: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    inlineFlex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    wrap: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    wrapReverse: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    margin: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginTop: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginRight: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginBottom: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginLeft: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
       },
     },
   },

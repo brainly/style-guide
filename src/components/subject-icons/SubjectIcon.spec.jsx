@@ -19,14 +19,14 @@ test('type passed to xlink:href', () => {
 
 test('size', () => {
   const size = SIZE.SMALL;
-  const type = TYPE.LANGUAGE;
+  const type = TYPE.OTHERLANGUAGES;
   const icon = shallow(<SubjectIcon type={type} size={size} />);
 
   expect(icon.hasClass(`sg-subject-icon--${size}`)).toEqual(true);
 });
 
 test('mono', () => {
-  const type = TYPE.LANGUAGE;
+  const type = TYPE.OTHERLANGUAGES;
   const icon = shallow(
     <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
   );
@@ -36,7 +36,7 @@ test('mono', () => {
 });
 
 test('normal size', () => {
-  const type = TYPE.LANGUAGE;
+  const type = TYPE.OTHERLANGUAGES;
 
   const icon = shallow(<SubjectIcon type={type} />);
 

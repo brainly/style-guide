@@ -5,14 +5,6 @@ import hex from '../colors/hex';
 import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
 
-const allIcons = Object.entries(ICON_TYPES).reduce(
-  (acc, [key, type]) => ({
-    ...acc,
-    [key]: <Icon type={type} color="adaptive" />,
-  }),
-  {}
-);
-
 export default {
   title: 'Components/Button',
   component: Button,
@@ -20,7 +12,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: allIcons,
+        options: ICON_TYPES,
       },
     },
   },
@@ -29,7 +21,28 @@ export default {
   },
 };
 
-export const Default = args => <Button {...args} />;
+export const Default = args => {
+  let iconSize;
+
+  if (args.size === BUTTON_SIZE.S) {
+    iconSize = 16;
+  } else if (args.size === BUTTON_SIZE.M) {
+    iconSize = 24;
+  } else if (args.size === BUTTON_SIZE.L) {
+    iconSize = 32;
+  }
+
+  return (
+    <Button
+      {...args}
+      icon={
+        args.icon ? (
+          <Icon size={iconSize} type={args.icon} color="adaptive" />
+        ) : null
+      }
+    />
+  );
+};
 
 export const Types = args => (
   <StoryVariantTable className="sg-button-stories-table">

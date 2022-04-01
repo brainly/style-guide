@@ -5,8 +5,8 @@ $dialogBoxShadow: $shadowLarge;
 $dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
 
 $dialogSlideWindowDistance: 32px;
-$dialogSlideFullscreenSmallDistance: 24px;
-$dialogSlideFullscreenMediumDistance: 38px;
+$dialogSlideFullscreenSmallDistance: 88px;
+$dialogSlideFullscreenMediumDistance: 132px;
 
 $dialogMaxWidthMap: (
   's': 392px,
@@ -87,7 +87,7 @@ $dialogMaxWidthMap: (
     }
 
     &--size-fullscreen {
-      transition-duration: $durationGentle1, $durationQuick2;
+      transition-duration: $durationGentle2, $durationQuick2;
       transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
       border-radius: 0;
       box-shadow: none;

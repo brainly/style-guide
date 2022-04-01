@@ -2,6 +2,7 @@
 <PROJECT_ROOT>/node_modules/.*gulp-prettify
 <PROJECT_ROOT>/node_modules/@khanacademy/flow-to-ts/test.json
 <PROJECT_ROOT>/.typescript/**
+<PROJECT_ROOT>/node_modules/.*/malformed_package_json/package.json
 
 [libs]
 

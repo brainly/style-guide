@@ -1,0 +1,120 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import AccordionA11y from './stories/Accordion.a11y.mdx';
+import Accordion from './Accordion';
+import AccordionItem from './AccordionItem';
+const copy = {
+  title: 'Is this title for accordion?',
+  description:
+    // eslint-disable-next-line max-len
+    "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
+};
+const CONTROLLED_ACCORDION_IDS = [
+  'accordion_item_1',
+  'accordion_item_2',
+  'accordion_item_3',
+];
+const storyItems = [
+  <AccordionItem title={copy.title} id="accordion-item-1" key="1">
+    {copy.description}
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="2">
+    {copy.description}
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="3">
+    {copy.description}
+  </AccordionItem>,
+];
+
+<Meta
+  title="Layout/Accordion"
+  component={Accordion}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+    defaultExpanded: {
+      control: {
+        type: 'array',
+      },
+    },
+    expanded: {
+      control: {
+        type: 'array',
+      },
+    },
+  }}
+  args={{
+    allowMultiple: true,
+    children: storyItems,
+  }}
+/>
+
+# Accordion
+
+- [Stories](#stories)
+- [Accesibility](#accordion-accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Accordion {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Expanded
+
+<Canvas>
+  <Story
+    name="Expanded"
+    args={{
+      expanded: CONTROLLED_ACCORDION_IDS[0],
+      reduceMotion: true,
+    }}
+  >
+    {args => {
+      const [prevExpanded, setPrevExpanded] = React.useState();
+      const [expanded, setExpanded] = React.useState('');
+      const handleChange = id => setExpanded(id);
+      const {expanded: propsExpanded, ...props} = args;
+      if (propsExpanded !== prevExpanded) {
+        setPrevExpanded(propsExpanded);
+        setExpanded(propsExpanded);
+      }
+      return (
+        <Accordion onChange={handleChange} expanded={expanded} {...props}>
+          {CONTROLLED_ACCORDION_IDS.map(id => (
+            <AccordionItem title={copy.title} key={id} id={id}>
+              {copy.description}
+            </AccordionItem>
+          ))}
+        </Accordion>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### No Gaps
+
+<Canvas>
+  <Story name="NoGaps">{args => <Accordion {...args} spacing="none" />}</Story>
+</Canvas>
+
+### Reduced Motion
+
+<Canvas>
+  <Story name="ReducedMotion" args={{reduceMotion: true}}>
+    {args => <Accordion {...args} />}
+  </Story>
+</Canvas>
+
+<AccordionA11y />

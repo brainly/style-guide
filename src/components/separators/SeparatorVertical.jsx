@@ -47,7 +47,14 @@ const Separator = ({
     className
   );
 
-  return <div {...props} className={separatorClass} />;
+  return (
+    <div
+      {...props}
+      className={separatorClass}
+      role="separator"
+      aria-orientation="vertical"
+    />
+  );
 };
 
 export default Separator;
