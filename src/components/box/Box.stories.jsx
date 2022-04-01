@@ -31,6 +31,17 @@ export default {
         options: PADDING,
       },
     },
+    shadow: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
   },
   args: {
     children: 'Text inside Box',

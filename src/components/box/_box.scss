@@ -11,10 +11,6 @@ $includeHtml: false !default;
       border: $boxBorderSize solid $gray-20;
     }
 
-    &--shadow {
-      box-shadow: $shadowMedium;
-    }
-
     &--no-border-radius {
       border-radius: 0;
     }
@@ -227,6 +223,18 @@ $includeHtml: false !default;
 
     &--border-color-yellow-20 {
       border-color: $yellow-20;
+    }
+  }
+}
+
+@each $breakpoint, $variant in $responsiveVariants {
+  @include sgResponsive($breakpoint) {
+    @include makeResponsive($variant, 'sg-box--shadow') {
+      box-shadow: $shadowMedium;
+    }
+
+    @include makeResponsive($variant, 'sg-box--no-shadow') {
+      box-shadow: none;
     }
   }
 }

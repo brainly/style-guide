@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type ColorType =
   | 'transparent'
@@ -82,7 +84,7 @@ export type BoxPropsType = {
    * @example <Box shadow>Text inside box with shadow</Box>
    * @default false
    */
-  shadow?: boolean,
+  shadow?: ResponsivePropType<boolean>,
 
   /**
    * Padding size. Defaults to 'm' size, pass null to set it to 0
@@ -143,9 +145,12 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
         [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
         'sg-box--border': border,
-        'sg-box--shadow': shadow,
         'sg-box--no-border-radius': noBorderRadius,
       },
+      ...generateResponsiveClassNames(
+        shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
+        shadow
+      ),
       className
     );
 

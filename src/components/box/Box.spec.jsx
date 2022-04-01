@@ -107,3 +107,11 @@ test('no padding', () => {
   expect(box.hasClass(`sg-box--${PADDING.l}`)).toEqual(false);
   expect(box.hasClass(`sg-box--${PADDING.xl}`)).toEqual(false);
 });
+
+it('shadow is responsive prop', () => {
+  const component = shallow(<Box shadow={[true, false, null, true]}>box</Box>);
+
+  expect(
+    component.hasClass('sg-box--shadow md:sg-box--no-shadow xl:sg-box--shadow')
+  ).toEqual(true);
+});
