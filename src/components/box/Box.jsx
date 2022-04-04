@@ -104,7 +104,7 @@ export type BoxPropsType = {
    * @example <Box border>Text inside bordered Box</Box>
    * @default false
    */
-  border?: boolean,
+  border?: ResponsivePropType<boolean>,
 
   /**
    * Border color (works only with `border` prop)
@@ -144,7 +144,6 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
         [`sg-box--${String(color)}`]: color,
         [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
-        'sg-box--border': border,
       },
       ...generateResponsiveClassNames(
         shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
@@ -154,6 +153,10 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
         noBorderRadius =>
           noBorderRadius ? 'sg-box--no-border-radius' : 'sg-box--border-radius',
         noBorderRadius
+      ),
+      ...generateResponsiveClassNames(
+        border => (border ? 'sg-box--border' : 'sg-box--no-border'),
+        border
       ),
       className
     );

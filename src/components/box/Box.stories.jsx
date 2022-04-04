@@ -21,9 +21,15 @@ export default {
       },
     },
     border: {
-      control: {
-        type: 'boolean',
-      },
+      description: '(Responsive)',
+      // table: {
+      //   type: {
+      //     summary: 'boolean',
+      //   },
+      // },
+      // control: {
+      //   type: 'boolean',
+      // },
     },
     padding: {
       control: {

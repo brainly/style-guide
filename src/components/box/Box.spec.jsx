@@ -127,3 +127,13 @@ it('noBorderRadius is responsive prop', () => {
     )
   ).toEqual(true);
 });
+
+it('border is responsive prop', () => {
+  const component = shallow(<Box border={[false, true, null, false]}>box</Box>);
+
+  expect(
+    component.hasClass(
+      'sg-box--no-border md:sg-box--border xl:sg-box--no-border'
+    )
+  ).toEqual(true);
+});
