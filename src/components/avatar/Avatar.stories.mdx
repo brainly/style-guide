@@ -1,0 +1,135 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantTable} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+import Headline from '../text/Headline';
+import Flex from '../flex/Flex';
+import hex from '../colors/hex';
+
+import Avatar, {SIZE} from './Avatar';
+import AvatarA11y from './stories/Avatar.a11y.mdx';
+
+<Meta
+  title="Components/Avatar"
+  component={Avatar}
+  argTypes={{
+    size: {control: {type: 'select', options: SIZE}},
+    border: {control: 'boolean'},
+    spaced: {control: 'boolean'},
+    imgSrc: {
+      control: {
+        type: 'select',
+        options: ['', 'https://source.unsplash.com/240x240/?cat'],
+      },
+    },
+  }}
+  args={{
+    imgSrc: '/cat.jpeg',
+    link: '#',
+  }}
+/>
+
+# Avatar
+
+- [Stories](#stories)
+- [Accesibility](#avatar-accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default" args={{imgSrc: null}}>
+    {args => <Avatar {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Size, border and image table
+
+<Canvas>
+  <Story name="SizeBorderImage">
+    {args => (
+      <StoryVariantTable>
+        <thead>
+          <tr>
+            <th />
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                no border
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                border
+              </Headline>
+            </th>
+            <th>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+              >
+                image
+              </Headline>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.values(SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Avatar key={size} {...args} size={size} imgSrc={null} />
+                </Flex>
+              </td>
+              <td style={{backgroundColor: hex['gray-40']}}>
+                <Flex justifyContent="center">
+                  <Avatar
+                    key={size}
+                    {...args}
+                    size={size}
+                    border
+                    imgSrc={null}
+                  />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Avatar key={size} {...args} size={size} />
+                </Flex>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+<AvatarA11y />
