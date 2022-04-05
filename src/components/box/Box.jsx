@@ -100,7 +100,7 @@ export type BoxPropsType = {
    * @example <Box noBorderRadius>Text inside Box with no border radius</Box>
    * @default false
    */
-  noBorderRadius?: boolean,
+  noBorderRadius?: ResponsivePropType<boolean>,
 
   /**
    * Show border
