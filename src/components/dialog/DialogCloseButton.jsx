@@ -9,12 +9,14 @@ export type DialogCloseButtonPropsType = $ReadOnly<{
   onClick: () => void,
   className?: string,
   label?: string,
+  'data-testid'?: string,
 }>;
 
 const DialogCloseButton = ({
   onClick,
   className,
   label = 'Close this dialog window',
+  'data-testid': dataTestId,
 }: DialogCloseButtonPropsType) => (
   <Button
     type="transparent"
@@ -23,6 +25,7 @@ const DialogCloseButton = ({
     onClick={onClick}
     aria-label={label}
     iconOnly
+    data-testid={dataTestId}
   />
 );
 

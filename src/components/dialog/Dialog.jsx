@@ -31,6 +31,7 @@ export type DialogPropsType = $ReadOnly<{
   onDismiss?: () => void,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
+  'data-testid'?: string,
 }>;
 
 /**
@@ -61,6 +62,7 @@ function BaseDialog({
   onDismiss,
   onEntryTransitionEnd,
   onExitTransitionEnd,
+  'data-testid': dataTestId,
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -208,6 +210,7 @@ function BaseDialog({
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
         tabIndex="-1"
+        data-testid={dataTestId}
       >
         {children}
       </div>
