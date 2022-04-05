@@ -2,7 +2,10 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {generateResponsiveClassNames} from '../utils/responsive-props';
+import {
+  generateResponsiveClassNames,
+  mergeResponsiveProps,
+} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
 type ColorType =
@@ -90,7 +93,7 @@ export type BoxPropsType = {
    * Padding size. Defaults to 'm' size, pass null to set it to 0
    * @example <Box padding="l">Text inside Box with large padding</Box>
    */
-  padding?: PaddingType | null,
+  padding?: ResponsivePropType<PaddingType | null>,
 
   /**
    * Disable border radius
@@ -142,7 +145,6 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
       'sg-box',
       {
         [`sg-box--${String(color)}`]: color,
-        [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
       },
       ...generateResponsiveClassNames(
@@ -157,6 +159,24 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
       ...generateResponsiveClassNames(
         border => (border ? 'sg-box--border' : 'sg-box--no-border'),
         border
+      ),
+      ...generateResponsiveClassNames(
+        padding => `sg-box--padding-${String(padding)}`,
+        padding
+      ),
+      ...generateResponsiveClassNames(
+        ([padding, border]) =>
+          padding && border
+            ? `sg-box--padding-${padding}-border`
+            : `sg-box--padding-${String(padding)}`,
+        mergeResponsiveProps([padding, border])
+      ),
+      ...generateResponsiveClassNames(
+        ([border, borderColor]) =>
+          border && borderColor
+            ? `sg-box--border-color-${String(borderColor)}`
+            : '',
+        mergeResponsiveProps([border, borderColor])
       ),
       className
     );

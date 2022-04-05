@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoryVariant} from '../../_docs/utils';
+import {formatTags, StoryVariant} from '../../_docs/utils';
 import Box, {PADDING, COLOR} from './Box';
 
 export default {
@@ -22,16 +22,22 @@ export default {
     },
     border: {
       description: '(Responsive)',
-      // table: {
-      //   type: {
-      //     summary: 'boolean',
-      //   },
-      // },
-      // control: {
-      //   type: 'boolean',
-      // },
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
     },
     padding: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(PADDING)),
+        },
+      },
       control: {
         type: 'select',
         options: PADDING,

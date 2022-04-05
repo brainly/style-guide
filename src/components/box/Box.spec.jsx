@@ -137,3 +137,27 @@ it('border is responsive prop', () => {
     )
   ).toEqual(true);
 });
+
+it('padding is responsive prop', () => {
+  const component = shallow(<Box padding={['xs', null, 'm', 'xl']}>box</Box>);
+
+  expect(
+    component.hasClass(
+      'sg-box--padding-xs lg:sg-box--padding-m xl:sg-box--padding-xl'
+    )
+  ).toEqual(true);
+});
+
+it('when padding is defined and border is defined, then it should decrease padding to keep same size', () => {
+  const component = shallow(
+    <Box padding={['xs', null, 'm', 'xl']} border={[null, null, true]}>
+      box
+    </Box>
+  );
+
+  expect(
+    component.hasClass(
+      'lg:sg-box--padding-m-border xl:sg-box--padding-xl-border'
+    )
+  ).toEqual(true);
+});
