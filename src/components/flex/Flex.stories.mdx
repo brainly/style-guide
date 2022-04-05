@@ -221,8 +221,8 @@ const boxStyle = {
 # Flex
 
 - [Stories](#stories)
-- [Accesibility](#accessibility)
 - [Responsive props](#responsive-props)
+- [Accesibility](#accessibility)
 
 ## Overview
 
@@ -231,9 +231,9 @@ const boxStyle = {
     {args => (
       <Flex {...args}>
         <Box {...boxStyle} style={{marginRight: 10}}>
-          1
+          Flex child 1
         </Box>
-        <Box {...boxStyle}>2</Box>
+        <Box {...boxStyle}>Flex child 2</Box>
       </Flex>
     )}
   </Story>
@@ -255,9 +255,9 @@ const boxStyle = {
         fullWidth
       >
         <Box {...boxStyle} style={{marginBottom: 10}}>
-          1
+          Flex child 1
         </Box>
-        <Box {...boxStyle}>2</Box>
+        <Box {...boxStyle}>Flex child 2</Box>
       </Flex>
     )}
   </Story>
@@ -270,9 +270,9 @@ const boxStyle = {
     {args => (
       <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
         <Box {...boxStyle} style={{marginRight: 10}}>
-          1
+          Flex child 1
         </Box>
-        <Box {...boxStyle}>2</Box>
+        <Box {...boxStyle}>Flex child 2</Box>
       </Flex>
     )}
   </Story>
@@ -348,7 +348,7 @@ const boxStyle = {
 
 ### Margins
 
-Use margins to make space between components. They work in single direction `marginTop="l"` or in all directions at once `margin="l"`.
+Use margins to make space around Flex. They work in single direction `marginTop="l"` or in all directions at once `margin="l"`.
 
 <Canvas>
   <Story name="Margins">
@@ -363,10 +363,14 @@ Use margins to make space between components. They work in single direction `mar
                 <Text>{marginType}</Text>
               </Box>
               <Flex marginRight={marginType}>
-                <Box {...boxStyle} {...fixedWidthBox} />
+                <Box {...boxStyle} {...fixedWidthBox}>
+                  Flex
+                </Box>
               </Flex>
               <Flex>
-                <Box {...boxStyle} {...fixedWidthBox} />
+                <Box {...boxStyle} {...fixedWidthBox}>
+                  Flex
+                </Box>
               </Flex>
             </Flex>
           ))}
