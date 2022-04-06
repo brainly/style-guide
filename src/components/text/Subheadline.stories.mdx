@@ -1,0 +1,191 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {formatTags} from '../../_docs/utils';
+import {TEXT_COLOR} from './textConsts';
+import classnames from 'classnames';
+import Subheadline from './Subheadline';
+import {
+  SUBHEADLINE_ALIGN,
+  SUBHEADLINE_SIZE,
+  SUBHEADLINE_TRANSFORM,
+} from './subheadlineConsts';
+
+<Meta
+  title="Components/Subheadline"
+  component={Subheadline}
+  args={{
+    children: 'some text',
+  }}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+    size: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_SIZE)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_SIZE),
+      },
+    },
+    transform: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_TRANSFORM)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_TRANSFORM),
+      },
+    },
+    align: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(SUBHEADLINE_ALIGN)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(SUBHEADLINE_ALIGN),
+      },
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TEXT_COLOR)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(TEXT_COLOR),
+      },
+    },
+  }}
+/>
+
+# Subheadline
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Subheadline {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <div>
+        {Object.values(TEXT_COLOR).map(color => (
+          <div
+            key={color}
+            className={classnames({
+              'sg-story-variant-dark-box': color === TEXT_COLOR['text-white'],
+            })}
+            style={{padding: 10}}
+          >
+            <Subheadline {...args} color={color}>
+              Subheadline
+            </Subheadline>
+          </div>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {Object.values(SUBHEADLINE_SIZE).map(size => (
+          <div key={size} style={{padding: 10}}>
+            <Subheadline {...args} color={size}>
+              Subheadline
+            </Subheadline>
+          </div>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Alignments
+
+<Canvas>
+  <Story name="Alignments">
+    {args => (
+      <div>
+        {Object.values(SUBHEADLINE_ALIGN).map(alignment => (
+          <div
+            key={alignment}
+            style={{
+              padding: 10,
+              border: '1px solid lightgray',
+              marginBottom: 10,
+            }}
+          >
+            <Subheadline {...args} align={alignment}>
+              Subheadline
+            </Subheadline>
+          </div>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Nested
+
+<Canvas>
+  <Story name="Nested">
+    {args => (
+      <Subheadline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
+        Outer subheadline{' '}
+        <Subheadline inherited type="span">
+          nested subheadline with inherited styles
+        </Subheadline>
+      </Subheadline>
+    )}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Subheadline
+    color={[
+      TEXT_COLOR['text-red-40'],
+      TEXT_COLOR['text-blue-40'],
+      TEXT_COLOR['text-indigo-40'],
+    ]}
+    size={[
+      SUBHEADLINE_SIZE.SMALL,
+      SUBHEADLINE_SIZE.XXLARGE,
+      null,
+      SUBHEADLINE_SIZE.XXXLARGE,
+    ]}
+  >
+    Some text
+  </Subheadline>
+</Canvas>
