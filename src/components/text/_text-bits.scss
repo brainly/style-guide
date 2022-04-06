@@ -51,9 +51,9 @@ $bitSizes: (
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
-      @each $size in $bitSizes {
-        @include makeResponsive($variant, 'sg-text-bit--#{size}') {
-          font-size: $size;
+      @each $bitSizeName, $bitSize in $bitSizes {
+        @include makeResponsive($variant, 'sg-text-bit--#{$bitSizeName}') {
+          font-size: $bitSize;
         }
       }
     }
