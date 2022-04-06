@@ -9,13 +9,28 @@ $includeHtml: false !default;
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  blockquote {
     margin: 0;
     padding: 0;
   }
 
   a {
     text-decoration: none;
+  }
+
+  del, ins {
+    text-decoration: none;
+  }
+
+  em, i {
+    font-style: normal;
+  }
+
+  q {
+    &::before, &::after {
+      content: none;
+    }
   }
 
   // overrides content-box from normalize
