@@ -1,4 +1,4 @@
-import * as Text from './Text.stories.msx';
+import * as Text from './Text.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Text);
