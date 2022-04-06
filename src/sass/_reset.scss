@@ -19,16 +19,19 @@ $includeHtml: false !default;
     text-decoration: none;
   }
 
-  del, ins {
+  del,
+  ins {
     text-decoration: none;
   }
 
-  em, i {
+  em,
+  i {
     font-style: normal;
   }
 
   q {
-    &::before, &::after {
+    &::before,
+    &::after {
       content: none;
     }
   }
