@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {mount} from 'enzyme';
 import Dialog from './Dialog';
+import DialogCloseButton from './DialogCloseButton';
 
 window.scrollTo = jest.fn();
 
@@ -134,5 +135,29 @@ describe('<Dialog>', () => {
     const dialogOverlay = wrapper.find('.sg-dialog__overlay');
 
     expect(dialogOverlay.props().style.zIndex).toEqual(10);
+  });
+
+  it('sets given data-testid to dialog', () => {
+    const wrapper = mount(
+      <Dialog open data-testid="test_id">
+        content text
+      </Dialog>
+    );
+
+    const dialog = wrapper.find('.sg-dialog__container');
+
+    expect(dialog.props()['data-testid']).toEqual('test_id');
+  });
+
+  it('sets given data-testid to dialog close button', () => {
+    const wrapper = mount(
+      <Dialog open>
+        <DialogCloseButton data-testid="test_id" />
+      </Dialog>
+    );
+
+    const closeBtn = wrapper.find('Button.sg-dialog__close-button');
+
+    expect(closeBtn.props()['data-testid']).toEqual('test_id');
   });
 });
