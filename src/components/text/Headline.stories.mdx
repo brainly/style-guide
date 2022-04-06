@@ -1,4 +1,5 @@
-import * as React from 'react';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {formatTags} from '../../_docs/utils';
 import Headline from './Headline';
 import {TEXT_COLOR} from './textConsts';
 import {
@@ -6,12 +7,14 @@ import {
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
 } from './headlineConsts';
-import {formatTags} from '../../_docs/utils';
 
-export default {
-  title: 'Components/Headline',
-  component: Headline,
-  argTypes: {
+<Meta
+  title="Components/Headline"
+  component={Headline}
+  args={{
+    children: 'some text',
+  }}
+  argTypes={{
     children: 'string',
     size: {
       description: '(Responsive)',
@@ -71,29 +74,55 @@ export default {
         type: 'boolean',
       },
     },
-  },
-  args: {
-    children: 'some text',
-  },
-};
+  }}
+/>
 
-export const Default = args => <Headline {...args} />;
+# Headline
 
-export const Nested = args => <Headline {...args} />;
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
 
-Nested.args = {
-  type: 'h2',
-  color: TEXT_COLOR['text-red-60'],
-  children: (
-    <>
-      Outer headline{' '}
-      <Headline inherited type="span">
-        nested Headline with inherited styles
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Headline {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Nested
+
+<Canvas>
+  <Story name="Nested">
+    {args => (
+      <Headline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
+        Outer headline{' '}
+        <Headline inherited type="span">
+          nested Headline with inherited styles
+        </Headline>
       </Headline>
-    </>
-  ),
-};
+    )}
+  </Story>
+</Canvas>
 
-Nested.argTypes = {
-  children: 'string',
-};
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Headline
+    extraBold={[false, null, true]}
+    size={[
+      HEADLINE_SIZE.SMALL,
+      HEADLINE_SIZE.XXLARGE,
+      null,
+      HEADLINE_SIZE.XXXLARGE,
+    ]}
+  >
+    Some text
+  </Headline>
+</Canvas>
