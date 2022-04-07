@@ -13,10 +13,10 @@ const blueBoxStyle = {
   borderColor: 'blue-40',
   color: 'blue-20',
 };
-const grayBoxStyle = {
+const indigoBoxStyle = {
   border: true,
-  borderColor: 'gray-40',
-  color: 'gray-20',
+  borderColor: 'indigo-40',
+  color: 'indigo-20',
 };
 
 <Meta
@@ -234,7 +234,7 @@ const grayBoxStyle = {
 <Canvas>
   <Story name="Default">
     {args => (
-      <Box {...grayBoxStyle}>
+      <Box {...indigoBoxStyle}>
         <Flex {...args}>
           <Box {...blueBoxStyle} style={{marginRight: 10}}>
             Flex child 1
@@ -255,7 +255,7 @@ const grayBoxStyle = {
 <Canvas>
   <Story name="Column">
     {args => (
-      <Box {...grayBoxStyle}>
+      <Box {...indigoBoxStyle}>
         <Flex {...args} direction={FLEX_DIRECTION.COLUMN} fullWidth>
           <Box {...blueBoxStyle} style={{marginBottom: 10}}>
             Flex child 1
@@ -272,7 +272,7 @@ const grayBoxStyle = {
 <Canvas>
   <Story name="Row">
     {args => (
-      <Box {...grayBoxStyle}>
+      <Box {...indigoBoxStyle}>
         <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
           <Box {...blueBoxStyle} style={{marginRight: 10}}>
             Flex child 1
@@ -291,7 +291,7 @@ const grayBoxStyle = {
     {args => (
       <Flex {...args} fullWidth direction="column">
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box {...grayBoxStyle}>
+          <Box {...indigoBoxStyle}>
             <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}>
               <Flex>
                 <Box {...blueBoxStyle}>space between</Box>
@@ -303,7 +303,7 @@ const grayBoxStyle = {
           </Box>
         </Flex>
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box {...grayBoxStyle}>
+          <Box {...indigoBoxStyle}>
             <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}>
               <Flex>
                 <Box {...blueBoxStyle}>space around</Box>
@@ -315,7 +315,7 @@ const grayBoxStyle = {
           </Box>
         </Flex>
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box {...grayBoxStyle}>
+          <Box {...indigoBoxStyle}>
             <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>
               <Flex marginRight={FLEX_MARGINS.MEDIUM}>
                 <Box {...blueBoxStyle}>flex start</Box>
@@ -327,7 +327,7 @@ const grayBoxStyle = {
           </Box>
         </Flex>
         <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
-          <Box {...grayBoxStyle}>
+          <Box {...indigoBoxStyle}>
             <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}>
               <Flex marginRight={FLEX_MARGINS.MEDIUM}>
                 <Box {...blueBoxStyle}>flex end</Box>
@@ -360,12 +360,12 @@ Use margins to make space around Flex. They work in single direction `marginTop=
                 <Text>{marginType}</Text>
               </Box>
               <Flex marginRight={marginType}>
-                <Box {...blueBoxStyle} {...fixedWidthBox}>
+                <Box {...indigoBoxStyle} {...fixedWidthBox}>
                   Flex
                 </Box>
               </Flex>
               <Flex>
-                <Box {...grayBoxStyle} {...fixedWidthBox} />
+                <Box {...blueBoxStyle} {...fixedWidthBox} />
               </Flex>
             </Flex>
           ))}
@@ -382,7 +382,7 @@ To control styles that differ across screen sizes you can use responsive props. 
 Resize window to check how component is changing flex direction and item margins based on window width.
 
 <Canvas>
-  <Box {...grayBoxStyle}>
+  <Box {...indigoBoxStyle}>
     <Flex direction={['column', null, 'row']}>
       <Flex
         margin
