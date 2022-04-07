@@ -1,13 +1,13 @@
-import * as React from 'react';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../_docs/utils';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM, LINK_WEIGHT} from './Link';
 import Text from './Text';
 import {TEXT_COLOR} from './textConsts';
 
-export default {
-  title: 'Components/Link',
-  component: Link,
-  argTypes: {
+<Meta
+  title="Components/Link"
+  component={Link}
+  argTypes={{
     size: {
       description: '(Responsive)',
       table: {
@@ -78,34 +78,54 @@ export default {
         type: 'boolean',
       },
     },
-  },
-};
+  }}
+  args={{
+    children: 'link text',
+    href: '#',
+  }}
+/>
 
-export const Default = args => <Link {...args} />;
+# Link
 
-Default.args = {
-  children: 'Some text',
-  href: '#',
-};
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
 
-Default.argTypes = {
-  children: 'string',
-  href: '#',
-};
+## Overview
 
-export const Nested = args => (
-  <Text type="h2" color={TEXT_COLOR['text-red-60']}>
-    Outer text-
-    <Link {...args} />
-  </Text>
-);
+<Canvas>
+  <Story name="Default">{args => <Link {...args} />}</Story>
+</Canvas>
 
-Nested.args = {
-  inherited: true,
-  as: 'button',
-  children: 'nested Link with inherited styles',
-};
+<ArgsTable story="Default" />
 
-Nested.argTypes = {
-  children: 'string',
-};
+## Stories
+
+### Nested
+
+<Canvas>
+  <Story name="Nested">
+    {args => (
+      <Text type="h2" color={TEXT_COLOR['text-red-60']}>
+        Outer text-
+        <Link as="button" inherited>
+          nested Link with inherited styles
+        </Link>
+      </Text>
+    )}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Link
+    size={[LINK_SIZE.SMALL, LINK_SIZE.MEDIUM, null, LINK_SIZE.LARGE]}
+    weight={[LINK_WEIGHT.REGULAR, LINK_WEIGHT.BOLD]}
+  >
+    Responsive size
+  </Link>
+</Canvas>
