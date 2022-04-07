@@ -1,0 +1,134 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Counter, {COUNTER_SIZE} from './Counter';
+import {TYPE as ICON_TYPE} from '../icons/Icon';
+import Flex from '../flex/Flex';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+
+<Meta
+  title="Components/Counter"
+  component={Counter}
+  argTypes={{
+    size: {control: {type: 'select', options: COUNTER_SIZE}},
+    withAnimation: {control: 'boolean'},
+    icon: {control: {type: 'select', options: Object.values(ICON_TYPE)}},
+  }}
+  args={{
+    children: '25',
+    size: 'xs',
+  }}
+/>
+
+# Counter
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Counter {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Sizes, colors and types
+
+<Canvas>
+  <Story name="SizesColorsAndTypes">
+    {args => (
+      <div>
+        <StoryVariantTable>
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  default
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  blue
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  with icon
+                </Headline>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(COUNTER_SIZE).map(size => (
+              <tr key={size}>
+                <td>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {size}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Counter key={size} {...args} size={size}>
+                      2
+                    </Counter>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Counter key={size} {...args} size={size} color="blue-50">
+                      2
+                    </Counter>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Counter
+                      key={size}
+                      {...args}
+                      icon={ICON_TYPE.POINTS}
+                      size={size}
+                    >
+                      +15
+                      <Text type="span" color="text-gray-60" inherited>
+                        {size !== 'xxs' && ` pts`}{' '}
+                      </Text>
+                    </Counter>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
