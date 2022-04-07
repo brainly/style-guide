@@ -8,10 +8,15 @@ import Box from '../box/Box';
 import {formatTags} from '../../_docs/utils';
 import {FLEX_ALIGNMENT_VALUES} from './FlexConsts';
 import FlexA11y from './Flex.a11y.mdx';
-const boxStyle = {
+const blueBoxStyle = {
   border: true,
   borderColor: 'blue-40',
   color: 'blue-20',
+};
+const grayBoxStyle = {
+  border: true,
+  borderColor: 'gray-40',
+  color: 'gray-20',
 };
 
 <Meta
@@ -229,12 +234,14 @@ const boxStyle = {
 <Canvas>
   <Story name="Default">
     {args => (
-      <Flex {...args}>
-        <Box {...boxStyle} style={{marginRight: 10}}>
-          Flex child 1
-        </Box>
-        <Box {...boxStyle}>Flex child 2</Box>
-      </Flex>
+      <Box {...grayBoxStyle}>
+        <Flex {...args}>
+          <Box {...blueBoxStyle} style={{marginRight: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
     )}
   </Story>
 </Canvas>
@@ -248,17 +255,14 @@ const boxStyle = {
 <Canvas>
   <Story name="Column">
     {args => (
-      <Flex
-        {...args}
-        direction={FLEX_DIRECTION.COLUMN}
-        marginBottom={FLEX_MARGINS.MEDIUM}
-        fullWidth
-      >
-        <Box {...boxStyle} style={{marginBottom: 10}}>
-          Flex child 1
-        </Box>
-        <Box {...boxStyle}>Flex child 2</Box>
-      </Flex>
+      <Box {...grayBoxStyle}>
+        <Flex {...args} direction={FLEX_DIRECTION.COLUMN} fullWidth>
+          <Box {...blueBoxStyle} style={{marginBottom: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
     )}
   </Story>
 </Canvas>
@@ -268,12 +272,14 @@ const boxStyle = {
 <Canvas>
   <Story name="Row">
     {args => (
-      <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
-        <Box {...boxStyle} style={{marginRight: 10}}>
-          Flex child 1
-        </Box>
-        <Box {...boxStyle}>Flex child 2</Box>
-      </Flex>
+      <Box {...grayBoxStyle}>
+        <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
+          <Box {...blueBoxStyle} style={{marginRight: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
     )}
   </Story>
 </Canvas>
@@ -284,62 +290,53 @@ const boxStyle = {
   <Story name="JustifyAndAlign">
     {args => (
       <Flex {...args} fullWidth direction="column">
-        <Flex
-          direction={FLEX_DIRECTION.ROW}
-          marginBottom={FLEX_MARGINS.MEDIUM}
-          justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}
-          fullWidth
-        >
-          <Flex>
-            <Box {...boxStyle}>space between</Box>
-          </Flex>
-          <Flex>
-            <Box {...boxStyle}>space between</Box>
-          </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...grayBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}>
+              <Flex>
+                <Box {...blueBoxStyle}>space between</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>space between</Box>
+              </Flex>
+            </Flex>
+          </Box>
         </Flex>
-        <SeparatorHorizontal />
-        <Flex
-          direction={FLEX_DIRECTION.ROW}
-          marginTop={FLEX_MARGINS.MEDIUM}
-          marginBottom={FLEX_MARGINS.MEDIUM}
-          justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}
-          fullWidth
-        >
-          <Flex>
-            <Box {...boxStyle}>space around</Box>
-          </Flex>
-          <Flex>
-            <Box {...boxStyle}>space around</Box>
-          </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...grayBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}>
+              <Flex>
+                <Box {...blueBoxStyle}>space around</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>space around</Box>
+              </Flex>
+            </Flex>
+          </Box>
         </Flex>
-        <SeparatorHorizontal />
-        <Flex
-          direction={FLEX_DIRECTION.ROW}
-          marginBottom={FLEX_MARGINS.MEDIUM}
-          marginTop={FLEX_MARGINS.MEDIUM}
-          justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}
-          fullWidth
-        >
-          <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-            <Box {...boxStyle}>flex start</Box>
-          </Flex>
-          <Flex>
-            <Box {...boxStyle}>flex start</Box>
-          </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...grayBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>
+              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+                <Box {...blueBoxStyle}>flex start</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>flex start</Box>
+              </Flex>
+            </Flex>
+          </Box>
         </Flex>
-        <SeparatorHorizontal />
-        <Flex
-          direction={FLEX_DIRECTION.ROW}
-          marginTop={FLEX_MARGINS.MEDIUM}
-          justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}
-          fullWidth
-        >
-          <Flex marginRight={FLEX_MARGINS.MEDIUM}>
-            <Box {...boxStyle}>flex end</Box>
-          </Flex>
-          <Flex>
-            <Box {...boxStyle}>flex end</Box>
-          </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...grayBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}>
+              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+                <Box {...blueBoxStyle}>flex end</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>flex end</Box>
+              </Flex>
+            </Flex>
+          </Box>
         </Flex>
       </Flex>
     )}
@@ -363,12 +360,12 @@ Use margins to make space around Flex. They work in single direction `marginTop=
                 <Text>{marginType}</Text>
               </Box>
               <Flex marginRight={marginType}>
-                <Box {...boxStyle} {...fixedWidthBox}>
+                <Box {...blueBoxStyle} {...fixedWidthBox}>
                   Flex
                 </Box>
               </Flex>
               <Flex>
-                <Box {...boxStyle} {...fixedWidthBox}>
+                <Box {...blueBoxStyle} {...fixedWidthBox}>
                   Flex
                 </Box>
               </Flex>
@@ -387,44 +384,46 @@ To control styles that differ across screen sizes you can use responsive props. 
 Resize window to check how component is changing flex direction and item margins based on window width.
 
 <Canvas>
-  <Flex direction={['column', null, 'row']}>
-    <Flex
-      margin
-      fullWidth
-      marginBottom={{
-        sm: 'xs',
-        md: 'm',
-        lg: 'none',
-      }}
-    >
-      <Box {...boxStyle}>Flex child 1</Box>
+  <Box {...grayBoxStyle}>
+    <Flex direction={['column', null, 'row']}>
+      <Flex
+        margin
+        fullWidth
+        marginBottom={{
+          sm: 'xs',
+          md: 'm',
+          lg: 'none',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 1</Box>
+      </Flex>
+      <Flex
+        margin
+        fullWidth
+        marginBottom={{
+          sm: 'xs',
+          md: 'm',
+          lg: 'none',
+        }}
+        marginLeft={{
+          lg: 's',
+          xl: 'l',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 2</Box>
+      </Flex>
+      <Flex
+        margin
+        fullWidth
+        marginLeft={{
+          lg: 's',
+          xl: 'l',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 3</Box>
+      </Flex>
     </Flex>
-    <Flex
-      margin
-      fullWidth
-      marginBottom={{
-        sm: 'xs',
-        md: 'm',
-        lg: 'none',
-      }}
-      marginLeft={{
-        lg: 's',
-        xl: 'l',
-      }}
-    >
-      <Box {...boxStyle}>Flex child 2</Box>
-    </Flex>
-    <Flex
-      margin
-      fullWidth
-      marginLeft={{
-        lg: 's',
-        xl: 'l',
-      }}
-    >
-      <Box {...boxStyle}>3</Box>
-    </Flex>
-  </Flex>
+  </Box>
 </Canvas>
 
 ## Accessibility
