@@ -3,6 +3,7 @@ import {formatTags} from '../../_docs/utils';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM, LINK_WEIGHT} from './Link';
 import Text from './Text';
 import {TEXT_COLOR} from './textConsts';
+import LinkA11y from './Link.a11y.mdx';
 
 <Meta
   title="Components/Link"
@@ -89,6 +90,7 @@ import {TEXT_COLOR} from './textConsts';
 
 - [Stories](#stories)
 - [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -118,7 +120,7 @@ import {TEXT_COLOR} from './textConsts';
 ### Opens in a new tab
 
 <Canvas>
-  <Story name="Nested">
+  <Story name="Open in a new tab">
     {args => (
       <Link href="#" target="_blank">
         Read more about red pandas
@@ -141,3 +143,5 @@ Resize window to check how component is changing flex direction and item margins
     Responsive size
   </Link>
 </Canvas>
+
+<LinkA11y />

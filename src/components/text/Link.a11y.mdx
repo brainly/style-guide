@@ -1,8 +1,6 @@
-# Link accessibility
+## Accessibility
 
-<br/>
-
-## Link `as="a"`
+### Link `as="a"`
 
 | Pattern                                                                                                | Comment                                                                                                                                                                                | Status                                    |
 | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
@@ -19,11 +17,16 @@
 | **Can** have an accessible label (and/or icon) that indicates opening in new tab                       |                                                                                                                                                                                        | Implementation: DONE<br />Tests: DONE     |
 | **Can** have an accessible label with file size&format (and/or icon) that indicates downloading a file |                                                                                                                                                                                        | Implementation: TO DO<br />Tests: TO DO   |
 
-> <mark>Element, that looks like a link, but doesn't cause the user agent to navigate to a new resource but have onClick listener is a button and should meet the accessibility requirements for [Link `as="button"`](#link-asbutton).</mark>
+<!-- prettier-ignore -->
+<p>
+  <mark>
+  Element, that looks like a link, but doesn't cause the user agent to navigate
+  to a new resource but have onClick listener is a button and should meet the
+  accessibility requirements for <a href="#link-asbutton">Link as="button"</a>.
+  </mark>
+</p>
 
-<br/>
-
-## Link `as="button"`
+### Link `as="button"`
 
 | Pattern                                                                           | Comment                                                                                                                                                                                | Status                                    |
 | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
@@ -38,22 +41,15 @@
 | **Should** fire `onClick` on `Space`/`Enter` press and mouse click                |                                                                                                                                                                                        | Implementation: DONE<br />Tests: DONE     |
 | **Should** have a visible `disabled` state                                        |                                                                                                                                                                                        | Implementation: DONE<br />Tests: BLOCKED  |
 
-<br/>
-<br/>
+### Usage
 
-## Usage
-
-<br/>
-
-### Code examples
+#### Code examples
 
 - `as="a"`
 
 <!-- prettier-ignore -->
 ```jsx
-<Link
-  href="https://example.com/"
->
+<Link href="https://example.com/">
   Read more about our products
 </Link>
 ```
