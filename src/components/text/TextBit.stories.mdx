@@ -39,16 +39,17 @@ import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
 ## Stories
 
-### Nested
+### Inherited styles
 
 <Canvas>
   <Story name="Nested">
     {args => (
-      <TextBit {...args} type="h2" color="text-blue-40">
-        parent TextBit
-        <TextBit inherited type="span">
-          nested TextBit
+      <TextBit {...args} type="h2">
+        SEARCH{' '}
+        <TextBit inherited type="span" color="text-green-60">
+          QUESTIONS{' '}
         </TextBit>
+        OR ASK YOUR OWN
       </TextBit>
     )}
   </Story>
@@ -57,7 +58,6 @@ import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 ## Responsive props
 
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
-
 Resize window to check how component is changing flex direction and item margins based on window width.
 
 <Canvas>
