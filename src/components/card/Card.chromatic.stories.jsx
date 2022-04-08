@@ -1,6 +1,8 @@
-import * as Card from './Card.stories.jsx';
+import * as Card from './Card.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Card);
 
-export default Card.default;
+const {includeStories, ...meta} = Card.default;
+
+export default meta;

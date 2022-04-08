@@ -1,0 +1,40 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import Card from './Card';
+import CardHole from './CardHole';
+import CardA11y from './stories/Card.a11y.mdx';
+
+<Meta
+  title="Components/Card"
+  component={Card}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+/>
+
+# Card
+
+- [Accesibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Card {...args}>
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Accessibility
+
+<CardA11y />
