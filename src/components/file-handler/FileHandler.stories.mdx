@@ -1,0 +1,106 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+import FileHandler, {COLORS_MAP} from './FileHandler';
+import {TYPE} from '../icons/Icon';
+import FileHandlerA11y from './stories/FileHandler.a11y.mdx';
+const src =
+  // eslint-disable-next-line max-len
+  'https://images.unsplash.com/photo-1558349699-1e1c38c05eeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=240&q=80';
+
+<Meta
+  title="Layout/FileHandler"
+  component={FileHandler}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    textRef: {
+      control: {
+        disable: true,
+      },
+    },
+    iconType: {
+      control: {
+        type: 'select',
+        options: TYPE,
+      },
+    },
+  }}
+  args={{
+    children: 'userAvatar.jpg',
+  }}
+/>
+
+# FileHandler
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <FileHandler {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <div>
+        {Object.values(COLORS_MAP).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            {color === 'white' ? (
+              <div className="sg-story-variant-dark-box">
+                <FileHandler {...args} color={color} />
+              </div>
+            ) : (
+              <FileHandler {...args} color={color} />
+            )}
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Icons
+
+<Canvas>
+  <Story name="Icons">
+    {args => (
+      <Flex wrap>
+        {Object.values(TYPE).map(icon => (
+          <StoryVariant label={`icon - ${icon}`} width={200} key={icon}>
+            <FileHandler {...args} iconType={icon} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### With thumbnail
+
+<Canvas>
+  <Story name="With thumbnail">
+    {args => <FileHandler {...args} thumbnailSrc={src} />}
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story name="Loading">{args => <FileHandler {...args} loading />}</Story>
+</Canvas>
+
+## Accessibility
+
+<FileHandlerA11y />
