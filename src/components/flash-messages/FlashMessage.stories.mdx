@@ -1,0 +1,79 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {StoryVariantTable} from '../../_docs/utils';
+import Headline from '../text/Headline';
+import {Preview} from '../../_docs/blocks/';
+import FlashMessage, {TYPE} from './FlashMessage';
+import FlashMessageA11y from './stories/FlashMessage.a11y.mdx';
+
+<Meta
+  title="Layout/FlashMessage"
+  component={FlashMessage}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    className: {
+      control: {
+        disable: true,
+      },
+    },
+    type: {
+      control: {type: 'select', options: TYPE},
+    },
+  }}
+  args={{
+    text: 'New message in your inbox!',
+  }}
+/>
+
+# FlashMessage
+
+- [Stories](#stories)
+- [Accesibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <FlashMessage {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Types">
+    {args => (
+      <StoryVariantTable>
+        {Object.values(TYPE).map(type => (
+          <tr key={type}>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                {type}
+              </Headline>
+            </td>
+            <td width="500">
+              <FlashMessage {...args} type={type} />
+            </td>
+          </tr>
+        ))}
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<FlashMessageA11y />

@@ -1,8 +1,9 @@
 ### Rules
 
-| Pattern                 | Comment                  | Status                                |
-| ----------------------- | ------------------------ | ------------------------------------- |
-| **Should** be announced | `role` has `alert` value | Implementation: DONE<br />Tests: DONE |
+| Pattern                              | Comment                  | Status                                |
+| ------------------------------------ | ------------------------ | ------------------------------------- |
+| **Should** be announced              | `role` has `alert` value | Implementation: DONE<br />Tests: DONE |
+| **Should** have 4.5:1 contrast ratio |                          | Implementation: DONE<br />Tests: N/A  |
 
 ### Usage
 
@@ -10,7 +11,7 @@
 
 <!-- prettier-ignore -->
 ```jsx
-<FlashMessage>
-  New message in your inbox!
-</FlashMessage>
+<FlashMessage
+  text="New message in your inbox!"
+/>
 ```
