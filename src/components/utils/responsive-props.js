@@ -27,10 +27,13 @@ export type ResponsivePropType<T> =
       xl?: T,
     };
 
+const breakpoints = ['sm', 'md', 'lg', 'xl'];
+const responsivePrefixes = ['', 'md', 'lg', 'xl'];
+
 export function mergeResponsiveProps(
   props: Array<ResponsivePropConjuctionType>
 ) {
-  // zamien na obiekty
+  // convert to objects
   const propObjects = props.map(prop => {
     if (prop === null || prop === undefined) {
       return {};
@@ -42,8 +45,6 @@ export function mergeResponsiveProps(
         xl: prop,
       };
     } else if (Array.isArray(prop)) {
-      const breakpoints = ['sm', 'md', 'lg', 'xl'];
-
       return (prop.length > 4 ? prop.slice(0, 4) : prop).reduce(
         (acc, next, index) => {
           if (next !== null && next !== undefined) {
@@ -58,30 +59,31 @@ export function mergeResponsiveProps(
     }
   });
 
-  // wyciągnij wspólne propsy dla breakpointów
-  const breakpoints = ['sm', 'md', 'lg', 'xl'];
+  // fill empty breakpoints when other props have values
   let lastRowValues = [];
 
-  for (let i = 0; i <= 3; i++) {
+  breakpoints.forEach(breakpoint => {
     const valueBreakpointExist = propObjects.some(
       propObject =>
-        propObject[breakpoints[i]] !== null &&
-        propObject[breakpoints[i]] !== undefined
+        propObject[breakpoint] !== null && propObject[breakpoint] !== undefined
     );
 
     if (valueBreakpointExist) {
       // eslint-disable-next-line no-loop-func
       propObjects.forEach((propObject, propObjectsIndex) => {
-        if (lastRowValues[propObjectsIndex] && !propObject[breakpoints[i]]) {
-          propObject[breakpoints[i]] = lastRowValues[propObjectsIndex];
+        if (lastRowValues[propObjectsIndex] && !propObject[breakpoint]) {
+          propObject[breakpoint] = lastRowValues[propObjectsIndex];
         }
       });
     }
 
-    lastRowValues = propObjects.map(propObject => propObject[breakpoints[i]]);
-  }
+    lastRowValues = propObjects.map(propObject => propObject[breakpoint]);
+  });
 
-  return ['sm', 'md', 'lg', 'xl'].reduce((acc, breakpoint) => {
+  breakpoints.forEach;
+
+  // merge
+  return breakpoints.reduce((acc, breakpoint) => {
     if (
       propObjects.every(
         propObject =>
@@ -110,8 +112,6 @@ export function generateResponsiveClassNames<T>(
   }
 
   if (Array.isArray(prop)) {
-    const breakpoints = ['', 'md', 'lg', 'xl'];
-
     return (prop.length > 4 ? prop.slice(0, 4) : prop).reduce(
       (acc, propBreakpointValue, index) => {
         if (propBreakpointValue === null || propBreakpointValue === undefined) {
@@ -119,7 +119,7 @@ export function generateResponsiveClassNames<T>(
         } else {
           acc.push(
             `${
-              breakpoints[index] ? `${breakpoints[index]}:` : ''
+              responsivePrefixes[index] ? `${responsivePrefixes[index]}:` : ''
             }${createBaseClassName(propBreakpointValue)}`
           );
           return acc;
@@ -129,7 +129,7 @@ export function generateResponsiveClassNames<T>(
     );
   }
 
-  return ['sm', 'md', 'lg', 'xl']
+  return breakpoints
     .map(breakpoint => {
       if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
         return '';
