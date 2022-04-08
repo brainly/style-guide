@@ -58,6 +58,17 @@ $bodyTextSizeRules: (
     font-weight: $fontWeightNormal;
     color: $text-black;
 
+    &--link {
+      cursor: pointer;
+      text-decoration: none;
+      color: $text-blue-60;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
     &--inherited {
       font-size: inherit;
       line-height: inherit;
@@ -68,17 +79,6 @@ $bodyTextSizeRules: (
 
     &--container {
       position: relative;
-    }
-
-    &--link {
-      cursor: pointer;
-      text-decoration: none;
-      color: $text-blue-60;
-
-      &:hover,
-      &:active {
-        text-decoration: underline;
-      }
     }
 
     &--link-label {

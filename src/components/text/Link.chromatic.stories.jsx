@@ -1,6 +1,8 @@
-import * as Link from './Link.stories.jsx';
+import * as Link from './Link.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Link);
 
-export default Link.default;
+const {includeStories, ...meta} = Link.default;
+
+export default meta;

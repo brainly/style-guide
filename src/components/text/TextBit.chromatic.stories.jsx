@@ -1,6 +1,8 @@
-import * as TextBit from './TextBit.stories.jsx';
+import * as TextBit from './TextBit.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(TextBit);
 
-export default TextBit.default;
+const {includeStories, ...meta} = TextBit.default;
+
+export default meta;
