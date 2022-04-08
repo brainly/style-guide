@@ -188,6 +188,7 @@ const Link = (props: LinkPropsType) => {
       size={textSize}
       onClick={onLinkClick}
       aria-label={ariaLabel}
+      target={target}
     >
       {children}
       {target === '_blank' && (
