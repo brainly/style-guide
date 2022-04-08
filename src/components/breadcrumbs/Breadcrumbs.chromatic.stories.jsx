@@ -1,6 +1,8 @@
-import * as Breadcrumbs from './Breadcrumbs.stories.jsx';
+import * as Breadcrumbs from './Breadcrumbs.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Breadcrumbs);
 
-export default Breadcrumbs.default;
+const {includeStories, ...meta} = Breadcrumbs.default;
+
+export default meta;
