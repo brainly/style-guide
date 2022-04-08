@@ -1,0 +1,33 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Footer from './Footer';
+
+<Meta
+  title="Components/Footer"
+  component={Footer}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: [
+      <FooterLine key="1">line</FooterLine>,
+      <FooterLine key="2">line</FooterLine>,
+      <FooterLine key="3">line</FooterLine>,
+    ],
+  }}
+/>
+
+# Footer
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Footer {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
