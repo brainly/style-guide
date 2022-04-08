@@ -21,7 +21,6 @@ const anchorRelatedProps = [
   'ping',
   'referrerpolicy',
   'rel',
-  'target',
 ];
 
 type LinkSizeType =
@@ -41,6 +40,8 @@ type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 
 type ElementType = 'a' | 'button';
 
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
+
 export type LinkPropsType = {
   children?: ?React.Node,
   as?: ?ElementType,
@@ -59,6 +60,8 @@ export type LinkPropsType = {
   className?: ?string,
   inherited?: boolean,
   'aria-label'?: string,
+  target?: TargetType,
+  newTabLabel?: string,
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
@@ -86,7 +89,9 @@ const Link = (props: LinkPropsType) => {
     inherited = false,
     size,
     'aria-label': ariaLabel,
+    target,
     onClick,
+    newTabLabel = '(opens in a new tab)',
     ...additionalProps
   } = props;
   const {current: labelId} = React.useRef(generateId());
@@ -185,6 +190,12 @@ const Link = (props: LinkPropsType) => {
       aria-label={ariaLabel}
     >
       {children}
+      {target === '_blank' && (
+        <>
+          <span aria-hidden> ⬈</span>
+          <span className="sg-visually-hidden">{newTabLabel}</span>
+        </>
+      )}
     </Text>
   );
 };
