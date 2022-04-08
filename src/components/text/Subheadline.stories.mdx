@@ -8,12 +8,14 @@ import {
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
+import Box from '../box/Box';
+import Flex from '../flex/Flex';
 
 <Meta
   title="Components/Subheadline"
   component={Subheadline}
   args={{
-    children: 'some text',
+    children: 'Subheadline',
   }}
   argTypes={{
     children: {
@@ -91,17 +93,17 @@ import {
     {args => (
       <div>
         {Object.values(TEXT_COLOR).map(color => (
-          <div
+          <Box
+            color={
+              color === TEXT_COLOR['text-white'] ? 'indigo-40' : 'transparent'
+            }
+            padding="s"
             key={color}
-            className={classnames({
-              'sg-story-variant-dark-box': color === TEXT_COLOR['text-white'],
-            })}
-            style={{padding: 10}}
           >
             <Subheadline {...args} color={color}>
               Subheadline
             </Subheadline>
-          </div>
+          </Box>
         ))}
       </div>
     )}
@@ -113,15 +115,16 @@ import {
 <Canvas>
   <Story name="Sizes">
     {args => (
-      <div>
+      <Flex direction="column">
         {Object.values(SUBHEADLINE_SIZE).map(size => (
-          <div key={size} style={{padding: 10}}>
+          <Flex direction="column" key={size} marginBottom="s">
+            {size}
             <Subheadline {...args} color={size}>
               Subheadline
             </Subheadline>
-          </div>
+          </Flex>
         ))}
-      </div>
+      </Flex>
     )}
   </Story>
 </Canvas>
@@ -133,34 +136,33 @@ import {
     {args => (
       <div>
         {Object.values(SUBHEADLINE_ALIGN).map(alignment => (
-          <div
-            key={alignment}
-            style={{
-              padding: 10,
-              border: '1px solid lightgray',
-              marginBottom: 10,
-            }}
-          >
-            <Subheadline {...args} align={alignment}>
-              Subheadline
-            </Subheadline>
-          </div>
+          <Flex marginBottom="s" direction="column">
+            {alignment}
+            <Box color="indigo-20" key={alignment}>
+              <Subheadline {...args} align={alignment}>
+                Subheadline
+              </Subheadline>
+            </Box>
+          </Flex>
         ))}
       </div>
     )}
   </Story>
 </Canvas>
 
-### Nested
+### Inherited styles
+
+Using prop `inherited` makes Subheadline inherits styles from parent e.g. size. We can still use other props to change appearance.
 
 <Canvas>
-  <Story name="Nested">
+  <Story name="Inherited Styles">
     {args => (
-      <Subheadline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
-        Outer subheadline{' '}
-        <Subheadline inherited type="span">
-          nested subheadline with inherited styles
-        </Subheadline>
+      <Subheadline {...args} type="h2" size="large">
+        The Brainly community is constantly{' '}
+        <Subheadline inherited type="span" color={TEXT_COLOR['text-indigo-60']}>
+          buzzing
+        </Subheadline>{' '}
+        with the excitement of endless collaboration.
       </Subheadline>
     )}
   </Story>
@@ -168,9 +170,7 @@ import {
 
 ## Responsive props
 
-To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
-
-Resize window to check how component is changing flex direction and item margins based on window width.
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing flex direction and item margins based on window width.
 
 <Canvas>
   <Subheadline
@@ -186,6 +186,6 @@ Resize window to check how component is changing flex direction and item margins
       SUBHEADLINE_SIZE.XXXLARGE,
     ]}
   >
-    Some text
+    Subheadline
   </Subheadline>
 </Canvas>
