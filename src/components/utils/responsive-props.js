@@ -103,7 +103,7 @@ export function generateResponsiveClassNames<T>(
   createBaseClassName: T => string,
   prop?: ResponsivePropType<T>
 ): Array<string> {
-  if (!prop) {
+  if (prop === null || prop === undefined) {
     return [];
   }
 
