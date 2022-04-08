@@ -1,0 +1,172 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+import {formatTags} from '../../_docs/utils';
+import Box, {PADDING, COLOR} from './Box';
+import BoxA11y from './stories/Box.a11y.mdx';
+import Flex from '../flex/Flex';
+
+<Meta
+  title="Layout/Box"
+  component={Box}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    className: {
+      control: {
+        disable: true,
+      },
+    },
+    border: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    padding: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(PADDING)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: PADDING,
+      },
+    },
+    shadow: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    noBorderRadius: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+  }}
+  args={{
+    children: 'Text inside Box',
+  }}
+/>
+
+# Box
+
+Container for grouping elements. It provides padding, background color, border and shadow.
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+- [Accesibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Box {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex direction="column">
+        {Object.values(COLOR).map(color => (
+          <Flex marginBottom="s" key={color}>
+            <Flex marginBottom="s" noWrap>
+              {color}
+            </Flex>
+            <Box {...args} color={color} />
+          </Flex>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Paddings
+
+<Canvas>
+  <Story name="Paddings">
+    {args => (
+      <div>
+        {Object.values(PADDING).map(padding => (
+          <StoryVariant label={`padding - ${padding}`} key={padding}>
+            <Box {...args} color="blue-40" padding={padding} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Borders
+
+<Canvas>
+  <Story name="Borders">
+    {args => (
+      <div>
+        {Object.values(COLOR).map(color => (
+          <StoryVariant label={`border color - ${color}`} key={color}>
+            {color === COLOR.white ? (
+              <div className="sg-story-variant-dark-box">
+                <Box
+                  {...args}
+                  color="blue-40"
+                  border
+                  borderColor={COLOR[color]}
+                />
+              </div>
+            ) : (
+              <Box {...args} border borderColor={color} />
+            )}
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Shadow
+
+<Canvas>
+  <Story name="Shadow">
+    {args => <Box {...args} color="blue-40" shadow />}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing flex direction and item margins based on window width.
+
+## Accessibility
+
+<Canvas>
+  <Box />
+</Canvas>
+
+<BoxA11y />
