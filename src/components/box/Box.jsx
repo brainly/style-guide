@@ -151,12 +151,11 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
         shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
         shadow
       ),
-      ...generateResponsiveClassNames(noBorderRadius => {
-        console.log(noBorderRadius);
-        return noBorderRadius
-          ? 'sg-box--no-border-radius'
-          : 'sg-box--border-radius';
-      }, noBorderRadius),
+      ...generateResponsiveClassNames(
+        noBorderRadius =>
+          noBorderRadius ? 'sg-box--no-border-radius' : 'sg-box--border-radius',
+        noBorderRadius
+      ),
       ...generateResponsiveClassNames(
         border => (border ? 'sg-box--border' : 'sg-box--no-border'),
         border
