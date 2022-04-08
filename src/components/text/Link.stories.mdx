@@ -3,6 +3,7 @@ import {formatTags} from '../../_docs/utils';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM, LINK_WEIGHT} from './Link';
 import Text from './Text';
 import {TEXT_COLOR} from './textConsts';
+import LinkA11y from './Link.a11y.mdx';
 
 <Meta
   title="Components/Link"
@@ -80,7 +81,7 @@ import {TEXT_COLOR} from './textConsts';
     },
   }}
   args={{
-    children: 'link text',
+    children: 'Read more about Link component',
     href: '#',
   }}
 />
@@ -89,6 +90,7 @@ import {TEXT_COLOR} from './textConsts';
 
 - [Stories](#stories)
 - [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -115,6 +117,18 @@ import {TEXT_COLOR} from './textConsts';
   </Story>
 </Canvas>
 
+### Opens in a new tab
+
+<Canvas>
+  <Story name="Open in a new tab">
+    {args => (
+      <Link href="https://en.wikipedia.org/wiki/Red_panda" target="_blank">
+        Read more about red pandas
+      </Link>
+    )}
+  </Story>
+</Canvas>
+
 ## Responsive props
 
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
@@ -129,3 +143,5 @@ Resize window to check how component is changing flex direction and item margins
     Responsive size
   </Link>
 </Canvas>
+
+<LinkA11y />
