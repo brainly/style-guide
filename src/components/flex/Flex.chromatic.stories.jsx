@@ -1,6 +1,8 @@
-import * as Flex from './Flex.stories.jsx';
+import * as Flex from './Flex.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Flex);
 
-export default Flex.default;
+const {includeStories, ...meta} = Flex.default;
+
+export default meta;
