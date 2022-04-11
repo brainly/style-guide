@@ -128,10 +128,12 @@ import {
 
 ### Inherited styles
 
+Text component does not inherit any styles by default. To turn inheritance you can use `inherited` prop. In below example nested Text component has same font size as parent, because of inherited styles.
+
 <Canvas>
   <Story name="Inherited styles">
     {args => (
-      <Text {...args} type="h2">
+      <Text {...args} type="h2" size="large">
         <Text inherited type="span" weight="bold">
           83%
         </Text>{' '}
@@ -139,11 +141,7 @@ import {
         <Text inherited type="span" weight="bold">
           84%
         </Text>{' '}
-        find it has inspired them to ask more questions, and{' '}
-        <Text inherited type="span" weight="bold">
-          80%
-        </Text>{' '}
-        say Brainly has empowered them to embrace challenging questions
+        find it has inspired them to ask more questions.
       </Text>
     )}
   </Story>
@@ -151,9 +149,7 @@ import {
 
 ## Responsive props
 
-To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
-
-Resize window to check how component is changing font size and weight based on window width.
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing font size and weight based on window width.
 
 <Canvas>
   <Text
