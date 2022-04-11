@@ -56,6 +56,7 @@ export const COLOR = {
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export const PADDING = {
+  none: 'none',
   xxs: 'xxs',
   xs: 'xs',
   s: 's',
@@ -166,9 +167,7 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
       ),
       ...generateResponsiveClassNames(
         ([padding, border]) =>
-          padding && border
-            ? `sg-box--padding-${padding}-border`
-            : `sg-box--padding-${String(padding)}`,
+          padding && border ? `sg-box--padding-${padding}-border` : '',
         mergeResponsiveProps([padding, border])
       ),
       ...generateResponsiveClassNames(

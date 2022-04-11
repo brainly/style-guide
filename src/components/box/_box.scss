@@ -1,5 +1,5 @@
 $boxBorderSize: 2px;
-$boxPaddings: (xxs xs s m l xl);
+$boxPaddings: (none xxs xs s m l xl);
 
 $includeHtml: false !default;
 
@@ -118,14 +118,22 @@ $includeHtml: false !default;
 
     @each $boxPadding in $boxPaddings {
       @include makeResponsive($variant, 'sg-box--padding-#{$boxPadding}') {
-        padding: spacing($boxPadding);
+        @if $boxPadding == none {
+          padding: 0;
+        } @else {
+          padding: spacing($boxPadding);
+        }
       }
 
       @include makeResponsive(
         $variant,
         'sg-box--padding-#{$boxPadding}-border'
       ) {
-        padding: (spacing($boxPadding) - $boxBorderSize);
+        @if $boxPadding == none {
+          padding: 0;
+        } @else {
+          padding: (spacing($boxPadding) - $boxBorderSize);
+        }
       }
     }
   }

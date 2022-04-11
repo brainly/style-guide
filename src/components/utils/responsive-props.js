@@ -116,6 +116,8 @@ export function generateResponsiveClassNames<T>(
       (acc, propBreakpointValue, index) => {
         if (propBreakpointValue === null || propBreakpointValue === undefined) {
           return acc;
+        } else if (!createBaseClassName(propBreakpointValue)) {
+          return acc;
         } else {
           acc.push(
             `${
@@ -132,6 +134,8 @@ export function generateResponsiveClassNames<T>(
   return breakpoints
     .map(breakpoint => {
       if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
+        return '';
+      } else if (!createBaseClassName(prop[breakpoint])) {
         return '';
       } else {
         return breakpoint === 'sm'

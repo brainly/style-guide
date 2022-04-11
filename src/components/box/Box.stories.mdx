@@ -6,6 +6,8 @@ import Box, {PADDING, COLOR} from './Box';
 import BoxA11y from './stories/Box.a11y.mdx';
 import Flex from '../flex/Flex';
 import TextBit from '../text/TextBit';
+import Headline from '../text/Headline';
+import Icon from '../icons/Icon';
 
 <Meta
   title="Layout/Box"
@@ -68,12 +70,7 @@ import TextBit from '../text/TextBit';
     },
   }}
   args={{
-    children: (
-      <TextBit color="text-black">
-        Wake up
-        <br /> your mind
-      </TextBit>
-    ),
+    children: 'TextBit',
     color: COLOR['indigo-20'],
   }}
 />
@@ -89,7 +86,15 @@ Container for grouping elements. It provides padding, background color, border a
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Box {...args} />}</Story>
+  <Story name="Default">
+    {args => (
+      <div style={{width: 300}}>
+        <Box {...args}>
+          <TextBit color="text-black">Wake up your mind</TextBit>
+        </Box>
+      </div>
+    )}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -101,28 +106,12 @@ Container for grouping elements. It provides padding, background color, border a
 <Canvas>
   <Story name="Colors">
     {args => (
-      <Flex direction="column">
+      <Flex wrap>
         {Object.values(COLOR).map(color => (
-          <Flex marginBottom="s" key={color} direction="column">
-            <Flex marginBottom="s">{color}</Flex>
-            <Box {...args} color={color} />
-          </Flex>
-        ))}
-      </Flex>
-    )}
-  </Story>
-</Canvas>
-
-### Paddings
-
-<Canvas>
-  <Story name="Paddings">
-    {args => (
-      <Flex direction="column">
-        {Object.values(PADDING).map(padding => (
-          <Flex direction="column" key={padding} marginBottom="s">
-            <Flex marginBottom="xs">{padding}</Flex>
-            <Box {...args} padding={padding} />
+          <Flex marginRight="s" marginBottom="s" key={color}>
+            <Box {...args} color={color} padding="xs">
+              {color}
+            </Box>
           </Flex>
         ))}
       </Flex>
@@ -135,22 +124,41 @@ Container for grouping elements. It provides padding, background color, border a
 <Canvas>
   <Story name="Borders">
     {args => (
-      <Flex direction="column">
+      <Flex wrap>
         {Object.values(COLOR).map(color => (
-          <Flex direction="column" key={color} marginBottom="s">
-            <Flex marginBottom="xs">{color}</Flex>
-            {color === COLOR.white ? (
-              <Box noBorderRadius color="indigo-40">
-                <Box
-                  {...args}
-                  color="indigo-20"
-                  border
-                  borderColor={COLOR[color]}
-                />
-              </Box>
-            ) : (
-              <Box {...args} color="indigo-10" border borderColor={color} />
-            )}
+          <Flex marginRight="s" marginBottom="s" key={color}>
+            <Box
+              {...args}
+              color="white"
+              borderColor={color}
+              border
+              padding="xs"
+            >
+              {color}
+            </Box>
+          </Flex>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Paddings
+
+<Canvas>
+  <Story name="Paddings">
+    {args => (
+      <Flex wrap>
+        {Object.values(PADDING).map(padding => (
+          <Flex
+            marginRight="s"
+            marginBottom="s"
+            key={padding}
+            direction="column"
+          >
+            <Box {...args} padding={padding}>
+              padding {padding}
+            </Box>
           </Flex>
         ))}
       </Flex>
@@ -161,9 +169,32 @@ Container for grouping elements. It provides padding, background color, border a
 ### Shadow
 
 <Canvas>
-  <Story name="Shadow">
+  <Story name="Shadow">{args => <Box {...args} color="white" shadow />}</Story>
+</Canvas>
+
+### Example usage
+
+<Canvas>
+  <Story name="Example usage">
     {args => (
-      <Box {...args} color="indigo-10" border borderColor="indigo-20" shadow />
+      <Box {...args} color="green-20">
+        <Flex>
+          <Flex marginRight="s">
+            <Icon type="verified" color="icon-black" />
+          </Flex>
+          <Flex direction="column">
+            <Headline size="small">This question is Expert Verified.</Headline>
+            <Flex marginTop="s">
+              <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </Text>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Box>
     )}
   </Story>
 </Canvas>
@@ -173,17 +204,26 @@ Container for grouping elements. It provides padding, background color, border a
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing padding size.
 
 <Canvas>
-  <Box
-    color="indigo-20"
-    padding={[PADDING.s, PADDING.m, PADDING.l, PADDING.xl]}
-  >
-    <TextBit color="text-black">
-      Wake up
-      <br /> your mind
-    </TextBit>
-  </Box>
+  <div style={{width: 400}}>
+    <Box
+      color="indigo-20"
+      padding={[PADDING.s, PADDING.m, PADDING.l, PADDING.xl]}
+    >
+      <TextBit color="text-black">Wake up your mind</TextBit>
+    </Box>
+  </div>
 </Canvas>
 
 ## Accessibility
 
 <BoxA11y />
+
+<Canvas>
+  <Story name="test">
+    {args => (
+      <Box padding={['xs', null, 'm', 'xl']} border={[null, null, true]}>
+        box
+      </Box>
+    )}
+  </Story>
+</Canvas>
