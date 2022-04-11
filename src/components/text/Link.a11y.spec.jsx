@@ -37,6 +37,23 @@ describe('Link', () => {
 
       expect(link.getByText(label)).not.toBe(document.activeElement);
     });
+
+    it('informs about the opening in a new tab', () => {
+      const label = 'read more';
+      const newTabLabel = 'in new tab';
+
+      const link = render(
+        <Link
+          href="https://example.com/"
+          target="_blank"
+          newTabLabel={newTabLabel}
+        >
+          {label}
+        </Link>
+      );
+
+      expect(link.getByText(newTabLabel)).toBeTruthy();
+    });
   });
 
   describe('as button', () => {
@@ -112,6 +129,14 @@ describe('Link a11y', () => {
     it('should have no a11y violations when disabled', async () => {
       await testA11y(
         <Link href="https://example.com/" disabled>
+          Read more
+        </Link>
+      );
+    });
+
+    it('should have no a11y violations when opens in a new tab', async () => {
+      await testA11y(
+        <Link href="https://example.com/" target="_blank">
           Read more
         </Link>
       );
