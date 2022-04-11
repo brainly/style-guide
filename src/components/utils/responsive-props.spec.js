@@ -1,4 +1,61 @@
-import {generateResponsiveClassNames} from './responsive-props';
+import {
+  generateResponsiveClassNames,
+  mergeResponsiveProps,
+} from './responsive-props';
+
+describe('mergeResponsiveProps', () => {
+  it('returns object with each breakpoint being array of corresponding breakpoint values from each item', () => {
+    expect(
+      mergeResponsiveProps([
+        ['xs', 'sm', 'xl'],
+        ['align-left', 'align-right', 'align-center'],
+      ])
+    ).toEqual({
+      sm: ['xs', 'align-left'],
+      md: ['sm', 'align-right'],
+      lg: ['xl', 'align-center'],
+    });
+  });
+
+  it(`when one prop has missing value on breakpoint
+  and has value for smaller breakpoint
+  and others props have value on that breakpoint,
+  then it returns smaller breakpoint value`, () => {
+    expect(
+      mergeResponsiveProps([
+        ['xs', null, 'xl'],
+        ['align-left', 'align-right', null],
+      ])
+    ).toEqual({
+      sm: ['xs', 'align-left'],
+      md: ['xs', 'align-right'],
+      lg: ['xl', 'align-right'],
+    });
+  });
+
+  it(`when any of objects doesnt have value for same breakpoint, then it skips this breakpoint`, () => {
+    expect(
+      mergeResponsiveProps([
+        ['xs', null, 'xl'],
+        ['align-left', null, 'align-right'],
+      ])
+    ).toEqual({
+      sm: ['xs', 'align-left'],
+      lg: ['xl', 'align-right'],
+    });
+  });
+
+  it('when item is primitive value, then it uses this value for all breakpoints', () => {
+    expect(
+      mergeResponsiveProps(['xs', ['align-left', null, 'align-right']])
+    ).toEqual({
+      sm: ['xs', 'align-left'],
+      md: ['xs', 'align-left'],
+      lg: ['xs', 'align-right'],
+      xl: ['xs', 'align-right'],
+    });
+  });
+});
 
 describe('generateResponsiveClassNames', () => {
   const generateClass = prop => (prop ? 'foo' : 'bar');

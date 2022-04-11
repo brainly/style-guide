@@ -179,7 +179,10 @@
     ],
     "transform": {
       ".jsx?$": "babel-jest"
-    }
+    },
+    "roots": [
+      "<rootDir>/src"
+    ]
   },
   "sideEffects": [
     "*.scss",
