@@ -1,6 +1,8 @@
-import * as Box from './Box.stories.jsx';
+import * as Box from './Box.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Box);
 
-export default Box.default;
+const {includeStories, ...meta} = Box.default;
+
+export default meta;
