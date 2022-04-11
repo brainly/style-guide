@@ -31,6 +31,12 @@ const TRANSLATE_VALUES: {[key: PredefinedTranslateType]: string, ...} = {
   m: '24px',
   l: '40px',
   xl: '64px',
+  '-xxs': '-4px',
+  '-xs': '-8px',
+  '-s': '-16px',
+  '-m': '-24px',
+  '-l': '-40px',
+  '-xl': '-64px',
 };
 
 const DEFAULT_EASING_VALUE = EASING_VALUES['regular'];
@@ -38,51 +44,87 @@ const DEFAULT_DURATION_VALUE = DURATION_VALUES['instant'];
 const DEFAULT_OPACITY_VALUE = '1';
 const DEFAULT_TRANSLATE_VALUE = '0px';
 const DEFAULT_SCALE_VALUE = '1';
+const DEFAULT_TRANSFORM_ORIGIN_VALUE = 'center';
+const DEFAULT_WIDTH_HEIGHT_VALUE = 'auto';
+
+type CommonFieldsType = $ReadOnly<{
+  value: string,
+  duration: string,
+  easing: string,
+}>;
 
 export type ParsedPropertyObjectType = $ReadOnly<{
   className: string,
   transform: {
-    easing: string,
-    duration: string,
+    ...CommonFieldsType,
+    origin: string,
     translateX: string,
     translateY: string,
-    scale: string,
-    value: string,
+    scaleX: string,
+    scaleY: string,
   },
-  opacity: {
-    easing: string,
-    duration: string,
-    value: string,
-  },
+  width: CommonFieldsType,
+  height: CommonFieldsType,
+  opacity: CommonFieldsType,
 }>;
 
-export function parsePropertyObject(
-  props: PropertyObjectType
-): ParsedPropertyObjectType {
-  const {easing, duration, className, transform, opacity} = props;
-  const translateX = getTranslateValue(transform && transform.translateX);
-  const translateY = getTranslateValue(transform && transform.translateY);
-  const scale = getScaleValue(transform && transform.scale);
+export function parsePropertyObject({
+  className,
+  duration,
+  easing,
+  transform,
+  width,
+  height,
+  opacity,
+}: PropertyObjectType): ParsedPropertyObjectType {
+  const translateX = getTranslateValue(transform?.translateX);
+  const translateY = getTranslateValue(transform?.translateY);
+  const scaleX = getScaleValue(transform?.scaleX ?? transform?.scale);
+  const scaleY = getScaleValue(transform?.scaleY ?? transform?.scale);
 
   return {
     className: className || '',
     transform: {
-      value: getTransformValue({translateX, translateY, scale}),
-      easing: getEasingValue((transform && transform.easing) || easing),
-      duration: getDurationValue((transform && transform.duration) || duration),
+      value: getTransformValue({translateX, translateY, scaleX, scaleY}),
+      duration: getDurationValue(transform?.duration || duration),
+      easing: getEasingValue(transform?.easing || easing),
+      origin: getTransformOriginValue(transform),
       translateX,
       translateY,
-      scale,
+      scaleX,
+      scaleY,
+    },
+    width: {
+      value: getWidthHeightValue(
+        typeof width === 'object' ? width.value : width
+      ),
+      duration: getDurationValue(
+        (typeof width === 'object' && width.duration) || duration
+      ),
+      easing: getEasingValue(
+        (typeof width === 'object' && width.easing) || easing
+      ),
+    },
+    height: {
+      value: getWidthHeightValue(
+        typeof height === 'object' ? height.value : height
+      ),
+      duration: getDurationValue(
+        (typeof height === 'object' && height.duration) || duration
+      ),
+      easing: getEasingValue(
+        (typeof height === 'object' && height.easing) || easing
+      ),
     },
     opacity: {
       value: getOpacityValue(
         typeof opacity === 'object' ? opacity.value : opacity
       ),
-      easing: getEasingValue(
-        (typeof opacity === 'object' && opacity.easing) || easing
-      ),
       duration: getDurationValue(
         (typeof opacity === 'object' && opacity.duration) || duration
+      ),
+      easing: getEasingValue(
+        (typeof opacity === 'object' && opacity.easing) || easing
       ),
     },
   };
@@ -133,10 +175,26 @@ function getScaleValue(scale) {
   return scale === undefined ? DEFAULT_SCALE_VALUE : String(scale);
 }
 
-function getTransformValue({translateX, translateY, scale}) {
-  return `translate3d(${translateX}, ${translateY}, 0px) scale3d(${scale}, ${scale}, 1)`;
+function getTransformValue({translateX, translateY, scaleX, scaleY}) {
+  return `translate3d(${translateX}, ${translateY}, 0px) scale3d(${scaleX}, ${scaleY}, 1)`;
+}
+
+function getTransformOriginValue(transform) {
+  return (transform && transform.origin) || DEFAULT_TRANSFORM_ORIGIN_VALUE;
 }
 
 function getOpacityValue(opacity) {
   return opacity === undefined ? DEFAULT_OPACITY_VALUE : String(opacity);
+}
+
+function getWidthHeightValue(widthHeight) {
+  if (widthHeight === undefined) {
+    return DEFAULT_WIDTH_HEIGHT_VALUE;
+  }
+
+  if (typeof widthHeight === 'number') {
+    return `${widthHeight}px`;
+  }
+
+  return widthHeight;
 }

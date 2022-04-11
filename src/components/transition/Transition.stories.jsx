@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Box from '../box/Box';
+import Text from '../text/Text';
 
 import Transition from './Transition';
 
@@ -58,8 +59,10 @@ export default {
 
 export const Default = (args: any) => (
   <Transition {...args}>
-    <Box color="blue-30" padding="m">
-      hello world
+    <Box color="blue-40" padding="m">
+      <Text color="text-white" weight="bold">
+        hello world
+      </Text>
     </Box>
   </Transition>
 );

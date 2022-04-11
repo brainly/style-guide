@@ -4,7 +4,11 @@ import Transition from './Transition';
 
 describe('<Transition />', () => {
   it('renders children', () => {
-    const wrapper = mount(<Transition active>content text</Transition>);
+    const wrapper = mount(
+      <Transition effect={null} active>
+        content text
+      </Transition>
+    );
 
     expect(wrapper.containsMatchingElement('content text')).toBe(true);
   });

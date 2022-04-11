@@ -2,9 +2,9 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import type {EffectAnimatorType} from './effectAnimator';
-import {createCSSTransitionAnimator} from './cssTransitionAnimator';
 import {createClassNamesRegistry} from './classNamesRegistry';
+import {createCSSTransitionAnimator} from './CSSTransitionAnimator2';
+import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
@@ -21,70 +21,119 @@ export type PredefinedDurationType =
   | 'gentle1'
   | 'gentle2';
 
-export type PredefinedTranslateType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+export type PredefinedTranslateType =
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | '-xxs'
+  | '-xs'
+  | '-s'
+  | '-m'
+  | '-l'
+  | '-xl';
 
 type TimingPropsType = $ReadOnly<{
   /**
-   * The `number` type represents the value in milliseconds [ms].
+   * The numerical value is expressed in milliseconds [ms].
    */
   duration?: PredefinedDurationType | number,
   easing?: PredefinedEasingType,
 }>;
 
 export type PropertyObjectType = $ReadOnly<{
+  /**
+   * Common timing properties that can be
+   * overridden for each property separately.
+   */
   ...TimingPropsType,
   className?: string,
   transform?: $ReadOnly<{
-    /**
-     * Overrides the general timing props for the transform property.
-     */
     ...TimingPropsType,
     /**
-     * The `number` type represents the value in pixels [px].
+     * The numerical value is expressed in pixels [px].
      */
     translateX?: PredefinedTranslateType | number | string,
     /**
-     * The `number` type represents the value in pixels [px].
+     * The numerical value is expressed in pixels [px].
      */
     translateY?: PredefinedTranslateType | number | string,
+    /**
+     * Common scale for both the X and Y axis.
+     */
     scale?: number,
+    /**
+     * Overrides the common scale for the X axis.
+     */
+    scaleX?: number,
+    /**
+     * Overrides the common scale for the Y axis.
+     */
+    scaleY?: number,
+    origin?:
+      | 'center'
+      | 'left top'
+      | 'left bottom'
+      | 'right top'
+      | 'right bottom',
   }>,
+  width?:
+    | 'auto'
+    | number
+    | $ReadOnly<{
+        ...TimingPropsType,
+        value: 'auto' | number,
+      }>,
+  height?:
+    | 'auto'
+    | number
+    | $ReadOnly<{
+        ...TimingPropsType,
+        value: 'auto' | number,
+      }>,
   opacity?:
     | number
     | $ReadOnly<{
-        /**
-         * Overrides the general timing props for the opacity property.
-         */
         ...TimingPropsType,
         value: number,
       }>,
 }>;
 
-type EffectType = $ReadOnly<{
+export type TransitionEffectType = $ReadOnly<{
   initial?: PropertyObjectType,
   animate?: PropertyObjectType,
   exit?: PropertyObjectType,
 }>;
 
-type TransitionTriggerPropsType = $ReadOnly<{
+type TransitionCorePropsType = $ReadOnly<{
   active: boolean,
-  effect: EffectType | null,
+  effect: TransitionEffectType | null,
 }>;
 
 export type TransitionPropsType = $ReadOnly<{
-  ...TransitionTriggerPropsType,
+  ...TransitionCorePropsType,
   delay?: number,
+  /**
+   * Applies an initial phase of the current effect earlier,
+   * before the delay. Without this, the transition will wait
+   * until the delay is finished and then apply an initial
+   * phase just before proceeding with the next phases.
+   */
+  fillDelay?: boolean,
   className?: string,
   inlined?: boolean,
   children: React.Node,
-  onTransitionStart?: (effect: EffectType) => void,
-  onTransitionEnd?: (effect: EffectType) => void,
+  onTransitionStart?: (effect: TransitionEffectType) => void,
+  onTransitionEnd?: (effect: TransitionEffectType) => void,
 }>;
 
 function BaseTransition({
   active,
   effect,
   delay = 0,
+  fillDelay,
   className,
   inlined,
   children,
@@ -93,28 +142,28 @@ function BaseTransition({
 }: TransitionPropsType) {
   const containerRef = React.useRef(null);
   const classNamesRegistry = React.useMemo(createClassNamesRegistry, []);
-  const animator = React.useMemo<EffectAnimatorType>(
+  const animator = React.useMemo<PropertyObjectAnimatorType>(
     () => createCSSTransitionAnimator(classNamesRegistry),
     [classNamesRegistry]
   );
 
-  const baseClassName = cx(className, {
+  const baseClassName = cx('sg-transition', className, {
     'sg-transition--inlined': inlined,
   });
 
   React.useLayoutEffect(() => {
     /**
      * Since the transition imperatively applies the style
-     * and className to the container element, other props
-     * changes that affect these attributes should also be
+     * and className to the container element, other changes
+     * of props that affect these attributes should also be
      * imperative. The registry helps to synchronize class
      * attribute changes.
      */
     classNamesRegistry.register('base', baseClassName || '');
-    const element = containerRef.current;
+    const container = containerRef.current;
 
-    if (element) {
-      element.className = classNamesRegistry.toString();
+    if (container) {
+      container.className = classNamesRegistry.toString();
     }
   }, [classNamesRegistry, baseClassName]);
 
@@ -132,7 +181,7 @@ function BaseTransition({
    * applied to the actual DOM, and subsequent renders of the
    * virtual DOM should not produce any visual result.
    */
-  const previouslyAppliedProps = React.useRef<TransitionTriggerPropsType>({
+  const previouslyAppliedProps = React.useRef<TransitionCorePropsType>({
     active: false,
     effect: null,
   });
@@ -142,40 +191,62 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   React.useLayoutEffect(() => {
+    const container = containerRef.current;
+    const currentProps = {active, effect};
+
+    const rules = getTransitionRules({
+      prevProps: previouslyAppliedProps.current,
+      currentProps,
+    });
+
+    if (!container || rules === undefined) {
+      return;
+    }
+
+    if (effect === null || rules === null) {
+      animator.cleanup(container);
+      return;
+    }
+
+    if (fillDelay && rules.canFillDelay) {
+      animator.animate(container, effect.initial);
+    }
+
     /**
-     * Parental component will delay mounting on active
-     * change so the child should not wait once again.
+     * The parent component may delay mounting on active prop
+     * change and the child should not wait once again.
      */
-    const alreadyDelayed = !previouslyAppliedProps.current.active && active;
+    const hasBeenAlreadyDelayed = !fillDelay && rules.canSkipDelay;
+    const actualDelay = hasBeenAlreadyDelayed ? 0 : delay;
 
-    return afterDelay(alreadyDelayed ? 0 : delay, () => {
-      const currentProps = {active, effect};
-      const element = containerRef.current;
-
-      if (!element) {
-        return;
-      }
-
-      if (onTransitionStartRef.current && effect) {
+    const performTransitionEffect = () => {
+      if (onTransitionStartRef.current) {
         onTransitionStartRef.current(effect);
       }
 
       if (!supportsTransitions()) {
-        if (onTransitionEndRef.current && effect) {
+        if (onTransitionEndRef.current) {
           onTransitionEndRef.current(effect);
         }
       } else {
-        applyTransitionEffect({
-          element,
-          prevProps: previouslyAppliedProps.current,
-          currentProps,
-          animator,
-        });
+        animator.animate(container, rules.from, rules.to);
       }
 
+      /**
+       * These props should be updated just after
+       * applying them to the actual DOM.
+       */
       previouslyAppliedProps.current = currentProps;
-    });
-  }, [animator, active, effect, delay]);
+    };
+
+    if (actualDelay > 0) {
+      const timeoutId = setTimeout(performTransitionEffect, actualDelay);
+
+      return () => clearTimeout(timeoutId);
+    }
+
+    performTransitionEffect();
+  }, [animator, active, effect, delay, fillDelay]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
@@ -201,25 +272,90 @@ function BaseTransition({
   );
 }
 
+type TransitionRulesType = $ReadOnly<{
+  from: PropertyObjectType | void,
+  to: PropertyObjectType | void,
+  canFillDelay: boolean,
+  canSkipDelay: boolean,
+}>;
+
+function getTransitionRules({
+  prevProps,
+  currentProps,
+}: {
+  prevProps: TransitionCorePropsType,
+  currentProps: TransitionCorePropsType,
+}): TransitionRulesType | null | void {
+  if (currentProps.effect === null) {
+    return null;
+  }
+
+  if (prevProps.active === false && currentProps.active === true) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canFillDelay: true,
+      canSkipDelay: true,
+    };
+  }
+
+  if (prevProps.active === true && currentProps.active === false) {
+    return {
+      from: currentProps.effect.animate,
+      to: currentProps.effect.exit,
+      canFillDelay: false,
+      canSkipDelay: false,
+    };
+  }
+
+  if (prevProps.effect === null && currentProps.effect !== null) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canFillDelay: true,
+      canSkipDelay: false,
+    };
+  }
+
+  if (prevProps.effect !== currentProps.effect) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canFillDelay: true,
+      canSkipDelay: false,
+    };
+  }
+}
+
 export default function Transition({
   active,
   delay = 0,
+  fillDelay,
   onTransitionEnd,
   ...otherProps
 }: TransitionPropsType) {
-  const [mounted, setMounted] = React.useState<boolean>(active);
+  const validFillDelay = delay > 0 ? fillDelay : false;
+  const [mounted, setMounted] = React.useState<boolean>(
+    delay === 0 || validFillDelay ? active : false
+  );
 
   React.useLayoutEffect(() => {
-    return afterDelay(delay, () => {
-      if (active === true) {
-        setMounted(true);
+    if (active) {
+      const mountBaseComponent = () => setMounted(true);
+
+      if (delay === 0 || validFillDelay) {
+        mountBaseComponent();
+      } else {
+        const timeoutId = setTimeout(mountBaseComponent, delay);
+
+        return () => clearTimeout(timeoutId);
       }
-    });
-  }, [active, delay]);
+    }
+  }, [active, delay, validFillDelay]);
 
   const handleTransitionEnd = React.useCallback(
-    (effect: EffectType) => {
-      if (active === false) {
+    (effect: TransitionEffectType) => {
+      if (!active) {
         setMounted(false);
       }
 
@@ -237,50 +373,7 @@ export default function Transition({
       onTransitionEnd={handleTransitionEnd}
       active={active}
       delay={delay}
+      fillDelay={validFillDelay}
     />
   ) : null;
-}
-
-function applyTransitionEffect({
-  element,
-  prevProps,
-  currentProps,
-  animator,
-}: {
-  element: HTMLElement,
-  prevProps: TransitionTriggerPropsType,
-  currentProps: TransitionTriggerPropsType,
-  animator: EffectAnimatorType,
-}) {
-  const {effect} = currentProps;
-
-  if (effect === null) {
-    return animator.cleanup(element);
-  }
-
-  if (prevProps.active === false && currentProps.active === true) {
-    return animator.animate(element, effect.initial, effect.animate);
-  }
-
-  if (prevProps.active === true && currentProps.active === false) {
-    return animator.animate(element, effect.animate, effect.exit);
-  }
-
-  if (prevProps.effect === null && currentProps.effect !== null) {
-    return animator.animate(element, effect.initial, effect.animate);
-  }
-
-  if (prevProps.effect !== currentProps.effect) {
-    return animator.animate(element, undefined, effect.animate);
-  }
-}
-
-function afterDelay(delay: number, callback: () => void) {
-  if (delay > 0) {
-    const timeoutId = setTimeout(callback, delay);
-
-    return () => clearTimeout(timeoutId);
-  }
-
-  callback();
 }

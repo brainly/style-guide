@@ -1,4 +1,4 @@
-import {createCSSTransitionAnimator} from './cssTransitionAnimator';
+import {createCSSTransitionAnimator} from './CSSTransitionAnimator2';
 
 const createMockedElement = () => {
   const REPAINT_PROPERTY = 'offsetHeight';
@@ -61,18 +61,22 @@ describe('createCSSTransitionAnimator()', () => {
     animator.animate(element, from, to);
     expect(getStylesHistory()).toEqual([
       {
-        transform: 'translate3d(0px, 24px, 0px) scale3d(1, 1, 1)',
-        opacity: '0',
+        willChange: 'transform, opacity',
         transitionProperty: 'transform, opacity',
         transitionDuration: '0ms',
         transitionTimingFunction: 'cubic-bezier(0.35, 0, 0.1, 1)',
+        transform: 'translate3d(0px, 24px, 0px) scale3d(1, 1, 1)',
+        transformOrigin: 'center',
+        opacity: '0',
       },
       {
-        transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)',
-        opacity: '1',
+        willChange: 'transform, opacity',
         transitionProperty: 'transform, opacity',
         transitionDuration: '260ms, 120ms',
         transitionTimingFunction: 'cubic-bezier(0.1, 0, 0, 1), linear',
+        transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1)',
+        transformOrigin: 'center',
+        opacity: '1',
       },
     ]);
   });
