@@ -1,6 +1,8 @@
-import * as FlashMessage from './FlashMessage.stories.jsx';
+import * as FlashMessage from './FlashMessage.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(FlashMessage);
 
-export default FlashMessage.default;
+const {includeStories, ...meta} = FlashMessage.default;
+
+export default meta;
