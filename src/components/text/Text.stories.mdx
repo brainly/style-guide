@@ -126,16 +126,24 @@ import {
 
 ## Stories
 
-### Nested
+### Inherited styles
 
 <Canvas>
-  <Story name="Nested">
+  <Story name="Inherited styles">
     {args => (
-      <Text {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
-        Outer Text{' '}
-        <Text inherited type="span">
-          nested Text with inherited styles
-        </Text>
+      <Text {...args} type="h2">
+        <Text inherited type="span" weight="bold">
+          83%
+        </Text>{' '}
+        of students say Brainly has made them more knowledgeable,{' '}
+        <Text inherited type="span" weight="bold">
+          84%
+        </Text>{' '}
+        find it has inspired them to ask more questions, and{' '}
+        <Text inherited type="span" weight="bold">
+          80%
+        </Text>{' '}
+        say Brainly has empowered them to embrace challenging questions
       </Text>
     )}
   </Story>
@@ -145,7 +153,7 @@ import {
 
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
 
-Resize window to check how component is changing flex direction and item margins based on window width.
+Resize window to check how component is changing font size and weight based on window width.
 
 <Canvas>
   <Text
