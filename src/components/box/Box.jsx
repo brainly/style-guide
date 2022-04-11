@@ -2,6 +2,11 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
+import {
+  generateResponsiveClassNames,
+  mergeResponsiveProps,
+} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type ColorType =
   | 'transparent'
@@ -51,6 +56,7 @@ export const COLOR = {
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export const PADDING = {
+  none: 'none',
   xxs: 'xxs',
   xs: 'xs',
   s: 's',
@@ -82,27 +88,27 @@ export type BoxPropsType = {
    * @example <Box shadow>Text inside box with shadow</Box>
    * @default false
    */
-  shadow?: boolean,
+  shadow?: ResponsivePropType<boolean>,
 
   /**
    * Padding size. Defaults to 'm' size, pass null to set it to 0
    * @example <Box padding="l">Text inside Box with large padding</Box>
    */
-  padding?: PaddingType | null,
+  padding?: ResponsivePropType<PaddingType | null>,
 
   /**
    * Disable border radius
    * @example <Box noBorderRadius>Text inside Box with no border radius</Box>
    * @default false
    */
-  noBorderRadius?: boolean,
+  noBorderRadius?: ResponsivePropType<boolean>,
 
   /**
    * Show border
    * @example <Box border>Text inside bordered Box</Box>
    * @default false
    */
-  border?: boolean,
+  border?: ResponsivePropType<boolean>,
 
   /**
    * Border color (works only with `border` prop)
@@ -140,12 +146,37 @@ const Box = React.forwardRef<BoxPropsType, HTMLDivElement>(
       'sg-box',
       {
         [`sg-box--${String(color)}`]: color,
-        [`sg-box--padding-${String(padding)}`]: padding !== null && padding,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
-        'sg-box--border': border,
-        'sg-box--shadow': shadow,
-        'sg-box--no-border-radius': noBorderRadius,
       },
+      ...generateResponsiveClassNames(
+        shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
+        shadow
+      ),
+      ...generateResponsiveClassNames(
+        noBorderRadius =>
+          noBorderRadius ? 'sg-box--no-border-radius' : 'sg-box--border-radius',
+        noBorderRadius
+      ),
+      ...generateResponsiveClassNames(
+        border => (border ? 'sg-box--border' : 'sg-box--no-border'),
+        border
+      ),
+      ...generateResponsiveClassNames(
+        padding => `sg-box--padding-${String(padding)}`,
+        padding
+      ),
+      ...generateResponsiveClassNames(
+        ([padding, border]) =>
+          padding && border ? `sg-box--padding-${padding}-border` : '',
+        mergeResponsiveProps([padding, border])
+      ),
+      ...generateResponsiveClassNames(
+        ([border, borderColor]) =>
+          border && borderColor
+            ? `sg-box--border-color-${String(borderColor)}`
+            : '',
+        mergeResponsiveProps([border, borderColor])
+      ),
       className
     );
 
