@@ -8,7 +8,7 @@ import ContentBoxActions from 'content-box/ContentBoxActions';
 import Button from 'buttons/Button';
 import Text from 'text/Text';
 import Avatar from 'avatar/Avatar';
-import Breadcrumb from 'breadcrumbs/Breadcrumb';
+import Breadcrumb from 'breadcrumb/Breadcrumb';
 import Link from 'text/Link';
 import Flex from 'flex/Flex';
 
