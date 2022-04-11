@@ -1,4 +1,4 @@
-import {createCSSTransitionAnimator} from './CSSTransitionAnimator2';
+import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 
 const createMockedElement = () => {
   const REPAINT_PROPERTY = 'offsetHeight';

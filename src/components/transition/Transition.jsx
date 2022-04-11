@@ -3,7 +3,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import {createClassNamesRegistry} from './classNamesRegistry';
-import {createCSSTransitionAnimator} from './CSSTransitionAnimator2';
+import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 
 // https://github.com/jsdom/jsdom/issues/1781
