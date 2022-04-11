@@ -1,0 +1,294 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Header from './Header';
+import HeaderContainer from './HeaderContainer';
+import HeaderContent from './HeaderContent';
+import HeaderLeft from './HeaderLeft';
+import HeaderRight from './HeaderRight';
+import HeaderMiddle from './HeaderMiddle';
+import HomeButton from 'home-button/HomeButton';
+import Search from 'search/Search';
+import RWDHelper, {TYPE as RWD_TYPE} from 'helpers/RwdHelper';
+import Button from 'buttons/Button';
+import Counter from 'counters/Counter';
+import Box from '../box/Box';
+import ActionList from 'action-list/ActionList';
+import ActionListHole from 'action-list/ActionListHole';
+import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
+import IconAsButton, {
+  TYPE as ICON_TYPE,
+  ICON_COLOR,
+} from 'icon-as-button/IconAsButton';
+
+<Meta
+  title="Components/Header"
+  component={Header}
+  parameters={{
+    layout: 'default',
+  }}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+/>
+
+# Header
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      children: (
+        <HeaderContainer>
+          <HeaderContent>
+            <HeaderLeft>left content</HeaderLeft>
+            <HeaderMiddle>middle content</HeaderMiddle>
+            <HeaderRight>right content</HeaderRight>
+          </HeaderContent>
+        </HeaderContainer>
+      ),
+    }}
+  >
+    {args => <Header {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### With components
+
+<Canvas>
+  <Story name="WithComponents">
+    {args => (
+      <div className="sg-story-variant-dark-box">
+        <Header {...args}>
+          <HeaderContainer>
+            <HeaderContent>
+              <HeaderLeft>
+                <HomeButton />
+              </HeaderLeft>
+              <HeaderMiddle>
+                <Search
+                  placeholder="Find all the answers..."
+                  fullWidth
+                  withRoundButton
+                />
+              </HeaderMiddle>
+              <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
+                <div>
+                  <HeaderRight>
+                    <Button type="solid" size="small">
+                      Register
+                    </Button>
+                    <IconAsButton
+                      type={ICON_TYPE.MESSAGES}
+                      transparent
+                      color={ICON_COLOR['icon-black']}
+                      overlay={<Counter size="small">1</Counter>}
+                    />
+                    <IconAsButton transparent>
+                      <Avatar size={AVATAR_SIZE.SMALL} />
+                    </IconAsButton>
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+              <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
+                <div>
+                  <HeaderRight>
+                    <IconAsButton
+                      type={ICON_TYPE.MENU}
+                      color={ICON_COLOR['icon-black']}
+                    />
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+            </HeaderContent>
+          </HeaderContainer>
+        </Header>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### With bottom divider
+
+<Canvas>
+  <Story name="WithBottomDivider" args={{withDivider: true}}>
+    {args => (
+      <div className="sg-story-variant-dark-box">
+        <Header {...args}>
+          <HeaderContainer>
+            <HeaderContent>
+              <HeaderLeft>
+                <HomeButton />
+              </HeaderLeft>
+              <HeaderMiddle>
+                <Search
+                  placeholder="Find all the answers..."
+                  fullWidth
+                  withRoundButton
+                />
+              </HeaderMiddle>
+              <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
+                <div>
+                  <HeaderRight>
+                    <Button type="solid" size="small">
+                      Register
+                    </Button>
+                    <IconAsButton
+                      type={ICON_TYPE.MESSAGES}
+                      transparent
+                      color={ICON_COLOR['icon-black']}
+                      overlay={<Counter size="small">1</Counter>}
+                    />
+                    <IconAsButton transparent>
+                      <Avatar size={AVATAR_SIZE.SMALL} />
+                    </IconAsButton>
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+              <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
+                <div>
+                  <HeaderRight>
+                    <IconAsButton
+                      type={ICON_TYPE.MENU}
+                      color={ICON_COLOR['icon-black']}
+                    />
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+            </HeaderContent>
+          </HeaderContainer>
+        </Header>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Content auto height
+
+<Canvas>
+  <Story name="ContentAutoHeight">
+    {args => (
+      <div className="sg-story-variant-dark-box">
+        <Header {...args}>
+          <HeaderContainer>
+            <HeaderContent autoHeight>
+              <HeaderLeft>
+                <HomeButton />
+              </HeaderLeft>
+              <HeaderMiddle>
+                <Search placeholder="Find all the answers..." fullWidth />
+              </HeaderMiddle>
+              <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
+                <div>
+                  <HeaderRight>
+                    <ActionList>
+                      <ActionListHole>
+                        <Button type="solid-inverted" size="small">
+                          Log in
+                        </Button>
+                      </ActionListHole>
+                      <ActionListHole>
+                        <Button type="solid" size="small">
+                          Join now
+                        </Button>
+                      </ActionListHole>
+                    </ActionList>
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+              <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
+                <div>
+                  <HeaderRight>
+                    <IconAsButton
+                      type={ICON_TYPE.MENU}
+                      color={ICON_COLOR['icon-black']}
+                    />
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+            </HeaderContent>
+          </HeaderContainer>
+        </Header>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Fixed header
+
+<Canvas>
+  <Story
+    name="FixedHeader"
+    args={{fixed: true}}
+    parameters={{
+      docs: {
+        inlineStories: false,
+      },
+    }}
+    height="400px"
+  >
+    {args => (
+      <div
+        style={{
+          height: '2000px',
+          background:
+            'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(121,95,9,1) 35%, rgba(0,212,255,1) 100%)',
+        }}
+      >
+        <Header {...args}>
+          <HeaderContainer>
+            <HeaderContent>
+              <HeaderLeft>
+                <HomeButton />
+              </HeaderLeft>
+              <HeaderMiddle>
+                <Search placeholder="Find all the answers..." fullWidth />
+              </HeaderMiddle>
+              <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
+                <div>
+                  <HeaderRight>
+                    <ActionList>
+                      <ActionListHole>
+                        <Button type="solid-inverted" size="small">
+                          Log in
+                        </Button>
+                      </ActionListHole>
+                      <ActionListHole>
+                        <Button type="solid" size="small">
+                          Join now
+                        </Button>
+                      </ActionListHole>
+                    </ActionList>
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+              <RWDHelper hide={RWD_TYPE.MEDIUM_UP}>
+                <div>
+                  <HeaderRight>
+                    <IconAsButton
+                      type={ICON_TYPE.MENU}
+                      color={ICON_COLOR['icon-black']}
+                    />
+                  </HeaderRight>
+                </div>
+              </RWDHelper>
+            </HeaderContent>
+          </HeaderContainer>
+        </Header>
+      </div>
+    )}
+  </Story>
+</Canvas>
