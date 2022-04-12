@@ -161,7 +161,7 @@ describe('<Dialog>', () => {
     expect(closeBtn.props()['data-testid']).toEqual('test_id');
   });
 
-  it('fires onExitTransitionEnd callback after cleaning no-scroll class', () => {
+  it('forces bodyNoScroll cleanup before onExitTransitionEnd callback', () => {
     const onExitTransitionEnd = () => {
       expect(
         document.body.classList.contains('sg-dialog-no-scroll')
@@ -177,7 +177,7 @@ describe('<Dialog>', () => {
     wrapper.setProps({open: false});
   });
 
-  it('does not clean no-scroll class after onEntryTransitionEnd callback', () => {
+  it('does not force bodyNoScroll cleanup before onEntryTransitionEnd callback', () => {
     const onEntryTransitionEnd = () => {
       expect(
         document.body.classList.contains('sg-dialog-no-scroll')
