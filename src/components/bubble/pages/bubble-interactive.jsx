@@ -5,7 +5,7 @@ import ContentBoxContent from 'content-box/ContentBoxContent';
 import ContentBoxHeader from 'content-box/ContentBoxHeader';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Button from 'buttons/Button';
-import Breadcrumb from 'breadcrumbs/Breadcrumb';
+import Breadcrumb from 'breadcrumb/Breadcrumb';
 import Avatar from 'avatar/Avatar';
 import Text from 'text/Text';
 import ActionList from 'action-list/ActionList';
