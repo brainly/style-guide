@@ -1,0 +1,60 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Flex from '../flex/Flex';
+import HomeButton, {TYPE} from './HomeButton';
+
+<Meta
+  title="Components/HomeButton"
+  component={HomeButton}
+  argTypes={{
+    type: {
+      control: {
+        defaultValue: TYPE.BRAINLY,
+        type: 'select',
+        options: TYPE,
+      },
+    },
+  }}
+  args={{
+    type: TYPE.BRAINLY,
+    href: 'https://brainly.com',
+  }}
+/>
+
+# HomeButton
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <HomeButton {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Types">
+    {args => (
+      <Flex wrap>
+        {[
+          TYPE.BRAINLY,
+          TYPE.EODEV,
+          TYPE.NOSDEVOIRS,
+          TYPE.ZNANIJA,
+          TYPE.BRAINLY_PLUS,
+        ].map(type => (
+          <StoryVariant width={200} label={`type - ${type}`} key={type}>
+            <HomeButton {...args} type={type} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
