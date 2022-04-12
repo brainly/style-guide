@@ -160,4 +160,36 @@ describe('<Dialog>', () => {
 
     expect(closeBtn.props()['data-testid']).toEqual('test_id');
   });
+
+  it('fires onExitTransitionEnd callback after cleaning no-scroll class', () => {
+    const onExitTransitionEnd = () => {
+      expect(
+        document.body.classList.contains('sg-dialog-no-scroll')
+      ).toBeFalsy();
+    };
+
+    const wrapper = mount(
+      <Dialog onExitTransitionEnd={onExitTransitionEnd} open>
+        content text
+      </Dialog>
+    );
+
+    wrapper.setProps({open: false});
+  });
+
+  it('does not clean no-scroll class after onEntryTransitionEnd callback', () => {
+    const onEntryTransitionEnd = () => {
+      expect(
+        document.body.classList.contains('sg-dialog-no-scroll')
+      ).toBeTruthy();
+    };
+
+    const wrapper = mount(
+      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
+        content text
+      </Dialog>
+    );
+
+    wrapper.setProps({open: false});
+  });
 });
