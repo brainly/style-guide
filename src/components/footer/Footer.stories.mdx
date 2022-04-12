@@ -1,0 +1,52 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Footer from './Footer';
+import FooterLine from './FooterLine';
+
+<Meta
+  title="Components/Footer"
+  component={Footer}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: [
+      <FooterLine key="1">line</FooterLine>,
+      <FooterLine key="2">line</FooterLine>,
+      <FooterLine key="3">line</FooterLine>,
+    ],
+  }}
+/>
+
+# Footer
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Footer {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Full
+
+<Canvas>
+  <Story name="Full">
+    {args => (
+      <Footer {...args}>
+        <FooterLine>We're in the know</FooterLine>
+        <FooterLine>
+          This site is using cookies under cookie policy. You can specify
+          conditions of storing and accessing cookies in your browser
+        </FooterLine>
+      </Footer>
+    )}
+  </Story>
+</Canvas>

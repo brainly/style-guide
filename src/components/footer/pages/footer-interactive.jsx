@@ -5,7 +5,7 @@ import FooterLine from '../FooterLine';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
 
 import Link from 'text/Link';
-import Breadcrumb from 'breadcrumbs/Breadcrumb';
+import Breadcrumb from 'breadcrumb/Breadcrumb';
 
 const Footers = () => {
   const settings = [];
