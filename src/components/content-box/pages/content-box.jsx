@@ -6,7 +6,7 @@ import ContentBoxTitle from '../ContentBoxTitle';
 import ContentBoxContent from '../ContentBoxContent';
 import ContentBoxHeader from '../ContentBoxHeader';
 import Button from 'buttons/Button';
-import Breadcrumbs from 'breadcrumbs/Breadcrumb';
+import Breadcrumb from 'breadcrumb/Breadcrumb';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 import Rating from 'rating/Rating';
 import Text from 'text/Text';
@@ -31,8 +31,8 @@ const link3 = (
     2 min ago
   </Link>
 );
-const breadcrumbs = [link1, link2, link3];
-const breadcrumbsSpaced = [
+const breadcrumb = [link1, link2, link3];
+const breadcrumbSpaced = [
   <Link key={1} href="#" color="text-gray-70">
     Katie
   </Link>,
@@ -40,7 +40,7 @@ const breadcrumbsSpaced = [
     Answerer
   </Link>,
 ];
-const breadcrumbsSpaced2 = [
+const breadcrumbSpaced2 = [
   <Link key={1} as="button">
     Comments (9)
   </Link>,
@@ -154,7 +154,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Simple with header">
       <ContentBox>
         <ContentBoxHeader>
-          <Breadcrumbs elements={breadcrumbs} />
+          <Breadcrumb elements={breadcrumb} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -213,7 +213,7 @@ const ContentBoxes = () => (
           </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader>
-          <Breadcrumbs elements={breadcrumbs} />
+          <Breadcrumb elements={breadcrumb} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -244,7 +244,7 @@ const ContentBoxes = () => (
           </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spaced>
-          <Breadcrumbs elements={breadcrumbs} />
+          <Breadcrumb elements={breadcrumb} />
         </ContentBoxHeader>
         <ContentBoxContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
@@ -273,7 +273,7 @@ const ContentBoxes = () => (
           </Headline>
         </ContentBoxTitle>
         <ContentBoxHeader spacedSmall>
-          <Breadcrumbs elements={breadcrumbs} />
+          <Breadcrumb elements={breadcrumb} />
         </ContentBoxHeader>
         <ContentBoxContent>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui
@@ -313,7 +313,7 @@ const ContentBoxes = () => (
       <ContentBox spaced>
         <ContentBoxHeader>
           <Avatar spaced imgSrc="https://source.unsplash.com/64x64/?woman" />
-          <Breadcrumbs elements={breadcrumbsSpaced} />
+          <Breadcrumb elements={breadcrumbSpaced} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -327,7 +327,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
             type="transparent-peach"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
@@ -342,7 +342,7 @@ const ContentBoxes = () => (
       <ContentBox spacedSmall>
         <ContentBoxHeader>
           <Avatar spaced imgSrc="https://source.unsplash.com/64x64/?woman" />
-          <Breadcrumbs elements={breadcrumbsSpaced} />
+          <Breadcrumb elements={breadcrumbSpaced} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Text>
@@ -356,7 +356,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions>
-          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
             type="transparent-peach"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
@@ -423,7 +423,7 @@ const ContentBoxes = () => (
           </Text>
         </ContentBoxContent>
         <ContentBoxActions align={ALIGNMENT.CENTER}>
-          <Breadcrumbs
+          <Breadcrumb
             elements={[
               <Link key={1} href="#">
                 Comments (9)
@@ -446,7 +446,7 @@ const ContentBoxes = () => (
     <DocsBlock info="Actions with elements moved to right">
       <ContentBox>
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
-          <Breadcrumbs elements={breadcrumbsSpaced2} />
+          <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
             type="transparent-peach"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
@@ -461,7 +461,7 @@ const ContentBoxes = () => (
       <ContentBox spaced>
         <ContentBoxHeader>
           <Avatar imgSrc="https://source.unsplash.com/64x64/?man" />
-          <Breadcrumbs elements={['The Brain', 'Answerer']} />
+          <Breadcrumb elements={['The Brain', 'Answerer']} />
         </ContentBoxHeader>
         <ContentBoxContent>
           <Headline size={HEADLINE_SIZE.SMALL}>

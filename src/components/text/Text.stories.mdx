@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../_docs/utils';
 import Text, {TEXT_COLOR, TEXT_SIZE} from './Text';
 import {
@@ -8,10 +8,14 @@ import {
   TEXT_WHITE_SPACE,
 } from './textConsts';
 
-export default {
-  title: 'Components/Text',
-  component: Text,
-  argTypes: {
+<Meta
+  title="Components/Text"
+  component={Text}
+  args={{
+    children:
+      'Asking a question will get you up to two answers from our experts and star students.',
+  }}
+  argTypes={{
     size: {
       description: '(Responsive)',
       table: {
@@ -105,34 +109,54 @@ export default {
         options: Object.values(TEXT_WHITE_SPACE),
       },
     },
-  },
-};
+  }}
+/>
 
-export const Default = args => <Text {...args} />;
+# Text
 
-Default.args = {
-  children: 'Some text',
-};
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
 
-Default.argTypes = {
-  children: 'string',
-};
+## Overview
 
-export const Nested = args => <Text {...args} />;
+<Canvas>
+  <Story name="Default">{args => <Text {...args} />}</Story>
+</Canvas>
 
-Nested.args = {
-  type: 'h2',
-  color: TEXT_COLOR['text-red-60'],
-  children: (
-    <>
-      Outer Text{' '}
-      <Text inherited type="span">
-        nested Text with inherited styles
+<ArgsTable story="Default" />
+
+## Stories
+
+### Inherited styles
+
+Text component does not inherit any styles by default. To turn inheritance you can use `inherited` prop. In below example nested Text component has same font size as parent, because of inherited styles.
+
+<Canvas>
+  <Story name="Inherited styles">
+    {args => (
+      <Text {...args} type="h2" size="large">
+        <Text inherited type="span" weight="bold">
+          83%
+        </Text>{' '}
+        of students say Brainly has made them more knowledgeable,{' '}
+        <Text inherited type="span" weight="bold">
+          84%
+        </Text>{' '}
+        find it has inspired them to ask more questions.
       </Text>
-    </>
-  ),
-};
+    )}
+  </Story>
+</Canvas>
 
-Nested.argTypes = {
-  children: 'string',
-};
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing font size and weight based on window width.
+
+<Canvas>
+  <Text
+    weight={[TEXT_WEIGHT.BOLD, null, TEXT_WEIGHT.REGULAR]}
+    size={[TEXT_SIZE.SMALL, TEXT_SIZE.XXLARGE, null, TEXT_SIZE.XXXLARGE]}
+  >
+    Some text
+  </Text>
+</Canvas>

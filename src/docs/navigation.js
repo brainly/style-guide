@@ -24,7 +24,7 @@ import counters from '../components/counters/pages/counters';
 import box from '../components/box/pages/box';
 import flexbox from '../components/flex/pages/flex';
 import card from '../components/card/pages/card';
-import breadcrumbs from '../components/breadcrumbs/pages/breadcrumbs';
+import breadcrumb from '../components/breadcrumb/pages/breadcrumb';
 import bubble from '../components/bubble/pages/bubble';
 import contentBox from '../components/content-box/pages/content-box';
 import flashMessage from '../components/flash-messages/pages/flash-messages';
@@ -128,8 +128,8 @@ const navigation = [
     location: 'components',
     elements: [
       {
-        name: 'Breadcrumbs',
-        component: breadcrumbs,
+        name: 'Breadcrumb',
+        component: breadcrumb,
       },
       {
         name: 'Lists',
