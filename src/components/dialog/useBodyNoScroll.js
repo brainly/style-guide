@@ -21,7 +21,7 @@ export function useBodyNoScroll() {
     body.classList.add(NO_SCROLL_CLASS);
 
     const cleanup = () => {
-      // should be forced only once
+      // it can only be forced once
       cleanupRef.current = null;
 
       const manyDialogsOpened =
