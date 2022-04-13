@@ -5,6 +5,7 @@ import FileHandler, {COLORS_MAP} from './FileHandler';
 import {TYPE} from '../icons/Icon';
 import FileHandlerA11y from './stories/FileHandler.a11y.mdx';
 import Flex from '../flex/Flex';
+import {formatTags} from '../../_docs/utils';
 const src =
   // eslint-disable-next-line max-len
   'https://images.unsplash.com/photo-1558349699-1e1c38c05eeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=240&q=80';
@@ -24,10 +25,66 @@ const src =
       },
     },
     iconType: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TYPE)),
+        },
+      },
       control: {
         type: 'select',
         options: TYPE,
       },
+      defaultValue: 'attachment',
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(COLORS_MAP)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(COLORS_MAP),
+      },
+      defaultValue: 'gray-20',
+    },
+    thumbnailSrc: {
+      control: {
+        type: 'text',
+      },
+    },
+    loading: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
+    onClose: {
+      table: {
+        category: 'Events',
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+    className: {
+      control: {
+        disable: true,
+      },
+    },
+    ariaCloseButtonLabel: {
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Close',
+    },
+    statusLabel: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {loading: 'loading', uploaded: 'uploaded'},
     },
   }}
   args={{
@@ -91,15 +148,17 @@ const src =
 ### With thumbnail
 
 <Canvas>
-  <Story name="With thumbnail">
-    {args => <FileHandler {...args} thumbnailSrc={src} />}
+  <Story name="With thumbnail" args={{thumbnailSrc: src}}>
+    {args => <FileHandler {...args} />}
   </Story>
 </Canvas>
 
 ### Loading
 
 <Canvas>
-  <Story name="Loading">{args => <FileHandler {...args} loading />}</Story>
+  <Story name="Loading" args={{loading: true}}>
+    {args => <FileHandler {...args} />}
+  </Story>
 </Canvas>
 
 ## Accessibility
