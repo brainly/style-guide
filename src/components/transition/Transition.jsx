@@ -121,9 +121,9 @@ export type TransitionPropsType = $ReadOnly<{
    * until the delay is finished and then apply an initial
    * phase just before proceeding with the next phases.
    */
-  fillDelay?: boolean,
+  initialBeforeDelay?: boolean,
+  inline?: boolean,
   className?: string,
-  inlined?: boolean,
   children: React.Node,
   onTransitionStart?: (effect: TransitionEffectType) => void,
   onTransitionEnd?: (effect: TransitionEffectType) => void,
@@ -133,9 +133,9 @@ function BaseTransition({
   active,
   effect,
   delay = 0,
-  fillDelay,
+  initialBeforeDelay,
+  inline,
   className,
-  inlined,
   children,
   onTransitionStart,
   onTransitionEnd,
@@ -148,7 +148,7 @@ function BaseTransition({
   );
 
   const baseClassName = cx('sg-transition', className, {
-    'sg-transition--inlined': inlined,
+    'sg-transition--inline': inline,
   });
 
   React.useLayoutEffect(() => {
@@ -208,7 +208,7 @@ function BaseTransition({
       return;
     }
 
-    if (fillDelay && rules.canFillDelay) {
+    if (initialBeforeDelay && rules.canApplyInitialBeforeDelay) {
       animator.animate(container, effect.initial);
     }
 
@@ -216,7 +216,7 @@ function BaseTransition({
      * The parent component may delay mounting on active prop
      * change and the child should not wait once again.
      */
-    const hasBeenAlreadyDelayed = !fillDelay && rules.canSkipDelay;
+    const hasBeenAlreadyDelayed = !initialBeforeDelay && rules.canSkipDelay;
     const actualDelay = hasBeenAlreadyDelayed ? 0 : delay;
 
     const performTransitionEffect = () => {
@@ -246,7 +246,7 @@ function BaseTransition({
     }
 
     performTransitionEffect();
-  }, [animator, active, effect, delay, fillDelay]);
+  }, [animator, active, effect, delay, initialBeforeDelay]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
@@ -275,7 +275,7 @@ function BaseTransition({
 type TransitionRulesType = $ReadOnly<{
   from: PropertyObjectType | void,
   to: PropertyObjectType | void,
-  canFillDelay: boolean,
+  canApplyInitialBeforeDelay: boolean,
   canSkipDelay: boolean,
 }>;
 
@@ -294,7 +294,7 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canFillDelay: true,
+      canApplyInitialBeforeDelay: true,
       canSkipDelay: true,
     };
   }
@@ -303,7 +303,7 @@ function getTransitionRules({
     return {
       from: currentProps.effect.animate,
       to: currentProps.effect.exit,
-      canFillDelay: false,
+      canApplyInitialBeforeDelay: false,
       canSkipDelay: false,
     };
   }
@@ -312,7 +312,7 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canFillDelay: true,
+      canApplyInitialBeforeDelay: true,
       canSkipDelay: false,
     };
   }
@@ -321,7 +321,7 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canFillDelay: true,
+      canApplyInitialBeforeDelay: true,
       canSkipDelay: false,
     };
   }
@@ -330,20 +330,20 @@ function getTransitionRules({
 export default function Transition({
   active,
   delay = 0,
-  fillDelay,
+  initialBeforeDelay,
   onTransitionEnd,
   ...otherProps
 }: TransitionPropsType) {
-  const validFillDelay = delay > 0 ? fillDelay : false;
+  const requiredInitialBeforeDelay = delay > 0 ? initialBeforeDelay : false;
   const [mounted, setMounted] = React.useState<boolean>(
-    delay === 0 || validFillDelay ? active : false
+    delay === 0 || requiredInitialBeforeDelay ? active : false
   );
 
   React.useLayoutEffect(() => {
     if (active) {
       const mountBaseComponent = () => setMounted(true);
 
-      if (delay === 0 || validFillDelay) {
+      if (delay === 0 || requiredInitialBeforeDelay) {
         mountBaseComponent();
       } else {
         const timeoutId = setTimeout(mountBaseComponent, delay);
@@ -351,7 +351,7 @@ export default function Transition({
         return () => clearTimeout(timeoutId);
       }
     }
-  }, [active, delay, validFillDelay]);
+  }, [active, delay, requiredInitialBeforeDelay]);
 
   const handleTransitionEnd = React.useCallback(
     (effect: TransitionEffectType) => {
@@ -370,10 +370,10 @@ export default function Transition({
   return mounted ? (
     <BaseTransition
       {...otherProps}
-      onTransitionEnd={handleTransitionEnd}
       active={active}
       delay={delay}
-      fillDelay={validFillDelay}
+      initialBeforeDelay={requiredInitialBeforeDelay}
+      onTransitionEnd={handleTransitionEnd}
     />
   ) : null;
 }

@@ -6,6 +6,8 @@ import Text from '../text/Text';
 
 import Transition from './Transition';
 
+export * from './examples';
+
 export default {
   title: 'Components/Transition',
   component: Transition,
