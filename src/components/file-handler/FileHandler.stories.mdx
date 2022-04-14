@@ -1,0 +1,166 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+import FileHandler, {COLORS_MAP} from './FileHandler';
+import {TYPE} from '../icons/Icon';
+import FileHandlerA11y from './stories/FileHandler.a11y.mdx';
+import Flex from '../flex/Flex';
+import {formatTags} from '../../_docs/utils';
+const src =
+  // eslint-disable-next-line max-len
+  'https://images.unsplash.com/photo-1558349699-1e1c38c05eeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=240&q=80';
+
+<Meta
+  title="Components/FileHandler"
+  component={FileHandler}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    textRef: {
+      control: {
+        disable: true,
+      },
+    },
+    iconType: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TYPE)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: TYPE,
+      },
+      defaultValue: 'attachment',
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(COLORS_MAP)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(COLORS_MAP),
+      },
+      defaultValue: 'gray-20',
+    },
+    thumbnailSrc: {
+      control: {
+        type: 'text',
+      },
+    },
+    loading: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
+    onClose: {
+      table: {
+        category: 'Events',
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
+      },
+    },
+    className: {
+      control: {
+        disable: true,
+      },
+    },
+    ariaCloseButtonLabel: {
+      control: {
+        type: 'text',
+      },
+      defaultValue: 'Close',
+    },
+    statusLabel: {
+      control: {
+        type: 'object',
+      },
+      defaultValue: {loading: 'loading', uploaded: 'uploaded'},
+    },
+  }}
+  args={{
+    children: 'avatar.jpg',
+  }}
+/>
+
+# FileHandler
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <FileHandler {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <div>
+        {Object.values(COLORS_MAP).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            {color === 'white' ? (
+              <div className="sg-story-variant-dark-box">
+                <FileHandler {...args} color={color} />
+              </div>
+            ) : (
+              <FileHandler {...args} color={color} />
+            )}
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Icons
+
+<Canvas>
+  <Story name="Icons">
+    {args => (
+      <Flex wrap>
+        {Object.values(TYPE).map(icon => (
+          <StoryVariant label={`icon - ${icon}`} width={200} key={icon}>
+            <FileHandler {...args} iconType={icon} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### With thumbnail
+
+<Canvas>
+  <Story name="With thumbnail" args={{thumbnailSrc: src}}>
+    {args => <FileHandler {...args} />}
+  </Story>
+</Canvas>
+
+### Loading
+
+<Canvas>
+  <Story name="Loading" args={{loading: true}}>
+    {args => <FileHandler {...args} />}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<FileHandlerA11y />
