@@ -1,6 +1,8 @@
-import * as HomeButton from './HomeButton.stories.jsx';
+import * as HomeButton from './HomeButton.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(HomeButton);
 
-export default HomeButton.default;
+const {includeStories, ...meta} = HomeButton.default;
+
+export default meta;
