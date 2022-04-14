@@ -104,11 +104,15 @@ function BaseDialogOverlay({
   );
 }
 
+function BaseDialogContent({children}) {
+  return <div className="sg-dialog__content">{children}</div>;
+}
+
 /**
  * The Dialog component controls mounting
  * when BaseDialog controls its own states.
  */
-function BaseDialog({
+function BaseDialogContainer({
   open,
   children,
   size = 'm',
@@ -272,7 +276,6 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
 
   const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
-
   /* END COMMON */
 
   if (open && !mounted) {
@@ -296,7 +299,17 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
       isDialogHigherThanOverlay={isDialogHigherThanOverlay}
       hasFinishedTransition={hasFinishedTransition}
     >
-      <BaseDialog
+      {/*<div*/}
+      {/*  style={{*/}
+      {/*    position: 'absolute',*/}
+      {/*    height: '100%',*/}
+      {/*    width: '100%',*/}
+      {/*    backgroundImage:*/}
+      {/*      "url('https://i.picsum.photos/id/350/1000/1000.jpg?hmac=K8UpYK9kXINCijZuHxZF1DIV9JVWMf7fCfuDL3Gtddc')",*/}
+      {/*    backgroundSize: 'cover',*/}
+      {/*  }}*/}
+      {/*/>*/}
+      <BaseDialogContainer
         {...otherProps}
         overlayRef={overlayRef}
         containerRef={containerRef}
@@ -307,7 +320,13 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
         isDialogHigherThanOverlay={isDialogHigherThanOverlay}
         setIsDialogHigherThanOverlay={setIsDialogHigherThanOverlay}
         setHasFinishedTransition={setHasFinishedTransition}
-      />
+      >
+        <BaseDialogContent>{otherProps.children}</BaseDialogContent>
+
+        {/*<div style={{height: '100px', width: '900px', background: 'green'}}>*/}
+        {/*  <p>helloł</p>*/}
+        {/*</div>*/}
+      </BaseDialogContainer>
     </BaseDialogOverlay>
   ) : null;
 }

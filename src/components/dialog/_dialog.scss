@@ -59,13 +59,23 @@ $dialogMaxWidthMap: (
     }
   }
 
+  &__content {
+    background-color: $white;
+    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    box-shadow: $dialogBoxShadow;
+
+    @include sgResponsive(md) {
+      border-radius: $borderRadiusDefault;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: $white;
-    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
-    box-shadow: $dialogBoxShadow;
+    //background-color: $white;
+    //border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    //box-shadow: $dialogBoxShadow;
     width: 100%;
     margin-top: auto;
     margin-bottom: 0;
@@ -75,8 +85,10 @@ $dialogMaxWidthMap: (
     transform: translate3d(0, $dialogSlideWindowDistance, 0);
     opacity: 0;
 
+    align-items: center;
+
     @include sgResponsive(md) {
-      border-radius: $borderRadiusDefault;
+      //border-radius: $borderRadiusDefault;
       margin-bottom: auto;
 
       @each $sizeName, $maxWidth in $dialogMaxWidthMap {
