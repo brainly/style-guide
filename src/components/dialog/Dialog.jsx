@@ -90,6 +90,8 @@ function BaseDialog({
   const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
 
+  const cleanupBodyNoScroll = useBodyNoScroll();
+
   const fireTransitionEndCallbacks = React.useCallback(() => {
     setHasFinishedTransition(true);
 
@@ -98,9 +100,10 @@ function BaseDialog({
         onEntryTransitionEnd();
       }
     } else if (onExitTransitionEnd) {
+      cleanupBodyNoScroll();
       onExitTransitionEnd();
     }
-  }, [open, onEntryTransitionEnd, onExitTransitionEnd]);
+  }, [open, onExitTransitionEnd, onEntryTransitionEnd, cleanupBodyNoScroll]);
 
   React.useEffect(() => {
     setDeferredOpen(open);
@@ -129,7 +132,6 @@ function BaseDialog({
     }
   }, [open, containerRef, overlayRef]);
 
-  useBodyNoScroll();
   useFocusTrap({
     dialogRef: containerRef,
     overlayRef,
