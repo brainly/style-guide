@@ -45,109 +45,32 @@ Dialog.defaultProps = ({
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
 
-/**
- * The Dialog component controls mounting
- * when BaseDialog controls its own states.
- */
-function BaseDialog({
-  open,
+function BaseDialogOverlay({
   children,
   size = 'm',
-  reduceMotion = false,
   scroll = 'outside',
-  'aria-labelledby': ariaLabelledBy,
-  'aria-label': ariaLabel,
-  'aria-describedby': ariaDescribedBy,
   zIndex = 'auto',
   onDismiss,
-  onEntryTransitionEnd,
-  onExitTransitionEnd,
-  'data-testid': dataTestId,
-}: DialogPropsType) {
-  const overlayRef = React.useRef(null);
-  const containerRef = React.useRef(null);
-  const [exiting, setExiting] = React.useState<boolean>(false);
-
-  if (exiting === open) {
-    setExiting(!open);
-  }
-
-  /**
-   * The name of transition with the longest duration, because
-   * a component can have an animation of many properties.
-   */
-  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
-
-  /**
-   * CSS3 transition requires a deferredOpen value to be one
-   * paint behind the actual open prop to trigger a transition.
-   */
-  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
-
-  const [hasFinishedTransition, setHasFinishedTransition] =
-    React.useState<boolean>(false);
-
-  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
-    React.useState<boolean>(false);
-
-  const cleanupBodyNoScroll = useBodyNoScroll();
-
-  const fireTransitionEndCallbacks = React.useCallback(() => {
-    setHasFinishedTransition(true);
-
-    if (open) {
-      if (onEntryTransitionEnd) {
-        onEntryTransitionEnd();
-      }
-    } else if (onExitTransitionEnd) {
-      cleanupBodyNoScroll();
-      onExitTransitionEnd();
-    }
-  }, [open, onExitTransitionEnd, onEntryTransitionEnd, cleanupBodyNoScroll]);
-
-  React.useEffect(() => {
-    setDeferredOpen(open);
-
-    if (!supportsTransitions()) {
-      fireTransitionEndCallbacks();
-    }
-  }, [open, fireTransitionEndCallbacks]);
-
-  React.useEffect(() => {
-    /**
-     * Check if Dialog itself is higher than the overlay.
-     * We need to check this, so we can determine if we should show scrollbars on the Dialog.
-     */
-    if (open) {
-      // Didn't use optional chaining
-      // as it causes ArgsTable and controls to not display correctly
-      const dialogHeight =
-        containerRef.current &&
-        containerRef.current.getBoundingClientRect().height;
-      const overlayHeight =
-        overlayRef.current && overlayRef.current.getBoundingClientRect().height;
-
-      if (!dialogHeight || !overlayHeight) return;
-      if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
-    }
-  }, [open, containerRef, overlayRef]);
-
-  useFocusTrap({
-    dialogRef: containerRef,
-    overlayRef,
+  // new
+  overlayRef,
+  deferredOpen,
+  hasFinishedTransition,
+  isDialogHigherThanOverlay,
+}:
+  | DialogPropsType
+  | {deferredOpen: boolean}
+  | {hasFinishedTransition: boolean}
+  | {isDialogHigherThanOverlay: boolean}
+  | {overlayRef: {current: HTMLElement | null}}) {
+  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
+    'sg-dialog__overlay--scroll':
+      (isDialogHigherThanOverlay || hasFinishedTransition) &&
+      scroll === 'outside',
+    'sg-dialog__overlay--open': deferredOpen,
+    'sg-dialog__overlay--fullscreen': size === 'fullscreen',
   });
 
-  const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
-      if (
-        event.target === event.currentTarget &&
-        event.propertyName === lastTransitionName
-      ) {
-        fireTransitionEndCallbacks();
-      }
-    },
-    [fireTransitionEndCallbacks, lastTransitionName]
-  );
+  // const cleanupBodyNoScroll = useBodyNoScroll();
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -168,13 +91,129 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll':
-      (isDialogHigherThanOverlay || hasFinishedTransition) &&
-      scroll === 'outside',
-    'sg-dialog__overlay--open': deferredOpen,
-    'sg-dialog__overlay--fullscreen': size === 'fullscreen',
+  return (
+    <div
+      className={overlayClass}
+      style={{zIndex}}
+      onClick={onDismiss ? handleOverlayClick : undefined}
+      onKeyUp={handleKeyUp}
+      ref={overlayRef}
+    >
+      {children}
+    </div>
+  );
+}
+
+/**
+ * The Dialog component controls mounting
+ * when BaseDialog controls its own states.
+ */
+function BaseDialog({
+  open,
+  children,
+  size = 'm',
+  reduceMotion = false,
+  scroll = 'outside',
+  'aria-labelledby': ariaLabelledBy,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
+  onEntryTransitionEnd,
+  onExitTransitionEnd,
+  'data-testid': dataTestId,
+  // new
+  containerRef,
+  overlayRef,
+  deferredOpen,
+  setDeferredOpen,
+  setIsDialogHigherThanOverlay,
+  setHasFinishedTransition,
+}:
+  | DialogPropsType
+  | {deferredOpen: boolean, setDeferredOpen: (value: boolean) => boolean}
+  | {
+      setIsDialogHigherThanOverlay: (value: boolean) => boolean,
+    }
+  | {
+      setHasFinishedTransition: (value: boolean) => boolean,
+    }
+  | {containerRef: {current: HTMLElement | null}}
+  | {overlayRef: {current: HTMLElement | null}}) {
+  const [exiting, setExiting] = React.useState<boolean>(false);
+
+  if (exiting === open) {
+    setExiting(!open);
+  }
+
+  /**
+   * The name of transition with the longest duration, because
+   * a component can have an animation of many properties.
+   */
+  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
+
+  const cleanupBodyNoScroll = useBodyNoScroll();
+
+  const fireTransitionEndCallbacks = React.useCallback(() => {
+    setHasFinishedTransition(true);
+
+    if (open) {
+      if (onEntryTransitionEnd) {
+        onEntryTransitionEnd();
+      }
+    } else if (onExitTransitionEnd) {
+      cleanupBodyNoScroll();
+      onExitTransitionEnd();
+    }
+  }, [
+    setHasFinishedTransition,
+    open,
+    onExitTransitionEnd,
+    onEntryTransitionEnd,
+    cleanupBodyNoScroll,
+  ]);
+
+  React.useEffect(() => {
+    setDeferredOpen(open);
+
+    if (!supportsTransitions()) {
+      fireTransitionEndCallbacks();
+    }
+  }, [open, fireTransitionEndCallbacks, setDeferredOpen]);
+
+  React.useEffect(() => {
+    /**
+     * Check if Dialog itself is higher than the overlay.
+     * We need to check this, so we can determine if we should show scrollbars on the Dialog.
+     */
+    if (open) {
+      // Didn't use optional chaining
+      // as it causes ArgsTable and controls to not display correctly
+      const dialogHeight =
+        containerRef.current &&
+        containerRef.current.getBoundingClientRect().height;
+      const overlayHeight =
+        overlayRef.current && overlayRef.current.getBoundingClientRect().height;
+
+      if (!dialogHeight || !overlayHeight) return;
+      if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
+    }
+  }, [open, containerRef, overlayRef, setIsDialogHigherThanOverlay]);
+
+  useFocusTrap({
+    dialogRef: containerRef,
+    overlayRef,
   });
+
+  const handleTransitionEnd = React.useCallback(
+    (event: TransitionEvent) => {
+      if (
+        event.target === event.currentTarget &&
+        event.propertyName === lastTransitionName
+      ) {
+        fireTransitionEndCallbacks();
+      }
+    },
+    [fireTransitionEndCallbacks, lastTransitionName]
+  );
 
   const containerClass = cx(
     'sg-dialog__container',
@@ -188,13 +227,7 @@ function BaseDialog({
   );
 
   return (
-    <div
-      className={overlayClass}
-      style={{zIndex}}
-      onClick={onDismiss ? handleOverlayClick : undefined}
-      onKeyUp={handleKeyUp}
-      ref={overlayRef}
-    >
+    <>
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
@@ -217,12 +250,30 @@ function BaseDialog({
         {children}
       </div>
       <div tabIndex="0" />
-    </div>
+    </>
   );
 }
 
 function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(open);
+
+  /* COMMON */
+  const overlayRef = React.useRef(null);
+  const containerRef = React.useRef(null);
+
+  /**
+   * CSS3 transition requires a deferredOpen value to be one
+   * paint behind the actual open prop to trigger a transition.
+   */
+  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
+
+  const [hasFinishedTransition, setHasFinishedTransition] =
+    React.useState<boolean>(false);
+
+  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
+    React.useState<boolean>(false);
+
+  /* END COMMON */
 
   if (open && !mounted) {
     setMounted(true);
@@ -238,11 +289,26 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   }, [onExitTransitionEnd]);
 
   return mounted ? (
-    <BaseDialog
+    <BaseDialogOverlay
       {...otherProps}
-      onExitTransitionEnd={handleExitTransitionEnd}
-      open={open}
-    />
+      overlayRef={overlayRef}
+      deferredOpen={deferredOpen}
+      isDialogHigherThanOverlay={isDialogHigherThanOverlay}
+      hasFinishedTransition={hasFinishedTransition}
+    >
+      <BaseDialog
+        {...otherProps}
+        overlayRef={overlayRef}
+        containerRef={containerRef}
+        onExitTransitionEnd={handleExitTransitionEnd}
+        open={open}
+        setDeferredOpen={setDeferredOpen}
+        deferredOpen={deferredOpen}
+        isDialogHigherThanOverlay={isDialogHigherThanOverlay}
+        setIsDialogHigherThanOverlay={setIsDialogHigherThanOverlay}
+        setHasFinishedTransition={setHasFinishedTransition}
+      />
+    </BaseDialogOverlay>
   ) : null;
 }
 
