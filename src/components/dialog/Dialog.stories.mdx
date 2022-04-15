@@ -1,7 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 
 import DialogA11y from './stories/Dialog.a11y.mdx';
-import Dialog from './Dialog';
+import Dialog, {BaseDialogContainer, BaseDialogContent, BaseDialogOverlay, DialogContextProvider} from './Dialog';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
@@ -150,8 +150,67 @@ import DialogCloseButton from './DialogCloseButton';
   </Story>
 </Canvas>
 
-<ArgsTable story="Default" />
+<ArgsTable story="Default"/>
 
 ## Accessibility
 
 <DialogA11y />
+
+## Stories
+
+### With custom element before overlay
+
+<Canvas>
+    <Story name="WithCustomElementBeforeOverlay">
+        {args => {
+            const [open, setOpen] = React.useState(false);
+            const handleDismiss = () => setOpen(false);
+            const headerId = 'dialog-header';
+            return (
+                <div>
+                    <Button type="solid-mint" onClick={() => setOpen(true)}>
+                        open dialog
+                    </Button>
+
+                    <DialogContextProvider
+                        {...args}
+                        open={open}
+                        onDismiss={handleDismiss}
+                        labelledBy={headerId}>
+                        <BaseDialogOverlay>
+                            <BaseDialogContainer>
+                                <BaseDialogContent>
+                                    <DialogCloseButton onClick={handleDismiss}/>
+                                    <DialogHeader id={headerId}>
+                                        <Flex marginBottom="m">
+                                            <Headline>
+                                                Are you sure you want to stop asking this question?
+                                            </Headline>
+                                        </Flex>
+                                    </DialogHeader>
+                                    <DialogBody>
+                                        <Flex marginBottom="m">
+                                            Information you provide to us directly. We may collect personal
+                                            information, such as your name, address, telephone number, date
+                                            of birth, payment information, and e-mail address when you when
+                                            you register for our Service, sign up for our mailing list,
+                                            enter a contest or sweepstakes, or otherwise communicate with
+                                            us. We may also collect any communications between you and
+                                            Brainly and any other information you provide to Brainly
+                                        </Flex>
+                                        <Flex justifyContent="flex-end" className="sg-space-x-s">
+                                            <Button type="outline" onClick={handleDismiss}>
+                                                cancel
+                                            </Button>
+                                            <Button type="solid">proceed</Button>
+                                        </Flex>
+                                    </DialogBody>
+                                </BaseDialogContent>
+                            </BaseDialogContainer>
+                        </BaseDialogOverlay>
+                    </DialogContextProvider>
+                </div>
+            );
+        }}
+    </Story>
+</Canvas>

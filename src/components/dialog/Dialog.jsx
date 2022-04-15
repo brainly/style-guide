@@ -123,7 +123,7 @@ Dialog.defaultProps = ({
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
 
-function BaseDialogOverlay({children}: {children: React.Node}) {
+export function BaseDialogOverlay({children}: {children: React.Node}) {
   const {
     size,
     overlayRef,
@@ -175,7 +175,7 @@ function BaseDialogOverlay({children}: {children: React.Node}) {
   );
 }
 
-function BaseDialogContent({children}: {children: React.Node}) {
+export function BaseDialogContent({children}: {children: React.Node}) {
   return <div className="sg-dialog__content">{children}</div>;
 }
 
@@ -183,7 +183,7 @@ function BaseDialogContent({children}: {children: React.Node}) {
  * The Dialog component controls mounting
  * when BaseDialog controls its own states.
  */
-function BaseDialogContainer({children}: {children: React.Node}) {
+export function BaseDialogContainer({children}: {children: React.Node}) {
   const [exiting, setExiting] = React.useState<boolean>(false);
 
   const {
