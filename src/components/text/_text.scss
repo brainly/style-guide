@@ -53,9 +53,9 @@ $bodyTextSizeRules: (
 
 @if ($includeHtml) {
   em.sg-text {
-    font-style: normal
+    font-style: normal;
   }
-  
+
   blockquote.sg-text {
     margin: 0;
   }

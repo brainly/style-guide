@@ -15,9 +15,9 @@ $bitSizes: (
 
 @if ($includeHtml) {
   em.sg-text-bit {
-    font-style: normal
+    font-style: normal;
   }
-  
+
   blockquote.sg-text-bit {
     margin: 0;
   }

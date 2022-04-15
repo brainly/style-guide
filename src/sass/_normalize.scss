@@ -119,7 +119,7 @@ $includeHtml: false !default;
 
   b,
   strong {
-    font-weight: bold;
+    font-weight: $fontWeightBold;
   }
 
   /**
