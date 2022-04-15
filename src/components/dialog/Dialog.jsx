@@ -52,10 +52,9 @@ const DialogContext = React.createContext<DialogContextType>({});
 
 export function DialogContextProvider({
   children,
-  size,
-  scroll,
-  zIndex,
-  reduceMotion,
+  size = 'm',
+  scroll = 'outside',
+  zIndex = 'auto',
   ...otherProps
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
@@ -67,36 +66,22 @@ export function DialogContextProvider({
   const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
 
-  const contextData = React.useMemo<DialogContextType>(
-    () => ({
-      size: size || 'm',
-      scroll: scroll || 'outside',
-      zIndex: zIndex || 'auto',
-      reduceMotion: reduceMotion || false,
-      ...otherProps,
+  const contextData: DialogContextType = {
+    ...otherProps,
+    size,
+    scroll,
+    zIndex,
 
-      overlayRef,
-      containerRef,
+    overlayRef,
+    containerRef,
 
-      deferredOpen,
-      setDeferredOpen,
-      hasFinishedTransition,
-      setHasFinishedTransition,
-      isDialogHigherThanOverlay,
-      setIsDialogHigherThanOverlay,
-    }),
-    [
-      size,
-      scroll,
-      zIndex,
-      reduceMotion,
-      // should otherProps be here?
-      otherProps,
-      deferredOpen,
-      hasFinishedTransition,
-      isDialogHigherThanOverlay,
-    ]
-  );
+    deferredOpen,
+    setDeferredOpen,
+    hasFinishedTransition,
+    setHasFinishedTransition,
+    isDialogHigherThanOverlay,
+    setIsDialogHigherThanOverlay,
+  };
 
   return (
     <DialogContext.Provider value={contextData}>
@@ -144,6 +129,7 @@ function BaseDialogOverlay({children}: {children: React.Node}) {
     [onDismiss]
   );
 
+  // move to BaseDialogContainer?
   const handleKeyUp = React.useCallback(
     (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
       if (onDismiss && event.key === 'Escape') {
@@ -294,6 +280,7 @@ function BaseDialogContainer({
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
       <div tabIndex="0" />
+      {/*  Role dialog - container or just content? */}
       <div
         role="dialog"
         ref={containerRef}
