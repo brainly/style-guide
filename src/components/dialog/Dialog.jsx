@@ -34,6 +34,77 @@ export type DialogPropsType = $ReadOnly<{
   'data-testid'?: string,
 }>;
 
+type DialogContextType = DialogPropsType & {
+  // new
+  overlayRef: {current: HTMLElement | null},
+  containerRef: {current: HTMLElement | null},
+
+  // shared
+  deferredOpen: boolean,
+  setDeferredOpen: (value: boolean) => boolean,
+  hasFinishedTransition: boolean,
+  setHasFinishedTransition: (value: boolean) => boolean,
+  isDialogHigherThanOverlay: boolean,
+  setIsDialogHigherThanOverlay: (value: boolean) => boolean,
+};
+
+const DialogContext = React.createContext<DialogContextType>({});
+
+export function DialogContextProvider({
+  children,
+  size,
+  scroll,
+  zIndex,
+  reduceMotion,
+  ...otherProps
+}: DialogPropsType) {
+  const overlayRef = React.useRef(null);
+  const containerRef = React.useRef(null);
+
+  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
+  const [hasFinishedTransition, setHasFinishedTransition] =
+    React.useState<boolean>(false);
+  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
+    React.useState<boolean>(false);
+
+  const contextData = React.useMemo<DialogContextType>(
+    () => ({
+      size: size || 'm',
+      scroll: scroll || 'outside',
+      zIndex: zIndex || 'auto',
+      reduceMotion: reduceMotion || false,
+      ...otherProps,
+
+      overlayRef,
+      containerRef,
+
+      deferredOpen,
+      setDeferredOpen,
+      hasFinishedTransition,
+      setHasFinishedTransition,
+      isDialogHigherThanOverlay,
+      setIsDialogHigherThanOverlay,
+    }),
+    [
+      size,
+      scroll,
+      zIndex,
+      reduceMotion,
+      // should otherProps be here?
+      otherProps,
+      deferredOpen,
+      hasFinishedTransition,
+      isDialogHigherThanOverlay,
+    ]
+  );
+
+  return (
+    <DialogContext.Provider value={contextData}>
+      {children}
+    </DialogContext.Provider>
+  );
+}
+
 /**
  * The react-docgen has a problem with default values
  * of nested components (see BaseDialog inside the
@@ -45,23 +116,17 @@ Dialog.defaultProps = ({
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
 
-function BaseDialogOverlay({
-  children,
-  size = 'm',
-  scroll = 'outside',
-  zIndex = 'auto',
-  onDismiss,
-  // new
-  overlayRef,
-  deferredOpen,
-  hasFinishedTransition,
-  isDialogHigherThanOverlay,
-}:
-  | DialogPropsType
-  | {deferredOpen: boolean}
-  | {hasFinishedTransition: boolean}
-  | {isDialogHigherThanOverlay: boolean}
-  | {overlayRef: {current: HTMLElement | null}}) {
+function BaseDialogOverlay({children}: {children: React.Node}) {
+  const {
+    size,
+    overlayRef,
+    deferredOpen,
+    hasFinishedTransition,
+    isDialogHigherThanOverlay,
+    onDismiss,
+    zIndex,
+  } = React.useContext(DialogContext);
+
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
     'sg-dialog__overlay--scroll':
       (isDialogHigherThanOverlay || hasFinishedTransition) &&
@@ -69,8 +134,6 @@ function BaseDialogOverlay({
     'sg-dialog__overlay--open': deferredOpen,
     'sg-dialog__overlay--fullscreen': size === 'fullscreen',
   });
-
-  // const cleanupBodyNoScroll = useBodyNoScroll();
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
@@ -104,7 +167,7 @@ function BaseDialogOverlay({
   );
 }
 
-function BaseDialogContent({children}) {
+function BaseDialogContent({children}: {children: React.Node}) {
   return <div className="sg-dialog__content">{children}</div>;
 }
 
@@ -115,34 +178,28 @@ function BaseDialogContent({children}) {
 function BaseDialogContainer({
   open,
   children,
-  size = 'm',
-  reduceMotion = false,
-  scroll = 'outside',
-  'aria-labelledby': ariaLabelledBy,
-  'aria-label': ariaLabel,
-  'aria-describedby': ariaDescribedBy,
-  onEntryTransitionEnd,
-  onExitTransitionEnd,
-  'data-testid': dataTestId,
-  // new
-  containerRef,
-  overlayRef,
-  deferredOpen,
-  setDeferredOpen,
-  setIsDialogHigherThanOverlay,
-  setHasFinishedTransition,
-}:
-  | DialogPropsType
-  | {deferredOpen: boolean, setDeferredOpen: (value: boolean) => boolean}
-  | {
-      setIsDialogHigherThanOverlay: (value: boolean) => boolean,
-    }
-  | {
-      setHasFinishedTransition: (value: boolean) => boolean,
-    }
-  | {containerRef: {current: HTMLElement | null}}
-  | {overlayRef: {current: HTMLElement | null}}) {
+}: {
+  open: boolean,
+  children: React.Node,
+}) {
   const [exiting, setExiting] = React.useState<boolean>(false);
+
+  const {
+    size,
+    containerRef,
+    overlayRef,
+    deferredOpen,
+    setDeferredOpen,
+    setHasFinishedTransition,
+    setIsDialogHigherThanOverlay,
+    reduceMotion,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-label': ariaLabel,
+    'aria-describedby': ariaDescribedBy,
+    'data-testid': dataTestId,
+    onEntryTransitionEnd,
+    onExitTransitionEnd,
+  } = React.useContext(DialogContext);
 
   if (exiting === open) {
     setExiting(!open);
@@ -258,25 +315,13 @@ function BaseDialogContainer({
   );
 }
 
-function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
+function Dialog({
+  open,
+  onExitTransitionEnd,
+  children,
+  ...otherProps
+}: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(open);
-
-  /* COMMON */
-  const overlayRef = React.useRef(null);
-  const containerRef = React.useRef(null);
-
-  /**
-   * CSS3 transition requires a deferredOpen value to be one
-   * paint behind the actual open prop to trigger a transition.
-   */
-  const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
-
-  const [hasFinishedTransition, setHasFinishedTransition] =
-    React.useState<boolean>(false);
-
-  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
-    React.useState<boolean>(false);
-  /* END COMMON */
 
   if (open && !mounted) {
     setMounted(true);
@@ -292,42 +337,30 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   }, [onExitTransitionEnd]);
 
   return mounted ? (
-    <BaseDialogOverlay
+    <DialogContextProvider
       {...otherProps}
-      overlayRef={overlayRef}
-      deferredOpen={deferredOpen}
-      isDialogHigherThanOverlay={isDialogHigherThanOverlay}
-      hasFinishedTransition={hasFinishedTransition}
+      onExitTransitionEnd={handleExitTransitionEnd}
     >
-      {/*<div*/}
-      {/*  style={{*/}
-      {/*    position: 'absolute',*/}
-      {/*    height: '100%',*/}
-      {/*    width: '100%',*/}
-      {/*    backgroundImage:*/}
-      {/*      "url('https://i.picsum.photos/id/350/1000/1000.jpg?hmac=K8UpYK9kXINCijZuHxZF1DIV9JVWMf7fCfuDL3Gtddc')",*/}
-      {/*    backgroundSize: 'cover',*/}
-      {/*  }}*/}
-      {/*/>*/}
-      <BaseDialogContainer
-        {...otherProps}
-        overlayRef={overlayRef}
-        containerRef={containerRef}
-        onExitTransitionEnd={handleExitTransitionEnd}
-        open={open}
-        setDeferredOpen={setDeferredOpen}
-        deferredOpen={deferredOpen}
-        isDialogHigherThanOverlay={isDialogHigherThanOverlay}
-        setIsDialogHigherThanOverlay={setIsDialogHigherThanOverlay}
-        setHasFinishedTransition={setHasFinishedTransition}
-      >
-        <BaseDialogContent>{otherProps.children}</BaseDialogContent>
+      <BaseDialogOverlay>
+        {/*<div*/}
+        {/*  style={{*/}
+        {/*    position: 'absolute',*/}
+        {/*    height: '100%',*/}
+        {/*    width: '100%',*/}
+        {/*    backgroundImage:*/}
+        {/*      "url('https://i.picsum.photos/id/350/1000/1000.jpg?hmac=K8UpYK9kXINCijZuHxZF1DIV9JVWMf7fCfuDL3Gtddc')",*/}
+        {/*    backgroundSize: 'cover',*/}
+        {/*  }}*/}
+        {/*/>*/}
+        <BaseDialogContainer open={open}>
+          <BaseDialogContent>{children}</BaseDialogContent>
 
-        {/*<div style={{height: '100px', width: '900px', background: 'green'}}>*/}
-        {/*  <p>helloł</p>*/}
-        {/*</div>*/}
-      </BaseDialogContainer>
-    </BaseDialogOverlay>
+          {/*<div style={{height: '100px', width: '900px', background: 'green'}}>*/}
+          {/*  <p>helloł</p>*/}
+          {/*</div>*/}
+        </BaseDialogContainer>
+      </BaseDialogOverlay>
+    </DialogContextProvider>
   ) : null;
 }
 
