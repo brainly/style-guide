@@ -171,7 +171,72 @@ import DialogCloseButton from './DialogCloseButton';
                     <Button type="solid-mint" onClick={() => setOpen(true)}>
                         open dialog
                     </Button>
+                    <DialogContextProvider
+                        {...args}
+                        open={open}
+                        onDismiss={handleDismiss}
+                        labelledBy={headerId}>
+                        <BaseDialogOverlay>
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    height: '100%',
+                                    width: '100%',
+                                    backgroundImage:
+                                        "url('https://i.picsum.photos/id/350/1000/1000.jpg?hmac=K8UpYK9kXINCijZuHxZF1DIV9JVWMf7fCfuDL3Gtddc')",
+                                    backgroundSize: 'cover',
+                                }}
+                            />
+                            <BaseDialogContainer>
+                                <BaseDialogContent>
+                                    <DialogCloseButton onClick={handleDismiss}/>
+                                    <DialogHeader id={headerId}>
+                                        <Flex marginBottom="m">
+                                            <Headline>
+                                                Are you sure you want to stop asking this question?
+                                            </Headline>
+                                        </Flex>
+                                    </DialogHeader>
+                                    <DialogBody>
+                                        <Flex marginBottom="m">
+                                            Information you provide to us directly. We may collect personal
+                                            information, such as your name, address, telephone number, date
+                                            of birth, payment information, and e-mail address when you when
+                                            you register for our Service, sign up for our mailing list,
+                                            enter a contest or sweepstakes, or otherwise communicate with
+                                            us. We may also collect any communications between you and
+                                            Brainly and any other information you provide to Brainly
+                                        </Flex>
+                                        <Flex justifyContent="flex-end" className="sg-space-x-s">
+                                            <Button type="outline" onClick={handleDismiss}>
+                                                cancel
+                                            </Button>
+                                            <Button type="solid">proceed</Button>
+                                        </Flex>
+                                    </DialogBody>
+                                </BaseDialogContent>
+                            </BaseDialogContainer>
+                        </BaseDialogOverlay>
+                    </DialogContextProvider>
+                </div>
+            );
+        }}
+    </Story>
+</Canvas>
 
+### With custom element below dialog
+
+<Canvas>
+    <Story name="WithCustomElementBelowDialog">
+        {args => {
+            const [open, setOpen] = React.useState(false);
+            const handleDismiss = () => setOpen(false);
+            const headerId = 'dialog-header';
+            return (
+                <div>
+                    <Button type="solid-mint" onClick={() => setOpen(true)}>
+                        open dialog
+                    </Button>
                     <DialogContextProvider
                         {...args}
                         open={open}
@@ -206,6 +271,11 @@ import DialogCloseButton from './DialogCloseButton';
                                         </Flex>
                                     </DialogBody>
                                 </BaseDialogContent>
+                                <div style={{
+                                    height: '250px', width: '970px', marginTop: '1rem', background: 'green', backgroundImage:
+                                        "url('https://i.picsum.photos/id/473/970/250.jpg?hmac=qercOFBheyXUfKsZztEkkL06_o3_Ld-u7Xw4AGMd2wo')",
+                                    backgroundSize: 'cover',
+                                }}/>
                             </BaseDialogContainer>
                         </BaseDialogOverlay>
                     </DialogContextProvider>
