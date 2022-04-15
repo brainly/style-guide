@@ -56,6 +56,14 @@ $subheadlineSizeRules: (
 }
 
 @if ($includeHtml) {
+  em.sg-subheadline {
+    font-style: normal
+  }
+  
+  blockquote.sg-subheadline {
+    margin: 0;
+  }
+  
   .sg-subheadline {
     @include subheadlineTypeSizeVariant(medium);
     font-family: $fontFamilyUntitledSerif;
