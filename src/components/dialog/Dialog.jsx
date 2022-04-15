@@ -52,13 +52,33 @@ const DialogContext = React.createContext<DialogContextType>({});
 
 export function DialogContextProvider({
   children,
+  open,
   size = 'm',
   scroll = 'outside',
   zIndex = 'auto',
+  onExitTransitionEnd,
   ...otherProps
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
+
+  /* HANDLE MOUNTING */
+  const [mounted, setMounted] = React.useState<boolean>(open);
+
+  if (open && !mounted) {
+    setMounted(true);
+  }
+
+  const handleExitTransitionEnd = React.useCallback(() => {
+    setMounted(false);
+
+    // proxy an actual event
+    if (onExitTransitionEnd) {
+      onExitTransitionEnd();
+    }
+  }, [onExitTransitionEnd]);
+
+  /* END HANDLE MOUNTING */
 
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
   const [hasFinishedTransition, setHasFinishedTransition] =
@@ -68,9 +88,11 @@ export function DialogContextProvider({
 
   const contextData: DialogContextType = {
     ...otherProps,
+    open,
     size,
     scroll,
     zIndex,
+    onExitTransitionEnd: handleExitTransitionEnd,
 
     overlayRef,
     containerRef,
@@ -83,11 +105,11 @@ export function DialogContextProvider({
     setIsDialogHigherThanOverlay,
   };
 
-  return (
+  return mounted ? (
     <DialogContext.Provider value={contextData}>
       {children}
     </DialogContext.Provider>
-  );
+  ) : null;
 }
 
 /**
@@ -161,16 +183,11 @@ function BaseDialogContent({children}: {children: React.Node}) {
  * The Dialog component controls mounting
  * when BaseDialog controls its own states.
  */
-function BaseDialogContainer({
-  open,
-  children,
-}: {
-  open: boolean,
-  children: React.Node,
-}) {
+function BaseDialogContainer({children}: {children: React.Node}) {
   const [exiting, setExiting] = React.useState<boolean>(false);
 
   const {
+    open,
     size,
     containerRef,
     overlayRef,
@@ -224,7 +241,7 @@ function BaseDialogContainer({
     if (!supportsTransitions()) {
       fireTransitionEndCallbacks();
     }
-  }, [open, fireTransitionEndCallbacks, setDeferredOpen]);
+  }, [fireTransitionEndCallbacks, open, setDeferredOpen]);
 
   React.useEffect(() => {
     /**
@@ -243,7 +260,7 @@ function BaseDialogContainer({
       if (!dialogHeight || !overlayHeight) return;
       if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
     }
-  }, [open, containerRef, overlayRef, setIsDialogHigherThanOverlay]);
+  }, [containerRef, open, overlayRef, setIsDialogHigherThanOverlay]);
 
   useFocusTrap({
     dialogRef: containerRef,
@@ -302,32 +319,9 @@ function BaseDialogContainer({
   );
 }
 
-function Dialog({
-  open,
-  onExitTransitionEnd,
-  children,
-  ...otherProps
-}: DialogPropsType) {
-  const [mounted, setMounted] = React.useState<boolean>(open);
-
-  if (open && !mounted) {
-    setMounted(true);
-  }
-
-  const handleExitTransitionEnd = React.useCallback(() => {
-    setMounted(false);
-
-    // proxy an actual event
-    if (onExitTransitionEnd) {
-      onExitTransitionEnd();
-    }
-  }, [onExitTransitionEnd]);
-
-  return mounted ? (
-    <DialogContextProvider
-      {...otherProps}
-      onExitTransitionEnd={handleExitTransitionEnd}
-    >
+function Dialog({children, ...props}: DialogPropsType) {
+  return (
+    <DialogContextProvider {...props}>
       <BaseDialogOverlay>
         {/*<div*/}
         {/*  style={{*/}
@@ -339,7 +333,7 @@ function Dialog({
         {/*    backgroundSize: 'cover',*/}
         {/*  }}*/}
         {/*/>*/}
-        <BaseDialogContainer open={open}>
+        <BaseDialogContainer>
           <BaseDialogContent>{children}</BaseDialogContent>
 
           {/*<div style={{height: '100px', width: '900px', background: 'green'}}>*/}
@@ -348,7 +342,7 @@ function Dialog({
         </BaseDialogContainer>
       </BaseDialogOverlay>
     </DialogContextProvider>
-  ) : null;
+  );
 }
 
 export default Dialog;
