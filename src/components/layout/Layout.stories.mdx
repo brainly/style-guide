@@ -1,0 +1,42 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import Layout from './Layout';
+
+<Meta
+  title="Components/Layout"
+  component={Layout}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    footer: {
+      control: {
+        disable: true,
+      },
+    },
+    header: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: <div>Content</div>,
+    footer: <div>Footer</div>,
+    header: <div>Header</div>,
+  }}
+/>
+
+# Layout
+
+<br />
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Layout {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

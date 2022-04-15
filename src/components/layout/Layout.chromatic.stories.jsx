@@ -1,6 +1,8 @@
-import * as Layout from './Layout.stories.jsx';
+import * as Layout from './Layout.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Layout);
 
-export default Layout.default;
+const {includeStories, ...meta} = Layout.default;
+
+export default meta;
