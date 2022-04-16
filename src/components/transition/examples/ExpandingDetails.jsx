@@ -76,10 +76,6 @@ function ExpandableBox({
   };
 
   const handleExpandingTransitionEnd = () => {
-    /**
-     * Resets to measure dimensions correctly next time.
-     */
-    setEffects(emptyEffects);
     setIsAnimating(false);
 
     if (!isExpanded) {
