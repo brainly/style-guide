@@ -139,7 +139,7 @@ const FluidListItem = ({
         effect={getTransitionEffect()}
         delay={getTransitionDelay()}
         onTransitionEnd={isRemoving ? onRemove : undefined}
-        initialBeforeDelay
+        fillMode="backwards"
       >
         <DummyBox
           color="blue"

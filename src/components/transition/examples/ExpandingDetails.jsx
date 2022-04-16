@@ -132,7 +132,7 @@ function ExpandableBox({
             <Transition
               effect={effects.appearing}
               delay={80}
-              initialBeforeDelay
+              fillMode="backwards"
               active
             >
               {isExpanded ? (

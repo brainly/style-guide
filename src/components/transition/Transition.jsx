@@ -6,6 +6,9 @@ import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 
+const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
+const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
+
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
@@ -115,13 +118,7 @@ type TransitionCorePropsType = $ReadOnly<{
 export type TransitionPropsType = $ReadOnly<{
   ...TransitionCorePropsType,
   delay?: number,
-  /**
-   * Applies an initial phase of the current effect earlier,
-   * before the delay. Without this, the transition will wait
-   * until the delay is finished and then apply an initial
-   * phase just before proceeding with the next phases.
-   */
-  initialBeforeDelay?: boolean,
+  fillMode?: 'none' | 'forwards' | 'backwards' | 'both',
   inline?: boolean,
   className?: string,
   children: React.Node,
@@ -133,7 +130,7 @@ function BaseTransition({
   active,
   effect,
   delay = 0,
-  initialBeforeDelay,
+  fillMode = 'none',
   inline,
   className,
   children,
@@ -208,16 +205,9 @@ function BaseTransition({
       return;
     }
 
-    if (initialBeforeDelay && rules.canApplyInitialBeforeDelay) {
-      animator.animate(container, effect.initial);
+    if (isFillModeBackwards(fillMode)) {
+      animator.animate(container, rules.from);
     }
-
-    /**
-     * The parent component may delay mounting on active prop
-     * change and the child should not wait once again.
-     */
-    const hasBeenAlreadyDelayed = !initialBeforeDelay && rules.canSkipDelay;
-    const actualDelay = hasBeenAlreadyDelayed ? 0 : delay;
 
     const performTransitionEffect = () => {
       if (onTransitionStartRef.current) {
@@ -239,6 +229,13 @@ function BaseTransition({
       previouslyAppliedProps.current = currentProps;
     };
 
+    /**
+     * The parent component may delay mounting on active prop
+     * change and the child should not wait once again.
+     */
+    const actualDelay =
+      rules.canSkipDelay && !isFillModeBackwards(fillMode) ? 0 : delay;
+
     if (actualDelay > 0) {
       const timeoutId = setTimeout(performTransitionEffect, actualDelay);
 
@@ -246,7 +243,7 @@ function BaseTransition({
     }
 
     performTransitionEffect();
-  }, [animator, active, effect, delay, initialBeforeDelay]);
+  }, [animator, active, effect, delay, fillMode]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
@@ -255,11 +252,19 @@ function BaseTransition({
         return;
       }
 
-      if (animator.finished() && onTransitionEnd && effect) {
-        onTransitionEnd(effect);
+      if (animator.finished()) {
+        const container = containerRef.current;
+
+        if (container && !isFillModeForwards(fillMode)) {
+          animator.cleanup(container);
+        }
+
+        if (onTransitionEnd && effect) {
+          onTransitionEnd(effect);
+        }
       }
     },
-    [animator, onTransitionEnd, effect]
+    [animator, onTransitionEnd, effect, fillMode]
   );
 
   return (
@@ -275,7 +280,6 @@ function BaseTransition({
 type TransitionRulesType = $ReadOnly<{
   from: PropertyObjectType | void,
   to: PropertyObjectType | void,
-  canApplyInitialBeforeDelay: boolean,
   canSkipDelay: boolean,
 }>;
 
@@ -294,7 +298,6 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canApplyInitialBeforeDelay: true,
       canSkipDelay: true,
     };
   }
@@ -303,7 +306,6 @@ function getTransitionRules({
     return {
       from: currentProps.effect.animate,
       to: currentProps.effect.exit,
-      canApplyInitialBeforeDelay: false,
       canSkipDelay: false,
     };
   }
@@ -312,7 +314,6 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canApplyInitialBeforeDelay: true,
       canSkipDelay: false,
     };
   }
@@ -321,7 +322,6 @@ function getTransitionRules({
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
-      canApplyInitialBeforeDelay: true,
       canSkipDelay: false,
     };
   }
@@ -330,20 +330,20 @@ function getTransitionRules({
 export default function Transition({
   active,
   delay = 0,
-  initialBeforeDelay,
+  fillMode = 'none',
   onTransitionEnd,
   ...otherProps
 }: TransitionPropsType) {
-  const requiredInitialBeforeDelay = delay > 0 ? initialBeforeDelay : false;
+  const canMountBaseComponent = delay === 0 || isFillModeBackwards(fillMode);
   const [mounted, setMounted] = React.useState<boolean>(
-    delay === 0 || requiredInitialBeforeDelay ? active : false
+    canMountBaseComponent ? active : false
   );
 
   React.useLayoutEffect(() => {
     if (active) {
       const mountBaseComponent = () => setMounted(true);
 
-      if (delay === 0 || requiredInitialBeforeDelay) {
+      if (canMountBaseComponent) {
         mountBaseComponent();
       } else {
         const timeoutId = setTimeout(mountBaseComponent, delay);
@@ -351,7 +351,7 @@ export default function Transition({
         return () => clearTimeout(timeoutId);
       }
     }
-  }, [active, delay, requiredInitialBeforeDelay]);
+  }, [active, delay, canMountBaseComponent]);
 
   const handleTransitionEnd = React.useCallback(
     (effect: TransitionEffectType) => {
@@ -372,7 +372,7 @@ export default function Transition({
       {...otherProps}
       active={active}
       delay={delay}
-      initialBeforeDelay={requiredInitialBeforeDelay}
+      fillMode={fillMode}
       onTransitionEnd={handleTransitionEnd}
     />
   ) : null;
