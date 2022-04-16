@@ -6,6 +6,13 @@ import type {ParsedPropertyObjectType} from './propertyObject';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import type {PropertyObjectType} from './Transition';
 
+type WillChangePropsType = $ReadOnly<{
+  transform: boolean,
+  width: boolean,
+  height: boolean,
+  opacity: boolean,
+}>;
+
 export function createCSSTransitionAnimator(
   classNamesRegistry: ClassNamesRegistryType
 ): PropertyObjectAnimatorType {
@@ -65,7 +72,7 @@ export function createCSSTransitionAnimator(
   function addElementStyles(
     element: HTMLElement,
     parsedProps: ParsedPropertyObjectType,
-    willChangeProps: {[prop: string]: boolean, ...}
+    willChangeProps: WillChangePropsType
   ) {
     const {className, transform, width, height, opacity} = parsedProps;
     const transitionProperty = [];
