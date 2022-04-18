@@ -72,8 +72,8 @@ const FluidListItem = ({
   isSingleItem: boolean,
   onRemove: () => void,
 }) => {
-  const [movementEffect, setMovementEffect] = React.useState(null);
   const [isRemoving, setIsRemoving] = React.useState(false);
+  const [movementEffect, setMovementEffect] = React.useState(null);
 
   const elementRef = React.useRef(null);
   const transformation = useTransformationState({
@@ -81,8 +81,6 @@ const FluidListItem = ({
     containerRef,
     updateKey,
   });
-
-  const isMovingUp = transformation.diffTop < 0;
 
   const getTransitionEffect = () => {
     if (isRemoving) {
@@ -98,6 +96,7 @@ const FluidListItem = ({
 
   const getTransitionDelay = () => {
     const appearingDelay = 180;
+    const isMovingUp = transformation.diffTop < 0;
 
     if (isRemoving || isSingleItem) {
       return 0;

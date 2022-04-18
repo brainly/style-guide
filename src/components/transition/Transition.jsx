@@ -110,15 +110,31 @@ export type TransitionEffectType = $ReadOnly<{
   exit?: PropertyObjectType,
 }>;
 
-type TransitionCorePropsType = $ReadOnly<{
+type TransitionTriggerPropsType = $ReadOnly<{
   active: boolean,
   effect: TransitionEffectType | null,
 }>;
 
 export type TransitionPropsType = $ReadOnly<{
-  ...TransitionCorePropsType,
+  active: boolean,
+  effect: TransitionEffectType | null,
   delay?: number,
+  /**
+   * Defines how styles are applied to the container element before
+   * and after executing the transition effect, extending the animation.
+   *
+   * - `none` (default) no styles are applied when the effect is not animating,
+   * - `forwards` retains styles from the recent phase of the current effect,
+   * - `backwards` applies styles from the upcoming phase of the current effect
+   *    as soon as possible, mounting component earlier and before the delay,
+   * - `both` follows the rules for both forwards and backwards.
+   */
   fillMode?: 'none' | 'forwards' | 'backwards' | 'both',
+  /**
+   * Makes a component "inline" without a line-break after
+   * the container element, so the element can sit next to
+   * other elements. That is useful for text transitions.
+   */
   inline?: boolean,
   className?: string,
   children: React.Node,
@@ -178,7 +194,7 @@ function BaseTransition({
    * applied to the actual DOM, and subsequent renders of the
    * virtual DOM should not produce any visual result.
    */
-  const previouslyAppliedProps = React.useRef<TransitionCorePropsType>({
+  const previouslyAppliedProps = React.useRef<TransitionTriggerPropsType>({
     active: false,
     effect: null,
   });
@@ -192,10 +208,11 @@ function BaseTransition({
     const currentProps = {active, effect};
 
     const rules = getTransitionRules({
-      prevProps: previouslyAppliedProps.current,
+      previousProps: previouslyAppliedProps.current,
       currentProps,
     });
 
+    // no rules that trigger the transition found
     if (!container || rules === undefined) {
       return;
     }
@@ -205,7 +222,7 @@ function BaseTransition({
       return;
     }
 
-    if (isFillModeBackwards(fillMode)) {
+    if (supportsTransitions() && isFillModeBackwards(fillMode)) {
       animator.animate(container, rules.from);
     }
 
@@ -230,8 +247,8 @@ function BaseTransition({
     };
 
     /**
-     * The parent component may delay mounting on active prop
-     * change and the child should not wait once again.
+     * The outer component can delay mounting on active prop
+     * change and the base component should not wait once again.
      */
     const actualDelay =
       rules.canSkipDelay && !isFillModeBackwards(fillMode) ? 0 : delay;
@@ -247,7 +264,7 @@ function BaseTransition({
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
-      // should ignore transitions of its own descendants
+      // ignores transitions of its own descendants
       if (event.target !== event.currentTarget) {
         return;
       }
@@ -284,17 +301,17 @@ type TransitionRulesType = $ReadOnly<{
 }>;
 
 function getTransitionRules({
-  prevProps,
+  previousProps,
   currentProps,
 }: {
-  prevProps: TransitionCorePropsType,
-  currentProps: TransitionCorePropsType,
+  previousProps: TransitionTriggerPropsType,
+  currentProps: TransitionTriggerPropsType,
 }): TransitionRulesType | null | void {
   if (currentProps.effect === null) {
     return null;
   }
 
-  if (prevProps.active === false && currentProps.active === true) {
+  if (previousProps.active === false && currentProps.active === true) {
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
@@ -302,7 +319,7 @@ function getTransitionRules({
     };
   }
 
-  if (prevProps.active === true && currentProps.active === false) {
+  if (previousProps.active === true && currentProps.active === false) {
     return {
       from: currentProps.effect.animate,
       to: currentProps.effect.exit,
@@ -310,7 +327,7 @@ function getTransitionRules({
     };
   }
 
-  if (prevProps.effect === null && currentProps.effect !== null) {
+  if (previousProps.effect === null && currentProps.effect !== null) {
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,
@@ -318,7 +335,7 @@ function getTransitionRules({
     };
   }
 
-  if (prevProps.effect !== currentProps.effect) {
+  if (previousProps.effect !== currentProps.effect) {
     return {
       from: currentProps.effect.initial,
       to: currentProps.effect.animate,

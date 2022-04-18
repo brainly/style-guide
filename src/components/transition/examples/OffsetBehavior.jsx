@@ -11,7 +11,7 @@ import Stage from './common/Stage';
 
 const fadeEffect = {
   initial: {opacity: 0},
-  animate: {opacity: 1, duration: 'quick2', easing: 'entry'},
+  animate: {opacity: 1, duration: 'moderate1', easing: 'entry'},
   exit: {opacity: 0, duration: 'quick2', easing: 'exit'},
 };
 
