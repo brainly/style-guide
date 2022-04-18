@@ -64,9 +64,9 @@ export function CurvedMovement() {
   return (
     <Stage ref={containerRef} centered>
       <div style={isExpanded ? undefined : fixedStyle}>
-        <Transition effect={effects.xMove} active>
-          <Transition effect={effects.yMove} active>
-            <Transition effect={effects.scale} active>
+        <Transition active effect={effects.xMove}>
+          <Transition active effect={effects.yMove}>
+            <Transition active effect={effects.scale}>
               <DummyBox
                 ref={elementRef}
                 size={isExpanded ? 'medium' : 'small'}

@@ -30,9 +30,9 @@ export function TypewriterEffect() {
         {[...message].map((letter, index) => (
           <Transition
             key={index}
+            active={active}
             effect={typingEffect}
             delay={index * 240}
-            active={active}
             inline
           >
             <Text whiteSpace="pre-wrap">{letter}</Text>

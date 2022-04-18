@@ -55,17 +55,17 @@ export function OffsetBehavior() {
 
   return (
     <Stage portrait centered>
-      <Transition effect={containerSlideEffect} active={isExpanded}>
+      <Transition active={isExpanded} effect={containerSlideEffect}>
         <Box color="blue-30">
           <Transition
-            effect={fadeEffect}
             active={isExpanded}
+            effect={fadeEffect}
             fillMode="backwards"
             delay={100}
           >
             <Transition
-              effect={contentCounterSlideEffect}
               active={isExpanded}
+              effect={contentCounterSlideEffect}
               fillMode="backwards"
               className="sg-space-y-s"
             >

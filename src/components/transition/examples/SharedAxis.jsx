@@ -79,7 +79,7 @@ export function SharedAxis() {
         ))}
       </Flex>
 
-      <Transition effect={effect} onTransitionEnd={handleTransitionEnd} active>
+      <Transition active effect={effect} onTransitionEnd={handleTransitionEnd}>
         <DummyBox size="medium" color={colorsOrder[currentViewIndex]} />
       </Transition>
     </Stage>

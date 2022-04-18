@@ -1,7 +1,13 @@
-import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
+import {
+  createCSSTransitionAnimator,
+  REPAINT_PROPERTY,
+} from './CSSTransitionAnimator';
 
+/**
+ * The idea is to pass the history state
+ * every time element calls repaint property.
+ */
 const createMockedElement = () => {
-  const REPAINT_PROPERTY = 'offsetHeight';
   const element = document.createElement('div');
 
   let current = {};
@@ -24,10 +30,7 @@ const createMockedElement = () => {
 
   return {
     element,
-    getStylesHistory: () => {
-      update();
-      return history;
-    },
+    history,
   };
 };
 
@@ -39,7 +42,7 @@ const classNamesRegistry = {
 describe('createCSSTransitionAnimator()', () => {
   it('animates element based on given PropertyObjects', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
-    const {element, getStylesHistory} = createMockedElement();
+    const {element, history} = createMockedElement();
 
     const from = {
       transform: {translateY: 24},
@@ -59,7 +62,7 @@ describe('createCSSTransitionAnimator()', () => {
     };
 
     animator.animate(element, from, to);
-    expect(getStylesHistory()).toEqual([
+    expect(history).toEqual([
       {
         willChange: 'transform, opacity',
         transitionProperty: 'transform, opacity',

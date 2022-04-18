@@ -6,6 +6,8 @@ import type {ParsedPropertyObjectType} from './propertyObject';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import type {PropertyObjectType} from './Transition';
 
+export const REPAINT_PROPERTY: $Keys<HTMLElement> = 'offsetHeight';
+
 type WillChangePropsType = $ReadOnly<{
   transform: boolean,
   width: boolean,
@@ -55,17 +57,12 @@ export function createCSSTransitionAnimator(
       0
     );
 
-    if (remainingPropsToChange > 0) {
-      if (from !== undefined) {
-        addElementStyles(element, fromParsedProps, willChangeProps);
+    if (from !== undefined) {
+      addElementStyles(element, fromParsedProps, willChangeProps);
+    }
 
-        // between phases to trigger the transition
-        forceRepaint(element);
-      }
-
-      if (to !== undefined) {
-        addElementStyles(element, toParsedProps, willChangeProps);
-      }
+    if (to !== undefined) {
+      addElementStyles(element, toParsedProps, willChangeProps);
     }
   }
 
@@ -119,6 +116,9 @@ export function createCSSTransitionAnimator(
     if (willChangeProps.opacity) {
       element.style.opacity = opacity.value;
     }
+
+    // repaint in case of further changes
+    forceRepaint(element);
   }
 
   function removeElementStyles(element: HTMLElement) {
@@ -135,8 +135,12 @@ export function createCSSTransitionAnimator(
     element.style.opacity = '';
   }
 
+  /**
+   * https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
+   */
   function forceRepaint(element: HTMLElement) {
-    element.offsetHeight;
+    // $FlowFixMe
+    element[REPAINT_PROPERTY];
   }
 
   /**

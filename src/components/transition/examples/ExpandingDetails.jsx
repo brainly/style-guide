@@ -114,9 +114,9 @@ function ExpandableBox({
     <div style={{height: wrapperFixedHeight.current}}>
       <div ref={elementRef} style={getElementStyle({isExpanded, isAnimating})}>
         <Transition
+          active
           effect={effects.expanding}
           onTransitionEnd={handleExpandingTransitionEnd}
-          active
         >
           <Box
             style={{height: '100%', position: 'relative'}}
@@ -126,10 +126,10 @@ function ExpandableBox({
             border
           >
             <Transition
-              effect={effects.appearing}
-              delay={80}
-              fillMode="backwards"
               active
+              effect={effects.appearing}
+              fillMode="backwards"
+              delay={80}
             >
               {isExpanded ? (
                 <>

@@ -45,10 +45,10 @@ export function InTextCounter() {
 
   const counter = (
     <Transition
+      active
       effect={currentEffect}
       onTransitionEnd={handleTransitionEnd}
       inline
-      active
     >
       <Text weight="bold" style={{fontVariantNumeric: 'tabular-nums'}}>
         {count}
