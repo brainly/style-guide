@@ -2,17 +2,20 @@
 
 Combined update notes, summarising changes in the style guide since the last newsletter (since StyleGuide v208.2.0). Some of the key highlights include:
 
-- Storybook deployment for each PR now available
+- Storybook deployment and preview for each PR now available
 
 - Dialog component improvements:
 
-  - Added onItemSelect handler to dropdown #2327
   - add test id props to dialog (#2371)
   - Fix Dialog Remove No-Scroll Class Before the Exit Callback (#2388)
   - Fix Undefined Window in Server-Side Rendering #2308
   - Fix Unimplemented TransitionEnd Event #2299
   - Prevent Dialog scrollbars from showing up during show transition #2328
   - Adjust Dialog fullscreen animation #2339
+
+- Added onItemSelect handler to dropdown #2327
+
+- Add responsive props to Box #2372
 
 - Responsive props documentation for components
 
@@ -27,10 +30,14 @@ Combined update notes, summarising changes in the style guide since the last new
   - Remove icon titles in browser tooltips #2341
   - New tab indicator in link (#2365)
   - Pass target to link (#2379)
+  - separators accessibility improvements (#2359, #2360)
 
 - MDX docs in storybook
 
 - Support `none` value as Flex margin (#2344)
 
 - Upgraded gulp-sass and switched to dart-sass (#2342)
+
   - Replaced deprecated / for division with math.div
+
+- Changed Label solid color from indigo-50 to indigo-40 (#2335)
