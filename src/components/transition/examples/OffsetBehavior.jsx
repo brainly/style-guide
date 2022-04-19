@@ -22,7 +22,7 @@ const containerSlideEffect = {
   },
   animate: {
     opacity: {value: 1, duration: 'quick2'},
-    transform: {translateY: 0, duration: 'moderate2', origin: 'left top'},
+    transform: {translateY: 0, duration: 'gentle1', origin: 'left top'},
     easing: 'entry',
   },
   exit: {
@@ -45,7 +45,7 @@ const contentCounterSlideEffect = {
   },
   animate: {
     // with the same duration and easing as container
-    transform: {scaleY: 1, duration: 'moderate2', origin: 'left top'},
+    transform: {scaleY: 1, duration: 'gentle1', origin: 'left top'},
     easing: 'entry',
   },
 };
