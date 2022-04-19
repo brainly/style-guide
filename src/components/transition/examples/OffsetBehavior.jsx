@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import Box from '../../box/Box';
+import Bubble from '../../bubble/Bubble';
 import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
@@ -54,9 +54,14 @@ export function OffsetBehavior() {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
-    <Stage portrait centered>
+    <Stage portrait>
       <Transition active={isExpanded} effect={containerSlideEffect}>
-        <Box color="blue-30">
+        <Bubble
+          color="blue-30"
+          direction="top"
+          style={{padding: 24, marginTop: 64}}
+          noShadow
+        >
           <Transition
             active={isExpanded}
             effect={fadeEffect}
@@ -86,7 +91,7 @@ export function OffsetBehavior() {
               </Text>
             </Transition>
           </Transition>
-        </Box>
+        </Bubble>
       </Transition>
 
       <div
