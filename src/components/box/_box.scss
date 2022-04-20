@@ -88,58 +88,56 @@ $includeHtml: false !default;
       background-color: $yellow-20;
     }
   }
-}
 
-@each $breakpoint, $variant in $responsiveVariants {
-  @include sgResponsive($breakpoint) {
-    @include makeResponsive($variant, 'sg-box--shadow') {
-      box-shadow: $shadowMedium;
-    }
-
-    @include makeResponsive($variant, 'sg-box--no-shadow') {
-      box-shadow: none;
-    }
-
-    @include makeResponsive($variant, 'sg-box--no-border-radius') {
-      border-radius: none;
-    }
-
-    @include makeResponsive($variant, 'sg-box--border-radius') {
-      border-radius: $borderRadiusDefault;
-    }
-
-    @include makeResponsive($variant, 'sg-box--border') {
-      border: $boxBorderSize solid $gray-20;
-    }
-
-    @include makeResponsive($variant, 'sg-box--no-border') {
-      border: none;
-    }
-
-    @each $boxPadding in $boxPaddings {
-      @include makeResponsive($variant, 'sg-box--padding-#{$boxPadding}') {
-        @if $boxPadding == none {
-          padding: 0;
-        } @else {
-          padding: spacing($boxPadding);
-        }
+  @each $breakpoint, $variant in $responsiveVariants {
+    @include sgResponsive($breakpoint) {
+      @include makeResponsive($variant, 'sg-box--shadow') {
+        box-shadow: $shadowMedium;
       }
 
-      @include makeResponsive(
-        $variant,
-        'sg-box--padding-#{$boxPadding}-border'
-      ) {
-        @if $boxPadding == none {
-          padding: 0;
-        } @else {
-          padding: (spacing($boxPadding) - $boxBorderSize);
+      @include makeResponsive($variant, 'sg-box--no-shadow') {
+        box-shadow: none;
+      }
+
+      @include makeResponsive($variant, 'sg-box--no-border-radius') {
+        border-radius: none;
+      }
+
+      @include makeResponsive($variant, 'sg-box--border-radius') {
+        border-radius: $borderRadiusDefault;
+      }
+
+      @include makeResponsive($variant, 'sg-box--border') {
+        border: $boxBorderSize solid $gray-20;
+      }
+
+      @include makeResponsive($variant, 'sg-box--no-border') {
+        border: none;
+      }
+
+      @each $boxPadding in $boxPaddings {
+        @include makeResponsive($variant, 'sg-box--padding-#{$boxPadding}') {
+          @if $boxPadding == none {
+            padding: 0;
+          } @else {
+            padding: spacing($boxPadding);
+          }
+        }
+
+        @include makeResponsive(
+          $variant,
+          'sg-box--padding-#{$boxPadding}-border'
+        ) {
+          @if $boxPadding == none {
+            padding: 0;
+          } @else {
+            padding: (spacing($boxPadding) - $boxBorderSize);
+          }
         }
       }
     }
   }
-}
 
-@if ($includeHtml) {
   .sg-box {
     &--border-color-transparent {
       border-color: transparent;
