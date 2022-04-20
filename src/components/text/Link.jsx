@@ -62,6 +62,7 @@ export type LinkPropsType = {
   'aria-label'?: string,
   target?: TargetType,
   newTabLabel?: string,
+  hideNewTabIndicator?: boolean,
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
@@ -92,6 +93,7 @@ const Link = (props: LinkPropsType) => {
     target,
     onClick,
     newTabLabel = '(opens in a new tab)',
+    hideNewTabIndicator = false,
     ...additionalProps
   } = props;
   const {current: labelId} = React.useRef(generateId());
@@ -193,7 +195,9 @@ const Link = (props: LinkPropsType) => {
       {children}
       {target === '_blank' && (
         <>
-          <span aria-hidden> ⬈</span>
+          <span aria-hidden hidden={hideNewTabIndicator}>
+            ⬈
+          </span>
           <span className="sg-visually-hidden">{newTabLabel}</span>
         </>
       )}

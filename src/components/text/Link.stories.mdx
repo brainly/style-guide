@@ -109,7 +109,7 @@ import LinkA11y from './Link.a11y.mdx';
     {args => (
       <Text type="h2" color={TEXT_COLOR['text-red-60']}>
         Outer text-
-        <Link as="button" inherited>
+        <Link as="button" inherited {...args}>
           nested Link with inherited styles
         </Link>
       </Text>
@@ -122,7 +122,11 @@ import LinkA11y from './Link.a11y.mdx';
 <Canvas>
   <Story name="Open in a new tab">
     {args => (
-      <Link href="https://en.wikipedia.org/wiki/Red_panda" target="_blank">
+      <Link
+        href="https://en.wikipedia.org/wiki/Red_panda"
+        target="_blank"
+        {...args}
+      >
         Read more about red pandas
       </Link>
     )}
