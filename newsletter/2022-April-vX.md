@@ -19,6 +19,7 @@ Combined update notes, summarising changes in the style guide since the last new
 We have added Storybook deployment for each pull request!
 
 You can verify, if your recent changes on the branch were deployed, by checking status of GitHub check. You can preview your changes to the StyleGuide, by clicking on the `Details` link.
+
 ![storybook preview github check](./assets/2022-april/storybook-preview-gh-check.png)
 
 The url is constructed out of the branch name:
@@ -41,6 +42,7 @@ MDX gives us full control compared to Storybook’s auto-generated documentation
 This is an ongoing process aimed to be achieved in this quarter (Q2 2022).
 
 Example of a new documentation page:
+
 ![mdx example](./assets/2022-april/mdx-example.png)
 
 List of converted components stories:
@@ -70,6 +72,7 @@ List of converted components stories:
 ## Responsive props documentation
 
 Responsive props makes easy to declaratively set prop value for multiple screen sizes. [Documentation page](https://style-guide.brainly.com/?path=/docs/foundation-%E2%9C%A8-responsive-props--page) was added to Foundation:
+
 ![responsive props page](./assets/2022-april/responsive-props-page.png)
 
 Missing responsive props documentation was added for the following components:
@@ -88,6 +91,7 @@ You can see some of the icon files are duplicated, because some icons file names
 You can find a list of all icons [here](https://style-guide.brainly.com/?path=/story/components-subjecticon--types).
 
 ![new subject icons](./assets/2022-april/subject-icons.png)
+
 ![new subject icons mono](./assets/2022-april/subject-icons-mono.png)
 
 ## New notification favicons
@@ -126,10 +130,6 @@ There were a lot of improvements made to the Dialog component since its release:
 
 - added basic accessibility test (axe)
 
-## Accessibility improvements
-
-- a11y docs in [Storybook](https://style-guide.brainly.com/) for various components
-
 ## Flex component changes
 
 - Flex `margin`, `marginTop`, `marginBottom`, `marginLeft` and `marginRight` props now support `none` value, which sets margin value to 0px.
@@ -145,6 +145,7 @@ Upgraded `gulp-sass` and switched to `dart-sass`. Replaced deprecated `/` operat
 ## Label component changes
 
 - Changed Label solid color from indigo-50 to indigo-40
+
   ![label color change](./assets/2022-april/label-color-change.png)
 
 ## Dropdown component changes
