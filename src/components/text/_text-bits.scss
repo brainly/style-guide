@@ -14,6 +14,14 @@ $bitSizes: (
 }
 
 @if ($includeHtml) {
+  em.sg-text-bit {
+    font-style: normal;
+  }
+
+  blockquote.sg-text-bit {
+    margin: 0;
+  }
+
   .sg-text-bit {
     @include uppercaseText(-0.0625rem);
     font-size: getBitSize(medium);
