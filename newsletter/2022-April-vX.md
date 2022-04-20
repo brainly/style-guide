@@ -10,10 +10,10 @@ Combined update notes, summarising changes in the style guide since the last new
 - [Added new notification favicons](#new-notification-favicons)
 - [Components accessibility improvements](#accessibility-improvements)
 - [MDX docs in storybook](#mdx-documentation)
-- [Added support for `none` value for Flex margins](#flex-margins-improvement)
+- [Added support for `none` value for Flex margins](#flex-component-changes)
 - [Upgraded gulp-sass and switched to dart-sass](#gulp-sass-upgrade)
-- [Solid Label color change](#label-color-change)
-- [Added onItemSelect handler to the Dropdown](#dropdown-onitemselect-handler)
+- [Solid Label color change](#label-component-changes)
+- [Added onItemSelect handler to the Dropdown](#dropdown-component-changes)
 
 ## Storybook deployment and preview on a PR
 
@@ -38,25 +38,11 @@ https://style-guide.brainly.com/branch/new-subject-icons/
 
 There were a lot of improvements made to the Dialog component since its release.
 
-### Added test id props for Dialog and DialogCloseButton
-
-Added `data-testid` prop for both Dialog and DialogCloseButton components, for testing purposes.
-
-### Adjusted fullscreen Dialog animation
-
-Increased transition distance and duration, so it is more visible to the users that the Dialog actually appears over the page.
-
-### Prevent Dialog scrollbars from showing up during show transition
-
-Issue with Dialog scrollbars that were causing unexpected shift during show animation was fixed.
-
-### Fixed unimplemented transitionEnd event
-
-Firing `onEntryTransitionEnd` and `onExitTransitionEnd` callbacks was fixed for environments, that don't support transition events, e.g. the JSDOM and some older browsers.
-
-### Fixed removing Dialog no-scroll class
-
-No-scroll body class is now removed before `onExitTransitionEnd` callback is fired.
+- Added `data-testid` prop for both Dialog and DialogCloseButton components, for testing purposes.
+- Adjusted fullscreen Dialog animation - increased transition distance and duration, so it is more visible to the users that the Dialog actually appears over the page.
+- Prevent Dialog scrollbars from showing up during show transition - issue with Dialog scrollbars that were causing unexpected shift during show animation was fixed.
+- Fixed unimplemented transitionEnd event - firing `onEntryTransitionEnd` and `onExitTransitionEnd` callbacks was fixed for environments, that don't support transition events, e.g. the JSDOM and some older browsers.
+- Fixed removing Dialog no-scroll class - no-scroll body class is now removed before `onExitTransitionEnd` callback is fired.
 
 ## Box responsive props
 
@@ -111,20 +97,22 @@ Examples of new notifications favicons for each market:
 
 ## MDX documentation
 
-Ongoing process, will allow storybook customization.
+We are gradually switching over to MDX documentation in the Storybook.
+MDX gives us full control compared to Storybook’s auto-generated documentation. It enables us to customize docs with our own components and allows to keep documentation and stories in one file.
+This is an ongoing process aimed to be achieved in this quarter.
 
-## Flex margins improvement
+## Flex component changes
 
-Support `none` value as Flex margin (#2344)
+- Flex `margin`, `marginTop`, `marginBottom`, `marginLeft` and `marginRight` props now support `none` value, which sets margin value to 0px.
 
 ## gulp-sass upgrade
 
-Upgraded gulp-sass and switched to dart-sass (#2342). Replaced deprecated / for division with math.div.
+Upgraded gulp-sass and switched to dart-sass (#2342). Replaced deprecated `/` operator that was used for divisions within with math.div.
 
-## Label color change
+## Label component changes
 
-Changed Label solid color from indigo-50 to indigo-40 (#2335)
+- Changed Label solid color from indigo-50 to indigo-40 (#2335)
 
-## Dropdown onItemSelect handler
+## Dropdown component changes
 
-Added onItemSelect handler to the Dropdown #2327
+- Added onItemSelect handler to the Dropdown #2327
