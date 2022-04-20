@@ -7,7 +7,21 @@ import {TEXT_COLOR} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-type TextBitTypeType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
+type TextBitTypeType =
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'div'
+  | 'span'
+  | 'blockquote'
+  | 'q'
+  | 'strong'
+  | 'em'
+  | 'del'
+  | 'ins';
 
 type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
 
@@ -20,6 +34,12 @@ export const TEXT_BIT_TYPE: {
   H6: 'h6',
   DIV: 'div',
   SPAN: 'span',
+  BLOCKQUOTE: 'blockquote',
+  Q: 'q',
+  STRONG: 'strong',
+  EM: 'em',
+  DEL: 'del',
+  INS: 'ins',
 } = {
   H1: 'h1',
   H2: 'h2',
@@ -29,6 +49,12 @@ export const TEXT_BIT_TYPE: {
   H6: 'h6',
   DIV: 'div',
   SPAN: 'span',
+  BLOCKQUOTE: 'blockquote',
+  Q: 'q',
+  STRONG: 'strong',
+  EM: 'em',
+  DEL: 'del',
+  INS: 'ins',
 };
 
 export const TEXT_BIT_SIZE: {

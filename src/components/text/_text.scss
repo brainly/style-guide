@@ -52,6 +52,14 @@ $bodyTextSizeRules: (
 }
 
 @if ($includeHtml) {
+  em.sg-text {
+    font-style: normal;
+  }
+
+  blockquote.sg-text {
+    margin: 0;
+  }
+
   .sg-text {
     @include bodyTextTypeSizeVariant(medium);
     font-family: $fontFamilyPrimary;

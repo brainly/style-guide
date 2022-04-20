@@ -17,7 +17,13 @@ export type TextTypeType =
   | 'h6'
   | 'div'
   | 'label'
-  | 'a';
+  | 'a'
+  | 'strong'
+  | 'em'
+  | 'ins'
+  | 'del'
+  | 'blockquote'
+  | 'q';
 
 export type TextSizeType =
   | 'xxsmall'
@@ -111,6 +117,7 @@ const Text = ({
       'sg-text--inherited': inherited,
       [`sg-text--${String(color)}`]: color,
       'sg-text--container': asContainer,
+      'sg-text--bold': type === 'strong',
     },
     ...generateResponsiveClassNames(size => `sg-text--${size}`, size),
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
