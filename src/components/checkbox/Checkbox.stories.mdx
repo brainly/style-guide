@@ -13,11 +13,17 @@ import Checkbox from './Checkbox';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
-    {args => <Checkbox {...args}>Hello, I'm a checkbox</Checkbox>}
-  </Story>
+  <Story name="Default">{args => <Checkbox {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
 
 ## Stories
+
+### WithLabel
+
+<Canvas>
+  <Story name="WithLabel">
+    {args => <Checkbox {...args}>Hello, I'm a checkbox</Checkbox>}
+  </Story>
+</Canvas>
