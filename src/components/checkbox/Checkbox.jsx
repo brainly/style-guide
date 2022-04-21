@@ -8,6 +8,7 @@ export type CheckboxPropsType = {
   checked?: boolean,
   children?: React.Node,
   className?: string,
+  disabled?: boolean,
   id?: string,
   name?: string,
   onChange: any,
@@ -18,19 +19,21 @@ const Checkbox = ({
   checked,
   children,
   className,
+  disabled,
   id = generateRandomString(),
   name,
   onChange,
   ...props
 }: CheckboxPropsType) => {
   return (
-    <label htmlFor={id}>
+    <label htmlFor={id} disabled={disabled}>
       <input
         id={id}
         type="checkbox"
         checked={checked}
         name={name}
         onChange={onChange}
+        disabled={disabled}
       />
       {children && (
         <Text
