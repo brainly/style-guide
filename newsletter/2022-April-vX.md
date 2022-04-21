@@ -2,19 +2,16 @@
 
 Combined update notes, summarising changes in the style guide since the last newsletter (since the StyleGuide v208.2.0). Some of the key highlights include:
 
-- [Storybook deployment and preview for each PR now available](#storybook-deployment-and-preview-on-a-PR)
-- [MDX docs in storybook](#mdx-documentation)
-- [Responsive props documentation](#responsive-props-documentation)
-- [New subject icons](#new-subject-icons)
-- [New notification favicons](#new-notification-favicons)
-- [Dialog improvements](#dialog-component-changes)
-- [Box now supports responsive props](#box-component-changes)
-- [Flex margins now support `none` value](#flex-component-changes)
-- [Upgraded gulp-sass and switched to dart-sass](#gulp-sass-upgrade)
-- [Solid Label color change](#label-component-changes)
-- [Added onItemSelect handler to the Dropdown](#dropdown-component-changes)
+- [Storybook deployment and preview for each PR now available](#storybook-deployment-and-preview-on-a-PR-🚀)
+- [MDX docs in storybook](#mdx-documentation-📖)
+- [Box now supports responsive props](#box-responsive-props-💻)
+- [Responsive props documentation](#responsive-props-documentation-💻)
+- [New subject icons](#new-subject-icons-✨)
+- [New notification favicons](#new-notification-favicons-🔔)
+- [Components updates](#components-updates-📦)
+- [Engineering](#engineering-🛠)
 
-## Storybook deployment and preview on a PR
+## Storybook deployment and preview on a PR 🚀
 
 We have added Storybook deployment for each pull request!
 
@@ -34,42 +31,29 @@ so, for branch called `new-subject-icons` the Storybook preview will be build un
 https://style-guide.brainly.com/branch/new-subject-icons/
 ```
 
-## MDX documentation
+## MDX documentation 📖
 
 We are gradually switching over to MDX documentation in the Storybook.
-MDX gives us full control compared to Storybook’s auto-generated documentation. It allows us to customize docs with our own components and to keep both documentation and stories in a single file.
+MDX gives us full control compared to Storybook’s auto-generated documentation. It allows us to customize docs with our own components and to keep both documentation and stories in a single file. Because we can include other documentation pages in the MDX, we now have made the
 
 This is an ongoing process aimed to be achieved in this quarter (Q2 2022).
 
-Example of a new documentation page:
-
-![mdx example](./assets/2022-april/mdx-example.png)
-
 List of converted components stories:
 
-- [Accordion](https://style-guide.brainly.com/?path=/docs/components-accordion--default-story)
-- [Avatar](https://style-guide.brainly.com/?path=/docs/components-avatar--default-story)
-- [Breadcrumbs](https://style-guide.brainly.com/?path=/docs/components-breadcrumbs--default-story)
-- [Box](https://style-guide.brainly.com/?path=/docs/components-box--default-story)
-- [Bubble](https://style-guide.brainly.com/?path=/docs/components-bubble--default-story)
-- [Buttons](https://style-guide.brainly.com/?path=/docs/components-buttons--default-story)
-- [Card](https://style-guide.brainly.com/?path=/docs/components-card--default-story)
-- [Counter](https://style-guide.brainly.com/?path=/docs/components-counter--default-story)
-- [Dialog](https://style-guide.brainly.com/?path=/docs/components-dialog--default-story)
-- [Dropdowns](https://style-guide.brainly.com/?path=/docs/components-dropdowns--default-story)
-- [FileHandler](https://style-guide.brainly.com/?path=/docs/components-filehandler--default-story)
-- [FlashMessage](https://style-guide.brainly.com/?path=/docs/components-flashmessage--default-story)
-- [Flex](https://style-guide.brainly.com/?path=/docs/components-flex--default-story)
-- [Footer](https://style-guide.brainly.com/?path=/docs/components-footer--default-story)
-- [Header](https://style-guide.brainly.com/?path=/docs/components-geader--default-story)
-- [HomeButton](https://style-guide.brainly.com/?path=/docs/components-homebutton--default-story)
-- [Icon](https://style-guide.brainly.com/?path=/docs/components-icon--default-story)
-- [Label](https://style-guide.brainly.com/?path=/docs/components-label--default-story)
-- [Layout](https://style-guide.brainly.com/?path=/docs/components-layout--default-story)
-- [List](https://style-guide.brainly.com/?path=/docs/components-list--default-story)
-- [Logo](https://style-guide.brainly.com/?path=/docs/components-logo--default-story)
+`Accordion, Avatar, Breadcrumbs, Box, Bubble, Buttons, Card, Counter, Dialog, Dropdowns, FileHandler, FlashMessage, Flex, Footer, Header, HomeButton, Icon, Label, Layout, List, Logo`
 
-## Responsive props documentation
+## Box responsive props 💻
+
+- Added responsive props support to the Box component for the following props:
+
+  - border
+  - noBorderRadius
+  - padding
+  - shadow
+
+![box responsive props](./assets/2022-april/box-responsive-props.png)
+
+## Responsive props documentation 💻
 
 Responsive props makes easy to declaratively set prop value for multiple screen sizes. [Documentation page](https://style-guide.brainly.com/?path=/docs/foundation-%E2%9C%A8-responsive-props--page) was added to Foundation:
 
@@ -82,7 +66,7 @@ Missing responsive props documentation was added for the following components:
 - [Text](https://style-guide.brainly.com/?path=/docs/components-text--default-story#responsive-props)
 - [Flex](https://style-guide.brainly.com/?path=/docs/components-flex--default-story#responsive-props)
 
-## New subject icons
+## New subject icons ✨
 
 All of the subject icons (including mono subject icons) were redesigned, as a follow up of our rebranding that has started last year.
 
@@ -94,89 +78,43 @@ You can find a list of all icons [here](https://style-guide.brainly.com/?path=/s
 
 ![new subject icons mono](./assets/2022-april/subject-icons-mono.png)
 
-## New notification favicons
+## New notification favicons 🔔
 
 New notification favicons were added. Because the notification indicator overflows the logotype, all favicons had to be adjusted to account for that space.
 
 Examples of new notifications favicons for each market:
 
-<img src="./assets/2022-april/favicon-brainly.png" width="100px">
-<img src="./assets/2022-april/favicon-eodev.png" width="100px">
-<img src="./assets/2022-april/favicon-znanija.png" width="100px">
-<img src="./assets/2022-april/favicon-nosdevoirs.png" width="100px">
+<p float="left">
+  <img src="./assets/2022-april/favicon-brainly.png" width="100px">
+  <img src="./assets/2022-april/favicon-eodev.png" width="100px">
+  <img src="./assets/2022-april/favicon-znanija.png" width="100px">
+  <img src="./assets/2022-april/favicon-nosdevoirs.png" width="100px">
+</p>
 
-## Dialog component changes
+## Components updates 📦
 
-There were a lot of improvements made to the Dialog component since its release:
+### Flex
 
-- Added `data-testid` prop for both Dialog and DialogCloseButton components, for testing purposes.
-- Adjusted fullscreen Dialog animation - increased transition distance and duration, so it is more visible to the users that the Dialog actually appears over the page.
-- Prevent Dialog scrollbars from showing up during show transition - issue with Dialog scrollbars that were causing unexpected shift during show animation was fixed.
-- Fixed unimplemented transitionEnd event - firing `onEntryTransitionEnd` and `onExitTransitionEnd` callbacks was fixed for environments, that don't support transition events, e.g. the JSDOM and some older browsers.
-- Fixed removing Dialog no-scroll class - no-scroll body class is now removed before `onExitTransitionEnd` callback is fired.
-
-## Box component changes
-
-- Added responsive props support to the Box component for the following props:
-
-  - border
-  - noBorderRadius
-  - padding
-  - shadow
-
-![box responsive props](./assets/2022-april/box-responsive-props.png)
-
-### Accessibility improvements
-
-- added basic accessibility test (axe)
-
-## Flex component changes
+![flex example](./assets/2022-april/flex-example.png)
 
 - Flex `margin`, `marginTop`, `marginBottom`, `marginLeft` and `marginRight` props now support `none` value, which sets margin value to 0px.
 
-### Accessibility improvements
+#### Accessibility improvements
 
 - added basic accessibility test (axe)
 
-## gulp-sass upgrade
+### Link
 
-Upgraded `gulp-sass` and switched to `dart-sass`. Replaced deprecated `/` operator that was used for divisions within `.scss` files with `math.div()`.
-
-## Label component changes
-
-- Changed Label solid color from indigo-50 to indigo-40
-
-  ![label color change](./assets/2022-april/label-color-change.png)
-
-## Dropdown component changes
-
-- Added onItemSelect handler to the Dropdown
-
-## Link component changes
-
-### Accessibility improvements
+#### Accessibility improvements
 
 - `onClick` action accessibility improvements
 - added new tab indicator and `hideNewTabIndicator` prop
 - Link now supports passing `target` prop, one of: `'_self' | '_blank' | '_parent' | '_top'`
 - new tab label can now be passed as `newTabLabel`
 
-## Icons components changes
+### Text, Headline, Subheadline, TextBit
 
-### Accessibility improvements
-
-- removed icon titles in browser tooltips
-
-## SeparatorHorizontal and SeparatorVertical components changes
-
-### Accessibility improvements
-
-- `separator` role added
-- `aria-orientation` added
-
-## Text components changes
-
-### Accessibility improvements
+#### Accessibility improvements
 
 - new tags `strong`, `em`, `del`, `ins`, `q` and `blockquote` added to text components (Text, Headline, Subheadline, TextBit) with proper styling:
   - `font-weight: 700` for `strong` and `b` set globally
@@ -184,21 +122,64 @@ Upgraded `gulp-sass` and switched to `dart-sass`. Replaced deprecated `/` operat
   - `font-style: normal` for `em` in text components
   - `margin: 0` for `blockquote` in text components
 
-## Breadcrumbs component changes
+### Label
 
-### Accessibility improvements
+- Changed Label solid color from indigo-50 to indigo-40
+
+  ![label color change](./assets/2022-april/label-color-change.png)
+
+### Dropdown
+
+- Added `onItemSelect` handler to the Dropdown
+
+### Dialog
+
+- Added `data-testid` prop for both Dialog and DialogCloseButton components, for testing purposes.
+- Adjusted fullscreen Dialog animation - increased transition distance and duration, so it is more visible to the users that the Dialog actually appears over the page.
+- Prevent Dialog scrollbars from showing up during show transition - issue with Dialog scrollbars that were causing unexpected shift during show animation was fixed.
+- Fixed unimplemented transitionEnd event - firing `onEntryTransitionEnd` and `onExitTransitionEnd` callbacks was fixed for environments, that don't support transition events, e.g. the JSDOM and some older browsers.
+- Fixed removing Dialog no-scroll class - no-scroll body class is now removed before `onExitTransitionEnd` callback is fired.
+
+### Box
+
+#### Accessibility improvements
+
+- added basic accessibility test (axe)
+
+### Icons
+
+#### Accessibility improvements
+
+- removed icon titles in browser tooltips
+
+### SeparatorHorizontal and SeparatorVertical
+
+#### Accessibility improvements
+
+- `separator` role added
+- `aria-orientation` added
+
+### Breadcrumbs
+
+#### Accessibility improvements
 
 - added accessibility documentation
 - added basic accessibility test (axe)
 
-## Bubble component changes
+### Bubble
 
-### Accessibility improvements
+#### Accessibility improvements
+
+- added basic accessibility test (axe)
+
+### Card
+
+#### Accessibility improvements
 
 - added basic accessibility test (axe)
 
-## Card component changes
+## Engineering 🛠
 
-### Accessibility improvements
+### gulp-sass upgrade
 
-- added basic accessibility test (axe)
+Upgraded `gulp-sass` and switched to `dart-sass`. Replaced deprecated `/` operator that was used for divisions within `.scss` files with `math.div()`.
