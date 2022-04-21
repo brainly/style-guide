@@ -1,13 +1,38 @@
 // @flow strict
 
 import * as React from 'react';
+import generateRandomString from '../../js/generateRandomString';
+import Text from '../text/Text';
 
-const Checkbox = ({...props}) => {
+export type CheckboxPropsType = {
+  checked?: boolean,
+  children?: React.Node,
+  className?: string,
+  id?: string,
+  name?: string,
+  ...
+};
+
+const Checkbox = ({
+  checked,
+  children,
+  className,
+  id = generateRandomString(),
+  name,
+  ...props
+}: CheckboxPropsType) => {
   return (
-    <div {...props}>
-      <input type="checkbox" />
-      <label>Hello, I'm a checkbox</label>
-    </div>
+    <label htmlFor={id}>
+      <input id={id} type="checkbox" checked={checked} name={name} />
+      <Text
+        size="small"
+        type="span"
+        weight="bold"
+        className="sg-checkbox__label"
+      >
+        {children}
+      </Text>
+    </label>
   );
 };
 
