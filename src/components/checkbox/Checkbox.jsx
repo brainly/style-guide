@@ -10,6 +10,7 @@ export type CheckboxPropsType = {
   className?: string,
   id?: string,
   name?: string,
+  onChange: any,
   ...
 };
 
@@ -19,19 +20,28 @@ const Checkbox = ({
   className,
   id = generateRandomString(),
   name,
+  onChange,
   ...props
 }: CheckboxPropsType) => {
   return (
     <label htmlFor={id}>
-      <input id={id} type="checkbox" checked={checked} name={name} />
-      <Text
-        size="small"
-        type="span"
-        weight="bold"
-        className="sg-checkbox__label"
-      >
-        {children}
-      </Text>
+      <input
+        id={id}
+        type="checkbox"
+        checked={checked}
+        name={name}
+        onChange={onChange}
+      />
+      {children && (
+        <Text
+          size="small"
+          type="span"
+          weight="bold"
+          className="sg-checkbox__label"
+        >
+          {children}
+        </Text>
+      )}
     </label>
   );
 };
