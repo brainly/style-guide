@@ -41,8 +41,8 @@ const Checkbox = ({
           disabled={disabled}
           required={required}
           aria-required={required}
-          aria-invalid={!!errorMessage}
-          aria-describedby={!!errorMessage && `${id}-errorText`}
+          aria-invalid={errorMessage ? true : undefined}
+          aria-describedby={errorMessage ? `${id}-errorText` : undefined}
         />
         {children && (
           <Text
