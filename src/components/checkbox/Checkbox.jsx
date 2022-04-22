@@ -1,6 +1,8 @@
 // @flow strict
 
 import * as React from 'react';
+import cx from 'classnames';
+
 import generateRandomString from '../../js/generateRandomString';
 import Text from '../text/Text';
 
@@ -29,10 +31,13 @@ const Checkbox = ({
   onChange,
   ...props
 }: CheckboxPropsType) => {
+  const checkboxClass = cx('sg-checkbox', className);
+
   return (
-    <div>
+    <div className={checkboxClass}>
       <label htmlFor={id} disabled={disabled}>
         <input
+          className="sg-checkbox__element"
           id={id}
           type="checkbox"
           checked={checked}
@@ -57,6 +62,7 @@ const Checkbox = ({
       </label>
       {errorMessage && (
         <Text
+          className="sg-error-message"
           id={`${id}-errorText`}
           size="small"
           type="span"
