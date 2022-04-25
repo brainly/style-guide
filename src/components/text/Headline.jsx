@@ -8,7 +8,20 @@ import type {TextColorType} from './Text';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-export type HeadlineTypeType = 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+export type HeadlineTypeType =
+  | 'span'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'blockquote'
+  | 'q'
+  | 'strong'
+  | 'em'
+  | 'del'
+  | 'ins';
 
 export type HeadlineSizeType =
   | 'xxsmall'
@@ -68,6 +81,7 @@ const Headline = ({
     {
       'sg-headline--inherited': inherited,
       [`sg-headline--${String(color)}`]: color,
+      'sg-headline--extra-bold': type === 'strong',
     },
     ...generateResponsiveClassNames(
       (propValue: string) => `sg-headline--${propValue}`,

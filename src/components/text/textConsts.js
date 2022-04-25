@@ -12,6 +12,12 @@ export const TEXT_TYPE: {
   DIV: 'div',
   LABEL: 'label',
   LINK: 'a',
+  BLOCKQUOTE: 'blockquote',
+  Q: 'q',
+  STRONG: 'strong',
+  EM: 'em',
+  DEL: 'del',
+  INS: 'ins',
 } = {
   SPAN: 'span',
   P: 'p',
@@ -24,6 +30,12 @@ export const TEXT_TYPE: {
   DIV: 'div',
   LABEL: 'label',
   LINK: 'a',
+  BLOCKQUOTE: 'blockquote',
+  Q: 'q',
+  STRONG: 'strong',
+  EM: 'em',
+  DEL: 'del',
+  INS: 'ins',
 };
 
 export const TYPE = TEXT_TYPE; // backward compatibility
