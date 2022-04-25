@@ -155,18 +155,18 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-light {
-    @include buttonHover($gray-40, $gray-20, 12%);
+    @include buttonHover($gray-50, $gray-20, 12%);
     background-color: $gray-20;
     color: $black;
 
     &-toggle-red {
-      @include buttonHover($red-50, $red-20, 12%);
+      @include buttonHover($red-40, $red-20, 12%);
       @include buttonIconColor($red-50);
       background-color: $red-20;
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-50, $yellow-20, 12%);
+      @include buttonHover($yellow-40, $yellow-20, 12%);
       @include buttonIconColor($yellow-50);
       background-color: $yellow-20;
     }
@@ -211,12 +211,12 @@ $largeButtonSize: componentSize(l);
     color: $black;
 
     &-toggle-red {
-      @include buttonHover($red-50, $transparent, 12%);
+      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-50, $transparent, 12%);
+      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
     }
   }
@@ -227,12 +227,12 @@ $largeButtonSize: componentSize(l);
     color: $gray-50;
 
     &-toggle-red {
-      @include buttonHover($red-50, $transparent, 12%);
+      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-50, $transparent, 12%);
+      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
     }
   }
