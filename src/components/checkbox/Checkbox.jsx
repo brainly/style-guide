@@ -49,6 +49,13 @@ const Checkbox = ({
           aria-invalid={errorMessage ? true : undefined}
           aria-describedby={errorMessage ? `${id}-errorText` : undefined}
         />
+        <span
+          className="sg-checkbox-new__icon"
+          checked={checked}
+          // This element is purely decorative so
+          // we hide it for screen readers
+          aria-hidden="true"
+        />
         {children && (
           <Text
             size="medium"
