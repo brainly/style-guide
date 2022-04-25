@@ -179,13 +179,13 @@ $largeButtonSize: componentSize(l);
     color: $black;
 
     &-toggle-red {
-      @include buttonHover($red-50, $transparent, 12%);
+      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
       border-color: $red-50;
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-50, $transparent, 12%);
+      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
       border-color: $yellow-50;
     }
