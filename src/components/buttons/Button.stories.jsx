@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button, {BUTTON_SIZE, BUTTON_TYPE} from './Button';
+import Button, {BUTTON_SIZE, BUTTON_TYPE, BUTTON_TOGGLE} from './Button';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
 import {StoryVariantTable} from '../../_docs/utils';
@@ -121,23 +121,27 @@ export const Types = args => (
       {[
         BUTTON_TYPE.SOLID,
         BUTTON_TYPE.SOLID_INVERTED,
-        BUTTON_TYPE.SOLID_BLUE,
-        BUTTON_TYPE.SOLID_MINT,
+        BUTTON_TYPE.SOLID_INDIGO,
+        BUTTON_TYPE.SOLID_INDIGO_INVERTED,
         BUTTON_TYPE.SOLID_LIGHT,
         BUTTON_TYPE.OUTLINE,
+        BUTTON_TYPE.OUTLINE_INDIGO,
+        BUTTON_TYPE.OUTLINE_INVERTED,
         BUTTON_TYPE.TRANSPARENT,
         BUTTON_TYPE.TRANSPARENT_LIGHT,
-        BUTTON_TYPE.TRANSPARENT_PEACH,
-        BUTTON_TYPE.TRANSPARENT_MUSTARD,
-        BUTTON_TYPE.TRANSPARENT_BLUE,
+        BUTTON_TYPE.TRANSPARENT_RED,
         BUTTON_TYPE.TRANSPARENT_INVERTED,
         BUTTON_TYPE.FACEBOOK,
+        BUTTON_TYPE.GOOGLE,
+        BUTTON_TYPE.APPLE,
       ].map(buttonType => (
         <tr
           style={{
             backgroundColor: [
               'solid-inverted',
+              'solid-indigo-inverted',
               'transparent-inverted',
+              'outline-inverted',
             ].includes(buttonType)
               ? hex.black
               : 'transparent',
@@ -157,9 +161,12 @@ export const Types = args => (
                 transform="uppercase"
                 type="span"
                 color={
-                  ['solid-inverted', 'transparent-inverted'].includes(
-                    buttonType
-                  )
+                  [
+                    'solid-inverted',
+                    'solid-indigo-inverted',
+                    'transparent-inverted',
+                    'outline-inverted',
+                  ].includes(buttonType)
                     ? 'text-white'
                     : 'text-gray-40'
                 }
@@ -181,19 +188,74 @@ export const Types = args => (
             <Button {...args} type={buttonType} loading />
           </td>
           <td>
-            <Button
-              {...args}
-              type={buttonType}
-              icon={<Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />}
-            />
+            {[
+              BUTTON_TYPE.SOLID,
+              BUTTON_TYPE.SOLID_INVERTED,
+              BUTTON_TYPE.SOLID_INDIGO,
+              BUTTON_TYPE.SOLID_INDIGO_INVERTED,
+              BUTTON_TYPE.SOLID_LIGHT,
+              BUTTON_TYPE.OUTLINE,
+              BUTTON_TYPE.OUTLINE_INDIGO,
+              BUTTON_TYPE.OUTLINE_INVERTED,
+              BUTTON_TYPE.TRANSPARENT,
+              BUTTON_TYPE.TRANSPARENT_LIGHT,
+              BUTTON_TYPE.TRANSPARENT_RED,
+              BUTTON_TYPE.TRANSPARENT_INVERTED,
+            ].includes(buttonType) ? (
+              <Button
+                {...args}
+                type={buttonType}
+                icon={
+                  <Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />
+                }
+              />
+            ) : null}
+            {buttonType === BUTTON_TYPE.GOOGLE ? (
+              <Button
+                {...args}
+                type={buttonType}
+                icon={<Icon type={ICON_TYPES.GOOGLE} color="adaptive" />}
+              />
+            ) : null}
+            {buttonType === BUTTON_TYPE.FACEBOOK ? (
+              <Button
+                {...args}
+                type={buttonType}
+                icon={<Icon type={ICON_TYPES.FACEBOOK} color="adaptive" />}
+              />
+            ) : null}
+            {buttonType === BUTTON_TYPE.APPLE ? (
+              <Button
+                {...args}
+                type={buttonType}
+                icon={<Icon type={ICON_TYPES.APPLE} color="adaptive" />}
+              />
+            ) : null}
           </td>
           <td>
-            <Button
-              {...args}
-              type={buttonType}
-              iconOnly
-              icon={<Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />}
-            />
+            {[
+              BUTTON_TYPE.SOLID,
+              BUTTON_TYPE.SOLID_INVERTED,
+              BUTTON_TYPE.SOLID_INDIGO,
+              BUTTON_TYPE.SOLID_INDIGO_INVERTED,
+              BUTTON_TYPE.SOLID_LIGHT,
+              BUTTON_TYPE.OUTLINE,
+              BUTTON_TYPE.OUTLINE_INDIGO,
+              BUTTON_TYPE.OUTLINE_INVERTED,
+              BUTTON_TYPE.TRANSPARENT,
+              BUTTON_TYPE.TRANSPARENT_LIGHT,
+              BUTTON_TYPE.TRANSPARENT_RED,
+              BUTTON_TYPE.TRANSPARENT_INVERTED,
+            ].includes(buttonType) ? (
+              <Button
+                {...args}
+                type={buttonType}
+                iconOnly
+                icon={
+                  <Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />
+                }
+              />
+            ) : null}
           </td>
           <td>
             {[
@@ -202,7 +264,7 @@ export const Types = args => (
               'transparent',
               'transparent-light',
             ].includes(buttonType)
-              ? ['peach', 'mustard', 'blue'].map(toggleType => (
+              ? [null, ...Object.values(BUTTON_TOGGLE)].map(toggleType => (
                   <div style={{marginBottom: '15px'}} key={toggleType}>
                     <Button
                       {...args}
@@ -214,16 +276,18 @@ export const Types = args => (
                 ))
               : null}
             {[
-              'TRANSPARENT_PEACH',
-              'TRANSPARENT_MUSTARD',
-              'TRANSPARENT_BLUE',
-              'TRANSPARENT_INVERTED',
+              'outline-indigo',
+              'outline-inverted',
+              'transparent-red',
+              'transparent-inverted',
             ].includes(buttonType) ? (
-              <Button
-                {...args}
-                type={buttonType}
-                icon={<Icon type={ICON_TYPES.HEART} color="adaptive" />}
-              />
+              <div style={{marginBottom: '15px'}} key={buttonType}>
+                <Button
+                  {...args}
+                  icon={<Icon type={ICON_TYPES.HEART} color="adaptive" />}
+                  type={buttonType}
+                />
+              </div>
             ) : null}
           </td>
         </tr>

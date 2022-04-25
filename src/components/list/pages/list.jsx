@@ -31,7 +31,7 @@ const menuItems = [menuItem1, menuItem2, menuItem3];
 
 const componentIsDeprecated = (
   <Flex marginBottom="m">
-    <Text color="peach-dark" size="small">
+    <Text color="text-red-60" size="small">
       This component is deprecated
     </Text>
   </Flex>

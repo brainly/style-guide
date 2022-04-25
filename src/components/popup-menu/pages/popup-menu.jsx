@@ -13,7 +13,7 @@ const items = ['one', 'two', 'three'];
 const PopupsMenus = () => (
   <div>
     <Flex marginBottom="m">
-      <Text color="peach-dark">This component is deprecated</Text>
+      <Text color="text-red-60">This component is deprecated</Text>
     </Flex>
     <DocsBlock info="Default">
       <PopupMenu items={items} />
