@@ -13,9 +13,9 @@ import {Button} from 'style-guide';
 ```
 
 ```HTML
-<div class="sg-button sg-button--solid-indigo sg-button--small">
+<button class="sg-button sg-button--solid-indigo sg-button--small">
     I am solid small button
-</div>
+</button>
 ```
 
 ### Types of buttons on Brainly and examples of usage

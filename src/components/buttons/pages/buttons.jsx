@@ -72,7 +72,7 @@ const Buttons = () => {
         <Button
           type={type}
           toggle="yellow"
-          icon={getIcon(type)}
+          icon={<Icon type="heart" color="adaptive" size={24} />}
           style={{marginBottom: '12px'}}
         >
           {buttonsText}
