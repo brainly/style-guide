@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
 
+import Headline from '../text/Headline';
 import Checkbox from './Checkbox';
 
 <Meta title="Components/Checkbox new" component={Checkbox} />
@@ -20,22 +21,69 @@ import Checkbox from './Checkbox';
 
 ## Stories
 
-### With label
+### Types
 
 <Canvas>
-  <Story name="WithLabel">
-    {args => <Checkbox {...args}>Hello, I'm a checkbox</Checkbox>}
-  </Story>
-</Canvas>
-
-### Error message
-
-<Canvas>
-  <Story name="ErrorMessage">
+  <Story name="Types">
     {args => (
-      <Checkbox {...args} errorMessage="Error message">
-        Hello, I'm a checkbox
-      </Checkbox>
+      <div>
+        <StoryVariantTable>
+          <thead>
+            <tr>
+              {['default', 'with label', 'disabled', 'checked', 'error'].map(
+                (name, index) => (
+                  <th>
+                    <Headline
+                      key={index}
+                      extraBold
+                      transform="uppercase"
+                      type="span"
+                      color="text-gray-40"
+                      size="medium"
+                    >
+                      {name}
+                    </Headline>
+                  </th>
+                )
+              )}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Flex justifyContent="center">
+                  <Checkbox />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Checkbox>Hello, I'm a checkbox</Checkbox>
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Checkbox disabled>Hello, I'm a checkbox</Checkbox>
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Checkbox checked>Hello, I'm a checkbox</Checkbox>
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Checkbox errorMessage="Error message">
+                    Hello, I'm a checkbox
+                  </Checkbox>
+                  <Checkbox errorMessage="Error message" checked>
+                    Hello, I'm a checkbox
+                  </Checkbox>
+                </Flex>
+              </td>
+            </tr>
+          </tbody>
+        </StoryVariantTable>
+      </div>
     )}
   </Story>
 </Canvas>
