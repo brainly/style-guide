@@ -31,13 +31,17 @@ const Checkbox = ({
   onChange,
   ...props
 }: CheckboxPropsType) => {
-  const checkboxClass = cx('sg-checkbox', className);
+  const checkboxClass = cx('sg-checkbox-new', className);
 
   return (
     <div className={checkboxClass}>
-      <label htmlFor={id} disabled={disabled}>
+      <label
+        className="sg-checkbox-new__wrapper"
+        htmlFor={id}
+        disabled={disabled}
+      >
         <input
-          className="sg-checkbox__element"
+          className="sg-checkbox-new__element"
           id={id}
           type="checkbox"
           checked={checked}
@@ -61,7 +65,7 @@ const Checkbox = ({
             size="medium"
             type="span"
             weight="bold"
-            className="sg-checkbox__label"
+            className="sg-checkbox-new__label"
           >
             {children}
           </Text>

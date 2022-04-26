@@ -1,0 +1,32 @@
+.sg-checkbox-new {
+  @include component();
+
+  &__wrapper {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__element {
+    width: 0; // Necessary to hide correctly on mobile Safari
+    height: 0; // Necessary to hide correctly on mobile Safari
+    margin: 0;
+    appearance: 'none';
+    border: 'none'; // Necessary to hide correctly on mobile Safari
+    outline: 'none'; // Necessary to hide focus ring on Firefox
+  }
+
+  &__icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+    border: 2px solid $gray-40;
+    border-radius: $borderRadiusSmall;
+  }
+
+  .sg-error-message {
+    display: block;
+  }
+}
