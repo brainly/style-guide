@@ -4,6 +4,12 @@ $checkboxMargin: 4px;
 .sg-checkbox-new {
   @include component();
 
+  &--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
   &__wrapper {
     cursor: pointer;
     display: flex;

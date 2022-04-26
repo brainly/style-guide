@@ -31,7 +31,9 @@ const Checkbox = ({
   onChange,
   ...props
 }: CheckboxPropsType) => {
-  const checkboxClass = cx('sg-checkbox-new', className);
+  const checkboxClass = cx('sg-checkbox-new', className, {
+    'sg-checkbox-new--disabled': disabled,
+  });
 
   return (
     <div className={checkboxClass}>
