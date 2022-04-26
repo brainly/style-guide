@@ -83,4 +83,49 @@ describe('createCSSTransitionAnimator()', () => {
       },
     ]);
   });
+
+  it('returns finished equals true after transition of the last property', () => {
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    const from = {
+      transform: {translateY: 24},
+      opacity: 0,
+    };
+    const to = {
+      transform: {
+        translateY: 0,
+        easing: 'entry',
+        duration: 'moderate2',
+      },
+      opacity: {
+        value: 1,
+        easing: 'linear',
+        duration: 'quick2',
+      },
+    };
+
+    animator.animate(element, from, to);
+    expect(animator.finished()).toBe(false); // opacity
+    expect(animator.finished()).toBe(true); // transform
+  });
+
+  it('returns finished equals true after a single property', () => {
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    const from = {
+      opacity: 0,
+    };
+    const to = {
+      opacity: {
+        value: 1,
+        easing: 'linear',
+        duration: 'quick2',
+      },
+    };
+
+    animator.animate(element, from, to);
+    expect(animator.finished()).toBe(true); // opacity
+  });
 });

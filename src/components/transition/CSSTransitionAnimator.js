@@ -21,6 +21,26 @@ export function createCSSTransitionAnimator(
   const DEFAULT_PARSED_PROPS = parsePropertyObject({});
 
   /**
+   * A tuple of parsed Property Objects in an applying
+   * order that is required to track possible changes.
+   *
+   * @example
+   * [prevState, nextState]
+   */
+  const parsedPropsHistory: [
+    ParsedPropertyObjectType,
+    ParsedPropertyObjectType
+  ] = [DEFAULT_PARSED_PROPS, DEFAULT_PARSED_PROPS];
+
+  const pushHistoryState = (nextParsedProps: ParsedPropertyObjectType) => {
+    parsedPropsHistory[0] = parsedPropsHistory[1];
+    parsedPropsHistory[1] = nextParsedProps;
+  };
+
+  const hasChangedValue = (prop: string) =>
+    parsedPropsHistory[0][prop].value !== parsedPropsHistory[1][prop].value;
+
+  /**
    * The amount of actual CSS `transition-properties` that
    * will change during a single transition motion.
    *
@@ -29,27 +49,39 @@ export function createCSSTransitionAnimator(
    * transition-property: transform, opacity;
    * ```
    */
-  let remainingPropsToChange = 0;
+  let remainingPropsToChange: number = 0;
+
+  function apply(element: HTMLElement, props?: PropertyObjectType) {
+    if (props !== undefined) {
+      const parsedProps = parsePropertyObject(props);
+
+      pushHistoryState(parsedProps);
+      addElementStyles(element, parsedProps, {
+        transform: hasChangedValue('transform'),
+        width: hasChangedValue('width'),
+        height: hasChangedValue('height'),
+        opacity: hasChangedValue('opacity'),
+      });
+    }
+  }
 
   function animate(
     element: HTMLElement,
     from?: PropertyObjectType,
     to?: PropertyObjectType
   ) {
-    const fromParsedProps =
-      from !== undefined ? parsePropertyObject(from) : DEFAULT_PARSED_PROPS;
-
-    const toParsedProps =
-      to !== undefined ? parsePropertyObject(to) : DEFAULT_PARSED_PROPS;
-
-    const willChangeValue = (prop: string) =>
-      fromParsedProps[prop].value !== toParsedProps[prop].value;
+    if (from !== undefined) {
+      pushHistoryState(parsePropertyObject(from));
+    }
+    if (to !== undefined) {
+      pushHistoryState(parsePropertyObject(to));
+    }
 
     const willChangeProps = {
-      transform: willChangeValue('transform'),
-      width: willChangeValue('width'),
-      height: willChangeValue('height'),
-      opacity: willChangeValue('opacity'),
+      transform: hasChangedValue('transform'),
+      width: hasChangedValue('width'),
+      height: hasChangedValue('height'),
+      opacity: hasChangedValue('opacity'),
     };
 
     remainingPropsToChange = Object.keys(willChangeProps).reduce(
@@ -58,11 +90,10 @@ export function createCSSTransitionAnimator(
     );
 
     if (from !== undefined) {
-      addElementStyles(element, fromParsedProps, willChangeProps);
+      addElementStyles(element, parsedPropsHistory[0], willChangeProps);
     }
-
     if (to !== undefined) {
-      addElementStyles(element, toParsedProps, willChangeProps);
+      addElementStyles(element, parsedPropsHistory[1], willChangeProps);
     }
   }
 
@@ -154,6 +185,7 @@ export function createCSSTransitionAnimator(
   }
 
   return {
+    apply,
     animate,
     cleanup: (element: HTMLElement) => removeElementStyles(element),
     finished: () => --remainingPropsToChange <= 0,
