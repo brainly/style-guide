@@ -15,6 +15,10 @@ $checkboxMargin: 4px;
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    &:hover .sg-checkbox-new__icon {
+      border: 2px solid $gray-50;
+    }
   }
 
   &__element,
