@@ -1,3 +1,6 @@
+$checkboxWidth: 16px;
+$checkboxMargin: 4px;
+
 .sg-checkbox-new {
   @include component();
 
@@ -8,20 +11,22 @@
     align-items: center;
   }
 
+  &__element,
+  &__icon {
+    width: $checkboxWidth;
+    height: $checkboxWidth;
+    margin: $checkboxMargin;
+  }
+
   &__element {
-    width: 0; // Necessary to hide correctly on mobile Safari
-    height: 0; // Necessary to hide correctly on mobile Safari
-    margin: 0;
-    appearance: 'none';
-    border: 'none'; // Necessary to hide correctly on mobile Safari
-    outline: 'none'; // Necessary to hide focus ring on Firefox
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
   }
 
   &__icon {
     display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin: 4px;
     border: 2px solid $gray-40;
     border-radius: $borderRadiusSmall;
   }
