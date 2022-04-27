@@ -41,10 +41,6 @@ const Checkbox = ({
   );
   const inputRef = React.useRef(null);
 
-  const checkboxClass = cx('sg-checkbox-new', className, {
-    'sg-checkbox-new--disabled': disabled,
-  });
-
   React.useEffect(() => {
     if (inputRef.current) {
       inputRef.current.indeterminate = indeterminate;
@@ -64,6 +60,10 @@ const Checkbox = ({
     },
     [onChange]
   );
+
+  const checkboxClass = cx('sg-checkbox-new', className, {
+    'sg-checkbox-new--disabled': disabled,
+  });
 
   return (
     <div className={checkboxClass}>
@@ -88,7 +88,7 @@ const Checkbox = ({
           aria-describedby={errorMessage ? `${id}-errorText` : undefined}
         />
         <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
-        {children && (
+        {children !== undefined && children !== null && (
           <Text
             size="medium"
             type="span"
