@@ -11,6 +11,7 @@ export type CheckboxPropsType = {
   checked?: boolean,
   children?: React.Node,
   className?: string,
+  defaultChecked?: boolean,
   disabled?: boolean,
   errorMessage?: string,
   id?: string,
@@ -25,6 +26,7 @@ const Checkbox = ({
   checked,
   children,
   className,
+  defaultChecked,
   disabled = false,
   errorMessage,
   id = generateRandomString(),
@@ -34,6 +36,9 @@ const Checkbox = ({
   onChange,
   ...props
 }: CheckboxPropsType) => {
+  const [isChecked, setIsChecked] = React.useState(
+    checked !== undefined ? checked : defaultChecked
+  );
   const inputRef = React.useRef(null);
 
   const checkboxClass = cx('sg-checkbox-new', className, {
@@ -45,6 +50,16 @@ const Checkbox = ({
       inputRef.current.indeterminate = indeterminate;
     }
   }, [inputRef, indeterminate]);
+
+  const onInputChange = React.useCallback(
+    e => {
+      setIsChecked(e.target.checked);
+      if (onChange) {
+        onChange(e);
+      }
+    },
+    [onChange]
+  );
 
   return (
     <div className={checkboxClass}>
@@ -58,17 +73,17 @@ const Checkbox = ({
           className="sg-checkbox-new__element"
           id={id}
           type="checkbox"
-          checked={checked}
+          checked={isChecked}
           name={name}
-          onChange={onChange}
+          onChange={onInputChange}
           disabled={disabled}
           required={required}
-          aria-checked={indeterminate ? 'mixed' : checked}
+          aria-checked={indeterminate ? 'mixed' : isChecked}
           aria-required={required}
           aria-invalid={errorMessage ? true : undefined}
           aria-describedby={errorMessage ? `${id}-errorText` : undefined}
         />
-        <CheckboxIcon checked={checked} indeterminate={indeterminate} />
+        <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         {children && (
           <Text
             size="medium"
