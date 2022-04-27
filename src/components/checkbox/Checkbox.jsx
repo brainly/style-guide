@@ -51,6 +51,10 @@ const Checkbox = ({
     }
   }, [inputRef, indeterminate]);
 
+  React.useEffect(() => {
+    setIsChecked(checked);
+  }, [checked]);
+
   const onInputChange = React.useCallback(
     e => {
       setIsChecked(e.target.checked);
