@@ -49,6 +49,14 @@ $checkboxMargin: 4px;
     }
   }
 
+  &__element[aria-invalid] + &__icon {
+    border-color: $red-50;
+  }
+
+  &__element:checked[aria-invalid] + &__icon {
+    background-color: $red-50;
+  }
+
   &__icon {
     display: inline-block;
     min-width: $checkboxWidth;
