@@ -34,11 +34,31 @@ $checkboxMargin: 4px;
     left: 0;
   }
 
+  &__element:focus + &__icon {
+    border-color: $gray-50;
+    outline: 2px solid $blue-40;
+    outline-offset: 2px;
+  }
+
+  &__element:checked + &__icon {
+    border-color: $black;
+    background: $black;
+
+    svg {
+      display: block;
+    }
+  }
+
   &__icon {
     display: inline-block;
     min-width: $checkboxWidth;
     border: 2px solid $gray-40;
     border-radius: $borderRadiusSmall;
+    fill: $white;
+
+    svg {
+      display: none;
+    }
   }
 
   &__label {
