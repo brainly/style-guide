@@ -58,6 +58,7 @@ $checkboxMargin: 4px;
   }
 
   &__icon {
+    position: relative;
     display: inline-block;
     min-width: $checkboxWidth;
     border: 2px solid $gray-40;
@@ -66,6 +67,9 @@ $checkboxMargin: 4px;
 
     svg {
       display: none;
+      position: absolute;
+      left: -2px;
+      top: -2px;
     }
   }
 
