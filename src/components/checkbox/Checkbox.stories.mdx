@@ -31,7 +31,7 @@ import Checkbox from './Checkbox';
         <StoryVariantTable>
           <thead>
             <tr>
-              {['default', 'with label', 'disabled', 'checked', 'error'].map(
+              {['default', 'with label', 'checked', 'disabled', 'error'].map(
                 (name, index) => (
                   <th>
                     <Headline
@@ -63,16 +63,25 @@ import Checkbox from './Checkbox';
               </td>
               <td>
                 <Flex justifyContent="center">
-                  <Checkbox disabled>Hello, I'm a checkbox</Checkbox>
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center">
                   <Checkbox checked>Hello, I'm a checkbox</Checkbox>
                 </Flex>
               </td>
               <td>
-                <Flex justifyContent="center">
+                <Flex justifyContent="center" direction="column">
+                  <Checkbox disabled>Hello, I'm a checkbox</Checkbox>
+                  <Checkbox disabled checked>
+                    Hello, I'm a checkbox
+                  </Checkbox>
+                  <Checkbox disabled errorMessage="Error message">
+                    Hello, I'm a checkbox
+                  </Checkbox>
+                  <Checkbox disabled checked errorMessage="Error message">
+                    Hello, I'm a checkbox
+                  </Checkbox>
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center" direction="column">
                   <Checkbox errorMessage="Error message">
                     Hello, I'm a checkbox
                   </Checkbox>
