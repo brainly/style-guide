@@ -17,6 +17,22 @@ const CheckIcon = () => (
   </svg>
 );
 
+const IndeterminateIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="red"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M3 8C3 7.44772 3.44772 7 4 7H12C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9H4C3.44772 9 3 8.55228 3 8Z"
+    />
+  </svg>
+);
+
 export type CheckboxPropsType = {
   checked?: boolean,
   children?: React.Node,
@@ -24,6 +40,7 @@ export type CheckboxPropsType = {
   disabled?: boolean,
   errorMessage?: string,
   id?: string,
+  indeterminate?: boolean,
   required?: boolean,
   name?: string,
   onChange: any,
@@ -34,17 +51,38 @@ const Checkbox = ({
   checked,
   children,
   className,
-  disabled,
+  disabled = false,
   errorMessage,
   id = generateRandomString(),
+  indeterminate = false,
   required = false,
   name,
   onChange,
   ...props
 }: CheckboxPropsType) => {
+  const inputRef = React.useRef(null);
+
   const checkboxClass = cx('sg-checkbox-new', className, {
     'sg-checkbox-new--disabled': disabled,
   });
+
+  const getIcon = (indeterminate, checked) => {
+    if (indeterminate) return <IndeterminateIcon />;
+    if (checked) return <CheckIcon />;
+
+    return null;
+  };
+
+  const checkboxIcon = React.useMemo(
+    () => getIcon(indeterminate, checked),
+    [indeterminate, checked]
+  );
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.indeterminate = indeterminate;
+    }
+  }, [inputRef, indeterminate]);
 
   return (
     <div className={checkboxClass}>
@@ -54,6 +92,7 @@ const Checkbox = ({
         disabled={disabled}
       >
         <input
+          ref={inputRef}
           className="sg-checkbox-new__element"
           id={id}
           type="checkbox"
@@ -62,6 +101,7 @@ const Checkbox = ({
           onChange={onChange}
           disabled={disabled}
           required={required}
+          aria-checked={indeterminate ? 'mixed' : checked}
           aria-required={required}
           aria-invalid={errorMessage ? true : undefined}
           aria-describedby={errorMessage ? `${id}-errorText` : undefined}
@@ -72,7 +112,7 @@ const Checkbox = ({
           // we hide it for screen readers
           aria-hidden="true"
         >
-          <CheckIcon />
+          {checkboxIcon}
         </span>
         {children && (
           <Text

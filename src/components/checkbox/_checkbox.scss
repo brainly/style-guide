@@ -32,29 +32,27 @@ $checkboxMargin: 4px;
     opacity: 0;
     top: 0;
     left: 0;
-  }
 
-  &__element:focus + &__icon {
-    border-color: $gray-50;
-    outline: 2px solid $blue-40;
-    outline-offset: 2px;
-  }
-
-  &__element:checked + &__icon {
-    border-color: $black;
-    background: $black;
-
-    svg {
-      display: block;
+    &:focus {
+      & + .sg-checkbox-new__icon {
+        border-color: $gray-50;
+        outline: 2px solid $blue-40;
+        outline-offset: 2px;
+      }
     }
-  }
 
-  &__element[aria-invalid] + &__icon {
-    border-color: $red-50;
-  }
+    &:checked,
+    &:indeterminate {
+      & + .sg-checkbox-new__icon {
+        border-color: $black;
+        background: $black;
+      }
 
-  &__element:checked[aria-invalid] + &__icon {
-    background-color: $red-50;
+      &[aria-invalid] + .sg-checkbox-new__icon {
+        border-color: $red-50;
+        background-color: $red-50;
+      }
+    }
   }
 
   &__icon {
@@ -66,7 +64,6 @@ $checkboxMargin: 4px;
     fill: $white;
 
     svg {
-      display: none;
       position: absolute;
       left: -2px;
       top: -2px;
