@@ -1,0 +1,42 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Accordion from '../../accordion/Accordion';
+import AccordionItem from '../../accordion/AccordionItem';
+
+<Meta title="Utilities/useReducedMotion" />
+
+# useReducedMotion
+
+`useReducedMotion` is a custom hook for detecting the users motion preference.
+
+## Import
+
+```jsx
+import {useReducedMotion} from 'brainly-style-guide';
+```
+
+## Usage
+
+```jsx
+const shouldReduceMotion = useReducedMotion()
+
+<Accordion reduceMotion={shouldReduceMotion}>
+    <AccordionItem title={'example'} id="accordion-item-1">
+      example body
+    </AccordionItem>
+  </Accordion>
+
+```
+
+## Example (using styleguide Accordion)
+
+To see in action on MAC open system preferences then accessibility and check "reduce motion" option
+
+![To see in action on MAC open system preferences then accessibility and check "reduce motion" option](/reduced-motion-setting.png)
+
+<Canvas>
+  <Accordion>
+    <AccordionItem title={'example'} id="accordion-item-1">
+      example body
+    </AccordionItem>
+  </Accordion>
+</Canvas>
