@@ -62,7 +62,7 @@ export function CurvedMovement() {
   }, [isExpanded, transformation]);
 
   return (
-    <Stage ref={containerRef} centered>
+    <Stage ref={containerRef} centered overflowHidden>
       <div style={isExpanded ? undefined : fixedStyle}>
         <Transition active effect={effects.xMove}>
           <Transition active effect={effects.yMove}>

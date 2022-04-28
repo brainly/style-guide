@@ -82,8 +82,8 @@ export function OffsetBehavior() {
                 President of France from 1848 to 1852. Louis Napoleon seized
                 power in 1851 and served as Emperor of the French from 1852 to
                 1870. He founded the Second French Empire and was its only
-                emperor until the French army was defeated and he was captured
-                by Prussia and its allies in the Franco-Prussian War in 1870.
+                emperor until the French army was defeated in the
+                Franco-Prussian War in 1870.
               </Text>
               <Text size="small">
                 He aimed to modernize the French economy, rebuilt the center of
@@ -94,21 +94,18 @@ export function OffsetBehavior() {
         </Bubble>
       </Transition>
 
-      <div
+      <Button
+        type="solid"
+        icon={<Icon type={isExpanded ? 'close' : 'plus'} />}
+        onClick={() => setIsExpanded(b => !b)}
+        iconOnly
         style={{
           position: 'absolute',
           top: 24,
           left: '50%',
           marginLeft: -20,
         }}
-      >
-        <Button
-          type="solid"
-          icon={<Icon type={isExpanded ? 'close' : 'plus'} />}
-          onClick={() => setIsExpanded(b => !b)}
-          iconOnly
-        />
-      </div>
+      />
     </Stage>
   );
 }

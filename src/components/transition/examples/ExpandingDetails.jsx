@@ -119,7 +119,7 @@ function ExpandableBox({
           onTransitionEnd={handleExpandingTransitionEnd}
         >
           <Box
-            style={{height: '100%', position: 'relative'}}
+            style={{height: '100%', position: 'relative', overflow: 'hidden'}}
             onClick={isExpanded ? undefined : handleClosedBoxClick}
             color={colorsMap[color].backgroundColor}
             borderColor={colorsMap[color].borderColor}
@@ -184,6 +184,7 @@ const getElementStyle = ({isExpanded, isAnimating}) => {
 
   if (isAnimating) {
     return {
+      height: '100%',
       position: 'relative',
       zIndex: 1,
     };

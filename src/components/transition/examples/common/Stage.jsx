@@ -10,6 +10,7 @@ type PropsType = $ReadOnly<{
   description?: string,
   centered?: boolean,
   portrait?: boolean,
+  overflowHidden?: boolean,
   onClick?: () => void,
 }>;
 
@@ -20,7 +21,15 @@ const centeredStyle = {
 
 const Stage = React.forwardRef<PropsType, HTMLElement>(
   (
-    {children, className, description, centered, portrait, onClick}: PropsType,
+    {
+      children,
+      className,
+      description,
+      centered,
+      portrait,
+      overflowHidden,
+      onClick,
+    }: PropsType,
     ref
   ) => (
     <Box
@@ -38,7 +47,7 @@ const Stage = React.forwardRef<PropsType, HTMLElement>(
         style={{
           height: '100%',
           position: 'relative',
-          overflow: 'auto',
+          overflow: overflowHidden ? 'hidden' : 'auto',
           padding: 16,
           ...(centered ? centeredStyle : {}),
         }}
@@ -46,21 +55,24 @@ const Stage = React.forwardRef<PropsType, HTMLElement>(
         <div className={className} style={{margin: 'auto'}}>
           {children}
         </div>
-        <div
-          style={{
-            position: 'absolute',
-            textAlign: 'center',
-            pointerEvents: 'none',
-            userSelect: 'none',
-            left: 10,
-            bottom: 10,
-            right: 10,
-          }}
-        >
-          <Text size="small" color="text-gray-50">
-            {description}
-          </Text>
-        </div>
+
+        {description !== undefined && (
+          <div
+            style={{
+              position: 'absolute',
+              textAlign: 'center',
+              pointerEvents: 'none',
+              userSelect: 'none',
+              left: 10,
+              bottom: 10,
+              right: 10,
+            }}
+          >
+            <Text size="small" color="text-gray-50">
+              {description}
+            </Text>
+          </div>
+        )}
       </div>
     </Box>
   )
