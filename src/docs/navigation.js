@@ -57,6 +57,7 @@ import ShadowsUtils from '../sass/pages/utils/shadows';
 import UXMotion from '../sass/pages/utils/uxmotion';
 import VisuallyHidden from '../sass/pages/utils/visually-hidden';
 import dialogs from '../components/dialog/pages/dialogs';
+import ReducedMotion from '../components/utils/useReducedMotion/pages/useReducedMotion';
 
 const navigation = [
   {
@@ -322,6 +323,10 @@ const navigation = [
       {
         name: 'Visually Hidden',
         component: VisuallyHidden,
+      },
+      {
+        name: 'useReducedMotion',
+        component: ReducedMotion,
       },
     ],
   },
