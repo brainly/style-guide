@@ -32,6 +32,7 @@ import Checkbox from './Checkbox';
           <thead>
             <tr>
               {[
+                null,
                 'default',
                 'with label',
                 'checked',
@@ -55,52 +56,92 @@ import Checkbox from './Checkbox';
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <Flex justifyContent="center">
-                  <Checkbox />
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center">
-                  <Checkbox>Hello, I'm a checkbox</Checkbox>
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center">
-                  <Checkbox checked>Hello, I'm a checkbox</Checkbox>
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center" direction="column">
-                  <Checkbox disabled>Hello, I'm a checkbox</Checkbox>
-                  <Checkbox disabled checked>
-                    Hello, I'm a checkbox
-                  </Checkbox>
-                  <Checkbox disabled errorMessage="Error message">
-                    Hello, I'm a checkbox
-                  </Checkbox>
-                  <Checkbox disabled checked errorMessage="Error message">
-                    Hello, I'm a checkbox
-                  </Checkbox>
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center" direction="column">
-                  <Checkbox errorMessage="Error message">
-                    Hello, I'm a checkbox
-                  </Checkbox>
-                  <Checkbox errorMessage="Error message" checked>
-                    Hello, I'm a checkbox
-                  </Checkbox>
-                </Flex>
-              </td>
-              <td>
-                <Flex justifyContent="center" direction="column">
-                  <Checkbox indeterminate>Hello, I'm a checkbox</Checkbox>
-                </Flex>
-              </td>
-            </tr>
+            {['default', 'light'].map(checkboxType => (
+              <tr
+                style={{
+                  backgroundColor:
+                    checkboxType === 'default' ? 'transparent' : '#000',
+                }}
+                key={checkboxType}
+              >
+                <td>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {checkboxType}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Checkbox type={checkboxType} />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Checkbox type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Checkbox checked type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center" direction="column">
+                    <Checkbox disabled type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                    <Checkbox disabled checked type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                    <Checkbox
+                      disabled
+                      errorMessage="Error message"
+                      type={checkboxType}
+                    >
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                    <Checkbox
+                      disabled
+                      checked
+                      errorMessage="Error message"
+                      type={checkboxType}
+                    >
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center" direction="column">
+                    <Checkbox errorMessage="Error message" type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                    <Checkbox
+                      errorMessage="Error message"
+                      checked
+                      type={checkboxType}
+                    >
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center" direction="column">
+                    <Checkbox indeterminate type={checkboxType}>
+                      Hello, I'm a checkbox
+                    </Checkbox>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </StoryVariantTable>
       </div>

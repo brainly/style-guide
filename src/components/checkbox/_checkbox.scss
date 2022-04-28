@@ -4,6 +4,101 @@ $checkboxMargin: 4px;
 .sg-checkbox-new {
   @include component();
 
+  @mixin colorTheme(
+    $iconBorderColor,
+    $iconBorderHoverColor,
+    $iconOutlineColor,
+    $iconFillColor,
+    $labelColor,
+    $checkedIconColor,
+    $invalidIconColor,
+    $invalidIconHoverColor
+  ) {
+    .sg-checkbox-new__wrapper {
+      &:hover {
+        .sg-checkbox-new__icon {
+          border: 2px solid $iconBorderHoverColor;
+        }
+
+        .sg-checkbox-new__element {
+          &:checked + .sg-checkbox-new__icon {
+            border-color: $iconBorderHoverColor;
+            background-color: $iconBorderHoverColor;
+          }
+
+          &[aria-invalid] + .sg-checkbox-new__icon {
+            border-color: $invalidIconHoverColor;
+          }
+
+          &:checked[aria-invalid] + .sg-checkbox-new__icon {
+            background-color: $invalidIconHoverColor;
+          }
+        }
+      }
+    }
+
+    .sg-checkbox-new__element {
+      &:focus {
+        & + .sg-checkbox-new__icon {
+          border-color: $iconBorderHoverColor;
+          outline: 2px solid $iconOutlineColor;
+        }
+      }
+
+      &:checked,
+      &:indeterminate {
+        & + .sg-checkbox-new__icon {
+          border-color: $checkedIconColor;
+          background: $checkedIconColor;
+        }
+
+        &[aria-invalid] + .sg-checkbox-new__icon {
+          border-color: $invalidIconColor;
+          background-color: $invalidIconColor;
+        }
+      }
+
+      &[aria-invalid] + .sg-checkbox-new__icon {
+        border-color: $invalidIconColor;
+      }
+    }
+
+    .sg-checkbox-new__icon {
+      border: 2px solid $iconBorderColor;
+      fill: $iconFillColor;
+    }
+
+    .sg-checkbox-new__label {
+      color: $labelColor;
+    }
+  }
+
+  &--default {
+    @include colorTheme(
+      $iconBorderColor: $black,
+      $iconBorderHoverColor: $gray-60,
+      $iconOutlineColor: $blue-40,
+      $iconFillColor: $white,
+      $labelColor: $black,
+      $checkedIconColor: $black,
+      $invalidIconColor: $red-60,
+      $invalidIconHoverColor: $red-50
+    );
+  }
+
+  &--light {
+    @include colorTheme(
+      $iconBorderColor: $white,
+      $iconBorderHoverColor: $gray-20,
+      $iconOutlineColor: $blue-40,
+      $iconFillColor: $black,
+      $labelColor: $white,
+      $checkedIconColor: $white,
+      $invalidIconColor: $red-60,
+      $invalidIconHoverColor: $red-50
+    );
+  }
+
   &--disabled {
     opacity: 0.45;
     cursor: not-allowed;
@@ -14,10 +109,6 @@ $checkboxMargin: 4px;
     cursor: pointer;
     display: flex;
     flex-direction: row;
-
-    &:hover .sg-checkbox-new__icon {
-      border: 2px solid $gray-50;
-    }
   }
 
   &__element,
@@ -35,22 +126,7 @@ $checkboxMargin: 4px;
 
     &:focus {
       & + .sg-checkbox-new__icon {
-        border-color: $gray-50;
-        outline: 2px solid $blue-40;
         outline-offset: 2px;
-      }
-    }
-
-    &:checked,
-    &:indeterminate {
-      & + .sg-checkbox-new__icon {
-        border-color: $black;
-        background: $black;
-      }
-
-      &[aria-invalid] + .sg-checkbox-new__icon {
-        border-color: $red-50;
-        background-color: $red-50;
       }
     }
   }
@@ -59,9 +135,7 @@ $checkboxMargin: 4px;
     position: relative;
     display: inline-block;
     min-width: $checkboxWidth;
-    border: 2px solid $gray-40;
     border-radius: $borderRadiusSmall;
-    fill: $white;
 
     svg {
       position: absolute;

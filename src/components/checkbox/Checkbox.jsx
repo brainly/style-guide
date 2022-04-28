@@ -7,6 +7,8 @@ import generateRandomString from '../../js/generateRandomString';
 import Text from '../text/Text';
 import CheckboxIcon from './CheckboxIcon';
 
+type CheckboxType = 'default' | 'light';
+
 export type CheckboxPropsType = {
   checked?: boolean,
   children?: React.Node,
@@ -19,6 +21,7 @@ export type CheckboxPropsType = {
   required?: boolean,
   name?: string,
   onChange: any,
+  type: CheckboxType,
   ...
 };
 
@@ -34,6 +37,7 @@ const Checkbox = ({
   required = false,
   name,
   onChange,
+  type = 'default',
   ...props
 }: CheckboxPropsType) => {
   const [isChecked, setIsChecked] = React.useState(
@@ -63,6 +67,7 @@ const Checkbox = ({
 
   const checkboxClass = cx('sg-checkbox-new', className, {
     'sg-checkbox-new--disabled': disabled,
+    [`sg-checkbox-new--${String(type)}`]: type,
   });
 
   return (
