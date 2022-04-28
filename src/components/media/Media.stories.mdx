@@ -80,6 +80,14 @@ import MediaA11y from './stories/Media.a11y.mdx';
   </Story>
 </Canvas>
 
+### Clickable
+
+<Canvas>
+  <Story name="Clickable" args={{clickable: true, color: 'gray-20'}}>
+    {args => <Media {...args} />}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <MediaA11y />
