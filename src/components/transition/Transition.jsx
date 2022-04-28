@@ -13,6 +13,12 @@ const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
 
+const prefersReducedMotion = () =>
+  window && window.matchMedia !== undefined
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(prefers-reduced-motion)').matches
+    : false;
+
 export type PredefinedEasingType = 'regular' | 'entry' | 'exit' | 'linear';
 
 export type PredefinedDurationType =
@@ -110,6 +116,10 @@ export type TransitionEffectType = $ReadOnly<{
   exit?: PropertyObjectType,
 }>;
 
+type TransitionEffectFnType = (
+  prefersReducedMotion: boolean
+) => TransitionEffectType | null;
+
 type TransitionTriggerPropsType = $ReadOnly<{
   active: boolean,
   effect: TransitionEffectType | null,
@@ -117,7 +127,7 @@ type TransitionTriggerPropsType = $ReadOnly<{
 
 export type TransitionPropsType = $ReadOnly<{
   active: boolean,
-  effect: TransitionEffectType | null,
+  effect: TransitionEffectType | TransitionEffectFnType | null,
   delay?: number,
   /**
    * Defines how styles are applied to the container element before
@@ -153,6 +163,12 @@ function BaseTransition({
   onTransitionStart,
   onTransitionEnd,
 }: TransitionPropsType) {
+  const currentEffect = React.useMemo(() => {
+    return typeof effect === 'function'
+      ? effect(prefersReducedMotion())
+      : effect;
+  }, [effect]);
+
   const containerRef = React.useRef(null);
   const classNamesRegistry = React.useMemo(createClassNamesRegistry, []);
   const animator = React.useMemo<PropertyObjectAnimatorType>(
@@ -205,7 +221,7 @@ function BaseTransition({
    */
   React.useLayoutEffect(() => {
     const container = containerRef.current;
-    const currentProps = {active, effect};
+    const currentProps = {active, effect: currentEffect};
 
     const rules = getTransitionRules({
       previousProps: previouslyAppliedProps.current,
@@ -217,7 +233,7 @@ function BaseTransition({
       return;
     }
 
-    if (effect === null || rules === null) {
+    if (currentEffect === null || rules === null) {
       animator.cleanup(container);
       return;
     }
@@ -228,12 +244,12 @@ function BaseTransition({
 
     const performTransitionEffect = () => {
       if (onTransitionStartRef.current) {
-        onTransitionStartRef.current(effect);
+        onTransitionStartRef.current(currentEffect);
       }
 
       if (!supportsTransitions()) {
         if (onTransitionEndRef.current) {
-          onTransitionEndRef.current(effect);
+          onTransitionEndRef.current(currentEffect);
         }
       } else {
         animator.animate(container, rules.from, rules.to);
@@ -260,7 +276,7 @@ function BaseTransition({
     }
 
     performTransitionEffect();
-  }, [animator, active, effect, delay, fillMode]);
+  }, [animator, active, currentEffect, delay, fillMode]);
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
@@ -276,12 +292,12 @@ function BaseTransition({
           animator.cleanup(container);
         }
 
-        if (onTransitionEnd && effect) {
-          onTransitionEnd(effect);
+        if (onTransitionEnd && currentEffect) {
+          onTransitionEnd(currentEffect);
         }
       }
     },
-    [animator, onTransitionEnd, effect, fillMode]
+    [animator, onTransitionEnd, currentEffect, fillMode]
   );
 
   return (

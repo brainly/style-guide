@@ -2,10 +2,12 @@
 
 import * as React from 'react';
 import Box from '../../../box/Box';
+import Text from '../../../text/Text';
 
 type PropsType = $ReadOnly<{
   children: React.Node,
   className?: string,
+  description?: string,
   centered?: boolean,
   portrait?: boolean,
   onClick?: () => void,
@@ -17,9 +19,13 @@ const centeredStyle = {
 };
 
 const Stage = React.forwardRef<PropsType, HTMLElement>(
-  ({children, className, centered, portrait, onClick}: PropsType, ref) => (
+  (
+    {children, className, description, centered, portrait, onClick}: PropsType,
+    ref
+  ) => (
     <Box
       style={{
+        cursor: onClick !== undefined ? 'pointer' : 'default',
         width: portrait ? 320 : 640,
         height: portrait ? 568 : 400,
         padding: 0,
@@ -39,6 +45,21 @@ const Stage = React.forwardRef<PropsType, HTMLElement>(
       >
         <div className={className} style={{margin: 'auto'}}>
           {children}
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            textAlign: 'center',
+            pointerEvents: 'none',
+            userSelect: 'none',
+            left: 10,
+            bottom: 10,
+            right: 10,
+          }}
+        >
+          <Text size="small" color="text-gray-50">
+            {description}
+          </Text>
         </div>
       </div>
     </Box>

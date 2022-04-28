@@ -1,5 +1,6 @@
 // @flow strict
 
+export * from './PrefersReducedMotion';
 export * from './CurvedMovement';
 export * from './SharedAxis';
 export * from './StaggeredMotion';

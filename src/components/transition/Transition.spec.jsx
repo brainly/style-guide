@@ -115,4 +115,12 @@ describe('<Transition />', () => {
       expect(wrapper.getDOMNode().style.opacity).toBe(after);
     }
   );
+
+  it('accepts effect prop as a function that returns an effect', () => {
+    const effectFunction = jest.fn(() => testEffect);
+    const wrapper = mount(<Transition effect={effectFunction} active />);
+
+    expect(wrapper.getDOMNode().style.opacity).toBe(ANIMATE_OPACITY);
+    expect(effectFunction).toHaveBeenCalledWith(false);
+  });
 });
