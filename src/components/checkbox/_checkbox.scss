@@ -13,7 +13,8 @@ $checkboxMargin: 4px;
     $checkedIconColor,
     $invalidIconColor,
     $invalidIconHoverColor,
-    $invalidIconFillColor
+    $invalidIconFillColor,
+    $errorMessageColor
   ) {
     .sg-checkbox-new__wrapper {
       &:hover {
@@ -44,6 +45,15 @@ $checkboxMargin: 4px;
           border-color: $iconBorderHoverColor;
           outline: 2px solid $iconOutlineColor;
         }
+
+        &[aria-invalid] + .sg-checkbox-new__icon {
+          border-color: $invalidIconHoverColor;
+        }
+
+        &:checked[aria-invalid] + .sg-checkbox-new__icon {
+          border-color: $invalidIconHoverColor;
+          background-color: $invalidIconHoverColor;
+        }
       }
 
       &:checked,
@@ -73,6 +83,10 @@ $checkboxMargin: 4px;
     .sg-checkbox-new__label {
       color: $labelColor;
     }
+
+    .sg-error-message {
+      color: $errorMessageColor;
+    }
   }
 
   &--default {
@@ -81,25 +95,27 @@ $checkboxMargin: 4px;
       $iconBorderHoverColor: $gray-60,
       $iconOutlineColor: $blue-40,
       $iconFillColor: $white,
-      $labelColor: $black,
+      $labelColor: $text-black,
       $checkedIconColor: $black,
       $invalidIconColor: $red-60,
       $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white
+      $invalidIconFillColor: $white,
+      $errorMessageColor: $text-red-60
     );
   }
 
   &--light {
     @include colorTheme(
       $iconBorderColor: $white,
-      $iconBorderHoverColor: $gray-20,
+      $iconBorderHoverColor: $gray-40,
       $iconOutlineColor: $blue-40,
       $iconFillColor: $black,
       $labelColor: $white,
       $checkedIconColor: $white,
       $invalidIconColor: $red-40,
       $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white
+      $invalidIconFillColor: $white,
+      $errorMessageColor: $text-red-40
     );
   }
 
