@@ -4,6 +4,7 @@ import {Preview} from '../../_docs/blocks/';
 
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
+import Text from '../text/Text';
 import Checkbox from './Checkbox';
 
 <Meta title="Components/Checkbox new" component={Checkbox} />
@@ -35,6 +36,7 @@ import Checkbox from './Checkbox';
                 null,
                 'default',
                 'with label',
+                'with label and description',
                 'checked',
                 'disabled',
                 'error',
@@ -82,25 +84,61 @@ import Checkbox from './Checkbox';
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Checkbox type={checkboxType}>
-                      Hello, I'm a checkbox
+                    <Checkbox type={checkboxType}>Checkbox label</Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex
+                    justifyContent="center"
+                    direction="column"
+                    style={{
+                      maxWidth: '300px',
+                    }}
+                  >
+                    <Checkbox
+                      type={checkboxType}
+                      checked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      type={checkboxType}
+                      description={
+                        <Text inherited>
+                          Custom description about this element. You can use
+                          here even some{' '}
+                          <Text
+                            inherited
+                            color="text-indigo-60"
+                            type="span"
+                            weight="bold"
+                          >
+                            formatting and links
+                          </Text>
+                          .
+                        </Text>
+                      }
+                    >
+                      Checkbox label
                     </Checkbox>
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center">
                     <Checkbox checked type={checkboxType}>
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center" direction="column">
                     <Checkbox disabled type={checkboxType}>
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                     <Checkbox disabled checked type={checkboxType}>
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                     <Checkbox
                       disabled
@@ -108,7 +146,7 @@ import Checkbox from './Checkbox';
                       errorMessage="Error message"
                       type={checkboxType}
                     >
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                     <Checkbox
                       disabled
@@ -117,7 +155,7 @@ import Checkbox from './Checkbox';
                       errorMessage="Error message"
                       type={checkboxType}
                     >
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                   </Flex>
                 </td>
@@ -129,7 +167,7 @@ import Checkbox from './Checkbox';
                       errorMessage="Error message"
                       type={checkboxType}
                     >
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                     <Checkbox
                       invalid
@@ -137,14 +175,24 @@ import Checkbox from './Checkbox';
                       checked
                       type={checkboxType}
                     >
-                      Hello, I'm a checkbox
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      invalid
+                      errorMessage="Error message"
+                      checked
+                      type={checkboxType}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
                     </Checkbox>
                   </Flex>
                 </td>
                 <td>
                   <Flex justifyContent="center" direction="column">
                     <Checkbox indeterminate type={checkboxType}>
-                      Hello, I'm a checkbox
+                      Checkbox label
                     </Checkbox>
                   </Flex>
                 </td>

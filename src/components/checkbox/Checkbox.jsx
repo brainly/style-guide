@@ -15,6 +15,7 @@ export type CheckboxPropsType = {
   children?: React.Node,
   className?: string,
   defaultChecked?: boolean,
+  description?: React.Node | string,
   disabled?: boolean,
   errorMessage?: string,
   id?: string,
@@ -32,6 +33,7 @@ const Checkbox = ({
   children,
   className,
   defaultChecked,
+  description,
   disabled = false,
   errorMessage,
   id = generateRandomString(),
@@ -117,6 +119,17 @@ const Checkbox = ({
             </Text>
           )}
         </label>
+        {description && (
+          <Text
+            className="sg-checkbox-new__description"
+            size="small"
+            type="span"
+            color="text-black"
+            breakWords
+          >
+            {description}
+          </Text>
+        )}
         {invalid && errorMessage && (
           <Text
             className="sg-error-message"

@@ -6,7 +6,7 @@ $checkboxMargin: 8px;
 
   display: grid;
   grid-template-areas: 'input content';
-  grid-template-columns: 32px 1fr;
+  grid-template-columns: auto 1fr;
   grid-column-gap: $checkboxMargin;
 
   @mixin colorTheme(
@@ -21,7 +21,7 @@ $checkboxMargin: 8px;
     $invalidIconFillColor,
     $errorMessageColor
   ) {
-    &:hover {
+    &.sg-checkbox-new:hover {
       .sg-checkbox-new__icon {
         border: 2px solid $iconBorderHoverColor;
       }
@@ -83,7 +83,8 @@ $checkboxMargin: 8px;
       fill: $iconFillColor;
     }
 
-    .sg-checkbox-new__label {
+    .sg-checkbox-new__label,
+    .sg-checkbox-new__description {
       color: $labelColor;
     }
 
@@ -178,7 +179,9 @@ $checkboxMargin: 8px;
     margin: 4px 0;
   }
 
+  &__description,
   .sg-error-message {
     margin-top: 4px;
+    white-space: normal;
   }
 }
