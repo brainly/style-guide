@@ -1,8 +1,13 @@
 $checkboxWidth: 16px;
-$checkboxMargin: 4px;
+$checkboxMargin: 8px;
 
 .sg-checkbox-new {
   @include component();
+
+  display: grid;
+  grid-template-areas: 'input content';
+  grid-template-columns: 32px 1fr;
+  grid-column-gap: $checkboxMargin;
 
   @mixin colorTheme(
     $iconBorderColor,
@@ -16,30 +21,28 @@ $checkboxMargin: 4px;
     $invalidIconFillColor,
     $errorMessageColor
   ) {
-    .sg-checkbox-new__wrapper {
-      &:hover {
-        .sg-checkbox-new__icon {
-          border: 2px solid $iconBorderHoverColor;
+    &:hover {
+      .sg-checkbox-new__icon {
+        border: 2px solid $iconBorderHoverColor;
+      }
+
+      .sg-checkbox-new__input {
+        &:checked + .sg-checkbox-new__icon {
+          border-color: $iconBorderHoverColor;
+          background-color: $iconBorderHoverColor;
         }
 
-        .sg-checkbox-new__element {
-          &:checked + .sg-checkbox-new__icon {
-            border-color: $iconBorderHoverColor;
-            background-color: $iconBorderHoverColor;
-          }
+        &[aria-invalid] + .sg-checkbox-new__icon {
+          border-color: $invalidIconHoverColor;
+        }
 
-          &[aria-invalid] + .sg-checkbox-new__icon {
-            border-color: $invalidIconHoverColor;
-          }
-
-          &:checked[aria-invalid] + .sg-checkbox-new__icon {
-            background-color: $invalidIconHoverColor;
-          }
+        &:checked[aria-invalid] + .sg-checkbox-new__icon {
+          background-color: $invalidIconHoverColor;
         }
       }
     }
 
-    .sg-checkbox-new__element {
+    .sg-checkbox-new__input {
       &:focus {
         & + .sg-checkbox-new__icon {
           border-color: $iconBorderHoverColor;
@@ -125,29 +128,36 @@ $checkboxMargin: 4px;
     pointer-events: none;
   }
 
-  &__wrapper {
+  &__content {
+    grid-area: content;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
 
-  &__element,
+  &__input,
   &__icon {
     width: $checkboxWidth;
     height: $checkboxWidth;
     margin: $checkboxMargin;
   }
 
-  &__element {
+  &__input {
     position: absolute;
     opacity: 0;
     top: 0;
     left: 0;
+    z-index: 1;
 
     &:focus {
       & + .sg-checkbox-new__icon {
         outline-offset: 2px;
       }
     }
+  }
+
+  &__element {
+    position: relative;
+    display: inline-flex;
   }
 
   &__icon {
@@ -164,11 +174,11 @@ $checkboxMargin: 4px;
   }
 
   &__label {
-    margin-left: 8px;
+    display: flex;
+    margin: 4px 0;
   }
 
   .sg-error-message {
-    display: block;
-    margin-left: $checkboxMargin;
+    margin-top: 4px;
   }
 }

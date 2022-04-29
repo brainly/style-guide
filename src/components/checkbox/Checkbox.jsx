@@ -82,14 +82,10 @@ const Checkbox = ({
 
   return (
     <div className={checkboxClass}>
-      <label
-        className="sg-checkbox-new__wrapper"
-        htmlFor={id}
-        disabled={disabled}
-      >
+      <div className="sg-checkbox-new__element">
         <input
           ref={inputRef}
-          className="sg-checkbox-new__element"
+          className="sg-checkbox-new__input"
           id={id}
           type="checkbox"
           checked={isChecked}
@@ -103,29 +99,37 @@ const Checkbox = ({
           aria-describedby={invalid ? `${id}-errorText` : undefined}
         />
         <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
-        {children !== undefined && children !== null && (
+      </div>
+      <div className="sg-checkbox-new__content">
+        <label
+          className="sg-checkbox-new__wrapper"
+          htmlFor={id}
+          disabled={disabled}
+        >
+          {children !== undefined && children !== null && (
+            <Text
+              size="medium"
+              type="span"
+              weight="bold"
+              className="sg-checkbox-new__label"
+            >
+              {children}
+            </Text>
+          )}
+        </label>
+        {invalid && errorMessage && (
           <Text
-            size="medium"
+            className="sg-error-message"
+            id={`${id}-errorText`}
+            size="small"
             type="span"
             weight="bold"
-            className="sg-checkbox-new__label"
+            color="text-red-60"
           >
-            {children}
+            {errorMessage}
           </Text>
         )}
-      </label>
-      {invalid && errorMessage && (
-        <Text
-          className="sg-error-message"
-          id={`${id}-errorText`}
-          size="small"
-          type="span"
-          weight="bold"
-          color="text-red-60"
-        >
-          {errorMessage}
-        </Text>
-      )}
+      </div>
     </div>
   );
 };
