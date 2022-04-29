@@ -138,18 +138,18 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-inverted {
-    @include buttonHover($gray-10, $white, 80%);
+    @include buttonHover($gray-20, $white, 80%);
     background-color: $white;
     color: $black;
   }
 
   &--solid-indigo {
-    @include buttonHover($indigo-50, $indigo-60, 80%);
+    @include buttonHover($indigo-60, $indigo-50, 80%);
     background-color: $indigo-50;
   }
 
   &--solid-indigo-inverted {
-    @include buttonHover($white, $gray-20, 80%);
+    @include buttonHover($gray-20, $white, 80%);
     background-color: $white;
     color: $indigo-50;
   }

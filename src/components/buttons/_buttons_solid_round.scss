@@ -1,11 +1,11 @@
 @use 'sass:math';
-$buttonRoundColor: $green-40;
+$buttonRoundColor: $black;
 $buttonRoundBoxShadow: $shadowSmall;
 $buttonHRoundHoverBoxShadow: $shadowMedium;
 $buttonRoundAddSize: rhythm(2);
 $buttonRoundAddColor: $white;
 $buttonRoundLabelFontSize: fontSize(obscure);
-$buttonRoundLabelBackground: $green-30;
+$buttonRoundLabelBackground: $blue-50;
 
 $includeHtml: false !default;
 
