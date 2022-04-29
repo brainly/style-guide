@@ -1,16 +1,6 @@
-## Accessibility
+import TextRules from './textRules.a11y.mdx';
 
-### Rules
-
-| Pattern                                                                                                                                                                                                                                                         | Comment                                                                                                                                                                                                                                                                                                                                                        | Status                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| **Should** have a proper contrast ratio                                                                                                                                                                                                                         | For medium size and larger: 3:1 against the background, in other cases: 4.5:1 against the background. <br/> Text color should be chosen to comply with this rule: <br/> - medium text against white background: `indigo-40`, and color variants 50 and darker, <br/> - medium text against black background: color variant 50 and lighter (except `indigo-50`) | Implementation: DONE<br />Tests: N/A    |
-| **Should** create a logical content structure                                                                                                                                                                                                                   | Logical content structure is created by proper html semantics. Use `type` to set tag.                                                                                                                                                                                                                                                                          | Implementation: DONE<br />Tests: N/A    |
-| **Should** be enlargable                                                                                                                                                                                                                                        | The page should be functional when only the text is magnified to 200% of its initial size. User can zoom in and out to change te size of the text. User default font size is not respected by the `Text`.                                                                                                                                                      | Implementation: DONE<br />Tests: N/A    |
-| **Should not** exceed 80 characters in length                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                | Implementation: TO DO<br />Tests: TO DO |
-| **Should not** be to small                                                                                                                                                                                                                                      | Default font size (`medium`) for `Text` is 18px, document font size (1em) is 16px.                                                                                                                                                                                                                                                                             | Implementation: DONE<br />Tests: DONE   |
-| **Should** be readable and not truncated, when user sets line height to 1.5 times font size, spacing following paragraphs to (at least) 2 times font size , letter spacing to (at least) 0.12 times font size , word spacing to (at least) 0.16 times its size. | To test, apply [the CSS](#test-user-settings)                                                                                                                                                                                                                                                                                                                  | Implementation: N/A<br />Tests: N/A     |
-| **Should** use semantic markup (ex.`<strong>`, `<em>`) to properly announce style changes to all users                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                | Implementation: TO DO<br />Tests: TO DO |
+<TextRules />
 
 ### Usage
 
@@ -21,52 +11,15 @@
 <!-- prettier-ignore -->
 ```jsx
 <Text>
-  Discover <Text type="strong" weight="bold">more</Text> with <Text type="em" color="text-blue-60">Textbook Detective</Text>
+  Discover <Text type="strong">more</Text> with <Text type="em" color="text-blue-60">Textbook Detective</Text>
 </Text>
 ```
 
-- heading level 1, marked both semantically and visually
-
-```jsx
-<Headline type="h1" size="xxxlarge">
-  We use cookies
-</Headline>
-```
-
-- paragraph with a deleted and an inserted part
+- paragraph with 80 characters in length
 
 <!-- prettier-ignore -->
 ```jsx
-<Text type="p">
-  Brainly app is so much more than anyone could expected. When someone is just needing help to figure out a <Text type="del" color="text-gray-40" style={{'text-decoration': 'line-through'}}>math</Text> <Text type="ins">chemistry</Text> problem...
+<Text type="p" style={{"max-width": "80ch"}}>
+  Brainly app is so much more than anyone could expected. When someone is just needing help to figure out a chemistry problem...
 </Text>
 ```
-
-- block quotation as TextBit
-
-<!-- prettier-ignore -->
-```jsx
-<TextBit type="blockquote">
-  This app is so much more than I expected. I was just needing help to figureout a math problem
-</TextBit>
-```
-
-### Test user settings
-
-```css
-* {
-  line-height: 1.5 !important;
-  letter-spacing: 0.12em !important;
-  word-spacing: 0.16em !important;
-}
-
-p {
-  margin-bottom: 2em !important;
-}
-```
-
-### Resources
-
-- <https://benfrain.com/just-use-pixels/>
-- <https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/>
-- <https://dequeuniversity.com/checklists/web/text>
