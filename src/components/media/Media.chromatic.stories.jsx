@@ -1,6 +1,8 @@
-import * as Media from './Media.stories.jsx';
+import * as Media from './Media.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Media);
 
-export default Media.default;
+const {includeStories, ...meta} = Media.default;
+
+export default meta;
