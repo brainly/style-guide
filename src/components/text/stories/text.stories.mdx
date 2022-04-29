@@ -324,3 +324,25 @@ export const TextExamples = weight => {
 **Weight**: 400
 
 <Typeset>{TextExamples(TEXT_WEIGHT.NORMAL)}</Typeset>
+
+## Accessibility
+
+Each component has its own accessibility documentation containing a set of rules and usage examples to help implement accessible and readable text. The user can also adjust the spacing and font size to suit their own requirements using their browser settings. For this reason, the text should also be readable and not truncated when user sets line height to 1.5 times font size, spacing following paragraphs to (at least) 2 times font size, letter spacing to (at least) 0.12 times font size, word spacing to (at least) 0.16 times its size. To test that, apply following CSS rules:
+
+```css
+* {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+
+p {
+  margin-bottom: 2em !important;
+}
+```
+
+### Resources
+
+- <https://benfrain.com/just-use-pixels/>
+- <https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/>
+- <https://dequeuniversity.com/checklists/web/text>
