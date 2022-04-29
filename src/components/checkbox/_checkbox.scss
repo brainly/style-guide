@@ -12,7 +12,8 @@ $checkboxMargin: 4px;
     $labelColor,
     $checkedIconColor,
     $invalidIconColor,
-    $invalidIconHoverColor
+    $invalidIconHoverColor,
+    $invalidIconFillColor
   ) {
     .sg-checkbox-new__wrapper {
       &:hover {
@@ -60,6 +61,7 @@ $checkboxMargin: 4px;
 
       &[aria-invalid] + .sg-checkbox-new__icon {
         border-color: $invalidIconColor;
+        fill: $invalidIconFillColor;
       }
     }
 
@@ -82,7 +84,8 @@ $checkboxMargin: 4px;
       $labelColor: $black,
       $checkedIconColor: $black,
       $invalidIconColor: $red-60,
-      $invalidIconHoverColor: $red-50
+      $invalidIconHoverColor: $red-50,
+      $invalidIconFillColor: $white
     );
   }
 
@@ -94,8 +97,9 @@ $checkboxMargin: 4px;
       $iconFillColor: $black,
       $labelColor: $white,
       $checkedIconColor: $white,
-      $invalidIconColor: $red-60,
-      $invalidIconHoverColor: $red-50
+      $invalidIconColor: $red-40,
+      $invalidIconHoverColor: $red-50,
+      $invalidIconFillColor: $white
     );
   }
 
