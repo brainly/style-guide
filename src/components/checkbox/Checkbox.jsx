@@ -4,6 +4,7 @@ import * as React from 'react';
 import cx from 'classnames';
 
 import generateRandomString from '../../js/generateRandomString';
+import {__DEV__, invariant} from '../utils';
 import Text from '../text/Text';
 import CheckboxIcon from './CheckboxIcon';
 
@@ -18,6 +19,7 @@ export type CheckboxPropsType = {
   errorMessage?: string,
   id?: string,
   indeterminate?: boolean,
+  invalid?: boolean,
   required?: boolean,
   name?: string,
   onChange: any,
@@ -34,6 +36,7 @@ const Checkbox = ({
   errorMessage,
   id = generateRandomString(),
   indeterminate = false,
+  invalid = false,
   required = false,
   name,
   onChange,
@@ -70,6 +73,13 @@ const Checkbox = ({
     [`sg-checkbox-new--${String(type)}`]: type,
   });
 
+  if (__DEV__) {
+    invariant(
+      !(errorMessage && !invalid),
+      `Using 'errorMessage' property has no effect when 'invalid' property is not set.`
+    );
+  }
+
   return (
     <div className={checkboxClass}>
       <label
@@ -89,8 +99,8 @@ const Checkbox = ({
           required={required}
           aria-checked={indeterminate ? 'mixed' : isChecked}
           aria-required={required}
-          aria-invalid={errorMessage ? true : undefined}
-          aria-describedby={errorMessage ? `${id}-errorText` : undefined}
+          aria-invalid={invalid ? true : undefined}
+          aria-describedby={invalid ? `${id}-errorText` : undefined}
         />
         <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         {children !== undefined && children !== null && (
@@ -104,7 +114,7 @@ const Checkbox = ({
           </Text>
         )}
       </label>
-      {errorMessage && (
+      {invalid && errorMessage && (
         <Text
           className="sg-error-message"
           id={`${id}-errorText`}

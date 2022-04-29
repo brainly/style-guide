@@ -104,6 +104,7 @@ import Checkbox from './Checkbox';
                     </Checkbox>
                     <Checkbox
                       disabled
+                      invalid
                       errorMessage="Error message"
                       type={checkboxType}
                     >
@@ -112,6 +113,7 @@ import Checkbox from './Checkbox';
                     <Checkbox
                       disabled
                       checked
+                      invalid
                       errorMessage="Error message"
                       type={checkboxType}
                     >
@@ -121,10 +123,16 @@ import Checkbox from './Checkbox';
                 </td>
                 <td>
                   <Flex justifyContent="center" direction="column">
-                    <Checkbox errorMessage="Error message" type={checkboxType}>
+                    <Checkbox invalid type={checkboxType} />
+                    <Checkbox
+                      invalid
+                      errorMessage="Error message"
+                      type={checkboxType}
+                    >
                       Hello, I'm a checkbox
                     </Checkbox>
                     <Checkbox
+                      invalid
                       errorMessage="Error message"
                       checked
                       type={checkboxType}
