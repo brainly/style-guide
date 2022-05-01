@@ -4,7 +4,10 @@ import * as React from 'react';
 import cx from 'classnames';
 import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
+import {createEffect} from './predefinedEffects';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
+
+Transition.createEffect = createEffect;
 
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
