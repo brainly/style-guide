@@ -68,7 +68,8 @@ export function createCSSTransitionAnimator(
   function animate(
     element: HTMLElement,
     from?: PropertyObjectType,
-    to?: PropertyObjectType
+    to?: PropertyObjectType,
+    speed?: number
   ) {
     if (from !== undefined) {
       pushHistoryState(parsePropertyObject(from));
@@ -90,17 +91,18 @@ export function createCSSTransitionAnimator(
     );
 
     if (from !== undefined) {
-      addElementStyles(element, parsedPropsHistory[0], willChangeProps);
+      addElementStyles(element, parsedPropsHistory[0], willChangeProps, speed);
     }
     if (to !== undefined) {
-      addElementStyles(element, parsedPropsHistory[1], willChangeProps);
+      addElementStyles(element, parsedPropsHistory[1], willChangeProps, speed);
     }
   }
 
   function addElementStyles(
     element: HTMLElement,
     parsedProps: ParsedPropertyObjectType,
-    willChangeProps: WillChangePropsType
+    willChangeProps: WillChangePropsType,
+    speed?: number
   ) {
     const {className, transform, width, height, opacity} = parsedProps;
     const transitionProperty = [];
@@ -115,7 +117,7 @@ export function createCSSTransitionAnimator(
     Object.keys(willChangeProps).forEach(prop => {
       if (willChangeProps[prop]) {
         transitionProperty.push(prop);
-        transitionDuration.push(parsedProps[prop].duration);
+        transitionDuration.push(applySpeed(parsedProps[prop].duration, speed));
         transitionTimingFunction.push(parsedProps[prop].easing);
       }
     });
@@ -182,6 +184,16 @@ export function createCSSTransitionAnimator(
     const unique = [...new Set(values)];
 
     return unique.length === 1 ? unique : values;
+  }
+
+  function applySpeed(duration: string, speed?: number) {
+    if (!speed || speed === 1) {
+      return duration;
+    }
+    const value = parseInt(duration, 10);
+    const units = duration.slice(-2) === 'ms' ? 'ms' : 's';
+
+    return value / speed + units;
   }
 
   return {

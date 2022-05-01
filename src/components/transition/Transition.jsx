@@ -6,6 +6,7 @@ import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import {createEffect} from './predefinedEffects';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
+import {getDebugOptions} from './debug';
 
 Transition.createEffect = createEffect;
 
@@ -179,8 +180,10 @@ function BaseTransition({
     [classNamesRegistry]
   );
 
+  const {outlines} = getDebugOptions();
   const baseClassName = cx('sg-transition', className, {
     'sg-transition--inline': inline,
+    'sg-transition--outlines': outlines,
   });
 
   React.useLayoutEffect(() => {
@@ -225,6 +228,7 @@ function BaseTransition({
   React.useLayoutEffect(() => {
     const container = containerRef.current;
     const currentProps = {active, effect: currentEffect};
+    const {speed} = getDebugOptions();
 
     const rules = getTransitionRules({
       previousProps: previouslyAppliedProps.current,
@@ -255,7 +259,7 @@ function BaseTransition({
           onTransitionEndRef.current(currentEffect);
         }
       } else {
-        animator.animate(container, rules.from, rules.to);
+        animator.animate(container, rules.from, rules.to, speed);
       }
 
       /**
@@ -273,7 +277,10 @@ function BaseTransition({
       rules.canSkipDelay && !isFillModeBackwards(fillMode) ? 0 : delay;
 
     if (actualDelay > 0) {
-      const timeoutId = setTimeout(performTransitionEffect, actualDelay);
+      const timeoutId = setTimeout(
+        performTransitionEffect,
+        actualDelay / speed
+      );
 
       return () => clearTimeout(timeoutId);
     }
@@ -382,7 +389,8 @@ export default function Transition({
       if (canMountBaseComponent) {
         mountBaseComponent();
       } else {
-        const timeoutId = setTimeout(mountBaseComponent, delay);
+        const {speed} = getDebugOptions();
+        const timeoutId = setTimeout(mountBaseComponent, delay / speed);
 
         return () => clearTimeout(timeoutId);
       }

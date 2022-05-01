@@ -4,4 +4,8 @@
   &--inline {
     display: inline-block;
   }
+
+  &--outlines {
+    outline: 1px solid $indigo-50;
+  }
 }
