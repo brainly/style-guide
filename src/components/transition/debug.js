@@ -41,7 +41,7 @@ export function getDebugOptions(): DebugOptionsType {
    * immediately print a warning.
    */
   clearTimeout(batchTimeoutId);
-  batchTimeoutId = setTimeout(printWarning, 0);
+  batchTimeoutId = setTimeout(printWarning, 100);
 
   return options;
 }
