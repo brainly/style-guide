@@ -18,7 +18,7 @@ export function StaggeredMotion() {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <Stage className="sg-space-y-xs" portrait>
+    <Stage className="sg-space-y-xs" format="portrait">
       <Button type="outline" onClick={() => setOpen(b => !b)} fullWidth>
         {open ? 'close' : 'open'}
       </Button>

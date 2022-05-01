@@ -54,7 +54,7 @@ export function OffsetBehavior() {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   return (
-    <Stage portrait>
+    <Stage format="portrait">
       <Transition active={isExpanded} effect={containerSlideEffect}>
         <Bubble
           color="blue-30"

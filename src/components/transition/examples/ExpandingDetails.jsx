@@ -14,7 +14,7 @@ export function ExpandingDetails() {
   const containerRef = React.useRef(null);
 
   return (
-    <Stage ref={containerRef} className="sg-space-y-xs" portrait>
+    <Stage ref={containerRef} className="sg-space-y-xs" format="portrait">
       <ExpandableBox
         color="red"
         containerRef={containerRef}

@@ -6,10 +6,10 @@ import Text from '../../../text/Text';
 
 type PropsType = $ReadOnly<{
   children: React.Node,
+  format?: 'portrait' | 'landscape' | 'listitem',
   className?: string,
   description?: string,
   centered?: boolean,
-  portrait?: boolean,
   overflowHidden?: boolean,
   onClick?: () => void,
 }>;
@@ -19,14 +19,20 @@ const centeredStyle = {
   alignItems: 'center',
 };
 
+const formats = {
+  portrait: [320, 568],
+  landscape: [640, 400],
+  listitem: [250, 200],
+};
+
 const Stage = React.forwardRef<PropsType, HTMLElement>(
   (
     {
       children,
+      format = 'landscape',
       className,
       description,
       centered,
-      portrait,
       overflowHidden,
       onClick,
     }: PropsType,
@@ -35,8 +41,8 @@ const Stage = React.forwardRef<PropsType, HTMLElement>(
     <Box
       style={{
         cursor: onClick !== undefined ? 'pointer' : 'default',
-        width: portrait ? 320 : 640,
-        height: portrait ? 568 : 400,
+        width: formats[format][0],
+        height: formats[format][1],
         padding: 0,
       }}
       onClick={onClick}

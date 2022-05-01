@@ -6,8 +6,6 @@ import Text from '../text/Text';
 
 import Transition from './Transition';
 
-export * from './examples';
-
 export default {
   title: 'Components/Transition',
   component: Transition,
@@ -68,3 +66,5 @@ export const Default = (args: any) => (
     </Box>
   </Transition>
 );
+
+export * from './examples';
