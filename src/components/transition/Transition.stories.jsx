@@ -67,4 +67,4 @@ export const Default = (args: any) => (
   </Transition>
 );
 
-export * from './examples';
+export * from './stories';
