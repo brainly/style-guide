@@ -22,6 +22,7 @@ export function CurvedMovement() {
 
   const elementRef = React.useRef(null);
   const containerRef = React.useRef(null);
+  const prevTransformation = React.useRef();
   const transformation = useTransformationState({
     elementRef,
     containerRef,
@@ -29,10 +30,14 @@ export function CurvedMovement() {
   });
 
   React.useLayoutEffect(() => {
-    if (transformation.diffTop === 0) {
+    if (
+      transformation.diffTop === 0 ||
+      transformation === prevTransformation.current
+    ) {
       return;
     }
 
+    prevTransformation.current = transformation;
     const origin = 'left top';
     const duration = 240;
 
