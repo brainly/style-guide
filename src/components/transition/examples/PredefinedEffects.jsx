@@ -1,6 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
+import Flex from '../../flex/Flex';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
@@ -11,17 +12,11 @@ const predefinedEffectTypes = Object.keys(predefinedEffects);
 
 export function PredefinedEffects() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 16,
-      }}
-    >
+    <Flex style={{gap: 16}} wrap>
       {predefinedEffectTypes.map(type => (
         <PredefinedEffect key={type} type={type} />
       ))}
-    </div>
+    </Flex>
   );
 }
 

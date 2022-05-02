@@ -1,5 +1,6 @@
 // @flow strict
 
+export * from './FillMode';
 export * from './PredefinedEffects';
 export * from './PrefersReducedMotion';
 export * from './CurvedMovement';
