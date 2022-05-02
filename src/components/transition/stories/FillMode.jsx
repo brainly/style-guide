@@ -51,8 +51,10 @@ export function FillMode() {
           {isActive ? 'inactive' : 'active'}
         </Button>
 
-        <Text size="small" color="text-gray-50">
-          An active effect appears a shrinking circle with a 1s delay.
+        <Text size="small" color="text-gray-50" align="to-center">
+          An active effect spawns a shrinking circle with a 1s delay,
+          <br />
+          inside the parent container.
         </Text>
       </Flex>
     </Flex>
