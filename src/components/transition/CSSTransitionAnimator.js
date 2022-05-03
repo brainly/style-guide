@@ -23,16 +23,16 @@ export function createCSSTransitionAnimator(
    * order that is required to track possible changes.
    *
    * @example
-   * [prevState, nextState]
+   * [prevState, currentState]
    */
   const parsedPropsHistory: [
     ParsedPropertyObjectType,
     ParsedPropertyObjectType
   ] = [DEFAULT_PARSED_PROPS, DEFAULT_PARSED_PROPS];
 
-  const pushHistoryState = (nextParsedProps: ParsedPropertyObjectType) => {
+  const pushState = (currentParsedProps: ParsedPropertyObjectType) => {
     parsedPropsHistory[0] = parsedPropsHistory[1];
-    parsedPropsHistory[1] = nextParsedProps;
+    parsedPropsHistory[1] = currentParsedProps;
   };
 
   const hasLastChangedValue = (prop: string) =>
@@ -60,7 +60,7 @@ export function createCSSTransitionAnimator(
     if (props !== undefined) {
       const parsedProps = parsePropertyObject(props);
 
-      pushHistoryState(parsedProps);
+      pushState(parsedProps);
       addElementStyles({
         element,
         transitioned: false,
@@ -77,10 +77,10 @@ export function createCSSTransitionAnimator(
     speed?: number
   ) {
     if (from !== undefined) {
-      pushHistoryState(parsePropertyObject(from));
+      pushState(parsePropertyObject(from));
     }
     if (to !== undefined) {
-      pushHistoryState(parsePropertyObject(to));
+      pushState(parsePropertyObject(to));
     }
 
     /**
@@ -225,7 +225,7 @@ export function createCSSTransitionAnimator(
     apply,
     animate,
     cleanup: (element: HTMLElement) => {
-      pushHistoryState(DEFAULT_PARSED_PROPS);
+      pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);
     },
     finished: () => --remainingPropsToChange <= 0,

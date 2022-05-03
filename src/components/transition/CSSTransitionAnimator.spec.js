@@ -29,24 +29,18 @@ describe('createCSSTransitionAnimator()', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
 
-    const fromProps = {
-      transform: {translateY: 24},
-      opacity: 0,
-    };
-    const toProps = {
-      transform: {
-        translateY: 0,
-        easing: 'entry',
-        duration: 'moderate2',
+    animator.animate(
+      element,
+      {
+        transform: {translateY: 24},
+        opacity: 0,
       },
-      opacity: {
-        value: 1,
-        easing: 'linear',
-        duration: 'quick2',
-      },
-    };
+      {
+        transform: {translateY: 0, easing: 'entry', duration: 'moderate2'},
+        opacity: {value: 1, easing: 'linear', duration: 'quick2'},
+      }
+    );
 
-    animator.animate(element, fromProps, toProps);
     expect(styleChanges).toEqual([
       {willChange: 'transform, opacity'},
       {transform: 'translate3d(0px, 24px, 0px) scale3d(1, 1, 1)'},
@@ -102,48 +96,65 @@ describe('createCSSTransitionAnimator()', () => {
     ]);
   });
 
-  it('returns finished equals true after transition of the last property', () => {
+  it('returns finished after transition of the last property', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
 
-    const fromProps = {
-      transform: {translateY: 24},
-      opacity: 0,
-    };
-    const toProps = {
-      transform: {
-        translateY: 0,
-        easing: 'entry',
-        duration: 'moderate2',
+    animator.animate(
+      element,
+      {
+        transform: {translateY: 24},
+        opacity: 0,
       },
-      opacity: {
-        value: 1,
-        easing: 'linear',
-        duration: 'quick2',
-      },
-    };
+      {
+        transform: {translateY: 0, easing: 'entry', duration: 'moderate2'},
+        opacity: {value: 1, easing: 'linear', duration: 'quick2'},
+      }
+    );
 
-    animator.animate(element, fromProps, toProps);
-    expect(animator.finished()).toBe(false); // opacity
-    expect(animator.finished()).toBe(true); // transform
+    expect(animator.finished()).toBe(false); // opacity property
+    expect(animator.finished()).toBe(true); // transform property
+    expect(animator.finished()).toBe(true);
   });
 
-  it('returns finished equals true after a single property', () => {
+  it('returns finished after transition of a single property', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
 
-    const fromProps = {
-      opacity: 0,
-    };
-    const toProps = {
-      opacity: {
-        value: 1,
-        easing: 'linear',
-        duration: 'quick2',
-      },
-    };
+    animator.animate(
+      element,
+      {opacity: 0},
+      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
+    );
 
-    animator.animate(element, fromProps, toProps);
-    expect(animator.finished()).toBe(true); // opacity
+    expect(animator.finished()).toBe(true);
+    expect(animator.finished()).toBe(true);
+  });
+
+  it('returns finished after changing the animation', () => {
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    animator.animate(
+      element,
+      {opacity: 0},
+      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
+    );
+
+    animator.animate(
+      element,
+      {
+        transform: {translateY: 24},
+        opacity: 0,
+      },
+      {
+        transform: {translateY: 0, easing: 'entry', duration: 'moderate2'},
+        opacity: {value: 1, easing: 'linear', duration: 'quick2'},
+      }
+    );
+
+    expect(animator.finished()).toBe(false);
+    expect(animator.finished()).toBe(true);
+    expect(animator.finished()).toBe(true);
   });
 });
