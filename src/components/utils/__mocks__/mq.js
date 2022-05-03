@@ -14,7 +14,7 @@ interface MediaQueryList {
 }
 
 type MediaQueryListenerType = (
-  thisd: MediaQueryList,
+  thisList: MediaQueryList,
   ev: MediaQueryListEvent
 ) => void;
 
@@ -53,7 +53,7 @@ export default class MatchMedia {
 
             this.removeListener(query, listener);
           },
-          dispatchEvent: jest.fn(),
+          dispatchEvent: () => false,
         };
 
         return this.mediaQueryList;
@@ -97,6 +97,7 @@ export default class MatchMedia {
     };
 
     this.mediaQueries[mediaQuery].forEach(listener => {
+      // $FlowFixMe
       listener.call(this.mediaQueryList, mqListEvent);
     });
   }

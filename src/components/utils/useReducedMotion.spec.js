@@ -1,4 +1,4 @@
-import useReducedMotion from './index';
+import useReducedMotion from './useReducedMotion';
 import {act, renderHook} from '@testing-library/react-hooks';
 
 import MatchMedia from './__mocks__/mq';
