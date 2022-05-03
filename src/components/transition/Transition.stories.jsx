@@ -9,6 +9,11 @@ import Transition from './Transition';
 export default {
   title: 'Components/Transition',
   component: Transition,
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+    },
+  },
   argTypes: {
     children: {
       control: {
@@ -25,6 +30,18 @@ export default {
       action: 'onTransitionEnd',
       table: {
         category: 'Events',
+      },
+    },
+    debug: {
+      table: {
+        category: 'Mode',
+        type: {
+          summary:
+            'window.sgTransitionDebug = {speed?: number, outlines?: boolean}',
+        },
+        defaultValue: {
+          summary: 'undefined',
+        },
       },
     },
   },

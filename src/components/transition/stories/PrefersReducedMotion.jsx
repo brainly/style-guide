@@ -50,4 +50,10 @@ export function PrefersReducedMotion() {
 
 PrefersReducedMotion.parameters = {
   layout: 'centered',
+  docs: {
+    description: {
+      story:
+        'Enable reduce motion in **System Preferences > Accessibility** to see different results.',
+    },
+  },
 };
