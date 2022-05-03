@@ -40,3 +40,11 @@ function PredefinedEffect({type}: {type: PredefinedEffectType}) {
     </Stage>
   );
 }
+
+PredefinedEffects.parameters = {
+  docs: {
+    description: {
+      story: 'Component static method `Transition.createEffect(options)`.',
+    },
+  },
+};
