@@ -23,24 +23,20 @@ import Checkbox from './Checkbox';
 
 ## Stories
 
-### Types
+### Default variant
 
 <Canvas>
-  <Story name="Types">
+  <Story name="Default variant">
     {args => (
       <div>
-        <StoryVariantTable>
+        <StoryVariantTable className="sg-story-variant-table--align-items-top">
           <thead>
             <tr>
               {[
                 null,
-                'default',
+                'standalone',
                 'with label',
                 'with label and description',
-                'checked',
-                'disabled',
-                'error',
-                'indeterminate',
               ].map((name, index) => (
                 <th>
                   <Headline
@@ -48,8 +44,8 @@ import Checkbox from './Checkbox';
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color="text-gray-40"
-                    size="medium"
+                    color="text-gray-70"
+                    size="small"
                   >
                     {name}
                   </Headline>
@@ -58,130 +54,65 @@ import Checkbox from './Checkbox';
             </tr>
           </thead>
           <tbody>
-            {['default', 'light'].map(checkboxType => (
-              <tr
-                style={{
-                  backgroundColor:
-                    checkboxType === 'default' ? 'transparent' : '#000',
-                }}
-                key={checkboxType}
-              >
+            {[
+              {type: 'disabled', props: {disabled: true}},
+              {type: 'enabled', props: {}},
+              {
+                type: 'error',
+                props: {invalid: true, errorMessage: 'Error message'},
+              },
+            ].map(checkboxType => (
+              <tr key={checkboxType.type}>
                 <td>
+                  <Headline bold color="text-gray-50" size="xsmall">
+                    State
+                  </Headline>
                   <Headline
                     extraBold
                     transform="uppercase"
                     type="span"
-                    color="text-gray-40"
-                    size="medium"
+                    color="text-gray-70"
+                    size="small"
                   >
-                    {checkboxType}
+                    {checkboxType.type}
                   </Headline>
                 </td>
                 <td>
-                  <Flex justifyContent="center">
-                    <Checkbox type={checkboxType} />
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props} errorMessage={null} />
+                    <Checkbox
+                      {...checkboxType.props}
+                      checked
+                      errorMessage={null}
+                    />
                   </Flex>
                 </td>
                 <td>
-                  <Flex justifyContent="center">
-                    <Checkbox type={checkboxType}>Checkbox label</Checkbox>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
+                    <Checkbox {...checkboxType.props} checked>
+                      Checkbox label
+                    </Checkbox>
                   </Flex>
                 </td>
                 <td>
                   <Flex
-                    justifyContent="center"
-                    direction="column"
+                    alignItems="center"
                     style={{
                       maxWidth: '300px',
                     }}
+                    direction="column"
                   >
                     <Checkbox
-                      type={checkboxType}
-                      checked
+                      {...checkboxType.props}
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
                       Checkbox label
                     </Checkbox>
                     <Checkbox
-                      type={checkboxType}
-                      description={
-                        <Text inherited>
-                          Custom description about this element. You can use
-                          here even some{' '}
-                          <Text
-                            inherited
-                            color="text-indigo-60"
-                            type="span"
-                            weight="bold"
-                          >
-                            formatting and links
-                          </Text>
-                          .
-                        </Text>
-                      }
-                    >
-                      Checkbox label
-                    </Checkbox>
-                  </Flex>
-                </td>
-                <td>
-                  <Flex justifyContent="center">
-                    <Checkbox checked type={checkboxType}>
-                      Checkbox label
-                    </Checkbox>
-                  </Flex>
-                </td>
-                <td>
-                  <Flex justifyContent="center" direction="column">
-                    <Checkbox disabled type={checkboxType}>
-                      Checkbox label
-                    </Checkbox>
-                    <Checkbox disabled checked type={checkboxType}>
-                      Checkbox label
-                    </Checkbox>
-                    <Checkbox
-                      disabled
-                      invalid
-                      errorMessage="Error message"
-                      type={checkboxType}
-                    >
-                      Checkbox label
-                    </Checkbox>
-                    <Checkbox
-                      disabled
+                      {...checkboxType.props}
                       checked
-                      invalid
-                      errorMessage="Error message"
-                      type={checkboxType}
-                    >
-                      Checkbox label
-                    </Checkbox>
-                  </Flex>
-                </td>
-                <td>
-                  <Flex justifyContent="center" direction="column">
-                    <Checkbox invalid type={checkboxType} />
-                    <Checkbox
-                      invalid
-                      errorMessage="Error message"
-                      type={checkboxType}
-                    >
-                      Checkbox label
-                    </Checkbox>
-                    <Checkbox
-                      invalid
-                      errorMessage="Error message"
-                      checked
-                      type={checkboxType}
-                    >
-                      Checkbox label
-                    </Checkbox>
-                    <Checkbox
-                      invalid
-                      errorMessage="Error message"
-                      checked
-                      type={checkboxType}
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
@@ -189,9 +120,121 @@ import Checkbox from './Checkbox';
                     </Checkbox>
                   </Flex>
                 </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Light variant
+
+<Canvas>
+  <Story name="Light variant">
+    {args => (
+      <div>
+        <StoryVariantTable className="sg-story-variant-table--align-items-top">
+          <thead>
+            <tr>
+              {[
+                null,
+                'standalone',
+                'with label',
+                'with label and description',
+              ].map((name, index) => (
+                <th>
+                  <Headline
+                    key={index}
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {name}
+                  </Headline>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {type: 'disabled', props: {disabled: true, variant: 'light'}},
+              {type: 'enabled', props: {variant: 'light'}},
+              {
+                type: 'error',
+                props: {
+                  invalid: true,
+                  errorMessage: 'Error message',
+                  variant: 'light',
+                },
+              },
+            ].map(checkboxType => (
+              <tr
+                key={checkboxType.type}
+                style={{
+                  backgroundColor: '#000',
+                }}
+              >
+                <td
+                  style={{
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <Headline bold color="text-gray-50" size="xsmall">
+                    State
+                  </Headline>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {checkboxType.type}
+                  </Headline>
+                </td>
                 <td>
-                  <Flex justifyContent="center" direction="column">
-                    <Checkbox indeterminate type={checkboxType}>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props} errorMessage={null} />
+                    <Checkbox
+                      {...checkboxType.props}
+                      checked
+                      errorMessage={null}
+                    />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
+                    <Checkbox {...checkboxType.props} checked>
+                      Checkbox label
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex
+                    alignItems="center"
+                    style={{
+                      maxWidth: '300px',
+                    }}
+                    direction="column"
+                  >
+                    <Checkbox
+                      {...checkboxType.props}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      checked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
                       Checkbox label
                     </Checkbox>
                   </Flex>
