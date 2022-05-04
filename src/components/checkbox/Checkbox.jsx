@@ -8,7 +8,7 @@ import {__DEV__, invariant} from '../utils';
 import Text from '../text/Text';
 import CheckboxIcon from './CheckboxIcon';
 
-type CheckboxType = 'default' | 'light';
+type CheckboxVariant = 'default' | 'light';
 
 export type CheckboxPropsType = {
   checked?: boolean,
@@ -24,7 +24,7 @@ export type CheckboxPropsType = {
   required?: boolean,
   name?: string,
   onChange: any,
-  type: CheckboxType,
+  variant: CheckboxVariant,
   ...
 };
 
@@ -42,7 +42,7 @@ const Checkbox = ({
   required = false,
   name,
   onChange,
-  type = 'default',
+  variant = 'default',
   ...props
 }: CheckboxPropsType) => {
   const [isChecked, setIsChecked] = React.useState(
@@ -72,7 +72,7 @@ const Checkbox = ({
 
   const checkboxClass = cx('sg-checkbox-new', className, {
     'sg-checkbox-new--disabled': disabled,
-    [`sg-checkbox-new--${String(type)}`]: type,
+    [`sg-checkbox-new--${String(variant)}`]: variant,
   });
 
   if (__DEV__) {
