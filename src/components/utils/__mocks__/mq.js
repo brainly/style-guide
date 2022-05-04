@@ -86,7 +86,7 @@ export default class MatchMedia {
     query.splice(listenerIndex, 1);
   }
 
-  useMediaQuery(mediaQuery: string): void {
+  updateMediaQuery(mediaQuery: string): void {
     if (typeof mediaQuery !== 'string')
       throw new Error('Media Query must be a string');
 
@@ -101,10 +101,6 @@ export default class MatchMedia {
       listener // $FlowFixMe
         .call(this.mediaQueryList, mqListEvent);
     });
-  }
-
-  getMediaQuery(): string {
-    return Object.keys(this.mediaQueries)[0];
   }
 
   clear() {

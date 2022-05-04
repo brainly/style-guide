@@ -37,11 +37,11 @@ describe('useReducedMotion', () => {
     const {result} = renderHook(() => useReducedMotion());
 
     expect(result.current).toBe(false);
-    act(() => matchMedia.useMediaQuery(MOTION_MQ.reduced));
+    act(() => matchMedia.updateMediaQuery(MOTION_MQ.reduced));
     expect(result.current).toBe(true);
-    act(() => matchMedia.useMediaQuery(MOTION_MQ.default));
+    act(() => matchMedia.updateMediaQuery(MOTION_MQ.default));
     expect(result.current).toBe(false);
-    act(() => matchMedia.useMediaQuery(MOTION_MQ.reduced));
+    act(() => matchMedia.updateMediaQuery(MOTION_MQ.reduced));
     expect(result.current).toBe(true);
   });
 });
