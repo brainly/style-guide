@@ -80,6 +80,10 @@ const Checkbox = ({
       !(errorMessage && !invalid),
       `Using 'errorMessage' property has no effect when 'invalid' property is not set.`
     );
+    invariant(
+      !(errorMessage && !children),
+      `Using 'errorMessage' property should be used along with 'children' property (label).`
+    );
   }
 
   return (
