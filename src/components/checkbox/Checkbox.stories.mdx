@@ -85,12 +85,20 @@ import Checkbox from './Checkbox';
                       checked
                       errorMessage={null}
                     />
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      errorMessage={null}
+                    />
                   </Flex>
                 </td>
                 <td>
                   <Flex alignItems="center" direction="column">
                     <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
                     <Checkbox {...checkboxType.props} checked>
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox {...checkboxType.props} indeterminate>
                       Checkbox label
                     </Checkbox>
                   </Flex>
@@ -113,6 +121,14 @@ import Checkbox from './Checkbox';
                     <Checkbox
                       {...checkboxType.props}
                       checked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
@@ -204,12 +220,20 @@ import Checkbox from './Checkbox';
                       checked
                       errorMessage={null}
                     />
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      errorMessage={null}
+                    />
                   </Flex>
                 </td>
                 <td>
                   <Flex alignItems="center" direction="column">
                     <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
                     <Checkbox {...checkboxType.props} checked>
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox {...checkboxType.props} indeterminate>
                       Checkbox label
                     </Checkbox>
                   </Flex>
@@ -232,6 +256,14 @@ import Checkbox from './Checkbox';
                     <Checkbox
                       {...checkboxType.props}
                       checked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
