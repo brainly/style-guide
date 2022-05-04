@@ -24,6 +24,11 @@ const createMockedElement = () => {
   };
 };
 
+const createMockedEvent = target => ({
+  target,
+  currentTarget: target,
+});
+
 describe('createCSSTransitionAnimator()', () => {
   it('animates based on given PropertyObjects', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
@@ -150,9 +155,56 @@ describe('createCSSTransitionAnimator()', () => {
     ]);
   });
 
-  it('returns finished after transition of the last property', () => {
+  it('calls onFinish callback after transition of the last property', () => {
+    const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
+    animator.onFinish(callback);
+    animator.animate(
+      element,
+      {
+        transform: {translateY: 24},
+        opacity: 0,
+      },
+      {
+        transform: {translateY: 0, easing: 'entry', duration: 'moderate2'},
+        opacity: {value: 1, easing: 'linear', duration: 'quick2'},
+      }
+    );
+
+    animator.transitionEnd(createMockedEvent(element));
+    animator.transitionEnd(createMockedEvent(element));
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls onFinish callback after transition of a single property', () => {
+    const callback = jest.fn();
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    animator.onFinish(callback);
+    animator.animate(
+      element,
+      {opacity: 0},
+      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
+    );
+
+    animator.transitionEnd(createMockedEvent(element));
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls onFinish callback after changing the animation', () => {
+    const callback = jest.fn();
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    animator.onFinish(callback);
+    animator.animate(
+      element,
+      {opacity: 0},
+      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
+    );
 
     animator.animate(
       element,
@@ -166,35 +218,19 @@ describe('createCSSTransitionAnimator()', () => {
       }
     );
 
-    expect(animator.finished()).toBe(false); // opacity property
-    expect(animator.finished()).toBe(true); // transform property
-    expect(animator.finished()).toBe(true);
+    animator.transitionEnd(createMockedEvent(element));
+    expect(callback).toHaveBeenCalledTimes(0);
+
+    animator.transitionEnd(createMockedEvent(element));
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 
-  it('returns finished after transition of a single property', () => {
+  it('calls onFinish callback only once after each animation', () => {
+    const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
 
-    animator.animate(
-      element,
-      {opacity: 0},
-      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
-    );
-
-    expect(animator.finished()).toBe(true);
-    expect(animator.finished()).toBe(true);
-  });
-
-  it('returns finished after changing the animation', () => {
-    const animator = createCSSTransitionAnimator(classNamesRegistry);
-    const element = document.createElement('div');
-
-    animator.animate(
-      element,
-      {opacity: 0},
-      {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
-    );
-
+    animator.onFinish(callback);
     animator.animate(
       element,
       {
@@ -207,8 +243,10 @@ describe('createCSSTransitionAnimator()', () => {
       }
     );
 
-    expect(animator.finished()).toBe(false);
-    expect(animator.finished()).toBe(true);
-    expect(animator.finished()).toBe(true);
+    animator.transitionEnd(createMockedEvent(element));
+    animator.transitionEnd(createMockedEvent(element));
+    animator.transitionEnd(createMockedEvent(element));
+    animator.transitionEnd(createMockedEvent(element));
+    expect(callback).toHaveBeenCalledTimes(1);
   });
 });

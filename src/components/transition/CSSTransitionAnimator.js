@@ -39,8 +39,9 @@ export function createCSSTransitionAnimator(
     history[0][prop].value !== history[1][prop].value;
 
   /**
-   * The amount of actual CSS `transition-properties` that
-   * will change during a single transition motion.
+   * A single animation may include multiple CSS transitions
+   * of different properties and the animator should invoke
+   * finish callback only after all of them.
    *
    * @example
    * ```css
@@ -48,6 +49,7 @@ export function createCSSTransitionAnimator(
    * ```
    */
   let remainingPropsToChange: number = 0;
+  let finishCallbackRef = null;
 
   function animate(
     element: HTMLElement,
@@ -217,6 +219,18 @@ export function createCSSTransitionAnimator(
       pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);
     },
-    finished: () => --remainingPropsToChange <= 0,
+    transitionEnd: (event: TransitionEvent) => {
+      // ignores bubbling events of its own descendants
+      if (event.target !== event.currentTarget) {
+        return;
+      }
+
+      if (--remainingPropsToChange === 0 && finishCallbackRef) {
+        finishCallbackRef();
+      }
+    },
+    onFinish: (callback: () => void) => {
+      finishCallbackRef = callback;
+    },
   };
 }

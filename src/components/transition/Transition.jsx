@@ -288,32 +288,24 @@ function BaseTransition({
     performTransitionEffect();
   }, [animator, active, currentEffect, delay, fillMode]);
 
-  const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
-      // ignores transitions of its own descendants
-      if (event.target !== event.currentTarget) {
-        return;
-      }
+  animator.onFinish(() => {
+    const container = containerRef.current;
 
-      if (animator.finished()) {
-        const container = containerRef.current;
+    if (container && !isFillModeForwards(fillMode)) {
+      animator.cleanup(container);
+    }
 
-        if (container && !isFillModeForwards(fillMode)) {
-          animator.cleanup(container);
-        }
-
-        if (onTransitionEnd && currentEffect) {
-          onTransitionEnd(currentEffect);
-        }
-      }
-    },
-    [animator, onTransitionEnd, currentEffect, fillMode]
-  );
+    if (onTransitionEnd && currentEffect) {
+      onTransitionEnd(currentEffect);
+    }
+  });
 
   return (
     <div
       ref={containerRef}
-      onTransitionEnd={supportsTransitions() ? handleTransitionEnd : undefined}
+      onTransitionEnd={
+        supportsTransitions() ? animator.transitionEnd : undefined
+      }
     >
       {children}
     </div>
