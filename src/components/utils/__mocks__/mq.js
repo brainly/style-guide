@@ -1,5 +1,7 @@
 // @flow strict
 
+import {MEDIA_QUERY} from '../useReducedMotion';
+
 interface MediaQueryList {
   matches: boolean;
   media: string;
@@ -26,15 +28,16 @@ export default class MatchMedia {
 
   mediaQueryList: MediaQueryList;
 
-  currentMediaQuery: string;
+  userCurrentMediaQuery: string;
 
-  constructor() {
+  constructor(initialQuery: string) {
+    this.userCurrentMediaQuery = initialQuery;
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       configurable: true,
       value: (query: string): MediaQueryList => {
         this.mediaQueryList = {
-          matches: query === this.currentMediaQuery,
+          matches: query === this.userCurrentMediaQuery,
           media: query,
           onchange: null,
           addListener: listener => {
@@ -53,7 +56,7 @@ export default class MatchMedia {
 
             this.removeListener(query, listener);
           },
-          dispatchEvent: () => false,
+          dispatchEvent: () => true,
         };
 
         return this.mediaQueryList;
@@ -87,23 +90,21 @@ export default class MatchMedia {
     if (typeof mediaQuery !== 'string')
       throw new Error('Media Query must be a string');
 
-    this.currentMediaQuery = mediaQuery;
-
-    if (!this.mediaQueries[mediaQuery]) return;
+    this.userCurrentMediaQuery = mediaQuery;
 
     const mqListEvent = {
-      matches: true,
-      media: mediaQuery,
+      media: MEDIA_QUERY,
+      matches: this.userCurrentMediaQuery === MEDIA_QUERY,
     };
 
-    this.mediaQueries[mediaQuery].forEach(listener => {
-      // $FlowFixMe
-      listener.call(this.mediaQueryList, mqListEvent);
+    this.mediaQueries[MEDIA_QUERY].forEach(listener => {
+      listener // $FlowFixMe
+        .call(this.mediaQueryList, mqListEvent);
     });
   }
 
-  getMediaQueries(): Array<string> {
-    return Object.keys(this.mediaQueries);
+  getMediaQuery(): string {
+    return Object.keys(this.mediaQueries)[0];
   }
 
   clear() {
