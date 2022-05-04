@@ -1,0 +1,93 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Media, {COLORS_MAP} from './Media';
+import Text from '../text/Text';
+import Avatar from '../avatar/Avatar';
+import Flex from '../flex/Flex';
+import MediaA11y from './stories/Media.a11y.mdx';
+
+<Meta
+  title="Components/Media"
+  component={Media}
+  parameters={{
+    backgrounds: {
+      default: 'gray-40',
+    },
+  }}
+  argTypes={{
+    aside: {
+      control: {
+        disable: true,
+      },
+    },
+    contentArray: {
+      control: {
+        disable: true,
+      },
+    },
+    className: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    aside: (
+      <Avatar imgSrc="https://images.unsplash.com/photo-1645287628160-c7d824ebf16f?w=200" />
+    ),
+    contentArray: [<Text weight="bold">The Goat</Text>, 'Master'],
+  }}
+/>
+
+# Media
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Media {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### To right
+
+<Canvas>
+  <Story name="To right" args={{toRight: true}}>
+    {args => <Media {...args} />}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex alignItems="flex-end" wrap="true">
+        {Object.values(COLORS_MAP).map(color => (
+          <StoryVariant label={color} width={200} key={color}>
+            <Media {...args} key={color} color={color} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Clickable
+
+<Canvas>
+  <Story name="Clickable" args={{clickable: true, color: 'gray-20'}}>
+    {args => <Media {...args} />}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<MediaA11y />

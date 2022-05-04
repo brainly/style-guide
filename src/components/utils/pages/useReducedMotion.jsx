@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import DocsBlock from 'components/DocsBlock';
-import Link from '../../../text/Link';
+import Link from '../../text/Link';
 
 const ReducedMotion = () => {
   return (
