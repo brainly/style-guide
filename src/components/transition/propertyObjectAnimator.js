@@ -10,6 +10,6 @@ export interface PropertyObjectAnimatorType {
     speed?: number
   ): void;
   cleanup(element: HTMLElement): void;
-  transitionEnd(event: TransitionEvent): void;
+  propertyTransitionEnd(): void;
   onFinish(callback: () => void): void;
 }

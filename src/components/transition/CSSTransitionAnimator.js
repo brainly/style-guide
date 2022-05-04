@@ -219,12 +219,7 @@ export function createCSSTransitionAnimator(
       pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);
     },
-    transitionEnd: (event: TransitionEvent) => {
-      // ignores bubbling events of its own descendants
-      if (event.target !== event.currentTarget) {
-        return;
-      }
-
+    propertyTransitionEnd: () => {
       if (--remainingPropsToChange === 0 && finishCallbackRef) {
         finishCallbackRef();
       }

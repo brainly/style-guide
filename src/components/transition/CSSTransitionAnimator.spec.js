@@ -24,11 +24,6 @@ const createMockedElement = () => {
   };
 };
 
-const createMockedEvent = target => ({
-  target,
-  currentTarget: target,
-});
-
 describe('createCSSTransitionAnimator()', () => {
   it('animates based on given PropertyObjects', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
@@ -173,8 +168,8 @@ describe('createCSSTransitionAnimator()', () => {
       }
     );
 
-    animator.transitionEnd(createMockedEvent(element));
-    animator.transitionEnd(createMockedEvent(element));
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
@@ -190,7 +185,7 @@ describe('createCSSTransitionAnimator()', () => {
       {opacity: {value: 1, easing: 'linear', duration: 'quick2'}}
     );
 
-    animator.transitionEnd(createMockedEvent(element));
+    animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
@@ -218,10 +213,10 @@ describe('createCSSTransitionAnimator()', () => {
       }
     );
 
-    animator.transitionEnd(createMockedEvent(element));
+    animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(0);
 
-    animator.transitionEnd(createMockedEvent(element));
+    animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(1);
   });
 
@@ -243,10 +238,10 @@ describe('createCSSTransitionAnimator()', () => {
       }
     );
 
-    animator.transitionEnd(createMockedEvent(element));
-    animator.transitionEnd(createMockedEvent(element));
-    animator.transitionEnd(createMockedEvent(element));
-    animator.transitionEnd(createMockedEvent(element));
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(1);
   });
 });

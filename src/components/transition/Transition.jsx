@@ -288,6 +288,16 @@ function BaseTransition({
     performTransitionEffect();
   }, [animator, active, currentEffect, delay, fillMode]);
 
+  const handleTransitionEnd = React.useCallback(
+    (event: TransitionEvent) => {
+      // ignores bubbling events of its own descendants
+      if (event.target === event.currentTarget) {
+        animator.propertyTransitionEnd();
+      }
+    },
+    [animator]
+  );
+
   animator.onFinish(() => {
     const container = containerRef.current;
 
@@ -303,9 +313,7 @@ function BaseTransition({
   return (
     <div
       ref={containerRef}
-      onTransitionEnd={
-        supportsTransitions() ? animator.transitionEnd : undefined
-      }
+      onTransitionEnd={supportsTransitions() ? handleTransitionEnd : undefined}
     >
       {children}
     </div>
