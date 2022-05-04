@@ -246,7 +246,7 @@ function BaseTransition({
     }
 
     if (supportsTransitions() && isFillModeBackwards(fillMode)) {
-      animator.apply(container, rules.from);
+      animator.animate(container, rules.from);
     }
 
     const performTransitionEffect = () => {

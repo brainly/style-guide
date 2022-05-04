@@ -6,7 +6,7 @@ import type {ParsedPropertyObjectType} from './propertyObject';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import type {PropertyObjectType} from './Transition';
 
-type WillChangePropsType = $ReadOnly<{
+type CSSTransitionedPropsType = $ReadOnly<{
   transform: boolean,
   width: boolean,
   height: boolean,
@@ -25,25 +25,18 @@ export function createCSSTransitionAnimator(
    * @example
    * [prevState, currentState]
    */
-  const parsedPropsHistory: [
-    ParsedPropertyObjectType,
-    ParsedPropertyObjectType
-  ] = [DEFAULT_PARSED_PROPS, DEFAULT_PARSED_PROPS];
+  const history: [ParsedPropertyObjectType, ParsedPropertyObjectType] = [
+    DEFAULT_PARSED_PROPS,
+    DEFAULT_PARSED_PROPS,
+  ];
 
-  const pushState = (currentParsedProps: ParsedPropertyObjectType) => {
-    parsedPropsHistory[0] = parsedPropsHistory[1];
-    parsedPropsHistory[1] = currentParsedProps;
+  const pushState = (current: ParsedPropertyObjectType) => {
+    history[0] = history[1];
+    history[1] = current;
   };
 
   const hasLastChangedValue = (prop: string) =>
-    parsedPropsHistory[0][prop].value !== parsedPropsHistory[1][prop].value;
-
-  const getLastChangedProps = () => ({
-    transform: hasLastChangedValue('transform'),
-    width: hasLastChangedValue('width'),
-    height: hasLastChangedValue('height'),
-    opacity: hasLastChangedValue('opacity'),
-  });
+    history[0][prop].value !== history[1][prop].value;
 
   /**
    * The amount of actual CSS `transition-properties` that
@@ -56,49 +49,45 @@ export function createCSSTransitionAnimator(
    */
   let remainingPropsToChange: number = 0;
 
-  function apply(element: HTMLElement, props?: PropertyObjectType) {
-    if (props !== undefined) {
-      const parsedProps = parsePropertyObject(props);
-
-      pushState(parsedProps);
-      addElementStyles({
-        element,
-        transitioned: false,
-        parsedProps,
-        willChangeProps: getLastChangedProps(),
-      });
-    }
-  }
-
   function animate(
     element: HTMLElement,
     from?: PropertyObjectType,
     to?: PropertyObjectType,
     speed?: number
   ) {
+    let fromParsedProps, toParsedProps;
+
     if (from !== undefined) {
-      pushState(parsePropertyObject(from));
+      fromParsedProps = parsePropertyObject(from);
+      pushState(fromParsedProps);
     }
+
     if (to !== undefined) {
-      pushState(parsePropertyObject(to));
+      toParsedProps = parsePropertyObject(to);
+      pushState(toParsedProps);
     }
 
     /**
-     * We can establish which props actual will
+     * We can determine which properties will actually
      * change after pushing them into the history.
      */
-    const willChangeProps = getLastChangedProps();
+    const willChangeProps = {
+      transform: hasLastChangedValue('transform'),
+      width: hasLastChangedValue('width'),
+      height: hasLastChangedValue('height'),
+      opacity: hasLastChangedValue('opacity'),
+    };
 
     remainingPropsToChange = Object.keys(willChangeProps).reduce(
       (sum, prop) => sum + Number(willChangeProps[prop]),
       0
     );
 
-    if (from !== undefined) {
+    if (fromParsedProps !== undefined) {
       addElementStyles({
         element,
         transitioned: false,
-        parsedProps: parsedPropsHistory[0],
+        parsedProps: fromParsedProps,
         willChangeProps,
       });
 
@@ -106,11 +95,11 @@ export function createCSSTransitionAnimator(
       forceRepaint(element);
     }
 
-    if (to !== undefined) {
+    if (toParsedProps !== undefined) {
       addElementStyles({
         element,
         transitioned: true,
-        parsedProps: parsedPropsHistory[1],
+        parsedProps: toParsedProps,
         willChangeProps,
         speed,
       });
@@ -127,34 +116,35 @@ export function createCSSTransitionAnimator(
     element: HTMLElement,
     transitioned: boolean,
     parsedProps: ParsedPropertyObjectType,
-    willChangeProps: WillChangePropsType,
+    willChangeProps: CSSTransitionedPropsType,
     speed?: number,
   }) {
     const {className, transform, width, height, opacity} = parsedProps;
-    const transitionProperty = [];
-    const transitionDuration = [];
-    const transitionTimingFunction = [];
-
-    /**
-     * The transition values should follow the order
-     * of properties in each CSS Transition array, which
-     * is ensured by arrays in a loop.
-     */
-    Object.keys(willChangeProps).forEach(prop => {
-      if (willChangeProps[prop]) {
-        transitionProperty.push(prop);
-        transitionDuration.push(applySpeed(parsedProps[prop].duration, speed));
-        transitionTimingFunction.push(parsedProps[prop].easing);
-      }
-    });
 
     const combine = (a: Array<string>) => a.join(', ');
+    const willChangePropsArray = Object.keys(willChangeProps).filter(
+      prop => willChangeProps[prop]
+    );
 
     classNamesRegistry.register('transition', className);
     element.className = classNamesRegistry.toString();
-    element.style.willChange = combine(transitionProperty);
+    element.style.willChange = combine(willChangePropsArray);
 
     if (transitioned) {
+      const transitionProperty = [];
+      const transitionDuration = [];
+      const transitionTimingFunction = [];
+
+      /**
+       * The order of transitioned values should be the same
+       * in each array, which is ensured by a loop.
+       */
+      willChangePropsArray.forEach(prop => {
+        transitionProperty.push(prop);
+        transitionDuration.push(applySpeed(parsedProps[prop].duration, speed));
+        transitionTimingFunction.push(parsedProps[prop].easing);
+      });
+
       element.style.transitionProperty = combine(transitionProperty);
       element.style.transitionDuration = combine(oneOrAll(transitionDuration));
       element.style.transitionTimingFunction = combine(
@@ -222,7 +212,6 @@ export function createCSSTransitionAnimator(
   }
 
   return {
-    apply,
     animate,
     cleanup: (element: HTMLElement) => {
       pushState(DEFAULT_PARSED_PROPS);

@@ -25,7 +25,7 @@ const createMockedElement = () => {
 };
 
 describe('createCSSTransitionAnimator()', () => {
-  it('animates element based on given PropertyObjects', () => {
+  it('animates based on given PropertyObjects', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
 
@@ -58,6 +58,60 @@ describe('createCSSTransitionAnimator()', () => {
     ]);
   });
 
+  it('animates progressively without "from" argument', () => {
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const {element, styleChanges} = createMockedElement();
+
+    animator.animate(element, undefined, {
+      transform: {translateY: 10, duration: 'moderate1'},
+    });
+
+    animator.animate(element, undefined, {
+      transform: {translateY: 20, duration: 'moderate1'},
+    });
+
+    expect(styleChanges).toEqual([
+      {willChange: 'transform'},
+      {transitionProperty: 'transform'},
+      {transitionDuration: '180ms'},
+      {transitionTimingFunction: 'cubic-bezier(0.35, 0, 0.1, 1)'},
+      {transform: 'translate3d(0px, 10px, 0px) scale3d(1, 1, 1)'},
+      {transformOrigin: 'center'},
+
+      // second animate
+      {willChange: 'transform'},
+      {transitionProperty: 'transform'},
+      {transitionDuration: '180ms'},
+      {transitionTimingFunction: 'cubic-bezier(0.35, 0, 0.1, 1)'},
+      {transform: 'translate3d(0px, 20px, 0px) scale3d(1, 1, 1)'},
+      {transformOrigin: 'center'},
+    ]);
+  });
+
+  it('applies "from" progressively without "to" argument', () => {
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const {element, styleChanges} = createMockedElement();
+
+    animator.animate(element, {
+      transform: {translateY: 10, duration: 'moderate1'},
+    });
+
+    animator.animate(element, {
+      transform: {translateY: 20, duration: 'moderate1'},
+    });
+
+    expect(styleChanges).toEqual([
+      {willChange: 'transform'},
+      {transform: 'translate3d(0px, 10px, 0px) scale3d(1, 1, 1)'},
+      {transformOrigin: 'center'},
+
+      // second animate
+      {willChange: 'transform'},
+      {transform: 'translate3d(0px, 20px, 0px) scale3d(1, 1, 1)'},
+      {transformOrigin: 'center'},
+    ]);
+  });
+
   it('applies styles after cleanup', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
@@ -67,9 +121,9 @@ describe('createCSSTransitionAnimator()', () => {
       opacity: 0,
     };
 
-    animator.apply(element, props);
+    animator.animate(element, props);
     animator.cleanup(element);
-    animator.apply(element, props);
+    animator.animate(element, props);
 
     expect(styleChanges).toEqual([
       {willChange: 'transform, opacity'},
@@ -88,7 +142,7 @@ describe('createCSSTransitionAnimator()', () => {
       {height: ''},
       {opacity: ''},
 
-      // second apply method
+      // second animate
       {willChange: 'transform, opacity'},
       {transform: 'translate3d(0px, 24px, 0px) scale3d(1, 1, 1)'},
       {transformOrigin: 'center'},
