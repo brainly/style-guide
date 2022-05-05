@@ -26,20 +26,19 @@ $clickableArea: 32px;
       }
 
       .sg-checkbox-new__input {
-        &:checked + .sg-checkbox-new__icon {
-          border-color: $iconBorderHoverColor;
-          background-color: $iconBorderHoverColor;
+        &:checked,
+        &:indeterminate {
+          & + .sg-checkbox-new__icon {
+            border-color: $iconBorderHoverColor;
+            background-color: $iconBorderHoverColor;
+          }
+          &[aria-invalid] + .sg-checkbox-new__icon {
+            background-color: $invalidIconHoverColor;
+          }
         }
 
         &[aria-invalid] + .sg-checkbox-new__icon {
           border-color: $invalidIconHoverColor;
-        }
-
-        &:checked,
-        &:indeterminate {
-          &[aria-invalid] + .sg-checkbox-new__icon {
-            background-color: $invalidIconHoverColor;
-          }
         }
       }
     }
