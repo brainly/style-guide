@@ -7,7 +7,7 @@ const path = require('path');
 const fs = require('fs-extra');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
-const convert = require('@khanacademy/flow-to-ts/src/convert');
+const {convert} = require('@khanacademy/flow-to-ts/dist/convert.bundle');
 const ts = require('typescript');
 const apiExtractor = require('@microsoft/api-extractor');
 const tsConfig = require('../tsconfig.json');
@@ -77,24 +77,29 @@ files.forEach(sourceFile => {
       });
     });
 
-  const typescriptCode = convert(transformedCode, {
-    printWidth: 80,
-    singleQuote: true,
-    semi: false,
-    prettier: true,
-    inlineUtilityTypes: true,
-  });
+  try {
+    const typescriptCode = convert(transformedCode, {
+      printWidth: 80,
+      singleQuote: true,
+      semi: false,
+      prettier: true,
+      inlineUtilityTypes: true,
+    });
 
-  const sourceExtension = path.extname(sourceFile);
-  const destinationExtension = mapExtension(sourceExtension);
+    const sourceExtension = path.extname(sourceFile);
+    const destinationExtension = mapExtension(sourceExtension);
 
-  const relativeSourceFile = path.relative(SOURCE_DIR, sourceFile);
-  const outputFile = path.join(
-    DEST_DIR,
-    relativeSourceFile.replace(sourceExtension, destinationExtension)
-  );
+    const relativeSourceFile = path.relative(SOURCE_DIR, sourceFile);
+    const outputFile = path.join(
+      DEST_DIR,
+      relativeSourceFile.replace(sourceExtension, destinationExtension)
+    );
 
-  fs.outputFileSync(outputFile, typescriptCode, noop => noop);
+    fs.outputFileSync(outputFile, typescriptCode, noop => noop);
+  } catch (e) {
+    console.error(`Error converting ${sourceFile}`);
+    throw e;
+  }
 });
 
 const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
