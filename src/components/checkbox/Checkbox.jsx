@@ -88,41 +88,41 @@ const Checkbox = ({
 
   return (
     <div className={checkboxClass}>
-      <div className="sg-checkbox-new__element">
-        <input
-          ref={inputRef}
-          className="sg-checkbox-new__input"
-          id={id}
-          type="checkbox"
-          checked={isChecked}
-          name={name}
-          onChange={onInputChange}
-          disabled={disabled}
-          required={required}
-          aria-checked={indeterminate ? 'mixed' : isChecked}
-          aria-required={required}
-          aria-invalid={invalid ? true : undefined}
-          aria-describedby={invalid ? `${id}-errorText` : undefined}
-        />
-        <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
-      </div>
+      <label
+        className="sg-checkbox-new__wrapper"
+        htmlFor={id}
+        disabled={disabled}
+      >
+        <div className="sg-checkbox-new__element">
+          <input
+            ref={inputRef}
+            className="sg-checkbox-new__input"
+            id={id}
+            type="checkbox"
+            checked={isChecked}
+            name={name}
+            onChange={onInputChange}
+            disabled={disabled}
+            required={required}
+            aria-checked={indeterminate ? 'mixed' : isChecked}
+            aria-required={required}
+            aria-invalid={invalid ? true : undefined}
+            aria-describedby={invalid ? `${id}-errorText` : undefined}
+          />
+          <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
+        </div>
+        {children !== undefined && children !== null && (
+          <Text
+            size="medium"
+            type="span"
+            weight="bold"
+            className="sg-checkbox-new__label"
+          >
+            {children}
+          </Text>
+        )}
+      </label>
       <div className="sg-checkbox-new__content">
-        <label
-          className="sg-checkbox-new__wrapper"
-          htmlFor={id}
-          disabled={disabled}
-        >
-          {children !== undefined && children !== null && (
-            <Text
-              size="medium"
-              type="span"
-              weight="bold"
-              className="sg-checkbox-new__label"
-            >
-              {children}
-            </Text>
-          )}
-        </label>
         {description && (
           <Text
             className="sg-checkbox-new__description"

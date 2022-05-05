@@ -1,13 +1,12 @@
 $checkboxWidth: 16px;
 $checkboxMargin: 8px;
+$clickableArea: 32px;
 
 .sg-checkbox-new {
   @include component();
 
-  display: grid;
-  grid-template-areas: 'input content';
-  grid-template-columns: auto 1fr;
-  grid-column-gap: $checkboxMargin;
+  display: flex;
+  flex-direction: column;
 
   @mixin colorTheme(
     $iconBorderColor,
@@ -21,7 +20,7 @@ $checkboxMargin: 8px;
     $invalidIconFillColor,
     $errorMessageColor
   ) {
-    &.sg-checkbox-new:hover {
+    .sg-checkbox-new__wrapper:hover {
       .sg-checkbox-new__icon {
         border: 2px solid $iconBorderHoverColor;
       }
@@ -36,8 +35,11 @@ $checkboxMargin: 8px;
           border-color: $invalidIconHoverColor;
         }
 
-        &:checked[aria-invalid] + .sg-checkbox-new__icon {
-          background-color: $invalidIconHoverColor;
+        &:checked,
+        &:indeterminate {
+          &[aria-invalid] + .sg-checkbox-new__icon {
+            background-color: $invalidIconHoverColor;
+          }
         }
       }
     }
@@ -53,9 +55,12 @@ $checkboxMargin: 8px;
           border-color: $invalidIconHoverColor;
         }
 
-        &:checked[aria-invalid] + .sg-checkbox-new__icon {
-          border-color: $invalidIconHoverColor;
-          background-color: $invalidIconHoverColor;
+        &:checked,
+        &:indeterminate {
+          &[aria-invalid] + .sg-checkbox-new__icon {
+            border-color: $invalidIconHoverColor;
+            background-color: $invalidIconHoverColor;
+          }
         }
       }
 
@@ -129,20 +134,26 @@ $checkboxMargin: 8px;
     pointer-events: none;
   }
 
-  &__content {
-    grid-area: content;
+  &__wrapper {
     display: flex;
-    flex-direction: column;
   }
 
-  &__input,
-  &__icon {
-    width: $checkboxWidth;
-    height: $checkboxWidth;
-    margin: $checkboxMargin;
+  &__content {
+    margin-left: calc($clickableArea + $checkboxMargin);
+  }
+
+  &__element {
+    position: relative;
+    width: $clickableArea;
+    height: $clickableArea;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &__input {
+    width: 100%;
+    height: 100%;
     position: absolute;
     opacity: 0;
     top: 0;
@@ -156,14 +167,11 @@ $checkboxMargin: 8px;
     }
   }
 
-  &__element {
-    position: relative;
-    display: inline-flex;
-  }
-
   &__icon {
     position: relative;
     display: inline-block;
+    width: $checkboxWidth;
+    height: $checkboxWidth;
     min-width: $checkboxWidth;
     border-radius: $borderRadiusSmall;
 
@@ -176,7 +184,7 @@ $checkboxMargin: 8px;
 
   &__label {
     display: flex;
-    margin: 4px 0;
+    padding: 4px 0 4px $checkboxMargin;
   }
 
   &__description,
