@@ -288,8 +288,9 @@ function BaseTransition({
     };
 
     /**
-     * The outer component can delay mounting on active prop
-     * change and the base component should not wait once again.
+     * The parent Transition component can delay mounting
+     * a child BaseTransition component when the active prop
+     * changes and the child should not wait again.
      */
     const actualDelay =
       rules.canSkipDelay && !isFillModeBackwards(fillMode) ? 0 : delay;
