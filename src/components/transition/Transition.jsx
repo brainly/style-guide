@@ -167,13 +167,14 @@ function BaseTransition({
   onTransitionStart,
   onTransitionEnd,
 }: TransitionPropsType) {
+  const containerRef = React.useRef(null);
   const currentEffect = React.useMemo(() => {
-    return typeof effect === 'function'
-      ? effect(prefersReducedMotion())
-      : effect;
+    if (typeof effect === 'function') {
+      return effect(prefersReducedMotion());
+    }
+    return effect;
   }, [effect]);
 
-  const containerRef = React.useRef(null);
   const classNamesRegistry = React.useMemo(createClassNamesRegistry, []);
   const animator = React.useMemo<PropertyObjectAnimatorType>(
     () => createCSSTransitionAnimator(classNamesRegistry),
@@ -208,8 +209,22 @@ function BaseTransition({
   const onTransitionStartRef = React.useRef();
   const onTransitionEndRef = React.useRef();
 
-  onTransitionStartRef.current = onTransitionStart;
-  onTransitionEndRef.current = onTransitionEnd;
+  React.useLayoutEffect(() => {
+    onTransitionStartRef.current = onTransitionStart;
+    onTransitionEndRef.current = onTransitionEnd;
+
+    animator.onFinish(() => {
+      const container = containerRef.current;
+
+      if (container && !isFillModeForwards(fillMode)) {
+        animator.cleanup(container);
+      }
+
+      if (onTransitionEnd && currentEffect) {
+        onTransitionEnd(currentEffect);
+      }
+    });
+  });
 
   /**
    * The transition can be triggered by props that have been
@@ -297,18 +312,6 @@ function BaseTransition({
     },
     [animator]
   );
-
-  animator.onFinish(() => {
-    const container = containerRef.current;
-
-    if (container && !isFillModeForwards(fillMode)) {
-      animator.cleanup(container);
-    }
-
-    if (onTransitionEnd && currentEffect) {
-      onTransitionEnd(currentEffect);
-    }
-  });
 
   return (
     <div
