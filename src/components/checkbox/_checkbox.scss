@@ -138,6 +138,8 @@ $clickableArea: 32px;
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
     margin-left: calc($clickableArea + $checkboxMargin);
   }
 
