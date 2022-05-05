@@ -97,7 +97,7 @@ $clickableArea: 32px;
     }
   }
 
-  &--default {
+  &--dark {
     @include colorTheme(
       $iconBorderColor: $black,
       $iconBorderHoverColor: $gray-60,

@@ -23,10 +23,10 @@ import Checkbox from './Checkbox';
 
 ## Stories
 
-### Default variant
+### Dark color
 
 <Canvas>
-  <Story name="Default variant">
+  <Story name="Dark color">
     {args => (
       <div>
         <StoryVariantTable className="sg-story-variant-table--align-items-top">
@@ -145,10 +145,10 @@ import Checkbox from './Checkbox';
   </Story>
 </Canvas>
 
-### Light variant
+### Light color
 
 <Canvas>
-  <Story name="Light variant">
+  <Story name="Light color">
     {args => (
       <div>
         <StoryVariantTable className="sg-story-variant-table--align-items-top">
@@ -177,14 +177,14 @@ import Checkbox from './Checkbox';
           </thead>
           <tbody>
             {[
-              {type: 'disabled', props: {disabled: true, variant: 'light'}},
-              {type: 'enabled', props: {variant: 'light'}},
+              {type: 'disabled', props: {disabled: true, color: 'light'}},
+              {type: 'enabled', props: {color: 'light'}},
               {
                 type: 'error',
                 props: {
                   invalid: true,
                   errorMessage: 'Error message',
-                  variant: 'light',
+                  color: 'light',
                 },
               },
             ].map(checkboxType => (

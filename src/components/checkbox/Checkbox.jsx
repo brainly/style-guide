@@ -8,12 +8,13 @@ import {__DEV__, invariant} from '../utils';
 import Text from '../text/Text';
 import CheckboxIcon from './CheckboxIcon';
 
-type CheckboxVariant = 'default' | 'light';
+type CheckboxColor = 'dark' | 'light';
 
 export type CheckboxPropsType = {
   checked?: boolean,
   children?: React.Node,
   className?: string,
+  color: CheckboxColor,
   defaultChecked?: boolean,
   description?: React.Node | string,
   disabled?: boolean,
@@ -24,7 +25,6 @@ export type CheckboxPropsType = {
   required?: boolean,
   name?: string,
   onChange: any,
-  variant: CheckboxVariant,
   ...
 };
 
@@ -32,6 +32,7 @@ const Checkbox = ({
   checked,
   children,
   className,
+  color = 'dark',
   defaultChecked,
   description,
   disabled = false,
@@ -42,7 +43,6 @@ const Checkbox = ({
   required = false,
   name,
   onChange,
-  variant = 'default',
   ...props
 }: CheckboxPropsType) => {
   const [isChecked, setIsChecked] = React.useState(
@@ -72,7 +72,7 @@ const Checkbox = ({
 
   const checkboxClass = cx('sg-checkbox-new', className, {
     'sg-checkbox-new--disabled': disabled,
-    [`sg-checkbox-new--${String(variant)}`]: variant,
+    [`sg-checkbox-new--${String(color)}`]: color,
   });
 
   if (__DEV__) {
