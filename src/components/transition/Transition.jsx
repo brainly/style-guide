@@ -13,6 +13,9 @@ Transition.createEffect = createEffect;
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 
+const useIsomorphicLayoutEffect =
+  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
+
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
@@ -187,7 +190,7 @@ function BaseTransition({
     'sg-transition--outlines': outlines,
   });
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     /**
      * Since the transition imperatively applies the style
      * and className to the container element, other changes
@@ -209,7 +212,7 @@ function BaseTransition({
   const onTransitionStartRef = React.useRef();
   const onTransitionEndRef = React.useRef();
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     onTransitionStartRef.current = onTransitionStart;
     onTransitionEndRef.current = onTransitionEnd;
 
@@ -240,7 +243,7 @@ function BaseTransition({
    * The useLayoutEffect because of possible flicking
    * issues while using a regular useEffect hook.
    */
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const container = containerRef.current;
     const currentProps = {active, effect: currentEffect};
     const {speed} = getDebugOptions();
@@ -385,7 +388,7 @@ export default function Transition({
     canMountBaseComponent ? active : false
   );
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (active) {
       const mountBaseComponent = () => setMounted(true);
 
