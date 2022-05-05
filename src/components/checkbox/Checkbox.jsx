@@ -11,20 +11,79 @@ import CheckboxIcon from './CheckboxIcon';
 type CheckboxColor = 'dark' | 'light';
 
 export type CheckboxPropsType = {
+  /**
+   * Sets whether the checkbox is checked or unchecked.
+   * @example <Checkbox checked />
+   */
   checked?: boolean,
+  /**
+   * To be displayed to the right of the checkbox as a label. The label is clickable checkbox element.
+   * @example <Checkbox>Label</Checkbox>
+   */
   children?: React.Node,
+  /**
+   * Optional string. Additional classnames.
+   */
   className?: string,
-  color: CheckboxColor,
+  /**
+   * Specify color variant of the checkbox that you want to use.
+   * @example <Checkbox color="dark" />
+   */
+  color?: CheckboxColor,
+  /**
+   * Sets whether the checkbox is initially checked.
+   * @example <Checkbox defaultChecked />
+   */
   defaultChecked?: boolean,
+  /**
+   * To be displayed below checkbox and its label. The description is not clickable. You can either pass text or your own component with custom styling.
+   * @example <Checkbox description="More detailed description about this element. You can use here even some formatting and links." />
+   */
   description?: React.Node | string,
+  /**
+   * Sets whether the checkbox is disabled.
+   * @example <Checkbox disabled />
+   */
   disabled?: boolean,
+  /**
+   * To be displayed below checkbox and its label. The error message is not clickable. Note: you have to set `invalid` prop as well, to render the error message.
+   * @example <Checkbox invalid errorMessage="Error message">Label</Checkbox>
+   */
   errorMessage?: string,
+  /**
+   * ID assigned to the checkbox input. If not provided, random id will be generated.
+   * @example <Checkbox id="my-checkbox-1" />
+   */
   id?: string,
+  /**
+   * Sets whether the checkbox is displayed as indeterminate. Note: this prop doesn't modify the `checked` property.
+   * @example <Checkbox indeterminate />
+   */
   indeterminate?: boolean,
+  /**
+   * Sets whether the checkbox marked as invalid.
+   * @example <Checkbox invalid />
+   */
   invalid?: boolean,
-  required?: boolean,
+  /**
+   * The name of the checkbox input.
+   * @example <Checkbox name="name" />
+   */
   name?: string,
-  onChange: any,
+  /**
+   * Function called with an object containing the react synthetic event, whenever the state of the checkbox changes.
+   */
+  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
+  /**
+   * Sets whether the checkbox input is marked as required. This doesn't affect checkbox style.
+   * @example <Checkbox required />
+   */
+  required?: boolean,
+  /**
+   * Value of the checkbox input.
+   * @example <Checkbox value="1" />
+   */
+  value?: number | string,
   ...
 };
 
@@ -43,6 +102,7 @@ const Checkbox = ({
   required = false,
   name,
   onChange,
+  value,
   ...props
 }: CheckboxPropsType) => {
   const [isChecked, setIsChecked] = React.useState(
@@ -100,10 +160,11 @@ const Checkbox = ({
             id={id}
             type="checkbox"
             checked={isChecked}
+            disabled={disabled}
             name={name}
             onChange={onInputChange}
-            disabled={disabled}
             required={required}
+            value={value}
             aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-required={required}
             aria-invalid={invalid ? true : undefined}
