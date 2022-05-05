@@ -193,10 +193,10 @@ function BaseTransition({
   useIsomorphicLayoutEffect(() => {
     /**
      * Since the transition imperatively applies the style
-     * and className to the container element, other changes
-     * of props that affect these attributes should also be
-     * imperative. The registry helps to synchronize class
-     * attribute changes.
+     * and className to the container element, other props
+     * changes that affect these element attributes should
+     * also be imperative. The registry synchronizes them
+     * without affecting the animation.
      */
     classNamesRegistry.register('base', baseClassName || '');
     const container = containerRef.current;
@@ -244,9 +244,9 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   useIsomorphicLayoutEffect(() => {
-    const container = containerRef.current;
-    const currentProps = {active, effect: currentEffect};
     const {speed} = getDebugOptions();
+    const currentProps = {active, effect: currentEffect};
+    const container = containerRef.current;
 
     const rules = getTransitionRules({
       previousProps: previouslyAppliedProps.current,
@@ -281,8 +281,8 @@ function BaseTransition({
       }
 
       /**
-       * These props should be updated just after
-       * applying them to the actual DOM.
+       * These props should be memoized just
+       * after applying them to the actual DOM.
        */
       previouslyAppliedProps.current = currentProps;
     };
@@ -324,56 +324,6 @@ function BaseTransition({
       {children}
     </div>
   );
-}
-
-type TransitionRulesType = $ReadOnly<{
-  from: PropertyObjectType | void,
-  to: PropertyObjectType | void,
-  canSkipDelay: boolean,
-}>;
-
-function getTransitionRules({
-  previousProps,
-  currentProps,
-}: {
-  previousProps: TransitionTriggerPropsType,
-  currentProps: TransitionTriggerPropsType,
-}): TransitionRulesType | null | void {
-  if (currentProps.effect === null) {
-    return null;
-  }
-
-  if (previousProps.active === false && currentProps.active === true) {
-    return {
-      from: currentProps.effect.initial,
-      to: currentProps.effect.animate,
-      canSkipDelay: true,
-    };
-  }
-
-  if (previousProps.active === true && currentProps.active === false) {
-    return {
-      from: currentProps.effect.animate,
-      to: currentProps.effect.exit,
-      canSkipDelay: false,
-    };
-  }
-
-  if (previousProps.effect === null && currentProps.effect !== null) {
-    return {
-      from: currentProps.effect.initial,
-      to: currentProps.effect.animate,
-      canSkipDelay: false,
-    };
-  }
-
-  if (previousProps.effect !== currentProps.effect) {
-    return {
-      from: currentProps.effect.initial,
-      to: currentProps.effect.animate,
-      canSkipDelay: false,
-    };
-  }
 }
 
 export default function Transition({
@@ -426,4 +376,54 @@ export default function Transition({
       onTransitionEnd={handleTransitionEnd}
     />
   ) : null;
+}
+
+type TransitionRulesType = $ReadOnly<{
+  from: PropertyObjectType | void,
+  to: PropertyObjectType | void,
+  canSkipDelay: boolean,
+}>;
+
+function getTransitionRules({
+  previousProps,
+  currentProps,
+}: {
+  previousProps: TransitionTriggerPropsType,
+  currentProps: TransitionTriggerPropsType,
+}): TransitionRulesType | null | void {
+  if (currentProps.effect === null) {
+    return null;
+  }
+
+  if (previousProps.active === false && currentProps.active === true) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canSkipDelay: true,
+    };
+  }
+
+  if (previousProps.active === true && currentProps.active === false) {
+    return {
+      from: currentProps.effect.animate,
+      to: currentProps.effect.exit,
+      canSkipDelay: false,
+    };
+  }
+
+  if (previousProps.effect === null && currentProps.effect !== null) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canSkipDelay: false,
+    };
+  }
+
+  if (previousProps.effect !== currentProps.effect) {
+    return {
+      from: currentProps.effect.initial,
+      to: currentProps.effect.animate,
+      canSkipDelay: false,
+    };
+  }
 }
