@@ -97,7 +97,7 @@ const Checkbox = ({
   description,
   disabled = false,
   errorMessage,
-  id = generateRandomString(),
+  id,
   indeterminate = false,
   invalid = false,
   required = false,
@@ -106,6 +106,10 @@ const Checkbox = ({
   value,
   ...props
 }: CheckboxPropsType) => {
+  const {current: checkboxId} = React.useRef(
+    id === undefined || id === '' ? generateRandomString() : id
+  );
+
   const [isChecked, setIsChecked] = React.useState(
     checked !== undefined ? checked : defaultChecked
   );
@@ -147,18 +151,34 @@ const Checkbox = ({
     );
   }
 
+  const errorTextId = `${checkboxId}-errorText`;
+  const descriptionId = `${checkboxId}-description`;
+
+  const describedbyIds = React.useMemo(() => {
+    const ids = [];
+
+    if (invalid && errorMessage) {
+      ids.push(errorTextId);
+    }
+    if (description) {
+      ids.push(descriptionId);
+    }
+    return ids.join(' ');
+  }, [errorTextId, descriptionId, invalid, errorMessage, description]);
+
   return (
     <div className={checkboxClass}>
       <label
         className="sg-checkbox-new__wrapper"
-        htmlFor={id}
+        htmlFor={checkboxId}
         disabled={disabled}
+        {...props}
       >
         <div className="sg-checkbox-new__element">
           <input
             ref={inputRef}
             className="sg-checkbox-new__input"
-            id={id}
+            id={checkboxId}
             type="checkbox"
             checked={isChecked}
             disabled={disabled}
@@ -169,7 +189,7 @@ const Checkbox = ({
             aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-required={required}
             aria-invalid={invalid ? true : undefined}
-            aria-describedby={invalid ? `${id}-errorText` : undefined}
+            aria-describedby={describedbyIds}
           />
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
@@ -187,6 +207,7 @@ const Checkbox = ({
       <div className="sg-checkbox-new__content">
         {description && (
           <Text
+            id={descriptionId}
             className="sg-checkbox-new__description"
             size="small"
             type="span"
@@ -198,7 +219,7 @@ const Checkbox = ({
         )}
         {invalid && errorMessage && (
           <ErrorMessage
-            id={`${id}-errorText`}
+            id={errorTextId}
             color={color === 'light' ? 'text-red-40' : undefined}
           >
             {errorMessage}
