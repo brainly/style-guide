@@ -7,6 +7,7 @@ import generateRandomString from '../../js/generateRandomString';
 import {__DEV__, invariant} from '../utils';
 import Text from '../text/Text';
 import CheckboxIcon from './CheckboxIcon';
+import ErrorMessage from './ErrorMessage';
 
 type CheckboxColor = 'dark' | 'light';
 
@@ -196,16 +197,12 @@ const Checkbox = ({
           </Text>
         )}
         {invalid && errorMessage && (
-          <Text
-            className="sg-error-message"
+          <ErrorMessage
             id={`${id}-errorText`}
-            size="small"
-            type="span"
-            weight="bold"
-            color="text-red-60"
+            color={color === 'light' ? 'text-red-40' : undefined}
           >
             {errorMessage}
-          </Text>
+          </ErrorMessage>
         )}
       </div>
     </div>

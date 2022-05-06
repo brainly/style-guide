@@ -17,8 +17,7 @@ $clickableArea: 32px;
     $checkedIconColor,
     $invalidIconColor,
     $invalidIconHoverColor,
-    $invalidIconFillColor,
-    $errorMessageColor
+    $invalidIconFillColor
   ) {
     .sg-checkbox-new__wrapper:hover {
       .sg-checkbox-new__icon {
@@ -91,10 +90,6 @@ $clickableArea: 32px;
     .sg-checkbox-new__description {
       color: $labelColor;
     }
-
-    .sg-error-message {
-      color: $errorMessageColor;
-    }
   }
 
   &--dark {
@@ -107,8 +102,7 @@ $clickableArea: 32px;
       $checkedIconColor: $black,
       $invalidIconColor: $red-60,
       $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white,
-      $errorMessageColor: $text-red-60
+      $invalidIconFillColor: $white
     );
   }
 
@@ -122,8 +116,7 @@ $clickableArea: 32px;
       $checkedIconColor: $white,
       $invalidIconColor: $red-40,
       $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white,
-      $errorMessageColor: $text-red-40
+      $invalidIconFillColor: $white
     );
   }
 
