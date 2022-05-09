@@ -5,7 +5,8 @@ import Button from '../../buttons/Button';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
-import {useTransformationState} from './common/useTransformationState';
+import {useTransformationEffect} from '../useTransformationEffect';
+import {TransitionGroup} from '../TransitionGroup';
 
 const appearingEffect = {
   initial: {opacity: 0, transform: {scale: 0.9}},
@@ -22,64 +23,56 @@ const initialItems = [0, 1, 2, 3];
 let lastUniqueId = initialItems.length;
 
 export function FluidList() {
-  const updateKey = React.useRef(0);
-  const containerRef = React.useRef(null);
+  const changeKey = React.useRef(0);
   const [items, setItems] = React.useState(initialItems);
 
   const addItem = () => {
     setItems(prev => [++lastUniqueId, ...prev]);
-    updateKey.current += 1;
+    changeKey.current += 1;
   };
 
   const removeItem = (id: number) => {
     setItems(prev => prev.filter(n => n !== id));
-    updateKey.current += 1;
+    changeKey.current += 1;
   };
 
   return (
-    <Stage ref={containerRef} className="sg-space-y-xs" format="portrait">
-      <Button type="outline" onClick={addItem} fullWidth>
-        add item
-      </Button>
+    <TransitionGroup changeKey={changeKey.current}>
+      <Stage className="sg-space-y-xs" format="portrait">
+        <Button type="outline" onClick={addItem} fullWidth>
+          add item
+        </Button>
 
-      {items.map((id, index) => (
-        <FluidListItem
-          key={id}
-          index={index}
-          updateKey={updateKey.current}
-          containerRef={containerRef}
-          isNewlyCreated={id === lastUniqueId}
-          isSingleItem={items.length === 1}
-          onRemove={() => removeItem(id)}
-        />
-      ))}
-    </Stage>
+        {items.map((id, index) => (
+          <FluidListItem
+            key={id}
+            index={index}
+            isNewlyCreated={id === lastUniqueId}
+            isSingleItem={items.length === 1}
+            onRemove={() => removeItem(id)}
+          />
+        ))}
+      </Stage>
+    </TransitionGroup>
   );
 }
 
 const FluidListItem = ({
   index,
-  updateKey,
-  containerRef,
   isNewlyCreated,
   isSingleItem,
   onRemove,
 }: {
   index: number,
-  updateKey: number,
-  containerRef: {current: HTMLElement | null},
   isNewlyCreated: boolean,
   isSingleItem: boolean,
   onRemove: () => void,
 }) => {
-  const [isRemoving, setIsRemoving] = React.useState(false);
-  const [movementEffect, setMovementEffect] = React.useState(null);
-
   const elementRef = React.useRef(null);
-  const transformation = useTransformationState({
+  const [isRemoving, setIsRemoving] = React.useState(false);
+  const movementEffect = useTransformationEffect({
     elementRef,
-    containerRef,
-    updateKey,
+    duration: 'moderate1',
   });
 
   const getTransitionEffect = () => {
@@ -96,7 +89,8 @@ const FluidListItem = ({
 
   const getTransitionDelay = () => {
     const appearingDelay = 180;
-    const isMovingUp = transformation.diffTop < 0;
+    const isMovingUp =
+      Number(movementEffect?.initial?.transform?.translateY) > 0;
 
     if (isRemoving || isSingleItem) {
       return 0;
@@ -112,24 +106,6 @@ const FluidListItem = ({
 
     return 0;
   };
-
-  React.useLayoutEffect(() => {
-    if (transformation.diffTop === 0) {
-      return;
-    }
-
-    /**
-     * https://css-tricks.com/animating-layouts-with-the-flip-technique/
-     */
-    setMovementEffect({
-      initial: {
-        transform: {translateY: -transformation.diffTop},
-      },
-      animate: {
-        transform: {translateY: 0, duration: 'moderate1', easing: 'regular'},
-      },
-    });
-  }, [transformation]);
 
   return (
     <div ref={elementRef}>

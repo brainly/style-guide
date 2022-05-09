@@ -4,7 +4,8 @@ import * as React from 'react';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
-import {useTransformationState} from './common/useTransformationState';
+import {useTransformationEffect} from '../useTransformationEffect';
+import {TransitionGroup} from '../TransitionGroup';
 
 const fixedStyle = {
   position: 'absolute',
@@ -14,6 +15,24 @@ const fixedStyle = {
 
 export function CurvedMovement() {
   const [isExpanded, setIsExpanded] = React.useState(false);
+  const handleClick = () => setIsExpanded(b => !b);
+
+  return (
+    <TransitionGroup changeKey={isExpanded}>
+      <Stage centered overflowHidden>
+        <ExpandableBox isExpanded={isExpanded} onClick={handleClick} />
+      </Stage>
+    </TransitionGroup>
+  );
+}
+
+function ExpandableBox({
+  isExpanded,
+  onClick,
+}: {
+  isExpanded: boolean,
+  onClick: () => void,
+}) {
   const [effects, setEffects] = React.useState({
     xMove: null,
     yMove: null,
@@ -21,25 +40,28 @@ export function CurvedMovement() {
   });
 
   const elementRef = React.useRef(null);
-  const containerRef = React.useRef(null);
   const prevTransformation = React.useRef();
-  const transformation = useTransformationState({
+  const transformationEffect = useTransformationEffect({
     elementRef,
-    containerRef,
-    updateKey: isExpanded,
   });
 
   React.useLayoutEffect(() => {
     if (
-      transformation.diffTop === 0 ||
-      transformation === prevTransformation.current
+      transformationEffect === null ||
+      transformationEffect === prevTransformation.current
     ) {
       return;
     }
 
-    prevTransformation.current = transformation;
+    prevTransformation.current = transformationEffect;
+
     const origin = 'left top';
     const duration = 240;
+    const {
+      translateX = 0,
+      translateY = 0,
+      scaleX = 1,
+    } = transformationEffect.initial?.transform || {};
 
     /**
      * https://tobiasahlin.com/blog/curved-path-animations-in-css/
@@ -52,37 +74,35 @@ export function CurvedMovement() {
 
     setEffects({
       xMove: {
-        initial: {transform: {translateX: -transformation.diffLeft}},
+        initial: {transform: {translateX}},
         animate: {transform: {translateX: 0, origin, duration: xDuration}},
       },
       yMove: {
-        initial: {transform: {translateY: -transformation.diffTop}},
+        initial: {transform: {translateY}},
         animate: {transform: {translateY: 0, origin, duration}},
       },
       scale: {
-        initial: {transform: {scale: 1 - transformation.diffScaleX}},
+        initial: {transform: {scale: scaleX}},
         animate: {transform: {scale: 1, origin, duration}},
       },
     });
-  }, [isExpanded, transformation]);
+  }, [isExpanded, transformationEffect]);
 
   return (
-    <Stage ref={containerRef} centered overflowHidden>
-      <div style={isExpanded ? undefined : fixedStyle}>
-        <Transition active effect={effects.xMove}>
-          <Transition active effect={effects.yMove}>
-            <Transition active effect={effects.scale}>
-              <DummyBox
-                ref={elementRef}
-                size={isExpanded ? 'medium' : 'small'}
-                onClick={() => setIsExpanded(b => !b)}
-                color="blue"
-              />
-            </Transition>
+    <div style={isExpanded ? undefined : fixedStyle}>
+      <Transition active effect={effects.xMove}>
+        <Transition active effect={effects.yMove}>
+          <Transition active effect={effects.scale}>
+            <DummyBox
+              ref={elementRef}
+              size={isExpanded ? 'medium' : 'small'}
+              onClick={onClick}
+              color="blue"
+            />
           </Transition>
         </Transition>
-      </div>
-    </Stage>
+      </Transition>
+    </div>
   );
 }
 
