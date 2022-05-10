@@ -1,0 +1,25 @@
+.sg-skip-nav {
+  user-select: 'none';
+
+  position: absolute;
+  clip: rect(0 0 0 0);
+  border: 0;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  background: $white;
+
+  &:focus {
+    z-index: 600;
+    position: absolute;
+    clip: auto;
+    left: 0;
+    margin: spacing(m) 0 0 spacing(m);
+    padding: spacing(s);
+    height: auto;
+    width: auto;
+  }
+}

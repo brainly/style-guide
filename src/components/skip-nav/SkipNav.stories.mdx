@@ -1,0 +1,41 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import SkipNav from './SkipNav';
+
+<Meta title="Components/SkipNav" component={SkipNav} />
+
+# Dialog
+
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="single link">
+    {args => {
+      return (
+        <div>
+          <h2>Click tab to focus on skiplink thus make it visible</h2>
+          <SkipNav links={{name: 'skip to main content', href: '#main'}} />
+        </div>
+      );
+    }}
+
+  </Story>
+  <Story name="multiple links">
+    {args => {
+      return (
+        <div>
+          <h2>Click tab to focus on skiplink and make it visible</h2>
+          <SkipNav
+            links={[
+              {name: 'skip to main content', href: '#main'},
+              {name: 'skip to secondary content', href: '#secondary'},
+              {name: 'skip to tertiary content', href: '#secondary'},
+            ]}
+          />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
