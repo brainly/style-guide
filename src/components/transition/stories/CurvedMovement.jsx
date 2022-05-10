@@ -5,7 +5,7 @@ import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 import {useTransformationEffect} from '../useTransformationEffect';
-import {TransitionGroup} from '../TransitionGroup';
+import {TransformationContainer} from '../TransformationContainer';
 
 const fixedStyle = {
   position: 'absolute',
@@ -18,11 +18,11 @@ export function CurvedMovement() {
   const handleClick = () => setIsExpanded(b => !b);
 
   return (
-    <TransitionGroup changeKey={isExpanded}>
+    <TransformationContainer stateKey={isExpanded}>
       <Stage centered overflowHidden>
         <ExpandableBox isExpanded={isExpanded} onClick={handleClick} />
       </Stage>
-    </TransitionGroup>
+    </TransformationContainer>
   );
 }
 

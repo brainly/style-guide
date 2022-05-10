@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import {useTransitionContext} from './TransitionGroup';
+import {useTransformationContext} from './TransformationContainer';
 import type {PredefinedDurationType, TransitionEffectType} from './Transition';
 
 type ElementSnapshotType = $ReadOnly<{
@@ -20,7 +20,7 @@ export function useTransformationEffect({
   properties?: 'translate-scale' | 'translate-width-height',
   duration?: PredefinedDurationType | number,
 }) {
-  const {transformationChange} = useTransitionContext();
+  const {transformationChange} = useTransformationContext();
   const [effect, setEffect] = React.useState<TransitionEffectType | null>(null);
   const snapshotRef = React.useRef<ElementSnapshotType | void>();
 

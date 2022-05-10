@@ -9,17 +9,17 @@ import Button from '../../buttons/Button';
 import Transition from '../Transition';
 import Stage from './common/Stage';
 import {useTransformationEffect} from '../useTransformationEffect';
-import {TransitionGroup} from '../TransitionGroup';
+import {TransformationContainer} from '../TransformationContainer';
 
 export function ExpandingDetails() {
-  const [changeKey, setChangeKey] = React.useState(0);
+  const [stateKey, setStateKey] = React.useState(0);
 
   const handleExpandChange = () => {
-    setChangeKey(n => n + 1);
+    setStateKey(n => n + 1);
   };
 
   return (
-    <TransitionGroup changeKey={changeKey}>
+    <TransformationContainer stateKey={stateKey}>
       <Stage className="sg-space-y-xs" format="portrait">
         <ExpandableBox
           color="red"
@@ -37,7 +37,7 @@ export function ExpandingDetails() {
           onExpandChange={handleExpandChange}
         />
       </Stage>
-    </TransitionGroup>
+    </TransformationContainer>
   );
 }
 

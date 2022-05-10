@@ -6,7 +6,7 @@ import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 import {useTransformationEffect} from '../useTransformationEffect';
-import {TransitionGroup} from '../TransitionGroup';
+import {TransformationContainer} from '../TransformationContainer';
 
 const appearingEffect = {
   initial: {opacity: 0, transform: {scale: 0.9}},
@@ -23,21 +23,18 @@ const initialItems = [0, 1, 2, 3];
 let lastUniqueId = initialItems.length;
 
 export function FluidList() {
-  const changeKey = React.useRef(0);
   const [items, setItems] = React.useState(initialItems);
 
   const addItem = () => {
     setItems(prev => [++lastUniqueId, ...prev]);
-    changeKey.current += 1;
   };
 
   const removeItem = (id: number) => {
     setItems(prev => prev.filter(n => n !== id));
-    changeKey.current += 1;
   };
 
   return (
-    <TransitionGroup changeKey={changeKey.current}>
+    <TransformationContainer stateKey={items.length}>
       <Stage className="sg-space-y-xs" format="portrait">
         <Button type="outline" onClick={addItem} fullWidth>
           add item
@@ -53,7 +50,7 @@ export function FluidList() {
           />
         ))}
       </Stage>
-    </TransitionGroup>
+    </TransformationContainer>
   );
 }
 
