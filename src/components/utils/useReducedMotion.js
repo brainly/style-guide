@@ -2,38 +2,36 @@
 
 import {useState, useEffect} from 'react';
 
-export default function useReducedMotion(): boolean {
-  const supportsMatchMedia = typeof window !== 'undefined' && window.matchMedia;
+export const MEDIA_QUERY = '(prefers-reduced-motion: reduce)';
 
-  const [matches, setMatch] = useState(
-    supportsMatchMedia
-      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-          window.matchMedia('(prefers-reduced-motion)').matches
-      : false
+export default function useReducedMotion(): boolean {
+  const supportsMatchMedia =
+    typeof window !== 'undefined' && 'matchMedia' in window;
+
+  const [matches, setMatch] = useState(() =>
+    supportsMatchMedia ? window.matchMedia(MEDIA_QUERY).matches : false
   );
 
   useEffect(() => {
-    if (!supportsMatchMedia) {
-      return () => {
-        // do nothing
-      };
-    }
-    const mediaQuery =
-      window.matchMedia('(prefers-reduced-motion: reduce)') ||
-      window.matchMedia('(prefers-reduced-motion)');
+    if (!supportsMatchMedia) return;
+    const mediaQuery = window.matchMedia(MEDIA_QUERY);
 
-    if (!mediaQuery) {
-      return;
-    }
-
-    const handleChange = () => {
-      setMatch(mediaQuery.matches);
+    const listener = (mqlEvent: MediaQueryListEvent) => {
+      setMatch(mqlEvent.matches);
     };
 
-    handleChange();
-    mediaQuery.addListener(handleChange);
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', listener);
+    } else {
+      mediaQuery.addListener(listener);
+    }
+
     return () => {
-      mediaQuery.removeListener(handleChange);
+      if (typeof mediaQuery.removeEventListener === 'function') {
+        mediaQuery.removeEventListener('change', listener);
+      } else {
+        mediaQuery.removeListener(listener);
+      }
     };
   }, [supportsMatchMedia]);
   return matches;
