@@ -169,10 +169,10 @@ const Checkbox = ({
   return (
     <div className={checkboxClass}>
       <label
+        {...props}
         className="sg-checkbox__wrapper"
         htmlFor={checkboxId}
         disabled={disabled}
-        {...props}
       >
         <div className="sg-checkbox__element">
           <input

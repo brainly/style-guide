@@ -2,31 +2,36 @@
 
 import * as React from 'react';
 import Text from '../text/Text';
+import cx from 'classnames';
 
 type ErrorMessageColor = 'text-red-60' | 'text-red-40';
 
 export type ErrorMessagePropsType = {
   id?: string,
+  className?: string,
   color?: ErrorMessageColor,
   children: React.Node,
   ...
 };
 
 const ErrorMessage = ({
+  className,
   color = 'text-red-60',
   id,
   children,
   ...props
 }: ErrorMessagePropsType) => {
+  const errorMessageClass = cx('sg-error-message', className);
+
   return (
     <Text
-      className="sg-error-message"
+      {...props}
+      className={errorMessageClass}
       id={id}
       color={color}
       size="small"
       type="span"
       weight="bold"
-      {...props}
     >
       {children}
     </Text>
