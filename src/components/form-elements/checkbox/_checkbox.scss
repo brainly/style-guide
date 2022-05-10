@@ -2,7 +2,7 @@ $checkboxWidth: 16px;
 $checkboxMargin: 8px;
 $clickableArea: 32px;
 
-.sg-checkbox-new {
+.sg-checkbox {
   @include component();
 
   display: flex;
@@ -19,43 +19,43 @@ $clickableArea: 32px;
     $invalidIconHoverColor,
     $invalidIconFillColor
   ) {
-    .sg-checkbox-new__wrapper:hover {
-      .sg-checkbox-new__icon {
+    .sg-checkbox__wrapper:hover {
+      .sg-checkbox__icon {
         border: 2px solid $iconBorderHoverColor;
       }
 
-      .sg-checkbox-new__input {
+      .sg-checkbox__input {
         &:checked,
         &:indeterminate {
-          & + .sg-checkbox-new__icon {
+          & + .sg-checkbox__icon {
             border-color: $iconBorderHoverColor;
             background-color: $iconBorderHoverColor;
           }
-          &[aria-invalid] + .sg-checkbox-new__icon {
+          &[aria-invalid] + .sg-checkbox__icon {
             background-color: $invalidIconHoverColor;
           }
         }
 
-        &[aria-invalid] + .sg-checkbox-new__icon {
+        &[aria-invalid] + .sg-checkbox__icon {
           border-color: $invalidIconHoverColor;
         }
       }
     }
 
-    .sg-checkbox-new__input {
+    .sg-checkbox__input {
       &:focus {
-        & + .sg-checkbox-new__icon {
+        & + .sg-checkbox__icon {
           border-color: $iconBorderHoverColor;
           outline: 2px solid $iconOutlineColor;
         }
 
-        &[aria-invalid] + .sg-checkbox-new__icon {
+        &[aria-invalid] + .sg-checkbox__icon {
           border-color: $invalidIconHoverColor;
         }
 
         &:checked,
         &:indeterminate {
-          &[aria-invalid] + .sg-checkbox-new__icon {
+          &[aria-invalid] + .sg-checkbox__icon {
             border-color: $invalidIconHoverColor;
             background-color: $invalidIconHoverColor;
           }
@@ -64,30 +64,30 @@ $clickableArea: 32px;
 
       &:checked,
       &:indeterminate {
-        & + .sg-checkbox-new__icon {
+        & + .sg-checkbox__icon {
           border-color: $checkedIconColor;
           background: $checkedIconColor;
         }
 
-        &[aria-invalid] + .sg-checkbox-new__icon {
+        &[aria-invalid] + .sg-checkbox__icon {
           border-color: $invalidIconColor;
           background-color: $invalidIconColor;
         }
       }
 
-      &[aria-invalid] + .sg-checkbox-new__icon {
+      &[aria-invalid] + .sg-checkbox__icon {
         border-color: $invalidIconColor;
         fill: $invalidIconFillColor;
       }
     }
 
-    .sg-checkbox-new__icon {
+    .sg-checkbox__icon {
       border: 2px solid $iconBorderColor;
       fill: $iconFillColor;
     }
 
-    .sg-checkbox-new__label,
-    .sg-checkbox-new__description {
+    .sg-checkbox__label,
+    .sg-checkbox__description {
       color: $labelColor;
     }
   }
@@ -155,7 +155,7 @@ $clickableArea: 32px;
     z-index: 1;
 
     &:focus {
-      & + .sg-checkbox-new__icon {
+      & + .sg-checkbox__icon {
         outline-offset: 2px;
       }
     }

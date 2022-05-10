@@ -49,7 +49,7 @@ const CheckboxIcon = ({
 
   return (
     <span
-      className="sg-checkbox-new__icon"
+      className="sg-checkbox__icon"
       // This element is purely decorative so
       // we hide it for screen readers
       aria-hidden="true"

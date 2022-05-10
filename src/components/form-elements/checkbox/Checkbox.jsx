@@ -3,11 +3,11 @@
 import * as React from 'react';
 import cx from 'classnames';
 
-import generateRandomString from '../../js/generateRandomString';
-import {__DEV__, invariant} from '../utils';
-import Text from '../text/Text';
+import generateRandomString from '../../../js/generateRandomString';
+import {__DEV__, invariant} from '../../utils';
+import Text from '../../text/Text';
 import CheckboxIcon from './CheckboxIcon';
-import ErrorMessage from './ErrorMessage';
+import ErrorMessage from '../ErrorMessage';
 
 type CheckboxColor = 'dark' | 'light';
 
@@ -135,9 +135,9 @@ const Checkbox = ({
     [onChange]
   );
 
-  const checkboxClass = cx('sg-checkbox-new', className, {
-    'sg-checkbox-new--disabled': disabled,
-    [`sg-checkbox-new--${String(color)}`]: color,
+  const checkboxClass = cx('sg-checkbox', className, {
+    'sg-checkbox--disabled': disabled,
+    [`sg-checkbox--${String(color)}`]: color,
   });
 
   if (__DEV__) {
@@ -169,15 +169,15 @@ const Checkbox = ({
   return (
     <div className={checkboxClass}>
       <label
-        className="sg-checkbox-new__wrapper"
+        className="sg-checkbox__wrapper"
         htmlFor={checkboxId}
         disabled={disabled}
         {...props}
       >
-        <div className="sg-checkbox-new__element">
+        <div className="sg-checkbox__element">
           <input
             ref={inputRef}
-            className="sg-checkbox-new__input"
+            className="sg-checkbox__input"
             id={checkboxId}
             type="checkbox"
             checked={isChecked}
@@ -198,17 +198,17 @@ const Checkbox = ({
             size="medium"
             type="span"
             weight="bold"
-            className="sg-checkbox-new__label"
+            className="sg-checkbox__label"
           >
             {children}
           </Text>
         )}
       </label>
-      <div className="sg-checkbox-new__content">
+      <div className="sg-checkbox__content">
         {description && (
           <Text
             id={descriptionId}
-            className="sg-checkbox-new__description"
+            className="sg-checkbox__description"
             size="small"
             type="span"
             color="text-black"

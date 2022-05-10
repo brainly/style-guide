@@ -12,7 +12,6 @@ $crInputActiveColor: rgba($crInputColor, 0.7);
 $includeHtml: false !default;
 
 @if ($includeHtml) {
-  .sg-checkbox,
   .sg-radio {
     @include component();
     overflow: visible;
@@ -50,23 +49,6 @@ $includeHtml: false !default;
 
     &__label {
       margin-left: 16px;
-    }
-  }
-
-  .sg-checkbox {
-    &__ghost {
-      border-radius: 20%;
-    }
-
-    &__element:checked {
-      & + .sg-checkbox__ghost {
-        border: none;
-        background: $crInputCheckedColor;
-      }
-
-      &:active + .sg-checkbox__ghost::before {
-        color: $crInputActiveColor;
-      }
     }
   }
 
