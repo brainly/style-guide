@@ -167,9 +167,8 @@ const Checkbox = ({
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
 
   return (
-    <div className={checkboxClass}>
+    <div {...props} className={checkboxClass}>
       <label
-        {...props}
         className="sg-checkbox__wrapper"
         htmlFor={checkboxId}
         disabled={disabled}
