@@ -55,11 +55,18 @@ import Checkbox from './Checkbox';
           </thead>
           <tbody>
             {[
-              {type: 'disabled', props: {disabled: true}},
-              {type: 'enabled', props: {}},
+              {
+                type: 'disabled',
+                props: {disabled: true, style: {marginBottom: '12px'}},
+              },
+              {type: 'enabled', props: {style: {marginBottom: '12px'}}},
               {
                 type: 'error',
-                props: {invalid: true, errorMessage: 'Error message'},
+                props: {
+                  invalid: true,
+                  errorMessage: 'Error message',
+                  style: {marginBottom: '12px'},
+                },
               },
             ].map(checkboxType => (
               <tr key={checkboxType.type}>
@@ -177,14 +184,25 @@ import Checkbox from './Checkbox';
           </thead>
           <tbody>
             {[
-              {type: 'disabled', props: {disabled: true, color: 'light'}},
-              {type: 'enabled', props: {color: 'light'}},
+              {
+                type: 'disabled',
+                props: {
+                  disabled: true,
+                  color: 'light',
+                  style: {marginBottom: '12px'},
+                },
+              },
+              {
+                type: 'enabled',
+                props: {color: 'light', style: {marginBottom: '12px'}},
+              },
               {
                 type: 'error',
                 props: {
                   invalid: true,
                   errorMessage: 'Error message',
                   color: 'light',
+                  style: {marginBottom: '12px'},
                 },
               },
             ].map(checkboxType => (
