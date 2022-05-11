@@ -1,5 +1,5 @@
 import * as Checkbox from './Checkbox.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {mergeStories} from '../../../chromatic/utils';
 
 export const Default = mergeStories(Checkbox);
 
