@@ -5,7 +5,6 @@ import Transition from '../Transition';
 import Flex from '../../flex/Flex';
 import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
-
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
@@ -39,7 +38,7 @@ const createSlideOutEffect = (direction: 'left' | 'right') => ({
   },
 });
 
-export function SharedAxis() {
+export const SharedAxis = () => {
   const [effect, setEffect] = React.useState(null);
   const [currentViewIndex, setCurrentViewIndex] = React.useState(0);
   const pendingCallback = React.useRef();
@@ -84,7 +83,7 @@ export function SharedAxis() {
       </Transition>
     </Stage>
   );
-}
+};
 
 SharedAxis.parameters = {
   layout: 'centered',
