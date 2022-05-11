@@ -1,0 +1,19 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Radio from './Radio';
+
+<Meta title="Components/Radio new" component={Radio} />
+
+# Bubble
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Radio {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
