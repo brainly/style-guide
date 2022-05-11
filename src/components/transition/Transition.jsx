@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import cx from 'classnames';
+import {useIsomorphicLayoutEffect} from '../utils/useIsomorphicLayoutEffect';
 import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import {createEffect} from './predefinedEffects';
@@ -12,9 +13,6 @@ Transition.createEffect = createEffect;
 
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
-
-const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
