@@ -141,6 +141,7 @@ $clickableArea: 32px;
     width: $clickableArea;
     height: $clickableArea;
     display: inline-flex;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
   }
