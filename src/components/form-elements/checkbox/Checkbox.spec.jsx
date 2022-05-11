@@ -5,7 +5,7 @@ import {render} from '@testing-library/react';
 
 describe('<Checkbox />', () => {
   const renderCheckbox = props =>
-    render(<Checkbox onChange={() => {}} {...props} />);
+    render(<Checkbox onChange={() => jest.fn()} {...props} />);
 
   it('it renders unchecked checkbox input, without label', () => {
     const checkbox = renderCheckbox({});

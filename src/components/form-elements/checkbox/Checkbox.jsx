@@ -9,7 +9,7 @@ import Text from '../../text/Text';
 import CheckboxIcon from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
 
-type CheckboxColor = 'dark' | 'light';
+type CheckboxColorType = 'dark' | 'light';
 
 export type CheckboxPropsType = {
   /**
@@ -30,7 +30,7 @@ export type CheckboxPropsType = {
    * Specify color variant of the checkbox that you want to use.
    * @example <Checkbox color="dark" />
    */
-  color?: CheckboxColor,
+  color?: CheckboxColorType,
   /**
    * Sets whether the checkbox is initially checked.
    * @example <Checkbox defaultChecked />
