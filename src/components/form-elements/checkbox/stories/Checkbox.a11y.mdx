@@ -1,0 +1,90 @@
+## Accessibility
+
+### Link `as="a"`
+
+| Pattern                                                                          | Comment                                                                                                                       | Status                                      |
+| -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Should** have a role `checkbox`                                                |                                                                                                                               | Implementation: DONE<br />Tests: TO BE DONE |
+| **Should** be focusable and tabbable                                             |                                                                                                                               | Implementation: DONE<br />Tests: TO BE DONE |
+| **Should** have an accessible name                                               | `Checkbox` can be named by adding children. Children should be purely presentational and do not include interactive elements. | Implementation: DONE<br />Tests: TO BE DONE |
+| **Should** have visible checked / unchecked / indeterminate / disabled style     |                                                                                                                               | Implementation: DONE<br />Tests: BLOCKED    |
+| **Should** have visible focus and hover style                                    |                                                                                                                               | Implementation: DONE<br />Tests: BLOCKED    |
+| **Should** have a big clickable area                                             | Default clickable area of checkbox is 32x32px, children of the Checkbox are also clickable.                                   | Implementation: DONE<br />Tests: BLOCKED    |
+| **Should** have a label with 4.5:1 contrast ratio against the background         | `dark` against white: 21:1, `light` against black: 20.9:1                                                                     | Implementation: DONE<br />Tests: BLOCKED    |
+| **Should** have a color indicator with 3:1 contrast ratio against the background | `dark` against white: 21:1, `light` against black: 20.9:1                                                                     | Implementation: DONE<br />Tests: BLOCKED    |
+| **Should** respect Windows High Contrast mode                                    |                                                                                                                               | Implementation: TO DO<br />Tests: BLOCKED   |
+| **Should** have descriptive information about required and invalid state         |                                                                                                                               | Implementation: DONE<br />Tests: DONE       |
+| **Should** respect prefers reduce motion settings                                |                                                                                                                               | Implementation: TO DO<br />Tests: BLOCKED   |
+| **Should** be focusable by pressing arrow                                        |                                                                                                                               | Implementation: DONE<br />Tests: TO BE DONE |
+| **Should** be activated by pressing `Space` and mouse click                      |                                                                                                                               | Implementation: DONE<br />Tests: TO BE DONE |
+
+<p>
+  Safari does not fully support <code>indeterminate</code> state of checkbox. It
+  is a know bug reported in{' '}
+  <a
+    href="https://bugs.webkit.org/show_bug.cgi?id=231760"
+    aria-label="checkbox indeterminate IDL attribute regression, Bugzilla"
+  >
+    Webkit Bugzilla
+  </a>
+</p>
+
+### Usage
+
+#### Code examples
+
+- with a meaningful label
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- checked and required
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  checked="true"
+  required="true"
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- without a label, but labelled by a custom element
+
+<!-- prettier-ignore -->
+```jsx
+<h5 id="label-for-checkbox">
+  I accept the Brainly Terms of Service & Privacy Policy.
+</h5>
+<Checkbox
+  aria-labelledby="label-for-checkbox"
+/>
+```
+
+- invalid with error message
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  invalid="true"
+  errorMessage="Please check this box if you want to proceed"
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Checkbox>
+```
+
+- indetermined
+
+<!-- prettier-ignore -->
+```jsx
+<Checkbox
+  indetermined="true"
+>
+  I'm not convinced to accept the Brainly Terms of Service & Privacy Policy, I accept only Privacy Policy.
+</Checkbox>
+```
