@@ -2,9 +2,16 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
 
+import Flex from '../flex/Flex';
 import Radio from './Radio';
 
-<Meta title="Components/Radio new" component={Radio} />
+<Meta
+  title="Components/Radio new"
+  component={Radio}
+  argTypes={{
+    children: 'string',
+  }}
+/>
 
 # Bubble
 
@@ -17,3 +24,32 @@ import Radio from './Radio';
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+### With label
+
+<Canvas>
+  <Story name="With label">{args => <Radio {...args}>My radio</Radio>}</Story>
+</Canvas>
+
+### With external label
+
+<Canvas>
+  <Story name="With external label">
+    {args => (
+      <label htmlFor="myRadioID">
+        <Flex
+          style={{
+            backgroundColor: 'lightblue',
+            borderRadius: '8px',
+            padding: '20px 40px',
+          }}
+        >
+          Thix component is a label for radio
+          <Radio {...args} id="myRadioID" customLabelId="myRadioID-label" />
+        </Flex>
+      </label>
+    )}
+  </Story>
+</Canvas>
