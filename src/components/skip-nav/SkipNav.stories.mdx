@@ -4,7 +4,7 @@ import SkipNav from './SkipNav';
 
 <Meta title="Components/SkipNav" component={SkipNav} />
 
-# Dialog
+# Skiplink
 
 - [Accessibility](#accessibility)
 
@@ -17,10 +17,10 @@ import SkipNav from './SkipNav';
         <div>
           <h2>Click tab to focus on skiplink thus make it visible</h2>
           <SkipNav links={{name: 'skip to main content', href: '#main'}} />
+          <div id="main" tabindex="-1" />
         </div>
       );
     }}
-
   </Story>
   <Story name="multiple links">
     {args => {
@@ -31,9 +31,12 @@ import SkipNav from './SkipNav';
             links={[
               {name: 'skip to main content', href: '#main'},
               {name: 'skip to secondary content', href: '#secondary'},
-              {name: 'skip to tertiary content', href: '#secondary'},
+              {name: 'skip to tertiary content', href: '#tertiary'},
             ]}
           />
+          <div id="main" tabindex="-1" />
+          <div id="secondary" tabindex="-1" />
+          <div id="tertiary" tabindex="-1" />
         </div>
       );
     }}
