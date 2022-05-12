@@ -14,7 +14,7 @@ const fadeEffect = {
   exit: {opacity: 0, duration: 'quick1', easing: 'exit'},
 };
 
-export function StaggeredMotion() {
+export const StaggeredMotion = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -35,7 +35,7 @@ export function StaggeredMotion() {
       ))}
     </Stage>
   );
-}
+};
 
 StaggeredMotion.parameters = {
   layout: 'centered',
