@@ -38,9 +38,10 @@ const Radio = ({
         type="radio"
         id={radioId}
         aria-labelledby={labelId}
+        {...props}
       />
       {children !== undefined && children !== null && (
-        <label {...props} id={labelId} className={radioClass} htmlFor={radioId}>
+        <label id={labelId} className={radioClass} htmlFor={radioId}>
           <Text
             size="small"
             type="span"
