@@ -1,0 +1,25 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import SkipLink from './SkipLink';
+
+<Meta title="Components/SkipLink" component={SkipLink} />
+
+# Skiplink
+
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="single link">
+    {args => {
+      return (
+        <div>
+          <h2>Click tab to focus on skiplink and make it visible</h2>
+          <SkipLink id="main">skip to main content</SkipLink>
+          <div id="main" tabindex="-1" />
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
