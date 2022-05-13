@@ -42,13 +42,6 @@ describe('<Checkbox />', () => {
     expect(checkboxInput.checked).toBe(true);
   });
 
-  it('it has custom id generated', () => {
-    const checkbox = renderCheckbox();
-    const checkboxInput = checkbox.getByRole('checkbox');
-
-    expect(checkboxInput.id).toBeTruthy();
-  });
-
   it('it displays error message and description', () => {
     const descriptionText = 'Cool checkbox it is';
     const errorMessageText = 'Oops.';
