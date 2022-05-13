@@ -30,7 +30,7 @@ const SpinnerContainers = () => {
     <div>
       <DocsActiveBlock settings={settings} backgroundColor="light">
         <SpinnerContainer>
-          <Button type="solid-blue">Ask your question</Button>
+          <Button type="solid">Ask your question</Button>
         </SpinnerContainer>
       </DocsActiveBlock>
     </div>

@@ -138,42 +138,37 @@ $largeButtonSize: componentSize(l);
   }
 
   &--solid-inverted {
-    @include buttonHover($gray-10, $white, 80%);
+    @include buttonHover($gray-20, $white, 80%);
     background-color: $white;
     color: $black;
   }
 
-  &--solid-blue {
-    @include buttonHover($blue-50, $blue-40, 80%);
-    background-color: $blue-40;
+  &--solid-indigo {
+    @include buttonHover($indigo-60, $indigo-50, 80%);
+    background-color: $indigo-50;
   }
 
-  &--solid-mint {
-    @include buttonHover($green-50, $green-40, 80%);
-    background-color: $green-40;
+  &--solid-indigo-inverted {
+    @include buttonHover($gray-20, $white, 80%);
+    background-color: $white;
+    color: $indigo-50;
   }
 
   &--solid-light {
-    @include buttonHover($gray-40, $gray-20, 12%);
+    @include buttonHover($gray-50, $gray-20, 12%);
     background-color: $gray-20;
     color: $black;
 
-    &-toggle-peach {
+    &-toggle-red {
       @include buttonHover($red-40, $red-20, 12%);
-      @include buttonIconColor($red-40);
+      @include buttonIconColor($red-50);
       background-color: $red-20;
     }
 
-    &-toggle-mustard {
+    &-toggle-yellow {
       @include buttonHover($yellow-40, $yellow-20, 12%);
-      @include buttonIconColor($yellow-40);
+      @include buttonIconColor($yellow-50);
       background-color: $yellow-20;
-    }
-
-    &-toggle-blue {
-      @include buttonHover($blue-40, $blue-20, 12%);
-      @include buttonIconColor($blue-40);
-      background-color: $blue-20;
     }
   }
 
@@ -183,23 +178,31 @@ $largeButtonSize: componentSize(l);
     border: 2px solid $black;
     color: $black;
 
-    &-toggle-peach {
+    &-toggle-red {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
-      border-color: $red-40;
+      @include buttonIconColor($red-50);
+      border-color: $red-50;
     }
 
-    &-toggle-mustard {
+    &-toggle-yellow {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
-      border-color: $yellow-40;
+      @include buttonIconColor($yellow-50);
+      border-color: $yellow-50;
     }
+  }
 
-    &-toggle-blue {
-      @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
-      border-color: $blue-40;
-    }
+  &--outline-indigo {
+    @include buttonHover($indigo-50, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $indigo-50;
+    color: $indigo-50;
+  }
+
+  &--outline-inverted {
+    @include buttonHover($white, $transparent, 12%);
+    background-color: $black;
+    border: 2px solid $white;
+    color: $white;
   }
 
   &--transparent {
@@ -207,19 +210,14 @@ $largeButtonSize: componentSize(l);
     background-color: $transparent;
     color: $black;
 
-    &-toggle-peach {
+    &-toggle-red {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
+      @include buttonIconColor($red-50);
     }
 
-    &-toggle-mustard {
+    &-toggle-yellow {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
-    }
-
-    &-toggle-blue {
-      @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
+      @include buttonIconColor($yellow-50);
     }
   }
 
@@ -228,19 +226,14 @@ $largeButtonSize: componentSize(l);
     background-color: $transparent;
     color: $gray-50;
 
-    &-toggle-peach {
+    &-toggle-red {
       @include buttonHover($red-40, $transparent, 12%);
-      @include buttonIconColor($red-40);
+      @include buttonIconColor($red-50);
     }
 
-    &-toggle-mustard {
+    &-toggle-yellow {
       @include buttonHover($yellow-40, $transparent, 12%);
-      @include buttonIconColor($yellow-40);
-    }
-
-    &-toggle-blue {
-      @include buttonHover($blue-40, $transparent, 12%);
-      @include buttonIconColor($blue-40);
+      @include buttonIconColor($yellow-50);
     }
   }
 
@@ -250,42 +243,21 @@ $largeButtonSize: componentSize(l);
     color: $white;
   }
 
-  &--transparent-peach {
+  &--transparent-red {
     @include buttonHover($red-40, $transparent, 12%);
+    @include buttonIconColor($red-50);
     background-color: $transparent;
-    color: $red-40;
+    color: $red-60;
 
-    &-toggle-peach {
+    &-toggle-red {
       @include buttonHover($red-40, $transparent, 12%);
-    }
-  }
-
-  &--transparent-mustard {
-    @include buttonHover($yellow-40, $transparent, 12%);
-    background-color: $transparent;
-    color: $yellow-40;
-
-    &-toggle-mustard {
-      @include buttonHover($yellow-40, $transparent, 12%);
-    }
-  }
-
-  &--transparent-blue {
-    @include buttonHover($blue-40, $transparent, 12%);
-    background-color: $transparent;
-    color: $blue-40;
-
-    &-toggle-blue {
-      @include buttonHover($blue-40, $transparent, 12%);
     }
   }
 
   &--transparent,
   &--transparent-light,
   &--transparent-inverted,
-  &--transparent-peach,
-  &--transparent-mustard,
-  &--transparent-blue {
+  &--transparent-red {
     padding: 0 10px;
 
     &.sg-button--l {
@@ -333,6 +305,18 @@ $largeButtonSize: componentSize(l);
       background-color: $buttonPrimaryFbHoverColor;
       border-color: $buttonPrimaryFbHoverColor;
     }
+  }
+
+  &--google {
+    @include buttonHover($gray-50, $transparent, 12%);
+    background-color: $transparent;
+    border: 2px solid $black;
+    color: $black;
+  }
+
+  &--apple {
+    @include buttonHover($gray-70, $black, 80%);
+    background-color: $black;
   }
 
   &--icon-only {

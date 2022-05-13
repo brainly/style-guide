@@ -134,7 +134,7 @@ const TextExamples = () => {
           color="text-green-60"
           underlined
         >
-          link / bold / mint / xlarge / underlined
+          link / bold / green / xlarge / underlined
         </Link>
       </DocsBlock>
       <DocsBlock info="Link color variants">

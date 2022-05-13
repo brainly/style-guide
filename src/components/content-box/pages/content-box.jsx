@@ -329,7 +329,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -358,7 +358,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -434,7 +434,7 @@ const ContentBoxes = () => (
             ]}
           />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -448,7 +448,7 @@ const ContentBoxes = () => (
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -467,7 +467,7 @@ const ContentBoxes = () => (
           <Headline size={HEADLINE_SIZE.SMALL}>
             Hey! Still not sure about the answer?
           </Headline>
-          <Button type="solid-blue">Check similar answers</Button>
+          <Button type="solid-indigo">Check similar answers</Button>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>

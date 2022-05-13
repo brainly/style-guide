@@ -8,7 +8,7 @@ import Icon from '../../icons/Icon';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
-const colorsOrder = ['peach', 'mustard', 'blue'];
+const colorsOrder = ['red', 'yellow'];
 
 const createSlideInEffect = (direction: 'left' | 'right') => ({
   initial: {
