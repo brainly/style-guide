@@ -191,7 +191,7 @@ const Checkbox = ({
             aria-required={required}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={describedbyIds}
-            aria-labelledBy={customLabelId}
+            aria-labelledby={customLabelId}
           />
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
