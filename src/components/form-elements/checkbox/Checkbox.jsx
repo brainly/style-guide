@@ -196,7 +196,7 @@ const Checkbox = ({
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
         {!customLabelId && children !== undefined && children !== null && (
-          <label htmlFor={checkboxId} disabled={disabled}>
+          <label htmlFor={checkboxId}>
             <Text
               size="medium"
               type="span"
