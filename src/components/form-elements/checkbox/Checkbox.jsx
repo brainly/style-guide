@@ -188,7 +188,6 @@ const Checkbox = ({
             required={required}
             value={value}
             aria-checked={indeterminate ? 'mixed' : isChecked}
-            aria-required={required}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={describedbyIds}
             aria-labelledby={customLabelId}
