@@ -67,6 +67,11 @@ export type CheckboxPropsType = {
    */
   invalid?: boolean,
   /**
+   * ID of a custom label, that describes the checkbox input.
+   * @example <Checkbox customLabelId="my-custom-label" />
+   */
+  customLabelId?: string,
+  /**
    * The name of the checkbox input.
    * @example <Checkbox name="name" />
    */
@@ -100,6 +105,7 @@ const Checkbox = ({
   id,
   indeterminate = false,
   invalid = false,
+  customLabelId,
   required = false,
   name,
   onChange,
@@ -168,11 +174,7 @@ const Checkbox = ({
 
   return (
     <div {...props} className={checkboxClass}>
-      <label
-        className="sg-checkbox__wrapper"
-        htmlFor={checkboxId}
-        disabled={disabled}
-      >
+      <div className="sg-checkbox__wrapper">
         <div className="sg-checkbox__element">
           <input
             ref={inputRef}
@@ -189,20 +191,23 @@ const Checkbox = ({
             aria-required={required}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={describedbyIds}
+            aria-labelledBy={customLabelId}
           />
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
-        {children !== undefined && children !== null && (
-          <Text
-            size="medium"
-            type="span"
-            weight="bold"
-            className="sg-checkbox__label"
-          >
-            {children}
-          </Text>
+        {!customLabelId && children !== undefined && children !== null && (
+          <label htmlFor={checkboxId} disabled={disabled}>
+            <Text
+              size="medium"
+              type="span"
+              weight="bold"
+              className="sg-checkbox__label"
+            >
+              {children}
+            </Text>
+          </label>
         )}
-      </label>
+      </div>
       <div className="sg-checkbox__content">
         {description && (
           <Text

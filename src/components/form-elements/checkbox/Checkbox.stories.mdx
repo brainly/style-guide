@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../../_docs/utils';
 import {Preview} from '../../../_docs/blocks/';
 
+import Box from '../../box/Box';
 import Flex from '../../flex/Flex';
 import Headline from '../../text/Headline';
 import Text from '../../text/Text';
@@ -294,6 +295,33 @@ import Checkbox from './Checkbox';
           </tbody>
         </StoryVariantTable>
       </div>
+    )}
+  </Story>
+</Canvas>
+
+### With custom label
+
+<Canvas>
+  <Story name="With custom label">
+    {args => (
+      <label htmlFor="myCheckboxID">
+        <Box
+          color="indigo-20"
+          padding="m"
+          style={{
+            width: 400,
+          }}
+        >
+          <Flex alignItems="center" justifyContent="space-between">
+            This component is a custom label for checkbox
+            <Checkbox
+              {...args}
+              id="myCheckboxID"
+              customLabelId="myCheckboxID-label"
+            />
+          </Flex>
+        </Box>
+      </label>
     )}
   </Story>
 </Canvas>
