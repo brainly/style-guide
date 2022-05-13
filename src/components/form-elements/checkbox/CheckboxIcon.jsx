@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import cx from 'classnames';
 
 const CheckIcon = () => (
   <svg
@@ -31,14 +30,12 @@ const IndeterminateIcon = () => (
 
 export type CheckboxIconPropsType = {
   checked?: boolean,
-  className?: string,
   indeterminate?: boolean,
   ...
 };
 
 const CheckboxIcon = ({
   checked,
-  className,
   indeterminate = false,
   ...props
 }: CheckboxIconPropsType) => {
@@ -54,12 +51,10 @@ const CheckboxIcon = ({
     [indeterminate, checked]
   );
 
-  const iconClass = cx('sg-checkbox__icon', className);
-
   return (
     <span
       {...props}
-      className={iconClass}
+      className="sg-checkbox__icon"
       // This element is purely decorative so
       // we hide it for screen readers
       aria-hidden="true"
