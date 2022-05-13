@@ -8,7 +8,18 @@ import Headline from '../../text/Headline';
 import Text from '../../text/Text';
 import Checkbox from './Checkbox';
 
-<Meta title="Components/Form/Checkbox" component={Checkbox} />
+<Meta
+  title="Components/Form/Checkbox"
+  component={Checkbox}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+    description: {
+      type: 'string',
+    },
+  }}
+/>
 
 # Checkbox
 
