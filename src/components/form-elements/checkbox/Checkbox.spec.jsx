@@ -2,6 +2,7 @@ import * as React from 'react';
 import Checkbox from './Checkbox';
 
 import {render} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 describe('<Checkbox />', () => {
   const renderCheckbox = props =>
@@ -20,10 +21,10 @@ describe('<Checkbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(false);
-    expect(checkbox.queryByLabelText('my label')).toBeTruthy();
-    checkboxInput.click();
+    userEvent.click(checkbox.queryByLabelText('my label'));
+    expect(checkboxInput).toEqual(document.activeElement);
     expect(checkboxInput.checked).toBe(true);
-    checkbox.queryByLabelText('my label').click();
+    userEvent.click(checkboxInput);
     expect(checkboxInput.checked).toBe(false);
   });
 
@@ -83,11 +84,11 @@ describe('<Checkbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(false);
-    checkbox.getByText(descriptionText).click();
+    userEvent.click(checkbox.getByText(descriptionText));
     expect(checkboxInput.checked).toBe(false);
-    checkbox.getByText(errorMessageText).click();
+    userEvent.click(checkbox.getByText(errorMessageText));
     expect(checkboxInput.checked).toBe(false);
-    checkbox.queryByLabelText(labelText).click();
+    userEvent.click(checkbox.queryByLabelText(labelText));
     expect(checkboxInput.checked).toBe(true);
   });
 
@@ -103,10 +104,10 @@ describe('<Checkbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(true);
-    checkboxInput.click();
+    userEvent.click(checkboxInput);
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
-    checkbox.queryByLabelText(labelText).click();
+    userEvent.click(checkbox.queryByLabelText(labelText));
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
   });
