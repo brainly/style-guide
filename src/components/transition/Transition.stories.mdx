@@ -1,12 +1,28 @@
-import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {
+  ArgsTable,
+  Meta,
+  Story,
+  Canvas,
+  Source,
+  Description,
+} from '@storybook/addon-docs';
+import dedent from 'ts-dedent';
+
 import Box from '../box/Box';
 import Text from '../text/Text';
-
 import Transition from './Transition';
+import * as stories from './stories';
 
 <Meta
   title="Components/Transition"
   component={Transition}
+  decorators={[
+    Story => (
+      <div style={{margin: '3em', display: 'flex', justifyContent: 'center'}}>
+        <Story />
+      </div>
+    ),
+  ]}
   parameters={{
     controls: {
       sort: 'requiredFirst',
@@ -74,7 +90,7 @@ import Transition from './Transition';
 
 # Transition
 
-- [Stories](#stories)
+- [Examples](#examples)
 
 ## Overview
 
@@ -94,4 +110,44 @@ import Transition from './Transition';
 
 <ArgsTable story="Default" />
 
-## Stories
+## Examples
+
+### Fill Mode
+
+<Story story={stories.FillMode} />
+
+<Source
+  language="css"
+  format={false}
+  code={dedent`
+  const fillModes = ['none', 'forwards', 'backwards', 'both'];
+  const shrinkFadeEffect = {
+    initial: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transform: {scale: 0.25},
+      duration: 1000,
+      easing: 'entry',
+    },
+    exit: {
+      opacity: 0,
+      duration: 1000,
+      easing: 'exit',
+    },
+  };
+  fillModes.map(mode => (
+    <Container key={mode} description={mode}>
+      <Transition
+        active={active}
+        effect={shrinkFadeEffect}
+        fillMode={mode}
+        delay={1000}
+      >
+        <Circle />
+      </Transition>
+    </Container>
+  ))
+  `}
+/>
