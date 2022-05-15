@@ -19,7 +19,7 @@ import * as stories from './stories';
   decorators={[
     Story => (
       <div style={{margin: '3em', display: 'flex', justifyContent: 'center'}}>
-        <Story />
+        {Story()}
       </div>
     ),
   ]}
@@ -94,8 +94,10 @@ import * as stories from './stories';
 
 ## Overview
 
-<Canvas>
-  <Story name="Default">
+> Use "active" property to trigger transition
+
+<Canvas withColumn>
+  <Story name="Default" height="200px">
     {args => (
       <Transition {...args}>
         <Box color="blue-40" padding="m">
