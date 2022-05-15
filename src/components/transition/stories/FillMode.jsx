@@ -27,7 +27,7 @@ const shrinkFadeEffect = {
 };
 
 export const FillMode = () => {
-  const [active, setActive] = React.useState(false);
+  const [show, setShow] = React.useState(false);
 
   return (
     <Flex>
@@ -36,7 +36,7 @@ export const FillMode = () => {
           {fillModes.map(mode => (
             <Container key={mode} description={mode}>
               <Transition
-                active={active}
+                active={show}
                 effect={shrinkFadeEffect}
                 fillMode={mode}
                 delay={1000}
@@ -47,14 +47,13 @@ export const FillMode = () => {
           ))}
         </Flex>
 
-        <Button type="solid" onClick={() => setActive(b => !b)} fullWidth>
-          {active ? 'inactive' : 'active'}
+        <Button type="solid" onClick={() => setShow(b => !b)}>
+          {show ? 'hide' : 'show'}
         </Button>
 
         <Text size="small" color="text-gray-50" align="to-center">
-          An active effect spawns a shrinking circle with a 1s delay,
-          <br />
-          inside the parent container.
+          Activating transition spawns a shrinking circle inside the parent
+          container with a 1s delay.
         </Text>
       </Flex>
     </Flex>
