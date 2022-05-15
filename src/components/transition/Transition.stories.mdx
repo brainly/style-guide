@@ -97,7 +97,7 @@ import * as stories from './stories';
 > Use "active" property to trigger transition
 
 <Canvas withColumn>
-  <Story name="Default" height="200px">
+  <Story name="Default" height="180px">
     {args => (
       <Transition {...args}>
         <Box color="blue-40" padding="m">
@@ -153,3 +153,37 @@ import * as stories from './stories';
   ))
   `}
 />
+
+### Predefined Effects
+
+<Story story={stories.PredefinedEffects} />
+
+### Prefers Reduced Motion
+
+Enable reduce motion in **System Preferences > Accessibility** to see different results.
+
+<Story story={stories.PrefersReducedMotion} />
+
+### Curved Movement
+
+<Story story={stories.CurvedMovement} />
+
+### Shared Axis
+
+<Story story={stories.SharedAxis} />
+
+### Staggered Motion
+
+<Story story={stories.StaggeredMotion} />
+
+### Fluid List
+
+<Story story={stories.FluidList} />
+
+### Expanding Details
+
+<Story story={stories.ExpandingDetails} />
+
+### Offset Behavior
+
+<Story story={stories.OffsetBehavior} />
