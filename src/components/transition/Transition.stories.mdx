@@ -1,12 +1,4 @@
-import {
-  ArgsTable,
-  Meta,
-  Story,
-  Canvas,
-  Source,
-  Description,
-} from '@storybook/addon-docs';
-import dedent from 'ts-dedent';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 
 import Box from '../box/Box';
 import Text from '../text/Text';
@@ -118,41 +110,39 @@ import * as stories from './stories';
 
 <Story story={stories.FillMode} />
 
-<Source
-  language="css"
-  format={false}
-  code={dedent`
-  const fillModes = ['none', 'forwards', 'backwards', 'both'];
-  const shrinkFadeEffect = {
-    initial: {
-      opacity: 0,
-    },
-    animate: {
-      opacity: 1,
-      transform: {scale: 0.25},
-      duration: 1000,
-      easing: 'entry',
-    },
-    exit: {
-      opacity: 0,
-      duration: 1000,
-      easing: 'exit',
-    },
-  };
-  fillModes.map(mode => (
-    <Container key={mode} description={mode}>
-      <Transition
-        active={active}
-        effect={shrinkFadeEffect}
-        fillMode={mode}
-        delay={1000}
-      >
-        <Circle />
-      </Transition>
-    </Container>
-  ))
-  `}
-/>
+```jsx
+const fillModes = ['none', 'forwards', 'backwards', 'both'];
+
+const shrinkFadeEffect = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transform: {scale: 0.25},
+    duration: 1000,
+    easing: 'entry',
+  },
+  exit: {
+    opacity: 0,
+    duration: 1000,
+    easing: 'exit',
+  },
+};
+
+fillModes.map(mode => (
+  <Container key={mode} description={mode}>
+    <Transition
+      active={active}
+      effect={shrinkFadeEffect}
+      fillMode={mode}
+      delay={1000}
+    >
+      <Circle />
+    </Transition>
+  </Container>
+));
+```
 
 ### Predefined Effects
 
