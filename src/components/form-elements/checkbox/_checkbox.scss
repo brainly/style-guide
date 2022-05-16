@@ -90,6 +90,12 @@ $clickableArea: 32px;
     .sg-checkbox__description {
       color: $labelColor;
     }
+
+    @media (forced-colors: active) {
+      .sg-checkbox__icon {
+        fill: CanvasText;
+      }
+    }
   }
 
   &--dark {
