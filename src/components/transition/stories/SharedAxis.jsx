@@ -8,7 +8,7 @@ import Icon from '../../icons/Icon';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
-const colorsOrder = ['red', 'yellow'];
+const colorsOrder = ['red', 'yellow', 'blue'];
 
 const createSlideInEffect = (direction: 'left' | 'right') => ({
   initial: {
@@ -69,9 +69,8 @@ export const SharedAxis = () => {
         {colorsOrder.map((color, index) => (
           <Button
             key={color}
-            toggle={color}
             type={index === currentViewIndex ? 'solid-light' : 'transparent'}
-            icon={<Icon type="circle" color="adaptive" />}
+            icon={<Icon type="circle" color={buttonIconColors[color]} />}
             onClick={() => changeView(index)}
             iconOnly
           />
@@ -83,6 +82,12 @@ export const SharedAxis = () => {
       </Transition>
     </Stage>
   );
+};
+
+const buttonIconColors = {
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
+  blue: 'icon-blue-50',
 };
 
 SharedAxis.parameters = {
