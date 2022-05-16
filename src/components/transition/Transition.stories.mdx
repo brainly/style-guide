@@ -1,0 +1,179 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import Box from '../box/Box';
+import Text from '../text/Text';
+import Transition from './Transition';
+import * as stories from './stories';
+
+<Meta
+  title="Components/Transition"
+  component={Transition}
+  decorators={[
+    Story => (
+      <div style={{margin: '3em', display: 'flex', justifyContent: 'center'}}>
+        {Story()}
+      </div>
+    ),
+  ]}
+  parameters={{
+    controls: {
+      sort: 'requiredFirst',
+    },
+  }}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    onTransitionStart: {
+      action: 'onTransitionStart',
+      table: {
+        category: 'Events',
+      },
+    },
+    onTransitionEnd: {
+      action: 'onTransitionEnd',
+      table: {
+        category: 'Events',
+      },
+    },
+    debug: {
+      table: {
+        category: 'Mode',
+        type: {
+          summary:
+            'window.sgTransitionDebug = {speed?: number, outlines?: boolean}',
+        },
+        defaultValue: {
+          summary: 'undefined',
+        },
+      },
+    },
+  }}
+  args={{
+    effect: {
+      initial: {
+        transform: {
+          translateY: 24,
+        },
+        opacity: 0,
+      },
+      animate: {
+        transform: {
+          translateY: 0,
+          duration: 'moderate2',
+          easing: 'entry',
+        },
+        opacity: {
+          value: 1,
+          duration: 'quick2',
+          easing: 'linear',
+        },
+      },
+      exit: {
+        opacity: 0,
+        duration: 'quick2',
+        easing: 'exit',
+      },
+    },
+  }}
+/>
+
+# Transition
+
+- [Examples](#examples)
+
+## Overview
+
+> Use "active" property to trigger transition
+
+<Canvas withColumn>
+  <Story name="Default" height="180px">
+    {args => (
+      <Transition {...args}>
+        <Box color="blue-40" padding="m">
+          <Text color="text-white" weight="bold">
+            hello world
+          </Text>
+        </Box>
+      </Transition>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Examples
+
+### Fill Mode
+
+<Story story={stories.FillMode} />
+
+```jsx
+const fillModes = ['none', 'forwards', 'backwards', 'both'];
+
+const shrinkFadeEffect = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transform: {scale: 0.25},
+    duration: 1000,
+    easing: 'entry',
+  },
+  exit: {
+    opacity: 0,
+    duration: 1000,
+    easing: 'exit',
+  },
+};
+
+fillModes.map(mode => (
+  <Container key={mode} description={mode}>
+    <Transition
+      active={active}
+      effect={shrinkFadeEffect}
+      fillMode={mode}
+      delay={1000}
+    >
+      <Circle />
+    </Transition>
+  </Container>
+));
+```
+
+### Predefined Effects
+
+<Story story={stories.PredefinedEffects} />
+
+### Prefers Reduced Motion
+
+Enable reduce motion in **System Preferences > Accessibility** to see different results.
+
+<Story story={stories.PrefersReducedMotion} />
+
+### Curved Movement
+
+<Story story={stories.CurvedMovement} />
+
+### Shared Axis
+
+<Story story={stories.SharedAxis} />
+
+### Staggered Motion
+
+<Story story={stories.StaggeredMotion} />
+
+### Fluid List
+
+<Story story={stories.FluidList} />
+
+### Expanding Details
+
+<Story story={stories.ExpandingDetails} />
+
+### Offset Behavior
+
+<Story story={stories.OffsetBehavior} />

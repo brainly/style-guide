@@ -11,7 +11,7 @@ import type {PredefinedEffectType} from '../predefinedEffects';
 const predefinedEffectTypes = Object.keys(predefinedEffects);
 
 export const PredefinedEffects = () => (
-  <Flex style={{gap: 16}} wrap>
+  <Flex style={{gap: 16}} wrap justifyContent="center">
     {predefinedEffectTypes.map(type => (
       <PredefinedEffect key={type} type={type} />
     ))}
