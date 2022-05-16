@@ -17,11 +17,11 @@ beforeAll(() => {
 
 const linkProps = {
   name: 'skip to main content',
-  href: '#main',
+  id: 'main',
 };
 
 const renderSkipLink = () =>
-  render(<SkipLink id="main">skip to main content</SkipLink>);
+  render(<SkipLink id={linkProps.id}>skip to main content</SkipLink>);
 
 describe('<SkipLink />', () => {
   it('renders single SkipLink', () => {
@@ -37,7 +37,7 @@ describe('<SkipLink />', () => {
     const link = screen.getByRole('link', {name: linkProps.name});
 
     expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute('href', linkProps.href);
+    expect(link).toHaveAttribute('href', `#${linkProps.id}`);
     // userEvent.keyboard('{enter}');
     // expect(window.location.href).toEqual('#main');
   });

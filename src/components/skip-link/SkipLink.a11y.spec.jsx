@@ -9,7 +9,7 @@ const renderSkipLink = () =>
   render(<SkipLink id="main">skip to main content</SkipLink>);
 
 describe('<SkipLink /> a11y', () => {
-  it('should have no a11y violations when link, label, imgSrc and alt are provided', async () => {
+  it('should have no a11y violations', async () => {
     await testA11y(<SkipLink id="main">skip to main content</SkipLink>);
   });
 
