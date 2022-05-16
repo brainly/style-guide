@@ -194,7 +194,7 @@ const Checkbox = ({
           />
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
-        {!customLabelId && children !== undefined && children !== null && (
+        {!ariaLabelledBy && children !== undefined && children !== null && (
           <Text
             type="label"
             size="medium"
