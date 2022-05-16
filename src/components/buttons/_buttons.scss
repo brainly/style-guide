@@ -200,7 +200,7 @@ $largeButtonSize: componentSize(l);
 
   &--outline-inverted {
     @include buttonHover($white, $transparent, 12%);
-    background-color: $black;
+    background-color: $transparent;
     border: 2px solid $white;
     color: $white;
   }
