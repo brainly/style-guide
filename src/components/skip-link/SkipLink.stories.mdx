@@ -1,4 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {screen, userEvent} from '@storybook/testing-library';
 
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
@@ -12,11 +13,16 @@ import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 ## Overview
 
 <Canvas>
-  <Story name="single link">
+  <Story
+    name="default"
+    play={async () => {
+      const link = screen.getByRole('link', {name: /skip to main content/i});
+      await userEvent.tab();
+    }}
+  >
     {args => {
       return (
         <div>
-          <h2>Click tab to focus on skiplink and make it visible</h2>
           <SkipLink id="main">skip to main content</SkipLink>
           <div id="main" tabindex="-1" />
         </div>
@@ -24,5 +30,7 @@ import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
     }}
   </Story>
 </Canvas>
+
+## Accessibility
 
 <SkipLinkA11y />
