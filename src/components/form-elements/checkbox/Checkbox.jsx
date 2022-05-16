@@ -195,16 +195,14 @@ const Checkbox = ({
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
         {!customLabelId && children !== undefined && children !== null && (
-          <label htmlFor={checkboxId}>
-            <Text
-              size="medium"
-              type="span"
-              weight="bold"
-              className="sg-checkbox__label"
-            >
-              {children}
-            </Text>
-          </label>
+          <Text
+            type="label"
+            size="medium"
+            weight="bold"
+            className="sg-checkbox__label"
+          >
+            {children}
+          </Text>
         )}
       </div>
       <div className="sg-checkbox__content">
