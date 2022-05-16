@@ -27,7 +27,7 @@ const shrinkFadeEffect = {
 };
 
 export const FillMode = () => {
-  const [show, setShow] = React.useState(false);
+  const [active, setActive] = React.useState(false);
 
   return (
     <Flex>
@@ -36,7 +36,7 @@ export const FillMode = () => {
           {fillModes.map(mode => (
             <Container key={mode} description={mode}>
               <Transition
-                active={show}
+                active={active}
                 effect={shrinkFadeEffect}
                 fillMode={mode}
                 delay={1000}
@@ -47,8 +47,8 @@ export const FillMode = () => {
           ))}
         </Flex>
 
-        <Button type="solid" onClick={() => setShow(b => !b)}>
-          {show ? 'hide' : 'show'}
+        <Button type="solid" onClick={() => setActive(b => !b)}>
+          {active ? 'hide' : 'show'}
         </Button>
 
         <Text size="small" color="text-gray-50" align="to-center">
