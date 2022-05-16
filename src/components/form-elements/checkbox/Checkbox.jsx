@@ -67,11 +67,6 @@ export type CheckboxPropsType = {
    */
   invalid?: boolean,
   /**
-   * ID of a custom label, that describes the checkbox input.
-   * @example <Checkbox customLabelId="my-custom-label" />
-   */
-  customLabelId?: string,
-  /**
    * The name of the checkbox input.
    * @example <Checkbox name="name" />
    */
@@ -90,6 +85,11 @@ export type CheckboxPropsType = {
    * @example <Checkbox value="1" />
    */
   value?: string,
+  /**
+   * ID of a custom label, that describes the checkbox input.
+   * @example <Checkbox aria-labelledby="my-custom-label" />
+   */
+  'aria-labelledby'?: string,
   ...
 };
 
@@ -105,11 +105,11 @@ const Checkbox = ({
   id,
   indeterminate = false,
   invalid = false,
-  customLabelId,
   required = false,
   name,
   onChange,
   value,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: CheckboxPropsType) => {
   const {current: checkboxId} = React.useRef(
@@ -190,7 +190,7 @@ const Checkbox = ({
             aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={describedbyIds}
-            aria-labelledby={customLabelId}
+            aria-labelledby={ariaLabelledBy}
           />
           <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
         </div>
