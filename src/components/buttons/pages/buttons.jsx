@@ -12,6 +12,30 @@ function getValues(object, addUndefined = true) {
     : Object.values(object);
 }
 
+function getIcon(type) {
+  let iconType = '';
+
+  switch (type) {
+    case 'google': {
+      iconType = 'google';
+      break;
+    }
+    case 'facebook': {
+      iconType = 'facebook';
+      break;
+    }
+    case 'apple': {
+      iconType = 'apple';
+      break;
+    }
+    default: {
+      iconType = 'heart_outlined';
+    }
+  }
+
+  return <Icon type={iconType} color="adaptive" size={24} />;
+}
+
 const Buttons = () => {
   const buttonsVariants = [];
   const buttonsText = 'Button';
@@ -24,10 +48,19 @@ const Buttons = () => {
   // eslint-disable-next-line react/prop-types
   const getToggleButtons = ({type} = {}) => (
     <>
-      {[...someButtonsWithToggle, 'transparent-peach'].includes(type) && (
+      {[...someButtonsWithToggle].includes(type) && (
         <Button
           type={type}
-          toggle="peach"
+          icon={<Icon type="heart" color="adaptive" size={24} />}
+          style={{marginBottom: '12px'}}
+        >
+          {buttonsText}
+        </Button>
+      )}
+      {[...someButtonsWithToggle, 'transparent-red'].includes(type) && (
+        <Button
+          type={type}
+          toggle="red"
           icon={<Icon type="heart" color="adaptive" size={24} />}
           style={{marginBottom: '12px'}}
         >
@@ -35,22 +68,12 @@ const Buttons = () => {
         </Button>
       )}
 
-      {[...someButtonsWithToggle, 'transparent-mustard'].includes(type) && (
+      {[...someButtonsWithToggle].includes(type) && (
         <Button
           type={type}
-          toggle="mustard"
+          toggle="yellow"
           icon={<Icon type="heart" color="adaptive" size={24} />}
           style={{marginBottom: '12px'}}
-        >
-          {buttonsText}
-        </Button>
-      )}
-
-      {[...someButtonsWithToggle, 'transparent-blue'].includes(type) && (
-        <Button
-          type={type}
-          toggle="blue"
-          icon={<Icon type="heart" color="adaptive" size={24} />}
         >
           {buttonsText}
         </Button>
@@ -65,7 +88,9 @@ const Buttons = () => {
           fullWidth
           style={{
             backgroundColor:
-              type === 'transparent-inverted' || type === 'solid-inverted'
+              type === 'transparent-inverted' ||
+              type === 'solid-inverted' ||
+              type === 'solid-indigo-inverted'
                 ? hex['gray-50']
                 : null,
             paddingTop: '8px',
@@ -85,41 +110,18 @@ const Buttons = () => {
           </DocsBlock>
           <DocsBlock evenColumns justified>
             <Flex direction="column" alignItems="center">
-              <Button
-                type={type}
-                icon={
-                  <Icon
-                    type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
-                    color="adaptive"
-                    size={24}
-                  />
-                }
-              >
+              <Button type={type} icon={getIcon(type)}>
                 {buttonsText}
               </Button>
               <Flex marginTop="xs">
-                <Button
-                  type={type}
-                  icon={
-                    <Icon
-                      type={type === 'facebook' ? 'facebook' : 'heart_outlined'}
-                      color="adaptive"
-                      size={24}
-                    />
-                  }
-                  reversedOrder
-                >
+                <Button type={type} icon={getIcon(type)} reversedOrder>
                   {buttonsText}
                 </Button>
               </Flex>
             </Flex>
           </DocsBlock>
           <DocsBlock evenColumns justified>
-            <Button
-              type={type}
-              icon={<Icon type="heart_outlined" color="adaptive" size={24} />}
-              iconOnly
-            >
+            <Button type={type} icon={getIcon(type)} iconOnly>
               {buttonsText}
             </Button>
           </DocsBlock>
@@ -160,7 +162,7 @@ const Buttons = () => {
       <DocsBlock info="Buttons sizes">
         <Button
           size="l"
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"
@@ -174,7 +176,7 @@ const Buttons = () => {
         &nbsp;
         <Button
           size="l"
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"
@@ -188,7 +190,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"
@@ -201,7 +203,7 @@ const Buttons = () => {
         </Button>
         &nbsp;
         <Button
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"
@@ -216,7 +218,7 @@ const Buttons = () => {
         &nbsp;
         <Button
           size="s"
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"
@@ -230,7 +232,7 @@ const Buttons = () => {
         &nbsp;
         <Button
           size="s"
-          type="solid-blue"
+          type="solid"
           icon={
             <Icon
               type="heart_outlined"

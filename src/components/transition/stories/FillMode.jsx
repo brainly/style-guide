@@ -7,6 +7,8 @@ import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 
+const fillModes = ['none', 'forwards', 'backwards', 'both'];
+
 const shrinkFadeEffect = {
   initial: {
     opacity: 0,
@@ -24,10 +26,8 @@ const shrinkFadeEffect = {
   },
 };
 
-const fillModes = ['none', 'forwards', 'backwards', 'both'];
-
-export function FillMode() {
-  const [isActive, setIsActive] = React.useState(false);
+export const FillMode = () => {
+  const [active, setActive] = React.useState(false);
 
   return (
     <Flex>
@@ -36,7 +36,7 @@ export function FillMode() {
           {fillModes.map(mode => (
             <Container key={mode} description={mode}>
               <Transition
-                active={isActive}
+                active={active}
                 effect={shrinkFadeEffect}
                 fillMode={mode}
                 delay={1000}
@@ -47,8 +47,8 @@ export function FillMode() {
           ))}
         </Flex>
 
-        <Button type="solid" onClick={() => setIsActive(b => !b)} fullWidth>
-          {isActive ? 'inactive' : 'active'}
+        <Button type="solid" onClick={() => setActive(b => !b)} fullWidth>
+          {active ? 'inactive' : 'active'}
         </Button>
 
         <Text size="small" color="text-gray-50" align="to-center">
@@ -59,7 +59,7 @@ export function FillMode() {
       </Flex>
     </Flex>
   );
-}
+};
 
 const Circle = () => (
   <div

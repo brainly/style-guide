@@ -29,24 +29,24 @@ const fadeSlideEffect = {
   },
 };
 
-export function PrefersReducedMotion() {
-  const [isOpen, setIsOpen] = React.useState(false);
+export const PrefersReducedMotion = () => {
+  const [visible, setVisible] = React.useState(false);
 
   return (
     <Stage
-      onClick={() => setIsOpen(b => !b)}
-      description={`click to ${isOpen ? 'hide' : 'show'}`}
+      onClick={() => setVisible(b => !b)}
+      description={`click to ${visible ? 'hide' : 'show'}`}
       centered
     >
       <Transition
-        active={isOpen}
+        active={visible}
         effect={reduced => (reduced ? fadeEffect : fadeSlideEffect)}
       >
         <DummyBox size="medium" color="blue" />
       </Transition>
     </Stage>
   );
-}
+};
 
 PrefersReducedMotion.parameters = {
   layout: 'centered',

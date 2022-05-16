@@ -12,7 +12,7 @@ const typingEffect = {
   exit: {opacity: 0, duration: 'quick2', easing: 'exit'},
 };
 
-export function TypewriterEffect() {
+export const TypewriterEffect = () => {
   const message = 'hello world';
   const [active, setActive] = React.useState(false);
 
@@ -21,7 +21,7 @@ export function TypewriterEffect() {
       <Button
         type="solid-light"
         onClick={() => setActive(b => !b)}
-        toggle={active ? 'peach' : 'blue'}
+        toggle={active ? 'red' : 'yellow'}
       >
         {active ? 'erase' : 'enter'}
       </Button>
@@ -41,7 +41,7 @@ export function TypewriterEffect() {
       </div>
     </Flex>
   );
-}
+};
 
 TypewriterEffect.parameters = {
   layout: 'centered',

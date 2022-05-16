@@ -25,20 +25,20 @@ const slideFadeOutEffect = {
   },
 };
 
-const animationCycle = [slideFadeInEffect, slideFadeOutEffect];
+const cycle = [slideFadeInEffect, slideFadeOutEffect];
 
 const increment = (n: number) => n + 1;
-const isLastElement = (arr, e) => arr[arr.length - 1] === e;
 
-export function InTextCounter() {
-  const [index, setIndex] = React.useState(0);
+export const InTextCounter = () => {
   const [count, setCount] = React.useState(0);
-  const currentEffect = animationCycle[index % animationCycle.length];
+  const [effectIndex, setEffectIndex] = React.useState(0);
+  const currentEffect = cycle[effectIndex % cycle.length];
 
   const handleTransitionEnd = effect => {
-    setIndex(increment);
+    setEffectIndex(increment);
 
-    if (isLastElement(animationCycle, effect)) {
+    // increase count value when the counter is hidden
+    if (effect === slideFadeOutEffect) {
       setCount(increment);
     }
   };
@@ -63,7 +63,7 @@ export function InTextCounter() {
       Counters! {counter} {users} love them.
     </div>
   );
-}
+};
 
 InTextCounter.parameters = {
   layout: 'centered',

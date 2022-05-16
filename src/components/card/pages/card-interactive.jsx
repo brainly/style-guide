@@ -50,8 +50,8 @@ const Cards = () => {
               pretium.
             </Text>
           </CardHole>
-          <CardHole color="gray-70">
-            <Button type="solid-blue">Ask your question</Button>
+          <CardHole color="gray-40">
+            <Button type="solid">Ask your question</Button>
           </CardHole>
         </Card>
       </DocsActiveBlock>

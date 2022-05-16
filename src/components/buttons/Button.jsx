@@ -16,43 +16,45 @@ export const BUTTON_SIZE: {
 };
 
 export const BUTTON_TYPE: {
-  SOLID_LIGHT: 'solid-light',
-  OUTLINE: 'outline',
-  TRANSPARENT: 'transparent',
-  TRANSPARENT_LIGHT: 'transparent-light',
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
-  SOLID_BLUE: 'solid-blue',
-  SOLID_MINT: 'solid-mint',
-  TRANSPARENT_PEACH: 'transparent-peach',
-  TRANSPARENT_MUSTARD: 'transparent-mustard',
-  TRANSPARENT_BLUE: 'transparent-blue',
+  SOLID_INDIGO: 'solid-indigo',
+  SOLID_INDIGO_INVERTED: 'solid-indigo-inverted',
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  OUTLINE_INDIGO: 'outline-indigo',
+  OUTLINE_INVERTED: 'outline-inverted',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
+  TRANSPARENT_RED: 'transparent-red',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
+  GOOGLE: 'google',
+  APPLE: 'apple',
 } = {
-  SOLID_LIGHT: 'solid-light',
-  OUTLINE: 'outline',
-  TRANSPARENT: 'transparent',
-  TRANSPARENT_LIGHT: 'transparent-light',
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
-  SOLID_BLUE: 'solid-blue',
-  SOLID_MINT: 'solid-mint',
-  TRANSPARENT_PEACH: 'transparent-peach',
-  TRANSPARENT_MUSTARD: 'transparent-mustard',
-  TRANSPARENT_BLUE: 'transparent-blue',
+  SOLID_INDIGO: 'solid-indigo',
+  SOLID_INDIGO_INVERTED: 'solid-indigo-inverted',
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  OUTLINE_INDIGO: 'outline-indigo',
+  OUTLINE_INVERTED: 'outline-inverted',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
+  TRANSPARENT_RED: 'transparent-red',
   TRANSPARENT_INVERTED: 'transparent-inverted',
   FACEBOOK: 'facebook',
+  GOOGLE: 'google',
+  APPLE: 'apple',
 };
 
 export const BUTTON_TOGGLE: {
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  BLUE: 'blue',
+  RED: 'red',
+  YELLOW: 'yellow',
 } = {
-  PEACH: 'peach',
-  MUSTARD: 'mustard',
-  BLUE: 'blue',
+  RED: 'red',
+  YELLOW: 'yellow',
 };
 
 const SPINNER_SIZE_MAP = {
@@ -64,35 +66,39 @@ const SPINNER_SIZE_MAP = {
 const SPINNER_COLOR_MAP = {
   [BUTTON_TYPE.SOLID]: SPINNER_COLOR['white'],
   [BUTTON_TYPE.SOLID_INVERTED]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.SOLID_BLUE]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.SOLID_MINT]: SPINNER_COLOR['white'],
+  [BUTTON_TYPE.SOLID_INDIGO]: SPINNER_COLOR['white'],
+  [BUTTON_TYPE.SOLID_INDIGO_INVERTED]: SPINNER_COLOR['indigo-50'],
   [BUTTON_TYPE.SOLID_LIGHT]: SPINNER_COLOR['black'],
   [BUTTON_TYPE.OUTLINE]: SPINNER_COLOR['black'],
+  [BUTTON_TYPE.OUTLINE_INDIGO]: SPINNER_COLOR['indigo-50'],
+  [BUTTON_TYPE.OUTLINE_INVERTED]: SPINNER_COLOR['white'],
   [BUTTON_TYPE.TRANSPARENT]: SPINNER_COLOR['black'],
   [BUTTON_TYPE.TRANSPARENT_LIGHT]: SPINNER_COLOR['gray-50'],
-  [BUTTON_TYPE.TRANSPARENT_PEACH]: SPINNER_COLOR['red-40'],
-  [BUTTON_TYPE.TRANSPARENT_MUSTARD]: SPINNER_COLOR['yellow-40'],
-  [BUTTON_TYPE.TRANSPARENT_BLUE]: SPINNER_COLOR['blue-40'],
+  [BUTTON_TYPE.TRANSPARENT_RED]: SPINNER_COLOR['red-50'],
   [BUTTON_TYPE.TRANSPARENT_INVERTED]: SPINNER_COLOR['white'],
   [BUTTON_TYPE.FACEBOOK]: SPINNER_COLOR['white'],
+  [BUTTON_TYPE.GOOGLE]: SPINNER_COLOR['black'],
+  [BUTTON_TYPE.APPLE]: SPINNER_COLOR['white'],
 };
 
 type ButtonType =
-  | 'solid-light'
-  | 'outline'
-  | 'transparent'
-  | 'transparent-light'
   | 'solid'
   | 'solid-inverted'
-  | 'solid-blue'
-  | 'solid-mint'
-  | 'transparent-peach'
-  | 'transparent-mustard'
-  | 'transparent-blue'
+  | 'solid-indigo'
+  | 'solid-indigo-inverted'
+  | 'solid-light'
+  | 'outline'
+  | 'outline-indigo'
+  | 'outline-inverted'
+  | 'transparent'
+  | 'transparent-light'
+  | 'transparent-red'
   | 'transparent-inverted'
-  | 'facebook';
+  | 'facebook'
+  | 'google'
+  | 'apple';
 
-type ButtonToggleType = 'peach' | 'mustard' | 'blue';
+type ButtonToggleType = 'red' | 'yellow';
 
 type ButtonSizeType = 'l' | 'm' | 's';
 
@@ -111,25 +117,28 @@ export type ButtonPropsType = {
    *          </Button>
    * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
    * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
-   * @see type="solid-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-blue"#buttons
-   * @see type="solid-mint" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-mint"#buttons
+
+   * @see type="solid-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-indigo"#buttons
+   * @see type="solid-indigo-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-indigo-inverted"#buttons
    * @see type="solid-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-light"#buttons
    * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
+   * @see type="outline-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline-indigo"#buttons
+   * @see type="outline-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline-indigo-inverted"#buttons
    * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
    * @see type="transparent-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-light"#buttons
+   * @see type="transparent-red" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-red"#buttons
    * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   * @see type="transparent-peach" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-peach"#buttons
-   * @see type="transparent-mustard" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-mustard"#buttons
-   * @see type="transparent-blue" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-blue"#buttons
-   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
+   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="facebook"#buttons
+   * @see type="google" https://styleguide.brainly.com/latest/docs/interactive.html?type="google"#buttons
+   * @see type="apple" https://styleguide.brainly.com/latest/docs/interactive.html?type="apple"#buttons
    *
    */
   type: ButtonType,
   /**
    * Set toggle state of the button.
    * Caution: Toggle property work with for specific button types:
-   * `solid-light`,`outline`, `transparent`, `transparent-light`, `transparent-peach`,
-   * `transparent-mustard`, `transparent-blue`
+   * `solid-light`,`outline`, `outline-indigo`, `outline-inverted`,
+   * `transparent`, `transparent-light`, `transparent-red`, `transparent-inverted`
    */
   toggle?: ButtonToggleType,
   /**
@@ -178,14 +187,14 @@ export type ButtonPropsType = {
   size?: ButtonSizeType,
   /**
    * Specify href for button, optional string
-   * @example <Button href="https://brainly.com/" size="m" type="solid-blue">
+   * @example <Button href="https://brainly.com/" size="m" type="solid-indigo">
    *            button
    *          </Button>
    */
   href?: string,
   /**
    * Optional boolean for disabled button
-   * @example <Button type="solid-mint" disabled>
+   * @example <Button type="solid-indigo" disabled>
    *            button
    *          </Button>
    */
@@ -197,7 +206,7 @@ export type ButtonPropsType = {
   loading?: boolean,
   /**
    * Optional boolean for full width button
-   * @example <Button type="solid-mint" fullWidth>
+   * @example <Button type="solid-indigo" fullWidth>
    *            button
    *          </Button>
    */
@@ -231,12 +240,9 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     if (__DEV__) {
       invariant(
         !(
-          (toggle === 'blue' &&
-            ![...TOGGLE_BUTTON_TYPES, 'transparent-blue'].includes(type)) ||
-          (toggle === 'peach' &&
-            ![...TOGGLE_BUTTON_TYPES, 'transparent-peach'].includes(type)) ||
-          (toggle === 'mustard' &&
-            ![...TOGGLE_BUTTON_TYPES, 'transparent-mustard'].includes(type))
+          (toggle === 'red' &&
+            ![...TOGGLE_BUTTON_TYPES, 'transparent-red'].includes(type)) ||
+          (toggle === 'yellow' && ![...TOGGLE_BUTTON_TYPES].includes(type))
         ),
         `Value of toggle property '${String(
           toggle

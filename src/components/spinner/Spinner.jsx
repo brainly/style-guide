@@ -11,8 +11,10 @@ export type SpinnerColorType =
   | 'gray-70'
   | 'gray-50'
   | 'red-40'
+  | 'red-50'
   | 'yellow-40'
-  | 'blue-40';
+  | 'blue-40'
+  | 'indigo-50';
 
 export const SPINNER_SIZE = {
   SMALL: 'small',
@@ -23,9 +25,11 @@ export const SPINNER_SIZE = {
 export const SPINNER_COLOR = {
   black: 'black',
   white: 'white',
+  'indigo-50': 'indigo-50',
   'gray-70': 'gray-70',
   'gray-50': 'gray-50',
   'red-40': 'red-40',
+  'red-50': 'red-50',
   'yellow-40': 'yellow-40',
   'blue-40': 'blue-40',
 };

@@ -1,6 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../_docs/utils';
 import TextBit, {TEXT_BIT_SIZE} from './TextBit';
+import TextBitA11y from './stories/TextBit.a11y.mdx';
 
 <Meta
   title="Components/TextBit"
@@ -28,6 +29,7 @@ import TextBit, {TEXT_BIT_SIZE} from './TextBit';
 
 - [Stories](#stories)
 - [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -72,3 +74,7 @@ Resize window to check how component is changing flex direction and item margins
     Responsive size
   </TextBit>
 </Canvas>
+
+## Accessibility
+
+<TextBitA11y />

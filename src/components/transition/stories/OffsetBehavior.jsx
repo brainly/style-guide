@@ -5,7 +5,6 @@ import Bubble from '../../bubble/Bubble';
 import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
-
 import Transition from '../Transition';
 import Stage from './common/Stage';
 
@@ -50,12 +49,12 @@ const contentCounterSlideEffect = {
   },
 };
 
-export function OffsetBehavior() {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+export const OffsetBehavior = () => {
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Stage format="portrait">
-      <Transition active={isExpanded} effect={containerSlideEffect}>
+      <Transition active={open} effect={containerSlideEffect}>
         <Bubble
           color="blue-30"
           direction="top"
@@ -63,13 +62,13 @@ export function OffsetBehavior() {
           noShadow
         >
           <Transition
-            active={isExpanded}
+            active={open}
             effect={fadeEffect}
             fillMode="backwards"
             delay={100}
           >
             <Transition
-              active={isExpanded}
+              active={open}
               effect={contentCounterSlideEffect}
               fillMode="backwards"
               className="sg-space-y-s"
@@ -96,8 +95,8 @@ export function OffsetBehavior() {
 
       <Button
         type="solid"
-        icon={<Icon type={isExpanded ? 'close' : 'plus'} />}
-        onClick={() => setIsExpanded(b => !b)}
+        icon={<Icon type={open ? 'close' : 'plus'} />}
+        onClick={() => setOpen(b => !b)}
         iconOnly
         style={{
           position: 'absolute',
@@ -108,7 +107,7 @@ export function OffsetBehavior() {
       />
     </Stage>
   );
-}
+};
 
 OffsetBehavior.parameters = {
   layout: 'centered',
