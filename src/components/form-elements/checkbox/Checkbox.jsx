@@ -89,7 +89,7 @@ export type CheckboxPropsType = {
    * Value of the checkbox input.
    * @example <Checkbox value="1" />
    */
-  value?: number | string,
+  value?: string,
   ...
 };
 
@@ -98,7 +98,7 @@ const Checkbox = ({
   children,
   className,
   color = 'dark',
-  defaultChecked,
+  defaultChecked = false,
   description,
   disabled = false,
   errorMessage,
