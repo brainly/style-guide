@@ -15,9 +15,9 @@ import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 <Canvas>
   <Story
     name="default"
-    play={async () => {
+    play={() => {
       const link = screen.getByRole('link', {name: /skip to main content/i});
-      await userEvent.tab();
+      link.focus();
     }}
   >
     {args => {
