@@ -62,29 +62,6 @@ describe('<Checkbox />', () => {
     expect(checkbox.getByText(errorMessageText).id).toEqual('myid-errorText');
   });
 
-  it("it doesn't check/uncheck when either description or error message is clicked", () => {
-    const descriptionText = 'Cool checkbox it is';
-    const errorMessageText = 'Oops.';
-    const labelText = 'Click me pls';
-
-    const checkbox = renderCheckbox({
-      description: descriptionText,
-      invalid: true,
-      errorMessage: errorMessageText,
-      children: labelText,
-      checked: false,
-    });
-    const checkboxInput = checkbox.getByRole('checkbox');
-
-    expect(checkboxInput.checked).toBe(false);
-    userEvent.click(checkbox.getByText(descriptionText));
-    expect(checkboxInput.checked).toBe(false);
-    userEvent.click(checkbox.getByText(errorMessageText));
-    expect(checkboxInput.checked).toBe(false);
-    userEvent.click(checkbox.queryByLabelText(labelText));
-    expect(checkboxInput.checked).toBe(true);
-  });
-
   it("it doesn't allow checking/unchecking disabled checkbox", () => {
     const labelText = 'Click me pls';
     const onChange = jest.fn();
