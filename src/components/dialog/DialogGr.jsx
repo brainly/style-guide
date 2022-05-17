@@ -34,6 +34,9 @@ export type DialogPropsType = $ReadOnly<{
   'data-testid'?: string,
   overlayContent?: React.Node,
   bottom?: React.Node,
+  left?: React.Node,
+  right?: React.Node,
+  top?: React.Node,
 }>;
 
 /**
@@ -67,6 +70,9 @@ function BaseDialog({
   'data-testid': dataTestId,
   overlayContent,
   bottom,
+  left,
+  right,
+  top,
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -172,24 +178,25 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayClass = cx('js-dialog', 'sg-dialog-gr__overlay', {
-    'sg-dialog-gr__overlay--scroll':
-      (isDialogHigherThanOverlay || hasFinishedTransition) &&
-      scroll === 'outside',
-    'sg-dialog-gr__overlay--open': deferredOpen,
-    'sg-dialog-gr__overlay--fullscreen': size === 'fullscreen',
-  });
-
-  const containerClass = cx(
-    'sg-dialog-gr__container',
-    `sg-dialog-gr__container--size-${size}`,
+  const overlayClass = cx(
+    'js-dialog',
+    'sg-dialog-gr__overlay',
+    `sg-dialog-gr__overlay--size-${size}`,
     {
-      'sg-dialog-gr__container--scroll': scroll === 'inside',
-      'sg-dialog-gr__container--open': deferredOpen,
-      'sg-dialog-gr__container--exiting': exiting,
-      'sg-dialog-gr__container--reduce-motion': reduceMotion,
+      'sg-dialog-gr__overlay--scroll':
+        (isDialogHigherThanOverlay || hasFinishedTransition) &&
+        scroll === 'outside',
+      'sg-dialog-gr__overlay--open': deferredOpen,
+      'sg-dialog-gr__overlay--fullscreen': size === 'fullscreen',
     }
   );
+
+  const containerClass = cx('sg-dialog-gr__container', {
+    'sg-dialog-gr__container--scroll': scroll === 'inside',
+    'sg-dialog-gr__container--open': deferredOpen,
+    'sg-dialog-gr__container--exiting': exiting,
+    'sg-dialog-gr__container--reduce-motion': reduceMotion,
+  });
 
   return (
     <div
@@ -206,7 +213,6 @@ function BaseDialog({
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
-      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -223,8 +229,10 @@ function BaseDialog({
       >
         {children}
       </div>
-      <div tabIndex="0" />
       {bottom ? <div className="sg-dialog-gr-bottom">{bottom}</div> : null}
+      {left ? <div className="sg-dialog-gr-left">{left}</div> : null}
+      {right ? <div className="sg-dialog-gr-right">{right}</div> : null}
+      {top ? <div className="sg-dialog-gr-top">{top}</div> : null}
     </div>
   );
 }

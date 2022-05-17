@@ -17,9 +17,7 @@ $dialogMaxWidthMap: (
 
 .sg-dialog-gr {
   &__overlay {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr [dialog-row-start] 1fr [dialog-row-end];
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
@@ -27,8 +25,9 @@ $dialogMaxWidthMap: (
     height: 100%;
 
     @include sgResponsive(md) {
+      display: grid;
+      grid-template-rows: 1fr [dialog-row-start] auto [dialog-row-end] 1fr;
       padding: spacing(m);
-      grid-template-rows: 1fr [dialog-row-start] 1fr [dialog-row-end] 1fr;
     }
 
     &::before {
@@ -59,6 +58,21 @@ $dialogMaxWidthMap: (
       padding: 0;
       display: flex;
       flex-direction: column;
+
+      .sg-dialog-gr-left,
+      .sg-dialog-gr-right,
+      .sg-dialog-gr-top,
+      .sg-dialog-gr-bottom {
+        display: none;
+      }
+    }
+
+    @each $sizeName, $maxWidth in $dialogMaxWidthMap {
+      &--size-#{$sizeName} {
+        grid-template-columns:
+          1fr [dialog-column-start] minmax(0, $maxWidth)
+          [dialog-column-end] 1fr;
+      }
     }
   }
 
@@ -71,9 +85,45 @@ $dialogMaxWidthMap: (
   }
 
   &-bottom {
-    grid-row-start: dialog-row-end;
-    position: relative;
     display: none;
+    grid-row-start: dialog-row-end;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-left {
+    display: none;
+    grid-row-start: dialog-row-start;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-right {
+    display: none;
+    grid-row-start: dialog-row-end;
+    grid-row-start: dialog-row-start;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-top {
+    display: none;
+    grid-row-end: dialog-row-start;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: auto;
+    position: relative;
 
     @include sgResponsive(md) {
       display: block;
@@ -83,7 +133,10 @@ $dialogMaxWidthMap: (
   &__container {
     grid-row-start: dialog-row-start;
     grid-row-end: dialog-row-end;
+    grid-column-start: dialog-column-start;
+    grid-column-end: dialog-column-end;
     display: flex;
+    flex: auto;
     flex-direction: column;
     position: relative;
     background-color: $white;
@@ -103,12 +156,6 @@ $dialogMaxWidthMap: (
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
       margin-bottom: auto;
-
-      @each $sizeName, $maxWidth in $dialogMaxWidthMap {
-        &--size-#{$sizeName} {
-          max-width: #{$maxWidth};
-        }
-      }
     }
 
     &--size-fullscreen {
