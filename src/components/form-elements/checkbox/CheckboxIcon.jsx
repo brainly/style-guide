@@ -1,5 +1,3 @@
-// @flow strict
-
 import * as React from 'react';
 
 const CheckIcon = () => (
@@ -28,40 +26,4 @@ const IndeterminateIcon = () => (
   </svg>
 );
 
-export type CheckboxIconPropsType = {
-  checked?: boolean,
-  indeterminate?: boolean,
-  ...
-};
-
-const CheckboxIcon = ({
-  checked,
-  indeterminate = false,
-  ...props
-}: CheckboxIconPropsType) => {
-  const getIcon = (indeterminate, checked) => {
-    if (indeterminate) return <IndeterminateIcon />;
-    if (checked) return <CheckIcon />;
-
-    return null;
-  };
-
-  const checkboxIcon = React.useMemo(
-    () => getIcon(indeterminate, checked),
-    [indeterminate, checked]
-  );
-
-  return (
-    <span
-      {...props}
-      className="sg-checkbox__icon"
-      // This element is purely decorative so
-      // we hide it for screen readers
-      aria-hidden="true"
-    >
-      {checkboxIcon}
-    </span>
-  );
-};
-
-export default CheckboxIcon;
+export {CheckIcon, IndeterminateIcon};

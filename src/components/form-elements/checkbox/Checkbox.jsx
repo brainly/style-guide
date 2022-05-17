@@ -6,7 +6,7 @@ import cx from 'classnames';
 import generateRandomString from '../../../js/generateRandomString';
 import {__DEV__, invariant} from '../../utils';
 import Text from '../../text/Text';
-import CheckboxIcon from './CheckboxIcon';
+import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
 
 type CheckboxColorType = 'dark' | 'light';
@@ -172,6 +172,12 @@ const Checkbox = ({
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
 
+  const checkboxIcon = React.useMemo(() => {
+    if (indeterminate) return <IndeterminateIcon />;
+    if (isChecked) return <CheckIcon />;
+    return null;
+  }, [indeterminate, isChecked]);
+
   return (
     <div {...props} className={checkboxClass}>
       <div className="sg-checkbox__wrapper">
@@ -192,7 +198,14 @@ const Checkbox = ({
             aria-describedby={describedbyIds}
             aria-labelledby={ariaLabelledBy}
           />
-          <CheckboxIcon checked={isChecked} indeterminate={indeterminate} />
+          <span
+            className="sg-checkbox__icon"
+            // This element is purely decorative so
+            // we hide it for screen readers
+            aria-hidden="true"
+          >
+            {checkboxIcon}
+          </span>
         </div>
         {!ariaLabelledBy && children !== undefined && children !== null && (
           <Text
