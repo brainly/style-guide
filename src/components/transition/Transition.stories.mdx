@@ -131,16 +131,14 @@ const shrinkFadeEffect = {
 };
 
 fillModes.map(mode => (
-  <Container key={mode} description={mode}>
-    <Transition
-      active={active}
-      effect={shrinkFadeEffect}
-      fillMode={mode}
-      delay={1000}
-    >
-      <Circle />
-    </Transition>
-  </Container>
+  <Transition
+    active={active}
+    effect={shrinkFadeEffect}
+    fillMode={mode}
+    delay={1000}
+  >
+    <Circle />
+  </Transition>
 ));
 ```
 
@@ -148,32 +146,465 @@ fillModes.map(mode => (
 
 <Story story={stories.PredefinedEffects} />
 
+A simple predefined effect…
+
+```jsx
+const scaleFadeEffect = Transition.createEffect({
+  type: 'scaleFade',
+});
+```
+
+…or with custom adjustments.
+
+```jsx
+const slideRightFadeEffect = Transition.createEffect({
+  type: 'slideRightFade',
+  initial: {transform: {translateX: -100}},
+  exit: {transform: {translateX: -100}},
+});
+```
+
 ### Prefers Reduced Motion
 
 Enable reduce motion in **System Preferences > Accessibility** to see different results.
 
 <Story story={stories.PrefersReducedMotion} />
 
+```jsx
+const fadeEffect = Transition.createEffect({
+  type: 'fade',
+});
+
+const slideUpFadeEffect = Transition.createEffect({
+  type: 'slideUpFade',
+});
+
+<Transition
+  active={visible}
+  effect={reduced => (reduced ? fadeEffect : slideUpFadeEffect)}
+>
+  <Content />
+</Transition>
+```
+
 ### Curved Movement
 
 <Story story={stories.CurvedMovement} />
+
+```jsx
+const origin = 'left top';
+const duration = 240;
+
+/**
+ * https://tobiasahlin.com/blog/curved-path-animations-in-css/
+ * The time difference between axes curves the trajectory of motion.
+ */
+const differenceFactor = 0.4;
+const xMoveDuration = expanded
+  ? duration * (1 - differenceFactor)
+  : duration * (1 + differenceFactor);
+
+const xMoveEffect = {
+  initial: {transform: {translateX: initialTranslateX}},
+  animate: {transform: {translateX: 0, origin, duration: xMoveDuration}},
+};
+
+const yMoveEffect = {
+  initial: {transform: {translateY: initialTranslateY}},
+  animate: {transform: {translateY: 0, origin, duration}},
+};
+
+const scaleEffect = {
+  initial: {transform: {scale: initialScale}},
+  animate: {transform: {scale: 1, origin, duration}},
+};
+
+<Transition active effect={xMoveEffect}>
+  <Transition active effect={yMoveEffect}>
+    <Transition active effect={scaleEffect}>
+      <Content />
+    </Transition>
+  </Transition>
+</Transition>
+```
 
 ### Shared Axis
 
 <Story story={stories.SharedAxis} />
 
+Create new effects based on business logic with a factory function.
+
+```jsx
+const createSlideInEffect = direction => ({
+  initial: {
+    transform: {translateX: direction === 'left' ? 'm' : '-m'},
+    opacity: 0,
+  },
+  animate: {
+    transform: {translateX: 0},
+    opacity: 1,
+    duration: 'moderate1',
+    easing: 'entry',
+  },
+});
+```
+
+An effect with only the `animate` phase always performs a transition from the current position.
+
+```jsx
+const createSlideOutEffect = direction => ({
+  animate: {
+    transform: {translateX: direction === 'left' ? '-m' : 'm'},
+    opacity: 0,
+    duration: 'moderate1',
+    easing: 'exit',
+  },
+});
+```
+
+```jsx
+const [effect, setEffect] = React.useState(null);
+const [currentViewIndex, setCurrentViewIndex] = React.useState(0);
+const nextTransitionCallback = React.useRef();
+
+const changeView = (viewIndex: number) => {
+  if (viewIndex !== currentViewIndex) {
+    const direction = currentViewIndex < viewIndex ? 'left' : 'right';
+
+    // hide previous view
+    setEffect(createSlideOutEffect(direction));
+
+    // show the next view
+    nextTransitionCallback.current = () => {
+      setCurrentViewIndex(viewIndex);
+      setEffect(createSlideInEffect(direction));
+      nextTransitionCallback.current = null;
+    };
+  }
+};
+
+const handleTransitionEnd = () => {
+  if (nextTransitionCallback.current) {
+    nextTransitionCallback.current();
+  }
+};
+
+const colorsOrder = ['red', 'yellow', 'blue'];
+
+<div>
+  <Flex className="sg-space-x-xs">
+    {colorsOrder.map((color, index) => (
+      <Button onClick={() => changeView(index)} />
+    ))}
+  </Flex>
+
+  <Transition
+    active
+    effect={effect}
+    onTransitionEnd={handleTransitionEnd}
+  >
+    <Content />
+  </Transition>
+</div>
+```
+
 ### Staggered Motion
 
 <Story story={stories.StaggeredMotion} />
+
+```jsx
+const delayOffset = 20;
+
+{items.map((id, index) => (
+  <Transition
+    key={id}
+    active={open}
+    effect={fadeEffect}
+    delay={open ? delayOffset * index : 0}
+  >
+    <ItemContent />
+  </Transition>
+))}
+```
 
 ### Fluid List
 
 <Story story={stories.FluidList} />
 
+```jsx
+const appearingEffect = {
+  initial: {opacity: 0, transform: {scale: 0.9}},
+  animate: {opacity: 1, duration: 'moderate1'},
+};
+
+const removingEffect = {
+  animate: {opacity: 0, duration: 'quick2'},
+};
+
+const movementEffect = {
+  initial: {transform: {translateY: initialTranslateY}},
+  animate: {transform: {translateY: 0, duration: 'moderate1'}},
+};
+```
+
+In more complex scenarios, effects can be assigned based on props and states.
+
+```jsx
+function FluidListItem({
+  index,
+  lastCreated,
+  siblingsAmount,
+  onRemove,
+  ...
+}) {
+  const [removing, setRemoving] = React.useState(false);
+
+  const getTransitionEffect = () => {
+    if (removing) {
+      return removingEffect;
+    }
+
+    if (lastCreated) {
+      return appearingEffect;
+    }
+
+    return movementEffect;
+  };
+
+  const getTransitionDelay = () => {
+    const appearingDelay = 180;
+    const delayOffset = 20;
+
+    if (removing || siblingsAmount === 0) {
+      return 0;
+    }
+
+    if (lastCreated) {
+      return appearingDelay;
+    }
+
+    /**
+     * To simulate weightlessness we can delay the
+     * transition of each item when it moves upward.
+     */
+    if (movingUp) {
+      return appearingDelay + delayOffset * index;
+    }
+
+    return 0;
+  };
+
+  return (
+    <Transition
+      active
+      effect={getTransitionEffect()}
+      delay={getTransitionDelay()}
+      onTransitionEnd={removing ? onRemove : undefined}
+      fillMode="backwards"
+    >
+      <Button onClick={() => setRemoving(true)} />
+      {children}
+    </Transition>
+  );
+}
+```
+
 ### Expanding Details
 
 <Story story={stories.ExpandingDetails} />
 
+The staggered motion principle can be applied also for nested elements where they should appear in a sequence to emphasize their different meaning, e.g. container vs the content.
+
+```jsx
+const appearingContentDelay = 80;
+
+<Transition active effect={effects.expandingBox}>
+  <Box onClick={expanded ? undefined : handleExpand}>
+    <Transition
+      active
+      effect={effects.appearingContent}
+      delay={appearingContentDelay}
+      fillMode="backwards"
+    >
+      <Content />
+      <Button onClick={handleCollapse} />
+    </Transition>
+  </Box>
+</Transition>
+```
+
+Because elements in this example expand without changing the mounting state, effects must be triggered by changing their instances each time.
+
+```jsx
+const effects = React.useLayoutEffect(() => ({
+  expandingBox: {
+    initial: {
+      transform: {translateY: initialTranslateY},
+      height: initialHeight,
+    },
+    animate: {
+      transform: {translateY: 0, origin: 'left top'},
+      height: animateHeight,
+      duration: 'gentle1',
+    },
+  },
+  appearingContent: {
+    initial: {opacity: 0},
+    animate: {opacity: 1, duration: 'gentle2', easing: 'entry'},
+  }
+}), [expanded]);
+```
+
 ### Offset Behavior
 
 <Story story={stories.OffsetBehavior} />
+
+A content transformation opposite to the container transformation will **keep the height** of the content while animating the container.
+
+```jsx
+const containerSlideEffect = {
+  initial: {
+    transform: {translateY: '-m', scaleY: 0.5},
+    opacity: 0,
+  },
+  animate: {
+    transform: {translateY: 0, duration: 'gentle1', origin: 'left top'},
+    opacity: {value: 1, duration: 'quick2'},
+    easing: 'entry',
+  },
+  exit: {
+    transform: {translateY: '-m'},
+    opacity: 0,
+    duration: 'quick2',
+    easing: 'exit',
+  },
+};
+
+const contentCounterSlideEffect = {
+  initial: {
+    // counter scale...
+    transform: {scaleY: 1.5},
+  },
+  animate: {
+    // with the same duration and easing as container
+    transform: {scaleY: 1, duration: 'gentle1', origin: 'left top'},
+    easing: 'entry',
+  },
+};
+```
+
+```jsx
+const contentFadeDelay = 100;
+
+<Transition active={open} effect={containerSlideEffect}>
+  <Bubble>
+    <Transition
+      active={open}
+      effect={contentFadeEffect}
+      delay={contentFadeDelay}
+      fillMode="backwards"
+    >
+      <Transition
+        active={open}
+        effect={contentCounterSlideEffect}
+        fillMode="backwards"
+      >
+        <Content />
+      </Transition>
+    </Transition>
+  </Bubble>
+</Transition>
+```
+
+### Typewriter Effect
+
+<Story story={stories.TypewriterEffect} />
+
+```jsx
+const delayOffset = 240;
+const message = 'hello world';
+
+const typingEffect = {
+  initial: {opacity: 0, transform: {translateY: '-xs'}},
+  animate: {opacity: 1, duration: 'quick2', easing: 'entry'},
+  exit: {opacity: 0, duration: 'quick2', easing: 'exit'},
+};
+
+<Text whiteSpace="pre-wrap">
+  {[...message].map((letter, index) => (
+    <Transition
+      key={index}
+      active={active}
+      effect={typingEffect}
+      delay={delayOffset * index}
+      inline
+    >
+      <Text inherited>{letter}</Text>
+    </Transition>
+  ))}
+</Text>
+```
+
+### InText Counter
+
+<Story story={stories.InTextCounter} />
+
+A cycle is a good idea to loop over a series of effects.
+
+```jsx
+const slideFadeInEffect = {
+  initial: {
+    transform: {translateY: '-s'},
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    duration: 'gentle2',
+    easing: 'entry',
+  },
+};
+
+const slideFadeOutEffect = {
+  animate: {
+    transform: {translateY: 's'},
+    opacity: 0,
+    duration: 'gentle2',
+    easing: 'exit',
+  },
+};
+
+const cycle = [slideFadeInEffect, slideFadeOutEffect];
+const [index, setIndex] = React.useState(0);
+const currentEffect = cycle[index % cycle.length];
+```
+
+Transition callbacks (`onTransitionStart` and `onTransitionEnd`) allow changing an application state in relation to the motion start or end.
+
+```jsx
+const increment = (n: number) => n + 1;
+const [count, setCount] = React.useState(0);
+
+const handleTransitionEnd = effect => {
+  setIndex(increment);
+
+  // increase count value when the counter is hidden
+  if (effect === slideFadeOutEffect) {
+    setCount(increment);
+  }
+};
+
+const counter = (
+  <Transition
+    active
+    effect={currentEffect}
+    onTransitionEnd={handleTransitionEnd}
+    inline
+  >
+    <Text weight="bold" inherited>{count}</Text>
+  </Transition>
+);
+
+<Text>
+  Counters! {counter} users love them.
+</Text>
+```
