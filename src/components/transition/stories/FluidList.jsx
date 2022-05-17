@@ -97,6 +97,7 @@ const FluidListItem = ({
 
   const getTransitionDelay = () => {
     const appearingDelay = 180;
+    const delayOffset = 20;
 
     if (removing || siblingsAmount === 0) {
       return 0;
@@ -111,28 +112,22 @@ const FluidListItem = ({
      * transition of each item when it moves upward.
      */
     if (transformation.diffTop < 0) {
-      return appearingDelay + index * 20;
+      return appearingDelay + delayOffset * index;
     }
 
     return 0;
   };
 
   useIsomorphicLayoutEffect(() => {
-    if (transformation.diffTop === 0) {
-      return;
+    if (transformation.diffTop !== 0) {
+      /**
+       * https://css-tricks.com/animating-layouts-with-the-flip-technique/
+       */
+      setMovementEffect({
+        initial: {transform: {translateY: -transformation.diffTop}},
+        animate: {transform: {translateY: 0, duration: 'moderate1'}},
+      });
     }
-
-    /**
-     * https://css-tricks.com/animating-layouts-with-the-flip-technique/
-     */
-    setMovementEffect({
-      initial: {
-        transform: {translateY: -transformation.diffTop},
-      },
-      animate: {
-        transform: {translateY: 0, duration: 'moderate1', easing: 'regular'},
-      },
-    });
   }, [transformation]);
 
   return (

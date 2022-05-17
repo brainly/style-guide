@@ -67,8 +67,6 @@ const Stage = React.forwardRef<PropsType, HTMLElement>(
             style={{
               position: 'absolute',
               textAlign: 'center',
-              pointerEvents: 'none',
-              userSelect: 'none',
               left: 10,
               bottom: 10,
               right: 10,

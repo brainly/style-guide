@@ -14,6 +14,8 @@ const fadeEffect = {
   exit: {opacity: 0, duration: 'quick1', easing: 'exit'},
 };
 
+const delayOffset = 20;
+
 export const StaggeredMotion = () => {
   const [open, setOpen] = React.useState(false);
 
@@ -28,7 +30,7 @@ export const StaggeredMotion = () => {
           key={id}
           active={open}
           effect={fadeEffect}
-          delay={open ? index * 20 : 0}
+          delay={open ? delayOffset * index : 0}
         >
           <DummyBox color="blue" size="listitem" />
         </Transition>
