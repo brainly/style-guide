@@ -170,6 +170,7 @@ Enable reduce motion in **System Preferences > Accessibility** to see different 
 
 <Story story={stories.PrefersReducedMotion} />
 
+<!-- prettier-ignore -->
 ```jsx
 const fadeEffect = Transition.createEffect({
   type: 'fade',
@@ -191,6 +192,7 @@ const slideUpFadeEffect = Transition.createEffect({
 
 <Story story={stories.CurvedMovement} />
 
+<!-- prettier-ignore -->
 ```jsx
 const origin = 'left top';
 const duration = 240;
@@ -262,6 +264,7 @@ const createSlideOutEffect = direction => ({
 });
 ```
 
+<!-- prettier-ignore -->
 ```jsx
 const [effect, setEffect] = React.useState(null);
 const [currentViewIndex, setCurrentViewIndex] = React.useState(0);
@@ -298,11 +301,7 @@ const colorsOrder = ['red', 'yellow', 'blue'];
     ))}
   </Flex>
 
-  <Transition
-    active
-    effect={effect}
-    onTransitionEnd={handleTransitionEnd}
-  >
+  <Transition active effect={effect} onTransitionEnd={handleTransitionEnd}>
     <Content />
   </Transition>
 </div>
@@ -312,6 +311,7 @@ const colorsOrder = ['red', 'yellow', 'blue'];
 
 <Story story={stories.StaggeredMotion} />
 
+<!-- prettier-ignore -->
 ```jsx
 const delayOffset = 20;
 
@@ -415,6 +415,7 @@ function FluidListItem({
 
 The staggered motion principle can be applied also for nested elements where they should appear in a sequence to emphasize their different meaning, e.g. container vs the content.
 
+<!-- prettier-ignore -->
 ```jsx
 const appearingContentDelay = 80;
 
@@ -436,23 +437,26 @@ const appearingContentDelay = 80;
 Because elements in this example expand without changing the mounting state, effects must be triggered by changing their instances each time.
 
 ```jsx
-const effects = React.useLayoutEffect(() => ({
-  expandingBox: {
-    initial: {
-      transform: {translateY: initialTranslateY},
-      height: initialHeight,
+const effects = React.useLayoutEffect(
+  () => ({
+    expandingBox: {
+      initial: {
+        transform: {translateY: initialTranslateY},
+        height: initialHeight,
+      },
+      animate: {
+        transform: {translateY: 0, origin: 'left top'},
+        height: animateHeight,
+        duration: 'gentle1',
+      },
     },
-    animate: {
-      transform: {translateY: 0, origin: 'left top'},
-      height: animateHeight,
-      duration: 'gentle1',
+    appearingContent: {
+      initial: {opacity: 0},
+      animate: {opacity: 1, duration: 'gentle2', easing: 'entry'},
     },
-  },
-  appearingContent: {
-    initial: {opacity: 0},
-    animate: {opacity: 1, duration: 'gentle2', easing: 'entry'},
-  }
-}), [expanded]);
+  }),
+  [expanded]
+);
 ```
 
 ### Offset Behavior
@@ -493,6 +497,7 @@ const contentCounterSlideEffect = {
 };
 ```
 
+<!-- prettier-ignore -->
 ```jsx
 const contentFadeDelay = 100;
 
@@ -520,6 +525,7 @@ const contentFadeDelay = 100;
 
 <Story story={stories.TypewriterEffect} />
 
+<!-- prettier-ignore -->
 ```jsx
 const delayOffset = 240;
 const message = 'hello world';
@@ -580,6 +586,7 @@ const currentEffect = cycle[index % cycle.length];
 
 Transition callbacks (`onTransitionStart` and `onTransitionEnd`) allow changing an application state in relation to the motion start or end.
 
+<!-- prettier-ignore -->
 ```jsx
 const increment = (n: number) => n + 1;
 const [count, setCount] = React.useState(0);
@@ -600,7 +607,9 @@ const counter = (
     onTransitionEnd={handleTransitionEnd}
     inline
   >
-    <Text weight="bold" inherited>{count}</Text>
+    <Text weight="bold" inherited>
+      {count}
+    </Text>
   </Transition>
 );
 
