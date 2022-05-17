@@ -207,6 +207,7 @@ const Checkbox = ({
         </div>
         {!ariaLabelledBy && children !== undefined && children !== null && (
           <Text
+            htmlFor={checkboxId}
             type="label"
             size="medium"
             weight="bold"
