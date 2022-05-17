@@ -69,10 +69,9 @@ $dialogMaxWidthMap: (
 
     @each $sizeName, $maxWidth in $dialogMaxWidthMap {
       &--size-#{$sizeName} {
-        grid-template-columns: 1fr [dialog-column-start] minmax(
-            0,
-            $maxWidth
-          ) [dialog-column-end] 1fr;
+        grid-template-columns:
+          1fr [dialog-column-start] minmax(0, $maxWidth)
+          [dialog-column-end] 1fr;
       }
     }
   }

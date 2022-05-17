@@ -24,7 +24,6 @@
     "rule-empty-line-before": null,
     "selector-max-compound-selectors": null,
     "length-zero-no-unit": null,
-    "declaration-colon-space-after": "always",
     "scss/selector-no-redundant-nesting-selector": null,
     "declaration-property-value-disallowed-list": null,
     "max-line-length": 120,
