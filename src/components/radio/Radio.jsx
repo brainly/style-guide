@@ -4,6 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
 import generateRandomString from '../../js/generateRandomString';
+import {RadioContext} from './useRadioContext';
 
 type RadioColorType = 'light' | 'dark';
 
@@ -32,8 +33,6 @@ const Radio = ({
   id,
   invalid = false,
   customLabelId,
-  name,
-  onChange,
   required = false,
   value,
   ...props
@@ -45,13 +44,23 @@ const Radio = ({
   const radioClass = classNames('sg-radio-new', className);
   const labelId = customLabelId || `${radioId}-label`;
 
+  const {
+    name,
+    state: {selectedValue, setSelectedValue},
+  } = React.useContext(RadioContext);
+
+  const isChecked = selectedValue === value;
+  const onChange = e => {
+    setSelectedValue(e.target.value);
+  };
+
   return (
     <div className={radioClass}>
       <input
         className="sg-radio-new__element"
         type="radio"
         id={radioId}
-        checked={checked}
+        checked={isChecked}
         disabled={disabled}
         name={name}
         onChange={onChange}
