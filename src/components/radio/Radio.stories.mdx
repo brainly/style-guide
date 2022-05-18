@@ -5,6 +5,7 @@ import {Preview} from '../../_docs/blocks/';
 import Flex from '../flex/Flex';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
+import {useRadioProvider} from './useRadioContext';
 
 <Meta
   title="Components/Radio new"
@@ -31,26 +32,34 @@ import RadioGroup from './RadioGroup';
 ### With label
 
 <Canvas>
-  <Story name="With label">{args => <Radio {...args}>My radio</Radio>}</Story>
+  <Story name="With label" args={{value: 'my-radio'}}>
+    {args => (
+      <RadioGroup {...args}>
+        <Radio value={args.value}>My radio</Radio>
+      </RadioGroup>
+    )}
+  </Story>
 </Canvas>
 
 ### With external label
 
 <Canvas>
-  <Story name="With external label">
+  <Story name="With external label" args={{value: 'test'}}>
     {args => (
-      <label htmlFor="myRadioID">
-        <Flex
-          style={{
-            backgroundColor: 'lightblue',
-            borderRadius: '8px',
-            padding: '20px 40px',
-          }}
-        >
-          Thix component is a label for radio
-          <Radio {...args} id="myRadioID" customLabelId="myRadioID-label" />
-        </Flex>
-      </label>
+      <RadioGroup {...args}>
+        <label id="myRadioID-label">
+          <Flex
+            style={{
+              backgroundColor: 'lightblue',
+              borderRadius: '8px',
+              padding: '20px 40px',
+            }}
+          >
+            Thix component is a label for radio
+            <Radio value={args.value} aria-labelledby="myRadioID-label" />
+          </Flex>
+        </label>
+      </RadioGroup>
     )}
   </Story>
 </Canvas>
@@ -64,6 +73,39 @@ import RadioGroup from './RadioGroup';
         <RadioGroup label="Pet a dog" name="dog" value="Freja">
           <Radio value="Freja" />
           <Radio value="Gałgan" />
+        </RadioGroup>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With group of custom wrappers
+
+<Canvas>
+  <Story name="With group of custom wrappers">
+    {args => {
+      const CustomRadioComponent = ({value}) => {
+        const {state} = useRadioProvider();
+        return (
+          <label id={`myRadioID-${value}`}>
+            <Flex
+              style={{
+                backgroundColor:
+                  value === state.selectedValue ? 'lightblue' : 'transparent',
+                border: '1px solid black',
+                borderRadius: '8px',
+                padding: '20px 40px',
+              }}
+            >
+              <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
+            </Flex>
+          </label>
+        );
+      };
+      return (
+        <RadioGroup label="Pet a dog" name="dog" value="Freja">
+          <CustomRadioComponent value="Freja" />
+          <CustomRadioComponent value="Gałgan" />
         </RadioGroup>
       );
     }}
