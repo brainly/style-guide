@@ -4,6 +4,7 @@ import {Preview} from '../../_docs/blocks/';
 
 import Flex from '../flex/Flex';
 import Radio from './Radio';
+import RadioGroup from './RadioGroup';
 
 <Meta
   title="Components/Radio new"
@@ -51,5 +52,20 @@ import Radio from './Radio';
         </Flex>
       </label>
     )}
+  </Story>
+</Canvas>
+
+### With group
+
+<Canvas>
+  <Story name="With group">
+    {args => {
+      return (
+        <RadioGroup label="Pet a dog" name="dog" value="Freja">
+          <Radio value="Freja" />
+          <Radio value="Gałgan" />
+        </RadioGroup>
+      );
+    }}
   </Story>
 </Canvas>
