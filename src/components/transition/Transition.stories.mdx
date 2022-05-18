@@ -3,24 +3,34 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import Box from '../box/Box';
 import Text from '../text/Text';
 import Transition from './Transition';
+import DefaultStoryContainer from './stories/common/DefaultStoryContainer';
 import * as stories from './stories';
 
 <Meta
   title="Components/Transition"
   component={Transition}
   decorators={[
-    Story => (
-      <div style={{margin: '3em', display: 'flex', justifyContent: 'center'}}>
-        {Story()}
-      </div>
-    ),
+    (Story, context) =>
+      context.name === 'Default' ? (
+        Story()
+      ) : (
+        <div style={{margin: '3em', display: 'flex', justifyContent: 'center'}}>
+          {Story()}
+        </div>
+      ),
   ]}
   parameters={{
     controls: {
       sort: 'requiredFirst',
     },
+    layout: 'centered',
   }}
   argTypes={{
+    active: {
+      control: {
+        disable: true,
+      },
+    },
     children: {
       control: {
         disable: true,
@@ -86,19 +96,27 @@ import * as stories from './stories';
 
 ## Overview
 
-> Use "active" property to trigger transition
-
 <Canvas withColumn>
-  <Story name="Default" height="180px">
-    {args => (
-      <Transition {...args}>
-        <Box color="blue-40" padding="m">
-          <Text color="text-white" weight="bold">
-            hello world
-          </Text>
-        </Box>
-      </Transition>
-    )}
+  <Story name="Default">
+    {args => {
+      const [active, setActive] = React.useState(false);
+      const handleClick = () => setActive(b => !b);
+      return (
+        <DefaultStoryContainer
+          height="180px"
+          caption={active ? 'click to hide' : 'click to show'}
+          onClick={handleClick}
+        >
+          <Transition {...args} active={active}>
+            <Box color="blue-40" padding="m">
+              <Text color="text-white" weight="bold">
+                hello world
+              </Text>
+            </Box>
+          </Transition>
+        </DefaultStoryContainer>
+      );
+    }}
   </Story>
 </Canvas>
 
