@@ -16,11 +16,11 @@ export type RadioPropsType = {
   disabled?: boolean,
   id?: string,
   invalid?: boolean,
-  customLabelId?: string,
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   required?: boolean,
   value?: string,
+  'aria-labelledby'?: string,
   ...
 };
 
@@ -32,9 +32,9 @@ const Radio = ({
   disabled = false,
   id,
   invalid = false,
-  customLabelId,
   required = false,
   value,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: RadioPropsType) => {
   const {current: radioId} = React.useRef(
@@ -42,7 +42,7 @@ const Radio = ({
   );
 
   const radioClass = classNames('sg-radio-new', className);
-  const labelId = customLabelId || `${radioId}-label`;
+  const labelId = ariaLabelledBy || `${radioId}-label`;
 
   const {
     name,
