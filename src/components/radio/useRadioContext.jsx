@@ -4,7 +4,10 @@ import React, {useContext} from 'react';
 
 type RadioContextType = {
   name?: string,
-  state: RadioGroupState,
+  state: {
+    selectedValue: string | null,
+    setSelectedValue: string => void,
+  },
   ...
 };
 
