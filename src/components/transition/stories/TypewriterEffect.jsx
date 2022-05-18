@@ -23,7 +23,7 @@ export const TypewriterEffect = () => {
       <Button
         type="solid-light"
         onClick={() => setActive(b => !b)}
-        toggle={active ? 'red' : 'yellow'}
+        toggle={active ? 'red' : undefined}
       >
         {active ? 'erase' : 'enter'}
       </Button>
