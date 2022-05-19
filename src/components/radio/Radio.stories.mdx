@@ -11,7 +11,9 @@ import {useRadioProvider} from './useRadioContext';
   title="Components/Radio new"
   component={Radio}
   argTypes={{
-    children: 'string',
+    children: {
+      type: 'string',
+    },
   }}
 />
 
@@ -32,10 +34,10 @@ import {useRadioProvider} from './useRadioContext';
 ### With label
 
 <Canvas>
-  <Story name="With label" args={{value: 'my-radio'}}>
+  <Story name="With label" args={{value: 'my-radio', children: 'My radio'}}>
     {args => (
-      <RadioGroup {...args}>
-        <Radio value={args.value}>My radio</Radio>
+      <RadioGroup>
+        <Radio {...args} />
       </RadioGroup>
     )}
   </Story>
@@ -55,7 +57,7 @@ import {useRadioProvider} from './useRadioContext';
               padding: '20px 40px',
             }}
           >
-            Thix component is a label for radio
+            This component is a label for radio
             <Radio value={args.value} aria-labelledby="myRadioID-label" />
           </Flex>
         </label>
@@ -70,10 +72,17 @@ import {useRadioProvider} from './useRadioContext';
   <Story name="With group">
     {args => {
       return (
-        <RadioGroup label="Pet a dog" name="dog" value="Freja">
-          <Radio value="Freja" />
-          <Radio value="Gałgan" />
-        </RadioGroup>
+        <div>
+          Pet a dog:
+          <RadioGroup label="Pet a dog" name="dog" value="Freja">
+            <Radio {...args} value="Freja">
+              Freja
+            </Radio>
+            <Radio {...args} value="Gałgan">
+              Gałgan
+            </Radio>
+          </RadioGroup>
+        </div>
       );
     }}
   </Story>
@@ -98,15 +107,19 @@ import {useRadioProvider} from './useRadioContext';
               }}
             >
               <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
+              {value}
             </Flex>
           </label>
         );
       };
       return (
-        <RadioGroup label="Pet a dog" name="dog" value="Freja">
-          <CustomRadioComponent value="Freja" />
-          <CustomRadioComponent value="Gałgan" />
-        </RadioGroup>
+        <div>
+          Pet a dog:
+          <RadioGroup label="Pet a dog" name="dog" value="Freja">
+            <CustomRadioComponent value="Freja" />
+            <CustomRadioComponent value="Gałgan" />
+          </RadioGroup>
+        </div>
       );
     }}
   </Story>
