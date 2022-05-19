@@ -116,9 +116,10 @@ const Checkbox = ({
   const {current: checkboxId} = React.useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
+  const isControlled = checked !== undefined;
 
   const [isChecked, setIsChecked] = React.useState(
-    checked !== undefined ? checked : defaultChecked
+    isControlled ? checked : defaultChecked
   );
   const inputRef = React.useRef(null);
 
@@ -129,18 +130,16 @@ const Checkbox = ({
   }, [inputRef, indeterminate]);
 
   React.useEffect(() => {
-    // If it's a controlled checkbox, set isChecked value
-    if (checked !== undefined) setIsChecked(checked);
-  }, [checked]);
+    if (isControlled) setIsChecked(checked);
+  }, [checked, isControlled]);
 
   const onInputChange = React.useCallback(
     e => {
-      // If it's an uncontrolled checkbox
-      if (checked === undefined) setIsChecked(!isChecked);
+      if (isControlled) setIsChecked(!isChecked);
 
       if (onChange) onChange(e);
     },
-    [onChange, isChecked, checked]
+    [onChange, isChecked, isControlled]
   );
 
   const checkboxClass = cx('sg-checkbox', className, {
