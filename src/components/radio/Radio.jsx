@@ -44,14 +44,19 @@ const Radio = ({
   const radioClass = classNames('sg-radio-new', className);
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
-  const {
-    name,
-    state: {selectedValue, setSelectedValue},
-  } = React.useContext(RadioContext);
+  const {name, state} = React.useContext(RadioContext);
+  const {selectedValue, setSelectedValue} = state || {};
 
-  const isChecked = selectedValue === value;
+  const isControlled = checked !== undefined || selectedValue;
+  let isChecked = undefined;
+
+  if (isControlled) {
+    // Radio can either be directly set as checked, or be controlled by a RadioGroup
+    isChecked = checked || (selectedValue && selectedValue === value);
+  }
+
   const onChange = e => {
-    setSelectedValue(e.target.value);
+    if (isControlled) setSelectedValue(e.target.value);
   };
 
   return (
