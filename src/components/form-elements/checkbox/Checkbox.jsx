@@ -129,17 +129,18 @@ const Checkbox = ({
   }, [inputRef, indeterminate]);
 
   React.useEffect(() => {
-    setIsChecked(checked);
+    // If it's a controlled checkbox, set isChecked value
+    if (checked !== undefined) setIsChecked(checked);
   }, [checked]);
 
   const onInputChange = React.useCallback(
     e => {
-      setIsChecked(e.target.checked);
-      if (onChange) {
-        onChange(e);
-      }
+      // If it's an uncontrolled checkbox
+      if (checked === undefined) setIsChecked(!isChecked);
+
+      if (onChange) onChange(e);
     },
-    [onChange]
+    [onChange, isChecked, checked]
   );
 
   const checkboxClass = cx('sg-checkbox', className, {
