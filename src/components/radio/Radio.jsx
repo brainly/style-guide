@@ -25,7 +25,7 @@ export type RadioPropsType = {
 };
 
 const Radio = ({
-  checked = false,
+  checked,
   color = 'dark',
   children,
   className,
