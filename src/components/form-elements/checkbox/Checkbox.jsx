@@ -112,7 +112,6 @@ const Checkbox = ({
   'aria-labelledby': ariaLabelledBy,
   ...props
 }: CheckboxPropsType) => {
-  let checkboxIcon = null;
   const {current: checkboxId} = React.useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
@@ -170,6 +169,8 @@ const Checkbox = ({
     }
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
+
+  let checkboxIcon = null;
 
   if (isChecked) checkboxIcon = <CheckIcon />;
   if (indeterminate) checkboxIcon = <IndeterminateIcon />;
