@@ -41,7 +41,9 @@ const Radio = ({
     id === undefined || id === '' ? generateRandomString() : id
   );
 
-  const radioClass = classNames('sg-radio-new', className);
+  const radioClass = classNames('sg-radio-new', className, {
+    [`sg-radio-new--${String(color)}`]: color,
+  });
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
   const {name, state} = React.useContext(RadioContext);
