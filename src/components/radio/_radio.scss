@@ -1,6 +1,27 @@
 .sg-radio-new {
   display: inline-flex;
 
+  @mixin colorTheme(
+    $radioColor,
+    $radioHoverColor,
+    $radioInvalidColor,
+    $radioInvalidHoverColor,
+    $labelColor,
+    $outlineColor
+  ) {
+  }
+
+  &--dark {
+    @include colorTheme(
+      $radioColor: $black,
+      $radioHoverColor: $black,
+      $radioInvalidColor: $red-60,
+      $radioInvalidHoverColor: $red-50,
+      $labelColor: $black,
+      $outlineColor: $blue-40
+    );
+  }
+
   &__element {
     position: relative;
     width: 24px;
