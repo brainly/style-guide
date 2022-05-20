@@ -61,20 +61,28 @@ const Radio = ({
 
   return (
     <div className={radioClass}>
-      <input
-        className="sg-radio-new__element"
-        type="radio"
-        id={radioId}
-        checked={isChecked}
-        disabled={disabled}
-        name={name}
-        onChange={onChange}
-        required={required}
-        value={value}
-        aria-labelledby={labelId}
-        aria-invalid={invalid ? true : undefined}
-        {...props}
-      />
+      <div className="sg-radio-new__element">
+        <input
+          className="sg-radio-new__input"
+          type="radio"
+          id={radioId}
+          checked={isChecked}
+          disabled={disabled}
+          name={name}
+          onChange={onChange}
+          required={required}
+          value={value}
+          aria-labelledby={labelId}
+          aria-invalid={invalid ? true : undefined}
+          {...props}
+        />
+        <span
+          className="sg-radio-new__circle"
+          // This element is purely decorative so
+          // we hide it for screen readers
+          aria-hidden="true"
+        />
+      </div>
       {children !== undefined && children !== null && (
         <label id={labelId} htmlFor={radioId}>
           <Text
