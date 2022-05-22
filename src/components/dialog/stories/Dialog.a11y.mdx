@@ -32,7 +32,7 @@
 
 <!-- prettier-ignore -->
 ```jsx
-<Dialog open label="Cookies consent">
+<Dialog open aria-label="Cookies consent">
   We use cookies
 </Dialog>
 ```
@@ -44,7 +44,7 @@
 <Dialog
   open
   describedBy="desc-id"
-  label="Dialog label"
+  aria-label="Dialog label"
 >
   <DialogBody id="desc-id">
     Information you provide to us directly.
@@ -58,7 +58,7 @@
 ```jsx
 <Dialog
   open
-  labelledBy="header-id"
+  aria-labelledBy="header-id"
 >
   <DialogCloseButton
     onClick={onDismiss}
@@ -80,11 +80,11 @@
 ```jsx
 <Dialog
   open 
-  label="Dialog label"
+  aria-label="Dialog label"
 >
   <DialogCloseButton
     onClick={onDismiss}
-    label="Accept and close"
+    aria-label="Accept and close"
   />
 </Dialog>
 ```
