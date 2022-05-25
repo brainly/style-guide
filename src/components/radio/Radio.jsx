@@ -86,16 +86,17 @@ const Radio = ({
         />
       </div>
       {children !== undefined && children !== null && (
-        <label id={labelId} htmlFor={radioId}>
-          <Text
-            size="small"
-            type="span"
-            weight="bold"
-            className="sg-radio-new__label"
-          >
-            {children}
-          </Text>
-        </label>
+        <Text
+          id={labelId}
+          htmlFor={radioId}
+          as="label"
+          size="medium"
+          type="span"
+          weight="bold"
+          className="sg-radio-new__label"
+        >
+          {children}
+        </Text>
       )}
     </div>
   );
