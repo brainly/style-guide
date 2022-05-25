@@ -4,6 +4,10 @@
   &--items-direction {
     &-column {
       flex-direction: column;
+
+      > .sg-radio-new {
+        margin-bottom: 8px;
+      }
     }
 
     &-row {
