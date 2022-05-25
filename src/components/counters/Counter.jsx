@@ -9,11 +9,11 @@ import type {IconTypeType} from '../icons/Icon';
 
 type CounterSizeType = 'xs' | 'xxs';
 
-type ColorType = 'red-60' | 'blue-60';
+type ColorType = 'red-50' | 'blue-50';
 
 export const COUNTER_COLOR = {
-  'red-60': 'red-60',
-  'blue-60': 'blue-60',
+  'red-50': 'red-50',
+  'blue-50': 'blue-50',
 };
 
 export const COUNTER_SIZE: {
@@ -50,7 +50,7 @@ export type CounterPropsType = {
   size?: ?CounterSizeType,
   /**
    * Counter background color
-   * @example <Counter color="blue-60">1</Counter>
+   * @example <Counter color="blue-50">1</Counter>
    */
   color?: ?ColorType,
   /**
@@ -76,7 +76,7 @@ const Counter = ({
   children,
   className,
   size,
-  color = 'red-60',
+  color = 'red-50',
   withAnimation,
   'aria-label': ariaLabel,
   ...props
