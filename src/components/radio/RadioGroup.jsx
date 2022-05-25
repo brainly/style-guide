@@ -19,7 +19,7 @@ export type RadioGroupPropsType = {
 const RadioGroup = ({
   className,
   children,
-  direction = 'row',
+  direction = 'column',
   name,
   value,
   onChange,
