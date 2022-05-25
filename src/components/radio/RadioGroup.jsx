@@ -4,7 +4,14 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {RadioContext} from './useRadioContext';
 
+type DirectionType = 'row' | 'column';
+
 export type RadioGroupPropsType = {
+  children?: React.Node,
+  className?: ?string,
+  direction?: DirectionType,
+  name?: string,
+  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   value?: string,
   ...
 };
@@ -12,13 +19,16 @@ export type RadioGroupPropsType = {
 const RadioGroup = ({
   className,
   children,
+  direction = 'row',
   name,
   value,
   onChange,
   ...props
 }: RadioGroupPropsType) => {
   const [selectedValue, setSelectedValue] = React.useState(value);
-  const radioGroupClass = classNames('sg-radio-group', className);
+  const radioGroupClass = classNames('sg-radio-group', className, {
+    [`sg-radio-group--items-direction-${String(direction)}`]: direction,
+  });
 
   const updateValue = prop => {
     setSelectedValue(prop);

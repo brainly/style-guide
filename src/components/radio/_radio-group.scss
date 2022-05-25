@@ -1,0 +1,13 @@
+.sg-radio-group {
+  display: flex;
+
+  &--items-direction {
+    &-column {
+      flex-direction: column;
+    }
+
+    &-row {
+      flex-direction: row;
+    }
+  }
+}
