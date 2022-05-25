@@ -7,7 +7,7 @@ describe('Counter a11y', () => {
     await testA11y(<Counter aria-label="Label">32</Counter>);
   });
 
-  it('should have no a11y violations whenan icon is provided', async () => {
+  it('should have no a11y violations when an icon is provided', async () => {
     await testA11y(
       <Counter aria-label="Label" icon="points">
         32
