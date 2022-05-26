@@ -44,7 +44,7 @@ const Radio = ({
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
   const {name, disabled: isGroupDisabled, state} = useRadioContext();
-  const {selectedValue, setSelectedValue} = state || {};
+  const {selectedValue, setSelectedValue, setLastFocusedValue} = state || {};
 
   const isDisabled =
     typeof disabled !== 'undefined' ? disabled : isGroupDisabled;
@@ -80,6 +80,7 @@ const Radio = ({
           disabled={isDisabled}
           name={name}
           onChange={onChange}
+          onFocus={() => setLastFocusedValue(value)}
           required={required}
           value={value}
           aria-labelledby={labelId}

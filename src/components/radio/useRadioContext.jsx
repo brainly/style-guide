@@ -8,6 +8,8 @@ type RadioContextType = {
   state: {
     selectedValue: string | null,
     setSelectedValue: string => void,
+    lastFocusedValue: string | null,
+    setLastFocusedValue: string => void,
   },
   ...
 };

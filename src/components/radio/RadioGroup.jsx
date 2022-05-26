@@ -28,6 +28,7 @@ const RadioGroup = ({
   ...props
 }: RadioGroupPropsType) => {
   const [selectedValue, setSelectedValue] = React.useState(value);
+  const [lastFocusedValue, setLastFocusedValue] = React.useState(null);
   const radioGroupClass = classNames('sg-radio-group', className, {
     [`sg-radio-group--items-direction-${String(direction)}`]: direction,
   });
@@ -43,13 +44,19 @@ const RadioGroup = ({
       role="radiogroup"
       name={name}
       disabled={disabled}
+      onBlur={() => setLastFocusedValue(null)}
       {...props}
     >
       <RadioContext.Provider
         value={{
           name,
           disabled,
-          state: {selectedValue, setSelectedValue: updateValue},
+          state: {
+            selectedValue,
+            setSelectedValue: updateValue,
+            lastFocusedValue,
+            setLastFocusedValue,
+          },
         }}
       >
         {children}
