@@ -43,6 +43,7 @@ const Radio = ({
 
   const radioClass = classNames('sg-radio-new', className, {
     [`sg-radio-new--${String(color)}`]: color,
+    'sg-radio-new--disabled': disabled,
   });
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
