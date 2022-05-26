@@ -4,6 +4,7 @@ import React, {useContext} from 'react';
 
 type RadioContextType = {
   name?: string,
+  disabled?: Boolean,
   state: {
     selectedValue: string | null,
     setSelectedValue: string => void,
@@ -13,6 +14,6 @@ type RadioContextType = {
 
 export const RadioContext = React.createContext<RadioContextType>({});
 
-export const useRadioProvider = () => {
+export const useRadioContext = () => {
   return useContext(RadioContext);
 };

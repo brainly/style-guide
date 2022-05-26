@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
 import generateRandomString from '../../js/generateRandomString';
-import {RadioContext} from './useRadioContext';
+import {useRadioContext} from './useRadioContext';
 
 type RadioColorType = 'light' | 'dark';
 
@@ -43,12 +43,8 @@ const Radio = ({
 
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
-  const {name, state} = React.useContext(RadioContext);
-  const {
-    selectedValue,
-    setSelectedValue,
-    disabled: isGroupDisabled,
-  } = state || {};
+  const {name, disabled: isGroupDisabled, state} = useRadioContext();
+  const {selectedValue, setSelectedValue} = state || {};
 
   const isDisabled =
     typeof disabled !== 'undefined' ? disabled : isGroupDisabled;

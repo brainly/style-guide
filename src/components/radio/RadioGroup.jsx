@@ -48,7 +48,8 @@ const RadioGroup = ({
       <RadioContext.Provider
         value={{
           name,
-          state: {selectedValue, setSelectedValue: updateValue, disabled},
+          disabled,
+          state: {selectedValue, setSelectedValue: updateValue},
         }}
       >
         {children}

@@ -9,7 +9,7 @@ import Text from '../text/Text';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
-import {useRadioProvider} from './useRadioContext';
+import {useRadioContext} from './useRadioContext';
 
 <Meta
   title="Components/Radio new"
@@ -111,7 +111,7 @@ import {useRadioProvider} from './useRadioContext';
   <Story name="With group of custom wrappers">
     {args => {
       const CustomRadioComponent = ({value}) => {
-        const {state} = useRadioProvider();
+        const {state} = useRadioContext();
         return (
           <label id={`myRadioID-${value}`}>
             <Flex
