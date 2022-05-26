@@ -77,15 +77,28 @@ import {useRadioProvider} from './useRadioContext';
     {args => {
       return (
         <div>
-          Pet a dog:
-          <RadioGroup label="Pet a dog" name="dog" value="Freja">
-            <Radio {...args} value="Freja">
-              Freja
-            </Radio>
-            <Radio {...args} value="Gałgan">
-              Gałgan
-            </Radio>
-          </RadioGroup>
+          <div>
+            Enabled:
+            <RadioGroup label="Pet a dog" name="dog1" value="Freja">
+              <Radio {...args} value="Freja">
+                Freja
+              </Radio>
+              <Radio {...args} value="Gałgan">
+                Gałgan
+              </Radio>
+            </RadioGroup>
+          </div>
+          <div>
+            Disabled:
+            <RadioGroup label="Pet a dog" name="dog2" value="Freja" disabled>
+              <Radio {...args} value="Freja">
+                Freja
+              </Radio>
+              <Radio {...args} value="Gałgan">
+                Gałgan
+              </Radio>
+            </RadioGroup>
+          </div>
         </div>
       );
     }}
