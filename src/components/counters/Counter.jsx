@@ -64,6 +64,10 @@ export type CounterPropsType = {
    * Additional class names
    */
   className?: string,
+  /**
+   * Label describing counter
+   */
+  'aria-label'?: string,
   ...
 };
 
@@ -74,6 +78,7 @@ const Counter = ({
   size,
   color = 'red-50',
   withAnimation,
+  'aria-label': ariaLabel,
   ...props
 }: CounterPropsType) => {
   const counterClass = cx(
@@ -101,6 +106,7 @@ const Counter = ({
       className={
         size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }
+      aria-label={ariaLabel}
     >
       {children}
     </Text>
@@ -119,6 +125,7 @@ const Counter = ({
             size={size === 'xxs' ? 16 : 24}
             color="icon-black"
             className="sg-counter__icon"
+            aria-hidden={!!ariaLabel}
           />
         </Flex>
 
@@ -132,6 +139,7 @@ const Counter = ({
                 : 'small'
             }
             className="sg-counter__text"
+            aria-label={ariaLabel}
           >
             {children}
           </Text>
