@@ -29,7 +29,7 @@ const Radio = ({
   color = 'dark',
   children,
   className,
-  disabled = false,
+  disabled,
   id,
   invalid = false,
   required = false,
@@ -41,22 +41,33 @@ const Radio = ({
     id === undefined || id === '' ? generateRandomString() : id
   );
 
-  const radioClass = classNames('sg-radio-new', className, {
-    [`sg-radio-new--${String(color)}`]: color,
-    'sg-radio-new--disabled': disabled,
-  });
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
   const {name, state} = React.useContext(RadioContext);
-  const {selectedValue, setSelectedValue} = state || {};
+  const {
+    selectedValue,
+    setSelectedValue,
+    disabled: isGroupDisabled,
+  } = state || {};
+
+  const isDisabled =
+    typeof disabled !== 'undefined' ? disabled : isGroupDisabled;
 
   const isControlled = checked !== undefined || selectedValue;
   let isChecked = undefined;
 
   if (isControlled) {
     // Radio can either be directly set as checked, or be controlled by a RadioGroup
-    isChecked = checked || (selectedValue && selectedValue === value);
+    isChecked =
+      typeof checked !== 'undefined'
+        ? checked
+        : selectedValue && selectedValue === value;
   }
+
+  const radioClass = classNames('sg-radio-new', className, {
+    [`sg-radio-new--${String(color)}`]: color,
+    'sg-radio-new--disabled': isDisabled,
+  });
 
   const onChange = e => {
     if (isControlled) setSelectedValue(e.target.value);
@@ -70,7 +81,7 @@ const Radio = ({
           type="radio"
           id={radioId}
           checked={isChecked}
-          disabled={disabled}
+          disabled={isDisabled}
           name={name}
           onChange={onChange}
           required={required}

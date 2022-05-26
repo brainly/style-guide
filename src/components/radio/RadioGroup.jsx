@@ -10,6 +10,7 @@ export type RadioGroupPropsType = {
   children?: React.Node,
   className?: ?string,
   direction?: DirectionType,
+  disabled?: boolean,
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   value?: string,
@@ -20,6 +21,7 @@ const RadioGroup = ({
   className,
   children,
   direction = 'column',
+  disabled,
   name,
   value,
   onChange,
@@ -36,11 +38,17 @@ const RadioGroup = ({
   };
 
   return (
-    <div className={radioGroupClass} role="radiogroup" name={name} {...props}>
+    <div
+      className={radioGroupClass}
+      role="radiogroup"
+      name={name}
+      disabled={disabled}
+      {...props}
+    >
       <RadioContext.Provider
         value={{
           name,
-          state: {selectedValue, setSelectedValue: updateValue},
+          state: {selectedValue, setSelectedValue: updateValue, disabled},
         }}
       >
         {children}
