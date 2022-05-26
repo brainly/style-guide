@@ -1,8 +1,12 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
 
 import Flex from '../flex/Flex';
+import Box from '../box/Box';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 import {useRadioProvider} from './useRadioContext';
@@ -122,5 +126,84 @@ import {useRadioProvider} from './useRadioContext';
         </div>
       );
     }}
+  </Story>
+</Canvas>
+
+### Dark color
+
+<Canvas>
+  <Story name="Dark color">
+    {args => (
+      <div>
+        <StoryVariantTable className="sg-story-variant-table--align-items-top">
+          <thead>
+            <tr>
+              {[null, 'standalone', 'with label'].map((name, index) => (
+                <th>
+                  <Headline
+                    key={index}
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {name}
+                  </Headline>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                type: 'disabled',
+                props: {disabled: true, style: {marginBottom: '12px'}},
+              },
+              {type: 'enabled', props: {style: {marginBottom: '12px'}}},
+              {
+                type: 'error',
+                props: {
+                  invalid: true,
+                  errorMessage: 'Error message',
+                  style: {marginBottom: '12px'},
+                },
+              },
+            ].map(RadioType => (
+              <tr key={RadioType.type}>
+                <td>
+                  <Headline bold color="text-gray-50" size="xsmall">
+                    State
+                  </Headline>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {RadioType.type}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Radio {...RadioType.props} errorMessage={null} />
+                    <Radio {...RadioType.props} checked errorMessage={null} />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Radio {...RadioType.props}>Radio label</Radio>
+                    <Radio {...RadioType.props} checked>
+                      Radio label
+                    </Radio>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
   </Story>
 </Canvas>
