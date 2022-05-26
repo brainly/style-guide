@@ -89,9 +89,8 @@ const Radio = ({
         <Text
           id={labelId}
           htmlFor={radioId}
-          as="label"
+          type="label"
           size="medium"
-          type="span"
           weight="bold"
           className="sg-radio-new__label"
         >
