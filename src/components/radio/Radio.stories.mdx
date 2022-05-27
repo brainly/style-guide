@@ -35,121 +35,6 @@ import {useRadioContext} from './useRadioContext';
 
 ## Stories
 
-### With label
-
-<Canvas>
-  <Story name="With label" args={{value: 'my-radio', children: 'My radio'}}>
-    {args => (
-      <RadioGroup>
-        <Radio {...args} />
-      </RadioGroup>
-    )}
-  </Story>
-</Canvas>
-
-### With external label
-
-<Canvas>
-  <Story name="With external label" args={{value: 'test'}}>
-    {args => (
-      <RadioGroup {...args}>
-        <label id="myRadioID-label">
-          <Flex
-            style={{
-              backgroundColor: 'lightblue',
-              borderRadius: '8px',
-              padding: '20px 40px',
-            }}
-          >
-            This component is a label for radio
-            <Radio value={args.value} aria-labelledby="myRadioID-label" />
-          </Flex>
-        </label>
-      </RadioGroup>
-    )}
-  </Story>
-</Canvas>
-
-### With group
-
-<Canvas>
-  <Story name="With group">
-    {args => {
-      return (
-        <div>
-          <div>
-            Enabled:
-            <RadioGroup label="Pet a dog" name="dog1" value="Freja">
-              <Radio {...args} value="Freja">
-                Freja
-              </Radio>
-              <Radio {...args} value="Gałgan">
-                Gałgan
-              </Radio>
-            </RadioGroup>
-          </div>
-          <div>
-            Disabled:
-            <RadioGroup label="Pet a dog" name="dog2" value="Freja" disabled>
-              <Radio {...args} value="Freja">
-                Freja
-              </Radio>
-              <Radio {...args} value="Gałgan">
-                Gałgan
-              </Radio>
-            </RadioGroup>
-          </div>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### With group of custom wrappers
-
-<Canvas>
-  <Story name="With group of custom wrappers">
-    {args => {
-      const CustomRadioComponent = ({value}) => {
-        const {state} = useRadioContext();
-        return (
-          <label id={`myRadioID-${value}`}>
-            <Flex
-              style={{
-                backgroundColor:
-                  value === state.selectedValue ? 'lightsalmon' : 'transparent',
-                border: '2px solid black',
-                borderColor:
-                  value === state.lastFocusedValue ? '#4fb3f6' : 'black',
-                borderRadius: '8px',
-                padding: '20px 40px',
-                marginRight: '10px',
-              }}
-            >
-              <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
-              {value}
-            </Flex>
-          </label>
-        );
-      };
-      return (
-        <div>
-          Pet a dog:
-          <RadioGroup
-            label="Pet a dog"
-            name="dog"
-            value="Freja"
-            direction="row"
-          >
-            <CustomRadioComponent value="Freja" />
-            <CustomRadioComponent value="Gałgan" />
-          </RadioGroup>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Dark color
 
 <Canvas>
@@ -322,5 +207,108 @@ import {useRadioContext} from './useRadioContext';
         </StoryVariantTable>
       </div>
     )}
+  </Story>
+</Canvas>
+
+### With external label
+
+<Canvas>
+  <Story name="With external label" args={{value: 'test'}}>
+    {args => (
+      <RadioGroup {...args}>
+        <label id="myRadioID-label">
+          <Flex
+            style={{
+              backgroundColor: 'lightblue',
+              borderRadius: '8px',
+              padding: '20px 40px',
+            }}
+          >
+            This component is a label for radio
+            <Radio value={args.value} aria-labelledby="myRadioID-label" />
+          </Flex>
+        </label>
+      </RadioGroup>
+    )}
+  </Story>
+</Canvas>
+
+### With group
+
+<Canvas>
+  <Story name="With group">
+    {args => {
+      return (
+        <div>
+          <div>
+            Enabled:
+            <RadioGroup label="Pet a dog" name="dog1" value="Freja">
+              <Radio {...args} value="Freja">
+                Freja
+              </Radio>
+              <Radio {...args} value="Gałgan">
+                Gałgan
+              </Radio>
+            </RadioGroup>
+          </div>
+          <div>
+            Disabled:
+            <RadioGroup label="Pet a dog" name="dog2" value="Freja" disabled>
+              <Radio {...args} value="Freja">
+                Freja
+              </Radio>
+              <Radio {...args} value="Gałgan">
+                Gałgan
+              </Radio>
+            </RadioGroup>
+          </div>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With group of custom wrappers
+
+<Canvas>
+  <Story name="With group of custom wrappers">
+    {args => {
+      const CustomRadioComponent = ({value}) => {
+        const {state} = useRadioContext();
+        return (
+          <label id={`myRadioID-${value}`}>
+            <Flex
+              style={{
+                backgroundColor:
+                  value === state.selectedValue ? 'lightsalmon' : 'transparent',
+                border: '2px solid black',
+                borderColor:
+                  value === state.lastFocusedValue ? '#4fb3f6' : 'black',
+                borderRadius: '8px',
+                padding: '20px 40px',
+                marginRight: '10px',
+              }}
+            >
+              <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
+              {value}
+            </Flex>
+          </label>
+        );
+      };
+      return (
+        <div>
+          Pet a dog:
+          <RadioGroup
+            label="Pet a dog"
+            name="dog"
+            value="Freja"
+            direction="row"
+          >
+            <CustomRadioComponent value="Freja" />
+            <CustomRadioComponent value="Gałgan" />
+          </RadioGroup>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
