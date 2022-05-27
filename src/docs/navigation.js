@@ -267,7 +267,7 @@ const navigation = [
         component: header,
       },
       {
-        name: 'Footer',
+        name: 'Footer (deprecated)',
         component: footer,
       },
       {

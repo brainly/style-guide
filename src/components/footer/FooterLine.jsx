@@ -9,6 +9,8 @@ export type FooterLinePropsType = {
   ...
 };
 
+// This component is deprecated
+
 const FooterLine = ({children, className, ...props}: FooterLinePropsType) => {
   const footerClass = classNames('sg-footer__line', className);
 
