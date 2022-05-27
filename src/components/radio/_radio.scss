@@ -10,6 +10,14 @@
     $labelColor,
     $outlineColor
   ) {
+    .sg-radio-new__circle {
+      box-shadow: 0px 0px 0px 2px $radioColor inset;
+    }
+
+    .sg-radio-new__label {
+      color: $labelColor;
+    }
+
     &:hover {
       .sg-radio-new__circle {
         box-shadow: 0px 0px 0px 2px $radioHoverColor inset;
@@ -45,7 +53,19 @@
       $radioFocusColor: $gray-50,
       $radioInvalidColor: $red-60,
       $radioInvalidHoverColor: $red-50,
-      $labelColor: $black,
+      $labelColor: $text-black,
+      $outlineColor: $blue-40
+    );
+  }
+
+  &--light {
+    @include colorTheme(
+      $radioColor: $white,
+      $radioHoverColor: $gray-40,
+      $radioFocusColor: $white,
+      $radioInvalidColor: $red-40,
+      $radioInvalidHoverColor: $red-50,
+      $labelColor: $text-white,
       $outlineColor: $blue-40
     );
   }
@@ -80,10 +100,6 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px $black inset;
-  }
-
-  &__input {
   }
 
   &__label {
