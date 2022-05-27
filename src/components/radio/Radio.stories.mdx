@@ -216,20 +216,18 @@ import {useRadioContext} from './useRadioContext';
 <Canvas>
   <Story name="With external label" args={{value: 'test'}}>
     {args => (
-      <RadioGroup {...args}>
-        <label id="myRadioID-label">
-          <Flex
-            style={{
-              backgroundColor: 'lightblue',
-              borderRadius: '8px',
-              padding: '20px 40px',
-            }}
-          >
-            This component is a label for radio
-            <Radio value={args.value} aria-labelledby="myRadioID-label" />
-          </Flex>
-        </label>
-      </RadioGroup>
+      <label id="myRadioID-label">
+        <Flex
+          style={{
+            backgroundColor: 'lightblue',
+            borderRadius: '8px',
+            padding: '20px 40px',
+          }}
+        >
+          This component is a label for radio
+          <Radio value={args.value} aria-labelledby="myRadioID-label" />
+        </Flex>
+      </label>
     )}
   </Story>
 </Canvas>
