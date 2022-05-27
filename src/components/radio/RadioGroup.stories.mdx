@@ -1,0 +1,111 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
+import {Preview} from '../../_docs/blocks/';
+
+import Flex from '../flex/Flex';
+import Box from '../box/Box';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+
+import Radio from './Radio';
+import RadioGroup from './RadioGroup';
+import {useRadioContext} from './useRadioContext';
+
+<Meta
+  title="Components/Radio group"
+  component={RadioGroup}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+  }}
+/>
+
+# Radio group
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default" args={{name: 'dog', value: 'Freja'}}>
+    {args => (
+      <RadioGroup {...args}>
+        <Radio value="Freja">Freja</Radio>
+        <Radio value="Gałgan">Gałgan</Radio>
+      </RadioGroup>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### With external label
+
+<Canvas>
+  <Story name="With external label" args={{value: 'test'}}>
+    {args => (
+      <RadioGroup {...args}>
+        <label id="myRadioID-label">
+          <Flex
+            style={{
+              backgroundColor: 'lightblue',
+              borderRadius: '8px',
+              padding: '20px 40px',
+            }}
+          >
+            This component is a label for radio
+            <Radio value={args.value} aria-labelledby="myRadioID-label" />
+          </Flex>
+        </label>
+      </RadioGroup>
+    )}
+  </Story>
+</Canvas>
+
+### With group of custom wrappers
+
+<Canvas>
+  <Story name="With group of custom wrappers">
+    {args => {
+      const CustomRadioComponent = ({value}) => {
+        const {state} = useRadioContext();
+        return (
+          <label id={`myRadioID-${value}`}>
+            <Flex
+              style={{
+                backgroundColor:
+                  value === state.selectedValue ? 'lightsalmon' : 'transparent',
+                border: '2px solid black',
+                borderColor:
+                  value === state.lastFocusedValue ? '#4fb3f6' : 'black',
+                borderRadius: '8px',
+                padding: '20px 40px',
+                marginRight: '10px',
+              }}
+            >
+              <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
+              {value}
+            </Flex>
+          </label>
+        );
+      };
+      return (
+        <div>
+          Pet a dog:
+          <RadioGroup
+            label="Pet a dog"
+            name="dog"
+            value="Freja"
+            direction="row"
+          >
+            <CustomRadioComponent value="Freja" />
+            <CustomRadioComponent value="Gałgan" />
+          </RadioGroup>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
