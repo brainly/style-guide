@@ -48,16 +48,15 @@ import {useRadioContext} from './useRadioContext';
   <Story name="With group of custom wrappers">
     {args => {
       const CustomRadioComponent = ({value}) => {
-        const {state} = useRadioContext();
+        const {selectedValue, lastFocusedValue} = useRadioContext();
         return (
           <label id={`myRadioID-${value}`}>
             <Flex
               style={{
                 backgroundColor:
-                  value === state.selectedValue ? 'lightsalmon' : 'transparent',
+                  value === selectedValue ? 'lightsalmon' : 'transparent',
                 border: '2px solid black',
-                borderColor:
-                  value === state.lastFocusedValue ? '#4fb3f6' : 'black',
+                borderColor: value === lastFocusedValue ? '#4fb3f6' : 'black',
                 borderRadius: '8px',
                 padding: '20px 40px',
                 marginRight: '10px',

@@ -51,12 +51,10 @@ const RadioGroup = ({
         value={{
           name,
           disabled,
-          state: {
-            selectedValue,
-            setSelectedValue: updateValue,
-            lastFocusedValue,
-            setLastFocusedValue,
-          },
+          selectedValue,
+          setSelectedValue: updateValue,
+          lastFocusedValue,
+          setLastFocusedValue,
         }}
       >
         {children}

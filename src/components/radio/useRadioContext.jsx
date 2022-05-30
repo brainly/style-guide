@@ -5,12 +5,10 @@ import React, {useContext} from 'react';
 type RadioContextType = {
   name?: string,
   disabled?: Boolean,
-  state: {
-    selectedValue: string | null,
-    setSelectedValue: string => void,
-    lastFocusedValue: string | null,
-    setLastFocusedValue: string => void,
-  },
+  selectedValue: string | null,
+  setSelectedValue: string => void,
+  lastFocusedValue: string | null,
+  setLastFocusedValue: string => void,
   ...
 };
 

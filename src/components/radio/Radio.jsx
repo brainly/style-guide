@@ -32,6 +32,7 @@ const Radio = ({
   disabled,
   id,
   invalid = false,
+  onChange,
   required = false,
   value,
   'aria-labelledby': ariaLabelledBy,
@@ -41,23 +42,22 @@ const Radio = ({
     id === undefined || id === '' ? generateRandomString() : id
   );
 
-  const labelId = ariaLabelledBy || `${radioId}-label`;
-
-  const {name, disabled: isGroupDisabled, state} = useRadioContext();
-  const {selectedValue, setSelectedValue, setLastFocusedValue} = state || {};
+  const radioGroupContext = useRadioContext();
+  const isWithinRadioGroup =
+    radioGroupContext && Object.keys(radioGroupContext).length;
 
   const isDisabled =
-    typeof disabled !== 'undefined' ? disabled : isGroupDisabled;
-
-  const isControlled = checked !== undefined || selectedValue;
+    disabled !== undefined ? disabled : radioGroupContext.disabled;
+  const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked = undefined;
 
   if (isControlled) {
     // Radio can either be directly set as checked, or be controlled by a RadioGroup
     isChecked =
-      typeof checked !== 'undefined'
+      checked !== undefined
         ? checked
-        : selectedValue && selectedValue === value;
+        : radioGroupContext.selectedValue &&
+          radioGroupContext.selectedValue === value;
   }
 
   const radioClass = classNames('sg-radio-new', className, {
@@ -65,8 +65,16 @@ const Radio = ({
     'sg-radio-new--disabled': isDisabled,
   });
 
-  const onChange = e => {
-    if (isControlled) setSelectedValue(e.target.value);
+  const labelId = ariaLabelledBy || `${radioId}-label`;
+
+  const onInputChange = e => {
+    if (isWithinRadioGroup) {
+      radioGroupContext.setLastFocusedValue(value);
+      radioGroupContext.setSelectedValue(value);
+    }
+    if (onChange) {
+      onChange(e);
+    }
   };
 
   return (
@@ -79,8 +87,7 @@ const Radio = ({
           checked={isChecked}
           disabled={isDisabled}
           name={name}
-          onChange={onChange}
-          onFocus={() => setLastFocusedValue(value)}
+          onChange={onInputChange}
           required={required}
           value={value}
           aria-labelledby={labelId}
