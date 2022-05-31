@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import Footer from '../Footer';
 import FooterLine from '../FooterLine';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
@@ -12,6 +13,7 @@ const Footers = () => {
 
   return (
     <div>
+      <DeprecatedNote />
       <DocsActiveBlock settings={settings}>
         <Footer>
           <FooterLine>line</FooterLine>

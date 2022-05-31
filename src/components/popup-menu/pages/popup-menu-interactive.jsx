@@ -4,6 +4,7 @@ import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';
 import Avatar from 'avatar/Avatar';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 
 const PopupMenus = () => {
   const settings = [
@@ -15,6 +16,7 @@ const PopupMenus = () => {
 
   return (
     <div>
+      <DeprecatedNote />
       <DocsActiveBlock settings={settings}>
         <PopupMenu
           items={[
