@@ -34,6 +34,7 @@ const Radio = ({
   disabled,
   id,
   invalid = false,
+  name,
   onChange,
   required = false,
   value,
@@ -96,7 +97,7 @@ const Radio = ({
             id={radioId}
             checked={isChecked}
             disabled={isDisabled}
-            name={name}
+            name={name || radioGroupContext.name}
             onChange={onInputChange}
             required={required}
             value={value}
