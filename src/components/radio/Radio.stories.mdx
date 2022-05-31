@@ -18,6 +18,9 @@ import {useRadioContext} from './useRadioContext';
     children: {
       type: 'string',
     },
+    description: {
+      type: 'string',
+    },
   }}
 />
 
@@ -45,20 +48,22 @@ import {useRadioContext} from './useRadioContext';
         <StoryVariantTable className="sg-story-variant-table--align-items-top">
           <thead>
             <tr>
-              {[null, 'standalone', 'with label'].map((name, index) => (
-                <th>
-                  <Headline
-                    key={index}
-                    extraBold
-                    transform="uppercase"
-                    type="span"
-                    color="text-gray-70"
-                    size="small"
-                  >
-                    {name}
-                  </Headline>
-                </th>
-              ))}
+              {[null, 'standalone', 'with label', 'with description'].map(
+                (name, index) => (
+                  <th>
+                    <Headline
+                      key={index}
+                      extraBold
+                      transform="uppercase"
+                      type="span"
+                      color="text-gray-70"
+                      size="small"
+                    >
+                      {name}
+                    </Headline>
+                  </th>
+                )
+              )}
             </tr>
           </thead>
           <tbody>
@@ -102,6 +107,25 @@ import {useRadioContext} from './useRadioContext';
                   <Flex alignItems="center" direction="column">
                     <Radio {...RadioType.props}>Radio label</Radio>
                     <Radio {...RadioType.props} checked>
+                      Radio label
+                    </Radio>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Radio
+                      {...RadioType.props}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Radio label
+                    </Radio>
+                    <Radio
+                      {...RadioType.props}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                      checked
+                    >
                       Radio label
                     </Radio>
                   </Flex>

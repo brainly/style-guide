@@ -1,5 +1,6 @@
 .sg-radio-new {
   display: inline-flex;
+  flex-direction: column;
 
   @mixin colorTheme(
     $radioColor,
@@ -17,7 +18,7 @@
       color: $labelColor;
     }
 
-    &:hover {
+    .sg-radio-new__wrapper:hover {
       .sg-radio-new__circle {
         box-shadow: 0px 0px 0px 2px $radioHoverColor inset;
       }
@@ -81,6 +82,10 @@
     opacity: 0.45;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  &__wrapper {
+    display: flex;
   }
 
   &__element {

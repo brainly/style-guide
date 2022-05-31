@@ -13,6 +13,7 @@ export type RadioPropsType = {
   children?: React.Node,
   className?: ?string,
   color?: ?RadioColorType,
+  description?: React.Node | string,
   disabled?: boolean,
   id?: string,
   invalid?: boolean,
@@ -29,6 +30,7 @@ const Radio = ({
   color = 'dark',
   children,
   className,
+  description,
   disabled,
   id,
   invalid = false,
@@ -36,6 +38,7 @@ const Radio = ({
   required = false,
   value,
   'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioPropsType) => {
   const {current: radioId} = React.useRef(
@@ -67,6 +70,12 @@ const Radio = ({
 
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
+  const descriptionId = React.useMemo(() => {
+    if (ariaDescribedBy) return ariaDescribedBy;
+    if (description) return `${radioId}-description`;
+    return null;
+  }, [radioId, ariaDescribedBy, description]);
+
   const onInputChange = e => {
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
@@ -79,38 +88,53 @@ const Radio = ({
 
   return (
     <div className={radioClass}>
-      <div className="sg-radio-new__element">
-        <input
-          className="sg-radio-new__input"
-          type="radio"
-          id={radioId}
-          checked={isChecked}
-          disabled={isDisabled}
-          name={name}
-          onChange={onInputChange}
-          required={required}
-          value={value}
-          aria-labelledby={labelId}
-          aria-invalid={invalid ? true : undefined}
-          {...props}
-        />
-        <span
-          className="sg-radio-new__circle"
-          // This element is purely decorative so
-          // we hide it for screen readers
-          aria-hidden="true"
-        />
+      <div className="sg-radio-new__wrapper">
+        <div className="sg-radio-new__element">
+          <input
+            className="sg-radio-new__input"
+            type="radio"
+            id={radioId}
+            checked={isChecked}
+            disabled={isDisabled}
+            name={name}
+            onChange={onInputChange}
+            required={required}
+            value={value}
+            aria-labelledby={labelId}
+            aria-describedby={descriptionId}
+            aria-invalid={invalid ? true : undefined}
+            {...props}
+          />
+          <span
+            className="sg-radio-new__circle"
+            // This element is purely decorative so
+            // we hide it for screen readers
+            aria-hidden="true"
+          />
+        </div>
+        {children !== undefined && children !== null && (
+          <Text
+            id={labelId}
+            htmlFor={radioId}
+            type="label"
+            size="medium"
+            weight="bold"
+            className="sg-radio-new__label"
+          >
+            {children}
+          </Text>
+        )}
       </div>
-      {children !== undefined && children !== null && (
+      {description && (
         <Text
-          id={labelId}
-          htmlFor={radioId}
-          type="label"
-          size="medium"
-          weight="bold"
-          className="sg-radio-new__label"
+          id={descriptionId}
+          className="sg-checkbox__description"
+          size="small"
+          type="span"
+          color="text-black"
+          breakWords
         >
-          {children}
+          {description}
         </Text>
       )}
     </div>
