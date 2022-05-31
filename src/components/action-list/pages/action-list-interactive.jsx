@@ -6,6 +6,7 @@ import Text, {TEXT_TYPE} from 'text/Text';
 
 import ActionListHole from '../ActionListHole';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 
 const ActionLists = () => {
   const settings = [
@@ -29,6 +30,7 @@ const ActionLists = () => {
 
   return (
     <div>
+      <DeprecatedNote />
       <DocsActiveBlock settings={settings}>
         <ActionList>
           <ActionListHole>
