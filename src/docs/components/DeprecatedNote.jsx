@@ -14,12 +14,14 @@ type PropsType = {
 
 const DeprecatedNote = ({replacement}: PropsType) => (
   <Flex marginBottom="m">
-    <Text color="text-red-60">
+    <Text color="text-red-60" size="small">
       This component is deprecated
       {replacement && (
         <span>
           , please use{' '}
-          <Link href={replacement.href}>{replacement.componentName}</Link>{' '}
+          <Link href={replacement.href} weight="bold" inherited>
+            {replacement.componentName}
+          </Link>{' '}
           instead
         </span>
       )}
