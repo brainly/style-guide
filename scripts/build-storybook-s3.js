@@ -11,7 +11,7 @@ const client = s3.createClient({
 
 client.s3.getObject(
   {
-    Bucket: 'style-guide.brainly.com',
+    Bucket: 'styleguide-dev.brainly.com',
     Key: `.sg-version`,
   },
   function (err, data) {
