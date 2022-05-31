@@ -1,18 +1,16 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import Footer from '../Footer';
 import FooterLine from '../FooterLine';
 import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
-import Flex from '../../flex/Flex';
 
 import Link from 'text/Link';
 import Breadcrumb from 'breadcrumb/Breadcrumb';
 
 const Footers = () => (
   <div>
-    <Flex marginBottom="m">
-      <Text color="text-red-60">This component is deprecated</Text>
-    </Flex>
+    <DeprecatedNote />
     <DocsBlock info="Standard">
       <Footer>
         <FooterLine>line</FooterLine>

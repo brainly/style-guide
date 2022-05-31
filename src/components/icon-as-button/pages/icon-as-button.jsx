@@ -1,22 +1,17 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
-import Text from '../../text/Text';
-import Link from '../../text/Link';
-import Flex from '../../flex/Flex';
 import DrawHelper from './DrawHelper';
 
 const icons = () => (
   <div>
-    <Flex marginBottom="m">
-      <Text color="text-red-60">
-        This component is deprecated, please use{' '}
-        <Link href="./components.html#buttons">
-          Buttons with iconOnly option
-        </Link>{' '}
-        instead
-      </Text>
-    </Flex>
+    <DeprecatedNote
+      replacement={{
+        componentName: 'Button with iconOnly option',
+        href: './components.html#buttons',
+      }}
+    />
     <DocsBlock info="Normal">
       <ul className="icons-list">
         {Object.values(ICON_COLOR).map(color => (
