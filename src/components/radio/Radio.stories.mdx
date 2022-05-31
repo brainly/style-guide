@@ -112,7 +112,13 @@ import {useRadioContext} from './useRadioContext';
                   </Flex>
                 </td>
                 <td>
-                  <Flex alignItems="center" direction="column">
+                  <Flex
+                    alignItems="center"
+                    direction="column"
+                    style={{
+                      width: '320px',
+                    }}
+                  >
                     <Radio
                       {...RadioType.props}
                       description="More detailed description about this element. You can

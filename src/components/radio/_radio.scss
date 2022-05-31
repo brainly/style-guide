@@ -1,6 +1,16 @@
 .sg-radio-new {
-  display: inline-flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    'radio label'
+    '. description';
+
+  &--with-label {
+    column-gap: 8px;
+  }
+
+  &--with-description {
+    row-gap: 8px;
+  }
 
   @mixin colorTheme(
     $radioColor,
@@ -84,11 +94,8 @@
     pointer-events: none;
   }
 
-  &__wrapper {
-    display: flex;
-  }
-
   &__element {
+    grid-area: radio;
     position: relative;
     width: 24px;
     height: 24px;
@@ -115,6 +122,11 @@
   }
 
   &__label {
-    margin-left: 8px;
+    grid-area: label;
+  }
+
+  &__description {
+    grid-area: description;
+    white-space: normal;
   }
 }
