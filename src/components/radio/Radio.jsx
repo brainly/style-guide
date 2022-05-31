@@ -22,6 +22,7 @@ export type RadioPropsType = {
   required?: boolean,
   value?: string,
   'aria-labelledby'?: string,
+  'aria-describedby'?: string,
   ...
 };
 
