@@ -92,41 +92,43 @@ const Radio = ({
 
   return (
     <div className={radioClass}>
-      <div className="sg-radio-new__element">
-        <input
-          className="sg-radio-new__input"
-          type="radio"
-          id={radioId}
-          checked={isChecked}
-          disabled={isDisabled}
-          name={name || radioGroupContext.name}
-          onChange={onInputChange}
-          required={required}
-          value={value}
-          aria-labelledby={labelId}
-          aria-describedby={descriptionId}
-          aria-invalid={invalid ? true : undefined}
-          {...props}
-        />
-        <span
-          className="sg-radio-new__circle"
-          // This element is purely decorative so
-          // we hide it for screen readers
-          aria-hidden="true"
-        />
+      <div className="sg-radio-new__wrapper">
+        <div className="sg-radio-new__element">
+          <input
+            className="sg-radio-new__input"
+            type="radio"
+            id={radioId}
+            checked={isChecked}
+            disabled={isDisabled}
+            name={name || radioGroupContext.name}
+            onChange={onInputChange}
+            required={required}
+            value={value}
+            aria-labelledby={labelId}
+            aria-describedby={descriptionId}
+            aria-invalid={invalid ? true : undefined}
+            {...props}
+          />
+          <span
+            className="sg-radio-new__circle"
+            // This element is purely decorative so
+            // we hide it for screen readers
+            aria-hidden="true"
+          />
+        </div>
+        {hasLabel && (
+          <Text
+            id={labelId}
+            htmlFor={radioId}
+            type="label"
+            size="medium"
+            weight="bold"
+            className="sg-radio-new__label"
+          >
+            {children}
+          </Text>
+        )}
       </div>
-      {hasLabel && (
-        <Text
-          id={labelId}
-          htmlFor={radioId}
-          type="label"
-          size="medium"
-          weight="bold"
-          className="sg-radio-new__label"
-        >
-          {children}
-        </Text>
-      )}
       {description && (
         <Text
           id={descriptionId}

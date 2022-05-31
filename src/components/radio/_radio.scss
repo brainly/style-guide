@@ -1,3 +1,8 @@
+$radioSize: 16px;
+$radioMargin: 8px;
+$radioUncheckedBorderWidth: 2px;
+$radioCheckedBorderWidth: 5px;
+
 .sg-radio-new {
   --radioColor: #{$black};
   --radioHoverColor: #{$gray-60};
@@ -7,18 +12,8 @@
   --radioDescriptionColor: #{$text-black};
   --radioOutlineColor: #{$blue-40};
 
-  display: grid;
-  grid-template-areas:
-    'radio label'
-    '. description';
-
-  &--with-label {
-    column-gap: 8px;
-  }
-
-  &--with-description {
-    row-gap: 8px;
-  }
+  display: inline-flex;
+  flex-direction: column;
 
   &--light {
     --radioColor: #{$white};
@@ -30,73 +25,39 @@
     --radioOutlineColor: #{$blue-40};
   }
 
-  .sg-radio-new__wrapper:hover {
-    .sg-radio-new__circle {
-      box-shadow: 0px 0px 0px 2px var(--radioHoverColor) inset;
-    }
-
-    .sg-radio-new__input {
-      &:checked + .sg-radio-new__circle {
-        box-shadow: 0px 0px 0px 5px var(--radioHoverColor) inset;
-      }
-      &[aria-invalid] + .sg-radio-new__circle {
-        box-shadow: 0px 0px 0px 2px var(--radioInvalidHoverColor) inset;
-      }
-      &:checked[aria-invalid] + .sg-radio-new__circle {
-        box-shadow: 0px 0px 0px 5px var(--radioInvalidHoverColor) inset;
-      }
-    }
-  }
-
-  .sg-radio-new__input {
-    &:focus + .sg-radio-new__circle {
-      outline: 2px solid var(--radioOutlineColor);
-      outline-offset: 2px;
-    }
-
-    &:checked + .sg-radio-new__circle {
-      box-shadow: 0px 0px 0px 5px var(--radioColor) inset;
-    }
-
-    &[aria-invalid] + .sg-radio-new__circle {
-      box-shadow: 0px 0px 0px 2px var(--radioInvalidColor) inset;
-    }
-
-    &:checked[aria-invalid] + .sg-radio-new__circle {
-      box-shadow: 0px 0px 0px 5px var(--radioInvalidColor) inset;
-    }
-  }
-
-  // &--dark {
-  //   @include colorTheme(
-  //     $radioColor: $black,
-  //     $radioHoverColor: $gray-60,
-  //     $radioInvalidColor: $red-60,
-  //     $radioInvalidHoverColor: $red-50,
-  //     $labelColor: $text-black,
-  //     $outlineColor: $blue-40
-  //   );
-  // }
-
-  // &--light {
-  //   @include colorTheme(
-  //     $radioColor: $white,
-  //     $radioHoverColor: $gray-40,
-  //     $radioInvalidColor: $red-40,
-  //     $radioInvalidHoverColor: $red-50,
-  //     $labelColor: $text-white,
-  //     $outlineColor: $blue-40
-  //   );
-  // }
-
   &--disabled {
     opacity: 0.45;
     cursor: not-allowed;
     pointer-events: none;
   }
 
+  &__wrapper {
+    display: flex;
+
+    &:hover {
+      .sg-radio-new__circle {
+        box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
+          var(--radioHoverColor) inset;
+      }
+
+      .sg-radio-new__input {
+        &:checked + .sg-radio-new__circle {
+          box-shadow: 0px 0px 0px $radioCheckedBorderWidth
+            var(--radioHoverColor) inset;
+        }
+        &[aria-invalid] + .sg-radio-new__circle {
+          box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
+            var(--radioInvalidHoverColor) inset;
+        }
+        &:checked[aria-invalid] + .sg-radio-new__circle {
+          box-shadow: 0px 0px 0px $radioCheckedBorderWidth
+            var(--radioInvalidHoverColor) inset;
+        }
+      }
+    }
+  }
+
   &__element {
-    grid-area: radio;
     position: relative;
     width: 24px;
     height: 24px;
@@ -114,23 +75,42 @@
     top: 0;
     left: 0;
     z-index: 1;
+
+    &:focus + .sg-radio-new__circle {
+      outline: $radioUncheckedBorderWidth solid var(--radioOutlineColor);
+      outline-offset: 2px;
+    }
+
+    &:checked + .sg-radio-new__circle {
+      box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioColor) inset;
+    }
+
+    &[aria-invalid] + .sg-radio-new__circle {
+      box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
+        var(--radioInvalidColor) inset;
+    }
+
+    &:checked[aria-invalid] + .sg-radio-new__circle {
+      box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioInvalidColor)
+        inset;
+    }
   }
 
   &__circle {
-    width: 16px;
-    height: 16px;
+    width: $radioSize;
+    height: $radioSize;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px 2px var(--radioColor) inset;
+    box-shadow: 0px 0px 0px $radioUncheckedBorderWidth var(--radioColor) inset;
   }
 
   &__label {
-    grid-area: label;
     color: var(--radioLabelColor);
+    padding-left: $radioMargin;
   }
 
   &__description {
-    grid-area: description;
     white-space: normal;
     color: var(--radioDescriptionColor);
+    margin-top: $radioMargin;
   }
 }
