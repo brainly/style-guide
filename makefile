@@ -1,8 +1,8 @@
 .PHONY: build
 build: build-$(ENVIRONMENT_NAME)-$(APP_NAME)
 
-.PHONY: build-styleguide-sg-storybook-deploy-s3
-build-styleguide-sg-storybook-deploy-s3:
+.PHONY: build-styleguide-sg-storybook-dev-deploy
+build-styleguide-sg-storybook-dev-deploy:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
 	yarn build
