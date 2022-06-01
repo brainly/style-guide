@@ -135,7 +135,6 @@ const Radio = ({
           className="sg-radio__description"
           size="small"
           type="span"
-          color="text-black"
           breakWords
         >
           {description}
