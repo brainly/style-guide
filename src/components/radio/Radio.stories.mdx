@@ -1,4 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {styled} from '@storybook/theming';
 import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
 
@@ -259,5 +260,73 @@ import {useRadioContext} from './useRadioContext';
         </Flex>
       </label>
     )}
+  </Story>
+</Canvas>
+
+### With custom theme
+
+To use custom theme for `Radio`, you have to override following css variables:
+
+| Css variable name        | Explanation                                               |
+| ------------------------ | --------------------------------------------------------- |
+| --radioColor             | Ring color (valid, checked or unchecked)                  |
+| --radioHoverColor        | Ring color on mouse hover (valid, checked or unchecked)   |
+| --radioInvalidColor      | Ring color (invalid, checked or unchecked)                |
+| --radioInvalidHoverColor | Ring color on mouse hover (invalid, checked or unchecked) |
+| --radioLabelColor        | Label color                                               |
+| --radioDescriptionColor  | Description color                                         |
+| --radioOutlineColor      | Outline color (appears on focus)                          |
+
+In the following example, className `sg-radio-new--orange` was applied to the `Radio`:
+
+```css
+.sg-radio-new--orange {
+  --radioColor: blue;
+  --radioHoverColor: lightBlue;
+  --radioInvalidColor: crimson;
+  --radioInvalidHoverColor: coral;
+  --radioLabelColor: black;
+  --radioDescriptionColor: black;
+  --radioOutlineColor: gray;
+}
+```
+
+<Canvas>
+  <Story
+    name="With custom theme"
+    args={{children: 'Custom label', className: 'sg-radio-new--orange'}}
+  >
+    {args => {
+      const StyledRadios = styled.div`
+        display: flex;
+        flex-direction: column;
+        .sg-radio-new--orange {
+          --radioColor: blue;
+          --radioHoverColor: lightBlue;
+          --radioInvalidColor: crimson;
+          --radioInvalidHoverColor: coral;
+          --radioLabelColor: black;
+          --radioDescriptionColor: black;
+          --radioOutlineColor: gray;
+        }
+      `;
+      return (
+        <StyledRadios>
+          <Radio {...args}>Valid, unchecked</Radio>
+          <Radio {...args} checked>
+            Valid, checked
+          </Radio>
+          <Radio {...args} invalid>
+            Invalid, unchecked
+          </Radio>
+          <Radio {...args} checked invalid>
+            Invalid, checked
+          </Radio>
+          <Radio {...args} description="Some description" checked>
+            Valid, checked
+          </Radio>
+        </StyledRadios>
+      );
+    }}
   </Story>
 </Canvas>
