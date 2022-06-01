@@ -4,7 +4,7 @@ $radioMargin: 8px;
 $radioUncheckedBorderWidth: 2px;
 $radioCheckedBorderWidth: 5px;
 
-.sg-radio-new {
+.sg-radio {
   --radioColor: #{$black};
   --radioHoverColor: #{$gray-60};
   --radioInvalidColor: #{$red-60};
@@ -36,21 +36,21 @@ $radioCheckedBorderWidth: 5px;
     display: flex;
 
     &:hover {
-      .sg-radio-new__circle {
+      .sg-radio__circle {
         box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
           var(--radioHoverColor) inset;
       }
 
-      .sg-radio-new__input {
-        &:checked + .sg-radio-new__circle {
+      .sg-radio__input {
+        &:checked + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioCheckedBorderWidth
             var(--radioHoverColor) inset;
         }
-        &[aria-invalid] + .sg-radio-new__circle {
+        &[aria-invalid] + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
             var(--radioInvalidHoverColor) inset;
         }
-        &:checked[aria-invalid] + .sg-radio-new__circle {
+        &:checked[aria-invalid] + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioCheckedBorderWidth
             var(--radioInvalidHoverColor) inset;
         }
@@ -77,21 +77,21 @@ $radioCheckedBorderWidth: 5px;
     left: 0;
     z-index: 1;
 
-    &:focus + .sg-radio-new__circle {
+    &:focus + .sg-radio__circle {
       outline: $radioUncheckedBorderWidth solid var(--radioOutlineColor);
       outline-offset: 2px;
     }
 
-    &:checked + .sg-radio-new__circle {
+    &:checked + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioColor) inset;
     }
 
-    &[aria-invalid] + .sg-radio-new__circle {
+    &[aria-invalid] + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
         var(--radioInvalidColor) inset;
     }
 
-    &:checked[aria-invalid] + .sg-radio-new__circle {
+    &:checked[aria-invalid] + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioInvalidColor)
         inset;
     }

@@ -1,5 +1,5 @@
 import * as RadioGroup from './RadioGroup.stories.mdx';
-import {mergeStories} from '../../chromatic/utils';
+import {mergeStories} from '../../../chromatic/utils';
 
 export const Default = mergeStories(RadioGroup);
 

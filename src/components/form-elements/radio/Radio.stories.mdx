@@ -1,19 +1,19 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {styled} from '@storybook/theming';
-import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
-import {Preview} from '../../_docs/blocks/';
+import {StoryVariant, StoryVariantTable} from '../../../_docs/utils';
+import {Preview} from '../../../_docs/blocks/';
 
-import Flex from '../flex/Flex';
-import Box from '../box/Box';
-import Headline from '../text/Headline';
-import Text from '../text/Text';
+import Flex from '../../flex/Flex';
+import Box from '../../box/Box';
+import Headline from '../../text/Headline';
+import Text from '../../text/Text';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 import {useRadioContext} from './useRadioContext';
 
 <Meta
-  title="Components/Radio new"
+  title="Components/Form/Radio"
   component={Radio}
   argTypes={{
     children: {
@@ -277,10 +277,10 @@ To use custom theme for `Radio`, you have to override following css variables:
 | --radioDescriptionColor  | Description color                                         |
 | --radioOutlineColor      | Outline color (appears on focus)                          |
 
-In the following example, className `sg-radio-new--orange` was applied to the `Radio`:
+In the following example, className `sg-radio--custom-theme` was applied to the `Radio`:
 
 ```css
-.sg-radio-new--orange {
+.sg-radio--custom-theme {
   --radioColor: blue;
   --radioHoverColor: lightBlue;
   --radioInvalidColor: crimson;
@@ -294,13 +294,13 @@ In the following example, className `sg-radio-new--orange` was applied to the `R
 <Canvas>
   <Story
     name="With custom theme"
-    args={{children: 'Custom label', className: 'sg-radio-new--orange'}}
+    args={{children: 'Custom label', className: 'sg-radio--custom-theme'}}
   >
     {args => {
       const StyledRadios = styled.div`
         display: flex;
         flex-direction: column;
-        .sg-radio-new--orange {
+        .sg-radio--custom-theme {
           --radioColor: blue;
           --radioHoverColor: lightBlue;
           --radioInvalidColor: crimson;

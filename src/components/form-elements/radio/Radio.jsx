@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import Text from '../text/Text';
-import generateRandomString from '../../js/generateRandomString';
+import Text from '../../text/Text';
+import generateRandomString from '../../../js/generateRandomString';
 import {useRadioContext} from './useRadioContext';
 
 type RadioColorType = 'light' | 'dark';
@@ -73,11 +73,11 @@ const Radio = ({
     return null;
   }, [radioId, ariaDescribedBy, description]);
 
-  const radioClass = classNames('sg-radio-new', className, {
-    [`sg-radio-new--${String(color)}`]: color,
-    'sg-radio-new--disabled': isDisabled,
-    'sg-radio-new--with-label': !!hasLabel,
-    'sg-radio-new--with-description': !!descriptionId,
+  const radioClass = classNames('sg-radio', className, {
+    [`sg-radio--${String(color)}`]: color,
+    'sg-radio--disabled': isDisabled,
+    'sg-radio--with-label': !!hasLabel,
+    'sg-radio--with-description': !!descriptionId,
   });
 
   const onInputChange = e => {
@@ -92,10 +92,10 @@ const Radio = ({
 
   return (
     <div className={radioClass}>
-      <div className="sg-radio-new__wrapper">
-        <div className="sg-radio-new__element">
+      <div className="sg-radio__wrapper">
+        <div className="sg-radio__element">
           <input
-            className="sg-radio-new__input"
+            className="sg-radio__input"
             type="radio"
             id={radioId}
             checked={isChecked}
@@ -110,7 +110,7 @@ const Radio = ({
             {...props}
           />
           <span
-            className="sg-radio-new__circle"
+            className="sg-radio__circle"
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"
@@ -123,7 +123,7 @@ const Radio = ({
             type="label"
             size="medium"
             weight="bold"
-            className="sg-radio-new__label"
+            className="sg-radio__label"
           >
             {children}
           </Text>
@@ -132,7 +132,7 @@ const Radio = ({
       {description && (
         <Text
           id={descriptionId}
-          className="sg-radio-new__description"
+          className="sg-radio__description"
           size="small"
           type="span"
           color="text-black"

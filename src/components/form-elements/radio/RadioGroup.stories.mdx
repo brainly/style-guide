@@ -1,18 +1,15 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
-import {Preview} from '../../_docs/blocks/';
+import {StoryVariant} from '../../../_docs/utils';
+import {Preview} from '../../../_docs/blocks/';
 
-import Flex from '../flex/Flex';
-import Box from '../box/Box';
-import Headline from '../text/Headline';
-import Text from '../text/Text';
+import Flex from '../../flex/Flex';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 import {useRadioContext} from './useRadioContext';
 
 <Meta
-  title="Components/Radio group"
+  title="Components/Form/Radio group"
   component={RadioGroup}
   argTypes={{
     children: {
