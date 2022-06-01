@@ -263,7 +263,7 @@ const navigation = [
         component: popupMenu,
       },
       {
-        name: 'Header',
+        name: 'Header (deprecated)',
         component: header,
       },
       {

@@ -8,7 +8,6 @@ import ListItem from '../ListItem';
 import ListItemIcon from '../ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
 import Text, {TEXT_SIZE} from 'text/Text';
-import Flex from '../../flex/Flex';
 
 import MenuList, {SIZE} from '../MenuList';
 

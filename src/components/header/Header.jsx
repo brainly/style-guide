@@ -11,6 +11,8 @@ export type HeaderPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const Header = ({
   children,
   fixed,

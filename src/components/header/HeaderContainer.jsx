@@ -9,6 +9,8 @@ export type HeaderContainerPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const HeaderContainer = ({
   children,
   className,
