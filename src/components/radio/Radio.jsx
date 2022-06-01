@@ -20,7 +20,7 @@ export type RadioPropsType = {
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   required?: boolean,
-  value?: string,
+  value: string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
   ...
