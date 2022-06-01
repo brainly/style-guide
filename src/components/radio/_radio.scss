@@ -1,4 +1,5 @@
 $radioSize: 16px;
+$radioClickableArea: 32px;
 $radioMargin: 8px;
 $radioUncheckedBorderWidth: 2px;
 $radioCheckedBorderWidth: 5px;
@@ -59,8 +60,8 @@ $radioCheckedBorderWidth: 5px;
 
   &__element {
     position: relative;
-    width: 24px;
-    height: 24px;
+    width: $radioClickableArea;
+    height: $radioClickableArea;
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
@@ -106,11 +107,13 @@ $radioCheckedBorderWidth: 5px;
   &__label {
     color: var(--radioLabelColor);
     padding-left: $radioMargin;
+    padding-top: calc($radioMargin / 2);
   }
 
   &__description {
     white-space: normal;
     color: var(--radioDescriptionColor);
-    margin-top: $radioMargin;
+    margin-top: calc($radioMargin / 2);
+    margin-left: calc($radioClickableArea + $radioMargin);
   }
 }
