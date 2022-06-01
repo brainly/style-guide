@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
+import DeprecatedNote from 'components/DeprecatedNote';
 import Header from '../Header';
 import HeaderContainer from '../HeaderContainer';
 import HeaderContent from '../HeaderContent';
@@ -22,6 +23,9 @@ import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const Headers = () => (
   <div>
+    <DeprecatedNote
+      replacement={{componentName: 'Flex', href: './containers.html#flexbox'}}
+    />
     <DocsBlock info="Standard">
       <ContrastBox fullWidth>
         <Header>

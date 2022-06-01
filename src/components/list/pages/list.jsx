@@ -2,12 +2,12 @@ import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
 import ContentBox from 'content-box/ContentBox';
 import ContrastBox from 'components/ContrastBox';
+import DeprecatedNote from 'components/DeprecatedNote';
 import List from '../List';
 import ListItem from '../ListItem';
 import ListItemIcon from '../ListItemIcon';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../../icons/Icon';
 import Text, {TEXT_SIZE} from 'text/Text';
-import Flex from '../../flex/Flex';
 
 import MenuList, {SIZE} from '../MenuList';
 
@@ -28,14 +28,6 @@ const menuItem1 = {text: firstString, href: '#'};
 const menuItem2 = {text: secondString, href: '#'};
 const menuItem3 = {text: thirdString, href: '#'};
 const menuItems = [menuItem1, menuItem2, menuItem3];
-
-const componentIsDeprecated = (
-  <Flex marginBottom="m">
-    <Text color="text-red-60" size="small">
-      This component is deprecated
-    </Text>
-  </Flex>
-);
 
 const ListItems = () => (
   <div>
@@ -133,7 +125,7 @@ const ListItems = () => (
     <div>
       <DocsBlock
         info="Menu list (deprecated)"
-        additionalInfo={componentIsDeprecated}
+        additionalInfo={<DeprecatedNote />}
       >
         <ContentBox>
           <MenuList items={menuItems} />
@@ -141,7 +133,7 @@ const ListItems = () => (
       </DocsBlock>
       <DocsBlock
         info="Menu list - small (deprecated)"
-        additionalInfo={componentIsDeprecated}
+        additionalInfo={<DeprecatedNote />}
       >
         <ContentBox>
           <MenuList items={menuItems} size={SIZE.SMALL} />
@@ -149,7 +141,7 @@ const ListItems = () => (
       </DocsBlock>
       <DocsBlock
         info="Menu list - large (deprecated)"
-        additionalInfo={componentIsDeprecated}
+        additionalInfo={<DeprecatedNote />}
       >
         <ContentBox>
           <MenuList items={menuItems} size={SIZE.LARGE} />
