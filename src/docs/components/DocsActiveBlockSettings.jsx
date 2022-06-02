@@ -5,6 +5,7 @@ import Radio from 'form-elements/radio/Radio';
 import * as React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import Text, {TEXT_SIZE} from 'text/Text';
+import Flex from 'flex/Flex';
 import generateRandomString from '../../js/generateRandomString';
 
 type PropsType = {
@@ -32,8 +33,10 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
     return (
       <div className="docs-active-block__settings">
         <ActionList>
-          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
-            Code:
+          <Flex alignItems="center">
+            <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
+              Code:
+            </Text>
             <label className="docs-active-block__label">
               <Radio
                 name={generateRandomString()}
@@ -58,10 +61,12 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
               />{' '}
               HTML
             </label>
-          </Text>
+          </Flex>
           <SeparatorVertical />
-          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
-            Background:
+          <Flex alignItems="center">
+            <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
+              Background:
+            </Text>
             <label className="docs-active-block__label">
               <Radio
                 name={generateRandomString()}
@@ -86,7 +91,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
               />{' '}
               dark
             </label>
-          </Text>
+          </Flex>
         </ActionList>
       </div>
     );
