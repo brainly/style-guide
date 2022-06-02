@@ -1,8 +1,13 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../../_docs/utils';
 import {Preview} from '../../../_docs/blocks/';
+import {styled} from '@storybook/theming';
 
+import Text from '../../text/Text';
+import Headline from '../../text/Headline';
 import Flex from '../../flex/Flex';
+import Logo from '../../logo/Logo';
+import SeparatorHorizontal from '../../separators/SeparatorHorizontal';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
@@ -44,40 +49,86 @@ import {useRadioContext} from './useRadioContext';
 <Canvas>
   <Story name="With group of custom wrappers">
     {args => {
-      const CustomRadioComponent = ({value}) => {
+      const StyledRadio = styled(Radio)`
+        alignself: 'flex-end';
+        --radioColor: ${({radioColor, isSelected}) =>
+          isSelected ? radioColor : '#d0d0d0'};
+      `;
+      const CustomRadioComponent = ({
+        value,
+        isBrainlyTutor,
+        radioColor,
+        price,
+      }) => {
         const {selectedValue, lastFocusedValue} = useRadioContext();
+        const textId = `myRadioID-text-${value}`;
         return (
-          <label id={`myRadioID-${value}`}>
-            <Flex
-              style={{
-                backgroundColor:
-                  value === selectedValue ? 'lightsalmon' : 'transparent',
-                border: '2px solid black',
-                borderColor: value === lastFocusedValue ? '#4fb3f6' : 'black',
-                borderRadius: '8px',
-                padding: '20px 40px',
-                marginRight: '10px',
-              }}
-            >
-              <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
-              {value}
+          <label
+            id={`myRadioID-${value}`}
+            style={{
+              marginRight: '20px',
+              border: '2px solid black',
+              borderColor:
+                value === lastFocusedValue || value === selectedValue
+                  ? isBrainlyTutor
+                    ? '#c98600'
+                    : '#24a865'
+                  : '#d0d0d0',
+              borderRadius: '8px',
+              padding: '10px',
+            }}
+          >
+            <Flex alignItems="center">
+              <Flex
+                className="sg-space-x-xs"
+                alignItems="center"
+                style={{
+                  padding: '20px',
+                }}
+              >
+                <Logo
+                  type={isBrainlyTutor ? 'brainly-tutoring' : 'brainly-plus'}
+                  style={{width: '90px', height: 'auto'}}
+                />
+                <Text weight="bold" id={textId}>
+                  {isBrainlyTutor ? 'Brainly Tutor' : 'Brainly Plus'}
+                </Text>
+              </Flex>
+              <StyledRadio
+                radioColor={radioColor}
+                isSelected={value === selectedValue}
+                value={value}
+                aria-describedby={textId}
+              />
             </Flex>
           </label>
         );
       };
       return (
-        <div>
-          Pet a dog:
-          <RadioGroup
-            label="Pet a dog"
-            name="dog2"
-            value="Freja"
-            direction="row"
+        <Flex fullWidth direction="column" alignItems="center">
+          <Headline
+            align="to-center"
+            extraBold
+            size="xlarge"
+            style={{
+              marginBottom: '20px',
+            }}
           >
-            <CustomRadioComponent value="Freja" />
-            <CustomRadioComponent value="Gałgan" />
+            Choose plan to start after trial:
+          </Headline>
+          <RadioGroup name="plan" value="plus" direction="row">
+            <CustomRadioComponent
+              isBrainlyTutor={false}
+              value="plus"
+              radioColor="#24a865"
+            />
+            <CustomRadioComponent
+              isBrainlyTutor={true}
+              value="tutor"
+              radioColor="#c98600"
+            />
           </RadioGroup>
-        </div>
+        </Flex>
       );
     }}
   </Story>
