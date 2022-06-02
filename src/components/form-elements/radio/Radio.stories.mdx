@@ -281,49 +281,46 @@ In the following example, className `sg-radio--custom-theme` was applied to the 
 
 ```css
 .sg-radio--custom-theme {
-  --radioColor: blue;
-  --radioHoverColor: lightBlue;
+  --radioColor: #24a865;
+  --radioHoverColor: #2fe086;
   --radioInvalidColor: crimson;
   --radioInvalidHoverColor: coral;
   --radioLabelColor: black;
   --radioDescriptionColor: black;
-  --radioOutlineColor: gray;
+  --radioOutlineColor: blue;
 }
 ```
 
 <Canvas>
-  <Story
-    name="With custom theme"
-    args={{children: 'Custom label', className: 'sg-radio--custom-theme'}}
-  >
+  <Story name="With custom theme" args={{className: 'sg-radio--custom-theme'}}>
     {args => {
       const StyledRadios = styled.div`
         display: flex;
         flex-direction: column;
         .sg-radio--custom-theme {
-          --radioColor: blue;
-          --radioHoverColor: lightBlue;
+          --radioColor: #24a865;
+          --radioHoverColor: #2fe086;
           --radioInvalidColor: crimson;
           --radioInvalidHoverColor: coral;
           --radioLabelColor: black;
           --radioDescriptionColor: black;
-          --radioOutlineColor: gray;
+          --radioOutlineColor: blue;
         }
       `;
       return (
         <StyledRadios>
-          <Radio {...args}>Valid, unchecked</Radio>
+          <Radio {...args}></Radio>
           <Radio {...args} checked>
-            Valid, checked
+            Checked
           </Radio>
           <Radio {...args} invalid>
-            Invalid, unchecked
+            Invalid
           </Radio>
           <Radio {...args} checked invalid>
             Invalid, checked
           </Radio>
           <Radio {...args} description="Some description" checked>
-            Valid, checked
+            Checked with description
           </Radio>
         </StyledRadios>
       );
