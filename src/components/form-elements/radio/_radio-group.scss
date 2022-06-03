@@ -1,8 +1,11 @@
 .sg-radio-group {
-  display: flex;
+  display: inline-flex;
+  flex-direction: column;
 
-  &--items-direction {
-    &-column {
+  &__items {
+    display: flex;
+
+    &--direction-column {
       flex-direction: column;
 
       > .sg-radio {
@@ -10,8 +13,12 @@
       }
     }
 
-    &-row {
+    &--direction-row {
       flex-direction: row;
     }
+  }
+
+  .sg-error-message {
+    margin-top: 16px;
   }
 }

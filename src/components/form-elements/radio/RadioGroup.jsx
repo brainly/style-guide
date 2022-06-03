@@ -37,8 +37,9 @@ const RadioGroup = ({
 }: RadioGroupPropsType) => {
   const [selectedValue, setSelectedValue] = React.useState(value);
   const [lastFocusedValue, setLastFocusedValue] = React.useState(null);
-  const radioGroupClass = classNames('sg-radio-group', className, {
-    [`sg-radio-group--items-direction-${String(direction)}`]: direction,
+  const radioGroupClass = classNames('sg-radio-group', className);
+  const radioGroupItemsClass = classNames('sg-radio-group__items', {
+    [`sg-radio-group__items--direction-${String(direction)}`]: direction,
   });
   const errorTextId = `${name}-errorText`;
 
@@ -55,20 +56,22 @@ const RadioGroup = ({
       onBlur={() => setLastFocusedValue(null)}
       {...props}
     >
-      <RadioContext.Provider
-        value={{
-          color,
-          name,
-          disabled,
-          invalid,
-          selectedValue,
-          setSelectedValue: updateValue,
-          lastFocusedValue,
-          setLastFocusedValue,
-        }}
-      >
-        {children}
-      </RadioContext.Provider>
+      <div className={radioGroupItemsClass}>
+        <RadioContext.Provider
+          value={{
+            color,
+            name,
+            disabled,
+            invalid,
+            selectedValue,
+            setSelectedValue: updateValue,
+            lastFocusedValue,
+            setLastFocusedValue,
+          }}
+        >
+          {children}
+        </RadioContext.Provider>
+      </div>
       {invalid && errorMessage && (
         <ErrorMessage
           id={errorTextId}
