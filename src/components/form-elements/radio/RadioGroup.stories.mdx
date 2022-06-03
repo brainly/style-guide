@@ -35,11 +35,15 @@ import {useRadioContext} from './useRadioContext';
 ## Overview
 
 <Canvas>
-  <Story name="Default" height="120px" args={{name: 'dog', value: 'Freja'}}>
+  <Story
+    name="Default"
+    height="120px"
+    args={{name: 'option', value: 'option-a'}}
+  >
     {args => (
       <RadioGroup {...args}>
-        <Radio value="Freja">Freja</Radio>
-        <Radio value="Gałgan">Gałgan</Radio>
+        <Radio value="option-a">Option A</Radio>
+        <Radio value="option-b">Option B</Radio>
       </RadioGroup>
     )}
   </Story>
@@ -48,6 +52,29 @@ import {useRadioContext} from './useRadioContext';
 <ArgsTable story="Default" />
 
 ## Stories
+
+### Disabled
+
+<Canvas>
+  <Story
+    name="Disabled"
+    height="180px"
+    args={{name: 'option', value: 'option-a', disabled}}
+  >
+    {args => (
+      <RadioGroup {...args}>
+        <Radio
+          value="option-a"
+          description="More detailed description about Option A."
+        >
+          Option A
+        </Radio>
+        <Radio value="option-b">Option B</Radio>
+        <Radio value="option-c">Option C</Radio>
+      </RadioGroup>
+    )}
+  </Story>
+</Canvas>
 
 ### With group of custom wrappers
 
