@@ -76,6 +76,34 @@ import {useRadioContext} from './useRadioContext';
   </Story>
 </Canvas>
 
+### With error
+
+<Canvas>
+  <Story
+    name="With error"
+    height="180px"
+    args={{
+      name: 'option',
+      value: 'option-a',
+      invalid: true,
+      errorMessage: 'Error message',
+    }}
+  >
+    {args => (
+      <RadioGroup {...args}>
+        <Radio
+          value="option-a"
+          description="More detailed description about Option A."
+        >
+          Option A
+        </Radio>
+        <Radio value="option-b">Option B</Radio>
+        <Radio value="option-c">Option C</Radio>
+      </RadioGroup>
+    )}
+  </Story>
+</Canvas>
+
 ### With group of custom wrappers
 
 <Canvas>

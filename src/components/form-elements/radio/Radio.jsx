@@ -6,7 +6,7 @@ import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import {useRadioContext} from './useRadioContext';
 
-type RadioColorType = 'light' | 'dark';
+export type RadioColorType = 'light' | 'dark';
 
 export type RadioPropsType = {
   checked?: boolean,
@@ -34,7 +34,7 @@ const Radio = ({
   description,
   disabled,
   id,
-  invalid = false,
+  invalid,
   name,
   onChange,
   required = false,
@@ -53,6 +53,7 @@ const Radio = ({
 
   const isDisabled =
     disabled !== undefined ? disabled : radioGroupContext.disabled;
+  const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
   const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked = undefined;
 
@@ -73,8 +74,9 @@ const Radio = ({
     return null;
   }, [radioId, ariaDescribedBy, description]);
 
+  const colorName = radioGroupContext.color || color;
   const radioClass = classNames('sg-radio', className, {
-    [`sg-radio--${String(color)}`]: color,
+    [`sg-radio--${String(colorName)}`]: colorName,
     'sg-radio--disabled': isDisabled,
     'sg-radio--with-label': !!hasLabel,
     'sg-radio--with-description': !!descriptionId,
@@ -106,7 +108,7 @@ const Radio = ({
             value={value}
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
-            aria-invalid={invalid ? true : undefined}
+            aria-invalid={isInvalid}
             {...props}
           />
           <span

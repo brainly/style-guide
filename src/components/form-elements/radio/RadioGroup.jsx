@@ -3,14 +3,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {RadioContext} from './useRadioContext';
+import ErrorMessage from '../ErrorMessage';
+import RadioColorType from './Radio';
 
 type DirectionType = 'row' | 'column';
 
 export type RadioGroupPropsType = {
   children?: React.Node,
   className?: ?string,
+  color?: RadioColorType,
   direction?: DirectionType,
   disabled?: boolean,
+  errorMessage?: string,
+  invalid?: boolean,
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   value?: string,
@@ -20,8 +25,11 @@ export type RadioGroupPropsType = {
 const RadioGroup = ({
   className,
   children,
+  color,
   direction = 'column',
   disabled,
+  errorMessage,
+  invalid,
   name,
   value,
   onChange,
@@ -32,6 +40,7 @@ const RadioGroup = ({
   const radioGroupClass = classNames('sg-radio-group', className, {
     [`sg-radio-group--items-direction-${String(direction)}`]: direction,
   });
+  const errorTextId = `${name}-errorText`;
 
   const updateValue = prop => {
     setSelectedValue(prop);
@@ -48,8 +57,10 @@ const RadioGroup = ({
     >
       <RadioContext.Provider
         value={{
+          color,
           name,
           disabled,
+          invalid,
           selectedValue,
           setSelectedValue: updateValue,
           lastFocusedValue,
@@ -58,6 +69,14 @@ const RadioGroup = ({
       >
         {children}
       </RadioContext.Provider>
+      {invalid && errorMessage && (
+        <ErrorMessage
+          id={errorTextId}
+          color={color === 'light' ? 'text-red-40' : undefined}
+        >
+          {errorMessage}
+        </ErrorMessage>
+      )}
     </div>
   );
 };
