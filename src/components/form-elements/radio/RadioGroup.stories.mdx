@@ -21,6 +21,11 @@ import {useRadioContext} from './useRadioContext';
       type: 'string',
     },
   }}
+  parameters={{
+    docs: {
+      inlineStories: false,
+    },
+  }}
 />
 
 # Radio group
@@ -30,7 +35,7 @@ import {useRadioContext} from './useRadioContext';
 ## Overview
 
 <Canvas>
-  <Story name="Default" args={{name: 'dog', value: 'Freja'}}>
+  <Story name="Default" height="120px" args={{name: 'dog', value: 'Freja'}}>
     {args => (
       <RadioGroup {...args}>
         <Radio value="Freja">Freja</Radio>
@@ -47,87 +52,88 @@ import {useRadioContext} from './useRadioContext';
 ### With group of custom wrappers
 
 <Canvas>
-  <Story name="With group of custom wrappers">
+  <Story name="With group of custom wrappers" height="500px">
     {args => {
-      const StyledRadio = styled(Radio)`
-        alignself: 'flex-end';
-        --radioColor: ${({radioColor, isSelected}) =>
-          isSelected ? radioColor : '#d0d0d0'};
-      `;
       const CustomRadioComponent = ({
         value,
-        isBrainlyTutor,
-        radioColor,
-        price,
+        height = '120px',
+        alignItems = 'flex-start',
       }) => {
-        const {selectedValue, lastFocusedValue} = useRadioContext();
-        const textId = `myRadioID-text-${value}`;
+        const {selectedValue} = useRadioContext();
+        console.log('selectedValue', typeof selectedValue, selectedValue);
         return (
           <label
             id={`myRadioID-${value}`}
             style={{
-              marginRight: '20px',
+              width: '360px',
+              height: height,
+              marginBottom: '8px',
               border: '2px solid black',
-              borderColor:
-                value === lastFocusedValue || value === selectedValue
-                  ? isBrainlyTutor
-                    ? '#c98600'
-                    : '#24a865'
-                  : '#d0d0d0',
+              borderColor: value === selectedValue ? 'black' : '#e1eaf1',
               borderRadius: '8px',
-              padding: '10px',
+              padding: '8px',
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: alignItems,
             }}
           >
-            <Flex alignItems="center">
-              <Flex
-                className="sg-space-x-xs"
-                alignItems="center"
-                style={{
-                  padding: '20px',
-                }}
-              >
-                <Logo
-                  type={isBrainlyTutor ? 'brainly-tutoring' : 'brainly-plus'}
-                  style={{width: '90px', height: 'auto'}}
-                />
-                <Text weight="bold" id={textId}>
-                  {isBrainlyTutor ? 'Brainly Tutor' : 'Brainly Plus'}
-                </Text>
-              </Flex>
-              <StyledRadio
-                radioColor={radioColor}
-                isSelected={value === selectedValue}
-                value={value}
-                aria-describedby={textId}
-              />
-            </Flex>
+            <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
           </label>
         );
       };
       return (
-        <Flex fullWidth direction="column" alignItems="center">
-          <Headline
-            align="to-center"
-            extraBold
-            size="xlarge"
-            style={{
-              marginBottom: '20px',
-            }}
-          >
-            Choose plan to start after trial:
-          </Headline>
-          <RadioGroup name="plan" value="plus" direction="row">
-            <CustomRadioComponent
-              isBrainlyTutor={false}
-              value="plus"
-              radioColor="#24a865"
-            />
-            <CustomRadioComponent
-              isBrainlyTutor={true}
-              value="tutor"
-              radioColor="#c98600"
-            />
-          </RadioGroup>
+        <Flex fullWidth direction="row" justifyContent="space-evenly">
+          <Flex direction="column">
+            <Headline
+              align="to-center"
+              extraBold
+              size="xlarge"
+              style={{
+                marginBottom: '20px',
+              }}
+            >
+              Short component:
+            </Headline>
+            <RadioGroup name="short" value="2" direction="column">
+              <CustomRadioComponent
+                value="1"
+                height="80px"
+                alignItems="center"
+              />
+              <CustomRadioComponent
+                value="2"
+                height="80px"
+                alignItems="center"
+              />
+              <CustomRadioComponent
+                value="3"
+                height="80px"
+                alignItems="center"
+              />
+              <CustomRadioComponent
+                value="4"
+                height="80px"
+                alignItems="center"
+              />
+            </RadioGroup>
+          </Flex>
+          <Flex direction="column">
+            <Headline
+              align="to-center"
+              extraBold
+              size="xlarge"
+              style={{
+                marginBottom: '20px',
+              }}
+            >
+              Tall component:
+            </Headline>
+            <RadioGroup name="tall" value="2" direction="column">
+              <CustomRadioComponent value="1" />
+              <CustomRadioComponent value="2" />
+              <CustomRadioComponent value="3" />
+            </RadioGroup>
+          </Flex>
         </Flex>
       );
     }}
