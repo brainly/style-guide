@@ -54,22 +54,6 @@ describe('<Radio />', () => {
     expect(radio.getByText(descriptionText)).toBeTruthy();
   });
 
-  it('it displays description', () => {
-    const descriptionText = 'Cool radio it is';
-
-    const radio = renderRadio({
-      id: 'myid',
-      description: descriptionText,
-      invalid: true,
-      children: 'Click me pls',
-    });
-    const radioInput = radio.getByRole('radio');
-
-    expect(radioInput.id).toEqual('myid');
-    expect(radio.getByText(descriptionText)).toBeTruthy();
-    expect(radio.getByText(descriptionText).id).toEqual('myid-description');
-  });
-
   it("it doesn't allow checking disabled radio", () => {
     const labelText = 'Click me pls';
     const onChange = jest.fn();
