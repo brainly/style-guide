@@ -42,7 +42,6 @@ const RadioGroup = ({
     <div
       className={radioGroupClass}
       role="radiogroup"
-      name={name}
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
       {...props}
