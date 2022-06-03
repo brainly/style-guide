@@ -8,13 +8,17 @@
     &--direction-column {
       flex-direction: column;
 
-      > .sg-radio {
-        margin-bottom: 8px;
+      > .sg-radio:not(:last-of-type) {
+        margin-bottom: 16px;
       }
     }
 
     &--direction-row {
       flex-direction: row;
+
+      > .sg-radio:not(:last-of-type) {
+        margin-right: 16px;
+      }
     }
   }
 
