@@ -44,105 +44,111 @@ import {useRadioContext} from './useRadioContext';
 
 <Canvas>
   <Story name="Dark color">
-    {args => (
-      <div>
-        <StoryVariantTable className="sg-story-variant-table--align-items-top">
-          <thead>
-            <tr>
-              {[null, 'standalone', 'with label', 'with description'].map(
-                (name, index) => (
-                  <th>
+    {args => {
+      const StyledTableWrapper = styled.div`
+        .sg-radio {
+          margin-bottom: 16px;
+        }
+      `;
+      return (
+        <StyledTableWrapper>
+          <StoryVariantTable className="sg-story-variant-table--align-items-top">
+            <thead>
+              <tr>
+                {[null, 'standalone', 'with label', 'with description'].map(
+                  (name, index) => (
+                    <th>
+                      <Headline
+                        key={index}
+                        extraBold
+                        transform="uppercase"
+                        type="span"
+                        color="text-gray-70"
+                        size="small"
+                      >
+                        {name}
+                      </Headline>
+                    </th>
+                  )
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  type: 'disabled',
+                  props: {disabled: true},
+                },
+                {type: 'enabled'},
+                {
+                  type: 'error',
+                  props: {
+                    invalid: true,
+                    errorMessage: 'Error message',
+                  },
+                },
+              ].map(RadioType => (
+                <tr key={RadioType.type}>
+                  <td>
+                    <Headline bold color="text-gray-50" size="xsmall">
+                      State
+                    </Headline>
                     <Headline
-                      key={index}
                       extraBold
                       transform="uppercase"
                       type="span"
                       color="text-gray-70"
                       size="small"
                     >
-                      {name}
+                      {RadioType.type}
                     </Headline>
-                  </th>
-                )
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              {
-                type: 'disabled',
-                props: {disabled: true, style: {marginBottom: '12px'}},
-              },
-              {type: 'enabled', props: {style: {marginBottom: '12px'}}},
-              {
-                type: 'error',
-                props: {
-                  invalid: true,
-                  errorMessage: 'Error message',
-                  style: {marginBottom: '12px'},
-                },
-              },
-            ].map(RadioType => (
-              <tr key={RadioType.type}>
-                <td>
-                  <Headline bold color="text-gray-50" size="xsmall">
-                    State
-                  </Headline>
-                  <Headline
-                    extraBold
-                    transform="uppercase"
-                    type="span"
-                    color="text-gray-70"
-                    size="small"
-                  >
-                    {RadioType.type}
-                  </Headline>
-                </td>
-                <td>
-                  <Flex alignItems="center" direction="column">
-                    <Radio {...RadioType.props} errorMessage={null} />
-                    <Radio {...RadioType.props} checked errorMessage={null} />
-                  </Flex>
-                </td>
-                <td>
-                  <Flex alignItems="center" direction="column">
-                    <Radio {...RadioType.props}>Radio label</Radio>
-                    <Radio {...RadioType.props} checked>
-                      Radio label
-                    </Radio>
-                  </Flex>
-                </td>
-                <td>
-                  <Flex
-                    alignItems="center"
-                    direction="column"
-                    style={{
-                      width: '320px',
-                    }}
-                  >
-                    <Radio
-                      {...RadioType.props}
-                      description="More detailed description about this element. You can
-                          use here even some formatting and links."
+                  </td>
+                  <td>
+                    <Flex alignItems="center" direction="column">
+                      <Radio {...RadioType.props} errorMessage={null} />
+                      <Radio {...RadioType.props} checked errorMessage={null} />
+                    </Flex>
+                  </td>
+                  <td>
+                    <Flex alignItems="center" direction="column">
+                      <Radio {...RadioType.props}>Radio label</Radio>
+                      <Radio {...RadioType.props} checked>
+                        Radio label
+                      </Radio>
+                    </Flex>
+                  </td>
+                  <td>
+                    <Flex
+                      alignItems="center"
+                      direction="column"
+                      style={{
+                        width: '320px',
+                      }}
                     >
-                      Radio label
-                    </Radio>
-                    <Radio
-                      {...RadioType.props}
-                      description="More detailed description about this element. You can
+                      <Radio
+                        {...RadioType.props}
+                        description="More detailed description about this element. You can
                           use here even some formatting and links."
-                      checked
-                    >
-                      Radio label
-                    </Radio>
-                  </Flex>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </StoryVariantTable>
-      </div>
-    )}
+                      >
+                        Radio label
+                      </Radio>
+                      <Radio
+                        {...RadioType.props}
+                        description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                        checked
+                      >
+                        Radio label
+                      </Radio>
+                    </Flex>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </StoryVariantTable>
+        </StyledTableWrapper>
+      );
+    }}
   </Story>
 </Canvas>
 
@@ -150,95 +156,129 @@ import {useRadioContext} from './useRadioContext';
 
 <Canvas>
   <Story name="Light color">
-    {args => (
-      <div>
-        <StoryVariantTable className="sg-story-variant-table--align-items-top">
-          <thead>
-            <tr>
-              {[null, 'standalone', 'with label'].map((name, index) => (
-                <th>
-                  <Headline
-                    key={index}
-                    extraBold
-                    transform="uppercase"
-                    type="span"
-                    color="text-gray-70"
-                    size="small"
-                  >
-                    {name}
-                  </Headline>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {[
-              {
-                type: 'disabled',
-                props: {
-                  color: 'light',
-                  disabled: true,
-                  style: {marginBottom: '12px'},
+    {args => {
+      const StyledTableWrapper = styled.div`
+        .sg-radio {
+          margin-bottom: 16px;
+        }
+      `;
+      return (
+        <StyledTableWrapper>
+          <StoryVariantTable className="sg-story-variant-table--align-items-top">
+            <thead>
+              <tr>
+                {[null, 'standalone', 'with label', 'with description'].map(
+                  (name, index) => (
+                    <th>
+                      <Headline
+                        key={index}
+                        extraBold
+                        transform="uppercase"
+                        type="span"
+                        color="text-gray-70"
+                        size="small"
+                      >
+                        {name}
+                      </Headline>
+                    </th>
+                  )
+                )}
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                {
+                  type: 'disabled',
+                  props: {
+                    color: 'light',
+                    disabled: true,
+                    style: {marginBottom: '12px'},
+                  },
                 },
-              },
-              {
-                type: 'enabled',
-                props: {color: 'light', style: {marginBottom: '12px'}},
-              },
-              {
-                type: 'error',
-                props: {
-                  color: 'light',
-                  invalid: true,
-                  errorMessage: 'Error message',
-                  style: {marginBottom: '12px'},
+                {
+                  type: 'enabled',
+                  props: {color: 'light', style: {marginBottom: '12px'}},
                 },
-              },
-            ].map(RadioType => (
-              <tr
-                key={RadioType.type}
-                style={{
-                  backgroundColor: '#000',
-                }}
-              >
-                <td
+                {
+                  type: 'error',
+                  props: {
+                    color: 'light',
+                    invalid: true,
+                    errorMessage: 'Error message',
+                    style: {marginBottom: '12px'},
+                  },
+                },
+              ].map(RadioType => (
+                <tr
+                  key={RadioType.type}
                   style={{
-                    backgroundColor: 'white',
+                    backgroundColor: '#000',
                   }}
                 >
-                  <Headline bold color="text-gray-50" size="xsmall">
-                    State
-                  </Headline>
-                  <Headline
-                    extraBold
-                    transform="uppercase"
-                    type="span"
-                    color="text-gray-70"
-                    size="small"
+                  <td
+                    style={{
+                      backgroundColor: 'white',
+                    }}
                   >
-                    {RadioType.type}
-                  </Headline>
-                </td>
-                <td>
-                  <Flex alignItems="center" direction="column">
-                    <Radio {...RadioType.props} errorMessage={null} />
-                    <Radio {...RadioType.props} checked errorMessage={null} />
-                  </Flex>
-                </td>
-                <td>
-                  <Flex alignItems="center" direction="column">
-                    <Radio {...RadioType.props}>Radio label</Radio>
-                    <Radio {...RadioType.props} checked>
-                      Radio label
-                    </Radio>
-                  </Flex>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </StoryVariantTable>
-      </div>
-    )}
+                    <Headline bold color="text-gray-50" size="xsmall">
+                      State
+                    </Headline>
+                    <Headline
+                      extraBold
+                      transform="uppercase"
+                      type="span"
+                      color="text-gray-70"
+                      size="small"
+                    >
+                      {RadioType.type}
+                    </Headline>
+                  </td>
+                  <td>
+                    <Flex alignItems="center" direction="column">
+                      <Radio {...RadioType.props} errorMessage={null} />
+                      <Radio {...RadioType.props} checked errorMessage={null} />
+                    </Flex>
+                  </td>
+                  <td>
+                    <Flex alignItems="center" direction="column">
+                      <Radio {...RadioType.props}>Radio label</Radio>
+                      <Radio {...RadioType.props} checked>
+                        Radio label
+                      </Radio>
+                    </Flex>
+                  </td>
+                  <td>
+                    <Flex
+                      alignItems="center"
+                      direction="column"
+                      style={{
+                        width: '320px',
+                      }}
+                    >
+                      <Radio
+                        {...RadioType.props}
+                        description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                      >
+                        Radio label
+                      </Radio>
+                      <Radio
+                        {...RadioType.props}
+                        description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                        checked
+                      >
+                        Radio label
+                      </Radio>
+                    </Flex>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </StoryVariantTable>
+        </StyledTableWrapper>
+      );
+    }}
   </Story>
 </Canvas>
 
