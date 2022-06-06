@@ -132,11 +132,11 @@ const Checkbox = ({
 
   const onInputChange = React.useCallback(
     e => {
-      if (isControlled) setIsChecked(!isChecked);
+      if (isControlled) setIsChecked(val => !val);
 
       if (onChange) onChange(e);
     },
-    [onChange, isChecked, isControlled]
+    [onChange, isControlled]
   );
 
   const checkboxClass = cx('sg-checkbox', className, {
