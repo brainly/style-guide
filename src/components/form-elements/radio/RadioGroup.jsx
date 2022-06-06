@@ -16,9 +16,12 @@ export type RadioGroupPropsType = {
   disabled?: boolean,
   errorMessage?: string,
   invalid?: boolean,
+  required?: boolean,
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
   value?: string,
+  'aria-labelledby'?: string,
+  'aria-describedby'?: string,
   ...
 };
 
@@ -31,8 +34,11 @@ const RadioGroup = ({
   errorMessage,
   invalid,
   name,
+  required,
   value,
   onChange,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioGroupPropsType) => {
   const [selectedValue, setSelectedValue] = React.useState(value || null);
@@ -55,6 +61,10 @@ const RadioGroup = ({
       role="radiogroup"
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
+      aria-errorMessage={errorTextId}
+      aria-required={required}
+      aria-labelledby={ariaLabelledBy}
+      aria-describedby={ariaDescribedBy}
     >
       <div className={radioGroupItemsClass}>
         <RadioContext.Provider
