@@ -18,7 +18,7 @@ export type RadioPropsType = {
   id?: string,
   invalid?: boolean,
   name?: string,
-  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
+  onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
   required?: boolean,
   value: string,
   'aria-labelledby'?: string,
@@ -85,7 +85,7 @@ const Radio = ({
   const onInputChange = e => {
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
-      radioGroupContext.setSelectedValue(value);
+      radioGroupContext.setSelectedValue(e, value);
     }
     if (onChange) {
       onChange(e);
@@ -97,6 +97,7 @@ const Radio = ({
       <div className="sg-radio__wrapper">
         <div className="sg-radio__element">
           <input
+            {...props}
             className="sg-radio__input"
             type="radio"
             id={radioId}
@@ -109,7 +110,6 @@ const Radio = ({
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
             aria-invalid={isInvalid}
-            {...props}
           />
           <span
             className="sg-radio__circle"

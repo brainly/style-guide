@@ -42,6 +42,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={!this.props.values.showCode}
                 onChange={this.onChangeShowNothing}
+                value="none"
               />{' '}
               none
             </label>
@@ -50,6 +51,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.showCode === 'jsx'}
                 onChange={this.onChangeShowJSX}
+                value="jsx"
               />{' '}
               JSX
             </label>
@@ -58,6 +60,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.showCode === 'html'}
                 onChange={this.onChangeShowHTML}
+                value="html"
               />{' '}
               HTML
             </label>
@@ -72,6 +75,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={!this.props.values.changeBackground}
                 onChange={this.onChangeBackgroundDefault}
+                value="default"
               />{' '}
               none
             </label>
@@ -80,6 +84,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'light'}
                 onChange={this.onChangeBackgroundLight}
+                value="light"
               />{' '}
               light
             </label>
@@ -88,6 +93,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'dark'}
                 onChange={this.onChangeBackgroundDark}
+                value="dark"
               />{' '}
               dark
             </label>

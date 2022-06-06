@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {RadioContext} from './useRadioContext';
 import ErrorMessage from '../ErrorMessage';
-import RadioColorType from './Radio';
+import type {RadioColorType} from './Radio';
 
 type DirectionType = 'row' | 'column';
 
@@ -17,7 +17,7 @@ export type RadioGroupPropsType = {
   errorMessage?: string,
   invalid?: boolean,
   name?: string,
-  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
+  onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
   value?: string,
   ...
 };
@@ -35,26 +35,26 @@ const RadioGroup = ({
   onChange,
   ...props
 }: RadioGroupPropsType) => {
-  const [selectedValue, setSelectedValue] = React.useState(value);
+  const [selectedValue, setSelectedValue] = React.useState(value || null);
   const [lastFocusedValue, setLastFocusedValue] = React.useState(null);
   const radioGroupClass = classNames('sg-radio-group', className);
   const radioGroupItemsClass = classNames('sg-radio-group__items', {
     [`sg-radio-group__items--direction-${String(direction)}`]: direction,
   });
-  const errorTextId = `${name}-errorText`;
+  const errorTextId = name ? `${name}-errorText` : undefined;
 
-  const updateValue = prop => {
-    setSelectedValue(prop);
-    if (onChange) onChange(prop);
+  const updateValue = (event, value) => {
+    setSelectedValue(value);
+    if (onChange) onChange(event);
   };
 
   return (
     <div
+      {...props}
       className={radioGroupClass}
       role="radiogroup"
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
-      {...props}
     >
       <div className={radioGroupItemsClass}>
         <RadioContext.Provider

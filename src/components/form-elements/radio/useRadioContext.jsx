@@ -1,12 +1,15 @@
 //@flow strict
 
 import React, {useContext} from 'react';
+import type {RadioColorType} from './Radio';
 
 type RadioContextType = {
+  color?: RadioColorType,
+  disabled?: boolean,
+  invalid?: boolean,
   name?: string,
-  disabled?: Boolean,
   selectedValue: string | null,
-  setSelectedValue: string => void,
+  setSelectedValue: (SyntheticInputEvent<HTMLInputElement>, string) => void,
   lastFocusedValue: string | null,
   setLastFocusedValue: string => void,
   ...
