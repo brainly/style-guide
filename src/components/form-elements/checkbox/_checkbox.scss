@@ -1,129 +1,33 @@
-$checkboxWidth: 16px;
+$checkboxSize: 16px;
 $checkboxMargin: 8px;
-$clickableArea: 32px;
+$checkboxClickableArea: 32px;
 
 .sg-checkbox {
+  --checkboxColor: #{$black};
+  --checkboxHoverColor: #{$gray-60};
+  --checkboxOutlineColor: #{$blue-40};
+  --checkboxIconFillColor: #{$white};
+  --checkboxLabelColor: #{$text-black};
+  --checkboxCheckedColor: #{$black};
+  --checkboxInvalidColor: #{$red-60};
+  --checkboxInvalidHoverColor: #{$red-50};
+  --checkboxInvalidIconFillColor: #{$white};
+
   @include component();
 
   display: flex;
   flex-direction: column;
 
-  @mixin colorTheme(
-    $iconBorderColor,
-    $iconBorderHoverColor,
-    $iconOutlineColor,
-    $iconFillColor,
-    $labelColor,
-    $checkedIconColor,
-    $invalidIconColor,
-    $invalidIconHoverColor,
-    $invalidIconFillColor
-  ) {
-    .sg-checkbox__wrapper:hover {
-      .sg-checkbox__icon {
-        border: 2px solid $iconBorderHoverColor;
-      }
-
-      .sg-checkbox__input {
-        &:checked,
-        &:indeterminate {
-          & + .sg-checkbox__icon {
-            border-color: $iconBorderHoverColor;
-            background-color: $iconBorderHoverColor;
-          }
-          &[aria-invalid] + .sg-checkbox__icon {
-            background-color: $invalidIconHoverColor;
-          }
-        }
-
-        &[aria-invalid] + .sg-checkbox__icon {
-          border-color: $invalidIconHoverColor;
-        }
-      }
-    }
-
-    .sg-checkbox__input {
-      &:focus {
-        & + .sg-checkbox__icon {
-          border-color: $iconBorderHoverColor;
-          outline: 2px solid $iconOutlineColor;
-        }
-
-        &[aria-invalid] + .sg-checkbox__icon {
-          border-color: $invalidIconHoverColor;
-        }
-
-        &:checked,
-        &:indeterminate {
-          &[aria-invalid] + .sg-checkbox__icon {
-            border-color: $invalidIconHoverColor;
-            background-color: $invalidIconHoverColor;
-          }
-        }
-      }
-
-      &:checked,
-      &:indeterminate {
-        & + .sg-checkbox__icon {
-          border-color: $checkedIconColor;
-          background: $checkedIconColor;
-        }
-
-        &[aria-invalid] + .sg-checkbox__icon {
-          border-color: $invalidIconColor;
-          background-color: $invalidIconColor;
-        }
-      }
-
-      &[aria-invalid] + .sg-checkbox__icon {
-        border-color: $invalidIconColor;
-        fill: $invalidIconFillColor;
-      }
-    }
-
-    .sg-checkbox__icon {
-      border: 2px solid $iconBorderColor;
-      fill: $iconFillColor;
-    }
-
-    .sg-checkbox__label,
-    .sg-checkbox__description {
-      color: $labelColor;
-    }
-
-    @media (forced-colors: active) {
-      .sg-checkbox__icon {
-        fill: CanvasText;
-      }
-    }
-  }
-
-  &--dark {
-    @include colorTheme(
-      $iconBorderColor: $black,
-      $iconBorderHoverColor: $gray-60,
-      $iconOutlineColor: $blue-40,
-      $iconFillColor: $white,
-      $labelColor: $text-black,
-      $checkedIconColor: $black,
-      $invalidIconColor: $red-60,
-      $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white
-    );
-  }
-
   &--light {
-    @include colorTheme(
-      $iconBorderColor: $white,
-      $iconBorderHoverColor: $gray-40,
-      $iconOutlineColor: $blue-40,
-      $iconFillColor: $black,
-      $labelColor: $white,
-      $checkedIconColor: $white,
-      $invalidIconColor: $red-40,
-      $invalidIconHoverColor: $red-50,
-      $invalidIconFillColor: $white
-    );
+    --checkboxColor: #{$white};
+    --checkboxHoverColor: #{$gray-40};
+    --checkboxOutlineColor: #{$blue-40};
+    --checkboxIconFillColor: #{$black};
+    --checkboxLabelColor: #{$text-white};
+    --checkboxCheckedColor: #{$white};
+    --checkboxInvalidColor: #{$red-40};
+    --checkboxInvalidHoverColor: #{$red-50};
+    --checkboxInvalidIconFillColor: #{$white};
   }
 
   &--disabled {
@@ -134,18 +38,41 @@ $clickableArea: 32px;
 
   &__wrapper {
     display: flex;
+
+    &:hover {
+      .sg-checkbox__icon {
+        border: 2px solid var(--checkboxHoverColor);
+      }
+
+      .sg-checkbox__input {
+        &:checked,
+        &:indeterminate {
+          & + .sg-checkbox__icon {
+            border-color: var(--checkboxHoverColor);
+            background-color: var(--checkboxHoverColor);
+          }
+          &[aria-invalid] + .sg-checkbox__icon {
+            background-color: var(--checkboxInvalidHoverColor);
+          }
+        }
+
+        &[aria-invalid] + .sg-checkbox__icon {
+          border-color: var(--checkboxInvalidHoverColor);
+        }
+      }
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    margin-left: calc($clickableArea + $checkboxMargin);
+    margin-left: calc($checkboxClickableArea + $checkboxMargin);
   }
 
   &__element {
     position: relative;
-    width: $clickableArea;
-    height: $clickableArea;
+    width: $checkboxClickableArea;
+    height: $checkboxClickableArea;
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
@@ -163,24 +90,69 @@ $clickableArea: 32px;
 
     &:focus {
       & + .sg-checkbox__icon {
+        border-color: var(--checkboxHoverColor);
+        outline: 2px solid var(--checkboxOutlineColor);
         outline-offset: 2px;
       }
+
+      &[aria-invalid] + .sg-checkbox__icon {
+        border-color: var(--checkboxInvalidHoverColor);
+      }
+
+      &:checked,
+      &:indeterminate {
+        &[aria-invalid] + .sg-checkbox__icon {
+          border-color: var(--checkboxInvalidHoverColor);
+          background-color: var(--checkboxInvalidHoverColor);
+        }
+      }
+    }
+
+    &:checked,
+    &:indeterminate {
+      & + .sg-checkbox__icon {
+        border-color: var(--checkboxCheckedColor);
+        background: var(--checkboxCheckedColor);
+      }
+
+      &[aria-invalid] + .sg-checkbox__icon {
+        border-color: var(--checkboxInvalidColor);
+        background-color: var(--checkboxInvalidColor);
+      }
+    }
+
+    &[aria-invalid] + .sg-checkbox__icon {
+      border-color: var(--checkboxInvalidColor);
+      fill: var(--checkboxInvalidIconFillColor);
     }
   }
 
   &__icon {
     position: relative;
     display: inline-block;
-    width: $checkboxWidth;
-    height: $checkboxWidth;
-    min-width: $checkboxWidth;
+    width: $checkboxSize;
+    height: $checkboxSize;
+    min-width: $checkboxSize;
     border-radius: $borderRadiusSmall;
+    border: 2px solid var(--checkboxColor);
+    fill: var(--checkboxIconFillColor);
 
     svg {
       position: absolute;
       left: -2px;
       top: -2px;
     }
+  }
+
+  @media (forced-colors: active) {
+    .sg-checkbox__icon {
+      fill: CanvasText;
+    }
+  }
+
+  &__label,
+  &__description {
+    color: var(--checkboxLabelColor);
   }
 
   &__label {

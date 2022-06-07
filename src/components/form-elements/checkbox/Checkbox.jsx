@@ -223,7 +223,6 @@ const Checkbox = ({
             className="sg-checkbox__description"
             size="small"
             type="span"
-            color="text-black"
             breakWords
           >
             {description}
