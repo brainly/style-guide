@@ -117,6 +117,18 @@ gulp.task(
 );
 
 gulp.task(
+  'build-new',
+  gulp.series(
+    'clean:dist',
+    'sass:build',
+    'svgs-generate',
+    'fingerprint',
+    'fingerprint-replace',
+    'root-redirect-page'
+  )
+);
+
+gulp.task(
   'build-assets',
   gulp.series('clean:assets', 'sass:build', 'svgs-generate', 'copy-assets')
 );
