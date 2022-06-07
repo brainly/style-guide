@@ -132,7 +132,7 @@ const Checkbox = ({
 
   const onInputChange = React.useCallback(
     e => {
-      if (isControlled) setIsChecked(val => !val);
+      if (!isControlled) setIsChecked(val => !val);
 
       if (onChange) onChange(e);
     },
