@@ -1,5 +1,5 @@
 .PHONY: build
-build: $(ENVIRONMENT_NAME)-$(APP_NAME)
+build: $(APP_NAME)
 
 .PHONY: styleguide-dev-pipeline
 styleguide-dev-pipeline:
