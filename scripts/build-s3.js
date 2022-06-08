@@ -1,7 +1,15 @@
 const {version} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
-const fs = require('fs');
+const argv = require('yargs').argv;
+
+if (argv.env && argv.env !== 'dev' && argv.env !== 'prod') {
+  throw new Error(`Invalid env: ${argv.env}`);
+}
+
+const env = argv.env || 'prod';
+
+console.log(`Building styleguide for ${env} environment`);
 
 const client = s3.createClient({
   s3Options: {
@@ -10,14 +18,14 @@ const client = s3.createClient({
 });
 
 function buildFiles() {
-  execSync('STORYBOOK_ENV=prod yarn build-storybook');
-  fs.writeFileSync('storybook-static/.sg-version', `${version}`, 'utf-8');
+  execSync('yarn build-new --production');
+  execSync(`STORYBOOK_ENV=prod yarn build-storybook -o dist/${version}/docs`);
 }
 
 client.s3.getObject(
   {
-    Bucket: 'styleguide-dev.brainly.com',
-    Key: `.sg-version`,
+    Bucket: `styleguide-${env}.brainly.com`,
+    Key: `${version}/style-guide.css`,
   },
   function (err, data) {
     if (err) {

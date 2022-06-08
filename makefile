@@ -1,21 +1,20 @@
 .PHONY: build
-build: build-$(ENVIRONMENT_NAME)-$(APP_NAME)
+build: $(ENVIRONMENT_NAME)-$(APP_NAME)
 
-.PHONY: build-styleguide-sg-storybook-dev-deploy
-build-styleguide-sg-storybook-dev-deploy:
+.PHONY: styleguide-dev-pipeline
+styleguide-dev-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	yarn build
-	NODE_ENV=production node ./scripts/build-storybook-s3.js
+	NODE_ENV=production node ./scripts/build-s3.js --env=dev
 
-.PHONY: build-styleguide-sg-prod-deploy-s3
-build-styleguide-sg-prod-deploy-s3:
+.PHONY: styleguide-beta-pipeline
+styleguide-beta-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	NODE_ENV=production node ./scripts/build-styleguide-s3.js
+	NODE_ENV=production node ./scripts/build-s3.js --env=dev
 
-.PHONY: build-styleguide-sg-prod-beta-release-deploy-s3
-build-styleguide-sg-prod-beta-release-deploy-s3:
+.PHONY: styleguide-prod-pipeline
+styleguide-prod-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	NODE_ENV=production node ./scripts/build-styleguide-s3.js
+	NODE_ENV=production node ./scripts/build-s3.js
