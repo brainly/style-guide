@@ -81,6 +81,9 @@ const Radio = ({
     'sg-radio--with-label': !!hasLabel,
     'sg-radio--with-description': !!descriptionId,
   });
+  const labelClass = classNames('sg-radio__label', {
+    'sg-radio__label--with-padding-bottom': description,
+  });
 
   const onInputChange = e => {
     if (isWithinRadioGroup) {
@@ -125,7 +128,7 @@ const Radio = ({
             type="label"
             size="medium"
             weight="bold"
-            className="sg-radio__label"
+            className={labelClass}
           >
             {children}
           </Text>

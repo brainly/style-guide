@@ -45,13 +45,8 @@ import {useRadioContext} from './useRadioContext';
 <Canvas>
   <Story name="Dark color">
     {args => {
-      const StyledTableWrapper = styled.div`
-        .sg-radio {
-          margin-bottom: 16px;
-        }
-      `;
       return (
-        <StyledTableWrapper>
+        <div>
           <StoryVariantTable className="sg-story-variant-table--align-items-top">
             <thead>
               <tr>
@@ -146,7 +141,7 @@ import {useRadioContext} from './useRadioContext';
               ))}
             </tbody>
           </StoryVariantTable>
-        </StyledTableWrapper>
+        </div>
       );
     }}
   </Story>
@@ -157,13 +152,8 @@ import {useRadioContext} from './useRadioContext';
 <Canvas>
   <Story name="Light color">
     {args => {
-      const StyledTableWrapper = styled.div`
-        .sg-radio {
-          margin-bottom: 16px;
-        }
-      `;
       return (
-        <StyledTableWrapper>
+        <div>
           <StoryVariantTable className="sg-story-variant-table--align-items-top">
             <thead>
               <tr>
@@ -192,12 +182,11 @@ import {useRadioContext} from './useRadioContext';
                   props: {
                     color: 'light',
                     disabled: true,
-                    style: {marginBottom: '12px'},
                   },
                 },
                 {
                   type: 'enabled',
-                  props: {color: 'light', style: {marginBottom: '12px'}},
+                  props: {color: 'light'},
                 },
                 {
                   type: 'error',
@@ -205,7 +194,6 @@ import {useRadioContext} from './useRadioContext';
                     color: 'light',
                     invalid: true,
                     errorMessage: 'Error message',
-                    style: {marginBottom: '12px'},
                   },
                 },
               ].map(RadioType => (
@@ -276,7 +264,7 @@ import {useRadioContext} from './useRadioContext';
               ))}
             </tbody>
           </StoryVariantTable>
-        </StyledTableWrapper>
+        </div>
       );
     }}
   </Story>
