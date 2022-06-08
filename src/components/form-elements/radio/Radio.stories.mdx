@@ -278,13 +278,15 @@ import {useRadioContext} from './useRadioContext';
       <label id="myRadioID-label">
         <Flex
           style={{
-            backgroundColor: 'lightblue',
+            backgroundColor: '#bdc7fb',
             borderRadius: '8px',
-            padding: '20px 40px',
+            padding: '20px',
+            width: '300px',
           }}
           alignItems="center"
+          justifyContent="space-between"
         >
-          This component is a label for radio
+          Radio with external label
           <Radio value={args.value} aria-labelledby="myRadioID-label" />
         </Flex>
       </label>
