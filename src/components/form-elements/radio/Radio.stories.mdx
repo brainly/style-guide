@@ -340,7 +340,6 @@ In the following example, className `sg-radio--custom-theme` was applied to the 
       `;
       return (
         <StyledRadios>
-          <Radio {...args}></Radio>
           <Radio {...args} checked>
             Checked
           </Radio>
@@ -350,8 +349,8 @@ In the following example, className `sg-radio--custom-theme` was applied to the 
           <Radio {...args} checked invalid>
             Invalid, checked
           </Radio>
-          <Radio {...args} description="Some description" checked>
-            Checked with description
+          <Radio {...args} description="Some description">
+            With description
           </Radio>
         </StyledRadios>
       );
