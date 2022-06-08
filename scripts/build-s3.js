@@ -1,7 +1,6 @@
 const {version} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
-const fs = require('fs');
 const argv = require('yargs').argv;
 
 if (argv.env && argv.env !== 'dev' && argv.env !== 'prod') {
