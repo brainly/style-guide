@@ -69,15 +69,14 @@ import Checkbox from './Checkbox';
             {[
               {
                 type: 'disabled',
-                props: {disabled: true, style: {marginBottom: '12px'}},
+                props: {disabled: true},
               },
-              {type: 'enabled', props: {style: {marginBottom: '12px'}}},
+              {type: 'enabled'},
               {
                 type: 'error',
                 props: {
                   invalid: true,
                   errorMessage: 'Error message',
-                  style: {marginBottom: '12px'},
                 },
               },
             ].map(checkboxType => (
@@ -201,12 +200,11 @@ import Checkbox from './Checkbox';
                 props: {
                   disabled: true,
                   color: 'light',
-                  style: {marginBottom: '12px'},
                 },
               },
               {
                 type: 'enabled',
-                props: {color: 'light', style: {marginBottom: '12px'}},
+                props: {color: 'light'},
               },
               {
                 type: 'error',
@@ -214,7 +212,6 @@ import Checkbox from './Checkbox';
                   invalid: true,
                   errorMessage: 'Error message',
                   color: 'light',
-                  style: {marginBottom: '12px'},
                 },
               },
             ].map(checkboxType => (

@@ -1,5 +1,5 @@
 $checkboxSize: 16px;
-$checkboxMargin: 8px;
+$checkboxPadding: 4px;
 $checkboxClickableArea: 32px;
 
 .sg-checkbox {
@@ -17,6 +17,7 @@ $checkboxClickableArea: 32px;
 
   display: flex;
   flex-direction: column;
+  margin: $checkboxPadding 0;
 
   &--light {
     --checkboxColor: #{$white};
@@ -66,7 +67,7 @@ $checkboxClickableArea: 32px;
   &__content {
     display: flex;
     flex-direction: column;
-    margin-left: calc($checkboxClickableArea + $checkboxMargin);
+    margin-left: calc($checkboxClickableArea + $checkboxPadding);
   }
 
   &__element {
@@ -153,16 +154,18 @@ $checkboxClickableArea: 32px;
   &__label,
   &__description {
     color: var(--checkboxLabelColor);
+    padding-right: 16px;
   }
 
   &__label {
     display: flex;
-    padding: 4px 0 4px $checkboxMargin;
+    padding-top: $checkboxPadding;
+    padding-left: $checkboxPadding;
   }
 
   &__description,
   .sg-error-message {
-    margin-top: 4px;
+    padding-top: $checkboxPadding;
     white-space: normal;
   }
 }
