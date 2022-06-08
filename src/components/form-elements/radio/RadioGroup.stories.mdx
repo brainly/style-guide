@@ -137,8 +137,13 @@ import {useRadioContext} from './useRadioContext';
         );
       };
       return (
-        <Flex fullWidth direction="row" justifyContent="space-evenly">
-          <Flex direction="column">
+        <Flex fullWidth direction="row" justifyContent="space-evenly" wrap>
+          <Flex
+            direction="column"
+            style={{
+              margin: '20px',
+            }}
+          >
             <Headline
               align="to-center"
               extraBold
@@ -172,7 +177,12 @@ import {useRadioContext} from './useRadioContext';
               />
             </RadioGroup>
           </Flex>
-          <Flex direction="column">
+          <Flex
+            direction="column"
+            style={{
+              margin: '20px',
+            }}
+          >
             <Headline
               align="to-center"
               extraBold
