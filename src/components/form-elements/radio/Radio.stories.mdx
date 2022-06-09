@@ -287,7 +287,7 @@ import {useRadioContext} from './useRadioContext';
 
 ### With custom theme
 
-To use custom theme for `Radio`, you have to override following css variables:
+To use custom theme for `Radio`, you can to override following css variables:
 
 | Css variable name        | Explanation                                               |
 | ------------------------ | --------------------------------------------------------- |
@@ -299,19 +299,29 @@ To use custom theme for `Radio`, you have to override following css variables:
 | --radioDescriptionColor  | Description color                                         |
 | --radioOutlineColor      | Outline color (appears on focus)                          |
 
-In the following example, className `sg-radio--custom-theme` was applied to the `Radio`:
+There are two ways of achieving custom theming:
+
+1. Change css variables for particular `Radio` by defining them inline in the `style` attribute. Example:
+
+```jsx
+<Radio checked style={{'--radioColor': 'green'}}>
+  Checkbox label
+</Radio>
+```
+
+2. Or, you can use `className` and define variables replacements in your css file. Example:
 
 ```css
 .sg-radio--custom-theme {
-  --radioColor: #24a865;
-  --radioHoverColor: #2fe086;
-  --radioInvalidColor: crimson;
-  --radioInvalidHoverColor: coral;
-  --radioLabelColor: black;
-  --radioDescriptionColor: black;
-  --radioOutlineColor: blue;
+  --radioColor: #fbbe2e;
+  --radioHoverColor: #c98600;
+  --radioInvalidColor: #cf1d00;
+  --radioInvalidHoverColor: #ff341a;
+  --radioOutlineColor: #c98600;
 }
 ```
+
+In the following example, className `sg-radio--custom-theme` was applied to all `Radio` components. The last component has inline variable override:
 
 <Canvas>
   <Story name="With custom theme" args={{className: 'sg-radio--custom-theme'}}>
@@ -320,13 +330,11 @@ In the following example, className `sg-radio--custom-theme` was applied to the 
         display: flex;
         flex-direction: column;
         .sg-radio--custom-theme {
-          --radioColor: #24a865;
-          --radioHoverColor: #2fe086;
-          --radioInvalidColor: crimson;
-          --radioInvalidHoverColor: coral;
-          --radioLabelColor: black;
-          --radioDescriptionColor: black;
-          --radioOutlineColor: blue;
+          --radioColor: #fbbe2e;
+          --radioHoverColor: #c98600;
+          --radioInvalidColor: #cf1d00;
+          --radioInvalidHoverColor: #ff341a;
+          --radioOutlineColor: #c98600;
         }
       `;
       return (
@@ -342,6 +350,9 @@ In the following example, className `sg-radio--custom-theme` was applied to the 
           </Radio>
           <Radio {...args} description="Some description">
             With description
+          </Radio>
+          <Radio {...args} checked style={{'--radioColor': '#163bf3'}}>
+            With inline color override
           </Radio>
         </StyledRadios>
       );

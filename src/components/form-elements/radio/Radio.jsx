@@ -20,6 +20,11 @@ export type RadioPropsType = {
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
   required?: boolean,
+  /**
+   * Style applied to the container.
+   * @example <Radio style={{ '--radioColor': '#000' }} />
+   */
+  style?: React.CSSProperties,
   value: string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
@@ -38,6 +43,7 @@ const Radio = ({
   name,
   onChange,
   required = false,
+  style,
   value,
   'aria-labelledby': ariaLabelledBy,
   'aria-describedby': ariaDescribedBy,
@@ -96,7 +102,7 @@ const Radio = ({
   };
 
   return (
-    <div className={radioClass}>
+    <div className={radioClass} style={style}>
       <div className="sg-radio__wrapper">
         <div className="sg-radio__element">
           <input
