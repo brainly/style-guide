@@ -123,7 +123,7 @@ const Checkbox = ({
   const inputRef = React.useRef(null);
 
   React.useEffect(() => {
-    inputRef.current.indeterminate = indeterminate;
+    if (inputRef.current) inputRef.current.indeterminate = indeterminate;
   }, [inputRef, indeterminate]);
 
   React.useEffect(() => {
