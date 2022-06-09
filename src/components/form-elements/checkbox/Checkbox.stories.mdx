@@ -312,7 +312,7 @@ import Checkbox from './Checkbox';
 <Canvas>
   <Story name="With custom label">
     {args => (
-      <label htmlFor="myCheckboxID">
+      <label>
         <Box
           color="indigo-20"
           padding="m"
@@ -322,11 +322,7 @@ import Checkbox from './Checkbox';
         >
           <Flex alignItems="center" justifyContent="space-between">
             This component is a custom label for checkbox
-            <Checkbox
-              {...args}
-              id="myCheckboxID"
-              aria-labelledby="myCheckboxID-label"
-            />
+            <Checkbox {...args} />
           </Flex>
         </Box>
       </label>
