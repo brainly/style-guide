@@ -275,19 +275,10 @@ import {useRadioContext} from './useRadioContext';
 <Canvas>
   <Story name="With external label" args={{value: 'test'}}>
     {args => (
-      <label id="myRadioID-label">
-        <Flex
-          style={{
-            backgroundColor: '#bdc7fb',
-            borderRadius: '8px',
-            padding: '20px',
-            width: '300px',
-          }}
-          alignItems="center"
-          justifyContent="space-between"
-        >
+      <label>
+        <Flex alignItems="center">
           Radio with external label
-          <Radio value={args.value} aria-labelledby="myRadioID-label" />
+          <Radio value={args.value} />
         </Flex>
       </label>
     )}
