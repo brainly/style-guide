@@ -144,6 +144,10 @@ const Checkbox = ({
     [`sg-checkbox--${String(color)}`]: color,
   });
 
+  const labelClass = cx('sg-checkbox__label', {
+    'sg-checkbox__label--with-padding-bottom': description || errorMessage,
+  });
+
   if (__DEV__) {
     invariant(
       !(errorMessage && !invalid),
@@ -210,7 +214,7 @@ const Checkbox = ({
             type="label"
             size="medium"
             weight="bold"
-            className="sg-checkbox__label"
+            className={labelClass}
           >
             {children}
           </Text>

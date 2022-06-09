@@ -161,11 +161,14 @@ $checkboxClickableArea: 32px;
     display: flex;
     padding-top: $checkboxPadding;
     padding-left: $checkboxPadding;
+
+    &--with-padding-bottom {
+      padding-bottom: $checkboxPadding;
+    }
   }
 
   &__description,
   .sg-error-message {
-    padding-top: $checkboxPadding;
     white-space: normal;
   }
 }
