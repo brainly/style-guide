@@ -76,6 +76,11 @@ export type CheckboxPropsType = {
    */
   onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
   /**
+   * Style applied to the container.
+   * @example <Checkbox style={{ '--checkboxColor': '#000' }} />
+   */
+  style?: React.CSSProperties,
+  /**
    * Sets whether the checkbox input is marked as required. This doesn't affect checkbox style.
    * @example <Checkbox required />
    */
@@ -108,6 +113,7 @@ const Checkbox = ({
   required = false,
   name,
   onChange,
+  style,
   value,
   'aria-labelledby': ariaLabelledBy,
   ...props
@@ -180,10 +186,11 @@ const Checkbox = ({
   if (indeterminate) checkboxIcon = <IndeterminateIcon />;
 
   return (
-    <div {...props} className={checkboxClass}>
+    <div className={checkboxClass} style={style}>
       <div className="sg-checkbox__wrapper">
         <div className="sg-checkbox__element">
           <input
+            {...props}
             ref={inputRef}
             className="sg-checkbox__input"
             id={checkboxId}
