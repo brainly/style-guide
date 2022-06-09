@@ -307,24 +307,16 @@ import Checkbox from './Checkbox';
   </Story>
 </Canvas>
 
-### With custom label
+### With external label
 
 <Canvas>
-  <Story name="With custom label">
+  <Story name="With external label">
     {args => (
       <label>
-        <Box
-          color="indigo-20"
-          padding="m"
-          style={{
-            width: 400,
-          }}
-        >
-          <Flex alignItems="center" justifyContent="space-between">
-            This component is a custom label for checkbox
-            <Checkbox {...args} />
-          </Flex>
-        </Box>
+        <Flex alignItems="center">
+          Checkbox with external label
+          <Checkbox {...args} />
+        </Flex>
       </label>
     )}
   </Story>
