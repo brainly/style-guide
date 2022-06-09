@@ -2,7 +2,6 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../../_docs/utils';
 import {Preview} from '../../../_docs/blocks/';
 
-import Box from '../../box/Box';
 import Flex from '../../flex/Flex';
 import Headline from '../../text/Headline';
 import Text from '../../text/Text';
@@ -28,7 +27,9 @@ import Checkbox from './Checkbox';
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <Checkbox {...args} />}</Story>
+  <Story name="Default">
+    {args => <Checkbox {...args}>Checkbox label</Checkbox>}
+  </Story>
 </Canvas>
 
 <ArgsTable story="Default" />
