@@ -24,7 +24,7 @@ export type RadioPropsType = {
    * Style applied to the container.
    * @example <Radio style={{ '--radioColor': '#000' }} />
    */
-  style?: React.CSSProperties,
+  style?: mixed,
   value: string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
