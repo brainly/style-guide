@@ -35,5 +35,11 @@
       padding: spacing(m);
       white-space: nowrap;
     }
+
+    &--align-items-top {
+      td {
+        vertical-align: top;
+      }
+    }
   }
 }
