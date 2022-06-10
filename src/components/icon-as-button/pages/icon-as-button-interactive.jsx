@@ -2,6 +2,7 @@ import * as React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR, SIZE} from '../IconAsButton';
 import Counter from 'counters/Counter';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import Avatar, {SIZE as AVATAR_SIZE} from 'avatar/Avatar';
 
 const IconsAsButtons = () => {
@@ -42,6 +43,7 @@ const IconsAsButtons = () => {
 
   return (
     <div>
+      <DeprecatedNote />
       <DocsActiveBlock settings={settings}>
         <IconAsButton
           color={ICON_COLOR['icon-gray-70']}

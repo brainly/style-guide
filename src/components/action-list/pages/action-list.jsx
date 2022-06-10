@@ -8,6 +8,7 @@ import Text, {TEXT_TYPE, TEXT_SIZE, TEXT_WEIGHT} from 'text/Text';
 
 import ContrastBox from 'components/ContrastBox';
 import DocsBlock from 'components/DocsBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from '../ActionListHole';
 import SeparatorVertical, {
   SIZE as SEPARATOR_VERTICAL_SIZE,
@@ -17,22 +18,17 @@ import ContentBoxContent, {
   ALIGNMENT as CB_ALIGNMENT,
 } from 'content-box/ContentBoxContent';
 import Radio from 'form-elements/Radio';
-import Link from 'text/Link';
-import Flex from 'flex/Flex';
 
 const ActionLists = () => (
   <div>
-    <Flex marginBottom="m">
-      <Text color="text-red-60">
-        This component is deprecated, please use{' '}
-        <Link href="./containers.html#flexbox">Flex</Link> instead
-      </Text>
-    </Flex>
+    <DeprecatedNote
+      replacement={{componentName: 'Flex', href: './containers.html#flexbox'}}
+    />
     <DocsBlock info="Default">
       <ContrastBox fullWidth>
         <ActionList>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               accept
             </Button>
           </ActionListHole>
@@ -47,7 +43,7 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.TO_RIGHT}>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               accept
             </Button>
           </ActionListHole>
@@ -62,7 +58,7 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList toTop>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               accept
             </Button>
           </ActionListHole>
@@ -90,7 +86,7 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList direction={DIRECTION.CENTERED}>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               accept
             </Button>
           </ActionListHole>
@@ -254,17 +250,17 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Last hole does not have margin
             </Button>
           </ActionListHole>
@@ -276,17 +272,17 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Last hole does not have margin
             </Button>
           </ActionListHole>
@@ -298,17 +294,17 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole noSpacing>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole noSpacing>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Without default margin
             </Button>
           </ActionListHole>
           <ActionListHole>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               Last hole does not have margin
             </Button>
           </ActionListHole>
@@ -320,17 +316,17 @@ const ActionLists = () => (
       <ContrastBox fullWidth>
         <ActionList noWrap>
           <ActionListHole spaceBellow>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               With space bellow
             </Button>
           </ActionListHole>
           <ActionListHole spaceBellow>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               With space bellow
             </Button>
           </ActionListHole>
           <ActionListHole spaceBellow>
-            <Button type="solid-blue" size="small">
+            <Button type="solid-indigo" size="small">
               With space bellow
             </Button>
           </ActionListHole>

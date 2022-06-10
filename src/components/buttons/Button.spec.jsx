@@ -10,7 +10,7 @@ test('render', () => {
 });
 
 test('type', () => {
-  const buttonType = BUTTON_TYPE.SOLID_BLUE;
+  const buttonType = BUTTON_TYPE.SOLID;
   const button = shallow(<Button type={buttonType}>Some text</Button>);
 
   expect(button.hasClass(`sg-button--${buttonType}`)).toEqual(true);
@@ -71,12 +71,12 @@ test('no icon', () => {
 
 test('toggle', () => {
   const button = shallow(
-    <Button type="solid-light" toggle="peach">
+    <Button type="solid-light" toggle="red">
       Some text
     </Button>
   );
 
-  expect(button.hasClass('sg-button--solid-light-toggle-peach')).toEqual(true);
+  expect(button.hasClass('sg-button--solid-light-toggle-red')).toEqual(true);
 });
 
 test('with icon - reversed order', () => {

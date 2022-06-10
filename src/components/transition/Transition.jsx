@@ -2,6 +2,8 @@
 
 import * as React from 'react';
 import cx from 'classnames';
+import useReducedMotion from '../utils/useReducedMotion';
+import {useIsomorphicLayoutEffect} from '../utils/useIsomorphicLayoutEffect';
 import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import {createEffect} from './predefinedEffects';
@@ -13,18 +15,9 @@ Transition.createEffect = createEffect;
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 
-const useIsomorphicLayoutEffect =
-  typeof window !== 'undefined' ? React.useLayoutEffect : React.useEffect;
-
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
-
-const prefersReducedMotion = () =>
-  window && window.matchMedia !== undefined
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      window.matchMedia('(prefers-reduced-motion)').matches
-    : false;
 
 export type PredefinedEasingType = 'regular' | 'entry' | 'exit' | 'linear';
 
@@ -171,12 +164,13 @@ function BaseTransition({
   onTransitionEnd,
 }: TransitionPropsType) {
   const containerRef = React.useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   const currentEffect = React.useMemo(() => {
     if (typeof effect === 'function') {
-      return effect(prefersReducedMotion());
+      return effect(prefersReducedMotion);
     }
     return effect;
-  }, [effect]);
+  }, [effect, prefersReducedMotion]);
 
   const classNamesRegistry = React.useMemo(createClassNamesRegistry, []);
   const animator = React.useMemo<PropertyObjectAnimatorType>(

@@ -7,15 +7,15 @@ Buttons are created to help user to make actions, choices and to move around the
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="solid-blue" size="small">
+<Button type="solid-indigo" size="small">
   I am solid small button
 </Button>;
 ```
 
 ```HTML
-<div class="sg-button sg-button--solid-blue sg-button--small">
+<button class="sg-button sg-button--solid-indigo sg-button--small">
     I am solid small button
-</div>
+</button>
 ```
 
 ### Types of buttons on Brainly and examples of usage
@@ -35,12 +35,8 @@ import {Button} from 'style-guide';
     I am white button
 </Button>
 
-<Button type="solid-blue">
-    I am blue button
-</Button>
-
-<Button type="solid-mint">
-    I am mint button
+<Button type="solid-indigo">
+    I am indigo button
 </Button>
 ```
 
@@ -56,7 +52,7 @@ import {Button} from 'style-guide';
 
 #### Link buttons
 
-We have 4 link buttons avalaible, black, white, peach and mustard. They are also used to create `thank you` and `mark as best` buttons
+We have 4 link buttons avalaible, black, white, red and yellow. They are also used to create `thank you` and `mark as best` buttons
 
 ```jsx
 import {Button} from 'style-guide';
@@ -69,17 +65,13 @@ import {Button} from 'style-guide';
     I am white link button
 </Button>
 
-<Button type="transparent-peach">
-    I am peach link button
-</Button>
-
-<Button type="transparent-mustard">
-    I am mustard link button
+<Button type="transparent-red">
+    I am red link button
 </Button>
 
 {/* Example of the thank you button created with link button */}
 <Button
-  type="transparent-peach"
+  type="transparent-red"
   icon={<Icon type={iconTypes.HEART} color={ICON_COLOR['icon-red-50']} size={24} />}
 >
   Thank you
@@ -138,11 +130,11 @@ import {Button} from 'style-guide';
 </button>
 ```
 
-| Prop name | Type    | Default  | Description                                                                                                                                                                                      |
-| :-------- | :------ | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| size      | String  | `medium` | use `small`, `medium` or `large` to set the size of the Button                                                                                                                                   |
-| type      | String  | `solid`  | use `solid`, `solid-inverted`, `solid-blue`, `solid-mint`,`outline`, `transparent`, `transparent-inverted`, `transparent-peach`, `transparent-mustard`, `facebook` to set the type of the Button |
-| href      | String  | `button` | sets the HTML tag for the component                                                                                                                                                              |
-| disabled  | Boolean | `false`  | sets the `disabled` attribute on the Button                                                                                                                                                      |
-| fullWidth | Boolean | `false`  | adds class responsible for making button 100% of it's parent                                                                                                                                     |
-| icon      | Node    |          | optional icon inserted on the left side                                                                                                                                                          |
+| Prop name | Type    | Default  | Description                                                                                                                                                                                                                                                                       |
+| :-------- | :------ | :------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| size      | String  | `medium` | use `small`, `medium` or `large` to set the size of the Button                                                                                                                                                                                                                    |
+| type      | String  | `solid`  | use `solid`, `solid-inverted`, `solid-indigo`, `solid-indigo-inverted`, `solid-light`, `outline`, `outline-indigo`, `outline-inverted`, `transparent`, `transparent-light` `transparent-inverted`, `transparent-red`, `facebook`, `google`, `apple` to set the type of the Button |
+| href      | String  | `button` | sets the HTML tag for the component                                                                                                                                                                                                                                               |
+| disabled  | Boolean | `false`  | sets the `disabled` attribute on the Button                                                                                                                                                                                                                                       |
+| fullWidth | Boolean | `false`  | adds class responsible for making button 100% of it's parent                                                                                                                                                                                                                      |
+| icon      | Node    |          | optional icon inserted on the left side                                                                                                                                                                                                                                           |

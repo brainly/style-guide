@@ -7,8 +7,8 @@ $buttonActiveInverseFontColor: $red-40;
 
 $buttonActiveScale: scale(0.985);
 $transparentWhite: rgba(255, 255, 255, 0);
-$buttonPrimaryFbColor: #3c5b96;
-$buttonPrimaryFbHoverColor: #4367a9;
+$buttonPrimaryFbColor: #1877f2;
+$buttonPrimaryFbHoverColor: #1964d5;
 
 @mixin sgButtonBasics() {
   display: inline-flex;

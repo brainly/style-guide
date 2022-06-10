@@ -6,13 +6,15 @@ import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 
+const delayOffset = 240;
+
 const typingEffect = {
   initial: {opacity: 0, transform: {translateY: '-xs'}},
   animate: {opacity: 1, duration: 'quick2', easing: 'entry'},
   exit: {opacity: 0, duration: 'quick2', easing: 'exit'},
 };
 
-export function TypewriterEffect() {
+export const TypewriterEffect = () => {
   const message = 'hello world';
   const [active, setActive] = React.useState(false);
 
@@ -21,27 +23,27 @@ export function TypewriterEffect() {
       <Button
         type="solid-light"
         onClick={() => setActive(b => !b)}
-        toggle={active ? 'peach' : 'blue'}
+        toggle={active ? 'red' : undefined}
       >
         {active ? 'erase' : 'enter'}
       </Button>
 
-      <div>
+      <Text whiteSpace="pre-wrap">
         {[...message].map((letter, index) => (
           <Transition
             key={index}
             active={active}
             effect={typingEffect}
-            delay={index * 240}
+            delay={delayOffset * index}
             inline
           >
-            <Text whiteSpace="pre-wrap">{letter}</Text>
+            <Text inherited>{letter}</Text>
           </Transition>
         ))}
-      </div>
+      </Text>
     </Flex>
   );
-}
+};
 
 TypewriterEffect.parameters = {
   layout: 'centered',

@@ -5,11 +5,10 @@ import Transition from '../Transition';
 import Flex from '../../flex/Flex';
 import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
-
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
-const colorsOrder = ['peach', 'mustard', 'blue'];
+const colorsOrder = ['red', 'yellow', 'blue'];
 
 const createSlideInEffect = (direction: 'left' | 'right') => ({
   initial: {
@@ -25,42 +24,42 @@ const createSlideInEffect = (direction: 'left' | 'right') => ({
 });
 
 /**
- * The effect with an "animate" phase only to
- * make transition from the current position.
+ * An effect with only the "animate" phase always
+ * performs a transition from the current position.
  */
 const createSlideOutEffect = (direction: 'left' | 'right') => ({
   animate: {
-    transform: {
-      translateX: direction === 'left' ? '-m' : 'm',
-    },
+    transform: {translateX: direction === 'left' ? '-m' : 'm'},
     opacity: 0,
     duration: 'moderate1',
     easing: 'exit',
   },
 });
 
-export function SharedAxis() {
+export const SharedAxis = () => {
   const [effect, setEffect] = React.useState(null);
   const [currentViewIndex, setCurrentViewIndex] = React.useState(0);
-  const pendingCallback = React.useRef();
+  const nextTransitionCallback = React.useRef();
 
-  const changeView = (index: number) => {
-    if (index !== currentViewIndex) {
-      const direction = currentViewIndex < index ? 'left' : 'right';
+  const changeView = (viewIndex: number) => {
+    if (viewIndex !== currentViewIndex) {
+      const direction = currentViewIndex < viewIndex ? 'left' : 'right';
 
+      // hide previous view
       setEffect(createSlideOutEffect(direction));
 
-      pendingCallback.current = () => {
-        setCurrentViewIndex(index);
+      // show the next view
+      nextTransitionCallback.current = () => {
+        setCurrentViewIndex(viewIndex);
         setEffect(createSlideInEffect(direction));
+        nextTransitionCallback.current = null;
       };
     }
   };
 
   const handleTransitionEnd = () => {
-    if (pendingCallback.current) {
-      pendingCallback.current();
-      pendingCallback.current = null;
+    if (nextTransitionCallback.current) {
+      nextTransitionCallback.current();
     }
   };
 
@@ -70,9 +69,8 @@ export function SharedAxis() {
         {colorsOrder.map((color, index) => (
           <Button
             key={color}
-            toggle={color}
             type={index === currentViewIndex ? 'solid-light' : 'transparent'}
-            icon={<Icon type="circle" color="adaptive" />}
+            icon={<Icon type="circle" color={buttonIconColors[color]} />}
             onClick={() => changeView(index)}
             iconOnly
           />
@@ -84,7 +82,13 @@ export function SharedAxis() {
       </Transition>
     </Stage>
   );
-}
+};
+
+const buttonIconColors = {
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
+  blue: 'icon-blue-50',
+};
 
 SharedAxis.parameters = {
   layout: 'centered',

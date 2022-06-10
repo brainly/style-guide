@@ -1,5 +1,6 @@
 import * as React from 'react';
 import DocsBlock from 'components/DocsBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 import ContentBox from '../ContentBox';
 import ContentBoxActions, {SIZE, ALIGNMENT} from '../ContentBoxActions';
 import ContentBoxTitle from '../ContentBoxTitle';
@@ -14,7 +15,6 @@ import Icon, {ICON_COLOR} from 'icons/Icon';
 import Link from 'text/Link';
 import Headline, {HEADLINE_TYPE, HEADLINE_SIZE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import Flex from 'flex/Flex';
 
 const link1 = (
   <Link href="#" color="text-gray-70">
@@ -145,12 +145,9 @@ const examplePart2 = (
 
 const ContentBoxes = () => (
   <div>
-    <Flex marginBottom="m">
-      <Text color="text-red-60">
-        This component is deprecated, please use{' '}
-        <Link href="./containers.html#flexbox">Flex</Link> instead
-      </Text>
-    </Flex>
+    <DeprecatedNote
+      replacement={{componentsName: 'Flex', href: './containers.html#flexbox'}}
+    />
     <DocsBlock info="Simple with header">
       <ContentBox>
         <ContentBoxHeader>
@@ -329,7 +326,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -358,7 +355,7 @@ const ContentBoxes = () => (
         <ContentBoxActions>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -434,7 +431,7 @@ const ContentBoxes = () => (
             ]}
           />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -448,7 +445,7 @@ const ContentBoxes = () => (
         <ContentBoxActions align={ALIGNMENT.RIGHT}>
           <Breadcrumb elements={breadcrumbSpaced2} />
           <Button
-            type="transparent-peach"
+            type="transparent-red"
             icon={<Icon type="heart" color={ICON_COLOR['icon-red-50']} />}
           >
             Thank you
@@ -467,7 +464,7 @@ const ContentBoxes = () => (
           <Headline size={HEADLINE_SIZE.SMALL}>
             Hey! Still not sure about the answer?
           </Headline>
-          <Button type="solid-blue">Check similar answers</Button>
+          <Button type="solid-indigo">Check similar answers</Button>
         </ContentBoxContent>
       </ContentBox>
     </DocsBlock>

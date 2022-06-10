@@ -5,6 +5,7 @@ import Button from '../../buttons/Button';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
+import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
 import {useTransformationState} from './common/useTransformationState';
 
 const appearingEffect = {
@@ -16,24 +17,24 @@ const removingEffect = {
   animate: {opacity: 0, duration: 'quick2'},
 };
 
-const initialItems = [0, 1, 2, 3];
+const initialItemIds = [0, 1, 2, 3];
 
-// greater than last item to not animate the entry
-let lastUniqueId = initialItems.length;
+/**
+ * It is greater than the ID of the last initial item to
+ * not animate the already added items at the beginning.
+ */
+let lastUniqueId = initialItemIds.length;
 
-export function FluidList() {
-  const updateKey = React.useRef(0);
+export const FluidList = () => {
   const containerRef = React.useRef(null);
-  const [items, setItems] = React.useState(initialItems);
+  const [itemIds, setItemIds] = React.useState(initialItemIds);
 
   const addItem = () => {
-    setItems(prev => [++lastUniqueId, ...prev]);
-    updateKey.current += 1;
+    setItemIds(prev => [++lastUniqueId, ...prev]);
   };
 
   const removeItem = (id: number) => {
-    setItems(prev => prev.filter(n => n !== id));
-    updateKey.current += 1;
+    setItemIds(prev => prev.filter(n => n !== id));
   };
 
   return (
@@ -42,37 +43,37 @@ export function FluidList() {
         add item
       </Button>
 
-      {items.map((id, index) => (
+      {itemIds.map((id, index) => (
         <FluidListItem
           key={id}
           index={index}
-          updateKey={updateKey.current}
+          updateKey={itemIds.length}
           containerRef={containerRef}
-          isNewlyCreated={id === lastUniqueId}
-          isSingleItem={items.length === 1}
+          lastCreated={id === lastUniqueId}
+          siblingsAmount={itemIds.length - 1}
           onRemove={() => removeItem(id)}
         />
       ))}
     </Stage>
   );
-}
+};
 
 const FluidListItem = ({
   index,
   updateKey,
   containerRef,
-  isNewlyCreated,
-  isSingleItem,
+  lastCreated,
+  siblingsAmount,
   onRemove,
 }: {
   index: number,
   updateKey: number,
   containerRef: {current: HTMLElement | null},
-  isNewlyCreated: boolean,
-  isSingleItem: boolean,
+  lastCreated: boolean,
+  siblingsAmount: number,
   onRemove: () => void,
 }) => {
-  const [isRemoving, setIsRemoving] = React.useState(false);
+  const [removing, setRemoving] = React.useState(false);
   const [movementEffect, setMovementEffect] = React.useState(null);
 
   const elementRef = React.useRef(null);
@@ -83,11 +84,11 @@ const FluidListItem = ({
   });
 
   const getTransitionEffect = () => {
-    if (isRemoving) {
+    if (removing) {
       return removingEffect;
     }
 
-    if (isNewlyCreated) {
+    if (lastCreated) {
       return appearingEffect;
     }
 
@@ -96,39 +97,37 @@ const FluidListItem = ({
 
   const getTransitionDelay = () => {
     const appearingDelay = 180;
-    const isMovingUp = transformation.diffTop < 0;
+    const delayOffset = 20;
 
-    if (isRemoving || isSingleItem) {
+    if (removing || siblingsAmount === 0) {
       return 0;
     }
 
-    if (isNewlyCreated) {
+    if (lastCreated) {
       return appearingDelay;
     }
 
-    if (isMovingUp) {
-      return appearingDelay + index * 20;
+    /**
+     * To simulate weightlessness we can delay the
+     * transition of each item when it moves upward.
+     */
+    if (transformation.diffTop < 0) {
+      return appearingDelay + delayOffset * index;
     }
 
     return 0;
   };
 
-  React.useLayoutEffect(() => {
-    if (transformation.diffTop === 0) {
-      return;
+  useIsomorphicLayoutEffect(() => {
+    if (transformation.diffTop !== 0) {
+      /**
+       * https://css-tricks.com/animating-layouts-with-the-flip-technique/
+       */
+      setMovementEffect({
+        initial: {transform: {translateY: -transformation.diffTop}},
+        animate: {transform: {translateY: 0, duration: 'moderate1'}},
+      });
     }
-
-    /**
-     * https://css-tricks.com/animating-layouts-with-the-flip-technique/
-     */
-    setMovementEffect({
-      initial: {
-        transform: {translateY: -transformation.diffTop},
-      },
-      animate: {
-        transform: {translateY: 0, duration: 'moderate1', easing: 'regular'},
-      },
-    });
   }, [transformation]);
 
   return (
@@ -137,13 +136,13 @@ const FluidListItem = ({
         active
         effect={getTransitionEffect()}
         delay={getTransitionDelay()}
-        onTransitionEnd={isRemoving ? onRemove : undefined}
+        onTransitionEnd={removing ? onRemove : undefined}
         fillMode="backwards"
       >
         <DummyBox
           color="blue"
           size="listitem"
-          onClick={() => setIsRemoving(true)}
+          onClick={() => setRemoving(true)}
         />
       </Transition>
     </div>

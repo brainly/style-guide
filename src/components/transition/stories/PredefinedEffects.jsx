@@ -10,18 +10,16 @@ import type {PredefinedEffectType} from '../predefinedEffects';
 
 const predefinedEffectTypes = Object.keys(predefinedEffects);
 
-export function PredefinedEffects() {
-  return (
-    <Flex style={{gap: 16}} wrap>
-      {predefinedEffectTypes.map(type => (
-        <PredefinedEffect key={type} type={type} />
-      ))}
-    </Flex>
-  );
-}
+export const PredefinedEffects = () => (
+  <Flex style={{gap: 16}} wrap justifyContent="center">
+    {predefinedEffectTypes.map(type => (
+      <PredefinedEffect key={type} type={type} />
+    ))}
+  </Flex>
+);
 
-function PredefinedEffect({type}: {type: PredefinedEffectType}) {
-  const [isActive, setIsActive] = React.useState(false);
+const PredefinedEffect = ({type}: {type: PredefinedEffectType}) => {
+  const [active, setActive] = React.useState(false);
 
   const effect = React.useMemo(() => {
     return Transition.createEffect({type});
@@ -31,20 +29,12 @@ function PredefinedEffect({type}: {type: PredefinedEffectType}) {
     <Stage
       format="listitem"
       description={type}
-      onClick={() => setIsActive(b => !b)}
+      onClick={() => setActive(b => !b)}
       centered
     >
-      <Transition active={isActive} effect={effect}>
+      <Transition active={active} effect={effect}>
         <DummyBox size="small" color="blue" />
       </Transition>
     </Stage>
   );
-}
-
-PredefinedEffects.parameters = {
-  docs: {
-    description: {
-      story: 'Component static method `Transition.createEffect(options)`.',
-    },
-  },
 };

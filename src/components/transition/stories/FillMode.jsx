@@ -7,6 +7,8 @@ import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 
+const fillModes = ['none', 'forwards', 'backwards', 'both'];
+
 const shrinkFadeEffect = {
   initial: {
     opacity: 0,
@@ -24,42 +26,42 @@ const shrinkFadeEffect = {
   },
 };
 
-const fillModes = ['none', 'forwards', 'backwards', 'both'];
-
-export function FillMode() {
-  const [isActive, setIsActive] = React.useState(false);
+export const FillMode = () => {
+  const [active, setActive] = React.useState(false);
 
   return (
-    <Flex>
-      <Flex className="sg-space-y-s" direction="column" alignItems="center">
-        <Flex className="sg-space-x-l" marginBottom="m">
-          {fillModes.map(mode => (
-            <Container key={mode} description={mode}>
-              <Transition
-                active={isActive}
-                effect={shrinkFadeEffect}
-                fillMode={mode}
-                delay={1000}
-              >
-                <Circle />
-              </Transition>
-            </Container>
-          ))}
-        </Flex>
-
-        <Button type="solid" onClick={() => setIsActive(b => !b)} fullWidth>
-          {isActive ? 'inactive' : 'active'}
-        </Button>
-
-        <Text size="small" color="text-gray-50" align="to-center">
-          An active effect spawns a shrinking circle with a 1s delay,
-          <br />
-          inside the parent container.
-        </Text>
+    <Flex
+      className="sg-space-y-s"
+      direction="column"
+      alignItems="center"
+      style={{width: 'min-content'}}
+    >
+      <Flex className="sg-space-x-l" marginBottom="m">
+        {fillModes.map(mode => (
+          <Container key={mode} description={mode}>
+            <Transition
+              active={active}
+              effect={shrinkFadeEffect}
+              fillMode={mode}
+              delay={1000}
+            >
+              <Circle />
+            </Transition>
+          </Container>
+        ))}
       </Flex>
+
+      <Button type="solid" onClick={() => setActive(b => !b)} fullWidth>
+        {active ? 'hide' : 'show'}
+      </Button>
+
+      <Text size="small" color="text-gray-50" align="to-center">
+        Activating transition spawns a shrinking circle inside the parent
+        container with a 1s delay.
+      </Text>
     </Flex>
   );
-}
+};
 
 const Circle = () => (
   <div

@@ -93,7 +93,7 @@ const Buttons = () => {
   return (
     <div>
       <DocsActiveBlock settings={buttonsSettings}>
-        <ButtonIconAligner type={BUTTON_TYPE.SOLID_BLUE}>
+        <ButtonIconAligner type={BUTTON_TYPE.SOLID}>
           Ask your question
         </ButtonIconAligner>
       </DocsActiveBlock>

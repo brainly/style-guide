@@ -25,14 +25,14 @@ const sizes = {
 };
 
 const colors = {
-  peach: 'red-40',
-  mustard: 'yellow-40',
+  red: 'red-40',
+  yellow: 'yellow-40',
   blue: 'blue-40',
 };
 
 type PropsType = $ReadOnly<{
   size: 'listitem' | 'small' | 'medium' | 'large',
-  color: 'peach' | 'mustard' | 'blue',
+  color: 'red' | 'yellow' | 'blue',
   onClick?: () => void,
 }>;
 

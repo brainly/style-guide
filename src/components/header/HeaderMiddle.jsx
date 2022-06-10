@@ -9,6 +9,8 @@ export type HeaderMiddlePropsType = {
   ...
 };
 
+// This component is deprecated
+
 const HeaderMiddle = ({
   children,
   className,
