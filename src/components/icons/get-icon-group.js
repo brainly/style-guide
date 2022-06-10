@@ -131,6 +131,7 @@ const iconMap = {
     'forward_5s',
     'replay',
     'time_speed',
+    'eraser',
   ],
   Navigation: [
     'arrow',
@@ -153,6 +154,7 @@ const iconMap = {
     'clear',
     'options',
     'filters',
+    'collapse',
   ],
   'Social Media': [
     'facebook',

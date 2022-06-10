@@ -135,7 +135,10 @@ export type IconTypeType =
   | 'quote'
   | 'spark'
   | 'dot'
-  | 'clear';
+  | 'clear'
+  | 'collapse'
+  | 'cursor_select'
+  | 'eraser';
 
 export type IconColorType =
   | 'adaptive'
@@ -286,6 +289,9 @@ export const TYPE: {
   SPARK: 'spark',
   DOT: 'dot',
   CLEAR: 'clear',
+  COLLAPSE: 'collapse',
+  CURSOR_SELECT: 'cursor_select',
+  ERASER: 'eraser',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
@@ -418,6 +424,9 @@ export const TYPE: {
   SPARK: 'spark',
   DOT: 'dot',
   CLEAR: 'clear',
+  COLLAPSE: 'collapse',
+  CURSOR_SELECT: 'cursor_select',
+  ERASER: 'eraser',
 };
 
 export const ICON_COLOR: {
