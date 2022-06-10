@@ -61,7 +61,7 @@ const RadioGroup = ({
       role="radiogroup"
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
-      aria-errorMessage={errorTextId}
+      aria-errormessage={errorTextId}
       aria-required={required}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}
