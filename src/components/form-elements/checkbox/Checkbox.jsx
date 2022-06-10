@@ -79,7 +79,7 @@ export type CheckboxPropsType = {
    * Style applied to the container.
    * @example <Checkbox style={{ '--checkboxColor': '#000' }} />
    */
-  style?: Partial<CSSStyleDeclaration>,
+  style?: $Shape<CSSStyleDeclaration>,
   /**
    * Sets whether the checkbox input is marked as required. This doesn't affect checkbox style.
    * @example <Checkbox required />
