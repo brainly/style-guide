@@ -147,13 +147,12 @@ Go to these links to find documentation about [the Flexbox component](src/compon
 
 1. Your svg file has to be exported with a `viewBox="0 0 512 512"`.
 2. Clean up the file: keep only `xmlns` and `viewBox` attributes on `svg` tag and remove the rest (eventually you can use `data-fixedcolors` attribute on `svg` icon which has to have fixed colors for some reason). There is no need to optimize a `<path>` since it will be optimized during build process with [svgo](https://www.npmjs.com/package/svgo).
-3. Add a title (usually it's the same as a file name).
+3. Remove the title.
 
 Now, your file should look like:
 
 ```
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-    <title>cheeseburger</title>
     <path ... />
   </svg>
 ```
