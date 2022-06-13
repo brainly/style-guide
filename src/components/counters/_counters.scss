@@ -13,7 +13,7 @@ $counterSizeXS: componentSize(xs);
     justify-content: center;
     align-content: center;
     flex-shrink: 0;
-    background-color: $red-50;
+    background-color: $red-60;
     cursor: default;
 
     &__text {
@@ -26,12 +26,12 @@ $counterSizeXS: componentSize(xs);
       top: 3px;
     }
 
-    &--red-50 {
-      background-color: $red-50;
+    &--red-60 {
+      background-color: $red-60;
     }
 
-    &--blue-50 {
-      background-color: $blue-50;
+    &--blue-60 {
+      background-color: $blue-60;
     }
 
     &--with-icon {
