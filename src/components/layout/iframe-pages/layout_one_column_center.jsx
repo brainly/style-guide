@@ -11,11 +11,7 @@ const header = (
   </div>
 );
 
-const footer = (
-  <div className="sg-footer">
-    <div className="sg-footer__container">Footer</div>
-  </div>
-);
+const footer = <div>Footer</div>;
 
 const LayoutOneColumnCenter = () => (
   <html>

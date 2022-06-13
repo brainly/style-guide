@@ -13,11 +13,7 @@ describe('Layout', () => {
   });
 
   test('render with footer', () => {
-    const footer = (
-      <div className="sg-footer">
-        <div className="sg-footer__container">Footer</div>
-      </div>
-    );
+    const footer = <div>Footer</div>;
 
     const layout = shallow(<Layout footer={footer}>Content</Layout>);
 
