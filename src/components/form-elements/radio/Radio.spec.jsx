@@ -3,12 +3,13 @@ import Radio from './Radio';
 
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import {testA11y} from '../../../axe';
 
 describe('<Radio />', () => {
   const renderRadio = props =>
     render(<Radio onChange={() => jest.fn()} {...props} />);
 
-  it('it renders unchecked radio input', () => {
+  it('renders unchecked radio input, without label', () => {
     const radio = renderRadio({});
     const radioInput = radio.getByRole('radio');
 
@@ -23,7 +24,7 @@ describe('<Radio />', () => {
 
   it('checks when label is clicked', () => {
     const radio = renderRadio({children: 'my label'});
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio', {name: 'my label'});
 
     expect(radioInput.checked).toBe(false);
     userEvent.click(radio.queryByLabelText('my label'));
@@ -31,8 +32,18 @@ describe('<Radio />', () => {
     expect(radioInput.checked).toBe(true);
   });
 
+  it('checks when space is pressed', () => {
+    const radio = renderRadio({children: 'my label'});
+    const radioInput = radio.getByRole('radio');
+
+    radioInput.focus();
+    expect(radioInput.checked).toBe(false);
+    userEvent.keyboard('{space}');
+    expect(radioInput.checked).toBe(true);
+  });
+
   it('checks when input is clicked', () => {
-    const radio = renderRadio();
+    const radio = renderRadio({children: 'my label'});
     const radioInput = radio.getByRole('radio');
 
     expect(radioInput.checked).toBe(false);
@@ -55,7 +66,10 @@ describe('<Radio />', () => {
       children: 'Click me pls',
     });
 
-    radio.getByRole('radio', {description: descriptionText});
+    expect(radio.getByText(descriptionText)).toBeTruthy();
+    expect(
+      radio.getByRole('radio', {description: descriptionText})
+    ).toBeTruthy();
   });
 
   it("doesn't allow checking disabled radio", () => {
@@ -76,5 +90,54 @@ describe('<Radio />', () => {
     userEvent.click(radio.queryByLabelText(labelText));
     expect(onChange).not.toHaveBeenCalled();
     expect(radioInput.checked).toBe(false);
+  });
+});
+
+describe('<Radio/> a11y', () => {
+  it('should have no a11y violations', async () => {
+    await testA11y(<Radio onChange={() => jest.fn()}>Radio</Radio>);
+  });
+
+  it('should have no a11y violations with external label', async () => {
+    await testA11y(
+      <label>
+        Radio
+        <Radio onChange={() => jest.fn()} />
+      </label>
+    );
+  });
+
+  it('should have no a11y violations when 2 radios with the same `name` are rendered ', async () => {
+    await testA11y(
+      <div>
+        <Radio onChange={() => jest.fn()} name="test">
+          Radio
+        </Radio>
+        <Radio onChange={() => jest.fn()} name="test">
+          Radio
+        </Radio>
+      </div>
+    );
+  });
+
+  it('should have no a11y violations when description is provided', async () => {
+    await testA11y(
+      <Radio onChange={() => jest.fn()} description="Check me">
+        Radio
+      </Radio>
+    );
+  });
+
+  it('should have no a11y violations when is checked and required', async () => {
+    await testA11y(
+      <div>
+        <Radio onChange={() => jest.fn()} name="test" checked="true">
+          Radio
+        </Radio>
+        <Radio onChange={() => jest.fn()} name="test" required="true">
+          Radio
+        </Radio>
+      </div>
+    );
   });
 });
