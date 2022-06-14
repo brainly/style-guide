@@ -37,6 +37,29 @@ $checkboxClickableArea: 32px;
     pointer-events: none;
   }
 
+  @keyframes checkboxFadeOut1 {
+    from {
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+
+    to {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+    }
+  }
+  @keyframes checkboxFadeOut2 {
+    from {
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+
+    to {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+    }
+  }
+
   &__wrapper {
     display: flex;
 
@@ -114,6 +137,7 @@ $checkboxClickableArea: 32px;
       & + .sg-checkbox__icon {
         border-color: var(--checkboxCheckedColor);
         background: var(--checkboxCheckedColor);
+        animation-name: checkboxFadeOut2, checkboxFadeOut2;
       }
 
       &[aria-invalid] + .sg-checkbox__icon {
@@ -129,14 +153,18 @@ $checkboxClickableArea: 32px;
   }
 
   &__icon {
-    position: relative;
-    display: inline-block;
+    position: absolute;
     width: $checkboxSize;
     height: $checkboxSize;
-    min-width: $checkboxSize;
     border-radius: $borderRadiusSmall;
     border: 2px solid var(--checkboxColor);
     fill: var(--checkboxIconFillColor);
+
+    animation-name: checkboxFadeOut1, checkboxFadeOut1;
+    animation-duration: 0.08s, 0.18s;
+    animation-timing-function: cubic-bezier(0.3, 0, 1, 0.8);
+    animation-delay: 0s, 0.08s;
+    animation-direction: normal, reverse;
 
     svg {
       position: absolute;
