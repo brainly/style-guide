@@ -18,14 +18,15 @@ describe('<RadioGroup />', () => {
       </RadioGroup>
     );
 
-  it('it renders radio group with radio buttons', () => {
+  it('renders radio group with radio buttons', () => {
     const radioGroup = renderRadioGroup({name: 'option', value: 'option-a'});
 
+    expect(radioGroup.getByRole('radiogroup')).toBeTruthy();
     expect(radioGroup.getByLabelText('Option A').checked).toBe(true);
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
   });
 
-  it('changes selected element when Radio is clicked', () => {
+  it('changes selected element when Radio is clicked and has only one checked Radio at a time', () => {
     const radioGroup = renderRadioGroup({name: 'option', value: 'option-a'});
 
     userEvent.click(radioGroup.queryByLabelText('Option B'));
@@ -39,7 +40,7 @@ describe('<RadioGroup />', () => {
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
   });
 
-  it('it renders radio group with error message', () => {
+  it('renders radio group with error message', () => {
     const radioGroup = renderRadioGroup({
       name: 'option',
       value: 'option-a',
@@ -50,7 +51,7 @@ describe('<RadioGroup />', () => {
     expect(radioGroup.getByText('Error message')).toBeTruthy();
   });
 
-  it("it doesn't allow checking disabled radio", () => {
+  it("doesn't allow checking disabled radio", () => {
     const onChange = jest.fn();
 
     const radioGroup = renderRadioGroup({
@@ -64,5 +65,43 @@ describe('<RadioGroup />', () => {
     userEvent.click(radioGroup.queryByLabelText('Option B'));
     expect(onChange).not.toHaveBeenCalled();
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
+  });
+
+  it('has an accessible name', () => {
+    const onChange = jest.fn();
+
+    const radioGroup = renderRadioGroup({
+      name: 'option',
+      value: 'option-a',
+      'aria-label': 'RadioGroup name',
+      onChange,
+    });
+
+    expect(radioGroup.getByRole('radiogroup', {label: 'RadioGroup name'}))
+      .toBeTruthy;
+  });
+
+  it('has an accessible description', () => {
+    const onChange = jest.fn();
+
+    const radioGroup = render(
+      <div>
+        <RadioGroup onChange={onChange} aria-describedby="rg-desc">
+          <Radio onChange={() => jest.fn()} value="option-a">
+            Option A
+          </Radio>
+          <Radio onChange={() => jest.fn()} value="option-b">
+            Option B
+          </Radio>
+        </RadioGroup>
+        <p id="rg-desc">RadioGroup description</p>
+      </div>
+    );
+
+    expect(
+      radioGroup.getByRole('radiogroup', {
+        description: 'RadioGroup description',
+      })
+    ).toBeTruthy;
   });
 });
