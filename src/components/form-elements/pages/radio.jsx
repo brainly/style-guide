@@ -27,10 +27,6 @@ const radios = () => (
           <Radio color="light" checked>
             Checked
           </Radio>
-          <Radio color="light" indeterminate>
-            Indeterminate
-          </Radio>
-
           <Radio color="light" description="My description.">
             With description
           </Radio>
@@ -50,9 +46,9 @@ const radios = () => (
       </ContrastBox>
     </DocsBlock>
     <DocsBlock info="Radio Group">
-      <RadioGroup value="Freja" name="dog">
-        <Radio value="Freja">Freja</Radio>
-        <Radio value="Gałgan">Gałgan</Radio>
+      <RadioGroup value="option-a" name="options">
+        <Radio value="option-a">Option A</Radio>
+        <Radio value="option-b">Option B</Radio>
       </RadioGroup>
     </DocsBlock>
   </div>
