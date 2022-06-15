@@ -180,9 +180,8 @@ const Checkbox = ({
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
 
-  let checkboxIcon = null;
+  let checkboxIcon = <CheckIcon />;
 
-  if (isChecked) checkboxIcon = <CheckIcon />;
   if (indeterminate) checkboxIcon = <IndeterminateIcon />;
 
   return (
