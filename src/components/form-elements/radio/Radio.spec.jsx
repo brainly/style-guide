@@ -8,15 +8,20 @@ describe('<Radio />', () => {
   const renderRadio = props =>
     render(<Radio onChange={() => jest.fn()} {...props} />);
 
-  it('it renders unchecked radio input, without label', () => {
+  it('it renders unchecked radio input', () => {
     const radio = renderRadio({});
     const radioInput = radio.getByRole('radio');
 
     expect(radioInput.checked).toBe(false);
-    expect(radio.queryByLabelText('my label')).toBeNull();
   });
 
-  it('checks when either input or label is clicked', () => {
+  it('it renders a label', () => {
+    const radio = renderRadio({children: 'my label'});
+
+    expect(radio.queryByLabelText('my label')).toBeTruthy();
+  });
+
+  it('checks when label is clicked', () => {
     const radio = renderRadio({children: 'my label'});
     const radioInput = radio.getByRole('radio');
 
@@ -26,8 +31,8 @@ describe('<Radio />', () => {
     expect(radioInput.checked).toBe(true);
   });
 
-  it('checks when either input is clicked', () => {
-    const radio = renderRadio({children: 'my label'});
+  it('checks when input is clicked', () => {
+    const radio = renderRadio();
     const radioInput = radio.getByRole('radio');
 
     expect(radioInput.checked).toBe(false);
@@ -47,7 +52,6 @@ describe('<Radio />', () => {
 
     const radio = renderRadio({
       description: descriptionText,
-      invalid: true,
       children: 'Click me pls',
     });
 
