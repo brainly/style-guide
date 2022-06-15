@@ -43,10 +43,6 @@
       transition-property: height;
       height: 0;
       overflow: hidden;
-
-      @media (prefers-reduced-motion) {
-        transition: none;
-      }
     }
 
     &__content-box {
@@ -77,13 +73,27 @@
         height: 40px;
         content: '';
         border-radius: 50%;
-        transition: $durationQuick2 $easingLinear background-color, $durationQuick2 $easingRegular transform;
+        transition: $durationQuick2 $easingLinear background-color,
+          $durationQuick2 $easingRegular transform;
       }
 
       &--hover::before {
         background-color: $gray-20;
         transform: scale(100%);
       }
+    }
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+
+      & * {
+        transition: none;
+      }
+    }
+
+    &--reduced-motion,
+    &--reduced-motion * {
+      transition: none;
     }
   }
 }
