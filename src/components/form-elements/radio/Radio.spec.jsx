@@ -55,7 +55,7 @@ describe('<Radio />', () => {
       children: 'Click me pls',
     });
 
-    expect(radio.getByText(descriptionText)).toBeTruthy();
+    radio.getByRole('radio', {description: descriptionText});
   });
 
   it("doesn't allow checking disabled radio", () => {
