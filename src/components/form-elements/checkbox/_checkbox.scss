@@ -182,6 +182,8 @@ $checkboxClickableArea: 32px;
     animation-delay: 0s, 0.08s;
     animation-direction: normal, reverse;
 
+    transition: background-color 0s $easingRegular 0.08s;
+
     svg {
       position: absolute;
       left: -2px;
