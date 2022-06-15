@@ -66,6 +66,7 @@ gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
 
 gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
+gulp.task('fingerprint-replace-new', getTask('fingerprint-replace-new'));
 gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
@@ -123,7 +124,7 @@ gulp.task(
     'sass:build',
     'svgs-generate',
     'fingerprint',
-    'fingerprint-replace',
+    'fingerprint-replace-new',
     'root-redirect-page'
   )
 );
