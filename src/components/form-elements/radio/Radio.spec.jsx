@@ -40,14 +40,14 @@ describe('<Radio />', () => {
     expect(radioInput.checked).toBe(true);
   });
 
-  it('it renders as initially checked', () => {
+  it('renders as initially checked', () => {
     const radio = renderRadio({checked: true});
     const radioInput = radio.getByRole('radio');
 
     expect(radioInput.checked).toBe(true);
   });
 
-  it('it displays description', () => {
+  it('displays description', () => {
     const descriptionText = 'Cool radio it is';
 
     const radio = renderRadio({
@@ -58,7 +58,7 @@ describe('<Radio />', () => {
     expect(radio.getByText(descriptionText)).toBeTruthy();
   });
 
-  it("it doesn't allow checking disabled radio", () => {
+  it("doesn't allow checking disabled radio", () => {
     const labelText = 'Click me pls';
     const onChange = jest.fn();
     const radio = renderRadio({
