@@ -51,10 +51,10 @@
 
     &__arrow {
       transition: $durationModerate2 $easingRegular transform;
-      transform: rotateX(360deg);
+      transform: rotateX(0deg);
 
       &--visible {
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
       }
     }
 
