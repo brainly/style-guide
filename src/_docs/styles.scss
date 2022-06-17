@@ -37,3 +37,106 @@
     }
   }
 }
+
+.sbdocs.sbdocs-li {
+  font-size: 18px;
+}
+
+.sbdocs-a:hover {
+  text-decoration: underline;
+}
+
+.sbdocs.sbdocs-preview {
+  box-shadow: none;
+  border: 2px solid #ebf2f7;
+}
+
+.sbdocs.sbdocs-h2 {
+  text-transform: uppercase;
+  letter-spacing: -0.0625rem;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 900;
+  position: relative;
+  border: none;
+  margin: 20px 0 8px;
+}
+
+.sbdocs.sbdocs-p {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'ProximaNova', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  color: #000000;
+
+  code {
+    font-size: 15px;
+  }
+}
+
+.sbdocs.sbdocs-h3 {
+  text-transform: uppercase;
+  letter-spacing: -0.0625rem;
+  font-size: 24px;
+  line-height: 40px;
+  font-weight: 900;
+  position: relative;
+}
+
+.sbdocs.sbdocs-h4 {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.sbdocs.sbdocs-a {
+  color: $blue-60;
+}
+
+.docs-story .docblock-code-toggle {
+  background-color: #000;
+  color: #fff;
+}
+
+.docblock-argstable .docblock-argstable-body {
+  box-shadow: none;
+  border: 2px solid $gray-20;
+}
+
+.docblock-argstable-body tr span {
+  font-size: 14px;
+  color: #000000;
+}
+
+.docblock-argstable-body tr span[title='Required'] {
+  color: #cf1d00;
+}
+
+.docblock-argstable-head tr span {
+  font-size: 14px;
+}
+
+.sbdocs.sbdocs-table {
+  font-size: 14px;
+}
+
+// this changes args table button to outline
+// to be discussed with team
+
+// .docblock-argstable-body button {
+//   border-radius: 16px;
+//   height: 32px;
+//   padding: 0 16px;
+//   font-size: 12px;
+//   line-height: 12px;
+//   background-color: rgba(255, 255, 255, 0);
+//   border: 2px solid #000;
+//   color: #000;
+
+//   &:hover {
+//     background-color: rgba(104, 123, 140, 0.12);
+//   }
+// }
+
+.docblock-source .prismjs {
+  font-size: 14px;
+}

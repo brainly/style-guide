@@ -2,6 +2,7 @@ import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import MathSymbol, {MATH_SYMBOL_TYPE, ICON_COLOR, SIZE} from './MathSymbol';
 import Flex from '../flex/Flex';
+import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/MathSymbol',

@@ -33,14 +33,10 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
   </Flex>
 </Flex>
 
-<br />
+Welcome to the official Brainly style guide! This style guide is being used
+across all language versions of the Brainly website and some smaller sites.
 
-<Text>
-  Welcome to the official Brainly style guide! This style guide is being used
-  across all language versions of the Brainly website and some smaller sites.
-</Text>
-
-<Flex className="sg-space-x-xs" justifyContent="center">
+<Flex justifyContent="center">
   <Breadcrumb
     elements={[
       <Link href="https://brainly.com">brainly.com</Link>,
@@ -50,20 +46,14 @@ import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
   />
 </Flex>
 
-<Headline marginTop="l">How to use it?</Headline>
+<br />
 
-<Flex marginTop="s">
-  <Text>
-    React components are stored in `npm` package. To make it work you need to
-    install package and import styles. You can use css from our{' '}
-    <Link size="small" href="#external-css">
-      cdn
-    </Link>{' '}
-    or import `scss` from package itself.
-  </Text>
-</Flex>
+## How to use it?
 
-<Headline marginTop="l">Installation</Headline>
+React components are stored in `npm` package. To make it work you need to
+install package and import styles. You can use css from our <Link href="#external-css">cdn</Link> or import `scss` from package itself.
+
+## Installation
 
 ```bash
 # npm
@@ -73,11 +63,7 @@ npm install -S brainly-style-guide
 yarn add brainly-style-guide
 ```
 
-```bash
-
-```
-
-<Headline>Usage</Headline>
+## Usage
 
 ```jsx
 // Following line is required if you don't use css from public cdn
@@ -93,23 +79,18 @@ const App = () => {
 };
 ```
 
-<Headline>External CSS</Headline>
+## External CSS
 
-<Text>
-  In order to use style guide components, you have to include CSS file in the{' '}
-  {'<head>'} of your website:
-</Text>
+In order to use style guide components, you have to include CSS file in the `<head>` of your website:
 
 <Source
   type="html"
   code={`<link href='https://styleguide.brainly.com/${version}/style-guide.css' rel='stylesheet'/>`}
 />
 
-<Headline>Icons (SVG sprites)</Headline>
+## Icons (SVG sprites)
 
-<Text>
-  For our icons include this scripts before the closing {'</body>'} tag:
-</Text>
+For our icons include this scripts before the closing `</body>` tag:
 
 <Text transform="uppercase" weight="bold">
   Basic Icons

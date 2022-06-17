@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Rating, {RATING_SIZE} from './Rating';
+import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/Rating',

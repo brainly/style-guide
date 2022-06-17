@@ -2,6 +2,7 @@ import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Flex from '../flex/Flex';
 import SubjectIconBox, {TYPE, SIZE} from './SubjectIconBox';
+import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/SubjectIconBox',

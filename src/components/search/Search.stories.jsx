@@ -4,6 +4,7 @@ import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 import Search, {SIZE, COLOR} from './Search';
+import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/Search',

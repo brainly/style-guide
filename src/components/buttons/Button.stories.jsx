@@ -4,6 +4,7 @@ import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
 import {StoryVariantTable} from '../../_docs/utils';
 import Headline from '../text/Headline';
+import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/Button',
