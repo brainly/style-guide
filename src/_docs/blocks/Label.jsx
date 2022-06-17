@@ -8,10 +8,16 @@ const Status = styled.span`
 // eslint-disable-next-line react/prop-types
 const Label = ({children, status}) => {
   return (
-    <>
+    <div
+      style={{
+        fontSize: '14px',
+        textTransform: 'uppercase',
+        padding: '2px 0',
+      }}
+    >
       <span>{children}</span>
       <Status>{status}</Status>
-    </>
+    </div>
   );
 };
 
