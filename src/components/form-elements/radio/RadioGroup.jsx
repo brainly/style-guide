@@ -75,7 +75,7 @@ const RadioGroup = ({
       onBlur={() => setLastFocusedValue(null)}
       aria-required={required}
       aria-labelledby={ariaLabelledBy}
-      aria-describedby={describedbyIds}
+      aria-describedby={describedbyIds.length ? describedbyIds : undefined}
     >
       <div className={radioGroupItemsClass}>
         <RadioContext.Provider
