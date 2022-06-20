@@ -31,12 +31,6 @@ $checkboxClickableArea: 32px;
     --checkboxInvalidIconFillColor: #{$white};
   }
 
-  &--disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
   &__wrapper {
     display: flex;
 
@@ -94,6 +88,10 @@ $checkboxClickableArea: 32px;
         border-color: var(--checkboxHoverColor);
         outline: 2px solid var(--checkboxOutlineColor);
         outline-offset: 2px;
+
+        @media (forced-colors: active) {
+          outline-color: Highlight;
+        }
       }
 
       &[aria-invalid] + .sg-checkbox__icon {
@@ -107,6 +105,8 @@ $checkboxClickableArea: 32px;
           background-color: var(--checkboxInvalidHoverColor);
         }
       }
+
+      
     }
 
     &:checked,
@@ -148,7 +148,7 @@ $checkboxClickableArea: 32px;
 
   @media (forced-colors: active) {
     .sg-checkbox__icon {
-      fill: CanvasText;
+      fill: FieldText;
     }
   }
 
@@ -171,5 +171,18 @@ $checkboxClickableArea: 32px;
   &__description,
   .sg-error-message {
     white-space: normal;
+  }
+
+  &--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    @media (forced-colors: active) {
+      .sg-checkbox__input + .sg-checkbox__icon {
+        border-color: GrayText;
+        fill: GrayText;
+      }
+    }
   }
 }
