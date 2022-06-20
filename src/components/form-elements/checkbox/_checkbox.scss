@@ -148,7 +148,7 @@ $checkboxClickableArea: 32px;
     &:indeterminate {
       & + .sg-checkbox__icon {
         border-color: var(--checkboxCheckedColor);
-        background: var(--checkboxCheckedColor);
+        background-color: var(--checkboxCheckedColor);
         animation-name: checkboxFadeOut2, checkboxFadeOut2;
       }
 
@@ -174,6 +174,7 @@ $checkboxClickableArea: 32px;
     height: $checkboxSize;
     border-radius: $borderRadiusSmall;
     border: 2px solid var(--checkboxColor);
+    background-color: transparent;
 
     animation-name: checkboxFadeOut1, checkboxFadeOut1;
     animation-duration: 0.08s, 0.18s;
