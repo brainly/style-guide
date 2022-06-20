@@ -2,7 +2,6 @@ import * as React from 'react';
 import OverlayedBox from './OverlayedBox';
 import Avatar from '../avatar/Avatar';
 import Counter from '../counters/Counter';
-import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/OverlayedBox',

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import SeparatorHorizontal, {TYPE, COLORS_MAP} from './SeparatorHorizontal';
 import {StoryVariant} from '../../_docs/utils';
-import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/separators/SeparatorHorizontal',

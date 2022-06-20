@@ -5,7 +5,6 @@ import hex from '../colors/hex';
 import ContentBox, {CONTENT_BOX_SPACING_SIZE} from '../content-box/ContentBox';
 import ContentBoxContent from '../content-box/ContentBoxContent';
 import ContentBoxActions from '../content-box/ContentBoxActions';
-import ComponentTop from 'blocks/ComponentTop';
 
 const Container = Story => (
   <div

@@ -5,7 +5,7 @@ import Headline from '../text/Headline';
 import Flex from '../flex/Flex';
 
 export default {
-  title: 'Components/Form/Radio',
+  title: 'Components/form/Radio',
   component: Radio,
   args: {},
 };

@@ -2,7 +2,6 @@ import * as React from 'react';
 import Overlay, {COLOR} from './Overlay';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
-import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/Overlay',

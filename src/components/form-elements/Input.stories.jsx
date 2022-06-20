@@ -5,7 +5,7 @@ import Headline from '../text/Headline';
 import Input, {SIZE, COLOR} from './Input';
 
 export default {
-  title: 'Components/Form/Input',
+  title: 'Components/form/Input',
   component: Input,
   argTypes: {
     value: {

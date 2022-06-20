@@ -11,7 +11,6 @@ const Label = ({children, status}) => {
     <div
       style={{
         fontSize: '14px',
-        textTransform: 'uppercase',
         padding: '2px 0',
       }}
     >

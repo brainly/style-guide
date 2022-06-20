@@ -9,7 +9,7 @@ import Headline from '../text/Headline';
 import hex from '../colors/hex';
 
 export default {
-  title: 'Components/Textarea',
+  title: 'Components/form/Textarea',
   component: Textarea,
   argTypes: {
     type: {

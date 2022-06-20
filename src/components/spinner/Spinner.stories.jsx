@@ -2,7 +2,6 @@ import * as React from 'react';
 import {StoryVariant} from '../../_docs/utils';
 import Flex from '../flex/Flex';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
-import ComponentTop from 'blocks/ComponentTop';
 
 export default {
   title: 'Components/Spinner',

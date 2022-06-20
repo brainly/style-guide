@@ -5,7 +5,7 @@ import Select, {SIZE} from './Select';
 import hex from '../colors/hex';
 
 export default {
-  title: 'Components/Form/Select',
+  title: 'Components/form/Select',
   component: Select,
   argTypes: {
     options: {

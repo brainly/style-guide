@@ -26,7 +26,6 @@ addons.setConfig({
         <div
           style={{
             fontSize: '14px',
-            textTransform: 'uppercase',
             padding: '2px 0',
           }}
         >
