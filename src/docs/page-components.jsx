@@ -31,7 +31,6 @@ import Selects from 'form-elements/pages/select-interactive';
 import Textareas from 'form-elements/pages/textarea-interactive';
 import SearchInputs from 'search/pages/search-interactive';
 import Breadcrumbs from 'breadcrumb/pages/breadcrumb-interactive';
-import Footers from 'footer/pages/footer-interactive';
 import Layouts from 'layout/pages/layout-interactive';
 import Toplayers from 'toplayer/pages/toplayer-interactive';
 import Overlays from 'overlay/pages/overlay-interactive';
@@ -78,7 +77,6 @@ const demos = {
   Textarea: <Textareas />,
   Search: <SearchInputs />,
   Breadcrumb: <Breadcrumbs />,
-  Footer: <Footers />,
   Layout: <Layouts />,
   Toplayer: <Toplayers />,
   Overlay: <Overlays />,

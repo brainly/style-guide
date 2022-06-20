@@ -38,10 +38,6 @@ export {default as FlashMessage} from './components/flash-messages/FlashMessage'
 export type {FlashMessagePropsType} from './components/flash-messages/FlashMessage';
 export {default as Flex} from './components/flex/Flex';
 export type {FlexPropsType} from './components/flex/Flex';
-export {default as Footer} from './components/footer/Footer';
-export type {FooterPropsType} from './components/footer/Footer';
-export {default as FooterLine} from './components/footer/FooterLine';
-export type {FooterLinePropsType} from './components/footer/FooterLine';
 export {default as Checkbox} from './components/form-elements/checkbox/Checkbox';
 export type {CheckboxPropsType} from './components/form-elements/checkbox/Checkbox';
 export {default as Input} from './components/form-elements/Input';

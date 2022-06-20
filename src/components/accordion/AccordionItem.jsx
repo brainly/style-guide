@@ -162,6 +162,7 @@ const AccordionItem = ({
         'sg-accordion-item',
         {
           'sg-accordion-item--no-gap': noGapBetweenElements,
+          'sg-accordion-item--reduced-motion': reduceMotion,
         },
         className
       )}
