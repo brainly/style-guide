@@ -197,7 +197,7 @@ $checkboxClickableArea: 32px;
     svg path {
       stroke-dasharray: 100%;
       stroke-dashoffset: 100%;
-      transition: stroke-dashoffset 0.18s $easingRegular 0.08s;
+      transition: stroke-dashoffset 0.4s $easingRegular 0.08s;
     }
   }
 
