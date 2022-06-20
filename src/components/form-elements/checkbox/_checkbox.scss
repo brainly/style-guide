@@ -123,7 +123,7 @@ $checkboxClickableArea: 32px;
     left: 0;
     z-index: 1;
 
-    &:focus {
+    &:focus-visible {
       & + .sg-checkbox__icon {
         border-color: var(--checkboxHoverColor);
         outline: 2px solid var(--checkboxOutlineColor);
