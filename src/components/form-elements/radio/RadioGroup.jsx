@@ -54,6 +54,18 @@ const RadioGroup = ({
     if (onChange) onChange(event);
   };
 
+  const describedbyIds = React.useMemo(() => {
+    const ids = [];
+
+    if (invalid && errorMessage) {
+      ids.push(errorTextId);
+    }
+    if (ariaDescribedBy) {
+      ids.push(ariaDescribedBy);
+    }
+    return ids.join(' ');
+  }, [errorTextId, invalid, errorMessage, ariaDescribedBy]);
+
   return (
     <div
       {...props}
@@ -61,10 +73,9 @@ const RadioGroup = ({
       role="radiogroup"
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
-      aria-errormessage={errorTextId}
       aria-required={required}
       aria-labelledby={ariaLabelledBy}
-      aria-describedby={ariaDescribedBy}
+      aria-describedby={describedbyIds}
     >
       <div className={radioGroupItemsClass}>
         <RadioContext.Provider
