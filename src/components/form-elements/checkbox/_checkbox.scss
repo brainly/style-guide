@@ -63,12 +63,12 @@ $checkboxClickableArea: 32px;
 
   @keyframes checkmarkAnimation {
     to {
-      stroke-dashoffset: 0;
+      stroke-dashoffset: 0%;
     }
   }
   @keyframes checkmarkAnimation2 {
     to {
-      stroke-dashoffset: 0;
+      stroke-dashoffset: 0%;
     }
   }
 
@@ -170,7 +170,6 @@ $checkboxClickableArea: 32px;
   }
 
   &__icon {
-    position: absolute;
     width: $checkboxSize;
     height: $checkboxSize;
     border-radius: $borderRadiusSmall;
@@ -186,14 +185,17 @@ $checkboxClickableArea: 32px;
 
     svg {
       position: absolute;
-      left: -2px;
-      top: -2px;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
     }
 
     svg path {
-      stroke-dasharray: 16;
-      stroke-dashoffset: 16;
-      transition: stroke-dashoffset 0.08s $easingRegular 0.18s;
+      stroke-dasharray: 100%;
+      stroke-dashoffset: 100%;
+      transition: stroke-dashoffset 0.18s $easingRegular 0.08s;
     }
   }
 
