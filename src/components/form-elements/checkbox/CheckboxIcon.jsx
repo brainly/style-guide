@@ -26,9 +26,12 @@ const IndeterminateIcon = () => (
     viewBox="0 0 16 16"
     xmlns="http://www.w3.org/2000/svg"
   >
-    {/* eslint-disable max-len */}
-    <path d="M3 8C3 7.44772 3.44772 7 4 7H12C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9H4C3.44772 9 3 8.55228 3 8Z" />
-    {/* eslint-enable max-len */}
+    <path
+      d="M4 8H8.01108H12"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
