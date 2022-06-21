@@ -39,8 +39,8 @@ const iconMap = {
     'textbook',
     'shield',
     'globe',
-    'multi_select_off',
-    'multi_select_on',
+    'multiselect_checked',
+    'multiselect_unchecked',
   ],
   Social: [
     'ask_parent_to_pay',
