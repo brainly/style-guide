@@ -138,9 +138,9 @@ export type IconTypeType =
   | 'clear'
   | 'collapse'
   | 'cursor_select'
-  | 'eraser';
-('multiselect_checked');
-('multiselect_unchecked');
+  | 'eraser'
+  | 'multiselect_checked'
+  | 'multiselect_unchecked';
 
 export type IconColorType =
   | 'adaptive'
