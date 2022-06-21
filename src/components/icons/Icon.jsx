@@ -139,8 +139,8 @@ export type IconTypeType =
   | 'collapse'
   | 'cursor_select'
   | 'eraser'
-    'multi_select_off'
-    'multi_select_on';
+    'multiselect_checked'
+    'multiselect_unchecked';
 
 export type IconColorType =
   | 'adaptive'
@@ -294,8 +294,8 @@ export const TYPE: {
   COLLAPSE: 'collapse',
   CURSOR_SELECT: 'cursor_select',
   ERASER: 'eraser',
-  MULTI_SELECT_OFF: 'multi_select_off',
-  MULTI_SELECT_ON: 'multi_select_on',
+  MULTISELECT_CHECKED: 'multiselect_checked',
+  MULTISELECT_UNCHECKED: 'multiselect_unchecked',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
@@ -431,8 +431,8 @@ export const TYPE: {
   COLLAPSE: 'collapse',
   CURSOR_SELECT: 'cursor_select',
   ERASER: 'eraser',
-  MULTI_SELECT_OFF: 'multi_select_off',
-  MULTI_SELECT_ON: 'multi_select_on',
+  MULTISELECT_CHECKED: 'multiselect_checked',
+  MULTISELECT_UNCHECKED: 'multiselect_unchecked',
 };
 
 export const ICON_COLOR: {
