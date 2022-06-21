@@ -27,12 +27,6 @@ $radioCheckedBorderWidth: 5px;
     --radioOutlineColor: #{$blue-40};
   }
 
-  &--disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-
   &__wrapper {
     display: flex;
 
@@ -40,20 +34,36 @@ $radioCheckedBorderWidth: 5px;
       .sg-radio__circle {
         box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
           var(--radioHoverColor) inset;
+
+        @media (forced-colors: active) {
+          border: $radioUncheckedBorderWidth solid FieldText;
+        }
       }
 
       .sg-radio__input {
         &:checked + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioCheckedBorderWidth
             var(--radioHoverColor) inset;
+
+          @media (forced-colors: active) {
+            border: $radioCheckedBorderWidth solid FieldText;
+          }
         }
         &[aria-invalid] + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
             var(--radioInvalidHoverColor) inset;
+
+          @media (forced-colors: active) {
+            border: $radioUncheckedBorderWidth solid FieldText;
+          }
         }
         &:checked[aria-invalid] + .sg-radio__circle {
           box-shadow: 0px 0px 0px $radioCheckedBorderWidth
             var(--radioInvalidHoverColor) inset;
+
+          @media (forced-colors: active) {
+            border: $radioCheckedBorderWidth solid FieldText;
+          }
         }
       }
     }
@@ -81,20 +91,36 @@ $radioCheckedBorderWidth: 5px;
     &:focus + .sg-radio__circle {
       outline: $radioUncheckedBorderWidth solid var(--radioOutlineColor);
       outline-offset: 2px;
+
+      @media (forced-colors: active) {
+        outline-color: Highlight;
+      }
     }
 
     &:checked + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioColor) inset;
+
+      @media (forced-colors: active) {
+        border: $radioCheckedBorderWidth solid FieldText;
+      }
     }
 
     &[aria-invalid] + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
         var(--radioInvalidColor) inset;
+
+      @media (forced-colors: active) {
+        border: $radioUncheckedBorderWidth solid FieldText;
+      }
     }
 
     &:checked[aria-invalid] + .sg-radio__circle {
       box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioInvalidColor)
         inset;
+
+      @media (forced-colors: active) {
+        border: $radioCheckedBorderWidth solid FieldText;
+      }
     }
   }
 
@@ -103,6 +129,10 @@ $radioCheckedBorderWidth: 5px;
     height: $radioSize;
     border-radius: 50%;
     box-shadow: 0px 0px 0px $radioUncheckedBorderWidth var(--radioColor) inset;
+
+    @media (forced-colors: active) {
+      border: $radioUncheckedBorderWidth solid FieldText;
+    }
   }
 
   &__label,
@@ -124,5 +154,17 @@ $radioCheckedBorderWidth: 5px;
     white-space: normal;
     color: var(--radioDescriptionColor);
     margin-left: calc($radioClickableArea + $radioPadding);
+  }
+
+  &--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    @media (forced-colors: active) {
+      .sg-radio__wrapper .sg-radio__circle {
+        border-color: GrayText;
+      }
+    }
   }
 }
