@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import TextBit from '../../components/text/TextBit';
+import Headline from '../../components/text/Headline';
 import Box from '../../components/box/Box';
 import PageHeaderImage from '../assets/component_top.png';
 import foundationTopImage from '../assets/foundation_top.png';
@@ -30,9 +30,9 @@ const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => {
       }}
       padding="xl"
     >
-      <TextBit size="large" color="text-white">
+      <Headline size="xxlarge" color="text-white" extraBold>
         {children}
-      </TextBit>
+      </Headline>
     </Box>
   );
 };

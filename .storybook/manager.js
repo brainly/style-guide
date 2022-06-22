@@ -27,6 +27,7 @@ addons.setConfig({
           style={{
             fontSize: '14px',
             padding: '2px 0',
+            lineHeight: '14px',
           }}
         >
           {story.name}
