@@ -88,7 +88,7 @@ const AccordionItem = ({
       if (reduceMotion) {
         contentRef.current.style.height = `${0}px`;
         contentRef.current.hidden = true;
-        contentRef.current.style.overflow = 'visible';
+        contentRef.current.style.overflow = 'hidden';
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
 
@@ -124,6 +124,7 @@ const AccordionItem = ({
 
       if (reduceMotion) {
         contentRef.current.style.height = 'auto';
+        contentRef.current.style.overflow = 'visible';
       } else {
         contentRef.current.style.height = `${sectionHeight}px`;
         contentRef.current.addEventListener('transitionend', onTransitionEnd);
