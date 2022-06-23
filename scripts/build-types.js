@@ -166,6 +166,19 @@ if (extractorResult.succeeded) {
   process.exitCode = 1;
 }
 
+console.log("Restoring 'React' namespace");
+
+let finalTypes = fs
+  .readFileSync(path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'))
+  .toString();
+
+finalTypes = finalTypes.replace(/(?<=React).*(?=\.)/g, '');
+
+fs.writeFileSync(
+  path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'),
+  finalTypes
+);
+
 function mapExtension(extension = '') {
   const map = {
     '.js': '.ts',
