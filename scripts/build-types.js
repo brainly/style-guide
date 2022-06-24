@@ -177,7 +177,7 @@ let finalTypes = fs
   .readFileSync(path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'))
   .toString();
 
-finalTypes = finalTypes.replace(/(?<=React).*(?=\.)/g, '');
+finalTypes = finalTypes.replace(/React_\d\./g, 'React.');
 
 fs.writeFileSync(
   path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'),
