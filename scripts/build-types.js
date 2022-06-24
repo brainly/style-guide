@@ -166,7 +166,12 @@ if (extractorResult.succeeded) {
   process.exitCode = 1;
 }
 
-console.log("Restoring 'React' namespace");
+/**
+ * A bug in API Extractor: microsoft/rushstack#2479 changes React to React_2.
+ * It breaks ts typechecking when using brainly-style-guide package in app.
+ * Until fixed we have to replace it back to React.
+ **/
+console.log('Replacing React_2 with React');
 
 let finalTypes = fs
   .readFileSync(path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'))
