@@ -15,7 +15,6 @@ $radioCheckedBorderWidth: 5px;
 
   display: inline-flex;
   flex-direction: column;
-  padding: $radioPadding 0;
 
   &--light {
     --radioColor: #{$white};
@@ -25,6 +24,10 @@ $radioCheckedBorderWidth: 5px;
     --radioLabelColor: #{$text-white};
     --radioDescriptionColor: #{$text-white};
     --radioOutlineColor: #{$blue-40};
+  }
+
+  &--with-padding {
+    padding: $radioPadding 0;
   }
 
   &__wrapper {

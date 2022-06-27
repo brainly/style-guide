@@ -71,7 +71,6 @@ const Radio = ({
         : radioGroupContext.selectedValue &&
           radioGroupContext.selectedValue === value;
   }
-  const hasLabel = children !== undefined && children !== null;
   const labelId = ariaLabelledBy || `${radioId}-label`;
 
   const descriptionId = React.useMemo(() => {
@@ -81,11 +80,14 @@ const Radio = ({
   }, [radioId, ariaDescribedBy, description]);
 
   const colorName = radioGroupContext.color || color;
+  const hasLabel = children !== undefined && children !== null;
+  const isInputOnly = !hasLabel && !description;
   const radioClass = classNames('sg-radio', className, {
     [`sg-radio--${String(colorName)}`]: colorName,
     'sg-radio--disabled': isDisabled,
     'sg-radio--with-label': !!hasLabel,
     'sg-radio--with-description': !!descriptionId,
+    'sg-checkbox--with-padding': !isInputOnly,
   });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
