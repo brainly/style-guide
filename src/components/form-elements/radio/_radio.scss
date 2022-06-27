@@ -88,7 +88,7 @@ $radioCheckedBorderWidth: 5px;
     left: 0;
     z-index: 1;
 
-    &:focus + .sg-radio__circle {
+    &:focus-visible + .sg-radio__circle {
       outline: $radioUncheckedBorderWidth solid var(--radioOutlineColor);
       outline-offset: 2px;
 
