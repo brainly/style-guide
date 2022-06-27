@@ -145,9 +145,14 @@ const Checkbox = ({
     [onChange, isControlled]
   );
 
+  const hasContent = description || (invalid && errorMessage);
+  const hasLabel = children !== undefined && children !== null;
+  const isInputOnly = !hasLabel && !hasContent;
+
   const checkboxClass = cx('sg-checkbox', className, {
     'sg-checkbox--disabled': disabled,
     [`sg-checkbox--${String(color)}`]: color,
+    [`sg-checkbox--with-padding`]: !isInputOnly,
   });
 
   const labelClass = cx('sg-checkbox__label', {
@@ -214,7 +219,7 @@ const Checkbox = ({
             {checkboxIcon}
           </span>
         </div>
-        {!ariaLabelledBy && children !== undefined && children !== null && (
+        {!ariaLabelledBy && hasLabel && (
           <Text
             htmlFor={checkboxId}
             type="label"
@@ -226,27 +231,29 @@ const Checkbox = ({
           </Text>
         )}
       </div>
-      <div className="sg-checkbox__content">
-        {description && (
-          <Text
-            id={descriptionId}
-            className="sg-checkbox__description"
-            size="small"
-            type="span"
-            breakWords
-          >
-            {description}
-          </Text>
-        )}
-        {invalid && errorMessage && (
-          <ErrorMessage
-            id={errorTextId}
-            color={color === 'light' ? 'text-red-40' : undefined}
-          >
-            {errorMessage}
-          </ErrorMessage>
-        )}
-      </div>
+      {hasContent && (
+        <div className="sg-checkbox__content">
+          {description && (
+            <Text
+              id={descriptionId}
+              className="sg-checkbox__description"
+              size="small"
+              type="span"
+              breakWords
+            >
+              {description}
+            </Text>
+          )}
+          {invalid && errorMessage && (
+            <ErrorMessage
+              id={errorTextId}
+              color={color === 'light' ? 'text-red-40' : undefined}
+            >
+              {errorMessage}
+            </ErrorMessage>
+          )}
+        </div>
+      )}
     </div>
   );
 };
