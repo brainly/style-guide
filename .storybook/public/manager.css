@@ -56,7 +56,8 @@ body {
   background-color: var(--indigo-70) !important;
 }
 
-.sidebar-container [data-nodetype='root'],
+.sidebar-container [data-nodetype='root'] button,
+.sidebar-container [data-nodetype='root'] button:focus,
 .sidebar-container [data-nodetype='document'],
 .sidebar-container [data-nodetype='component'],
 .sidebar-container [data-nodetype='group'],
@@ -64,7 +65,35 @@ body {
   color: var(--white);
 }
 
+.sidebar-container button > span,
+.sidebar-container button:focus > span {
+  color: var(--white) !important;
+}
+
+.sidebar-item[data-selected='true'] {
+  background: var(--white) !important;
+  color: var(--indigo-70) !important;
+}
+
+.sidebar-item:not([data-selected='true']):hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebar-item:not([data-selected='true']):focus {
+  background: transparent !important;
+}
+
 /* seatch */
 #storybook-explorer-searchfield {
   border: 1px solid var(--white);
+}
+
+.sidebar-container .search-field svg,
+.sidebar-container .search-field svg * {
+  fill: var(--white) !important;
+  stroke: var(--white) !important;
+}
+
+.sidebar-container .search-field code {
+  color: var(--white) !important;
 }
