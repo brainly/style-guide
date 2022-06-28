@@ -193,6 +193,9 @@ export type LabelPropsType = $ReadOnly<{
    * Additional class names
    */
   className?: string,
+  closeButtonLabel?: string,
+  iconTitle?: string,
+  iconHidden?: boolean,
   ...
 }>;
 
@@ -203,6 +206,9 @@ const Label = ({
   onClose,
   color = 'achromatic',
   className,
+  closeButtonLabel = 'close',
+  iconTitle,
+  iconHidden,
   ...props
 }: LabelPropsType) => {
   const backgroundColor =
@@ -245,7 +251,13 @@ const Label = ({
     <div {...props} className={labelClass}>
       {iconType && (
         <div className="sg-label__icon">
-          <Icon type={iconType} color={iconColor} size={16} />
+          <Icon
+            type={iconType}
+            color={iconColor}
+            size={16}
+            aria-hidden={iconHidden}
+            title={iconTitle}
+          />
         </div>
       )}
       <Text
@@ -260,10 +272,9 @@ const Label = ({
         <button
           className="sg-label__close-button"
           onClick={onClose}
-          title="close"
-          aria-label="close"
+          aria-label={closeButtonLabel}
         >
-          <Icon type="close" color={closeIconColor} size={16} />
+          <Icon type="close" color={closeIconColor} size={16} aria-hidden />
         </button>
       ) : null}
     </div>
