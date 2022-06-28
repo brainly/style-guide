@@ -1,0 +1,54 @@
+:root {
+  /* new colors variables from _config.scss as a css vars*/
+  --blue-70: #002238;
+  --blue-60: #014a82;
+  --blue-50: #0089e3;
+  --blue-40: #4fb3f6;
+  --blue-30: #b9e2fe;
+  --blue-20: #d9f0ff;
+  --blue-10: #edf8ff;
+
+  --green-70: #002e13;
+  --green-60: #00672e;
+  --green-50: #24a865;
+  --green-40: #60d399;
+  --green-30: #9ce8c2;
+  --green-20: #e3f7ed;
+  --green-10: #f0faf5;
+
+  --indigo-70: #0c114d;
+  --indigo-60: #133191;
+  --indigo-50: #163bf3;
+  --indigo-40: #6d83f3;
+  --indigo-30: #bdc7fb;
+  --indigo-20: #ebeeff;
+  --indigo-10: #f2f4ff;
+
+  --red-70: #8d1a00;
+  --red-60: #cf1d00;
+  --red-50: #ff341a;
+  --red-40: #ff7968;
+  --red-30: #ffc7bf;
+  --red-20: #ffe8e5;
+  --red-10: #fff1f0;
+
+  --yellow-70: #5b3100;
+  --yellow-60: #935000;
+  --yellow-50: #c98600;
+  --yellow-40: #fbbe2e;
+  --yellow-30: #fedd8e;
+  --yellow-20: #fff3d6;
+  --yellow-10: #fffaf0;
+
+  --gray-70: #323c45;
+  --gray-60: #46535f;
+  --gray-50: #687b8c;
+  --gray-40: #c3d1dd;
+  --gray-30: #e1eaf1;
+  --gray-20: #ebf2f7;
+  --gray-10: #f5f8fa;
+}
+
+body {
+  background-color: var(--indigo-70) !important;
+}
