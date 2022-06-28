@@ -9,6 +9,7 @@ import Logo from 'logo/Logo';
 import Flex from 'flex/Flex';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 import {Source} from '@storybook/components';
+import revManifest from 'RevManifest';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
@@ -111,35 +112,35 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/icons.js']}' rel='stylesheet'/>`}
 />
 
 **Subject Icons**
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-icons.js']}' rel='stylesheet'/>`}
 />
 
 **Subject Mono Icons**
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-mono-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-mono-icons.js']}' rel='stylesheet'/>`}
 />
 
 **Math Symbols**
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/math-symbols-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/math-symbols-icons.js']}' rel='stylesheet'/>`}
 />
 
 **Mobile Icons**
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/mobile-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/mobile-icons.js']}' rel='stylesheet'/>`}
 />
 
 ## More
