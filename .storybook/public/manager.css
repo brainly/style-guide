@@ -1,5 +1,8 @@
 :root {
   /* new colors variables from _config.scss as a css vars*/
+  --black: #000;
+  --white: #fff;
+
   --blue-70: #002238;
   --blue-60: #014a82;
   --blue-50: #0089e3;
@@ -51,4 +54,17 @@
 
 body {
   background-color: var(--indigo-70) !important;
+}
+
+.sidebar-container [data-nodetype='root'],
+.sidebar-container [data-nodetype='document'],
+.sidebar-container [data-nodetype='component'],
+.sidebar-container [data-nodetype='group'],
+.sidebar-container [data-nodetype='story'] {
+  color: var(--white);
+}
+
+/* seatch */
+#storybook-explorer-searchfield {
+  border: 1px solid var(--white);
 }
