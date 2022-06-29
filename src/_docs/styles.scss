@@ -124,7 +124,8 @@
   box-shadow: none;
 }
 
-.sbdocs-preview>div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button:focus {
+.sbdocs-preview>div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button:focus,
+.sbdocs-preview>div:nth-of-type(3):not(.docs-story) div:nth-of-type(2) button:focus {
   box-shadow: none;
 }
 
