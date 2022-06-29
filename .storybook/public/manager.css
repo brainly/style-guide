@@ -153,3 +153,29 @@ body {
 #storybook-explorer-menu small {
   color: var(--white) !important;
 }
+
+/* Sidebar header options button */
+
+.sidebar-header button {
+  color: var(--white) !important;
+  border-color: var(--white) !important;
+  box-shadow: none !important;
+}
+
+.sidebar-header button:focus {
+  color: var(--indigo-70) !important;
+}
+
+.sidebar-header button:focus * {
+  color: var(--indigo-70) !important;
+  stroke: var(--white) !important;
+}
+
+.sidebar-header button * {
+  color: var(--white) !important;
+  stroke: var(--white) !important;
+}
+
+.sidebar-header button::after {
+  background: var(--yellow-40) !important;
+}
