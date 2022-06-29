@@ -56,6 +56,10 @@ body {
   background-color: var(--indigo-70) !important;
 }
 
+.sidebar-container {
+  background-color: var(--indigo-70) !important;
+}
+
 .sidebar-container [data-nodetype='root'] button,
 .sidebar-container [data-nodetype='root'] button:focus,
 .sidebar-container [data-nodetype='document'],
