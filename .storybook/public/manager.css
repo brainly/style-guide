@@ -39,14 +39,16 @@ div[role='main'] > div {
   border: 1px solid #e1eaf1;
 }
 
-.sidebar-container button > span,
-.sidebar-container button:focus > span {
-  color: var(--white) !important;
+.sidebar-item {
+  background: none !important;
+}
+
+.sidebar-item[data-selected='true'] {
+  background: #000 !important;
+  color: #fff !important;
 }
 
 .sidebar-item[data-selected='true'][data-nodetype='story'] {
-  background: #000 !important;
-  color: #fff !important;
   margin-left: 20px;
   margin-right: 20px;
 }
