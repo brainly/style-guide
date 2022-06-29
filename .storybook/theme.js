@@ -3,15 +3,15 @@ import {create} from '@storybook/theming/create';
 export default create({
   base: 'light',
 
-  colorPrimary: '#000000',
-  colorSecondary: '#000000',
+  colorPrimary: '#0c114d',
+  colorSecondary: '#0c114d',
 
   // Typography
   fontBase: '"ProximaNova", "Helvetica", "Arial", sans-serif',
   fontCode: 'monospace',
   fontSize: '16px',
 
-  barSelectedColor: '#000000',
+  barSelectedColor: '#0c114d',
 
   brandTitle: 'Brainly',
   brandUrl: '/',
