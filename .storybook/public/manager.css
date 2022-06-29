@@ -94,7 +94,7 @@ body {
 }
 
 #storybook-explorer-searchfield:focus::placeholder {
-  color: var(--indigo-60) !important;
+  color: var(--indigo-70) !important;
 }
 
 .sidebar-container .search-field svg,
@@ -103,8 +103,18 @@ body {
   stroke: var(--white) !important;
 }
 
+.sidebar-container .search-field:focus-within svg,
+.sidebar-container .search-field:focus-within svg * {
+  fill: var(--indigo-70) !important;
+  stroke: var(--indigo-70) !important;
+}
+
 .sidebar-container .search-field code {
   color: var(--white) !important;
+}
+
+.sidebar-container .search-field:focus-within code {
+  color: var(--indigo-70) !important;
 }
 
 /* search result */
