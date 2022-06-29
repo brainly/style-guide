@@ -86,6 +86,15 @@ body {
 /* seatch */
 #storybook-explorer-searchfield {
   border: 1px solid var(--white);
+  color: var(--indigo-70);
+}
+
+#storybook-explorer-searchfield::placeholder {
+  color: var(--white) !important;
+}
+
+#storybook-explorer-searchfield:focus::placeholder {
+  color: var(--indigo-60) !important;
 }
 
 .sidebar-container .search-field svg,
@@ -97,6 +106,7 @@ body {
 .sidebar-container .search-field code {
   color: var(--white) !important;
 }
+
 /* search result */
 
 .search-result-recentlyOpened {
@@ -108,12 +118,13 @@ body {
   display: none;
 }
 
-.search-result-item--label strong {
+.search-result-item--label strong,
+.search-result-item--label span {
   color: var(--white) !important;
 }
 
-.search-result-item--label span {
-  color: var(--white) !important;
+.search-result-item--label mark {
+  color: var(--indigo-40) !important;
 }
 
 .search-result-back * {
@@ -126,4 +137,9 @@ body {
   color: var(--white) !important;
   fill: var(--white) !important;
   stroke: var(--white) !important;
+}
+
+#storybook-explorer-menu strong,
+#storybook-explorer-menu small {
+  color: var(--white) !important;
 }
