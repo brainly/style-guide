@@ -54,5 +54,5 @@ div[role='main'] > div {
 }
 
 .sidebar-item:not([data-selected='true']):focus {
-  background: transparent !important;
+  background: none !important;
 }
