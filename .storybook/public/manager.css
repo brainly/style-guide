@@ -44,13 +44,30 @@ div[role='main'] > div {
   color: var(--white) !important;
 }
 
-.sidebar-item[data-selected='true'] {
+.sidebar-item[data-selected='true'][data-nodetype='story'] {
   background: #000 !important;
   color: #fff !important;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sidebar-item[data-selected='true'][data-nodetype='story'] > * {
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .sidebar-item:not([data-selected='true']):hover {
-  background: rgba(0, 0, 0, 0.1) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.sidebar-item[data-nodetype='story']:not([data-selected='true']):hover {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.sidebar-item[data-nodetype='story']:not([data-selected='true']):hover > * {
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 .sidebar-item:not([data-selected='true']):focus {
