@@ -41,6 +41,11 @@ div[role='main'] > div {
 
 .sidebar-item {
   background: none !important;
+  margin-right: 20px;
+}
+
+.sidebar-item:hover {
+  margin-right: 20px;
 }
 
 .sidebar-item[data-selected='true'] {
