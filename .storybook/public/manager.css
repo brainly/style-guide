@@ -62,7 +62,7 @@ body {
 .sidebar-container [data-nodetype='component'],
 .sidebar-container [data-nodetype='group'],
 .sidebar-container [data-nodetype='story'] {
-  color: var(--white);
+  color: var(--white) !important;
 }
 
 .sidebar-container button > span,
