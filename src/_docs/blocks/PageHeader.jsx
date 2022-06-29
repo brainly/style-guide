@@ -3,6 +3,7 @@
 import * as React from 'react';
 import Headline from '../../components/text/Headline';
 import Box from '../../components/box/Box';
+import Flex from '../../components/flex/Flex';
 import PageHeaderImage from '../assets/component_top.png';
 import foundationTopImage from '../assets/foundation_top.png';
 import utilityTopImage from '../assets/utility_top.png';
@@ -22,18 +23,20 @@ const typeToImage = {
 
 const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => {
   return (
-    <Box
-      style={{
-        backgroundImage: `url(${typeToImage[type]})`,
-        backgroundPosition: 'right center',
-        backgroundSize: 'cover',
-      }}
-      padding="xl"
-    >
-      <Headline size="xxlarge" color="text-white" extraBold>
-        {children}
-      </Headline>
-    </Box>
+    <Flex marginBottom="l">
+      <Box
+        style={{
+          backgroundImage: `url(${typeToImage[type]})`,
+          backgroundPosition: 'right center',
+          backgroundSize: 'cover',
+        }}
+        padding="xl"
+      >
+        <Headline size="xxlarge" color="text-white" extraBold>
+          {children}
+        </Headline>
+      </Box>
+    </Flex>
   );
 };
 

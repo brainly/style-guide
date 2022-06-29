@@ -15,5 +15,5 @@ export default create({
 
   brandTitle: 'Brainly',
   brandUrl: '/',
-  brandImage: 'brainly-logo.png',
+  brandImage: 'brainly.svg',
 });

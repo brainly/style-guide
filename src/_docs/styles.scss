@@ -102,6 +102,10 @@
   border: 2px solid $gray-20;
 }
 
+.docblock-argstable-body tr {
+  border-bottom: 2px solid #ebf2f7;
+}
+
 .docblock-argstable-body tr span {
   font-size: 14px;
   color: #000000;
