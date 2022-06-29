@@ -123,6 +123,14 @@
   font-size: 14px;
 }
 
+.sbdocs.sbdocs-table tr td {
+  border: 2px solid $gray-20;
+}
+
+.sbdocs.sbdocs-table tr:nth-of-type(2n) {
+  background-color: $gray-10;
+}
+
 // this changes args table button to outline
 // to be discussed with team
 
