@@ -49,6 +49,7 @@
 .sbdocs.sbdocs-preview {
   box-shadow: none;
   border: 2px solid #ebf2f7;
+  margin: 8px 0 24px;
 }
 
 .sbdocs.sbdocs-h2 {
@@ -60,6 +61,10 @@
   position: relative;
   border: none;
   margin: 20px 0 8px;
+}
+
+.sbdocs.sbdocs-h2:first-of-type {
+  margin-top: 20px;
 }
 
 .sbdocs.sbdocs-p {
@@ -78,7 +83,6 @@
   text-transform: uppercase;
   letter-spacing: -0.0625rem;
   font-size: 24px;
-  line-height: 40px;
   font-weight: 900;
   position: relative;
 }
@@ -151,6 +155,7 @@
 
 .sbdocs .docblock-source {
   box-shadow: none;
+  margin: 8px 0 16px;
 }
 
 .docblock-source .prismjs {
