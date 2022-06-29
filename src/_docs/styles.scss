@@ -113,7 +113,8 @@
   background: none;
 }
 
-.sbdocs-preview > div:nth-of-type(2) div:nth-of-type(2) button {
+.sbdocs-preview > div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button,
+.sbdocs-preview>div:nth-of-type(3):not(.docs-story) div:nth-of-type(2) button {
   background: none;
   background-color: #fff;
   color: #000;
@@ -123,11 +124,11 @@
   box-shadow: none;
 }
 
-.sbdocs-preview > div:nth-of-type(2) div:nth-of-type(2) button:focus {
+.sbdocs-preview>div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button:focus {
   box-shadow: none;
 }
 
-.docs-story>div:nth-of-type(2) button {
+.sbdocs-preview .docs-story>div:nth-of-type(2) button {
   background: none;
   background-color: #000;
   color: #fff;
@@ -137,7 +138,7 @@
   box-shadow: none;
 }
 
-.docs-story>div:nth-of-type(2) button:focus {
+.sbdocs-preview .docs-story>div:nth-of-type(2) button:focus {
   box-shadow: none;
 }
 
