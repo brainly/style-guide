@@ -59,7 +59,7 @@ div[role='main'] > div {
 }
 
 .sidebar-item:not([data-selected='true']):hover {
-  background: rgba(0, 0, 0, 0.05) !important;
+  background: rgba(0, 0, 0, 0.02) !important;
 }
 
 .sidebar-item[data-nodetype='story']:not([data-selected='true']):hover {
