@@ -38,3 +38,21 @@ div[role='main'] > div {
   box-shadow: none;
   border: 1px solid #e1eaf1;
 }
+
+.sidebar-container button > span,
+.sidebar-container button:focus > span {
+  color: var(--white) !important;
+}
+
+.sidebar-item[data-selected='true'] {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.sidebar-item:not([data-selected='true']):hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+.sidebar-item:not([data-selected='true']):focus {
+  background: transparent !important;
+}
