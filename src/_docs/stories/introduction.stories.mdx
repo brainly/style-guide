@@ -13,6 +13,7 @@ import introTop from '../assets/introduction_top.png';
 import Headline from '../blocks/Headline';
 import Text from '../blocks/Text';
 import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
+import revManifest from 'RevManifest';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
@@ -93,7 +94,7 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/icons.js']}' rel='stylesheet'/>`}
 />
 
 <Text transform="uppercase" weight="bold">
@@ -102,7 +103,7 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-icons.js']}' rel='stylesheet'/>`}
 />
 
 <Text transform="uppercase" weight="bold">
@@ -111,7 +112,7 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-mono-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-mono-icons.js']}' rel='stylesheet'/>`}
 />
 
 <Text transform="uppercase" weight="bold">
@@ -120,7 +121,7 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/math-symbols-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/math-symbols-icons.js']}' rel='stylesheet'/>`}
 />
 
 <Text transform="uppercase" weight="bold">
@@ -129,7 +130,7 @@ For our icons include this scripts before the closing `</body>` tag:
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/mobile-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/mobile-icons.js']}' rel='stylesheet'/>`}
 />
 
 <Headline>More</Headline>
