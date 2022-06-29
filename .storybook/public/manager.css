@@ -86,6 +86,10 @@ body {
 /* seatch */
 #storybook-explorer-searchfield {
   border: 1px solid var(--white);
+  color: var(--white);
+}
+
+#storybook-explorer-searchfield:focus {
   color: var(--indigo-70);
 }
 
