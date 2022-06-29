@@ -58,8 +58,12 @@ div[role='main'] > div {
   margin-right: -20px;
 }
 
-.sidebar-item:not([data-selected='true']):hover {
-  background: rgba(0, 0, 0, 0.02) !important;
+.sidebar-item:hover {
+  background: rgba(0, 0, 0, 0.03) !important;
+}
+
+.sidebar-item[data-selected='true']:hover {
+  background: rgba(0, 0, 0, 0.9) !important;
 }
 
 .sidebar-item[data-nodetype='story']:not([data-selected='true']):hover {
