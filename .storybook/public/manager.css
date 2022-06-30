@@ -4,6 +4,13 @@
   font-weight: 900;
   color: rgb(0, 0, 0);
   letter-spacing: normal;
+  padding-right: 3px;
+}
+
+.sidebar-container [data-nodetype='root'] button {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .sidebar-item svg {
@@ -78,4 +85,14 @@ div[role='main'] > div {
 
 .sidebar-item:not([data-selected='true']):focus {
   background: none !important;
+}
+
+.sidebar-item[data-nodetype='component'],
+.sidebar-item[data-nodetype='group'] {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.sidebar-subheading-action[data-action='expand-all'] {
+  display: none;
 }
