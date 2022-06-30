@@ -114,7 +114,10 @@
 }
 
 .sbdocs-preview > div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button,
-.sbdocs-preview>div:nth-of-type(3):not(.docs-story) div:nth-of-type(2) button {
+.sbdocs-preview
+  > div:nth-of-type(3):not(.docs-story)
+  div:nth-of-type(2)
+  button {
   background: none;
   background-color: #fff;
   color: #000;
@@ -124,12 +127,18 @@
   box-shadow: none;
 }
 
-.sbdocs-preview>div:nth-of-type(2):not(.docs-story) div:nth-of-type(2) button:focus,
-.sbdocs-preview>div:nth-of-type(3):not(.docs-story) div:nth-of-type(2) button:focus {
+.sbdocs-preview
+  > div:nth-of-type(2):not(.docs-story)
+  div:nth-of-type(2)
+  button:focus,
+.sbdocs-preview
+  > div:nth-of-type(3):not(.docs-story)
+  div:nth-of-type(2)
+  button:focus {
   box-shadow: none;
 }
 
-.sbdocs-preview .docs-story>div:nth-of-type(2) button {
+.sbdocs-preview .docs-story > div:nth-of-type(2) button {
   background: none;
   background-color: #000;
   color: #fff;
@@ -139,11 +148,11 @@
   box-shadow: none;
 }
 
-.sbdocs-preview .docs-story>div:nth-of-type(2) button:focus {
+.sbdocs-preview .docs-story > div:nth-of-type(2) button:focus {
   box-shadow: none;
 }
 
-.docblock-source{
+.docblock-source {
   border-radius: 8px !important;
 }
 
@@ -200,24 +209,6 @@ pre.prismjs {
 .sbdocs.sbdocs-table tr:nth-of-type(2n) {
   background-color: $gray-10;
 }
-
-// this changes args table button to outline
-// to be discussed with team
-
-// .docblock-argstable-body button {
-//   border-radius: 16px;
-//   height: 32px;
-//   padding: 0 16px;
-//   font-size: 12px;
-//   line-height: 12px;
-//   background-color: rgba(255, 255, 255, 0);
-//   border: 2px solid #000;
-//   color: #000;
-
-//   &:hover {
-//     background-color: rgba(104, 123, 140, 0.12);
-//   }
-// }
 
 .sbdocs .docblock-source {
   box-shadow: none;
