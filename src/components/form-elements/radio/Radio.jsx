@@ -87,7 +87,7 @@ const Radio = ({
     'sg-radio--disabled': isDisabled,
     'sg-radio--with-label': !!hasLabel,
     'sg-radio--with-description': !!descriptionId,
-    'sg-checkbox--with-padding': !isInputOnly,
+    'sg-radio--with-padding': !isInputOnly,
   });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
