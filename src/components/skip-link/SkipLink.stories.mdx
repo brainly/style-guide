@@ -1,11 +1,12 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {screen, userEvent} from '@storybook/testing-library';
+import {within} from '@storybook/testing-library';
 
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 
-export const play = async () => {
-  const link = await screen.getByRole('link', {
+export const play = async ({canvasElement}) => {
+  const canvas = within(canvasElement);
+  const link = canvas.getByRole('link', {
     name: /skip to main content/i,
   });
   link.focus();
