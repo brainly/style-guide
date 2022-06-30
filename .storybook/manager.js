@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { addons } from '@storybook/addons';
+import {addons} from '@storybook/addons';
 import theme from './theme';
 import deprecated from '../deprecated.json';
-import { Badge } from '../src/_docs/blocks/Badge';
-import { Label } from '../src/_docs/blocks/Label';
+import {Badge} from '../src/_docs/blocks/Badge';
+import {Label} from '../src/_docs/blocks/Label';
 
 addons.setConfig({
   theme,
@@ -11,10 +11,9 @@ addons.setConfig({
   showPanel: true,
   sidebarAnimations: true,
   sidebar: {
-    renderLabel: (story) => {
+    renderLabel: story => {
       const isDeprecated = deprecated.components.find(
-        (item) =>
-          item.componentName?.toLowerCase() === story.name?.toLowerCase(),
+        item => item.componentName?.toLowerCase() === story.name?.toLowerCase()
       );
       if (story.isComponent && !story.isLeaf && isDeprecated) {
         return (
@@ -23,7 +22,17 @@ addons.setConfig({
           </Label>
         );
       }
-      return story.name;
+      return (
+        <div
+          style={{
+            fontSize: '14px',
+            padding: '2px 0',
+            lineHeight: '14px',
+          }}
+        >
+          {story.name}
+        </div>
+      );
     },
   },
 });
