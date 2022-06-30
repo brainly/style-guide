@@ -18,14 +18,14 @@ export type RadioPropsType = {
   id?: string,
   invalid?: boolean,
   name?: string,
-  onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
+  onChange?: (SyntheticInputEvent<HTMLInputElement>) => mixed,
   required?: boolean,
   /**
    * Style applied to the container.
    * @example <Radio style={{ '--radioColor': '#000' }} />
    */
   style?: $Shape<CSSStyleDeclaration>,
-  value: string,
+  value?: string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
   ...

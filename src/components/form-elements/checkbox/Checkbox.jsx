@@ -74,7 +74,7 @@ export type CheckboxPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever the state of the checkbox changes.
    */
-  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
+  onChange?: (SyntheticInputEvent<HTMLInputElement>) => void,
   /**
    * Style applied to the container.
    * @example <Checkbox style={{ '--checkboxColor': '#000' }} />
