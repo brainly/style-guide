@@ -1,9 +1,15 @@
 {
   "components": [
-    { "componentName": "IconAsButton", "className": "sg-icon-as-button" },
-    { "componentName": "ContentBox", "className": "sg-content-box" },
-    { "componentName": "ActionList", "className": "sg-actions-list" },
-    { "componentName": "MenuList", "className": "sg-menu-list" },
-    { "componentName": "PopupMenu", "className": "sg-popup-menu" }
+    {"componentName": "IconAsButton", "className": "sg-icon-as-button"},
+    {"componentName": "ContentBox", "className": "sg-content-box"},
+    {"componentName": "ActionList", "className": "sg-actions-list"},
+    {"componentName": "MenuList", "className": "sg-menu-list"},
+    {"componentName": "PopupMenu", "className": "sg-popup-menu"},
+    {"componentName": "Header", "className": "sg-header"},
+    {"componentName": "HeaderContainer", "className": "sg-header__container"},
+    {"componentName": "HeaderContent", "className": "sg-header__content"},
+    {"componentName": "HeaderLeft", "className": "sg-header__left"},
+    {"componentName": "HeaderMiddle", "className": "sg-header__middle"},
+    {"componentName": "HeaderRight", "className": "sg-header__right"}
   ]
 }

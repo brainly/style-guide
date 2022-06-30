@@ -5,29 +5,13 @@ import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
-const fadeEffect = {
-  initial: {opacity: 0},
-  animate: {opacity: 1, duration: 'quick1', easing: 'entry'},
-  exit: {opacity: 0, duration: 'quick1', easing: 'exit'},
-};
+const fadeEffect = Transition.createEffect({
+  type: 'fade',
+});
 
-const fadeSlideEffect = {
-  initial: {
-    opacity: 0,
-    transform: {translateY: 'm'},
-  },
-  animate: {
-    opacity: {value: 1, duration: 'quick1'},
-    transform: {translateY: 0, duration: 'moderate2'},
-    easing: 'entry',
-  },
-  exit: {
-    opacity: 0,
-    transform: {translateY: 'm'},
-    duration: 'quick2',
-    easing: 'exit',
-  },
-};
+const slideUpFadeEffect = Transition.createEffect({
+  type: 'slideUpFade',
+});
 
 export const PrefersReducedMotion = () => {
   const [visible, setVisible] = React.useState(false);
@@ -40,7 +24,7 @@ export const PrefersReducedMotion = () => {
     >
       <Transition
         active={visible}
-        effect={reduced => (reduced ? fadeEffect : fadeSlideEffect)}
+        effect={reduced => (reduced ? fadeEffect : slideUpFadeEffect)}
       >
         <DummyBox size="medium" color="blue" />
       </Transition>
@@ -50,10 +34,4 @@ export const PrefersReducedMotion = () => {
 
 PrefersReducedMotion.parameters = {
   layout: 'centered',
-  docs: {
-    description: {
-      story:
-        'Enable reduce motion in **System Preferences > Accessibility** to see different results.',
-    },
-  },
 };

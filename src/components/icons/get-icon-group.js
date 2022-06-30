@@ -39,6 +39,8 @@ const iconMap = {
     'textbook',
     'shield',
     'globe',
+    'multiselect_checked',
+    'multiselect_unchecked',
   ],
   Social: [
     'ask_parent_to_pay',
@@ -131,6 +133,7 @@ const iconMap = {
     'forward_5s',
     'replay',
     'time_speed',
+    'eraser',
   ],
   Navigation: [
     'arrow',
@@ -153,6 +156,7 @@ const iconMap = {
     'clear',
     'options',
     'filters',
+    'collapse',
   ],
   'Social Media': [
     'facebook',

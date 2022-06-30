@@ -5,7 +5,7 @@ import Headline from '../text/Headline';
 import Checkbox from './Checkbox';
 
 export default {
-  title: 'Components/Form/Checkbox',
+  title: 'Components/form/Checkbox',
   component: Checkbox,
 };
 

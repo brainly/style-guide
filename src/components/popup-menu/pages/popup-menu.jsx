@@ -4,17 +4,14 @@ import IconAsButton, {ICON_COLOR, TYPE} from 'icon-as-button/IconAsButton';
 import Button from 'buttons/Button';
 import DocsBlock from 'components/DocsBlock';
 import ContrastBox from 'components/ContrastBox';
+import DeprecatedNote from 'components/DeprecatedNote';
 import Avatar from 'avatar/Avatar';
-import Text from '../../text/Text';
-import Flex from '../../flex/Flex';
 
 const items = ['one', 'two', 'three'];
 
 const PopupsMenus = () => (
   <div>
-    <Flex marginBottom="m">
-      <Text color="text-red-60">This component is deprecated</Text>
-    </Flex>
+    <DeprecatedNote />
     <DocsBlock info="Default">
       <PopupMenu items={items} />
     </DocsBlock>

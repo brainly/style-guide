@@ -21,6 +21,8 @@ import IconAsButton, {
   TYPE as ICON_TYPE,
   ICON_COLOR,
 } from 'icon-as-button/IconAsButton';
+import HeaderA11y from './stories/Header.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
 
 <Meta
   title="Components/Header"
@@ -37,9 +39,10 @@ import IconAsButton, {
   }}
 />
 
-# Header
+<PageHeader>Header</PageHeader>
 
 - [Stories](#stories)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -290,3 +293,7 @@ import IconAsButton, {
     )}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<HeaderA11y />
