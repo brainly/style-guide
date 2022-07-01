@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Text, {TEXT_COLOR} from '../text/Text';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
+import {__DEV__, invariant} from '../utils';
 
 export type LabelColorType =
   | 'blue'
@@ -193,6 +194,18 @@ export type LabelPropsType = $ReadOnly<{
    * Additional class names
    */
   className?: string,
+  /**
+   * Accessible label for **close** button
+   */
+  closeButtonLabel?: string,
+  /**
+   * Accessible title for an icon
+   */
+  iconTitle?: string,
+  /**
+   * Hiding icon from accessibility tree
+   */
+  iconHidden?: boolean,
   ...
 }>;
 
@@ -203,8 +216,23 @@ const Label = ({
   onClose,
   color = 'achromatic',
   className,
+  closeButtonLabel = 'close',
+  iconTitle,
+  iconHidden,
   ...props
 }: LabelPropsType) => {
+  if (__DEV__) {
+    invariant(
+      !(!iconType && (iconHidden || iconTitle)),
+      'You cannot hide an icon or name it, when `iconType` s not provided'
+    );
+
+    invariant(
+      !(!onClose && closeButtonLabel),
+      // eslint-disable-next-line max-len
+      'Button is not rendered when `onClose` is not defined, so it cannot be named'
+    );
+  }
   const backgroundColor =
     type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
 
@@ -245,7 +273,13 @@ const Label = ({
     <div {...props} className={labelClass}>
       {iconType && (
         <div className="sg-label__icon">
-          <Icon type={iconType} color={iconColor} size={16} />
+          <Icon
+            type={iconType}
+            color={iconColor}
+            size={16}
+            aria-hidden={iconHidden}
+            title={iconTitle}
+          />
         </div>
       )}
       <Text
@@ -260,10 +294,9 @@ const Label = ({
         <button
           className="sg-label__close-button"
           onClick={onClose}
-          title="close"
-          aria-label="close"
+          aria-label={closeButtonLabel}
         >
-          <Icon type="close" color={closeIconColor} size={16} />
+          <Icon type="close" color={closeIconColor} size={16} aria-hidden />
         </button>
       ) : null}
     </div>
