@@ -1,8 +1,16 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {screen, userEvent} from '@storybook/testing-library';
+import {within} from '@storybook/testing-library';
 
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
+
+export const play = async ({canvasElement}) => {
+  const canvas = within(canvasElement);
+  const link = canvas.getByRole('link', {
+    name: /skip to main content/i,
+  });
+  link.focus();
+};
 
 <Meta title="Components/SkipLink" component={SkipLink} />
 
@@ -13,13 +21,7 @@ import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 ## Overview
 
 <Canvas>
-  <Story
-    name="default"
-    play={() => {
-      const link = screen.getByRole('link', {name: /skip to main content/i});
-      link.focus();
-    }}
-  >
+  <Story name="default" play={play}>
     {args => {
       return (
         <div>
