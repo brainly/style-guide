@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "215.0.1",
+  "version": "215.1.1",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -53,8 +53,10 @@
     "@storybook/addon-links": "^6.4.19",
     "@storybook/addons": "^6.4.19",
     "@storybook/react": "^6.4.19",
+    "@storybook/testing-library": "^0.0.11",
     "@storybook/theming": "^6.4.19",
     "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
