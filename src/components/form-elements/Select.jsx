@@ -152,7 +152,6 @@ const Select = (props: SelectPropsType) => {
     return null;
   });
 
-
   return (
     <div className={selectClass}>
       <div className="sg-select__icon">
