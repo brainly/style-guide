@@ -71,8 +71,9 @@ export type SelectPropsType = {
    */
   color?: ?SelectColorType,
   /**
-   * There are two sizes options for most of the form elements
+   * There are three sizes options for most of the form elements
    * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#select
    * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
    * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
