@@ -1,6 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../_docs/utils';
 import {Preview} from '../../_docs/blocks/';
+import LabelA11y from './stories/Label.a11y.mdx';
 
 import Label, {
   ICON_TYPE,
@@ -11,6 +12,7 @@ import Label, {
 } from './Label';
 import Headline from '../text/Headline';
 import hex from '../colors/hex';
+import PageHeader from 'blocks/PageHeader';
 const noop = () => null;
 const TRANSPARENT_COLOR_TEXT_MAP = {
   blue: 'blue',
@@ -45,9 +47,10 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   }}
 />
 
-# Label
+<PageHeader>Label</PageHeader>
 
 - [Stories](#stories)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -460,3 +463,7 @@ const TRANSPARENT_ICON_COLOR_MAP = {
     }}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<LabelA11y />

@@ -1,5 +1,6 @@
 import {Meta, Story} from '@storybook/addon-docs/blocks';
 import {IconItem, IconGallery} from 'blocks/IconGallery';
+import PageHeader from 'blocks/PageHeader';
 import Icon, {TYPE, ICON_COLOR, SIZE} from '../../components/icons/Icon';
 import MobileIcon, {
   TYPE as MOBILE_TYPE,
@@ -13,7 +14,7 @@ import MathSymbol, {
 
 <Meta title="Foundation ✨/Icons" />
 
-# Icons
+<PageHeader type="foundation">Icons</PageHeader>
 
 All rights reserved © Brainly. If you want to use our icons for other then Brainly promotion purposes, please contact us: pencil@brainly.com.
 
@@ -24,7 +25,7 @@ Comonly used icon set. Contains _editor icons_, _system icons_ and _social media
 <IconGallery>
   {Object.values(TYPE).map(type => (
     <IconItem name={type} key={type}>
-      <Icon size={32} color={ICON_COLOR['icon-black']} type={type} />
+      <Icon size={40} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
   ))}
 </IconGallery>
@@ -36,7 +37,7 @@ Icons used in © Brainly mobile application.
 <IconGallery>
   {Object.values(MOBILE_TYPE).map(type => (
     <IconItem name={type} key={type}>
-      <MobileIcon size={32} color={ICON_COLOR['icon-black']} type={type} />
+      <MobileIcon size={40} color={ICON_COLOR['icon-black']} type={type} />
     </IconItem>
   ))}
 </IconGallery>
@@ -48,7 +49,7 @@ Icon set for subject related content.
 <IconGallery>
   {Object.values(SUBJECT_TYPE).map(type => (
     <IconItem name={type} key={type}>
-      <SubjectIcon type={type} size="small" />
+      <SubjectIcon type={type} size={40} />
     </IconItem>
   ))}
 </IconGallery>
@@ -62,7 +63,7 @@ Icon set for subject related content - monochromatic version.
     <IconItem name={type} key={type}>
       <SubjectIcon
         type={type}
-        size="small"
+        size={40}
         monoColor={ICON_COLOR['icon-gray-70']}
       />
     </IconItem>
@@ -76,7 +77,7 @@ Icon set used in rich text editor.
 <IconGallery>
   {Object.values(MATH_SYMBOL_TYPE).map(type => (
     <IconItem name={type} key={type}>
-      <MathSymbol type={type} color={ICON_COLOR['icon-gray-70']} size="small" />
+      <MathSymbol type={type} color={ICON_COLOR['icon-gray-70']} size={40} />
     </IconItem>
   ))}
 </IconGallery>
