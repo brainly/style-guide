@@ -4,13 +4,18 @@
   font-weight: 900;
   color: rgb(0, 0, 0);
   letter-spacing: normal;
-  padding-right: 3px;
+  padding-right: 8px;
 }
 
 .sidebar-container [data-nodetype='root'] button {
   flex-direction: row-reverse;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+}
+
+.sidebar-subheading[data-nodetype='root'] {
+  margin-left: 20px;
 }
 
 .sidebar-item svg {
@@ -31,6 +36,7 @@ body {
 
 .sidebar-item {
   border-radius: 20px;
+  padding-right: 8px !important;
 }
 
 .sidebar-container {
@@ -89,8 +95,17 @@ div[role='main'] > div {
 
 .sidebar-item[data-nodetype='component'],
 .sidebar-item[data-nodetype='group'] {
+  padding-left: 18px;
+}
+
+.sidebar-item[data-nodetype='component'],
+.sidebar-item[data-nodetype='group'] {
   flex-direction: row-reverse;
   justify-content: space-between;
+}
+
+.sidebar-item[data-nodetype='group'] {
+  margin-left: 20px;
 }
 
 .sidebar-subheading-action[data-action='expand-all'] {
