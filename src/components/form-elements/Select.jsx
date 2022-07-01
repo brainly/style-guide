@@ -14,7 +14,7 @@ type GroupedOptionsPropsType = {
   options: $ReadOnlyArray<OptionsPropsType>,
 };
 
-type SelectSizeType = 'm' | 'l';
+type SelectSizeType = 's' | 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
 
@@ -27,11 +27,19 @@ export const COLOR: {
 };
 
 export const SIZE: {
+  S: 's',
   M: 'm',
   L: 'l',
 } = {
+  S: 's',
   M: 'm',
   L: 'l',
+};
+
+export const ICON_SIZE = {
+  [SIZE.L]: 32,
+  [SIZE.M]: 24,
+  [SIZE.S]: 16,
 };
 
 export type SelectPropsType = {
@@ -144,13 +152,14 @@ const Select = (props: SelectPropsType) => {
     return null;
   });
 
+
   return (
     <div className={selectClass}>
       <div className="sg-select__icon">
         <Icon
-          type="arrow_down"
+          type="caret_down"
           color={ICON_COLOR['icon-gray-50']}
-          size={size === 'l' ? 24 : 16}
+          size={ICON_SIZE[size]}
         />
       </div>
 

@@ -9,7 +9,7 @@ $includeHtml: false !default;
 
     &__element {
       display: inline-block;
-      padding: 0 36px 0 spacing(s);
+      padding: 0 36px 0 (spacing(s) + 2px);
       appearance: none;
       width: 100%;
       border: 2px solid $gray-20;
@@ -32,11 +32,12 @@ $includeHtml: false !default;
 
     &__icon {
       position: absolute;
-      top: spacing(xs) + 4px;
+      top: spacing(xs);
       right: spacing(xs) + 4px;
       pointer-events: none;
       z-index: 1;
       display: flex;
+
     }
 
     &--white {
@@ -92,7 +93,7 @@ $includeHtml: false !default;
 
     &--l {
       .sg-select__icon {
-        top: spacing(s);
+        top: spacing(xs) + 4px;
         right: spacing(s);
       }
 
@@ -100,7 +101,7 @@ $includeHtml: false !default;
         height: $formElementSizeL;
         font-size: $formElementLargeFontSize;
         border-radius: $formElementLargeBorderRadius;
-        padding: 0 50px 0 spacing(m);
+        padding: 0 48px 0 (spacing(m) + 2px);
 
         &::-ms-expand {
           display: none;
@@ -109,6 +110,28 @@ $includeHtml: false !default;
 
       &::placeholder {
         font-size: $formElementLargeFontSize;
+      }
+    }
+
+    &--s {
+      .sg-select__icon {
+        top: spacing(xs);
+        right: spacing(xs) + 2px;
+      }
+
+      .sg-select__element {
+        height: $formElementSizeS;
+        font-size: $formElementSmallFontSize;
+        border-radius: $formElementSmallBorderRadius;
+        padding: 0 26px 0 (spacing(xs) + 6px);
+
+        &::-ms-expand {
+          display: none;
+        }
+      }
+
+      &::placeholder {
+        font-size: $formElementSmallFontSize;
       }
     }
 

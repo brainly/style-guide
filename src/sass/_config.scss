@@ -247,6 +247,7 @@ $responsiveVariants: (
 );
 
 // Form elements configuration
+$formElementSizeS: 32px;
 $formElementSizeM: 40px; // Standard size for elements like inputs, selects or buttons
 $formElementSizeL: 56px;
 $formElementDefaultBackgroundColor: $graySecondaryLightest;
@@ -255,11 +256,13 @@ $formElementActiveBorderColor: $graySecondaryLight;
 $formElementDefaultTextColor: $black;
 $formElementPlacholderTextColor: $graySecondary;
 $formElementDisabledPlacholderTextColor: $graySecondaryLight;
+$formElementSmallFontSize: 14px;
 $formElementDefaultFontSize: 16px; // fix zooming to input on focus in iOS devices
 $formElementLargeFontSize: 18px;
 $formElementDefaultLineHeight: 24px;
 $formElementValidColor: $mintPrimary;
 $formElementInvalidColor: $peachPrimary;
+$formElementSmallBorderRadius: 16px;
 $formElementStandardBorderRadius: 20px;
 $formElementLargeBorderRadius: 28px;
 
