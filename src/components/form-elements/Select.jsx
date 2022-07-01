@@ -36,12 +36,6 @@ export const SIZE: {
   L: 'l',
 };
 
-export const ICON_SIZE = {
-  [SIZE.L]: 32,
-  [SIZE.M]: 24,
-  [SIZE.S]: 16,
-};
-
 export type SelectPropsType = {
   /**
    * Optional specification for select value
@@ -94,6 +88,12 @@ export type SelectPropsType = {
    */
   className?: string,
   ...
+};
+
+export const ICON_SIZE = {
+  [SIZE.L]: 32,
+  [SIZE.M]: 24,
+  [SIZE.S]: 16,
 };
 
 const getOptionElement = ({value, text}: OptionsPropsType) => (
