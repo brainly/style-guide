@@ -19,7 +19,7 @@ export type RadioGroupPropsType = {
   required?: boolean,
   name?: string,
   onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
-  value?: string,
+  value?: ?string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
   ...

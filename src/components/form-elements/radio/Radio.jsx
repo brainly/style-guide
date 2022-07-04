@@ -25,7 +25,7 @@ export type RadioPropsType = {
    * @example <Radio style={{ '--radioColor': '#000' }} />
    */
   style?: $Shape<CSSStyleDeclaration>,
-  value?: string,
+  value?: ?string,
   'aria-labelledby'?: string,
   'aria-describedby'?: string,
   ...
