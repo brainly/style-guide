@@ -34,6 +34,7 @@ export type CheckboxPropsType = {
   /**
    * Sets whether the checkbox is initially checked.
    * @example <Checkbox defaultChecked />
+   * @default false
    */
   defaultChecked?: boolean,
   /**
@@ -44,6 +45,7 @@ export type CheckboxPropsType = {
   /**
    * Sets whether the checkbox is disabled.
    * @example <Checkbox disabled />
+   * @default false
    */
   disabled?: boolean,
   /**
@@ -59,11 +61,13 @@ export type CheckboxPropsType = {
   /**
    * Sets whether the checkbox is displayed as indeterminate. Note: this prop doesn't modify the `checked` property.
    * @example <Checkbox indeterminate />
+   * @default false
    */
   indeterminate?: boolean,
   /**
    * Sets whether the checkbox marked as invalid.
    * @example <Checkbox invalid />
+   * @default false
    */
   invalid?: boolean,
   /**
@@ -83,6 +87,7 @@ export type CheckboxPropsType = {
   /**
    * Sets whether the checkbox input is marked as required. This doesn't affect checkbox style.
    * @example <Checkbox required />
+   * @default false
    */
   required?: boolean,
   /**

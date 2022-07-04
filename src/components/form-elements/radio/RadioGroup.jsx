@@ -9,18 +9,69 @@ import type {RadioColorType} from './Radio';
 type DirectionType = 'row' | 'column';
 
 export type RadioGroupPropsType = {
+  /**
+   * Radiogroup inner elements
+   * @example <RadioGroup><Radio>Label</Radio></RadioGroup>
+   */
   children?: React.Node,
+  /**
+   * Optional string. Additional classnames.
+   */
   className?: ?string,
+  /**
+   * Specify color variant of the Radios that you want to use.
+   * @example <RadioGroup color="light" />
+   */
   color?: RadioColorType,
+  /**
+   * Specify items display direction.
+   * @example <RadioGroup direction="row" />
+   * @default "column"
+   */
   direction?: DirectionType,
+  /**
+   * Sets whether the radio is disabled.
+   * @example <RadioGroup disabled />
+   */
   disabled?: boolean,
+  /**
+   * To be displayed below RadioGroup. The error message is not clickable. Note: you have to set `invalid` prop as well, to render the error message.
+   * @example <RadioGroup invalid errorMessage="Error message"><Radio>Label</Radio></RadioGroup>
+   */
   errorMessage?: string,
+  /**
+   * Sets whether Radios are marked as invalid.
+   * @example <RadioGroup invalid />
+   */
   invalid?: boolean,
+  /**
+   * Sets whether the RadioGroup is marked as required. This has no effect on the style.
+   * @example <RadioGroup required />
+   */
   required?: boolean,
+  /**
+   * The name of Radio inputs.
+   * @example <RadioGroup name="name" />
+   */
   name?: string,
+  /**
+   * Function called with an object containing the react synthetic event, whenever selected radio input changes.
+   */
   onChange: (SyntheticInputEvent<HTMLInputElement>) => mixed,
+  /**
+   * Currently selected radio input.
+   * @example <RadioGroup value="1"><Radio value="1">Label</Radio></RadioGroup>
+   */
   value?: ?string,
+  /**
+   * ID of a custom label, that describes the radio group.
+   * @example <RadioGroup aria-labelledby="my-custom-label" />
+   */
   'aria-labelledby'?: string,
+  /**
+   * ID of a custom text / section, that describes the radio group.
+   * @example <RadioGroup aria-describedby="my-custom-label" />
+   */
   'aria-describedby'?: string,
   ...
 };
