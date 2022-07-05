@@ -163,6 +163,11 @@ export function createCSSTransitionAnimator(
     return value / speed + units;
   }
 
+  /**
+   * The instant transition is that defined
+   * with a zero duration that won't trigger
+   * a native transitionEnd event.
+   */
   function isInstantTransition(
     parsedProps?: ParsedPropertyObjectType,
     willChangeProps: CSSTransitionedPropsType
