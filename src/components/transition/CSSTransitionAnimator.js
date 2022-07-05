@@ -172,16 +172,12 @@ export function createCSSTransitionAnimator(
     parsedProps?: ParsedPropertyObjectType,
     willChangeProps: CSSTransitionedPropsType
   ) {
-    if (parsedProps === undefined) {
-      return true;
-    }
+    if (parsedProps !== undefined) {
+      const someDuration = Object.keys(willChangeProps).some(
+        prop => parsedProps[prop].duration !== '0ms'
+      );
 
-    const props = Object.keys(willChangeProps);
-
-    for (let i = 0; i < props.length; i++) {
-      if (parsedProps[props[i]].duration !== '0ms') {
-        return false;
-      }
+      return someDuration === false;
     }
 
     return true;
