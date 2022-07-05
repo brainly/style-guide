@@ -38,6 +38,13 @@ export function createCSSTransitionAnimator(
   const hasLastChangedValue = (prop: string) =>
     history[0][prop].value !== history[1][prop].value;
 
+  const getWillChangeProps = () => ({
+    transform: hasLastChangedValue('transform'),
+    width: hasLastChangedValue('width'),
+    height: hasLastChangedValue('height'),
+    opacity: hasLastChangedValue('opacity'),
+  });
+
   /**
    * A single animation may include multiple CSS transitions
    * of different properties and the animator should invoke
@@ -50,74 +57,6 @@ export function createCSSTransitionAnimator(
    */
   let remainingPropsToChange: number = 0;
   let finishCallbackRef = null;
-
-  function addTransitionStyles(
-    element: HTMLElement,
-    from?: PropertyObjectType,
-    to?: PropertyObjectType,
-    speed?: number
-  ) {
-    let fromParsedProps, toParsedProps;
-
-    if (from !== undefined) {
-      fromParsedProps = parsePropertyObject(from);
-      pushState(fromParsedProps);
-    }
-
-    if (to !== undefined) {
-      toParsedProps = parsePropertyObject(to);
-      pushState(toParsedProps);
-    }
-
-    /**
-     * We can determine which properties will actually
-     * change after pushing them into the history.
-     */
-    const willChangeProps = {
-      transform: hasLastChangedValue('transform'),
-      width: hasLastChangedValue('width'),
-      height: hasLastChangedValue('height'),
-      opacity: hasLastChangedValue('opacity'),
-    };
-
-    remainingPropsToChange = Object.keys(willChangeProps).reduce(
-      (sum, prop) => sum + Number(willChangeProps[prop]),
-      0
-    );
-
-    if (fromParsedProps !== undefined) {
-      addElementStyles({
-        element,
-        transitioned: false,
-        parsedProps: fromParsedProps,
-        willChangeProps,
-      });
-
-      // repaint between synchronized styles change
-      forceRepaint(element);
-    }
-
-    if (toParsedProps !== undefined) {
-      addElementStyles({
-        element,
-        transitioned: true,
-        parsedProps: toParsedProps,
-        willChangeProps,
-        speed,
-      });
-    }
-
-    /**
-     * Only the optional "to" props are "transitioned" and
-     * defined can try to execute an animation with a zero
-     * duration that won't trigger a transitionEnd event.
-     */
-    const instant = isInstantTransition(toParsedProps, willChangeProps);
-
-    return {
-      instant,
-    };
-  }
 
   function addElementStyles({
     element,
@@ -244,36 +183,97 @@ export function createCSSTransitionAnimator(
   }
 
   return {
-    animate: (
+    animate(
       element: HTMLElement,
       from?: PropertyObjectType,
       to?: PropertyObjectType,
       speed?: number
-    ) => {
-      const {instant} = addTransitionStyles(element, from, to, speed);
+    ) {
+      let fromParsedProps, toParsedProps;
 
-      if (instant) {
-        remainingPropsToChange = 0;
+      if (from !== undefined) {
+        fromParsedProps = parsePropertyObject(from);
+        pushState(fromParsedProps);
+      }
 
-        if (finishCallbackRef) {
-          finishCallbackRef();
-        }
+      if (to !== undefined) {
+        toParsedProps = parsePropertyObject(to);
+        pushState(toParsedProps);
+      }
+
+      /**
+       * We can determine which properties will actually
+       * change after pushing them into the history.
+       */
+      const willChangeProps = getWillChangeProps();
+
+      /**
+       * Only the optional "to" props are "transitioned" and
+       * defined can try to execute an animation with a zero
+       * duration that won't trigger a transitionEnd event.
+       */
+      const instant = isInstantTransition(toParsedProps, willChangeProps);
+
+      if (!instant) {
+        remainingPropsToChange = Object.keys(willChangeProps).reduce(
+          (sum, prop) => sum + Number(willChangeProps[prop]),
+          0
+        );
+      }
+
+      if (fromParsedProps !== undefined) {
+        addElementStyles({
+          element,
+          transitioned: false,
+          parsedProps: fromParsedProps,
+          willChangeProps,
+        });
+
+        // repaint between synchronized styles change
+        forceRepaint(element);
+      }
+
+      if (toParsedProps !== undefined) {
+        addElementStyles({
+          element,
+          transitioned: true,
+          parsedProps: toParsedProps,
+          willChangeProps,
+          speed,
+        });
+      }
+
+      if (instant && finishCallbackRef) {
+        finishCallbackRef();
       }
     },
-    apply: (element: HTMLElement, props?: PropertyObjectType) => {
-      addTransitionStyles(element, props, undefined, undefined);
-      remainingPropsToChange = 0; // to not fire any callback
+
+    apply(element: HTMLElement, props?: PropertyObjectType) {
+      if (props !== undefined) {
+        const parsedProps = parsePropertyObject(props);
+
+        pushState(parsedProps);
+        addElementStyles({
+          element,
+          transitioned: false,
+          parsedProps,
+          willChangeProps: getWillChangeProps(),
+        });
+      }
     },
-    cleanup: (element: HTMLElement) => {
+
+    cleanup(element: HTMLElement) {
       pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);
     },
-    propertyTransitionEnd: () => {
+
+    propertyTransitionEnd() {
       if (--remainingPropsToChange === 0 && finishCallbackRef) {
         finishCallbackRef();
       }
     },
-    onFinish: (callback: () => void) => {
+
+    onFinish(callback: () => void) {
       finishCallbackRef = callback;
     },
   };
