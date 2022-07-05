@@ -1,6 +1,7 @@
 @if ($includeHtml) {
   .sg-accordion-item {
     overflow-anchor: none;
+    transition: $durationQuick2 $easingLinear border-color;
 
     &--no-gap {
       border-radius: 0;
@@ -38,14 +39,10 @@
     }
 
     &__content {
-      transition: 0.2s ease-out;
+      transition: $durationModerate2 $easingRegular;
       transition-property: height;
       height: 0;
       overflow: hidden;
-
-      @media (prefers-reduced-motion) {
-        transition: none;
-      }
     }
 
     &__content-box {
@@ -53,23 +50,50 @@
     }
 
     &__arrow {
-      transition: 0.2s ease-out transform;
-      transform: rotateX(0);
+      transition: $durationModerate2 $easingRegular transform;
+      transform: rotateX(0deg);
 
       &--visible {
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
       }
     }
 
     &__icon {
-      border-radius: 50%;
       width: 40px;
       height: 40px;
       flex: none;
+      position: relative;
 
-      &--hover {
-        background: $gray-20;
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(85%);
+        width: 40px;
+        height: 40px;
+        content: '';
+        border-radius: 50%;
+        transition: $durationQuick2 $easingLinear background-color,
+          $durationQuick2 $easingRegular transform;
       }
+
+      &--hover::before {
+        background-color: $gray-20;
+        transform: scale(100%);
+      }
+    }
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+
+      & * {
+        transition: none;
+      }
+    }
+
+    &--reduced-motion,
+    &--reduced-motion * {
+      transition: none;
     }
   }
 }

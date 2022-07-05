@@ -2,6 +2,8 @@ const path = require('path');
 const glob = require('glob');
 const webpackConfigFn = require('../webpack.config');
 const webpackConfig = webpackConfigFn();
+const pkg = require('../package.json');
+const fs = require('fs');
 
 process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
@@ -40,6 +42,37 @@ module.exports = {
 
     // support for aliases
     config.resolve.modules.push(...webpackConfig.resolve.modules);
+
+    let revManifestPath;
+
+    const pathToVersionedManifest = path.resolve(
+      __dirname,
+      '../',
+      'dist',
+      pkg.version,
+      'rev-manifest.json'
+    );
+    const pathToDevManifest = path.resolve(
+      __dirname,
+      '../',
+      'dist',
+      'dev',
+      'rev-manifest.json'
+    );
+
+    revManifestPath = [pathToVersionedManifest, pathToDevManifest].find(path =>
+      fs.existsSync(path)
+    );
+
+    if (!revManifestPath) {
+      throw new Error(`rev-manifest.json not found in paths:
+      ${pathToVersionedManifest}
+      ${pathToDevManifest}.
+      Run 'yarn build'.`);
+    }
+
+    // alias for finger printed asset urls
+    config.resolve.alias.RevManifest = revManifestPath;
 
     return config;
   },

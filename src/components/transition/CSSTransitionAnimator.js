@@ -38,6 +38,13 @@ export function createCSSTransitionAnimator(
   const hasLastChangedValue = (prop: string) =>
     history[0][prop].value !== history[1][prop].value;
 
+  const getWillChangeProps = () => ({
+    transform: hasLastChangedValue('transform'),
+    width: hasLastChangedValue('width'),
+    height: hasLastChangedValue('height'),
+    opacity: hasLastChangedValue('opacity'),
+  });
+
   /**
    * A single animation may include multiple CSS transitions
    * of different properties and the animator should invoke
@@ -50,63 +57,6 @@ export function createCSSTransitionAnimator(
    */
   let remainingPropsToChange: number = 0;
   let finishCallbackRef = null;
-
-  function animate(
-    element: HTMLElement,
-    from?: PropertyObjectType,
-    to?: PropertyObjectType,
-    speed?: number
-  ) {
-    let fromParsedProps, toParsedProps;
-
-    if (from !== undefined) {
-      fromParsedProps = parsePropertyObject(from);
-      pushState(fromParsedProps);
-    }
-
-    if (to !== undefined) {
-      toParsedProps = parsePropertyObject(to);
-      pushState(toParsedProps);
-    }
-
-    /**
-     * We can determine which properties will actually
-     * change after pushing them into the history.
-     */
-    const willChangeProps = {
-      transform: hasLastChangedValue('transform'),
-      width: hasLastChangedValue('width'),
-      height: hasLastChangedValue('height'),
-      opacity: hasLastChangedValue('opacity'),
-    };
-
-    remainingPropsToChange = Object.keys(willChangeProps).reduce(
-      (sum, prop) => sum + Number(willChangeProps[prop]),
-      0
-    );
-
-    if (fromParsedProps !== undefined) {
-      addElementStyles({
-        element,
-        transitioned: false,
-        parsedProps: fromParsedProps,
-        willChangeProps,
-      });
-
-      // repaint between synchronized styles change
-      forceRepaint(element);
-    }
-
-    if (toParsedProps !== undefined) {
-      addElementStyles({
-        element,
-        transitioned: true,
-        parsedProps: toParsedProps,
-        willChangeProps,
-        speed,
-      });
-    }
-  }
 
   function addElementStyles({
     element,
@@ -213,18 +163,116 @@ export function createCSSTransitionAnimator(
     return value / speed + units;
   }
 
+  /**
+   * The instant transition is that defined
+   * with a zero duration that won't trigger
+   * a native transitionEnd event.
+   */
+  function isInstantTransition(
+    parsedProps?: ParsedPropertyObjectType,
+    willChangeProps: CSSTransitionedPropsType
+  ) {
+    if (parsedProps !== undefined) {
+      return !Object.keys(willChangeProps).some(
+        prop => parsedProps[prop].duration !== '0ms'
+      );
+    }
+
+    return true;
+  }
+
   return {
-    animate,
-    cleanup: (element: HTMLElement) => {
+    animate(
+      element: HTMLElement,
+      from?: PropertyObjectType,
+      to?: PropertyObjectType,
+      speed?: number
+    ) {
+      let fromParsedProps, toParsedProps;
+
+      if (from !== undefined) {
+        fromParsedProps = parsePropertyObject(from);
+        pushState(fromParsedProps);
+      }
+
+      if (to !== undefined) {
+        toParsedProps = parsePropertyObject(to);
+        pushState(toParsedProps);
+      }
+
+      /**
+       * We can determine which properties will actually
+       * change after pushing them into the history.
+       */
+      const willChangeProps = getWillChangeProps();
+
+      remainingPropsToChange = Object.keys(willChangeProps).reduce(
+        (sum, prop) => sum + Number(willChangeProps[prop]),
+        0
+      );
+
+      if (fromParsedProps !== undefined) {
+        addElementStyles({
+          element,
+          transitioned: false,
+          parsedProps: fromParsedProps,
+          willChangeProps,
+        });
+
+        // repaint between synchronized styles change
+        forceRepaint(element);
+      }
+
+      if (toParsedProps !== undefined) {
+        addElementStyles({
+          element,
+          transitioned: true,
+          parsedProps: toParsedProps,
+          willChangeProps,
+          speed,
+        });
+      }
+
+      /**
+       * Only the optional "to" props are "transitioned" and
+       * defined can try to execute an animation with a zero
+       * duration that won't trigger a transitionEnd event.
+       */
+      if (isInstantTransition(toParsedProps, willChangeProps)) {
+        remainingPropsToChange = 0;
+
+        if (finishCallbackRef) {
+          finishCallbackRef();
+        }
+      }
+    },
+
+    apply(element: HTMLElement, props?: PropertyObjectType) {
+      if (props !== undefined) {
+        const parsedProps = parsePropertyObject(props);
+
+        pushState(parsedProps);
+        addElementStyles({
+          element,
+          transitioned: false,
+          parsedProps,
+          willChangeProps: getWillChangeProps(),
+        });
+      }
+    },
+
+    cleanup(element: HTMLElement) {
       pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);
     },
-    propertyTransitionEnd: () => {
+
+    propertyTransitionEnd() {
       if (--remainingPropsToChange === 0 && finishCallbackRef) {
         finishCallbackRef();
       }
     },
-    onFinish: (callback: () => void) => {
+
+    onFinish(callback: () => void) {
       finishCallbackRef = callback;
     },
   };

@@ -66,6 +66,7 @@ gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
 
 gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
+gulp.task('fingerprint-replace-new', getTask('fingerprint-replace-new'));
 gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
 
 gulp.task('svgs-generate', getTask('svgs-generate'));
@@ -113,6 +114,18 @@ gulp.task(
     'index-fingerprint-replace',
     'root-redirect-page',
     'copy-latest'
+  )
+);
+
+gulp.task(
+  'build-new',
+  gulp.series(
+    'clean:dist',
+    'sass:build',
+    'svgs-generate',
+    'fingerprint',
+    'fingerprint-replace-new',
+    'root-redirect-page'
   )
 );
 

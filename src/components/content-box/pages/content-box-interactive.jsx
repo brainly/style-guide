@@ -9,6 +9,7 @@ import Text from 'text/Text';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+import DeprecatedNote from 'components/DeprecatedNote';
 
 const ContentBoxes = () => {
   const settings = [
@@ -28,6 +29,7 @@ const ContentBoxes = () => {
 
   return (
     <div>
+      <DeprecatedNote />
       <DocsActiveBlock settings={settings}>
         <ContentBox>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel dui

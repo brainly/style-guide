@@ -28,7 +28,6 @@ import breadcrumb from '../components/breadcrumb/pages/breadcrumb';
 import bubble from '../components/bubble/pages/bubble';
 import contentBox from '../components/content-box/pages/content-box';
 import flashMessage from '../components/flash-messages/pages/flash-messages';
-import footer from '../components/footer/pages/footer';
 import rwd from '../components/helpers/pages/rwd';
 import homeButton from '../components/home-button/pages/home-button';
 import layout from '../components/layout/pages/layout';
@@ -263,12 +262,8 @@ const navigation = [
         component: popupMenu,
       },
       {
-        name: 'Header',
+        name: 'Header (deprecated)',
         component: header,
-      },
-      {
-        name: 'Footer',
-        component: footer,
       },
       {
         name: 'Action List (deprecated)',

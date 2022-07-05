@@ -1,0 +1,31 @@
+### Rules
+
+| Pattern                              | Comment                                                                                                                                   | Status                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **Should** have 4.5:1 contrast ratio | `red-60` against white 5.48:1, `blue-60` against white 9.11:1, `gray-20` against black 18.57:1                                            | Implementation: DONE<br />Tests: N/A  |
+| **Should** have an accessible name   | Can be named by a label specified by `aria-label` prop or a value (`IDREF`) set for the `aria-labelledby` prop that refers to an element. | Implementation: DONE<br />Tests: DONE |
+
+### Usage
+
+#### Code examples
+
+- with a label only
+
+<!-- prettier-ignore -->
+```jsx
+<Counter aria-label="Notifications:">
+  32
+</Counter>
+```
+
+- with an icon
+
+<!-- prettier-ignore -->
+```jsx
+<Counter aria-label="Points to earn:" icon={ICON_TYPE.POINTS}>
+  +15
+  <Text type="span" color="text-gray-60" inherited>
+    pts
+  </Text>
+</Counter>
+```

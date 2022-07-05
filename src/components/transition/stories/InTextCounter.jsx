@@ -31,11 +31,11 @@ const increment = (n: number) => n + 1;
 
 export const InTextCounter = () => {
   const [count, setCount] = React.useState(0);
-  const [effectIndex, setEffectIndex] = React.useState(0);
-  const currentEffect = cycle[effectIndex % cycle.length];
+  const [index, setIndex] = React.useState(0);
+  const currentEffect = cycle[index % cycle.length];
 
   const handleTransitionEnd = effect => {
-    setEffectIndex(increment);
+    setIndex(increment);
 
     // increase count value when the counter is hidden
     if (effect === slideFadeOutEffect) {
@@ -50,7 +50,11 @@ export const InTextCounter = () => {
       onTransitionEnd={handleTransitionEnd}
       inline
     >
-      <Text weight="bold" style={{fontVariantNumeric: 'tabular-nums'}}>
+      <Text
+        weight="bold"
+        style={{fontVariantNumeric: 'tabular-nums'}}
+        inherited
+      >
         {count}
       </Text>
     </Transition>
@@ -59,9 +63,9 @@ export const InTextCounter = () => {
   const users = count === 1 ? 'user' : 'users';
 
   return (
-    <div>
+    <Text>
       Counters! {counter} {users} love them.
-    </div>
+    </Text>
   );
 };
 

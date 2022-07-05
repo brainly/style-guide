@@ -135,7 +135,12 @@ export type IconTypeType =
   | 'quote'
   | 'spark'
   | 'dot'
-  | 'clear';
+  | 'clear'
+  | 'collapse'
+  | 'cursor_select'
+  | 'eraser'
+  | 'multiselect_checked'
+  | 'multiselect_unchecked';
 
 export type IconColorType =
   | 'adaptive'
@@ -286,6 +291,11 @@ export const TYPE: {
   SPARK: 'spark',
   DOT: 'dot',
   CLEAR: 'clear',
+  COLLAPSE: 'collapse',
+  CURSOR_SELECT: 'cursor_select',
+  ERASER: 'eraser',
+  MULTISELECT_CHECKED: 'multiselect_checked',
+  MULTISELECT_UNCHECKED: 'multiselect_unchecked',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
@@ -418,6 +428,11 @@ export const TYPE: {
   SPARK: 'spark',
   DOT: 'dot',
   CLEAR: 'clear',
+  COLLAPSE: 'collapse',
+  CURSOR_SELECT: 'cursor_select',
+  ERASER: 'eraser',
+  MULTISELECT_CHECKED: 'multiselect_checked',
+  MULTISELECT_UNCHECKED: 'multiselect_unchecked',
 };
 
 export const ICON_COLOR: {

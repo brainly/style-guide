@@ -7,6 +7,8 @@ import {TYPE as ICON_TYPE} from '../icons/Icon';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 import Text from '../text/Text';
+import CounterA11y from './stories/Counter.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
 
 <Meta
   title="Components/Counter"
@@ -22,9 +24,10 @@ import Text from '../text/Text';
   }}
 />
 
-# Counter
+<PageHeader>Counter</PageHeader>
 
 - [Stories](#stories)
+- [Accessibility](#accessibility)
 
 ## Overview
 
@@ -104,7 +107,7 @@ import Text from '../text/Text';
                 </td>
                 <td>
                   <Flex justifyContent="center">
-                    <Counter key={size} {...args} size={size} color="blue-50">
+                    <Counter key={size} {...args} size={size} color="blue-60">
                       2
                     </Counter>
                   </Flex>
@@ -132,3 +135,7 @@ import Text from '../text/Text';
     )}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<CounterA11y />

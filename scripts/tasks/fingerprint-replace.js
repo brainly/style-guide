@@ -1,5 +1,5 @@
-module.exports = function(gulp, plugins, consts) {
-  return function() {
+module.exports = function (gulp, plugins, consts) {
+  return function () {
     const manifest = require(plugins.path.join(
       consts.VERSIONED_DIST,
       'rev-manifest'
@@ -23,7 +23,8 @@ module.exports = function(gulp, plugins, consts) {
       '**',
       '*.html'
     );
-    const inlineReferencesReg = /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g;
+    const inlineReferencesReg =
+      /(?:url\(["']?(.*?)['"]?\)|src=["'](.*?)['"]|src=([^\s\>]+)(?:\>|\s)|data=["'](.*?)['"]|href=["'](.*?)['"]|href=([^\s\>]+)(?:\>|\s))/g;
     const docsHtmlRootRelativePath = '../../';
     const docsCssRootRelativePath = '../../../';
     const componentsHtmlRootRelativePath = '../../../../';

@@ -47,6 +47,11 @@ const contentCounterSlideEffect = {
     transform: {scaleY: 1, duration: 'gentle1', origin: 'left top'},
     easing: 'entry',
   },
+  exit: {
+    opacity: 0,
+    duration: 'quick2',
+    easing: 'exit',
+  },
 };
 
 export const OffsetBehavior = () => {

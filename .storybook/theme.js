@@ -1,18 +1,19 @@
-import { create } from '@storybook/theming/create';
+import {create} from '@storybook/theming/create';
 
 export default create({
   base: 'light',
 
-  colorPrimary: '#60d399',
-  colorSecondary: '#60d399',
+  colorPrimary: '#000000',
+  colorSecondary: '#000000',
 
   // Typography
   fontBase: '"ProximaNova", "Helvetica", "Arial", sans-serif',
   fontCode: 'monospace',
+  fontSize: '16px',
 
-  barSelectedColor: '#60d399',
+  barSelectedColor: '#000000',
 
   brandTitle: 'Brainly',
   brandUrl: '/',
-  brandImage: 'brainly-logo.png',
+  brandImage: 'brainly.svg',
 });

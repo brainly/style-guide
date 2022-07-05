@@ -10,6 +10,8 @@ export type HeaderContentPropsType = {
   ...
 };
 
+// This component is deprecated
+
 const HeaderContent = ({
   children,
   autoHeight,

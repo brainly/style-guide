@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import BreadcrumbA11y from './stories/Breadcrumb.a11y.mdx';
 import Breadcrumb from './Breadcrumb';
 import hex from '../colors/hex';
+import PageHeader from 'blocks/PageHeader';
 const elements = ['Comments (9)', 'Report', 'Follow'];
 const longElements = [
   'I am so long and there is so little space there',
@@ -42,7 +43,7 @@ const longElements = [
   args={{elements}}
 />
 
-# Breadcrumb
+<PageHeader>Breadcrumb</PageHeader>
 
 - [Stories](#stories)
 - [Accesibility](#accessibility)

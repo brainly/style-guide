@@ -3,68 +3,60 @@ import GitHubButton from 'react-github-btn';
 import {version} from '../../../package.json';
 import Link from 'text/Link';
 import TextBit from 'text/TextBit';
-import Text from 'text/Text';
+
 import Label from 'labels/Label';
 import Logo from 'logo/Logo';
 import Flex from 'flex/Flex';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
 import {Source} from '@storybook/components';
+import introTop from '../assets/introduction_top.png';
+import Headline from '../blocks/Headline';
+import Text from '../blocks/Text';
+import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
+import revManifest from 'RevManifest';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
-<div style={{display: 'flex', justifyContent: 'flex-end'}}>
-  <GitHubButton
-    href="https://github.com/brainly/style-guide"
-    data-icon="octicon-star"
-    data-show-count="true"
-    aria-label="Star brainly/style-guide on GitHub"
-  >
-    Star
-  </GitHubButton>
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'flex-end',
+    borderRadius: '8px',
+    overflow: 'hidden',
+  }}
+>
+  <img src={introTop} />
 </div>
 
-<Flex direction="column" alignItems="center" className="sg-space-y-s">
-  <Logo />
-  <Flex
-    direction="column"
-    alignItems="flex-end"
-    style={{position: 'relative'}}
-    className="sg-space-x-xs"
-  >
-    <Text size="small" weight="bold" color="text-gray-40">
+<Flex direction="column" alignItems="center" marginTop="xs">
+  <Flex direction="column" alignItems="flex-end" style={{position: 'relative'}}>
+    <Text size="medium" weight="bold" color="text-gray-40">
       v{version}
     </Text>
-    <TextBit align="center" type="h1" color="text-black">
-      Brainly style guide
-    </TextBit>
-  </Flex>
-  <Flex className="sg-space-x-xxs">
-    <img src="https://img.shields.io/npm/v/brainly-style-guide" />
-    <img src="https://img.shields.io/npm/l/brainly-style-guide" />
-    <img src="https://img.shields.io/travis/brainly/style-guide" />
   </Flex>
 </Flex>
 
-<br />
+Welcome to the official Brainly style guide! This style guide is being used
+across all language versions of the Brainly website and some smaller sites.
 
-Welcome to the official Brainly style guide! This style guide is being used across all language versions of the Brainly website and some smaller sites.
-
-<Flex className="sg-space-x-xs" justifyContent="center">
-  <Link href="https://brainly.com">brainly.com</Link>
-  <Text color="text-gray-40">•</Text>
-  <Link href="https://znanija.com">znanija.com</Link>
-  <Text color="text-gray-40">•</Text>
-  <Link href="https://nosdevoirs.fr">nosdevoirs.fr</Link>
+<Flex justifyContent="center">
+  <Breadcrumb
+    elements={[
+      <Link href="https://brainly.com">brainly.com</Link>,
+      <Link href="https://znanija.com">znanija.com</Link>,
+      <Link href="https://nosdevoirs.fr">nosdevoirs.fr</Link>,
+    ]}
+  />
 </Flex>
 
 <br />
 
 ## How to use it?
 
-React components are stored in `npm` package. To make it work you need to install package and import styles.
-You can use css from our <Link size="small" href="#external-css">cdn</Link> or import `scss` from package itself.
+React components are stored in `npm` package. To make it work you need to
+install package and import styles. You can use css from our <Link href="#external-css">cdn</Link> or import `scss` from package itself.
 
-### Installation
+## Installation
 
 ```bash
 # npm
@@ -74,11 +66,7 @@ npm install -S brainly-style-guide
 yarn add brainly-style-guide
 ```
 
-```bash
-
-```
-
-### Usage
+## Usage
 
 ```jsx
 // Following line is required if you don't use css from public cdn
@@ -94,7 +82,7 @@ const App = () => {
 };
 ```
 
-### External CSS
+## External CSS
 
 In order to use style guide components, you have to include CSS file in the `<head>` of your website:
 
@@ -103,45 +91,62 @@ In order to use style guide components, you have to include CSS file in the `<he
   code={`<link href='https://styleguide.brainly.com/${version}/style-guide.css' rel='stylesheet'/>`}
 />
 
-### Icons (SVG sprites)
+## Icons (SVG sprites)
 
 For our icons include this scripts before the closing `</body>` tag:
 
-**Basic Icons**
+<Text transform="uppercase" weight="bold">
+  Basic Icons
+</Text>
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/icons.js']}' rel='stylesheet'/>`}
 />
 
-**Subject Icons**
+<Text transform="uppercase" weight="bold">
+  Subject Icons
+</Text>
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-icons.js']}' rel='stylesheet'/>`}
 />
 
-**Subject Mono Icons**
+<Text transform="uppercase" weight="bold">
+  Subject Mono Icons
+</Text>
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/subject-mono-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/subjects-mono-icons.js']}' rel='stylesheet'/>`}
 />
 
-**Math Symbols**
+<Text transform="uppercase" weight="bold">
+  Math Symbols
+</Text>
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/math-symbols-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/math-symbols-icons.js']}' rel='stylesheet'/>`}
 />
 
-**Mobile Icons**
+<Text transform="uppercase" weight="bold">
+  Mobile Icons
+</Text>
 
 <Source
   type="html"
-  code={`<link href='https://styleguide.brainly.com/%%images/mobile-icons.js%%' rel='stylesheet'/>`}
+  code={`<link href='https://styleguide.brainly.com/${revManifest['images/mobile-icons.js']}' rel='stylesheet'/>`}
 />
 
-## More
+<Headline>More</Headline>
 
-If you'd like to learn more about this project, report a bug or contribute check it out on <Link size="small" href="https://github.com/brainly/style-guide">github</Link>
+<Text>
+  If you'd like to learn more about this project, report a bug or contribute
+  check it out on{' '}
+  <Link size="small" href="https://github.com/brainly/style-guide">
+    github
+  </Link>
+  .
+</Text>
