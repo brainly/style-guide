@@ -21,8 +21,14 @@ const EXIT_OPACITY = '0.3';
 
 const testEffect = {
   initial: {opacity: INITIAL_OPACITY},
-  animate: {opacity: ANIMATE_OPACITY},
-  exit: {opacity: EXIT_OPACITY},
+  animate: {opacity: ANIMATE_OPACITY, duration: 'quick2'},
+  exit: {opacity: EXIT_OPACITY, duration: 'quick2'},
+};
+
+const instantEffect = {
+  initial: {opacity: INITIAL_OPACITY},
+  animate: {opacity: ANIMATE_OPACITY, duration: 'instant'},
+  exit: {opacity: EXIT_OPACITY, duration: 'instant'},
 };
 
 describe('<Transition />', () => {
@@ -62,7 +68,7 @@ describe('<Transition />', () => {
       />
     );
 
-    expect(onTransitionStart).toHaveBeenCalled();
+    expect(onTransitionStart).toHaveBeenCalledTimes(1);
   });
 
   it('fires onTransitionEnd as a fallback when not support transition', () => {
@@ -77,7 +83,7 @@ describe('<Transition />', () => {
       />
     );
 
-    expect(onTransitionEnd).toHaveBeenCalled();
+    expect(onTransitionEnd).toHaveBeenCalledTimes(1);
   });
 
   it.each`
@@ -122,5 +128,20 @@ describe('<Transition />', () => {
 
     expect(wrapper.getDOMNode().style.opacity).toBe(ANIMATE_OPACITY);
     expect(effectFunction).toHaveBeenCalledWith(false);
+  });
+
+  fit('fires onTransitionEnd after instant transition', () => {
+    const onTransitionEnd = jest.fn();
+
+    mount(
+      <Transition
+        effect={instantEffect}
+        onTransitionEnd={onTransitionEnd}
+        fillMode="both"
+        active
+      />
+    );
+
+    expect(onTransitionEnd).toHaveBeenCalledTimes(1);
   });
 });
