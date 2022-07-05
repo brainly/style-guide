@@ -130,7 +130,7 @@ describe('<Transition />', () => {
     expect(effectFunction).toHaveBeenCalledWith(false);
   });
 
-  fit('fires onTransitionEnd after instant transition', () => {
+  it('fires onTransitionEnd after instant transition', () => {
     const onTransitionEnd = jest.fn();
 
     mount(
