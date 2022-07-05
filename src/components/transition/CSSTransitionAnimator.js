@@ -51,7 +51,7 @@ export function createCSSTransitionAnimator(
   let remainingPropsToChange: number = 0;
   let finishCallbackRef = null;
 
-  function animate(
+  function executeTransition(
     element: HTMLElement,
     from?: PropertyObjectType,
     to?: PropertyObjectType,
@@ -106,6 +106,17 @@ export function createCSSTransitionAnimator(
         speed,
       });
     }
+
+    /**
+     * Only the optional "to" props are "transitioned" and
+     * defined can try to execute an animation with a zero
+     * duration that won't trigger a transitionEnd event.
+     */
+    const instant = isInstantTransition(toParsedProps, willChangeProps);
+
+    return {
+      instant,
+    };
   }
 
   function addElementStyles({
@@ -213,8 +224,45 @@ export function createCSSTransitionAnimator(
     return value / speed + units;
   }
 
+  function isInstantTransition(
+    parsedProps?: ParsedPropertyObjectType,
+    willChangeProps: CSSTransitionedPropsType
+  ) {
+    if (parsedProps === undefined) {
+      return true;
+    }
+
+    const props = Object.keys(willChangeProps);
+
+    for (let i = 0; i < props.length; i++) {
+      if (parsedProps[props[i]].duration !== '0ms') {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   return {
-    animate,
+    animate: (
+      element: HTMLElement,
+      from?: PropertyObjectType,
+      to?: PropertyObjectType,
+      speed?: number
+    ) => {
+      const {instant} = executeTransition(element, from, to, speed);
+
+      if (instant) {
+        remainingPropsToChange = 0;
+
+        if (finishCallbackRef) {
+          finishCallbackRef();
+        }
+      }
+    },
+    apply: (element: HTMLElement, props?: PropertyObjectType) => {
+      executeTransition(element, props, undefined, undefined);
+    },
     cleanup: (element: HTMLElement) => {
       pushState(DEFAULT_PARSED_PROPS);
       removeElementStyles(element);

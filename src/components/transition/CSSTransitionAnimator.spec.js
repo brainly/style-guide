@@ -244,4 +244,27 @@ describe('createCSSTransitionAnimator()', () => {
     animator.propertyTransitionEnd();
     expect(callback).toHaveBeenCalledTimes(1);
   });
+
+  it('calls onFinish callback after instant animation', () => {
+    const callback = jest.fn();
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    animator.onFinish(callback);
+    animator.animate(
+      element,
+      {
+        transform: {translateY: 24},
+        opacity: 0,
+      },
+      {
+        transform: {translateY: 0},
+        opacity: {value: 1},
+        duration: 'instant',
+      }
+    );
+
+    // the propertyTransitionEnd callback shouldn't be fired
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
 });
