@@ -51,7 +51,7 @@ export function createCSSTransitionAnimator(
   let remainingPropsToChange: number = 0;
   let finishCallbackRef = null;
 
-  function executeTransition(
+  function addTransitionStyles(
     element: HTMLElement,
     from?: PropertyObjectType,
     to?: PropertyObjectType,
@@ -250,7 +250,7 @@ export function createCSSTransitionAnimator(
       to?: PropertyObjectType,
       speed?: number
     ) => {
-      const {instant} = executeTransition(element, from, to, speed);
+      const {instant} = addTransitionStyles(element, from, to, speed);
 
       if (instant) {
         remainingPropsToChange = 0;
@@ -261,7 +261,8 @@ export function createCSSTransitionAnimator(
       }
     },
     apply: (element: HTMLElement, props?: PropertyObjectType) => {
-      executeTransition(element, props, undefined, undefined);
+      addTransitionStyles(element, props, undefined, undefined);
+      remainingPropsToChange = 0; // to not fire any callback
     },
     cleanup: (element: HTMLElement) => {
       pushState(DEFAULT_PARSED_PROPS);

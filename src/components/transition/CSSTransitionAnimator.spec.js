@@ -267,4 +267,32 @@ describe('createCSSTransitionAnimator()', () => {
     // the propertyTransitionEnd callback shouldn't be fired
     expect(callback).toHaveBeenCalledTimes(1);
   });
+
+  it('does not fire onFinish callback after many apply methods', () => {
+    const callback = jest.fn();
+    const animator = createCSSTransitionAnimator(classNamesRegistry);
+    const element = document.createElement('div');
+
+    animator.onFinish(callback);
+    animator.apply(element, {
+      opacity: 0,
+      duration: 'quick2',
+    });
+
+    animator.apply(element, {
+      opacity: 0.5,
+      duration: 'quick2',
+    });
+
+    animator.apply(element, {
+      opacity: 1,
+      duration: 'quick2',
+    });
+
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
+    animator.propertyTransitionEnd();
+    expect(callback).toHaveBeenCalledTimes(0);
+  });
 });
