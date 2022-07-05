@@ -207,19 +207,10 @@ export function createCSSTransitionAnimator(
        */
       const willChangeProps = getWillChangeProps();
 
-      /**
-       * Only the optional "to" props are "transitioned" and
-       * defined can try to execute an animation with a zero
-       * duration that won't trigger a transitionEnd event.
-       */
-      const instant = isInstantTransition(toParsedProps, willChangeProps);
-
-      if (!instant) {
-        remainingPropsToChange = Object.keys(willChangeProps).reduce(
-          (sum, prop) => sum + Number(willChangeProps[prop]),
-          0
-        );
-      }
+      remainingPropsToChange = Object.keys(willChangeProps).reduce(
+        (sum, prop) => sum + Number(willChangeProps[prop]),
+        0
+      );
 
       if (fromParsedProps !== undefined) {
         addElementStyles({
@@ -243,8 +234,17 @@ export function createCSSTransitionAnimator(
         });
       }
 
-      if (instant && finishCallbackRef) {
-        finishCallbackRef();
+      /**
+       * Only the optional "to" props are "transitioned" and
+       * defined can try to execute an animation with a zero
+       * duration that won't trigger a transitionEnd event.
+       */
+      if (isInstantTransition(toParsedProps, willChangeProps)) {
+        remainingPropsToChange = 0;
+
+        if (finishCallbackRef) {
+          finishCallbackRef();
+        }
       }
     },
 
