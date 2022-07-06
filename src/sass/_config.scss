@@ -1,9 +1,9 @@
 @use 'sass:math';
 
 // Shadows
-$shadowSmall: 0 2px 8px 0 rgba($grayPrimary, 0.2);
-$shadowMedium: 0 4px 16px 0 rgba($grayPrimary, 0.2);
-$shadowLarge: 0 8px 32px 0 rgba($grayPrimary, 0.2);
+$shadowSmall: 0 2px 8px 0 rgba($gray-70, 0.2);
+$shadowMedium: 0 4px 16px 0 rgba($gray-70, 0.2);
+$shadowLarge: 0 8px 32px 0 rgba($gray-70, 0.2);
 
 // Fonts
 $fontFamilyProximaNova: 'ProximaNova';
@@ -109,17 +109,17 @@ $responsiveVariants: (
 // Form elements configuration
 $formElementSizeM: 40px; // Standard size for elements like inputs, selects or buttons
 $formElementSizeL: 56px;
-$formElementDefaultBackgroundColor: $graySecondaryLightest;
-$formElementDisabledBackgroundColor: $graySecondaryUltraLight;
-$formElementActiveBorderColor: $graySecondaryLight;
+$formElementDefaultBackgroundColor: $gray-20;
+$formElementDisabledBackgroundColor: $gray-10;
+$formElementActiveBorderColor: $gray-40;
 $formElementDefaultTextColor: $black;
-$formElementPlacholderTextColor: $graySecondary;
-$formElementDisabledPlacholderTextColor: $graySecondaryLight;
+$formElementPlacholderTextColor: $gray-50;
+$formElementDisabledPlacholderTextColor: $gray-40;
 $formElementDefaultFontSize: 16px; // fix zooming to input on focus in iOS devices
 $formElementLargeFontSize: 18px;
 $formElementDefaultLineHeight: 24px;
-$formElementValidColor: $mintPrimary;
-$formElementInvalidColor: $peachPrimary;
+$formElementValidColor: $green-40;
+$formElementInvalidColor: $red-40;
 $formElementStandardBorderRadius: 20px;
 $formElementLargeBorderRadius: 28px;
 
