@@ -2,6 +2,8 @@
 
 $includeHtml: false !default;
 
+$bitSizeNames: small medium large xlarge;
+
 $bitSizes: (
   xlarge: 80px,
   large: 56px,
@@ -43,7 +45,7 @@ $bitSizes: (
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
-      @each $bitSizeName, $bitSize in $bitSizes {
+      @each $bitSizeName in $bitSizeNames {
         @include makeResponsive($variant, 'sg-text-bit--#{$bitSizeName}') {
           @if ($bitSizeName == small) {
             @include uppercaseText(0);
