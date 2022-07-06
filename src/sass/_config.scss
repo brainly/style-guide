@@ -1,5 +1,7 @@
 @use 'sass:math';
 
+$transparent: rgba(255, 255, 255, 0);
+
 // Shadows
 $shadowSmall: 0 2px 8px 0 rgba($gray-70, 0.2);
 $shadowMedium: 0 4px 16px 0 rgba($gray-70, 0.2);
