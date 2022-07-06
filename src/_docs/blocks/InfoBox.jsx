@@ -6,14 +6,14 @@ import Text from '../../components/text/Text';
 import Flex from '../../components/flex/Flex';
 import Icon from '../../components/icons/Icon';
 
-export type InfoBoxType = 'warning' | 'info' | 'error';
+type InfoBoxType = 'warning' | 'info' | 'error';
 
 interface InfoBoxProps {
   type?: InfoBoxType;
   children: React.Node;
 }
 
-export const COLORS_MAP: {
+const COLORS_MAP: {
   info: 'blue-20',
   warning: 'yellow-20',
   error: 'red-20',
@@ -23,7 +23,7 @@ export const COLORS_MAP: {
   error: 'red-20',
 };
 
-export const ICON_COLORS_MAP: {
+const ICON_COLORS_MAP: {
   info: 'icon-blue-50',
   warning: 'icon-yellow-50',
   error: 'icon-red-50',
@@ -33,7 +33,7 @@ export const ICON_COLORS_MAP: {
   error: 'icon-red-50',
 };
 
-export const ICONS_MAP: {
+const ICONS_MAP: {
   info: 'info',
   warning: 'warning',
   error: 'clear',

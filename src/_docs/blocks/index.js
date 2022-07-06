@@ -1,3 +1,4 @@
+export {InfoBox} from './InfoBox';
 export {Badge} from './Badge';
 export {Canvas} from './Canvas';
 export {DocsStory} from './DocsStory';
