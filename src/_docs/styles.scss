@@ -218,3 +218,54 @@ pre.prismjs {
 .docblock-source .prismjs {
   font-size: 14px;
 }
+
+.intro-page-header {
+  border-radius: 8px;
+  width: 320px;
+  height: 336px;
+  background-image: url('./assets/introduction_phone.jpg');
+  background-size: cover;
+  padding-top: 64px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @include sgResponsive(md) {
+    width: 768px;
+    height: 400px;
+    padding-top: 74px;
+    background-image: url('./assets/introduction_tablet.jpg');
+  }
+
+  @include sgResponsive(lg) {
+    width: 1000px;
+    height: 400px;
+    padding-top: 32px;
+    background-image: url('./assets/introduction_desktop.jpg');
+  }
+
+  &__text {
+    width: 176px;
+
+    @include sgResponsive(md) {
+      width: 369px;
+    }
+
+    @include sgResponsive(lg) {
+      width: 535px;
+    }
+  }
+
+  &__logo {
+    height: auto;
+    width: 88px;
+
+    @include sgResponsive(md) {
+      width: 108px;
+    }
+
+    @include sgResponsive(lg) {
+      width: 144px;
+    }
+  }
+}

@@ -39,29 +39,20 @@ $bitSizes: (
     }
 
     @include textColor();
-
-    &--small {
-      @include uppercaseText(0);
-      font-size: getBitSize(small);
-      line-height: getBitSize(small);
-    }
-
-    &--large {
-      font-size: getBitSize(large);
-      line-height: getBitSize(large);
-    }
-
-    &--xlarge {
-      font-size: getBitSize(xlarge);
-      line-height: getBitSize(xlarge);
-    }
   }
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
       @each $bitSizeName, $bitSize in $bitSizes {
         @include makeResponsive($variant, 'sg-text-bit--#{$bitSizeName}') {
-          font-size: $bitSize;
+          @if ($bitSizeName == small) {
+            @include uppercaseText(0);
+          } @else {
+            @include uppercaseText(-0.0625rem);
+          }
+
+          font-size: getBitSize($bitSizeName);
+          line-height: getBitSize($bitSizeName);
         }
       }
     }
