@@ -11,6 +11,7 @@ import hex from '../src/components/colors/hex';
 
 import {Primary} from 'blocks/Primary';
 import {Stories} from 'blocks/Stories';
+import {InfoBox} from 'blocks/InfoBox';
 
 // load all styles
 import '../src/main.scss';
@@ -54,6 +55,9 @@ export const parameters = {
   docs: {
     page: Page,
     theme,
+    components: {
+      InfoBox,
+    },
   },
   controls: {hideNoControlsWarning: true},
   options: {
