@@ -9,7 +9,7 @@ import Link from '../text/Link';
 import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
-import PageHeader from 'blocks/PageHeader';
+import mountainsImage from './stories/mountains.jpg';
 
 <Meta
   title="Components/Dialog"
@@ -60,7 +60,7 @@ import PageHeader from 'blocks/PageHeader';
   }}
 />
 
-<PageHeader>Dialog</PageHeader>
+# Dialog
 
 - [Accessibility](#accessibility)
 
@@ -194,6 +194,131 @@ import PageHeader from 'blocks/PageHeader';
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+### With Ads
+
+<Canvas>
+  <Story name="With Ads">
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const [anotherOpen, setAnotherOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const handleDismissAnother = () => setAnotherOpen(false);
+      const headerId = 'dialog-header';
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button type="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={headerId}
+            overlay={
+              <img
+                style={{width: '100%', height: '100%', display: 'block'}}
+                src={mountainsImage}
+              />
+            }
+            bottom={
+              <div
+                style={{backgroundColor: 'red', color: 'black', padding: 20}}
+              >
+                bottom ad - bottom ad - bottom ad - bottom ad - bottom ad -
+                bottom ad bottom ad - bottom ad - bottom ad - bottom ad - bottom
+                ad - bottom ad
+              </div>
+            }
+            left={
+              <div
+                style={{backgroundColor: 'blue', color: 'black', padding: 20}}
+              >
+                left ad - left ad - left ad - left ad
+              </div>
+            }
+            right={
+              <div
+                style={{backgroundColor: 'green', color: 'black', padding: 20}}
+              >
+                right ad - right ad - right ad - right ad
+              </div>
+            }
+            top={
+              <div
+                style={{backgroundColor: 'purple', color: 'black', padding: 20}}
+              >
+                top ad - top ad - top ad - top ad
+              </div>
+            }
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={headerId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex marginBottom="m">
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+              </Flex>
+              <Flex marginBottom="m">
+                <Link
+                  as="button"
+                  onClick={() => setAnotherOpen(true)}
+                  onKeyDown={({key}) => key === 'Enter' && setAnotherOpen(true)}
+                >
+                  Open another dialog
+                </Link>
+              </Flex>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button type="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button type="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+          <Dialog
+            {...args}
+            size="s"
+            open={anotherOpen}
+            onDismiss={handleDismissAnother}
+            labelledBy={anotherHeaderId}
+          >
+            <DialogCloseButton onClick={handleDismissAnother} />
+            <DialogHeader id={anotherHeaderId}>
+              <Flex marginBottom="m">
+                <Headline>
+                  Are you really sure you want to stop asking this question?
+                </Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button type="outline" onClick={handleDismissAnother}>
+                  cancel
+                </Button>
+                <Button type="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
 
 ## Accessibility
 

@@ -18,8 +18,6 @@ $dialogMaxWidthMap: (
 .sg-dialog {
   &__overlay {
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -31,6 +29,8 @@ $dialogMaxWidthMap: (
     background-color: transparent;
 
     @include sgResponsive(md) {
+      display: grid;
+      grid-template-rows: 1fr [dialog-row-start] auto [dialog-row-end] 1fr;
       padding: spacing(m);
     }
 
@@ -42,13 +42,97 @@ $dialogMaxWidthMap: (
       overflow: auto;
     }
 
+    &--space-top {
+      grid-template-rows: [dialog-row-start] auto [dialog-row-end] 1fr;
+
+      .sg-dialog-top {
+        display: none;
+      }
+    }
+
     &--fullscreen {
       padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      .sg-dialog-left,
+      .sg-dialog-right,
+      .sg-dialog-top,
+      .sg-dialog-bottom {
+        display: none;
+      }
+    }
+
+    @each $sizeName, $maxWidth in $dialogMaxWidthMap {
+      &--size-#{$sizeName} {
+        grid-template-columns:
+          1fr [dialog-column-start] minmax(0, $maxWidth)
+          [dialog-column-end] 1fr;
+      }
+    }
+  }
+
+  &__overlay-body {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &-bottom {
+    display: none;
+    grid-row-start: dialog-row-end;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-left {
+    display: none;
+    grid-row-start: dialog-row-start;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-right {
+    display: none;
+    grid-row-start: dialog-row-end;
+    grid-row-start: dialog-row-start;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+  }
+
+  &-top {
+    display: none;
+    grid-row-end: dialog-row-start;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: auto;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
     }
   }
 
   &__container {
+    grid-row-start: dialog-row-start;
+    grid-row-end: dialog-row-end;
+    grid-column-start: dialog-column-start;
+    grid-column-end: dialog-column-end;
     display: flex;
+    flex: auto;
     flex-direction: column;
     position: relative;
     background-color: $white;
@@ -57,6 +141,8 @@ $dialogMaxWidthMap: (
     width: 100%;
     margin-top: auto;
     margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     transition-property: transform, opacity;
     transition-duration: $durationModerate2, $durationQuick2;
     transition-timing-function: $easingExit, $easingLinear;
@@ -66,12 +152,6 @@ $dialogMaxWidthMap: (
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
       margin-bottom: auto;
-
-      @each $sizeName, $maxWidth in $dialogMaxWidthMap {
-        &--size-#{$sizeName} {
-          max-width: #{$maxWidth};
-        }
-      }
     }
 
     &--size-fullscreen {
