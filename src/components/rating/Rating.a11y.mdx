@@ -1,8 +1,6 @@
-# Rating accessibility
+### Rules
 
-<br/>
-
-## Rating
+#### Rating
 
 | Pattern                                                                             | Comment                                                                                                                                                                                             | Status                                |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
@@ -11,12 +9,13 @@
 | **Should** have accessible label describing current rate value                      | `aria-label` defaults to `"current rate"`                                                                                                                                                           | Implementation: DONE<br />Tests: DONE |
 | **Should** have accessible label describing rate action with min and max rate value | `{activeText}, min: 1, max: {metricSize}`                                                                                                                                                           | Implementation: DONE<br />Tests: DONE |
 
-> <mark>Using `noLabel` option will affect different people with visual impairments.
-> <br/>Omitting `activeText` for an active `Rating` results in a non-labelled `onChange` action.</mark>
+<InfoBox type="warning">
+  Using `noLabel` option will affect different people with visual impairments.
+  Omitting `activeText` for an active `Rating` results in a non-labelled
+  `onChange` action.
+</InfoBox>
 
-<br/>
-
-## Star
+#### Star
 
 | Pattern                                                              | Comment                            | Status                                |
 | -------------------------------------------------------------------- | ---------------------------------- | ------------------------------------- |
@@ -26,14 +25,9 @@
 | **Should** have `radio` role                                         |                                    | Implementation: DONE<br />Tests: DONE |
 | **Should** fire `onChange` on click, space and arrows (left & right) | It is not possible to test arrows. | Implementation: DONE<br />Tests: DONE |
 
-<br/>
-<br/>
+### Usage
 
-## Usage
-
-<br/>
-
-### Code examples
+#### Code examples
 
 - basic
 
