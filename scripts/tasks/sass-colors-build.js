@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
+const prettier = require('prettier');
 const colorMap = require('../../src/components/colors/colors');
 
 module.exports = function (gulp, plugins, consts) {
@@ -54,7 +55,10 @@ module.exports = function (gulp, plugins, consts) {
     colorsStringsMap.push('}');
 
     const fileContent = colorsStringsMap.join('\n');
-    const buffered = Buffer.from(fileContent);
+    const formatted = prettier.format(fileContent, {
+      parser: 'scss',
+    });
+    const buffered = Buffer.from(formatted);
 
     fs.writeFile(colorsFileDest, buffered);
 
