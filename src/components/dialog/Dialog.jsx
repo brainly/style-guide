@@ -32,6 +32,12 @@ export type DialogPropsType = $ReadOnly<{
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
+  overlay?: React.Node,
+  bottom?: React.Node,
+  left?: React.Node,
+  right?: React.Node,
+  top?: React.Node,
+  position: 'center' | 'top',
 }>;
 
 /**
@@ -43,6 +49,7 @@ Dialog.defaultProps = ({
   size: 'm',
   reduceMotion: false,
   scroll: 'outside',
+  position: 'center',
 }: $Shape<DialogPropsType>);
 
 /**
@@ -63,6 +70,12 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
   'data-testid': dataTestId,
+  overlay,
+  bottom,
+  left,
+  right,
+  top,
+  position = 'center',
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -168,24 +181,27 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll':
-      (isDialogHigherThanOverlay || hasFinishedTransition) &&
-      scroll === 'outside',
-    'sg-dialog__overlay--open': deferredOpen,
-    'sg-dialog__overlay--fullscreen': size === 'fullscreen',
-  });
-
-  const containerClass = cx(
-    'sg-dialog__container',
-    `sg-dialog__container--size-${size}`,
+  const overlayClass = cx(
+    'js-dialog',
+    'sg-dialog__overlay',
+    `sg-dialog__overlay--size-${size}`,
     {
-      'sg-dialog__container--scroll': scroll === 'inside',
-      'sg-dialog__container--open': deferredOpen,
-      'sg-dialog__container--exiting': exiting,
-      'sg-dialog__container--reduce-motion': reduceMotion,
+      'sg-dialog__overlay--scroll':
+        (isDialogHigherThanOverlay || hasFinishedTransition) &&
+        scroll === 'outside',
+      'sg-dialog__overlay--open': deferredOpen,
+      'sg-dialog__overlay--fullscreen': size === 'fullscreen',
+      'sg-dialog__overlay--space-top': position === 'top',
     }
   );
+
+  const containerClass = cx('sg-dialog__container', {
+    'sg-dialog__container--scroll': scroll === 'inside',
+    'sg-dialog__container--open': deferredOpen,
+    'sg-dialog__container--exiting': exiting,
+    'sg-dialog__container--reduce-motion': reduceMotion,
+    'sg-dialog__container--top': position === 'top',
+  });
 
   return (
     <div
@@ -195,11 +211,13 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
+      {overlay ? (
+        <span className="sg-dialog__overlay-body">{overlay}</span>
+      ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
-      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -216,7 +234,10 @@ function BaseDialog({
       >
         {children}
       </div>
-      <div tabIndex="0" />
+      {bottom ? <div className="sg-dialog-bottom">{bottom}</div> : null}
+      {left ? <div className="sg-dialog-left">{left}</div> : null}
+      {right ? <div className="sg-dialog-right">{right}</div> : null}
+      {top ? <div className="sg-dialog-top">{top}</div> : null}
     </div>
   );
 }
