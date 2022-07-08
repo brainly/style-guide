@@ -10,6 +10,7 @@ export type DialogCloseButtonPropsType = $ReadOnly<{
   className?: string,
   label?: string,
   'data-testid'?: string,
+  disabled?: boolean,
 }>;
 
 const DialogCloseButton = ({
@@ -17,6 +18,7 @@ const DialogCloseButton = ({
   className,
   label = 'Close this dialog window',
   'data-testid': dataTestId,
+  disabled,
 }: DialogCloseButtonPropsType) => (
   <Button
     type="transparent"
@@ -26,6 +28,7 @@ const DialogCloseButton = ({
     aria-label={label}
     iconOnly
     data-testid={dataTestId}
+    disabled={disabled}
   />
 );
 

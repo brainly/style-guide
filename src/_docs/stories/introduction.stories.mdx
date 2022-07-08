@@ -1,32 +1,49 @@
 import {Meta} from '@storybook/addon-docs/blocks';
-import GitHubButton from 'react-github-btn';
+import {Source} from '@storybook/components';
 import {version} from '../../../package.json';
+import Breadcrumb from 'breadcrumb/Breadcrumb';
 import Link from 'text/Link';
 import TextBit from 'text/TextBit';
-
 import Label from 'labels/Label';
 import Logo from 'logo/Logo';
 import Flex from 'flex/Flex';
+import Headline from 'text/Headline';
+import Subheadline from 'text/Subheadline';
 import OverlayedBox from 'overlayed-box/OverlayedBox';
-import {Source} from '@storybook/components';
-import introTop from '../assets/introduction_top.png';
-import Headline from '../blocks/Headline';
-import Text from '../blocks/Text';
-import Breadcrumb from '../../components/breadcrumb/Breadcrumb';
+import DocsHeadline from 'blocks/Headline';
+import Text from 'blocks/Text';
 import revManifest from 'RevManifest';
 
 <Meta title="Introduction ✏️/Getting Started" />
 
-<div
-  style={{
-    display: 'flex',
-    justifyContent: 'flex-end',
-    borderRadius: '8px',
-    overflow: 'hidden',
-  }}
->
-  <img src={introTop} />
-</div>
+<Flex justifyContent="center" fullWidth>
+  <div className="intro-page-header">
+    <Logo className="intro-page-header__logo" />
+    <Flex marginTop={['s', , 'm']}>
+      <TextBit
+        className="intro-page-header__text"
+        type="h1"
+        size={['small', 'medium', 'large']}
+        color="text-black"
+        align="center"
+      >
+        Brainly
+        <br /> Style Guide
+      </TextBit>
+    </Flex>
+    <Flex marginTop={['xs', , 's']}>
+      <Subheadline
+        align="to-center"
+        className="intro-page-header__text"
+        size={['xsmall', 'small', 'medium']}
+      >
+        Welcome to the official Brainly style guide! <br />
+        This style guide is being used across all language versions of the Brainly
+        website and some smaller sites.
+      </Subheadline>
+    </Flex>
+  </div>
+</Flex>
 
 <Flex direction="column" alignItems="center" marginTop="xs">
   <Flex direction="column" alignItems="flex-end" style={{position: 'relative'}}>
@@ -36,10 +53,7 @@ import revManifest from 'RevManifest';
   </Flex>
 </Flex>
 
-Welcome to the official Brainly style guide! This style guide is being used
-across all language versions of the Brainly website and some smaller sites.
-
-<Flex justifyContent="center">
+<Flex justifyContent="center" marginTop="s">
   <Breadcrumb
     elements={[
       <Link href="https://brainly.com">brainly.com</Link>,
@@ -140,7 +154,7 @@ For our icons include this scripts before the closing `</body>` tag:
   code={`<link href='https://styleguide.brainly.com/${revManifest['images/mobile-icons.js']}' rel='stylesheet'/>`}
 />
 
-<Headline>More</Headline>
+<DocsHeadline>More</DocsHeadline>
 
 <Text>
   If you'd like to learn more about this project, report a bug or contribute
