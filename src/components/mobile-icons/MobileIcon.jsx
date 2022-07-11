@@ -11,6 +11,8 @@ export type IconTypeType =
   | 'backward_5s'
   | 'backward_end'
   | 'barcode_scanner'
+  | 'bookmark'
+  | 'bookmark_outlined'
   | 'chapter'
   | 'circle_fill'
   | 'clear'
@@ -39,7 +41,8 @@ export type IconTypeType =
   | 'star_outlined'
   | 'text'
   | 'textbook'
-  | 'time_speed';
+  | 'time_speed'
+  | 'unbookmark';
 
 export type SizeType =
   | 104
@@ -67,6 +70,8 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   BACKWARD_5S: 'backward_5s',
   BACKWARD_END: 'backward_end',
   BARCODE_SCANNER: 'barcode_scanner',
+  BOOKMARK: 'bookmark',
+  BOOKMARK_OUTLINED: 'bookmark_outlined',
   CHAPTER: 'chapter',
   CIRCLE_FILL: 'circle_fill',
   CLEAR: 'clear',
@@ -96,6 +101,7 @@ export const TYPE: {[name: string]: IconTypeType, ...} = {
   TEXT: 'text',
   TEXTBOOK: 'textbook',
   TIME_SPEED: 'time_speed',
+  UNBOOKMARK: 'unbookmark',
 };
 
 export type MobileIconPropsType = $ReadOnly<{
