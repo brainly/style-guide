@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
+import DialogInject from './DialogInject';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
@@ -72,9 +73,6 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
   'data-testid': dataTestId,
-  overlay,
-  bottom,
-  left,
   right,
   top,
   position = 'center',
@@ -205,6 +203,34 @@ function BaseDialog({
     'sg-dialog__container--top': position === 'top',
   });
 
+  const childrenNotInjects = React.Children.toArray(children).filter(
+    reactNode => reactNode.type !== DialogInject
+  );
+
+  const slotInjects = React.Children.toArray(children).filter(
+    reactNode => reactNode.type === DialogInject
+  );
+
+  const overlayInject = slotInjects.find(
+    slotInject => slotInject.props.slot === 'overlay'
+  );
+
+  const bottomInject = slotInjects.find(
+    slotInject => slotInject.props.slot === 'bottom'
+  );
+
+  const leftInject = slotInjects.find(
+    slotInject => slotInject.props.slot === 'left'
+  );
+
+  const topInject = slotInjects.find(
+    slotInject => slotInject.props.slot === 'top'
+  );
+
+  const rightInject = slotInjects.find(
+    slotInject => slotInject.props.slot === 'right'
+  );
+
   return (
     <div
       className={overlayClass}
@@ -213,8 +239,8 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
-      {overlay ? (
-        <span className="sg-dialog__overlay-body">{overlay}</span>
+      {overlayInject ? (
+        <span className="sg-dialog__overlay-body">{overlayInject}</span>
       ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
@@ -235,12 +261,16 @@ function BaseDialog({
         tabIndex="-1"
         data-testid={dataTestId}
       >
-        {children}
+        {childrenNotInjects}
       </div>
-      {bottom ? <div className="sg-dialog-bottom">{bottom}</div> : null}
-      {left ? <div className="sg-dialog-left">{left}</div> : null}
-      {right ? <div className="sg-dialog-right">{right}</div> : null}
-      {top ? <div className="sg-dialog-top">{top}</div> : null}
+      {bottomInject ? (
+        <div className="sg-dialog-bottom">{bottomInject}</div>
+      ) : null}
+      {leftInject ? <div className="sg-dialog-left">{leftInject}</div> : null}
+      {rightInject ? (
+        <div className="sg-dialog-right">{rightInject}</div>
+      ) : null}
+      {topInject ? <div className="sg-dialog-top">{topInject}</div> : null}
     </div>
   );
 }
