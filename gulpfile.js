@@ -58,6 +58,7 @@ function getTask(task, options = {}) {
   );
 }
 
+gulp.task('sass-colors:build', getTask('sass-colors-build'));
 gulp.task('sass:build', getTask('sass-build'));
 gulp.task('watch:sass', getTask('watch-sass'));
 
@@ -102,6 +103,7 @@ gulp.task(
   'build',
   gulp.series(
     'clean:dist',
+    'sass-colors:build',
     'sass:build',
     'sass:docs-build',
     'svgs-generate',
@@ -121,6 +123,7 @@ gulp.task(
   'build-new',
   gulp.series(
     'clean:dist',
+    'sass-colors:build',
     'sass:build',
     'svgs-generate',
     'fingerprint',
@@ -131,7 +134,13 @@ gulp.task(
 
 gulp.task(
   'build-assets',
-  gulp.series('clean:assets', 'sass:build', 'svgs-generate', 'copy-assets')
+  gulp.series(
+    'clean:assets',
+    'sass-colors:build',
+    'sass:build',
+    'svgs-generate',
+    'copy-assets'
+  )
 );
 
 gulp.task(
