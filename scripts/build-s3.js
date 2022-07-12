@@ -27,18 +27,18 @@ client.s3.getObject(
     Bucket: `styleguide-${env}.brainly.com`,
     Key: `${version}/style-guide.css`,
   },
-  function (err, data) {
+  function (err) {
     if (err) {
-      if (err.name === 'AccessDenied' || err.name === 'NoSuchKey') {
+      // NoSuchKey - we can list bucket files but file is not found
+      if (err.name === 'NoSuchKey') {
+        console.log(`${version}/style-guide.css is not found. Building files.`);
         buildFiles();
       } else {
-        console.log(err, err.stack);
+        console.error(err, err.stack);
       }
-    } else if (!data || (data && data.toString('utf-8') !== version)) {
-      buildFiles();
     } else {
       console.log(
-        'No version change detected in package.json, skipping storybook build.'
+        'No version change detected in package.json, skipping build.'
       );
     }
   }
