@@ -2,6 +2,8 @@ const {version} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
 const argv = require('yargs').argv;
+const path = require('path');
+const fs = require('fs');
 
 if (argv.env && argv.env !== 'dev' && argv.env !== 'prod') {
   throw new Error(`Invalid env: ${argv.env}`);
@@ -40,6 +42,10 @@ client.s3.getObject(
       console.log(
         'No version change detected in package.json, skipping build.'
       );
+
+      // CodeBuild deploy project requires 'dist' folder to not be empty, so we create mock file.
+      fs.mkdirSync(path.resolve(__dirname, '..', 'dist'));
+      fs.writeFileSync(path.resolve(__dirname, '..', 'dist', '.temp'), '');
     }
   }
 );
