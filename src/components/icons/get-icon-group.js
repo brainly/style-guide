@@ -157,6 +157,8 @@ const iconMap = {
     'options',
     'filters',
     'collapse',
+    'caret_down',
+    'caret_up',
   ],
   'Social Media': [
     'facebook',

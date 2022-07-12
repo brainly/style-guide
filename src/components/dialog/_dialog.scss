@@ -135,6 +135,7 @@ $dialogMaxWidthMap: (
   &__body {
     overflow: auto;
     padding: $dialogSmallPadding;
+    position: relative;
 
     @include sgResponsive(md) {
       padding: $dialogMediumPadding;

@@ -18,6 +18,7 @@ export type DialogPropsType = $ReadOnly<{
   'aria-labelledby'?: string,
   'aria-label'?: string,
   'aria-describedby'?: string,
+  'aria-description'?: string,
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
@@ -58,6 +59,7 @@ function BaseDialog({
   'aria-labelledby': ariaLabelledBy,
   'aria-label': ariaLabel,
   'aria-describedby': ariaDescribedBy,
+  'aria-description': ariaDescription,
   zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
@@ -211,6 +213,7 @@ function BaseDialog({
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
+        aria-description={ariaDescription}
         tabIndex="-1"
         data-testid={dataTestId}
       >
