@@ -34,6 +34,40 @@ $checkboxClickableArea: 32px;
     padding: $checkboxPadding 0;
   }
 
+  @keyframes checkboxFadeOut1 {
+    from {
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+
+    to {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+    }
+  }
+  @keyframes checkboxFadeOut2 {
+    from {
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+
+    to {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+    }
+  }
+
+  @keyframes checkmarkAnimation {
+    to {
+      stroke-dashoffset: 0%;
+    }
+  }
+  @keyframes checkmarkAnimation2 {
+    to {
+      stroke-dashoffset: 0%;
+    }
+  }
+
   &__wrapper {
     display: flex;
 
@@ -115,6 +149,12 @@ $checkboxClickableArea: 32px;
       & + .sg-checkbox__icon {
         border-color: var(--checkboxCheckedColor);
         background-color: var(--checkboxCheckedColor);
+        animation-name: checkboxFadeOut2, checkboxFadeOut2;
+      }
+
+      & + .sg-checkbox__icon svg path {
+        stroke-dashoffset: 0;
+        stroke: var(--checkboxIconFillColor);
       }
 
       &[aria-invalid] + .sg-checkbox__icon {
@@ -136,6 +176,15 @@ $checkboxClickableArea: 32px;
     border: 2px solid var(--checkboxColor);
     background-color: transparent;
 
+    animation-name: checkboxFadeOut1, checkboxFadeOut1;
+    animation-duration: 0.08s, 0.18s;
+    animation-timing-function: cubic-bezier(0.3, 0, 1, 0.8);
+    animation-delay: 0s, 0.08s;
+    animation-direction: normal, reverse;
+
+    transition: background-color 0s $easingRegular 0.08s;
+    transition: border-color 0s $easingRegular;
+
     svg {
       position: absolute;
       left: 0;
@@ -144,6 +193,21 @@ $checkboxClickableArea: 32px;
       bottom: 0;
       margin: auto;
       stroke: var(--checkboxIconFillColor);
+    }
+
+    svg path {
+      stroke-dasharray: 100%;
+      stroke-dashoffset: 100%;
+      transition: stroke-dashoffset 0.4s $easingRegular 0.08s;
+    }
+
+    svg .indeterminate-path {
+      transition: stroke-dashoffset 0.6s $easingRegular 0.2s;
+    }
+
+    svg .indeterminate-path--left {
+      transform: rotate(180deg) translateX(20px);
+      transform-origin: right;
     }
   }
 
