@@ -52,6 +52,13 @@ module.exports = {
       pkg.version,
       'rev-manifest.json'
     );
+    const pathToLatestVerManifest = path.resolve(
+      __dirname,
+      '../',
+      'dist',
+      'latest',
+      'rev-manifest.json'
+    );
     const pathToDevManifest = path.resolve(
       __dirname,
       '../',
@@ -60,9 +67,11 @@ module.exports = {
       'rev-manifest.json'
     );
 
-    revManifestPath = [pathToVersionedManifest, pathToDevManifest].find(path =>
-      fs.existsSync(path)
-    );
+    revManifestPath = [
+      pathToVersionedManifest,
+      pathToLatestVerManifest,
+      pathToDevManifest,
+    ].find(path => fs.existsSync(path));
 
     if (!revManifestPath) {
       throw new Error(`rev-manifest.json not found in paths:
