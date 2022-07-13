@@ -149,12 +149,15 @@ $checkboxClickableArea: 32px;
       & + .sg-checkbox__icon {
         border-color: var(--checkboxCheckedColor);
         background-color: var(--checkboxCheckedColor);
-        animation-name: checkboxFadeOut2, checkboxFadeOut2;
       }
 
-      & + .sg-checkbox__icon svg path {
-        stroke-dashoffset: 0;
-        stroke: var(--checkboxIconFillColor);
+      & + .sg-checkbox__icon--animate {
+        animation-name: checkboxFadeOut2, checkboxFadeOut2;
+
+        svg path {
+          stroke-dashoffset: 0;
+          stroke: var(--checkboxIconFillColor);
+        }
       }
 
       &[aria-invalid] + .sg-checkbox__icon {
