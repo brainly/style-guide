@@ -149,14 +149,24 @@ $checkboxClickableArea: 32px;
       & + .sg-checkbox__icon {
         border-color: var(--checkboxCheckedColor);
         background-color: var(--checkboxCheckedColor);
-      }
 
-      & + .sg-checkbox__icon--animate {
-        animation-name: checkboxFadeOut2, checkboxFadeOut2;
+        &--animate {
+          animation-name: checkboxFadeOut2, checkboxFadeOut2;
 
-        svg path {
-          stroke-dashoffset: 0;
-          stroke: var(--checkboxIconFillColor);
+          svg path {
+            transition: stroke-dashoffset 0.4s $easingRegular 0.08s;
+            stroke-dashoffset: 0;
+            stroke: var(--checkboxIconFillColor);
+          }
+
+          svg .indeterminate-path {
+            transition: stroke-dashoffset 0.6s $easingRegular 0.08s;
+          }
+
+          svg .indeterminate-path--left {
+            transform: rotate(180deg) translateX(20px);
+            transform-origin: right;
+          }
         }
       }
 
@@ -196,21 +206,8 @@ $checkboxClickableArea: 32px;
       bottom: 0;
       margin: auto;
       stroke: var(--checkboxIconFillColor);
-    }
-
-    svg path {
       stroke-dasharray: 100%;
       stroke-dashoffset: 100%;
-      transition: stroke-dashoffset 0.4s $easingRegular 0.08s;
-    }
-
-    svg .indeterminate-path {
-      transition: stroke-dashoffset 0.6s $easingRegular 0.2s;
-    }
-
-    svg .indeterminate-path--left {
-      transform: rotate(180deg) translateX(20px);
-      transform-origin: right;
     }
   }
 
