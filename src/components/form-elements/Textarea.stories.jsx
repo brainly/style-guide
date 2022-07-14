@@ -4,7 +4,7 @@ import {
   StoryVariant,
   StoryVariantBorderBox,
   StoryVariantTable,
-} from '../../_docs/utils';
+} from '../../docs/utils';
 import Headline from '../text/Headline';
 import hex from '../colors/hex';
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariantTable} from '../../_docs/utils';
+import {StoryVariantTable} from '../../docs/utils';
 import Radio, {RADIO_SIZE} from './Radio';
 import Headline from '../text/Headline';
 import Flex from '../flex/Flex';

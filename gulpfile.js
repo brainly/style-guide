@@ -19,7 +19,7 @@ plugins.path = path;
 const consts = {
   PROJECT_DIR: __dirname,
   IS_PRODUCTION: Boolean(argv.production),
-  VERSION: argv.version || 'dev',
+  VERSION: argv.version || 'latest',
   get SRC() {
     return path.join(this.PROJECT_DIR, 'src');
   },
@@ -59,15 +59,12 @@ gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
 gulp.task('svgs-generate', getTask('svgs-generate'));
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
-gulp.task('clean:dist', getTask('clean-dist'));
 gulp.task('clean:assets', getTask('clean-assets'));
-gulp.task('copy-latest', getTask('copy-latest'));
 gulp.task('copy-assets', getTask('copy-assets'));
 
 gulp.task(
   'build-assets',
   gulp.series(
-    'clean:dist',
     'sass-colors:build',
     'sass:build',
     'svgs-generate',

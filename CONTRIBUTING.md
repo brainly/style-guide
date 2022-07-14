@@ -22,12 +22,12 @@ Hi 👋 Thanks for considering contributing! The aim of this doc is to guide you
 1. Clone this repository.
 2. Run `yarn install`.
 3. Run `yarn build`.
-4. Run `yarn start`.
-5. You should be able to access the docs in your browser by navigating to [`localhost:8000/dev/docs/`](http://localhost:8000/dev/docs/).
+4. Run `yarn storybook`.
+5. You should be able to access the docs in your browser by navigating to [`localhost:6006`](http://localhost:6006).
 
 ## Docs
 
-Remember that docs are an essential part of this project. Don't forget to update them whenever you change, add, or delete any components. Docs for each component are located in the `components/COMPONENT_NAME/pages/` folder. The main page and page templates are located in `docs/pages`.
+Remember that docs are an essential part of this project. Don't forget to update them whenever you change, add, or delete any components. Docs for each component are written in `components/COMPONENT_NAME/*.stories.mdx|jsx` files.
 
 ## SCSS
 
@@ -71,7 +71,7 @@ export default ComponentName;
 ### File Location
 
 Component and container files should be located next to `.scss` files in `src/components` directory.
-Documentation pages for components should be located in same directory in a subdirectory called `pages`.
+Documentation pages for components should be located in same directory with name `{component-name}.stories.mdx`.
 
 ### Tests
 
@@ -79,8 +79,6 @@ Each component should be tested. We are using [jest](https://facebook.github.io/
 Test files should be located next to component/container file with extension `.spec.js`
 
 ### Storybook & Chromatic
-
-All components should have storybook stories. Put those stories in `{component_name}.stories.jsx` next to component.
 
 There is also Chromatic visual regression tool which uses storybook stories to run tests. It is integrated with Github and being run on pull requests.
 
@@ -159,10 +157,10 @@ Now, your file should look like:
 
 4. Add svg file to `src/images/icons` (in case of a basic icon), or relevant folder from `src/images` directory. Use `snake_case` as a naming convention.
 5. Define a new icon type in [Icon.jsx](src/components/icons/Icon.jsx). Add icon to a particular icon group in [get-icon-group.js](src/components/icons/get-icon-group.js)
-6. Run `yarn build` or `yarn watch` to re-generate icons.
-7. Go to icons section at [/docs/basics.html#icons](http://localhost:8000/dev/docs/basics.html#icons) and find your newly added icon.
+6. Run `yarn build` to re-generate icons.
+7. Run `yarn storybook` and go to icons section at [http://localhost:6006/?path=/story/foundation-%E2%9C%A8-icons--page](http://localhost:6006/?path=/story/foundation-%E2%9C%A8-icons--page) and find your newly added icon.
 8. Follow standard process of introducing changes to the style-guide.
-9. After releasing your changes, to use a new icon in your project you need to update the `src` of the icons in `<script>` you include on your page. This `src` is avaialble on the main page of docs (`/docs`).
+9. After releasing your changes, to use a new icon in your project you need to update the `src` of the icons in `<script>` you include on your page. This `src` is avaialble on the main page of docs (`https://styleguide.brainly.com`).
 
 example:
 

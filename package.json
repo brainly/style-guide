@@ -139,13 +139,12 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "clean": "rimraf dist && yarn package-clean",
+    "clean": "rimraf dist",
     "js-lint": "eslint --ext .js --ext .jsx src/",
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
-    "build": "gulp build && build-storybook",
-    "start": "http-server ./dist -p 8000",
+    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs",
     "postversion": "git push && git push --tags",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-typecheck && yarn run js-lint && yarn prettier-check && jest",
     "eslint": "./node_modules/.bin/eslint",

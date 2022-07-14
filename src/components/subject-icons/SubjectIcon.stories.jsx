@@ -2,7 +2,7 @@ import * as React from 'react';
 import SubjectIcon, {TYPE, ICON_COLOR, SIZE} from './SubjectIcon';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariant} from '../../docs/utils';
 
 export default {
   title: 'Components/SubjectIcon',

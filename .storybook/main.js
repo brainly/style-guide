@@ -8,7 +8,6 @@ const revHash = require('rev-hash');
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
-const SOURCE_DOCS_STORYBOOK_DIR = path.join(SOURCE_DIR, '_docs');
 
 process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
@@ -227,7 +226,6 @@ module.exports = {
       ...[
         SOURCE_COMPONENTS_DIR,
         SOURCE_DOCS_DIR,
-        SOURCE_DOCS_STORYBOOK_DIR,
         path.join(SOURCE_DIR, 'images'),
         path.join('../', 'node_modules'),
       ]
@@ -249,24 +247,15 @@ module.exports = {
       'latest',
       'rev-manifest.json'
     );
-    const pathToDevManifest = path.resolve(
-      __dirname,
-      '../',
-      'dist',
-      'dev',
-      'rev-manifest.json'
-    );
 
-    revManifestPath = [
-      pathToVersionedManifest,
-      pathToLatestVerManifest,
-      pathToDevManifest,
-    ].find(path => fs.existsSync(path));
+    revManifestPath = [pathToVersionedManifest, pathToLatestVerManifest].find(
+      path => fs.existsSync(path)
+    );
 
     if (!revManifestPath) {
       throw new Error(`rev-manifest.json not found in paths:
       ${pathToVersionedManifest}
-      ${pathToDevManifest}.
+      ${pathToLatestVerManifest}
       Run 'yarn build'.`);
     }
 
