@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
-import DialogInject from './DialogInject';
+import DialogOverlay from './DialogOverlay';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
@@ -204,11 +204,11 @@ function BaseDialog({
   });
 
   const childrenNotInjects = React.Children.toArray(children).filter(
-    reactNode => reactNode.type !== DialogInject
+    reactNode => reactNode.type !== DialogOverlay
   );
 
   const slotInjects = React.Children.toArray(children).filter(
-    reactNode => reactNode.type === DialogInject
+    reactNode => reactNode.type === DialogOverlay
   );
 
   const overlayInject = slotInjects.find(
