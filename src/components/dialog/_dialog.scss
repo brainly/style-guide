@@ -84,7 +84,7 @@ $dialogMaxWidthMap: (
     width: 100%;
   }
 
-  &-overlay-grid-item {
+  &-overlay-slot {
     display: none;
     position: relative;
 
@@ -93,27 +93,8 @@ $dialogMaxWidthMap: (
     }
   }
 
-  @each $slot
-    in (
-      top-left,
-      top-middle,
-      top-right,
-      middle-left,
-      middle,
-      middle-right,
-      bottom-left bottom-middle bottom-right
-    )
-  {
-    .sg-dialog-overlay__#{$slot} {
-      grid-area: $slot;
-    }
-  }
-
   &__container {
-    grid-row-start: dialog-row-start;
-    grid-row-end: dialog-row-end;
-    grid-column-start: dialog-column-start;
-    grid-column-end: dialog-column-end;
+    grid-area: middle;
     display: flex;
     flex: auto;
     flex-direction: column;
@@ -202,5 +183,23 @@ $dialogMaxWidthMap: (
     position: absolute;
     top: 0;
     right: 0;
+  }
+}
+
+@each $slot
+  in (
+    top-left,
+    top-middle,
+    top-right,
+    middle-left,
+    middle,
+    middle-right,
+    bottom-left,
+    bottom-middle,
+    bottom-right
+  )
+{
+  .sg-dialog-overlay-slot--#{$slot} {
+    grid-area: $slot;
   }
 }

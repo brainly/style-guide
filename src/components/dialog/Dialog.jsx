@@ -208,11 +208,11 @@ function BaseDialog({
     'sg-dialog__container--top': position === 'top',
   });
 
-  const childrenNotInjects = React.Children.toArray(children).filter(
+  const regularChildren = React.Children.toArray(children).filter(
     reactNode => reactNode.type !== DialogOverlay
   );
 
-  const slotInjects = React.Children.toArray(children).filter(
+  const childrenForSlots = React.Children.toArray(children).filter(
     reactNode => reactNode.type === DialogOverlay
   );
 
@@ -221,10 +221,10 @@ function BaseDialog({
       acc[next] = [];
     }
 
-    slotInjects
-      .filter(slotInject => slotInject.props.slot === next)
-      .forEach(slotInject => {
-        acc[next].push(slotInject);
+    childrenForSlots
+      .filter(child => child.props.slot === next)
+      .forEach(child => {
+        acc[next].push(child);
       });
 
     return acc;
@@ -262,24 +262,16 @@ function BaseDialog({
         tabIndex="-1"
         data-testid={dataTestId}
       >
-        {childrenNotInjects}
+        {regularChildren}
       </div>
       {SLOTS.filter(slot => slot !== 'overlay').map(slot => (
         <div
-          className={`sg-dialog-overlay-grid-item sg-dialog-${slot}`}
+          className={`sg-dialog-overlay-slot sg-dialog-overlay-slot--${slot}`}
           key={slot}
         >
           {childrenBySlots[slot] ? childrenBySlots[slot] : null}
         </div>
       ))}
-      {/* {bottomInject ? (
-        <div className="sg-dialog-bottom">{bottomInject}</div>
-      ) : null}
-      {leftInject ? <div className="sg-dialog-left">{leftInject}</div> : null}
-      {rightInject ? (
-        <div className="sg-dialog-right">{rightInject}</div>
-      ) : null}
-      {topInject ? <div className="sg-dialog-top">{topInject}</div> : null} */}
     </div>
   );
 }
