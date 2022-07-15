@@ -38,12 +38,14 @@ export type SpinnerPropsType = {
   color?: SpinnerColorType,
   size?: SpinnerSizeType,
   className?: string,
+  'aria-label'?: string,
   ...
 };
 
 const Spinner = ({
   color = 'gray-70',
   size = SPINNER_SIZE.SMALL,
+  'aria-label': ariaLabel = 'loading',
   className,
   ...props
 }: SpinnerPropsType) => {
@@ -56,7 +58,13 @@ const Spinner = ({
     className
   );
 
-  return <div {...props} className={spinnerClassNames} />;
+  return (
+    <div {...props} className={spinnerClassNames}>
+      <span className="sg-visually-hidden" aria-live="assertive" role="status">
+        {ariaLabel}
+      </span>
+    </div>
+  );
 };
 
 export default Spinner;
