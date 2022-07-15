@@ -163,13 +163,18 @@ const FileHandler = ({
   return (
     <div {...props} className={fileHandlerClass}>
       <div className="sg-file-handler__icon">
-        {loading ? <Spinner size="xsmall" /> : interactiveThumbnail}
+        {loading ? (
+          <Spinner
+            size="xsmall"
+            aria-label={statusLabel?.loading || 'uploading'}
+          />
+        ) : (
+          interactiveThumbnail
+        )}
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         <span className="sg-visually-hidden" aria-live="polite">
-          {loading || isActionProvided
-            ? statusLabel?.loading || 'loading'
-            : statusLabel?.uploaded || 'uploaded'}
+          {statusLabel?.uploaded || 'uploaded'}
         </span>
         {isActionProvided ? (
           <Link {...clickProps} size="small" color="text-black" as={asLink}>
