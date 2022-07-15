@@ -31,8 +31,9 @@ client.s3.getObject(
   },
   function (err) {
     if (err) {
-      // NoSuchKey - we can list bucket files but file is not found
-      if (err.name === 'NoSuchKey') {
+      // NoSuchKey - we can list bucket files and file is not found
+      // AccessDenied - we can't list bucket files and file is not found or we dont have access
+      if (err.name === 'NoSuchKey' || err.name === 'AccessDenied') {
         console.log(`${version}/style-guide.css is not found. Building files.`);
         buildFiles();
       } else {
