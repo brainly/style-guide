@@ -7,6 +7,18 @@ import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
 import DialogOverlay from './DialogOverlay';
 
+const SLOTS = [
+  'overlay',
+  'top-left',
+  'top-middle',
+  'top-right',
+  'middle-left',
+  'middle-right',
+  'bottom-left',
+  'bottom-middle',
+  'bottom-right',
+];
+
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
   Boolean(window && window.TransitionEvent !== undefined);
@@ -34,11 +46,6 @@ export type DialogPropsType = $ReadOnly<{
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
-  overlay?: React.Node,
-  bottom?: React.Node,
-  left?: React.Node,
-  right?: React.Node,
-  top?: React.Node,
   position: 'center' | 'top',
 }>;
 
@@ -73,8 +80,6 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
   'data-testid': dataTestId,
-  right,
-  top,
   position = 'center',
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
@@ -211,25 +216,19 @@ function BaseDialog({
     reactNode => reactNode.type === DialogOverlay
   );
 
-  const overlayInject = slotInjects.find(
-    slotInject => slotInject.props.slot === 'overlay'
-  );
+  const childrenBySlots = SLOTS.reduce((acc, next) => {
+    if (!acc[next]) {
+      acc[next] = [];
+    }
 
-  const bottomInject = slotInjects.find(
-    slotInject => slotInject.props.slot === 'bottom'
-  );
+    slotInjects
+      .filter(slotInject => slotInject.props.slot === next)
+      .forEach(slotInject => {
+        acc[next].push(slotInject);
+      });
 
-  const leftInject = slotInjects.find(
-    slotInject => slotInject.props.slot === 'left'
-  );
-
-  const topInject = slotInjects.find(
-    slotInject => slotInject.props.slot === 'top'
-  );
-
-  const rightInject = slotInjects.find(
-    slotInject => slotInject.props.slot === 'right'
-  );
+    return acc;
+  }, {});
 
   return (
     <div
@@ -239,8 +238,10 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
-      {overlayInject ? (
-        <span className="sg-dialog__overlay-body">{overlayInject}</span>
+      {childrenBySlots.overlay ? (
+        <span className="sg-dialog__overlay-body">
+          {childrenBySlots.overlay}
+        </span>
       ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
@@ -263,14 +264,22 @@ function BaseDialog({
       >
         {childrenNotInjects}
       </div>
-      {bottomInject ? (
+      {SLOTS.filter(slot => slot !== 'overlay').map(slot => (
+        <div
+          className={`sg-dialog-overlay-grid-item sg-dialog-${slot}`}
+          key={slot}
+        >
+          {childrenBySlots[slot] ? childrenBySlots[slot] : null}
+        </div>
+      ))}
+      {/* {bottomInject ? (
         <div className="sg-dialog-bottom">{bottomInject}</div>
       ) : null}
       {leftInject ? <div className="sg-dialog-left">{leftInject}</div> : null}
       {rightInject ? (
         <div className="sg-dialog-right">{rightInject}</div>
       ) : null}
-      {topInject ? <div className="sg-dialog-top">{topInject}</div> : null}
+      {topInject ? <div className="sg-dialog-top">{topInject}</div> : null} */}
     </div>
   );
 }

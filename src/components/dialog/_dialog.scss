@@ -30,6 +30,10 @@ $dialogMaxWidthMap: (
 
     @include sgResponsive(md) {
       display: grid;
+      grid-template-areas:
+        'top-left top-middle top-right'
+        'middle-left middle middle-right'
+        'bottom-left bottom-middle bottom-right';
       grid-template-rows: 1fr [dialog-row-start] auto [dialog-row-end] 1fr;
       padding: spacing(m);
     }
@@ -80,11 +84,8 @@ $dialogMaxWidthMap: (
     width: 100%;
   }
 
-  &-bottom {
+  &-overlay-grid-item {
     display: none;
-    grid-row-start: dialog-row-end;
-    grid-column-start: 1;
-    grid-column-end: 4;
     position: relative;
 
     @include sgResponsive(md) {
@@ -92,37 +93,19 @@ $dialogMaxWidthMap: (
     }
   }
 
-  &-left {
-    display: none;
-    grid-row-start: dialog-row-start;
-    position: relative;
-
-    @include sgResponsive(md) {
-      display: block;
-    }
-  }
-
-  &-right {
-    display: none;
-    grid-row-start: dialog-row-end;
-    grid-row-start: dialog-row-start;
-    position: relative;
-
-    @include sgResponsive(md) {
-      display: block;
-    }
-  }
-
-  &-top {
-    display: none;
-    grid-row-end: dialog-row-start;
-    grid-column-start: 1;
-    grid-column-end: 4;
-    margin-top: auto;
-    position: relative;
-
-    @include sgResponsive(md) {
-      display: block;
+  @each $slot
+    in (
+      top-left,
+      top-middle,
+      top-right,
+      middle-left,
+      middle,
+      middle-right,
+      bottom-left bottom-middle bottom-right
+    )
+  {
+    .sg-dialog-overlay__#{$slot} {
+      grid-area: $slot;
     }
   }
 
