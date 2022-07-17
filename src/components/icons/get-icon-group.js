@@ -162,6 +162,8 @@ const iconMap = {
     'collapse',
     'caret_down',
     'caret_up',
+    'arrow_double_right',
+    'chevron_double_right',
   ],
   'Social Media': [
     'facebook',

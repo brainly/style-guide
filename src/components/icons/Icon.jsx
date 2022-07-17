@@ -142,7 +142,9 @@ export type IconTypeType =
   | 'multiselect_checked'
   | 'multiselect_unchecked'
   | 'caret_down'
-  | 'caret_up';
+  | 'caret_up'
+  | 'arrow_double_right'
+  | 'chevron_double_right';
 
 export type IconColorType =
   | 'adaptive'
@@ -300,6 +302,8 @@ export const TYPE: {
   MULTISELECT_UNCHECKED: 'multiselect_unchecked',
   CARET_DOWN: 'caret_down',
   CARET_UP: 'caret_up',
+  ARROW_DOUBLE_RIGHT: 'arrow_double_right',
+  CHEVRON_DOUBLE_RIGHT: 'chevron_double_right',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ALL_QUESTIONS: 'all_questions',
@@ -439,6 +443,8 @@ export const TYPE: {
   MULTISELECT_UNCHECKED: 'multiselect_unchecked',
   CARET_DOWN: 'caret_down',
   CARET_UP: 'caret_up',
+  ARROW_DOUBLE_RIGHT: 'arrow_double_right',
+  CHEVRON_DOUBLE_RIGHT: 'chevron_double_right',
 };
 
 export const ICON_COLOR: {
