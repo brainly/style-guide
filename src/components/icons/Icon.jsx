@@ -9,11 +9,11 @@ export type IconTypeType =
   | 'all_questions'
   | 'answer'
   | 'answers'
-  | 'arrow_double_down'
-  | 'arrow_down'
-  | 'arrow_left'
-  | 'arrow_right'
-  | 'arrow_up'
+  | 'chevron_double_down'
+  | 'chevron_down'
+  | 'chevron_left'
+  | 'chevron_right'
+  | 'chevron_up'
   | 'ask_bubble'
   | 'ask_parent_to_pay'
   | 'attachment'
@@ -168,11 +168,11 @@ export const TYPE: {
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
   ANSWERS: 'answers',
-  ARROW_DOUBLE_DOWN: 'arrow_double_down',
-  ARROW_DOWN: 'arrow_down',
-  ARROW_LEFT: 'arrow_left',
-  ARROW_RIGHT: 'arrow_right',
-  ARROW_UP: 'arrow_up',
+  CHEVRON_DOUBLE_DOWN: 'chevron_double_down',
+  CHEVRON_DOWN: 'chevron_down',
+  CHEVRON_LEFT: 'chevron_left',
+  CHEVRON_RIGHT: 'chevron_right',
+  CHEVRON_UP: 'chevron_up',
   ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
@@ -309,11 +309,11 @@ export const TYPE: {
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
   ANSWERS: 'answers',
-  ARROW_DOUBLE_DOWN: 'arrow_double_down',
-  ARROW_DOWN: 'arrow_down',
-  ARROW_LEFT: 'arrow_left',
-  ARROW_RIGHT: 'arrow_right',
-  ARROW_UP: 'arrow_up',
+  CHEVRON_DOUBLE_DOWN: 'chevron_double_down',
+  CHEVRON_DOWN: 'chevron_down',
+  CHEVRON_LEFT: 'chevron_left',
+  CHEVRON_RIGHT: 'chevron_right',
+  CHEVRON_UP: 'chevron_up',
   ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
