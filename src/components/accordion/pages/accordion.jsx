@@ -20,7 +20,7 @@ const CallToAction = ({
       <Link href={url}>
         <Flex inlineFlex alignItems="center">
           <span>{cta}</span>
-          <Icon type="arrow_right" color="icon-blue-50" size={16} />
+          <Icon type="chevron_right" color="icon-blue-50" size={16} />
         </Flex>
       </Link>
     </Flex>

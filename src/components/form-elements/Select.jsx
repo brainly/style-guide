@@ -148,7 +148,7 @@ const Select = (props: SelectPropsType) => {
     <div className={selectClass}>
       <div className="sg-select__icon">
         <Icon
-          type="arrow_down"
+          type="chevron_down"
           color={ICON_COLOR['icon-gray-50']}
           size={size === 'l' ? 24 : 16}
         />
