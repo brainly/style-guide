@@ -141,7 +141,10 @@ const iconMap = {
   Navigation: [
     'add_more',
     'arrow_double_right',
-    'arrow',
+    'arrow_down',
+    'arrow_left',
+    'arrow_right',
+    'arrow_up',
     'caret_down',
     'caret_up',
     'chevron_double_down',

@@ -12,7 +12,11 @@ export type IconTypeType =
   | 'answers'
   | 'apple'
   | 'arrow_double_right'
+  | 'arrow_down'
+  | 'arrow_left'
+  | 'arrow_right'
   | 'arrow_top_right'
+  | 'arrow_up'
   | 'ask_bubble'
   | 'ask_parent_to_pay'
   | 'attachment'
@@ -171,7 +175,11 @@ export const TYPE: {
   ANSWERS: 'answers',
   APPLE: 'apple',
   ARROW_DOUBLE_RIGHT: 'arrow_double_right',
+  ARROW_DOWN: 'arrow_down',
+  ARROW_LEFT: 'arrow_left',
+  ARROW_RIGHT: 'arrow_right',
   ARROW_TOP_RIGHT: 'arrow_top_right',
+  ARROW_UP: 'arrow_up',
   ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
@@ -305,14 +313,18 @@ export const TYPE: {
   WARNING: 'warning',
   YOUTUBE: 'youtube',
 } = {
-  ARROW_DOUBLE_RIGHT: 'arrow_double_right',
   ACADEMIC_CAP: 'academic_cap',
   ADD_MORE: 'add_more',
   ALL_QUESTIONS: 'all_questions',
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
+  ARROW_DOUBLE_RIGHT: 'arrow_double_right',
+  ARROW_DOWN: 'arrow_down',
+  ARROW_LEFT: 'arrow_left',
+  ARROW_RIGHT: 'arrow_right',
   ARROW_TOP_RIGHT: 'arrow_top_right',
+  ARROW_UP: 'arrow_up',
   ASK_BUBBLE: 'ask_bubble',
   ASK_PARENT_TO_PAY: 'ask_parent_to_pay',
   ATTACHMENT: 'attachment',
