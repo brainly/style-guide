@@ -31,7 +31,7 @@ const menuItems = [menuItem1, menuItem2, menuItem3];
 
 const ListItems = () => (
   <div>
-    <DocsBlock info="Default with icon ARROW_RIGHT">
+    <DocsBlock info="Default with icon CHEVRON_RIGHT">
       <ContrastBox>
         <List>
           {items.map((item, index) => (
@@ -39,7 +39,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon
                   color={ICON_COLOR['icon-white']}
-                  type={ICON_TYPE.ARROW_RIGHT}
+                  type={ICON_TYPE.CHEVRON_RIGHT}
                   size={18}
                 />
               </ListItemIcon>
@@ -57,7 +57,7 @@ const ListItems = () => (
               <ListItemIcon small>
                 <Icon
                   color={ICON_COLOR['icon-white']}
-                  type={ICON_TYPE.ARROW_RIGHT}
+                  type={ICON_TYPE.CHEVRON_RIGHT}
                   size={14}
                 />
               </ListItemIcon>
@@ -75,7 +75,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon
                   color={ICON_COLOR['icon-white']}
-                  type={ICON_TYPE.ARROW_RIGHT}
+                  type={ICON_TYPE.CHEVRON_RIGHT}
                   size={18}
                 />
               </ListItemIcon>
@@ -93,7 +93,7 @@ const ListItems = () => (
               <ListItemIcon>
                 <Icon
                   color={ICON_COLOR['icon-white']}
-                  type={ICON_TYPE.ARROW_RIGHT}
+                  type={ICON_TYPE.CHEVRON_RIGHT}
                   size={18}
                 />
               </ListItemIcon>
@@ -111,7 +111,7 @@ const ListItems = () => (
               <ListItemIcon small>
                 <Icon
                   color={ICON_COLOR['icon-white']}
-                  type={ICON_TYPE.ARROW_RIGHT}
+                  type={ICON_TYPE.CHEVRON_RIGHT}
                   size={14}
                 />
               </ListItemIcon>
