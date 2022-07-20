@@ -5,19 +5,7 @@ import cx from 'classnames';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
-import DialogOverlay from './DialogOverlay';
-
-const SLOTS = [
-  'overlay',
-  'top-left',
-  'top-middle',
-  'top-right',
-  'middle-left',
-  'middle-right',
-  'bottom-left',
-  'bottom-middle',
-  'bottom-right',
-];
+import DialogOverlay, {SLOTS} from './DialogOverlay';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
