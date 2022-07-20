@@ -249,9 +249,9 @@ $checkboxClickableArea: 32px;
     border-radius: $borderRadiusSmall;
     border: 2px solid var(--checkboxColor);
 
-    animation-duration: 1s, 1s;
+    animation-duration: 0.08s, 0.18s;
     animation-timing-function: cubic-bezier(0.3, 0, 1, 0.8);
-    animation-delay: 0s, 1s;
+    animation-delay: 0s, 0.08s;
     animation-direction: normal, normal;
 
     &--with-animation {
