@@ -148,15 +148,8 @@ const Checkbox = ({
     });
   }, [isChecked, indeterminate]);
 
-  const wasCheckboxClicked = () => {
-    requestAnimationFrame(() => {
-      setShouldIconAnimate(!shouldIconAnimate);
-    });
-  };
-
   const onInputChange = React.useCallback(
     e => {
-      console.log('onchagne');
       if (!isControlled) setIsChecked(val => !val);
 
       if (onChange) onChange(e);
