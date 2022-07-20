@@ -308,6 +308,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
             size={SPINNER_SIZE_MAP[size]}
             color={SPINNER_COLOR_MAP[type]}
             className="sg-button__spinner"
+            aria-live="off"
           />
         )}
         {ico}

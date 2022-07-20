@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, within} from '@testing-library/react';
 import FileHandler from './FileHandler';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
@@ -38,10 +38,11 @@ describe('FileHandler', () => {
 
   it('should have a noticeable status in accessibility tree', () => {
     const fileHandler = render(<FileHandler loading />);
+    const status = fileHandler.getByRole('status');
 
-    expect(
-      fileHandler.getByText('uploading').getAttribute('aria-live')
-    ).toBeTruthy();
+    expect(status.getAttribute('aria-live')).toBeTruthy();
+
+    expect(within(status).getByText('uploading')).toBeTruthy();
   });
 });
 
