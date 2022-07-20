@@ -39,9 +39,9 @@ describe('FileHandler', () => {
   it('should have a noticeable status in accessibility tree', () => {
     const fileHandler = render(<FileHandler loading />);
 
-    expect(fileHandler.getByText('loading').getAttribute('aria-live')).toEqual(
-      'polite'
-    );
+    expect(
+      fileHandler.getByText('uploading').getAttribute('aria-live')
+    ).toBeTruthy();
   });
 });
 

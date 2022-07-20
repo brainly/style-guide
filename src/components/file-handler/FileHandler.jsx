@@ -174,7 +174,7 @@ const FileHandler = ({
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         <span className="sg-visually-hidden" aria-live="polite">
-          {statusLabel?.uploaded || 'uploaded'}
+          {!loading && (statusLabel?.uploaded || 'uploaded')}
         </span>
         {isActionProvided ? (
           <Link {...clickProps} size="small" color="text-black" as={asLink}>
