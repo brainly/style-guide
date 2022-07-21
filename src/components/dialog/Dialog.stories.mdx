@@ -194,6 +194,57 @@ import DialogOverlay from './DialogOverlay';
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story name="Without header">
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      const headerId = 'dialog-header';
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button type="solid-indigo" onClick={() => setOpen(true)}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            open={open}
+            onDismiss={handleDismiss}
+            labelledBy={headerId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogBody>
+              <Flex marginBottom="m">
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us. We may also collect any communications between you and
+                Brainly and any other information you provide to Brainly
+                Information you provide to us directly.
+              </Flex>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button type="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button type="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 <ArgsTable story="Default" />
 
 ## Stories
