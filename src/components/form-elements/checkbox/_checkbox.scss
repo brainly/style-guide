@@ -136,7 +136,9 @@ $checkboxClickableArea: 32px;
     &:hover {
       .sg-checkbox__icon {
         border-color: var(--checkboxHoverColor);
-        --checkboxCheckedColor: var(--checkboxHoverColor);
+        --checkboxCheckedColor: var(
+          --checkboxHoverColor
+        ); // override variable to alter animation
       }
 
       .sg-checkbox__input {
@@ -145,21 +147,24 @@ $checkboxClickableArea: 32px;
           & + .sg-checkbox__icon {
             border-color: var(--checkboxHoverColor);
             background-color: var(--checkboxHoverColor);
-
-            &--animate {
-              @include checkboxCheckedAnimation(
-                transparent,
-                var(--checkboxHoverColor)
-              );
-            }
+            --checkboxCheckedColor: var(
+              --checkboxHoverColor
+            ); // override variable to alter animation
           }
           &[aria-invalid] + .sg-checkbox__icon {
             background-color: var(--checkboxInvalidHoverColor);
+            border-color: var(--checkboxInvalidHoverColor);
+            --checkboxCheckedColor: var(
+              --checkboxInvalidHoverColor
+            ); // override variable to alter animation
           }
         }
 
         &[aria-invalid] + .sg-checkbox__icon {
           border-color: var(--checkboxInvalidHoverColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidHoverColor
+          ); // override variable to alter animation
         }
       }
     }
@@ -175,6 +180,9 @@ $checkboxClickableArea: 32px;
 
       &:focus-visible {
         & + .sg-checkbox__icon {
+          --checkboxCheckedColor: var(
+            --checkboxHoverColor
+          ); // override variable to alter animation
           border-color: var(--checkboxHoverColor);
           outline: 2px solid var(--checkboxOutlineColor);
           outline-offset: 2px;
@@ -186,6 +194,9 @@ $checkboxClickableArea: 32px;
 
         &[aria-invalid] + .sg-checkbox__icon {
           border-color: var(--checkboxInvalidHoverColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidHoverColor
+          ); // override variable to alter animation
         }
 
         &:checked,
@@ -193,7 +204,9 @@ $checkboxClickableArea: 32px;
           &[aria-invalid] + .sg-checkbox__icon {
             border-color: var(--checkboxInvalidHoverColor);
             background-color: var(--checkboxInvalidHoverColor);
-            // todo: handle invalid state
+            --checkboxCheckedColor: var(
+              --checkboxInvalidHoverColor
+            ); // override variable to alter animation
           }
         }
       }
@@ -240,12 +253,18 @@ $checkboxClickableArea: 32px;
         &[aria-invalid] + .sg-checkbox__icon {
           border-color: var(--checkboxInvalidColor);
           background-color: var(--checkboxInvalidColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidColor
+          ); // override variable to alter animation
         }
       }
 
       &[aria-invalid] + .sg-checkbox__icon {
         border-color: var(--checkboxInvalidColor);
         fill: var(--checkboxInvalidIconFillColor);
+        --checkboxCheckedColor: var(
+          --checkboxInvalidColor
+        ); // override variable to alter animation
       }
     }
   }
@@ -263,7 +282,10 @@ $checkboxClickableArea: 32px;
 
     // Add animation only when user is interacting with component
     &--with-animation {
-      @include checkboxAnimation(var(--checkboxCheckedColor), transparent);
+      @include checkboxAnimation(
+        var(--checkboxCheckedColor),
+        transparent
+      ); // checkboxCheckedColor variable gets overriden on different states of the component
     }
 
     svg {
