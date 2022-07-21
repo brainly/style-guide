@@ -205,13 +205,13 @@ function BaseDialog({
   );
 
   const childrenBySlots = SLOTS.reduce((acc, next) => {
-    if (!acc[next]) {
-      acc[next] = [];
-    }
-
     childrenForSlots
       .filter(child => child.props.slot === next)
       .forEach(child => {
+        if (!acc[next]) {
+          acc[next] = [];
+        }
+
         acc[next].push(child);
       });
 

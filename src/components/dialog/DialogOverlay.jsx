@@ -4,6 +4,10 @@ import * as React from 'react';
 
 export type SlotType =
   | 'backdrop'
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
   | 'top-left'
   | 'top-middle'
   | 'top-right'
@@ -15,6 +19,10 @@ export type SlotType =
 
 export const SLOTS = [
   'backdrop',
+  'top',
+  'left',
+  'right',
+  'bottom',
   'top-left',
   'top-middle',
   'top-right',
