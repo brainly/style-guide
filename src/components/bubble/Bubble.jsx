@@ -10,6 +10,7 @@ type BubbleColorType =
   | 'blue-40'
   | 'blue-30'
   | 'blue-20'
+  | 'blue-50'
   | 'indigo-40'
   | 'green-40'
   | 'green-30'
@@ -48,6 +49,7 @@ export const BUBBLE_COLOR: {
   white: 'white',
   'gray-40': 'gray-40',
   'gray-20': 'gray-20',
+  'blue-50': 'blue-50',
   'blue-40': 'blue-40',
   'blue-30': 'blue-30',
   'blue-20': 'blue-20',
@@ -60,6 +62,7 @@ export const BUBBLE_COLOR: {
   white: 'white',
   'gray-40': 'gray-40',
   'gray-20': 'gray-20',
+  'blue-50': 'blue-50',
   'blue-40': 'blue-40',
   'blue-30': 'blue-30',
   'blue-20': 'blue-20',
