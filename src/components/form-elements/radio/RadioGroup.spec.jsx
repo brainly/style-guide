@@ -29,10 +29,10 @@ describe('<RadioGroup />', () => {
   it('changes selected element when Radio is clicked and has only one checked Radio at a time', () => {
     const radioGroup = renderRadioGroup({name: 'option', value: 'option-a'});
 
-    userEvent.click(radioGroup.queryByLabelText('Option B'));
+    userEvent.click(radioGroup.getByLabelText('Option B'));
     expect(radioGroup.getByLabelText('Option A').checked).toBe(false);
     expect(radioGroup.getByLabelText('Option B').checked).toBe(true);
-    userEvent.click(radioGroup.queryByLabelText('Option A'));
+    userEvent.click(radioGroup.getByLabelText('Option A'));
     expect(radioGroup.getByLabelText('Option A')).toEqual(
       document.activeElement
     );
@@ -62,7 +62,7 @@ describe('<RadioGroup />', () => {
     });
 
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
-    userEvent.click(radioGroup.queryByLabelText('Option B'));
+    userEvent.click(radioGroup.getByLabelText('Option B'));
     expect(onChange).not.toHaveBeenCalled();
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
   });
@@ -77,8 +77,9 @@ describe('<RadioGroup />', () => {
       onChange,
     });
 
-    expect(radioGroup.getByRole('radiogroup', {label: 'RadioGroup name'}))
-      .toBeTruthy;
+    expect(
+      radioGroup.getByRole('radiogroup', {label: 'RadioGroup name'})
+    ).toBeTruthy();
   });
 
   it('has an accessible description', () => {
@@ -102,6 +103,6 @@ describe('<RadioGroup />', () => {
       radioGroup.getByRole('radiogroup', {
         description: 'RadioGroup description',
       })
-    ).toBeTruthy;
+    ).toBeTruthy();
   });
 });
