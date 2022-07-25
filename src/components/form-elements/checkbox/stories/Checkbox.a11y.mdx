@@ -15,7 +15,7 @@
 | **Should** be activated by pressing `Space` and mouse click                      |                                                                                                                               | Implementation: DONE<br />Tests: DONE |
 | **Can** have a clickable label                                                   | Default clickable area of checkbox is 32x32px, children of the Checkbox are also clickable.                                   | Implementation: DONE<br />Tests: DONE |
 
-<p>
+<InfoBox type="warning">
   Safari does not fully support <code>indeterminate</code> state of checkbox. It
   is a know bug reported in{' '}
   <a
@@ -24,7 +24,7 @@
   >
     Webkit Bugzilla
   </a>
-</p>
+</InfoBox>
 
 ### Usage
 
@@ -61,6 +61,16 @@
 <Checkbox
   aria-labelledby="label-for-checkbox"
 />
+```
+
+- without a label, but wrapped by a label
+
+<!-- prettier-ignore -->
+```jsx
+<label>
+  I accept the Brainly Terms of Service & Privacy Policy.
+  <Checkbox />
+</label>
 ```
 
 - invalid with error message

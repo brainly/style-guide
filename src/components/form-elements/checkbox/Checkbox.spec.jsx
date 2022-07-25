@@ -36,7 +36,7 @@ describe('<Checkbox />', () => {
     expect(checkbox.getByRole('checkbox', {name: label})).toBeTruthy();
   });
 
-  it('checks/unchecks when either input or label is clicked or space is pressed', () => {
+  it('checks/unchecks when either checkbox, input or label is clicked or space is pressed', () => {
     const checkbox = renderCheckbox({children: 'my label'});
     const checkboxInput = checkbox.getByRole('checkbox');
 
@@ -46,12 +46,7 @@ describe('<Checkbox />', () => {
     expect(checkboxInput.checked).toBe(true);
     userEvent.keyboard('{space}');
     expect(checkboxInput.checked).toBe(false);
-  });
-
-  it('it renders as initially checked', () => {
-    const checkbox = renderCheckbox({defaultChecked: true});
-    const checkboxInput = checkbox.getByRole('checkbox');
-
+    userEvent.click(checkbox.getByText('my label'));
     expect(checkboxInput.checked).toBe(true);
   });
 
@@ -60,6 +55,13 @@ describe('<Checkbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(true);
+  });
+
+  it('it renders as initially unchecked', () => {
+    const checkbox = renderCheckbox({defaultChecked: false});
+    const checkboxInput = checkbox.getByRole('checkbox');
+
+    expect(checkboxInput.checked).toBe(false);
   });
 
   it('it displays error message and description', () => {
@@ -101,10 +103,31 @@ describe('<Checkbox />', () => {
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
   });
+
+  it("it doesn't check/uncheck when either description or error message is clicked", () => {
+    const descriptionText = 'Cool checkbox it is';
+    const errorMessageText = 'Oops.';
+    const labelText = 'Click me pls';
+
+    const checkbox = renderCheckbox({
+      description: descriptionText,
+      invalid: true,
+      errorMessage: errorMessageText,
+      children: labelText,
+      defaultChecked: false,
+    });
+    const checkboxInput = checkbox.getByRole('checkbox');
+
+    expect(checkboxInput.checked).toBe(false);
+    userEvent.click(checkbox.getByText(descriptionText));
+    expect(checkboxInput.checked).toBe(false);
+    userEvent.click(checkbox.getByText(errorMessageText));
+    expect(checkboxInput.checked).toBe(false);
+  });
 });
 
 describe('<Checkbox/> accessibility', () => {
-  it('should have no a11y violations when label is provided', async () => {
+  it('should have no a11y violations when children is provided', async () => {
     await testA11y(<Checkbox>item</Checkbox>);
   });
 
