@@ -27,7 +27,7 @@ describe('<Radio />', () => {
     const radioInput = radio.getByRole('radio', {name: 'my label'});
 
     expect(radioInput.checked).toBe(false);
-    userEvent.click(radio.queryByLabelText('my label'));
+    userEvent.click(radio.getByText('my label'));
     expect(radioInput).toEqual(document.activeElement);
     expect(radioInput.checked).toBe(true);
   });
@@ -87,7 +87,7 @@ describe('<Radio />', () => {
     userEvent.click(radioInput);
     expect(onChange).not.toHaveBeenCalled();
     expect(radioInput.checked).toBe(false);
-    userEvent.click(radio.queryByLabelText(labelText));
+    userEvent.click(radio.getByText(labelText));
     expect(onChange).not.toHaveBeenCalled();
     expect(radioInput.checked).toBe(false);
   });
@@ -104,19 +104,6 @@ describe('<Radio/> a11y', () => {
         Radio
         <Radio onChange={() => jest.fn()} />
       </label>
-    );
-  });
-
-  it('should have no a11y violations when 2 radios with the same `name` are rendered ', async () => {
-    await testA11y(
-      <div>
-        <Radio onChange={() => jest.fn()} name="test">
-          Radio
-        </Radio>
-        <Radio onChange={() => jest.fn()} name="test">
-          Radio
-        </Radio>
-      </div>
     );
   });
 
