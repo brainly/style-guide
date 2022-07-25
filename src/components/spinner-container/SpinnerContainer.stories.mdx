@@ -1,0 +1,95 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+import SpinnerContainer, {
+  SPINNER_COLOR,
+  SPINNER_SIZE,
+} from './SpinnerContainer';
+import Box from '../box/Box';
+import Flex from '../flex/Flex';
+import SpinnerContainerA11y from './stories/SpinnerContainer.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta
+  title="Components/SpinnerContainer"
+  component={SpinnerContainer}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: (
+      <Box color="green-30" border borderColor="white">
+        Any component could be wrapped into spinner container.
+      </Box>
+    ),
+  }}
+/>
+
+<PageHeader>SpinnerContainer</PageHeader>
+
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <SpinnerContainer {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Loading state
+
+<Canvas>
+  <Story name="loading state" args={{loading: true}}>
+    {args => <SpinnerContainer {...args} />}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="colors" args={{loading: true}}>
+    {args => (
+      <Flex direction="column">
+        {Object.values(SPINNER_COLOR).map(color => (
+          <StoryVariant label={`color: ${color}`} key={color}>
+            <SpinnerContainer {...args} color={SPINNER_COLOR[color]} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="sizes" args={{loading: true}}>
+    {args => (
+      <Flex direction="column">
+        {Object.values(SPINNER_SIZE).map(size => (
+          <StoryVariant label={`size: ${size}`} key={size}>
+            <SpinnerContainer {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Full Width
+
+<Canvas>
+  <Story name="full width" args={{loading: true, fullWidth: true}}>
+    {args => <SpinnerContainer {...args} />}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SpinnerContainerA11y />
