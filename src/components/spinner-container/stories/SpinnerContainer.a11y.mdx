@@ -1,0 +1,40 @@
+### Rules
+
+| Pattern                                                                     | Comment                                                                                                                                                       | Status                                |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **Should** have an accessible information about the status that is annouced | Use `ariaStatusLabel` to set custom information, defaults to `{loaded: 'content loaded', loading: 'content is loading'}`                                      | Implementation: DONE<br />Tests: DONE |
+| **Should** have role `status`                                               |                                                                                                                                                               | Implementation: DONE<br />Tests: DONE |
+| **Should** have `aria-busy="true"` for the loading content                  |                                                                                                                                                               | Implementation: DONE<br />Tests: DONE |
+| **Should** have 3:1 contrast ratio against the background                   | For white background use: `black`, `gray-70`, `gray-50`, `red-50`, `indigo-50`, against black: `white`, `gray-50`, `red-50`, `red-40`, `blue-40`, `yellow-40` | Implementation: DONE<br />Tests: N/A  |
+| **Should** respect Windows High Contrast theme                              |                                                                                                                                                               | Implementation: DONE<br />Tests: N/A  |
+
+### Usage
+
+#### Code examples
+
+- basic
+
+<!-- prettier-ignore -->
+```jsx
+<SpinnerContainer loading={loading}>
+  <Media
+    aside={<Avatar imgSrc={user.avatar} />}
+    contentArray={[<Text weight="bold">{user.name}</Text>, {user.role}]}
+  />
+</SpinnerContainer>
+```
+
+- with a custom information
+
+<!-- prettier-ignore -->
+```jsx
+<SpinnerContainer
+  ariaLabelStatus={loading: "Searching", loaded: "Found 1 result"}
+  loading={loading}
+>
+  <Box>
+    <Headline>{results[0].question}</Headline>
+    <Text>{results[0].author.name}</Text>
+  </Box>
+</SpinnerContainer>
+```
