@@ -17,7 +17,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {
   ALIGNMENT as CB_ALIGNMENT,
 } from 'content-box/ContentBoxContent';
-import Radio from 'form-elements/Radio';
+import Radio from 'form-elements/radio/Radio';
 
 const ActionLists = () => (
   <div>
