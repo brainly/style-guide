@@ -37,7 +37,7 @@ describe('Label', () => {
     );
 
     expect(label.hasClass('sg-label')).toBe(true);
-    expect(label.hasClass('sg-label--green-50')).toBe(true);
+    expect(label.hasClass('sg-label--green-60')).toBe(true);
   });
 
   test('icon-black color close button is default', () => {
@@ -109,7 +109,7 @@ describe('Label', () => {
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--green-50')).toBe(true);
+    expect(label.hasClass('sg-label--green-60')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-white');
     expect(heartIcon.prop('color')).toBe('icon-white');
     expect(label.find(Text).prop('color')).toBe('text-white');

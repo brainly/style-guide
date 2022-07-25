@@ -46,6 +46,8 @@ const iconMap = {
     'ask_parent_to_pay',
     'bell_checked',
     'bell_outlined',
+    'bookmark',
+    'bookmark_outlined',
     'check',
     'comment',
     'comment_outlined',
@@ -81,6 +83,7 @@ const iconMap = {
     'thumb_up_outlined',
     'thumb_down',
     'thumb_down_outlined',
+    'unbookmark',
   ],
   'Editor and Media': [
     'attachment',
