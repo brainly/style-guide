@@ -71,6 +71,13 @@
     border-bottom-color: $indigo-50;
     border-left-color: $indigo-50;
   }
+
+  @media (forced-colors: active) {
+    border-top-color: Canvas;
+    border-right-color: Canvas;
+    border-bottom-color: CanvasText;
+    border-left-color: CanvasText;
+  }
 }
 
 @keyframes spinner-animation {
