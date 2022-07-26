@@ -232,7 +232,7 @@ $checkboxClickableArea: 32px;
             );
 
             svg path {
-              transition: stroke-dashoffset 0.4s $easingRegular 0.08s;
+              transition: stroke-dashoffset 0.4s $easingRegular $durationQuick1;
             }
             svg path {
               stroke-dashoffset: 0;
@@ -240,7 +240,7 @@ $checkboxClickableArea: 32px;
             }
 
             svg .indeterminate-path {
-              transition: stroke-dashoffset 0.6s $easingRegular 0.08s;
+              transition: stroke-dashoffset 0.6s $easingRegular $durationQuick1;
             }
           }
 
@@ -275,9 +275,9 @@ $checkboxClickableArea: 32px;
     border-radius: $borderRadiusSmall;
     border: 2px solid var(--checkboxColor);
 
-    animation-duration: 0.08s, 0.18s;
-    animation-timing-function: cubic-bezier(0.3, 0, 1, 0.8);
-    animation-delay: 0s, 0.08s;
+    animation-duration: $durationQuick1, $durationModerate1;
+    animation-timing-function: $easingExit, $easingEntry;
+    animation-delay: $durationInstant, $durationQuick1;
     animation-direction: normal, normal;
 
     // Add animation only when user is interacting with component
