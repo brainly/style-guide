@@ -2,6 +2,8 @@ const {version} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
 const argv = require('yargs').argv;
+const path = require('path');
+const fs = require('fs');
 
 if (argv.env && argv.env !== 'dev' && argv.env !== 'prod') {
   throw new Error(`Invalid env: ${argv.env}`);
@@ -27,19 +29,24 @@ client.s3.getObject(
     Bucket: `styleguide-${env}.brainly.com`,
     Key: `${version}/style-guide.css`,
   },
-  function (err, data) {
+  function (err) {
     if (err) {
-      if (err.name === 'AccessDenied' || err.name === 'NoSuchKey') {
+      // NoSuchKey - we can list bucket files and file is not found
+      // AccessDenied - we can't list bucket files and file is not found or we dont have access
+      if (err.name === 'NoSuchKey' || err.name === 'AccessDenied') {
+        console.log(`${version}/style-guide.css is not found. Building files.`);
         buildFiles();
       } else {
-        console.log(err, err.stack);
+        console.error(err, err.stack);
       }
-    } else if (!data || (data && data.toString('utf-8') !== version)) {
-      buildFiles();
     } else {
       console.log(
-        'No version change detected in package.json, skipping storybook build.'
+        'No version change detected in package.json, skipping build.'
       );
+
+      // CodeBuild deploy project requires 'dist' folder to not be empty, so we create mock file.
+      fs.mkdirSync(path.resolve(__dirname, '..', 'dist'));
+      fs.writeFileSync(path.resolve(__dirname, '..', 'dist', '.temp'), '');
     }
   }
 );

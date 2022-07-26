@@ -35,21 +35,57 @@ export const LABEL_TYPE: {
 };
 
 export const COLORS_SOLID_MAP: {
-  blue: 'blue-50',
-  green: 'green-50',
-  indigo: 'indigo-40',
-  red: 'red-50',
-  yellow: 'yellow-50',
-  gray: 'gray-50',
+  blue: 'blue-60',
+  green: 'green-60',
+  indigo: 'indigo-60',
+  red: 'red-60',
+  yellow: 'yellow-40',
+  gray: 'gray-40',
   achromatic: 'black',
 } = {
-  blue: 'blue-50',
-  green: 'green-50',
-  indigo: 'indigo-40',
-  red: 'red-50',
-  yellow: 'yellow-50',
-  gray: 'gray-50',
+  blue: 'blue-60',
+  green: 'green-60',
+  indigo: 'indigo-60',
+  red: 'red-60',
+  yellow: 'yellow-40',
+  gray: 'gray-40',
   achromatic: 'black',
+};
+
+const SOLID_COLOR_TEXT_MAP: {
+  blue: 'text-white',
+  green: 'text-white',
+  indigo: 'text-white',
+  red: 'text-white',
+  yellow: 'text-black',
+  gray: 'text-black',
+  achromatic: 'text-white',
+} = {
+  blue: 'text-white',
+  green: 'text-white',
+  indigo: 'text-white',
+  red: 'text-white',
+  yellow: 'text-black',
+  gray: 'text-black',
+  achromatic: 'text-white',
+};
+
+const SOLID_ICON_COLOR_MAP: {
+  blue: 'icon-white',
+  green: 'icon-white',
+  indigo: 'icon-white',
+  red: 'icon-white',
+  yellow: 'icon-black',
+  gray: 'icon-black',
+  achromatic: 'icon-white',
+} = {
+  blue: 'icon-white',
+  green: 'icon-white',
+  indigo: 'icon-white',
+  red: 'icon-white',
+  yellow: 'icon-black',
+  gray: 'icon-black',
+  achromatic: 'icon-white',
 };
 
 export const COLORS_DEFAULT_MAP: {
@@ -76,7 +112,7 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   indigo: 'text-indigo-60',
   red: 'text-red-60',
   yellow: 'text-yellow-60',
-  gray: 'text-gray-50',
+  gray: 'text-gray-60',
   achromatic: 'text-black',
 } = {
   blue: 'text-blue-60',
@@ -84,7 +120,7 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   indigo: 'text-indigo-60',
   red: 'text-red-60',
   yellow: 'text-yellow-60',
-  gray: 'text-gray-50',
+  gray: 'text-gray-60',
   achromatic: 'text-black',
 };
 
@@ -252,21 +288,21 @@ const Label = ({
     type === 'default' || type === 'transparent'
       ? TEXT_COLOR['text-black']
       : type === 'solid'
-      ? TEXT_COLOR['text-white']
+      ? SOLID_COLOR_TEXT_MAP[color]
       : TRANSPARENT_COLOR_TEXT_MAP[color];
 
   const iconColor =
     type === 'default'
       ? ICON_COLOR['icon-black']
       : type === 'solid'
-      ? ICON_COLOR['icon-white']
+      ? SOLID_ICON_COLOR_MAP[color]
       : TRANSPARENT_ICON_COLOR_MAP[color];
 
   const closeIconColor =
     type === 'default' || type === 'transparent'
       ? ICON_COLOR['icon-black']
       : type === 'solid'
-      ? ICON_COLOR['icon-white']
+      ? SOLID_ICON_COLOR_MAP[color]
       : TRANSPARENT_ICON_COLOR_MAP[color];
 
   return (

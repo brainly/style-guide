@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "215.1.1",
+  "version": "217.0.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -143,7 +143,7 @@
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
-    "build": "gulp build",
+    "build": "gulp build-new",
     "build-new": "gulp build-new",
     "start": "http-server ./dist -p 8000",
     "deploy": "NODE_ENV=production gulp deploy",
