@@ -32,7 +32,7 @@ module.exports = function (gulp, plugins, consts) {
 
       /* --black: #{$black}; */
       Object.keys(map).forEach(color => {
-        colors[`--${color.substring(1)}`] = `${map[color]}`;
+        colors[`--${color.substring(1)}`] = `#{${color}}`;
       });
 
       return colors;
