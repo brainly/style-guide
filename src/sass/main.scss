@@ -3,7 +3,7 @@ $includeFonts: true !default;
 $sgImagesPath: 'images/' !default;
 $sgFontsPath: 'fonts/' !default;
 
-@import 'colors';
+@import 'css-colors';
 @import 'config';
 @import 'mixins';
 @import 'fixes';
