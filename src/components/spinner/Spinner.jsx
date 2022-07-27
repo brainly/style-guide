@@ -16,6 +16,8 @@ export type SpinnerColorType =
   | 'blue-40'
   | 'indigo-50';
 
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
+
 export const SPINNER_SIZE = {
   SMALL: 'small',
   XSMALL: 'xsmall',
@@ -38,12 +40,16 @@ export type SpinnerPropsType = {
   color?: SpinnerColorType,
   size?: SpinnerSizeType,
   className?: string,
+  'aria-label'?: string,
+  'aria-live'?: AriaLiveType,
   ...
 };
 
 const Spinner = ({
   color = 'gray-70',
   size = SPINNER_SIZE.SMALL,
+  'aria-label': ariaLabel = 'loading',
+  'aria-live': ariaLive = 'assertive',
   className,
   ...props
 }: SpinnerPropsType) => {
@@ -56,7 +62,17 @@ const Spinner = ({
     className
   );
 
-  return <div {...props} className={spinnerClassNames} />;
+  return (
+    <div
+      {...props}
+      className={spinnerClassNames}
+      aria-live={ariaLive}
+      role="status"
+      aria-atomic="true"
+    >
+      <span className="sg-visually-hidden">{ariaLabel}</span>
+    </div>
+  );
 };
 
 export default Spinner;
