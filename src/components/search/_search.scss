@@ -42,3 +42,8 @@ $includeHtml: false !default;
     -webkit-appearance: none;
   }
 }
+
+.sg-button.sg-button--s.sg-search-button--s {
+  height: componentSize(xs);
+  width: componentSize(xs);
+}
