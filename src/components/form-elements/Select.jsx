@@ -96,7 +96,6 @@ export const ICON_SIZE = {
   [SIZE.S]: 16,
 };
 
-
 const getOptionElement = ({value, text}: OptionsPropsType) => (
   <option key={value} value={value}>
     {text}
