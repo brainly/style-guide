@@ -71,9 +71,8 @@ export type SelectPropsType = {
    */
   color?: ?SelectColorType,
   /**
-   * There are three sizes options for most of the form elements
+   * There are two sizes options for most of the form elements
    * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
-   * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#select
    * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
    * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
@@ -132,7 +131,7 @@ const Select = (props: SelectPropsType) => {
       'sg-select--capitalized': capitalized,
       'sg-select--full-width': fullWidth,
       [`sg-select--${String(color)}`]: color,
-      [`sg-select--${String(size)}`]: size && size !== 'm',
+      [`sg-select--${String(size)}`]: size !== 'm',
     },
     className
   );
@@ -159,7 +158,7 @@ const Select = (props: SelectPropsType) => {
         <Icon
           type="caret_down"
           color={ICON_COLOR['icon-gray-50']}
-          size={ICON_SIZE[size]}
+          size={ICON_SIZE}
         />
       </div>
 
