@@ -109,7 +109,7 @@ const Select = (props: SelectPropsType) => {
     capitalized,
     fullWidth,
     value,
-    size = 'm',
+    size = SIZE.M,
     color,
     className,
     options = [],
