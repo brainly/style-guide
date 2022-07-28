@@ -76,7 +76,7 @@ export type SelectPropsType = {
    * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
    * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
-  size?: ?SelectSizeType,
+  size?: SelectSizeType,
   /**
    * Optional boolean to specified if it's full width
    * @example <Select fullWidth placeholder="placeholder" />
