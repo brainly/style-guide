@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
 
-type InputSizeType = 'm' | 'l';
+type InputSizeType = 's' | 'm' | 'l';
 
 type InputColorType = 'default' | 'white';
 
@@ -78,9 +78,11 @@ export const TYPE: {
 export const SIZE: {
   L: 'l',
   M: 'm',
+  S: 's',
 } = {
   L: 'l',
   M: 'm',
+  S: 's',
 };
 
 export const COLOR: {
