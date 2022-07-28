@@ -140,10 +140,12 @@ $radioCheckedBorderWidth: 5px;
       --radioBorderWidth: #{$radioCheckedBorderWidth};
       --radioRingColor: var(--radioColor);
 
-      @include radioCheckedAnimation(
-        transparent,
-        var(--radioCheckedBorderWidth)
-      );
+      &--with-animation {
+        @include radioCheckedAnimation(
+          transparent,
+          var(--radioCheckedBorderWidth)
+        );
+      }
 
       @media (forced-colors: active) {
         border: var(--radioBorderWidth) solid FieldText;
