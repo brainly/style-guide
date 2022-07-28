@@ -14,7 +14,7 @@ type GroupedOptionsPropsType = {
   options: $ReadOnlyArray<OptionsPropsType>,
 };
 
-type SelectSizeType = 'm' | 'l';
+type SelectSizeType = 's' | 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
 
@@ -27,9 +27,11 @@ export const COLOR: {
 };
 
 export const SIZE: {
+  S: 's',
   M: 'm',
   L: 'l',
 } = {
+  S: 's',
   M: 'm',
   L: 'l',
 };
@@ -63,8 +65,9 @@ export type SelectPropsType = {
    */
   color?: ?SelectColorType,
   /**
-   * There are two sizes options for most of the form elements
+   * There are three sizes options for most of the form elements
    * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#select
    * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
    * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
@@ -86,6 +89,13 @@ export type SelectPropsType = {
   className?: string,
   ...
 };
+
+export const ICON_SIZE = {
+  [SIZE.L]: 32,
+  [SIZE.M]: 24,
+  [SIZE.S]: 16,
+};
+
 
 const getOptionElement = ({value, text}: OptionsPropsType) => (
   <option key={value} value={value}>
@@ -148,9 +158,9 @@ const Select = (props: SelectPropsType) => {
     <div className={selectClass}>
       <div className="sg-select__icon">
         <Icon
-          type="arrow_down"
+          type="caret_down"
           color={ICON_COLOR['icon-gray-50']}
-          size={size === 'l' ? 24 : 16}
+          size={ICON_SIZE[size]}
         />
       </div>
 
