@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Icon, {ICON_COLOR} from '../icons/Icon';
+import Icon, {ICON_COLOR, SIZE as ICON_SIZE} from '../icons/Icon';
 
 type OptionsPropsType = {
   value: string,
@@ -36,7 +36,7 @@ export const SIZE: {
   L: 'l',
 };
 
-export const ICON_SIZE = {
+const ICON_SIZE_MAP = {
   [SIZE.L]: 32,
   [SIZE.M]: 24,
   [SIZE.S]: 16,
@@ -158,7 +158,7 @@ const Select = (props: SelectPropsType) => {
         <Icon
           type="caret_down"
           color={ICON_COLOR['icon-gray-50']}
-          size={ICON_SIZE}
+          size={ICON_SIZE_MAP[size]}
         />
       </div>
 
