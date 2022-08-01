@@ -127,6 +127,17 @@ $includeHtml: false !default;
       }
     }
 
+    &--s {
+      height: componentSize(s);
+      font-size: fontSize(small);
+      border-radius: $formElementStandardBorderRadius;
+      padding: 0 calc(spacing(xs) + spacing(xxs));
+
+      &::placeholder {
+        font-size: fontSize(small);
+      }
+    }
+
     &--with-icon {
       padding-right: 40px;
     }
