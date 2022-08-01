@@ -6,7 +6,7 @@ import SpinnerContainer, {
 } from './SpinnerContainer';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
 import SpinnerContainerA11y from './stories/SpinnerContainer.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
 
@@ -87,7 +87,11 @@ import PageHeader from 'blocks/PageHeader';
 
 <Canvas>
   <Story name="full width" args={{loading: true, fullWidth: true}}>
-    {args => <SpinnerContainer {...args} />}
+    {args => (
+      <StoryVariantBorderBox>
+        <SpinnerContainer {...args} />
+      </StoryVariantBorderBox>
+    )}
   </Story>
 </Canvas>
 
