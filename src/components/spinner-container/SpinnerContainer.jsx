@@ -12,6 +12,8 @@ type AriaStatusLabelType = {
   loaded?: string,
 };
 
+export type AriaLiveType = 'polite' | 'assertive';
+
 export type SpinnerContainerPropsType = {
   loading?: boolean,
   color?: SpinnerColorType,
@@ -19,6 +21,7 @@ export type SpinnerContainerPropsType = {
   size?: SpinnerSizeType,
   children?: React.Node,
   ariaStatusLabel?: AriaStatusLabelType,
+  'aria-live'?: AriaLiveType,
   ...
 };
 
@@ -29,6 +32,7 @@ const SpinnerContainer = ({
   size,
   children,
   ariaStatusLabel = {loaded: 'content loaded', loading: 'content is loading'},
+  'aria-live': ariaLive = 'assertive',
   ...props
 }: SpinnerContainerPropsType) => {
   const childrenWithAriaBusy = React.useMemo(() => {
@@ -56,12 +60,13 @@ const SpinnerContainer = ({
             color={color}
             size={size}
             aria-label={ariaStatusLabel.loading}
+            aria-live={ariaLive}
           />
         </div>
       ) : (
         <span
           className="sg-visually-hidden"
-          aria-live="assertive"
+          aria-live={ariaLive}
           role="status"
           aria-atomic="true"
         >
