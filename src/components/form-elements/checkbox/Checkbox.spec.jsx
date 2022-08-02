@@ -3,12 +3,13 @@ import Checkbox from './Checkbox';
 
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import {testA11y} from '../../../axe';
 
 describe('<Checkbox />', () => {
   const renderCheckbox = props =>
     render(<Checkbox onChange={() => jest.fn()} {...props} />);
 
-  it('it renders unchecked checkbox input, without label', () => {
+  it('renders unchecked checkbox input, without label', () => {
     const checkbox = renderCheckbox({});
     const checkboxInput = checkbox.getByRole('checkbox');
 
@@ -16,22 +17,36 @@ describe('<Checkbox />', () => {
     expect(checkbox.queryByLabelText('my label')).toBeNull();
   });
 
-  it('checks/unchecks when either input or label is clicked', () => {
+  it('has an accessible name when children provided', () => {
+    const label = 'label';
+    const checkbox = renderCheckbox({children: label});
+
+    expect(checkbox.getByRole('checkbox', {name: label})).toBeTruthy();
+  });
+
+  it('has an accessible name when no children provided but is wrapped in a custom label', () => {
+    const label = 'label';
+    const checkbox = render(
+      <label>
+        {label}
+        <Checkbox />
+      </label>
+    );
+
+    expect(checkbox.getByRole('checkbox', {name: label})).toBeTruthy();
+  });
+
+  it('checks/unchecks when either checkbox, input or label is clicked or space is pressed', () => {
     const checkbox = renderCheckbox({children: 'my label'});
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(false);
-    userEvent.click(checkbox.queryByLabelText('my label'));
+    userEvent.click(checkbox.getByLabelText('my label'));
     expect(checkboxInput).toEqual(document.activeElement);
     expect(checkboxInput.checked).toBe(true);
-    userEvent.click(checkboxInput);
+    userEvent.keyboard('{space}');
     expect(checkboxInput.checked).toBe(false);
-  });
-
-  it('it renders as initially checked', () => {
-    const checkbox = renderCheckbox({defaultChecked: true});
-    const checkboxInput = checkbox.getByRole('checkbox');
-
+    userEvent.click(checkbox.getByText('my label'));
     expect(checkboxInput.checked).toBe(true);
   });
 
@@ -40,6 +55,13 @@ describe('<Checkbox />', () => {
     const checkboxInput = checkbox.getByRole('checkbox');
 
     expect(checkboxInput.checked).toBe(true);
+  });
+
+  it('it renders as initially unchecked', () => {
+    const checkbox = renderCheckbox({defaultChecked: false});
+    const checkboxInput = checkbox.getByRole('checkbox');
+
+    expect(checkboxInput.checked).toBe(false);
   });
 
   it('it displays error message and description', () => {
@@ -80,5 +102,57 @@ describe('<Checkbox />', () => {
     userEvent.click(checkbox.queryByLabelText(labelText));
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
+  });
+
+  it("it doesn't check/uncheck when either description or error message is clicked", () => {
+    const descriptionText = 'Cool checkbox it is';
+    const errorMessageText = 'Oops.';
+    const labelText = 'Click me pls';
+
+    const checkbox = renderCheckbox({
+      description: descriptionText,
+      invalid: true,
+      errorMessage: errorMessageText,
+      children: labelText,
+      defaultChecked: false,
+    });
+    const checkboxInput = checkbox.getByRole('checkbox');
+
+    expect(checkboxInput.checked).toBe(false);
+    userEvent.click(checkbox.getByText(descriptionText));
+    expect(checkboxInput.checked).toBe(false);
+    userEvent.click(checkbox.getByText(errorMessageText));
+    expect(checkboxInput.checked).toBe(false);
+  });
+});
+
+describe('<Checkbox/> accessibility', () => {
+  it('should have no a11y violations when children is provided', async () => {
+    await testA11y(<Checkbox>item</Checkbox>);
+  });
+
+  it('should have no a11y violations when it has a custom label', async () => {
+    await testA11y(
+      <label>
+        item
+        <Checkbox />
+      </label>
+    );
+  });
+
+  it('should have no a11y violations when it is checked', async () => {
+    await testA11y(<Checkbox checked>item</Checkbox>);
+  });
+
+  it('should have no a11y violations when it is required', async () => {
+    await testA11y(<Checkbox required>item</Checkbox>);
+  });
+
+  it('should have no a11y violations when it is invalid and has error message', async () => {
+    await testA11y(
+      <Checkbox invalid errorMessage="error">
+        item
+      </Checkbox>
+    );
   });
 });

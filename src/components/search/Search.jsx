@@ -71,6 +71,9 @@ const Search = ({
         <div className={`${baseClassName}__icon`}>
           <Button
             type="solid"
+            className={cx({
+              'sg-search-button--s': size === 's',
+            })}
             icon={
               <Icon
                 type="search"

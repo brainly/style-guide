@@ -14,7 +14,7 @@ type GroupedOptionsPropsType = {
   options: $ReadOnlyArray<OptionsPropsType>,
 };
 
-type SelectSizeType = 'm' | 'l';
+type SelectSizeType = 's' | 'm' | 'l';
 
 type SelectColorType = 'default' | 'white';
 
@@ -27,11 +27,19 @@ export const COLOR: {
 };
 
 export const SIZE: {
+  S: 's',
   M: 'm',
   L: 'l',
 } = {
+  S: 's',
   M: 'm',
   L: 'l',
+};
+
+const ICON_SIZE_MAP = {
+  [SIZE.L]: 32,
+  [SIZE.M]: 24,
+  [SIZE.S]: 16,
 };
 
 export type SelectPropsType = {
@@ -68,7 +76,7 @@ export type SelectPropsType = {
    * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
    * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
    */
-  size?: ?SelectSizeType,
+  size?: SelectSizeType,
   /**
    * Optional boolean to specified if it's full width
    * @example <Select fullWidth placeholder="placeholder" />
@@ -100,7 +108,7 @@ const Select = (props: SelectPropsType) => {
     capitalized,
     fullWidth,
     value,
-    size,
+    size = SIZE.M,
     color,
     className,
     options = [],
@@ -148,9 +156,9 @@ const Select = (props: SelectPropsType) => {
     <div className={selectClass}>
       <div className="sg-select__icon">
         <Icon
-          type="chevron_down"
+          type="caret_down"
           color={ICON_COLOR['icon-gray-50']}
-          size={size === 'l' ? 24 : 16}
+          size={ICON_SIZE_MAP[size]}
         />
       </div>
 
