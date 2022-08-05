@@ -15,7 +15,7 @@ $checkboxClickableArea: 32px;
 
   @include component();
 
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 
   &--light {
