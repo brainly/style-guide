@@ -1,4 +1,4 @@
-const pkg = require('../package.json');
+const {version: packageJsonVersion} = require('../package.json');
 const s3 = require('@brainly/s3');
 const {execSync} = require('child_process');
 const yargs = require('yargs');
@@ -18,7 +18,7 @@ yargs.boolean('latest');
 
 const argv = yargs.argv;
 
-const version = argv.latest ? 'latest' : pkg.version;
+const version = argv.latest ? 'latest' : packageJsonVersion;
 const rootRedirectPage =
   argv.rootRedirectPage !== undefined ? argv.rootRedirectPage : true;
 
