@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Input from 'form-elements/Input';
-import Checkbox from 'form-elements/Checkbox';
+import Checkbox from 'form-elements/checkbox/Checkbox';
 
 type PropsType = {
   // eslint-disable-next-line flowtype/no-primitive-constructor-types

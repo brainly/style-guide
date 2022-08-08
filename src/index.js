@@ -38,12 +38,14 @@ export {default as FlashMessage} from './components/flash-messages/FlashMessage'
 export type {FlashMessagePropsType} from './components/flash-messages/FlashMessage';
 export {default as Flex} from './components/flex/Flex';
 export type {FlexPropsType} from './components/flex/Flex';
-export {default as Checkbox} from './components/form-elements/Checkbox';
-export type {CheckboxPropsType} from './components/form-elements/Checkbox';
+export {default as Checkbox} from './components/form-elements/checkbox/Checkbox';
+export type {CheckboxPropsType} from './components/form-elements/checkbox/Checkbox';
 export {default as Input} from './components/form-elements/Input';
 export type {InputPropsType} from './components/form-elements/Input';
-export {default as Radio} from './components/form-elements/Radio';
-export type {RadioPropsType} from './components/form-elements/Radio';
+export {default as Radio} from './components/form-elements/radio/Radio';
+export type {RadioPropsType} from './components/form-elements/radio/Radio';
+export {default as RadioGroup} from './components/form-elements/radio/RadioGroup';
+export type {RadioGroupPropsType} from './components/form-elements/radio/RadioGroup';
 export {default as Select} from './components/form-elements/Select';
 export type {SelectPropsType} from './components/form-elements/Select';
 export {default as Textarea} from './components/form-elements/Textarea';
