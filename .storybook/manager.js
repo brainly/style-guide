@@ -2,8 +2,8 @@ import * as React from 'react';
 import {addons} from '@storybook/addons';
 import theme from './theme';
 import deprecated from '../deprecated.json';
-import {Badge} from '../src/_docs/blocks/Badge';
-import {Label} from '../src/_docs/blocks/Label';
+import {Badge} from '../src/docs/blocks/Badge';
+import {Label} from '../src/docs/blocks/Label';
 
 addons.setConfig({
   theme,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariantTable} from '../../_docs/utils';
+import {StoryVariantTable} from '../../docs/utils';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';

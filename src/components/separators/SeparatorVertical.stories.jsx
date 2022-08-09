@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SeparatorVertical, {SIZE, COLORS_MAP} from './SeparatorVertical';
 import Flex from '../flex/Flex';
-import {StoryVariant, StoryVariantBorderBox} from '../../_docs/utils';
+import {StoryVariant, StoryVariantBorderBox} from '../../docs/utils';
 
 export default {
   title: 'Components/separators/SeparatorVertical',

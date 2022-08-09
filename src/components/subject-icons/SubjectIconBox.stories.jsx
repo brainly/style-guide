@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StoryVariant} from '../../_docs/utils';
+import {StoryVariant} from '../../docs/utils';
 import Flex from '../flex/Flex';
 import SubjectIconBox, {TYPE, SIZE} from './SubjectIconBox';
 
