@@ -14,6 +14,7 @@ import {
 } from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+import {linkVariants, weightVariants} from './Text.css';
 
 const anchorRelatedProps = [
   'download',
@@ -139,10 +140,10 @@ const Link = (props: LinkPropsType) => {
   const linkClass = classNames(
     {
       [`sg-text--inherited`]: inherited,
-      'sg-text--link': !underlined && !unstyled,
-      'sg-text--link-underlined': underlined && !unstyled,
+      [linkVariants.main]: !underlined && !unstyled,
+      [linkVariants.underlined]: underlined && !unstyled,
       'sg-text--link-unstyled': !underlined && unstyled,
-      'sg-text--bold': emphasised && !inherited,
+      [weightVariants.bold]: emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
       [`sg-text--${String(weight)}`]: weight,

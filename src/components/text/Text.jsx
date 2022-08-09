@@ -5,6 +5,14 @@ import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+import {
+  colorVariants,
+  textStyle,
+  inheritedStyle,
+  sizeVariants,
+  weightVariants,
+  wrapVariants,
+} from './Text.css';
 
 export type TextTypeType =
   | 'span'
@@ -112,24 +120,28 @@ const Text = ({
 }: TextPropsType) => {
   const Type = type;
   const textClass = classNames(
-    'sg-text',
+    textStyle,
     {
-      'sg-text--inherited': inherited,
-      [`sg-text--${String(color)}`]: color,
+      [inheritedStyle]: inherited,
+      [colorVariants[color]]: color,
       'sg-text--container': asContainer,
-      'sg-text--bold': type === 'strong',
+      [weightVariants.bold]: type === 'strong',
     },
-    ...generateResponsiveClassNames(size => `sg-text--${size}`, size),
-    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
+    ...generateResponsiveClassNames(size => size, size).map(
+      className => sizeVariants[className]
+    ),
+    ...generateResponsiveClassNames(weight => weight, weight).map(
+      className => weightVariants[className]
+    ),
     ...generateResponsiveClassNames(
       transform => `sg-text--${transform}`,
       transform
     ),
     ...generateResponsiveClassNames(align => `sg-text--${align}`, align),
     ...generateResponsiveClassNames(
-      noWrap => (noWrap ? `sg-text--no-wrap` : 'sg-text--wrap'),
+      noWrap => (noWrap ? wrapVariants.noWrap : wrapVariants.noWrap),
       noWrap
-    ),
+    ).map(className => wrapVariants[className]),
     ...generateResponsiveClassNames(
       full => (full ? `sg-text--full` : 'sg-text--auto'),
       full

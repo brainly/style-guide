@@ -61,29 +61,28 @@ $bodyTextSizeRules: (
   }
 
   .sg-text {
-    @include bodyTextTypeSizeVariant(medium);
-    font-family: $fontFamilyPrimary;
-    font-weight: $fontWeightNormal;
-    color: $text-black;
+    // @include bodyTextTypeSizeVariant(medium);
+    // font-family: $fontFamilyPrimary;
+    // font-weight: $fontWeightNormal;
 
-    &--link {
-      cursor: pointer;
-      text-decoration: none;
-      color: $text-blue-60;
+    // &--link {
+    //   cursor: pointer;
+    //   text-decoration: none;
+    //   color: $text-blue-60;
 
-      &:hover,
-      &:active {
-        text-decoration: underline;
-      }
-    }
+    //   &:hover,
+    //   &:active {
+    //     text-decoration: underline;
+    //   }
+    // }
 
-    &--inherited {
-      font-size: inherit;
-      line-height: inherit;
-      font-family: inherit;
-      font-weight: inherit;
-      color: inherit;
-    }
+    // &--inherited {
+    //   font-size: inherit;
+    //   line-height: inherit;
+    //   font-family: inherit;
+    //   font-weight: inherit;
+    //   color: inherit;
+    // }
 
     &--container {
       position: relative;
@@ -108,10 +107,10 @@ $bodyTextSizeRules: (
       }
     }
 
-    &--link-underlined {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+    // &--link-underlined {
+    //   cursor: pointer;
+    //   text-decoration: underline;
+    // }
 
     &--link-unstyled {
       cursor: pointer;
@@ -124,24 +123,24 @@ $bodyTextSizeRules: (
       }
     }
 
-    @include textColor();
+    // @include textColor();
   }
 
   @each $breakpoint, $variant in $responsiveVariants {
     @include sgResponsive($breakpoint) {
-      @each $size in $bodyTextSizes {
-        @include makeResponsive($variant, 'sg-text--#{$size}') {
-          @include bodyTextTypeSizeVariant($size);
-        }
-      }
+      // @each $size in $bodyTextSizes {
+      //   @include makeResponsive($variant, 'sg-text--#{$size}') {
+      //     @include bodyTextTypeSizeVariant($size);
+      //   }
+      // }
 
-      @include makeResponsive($variant, 'sg-text--bold') {
-        font-weight: $fontWeightBold;
-      }
+      // @include makeResponsive($variant, 'sg-text--bold') {
+      //   font-weight: $fontWeightBold;
+      // }
 
-      @include makeResponsive($variant, 'sg-text--regular') {
-        font-weight: $fontWeightNormal;
-      }
+      // @include makeResponsive($variant, 'sg-text--regular') {
+      //   font-weight: $fontWeightNormal;
+      // }
 
       @each $transform in $bodyTextTransforms {
         @include makeResponsive($variant, 'sg-text--#{$transform}') {
@@ -165,13 +164,13 @@ $bodyTextSizeRules: (
         text-align: justify;
       }
 
-      @include makeResponsive($variant, 'sg-text--no-wrap') {
-        white-space: nowrap;
-      }
+      // @include makeResponsive($variant, 'sg-text--no-wrap') {
+      //   white-space: nowrap;
+      // }
 
-      @include makeResponsive($variant, 'sg-text--wrap') {
-        white-space: wrap;
-      }
+      // @include makeResponsive($variant, 'sg-text--wrap') {
+      //   white-space: wrap;
+      // }
 
       @include makeResponsive($variant, 'sg-text--full') {
         width: 100%;

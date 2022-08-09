@@ -8,6 +8,7 @@ const revHash = require('rev-hash');
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
+const {VanillaExtractPlugin} = require('@vanilla-extract/webpack-plugin');
 
 process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
@@ -261,6 +262,8 @@ module.exports = {
 
     // alias for finger printed asset urls
     config.resolve.alias.RevManifest = revManifestPath;
+
+    config.plugins.push(new VanillaExtractPlugin());
 
     return config;
   },
