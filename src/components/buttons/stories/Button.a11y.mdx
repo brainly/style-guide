@@ -1,0 +1,39 @@
+### Button with `href`
+
+| Pattern                                                                                                | Comment                                                                                                                         | Status                                  |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| **Should** have an accessible name                                                                     | Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more"). `aria-label` can be used to provide a name. | Implementation: TO DO<br />Tests: TO DO |
+| **Should** have a role `link`                                                                          |                                                                                                                                 | Implementation: TO DO<br />Tests: TO DO |
+| **Should** cause the user agent to navigate to a new resource                                          |                                                                                                                                 | Implementation: TO DO<br />Tests: N/A   |
+| **Should** be focusable and tabable                                                                    | Only when it is not disabled.                                                                                                   | Implementation: TO DO<br />Tests: TO DO |
+| **Should** have visible focus style                                                                    |                                                                                                                                 | Implementation: TO DO<br />Tests: N/A   |
+| **Should** have a non-color indicator                                                                  | Button uses uppercase                                                                                                           | Implementation: TO DO<br />Tests: N/A   |
+| **Should** have a color indicator with 4.5:1 contrast ratio to the background                          |                                                                                                                                 | Implementation: TO DO<br />Tests: N/A   |
+| **Should** have a color indicator with 3:1 contrast ratio to the surrounding background                | `transparent-light` and inverted types should be used on dark backgrounds.                                                      | Implementation: TO DO<br />Tests: N/A   |
+| **Should** have `cursor: default`                                                                      |                                                                                                                                 | Implementation: TO DO<br />Tests: N/A   |
+| **Should** be activated by pressing `Enter` and mouse click                                            |                                                                                                                                 | Implementation: TO DO<br />Tests: N/A   |
+| **Can** have an accessible label (and/or icon) that indicates opening in new tab                       |                                                                                                                                 | Implementation: TO DO<br />Tests: TO DO |
+| **Can** have an accessible label with file size&format (and/or icon) that indicates downloading a file |                                                                                                                                 | Implementation: TO DO<br />Tests: TO DO |
+
+<InfoBox>
+  Element, that looks like a button, but cause the user agent to navigate to a
+  new resource is a link and should meet the accessibility requirements for the
+  link. More about it ypu can read in{' '}
+  <a href="/docs/components-link--default-story#accessibility">
+    the Link accessibility documentation
+  </a>
+  .
+</InfoBox>
+
+### Usage
+
+#### Code examples
+
+- with `href`
+
+<!-- prettier-ignore -->
+```jsx
+<Button href="https://example.com/">
+  Read more about our products
+</Button>
+```

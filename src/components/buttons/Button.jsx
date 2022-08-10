@@ -109,6 +109,16 @@ const TOGGLE_BUTTON_TYPES = [
   'transparent-light',
 ];
 
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
+
+const anchorRelatedProps = [
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
+];
+
 export type ButtonPropsType = {
   /**
    * Specify type of the button that you want to use
@@ -215,6 +225,11 @@ export type ButtonPropsType = {
    * Additional class names
    */
   className?: string,
+  target?: TargetType,
+  newTabLabel?: string,
+  onClick?: (
+    SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => mixed,
   ...
 };
 
@@ -233,10 +248,16 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       toggle,
       children,
       className,
+      target,
+      newTabLabel = '(opens in a new tab)',
+      onClick,
       ...props
     }: ButtonPropsType,
     ref
   ) => {
+    const isDisabled = disabled || loading;
+    const isLink = !!href;
+
     if (__DEV__) {
       invariant(
         !(
@@ -263,9 +284,19 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         !(iconOnly && reversedOrder),
         `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
       );
-    }
 
-    const isDisabled = disabled || loading;
+      invariant(
+        !(
+          !isLink &&
+          (target ||
+            Object.keys(props).some(p => anchorRelatedProps.includes(p)))
+        ),
+        // $FlowFixMe
+        `An anchor-related prop is not working when "href" is not provided: ${Object.keys(
+          props
+        )}`
+      );
+    }
 
     const btnClass = cx(
       'sg-button',
@@ -292,7 +323,14 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       ico = <span className={iconClass}>{icon}</span>;
     }
 
-    const TypeToRender = href !== undefined ? 'a' : 'button';
+    const onButtonClick = e => {
+      if (isLink && isDisabled) {
+        return;
+      }
+      return onClick && onClick(e);
+    };
+
+    const TypeToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
 
     return (
       <TypeToRender
@@ -300,8 +338,9 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         className={btnClass}
         href={href}
         disabled={isDisabled}
-        role={href !== undefined ? 'button' : undefined}
         ref={ref}
+        target={target}
+        onClick={onButtonClick}
       >
         {loading && (
           <Spinner
@@ -313,7 +352,12 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         )}
         {ico}
         {/* As soon as we have Proxima fixed, we could remove that span */}
-        <span className="sg-button__text">{children}</span>
+        <span className="sg-button__text">
+          {children}
+          {target === '_blank' && (
+            <span className="sg-visually-hidden">{newTabLabel}</span>
+          )}
+        </span>
       </TypeToRender>
     );
   }
