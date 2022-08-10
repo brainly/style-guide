@@ -33,7 +33,7 @@ export const SLOTS = [
   'bottom-right',
 ];
 
-type DialogOverlayPropsType = {
+export type DialogOverlayPropsType = {
   children: React.Node,
   slot: SlotType,
 };
