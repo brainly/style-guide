@@ -177,7 +177,7 @@ const Link = (props: LinkPropsType) => {
   const linkType = disabled ? 'span' : 'a';
   const onLinkClick = e => {
     if (!disabled && onClick) {
-      onClick(e);
+      return onClick(e);
     }
   };
 
