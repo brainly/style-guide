@@ -217,5 +217,10 @@ module.exports = {
       path.join('./', 'node_modules'),
     ],
   },
-  plugins: [new VanillaExtractPlugin(), new MiniCssExtractPlugin()],
+  plugins: [
+    new VanillaExtractPlugin({
+      identifiers: 'debug',
+    }),
+    new MiniCssExtractPlugin(),
+  ],
 };
