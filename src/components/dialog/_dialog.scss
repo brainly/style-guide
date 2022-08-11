@@ -47,10 +47,18 @@ $dialogMaxWidthMap: (
     }
 
     &--space-top {
-      grid-template-rows: [dialog-row-start] auto [dialog-row-end] 1fr;
+      @include sgResponsive(md) {
+        grid-template-areas:
+          'middle-left middle middle-right'
+          'bottom-left bottom-middle bottom-right';
+        grid-template-rows: [dialog-row-start] auto [dialog-row-end] 1fr;
 
-      .sg-dialog-top {
-        display: none;
+        .sg-dialog-overlay-slot--top,
+        .sg-dialog-overlay-slot--top-middle,
+        .sg-dialog-overlay-slot--top-left,
+        .sg-dialog-overlay-slot--top-right {
+          display: none;
+        }
       }
     }
 
