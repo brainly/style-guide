@@ -102,6 +102,10 @@ type ButtonToggleType = 'red' | 'yellow';
 
 type ButtonSizeType = 'l' | 'm' | 's';
 
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
+
+export type NativeTypeType = 'button' | 'submit' | 'reset';
+
 const TOGGLE_BUTTON_TYPES = [
   'solid-light',
   'outline',
@@ -215,6 +219,14 @@ export type ButtonPropsType = {
    */
   loading?: boolean,
   /**
+   * `aria-live` for loading state. Defaults to "off".
+   */
+  loadingAriaLive?: AriaLiveType,
+  /**
+   * Accessible information about loading state. Defaults to "loading".
+   */
+  loadingAriaLabel?: string,
+  /**
    * Optional boolean for full width button
    * @example <Button type="solid-indigo" fullWidth>
    *            button
@@ -225,8 +237,26 @@ export type ButtonPropsType = {
    * Additional class names
    */
   className?: string,
+  /**
+   * Specifies where to display the linked URL.
+   */
   target?: TargetType,
+  /**
+   * Accessible information that indicates opening in new tab.
+   */
   newTabLabel?: string,
+  /**
+   * Accessible name for Button.
+   */
+  'aria-label'?: string,
+
+  /**
+   * The default behavior of the button.
+   */
+  nativeType?: NativeTypeType,
+  /**
+   * Callback, called by clicking on Button
+   */
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
@@ -251,6 +281,10 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       target,
       newTabLabel = '(opens in a new tab)',
       onClick,
+      'aria-label': ariaLabel,
+      loadingAriaLive = 'off',
+      loadingAriaLabel,
+      nativeType,
       ...props
     }: ButtonPropsType,
     ref
@@ -296,6 +330,16 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           props
         )}`
       );
+
+      invariant(
+        !(isLink && nativeType),
+        '`nativeType` prop is not working when href is provided'
+      );
+
+      invariant(
+        !(iconOnly && !ariaLabel),
+        'Using `iconOnly` without `aria-label` will affect people with visual impairments'
+      );
     }
 
     const btnClass = cx(
@@ -340,14 +384,17 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         disabled={isDisabled}
         ref={ref}
         target={target}
+        aria-label={ariaLabel}
         onClick={onButtonClick}
+        type={nativeType}
       >
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
             color={SPINNER_COLOR_MAP[type]}
             className="sg-button__spinner"
-            aria-live="off"
+            aria-live={loadingAriaLive}
+            aria-label={loadingAriaLabel}
           />
         )}
         {ico}
