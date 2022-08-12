@@ -1,18 +1,29 @@
-### Button with `href`
+### Rules
 
-| Pattern                                                                                 | Comment                                                                                                                         | Status                                |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Should** have an accessible name                                                      | Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more"). `aria-label` can be used to provide a name. | Implementation: DONE<br />Tests: DONE |
-| **Should** have a role `link`                                                           |                                                                                                                                 | Implementation: DONE<br />Tests: DONE |
-| **Should** cause the user agent to navigate to a new resource                           |                                                                                                                                 | Implementation: DONE<br />Tests: N/A  |
-| **Should** be focusable and tabable                                                     | Only when it is not disabled.                                                                                                   | Implementation: DONE<br />Tests: DONE |
-| **Should** have visible focus style                                                     |                                                                                                                                 | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a non-color indicator                                                   | Button uses uppercase                                                                                                           | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a color indicator with 4.5:1 contrast ratio to the background           |                                                                                                                                 | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a color indicator with 3:1 contrast ratio to the surrounding background | `transparent-light` and inverted types should be used on dark backgrounds.                                                      | Implementation: DONE<br />Tests: N/A  |
-| **Should** have `cursor: pointer`                                                       |                                                                                                                                 | Implementation: DONE<br />Tests: N/A  |
-| **Should** be activated by pressing `Enter` and mouse click                             |                                                                                                                                 | Implementation: DONE<br />Tests: N/A  |
-| **Can** have an accessible label (and/or icon) that indicates opening in new tab        |                                                                                                                                 | Implementation: DONE<br />Tests: DONE |
+| Pattern                                                                                 | Comment                                                                                                                                                                                              | Status                                |
+| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| **Should** have an accessible name                                                      | Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more") and explain the action (ex. "Search" instead of "Magnifying glass") . `aria-label` can be used to provide a name. | Implementation: DONE<br />Tests: DONE |
+| **Should** have a role `button`                                                         |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: DONE |
+| **Should** be focusable and tabable                                                     | Only when it is not disabled.                                                                                                                                                                        | Implementation: DONE<br />Tests: DONE |
+| **Should** have visible focus style                                                     |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
+| **Should** have a non-color indicator                                                   | Button uses uppercase                                                                                                                                                                                | Implementation: DONE<br />Tests: N/A  |
+| **Should** have a proper type                                                           |                                                                                                                                                                                                      |                                       |
+| **Should** have a color indicator with 4.5:1 contrast ratio to the background           |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
+| **Should** have a color indicator with 3:1 contrast ratio to the surrounding background | `transparent-light` and inverted types should be used on dark backgrounds.                                                                                                                           | Implementation: DONE<br />Tests: N/A  |
+| **Should** have `cursor: default`                                                       |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
+| **Should** fire `onClick` on `Space`/`Enter` press and mouse click                      |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: DONE |
+| **Should** have a visible `disabled` state                                              |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
+| **ShouldCan** have an accessible label that indicates loading state                     | Use `loadingAriaLabel` to set custom information, defaults to "loading"                                                                                                                              | Implementation: DONE<br />Tests: DONE |
+
+#### Button with `href`
+
+| Pattern                                                                          | Comment | Status                                |
+| -------------------------------------------------------------------------------- | ------- | ------------------------------------- |
+| **Should** have a role `link`                                                    |         | Implementation: DONE<br />Tests: DONE |
+| **Should** have `cursor: pointer`                                                |         | Implementation: DONE<br />Tests: N/A  |
+| **Should** cause the user agent to navigate to a new resource                    |         | Implementation: DONE<br />Tests: N/A  |
+| **Should** be activated by pressing `Enter` and mouse click                      |         | Implementation: DONE<br />Tests: N/A  |
+| **Can** have an accessible label (and/or icon) that indicates opening in new tab |         | Implementation: DONE<br />Tests: DONE |
 
 <InfoBox>
   Element, that looks like a button, but cause the user agent to navigate to a
@@ -34,5 +45,49 @@
 ```jsx
 <Button href="https://example.com/">
   Read more about our products
+</Button>
+```
+
+- with `onClick`
+
+<!-- prettier-ignore -->
+```jsx
+<Button onClick={onClick}>
+  Send your comment
+</Button>
+```
+
+- with an icon
+
+```jsx
+<Button
+  onClick={onClick}
+  icon={<Icon aria-hidden type="report_flag_outlined" />}
+>
+  Report this question
+</Button>
+```
+
+- iconOnly with an accessible name
+
+```jsx
+<Button
+  onClick={onClick}
+  iconOnly
+  aria-label="Report this question"
+  icon={<Icon aria-hidden type="report_flag_outlined" />}
+/>
+```
+
+- loading state with an accessible information
+
+```jsx
+<Button
+  onClick={onClick}
+  loading={isLoading}
+  loadingAriaLive="assertive"
+  loadingAriaLabel="Loading 10 more answers"
+>
+  Load more answers
 </Button>
 ```
