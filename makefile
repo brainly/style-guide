@@ -5,16 +5,16 @@ build: $(APP_NAME)
 styleguide-dev-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	NODE_ENV=production node ./scripts/build-s3.js --env=dev
+	node ./scripts/build-s3.js --latest
 
 .PHONY: styleguide-beta-pipeline
 styleguide-beta-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	NODE_ENV=production node ./scripts/build-s3.js --env=dev
+	node ./scripts/build-s3.js --rootRedirectPage=false
 
 .PHONY: styleguide-prod-pipeline
 styleguide-prod-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	NODE_ENV=production node ./scripts/build-s3.js
+	node ./scripts/build-s3.js

@@ -2,7 +2,7 @@ import * as React from 'react';
 import IconAsButton, {SIZE, ICON_COLOR} from './IconAsButton';
 import Flex from '../flex/Flex';
 import {TYPE as ICON_TYPES} from 'icons/Icon';
-import {StoryVariantTable} from '../../_docs/utils';
+import {StoryVariantTable} from '../../docs/utils';
 import Headline from '../text/Headline';
 import classnames from 'classnames';
 

@@ -214,7 +214,7 @@ const AccordionItem = ({
               })}
             >
               <Icon
-                type="arrow_down"
+                type="chevron_down"
                 color={ICON_COLOR['icon-black']}
                 className={cx('sg-accordion-item__arrow', {
                   'sg-accordion-item__arrow--visible': !isCollapsed,

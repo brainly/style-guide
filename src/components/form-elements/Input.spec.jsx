@@ -53,6 +53,13 @@ test('size', () => {
   expect(input.hasClass('sg-input--l')).toEqual(true);
 });
 
+test('small size', () => {
+  const component = shallow(<Input size="s" />);
+  const input = component.find('input');
+
+  expect(input.hasClass('sg-input--s')).toEqual(true);
+});
+
 test('default size', () => {
   const component = shallow(<Input />);
   const input = component.find('input');

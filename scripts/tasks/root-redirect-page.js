@@ -8,17 +8,12 @@ module.exports = function (gulp, plugins, consts) {
       'utf8'
     );
 
-    let version;
+    redirectPageContent = redirectPageContent.replace(
+      /#LATEST_VERSION#/g,
+      consts.VERSION
+    );
 
-    if (!consts.VERSION.includes('-beta')) {
-      version = consts.VERSION;
-      redirectPageContent = redirectPageContent.replace(
-        /#LATEST_VERSION#/g,
-        version
-      );
-
-      fs.writeFileSync(outputPath, redirectPageContent);
-    }
+    fs.writeFileSync(outputPath, redirectPageContent);
 
     next();
   };

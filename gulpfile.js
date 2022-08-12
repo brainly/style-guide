@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const argv = require('yargs').argv;
 const path = require('path');
-const pkg = require('./package');
 const sassCompiler = require('sass');
 const plugins = require('gulp-load-plugins')({
   pattern: ['gulp-*', 'gulp.*'],
@@ -20,11 +19,7 @@ plugins.path = path;
 const consts = {
   PROJECT_DIR: __dirname,
   IS_PRODUCTION: Boolean(argv.production),
-  VERSION: argv.production ? pkg.version : 'dev',
-  BUCKET_NAME: argv.production
-    ? 'styleguide.brainly.com'
-    : 'beta.styleguide.brainly.com',
-  AWS_REGION: 'eu-west-1',
+  VERSION: argv.version || 'latest',
   get SRC() {
     return path.join(this.PROJECT_DIR, 'src');
   },
@@ -60,92 +55,27 @@ function getTask(task, options = {}) {
 
 gulp.task('sass-colors:build', getTask('sass-colors-build'));
 gulp.task('sass:build', getTask('sass-build'));
-gulp.task('watch:sass', getTask('watch-sass'));
-
-gulp.task('sass:docs-build', getTask('sass-docs-build'));
-gulp.task('watch:docs-sass', getTask('watch-docs-sass'));
-
 gulp.task('fingerprint', getTask('fingerprint'));
 gulp.task('fingerprint-replace', getTask('fingerprint-replace'));
-gulp.task('fingerprint-replace-new', getTask('fingerprint-replace-new'));
-gulp.task('index-fingerprint-replace', getTask('index-fingerprint-replace'));
-
 gulp.task('svgs-generate', getTask('svgs-generate'));
-
 gulp.task('root-redirect-page', getTask('root-redirect-page'));
-
-gulp.task(
-  'build:react-iframe-pages',
-  getTask('build-react-pages', {
-    iframe: true,
-  })
-);
-gulp.task('build:react-pages', getTask('build-react-pages'));
-gulp.task(
-  'build:react-interactive-pages',
-  getTask('build-react-interactive-pages')
-);
-
-gulp.task('watch:docs-templates', getTask('watch-docs-templates'));
-
-gulp.task('upload-files', getTask('upload-files'));
-
-gulp.task('copy-static', getTask('copy-static'));
-
-gulp.task('clean:dist', getTask('clean-dist'));
 gulp.task('clean:assets', getTask('clean-assets'));
-
-gulp.task('copy-latest', getTask('copy-latest'));
-
 gulp.task('copy-assets', getTask('copy-assets'));
-
-gulp.task(
-  'build',
-  gulp.series(
-    'clean:dist',
-    'sass-colors:build',
-    'sass:build',
-    'sass:docs-build',
-    'svgs-generate',
-    'build:react-pages',
-    'build:react-iframe-pages',
-    'build:react-interactive-pages',
-    'copy-static',
-    'fingerprint',
-    'fingerprint-replace',
-    'index-fingerprint-replace',
-    'root-redirect-page',
-    'copy-latest'
-  )
-);
-
-gulp.task(
-  'build-new',
-  gulp.series(
-    'clean:dist',
-    'sass-colors:build',
-    'sass:build',
-    'svgs-generate',
-    'fingerprint',
-    'fingerprint-replace-new',
-    'root-redirect-page'
-  )
-);
 
 gulp.task(
   'build-assets',
   gulp.series(
-    'clean:assets',
     'sass-colors:build',
     'sass:build',
     'svgs-generate',
-    'copy-assets'
+    'fingerprint',
+    'fingerprint-replace'
   )
 );
 
 gulp.task(
-  'watch',
-  gulp.series('watch:sass', 'watch:docs-sass', 'watch:docs-templates')
+  'build-package-assets',
+  gulp.series('clean:assets', 'sass:build', 'svgs-generate', 'copy-assets')
 );
 
-gulp.task('deploy', gulp.series('build', 'upload-files'));
+gulp.task('build', gulp.series('build-assets', 'root-redirect-page'));

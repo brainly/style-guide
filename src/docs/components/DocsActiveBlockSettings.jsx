@@ -1,10 +1,11 @@
 // @flow
 
 import ActionList from 'action-list/ActionList';
-import Radio from 'form-elements/Radio';
+import Radio from 'form-elements/radio/Radio';
 import * as React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
 import Text, {TEXT_SIZE} from 'text/Text';
+import Flex from 'flex/Flex';
 import generateRandomString from '../../js/generateRandomString';
 
 type PropsType = {
@@ -32,13 +33,16 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
     return (
       <div className="docs-active-block__settings">
         <ActionList>
-          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
-            Code:
+          <Flex alignItems="center">
+            <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
+              Code:
+            </Text>
             <label className="docs-active-block__label">
               <Radio
                 name={generateRandomString()}
                 checked={!this.props.values.showCode}
                 onChange={this.onChangeShowNothing}
+                value="none"
               />{' '}
               none
             </label>
@@ -47,6 +51,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.showCode === 'jsx'}
                 onChange={this.onChangeShowJSX}
+                value="jsx"
               />{' '}
               JSX
             </label>
@@ -55,18 +60,22 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.showCode === 'html'}
                 onChange={this.onChangeShowHTML}
+                value="html"
               />{' '}
               HTML
             </label>
-          </Text>
+          </Flex>
           <SeparatorVertical />
-          <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
-            Background:
+          <Flex alignItems="center">
+            <Text size={TEXT_SIZE.SMALL} color="text-gray-70">
+              Background:
+            </Text>
             <label className="docs-active-block__label">
               <Radio
                 name={generateRandomString()}
                 checked={!this.props.values.changeBackground}
                 onChange={this.onChangeBackgroundDefault}
+                value="default"
               />{' '}
               none
             </label>
@@ -75,6 +84,7 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'light'}
                 onChange={this.onChangeBackgroundLight}
+                value="light"
               />{' '}
               light
             </label>
@@ -83,10 +93,11 @@ class DocsActiveBlockSettings extends React.Component<PropsType> {
                 name={generateRandomString()}
                 checked={this.props.values.changeBackground === 'dark'}
                 onChange={this.onChangeBackgroundDark}
+                value="dark"
               />{' '}
               dark
             </label>
-          </Text>
+          </Flex>
         </ActionList>
       </div>
     );
