@@ -226,10 +226,8 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
-      {childrenBySlots.overlay ? (
-        <span className="sg-dialog__overlay-body">
-          {childrenBySlots.overlay}
-        </span>
+      {childrenBySlots.backdrop ? (
+        <span className="sg-dialog__backdrop">{childrenBySlots.backdrop}</span>
       ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
@@ -252,7 +250,7 @@ function BaseDialog({
       >
         {regularChildren}
       </div>
-      {SLOTS.filter(slot => slot !== 'overlay').map(slot => (
+      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
           className={`sg-dialog-overlay-slot sg-dialog-overlay-slot--${slot}`}
           key={slot}
