@@ -5,6 +5,20 @@ import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+import {
+  colorVariants,
+  textStyle,
+  inheritedStyle,
+  sizeVariants,
+  weightVariants,
+  wrapVariants,
+  containerStyle,
+  transformVariants,
+  alignVariants,
+  widthVariants,
+  wordBreakVariants,
+  whiteSpaceVariants,
+} from './Text.css';
 
 export type TextTypeType =
   | 'span'
@@ -110,44 +124,42 @@ const Text = ({
   inherited = false,
   ...props
 }: TextPropsType) => {
+  console.log(weightVariants);
   const Type = type;
   const textClass = classNames(
-    'sg-text',
+    textStyle,
     {
-      'sg-text--inherited': inherited,
-      [`sg-text--${String(color)}`]: color,
-      'sg-text--container': asContainer,
-      'sg-text--bold': type === 'strong',
+      [inheritedStyle]: inherited,
+      [colorVariants[color]]: color,
+      [containerStyle]: asContainer,
+      [weightVariants.bold]: type === 'strong',
     },
-    ...generateResponsiveClassNames(size => `sg-text--${size}`, size),
-    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
-    ...generateResponsiveClassNames(
-      transform => `sg-text--${transform}`,
-      transform
+    ...generateResponsiveClassNames(size => size, size).map(
+      className => sizeVariants[className]
     ),
-    ...generateResponsiveClassNames(align => `sg-text--${align}`, align),
+    ...generateResponsiveClassNames(weight => weight, weight).map(
+      className => weightVariants[className]
+    ),
+    ...generateResponsiveClassNames(transform => transform, transform).map(
+      className => transformVariants[className]
+    ),
+    ...generateResponsiveClassNames(align => align, align).map(
+      className => alignVariants[className]
+    ),
     ...generateResponsiveClassNames(
-      noWrap => (noWrap ? `sg-text--no-wrap` : 'sg-text--wrap'),
+      noWrap => (noWrap ? wrapVariants.noWrap : wrapVariants.noWrap),
       noWrap
+    ).map(className => wrapVariants[className]),
+    ...generateResponsiveClassNames(full => (full ? `full` : 'auto'), full).map(
+      className => widthVariants[className]
     ),
     ...generateResponsiveClassNames(
-      full => (full ? `sg-text--full` : 'sg-text--auto'),
-      full
-    ),
-    ...generateResponsiveClassNames(
-      breakWords =>
-        breakWords ? 'sg-text--break-words' : 'sg-text--word-break-normal',
+      breakWords => (breakWords ? 'break-words' : 'word-break-normal'),
       breakWords
+    ).map(className => wordBreakVariants[className]),
+    ...generateResponsiveClassNames(whiteSpace => whiteSpace, whiteSpace).map(
+      className => whiteSpaceVariants[className]
     ),
-    ...generateResponsiveClassNames(whiteSpace => {
-      if (whiteSpace === TEXT_WHITE_SPACE.PRE_WRAP) {
-        return 'sg-text--pre-wrap';
-      } else if (whiteSpace === TEXT_WHITE_SPACE.PRE_LINE) {
-        return 'sg-text--pre-line';
-      } else {
-        return 'sg-text--white-space-normal';
-      }
-    }, whiteSpace),
     className
   );
 

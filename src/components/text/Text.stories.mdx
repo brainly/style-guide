@@ -1,6 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../docs/utils';
-import Text, {TEXT_COLOR, TEXT_SIZE} from './Text';
+import Text, {TEXT_COLOR, TEXT_SIZE} from './Text.vanex';
 import {
   TEXT_ALIGN,
   TEXT_TRANSFORM,
@@ -146,6 +146,21 @@ Text component does not inherit any styles by default. To turn inheritance you c
           84%
         </Text>{' '}
         find it has inspired them to ask more questions.
+      </Text>
+    )}
+  </Story>
+</Canvas>
+
+### Vanilla extract research
+
+<Canvas>
+  <Story name="Vanilla extract research">
+    {args => (
+      <Text
+        {...args}
+        size={[TEXT_SIZE.SMALL, TEXT_SIZE.XXLARGE, null, TEXT_SIZE.XXXLARGE]}
+      >
+        Dolore duis mollit
       </Text>
     )}
   </Story>

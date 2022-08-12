@@ -9,6 +9,7 @@ const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const {VanillaExtractPlugin} = require('@vanilla-extract/webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 

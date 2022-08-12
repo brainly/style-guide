@@ -20,10 +20,10 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  entry: ['./src/vanilla-extract-entry.js', './src/main.scss'],
+  mode: 'development',
+  entry: ['./src/index.js', './src/main-vanex.scss'],
   output: {
-    path: path.resolve(__dirname, 'css-vanex'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist-vanex'),
   },
   module: {
     rules: [
@@ -216,11 +216,14 @@ module.exports = {
       path.join(SOURCE_DIR, 'images'),
       path.join('./', 'node_modules'),
     ],
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new VanillaExtractPlugin({
       identifiers: 'debug',
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style-guide.css',
+    }),
   ],
 };
