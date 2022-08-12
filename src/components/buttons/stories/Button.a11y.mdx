@@ -35,6 +35,13 @@
   .
 </InfoBox>
 
+#### Button with `toggle`
+
+| Pattern                        | Comment                          | Status                                 |
+| ------------------------------ | -------------------------------- | -------------------------------------- |
+| **Should** have type `button`  | Use `nativeType` to set the type | Implementation: DONE<br />Tests: TO DO |
+| **Should** have `aria-pressed` |                                  | Implementation: DONE<br />Tests: TO DO |
+
 ### Usage
 
 #### Code examples
@@ -61,8 +68,8 @@
 
 ```jsx
 <Button
+  icon={<Icon aria-hidden type="report_flag_outlined" color="adaptive" />}
   onClick={onClick}
-  icon={<Icon aria-hidden type="report_flag_outlined" />}
 >
   Report this question
 </Button>
@@ -72,10 +79,10 @@
 
 ```jsx
 <Button
-  onClick={onClick}
   iconOnly
   aria-label="Report this question"
-  icon={<Icon aria-hidden type="report_flag_outlined" />}
+  icon={<Icon aria-hidden type="report_flag_outlined" color="adaptive" />}
+  onClick={onClick}
 />
 ```
 
@@ -83,11 +90,25 @@
 
 ```jsx
 <Button
-  onClick={onClick}
   loading={isLoading}
   loadingAriaLive="assertive"
   loadingAriaLabel="Loading 10 more answers"
+  onClick={onClick}
 >
   Load more answers
+</Button>
+```
+
+- toggle button
+
+```jsx
+<Button
+  toggle="red"
+  nativeType="button"
+  icon={<Icon aria-hidden type="heart" color="adaptive" />}
+  aria-pressed="true"
+  onClick={onClick}
+>
+  Thanks
 </Button>
 ```

@@ -143,6 +143,21 @@ describe('Button', () => {
       expect(button.getByText(newTabLabel)).toBeTruthy();
     });
   });
+
+  describe('with `toggle`', () => {
+    it('has a button role and an accessible label', () => {
+      const button = render(
+        <Button toggle="red" nativeType="button" aria-pressed="true">
+          Thanks
+        </Button>
+      );
+
+      expect(button.getByRole('button').getAttribute('type')).toBe('button');
+      expect(
+        button.getByRole('button').getAttribute('aria-pressed')
+      ).toBeTruthy();
+    });
+  });
 });
 
 describe('Button a11y', () => {
@@ -190,6 +205,15 @@ describe('Button a11y', () => {
       await testA11y(
         <Button href="https://example.com/" target="_blank">
           Read more
+        </Button>
+      );
+    });
+  });
+  describe('with `toggle`', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(
+        <Button toggle="red" nativeType="button" aria-pressed="true">
+          Thanks
         </Button>
       );
     });
