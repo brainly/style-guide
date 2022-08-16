@@ -29,7 +29,7 @@ export type DialogPropsType = $ReadOnly<{
    * Fires on user actions like clicking outside
    * the Dialog or the Escape key.
    */
-  onDismiss?: () => void,
+  onDismiss?: React.MouseEventHandler & React.KeyboardEventHandler,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
@@ -154,7 +154,7 @@ function BaseDialog({
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
       if (onDismiss && event.target === event.currentTarget) {
-        onDismiss();
+        onDismiss(event);
       }
     },
     [onDismiss]
@@ -163,7 +163,7 @@ function BaseDialog({
   const handleKeyUp = React.useCallback(
     (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
       if (onDismiss && event.key === 'Escape') {
-        onDismiss();
+        onDismiss(event);
         event.stopPropagation();
       }
     },
