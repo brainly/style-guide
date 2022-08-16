@@ -192,4 +192,22 @@ describe('<Dialog>', () => {
 
     wrapper.setProps({open: false});
   });
+
+  it('correctly handles escape key for nested Dialogs', () => {
+    const onDismissOuter = jest.fn();
+    const onDismissInner = jest.fn();
+    const wrapper = mount(
+      <Dialog open onDismiss={onDismissOuter}>
+        <Dialog open onDismiss={onDismissInner} data-testid="inner-dialog">
+          Inner content
+        </Dialog>
+      </Dialog>
+    );
+
+    wrapper
+      .find('div[data-testid="inner-dialog"]')
+      .simulate('keyUp', {key: 'Escape'});
+    expect(onDismissInner).toBeCalled();
+    expect(onDismissOuter).not.toBeCalled();
+  });
 });
