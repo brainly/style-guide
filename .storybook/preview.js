@@ -14,7 +14,7 @@ import {Stories} from 'blocks/Stories';
 import {InfoBox} from 'blocks/InfoBox';
 
 // load all styles
-import '../src/main.scss';
+import '../src/main-vanex.scss';
 import '../src/docs/styles.scss';
 import '../src/chromatic/styles.scss';
 

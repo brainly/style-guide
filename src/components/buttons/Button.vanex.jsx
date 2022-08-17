@@ -4,6 +4,20 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
+import {
+  buttonStyle,
+  disabledStyle,
+  loadingStyle,
+  sizeVariants,
+  typeVariants,
+  fullWidthStyle,
+  iconOnlyStyle,
+  reversedOrderStyle,
+  iconStyle,
+  iconVariants,
+  spinnerStyle,
+  buttonTextStyle,
+} from './Button.css';
 
 export const BUTTON_SIZE: {
   L: 'l',
@@ -268,22 +282,22 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
     const isDisabled = disabled || loading;
 
     const btnClass = cx(
-      'sg-button',
+      buttonStyle,
       {
-        [`sg-button--${String(size)}`]: size,
-        [`sg-button--${String(type)}`]: type,
-        'sg-button--disabled': isDisabled,
-        'sg-button--loading': loading,
-        'sg-button--full-width': fullWidth,
-        'sg-button--icon-only': Boolean(icon) && iconOnly,
-        [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
-        'sg-button--reversed-order': reversedOrder,
+        [sizeVariants[size]]: size,
+        [typeVariants[type]]: type,
+        [disabledStyle]: isDisabled,
+        [loadingStyle]: loading,
+        [fullWidthStyle]: fullWidth,
+        [iconOnlyStyle]: Boolean(icon) && iconOnly,
+        [typeVariants[`${type}-toggle-${String(toggle)}`]]: toggle,
+        [reversedOrderStyle]: reversedOrder,
       },
       className
     );
 
-    const iconClass = cx('sg-button__icon', {
-      [`sg-button__icon--${size || ''}`]: size,
+    const iconClass = cx(iconStyle, {
+      [iconVariants[size]]: size,
     });
 
     let ico;
@@ -307,13 +321,13 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
             color={SPINNER_COLOR_MAP[type]}
-            className="sg-button__spinner"
+            className={spinnerStyle}
             aria-live="off"
           />
         )}
         {ico}
         {/* As soon as we have Proxima fixed, we could remove that span */}
-        <span className="sg-button__text">{children}</span>
+        <span className={buttonTextStyle}>{children}</span>
       </TypeToRender>
     );
   }

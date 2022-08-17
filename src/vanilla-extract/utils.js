@@ -18,32 +18,72 @@ export const responsiveVariants = variants =>
   });
 
 export const mix = function (color1, color2, weight) {
-  color1 = color1.replace(/#/g, '');
-  color2 = color2.replace(/#/g, '');
-  function d2h(d) {
-    return d.toString(16);
-  } // convert a decimal value to hex
+  const colorsNormalized = [color1, color2].map(color => {
+    let isHex = false;
+    const decimals = [];
+
+    if (color.includes('#')) {
+      isHex = true;
+      color = color.replace(/#/g, '');
+    } else if (!color.includes('rgb')) {
+      isHex = true;
+    }
+
+    if (isHex) {
+      for (let i = 0; i <= 5; i += 2) {
+        // loop through each of the 3 hex pairs—red, green, and blue
+        decimals.push(h2d(color.substr(i, 2))); // extract the current pairs
+      }
+    } else {
+      // rgb(321,321,321) -> [321,321,321]
+      let colorNormalized = /\(.*\)/.exec(color)[0];
+
+      colorNormalized = colorNormalized.slice(1, -1);
+      colorNormalized = colorNormalized
+        .split(',')
+        .map(colorPart => parseFloat(colorPart));
+      decimals.push(...colorNormalized);
+    }
+
+    return decimals;
+  });
+
+  weight = typeof weight !== 'undefined' ? weight : 50; // set the weight to 50%, if that argument is omitted
+
+  // add alpha
+  colorsNormalized[0][3] = colorsNormalized[0][3] || 1;
+  colorsNormalized[1][3] = colorsNormalized[1][3] || 1;
+
+  const weightWithAlpha =
+    (weight + (colorsNormalized[0][3] + colorsNormalized[1][3]) / 2) / 2;
+
+  let mixedColor = 'rgba(';
+
+  for (let i = 0; i <= 3; i += 1) {
+    const colorVal1 = colorsNormalized[0][i];
+    const colorVal2 = colorsNormalized[1][i];
+
+    let val;
+
+    if (i === 3) {
+      val = colorVal2 + (colorVal1 - colorVal2) * (weight / 100.0);
+    } else {
+      val = colorVal2 + (colorVal1 - colorVal2) * (weightWithAlpha / 100.0);
+      val = Math.floor(val);
+    }
+
+    if (i !== 0) {
+      mixedColor += ',';
+    }
+
+    mixedColor += val; // concatenate val to our new color string
+  }
+
+  mixedColor += ')';
+
   function h2d(h) {
     return parseInt(h, 16);
   } // convert a hex value to decimal
 
-  weight = typeof weight !== 'undefined' ? weight : 50; // set the weight to 50%, if that argument is omitted
-
-  let color = '#';
-
-  for (let i = 0; i <= 5; i += 2) {
-    // loop through each of the 3 hex pairs—red, green, and blue
-    const v1 = h2d(color1.substr(i, 2)), // extract the current pairs
-      v2 = h2d(color2.substr(i, 2));
-    // combine the current pairs from each source color, according to the specified weight
-    let val = d2h(Math.floor(v2 + (v1 - v2) * (weight / 100.0)));
-
-    while (val.length < 2) {
-      val = `0${val}`;
-    } // prepend a '0' if val results in a single digit
-
-    color += val; // concatenate val to our new color string
-  }
-
-  return color; // PROFIT!
+  return mixedColor;
 };

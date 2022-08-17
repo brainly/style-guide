@@ -2,7 +2,7 @@
  * all colors are defined in /src/components/colors/colors.js */
 
 export default {
-  transparent: '#ffffff', // this should be rgba color (255,255,255, 0) but JS version of mix() does not support rgba currently
+  transparent: 'rgba(255,255,255,0)', // this should be rgba color (255,255,255, 0) but JS version of mix() does not support rgba currently
   black: '#000000',
   white: '#ffffff',
   blue70: '#002238',

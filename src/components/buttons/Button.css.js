@@ -3,13 +3,24 @@ import colors from '../../vanilla-extract/colors';
 import {componentSizes, sizes} from '../../vanilla-extract/config';
 import {mix} from '../../vanilla-extract/utils';
 
+const buttonPrimaryFbColor = '#1877f2';
+const buttonPrimaryFbHoverColor = '#1964d5';
+
 const buttonHover = (color1, color2, weight) => {
   return style({
     selectors: {
-      '&:hover:not([disabled]), &:focus:not([disabled]), &:active:not([disabled]), &:active:focus:not([disabled])':
-        {
-          backgroundColor: mix(color1, color2, weight),
-        },
+      '&:hover:not([disabled])': {
+        backgroundColor: mix(color1, color2, weight),
+      },
+      '&:focus:not([disabled])': {
+        backgroundColor: mix(color1, color2, weight),
+      },
+      '&:active:not([disabled])': {
+        backgroundColor: mix(color1, color2, weight),
+      },
+      '&:active:focus:not([disabled])': {
+        backgroundColor: mix(color1, color2, weight),
+      },
     },
   });
 };
@@ -47,7 +58,7 @@ export const buttonStyle = style({
   boxSizing: 'border-box',
 });
 
-export const reverserOrder = style({
+export const reversedOrderStyle = style({
   flexDirection: 'row-reverse',
 });
 
@@ -72,20 +83,6 @@ export const sizeVariants = styleVariants({
     padding: '0 28px',
     fontSize: '21px',
     lineHeight: '21px',
-  },
-});
-
-export const buttonTextStyle = style({
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  selectors: {
-    [`.${sizeVariants.s} &`]: {
-      top: '1px',
-    },
-    [`.${loadingStyle} &`]: {
-      opacity: 0,
-    },
   },
 });
 
@@ -165,11 +162,11 @@ export const typeVariants = styleVariants({
     },
   ],
   'outline-indigo': [
-    buttonHover(colors.white, colors.transparent, 12),
+    buttonHover(colors.indigo50, colors.transparent, 12),
     {
       backgroundColor: colors.transparent,
-      border: `2px solid ${colors.white}`,
-      color: colors.white,
+      border: `2px solid ${colors.indigo50}`,
+      color: colors.indigo50,
     },
   ],
   'outline-inverted': [
@@ -185,6 +182,12 @@ export const typeVariants = styleVariants({
     {
       backgroundColor: colors.transparent,
       color: colors.black,
+      padding: '0 10px',
+      selectors: {
+        [`${sizeVariants.l}&`]: {
+          padding: '0 14px',
+        },
+      },
     },
   ],
   'transparent-toggle-red': [buttonHover(colors.red40, colors.transparent, 12)],
@@ -196,6 +199,12 @@ export const typeVariants = styleVariants({
     {
       backgroundColor: colors.transparent,
       color: colors.gray50,
+      padding: '0 10px',
+      selectors: {
+        [`${sizeVariants.l}&`]: {
+          padding: '0 14px',
+        },
+      },
     },
   ],
   'transparent-light-toggle-red': [
@@ -209,21 +218,121 @@ export const typeVariants = styleVariants({
     {
       backgroundColor: colors.transparent,
       color: colors.white,
+      padding: '0 10px',
+      selectors: {
+        [`${sizeVariants.l}&`]: {
+          padding: '0 14px',
+        },
+      },
     },
   ],
+  'transparent-red': [
+    buttonHover(colors.red40, colors.transparent, 12),
+    {
+      backgroundColor: colors.transparent,
+      color: colors.red60,
+      padding: '0 10px',
+      selectors: {
+        [`${sizeVariants.l}&`]: {
+          padding: '0 14px',
+        },
+        [`${sizeVariants.s}&`]: {
+          padding: `0 ${sizes.xs}`,
+        },
+      },
+    },
+  ],
+  'transparent-red-toggle-red': [
+    buttonHover(colors.red40, colors.transparent, 12),
+  ],
+  facebook: {
+    backgroundColor: buttonPrimaryFbColor,
+    color: colors.white,
+    selectors: {
+      '&:hover:not([disabled])': {
+        backgroundColor: buttonPrimaryFbHoverColor,
+        borderColor: buttonPrimaryFbHoverColor,
+      },
+      '&:focus:not([disabled])': {
+        backgroundColor: buttonPrimaryFbHoverColor,
+        borderColor: buttonPrimaryFbHoverColor,
+      },
+      '&:active:not([disabled])': {
+        backgroundColor: buttonPrimaryFbHoverColor,
+        borderColor: buttonPrimaryFbHoverColor,
+      },
+      '&:active:focus:not([disabled])': {
+        backgroundColor: buttonPrimaryFbHoverColor,
+        borderColor: buttonPrimaryFbHoverColor,
+      },
+    },
+  },
+  google: [
+    buttonHover(colors.gray50, colors.transparent, 12),
+    {
+      backgroundColor: colors.transparent,
+      border: `2px solid ${colors.black}`,
+      color: colors.black,
+    },
+  ],
+  apple: [
+    buttonHover(colors.gray70, colors.black, 80),
+    {
+      backgroundColor: colors.black,
+    },
+  ],
+});
+
+export const iconOnlyStyle = style({
+  padding: 0,
+  width: componentSizes.m,
+  selectors: {
+    [`${sizeVariants.s}&`]: {
+      width: componentSizes.s,
+    },
+    [`${sizeVariants.m}&`]: {
+      width: componentSizes.m,
+    },
+    [`${sizeVariants.l}&`]: {
+      width: componentSizes.l,
+    },
+  },
+});
+
+export const buttonTextStyle = style({
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  selectors: {
+    [`${sizeVariants.s} &`]: {
+      top: '1px',
+    },
+    [`${loadingStyle} &`]: {
+      opacity: 0,
+    },
+    [`${iconOnlyStyle} &`]: {
+      position: 'absolute',
+      width: '1px',
+      height: '1px',
+      padding: 0,
+      margin: '-1px',
+      overflow: 'hidden',
+      clip: 'rect(0, 0, 0, 0)',
+      border: 'none',
+    },
+  },
 });
 
 export const iconStyle = style({
   display: 'inline-flex',
   marginRight: sizes.xs,
   marginLeft: '-4px',
-
   selectors: {
-    [`.${reverserOrder} &`]: {
+    [`${reversedOrderStyle} &`]: {
       marginRight: '-4px',
       marginLeft: sizes.xs,
     },
-    [`.${loadingStyle} &`]: {
+    [`${loadingStyle} &`]: {
       opacity: 0,
     },
     [`${typeVariants['solid-light-toggle-red']} &`]: {
@@ -250,6 +359,40 @@ export const iconStyle = style({
     [`${typeVariants['transparent-light-toggle-yellow']} &`]: {
       color: colors.yellow50,
     },
+    [`${typeVariants['transparent-red']} &`]: {
+      color: colors.red50,
+    },
+    [`${typeVariants.transparent}${reversedOrderStyle} &`]: {
+      marginRight: '-2px',
+      marginLeft: sizes.xs,
+    },
+    [`${typeVariants['transparent-light']}${reversedOrderStyle} &`]: {
+      marginRight: '-2px',
+      marginLeft: sizes.xs,
+    },
+    [`${typeVariants['transparent-inverted']}${reversedOrderStyle} &`]: {
+      marginRight: '-2px',
+      marginLeft: sizes.xs,
+    },
+    [`${typeVariants['transparent-red']}${reversedOrderStyle} &`]: {
+      marginRight: '-2px',
+      marginLeft: sizes.xs,
+    },
+    [`${typeVariants.transparent} &`]: {
+      marginLeft: '-2px',
+    },
+    [`${typeVariants['transparent-light']} &`]: {
+      marginLeft: '-2px',
+    },
+    [`${typeVariants['transparent-inverted']} &`]: {
+      marginLeft: '-2px',
+    },
+    [`${typeVariants['transparent-red']} &`]: {
+      marginLeft: '-2px',
+    },
+    [`${iconOnlyStyle} &`]: {
+      margin: 0,
+    },
   },
 });
 
@@ -258,8 +401,24 @@ export const iconVariants = styleVariants({
     marginRight: '6px',
     marginLeft: '-4px',
     selectors: {
-      [`.${reverserOrder} &`]: {
+      [`${reversedOrderStyle} &`]: {
         marginRight: '-4px',
+        marginLeft: '6px',
+      },
+      [`${typeVariants.transparent}${reversedOrderStyle} &`]: {
+        marginRight: '-2px',
+        marginLeft: '6px',
+      },
+      [`${typeVariants['transparent-light']}${reversedOrderStyle} &`]: {
+        marginRight: '-2px',
+        marginLeft: '6px',
+      },
+      [`${typeVariants['transparent-inverted']}${reversedOrderStyle} &`]: {
+        marginRight: '-2px',
+        marginLeft: '6px',
+      },
+      [`${typeVariants['transparent-red']}${reversedOrderStyle} &`]: {
+        marginRight: '-2px',
         marginLeft: '6px',
       },
     },
@@ -268,9 +427,37 @@ export const iconVariants = styleVariants({
     marginRight: '12px',
     marginLeft: '-6px',
     selectors: {
-      [`.${reverserOrder} &`]: {
+      [`${reversedOrderStyle} &`]: {
         marginRight: '-6px',
         marginLeft: '12px',
+      },
+      [`${typeVariants.transparent}${reversedOrderStyle} &`]: {
+        marginRight: '-3px',
+        marginLeft: '12px',
+      },
+      [`${typeVariants['transparent-light']}${reversedOrderStyle} &`]: {
+        marginRight: '-3px',
+        marginLeft: '12px',
+      },
+      [`${typeVariants['transparent-inverted']}${reversedOrderStyle} &`]: {
+        marginRight: '-3px',
+        marginLeft: '12px',
+      },
+      [`${typeVariants['transparent-red']}${reversedOrderStyle} &`]: {
+        marginRight: '-3px',
+        marginLeft: '12px',
+      },
+      [`${typeVariants.transparent} &`]: {
+        marginLeft: '-3px',
+      },
+      [`${typeVariants['transparent-light']} &`]: {
+        marginLeft: '-3px',
+      },
+      [`${typeVariants['transparent-inverted']} &`]: {
+        marginLeft: '-3px',
+      },
+      [`${typeVariants['transparent-red']} &`]: {
+        marginLeft: '-3px',
       },
     },
   },

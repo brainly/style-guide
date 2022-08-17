@@ -244,13 +244,13 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-red {
-    @include buttonHover($red-40, $transparent, 12%);
-    @include buttonIconColor($red-50);
-    background-color: $transparent;
-    color: $red-60;
+    // @include buttonHover($red-40, $transparent, 12%);
+    // @include buttonIconColor($red-50);
+    // background-color: $transparent;
+    // color: $red-60;
 
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
+      // @include buttonHover($red-40, $transparent, 12%);
     }
   }
 
@@ -258,97 +258,97 @@ $largeButtonSize: componentSize(l);
   &--transparent-light,
   &--transparent-inverted,
   &--transparent-red {
-    padding: 0 10px;
+    // padding: 0 10px;
 
     &.sg-button--l {
-      padding: 0 14px;
+      // padding: 0 14px;
     }
 
     &.sg-button--s {
-      padding: 0 spacing(xs);
+      // padding: 0 spacing(xs);
     }
 
     &.sg-button--reversed-order {
       .sg-button__icon {
-        margin-right: -2px;
-        margin-left: spacing(xs);
+        // margin-right: -2px;
+        // margin-left: spacing(xs);
 
         &--s {
-          margin-right: -2px;
-          margin-left: 6px;
+          // margin-right: -2px;
+          // margin-left: 6px;
         }
 
         &--l {
-          margin-right: -3px;
-          margin-left: 12px;
+          // margin-right: -3px;
+          // margin-left: 12px;
         }
       }
     }
 
     .sg-button__icon {
-      margin-left: -2px;
+      // margin-left: -2px;
 
       &--l {
-        margin-left: -3px;
+        // margin-left: -3px;
       }
     }
   }
 
   &--facebook {
-    background-color: $buttonPrimaryFbColor;
-    color: $white;
+    // background-color: $buttonPrimaryFbColor;
+    // color: $white;
 
     &:hover:not([disabled]),
     &:focus:not([disabled]),
     &:active:not([disabled]),
     &:active:focus:not([disabled]) {
-      background-color: $buttonPrimaryFbHoverColor;
-      border-color: $buttonPrimaryFbHoverColor;
+      // background-color: $buttonPrimaryFbHoverColor;
+      // border-color: $buttonPrimaryFbHoverColor;
     }
   }
 
   &--google {
-    @include buttonHover($gray-50, $transparent, 12%);
-    background-color: $transparent;
-    border: 2px solid $black;
-    color: $black;
+    // @include buttonHover($gray-50, $transparent, 12%);
+    // background-color: $transparent;
+    // border: 2px solid $black;
+    // color: $black;
   }
 
   &--apple {
-    @include buttonHover($gray-70, $black, 80%);
-    background-color: $black;
+    //   @include buttonHover($gray-70, $black, 80%);
+    //   background-color: $black;
   }
 
   &--icon-only {
-    padding: 0;
-    width: $mediumButtonSize;
+    // padding: 0;
+    // width: $mediumButtonSize;
 
     &.sg-button--s {
-      width: $smallButtonSize;
+      // width: $smallButtonSize;
     }
 
     &.sg-button--m {
-      width: $mediumButtonSize;
+      // width: $mediumButtonSize;
     }
 
     &.sg-button--l {
-      width: $largeButtonSize;
+      // width: $largeButtonSize;
     }
 
     .sg-button__icon {
-      margin: 0;
+      // margin: 0;
     }
 
     .sg-button__text {
       // if defined it's available for screen readers
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: none;
+      // position: absolute;
+      // width: 1px;
+      // height: 1px;
+      // padding: 0;
+      // margin: -1px;
+      // overflow: hidden;
+      // clip: rect(0, 0, 0, 0);
+      // border: none;
     }
   }
 }
