@@ -1,5 +1,9 @@
 import * as React from 'react';
-import {render, waitForElementToBeRemoved} from '@testing-library/react';
+import {
+  screen,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
@@ -94,5 +98,26 @@ describe('Dialog a11y', () => {
 
     userEvent.click(dialog.getByText(buttonText));
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
+  });
+
+  it('correctly handles escape key for nested Dialogs', () => {
+    // TODO: improve this test to adhere to react-testing-library standards
+    // so to check modal visibility instead of onDismiss callback
+    const onDismissOuter = jest.fn();
+    const onDismissInner = jest.fn();
+
+    render(
+      <Dialog open onDismiss={onDismissOuter}>
+        <Dialog open onDismiss={onDismissInner} data-testid="inner-dialog">
+          Inner content
+        </Dialog>
+      </Dialog>
+    );
+
+    screen.getByText('Inner content').focus();
+    userEvent.keyboard('{esc}');
+
+    expect(onDismissInner).toBeCalled();
+    expect(onDismissOuter).not.toBeCalled();
   });
 });
