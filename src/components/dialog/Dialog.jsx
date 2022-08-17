@@ -29,11 +29,7 @@ export type DialogPropsType = $ReadOnly<{
    * Fires on user actions like clicking outside
    * the Dialog or the Escape key.
    */
-  onDismiss?: (
-    event:
-      | SyntheticMouseEvent<HTMLDivElement>
-      | SyntheticKeyboardEvent<HTMLDivElement>
-  ) => void,
+  onDismiss?: () => void,
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
@@ -49,9 +45,6 @@ Dialog.defaultProps = ({
   reduceMotion: false,
   scroll: 'outside',
 }: $Shape<DialogPropsType>);
-
-const getRandomId = (length = 9) =>
-  Math.random().toString(36).substring(2, length);
 
 /**
  * The Dialog component controls mounting
@@ -76,7 +69,6 @@ function BaseDialog({
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
-  const [id] = React.useState(`dialog-${getRandomId()}`);
 
   if (exiting === open) {
     setExiting(!open);
@@ -162,7 +154,7 @@ function BaseDialog({
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
       if (onDismiss && event.target === event.currentTarget) {
-        onDismiss(event);
+        onDismiss();
       }
     },
     [onDismiss]
@@ -170,16 +162,12 @@ function BaseDialog({
 
   const handleKeyUp = React.useCallback(
     (event: SyntheticKeyboardEvent<HTMLDivElement>) => {
-      if (
-        onDismiss &&
-        event.key === 'Escape' &&
-        event.target instanceof Element &&
-        event.target.closest('.js-dialog')?.id === id
-      ) {
-        onDismiss(event);
+      if (onDismiss && event.key === 'Escape') {
+        onDismiss();
+        event.stopPropagation();
       }
     },
-    [id, onDismiss]
+    [onDismiss]
   );
 
   const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
@@ -208,7 +196,6 @@ function BaseDialog({
       onClick={onDismiss ? handleOverlayClick : undefined}
       onKeyUp={handleKeyUp}
       ref={overlayRef}
-      id={id}
     >
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
