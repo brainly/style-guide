@@ -105,7 +105,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                     <Checkbox {...checkboxType.props} errorMessage={null} />
                     <Checkbox
                       {...checkboxType.props}
-                      checked
+                      defaultChecked
                       errorMessage={null}
                     />
                     <Checkbox
@@ -118,7 +118,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                 <td>
                   <Flex alignItems="center" direction="column">
                     <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
-                    <Checkbox {...checkboxType.props} checked>
+                    <Checkbox {...checkboxType.props} defaultChecked>
                       Checkbox label
                     </Checkbox>
                     <Checkbox {...checkboxType.props} indeterminate>
@@ -143,7 +143,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                     </Checkbox>
                     <Checkbox
                       {...checkboxType.props}
-                      checked
+                      defaultChecked
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
@@ -249,7 +249,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                     <Checkbox {...checkboxType.props} errorMessage={null} />
                     <Checkbox
                       {...checkboxType.props}
-                      checked
+                      defaultChecked
                       errorMessage={null}
                     />
                     <Checkbox
@@ -262,7 +262,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                 <td>
                   <Flex alignItems="center" direction="column">
                     <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
-                    <Checkbox {...checkboxType.props} checked>
+                    <Checkbox {...checkboxType.props} defaultChecked>
                       Checkbox label
                     </Checkbox>
                     <Checkbox {...checkboxType.props} indeterminate>
@@ -287,7 +287,7 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
                     </Checkbox>
                     <Checkbox
                       {...checkboxType.props}
-                      checked
+                      defaultChecked
                       description="More detailed description about this element. You can
                           use here even some formatting and links."
                     >
@@ -388,13 +388,13 @@ In the following example, className `sg-checkbox--custom-theme` was applied to a
       `;
       return (
         <StyledCheckboxes>
-          <Checkbox {...args} checked>
+          <Checkbox {...args} defaultChecked>
             Checked
           </Checkbox>
           <Checkbox {...args} invalid>
             Invalid
           </Checkbox>
-          <Checkbox {...args} checked invalid>
+          <Checkbox {...args} defaultChecked invalid>
             Invalid, checked
           </Checkbox>
           <Checkbox {...args} description="Some description">
@@ -402,7 +402,7 @@ In the following example, className `sg-checkbox--custom-theme` was applied to a
           </Checkbox>
           <Checkbox
             {...args}
-            checked
+            defaultChecked
             style={{'--checkboxCheckedColor': '#163bf3'}}
           >
             With inline color override

@@ -13,6 +13,9 @@ $radioCheckedBorderWidth: 5px;
   --radioDescriptionColor: #{$text-black};
   --radioOutlineColor: #{$blue-40};
 
+  --radioBorderWidth: #{$radioUncheckedBorderWidth};
+  --radioRingColor: var(--radioColor);
+
   display: inline-flex;
   flex-direction: column;
 
@@ -30,13 +33,46 @@ $radioCheckedBorderWidth: 5px;
     padding: $radioPadding 0;
   }
 
+  @mixin radioCheckedAnimation($fromBackgroundColor, $toBackgroundColor) {
+    @keyframes radioCheckedFadeOut {
+      0% {
+        width: $radioSize;
+        height: $radioSize;
+        --radioBorderWidth: #{$radioUncheckedBorderWidth};
+      }
+
+      99% {
+        --radioBorderWidth: #{$radioUncheckedBorderWidth};
+      }
+
+      100% {
+        width: calc($radioSize / 2);
+        height: calc($radioSize / 2);
+        --radioBorderWidth: #{$radioCheckedBorderWidth};
+      }
+    }
+    @keyframes radioCheckedFadeIn {
+      0% {
+        width: calc($radioSize / 2);
+        height: calc($radioSize / 2);
+      }
+
+      100% {
+        width: $radioSize;
+        height: $radioSize;
+      }
+    }
+
+    animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
+  }
+
   &__wrapper {
     display: flex;
 
     &:hover {
       .sg-radio__circle {
-        box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
-          var(--radioHoverColor) inset;
+        --radioBorderWidth: #{$radioUncheckedBorderWidth};
+        --radioRingColor: var(--radioHoverColor);
 
         @media (forced-colors: active) {
           border: $radioUncheckedBorderWidth solid FieldText;
@@ -45,24 +81,24 @@ $radioCheckedBorderWidth: 5px;
 
       .sg-radio__input {
         &:checked + .sg-radio__circle {
-          box-shadow: 0px 0px 0px $radioCheckedBorderWidth
-            var(--radioHoverColor) inset;
+          --radioBorderWidth: #{$radioCheckedBorderWidth};
+          --radioRingColor: var(--radioHoverColor);
 
           @media (forced-colors: active) {
             border: $radioCheckedBorderWidth solid FieldText;
           }
         }
         &[aria-invalid] + .sg-radio__circle {
-          box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
-            var(--radioInvalidHoverColor) inset;
+          --radioBorderWidth: #{$radioUncheckedBorderWidth};
+          --radioRingColor: var(--radioInvalidHoverColor);
 
           @media (forced-colors: active) {
             border: $radioUncheckedBorderWidth solid FieldText;
           }
         }
         &:checked[aria-invalid] + .sg-radio__circle {
-          box-shadow: 0px 0px 0px $radioCheckedBorderWidth
-            var(--radioInvalidHoverColor) inset;
+          --radioBorderWidth: #{$radioCheckedBorderWidth};
+          --radioRingColor: var(--radioInvalidHoverColor);
 
           @media (forced-colors: active) {
             border: $radioCheckedBorderWidth solid FieldText;
@@ -101,16 +137,24 @@ $radioCheckedBorderWidth: 5px;
     }
 
     &:checked + .sg-radio__circle {
-      box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioColor) inset;
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+      --radioRingColor: var(--radioColor);
+
+      &--with-animation {
+        @include radioCheckedAnimation(
+          transparent,
+          var(--radioCheckedBorderWidth)
+        );
+      }
 
       @media (forced-colors: active) {
-        border: $radioCheckedBorderWidth solid FieldText;
+        border: var(--radioBorderWidth) solid FieldText;
       }
     }
 
     &[aria-invalid] + .sg-radio__circle {
-      box-shadow: 0px 0px 0px $radioUncheckedBorderWidth
-        var(--radioInvalidColor) inset;
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+      --radioRingColor: var(--radioInvalidColor);
 
       @media (forced-colors: active) {
         border: $radioUncheckedBorderWidth solid FieldText;
@@ -118,8 +162,8 @@ $radioCheckedBorderWidth: 5px;
     }
 
     &:checked[aria-invalid] + .sg-radio__circle {
-      box-shadow: 0px 0px 0px $radioCheckedBorderWidth var(--radioInvalidColor)
-        inset;
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+      --radioRingColor: var(--radioInvalidColor);
 
       @media (forced-colors: active) {
         border: $radioCheckedBorderWidth solid FieldText;
@@ -131,7 +175,11 @@ $radioCheckedBorderWidth: 5px;
     width: $radioSize;
     height: $radioSize;
     border-radius: 50%;
-    box-shadow: 0px 0px 0px $radioUncheckedBorderWidth var(--radioColor) inset;
+    box-shadow: 0px 0px 0px var(--radioBorderWidth) var(--radioRingColor) inset;
+
+    animation-duration: $durationQuick1, $durationModerate1;
+    animation-timing-function: $easingExit, $easingEntry;
+    animation-delay: $durationInstant, $durationQuick1;
 
     @media (forced-colors: active) {
       border: $radioUncheckedBorderWidth solid FieldText;
