@@ -14,6 +14,7 @@ export type SpinnerColorType =
   | 'red-50'
   | 'yellow-40'
   | 'blue-40'
+  | 'blue-60'
   | 'indigo-50';
 
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
@@ -34,6 +35,7 @@ export const SPINNER_COLOR = {
   'red-50': 'red-50',
   'yellow-40': 'yellow-40',
   'blue-40': 'blue-40',
+  'blue-60': 'blue-60',
 };
 
 export type SpinnerPropsType = {

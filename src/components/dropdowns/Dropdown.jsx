@@ -66,7 +66,7 @@ const Dropdown = ({
     >
       <p>{name}</p>
       <Icon
-        type={open ? 'arrow_up' : 'arrow_down'}
+        type={open ? 'chevron_up' : 'chevron_down'}
         size={24}
         color={ICON_COLOR['icon-gray-70']}
         className="sg-dropdown__icon"

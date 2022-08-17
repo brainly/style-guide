@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoryVariantBorderBox, StoryVariantTable} from '../../_docs/utils';
+import {StoryVariantBorderBox, StoryVariantTable} from '../../docs/utils';
 import hex from '../colors/hex';
 import Headline from '../text/Headline';
 import Input, {SIZE, COLOR} from './Input';

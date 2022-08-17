@@ -19,8 +19,6 @@ module.exports = api => {
     process.env.STORYBOOK_ENV === 'chromatic'
   ) {
     logoBaseUrl = '';
-  } else if (nodeEnv === 'development') {
-    logoBaseUrl = '/';
   } else {
     logoBaseUrl = 'https://styleguide.brainly.com/';
   }

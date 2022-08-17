@@ -15,7 +15,7 @@ import {InfoBox} from 'blocks/InfoBox';
 
 // load all styles
 import '../src/main.scss';
-import '../src/_docs/styles.scss';
+import '../src/docs/styles.scss';
 import '../src/chromatic/styles.scss';
 
 function importAll(r) {
