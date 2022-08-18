@@ -192,7 +192,7 @@ const Radio = ({
             value={value}
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
-            aria-invalid={isInvalid}
+            aria-invalid={isInvalid ? true : undefined}
           />
           <span
             className={circleClass}
