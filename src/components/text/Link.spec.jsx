@@ -3,11 +3,12 @@ import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
 import Text from './Text';
 import {shallow} from 'enzyme';
 import {TEXT_WEIGHT} from './textConsts';
+import * as styles from './TextStyles';
 
 test('render', () => {
   const link = shallow(<Link href="test.com">Test</Link>);
 
-  expect(link.hasClass('sg-text--link')).toBeTruthy();
+  expect(link.hasClass(styles.linkVariants.main)).toBeTruthy();
   expect(link.props().href).toEqual('test.com');
 });
 
@@ -74,7 +75,7 @@ test('underlined', () => {
     </Link>
   );
 
-  expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
+  expect(link.hasClass(styles.linkVariants.underlined)).toBeTruthy();
   expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
   expect(link.hasClass('sg-text--link')).toBeFalsy();
 });

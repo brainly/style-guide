@@ -39,6 +39,7 @@ module.exports = api => {
           LOGO_BASE_URL: logoBaseUrl,
         },
       ],
+      '@vanilla-extract/babel-plugin',
     ],
     env: {
       test: {

@@ -1,13 +1,7 @@
-// @flow
-
 import {styleVariants, style} from '@vanilla-extract/css';
-import colors from '../colors/colors';
-import {
-  screenSizeMediaQueries,
-  fontFamilies,
-  fontWeights,
-} from '../../vanilla-extract/config';
+import {fontFamilies, fontWeights} from '../../vanilla-extract/config';
 import {responsiveVariants} from '../../vanilla-extract/utils';
+import colors2 from '../../vanilla-extract/colors';
 
 const sizes = {
   xxxlarge: {
@@ -44,8 +38,6 @@ const sizes = {
   },
 };
 
-const {text: textColors} = colors;
-
 export const textStyle = style({
   fontWeight: fontWeights.regular,
   fontFamily: fontFamilies.proxima,
@@ -74,9 +66,26 @@ export const containerStyle = style({
 });
 
 export const colorVariants = styleVariants(
-  textColors.reduce((acc, next) => {
+  [
+    {name: 'text-black', value: colors2.textBlack},
+    {name: 'text-white', value: colors2.textWhite},
+    {name: 'text-blue-60', value: colors2.textBlue60},
+    {name: 'text-blue-40', value: colors2.textBlue40},
+    {name: 'text-green-60', value: colors2.textGreen60},
+    {name: 'text-green-40', value: colors2.textGreen40},
+    {name: 'text-indigo-60', value: colors2.textIndigo60},
+    {name: 'text-indigo-40', value: colors2.textIndigo40},
+    {name: 'text-red-60', value: colors2.textRed60},
+    {name: 'text-red-40', value: colors2.textRed40},
+    {name: 'text-yellow-60', value: colors2.textYellow60},
+    {name: 'text-yellow-40', value: colors2.textYellow40},
+    {name: 'text-gray-70', value: colors2.textGray70},
+    {name: 'text-gray-60', value: colors2.textGray60},
+    {name: 'text-gray-50', value: colors2.textGray50},
+    {name: 'text-gray-40', value: colors2.textGray40},
+  ].reduce((acc, next) => {
     acc[next.name] = {
-      color: `#${next.hex}`,
+      color: next.value,
     };
 
     return acc;
@@ -175,7 +184,7 @@ export const linkVariants = styleVariants({
   main: {
     cursor: 'pointer',
     textDecoration: 'none',
-    color: `#${colors.text.find(color => color.name === 'text-blue-60').hex}`,
+    color: colors2.blue60,
 
     ':hover': {
       textDecoration: 'underline',

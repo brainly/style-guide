@@ -35,8 +35,13 @@ export const mix = function (color1, color2, weight) {
         decimals.push(h2d(color.substr(i, 2))); // extract the current pairs
       }
     } else {
-      // rgb(321,321,321) -> [321,321,321]
-      let colorNormalized = /\(.*\)/.exec(color)[0];
+      let colorNormalized = /\(.*\)/.exec(color);
+
+      if (colorNormalized === null) {
+        throw new Error(`Invalid color format: ${color}`);
+      }
+
+      colorNormalized = colorNormalized[0];
 
       colorNormalized = colorNormalized.slice(1, -1);
       colorNormalized = colorNormalized

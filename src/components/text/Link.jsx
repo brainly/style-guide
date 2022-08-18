@@ -14,7 +14,10 @@ import {
 } from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
-import {linkVariants, weightVariants} from './Text.css';
+// $FlowFixMe[untyped-import]
+import * as styles from './TextStyles';
+
+const {linkVariants, weightVariants} = styles;
 
 const anchorRelatedProps = [
   'download',

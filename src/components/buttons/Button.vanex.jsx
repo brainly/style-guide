@@ -4,7 +4,10 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
-import {
+// $FlowFixMe
+import * as styles from './ButtonStyles';
+
+const {
   buttonStyle,
   disabledStyle,
   loadingStyle,
@@ -17,7 +20,7 @@ import {
   iconVariants,
   spinnerStyle,
   buttonTextStyle,
-} from './Button.css';
+} = styles;
 
 export const BUTTON_SIZE: {
   L: 'l',

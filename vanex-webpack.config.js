@@ -216,7 +216,7 @@ module.exports = {
       path.join(SOURCE_DIR, 'images'),
       path.join('./', 'node_modules'),
     ],
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css.js'],
   },
   plugins: [
     new VanillaExtractPlugin({

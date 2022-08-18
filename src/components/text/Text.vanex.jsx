@@ -2,10 +2,13 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
+import {TEXT_TYPE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
-import {
+// $FlowFixMe[untyped-import]
+import * as styles from './TextStyles';
+
+const {
   colorVariants,
   textStyle,
   inheritedStyle,
@@ -18,7 +21,7 @@ import {
   widthVariants,
   wordBreakVariants,
   whiteSpaceVariants,
-} from './Text.css';
+} = styles;
 
 export type TextTypeType =
   | 'span'
@@ -124,7 +127,6 @@ const Text = ({
   inherited = false,
   ...props
 }: TextPropsType) => {
-  console.log(weightVariants);
   const Type = type;
   const textClass = classNames(
     textStyle,

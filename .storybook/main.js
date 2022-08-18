@@ -233,6 +233,8 @@ module.exports = {
       ]
     );
 
+    config.resolve.extensions.push('.css.js');
+
     let revManifestPath;
 
     const pathToVersionedManifest = path.resolve(
