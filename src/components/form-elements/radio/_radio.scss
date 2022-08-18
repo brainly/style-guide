@@ -202,6 +202,10 @@ $radioCheckedBorderWidth: 5px;
     padding-left: $radioPadding;
     padding-top: $radioPadding;
 
+    &--small {
+      padding-top: 6px;
+    }
+
     &--with-padding-bottom {
       padding-bottom: $radioPadding;
     }
