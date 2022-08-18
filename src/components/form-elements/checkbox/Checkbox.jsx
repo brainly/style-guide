@@ -259,6 +259,7 @@ const Checkbox = ({
             className={labelClass}
           >
             {children}
+            {required && <span aria-hidden="true">&nbsp;*</span>}
           </Text>
         )}
       </div>
