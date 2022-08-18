@@ -165,3 +165,5 @@ export {default as Transition} from './components/transition/Transition';
 export type {TransitionPropsType} from './components/transition/Transition';
 export type {TransitionEffectType} from './components/transition/Transition';
 export {default as useReducedMotion} from './components/utils/useReducedMotion';
+export type {SkipLinkPropsType} from './components/skip-link/SkipLink';
+export {default as SkipLink} from './components/skip-link/SkipLink';

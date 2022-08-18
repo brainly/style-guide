@@ -127,10 +127,11 @@ const Checkbox = ({
     id === undefined || id === '' ? generateRandomString() : id
   );
   const isControlled = checked !== undefined;
-
   const [isChecked, setIsChecked] = React.useState(
     isControlled ? checked : defaultChecked
   );
+  const [shouldIconAnimate, setShouldIconAnimate] = React.useState(false);
+  const [wasInteractedWith, setWasInteractedWith] = React.useState(false);
   const inputRef = React.useRef(null);
 
   React.useEffect(() => {
@@ -140,6 +141,12 @@ const Checkbox = ({
   React.useEffect(() => {
     if (isControlled) setIsChecked(checked);
   }, [checked, isControlled]);
+
+  React.useEffect(() => {
+    requestAnimationFrame(() => {
+      setShouldIconAnimate(isChecked || indeterminate);
+    });
+  }, [isChecked, indeterminate]);
 
   const onInputChange = React.useCallback(
     e => {
@@ -162,6 +169,11 @@ const Checkbox = ({
 
   const labelClass = cx('sg-checkbox__label', {
     'sg-checkbox__label--with-padding-bottom': description || errorMessage,
+  });
+
+  const iconClass = cx('sg-checkbox__icon', {
+    'sg-checkbox__icon--animate': wasInteractedWith && shouldIconAnimate,
+    'sg-checkbox__icon--with-animation': wasInteractedWith,
   });
 
   if (__DEV__) {
@@ -190,14 +202,19 @@ const Checkbox = ({
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
 
-  let checkboxIcon = <CheckIcon />;
+  let checkboxIcon = null;
+
+  if (isChecked) checkboxIcon = <CheckIcon />;
 
   if (indeterminate) checkboxIcon = <IndeterminateIcon />;
 
   return (
     <div className={checkboxClass} style={style}>
       <div className="sg-checkbox__wrapper">
-        <div className="sg-checkbox__element">
+        <div
+          className="sg-checkbox__element"
+          onClick={() => setWasInteractedWith(true)}
+        >
           <input
             {...props}
             ref={inputRef}
@@ -216,7 +233,7 @@ const Checkbox = ({
             aria-labelledby={ariaLabelledBy}
           />
           <span
-            className="sg-checkbox__icon"
+            className={iconClass}
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"
