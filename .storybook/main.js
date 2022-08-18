@@ -43,6 +43,7 @@ module.exports = {
   webpackFinal: config => {
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
+    console.log(config.module.rules[4].use[0].options.plugins);
 
     // remove default loader for fonts
     config.module.rules = config.module.rules.filter(

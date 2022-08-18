@@ -301,4 +301,6 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   ) : null;
 }
 
+Dialog.Overlay = DialogOverlay;
+
 export default Dialog;
