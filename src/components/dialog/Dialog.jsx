@@ -196,27 +196,39 @@ function BaseDialog({
     'sg-dialog__container--top': position === 'top',
   });
 
-  const regularChildren = React.Children.toArray(children).filter(
-    reactNode => reactNode.type !== DialogOverlay
+  const childrenWithoutSlots = React.useMemo(
+    () =>
+      React.Children.toArray(children).filter(
+        reactNode => reactNode.type !== DialogOverlay
+      ),
+    [children]
   );
 
-  const childrenForSlots = React.Children.toArray(children).filter(
-    reactNode => reactNode.type === DialogOverlay
+  const childrenWithSlots = React.useMemo(
+    () =>
+      React.Children.toArray(children).filter(
+        reactNode => reactNode.type === DialogOverlay
+      ),
+    [children]
   );
 
-  const childrenBySlots = SLOTS.reduce((acc, next) => {
-    childrenForSlots
-      .filter(child => child.props.slot === next)
-      .forEach(child => {
-        if (!acc[next]) {
-          acc[next] = [];
-        }
+  const childrenBySlot = React.useMemo(
+    () =>
+      SLOTS.reduce((acc, next) => {
+        childrenWithSlots
+          .filter(child => child.props.slot === next)
+          .forEach(child => {
+            if (!acc[next]) {
+              acc[next] = [];
+            }
 
-        acc[next].push(child);
-      });
+            acc[next].push(child);
+          });
 
-    return acc;
-  }, {});
+        return acc;
+      }, {}),
+    [childrenWithSlots]
+  );
 
   return (
     <div
@@ -226,8 +238,8 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
-      {childrenBySlots.backdrop ? (
-        <span className="sg-dialog__backdrop">{childrenBySlots.backdrop}</span>
+      {childrenBySlot.backdrop ? (
+        <span className="sg-dialog__backdrop">{childrenBySlot.backdrop}</span>
       ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
@@ -248,14 +260,14 @@ function BaseDialog({
         tabIndex="-1"
         data-testid={dataTestId}
       >
-        {regularChildren}
+        {childrenWithoutSlots}
       </div>
       {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
           className={`sg-dialog-overlay-slot sg-dialog-overlay-slot--${slot}`}
           key={slot}
         >
-          {childrenBySlots[slot] ? childrenBySlots[slot] : null}
+          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
         </div>
       ))}
     </div>
