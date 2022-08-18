@@ -239,7 +239,9 @@ function BaseDialog({
       ref={overlayRef}
     >
       {childrenBySlot.backdrop ? (
-        <span className="sg-dialog__backdrop">{childrenBySlot.backdrop}</span>
+        <span className="sg-dialog-overlay-slot--backdrop">
+          {childrenBySlot.backdrop}
+        </span>
       ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect

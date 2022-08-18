@@ -84,14 +84,6 @@ $dialogMaxWidthMap: (
     }
   }
 
-  &__backdrop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-  }
-
   &-overlay-slot {
     display: none;
     position: relative;
@@ -193,6 +185,14 @@ $dialogMaxWidthMap: (
     right: 0;
     z-index: 1;
   }
+}
+
+.sg-dialog-overlay-slot--backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
 }
 
 @each $slot
