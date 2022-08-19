@@ -315,8 +315,12 @@ $checkboxClickableArea: 32px;
 
   &__label {
     display: flex;
-    padding-top: $checkboxPadding;
     padding-left: $checkboxPadding;
+    padding-top: $checkboxPadding;
+
+    &--small {
+      padding-top: 6px;
+    }
 
     &--with-padding-bottom {
       padding-bottom: $checkboxPadding;

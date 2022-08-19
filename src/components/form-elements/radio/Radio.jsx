@@ -7,6 +7,7 @@ import generateRandomString from '../../../js/generateRandomString';
 import {useRadioContext} from './useRadioContext';
 
 export type RadioColorType = 'light' | 'dark';
+type RadioLabelSizeType = 'medium' | 'small';
 
 export type RadioPropsType = {
   /**
@@ -48,6 +49,12 @@ export type RadioPropsType = {
    * @example <Radio invalid />
    */
   invalid?: boolean,
+  /**
+   * Sets label size.
+   * @example <Radio labelSize="small" />
+   * @default false
+   */
+  labelSize?: RadioLabelSizeType,
   /**
    * The name of the radio input.
    * @example <Radio name="name" />
@@ -95,6 +102,7 @@ const Radio = ({
   disabled,
   id,
   invalid,
+  labelSize = 'medium',
   name,
   onChange,
   required = false,
@@ -151,6 +159,7 @@ const Radio = ({
   });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
+    [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
 
   const onInputChange = e => {
@@ -183,7 +192,7 @@ const Radio = ({
             value={value}
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
-            aria-invalid={isInvalid}
+            aria-invalid={isInvalid ? true : undefined}
           />
           <span
             className={circleClass}
@@ -197,7 +206,7 @@ const Radio = ({
             id={labelId}
             htmlFor={radioId}
             type="label"
-            size="medium"
+            size={labelSize}
             weight="bold"
             className={labelClass}
           >
