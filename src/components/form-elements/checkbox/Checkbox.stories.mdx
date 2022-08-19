@@ -21,6 +21,10 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
       type: 'string',
     },
   }}
+  args={{
+    color: 'dark',
+    labelSize: 'medium',
+  }}
 />
 
 <PageHeader>Checkbox</PageHeader>
@@ -309,6 +313,14 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
         </StoryVariantTable>
       </div>
     )}
+  </Story>
+</Canvas>
+
+### With small label
+
+<Canvas>
+  <Story name="With small label" args={{labelSize: 'small'}}>
+    {args => <Checkbox {...args}>Checkbox label</Checkbox>}
   </Story>
 </Canvas>
 
