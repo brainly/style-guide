@@ -10,6 +10,7 @@ import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
 
 type CheckboxColorType = 'dark' | 'light';
+type CheckboxLabelSizeType = 'medium' | 'small';
 
 export type CheckboxPropsType = {
   /**
@@ -71,6 +72,12 @@ export type CheckboxPropsType = {
    */
   invalid?: boolean,
   /**
+   * Sets label size.
+   * @example <Checkbox labelSize="small" />
+   * @default false
+   */
+  labelSize?: CheckboxLabelSizeType,
+  /**
    * The name of the checkbox input.
    * @example <Checkbox name="name" />
    */
@@ -115,6 +122,7 @@ const Checkbox = ({
   id,
   indeterminate = false,
   invalid = false,
+  labelSize = 'medium',
   required = false,
   name,
   onChange,
@@ -169,6 +177,7 @@ const Checkbox = ({
 
   const labelClass = cx('sg-checkbox__label', {
     'sg-checkbox__label--with-padding-bottom': description || errorMessage,
+    [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
   });
 
   const iconClass = cx('sg-checkbox__icon', {
@@ -245,11 +254,12 @@ const Checkbox = ({
           <Text
             htmlFor={checkboxId}
             type="label"
-            size="medium"
+            size={labelSize}
             weight="bold"
             className={labelClass}
           >
             {children}
+            {required && <span aria-hidden="true">&nbsp;*</span>}
           </Text>
         )}
       </div>
