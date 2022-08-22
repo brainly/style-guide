@@ -7,6 +7,7 @@ import generateRandomString from '../../../js/generateRandomString';
 import {useRadioContext} from './useRadioContext';
 
 export type RadioColorType = 'light' | 'dark';
+type RadioLabelSizeType = 'medium' | 'small';
 
 export type RadioPropsType = {
   /**
@@ -48,6 +49,12 @@ export type RadioPropsType = {
    * @example <Radio invalid />
    */
   invalid?: boolean,
+  /**
+   * Sets label size.
+   * @example <Radio labelSize="small" />
+   * @default false
+   */
+  labelSize?: RadioLabelSizeType,
   /**
    * The name of the radio input.
    * @example <Radio name="name" />
@@ -95,6 +102,7 @@ const Radio = ({
   disabled,
   id,
   invalid,
+  labelSize = 'medium',
   name,
   onChange,
   required = false,
@@ -107,6 +115,7 @@ const Radio = ({
   const {current: radioId} = React.useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
+  const [wasInteractedWith, setWasInteractedWith] = React.useState(false);
 
   const radioGroupContext = useRadioContext();
   const isWithinRadioGroup =
@@ -144,8 +153,13 @@ const Radio = ({
     'sg-radio--with-description': !!descriptionId,
     'sg-radio--with-padding': !isInputOnly,
   });
+
+  const circleClass = classNames('sg-radio__circle', {
+    'sg-radio__circle--with-animation': wasInteractedWith,
+  });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
+    [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
 
   const onInputChange = e => {
@@ -160,7 +174,10 @@ const Radio = ({
 
   return (
     <div className={radioClass} style={style}>
-      <div className="sg-radio__wrapper">
+      <div
+        className="sg-radio__wrapper"
+        onClick={() => setWasInteractedWith(true)}
+      >
         <div className="sg-radio__element">
           <input
             {...props}
@@ -175,10 +192,10 @@ const Radio = ({
             value={value}
             aria-labelledby={labelId}
             aria-describedby={descriptionId}
-            aria-invalid={isInvalid}
+            aria-invalid={isInvalid ? true : undefined}
           />
           <span
-            className="sg-radio__circle"
+            className={circleClass}
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"
@@ -189,7 +206,7 @@ const Radio = ({
             id={labelId}
             htmlFor={radioId}
             type="label"
-            size="medium"
+            size={labelSize}
             weight="bold"
             className={labelClass}
           >

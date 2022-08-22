@@ -27,7 +27,15 @@ const IndeterminateIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M4 8H8.01108H12"
+      className="indeterminate-path indeterminate-path--left"
+      d="M4 8H8"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      className="indeterminate-path indeterminate-path--right"
+      d="M8 8H12"
       strokeWidth="2.5"
       strokeLinecap="round"
       strokeLinejoin="round"
