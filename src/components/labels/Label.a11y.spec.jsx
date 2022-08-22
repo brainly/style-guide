@@ -38,7 +38,7 @@ describe('Label', () => {
 
   it('should have an icon which is hidden from accessibility tree', async () => {
     const label = render(
-      <Label iconType="attachment" iconHidden>
+      <Label iconType="attachment" iconAriaHidden>
         dog.jpg
       </Label>
     );
@@ -62,7 +62,7 @@ describe('Label a11y', () => {
 
   it('should have no a11y violations when icon is hidden from accessibility tree', async () => {
     await testA11y(
-      <Label iconType="attachment" iconHidden>
+      <Label iconType="attachment" iconAriaHidden>
         label
       </Label>
     );

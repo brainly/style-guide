@@ -241,7 +241,7 @@ export type LabelPropsType = $ReadOnly<{
   /**
    * Hiding icon from accessibility tree
    */
-  iconHidden?: boolean,
+  iconAriaHidden?: boolean,
   ...
 }>;
 
@@ -252,14 +252,14 @@ const Label = ({
   onClose,
   color = 'achromatic',
   className,
-  closeButtonLabel = 'close',
+  closeButtonLabel,
   iconTitle,
-  iconHidden,
+  iconAriaHidden,
   ...props
 }: LabelPropsType) => {
   if (__DEV__) {
     invariant(
-      !(!iconType && (iconHidden || iconTitle)),
+      !(!iconType && (iconAriaHidden || iconTitle)),
       'You cannot hide an icon or name it, when `iconType` s not provided'
     );
 
@@ -313,7 +313,7 @@ const Label = ({
             type={iconType}
             color={iconColor}
             size={16}
-            aria-hidden={iconHidden}
+            aria-hidden={iconAriaHidden}
             title={iconTitle}
           />
         </div>
@@ -330,7 +330,7 @@ const Label = ({
         <button
           className="sg-label__close-button"
           onClick={onClose}
-          aria-label={closeButtonLabel}
+          aria-label={closeButtonLabel || 'close'}
         >
           <Icon type="close" color={closeIconColor} size={16} aria-hidden />
         </button>
