@@ -25,6 +25,10 @@ import RadioA11y from './stories/Radio.a11y.mdx';
       type: 'string',
     },
   }}
+  args={{
+    color: 'dark',
+    labelSize: 'medium',
+  }}
 />
 
 <PageHeader>Radio</PageHeader>
@@ -269,6 +273,14 @@ import RadioA11y from './stories/Radio.a11y.mdx';
         </div>
       );
     }}
+  </Story>
+</Canvas>
+
+### With small label
+
+<Canvas>
+  <Story name="With small label" args={{labelSize: 'small'}}>
+    {args => <Radio {...args}>Radio label</Radio>}
   </Story>
 </Canvas>
 
