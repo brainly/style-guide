@@ -3,7 +3,7 @@ import {shallow} from 'enzyme';
 
 import FileHandler from './FileHandler';
 import Icon from 'icons/Icon';
-import Text from '../text/Text';
+import Text from '../text/Text.vanex';
 import Link from '../text/Link';
 import Spinner from '../spinner/Spinner';
 

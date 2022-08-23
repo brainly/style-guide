@@ -266,7 +266,11 @@ module.exports = {
     // alias for finger printed asset urls
     config.resolve.alias.RevManifest = revManifestPath;
 
-    config.plugins.push(new VanillaExtractPlugin());
+    config.plugins.push(
+      new VanillaExtractPlugin({
+        identifiers: 'debug',
+      })
+    );
 
     return config;
   },

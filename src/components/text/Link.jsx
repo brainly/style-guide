@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {__DEV__, invariant, generateId} from '../utils';
-import Text from './Text';
+import Text from './Text.vanex';
 import type {TextColorType, TextSizeType} from './Text';
 import {
   TEXT_SIZE,
@@ -17,7 +17,7 @@ import type {ResponsivePropType} from '../utils/responsive-props';
 // $FlowFixMe[untyped-import]
 import * as styles from './TextStyles';
 
-const {linkVariants, weightVariants} = styles;
+const {linkVariants, weightVariants, colorVariants} = styles;
 
 const anchorRelatedProps = [
   'download',
@@ -148,7 +148,7 @@ const Link = (props: LinkPropsType) => {
       'sg-text--link-unstyled': !underlined && unstyled,
       [weightVariants.bold]: emphasised && !inherited,
       'sg-text--link-disabled': disabled,
-      [`sg-text--${String(color)}`]: color && !unstyled,
+      [colorVariants[color]]: color && !unstyled,
       [`sg-text--${String(weight)}`]: weight,
       'sg-text--link-label': as === 'button',
     },

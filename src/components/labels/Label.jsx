@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import Text, {TEXT_COLOR} from '../text/Text';
+import Text, {TEXT_COLOR} from '../text/Text.vanex';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 import {__DEV__, invariant} from '../utils';

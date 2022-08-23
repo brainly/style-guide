@@ -65,6 +65,25 @@ export const containerStyle = style({
   position: 'relative',
 });
 
+export const linkVariants = styleVariants({
+  main: {
+    cursor: 'pointer',
+    textDecoration: 'none',
+    color: colors2.blue60,
+
+    ':hover': {
+      textDecoration: 'underline',
+    },
+    ':active': {
+      textDecoration: 'underline',
+    },
+  },
+  underlined: {
+    cursor: 'pointer',
+    textDecoration: 'underline',
+  },
+});
+
 export const colorVariants = styleVariants(
   [
     {name: 'text-black', value: colors2.textBlack},
@@ -177,24 +196,5 @@ export const wrapVariants = responsiveVariants({
   },
   noWrap: {
     whiteSpace: 'nowrap',
-  },
-});
-
-export const linkVariants = styleVariants({
-  main: {
-    cursor: 'pointer',
-    textDecoration: 'none',
-    color: colors2.blue60,
-
-    ':hover': {
-      textDecoration: 'underline',
-    },
-    ':active': {
-      textDecoration: 'underline',
-    },
-  },
-  underlined: {
-    cursor: 'pointer',
-    textDecoration: 'underline',
   },
 });

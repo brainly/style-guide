@@ -11,7 +11,7 @@ import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import Link from '../text/Link';
-import Text from '../text/Text';
+import Text from '../text/Text.vanex';
 import {AccordionContext} from './Accordion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';

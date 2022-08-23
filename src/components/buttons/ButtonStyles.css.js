@@ -187,6 +187,9 @@ export const typeVariants = styleVariants({
         [`${sizeVariants.l}&`]: {
           padding: '0 14px',
         },
+        [`${sizeVariants.s}&`]: {
+          padding: `0 ${sizes.xs}`,
+        },
       },
     },
   ],
@@ -203,6 +206,9 @@ export const typeVariants = styleVariants({
       selectors: {
         [`${sizeVariants.l}&`]: {
           padding: '0 14px',
+        },
+        [`${sizeVariants.s}&`]: {
+          padding: `0 ${sizes.xs}`,
         },
       },
     },
@@ -222,6 +228,9 @@ export const typeVariants = styleVariants({
       selectors: {
         [`${sizeVariants.l}&`]: {
           padding: '0 14px',
+        },
+        [`${sizeVariants.s}&`]: {
+          padding: `0 ${sizes.xs}`,
         },
       },
     },

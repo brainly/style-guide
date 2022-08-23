@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Text from '../components/text/Text';
+import Text from '../components/text/Text.vanex';
 import Headline from '../components/text/Headline';
 
 type StoryVariantBorderBoxPropsType = {
