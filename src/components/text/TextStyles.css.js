@@ -53,14 +53,6 @@ export const textStyle = style({
   },
 });
 
-export const inheritedStyle = style({
-  fontSize: 'inherit',
-  lineHeight: 'inherit',
-  fontFamily: 'inherit',
-  fontWeight: 'inherit',
-  color: 'inherit',
-});
-
 export const containerStyle = style({
   position: 'relative',
 });
@@ -82,6 +74,14 @@ export const linkVariants = styleVariants({
     cursor: 'pointer',
     textDecoration: 'underline',
   },
+});
+
+export const inheritedStyle = style({
+  fontSize: 'inherit',
+  lineHeight: 'inherit',
+  fontFamily: 'inherit',
+  fontWeight: 'inherit',
+  color: 'inherit',
 });
 
 export const colorVariants = styleVariants(

@@ -17,7 +17,7 @@ import type {ResponsivePropType} from '../utils/responsive-props';
 // $FlowFixMe[untyped-import]
 import * as styles from './TextStyles';
 
-const {linkVariants, weightVariants, colorVariants} = styles;
+const {linkVariants, weightVariants, colorVariants, inheritedStyle} = styles;
 
 const anchorRelatedProps = [
   'download',
@@ -142,7 +142,7 @@ const Link = (props: LinkPropsType) => {
 
   const linkClass = classNames(
     {
-      [`sg-text--inherited`]: inherited,
+      [inheritedStyle]: inherited,
       [linkVariants.main]: !underlined && !unstyled,
       [linkVariants.underlined]: underlined && !unstyled,
       'sg-text--link-unstyled': !underlined && unstyled,
