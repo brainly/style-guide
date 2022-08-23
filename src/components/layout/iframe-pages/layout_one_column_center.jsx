@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Layout from '../Layout';
 import LayoutContent from '../LayoutContent';
-import Text from 'text/Text';
+import Text from 'text/Text.vanex';
 
 const header = (
   <div className="sg-header sg-header--fixed">

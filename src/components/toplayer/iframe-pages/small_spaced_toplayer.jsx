@@ -5,7 +5,7 @@ import ContentBox from 'content-box/ContentBox';
 import ContentBoxContent, {
   SIZE as SPACING_SIZE,
 } from 'content-box/ContentBoxContent';
-import Text, {TEXT_WEIGHT} from 'text/Text';
+import Text, {TEXT_WEIGHT} from 'text/Text.vanex';
 import Headline, {HEADLINE_TYPE} from 'text/Headline';
 import List from 'list/List';
 import ListItem from 'list/ListItem';

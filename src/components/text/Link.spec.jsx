@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
-import Text from './Text';
+import Text from './Text.vanex';
 import {shallow} from 'enzyme';
 import {TEXT_WEIGHT} from './textConsts';
 import * as styles from './TextStyles';
@@ -28,10 +28,10 @@ test('size', () => {
     <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
   ).dive();
 
-  expect(link.hasClass('sg-text--small')).toBeTruthy();
+  expect(link.hasClass(styles.sizeVariants.small)).toBeTruthy();
   expect(
     responsiveSizeLink.hasClass(
-      'sg-text--xsmall md:sg-text--small xl:sg-text--large'
+      `${styles.sizeVariants.xsmall} ${styles.sizeVariants['md:small']} ${styles.sizeVariants['xl:large']}`
     )
   ).toBeTruthy();
 });
@@ -54,7 +54,7 @@ test('color', () => {
     </Link>
   ).dive();
 
-  expect(link.hasClass('sg-text--text-white')).toBeTruthy();
+  expect(link.hasClass(styles.colorVariants['text-white'])).toBeTruthy();
 });
 
 test('unstyled', () => {
@@ -64,8 +64,8 @@ test('unstyled', () => {
     </Link>
   );
 
-  expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
+  // expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();  OUTDATED
+  expect(link.hasClass(styles.linkVariants.main)).toBeFalsy();
 });
 
 test('underlined', () => {

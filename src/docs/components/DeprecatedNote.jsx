@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Text from 'text/Text';
+import Text from 'text/Text.vanex';
 import Link from 'text/Link';
 import Flex from 'flex/Flex';
 
