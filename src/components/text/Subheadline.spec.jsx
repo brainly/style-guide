@@ -7,7 +7,7 @@ import {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
-import {TEXT_COLOR} from './Text';
+import {TEXT_COLOR} from './Text.vanex';
 
 test('render', () => {
   const subheadline = shallow(<Subheadline>Test</Subheadline>);

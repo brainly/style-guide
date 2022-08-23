@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {__DEV__, invariant, generateId} from '../utils';
 import Text from './Text.vanex';
-import type {TextColorType, TextSizeType} from './Text';
+import type {TextColorType, TextSizeType} from './Text.vanex';
 import {
   TEXT_SIZE,
   TEXT_WEIGHT,

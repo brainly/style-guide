@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Flex from '../../flex/Flex';
-import Text from '../../text/Text';
+import Text from '../../text/Text.vanex';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 

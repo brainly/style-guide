@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {testA11y} from '../../axe';
-import Text from './Text';
+import Text from './Text.vanex';
 
 describe('Text a11y', () => {
   it('should have no a11y violations', async () => {

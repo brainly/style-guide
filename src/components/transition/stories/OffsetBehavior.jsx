@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Bubble from '../../bubble/Bubble';
-import Text from '../../text/Text';
+import Text from '../../text/Text.vanex';
 import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
 import Transition from '../Transition';

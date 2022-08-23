@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Box from '../../../box/Box';
-import Text from '../../../text/Text';
+import Text from '../../../text/Text.vanex';
 
 type PropsType = $ReadOnly<{
   children: React.Node,

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {SUBHEADLINE_TYPE} from './subheadlineConsts';
-import type {TextColorType} from './Text';
+import type {TextColorType} from './Text.vanex';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
@@ -46,7 +46,7 @@ export {
   SUBHEADLINE_ALIGN,
 } from './subheadlineConsts';
 
-export {TEXT_COLOR} from './Text';
+export {TEXT_COLOR} from './Text.vanex';
 
 export type SubheadlinePropsType = {
   children?: React.Node,

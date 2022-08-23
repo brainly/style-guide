@@ -3,8 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {HEADLINE_TYPE} from './headlineConsts';
-import {TEXT_COLOR} from './Text';
-import type {TextColorType} from './Text';
+import {TEXT_COLOR} from './Text.vanex';
+import type {TextColorType} from './Text.vanex';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 

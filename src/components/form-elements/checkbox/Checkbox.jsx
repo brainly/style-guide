@@ -5,7 +5,7 @@ import cx from 'classnames';
 
 import generateRandomString from '../../../js/generateRandomString';
 import {__DEV__, invariant} from '../../utils';
-import Text from '../../text/Text';
+import Text from '../../text/Text.vanex';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Box from '../../components/box/Box';
-import Text from '../../components/text/Text';
+import Text from '../../components/text/Text.vanex';
 import Flex from '../../components/flex/Flex';
 import Icon from '../../components/icons/Icon';
 

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import type {TextColorType} from './Text';
+import type {TextColorType} from './Text.vanex';
 import {TEXT_COLOR} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
