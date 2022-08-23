@@ -2,12 +2,16 @@ const path = require('path');
 const fs = require('fs');
 const svgoConfigs = require('./svgo.config.js');
 const revHash = require('rev-hash');
+const argv = require('yargs').argv;
 
 const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 const {VanillaExtractPlugin} = require('@vanilla-extract/webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const version = argv.version || 'latest';
+const OUTPUT_DIR = path.resolve(__dirname, 'dist', version);
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -23,7 +27,7 @@ module.exports = {
   mode: 'development',
   entry: ['./src/index.js', './src/main-vanex.scss'],
   output: {
-    path: path.resolve(__dirname, 'dist-vanex'),
+    path: OUTPUT_DIR,
   },
   module: {
     rules: [

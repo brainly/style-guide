@@ -148,7 +148,7 @@
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
-    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs",
+    "build": "yarn clean && yarn build-vanex-css --production && gulp build && build-storybook -o dist/latest/docs",
     "postversion": "git push && git push --tags",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-typecheck && yarn run js-lint && yarn prettier-check && jest",
     "eslint": "./node_modules/.bin/eslint",
