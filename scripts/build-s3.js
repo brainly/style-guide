@@ -69,7 +69,7 @@ if (!argv.latest) {
 
 function buildFiles() {
   execSync(
-    `yarn gulp build-assets --version=${version} && yarn build-storybook -o dist/${version}/docs --quiet && yarn build-vanex-css --version=${version} --production`
+    `yarn build-vanex-css --version=${version} --production && yarn gulp build-assets --version=${version} && yarn build-storybook -o dist/${version}/docs --quiet`
   );
 
   if (rootRedirectPage) {
