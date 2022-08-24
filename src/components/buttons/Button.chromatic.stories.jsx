@@ -1,6 +1,8 @@
-import * as Button from './Button.stories.jsx';
+import * as Button from './Button.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Button);
 
-export default Button.default;
+const {includeStories, ...meta} = Button.default;
+
+export default meta;

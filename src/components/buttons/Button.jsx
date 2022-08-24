@@ -102,11 +102,25 @@ type ButtonToggleType = 'red' | 'yellow';
 
 type ButtonSizeType = 'l' | 'm' | 's';
 
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
+
+export type NativeTypeType = 'button' | 'submit' | 'reset';
+
 const TOGGLE_BUTTON_TYPES = [
   'solid-light',
   'outline',
   'transparent',
   'transparent-light',
+];
+
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
+
+const anchorRelatedProps = [
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
 ];
 
 export type ButtonPropsType = {
@@ -205,6 +219,14 @@ export type ButtonPropsType = {
    */
   loading?: boolean,
   /**
+   * `aria-live` for loading state. Defaults to "off".
+   */
+  loadingAriaLive?: AriaLiveType,
+  /**
+   * Accessible information about loading state. Defaults to "loading".
+   */
+  loadingAriaLabel?: string,
+  /**
    * Optional boolean for full width button
    * @example <Button type="solid-indigo" fullWidth>
    *            button
@@ -215,6 +237,29 @@ export type ButtonPropsType = {
    * Additional class names
    */
   className?: string,
+  /**
+   * Specifies where to display the linked URL.
+   */
+  target?: TargetType,
+  /**
+   * Accessible information that indicates opening in new tab.
+   */
+  newTabLabel?: string,
+  /**
+   * Accessible name for Button.
+   */
+  'aria-label'?: string,
+
+  /**
+   * The default behavior of the button.
+   */
+  nativeType?: NativeTypeType,
+  /**
+   * Callback, called by clicking on Button
+   */
+  onClick?: (
+    SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
+  ) => mixed,
   ...
 };
 
@@ -233,10 +278,20 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       toggle,
       children,
       className,
+      target,
+      newTabLabel = '(opens in a new tab)',
+      onClick,
+      'aria-label': ariaLabel,
+      loadingAriaLive = 'off',
+      loadingAriaLabel,
+      nativeType,
       ...props
     }: ButtonPropsType,
     ref
   ) => {
+    const isDisabled = disabled || loading;
+    const isLink = !!href;
+
     if (__DEV__) {
       invariant(
         !(
@@ -263,9 +318,29 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         !(iconOnly && reversedOrder),
         `Using 'reversedOrder' property has no effect when 'iconOnly' property is set.`
       );
-    }
 
-    const isDisabled = disabled || loading;
+      invariant(
+        !(
+          !isLink &&
+          (target ||
+            Object.keys(props).some(p => anchorRelatedProps.includes(p)))
+        ),
+        // $FlowFixMe
+        `An anchor-related prop is not working when "href" is not provided: ${Object.keys(
+          props
+        )}`
+      );
+
+      invariant(
+        !(isLink && nativeType),
+        '`nativeType` prop is not working when href is provided'
+      );
+
+      invariant(
+        !(iconOnly && !ariaLabel),
+        'Using `iconOnly` without `aria-label` will affect people with visual impairments'
+      );
+    }
 
     const btnClass = cx(
       'sg-button',
@@ -292,7 +367,14 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       ico = <span className={iconClass}>{icon}</span>;
     }
 
-    const TypeToRender = href !== undefined ? 'a' : 'button';
+    const onButtonClick = e => {
+      if (isLink && isDisabled) {
+        return;
+      }
+      return onClick && onClick(e);
+    };
+
+    const TypeToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
 
     return (
       <TypeToRender
@@ -300,20 +382,29 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         className={btnClass}
         href={href}
         disabled={isDisabled}
-        role={href !== undefined ? 'button' : undefined}
         ref={ref}
+        target={target}
+        aria-label={ariaLabel}
+        onClick={onButtonClick}
+        type={nativeType}
       >
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
             color={SPINNER_COLOR_MAP[type]}
             className="sg-button__spinner"
-            aria-live="off"
+            aria-live={loadingAriaLive}
+            aria-label={loadingAriaLabel}
           />
         )}
         {ico}
         {/* As soon as we have Proxima fixed, we could remove that span */}
-        <span className="sg-button__text">{children}</span>
+        <span className="sg-button__text">
+          {children}
+          {target === '_blank' && (
+            <span className="sg-visually-hidden">{newTabLabel}</span>
+          )}
+        </span>
       </TypeToRender>
     );
   }
