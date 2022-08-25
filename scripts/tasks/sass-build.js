@@ -1,6 +1,10 @@
 module.exports = function (gulp, plugins, consts) {
   return function (done) {
-    const sassFilesSrc = plugins.path.join(consts.SRC, 'sass', 'main.scss');
+    const sassFilesSrc = plugins.path.join(
+      consts.SRC,
+      'sass',
+      'main-vanex.scss'
+    );
 
     gulp
       .src(sassFilesSrc)
