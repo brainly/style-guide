@@ -66,6 +66,7 @@ gulp.task(
   'build-assets',
   gulp.series(
     'sass-colors:build',
+    'sass:build',
     'svgs-generate',
     'fingerprint',
     'fingerprint-replace'

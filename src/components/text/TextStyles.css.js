@@ -70,6 +70,33 @@ export const linkVariants = styleVariants({
       textDecoration: 'underline',
     },
   },
+  label: {
+    cursor: 'pointer',
+    position: 'relative',
+    '&:focus-within': {
+      outline: '5px auto Highlight',
+    },
+  },
+  disabled: {
+    cursor: 'default',
+    '&:hover': {
+      textDecoration: 'none',
+    },
+    '&:active': {
+      textDecoration: 'none',
+    },
+  },
+  unstyled: {
+    cursor: 'pointer',
+    color: 'inherit',
+    fontWeight: 'inherit',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+    '&:active': {
+      textDecoration: 'underline',
+    },
+  },
   underlined: {
     cursor: 'pointer',
     textDecoration: 'underline',

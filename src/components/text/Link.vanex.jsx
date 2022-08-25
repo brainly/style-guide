@@ -3,8 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {__DEV__, invariant, generateId} from '../utils';
-import Text from './Text';
-import type {TextColorType, TextSizeType} from './Text';
+import Text from './Text.vanex';
+import type {TextColorType, TextSizeType} from './Text.vanex';
 import {
   TEXT_SIZE,
   TEXT_WEIGHT,
@@ -14,6 +14,10 @@ import {
 } from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+// $FlowFixMe[untyped-import]
+import * as styles from './TextStyles';
+
+const {linkVariants, weightVariants, colorVariants, inheritedStyle} = styles;
 
 const anchorRelatedProps = [
   'download',
@@ -138,17 +142,18 @@ const Link = (props: LinkPropsType) => {
 
   const linkClass = classNames(
     {
-      [`sg-text--inherited`]: inherited,
-      'sg-text--link': !underlined && !unstyled,
-      'sg-text--link-underlined': underlined && !unstyled,
-      'sg-text--link-unstyled': !underlined && unstyled,
-      'sg-text--bold': emphasised && !inherited,
-      'sg-text--link-disabled': disabled,
-      [`sg-text--${String(color)}`]: color && !unstyled,
-      [`sg-text--${String(weight)}`]: weight,
-      'sg-text--link-label': as === 'button',
+      [inheritedStyle]: inherited,
+      [linkVariants.main]: !underlined && !unstyled,
+      [linkVariants.underlined]: underlined && !unstyled,
+      [linkVariants.unstyled]: !underlined && unstyled,
+      [weightVariants.bold]: emphasised && !inherited,
+      [linkVariants.disabled]: disabled,
+      [colorVariants[color]]: color && !unstyled,
+      [linkVariants.label]: as === 'button',
     },
-    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
+    ...generateResponsiveClassNames(weight => weight, weight).map(
+      className => weightVariants[className]
+    ),
     className
   );
 
@@ -177,7 +182,7 @@ const Link = (props: LinkPropsType) => {
   const linkType = disabled ? 'span' : 'a';
   const onLinkClick = e => {
     if (!disabled && onClick) {
-      return onClick(e);
+      onClick(e);
     }
   };
 

@@ -12,8 +12,8 @@ export {default as Breadcrumb} from './components/breadcrumb/Breadcrumb';
 export type {BreadcrumbPropsType} from './components/breadcrumb/Breadcrumb';
 export {default as Bubble} from './components/bubble/Bubble';
 export type {BubblePropsType} from './components/bubble/Bubble';
-export {default as Button} from './components/buttons/Button';
-export type {ButtonPropsType} from './components/buttons/Button';
+export {default as Button} from './components/buttons/Button.vanex';
+export type {ButtonPropsType} from './components/buttons/Button.vanex';
 export {default as ButtonRound} from './components/buttons/ButtonRound';
 export type {ButtonRoundPropsType} from './components/buttons/ButtonRound';
 export {default as Card} from './components/card/Card';
@@ -130,6 +130,7 @@ export type {SpinnerPropsType} from './components/spinner/Spinner';
 export {default as SpinnerContainer} from './components/spinner-container/SpinnerContainer';
 export type {SpinnerContainerPropsType} from './components/spinner-container/SpinnerContainer';
 export {default as SubjectIcon} from './components/subject-icons/SubjectIcon';
+
 export type {
   SubjectIconPropsType,
   IconTypeType as SubjectIconType,
@@ -140,8 +141,8 @@ export {default as Headline} from './components/text/Headline';
 export type {HeadlinePropsType} from './components/text/Headline';
 export {default as Subheadline} from './components/text/Subheadline';
 export type {SubheadlinePropsType} from './components/text/Subheadline';
-export {default as Link} from './components/text/Link';
-export type {LinkPropsType} from './components/text/Link';
+export {default as Link} from './components/text/Link.vanex';
+export type {LinkPropsType} from './components/text/Link.vanex';
 export {default as Text} from './components/text/Text.vanex';
 export type {TextPropsType} from './components/text/Text.vanex';
 export {default as TextBit} from './components/text/TextBit';
