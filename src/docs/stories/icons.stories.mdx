@@ -23,21 +23,6 @@ All rights reserved © Brainly. If you want to use our icons for other then Brai
 Comonly used icon set. Contains _editor icons_, _system icons_ and _social media icons_.
 
 <IconGallery>
-  {[
-    'arrow_up',
-    'arrow_down',
-    'arrow_left',
-    'arrow_right',
-    'arrow_double_right',
-    'chevron_double_right',
-  ].map(type => (
-    <IconItem name={type} key={type}>
-      <Icon size={40} color={ICON_COLOR['icon-black']} type={type} />
-    </IconItem>
-  ))}
-</IconGallery>
-
-<IconGallery>
   {Object.values(TYPE).map(type => (
     <IconItem name={type} key={type}>
       <Icon size={40} color={ICON_COLOR['icon-black']} type={type} />
@@ -49,13 +34,6 @@ Comonly used icon set. Contains _editor icons_, _system icons_ and _social media
 
 Icons used in © Brainly mobile application.
 
-<IconGallery>
-  {[`bookmark`, `unbookmark`, `bookmark_outlined`].map(type => (
-    <IconItem name={type} key={type}>
-      <MobileIcon size={40} color={ICON_COLOR['icon-black']} type={type} />
-    </IconItem>
-  ))}
-</IconGallery>
 <IconGallery>
   {Object.values(MOBILE_TYPE).map(type => (
     <IconItem name={type} key={type}>
