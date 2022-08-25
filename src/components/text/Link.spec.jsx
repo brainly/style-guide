@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
+import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link.vanex';
 import Text from './Text.vanex';
 import {shallow} from 'enzyme';
 import {TEXT_WEIGHT} from './textConsts';
@@ -76,8 +76,8 @@ test('underlined', () => {
   );
 
   expect(link.hasClass(styles.linkVariants.underlined)).toBeTruthy();
-  expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
+  expect(link.hasClass(styles.linkVariants.unstyled)).toBeFalsy();
+  expect(link.hasClass(styles.linkVariants.main)).toBeFalsy();
 });
 
 it('weight is responsive prop', () => {
@@ -91,7 +91,9 @@ it('weight is responsive prop', () => {
   );
 
   expect(
-    component.hasClass('sg-text--bold md:sg-text--regular xl:sg-text--bold')
+    component.hasClass(
+      `${styles.weightVariants.bold} ${styles.weightVariants['md:regular']} ${styles.weightVariants['xl:bold']}`
+    )
   ).toEqual(true);
 });
 
