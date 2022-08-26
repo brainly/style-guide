@@ -5,6 +5,7 @@ import cx from 'classnames';
 
 import {useBodyNoScroll} from './useBodyNoScroll';
 import {useFocusTrap} from './useFocusTrap';
+import DialogOverlay, {SLOTS} from './DialogOverlay';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
@@ -33,6 +34,7 @@ export type DialogPropsType = $ReadOnly<{
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
+  position: 'center' | 'top',
 }>;
 
 /**
@@ -44,6 +46,7 @@ Dialog.defaultProps = ({
   size: 'm',
   reduceMotion: false,
   scroll: 'outside',
+  position: 'center',
 }: $Shape<DialogPropsType>);
 
 /**
@@ -65,6 +68,7 @@ function BaseDialog({
   onEntryTransitionEnd,
   onExitTransitionEnd,
   'data-testid': dataTestId,
+  position = 'center',
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -170,23 +174,60 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayClass = cx('js-dialog', 'sg-dialog__overlay', {
-    'sg-dialog__overlay--scroll':
-      (isDialogHigherThanOverlay || hasFinishedTransition) &&
-      scroll === 'outside',
-    'sg-dialog__overlay--open': deferredOpen,
-    'sg-dialog__overlay--fullscreen': size === 'fullscreen',
+  const overlayClass = cx(
+    'js-dialog',
+    'sg-dialog__overlay',
+    `sg-dialog__overlay--size-${size}`,
+    {
+      'sg-dialog__overlay--scroll':
+        (isDialogHigherThanOverlay || hasFinishedTransition) &&
+        scroll === 'outside',
+      'sg-dialog__overlay--open': deferredOpen,
+      'sg-dialog__overlay--fullscreen': size === 'fullscreen',
+      'sg-dialog__overlay--space-top': position === 'top',
+    }
+  );
+
+  const containerClass = cx('sg-dialog__container', {
+    'sg-dialog__container--scroll': scroll === 'inside',
+    'sg-dialog__container--open': deferredOpen,
+    'sg-dialog__container--exiting': exiting,
+    'sg-dialog__container--reduce-motion': reduceMotion,
+    'sg-dialog__container--top': position === 'top',
   });
 
-  const containerClass = cx(
-    'sg-dialog__container',
-    `sg-dialog__container--size-${size}`,
-    {
-      'sg-dialog__container--scroll': scroll === 'inside',
-      'sg-dialog__container--open': deferredOpen,
-      'sg-dialog__container--exiting': exiting,
-      'sg-dialog__container--reduce-motion': reduceMotion,
-    }
+  const childrenWithoutSlots = React.useMemo(
+    () =>
+      React.Children.toArray(children).filter(
+        reactNode => reactNode.type !== DialogOverlay
+      ),
+    [children]
+  );
+
+  const childrenWithSlots = React.useMemo(
+    () =>
+      React.Children.toArray(children).filter(
+        reactNode => reactNode.type === DialogOverlay
+      ),
+    [children]
+  );
+
+  const childrenBySlot = React.useMemo(
+    () =>
+      SLOTS.reduce((acc, next) => {
+        childrenWithSlots
+          .filter(child => child.props.slot === next)
+          .forEach(child => {
+            if (!acc[next]) {
+              acc[next] = [];
+            }
+
+            acc[next].push(child);
+          });
+
+        return acc;
+      }, {}),
+    [childrenWithSlots]
   );
 
   return (
@@ -197,11 +238,15 @@ function BaseDialog({
       onKeyUp={handleKeyUp}
       ref={overlayRef}
     >
+      {childrenBySlot.backdrop ? (
+        <span className="sg-dialog-overlay-slot--backdrop">
+          {childrenBySlot.backdrop}
+        </span>
+      ) : null}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
-      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -217,9 +262,16 @@ function BaseDialog({
         tabIndex="-1"
         data-testid={dataTestId}
       >
-        {children}
+        {childrenWithoutSlots}
       </div>
-      <div tabIndex="0" />
+      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
+        <div
+          className={`sg-dialog-overlay-slot sg-dialog-overlay-slot--${slot}`}
+          key={slot}
+        >
+          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
+        </div>
+      ))}
     </div>
   );
 }
@@ -248,5 +300,7 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
     />
   ) : null;
 }
+
+Dialog.Overlay = DialogOverlay;
 
 export default Dialog;

@@ -19,7 +19,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
 
-    expect(wrapper.find('.sg-dialog__container--size-xl')).toHaveLength(1);
+    expect(wrapper.find('.sg-dialog__overlay--size-xl')).toHaveLength(1);
   });
 
   it('renders outside scroll', () => {
