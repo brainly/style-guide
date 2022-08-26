@@ -16,13 +16,6 @@ test('type', () => {
   expect(button.hasClass(`sg-button--${buttonType}`)).toEqual(true);
 });
 
-test('button with href', () => {
-  const button = shallow(<Button href="http://example.com">Some text</Button>);
-
-  expect(button.find('a[href]')).toHaveLength(1);
-  expect(button.find('button')).toHaveLength(0);
-});
-
 test('disabled', () => {
   const button = shallow(<Button disabled>Some text</Button>);
 
@@ -89,13 +82,6 @@ test('with icon - reversed order', () => {
 
   expect(button.contains(icon)).toEqual(true);
   expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
-});
-
-test('in loading state button shows spinner and becomes disabled', () => {
-  const button = shallow(<Button loading>Some text</Button>);
-
-  expect(button.find(Spinner).exists()).toBe(true);
-  expect(button.is('[disabled]')).toEqual(true);
 });
 
 test('in loading state button shows spinner while hiding label and icon', () => {
