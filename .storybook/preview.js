@@ -66,7 +66,7 @@ export const parameters = {
         'Introduction ✏️',
         'Foundation ✨',
         'Components',
-        'Layout',
+        'Hooks',
         'Utilities',
       ],
     },
