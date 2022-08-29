@@ -10,7 +10,7 @@ import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
-import Link from '../text/Link';
+import Link from '../text/Link.vanex';
 import Text from '../text/Text.vanex';
 import {AccordionContext} from './Accordion';
 

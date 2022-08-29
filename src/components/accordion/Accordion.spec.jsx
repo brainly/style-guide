@@ -2,7 +2,7 @@ import * as React from 'react';
 import {mount} from 'enzyme';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import Link from '../text/Link';
+import Link from '../text/Link.vanex';
 import Box from '../box/Box';
 
 describe('<Accordion>', () => {

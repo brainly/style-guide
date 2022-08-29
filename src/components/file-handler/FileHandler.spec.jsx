@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import FileHandler from './FileHandler';
 import Icon from 'icons/Icon';
 import Text from '../text/Text.vanex';
-import Link from '../text/Link';
+import Link from '../text/Link.vanex';
 import Spinner from '../spinner/Spinner';
 
 const mockCallback = jest.fn();

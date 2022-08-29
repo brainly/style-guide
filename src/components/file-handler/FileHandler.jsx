@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import Text from '../text/Text.vanex';
-import Link from '../text/Link';
+import Link from '../text/Link.vanex';
 import Icon from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 
