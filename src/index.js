@@ -161,6 +161,7 @@ export {default as DialogBody} from './components/dialog/DialogBody';
 export type {DialogBodyPropsType} from './components/dialog/DialogBody';
 export {default as DialogCloseButton} from './components/dialog/DialogCloseButton';
 export type {DialogCloseButtonPropsType} from './components/dialog/DialogCloseButton';
+export type {DialogOverlayPropsType} from './components/dialog/DialogOverlay';
 export {default as Transition} from './components/transition/Transition';
 export type {TransitionPropsType} from './components/transition/Transition';
 export type {TransitionEffectType} from './components/transition/Transition';
