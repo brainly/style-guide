@@ -1,6 +1,8 @@
-import * as Input from './Input.stories.jsx';
+import * as Input from './Input.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Input);
 
-export default Input.default;
+const {includeStories, ...meta} = Input.default;
+
+export default meta;
