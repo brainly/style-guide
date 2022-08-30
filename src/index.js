@@ -46,6 +46,7 @@ export {default as Radio} from './components/form-elements/radio/Radio';
 export type {RadioPropsType} from './components/form-elements/radio/Radio';
 export {default as RadioGroup} from './components/form-elements/radio/RadioGroup';
 export type {RadioGroupPropsType} from './components/form-elements/radio/RadioGroup';
+export {default as useRadioContext} from './components/form-elements/radio/useRadioContext';
 export {default as Select} from './components/form-elements/Select';
 export type {SelectPropsType} from './components/form-elements/Select';
 export {default as Textarea} from './components/form-elements/Textarea';

@@ -4,7 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
-import {useRadioContext} from './useRadioContext';
+import useRadioContext from './useRadioContext';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
