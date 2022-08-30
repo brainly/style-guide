@@ -1,6 +1,6 @@
 //@flow strict
 
-import React, {useContext} from 'react';
+import * as React from 'react';
 import type {RadioColorType} from './Radio';
 
 type RadioContextType = {
@@ -17,6 +17,8 @@ type RadioContextType = {
 
 export const RadioContext = React.createContext<RadioContextType>({});
 
-export const useRadioContext = () => {
-  return useContext(RadioContext);
+const useRadioContext = (): RadioContextType => {
+  return React.useContext(RadioContext);
 };
+
+export default useRadioContext;
