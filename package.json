@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "219.0.0-beta.8",
+  "version": "219.0.0-beta.9",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -157,7 +157,7 @@
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
-    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs && webpack --config vanilla.webpack.config.js && cp dist-vanilla-webpack/style-guide.css dist-vanilla-webpack/style-guide.css.map dist/latest && gulp fingerprint-vanilla",
+    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs && webpack --config vanilla.webpack.config.js && cp dist-vanilla-webpack/style-guide.css dist-vanilla-webpack/style-guide.css.map dist/latest && gulp fingerprint-replace",
     "build-css": "webpack --config vanilla.webpack.config.js",
     "postversion": "git push && git push --tags",
     "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-typecheck && yarn run js-lint && yarn prettier-check && jest",
