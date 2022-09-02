@@ -70,7 +70,7 @@ if (!argv.latest) {
 function buildFiles() {
   execSync(
     // eslint-disable-next-line max-len
-    `yarn gulp build-assets --version=${version} && yarn build-storybook -o dist/${version}/docs --quiet && yarn webpack --config vanilla.webpack.config.js && cp dist-vanilla-webpack/style-guide.css dist-vanilla-webpack/style-guide.css.map dist/${version} && yarn gulp fingerprint-replace`
+    `yarn gulp build-assets --version=${version} && yarn build-storybook -o dist/${version}/docs --quiet && yarn webpack --config vanilla.webpack.config.js && cp dist-vanilla-webpack/style-guide.css dist-vanilla-webpack/style-guide.css.map dist/${version} && yarn gulp fingerprint-replace --version=${version}`
   );
 
   if (rootRedirectPage) {
