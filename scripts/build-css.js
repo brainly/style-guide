@@ -39,5 +39,5 @@ async function copyCssConfig() {
   }
 }
 
-processCss();
+// processCss();
 copyCssConfig();

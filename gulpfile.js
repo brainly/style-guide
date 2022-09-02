@@ -73,9 +73,11 @@ gulp.task(
   )
 );
 
+gulp.task('fingerprint-vanilla', gulp.series('fingerprint-replace'));
+
 gulp.task(
   'build-package-assets',
-  gulp.series('clean:assets', 'sass:build', 'svgs-generate', 'copy-assets')
+  gulp.series('clean:assets', 'svgs-generate', 'copy-assets')
 );
 
 gulp.task('build', gulp.series('build-assets', 'root-redirect-page'));
