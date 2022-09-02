@@ -35,9 +35,10 @@ export const SLOTS = [
 
 export type DialogOverlayPropsType = {
   children: React.Node,
+  // eslint-disable-next-line react/no-unused-prop-types
   slot: SlotType,
 };
 
-const DialogOverlay = ({children}: DialogOverlayPropsType) => children;
+const DialogOverlay = ({children}: DialogOverlayPropsType) => <>{children}</>;
 
 export default DialogOverlay;
