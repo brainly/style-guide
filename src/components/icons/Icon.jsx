@@ -8,6 +8,7 @@ export type IconTypeType =
   | 'academic_cap'
   | 'add_more'
   | 'all_questions'
+  | 'answer_bubble'
   | 'answer'
   | 'answers'
   | 'apple'
@@ -171,6 +172,7 @@ export const TYPE: {
   ACADEMIC_CAP: 'academic_cap',
   ADD_MORE: 'add_more',
   ALL_QUESTIONS: 'all_questions',
+  ANSWER_BUBBLE: 'answer_bubble',
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
@@ -316,6 +318,7 @@ export const TYPE: {
   ACADEMIC_CAP: 'academic_cap',
   ADD_MORE: 'add_more',
   ALL_QUESTIONS: 'all_questions',
+  ANSWER_BUBBLE: 'answer_bubble',
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
