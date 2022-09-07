@@ -34,7 +34,7 @@ export type DialogPropsType = $ReadOnly<{
   onEntryTransitionEnd?: () => void,
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
-  position: 'center' | 'top',
+  position?: 'center' | 'top',
 }>;
 
 /**
