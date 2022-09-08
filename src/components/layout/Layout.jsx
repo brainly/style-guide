@@ -3,6 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+export type LayoutAsType = 'div' | 'main' | 'section' | 'article' | 'aside';
+
 export type LayoutPropsType = {
   className?: string,
   containerClassName?: string,
@@ -14,6 +16,7 @@ export type LayoutPropsType = {
   reversedOrder?: boolean,
   fullPage?: boolean,
   threeColumns?: boolean,
+  as?: LayoutAsType,
   ...
 };
 
@@ -28,6 +31,7 @@ const Layout = ({
   threeColumns,
   className,
   containerClassName,
+  as: Type = 'div',
   ...props
 }: LayoutPropsType) => {
   const layoutClass = classNames('sg-layout', className, {
@@ -50,11 +54,11 @@ const Layout = ({
   }
 
   return (
-    <div {...props} className={layoutClass}>
+    <Type {...props} className={layoutClass}>
       {header}
       <div className={layoutContainerClass}>{children}</div>
       {footerContent}
-    </div>
+    </Type>
   );
 };
 
