@@ -21,7 +21,7 @@ const DialogCloseButton = ({
   disabled,
 }: DialogCloseButtonPropsType) => (
   <Button
-    type="transparent"
+    variant="transparent"
     className={cx('sg-dialog__close-button', className)}
     icon={<Icon type="close" color={ICON_COLOR['icon-black']} size={24} />}
     onClick={onClick}

@@ -15,7 +15,7 @@ export const BUTTON_SIZE: {
   S: 's',
 };
 
-export const BUTTON_TYPE: {
+export const BUTTON_VARIANT: {
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
   SOLID_INDIGO: 'solid-indigo',
@@ -64,24 +64,24 @@ const SPINNER_SIZE_MAP = {
 };
 
 const SPINNER_COLOR_MAP = {
-  [BUTTON_TYPE.SOLID]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.SOLID_INVERTED]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.SOLID_INDIGO]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.SOLID_INDIGO_INVERTED]: SPINNER_COLOR['indigo-50'],
-  [BUTTON_TYPE.SOLID_LIGHT]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.OUTLINE]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.OUTLINE_INDIGO]: SPINNER_COLOR['indigo-50'],
-  [BUTTON_TYPE.OUTLINE_INVERTED]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.TRANSPARENT]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.TRANSPARENT_LIGHT]: SPINNER_COLOR['gray-50'],
-  [BUTTON_TYPE.TRANSPARENT_RED]: SPINNER_COLOR['red-50'],
-  [BUTTON_TYPE.TRANSPARENT_INVERTED]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.FACEBOOK]: SPINNER_COLOR['white'],
-  [BUTTON_TYPE.GOOGLE]: SPINNER_COLOR['black'],
-  [BUTTON_TYPE.APPLE]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.SOLID]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.SOLID_INVERTED]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.SOLID_INDIGO]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.SOLID_INDIGO_INVERTED]: SPINNER_COLOR['indigo-50'],
+  [BUTTON_VARIANT.SOLID_LIGHT]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.OUTLINE]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.OUTLINE_INDIGO]: SPINNER_COLOR['indigo-50'],
+  [BUTTON_VARIANT.OUTLINE_INVERTED]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.TRANSPARENT]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.TRANSPARENT_LIGHT]: SPINNER_COLOR['gray-50'],
+  [BUTTON_VARIANT.TRANSPARENT_RED]: SPINNER_COLOR['red-50'],
+  [BUTTON_VARIANT.TRANSPARENT_INVERTED]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.FACEBOOK]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.GOOGLE]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.APPLE]: SPINNER_COLOR['white'],
 };
 
-type ButtonType =
+type ButtonVariantType =
   | 'solid'
   | 'solid-inverted'
   | 'solid-indigo'
@@ -106,7 +106,7 @@ export type AriaLiveType = 'off' | 'polite' | 'assertive';
 
 export type NativeTypeType = 'button' | 'submit' | 'reset';
 
-const TOGGLE_BUTTON_TYPES = [
+const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
   'outline',
   'transparent',
@@ -126,40 +126,40 @@ const anchorRelatedProps = [
 export type ButtonPropsType = {
   /**
    * Specify type of the button that you want to use
-   * @example <Button type="solid">
+   * @example <Button variant="solid">
    *            button
    *          </Button>
-   * @see type="solid" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid"#buttons
-   * @see type="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-inverted"#buttons
+   * @see variant="solid" https://styleguide.brainly.com/latest/docs/interactive.html?variant="solid"#buttons
+   * @see variant="solid-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?variant="solid-inverted"#buttons
 
-   * @see type="solid-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-indigo"#buttons
-   * @see type="solid-indigo-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-indigo-inverted"#buttons
-   * @see type="solid-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="solid-light"#buttons
-   * @see type="outline" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline"#buttons
-   * @see type="outline-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline-indigo"#buttons
-   * @see type="outline-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="outline-indigo-inverted"#buttons
-   * @see type="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent"#buttons
-   * @see type="transparent-light" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-light"#buttons
-   * @see type="transparent-red" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-red"#buttons
-   * @see type="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?type="transparent-inverted"#buttons
-   * @see type="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?type="facebook"#buttons
-   * @see type="google" https://styleguide.brainly.com/latest/docs/interactive.html?type="google"#buttons
-   * @see type="apple" https://styleguide.brainly.com/latest/docs/interactive.html?type="apple"#buttons
+   * @see variant="solid-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?variant="solid-indigo"#buttons
+   * @see variant="solid-indigo-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?variant="solid-indigo-inverted"#buttons
+   * @see variant="solid-light" https://styleguide.brainly.com/latest/docs/interactive.html?variant="solid-light"#buttons
+   * @see variant="outline" https://styleguide.brainly.com/latest/docs/interactive.html?variant="outline"#buttons
+   * @see variant="outline-indigo" https://styleguide.brainly.com/latest/docs/interactive.html?variant="outline-indigo"#buttons
+   * @see variant="outline-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?variant="outline-indigo-inverted"#buttons
+   * @see variant="transparent" https://styleguide.brainly.com/latest/docs/interactive.html?variant="transparent"#buttons
+   * @see variant="transparent-light" https://styleguide.brainly.com/latest/docs/interactive.html?variant="transparent-light"#buttons
+   * @see variant="transparent-red" https://styleguide.brainly.com/latest/docs/interactive.html?variant="transparent-red"#buttons
+   * @see variant="transparent-inverted" https://styleguide.brainly.com/latest/docs/interactive.html?variant="transparent-inverted"#buttons
+   * @see variant="facebook" https://styleguide.brainly.com/latest/docs/interactive.html?variant="facebook"#buttons
+   * @see variant="google" https://styleguide.brainly.com/latest/docs/interactive.html?variant="google"#buttons
+   * @see variant="apple" https://styleguide.brainly.com/latest/docs/interactive.html?variant="apple"#buttons
    *
    */
-  type: ButtonType,
+  variant: ButtonVariantType,
   /**
    * Set toggle state of the button.
-   * Caution: Toggle property work with for specific button types:
+   * Caution: Toggle property work with for specific button variants:
    * `solid-light`,`outline`, `outline-indigo`, `outline-inverted`,
    * `transparent`, `transparent-light`, `transparent-red`, `transparent-inverted`
    */
   toggle?: ButtonToggleType,
   /**
-   * You can render icon inside each type of button on the left side
+   * You can render icon inside each variant of button on the left side
    * @example <Button
-   *           icon={<Icon type="facebook" color="icon-white" size={24} />}
-   *           type="facebook"
+   *           icon={<Icon variant="facebook" color="icon-white" size={24} />}
+   *           variant="facebook"
    *          >
    *            Login with Facebook
    *          </Button>
@@ -167,9 +167,9 @@ export type ButtonPropsType = {
   icon?: React.Node,
   /** Optional and available when icon is set. it hides button's text
    * @example <Button
-   *            icon={<Icon type="facebook" color="icon-white" size={24} />}
+   *            icon={<Icon variant="facebook" color="icon-white" size={24} />}
    *            iconOnly
-   *            type="facebook"
+   *            variant="facebook"
    *          >
    *            Login with Facebook
    *          </Button>
@@ -183,7 +183,7 @@ export type ButtonPropsType = {
    * Children to be rendered inside Button
    * @example <Button
    *           icon={<Icon type="answer" color="icon-white" size={24} />}
-   *           type="solid"
+   *           variant="solid"
    *          >
    *            button
    *          </Button>
@@ -191,7 +191,7 @@ export type ButtonPropsType = {
   children?: React.Node,
   /**
    * There are three sizes options for buttons, not need to be specify, default is m
-   * @example <Button type="solid" size="m">
+   * @example <Button variant="solid" size="m">
    *            button
    *          </Button>
    * @see size="s" https://styleguide.brainly.com/latest/docs/interactive.html?size="s"#buttons
@@ -201,14 +201,14 @@ export type ButtonPropsType = {
   size?: ButtonSizeType,
   /**
    * Specify href for button, optional string
-   * @example <Button href="https://brainly.com/" size="m" type="solid-indigo">
+   * @example <Button href="https://brainly.com/" size="m" variant="solid-indigo">
    *            button
    *          </Button>
    */
   href?: string,
   /**
    * Optional boolean for disabled button
-   * @example <Button type="solid-indigo" disabled>
+   * @example <Button variant="solid-indigo" disabled>
    *            button
    *          </Button>
    */
@@ -228,7 +228,7 @@ export type ButtonPropsType = {
   loadingAriaLabel?: string,
   /**
    * Optional boolean for full width button
-   * @example <Button type="solid-indigo" fullWidth>
+   * @example <Button variant="solid-indigo" fullWidth>
    *            button
    *          </Button>
    */
@@ -253,7 +253,7 @@ export type ButtonPropsType = {
   /**
    * The default behavior of the button.
    */
-  nativeType?: NativeTypeType,
+  type?: NativeTypeType,
   /**
    * Callback, called by clicking on Button
    */
@@ -267,7 +267,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
   (
     {
       size = 'm',
-      type = 'solid',
+      variant = 'solid',
       icon,
       iconOnly,
       reversedOrder,
@@ -296,12 +296,15 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       invariant(
         !(
           (toggle === 'red' &&
-            ![...TOGGLE_BUTTON_TYPES, 'transparent-red'].includes(type)) ||
-          (toggle === 'yellow' && ![...TOGGLE_BUTTON_TYPES].includes(type))
+            ![...TOGGLE_BUTTON_VARIANTS, 'transparent-red'].includes(
+              variant
+            )) ||
+          (toggle === 'yellow' &&
+            ![...TOGGLE_BUTTON_VARIANTS].includes(variant))
         ),
         `Value of toggle property '${String(
           toggle
-        )}' has no effect when button type is set to '${type}'.`
+        )}' has no effect when button variant is set to '${variant}'.`
       );
 
       invariant(
@@ -346,12 +349,12 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       'sg-button',
       {
         [`sg-button--${String(size)}`]: size,
-        [`sg-button--${String(type)}`]: type,
+        [`sg-button--${String(variant)}`]: variant,
         'sg-button--disabled': isDisabled,
         'sg-button--loading': loading,
         'sg-button--full-width': fullWidth,
         'sg-button--icon-only': Boolean(icon) && iconOnly,
-        [`sg-button--${String(type)}-toggle-${String(toggle)}`]: toggle,
+        [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
       },
       className
@@ -374,10 +377,10 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       return onClick && onClick(e);
     };
 
-    const TypeToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
+    const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
 
     return (
-      <TypeToRender
+      <TagToRender
         {...props}
         className={btnClass}
         href={href}
@@ -391,7 +394,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
-            color={SPINNER_COLOR_MAP[type]}
+            color={SPINNER_COLOR_MAP[variant]}
             className="sg-button__spinner"
             aria-live={loadingAriaLive}
             aria-label={loadingAriaLabel}
@@ -405,7 +408,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
-      </TypeToRender>
+      </TagToRender>
     );
   }
 );

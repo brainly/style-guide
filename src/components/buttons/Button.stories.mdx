@@ -1,5 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Button, {BUTTON_SIZE, BUTTON_TYPE, BUTTON_TOGGLE} from './Button';
+import Button, {BUTTON_SIZE, BUTTON_VARIANT, BUTTON_TOGGLE} from './Button';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
 import {StoryVariantTable} from '../../docs/utils';
@@ -65,10 +65,10 @@ const iconSize = {
 
 ## Stories
 
-### Types
+### Variants
 
 <Canvas>
-  <Story name="Types">
+  <Story name="Variants">
     {args => (
       <StoryVariantTable className="sg-button-stories-table">
         <thead>
@@ -144,22 +144,22 @@ const iconSize = {
         </thead>
         <tbody>
           {[
-            BUTTON_TYPE.SOLID,
-            BUTTON_TYPE.SOLID_INVERTED,
-            BUTTON_TYPE.SOLID_INDIGO,
-            BUTTON_TYPE.SOLID_INDIGO_INVERTED,
-            BUTTON_TYPE.SOLID_LIGHT,
-            BUTTON_TYPE.OUTLINE,
-            BUTTON_TYPE.OUTLINE_INDIGO,
-            BUTTON_TYPE.OUTLINE_INVERTED,
-            BUTTON_TYPE.TRANSPARENT,
-            BUTTON_TYPE.TRANSPARENT_LIGHT,
-            BUTTON_TYPE.TRANSPARENT_RED,
-            BUTTON_TYPE.TRANSPARENT_INVERTED,
-            BUTTON_TYPE.FACEBOOK,
-            BUTTON_TYPE.GOOGLE,
-            BUTTON_TYPE.APPLE,
-          ].map(buttonType => (
+            BUTTON_VARIANT.SOLID,
+            BUTTON_VARIANT.SOLID_INVERTED,
+            BUTTON_VARIANT.SOLID_INDIGO,
+            BUTTON_VARIANT.SOLID_INDIGO_INVERTED,
+            BUTTON_VARIANT.SOLID_LIGHT,
+            BUTTON_VARIANT.OUTLINE,
+            BUTTON_VARIANT.OUTLINE_INDIGO,
+            BUTTON_VARIANT.OUTLINE_INVERTED,
+            BUTTON_VARIANT.TRANSPARENT,
+            BUTTON_VARIANT.TRANSPARENT_LIGHT,
+            BUTTON_VARIANT.TRANSPARENT_RED,
+            BUTTON_VARIANT.TRANSPARENT_INVERTED,
+            BUTTON_VARIANT.FACEBOOK,
+            BUTTON_VARIANT.GOOGLE,
+            BUTTON_VARIANT.APPLE,
+          ].map(buttonVariant => (
             <tr
               style={{
                 backgroundColor: [
@@ -167,11 +167,11 @@ const iconSize = {
                   'solid-indigo-inverted',
                   'transparent-inverted',
                   'outline-inverted',
-                ].includes(buttonType)
+                ].includes(buttonVariant)
                   ? hex.black
                   : 'transparent',
               }}
-              key={buttonType}
+              key={buttonVariant}
             >
               <td>
                 <div
@@ -191,90 +191,90 @@ const iconSize = {
                         'solid-indigo-inverted',
                         'transparent-inverted',
                         'outline-inverted',
-                      ].includes(buttonType)
+                      ].includes(buttonVariant)
                         ? 'text-white'
                         : 'text-gray-40'
                     }
                     size="medium"
                   >
-                    {buttonType.toLowerCase()}
+                    {buttonVariant.toLowerCase()}
                   </Headline>
                 </div>
               </td>
               <td>
                 <div>
-                  <Button {...args} type={buttonType} />
+                  <Button {...args} variant={buttonVariant} />
                 </div>
               </td>
               <td>
-                <Button {...args} type={buttonType} disabled />
+                <Button {...args} variant={buttonVariant} disabled />
               </td>
               <td>
-                <Button {...args} type={buttonType} loading />
+                <Button {...args} variant={buttonVariant} loading />
               </td>
               <td>
                 {[
-                  BUTTON_TYPE.SOLID,
-                  BUTTON_TYPE.SOLID_INVERTED,
-                  BUTTON_TYPE.SOLID_INDIGO,
-                  BUTTON_TYPE.SOLID_INDIGO_INVERTED,
-                  BUTTON_TYPE.SOLID_LIGHT,
-                  BUTTON_TYPE.OUTLINE,
-                  BUTTON_TYPE.OUTLINE_INDIGO,
-                  BUTTON_TYPE.OUTLINE_INVERTED,
-                  BUTTON_TYPE.TRANSPARENT,
-                  BUTTON_TYPE.TRANSPARENT_LIGHT,
-                  BUTTON_TYPE.TRANSPARENT_RED,
-                  BUTTON_TYPE.TRANSPARENT_INVERTED,
-                ].includes(buttonType) ? (
+                  BUTTON_VARIANT.SOLID,
+                  BUTTON_VARIANT.SOLID_INVERTED,
+                  BUTTON_VARIANT.SOLID_INDIGO,
+                  BUTTON_VARIANT.SOLID_INDIGO_INVERTED,
+                  BUTTON_VARIANT.SOLID_LIGHT,
+                  BUTTON_VARIANT.OUTLINE,
+                  BUTTON_VARIANT.OUTLINE_INDIGO,
+                  BUTTON_VARIANT.OUTLINE_INVERTED,
+                  BUTTON_VARIANT.TRANSPARENT,
+                  BUTTON_VARIANT.TRANSPARENT_LIGHT,
+                  BUTTON_VARIANT.TRANSPARENT_RED,
+                  BUTTON_VARIANT.TRANSPARENT_INVERTED,
+                ].includes(buttonVariant) ? (
                   <Button
                     {...args}
-                    type={buttonType}
+                    variant={buttonVariant}
                     icon={
                       <Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />
                     }
                   />
                 ) : null}
-                {buttonType === BUTTON_TYPE.GOOGLE ? (
+                {buttonVariant === BUTTON_VARIANT.GOOGLE ? (
                   <Button
                     {...args}
-                    type={buttonType}
+                    variant={buttonVariant}
                     icon={<Icon type={ICON_TYPES.GOOGLE} color="adaptive" />}
                   />
                 ) : null}
-                {buttonType === BUTTON_TYPE.FACEBOOK ? (
+                {buttonVariant === BUTTON_VARIANT.FACEBOOK ? (
                   <Button
                     {...args}
-                    type={buttonType}
+                    variant={buttonVariant}
                     icon={<Icon type={ICON_TYPES.FACEBOOK} color="adaptive" />}
                   />
                 ) : null}
-                {buttonType === BUTTON_TYPE.APPLE ? (
+                {buttonVariant === BUTTON_VARIANT.APPLE ? (
                   <Button
                     {...args}
-                    type={buttonType}
+                    variant={buttonVariant}
                     icon={<Icon type={ICON_TYPES.APPLE} color="adaptive" />}
                   />
                 ) : null}
               </td>
               <td>
                 {[
-                  BUTTON_TYPE.SOLID,
-                  BUTTON_TYPE.SOLID_INVERTED,
-                  BUTTON_TYPE.SOLID_INDIGO,
-                  BUTTON_TYPE.SOLID_INDIGO_INVERTED,
-                  BUTTON_TYPE.SOLID_LIGHT,
-                  BUTTON_TYPE.OUTLINE,
-                  BUTTON_TYPE.OUTLINE_INDIGO,
-                  BUTTON_TYPE.OUTLINE_INVERTED,
-                  BUTTON_TYPE.TRANSPARENT,
-                  BUTTON_TYPE.TRANSPARENT_LIGHT,
-                  BUTTON_TYPE.TRANSPARENT_RED,
-                  BUTTON_TYPE.TRANSPARENT_INVERTED,
-                ].includes(buttonType) ? (
+                  BUTTON_VARIANT.SOLID,
+                  BUTTON_VARIANT.SOLID_INVERTED,
+                  BUTTON_VARIANT.SOLID_INDIGO,
+                  BUTTON_VARIANT.SOLID_INDIGO_INVERTED,
+                  BUTTON_VARIANT.SOLID_LIGHT,
+                  BUTTON_VARIANT.OUTLINE,
+                  BUTTON_VARIANT.OUTLINE_INDIGO,
+                  BUTTON_VARIANT.OUTLINE_INVERTED,
+                  BUTTON_VARIANT.TRANSPARENT,
+                  BUTTON_VARIANT.TRANSPARENT_LIGHT,
+                  BUTTON_VARIANT.TRANSPARENT_RED,
+                  BUTTON_VARIANT.TRANSPARENT_INVERTED,
+                ].includes(buttonVariant) ? (
                   <Button
                     {...args}
-                    type={buttonType}
+                    variant={buttonVariant}
                     iconOnly
                     icon={
                       <Icon type={ICON_TYPES.HEART_OUTLINED} color="adaptive" />
@@ -288,7 +288,7 @@ const iconSize = {
                   'outline',
                   'transparent',
                   'transparent-light',
-                ].includes(buttonType)
+                ].includes(buttonVariant)
                   ? [null, ...Object.values(BUTTON_TOGGLE)].map(toggleType => (
                       <div style={{marginBottom: '15px'}} key={toggleType}>
                         <Button
@@ -296,7 +296,7 @@ const iconSize = {
                           icon={
                             <Icon type={ICON_TYPES.HEART} color="adaptive" />
                           }
-                          type={buttonType}
+                          variant={buttonVariant}
                           toggle={toggleType}
                         />
                       </div>
@@ -307,12 +307,12 @@ const iconSize = {
                   'outline-inverted',
                   'transparent-red',
                   'transparent-inverted',
-                ].includes(buttonType) ? (
-                  <div style={{marginBottom: '15px'}} key={buttonType}>
+                ].includes(buttonVariant) ? (
+                  <div style={{marginBottom: '15px'}} key={buttonVariant}>
                     <Button
                       {...args}
                       icon={<Icon type={ICON_TYPES.HEART} color="adaptive" />}
-                      type={buttonType}
+                      variant={buttonVariant}
                     />
                   </div>
                 ) : null}
@@ -470,7 +470,7 @@ const iconSize = {
                         </Headline>
                       </td>
                       <td>
-                        <Button {...args} size={size} type="transparent">
+                        <Button {...args} size={size} variant="transparent">
                           button
                         </Button>
                       </td>
@@ -481,7 +481,7 @@ const iconSize = {
                           icon={
                             <Icon type={ICON_TYPES.ANSWER} color="adaptive" />
                           }
-                          type="transparent"
+                          variant="transparent"
                         >
                           button
                         </Button>
@@ -494,7 +494,7 @@ const iconSize = {
                             <Icon type={ICON_TYPES.ANSWER} color="adaptive" />
                           }
                           reversedOrder
-                          type="transparent"
+                          variant="transparent"
                         >
                           button
                         </Button>

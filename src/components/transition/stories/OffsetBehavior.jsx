@@ -99,7 +99,7 @@ export const OffsetBehavior = () => {
       </Transition>
 
       <Button
-        type="solid"
+        variant="solid"
         icon={<Icon type={open ? 'close' : 'plus'} />}
         onClick={() => setOpen(b => !b)}
         iconOnly

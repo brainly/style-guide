@@ -39,7 +39,7 @@ export const FluidList = () => {
 
   return (
     <Stage ref={containerRef} className="sg-space-y-xs" format="portrait">
-      <Button type="outline" onClick={addItem} fullWidth>
+      <Button variant="outline" onClick={addItem} fullWidth>
         add item
       </Button>
 

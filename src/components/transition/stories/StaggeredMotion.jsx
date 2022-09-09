@@ -21,7 +21,7 @@ export const StaggeredMotion = () => {
 
   return (
     <Stage className="sg-space-y-xs" format="portrait">
-      <Button type="outline" onClick={() => setOpen(b => !b)} fullWidth>
+      <Button variant="outline" onClick={() => setOpen(b => !b)} fullWidth>
         {open ? 'close' : 'open'}
       </Button>
 
