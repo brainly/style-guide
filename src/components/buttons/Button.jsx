@@ -104,7 +104,7 @@ type ButtonSizeType = 'l' | 'm' | 's';
 
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
 
-export type NativeTypeType = 'button' | 'submit' | 'reset';
+export type ButtonTypeType = 'button' | 'submit' | 'reset';
 
 const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
@@ -253,7 +253,7 @@ export type ButtonPropsType = {
   /**
    * The default behavior of the button.
    */
-  type?: NativeTypeType,
+  type?: ButtonTypeType,
   /**
    * Callback, called by clicking on Button
    */
@@ -284,7 +284,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       'aria-label': ariaLabel,
       loadingAriaLive = 'off',
       loadingAriaLabel,
-      nativeType,
+      type,
       ...props
     }: ButtonPropsType,
     ref
@@ -335,8 +335,8 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       );
 
       invariant(
-        !(isLink && nativeType),
-        '`nativeType` prop is not working when href is provided'
+        !(isLink && type),
+        '`type` prop is not working when href is provided'
       );
 
       invariant(
@@ -389,7 +389,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
-        type={nativeType}
+        type={type}
       >
         {loading && (
           <Spinner
