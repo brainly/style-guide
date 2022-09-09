@@ -70,7 +70,7 @@ const Search = ({
       {withRoundButton ? (
         <div className={`${baseClassName}__icon`}>
           <Button
-            type="solid"
+            variant="solid"
             className={cx({
               'sg-search-button--s': size === 's',
             })}

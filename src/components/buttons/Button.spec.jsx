@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Spinner, Icon} from '../..';
-import Button, {BUTTON_TYPE} from './Button';
+import Button, {BUTTON_VARIANT} from './Button';
 import {shallow} from 'enzyme';
 
 test('render', () => {
@@ -9,11 +9,11 @@ test('render', () => {
   expect(button.hasClass('sg-button')).toEqual(true);
 });
 
-test('type', () => {
-  const buttonType = BUTTON_TYPE.SOLID;
-  const button = shallow(<Button type={buttonType}>Some text</Button>);
+test('variant', () => {
+  const buttonVariant = BUTTON_VARIANT.SOLID;
+  const button = shallow(<Button variant={buttonVariant}>Some text</Button>);
 
-  expect(button.hasClass(`sg-button--${buttonType}`)).toEqual(true);
+  expect(button.hasClass(`sg-button--${buttonVariant}`)).toEqual(true);
 });
 
 test('disabled', () => {
@@ -64,7 +64,7 @@ test('no icon', () => {
 
 test('toggle', () => {
   const button = shallow(
-    <Button type="solid-light" toggle="red">
+    <Button variant="solid-light" toggle="red">
       Some text
     </Button>
   );

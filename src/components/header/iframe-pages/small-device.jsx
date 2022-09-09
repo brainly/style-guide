@@ -40,7 +40,7 @@ const SmallDeviceExample = () => (
             <RWDHelper hide={RWD_TYPE.SMALL_ONLY}>
               <div>
                 <HeaderRight>
-                  <Button type="solid" size="small">
+                  <Button variant="solid" size="small">
                     Register
                   </Button>
                   <IconAsButton

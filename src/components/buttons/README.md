@@ -7,7 +7,7 @@ Buttons are created to help user to make actions, choices and to move around the
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="solid-indigo" size="small">
+<Button variant="solid-indigo" size="small">
   I am solid small button
 </Button>;
 ```
@@ -27,15 +27,15 @@ There are 4 types of solid buttons avalaible, that are used as main action butto
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="solid">
+<Button variant="solid">
     I am black button
 </Button>
 
-<Button type="solid-inverted">
+<Button variant="solid-inverted">
     I am white button
 </Button>
 
-<Button type="solid-indigo">
+<Button variant="solid-indigo">
     I am indigo button
 </Button>
 ```
@@ -47,7 +47,7 @@ We have one outline button, e.g answer button on feed, which is white with black
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="outline">I am white button with border</Button>;
+<Button variant="outline">I am white button with border</Button>;
 ```
 
 #### Link buttons
@@ -57,21 +57,21 @@ We have 4 link buttons avalaible, black, white, red and yellow. They are also us
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="transparent">
+<Button variant="transparent">
     I am black link button
 </Button>
 
-<Button type="transparent-inverted">
+<Button variant="transparent-inverted">
     I am white link button
 </Button>
 
-<Button type="transparent-red">
+<Button variant="transparent-red">
     I am red link button
 </Button>
 
 {/* Example of the thank you button created with link button */}
 <Button
-  type="transparent-red"
+  variant="transparent-red"
   icon={<Icon type={iconTypes.HEART} color={ICON_COLOR['icon-red-50']} size={24} />}
 >
   Thank you
@@ -85,7 +85,7 @@ There is also 1 additional button created for special case: facebook button, whi
 ```jsx
 import {Button} from 'style-guide';
 
-<Button type="facebook">I am FB button</Button>;
+<Button variant="facebook">I am FB button</Button>;
 ```
 
 #### Buttons with icons
@@ -97,14 +97,14 @@ import {Button} from 'style-guide';
 
 <Button
     size="small"
-    type="facebook"
+    variant="facebook"
     icon={<Icon type={iconTypes.FACEBOOK} color="icon-white" size={16} />}
 >
     Log in
 </Button>
 
 <Button
-    type="facebook"
+    variant="facebook"
     icon={<Icon type={iconTypes.FACEBOOK} color="icon-white" size={24} />}
 >
     Log in
@@ -112,7 +112,7 @@ import {Button} from 'style-guide';
 
 <Button
     size="large"
-    type="facebook"
+    variant="facebook"
     icon={<Icon type={iconTypes.FACEBOOK} color="icon-white" size={32} />}
 >
     Log in

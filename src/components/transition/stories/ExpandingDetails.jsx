@@ -166,7 +166,7 @@ const ExpandableBoxContent = ({
         {fullContent}
       </Text>
       <Button
-        type="solid"
+        variant="solid"
         style={{
           position: 'absolute',
           left: 24,

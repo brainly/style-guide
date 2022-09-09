@@ -21,7 +21,7 @@ export const TypewriterEffect = () => {
   return (
     <Flex className="sg-space-x-xs" alignItems="center">
       <Button
-        type="solid-light"
+        variant="solid-light"
         onClick={() => setActive(b => !b)}
         toggle={active ? 'red' : undefined}
       >
