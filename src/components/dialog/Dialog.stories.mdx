@@ -9,7 +9,8 @@ import Link from '../text/Link';
 import DialogHeader from './DialogHeader';
 import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
-import mountainsImage from './stories/mountains.jpg';
+import startSkyImage from './stories/stars_sky.jpg';
+import Text from '../text/Text';
 
 <Meta
   title="Components/Dialog"
@@ -337,6 +338,12 @@ import mountainsImage from './stories/mountains.jpg';
 <Canvas>
   <Story name="With Ads">
     {args => {
+      const SlotText = ({children}) => (
+        <Text weight="bold" color="text-white">
+          {children}
+        </Text>
+      );
+      const borderStyle = '2px dashed white';
       const [open, setOpen] = React.useState(false);
       const [anotherOpen, setAnotherOpen] = React.useState(false);
       const handleDismiss = () => setOpen(false);
@@ -354,40 +361,115 @@ import mountainsImage from './stories/mountains.jpg';
             onDismiss={handleDismiss}
             labelledBy={headerId}
           >
-            <Dialog.Overlay slot="middle-right">
-              <div
-                style={{backgroundColor: 'green', color: 'black', padding: 20}}
+            <Dialog.Overlay slot="top-right">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderLeft: borderStyle,
+                  borderBottom: borderStyle,
+                }}
               >
-                right ad - right ad - right ad - right ad
-              </div>
+                <SlotText>top-right ad area</SlotText>
+              </Flex>
             </Dialog.Overlay>
             <Dialog.Overlay slot="top-middle">
-              <div
-                style={{backgroundColor: 'purple', color: 'black', padding: 20}}
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderBottom: borderStyle,
+                }}
               >
-                top ad - top ad - top ad - top ad
-              </div>
+                <SlotText>top-middle ad area</SlotText>
+              </Flex>
+            </Dialog.Overlay>
+            <Dialog.Overlay slot="top-left">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderRight: borderStyle,
+                  borderBottom: borderStyle,
+                }}
+              >
+                <SlotText>top-left ad area</SlotText>
+              </Flex>
             </Dialog.Overlay>
             <Dialog.Overlay slot="middle-left">
-              <div
-                style={{backgroundColor: 'blue', color: 'black', padding: 20}}
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderRight: borderStyle,
+                }}
               >
-                left ad - left ad - left ad - left ad
-              </div>
+                <SlotText>middle-left ad area</SlotText>
+              </Flex>
+            </Dialog.Overlay>
+            <Dialog.Overlay slot="middle-right">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderLeft: borderStyle,
+                }}
+              >
+                <SlotText>middle-right ad area</SlotText>
+              </Flex>
+            </Dialog.Overlay>
+            <Dialog.Overlay slot="bottom-right">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderTop: borderStyle,
+                  borderLeft: borderStyle,
+                }}
+              >
+                <SlotText>bottom-right ad area</SlotText>
+              </Flex>
             </Dialog.Overlay>
             <Dialog.Overlay slot="bottom-middle">
-              <div
-                style={{backgroundColor: 'red', color: 'black', padding: 20}}
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderTop: borderStyle,
+                }}
               >
-                bottom ad - bottom ad - bottom ad - bottom ad - bottom ad -
-                bottom ad bottom ad - bottom ad - bottom ad - bottom ad - bottom
-                ad - bottom ad
-              </div>
+                <SlotText>bottom-middle ad area</SlotText>
+              </Flex>
+            </Dialog.Overlay>
+            <Dialog.Overlay slot="bottom-left">
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                fullHeight
+                style={{
+                  borderTop: borderStyle,
+                  borderRight: borderStyle,
+                }}
+              >
+                <SlotText>bottom-left ad area</SlotText>
+              </Flex>
             </Dialog.Overlay>
             <Dialog.Overlay slot="backdrop">
-              <img
-                style={{width: '100%', height: '100%', display: 'block'}}
-                src={mountainsImage}
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'block',
+                  backgroundImage: `url(${startSkyImage})`,
+                  backgroundSize: 'cover',
+                }}
               />
             </Dialog.Overlay>
             <DialogCloseButton onClick={handleDismiss} />
