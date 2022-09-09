@@ -1,5 +1,8 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import Layout from './Layout';
+import Text from '../text/Text';
+import LayoutContent from './LayoutContent';
+import LayoutAsideContent from './LayoutAsideContent';
 import PageHeader from 'blocks/PageHeader';
 import LayoutA11y from './stories/Layout.a11y.mdx';
 
@@ -32,6 +35,7 @@ import LayoutA11y from './stories/Layout.a11y.mdx';
 
 <PageHeader>Layout</PageHeader>
 
+- [Stories](#stories)
 - [Accessibility](#accessibility)
 
 ## Overview
@@ -41,6 +45,85 @@ import LayoutA11y from './stories/Layout.a11y.mdx';
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+### With aside
+
+<Canvas>
+  <Story name="With Aside">
+    {args => (
+      <Layout {...args}>
+        <LayoutContent>
+          <Text>
+            Main content has no padding and no background (both are given by
+            layout box)
+          </Text>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>Aside content has no padding and no background</Text>
+        </LayoutAsideContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+### One column, centered
+
+<Canvas>
+  <Story name="One Column Centered">
+    {args => (
+      <Layout {...args}>
+        <LayoutContent center>
+          <Text>Main content is centered</Text>
+        </LayoutContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+### Three columns, wide
+
+<Canvas>
+  <Story name="Three Columns Wide" args={{threeColumns: true, wide: true}}>
+    {args => (
+      <Layout {...args}>
+        <LayoutSecondaryContent>
+          <Text>Secondary content has no padding and no background</Text>
+        </LayoutSecondaryContent>
+        <LayoutContent>
+          <Text>Main content has no padding and white background</Text>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>
+            Aside content has no padding and no background (both are given by
+            layout box)
+          </Text>
+        </LayoutAsideContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
+
+### Reversed order
+
+<Canvas>
+  <Story name="Reversed Order" args={{reversedOrder: true}}>
+    {args => (
+      <Layout {...args}>
+        <LayoutContent>
+          <Text>Main content has no padding and no background</Text>
+        </LayoutContent>
+        <LayoutAsideContent>
+          <Text>
+            Aside content has no padding and no background (both are given by
+            layout box)
+          </Text>
+        </LayoutAsideContent>
+      </Layout>
+    )}
+  </Story>
+</Canvas>
 
 ## Accessibility
 
