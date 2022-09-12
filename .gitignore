@@ -27,4 +27,7 @@ temp
 
 # for vanilla extract research
 /dist-vanilla-rollup
-/dist-vanilla-webpack
+/dist-vanilla-css
+/vanilla-mapping/legacy-classmap.js
+/vanilla-mapping/vanilla-classlist.js
+/dist-css

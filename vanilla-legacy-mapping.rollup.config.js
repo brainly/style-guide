@@ -4,12 +4,13 @@ import {babel} from '@rollup/plugin-babel';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 
-const configs = {
-  input: 'src/index.js',
+console.log(process.env.NODE_ENV);
+
+export default {
+  input: 'src/vanilla-mapping.js',
   output: {
-    dir: path.join(__dirname, 'esm'),
-    format: 'esm',
-    preserveModules: true,
+    file: path.join(__dirname, 'vanilla-mapping', 'legacy-classmap.js'),
+    format: 'commonjs',
   },
   plugins: [
     resolve({
@@ -28,5 +29,3 @@ const configs = {
   ],
   external: ['react', 'classnames'],
 };
-
-export default configs;

@@ -6,23 +6,26 @@ import {mix} from '../../vanilla-extract/utils';
 const buttonPrimaryFbColor = '#1877f2';
 const buttonPrimaryFbHoverColor = '#1964d5';
 
-const buttonHover = (color1, color2, weight) => {
-  return style({
-    selectors: {
-      '&:hover:not([disabled])': {
-        backgroundColor: mix(color1, color2, weight),
-      },
-      '&:focus:not([disabled])': {
-        backgroundColor: mix(color1, color2, weight),
-      },
-      '&:active:not([disabled])': {
-        backgroundColor: mix(color1, color2, weight),
-      },
-      '&:active:focus:not([disabled])': {
-        backgroundColor: mix(color1, color2, weight),
+const buttonHover = (color1, color2, weight, identifier) => {
+  return style(
+    {
+      selectors: {
+        '&:hover:not([disabled])': {
+          backgroundColor: mix(color1, color2, weight),
+        },
+        '&:focus:not([disabled])': {
+          backgroundColor: mix(color1, color2, weight),
+        },
+        '&:active:not([disabled])': {
+          backgroundColor: mix(color1, color2, weight),
+        },
+        '&:active:focus:not([disabled])': {
+          backgroundColor: mix(color1, color2, weight),
+        },
       },
     },
-  });
+    `${identifier}-hover`
+  );
 };
 
 const buttonSizes = {
@@ -38,7 +41,7 @@ export const buttonStyle = style({
   display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
-  backgroundColor: '$black',
+  backgroundColor: colors.black,
   height: buttonSizes.medium,
   borderRadius: '20px',
   border: 'none',
@@ -97,52 +100,62 @@ export const fullWidthStyle = style({
 
 export const typeVariants = styleVariants({
   solid: [
-    buttonHover(colors.gray70, colors.black, 80),
+    buttonHover(colors.gray70, colors.black, 80, 'button--solid'),
     {
       backgroundColor: colors.black,
     },
   ],
   'solid-inverted': [
-    buttonHover(colors.gray20, colors.white, 80),
+    buttonHover(colors.gray20, colors.white, 80, 'button--solid-inverted'),
     {
       backgroundColor: colors.white,
       color: colors.black,
     },
   ],
   'solid-indigo': [
-    buttonHover(colors.indigo60, colors.indigo50, 80),
+    buttonHover(colors.indigo60, colors.indigo50, 80, 'button--solid-indigo'),
     {
       backgroundColor: colors.indigo50,
     },
   ],
   'solid-indigo-inverted': [
-    buttonHover(colors.gray20, colors.white, 80),
+    buttonHover(colors.gray20, colors.white, 80, 'button--solid-inverted'),
     {
       backgroundColor: colors.white,
       color: colors.indigo50,
     },
   ],
   'solid-light': [
-    buttonHover(colors.gray50, colors.gray20, 12),
+    buttonHover(colors.gray50, colors.gray20, 12, 'button--solid-light'),
     {
       backgroundColor: colors.gray20,
       color: colors.black,
     },
   ],
   'solid-light-toggle-red': [
-    buttonHover(colors.red40, colors.red20, 12),
+    buttonHover(
+      colors.red40,
+      colors.red20,
+      12,
+      'button--solid-light-toggle-red'
+    ),
     {
       backgroundColor: colors.red20,
     },
   ],
   'solid-light-toggle-yellow': [
-    buttonHover(colors.yellow40, colors.yellow20, 12),
+    buttonHover(
+      colors.yellow40,
+      colors.yellow20,
+      12,
+      'button--solid-light-ttogle-yellow'
+    ),
     {
       backgroundColor: colors.yellow20,
     },
   ],
   outline: [
-    buttonHover(colors.gray50, colors.transparent, 12),
+    buttonHover(colors.gray50, colors.transparent, 12, 'button--outline'),
     {
       backgroundColor: colors.transparent,
       border: `2px solid ${colors.black}`,
@@ -150,19 +163,34 @@ export const typeVariants = styleVariants({
     },
   ],
   'outline-toggle-red': [
-    buttonHover(colors.red40, colors.transparent, 12),
+    buttonHover(
+      colors.red40,
+      colors.transparent,
+      12,
+      'button--outline-toggle-red'
+    ),
     {
       borderColor: colors.red50,
     },
   ],
   'outline-toggle-yellow': [
-    buttonHover(colors.yellow40, colors.transparent, 12),
+    buttonHover(
+      colors.yellow40,
+      colors.transparent,
+      12,
+      'button--outline-toggle-yelow'
+    ),
     {
       borderColor: colors.yellow50,
     },
   ],
   'outline-indigo': [
-    buttonHover(colors.indigo50, colors.transparent, 12),
+    buttonHover(
+      colors.indigo50,
+      colors.transparent,
+      12,
+      'button--outline-indigo'
+    ),
     {
       backgroundColor: colors.transparent,
       border: `2px solid ${colors.indigo50}`,
@@ -170,7 +198,12 @@ export const typeVariants = styleVariants({
     },
   ],
   'outline-inverted': [
-    buttonHover(colors.white, colors.transparent, 12),
+    buttonHover(
+      colors.white,
+      colors.transparent,
+      12,
+      'button--outline-inverted'
+    ),
     {
       backgroundColor: colors.transparent,
       border: `2px solid ${colors.white}`,
@@ -178,7 +211,7 @@ export const typeVariants = styleVariants({
     },
   ],
   transparent: [
-    buttonHover(colors.gray50, colors.transparent, 12),
+    buttonHover(colors.gray50, colors.transparent, 12, 'button--transparent'),
     {
       backgroundColor: colors.transparent,
       color: colors.black,
@@ -193,12 +226,29 @@ export const typeVariants = styleVariants({
       },
     },
   ],
-  'transparent-toggle-red': [buttonHover(colors.red40, colors.transparent, 12)],
+  'transparent-toggle-red': [
+    buttonHover(
+      colors.red40,
+      colors.transparent,
+      12,
+      'button--transparent-toggle-red'
+    ),
+  ],
   'transparent-toggle-yellow': [
-    buttonHover(colors.yellow40, colors.transparent, 12),
+    buttonHover(
+      colors.yellow40,
+      colors.transparent,
+      12,
+      'transparent-toggle-yellow'
+    ),
   ],
   'transparent-light': [
-    buttonHover(colors.gray50, colors.transparent, 12),
+    buttonHover(
+      colors.gray50,
+      colors.transparent,
+      12,
+      'button--transparent-light'
+    ),
     {
       backgroundColor: colors.transparent,
       color: colors.gray50,
@@ -214,13 +264,28 @@ export const typeVariants = styleVariants({
     },
   ],
   'transparent-light-toggle-red': [
-    buttonHover(colors.red40, colors.transparent, 12),
+    buttonHover(
+      colors.red40,
+      colors.transparent,
+      12,
+      'button--transparent-light-toggle-red'
+    ),
   ],
   'transparent-light-toggle-yellow': [
-    buttonHover(colors.yellow40, colors.transparent, 12),
+    buttonHover(
+      colors.yellow40,
+      colors.transparent,
+      12,
+      'button--transparent-light-toggle-yellow'
+    ),
   ],
   'transparent-inverted': [
-    buttonHover(colors.white, colors.transparent, 12),
+    buttonHover(
+      colors.white,
+      colors.transparent,
+      12,
+      'button--transparent-inverted'
+    ),
     {
       backgroundColor: colors.transparent,
       color: colors.white,
@@ -236,7 +301,12 @@ export const typeVariants = styleVariants({
     },
   ],
   'transparent-red': [
-    buttonHover(colors.red40, colors.transparent, 12),
+    buttonHover(
+      colors.red40,
+      colors.transparent,
+      12,
+      'button--transparent-toggle-red'
+    ),
     {
       backgroundColor: colors.transparent,
       color: colors.red60,
@@ -252,7 +322,12 @@ export const typeVariants = styleVariants({
     },
   ],
   'transparent-red-toggle-red': [
-    buttonHover(colors.red40, colors.transparent, 12),
+    buttonHover(
+      colors.red40,
+      colors.transparent,
+      12,
+      'button--transparent-red-toggle-red '
+    ),
   ],
   facebook: {
     backgroundColor: buttonPrimaryFbColor,
@@ -277,7 +352,7 @@ export const typeVariants = styleVariants({
     },
   },
   google: [
-    buttonHover(colors.gray50, colors.transparent, 12),
+    buttonHover(colors.gray50, colors.transparent, 12, 'button--google'),
     {
       backgroundColor: colors.transparent,
       border: `2px solid ${colors.black}`,
@@ -285,7 +360,7 @@ export const typeVariants = styleVariants({
     },
   ],
   apple: [
-    buttonHover(colors.gray70, colors.black, 80),
+    buttonHover(colors.gray70, colors.black, 80, 'button--apple'),
     {
       backgroundColor: colors.black,
     },

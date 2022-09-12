@@ -20,9 +20,9 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/index.js', './src/main-vanex.scss'],
   output: {
-    path: path.join(__dirname, 'dist-vanilla-css'),
+    path: path.join(__dirname, 'dist-css'),
     filename: 'styleguide.js',
   },
   devtool: 'cheap-source-map',
@@ -224,7 +224,7 @@ module.exports = {
       identifiers: 'debug',
     }),
     new MiniCssExtractPlugin({
-      filename: 'vanilla.css',
+      filename: 'style-guide.css',
     }),
   ],
 };
