@@ -13,12 +13,22 @@ import Icon, {ICON_COLOR} from '../icons/Icon';
 import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
+type TitleLinkSizeType =
+  | 'xsmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge'
+  | 'xxxlarge';
+
 export type AccordionItemPropsType = $ReadOnly<{
   title: React.Node,
-  titleSize?: 'small' | 'large',
+  titleSize?: ResponsivePropType<'small' | 'large'>,
   children?: React.Node,
   className?: string,
   padding?: PaddingType,
@@ -157,6 +167,22 @@ const AccordionItem = ({
     };
   }, [isCollapsed, reduceMotion]);
 
+  // casting titleSize to conform Link size prop type
+  let titleSizeCast;
+
+  if (typeof titleSize === 'string') {
+    titleSizeCast = (titleSize: TitleLinkSizeType);
+  } else if (Array.isArray(titleSize)) {
+    titleSizeCast = titleSize.map(item => (item: ?TitleLinkSizeType));
+  } else {
+    titleSizeCast = ['sm', 'md', 'lg', 'xl'].reduce((acc, next) => {
+      if (titleSize[next]) {
+        acc[next] = (titleSize[next]: TitleLinkSizeType);
+      }
+      return acc;
+    }, {});
+  }
+
   return (
     <Box
       color="white"
@@ -195,7 +221,7 @@ const AccordionItem = ({
           >
             {isTitleString ? (
               <Link
-                size={titleSize}
+                size={titleSizeCast}
                 color="text-black"
                 weight="bold"
                 underlined={isHighlighted}
