@@ -158,7 +158,7 @@
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
-    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs && webpack --config vanilla.webpack.config.js && cp dist-vanilla-webpack/style-guide.css dist-vanilla-webpack/style-guide.css.map dist/latest && gulp fingerprint-replace",
+    "build": "yarn clean && gulp build && build-storybook -o dist/latest/docs && webpack --config styles.webpack.config.js --production && cp dist-css/style-guide.css dist-css/style-guide.css.map dist/latest && gulp fingerprint-replace",
     "build-css": "webpack --config styles.webpack.config.js",
     "build-vanilla-css": "webpack --config vanilla.webpack.config.js",
     "postversion": "git push && git push --tags",
