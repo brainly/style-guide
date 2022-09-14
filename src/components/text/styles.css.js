@@ -6,6 +6,7 @@ import {fontFamilies, fontWeights} from '../../vanilla-extract/config';
 // $FlowFixMe[untyped-import]
 import {responsiveVariants} from '../../vanilla-extract/utils';
 import colors2 from '../../vanilla-extract/colors';
+import {sgStyle} from '../../vanilla-extract/style';
 
 const sizes = {
   xxxlarge: {
@@ -42,7 +43,7 @@ const sizes = {
   },
 };
 
-export const textStyle = style({
+export const text = sgStyle({
   fontWeight: fontWeights.regular,
   fontFamily: fontFamilies.proxima,
   fontSize: sizes.medium.fontSize,

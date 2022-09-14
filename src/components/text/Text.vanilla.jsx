@@ -5,22 +5,8 @@ import classNames from 'classnames';
 import {TEXT_TYPE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+import {classNames as vanillaClassNames} from '../../vanilla-extract/classNames';
 import * as styles from './styles';
-
-const {
-  colorVariants,
-  textStyle,
-  inheritedStyle,
-  sizeVariants,
-  weightVariants,
-  wrapVariants,
-  containerStyle,
-  transformVariants,
-  alignVariants,
-  widthVariants,
-  wordBreakVariants,
-  whiteSpaceVariants,
-} = styles;
 
 export type TextTypeType =
   | 'span'
@@ -127,45 +113,47 @@ const Text = ({
   ...props
 }: TextPropsType) => {
   const Type = type;
+
+  const vanillaClass = vanillaClassNames(styles, props);
   const textClass = classNames(
-    textStyle,
     {
-      [inheritedStyle]: inherited,
-      [colorVariants[color]]: color,
-      [containerStyle]: asContainer,
-      [weightVariants.bold]: type === 'strong',
+      [styles.inheritedStyle]: inherited,
+      [styles.colorVariants[color]]: color,
+      [styles.containerStyle]: asContainer,
+      [styles.weightVariants.bold]: type === 'strong',
     },
     ...generateResponsiveClassNames(size => size, size).map(
-      className => sizeVariants[className]
+      className => styles.sizeVariants[className]
     ),
     ...generateResponsiveClassNames(weight => weight, weight).map(
-      className => weightVariants[className]
+      className => styles.weightVariants[className]
     ),
     ...generateResponsiveClassNames(transform => transform, transform).map(
-      className => transformVariants[className]
+      className => styles.transformVariants[className]
     ),
     ...generateResponsiveClassNames(align => align, align).map(
-      className => alignVariants[className]
+      className => styles.alignVariants[className]
     ),
     ...generateResponsiveClassNames(
-      noWrap => (noWrap ? wrapVariants.noWrap : wrapVariants.noWrap),
+      noWrap =>
+        noWrap ? styles.wrapVariants.noWrap : styles.wrapVariants.noWrap,
       noWrap
-    ).map(className => wrapVariants[className]),
+    ).map(className => styles.wrapVariants[className]),
     ...generateResponsiveClassNames(full => (full ? `full` : 'auto'), full).map(
-      className => widthVariants[className]
+      className => styles.widthVariants[className]
     ),
     ...generateResponsiveClassNames(
       breakWords => (breakWords ? 'break-words' : 'word-break-normal'),
       breakWords
-    ).map(className => wordBreakVariants[className]),
+    ).map(className => styles.wordBreakVariants[className]),
     ...generateResponsiveClassNames(whiteSpace => whiteSpace, whiteSpace).map(
-      className => whiteSpaceVariants[className]
+      className => styles.whiteSpaceVariants[className]
     ),
     className
   );
 
   return (
-    <Type {...props} className={textClass}>
+    <Type {...props} className={`${textClass} ${vanillaClass}`}>
       {children}
     </Type>
   );

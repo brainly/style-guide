@@ -1,21 +1,24 @@
 import {screenSizeMediaQueries} from './config';
-import {styleVariants} from '@vanilla-extract/css';
+import {sgStyleVariants} from './style';
 
-export const responsiveVariants = variants =>
-  styleVariants({
-    ...variants,
-    ...Object.keys(variants).reduce((acc, next) => {
-      Object.keys(screenSizeMediaQueries).forEach(breakpoint => {
-        acc[`${breakpoint}:${next}`] = {
-          '@media': {
-            [screenSizeMediaQueries[breakpoint]]: variants[next],
-          },
-        };
-      });
+export const responsiveVariants = (variants, options) =>
+  sgStyleVariants(
+    {
+      ...variants,
+      ...Object.keys(variants).reduce((acc, next) => {
+        Object.keys(screenSizeMediaQueries).forEach(breakpoint => {
+          acc[`${breakpoint}:${next}`] = {
+            '@media': {
+              [screenSizeMediaQueries[breakpoint]]: variants[next],
+            },
+          };
+        });
 
-      return acc;
-    }, {}),
-  });
+        return acc;
+      }, {}),
+    },
+    options
+  );
 
 export const mix = function (color1, color2, weight) {
   const colorsNormalized = [color1, color2].map(color => {
