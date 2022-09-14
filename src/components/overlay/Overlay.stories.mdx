@@ -7,6 +7,15 @@ import Box from '../box/Box';
 import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import PageHeader from 'blocks/PageHeader';
+import {within} from '@storybook/testing-library';
+
+export const play = async ({canvasElement}) => {
+  const canvas = within(canvasElement);
+  const button = canvas.getAllByRole('button', {name: 'open Overlay'})[0];
+  if (button) {
+    button.click();
+  }
+};
 
 <Meta
   title="Components/Overlay"
@@ -41,7 +50,7 @@ import PageHeader from 'blocks/PageHeader';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" play={play}>
     {args => {
       const [open, setOpen] = React.useState(false);
       const handleDismiss = () => setOpen(false);
