@@ -1,0 +1,82 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import {Preview} from '../../docs/blocks/';
+import Overlay, {COLOR} from './Overlay';
+import Box from '../box/Box';
+import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta
+  title="Components/Overlay"
+  component={Overlay}
+  argTypes={{
+    color: {
+      control: {
+        type: 'select',
+        options: COLOR,
+      },
+    },
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: (
+      <Flex fullHeight alignItems="center">
+        <Box color="white">content example</Box>
+      </Flex>
+    ),
+  }}
+/>
+
+<PageHeader>Overlay</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      return (
+        <div>
+          <Button type="solid-indigo" onClick={() => setOpen(true)}>
+            open Overlay
+          </Button>
+          {open && <Overlay {...args} onClick={handleDismiss} />}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Black
+
+<Canvas>
+  <Story name="Black" args={{color: 'black'}}>
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      return (
+        <div>
+          <Button type="solid-indigo" onClick={() => setOpen(true)}>
+            open Overlay
+          </Button>
+          {open && <Overlay {...args} onClick={handleDismiss} />}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility

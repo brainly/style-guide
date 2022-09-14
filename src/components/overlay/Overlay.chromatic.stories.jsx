@@ -1,6 +1,8 @@
-import * as Overlay from './Overlay.stories.jsx';
+import * as Overlay from './Overlay.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Overlay);
 
-export default Overlay.default;
+const {includeStories, ...meta} = Overlay.default;
+
+export default meta;
