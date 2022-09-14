@@ -1,5 +1,9 @@
 import * as React from 'react';
-import Button, {BUTTON_SIZE, BUTTON_TYPE, BUTTON_TOGGLE} from './Button.vanex';
+import Button, {
+  BUTTON_SIZE,
+  BUTTON_TYPE,
+  BUTTON_TOGGLE,
+} from './Button.vanilla';
 import Icon, {TYPE as ICON_TYPES} from 'icons/Icon';
 import hex from '../colors/hex';
 import {StoryVariantTable} from '../../docs/utils';

@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import Text from '../text/Text.vanex';
+import Text from '../text/Text.vanilla';
 import cx from 'classnames';
 
 type ErrorMessageColorType = 'text-red-60' | 'text-red-40';

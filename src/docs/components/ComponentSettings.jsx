@@ -1,7 +1,7 @@
 // @flow
 
 import * as React from 'react';
-import Text from 'text/Text.vanex';
+import Text from 'text/Text.vanilla';
 import ComponentSettingsInput from './ComponentSettingsInput';
 import ComponentSettingsSelect from './ComponentSettingsSelect';
 

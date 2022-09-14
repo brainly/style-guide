@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import Text from '../../../text/Text.vanex';
+import Text from '../../../text/Text.vanilla';
 
 type PropsType = $ReadOnly<{
   height: string,

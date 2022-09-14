@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Label from './Label';
 import Icon from 'icons/Icon';
-import Text from 'text/Text.vanex';
+import Text from 'text/Text.vanilla';
 import {shallow} from 'enzyme';
 
 describe('Label', () => {

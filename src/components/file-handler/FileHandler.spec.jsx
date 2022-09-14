@@ -3,8 +3,8 @@ import {shallow} from 'enzyme';
 
 import FileHandler from './FileHandler';
 import Icon from 'icons/Icon';
-import Text from '../text/Text.vanex';
-import Link from '../text/Link.vanex';
+import Text from '../text/Text.vanilla';
+import Link from '../text/Link.vanilla';
 import Spinner from '../spinner/Spinner';
 
 const mockCallback = jest.fn();

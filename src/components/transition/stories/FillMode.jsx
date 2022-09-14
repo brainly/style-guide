@@ -3,7 +3,7 @@
 import * as React from 'react';
 import hex from '../../colors/hex';
 import Flex from '../../flex/Flex';
-import Text from '../../text/Text.vanex';
+import Text from '../../text/Text.vanilla';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 

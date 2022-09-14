@@ -3,7 +3,7 @@ module.exports = function (gulp, plugins, consts) {
     const sassFilesSrc = plugins.path.join(
       consts.SRC,
       'sass',
-      'main-vanex.scss'
+      'main-vanilla.scss'
     );
 
     gulp

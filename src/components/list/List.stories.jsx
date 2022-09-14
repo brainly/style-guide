@@ -3,7 +3,7 @@ import List from './List';
 import ListItem from './ListItem';
 import ListItemIcon from './ListItemIcon';
 import Icon from '../icons/Icon';
-import Text from '../text/Text.vanex';
+import Text from '../text/Text.vanilla';
 
 export default {
   title: 'Components/List',

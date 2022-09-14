@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Counter from './Counter';
-import Text from 'text/Text.vanex';
+import Text from 'text/Text.vanilla';
 import Icon from 'icons/Icon';
 
 import {shallow} from 'enzyme';

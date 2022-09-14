@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import cx from 'classnames';
-import Text from '../text/Text.vanex';
+import Text from '../text/Text.vanilla';
 import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';

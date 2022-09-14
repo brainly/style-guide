@@ -1,8 +1,8 @@
 // @flow
 
 import * as React from 'react';
-import Text from 'text/Text.vanex';
-import Link from 'text/Link.vanex';
+import Text from 'text/Text.vanilla';
+import Link from 'text/Link.vanilla';
 import Flex from 'flex/Flex';
 
 type PropsType = {

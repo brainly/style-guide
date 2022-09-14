@@ -3,7 +3,7 @@ import Layout from '../Layout';
 import LayoutContent from '../LayoutContent';
 import LayoutAsideContent from '../LayoutAsideContent';
 import LayoutSecondaryContent from '../LayoutSecondaryContent';
-import Text from 'text/Text.vanex';
+import Text from 'text/Text.vanilla';
 
 const header = (
   <div className="sg-header sg-header--fixed">

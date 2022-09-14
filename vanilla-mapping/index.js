@@ -20,9 +20,8 @@ if (!filenamePattern) {
 
     // legacy classnames replace
     Object.keys(legacyClassmap).forEach(key => {
-      // console.log(`${key} => ${legacyClassmap[key]}`);
       const keyForRegexp = key.replace(/-/g, '\\-');
-      console.log(legacyClassmap[key]);
+
       output = output.replace(
         new RegExp(`${keyForRegexp}(?=\\s|\r|")`, 'g'),
         legacyClassmap[key]
@@ -30,9 +29,9 @@ if (!filenamePattern) {
     });
 
     // vanilla classnames replace
-    // vanillaClasslist.forEach(classname => {
-    //   output = output + '';
-    // });
+    vanillaClasslist.forEach(classname => {
+      output = output + '';
+    });
 
     fs.writeFileSync(path, output);
   });

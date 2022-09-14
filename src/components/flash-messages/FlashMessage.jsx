@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import Text from '../text/Text.vanex';
+import Text from '../text/Text.vanilla';
 
 export type FlashMessageTypeType = 'default' | 'success' | 'error' | 'info';
 

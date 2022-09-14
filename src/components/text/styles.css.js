@@ -1,5 +1,9 @@
+// @flow strict
+
+// $FlowFixMe[untyped-import]
 import {styleVariants, style} from '@vanilla-extract/css';
 import {fontFamilies, fontWeights} from '../../vanilla-extract/config';
+// $FlowFixMe[untyped-import]
 import {responsiveVariants} from '../../vanilla-extract/utils';
 import colors2 from '../../vanilla-extract/colors';
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link.vanex';
-import Text from './Text.vanex';
+import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link.vanilla';
+import Text from './Text.vanilla';
 import {shallow} from 'enzyme';
 import {TEXT_WEIGHT} from './textConsts';
-import * as styles from './TextStyles';
+import * as styles from './styles';
 
 test('render', () => {
   const link = shallow(<Link href="test.com">Test</Link>);

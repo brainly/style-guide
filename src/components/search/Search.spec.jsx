@@ -2,7 +2,7 @@ import * as React from 'react';
 import Search, {SIZE, COLOR} from './Search';
 import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
-import Button from 'buttons/Button.vanex';
+import Button from 'buttons/Button.vanilla';
 import {shallow} from 'enzyme';
 
 test('render', () => {

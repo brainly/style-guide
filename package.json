@@ -17,7 +17,8 @@
     "assets/",
     "types/",
     "deprecated.yaml",
-    "bin/"
+    "bin/",
+    "vanilla-mapping/"
   ],
   "engines": {
     "node": ">=8.0.0",

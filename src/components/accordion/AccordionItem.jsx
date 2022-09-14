@@ -10,8 +10,8 @@ import cx from 'classnames';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import Icon, {ICON_COLOR} from '../icons/Icon';
-import Link from '../text/Link.vanex';
-import Text from '../text/Text.vanex';
+import Link from '../text/Link.vanilla';
+import Text from '../text/Text.vanilla';
 import {AccordionContext} from './Accordion';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';

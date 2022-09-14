@@ -4,7 +4,7 @@ import ActionList from 'action-list/ActionList';
 import Radio from 'form-elements/radio/Radio';
 import * as React from 'react';
 import SeparatorVertical from 'separators/SeparatorVertical';
-import Text, {TEXT_SIZE} from 'text/Text.vanex';
+import Text, {TEXT_SIZE} from 'text/Text.vanilla';
 import Flex from 'flex/Flex';
 import generateRandomString from '../../js/generateRandomString';
 

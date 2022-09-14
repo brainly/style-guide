@@ -1,7 +1,7 @@
 // @flow strict
 
 import * as React from 'react';
-import Link from '../text/Link.vanex';
+import Link from '../text/Link.vanilla';
 
 export type SkipLinkPropsType = {
   className?: string,

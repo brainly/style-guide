@@ -5,8 +5,7 @@ import classNames from 'classnames';
 import {TEXT_TYPE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
-// $FlowFixMe[untyped-import]
-import * as styles from './TextStyles';
+import * as styles from './styles';
 
 const {
   colorVariants,

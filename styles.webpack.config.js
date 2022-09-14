@@ -20,7 +20,7 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  entry: ['./src/index.js', './src/main-vanex.scss'],
+  entry: ['./src/index.js', './src/main-vanilla.scss'],
   output: {
     path: path.join(__dirname, 'dist-css'),
     filename: 'styleguide.js',

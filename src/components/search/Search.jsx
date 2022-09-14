@@ -5,7 +5,7 @@ import cx from 'classnames';
 import Input, {COLOR, SIZE} from '../form-elements/Input';
 import type {InputPropsType} from '../form-elements/Input';
 import Icon, {ICON_COLOR} from '../icons/Icon';
-import Button from '../buttons/Button.vanex';
+import Button from '../buttons/Button.vanilla';
 
 export type SearchPropsType = {
   inputClassName?: string,

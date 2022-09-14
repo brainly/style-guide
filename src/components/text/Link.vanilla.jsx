@@ -3,8 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {__DEV__, invariant, generateId} from '../utils';
-import Text from './Text.vanex';
-import type {TextColorType, TextSizeType} from './Text.vanex';
+import Text from './Text.vanilla';
+import type {TextColorType, TextSizeType} from './Text.vanilla';
 import {
   TEXT_SIZE,
   TEXT_WEIGHT,
@@ -14,8 +14,7 @@ import {
 } from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
-// $FlowFixMe[untyped-import]
-import * as styles from './TextStyles';
+import * as styles from './styles';
 
 const {linkVariants, weightVariants, colorVariants, inheritedStyle} = styles;
 

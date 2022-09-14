@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import Text from '../text/Text.vanex';
+import Text from '../text/Text.vanilla';
 import Flex from '../flex/Flex';
 
 type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';

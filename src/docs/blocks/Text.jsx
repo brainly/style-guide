@@ -1,8 +1,8 @@
 // @flow
 
 import React from 'react';
-import OriginalText from '../../components/text/Text.vanex';
-import type {TextPropsType as OriginalTextPropsType} from '../../components/text/Text.vanex';
+import OriginalText from '../../components/text/Text.vanilla';
+import type {TextPropsType as OriginalTextPropsType} from '../../components/text/Text.vanilla';
 import Flex from '../../components/flex/Flex';
 
 type TextMarginsType =

@@ -4,8 +4,7 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
-// $FlowFixMe
-import * as styles from './ButtonStyles';
+import * as styles from './styles';
 
 const {
   buttonStyle,

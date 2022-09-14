@@ -3,8 +3,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import Text from '../text/Text.vanex';
-import Link from '../text/Link.vanex';
+import Text from '../text/Text.vanilla';
+import Link from '../text/Link.vanilla';
 import Icon from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 

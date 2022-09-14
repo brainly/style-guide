@@ -1,6 +1,10 @@
+// @flow strict
+
+// $FlowFixMe// $FlowFixMe
 import {style, styleVariants} from '@vanilla-extract/css';
 import colors from '../../vanilla-extract/colors';
 import {componentSizes, sizes} from '../../vanilla-extract/config';
+// $FlowFixMe
 import {mix} from '../../vanilla-extract/utils';
 
 const buttonPrimaryFbColor = '#1877f2';
@@ -36,30 +40,33 @@ const buttonSizes = {
 
 export const loadingStyle = style({});
 
-export const buttonStyle = style({
-  position: 'relative',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  backgroundColor: colors.black,
-  height: buttonSizes.medium,
-  borderRadius: '20px',
-  border: 'none',
-  whiteSpace: 'nowrap',
-  textDecoration: 'none',
-  fontSize: '15px',
-  lineHeight: '15px',
-  fontWeight: 'bold',
-  color: colors.white,
-  textTransform: 'uppercase',
-  padding: '0 20px',
-  willChange: 'background-color, border-color',
-  transitionProperty: 'background-color, border-color',
-  transitionDuration: '0.2s',
-  transitionTimingFunction: 'ease-in-out',
-  cursor: 'pointer',
-  boxSizing: 'border-box',
-});
+export const buttonStyle = style(
+  {
+    position: 'relative',
+    display: 'inline-flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.black,
+    height: buttonSizes.medium,
+    borderRadius: '20px',
+    border: 'none',
+    whiteSpace: 'nowrap',
+    textDecoration: 'none',
+    fontSize: '15px',
+    lineHeight: '15px',
+    fontWeight: 'bold',
+    color: colors.white,
+    textTransform: 'uppercase',
+    padding: '0 20px',
+    willChange: 'background-color, border-color',
+    transitionProperty: 'background-color, border-color',
+    transitionDuration: '0.2s',
+    transitionTimingFunction: 'ease-in-out',
+    cursor: 'pointer',
+    boxSizing: 'border-box',
+  },
+  'sg-button'
+);
 
 export const reversedOrderStyle = style({
   flexDirection: 'row-reverse',

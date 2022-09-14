@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
-import Link from './Link.vanex';
+import Link from './Link.vanilla';
 import userEvent from '@testing-library/user-event';
 
 describe('Link', () => {
