@@ -28,5 +28,9 @@ $includeHtml: false !default;
     &--blue {
       background-color: $overlayBackgroundColorBlue;
     }
+
+    @media (forced-colors: active) {
+      background-color: rgba($black, 0.9);
+    }
   }
 }
