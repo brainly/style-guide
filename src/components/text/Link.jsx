@@ -145,7 +145,6 @@ const Link = (props: LinkPropsType) => {
       'sg-text--bold': emphasised && !inherited,
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
-      [`sg-text--${String(weight)}`]: weight,
       'sg-text--link-label': as === 'button',
     },
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
