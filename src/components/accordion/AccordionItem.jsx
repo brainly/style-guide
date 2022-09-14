@@ -17,15 +17,6 @@ import type {ResponsivePropType} from '../utils/responsive-props';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
-type TitleLinkSizeType =
-  | 'xsmall'
-  | 'small'
-  | 'medium'
-  | 'large'
-  | 'xlarge'
-  | 'xxlarge'
-  | 'xxxlarge';
-
 export type AccordionItemPropsType = $ReadOnly<{
   title: React.Node,
   titleSize?: ResponsivePropType<'small' | 'large'>,
@@ -167,22 +158,6 @@ const AccordionItem = ({
     };
   }, [isCollapsed, reduceMotion]);
 
-  // casting titleSize to conform Link size prop type
-  let titleSizeCast;
-
-  if (typeof titleSize === 'string') {
-    titleSizeCast = (titleSize: TitleLinkSizeType);
-  } else if (Array.isArray(titleSize)) {
-    titleSizeCast = titleSize.map(item => (item: ?TitleLinkSizeType));
-  } else {
-    titleSizeCast = ['sm', 'md', 'lg', 'xl'].reduce((acc, next) => {
-      if (titleSize[next]) {
-        acc[next] = (titleSize[next]: TitleLinkSizeType);
-      }
-      return acc;
-    }, {});
-  }
-
   return (
     <Box
       color="white"
@@ -221,7 +196,7 @@ const AccordionItem = ({
           >
             {isTitleString ? (
               <Link
-                size={titleSizeCast}
+                size={titleSize}
                 color="text-black"
                 weight="bold"
                 underlined={isHighlighted}
