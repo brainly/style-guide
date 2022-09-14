@@ -22,7 +22,7 @@ export type AccordionItemPropsType = $ReadOnly<{
   titleSize?: ResponsivePropType<'small' | 'large'>,
   children?: React.Node,
   className?: string,
-  padding?: PaddingType,
+  padding?: ResponsivePropType<PaddingType>,
   tabIndex?: number,
   id?: string,
   ariaHeadingLevel?: number,
