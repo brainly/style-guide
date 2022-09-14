@@ -3,11 +3,19 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+export type LayoutContentAsType =
+  | 'div'
+  | 'main'
+  | 'section'
+  | 'article'
+  | 'aside';
+
 export type LayoutContentPropsType = {
   className?: ?string,
   children: React.Node,
   noMaxWidth?: boolean,
   center?: boolean,
+  as?: LayoutContentAsType,
   ...
 };
 
@@ -16,6 +24,7 @@ const LayoutContent = ({
   noMaxWidth,
   center,
   className,
+  as: Type = 'div',
   ...props
 }: LayoutContentPropsType) => {
   const layoutContentClass = classNames(
@@ -28,9 +37,9 @@ const LayoutContent = ({
   );
 
   return (
-    <div {...props} className={layoutContentClass}>
+    <Type {...props} className={layoutContentClass}>
       {children}
-    </div>
+    </Type>
   );
 };
 
