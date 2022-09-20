@@ -525,7 +525,7 @@ export type IconPropsType =
       /**
       * Option to change tag to span, which allows correct HTML structure
       * @example  <Button
-                    type="secondary"
+                    variant="secondary"
                   >
                     Get +50
                     <Icon
@@ -571,7 +571,7 @@ export type IconPropsType =
       /**
       * Option to change tag to span, which allows correct HTML structure
       * @example  <Button
-                    type="secondary"
+                    variant="secondary"
                   >
                     Get +50
                     <Icon

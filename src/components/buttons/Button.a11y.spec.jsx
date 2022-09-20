@@ -147,7 +147,7 @@ describe('Button', () => {
   describe('with `toggle`', () => {
     it('has a button role and an accessible label', () => {
       const button = render(
-        <Button toggle="red" nativeType="button" aria-pressed="true">
+        <Button toggle="red" type="button" aria-pressed="true">
           Thanks
         </Button>
       );
@@ -212,7 +212,7 @@ describe('Button a11y', () => {
   describe('with `toggle`', () => {
     it('should have no a11y violations', async () => {
       await testA11y(
-        <Button toggle="red" nativeType="button" aria-pressed="true">
+        <Button toggle="red" type="button" aria-pressed="true">
           Thanks
         </Button>
       );
