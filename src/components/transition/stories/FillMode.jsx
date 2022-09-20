@@ -51,7 +51,7 @@ export const FillMode = () => {
         ))}
       </Flex>
 
-      <Button type="solid" onClick={() => setActive(b => !b)} fullWidth>
+      <Button variant="solid" onClick={() => setActive(b => !b)} fullWidth>
         {active ? 'hide' : 'show'}
       </Button>
 
