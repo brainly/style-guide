@@ -15,17 +15,19 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion_item_2',
   'accordion_item_3',
 ];
-const storyItems = [
-  <AccordionItem title={copy.title} id="accordion-item-1" key="1">
+const ids = (() => {
+  const numbers = [];
+  const max = 200;
+  for (let i = 0; i < max; i++) {
+    numbers.push(i);
+  }
+  return numbers;
+})();
+const storyItems = ids.map(id => (
+  <AccordionItem title={copy.title} id={id} key={id}>
     {copy.description}
-  </AccordionItem>,
-  <AccordionItem title={copy.title} key="2">
-    {copy.description}
-  </AccordionItem>,
-  <AccordionItem title={copy.title} key="3">
-    {copy.description}
-  </AccordionItem>,
-];
+  </AccordionItem>
+));
 
 <Meta
   title="Components/Accordion"
