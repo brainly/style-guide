@@ -59,23 +59,23 @@ const AccordionItem = ({
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
   const isTitleString = typeof title === 'string';
 
-  const toggleOpen = () => {
+  const toggleOpen = React.useCallback(() => {
     onItemSelect(id, isCollapsed);
-  };
+  }, [id, isCollapsed, onItemSelect]);
 
-  function handleFocus() {
+  const handleFocus = React.useCallback(() => {
     dispatch({
       type: 'accordion/SET_FOCUSED',
       payload: {id},
     });
-  }
+  }, [dispatch, id]);
 
-  function handleBlur() {
+  const handleBlur = React.useCallback(() => {
     dispatch({
       type: 'accordion/SET_FOCUSED',
       payload: {id: ''},
     });
-  }
+  }, [dispatch]);
 
   useEffect(() => {
     const content = contentRef.current;
@@ -157,88 +157,111 @@ const AccordionItem = ({
     };
   }, [isCollapsed, reduceMotion]);
 
-  return (
-    <Box
-      color="white"
-      border
-      borderColor={isBorderHighlighted ? 'gray-40' : 'gray-20'}
-      className={cx(
-        'sg-accordion-item',
-        {
-          'sg-accordion-item--no-gap': noGapBetweenElements,
-          'sg-accordion-item--reduced-motion': reduceMotion,
-        },
-        className
-      )}
-      padding={null}
-    >
-      <div role="heading" aria-level={ariaHeadingLevel} id={id}>
-        <Box
-          padding={padding}
-          className={cx('sg-accordion-item__button', {
-            'sg-accordion-item__button--focused': isFocused,
-          })}
-          onClick={toggleOpen}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          aria-expanded={!isCollapsed}
-          aria-controls={contentId}
-          role="button"
-          tabIndex={tabIndex}
-        >
-          <Flex
-            direction="row"
-            justifyContent="space-between"
-            alignItems="center"
-          >
-            {isTitleString ? (
-              <Link
-                size={titleSize}
-                color="text-black"
-                weight="bold"
-                underlined={isHighlighted}
-                disabled
-              >
-                {title}
-              </Link>
-            ) : (
-              <span className="sg-accordion-item__title">{title}</span>
-            )}
-            <Flex
-              justifyContent="center"
-              alignItems="center"
-              className={cx('sg-accordion-item__icon', {
-                'sg-accordion-item__icon--hover': isHighlighted,
-              })}
-            >
-              <Icon
-                type="chevron_down"
-                color={ICON_COLOR['icon-black']}
-                className={cx('sg-accordion-item__arrow', {
-                  'sg-accordion-item__arrow--visible': !isCollapsed,
-                })}
-                aria-hidden="true"
-              />
-            </Flex>
-          </Flex>
-        </Box>
-      </div>
-
-      <div
-        ref={contentRef}
-        className="sg-accordion-item__content"
-        id={contentId}
-        role="region"
-        aria-labelledby={id}
-        hidden
+  return React.useMemo(
+    () => (
+      <Box
+        color="white"
+        border
+        borderColor={isBorderHighlighted ? 'gray-40' : 'gray-20'}
+        className={cx(
+          'sg-accordion-item',
+          {
+            'sg-accordion-item--no-gap': noGapBetweenElements,
+            'sg-accordion-item--reduced-motion': reduceMotion,
+          },
+          className
+        )}
+        padding={null}
       >
-        <Box padding={padding} className="sg-accordion-item__content-box">
-          <Text>{children}</Text>
-        </Box>
-      </div>
-    </Box>
+        <div role="heading" aria-level={ariaHeadingLevel} id={id}>
+          <Box
+            padding={padding}
+            className={cx('sg-accordion-item__button', {
+              'sg-accordion-item__button--focused': isFocused,
+            })}
+            onClick={toggleOpen}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            aria-expanded={!isCollapsed}
+            aria-controls={contentId}
+            role="button"
+            tabIndex={tabIndex}
+          >
+            <Flex
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              {isTitleString ? (
+                <Link
+                  size={titleSize}
+                  color="text-black"
+                  weight="bold"
+                  underlined={isHighlighted}
+                  disabled
+                >
+                  {title}
+                </Link>
+              ) : (
+                <span className="sg-accordion-item__title">{title}</span>
+              )}
+              <Flex
+                justifyContent="center"
+                alignItems="center"
+                className={cx('sg-accordion-item__icon', {
+                  'sg-accordion-item__icon--hover': isHighlighted,
+                })}
+              >
+                <Icon
+                  type="chevron_down"
+                  color={ICON_COLOR['icon-black']}
+                  className={cx('sg-accordion-item__arrow', {
+                    'sg-accordion-item__arrow--visible': !isCollapsed,
+                  })}
+                  aria-hidden="true"
+                />
+              </Flex>
+            </Flex>
+          </Box>
+        </div>
+
+        <div
+          ref={contentRef}
+          className="sg-accordion-item__content"
+          id={contentId}
+          role="region"
+          aria-labelledby={id}
+          hidden
+        >
+          <Box padding={padding} className="sg-accordion-item__content-box">
+            <Text>{children}</Text>
+          </Box>
+        </div>
+      </Box>
+    ),
+    [
+      isBorderHighlighted,
+      noGapBetweenElements,
+      ariaHeadingLevel,
+      children,
+      className,
+      contentId,
+      handleBlur,
+      handleFocus,
+      id,
+      isCollapsed,
+      isFocused,
+      isHighlighted,
+      isTitleString,
+      padding,
+      reduceMotion,
+      tabIndex,
+      title,
+      titleSize,
+      toggleOpen,
+    ]
   );
 };
 

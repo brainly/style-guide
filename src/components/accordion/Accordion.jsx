@@ -201,11 +201,11 @@ const Accordion = ({
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
       case 'accordion/SET_EXPANDED': {
-        const {expanded} = action.payload;
+        const {id, value} = action.payload;
 
         return {
           ...state,
-          expanded,
+          expanded: getUpdatedOpenedItems(state.expanded, id, value),
         };
       }
 
@@ -263,12 +263,13 @@ const Accordion = ({
         dispatch({
           type: 'accordion/SET_EXPANDED',
           payload: {
-            expanded: getUpdatedOpenedItems(state.expanded, id, value),
+            id,
+            value,
           },
         });
       }
     },
-    [getUpdatedOpenedItems, isControlled, onChange, state.expanded]
+    [isControlled, onChange]
   );
 
   const context = useMemo(
