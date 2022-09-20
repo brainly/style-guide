@@ -151,6 +151,16 @@ Text component does not inherit any styles by default. To turn inheritance you c
   </Story>
 </Canvas>
 
+<Canvas>
+  <Story name="vanilla test">
+    {args => (
+      <Text weight={['regular', 'bold']}>
+        find it has inspired them to ask more questions.
+      </Text>
+    )}
+  </Story>
+</Canvas>
+
 ## Responsive props
 
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing font size and weight based on window width.

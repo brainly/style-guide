@@ -6,7 +6,7 @@ describe('classNames', () => {
     expect(classNames({foo: s.foo}, {})).toEqual('styles__5u8yz50');
   });
 
-  it('returns classes when props are not provided', () => {
+  it('when props are not provided then returns classes', () => {
     expect(classNames({foo: s.foo})).toEqual('styles__5u8yz50');
   });
 
@@ -16,21 +16,33 @@ describe('classNames', () => {
     );
   });
 
-  it('returns all variants classes when prop does not exist', () => {
+  it('when prop does not exist then returns all variants classes', () => {
     expect(classNames({sizes: s.sizes})).toEqual('styles_m__5u8yz52');
   });
 
-  it('returns class when prop is value of true', () => {
+  it('when prop is value of true, returns class', () => {
     expect(classNames({foo: s.foo}, {foo: true})).toEqual('styles__5u8yz50');
   });
 
-  it('returns empty string when prop is value of false', () => {
+  it('when prop is value of false then returns empty string', () => {
     expect(classNames({foo: s.foo}, {foo: false})).toEqual('');
   });
 
-  it('returns classes when prop is responsive', () => {
+  it('when prop is responsive then returns responsive classes', () => {
     expect(
       classNames({layouts: s.layouts}, {layouts: ['block', 'inline', 'block']})
+    ).toEqual(
+      'styles_block__5u8yz53 styles_md:inline__5u8yz58 styles_lg:block__5u8yz56'
+    );
+  });
+
+  it.skip('when prop transform functions are provided, uses their results to retrieve class', () => {
+    expect(
+      classNames(
+        {layouts: s.layouts},
+        {layouts: [true, false, true]},
+        {layouts: value => (value === true ? 'block' : 'inline')}
+      )
     ).toEqual(
       'styles_block__5u8yz53 styles_md:inline__5u8yz58 styles_lg:block__5u8yz56'
     );

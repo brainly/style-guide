@@ -1,6 +1,12 @@
 import {generateResponsiveClassNames} from '../components/utils/responsive-props';
 
-export const classNames = (styles, props) => {
+export const classNames = (styles, props, propsTransforms) => {
+  function rawOrTransformed(propName, value) {
+    return propsTransforms && propsTransforms[propName]
+      ? propsTransforms[propName](value)
+      : value;
+  }
+
   return Object.keys(styles)
     .map(styleKey => {
       if (props && props[styleKey] !== undefined) {

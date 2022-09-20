@@ -1,12 +1,10 @@
 // @flow strict
 
 import * as React from 'react';
-import classNames from 'classnames';
 import {TEXT_TYPE} from './textConsts';
-import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
-import {classNames as vanillaClassNames} from '../../vanilla-extract/classNames';
 import * as styles from './styles';
+import {runResponsiveRecipe} from '../../vanilla-extract/responsive-recipes';
 
 export type TextTypeType =
   | 'span'
@@ -114,46 +112,23 @@ const Text = ({
 }: TextPropsType) => {
   const Type = type;
 
-  const vanillaClass = vanillaClassNames(styles, props);
-  const textClass = classNames(
-    {
-      [styles.inheritedStyle]: inherited,
-      [styles.colorVariants[color]]: color,
-      [styles.containerStyle]: asContainer,
-      [styles.weightVariants.bold]: type === 'strong',
-    },
-    ...generateResponsiveClassNames(size => size, size).map(
-      className => styles.sizeVariants[className]
-    ),
-    ...generateResponsiveClassNames(weight => weight, weight).map(
-      className => styles.weightVariants[className]
-    ),
-    ...generateResponsiveClassNames(transform => transform, transform).map(
-      className => styles.transformVariants[className]
-    ),
-    ...generateResponsiveClassNames(align => align, align).map(
-      className => styles.alignVariants[className]
-    ),
-    ...generateResponsiveClassNames(
-      noWrap =>
-        noWrap ? styles.wrapVariants.noWrap : styles.wrapVariants.noWrap,
-      noWrap
-    ).map(className => styles.wrapVariants[className]),
-    ...generateResponsiveClassNames(full => (full ? `full` : 'auto'), full).map(
-      className => styles.widthVariants[className]
-    ),
-    ...generateResponsiveClassNames(
-      breakWords => (breakWords ? 'break-words' : 'word-break-normal'),
-      breakWords
-    ).map(className => styles.wordBreakVariants[className]),
-    ...generateResponsiveClassNames(whiteSpace => whiteSpace, whiteSpace).map(
-      className => styles.whiteSpaceVariants[className]
-    ),
-    className
-  );
-
   return (
-    <Type {...props} className={`${textClass} ${vanillaClass}`}>
+    <Type
+      {...props}
+      className={`${runResponsiveRecipe(styles.text, {
+        size,
+        weight,
+        color,
+        transform,
+        align,
+        noWrap,
+        asContainer,
+        full,
+        breakWords,
+        whiteSpace,
+        inherited,
+      })} ${className || ''}`}
+    >
       {children}
     </Type>
   );

@@ -1,12 +1,9 @@
 // @flow strict
 
-// $FlowFixMe[untyped-import]
-import {styleVariants, style} from '@vanilla-extract/css';
 import {fontFamilies, fontWeights} from '../../vanilla-extract/config';
 // $FlowFixMe[untyped-import]
-import {responsiveVariants} from '../../vanilla-extract/utils';
-import colors2 from '../../vanilla-extract/colors';
-import {sgStyle} from '../../vanilla-extract/style';
+import colors from '../../vanilla-extract/colors';
+import {createResponsiveRecipe} from '../../vanilla-extract/responsive-recipes';
 
 const sizes = {
   xxxlarge: {
@@ -43,190 +40,204 @@ const sizes = {
   },
 };
 
-export const text = sgStyle({
-  fontWeight: fontWeights.regular,
-  fontFamily: fontFamilies.proxima,
-  fontSize: sizes.medium.fontSize,
-  lineHeight: sizes.medium.lineHeight,
-  selectors: {
-    'em.&': {
-      fontStyle: 'normal',
+export const link = createResponsiveRecipe({
+  variants: {
+    styled: {
+      true: {
+        cursor: 'pointer',
+        textDecoration: 'none',
+        color: colors.blue60,
+
+        ':hover': {
+          textDecoration: 'underline',
+        },
+        ':active': {
+          textDecoration: 'underline',
+        },
+      },
     },
-    'blockquote.&': {
-      margin: 0,
+    label: {
+      true: {
+        cursor: 'pointer',
+        position: 'relative',
+        '&:focus-within': {
+          outline: '5px auto Highlight',
+        },
+      },
+    },
+    disabled: {
+      true: {
+        cursor: 'default',
+        '&:hover': {
+          textDecoration: 'none',
+        },
+        '&:active': {
+          textDecoration: 'none',
+        },
+      },
+    },
+    unstyled: {
+      true: {
+        cursor: 'pointer',
+        color: 'inherit',
+        fontWeight: 'inherit',
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+        '&:active': {
+          textDecoration: 'underline',
+        },
+      },
+    },
+    underlined: {
+      true: {
+        cursor: 'pointer',
+        textDecoration: 'underline',
+      },
     },
   },
 });
 
-export const containerStyle = style({
-  position: 'relative',
-});
+const colorVariants = [
+  {name: 'text-black', value: colors.textBlack},
+  {name: 'text-white', value: colors.textWhite},
+  {name: 'text-blue-60', value: colors.textBlue60},
+  {name: 'text-blue-40', value: colors.textBlue40},
+  {name: 'text-green-60', value: colors.textGreen60},
+  {name: 'text-green-40', value: colors.textGreen40},
+  {name: 'text-indigo-60', value: colors.textIndigo60},
+  {name: 'text-indigo-40', value: colors.textIndigo40},
+  {name: 'text-red-60', value: colors.textRed60},
+  {name: 'text-red-40', value: colors.textRed40},
+  {name: 'text-yellow-60', value: colors.textYellow60},
+  {name: 'text-yellow-40', value: colors.textYellow40},
+  {name: 'text-gray-70', value: colors.textGray70},
+  {name: 'text-gray-60', value: colors.textGray60},
+  {name: 'text-gray-50', value: colors.textGray50},
+  {name: 'text-gray-40', value: colors.textGray40},
+].reduce((acc, next) => {
+  acc[next.name] = {
+    color: next.value,
+  };
 
-export const linkVariants = styleVariants({
-  main: {
-    cursor: 'pointer',
-    textDecoration: 'none',
-    color: colors2.blue60,
+  return acc;
+}, {});
 
-    ':hover': {
-      textDecoration: 'underline',
-    },
-    ':active': {
-      textDecoration: 'underline',
-    },
-  },
-  label: {
-    cursor: 'pointer',
-    position: 'relative',
-    '&:focus-within': {
-      outline: '5px auto Highlight',
-    },
-  },
-  disabled: {
-    cursor: 'default',
-    '&:hover': {
-      textDecoration: 'none',
-    },
-    '&:active': {
-      textDecoration: 'none',
-    },
-  },
-  unstyled: {
-    cursor: 'pointer',
-    color: 'inherit',
-    fontWeight: 'inherit',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
-    '&:active': {
-      textDecoration: 'underline',
-    },
-  },
-  underlined: {
-    cursor: 'pointer',
-    textDecoration: 'underline',
-  },
-});
-
-export const inheritedStyle = style({
-  fontSize: 'inherit',
-  lineHeight: 'inherit',
-  fontFamily: 'inherit',
-  fontWeight: 'inherit',
-  color: 'inherit',
-});
-
-export const colorVariants = styleVariants(
-  [
-    {name: 'text-black', value: colors2.textBlack},
-    {name: 'text-white', value: colors2.textWhite},
-    {name: 'text-blue-60', value: colors2.textBlue60},
-    {name: 'text-blue-40', value: colors2.textBlue40},
-    {name: 'text-green-60', value: colors2.textGreen60},
-    {name: 'text-green-40', value: colors2.textGreen40},
-    {name: 'text-indigo-60', value: colors2.textIndigo60},
-    {name: 'text-indigo-40', value: colors2.textIndigo40},
-    {name: 'text-red-60', value: colors2.textRed60},
-    {name: 'text-red-40', value: colors2.textRed40},
-    {name: 'text-yellow-60', value: colors2.textYellow60},
-    {name: 'text-yellow-40', value: colors2.textYellow40},
-    {name: 'text-gray-70', value: colors2.textGray70},
-    {name: 'text-gray-60', value: colors2.textGray60},
-    {name: 'text-gray-50', value: colors2.textGray50},
-    {name: 'text-gray-40', value: colors2.textGray40},
-  ].reduce((acc, next) => {
-    acc[next.name] = {
-      color: next.value,
-    };
-
-    return acc;
-  }, {})
-);
-
-export const transformVariants = responsiveVariants(
-  ['uppercase', 'lowercase', 'capitalize'].reduce((acc, next) => {
+const transformVariants = ['uppercase', 'lowercase', 'capitalize'].reduce(
+  (acc, next) => {
     acc[next] = {
       textTransform: next,
     };
 
     return acc;
-  }, {})
-);
-
-const alignPropToCSSValue = {
-  'to-left': 'left',
-  'to-right': 'right',
-  'to-center': 'center',
-  justify: 'justify',
-};
-
-export const alignVariants = responsiveVariants(
-  Object.keys(alignPropToCSSValue).reduce((acc, next) => {
-    acc[next] = {
-      textAlign: alignPropToCSSValue[next],
-    };
-
-    return acc;
-  }, {})
-);
-
-const widthPropToCSSValue = {
-  full: '100%',
-  auto: 'auto',
-};
-
-export const widthVariants = responsiveVariants(
-  Object.keys(widthPropToCSSValue).reduce((acc, next) => {
-    acc[next] = {
-      width: widthPropToCSSValue[next],
-    };
-
-    return acc;
-  }, {})
-);
-
-const wordBreakPropToCSSValue = {
-  'break-words': 'break-word',
-  'word-break-normal': 'normal',
-};
-
-export const wordBreakVariants = responsiveVariants(
-  Object.keys(wordBreakPropToCSSValue).reduce((acc, next) => {
-    acc[next] = {
-      wordBreak: wordBreakPropToCSSValue[next],
-    };
-
-    return acc;
-  }, {})
-);
-
-export const whiteSpaceVariants = responsiveVariants(
-  ['pre-wrap', 'pre-line', 'normal'].reduce((acc, next) => {
-    acc[next] = {
-      whiteSpace: next,
-    };
-
-    return acc;
-  }, {})
-);
-
-export const sizeVariants = responsiveVariants(sizes);
-
-export const weightVariants = responsiveVariants(
-  Object.keys(fontWeights).reduce((acc, next) => {
-    acc[next] = {
-      fontWeight: fontWeights[next],
-    };
-
-    return acc;
-  }, {})
-);
-
-export const wrapVariants = responsiveVariants({
-  wrap: {
-    whiteSpace: 'wrap',
   },
-  noWrap: {
-    whiteSpace: 'nowrap',
+  {}
+);
+
+export const text = createResponsiveRecipe(
+  {
+    base: {
+      fontFamily: fontFamilies.proxima,
+      fontSize: sizes.medium.fontSize,
+      lineHeight: sizes.medium.lineHeight,
+      selectors: {
+        'em.&': {
+          fontStyle: 'normal',
+        },
+        'blockquote.&': {
+          margin: 0,
+        },
+      },
+    },
+    variants: {
+      inherited: {
+        true: {
+          fontSize: 'inherit',
+          lineHeight: 'inherit',
+          fontFamily: 'inherit',
+          fontWeight: 'inherit',
+          color: 'inherit',
+        },
+      },
+      color: colorVariants,
+      size: sizes,
+      full: {
+        true: {
+          width: '100%',
+        },
+        false: {
+          width: 'auto',
+        },
+      },
+      noWrap: {
+        false: {
+          whiteSpace: 'normal',
+        },
+        true: {
+          whiteSpace: 'nowrap',
+        },
+      },
+      transform: transformVariants,
+      breakWords: {
+        true: {
+          wordBreak: 'break-word',
+        },
+        false: {
+          wordBreak: 'normal',
+        },
+      },
+      whiteSpace: {
+        'pre-wrap': {
+          whitespace: 'pre-wrap',
+        },
+        'pre-line': {
+          whitespace: 'pre-line',
+        },
+        normal: {
+          whitespace: 'normal',
+        },
+      },
+      align: {
+        'to-left': {
+          textAlign: 'left',
+        },
+        'to-right': {
+          textAlign: 'right',
+        },
+        'to-center': {
+          textAlign: 'center',
+        },
+        justify: {
+          textAlign: 'justify',
+        },
+      },
+      weight: {
+        regular: {
+          fontWeight: fontWeights.regular,
+        },
+        bold: {
+          fontWeight: fontWeights.bold,
+        },
+      },
+      asContainer: {
+        true: {
+          position: 'relative',
+        },
+      },
+    },
   },
-});
+  '',
+  {
+    responsiveVariants: [
+      'size',
+      'width',
+      'noWrap',
+      'weight',
+      'transform',
+      'align',
+      'full',
+      'breakWords',
+      'whiteSpace',
+    ],
+  }
+);

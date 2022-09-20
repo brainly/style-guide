@@ -1,7 +1,6 @@
 // @flow strict
 
 import * as React from 'react';
-import classNames from 'classnames';
 import {__DEV__, invariant, generateId} from '../utils';
 import Text from './Text.vanilla';
 import type {TextColorType, TextSizeType} from './Text.vanilla';
@@ -12,11 +11,9 @@ import {
   TEXT_ALIGN,
   TEXT_COLOR,
 } from './textConsts';
-import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 import * as styles from './styles';
-
-const {linkVariants, weightVariants, colorVariants, inheritedStyle} = styles;
+import {runResponsiveRecipe} from '../../vanilla-extract/responsive-recipes';
 
 const anchorRelatedProps = [
   'download',
@@ -139,29 +136,43 @@ const Link = (props: LinkPropsType) => {
     );
   }
 
-  const linkClass = classNames(
-    {
-      [inheritedStyle]: inherited,
-      [linkVariants.main]: !underlined && !unstyled,
-      [linkVariants.underlined]: underlined && !unstyled,
-      [linkVariants.unstyled]: !underlined && unstyled,
-      [weightVariants.bold]: emphasised && !inherited,
-      [linkVariants.disabled]: disabled,
-      [colorVariants[color]]: color && !unstyled,
-      [linkVariants.label]: as === 'button',
-    },
-    ...generateResponsiveClassNames(weight => weight, weight).map(
-      className => weightVariants[className]
-    ),
-    className
-  );
+  const textClassNames = runResponsiveRecipe(styles.text, {
+    inherited,
+    weight: emphasised && !inherited ? 'bold' : weight,
+    color: color && !unstyled ? color : undefined,
+  });
+
+  const linkClassNames = runResponsiveRecipe(styles.link, {
+    styled: !underlined && !unstyled,
+    underlined: underlined && !unstyled,
+    unstyled: !underlined && unstyled,
+    disabled,
+    label: as === 'button',
+  });
+
+  // const linkClass = classNames(
+  // {
+  // [inheritedStyle]: inherited,
+  // [linkVariants.main]: !underlined && !unstyled,
+  // [linkVariants.underlined]: underlined && !unstyled,
+  // [linkVariants.unstyled]: !underlined && unstyled,
+  // [weightVariants.bold]: emphasised && !inherited,
+  // [linkVariants.disabled]: disabled,
+  // [colorVariants[color]]: color && !unstyled,
+  // [linkVariants.label]: as === 'button',
+  // },
+  // ...generateResponsiveClassNames(weight => weight, weight).map(
+  //   className => weightVariants[className]
+  // ),
+  // className
+  // );
 
   if (as === 'button') {
     return (
       <Text
         {...additionalProps}
         type="label"
-        className={linkClass}
+        className={`${linkClassNames} ${textClassNames}`}
         size={textSize}
       >
         <span id={labelId} aria-label={ariaLabel} aria-hidden>
@@ -190,7 +201,7 @@ const Link = (props: LinkPropsType) => {
       {...additionalProps}
       type={linkType}
       href={href || ''}
-      className={linkClass}
+      className={`${linkClassNames} ${textClassNames}`}
       size={textSize}
       onClick={onLinkClick}
       aria-label={ariaLabel}

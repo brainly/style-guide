@@ -20,7 +20,7 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: ['./src/vanilla-extract/recipes-test.js'],
   output: {
     path: path.join(__dirname, 'dist-vanilla-css'),
     filename: 'styleguide.js',
