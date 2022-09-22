@@ -52,7 +52,7 @@ const DummyBox = React.forwardRef<PropsType, HTMLElement>(
         <Button
           size="s"
           icon={<Icon type="close" size={24} />}
-          type="transparent-inverted"
+          variant="transparent-inverted"
           iconOnly
         />
       )}
