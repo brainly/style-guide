@@ -2,9 +2,23 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import type {LogoTypeType} from '../logo/Logo';
 import {getLogoUrl} from '../../logo-url';
-import {TYPE} from '../logo/Logo';
+
+type HomeButtonLogoTypeType = {
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  BRAINLY_PLUS: 'brainly-plus',
+};
+
+const LOGO_TYPE = {
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  BRAINLY_PLUS: 'brainly-plus',
+};
 
 const ICONS = {
   brainly: 'brainly-mobile',
@@ -15,7 +29,7 @@ const ICONS = {
 };
 
 export type HomeButtonPropsType = {
-  type?: LogoTypeType,
+  type?: HomeButtonLogoTypeType,
   href?: string,
   className?: string,
   alt?: string,
@@ -24,7 +38,7 @@ export type HomeButtonPropsType = {
 };
 
 const HomeButton = ({
-  type = TYPE.BRAINLY,
+  type = LOGO_TYPE.BRAINLY,
   href = '#',
   className,
   alt = '',
@@ -34,12 +48,11 @@ const HomeButton = ({
   const buttonClass = classnames(
     'sg-home-button',
     {
-      [`sg-home-button--${type}`]: type !== TYPE.BRAINLY,
+      [`sg-home-button--${type}`]: type !== LOGO_TYPE.BRAINLY,
     },
     className
   );
   const logoPath = `${getLogoUrl(type)}`;
-  // $FlowFixMe - some icons are missing, we will investigate why
   const mobilePath = `${getLogoUrl(ICONS[type])}`;
 
   const defaultAriaLabel = `${type.replace(/-/g, ' ')} home`;
@@ -58,4 +71,4 @@ const HomeButton = ({
 };
 
 export default HomeButton;
-export {TYPE};
+export const TYPE = LOGO_TYPE;
