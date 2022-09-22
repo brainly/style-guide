@@ -91,6 +91,10 @@ $dialogMaxWidthMap: (
     @include sgResponsive(md) {
       display: block;
     }
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &__container {

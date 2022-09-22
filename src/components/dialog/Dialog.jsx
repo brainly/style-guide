@@ -266,7 +266,13 @@ function BaseDialog({
       </div>
       {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
-          className={`sg-dialog-overlay-slot sg-dialog-overlay-slot--${slot}`}
+          className={cx(
+            'sg-dialog-overlay-slot',
+            `sg-dialog-overlay-slot--${slot}`,
+            {
+              'sg-dialog-overlay-slot--hidden': !childrenBySlot[slot],
+            }
+          )}
           key={slot}
         >
           {childrenBySlot[slot] ? childrenBySlot[slot] : null}
