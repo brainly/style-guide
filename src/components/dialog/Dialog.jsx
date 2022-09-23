@@ -157,7 +157,7 @@ function BaseDialog({
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
-      if (onDismiss && event.target === event.currentTarget) {
+      if (onDismiss && !event.target.closest('.sg-dialog__container')) {
         onDismiss();
       }
     },
@@ -239,7 +239,7 @@ function BaseDialog({
       ref={overlayRef}
     >
       {childrenBySlot.backdrop ? (
-        <span onClick={onDismiss} className="sg-dialog-overlay-slot--backdrop">
+        <span className="sg-dialog-overlay-slot--backdrop">
           {childrenBySlot.backdrop}
         </span>
       ) : null}
@@ -266,7 +266,6 @@ function BaseDialog({
       </div>
       {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
-          onClick={onDismiss}
           className={cx(
             'sg-dialog-overlay-slot',
             `sg-dialog-overlay-slot--${slot}`,
