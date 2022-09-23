@@ -239,7 +239,7 @@ function BaseDialog({
       ref={overlayRef}
     >
       {childrenBySlot.backdrop ? (
-        <span className="sg-dialog-overlay-slot--backdrop">
+        <span onClick={onDismiss} className="sg-dialog-overlay-slot--backdrop">
           {childrenBySlot.backdrop}
         </span>
       ) : null}
@@ -266,6 +266,7 @@ function BaseDialog({
       </div>
       {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
+          onClick={onDismiss}
           className={cx(
             'sg-dialog-overlay-slot',
             `sg-dialog-overlay-slot--${slot}`,
