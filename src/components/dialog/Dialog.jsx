@@ -157,7 +157,11 @@ function BaseDialog({
 
   const handleOverlayClick = React.useCallback(
     (event: SyntheticMouseEvent<HTMLDivElement>) => {
-      if (onDismiss && !event.target.closest('.sg-dialog__container')) {
+      if (
+        onDismiss &&
+        event.target instanceof HTMLElement &&
+        !event.target.closest('[data-dialog-container="true"')
+      ) {
         onDismiss();
       }
     },
@@ -250,6 +254,7 @@ function BaseDialog({
       <div
         role="dialog"
         ref={containerRef}
+        data-dialog-container
         className={containerClass}
         onTransitionEnd={
           supportsTransitions() ? handleTransitionEnd : undefined
