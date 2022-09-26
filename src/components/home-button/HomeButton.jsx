@@ -4,20 +4,31 @@ import * as React from 'react';
 import classnames from 'classnames';
 import {getLogoUrl} from '../../logo-url';
 
-type HomeButtonLogoTypeType = {
-  BRAINLY: 'brainly',
-  EODEV: 'eodev',
-  NOSDEVOIRS: 'nosdevoirs',
-  ZNANIJA: 'znanija',
-  BRAINLY_PLUS: 'brainly-plus',
-};
+type HomeButtonLogoTypeType =
+  | 'brainly'
+  | 'eodev'
+  | 'nosdevoirs'
+  | 'znanija'
+  | 'znanija-plus'
+  | 'brainly-plus'
+  | 'brainly-tutoring';
 
-const LOGO_TYPE = {
+const LOGO_TYPE: {
   BRAINLY: 'brainly',
   EODEV: 'eodev',
   NOSDEVOIRS: 'nosdevoirs',
   ZNANIJA: 'znanija',
+  ZNANIJA_PLUS: 'znanija-plus',
   BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_TUTORING: 'brainly-tutoring',
+} = {
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  ZNANIJA_PLUS: 'znanija-plus',
+  BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_TUTORING: 'brainly-tutoring',
 };
 
 const ICONS = {
@@ -25,7 +36,9 @@ const ICONS = {
   eodev: 'eodev-mobile',
   nosdevoirs: 'nosdevoirs-mobile',
   znanija: 'znanija-mobile',
-  'brainly-plus': 'brainly-plus',
+  'znanija-plus': 'znanija-plus-small',
+  'brainly-plus': 'brainly-plus-small',
+  'brainly-tutoring': 'brainly-tutoring-small',
 };
 
 export type HomeButtonPropsType = {
