@@ -37,6 +37,10 @@ type ActionType =
   | {
       type: 'accordion/SET_FOCUSED',
       payload: {id: string},
+    }
+  | {
+      type: 'accordion/TOGGLE_EXPAND',
+      payload: {id: string, expanded: boolean},
     };
 
 export type AccordionPropsType = $ReadOnly<{
@@ -200,12 +204,21 @@ const Accordion = ({
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
-      case 'accordion/SET_EXPANDED': {
-        const {id, value} = action.payload;
+      case 'accordion/TOGGLE_EXPAND': {
+        const {id, expanded} = action.payload;
 
         return {
           ...state,
-          expanded: getUpdatedOpenedItems(state.expanded, id, value),
+          expanded: getUpdatedOpenedItems(state.expanded, id, expanded),
+        };
+      }
+
+      case 'accordion/SET_EXPANDED': {
+        const {expanded} = action.payload;
+
+        return {
+          ...state,
+          expanded,
         };
       }
 
@@ -261,10 +274,10 @@ const Accordion = ({
 
       if (!isControlled) {
         dispatch({
-          type: 'accordion/SET_EXPANDED',
+          type: 'accordion/TOGGLE_EXPAND',
           payload: {
             id,
-            value,
+            expanded: value,
           },
         });
       }

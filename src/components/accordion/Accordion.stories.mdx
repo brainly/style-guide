@@ -15,19 +15,17 @@ const CONTROLLED_ACCORDION_IDS = [
   'accordion_item_2',
   'accordion_item_3',
 ];
-const ids = (() => {
-  const numbers = [];
-  const max = 200;
-  for (let i = 0; i < max; i++) {
-    numbers.push(i);
-  }
-  return numbers;
-})();
-const storyItems = ids.map(id => (
-  <AccordionItem title={copy.title} id={id} key={id}>
+const storyItems = [
+  <AccordionItem title={copy.title} id="accordion-item-1" key="1">
     {copy.description}
-  </AccordionItem>
-));
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="2">
+    {copy.description}
+  </AccordionItem>,
+  <AccordionItem title={copy.title} key="3">
+    {copy.description}
+  </AccordionItem>,
+];
 
 <Meta
   title="Components/Accordion"
@@ -53,11 +51,15 @@ const storyItems = ids.map(id => (
         type: 'array',
       },
     },
+    spacing: {
+      description: '(Responsive)',
+    },
   }}
   args={{
     allowMultiple: true,
     children: storyItems,
   }}
+  subcomponents={{AccordionItem}}
 />
 
 <PageHeader>Accordion</PageHeader>
@@ -120,6 +122,10 @@ const storyItems = ids.map(id => (
     {args => <Accordion {...args} />}
   </Story>
 </Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page). Resize window to check how component is changing padding size.
 
 ## Accessibility
 
