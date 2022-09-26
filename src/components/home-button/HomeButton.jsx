@@ -2,20 +2,47 @@
 
 import * as React from 'react';
 import classnames from 'classnames';
-import type {LogoTypeType} from '../logo/Logo';
 import {getLogoUrl} from '../../logo-url';
-import {TYPE} from '../logo/Logo';
+
+type HomeButtonLogoTypeType =
+  | 'brainly'
+  | 'eodev'
+  | 'nosdevoirs'
+  | 'znanija'
+  | 'znanija-plus'
+  | 'brainly-plus'
+  | 'brainly-tutoring';
+
+const LOGO_TYPE: {
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  ZNANIJA_PLUS: 'znanija-plus',
+  BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_TUTORING: 'brainly-tutoring',
+} = {
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  ZNANIJA_PLUS: 'znanija-plus',
+  BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_TUTORING: 'brainly-tutoring',
+};
 
 const ICONS = {
   brainly: 'brainly-mobile',
   eodev: 'eodev-mobile',
   nosdevoirs: 'nosdevoirs-mobile',
   znanija: 'znanija-mobile',
-  'brainly-plus': 'brainly-plus',
+  'znanija-plus': 'znanija-plus-small',
+  'brainly-plus': 'brainly-plus-small',
+  'brainly-tutoring': 'brainly-tutoring-small',
 };
 
 export type HomeButtonPropsType = {
-  type?: LogoTypeType,
+  type?: HomeButtonLogoTypeType,
   href?: string,
   className?: string,
   alt?: string,
@@ -24,7 +51,7 @@ export type HomeButtonPropsType = {
 };
 
 const HomeButton = ({
-  type = TYPE.BRAINLY,
+  type = LOGO_TYPE.BRAINLY,
   href = '#',
   className,
   alt = '',
@@ -34,12 +61,11 @@ const HomeButton = ({
   const buttonClass = classnames(
     'sg-home-button',
     {
-      [`sg-home-button--${type}`]: type !== TYPE.BRAINLY,
+      [`sg-home-button--${type}`]: type !== LOGO_TYPE.BRAINLY,
     },
     className
   );
   const logoPath = `${getLogoUrl(type)}`;
-  // $FlowFixMe - some icons are missing, we will investigate why
   const mobilePath = `${getLogoUrl(ICONS[type])}`;
 
   const defaultAriaLabel = `${type.replace(/-/g, ' ')} home`;
@@ -58,4 +84,4 @@ const HomeButton = ({
 };
 
 export default HomeButton;
-export {TYPE};
+export const TYPE = LOGO_TYPE;
