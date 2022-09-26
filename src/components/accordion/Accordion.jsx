@@ -15,6 +15,8 @@ import {
 import cx from 'classnames';
 import useReducedMotion from '../utils/useReducedMotion';
 import {__DEV__, invariant} from '../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 export const KEY_CODES = {
   '32': 'space',
@@ -43,17 +45,9 @@ export type AccordionPropsType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React.Node,
   className?: string,
-  spacing?:
-    | 'xxs'
-    | 'xs'
-    | 's'
-    | 'm'
-    | 'l'
-    | 'xl'
-    | 'xxl'
-    | 'xxxl'
-    | 'xxxxl'
-    | 'none',
+  spacing?: ResponsivePropType<
+    'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'none'
+  >,
   reduceMotion?: boolean,
   expanded?: string | Array<string>,
   defaultExpanded?: string | Array<string>,
@@ -71,18 +65,6 @@ type ContextType = {
 };
 
 export const AccordionContext = createContext<ContextType>({});
-
-export const spaceClasses = {
-  xxs: 'sg-space-y-xxs',
-  xs: 'sg-space-y-xs',
-  s: 'sg-space-y-s',
-  m: 'sg-space-y-m',
-  l: 'sg-space-y-l',
-  xl: 'sg-space-y-xl',
-  xxl: 'sg-space-y-xxl',
-  xxxl: 'sg-space-y-xxxl',
-  xxxxl: 'sg-space-y-xxxxl',
-};
 
 const Accordion = ({
   children,
@@ -253,7 +235,6 @@ const Accordion = ({
   }
 
   const noGapBetweenElements = spacing === 'none';
-  const spaceClass = spacing === 'none' ? undefined : spaceClasses[spacing];
 
   const onItemSelect = useCallback(
     (id, value) => {
@@ -291,7 +272,16 @@ const Accordion = ({
 
   return (
     <AccordionContext.Provider value={context}>
-      <div ref={wrapperRef} className={cx(spaceClass, className)}>
+      <div
+        ref={wrapperRef}
+        className={cx(
+          ...generateResponsiveClassNames(
+            spacing => `sg-space-y-${String(spacing)}`,
+            spacing
+          ),
+          className
+        )}
+      >
         {children}
       </div>
     </AccordionContext.Provider>
