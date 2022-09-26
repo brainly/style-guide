@@ -7,10 +7,17 @@ export type ListPropsType = {
   children?: React.Node,
   spaced?: boolean,
   className?: string,
+  ordered?: boolean,
   ...
 };
 
-const List = ({spaced, className, children, ...props}: ListPropsType) => {
+const List = ({
+  spaced,
+  className,
+  ordered,
+  children,
+  ...props
+}: ListPropsType) => {
   const listClass = classNames(
     'sg-list',
     {
@@ -19,10 +26,12 @@ const List = ({spaced, className, children, ...props}: ListPropsType) => {
     className
   );
 
+  const Tag = ordered ? 'ol' : 'ul';
+
   return (
-    <ul {...props} className={listClass}>
+    <Tag {...props} className={listClass}>
       {children}
-    </ul>
+    </Tag>
   );
 };
 
