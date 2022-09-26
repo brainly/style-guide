@@ -19,13 +19,13 @@ export type ResponsivePropConjuctionType =
 
 export type ResponsivePropType<T> =
   | T
-  | Array<?T>
-  | {
+  | $ReadOnlyArray<?T>
+  | $ReadOnly<{
       sm?: T,
       md?: T,
       lg?: T,
       xl?: T,
-    };
+    }>;
 
 const breakpoints = ['sm', 'md', 'lg', 'xl'];
 const responsivePrefixes = ['', 'md', 'lg', 'xl'];

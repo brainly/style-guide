@@ -105,13 +105,13 @@ When importing dependencies, we are using global imports instead of relative one
 Bad:
 
 ```
-import Button, {types as buttonTypes} from '../../buttons/Button';
+import Button, {variants as buttonVariants} from '../../buttons/Button';
 ```
 
 Good:
 
 ```
-import Button, {BUTTON_TYPE} from 'components/buttons/Button';
+import Button, {BUTTON_VARIANT} from 'components/buttons/Button';
 ```
 
 or just:
@@ -119,7 +119,7 @@ or just:
 ```
 import Button from 'components/buttons/Button';
 
-<Button type="solid">Button</Button>
+<Button variant="solid">Button</Button>
 ```
 
 #### Components options

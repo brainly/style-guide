@@ -69,7 +69,7 @@ export const SharedAxis = () => {
         {colorsOrder.map((color, index) => (
           <Button
             key={color}
-            type={index === currentViewIndex ? 'solid-light' : 'transparent'}
+            variant={index === currentViewIndex ? 'solid-light' : 'transparent'}
             icon={<Icon type="circle" color={buttonIconColors[color]} />}
             onClick={() => changeView(index)}
             iconOnly

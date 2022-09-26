@@ -13,15 +13,16 @@ import Icon, {ICON_COLOR} from '../icons/Icon';
 import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
+import type {ResponsivePropType} from '../utils/responsive-props';
 
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 
 export type AccordionItemPropsType = $ReadOnly<{
   title: React.Node,
-  titleSize?: 'small' | 'large',
+  titleSize?: ResponsivePropType<'small' | 'large'>,
   children?: React.Node,
   className?: string,
-  padding?: PaddingType,
+  padding?: ResponsivePropType<PaddingType>,
   tabIndex?: number,
   id?: string,
   ariaHeadingLevel?: number,

@@ -113,7 +113,6 @@ $largeButtonSize: componentSize(l);
 
   &--disabled {
     opacity: 0.45;
-    cursor: not-allowed;
   }
 
   &--full-width {
@@ -349,5 +348,9 @@ $largeButtonSize: componentSize(l);
       clip: rect(0, 0, 0, 0);
       border: none;
     }
+  }
+
+  @media (forced-colors: active) {
+    border: 2px solid ButtonText;
   }
 }
