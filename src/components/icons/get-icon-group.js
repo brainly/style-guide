@@ -41,6 +41,7 @@ const iconMap = {
     'toughest_questions',
     'unseen',
     'warning',
+    'gift',
   ],
   Social: [
     'ask_parent_to_pay',
