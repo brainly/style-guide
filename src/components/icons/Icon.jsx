@@ -149,7 +149,8 @@ export type IconTypeType =
   | 'unseen'
   | 'verified'
   | 'warning'
-  | 'youtube';
+  | 'youtube'
+  | 'gift';
 
 export type IconColorType =
   | 'adaptive'
@@ -314,6 +315,7 @@ export const TYPE: {
   VERIFIED: 'verified',
   WARNING: 'warning',
   YOUTUBE: 'youtube',
+  GIFT: 'gift',
 } = {
   ACADEMIC_CAP: 'academic_cap',
   ADD_MORE: 'add_more',
@@ -460,6 +462,7 @@ export const TYPE: {
   VERIFIED: 'verified',
   WARNING: 'warning',
   YOUTUBE: 'youtube',
+  GIFT: 'gift',
 };
 
 export const ICON_COLOR: {
