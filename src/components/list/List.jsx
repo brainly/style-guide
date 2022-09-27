@@ -29,7 +29,7 @@ const List = ({
   const Tag = ordered ? 'ol' : 'ul';
 
   return (
-    <Tag {...props} className={listClass}>
+    <Tag {...props} className={listClass} role="list">
       {children}
     </Tag>
   );
