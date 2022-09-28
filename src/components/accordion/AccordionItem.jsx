@@ -52,6 +52,7 @@ const AccordionItem = ({
     reduceMotion,
     onItemSelect,
   } = useContext(AccordionContext);
+  const hasRenderedInitially = useRef(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const isCollapsed = !expanded.includes(id);
@@ -86,10 +87,11 @@ const AccordionItem = ({
         return;
       }
 
-      if (reduceMotion) {
+      if (reduceMotion || !hasRenderedInitially.current) {
         contentRef.current.style.height = `${0}px`;
         contentRef.current.hidden = true;
         contentRef.current.style.overflow = 'hidden';
+        hasRenderedInitially.current = true;
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
 
@@ -123,9 +125,10 @@ const AccordionItem = ({
       contentRef.current.hidden = false;
       const sectionHeight = contentRef.current.scrollHeight;
 
-      if (reduceMotion) {
+      if (reduceMotion || !hasRenderedInitially.current) {
         contentRef.current.style.height = 'auto';
         contentRef.current.style.overflow = 'visible';
+        hasRenderedInitially.current = true;
       } else {
         contentRef.current.style.height = `${sectionHeight}px`;
         contentRef.current.addEventListener('transitionend', onTransitionEnd);
