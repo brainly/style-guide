@@ -1,0 +1,105 @@
+### Rules
+
+#### List
+
+| Pattern                                            | Comment                                                                                                                                                     | Status                                 |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| **Should** be ordered or unordered                 | By default `<List/>` uses `<ul/>` tag. To use ordered list (and `<ol/>` tag), set `ordered` prop to `true`.                                                 | Implementation: DONE <br />Tests: DONE |
+| **Should** have only children with `listitem` role | `<ListItem/>` component can be used.                                                                                                                        | Implementation: DONE <br />Tests: N/A  |
+| **Can** have an accessible name                    | Can be named by: <br/>- a label specified by `aria-label` prop<br/>- a value (`IDREF`) set for the `aria-labelledby` prop that refers to a visible element. | Implementation: DONE <br />Tests: DONE |
+
+#### ListItem
+
+| Pattern                                                | Comment                | Status                               |
+| ------------------------------------------------------ | ---------------------- | ------------------------------------ |
+| **Should** be a descendant of element with `list` role | `<List/>` can be used. | Implementation: DONE<br />Tests: N/A |
+
+#### ListItemIcon
+
+| Pattern                                       | Comment                                                                                      | Status                               |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------ |
+| **Can** be hidden from the accessibility tree | If this does not provide any information, it can be hidden with the `aria-hidden` attribute. | Implementation: DONE<br />Tests: N/A |
+
+### Usage
+
+#### Code examples
+
+- with `<ListItem/>`
+
+```jsx
+Your friends:
+<List>
+  <ListItem>koleyko97</ListItem>
+  <ListItem>introda__D</ListItem>
+</ListItem>
+```
+
+- with `<ListItem/>` and `<ListItemIcon/>`
+
+```jsx
+Your friends:
+<List>
+  <ListItem>
+    <ListItemIcon>
+      <Icon
+        color="icon-black"
+        type="chevron_right"
+        size={16}
+        aria-hidden
+      />
+    </ListItemIcon>
+    koleyko97
+  </ListItem>
+  <ListItem>
+    <ListItemIcon>
+      <Icon
+        color="icon-black"
+        type="chevron_right"
+        size={16}
+        aria-hidden
+      />
+    </ListItemIcon>
+    introda__D
+  </ListItem>
+</ListItem>
+```
+
+- ordered
+
+```jsx
+Next steps:
+<List ordered>
+  <ListItem>Add a profile picture</ListItem>
+  <ListItem>Add your first question</ListItem>
+</ListItem>
+```
+
+- with custom meaningful icons
+
+```jsx
+Your friends:
+<List>
+  <ListItem>
+    <ListItemIcon>
+      <Icon
+        color="icon-black"
+        type="circle"
+        size={16}
+        aria-hidden
+      />
+    </ListItemIcon>
+    koleyko97
+  </ListItem>
+  <ListItem>
+    <ListItemIcon>
+      <Icon
+        color="icon-black"
+        type="heart"
+        size={16}
+        title="close friend"
+      />
+    </ListItemIcon>
+    introda__D
+  </ListItem>
+</ListItem>
+```
