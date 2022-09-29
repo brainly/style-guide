@@ -14,7 +14,7 @@ Documentation is an esential part of this project. You can see its latest versio
 
 ### Storybook 
 
-Current version of storybook is hosted under following dev URL - [styleguide-dev.brainly.com](https://styleguide-dev.brainly.com)
+Current version of storybook is hosted under following dev URL - [styleguide.brainly.com](https://styleguide.brainly.com)
 
 ## How to use it
 
