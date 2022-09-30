@@ -207,15 +207,15 @@ Following headlines should be used in release notes:
 - Dependency Updates
 - Documentation
 
-Even though we strictly follow semver, style guide is built upon many different levels where certain changes might impact some parts of the consumer application. Please use following labels to mark those changes:
+Although we strictly adhere to Semver's rules, the style guide is built on many different levels, where certain changes may affect some parts of the consumer application. Please use the following labels to highlight these changes:
 
-- https://github.com/brainly/style-guide/labels/Change%3A%20Accessibility - those kind of changes might impact testing tools we use, such as react testing library. Those tools often look into accessibility tree which change isn't covered by semantic versioning
+- https://github.com/brainly/style-guide/labels/Change%3A%20Accessibility - these types of changes can affect the testing tools we use, such as react testing library. These tools often look at the accessibility tree, which changes are not covered by semantic versioning.
 
-- https://github.com/brainly/style-guide/labels/Change%3A%20Visual - means change to the color, size, positioning etc. of component. Those changes are also not treated as a breaking change but might impact visual harmony of specific design.
+- https://github.com/brainly/style-guide/labels/Change%3A%20Visual - means changing the color, size, positioning, etc. of a component. These changes are also not considered breaking changes, but they can affect the visual harmony of a design.
 
-- https://github.com/brainly/style-guide/labels/Change%3A%20Internal%20Layout - this kind of change is also not a breaking change in terms of JS API but CSS is often tricky and we should know whenever this type of modification happened. For example when we change way of displaying things or restructuring internal dom tree of component.
+- https://github.com/brainly/style-guide/labels/Change%3A%20Internal%20Layout - this type of change is also not a breaking change in the sense of JS API, but CSS is often tricky and we should know when such modification occurred. For example, when we change the way things are displayed or restructure the internal component DOM tree.
 
-These tags should help testers and developers scan the release notes more quickly for possible regression points.
+Above tags should help testers and developers scan the release notes faster for possible regression points.
 
 #### Troubleshooting
 
