@@ -199,7 +199,7 @@ const Input = (props: InputPropsType) => {
   const errorMessageDisplayed =
     invalid === true && errorMessage !== undefined && errorMessage !== '';
 
-  return errorMessageDisplayed ? (
+  return (
     <div className={wrapperClass}>
       <input
         {...additionalProps}
@@ -208,24 +208,18 @@ const Input = (props: InputPropsType) => {
         className={inputClass}
         value={value}
       />
-      <Flex
-        marginTop="xxs"
-        marginLeft={size === 'l' ? 'm' : 's'}
-        marginRight={size === 'l' ? 'm' : 's'}
-      >
-        <Text size={size === 'l' ? 'small' : 'xsmall'} color="text-red-60">
-          {errorMessage}
-        </Text>
-      </Flex>
+      {errorMessageDisplayed && (
+        <Flex
+          marginTop="xxs"
+          marginLeft={size === 'l' ? 'm' : 's'}
+          marginRight={size === 'l' ? 'm' : 's'}
+        >
+          <Text size={size === 'l' ? 'small' : 'xsmall'} color="text-red-60">
+            {errorMessage}
+          </Text>
+        </Flex>
+      )}
     </div>
-  ) : (
-    <input
-      {...additionalProps}
-      type={type}
-      ref={setInputRef}
-      className={inputClass}
-      value={value}
-    />
   );
 };
 

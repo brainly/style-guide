@@ -65,6 +65,7 @@ const Search = ({
         withIcon
         size={size}
         className={cx(`${baseClassName}__input`, inputClassName)}
+        fullWidth
       />
 
       {withRoundButton ? (
