@@ -207,6 +207,16 @@ Following headlines should be used in release notes:
 - Dependency Updates
 - Documentation
 
+Even though we strictly follow semver, style guide is built upon many different levels where certain changes might impact some parts of the consumer application. Please use following labels to mark those changes:
+
+- https://github.com/brainly/style-guide/labels/Change%3A%20Accessibility - those kind of changes might impact testing tools we use, such as react testing library. Those tools often look into accessibility tree which change isn't covered by semantic versioning
+
+- https://github.com/brainly/style-guide/labels/Change%3A%20Visual - means change to the color, size, positioning etc. of component. Those changes are also not treated as a breaking change but might impact visual harmony of specific design.
+
+- https://github.com/brainly/style-guide/labels/Change%3A%20Internal%20Layout - this kind of change is also not a breaking change in terms of JS API but CSS is often tricky and we should know whenever this type of modification happened. For example when we change way of displaying things or restructuring internal dom tree of component.
+
+These tags should help testers and developers scan the release notes more quickly for possible regression points.
+
 #### Troubleshooting
 
 - `npm publish` throws `PUT https://registry.npmjs.org/brainly-style-guide - Not found` - run `npm login` and try again
