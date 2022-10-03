@@ -26,9 +26,10 @@ These variables are encouraged to be used within components and custom CSS. The 
 
 | Variable | Value |
 | -------- | ----- |
+| none     | 0px   |
 | xxs      | 4px   |
 | xs       | 8px   |
-| x        | 16px  |
+| s        | 16px  |
 | m        | 24px  |
 | l        | 40px  |
 | xl       | 64px  |
