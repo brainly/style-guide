@@ -17,6 +17,8 @@ export type LogoTypeType =
   | 'znanija-plus-inverse'
   | 'znanija-plus-small'
   | 'brainly-plus'
+  | 'brainly-plus-var-a'
+  | 'brainly-plus-var-b'
   | 'brainly-plus-inverse'
   | 'brainly-plus-small'
   | 'brainly-tutoring'
@@ -43,6 +45,8 @@ export const TYPE: {
   ZNANIJA_PLUS_INVERSE: 'znanija-plus-inverse',
   ZNANIJA_PLUS_SMALL: 'znanija-plus-small',
   BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_PLUS_VAR_A: 'brainly-plus-var-a',
+  BRAINLY_PLUS_VAR_B: 'brainly-plus-var-b',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
   BRAINLY_PLUS_SMALL: 'brainly-plus-small',
   BRAINLY_TUTORING: 'brainly-tutoring',
@@ -68,6 +72,8 @@ export const TYPE: {
   ZNANIJA_PLUS_INVERSE: 'znanija-plus-inverse',
   ZNANIJA_PLUS_SMALL: 'znanija-plus-small',
   BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_PLUS_VAR_A: 'brainly-plus-var-a',
+  BRAINLY_PLUS_VAR_B: 'brainly-plus-var-b',
   BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse',
   BRAINLY_PLUS_SMALL: 'brainly-plus-small',
   BRAINLY_TUTORING: 'brainly-tutoring',
@@ -123,7 +129,7 @@ const Logo = ({
   const defaultAlt = getDefaultAlt(type);
 
   return (
-    <div {...props} className={logoClass}>
+    <div {...props} className={logoClass} data-logotype={type}>
       <img className="sg-logo__image" src={logoPath} alt={alt ?? defaultAlt} />
     </div>
   );

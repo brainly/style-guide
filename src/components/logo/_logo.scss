@@ -41,6 +41,26 @@ $includeHtml: false !default;
       }
     }
 
+    &--brainly-plus-var-a {
+      width: $logoDefaultWidth;
+      height: 55px;
+
+      @include sgResponsive(md) {
+        width: $logoLargeWidth;
+        height: 73px;
+      }
+    }
+
+    &--brainly-plus-var-b {
+      width: $logoDefaultWidth;
+      height: 64px;
+
+      @include sgResponsive(md) {
+        width: $logoLargeWidth;
+        height: 86px;
+      }
+    }
+
     &--brainly-tutoring-small {
       width: $logoDefaultWidth;
       height: 72px;
