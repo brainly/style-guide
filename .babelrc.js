@@ -8,7 +8,7 @@ const babelEnv = params => [
   ),
 ];
 
-let logoBaseUrl;
+let assetsBaseUrl;
 
 module.exports = api => {
   const nodeEnv = api.env();
@@ -18,9 +18,9 @@ module.exports = api => {
     process.env.STORYBOOK_ENV === 'dev' ||
     process.env.STORYBOOK_ENV === 'chromatic'
   ) {
-    logoBaseUrl = '';
+    assetsBaseUrl = '';
   } else {
-    logoBaseUrl = 'https://styleguide.brainly.com/';
+    assetsBaseUrl = 'https://styleguide.brainly.com/';
   }
 
   return {
@@ -36,7 +36,7 @@ module.exports = api => {
       [
         'transform-define',
         {
-          LOGO_BASE_URL: logoBaseUrl,
+          ASSETS_BASE_URL: assetsBaseUrl,
         },
       ],
     ],

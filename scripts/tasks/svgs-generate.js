@@ -19,17 +19,8 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
   callback(null);
 }
 
-function svgAddPolyfill(svgPolyfill, svg) {
-  return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm, ''));
-}
-
-module.exports = function(gulp, plugins, consts) {
-  return function() {
-    const fs = require('fs');
-    const svgPolyfill = fs.readFileSync(
-      plugins.path.join(consts.SRC, 'svg-polyfill.js'),
-      'utf8'
-    );
+module.exports = function (gulp, plugins, consts) {
+  return function () {
     const subjectIconsPath = plugins.path.join(
       consts.SRC,
       'images',
@@ -60,7 +51,7 @@ module.exports = function(gulp, plugins, consts) {
     const subjectIconsConfig = {
       mode: {
         symbol: {
-          sprite: '../subjects-icons.js',
+          sprite: '../subjects-icons.svg',
         },
       },
       shape: {
@@ -74,15 +65,12 @@ module.exports = function(gulp, plugins, consts) {
           },
         ],
       },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
-      },
     };
 
     const subjectMonoIconsConfig = {
       mode: {
         symbol: {
-          sprite: '../subjects-mono-icons.js',
+          sprite: '../subjects-mono-icons.svg',
         },
       },
       shape: {
@@ -96,15 +84,12 @@ module.exports = function(gulp, plugins, consts) {
           },
         ],
       },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
-      },
     };
 
     const iconsConfig = {
       mode: {
         symbol: {
-          sprite: '../icons.js',
+          sprite: '../icons.svg',
         },
       },
       shape: {
@@ -118,15 +103,12 @@ module.exports = function(gulp, plugins, consts) {
           },
         ],
       },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
-      },
     };
 
     const mathSymbolsConfig = {
       mode: {
         symbol: {
-          sprite: '../math-symbols-icons.js',
+          sprite: '../math-symbols-icons.svg',
         },
       },
       shape: {
@@ -140,15 +122,12 @@ module.exports = function(gulp, plugins, consts) {
           },
         ],
       },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
-      },
     };
 
     const mobileIconsConfig = {
       mode: {
         symbol: {
-          sprite: '../mobile-icons.js',
+          sprite: '../mobile-icons.svg',
         },
       },
       shape: {
@@ -161,9 +140,6 @@ module.exports = function(gulp, plugins, consts) {
             custom: svgSymbolCleanUp.bind(null, {removeClass: true}),
           },
         ],
-      },
-      svg: {
-        transform: [svgAddPolyfill.bind(null, svgPolyfill)],
       },
     };
 

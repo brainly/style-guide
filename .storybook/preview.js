@@ -22,13 +22,15 @@ function importAll(r) {
   r.keys().forEach(r);
 }
 
-// load icon sprites
+// make svgs to be available for Logo component
 importAll(require.context('../src/images/logos', true, /\.svg$/));
-importAll(require.context('../src/images/icons', true, /\.svg$/));
-importAll(require.context('../src/images/subjects', true, /\.svg$/));
-importAll(require.context('../src/images/subjects-mono', true, /\.svg$/));
-importAll(require.context('../src/images/math-symbols', true, /\.svg$/));
-importAll(require.context('../src/images/mobile-icons', true, /\.svg$/));
+
+// make svgs to be available for Icon, SubjectIcon, MobileIcon, MathSymbol components
+importAll(require.context('../src/images', false, /icons.*\.svg$/));
+importAll(require.context('../src/images', false, /subjects.*\.svg$/));
+importAll(require.context('../src/images', false, /subjects-mono.*\.svg$/));
+importAll(require.context('../src/images', false, /math-symbols.*\.svg$/));
+importAll(require.context('../src/images', false, /mobile-icons.*\.svg$/));
 
 const Page = () => {
   return (

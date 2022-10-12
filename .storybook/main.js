@@ -59,82 +59,19 @@ module.exports = {
         },
       },
       {
-        test: /\/icons\/.*\.svg$/,
+        test: /icons.*\.svg$/,
         sideEffects: true,
         use: [
           {
-            loader: 'svg-sprite-loader',
+            loader: 'file-loader',
             options: {
-              symbolId: 'icon-[name]',
+              context: path.resolve(__dirname, '../', './src'),
+              name: absoluteFilename => {
+                const hash = revHash(fs.readFileSync(absoluteFilename));
+
+                return `[path][name]-${hash}.[ext]`;
+              },
             },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.icons,
-          },
-        ],
-      },
-      {
-        test: /\/math-symbols\/.*\.svg$/,
-        sideEffects: true,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              symbolId: 'sg-math-symbol-icon-[name]',
-            },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.mathSymbols,
-          },
-        ],
-      },
-      {
-        test: /\/mobile-icons\/.*\.svg$/,
-        sideEffects: true,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              symbolId: 'icon-mobile-[name]',
-            },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.mathSymbols,
-          },
-        ],
-      },
-      {
-        test: /\/subjects\/.*\.svg$/,
-        sideEffects: true,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              symbolId: 'icon-subject-[name]',
-            },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.subjectIcons,
-          },
-        ],
-      },
-      {
-        test: /subjects-mono\/.*\.svg$/,
-        sideEffects: true,
-        use: [
-          {
-            loader: 'svg-sprite-loader',
-            options: {
-              symbolId: 'icon-subject-mono-[name]',
-            },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.subjectMonoIcons,
           },
         ],
       },

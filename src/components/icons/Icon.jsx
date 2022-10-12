@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {generateId} from '../utils';
+import {getIconsUrl} from '../../icons-url';
 
 export type IconTypeType =
   | 'academic_cap'
@@ -636,6 +637,7 @@ const Icon = ({
   const ariaLabel = type
     ? undefined
     : [title, description].filter(Boolean).join(', ');
+  const iconUrl = `${getIconsUrl('icons')}`;
 
   return (
     <Tag {...props} className={iconClass} aria-label={ariaLabel}>
@@ -650,7 +652,7 @@ const Icon = ({
             {title || defaultTitle}
           </text>
           {description && <desc id={descId}>{description}</desc>}
-          <use xlinkHref={iconType} aria-hidden="true" />
+          <use href={`${iconUrl}${iconType}`} aria-hidden="true" />
         </svg>
       ) : (
         children
