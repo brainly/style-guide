@@ -151,3 +151,23 @@
 @mixin sgButtonHoverMix($color1, $color2, $percent) {
   background-color: mix($color1, $color2, $percent);
 }
+
+@mixin focus() {
+  box-shadow: 0px 0px 0px 2px white,
+      0px 0px 0px 4px $blue-50,
+      0px 0px 0px 6px rgba(0, 137, 227, 0.3);
+  outline: none;
+
+  @media (forced-colors: active) {
+    outline-color: Highlight;
+    outline-width: 2px;
+    outline-offset: 6px;
+  }
+}
+
+@mixin focusFallback() {
+  outline-color: $blue-50;
+  outline-width: 2px;
+  outline-offset: 4px;
+  outline-style: auto;
+}
