@@ -3,6 +3,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
+import {getIconsUrl} from '../../icons-url';
 
 export type IconTypeType =
   | 'arrow'
@@ -131,7 +132,7 @@ const MobileIcon = ({
 
   return (
     <svg {...props} className={iconClass}>
-      <use xlinkHref={iconType} />
+      <use href={`${getIconsUrl('mobile-icons')}${iconType}`} />
     </svg>
   );
 };
