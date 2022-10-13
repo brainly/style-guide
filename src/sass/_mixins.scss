@@ -153,9 +153,8 @@
 }
 
 @mixin focus() {
-  box-shadow: 0px 0px 0px 2px white,
-      0px 0px 0px 4px $blue-50,
-      0px 0px 0px 6px rgba(0, 137, 227, 0.3);
+  box-shadow: 0px 0px 0px 2px white, 0px 0px 0px 4px $blue-50,
+    0px 0px 0px 6px rgba(0, 137, 227, 0.3);
   outline: none;
 
   @media (forced-colors: active) {

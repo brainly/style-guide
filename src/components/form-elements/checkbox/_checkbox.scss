@@ -178,7 +178,8 @@ $checkboxClickableArea: 32px;
       left: 0;
       z-index: 1;
 
-      &:focus-visible, &:focus:not(:focus-visible) {
+      &:focus-visible,
+      &:focus:not(:focus-visible) {
         & + .sg-checkbox__icon {
           @include focusFallback();
         }
