@@ -23,4 +23,4 @@ storybook-static
 temp
 
 # Generated svg
-/src/images/svg-prites/*.svg
+/src/images/svg-sprites/*.svg
