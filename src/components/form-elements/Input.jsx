@@ -189,6 +189,7 @@ const Input = (props: InputPropsType) => {
       'sg-input--full-width': fullWidth,
       'sg-input--with-icon': withIcon,
     },
+    'sg-focus-fallback',
     className
   );
 

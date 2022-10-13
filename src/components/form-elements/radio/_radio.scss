@@ -128,12 +128,7 @@ $radioCheckedBorderWidth: 5px;
     z-index: 1;
 
     &:focus-visible + .sg-radio__circle {
-      outline: $radioUncheckedBorderWidth solid var(--radioOutlineColor);
-      outline-offset: 2px;
-
-      @media (forced-colors: active) {
-        outline-color: Highlight;
-      }
+      @include focusFallback();
     }
 
     &:checked + .sg-radio__circle {

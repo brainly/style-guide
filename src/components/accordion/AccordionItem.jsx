@@ -180,9 +180,7 @@ const AccordionItem = ({
         <div role="heading" aria-level={ariaHeadingLevel} id={id}>
           <Box
             padding={padding}
-            className={cx('sg-accordion-item__button', {
-              'sg-accordion-item__button--focused': isFocused,
-            })}
+            className="sg-accordion-item__button"
             onClick={toggleOpen}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -256,7 +254,6 @@ const AccordionItem = ({
       handleFocus,
       id,
       isCollapsed,
-      isFocused,
       isHighlighted,
       isTitleString,
       padding,
