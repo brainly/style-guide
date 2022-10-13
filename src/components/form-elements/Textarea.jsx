@@ -128,6 +128,7 @@ const Textarea = (props: TextareaPropsType) => {
       'sg-textarea--no-padding': noPadding,
       'sg-textarea--auto-height': autoHeight,
     },
+    'sg-focus-fallback',
     className
   );
 
