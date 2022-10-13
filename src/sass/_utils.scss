@@ -94,3 +94,9 @@
   border-width: 0;
   clip-path: inset(50%);
 }
+
+.sg-focus-fallback:focus-visible, .sg-focus-fallback:focus:not(:focus-visible) {
+  outline-color: $blue-50;
+  outline-width: 2px;
+  outline-offset: 4px;
+}
