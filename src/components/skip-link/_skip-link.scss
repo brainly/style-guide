@@ -12,6 +12,8 @@
   background: $white;
 
   &:focus {
+    @include focus();
+
     z-index: 600;
     position: absolute;
     clip: auto;
@@ -20,8 +22,6 @@
     height: auto;
     width: auto;
     border-radius: spacing(xl);
-    border: 2px solid $text-indigo-60;
     color: $text-black;
-    box-shadow: $shadowLarge;
   }
 }

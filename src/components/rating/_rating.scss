@@ -104,11 +104,7 @@ $includeHtml: false !default;
       position: absolute;
 
       &:focus-visible + .sg-rate-box__star-icon {
-        // browser focus style
-        // firefox
-        outline: 5px auto Highlight;
-        // webkit: chrome, safari
-        outline: 5px auto -webkit-focus-ring-color;
+        @include focus();
       }
     }
 
