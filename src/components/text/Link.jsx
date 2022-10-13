@@ -148,6 +148,7 @@ const Link = (props: LinkPropsType) => {
       'sg-text--link-label': as === 'button',
     },
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
+    'sg-focus-fallback',
     className
   );
 
