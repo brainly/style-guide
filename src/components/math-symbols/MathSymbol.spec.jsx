@@ -2,6 +2,14 @@ import * as React from 'react';
 import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR} from './MathSymbol';
 import {shallow} from 'enzyme';
 
+jest.mock('../../icons-url', () => {
+  return {
+    getIconsUrl() {
+      return '/icons.svg';
+    },
+  };
+});
+
 test('render', () => {
   const icon = shallow(<MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />);
 
@@ -9,12 +17,12 @@ test('render', () => {
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('type passed to xlink:href', () => {
+test('type passed to href', () => {
   const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
   const icon = shallow(<MathSymbol type={type} />);
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#sg-math-symbol-icon-${type}`);
+  expect(use.props().href).toEqual(`/icons.svg#sg-math-symbol-icon-${type}`);
 });
 
 test('colors', () => {

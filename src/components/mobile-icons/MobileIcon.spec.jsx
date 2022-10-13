@@ -2,6 +2,14 @@ import * as React from 'react';
 import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 import {shallow} from 'enzyme';
 
+jest.mock('../../icons-url', () => {
+  return {
+    getIconsUrl() {
+      return '/mobile-icons.svg';
+    },
+  };
+});
+
 test('render if type', () => {
   const icon = shallow(<MobileIcon type={TYPE.ANSWER_BUBBLE} />);
 
@@ -9,12 +17,12 @@ test('render if type', () => {
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('type passed to xlink:href', () => {
+test('type passed to href', () => {
   const type = TYPE.ANSWER_BUBBLE;
   const icon = shallow(<MobileIcon type={type} />);
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#icon-mobile-${type}`);
+  expect(use.props().href).toEqual(`/mobile-icons.svg#icon-mobile-${type}`);
 });
 
 test('colors', () => {

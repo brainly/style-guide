@@ -2,6 +2,14 @@ import * as React from 'react';
 import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
 
+jest.mock('../../icons-url', () => {
+  return {
+    getIconsUrl() {
+      return '/icons.svg';
+    },
+  };
+});
+
 test('render if type', () => {
   const icon = shallow(<Icon type={TYPE.ANSWER} />);
 
@@ -27,20 +35,12 @@ test('render if children', () => {
   expect(icon.find('svg')).toHaveLength(1);
 });
 
-test('type passed to xlink:href', () => {
+test('type passed to href', () => {
   const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} />);
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#icon-${type}`);
-});
-
-test('new type passed to xlink:href', () => {
-  const type = 'answer';
-  const icon = shallow(<Icon type={type} />);
-  const use = icon.find('use');
-
-  expect(use.props().xlinkHref).toEqual(`#icon-${type}`);
+  expect(use.props().href).toEqual(`/icons.svg#icon-${type}`);
 });
 
 test('colors', () => {

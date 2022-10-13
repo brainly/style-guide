@@ -2,6 +2,14 @@ import * as React from 'react';
 import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from './SubjectIcon';
 import {shallow} from 'enzyme';
 
+jest.mock('../../icons-url', () => {
+  return {
+    getIconsUrl() {
+      return '/subject-icons.svg';
+    },
+  };
+});
+
 test('render', () => {
   const icon = shallow(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
 
@@ -9,12 +17,12 @@ test('render', () => {
   expect(icon.find('use')).toHaveLength(1);
 });
 
-test('type passed to xlink:href', () => {
+test('type passed to href', () => {
   const type = TYPE.ACCOUNTANCY;
   const icon = shallow(<SubjectIcon type={type} />);
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#icon-subject-${type}`);
+  expect(use.props().href).toEqual(`/subject-icons.svg#icon-subject-${type}`);
 });
 
 test('size', () => {
@@ -32,7 +40,9 @@ test('mono', () => {
   );
   const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#icon-subject-mono-${type}`);
+  expect(use.props().href).toEqual(
+    `/subject-icons.svg#icon-subject-mono-${type}`
+  );
 });
 
 test('normal size', () => {
