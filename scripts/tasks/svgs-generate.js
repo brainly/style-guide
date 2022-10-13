@@ -46,7 +46,7 @@ module.exports = function (gulp, plugins, consts) {
       'mobile-icons',
       '*.svg'
     );
-    const destPath = plugins.path.join(consts.SRC, 'images');
+    const destPath = plugins.path.join(consts.SRC, 'images', 'svg-sprites');
 
     const subjectIconsConfig = {
       mode: {

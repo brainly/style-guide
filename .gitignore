@@ -22,5 +22,5 @@ storybook-static
 .typescript
 temp
 
-# Generated images
-/src/images/*.js
+# Generated svg
+/src/images/svg-prites/*.svg

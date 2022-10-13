@@ -4,6 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 import {ICON_COLOR} from '../icons/Icon';
+import {getIconsUrl} from '../../icons-url';
 
 export type IconTypeType =
   | 'accountancy'
@@ -283,7 +284,12 @@ const SubjectIcon = ({
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>
-      <use xlinkHref={iconType} aria-hidden="true" />
+      <use
+        href={`${getIconsUrl(
+          `subjects${monoColor ? '-mono' : ''}-icons`
+        )}${iconType}`}
+        aria-hidden="true"
+      />
     </svg>
   );
 };

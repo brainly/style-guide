@@ -4,6 +4,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {ICON_COLOR} from '../icons/Icon';
 import type {IconColorType} from '../icons/Icon';
+import {getIconsUrl} from '../../icons-url';
 
 export type MathSymbolTypeType =
   | 'squere-root'
@@ -115,7 +116,10 @@ const MathSymbol = ({
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>
-      <use xlinkHref={iconType} arya-hidden="true" />
+      <use
+        href={`${getIconsUrl('math-symbols-icons')}${iconType}`}
+        arya-hidden="true"
+      />
     </svg>
   );
 };

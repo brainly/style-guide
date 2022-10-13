@@ -26,11 +26,7 @@ function importAll(r) {
 importAll(require.context('../src/images/logos', true, /\.svg$/));
 
 // make svgs to be available for Icon, SubjectIcon, MobileIcon, MathSymbol components
-importAll(require.context('../src/images', false, /icons.*\.svg$/));
-importAll(require.context('../src/images', false, /subjects.*\.svg$/));
-importAll(require.context('../src/images', false, /subjects-mono.*\.svg$/));
-importAll(require.context('../src/images', false, /math-symbols.*\.svg$/));
-importAll(require.context('../src/images', false, /mobile-icons.*\.svg$/));
+importAll(require.context('../src/images/svg-sprites', false, /\.svg$/));
 
 const Page = () => {
   return (
