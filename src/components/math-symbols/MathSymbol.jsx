@@ -118,7 +118,7 @@ const MathSymbol = ({
       </text>
       <use
         href={`${getIconsUrl('math-symbols-icons')}${iconType}`}
-        arya-hidden="true"
+        aria-hidden="true"
       />
     </svg>
   );
