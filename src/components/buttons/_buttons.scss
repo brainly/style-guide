@@ -4,9 +4,7 @@ $largeButtonSize: componentSize(l);
 
 @mixin buttonHover($color1, $color2, $percent) {
   &:hover:not([disabled]),
-  &:focus:not([disabled]),
-  &:active:not([disabled]),
-  &:active:focus:not([disabled]) {
+  &:active:not([disabled]) {
     @include sgButtonHoverMix($color1, $color2, $percent);
   }
 }
@@ -297,9 +295,7 @@ $largeButtonSize: componentSize(l);
     color: $white;
 
     &:hover:not([disabled]),
-    &:focus:not([disabled]),
-    &:active:not([disabled]),
-    &:active:focus:not([disabled]) {
+    &:active:not([disabled]) {
       background-color: $buttonPrimaryFbHoverColor;
       border-color: $buttonPrimaryFbHoverColor;
     }

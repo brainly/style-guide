@@ -178,18 +178,9 @@ $checkboxClickableArea: 32px;
       left: 0;
       z-index: 1;
 
-      &:focus-visible {
+      &:focus-visible, &:focus:not(:focus-visible) {
         & + .sg-checkbox__icon {
-          --checkboxCheckedColor: var(
-            --checkboxHoverColor
-          ); // override variable to alter animation
-          border-color: var(--checkboxHoverColor);
-          outline: 2px solid var(--checkboxOutlineColor);
-          outline-offset: 2px;
-
-          @media (forced-colors: active) {
-            outline-color: Highlight;
-          }
+          @include focusFallback();
         }
 
         &[aria-invalid] + .sg-checkbox__icon {
