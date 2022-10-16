@@ -147,6 +147,7 @@ export type IconTypeType =
   | 'twitter'
   | 'underlined'
   | 'unseen'
+  | 'user_moderation'
   | 'verified'
   | 'warning'
   | 'youtube'
@@ -312,6 +313,7 @@ export const TYPE: {
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
+  USER_MODERATION: 'user_moderation',
   VERIFIED: 'verified',
   WARNING: 'warning',
   YOUTUBE: 'youtube',
@@ -459,6 +461,7 @@ export const TYPE: {
   TWITTER: 'twitter',
   UNDERLINED: 'underlined',
   UNSEEN: 'unseen',
+  USER_MODERATION: 'user_moderation',
   VERIFIED: 'verified',
   WARNING: 'warning',
   YOUTUBE: 'youtube',
