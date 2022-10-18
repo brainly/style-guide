@@ -251,10 +251,6 @@ function BaseDialog({
           {childrenBySlot.backdrop}
         </span>
       ) : null}
-      {/* `useFocusTrap` is based on checking whether the new focused
-      node is a descendants of the container. In order to detect
-      the focus event when the dialog is the first or last node,
-      bracket the dialog with two invisible, focusable nodes. */}
       {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
           className={cx(
@@ -270,6 +266,11 @@ function BaseDialog({
           {childrenBySlot[slot] ? childrenBySlot[slot] : null}
         </div>
       ))}
+      {/* `useFocusTrap` is based on checking whether the new focused
+      node is a descendants of the container. In order to detect
+      the focus event when the dialog is the first or last node,
+      bracket the dialog with two invisible, focusable nodes. */}
+      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -289,6 +290,7 @@ function BaseDialog({
       >
         {childrenWithoutSlots}
       </div>
+      <div tabIndex="0" />
     </div>
   );
 }
