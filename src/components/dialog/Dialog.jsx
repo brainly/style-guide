@@ -175,8 +175,6 @@ function BaseDialog({
       ) {
         onDismiss();
       }
-
-      event.stopPropagation();
     },
     [onDismiss]
   );
