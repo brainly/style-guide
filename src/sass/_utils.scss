@@ -95,6 +95,34 @@
   clip-path: inset(50%);
 }
 
-.sg-focus-fallback:focus-visible {
-  @include focusFallback();
+.sg-focus-fallback {
+  &:focus-visible {
+    @include focusFallback();
+  }
+
+  &:focus {
+    @include focusFallback();
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+.sg-focus {
+  transition: box-shadow $durationQuick1 $easingExit;
+
+  &:focus-visible {
+    @include focus();
+  }
+
+  &:focus {
+    @include focus();
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline: none;
+    animation: none;
+  }
 }
