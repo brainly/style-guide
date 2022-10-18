@@ -161,12 +161,12 @@ function BaseDialog({
         onDismiss &&
         event.target instanceof HTMLElement &&
         event.target.closest('[data-dialog-element="container"]') !==
-          containerRef.current &&
-        event.target.closest('[data-dialog-element="overlay"]') ===
-          overlayRef.current
+          containerRef.current
       ) {
         onDismiss();
       }
+
+      event.stopPropagation();
     },
     [onDismiss]
   );
@@ -255,6 +255,21 @@ function BaseDialog({
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
+      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
+        <div
+          className={cx(
+            'sg-dialog-overlay-slot',
+            `sg-dialog-overlay-slot--${slot}`,
+            {
+              'sg-dialog-overlay-slot--hidden':
+                !childrenBySlot[slot] || size === 'fullscreen',
+            }
+          )}
+          key={slot}
+        >
+          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
+        </div>
+      ))}
       <div
         role="dialog"
         ref={containerRef}
@@ -274,21 +289,6 @@ function BaseDialog({
       >
         {childrenWithoutSlots}
       </div>
-      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
-        <div
-          className={cx(
-            'sg-dialog-overlay-slot',
-            `sg-dialog-overlay-slot--${slot}`,
-            {
-              'sg-dialog-overlay-slot--hidden':
-                !childrenBySlot[slot] || size === 'fullscreen',
-            }
-          )}
-          key={slot}
-        >
-          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
-        </div>
-      ))}
     </div>
   );
 }
