@@ -103,6 +103,11 @@ function BaseDialog({
 
     if (open) {
       if (onEntryTransitionEnd) {
+        if (containerRef.current) {
+          containerRef.current.classList.add(
+            'sg-dialog__container--no-transform'
+          );
+        }
         onEntryTransitionEnd();
       }
     } else if (onExitTransitionEnd) {
@@ -125,6 +130,11 @@ function BaseDialog({
      * We need to check this, so we can determine if we should show scrollbars on the Dialog.
      */
     if (open) {
+      if (containerRef.current) {
+        containerRef.current.classList.remove(
+          'sg-dialog__container--no-transform'
+        );
+      }
       // Didn't use optional chaining
       // as it causes ArgsTable and controls to not display correctly
       const dialogHeight =
@@ -164,9 +174,9 @@ function BaseDialog({
           containerRef.current
       ) {
         onDismiss();
-      } else {
-        event.stopPropagation();
       }
+
+      event.stopPropagation();
     },
     [onDismiss]
   );
@@ -278,7 +288,8 @@ function BaseDialog({
             'sg-dialog-overlay-slot',
             `sg-dialog-overlay-slot--${slot}`,
             {
-              'sg-dialog-overlay-slot--hidden': !childrenBySlot[slot],
+              'sg-dialog-overlay-slot--hidden':
+                !childrenBySlot[slot] || size === 'fullscreen',
             }
           )}
           key={slot}
