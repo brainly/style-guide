@@ -84,7 +84,7 @@ const iconMap = {
     'thumb_up_outlined',
     'thumb_up',
     'unbookmark',
-    'user_moderation',
+    'user_block',
     'verified',
   ],
   'Editor and Media': [
