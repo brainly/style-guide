@@ -103,11 +103,6 @@ function BaseDialog({
 
     if (open) {
       if (onEntryTransitionEnd) {
-        if (containerRef.current) {
-          containerRef.current.classList.add(
-            'sg-dialog__container--no-transform'
-          );
-        }
         onEntryTransitionEnd();
       }
     } else if (onExitTransitionEnd) {
@@ -130,11 +125,6 @@ function BaseDialog({
      * We need to check this, so we can determine if we should show scrollbars on the Dialog.
      */
     if (open) {
-      if (containerRef.current) {
-        containerRef.current.classList.remove(
-          'sg-dialog__container--no-transform'
-        );
-      }
       // Didn't use optional chaining
       // as it causes ArgsTable and controls to not display correctly
       const dialogHeight =
@@ -170,8 +160,10 @@ function BaseDialog({
       if (
         onDismiss &&
         event.target instanceof HTMLElement &&
-        event.target.closest('[data-dialog-container="true"]') !==
-          containerRef.current
+        event.target.closest('[data-dialog-element="container"]') !==
+          containerRef.current &&
+        event.target.closest('[data-dialog-element="overlay"]') ===
+          overlayRef.current
       ) {
         onDismiss();
       }
@@ -252,6 +244,7 @@ function BaseDialog({
       onClick={onDismiss ? handleOverlayClick : undefined}
       onKeyUp={handleKeyUp}
       ref={overlayRef}
+      data-dialog-element="overlay"
     >
       {childrenBySlot.backdrop ? (
         <span className="sg-dialog-overlay-slot--backdrop">
@@ -265,7 +258,7 @@ function BaseDialog({
       <div
         role="dialog"
         ref={containerRef}
-        data-dialog-container
+        data-dialog-element="container"
         className={containerClass}
         onTransitionEnd={
           supportsTransitions() ? handleTransitionEnd : undefined
@@ -277,6 +270,7 @@ function BaseDialog({
         aria-description={ariaDescription}
         tabIndex="-1"
         data-testid={dataTestId}
+        data-animating={!hasFinishedTransition}
       >
         {childrenWithoutSlots}
       </div>
