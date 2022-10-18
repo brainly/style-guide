@@ -160,7 +160,7 @@ function BaseDialog({
       if (
         onDismiss &&
         event.target instanceof HTMLElement &&
-        event.target.closest('[data-dialog-element="container"]') !==
+        event.target.closest('[data-dialog-container="true"]') !==
           containerRef.current
       ) {
         onDismiss();
@@ -244,7 +244,6 @@ function BaseDialog({
       onClick={onDismiss ? handleOverlayClick : undefined}
       onKeyUp={handleKeyUp}
       ref={overlayRef}
-      data-dialog-element="overlay"
     >
       {childrenBySlot.backdrop ? (
         <span className="sg-dialog-overlay-slot--backdrop">
@@ -274,7 +273,7 @@ function BaseDialog({
       <div
         role="dialog"
         ref={containerRef}
-        data-dialog-element="container"
+        data-dialog-container
         className={containerClass}
         onTransitionEnd={
           supportsTransitions() ? handleTransitionEnd : undefined
