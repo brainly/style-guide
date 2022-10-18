@@ -12,8 +12,6 @@
   background: $white;
 
   &:focus {
-    @include focus();
-
     z-index: 600;
     position: absolute;
     clip: auto;
