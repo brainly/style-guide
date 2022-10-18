@@ -160,9 +160,12 @@ function BaseDialog({
       if (
         onDismiss &&
         event.target instanceof HTMLElement &&
-        !event.target.closest('[data-dialog-container="true"')
+        event.target.closest('[data-dialog-container="true"]') !==
+          containerRef.current
       ) {
         onDismiss();
+      } else {
+        event.stopPropagation();
       }
     },
     [onDismiss]
