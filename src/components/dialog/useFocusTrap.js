@@ -32,7 +32,6 @@ export function useFocusTrap({
     }
 
     function handleFocusTrap(event: FocusEvent) {
-      console.log(event.target);
       if (
         event.target instanceof Node &&
         dialogElement.contains(event.target)
