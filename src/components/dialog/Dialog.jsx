@@ -160,10 +160,13 @@ function BaseDialog({
       if (
         onDismiss &&
         event.target instanceof HTMLElement &&
-        !event.target.closest('[data-dialog-container="true"')
+        event.target.closest('[data-dialog-container="true"]') !==
+          containerRef.current
       ) {
         onDismiss();
       }
+
+      event.stopPropagation();
     },
     [onDismiss]
   );
@@ -247,10 +250,26 @@ function BaseDialog({
           {childrenBySlot.backdrop}
         </span>
       ) : null}
+      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
+        <div
+          className={cx(
+            'sg-dialog-overlay-slot',
+            `sg-dialog-overlay-slot--${slot}`,
+            {
+              'sg-dialog-overlay-slot--hidden':
+                !childrenBySlot[slot] || size === 'fullscreen',
+            }
+          )}
+          key={slot}
+        >
+          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
+        </div>
+      ))}
       {/* `useFocusTrap` is based on checking whether the new focused
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
+      <div tabIndex="0" />
       <div
         role="dialog"
         ref={containerRef}
@@ -266,23 +285,11 @@ function BaseDialog({
         aria-description={ariaDescription}
         tabIndex="-1"
         data-testid={dataTestId}
+        data-animating={!hasFinishedTransition}
       >
         {childrenWithoutSlots}
       </div>
-      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
-        <div
-          className={cx(
-            'sg-dialog-overlay-slot',
-            `sg-dialog-overlay-slot--${slot}`,
-            {
-              'sg-dialog-overlay-slot--hidden': !childrenBySlot[slot],
-            }
-          )}
-          key={slot}
-        >
-          {childrenBySlot[slot] ? childrenBySlot[slot] : null}
-        </div>
-      ))}
+      <div tabIndex="0" />
     </div>
   );
 }

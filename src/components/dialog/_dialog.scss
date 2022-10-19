@@ -114,8 +114,11 @@ $dialogMaxWidthMap: (
     transition-property: transform, opacity;
     transition-duration: $durationModerate2, $durationQuick2;
     transition-timing-function: $easingExit, $easingLinear;
-    transform: translate3d(0, $dialogSlideWindowDistance, 0);
     opacity: 0;
+
+    &[data-animating='true'] {
+      transform: translate3d(0, $dialogSlideWindowDistance, 0);
+    }
 
     @include sgResponsive(md) {
       border-radius: $borderRadiusDefault;
@@ -124,14 +127,17 @@ $dialogMaxWidthMap: (
 
     &--size-fullscreen {
       transition-duration: $durationGentle2, $durationQuick2;
-      transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
       border-radius: 0;
       box-shadow: none;
       max-width: 100%;
       min-height: 100%;
 
-      @include sgResponsive(md) {
-        transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
+      &[data-animating='true'] {
+        transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
+
+        @include sgResponsive(md) {
+          transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
+        }
       }
     }
 
@@ -142,17 +148,24 @@ $dialogMaxWidthMap: (
 
     &--exiting,
     &--reduce-motion {
-      transform: translate3d(0, 0, 0);
+      &[data-animating='true'] {
+        transform: translate3d(0, 0, 0);
+      }
     }
 
-    @media screen and (prefers-reduced-motion: reduce) {
-      transform: translate3d(0, 0, 0);
+    &[data-animating='true'] {
+      @media screen and (prefers-reduced-motion: reduce) {
+        transform: translate3d(0, 0, 0);
+      }
     }
 
     &--open {
       transition-timing-function: $easingEntry, $easingLinear;
-      transform: translate3d(0, 0, 0);
       opacity: 1;
+
+      &[data-animating='true'] {
+        transform: translate3d(0, 0, 0);
+      }
     }
   }
 
