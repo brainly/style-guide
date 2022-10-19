@@ -8,6 +8,7 @@ const iconMap = {
     'answer',
     'answers',
     'ask_bubble',
+    'block',
     'bulb_checked',
     'bulb',
     'calendar',
