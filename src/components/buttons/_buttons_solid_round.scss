@@ -27,8 +27,7 @@ $includeHtml: false !default;
       text-decoration: none;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
       .sg-button-solid-round__icon,
       .sg-button-solid-round__label {
         box-shadow: $buttonHRoundHoverBoxShadow;
