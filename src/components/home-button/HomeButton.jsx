@@ -63,6 +63,7 @@ const HomeButton = ({
     {
       [`sg-home-button--${type}`]: type !== LOGO_TYPE.BRAINLY,
     },
+    'sg-focus',
     className
   );
   const logoPath = `${getLogoUrl(type)}`;
