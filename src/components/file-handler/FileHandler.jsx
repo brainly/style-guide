@@ -153,7 +153,13 @@ const FileHandler = ({
     );
 
   const interactiveThumbnail = isActionProvided ? (
-    <a {...clickProps} role={role} tabIndex="0" aria-hidden>
+    <a
+      {...clickProps}
+      className="sg-focus"
+      role={role}
+      tabIndex="0"
+      aria-hidden
+    >
       {thumbnail}
     </a>
   ) : (
