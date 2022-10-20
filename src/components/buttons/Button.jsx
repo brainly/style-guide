@@ -357,6 +357,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
       },
+      'sg-focus',
       className
     );
 
