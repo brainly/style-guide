@@ -26,7 +26,11 @@ const ButtonRound = ({
   if (label !== undefined && label !== null && label !== '') {
     labelElem = <span className="sg-button-solid-round__label">{label}</span>;
   }
-  const buttonClass = classnames('sg-button-solid-round', className);
+  const buttonClass = classnames(
+    'sg-button-solid-round',
+    'sg-focus',
+    className
+  );
 
   return (
     <a {...props} href={href} className={buttonClass}>
