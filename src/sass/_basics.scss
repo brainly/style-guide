@@ -40,4 +40,18 @@ $includeHtml: false !default;
       animation: none;
     }
   }
+
+  a:not(.sg-focus) {
+    &:focus-visible {
+      @include focusFallback();
+    }
+
+    &:focus {
+      @include focusFallback();
+    }
+
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
 }

@@ -63,6 +63,7 @@ export type LinkPropsType = {
   target?: TargetType,
   newTabLabel?: string,
   hideNewTabIndicator?: boolean,
+  focusFallback?: boolean,
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
@@ -94,6 +95,7 @@ const Link = (props: LinkPropsType) => {
     onClick,
     newTabLabel = '(opens in a new tab)',
     hideNewTabIndicator = false,
+    focusFallback = false,
     ...additionalProps
   } = props;
   const {current: labelId} = React.useRef(generateId());
@@ -146,9 +148,10 @@ const Link = (props: LinkPropsType) => {
       'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
       'sg-text--link-label': as === 'button',
+      'sg-focus': !focusFallback,
+      'sg-focus-fallback sg-text--link-focusFallback': focusFallback,
     },
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
-    'sg-focus-fallback',
     className
   );
 
