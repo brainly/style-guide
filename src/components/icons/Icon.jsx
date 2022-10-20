@@ -23,6 +23,7 @@ export type IconTypeType =
   | 'attachment'
   | 'bell_checked'
   | 'bell_outlined'
+  | 'block'
   | 'bold'
   | 'bulb_checked'
   | 'bulb'
@@ -189,6 +190,7 @@ export const TYPE: {
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
+  BLOCK: 'block',
   BOLD: 'bold',
   BULB_CHECKED: 'bulb_checked',
   BULB: 'bulb',
@@ -337,6 +339,7 @@ export const TYPE: {
   ATTACHMENT: 'attachment',
   BELL_CHECKED: 'bell_checked',
   BELL_OUTLINED: 'bell_outlined',
+  BLOCK: 'block',
   BOLD: 'bold',
   BULB_CHECKED: 'bulb_checked',
   BULB: 'bulb',
