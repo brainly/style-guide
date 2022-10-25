@@ -5,7 +5,7 @@ import {
   Description,
   ArgsTable,
   PRIMARY_STORY,
-} from '@storybook/addon-docs/blocks';
+} from '@storybook/addon-docs';
 import theme from './theme';
 import hex from '../src/components/colors/hex';
 
