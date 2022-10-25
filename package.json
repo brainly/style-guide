@@ -189,6 +189,7 @@
     "./src/images/*icons.js"
   ],
   "bin": {
-    "sg-codemod": "./bin/codemods/cli.js"
+    "sg-codemod": "./bin/codemods/cli.js",
+    "sg-metrics": "./bin/metrics/cli.js"
   }
 }
