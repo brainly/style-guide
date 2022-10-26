@@ -1,16 +1,7 @@
 import * as React from 'react';
-import {
-  Title,
-  Subtitle,
-  Description,
-  ArgsTable,
-  PRIMARY_STORY,
-} from '@storybook/addon-docs';
 import theme from './theme';
 import hex from '../src/components/colors/hex';
 
-import {Primary} from 'blocks/Primary';
-import {Stories} from 'blocks/Stories';
 import {InfoBox} from 'blocks/InfoBox';
 
 // load all styles
@@ -30,19 +21,6 @@ importAll(require.context('../src/images/subjects-mono', true, /\.svg$/));
 importAll(require.context('../src/images/math-symbols', true, /\.svg$/));
 importAll(require.context('../src/images/mobile-icons', true, /\.svg$/));
 
-const Page = () => {
-  return (
-    <>
-      <Title />
-      <Subtitle />
-      <Description />
-      <Primary />
-      <ArgsTable story={PRIMARY_STORY} />
-      <Stories />
-    </>
-  );
-};
-
 export const parameters = {
   backgrounds: {
     values: [
@@ -53,7 +31,6 @@ export const parameters = {
     ],
   },
   docs: {
-    page: Page,
     theme,
     components: {
       InfoBox,
