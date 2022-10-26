@@ -95,6 +95,7 @@ export type IconTypeType =
   | 'menu'
   | 'messages'
   | 'mic'
+  | 'mic_muted'
   | 'money_transfer'
   | 'more'
   | 'multiselect_checked'
