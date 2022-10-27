@@ -94,12 +94,8 @@ $bodyTextSizeRules: (
       position: relative;
 
       &:focus-within {
-        @include focus();
+        @include applyFocusTextStyle();
       }
-    }
-
-    &--link-focusFallback:focus-within {
-      @include focusFallback();
     }
 
     &--link-disabled {
