@@ -95,6 +95,7 @@ export type IconTypeType =
   | 'menu'
   | 'messages'
   | 'mic'
+  | 'mic_muted'
   | 'money_transfer'
   | 'more'
   | 'multiselect_checked'
@@ -262,6 +263,7 @@ export const TYPE: {
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',
+  MIC_MUTED: 'mic_muted',
   MONEY_TRANSFER: 'money_transfer',
   MORE: 'more',
   MULTISELECT_CHECKED: 'multiselect_checked',
@@ -411,6 +413,7 @@ export const TYPE: {
   MENU: 'menu',
   MESSAGES: 'messages',
   MIC: 'mic',
+  MIC_MUTED: 'mic_muted',
   MONEY_TRANSFER: 'money_transfer',
   MORE: 'more',
   MULTISELECT_CHECKED: 'multiselect_checked',
