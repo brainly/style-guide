@@ -15,6 +15,10 @@ $includeHtml: false !default;
   }
 
   body {
+    --focusColor: #{$blue-50};
+    --focusColorInner: #{$white};
+    --focusColorOuter: rgba(0, 137, 227, 0.3);
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -23,35 +27,11 @@ $includeHtml: false !default;
     line-height: rhythm(1);
   }
 
-  *:not(.sg-focus-fallback) {
-    transition: box-shadow $durationQuick1 $easingExit;
-
-    &:focus-visible {
-      @include focus();
-    }
-
-    &:focus {
-      @include focus();
-    }
-
-    &:focus:not(:focus-visible) {
-      box-shadow: none;
-      outline: none;
-      animation: none;
-    }
+  *:not(a) {
+    @include applyFocus();
   }
 
-  a:not(.sg-focus) {
-    &:focus-visible {
-      @include focusFallback();
-    }
-
-    &:focus {
-      @include focusFallback();
-    }
-
-    &:focus:not(:focus-visible) {
-      outline: none;
-    }
+  a {
+    @include applyFocusText();
   }
 }
