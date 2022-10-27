@@ -128,7 +128,7 @@ $radioCheckedBorderWidth: 5px;
     z-index: 1;
 
     &:focus-visible + .sg-radio__circle, &:focus + .sg-radio__circle {
-      @include focusFallback();
+      @include applyFocusTextStyle();
     }
 
     &:checked + .sg-radio__circle {
