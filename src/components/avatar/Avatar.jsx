@@ -107,7 +107,7 @@ const Avatar = ({
       <a
         href={link}
         aria-label={ariaLinkLabel}
-        className="sg-avatar__wrapper-link sg-focus"
+        className="sg-avatar__wrapper-link"
       >
         {avatarContent}
       </a>
