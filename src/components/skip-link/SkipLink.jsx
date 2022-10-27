@@ -12,7 +12,7 @@ export type SkipLinkPropsType = {
 const SkipLink = ({children, className, id, ...rest}: SkipLinkPropsType) => {
   return (
     <Link
-      className={`sg-skip-link sg-focus ${className ?? ''}`}
+      className={`sg-skip-link ${className ?? ''}`}
       href={`#${id}`}
       {...rest}
     >

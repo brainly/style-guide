@@ -1,4 +1,6 @@
 .sg-skip-link {
+  @include applyFocus();
+  
   user-select: 'none';
   position: absolute;
   clip: rect(0 0 0 0);
