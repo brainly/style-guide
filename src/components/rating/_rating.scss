@@ -104,7 +104,7 @@ $includeHtml: false !default;
       position: absolute;
 
       &:focus-visible + .sg-rate-box__star-icon {
-        @include focus();
+        @include applyFocusStyle();
       }
     }
 
