@@ -1,10 +1,12 @@
+// @flow strict
+
 import * as React from 'react';
 
 import Button from '../../../buttons/Button';
 import useRadioContext from '../useRadioContext.jsx';
 import Radio from '../Radio.jsx';
 
-const RadioGroupResetButton = ({children}) => {
+const RadioGroupResetButton = ({children}: {children: React.Node}) => {
   const {setSelectedValue} = useRadioContext();
 
   return (
@@ -18,7 +20,7 @@ const RadioGroupResetButton = ({children}) => {
   );
 };
 
-const CustomRadioComponent = ({value}) => {
+const CustomRadioComponent = ({value}: {value: string}) => {
   const {selectedValue, setSelectedValue} = useRadioContext();
 
   return (
