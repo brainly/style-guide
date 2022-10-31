@@ -1,0 +1,82 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import PageHeader from 'blocks/PageHeader';
+import Flex from '../../flex/Flex';
+import RadioGroup from './RadioGroup';
+import {
+  RadioGroupResetButton,
+  CustomRadioComponent,
+} from './stories/useRadioContextStories';
+
+<Meta title="Hooks/useRadioContext" />
+
+<PageHeader type="utility">useRadioContext</PageHeader>
+
+`useRadioContext` is a custom hook for retrieving information from within RadioGroup and can be used to manipulate it's state. This may be helpful to read info about currently selected Radio within custom Radio wrapper.
+
+## Import
+
+```jsx
+import {useRadioContext} from 'brainly-style-guide';
+```
+
+## Example usage
+
+In following example, we get info about currently selected radio (`selectedValue`) and use it to apply different styling to custom Radio wrapper. We also use `setSelectedValue` to change currently selected radio. The `setSelectedValue` can be either used to ensure Radio wrapper is clickable, or to manipulate radio group state apart from radio buttons.
+
+```jsx
+const CustomRadioComponent = ({value}) => {
+  const {selectedValue, setSelectedValue} = useRadioContext();
+  return (
+    <div
+      onClick={e => {
+        setSelectedValue(e, value);
+      }}
+      style={{
+        border: '2px solid black',
+        borderColor: value === selectedValue ? 'black' : '#e1eaf1',
+        borderRadius: '8px',
+        padding: '10px 20px',
+        marginBottom: '10px',
+        marginRight: '10px',
+      }}
+    >
+      <Radio value={value}>{value}</Radio>
+    </div>
+  );
+};
+
+const RadioGroupResetButton = ({children}) => {
+  const {setSelectedValue} = useRadioContext();
+  return (
+    <Button
+      onClick={() => {
+        setSelectedValue('1');
+      }}
+    >
+      {children}
+    </Button>
+  );
+};
+
+<Canvas withSource="false">
+  <RadioGroup name="myradiogroup" value="2" direction="row">
+    <Flex direction="column">
+      <CustomRadioComponent value="1" />
+      <CustomRadioComponent value="2" />
+      <CustomRadioComponent value="3" />
+      <RadioGroupResetButton>reset RadioGroup value to 1</RadioGroupResetButton>
+    </Flex>
+  </RadioGroup>
+</Canvas>;
+```
+
+<Canvas withSource="false">
+  <RadioGroup name="myradiogroup" value="2" direction="row">
+    <Flex direction="column">
+      <CustomRadioComponent value="1" />
+      <CustomRadioComponent value="2" />
+      <CustomRadioComponent value="3" />
+      <RadioGroupResetButton>reset RadioGroup value to 1</RadioGroupResetButton>
+    </Flex>
+  </RadioGroup>
+</Canvas>
