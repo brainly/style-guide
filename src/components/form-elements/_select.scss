@@ -9,7 +9,7 @@ $includeHtml: false !default;
 
     &__element {
       @include applyFocusText();
-      
+
       display: inline-block;
       padding: 0 36px 0 spacing(s);
       appearance: none;

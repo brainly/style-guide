@@ -7,7 +7,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .sg-home-button {
     @include component();
-    
+
     @include applyFocus();
 
     @include sgBreakpoint(large-only) {

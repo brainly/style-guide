@@ -17,7 +17,7 @@ $largeButtonSize: componentSize(l);
 
 .sg-button {
   @include applyFocus();
-  
+
   position: relative;
   display: inline-flex;
   justify-content: center;

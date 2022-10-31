@@ -41,7 +41,7 @@ $includeHtml: false !default;
 
     &__wrapper-link {
       @include applyFocus();
-      
+
       border-radius: 50%;
       display: block;
       width: min-content;

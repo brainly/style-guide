@@ -12,7 +12,7 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .sg-button-solid-round {
     @include applyFocus();
-    
+
     display: inline-flex;
     flex-direction: row-reverse;
     align-items: center;
