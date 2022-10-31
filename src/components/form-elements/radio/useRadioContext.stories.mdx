@@ -19,7 +19,35 @@ import {
 import {useRadioContext} from 'brainly-style-guide';
 ```
 
-## Example usage
+## Usage
+
+```jsx
+const {
+  selectedValue,
+  setSelectedValue,
+  lastFocusedValue,
+  setLastFocusedValue,
+  color,
+  disabled,
+  invalid,
+  name,
+} = useRadioContext();
+```
+
+Types:
+
+```jsx
+selectedValue: ?string,
+setSelectedValue: (SyntheticInputEvent<HTMLInputElement>, ?string) => void,
+lastFocusedValue: ?string,
+setLastFocusedValue: (?string) => void,
+color?: 'light' | 'dark',
+disabled?: boolean,
+invalid?: boolean,
+name?: string,
+```
+
+## Example
 
 In following example, we get info about currently selected radio (`selectedValue`) and use it to apply different styling to custom Radio wrapper. We also use `setSelectedValue` to change currently selected radio. The `setSelectedValue` can be either used to ensure Radio wrapper is clickable, or to manipulate radio group state apart from radio buttons.
 
