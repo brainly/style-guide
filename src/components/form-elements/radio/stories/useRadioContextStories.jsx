@@ -11,6 +11,7 @@ const RadioGroupResetButton = ({children}: {children: React.Node}) => {
 
   return (
     <Button
+      variant="solid"
       onClick={e => {
         setSelectedValue(e, '1');
       }}
