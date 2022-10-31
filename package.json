@@ -181,7 +181,8 @@
       ".jsx?$": "babel-jest"
     },
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src",
+      "<rootDir>/bin"
     ]
   },
   "sideEffects": [

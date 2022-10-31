@@ -1,0 +1,22 @@
+{
+  "commitId": "dsad32182u910yu328901",
+  "date": "Tue Sep 13 13:03:58 2022 +0200",
+  "project": "brainly-frontend",
+  "name": "Button",
+  "occurences": [
+    {
+      "path": "src/pages/Page1.jsx",
+      "atrributes": {
+        "variant": {"type": "variable", "value": "variant"},
+        "size": {"type": "literal", "value": "m"}
+      }
+    },
+    {
+      "path": "src/pages/Page1.jsx",
+      "atrributes": {
+        "role": {"type": "literal", "value": "link"},
+        "size": {"type": "literal", "value": "xl"}
+      }
+    }
+  ]
+}
