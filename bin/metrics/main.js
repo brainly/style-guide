@@ -72,7 +72,13 @@ function getComponentOccurences() {
           if (item.value.name.name === importName) {
             const occurence = {
               attributes: item.value.attributes.reduce((acc, next) => {
-                if (next.value.type === 'Literal') {
+                if (next.type !== jsc.JSXAttribute.name) {
+                  return acc;
+                }
+
+                if (next.value === null) {
+                  acc[next.name.name] = true;
+                } else if (next.value.type === 'Literal') {
                   acc[next.name.name] = next.value.value;
                 }
 

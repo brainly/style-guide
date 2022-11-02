@@ -1,9 +1,6 @@
 import {main} from './main';
 import {Lambda} from 'aws-sdk';
 
-const fakeCommitID = '9999f664';
-const fakeCommitDate = 1666868271000;
-
 jest.mock('aws-sdk', () => {
   return {
     Lambda: jest.fn(() => {
@@ -60,13 +57,13 @@ jest.mock('glob', () => {
 
 describe('metrics cli', () => {
   it('creates report file', () => {
-    main(fakeCommitID, fakeCommitDate);
+    main('9999f664', 1666868271000);
 
     expect(Lambda.mock.results[0].value.invoke).toHaveBeenCalledWith({
       FunctionName: 'post_styleguide_metrics_lambda',
       Payload: JSON.stringify({
         styleguideVersion: '220.0.0',
-        commitID: fakeCommitID,
+        commitID: '9999f664',
         components: [
           {
             name: 'Button',
