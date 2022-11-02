@@ -115,7 +115,6 @@ const Radio = ({
   const {current: radioId} = React.useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
-  const [wasInteractedWith, setWasInteractedWith] = React.useState(false);
 
   const radioGroupContext = useRadioContext();
   const isWithinRadioGroup =
@@ -154,9 +153,6 @@ const Radio = ({
     'sg-radio--with-padding': !isInputOnly,
   });
 
-  const circleClass = classNames('sg-radio__circle', {
-    'sg-radio__circle--with-animation': wasInteractedWith,
-  });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
@@ -174,10 +170,7 @@ const Radio = ({
 
   return (
     <div className={radioClass} style={style}>
-      <div
-        className="sg-radio__wrapper"
-        onClick={() => setWasInteractedWith(true)}
-      >
+      <div className="sg-radio__wrapper">
         <div className="sg-radio__element">
           <input
             {...props}
@@ -195,7 +188,7 @@ const Radio = ({
             aria-invalid={isInvalid ? true : undefined}
           />
           <span
-            className={circleClass}
+            className="sg-radio__circle"
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"

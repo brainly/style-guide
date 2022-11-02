@@ -33,39 +33,6 @@ $radioCheckedBorderWidth: 5px;
     padding: $radioPadding 0;
   }
 
-  @mixin radioCheckedAnimation($fromBackgroundColor, $toBackgroundColor) {
-    @keyframes radioCheckedFadeOut {
-      0% {
-        width: $radioSize;
-        height: $radioSize;
-        --radioBorderWidth: #{$radioUncheckedBorderWidth};
-      }
-
-      99% {
-        --radioBorderWidth: #{$radioUncheckedBorderWidth};
-      }
-
-      100% {
-        width: calc($radioSize / 2);
-        height: calc($radioSize / 2);
-        --radioBorderWidth: #{$radioCheckedBorderWidth};
-      }
-    }
-    @keyframes radioCheckedFadeIn {
-      0% {
-        width: calc($radioSize / 2);
-        height: calc($radioSize / 2);
-      }
-
-      100% {
-        width: $radioSize;
-        height: $radioSize;
-      }
-    }
-
-    animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
-  }
-
   &__wrapper {
     display: flex;
 
@@ -139,13 +106,7 @@ $radioCheckedBorderWidth: 5px;
     &:checked + .sg-radio__circle {
       --radioBorderWidth: #{$radioCheckedBorderWidth};
       --radioRingColor: var(--radioColor);
-
-      &--with-animation {
-        @include radioCheckedAnimation(
-          transparent,
-          var(--radioCheckedBorderWidth)
-        );
-      }
+      animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
 
       @media (forced-colors: active) {
         border: var(--radioBorderWidth) solid FieldText;
@@ -226,6 +187,35 @@ $radioCheckedBorderWidth: 5px;
       .sg-radio__wrapper .sg-radio__circle {
         border-color: GrayText;
       }
+    }
+  }
+
+  @keyframes radioCheckedFadeOut {
+    0% {
+      width: $radioSize;
+      height: $radioSize;
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    99% {
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    100% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+    }
+  }
+  @keyframes radioCheckedFadeIn {
+    0% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+    }
+
+    100% {
+      width: $radioSize;
+      height: $radioSize;
     }
   }
 }
