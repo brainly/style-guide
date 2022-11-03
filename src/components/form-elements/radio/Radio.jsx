@@ -116,6 +116,15 @@ const Radio = ({
     id === undefined || id === '' ? generateRandomString() : id
   );
 
+  // We need to check this to turn on animations only when component has rendered
+  const didTheFirstRender = React.useRef(false);
+
+  React.useEffect(() => {
+    if (didTheFirstRender.current === false) {
+      didTheFirstRender.current = true;
+    }
+  }, []);
+
   const radioGroupContext = useRadioContext();
   const isWithinRadioGroup =
     radioGroupContext && Object.keys(radioGroupContext).length;
@@ -188,7 +197,9 @@ const Radio = ({
             aria-invalid={isInvalid ? true : undefined}
           />
           <span
-            className="sg-radio__circle"
+            className={`sg-radio__circle ${
+              didTheFirstRender ? 'sg-radio__circle--with-animation' : ''
+            }`}
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"

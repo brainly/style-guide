@@ -106,7 +106,10 @@ $radioCheckedBorderWidth: 5px;
     &:checked + .sg-radio__circle {
       --radioBorderWidth: #{$radioCheckedBorderWidth};
       --radioRingColor: var(--radioColor);
-      animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
+
+      &--with-animation {
+        animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
+      }
 
       @media (forced-colors: active) {
         border: var(--radioBorderWidth) solid FieldText;
