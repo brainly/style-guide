@@ -34,17 +34,19 @@ const {
 } = useRadioContext();
 ```
 
-Types:
+Context type:
 
-```jsx
-selectedValue: ?string,
-setSelectedValue: (SyntheticEvent<>, ?string) => void,
-lastFocusedValue: ?string,
-setLastFocusedValue: (?string) => void,
-color?: 'light' | 'dark',
-disabled?: boolean,
-invalid?: boolean,
-name?: string,
+```tsx
+type RadioContextType = {
+  selectedValue: ?string,
+  setSelectedValue: (SyntheticEvent<>, ?string) => void,
+  lastFocusedValue: ?string,
+  setLastFocusedValue: (?string) => void,
+  color?: 'light' | 'dark',
+  disabled?: boolean,
+  invalid?: boolean,
+  name?: string,
+};
 ```
 
 ## Example
