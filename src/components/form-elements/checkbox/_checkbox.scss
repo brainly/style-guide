@@ -5,7 +5,6 @@ $checkboxClickableArea: 32px;
 .sg-checkbox {
   --checkboxColor: #{$black};
   --checkboxHoverColor: #{$gray-60};
-  --checkboxOutlineColor: #{$blue-40};
   --checkboxIconFillColor: #{$white};
   --checkboxLabelColor: #{$text-black};
   --checkboxCheckedColor: #{$black};
@@ -21,7 +20,6 @@ $checkboxClickableArea: 32px;
   &--light {
     --checkboxColor: #{$white};
     --checkboxHoverColor: #{$gray-40};
-    --checkboxOutlineColor: #{$blue-40};
     --checkboxIconFillColor: #{$black};
     --checkboxLabelColor: #{$text-white};
     --checkboxCheckedColor: #{$white};
