@@ -1,7 +1,7 @@
 const getBlockBackgroundStyle = theme => {
   return {
     borderRadius: theme.appBorderRadius,
-    background: '#ff0000',
+    background: theme.background.content,
     boxShadow:
       theme.base === 'light'
         ? 'rgba(0, 0, 0, 0.10) 0 1px 3px 0'
