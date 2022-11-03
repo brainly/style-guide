@@ -16,8 +16,8 @@ $includeHtml: false !default;
 
   body {
     --focusColor: #{$indigo-40};
-    --focusColorInner: #{$white};
-    --focusColorOuter: rgba(109, 131, 243, 0.3);
+    --focusInnerColor: #{$white};
+    --focusOuterColor: rgba(109, 131, 243, 0.3);
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

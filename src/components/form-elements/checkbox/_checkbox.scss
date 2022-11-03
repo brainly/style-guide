@@ -26,7 +26,7 @@ $checkboxClickableArea: 32px;
     --checkboxInvalidColor: #{$red-40};
     --checkboxInvalidHoverColor: #{$red-50};
     --checkboxInvalidIconFillColor: #{$white};
-    --focusColorInner: #{$black};
+    --focusInnerColor: #{$black};
   }
 
   &--with-padding {

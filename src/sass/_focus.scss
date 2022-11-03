@@ -1,6 +1,6 @@
 @mixin applyFocusStyle() {
-  box-shadow: 0px 0px 0px 2px var(--focusColorInner),
-    0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusColorOuter);
+  box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
+    0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
   outline: none;
   animation: focusShadow1 $durationQuick2 $easingEntry,
     focusShadow2 $durationQuick2 $easingEntry calc($durationQuick2 / 2),
@@ -15,34 +15,34 @@
 
 @keyframes focusShadow1 {
   0% {
-    box-shadow: 0px 0px 0px 0px var(--focusColorInner);
+    box-shadow: 0px 0px 0px 0px var(--focusInnerColor);
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusColorInner);
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor);
   }
 }
 
 @keyframes focusShadow2 {
   0% {
-    box-shadow: 0px 0px 0px 1.8px var(--focusColorInner);
+    box-shadow: 0px 0px 0px 1.8px var(--focusInnerColor);
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusColorInner),
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 4px var(--focusColor);
   }
 }
 
 @keyframes focusShadow3 {
   0% {
-    box-shadow: 0px 0px 0px 2px var(--focusColorInner),
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
       0px 0px 0px 3.8px var(--focusColor);
   }
 
   100% {
-    box-shadow: 0px 0px 0px 2px var(--focusColorInner),
-      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusColorOuter);
+    box-shadow: 0px 0px 0px 2px var(--focusInnerColor),
+      0px 0px 0px 4px var(--focusColor), 0px 0px 0px 6px var(--focusOuterColor);
   }
 }
 

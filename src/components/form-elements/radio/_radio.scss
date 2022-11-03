@@ -25,7 +25,7 @@ $radioCheckedBorderWidth: 5px;
     --radioInvalidHoverColor: #{$red-50};
     --radioLabelColor: #{$text-white};
     --radioDescriptionColor: #{$text-white};
-    --focusColorInner: #{$black};
+    --focusInnerColor: #{$black};
   }
 
   &--with-padding {
