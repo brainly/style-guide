@@ -8,7 +8,7 @@ $includeHtml: false !default;
     margin: 0;
 
     &__element {
-      @include applyFocusText();
+      @include applyFocus();
 
       display: inline-block;
       padding: 0 36px 0 spacing(s);
@@ -30,8 +30,6 @@ $includeHtml: false !default;
       &:active,
       &:focus-visible {
         border-color: $gray-20;
-        box-shadow: none;
-        animation: none;
       }
     }
 
