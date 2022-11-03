@@ -26,6 +26,7 @@ $checkboxClickableArea: 32px;
     --checkboxInvalidColor: #{$red-40};
     --checkboxInvalidHoverColor: #{$red-50};
     --checkboxInvalidIconFillColor: #{$white};
+    --focusColorInner: #{$black};
   }
 
   &--with-padding {
@@ -179,7 +180,9 @@ $checkboxClickableArea: 32px;
       &:focus-visible,
       &:focus {
         & + .sg-checkbox__icon {
-          @include applyFocusTextStyle();
+          @include applyFocusStyle();
+
+          border-color: var(--checkboxHoverColor);
         }
 
         &[aria-invalid] + .sg-checkbox__icon {
@@ -269,6 +272,7 @@ $checkboxClickableArea: 32px;
     animation-timing-function: $easingExit, $easingEntry;
     animation-delay: $durationInstant, $durationQuick1;
     animation-direction: normal, normal;
+    transition: box-shadow $durationQuick1 $easingExit;
 
     // Add animation only when user is interacting with component
     &--with-animation {

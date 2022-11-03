@@ -25,6 +25,7 @@ $radioCheckedBorderWidth: 5px;
     --radioInvalidHoverColor: #{$red-50};
     --radioLabelColor: #{$text-white};
     --radioDescriptionColor: #{$text-white};
+    --focusColorInner: #{$black};
   }
 
   &--with-padding {
@@ -127,7 +128,9 @@ $radioCheckedBorderWidth: 5px;
 
     &:focus-visible + .sg-radio__circle,
     &:focus + .sg-radio__circle {
-      @include applyFocusTextStyle();
+      &::before {
+        @include applyFocusStyle();
+      }
     }
 
     &:checked + .sg-radio__circle {
@@ -183,6 +186,16 @@ $radioCheckedBorderWidth: 5px;
 
     @media (forced-colors: active) {
       border: $radioUncheckedBorderWidth solid FieldText;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
     }
   }
 
