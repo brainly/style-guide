@@ -1,6 +1,13 @@
 // @flow strict
 
 import * as React from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  // eslint-disable-next-line import/no-duplicates
+} from 'react';
 import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
@@ -112,26 +119,16 @@ const Radio = ({
   'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioPropsType) => {
-  const {current: radioId} = React.useRef(
+  const {current: radioId} = useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
-
-  // We need to check this to turn on animations only when component has rendered
-  const didTheFirstRender = React.useRef(false);
-
-  React.useEffect(() => {
-    if (didTheFirstRender.current === false) {
-      didTheFirstRender.current = true;
-    }
-  }, []);
-
+  const [shouldAnimate, setShouldAnimate] = useState(false); // We need this flag to turn on animations only when component has rendered and the checked state was changed
+  const [prevChecked, setPrevChecked] = useState();
+  const didTheFirstRender = useRef(false);
   const radioGroupContext = useRadioContext();
-  const isWithinRadioGroup =
-    radioGroupContext && Object.keys(radioGroupContext).length;
-
-  const isDisabled =
-    disabled !== undefined ? disabled : radioGroupContext.disabled;
-  const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
+  const isWithinRadioGroup = Boolean(
+    radioGroupContext && Object.keys(radioGroupContext).length
+  );
   const isControlled = checked !== undefined || isWithinRadioGroup;
   let isChecked = undefined;
 
@@ -143,17 +140,37 @@ const Radio = ({
         : radioGroupContext.selectedValue &&
           radioGroupContext.selectedValue === value;
   }
-  const labelId = ariaLabelledBy || `${radioId}-label`;
 
-  const descriptionId = React.useMemo(() => {
+  useEffect(() => {
+    if (isControlled && prevChecked !== isChecked) {
+      setPrevChecked(isChecked);
+    }
+  }, [isControlled, prevChecked, isChecked]);
+
+  useEffect(() => {
+    // Do not set shouldAnimate in the first render
+    if (didTheFirstRender.current === false) {
+      didTheFirstRender.current = true;
+      return;
+    }
+
+    // If radio is controlled and animation was not yet set and checked state has changed
+    if (isControlled && !shouldAnimate && prevChecked !== isChecked) {
+      setShouldAnimate(true);
+    }
+  }, [isControlled, didTheFirstRender, prevChecked, isChecked, shouldAnimate]);
+
+  const colorName = radioGroupContext.color || color;
+  const isDisabled =
+    disabled !== undefined ? disabled : radioGroupContext.disabled;
+  const hasLabel = children !== undefined && children !== null;
+  const isInputOnly = !hasLabel && !description;
+  const descriptionId = useMemo(() => {
     if (ariaDescribedBy) return ariaDescribedBy;
     if (description) return `${radioId}-description`;
     return null;
   }, [radioId, ariaDescribedBy, description]);
 
-  const colorName = radioGroupContext.color || color;
-  const hasLabel = children !== undefined && children !== null;
-  const isInputOnly = !hasLabel && !description;
   const radioClass = classNames('sg-radio', className, {
     [`sg-radio--${String(colorName)}`]: colorName,
     'sg-radio--disabled': isDisabled,
@@ -167,6 +184,9 @@ const Radio = ({
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
 
+  const labelId = ariaLabelledBy || `${radioId}-label`;
+  const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
+
   const onInputChange = e => {
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
@@ -174,6 +194,11 @@ const Radio = ({
     }
     if (onChange) {
       onChange(e);
+    }
+
+    // If this component is not controlled and animation was not yet set, add animation
+    if (!isControlled && !shouldAnimate) {
+      setShouldAnimate(true);
     }
   };
 
@@ -198,7 +223,7 @@ const Radio = ({
           />
           <span
             className={`sg-radio__circle ${
-              didTheFirstRender ? 'sg-radio__circle--with-animation' : ''
+              shouldAnimate ? 'sg-radio__circle--with-animation' : ''
             }`}
             // This element is purely decorative so
             // we hide it for screen readers
