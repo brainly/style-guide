@@ -1,0 +1,66 @@
+import {Meta, Story} from '@storybook/addon-docs/blocks';
+import Box from '../../components/box/Box';
+import Text from '../../components/text/Text';
+import Button from '../../components/buttons/Button';
+import PageHeader from 'blocks/PageHeader';
+
+export const Row = props => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: '50px',
+    }}
+  >
+    {props.children}
+  </div>
+);
+
+<Meta title="Foundation ✨/Focus" />
+
+<PageHeader type="foundation">Focus</PageHeader>
+
+Focus style is a visual indicators used to style elements, that have been focused by the user, either by "tabbing" using the keyboard or by clicking. Focus style helps people identify interactive elements.
+
+## Focus style
+
+Most of our components use multi-color focus style.
+
+<Row>
+  <Text size="small">
+    <Text weight="bold">Interactive</Text>
+    <Button>Button</Button>
+  </Text>
+  <Text size="small">
+    <Text weight="bold">Focused</Text>
+  </Text>
+  <Button>Button</Button>
+</Row>
+
+### Mixins
+
+## Focus text style
+
+In some cases, default focus style cannot be applied. For inline, multi-line components focus text style shoould used.
+
+<Row>
+  <Text size="small">
+    <Text weight="bold">Interactive</Text>
+    <Link>Link</Link>
+  </Text>
+  <Text size="small">
+    <Text weight="bold">Focused</Text>
+  </Text>
+  <Link>Link</Link>
+</Row>
+
+### Mixins
+
+## Tokens
+
+| Css variable name | Explanation                         | Value                      |
+| ----------------- | ----------------------------------- | -------------------------- |
+| --focusColor      | Main focus ring color               | indigo-40                  |
+| --focusInnerColor | Color between border and focus ring | white                      |
+| --focusOuterColor | Glow color of focus ring            | indigo-40 with 0.3 opacity |
