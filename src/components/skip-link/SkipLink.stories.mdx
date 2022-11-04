@@ -3,16 +3,14 @@ import {within, screen, userEvent} from '@storybook/testing-library';
 
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 export const play = async ({canvasElement}) => {
   const canvas = within(canvasElement);
   const link = canvas.getByRole('link', {
     name: /skip to main content/i,
   });
-  await sleep(300);
+  link.style.animation = 'none';
+  link.focus();
 };
 
 <Meta title="Components/SkipLink" component={SkipLink} />
