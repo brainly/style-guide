@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import {within, screen, userEvent} from '@storybook/testing-library';
-
+import {within} from '@storybook/testing-library';
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 
@@ -9,7 +8,9 @@ export const play = async ({canvasElement}) => {
   const link = canvas.getByRole('link', {
     name: /skip to main content/i,
   });
-  link.style.animation = 'none';
+  if (process.env.STORYBOOK_ENV === 'chromatic') {
+    link.style.animation = 'none';
+  }
   link.focus();
 };
 
