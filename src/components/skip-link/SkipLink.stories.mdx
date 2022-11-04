@@ -9,7 +9,6 @@ export const play = async ({canvasElement}) => {
   const link = canvas.getByRole('link', {
     name: /skip to main content/i,
   });
-  link.style.animation = 'none';
   link.focus();
 };
 
