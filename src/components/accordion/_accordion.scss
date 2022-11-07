@@ -22,12 +22,6 @@
     &__button {
       cursor: pointer;
 
-      &--focused {
-        &:focus:not(:focus-visible) {
-          outline: none;
-        }
-      }
-
       &:hover,
       &:active {
         text-decoration: underline;

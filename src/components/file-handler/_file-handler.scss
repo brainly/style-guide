@@ -40,6 +40,10 @@
     margin-left: 6px;
   }
 
+  &__link {
+    @include applyFocus();
+  }
+
   &--white {
     background-color: $white;
   }

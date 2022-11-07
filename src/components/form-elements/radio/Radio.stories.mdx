@@ -311,7 +311,9 @@ To use custom theme for `Radio`, you can to override following css variables:
 | --radioInvalidHoverColor | Ring color on mouse hover (invalid, checked or unchecked) |
 | --radioLabelColor        | Label color                                               |
 | --radioDescriptionColor  | Description color                                         |
-| --radioOutlineColor      | Outline color (appears on focus)                          |
+| --focusColor             | Focus ring color (appears on focus)                       |
+| --focusInnerColor        | Color between border and focus ring (appears on focus)    |
+| --focusOuterColor        | Glow color of focus ring (appears on focus)               |
 
 There are two ways of achieving custom theming:
 
@@ -331,7 +333,7 @@ There are two ways of achieving custom theming:
   --radioHoverColor: #c98600;
   --radioInvalidColor: #cf1d00;
   --radioInvalidHoverColor: #ff341a;
-  --radioOutlineColor: #c98600;
+  --focusColor: #c98600;
 }
 ```
 
@@ -348,7 +350,9 @@ In the following example, className `sg-radio--custom-theme` was applied to all 
           --radioHoverColor: #c98600;
           --radioInvalidColor: #cf1d00;
           --radioInvalidHoverColor: #ff341a;
-          --radioOutlineColor: #c98600;
+          --focusOuterColor: rgba(251, 190, 46, 0.3);
+          --focusOuterColor: rgba(201, 134, 0, 0.3);
+          --focusColor: #c98600;
         }
       `;
       return (

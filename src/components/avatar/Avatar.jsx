@@ -60,13 +60,17 @@ const Avatar = ({
     {
       [`sg-avatar--${size}`]: size !== SIZE.S,
       'sg-avatar--with-border': border,
-      'sg-avatar--spaced': spaced,
     },
     className
   );
 
   const isImgSrcDefined =
     imgSrc !== undefined && imgSrc !== null && imgSrc !== '';
+
+  const imageClass = classNames('sg-avatar__image', {
+    'sg-avatar--spaced': spaced,
+    'sg-avatar__image--icon': !isImgSrcDefined,
+  });
 
   if (__DEV__) {
     invariant(
@@ -83,9 +87,9 @@ const Avatar = ({
   const avatarContent = (
     <div {...props} className={avatarClass}>
       {isImgSrcDefined ? (
-        <img className="sg-avatar__image" src={imgSrc} alt={alt} />
+        <img className={imageClass} src={imgSrc} alt={alt} />
       ) : (
-        <div className="sg-avatar__image sg-avatar__image--icon">
+        <div className={imageClass}>
           <Icon
             className="sg-avatar__icon"
             type="profile"

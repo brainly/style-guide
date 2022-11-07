@@ -59,7 +59,7 @@ test('border', () => {
 test('spaced', () => {
   const avatar = shallow(<Avatar spaced />);
 
-  expect(avatar.hasClass('sg-avatar--spaced')).toEqual(true);
+  expect(avatar.childAt(0).hasClass('sg-avatar--spaced')).toEqual(true);
 });
 
 test('link', () => {

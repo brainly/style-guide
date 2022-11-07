@@ -72,6 +72,11 @@
     &:hover {
       background-color: $gray-20;
     }
+
+    &:focus,
+    &:focus-visible {
+      outline-offset: -8px;
+    }
   }
 
   &__icon {
