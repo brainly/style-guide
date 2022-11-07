@@ -10,7 +10,7 @@ import PageHeader from 'blocks/PageHeader';
 
 <PageHeader type="foundation">Focus</PageHeader>
 
-Focus style is a visual indicators used to style elements, that have been focused by the user, either by "tabbing" using the keyboard or by clicking. Focus style helps people identify interactive elements.
+A focus style is a visual indicator used to style elements that have been activated by the user, either by "tabbing" with the keyboard or by clicking with a pointing device. Focus style helps people identify interactive elements.
 We use #6d83f3 (Indigo 400) as the main focus color.
 
 ## Focus style
@@ -31,7 +31,7 @@ Most of our components and interactive elements use a multi-color focus style. I
     <Button
       style={{
         boxShadow:
-          '0px 0px 0px 2px white, 0px 0px 0px 4px #6d83f3, 0px 0px 0px 6px rgba(109, 131, 243, 0.3)',
+          '0px 0px 0px 2px white, 0px 0px 0px 4px var(--indigo-40), 0px 0px 0px 6px rgba(109, 131, 243, 0.3)',
       }}
     >
       Button
@@ -50,7 +50,7 @@ By default, the focus style is applied to almost all interactive elements (besid
 
 ## Focus text style
 
-In some cases, default focus style cannot be applied. For inline, multi-line elements a focus text style should used. By default, the focus text style is used by `<a>` and `<Link>`. It is based on the browser focus style.
+Under the hood, the default focus style provided by the style guide ([the focus style](#focus-style)) uses a box shadow, which may not always be used. For inline, multi-line elements you can use the focus text style, based on browser native focus style (with outline). By default, the focus text style is used by `<a>` and `<Link>`.
 
 <Flex fullWidth margin="m">
   <Flex fullWidth direction="column" alignItems="flex-start">
@@ -68,7 +68,7 @@ In some cases, default focus style cannot be applied. For inline, multi-line ele
         outlineWidth: '2px',
         outlineOffset: '4px',
         outlineStyle: 'auto',
-        outlineColor: '#6d83f3',
+        outlineColor: 'var(--indigo-40)',
       }}
       href="#"
     >
