@@ -1,65 +1,94 @@
 import {Meta, Story} from '@storybook/addon-docs/blocks';
 import Box from '../../components/box/Box';
 import Text from '../../components/text/Text';
+import Link from '../../components/text/Link';
 import Button from '../../components/buttons/Button';
+import Flex from '../../components/flex/Flex';
 import PageHeader from 'blocks/PageHeader';
-
-export const Row = props => (
-  <div
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      marginBottom: '50px',
-    }}
-  >
-    {props.children}
-  </div>
-);
 
 <Meta title="Foundation ✨/Focus" />
 
 <PageHeader type="foundation">Focus</PageHeader>
 
 Focus style is a visual indicators used to style elements, that have been focused by the user, either by "tabbing" using the keyboard or by clicking. Focus style helps people identify interactive elements.
+We use #6d83f3 (Indigo 400) as the main focus color.
 
 ## Focus style
 
-Most of our components use multi-color focus style.
+Most of our components and interactive elements use a multi-color focus style. It is adjusted both for white and black backgrounds, and is ready for [Success Criterion 2.4.11: Focus Appearance (WCAG 2.2)](https://w3c.github.io/wcag/guidelines/22/#focus-appearance).
 
-<Row>
-  <Text size="small">
-    <Text weight="bold">Interactive</Text>
+<Flex fullWidth margin="m">
+  <Flex fullWidth direction="column" alignItems="flex-start">
+    <Text weight="bold" style={{marginBottom: '8px'}}>
+      Interactive
+    </Text>
     <Button>Button</Button>
-  </Text>
-  <Text size="small">
-    <Text weight="bold">Focused</Text>
-  </Text>
-  <Button>Button</Button>
-</Row>
+  </Flex>
+  <Flex fullWidth direction="column" alignItems="flex-start">
+    <Text weight="bold" style={{marginBottom: '8px'}}>
+      Focused
+    </Text>
+    <Button
+      style={{
+        boxShadow:
+          '0px 0px 0px 2px white, 0px 0px 0px 4px #6d83f3, 0px 0px 0px 6px rgba(109, 131, 243, 0.3)',
+      }}
+    >
+      Button
+    </Button>
+  </Flex>
+</Flex>
 
 ### Mixins
+
+By default, the focus style is applied to almost all interactive elements (besides `<a>` and `<Link>`). For more complex cases (such as `:focus-within`), mixins can be used.
+
+| Mixin name      | Description                                                     |
+| --------------- | --------------------------------------------------------------- |
+| applyFocusStyle | The main focus style                                            |
+| applyFocus      | The main focus style and css logic when focus should be visible |
 
 ## Focus text style
 
-In some cases, default focus style cannot be applied. For inline, multi-line components focus text style shoould used.
+In some cases, default focus style cannot be applied. For inline, multi-line elements a focus text style should used. By default, the focus text style is used by `<a>` and `<Link>`. It is based on the browser focus style.
 
-<Row>
-  <Text size="small">
-    <Text weight="bold">Interactive</Text>
-    <Link>Link</Link>
-  </Text>
-  <Text size="small">
-    <Text weight="bold">Focused</Text>
-  </Text>
-  <Link>Link</Link>
-</Row>
+<Flex fullWidth margin="m">
+  <Flex fullWidth direction="column" alignItems="flex-start">
+    <Text weight="bold" style={{marginBottom: '8px'}}>
+      Interactive
+    </Text>
+    <Link href="#">Link</Link>
+  </Flex>
+  <Flex fullWidth direction="column" alignItems="flex-start">
+    <Text weight="bold" style={{marginBottom: '8px'}}>
+      Focused
+    </Text>
+    <Link
+      style={{
+        outlineWidth: '2px',
+        outlineOffset: '4px',
+        outlineStyle: 'auto',
+        outlineColor: '#6d83f3',
+      }}
+      href="#"
+    >
+      Link
+    </Link>
+  </Flex>
+</Flex>
 
 ### Mixins
 
+| Mixin name          | Description                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------- |
+| applyFocusTextStyle | Focus style for inline, multi-line components                                            |
+| applyFocusText      | Focus style for inline, multi-line components and css logic when focus should be visible |
+
 ## Tokens
 
-| Css variable name | Explanation                         | Value                      |
+To use custom focus style, you can override following css variables:
+
+| Css variable name | Description                         | Default value              |
 | ----------------- | ----------------------------------- | -------------------------- |
 | --focusColor      | Main focus ring color               | indigo-40                  |
 | --focusInnerColor | Color between border and focus ring | white                      |
