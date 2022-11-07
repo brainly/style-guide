@@ -3,23 +3,125 @@ const glob = require('glob');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const tsxParser = require('jscodeshift/parser/tsx');
-const {Lambda} = require('aws-sdk');
+const {
+  DynamoDBClient,
+  TransactWriteItemsCommand,
+  PutItemCommand,
+  BatchWriteItemCommand,
+} = require('@aws-sdk/client-dynamodb');
+const {marshall} = require('@aws-sdk/util-dynamodb');
 
-const lambda = new Lambda();
+// const lambda = new Lambda();
 
-exports.main = function (commitID, commitDate) {
-  lambda
-    .invoke({
-      FunctionName: 'post_styleguide_metrics_lambda',
-      Payload: JSON.stringify({
-        styleguideVersion: getVersion(),
-        commitID,
-        components: getComponentOccurences(),
-        commitDate: new Date(commitDate).toISOString(),
+exports.main = async function (commitID, commitDate) {
+  // lambda
+  //   .invoke({
+  //     FunctionName: 'post_styleguide_metrics_lambda',
+  //     Payload: JSON.stringify({
+  //       styleguideVersion: getVersion(),
+  //       commitID,
+  //       jsxElements: getComponentOccurences(),
+  //       commitDate: new Date(commitDate).toISOString(),
+  //       project: getProject(),
+  //     }),
+  //   })
+  //   .promise();
+
+  const client = new DynamoDBClient({
+    endpoint: 'http://localhost:8000',
+  });
+  /** for each 25 items
+  /* - put ComponentInstance item
+  /* - update Commit item - increment count for specific ComponentInstance
+  **/
+
+  const components = getComponents();
+  const commitWriteCommandInputs = [];
+  const writeItemInputs = [];
+  const componentStatsData = [];
+
+  components.forEach(c => {
+    const componentStatInput = componentStatsData.find(
+      csInput => csInput.component === c.name
+    );
+
+    if (!componentStatInput) {
+      componentStatsData.push({
+        component: c.name,
+        id: commitID,
+        date: commitDate,
         project: getProject(),
-      }),
-    })
-    .promise();
+        styleguideVersion: getVersion(),
+        pk: `CINST#${c.name}#${commitDate}`,
+        sk: `CINST#${c.location}`,
+        count: 1,
+      });
+    } else {
+      componentStatInput.count += 1;
+    }
+  });
+
+  components.forEach(c => {
+    writeItemInputs.push({
+      PutRequest: {
+        Item: marshall({
+          ...c,
+          pk: `CINST#${c.name}#${commitDate}`,
+          sk: `CINST#${c.location}`,
+        }),
+      },
+    });
+  });
+
+  componentStatsData.forEach(csInput => {
+    writeItemInputs.push({
+      PutRequest: {
+        Item: marshall(csInput),
+      },
+    });
+  });
+
+  let writeItemInputIndex = 0;
+  const batchWriteItemInputs = [];
+
+  while (writeItemInputIndex < writeItemInputs.length - 1) {
+    const batchWriteItemsInput = {
+      StyleGuideMetrics: {
+        RequestItems: [],
+      },
+    };
+
+    for (
+      let i = 0, max = 24;
+      i <= max && writeItemInputIndex <= writeItemInputs.length - 1;
+      i++, writeItemInputIndex++
+    ) {
+      const component = components[writeItemInputIndex];
+      console.log('i:', i, ', max:', max);
+      console.log(
+        'componentsIndex',
+        writeItemInputIndex,
+        ', components.length:',
+        components.length - 1
+      );
+
+      batchWriteItemsInput.StyleGuideMetrics.RequestItems.push(
+        writeItemInputs[writeItemInputIndex]
+      );
+    }
+
+    batchWriteItemInputs.push(batchWriteItemsInput);
+  }
+
+  const commands = [
+    ...batchWriteItemInputs.map(i => new BatchWriteItemCommand(i)),
+  ];
+
+  console.log(JSON.stringify(commands));
+
+  // commands.forEach(async c => {
+  //   await client.send(c);
+  // });
 };
 
 function getProject() {
@@ -38,8 +140,8 @@ function getVersion() {
   );
 }
 
-function getComponentOccurences() {
-  const components = [];
+function getComponents() {
+  const elements = [];
   const filePaths = glob.sync('**/*.{js,ts}x', {
     ignore: 'node_modules/**',
     cwd: process.cwd(),
@@ -70,8 +172,10 @@ function getComponentOccurences() {
       sgImports.forEach(importName => {
         ast.find(jsc.JSXOpeningElement).forEach(item => {
           if (item.value.name.name === importName) {
-            const occurence = {
-              attributes: item.value.attributes.reduce((acc, next) => {
+            const jsxElementInfo = {
+              location: `${path}#${item.value.loc.start.line}:${item.value.loc.start.column}`,
+              name: importName,
+              props: item.value.attributes.reduce((acc, next) => {
                 if (next.type !== jsc.JSXAttribute.name) {
                   return acc;
                 }
@@ -84,26 +188,14 @@ function getComponentOccurences() {
 
                 return acc;
               }, {}),
-              path,
             };
 
-            const componentOccurenceObject = components.find(
-              i => i.name === importName
-            );
-
-            if (!componentOccurenceObject) {
-              components.push({
-                name: importName,
-                occurences: [occurence],
-              });
-            } else {
-              componentOccurenceObject.occurences.push(occurence);
-            }
+            elements.push(jsxElementInfo);
           }
         });
       });
     }
   });
 
-  return components;
+  return elements;
 }

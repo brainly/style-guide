@@ -78,6 +78,90 @@ export const SMSFormContainer = ({startMobiltekTransaction}: PropsType) => {
         <Button fullWidth variant="solid-indigo">
           {purchaseText}
         </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
+        <Button fullWidth variant="solid-indigo">
+          {purchaseText}
+        </Button>
       </Flex>
     </form>
   );
