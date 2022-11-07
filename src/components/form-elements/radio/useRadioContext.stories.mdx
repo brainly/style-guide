@@ -2,10 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import PageHeader from 'blocks/PageHeader';
 import Flex from '../../flex/Flex';
 import RadioGroup from './RadioGroup';
-import {
-  RadioGroupResetButton,
-  CustomRadioComponent,
-} from './stories/useRadioContextStories';
+import {CustomRadioComponent} from './stories/useRadioContextStories';
 
 <Meta title="Hooks/useRadioContext" />
 
@@ -53,60 +50,145 @@ type RadioContextType = {
 
 In following example, we get info about currently selected radio (`selectedValue`) and use it to apply different styling to custom Radio wrapper. We also use `setSelectedValue` to change currently selected radio. The `setSelectedValue` can be either used to ensure Radio wrapper is clickable, or to manipulate radio group state apart from radio buttons.
 
+<Canvas>
+  <RadioGroup
+    name="myradiogroup"
+    value="plus"
+    direction="row"
+    style={{width: '100%'}}
+  >
+    <CustomRadioComponent
+      value="plus"
+      type="plus"
+      benefits={{
+        title: 'Learn at your own pace',
+        items: [
+          'Millions of expert-verified answers, without ads',
+          'Textbook solutions written by experts',
+          'Full access to instant math solver',
+        ],
+      }}
+    />
+    <CustomRadioComponent
+      value="tutor"
+      type="tutor"
+      benefits={{
+        title: 'Get instant, verified answers from pros',
+        items: [
+          'Instant answers for math & science from pros',
+          'Saved verified answers that you can review later',
+        ],
+      }}
+    />
+  </RadioGroup>
+</Canvas>
+
+`CustomRadioComponent` code:
+
 ```jsx
-const CustomRadioComponent = ({value}) => {
-  const {selectedValue, setSelectedValue} = useRadioContext();
+type WrapperType = 'plus' | 'tutor';
+type BenefitsType = {
+  title: string,
+  items: Array<string>,
+};
+const LOGO: {
+  plus: 'brainly-plus',
+  tutor: 'brainly-tutoring',
+} = {
+  plus: 'brainly-plus',
+  tutor: 'brainly-tutoring',
+};
+
+const CustomRadioComponent = ({
+  value,
+  type,
+  benefits,
+}: {
+  value: string,
+  type: WrapperType,
+  benefits: BenefitsType,
+}) => {
+  const {selectedValue, setSelectedValue, lastFocusedValue} = useRadioContext();
+  const labelId = `label-${value}`;
+  const descriptionId = `description-${value}`;
+
+  const {title, items} = benefits;
+
+  const Benefit = ({item}: {item: string}) => {
+    return (
+      <Flex marginBottom="8px" htmlTag="li">
+        <Flex alignItems="center" justifyContent="center">
+          <Icon
+            type="check"
+            color="icon-gray-70"
+            size={16}
+            style={{marginRight: '8px'}}
+          />
+          <Text size="medium">{item}</Text>
+        </Flex>
+      </Flex>
+    );
+  };
+  const borderColor =
+    lastFocusedValue === value
+      ? 'var(--blue-40)'
+      : value === selectedValue
+      ? 'var(--black)'
+      : 'var(--gray-30)';
+
   return (
     <div
       onClick={e => {
         setSelectedValue(e, value);
       }}
       style={{
+        width: '50%',
+        position: 'relative',
         border: '2px solid black',
-        borderColor: value === selectedValue ? 'black' : '#e1eaf1',
+        borderColor,
         borderRadius: '8px',
-        padding: '10px 20px',
-        marginBottom: '10px',
+        padding: '24px',
         marginRight: '10px',
       }}
     >
-      <Radio value={value}>{value}</Radio>
+      <Radio
+        value={value}
+        ariaLabelledBy={labelId}
+        ariaDescribedBy={descriptionId}
+        style={{
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          '--radioColor':
+            value === selectedValue ? 'var(--black)' : 'var(--gray-30)',
+        }}
+      />
+      <Flex alignItems="center">
+        <Logo type={LOGO[type]} style={{width: '42px', height: 'auto'}} />
+        <Text
+          id={labelId}
+          type="label"
+          weight="bold"
+          transform="capitalize"
+          style={{marginLeft: '8px'}}
+        >
+          Brainly {value}
+        </Text>
+      </Flex>
+      <Flex
+        htmlTag="ul"
+        direction="column"
+        alignItems="flex-start"
+        style={{padding: '0'}}
+      >
+        <Headline align="to-left" extraBold style={{marginBottom: '16px'}}>
+          {title}
+        </Headline>
+        {[...items].map((item, index) => (
+          <Benefit key={index} item={item} />
+        ))}
+      </Flex>
     </div>
   );
 };
-
-const RadioGroupResetButton = ({children}) => {
-  const {setSelectedValue} = useRadioContext();
-  return (
-    <Button
-      onClick={() => {
-        setSelectedValue('1');
-      }}
-    >
-      {children}
-    </Button>
-  );
-};
-
-<Canvas withSource="false">
-  <RadioGroup name="myradiogroup" value="2" direction="row">
-    <Flex direction="column">
-      <CustomRadioComponent value="1" />
-      <CustomRadioComponent value="2" />
-      <CustomRadioComponent value="3" />
-      <RadioGroupResetButton>reset RadioGroup value to 1</RadioGroupResetButton>
-    </Flex>
-  </RadioGroup>
-</Canvas>;
 ```
-
-<Canvas withSource="false">
-  <RadioGroup name="myradiogroup" value="2" direction="row">
-    <Flex direction="column">
-      <CustomRadioComponent value="1" />
-      <CustomRadioComponent value="2" />
-      <CustomRadioComponent value="3" />
-      <RadioGroupResetButton>reset RadioGroup value to 1</RadioGroupResetButton>
-    </Flex>
-  </RadioGroup>
-</Canvas>
