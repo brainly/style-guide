@@ -11,6 +11,19 @@ import ErrorMessage from '../ErrorMessage';
 
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
+type StyleType = $Shape<
+  CSSStyleDeclaration & {
+    '--checkboxColor'?: string,
+    '--checkboxHoverColor'?: string,
+    '--checkboxIconFillColor'?: string,
+    '--checkboxLabelColor'?: string,
+    '--checkboxCheckedColor'?: string,
+    '--checkboxInvalidColor'?: string,
+    '--checkboxInvalidHoverColor'?: string,
+    '--checkboxInvalidIconFillColor'?: string,
+    ...
+  }
+>;
 
 export type CheckboxPropsType = {
   /**
@@ -90,7 +103,7 @@ export type CheckboxPropsType = {
    * Style applied to the container.
    * @example <Checkbox style={{ '--checkboxColor': '#000' }} />
    */
-  style?: $Shape<CSSStyleDeclaration>,
+  style?: StyleType,
   /**
    * Sets whether the checkbox input is marked as required. This doesn't affect checkbox style.
    * @example <Checkbox required />

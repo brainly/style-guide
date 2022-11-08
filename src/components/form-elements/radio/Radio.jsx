@@ -15,6 +15,19 @@ import useRadioContext from './useRadioContext';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
+type StyleType = $Shape<
+  CSSStyleDeclaration & {
+    '--radioColor'?: string,
+    '--radioHoverColor'?: string,
+    '--radioInvalidColor'?: string,
+    '--radioInvalidHoverColor'?: string,
+    '--radioLabelColor'?: string,
+    '--radioDescriptionColor'?: string,
+    '--radioBorderWidth'?: string,
+    '--radioRingColor'?: string,
+    ...
+  }
+>;
 
 export type RadioPropsType = {
   /**
@@ -81,7 +94,7 @@ export type RadioPropsType = {
    * Style applied to the container.
    * @example <Radio style={{ '--radioColor': '#000' }} />
    */
-  style?: $Shape<CSSStyleDeclaration>,
+  style?: StyleType,
   /**
    * Value of the radio input.
    * @example <Radio value="1" />
