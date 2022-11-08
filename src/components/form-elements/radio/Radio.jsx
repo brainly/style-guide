@@ -1,5 +1,6 @@
 // @flow strict
 
+// eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
 import {
   useEffect,
