@@ -167,7 +167,7 @@ module.exports = {
             '@babel/plugin-proposal-class-properties',
             'react-hot-loader/babel',
             '@babel/plugin-syntax-dynamic-import',
-            ['babel-plugin-emotion', {sourceMap: true, autoLabel: true}],
+            ['@emotion', {sourceMap: true, autoLabel: 'dev-only'}],
             'babel-plugin-macros',
             'babel-plugin-add-react-displayname',
             [
