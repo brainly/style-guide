@@ -163,7 +163,7 @@ const Link = (props: LinkPropsType) => {
           {children}
         </span>
         <button
-          className="sg-visually-hidden"
+          className="sg-visually-hidden sg-text--link-button"
           onClick={onClick}
           disabled={disabled}
           type="button"
