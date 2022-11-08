@@ -153,7 +153,13 @@ const FileHandler = ({
     );
 
   const interactiveThumbnail = isActionProvided ? (
-    <a {...clickProps} role={role} tabIndex="0" aria-hidden>
+    <a
+      {...clickProps}
+      role={role}
+      tabIndex="0"
+      aria-hidden
+      className="sg-file-handler__link"
+    >
       {thumbnail}
     </a>
   ) : (
@@ -177,7 +183,13 @@ const FileHandler = ({
           {!loading && (statusLabel?.uploaded || 'uploaded')}
         </span>
         {isActionProvided ? (
-          <Link {...clickProps} size="small" color="text-black" as={asLink}>
+          <Link
+            {...clickProps}
+            size="small"
+            color="text-black"
+            as={asLink}
+            className="sg-file-handler__link"
+          >
             {children}
           </Link>
         ) : (
