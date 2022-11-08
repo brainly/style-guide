@@ -42,7 +42,7 @@ const CustomRadioComponent = ({
 
   const Benefit = ({item}: {item: string}) => {
     return (
-      <Flex marginBottom="8px" htmlTag="li">
+      <Flex marginBottom="m" htmlTag="li">
         <Flex alignItems="center" justifyContent="center">
           <Icon
             type="check"
