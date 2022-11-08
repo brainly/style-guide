@@ -109,6 +109,8 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
 
 ### With group of custom wrappers
 
+For more complex use case see [useRadioContext documentation](/docs/hooks-useradiocontext--page#example)
+
 <Canvas>
   <Story name="With group of custom wrappers" height="500px">
     {args => {
@@ -118,7 +120,6 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
         alignItems = 'flex-start',
       }) => {
         const {selectedValue} = useRadioContext();
-        console.log('selectedValue', typeof selectedValue, selectedValue);
         return (
           <label
             id={`myRadioID-${value}`}
