@@ -2,30 +2,36 @@ const path = require('path');
 const fs = require('fs-extra');
 
 function buildNewsletterPages() {
-  console.log('----------------------------generating newsletter pages');
+  console.log('--- generating newsletter pages ---');
 
-  const newsletterApril = fs.readFileSync(
-    'newsletter/2022-April-v213.3.0.mdx',
-    'utf8'
-  );
+  fs.readdirSync('newsletter/').forEach(function (file) {
+    const filePath = `newsletter/${file}`;
+    console.log('path', filePath);
 
-  const newsletterFileDest = path.resolve(
-    'src/docs/stories/newsletters',
-    'april.stories.mdx'
-  );
+    // Omit assets
+    if (file.match(/\.mdx$/)) {
+      const newsletterPage = fs.readFileSync(filePath, 'utf8');
+      const destFileName = file.replace('.mdx', '.stories.mdx');
+      const pageName = file.replace('.mdx', '').split('-').join(' ');
+      const newsletterFileDest = path.resolve(
+        'src/docs/stories/newsletters',
+        destFileName
+      );
 
-  const fileContent = `
+      const fileContent = `
 import {Meta, Story, Canvas} from '@storybook/addon-docs';
 import PageHeader from 'blocks/PageHeader';
 
-<Meta title="Newsletter/April2022" />
+<Meta title="Newsletter/${pageName}" />
 
-<PageHeader type="foundation">Newsletter April 2022</PageHeader>
+<PageHeader type="foundation">Newsletter ${pageName}</PageHeader>
 
-${newsletterApril}
+${newsletterPage}
 `;
 
-  fs.writeFile(newsletterFileDest, fileContent);
+      fs.writeFile(newsletterFileDest, fileContent);
+    }
+  });
 }
 
 module.exports = function buildStories() {
