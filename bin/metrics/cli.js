@@ -1,7 +1,6 @@
 const {main} = require('./main');
-const yargs = require('yargs');
 
-const commitID = yargs.argv._[0];
-const commitDate = yargs.argv._[1];
+const commitID = process.argv[2];
+const commitDate = parseInt(process.argv[3], 10);
 
 main(commitID, commitDate);
