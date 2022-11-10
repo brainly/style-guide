@@ -160,7 +160,7 @@
     "prepublishOnly": "yarn package-prepare",
     "storybook": "start-storybook -p 6006",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "node ./scripts/build-stories.js && build-storybook",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
     "prettier-check": "prettier --check src",
     "prettier-fix": "prettier --write src",

@@ -8,7 +8,6 @@ const revHash = require('rev-hash');
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
-const buildStories = require('./buildStories');
 
 process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
@@ -29,12 +28,10 @@ async function findStories() {
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
 module.exports = {
-  stories: () => {
-    buildStories();
-    return process.env.STORYBOOK_ENV === 'chromatic'
+  stories:
+    process.env.STORYBOOK_ENV === 'chromatic'
       ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
-      : findStories();
-  },
+      : findStories(),
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',

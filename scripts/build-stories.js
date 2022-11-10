@@ -19,6 +19,11 @@ function buildNewsletterPages() {
   const destPath = 'src/docs/stories/newsletters';
   const assetsDestPath = '.storybook/public/newsletter-assets';
 
+  if (!fs.pathExistsSync(destPath)) {
+    console.log('--- Creating newsletter directory ---');
+    fs.mkdirSync(destPath);
+  }
+
   fs.readdirSync('newsletter/').forEach(function (file) {
     const filePath = `newsletter/${file}`;
 
@@ -30,7 +35,7 @@ function buildNewsletterPages() {
       const newsletterFileDest = path.resolve(destPath, destFileName);
       const fileContent = getNewsletterStoryPage(pageName, newsletterPage);
 
-      fs.writeFile(newsletterFileDest, fileContent);
+      fs.writeFileSync(newsletterFileDest, fileContent);
     } else {
       // copy newsletter assets folder
       fs.copySync(filePath, assetsDestPath, {
@@ -40,6 +45,8 @@ function buildNewsletterPages() {
   });
 }
 
-module.exports = function buildStories() {
+function buildStories() {
   buildNewsletterPages();
-};
+}
+
+buildStories();
