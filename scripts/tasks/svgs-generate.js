@@ -18,6 +18,7 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
 
     if (childNodes[i].nodeName === 'title') {
       symbol.removeChild(childNodes[i]);
+      i--;
     }
   }
 
