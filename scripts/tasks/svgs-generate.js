@@ -15,7 +15,12 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
         childNodes[i].removeAttribute('fill');
       }
     }
+
+    if (childNodes[i].nodeName === 'title') {
+      symbol.removeChild(childNodes[i]);
+    }
   }
+
   callback(null);
 }
 
