@@ -8,7 +8,7 @@ import PageHeader from 'blocks/PageHeader';
 
 <Meta title="Newsletter/${pageName}" />
 
-<PageHeader type="foundation">Newsletter ${pageName}</PageHeader>
+<PageHeader type="newsletter">Newsletter ${pageName}</PageHeader>
 
 ${newsletterPage}
 `;
