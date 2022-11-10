@@ -27,3 +27,6 @@ temp
 
 # Generated newsletter stories
 /src/docs/stories/newsletters
+
+# Generated newsletter stories
+/.storybook/public/newsletter-assets

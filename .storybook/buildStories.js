@@ -1,24 +1,8 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-function buildNewsletterPages() {
-  console.log('--- generating newsletter pages ---');
-
-  fs.readdirSync('newsletter/').forEach(function (file) {
-    const filePath = `newsletter/${file}`;
-    console.log('path', filePath);
-
-    // Omit assets
-    if (file.match(/\.mdx$/)) {
-      const newsletterPage = fs.readFileSync(filePath, 'utf8');
-      const destFileName = file.replace('.mdx', '.stories.mdx');
-      const pageName = file.replace('.mdx', '').split('-').join(' ');
-      const newsletterFileDest = path.resolve(
-        'src/docs/stories/newsletters',
-        destFileName
-      );
-
-      const fileContent = `
+function getNewsletterStoryPage(pageName, newsletterPage) {
+  return `
 import {Meta, Story, Canvas} from '@storybook/addon-docs';
 import PageHeader from 'blocks/PageHeader';
 
@@ -28,8 +12,30 @@ import PageHeader from 'blocks/PageHeader';
 
 ${newsletterPage}
 `;
+}
+
+function buildNewsletterPages() {
+  console.log('--- Generating newsletter pages ---');
+  const destPath = 'src/docs/stories/newsletters';
+  const assetsDestPath = '.storybook/public/newsletter-assets';
+
+  fs.readdirSync('newsletter/').forEach(function (file) {
+    const filePath = `newsletter/${file}`;
+
+    // Omit assets
+    if (file.match(/\.mdx$/)) {
+      const newsletterPage = fs.readFileSync(filePath, 'utf8');
+      const destFileName = file.replace('.mdx', '.stories.mdx');
+      const pageName = file.replace('.mdx', '').split('-').join(' ');
+      const newsletterFileDest = path.resolve(destPath, destFileName);
+      const fileContent = getNewsletterStoryPage(pageName, newsletterPage);
 
       fs.writeFile(newsletterFileDest, fileContent);
+    } else {
+      // copy newsletter assets folder
+      fs.copySync(filePath, assetsDestPath, {
+        overwrite: true,
+      });
     }
   });
 }
