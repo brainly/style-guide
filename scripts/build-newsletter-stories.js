@@ -14,13 +14,13 @@ ${newsletterPage}
 `;
 }
 
-function buildNewsletterPages() {
+function buildNewsletterStories() {
   console.log('--- Generating newsletter pages ---');
   const destPath = 'src/docs/stories/newsletters';
   const assetsDestPath = '.storybook/public/newsletter-assets';
 
   if (!fs.pathExistsSync(destPath)) {
-    console.log('--- Creating newsletter directory ---');
+    console.log('    creating newsletter directory');
     fs.mkdirSync(destPath);
   }
 
@@ -45,8 +45,8 @@ function buildNewsletterPages() {
   });
 }
 
-function buildStories() {
-  buildNewsletterPages();
+try {
+  buildNewsletterStories();
+} catch (err) {
+  console.error('Creating newsletter pages failed:', err);
 }
-
-buildStories();
