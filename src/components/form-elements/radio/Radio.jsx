@@ -3,9 +3,7 @@
 // eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
 import {
-  useEffect,
   useRef,
-  useState,
   useMemo,
   // eslint-disable-next-line import/no-duplicates
 } from 'react';
@@ -13,6 +11,7 @@ import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
+import useIsFirstRender from '../../utils/useIsFirstRender';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
@@ -136,14 +135,13 @@ const Radio = ({
   const {current: radioId} = useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
-  const [shouldAnimate, setShouldAnimate] = useState(false); // We need this flag to turn on animations only when component has rendered and the checked state was changed
-  const [prevChecked, setPrevChecked] = useState();
-  const didTheFirstRender = useRef(false);
   const radioGroupContext = useRadioContext();
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
   const isControlled = checked !== undefined || isWithinRadioGroup;
+  const isFirstRender = useIsFirstRender();
+  const shouldAnimate = !isControlled || !isFirstRender; // Apply radio animation only when component is uncontrolled (it means it's unchecked) or it's already after first render
   let isChecked = undefined;
 
   if (isControlled) {
@@ -154,25 +152,6 @@ const Radio = ({
         : radioGroupContext.selectedValue &&
           radioGroupContext.selectedValue === value;
   }
-
-  useEffect(() => {
-    if (isControlled && prevChecked !== isChecked) {
-      setPrevChecked(isChecked);
-    }
-  }, [isControlled, prevChecked, isChecked]);
-
-  useEffect(() => {
-    // Do not set shouldAnimate in the first render
-    if (didTheFirstRender.current === false) {
-      didTheFirstRender.current = true;
-      return;
-    }
-
-    // If radio is controlled and animation was not yet set and checked state has changed
-    if (isControlled && !shouldAnimate && prevChecked !== isChecked) {
-      setShouldAnimate(true);
-    }
-  }, [isControlled, didTheFirstRender, prevChecked, isChecked, shouldAnimate]);
 
   const colorName = radioGroupContext.color || color;
   const isDisabled =
@@ -208,11 +187,6 @@ const Radio = ({
     }
     if (onChange) {
       onChange(e);
-    }
-
-    // If this component is not controlled and animation was not yet set, add animation
-    if (!isControlled && !shouldAnimate) {
-      setShouldAnimate(true);
     }
   };
 
