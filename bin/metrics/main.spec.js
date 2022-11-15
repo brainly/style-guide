@@ -1,16 +1,12 @@
 import {main} from './main';
-import {Lambda} from 'aws-sdk';
+import {Lambda} from '@aws-sdk/client-lambda';
 
-jest.mock('aws-sdk', () => {
+jest.mock('@aws-sdk/client-lambda', () => {
   return {
     Lambda: jest.fn(() => {
       return {
         invoke: jest.fn(() => {
-          return {
-            promise() {
-              return Promise.resolve();
-            },
-          };
+          return Promise.resolve();
         }),
       };
     }),
@@ -56,7 +52,7 @@ jest.mock('glob', () => {
 });
 
 describe('metrics cli', () => {
-  it('creates report file', () => {
+  it('creates report file', async () => {
     main('9999f664', 1666868271000);
 
     expect(Lambda.mock.results[0].value.invoke).toHaveBeenCalledWith({
@@ -66,22 +62,19 @@ describe('metrics cli', () => {
         commitID: '9999f664',
         components: [
           {
+            location: 'src/pages/Page1.jsx#5:4',
             name: 'Button',
-            occurences: [
-              {
-                attributes: {
-                  size: 'm',
-                },
-                path: 'src/pages/Page1.jsx',
-              },
-              {
-                attributes: {
-                  role: 'link',
-                  size: 'xl',
-                },
-                path: 'src/pages/Page1.jsx',
-              },
-            ],
+            props: {
+              size: 'm',
+            },
+          },
+          {
+            location: 'src/pages/Page1.jsx#8:4',
+            name: 'Button',
+            props: {
+              role: 'link',
+              size: 'xl',
+            },
           },
         ],
         commitDate: '2022-10-27T10:57:51.000Z',
