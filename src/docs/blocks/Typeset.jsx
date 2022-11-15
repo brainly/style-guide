@@ -7,8 +7,8 @@ import * as React from 'react';
 import {styled} from '@storybook/theming';
 import {transparentize} from 'polished';
 
-import {withReset} from '@storybook/components/dist/esm/typography/shared';
-import {getBlockBackgroundStyle} from '@storybook/components/dist/esm/blocks/BlockBackgroundStyles';
+import {Div} from '@storybook/components';
+import {getBlockBackgroundStyle} from './utils';
 
 export const Label = styled.div<{}>(({theme}) => ({
   marginRight: 16,
@@ -34,7 +34,7 @@ export const TypeSpecimen = styled.div({
   '&:not(:last-child)': {marginBottom: '1rem'},
 });
 
-const Wrapper = styled.div<{}>(withReset, ({theme}) => ({
+const Wrapper = styled(Div)(({theme}) => ({
   ...getBlockBackgroundStyle(theme),
   margin: '25px 0 40px',
   padding: '30px 20px',

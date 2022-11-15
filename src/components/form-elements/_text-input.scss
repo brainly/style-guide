@@ -3,6 +3,8 @@ $includeHtml: false !default;
 @if ($includeHtml) {
   .sg-input {
     @include component();
+    @include applyFocus();
+
     background: $formElementDefaultBackgroundColor;
     border: 2px solid $formElementDefaultBackgroundColor;
     border-radius: $formElementStandardBorderRadius;

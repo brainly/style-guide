@@ -15,11 +15,23 @@ $includeHtml: false !default;
   }
 
   body {
+    --focusColor: #{$indigo-40};
+    --focusInnerColor: #{$white};
+    --focusOuterColor: rgba(109, 131, 243, 0.3);
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
     font-size: fontSize(default);
     font-family: $fontFamilyPrimary;
     line-height: rhythm(1);
+  }
+
+  *:not(a) {
+    @include applyFocus();
+  }
+
+  a {
+    @include applyFocusText();
   }
 }

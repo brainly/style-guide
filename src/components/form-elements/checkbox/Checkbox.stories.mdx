@@ -341,23 +341,25 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
 
 ### With custom theme
 
-To use custom theme for `Checkbox`, you can override following css variables:
+To use custom theme for `Checkbox`, you can override following CSS variables:
 
 | Css variable name              | Explanation                                                                                          |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | --checkboxColor                | Checkbox border color (valid, unchecked)                                                             |
 | --checkboxHoverColor           | Checkbox color on mouse hover, applied to both border and background (valid, checked or unchecked)   |
-| --checkboxOutlineColor         | Outline color (appears on focus)                                                                     |
 | --checkboxIconFillColor        | Checkbox icon fill (valid, checked or indeterminate)                                                 |
 | --checkboxLabelColor           | Label color                                                                                          |
 | --checkboxCheckedColor         | Checkbox border and background color (valid, checked)                                                |
 | --checkboxInvalidColor         | Checkbox border and background color (invalid, checked or unchecked)                                 |
 | --checkboxInvalidHoverColor    | Checkbox color on mouse hover, applied to both border and background (invalid, checked or unchecked) |
 | --checkboxInvalidIconFillColor | Checkbox icon fill (invalid, checked)                                                                |
+| --focusColor                   | Focus ring color (appears on focus)                                                                  |
+| --focusInnerColor              | Color between border and focus ring (appears on focus)                                               |
+| --focusOuterColor              | Glow color of focus ring (appears on focus)                                                          |
 
 There are two ways of achieving custom theming:
 
-1. Change css variables for particular `Checkbox` by defining them inline in the `style` attribute. Example:
+1. Change CSS variables for particular `Checkbox` by defining them inline in the `style` attribute. Example:
 
 ```jsx
 <Checkbox checked style={{'--checkboxCheckedColor': 'green'}}>
@@ -365,13 +367,13 @@ There are two ways of achieving custom theming:
 </Checkbox>
 ```
 
-2. Or, you can use `className` and define variables replacements in your css file. Example:
+2. Or, you can use `className` and define variables replacements in your CSS file. Example:
 
 ```css
 .sg-checkbox--custom-theme {
   --checkboxColor: #fbbe2e;
   --checkboxHoverColor: #c98600;
-  --checkboxOutlineColor: #c98600;
+  --focusColor: #c98600;
   --checkboxCheckedColor: #fbbe2e;
   --checkboxInvalidColor: #cf1d00;
   --checkboxInvalidHoverColor: #ff341a;
@@ -392,10 +394,11 @@ In the following example, className `sg-checkbox--custom-theme` was applied to a
         .sg-checkbox--custom-theme {
           --checkboxColor: #fbbe2e;
           --checkboxHoverColor: #c98600;
-          --checkboxOutlineColor: #c98600;
           --checkboxCheckedColor: #fbbe2e;
           --checkboxInvalidColor: #cf1d00;
           --checkboxInvalidHoverColor: #ff341a;
+          --focusOuterColor: rgba(201, 134, 0, 0.3);
+          --focusColor: #c98600;
         }
       `;
       return (
