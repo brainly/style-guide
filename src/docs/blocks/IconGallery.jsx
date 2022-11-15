@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {styled} from '@storybook/theming';
-import {ResetWrapper} from '@storybook/components/dist/esm/typography/DocumentFormatting';
+import {Div} from '@storybook/components';
 
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
@@ -35,7 +35,7 @@ const Item = styled.div({
   margin: '0 10px 30px 0',
 });
 
-const List = styled.div({
+const List = styled(Div)({
   display: 'flex',
   flexFlow: 'row wrap',
 });
@@ -58,9 +58,7 @@ interface IconGalleryProps {
 }
 
 export const IconGallery = ({children, ...props}: IconGalleryProps) => (
-  <ResetWrapper>
-    <List {...props} className="docblock-icongallery">
-      {children}
-    </List>
-  </ResetWrapper>
+  <List {...props} className="docblock-icongallery">
+    {children}
+  </List>
 );

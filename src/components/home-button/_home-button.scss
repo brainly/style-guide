@@ -8,6 +8,8 @@ $includeHtml: false !default;
   .sg-home-button {
     @include component();
 
+    @include applyFocus();
+
     @include sgBreakpoint(large-only) {
       top: 2px;
     }

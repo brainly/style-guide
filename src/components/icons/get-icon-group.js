@@ -120,6 +120,7 @@ const iconMap = {
     'keyboard',
     'line',
     'mic',
+    'mic_muted',
     'numbered_list',
     'pause',
     'pencil',

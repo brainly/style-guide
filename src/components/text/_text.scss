@@ -94,9 +94,12 @@ $bodyTextSizeRules: (
       position: relative;
 
       &:focus-within {
-        outline: 5px auto Highlight;
-        outline: 5px auto -webkit-focus-ring-color;
+        @include applyFocusTextStyle();
       }
+    }
+
+    &--link-button {
+      right: 0px;
     }
 
     &--link-disabled {
