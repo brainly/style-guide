@@ -1,6 +1,8 @@
-import * as Rating from './Rating.stories.jsx';
+import * as Rating from './Rating.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Rating);
 
-export default Rating.default;
+const {includeStories, ...meta} = Rating.default;
+
+export default meta;
