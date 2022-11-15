@@ -1,6 +1,8 @@
-import * as Textarea from './Textarea.stories.jsx';
+import * as Textarea from './Textarea.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Textarea);
 
-export default Textarea.default;
+const {includeStories, ...meta} = Textarea.default;
+
+export default meta;
