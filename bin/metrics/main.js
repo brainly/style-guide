@@ -14,7 +14,7 @@ const lambda = new Lambda({
 exports.main = async function (commitID, commitDate) {
   lambda
     .invoke({
-      FunctionName: 'post_styleguide_metrics_lambda',
+      FunctionName: 'styleguide_metrics_post_components_lambda',
       Payload: JSON.stringify({
         styleguideVersion: getVersion(),
         commitID,
