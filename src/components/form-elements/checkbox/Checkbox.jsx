@@ -1,13 +1,13 @@
 // @flow strict
 
 import * as React from 'react';
-import cx from 'classnames';
-
+import classNames from 'classnames';
 import generateRandomString from '../../../js/generateRandomString';
 import {__DEV__, invariant} from '../../utils';
 import Text from '../../text/Text';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
+import useIsFirstRender from '../../utils/useIsFirstRender';
 
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
@@ -151,9 +151,10 @@ const Checkbox = ({
   const [isChecked, setIsChecked] = React.useState(
     isControlled ? checked : defaultChecked
   );
-  const [shouldIconAnimate, setShouldIconAnimate] = React.useState(false);
-  const [wasInteractedWith, setWasInteractedWith] = React.useState(false);
   const inputRef = React.useRef(null);
+  const iconRef = React.useRef(null);
+  const isFirstRender = useIsFirstRender();
+  const shouldAnimate = !isFirstRender; // Apply checkbox animation when it's already after first render
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
@@ -163,12 +164,6 @@ const Checkbox = ({
     if (isControlled) setIsChecked(checked);
   }, [checked, isControlled]);
 
-  React.useEffect(() => {
-    requestAnimationFrame(() => {
-      setShouldIconAnimate(isChecked || indeterminate);
-    });
-  }, [isChecked, indeterminate]);
-
   const onInputChange = React.useCallback(
     e => {
       if (!isControlled) setIsChecked(val => !val);
@@ -177,26 +172,6 @@ const Checkbox = ({
     },
     [onChange, isControlled]
   );
-
-  const hasContent = description || (invalid && errorMessage);
-  const hasLabel = children !== undefined && children !== null;
-  const isInputOnly = !hasLabel && !hasContent;
-
-  const checkboxClass = cx('sg-checkbox', className, {
-    'sg-checkbox--disabled': disabled,
-    [`sg-checkbox--${String(color)}`]: color,
-    [`sg-checkbox--with-padding`]: !isInputOnly,
-  });
-
-  const labelClass = cx('sg-checkbox__label', {
-    'sg-checkbox__label--with-padding-bottom': description || errorMessage,
-    [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
-  });
-
-  const iconClass = cx('sg-checkbox__icon', {
-    'sg-checkbox__icon--animate': wasInteractedWith && shouldIconAnimate,
-    'sg-checkbox__icon--with-animation': wasInteractedWith,
-  });
 
   if (__DEV__) {
     invariant(
@@ -208,6 +183,25 @@ const Checkbox = ({
       `Using 'errorMessage' property should be used along with 'children' property (label).`
     );
   }
+
+  const hasContent = description || (invalid && errorMessage);
+  const hasLabel = children !== undefined && children !== null;
+  const isInputOnly = !hasLabel && !hasContent;
+
+  const checkboxClass = classNames('sg-checkbox', className, {
+    'sg-checkbox--disabled': disabled,
+    [`sg-checkbox--${String(color)}`]: color,
+    [`sg-checkbox--with-padding`]: !isInputOnly,
+  });
+
+  const labelClass = classNames('sg-checkbox__label', {
+    'sg-checkbox__label--with-padding-bottom': description || errorMessage,
+    [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
+  });
+
+  const iconClass = classNames('sg-checkbox__icon', {
+    'sg-checkbox__icon--with-animation': shouldAnimate,
+  });
 
   const errorTextId = `${checkboxId}-errorText`;
   const descriptionId = `${checkboxId}-description`;
@@ -226,17 +220,21 @@ const Checkbox = ({
 
   let checkboxIcon = null;
 
-  if (isChecked) checkboxIcon = <CheckIcon />;
+  if (isChecked && !indeterminate) checkboxIcon = <CheckIcon ref={iconRef} />;
+  if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
 
-  if (indeterminate) checkboxIcon = <IndeterminateIcon />;
+  React.useEffect(() => {
+    if (iconRef.current) {
+      requestAnimationFrame(() => {
+        iconRef.current.style.strokeDashoffset = '0';
+      });
+    }
+  }, [checkboxIcon]);
 
   return (
     <div className={checkboxClass} style={style}>
       <div className="sg-checkbox__wrapper">
-        <div
-          className="sg-checkbox__element"
-          onClick={() => setWasInteractedWith(true)}
-        >
+        <div className="sg-checkbox__element">
           <input
             {...props}
             ref={inputRef}
@@ -254,14 +252,16 @@ const Checkbox = ({
             aria-describedby={describedbyIds}
             aria-labelledby={ariaLabelledBy}
           />
-          <span
-            className={iconClass}
-            // This element is purely decorative so
-            // we hide it for screen readers
-            aria-hidden="true"
-          >
-            {checkboxIcon}
-          </span>
+          <div className="sg-checkbox__icon-wrapper">
+            <span
+              className={iconClass}
+              // This element is purely decorative so
+              // we hide it for screen readers
+              aria-hidden="true"
+            >
+              {checkboxIcon}
+            </span>
+          </div>
         </div>
         {!ariaLabelledBy && hasLabel && (
           <Text
