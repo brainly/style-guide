@@ -5,21 +5,27 @@ const flowParser = require('jscodeshift/parser/flow');
 const tsxParser = require('jscodeshift/parser/tsx');
 const {Lambda} = require('@aws-sdk/client-lambda');
 
+/* eslint-disable no-console */
+
 const lambda = new Lambda({
   region: 'eu-west-1',
 });
 
 exports.main = async function (commitID, commitDate) {
-  lambda.invoke({
-    FunctionName: 'post_styleguide_metrics_lambda',
-    Payload: JSON.stringify({
-      styleguideVersion: getVersion(),
-      commitID,
-      components: getComponents(),
-      commitDate: new Date(commitDate).toISOString(),
-      project: getProject(),
-    }),
-  });
+  lambda
+    .invoke({
+      FunctionName: 'post_styleguide_metrics_lambda',
+      Payload: JSON.stringify({
+        styleguideVersion: getVersion(),
+        commitID,
+        components: getComponents(),
+        commitDate: new Date(commitDate).toISOString(),
+        project: getProject(),
+      }),
+    })
+    .catch(e => {
+      console.error(e);
+    });
 };
 
 function getProject() {
@@ -46,6 +52,7 @@ function getComponents() {
   });
 
   filePaths.forEach(path => {
+    console.log(path);
     const importPattern = /from 'brainly-style-guide'/;
     const content = fs.readFileSync(path, 'utf8');
     const importMatch = importPattern.exec(content);
