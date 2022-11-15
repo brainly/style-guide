@@ -177,6 +177,10 @@ const Radio = ({
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
 
+  const circleClass = classNames('sg-radio__circle', {
+    'sg-radio__circle--with-animation': shouldAnimate,
+  });
+
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
@@ -210,9 +214,7 @@ const Radio = ({
             aria-invalid={isInvalid ? true : undefined}
           />
           <span
-            className={`sg-radio__circle ${
-              shouldAnimate ? 'sg-radio__circle--with-animation' : ''
-            }`}
+            className={circleClass}
             // This element is purely decorative so
             // we hide it for screen readers
             aria-hidden="true"
