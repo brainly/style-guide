@@ -1,0 +1,158 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import {Preview} from '../../docs/blocks/';
+import TopLayer, {SIZE} from './TopLayer';
+import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
+import hex from '../colors/hex';
+import ContentBox, {CONTENT_BOX_SPACING_SIZE} from '../content-box/ContentBox';
+import ContentBoxContent from '../content-box/ContentBoxContent';
+import ContentBoxActions from '../content-box/ContentBoxActions';
+const Container = Story => (
+  <div
+    style={{
+      minHeight: '300px',
+      position: 'relative',
+      width: '100%',
+      boxSizing: 'border-box',
+      background: hex['gray-50'],
+      padding: 15,
+      display: 'flex',
+    }}
+  >
+    <Story />
+  </div>
+);
+
+<Meta
+  title="Components/TopLayer"
+  component={TopLayer}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+  }}
+  args={{
+    children: 'Mollit in eu excepteur occaecat nisi incididunt culpa officia.',
+  }}
+  decorators={[Container]}
+/>
+
+<PageHeader>TopLayer</PageHeader>
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <TopLayer {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Lead
+
+<Canvas>
+  <Story name="Lead">{args => <TopLayer {...args} lead />}</Story>
+</Canvas>
+
+### Fill
+
+<Canvas>
+  <Story name="Fill">{args => <TopLayer {...args} fill />}</Story>
+</Canvas>
+
+### Modal
+
+<Canvas>
+  <Story name="Modal">{args => <TopLayer {...args} modal />}</Story>
+</Canvas>
+
+### With Bugbox
+
+<Canvas>
+  <Story name="With Bugbox">{args => <TopLayer {...args} withBugbox />}</Story>
+</Canvas>
+
+### Small Spaced
+
+<Canvas>
+  <Story name="Small Spaced">
+    {args => <TopLayer {...args} smallSpaced />}
+  </Story>
+</Canvas>
+
+### Splash Screen
+
+<Canvas>
+  <Story name="Splash Screen">
+    {args => (
+      <TopLayer {...args} splashScreen>
+        <ContentBox>
+          <ContentBoxContent spacedBottom={CONTENT_BOX_SPACING_SIZE.LARGE}>
+            heading
+          </ContentBoxContent>
+          <ContentBoxContent spacedBottom={CONTENT_BOX_SPACING_SIZE.LARGE}>
+            content
+            <br />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            enim diam, dictum et maximus sit amet, pulvinar vel ante. Maecenas
+            id tempus lacus. Cras vitae lectus vehicula, pretium odio sed,
+            pretium nulla. Nunc ultrices nibhorci, sit amet gravida metus
+            dapibus nec. Sed orci nisi, volutpat varius auctor sit amet,
+            eleifend eu elit. Fusceeget nunc tristique nibh viverra lobortis.
+            Cum sociis natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus.
+          </ContentBoxContent>
+          <ContentBoxActions>actions</ContentBoxActions>
+        </ContentBox>
+      </TopLayer>
+    )}
+  </Story>
+</Canvas>
+
+### Limited Width
+
+<Canvas>
+  <Story name="Limited Width">
+    {args => <TopLayer {...args} limitedWidth />}
+  </Story>
+</Canvas>
+
+### Row
+
+<Canvas>
+  <Story name="Row">{args => <TopLayer {...args} row />}</Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {Object.values(SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size} whiteText>
+            <TopLayer {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Transparent
+
+<Canvas>
+  <Story name="Transparent">{args => <TopLayer {...args} transparent />}</Story>
+</Canvas>
+
+### No Padding
+
+<Canvas>
+  <Story name="No Padding">{args => <TopLayer {...args} noPadding />}</Story>
+</Canvas>
