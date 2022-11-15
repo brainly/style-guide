@@ -224,11 +224,15 @@ const Checkbox = ({
   if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
 
   React.useEffect(() => {
-    if (iconRef.current) {
-      requestAnimationFrame(() => {
-        iconRef.current.style.strokeDashoffset = '0';
-      });
-    }
+    requestAnimationFrame(() => {
+      if (iconRef.current && iconRef.current instanceof HTMLElement) {
+        (iconRef.current.style: $Shape<
+          CSSStyleDeclaration & {
+            strokeDashoffset: string,
+          }
+        >).strokeDashoffset = '0';
+      }
+    });
   }, [checkboxIcon]);
 
   return (
