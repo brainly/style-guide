@@ -8,11 +8,11 @@ import PageHeaderImage from '../assets/component_top.png';
 import foundationTopImage from '../assets/foundation_top.png';
 import utilityTopImage from '../assets/utility_top.png';
 import accesibilityTopImage from '../assets/accessibility_top.png';
-import newsletterTopImage from '../assets/newsletter_top.png';
+import changelogTopImage from '../assets/changelog_top.png';
 
 type PageHeaderPropsType = {
   children: React.Node,
-  type?: 'component' | 'foundation' | 'utility' | 'accesibility' | 'newsletter',
+  type?: 'component' | 'foundation' | 'utility' | 'accesibility' | 'changelog',
 };
 
 const typeToImage = {
@@ -20,7 +20,7 @@ const typeToImage = {
   foundation: foundationTopImage,
   utility: utilityTopImage,
   accesibility: accesibilityTopImage,
-  newsletter: newsletterTopImage,
+  changelog: changelogTopImage,
 };
 
 const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => {

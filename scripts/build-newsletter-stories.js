@@ -1,14 +1,17 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-function getNewsletterStoryPage(pageName, newsletterPage) {
+function getNewsletterStoryPage(fileName, newsletterPage) {
+  const fileNameArr = fileName.split('-');
+  const pageName = `${fileNameArr[0]} (${fileNameArr[1]} ${fileNameArr[2]})`;
+
   return `
 import {Meta, Story, Canvas} from '@storybook/addon-docs';
 import PageHeader from 'blocks/PageHeader';
 
-<Meta title="Newsletter/${pageName}" />
+<Meta title="Changelog/Newsletter/${pageName}" />
 
-<PageHeader type="newsletter">Newsletter ${pageName}</PageHeader>
+<PageHeader type="changelog">Newsletter - ${pageName}</PageHeader>
 
 ${newsletterPage}
 `;
@@ -20,7 +23,6 @@ function buildNewsletterStories() {
   const assetsDestPath = '.storybook/public/newsletter-assets';
 
   if (!fs.pathExistsSync(destPath)) {
-    console.log('    creating newsletter directory');
     fs.mkdirSync(destPath);
   }
 
@@ -30,10 +32,10 @@ function buildNewsletterStories() {
     // Omit assets
     if (file.match(/\.mdx$/)) {
       const newsletterPage = fs.readFileSync(filePath, 'utf8');
-      const destFileName = file.replace('.mdx', '.stories.mdx');
-      const pageName = file.replace('.mdx', '').split('-').join(' ');
+      const fileName = file.replace('.mdx', '');
+      const fileContent = getNewsletterStoryPage(fileName, newsletterPage);
+      const destFileName = fileName.concat('.stories.mdx');
       const newsletterFileDest = path.resolve(destPath, destFileName);
-      const fileContent = getNewsletterStoryPage(pageName, newsletterPage);
 
       fs.writeFileSync(newsletterFileDest, fileContent);
     } else {
