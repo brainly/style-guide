@@ -34,8 +34,6 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "^3.202.0",
-    "@aws-sdk/util-dynamodb": "^3.204.0",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
