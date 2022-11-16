@@ -11,6 +11,7 @@ import DialogBody from './DialogBody';
 import DialogCloseButton from './DialogCloseButton';
 import startSkyImage from './stories/stars_sky.jpg';
 import Text from '../text/Text';
+import PageHeader from 'blocks/PageHeader';
 
 <Meta
   title="Components/Dialog"
@@ -61,7 +62,7 @@ import Text from '../text/Text';
   }}
 />
 
-# Dialog
+<PageHeader>Dialog</PageHeader>
 
 - [Accessibility](#accessibility)
 
@@ -151,8 +152,14 @@ import Text from '../text/Text';
   </Story>
 </Canvas>
 
+<ArgsTable story="Default" />
+
+## Stories
+
+### Long Content
+
 <Canvas>
-  <Story name="Long content">
+  <Story name="Long Content">
     {args => {
       const [open, setOpen] = React.useState(false);
       const [anotherOpen, setAnotherOpen] = React.useState(false);
@@ -278,8 +285,10 @@ import Text from '../text/Text';
   </Story>
 </Canvas>
 
+### Without Header
+
 <Canvas>
-  <Story name="Without header">
+  <Story name="Without Header">
     {args => {
       const [open, setOpen] = React.useState(false);
       const handleDismiss = () => setOpen(false);
@@ -328,6 +337,8 @@ import Text from '../text/Text';
     }}
   </Story>
 </Canvas>
+
+### Nested
 
 <Canvas>
   <Story name="Nested">
@@ -414,10 +425,6 @@ import Text from '../text/Text';
     }}
   </Story>
 </Canvas>
-
-<ArgsTable story="Default" />
-
-## Stories
 
 ### With Ads
 
