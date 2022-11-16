@@ -11,7 +11,7 @@ function svgSymbolCleanUp(config, shape, sprite, callback) {
         childNodes[i].removeAttribute('class');
       }
 
-      if (!hasFixedColors) {
+      if (!hasFixedColors && !config.keepFill) {
         childNodes[i].removeAttribute('fill');
       }
     }
@@ -23,8 +23,8 @@ function svgAddPolyfill(svgPolyfill, svg) {
   return svgPolyfill.replace('#SVG#', svg.replace(/(\r\n|\n|\r)/gm, ''));
 }
 
-module.exports = function(gulp, plugins, consts) {
-  return function() {
+module.exports = function (gulp, plugins, consts) {
+  return function () {
     const fs = require('fs');
     const svgPolyfill = fs.readFileSync(
       plugins.path.join(consts.SRC, 'svg-polyfill.js'),
@@ -70,7 +70,10 @@ module.exports = function(gulp, plugins, consts) {
         transform: [
           'svgo',
           {
-            custom: svgSymbolCleanUp.bind(null, {removeClass: false}),
+            custom: svgSymbolCleanUp.bind(null, {
+              removeClass: false,
+              keepFill: true,
+            }),
           },
         ],
       },
