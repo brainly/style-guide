@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const {main} = require('./main');
 
 const commitID = process.argv[2];
