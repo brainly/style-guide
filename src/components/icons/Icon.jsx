@@ -12,6 +12,7 @@ export type IconTypeType =
   | 'answer'
   | 'answers'
   | 'apple'
+  | 'archive'
   | 'arrow_double_right'
   | 'arrow_down'
   | 'arrow_left'
@@ -34,6 +35,7 @@ export type IconTypeType =
   | 'caret_up'
   | 'chapter'
   | 'check'
+  | 'check_circle'
   | 'chevron_double_down'
   | 'chevron_double_right'
   | 'chevron_down'
@@ -180,6 +182,7 @@ export const TYPE: {
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
+  ARCHIVE: 'archive',
   ARROW_DOUBLE_RIGHT: 'arrow_double_right',
   ARROW_DOWN: 'arrow_down',
   ARROW_LEFT: 'arrow_left',
@@ -202,6 +205,7 @@ export const TYPE: {
   CARET_UP: 'caret_up',
   CHAPTER: 'chapter',
   CHECK: 'check',
+  CHECK_CIRCLE: 'check_circle',
   CHEVRON_DOUBLE_DOWN: 'chevron_double_down',
   CHEVRON_DOUBLE_RIGHT: 'chevron_double_right',
   CHEVRON_DOWN: 'chevron_down',
@@ -330,6 +334,7 @@ export const TYPE: {
   ANSWER: 'answer',
   ANSWERS: 'answers',
   APPLE: 'apple',
+  ARCHIVE: 'archive',
   ARROW_DOUBLE_RIGHT: 'arrow_double_right',
   ARROW_DOWN: 'arrow_down',
   ARROW_LEFT: 'arrow_left',
@@ -352,6 +357,7 @@ export const TYPE: {
   CARET_UP: 'caret_up',
   CHAPTER: 'chapter',
   CHECK: 'check',
+  CHECK_CIRCLE: 'check_circle',
   CHEVRON_DOUBLE_DOWN: 'chevron_double_down',
   CHEVRON_DOUBLE_RIGHT: 'chevron_double_right',
   CHEVRON_DOWN: 'chevron_down',
