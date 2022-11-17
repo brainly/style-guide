@@ -224,15 +224,16 @@ const Checkbox = ({
   if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
 
   React.useEffect(() => {
-    requestAnimationFrame(() => {
-      if (iconRef.current && iconRef.current instanceof window.SVGElement) {
+    if (iconRef.current && iconRef.current instanceof window.SVGElement) {
+      requestAnimationFrame(() => {
+        iconRef.current.getBoundingClientRect(); // force a reflow so checkbox icon gets painted and transition can be seen
         (iconRef.current.style: $Shape<
           CSSStyleDeclaration & {
             strokeDashoffset: string,
           }
         >).strokeDashoffset = '0';
-      }
-    });
+      });
+    }
   }, [checkboxIcon]);
 
   return (
