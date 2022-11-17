@@ -225,7 +225,7 @@ const Checkbox = ({
 
   React.useEffect(() => {
     requestAnimationFrame(() => {
-      if (iconRef.current && iconRef.current instanceof HTMLElement) {
+      if (iconRef.current && iconRef.current instanceof window.SVGElement) {
         (iconRef.current.style: $Shape<
           CSSStyleDeclaration & {
             strokeDashoffset: string,
