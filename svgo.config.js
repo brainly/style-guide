@@ -9,18 +9,18 @@ const removeClass = {
 
 module.exports = {
   subjectIcons: {
-    plugins: [],
+    plugins: ['removeTitle'],
   },
   subjectMonoIcons: {
-    plugins: [removeClass, removeFillNonFixedColors],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
   },
   icons: {
-    plugins: [removeClass, removeFillNonFixedColors],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
   },
   mathSymbols: {
-    plugins: [removeClass, removeFillNonFixedColors],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
   },
   mobileIcons: {
-    plugins: [removeClass, removeFillNonFixedColors],
+    plugins: [removeClass, removeFillNonFixedColors, 'removeTitle'],
   },
 };
