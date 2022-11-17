@@ -152,7 +152,7 @@ const Checkbox = ({
     isControlled ? checked : defaultChecked
   );
   const inputRef = React.useRef(null);
-  const iconRef = React.useRef(null);
+  const iconRef = React.useRef<Element | null>(null);
   const isFirstRender = useIsFirstRender();
   const shouldAnimate = !isFirstRender; // Apply checkbox animation when it's already after first render
 
@@ -224,16 +224,14 @@ const Checkbox = ({
   if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
 
   React.useEffect(() => {
-    if (iconRef.current && iconRef.current instanceof window.SVGElement) {
-      requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (iconRef.current) {
         iconRef.current.getBoundingClientRect(); // force a reflow so checkbox icon gets painted and transition can be seen
-        (iconRef.current.style: $Shape<
-          CSSStyleDeclaration & {
-            strokeDashoffset: string,
-          }
-        >).strokeDashoffset = '0';
-      });
-    }
+        if (iconRef.current instanceof window.SVGElement) {
+          iconRef.current.style.strokeDashoffset = '0';
+        }
+      }
+    });
   }, [checkboxIcon]);
 
   return (
