@@ -200,8 +200,8 @@ $checkboxClickableArea: 32px;
       bottom: 0;
       margin: auto;
       stroke: var(--checkboxIconFillColor);
-      stroke-dasharray: 100%;
-      stroke-dashoffset: 100%;
+      stroke-dasharray: 16;
+      stroke-dashoffset: 16;
     }
   }
 
