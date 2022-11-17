@@ -184,7 +184,8 @@
     },
     "roots": [
       "<rootDir>/src",
-      "<rootDir>/bin"
+      "<rootDir>/bin",
+      "<rootDir>test"
     ]
   },
   "sideEffects": [

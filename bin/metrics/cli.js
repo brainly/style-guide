@@ -1,8 +1,25 @@
 #!/usr/bin/env node
 
 const {main} = require('./main');
+const meow = require('meow');
 
-const commitID = process.argv[2];
-const commitDate = parseInt(process.argv[3], 10);
+const command = meow({
+  description: 'CLI tool for collecting styleguide metrics.',
+  help: `
+    Usage
+      $ yarn sg-metrics <...options> commit-hash date
+    Options
+      --dry    Dry run (no data is send to database)
+    `,
+  flags: {
+    dry: {
+      type: 'boolean',
+      default: false,
+    },
+  },
+  alias: {
+    h: 'help',
+  },
+});
 
-main(commitID, commitDate);
+main(command.input[0], command.input[1], {dry: command.flags.dry});

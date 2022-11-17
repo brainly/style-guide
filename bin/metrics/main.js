@@ -1,31 +1,50 @@
-const fs = require('fs');
 const glob = require('glob');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const tsxParser = require('jscodeshift/parser/tsx');
 const {Lambda} = require('@aws-sdk/client-lambda');
+const prettier = require('prettier');
+const fs = require('fs');
 
 /* eslint-disable no-console */
 
-const lambda = new Lambda({
-  region: 'eu-west-1',
-});
+exports.main = async function (commitID, commitDate, {dry} = {}) {
+  const lambda = new Lambda({
+    region: 'eu-west-1',
+  });
 
-exports.main = async function (commitID, commitDate) {
-  lambda
-    .invoke({
-      FunctionName: 'styleguide_metrics_post_components_lambda',
-      Payload: JSON.stringify({
-        styleguideVersion: getVersion(),
-        commitID,
-        components: getComponents(),
-        commitDate: new Date(commitDate).toISOString(),
-        project: getProject(),
-      }),
-    })
-    .catch(e => {
-      console.error(e);
-    });
+  if (!commitID) {
+    console.error('Invalid commit hash');
+    return;
+  }
+
+  if (!commitDate) {
+    console.error('Invalid date');
+    return;
+  }
+
+  const result = {
+    styleguideVersion: getVersion(),
+    commitID,
+    components: getComponents(),
+    commitDate: new Date(parseInt(commitDate, 10)).toISOString(),
+    project: getProject(),
+  };
+
+  if (dry) {
+    process.stdout.write(
+      `${prettier.format(JSON.stringify(result), {parser: 'json-stringify'})}`
+    );
+  } else {
+    await lambda
+      .invoke({
+        FunctionName: 'styleguide_metrics_post_components_lambda',
+        Payload: JSON.stringify(result),
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  }
 };
 
 function getProject() {
@@ -52,7 +71,6 @@ function getComponents() {
   });
 
   filePaths.forEach(path => {
-    console.log(path);
     const importPattern = /from 'brainly-style-guide'/;
     const content = fs.readFileSync(path, 'utf8');
     const importMatch = importPattern.exec(content);
