@@ -97,8 +97,7 @@ $checkboxClickableArea: 32px;
       left: 0;
       z-index: 1;
 
-      &:focus-visible,
-      &:focus {
+      &:focus-visible {
         & + .sg-checkbox__icon-wrapper {
           @include applyFocusStyle();
         }
