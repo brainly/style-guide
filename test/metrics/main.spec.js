@@ -1,4 +1,4 @@
-import {main} from '../bin/metrics/main';
+import {main} from '../../bin/metrics/main';
 import {Lambda} from '@aws-sdk/client-lambda';
 import fs from 'fs';
 
