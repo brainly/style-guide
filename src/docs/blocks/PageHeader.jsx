@@ -8,7 +8,6 @@ import PageHeaderImage from '../assets/component_top.png';
 import foundationTopImage from '../assets/foundation_top.png';
 import utilityTopImage from '../assets/utility_top.png';
 import accesibilityTopImage from '../assets/accessibility_top.png';
-import changelogTopImage from '../assets/changelog_top.png';
 
 type PageHeaderPropsType = {
   children: React.Node,
@@ -20,7 +19,6 @@ const typeToImage = {
   foundation: foundationTopImage,
   utility: utilityTopImage,
   accesibility: accesibilityTopImage,
-  changelog: changelogTopImage,
 };
 
 const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => {

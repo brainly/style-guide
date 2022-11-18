@@ -7,11 +7,8 @@ function getNewsletterStoryPage(fileName, newsletterPage) {
 
   return `
 import {Meta, Story, Canvas} from '@storybook/addon-docs';
-import PageHeader from 'blocks/PageHeader';
 
 <Meta title="Changelog/Newsletter/${pageName}" />
-
-<PageHeader type="changelog">Newsletter - ${pageName}</PageHeader>
 
 ${newsletterPage}
 `;
