@@ -11,7 +11,7 @@ import accesibilityTopImage from '../assets/accessibility_top.png';
 
 type PageHeaderPropsType = {
   children: React.Node,
-  type?: 'component' | 'foundation' | 'utility' | 'accesibility' | 'changelog',
+  type?: 'component' | 'foundation' | 'utility' | 'accesibility',
 };
 
 const typeToImage = {
