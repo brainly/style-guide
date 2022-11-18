@@ -18,13 +18,18 @@ const iconSize = {
   argTypes={{
     children: {
       control: {
-        disable: true,
+        type: 'text',
       },
     },
     icon: {
       control: {
         type: 'select',
         options: ICON_TYPES,
+      },
+    },
+    onClick: {
+      table: {
+        category: 'Events',
       },
     },
   }}

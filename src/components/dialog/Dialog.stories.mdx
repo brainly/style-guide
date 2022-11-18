@@ -16,6 +16,7 @@ import PageHeader from 'blocks/PageHeader';
 <Meta
   title="Components/Dialog"
   component={Dialog}
+  subcomponents={{DialogBody, DialogHeader, DialogCloseButton}}
   parameters={{
     docs: {
       /**
@@ -54,6 +55,9 @@ import PageHeader from 'blocks/PageHeader';
       control: {
         disable: true,
       },
+    },
+    size: {
+      control: {type: 'select'},
     },
   }}
   args={{

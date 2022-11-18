@@ -3,6 +3,7 @@ import {StoryVariant} from '../../docs/utils';
 import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 import Flex from '../flex/Flex';
 import PageHeader from 'blocks/PageHeader';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/MobileIcon"
@@ -10,9 +11,11 @@ import PageHeader from 'blocks/PageHeader';
   argTypes={{
     color: {
       control: {type: 'select', options: ICON_COLOR},
-    },
-    size: {
-      defaultValue: '24',
+      table: {
+        type: {
+          summary: formatTags(Object.values(ICON_COLOR)),
+        },
+      },
     },
   }}
   args={{

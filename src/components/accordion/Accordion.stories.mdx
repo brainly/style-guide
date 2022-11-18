@@ -4,6 +4,7 @@ import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import PageHeader from 'blocks/PageHeader';
 import Headline from 'blocks/Headline';
+import {formatTags} from '../../docs/utils';
 const copy = {
   title: 'Is this title for accordion?',
   description:
@@ -25,6 +26,18 @@ const storyItems = [
   <AccordionItem title={copy.title} key="3">
     {copy.description}
   </AccordionItem>,
+];
+const spacingOptions = [
+  'xxs',
+  'xs',
+  's',
+  'm',
+  'l',
+  'xl',
+  'xxl',
+  'xxxl',
+  'xxxxl',
+  'none',
 ];
 
 <Meta
@@ -53,6 +66,15 @@ const storyItems = [
     },
     spacing: {
       description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(spacingOptions),
+        },
+      },
+      control: {
+        type: 'select',
+        options: spacingOptions,
+      },
     },
   }}
   args={{

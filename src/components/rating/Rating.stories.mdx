@@ -10,7 +10,22 @@ import RatingA11y from './stories/Rating.a11y.mdx';
   args={{rate: 2.4, counterText: '34 votes'}}
   argTypes={{
     size: {
-      defaultValue: RATING_SIZE.XS,
+      table: {defaultValue: {summary: RATING_SIZE.XS}},
+    },
+    onMouseLeave: {
+      table: {
+        category: 'Events',
+      },
+    },
+    onStarMouseEnter: {
+      table: {
+        category: 'Events',
+      },
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
     },
   }}
 />

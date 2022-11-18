@@ -10,6 +10,12 @@ import PageHeader from 'blocks/PageHeader';
   title="Components/Link"
   component={Link}
   argTypes={{
+    children: {control: 'text'},
+    as: {
+      table: {
+        defaultValue: {summary: 'a'},
+      },
+    },
     size: {
       description: '(Responsive)',
       table: {
@@ -78,6 +84,60 @@ import PageHeader from 'blocks/PageHeader';
       },
       control: {
         type: 'boolean',
+      },
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TEXT_COLOR)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: TEXT_COLOR,
+      },
+    },
+    target: {
+      control: 'select',
+    },
+    onClick: {
+      table: {
+        category: 'Event',
+      },
+    },
+    underlined: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    unstyled: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    disabled: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    inherited: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    emphasised: {
+      table: {
+        defaultValue: {summary: true},
+      },
+    },
+    newTabLabel: {
+      table: {
+        defaultValue: {summary: '(opens in a new tab)'},
+      },
+    },
+    hideNewTabIndicator: {
+      table: {
+        defaultValue: {summary: false},
       },
     },
   }}

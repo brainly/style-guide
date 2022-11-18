@@ -17,6 +17,11 @@ import PageHeader from 'blocks/PageHeader';
       control: {
         disable: true,
       },
+      table: {
+        defaultValue: {
+          summary: 'textarea',
+        },
+      },
     },
     value: {
       control: {
@@ -29,10 +34,21 @@ import PageHeader from 'blocks/PageHeader';
       },
     },
     color: {
-      defaultValue: TEXTAREA_COLOR.DEFAULT,
+      table: {
+        defaultValue: {
+          summary: TEXTAREA_COLOR.DEFAULT,
+        },
+      },
     },
     size: {
-      defaultValue: SIZE.NORMAL,
+      control: {
+        type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: SIZE.NORMAL,
+        },
+      },
     },
   }}
   args={{

@@ -5,6 +5,7 @@ import PageHeader from 'blocks/PageHeader';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 import SubjectIconA11y from './stories/SubjectIcon.a11y.mdx';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/SubjectIcon"
@@ -15,9 +16,19 @@ import SubjectIconA11y from './stories/SubjectIcon.a11y.mdx';
         type: 'select',
         options: ICON_COLOR,
       },
+      table: {
+        type: {
+          summary: formatTags(Object.values(ICON_COLOR)),
+        },
+      },
     },
     size: {
-      defaultValue: SIZE.NORMAL,
+      table: {
+        defaultValue: {
+          summary: SIZE.NORMAL,
+        },
+      },
+      control: 'select',
     },
   }}
   args={{

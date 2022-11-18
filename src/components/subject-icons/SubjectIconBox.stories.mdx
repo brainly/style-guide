@@ -3,6 +3,7 @@ import SubjectIconBox, {TYPE, SIZE} from './SubjectIconBox';
 import {StoryVariant} from '../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 import Flex from '../flex/Flex';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/SubjectIconBox"
@@ -10,10 +11,25 @@ import Flex from '../flex/Flex';
   argTypes={{
     type: {
       control: {type: 'select', options: TYPE},
+      table: {
+        type: {
+          summary: formatTags(Object.values(TYPE)),
+        },
+      },
     },
     size: {
-      control: {type: 'select', options: SIZE},
-      defaultValue: SIZE.NORMAL,
+      control: {
+        type: 'select',
+        options: Object.values(SIZE),
+      },
+      table: {
+        type: {
+          summary: formatTags(Object.values(SIZE)),
+        },
+        defaultValue: {
+          summary: SIZE.NORMAL,
+        },
+      },
     },
   }}
   args={{

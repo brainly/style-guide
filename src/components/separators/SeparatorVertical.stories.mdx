@@ -6,7 +6,23 @@ import Flex from '../flex/Flex';
 import Text from '../text/Text';
 import SeparatorsA11y from './stories/Separators.a11y.mdx';
 
-<Meta title="Components/SeparatorVertical" component={SeparatorVertical} />
+<Meta
+  title="Components/SeparatorVertical"
+  component={SeparatorVertical}
+  argTypes={{
+    color: {
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: COLORS_MAP['gray-40'],
+        },
+      },
+    },
+    size: {
+      control: 'select',
+    },
+  }}
+/>
 
 <PageHeader>SeparatorVertical</PageHeader>
 

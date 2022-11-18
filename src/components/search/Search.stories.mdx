@@ -5,24 +5,44 @@ import PageHeader from 'blocks/PageHeader';
 import hex from '../colors/hex';
 import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/Search"
   component={Search}
   argTypes={{
-    className: {
-      control: {
-        type: 'text',
-      },
-    },
     fullWidth: {
       control: {
         type: 'boolean',
       },
+      table: {
+        type: {summary: 'boolean'},
+      },
     },
-    size: {control: {type: 'select', options: SIZE}},
-    color: {control: {type: 'select', options: COLOR}},
-    placeholder: {control: {type: 'text'}},
+    size: {
+      control: {type: 'select', options: Object.values(SIZE)},
+      table: {
+        type: {summary: formatTags(Object.values(SIZE))},
+      },
+      defaultValue: {summary: SIZE.M},
+    },
+    color: {
+      control: {type: 'radio', options: Object.values(COLOR)},
+      table: {
+        type: {
+          summary: formatTags(Object.values(COLOR)),
+        },
+        defaultValue: {summary: COLOR.DEFAULT},
+      },
+    },
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+      table: {
+        type: {summary: 'string'},
+      },
+    },
   }}
   args={{placeholder: 'Find all the answers...'}}
 />

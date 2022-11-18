@@ -4,7 +4,15 @@ import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
 
-<Meta title="Components/SkipLink" component={SkipLink} />
+<Meta
+  title="Components/SkipLink"
+  component={SkipLink}
+  argTypes={{children: {control: 'text'}}}
+  args={{
+    children: 'skip to main content',
+    id: 'main',
+  }}
+/>
 
 <PageHeader>SkipLink</PageHeader>
 
@@ -17,8 +25,8 @@ import PageHeader from 'blocks/PageHeader';
     {args => {
       return (
         <div>
-          <SkipLink id="main">skip to main content</SkipLink>
-          <main id="main" tabindex="-1" style={{paddingBottom: '5em'}}>
+          <SkipLink {...args} />
+          <main id={args.id} tabindex="-1" style={{paddingBottom: '5em'}}>
             Main content
           </main>
         </div>

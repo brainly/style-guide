@@ -6,6 +6,7 @@ import MathSymbol, {MATH_SYMBOL_TYPE, ICON_COLOR, SIZE} from './MathSymbol';
 import Flex from '../flex/Flex';
 import MathSymbolA11y from './stories/MathSymbol.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/MathSymbol"
@@ -13,10 +14,13 @@ import PageHeader from 'blocks/PageHeader';
   argTypes={{
     color: {
       control: {type: 'select', options: ICON_COLOR},
+      table: {
+        type: {
+          summary: formatTags(Object.values(ICON_COLOR)),
+        },
+      },
     },
-    size: {
-      defaultValue: SIZE.NORMAL,
-    },
+    size: {control: 'select'},
   }}
   args={{
     type: MATH_SYMBOL_TYPE.ALPHA,

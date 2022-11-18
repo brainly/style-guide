@@ -19,11 +19,6 @@ import PageHeader from 'blocks/PageHeader';
         disable: true,
       },
     },
-    className: {
-      control: {
-        disable: true,
-      },
-    },
     border: {
       description: '(Responsive)',
       table: {
@@ -33,6 +28,13 @@ import PageHeader from 'blocks/PageHeader';
       },
       control: {
         type: 'boolean',
+      },
+    },
+    borderColor: {
+      table: {
+        defaultValue: {
+          summary: COLOR['gray-20'],
+        },
       },
     },
     padding: {

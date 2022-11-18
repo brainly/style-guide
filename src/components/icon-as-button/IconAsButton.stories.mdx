@@ -6,23 +6,34 @@ import Flex from '../flex/Flex';
 import PageHeader from 'blocks/PageHeader';
 import Headline from '../text/Headline';
 import classnames from 'classnames';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/IconAsButton"
   component={IconAsButton}
   argTypes={{
-    type: {control: {type: 'select', options: ICON_TYPES}},
-    size: {defaultValue: SIZE.NORMAL},
-    color: {control: {type: 'select', options: ICON_COLOR}},
-    border: {control: {type: 'boolean'}},
-    action: {control: {type: 'boolean'}},
-    transparent: {control: {type: 'boolean'}},
-    active: {control: {type: 'boolean'}},
+    type: {
+      control: {type: 'select', options: ICON_TYPES},
+      table: {
+        type: {summary: formatTags(Object.values(ICON_TYPES))},
+      },
+    },
+    size: {table: {defaultValue: {summary: SIZE.NORMAL}}},
+    color: {
+      control: {type: 'select', options: ICON_COLOR},
+      table: {
+        type: {summary: formatTags(Object.values(ICON_COLOR))},
+      },
+    },
+    children: {
+      control: {
+        disable: true,
+      },
+    },
   }}
   args={{
     type: ICON_TYPES.ACADEMIC_CAP,
     color: ICON_COLOR['icon-black'],
-    size: SIZE.NORMAL,
   }}
 />
 

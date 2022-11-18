@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 import {Preview} from '../../docs/blocks/';
 import LabelA11y from './stories/Label.a11y.mdx';
+import {formatTags} from '../../docs/utils';
 
 import Label, {
   ICON_TYPE,
@@ -37,10 +38,16 @@ const TRANSPARENT_ICON_COLOR_MAP = {
   title="Components/Label"
   component={Label}
   argTypes={{
-    iconType: {control: {type: 'select', options: ICON_TYPE}},
+    iconType: {
+      control: {type: 'select', options: ICON_TYPE},
+      table: {type: {summary: formatTags(Object.values(ICON_TYPE))}},
+    },
     color: {control: {type: 'select', options: LABEL_COLORS_SET}},
     type: {control: {type: 'select', options: LABEL_TYPE}},
-    onClose: {control: null},
+    onClose: {table: {category: 'Events'}},
+    children: {
+      control: 'text',
+    },
   }}
   args={{
     children: 'label',

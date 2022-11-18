@@ -88,7 +88,6 @@ export type SelectPropsType = {
    */
   options?: $ReadOnlyArray<GroupedOptionsPropsType | OptionsPropsType>,
   /**
-  /**
    * Additional class names
    */
   className?: string,
