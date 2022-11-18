@@ -19,9 +19,14 @@ function buildNewsletterStories() {
   const destPath = 'src/docs/stories/newsletters';
   const assetsDestPath = '.storybook/public/newsletter-assets';
 
-  if (!fs.pathExistsSync(destPath)) {
-    fs.mkdirSync(destPath);
-  }
+  // Remove previously generated files
+  if (fs.pathExistsSync(destPath))
+    fs.rmSync(destPath, {recursive: true, force: true});
+  if (fs.pathExistsSync(assetsDestPath))
+    fs.rmSync(assetsDestPath, {recursive: true, force: true});
+
+  // Create newsletters directory
+  fs.mkdirSync(destPath);
 
   fs.readdirSync('newsletter/').forEach(function (file) {
     const filePath = `newsletter/${file}`;
