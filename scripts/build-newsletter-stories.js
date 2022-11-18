@@ -1,10 +1,7 @@
 const path = require('path');
 const fs = require('fs-extra');
 
-function getNewsletterStoryPage(fileName, newsletterPage) {
-  const fileNameArr = fileName.split('-');
-  const pageName = `${fileNameArr[0]} (${fileNameArr[1]} ${fileNameArr[2]})`;
-
+function getNewsletterStoryPage(pageName, newsletterPage) {
   return `
 import {Meta, Story, Canvas} from '@storybook/addon-docs';
 
@@ -28,25 +25,31 @@ function buildNewsletterStories() {
   // Create newsletters directory
   fs.mkdirSync(destPath);
 
-  fs.readdirSync('newsletter/').forEach(function (file) {
-    const filePath = `newsletter/${file}`;
+  fs.readdirSync('newsletter/')
+    .reverse() // We need to reverse the order so the newest newsletter (with highest version) gets processed first
+    .forEach(function (file, key) {
+      const filePath = `newsletter/${file}`;
 
-    // Omit assets
-    if (file.match(/\.mdx$/)) {
-      const newsletterPage = fs.readFileSync(filePath, 'utf8');
-      const fileName = file.replace('.mdx', '');
-      const fileContent = getNewsletterStoryPage(fileName, newsletterPage);
-      const destFileName = fileName.concat('.stories.mdx');
-      const newsletterFileDest = path.resolve(destPath, destFileName);
+      // Omit assets
+      if (file.match(/\.mdx$/)) {
+        const newsletterPage = fs.readFileSync(filePath, 'utf8');
+        const fileNameArr = file.replace('.mdx', '').split('-');
+        const pageName = `${fileNameArr[1]} ${fileNameArr[2]}`;
+        const destFileName = `${key}-` // Precede filename with a key, so we can trick storybook to import stories in desired order
+          .concat(`${fileNameArr[1]}-${fileNameArr[2]}`)
+          .concat('.stories.mdx');
 
-      fs.writeFileSync(newsletterFileDest, fileContent);
-    } else {
-      // copy newsletter assets folder
-      fs.copySync(filePath, assetsDestPath, {
-        overwrite: true,
-      });
-    }
-  });
+        const newsletterFileDest = path.resolve(destPath, destFileName);
+        const fileContent = getNewsletterStoryPage(pageName, newsletterPage);
+
+        fs.writeFileSync(newsletterFileDest, fileContent);
+      } else {
+        // copy newsletter assets folder
+        fs.copySync(filePath, assetsDestPath, {
+          overwrite: true,
+        });
+      }
+    });
 }
 
 try {
