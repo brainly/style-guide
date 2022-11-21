@@ -1,6 +1,8 @@
 import {main} from '../../bin/metrics/main';
 import {Lambda} from '@aws-sdk/client-lambda';
 import fs from 'fs';
+// eslint-disable-next-line babel/camelcase
+import child_process from 'child_process';
 
 jest.mock('@aws-sdk/client-lambda', () => {
   return {
@@ -19,13 +21,10 @@ jest.mock('prettier', () => ({
   format: jest.fn(input => input),
 }));
 
-jest.mock('glob', () => {
-  return {
-    sync() {
-      return ['src/pages/Page1.jsx'];
-    },
-  };
-});
+jest.mock('child_process');
+child_process.execSync.mockImplementation(() => '329j801iou9 1666868271000');
+
+jest.spyOn(process.stdout, 'write');
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -60,13 +59,13 @@ fs.writeFileSync.mockImplementation(() => {
 
 describe('metrics cli', () => {
   it('post metrics to styleguide_metrics_post_components_lambda', async () => {
-    await main('9999f664', 1666868271000, {});
+    await main(['src/pages/Page1.jsx'], {});
 
     expect(Lambda.mock.results[0].value.invoke).toHaveBeenCalledWith({
       FunctionName: 'styleguide_metrics_post_components_lambda',
       Payload: JSON.stringify({
         styleguideVersion: '220.0.0',
-        commitID: '9999f664',
+        commitID: '329j801iou9',
         components: [
           {
             location: 'src/pages/Page1.jsx#5:4',
@@ -91,14 +90,13 @@ describe('metrics cli', () => {
   });
 
   it('when dry mode, then it outputs metrics to stdout, does not post metrics to lambda', async () => {
-    jest.spyOn(process.stdout, 'write');
-    await main('9999f664', 1666868271000, {dry: true});
+    await main(['src/pages/Page1.jsx'], {dry: true});
 
-    expect(Lambda.mock.results[0].value.invoke).not.toHaveBeenCalled();
+    expect(Lambda).not.toHaveBeenCalled();
     expect(process.stdout.write).toHaveBeenCalledWith(
       JSON.stringify({
         styleguideVersion: '220.0.0',
-        commitID: '9999f664',
+        commitID: '329j801iou9',
         components: [
           {
             location: 'src/pages/Page1.jsx#5:4',
@@ -119,6 +117,45 @@ describe('metrics cli', () => {
         commitDate: '2022-10-27T10:57:51.000Z',
         project: 'brainly-app',
       })
+    );
+  });
+
+  it('when paths is empty, then it exits and display error message', async () => {
+    await main(null);
+
+    expect(process.stdout.write).toHaveBeenCalledWith(
+      'Missing paths. For more infgormation run: sg-metrics --help'
+    );
+  });
+
+  it('when package.json is no found, then it exits with error', async () => {
+    fs.readFileSync.mockImplementationOnce(path => {
+      if (path === 'package.json') {
+        throw 'read error';
+      }
+    });
+
+    await main([]);
+
+    expect(process.stdout.write).toHaveBeenCalledWith(
+      'Malformed or missing package.json. Run CLI in project root directory.'
+    );
+  });
+
+  it('when brainly-style-guide dependency is not found, then exits with error', async () => {
+    fs.readFileSync.mockImplementationOnce(path => {
+      if (path === 'package.json') {
+        return `{
+          "name": "brainly-app",
+  "dependencies": {}
+        }`;
+      }
+    });
+
+    await main([]);
+
+    expect(process.stdout.write).toHaveBeenCalledWith(
+      '"brainly-style-guide" dependency not found in package.json'
     );
   });
 });

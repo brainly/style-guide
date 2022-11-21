@@ -1,32 +1,35 @@
-const glob = require('glob');
 const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const tsxParser = require('jscodeshift/parser/tsx');
 const {Lambda} = require('@aws-sdk/client-lambda');
 const prettier = require('prettier');
 const fs = require('fs');
+const execSync = require('child_process').execSync;
 
-/* eslint-disable no-console */
-
-exports.main = async function (commitID, commitDate, {dry} = {}) {
-  const lambda = new Lambda({
-    region: 'eu-west-1',
-  });
-
-  if (!commitID) {
-    console.error('Invalid commit hash');
+exports.main = async function (paths, {dry} = {}) {
+  if (!paths) {
+    process.stdout.write(
+      'Missing paths. For more infgormation run: sg-metrics --help'
+    );
     return;
   }
 
-  if (!commitDate) {
-    console.error('Invalid date');
-    return;
+  const [commitID, commitDate] = execSync('git log -1 --format="%h %at000"')
+    .toString()
+    .split(' ');
+
+  let version;
+
+  try {
+    version = getVersion();
+  } catch (err) {
+    process.stdout.write(err.toString());
   }
 
   const result = {
-    styleguideVersion: getVersion(),
+    styleguideVersion: version,
     commitID,
-    components: getComponents(),
+    components: getComponents(paths),
     commitDate: new Date(parseInt(commitDate, 10)).toISOString(),
     project: getProject(),
   };
@@ -36,14 +39,18 @@ exports.main = async function (commitID, commitDate, {dry} = {}) {
       `${prettier.format(JSON.stringify(result), {parser: 'json-stringify'})}`
     );
   } else {
-    await lambda
-      .invoke({
+    const lambda = new Lambda({
+      region: 'eu-west-1',
+    });
+
+    try {
+      await lambda.invoke({
         FunctionName: 'styleguide_metrics_post_components_lambda',
         Payload: JSON.stringify(result),
-      })
-      .catch(e => {
-        console.error(e);
       });
+    } catch (e) {
+      process.stdout.write(e);
+    }
   }
 };
 
@@ -54,21 +61,23 @@ function getProject() {
 }
 
 function getVersion() {
-  const packageParsed = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+  let packageParsed;
 
-  return (
-    (packageParsed.dependencies &&
-      packageParsed.dependencies['brainly-style-guide']) ||
-    null
-  );
+  try {
+    packageParsed = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+  } catch (e) {
+    throw 'Malformed or missing package.json. Run CLI in project root directory.';
+  }
+
+  if (!packageParsed.dependencies['brainly-style-guide']) {
+    throw '"brainly-style-guide" dependency not found in package.json';
+  }
+
+  return packageParsed.dependencies['brainly-style-guide'];
 }
 
-function getComponents() {
+function getComponents(filePaths) {
   const elements = [];
-  const filePaths = glob.sync('**/*.{js,ts}x', {
-    ignore: 'node_modules/**',
-    cwd: process.cwd(),
-  });
 
   filePaths.forEach(path => {
     const importPattern = /from 'brainly-style-guide'/;
