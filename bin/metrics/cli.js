@@ -24,4 +24,11 @@ const command = meow({
 
 main(command.input, {
   dry: command.flags.dry,
-});
+})
+  .then(() => {
+    process.exit(0);
+  })
+  .catch(err => {
+    console(err);
+    process.exit(1);
+  });

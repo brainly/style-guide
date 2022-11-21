@@ -24,7 +24,7 @@ jest.mock('prettier', () => ({
 jest.mock('child_process');
 child_process.execSync.mockImplementation(() => '329j801iou9 1666868271000');
 
-jest.spyOn(process.stdout, 'write');
+const consoleLogSpy = jest.spyOn(console, 'log');
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -93,7 +93,7 @@ describe('metrics cli', () => {
     await main(['src/pages/Page1.jsx'], {dry: true});
 
     expect(Lambda).not.toHaveBeenCalled();
-    expect(process.stdout.write).toHaveBeenCalledWith(
+    expect(consoleLogSpy).toHaveBeenCalledWith(
       JSON.stringify({
         styleguideVersion: '220.0.0',
         commitID: '329j801iou9',
@@ -121,9 +121,7 @@ describe('metrics cli', () => {
   });
 
   it('when paths is empty, then it exits and display error message', async () => {
-    await main(null);
-
-    expect(process.stdout.write).toHaveBeenCalledWith(
+    await expect(main(null)).rejects.toThrowError(
       'Missing paths. For more infgormation run: sg-metrics --help'
     );
   });
@@ -135,9 +133,7 @@ describe('metrics cli', () => {
       }
     });
 
-    await main([]);
-
-    expect(process.stdout.write).toHaveBeenCalledWith(
+    await expect(main([])).rejects.toThrowError(
       'Malformed or missing package.json. Run CLI in project root directory.'
     );
   });
@@ -152,9 +148,7 @@ describe('metrics cli', () => {
       }
     });
 
-    await main([]);
-
-    expect(process.stdout.write).toHaveBeenCalledWith(
+    await expect(main([])).rejects.toThrowError(
       '"brainly-style-guide" dependency not found in package.json'
     );
   });

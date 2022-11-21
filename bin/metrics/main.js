@@ -6,25 +6,20 @@ const prettier = require('prettier');
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 
+/* eslint-disable no-console */
+
 exports.main = async function (paths, {dry} = {}) {
   if (!paths) {
-    process.stdout.write(
+    throw new Error(
       'Missing paths. For more infgormation run: sg-metrics --help'
     );
-    return;
   }
 
   const [commitID, commitDate] = execSync('git log -1 --format="%h %at000"')
     .toString()
     .split(' ');
 
-  let version;
-
-  try {
-    version = getVersion();
-  } catch (err) {
-    process.stdout.write(err.toString());
-  }
+  const version = getVersion();
 
   const result = {
     styleguideVersion: version,
@@ -35,7 +30,7 @@ exports.main = async function (paths, {dry} = {}) {
   };
 
   if (dry) {
-    process.stdout.write(
+    console.log(
       `${prettier.format(JSON.stringify(result), {parser: 'json-stringify'})}`
     );
   } else {
@@ -43,14 +38,10 @@ exports.main = async function (paths, {dry} = {}) {
       region: 'eu-west-1',
     });
 
-    try {
-      await lambda.invoke({
-        FunctionName: 'styleguide_metrics_post_components_lambda',
-        Payload: JSON.stringify(result),
-      });
-    } catch (e) {
-      process.stdout.write(e);
-    }
+    await lambda.invoke({
+      FunctionName: 'styleguide_metrics_post_components_lambda',
+      Payload: JSON.stringify(result),
+    });
   }
 };
 
@@ -66,11 +57,15 @@ function getVersion() {
   try {
     packageParsed = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
   } catch (e) {
-    throw 'Malformed or missing package.json. Run CLI in project root directory.';
+    throw new Error(
+      'Malformed or missing package.json. Run CLI in project root directory.'
+    );
   }
 
   if (!packageParsed.dependencies['brainly-style-guide']) {
-    throw '"brainly-style-guide" dependency not found in package.json';
+    throw new Error(
+      '"brainly-style-guide" dependency not found in package.json'
+    );
   }
 
   return packageParsed.dependencies['brainly-style-guide'];
