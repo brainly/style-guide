@@ -109,6 +109,9 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
 
 ### With group of custom wrappers
 
+In following example, we use `label` as a card wrapper which handles clicks and keyboard navigation, but at the same time we define label and description inside using `aria-labelledby` and `aria-describedby`. This is so screen readers can determine what's a primary and secondary information.
+For more complex example see [useRadioContext documentation](/docs/hooks-useradiocontext--page#example).
+
 <Canvas>
   <Story name="With group of custom wrappers" height="500px">
     {args => {
@@ -118,10 +121,10 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
         alignItems = 'flex-start',
       }) => {
         const {selectedValue} = useRadioContext();
-        console.log('selectedValue', typeof selectedValue, selectedValue);
+        const labelId = `label-${value}`;
+        const descriptionId = `description-${value}`;
         return (
           <label
-            id={`myRadioID-${value}`}
             style={{
               width: '360px',
               height: height,
@@ -131,11 +134,23 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
               borderRadius: '8px',
               padding: '8px',
               display: 'flex',
-              justifyContent: 'flex-end',
               alignItems: alignItems,
+              justifyContent: 'space-between',
             }}
           >
-            <Radio value={value} aria-labelledby={`myRadioID-${value}`} />
+            <Flex direction="column">
+              <Text id={labelId} weight="bold">
+                Label {value}
+              </Text>
+              <Text id={descriptionId} size="small">
+                Description
+              </Text>
+            </Flex>
+            <Radio
+              value={value}
+              aria-labelledby={labelId}
+              aria-describedby={descriptionId}
+            />
           </label>
         );
       };
@@ -207,6 +222,50 @@ import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
     }}
   </Story>
 </Canvas>
+
+`CustomRadioComponent` code:
+
+```jsx
+const CustomRadioComponent = ({
+  value,
+  height = '120px',
+  alignItems = 'flex-start',
+}) => {
+  const {selectedValue} = useRadioContext();
+  const labelId = `label-${value}`;
+  const descriptionId = `description-${value}`;
+  return (
+    <label
+      style={{
+        width: '360px',
+        height: height,
+        marginBottom: '8px',
+        border: '2px solid black',
+        borderColor: value === selectedValue ? 'black' : '#e1eaf1',
+        borderRadius: '8px',
+        padding: '8px',
+        display: 'flex',
+        alignItems: alignItems,
+        justifyContent: 'space-between',
+      }}
+    >
+      <Flex direction="column">
+        <Text id={labelId} weight="bold">
+          Label {value}
+        </Text>
+        <Text id={descriptionId} size="small">
+          Description
+        </Text>
+      </Flex>
+      <Radio
+        value={value}
+        aria-labelledby={labelId}
+        aria-describedby={descriptionId}
+      />
+    </label>
+  );
+};
+```
 
 ## Accessibility
 
