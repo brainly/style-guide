@@ -27,7 +27,6 @@ async function findStories() {
     .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
-
 module.exports = {
   stories:
     process.env.STORYBOOK_ENV === 'chromatic'

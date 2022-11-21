@@ -9,7 +9,7 @@ type RadioContextType = {
   invalid?: boolean,
   name?: string,
   selectedValue: ?string,
-  setSelectedValue: (SyntheticInputEvent<HTMLInputElement>, ?string) => void,
+  setSelectedValue: (SyntheticEvent<>, ?string) => void,
   lastFocusedValue: ?string,
   setLastFocusedValue: (?string) => void,
   ...

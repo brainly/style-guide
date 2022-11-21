@@ -32,39 +32,6 @@ $radioCheckedBorderWidth: 5px;
     padding: $radioPadding 0;
   }
 
-  @mixin radioCheckedAnimation($fromBackgroundColor, $toBackgroundColor) {
-    @keyframes radioCheckedFadeOut {
-      0% {
-        width: $radioSize;
-        height: $radioSize;
-        --radioBorderWidth: #{$radioUncheckedBorderWidth};
-      }
-
-      99% {
-        --radioBorderWidth: #{$radioUncheckedBorderWidth};
-      }
-
-      100% {
-        width: calc($radioSize / 2);
-        height: calc($radioSize / 2);
-        --radioBorderWidth: #{$radioCheckedBorderWidth};
-      }
-    }
-    @keyframes radioCheckedFadeIn {
-      0% {
-        width: calc($radioSize / 2);
-        height: calc($radioSize / 2);
-      }
-
-      100% {
-        width: $radioSize;
-        height: $radioSize;
-      }
-    }
-
-    animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
-  }
-
   &__wrapper {
     display: flex;
 
@@ -126,8 +93,7 @@ $radioCheckedBorderWidth: 5px;
     left: 0;
     z-index: 1;
 
-    &:focus-visible + .sg-radio__circle,
-    &:focus + .sg-radio__circle {
+    &:focus-visible + .sg-radio__circle {
       &::before {
         @include applyFocusStyle();
       }
@@ -138,10 +104,7 @@ $radioCheckedBorderWidth: 5px;
       --radioRingColor: var(--radioColor);
 
       &--with-animation {
-        @include radioCheckedAnimation(
-          transparent,
-          var(--radioCheckedBorderWidth)
-        );
+        animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
       }
 
       @media (forced-colors: active) {
@@ -233,6 +196,35 @@ $radioCheckedBorderWidth: 5px;
       .sg-radio__wrapper .sg-radio__circle {
         border-color: GrayText;
       }
+    }
+  }
+
+  @keyframes radioCheckedFadeOut {
+    0% {
+      width: $radioSize;
+      height: $radioSize;
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    99% {
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    100% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+    }
+  }
+  @keyframes radioCheckedFadeIn {
+    0% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+    }
+
+    100% {
+      width: $radioSize;
+      height: $radioSize;
     }
   }
 }
