@@ -45,6 +45,7 @@ export const parameters = {
         'Components',
         'Hooks',
         'Utilities',
+        'Changelog',
       ],
     },
   },

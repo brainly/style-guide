@@ -1,13 +1,33 @@
 // @flow strict
 
+// eslint-disable-next-line import/no-duplicates
 import * as React from 'react';
+import {
+  useRef,
+  useMemo,
+  // eslint-disable-next-line import/no-duplicates
+} from 'react';
 import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
+import useIsFirstRender from '../../utils/useIsFirstRender';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
+type StyleType = $Shape<
+  CSSStyleDeclaration & {
+    '--radioColor'?: string,
+    '--radioHoverColor'?: string,
+    '--radioInvalidColor'?: string,
+    '--radioInvalidHoverColor'?: string,
+    '--radioLabelColor'?: string,
+    '--radioDescriptionColor'?: string,
+    '--radioBorderWidth'?: string,
+    '--radioRingColor'?: string,
+    ...
+  }
+>;
 
 export type RadioPropsType = {
   /**
@@ -63,7 +83,7 @@ export type RadioPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever the state of the radio changes.
    */
-  onChange?: (SyntheticInputEvent<HTMLInputElement>) => mixed,
+  onChange?: (SyntheticEvent<>) => mixed,
   /**
    * Sets whether the radio input is marked as required. This doesn't affect radio style.
    * @example <Radio required />
@@ -74,7 +94,7 @@ export type RadioPropsType = {
    * Style applied to the container.
    * @example <Radio style={{ '--radioColor': '#000' }} />
    */
-  style?: $Shape<CSSStyleDeclaration>,
+  style?: StyleType,
   /**
    * Value of the radio input.
    * @example <Radio value="1" />
@@ -112,19 +132,16 @@ const Radio = ({
   'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioPropsType) => {
-  const {current: radioId} = React.useRef(
+  const {current: radioId} = useRef(
     id === undefined || id === '' ? generateRandomString() : id
   );
-  const [wasInteractedWith, setWasInteractedWith] = React.useState(false);
-
   const radioGroupContext = useRadioContext();
-  const isWithinRadioGroup =
-    radioGroupContext && Object.keys(radioGroupContext).length;
-
-  const isDisabled =
-    disabled !== undefined ? disabled : radioGroupContext.disabled;
-  const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
+  const isWithinRadioGroup = Boolean(
+    radioGroupContext && Object.keys(radioGroupContext).length
+  );
   const isControlled = checked !== undefined || isWithinRadioGroup;
+  const isFirstRender = useIsFirstRender();
+  const shouldAnimate = !isControlled || !isFirstRender; // Apply radio animation only when component is uncontrolled (it means it's unchecked) or it's already after first render
   let isChecked = undefined;
 
   if (isControlled) {
@@ -135,17 +152,18 @@ const Radio = ({
         : radioGroupContext.selectedValue &&
           radioGroupContext.selectedValue === value;
   }
-  const labelId = ariaLabelledBy || `${radioId}-label`;
 
-  const descriptionId = React.useMemo(() => {
+  const colorName = radioGroupContext.color || color;
+  const isDisabled =
+    disabled !== undefined ? disabled : radioGroupContext.disabled;
+  const hasLabel = children !== undefined && children !== null;
+  const isInputOnly = !hasLabel && !description;
+  const descriptionId = useMemo(() => {
     if (ariaDescribedBy) return ariaDescribedBy;
     if (description) return `${radioId}-description`;
     return null;
   }, [radioId, ariaDescribedBy, description]);
 
-  const colorName = radioGroupContext.color || color;
-  const hasLabel = children !== undefined && children !== null;
-  const isInputOnly = !hasLabel && !description;
   const radioClass = classNames('sg-radio', className, {
     [`sg-radio--${String(colorName)}`]: colorName,
     'sg-radio--disabled': isDisabled,
@@ -154,13 +172,17 @@ const Radio = ({
     'sg-radio--with-padding': !isInputOnly,
   });
 
-  const circleClass = classNames('sg-radio__circle', {
-    'sg-radio__circle--with-animation': wasInteractedWith,
-  });
   const labelClass = classNames('sg-radio__label', {
     'sg-radio__label--with-padding-bottom': description,
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
+
+  const circleClass = classNames('sg-radio__circle', {
+    'sg-radio__circle--with-animation': shouldAnimate,
+  });
+
+  const labelId = ariaLabelledBy || `${radioId}-label`;
+  const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
   const onInputChange = e => {
     if (isWithinRadioGroup) {
@@ -174,10 +196,7 @@ const Radio = ({
 
   return (
     <div className={radioClass} style={style}>
-      <div
-        className="sg-radio__wrapper"
-        onClick={() => setWasInteractedWith(true)}
-      >
+      <div className="sg-radio__wrapper">
         <div className="sg-radio__element">
           <input
             {...props}
