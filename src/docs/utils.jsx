@@ -26,6 +26,7 @@ type StoryVariantPropsType = {
   height?: string,
   width?: string,
   label: string,
+  whiteText?: boolean,
 };
 
 export const StoryVariant = ({
@@ -33,13 +34,14 @@ export const StoryVariant = ({
   height = 'auto',
   width = 'auto',
   label,
+  whiteText,
 }: StoryVariantPropsType) => (
   <div className="sg-story-variant" style={{height, width}}>
     <Headline
       extraBold
       transform="uppercase"
       type="span"
-      color="text-gray-60"
+      color={whiteText ? 'text-white' : 'text-gray-60'}
       size="xsmall"
       className="sg-story-variant__name"
     >

@@ -1,0 +1,134 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import SubjectIcon, {TYPE, ICON_COLOR, SIZE} from './SubjectIcon';
+import {StoryVariant} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+import hex from '../colors/hex';
+import Flex from '../flex/Flex';
+import SubjectIconA11y from './stories/SubjectIcon.a11y.mdx';
+import {formatTags} from '../../docs/utils';
+
+<Meta
+  title="Components/SubjectIcon"
+  component={SubjectIcon}
+  argTypes={{
+    monoColor: {
+      control: {
+        type: 'select',
+        options: ICON_COLOR,
+      },
+      table: {
+        type: {
+          summary: formatTags(Object.values(ICON_COLOR)),
+        },
+      },
+    },
+    size: {
+      table: {
+        defaultValue: {
+          summary: SIZE.NORMAL,
+        },
+      },
+      control: 'select',
+    },
+  }}
+  args={{
+    type: TYPE.ACCOUNTANCY,
+  }}
+/>
+
+<PageHeader>SubjectIcon</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <SubjectIcon {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Types">
+    {args => (
+      <Flex wrap>
+        {Object.values(TYPE).map(type => (
+          <StoryVariant label={`type - ${type}`} width={200} key={type}>
+            <SubjectIcon {...args} type={type} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {Object.values(SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <SubjectIcon {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Mono Color
+
+<Canvas>
+  <Story name="Mono Color">
+    {args => (
+      <div>
+        <Flex wrap>
+          {Object.values(ICON_COLOR).map(color => (
+            <StoryVariant
+              width={200}
+              label={`color - ${color}`}
+              style={{
+                width: '200px',
+                background:
+                  color === ICON_COLOR['icon-white']
+                    ? hex['gray-50']
+                    : 'transparent',
+              }}
+              key={color}
+            >
+              {color === ICON_COLOR['icon-white'] ? (
+                <div className="sg-story-variant-dark-box">
+                  <SubjectIcon {...args} monoColor={color} />
+                </div>
+              ) : (
+                <SubjectIcon {...args} monoColor={color} />
+              )}
+            </StoryVariant>
+          ))}
+        </Flex>
+        <Flex wrap>
+          {Object.values(TYPE).map(type => (
+            <StoryVariant label={type} width={200} key={type}>
+              <SubjectIcon
+                monoColor={ICON_COLOR['icon-blue-50']}
+                {...args}
+                type={type}
+              />
+            </StoryVariant>
+          ))}
+        </Flex>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SubjectIconA11y />

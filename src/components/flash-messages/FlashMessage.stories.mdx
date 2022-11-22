@@ -2,7 +2,6 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
 import {StoryVariantTable} from '../../docs/utils';
 import Headline from '../text/Headline';
-import {Preview} from '../../docs/blocks/';
 import FlashMessage, {TYPE} from './FlashMessage';
 import FlashMessageA11y from './stories/FlashMessage.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -11,16 +10,6 @@ import PageHeader from 'blocks/PageHeader';
   title="Components/FlashMessage"
   component={FlashMessage}
   argTypes={{
-    children: {
-      control: {
-        disable: true,
-      },
-    },
-    className: {
-      control: {
-        disable: true,
-      },
-    },
     type: {
       control: {type: 'select', options: TYPE},
     },

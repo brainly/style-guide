@@ -1,6 +1,8 @@
-import * as IconAsButton from './IconAsButton.stories';
+import * as IconAsButton from './IconAsButton.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(IconAsButton);
 
-export default IconAsButton.default;
+const {includeStories, ...meta} = IconAsButton.default;
+
+export default meta;

@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
 import SpinnerA11y from './stories/Spinner.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -12,7 +11,7 @@ import Flex from '../flex/Flex';
   argTypes={{
     size: {
       description: 'Spinner size',
-      control: {type: 'select', options: SPINNER_SIZE},
+      control: {type: 'select', options: Object.values(SPINNER_SIZE)},
     },
     color: {
       description: 'Spinner color',

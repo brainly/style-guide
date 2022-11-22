@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 import Overlay, {COLOR} from './Overlay';
 import OverlayA11y from './stories/Overlay.a11y.mdx';
 import Box from '../box/Box';
@@ -8,6 +7,7 @@ import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import PageHeader from 'blocks/PageHeader';
 import {within} from '@storybook/testing-library';
+import {formatTags} from '../../docs/utils';
 
 export const play = async ({canvasElement}) => {
   const canvas = within(canvasElement);
@@ -23,8 +23,13 @@ export const play = async ({canvasElement}) => {
   argTypes={{
     color: {
       control: {
-        type: 'select',
-        options: COLOR,
+        type: 'radio',
+        options: Object.values(COLOR),
+      },
+      table: {
+        type: {
+          summary: formatTags(Object.values(COLOR)),
+        },
       },
     },
     children: {

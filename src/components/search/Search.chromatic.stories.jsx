@@ -1,6 +1,8 @@
-import * as Search from './Search.stories.jsx';
+import * as Search from './Search.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Search);
 
-export default Search.default;
+const {includeStories, ...meta} = Search.default;
+
+export default meta;

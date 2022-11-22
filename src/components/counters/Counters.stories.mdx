@@ -1,6 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
+import {formatTags} from '../../docs/utils';
 
 import Counter, {COUNTER_SIZE} from './Counter';
 import {TYPE as ICON_TYPE} from '../icons/Icon';
@@ -16,7 +16,15 @@ import PageHeader from 'blocks/PageHeader';
   argTypes={{
     size: {control: {type: 'select', options: COUNTER_SIZE}},
     withAnimation: {control: 'boolean'},
-    icon: {control: {type: 'select', options: Object.values(ICON_TYPE)}},
+    icon: {
+      control: {type: 'select', options: Object.values(ICON_TYPE)},
+      table: {type: {summary: formatTags(Object.values(ICON_TYPE))}},
+    },
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
   }}
   args={{
     children: '25',
