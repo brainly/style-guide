@@ -196,6 +196,7 @@ function BaseDialog({
   );
 
   const containerClass = cx('sg-dialog__container', {
+    'sg-dialog__container--fullscreen': size === 'fullscreen',
     'sg-dialog__container--scroll': scroll === 'inside',
     'sg-dialog__container--open': deferredOpen,
     'sg-dialog__container--exiting': exiting,
