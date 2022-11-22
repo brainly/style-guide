@@ -103,9 +103,6 @@ $dialogMaxWidthMap: (
     flex: auto;
     flex-direction: column;
     position: relative;
-    background-color: $white;
-    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
-    box-shadow: $dialogBoxShadow;
     width: 100%;
     margin-top: auto;
     margin-bottom: 0;
@@ -116,19 +113,16 @@ $dialogMaxWidthMap: (
     transition-timing-function: $easingExit, $easingLinear;
     opacity: 0;
 
+    @include sgResponsive(md) {
+      margin-bottom: auto;
+    }
+
     &[data-animating='true'] {
       transform: translate3d(0, $dialogSlideWindowDistance, 0);
     }
 
-    @include sgResponsive(md) {
-      border-radius: $borderRadiusDefault;
-      margin-bottom: auto;
-    }
-
     &--fullscreen {
       transition-duration: $durationGentle2, $durationQuick2;
-      border-radius: 0;
-      box-shadow: none;
       max-width: 100%;
       min-height: 100%;
 
@@ -165,6 +159,21 @@ $dialogMaxWidthMap: (
 
       &[data-animating='true'] {
         transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &--appearance-dialog {
+      background-color: $white;
+      border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+      box-shadow: $dialogBoxShadow;
+
+      @include sgResponsive(md) {
+        border-radius: $borderRadiusDefault;
+      }
+
+      &.sg-dialog__container--fullscreen {
+        border-radius: 0;
+        box-shadow: none;
       }
     }
   }
