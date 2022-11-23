@@ -24,6 +24,7 @@
     "yarn": "^1.0.0"
   },
   "dependencies": {
+    "@aws-sdk/client-lambda": "^3.210.0",
     "chalk": "4.1.2",
     "classnames": "^2.2.5",
     "glob": "^7.2.0",
@@ -183,7 +184,9 @@
       ".jsx?$": "babel-jest"
     },
     "roots": [
-      "<rootDir>/src"
+      "<rootDir>/src",
+      "<rootDir>/bin",
+      "<rootDir>test"
     ]
   },
   "sideEffects": [
@@ -191,6 +194,7 @@
     "./src/images/*icons.js"
   ],
   "bin": {
-    "sg-codemod": "./bin/codemods/cli.js"
+    "sg-codemod": "./bin/codemods/cli.js",
+    "sg-metrics": "./bin/metrics/cli.js"
   }
 }
