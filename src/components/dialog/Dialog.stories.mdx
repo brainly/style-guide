@@ -634,6 +634,95 @@ import PageHeader from 'blocks/PageHeader';
   </Story>
 </Canvas>
 
+### Switching modals
+
+<Canvas>
+  <Story name="Switching modals">
+    {args => {
+      const [{opened}, setOpen] = React.useState({opened: null});
+      const handleDismiss = () => setOpen({opened: null});
+      const goToRegister = () => setOpen({opened: 'register'});
+      const goToLogin = () => setOpen({opened: 'login'});
+      const headerId = 'dialog-header';
+      const anotherHeaderId = 'another-dialog-header';
+      return (
+        <div>
+          <Button variant="solid-indigo" onClick={goToLogin}>
+            open dialog
+          </Button>
+          <Dialog
+            {...args}
+            open={opened === 'login'}
+            onDismiss={handleDismiss}
+            labelledBy={headerId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={headerId}>
+              <Flex marginBottom="m">
+                <Headline>login</Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex marginBottom="m">
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us.
+              </Flex>
+              <Flex marginBottom="m">
+                <Link as="button" onClick={goToRegister}>
+                  Open register dialog
+                </Link>
+              </Flex>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+                <Button variant="solid">proceed</Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+          <Dialog
+            {...args}
+            open={opened === 'register'}
+            onDismiss={handleDismiss}
+            labelledBy={headerId}
+          >
+            <DialogCloseButton onClick={handleDismiss} />
+            <DialogHeader id={headerId}>
+              <Flex marginBottom="m">
+                <Headline>Register</Headline>
+              </Flex>
+            </DialogHeader>
+            <DialogBody>
+              <Flex marginBottom="m">
+                Information you provide to us directly. We may collect personal
+                information, such as your name, address, telephone number, date
+                of birth, payment information, and e-mail address when you when
+                you register for our Service, sign up for our mailing list,
+                enter a contest or sweepstakes, or otherwise communicate with
+                us.
+              </Flex>
+              <Flex marginBottom="m">
+                <Link as="button" onClick={goToLogin}>
+                  Open login dialog
+                </Link>
+              </Flex>
+              <Flex justifyContent="flex-end" className="sg-space-x-s">
+                <Button variant="outline" onClick={handleDismiss}>
+                  cancel
+                </Button>
+              </Flex>
+            </DialogBody>
+          </Dialog>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <DialogA11y />

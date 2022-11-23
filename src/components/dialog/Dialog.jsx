@@ -15,7 +15,7 @@ export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen',
-  reduceMotion?: boolean,
+  motionPreset: 'none' | 'default',
   'aria-labelledby'?: string,
   'aria-label'?: string,
   'aria-describedby'?: string,
@@ -45,7 +45,7 @@ export type DialogPropsType = $ReadOnly<{
  */
 Dialog.defaultProps = ({
   size: 'm',
-  reduceMotion: false,
+  motionPreset: 'default',
   scroll: 'outside',
   position: 'center',
   appearance: 'dialog',
@@ -59,7 +59,7 @@ function BaseDialog({
   open,
   children,
   size = 'm',
-  reduceMotion = false,
+  motionPreset,
   scroll = 'outside',
   'aria-labelledby': ariaLabelledBy,
   'aria-label': ariaLabel,
@@ -85,7 +85,7 @@ function BaseDialog({
    * The name of transition with the longest duration, because
    * a component can have an animation of many properties.
    */
-  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
+  const lastTransitionName = exiting ? 'opacity' : 'transform';
 
   /**
    * CSS3 transition requires a deferredOpen value to be one
@@ -117,10 +117,10 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
 
-    if (!supportsTransitions()) {
+    if (!supportsTransitions() || motionPreset === 'none') {
       fireTransitionEndCallbacks();
     }
-  }, [open, fireTransitionEndCallbacks]);
+  }, [open, fireTransitionEndCallbacks, motionPreset]);
 
   React.useEffect(() => {
     /**
@@ -148,6 +148,7 @@ function BaseDialog({
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
+      console.log(event.propertyName);
       if (
         event.target === event.currentTarget &&
         event.propertyName === lastTransitionName
@@ -184,6 +185,7 @@ function BaseDialog({
     [onDismiss]
   );
 
+  const overlayMotionClass = `sg-dialog__overlay--motion-${motionPreset}`;
   const overlayClass = cx(
     'js-dialog',
     'sg-dialog__overlay',
@@ -195,17 +197,21 @@ function BaseDialog({
       'sg-dialog__overlay--open': deferredOpen,
       'sg-dialog__overlay--fullscreen': size === 'fullscreen',
       'sg-dialog__overlay--space-top': position === 'top',
+      [overlayMotionClass]: true,
     }
   );
 
+  const tokenClass = `sg-dialog__container--motion-${motionPreset}`;
+  const fullscreenTokenClass = `sg-dialog__container--fullscreen--motion--${motionPreset}`;
   const containerClass = cx('sg-dialog__container', {
     'sg-dialog__container--fullscreen': size === 'fullscreen',
+    [fullscreenTokenClass]: size === 'fullscreen',
     'sg-dialog__container--scroll': scroll === 'inside',
     'sg-dialog__container--open': deferredOpen,
     'sg-dialog__container--exiting': exiting,
-    'sg-dialog__container--reduce-motion': reduceMotion,
     'sg-dialog__container--top': position === 'top',
     'sg-dialog__container--appearance-dialog': appearance === 'dialog',
+    [tokenClass]: true,
   });
 
   const childrenWithoutSlots = React.useMemo(

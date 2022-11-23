@@ -23,9 +23,7 @@ $dialogMaxWidthMap: (
     left: 0;
     width: 100%;
     height: 100%;
-    transition-property: background-color;
-    transition-duration: $durationQuick2;
-    transition-timing-function: $easingLinear;
+
     background-color: transparent;
 
     @include sgResponsive(md) {
@@ -82,6 +80,17 @@ $dialogMaxWidthMap: (
           [dialog-column-end] 1fr;
       }
     }
+
+    // motion tokens
+    &--motion-default {
+      transition-property: background-color;
+      transition-duration: $durationQuick2;
+      transition-timing-function: $easingLinear;
+    }
+
+    &--motion-none {
+      transition-duration: 0s;
+    }
   }
 
   &-overlay-slot {
@@ -108,9 +117,6 @@ $dialogMaxWidthMap: (
     margin-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    transition-property: transform, opacity;
-    transition-duration: $durationModerate2, $durationQuick2;
-    transition-timing-function: $easingExit, $easingLinear;
     opacity: 0;
 
     @include sgResponsive(md) {
@@ -132,6 +138,14 @@ $dialogMaxWidthMap: (
         @include sgResponsive(md) {
           transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
         }
+      }
+
+      &--motion-default {
+        transition-duration: $durationGentle2, $durationQuick2;
+      }
+
+      &--motion-none {
+        transition-duration: 0s, 0s;
       }
     }
 
@@ -175,6 +189,16 @@ $dialogMaxWidthMap: (
         border-radius: 0;
         box-shadow: none;
       }
+    }
+
+    &--motion-default {
+      transition-property: transform, opacity;
+      transition-duration: $durationModerate2, $durationQuick2;
+      transition-timing-function: $easingExit, $easingLinear;
+    }
+
+    &--motion-none {
+      transition-duration: 0s;
     }
   }
 
