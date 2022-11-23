@@ -7,7 +7,7 @@ const command = meow({
   description: 'CLI tool for collecting styleguide metrics.',
   help: `
     Usage
-      $ yarn sg-metrics <...options> paths
+      $ yarn sg-metrics [options...] <paths>
     Options
       --dry            Dry run (no data is send to database)
     `,
