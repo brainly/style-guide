@@ -15,7 +15,7 @@ export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen',
-  motionPreset: 'none' | 'default',
+  motionPreset?: 'none' | 'default',
   'aria-labelledby'?: string,
   'aria-label'?: string,
   'aria-describedby'?: string,
@@ -45,7 +45,6 @@ export type DialogPropsType = $ReadOnly<{
  */
 Dialog.defaultProps = ({
   size: 'm',
-  motionPreset: 'default',
   scroll: 'outside',
   position: 'center',
   appearance: 'dialog',
@@ -59,7 +58,7 @@ function BaseDialog({
   open,
   children,
   size = 'm',
-  motionPreset,
+  motionPreset = 'default',
   scroll = 'outside',
   'aria-labelledby': ariaLabelledBy,
   'aria-label': ariaLabel,
@@ -184,11 +183,11 @@ function BaseDialog({
     [onDismiss]
   );
 
-  const overlayMotionClass = `sg-dialog__overlay--motion-${motionPreset}`;
   const overlayClass = cx(
     'js-dialog',
     'sg-dialog__overlay',
     `sg-dialog__overlay--size-${size}`,
+    `sg-dialog__overlay--motion-${motionPreset}`,
     {
       'sg-dialog__overlay--scroll':
         (isDialogHigherThanOverlay || hasFinishedTransition) &&
@@ -196,22 +195,23 @@ function BaseDialog({
       'sg-dialog__overlay--open': deferredOpen,
       'sg-dialog__overlay--fullscreen': size === 'fullscreen',
       'sg-dialog__overlay--space-top': position === 'top',
-      [overlayMotionClass]: true,
     }
   );
 
-  const tokenClass = `sg-dialog__container--motion-${motionPreset}`;
   const fullscreenTokenClass = `sg-dialog__container--fullscreen--motion--${motionPreset}`;
-  const containerClass = cx('sg-dialog__container', {
-    'sg-dialog__container--fullscreen': size === 'fullscreen',
-    [fullscreenTokenClass]: size === 'fullscreen',
-    'sg-dialog__container--scroll': scroll === 'inside',
-    'sg-dialog__container--open': deferredOpen,
-    'sg-dialog__container--exiting': exiting,
-    'sg-dialog__container--top': position === 'top',
-    'sg-dialog__container--appearance-dialog': appearance === 'dialog',
-    [tokenClass]: true,
-  });
+  const containerClass = cx(
+    'sg-dialog__container',
+    `sg-dialog__container--motion-${motionPreset}`,
+    {
+      'sg-dialog__container--fullscreen': size === 'fullscreen',
+      [fullscreenTokenClass]: size === 'fullscreen',
+      'sg-dialog__container--scroll': scroll === 'inside',
+      'sg-dialog__container--open': deferredOpen,
+      'sg-dialog__container--exiting': exiting,
+      'sg-dialog__container--top': position === 'top',
+      'sg-dialog__container--appearance-dialog': appearance === 'dialog',
+    }
+  );
 
   const childrenWithoutSlots = React.useMemo(
     () =>
