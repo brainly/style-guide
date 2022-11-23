@@ -148,7 +148,6 @@ function BaseDialog({
 
   const handleTransitionEnd = React.useCallback(
     (event: TransitionEvent) => {
-      console.log(event.propertyName);
       if (
         event.target === event.currentTarget &&
         event.propertyName === lastTransitionName
