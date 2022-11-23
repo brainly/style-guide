@@ -1,7 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../../docs/utils';
 import {styled} from '@storybook/theming';
-import {Preview} from '../../../docs/blocks/';
 import PageHeader from 'blocks/PageHeader';
 
 import Flex from '../../flex/Flex';
@@ -19,6 +18,11 @@ import CheckboxA11y from './stories/Checkbox.a11y.mdx';
     },
     description: {
       type: 'string',
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
     },
   }}
   args={{

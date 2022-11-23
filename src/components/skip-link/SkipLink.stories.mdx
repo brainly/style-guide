@@ -2,22 +2,31 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {within} from '@storybook/testing-library';
 import SkipLink from './SkipLink';
 import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
 
-<Meta title="Components/SkipLink" component={SkipLink} />
+<Meta
+  title="Components/SkipLink"
+  component={SkipLink}
+  argTypes={{children: {control: 'text'}}}
+  args={{
+    children: 'skip to main content',
+    id: 'main',
+  }}
+/>
 
-# Skiplink
+<PageHeader>SkipLink</PageHeader>
 
 - [Accessibility](#accessibility)
 
 ## Overview
 
 <Canvas>
-  <Story name="default">
+  <Story name="Default">
     {args => {
       return (
         <div>
-          <SkipLink id="main">skip to main content</SkipLink>
-          <main id="main" tabindex="-1" style={{paddingBottom: '5em'}}>
+          <SkipLink {...args} />
+          <main id={args.id} tabindex="-1" style={{paddingBottom: '5em'}}>
             Main content
           </main>
         </div>
@@ -25,6 +34,8 @@ import SkipLinkA11y from './stories/SkipLink.a11y.mdx';
     }}
   </Story>
 </Canvas>
+
+<ArgsTable story="Default" />
 
 ## Accessibility
 

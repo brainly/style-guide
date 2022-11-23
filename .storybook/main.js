@@ -252,10 +252,12 @@ module.exports = {
     );
 
     if (!revManifestPath) {
-      throw new Error(`rev-manifest.json not found in paths:
-      ${pathToVersionedManifest}
-      ${pathToLatestVerManifest}
-      Run 'yarn build'.`);
+      console.log(`
+⛔️ rev-manifest.json not found in paths:
+  ${pathToVersionedManifest}
+  ${pathToLatestVerManifest}
+📦 Run 'yarn build'.`);
+      process.exit(1);
     }
 
     // alias for finger printed asset urls

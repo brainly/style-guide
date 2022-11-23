@@ -8,10 +8,16 @@ import PageHeader from 'blocks/PageHeader';
 <Meta
   title="Components/Card"
   component={Card}
+  subcomponents={{CardHole}}
   argTypes={{
     children: {
       control: {
         disable: true,
+      },
+    },
+    padding: {
+      control: {
+        type: 'select',
       },
     },
   }}

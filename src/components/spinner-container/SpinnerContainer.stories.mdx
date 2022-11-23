@@ -9,6 +9,7 @@ import Flex from '../flex/Flex';
 import {StoryVariant, StoryVariantBorderBox} from '../../docs/utils';
 import SpinnerContainerA11y from './stories/SpinnerContainer.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/SpinnerContainer"
@@ -17,6 +18,34 @@ import PageHeader from 'blocks/PageHeader';
     children: {
       control: {
         disable: true,
+      },
+    },
+    color: {
+      control: {
+        type: 'select',
+        options: SPINNER_COLOR,
+      },
+      table: {
+        type: {
+          summary: formatTags(Object.values(SPINNER_COLOR)),
+        },
+        defaultValue: {
+          summary: SPINNER_COLOR['gray-70'],
+        },
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: Object.values(SPINNER_SIZE),
+      },
+      table: {
+        type: {
+          summary: formatTags(Object.values(SPINNER_SIZE)),
+        },
+        defaultValue: {
+          summary: SPINNER_SIZE.SMALL,
+        },
       },
     },
   }}

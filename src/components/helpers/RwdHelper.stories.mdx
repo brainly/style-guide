@@ -1,0 +1,34 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import RwdHelper, {TYPE} from './RwdHelper';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta
+  title="Components/RwdHelper"
+  component={RwdHelper}
+  argTypes={{
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
+    hide: {
+      control: 'select',
+    },
+  }}
+  args={{
+    hide: TYPE.MEDIUM_DOWN,
+    children: 'This text will show up only for certain screen sizes',
+  }}
+/>
+
+<PageHeader>RwdHelper</PageHeader>
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <RwdHelper {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />

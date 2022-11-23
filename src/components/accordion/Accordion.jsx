@@ -45,13 +45,23 @@ type ActionType =
       payload: {id: string, expanded: boolean},
     };
 
+type SpacingType =
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl'
+  | 'none';
+
 export type AccordionPropsType = $ReadOnly<{
   allowMultiple?: boolean,
   children: React.Node,
   className?: string,
-  spacing?: ResponsivePropType<
-    'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'xxxxl' | 'none'
-  >,
+  spacing?: ResponsivePropType<SpacingType>,
   reduceMotion?: boolean,
   expanded?: string | Array<string>,
   defaultExpanded?: string | Array<string>,

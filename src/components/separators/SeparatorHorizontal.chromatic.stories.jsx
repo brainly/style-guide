@@ -1,6 +1,8 @@
-import * as SeparatorHorizontal from './SeparatorHorizontal.stories.jsx';
+import * as SeparatorHorizontal from './SeparatorHorizontal.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(SeparatorHorizontal);
 
-export default SeparatorHorizontal.default;
+const {includeStories, ...meta} = SeparatorHorizontal.default;
+
+export default meta;

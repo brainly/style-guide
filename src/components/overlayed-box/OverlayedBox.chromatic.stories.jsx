@@ -1,6 +1,8 @@
-import * as OverlayedBox from './OverlayedBox.stories.jsx';
+import * as OverlayedBox from './OverlayedBox.stories.mdx';
 import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(OverlayedBox);
 
-export default OverlayedBox.default;
+const {includeStories, ...meta} = OverlayedBox.default;
+
+export default meta;

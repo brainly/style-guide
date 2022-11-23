@@ -35,6 +35,7 @@ export type DialogPropsType = $ReadOnly<{
   onExitTransitionEnd?: () => void,
   'data-testid'?: string,
   position?: 'center' | 'top',
+  appearance?: 'none' | 'dialog',
 }>;
 
 /**
@@ -47,6 +48,7 @@ Dialog.defaultProps = ({
   reduceMotion: false,
   scroll: 'outside',
   position: 'center',
+  appearance: 'dialog',
 }: $Shape<DialogPropsType>);
 
 /**
@@ -69,6 +71,7 @@ function BaseDialog({
   onExitTransitionEnd,
   'data-testid': dataTestId,
   position = 'center',
+  appearance = 'dialog',
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -196,11 +199,13 @@ function BaseDialog({
   );
 
   const containerClass = cx('sg-dialog__container', {
+    'sg-dialog__container--fullscreen': size === 'fullscreen',
     'sg-dialog__container--scroll': scroll === 'inside',
     'sg-dialog__container--open': deferredOpen,
     'sg-dialog__container--exiting': exiting,
     'sg-dialog__container--reduce-motion': reduceMotion,
     'sg-dialog__container--top': position === 'top',
+    'sg-dialog__container--appearance-dialog': appearance === 'dialog',
   });
 
   const childrenWithoutSlots = React.useMemo(

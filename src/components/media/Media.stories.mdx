@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 
 import Media, {COLORS_MAP} from './Media';
 import Text from '../text/Text';
@@ -28,9 +27,10 @@ import PageHeader from 'blocks/PageHeader';
         disable: true,
       },
     },
-    className: {
-      control: {
-        disable: true,
+    color: {
+      control: 'select',
+      table: {
+        defaultValue: {summary: COLORS_MAP['white']},
       },
     },
   }}

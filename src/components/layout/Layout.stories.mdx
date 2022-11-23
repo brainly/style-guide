@@ -2,6 +2,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import Layout from './Layout';
 import Text from '../text/Text';
 import LayoutContent from './LayoutContent';
+import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
 import PageHeader from 'blocks/PageHeader';
 import LayoutA11y from './stories/Layout.a11y.mdx';
@@ -9,6 +10,7 @@ import LayoutA11y from './stories/Layout.a11y.mdx';
 <Meta
   title="Components/Layout"
   component={Layout}
+  subcomponents={{LayoutAsideContent, LayoutContent, LayoutSecondaryContent}}
   argTypes={{
     children: {
       control: {
@@ -24,6 +26,9 @@ import LayoutA11y from './stories/Layout.a11y.mdx';
       control: {
         disable: true,
       },
+    },
+    as: {
+      control: 'select',
     },
   }}
   args={{

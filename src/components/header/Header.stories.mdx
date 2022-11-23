@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 
 import Header from './Header';
 import HeaderContainer from './HeaderContainer';
@@ -27,6 +26,13 @@ import PageHeader from 'blocks/PageHeader';
 <Meta
   title="Components/Header"
   component={Header}
+  subcomponents={{
+    HeaderContainer,
+    HeaderContent,
+    HeaderLeft,
+    HeaderMiddle,
+    HeaderRight,
+  }}
   parameters={{
     layout: 'default',
   }}

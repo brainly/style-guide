@@ -1,7 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../../docs/utils';
-import {Preview} from '../../../docs/blocks/';
 import {styled} from '@storybook/theming';
+import {formatTags} from '../../../docs/utils';
 import PageHeader from 'blocks/PageHeader';
 
 import Text from '../../text/Text';
@@ -14,13 +14,32 @@ import Radio from './Radio';
 import RadioGroup from './RadioGroup';
 import useRadioContext from './useRadioContext';
 import RadioGroupA11y from './stories/RadioGroup.a11y.mdx';
+const colorOptions = ['light', 'dark'];
 
 <Meta
   title="Components/Form/Radio group"
   component={RadioGroup}
   argTypes={{
     children: {
-      type: 'string',
+      control: {
+        disable: true,
+      },
+    },
+    color: {
+      control: {
+        type: 'radio',
+        options: colorOptions,
+      },
+      table: {
+        type: {
+          summary: formatTags(colorOptions),
+        },
+      },
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
     },
   }}
   parameters={{

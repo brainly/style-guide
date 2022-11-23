@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 import FileHandler, {COLORS_MAP} from './FileHandler';
 import {TYPE} from '../icons/Icon';
 import FileHandlerA11y from './stories/FileHandler.a11y.mdx';
@@ -19,6 +18,9 @@ const src =
       control: {
         disable: true,
       },
+      table: {
+        type: {summary: 'React.Node'},
+      },
     },
     textRef: {
       control: {
@@ -30,6 +32,7 @@ const src =
         type: {
           summary: formatTags(Object.values(TYPE)),
         },
+        defaultValue: {summary: TYPE.ATTACHMENT},
       },
       control: {
         type: 'select',
@@ -42,6 +45,7 @@ const src =
         type: {
           summary: formatTags(Object.values(COLORS_MAP)),
         },
+        defaultValue: {summary: COLORS_MAP['gray-20']},
       },
       control: {
         type: 'select',
@@ -53,12 +57,18 @@ const src =
       control: {
         type: 'text',
       },
+      table: {
+        type: {summary: 'string'},
+      },
     },
     loading: {
       control: {
         type: 'boolean',
       },
-      defaultValue: false,
+      table: {
+        defaultValue: {summary: false},
+        type: {summary: 'boolean'},
+      },
     },
     onClose: {
       table: {
@@ -72,20 +82,31 @@ const src =
     },
     className: {
       control: {
-        disable: true,
+        type: 'disable',
+      },
+      table: {
+        type: {summary: 'string'},
       },
     },
     ariaCloseButtonLabel: {
       control: {
         type: 'text',
       },
-      defaultValue: 'Close',
+      table: {
+        type: {summary: 'string'},
+        defaultValue: {summary: 'Close'},
+      },
     },
     statusLabel: {
       control: {
         type: 'object',
       },
-      defaultValue: {loading: 'loading', uploaded: 'uploaded'},
+      table: {
+        defaultValue: {summary: "{loading: 'loading', uploaded: 'uploaded'}"},
+        type: {
+          summary: '{loading: string, uploaded: string}',
+        },
+      },
     },
   }}
   args={{

@@ -6,6 +6,7 @@ import {
   HEADLINE_ALIGN,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
+  HEADLINE_TYPE,
 } from './headlineConsts';
 import HeadlineA11y from './stories/Headline.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -17,7 +18,8 @@ import PageHeader from 'blocks/PageHeader';
     children: 'some text',
   }}
   argTypes={{
-    children: 'string',
+    children: {control: 'text'},
+    type: {table: {defaultValue: {summary: HEADLINE_TYPE.H1}}},
     size: {
       description: '(Responsive)',
       table: {

@@ -1,6 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import {Preview} from '../../docs/blocks/';
 import List from './List';
 import ListItem from './ListItem';
 import ListItemIcon from './ListItemIcon';
@@ -15,9 +14,7 @@ const elements = ['Element one', 'Element two', 'Element three'];
   component={List}
   subcomponents={{ListItem, ListItemIcon}}
   argTypes={{
-    children: {control: null},
-    spaced: {control: 'boolean'},
-    ordered: {control: 'boolean'},
+    children: {control: {disable: true}},
   }}
 />
 

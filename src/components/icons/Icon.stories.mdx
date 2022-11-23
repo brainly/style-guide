@@ -7,6 +7,7 @@ import Flex from '../flex/Flex';
 import Headline from '../text/Headline';
 import {getIconGroup} from './get-icon-group';
 import PageHeader from 'blocks/PageHeader';
+import {formatTags} from '../../docs/utils';
 
 <Meta
   title="Components/Icon"
@@ -15,30 +16,44 @@ import PageHeader from 'blocks/PageHeader';
     type: {
       description: 'Icon type (name)',
       control: {type: 'select', options: TYPE},
+      table: {
+        type: {
+          summary: formatTags(Object.values(TYPE)),
+        },
+      },
     },
     tagType: {
       description:
         'Option to change tag to span, which allows correct HTML structure',
       table: {
-        type: null,
+        type: {
+          summary: formatTags(Object.values(ICON_TAG_TYPE)),
+        },
       },
       control: {type: 'select', options: ICON_TAG_TYPE},
     },
     size: {
       description: 'Icons sizes example',
       table: {
-        type: null,
+        type: {
+          summary: formatTags(SIZE),
+        },
       },
       control: {type: 'select', options: SIZE},
     },
     color: {
       description: 'Icons colors example',
       table: {
-        type: null,
+        type: {
+          summary: formatTags(Object.values(ICON_COLOR)),
+        },
+        defaultValue: {
+          summary: ICON_COLOR['icon-white'],
+        },
       },
       control: {type: 'select', options: ICON_COLOR},
     },
-    className: {control: {type: 'text'}},
+    className: {control: {type: 'text'}, table: {type: {summary: 'string'}}},
   }}
   args={{
     type: TYPE.ACADEMIC_CAP,
