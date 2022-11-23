@@ -81,7 +81,6 @@ $dialogMaxWidthMap: (
       }
     }
 
-    // motion tokens
     &--motion-default {
       transition-property: background-color;
       transition-duration: $durationQuick2;
@@ -128,7 +127,6 @@ $dialogMaxWidthMap: (
     }
 
     &--fullscreen {
-      transition-duration: $durationGentle2, $durationQuick2;
       max-width: 100%;
       min-height: 100%;
 
