@@ -99,6 +99,7 @@ function BaseDialog({
     React.useState<boolean>(false);
 
   const cleanupBodyNoScroll = useBodyNoScroll();
+  const disabledAnimations = motionPreset === 'none';
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
     setHasFinishedTransition(true);
@@ -116,10 +117,10 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
 
-    if (!supportsTransitions() || motionPreset === 'none') {
+    if (!supportsTransitions() || disabledAnimations) {
       fireTransitionEndCallbacks();
     }
-  }, [open, fireTransitionEndCallbacks, motionPreset]);
+  }, [open, fireTransitionEndCallbacks, disabledAnimations]);
 
   React.useEffect(() => {
     /**
@@ -286,7 +287,9 @@ function BaseDialog({
         data-dialog-container
         className={containerClass}
         onTransitionEnd={
-          supportsTransitions() ? handleTransitionEnd : undefined
+          supportsTransitions() && !disabledAnimations
+            ? handleTransitionEnd
+            : undefined
         }
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
