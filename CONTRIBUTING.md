@@ -222,7 +222,7 @@ Above tags should help testers and developers scan the release notes faster for 
 
 Style guide supports beta channel you can use to test your changes in prod like environment. To prepare pre release:
 
-- Prepare a git branch with your feature
+- Push a git branch with your feature
 - Create a draft PR and label it with appropriate keyword (`alpha`/`beta` etc.)
 - Once you're ready to deploy beta release, bump version and create git tag:
   - run `yarn version` and type specific pre release version (follow the same principles as you would preparing standard release but put additional suffix to the version). e.g `yarn version 220.6.0-beta.0`. This command will bump your package version and create git tag. If you need another beta version in the same branch use subsequent integer `-beta.1, beta.2` etc.
