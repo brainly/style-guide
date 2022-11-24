@@ -175,7 +175,7 @@ example:
 
 ## Technical Discipline
 
-#### Bumping the Release Version - this part is for [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
+### Bumping the Release Version - this part is for [maintainers](https://github.com/brainly/style-guide/blob/master/MAINTAINERS)
 
 This project uses semver versioning. We follow [SemVer](https://semver.org/):
 
@@ -184,6 +184,8 @@ This project uses semver versioning. We follow [SemVer](https://semver.org/):
 3. Bump the last number - Finally, if your release only fixes a bug w/o any API changes or introducing new features bump the last number.
 
 To simplify version bumping you can use [`yarn version`](https://yarnpkg.com/lang/en/docs/cli/version/). It will patch `package.json`, create a corresponding commit, create a tag, and push those to git changes.
+
+### Preparing release
 
 To bump the version correctly you should follow these steps:
 
@@ -215,6 +217,20 @@ Although we strictly adhere to Semver's rules, the style guide is built on many 
 - https://github.com/brainly/style-guide/labels/Change%3A%20Internal%20Layout - this type of change is also not a breaking change in the sense of JS API, but CSS is often tricky and we should know when such modification occurred. For example, when we change the way things are displayed or restructure the internal component DOM tree.
 
 Above tags should help testers and developers scan the release notes faster for possible regression points.
+
+### Preparing pre(alpha/beta) release
+
+Style guide supports beta channel you can use to test your changes in prod like environment. To prepare pre release:
+
+- Push a git branch with your feature
+- Create a draft PR and label it with appropriate keyword (`alpha`/`beta` etc.)
+- Once you're ready to deploy beta release, bump version and create git tag:
+  - run `yarn version` and type specific pre release version (follow the same principles as you would preparing standard release but put additional suffix to the version). e.g `yarn version 220.6.0-beta.0`. This command will bump your package version and create git tag. If you need another beta version in the same branch use subsequent integer `-beta.1, beta.2` etc.
+- Push your changes (make sure you add `--follow-tags` option if not enabled globally)
+- Publish to npm with: `npm publish --tag beta` (or `--tag alpha`) command. Otherwise your release will be marked as `latest`
+- Deployed changes should be available in npm and on style guide dev cdn:
+  https://styleguide-dev.brainly.com/X.X.X-beta.X/docs eg. https://styleguide-dev.brainly.com/220.3.0-beta.2/docs
+- After initial testing of alpha/beta, you can close your PR or conitnue working on it and merge to the master branch as an official feature
 
 #### Troubleshooting
 
