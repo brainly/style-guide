@@ -69,7 +69,8 @@ if (!argv.latest) {
 
 function buildFiles() {
   execSync(
-    `yarn gulp build-assets --version=${version} && yarn build-storybook -o dist/${version}/docs --quiet`
+    // eslint-disable-next-line max-len
+    `yarn gulp build-assets --version=${version} && yarn build-sandbox && yarn build-storybook -o dist/${version}/docs --quiet`
   );
 
   if (rootRedirectPage) {

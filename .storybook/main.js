@@ -4,12 +4,11 @@ const pkg = require('../package.json');
 const fs = require('fs');
 const svgoConfigs = require('../svgo.config.js');
 const revHash = require('rev-hash');
+const webpack = require('webpack');
 
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
-
-process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -262,6 +261,26 @@ module.exports = {
 
     // alias for finger printed asset urls
     config.resolve.alias.RevManifest = revManifestPath;
+
+    // check if sandbox style guide is build
+    // if not then create stub
+    const sandboxStyleguideExist = fs.existsSync(
+      path.resolve(__dirname, '../src/sandbox/style-guide.js')
+    );
+
+    config.resolve.alias.SandboxStyleGuideJS = sandboxStyleguideExist
+      ? path.resolve(__dirname, '../dist-sandbox/main.js')
+      : path.resolve(__dirname, '../src/sandbox/style-guide-error');
+
+    config.resolve.alias.SandboxStyleGuideCSS = sandboxStyleguideExist
+      ? path.resolve(__dirname, '../src/sandbox/style-guide.css')
+      : path.resolve(__dirname, '../src/sandbox/style-guide-error');
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        STORYBOOK_ENV: JSON.stringify(process.env.STORYBOOK_ENV),
+      })
+    );
 
     return config;
   },
