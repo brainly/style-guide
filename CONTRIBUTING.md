@@ -230,7 +230,7 @@ Style guide supports beta channel you can use to test your changes in prod like 
 - Publish to npm with: `npm publish --tag beta` (or `--tag alpha`) command. Otherwise your release will be marked as `latest`
 - Deployed changes should be available in npm and on style guide dev cdn:
   https://styleguide-dev.brainly.com/X.X.X-beta.X/docs eg. https://styleguide-dev.brainly.com/220.3.0-beta.2/docs
-- After initial testing of alpha/beta you can close your PR or conitnue working on it and merge to the master branch as an official feature
+- After initial testing of alpha/beta, you can close your PR or conitnue working on it and merge to the master branch as an official feature
 
 #### Troubleshooting
 
