@@ -265,7 +265,7 @@ module.exports = {
     // check if sandbox style guide is build
     // if not then create stub
     const sandboxStyleguideExist = fs.existsSync(
-      path.resolve(__dirname, '../src/sandbox/style-guide.js')
+      path.resolve(__dirname, '../dist-sandbox/main.js')
     );
 
     config.resolve.alias.SandboxStyleGuideJS = sandboxStyleguideExist
