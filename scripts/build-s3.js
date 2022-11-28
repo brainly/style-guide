@@ -5,11 +5,6 @@ const yargs = require('yargs');
 const path = require('path');
 const fs = require('fs');
 
-const BUCKETS = {
-  dev: 'styleguide-dev.brainly.com',
-  prod: 'styleguide-prod.brainly.com',
-};
-
 yargs.default('rootRedirectPage', true);
 yargs.default('latest', false);
 
@@ -17,7 +12,8 @@ yargs.boolean('rootRedirectPage');
 yargs.boolean('latest');
 
 const argv = yargs.argv;
-
+const bucket = process.env.BUCKET;
+const publicPath = process.env.PUBLIC_PATH;
 const version = argv.latest ? 'latest' : packageJsonVersion;
 const rootRedirectPage =
   argv.rootRedirectPage !== undefined ? argv.rootRedirectPage : true;
@@ -25,8 +21,6 @@ const rootRedirectPage =
 console.log(`Building ${version} version`);
 
 if (!argv.latest) {
-  const bucket = version.includes('-beta') ? BUCKETS.dev : BUCKETS.prod;
-
   console.log(`Checking ${bucket} bucket.`);
 
   const client = s3.createClient({
@@ -70,7 +64,7 @@ if (!argv.latest) {
 function buildFiles() {
   execSync(
     // eslint-disable-next-line max-len
-    `yarn gulp build-assets --version=${version} && yarn build-sandbox && yarn build-storybook -o dist/${version}/docs --quiet`
+    `yarn gulp build-assets --version=${version} && PUBLIC_PATH=${publicPath} yarn build-sandbox && PUBLIC_PATH=${publicPath} yarn build-storybook -o dist/${version}/docs --quiet`
   );
 
   if (rootRedirectPage) {

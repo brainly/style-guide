@@ -1,4 +1,5 @@
 dist/
+dist-sandbox/
 esm/
 commonjs/
 /css/

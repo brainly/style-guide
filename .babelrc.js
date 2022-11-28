@@ -14,14 +14,8 @@ module.exports = api => {
   const nodeEnv = api.env();
   api.cache(true);
 
-  if (
-    process.env.STORYBOOK_ENV === 'dev' ||
-    process.env.STORYBOOK_ENV === 'chromatic'
-  ) {
-    logoBaseUrl = '';
-  } else {
-    logoBaseUrl = 'https://styleguide.brainly.com/';
-  }
+  const publicPath =
+    typeof process.env.PUBLIC_PATH === 'string' ? process.env.PUBLIC_PATH : '';
 
   return {
     presets: [
@@ -36,7 +30,7 @@ module.exports = api => {
       [
         'transform-define',
         {
-          LOGO_BASE_URL: logoBaseUrl,
+          LOGO_BASE_URL: publicPath,
         },
       ],
     ],

@@ -1,21 +1,30 @@
 import {Sandpack} from '@codesandbox/sandpack-react';
 import * as React from 'react';
-import styleguideJsCodeRaw from '!!raw-loader!SandboxStyleGuideJS';
-import styleguideCssCodeRaw from '!!raw-loader!SandboxStyleGuideCSS';
-import fontsCodeRaw from '!!raw-loader!../../sandbox/fonts.css';
-
-console.log(styleguideCssCodeRaw);
+import styleguideJsCodeRaw from '!!raw-loader!../../../dist-sandbox/style-guide';
+import styleguideStylesJsCodeRaw from '!!raw-loader!../../../dist-sandbox/style-guide-styles';
+import iconsCodeRaw from '!!raw-loader!../../images/icons';
+import subjectIconsCodeRaw from '!!raw-loader!../../images/subjects-icons';
+import subjectMonoIconsCodeRaw from '!!raw-loader!../../images/subjects-mono-icons';
+import mathSymbolsIconsCodeRaw from '!!raw-loader!../../images/math-symbols-icons';
+import mobileIconsCodeRaw from '!!raw-loader!../../images/mobile-icons';
 
 export default {
   title: 'Tools/Sandbox',
 };
 
-const code = `import './style-guide.css';
-import './fonts.css';
-import {Button} from './style-guide.js';
+const code = `
+import {Button, Icon, Logo} from './style-guide.js';
 
 export default function App() {
-  return <Button>Hello from styleguide!</Button>
+  return <div>
+    <Button>Hello from styleguide!</Button>
+    <Icon
+      color="adaptive"
+      size={32}
+      type="academic_cap"
+    />
+    <Logo />
+  </div>
 }`;
 
 export const Sandbox = () =>
@@ -56,15 +65,15 @@ export const Sandbox = () =>
             active: true,
           },
           'style-guide.js': {
-            code: styleguideJsCodeRaw,
-            hidden: true,
-          },
-          'style-guide.css': {
-            code: styleguideCssCodeRaw,
-            hidden: true,
-          },
-          'fonts.css': {
-            code: fontsCodeRaw,
+            code: `
+            ${iconsCodeRaw}
+            ${subjectIconsCodeRaw}
+            ${subjectMonoIconsCodeRaw}
+            ${mathSymbolsIconsCodeRaw}
+            ${mobileIconsCodeRaw}
+            ${styleguideStylesJsCodeRaw}
+            ${styleguideJsCodeRaw}
+            `,
             hidden: true,
           },
         }}
