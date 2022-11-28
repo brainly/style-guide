@@ -162,7 +162,7 @@
     "package-prepare": "yarn package-clean && concurrently --names 'commonjs,esm,css' 'yarn run package-commonjs' 'yarn run package-esm' 'yarn run package-css' 'yarn run package-assets' 'yarn run package-types' 'yarn run package-deprecated'",
     "prepublishOnly": "yarn package-prepare",
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
-    "storybook": "yarn build && PUBLIC_PATH=http://localhost:6006 yarn build-sandbox && yarn run build-newsletter-stories && STORYBOOK_ENV=dev start-storybook -p 6006",
+    "storybook": "yarn build && PUBLIC_PATH=http://localhost:6006/ yarn build-sandbox && yarn run build-newsletter-stories && STORYBOOK_ENV=dev start-storybook -p 6006",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic start-storybook -p 6006",
     "build-storybook": "yarn run build-newsletter-stories && build-storybook",
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",

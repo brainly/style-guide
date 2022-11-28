@@ -7,6 +7,7 @@ import subjectIconsCodeRaw from '!!raw-loader!../../images/subjects-icons';
 import subjectMonoIconsCodeRaw from '!!raw-loader!../../images/subjects-mono-icons';
 import mathSymbolsIconsCodeRaw from '!!raw-loader!../../images/math-symbols-icons';
 import mobileIconsCodeRaw from '!!raw-loader!../../images/mobile-icons';
+import fontsCodeRaw from '!!raw-loader!../../../dist-sandbox/style-guide-fonts';
 
 export default {
   title: 'Tools/Sandbox',
@@ -66,6 +67,7 @@ export const Sandbox = () =>
           },
           'style-guide.js': {
             code: `
+            ${fontsCodeRaw}
             ${iconsCodeRaw}
             ${subjectIconsCodeRaw}
             ${subjectMonoIconsCodeRaw}

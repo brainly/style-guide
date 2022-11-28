@@ -27,6 +27,7 @@ module.exports = {
   entry: {
     'style-guide': './src/index.js',
     'style-guide-styles': './src/main.scss',
+    'style-guide-fonts': './src/sandbox/fonts.css',
   },
   output: {
     path: path.resolve(__dirname, './dist-sandbox'),
@@ -171,7 +172,7 @@ module.exports = {
         exclude: [/node_modules/],
       },
       {
-        test: /\.scss$/,
+        test: /(\.scss|\.css)$/,
         resolve: {
           extensions: ['.scss', '.sass'],
         },
