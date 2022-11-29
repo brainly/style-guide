@@ -17,4 +17,4 @@ artifacts:
   name: 'branch/$GIT_BRANCH'
   files:
     - '**/*'
-  base-directory: 'storybook-static'
+  base-directory: 'dist/latest/docs'
