@@ -4,15 +4,13 @@ phases:
   pre_build:
     commands:
       - yarn
+      - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
+      - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
   build:
     commands:
       - yarn gulp build-assets --version=latest
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/ yarn build-sandbox --quiet
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/ yarn build-storybook -o dist/latest/docs --quiet
-  post_build:
-    commands:
-      - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
-      - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
+      - PUBLIC_PATH=https://styleguide-dev.brainly.com/$GIT_BRANCH yarn build-sandbox --quiet
+      - PUBLIC_PATH=https://styleguide-dev.brainly.com/$GIT_BRANCH yarn build-storybook -o dist/latest/docs --quiet
 artifacts:
   name: 'branch/$GIT_BRANCH'
   files:
