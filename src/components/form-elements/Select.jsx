@@ -100,72 +100,81 @@ const getOptionElement = ({value, text}: OptionsPropsType) => (
   </option>
 );
 
-const Select = (props: SelectPropsType) => {
-  const {
-    valid,
-    invalid,
-    capitalized,
-    fullWidth,
-    value,
-    size = SIZE.M,
-    color,
-    className,
-    options = [],
-    ...additionalProps
-  } = props;
+const Select = React.forwardRef<SelectPropsType, HTMLElement>(
+  (props: SelectPropsType, ref) => {
+    const {
+      valid,
+      invalid,
+      capitalized,
+      fullWidth,
+      value,
+      size = SIZE.M,
+      color,
+      className,
+      options = [],
+      ...additionalProps
+    } = props;
 
-  if (valid === true && invalid === true) {
-    throw {
-      name: 'WrongValidation',
-      message: 'Select can be either valid or invalid!',
-    };
-  }
-
-  const selectClass = classnames(
-    'sg-select',
-    {
-      'sg-select--selected': value,
-      'sg-select--valid': valid,
-      'sg-select--invalid': invalid,
-      'sg-select--capitalized': capitalized,
-      'sg-select--full-width': fullWidth,
-      [`sg-select--${String(color)}`]: color,
-      [`sg-select--${String(size)}`]: size && size !== 'm',
-    },
-    className
-  );
-
-  const optionsElements = options.map((item, index) => {
-    if (item.options) {
-      return (
-        <optgroup key={item.label + index} label={item.label}>
-          {item.options.map(getOptionElement)}
-        </optgroup>
-      );
+    if (valid === true && invalid === true) {
+      throw {
+        name: 'WrongValidation',
+        message: 'Select can be either valid or invalid!',
+      };
     }
 
-    if (item.text || item.value) {
-      return getOptionElement(item);
-    }
+    const selectClass = classnames(
+      'sg-select',
+      {
+        'sg-select--selected': value,
+        'sg-select--valid': valid,
+        'sg-select--invalid': invalid,
+        'sg-select--capitalized': capitalized,
+        'sg-select--full-width': fullWidth,
+        [`sg-select--${String(color)}`]: color,
+        [`sg-select--${String(size)}`]: size && size !== 'm',
+      },
+      className
+    );
 
-    return null;
-  });
+    const optionsElements = options.map((item, index) => {
+      if (item.options) {
+        return (
+          <optgroup key={item.label + index} label={item.label}>
+            {item.options.map(getOptionElement)}
+          </optgroup>
+        );
+      }
 
-  return (
-    <div className={selectClass}>
-      <div className="sg-select__icon">
-        <Icon
-          type="caret_down"
-          color={ICON_COLOR['icon-gray-50']}
-          size={ICON_SIZE_MAP[size]}
-        />
+      if (item.text || item.value) {
+        return getOptionElement(item);
+      }
+
+      return null;
+    });
+
+    return (
+      <div className={selectClass}>
+        <div className="sg-select__icon">
+          <Icon
+            type="caret_down"
+            color={ICON_COLOR['icon-gray-50']}
+            size={ICON_SIZE_MAP[size]}
+          />
+        </div>
+
+        <select
+          {...additionalProps}
+          className="sg-select__element"
+          value={value}
+          ref={ref}
+        >
+          {optionsElements}
+        </select>
       </div>
+    );
+  }
+);
 
-      <select {...additionalProps} className="sg-select__element" value={value}>
-        {optionsElements}
-      </select>
-    </div>
-  );
-};
+Select.displayName = 'Select';
 
 export default Select;
