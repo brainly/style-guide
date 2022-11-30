@@ -11,8 +11,6 @@ const publicPath = process.env.PUBLIC_PATH
   ? process.env.PUBLIC_PATH
   : 'http://localhost:6006/';
 
-console.log(publicPath);
-
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
