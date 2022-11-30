@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const pkg = require('../package.json');
 const fs = require('fs');
-const svgoConfigs = require('../svgo.config.js');
+const svgoConfigs = require('../_svgo.config.js');
 const revHash = require('rev-hash');
 const webpack = require('webpack');
 
@@ -37,8 +37,13 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-links',
   ],
-  staticDirs: ['./public'],
+  staticDirs: ['./public', '../dist-sandbox'],
   webpackFinal: config => {
+    const publicPath = process.env.PUBLIC_PATH
+      ? process.env.PUBLIC_PATH
+      : 'http://localhost:6006/';
+
+    config.output.publicPath = publicPath;
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
 

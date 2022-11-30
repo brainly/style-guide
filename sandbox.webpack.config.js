@@ -1,16 +1,17 @@
 const path = require('path');
 const fs = require('fs');
-const svgoConfigs = require('./svgo.config.js');
+const svgoConfigs = require('./_svgo.config.js');
 const revHash = require('rev-hash');
 
 const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 
-const publicPath =
-  typeof process.env.PUBLIC_PATH === 'string'
-    ? process.env.PUBLIC_PATH
-    : 'http://localhost:6006/';
+const publicPath = process.env.PUBLIC_PATH
+  ? process.env.PUBLIC_PATH
+  : 'http://localhost:6006/';
+
+console.log(publicPath);
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -24,25 +25,17 @@ const babelEnv = params => [
 
 module.exports = {
   mode: 'development',
-  entry: {
-    'style-guide': './src/index.js',
-    'style-guide-styles': './src/main.scss',
-    'style-guide-fonts': './src/sandbox/fonts.css',
-  },
+  entry: './src/sandbox.js',
   output: {
-    path: path.resolve(__dirname, './dist-sandbox'),
+    filename: 'sandbox.js',
+    path: path.resolve(__dirname, 'dist-sandbox'),
     publicPath,
-    library: 'styleGuide',
-    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/,
         loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
       },
       {
         test: /\/icons\/.*\.svg$/,
@@ -53,10 +46,6 @@ module.exports = {
             options: {
               symbolId: 'icon-[name]',
             },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.icons,
           },
         ],
       },
@@ -172,7 +161,7 @@ module.exports = {
         exclude: [/node_modules/],
       },
       {
-        test: /(\.scss|\.css)$/,
+        test: /\.scss$/,
         resolve: {
           extensions: ['.scss', '.sass'],
         },
