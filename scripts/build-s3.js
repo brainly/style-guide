@@ -62,9 +62,11 @@ if (!argv.latest) {
 }
 
 function buildFiles() {
+  process.env.PUBLIC_PATH = `${publicPath}${version}/docs`;
+
   execSync(
     // eslint-disable-next-line max-len
-    `yarn gulp build-assets --version=${version} && PUBLIC_PATH=${publicPath} yarn build-sandbox --quiet && PUBLIC_PATH=${publicPath} yarn build-storybook -o dist/${version}/docs --quiet`
+    `yarn gulp build-assets --version=${version} && yarn build-sandbox --quiet && yarn build-storybook -o dist/${version}/docs --quiet`
   );
 
   if (rootRedirectPage) {
