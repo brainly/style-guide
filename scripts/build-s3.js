@@ -13,7 +13,7 @@ yargs.boolean('latest');
 
 const argv = yargs.argv;
 const bucket = process.env.BUCKET;
-const publicPath = process.env.PUBLIC_PATH;
+const host = process.env.HOST;
 const version = argv.latest ? 'latest' : packageJsonVersion;
 const rootRedirectPage =
   argv.rootRedirectPage !== undefined ? argv.rootRedirectPage : true;
@@ -62,11 +62,11 @@ if (!argv.latest) {
 }
 
 function buildFiles() {
-  process.env.PUBLIC_PATH = `${publicPath}${version}/docs`;
+  const publicPath = `${host}/${version}/docs`;
 
   execSync(
     // eslint-disable-next-line max-len
-    `yarn gulp build-assets --version=${version} && yarn build-sandbox --quiet && yarn build-storybook -o dist/${version}/docs --quiet`
+    `yarn gulp build-assets --version=${version} && PUBLIC_PATH=${publicPath} yarn build-sandbox --quiet && PUBLIC_PATH=${publicPath} yarn build-storybook -o dist/${version}/docs --quiet`
   );
 
   if (rootRedirectPage) {
