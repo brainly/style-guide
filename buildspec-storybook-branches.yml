@@ -9,8 +9,8 @@ phases:
   build:
     commands:
       - yarn gulp build-assets --version=latest
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs yarn build-sandbox --quiet
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs yarn build-storybook -o dist/latest/docs --quiet
+      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs/ yarn build-sandbox --quiet
+      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs/ yarn build-storybook -o dist/latest/docs --quiet
 artifacts:
   name: 'branch/$GIT_BRANCH'
   files:
