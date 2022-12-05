@@ -29,6 +29,7 @@ main(command.input, {
     process.exit(0);
   })
   .catch(err => {
-    console(err);
+    // eslint-disable-next-line no-console
+    console.log(err);
     process.exit(1);
   });
