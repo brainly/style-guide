@@ -166,7 +166,8 @@
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
     "prettier-check": "prettier --check src",
     "prettier-fix": "prettier --write src",
-    "run-codemod": "node ./bin/codemods/cli.js"
+    "run-codemod": "node ./bin/codemods/cli.js",
+    "run-metrics": "node ./bin/metrics/cli.js"
   },
   "jest": {
     "setupFiles": [

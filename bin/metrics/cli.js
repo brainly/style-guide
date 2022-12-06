@@ -10,11 +10,16 @@ const command = meow({
       $ yarn sg-metrics [options...] <paths>
     Options
       --dry            Dry run (no data is send to database)
+      --ignore         Pattern to ignore files
     `,
   flags: {
     dry: {
       type: 'boolean',
       default: false,
+    },
+    ignore: {
+      type: 'string',
+      default: null,
     },
   },
   alias: {

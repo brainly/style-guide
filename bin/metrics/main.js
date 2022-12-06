@@ -5,10 +5,11 @@ const {Lambda} = require('@aws-sdk/client-lambda');
 const prettier = require('prettier');
 const fs = require('fs');
 const execSync = require('child_process').execSync;
+const glob = require('glob');
 
 /* eslint-disable no-console */
 
-exports.main = async function (paths, {dry} = {}) {
+exports.main = async function (paths, {dry, ignore} = {}) {
   if (!paths) {
     throw new Error(
       'Missing paths. For more infgormation run: sg-metrics --help'
@@ -21,10 +22,22 @@ exports.main = async function (paths, {dry} = {}) {
 
   const version = getVersion();
 
+  let files;
+
+  const globOptions = {
+    ignore: ignore || 'node_modules',
+  };
+
+  if (Array.isArray(paths)) {
+    files = paths.map(p => glob.sync(p, globOptions)).flat();
+  } else {
+    files = glob.sync(paths, globOptions);
+  }
+
   const result = {
     styleguideVersion: version,
     commitID,
-    components: getComponents(paths),
+    components: getComponents(files),
     commitDate: new Date(parseInt(commitDate, 10)).toISOString(),
     project: getProject(),
   };
