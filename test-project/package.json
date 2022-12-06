@@ -24,7 +24,7 @@
     "yarn": "^1.0.0"
   },
   "dependencies": {
-    "@aws-sdk/client-lambda": "^3.210.0",
+    "brainly-style-guide": "^3.210.0",
     "chalk": "4.1.2",
     "classnames": "^2.2.5",
     "glob": "^7.2.0",
@@ -34,7 +34,7 @@
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
+    "brainly-style-guide": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
@@ -166,8 +166,7 @@
     "chromatic": "NODE_ENV=production STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes",
     "prettier-check": "prettier --check src",
     "prettier-fix": "prettier --write src",
-    "run-codemod": "node ./bin/codemods/cli.js",
-    "run-metrics": "node ./bin/metrics/cli.js"
+    "run-codemod": "node ./bin/codemods/cli.js"
   },
   "jest": {
     "setupFiles": [
