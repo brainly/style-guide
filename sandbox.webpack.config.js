@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const svgoConfigs = require('./_svgo.config.js');
+const svgoConfigs = require('./svgo-config.js');
 const revHash = require('rev-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
