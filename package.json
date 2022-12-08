@@ -145,7 +145,7 @@
     "yargs": "^4.3.1"
   },
   "scripts": {
-    "build": "./scripts/build.sh",
+    "build-storybook": "./scripts/build.sh",
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
     "clean": "rimraf css dist dist-sandbox",
