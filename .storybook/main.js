@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const pkg = require('../package.json');
 const fs = require('fs');
-const svgoConfigs = require('../svgo.config.js');
+const svgoConfigs = require('../_svgo.config.js');
 const revHash = require('rev-hash');
 const webpack = require('webpack');
 
