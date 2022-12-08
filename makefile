@@ -11,7 +11,7 @@ styleguide-dev-pipeline:
 styleguide-beta-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	HOST=https://styleguide-dev.brainly.com BUCKET=styleguide-dev.brainly.com node ./scripts/build-s3.js --rootRedirectPage=false
+	HOST=https://styleguide-dev.brainly.com BUCKET=styleguide-dev.brainly.com node ./scripts/build-s3.js --detached
 
 .PHONY: styleguide-prod-pipeline
 styleguide-prod-pipeline:

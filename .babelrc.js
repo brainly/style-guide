@@ -14,9 +14,7 @@ module.exports = api => {
   const nodeEnv = api.env();
   api.cache(true);
 
-  const publicPath = process.env.PUBLIC_PATH
-    ? process.env.PUBLIC_PATH
-    : 'http://localhost:6006/';
+  const publicPath = process.env.PUBLIC_PATH || '';
 
   return {
     presets: [

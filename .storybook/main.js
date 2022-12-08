@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const pkg = require('../package.json');
 const fs = require('fs');
-const svgoConfigs = require('../_svgo.config.js');
+const svgoConfigs = require('../svgo.config.js');
 const revHash = require('rev-hash');
 const webpack = require('webpack');
 
@@ -22,7 +22,7 @@ const babelEnv = params => [
 
 async function findStories() {
   return glob
-    .sync('src/**/*.stories.@(jsx|mdx)')
+    .sync('@(src|dist)/**/*.stories.@(jsx|mdx)')
     .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
@@ -37,13 +37,14 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-links',
   ],
-  staticDirs: ['./public', '../dist-sandbox'],
+  logLevel: 'error',
+  staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
   webpackFinal: config => {
-    const publicPath = process.env.PUBLIC_PATH
-      ? process.env.PUBLIC_PATH
-      : 'http://localhost:6006/';
+    const SANDBOX_PUBLIC_PATH =
+      process.env.SANDBOX_PUBLIC_PATH || 'http://localhost:6006/';
+    const VERSION = process.env.VERSION || 'latest';
 
-    config.output.publicPath = publicPath;
+    // config.output.publicPath = publicPath;
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
 
@@ -240,50 +241,30 @@ module.exports = {
       __dirname,
       '../',
       'dist',
-      pkg.version,
+      'storybook',
+      VERSION,
       'rev-manifest.json'
     );
-    const pathToLatestVerManifest = path.resolve(
-      __dirname,
-      '../',
-      'dist',
-      'latest',
-      'rev-manifest.json'
-    );
+    // const pathToLatestVerManifest = path.resolve(
+    //   __dirname,
+    //   '../',
+    //   'dist',
+    //   'storybook',
+    //   'latest',
+    //   'rev-manifest.json'
+    // );
 
-    revManifestPath = [pathToVersionedManifest, pathToLatestVerManifest].find(
-      path => fs.existsSync(path)
+    revManifestPath = [pathToVersionedManifest].find(path =>
+      fs.existsSync(path)
     );
-
-    if (!revManifestPath) {
-      console.log(`
-⛔️ rev-manifest.json not found in paths:
-  ${pathToVersionedManifest}
-  ${pathToLatestVerManifest}
-📦 Run 'yarn build'.`);
-      process.exit(1);
-    }
 
     // alias for finger printed asset urls
     config.resolve.alias.RevManifest = revManifestPath;
 
-    // check if sandbox style guide is build
-    // if not then create stub
-    const sandboxStyleguideExist = fs.existsSync(
-      path.resolve(__dirname, '../dist-sandbox/main.js')
-    );
-
-    config.resolve.alias.SandboxStyleGuideJS = sandboxStyleguideExist
-      ? path.resolve(__dirname, '../dist-sandbox/main.js')
-      : path.resolve(__dirname, '../src/sandbox/style-guide-error');
-
-    config.resolve.alias.SandboxStyleGuideCSS = sandboxStyleguideExist
-      ? path.resolve(__dirname, '../src/sandbox/style-guide.css')
-      : path.resolve(__dirname, '../src/sandbox/style-guide-error');
-
     config.plugins.push(
       new webpack.DefinePlugin({
         STORYBOOK_ENV: JSON.stringify(process.env.STORYBOOK_ENV),
+        SANDBOX_PUBLIC_PATH: JSON.stringify(SANDBOX_PUBLIC_PATH),
       })
     );
 

@@ -24,7 +24,7 @@ const consts = {
     return path.join(this.PROJECT_DIR, 'src');
   },
   get DIST() {
-    return path.join(this.PROJECT_DIR, 'dist');
+    return path.join(this.PROJECT_DIR, 'dist', 'storybook');
   },
   get ASSETS_DIST() {
     return path.join(this.PROJECT_DIR, 'assets');

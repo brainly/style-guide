@@ -1,15 +1,14 @@
 const path = require('path');
 const fs = require('fs');
-const svgoConfigs = require('./_svgo.config.js');
+const svgoConfigs = require('./svgo.config.js');
 const revHash = require('rev-hash');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 
-const publicPath = process.env.PUBLIC_PATH
-  ? process.env.PUBLIC_PATH
-  : 'http://localhost:6006/';
+const publicPath = process.env.PUBLIC_PATH || 'http://localhost:6006/';
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -22,11 +21,12 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  mode: 'development',
-  entry: './src/sandbox.js',
+  stats: 'errors-only',
+  entry: {
+    sandbox: './src/sandbox.js',
+  },
   output: {
-    filename: 'sandbox.js',
-    path: path.resolve(__dirname, 'dist-sandbox'),
+    path: path.resolve(__dirname, `dist/sandbox`),
     publicPath,
   },
   module: {
@@ -164,7 +164,7 @@ module.exports = {
           extensions: ['.scss', '.sass'],
         },
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -202,4 +202,5 @@ module.exports = {
     ],
     extensions: ['.jsx', '.js'],
   },
+  plugins: [new MiniCssExtractPlugin()],
 };

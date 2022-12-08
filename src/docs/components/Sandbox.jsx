@@ -22,7 +22,10 @@ export const Sandbox = ({code = ''}: SandboxPropsType) => {
       }}
       options={{
         editorHeight: 600, // default - 300
-        externalResources: [`${__webpack_public_path__}sandbox.js`],
+        externalResources: [
+          `${SANDBOX_PUBLIC_PATH}sandbox.js`,
+          `${SANDBOX_PUBLIC_PATH}sandbox.css`,
+        ],
       }}
     />
   );

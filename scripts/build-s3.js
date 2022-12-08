@@ -5,18 +5,16 @@ const yargs = require('yargs');
 const path = require('path');
 const fs = require('fs');
 
-yargs.default('rootRedirectPage', true);
+yargs.default('detached', false);
 yargs.default('latest', false);
 
-yargs.boolean('rootRedirectPage');
+yargs.boolean('detached');
 yargs.boolean('latest');
 
 const argv = yargs.argv;
 const bucket = process.env.BUCKET;
-const host = process.env.HOST;
 const version = argv.latest ? 'latest' : packageJsonVersion;
-const rootRedirectPage =
-  argv.rootRedirectPage !== undefined ? argv.rootRedirectPage : true;
+const detached = argv['detached'];
 
 console.log(`Building ${version} version`);
 
@@ -62,14 +60,7 @@ if (!argv.latest) {
 }
 
 function buildFiles() {
-  const publicPath = `${host}/${version}/docs`;
+  const options = detached ? '' : '-r';
 
-  execSync(
-    // eslint-disable-next-line max-len
-    `yarn gulp build-assets --version=${version} && PUBLIC_PATH=${publicPath} yarn build-sandbox --quiet && PUBLIC_PATH=${publicPath} yarn build-storybook -o dist/${version}/docs --quiet`
-  );
-
-  if (rootRedirectPage) {
-    execSync(`yarn gulp root-redirect-page --version=${version}`);
-  }
+  execSync(`VERSION=${version} ./scripts/build.sh ${options}`);
 }

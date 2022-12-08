@@ -8,11 +8,9 @@ phases:
       - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
   build:
     commands:
-      - yarn gulp build-assets --version=latest
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs/ yarn build-sandbox --quiet
-      - PUBLIC_PATH=https://styleguide-dev.brainly.com/branch/$GIT_BRANCH/latest/docs/ yarn build-storybook -o dist/latest/docs --quiet
+      - HOST=https://styleguide-dev.brainly.com/ VERSION=branch/$GIT_BRANCH ./scripts/build.sh
 artifacts:
-  name: 'branch/$GIT_BRANCH'
+  name: ''
   files:
     - '**/*'
   base-directory: 'dist'
