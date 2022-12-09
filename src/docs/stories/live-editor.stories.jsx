@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Sandbox as SandboxComponent} from '../components/Sandbox';
 
 export default {
-  title: 'Tools/Sandbox',
+  title: 'Tools/Live Editor',
   parameters: {
     layout: 'fullscreen',
   },
