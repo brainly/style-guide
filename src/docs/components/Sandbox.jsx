@@ -21,7 +21,7 @@ export const Sandbox = ({code = ''}: SandboxPropsType) => {
         },
       }}
       options={{
-        editorHeight: 600, // default - 300
+        editorHeight: 600,
         externalResources: [
           `${SANDBOX_PUBLIC_PATH}sandbox.js`,
           `${SANDBOX_PUBLIC_PATH}sandbox.css`,

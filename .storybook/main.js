@@ -235,9 +235,8 @@ module.exports = {
       ]
     );
 
-    let revManifestPath;
-
-    const pathToVersionedManifest = path.resolve(
+    // alias for finger printed asset urls
+    config.resolve.alias.RevManifest = path.resolve(
       __dirname,
       '../',
       'dist',
@@ -245,21 +244,6 @@ module.exports = {
       VERSION,
       'rev-manifest.json'
     );
-    // const pathToLatestVerManifest = path.resolve(
-    //   __dirname,
-    //   '../',
-    //   'dist',
-    //   'storybook',
-    //   'latest',
-    //   'rev-manifest.json'
-    // );
-
-    revManifestPath = [pathToVersionedManifest].find(path =>
-      fs.existsSync(path)
-    );
-
-    // alias for finger printed asset urls
-    config.resolve.alias.RevManifest = revManifestPath;
 
     config.plugins.push(
       new webpack.DefinePlugin({

@@ -18,3 +18,4 @@ styleguide-prod-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
 	HOST=https://styleguide.brainly.com BUCKET=styleguide-prod.brainly.com node ./scripts/build-s3.js
+	
