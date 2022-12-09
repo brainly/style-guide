@@ -146,6 +146,7 @@
   },
   "scripts": {
     "build": "./scripts/build.sh",
+    "build-chromatic": "STORYBOOK_ENV=chromatic yarn build-storybook",
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
     "clean": "rimraf css dist dist-sandbox",

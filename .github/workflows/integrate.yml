@@ -27,6 +27,6 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: true
           autoAcceptChanges: 'master'
-          storybookBuildDir: 'dist/storybook/latest/docs'
+          buildScriptName: 'build-chromatic'
         env:
           STORYBOOK_ENV: 'chromatic'
