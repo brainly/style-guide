@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "220.5.0",
+  "version": "220.7.1",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -166,6 +166,7 @@
     "prettier-fix": "prettier --write src",
     "postversion": "git push && git push --tags",
     "run-codemod": "node ./bin/codemods/cli.js",
+    "run-metrics": "node ./bin/metrics/cli.js",
     "scss-lint": "stylelint 'src/**/*.scss'",
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "storybook": "./scripts/storybook.sh",
