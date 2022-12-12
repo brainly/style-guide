@@ -114,7 +114,6 @@
     "prettier": "^2.5.1",
     "progress-estimator": "^0.3.0",
     "query-string": "^6.5.0",
-    "raw-loader": "^4.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-github-btn": "^1.2.0",

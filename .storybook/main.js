@@ -37,14 +37,12 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-links',
   ],
-  logLevel: 'error',
   staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
   webpackFinal: config => {
     const SANDBOX_PUBLIC_PATH =
       process.env.SANDBOX_PUBLIC_PATH || 'http://localhost:6006/';
     const VERSION = process.env.VERSION || 'latest';
 
-    // config.output.publicPath = publicPath;
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
 
