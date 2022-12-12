@@ -8,7 +8,7 @@ export default {
   },
 };
 
-export const Sandbox = () => (
+export const LiveEditor = () => (
   <div>
     {STORYBOOK_ENV === 'dev' ? (
       <div
