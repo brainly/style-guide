@@ -3,12 +3,13 @@ const fs = require('fs');
 const svgoConfigs = require('./svgo-config.js');
 const revHash = require('rev-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const {url} = require('./.storybook/local-config.json');
 
 const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 
-const publicPath = process.env.PUBLIC_PATH || 'http://localhost:6006/';
+const publicPath = process.env.PUBLIC_PATH || url;
 
 const babelEnv = params => [
   '@babel/preset-env',
