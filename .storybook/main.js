@@ -36,6 +36,7 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-links',
+    '../dist/sandbox-addon/preset.js',
   ],
   staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
   webpackFinal: config => {
@@ -161,7 +162,6 @@ module.exports = {
         test: /\.js$|jsx?$/,
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
           presets: [babelEnv({modules: false}), '@babel/preset-react'],
           plugins: [
             '@babel/plugin-transform-flow-strip-types',

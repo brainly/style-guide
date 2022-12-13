@@ -12,9 +12,10 @@ let logoBaseUrl;
 
 module.exports = api => {
   const nodeEnv = api.env();
-  api.cache(true);
 
-  const publicPath = process.env.PUBLIC_PATH || '';
+  const publicPath = process.env.PUBLIC_PATH || 'http://localhost:6006/';
+  const sandboxPublicPath =
+    process.env.SANDBOX_PUBLIC_PATH || 'http://localhost:6006/';
 
   return {
     presets: [
@@ -30,6 +31,7 @@ module.exports = api => {
         'transform-define',
         {
           LOGO_BASE_URL: publicPath,
+          SANDBOX_PUBLIC_PATH: sandboxPublicPath,
         },
       ],
     ],

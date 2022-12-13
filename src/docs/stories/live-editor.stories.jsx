@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Sandbox as SandboxComponent} from '../components/Sandbox';
+import {Sandbox as SandboxComponent} from '../addons/sandbox/Sandbox';
 
 export default {
   title: 'Tools/Live Editor',
@@ -25,7 +25,11 @@ export const LiveEditor = () => (
       </div>
     ) : null}
     <SandboxComponent
-      code={`export default function App() {
+      code={`
+      import * as React from 'react';
+
+      window.react = React;
+      export default function App() {
   return <div>
     <Logo />
     <TextBit color="text-black">

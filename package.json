@@ -148,6 +148,7 @@
     "build-chromatic": "STORYBOOK_ENV=chromatic yarn build-storybook",
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
+    "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon",
     "clean": "rimraf css dist dist-sandbox",
     "chromatic": "NODE_ENV=production PUBLIC_PATH=/ STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes --build-script-name=build --storybook-build-dir=dist/storybook/latest/docs",
     "eslint": "./node_modules/.bin/eslint",

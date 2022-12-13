@@ -1,8 +1,7 @@
 import * as React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
 import theme from './theme';
 import hex from '../src/components/colors/hex';
-
-import {InfoBox} from 'blocks/InfoBox';
 
 // load all styles
 import '../src/main.scss';
@@ -32,9 +31,8 @@ export const parameters = {
   },
   docs: {
     theme,
-    components: {
-      InfoBox,
-    },
+    transformSource: (src, storyContext) =>
+      renderToStaticMarkup(storyContext.storyFn),
   },
   controls: {hideNoControlsWarning: true},
   options: {

@@ -22,10 +22,10 @@ const babelEnv = params => [
 ];
 
 module.exports = {
-  stats: 'errors-only',
   entry: {
     sandbox: './src/sandbox.js',
   },
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, `dist/sandbox`),
     publicPath,
@@ -133,7 +133,6 @@ module.exports = {
         test: /\.js$|jsx?$/,
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
           presets: [babelEnv({modules: false}), '@babel/preset-react'],
           plugins: [
             '@babel/plugin-transform-flow-strip-types',
