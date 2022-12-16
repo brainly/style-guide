@@ -66,8 +66,8 @@ export const accordionItemRules = [
   {
     pattern:
       '<b>Should</b> have <code>aria-disabled</code> set to <code>true</code> on button element if collapsing the item is not permitted.',
-    status: 'TODO',
-    tests: 'TODO',
+    status: 'TO DO',
+    tests: 'TO DO',
   },
   {
     pattern:
