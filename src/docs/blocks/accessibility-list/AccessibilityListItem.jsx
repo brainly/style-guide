@@ -56,7 +56,7 @@ const ToDoIcon = (
 
 const NaIcon = (
   <IconWrapper justifyContent="center" alignItems="center">
-    <Text color="text-gray-60" aria-hidden>
+    <Text color="text-gray-50" aria-hidden>
       N/A
     </Text>
     <span className="sg-visually-hidden">not applicable</span>
@@ -79,11 +79,14 @@ export const AccessibilityListItem = ({pattern, comment, status}: RuleType) => {
       <Flex>
         <StatusIcon status={status} />
         <Flex direction="column">
-          <Pattern size="medium">
+          <Pattern size="medium" color={status === 'N/A' && 'text-gray-50'}>
             <span dangerouslySetInnerHTML={{__html: pattern}} />
           </Pattern>
           {comment && (
-            <Text size="xsmall" color="text-gray-60">
+            <Text
+              size="xsmall"
+              color={status === 'N/A' ? 'text-gray-50' : 'text-gray-60'}
+            >
               <span dangerouslySetInnerHTML={{__html: comment}} />
             </Text>
           )}
