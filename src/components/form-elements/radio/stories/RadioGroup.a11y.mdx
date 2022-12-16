@@ -1,13 +1,8 @@
+import {radioGroupRules} from './rules.a11y.js';
+
 ### Rules
 
-| Pattern                                                     | Comment                                                                                                                                                  | Status                                  |
-| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| **Should** have a role `radiogroup`                         |                                                                                                                                                          | Implementation: DONE<br />Tests: DONE   |
-| **Should** have only one checked radio at a time            |                                                                                                                                                          | Implementation: DONE<br />Tests: DONE   |
-| **Should** have descriptive information about invalid state | State can be described using `errorMessage` prop                                                                                                         | Implementation: TO DO<br />Tests: TO DO |
-| **Can** have an accessible name                             | Can be named by: <br/>- a label specified by `aria-label` prop<br/>- a value (`IDREF`) set for the `aria-labelledby` prop that refers to an element      | Implementation: DONE<br />Tests: DONE   |
-| **Can** provide information about active descendant         | The `aria-activedescendant` attribute identifies the checked `Radio` within `Radiogroup` by referencing the id value of the radio button that is active. | Implementation: TO DO<br />Tests: TO DO |
-| **Can** have an accessible description                      | Can be described by setting a value for `aria-describedby` prop.                                                                                         | Implementation: DONE<br />Tests: TO DO  |
+<AccessibilityList rules={radioGroupRules} />
 
 ### Usage
 

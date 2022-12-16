@@ -1,3 +1,5 @@
+import rules from './rules.a11y.js';
+
 ### Rules
 
 SkipLink is one way to [pass Success Criterion 2.4.1: Bypass Blocks](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks)
@@ -7,11 +9,7 @@ The main content of a web page rarely comes first in a typical layout. Before us
 
 #### SkipLink
 
-| Pattern                                                                                        | Comment | Status |
-| ---------------------------------------------------------------------------------------------- | ------- | ------ |
-| **Should** have been provided to allow keyboard users to navigate directly to the main content |         |        |
-| **Should** be the first focusable element on the page.                                         |         |        |
-| **Must** be either visible at all times or visible on keyboard focus.                          |         |        |
+<AccessibilityList rules={rules} />
 
 #### Usage
 

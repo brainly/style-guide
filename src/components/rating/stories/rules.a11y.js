@@ -22,7 +22,8 @@ const rules = [
   {
     pattern:
       '<b>Should</b> have accessible label describing rate action with min and max rate value.',
-    comment: '<code>{activeText}, min: 1, max: {metricSize}</code>.',
+    comment:
+      'Defaults to <code>{activeText}, min: 1, max: {metricSize}</code>.',
     status: 'DONE',
     tests: 'DONE',
   },

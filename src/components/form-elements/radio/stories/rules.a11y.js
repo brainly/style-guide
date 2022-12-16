@@ -46,7 +46,7 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> respect Windows High Contrast mode.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'N/A',
   },
   {
@@ -112,7 +112,7 @@ export const radioGroupRules = [
   {
     pattern: '<b>Should</b> have descriptive information about invalid state.',
     comment: 'State can be described using <code>errorMessage</code> prop.',
-    status: 'TO DO',
+    status: 'DONE',
     tests: 'TO DO',
   },
   {
