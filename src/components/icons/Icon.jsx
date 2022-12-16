@@ -612,7 +612,7 @@ export type IconPropsType =
       ...
     };
 
-function getIdSuffix(id: string, type: string) {
+function getIdSuffix(id?: string | null, type: string) {
   return id ? `${type}-${id}` : type;
 }
 

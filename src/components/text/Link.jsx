@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {__DEV__, invariant, generateId} from '../utils';
+import {__DEV__, invariant, useId} from '../utils';
 import Text from './Text';
 import type {TextColorType, TextSizeType} from './Text';
 import {
@@ -96,7 +96,7 @@ const Link = (props: LinkPropsType) => {
     hideNewTabIndicator = false,
     ...additionalProps
   } = props;
-  const {current: labelId} = React.useRef(generateId());
+  const labelId = useId();
 
   let textSize: ResponsivePropType<TextSizeType>;
 
