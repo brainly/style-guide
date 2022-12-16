@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import classNames from 'classnames';
-import {generateId} from '../utils';
+import {useId} from '../utils';
 
 export type IconTypeType =
   | 'academic_cap'
@@ -612,8 +612,8 @@ export type IconPropsType =
       ...
     };
 
-function generateIdSuffix(type: string) {
-  return `${type}-${generateId()}`;
+function getIdSuffix(id: string, type: string) {
+  return id ? `${type}-${id}` : type;
 }
 
 const Icon = ({
@@ -643,7 +643,8 @@ const Icon = ({
   const iconType = `#icon-${type}`;
   const Tag = tagType;
 
-  const idSuffix = generateIdSuffix(type);
+  const id = useId();
+  const idSuffix = getIdSuffix(id, type);
   const titleId = `title-${idSuffix}`;
   const defaultTitle = String(type).replace(/_/g, ' ');
   const descId = `desc-${idSuffix}`;
