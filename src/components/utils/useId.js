@@ -7,6 +7,15 @@ import generateId from './generateId';
 
 let serverHandoffComplete = false;
 
+/**
+ * useId
+ *
+ * inspired by https://github.com/reach/reach-ui/blob/dev/packages/auto-id/src/reach-auto-id.ts
+ *
+ * Generates unique IDs while avoiding hydration mismatches
+ *
+ * Note: The returned ID will initially be `null` and will update after a component mounts.
+ */
 export function useId() {
   const initialId = serverHandoffComplete ? generateId() : null;
   const [id, setId] = React.useState(initialId);
