@@ -92,15 +92,11 @@ function BaseDialog({
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
-  const [
-    hasFinishedTransition,
-    setHasFinishedTransition,
-  ] = React.useState<boolean>(false);
+  const [hasFinishedTransition, setHasFinishedTransition] =
+    React.useState<boolean>(false);
 
-  const [
-    isDialogHigherThanOverlay,
-    setIsDialogHigherThanOverlay,
-  ] = React.useState<boolean>(false);
+  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
+    React.useState<boolean>(false);
 
   const hasAnimations = supportsTransitions() && motionPreset !== 'none';
 
