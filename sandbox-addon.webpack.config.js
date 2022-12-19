@@ -1,15 +1,14 @@
 const path = require('path');
-const glob = require('glob');
-const pkg = require('../package.json');
 const fs = require('fs');
-const svgoConfigs = require('../svgo-config.js');
+const svgoConfigs = require('./svgo-config.js');
 const revHash = require('rev-hash');
-const webpack = require('webpack');
-const {url} = require('../config.json');
+const {url} = require('./config.json');
 
-const SOURCE_DIR = path.join(__dirname, '../', 'src');
+const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
+
+const publicPath = process.env.PUBLIC_PATH || `${url}/`;
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -21,45 +20,22 @@ const babelEnv = params => [
   ),
 ];
 
-async function findStories() {
-  return glob
-    .sync('@(src|dist)/**/*.stories.@(jsx|mdx)')
-    .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
-    .map(storiesPath => path.relative(__dirname, storiesPath));
-}
 module.exports = {
-  stories:
-    process.env.STORYBOOK_ENV === 'chromatic'
-      ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
-      : findStories(),
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/addon-docs',
-    '@storybook/addon-links',
-    '../dist/sandbox-addon/preset.js',
-  ],
-  staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
-  webpackFinal: config => {
-    const SANDBOX_PUBLIC_PATH = process.env.SANDBOX_PUBLIC_PATH || `${url}/`;
-    const VERSION = process.env.VERSION || 'latest';
-
-    // remove default loader for jsx, tsx and mjs
-    config.module.rules = config.module.rules.slice(1);
-
-    // remove default loader for fonts
-    config.module.rules = config.module.rules.filter(
-      rule => !rule.test.toString().includes('woff')
-    );
-
-    // standard rules
-    config.module.rules = config.module.rules.concat([
+  entry: {
+    sandbox: './src/docs/addons/sandbox/Sandbox.jsx',
+  },
+  output: {
+    path: path.resolve(__dirname, `dist/sandbox-addon`),
+    publicPath,
+    library: 'styleGuide',
+    libraryTarget: 'commonjs2',
+    filename: 'Sandbox.js',
+  },
+  module: {
+    rules: [
       {
         test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani)(\?.*)?$/,
         loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
       },
       {
         test: /\/icons\/.*\.svg$/,
@@ -70,10 +46,6 @@ module.exports = {
             options: {
               symbolId: 'icon-[name]',
             },
-          },
-          {
-            loader: 'svgo-loader',
-            options: svgoConfigs.icons,
           },
         ],
       },
@@ -148,7 +120,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              context: path.resolve(__dirname, '../', './src'),
+              context: path.resolve(__dirname, './src'),
               name: absoluteFilename => {
                 const hash = revHash(fs.readFileSync(absoluteFilename));
 
@@ -213,43 +185,23 @@ module.exports = {
               sassOptions: {
                 includePaths: [
                   SOURCE_DIR,
-                  path.resolve(__dirname, '../', 'node_modules'),
+                  path.resolve(__dirname, 'node_modules'),
                 ],
               },
             },
           },
         ],
-        include: path.resolve(__dirname, '../'),
       },
-    ]);
-
-    // support for aliases
-    config.resolve.modules.push(
-      ...[
-        SOURCE_COMPONENTS_DIR,
-        SOURCE_DOCS_DIR,
-        path.join(SOURCE_DIR, 'images'),
-        path.join('../', 'node_modules'),
-      ]
-    );
-
-    // alias for finger printed asset urls
-    config.resolve.alias.RevManifest = path.resolve(
-      __dirname,
-      '../',
-      'dist',
-      'storybook',
-      VERSION,
-      'rev-manifest.json'
-    );
-
-    config.plugins.push(
-      new webpack.DefinePlugin({
-        STORYBOOK_ENV: JSON.stringify(process.env.STORYBOOK_ENV),
-        SANDBOX_PUBLIC_PATH: JSON.stringify(SANDBOX_PUBLIC_PATH),
-      })
-    );
-
-    return config;
+    ],
   },
+  resolve: {
+    modules: [
+      SOURCE_COMPONENTS_DIR,
+      SOURCE_DOCS_DIR,
+      path.join(SOURCE_DIR, 'images'),
+      path.join('node_modules'),
+    ],
+    extensions: ['.jsx', '.js'],
+  },
+  externals: ['react'],
 };

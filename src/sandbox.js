@@ -1,5 +1,5 @@
-import * as styleguide from './index';
 import './main.scss';
+import * as styleguide from './index';
 
 function importAll(r) {
   r.keys().forEach(r);

@@ -25,12 +25,7 @@ export const LiveEditor = () => (
       </div>
     ) : null}
     <SandboxComponent
-      code={`
-      import * as React from 'react';
-
-      window.react = React;
-      export default function App() {
-  return <div>
+      code={`<div>
     <Logo />
     <TextBit color="text-black">
         Welcome in <br/> styleguide live editor
@@ -45,8 +40,7 @@ export const LiveEditor = () => (
           </Flex>
         <Text>with components</Text>
     </Flex>
-  </div>
-}`}
+</div>`}
     />
   </div>
 );

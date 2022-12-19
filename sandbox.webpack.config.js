@@ -2,14 +2,13 @@ const path = require('path');
 const fs = require('fs');
 const svgoConfigs = require('./svgo-config.js');
 const revHash = require('rev-hash');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const {url} = require('./.storybook/local-config.json');
+const {url} = require('./config.json');
 
 const SOURCE_DIR = path.join(__dirname, 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
 
-const publicPath = process.env.PUBLIC_PATH || url;
+const publicPath = process.env.PUBLIC_PATH || `${url}/`;
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -25,10 +24,11 @@ module.exports = {
   entry: {
     sandbox: './src/sandbox.js',
   },
-  mode: 'development',
   output: {
     path: path.resolve(__dirname, `dist/sandbox`),
     publicPath,
+    library: 'styleGuide',
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
@@ -164,7 +164,7 @@ module.exports = {
           extensions: ['.scss', '.sass'],
         },
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -202,5 +202,5 @@ module.exports = {
     ],
     extensions: ['.jsx', '.js'],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  externals: ['react'],
 };

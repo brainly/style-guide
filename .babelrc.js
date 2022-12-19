@@ -1,3 +1,5 @@
+const {url} = require('./config.json');
+
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
@@ -13,9 +15,8 @@ let logoBaseUrl;
 module.exports = api => {
   const nodeEnv = api.env();
 
-  const publicPath = process.env.PUBLIC_PATH || 'http://localhost:6006/';
-  const sandboxPublicPath =
-    process.env.SANDBOX_PUBLIC_PATH || 'http://localhost:6006/';
+  const publicPath = process.env.PUBLIC_PATH || `${url}/`;
+  const sandboxPublicPath = process.env.SANDBOX_PUBLIC_PATH || `${url}/`;
 
   return {
     presets: [
