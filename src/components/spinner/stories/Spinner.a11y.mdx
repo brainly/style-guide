@@ -1,11 +1,8 @@
+import rules from './rules.a11y.js';
+
 ### Rules
 
-| Pattern                                                                     | Comment                                                                                                                                                                  | Status                                |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
-| **Should** have an accessible information about the status that is annouced | Use `aria-label` to set custom information, `aria-label` defaults to `"loading"`                                                                                         | Implementation: DONE<br />Tests: DONE |
-| **Should** have role `status`                                               |                                                                                                                                                                          | Implementation: DONE<br />Tests: DONE |
-| **Should** have 3:1 contrast ratio against the background                   | For white background use: `black`, `gray-70`, `gray-50`, `red-50`, `indigo-50`, `blue-60`, against black: `white`, `gray-50`, `red-50`, `red-40`, `blue-40`, `yellow-40` | Implementation: DONE<br />Tests: N/A  |
-| **Should** respect Windows High Contrast theme                              |                                                                                                                                                                          | Implementation: DONE<br />Tests: N/A  |
+<AccessibilityList rules={rules} />
 
 <InfoBox>
   Use <code>aria-busy</code> to indicate which element is being loaded/updated.
