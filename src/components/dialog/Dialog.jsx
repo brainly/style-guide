@@ -92,14 +92,19 @@ function BaseDialog({
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
 
-  const [hasFinishedTransition, setHasFinishedTransition] =
-    React.useState<boolean>(false);
+  const [
+    hasFinishedTransition,
+    setHasFinishedTransition,
+  ] = React.useState<boolean>(false);
 
-  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
-    React.useState<boolean>(false);
+  const [
+    isDialogHigherThanOverlay,
+    setIsDialogHigherThanOverlay,
+  ] = React.useState<boolean>(false);
+
+  const hasAnimations = supportsTransitions() && motionPreset !== 'none';
 
   const cleanupBodyNoScroll = useBodyNoScroll();
-  const disabledAnimations = motionPreset === 'none';
 
   const fireTransitionEndCallbacks = React.useCallback(() => {
     setHasFinishedTransition(true);
@@ -117,10 +122,10 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
 
-    if (!supportsTransitions() || disabledAnimations) {
+    if (!hasAnimations) {
       fireTransitionEndCallbacks();
     }
-  }, [open, fireTransitionEndCallbacks, disabledAnimations]);
+  }, [open, hasAnimations, fireTransitionEndCallbacks]);
 
   React.useEffect(() => {
     /**
@@ -199,18 +204,20 @@ function BaseDialog({
     }
   );
 
-  const fullscreenTokenClass = `sg-dialog__container--fullscreen--motion--${motionPreset}`;
   const containerClass = cx(
     'sg-dialog__container',
     `sg-dialog__container--motion-${motionPreset}`,
     {
       'sg-dialog__container--fullscreen': size === 'fullscreen',
-      [fullscreenTokenClass]: size === 'fullscreen',
       'sg-dialog__container--scroll': scroll === 'inside',
       'sg-dialog__container--open': deferredOpen,
       'sg-dialog__container--exiting': exiting,
       'sg-dialog__container--top': position === 'top',
       'sg-dialog__container--appearance-dialog': appearance === 'dialog',
+      'sg-dialog__container--fullscreen--motion-none':
+        size === 'fullscreen' && motionPreset === 'none',
+      'sg-dialog__container--fullscreen--motion-default':
+        size === 'fullscreen' && motionPreset === 'default',
     }
   );
 
@@ -286,11 +293,7 @@ function BaseDialog({
         ref={containerRef}
         data-dialog-container
         className={containerClass}
-        onTransitionEnd={
-          supportsTransitions() && !disabledAnimations
-            ? handleTransitionEnd
-            : undefined
-        }
+        onTransitionEnd={hasAnimations ? handleTransitionEnd : undefined}
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
