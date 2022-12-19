@@ -7,12 +7,6 @@ const rules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> have distinctive focus style.',
-    comment: 'Browser focus style is used.',
-    status: 'DONE',
-    tests: 'N/A',
-  },
-  {
     pattern: '<b>Can</b> have an accessible alt text.',
     status: 'DONE',
     tests: 'DONE',

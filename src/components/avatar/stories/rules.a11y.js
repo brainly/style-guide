@@ -33,8 +33,7 @@ export const linkRules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> be focusable and have a visible focus style.',
-    comment: 'Browser focus style is used.',
+    pattern: '<b>Should</b> be focusable and tabable.',
     status: 'DONE',
     tests: 'DONE',
   },

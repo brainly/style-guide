@@ -1,8 +1,8 @@
 const rules = [
   {
     pattern: '<b>Should</b> have an accessible name.',
-    comment:
-      'Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more") and explain the action (ex. "Search" instead of "Magnifying glass") . <code>aria-label</code> can be used to provide a name.',
+    comment: `Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more") and explain the action 
+      (ex. "Search" instead of "Magnifying glass") . <code>aria-label</code> can be used to provide a name.`,
     status: 'DONE',
     tests: 'DONE',
   },
@@ -13,14 +13,8 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> be focusable and tabable.',
-    comment: 'Only when it is not disabled.',
     status: 'DONE',
     tests: 'DONE',
-  },
-  {
-    pattern: '<b>Should</b> have visible focus style.',
-    status: 'DONE',
-    tests: 'N/A',
   },
   {
     pattern: '<b>Should</b> have a non-color indicator.',
@@ -75,12 +69,12 @@ const rules = [
 
 export const hrefRules = [
   {
-    pattern: '<b>Should</b> have a role <code>link </code>.',
+    pattern: '<b>Should</b> have a role <code>link</code>.',
     status: 'DONE',
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> have <code>cursor: pointer </code>.',
+    pattern: '<b>Should</b> have <code>cursor: pointer</code>.',
     status: 'DONE',
     tests: 'N/A',
   },

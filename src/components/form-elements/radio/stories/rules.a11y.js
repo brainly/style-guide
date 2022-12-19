@@ -5,7 +5,7 @@ const rules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> be focusable and tabbable.',
+    pattern: '<b>Should</b> be focusable and tabable.',
     comment:
       'Tab moves focus to the checked <code>Radio</code> button in a <code>RadioGroup <code>.',
     status: 'DONE',
@@ -13,8 +13,11 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> have an accessible name.',
-    comment:
-      'Can be named by: \n- a label specified by <code>aria-label</code> prop\n- a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> prop that refers to an element\n- can be named by adding children (children should be purely presentational and do not include interactive elements).',
+    comment: `Can be named by: <ul>
+      <li>a label specified by <code>aria-label</code> prop</li>
+      <li>a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> prop that refers to an element</li>
+      <li>can be named by adding children (children should be purely presentational and 
+        do not include interactive elements).</li></ul>`,
     status: 'DONE',
     tests: 'DONE',
   },
@@ -117,15 +120,17 @@ export const radioGroupRules = [
   },
   {
     pattern: '<b>Can</b> have an accessible name.',
-    comment:
-      'Can be named by: \n- a label specified by <code>aria-label</code> prop\n- a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> prop that refers to an element.',
+    comment: `Can be named by: <ul>
+      <li>a label specified by <code>aria-label</code> prop</li>
+      <li>a value (<code>IDREF</code>) set for the <code>aria-labelledby</code> 
+      prop that refers to an element.</li></ul>`,
     status: 'DONE',
     tests: 'DONE',
   },
   {
     pattern: '<b>Can</b> provide information about active descendant.',
-    comment:
-      'The <code>aria-activedescendant</code> attribute identifies the checked <code>Radio</code> within <code>Radiogroup</code> by referencing the id value of the radio button that is active.',
+    comment: `The <code>aria-activedescendant</code> attribute identifies the checked <code>Radio</code> 
+    within <code>Radiogroup</code> by referencing the id value of the radio button that is active.`,
     status: 'TO DO',
     tests: 'TO DO',
   },

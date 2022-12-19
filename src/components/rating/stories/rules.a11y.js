@@ -1,8 +1,9 @@
 const rules = [
   {
     pattern: '<b>Should</b> have 3:1 contrast ratio.',
-    comment:
-      'white - yellow: 3.05:1; white - gray: 4.37:1; yellow - gray: 1.44:1 \n To low contrast can <a href="https://whocanuse.com/?b=687b8c&c=c98600&f=20&s=b">affect different people with visual impairments</a>.',
+    comment: `white - yellow: 3.05:1; white - gray: 4.37:1; yellow - gray: 1.44:1 <br/>
+      To low contrast can <a href="https://whocanuse.com/?b=687b8c&c=c98600&f=20&s=b">
+      affect different people with visual impairments</a>.`,
     status: 'DONE',
     tests: 'N/A',
   },
@@ -23,7 +24,7 @@ const rules = [
     pattern:
       '<b>Should</b> have accessible label describing rate action with min and max rate value.',
     comment:
-      'Defaults to <code>{activeText}, min: 1, max: {metricSize}</code>.',
+      'Defaults to <code>"{activeText}, min: 1, max: {metricSize}"</code>.',
     status: 'DONE',
     tests: 'DONE',
   },
@@ -41,8 +42,7 @@ export const starRules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> be focusable.',
-    comment: 'Browser focus style is used.',
+    pattern: '<b>Should</b> be focusable and tabable.',
     status: 'DONE',
     tests: 'DONE',
   },

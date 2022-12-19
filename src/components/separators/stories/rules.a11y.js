@@ -7,7 +7,7 @@ const rules = [
   {
     pattern: '<b>Should</b> have proper orientation.',
     comment:
-      '<code>aria-orientation</code> defaults to <code>"horizontal"</code>.',
+      '<code>aria-orientation</code> defaults to <code>horizontal</code>.',
     status: 'DONE',
     tests: 'DONE',
   },

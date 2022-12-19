@@ -7,7 +7,7 @@ const rules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> have role <code>img`.',
+    pattern: '<b>Should</b> have role <code>img</code>.',
     status: 'DONE',
     tests: 'DONE',
   },

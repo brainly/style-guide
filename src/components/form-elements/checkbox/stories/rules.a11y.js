@@ -5,14 +5,14 @@ const rules = [
     tests: 'DONE',
   },
   {
-    pattern: '<b>Should</b> be focusable and tabbable.',
+    pattern: '<b>Should</b> be focusable and tabable.',
     status: 'DONE',
     tests: 'DONE',
   },
   {
     pattern: '<b>Should</b> have an accessible name.',
-    comment:
-      '<code>Checkbox</code> can be named by adding children. Children should be purely presentational and do not include interactive elements.',
+    comment: `<code>Checkbox</code> can be named by adding children. 
+    Children should be purely presentational and do not include interactive elements.`,
     status: 'DONE',
     tests: 'DONE',
   },

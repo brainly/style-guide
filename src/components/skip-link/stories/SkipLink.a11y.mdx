@@ -1,11 +1,11 @@
 import rules from './rules.a11y.js';
 
-### Rules
-
 SkipLink is one way to [pass Success Criterion 2.4.1: Bypass Blocks](https://www.w3.org/WAI/WCAG21/Understanding/bypass-blocks)
 
 A keyboard-functional "skip" link **SHOULD** be provided to allow keyboard users to navigate directly to the main content.
 The main content of a web page rarely comes first in a typical layout. Before users can arrive at the main content, they must skip past features like the website's logo, navigation and branding.
+
+### Rules
 
 #### SkipLink
 
@@ -14,15 +14,19 @@ The main content of a web page rarely comes first in a typical layout. Before us
 #### Usage
 
 ```jsx
-<>
-<SkipLink id="#main-content">Skip to main content</SkipLink>
+<body>
+    <SkipLink id="#main-content">Skip to main content</SkipLink>
 
-<!-- the header, navigation, etc. go here -->
+    <!-- the header, navigation, etc. go here -->
 
-{/*  tabindex value of -1 keeps the element out of the natural tab order
- but prevents focus from jump back up to the next link after the "skip navigation" link on Safari */}
-<main id="mainContent" tabindex="-1">
-    <!-- the main content goes here -->
-</main>
-</>
+    <main id="mainContent" tabindex="-1">
+        <!-- the main content goes here -->
+    </main>
+</body>
 ```
+
+<InfoBox>
+  <code>tabindex="-1"</code> added to the main content keeps the element out of
+  the natural tab order but prevents focus from jump back up to the next link
+  after the "skip navigation" link on Safari.
+</InfoBox>

@@ -2,8 +2,8 @@ const rules = [
   {
     pattern:
       '<b>Should</b> have an accessible information about the status that is annouced.',
-    comment:
-      'Use <code>aria-label</code> to set custom information, <code>aria-label</code> defaults to <code>"loading"</code>.',
+    comment: `Use <code>aria-label</code> to set custom information, 
+    <code>aria-label</code> defaults to <code>"loading"</code>.`,
     status: 'DONE',
     tests: 'DONE',
   },
@@ -14,8 +14,9 @@ const rules = [
   },
   {
     pattern: '<b>Should</b> have 3:1 contrast ratio against the background.',
-    comment:
-      'For white background use: <code>black</code>, <code>gray-70</code>, <code>gray-50</code>, <code>red-50</code>, <code>indigo-50</code>, <code>blue-60</code>, against black: <code>white</code>, <code>gray-50</code>, <code>red-50</code>, <code>red-40</code>, <code>blue-40</code>, <code>yellow-40</code>.',
+    comment: `For white background use: <code>black</code>, <code>gray-70</code>, <code>gray-50</code>, 
+    <code>red-50</code>, <code>indigo-50</code>, <code>blue-60</code>, against black: <code>white</code>, 
+    <code>gray-50</code>, <code>red-50</code>, <code>red-40</code>, <code>blue-40</code>, <code>yellow-40</code>.`,
     status: 'DONE',
     tests: 'N/A',
   },

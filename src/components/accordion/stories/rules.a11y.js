@@ -22,8 +22,8 @@ export const accordionItemRules = [
   {
     pattern:
       '<b>Should</b> have element with role <code>heading</code> and <code>aria-level</code> in title.',
-    comment:
-      '<code>aria-level</code> can be set by <code>ariaHeadingLevel</code> prop.\n<code>ariaHeadingLevel</code> defaults to <code>2</code>.',
+    comment: `<code>aria-level</code> can be set by <code>ariaHeadingLevel</code> prop.
+      <code>ariaHeadingLevel</code> defaults to <code>2</code>.`,
     status: 'DONE',
     tests: 'DONE',
   },
@@ -57,21 +57,15 @@ export const accordionItemRules = [
     tests: 'N/A',
   },
   {
-    pattern: '<b>Should</b> have distinctive focus style for button element.',
-    comment:
-      'Button element has underline for focus and native browser style for focus-visible.\nAccordionItem <code>border-color</code> is changed to <code>gray-40</code> when spacing (<code><Accordion /></code> prop) is not set to <code>none</code>.',
-    status: 'DONE',
-    tests: 'N/A',
-  },
-  {
-    pattern:
-      '<b>Should</b> have <code>aria-disabled</code> set to <code>true</code> on button element if collapsing the item is not permitted.',
+    pattern: `<b>Should</b> have <code>aria-disabled</code> set to 
+      <code>true</code> on button element if collapsing the item is not permitted.`,
     status: 'TO DO',
     tests: 'TO DO',
   },
   {
-    pattern:
-      '<b>Should</b> be tabbable:\n- AccordionItem by AccordionItem\n- element by element in the content when it is expanded.',
+    pattern: `<b>Should</b> be tabable.`,
+    comment: `<code>AccordionItem</code> by <code>AccordionItem</code> 
+    or, when it is expanded, element by element in the content.`,
     status: 'DONE',
     tests: 'N/A',
   },
