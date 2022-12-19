@@ -6,6 +6,17 @@ import {useIsomorphicLayoutEffect as useLayoutEffect} from './useIsomorphicLayou
 import generateId from './generateId';
 
 let serverHandoffComplete = false;
+let id = 0;
+
+function genId() {
+  return ++id;
+}
+
+export function useId() {
+  const [id] = React.useState(() => genId());
+
+  return id;
+}
 
 /**
  * useId
@@ -16,7 +27,7 @@ let serverHandoffComplete = false;
  *
  * Note: The returned ID will initially be `null` and will update after a component mounts.
  */
-export function useId() {
+export function useIdBeta() {
   const initialId = serverHandoffComplete ? generateId() : null;
   const [id, setId] = React.useState(initialId);
 
