@@ -1,10 +1,8 @@
+import rules from './rules.a11y.js';
+
 ### Rules
 
-| Pattern                                 | Comment                                                                                   | Status                                |
-| --------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Should** have an accessible name      | Can be named by setting a value for `aria-label` prop (defaults to `"{logo type} home")`. | Implementation: DONE<br />Tests: DONE |
-| **Should** have distinctive focus style | Browser focus style is used                                                               | Implementation: DONE<br />Tests: N/A  |
-| **Can** have an accessible alt text     |                                                                                           | Implementation: DONE<br />Tests: DONE |
+<AccessibilityList rules={rules} />
 
 ### Usage
 

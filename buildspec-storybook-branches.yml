@@ -8,7 +8,7 @@ phases:
       - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
   build:
     commands:
-      - HOST=https://styleguide-dev.brainly.com/ VERSION=branch/$GIT_BRANCH ./scripts/build.sh
+      - HOST=https://styleguide-dev.brainly.com/ VERSION=branch/$GIT_BRANCH ./scripts/build.sh -d
 artifacts:
   name: ''
   files:

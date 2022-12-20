@@ -1,29 +1,12 @@
+import rules, {hrefRules, toggleRules} from './rules.a11y.js';
+
 ### Rules
 
-| Pattern                                                                                 | Comment                                                                                                                                                                                              | Status                                |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Should** have an accessible name                                                      | Name should be meaningful (ex. "Read more about vitamin C" instead of "Read more") and explain the action (ex. "Search" instead of "Magnifying glass") . `aria-label` can be used to provide a name. | Implementation: DONE<br />Tests: DONE |
-| **Should** have a role `button`                                                         |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: DONE |
-| **Should** be focusable and tabable                                                     | Only when it is not disabled.                                                                                                                                                                        | Implementation: DONE<br />Tests: DONE |
-| **Should** have visible focus style                                                     |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a non-color indicator                                                   | Button uses uppercase                                                                                                                                                                                | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a proper type                                                           |                                                                                                                                                                                                      |                                       |
-| **Should** have a color indicator with 4.5:1 contrast ratio to the background           |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
-| **Should** have a color indicator with 3:1 contrast ratio to the surrounding background | `transparent-light` and inverted types should be used on dark backgrounds.                                                                                                                           | Implementation: DONE<br />Tests: N/A  |
-| **Should** have `cursor: default`                                                       |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
-| **Should** fire `onClick` on `Space`/`Enter` press and mouse click                      |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: DONE |
-| **Should** have a visible `disabled` state                                              |                                                                                                                                                                                                      | Implementation: DONE<br />Tests: N/A  |
-| **ShouldCan** have an accessible label that indicates loading state                     | Use `loadingAriaLabel` to set custom information, defaults to "loading"                                                                                                                              | Implementation: DONE<br />Tests: DONE |
+<AccessibilityList rules={rules} />
 
 #### Button with `href`
 
-| Pattern                                                                          | Comment | Status                                |
-| -------------------------------------------------------------------------------- | ------- | ------------------------------------- |
-| **Should** have a role `link`                                                    |         | Implementation: DONE<br />Tests: DONE |
-| **Should** have `cursor: pointer`                                                |         | Implementation: DONE<br />Tests: N/A  |
-| **Should** cause the user agent to navigate to a new resource                    |         | Implementation: DONE<br />Tests: N/A  |
-| **Should** be activated by pressing `Enter` and mouse click                      |         | Implementation: DONE<br />Tests: N/A  |
-| **Can** have an accessible label (and/or icon) that indicates opening in new tab |         | Implementation: DONE<br />Tests: DONE |
+<AccessibilityList rules={hrefRules} />
 
 <InfoBox>
   Element, that looks like a button, but cause the user agent to navigate to a
@@ -37,10 +20,7 @@
 
 #### Button with `toggle`
 
-| Pattern                        | Comment                    | Status                                 |
-| ------------------------------ | -------------------------- | -------------------------------------- |
-| **Should** have type `button`  | Use `type` to set the type | Implementation: DONE<br />Tests: TO DO |
-| **Should** have `aria-pressed` |                            | Implementation: DONE<br />Tests: TO DO |
+<AccessibilityList rules={toggleRules} />
 
 ### Usage
 

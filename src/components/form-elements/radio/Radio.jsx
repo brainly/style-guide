@@ -83,7 +83,7 @@ export type RadioPropsType = {
   /**
    * Function called with an object containing the react synthetic event, whenever the state of the radio changes.
    */
-  onChange?: (SyntheticEvent<>) => mixed,
+  onChange?: (SyntheticInputEvent<HTMLInputElement>) => void,
   /**
    * Sets whether the radio input is marked as required. This doesn't affect radio style.
    * @example <Radio required />
