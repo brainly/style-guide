@@ -13,4 +13,4 @@ artifacts:
   name: ''
   files:
     - '**/*'
-  base-directory: 'dist'
+  base-directory: 'dist/storybook'
