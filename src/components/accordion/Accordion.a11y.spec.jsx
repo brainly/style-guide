@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, waitForElementToBeRemoved} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {testA11y} from '../../axe';
@@ -38,7 +38,7 @@ describe('Accordion', () => {
     const item = accordion.getByRole('button');
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
-    expect(accordion.queryByRole('region')).toBeFalsy();
+    expect(accordion.queryByRole('region')).toBeNull();
     accordion.getByRole('button').focus();
     expect(item).toEqual(document.activeElement);
     userEvent.keyboard('{enter}');
@@ -49,7 +49,6 @@ describe('Accordion', () => {
     userEvent.keyboard('{space}');
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
-    waitForElementToBeRemoved(accordion.queryByRole('region'));
   });
 
   it('has an accessible name', () => {
