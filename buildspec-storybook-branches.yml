@@ -10,7 +10,7 @@ phases:
     commands:
       - HOST=https://styleguide-dev.brainly.com VERSION=branch/$GIT_BRANCH ./scripts/build.sh -d
 artifacts:
-  name: ''
+  name: '/'
   files:
     - '**/*'
   base-directory: 'dist/storybook'
