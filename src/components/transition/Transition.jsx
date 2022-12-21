@@ -17,10 +17,8 @@ const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
-  Boolean(
-    typeof window !== 'undefined' &&
-      typeof window.TransitionEvent !== 'undefined'
-  );
+  typeof window !== 'undefined' &&
+  typeof window.TransitionEvent !== 'undefined';
 
 export type PredefinedEasingType = 'regular' | 'entry' | 'exit' | 'linear';
 
