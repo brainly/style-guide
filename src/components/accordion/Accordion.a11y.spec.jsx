@@ -5,21 +5,7 @@ import AccordionItem from './AccordionItem';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
-describe('Accordion a11y', () => {
-  it('renders accordion with expanded and collapsed items', async () => {
-    const accordionIds = ['id-1', 'id-2'];
-
-    await testA11y(
-      <Accordion defaultExpanded={accordionIds[0]}>
-        {accordionIds.map(id => (
-          <AccordionItem title={id} id={id} key={id}>
-            Accordion Item Description
-          </AccordionItem>
-        ))}
-      </Accordion>
-    );
-  });
-
+describe('Accordion', () => {
   it('renders with named items', () => {
     const title = 'Item_1';
     const accordion = render(
@@ -71,5 +57,21 @@ describe('Accordion a11y', () => {
     const accordion = render(<Accordion aria-label={label} />);
 
     expect(accordion.getByLabelText(label)).toBeTruthy();
+  });
+});
+
+describe('Accordion a11y', () => {
+  it('should have no a11y violations when renders Accordion with expanded and collapsed items', async () => {
+    const accordionIds = ['id-1', 'id-2'];
+
+    await testA11y(
+      <Accordion defaultExpanded={accordionIds[0]}>
+        {accordionIds.map(id => (
+          <AccordionItem title={id} id={id} key={id}>
+            Accordion Item Description
+          </AccordionItem>
+        ))}
+      </Accordion>
+    );
   });
 });
