@@ -9,7 +9,8 @@ import DialogOverlay, {SLOTS} from './DialogOverlay';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
-  Boolean(window && window.TransitionEvent !== undefined);
+  typeof window !== 'undefined' &&
+  typeof window.TransitionEvent !== 'undefined';
 
 export type DialogPropsType = $ReadOnly<{
   open: boolean,
