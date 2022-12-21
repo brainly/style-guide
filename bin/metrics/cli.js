@@ -29,6 +29,7 @@ const command = meow({
 
 main(command.input, {
   dry: command.flags.dry,
+  ignore: command.flags.ignore,
 })
   .then(() => {
     process.exit(0);
