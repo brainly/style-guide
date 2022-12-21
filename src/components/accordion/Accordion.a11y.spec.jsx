@@ -65,4 +65,11 @@ describe('Accordion a11y', () => {
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     waitForElementToBeRemoved(accordion.queryByRole('region'));
   });
+
+  it('has an accessible name', () => {
+    const label = 'Accordion name';
+    const accordion = render(<Accordion aria-label={label} />);
+
+    expect(accordion.getByLabelText(label)).toBeTruthy();
+  });
 });
