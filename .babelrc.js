@@ -1,3 +1,5 @@
+const {url} = require('./config.json');
+
 const babelEnv = params => [
   '@babel/preset-env',
   Object.assign(
@@ -12,16 +14,8 @@ let logoBaseUrl;
 
 module.exports = api => {
   const nodeEnv = api.env();
-  api.cache(true);
 
-  if (
-    process.env.STORYBOOK_ENV === 'dev' ||
-    process.env.STORYBOOK_ENV === 'chromatic'
-  ) {
-    logoBaseUrl = '';
-  } else {
-    logoBaseUrl = 'https://styleguide.brainly.com/';
-  }
+  const publicPath = process.env.PUBLIC_PATH || `${url}/`;
 
   return {
     presets: [
@@ -36,7 +30,7 @@ module.exports = api => {
       [
         'transform-define',
         {
-          LOGO_BASE_URL: logoBaseUrl,
+          LOGO_BASE_URL: publicPath,
         },
       ],
     ],

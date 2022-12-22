@@ -57,6 +57,7 @@ $headlineSizeRules: (
     display: block;
     color: $black;
     font-weight: $fontWeightBold;
+    font-family: $fontFamilyPrimary;
     max-width: 100%;
 
     &--inherited {

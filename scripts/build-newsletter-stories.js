@@ -13,8 +13,8 @@ ${newsletterPage}
 
 function buildNewsletterStories() {
   console.log('--- Generating newsletter pages ---');
-  const destPath = 'src/docs/stories/newsletters';
-  const assetsDestPath = '.storybook/public/newsletter-assets';
+  const destPath = 'dist/newsletters-stories';
+  const assetsDestPath = 'dist/storybook-public/newsletter-assets';
 
   // Remove previously generated files
   if (fs.pathExistsSync(destPath))

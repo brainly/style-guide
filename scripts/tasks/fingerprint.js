@@ -1,5 +1,5 @@
-module.exports = function(gulp, plugins, consts) {
-  return function() {
+module.exports = function (gulp, plugins, consts) {
+  return function () {
     const fonts = plugins.path.join(consts.SRC, 'fonts', '*');
     const images = plugins.path.join(consts.SRC, 'images', '**', '*');
     const icons = plugins.path.join(consts.SRC, 'images', 'icons', '*');

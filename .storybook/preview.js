@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
 import theme from './theme';
 import hex from '../src/components/colors/hex';
 
@@ -33,6 +34,8 @@ export const parameters = {
   },
   docs: {
     theme,
+    transformSource: (src, storyContext) =>
+      renderToStaticMarkup(storyContext.storyFn),
     components: {
       InfoBox,
       AccessibilityList,
