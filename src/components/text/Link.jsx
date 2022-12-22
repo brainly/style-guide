@@ -151,6 +151,7 @@ const Link = (props: LinkPropsType) => {
     className
   );
 
+  // suppressHydrationWarning is used until 'useId' hook is available
   if (as === 'button') {
     return (
       <Text
@@ -159,7 +160,12 @@ const Link = (props: LinkPropsType) => {
         className={linkClass}
         size={textSize}
       >
-        <span id={labelId} aria-label={ariaLabel} aria-hidden>
+        <span
+          id={labelId}
+          aria-label={ariaLabel}
+          aria-hidden
+          suppressHydrationWarning
+        >
           {children}
         </span>
         <button
