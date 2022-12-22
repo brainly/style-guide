@@ -19,7 +19,6 @@
   "globals": {
     "hljs": "readonly",
     "html_beautify": "readonly",
-    "STORYBOOK_ENV": "readonly",
-    "SANDBOX_PUBLIC_PATH": "readonly"
+    "STORYBOOK_ENV": "readonly"
   }
 }

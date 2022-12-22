@@ -13,7 +13,7 @@ yarn gulp build-assets --version=$VERSION
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox --mode production
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox-addon --mode production
 yarn build-newsletter-stories
-SANDBOX_PUBLIC_PATH=$HOST/$VERSION/docs/ VERSION=$VERSION yarn build-storybook --quiet -o dist/storybook/$VERSION/docs
+VERSION=$VERSION yarn build-storybook --quiet -o dist/storybook/$VERSION/docs
 
 optstring="d"
 

@@ -5,7 +5,6 @@ const fs = require('fs');
 const svgoConfigs = require('../svgo-config.js');
 const revHash = require('rev-hash');
 const webpack = require('webpack');
-const {url} = require('../config.json');
 
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
@@ -41,8 +40,11 @@ module.exports = {
   ],
   staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
   webpackFinal: config => {
-    const SANDBOX_PUBLIC_PATH = process.env.SANDBOX_PUBLIC_PATH || `${url}/`;
     const VERSION = process.env.VERSION || 'latest';
+
+    if (process.env.STORYBOOK_ENV === 'chromatic') {
+      config.publicPath = '/';
+    }
 
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
@@ -246,7 +248,6 @@ module.exports = {
     config.plugins.push(
       new webpack.DefinePlugin({
         STORYBOOK_ENV: JSON.stringify(process.env.STORYBOOK_ENV),
-        SANDBOX_PUBLIC_PATH: JSON.stringify(SANDBOX_PUBLIC_PATH),
       })
     );
 

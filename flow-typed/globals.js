@@ -3,5 +3,3 @@
 declare var hljs: any;
 // eslint-disable-next-line camelcase
 declare var html_beautify: any;
-
-declare var SANDBOX_PUBLIC_PATH: string;
