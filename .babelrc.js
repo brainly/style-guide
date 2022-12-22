@@ -15,7 +15,7 @@ let logoBaseUrl;
 module.exports = api => {
   const nodeEnv = api.env();
 
-  const publicPath = process.env.PUBLIC_PATH || `${url}/`;`;
+  const publicPath = process.env.PUBLIC_PATH || `${url}/`;
 
   return {
     presets: [
