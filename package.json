@@ -151,7 +151,7 @@
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
     "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon --only 'src/docs/addons/sandbox/manager.js' --only 'src/docs/addons/sandbox/preset.js' && webpack --config=sandbox-addon.webpack.config.js",
     "clean": "rimraf css dist dist-sandbox",
-    "chromatic": "NODE_ENV=production PUBLIC_PATH=/ STORYBOOK_ENV=chromatic npx chromatic --exit-zero-on-changes --build-script-name=build --storybook-build-dir=dist/storybook/latest/docs",
+    "chromatic": "npx chromatic --exit-zero-on-changes --build-script-name=build --storybook-build-dir=dist/storybook/latest/docs",
     "eslint": "./node_modules/.bin/eslint",
     "js-lint": "eslint --ext .js --ext .jsx src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",

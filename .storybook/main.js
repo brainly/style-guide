@@ -42,10 +42,6 @@ module.exports = {
   webpackFinal: config => {
     const VERSION = process.env.VERSION || 'latest';
 
-    if (process.env.STORYBOOK_ENV === 'chromatic') {
-      config.publicPath = '/';
-    }
-
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
 
