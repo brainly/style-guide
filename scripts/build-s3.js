@@ -60,7 +60,11 @@ if (!argv.latest) {
 }
 
 function buildFiles() {
-  const options = detached ? '' : '-r';
+  let options = '';
+
+  if (detached) {
+    options = `-d`;
+  }
 
   execSync(`VERSION=${version} ./scripts/build.sh ${options}`);
 }
