@@ -5,16 +5,17 @@ build: $(APP_NAME)
 styleguide-dev-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	node ./scripts/build-s3.js --latest
+	HOST=https://styleguide-dev.brainly.com BUCKET=styleguide-dev.brainly.com node ./scripts/build-s3.js --latest
 
 .PHONY: styleguide-beta-pipeline
 styleguide-beta-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	node ./scripts/build-s3.js --rootRedirectPage=false
+	HOST=https://styleguide-dev.brainly.com BUCKET=styleguide-dev.brainly.com node ./scripts/build-s3.js --detached
 
 .PHONY: styleguide-prod-pipeline
 styleguide-prod-pipeline:
 	echo build app $(APP_NAME) for $(ENVIRONMENT_NAME)
 	yarn
-	node ./scripts/build-s3.js
+	HOST=https://styleguide.brainly.com BUCKET=styleguide-prod.brainly.com node ./scripts/build-s3.js
+	

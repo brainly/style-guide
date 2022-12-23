@@ -4,16 +4,13 @@ phases:
   pre_build:
     commands:
       - yarn
-  build:
-    commands:
-      - yarn build
-      - yarn build-storybook
-  post_build:
-    commands:
       - GIT_BRANCH=${CODEBUILD_WEBHOOK_HEAD_REF:-$CODEBUILD_SOURCE_VERSION}
       - export GIT_BRANCH=$(echo $GIT_BRANCH | sed "s|branch/||" | sed "s|/|-|g" | sed "s|refs-heads-||")
+  build:
+    commands:
+      - HOST=https://styleguide-dev.brainly.com VERSION=branch/$GIT_BRANCH ./scripts/build.sh -d
 artifacts:
   name: 'branch/$GIT_BRANCH'
   files:
     - '**/*'
-  base-directory: 'storybook-static'
+  base-directory: 'dist/storybook/branch/$GIT_BRANCH/docs'

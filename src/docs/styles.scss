@@ -281,3 +281,7 @@ table.docblock-argstable tbody.docblock-argstable-body {
   margin-top: 1px;
   margin-right: 8px;
 }
+
+.sidebar-item[data-selected='true'][data-nodetype='story'] > * {
+  margin-left: 0;
+}
