@@ -51,7 +51,11 @@ if (!argv.latest) {
 
         // CodeBuild deploy project requires 'dist' folder to not be empty, so we create mock file.
         fs.mkdirSync(path.resolve(__dirname, '..', 'dist'));
-        fs.writeFileSync(path.resolve(__dirname, '..', 'dist', '.temp'), '');
+        fs.mkdirSync(path.resolve(__dirname, '..', 'dist', 'storybook'));
+        fs.writeFileSync(
+          path.resolve(__dirname, '..', 'dist', 'storybook', '.temp'),
+          ''
+        );
       }
     }
   );
