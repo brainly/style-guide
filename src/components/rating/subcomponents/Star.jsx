@@ -23,6 +23,7 @@ const Star = ({
   active,
   'aria-label': label,
   value,
+  type = 'star',
   ...props
 }: StarPropsType) => {
   if (__DEV__) {
@@ -45,9 +46,9 @@ const Star = ({
         />
       )}
       <Icon
-        type="star"
+        type={type}
         size={size}
-        color={ICON_COLOR.ADAPTIVE}
+        color={ICON_COLOR['icon-yellow-50']}
         className="sg-rate-box__star-icon"
         aria-hidden
       />
