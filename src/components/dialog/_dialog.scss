@@ -192,7 +192,7 @@ $dialogMaxWidthMap: (
     &--motion-default {
       transition-property: transform, opacity;
       transition-duration: $durationModerate2, $durationQuick2;
-      transition-timing-function: $easingExit, $easingLinear;
+      transition-timing-function: $easingEntry, $easingLinear;
     }
 
     &--motion-none {
