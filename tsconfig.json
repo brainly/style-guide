@@ -3,7 +3,6 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "resolveJsonModule": true,
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true,
