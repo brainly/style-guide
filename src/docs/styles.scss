@@ -95,8 +95,8 @@
 }
 
 .sbdocs.sbdocs-h4 {
-  text-transform: uppercase;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .sbdocs.sbdocs-a {
@@ -280,4 +280,8 @@ table.docblock-argstable tbody.docblock-argstable-body {
 .sbdocs .sbdocs-info-box-icon {
   margin-top: 1px;
   margin-right: 8px;
+}
+
+.sidebar-item[data-selected='true'][data-nodetype='story'] > * {
+  margin-left: 0;
 }

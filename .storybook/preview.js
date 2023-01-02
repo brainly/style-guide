@@ -1,8 +1,10 @@
 import * as React from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
 import theme from './theme';
 import hex from '../src/components/colors/hex';
 
 import {InfoBox} from 'blocks/InfoBox';
+import {AccessibilityList} from 'blocks/accessibility-list/AccessibilityList';
 
 // load all styles
 import '../src/main.scss';
@@ -32,8 +34,11 @@ export const parameters = {
   },
   docs: {
     theme,
+    transformSource: (src, storyContext) =>
+      renderToStaticMarkup(storyContext.storyFn),
     components: {
       InfoBox,
+      AccessibilityList,
     },
   },
   controls: {hideNoControlsWarning: true},

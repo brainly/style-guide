@@ -2,14 +2,13 @@ const path = require('path');
 const glob = require('glob');
 const pkg = require('../package.json');
 const fs = require('fs');
-const svgoConfigs = require('../svgo.config.js');
+const svgoConfigs = require('../svgo-config.js');
 const revHash = require('rev-hash');
+const webpack = require('webpack');
 
 const SOURCE_DIR = path.join(__dirname, '../', 'src');
 const SOURCE_COMPONENTS_DIR = path.join(SOURCE_DIR, 'components');
 const SOURCE_DOCS_DIR = path.join(SOURCE_DIR, 'docs');
-
-process.env.STORYBOOK_ENV = process.env.STORYBOOK_ENV || 'dev';
 
 const babelEnv = params => [
   '@babel/preset-env',
@@ -23,7 +22,7 @@ const babelEnv = params => [
 
 async function findStories() {
   return glob
-    .sync('src/**/*.stories.@(jsx|mdx)')
+    .sync('@(src|dist)/**/*.stories.@(jsx|mdx)')
     .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
@@ -37,9 +36,12 @@ module.exports = {
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
     '@storybook/addon-links',
+    '../dist/sandbox-addon/preset.js',
   ],
-  staticDirs: ['./public'],
+  staticDirs: ['./public', '../dist/sandbox', '../dist/storybook-public'],
   webpackFinal: config => {
+    const VERSION = process.env.VERSION || 'latest';
+
     // remove default loader for jsx, tsx and mjs
     config.module.rules = config.module.rules.slice(1);
 
@@ -158,7 +160,6 @@ module.exports = {
         test: /\.js$|jsx?$/,
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
           presets: [babelEnv({modules: false}), '@babel/preset-react'],
           plugins: [
             '@babel/plugin-transform-flow-strip-types',
@@ -230,38 +231,21 @@ module.exports = {
       ]
     );
 
-    let revManifestPath;
-
-    const pathToVersionedManifest = path.resolve(
-      __dirname,
-      '../',
-      'dist',
-      pkg.version,
-      'rev-manifest.json'
-    );
-    const pathToLatestVerManifest = path.resolve(
-      __dirname,
-      '../',
-      'dist',
-      'latest',
-      'rev-manifest.json'
-    );
-
-    revManifestPath = [pathToVersionedManifest, pathToLatestVerManifest].find(
-      path => fs.existsSync(path)
-    );
-
-    if (!revManifestPath) {
-      console.log(`
-⛔️ rev-manifest.json not found in paths:
-  ${pathToVersionedManifest}
-  ${pathToLatestVerManifest}
-📦 Run 'yarn build'.`);
-      process.exit(1);
-    }
-
     // alias for finger printed asset urls
-    config.resolve.alias.RevManifest = revManifestPath;
+    config.resolve.alias.RevManifest = path.resolve(
+      __dirname,
+      '../',
+      'dist',
+      'storybook',
+      VERSION,
+      'rev-manifest.json'
+    );
+
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        STORYBOOK_ENV: JSON.stringify(process.env.STORYBOOK_ENV),
+      })
+    );
 
     return config;
   },

@@ -1,10 +1,8 @@
+import rules from './rules.a11y.js';
+
 ### Rules
 
-| Pattern                                                   | Comment                                                 | Status                                |
-| --------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------- |
-| **Should** have role `separator`                          |                                                         | Implementation: DONE<br />Tests: DONE |
-| **Should** have proper orientation                        | `aria-orientation` defaults to `"horizontal"`           | Implementation: DONE<br />Tests: DONE |
-| **Should** have 3:1 contrast ratio against the background | Selected `color` should relate to the background color. | Implementation: DONE<br />Tests: N/A  |
+<AccessibilityList rules={rules} />
 
 ### Usage
 

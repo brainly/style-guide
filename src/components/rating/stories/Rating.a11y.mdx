@@ -1,13 +1,10 @@
+import rules, {starRules} from './rules.a11y.js';
+
 ### Rules
 
 #### Rating
 
-| Pattern                                                                             | Comment                                                                                                                                                                                             | Status                                |
-| ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| **Should** have 3:1 contrast ratio                                                  | white - yellow: 3.05:1; white - gray: 4.37:1; yellow - gray: 1.44:1 <br/> To low contrast can [affect different people with visual impairments](https://whocanuse.com/?b=687b8c&c=c98600&f=20&s=b). | Implementation: DONE<br />Tests: N/A  |
-| **Should** have element with `radiogroup` role wrapping radio inputs                |                                                                                                                                                                                                     | Implementation: DONE<br />Tests: N/A  |
-| **Should** have accessible label describing current rate value                      | `aria-label` defaults to `"current rate"`                                                                                                                                                           | Implementation: DONE<br />Tests: DONE |
-| **Should** have accessible label describing rate action with min and max rate value | `{activeText}, min: 1, max: {metricSize}`                                                                                                                                                           | Implementation: DONE<br />Tests: DONE |
+<AccessibilityList rules={rules} />
 
 <InfoBox type="warning">
   Using <code>noLabel</code> option will affect different people with visual
@@ -18,13 +15,7 @@
 
 #### Star
 
-| Pattern                                                              | Comment                            | Status                                |
-| -------------------------------------------------------------------- | ---------------------------------- | ------------------------------------- |
-| **Should** have an accessible label                                  |                                    | Implementation: DONE<br />Tests: DONE |
-| **Should not** be accessible when is not active                      |                                    | Implementation: DONE<br />Tests: DONE |
-| **Should** be focusable                                              | Browser focus style is used        | Implementation: DONE<br />Tests: DONE |
-| **Should** have `radio` role                                         |                                    | Implementation: DONE<br />Tests: DONE |
-| **Should** fire `onChange` on click, space and arrows (left & right) | It is not possible to test arrows. | Implementation: DONE<br />Tests: DONE |
+<AccessibilityList rules={starRules} />
 
 ### Usage
 

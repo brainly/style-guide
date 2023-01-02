@@ -138,7 +138,7 @@ const Textarea = (props: TextareaPropsType) => {
   const errorMessageDisplayed =
     invalid === true && errorMessage !== undefined && errorMessage !== '';
 
-  return errorMessageDisplayed ? (
+  return (
     <div className={wrapperClass}>
       <Type
         {...additionalProps}
@@ -146,19 +146,14 @@ const Textarea = (props: TextareaPropsType) => {
         ref={textareaRef}
         value={value}
       />
-      <Flex marginTop="xxs" marginLeft="s" marginRight="s">
-        <Text size="xsmall" color="text-red-60">
-          {errorMessage}
-        </Text>
-      </Flex>
+      {errorMessageDisplayed && (
+        <Flex marginTop="xxs" marginLeft="s" marginRight="s">
+          <Text size="xsmall" color="text-red-60">
+            {errorMessage}
+          </Text>
+        </Flex>
+      )}
     </div>
-  ) : (
-    <Type
-      {...additionalProps}
-      className={textareaClass}
-      ref={textareaRef}
-      value={value}
-    />
   );
 };
 
