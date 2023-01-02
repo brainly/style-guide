@@ -16,7 +16,7 @@ export type DialogPropsType = $ReadOnly<{
   open: boolean,
   children: React.Node,
   size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen',
-  reduceMotion?: boolean,
+  motionPreset?: 'none' | 'default',
   'aria-labelledby'?: string,
   'aria-label'?: string,
   'aria-describedby'?: string,
@@ -46,7 +46,6 @@ export type DialogPropsType = $ReadOnly<{
  */
 Dialog.defaultProps = ({
   size: 'm',
-  reduceMotion: false,
   scroll: 'outside',
   position: 'center',
   appearance: 'dialog',
@@ -60,7 +59,7 @@ function BaseDialog({
   open,
   children,
   size = 'm',
-  reduceMotion = false,
+  motionPreset = 'default',
   scroll = 'outside',
   'aria-labelledby': ariaLabelledBy,
   'aria-label': ariaLabel,
@@ -86,7 +85,7 @@ function BaseDialog({
    * The name of transition with the longest duration, because
    * a component can have an animation of many properties.
    */
-  const lastTransitionName = exiting || reduceMotion ? 'opacity' : 'transform';
+  const lastTransitionName = exiting ? 'opacity' : 'transform';
 
   /**
    * CSS3 transition requires a deferredOpen value to be one
@@ -99,6 +98,8 @@ function BaseDialog({
 
   const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
     React.useState<boolean>(false);
+
+  const hasAnimations = supportsTransitions() && motionPreset !== 'none';
 
   const cleanupBodyNoScroll = useBodyNoScroll();
 
@@ -118,10 +119,10 @@ function BaseDialog({
   React.useEffect(() => {
     setDeferredOpen(open);
 
-    if (!supportsTransitions()) {
+    if (!hasAnimations) {
       fireTransitionEndCallbacks();
     }
-  }, [open, fireTransitionEndCallbacks]);
+  }, [open, hasAnimations, fireTransitionEndCallbacks]);
 
   React.useEffect(() => {
     /**
@@ -189,6 +190,7 @@ function BaseDialog({
     'js-dialog',
     'sg-dialog__overlay',
     `sg-dialog__overlay--size-${size}`,
+    `sg-dialog__overlay--motion-${motionPreset}`,
     {
       'sg-dialog__overlay--scroll':
         (isDialogHigherThanOverlay || hasFinishedTransition) &&
@@ -199,15 +201,22 @@ function BaseDialog({
     }
   );
 
-  const containerClass = cx('sg-dialog__container', {
-    'sg-dialog__container--fullscreen': size === 'fullscreen',
-    'sg-dialog__container--scroll': scroll === 'inside',
-    'sg-dialog__container--open': deferredOpen,
-    'sg-dialog__container--exiting': exiting,
-    'sg-dialog__container--reduce-motion': reduceMotion,
-    'sg-dialog__container--top': position === 'top',
-    'sg-dialog__container--appearance-dialog': appearance === 'dialog',
-  });
+  const containerClass = cx(
+    'sg-dialog__container',
+    `sg-dialog__container--motion-${motionPreset}`,
+    {
+      'sg-dialog__container--fullscreen': size === 'fullscreen',
+      'sg-dialog__container--scroll': scroll === 'inside',
+      'sg-dialog__container--open': deferredOpen,
+      'sg-dialog__container--exiting': exiting,
+      'sg-dialog__container--top': position === 'top',
+      'sg-dialog__container--appearance-dialog': appearance === 'dialog',
+      'sg-dialog__container--fullscreen--motion-none':
+        size === 'fullscreen' && motionPreset === 'none',
+      'sg-dialog__container--fullscreen--motion-default':
+        size === 'fullscreen' && motionPreset === 'default',
+    }
+  );
 
   const childrenWithoutSlots = React.useMemo(
     () =>
@@ -281,9 +290,7 @@ function BaseDialog({
         ref={containerRef}
         data-dialog-container
         className={containerClass}
-        onTransitionEnd={
-          supportsTransitions() ? handleTransitionEnd : undefined
-        }
+        onTransitionEnd={hasAnimations ? handleTransitionEnd : undefined}
         aria-modal="true"
         aria-labelledby={ariaLabelledBy}
         aria-label={ariaLabel}
