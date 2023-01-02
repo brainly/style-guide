@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {render, waitFor, fireEvent} from '@testing-library/react';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {testA11y} from '../../axe';
@@ -26,7 +26,7 @@ describe('Accordion', () => {
     );
   });
 
-  it('expands and collapses item on Enter/Space keydown', async () => {
+  it('expands and collapses item on click', async () => {
     const accordionId = 'id-1';
     const accordion = render(
       <Accordion>
@@ -39,16 +39,41 @@ describe('Accordion', () => {
 
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeNull();
+    accordion.getByRole('button').click();
+
+    expect(item.getAttribute('aria-expanded')).toEqual('true');
+    await waitFor(() => expect(accordion.getByRole('region')).toBeTruthy());
+
+    accordion.getByRole('button').click();
+
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    fireEvent(accordion.queryByRole('region'), new Event('transitionend'));
+    await waitFor(() => expect(accordion.queryByRole('region')).toBeNull());
+  });
+
+  it('expands and collapses item on Enter/Space keydown when motion is reduced', async () => {
+    const accordionId = 'id-1';
+    const accordion = render(
+      <Accordion reduceMotion>
+        <AccordionItem title={accordionId} id={accordionId}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+    const item = accordion.getByRole('button');
+
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(accordion.queryByRole('region')).toBeNull();
     accordion.getByRole('button').focus();
     expect(item).toEqual(document.activeElement);
-    userEvent.keyboard('{enter}');
 
+    userEvent.keyboard('{enter}');
     expect(item.getAttribute('aria-expanded')).toEqual('true');
     expect(accordion.getByRole('region')).toBeTruthy();
 
     userEvent.keyboard('{space}');
-
     expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(accordion.queryByRole('region')).toBeNull();
   });
 
   it('has an accessible name', () => {
