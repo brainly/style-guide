@@ -13,21 +13,6 @@ import RatingA11y from './stories/Rating.a11y.mdx';
     size: {
       table: {defaultValue: {summary: RATING_SIZE.XS}},
     },
-    onMouseLeave: {
-      table: {
-        category: 'Events',
-      },
-    },
-    onStarMouseEnter: {
-      table: {
-        category: 'Events',
-      },
-    },
-    onChange: {
-      table: {
-        category: 'Events',
-      },
-    },
   }}
 />
 
@@ -61,14 +46,6 @@ import RatingA11y from './stories/Rating.a11y.mdx';
         })}
       </div>
     )}
-  </Story>
-</Canvas>
-
-### Active
-
-<Canvas>
-  <Story name="Active">
-    {args => <Rating {...args} active activeText="Rate!" />}
   </Story>
 </Canvas>
 

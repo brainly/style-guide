@@ -52,7 +52,7 @@ const Rating = ({
   const metricString = `${rate}/${METRIC_SIZE}`;
 
   return (
-    <div className={ratingClass} aria-label={ariaRatingLabel}>
+    <div className={ratingClass} role="img" aria-label={ariaRatingLabel}>
       <p className="sg-rate-box__rate">
         {!noLabel && <span aria-hidden>{rateString}</span>}
         {Boolean(rate) && (
@@ -66,7 +66,7 @@ const Rating = ({
           aria-hidden
         >
           {[...Array(METRIC_SIZE)].map((_, index) => (
-            <Star key={index} size={starSize} type="star" />
+            <Star key={index} size={starSize} />
           ))}
         </div>
         <div

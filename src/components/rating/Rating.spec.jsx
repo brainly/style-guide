@@ -1,9 +1,7 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Icon from 'icons/Icon';
 import Rating, {RATING_SIZE, METRIC_SIZE} from './Rating';
-import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
 describe('rating', () => {
@@ -74,7 +72,7 @@ describe('rating', () => {
 
 describe('star', () => {
   it('renders', () => {
-    const {container} = render(<Star />);
+    const {container} = render(<Star size="32" />);
 
     expect(container.getElementsByClassName('sg-rate-box__star')).toHaveLength(
       1
@@ -85,9 +83,7 @@ describe('star', () => {
   });
 
   it('passes size to icon', () => {
-    const size = 16;
-
-    const {container} = render(<Star size={size} />);
+    const {container} = render(<Star size="16" />);
 
     expect(container.getElementsByClassName('sg-icon--x16')).toHaveLength(1);
   });

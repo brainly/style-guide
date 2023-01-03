@@ -19,7 +19,7 @@ describe('Rating', () => {
 
 describe('Star', () => {
   it('is aria-hidden', () => {
-    const {container} = render(<Star value={2} />);
+    const {container} = render(<Star size="32" />);
 
     expect(container.getElementsByClassName('sg-icon')[0]).toHaveAttribute(
       'aria-hidden',
@@ -35,7 +35,7 @@ describe('Star', () => {
 
   describe('Star a11y', () => {
     it('should have no a11y violations', async () => {
-      await testA11y(<Star />);
+      await testA11y(<Star size="32" />);
     });
   });
 });

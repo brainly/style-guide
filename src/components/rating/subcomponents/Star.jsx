@@ -6,11 +6,11 @@ import * as IconModule from '../../icons/Icon';
 const {default: Icon, ICON_COLOR} = IconModule;
 
 export type StarPropsType = $ReadOnly<{
-  type: 'star' | 'star_outlined',
+  type?: 'star' | 'star_outlined',
   size: IconModule.IconSizeType,
 }>;
 
-const Star = ({type, size}: StarPropsType) => {
+const Star = ({type = 'star', size}: StarPropsType) => {
   return (
     <span className="sg-rate-box__star">
       <Icon

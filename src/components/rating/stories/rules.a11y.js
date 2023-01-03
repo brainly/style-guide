@@ -23,38 +23,7 @@ const rules = [
   {
     pattern:
       '<b>Should</b> have accessible label describing rate action with min and max rate value.',
-    comment:
-      'Defaults to <code>"{activeText}, min: 1, max: {metricSize}"</code>.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-];
-
-export const starRules = [
-  {
-    pattern: '<b>Should</b> have an accessible label.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-  {
-    pattern: '<b>Should not</b> be accessible when is not active.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-  {
-    pattern: '<b>Should</b> be focusable and tabable.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-  {
-    pattern: '<b>Should</b> have <code>radio</code> role.',
-    status: 'DONE',
-    tests: 'DONE',
-  },
-  {
-    pattern:
-      '<b>Should</b> fire <code>onChange</code> on click, space and arrows (left & right).',
-    comment: 'It is not possible to test arrows.',
+    comment: 'Defaults to <code>"min: 1, max: 5"</code>.',
     status: 'DONE',
     tests: 'DONE',
   },

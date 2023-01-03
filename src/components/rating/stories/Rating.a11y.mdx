@@ -1,4 +1,4 @@
-import rules, {starRules} from './rules.a11y.js';
+import rules from './rules.a11y.js';
 
 ### Rules
 
@@ -8,14 +8,8 @@ import rules, {starRules} from './rules.a11y.js';
 
 <InfoBox type="warning">
   Using <code>noLabel</code> option will affect different people with visual
-  impairments. Omitting <code>activeText</code> for an active
-  <code>Rating</code> results in a non-labelled
-  <code>onChange</code> action.
+  impairments.
 </InfoBox>
-
-#### Star
-
-<AccessibilityList rules={starRules} />
 
 ### Usage
 
@@ -27,25 +21,12 @@ import rules, {starRules} from './rules.a11y.js';
 <Rating />
 ```
 
-- active with `activeText` & `counterText`
-
-<!-- prettier-ignore -->
-```jsx
-<Rating
-  active
-  activeText="Rate this answer"
-  counterText="32 votes"
-  onChange={onChange}
-/>
-```
-
-- with a current rate value `rate` and `metricSize`
+- with a current rate value `rate`
 
 <!-- prettier-ignore -->
 ```jsx
 <Rating
   rate={2.2}
-  metricSize={10}
 />
 ```
 
