@@ -1,164 +1,94 @@
 import * as React from 'react';
-import {shallow, mount} from 'enzyme';
+import {render, screen} from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Icon from 'icons/Icon';
-import Rating, {RATING_SIZE} from './Rating';
+import Rating, {RATING_SIZE, METRIC_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
 describe('rating', () => {
   it('renders correctly', () => {
-    const rating = shallow(<Rating />);
+    const {container} = render(<Rating />);
 
-    expect(rating.hasClass('sg-rate-box')).toEqual(true);
+    expect(container.getElementsByClassName('sg-rate-box')).toHaveLength(1);
+    expect(screen.getByText('0.0')).toBeInTheDocument();
   });
 
-  it("doesn't throw error when no onChange", () => {
-    const spy = jest.spyOn(console, 'error');
+  it('renders stars', () => {
+    const {container} = render(<Rating />);
 
-    console.error = jest.fn();
-    shallow(<Rating />);
-    expect(console.error.mock.calls).toHaveLength(0);
-
-    spy.mockRestore();
-  });
-
-  it('active', () => {
-    const rating = shallow(<Rating active />);
-
-    expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
-  });
-
-  it('renders stars - defined metricSize', () => {
-    const metricSize = 8;
-    const rating = shallow(<Rating active metricSize={metricSize} />);
-
-    expect(rating.find(Star)).toHaveLength(2 * metricSize);
-  });
-
-  it('renders stars - default number of stars', () => {
-    const defaultMetricSize = 5;
-    const rating = shallow(<Rating />);
-
-    expect(rating.find(Star)).toHaveLength(2 * defaultMetricSize);
+    expect(
+      container.getElementsByClassName('sg-rate-box__star-icon')
+    ).toHaveLength(2 * METRIC_SIZE);
+    expect(container.getElementsByClassName('sg-icon--x24')).toHaveLength(
+      2 * METRIC_SIZE
+    );
   });
 
   it('fills stars', () => {
     const rate = 3;
-    const metric = 10;
-    const percentageRate = `${(100 * rate) / metric}%`;
-    const rating = shallow(<Rating rate={rate} metricSize={metric} />);
-    const filledStarsBox = rating.find('.sg-rate-box__filled-stars');
-    const filledWidth = filledStarsBox.props().style.width;
+    const percentageRate = `${(100 * rate) / METRIC_SIZE}%`;
 
-    expect(filledWidth).toEqual(percentageRate);
+    const {container} = render(<Rating rate={rate} />);
+
+    const filledStars = container.getElementsByClassName(
+      'sg-rate-box__filled-stars'
+    );
+    const style = window.getComputedStyle(filledStars[0]);
+
+    expect(filledStars).toHaveLength(1);
+    expect(style.width).toBe(percentageRate);
   });
 
-  it("doesn't throw error when onChange isn't defined", () => {
-    const spy = jest.spyOn(console, 'error');
+  it('renders small size', () => {
+    const {container} = render(<Rating size={RATING_SIZE.S} />);
 
-    console.error = jest.fn();
-
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} />);
-    const stars = rating.find(Star);
-
-    stars.at(0).simulate('click');
-    stars.at(1).simulate('click');
-
-    const lastRatedStarIndex = rate - 1;
-
-    stars.at(lastRatedStarIndex).simulate('click');
-
-    expect(console.error.mock.calls).toHaveLength(0);
-
-    spy.mockRestore();
-  });
-
-  it('has small size', () => {
-    const rating = shallow(<Rating size={RATING_SIZE.S} />);
-    const stars = rating.find(Star);
-
-    expect(rating.hasClass('sg-rate-box--s')).toEqual(true);
-
-    stars.forEach(star => {
-      expect(star.props().size).toEqual(32);
-    });
+    expect(container.getElementsByClassName('sg-rate-box--s')).toHaveLength(1);
+    expect(container.getElementsByClassName('sg-icon--x32')).toHaveLength(
+      2 * METRIC_SIZE
+    );
   });
 
   it('renders without label', () => {
-    const rating = shallow(<Rating noLabel />);
+    render(<Rating noLabel />);
 
-    expect(rating.hasClass('sg-rate-box__rate')).toEqual(false);
+    expect(screen.queryByText('0.0')).not.toBeInTheDocument();
   });
 
-  describe('counter text', () => {
-    it('exists', () => {
-      const rating = shallow(<Rating />);
-      const rateCounter = rating.find(RateCounter);
+  it('does not render counter text by default', () => {
+    const {container} = render(<Rating rate={3} />);
 
-      expect(rateCounter).toHaveLength(1);
-    });
+    expect(
+      container.getElementsByClassName('sg-rate-box__counter')
+    ).toHaveLength(0);
+  });
 
-    it("displays counter text when no active and haven't been rated", () => {
-      const rating = shallow(<Rating />);
-      const rateCounter = rating.find(RateCounter);
+  it('displays counter text', () => {
+    const {container} = render(<Rating counterText="counter text" />);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-    });
-
-    it('displays counter text when have been rated and no active', () => {
-      const rating = shallow(<Rating rate={3} />);
-      const rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-    });
-
-    it('displays counter text when have been rated and active', () => {
-      const rating = shallow(<Rating rate={3} active />);
-      const rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-    });
-
-    // should be near same as above, so if we let delete above we need delete it here
-    it("doesn't display active text when no active and mouse over stars", () => {
-      const rating = mount(<Rating rate={3} />);
-      const stars = rating.find('.sg-rate-box__stars-container');
-      let rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-
-      stars.simulate('mouseEnter');
-      rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-
-      stars.simulate('mouseLeave');
-      rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().showActiveText).toBeFalsy();
-    });
+    expect(
+      container.getElementsByClassName('sg-rate-box__counter')
+    ).toHaveLength(1);
   });
 });
 
 describe('star', () => {
   it('renders', () => {
-    const star = shallow(<Star />);
+    const {container} = render(<Star />);
 
-    expect(star.hasClass('sg-rate-box__star')).toEqual(true);
-  });
-
-  it('uses Icon component', () => {
-    const size = 16;
-    const star = shallow(<Star size={size} />);
-
-    expect(star.find(Icon)).toHaveLength(1);
+    expect(container.getElementsByClassName('sg-rate-box__star')).toHaveLength(
+      1
+    );
+    expect(
+      container.getElementsByClassName('sg-rate-box__star-icon')
+    ).toHaveLength(1);
   });
 
   it('passes size to icon', () => {
     const size = 16;
-    const star = shallow(<Star size={size} />);
 
-    const icon = star.find(Icon);
+    const {container} = render(<Star size={size} />);
 
-    expect(icon.props().size).toEqual(size);
+    expect(container.getElementsByClassName('sg-icon--x16')).toHaveLength(1);
   });
 });

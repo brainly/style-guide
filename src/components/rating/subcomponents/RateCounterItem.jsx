@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-export type RateCounterItemPropsType = {text?: string, ...};
+export type RateCounterItemPropsType = $ReadOnly<{text: string}>;
 
 const RateCounterItem = ({text}: RateCounterItemPropsType) => (
   <>

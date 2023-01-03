@@ -3,16 +3,13 @@
 import * as React from 'react';
 import RateCounterItem from './RateCounterItem';
 
-export type RateCounterPropsType = {
-  counterText?: string,
-  activeText?: string,
-  ...
-};
+export type RateCounterPropsType = $ReadOnly<{
+  counterText: string,
+}>;
 
-const RateCounter = ({activeText, counterText}: RateCounterPropsType) => (
+const RateCounter = ({counterText}: RateCounterPropsType) => (
   <div className="sg-rate-box__counter">
     <RateCounterItem text={counterText} />
-    <RateCounterItem text={activeText} />
   </div>
 );
 
