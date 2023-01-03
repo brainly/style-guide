@@ -23,8 +23,6 @@ export type RatingPropsType = $ReadOnly<{
   ariaRatingLabel?: string,
 }>;
 
-/* eslint-disable react/default-props-match-prop-types */
-// legacy files without proper flow checks can suffer from this
 const Rating = ({
   rate = 0,
   counterText,
