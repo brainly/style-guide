@@ -16,7 +16,7 @@ const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
 const DEST_DIR = path.join(ROOT_DIR, 'src2');
 const TYPES_DIR = path.join(ROOT_DIR, 'types');
-const TYPES_OUT = path.join(ROOT_DIR, 'brainly-style-guide2.d.ts');
+const TYPES_OUT_FILE = 'brainly-style-guide.d.ts';
 
 const files = glob.sync(`/**/*.{js,jsx}`, {
   ignore: [`/**/{pages,iframe-pages,__mocks__}/*`],
@@ -172,12 +172,12 @@ if (extractorResult.succeeded) {
 console.log('Replacing React_2 with React');
 
 let finalTypes = fs
-  .readFileSync(path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'))
+  .readFileSync(path.resolve(TYPES_DIR, TYPES_OUT_FILE))
   .toString();
 
 finalTypes = finalTypes.replace(/React_\d\./g, 'React.');
 
-fs.writeFileSync(path.resolve(TYPES_DIR, TYPES_OUT), finalTypes);
+fs.writeFileSync(path.resolve(TYPES_DIR, TYPES_OUT_FILE), finalTypes);
 
 function mapExtension(extension = '') {
   const map = {
