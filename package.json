@@ -110,6 +110,7 @@
     "jest": "^24.0.0",
     "jest-axe": "^5.0.1",
     "mini-css-extract-plugin": "1.6.2",
+    "mutationobserver-shim": "^0.3.7",
     "polished": "^4.0.3",
     "postcss": "^8.4.5",
     "postcss-loader": "^4.1.0",

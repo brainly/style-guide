@@ -1,8 +1,10 @@
 const rules = [
   {
     pattern: '<b>Can</b> have an accessible name.',
-    status: 'TO DO',
-    tests: 'TO DO',
+    comment: `Can be named by a label specified by <code>aria-label</code> prop or a value 
+      (<code>IDREF</code>) set for the <code>aria-labelledby</code> prop that refers to an element.`,
+    status: 'DONE',
+    tests: 'DONE',
   },
 ];
 
