@@ -174,6 +174,7 @@ const Link = (props: LinkPropsType) => {
           disabled={disabled}
           type="button"
           aria-labelledby={labelId}
+          suppressHydrationWarning
         />
       </Text>
     );
