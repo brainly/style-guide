@@ -9,8 +9,10 @@ const jsc = require('jscodeshift');
 const flowParser = require('jscodeshift/parser/flow');
 const {convert} = require('@khanacademy/flow-to-ts/dist/convert.bundle');
 const ts = require('typescript');
+const prettier = require('prettier');
 const apiExtractor = require('@microsoft/api-extractor');
 const tsConfig = require('../tsconfig.json');
+const prettierConfig = require('../.prettierrc');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
@@ -84,6 +86,16 @@ files.forEach(sourceFile => {
       inlineUtilityTypes: true,
     });
 
+    const prettierOptions = {
+      ...prettierConfig,
+      parser: 'babel-ts',
+    };
+
+    const typescriptFormattedCode = prettier.format(
+      typescriptCode,
+      prettierOptions
+    );
+
     const sourceExtension = path.extname(sourceFile);
     const destinationExtension = mapExtension(sourceExtension);
 
@@ -93,7 +105,7 @@ files.forEach(sourceFile => {
       relativeSourceFile.replace(sourceExtension, destinationExtension)
     );
 
-    fs.outputFileSync(outputFile, typescriptCode, noop => noop);
+    fs.outputFileSync(outputFile, typescriptFormattedCode, noop => noop);
   } catch (e) {
     console.error(`Error converting ${sourceFile}`);
     throw e;
