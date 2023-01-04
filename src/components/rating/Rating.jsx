@@ -5,14 +5,14 @@ import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 
-type RatingSizeType = 's' | 'xs';
-
 export const METRIC_SIZE = 5;
 
 export const RATING_SIZE = {
   XS: 'xs',
   S: 's',
 };
+
+type RatingSizeType = 's' | 'xs';
 
 export type RatingPropsType = $ReadOnly<{
   rate?: number,

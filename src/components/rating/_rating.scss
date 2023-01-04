@@ -57,20 +57,6 @@ $includeHtml: false !default;
       position: relative;
     }
 
-    &__counter-item-static {
-      visibility: hidden;
-      height: 0;
-    }
-
-    &__counter-item-dynamic {
-      position: absolute;
-      left: 0;
-
-      &:nth-child(4) {
-        display: none;
-      }
-    }
-
     &__rate {
       @include fixText($rateFontSize, 0.125rem);
       @include fixOperaMiniLabelText();
