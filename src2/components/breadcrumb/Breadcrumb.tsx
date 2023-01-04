@@ -1,5 +1,5 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 export type BreadcrumbPropsType = {
   className?: string | null | undefined;
   adaptive?: boolean | null | undefined;
@@ -8,7 +8,7 @@ export type BreadcrumbPropsType = {
   elements: ReadonlyArray<React.ReactNode>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "className" | "adaptive" | "short" | "inlineItems" | "elements"
+  'className' | 'adaptive' | 'short' | 'inlineItems' | 'elements'
 >;
 
 const Breadcrumb = ({
@@ -20,11 +20,11 @@ const Breadcrumb = ({
   ...props
 }: BreadcrumbPropsType) => {
   const breadcrumbClass = classNames(
-    "sg-breadcrumb-list",
+    'sg-breadcrumb-list',
     {
-      "sg-breadcrumb-list--short": short,
-      "sg-breadcrumb-list--adaptive": adaptive,
-      "sg-breadcrumb-list--inline-items": inlineItems,
+      'sg-breadcrumb-list--short': short,
+      'sg-breadcrumb-list--adaptive': adaptive,
+      'sg-breadcrumb-list--inline-items': inlineItems,
     },
     className
   );

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-duplicates
-import * as React from "react";
+import * as React from 'react';
 import {
   createContext,
   useReducer,
@@ -8,15 +8,15 @@ import {
   useCallback,
   useMemo,
   useState, // eslint-disable-next-line import/no-duplicates
-} from "react";
-import cx from "classnames";
-import useReducedMotion from "../utils/useReducedMotion";
-import { __DEV__, invariant } from "../utils";
-import { generateResponsiveClassNames } from "../utils/responsive-props";
-import type { ResponsivePropType } from "../utils/responsive-props";
+} from 'react';
+import cx from 'classnames';
+import useReducedMotion from '../utils/useReducedMotion';
+import {__DEV__, invariant} from '../utils';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 export const KEY_CODES = {
-  "32": "space",
-  "13": "enter",
+  '32': 'space',
+  '13': 'enter',
 };
 type ExpandedItemsType = Array<string>;
 type StateType = Readonly<{
@@ -25,38 +25,38 @@ type StateType = Readonly<{
 }>;
 type ActionType =
   | {
-      type: "accordion/SET_EXPANDED";
+      type: 'accordion/SET_EXPANDED';
       payload: {
         expanded: ExpandedItemsType;
       };
     }
   | {
-      type: "accordion/KEYBOARD_SET_EXPANDED";
+      type: 'accordion/KEYBOARD_SET_EXPANDED';
     }
   | {
-      type: "accordion/SET_FOCUSED";
+      type: 'accordion/SET_FOCUSED';
       payload: {
         id: string;
       };
     }
   | {
-      type: "accordion/TOGGLE_EXPAND";
+      type: 'accordion/TOGGLE_EXPAND';
       payload: {
         id: string;
         expanded: boolean;
       };
     };
 type SpacingType =
-  | "xxs"
-  | "xs"
-  | "s"
-  | "m"
-  | "l"
-  | "xl"
-  | "xxl"
-  | "xxxl"
-  | "xxxxl"
-  | "none";
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl'
+  | 'none';
 export type AccordionPropsType = Readonly<{
   allowMultiple?: boolean;
   children: React.ReactNode;
@@ -66,8 +66,8 @@ export type AccordionPropsType = Readonly<{
   expanded?: string | Array<string>;
   defaultExpanded?: string | Array<string>;
   onChange?: (arg0: string) => void;
-  "aria-label"?: string;
-  "aria-labelledby"?: string;
+  'aria-label'?: string;
+  'aria-labelledby'?: string;
 }>;
 type ContextType = {
   noGapBetweenElements: boolean;
@@ -82,35 +82,35 @@ export const AccordionContext = createContext<ContextType>({});
 const Accordion = ({
   children,
   allowMultiple = false,
-  className = "",
-  spacing = "s",
+  className = '',
+  spacing = 's',
   reduceMotion = false,
   defaultExpanded,
   expanded,
   onChange,
-  "aria-label": ariaLabel,
-  "aria-labelledby": ariaLabelledby,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledby,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isControlled = expanded !== undefined;
-  const { current: wasControlled } = useRef<boolean>(isControlled);
+  const {current: wasControlled} = useRef<boolean>(isControlled);
 
   if (__DEV__) {
     invariant(
       !(isControlled && !onChange), // eslint-disable-next-line max-len
-      "You provided an `expanded` prop to an Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state."
+      'You provided an `expanded` prop to an Accordion without an `onChange` handler. Users won`t be able to switch between expanded/collapsed state.'
     );
     invariant(
       !(wasControlled && !isControlled),
-      "You cannot change Accordion component from controlled to uncontrolled variant."
+      'You cannot change Accordion component from controlled to uncontrolled variant.'
     );
     invariant(
       !(!wasControlled && isControlled),
-      "You cannot change Accordion component from uncontrolled to controlled variant."
+      'You cannot change Accordion component from uncontrolled to controlled variant.'
     );
     invariant(
       !(isControlled && allowMultiple),
-      "allowMultiple is not working in controlled Accordion"
+      'allowMultiple is not working in controlled Accordion'
     );
     invariant(
       !(
@@ -118,7 +118,7 @@ const Accordion = ({
         Array.isArray(defaultExpanded) &&
         defaultExpanded.length > 1
       ), // eslint-disable-next-line max-len
-      "defaultExpanded is an array with more than 1 element but allowMultiple prop is not set. The first value from the array was picked as a default expanded. Set allowMultiple attribute or provide only one default expanded."
+      'defaultExpanded is an array with more than 1 element but allowMultiple prop is not set. The first value from the array was picked as a default expanded. Set allowMultiple attribute or provide only one default expanded.'
     );
   }
 
@@ -128,7 +128,7 @@ const Accordion = ({
         return allowMultiple ? [...new Set([...expanded, id])] : [id];
       }
 
-      return allowMultiple ? expanded.filter((item) => item !== id) : [];
+      return allowMultiple ? expanded.filter(item => item !== id) : [];
     },
     [allowMultiple]
   );
@@ -165,7 +165,7 @@ const Accordion = ({
     function handleKeyDown(event: KeyboardEvent) {
       const key = KEY_CODES[event.keyCode];
 
-      if (["space", "enter"].includes(key)) {
+      if (['space', 'enter'].includes(key)) {
         if (
           event.target instanceof HTMLElement &&
           event.target.id === state.focusedElementId
@@ -174,36 +174,36 @@ const Accordion = ({
         }
 
         dispatch({
-          type: "accordion/KEYBOARD_SET_EXPANDED",
+          type: 'accordion/KEYBOARD_SET_EXPANDED',
         });
       }
     }
 
     if (!wrapper) return;
-    wrapper.addEventListener("keydown", handleKeyDown);
+    wrapper.addEventListener('keydown', handleKeyDown);
     return () => {
       if (!wrapper) return;
-      wrapper.removeEventListener("keydown", handleKeyDown);
+      wrapper.removeEventListener('keydown', handleKeyDown);
     };
   }, [state.focusedElementId]);
 
   function reducer(state: StateType, action: ActionType): StateType {
     switch (action.type) {
-      case "accordion/TOGGLE_EXPAND": {
-        const { id, expanded } = action.payload;
+      case 'accordion/TOGGLE_EXPAND': {
+        const {id, expanded} = action.payload;
         return {
           ...state,
           expanded: getUpdatedOpenedItems(state.expanded, id, expanded),
         };
       }
 
-      case "accordion/SET_EXPANDED": {
-        const { expanded } = action.payload;
-        return { ...state, expanded };
+      case 'accordion/SET_EXPANDED': {
+        const {expanded} = action.payload;
+        return {...state, expanded};
       }
 
-      case "accordion/KEYBOARD_SET_EXPANDED": {
-        const { expanded, focusedElementId } = state;
+      case 'accordion/KEYBOARD_SET_EXPANDED': {
+        const {expanded, focusedElementId} = state;
         if (focusedElementId === null) return state;
         return {
           ...state,
@@ -215,8 +215,8 @@ const Accordion = ({
         };
       }
 
-      case "accordion/SET_FOCUSED": {
-        return { ...state, focusedElementId: action.payload.id };
+      case 'accordion/SET_FOCUSED': {
+        return {...state, focusedElementId: action.payload.id};
       }
 
       default:
@@ -231,23 +231,23 @@ const Accordion = ({
     // expanded || '' is to satisfy flow.
     // isControlled flag is true when expanded !== undefined but this condition is not interpreted
     // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
-    const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ""];
+    const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ''];
     dispatch({
-      type: "accordion/SET_EXPANDED",
+      type: 'accordion/SET_EXPANDED',
       payload: {
         expanded: expandedArray,
       },
     });
   }
 
-  const noGapBetweenElements = spacing === "none";
+  const noGapBetweenElements = spacing === 'none';
   const onItemSelect = useCallback(
     (id, value) => {
       onChange && onChange(id);
 
       if (!isControlled) {
         dispatch({
-          type: "accordion/TOGGLE_EXPAND",
+          type: 'accordion/TOGGLE_EXPAND',
           payload: {
             id,
             expanded: value,
@@ -280,7 +280,7 @@ const Accordion = ({
         ref={wrapperRef}
         className={cx(
           ...generateResponsiveClassNames(
-            (spacing) => `sg-space-y-${String(spacing)}`,
+            spacing => `sg-space-y-${String(spacing)}`,
             spacing
           ),
           className

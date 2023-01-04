@@ -1,61 +1,61 @@
-import * as React from "react";
-import classnames from "classnames";
-import { getLogoUrl } from "../../logo-url";
+import * as React from 'react';
+import classnames from 'classnames';
+import {getLogoUrl} from '../../logo-url';
 type HomeButtonLogoTypeType =
-  | "brainly"
-  | "eodev"
-  | "nosdevoirs"
-  | "znanija"
-  | "znanija-plus"
-  | "brainly-plus"
-  | "brainly-tutoring";
+  | 'brainly'
+  | 'eodev'
+  | 'nosdevoirs'
+  | 'znanija'
+  | 'znanija-plus'
+  | 'brainly-plus'
+  | 'brainly-tutoring';
 const LOGO_TYPE: {
-  BRAINLY: "brainly";
-  EODEV: "eodev";
-  NOSDEVOIRS: "nosdevoirs";
-  ZNANIJA: "znanija";
-  ZNANIJA_PLUS: "znanija-plus";
-  BRAINLY_PLUS: "brainly-plus";
-  BRAINLY_TUTORING: "brainly-tutoring";
+  BRAINLY: 'brainly';
+  EODEV: 'eodev';
+  NOSDEVOIRS: 'nosdevoirs';
+  ZNANIJA: 'znanija';
+  ZNANIJA_PLUS: 'znanija-plus';
+  BRAINLY_PLUS: 'brainly-plus';
+  BRAINLY_TUTORING: 'brainly-tutoring';
 } = {
-  BRAINLY: "brainly",
-  EODEV: "eodev",
-  NOSDEVOIRS: "nosdevoirs",
-  ZNANIJA: "znanija",
-  ZNANIJA_PLUS: "znanija-plus",
-  BRAINLY_PLUS: "brainly-plus",
-  BRAINLY_TUTORING: "brainly-tutoring",
+  BRAINLY: 'brainly',
+  EODEV: 'eodev',
+  NOSDEVOIRS: 'nosdevoirs',
+  ZNANIJA: 'znanija',
+  ZNANIJA_PLUS: 'znanija-plus',
+  BRAINLY_PLUS: 'brainly-plus',
+  BRAINLY_TUTORING: 'brainly-tutoring',
 };
 const ICONS = {
-  brainly: "brainly-mobile",
-  eodev: "eodev-mobile",
-  nosdevoirs: "nosdevoirs-mobile",
-  znanija: "znanija-mobile",
-  "znanija-plus": "znanija-plus-small",
-  "brainly-plus": "brainly-plus-small",
-  "brainly-tutoring": "brainly-tutoring-small",
+  brainly: 'brainly-mobile',
+  eodev: 'eodev-mobile',
+  nosdevoirs: 'nosdevoirs-mobile',
+  znanija: 'znanija-mobile',
+  'znanija-plus': 'znanija-plus-small',
+  'brainly-plus': 'brainly-plus-small',
+  'brainly-tutoring': 'brainly-tutoring-small',
 };
 export type HomeButtonPropsType = {
   type?: HomeButtonLogoTypeType;
   href?: string;
   className?: string;
   alt?: string;
-  "aria-label"?: string;
+  'aria-label'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "type" | "href" | "className" | "alt" | "undefined"
+  'type' | 'href' | 'className' | 'alt' | 'undefined'
 >;
 
 const HomeButton = ({
   type = LOGO_TYPE.BRAINLY,
-  href = "#",
+  href = '#',
   className,
-  alt = "",
-  "aria-label": ariaLabel,
+  alt = '',
+  'aria-label': ariaLabel,
   ...props
 }: HomeButtonPropsType) => {
   const buttonClass = classnames(
-    "sg-home-button",
+    'sg-home-button',
     {
       [`sg-home-button--${type}`]: type !== LOGO_TYPE.BRAINLY,
     },
@@ -63,7 +63,7 @@ const HomeButton = ({
   );
   const logoPath = `${getLogoUrl(type)}`;
   const mobilePath = `${getLogoUrl(ICONS[type])}`;
-  const defaultAriaLabel = `${type.replace(/-/g, " ")} home`;
+  const defaultAriaLabel = `${type.replace(/-/g, ' ')} home`;
   return (
     <a
       {...props}

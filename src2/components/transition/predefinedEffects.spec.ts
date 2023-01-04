@@ -1,8 +1,8 @@
-import { createEffect } from "./predefinedEffects";
-describe("createEffect()", () => {
-  it("returns a predefined effect", () => {
+import {createEffect} from './predefinedEffects';
+describe('createEffect()', () => {
+  it('returns a predefined effect', () => {
     const effect = createEffect({
-      type: "scaleFade",
+      type: 'scaleFade',
     });
     expect(effect).toEqual({
       initial: {
@@ -16,24 +16,24 @@ describe("createEffect()", () => {
         transform: {
           scale: 1,
         },
-        duration: "moderate2",
-        easing: "entry",
+        duration: 'moderate2',
+        easing: 'entry',
       },
       exit: {
         opacity: 0,
         transform: {
           scale: 0.85,
         },
-        duration: "moderate1",
-        easing: "exit",
+        duration: 'moderate1',
+        easing: 'exit',
       },
     });
   });
-  it("returns a deeply customized, predefined effect", () => {
+  it('returns a deeply customized, predefined effect', () => {
     const effect = createEffect({
-      type: "scaleFade",
+      type: 'scaleFade',
       animate: {
-        duration: "quick2",
+        duration: 'quick2',
       },
       exit: {
         transform: {
@@ -53,16 +53,16 @@ describe("createEffect()", () => {
         transform: {
           scale: 1,
         },
-        duration: "quick2",
-        easing: "entry",
+        duration: 'quick2',
+        easing: 'entry',
       },
       exit: {
         opacity: 0,
         transform: {
           scale: 1,
         },
-        duration: "moderate1",
-        easing: "exit",
+        duration: 'moderate1',
+        easing: 'exit',
       },
     });
   });

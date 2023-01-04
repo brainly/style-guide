@@ -1,9 +1,9 @@
-import * as React from "react";
-import Transition from "../Transition";
-import DummyBox from "./common/DummyBox";
-import Stage from "./common/Stage";
-import { useIsomorphicLayoutEffect } from "../../utils/useIsomorphicLayoutEffect";
-import { useTransformationState } from "./common/useTransformationState";
+import * as React from 'react';
+import Transition from '../Transition';
+import DummyBox from './common/DummyBox';
+import Stage from './common/Stage';
+import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
+import {useTransformationState} from './common/useTransformationState';
 export const CurvedMovement = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [effects, setEffects] = React.useState({
@@ -28,7 +28,7 @@ export const CurvedMovement = () => {
     }
 
     prevTransformation.current = transformation;
-    const origin = "left top";
+    const origin = 'left top';
     const duration = 240;
 
     /**
@@ -92,8 +92,8 @@ export const CurvedMovement = () => {
             <Transition active effect={effects.scale}>
               <DummyBox
                 ref={elementRef}
-                size={expanded ? "medium" : "small"}
-                onClick={() => setExpanded((b) => !b)}
+                size={expanded ? 'medium' : 'small'}
+                onClick={() => setExpanded(b => !b)}
                 color="blue"
               />
             </Transition>
@@ -104,10 +104,10 @@ export const CurvedMovement = () => {
   );
 };
 
-const getBoxStyle = (expanded) => {
+const getBoxStyle = expanded => {
   if (!expanded) {
     return {
-      position: "absolute",
+      position: 'absolute',
       right: 16,
       bottom: 16,
     };
@@ -115,5 +115,5 @@ const getBoxStyle = (expanded) => {
 };
 
 CurvedMovement.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

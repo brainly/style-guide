@@ -1,62 +1,62 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 import {
   generateResponsiveClassNames,
   mergeResponsiveProps,
-} from "../utils/responsive-props";
-import type { ResponsivePropType } from "../utils/responsive-props";
+} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 type ColorType =
-  | "transparent"
-  | "white"
-  | "gray-40"
-  | "gray-20"
-  | "gray-10"
-  | "blue-40"
-  | "blue-30"
-  | "blue-20"
-  | "green-40"
-  | "green-30"
-  | "green-20"
-  | "green-10"
-  | "indigo-40"
-  | "indigo-20"
-  | "indigo-10"
-  | "red-40"
-  | "red-30"
-  | "red-20"
-  | "yellow-40"
-  | "yellow-20";
+  | 'transparent'
+  | 'white'
+  | 'gray-40'
+  | 'gray-20'
+  | 'gray-10'
+  | 'blue-40'
+  | 'blue-30'
+  | 'blue-20'
+  | 'green-40'
+  | 'green-30'
+  | 'green-20'
+  | 'green-10'
+  | 'indigo-40'
+  | 'indigo-20'
+  | 'indigo-10'
+  | 'red-40'
+  | 'red-30'
+  | 'red-20'
+  | 'yellow-40'
+  | 'yellow-20';
 export const COLOR = {
-  transparent: "transparent",
-  white: "white",
-  "gray-40": "gray-40",
-  "gray-20": "gray-20",
-  "gray-10": "gray-10",
-  "blue-40": "blue-40",
-  "blue-30": "blue-30",
-  "blue-20": "blue-20",
-  "green-40": "green-40",
-  "green-30": "green-30",
-  "green-20": "green-20",
-  "green-10": "green-10",
-  "indigo-40": "indigo-40",
-  "indigo-20": "indigo-20",
-  "indigo-10": "indigo-10",
-  "red-40": "red-40",
-  "red-30": "red-30",
-  "red-20": "red-20",
-  "yellow-40": "yellow-40",
-  "yellow-20": "yellow-20",
+  transparent: 'transparent',
+  white: 'white',
+  'gray-40': 'gray-40',
+  'gray-20': 'gray-20',
+  'gray-10': 'gray-10',
+  'blue-40': 'blue-40',
+  'blue-30': 'blue-30',
+  'blue-20': 'blue-20',
+  'green-40': 'green-40',
+  'green-30': 'green-30',
+  'green-20': 'green-20',
+  'green-10': 'green-10',
+  'indigo-40': 'indigo-40',
+  'indigo-20': 'indigo-20',
+  'indigo-10': 'indigo-10',
+  'red-40': 'red-40',
+  'red-30': 'red-30',
+  'red-20': 'red-20',
+  'yellow-40': 'yellow-40',
+  'yellow-20': 'yellow-20',
 };
-type PaddingType = "xxs" | "xs" | "s" | "m" | "l" | "xl";
+type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 export const PADDING = {
-  none: "none",
-  xxs: "xxs",
-  xs: "xs",
-  s: "s",
-  m: "m",
-  l: "l",
-  xl: "xl",
+  none: 'none',
+  xxs: 'xxs',
+  xs: 'xs',
+  s: 's',
+  m: 'm',
+  l: 'l',
+  xl: 'xl',
 };
 export type BoxPropsType = {
   /**
@@ -110,14 +110,14 @@ export type BoxPropsType = {
   borderColor?: ColorType | null | undefined;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "className"
-  | "color"
-  | "shadow"
-  | "padding"
-  | "noBorderRadius"
-  | "border"
-  | "borderColor"
+  | 'children'
+  | 'className'
+  | 'color'
+  | 'shadow'
+  | 'padding'
+  | 'noBorderRadius'
+  | 'border'
+  | 'borderColor'
 >;
 
 /**
@@ -135,9 +135,9 @@ const Box = React.forwardRef(
       children,
       className,
       color = COLOR.transparent,
-      padding = "m",
+      padding = 'm',
       border = false,
-      borderColor = COLOR["gray-20"],
+      borderColor = COLOR['gray-20'],
       noBorderRadius = false,
       shadow = false,
       ...props
@@ -145,38 +145,38 @@ const Box = React.forwardRef(
     ref
   ) => {
     const classes = classNames(
-      "sg-box",
+      'sg-box',
       {
         [`sg-box--${String(color)}`]: color,
         [`sg-box--border-color-${String(borderColor)}`]: border && borderColor,
       },
       ...generateResponsiveClassNames(
-        (shadow) => (shadow ? "sg-box--shadow" : "sg-box--no-shadow"),
+        shadow => (shadow ? 'sg-box--shadow' : 'sg-box--no-shadow'),
         shadow
       ),
       ...generateResponsiveClassNames(
-        (noBorderRadius) =>
-          noBorderRadius ? "sg-box--no-border-radius" : "sg-box--border-radius",
+        noBorderRadius =>
+          noBorderRadius ? 'sg-box--no-border-radius' : 'sg-box--border-radius',
         noBorderRadius
       ),
       ...generateResponsiveClassNames(
-        (border) => (border ? "sg-box--border" : "sg-box--no-border"),
+        border => (border ? 'sg-box--border' : 'sg-box--no-border'),
         border
       ),
       ...generateResponsiveClassNames(
-        (padding) => `sg-box--padding-${String(padding)}`,
+        padding => `sg-box--padding-${String(padding)}`,
         padding
       ),
       ...generateResponsiveClassNames(
         ([padding, border]) =>
-          padding && border ? `sg-box--padding-${padding}-border` : "",
+          padding && border ? `sg-box--padding-${padding}-border` : '',
         mergeResponsiveProps([padding, border])
       ),
       ...generateResponsiveClassNames(
         ([border, borderColor]) =>
           border && borderColor
             ? `sg-box--border-color-${String(borderColor)}`
-            : "",
+            : '',
         mergeResponsiveProps([border, borderColor])
       ),
       className
@@ -188,5 +188,5 @@ const Box = React.forwardRef(
     );
   }
 );
-Box.displayName = "Box";
+Box.displayName = 'Box';
 export default Box;

@@ -1,26 +1,26 @@
 // eslint-disable-next-line import/no-duplicates
-import * as React from "react";
+import * as React from 'react';
 import {
   useRef,
   useMemo, // eslint-disable-next-line import/no-duplicates
-} from "react";
-import classNames from "classnames";
-import Text from "../../text/Text";
-import generateRandomString from "../../../js/generateRandomString";
-import useRadioContext from "./useRadioContext";
-import useIsFirstRender from "../../utils/useIsFirstRender";
-export type RadioColorType = "light" | "dark";
-type RadioLabelSizeType = "medium" | "small";
+} from 'react';
+import classNames from 'classnames';
+import Text from '../../text/Text';
+import generateRandomString from '../../../js/generateRandomString';
+import useRadioContext from './useRadioContext';
+import useIsFirstRender from '../../utils/useIsFirstRender';
+export type RadioColorType = 'light' | 'dark';
+type RadioLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
   CSSStyleDeclaration & {
-    "--radioColor"?: string;
-    "--radioHoverColor"?: string;
-    "--radioInvalidColor"?: string;
-    "--radioInvalidHoverColor"?: string;
-    "--radioLabelColor"?: string;
-    "--radioDescriptionColor"?: string;
-    "--radioBorderWidth"?: string;
-    "--radioRingColor"?: string;
+    '--radioColor'?: string;
+    '--radioHoverColor'?: string;
+    '--radioInvalidColor'?: string;
+    '--radioInvalidHoverColor'?: string;
+    '--radioLabelColor'?: string;
+    '--radioDescriptionColor'?: string;
+    '--radioBorderWidth'?: string;
+    '--radioRingColor'?: string;
   }
 >;
 export type RadioPropsType = {
@@ -112,54 +112,54 @@ export type RadioPropsType = {
    * ID of a custom label, that describes the radio input.
    * @example <Radio aria-labelledby="my-custom-label" />
    */
-  "aria-labelledby"?: string;
+  'aria-labelledby'?: string;
 
   /**
    * ID of a custom text / section, that describes the radio input.
    * @example <Radio aria-describedby="my-custom-label" />
    */
-  "aria-describedby"?: string;
+  'aria-describedby'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "checked"
-  | "children"
-  | "className"
-  | "color"
-  | "description"
-  | "disabled"
-  | "id"
-  | "invalid"
-  | "labelSize"
-  | "name"
-  | "onChange"
-  | "required"
-  | "style"
-  | "value"
-  | "undefined"
-  | "undefined"
+  | 'checked'
+  | 'children'
+  | 'className'
+  | 'color'
+  | 'description'
+  | 'disabled'
+  | 'id'
+  | 'invalid'
+  | 'labelSize'
+  | 'name'
+  | 'onChange'
+  | 'required'
+  | 'style'
+  | 'value'
+  | 'undefined'
+  | 'undefined'
 >;
 
 const Radio = ({
   checked,
-  color = "dark",
+  color = 'dark',
   children,
   className,
   description,
   disabled,
   id,
   invalid,
-  labelSize = "medium",
+  labelSize = 'medium',
   name,
   onChange,
   required = false,
   style,
   value,
-  "aria-labelledby": ariaLabelledBy,
-  "aria-describedby": ariaDescribedBy,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioPropsType) => {
-  const { current: radioId } = useRef(
-    id === undefined || id === "" ? generateRandomString() : id
+  const {current: radioId} = useRef(
+    id === undefined || id === '' ? generateRandomString() : id
   );
   const radioGroupContext = useRadioContext();
   const isWithinRadioGroup = Boolean(
@@ -190,24 +190,24 @@ const Radio = ({
     if (description) return `${radioId}-description`;
     return null;
   }, [radioId, ariaDescribedBy, description]);
-  const radioClass = classNames("sg-radio", className, {
+  const radioClass = classNames('sg-radio', className, {
     [`sg-radio--${String(colorName)}`]: colorName,
-    "sg-radio--disabled": isDisabled,
-    "sg-radio--with-label": !!hasLabel,
-    "sg-radio--with-description": !!descriptionId,
-    "sg-radio--with-padding": !isInputOnly,
+    'sg-radio--disabled': isDisabled,
+    'sg-radio--with-label': !!hasLabel,
+    'sg-radio--with-description': !!descriptionId,
+    'sg-radio--with-padding': !isInputOnly,
   });
-  const labelClass = classNames("sg-radio__label", {
-    "sg-radio__label--with-padding-bottom": description,
+  const labelClass = classNames('sg-radio__label', {
+    'sg-radio__label--with-padding-bottom': description,
     [`sg-radio__label--${String(labelSize)}`]: labelSize,
   });
-  const circleClass = classNames("sg-radio__circle", {
-    "sg-radio__circle--with-animation": shouldAnimate,
+  const circleClass = classNames('sg-radio__circle', {
+    'sg-radio__circle--with-animation': shouldAnimate,
   });
   const labelId = ariaLabelledBy || `${radioId}-label`;
   const isInvalid = invalid !== undefined ? invalid : radioGroupContext.invalid;
 
-  const onInputChange = (e) => {
+  const onInputChange = e => {
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
       radioGroupContext.setSelectedValue(e, value);

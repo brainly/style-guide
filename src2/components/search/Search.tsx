@@ -1,15 +1,15 @@
-import * as React from "react";
-import cx from "classnames";
-import Input, { COLOR, SIZE } from "../form-elements/Input";
-import type { InputPropsType } from "../form-elements/Input";
-import Icon, { ICON_COLOR } from "../icons/Icon";
-import Button from "../buttons/Button";
+import * as React from 'react';
+import cx from 'classnames';
+import Input, {COLOR, SIZE} from '../form-elements/Input';
+import type {InputPropsType} from '../form-elements/Input';
+import Icon, {ICON_COLOR} from '../icons/Icon';
+import Button from '../buttons/Button';
 export type SearchPropsType = {
   inputClassName?: string;
   withRoundButton?: boolean;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "inputClassName" | "withRoundButton"
+  'inputClassName' | 'withRoundButton'
 > &
   InputPropsType;
 
@@ -52,12 +52,12 @@ const Search = ({
    */
   ...additionalProps
 }: SearchPropsType) => {
-  const baseClassName = "sg-search";
+  const baseClassName = 'sg-search';
   const searchClassName = cx(
     baseClassName,
     {
       [`sg-search--${String(size)}`]: size,
-      "sg-search--full-width": fullWidth,
+      'sg-search--full-width': fullWidth,
     },
     className
   );
@@ -77,25 +77,25 @@ const Search = ({
           <Button
             variant="solid"
             className={cx({
-              "sg-search-button--s": size === "s",
+              'sg-search-button--s': size === 's',
             })}
             icon={
               <Icon
                 type="search"
-                size={size === "l" ? 24 : 16}
+                size={size === 'l' ? 24 : 16}
                 color="adaptive"
               />
             }
             iconOnly
-            size={size === "l" ? "m" : "s"}
+            size={size === 'l' ? 'm' : 's'}
           />
         </div>
       ) : (
         <button className={`${baseClassName}__icon`}>
           <Icon
             type="search"
-            color={ICON_COLOR["icon-gray-50"]}
-            size={size === "l" ? 24 : 16}
+            color={ICON_COLOR['icon-gray-50']}
+            size={size === 'l' ? 24 : 16}
           />
         </button>
       )}
@@ -104,4 +104,4 @@ const Search = ({
 };
 
 export default Search;
-export { SIZE, COLOR };
+export {SIZE, COLOR};

@@ -1,21 +1,21 @@
-import * as React from "react";
-import cx from "classnames";
-import Text from "../text/Text";
-import Flex from "../flex/Flex";
-import Icon from "../icons/Icon";
-import type { IconTypeType } from "../icons/Icon";
-type CounterSizeType = "xs" | "xxs";
-type ColorType = "red-60" | "blue-60";
+import * as React from 'react';
+import cx from 'classnames';
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
+import Icon from '../icons/Icon';
+import type {IconTypeType} from '../icons/Icon';
+type CounterSizeType = 'xs' | 'xxs';
+type ColorType = 'red-60' | 'blue-60';
 export const COUNTER_COLOR = {
-  "red-60": "red-60",
-  "blue-60": "blue-60",
+  'red-60': 'red-60',
+  'blue-60': 'blue-60',
 };
 export const COUNTER_SIZE: {
-  XS: "xs";
-  XXS: "xxs";
+  XS: 'xs';
+  XXS: 'xxs';
 } = {
-  XS: "xs",
-  XXS: "xxs",
+  XS: 'xs',
+  XXS: 'xxs',
 };
 export type CounterPropsType = {
   /**
@@ -66,16 +66,16 @@ export type CounterPropsType = {
   /**
    * Label describing counter
    */
-  "aria-label"?: string;
+  'aria-label'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "icon"
-  | "size"
-  | "color"
-  | "withAnimation"
-  | "className"
-  | "undefined"
+  | 'children'
+  | 'icon'
+  | 'size'
+  | 'color'
+  | 'withAnimation'
+  | 'className'
+  | 'undefined'
 >;
 
 const Counter = ({
@@ -83,18 +83,18 @@ const Counter = ({
   children,
   className,
   size,
-  color = "red-60",
+  color = 'red-60',
   withAnimation,
-  "aria-label": ariaLabel,
+  'aria-label': ariaLabel,
   ...props
 }: CounterPropsType) => {
   const counterClass = cx(
-    "sg-counter",
+    'sg-counter',
     {
       [`sg-counter--${String(size)}`]: size,
       [`sg-counter--${String(color)}`]: color,
-      "sg-counter--with-animation": withAnimation,
-      "sg-counter--with-icon": icon,
+      'sg-counter--with-animation': withAnimation,
+      'sg-counter--with-icon': icon,
     },
     className
   );
@@ -102,14 +102,14 @@ const Counter = ({
   content = (
     <Text
       size={
-        size !== undefined && size !== null && size === "xxs"
-          ? "xsmall"
-          : "small"
+        size !== undefined && size !== null && size === 'xxs'
+          ? 'xsmall'
+          : 'small'
       }
       weight="bold"
       color="text-white"
       className={
-        size === "xxs" ? "sg-counter__text" : "sg-counter__text-spaced"
+        size === 'xxs' ? 'sg-counter__text' : 'sg-counter__text-spaced'
       }
       aria-label={ariaLabel}
     >
@@ -121,13 +121,13 @@ const Counter = ({
     content = (
       <>
         <Flex
-          className={cx("sg-counter__icon-container", {
-            "sg-counter__icon-container--xxs": size === "xxs",
+          className={cx('sg-counter__icon-container', {
+            'sg-counter__icon-container--xxs': size === 'xxs',
           })}
         >
           <Icon
             type={icon}
-            size={size === "xxs" ? 16 : 24}
+            size={size === 'xxs' ? 16 : 24}
             color="icon-black"
             className="sg-counter__icon"
             aria-hidden={!!ariaLabel}
@@ -139,9 +139,9 @@ const Counter = ({
             type="span"
             weight="bold"
             size={
-              size !== undefined && size !== null && size === "xxs"
-                ? "xsmall"
-                : "small"
+              size !== undefined && size !== null && size === 'xxs'
+                ? 'xsmall'
+                : 'small'
             }
             className="sg-counter__text"
             aria-label={ariaLabel}

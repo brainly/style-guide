@@ -1,4 +1,4 @@
-import { __DEV__ } from "./consts";
+import {__DEV__} from './consts';
 export default function invariant(condition: boolean, message: string): void {
   if (__DEV__) {
     if (condition) {
@@ -7,7 +7,7 @@ export default function invariant(condition: boolean, message: string): void {
 
     const text: string = `Warning: ${message}`;
 
-    if (typeof console !== "undefined") {
+    if (typeof console !== 'undefined') {
       console.warn(text);
     }
 

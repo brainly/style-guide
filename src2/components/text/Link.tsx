@@ -1,37 +1,37 @@
-import * as React from "react";
-import classNames from "classnames";
-import { __DEV__, invariant, generateId } from "../utils";
-import Text from "./Text";
-import type { TextColorType, TextSizeType } from "./Text";
+import * as React from 'react';
+import classNames from 'classnames';
+import {__DEV__, invariant, generateId} from '../utils';
+import Text from './Text';
+import type {TextColorType, TextSizeType} from './Text';
 import {
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
   TEXT_ALIGN,
   TEXT_COLOR,
-} from "./textConsts";
-import { generateResponsiveClassNames } from "../utils/responsive-props";
-import type { ResponsivePropType } from "../utils/responsive-props";
+} from './textConsts';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 const anchorRelatedProps = [
-  "download",
-  "hreflang",
-  "ping",
-  "referrerpolicy",
-  "rel",
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
 ];
 type LinkSizeType =
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large"
-  | "xlarge"
-  | "xxlarge"
-  | "xxxlarge";
-type TextWeightType = "regular" | "bold";
-type TextTransformType = "uppercase" | "lowercase" | "capitalize";
-type TextAlignType = "to-left" | "to-center" | "to-right" | "justify";
-type ElementType = "a" | "button";
-type TargetType = "_self" | "_blank" | "_parent" | "_top";
+  | 'xsmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge'
+  | 'xxxlarge';
+type TextWeightType = 'regular' | 'bold';
+type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
+type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
+type ElementType = 'a' | 'button';
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
 export type LinkPropsType = {
   children?: React.ReactNode | null | undefined;
   as?: ElementType | null | undefined;
@@ -49,7 +49,7 @@ export type LinkPropsType = {
   disabled?: boolean;
   className?: string | null | undefined;
   inherited?: boolean;
-  "aria-label"?: string;
+  'aria-label'?: string;
   target?: TargetType;
   newTabLabel?: string;
   hideNewTabIndicator?: boolean;
@@ -58,29 +58,29 @@ export type LinkPropsType = {
   ) => unknown;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "as"
-  | "href"
-  | "size"
-  | "color"
-  | "weight"
-  | "transform"
-  | "align"
-  | "noWrap"
-  | "breakWords"
-  | "underlined"
-  | "unstyled"
-  | "emphasised"
-  | "disabled"
-  | "className"
-  | "inherited"
-  | "undefined"
-  | "target"
-  | "newTabLabel"
-  | "hideNewTabIndicator"
-  | "onClick"
+  | 'children'
+  | 'as'
+  | 'href'
+  | 'size'
+  | 'color'
+  | 'weight'
+  | 'transform'
+  | 'align'
+  | 'noWrap'
+  | 'breakWords'
+  | 'underlined'
+  | 'unstyled'
+  | 'emphasised'
+  | 'disabled'
+  | 'className'
+  | 'inherited'
+  | 'undefined'
+  | 'target'
+  | 'newTabLabel'
+  | 'hideNewTabIndicator'
+  | 'onClick'
 >;
-export { TEXT_COLOR };
+export {TEXT_COLOR};
 export const LINK_SIZE = TEXT_SIZE;
 export const LINK_WEIGHT = TEXT_WEIGHT;
 export const LINK_TRANSFORM = TEXT_TRANSFORM;
@@ -89,7 +89,7 @@ export const LINK_ALIGN = TEXT_ALIGN;
 const Link = (props: LinkPropsType) => {
   const {
     children,
-    as = "a",
+    as = 'a',
     href,
     color,
     underlined = false,
@@ -102,19 +102,19 @@ const Link = (props: LinkPropsType) => {
     className,
     inherited = false,
     size,
-    "aria-label": ariaLabel,
+    'aria-label': ariaLabel,
     target,
     onClick,
-    newTabLabel = "(opens in a new tab)",
+    newTabLabel = '(opens in a new tab)',
     hideNewTabIndicator = false,
     ...additionalProps
   } = props;
-  const { current: labelId } = React.useRef(generateId());
+  const {current: labelId} = React.useRef(generateId());
   let textSize: ResponsivePropType<TextSizeType>;
 
-  if (typeof size === "object") {
+  if (typeof size === 'object') {
     if (Array.isArray(size)) {
-      textSize = size.map((sizeItem) => sizeItem);
+      textSize = size.map(sizeItem => sizeItem);
     } else {
       textSize = {
         sm: size.sm,
@@ -129,14 +129,14 @@ const Link = (props: LinkPropsType) => {
 
   if (__DEV__) {
     invariant(
-      !(as === "a" && !disabled && (href === null || href === undefined)),
-      "An anchor element without a href will be accessible only for users with a pointing device."
+      !(as === 'a' && !disabled && (href === null || href === undefined)),
+      'An anchor element without a href will be accessible only for users with a pointing device.'
     );
     invariant(
       !(
-        as === "button" &&
+        as === 'button' &&
         (href ||
-          Object.keys(additionalProps).some((p) =>
+          Object.keys(additionalProps).some(p =>
             anchorRelatedProps.includes(p)
           ))
       ), // $FlowFixMe
@@ -149,20 +149,20 @@ const Link = (props: LinkPropsType) => {
   const linkClass = classNames(
     {
       [`sg-text--inherited`]: inherited,
-      "sg-text--link": !underlined && !unstyled,
-      "sg-text--link-underlined": underlined && !unstyled,
-      "sg-text--link-unstyled": !underlined && unstyled,
-      "sg-text--bold": emphasised && !inherited,
-      "sg-text--link-disabled": disabled,
+      'sg-text--link': !underlined && !unstyled,
+      'sg-text--link-underlined': underlined && !unstyled,
+      'sg-text--link-unstyled': !underlined && unstyled,
+      'sg-text--bold': emphasised && !inherited,
+      'sg-text--link-disabled': disabled,
       [`sg-text--${String(color)}`]: color && !unstyled,
-      "sg-text--link-label": as === "button",
+      'sg-text--link-label': as === 'button',
     },
-    ...generateResponsiveClassNames((weight) => `sg-text--${weight}`, weight),
+    ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),
     className
   );
 
   // suppressHydrationWarning is used until 'useId' hook is available
-  if (as === "button") {
+  if (as === 'button') {
     return (
       <Text
         {...additionalProps}
@@ -189,9 +189,9 @@ const Link = (props: LinkPropsType) => {
     );
   }
 
-  const linkType = disabled ? "span" : "a";
+  const linkType = disabled ? 'span' : 'a';
 
-  const onLinkClick = (e) => {
+  const onLinkClick = e => {
     if (!disabled && onClick) {
       return onClick(e);
     }
@@ -201,7 +201,7 @@ const Link = (props: LinkPropsType) => {
     <Text
       {...additionalProps}
       type={linkType}
-      href={href || ""}
+      href={href || ''}
       className={linkClass}
       size={textSize}
       onClick={onLinkClick}
@@ -209,7 +209,7 @@ const Link = (props: LinkPropsType) => {
       target={target}
     >
       {children}
-      {target === "_blank" && (
+      {target === '_blank' && (
         <>
           <span aria-hidden hidden={hideNewTabIndicator}>
             ⬈

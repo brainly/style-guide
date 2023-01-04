@@ -1,28 +1,28 @@
-import useReducedMotion from "./useReducedMotion";
-import { act, renderHook } from "@testing-library/react-hooks";
-import MatchMedia from "./__mocks__/mq";
+import useReducedMotion from './useReducedMotion';
+import {act, renderHook} from '@testing-library/react-hooks';
+import MatchMedia from './__mocks__/mq';
 const MOTION_MQ = {
-  reduced: "(prefers-reduced-motion: reduce)",
-  default: "(prefers-reduced-motion: default)",
+  reduced: '(prefers-reduced-motion: reduce)',
+  default: '(prefers-reduced-motion: default)',
 };
 let matchMedia;
-describe("useReducedMotion", () => {
+describe('useReducedMotion', () => {
   afterEach(() => {
     matchMedia.destroy();
   });
-  it("returns true if user preference is to reduce motion", () => {
+  it('returns true if user preference is to reduce motion', () => {
     matchMedia = new MatchMedia(MOTION_MQ.reduced);
-    const { result } = renderHook(() => useReducedMotion());
+    const {result} = renderHook(() => useReducedMotion());
     expect(result.current).toBe(true);
   });
-  it("returns true if user preference is not to reduce motion", () => {
+  it('returns true if user preference is not to reduce motion', () => {
     matchMedia = new MatchMedia(MOTION_MQ.default);
-    const { result } = renderHook(() => useReducedMotion());
+    const {result} = renderHook(() => useReducedMotion());
     expect(result.current).toBe(false);
   });
-  it("change result accordingly when user changes motion settings", () => {
+  it('change result accordingly when user changes motion settings', () => {
     matchMedia = new MatchMedia(MOTION_MQ.default);
-    const { result } = renderHook(() => useReducedMotion());
+    const {result} = renderHook(() => useReducedMotion());
     expect(result.current).toBe(false);
     act(() => matchMedia.updateMediaQuery(MOTION_MQ.reduced));
     expect(result.current).toBe(true);

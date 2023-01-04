@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 type CheckIconPropsType = {};
 const CheckIcon = React.forwardRef((props, ref) => {
   return (
@@ -47,4 +47,4 @@ const IndeterminateIcon = React.forwardRef((props, ref) => {
     </svg>
   );
 });
-export { CheckIcon, IndeterminateIcon };
+export {CheckIcon, IndeterminateIcon};

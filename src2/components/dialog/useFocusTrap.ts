@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 export function useFocusTrap({
   dialogRef,
   overlayRef,
@@ -24,7 +24,7 @@ export function useFocusTrap({
     let isTabbingForward = true;
 
     function handleKeydown(event: KeyboardEvent) {
-      isTabbingForward = event.key === "Tab" && !event.shiftKey;
+      isTabbingForward = event.key === 'Tab' && !event.shiftKey;
     }
 
     function handleKeyup() {
@@ -42,13 +42,13 @@ export function useFocusTrap({
       focusDescendant(dialogElement, isTabbingForward);
     }
 
-    dialogElement.addEventListener("keydown", handleKeydown);
-    dialogElement.addEventListener("keyup", handleKeyup);
-    overlayElement.addEventListener("focusin", handleFocusTrap);
+    dialogElement.addEventListener('keydown', handleKeydown);
+    dialogElement.addEventListener('keyup', handleKeyup);
+    overlayElement.addEventListener('focusin', handleFocusTrap);
     return () => {
-      dialogElement.removeEventListener("keydown", handleKeydown);
-      dialogElement.removeEventListener("keyup", handleKeyup);
-      overlayElement.removeEventListener("focusin", handleFocusTrap);
+      dialogElement.removeEventListener('keydown', handleKeydown);
+      dialogElement.removeEventListener('keyup', handleKeyup);
+      overlayElement.removeEventListener('focusin', handleFocusTrap);
       // Should restore original focus on unmount.
       originalActiveElement?.focus();
     };
@@ -101,23 +101,23 @@ function attemptFocus(element: HTMLElement) {
 
 // https://w3c.github.io/aria-practices/examples/js/utils.js
 function isFocusable(element: HTMLElement) {
-  if (element.tabIndex < -1 || element.getAttribute("disabled")) {
+  if (element.tabIndex < -1 || element.getAttribute('disabled')) {
     return false;
   }
 
   switch (element.nodeName) {
-    case "A":
+    case 'A':
       return (
-        !!element.getAttribute("href") &&
-        element.getAttribute("rel") !== "ignore"
+        !!element.getAttribute('href') &&
+        element.getAttribute('rel') !== 'ignore'
       );
 
-    case "INPUT":
-      return element.getAttribute("type") !== "hidden";
+    case 'INPUT':
+      return element.getAttribute('type') !== 'hidden';
 
-    case "BUTTON":
-    case "SELECT":
-    case "TEXTAREA":
+    case 'BUTTON':
+    case 'SELECT':
+    case 'TEXTAREA':
       return true;
 
     default: {

@@ -1,20 +1,20 @@
-import * as React from "react";
-import { Sandbox as SandboxComponent } from "../addons/sandbox/Sandbox";
+import * as React from 'react';
+import {Sandbox as SandboxComponent} from '../addons/sandbox/Sandbox';
 export default {
-  title: "Tools/Live Editor",
+  title: 'Tools/Live Editor',
   parameters: {
-    layout: "fullscreen",
+    layout: 'fullscreen',
   },
 };
 export const LiveEditor = () => (
   <div>
-    {STORYBOOK_ENV === "dev" ? (
+    {STORYBOOK_ENV === 'dev' ? (
       <div
         style={{
-          backgroundColor: "#fff3d6",
-          fontWeight: "700",
-          padding: "5px 10px",
-          marginBottom: "15px",
+          backgroundColor: '#fff3d6',
+          fontWeight: '700',
+          padding: '5px 10px',
+          marginBottom: '15px',
           borderRadius: 5,
         }}
       >

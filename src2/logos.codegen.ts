@@ -1,15 +1,15 @@
-const revFile = require("rev-file");
+const revFile = require('rev-file');
 
-const glob = require("glob");
+const glob = require('glob');
 
-const path = require("path");
+const path = require('path');
 
 const logos = glob
-  .sync("images/logos/**/*.svg", {
+  .sync('images/logos/**/*.svg', {
     cwd: path.join(__dirname),
   })
   .reduce((acc, next) => {
-    const key = path.basename(next).split(".")[0];
+    const key = path.basename(next).split('.')[0];
     acc[key] = path.relative(
       __dirname,
       revFile.sync(path.join(__dirname, next))

@@ -1,56 +1,56 @@
-import * as React from "react";
-import classNames from "classnames";
-export type SpinnerSizeType = "small" | "xsmall" | "xxsmall";
+import * as React from 'react';
+import classNames from 'classnames';
+export type SpinnerSizeType = 'small' | 'xsmall' | 'xxsmall';
 export type SpinnerColorType =
-  | "black"
-  | "white"
-  | "gray-70"
-  | "gray-50"
-  | "red-40"
-  | "red-50"
-  | "yellow-40"
-  | "blue-40"
-  | "blue-60"
-  | "indigo-50";
-export type AriaLiveType = "off" | "polite" | "assertive";
+  | 'black'
+  | 'white'
+  | 'gray-70'
+  | 'gray-50'
+  | 'red-40'
+  | 'red-50'
+  | 'yellow-40'
+  | 'blue-40'
+  | 'blue-60'
+  | 'indigo-50';
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
 export const SPINNER_SIZE = {
-  SMALL: "small",
-  XSMALL: "xsmall",
-  XXSMALL: "xxsmall",
+  SMALL: 'small',
+  XSMALL: 'xsmall',
+  XXSMALL: 'xxsmall',
 };
 export const SPINNER_COLOR = {
-  black: "black",
-  white: "white",
-  "indigo-50": "indigo-50",
-  "gray-70": "gray-70",
-  "gray-50": "gray-50",
-  "red-40": "red-40",
-  "red-50": "red-50",
-  "yellow-40": "yellow-40",
-  "blue-40": "blue-40",
-  "blue-60": "blue-60",
+  black: 'black',
+  white: 'white',
+  'indigo-50': 'indigo-50',
+  'gray-70': 'gray-70',
+  'gray-50': 'gray-50',
+  'red-40': 'red-40',
+  'red-50': 'red-50',
+  'yellow-40': 'yellow-40',
+  'blue-40': 'blue-40',
+  'blue-60': 'blue-60',
 };
 export type SpinnerPropsType = {
   color?: SpinnerColorType;
   size?: SpinnerSizeType;
   className?: string;
-  "aria-label"?: string;
-  "aria-live"?: AriaLiveType;
+  'aria-label'?: string;
+  'aria-live'?: AriaLiveType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "color" | "size" | "className" | "undefined" | "undefined"
+  'color' | 'size' | 'className' | 'undefined' | 'undefined'
 >;
 
 const Spinner = ({
-  color = "gray-70",
+  color = 'gray-70',
   size = SPINNER_SIZE.SMALL,
-  "aria-label": ariaLabel = "loading",
-  "aria-live": ariaLive = "assertive",
+  'aria-label': ariaLabel = 'loading',
+  'aria-live': ariaLive = 'assertive',
   className,
   ...props
 }: SpinnerPropsType) => {
   const spinnerClassNames = classNames(
-    "sg-spinner",
+    'sg-spinner',
     {
       [`sg-spinner--${String(color)}`]: color,
       [`sg-spinner--${String(size)}`]: size,

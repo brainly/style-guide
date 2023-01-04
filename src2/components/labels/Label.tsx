@@ -1,151 +1,151 @@
-import * as React from "react";
-import classNames from "classnames";
-import Text, { TEXT_COLOR } from "../text/Text";
-import Icon, { TYPE as ICON_TYPE, ICON_COLOR } from "../icons/Icon";
-import type { IconTypeType } from "../icons/Icon";
-import { __DEV__, invariant } from "../utils";
+import * as React from 'react';
+import classNames from 'classnames';
+import Text, {TEXT_COLOR} from '../text/Text';
+import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
+import type {IconTypeType} from '../icons/Icon';
+import {__DEV__, invariant} from '../utils';
 export type LabelColorType =
-  | "blue"
-  | "green"
-  | "indigo"
-  | "red"
-  | "yellow"
-  | "gray"
-  | "achromatic";
+  | 'blue'
+  | 'green'
+  | 'indigo'
+  | 'red'
+  | 'yellow'
+  | 'gray'
+  | 'achromatic';
 export type LabelType =
-  | "default"
-  | "solid"
-  | "transparent"
-  | "transparent-color";
+  | 'default'
+  | 'solid'
+  | 'transparent'
+  | 'transparent-color';
 export const LABEL_TYPE: {
-  DEFAULT: "default";
-  SOLID: "solid";
-  TRANSPARENT: "transparent";
-  TRANSPARENT_COLOR: "transparent-color";
+  DEFAULT: 'default';
+  SOLID: 'solid';
+  TRANSPARENT: 'transparent';
+  TRANSPARENT_COLOR: 'transparent-color';
 } = {
-  DEFAULT: "default",
-  SOLID: "solid",
-  TRANSPARENT: "transparent",
-  TRANSPARENT_COLOR: "transparent-color",
+  DEFAULT: 'default',
+  SOLID: 'solid',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_COLOR: 'transparent-color',
 };
 export const COLORS_SOLID_MAP: {
-  blue: "blue-60";
-  green: "green-60";
-  indigo: "indigo-60";
-  red: "red-60";
-  yellow: "yellow-40";
-  gray: "gray-40";
-  achromatic: "black";
+  blue: 'blue-60';
+  green: 'green-60';
+  indigo: 'indigo-60';
+  red: 'red-60';
+  yellow: 'yellow-40';
+  gray: 'gray-40';
+  achromatic: 'black';
 } = {
-  blue: "blue-60",
-  green: "green-60",
-  indigo: "indigo-60",
-  red: "red-60",
-  yellow: "yellow-40",
-  gray: "gray-40",
-  achromatic: "black",
+  blue: 'blue-60',
+  green: 'green-60',
+  indigo: 'indigo-60',
+  red: 'red-60',
+  yellow: 'yellow-40',
+  gray: 'gray-40',
+  achromatic: 'black',
 };
 const SOLID_COLOR_TEXT_MAP: {
-  blue: "text-white";
-  green: "text-white";
-  indigo: "text-white";
-  red: "text-white";
-  yellow: "text-black";
-  gray: "text-black";
-  achromatic: "text-white";
+  blue: 'text-white';
+  green: 'text-white';
+  indigo: 'text-white';
+  red: 'text-white';
+  yellow: 'text-black';
+  gray: 'text-black';
+  achromatic: 'text-white';
 } = {
-  blue: "text-white",
-  green: "text-white",
-  indigo: "text-white",
-  red: "text-white",
-  yellow: "text-black",
-  gray: "text-black",
-  achromatic: "text-white",
+  blue: 'text-white',
+  green: 'text-white',
+  indigo: 'text-white',
+  red: 'text-white',
+  yellow: 'text-black',
+  gray: 'text-black',
+  achromatic: 'text-white',
 };
 const SOLID_ICON_COLOR_MAP: {
-  blue: "icon-white";
-  green: "icon-white";
-  indigo: "icon-white";
-  red: "icon-white";
-  yellow: "icon-black";
-  gray: "icon-black";
-  achromatic: "icon-white";
+  blue: 'icon-white';
+  green: 'icon-white';
+  indigo: 'icon-white';
+  red: 'icon-white';
+  yellow: 'icon-black';
+  gray: 'icon-black';
+  achromatic: 'icon-white';
 } = {
-  blue: "icon-white",
-  green: "icon-white",
-  indigo: "icon-white",
-  red: "icon-white",
-  yellow: "icon-black",
-  gray: "icon-black",
-  achromatic: "icon-white",
+  blue: 'icon-white',
+  green: 'icon-white',
+  indigo: 'icon-white',
+  red: 'icon-white',
+  yellow: 'icon-black',
+  gray: 'icon-black',
+  achromatic: 'icon-white',
 };
 export const COLORS_DEFAULT_MAP: {
-  blue: "blue-20";
-  green: "green-20";
-  indigo: "indigo-20";
-  red: "red-20";
-  yellow: "yellow-20";
-  gray: "gray-20";
-  achromatic: "white";
+  blue: 'blue-20';
+  green: 'green-20';
+  indigo: 'indigo-20';
+  red: 'red-20';
+  yellow: 'yellow-20';
+  gray: 'gray-20';
+  achromatic: 'white';
 } = {
-  blue: "blue-20",
-  green: "green-20",
-  indigo: "indigo-20",
-  red: "red-20",
-  yellow: "yellow-20",
-  gray: "gray-20",
-  achromatic: "white",
+  blue: 'blue-20',
+  green: 'green-20',
+  indigo: 'indigo-20',
+  red: 'red-20',
+  yellow: 'yellow-20',
+  gray: 'gray-20',
+  achromatic: 'white',
 };
 const TRANSPARENT_COLOR_TEXT_MAP: {
-  blue: "text-blue-60";
-  green: "text-green-60";
-  indigo: "text-indigo-60";
-  red: "text-red-60";
-  yellow: "text-yellow-60";
-  gray: "text-gray-60";
-  achromatic: "text-black";
+  blue: 'text-blue-60';
+  green: 'text-green-60';
+  indigo: 'text-indigo-60';
+  red: 'text-red-60';
+  yellow: 'text-yellow-60';
+  gray: 'text-gray-60';
+  achromatic: 'text-black';
 } = {
-  blue: "text-blue-60",
-  green: "text-green-60",
-  indigo: "text-indigo-60",
-  red: "text-red-60",
-  yellow: "text-yellow-60",
-  gray: "text-gray-60",
-  achromatic: "text-black",
+  blue: 'text-blue-60',
+  green: 'text-green-60',
+  indigo: 'text-indigo-60',
+  red: 'text-red-60',
+  yellow: 'text-yellow-60',
+  gray: 'text-gray-60',
+  achromatic: 'text-black',
 };
 const TRANSPARENT_ICON_COLOR_MAP: {
-  blue: "icon-blue-50";
-  green: "icon-green-50";
-  indigo: "icon-indigo-50";
-  red: "icon-red-50";
-  yellow: "icon-yellow-50";
-  gray: "icon-gray-50";
-  achromatic: "icon-black";
+  blue: 'icon-blue-50';
+  green: 'icon-green-50';
+  indigo: 'icon-indigo-50';
+  red: 'icon-red-50';
+  yellow: 'icon-yellow-50';
+  gray: 'icon-gray-50';
+  achromatic: 'icon-black';
 } = {
-  blue: "icon-blue-50",
-  green: "icon-green-50",
-  indigo: "icon-indigo-50",
-  red: "icon-red-50",
-  yellow: "icon-yellow-50",
-  gray: "icon-gray-50",
-  achromatic: "icon-black",
+  blue: 'icon-blue-50',
+  green: 'icon-green-50',
+  indigo: 'icon-indigo-50',
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
+  gray: 'icon-gray-50',
+  achromatic: 'icon-black',
 };
 export const LABEL_COLORS_SET: {
-  BLUE: "blue";
-  GREEN: "green";
-  INDIGO: "indigo";
-  RED: "red";
-  YELLOW: "yellow";
-  GRAY: "gray";
-  ACHROMATIC: "achromatic";
+  BLUE: 'blue';
+  GREEN: 'green';
+  INDIGO: 'indigo';
+  RED: 'red';
+  YELLOW: 'yellow';
+  GRAY: 'gray';
+  ACHROMATIC: 'achromatic';
 } = {
-  BLUE: "blue",
-  GREEN: "green",
-  INDIGO: "indigo",
-  RED: "red",
-  YELLOW: "yellow",
-  GRAY: "gray",
-  ACHROMATIC: "achromatic",
+  BLUE: 'blue',
+  GREEN: 'green',
+  INDIGO: 'indigo',
+  RED: 'red',
+  YELLOW: 'yellow',
+  GRAY: 'gray',
+  ACHROMATIC: 'achromatic',
 };
 export type LabelPropsType = Readonly<
   {
@@ -243,24 +243,24 @@ export type LabelPropsType = Readonly<
     iconAriaHidden?: boolean;
   } & Omit<
     React.AllHTMLAttributes<HTMLElement>,
-    | "type"
-    | "color"
-    | "iconType"
-    | "onClose"
-    | "children"
-    | "className"
-    | "closeButtonLabel"
-    | "iconTitle"
-    | "iconAriaHidden"
+    | 'type'
+    | 'color'
+    | 'iconType'
+    | 'onClose'
+    | 'children'
+    | 'className'
+    | 'closeButtonLabel'
+    | 'iconTitle'
+    | 'iconAriaHidden'
   >
 >;
 
 const Label = ({
   children,
-  type = "default",
+  type = 'default',
   iconType,
   onClose,
-  color = "achromatic",
+  color = 'achromatic',
   className,
   closeButtonLabel,
   iconTitle,
@@ -270,43 +270,43 @@ const Label = ({
   if (__DEV__) {
     invariant(
       !(!iconType && (iconAriaHidden || iconTitle)),
-      "You cannot hide an icon or name it, when `iconType` s not provided"
+      'You cannot hide an icon or name it, when `iconType` s not provided'
     );
     invariant(
       !(!onClose && closeButtonLabel), // eslint-disable-next-line max-len
-      "Button is not rendered when `onClose` is not defined, so it cannot be named"
+      'Button is not rendered when `onClose` is not defined, so it cannot be named'
     );
   }
 
   const backgroundColor =
-    type === "default" ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
+    type === 'default' ? COLORS_DEFAULT_MAP[color] : COLORS_SOLID_MAP[color];
   const labelClass = classNames(
-    "sg-label",
+    'sg-label',
     {
       [`sg-label--${String(backgroundColor)}`]:
-        backgroundColor && (type === "solid" || type === "default"),
-      "sg-label--closable": onClose,
-      "sg-label--transparent":
-        type === "transparent" || type === "transparent-color",
+        backgroundColor && (type === 'solid' || type === 'default'),
+      'sg-label--closable': onClose,
+      'sg-label--transparent':
+        type === 'transparent' || type === 'transparent-color',
     },
     className
   );
   const textColor =
-    type === "default" || type === "transparent"
-      ? TEXT_COLOR["text-black"]
-      : type === "solid"
+    type === 'default' || type === 'transparent'
+      ? TEXT_COLOR['text-black']
+      : type === 'solid'
       ? SOLID_COLOR_TEXT_MAP[color]
       : TRANSPARENT_COLOR_TEXT_MAP[color];
   const iconColor =
-    type === "default"
-      ? ICON_COLOR["icon-black"]
-      : type === "solid"
+    type === 'default'
+      ? ICON_COLOR['icon-black']
+      : type === 'solid'
       ? SOLID_ICON_COLOR_MAP[color]
       : TRANSPARENT_ICON_COLOR_MAP[color];
   const closeIconColor =
-    type === "default" || type === "transparent"
-      ? ICON_COLOR["icon-black"]
-      : type === "solid"
+    type === 'default' || type === 'transparent'
+      ? ICON_COLOR['icon-black']
+      : type === 'solid'
       ? SOLID_ICON_COLOR_MAP[color]
       : TRANSPARENT_ICON_COLOR_MAP[color];
   return (
@@ -334,7 +334,7 @@ const Label = ({
         <button
           className="sg-label__close-button"
           onClick={onClose}
-          aria-label={closeButtonLabel || "close"}
+          aria-label={closeButtonLabel || 'close'}
         >
           <Icon type="close" color={closeIconColor} size={16} aria-hidden />
         </button>
@@ -344,4 +344,4 @@ const Label = ({
 };
 
 export default Label;
-export { ICON_TYPE };
+export {ICON_TYPE};

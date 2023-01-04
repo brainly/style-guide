@@ -1,20 +1,20 @@
 // eslint-disable-next-line import/no-duplicates
-import * as React from "react";
+import * as React from 'react';
 // eslint-disable-next-line import/no-duplicates
-import { useContext, useEffect, useRef, useState } from "react";
-import { generateId } from "../utils";
-import cx from "classnames";
-import Box from "../box/Box";
-import Flex from "../flex/Flex";
-import Icon, { ICON_COLOR } from "../icons/Icon";
-import Link from "../text/Link";
-import Text from "../text/Text";
-import { AccordionContext } from "./Accordion";
-import type { ResponsivePropType } from "../utils/responsive-props";
-type PaddingType = "xxs" | "xs" | "s" | "m" | "l" | "xl";
+import {useContext, useEffect, useRef, useState} from 'react';
+import {generateId} from '../utils';
+import cx from 'classnames';
+import Box from '../box/Box';
+import Flex from '../flex/Flex';
+import Icon, {ICON_COLOR} from '../icons/Icon';
+import Link from '../text/Link';
+import Text from '../text/Text';
+import {AccordionContext} from './Accordion';
+import type {ResponsivePropType} from '../utils/responsive-props';
+type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 export type AccordionItemPropsType = Readonly<{
   title: React.ReactNode;
-  titleSize?: ResponsivePropType<"small" | "large">;
+  titleSize?: ResponsivePropType<'small' | 'large'>;
   children?: React.ReactNode;
   className?: string;
   padding?: ResponsivePropType<PaddingType>;
@@ -25,16 +25,16 @@ export type AccordionItemPropsType = Readonly<{
 
 const AccordionItem = ({
   title,
-  titleSize = "large",
+  titleSize = 'large',
   children,
-  className = "",
-  padding = "m",
+  className = '',
+  padding = 'm',
   tabIndex = 0,
   id: customId,
   ariaHeadingLevel = 2,
 }: AccordionItemPropsType) => {
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const { current: id } = useRef<string>(
+  const {current: id} = useRef<string>(
     customId ?? `AccordionItem_${generateId()}`
   );
   const contentId = `Section_${id}`;
@@ -52,13 +52,13 @@ const AccordionItem = ({
   const isFocused = focusedElementId === id;
   const isHighlighted = isHovered || isFocused;
   const isBorderHighlighted = isHighlighted && !noGapBetweenElements;
-  const isTitleString = typeof title === "string";
+  const isTitleString = typeof title === 'string';
   const toggleOpen = React.useCallback(() => {
     onItemSelect(id, isCollapsed);
   }, [id, isCollapsed, onItemSelect]);
   const handleFocus = React.useCallback(() => {
     dispatch({
-      type: "accordion/SET_FOCUSED",
+      type: 'accordion/SET_FOCUSED',
       payload: {
         id,
       },
@@ -66,9 +66,9 @@ const AccordionItem = ({
   }, [dispatch, id]);
   const handleBlur = React.useCallback(() => {
     dispatch({
-      type: "accordion/SET_FOCUSED",
+      type: 'accordion/SET_FOCUSED',
       payload: {
-        id: "",
+        id: '',
       },
     });
   }, [dispatch]);
@@ -83,7 +83,7 @@ const AccordionItem = ({
       if (reduceMotion || !hasRenderedInitially.current) {
         contentRef.current.style.height = `${0}px`;
         contentRef.current.hidden = true;
-        contentRef.current.style.overflow = "hidden";
+        contentRef.current.style.overflow = 'hidden';
         hasRenderedInitially.current = true;
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
@@ -101,7 +101,7 @@ const AccordionItem = ({
             contentRef.current.style.height = `0px`;
             contentRef.current.style.overflow = `hidden`;
             contentRef.current.addEventListener(
-              "transitionend",
+              'transitionend',
               onTransitionEnd
             );
           });
@@ -118,12 +118,12 @@ const AccordionItem = ({
       const sectionHeight = contentRef.current.scrollHeight;
 
       if (reduceMotion || !hasRenderedInitially.current) {
-        contentRef.current.style.height = "auto";
-        contentRef.current.style.overflow = "visible";
+        contentRef.current.style.height = 'auto';
+        contentRef.current.style.overflow = 'visible';
         hasRenderedInitially.current = true;
       } else {
         contentRef.current.style.height = `${sectionHeight}px`;
-        contentRef.current.addEventListener("transitionend", onTransitionEnd);
+        contentRef.current.addEventListener('transitionend', onTransitionEnd);
       }
     }
 
@@ -132,15 +132,15 @@ const AccordionItem = ({
         return;
       }
 
-      if (contentRef.current.style.height === "0px") {
+      if (contentRef.current.style.height === '0px') {
         // we set hidden in order to prevent gaining focus inside collapsed content
         contentRef.current.hidden = true;
       } else {
-        contentRef.current.style.height = "auto";
-        contentRef.current.style.overflow = "visible";
+        contentRef.current.style.height = 'auto';
+        contentRef.current.style.overflow = 'visible';
       }
 
-      contentRef.current.removeEventListener("transitionend", onTransitionEnd);
+      contentRef.current.removeEventListener('transitionend', onTransitionEnd);
     }
 
     isCollapsed ? collapse() : expand();
@@ -149,7 +149,7 @@ const AccordionItem = ({
         return;
       }
 
-      content.removeEventListener("transitionend", onTransitionEnd);
+      content.removeEventListener('transitionend', onTransitionEnd);
     };
   }, [isCollapsed, reduceMotion]);
   return React.useMemo(
@@ -157,12 +157,12 @@ const AccordionItem = ({
       <Box
         color="white"
         border
-        borderColor={isBorderHighlighted ? "gray-40" : "gray-20"}
+        borderColor={isBorderHighlighted ? 'gray-40' : 'gray-20'}
         className={cx(
-          "sg-accordion-item",
+          'sg-accordion-item',
           {
-            "sg-accordion-item--no-gap": noGapBetweenElements,
-            "sg-accordion-item--reduced-motion": reduceMotion,
+            'sg-accordion-item--no-gap': noGapBetweenElements,
+            'sg-accordion-item--reduced-motion': reduceMotion,
           },
           className
         )}
@@ -203,15 +203,15 @@ const AccordionItem = ({
               <Flex
                 justifyContent="center"
                 alignItems="center"
-                className={cx("sg-accordion-item__icon", {
-                  "sg-accordion-item__icon--hover": isHighlighted,
+                className={cx('sg-accordion-item__icon', {
+                  'sg-accordion-item__icon--hover': isHighlighted,
                 })}
               >
                 <Icon
                   type="chevron_down"
-                  color={ICON_COLOR["icon-black"]}
-                  className={cx("sg-accordion-item__arrow", {
-                    "sg-accordion-item__arrow--visible": !isCollapsed,
+                  color={ICON_COLOR['icon-black']}
+                  className={cx('sg-accordion-item__arrow', {
+                    'sg-accordion-item__arrow--visible': !isCollapsed,
                   })}
                   aria-hidden="true"
                 />

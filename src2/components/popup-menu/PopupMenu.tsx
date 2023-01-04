@@ -1,12 +1,12 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 export type PopupMenuPropsType = {
   items: Array<React.ReactNode>;
   extraSpacing?: boolean;
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "items" | "extraSpacing" | "className"
+  'items' | 'extraSpacing' | 'className'
 >;
 
 // This component is deprecated
@@ -17,9 +17,9 @@ const PopupMenu = ({
   ...props
 }: PopupMenuPropsType) => {
   const popupMenuClass = classNames(
-    "sg-popup-menu",
+    'sg-popup-menu',
     {
-      "sg-popup-menu--elements-spaced": extraSpacing,
+      'sg-popup-menu--elements-spaced': extraSpacing,
     },
     className
   );

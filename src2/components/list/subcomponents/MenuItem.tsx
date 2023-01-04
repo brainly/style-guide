@@ -1,5 +1,5 @@
-import * as React from "react";
-import classnames from "classnames";
+import * as React from 'react';
+import classnames from 'classnames';
 export type MenuItemPropsType = {
   className?: string;
   href?: string;
@@ -8,7 +8,7 @@ export type MenuItemPropsType = {
   type?: string | ((arg0: any) => React.ReactNode);
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "className" | "href" | "text" | "type"
+  'className' | 'href' | 'text' | 'type'
 >;
 
 const MenuItem = ({
@@ -18,8 +18,8 @@ const MenuItem = ({
   className,
   ...restProps
 }: MenuItemPropsType) => {
-  const Type = type !== undefined ? type : "a";
-  const elementClass = classnames("sg-menu-list__link", className);
+  const Type = type !== undefined ? type : 'a';
+  const elementClass = classnames('sg-menu-list__link', className);
   return (
     <li className="sg-menu-list__element">
       <Type {...restProps} className={elementClass} href={href}>

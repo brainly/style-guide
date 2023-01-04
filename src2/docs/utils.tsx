@@ -1,13 +1,13 @@
-import * as React from "react";
-import Text from "../components/text/Text";
-import Headline from "../components/text/Headline";
+import * as React from 'react';
+import Text from '../components/text/Text';
+import Headline from '../components/text/Headline';
 type StoryVariantBorderBoxPropsType = {
   children: React.ReactNode;
   height?: string;
 };
 export const StoryVariantBorderBox = ({
   children,
-  height = "auto",
+  height = 'auto',
 }: StoryVariantBorderBoxPropsType) => (
   <div>
     <Text size="xsmall">parent container</Text>
@@ -30,8 +30,8 @@ type StoryVariantPropsType = {
 };
 export const StoryVariant = ({
   children,
-  height = "auto",
-  width = "auto",
+  height = 'auto',
+  width = 'auto',
   label,
   whiteText,
 }: StoryVariantPropsType) => (
@@ -46,7 +46,7 @@ export const StoryVariant = ({
       extraBold
       transform="uppercase"
       type="span"
-      color={whiteText ? "text-white" : "text-gray-60"}
+      color={whiteText ? 'text-white' : 'text-gray-60'}
       size="xsmall"
       className="sg-story-variant__name"
     >
@@ -61,8 +61,8 @@ type StoryVariantTablePropsType = {
 };
 export const StoryVariantTable = ({
   children,
-  className = "",
+  className = '',
 }: StoryVariantTablePropsType) => (
   <table className={`sg-story-variant-table ${className}`}>{children}</table>
 );
-export const formatTags = (values: Array<string>): string => values.join("|");
+export const formatTags = (values: Array<string>): string => values.join('|');

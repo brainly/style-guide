@@ -1,5 +1,5 @@
-import * as React from "react";
-import DocsBlock from "components/DocsBlock";
+import * as React from 'react';
+import DocsBlock from 'components/DocsBlock';
 
 const index = () => (
   <div>

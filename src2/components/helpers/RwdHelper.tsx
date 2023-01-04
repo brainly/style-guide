@@ -1,31 +1,31 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 type RwdHelperTypeType =
-  | "small-only"
-  | "medium-only"
-  | "medium-down"
-  | "medium-up"
-  | "large-only";
+  | 'small-only'
+  | 'medium-only'
+  | 'medium-down'
+  | 'medium-up'
+  | 'large-only';
 export const TYPE = {
-  SMALL_ONLY: "small-only",
-  MEDIUM_ONLY: "medium-only",
-  MEDIUM_DOWN: "medium-down",
-  MEDIUM_UP: "medium-up",
-  LARGE_ONLY: "large-only",
+  SMALL_ONLY: 'small-only',
+  MEDIUM_ONLY: 'medium-only',
+  MEDIUM_DOWN: 'medium-down',
+  MEDIUM_UP: 'medium-up',
+  LARGE_ONLY: 'large-only',
 };
 export type RwdHelperPropsType = {
   hide: RwdHelperTypeType;
   children: React.ReactElement<any> | string;
-} & Omit<React.AllHTMLAttributes<HTMLElement>, "hide" | "children">;
+} & Omit<React.AllHTMLAttributes<HTMLElement>, 'hide' | 'children'>;
 
-const RwdHelper = ({ hide, children }: RwdHelperPropsType) => {
+const RwdHelper = ({hide, children}: RwdHelperPropsType) => {
   if (!children) {
     return null;
   }
 
   const hideClass = `sg-hide-for-${hide}`;
 
-  if (typeof children === "string") {
+  if (typeof children === 'string') {
     return <span className={hideClass}>{children}</span>;
   }
 

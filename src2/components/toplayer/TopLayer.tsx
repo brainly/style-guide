@@ -1,15 +1,15 @@
-import * as React from "react";
-import classnames from "classnames";
-import Icon, { ICON_COLOR } from "../icons/Icon";
-export type TopLayerSizeType = "small" | "medium" | "large";
+import * as React from 'react';
+import classnames from 'classnames';
+import Icon, {ICON_COLOR} from '../icons/Icon';
+export type TopLayerSizeType = 'small' | 'medium' | 'large';
 export const SIZE: {
-  SMALL: "small";
-  MEDIUM: "medium";
-  LARGE: "large";
+  SMALL: 'small';
+  MEDIUM: 'medium';
+  LARGE: 'large';
 } = {
-  SMALL: "small",
-  MEDIUM: "medium",
-  LARGE: "large",
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
 };
 export type TopLayerPropsType = {
   children: React.ReactNode;
@@ -31,21 +31,21 @@ export type TopLayerPropsType = {
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "onClose"
-  | "onCloseButtonKeyDown"
-  | "lead"
-  | "fill"
-  | "modal"
-  | "withBugbox"
-  | "smallSpaced"
-  | "splashScreen"
-  | "limitedWidth"
-  | "row"
-  | "size"
-  | "transparent"
-  | "noPadding"
-  | "className"
+  | 'children'
+  | 'onClose'
+  | 'onCloseButtonKeyDown'
+  | 'lead'
+  | 'fill'
+  | 'modal'
+  | 'withBugbox'
+  | 'smallSpaced'
+  | 'splashScreen'
+  | 'limitedWidth'
+  | 'row'
+  | 'size'
+  | 'transparent'
+  | 'noPadding'
+  | 'className'
 >;
 
 const TopLayer = (props: TopLayerPropsType) => {
@@ -68,23 +68,23 @@ const TopLayer = (props: TopLayerPropsType) => {
     ...additionalProps
   } = props;
   const topLayerClassName = classnames(
-    "sg-toplayer",
+    'sg-toplayer',
     {
-      "sg-toplayer--lead": lead,
-      "sg-toplayer--fill": fill,
-      "sg-toplayer--modal": modal,
-      "sg-toplayer--with-bugbox": withBugbox,
-      "sg-toplayer--small-spaced": smallSpaced,
-      "sg-toplayer--splash-screen": splashScreen,
-      "sg-toplayer--limited-width": limitedWidth,
-      "sg-toplayer--row": row,
-      "sg-toplayer--transparent": transparent,
+      'sg-toplayer--lead': lead,
+      'sg-toplayer--fill': fill,
+      'sg-toplayer--modal': modal,
+      'sg-toplayer--with-bugbox': withBugbox,
+      'sg-toplayer--small-spaced': smallSpaced,
+      'sg-toplayer--splash-screen': splashScreen,
+      'sg-toplayer--limited-width': limitedWidth,
+      'sg-toplayer--row': row,
+      'sg-toplayer--transparent': transparent,
       [`sg-toplayer--${String(size)}`]: size,
     },
     className
   );
-  const toplayerWrapperClassName = classnames("sg-toplayer__wrapper", {
-    "sg-toplayer__wrapper--no-padding": noPadding,
+  const toplayerWrapperClassName = classnames('sg-toplayer__wrapper', {
+    'sg-toplayer__wrapper--no-padding': noPadding,
   });
   return (
     <div {...additionalProps} className={topLayerClassName}>
@@ -96,7 +96,7 @@ const TopLayer = (props: TopLayerPropsType) => {
           role="button"
           tabIndex={0}
         >
-          <Icon type="close" color={ICON_COLOR["icon-gray-50"]} size={24} />
+          <Icon type="close" color={ICON_COLOR['icon-gray-50']} size={24} />
         </div>
       ) : null}
       <div className={toplayerWrapperClassName}>{children}</div>

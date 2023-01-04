@@ -1,22 +1,22 @@
-import * as React from "react";
+import * as React from 'react';
 import Headline, {
   HEADLINE_SIZE,
   HEADLINE_TYPE,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
-} from "./Headline";
-import { shallow, mount } from "enzyme";
-test("render", () => {
+} from './Headline';
+import {shallow, mount} from 'enzyme';
+test('render', () => {
   const headline = shallow(<Headline>Test</Headline>);
-  expect(headline.hasClass("sg-headline")).toBeTruthy();
+  expect(headline.hasClass('sg-headline')).toBeTruthy();
 });
-test("size", () => {
+test('size', () => {
   const headline = shallow(
     <Headline size={HEADLINE_SIZE.SMALL}>Test</Headline>
   );
-  expect(headline.hasClass("sg-headline--small")).toBeTruthy();
+  expect(headline.hasClass('sg-headline--small')).toBeTruthy();
 });
-it("size is responsive prop", () => {
+it('size is responsive prop', () => {
   const component = shallow(
     <Headline
       size={[
@@ -31,25 +31,25 @@ it("size is responsive prop", () => {
   );
   expect(
     component.hasClass(
-      "sg-headline--small md:sg-headline--xxlarge xl:sg-headline--xxxlarge"
+      'sg-headline--small md:sg-headline--xxlarge xl:sg-headline--xxxlarge'
     )
   ).toEqual(true);
 });
-test("type", () => {
+test('type', () => {
   const headline = mount(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
   expect(headline.props().type).toEqual(HEADLINE_TYPE.H3);
 });
-test("text-white", () => {
+test('text-white', () => {
   const text = shallow(<Headline color="text-white">Test</Headline>);
-  expect(text.hasClass("sg-headline--text-white")).toBeTruthy();
+  expect(text.hasClass('sg-headline--text-white')).toBeTruthy();
 });
-test("transform uppercase", () => {
+test('transform uppercase', () => {
   const headline = shallow(
     <Headline transform={HEADLINE_TRANSFORM.UPPERCASE}>Test</Headline>
   );
-  expect(headline.hasClass("sg-headline--uppercase")).toBeTruthy();
+  expect(headline.hasClass('sg-headline--uppercase')).toBeTruthy();
 });
-it("transform is responsive prop", () => {
+it('transform is responsive prop', () => {
   const component = shallow(
     <Headline
       transform={[
@@ -64,31 +64,31 @@ it("transform is responsive prop", () => {
   );
   expect(
     component.hasClass(
-      "sg-headline--uppercase md:sg-headline--lowercase xl:sg-headline--capitalize"
+      'sg-headline--uppercase md:sg-headline--lowercase xl:sg-headline--capitalize'
     )
   ).toEqual(true);
 });
-test("extra bold", () => {
+test('extra bold', () => {
   const headline = shallow(<Headline extraBold>Test</Headline>);
-  expect(headline.hasClass("sg-headline--extra-bold")).toBeTruthy();
+  expect(headline.hasClass('sg-headline--extra-bold')).toBeTruthy();
 });
-it("extraBold is responsive prop", () => {
+it('extraBold is responsive prop', () => {
   const component = shallow(
     <Headline extraBold={[true, false, null, true]}>Test</Headline>
   );
   expect(
     component.hasClass(
-      "sg-headline--extra-bold md:sg-headline--no-bold xl:sg-headline--extra-bold"
+      'sg-headline--extra-bold md:sg-headline--no-bold xl:sg-headline--extra-bold'
     )
   ).toEqual(true);
 });
-test("extra align left", () => {
+test('extra align left', () => {
   const headline = shallow(
     <Headline align={HEADLINE_ALIGN.LEFT}>Test</Headline>
   );
-  expect(headline.hasClass("sg-headline--to-left")).toBeTruthy();
+  expect(headline.hasClass('sg-headline--to-left')).toBeTruthy();
 });
-it("align is responsive prop", () => {
+it('align is responsive prop', () => {
   const component = shallow(
     <Headline
       align={[
@@ -103,7 +103,7 @@ it("align is responsive prop", () => {
   );
   expect(
     component.hasClass(
-      "sg-headline--to-left md:sg-headline--to-right xl:sg-headline--to-left"
+      'sg-headline--to-left md:sg-headline--to-right xl:sg-headline--to-left'
     )
   ).toEqual(true);
 });

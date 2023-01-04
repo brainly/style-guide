@@ -1,15 +1,15 @@
-import * as React from "react";
-import classNames from "classnames";
-import { SIZE, ALIGNMENT } from "./ContentBoxConstants";
+import * as React from 'react';
+import classNames from 'classnames';
+import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 type SizeType =
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "normal"
-  | "large"
-  | "xlarge"
-  | "xxlarge";
-type AligmentType = "left" | "center" | "right";
+  | 'xxsmall'
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+type AligmentType = 'left' | 'center' | 'right';
 export type ContentBoxHeaderPropsType = {
   children: React.ReactNode;
   spaced?: boolean | null | undefined;
@@ -21,14 +21,14 @@ export type ContentBoxHeaderPropsType = {
   align?: AligmentType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "spaced"
-  | "spacedSmall"
-  | "full"
-  | "className"
-  | "spacedTop"
-  | "spacedBottom"
-  | "align"
+  | 'children'
+  | 'spaced'
+  | 'spacedSmall'
+  | 'full'
+  | 'className'
+  | 'spacedTop'
+  | 'spacedBottom'
+  | 'align'
 >;
 
 const ContentBoxHeader = ({
@@ -42,17 +42,17 @@ const ContentBoxHeader = ({
   ...props
 }: ContentBoxHeaderPropsType) => {
   const contentBoxClass = classNames(
-    "sg-content-box__header",
+    'sg-content-box__header',
     {
-      "sg-content-box__header--with-centered-elements":
+      'sg-content-box__header--with-centered-elements':
         align === ALIGNMENT.CENTER,
-      "sg-content-box__header--spaced": spaced,
-      "sg-content-box__header--spaced-small": spacedSmall,
-      "sg-content-box__header--spaced-top": spacedTop === SIZE.NORMAL,
-      [`sg-content-box__header--spaced-top-${spacedTop || ""}`]:
+      'sg-content-box__header--spaced': spaced,
+      'sg-content-box__header--spaced-small': spacedSmall,
+      'sg-content-box__header--spaced-top': spacedTop === SIZE.NORMAL,
+      [`sg-content-box__header--spaced-top-${spacedTop || ''}`]:
         spacedTop && spacedTop !== SIZE.NORMAL,
-      "sg-content-box__header--spaced-bottom": spacedBottom === SIZE.NORMAL,
-      [`sg-content-box__header--spaced-bottom-${spacedBottom || ""}`]:
+      'sg-content-box__header--spaced-bottom': spacedBottom === SIZE.NORMAL,
+      [`sg-content-box__header--spaced-bottom-${spacedBottom || ''}`]:
         spacedBottom && spacedBottom !== SIZE.NORMAL,
     },
     className
@@ -65,4 +65,4 @@ const ContentBoxHeader = ({
 };
 
 export default ContentBoxHeader;
-export { SIZE, ALIGNMENT };
+export {SIZE, ALIGNMENT};

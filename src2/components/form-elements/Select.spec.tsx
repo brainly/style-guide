@@ -1,66 +1,66 @@
-import * as React from "react";
-import Select from "./Select";
-import { shallow, render } from "enzyme";
+import * as React from 'react';
+import Select from './Select';
+import {shallow, render} from 'enzyme';
 const exampleOptions = [
   {
-    value: "test",
-    text: "test",
+    value: 'test',
+    text: 'test',
   },
   {
-    value: "test2",
-    text: "test2",
+    value: 'test2',
+    text: 'test2',
   },
 ];
 const exampleGroupedOptions = [
   {
-    value: "option1",
-    text: "Option1",
+    value: 'option1',
+    text: 'Option1',
   },
   {
-    value: "option2",
-    text: "Select selector",
+    value: 'option2',
+    text: 'Select selector',
   },
   {
-    label: "Label text",
+    label: 'Label text',
     options: [
       {
-        value: "option31",
-        text: "Option1",
+        value: 'option31',
+        text: 'Option1',
       },
       {
-        value: "option32",
-        text: "Select selector",
+        value: 'option32',
+        text: 'Select selector',
       },
       {
-        value: "option33",
-        text: "Select selector",
+        value: 'option33',
+        text: 'Select selector',
       },
     ],
   },
   {
-    value: "option4",
-    text: "Select selector",
+    value: 'option4',
+    text: 'Select selector',
   },
 ];
 
 const voidFunction = () => undefined;
 
-test("render", () => {
+test('render', () => {
   const select = shallow(<Select />);
-  expect(select.hasClass("sg-select")).toEqual(true);
+  expect(select.hasClass('sg-select')).toEqual(true);
 });
-test("render options", () => {
+test('render options', () => {
   const select = shallow(<Select options={exampleOptions} />);
-  expect(select.find("option")).toHaveLength(exampleOptions.length);
+  expect(select.find('option')).toHaveLength(exampleOptions.length);
 });
-test("render grouped options", () => {
+test('render grouped options', () => {
   const select = shallow(<Select options={exampleGroupedOptions} />);
-  expect(select.find("option")).toHaveLength(6);
-  const optGroup = select.find("optgroup");
+  expect(select.find('option')).toHaveLength(6);
+  const optGroup = select.find('optgroup');
   expect(optGroup).toHaveLength(1);
-  expect(optGroup.prop("label")).toEqual("Label text");
+  expect(optGroup.prop('label')).toEqual('Label text');
 });
-test("choose options", () => {
+test('choose options', () => {
   const select = render(
     <Select
       options={exampleOptions}
@@ -68,35 +68,35 @@ test("choose options", () => {
       onChange={voidFunction}
     />
   );
-  const option1st = select.find("option").get(0);
-  const option2nd = select.find("option").get(1);
+  const option1st = select.find('option').get(0);
+  const option2nd = select.find('option').get(1);
   expect(option1st.attribs.selected).toBeUndefined();
   expect(option2nd.attribs.selected).toBeDefined();
 });
-test("full width", () => {
+test('full width', () => {
   const select = shallow(<Select fullWidth />);
-  expect(select.hasClass("sg-select--full-width")).toEqual(true);
+  expect(select.hasClass('sg-select--full-width')).toEqual(true);
 });
-test("default validation", () => {
+test('default validation', () => {
   const select = shallow(<Select />);
-  expect(select.hasClass("sg-select--valid")).toEqual(false);
-  expect(select.hasClass("sg-select--invalid")).toEqual(false);
+  expect(select.hasClass('sg-select--valid')).toEqual(false);
+  expect(select.hasClass('sg-select--invalid')).toEqual(false);
 });
-test("valid", () => {
+test('valid', () => {
   const select = shallow(<Select valid />);
-  expect(select.hasClass("sg-select--valid")).toEqual(true);
-  expect(select.hasClass("sg-select--invalid")).toEqual(false);
+  expect(select.hasClass('sg-select--valid')).toEqual(true);
+  expect(select.hasClass('sg-select--invalid')).toEqual(false);
 });
-test("invalid", () => {
+test('invalid', () => {
   const select = shallow(<Select invalid />);
-  expect(select.hasClass("sg-select--valid")).toEqual(false);
-  expect(select.hasClass("sg-select--invalid")).toEqual(true);
+  expect(select.hasClass('sg-select--valid')).toEqual(false);
+  expect(select.hasClass('sg-select--invalid')).toEqual(true);
 });
-test("capitalized", () => {
+test('capitalized', () => {
   const select = shallow(<Select capitalized />);
-  expect(select.hasClass("sg-select--capitalized")).toEqual(true);
+  expect(select.hasClass('sg-select--capitalized')).toEqual(true);
 });
-test("error when both valid and invalid", () => {
+test('error when both valid and invalid', () => {
   expect(() => {
     shallow(<Select valid invalid />);
   }).toThrow();

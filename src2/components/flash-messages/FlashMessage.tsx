@@ -1,27 +1,27 @@
-import * as React from "react";
-import classNames from "classnames";
-import Text from "../text/Text";
-export type FlashMessageTypeType = "default" | "success" | "error" | "info";
+import * as React from 'react';
+import classNames from 'classnames';
+import Text from '../text/Text';
+export type FlashMessageTypeType = 'default' | 'success' | 'error' | 'info';
 export const TYPE = {
-  DEFAULT: "default",
-  SUCCESS: "success",
-  ERROR: "error",
-  INFO: "info",
+  DEFAULT: 'default',
+  SUCCESS: 'success',
+  ERROR: 'error',
+  INFO: 'info',
 };
 export type FlashMessagePropsType = {
   text: string;
   type?: FlashMessageTypeType;
   className?: string;
-} & Omit<React.AllHTMLAttributes<HTMLElement>, "text" | "type" | "className">;
+} & Omit<React.AllHTMLAttributes<HTMLElement>, 'text' | 'type' | 'className'>;
 
 const FlashMessage = ({
   text,
-  type = "default",
+  type = 'default',
   className,
   ...props
 }: FlashMessagePropsType) => {
   const messageClass = classNames(
-    "sg-flash__message",
+    'sg-flash__message',
     {
       [`sg-flash__message--${type}`]: type !== TYPE.DEFAULT,
     },

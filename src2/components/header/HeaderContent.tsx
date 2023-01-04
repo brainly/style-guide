@@ -1,12 +1,12 @@
-import * as React from "react";
-import classnames from "classnames";
+import * as React from 'react';
+import classnames from 'classnames';
 export type HeaderContentPropsType = {
   children: React.ReactNode;
   autoHeight?: boolean;
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "children" | "autoHeight" | "className"
+  'children' | 'autoHeight' | 'className'
 >;
 
 // This component is deprecated
@@ -17,9 +17,9 @@ const HeaderContent = ({
   ...props
 }: HeaderContentPropsType) => {
   const headerContentClass = classnames(
-    "sg-header__content",
+    'sg-header__content',
     {
-      "sg-header__content--auto-height": autoHeight,
+      'sg-header__content--auto-height': autoHeight,
     },
     className
   );

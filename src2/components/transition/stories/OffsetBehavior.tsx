@@ -1,52 +1,52 @@
-import * as React from "react";
-import Bubble from "../../bubble/Bubble";
-import Text from "../../text/Text";
-import Button from "../../buttons/Button";
-import Icon from "../../icons/Icon";
-import Transition from "../Transition";
-import Stage from "./common/Stage";
+import * as React from 'react';
+import Bubble from '../../bubble/Bubble';
+import Text from '../../text/Text';
+import Button from '../../buttons/Button';
+import Icon from '../../icons/Icon';
+import Transition from '../Transition';
+import Stage from './common/Stage';
 const fadeEffect = {
   initial: {
     opacity: 0,
   },
   animate: {
     opacity: 1,
-    duration: "moderate1",
-    easing: "entry",
+    duration: 'moderate1',
+    easing: 'entry',
   },
   exit: {
     opacity: 0,
-    duration: "quick2",
-    easing: "exit",
+    duration: 'quick2',
+    easing: 'exit',
   },
 };
 const containerSlideEffect = {
   initial: {
     opacity: 0,
     transform: {
-      translateY: "-m",
+      translateY: '-m',
       scaleY: 0.5,
     },
   },
   animate: {
     opacity: {
       value: 1,
-      duration: "quick2",
+      duration: 'quick2',
     },
     transform: {
       translateY: 0,
-      duration: "gentle1",
-      origin: "left top",
+      duration: 'gentle1',
+      origin: 'left top',
     },
-    easing: "entry",
+    easing: 'entry',
   },
   exit: {
     opacity: 0,
     transform: {
-      translateY: "-m",
+      translateY: '-m',
     },
-    duration: "quick2",
-    easing: "exit",
+    duration: 'quick2',
+    easing: 'exit',
   },
 };
 
@@ -66,15 +66,15 @@ const contentCounterSlideEffect = {
     // with the same duration and easing as container
     transform: {
       scaleY: 1,
-      duration: "gentle1",
-      origin: "left top",
+      duration: 'gentle1',
+      origin: 'left top',
     },
-    easing: "entry",
+    easing: 'entry',
   },
   exit: {
     opacity: 0,
-    duration: "quick2",
-    easing: "exit",
+    duration: 'quick2',
+    easing: 'exit',
   },
 };
 export const OffsetBehavior = () => {
@@ -125,13 +125,13 @@ export const OffsetBehavior = () => {
 
       <Button
         variant="solid"
-        icon={<Icon type={open ? "close" : "plus"} />}
-        onClick={() => setOpen((b) => !b)}
+        icon={<Icon type={open ? 'close' : 'plus'} />}
+        onClick={() => setOpen(b => !b)}
         iconOnly
         style={{
-          position: "absolute",
+          position: 'absolute',
           top: 24,
-          left: "50%",
+          left: '50%',
           marginLeft: -20,
         }}
       />
@@ -139,5 +139,5 @@ export const OffsetBehavior = () => {
   );
 };
 OffsetBehavior.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

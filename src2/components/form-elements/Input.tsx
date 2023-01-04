@@ -1,88 +1,88 @@
-import * as React from "react";
-import classnames from "classnames";
-import Text from "../text/Text";
-import Flex from "../flex/Flex";
-type InputSizeType = "s" | "m" | "l";
-type InputColorType = "default" | "white";
+import * as React from 'react';
+import classnames from 'classnames';
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
+type InputSizeType = 's' | 'm' | 'l';
+type InputColorType = 'default' | 'white';
 type InputType =
-  | "button"
-  | "color"
-  | "date"
-  | "datetime-local"
-  | "email"
-  | "file"
-  | "hidden"
-  | "image"
-  | "month"
-  | "number"
-  | "password"
-  | "range"
-  | "reset"
-  | "search"
-  | "submit"
-  | "tel"
-  | "text"
-  | "time"
-  | "url"
-  | "week";
+  | 'button'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week';
 export const TYPE: {
-  BUTTON: "button";
-  COLOR: "color";
-  DATE: "date";
-  DATETIME_LOCAL: "datetime-local";
-  EMAIL: "email";
-  FILE: "file";
-  HIDDEN: "hidden";
-  IMAGE: "image";
-  MONTH: "month";
-  NUMBER: "number";
-  PASSWORD: "password";
-  RANGE: "range";
-  RESET: "reset";
-  SEARCH: "search";
-  SUBMIT: "submit";
-  TEL: "tel";
-  TEXT: "text";
-  TIME: "time";
-  URL: "url";
-  WEEK: "week";
+  BUTTON: 'button';
+  COLOR: 'color';
+  DATE: 'date';
+  DATETIME_LOCAL: 'datetime-local';
+  EMAIL: 'email';
+  FILE: 'file';
+  HIDDEN: 'hidden';
+  IMAGE: 'image';
+  MONTH: 'month';
+  NUMBER: 'number';
+  PASSWORD: 'password';
+  RANGE: 'range';
+  RESET: 'reset';
+  SEARCH: 'search';
+  SUBMIT: 'submit';
+  TEL: 'tel';
+  TEXT: 'text';
+  TIME: 'time';
+  URL: 'url';
+  WEEK: 'week';
 } = {
-  BUTTON: "button",
-  COLOR: "color",
-  DATE: "date",
-  DATETIME_LOCAL: "datetime-local",
-  EMAIL: "email",
-  FILE: "file",
-  HIDDEN: "hidden",
-  IMAGE: "image",
-  MONTH: "month",
-  NUMBER: "number",
-  PASSWORD: "password",
-  RANGE: "range",
-  RESET: "reset",
-  SEARCH: "search",
-  SUBMIT: "submit",
-  TEL: "tel",
-  TEXT: "text",
-  TIME: "time",
-  URL: "url",
-  WEEK: "week",
+  BUTTON: 'button',
+  COLOR: 'color',
+  DATE: 'date',
+  DATETIME_LOCAL: 'datetime-local',
+  EMAIL: 'email',
+  FILE: 'file',
+  HIDDEN: 'hidden',
+  IMAGE: 'image',
+  MONTH: 'month',
+  NUMBER: 'number',
+  PASSWORD: 'password',
+  RANGE: 'range',
+  RESET: 'reset',
+  SEARCH: 'search',
+  SUBMIT: 'submit',
+  TEL: 'tel',
+  TEXT: 'text',
+  TIME: 'time',
+  URL: 'url',
+  WEEK: 'week',
 };
 export const SIZE: {
-  L: "l";
-  M: "m";
-  S: "s";
+  L: 'l';
+  M: 'm';
+  S: 's';
 } = {
-  L: "l",
-  M: "m",
-  S: "s",
+  L: 'l',
+  M: 'm',
+  S: 's',
 };
 export const COLOR: {
-  DEFAULT: "default";
-  WHITE: "white";
+  DEFAULT: 'default';
+  WHITE: 'white';
 } = {
-  DEFAULT: "default",
-  WHITE: "white",
+  DEFAULT: 'default',
+  WHITE: 'white',
 };
 export type InputPropsType = {
   /**
@@ -162,22 +162,22 @@ export type InputPropsType = {
       ) => unknown);
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "type"
-  | "value"
-  | "size"
-  | "color"
-  | "valid"
-  | "invalid"
-  | "fullWidth"
-  | "withIcon"
-  | "errorMessage"
-  | "className"
-  | "setInputRef"
+  | 'type'
+  | 'value'
+  | 'size'
+  | 'color'
+  | 'valid'
+  | 'invalid'
+  | 'fullWidth'
+  | 'withIcon'
+  | 'errorMessage'
+  | 'className'
+  | 'setInputRef'
 >;
 
 const Input = (props: InputPropsType) => {
   const {
-    type = "text",
+    type = 'text',
     size = SIZE.M,
     color = COLOR.DEFAULT,
     fullWidth,
@@ -193,28 +193,28 @@ const Input = (props: InputPropsType) => {
 
   if (valid === true && invalid === true) {
     throw {
-      name: "WrongValidation",
-      message: "Input can be either valid or invalid!",
+      name: 'WrongValidation',
+      message: 'Input can be either valid or invalid!',
     };
   }
 
   const inputClass = classnames(
-    "sg-input",
+    'sg-input',
     {
       [`sg-input--${String(size)}`]: size !== SIZE.M,
       [`sg-input--${String(color)}`]: color !== COLOR.DEFAULT,
-      "sg-input--valid": valid,
-      "sg-input--invalid": invalid,
-      "sg-input--full-width": fullWidth,
-      "sg-input--with-icon": withIcon,
+      'sg-input--valid': valid,
+      'sg-input--invalid': invalid,
+      'sg-input--full-width': fullWidth,
+      'sg-input--with-icon': withIcon,
     },
     className
   );
-  const wrapperClass = classnames("sg-input__wrapper", {
-    "sg-input__wrapper--full-width": fullWidth,
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-input__wrapper--full-width': fullWidth,
   });
   const errorMessageDisplayed =
-    invalid === true && errorMessage !== undefined && errorMessage !== "";
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
   return (
     <div className={wrapperClass}>
       <input
@@ -227,10 +227,10 @@ const Input = (props: InputPropsType) => {
       {errorMessageDisplayed && (
         <Flex
           marginTop="xxs"
-          marginLeft={size === "l" ? "m" : "s"}
-          marginRight={size === "l" ? "m" : "s"}
+          marginLeft={size === 'l' ? 'm' : 's'}
+          marginRight={size === 'l' ? 'm' : 's'}
         >
-          <Text size={size === "l" ? "small" : "xsmall"} color="text-red-60">
+          <Text size={size === 'l' ? 'small' : 'xsmall'} color="text-red-60">
             {errorMessage}
           </Text>
         </Flex>

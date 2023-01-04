@@ -1,15 +1,15 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 export type CardPaddingType =
-  | "padding-small"
-  | "padding-normal"
-  | "padding-large"
-  | "padding-xlarge";
+  | 'padding-small'
+  | 'padding-normal'
+  | 'padding-large'
+  | 'padding-xlarge';
 export const CARD_PADDING = {
-  SMALL: "padding-small",
-  NORMAL: "padding-normal",
-  LARGE: "padding-large",
-  XLARGE: "padding-xlarge",
+  SMALL: 'padding-small',
+  NORMAL: 'padding-normal',
+  LARGE: 'padding-large',
+  XLARGE: 'padding-xlarge',
 };
 export type CardPropsType = {
   children?: React.ReactNode;
@@ -23,15 +23,15 @@ export type CardPropsType = {
   padding?: CardPaddingType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "className"
-  | "full"
-  | "vertical"
-  | "centered"
-  | "noBorder"
-  | "shadow"
-  | "transparent"
-  | "padding"
+  | 'children'
+  | 'className'
+  | 'full'
+  | 'vertical'
+  | 'centered'
+  | 'noBorder'
+  | 'shadow'
+  | 'transparent'
+  | 'padding'
 >;
 
 const Card = ({
@@ -47,14 +47,14 @@ const Card = ({
   ...props
 }: CardPropsType) => {
   const cardClass = classNames(
-    "sg-card",
+    'sg-card',
     {
-      "sg-card--full": full,
-      "sg-card--vertical": vertical,
-      "sg-card--with-shadow": shadow,
-      "sg-card--no-border": noBorder,
-      "sg-card--centered": centered,
-      "sg-card--transparent": transparent,
+      'sg-card--full': full,
+      'sg-card--vertical': vertical,
+      'sg-card--with-shadow': shadow,
+      'sg-card--no-border': noBorder,
+      'sg-card--centered': centered,
+      'sg-card--transparent': transparent,
       [`sg-card--${String(padding)}`]: padding,
     },
     className

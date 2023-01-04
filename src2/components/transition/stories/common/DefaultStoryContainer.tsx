@@ -1,5 +1,5 @@
-import * as React from "react";
-import Text from "../../../text/Text";
+import * as React from 'react';
+import Text from '../../../text/Text';
 type PropsType = Readonly<{
   height: string;
   children: React.ReactNode;
@@ -17,18 +17,18 @@ const DefaultStoryContainer = ({
     style={{
       height,
       minWidth: 200,
-      display: "flex",
-      padding: "3em",
-      justifyContent: "center",
-      position: "relative",
-      cursor: "pointer",
+      display: 'flex',
+      padding: '3em',
+      justifyContent: 'center',
+      position: 'relative',
+      cursor: 'pointer',
     }}
     onClick={onClick}
   >
     <div
       style={{
-        userSelect: "none",
-        position: "absolute",
+        userSelect: 'none',
+        position: 'absolute',
         left: 10,
         bottom: 10,
         right: 10,

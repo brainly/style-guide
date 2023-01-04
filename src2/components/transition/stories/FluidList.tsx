@@ -1,10 +1,10 @@
-import * as React from "react";
-import Button from "../../buttons/Button";
-import Transition from "../Transition";
-import DummyBox from "./common/DummyBox";
-import Stage from "./common/Stage";
-import { useIsomorphicLayoutEffect } from "../../utils/useIsomorphicLayoutEffect";
-import { useTransformationState } from "./common/useTransformationState";
+import * as React from 'react';
+import Button from '../../buttons/Button';
+import Transition from '../Transition';
+import DummyBox from './common/DummyBox';
+import Stage from './common/Stage';
+import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
+import {useTransformationState} from './common/useTransformationState';
 const appearingEffect = {
   initial: {
     opacity: 0,
@@ -14,13 +14,13 @@ const appearingEffect = {
   },
   animate: {
     opacity: 1,
-    duration: "moderate1",
+    duration: 'moderate1',
   },
 };
 const removingEffect = {
   animate: {
     opacity: 0,
-    duration: "quick2",
+    duration: 'quick2',
   },
 };
 const initialItemIds = [0, 1, 2, 3];
@@ -35,11 +35,11 @@ export const FluidList = () => {
   const [itemIds, setItemIds] = React.useState(initialItemIds);
 
   const addItem = () => {
-    setItemIds((prev) => [++lastUniqueId, ...prev]);
+    setItemIds(prev => [++lastUniqueId, ...prev]);
   };
 
   const removeItem = (id: number) => {
-    setItemIds((prev) => prev.filter((n) => n !== id));
+    setItemIds(prev => prev.filter(n => n !== id));
   };
 
   return (
@@ -138,7 +138,7 @@ const FluidListItem = ({
         animate: {
           transform: {
             translateY: 0,
-            duration: "moderate1",
+            duration: 'moderate1',
           },
         },
       });
@@ -164,5 +164,5 @@ const FluidListItem = ({
 };
 
 FluidList.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

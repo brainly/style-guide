@@ -1,15 +1,15 @@
-import * as React from "react";
-import classNames from "classnames";
-import { SIZE, ALIGNMENT } from "./ContentBoxConstants";
+import * as React from 'react';
+import classNames from 'classnames';
+import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 type SizeType =
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "normal"
-  | "large"
-  | "xlarge"
-  | "xxlarge";
-type AligmentType = "left" | "center" | "right";
+  | 'xxsmall'
+  | 'xsmall'
+  | 'small'
+  | 'normal'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge';
+type AligmentType = 'left' | 'center' | 'right';
 export type ContentBoxActionsPropsType = {
   children: React.ReactNode;
   className?: string | null | undefined;
@@ -18,7 +18,7 @@ export type ContentBoxActionsPropsType = {
   align?: AligmentType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "children" | "className" | "spacedTop" | "spacedBottom" | "align"
+  'children' | 'className' | 'spacedTop' | 'spacedBottom' | 'align'
 >;
 
 const ContentBoxActions = ({
@@ -30,17 +30,17 @@ const ContentBoxActions = ({
   ...props
 }: ContentBoxActionsPropsType) => {
   const contentBoxClass = classNames(
-    "sg-content-box__actions",
+    'sg-content-box__actions',
     {
-      "sg-content-box__actions--with-centered-elements":
+      'sg-content-box__actions--with-centered-elements':
         align === ALIGNMENT.CENTER,
-      "sg-content-box__actions--with-elements-to-right":
+      'sg-content-box__actions--with-elements-to-right':
         align === ALIGNMENT.RIGHT,
-      "sg-content-box__actions--spaced-top": spacedTop === SIZE.NORMAL,
-      [`sg-content-box__actions--spaced-top-${spacedTop || ""}`]:
+      'sg-content-box__actions--spaced-top': spacedTop === SIZE.NORMAL,
+      [`sg-content-box__actions--spaced-top-${spacedTop || ''}`]:
         spacedTop && spacedTop !== SIZE.NORMAL,
-      "sg-content-box__actions--spaced-bottom": spacedBottom === SIZE.NORMAL,
-      [`sg-content-box__actions--spaced-bottom-${spacedBottom || ""}`]:
+      'sg-content-box__actions--spaced-bottom': spacedBottom === SIZE.NORMAL,
+      [`sg-content-box__actions--spaced-bottom-${spacedBottom || ''}`]:
         spacedBottom && spacedBottom !== SIZE.NORMAL,
     },
     className
@@ -53,4 +53,4 @@ const ContentBoxActions = ({
 };
 
 export default ContentBoxActions;
-export { SIZE, ALIGNMENT };
+export {SIZE, ALIGNMENT};

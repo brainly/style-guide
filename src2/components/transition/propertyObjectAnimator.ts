@@ -1,4 +1,4 @@
-import type { PropertyObjectType } from "./Transition";
+import type {PropertyObjectType} from './Transition';
 export interface PropertyObjectAnimatorType {
   animate(
     element: HTMLElement,

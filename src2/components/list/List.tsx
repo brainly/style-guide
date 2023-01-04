@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import * as React from 'react';
-
 export type ListPropsType = {
   children?: React.ReactNode;
   spaced?: boolean;
@@ -26,7 +25,6 @@ const List = ({
     className
   );
   const Tag = ordered ? 'ol' : 'ul';
-
   return (
     <Tag {...props} className={listClass} role="list">
       {children}

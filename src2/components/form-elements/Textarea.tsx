@@ -1,18 +1,18 @@
-import * as React from "react";
-import classnames from "classnames";
-import Text from "../text/Text";
-import Flex from "../flex/Flex";
-type TextareaSizeType = "short" | "normal" | "tall" | "xtall";
-type TextareaColorType = "default" | "white";
+import * as React from 'react';
+import classnames from 'classnames';
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
+type TextareaSizeType = 'short' | 'normal' | 'tall' | 'xtall';
+type TextareaColorType = 'default' | 'white';
 export const SIZE = {
-  SHORT: "short",
-  NORMAL: "normal",
-  TALL: "tall",
-  XTALL: "xtall",
+  SHORT: 'short',
+  NORMAL: 'normal',
+  TALL: 'tall',
+  XTALL: 'xtall',
 };
 export const TEXTAREA_COLOR = {
-  DEFAULT: "default",
-  WHITE: "white",
+  DEFAULT: 'default',
+  WHITE: 'white',
 };
 export type TextareaPropsType = {
   // $FlowFixMe any generic prop types here broke autocomplete, so let's leave it as is for now
@@ -95,19 +95,19 @@ export type TextareaPropsType = {
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "type"
-  | "textareaRef"
-  | "value"
-  | "color"
-  | "size"
-  | "valid"
-  | "invalid"
-  | "fullWidth"
-  | "simple"
-  | "noPadding"
-  | "autoHeight"
-  | "errorMessage"
-  | "className"
+  | 'type'
+  | 'textareaRef'
+  | 'value'
+  | 'color'
+  | 'size'
+  | 'valid'
+  | 'invalid'
+  | 'fullWidth'
+  | 'simple'
+  | 'noPadding'
+  | 'autoHeight'
+  | 'errorMessage'
+  | 'className'
 >;
 
 const Textarea = (props: TextareaPropsType) => {
@@ -115,7 +115,7 @@ const Textarea = (props: TextareaPropsType) => {
     valid,
     invalid,
     size = SIZE.NORMAL,
-    color = "default",
+    color = 'default',
     fullWidth,
     simple,
     noPadding,
@@ -124,36 +124,36 @@ const Textarea = (props: TextareaPropsType) => {
     className,
     textareaRef,
     errorMessage,
-    type: Type = "textarea",
+    type: Type = 'textarea',
     ...additionalProps
   } = props;
 
   if (valid === true && invalid === true) {
     throw {
-      name: "WrongValidation",
-      message: "Textarea can be either valid or invalid!",
+      name: 'WrongValidation',
+      message: 'Textarea can be either valid or invalid!',
     };
   }
 
   const textareaClass = classnames(
-    "sg-textarea",
+    'sg-textarea',
     {
       [`sg-textarea--${String(size)}`]: size !== SIZE.NORMAL,
-      [`sg-textarea--${String(color)}`]: color !== "default",
-      "sg-textarea--valid": valid,
-      "sg-textarea--invalid": invalid,
-      "sg-textarea--full-width": fullWidth,
-      "sg-textarea--simple": simple,
-      "sg-textarea--no-padding": noPadding,
-      "sg-textarea--auto-height": autoHeight,
+      [`sg-textarea--${String(color)}`]: color !== 'default',
+      'sg-textarea--valid': valid,
+      'sg-textarea--invalid': invalid,
+      'sg-textarea--full-width': fullWidth,
+      'sg-textarea--simple': simple,
+      'sg-textarea--no-padding': noPadding,
+      'sg-textarea--auto-height': autoHeight,
     },
     className
   );
-  const wrapperClass = classnames("sg-input__wrapper", {
-    "sg-textarea__wrapper--full-width": fullWidth,
+  const wrapperClass = classnames('sg-input__wrapper', {
+    'sg-textarea__wrapper--full-width': fullWidth,
   });
   const errorMessageDisplayed =
-    invalid === true && errorMessage !== undefined && errorMessage !== "";
+    invalid === true && errorMessage !== undefined && errorMessage !== '';
   return (
     <div className={wrapperClass}>
       <Type

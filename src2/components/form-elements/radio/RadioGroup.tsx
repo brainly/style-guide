@@ -1,9 +1,9 @@
-import * as React from "react";
-import classNames from "classnames";
-import { RadioContext } from "./useRadioContext";
-import ErrorMessage from "../ErrorMessage";
-import type { RadioColorType } from "./Radio";
-type DirectionType = "row" | "column";
+import * as React from 'react';
+import classNames from 'classnames';
+import {RadioContext} from './useRadioContext';
+import ErrorMessage from '../ErrorMessage';
+import type {RadioColorType} from './Radio';
+type DirectionType = 'row' | 'column';
 export type RadioGroupPropsType = {
   /**
    * Radiogroup inner elements
@@ -74,35 +74,35 @@ export type RadioGroupPropsType = {
    * ID of a custom label, that describes the radio group.
    * @example <RadioGroup aria-labelledby="my-custom-label" />
    */
-  "aria-labelledby"?: string;
+  'aria-labelledby'?: string;
 
   /**
    * ID of a custom text / section, that describes the radio group.
    * @example <RadioGroup aria-describedby="my-custom-label" />
    */
-  "aria-describedby"?: string;
+  'aria-describedby'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "className"
-  | "color"
-  | "direction"
-  | "disabled"
-  | "errorMessage"
-  | "invalid"
-  | "required"
-  | "name"
-  | "onChange"
-  | "value"
-  | "undefined"
-  | "undefined"
+  | 'children'
+  | 'className'
+  | 'color'
+  | 'direction'
+  | 'disabled'
+  | 'errorMessage'
+  | 'invalid'
+  | 'required'
+  | 'name'
+  | 'onChange'
+  | 'value'
+  | 'undefined'
+  | 'undefined'
 >;
 
 const RadioGroup = ({
   className,
   children,
   color,
-  direction = "column",
+  direction = 'column',
   disabled,
   errorMessage,
   invalid,
@@ -110,14 +110,14 @@ const RadioGroup = ({
   required,
   value,
   onChange,
-  "aria-labelledby": ariaLabelledBy,
-  "aria-describedby": ariaDescribedBy,
+  'aria-labelledby': ariaLabelledBy,
+  'aria-describedby': ariaDescribedBy,
   ...props
 }: RadioGroupPropsType) => {
   const [selectedValue, setSelectedValue] = React.useState(value || null);
   const [lastFocusedValue, setLastFocusedValue] = React.useState(null);
-  const radioGroupClass = classNames("sg-radio-group", className);
-  const radioGroupItemsClass = classNames("sg-radio-group__items", {
+  const radioGroupClass = classNames('sg-radio-group', className);
+  const radioGroupItemsClass = classNames('sg-radio-group__items', {
     [`sg-radio-group__items--direction-${String(direction)}`]: direction,
   });
   const errorTextId = name ? `${name}-errorText` : undefined;
@@ -138,7 +138,7 @@ const RadioGroup = ({
       ids.push(ariaDescribedBy);
     }
 
-    return ids.join(" ");
+    return ids.join(' ');
   }, [errorTextId, invalid, errorMessage, ariaDescribedBy]);
   return (
     <div
@@ -170,7 +170,7 @@ const RadioGroup = ({
       {invalid && errorMessage && (
         <ErrorMessage
           id={errorTextId}
-          color={color === "light" ? "text-red-40" : undefined}
+          color={color === 'light' ? 'text-red-40' : undefined}
         >
           {errorMessage}
         </ErrorMessage>

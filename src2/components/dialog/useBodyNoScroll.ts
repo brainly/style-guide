@@ -1,6 +1,6 @@
-import * as React from "react";
-const NO_SCROLL_CLASS = "sg-dialog-no-scroll";
-const DIALOG_SELECTOR = ".js-dialog";
+import * as React from 'react';
+const NO_SCROLL_CLASS = 'sg-dialog-no-scroll';
+const DIALOG_SELECTOR = '.js-dialog';
 export function useBodyNoScroll() {
   const cleanupRef = React.useRef(null);
   const forceCleanup = React.useCallback(() => {
@@ -23,7 +23,7 @@ export function useBodyNoScroll() {
         return;
       }
 
-      body.style.top = "";
+      body.style.top = '';
       body.classList.remove(NO_SCROLL_CLASS);
       window.scrollTo(0, scrollY);
     };

@@ -1,12 +1,12 @@
-import * as React from "react";
-import CodeBlock from "components/CodeBlock";
-import DocsBlock from "components/DocsBlock";
-import DocsActiveBlock from "components/DocsActiveBlock";
+import * as React from 'react';
+import CodeBlock from 'components/CodeBlock';
+import DocsBlock from 'components/DocsBlock';
+import DocsActiveBlock from 'components/DocsActiveBlock';
 const pointerSettings = [
   {
-    name: "className",
+    name: 'className',
     values: {
-      "sg-cursor-pointer": "sg-cursor-pointer",
+      'sg-cursor-pointer': 'sg-cursor-pointer',
     },
   },
 ];

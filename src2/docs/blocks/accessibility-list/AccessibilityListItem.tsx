@@ -1,35 +1,35 @@
-import * as React from "react";
-import { styled } from "@storybook/theming";
-import Text from "../../../components/text/Text";
-import Flex from "../../../components/flex/Flex";
-import Icon from "../../../components/icons/Icon";
-type StatusType = "DONE" | "TO DO" | "IN PROGRESS" | "N/A";
+import * as React from 'react';
+import {styled} from '@storybook/theming';
+import Text from '../../../components/text/Text';
+import Flex from '../../../components/flex/Flex';
+import Icon from '../../../components/icons/Icon';
+type StatusType = 'DONE' | 'TO DO' | 'IN PROGRESS' | 'N/A';
 export type RuleType = {
   pattern: string;
   comment?: string;
   status: StatusType;
 };
 const Pattern = styled(Text)({
-  marginBottom: "4px",
+  marginBottom: '4px',
 });
 const IconWrapper = styled(Flex)({
-  width: "24px",
-  height: "24px",
-  borderRadius: "24px",
-  marginRight: "16px",
-  flexShrink: "0",
+  width: '24px',
+  height: '24px',
+  borderRadius: '24px',
+  marginRight: '16px',
+  flexShrink: '0',
 });
 const DoneIconWrapper = styled(IconWrapper)({
-  background: "#24A865",
+  background: '#24A865',
 });
 const ToDoIconWrapper = styled(IconWrapper)({
-  border: "2px solid #C3D1DD",
+  border: '2px solid #C3D1DD',
 });
 const Li = styled.li({
-  paddingBottom: "8px",
-  borderBottom: "2px solid #F5F8FA",
-  paddingTop: "8px",
-  maxWidth: "800px",
+  paddingBottom: '8px',
+  borderBottom: '2px solid #F5F8FA',
+  paddingTop: '8px',
+  maxWidth: '800px',
 });
 const DoneIcon = (
   <DoneIconWrapper justifyContent="center" alignItems="center">
@@ -51,29 +51,25 @@ const NaIcon = (
   </IconWrapper>
 );
 
-const StatusIcon = ({ status }: { status: StatusType }) => {
-  if (status === "N/A") {
+const StatusIcon = ({status}: {status: StatusType}) => {
+  if (status === 'N/A') {
     return NaIcon;
   }
 
-  if (status === "DONE") {
+  if (status === 'DONE') {
     return DoneIcon;
   }
 
   return ToDoIcon;
 };
 
-export const AccessibilityListItem = ({
-  pattern,
-  comment,
-  status,
-}: RuleType) => {
+export const AccessibilityListItem = ({pattern, comment, status}: RuleType) => {
   return (
     <Li>
       <Flex>
         <StatusIcon status={status} />
         <Flex direction="column">
-          <Pattern size="medium" color={status === "N/A" && "text-gray-60"}>
+          <Pattern size="medium" color={status === 'N/A' && 'text-gray-60'}>
             <span
               dangerouslySetInnerHTML={{
                 __html: pattern,
@@ -83,7 +79,7 @@ export const AccessibilityListItem = ({
           {comment && (
             <Text
               size="xsmall"
-              color={status === "N/A" ? "text-gray-60" : "text-gray-70"}
+              color={status === 'N/A' ? 'text-gray-60' : 'text-gray-70'}
             >
               <span
                 dangerouslySetInnerHTML={{

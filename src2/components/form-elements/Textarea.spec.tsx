@@ -1,62 +1,62 @@
-import * as React from "react";
-import Textarea, { SIZE } from "./Textarea";
-import { shallow, mount } from "enzyme";
-test("render", () => {
+import * as React from 'react';
+import Textarea, {SIZE} from './Textarea';
+import {shallow, mount} from 'enzyme';
+test('render', () => {
   const component = shallow(<Textarea />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea')).toEqual(true);
 });
-test("full width", () => {
+test('full width', () => {
   const component = shallow(<Textarea fullWidth />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--full-width")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--full-width')).toEqual(true);
 });
-test("auto height", () => {
+test('auto height', () => {
   const component = shallow(<Textarea autoHeight />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--auto-height")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--auto-height')).toEqual(true);
 });
-test("simple", () => {
+test('simple', () => {
   const component = shallow(<Textarea simple />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--simple")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--simple')).toEqual(true);
 });
-test("default validation", () => {
+test('default validation', () => {
   const component = shallow(<Textarea />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--valid")).toEqual(false);
-  expect(textarea.hasClass("sg-textarea--invalid")).toEqual(false);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
+  expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
-test("valid", () => {
+test('valid', () => {
   const component = shallow(<Textarea valid />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--valid")).toEqual(true);
-  expect(textarea.hasClass("sg-textarea--invalid")).toEqual(false);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--valid')).toEqual(true);
+  expect(textarea.hasClass('sg-textarea--invalid')).toEqual(false);
 });
-test("invalid", () => {
+test('invalid', () => {
   const component = shallow(<Textarea invalid />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--valid")).toEqual(false);
-  expect(textarea.hasClass("sg-textarea--invalid")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--valid')).toEqual(false);
+  expect(textarea.hasClass('sg-textarea--invalid')).toEqual(true);
 });
-test("error when both valid and invalid", () => {
+test('error when both valid and invalid', () => {
   expect(() => {
     shallow(<Textarea valid invalid />);
   }).toThrow();
 });
-test("size", () => {
+test('size', () => {
   const component = shallow(<Textarea size={SIZE.SHORT} />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--short")).toEqual(true);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--short')).toEqual(true);
 });
-test("default size", () => {
+test('default size', () => {
   const component = shallow(<Textarea />);
-  const textarea = component.find("textarea");
-  expect(textarea.hasClass("sg-textarea--normal")).toEqual(false);
-  expect(textarea.hasClass("sg-textarea--short")).toEqual(false);
+  const textarea = component.find('textarea');
+  expect(textarea.hasClass('sg-textarea--normal')).toEqual(false);
+  expect(textarea.hasClass('sg-textarea--short')).toEqual(false);
 });
-test("Type", () => {
-  const CustomTextarea = (props) => (
+test('Type', () => {
+  const CustomTextarea = props => (
     <textarea {...props} data-super-custom="superCustom" />
   );
 

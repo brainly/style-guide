@@ -1,8 +1,8 @@
-import { parsePropertyObject } from "./propertyObject";
-import type { ClassNamesRegistryType } from "./classNamesRegistry";
-import type { ParsedPropertyObjectType } from "./propertyObject";
-import type { PropertyObjectAnimatorType } from "./propertyObjectAnimator";
-import type { PropertyObjectType } from "./Transition";
+import {parsePropertyObject} from './propertyObject';
+import type {ClassNamesRegistryType} from './classNamesRegistry';
+import type {ParsedPropertyObjectType} from './propertyObject';
+import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
+import type {PropertyObjectType} from './Transition';
 type CSSTransitionedPropsType = Readonly<{
   transform: boolean;
   width: boolean;
@@ -35,10 +35,10 @@ export function createCSSTransitionAnimator(
     history[0][prop].value !== history[1][prop].value;
 
   const getWillChangeProps = () => ({
-    transform: hasLastChangedValue("transform"),
-    width: hasLastChangedValue("width"),
-    height: hasLastChangedValue("height"),
-    opacity: hasLastChangedValue("opacity"),
+    transform: hasLastChangedValue('transform'),
+    width: hasLastChangedValue('width'),
+    height: hasLastChangedValue('height'),
+    opacity: hasLastChangedValue('opacity'),
   });
 
   /**
@@ -67,14 +67,14 @@ export function createCSSTransitionAnimator(
     willChangeProps: CSSTransitionedPropsType;
     speed?: number;
   }) {
-    const { className, transform, width, height, opacity } = parsedProps;
+    const {className, transform, width, height, opacity} = parsedProps;
 
-    const combine = (a: Array<string>) => a.join(", ");
+    const combine = (a: Array<string>) => a.join(', ');
 
     const willChangePropsArray = Object.keys(willChangeProps).filter(
-      (prop) => willChangeProps[prop]
+      prop => willChangeProps[prop]
     );
-    classNamesRegistry.register("transition", className);
+    classNamesRegistry.register('transition', className);
     element.className = classNamesRegistry.toString();
     element.style.willChange = combine(willChangePropsArray);
 
@@ -87,7 +87,7 @@ export function createCSSTransitionAnimator(
        * The order of transitioned values should be the same
        * in each array, which is ensured by a loop.
        */
-      willChangePropsArray.forEach((prop) => {
+      willChangePropsArray.forEach(prop => {
         transitionProperty.push(prop);
         transitionDuration.push(applySpeed(parsedProps[prop].duration, speed));
         transitionTimingFunction.push(parsedProps[prop].easing);
@@ -105,11 +105,11 @@ export function createCSSTransitionAnimator(
     }
 
     if (willChangeProps.width) {
-      element.style.width = width.value === "auto" ? "" : width.value;
+      element.style.width = width.value === 'auto' ? '' : width.value;
     }
 
     if (willChangeProps.height) {
-      element.style.height = height.value === "auto" ? "" : height.value;
+      element.style.height = height.value === 'auto' ? '' : height.value;
     }
 
     if (willChangeProps.opacity) {
@@ -118,17 +118,17 @@ export function createCSSTransitionAnimator(
   }
 
   function removeElementStyles(element: HTMLElement) {
-    classNamesRegistry.register("transition", "");
+    classNamesRegistry.register('transition', '');
     element.className = classNamesRegistry.toString();
-    element.style.willChange = "";
-    element.style.transitionProperty = "";
-    element.style.transitionDuration = "";
-    element.style.transitionTimingFunction = "";
-    element.style.transform = "";
-    element.style.transformOrigin = "";
-    element.style.width = "";
-    element.style.height = "";
-    element.style.opacity = "";
+    element.style.willChange = '';
+    element.style.transitionProperty = '';
+    element.style.transitionDuration = '';
+    element.style.transitionTimingFunction = '';
+    element.style.transform = '';
+    element.style.transformOrigin = '';
+    element.style.width = '';
+    element.style.height = '';
+    element.style.opacity = '';
   }
 
   /**
@@ -153,7 +153,7 @@ export function createCSSTransitionAnimator(
     }
 
     const value = parseInt(duration, 10);
-    const units = duration.slice(-2) === "ms" ? "ms" : "s";
+    const units = duration.slice(-2) === 'ms' ? 'ms' : 's';
     return value / speed + units;
   }
 
@@ -168,7 +168,7 @@ export function createCSSTransitionAnimator(
   ) {
     if (parsedProps !== undefined) {
       return !Object.keys(willChangeProps).some(
-        (prop) => parsedProps[prop].duration !== "0ms"
+        prop => parsedProps[prop].duration !== '0ms'
       );
     }
 

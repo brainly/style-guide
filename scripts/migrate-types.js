@@ -12,7 +12,7 @@ const ts = require('typescript');
 const prettier = require('prettier');
 const apiExtractor = require('@microsoft/api-extractor');
 const tsConfig = require('../tsconfig.json');
-const prettierConfig = require('../.prettierrc');
+const prettierOptions = require('../.prettierrc.json');
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 const SOURCE_DIR = path.join(ROOT_DIR, 'src');
@@ -79,22 +79,10 @@ files.forEach(sourceFile => {
 
   try {
     const typescriptCode = convert(transformedCode, {
-      printWidth: 80,
-      singleQuote: true,
-      semi: false,
       prettier: true,
       inlineUtilityTypes: true,
+      prettierOptions,
     });
-
-    const prettierOptions = {
-      ...prettierConfig,
-      parser: 'babel-ts',
-    };
-
-    const typescriptFormattedCode = prettier.format(
-      typescriptCode,
-      prettierOptions
-    );
 
     const sourceExtension = path.extname(sourceFile);
     const destinationExtension = mapExtension(sourceExtension);
@@ -105,7 +93,7 @@ files.forEach(sourceFile => {
       relativeSourceFile.replace(sourceExtension, destinationExtension)
     );
 
-    fs.outputFileSync(outputFile, typescriptFormattedCode, noop => noop);
+    fs.outputFileSync(outputFile, typescriptCode, noop => noop);
   } catch (e) {
     console.error(`Error converting ${sourceFile}`);
     throw e;

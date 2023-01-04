@@ -1,12 +1,12 @@
-import classNames from "classnames";
-import * as React from "react";
+import classNames from 'classnames';
+import * as React from 'react';
 export type ListItemIconPropsType = {
   children?: React.ReactNode;
   className?: string;
   small?: boolean;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "children" | "className" | "small"
+  'children' | 'className' | 'small'
 >;
 
 const ListItemIcon = ({
@@ -16,9 +16,9 @@ const ListItemIcon = ({
   ...props
 }: ListItemIconPropsType) => {
   const iconClass = classNames(
-    "sg-list__icon",
+    'sg-list__icon',
     {
-      "sg-list__icon--spacing-right-small": small,
+      'sg-list__icon--spacing-right-small': small,
     },
     className
   );

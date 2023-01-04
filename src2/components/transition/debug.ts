@@ -10,15 +10,15 @@ export function getDebugOptions(): DebugOptionsType {
     outlines: false,
   };
 
-  if (!debug || typeof debug !== "object") {
+  if (!debug || typeof debug !== 'object') {
     return options;
   }
 
-  if (typeof debug.speed === "number") {
+  if (typeof debug.speed === 'number') {
     options.speed = debug.speed;
   }
 
-  if (typeof debug.outlines === "boolean") {
+  if (typeof debug.outlines === 'boolean') {
     options.outlines = debug.outlines;
   }
 

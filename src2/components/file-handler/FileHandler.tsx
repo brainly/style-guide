@@ -1,14 +1,14 @@
-import * as React from "react";
-import classNames from "classnames";
-import Text from "../text/Text";
-import Link from "../text/Link";
-import Icon from "../icons/Icon";
-import Spinner from "../spinner/Spinner";
-import type { IconTypeType } from "../icons/Icon";
-export type FileHandlerColorType = "gray-20" | "white";
+import * as React from 'react';
+import classNames from 'classnames';
+import Text from '../text/Text';
+import Link from '../text/Link';
+import Icon from '../icons/Icon';
+import Spinner from '../spinner/Spinner';
+import type {IconTypeType} from '../icons/Icon';
+export type FileHandlerColorType = 'gray-20' | 'white';
 export const COLORS_MAP = {
-  "gray-20": "gray-20",
-  white: "white",
+  'gray-20': 'gray-20',
+  white: 'white',
 };
 type AriaStatusLabelType = {
   loading?: string;
@@ -113,25 +113,25 @@ export type FileHandlerPropsType = Readonly<
     statusLabel?: AriaStatusLabelType;
   } & Omit<
     React.AllHTMLAttributes<HTMLElement>,
-    | "color"
-    | "iconType"
-    | "thumbnailSrc"
-    | "src"
-    | "loading"
-    | "onClose"
-    | "onClick"
-    | "textRef"
-    | "className"
-    | "children"
-    | "ariaCloseButtonLabel"
-    | "statusLabel"
+    | 'color'
+    | 'iconType'
+    | 'thumbnailSrc'
+    | 'src'
+    | 'loading'
+    | 'onClose'
+    | 'onClick'
+    | 'textRef'
+    | 'className'
+    | 'children'
+    | 'ariaCloseButtonLabel'
+    | 'statusLabel'
   >
 >;
 
 const FileHandler = ({
   children,
-  color = "gray-20",
-  iconType = "attachment",
+  color = 'gray-20',
+  iconType = 'attachment',
   thumbnailSrc,
   src,
   loading = false,
@@ -139,14 +139,14 @@ const FileHandler = ({
   onClick,
   textRef,
   className,
-  ariaCloseButtonLabel = "Close",
+  ariaCloseButtonLabel = 'Close',
   statusLabel,
   ...props
 }: FileHandlerPropsType) => {
   const fileHandlerClass = classNames(
-    "sg-file-handler",
+    'sg-file-handler',
     {
-      "sg-file-handler--closable": onClose,
+      'sg-file-handler--closable': onClose,
       [`sg-file-handler--${COLORS_MAP[color]}`]: color,
     },
     className
@@ -158,11 +158,11 @@ const FileHandler = ({
       }
     : {
         href: src,
-        target: "_blank",
-        rel: "noopener noreferrer",
+        target: '_blank',
+        rel: 'noopener noreferrer',
       };
-  const role = clickProps.onClick && "button";
-  const asLink = clickProps.onClick ? "button" : "a";
+  const role = clickProps.onClick && 'button';
+  const asLink = clickProps.onClick ? 'button' : 'a';
   const thumbnail =
     thumbnailSrc !== undefined ? (
       <img src={thumbnailSrc} alt="" className="cursor-pointer" />
@@ -188,7 +188,7 @@ const FileHandler = ({
         {loading ? (
           <Spinner
             size="xsmall"
-            aria-label={statusLabel?.loading || "uploading"}
+            aria-label={statusLabel?.loading || 'uploading'}
           />
         ) : (
           interactiveThumbnail
@@ -196,7 +196,7 @@ const FileHandler = ({
       </div>
       <span className="sg-file-handler__text" ref={textRef}>
         <span className="sg-visually-hidden" aria-live="polite">
-          {!loading && (statusLabel?.uploaded || "uploaded")}
+          {!loading && (statusLabel?.uploaded || 'uploaded')}
         </span>
         {isActionProvided ? (
           <Link

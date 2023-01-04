@@ -1,46 +1,46 @@
-import * as React from "react";
-import classNames from "classnames";
-import { HEADLINE_TYPE } from "./headlineConsts";
-import { TEXT_COLOR } from "./Text";
-import type { TextColorType } from "./Text";
-import { generateResponsiveClassNames } from "../utils/responsive-props";
-import type { ResponsivePropType } from "../utils/responsive-props";
+import * as React from 'react';
+import classNames from 'classnames';
+import {HEADLINE_TYPE} from './headlineConsts';
+import {TEXT_COLOR} from './Text';
+import type {TextColorType} from './Text';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 export type HeadlineTypeType =
-  | "span"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "blockquote"
-  | "q"
-  | "strong"
-  | "em"
-  | "del"
-  | "ins";
+  | 'span'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'blockquote'
+  | 'q'
+  | 'strong'
+  | 'em'
+  | 'del'
+  | 'ins';
 export type HeadlineSizeType =
-  | "xxsmall"
-  | "xsmall"
-  | "small"
-  | "medium"
-  | "large"
-  | "xlarge"
-  | "xxlarge"
-  | "xxxlarge";
-export type HeadlineTransformType = "uppercase" | "lowercase" | "capitalize";
+  | 'xxsmall'
+  | 'xsmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xlarge'
+  | 'xxlarge'
+  | 'xxxlarge';
+export type HeadlineTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 export type HeadlineAlignType =
-  | "to-left"
-  | "to-center"
-  | "to-right"
-  | "justify";
+  | 'to-left'
+  | 'to-center'
+  | 'to-right'
+  | 'justify';
 export {
   HEADLINE_TYPE,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
-} from "./headlineConsts";
-export { TEXT_COLOR };
+} from './headlineConsts';
+export {TEXT_COLOR};
 export type HeadlinePropsType = {
   children?: React.ReactNode;
   size?: ResponsivePropType<HeadlineSizeType>;
@@ -53,15 +53,15 @@ export type HeadlinePropsType = {
   inherited?: boolean | null | undefined;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "size"
-  | "type"
-  | "color"
-  | "transform"
-  | "align"
-  | "className"
-  | "extraBold"
-  | "inherited"
+  | 'children'
+  | 'size'
+  | 'type'
+  | 'color'
+  | 'transform'
+  | 'align'
+  | 'className'
+  | 'extraBold'
+  | 'inherited'
 >;
 
 const Headline = ({
@@ -78,11 +78,11 @@ const Headline = ({
 }: HeadlinePropsType) => {
   const Type = type;
   const headlineClass = classNames(
-    "sg-headline",
+    'sg-headline',
     {
-      "sg-headline--inherited": inherited,
+      'sg-headline--inherited': inherited,
       [`sg-headline--${String(color)}`]: color,
-      "sg-headline--extra-bold": type === "strong",
+      'sg-headline--extra-bold': type === 'strong',
     },
     ...generateResponsiveClassNames(
       (propValue: string) => `sg-headline--${propValue}`,
@@ -94,7 +94,7 @@ const Headline = ({
     ),
     ...generateResponsiveClassNames(
       (propValue: string) =>
-        propValue ? `sg-headline--extra-bold` : "sg-headline--no-bold",
+        propValue ? `sg-headline--extra-bold` : 'sg-headline--no-bold',
       extraBold
     ),
     ...generateResponsiveClassNames(

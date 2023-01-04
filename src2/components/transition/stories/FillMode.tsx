@@ -1,10 +1,10 @@
-import * as React from "react";
-import hex from "../../colors/hex";
-import Flex from "../../flex/Flex";
-import Text from "../../text/Text";
-import Button from "../../buttons/Button";
-import Transition from "../Transition";
-const fillModes = ["none", "forwards", "backwards", "both"];
+import * as React from 'react';
+import hex from '../../colors/hex';
+import Flex from '../../flex/Flex';
+import Text from '../../text/Text';
+import Button from '../../buttons/Button';
+import Transition from '../Transition';
+const fillModes = ['none', 'forwards', 'backwards', 'both'];
 const shrinkFadeEffect = {
   initial: {
     opacity: 0,
@@ -15,12 +15,12 @@ const shrinkFadeEffect = {
       scale: 0.25,
     },
     duration: 1000,
-    easing: "entry",
+    easing: 'entry',
   },
   exit: {
     opacity: 0,
     duration: 1000,
-    easing: "exit",
+    easing: 'exit',
   },
 };
 export const FillMode = () => {
@@ -31,11 +31,11 @@ export const FillMode = () => {
       direction="column"
       alignItems="center"
       style={{
-        width: "min-content",
+        width: 'min-content',
       }}
     >
       <Flex className="sg-space-x-l" marginBottom="m">
-        {fillModes.map((mode) => (
+        {fillModes.map(mode => (
           <Container key={mode} description={mode}>
             <Transition
               active={active}
@@ -49,8 +49,8 @@ export const FillMode = () => {
         ))}
       </Flex>
 
-      <Button variant="solid" onClick={() => setActive((b) => !b)} fullWidth>
-        {active ? "hide" : "show"}
+      <Button variant="solid" onClick={() => setActive(b => !b)} fullWidth>
+        {active ? 'hide' : 'show'}
       </Button>
 
       <Text size="small" color="text-gray-50" align="to-center">
@@ -66,8 +66,8 @@ const Circle = () => (
     style={{
       width: 64,
       height: 64,
-      backgroundColor: hex["blue-40"],
-      borderRadius: "50%",
+      backgroundColor: hex['blue-40'],
+      borderRadius: '50%',
     }}
   />
 );
@@ -82,14 +82,14 @@ const Container = ({
   <Flex direction="column" alignItems="center" className="sg-space-y-m">
     <div
       style={{
-        position: "relative",
+        position: 'relative',
         width: 64,
         height: 64,
       }}
     >
       <div
         style={{
-          outline: `1px solid ${hex["indigo-50"]}`,
+          outline: `1px solid ${hex['indigo-50']}`,
         }}
       >
         {children}
@@ -100,5 +100,5 @@ const Container = ({
 );
 
 FillMode.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

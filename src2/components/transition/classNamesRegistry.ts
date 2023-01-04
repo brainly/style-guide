@@ -11,8 +11,8 @@ export function createClassNamesRegistry(): ClassNamesRegistryType {
 
     toString(): string {
       return Object.keys(registry)
-        .map((key) => registry[key])
-        .join(" ")
+        .map(key => registry[key])
+        .join(' ')
         .trim();
     },
   };

@@ -1,9 +1,9 @@
-import * as React from "react";
-import Box from "../../../box/Box";
-import Text from "../../../text/Text";
+import * as React from 'react';
+import Box from '../../../box/Box';
+import Text from '../../../text/Text';
 type PropsType = Readonly<{
   children: React.ReactNode;
-  format?: "portrait" | "landscape" | "listitem";
+  format?: 'portrait' | 'landscape' | 'listitem';
   className?: string;
   description?: string;
   centered?: boolean;
@@ -11,8 +11,8 @@ type PropsType = Readonly<{
   onClick?: () => void;
 }>;
 const centeredStyle = {
-  display: "flex",
-  alignItems: "center",
+  display: 'flex',
+  alignItems: 'center',
 };
 const formats = {
   portrait: [320, 568],
@@ -23,7 +23,7 @@ const Stage = React.forwardRef(
   (
     {
       children,
-      format = "landscape",
+      format = 'landscape',
       className,
       description,
       centered,
@@ -34,7 +34,7 @@ const Stage = React.forwardRef(
   ) => (
     <Box
       style={{
-        cursor: onClick !== undefined ? "pointer" : "default",
+        cursor: onClick !== undefined ? 'pointer' : 'default',
         width: formats[format][0],
         height: formats[format][1],
         padding: 0,
@@ -45,9 +45,9 @@ const Stage = React.forwardRef(
       <div
         ref={ref}
         style={{
-          height: "100%",
-          position: "relative",
-          overflow: overflowHidden ? "hidden" : "auto",
+          height: '100%',
+          position: 'relative',
+          overflow: overflowHidden ? 'hidden' : 'auto',
           padding: 16,
           ...(centered ? centeredStyle : {}),
         }}
@@ -55,7 +55,7 @@ const Stage = React.forwardRef(
         <div
           className={className}
           style={{
-            margin: "auto",
+            margin: 'auto',
           }}
         >
           {children}
@@ -64,8 +64,8 @@ const Stage = React.forwardRef(
         {description !== undefined && (
           <div
             style={{
-              position: "absolute",
-              textAlign: "center",
+              position: 'absolute',
+              textAlign: 'center',
               left: 10,
               bottom: 10,
               right: 10,

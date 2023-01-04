@@ -1,7 +1,7 @@
-import * as React from "react";
-import classNames from "classnames";
-import type { IconTypeType, SizeType } from "./SubjectIcon";
-import SubjectIcon, { TYPE, SIZE } from "./SubjectIcon";
+import * as React from 'react';
+import classNames from 'classnames';
+import type {IconTypeType, SizeType} from './SubjectIcon';
+import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
 export type SubjectIconBoxPropsType = {
   className?: string;
   darker?: boolean;
@@ -9,7 +9,7 @@ export type SubjectIconBoxPropsType = {
   size?: SizeType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "className" | "darker" | "type" | "size"
+  'className' | 'darker' | 'type' | 'size'
 >;
 
 const SubjectIconBox = ({
@@ -20,9 +20,9 @@ const SubjectIconBox = ({
   ...props
 }: SubjectIconBoxPropsType) => {
   const boxClass = classNames(
-    "sg-subject-icon-box",
+    'sg-subject-icon-box',
     {
-      "sg-subject-icon-box--darker": darker,
+      'sg-subject-icon-box--darker': darker,
     },
     className
   );
@@ -34,4 +34,4 @@ const SubjectIconBox = ({
 };
 
 export default SubjectIconBox;
-export { TYPE, SIZE };
+export {TYPE, SIZE};

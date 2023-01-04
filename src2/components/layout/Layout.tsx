@@ -1,6 +1,6 @@
-import * as React from "react";
-import classNames from "classnames";
-export type LayoutAsType = "div" | "main" | "section" | "article" | "aside";
+import * as React from 'react';
+import classNames from 'classnames';
+export type LayoutAsType = 'div' | 'main' | 'section' | 'article' | 'aside';
 export type LayoutPropsType = {
   className?: string;
   containerClassName?: string;
@@ -15,17 +15,17 @@ export type LayoutPropsType = {
   as?: LayoutAsType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "className"
-  | "containerClassName"
-  | "children"
-  | "header"
-  | "footer"
-  | "noMaxWidth"
-  | "noMarginTop"
-  | "reversedOrder"
-  | "fullPage"
-  | "threeColumns"
-  | "as"
+  | 'className'
+  | 'containerClassName'
+  | 'children'
+  | 'header'
+  | 'footer'
+  | 'noMaxWidth'
+  | 'noMarginTop'
+  | 'reversedOrder'
+  | 'fullPage'
+  | 'threeColumns'
+  | 'as'
 >;
 
 const Layout = ({
@@ -39,20 +39,20 @@ const Layout = ({
   threeColumns,
   className,
   containerClassName,
-  as: Type = "div",
+  as: Type = 'div',
   ...props
 }: LayoutPropsType) => {
-  const layoutClass = classNames("sg-layout", className, {
-    "sg-layout--three-columns": threeColumns,
+  const layoutClass = classNames('sg-layout', className, {
+    'sg-layout--three-columns': threeColumns,
   });
   const layoutContainerClass = classNames(
-    "sg-layout__container",
+    'sg-layout__container',
     containerClassName,
     {
-      "sg-layout__container--reversed-order": reversedOrder,
-      "sg-layout__container--no-max-width": noMaxWidth,
-      "sg-layout__container--no-margin-top": noMarginTop,
-      "sg-layout__container--full-page": fullPage,
+      'sg-layout__container--reversed-order': reversedOrder,
+      'sg-layout__container--no-max-width': noMaxWidth,
+      'sg-layout__container--no-margin-top': noMarginTop,
+      'sg-layout__container--full-page': fullPage,
     }
   );
   let footerContent;

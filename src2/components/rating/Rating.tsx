@@ -1,12 +1,12 @@
-import * as React from "react";
-import classnames from "classnames";
-import Star from "./subcomponents/Star";
-import RateCounter from "./subcomponents/RateCounter";
-import { __DEV__, invariant } from "../utils";
-type RatingSizeType = "s" | "xs";
+import * as React from 'react';
+import classnames from 'classnames';
+import Star from './subcomponents/Star';
+import RateCounter from './subcomponents/RateCounter';
+import {__DEV__, invariant} from '../utils';
+type RatingSizeType = 's' | 'xs';
 export const RATING_SIZE = {
-  XS: "xs",
-  S: "s",
+  XS: 'xs',
+  S: 's',
 };
 
 const generateArrayRange = function (range: number): Array<number> {
@@ -39,21 +39,21 @@ export type RatingPropsType = {
   activeText?: string;
   noLabel?: boolean;
   className?: string;
-  "aria-label"?: string;
+  'aria-label'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "size"
-  | "rate"
-  | "metricSize"
-  | "active"
-  | "onChange"
-  | "onStarMouseEnter"
-  | "onMouseLeave"
-  | "counterText"
-  | "activeText"
-  | "noLabel"
-  | "className"
-  | "undefined"
+  | 'size'
+  | 'rate'
+  | 'metricSize'
+  | 'active'
+  | 'onChange'
+  | 'onStarMouseEnter'
+  | 'onMouseLeave'
+  | 'counterText'
+  | 'activeText'
+  | 'noLabel'
+  | 'className'
+  | 'undefined'
 >;
 /* eslint-disable react/default-props-match-prop-types */
 // legacy files without proper flow checks can suffer from this
@@ -65,7 +65,7 @@ class Rating extends React.Component<RatingPropsType> {
     onMouseLeave: () => undefined,
     metricSize: 5,
     rate: 0,
-    "aria-label": "current rate",
+    'aria-label': 'current rate',
   };
 
   constructor(props: RatingPropsType) {
@@ -91,17 +91,17 @@ class Rating extends React.Component<RatingPropsType> {
   createStarsOnChangeFunctions(metricSize: number) {
     this.starsOnChangeFunctions = generateArrayRange(
       metricSize
-    ).map((rangeIndex) => () => this.onStarChange(rangeIndex));
+    ).map(rangeIndex => () => this.onStarChange(rangeIndex));
   }
 
   createStarsMouseEnterFunctions(metricSize: number) {
     this.starsMouseEnterFunctions = generateArrayRange(
       metricSize
-    ).map((rangeIndex) => (event) => this.onStarMouseEnter(rangeIndex, event));
+    ).map(rangeIndex => event => this.onStarMouseEnter(rangeIndex, event));
   }
 
   onStarChange = (index: number) => {
-    const { onChange, active = false } = this.props;
+    const {onChange, active = false} = this.props;
 
     if (!active) {
       return;
@@ -114,7 +114,7 @@ class Rating extends React.Component<RatingPropsType> {
     index: number,
     event: React.MouseEvent<HTMLSpanElement>
   ) => {
-    const { onStarMouseEnter, active = false } = this.props;
+    const {onStarMouseEnter, active = false} = this.props;
 
     if (!active) {
       return;
@@ -135,40 +135,40 @@ class Rating extends React.Component<RatingPropsType> {
       className,
       counterText,
       activeText,
-      "aria-label": label,
+      'aria-label': label,
       noLabel = false,
     } = this.props;
     const ratingClass = classnames(
-      "sg-rate-box",
+      'sg-rate-box',
       {
-        "sg-rate-box--s": size === RATING_SIZE.S,
-        "sg-rate-box--active": active,
+        'sg-rate-box--s': size === RATING_SIZE.S,
+        'sg-rate-box--active': active,
       },
       className
     );
-    const starsProps = generateArrayRange(metricSize).map((rangeIndex) => ({
-      size: size === "s" ? 32 : 24,
+    const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
+      size: size === 's' ? 32 : 24,
       onChange: this.starsOnChangeFunctions[rangeIndex],
       active,
       name: this.name,
-      "aria-label": `${rangeIndex + 1}/${metricSize}`,
+      'aria-label': `${rangeIndex + 1}/${metricSize}`,
       value: rangeIndex + 1,
     }));
     const rateString = rate.toLocaleString(undefined, {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1,
     });
-    const rateLabel = `${activeText || ""}, min: 1, max: ${metricSize}`;
+    const rateLabel = `${activeText || ''}, min: 1, max: ${metricSize}`;
     const metricString = `${rate}/${metricSize}`;
 
     if (__DEV__) {
       invariant(
         !(active && !this.props.onChange), // eslint-disable-next-line max-len
-        "You provided an `active` prop to a Rating without an `onChange` handler. Users won`t be able to rate."
+        'You provided an `active` prop to a Rating without an `onChange` handler. Users won`t be able to rate.'
       );
       invariant(
         !(!active && this.props.onChange), // eslint-disable-next-line max-len
-        "You provided an `onChange` handler to a Rating without an `active` prop. Users won`t be able to rate."
+        'You provided an `onChange` handler to a Rating without an `active` prop. Users won`t be able to rate.'
       );
     }
 
@@ -189,7 +189,7 @@ class Rating extends React.Component<RatingPropsType> {
             }}
             aria-hidden
           >
-            {starsProps.map((props) => (
+            {starsProps.map(props => (
               <Star key={props.value} size={props.size} />
             ))}
           </div>
@@ -199,7 +199,7 @@ class Rating extends React.Component<RatingPropsType> {
             aria-hidden={!active}
             aria-label={rateLabel}
           >
-            {starsProps.map((props) => (
+            {starsProps.map(props => (
               <Star
                 key={props.value}
                 onMouseEnter={this.starsMouseEnterFunctions[props.value]}

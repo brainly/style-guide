@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 type ElementSnapshotType = Readonly<{
   left: number;
   top: number;
@@ -47,7 +47,7 @@ export function useTransformationState({
     const container = containerRef ? containerRef.current : document.body;
 
     if (element !== null && container !== null) {
-      setState((previous) => {
+      setState(previous => {
         return createTransformationState({
           element,
           container,
@@ -94,7 +94,7 @@ function createTransformationState({
   });
 
   if (previousSnapshot === null) {
-    return { ...previous, previousSnapshot, currentSnapshot };
+    return {...previous, previousSnapshot, currentSnapshot};
   }
 
   const diffWidth = currentSnapshot.width - previousSnapshot.width;

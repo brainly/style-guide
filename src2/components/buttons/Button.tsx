@@ -1,55 +1,55 @@
-import * as React from "react";
-import Spinner, { SPINNER_SIZE, SPINNER_COLOR } from "../spinner/Spinner";
-import cx from "classnames";
-import { __DEV__, invariant } from "../utils";
+import * as React from 'react';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
+import cx from 'classnames';
+import {__DEV__, invariant} from '../utils';
 export const BUTTON_SIZE: {
-  L: "l";
-  M: "m";
-  S: "s";
+  L: 'l';
+  M: 'm';
+  S: 's';
 } = {
-  L: "l",
-  M: "m",
-  S: "s",
+  L: 'l',
+  M: 'm',
+  S: 's',
 };
 export const BUTTON_VARIANT: {
-  SOLID: "solid";
-  SOLID_INVERTED: "solid-inverted";
-  SOLID_INDIGO: "solid-indigo";
-  SOLID_INDIGO_INVERTED: "solid-indigo-inverted";
-  SOLID_LIGHT: "solid-light";
-  OUTLINE: "outline";
-  OUTLINE_INDIGO: "outline-indigo";
-  OUTLINE_INVERTED: "outline-inverted";
-  TRANSPARENT: "transparent";
-  TRANSPARENT_LIGHT: "transparent-light";
-  TRANSPARENT_RED: "transparent-red";
-  TRANSPARENT_INVERTED: "transparent-inverted";
-  FACEBOOK: "facebook";
-  GOOGLE: "google";
-  APPLE: "apple";
+  SOLID: 'solid';
+  SOLID_INVERTED: 'solid-inverted';
+  SOLID_INDIGO: 'solid-indigo';
+  SOLID_INDIGO_INVERTED: 'solid-indigo-inverted';
+  SOLID_LIGHT: 'solid-light';
+  OUTLINE: 'outline';
+  OUTLINE_INDIGO: 'outline-indigo';
+  OUTLINE_INVERTED: 'outline-inverted';
+  TRANSPARENT: 'transparent';
+  TRANSPARENT_LIGHT: 'transparent-light';
+  TRANSPARENT_RED: 'transparent-red';
+  TRANSPARENT_INVERTED: 'transparent-inverted';
+  FACEBOOK: 'facebook';
+  GOOGLE: 'google';
+  APPLE: 'apple';
 } = {
-  SOLID: "solid",
-  SOLID_INVERTED: "solid-inverted",
-  SOLID_INDIGO: "solid-indigo",
-  SOLID_INDIGO_INVERTED: "solid-indigo-inverted",
-  SOLID_LIGHT: "solid-light",
-  OUTLINE: "outline",
-  OUTLINE_INDIGO: "outline-indigo",
-  OUTLINE_INVERTED: "outline-inverted",
-  TRANSPARENT: "transparent",
-  TRANSPARENT_LIGHT: "transparent-light",
-  TRANSPARENT_RED: "transparent-red",
-  TRANSPARENT_INVERTED: "transparent-inverted",
-  FACEBOOK: "facebook",
-  GOOGLE: "google",
-  APPLE: "apple",
+  SOLID: 'solid',
+  SOLID_INVERTED: 'solid-inverted',
+  SOLID_INDIGO: 'solid-indigo',
+  SOLID_INDIGO_INVERTED: 'solid-indigo-inverted',
+  SOLID_LIGHT: 'solid-light',
+  OUTLINE: 'outline',
+  OUTLINE_INDIGO: 'outline-indigo',
+  OUTLINE_INVERTED: 'outline-inverted',
+  TRANSPARENT: 'transparent',
+  TRANSPARENT_LIGHT: 'transparent-light',
+  TRANSPARENT_RED: 'transparent-red',
+  TRANSPARENT_INVERTED: 'transparent-inverted',
+  FACEBOOK: 'facebook',
+  GOOGLE: 'google',
+  APPLE: 'apple',
 };
 export const BUTTON_TOGGLE: {
-  RED: "red";
-  YELLOW: "yellow";
+  RED: 'red';
+  YELLOW: 'yellow';
 } = {
-  RED: "red",
-  YELLOW: "yellow",
+  RED: 'red',
+  YELLOW: 'yellow',
 };
 const SPINNER_SIZE_MAP = {
   [BUTTON_SIZE.L]: SPINNER_SIZE.SMALL,
@@ -57,55 +57,55 @@ const SPINNER_SIZE_MAP = {
   [BUTTON_SIZE.S]: SPINNER_SIZE.XXSMALL,
 };
 const SPINNER_COLOR_MAP = {
-  [BUTTON_VARIANT.SOLID]: SPINNER_COLOR["white"],
-  [BUTTON_VARIANT.SOLID_INVERTED]: SPINNER_COLOR["black"],
-  [BUTTON_VARIANT.SOLID_INDIGO]: SPINNER_COLOR["white"],
-  [BUTTON_VARIANT.SOLID_INDIGO_INVERTED]: SPINNER_COLOR["indigo-50"],
-  [BUTTON_VARIANT.SOLID_LIGHT]: SPINNER_COLOR["black"],
-  [BUTTON_VARIANT.OUTLINE]: SPINNER_COLOR["black"],
-  [BUTTON_VARIANT.OUTLINE_INDIGO]: SPINNER_COLOR["indigo-50"],
-  [BUTTON_VARIANT.OUTLINE_INVERTED]: SPINNER_COLOR["white"],
-  [BUTTON_VARIANT.TRANSPARENT]: SPINNER_COLOR["black"],
-  [BUTTON_VARIANT.TRANSPARENT_LIGHT]: SPINNER_COLOR["gray-50"],
-  [BUTTON_VARIANT.TRANSPARENT_RED]: SPINNER_COLOR["red-50"],
-  [BUTTON_VARIANT.TRANSPARENT_INVERTED]: SPINNER_COLOR["white"],
-  [BUTTON_VARIANT.FACEBOOK]: SPINNER_COLOR["white"],
-  [BUTTON_VARIANT.GOOGLE]: SPINNER_COLOR["black"],
-  [BUTTON_VARIANT.APPLE]: SPINNER_COLOR["white"],
+  [BUTTON_VARIANT.SOLID]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.SOLID_INVERTED]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.SOLID_INDIGO]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.SOLID_INDIGO_INVERTED]: SPINNER_COLOR['indigo-50'],
+  [BUTTON_VARIANT.SOLID_LIGHT]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.OUTLINE]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.OUTLINE_INDIGO]: SPINNER_COLOR['indigo-50'],
+  [BUTTON_VARIANT.OUTLINE_INVERTED]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.TRANSPARENT]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.TRANSPARENT_LIGHT]: SPINNER_COLOR['gray-50'],
+  [BUTTON_VARIANT.TRANSPARENT_RED]: SPINNER_COLOR['red-50'],
+  [BUTTON_VARIANT.TRANSPARENT_INVERTED]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.FACEBOOK]: SPINNER_COLOR['white'],
+  [BUTTON_VARIANT.GOOGLE]: SPINNER_COLOR['black'],
+  [BUTTON_VARIANT.APPLE]: SPINNER_COLOR['white'],
 };
 type ButtonVariantType =
-  | "solid"
-  | "solid-inverted"
-  | "solid-indigo"
-  | "solid-indigo-inverted"
-  | "solid-light"
-  | "outline"
-  | "outline-indigo"
-  | "outline-inverted"
-  | "transparent"
-  | "transparent-light"
-  | "transparent-red"
-  | "transparent-inverted"
-  | "facebook"
-  | "google"
-  | "apple";
-type ButtonToggleType = "red" | "yellow";
-type ButtonSizeType = "l" | "m" | "s";
-export type AriaLiveType = "off" | "polite" | "assertive";
-export type ButtonTypeType = "button" | "submit" | "reset";
+  | 'solid'
+  | 'solid-inverted'
+  | 'solid-indigo'
+  | 'solid-indigo-inverted'
+  | 'solid-light'
+  | 'outline'
+  | 'outline-indigo'
+  | 'outline-inverted'
+  | 'transparent'
+  | 'transparent-light'
+  | 'transparent-red'
+  | 'transparent-inverted'
+  | 'facebook'
+  | 'google'
+  | 'apple';
+type ButtonToggleType = 'red' | 'yellow';
+type ButtonSizeType = 'l' | 'm' | 's';
+export type AriaLiveType = 'off' | 'polite' | 'assertive';
+export type ButtonTypeType = 'button' | 'submit' | 'reset';
 const TOGGLE_BUTTON_VARIANTS = [
-  "solid-light",
-  "outline",
-  "transparent",
-  "transparent-light",
+  'solid-light',
+  'outline',
+  'transparent',
+  'transparent-light',
 ];
-type TargetType = "_self" | "_blank" | "_parent" | "_top";
+type TargetType = '_self' | '_blank' | '_parent' | '_top';
 const anchorRelatedProps = [
-  "download",
-  "hreflang",
-  "ping",
-  "referrerpolicy",
-  "rel",
+  'download',
+  'hreflang',
+  'ping',
+  'referrerpolicy',
+  'rel',
 ];
 export type ButtonPropsType = {
   /**
@@ -247,7 +247,7 @@ export type ButtonPropsType = {
   /**
    * Accessible name for Button.
    */
-  "aria-label"?: string;
+  'aria-label'?: string;
 
   /**
    * The default behavior of the button.
@@ -262,31 +262,31 @@ export type ButtonPropsType = {
   ) => unknown;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "variant"
-  | "toggle"
-  | "icon"
-  | "iconOnly"
-  | "reversedOrder"
-  | "children"
-  | "size"
-  | "href"
-  | "disabled"
-  | "loading"
-  | "loadingAriaLive"
-  | "loadingAriaLabel"
-  | "fullWidth"
-  | "className"
-  | "target"
-  | "newTabLabel"
-  | "undefined"
-  | "type"
-  | "onClick"
+  | 'variant'
+  | 'toggle'
+  | 'icon'
+  | 'iconOnly'
+  | 'reversedOrder'
+  | 'children'
+  | 'size'
+  | 'href'
+  | 'disabled'
+  | 'loading'
+  | 'loadingAriaLive'
+  | 'loadingAriaLabel'
+  | 'fullWidth'
+  | 'className'
+  | 'target'
+  | 'newTabLabel'
+  | 'undefined'
+  | 'type'
+  | 'onClick'
 >;
 const Button = React.forwardRef(
   (
     {
-      size = "m",
-      variant = "solid",
+      size = 'm',
+      variant = 'solid',
       icon,
       iconOnly,
       reversedOrder,
@@ -298,10 +298,10 @@ const Button = React.forwardRef(
       children,
       className,
       target,
-      newTabLabel = "(opens in a new tab)",
+      newTabLabel = '(opens in a new tab)',
       onClick,
-      "aria-label": ariaLabel,
-      loadingAriaLive = "off",
+      'aria-label': ariaLabel,
+      loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
       ...props
@@ -314,11 +314,11 @@ const Button = React.forwardRef(
     if (__DEV__) {
       invariant(
         !(
-          (toggle === "red" &&
-            ![...TOGGLE_BUTTON_VARIANTS, "transparent-red"].includes(
+          (toggle === 'red' &&
+            ![...TOGGLE_BUTTON_VARIANTS, 'transparent-red'].includes(
               variant
             )) ||
-          (toggle === "yellow" &&
+          (toggle === 'yellow' &&
             ![...TOGGLE_BUTTON_VARIANTS].includes(variant))
         ),
         `Value of toggle property '${String(
@@ -341,7 +341,7 @@ const Button = React.forwardRef(
         !(
           !isLink &&
           (target ||
-            Object.keys(props).some((p) => anchorRelatedProps.includes(p)))
+            Object.keys(props).some(p => anchorRelatedProps.includes(p)))
         ), // $FlowFixMe
         `An anchor-related prop is not working when "href" is not provided: ${Object.keys(
           props
@@ -349,30 +349,30 @@ const Button = React.forwardRef(
       );
       invariant(
         !(isLink && type),
-        "`type` prop is not working when href is provided"
+        '`type` prop is not working when href is provided'
       );
       invariant(
         !(iconOnly && !ariaLabel),
-        "Using `iconOnly` without `aria-label` will affect people with visual impairments"
+        'Using `iconOnly` without `aria-label` will affect people with visual impairments'
       );
     }
 
     const btnClass = cx(
-      "sg-button",
+      'sg-button',
       {
         [`sg-button--${String(size)}`]: size,
         [`sg-button--${String(variant)}`]: variant,
-        "sg-button--disabled": isDisabled,
-        "sg-button--loading": loading,
-        "sg-button--full-width": fullWidth,
-        "sg-button--icon-only": Boolean(icon) && iconOnly,
+        'sg-button--disabled': isDisabled,
+        'sg-button--loading': loading,
+        'sg-button--full-width': fullWidth,
+        'sg-button--icon-only': Boolean(icon) && iconOnly,
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
-        "sg-button--reversed-order": reversedOrder,
+        'sg-button--reversed-order': reversedOrder,
       },
       className
     );
-    const iconClass = cx("sg-button__icon", {
-      [`sg-button__icon--${size || ""}`]: size,
+    const iconClass = cx('sg-button__icon', {
+      [`sg-button__icon--${size || ''}`]: size,
     });
     let ico;
 
@@ -380,7 +380,7 @@ const Button = React.forwardRef(
       ico = <span className={iconClass}>{icon}</span>;
     }
 
-    const onButtonClick = (e) => {
+    const onButtonClick = e => {
       if (isLink && isDisabled) {
         return;
       }
@@ -388,7 +388,7 @@ const Button = React.forwardRef(
       return onClick && onClick(e);
     };
 
-    const TagToRender = isLink ? (isDisabled ? "span" : "a") : "button";
+    const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
     return (
       <TagToRender
         {...props}
@@ -414,7 +414,7 @@ const Button = React.forwardRef(
         {/* As soon as we have Proxima fixed, we could remove that span */}
         <span className="sg-button__text">
           {children}
-          {target === "_blank" && (
+          {target === '_blank' && (
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
@@ -422,5 +422,5 @@ const Button = React.forwardRef(
     );
   }
 );
-Button.displayName = "Button";
+Button.displayName = 'Button';
 export default Button;

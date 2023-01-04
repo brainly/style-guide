@@ -1,6 +1,6 @@
-import * as React from "react";
-import classnames from "classnames";
-import Icon, { ICON_COLOR } from "../icons/Icon";
+import * as React from 'react';
+import classnames from 'classnames';
+import Icon, {ICON_COLOR} from '../icons/Icon';
 type OptionsPropsType = {
   value: string;
   text: string;
@@ -9,23 +9,23 @@ type GroupedOptionsPropsType = {
   label: string;
   options: ReadonlyArray<OptionsPropsType>;
 };
-type SelectSizeType = "s" | "m" | "l";
-type SelectColorType = "default" | "white";
+type SelectSizeType = 's' | 'm' | 'l';
+type SelectColorType = 'default' | 'white';
 export const COLOR: {
-  DEAFAULT: "default";
-  WHITE: "white";
+  DEAFAULT: 'default';
+  WHITE: 'white';
 } = {
-  DEAFAULT: "default",
-  WHITE: "white",
+  DEAFAULT: 'default',
+  WHITE: 'white',
 };
 export const SIZE: {
-  S: "s";
-  M: "m";
-  L: "l";
+  S: 's';
+  M: 'm';
+  L: 'l';
 } = {
-  S: "s",
-  M: "m",
-  L: "l",
+  S: 's',
+  M: 'm',
+  L: 'l',
 };
 const ICON_SIZE_MAP = {
   [SIZE.L]: 32,
@@ -91,18 +91,18 @@ export type SelectPropsType = {
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "value"
-  | "valid"
-  | "invalid"
-  | "capitalized"
-  | "color"
-  | "size"
-  | "fullWidth"
-  | "options"
-  | "className"
+  | 'value'
+  | 'valid'
+  | 'invalid'
+  | 'capitalized'
+  | 'color'
+  | 'size'
+  | 'fullWidth'
+  | 'options'
+  | 'className'
 >;
 
-const getOptionElement = ({ value, text }: OptionsPropsType) => (
+const getOptionElement = ({value, text}: OptionsPropsType) => (
   <option key={value} value={value}>
     {text}
   </option>
@@ -124,21 +124,21 @@ const Select = React.forwardRef((props: SelectPropsType, ref) => {
 
   if (valid === true && invalid === true) {
     throw {
-      name: "WrongValidation",
-      message: "Select can be either valid or invalid!",
+      name: 'WrongValidation',
+      message: 'Select can be either valid or invalid!',
     };
   }
 
   const selectClass = classnames(
-    "sg-select",
+    'sg-select',
     {
-      "sg-select--selected": value,
-      "sg-select--valid": valid,
-      "sg-select--invalid": invalid,
-      "sg-select--capitalized": capitalized,
-      "sg-select--full-width": fullWidth,
+      'sg-select--selected': value,
+      'sg-select--valid': valid,
+      'sg-select--invalid': invalid,
+      'sg-select--capitalized': capitalized,
+      'sg-select--full-width': fullWidth,
       [`sg-select--${String(color)}`]: color,
-      [`sg-select--${String(size)}`]: size && size !== "m",
+      [`sg-select--${String(size)}`]: size && size !== 'm',
     },
     className
   );
@@ -162,7 +162,7 @@ const Select = React.forwardRef((props: SelectPropsType, ref) => {
       <div className="sg-select__icon">
         <Icon
           type="caret_down"
-          color={ICON_COLOR["icon-gray-50"]}
+          color={ICON_COLOR['icon-gray-50']}
           size={ICON_SIZE_MAP[size]}
         />
       </div>
@@ -178,5 +178,5 @@ const Select = React.forwardRef((props: SelectPropsType, ref) => {
     </div>
   );
 });
-Select.displayName = "Select";
+Select.displayName = 'Select';
 export default Select;

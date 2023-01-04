@@ -1,12 +1,12 @@
-import * as React from "react";
-import CodeBlock from "components/CodeBlock";
-import DocsBlock from "components/DocsBlock";
-import DocsActiveBlock from "components/DocsActiveBlock";
+import * as React from 'react';
+import CodeBlock from 'components/CodeBlock';
+import DocsBlock from 'components/DocsBlock';
+import DocsActiveBlock from 'components/DocsActiveBlock';
 const hiddenSettings = [
   {
-    name: "className",
+    name: 'className',
     values: {
-      "sg-visually-hidden": "sg-visually-hidden",
+      'sg-visually-hidden': 'sg-visually-hidden',
     },
   },
 ];

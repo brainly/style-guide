@@ -1,17 +1,17 @@
-import * as React from "react";
-import * as IconModule from "../../icons/Icon";
-import { __DEV__, invariant } from "../../utils";
-const { default: Icon, ICON_COLOR } = IconModule;
+import * as React from 'react';
+import * as IconModule from '../../icons/Icon';
+import {__DEV__, invariant} from '../../utils';
+const {default: Icon, ICON_COLOR} = IconModule;
 export type StarPropsType = {
   size?: IconModule.IconSizeType;
   name?: string;
   onChange?: () => unknown;
   active?: boolean;
-  "aria-label"?: string;
+  'aria-label'?: string;
   value?: number;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  "size" | "name" | "onChange" | "active" | "undefined" | "value"
+  'size' | 'name' | 'onChange' | 'active' | 'undefined' | 'value'
 >;
 
 const Star = ({
@@ -19,14 +19,14 @@ const Star = ({
   name,
   onChange,
   active,
-  "aria-label": label,
+  'aria-label': label,
   value,
   ...props
 }: StarPropsType) => {
   if (__DEV__) {
     invariant(
       !((!active && name) || (!active && label) || (!active && value)),
-      "name/label/value is not working in non-active Star"
+      'name/label/value is not working in non-active Star'
     );
   }
 

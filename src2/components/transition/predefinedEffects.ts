@@ -1,11 +1,11 @@
-import type { TransitionEffectType } from "./Transition";
+import type {TransitionEffectType} from './Transition';
 export type PredefinedEffectType =
-  | "fade"
-  | "scaleFade"
-  | "slideUpFade"
-  | "slideDownFade"
-  | "slideLeftFade"
-  | "slideRightFade";
+  | 'fade'
+  | 'scaleFade'
+  | 'slideUpFade'
+  | 'slideDownFade'
+  | 'slideLeftFade'
+  | 'slideRightFade';
 export const predefinedEffects: Readonly<
   Record<PredefinedEffectType, () => TransitionEffectType>
 > = {
@@ -15,13 +15,13 @@ export const predefinedEffects: Readonly<
     },
     animate: {
       opacity: 1,
-      duration: "quick2",
-      easing: "linear",
+      duration: 'quick2',
+      easing: 'linear',
     },
     exit: {
       opacity: 0,
-      duration: "quick2",
-      easing: "linear",
+      duration: 'quick2',
+      easing: 'linear',
     },
   }),
   scaleFade: () => ({
@@ -36,23 +36,23 @@ export const predefinedEffects: Readonly<
       transform: {
         scale: 1,
       },
-      duration: "moderate2",
-      easing: "entry",
+      duration: 'moderate2',
+      easing: 'entry',
     },
     exit: {
       opacity: 0,
       transform: {
         scale: 0.85,
       },
-      duration: "moderate1",
-      easing: "exit",
+      duration: 'moderate1',
+      easing: 'exit',
     },
   }),
   slideUpFade: () => ({
     initial: {
       opacity: 0,
       transform: {
-        translateY: "m",
+        translateY: 'm',
       },
     },
     animate: {
@@ -60,23 +60,23 @@ export const predefinedEffects: Readonly<
       transform: {
         translateY: 0,
       },
-      duration: "moderate1",
-      easing: "entry",
+      duration: 'moderate1',
+      easing: 'entry',
     },
     exit: {
       opacity: 0,
       transform: {
-        translateY: "m",
+        translateY: 'm',
       },
-      duration: "moderate1",
-      easing: "exit",
+      duration: 'moderate1',
+      easing: 'exit',
     },
   }),
   slideDownFade: () => ({
     initial: {
       opacity: 0,
       transform: {
-        translateY: "-m",
+        translateY: '-m',
       },
     },
     animate: {
@@ -84,23 +84,23 @@ export const predefinedEffects: Readonly<
       transform: {
         translateY: 0,
       },
-      duration: "moderate1",
-      easing: "entry",
+      duration: 'moderate1',
+      easing: 'entry',
     },
     exit: {
       opacity: 0,
       transform: {
-        translateY: "-m",
+        translateY: '-m',
       },
-      duration: "moderate1",
-      easing: "exit",
+      duration: 'moderate1',
+      easing: 'exit',
     },
   }),
   slideLeftFade: () => ({
     initial: {
       opacity: 0,
       transform: {
-        translateX: "m",
+        translateX: 'm',
       },
     },
     animate: {
@@ -108,23 +108,23 @@ export const predefinedEffects: Readonly<
       transform: {
         translateX: 0,
       },
-      duration: "moderate2",
-      easing: "entry",
+      duration: 'moderate2',
+      easing: 'entry',
     },
     exit: {
       opacity: 0,
       transform: {
-        translateX: "m",
+        translateX: 'm',
       },
-      duration: "moderate1",
-      easing: "exit",
+      duration: 'moderate1',
+      easing: 'exit',
     },
   }),
   slideRightFade: () => ({
     initial: {
       opacity: 0,
       transform: {
-        translateX: "-m",
+        translateX: '-m',
       },
     },
     animate: {
@@ -132,16 +132,16 @@ export const predefinedEffects: Readonly<
       transform: {
         translateX: 0,
       },
-      duration: "moderate2",
-      easing: "entry",
+      duration: 'moderate2',
+      easing: 'entry',
     },
     exit: {
       opacity: 0,
       transform: {
-        translateX: "-m",
+        translateX: '-m',
       },
-      duration: "moderate1",
-      easing: "exit",
+      duration: 'moderate1',
+      easing: 'exit',
     },
   }),
 };
@@ -165,8 +165,8 @@ export function createEffect({
  * which will probably never happen in the future.
  */
 function mergeDeepEffects<T extends {}>(target: T, source: T): T {
-  Object.keys(source).forEach((key) => {
-    if (typeof target[key] === "object") {
+  Object.keys(source).forEach(key => {
+    if (typeof target[key] === 'object') {
       target[key] = mergeDeepEffects(target[key], source[key]);
     } else {
       target[key] = source[key];

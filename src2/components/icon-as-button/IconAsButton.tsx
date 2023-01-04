@@ -1,14 +1,14 @@
-import * as React from "react";
-import classNames from "classnames";
-import type { IconColorType, IconTypeType } from "../icons/Icon";
-import Icon, { ICON_COLOR } from "../icons/Icon";
-type IconSizeType = "small" | "normal";
+import * as React from 'react';
+import classNames from 'classnames';
+import type {IconColorType, IconTypeType} from '../icons/Icon';
+import Icon, {ICON_COLOR} from '../icons/Icon';
+type IconSizeType = 'small' | 'normal';
 export const SIZE: {
-  SMALL: "small";
-  NORMAL: "normal";
+  SMALL: 'small';
+  NORMAL: 'normal';
 } = {
-  SMALL: "small",
-  NORMAL: "normal",
+  SMALL: 'small',
+  NORMAL: 'normal',
 };
 const ICON_SIZE: Record<string, 24> = {
   [SIZE.SMALL]: 24,
@@ -29,17 +29,17 @@ export type IconAsButtonPropsType = {
   title?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "size"
-  | "color"
-  | "type"
-  | "children"
-  | "border"
-  | "action"
-  | "transparent"
-  | "active"
-  | "href"
-  | "className"
-  | "title"
+  | 'size'
+  | 'color'
+  | 'type'
+  | 'children'
+  | 'border'
+  | 'action'
+  | 'transparent'
+  | 'active'
+  | 'href'
+  | 'className'
+  | 'title'
 >;
 
 // This component is deprecated
@@ -57,15 +57,15 @@ const IconAsButton = ({
   ...props
 }: IconAsButtonPropsType) => {
   const buttonClass = classNames(
-    "sg-icon-as-button",
+    'sg-icon-as-button',
     {
       [`sg-icon-as-button--${String(color)}`]: color,
       [`sg-icon-as-button--${size}`]: size,
-      "sg-icon-as-button--with-border": border,
-      "sg-icon-as-button--action": action,
-      "sg-icon-as-button--action-active": action === true && active === true,
-      "sg-icon-as-button--transparent": transparent,
-      "sg-icon-as-button--transparent-active":
+      'sg-icon-as-button--with-border': border,
+      'sg-icon-as-button--action': action,
+      'sg-icon-as-button--action-active': action === true && active === true,
+      'sg-icon-as-button--transparent': transparent,
+      'sg-icon-as-button--transparent-active':
         transparent === true && active === true,
     },
     className
@@ -85,10 +85,10 @@ const IconAsButton = ({
     content = children;
   }
 
-  let RenderType = "button";
+  let RenderType = 'button';
 
-  if (props.href !== undefined && props.href !== null && props.href !== "") {
-    RenderType = "a";
+  if (props.href !== undefined && props.href !== null && props.href !== '') {
+    RenderType = 'a';
   }
 
   return (
@@ -99,5 +99,5 @@ const IconAsButton = ({
 };
 
 export default IconAsButton;
-export { TYPE, ICON_COLOR } from "../icons/Icon";
-export type { IconTypeType } from "../icons/Icon";
+export {TYPE, ICON_COLOR} from '../icons/Icon';
+export type {IconTypeType} from '../icons/Icon';

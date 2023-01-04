@@ -1,18 +1,18 @@
 import {
   generateResponsiveClassNames,
   mergeResponsiveProps,
-} from "./responsive-props";
-describe("mergeResponsiveProps", () => {
-  it("returns object with each breakpoint being array of corresponding breakpoint values from each item", () => {
+} from './responsive-props';
+describe('mergeResponsiveProps', () => {
+  it('returns object with each breakpoint being array of corresponding breakpoint values from each item', () => {
     expect(
       mergeResponsiveProps([
-        ["xs", "sm", "xl"],
-        ["align-left", "align-right", "align-center"],
+        ['xs', 'sm', 'xl'],
+        ['align-left', 'align-right', 'align-center'],
       ])
     ).toEqual({
-      sm: ["xs", "align-left"],
-      md: ["sm", "align-right"],
-      lg: ["xl", "align-center"],
+      sm: ['xs', 'align-left'],
+      md: ['sm', 'align-right'],
+      lg: ['xl', 'align-center'],
     });
   });
   it(`when one prop has missing value on breakpoint
@@ -21,105 +21,105 @@ describe("mergeResponsiveProps", () => {
   then it returns smaller breakpoint value`, () => {
     expect(
       mergeResponsiveProps([
-        ["xs", null, "xl"],
-        ["align-left", "align-right", null],
+        ['xs', null, 'xl'],
+        ['align-left', 'align-right', null],
       ])
     ).toEqual({
-      sm: ["xs", "align-left"],
-      md: ["xs", "align-right"],
-      lg: ["xl", "align-right"],
+      sm: ['xs', 'align-left'],
+      md: ['xs', 'align-right'],
+      lg: ['xl', 'align-right'],
     });
   });
   it(`when any of objects doesnt have value for same breakpoint, then it skips this breakpoint`, () => {
     expect(
       mergeResponsiveProps([
-        ["xs", null, "xl"],
-        ["align-left", null, "align-right"],
+        ['xs', null, 'xl'],
+        ['align-left', null, 'align-right'],
       ])
     ).toEqual({
-      sm: ["xs", "align-left"],
-      lg: ["xl", "align-right"],
+      sm: ['xs', 'align-left'],
+      lg: ['xl', 'align-right'],
     });
   });
-  it("when item is primitive value, then it uses this value for all breakpoints", () => {
+  it('when item is primitive value, then it uses this value for all breakpoints', () => {
     expect(
-      mergeResponsiveProps(["xs", ["align-left", null, "align-right"]])
+      mergeResponsiveProps(['xs', ['align-left', null, 'align-right']])
     ).toEqual({
-      sm: ["xs", "align-left"],
-      md: ["xs", "align-left"],
-      lg: ["xs", "align-right"],
-      xl: ["xs", "align-right"],
+      sm: ['xs', 'align-left'],
+      md: ['xs', 'align-left'],
+      lg: ['xs', 'align-right'],
+      xl: ['xs', 'align-right'],
     });
   });
 });
-describe("generateResponsiveClassNames", () => {
-  const generateClass = (prop) => (prop ? "foo" : "bar");
+describe('generateResponsiveClassNames', () => {
+  const generateClass = prop => (prop ? 'foo' : 'bar');
 
   const responsivePropsCases = [
     [
-      "object",
-      "all breakpoints",
+      'object',
+      'all breakpoints',
       {
         sm: true,
         md: false,
         lg: true,
         xl: true,
       },
-      ["foo", "md:bar", "lg:foo", "xl:foo"],
+      ['foo', 'md:bar', 'lg:foo', 'xl:foo'],
     ],
     [
-      "object",
-      "some breakpoints",
+      'object',
+      'some breakpoints',
       {
         sm: true,
         md: false,
         lg: true,
       },
-      ["foo", "md:bar", "lg:foo"],
+      ['foo', 'md:bar', 'lg:foo'],
     ],
-    ["object", "no breakpoints", {}, []],
+    ['object', 'no breakpoints', {}, []],
     [
-      "object",
-      "invalid breakpoints",
+      'object',
+      'invalid breakpoints',
       {
-        foo: "bar",
+        foo: 'bar',
       },
       [],
     ],
     [
-      "array",
-      "all breakpoints",
+      'array',
+      'all breakpoints',
       [true, true, false, false],
-      ["foo", "md:foo", "lg:bar", "xl:bar"],
+      ['foo', 'md:foo', 'lg:bar', 'xl:bar'],
     ],
     [
-      "array",
-      "null breakpoints",
+      'array',
+      'null breakpoints',
       [true, true, null, false],
-      ["foo", "md:foo", "xl:bar"],
+      ['foo', 'md:foo', 'xl:bar'],
     ],
     [
-      "array",
-      "undefined breakpoints",
+      'array',
+      'undefined breakpoints',
       [true, true, undefined, false],
-      ["foo", "md:foo", "xl:bar"],
+      ['foo', 'md:foo', 'xl:bar'],
     ],
     [
-      "array",
-      "skipped breakpoints", // eslint-disable-next-line no-sparse-arrays
+      'array',
+      'skipped breakpoints', // eslint-disable-next-line no-sparse-arrays
       [true, true, , false],
-      ["foo", "md:foo", "xl:bar"],
+      ['foo', 'md:foo', 'xl:bar'],
     ],
-    ["array", "no breakpoints", [], []],
+    ['array', 'no breakpoints', [], []],
     [
-      "array",
-      "too many breakpoints",
+      'array',
+      'too many breakpoints',
       [true, true, false, false, true, true, true],
-      ["foo", "md:foo", "lg:bar", "xl:bar"],
+      ['foo', 'md:foo', 'lg:bar', 'xl:bar'],
     ],
   ];
   it.each(responsivePropsCases)(
-    "renders responsive classNames when prop passed as %s with %s",
+    'renders responsive classNames when prop passed as %s with %s',
     (type, testCase, prop, classNames) => {
       expect(generateResponsiveClassNames(generateClass, prop)).toEqual(
         classNames

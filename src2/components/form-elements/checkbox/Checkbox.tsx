@@ -1,23 +1,23 @@
-import * as React from "react";
-import classNames from "classnames";
-import generateRandomString from "../../../js/generateRandomString";
-import { __DEV__, invariant } from "../../utils";
-import Text from "../../text/Text";
-import { CheckIcon, IndeterminateIcon } from "./CheckboxIcon";
-import ErrorMessage from "../ErrorMessage";
-import useIsFirstRender from "../../utils/useIsFirstRender";
-type CheckboxColorType = "dark" | "light";
-type CheckboxLabelSizeType = "medium" | "small";
+import * as React from 'react';
+import classNames from 'classnames';
+import generateRandomString from '../../../js/generateRandomString';
+import {__DEV__, invariant} from '../../utils';
+import Text from '../../text/Text';
+import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
+import ErrorMessage from '../ErrorMessage';
+import useIsFirstRender from '../../utils/useIsFirstRender';
+type CheckboxColorType = 'dark' | 'light';
+type CheckboxLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
   CSSStyleDeclaration & {
-    "--checkboxColor"?: string;
-    "--checkboxHoverColor"?: string;
-    "--checkboxIconFillColor"?: string;
-    "--checkboxLabelColor"?: string;
-    "--checkboxCheckedColor"?: string;
-    "--checkboxInvalidColor"?: string;
-    "--checkboxInvalidHoverColor"?: string;
-    "--checkboxInvalidIconFillColor"?: string;
+    '--checkboxColor'?: string;
+    '--checkboxHoverColor'?: string;
+    '--checkboxIconFillColor'?: string;
+    '--checkboxLabelColor'?: string;
+    '--checkboxCheckedColor'?: string;
+    '--checkboxInvalidColor'?: string;
+    '--checkboxInvalidHoverColor'?: string;
+    '--checkboxInvalidIconFillColor'?: string;
   }
 >;
 export type CheckboxPropsType = {
@@ -131,34 +131,34 @@ export type CheckboxPropsType = {
    * ID of a custom label, that describes the checkbox input.
    * @example <Checkbox aria-labelledby="my-custom-label" />
    */
-  "aria-labelledby"?: string;
+  'aria-labelledby'?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "checked"
-  | "children"
-  | "className"
-  | "color"
-  | "defaultChecked"
-  | "description"
-  | "disabled"
-  | "errorMessage"
-  | "id"
-  | "indeterminate"
-  | "invalid"
-  | "labelSize"
-  | "name"
-  | "onChange"
-  | "style"
-  | "required"
-  | "value"
-  | "undefined"
+  | 'checked'
+  | 'children'
+  | 'className'
+  | 'color'
+  | 'defaultChecked'
+  | 'description'
+  | 'disabled'
+  | 'errorMessage'
+  | 'id'
+  | 'indeterminate'
+  | 'invalid'
+  | 'labelSize'
+  | 'name'
+  | 'onChange'
+  | 'style'
+  | 'required'
+  | 'value'
+  | 'undefined'
 >;
 
 const Checkbox = ({
   checked,
   children,
   className,
-  color = "dark",
+  color = 'dark',
   defaultChecked = false,
   description,
   disabled = false,
@@ -166,17 +166,17 @@ const Checkbox = ({
   id,
   indeterminate = false,
   invalid = false,
-  labelSize = "medium",
+  labelSize = 'medium',
   required = false,
   name,
   onChange,
   style,
   value,
-  "aria-labelledby": ariaLabelledBy,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: CheckboxPropsType) => {
-  const { current: checkboxId } = React.useRef(
-    id === undefined || id === "" ? generateRandomString() : id
+  const {current: checkboxId} = React.useRef(
+    id === undefined || id === '' ? generateRandomString() : id
   );
   const isControlled = checked !== undefined;
   const [isChecked, setIsChecked] = React.useState(
@@ -194,8 +194,8 @@ const Checkbox = ({
     if (isControlled) setIsChecked(checked);
   }, [checked, isControlled]);
   const onInputChange = React.useCallback(
-    (e) => {
-      if (!isControlled) setIsChecked((val) => !val);
+    e => {
+      if (!isControlled) setIsChecked(val => !val);
       if (onChange) onChange(e);
     },
     [onChange, isControlled]
@@ -215,17 +215,17 @@ const Checkbox = ({
   const hasContent = description || (invalid && errorMessage);
   const hasLabel = children !== undefined && children !== null;
   const isInputOnly = !hasLabel && !hasContent;
-  const checkboxClass = classNames("sg-checkbox", className, {
-    "sg-checkbox--disabled": disabled,
+  const checkboxClass = classNames('sg-checkbox', className, {
+    'sg-checkbox--disabled': disabled,
     [`sg-checkbox--${String(color)}`]: color,
     [`sg-checkbox--with-padding`]: !isInputOnly,
   });
-  const labelClass = classNames("sg-checkbox__label", {
-    "sg-checkbox__label--with-padding-bottom": description || errorMessage,
+  const labelClass = classNames('sg-checkbox__label', {
+    'sg-checkbox__label--with-padding-bottom': description || errorMessage,
     [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
   });
-  const iconClass = classNames("sg-checkbox__icon", {
-    "sg-checkbox__icon--with-animation": shouldAnimate,
+  const iconClass = classNames('sg-checkbox__icon', {
+    'sg-checkbox__icon--with-animation': shouldAnimate,
   });
   const errorTextId = `${checkboxId}-errorText`;
   const descriptionId = `${checkboxId}-description`;
@@ -240,7 +240,7 @@ const Checkbox = ({
       ids.push(descriptionId);
     }
 
-    return ids.join(" ");
+    return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
   let checkboxIcon = null;
   if (isChecked && !indeterminate) checkboxIcon = <CheckIcon ref={iconRef} />;
@@ -251,7 +251,7 @@ const Checkbox = ({
         iconRef.current.getBoundingClientRect(); // force a reflow so checkbox icon gets painted and transition can be seen
 
         if (iconRef.current instanceof window.SVGElement) {
-          iconRef.current.style.strokeDashoffset = "0";
+          iconRef.current.style.strokeDashoffset = '0';
         }
       }
     });
@@ -272,7 +272,7 @@ const Checkbox = ({
             onChange={onInputChange}
             required={required}
             value={value}
-            aria-checked={indeterminate ? "mixed" : isChecked}
+            aria-checked={indeterminate ? 'mixed' : isChecked}
             aria-invalid={invalid ? true : undefined}
             aria-describedby={describedbyIds}
             aria-labelledby={ariaLabelledBy}
@@ -316,7 +316,7 @@ const Checkbox = ({
           {invalid && errorMessage && (
             <ErrorMessage
               id={errorTextId}
-              color={color === "light" ? "text-red-40" : undefined}
+              color={color === 'light' ? 'text-red-40' : undefined}
             >
               {errorMessage}
             </ErrorMessage>

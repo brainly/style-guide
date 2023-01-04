@@ -1,29 +1,29 @@
-import * as React from "react";
-import cx from "classnames";
-import { useBodyNoScroll } from "./useBodyNoScroll";
-import { useFocusTrap } from "./useFocusTrap";
-import DialogOverlay, { SLOTS } from "./DialogOverlay";
+import * as React from 'react';
+import cx from 'classnames';
+import {useBodyNoScroll} from './useBodyNoScroll';
+import {useFocusTrap} from './useFocusTrap';
+import DialogOverlay, {SLOTS} from './DialogOverlay';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
-  typeof window !== "undefined" &&
-  typeof window.TransitionEvent !== "undefined";
+  typeof window !== 'undefined' &&
+  typeof window.TransitionEvent !== 'undefined';
 
 export type DialogPropsType = Readonly<{
   open: boolean;
   children: React.ReactNode;
-  size?: "s" | "m" | "l" | "xl" | "fullscreen";
-  motionPreset?: "none" | "default";
-  "aria-labelledby"?: string;
-  "aria-label"?: string;
-  "aria-describedby"?: string;
-  "aria-description"?: string;
+  size?: 's' | 'm' | 'l' | 'xl' | 'fullscreen';
+  motionPreset?: 'none' | 'default';
+  'aria-labelledby'?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-description'?: string;
 
   /**
    * Specify the dialog scrolling behavior when
    * the content is longer than the viewport.
    */
-  scroll?: "inside" | "outside";
+  scroll?: 'inside' | 'outside';
   zIndex?: number | string;
 
   /**
@@ -33,9 +33,9 @@ export type DialogPropsType = Readonly<{
   onDismiss?: () => void;
   onEntryTransitionEnd?: () => void;
   onExitTransitionEnd?: () => void;
-  "data-testid"?: string;
-  position?: "center" | "top";
-  appearance?: "none" | "dialog";
+  'data-testid'?: string;
+  position?: 'center' | 'top';
+  appearance?: 'none' | 'dialog';
 }>;
 
 /**
@@ -44,10 +44,10 @@ export type DialogPropsType = Readonly<{
  * Dialog) and this is for documentation purposes.
  */
 Dialog.defaultProps = {
-  size: "m",
-  scroll: "outside",
-  position: "center",
-  appearance: "dialog",
+  size: 'm',
+  scroll: 'outside',
+  position: 'center',
+  appearance: 'dialog',
 } as Partial<DialogPropsType>;
 
 /**
@@ -57,20 +57,20 @@ Dialog.defaultProps = {
 function BaseDialog({
   open,
   children,
-  size = "m",
-  motionPreset = "default",
-  scroll = "outside",
-  "aria-labelledby": ariaLabelledBy,
-  "aria-label": ariaLabel,
-  "aria-describedby": ariaDescribedBy,
-  "aria-description": ariaDescription,
-  zIndex = "auto",
+  size = 'm',
+  motionPreset = 'default',
+  scroll = 'outside',
+  'aria-labelledby': ariaLabelledBy,
+  'aria-label': ariaLabel,
+  'aria-describedby': ariaDescribedBy,
+  'aria-description': ariaDescription,
+  zIndex = 'auto',
   onDismiss,
   onEntryTransitionEnd,
   onExitTransitionEnd,
-  "data-testid": dataTestId,
-  position = "center",
-  appearance = "dialog",
+  'data-testid': dataTestId,
+  position = 'center',
+  appearance = 'dialog',
 }: DialogPropsType) {
   const overlayRef = React.useRef(null);
   const containerRef = React.useRef(null);
@@ -84,7 +84,7 @@ function BaseDialog({
    * The name of transition with the longest duration, because
    * a component can have an animation of many properties.
    */
-  const lastTransitionName = exiting ? "opacity" : "transform";
+  const lastTransitionName = exiting ? 'opacity' : 'transform';
 
   /**
    * CSS3 transition requires a deferredOpen value to be one
@@ -99,7 +99,7 @@ function BaseDialog({
     isDialogHigherThanOverlay,
     setIsDialogHigherThanOverlay,
   ] = React.useState<boolean>(false);
-  const hasAnimations = supportsTransitions() && motionPreset !== "none";
+  const hasAnimations = supportsTransitions() && motionPreset !== 'none';
   const cleanupBodyNoScroll = useBodyNoScroll();
   const fireTransitionEndCallbacks = React.useCallback(() => {
     setHasFinishedTransition(true);
@@ -169,7 +169,7 @@ function BaseDialog({
   );
   const handleKeyUp = React.useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (onDismiss && event.key === "Escape") {
+      if (onDismiss && event.key === 'Escape') {
         onDismiss();
         event.stopPropagation();
       }
@@ -177,46 +177,46 @@ function BaseDialog({
     [onDismiss]
   );
   const overlayClass = cx(
-    "js-dialog",
-    "sg-dialog__overlay",
+    'js-dialog',
+    'sg-dialog__overlay',
     `sg-dialog__overlay--size-${size}`,
     `sg-dialog__overlay--motion-${motionPreset}`,
     {
-      "sg-dialog__overlay--scroll":
+      'sg-dialog__overlay--scroll':
         (isDialogHigherThanOverlay || hasFinishedTransition) &&
-        scroll === "outside",
-      "sg-dialog__overlay--open": deferredOpen,
-      "sg-dialog__overlay--fullscreen": size === "fullscreen",
-      "sg-dialog__overlay--space-top": position === "top",
+        scroll === 'outside',
+      'sg-dialog__overlay--open': deferredOpen,
+      'sg-dialog__overlay--fullscreen': size === 'fullscreen',
+      'sg-dialog__overlay--space-top': position === 'top',
     }
   );
   const containerClass = cx(
-    "sg-dialog__container",
+    'sg-dialog__container',
     `sg-dialog__container--motion-${motionPreset}`,
     {
-      "sg-dialog__container--fullscreen": size === "fullscreen",
-      "sg-dialog__container--scroll": scroll === "inside",
-      "sg-dialog__container--open": deferredOpen,
-      "sg-dialog__container--exiting": exiting,
-      "sg-dialog__container--top": position === "top",
-      "sg-dialog__container--appearance-dialog": appearance === "dialog",
-      "sg-dialog__container--fullscreen--motion-none":
-        size === "fullscreen" && motionPreset === "none",
-      "sg-dialog__container--fullscreen--motion-default":
-        size === "fullscreen" && motionPreset === "default",
+      'sg-dialog__container--fullscreen': size === 'fullscreen',
+      'sg-dialog__container--scroll': scroll === 'inside',
+      'sg-dialog__container--open': deferredOpen,
+      'sg-dialog__container--exiting': exiting,
+      'sg-dialog__container--top': position === 'top',
+      'sg-dialog__container--appearance-dialog': appearance === 'dialog',
+      'sg-dialog__container--fullscreen--motion-none':
+        size === 'fullscreen' && motionPreset === 'none',
+      'sg-dialog__container--fullscreen--motion-default':
+        size === 'fullscreen' && motionPreset === 'default',
     }
   );
   const childrenWithoutSlots = React.useMemo(
     () =>
       React.Children.toArray(children).filter(
-        (reactNode) => reactNode.type !== DialogOverlay
+        reactNode => reactNode.type !== DialogOverlay
       ),
     [children]
   );
   const childrenWithSlots = React.useMemo(
     () =>
       React.Children.toArray(children).filter(
-        (reactNode) => reactNode.type === DialogOverlay
+        reactNode => reactNode.type === DialogOverlay
       ),
     [children]
   );
@@ -224,8 +224,8 @@ function BaseDialog({
     () =>
       SLOTS.reduce((acc, next) => {
         childrenWithSlots
-          .filter((child) => child.props.slot === next)
-          .forEach((child) => {
+          .filter(child => child.props.slot === next)
+          .forEach(child => {
             if (!acc[next]) {
               acc[next] = [];
             }
@@ -251,14 +251,14 @@ function BaseDialog({
           {childrenBySlot.backdrop}
         </span>
       ) : null}
-      {SLOTS.filter((slot) => slot !== "backdrop").map((slot) => (
+      {SLOTS.filter(slot => slot !== 'backdrop').map(slot => (
         <div
           className={cx(
-            "sg-dialog-overlay-slot",
+            'sg-dialog-overlay-slot',
             `sg-dialog-overlay-slot--${slot}`,
             {
-              "sg-dialog-overlay-slot--hidden":
-                !childrenBySlot[slot] || size === "fullscreen",
+              'sg-dialog-overlay-slot--hidden':
+                !childrenBySlot[slot] || size === 'fullscreen',
             }
           )}
           key={slot}
@@ -293,7 +293,7 @@ function BaseDialog({
   );
 }
 
-function Dialog({ open, onExitTransitionEnd, ...otherProps }: DialogPropsType) {
+function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
   const [mounted, setMounted] = React.useState<boolean>(open);
 
   if (open && !mounted) {

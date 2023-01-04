@@ -1,45 +1,45 @@
-import * as React from "react";
-import cx from "classnames";
-import useReducedMotion from "../utils/useReducedMotion";
-import { useIsomorphicLayoutEffect } from "../utils/useIsomorphicLayoutEffect";
-import { createClassNamesRegistry } from "./classNamesRegistry";
-import { createCSSTransitionAnimator } from "./CSSTransitionAnimator";
-import { createEffect } from "./predefinedEffects";
-import type { PropertyObjectAnimatorType } from "./propertyObjectAnimator";
-import { getDebugOptions } from "./debug";
+import * as React from 'react';
+import cx from 'classnames';
+import useReducedMotion from '../utils/useReducedMotion';
+import {useIsomorphicLayoutEffect} from '../utils/useIsomorphicLayoutEffect';
+import {createClassNamesRegistry} from './classNamesRegistry';
+import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
+import {createEffect} from './predefinedEffects';
+import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
+import {getDebugOptions} from './debug';
 Transition.createEffect = createEffect;
 
-const isFillModeBackwards = (mode) => mode === "backwards" || mode === "both";
+const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 
-const isFillModeForwards = (mode) => mode === "forwards" || mode === "both";
+const isFillModeForwards = mode => mode === 'forwards' || mode === 'both';
 
 // https://github.com/jsdom/jsdom/issues/1781
 const supportsTransitions = () =>
-  typeof window !== "undefined" &&
-  typeof window.TransitionEvent !== "undefined";
+  typeof window !== 'undefined' &&
+  typeof window.TransitionEvent !== 'undefined';
 
-export type PredefinedEasingType = "regular" | "entry" | "exit" | "linear";
+export type PredefinedEasingType = 'regular' | 'entry' | 'exit' | 'linear';
 export type PredefinedDurationType =
-  | "instant"
-  | "quick1"
-  | "quick2"
-  | "moderate1"
-  | "moderate2"
-  | "gentle1"
-  | "gentle2";
+  | 'instant'
+  | 'quick1'
+  | 'quick2'
+  | 'moderate1'
+  | 'moderate2'
+  | 'gentle1'
+  | 'gentle2';
 export type PredefinedTranslateType =
-  | "xxs"
-  | "xs"
-  | "s"
-  | "m"
-  | "l"
-  | "xl"
-  | "-xxs"
-  | "-xs"
-  | "-s"
-  | "-m"
-  | "-l"
-  | "-xl";
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | '-xxs'
+  | '-xs'
+  | '-s'
+  | '-m'
+  | '-l'
+  | '-xl';
 type TimingPropsType = Readonly<{
   /**
    * The numerical value is expressed in milliseconds [ms].
@@ -77,27 +77,27 @@ export type PropertyObjectType = Readonly<
          */
         scaleY?: number;
         origin?:
-          | "center"
-          | "left top"
-          | "left bottom"
-          | "right top"
-          | "right bottom";
+          | 'center'
+          | 'left top'
+          | 'left bottom'
+          | 'right top'
+          | 'right bottom';
       }
     >;
     width?:
-      | "auto"
+      | 'auto'
       | number
       | Readonly<
           TimingPropsType & {
-            value: "auto" | number;
+            value: 'auto' | number;
           }
         >;
     height?:
-      | "auto"
+      | 'auto'
       | number
       | Readonly<
           TimingPropsType & {
-            value: "auto" | number;
+            value: 'auto' | number;
           }
         >;
     opacity?:
@@ -136,7 +136,7 @@ export type TransitionPropsType = Readonly<{
    *    as soon as possible, mounting component earlier and before the delay,
    * - `both` follows the rules for both forwards and backwards.
    */
-  fillMode?: "none" | "forwards" | "backwards" | "both";
+  fillMode?: 'none' | 'forwards' | 'backwards' | 'both';
 
   /**
    * Makes a component "inline" without a line-break after
@@ -154,7 +154,7 @@ function BaseTransition({
   active,
   effect,
   delay = 0,
-  fillMode = "none",
+  fillMode = 'none',
   inline,
   className,
   children,
@@ -164,7 +164,7 @@ function BaseTransition({
   const containerRef = React.useRef(null);
   const prefersReducedMotion = useReducedMotion();
   const currentEffect = React.useMemo(() => {
-    if (typeof effect === "function") {
+    if (typeof effect === 'function') {
       return effect(prefersReducedMotion);
     }
 
@@ -175,10 +175,10 @@ function BaseTransition({
     () => createCSSTransitionAnimator(classNamesRegistry),
     [classNamesRegistry]
   );
-  const { outlines } = getDebugOptions();
-  const baseClassName = cx("sg-transition", className, {
-    "sg-transition--inline": inline,
-    "sg-transition--outlines": outlines,
+  const {outlines} = getDebugOptions();
+  const baseClassName = cx('sg-transition', className, {
+    'sg-transition--inline': inline,
+    'sg-transition--outlines': outlines,
   });
   useIsomorphicLayoutEffect(() => {
     /**
@@ -188,7 +188,7 @@ function BaseTransition({
      * also be imperative. The registry synchronizes them
      * without affecting the animation.
      */
-    classNamesRegistry.register("base", baseClassName || "");
+    classNamesRegistry.register('base', baseClassName || '');
     const container = containerRef.current;
 
     if (container) {
@@ -232,7 +232,7 @@ function BaseTransition({
    * issues while using a regular useEffect hook.
    */
   useIsomorphicLayoutEffect(() => {
-    const { speed } = getDebugOptions();
+    const {speed} = getDebugOptions();
     const currentProps = {
       active,
       effect: currentEffect,
@@ -317,7 +317,7 @@ function BaseTransition({
 export default function Transition({
   active,
   delay = 0,
-  fillMode = "none",
+  fillMode = 'none',
   onTransitionEnd,
   ...otherProps
 }: TransitionPropsType) {
@@ -332,7 +332,7 @@ export default function Transition({
       if (canMountBaseComponent) {
         mountBaseComponent();
       } else {
-        const { speed } = getDebugOptions();
+        const {speed} = getDebugOptions();
         const timeoutId = setTimeout(mountBaseComponent, delay / speed);
         return () => clearTimeout(timeoutId);
       }

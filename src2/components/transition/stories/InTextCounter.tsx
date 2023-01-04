@@ -1,27 +1,27 @@
-import * as React from "react";
-import Text from "../../text/Text";
-import Transition from "../Transition";
+import * as React from 'react';
+import Text from '../../text/Text';
+import Transition from '../Transition';
 const slideFadeInEffect = {
   initial: {
     opacity: 0,
     transform: {
-      translateY: "-s",
+      translateY: '-s',
     },
   },
   animate: {
     opacity: 1,
-    duration: "gentle2",
-    easing: "entry",
+    duration: 'gentle2',
+    easing: 'entry',
   },
 };
 const slideFadeOutEffect = {
   animate: {
     opacity: 0,
     transform: {
-      translateY: "s",
+      translateY: 's',
     },
-    duration: "gentle2",
-    easing: "exit",
+    duration: 'gentle2',
+    easing: 'exit',
   },
 };
 const cycle = [slideFadeInEffect, slideFadeOutEffect];
@@ -33,7 +33,7 @@ export const InTextCounter = () => {
   const [index, setIndex] = React.useState(0);
   const currentEffect = cycle[index % cycle.length];
 
-  const handleTransitionEnd = (effect) => {
+  const handleTransitionEnd = effect => {
     setIndex(increment);
 
     // increase count value when the counter is hidden
@@ -52,7 +52,7 @@ export const InTextCounter = () => {
       <Text
         weight="bold"
         style={{
-          fontVariantNumeric: "tabular-nums",
+          fontVariantNumeric: 'tabular-nums',
         }}
         inherited
       >
@@ -60,7 +60,7 @@ export const InTextCounter = () => {
       </Text>
     </Transition>
   );
-  const users = count === 1 ? "user" : "users";
+  const users = count === 1 ? 'user' : 'users';
   return (
     <Text>
       Counters! {counter} {users} love them.
@@ -68,5 +68,5 @@ export const InTextCounter = () => {
   );
 };
 InTextCounter.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

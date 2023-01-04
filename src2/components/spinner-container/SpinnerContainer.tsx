@@ -1,13 +1,13 @@
-import * as React from "react";
-import Spinner from "../spinner/Spinner";
-import type { SpinnerColorType, SpinnerSizeType } from "../spinner/Spinner";
-import classnames from "classnames";
-export { SPINNER_SIZE, SPINNER_COLOR } from "../spinner/Spinner";
+import * as React from 'react';
+import Spinner from '../spinner/Spinner';
+import type {SpinnerColorType, SpinnerSizeType} from '../spinner/Spinner';
+import classnames from 'classnames';
+export {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 type AriaStatusLabelType = {
   loading?: string;
   loaded?: string;
 };
-export type AriaLiveType = "polite" | "assertive";
+export type AriaLiveType = 'polite' | 'assertive';
 export type SpinnerContainerPropsType = {
   loading?: boolean;
   color?: SpinnerColorType;
@@ -15,16 +15,16 @@ export type SpinnerContainerPropsType = {
   size?: SpinnerSizeType;
   children?: React.ReactNode;
   ariaStatusLabel?: AriaStatusLabelType;
-  "aria-live"?: AriaLiveType;
+  'aria-live'?: AriaLiveType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "loading"
-  | "color"
-  | "fullWidth"
-  | "size"
-  | "children"
-  | "ariaStatusLabel"
-  | "undefined"
+  | 'loading'
+  | 'color'
+  | 'fullWidth'
+  | 'size'
+  | 'children'
+  | 'ariaStatusLabel'
+  | 'undefined'
 >;
 
 const SpinnerContainer = ({
@@ -34,10 +34,10 @@ const SpinnerContainer = ({
   size,
   children,
   ariaStatusLabel = {
-    loaded: "content loaded",
-    loading: "content is loading",
+    loaded: 'content loaded',
+    loading: 'content is loading',
   },
-  "aria-live": ariaLive = "assertive",
+  'aria-live': ariaLive = 'assertive',
   ...props
 }: SpinnerContainerPropsType) => {
   const childrenWithAriaBusy = React.useMemo(() => {
@@ -45,10 +45,10 @@ const SpinnerContainer = ({
       return children;
     }
 
-    return React.Children.map(children, (child) => {
+    return React.Children.map(children, child => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
-          "aria-busy": loading,
+          'aria-busy': loading,
         });
       }
 
@@ -58,8 +58,8 @@ const SpinnerContainer = ({
   return (
     <div
       {...props}
-      className={classnames("sg-spinner-container", {
-        "sg-spinner-container--full-width": fullWidth,
+      className={classnames('sg-spinner-container', {
+        'sg-spinner-container--full-width': fullWidth,
       })}
     >
       {loading ? (

@@ -1,65 +1,65 @@
-import * as React from "react";
-import classNames from "classnames";
+import * as React from 'react';
+import classNames from 'classnames';
 import {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
-} from "./FlexConsts";
-import { generateResponsiveClassNames } from "../utils/responsive-props";
-import type { ResponsivePropType } from "../utils/responsive-props";
+} from './FlexConsts';
+import {generateResponsiveClassNames} from '../utils/responsive-props';
+import type {ResponsivePropType} from '../utils/responsive-props';
 type FlexContainerType =
-  | "a"
-  | "article"
-  | "aside"
-  | "div"
-  | "footer"
-  | "form"
-  | "h1"
-  | "h2"
-  | "h3"
-  | "h4"
-  | "h5"
-  | "h6"
-  | "header"
-  | "input"
-  | "li"
-  | "main"
-  | "nav"
-  | "ol"
-  | "p"
-  | "pre"
-  | "section"
-  | "span"
-  | "textarea"
-  | "ul";
-type FlexDirectionType = "column" | "column-reverse" | "row" | "row-reverse";
+  | 'a'
+  | 'article'
+  | 'aside'
+  | 'div'
+  | 'footer'
+  | 'form'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'header'
+  | 'input'
+  | 'li'
+  | 'main'
+  | 'nav'
+  | 'ol'
+  | 'p'
+  | 'pre'
+  | 'section'
+  | 'span'
+  | 'textarea'
+  | 'ul';
+type FlexDirectionType = 'column' | 'column-reverse' | 'row' | 'row-reverse';
 type FlexJustifyValuesType =
-  | "center"
-  | "flex-start"
-  | "flex-end"
-  | "baseline"
-  | "space-between"
-  | "space-around"
-  | "space-evenly"
-  | "stretch";
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'space-between'
+  | 'space-around'
+  | 'space-evenly'
+  | 'stretch';
 type FlexAlignmentValuesType =
-  | "center"
-  | "flex-start"
-  | "flex-end"
-  | "baseline"
-  | "stretch";
+  | 'center'
+  | 'flex-start'
+  | 'flex-end'
+  | 'baseline'
+  | 'stretch';
 type FlexMarginsType =
-  | "none"
-  | "xxs"
-  | "xs"
-  | "s"
-  | "m"
-  | "l"
-  | "xl"
-  | "xxl"
-  | "xxxl"
-  | "xxxxl";
+  | 'none'
+  | 'xxs'
+  | 'xs'
+  | 's'
+  | 'm'
+  | 'l'
+  | 'xl'
+  | 'xxl'
+  | 'xxxl'
+  | 'xxxxl';
 export {
   FLEX_DIRECTION,
   FLEX_JUSTIFY_VALUES,
@@ -242,29 +242,29 @@ export type FlexPropsType = {
   marginLeft?: ResponsivePropType<FlexMarginsType>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "children"
-  | "htmlTag"
-  | "className"
-  | "fullWidth"
-  | "fullHeight"
-  | "noShrink"
-  | "direction"
-  | "justifyContent"
-  | "alignContent"
-  | "alignItems"
-  | "alignSelf"
-  | "inlineFlex"
-  | "wrap"
-  | "wrapReverse"
-  | "margin"
-  | "marginTop"
-  | "marginRight"
-  | "marginBottom"
-  | "marginLeft"
+  | 'children'
+  | 'htmlTag'
+  | 'className'
+  | 'fullWidth'
+  | 'fullHeight'
+  | 'noShrink'
+  | 'direction'
+  | 'justifyContent'
+  | 'alignContent'
+  | 'alignItems'
+  | 'alignSelf'
+  | 'inlineFlex'
+  | 'wrap'
+  | 'wrapReverse'
+  | 'margin'
+  | 'marginTop'
+  | 'marginRight'
+  | 'marginBottom'
+  | 'marginLeft'
 >;
 const Flex = React.forwardRef((props: FlexPropsType, ref) => {
   const {
-    htmlTag: Container = "div",
+    htmlTag: Container = 'div',
     fullWidth,
     fullHeight,
     noShrink,
@@ -286,41 +286,41 @@ const Flex = React.forwardRef((props: FlexPropsType, ref) => {
     ...otherProps
   } = props;
   const flexClass = classNames(
-    "sg-flex",
+    'sg-flex',
     ...generateResponsiveClassNames(
-      (propValue) =>
+      propValue =>
         propValue === true ? `sg-flex--full-width` : `sg-flex--auto-width`,
       fullWidth
     ),
     ...generateResponsiveClassNames(
-      (propValue) =>
+      propValue =>
         propValue === true ? `sg-flex--full-height` : `sg-flex--auto-height`,
       fullHeight
     ),
     ...generateResponsiveClassNames(
-      (propValue) =>
+      propValue =>
         propValue === true ? `sg-flex--no-shrink` : `sg-flex--shrink-1`,
       noShrink
     ),
     ...generateResponsiveClassNames(
-      (propValue) => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
+      propValue => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
       inlineFlex
     ),
-    ...generateResponsiveClassNames((direction) => {
+    ...generateResponsiveClassNames(direction => {
       if (direction === FLEX_DIRECTION.COLUMN) {
-        return "sg-flex--column";
+        return 'sg-flex--column';
       } else if (direction === FLEX_DIRECTION.COLUMN_REVERSE) {
-        return "sg-flex--column-reverse";
+        return 'sg-flex--column-reverse';
       } else if (direction === FLEX_DIRECTION.ROW) {
-        return "sg-flex--row";
+        return 'sg-flex--row';
       } else if (direction === FLEX_DIRECTION.ROW_REVERSE) {
-        return "sg-flex--row-reverse";
+        return 'sg-flex--row-reverse';
       } else {
-        return "sg-flex--row";
+        return 'sg-flex--row';
       }
     }, direction),
     ...generateResponsiveClassNames(
-      (propValue) => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
+      propValue => (propValue === true ? `sg-flex--inline` : `sg-flex--flex`),
       inlineFlex
     ),
     ...generateResponsiveClassNames(
@@ -328,43 +328,43 @@ const Flex = React.forwardRef((props: FlexPropsType, ref) => {
       justifyContent
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--align-items-${propValue}`,
+      propValue => `sg-flex--align-items-${propValue}`,
       alignItems
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--align-content-${propValue}`,
+      propValue => `sg-flex--align-content-${propValue}`,
       alignContent
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--align-self-${propValue}`,
+      propValue => `sg-flex--align-self-${propValue}`,
       alignSelf
     ),
     ...generateResponsiveClassNames(
-      (propValue) => (propValue ? "sg-flex--wrap" : "sg-flex--nowrap"),
+      propValue => (propValue ? 'sg-flex--wrap' : 'sg-flex--nowrap'),
       wrap
     ),
     ...generateResponsiveClassNames(
-      (propValue) => (propValue ? "sg-flex--wrap-reverse" : "sg-flex--nowrap"),
+      propValue => (propValue ? 'sg-flex--wrap-reverse' : 'sg-flex--nowrap'),
       wrapReverse
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--margin-${propValue}`,
+      propValue => `sg-flex--margin-${propValue}`,
       margin
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--margin-top-${propValue}`,
+      propValue => `sg-flex--margin-top-${propValue}`,
       marginTop
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--margin-right-${propValue}`,
+      propValue => `sg-flex--margin-right-${propValue}`,
       marginRight
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--margin-bottom-${propValue}`,
+      propValue => `sg-flex--margin-bottom-${propValue}`,
       marginBottom
     ),
     ...generateResponsiveClassNames(
-      (propValue) => `sg-flex--margin-left-${propValue}`,
+      propValue => `sg-flex--margin-left-${propValue}`,
       marginLeft
     ),
     className
@@ -375,5 +375,5 @@ const Flex = React.forwardRef((props: FlexPropsType, ref) => {
     </Container>
   );
 });
-Flex.displayName = "Flex";
+Flex.displayName = 'Flex';
 export default Flex;

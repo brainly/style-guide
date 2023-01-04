@@ -22,16 +22,16 @@ export type ResponsivePropType<T> =
       lg?: T;
       xl?: T;
     }>;
-const breakpoints = ["sm", "md", "lg", "xl"];
-const responsivePrefixes = ["", "md", "lg", "xl"];
+const breakpoints = ['sm', 'md', 'lg', 'xl'];
+const responsivePrefixes = ['', 'md', 'lg', 'xl'];
 export function mergeResponsiveProps(
   props: Array<ResponsivePropConjuctionType>
 ) {
   // convert to objects
-  const propObjects = props.map((prop) => {
+  const propObjects = props.map(prop => {
     if (prop === null || prop === undefined) {
       return {};
-    } else if (typeof prop !== "object") {
+    } else if (typeof prop !== 'object') {
       return {
         sm: prop,
         md: prop,
@@ -50,14 +50,14 @@ export function mergeResponsiveProps(
         {}
       );
     } else {
-      return { ...prop };
+      return {...prop};
     }
   });
   // fill empty breakpoints when other props have values
   let lastRowValues = [];
-  breakpoints.forEach((breakpoint) => {
+  breakpoints.forEach(breakpoint => {
     const valueBreakpointExist = propObjects.some(
-      (propObject) =>
+      propObject =>
         propObject[breakpoint] !== null && propObject[breakpoint] !== undefined
     );
 
@@ -70,20 +70,20 @@ export function mergeResponsiveProps(
       });
     }
 
-    lastRowValues = propObjects.map((propObject) => propObject[breakpoint]);
+    lastRowValues = propObjects.map(propObject => propObject[breakpoint]);
   });
   breakpoints.forEach;
   // merge
   return breakpoints.reduce((acc, breakpoint) => {
     if (
       propObjects.every(
-        (propObject) =>
+        propObject =>
           propObject[breakpoint] !== null &&
           propObject[breakpoint] !== undefined
       )
     ) {
       acc[breakpoint] = propObjects.map<unknown>(
-        (propObject) => propObject[breakpoint]
+        propObject => propObject[breakpoint]
       );
     }
 
@@ -98,7 +98,7 @@ export function generateResponsiveClassNames<T>(
     return [];
   }
 
-  if (typeof prop !== "object") {
+  if (typeof prop !== 'object') {
     return [createBaseClassName(prop)];
   }
 
@@ -112,7 +112,7 @@ export function generateResponsiveClassNames<T>(
         } else {
           acc.push(
             `${
-              responsivePrefixes[index] ? `${responsivePrefixes[index]}:` : ""
+              responsivePrefixes[index] ? `${responsivePrefixes[index]}:` : ''
             }${createBaseClassName(propBreakpointValue)}`
           );
           return acc;
@@ -123,16 +123,16 @@ export function generateResponsiveClassNames<T>(
   }
 
   return breakpoints
-    .map((breakpoint) => {
+    .map(breakpoint => {
       if (prop[breakpoint] === null || prop[breakpoint] === undefined) {
-        return "";
+        return '';
       } else if (!createBaseClassName(prop[breakpoint])) {
-        return "";
+        return '';
       } else {
-        return breakpoint === "sm"
+        return breakpoint === 'sm'
           ? createBaseClassName(prop[breakpoint])
           : `${breakpoint}:${createBaseClassName(prop[breakpoint])}`;
       }
     })
-    .filter((className) => className);
+    .filter(className => className);
 }

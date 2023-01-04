@@ -1,16 +1,16 @@
-import * as React from "react";
-import Transition from "../Transition";
-import Flex from "../../flex/Flex";
-import Button from "../../buttons/Button";
-import Icon from "../../icons/Icon";
-import DummyBox from "./common/DummyBox";
-import Stage from "./common/Stage";
-const colorsOrder = ["red", "yellow", "blue"];
+import * as React from 'react';
+import Transition from '../Transition';
+import Flex from '../../flex/Flex';
+import Button from '../../buttons/Button';
+import Icon from '../../icons/Icon';
+import DummyBox from './common/DummyBox';
+import Stage from './common/Stage';
+const colorsOrder = ['red', 'yellow', 'blue'];
 
-const createSlideInEffect = (direction: "left" | "right") => ({
+const createSlideInEffect = (direction: 'left' | 'right') => ({
   initial: {
     transform: {
-      translateX: direction === "left" ? "m" : "-m",
+      translateX: direction === 'left' ? 'm' : '-m',
     },
     opacity: 0,
   },
@@ -19,8 +19,8 @@ const createSlideInEffect = (direction: "left" | "right") => ({
       translateX: 0,
     },
     opacity: 1,
-    duration: "moderate1",
-    easing: "entry",
+    duration: 'moderate1',
+    easing: 'entry',
   },
 });
 
@@ -28,14 +28,14 @@ const createSlideInEffect = (direction: "left" | "right") => ({
  * An effect with only the "animate" phase always
  * performs a transition from the current position.
  */
-const createSlideOutEffect = (direction: "left" | "right") => ({
+const createSlideOutEffect = (direction: 'left' | 'right') => ({
   animate: {
     transform: {
-      translateX: direction === "left" ? "-m" : "m",
+      translateX: direction === 'left' ? '-m' : 'm',
     },
     opacity: 0,
-    duration: "moderate1",
-    easing: "exit",
+    duration: 'moderate1',
+    easing: 'exit',
   },
 });
 
@@ -46,7 +46,7 @@ export const SharedAxis = () => {
 
   const changeView = (viewIndex: number) => {
     if (viewIndex !== currentViewIndex) {
-      const direction = currentViewIndex < viewIndex ? "left" : "right";
+      const direction = currentViewIndex < viewIndex ? 'left' : 'right';
       // hide previous view
       setEffect(createSlideOutEffect(direction));
 
@@ -71,7 +71,7 @@ export const SharedAxis = () => {
         {colorsOrder.map((color, index) => (
           <Button
             key={color}
-            variant={index === currentViewIndex ? "solid-light" : "transparent"}
+            variant={index === currentViewIndex ? 'solid-light' : 'transparent'}
             icon={<Icon type="circle" color={buttonIconColors[color]} />}
             onClick={() => changeView(index)}
             iconOnly
@@ -86,10 +86,10 @@ export const SharedAxis = () => {
   );
 };
 const buttonIconColors = {
-  red: "icon-red-50",
-  yellow: "icon-yellow-50",
-  blue: "icon-blue-50",
+  red: 'icon-red-50',
+  yellow: 'icon-yellow-50',
+  blue: 'icon-blue-50',
 };
 SharedAxis.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

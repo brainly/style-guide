@@ -1,6 +1,6 @@
-import axe from "./axeSetup";
-import React from "react";
-import { render } from "@testing-library/react";
+import axe from './axeSetup';
+import React from 'react';
+import {render} from '@testing-library/react';
 /**
  * Wrapper for jest-axe
  *

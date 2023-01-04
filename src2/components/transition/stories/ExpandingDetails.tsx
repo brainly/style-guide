@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
-import * as React from "react";
-import Box from "../../box/Box";
-import Text from "../../text/Text";
-import Button from "../../buttons/Button";
-import Transition from "../Transition";
-import Stage from "./common/Stage";
-import { useIsomorphicLayoutEffect } from "../../utils/useIsomorphicLayoutEffect";
-import { useTransformationState } from "./common/useTransformationState";
+import * as React from 'react';
+import Box from '../../box/Box';
+import Text from '../../text/Text';
+import Button from '../../buttons/Button';
+import Transition from '../Transition';
+import Stage from './common/Stage';
+import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
+import {useTransformationState} from './common/useTransformationState';
 type ExampleDataType = Array<{
   color: string;
   shortContent: string;
@@ -78,7 +78,7 @@ const ExpandableBox = ({
     setAnimating(false);
 
     if (!expanded) {
-      wrapperFixedHeight.current = "auto";
+      wrapperFixedHeight.current = 'auto';
     }
   };
 
@@ -101,10 +101,10 @@ const ExpandableBox = ({
         animate: {
           transform: {
             translateY: 0,
-            origin: "left top",
+            origin: 'left top',
           },
           height: transformation.currentSnapshot?.height,
-          duration: "gentle1",
+          duration: 'gentle1',
         },
       },
       appearingContent: {
@@ -113,8 +113,8 @@ const ExpandableBox = ({
         },
         animate: {
           opacity: 1,
-          duration: "gentle2",
-          easing: "entry",
+          duration: 'gentle2',
+          easing: 'entry',
         },
       },
     });
@@ -178,7 +178,7 @@ const ExpandableBoxContent = ({
       <Button
         variant="solid"
         style={{
-          position: "absolute",
+          position: 'absolute',
           left: 24,
           bottom: 24,
           right: 24,
@@ -193,9 +193,9 @@ const ExpandableBoxContent = ({
 
 const exampleData: ExampleDataType = [
   {
-    color: "red",
+    color: 'red',
     shortContent:
-      "A hive of bees contains 27 bees when it is first discovered. After 3 days, there are 36 bees. It is determined that the population of bees increases exponentially.",
+      'A hive of bees contains 27 bees when it is first discovered. After 3 days, there are 36 bees. It is determined that the population of bees increases exponentially.',
     fullContent: (
       <>
         <Text weight="bold" inherited>
@@ -217,9 +217,9 @@ const exampleData: ExampleDataType = [
     ),
   },
   {
-    color: "yellow",
+    color: 'yellow',
     shortContent:
-      "Louis Napoleon Bonaparte was the nephew of Napoleon Bonaparte.",
+      'Louis Napoleon Bonaparte was the nephew of Napoleon Bonaparte.',
     fullContent: (
       <>
         <Text weight="bold" inherited>
@@ -241,9 +241,9 @@ const exampleData: ExampleDataType = [
     ),
   },
   {
-    color: "blue",
+    color: 'blue',
     shortContent:
-      "Biology is a branch of science that studies about life and living organisms. It includes physical and chemical structure, development, and evolution of all living things. It seeks to answer questions about all living things.",
+      'Biology is a branch of science that studies about life and living organisms. It includes physical and chemical structure, development, and evolution of all living things. It seeks to answer questions about all living things.',
     fullContent: (
       <>
         <Text weight="bold" inherited>
@@ -267,7 +267,7 @@ const exampleData: ExampleDataType = [
 const getElementStyle = (expanded, animating) => {
   if (expanded) {
     return {
-      position: "absolute",
+      position: 'absolute',
       zIndex: 1,
       top: 16,
       left: 16,
@@ -278,37 +278,37 @@ const getElementStyle = (expanded, animating) => {
 
   if (animating) {
     return {
-      height: "100%",
-      position: "relative",
+      height: '100%',
+      position: 'relative',
       zIndex: 1,
     };
   }
 
   return {
-    cursor: "pointer",
+    cursor: 'pointer',
   };
 };
 
-const getBoxStylingProps = (color) => {
+const getBoxStylingProps = color => {
   const colorsMap = {
     red: {
-      backgroundColor: "red-30",
-      borderColor: "red-40",
+      backgroundColor: 'red-30',
+      borderColor: 'red-40',
     },
     yellow: {
-      backgroundColor: "yellow-20",
-      borderColor: "yellow-40",
+      backgroundColor: 'yellow-20',
+      borderColor: 'yellow-40',
     },
     blue: {
-      backgroundColor: "blue-30",
-      borderColor: "blue-40",
+      backgroundColor: 'blue-30',
+      borderColor: 'blue-40',
     },
   };
   return {
     style: {
-      height: "100%",
-      position: "relative",
-      overflow: "hidden",
+      height: '100%',
+      position: 'relative',
+      overflow: 'hidden',
     },
     color: colorsMap[color].backgroundColor,
     borderColor: colorsMap[color].borderColor,
@@ -317,5 +317,5 @@ const getBoxStylingProps = (color) => {
 };
 
 ExpandingDetails.parameters = {
-  layout: "centered",
+  layout: 'centered',
 };

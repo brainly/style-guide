@@ -1,10 +1,10 @@
-import * as React from "react";
-import ActionList, { DIRECTION, ALIGNMENT } from "./ActionList";
-import ActionListHole from "./ActionListHole";
-import { shallow } from "enzyme";
-import Button from "buttons/Button";
-describe("ActionList", () => {
-  test("render", () => {
+import * as React from 'react';
+import ActionList, {DIRECTION, ALIGNMENT} from './ActionList';
+import ActionListHole from './ActionListHole';
+import {shallow} from 'enzyme';
+import Button from 'buttons/Button';
+describe('ActionList', () => {
+  test('render', () => {
     const actionList = shallow(
       <ActionList>
         <ActionListHole>
@@ -15,46 +15,46 @@ describe("ActionList", () => {
         </ActionListHole>
       </ActionList>
     );
-    expect(actionList.hasClass("sg-actions-list")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list')).toEqual(true);
   });
-  test("to-right", () => {
+  test('to-right', () => {
     const actionList = shallow(<ActionList direction={DIRECTION.TO_RIGHT} />);
-    expect(actionList.hasClass("sg-actions-list--to-right")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
   });
-  test("to-top", () => {
+  test('to-top', () => {
     const actionList = shallow(<ActionList toTop />);
-    expect(actionList.hasClass("sg-actions-list--to-top")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
   });
-  test("baseline", () => {
+  test('baseline', () => {
     const actionList = shallow(<ActionList align={ALIGNMENT.BASELINE} />);
-    expect(actionList.hasClass("sg-actions-list--align-baseline")).toEqual(
+    expect(actionList.hasClass('sg-actions-list--align-baseline')).toEqual(
       true
     );
   });
-  test("centered", () => {
+  test('centered', () => {
     const actionList = shallow(<ActionList direction={DIRECTION.CENTERED} />);
-    expect(actionList.hasClass("sg-actions-list--centered")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
   });
-  test("space-between", () => {
+  test('space-between', () => {
     const actionList = shallow(
       <ActionList direction={DIRECTION.SPACE_BETWEEN} />
     );
-    expect(actionList.hasClass("sg-actions-list--space-between")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);
   });
-  test("space-around", () => {
+  test('space-around', () => {
     const actionList = shallow(
       <ActionList direction={DIRECTION.SPACE_AROUND} />
     );
-    expect(actionList.hasClass("sg-actions-list--space-around")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--space-around')).toEqual(true);
   });
-  test("space-evenly", () => {
+  test('space-evenly', () => {
     const actionList = shallow(
       <ActionList direction={DIRECTION.SPACE_EVENLY} />
     );
-    expect(actionList.hasClass("sg-actions-list--space-evenly")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--space-evenly')).toEqual(true);
   });
-  test("no-wrap", () => {
+  test('no-wrap', () => {
     const actionList = shallow(<ActionList noWrap />);
-    expect(actionList.hasClass("sg-actions-list--no-wrap")).toEqual(true);
+    expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
   });
 });

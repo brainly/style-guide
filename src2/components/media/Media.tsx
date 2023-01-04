@@ -1,12 +1,12 @@
-import * as React from "react";
-import classnames from "classnames";
+import * as React from 'react';
+import classnames from 'classnames';
 export const COLORS_MAP = {
-  white: "white",
-  transparent: "transparent",
-  "blue-20": "blue-20",
-  "gray-20": "gray-20",
+  white: 'white',
+  transparent: 'transparent',
+  'blue-20': 'blue-20',
+  'gray-20': 'gray-20',
 };
-type ColorType = "white" | "transparent" | "blue-20" | "gray-20";
+type ColorType = 'white' | 'transparent' | 'blue-20' | 'gray-20';
 export type MediaPropsType = {
   aside: React.ReactNode;
   contentArray: Array<React.ReactNode>;
@@ -19,15 +19,15 @@ export type MediaPropsType = {
   color?: ColorType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | "aside"
-  | "contentArray"
-  | "toRight"
-  | "clickable"
-  | "noPadding"
-  | "small"
-  | "spacedBottom"
-  | "className"
-  | "color"
+  | 'aside'
+  | 'contentArray'
+  | 'toRight'
+  | 'clickable'
+  | 'noPadding'
+  | 'small'
+  | 'spacedBottom'
+  | 'className'
+  | 'color'
 >;
 
 const Media = (props: MediaPropsType) => {
@@ -40,22 +40,22 @@ const Media = (props: MediaPropsType) => {
     noPadding,
     small,
     spacedBottom,
-    color = "white",
+    color = 'white',
     ...restProps
   } = props;
   const mediaClassName = classnames(
-    "sg-media",
+    'sg-media',
     {
-      "sg-media--to-right": toRight,
-      "sg-media--clickable": clickable,
-      "sg-media--no-padding": noPadding,
+      'sg-media--to-right': toRight,
+      'sg-media--clickable': clickable,
+      'sg-media--no-padding': noPadding,
       [`sg-media--${String(color)}`]: color,
     },
     className
   );
-  const contentClassName = classnames("sg-media__content", {
-    "sg-media__content--small": small,
-    "sg-media__content--spaced-bottom": spacedBottom,
+  const contentClassName = classnames('sg-media__content', {
+    'sg-media__content--small': small,
+    'sg-media__content--spaced-bottom': spacedBottom,
   });
   return (
     <div {...restProps} className={mediaClassName}>
