@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 import {__DEV__, invariant} from '../utils';
-import {ICON_COLOR} from '../icons/Icon';
 
 type RatingSizeType = 's' | 'xs';
 
