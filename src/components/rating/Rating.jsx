@@ -174,7 +174,8 @@ class Rating extends React.Component<RatingPropsType> {
     }
 
     return (
-      <div className={ratingClass} aria-label={label} role="group">
+      <div className={ratingClass}>
+        <span className="sg-visually-hidden">{label}</span>
         <p className="sg-rate-box__rate">
           {!noLabel && <span aria-hidden>{rateString}</span>}
           {Boolean(rate) && (
