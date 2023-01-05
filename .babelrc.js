@@ -21,7 +21,7 @@ module.exports = api => {
     presets: [
       babelEnv({modules: false}),
       '@babel/preset-react',
-      '@babel/preset-flow',
+      '@babel/preset-typescript',
     ],
     plugins: [
       'codegen',
