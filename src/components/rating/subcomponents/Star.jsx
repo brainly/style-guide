@@ -13,7 +13,7 @@ export type StarPropsType = {
   active?: boolean,
   'aria-label'?: string,
   value?: number,
-  type: 'star' | 'star_outlined',
+  type?: 'star' | 'star_outlined',
   ...
 };
 
