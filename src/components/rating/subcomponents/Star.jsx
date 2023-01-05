@@ -13,6 +13,7 @@ export type StarPropsType = {
   active?: boolean,
   'aria-label'?: string,
   value?: number,
+  type: 'star' | 'star_outlined',
   ...
 };
 
@@ -23,6 +24,7 @@ const Star = ({
   active,
   'aria-label': label,
   value,
+  type = 'star',
   ...props
 }: StarPropsType) => {
   if (__DEV__) {
@@ -45,7 +47,7 @@ const Star = ({
         />
       )}
       <Icon
-        type="star"
+        type={type}
         size={size}
         color={ICON_COLOR.ADAPTIVE}
         className="sg-rate-box__star-icon"

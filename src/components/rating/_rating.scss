@@ -1,9 +1,8 @@
 @use 'sass:math';
 $rateHeight: componentSize(s);
-$rateStarColor: $gray-50;
+$rateStarColor: $icon-yellow-50;
 $rateStarCheckedColor: $icon-yellow-50;
-$rateStarActiveColor: $gray-40;
-$rateStarActiveCheckedColor: $yellow-40;
+$rateStarActiveColor: $icon-gray-50;
 $rateCounterColor: $gray-50;
 $rateFontSize: fontSize(obscure);
 $rateIconSize: componentSize(xs);
@@ -38,14 +37,20 @@ $includeHtml: false !default;
       }
 
       .sg-rate-box__stars-container:hover {
-        .sg-rate-box__filled-stars {
+        .sg-rate-box__background-stars {
           display: none;
+        }
+
+        .sg-rate-box__filled-stars {
+          width: 100% !important;
+          pointer-events: unset;
+          position: relative;
         }
       }
 
-      .sg-rate-box__background-stars {
+      .sg-rate-box__filled-stars {
         .sg-rate-box__star:hover ~ .sg-rate-box__star {
-          color: $rateStarColor;
+          color: $rateStarActiveColor;
         }
 
         &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
@@ -58,7 +63,7 @@ $includeHtml: false !default;
         }
 
         &:active:hover .sg-rate-box__star {
-          color: $rateStarActiveCheckedColor;
+          color: $rateStarCheckedColor;
           transition: none;
         }
       }
