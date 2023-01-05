@@ -1,0 +1,85 @@
+@use 'sass:math';
+.sg-dropdown {
+  position: relative;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: spacing(l);
+  height: spacing(l);
+  padding: 0 spacing(s);
+  font-size: fontSize(medium);
+  line-height: rhythm(math.div(5, 6));
+  border-radius: 50px;
+  outline: 0;
+  background-color: $gray-20;
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  border: 2px solid $gray-20;
+
+  &:hover {
+    border-color: mix($gray-40, $gray-20, 16%);
+    background-color: mix($gray-40, $gray-20, 16%);
+  }
+
+  &--opened {
+    background-color: $white;
+    border-color: $gray-40;
+
+    &:hover {
+      background-color: mix($white, $gray-10, 12%);
+    }
+
+    .sg-dropdown__items {
+      display: block;
+      margin-bottom: spacing(m);
+      opacity: 1;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__items {
+    display: none;
+    position: absolute;
+    top: auto;
+    bottom: spacing(m);
+    left: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-top: none;
+    border-radius: 20px;
+    background-color: $white;
+    box-shadow: $shadowSmall;
+    transition: background-color, box-shadow 0.2s;
+  }
+
+  &__item {
+    display: flex;
+    padding: calc(#{spacing(m)} / 2) #{spacing(m)};
+    color: $black;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $gray-20;
+    }
+
+    &:focus,
+    &:focus-visible {
+      outline-offset: -8px;
+    }
+  }
+
+  &__icon {
+    margin-left: spacing(xs);
+  }
+}

@@ -1,0 +1,153 @@
+@mixin image2x($image, $width: 'auto', $height: 'auto') {
+  @media (min-resolution: 144dpi) {
+    // on retina, use image that's scaled by 2
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+@mixin component() {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: rhythm(1);
+  min-height: rhythm(1);
+  margin: 0;
+}
+
+// this mixin allows inserting inline-based components without concerns about vertical dimension
+@mixin componentsContainer() {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+@mixin hole() {
+  &__hole {
+    @include componentsContainer();
+    height: 100%;
+    justify-content: center;
+  }
+}
+
+// this mixin remove additional space for ascenders/descenders
+// should be applied for inline-block elements with height < line-height
+@mixin removeDescenders() {
+  line-height: rhythm(0.66);
+  min-height: 0;
+}
+
+@function fontSize($fontsizeKey) {
+  @return map-get($fontSizes, $fontsizeKey);
+}
+
+@mixin uppercaseText($letterSpacing: null) {
+  text-transform: uppercase;
+  @if $letterSpacing != null {
+    letter-spacing: $letterSpacing;
+  } @else {
+    letter-spacing: 0.03rem;
+  }
+}
+
+// Used for messing with fonts and baseline
+// Sets the font size and line height
+// fontsizeName - string
+// lineHeight - int, number of baselines
+@mixin typeVariant($fontsizeName, $lineHeight: null) {
+  $remFontsize: fontSize($fontsizeName);
+
+  @if $remFontsize != null {
+    font-size: $remFontsize;
+  }
+
+  @if $lineHeight != null {
+    $remLineHeight: rhythm($lineHeight);
+    line-height: $remLineHeight;
+  }
+}
+
+// set a value as a multiple of baselines
+@function rhythm($baselines) {
+  @return $baselines * $baseline;
+}
+
+/// @deprecated Use sgResponsive instead. sgResponsive promotes mobile first approach.
+@mixin sgBreakpoint($name) {
+  $media: map-get($breakpointsMap, $name);
+  @if ($media) {
+    @media #{$media} {
+      @content;
+    }
+  } @else {
+    @error 'Breakpoint "#{$name}" does not exist';
+  }
+}
+
+@mixin sgResponsive($name) {
+  @if $name == '' {
+    @content;
+  } @else {
+    $media: map-get($responsiveBreakpointsMap, $name);
+    @if ($media) {
+      @media #{$media} {
+        @content;
+      }
+    } @else {
+      @error 'Responsive breakpoint "#{$name}" does not exist';
+    }
+  }
+}
+
+@mixin sgListBasicStyles() {
+  @include component();
+  overflow: visible; // move baseline from margin to the last line box
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// set a value as a multiple of default gutter
+@function gutter($size) {
+  @return $size * $layoutDefaultPadding;
+}
+
+// spacing function that returns proper size based on namespace
+@function spacing($size) {
+  @each $key, $value in $sizesSetup {
+    @if ($key == $size) {
+      @return $value;
+    }
+  }
+}
+
+// componentSize function that returns proper size based on namespace
+@function componentSize($size) {
+  @each $key, $value in $componentSizesSetup {
+    @if ($key == $size) {
+      @return $value;
+    }
+  }
+}
+
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function stripUnit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@function toPx($rems) {
+  @return stripUnit($rems) * stripUnit($baseFont) * 1px;
+}
+
+@mixin sgButtonHoverMix($color1, $color2, $percent) {
+  background-color: mix($color1, $color2, $percent);
+}

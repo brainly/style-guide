@@ -1,0 +1,46 @@
+$separatorHeight: rhythm(0.75);
+$separatorSpacing: 15px;
+$separatorHeightSmall: rhythm(0.417);
+$separatorSpacingSmall: 10px;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-vertical-separator {
+    @include component();
+    min-height: 0;
+
+    margin-right: $separatorSpacing;
+    border-right-style: solid;
+    border-right-width: 1px;
+    padding-right: $separatorSpacing;
+    height: $separatorHeight;
+    vertical-align: inherit;
+
+    &--small {
+      margin-right: $separatorSpacingSmall;
+      padding-right: $separatorSpacingSmall;
+      height: $separatorHeightSmall;
+    }
+
+    &--large {
+      height: rhythm(1.5);
+    }
+
+    &--full {
+      height: 100%;
+    }
+
+    &--white {
+      border-color: $white;
+    }
+
+    &--gray-50 {
+      border-color: $gray-50;
+    }
+
+    &--gray-40 {
+      border-color: $gray-40;
+    }
+  }
+}

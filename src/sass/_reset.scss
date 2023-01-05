@@ -1,0 +1,30 @@
+@import 'normalize';
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // overrides content-box from normalize
+  input[type='search'] {
+    box-sizing: border-box;
+  }
+
+  // We want to have svg overflows visible
+  svg:not(:root) {
+    overflow: visible;
+  }
+}

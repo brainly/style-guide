@@ -1,0 +1,51 @@
+@use 'sass:math';
+$sgPopupMenuBackground: $white;
+$sgPopupMenuPadding: rhythm(math.div(1, 2));
+$sgPopupMenuTriangleBorder: rhythm(math.div(1, 3));
+$sgPopupMenuHeight: rhythm(math.div(22, 12)); // 44px
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-popup-menu {
+    @include hole();
+
+    position: relative;
+    width: 100%;
+    min-height: $sgPopupMenuHeight;
+    padding: 0 ($sgPopupMenuPadding);
+    margin: 0;
+    background-color: $sgPopupMenuBackground;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+    box-shadow: $shadowMedium;
+
+    &::before {
+      content: '';
+      border: $sgPopupMenuTriangleBorder solid transparent;
+      border-bottom-color: $sgPopupMenuBackground;
+      position: absolute;
+      top: -$sgPopupMenuTriangleBorder * 2;
+      right: gutter(1);
+      width: 0;
+      margin: 0 auto;
+      pointer-events: none;
+    }
+
+    &__hole {
+      flex-grow: 1;
+    }
+
+    &--elements-spaced {
+      .sg-popup-menu__hole {
+        margin-right: $sgPopupMenuPadding;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,310 @@
+$checkboxSize: 16px;
+$checkboxPadding: 4px;
+$checkboxClickableArea: 32px;
+
+.sg-checkbox {
+  --checkboxColor: #{$black};
+  --checkboxHoverColor: #{$gray-60};
+  --checkboxIconFillColor: #{$white};
+  --checkboxLabelColor: #{$text-black};
+  --checkboxCheckedColor: #{$black};
+  --checkboxInvalidColor: #{$red-60};
+  --checkboxInvalidHoverColor: #{$red-50};
+  --checkboxInvalidIconFillColor: #{$white};
+
+  @include component();
+
+  display: inline-flex;
+  flex-direction: column;
+
+  &--light {
+    --checkboxColor: #{$white};
+    --checkboxHoverColor: #{$gray-40};
+    --checkboxIconFillColor: #{$black};
+    --checkboxLabelColor: #{$text-white};
+    --checkboxCheckedColor: #{$white};
+    --checkboxInvalidColor: #{$red-40};
+    --checkboxInvalidHoverColor: #{$red-50};
+    --checkboxInvalidIconFillColor: #{$white};
+    --focusInnerColor: #{$black};
+  }
+
+  &--with-padding {
+    padding: $checkboxPadding 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin-left: calc($checkboxClickableArea + $checkboxPadding);
+  }
+
+  &__element {
+    position: relative;
+    width: $checkboxClickableArea;
+    height: $checkboxClickableArea;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    &:hover {
+      .sg-checkbox__icon {
+        border-color: var(--checkboxHoverColor);
+        --checkboxCheckedColor: var(
+          --checkboxHoverColor
+        ); // override variable to alter animation
+      }
+
+      .sg-checkbox__input {
+        &:checked,
+        &:indeterminate {
+          & + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+            border-color: var(--checkboxHoverColor);
+            background-color: var(--checkboxHoverColor);
+            --checkboxCheckedColor: var(
+              --checkboxHoverColor
+            ); // override variable to alter animation
+          }
+          &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+            background-color: var(--checkboxInvalidHoverColor);
+            border-color: var(--checkboxInvalidHoverColor);
+            --checkboxCheckedColor: var(
+              --checkboxInvalidHoverColor
+            ); // override variable to alter animation
+          }
+        }
+
+        &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+          border-color: var(--checkboxInvalidHoverColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidHoverColor
+          ); // override variable to alter animation
+        }
+      }
+    }
+
+    .sg-checkbox__input {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+      &:focus-visible {
+        & + .sg-checkbox__icon-wrapper {
+          @include applyFocusStyle();
+        }
+
+        &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+          border-color: var(--checkboxInvalidHoverColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidHoverColor
+          ); // override variable to alter animation
+        }
+
+        &:checked,
+        &:indeterminate {
+          &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+            border-color: var(--checkboxInvalidHoverColor);
+            background-color: var(--checkboxInvalidHoverColor);
+            --checkboxCheckedColor: var(
+              --checkboxInvalidHoverColor
+            ); // override variable to alter animation
+          }
+        }
+      }
+
+      &:checked,
+      &:indeterminate {
+        & + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+          border-color: var(--checkboxCheckedColor);
+          background-color: var(--checkboxCheckedColor);
+
+          // If component will not animate, draw the checkbox svg without transition
+          &:not(.sg-checkbox__icon--with-animation) {
+            svg path {
+              stroke-dashoffset: 0;
+              stroke: var(--checkboxIconFillColor);
+            }
+          }
+
+          &--with-animation {
+            animation-name: checkboxCheckedFadeOut, checkboxCheckedFadeIn;
+
+            svg path {
+              transition: stroke-dashoffset 0.4s $easingRegular $durationQuick1;
+              stroke: var(--checkboxIconFillColor);
+            }
+          }
+
+          svg .indeterminate-path--left {
+            transform: rotate(180deg) translateX(20px);
+            transform-origin: right;
+          }
+        }
+
+        &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+          border-color: var(--checkboxInvalidColor);
+          background-color: var(--checkboxInvalidColor);
+          --checkboxCheckedColor: var(
+            --checkboxInvalidColor
+          ); // override variable to alter animation
+        }
+      }
+
+      &[aria-invalid] + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+        border-color: var(--checkboxInvalidColor);
+        fill: var(--checkboxInvalidIconFillColor);
+        --checkboxCheckedColor: var(
+          --checkboxInvalidColor
+        ); // override variable to alter animation
+      }
+    }
+  }
+
+  &__icon-wrapper {
+    display: inline-flex;
+    border-radius: $borderRadiusSmall;
+  }
+
+  &__icon {
+    width: $checkboxSize;
+    height: $checkboxSize;
+    border-radius: $borderRadiusSmall;
+    border: 2px solid var(--checkboxColor);
+
+    animation-duration: $durationQuick1, $durationModerate1;
+    animation-timing-function: $easingExit, $easingEntry;
+    animation-delay: $durationInstant, $durationQuick1;
+    animation-direction: normal, normal;
+    transition: box-shadow $durationQuick1 $easingExit;
+
+    // Add animation only when user is interacting with component
+    &--with-animation {
+      animation-name: checkboxFadeOut, checkboxFadeIn;
+    }
+
+    svg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      stroke: var(--checkboxIconFillColor);
+      stroke-dasharray: 16;
+      stroke-dashoffset: 16;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .sg-checkbox__icon {
+      fill: FieldText;
+    }
+  }
+
+  &__label,
+  &__description {
+    color: var(--checkboxLabelColor);
+    padding-right: 16px;
+  }
+
+  &__label {
+    display: inline;
+    padding-left: $checkboxPadding;
+    padding-top: $checkboxPadding;
+
+    &--small {
+      padding-top: 6px;
+    }
+
+    &--with-padding-bottom {
+      padding-bottom: $checkboxPadding;
+    }
+  }
+
+  &__description,
+  .sg-error-message {
+    white-space: normal;
+  }
+
+  &--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    @media (forced-colors: active) {
+      .sg-checkbox__input + .sg-checkbox__icon-wrapper .sg-checkbox__icon {
+        border-color: GrayText;
+        fill: GrayText;
+      }
+    }
+  }
+
+  @keyframes checkboxCheckedFadeOut {
+    0% {
+      width: $checkboxSize;
+      height: $checkboxSize;
+      background-color: transparent;
+    }
+
+    99% {
+      background-color: transparent;
+    }
+
+    100% {
+      background-color: var(--checkboxCheckedColor);
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+    }
+  }
+  @keyframes checkboxCheckedFadeIn {
+    0% {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+      background-color: var(--checkboxCheckedColor);
+    }
+
+    100% {
+      background-color: var(--checkboxCheckedColor);
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+  }
+  @keyframes checkboxFadeOut {
+    0% {
+      width: $checkboxSize;
+      height: $checkboxSize;
+      background-color: var(--checkboxCheckedColor);
+    }
+
+    99% {
+      background-color: var(--checkboxCheckedColor);
+    }
+
+    100% {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+      background-color: transparent;
+    }
+  }
+  @keyframes checkboxFadeIn {
+    0% {
+      width: calc($checkboxSize / 2);
+      height: calc($checkboxSize / 2);
+      background-color: transparent;
+    }
+
+    100% {
+      width: $checkboxSize;
+      height: $checkboxSize;
+    }
+  }
+}

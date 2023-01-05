@@ -1,0 +1,96 @@
+// Utils are meant to override other styles (See 7-1 or ITCSS for reference)
+
+// Space between (Lobotomized owl) util for controlling the space between child elements.
+// You can take the child out of the layout area by giving the child a .sg-space-ignore class.
+// To automatically ignore empty children use "empty" class variant e.g. empty:sg-space-y-m
+@each $breakpoint, $variant in $responsiveVariants {
+  @include sgResponsive($breakpoint) {
+    @each $pseudo, $name in ('': '', ':not(:empty)': 'empty\\:') {
+      .#{$variant}#{$name}sg-space-y-0 > * + *:not(.sg-space-ignore)#{$pseudo} {
+        margin-top: 0 !important;
+      }
+
+      .#{$variant}#{$name}sg-space-x-0
+        > *
+        + *
+        :not(.sg-space-ignore)#{$pseudo} {
+        margin-left: 0 !important;
+      }
+
+      @each $sizeName, $size in $sizesSetup {
+        .#{$variant}#{$name}sg-space-y-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
+          margin-top: $size !important;
+        }
+
+        .#{$variant}#{$name}sg-space-x-#{$sizeName}
+          > *
+          + *:not(.sg-space-ignore)#{$pseudo} {
+          margin-left: $size !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin makeResponsive($responsiveVariant, $class) {
+  .#{$responsiveVariant}#{$class} {
+    @content;
+  }
+}
+
+@keyframes sgAnimationFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.sg-animation-fade-in-slow {
+  animation-name: sgAnimationFadeIn;
+  animation-duration: 600ms;
+  animation-timing-function: ease-in;
+}
+
+.sg-animation-fade-in-fast {
+  animation-name: sgAnimationFadeIn;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in;
+}
+
+.sg-cursor-pointer {
+  cursor: pointer;
+}
+
+.sg-shadow {
+  box-shadow: $shadowSmall;
+
+  &-small {
+    box-shadow: $shadowSmall;
+  }
+
+  &-medium {
+    box-shadow: $shadowMedium;
+  }
+
+  &-large {
+    box-shadow: $shadowLarge;
+  }
+}
+
+.sg-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  clip-path: inset(50%);
+}

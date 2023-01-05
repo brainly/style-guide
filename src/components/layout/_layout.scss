@@ -1,0 +1,181 @@
+@use 'sass:math';
+$layoutMaxWidth: 1024px;
+$layoutWideMaxWidth: 1280px;
+$layoutAsideWidth: 320px;
+$layoutSecondaryWidth: 200px;
+$layoutMediumContentMaxWidth: 660px;
+$layoutContainerMarginTop: $headerHeight;
+$layoutGapWidth: gutter(math.div(5, 6));
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &--wide {
+      .sg-layout__container {
+        @include sgBreakpoint(large-only) {
+          max-width: $layoutWideMaxWidth;
+        }
+      }
+    }
+
+    &--three-columns {
+      .sg-layout__secondary-content {
+        display: flex;
+      }
+
+      .sg-layout__container {
+        @include sgBreakpoint(large-only) {
+          flex-wrap: nowrap;
+        }
+      }
+
+      .sg-layout__content {
+        flex-basis: 0;
+        width: auto;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      max-width: 100%;
+      margin: $layoutContainerMarginTop auto;
+      width: 100%;
+
+      @include sgBreakpoint(medium-up) {
+        margin-top: $layoutContainerMarginTop + rhythm(1);
+        border-radius: $borderRadiusDefault;
+        max-width: $layoutMediumContentMaxWidth;
+      }
+
+      @include sgBreakpoint(large-only) {
+        align-items: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: gutter(math.div(1, 2));
+        max-width: $layoutMaxWidth;
+        background-color: $gray-20;
+      }
+
+      &--no-max-width {
+        @include sgBreakpoint(medium-down) {
+          max-width: none;
+        }
+      }
+
+      &--reversed-order {
+        @include sgBreakpoint(large-only) {
+          flex-direction: row-reverse;
+        }
+
+        .sg-layout__content {
+          background-color: transparent;
+          padding: 0;
+          @include sgBreakpoint(medium-down) {
+            order: 2;
+          }
+        }
+
+        .sg-layout__secondary-content {
+          @include sgBreakpoint(large-only) {
+            margin-right: 0;
+            margin-left: $layoutGapWidth;
+          }
+        }
+
+        .sg-layout__aside-content {
+          margin-top: 0;
+          padding: 0;
+
+          @include sgBreakpoint(large-only) {
+            margin-right: $layoutGapWidth;
+            margin-left: 0;
+          }
+          @include sgBreakpoint(medium-down) {
+            order: 1;
+          }
+        }
+      }
+
+      &--no-margin-top {
+        margin-top: 0;
+
+        @include sgBreakpoint(large-only) {
+          margin-top: 0;
+        }
+      }
+
+      &--full-page {
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+    &__content {
+      min-width: 0;
+      flex-shrink: 0;
+      padding: 0;
+      width: 100%;
+
+      @include sgBreakpoint(large-only) {
+        max-width: calc(100% - #{$layoutAsideWidth + $layoutGapWidth});
+        flex-grow: 1;
+      }
+
+      &--no-max-width {
+        @include sgBreakpoint(large-only) {
+          max-width: none;
+        }
+      }
+
+      &--center {
+        margin: 0 auto;
+      }
+    }
+
+    &__secondary-content {
+      display: none;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 100%;
+
+      @include sgBreakpoint(large-only) {
+        margin-right: $layoutGapWidth;
+        width: $layoutSecondaryWidth;
+      }
+    }
+
+    &__aside-content {
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: 100%;
+
+      @include sgBreakpoint(large-only) {
+        margin-left: $layoutGapWidth;
+        width: $layoutAsideWidth;
+      }
+
+      &--attach-top {
+        order: -1;
+
+        @include sgBreakpoint(large-only) {
+          order: initial;
+        }
+      }
+    }
+
+    &__footer {
+      position: relative;
+    }
+  }
+}

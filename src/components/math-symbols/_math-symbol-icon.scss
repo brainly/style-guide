@@ -1,0 +1,33 @@
+@import '../icons/icons-mixin';
+
+.sg-math-symbol-icon {
+  height: 64px;
+  width: 64px;
+
+  &--wide {
+    width: 128px;
+    height: 64px;
+  }
+
+  &--wide-medium {
+    width: 64px;
+    height: 32px;
+  }
+
+  &--wide-small {
+    width: 48px;
+    height: 24px;
+  }
+
+  &--medium {
+    height: 32px;
+    width: 32px;
+  }
+
+  &--small {
+    height: 24px;
+    width: 24px;
+  }
+
+  @include iconColor();
+}

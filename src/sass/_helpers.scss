@@ -1,0 +1,20 @@
+$includeHtml: false !default;
+
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@if ($includeHtml) {
+  @each $breakpointName, $media in $breakpointsMap {
+    /// @deprecated Use sgResponsive mixin instead. sgResponsive promotes mobile first approach.
+    .sg-hide-for-#{$breakpointName} {
+      @include sgBreakpoint($breakpointName) {
+        display: none !important;
+      }
+    }
+  }
+}

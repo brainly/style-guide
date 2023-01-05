@@ -1,0 +1,211 @@
+$bubbleBackground: $white;
+
+$triangleSize: gutter(0.5);
+$innerTriangleSize: 10px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+$innerTriangleOffset: -20px; // hand-picked value, checked against basic font-size changes, scales 11px - 30px
+
+$includeHtml: false !default;
+
+@mixin arrow($arrowSize: gutter(0.5)) {
+  border: $arrowSize solid transparent;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  margin: auto;
+  pointer-events: none;
+}
+
+@if ($includeHtml) {
+  .sg-bubble {
+    background: $bubbleBackground;
+    border-color: $bubbleBackground;
+    border-radius: $borderRadiusDefault;
+    box-shadow: $shadowMedium;
+    padding: gutter(0.5) gutter(1);
+    position: relative;
+
+    &--full {
+      height: 100%;
+    }
+
+    &--no-shadow {
+      box-shadow: none;
+    }
+
+    &::before {
+      @include arrow($triangleSize);
+    }
+
+    &::after {
+      @include arrow($innerTriangleSize);
+    }
+
+    &--left {
+      &::before {
+        border-right-color: inherit;
+        left: -(2 * $triangleSize);
+        right: auto;
+      }
+
+      &::after {
+        border-right-color: inherit;
+        left: $innerTriangleOffset;
+        right: auto;
+      }
+    }
+
+    &--right {
+      &::before {
+        border-left-color: inherit;
+        right: -(2 * $triangleSize);
+        left: auto;
+      }
+
+      &::after {
+        border-left-color: inherit;
+        right: $innerTriangleOffset;
+        left: auto;
+      }
+    }
+
+    &--top {
+      &::before {
+        border-bottom-color: inherit;
+        top: -(2 * $triangleSize);
+        bottom: auto;
+      }
+
+      &::after {
+        border-bottom-color: inherit;
+        top: $innerTriangleOffset;
+        bottom: auto;
+      }
+    }
+
+    &--bottom {
+      &::before {
+        border-top-color: inherit;
+        bottom: -(2 * $triangleSize);
+        top: auto;
+      }
+
+      &::after {
+        border-top-color: inherit;
+        bottom: $innerTriangleOffset;
+        top: auto;
+      }
+    }
+
+    &--row {
+      &-end {
+        &::before {
+          right: gutter(1);
+          left: auto;
+        }
+
+        &::after {
+          right: (gutter(1) + $triangleSize - $innerTriangleSize);
+          left: auto;
+        }
+      }
+
+      &-start {
+        &::before {
+          right: auto;
+          left: gutter(1);
+        }
+
+        &::after {
+          right: auto;
+          left: (gutter(1) + $triangleSize - $innerTriangleSize);
+        }
+      }
+    }
+
+    &--column {
+      &-start {
+        &::before {
+          bottom: auto;
+          top: gutter(1);
+        }
+
+        &::after {
+          bottom: auto;
+          top: (gutter(1) + $triangleSize - $innerTriangleSize);
+        }
+      }
+
+      &-end {
+        &::before {
+          bottom: gutter(1);
+          top: auto;
+        }
+
+        &::after {
+          bottom: (gutter(1) + $triangleSize - $innerTriangleSize);
+          top: auto;
+        }
+      }
+    }
+
+    &--white {
+      background-color: $white;
+      border-color: $white;
+    }
+
+    &--gray-40 {
+      background-color: $gray-40;
+      border-color: $gray-40;
+    }
+
+    &--gray-20 {
+      background-color: $gray-20;
+      border-color: $gray-20;
+    }
+
+    &--green-40 {
+      background-color: $green-40;
+      border-color: $green-40;
+    }
+
+    &--green-30 {
+      background-color: $green-30;
+      border-color: $green-30;
+    }
+
+    &--green-20 {
+      background-color: $green-20;
+      border-color: $green-20;
+    }
+
+    &--blue-40 {
+      background-color: $blue-40;
+      border-color: $blue-40;
+    }
+
+    &--blue-30 {
+      background-color: $blue-30;
+      border-color: $blue-30;
+    }
+
+    &--blue-20 {
+      background-color: $blue-20;
+      border-color: $blue-20;
+    }
+
+    &--indigo-40 {
+      background-color: $indigo-40;
+      border-color: $indigo-40;
+    }
+
+    &--red-40 {
+      background-color: $red-40;
+      border-color: $red-40;
+    }
+  }
+}

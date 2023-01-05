@@ -1,0 +1,96 @@
+@use 'sass:math';
+.sg-spinner {
+  background-color: transparent;
+  border: 3px solid $gray-70;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  display: inline-block;
+  width: gutter(math.div(4, 3));
+  height: gutter(math.div(4, 3));
+  box-sizing: border-box;
+  animation: spinner-animation 0.65s infinite linear;
+
+  &--small {
+    width: gutter(math.div(4, 3));
+    height: gutter(math.div(4, 3));
+  }
+
+  &--xsmall {
+    width: gutter(1);
+    height: gutter(1);
+  }
+
+  &--xxsmall {
+    width: gutter(math.div(2, 3));
+    height: gutter(math.div(2, 3));
+    border-width: 2px;
+  }
+
+  &--black {
+    border-bottom-color: $black;
+    border-left-color: $black;
+  }
+
+  &--white {
+    border-bottom-color: $white;
+    border-left-color: $white;
+  }
+
+  &--gray-70 {
+    border-bottom-color: $gray-70;
+    border-left-color: $gray-70;
+  }
+
+  &--gray-50 {
+    border-bottom-color: $gray-50;
+    border-left-color: $gray-50;
+  }
+
+  &--red-40 {
+    border-bottom-color: $red-40;
+    border-left-color: $red-40;
+  }
+
+  &--red-50 {
+    border-bottom-color: $red-50;
+    border-left-color: $red-50;
+  }
+
+  &--yellow-40 {
+    border-bottom-color: $yellow-40;
+    border-left-color: $yellow-40;
+  }
+
+  &--blue-40 {
+    border-bottom-color: $blue-40;
+    border-left-color: $blue-40;
+  }
+
+  &--blue-60 {
+    border-bottom-color: $blue-60;
+    border-left-color: $blue-60;
+  }
+
+  &--indigo-50 {
+    border-bottom-color: $indigo-50;
+    border-left-color: $indigo-50;
+  }
+
+  @media (forced-colors: active) {
+    border-top-color: Canvas;
+    border-right-color: Canvas;
+    border-bottom-color: CanvasText;
+    border-left-color: CanvasText;
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

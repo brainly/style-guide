@@ -1,0 +1,83 @@
+$avatarDefaultBackgroundColor: $gray-50;
+$avatarXSmallSize: componentSize(xs);
+$avatarSmallSize: componentSize(s);
+$avatarMediumSize: componentSize(m);
+$avatarLargeSize: componentSize(l);
+$avatarXLargeSize: componentSize(xl);
+$avatarXXLargeSize: componentSize(xxl);
+$avatarSpacedMargin: 4px;
+$avatarBorderWidth: 1px;
+$avatarBorderColor: $white;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-avatar {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    width: $avatarSmallSize;
+    height: $avatarSmallSize;
+    border-radius: 50%;
+    // workaround for the Chrome bug - crbug.com/157218
+    -webkit-perspective: 1px;
+
+    &__image {
+      display: flex;
+      position: relative;
+      height: 100%;
+      width: 100%;
+
+      &--icon {
+        background-color: $avatarDefaultBackgroundColor;
+      }
+    }
+
+    &__icon {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__wrapper-link {
+      @include applyFocus();
+
+      border-radius: 50%;
+      display: block;
+      width: min-content;
+    }
+
+    &--xs {
+      width: $avatarXSmallSize;
+      height: $avatarXSmallSize;
+    }
+
+    &--m {
+      width: $avatarMediumSize;
+      height: $avatarMediumSize;
+    }
+
+    &--l {
+      width: $avatarLargeSize;
+      height: $avatarLargeSize;
+    }
+
+    &--xl {
+      width: $avatarXLargeSize;
+      height: $avatarXLargeSize;
+    }
+
+    &--xxl {
+      width: $avatarXXLargeSize;
+      height: $avatarXXLargeSize;
+    }
+
+    &--with-border {
+      border: solid $avatarBorderColor $avatarBorderWidth;
+    }
+
+    &--spaced {
+      margin: 0 $avatarSpacedMargin $avatarSpacedMargin 0;
+    }
+  }
+}

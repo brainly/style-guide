@@ -1,0 +1,27 @@
+.sg-skip-link {
+  user-select: 'none';
+  position: absolute;
+  clip: rect(0 0 0 0);
+  border: 0;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  white-space: nowrap;
+  background: $white;
+
+  &:focus {
+    @include applyFocusStyle();
+
+    z-index: 600;
+    position: absolute;
+    clip: auto;
+    margin: 0;
+    padding: spacing(s) spacing(m);
+    height: auto;
+    width: auto;
+    border-radius: spacing(xl);
+    color: $text-black;
+  }
+}

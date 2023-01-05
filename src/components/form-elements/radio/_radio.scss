@@ -1,0 +1,230 @@
+$radioSize: 16px;
+$radioClickableArea: 32px;
+$radioPadding: 4px;
+$radioUncheckedBorderWidth: 2px;
+$radioCheckedBorderWidth: 5px;
+
+.sg-radio {
+  --radioColor: #{$black};
+  --radioHoverColor: #{$gray-60};
+  --radioInvalidColor: #{$red-60};
+  --radioInvalidHoverColor: #{$red-50};
+  --radioLabelColor: #{$text-black};
+  --radioDescriptionColor: #{$text-black};
+
+  --radioBorderWidth: #{$radioUncheckedBorderWidth};
+  --radioRingColor: var(--radioColor);
+
+  display: inline-flex;
+  flex-direction: column;
+
+  &--light {
+    --radioColor: #{$white};
+    --radioHoverColor: #{$gray-40};
+    --radioInvalidColor: #{$red-40};
+    --radioInvalidHoverColor: #{$red-50};
+    --radioLabelColor: #{$text-white};
+    --radioDescriptionColor: #{$text-white};
+    --focusInnerColor: #{$black};
+  }
+
+  &--with-padding {
+    padding: $radioPadding 0;
+  }
+
+  &__wrapper {
+    display: flex;
+
+    &:hover {
+      .sg-radio__circle {
+        --radioBorderWidth: #{$radioUncheckedBorderWidth};
+        --radioRingColor: var(--radioHoverColor);
+
+        @media (forced-colors: active) {
+          border: $radioUncheckedBorderWidth solid FieldText;
+        }
+      }
+
+      .sg-radio__input {
+        &:checked + .sg-radio__circle {
+          --radioBorderWidth: #{$radioCheckedBorderWidth};
+          --radioRingColor: var(--radioHoverColor);
+
+          @media (forced-colors: active) {
+            border: $radioCheckedBorderWidth solid FieldText;
+          }
+        }
+        &[aria-invalid] + .sg-radio__circle {
+          --radioBorderWidth: #{$radioUncheckedBorderWidth};
+          --radioRingColor: var(--radioInvalidHoverColor);
+
+          @media (forced-colors: active) {
+            border: $radioUncheckedBorderWidth solid FieldText;
+          }
+        }
+        &:checked[aria-invalid] + .sg-radio__circle {
+          --radioBorderWidth: #{$radioCheckedBorderWidth};
+          --radioRingColor: var(--radioInvalidHoverColor);
+
+          @media (forced-colors: active) {
+            border: $radioCheckedBorderWidth solid FieldText;
+          }
+        }
+      }
+    }
+  }
+
+  &__element {
+    position: relative;
+    width: $radioClickableArea;
+    height: $radioClickableArea;
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    &:focus-visible + .sg-radio__circle {
+      &::before {
+        @include applyFocusStyle();
+      }
+    }
+
+    &:checked + .sg-radio__circle {
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+      --radioRingColor: var(--radioColor);
+
+      &--with-animation {
+        animation-name: radioCheckedFadeOut, radioCheckedFadeIn;
+      }
+
+      @media (forced-colors: active) {
+        border: var(--radioBorderWidth) solid FieldText;
+      }
+    }
+
+    &[aria-invalid] + .sg-radio__circle {
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+      --radioRingColor: var(--radioInvalidColor);
+
+      @media (forced-colors: active) {
+        border: $radioUncheckedBorderWidth solid FieldText;
+      }
+    }
+
+    &:checked[aria-invalid] + .sg-radio__circle {
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+      --radioRingColor: var(--radioInvalidColor);
+
+      @media (forced-colors: active) {
+        border: $radioCheckedBorderWidth solid FieldText;
+      }
+    }
+  }
+
+  &__circle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: $radioSize;
+    height: $radioSize;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px var(--radioBorderWidth) var(--radioRingColor) inset;
+
+    animation-duration: $durationQuick1, $durationModerate1;
+    animation-timing-function: $easingExit, $easingEntry;
+    animation-delay: $durationInstant, $durationQuick1;
+
+    @media (forced-colors: active) {
+      border: $radioUncheckedBorderWidth solid FieldText;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
+
+  &__label,
+  &__description {
+    padding-right: 16px;
+  }
+
+  &__label {
+    color: var(--radioLabelColor);
+    padding-left: $radioPadding;
+    padding-top: $radioPadding;
+
+    &--small {
+      padding-top: 6px;
+    }
+
+    &--with-padding-bottom {
+      padding-bottom: $radioPadding;
+    }
+  }
+
+  &__description {
+    white-space: normal;
+    color: var(--radioDescriptionColor);
+    margin-left: calc($radioClickableArea + $radioPadding);
+  }
+
+  &--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+
+    @media (forced-colors: active) {
+      .sg-radio__wrapper .sg-radio__circle {
+        border-color: GrayText;
+      }
+    }
+  }
+
+  @keyframes radioCheckedFadeOut {
+    0% {
+      width: $radioSize;
+      height: $radioSize;
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    99% {
+      --radioBorderWidth: #{$radioUncheckedBorderWidth};
+    }
+
+    100% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+      --radioBorderWidth: #{$radioCheckedBorderWidth};
+    }
+  }
+  @keyframes radioCheckedFadeIn {
+    0% {
+      width: calc($radioSize / 2);
+      height: calc($radioSize / 2);
+    }
+
+    100% {
+      width: $radioSize;
+      height: $radioSize;
+    }
+  }
+}

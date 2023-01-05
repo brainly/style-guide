@@ -1,0 +1,93 @@
+@if ($includeHtml) {
+  .sg-accordion-item {
+    overflow-anchor: none;
+    transition: $durationQuick2 $easingLinear border-color;
+
+    &--no-gap {
+      border-radius: 0;
+      border-top: none;
+
+      &:first-child {
+        border-top: 2px solid $gray-20;
+        border-top-left-radius: $borderRadiusDefault;
+        border-top-right-radius: $borderRadiusDefault;
+      }
+
+      &:last-child {
+        border-bottom-left-radius: $borderRadiusDefault;
+        border-bottom-right-radius: $borderRadiusDefault;
+      }
+    }
+
+    &__button {
+      cursor: pointer;
+
+      &:hover,
+      &:active {
+        text-decoration: underline;
+      }
+    }
+
+    &__title {
+      flex: auto;
+    }
+
+    &__content {
+      transition: $durationModerate2 $easingRegular;
+      transition-property: height;
+      height: 0;
+      overflow: hidden;
+    }
+
+    &__content-box {
+      padding-top: 0;
+    }
+
+    &__arrow {
+      transition: $durationModerate2 $easingRegular transform;
+      transform: rotateX(0deg);
+
+      &--visible {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+      flex: none;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(85%);
+        width: 40px;
+        height: 40px;
+        content: '';
+        border-radius: 50%;
+        transition: $durationQuick2 $easingLinear background-color,
+          $durationQuick2 $easingRegular transform;
+      }
+
+      &--hover::before {
+        background-color: $gray-20;
+        transform: scale(100%);
+      }
+    }
+
+    @media (prefers-reduced-motion) {
+      transition: none;
+
+      & * {
+        transition: none;
+      }
+    }
+
+    &--reduced-motion,
+    &--reduced-motion * {
+      transition: none;
+    }
+  }
+}

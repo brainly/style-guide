@@ -1,0 +1,63 @@
+@import './text-colors-mixin';
+
+$includeHtml: false !default;
+
+$bitSizeNames: small medium large xlarge;
+
+$bitSizes: (
+  xlarge: 80px,
+  large: 56px,
+  medium: 40px,
+  small: 24px,
+);
+
+@function getBitSize($fontsizeKey) {
+  @return map-get($bitSizes, $fontsizeKey);
+}
+
+@if ($includeHtml) {
+  em.sg-text-bit {
+    font-style: normal;
+  }
+
+  blockquote.sg-text-bit {
+    margin: 0;
+  }
+
+  .sg-text-bit {
+    @include uppercaseText(-0.0625rem);
+    font-size: getBitSize(medium);
+    line-height: getBitSize(medium);
+    font-family: $fontFamilyPrimary;
+    color: $text-green-40;
+    font-weight: $fontWeightBlack;
+    margin: 0;
+    position: relative;
+
+    &--inherited {
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      font-weight: inherit;
+    }
+
+    @include textColor();
+  }
+
+  @each $breakpoint, $variant in $responsiveVariants {
+    @include sgResponsive($breakpoint) {
+      @each $bitSizeName in $bitSizeNames {
+        @include makeResponsive($variant, 'sg-text-bit--#{$bitSizeName}') {
+          @if ($bitSizeName == small) {
+            @include uppercaseText(0);
+          } @else {
+            @include uppercaseText(-0.0625rem);
+          }
+
+          font-size: getBitSize($bitSizeName);
+          line-height: getBitSize($bitSizeName);
+        }
+      }
+    }
+  }
+}

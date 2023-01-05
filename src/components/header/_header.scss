@@ -1,0 +1,73 @@
+@use 'sass:math';
+$headerHeight: rhythm(2.5); // 60px;
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-header {
+    width: 100%;
+    margin-bottom: rhythm(3) - $headerHeight;
+
+    &--fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: $sgHeaderZIndex;
+    }
+
+    &--with-divider {
+      border-bottom: 2px solid $gray-20;
+    }
+
+    &__container {
+      background-color: $white;
+    }
+
+    &__content {
+      display: flex;
+      width: 100%;
+      height: $headerHeight;
+      max-width: $layoutMaximumWidth;
+      padding: 0 gutter(math.div(1, 2));
+      margin: auto;
+      align-items: center;
+
+      @include sgBreakpoint(large-only) {
+        padding: 0 gutter(1);
+      }
+
+      &--auto-height {
+        height: auto;
+      }
+    }
+
+    &__left {
+      display: flex;
+      align-items: center;
+      margin-right: spacing(s);
+      flex-shrink: 0;
+
+      @include sgBreakpoint(medium-up) {
+        margin-right: spacing(m);
+      }
+    }
+
+    &__middle {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    &__right {
+      margin-left: spacing(s);
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      @include sgBreakpoint(medium-up) {
+        margin-left: spacing(m);
+      }
+    }
+  }
+}

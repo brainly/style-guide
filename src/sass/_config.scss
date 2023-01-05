@@ -1,0 +1,147 @@
+@use 'sass:math';
+@import 'colors';
+
+$transparent: rgba(255, 255, 255, 0);
+
+// Shadows
+$shadowSmall: 0 2px 8px 0 rgba($gray-70, 0.2);
+$shadowMedium: 0 4px 16px 0 rgba($gray-70, 0.2);
+$shadowLarge: 0 8px 32px 0 rgba($gray-70, 0.2);
+
+// Fonts
+$fontFamilyProximaNova: 'ProximaNova';
+$fontFamilyUntitledSerif: 'UntitledSerif';
+$fontFamilyPrimary: $fontFamilyProximaNova, 'Helvetica', 'Arial', sans-serif;
+$fontWeightNormal: 400;
+$fontWeightBold: 700;
+$fontWeightBlack: 900;
+
+// Vertical rhythm
+$baseFont: 16px;
+$baseline: 1.5rem;
+
+// Typo
+$fontSizes: (
+  default: 1rem /* 16px */,
+  xsmall: 0.625rem /* 10px */,
+  small: 0.875rem /* 14px */,
+  medium: 0.9375rem /* 15px */,
+  large: 3.625rem /* 58px */,
+  xlarge: 4.5rem /* 72px */,
+  xxlarge: 5rem /* 80px */,
+  obscure: 0.75rem /* 12px */,
+  standout: 1.125rem /* 18px */,
+  subheadline: 1.25rem /* 20px */,
+  headline: 1.5rem /* 24px */,
+  subheader: 2.75rem /* 44px */,
+  header: 3rem,
+);
+
+// Layout
+$layoutMaximumWidth: 1400px;
+$layoutDefaultPadding: 24px;
+
+// Spacings
+$sizesSetup: (
+  none: 0px,
+  xxs: 4px /* additional for very small components, like icons */,
+  xs: 8px,
+  s: 16px,
+  m: 24px,
+  l: 40px,
+  xl: 64px,
+  xxl: 104px,
+  xxxl: 168px,
+  xxxxl: 272px,
+);
+
+// component sizes
+$componentSizesSetup: (
+  xxs: 16px,
+  xs: 24px,
+  s: 32px,
+  m: 40px,
+  l: 56px,
+  xl: 80px,
+  xxl: 104px,
+);
+
+// Border radius
+$borderRadiusDefault: 8px;
+$borderRadiusLarge: $borderRadiusDefault * 1.5;
+$borderRadiusSmall: math.div($borderRadiusDefault, 2);
+
+// Vertical stack
+$sgHeaderZIndex: 101;
+$overlayZIndex: 999;
+$toplayerZIndex: 1000;
+
+// Breakpoints
+$breakpointMedium: 768px !default;
+$breakpointLarge: 1024px !default;
+$breakpointXLarge: 1280px !default;
+
+/// @deprecated Adding values to this map should be avoided.
+/// Use $responsiveBreakpointsMap
+$breakpointsMap: (
+  'small-only': '(max-width: #{$breakpointMedium - 1px})',
+  'medium-only':
+    '(min-width: #{$breakpointMedium}) and (max-width: #{$breakpointLarge - 1px})',
+  'medium-down': '(max-width: #{$breakpointLarge - 1px})',
+  'medium-up': '(min-width: #{$breakpointMedium})',
+  'large-only': '(min-width: #{$breakpointLarge})',
+  'large-up': '(min-width: #{$breakpointLarge})',
+  'xlarge-up': '(min-width: #{$breakpointXLarge})',
+);
+
+// Breakpoints map for mobile first approach usage
+$responsiveBreakpointsMap: (
+  'md': '(min-width: #{$breakpointMedium})',
+  'lg': '(min-width: #{$breakpointLarge})',
+  'xl': '(min-width: #{$breakpointXLarge})',
+);
+
+// Breakpoints variants for generating responsive utility classes
+$responsiveVariants: (
+  '': '',
+  md: 'md\\:',
+  lg: 'lg\\:',
+  xl: 'xl\\:',
+);
+
+// Form elements configuration
+$formElementSizeS: 32px;
+$formElementSizeM: 40px; // Standard size for elements like inputs, selects or buttons
+$formElementSizeL: 56px;
+$formElementDefaultBackgroundColor: $gray-20;
+$formElementDisabledBackgroundColor: $gray-10;
+$formElementActiveBorderColor: $gray-40;
+$formElementDefaultTextColor: $black;
+$formElementPlacholderTextColor: $gray-50;
+$formElementDisabledPlacholderTextColor: $gray-40;
+$formElementSmallFontSize: 14px;
+$formElementDefaultFontSize: 16px; // fix zooming to input on focus in iOS devices
+$formElementLargeFontSize: 18px;
+$formElementDefaultLineHeight: 24px;
+$formElementValidColor: $green-40;
+$formElementInvalidColor: $red-40;
+$formElementSmallBorderRadius: 16px;
+$formElementStandardBorderRadius: 20px;
+$formElementLargeBorderRadius: 28px;
+
+// Motion animation durations
+$durationInstant: 0ms; // Text change
+$durationQuick1: 80ms; // Checkboxes, Radio Buttons, Hover
+$durationQuick2: 120ms; // Toggles, Tabs, Color, Fade
+$durationModerate1: 180ms; // Dropdowns, Tooltips
+$durationModerate2: 260ms; // Modals, Toast, Dialog, Notification
+$durationGentle1: 320ms; // Bottom Sheet, Card Expand
+$durationGentle2: 400ms; // Advanced Animations
+
+$easingRegular: cubic-bezier(0.35, 0, 0.1, 1);
+$easingEntry: cubic-bezier(0.1, 0, 0, 1);
+$easingExit: cubic-bezier(0.3, 0, 1, 0.8);
+$easingLinear: linear;
+
+// this comment exists to suppress errors about these unused variables:
+// $durationGentle2 $durationGentle1 $durationInstant $durationModerate1 $durationQuick1 $easingRegular

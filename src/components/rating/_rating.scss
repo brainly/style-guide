@@ -1,0 +1,160 @@
+@use 'sass:math';
+$rateHeight: componentSize(s);
+$rateStarColor: $gray-50;
+$rateStarCheckedColor: $icon-yellow-50;
+$rateStarActiveColor: $gray-40;
+$rateStarActiveCheckedColor: $yellow-40;
+$rateCounterColor: $gray-50;
+$rateFontSize: fontSize(obscure);
+$rateIconSize: componentSize(xs);
+$rateSFontSize: fontSize(small);
+$rateSIconSize: componentSize(s);
+
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-rate-box {
+    @include component();
+    display: flex;
+    align-items: center;
+    height: $rateHeight;
+    overflow: visible;
+
+    &--active {
+      .sg-rate-box__stars-container:hover {
+        ~ .sg-rate-box__counter {
+          .sg-rate-box__counter-item-dynamic:nth-child(2) {
+            display: none;
+          }
+
+          .sg-rate-box__counter-item-dynamic:nth-child(4) {
+            display: block;
+          }
+        }
+      }
+
+      .sg-rate-box__star {
+        cursor: pointer;
+      }
+
+      .sg-rate-box__stars-container:hover {
+        .sg-rate-box__filled-stars {
+          display: none;
+        }
+      }
+
+      .sg-rate-box__background-stars {
+        .sg-rate-box__star:hover ~ .sg-rate-box__star {
+          color: $rateStarColor;
+        }
+
+        &:active .sg-rate-box__star:hover ~ .sg-rate-box__star {
+          color: $rateStarActiveColor;
+        }
+
+        &:hover .sg-rate-box__star {
+          color: $rateStarCheckedColor;
+          transition: color 0.1s ease-in;
+        }
+
+        &:active:hover .sg-rate-box__star {
+          color: $rateStarActiveCheckedColor;
+          transition: none;
+        }
+      }
+    }
+
+    &__stars-container {
+      position: relative;
+    }
+
+    &__background-stars {
+      display: flex;
+      color: $rateStarColor;
+    }
+
+    &__filled-stars {
+      display: flex;
+      color: $rateStarCheckedColor;
+
+      position: absolute;
+      left: 0;
+      overflow: hidden;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &__star {
+      width: $rateIconSize;
+      height: $rateIconSize;
+      padding: 0 1px;
+      position: relative;
+
+      flex-shrink: 0;
+    }
+
+    &__radio {
+      left: 0;
+      top: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      opacity: 0.01;
+      cursor: pointer;
+      position: absolute;
+
+      &:focus-visible + .sg-rate-box__star-icon {
+        @include applyFocusStyle();
+      }
+    }
+
+    // counter
+    &__counter {
+      @include fixText($rateFontSize, 0.125rem);
+      @include fixOperaMiniLabelText();
+      font-weight: $fontWeightBold;
+      color: $rateCounterColor;
+      margin: 0 0 0 gutter(math.div(1, 4));
+      position: relative;
+    }
+
+    &__counter-item-static {
+      visibility: hidden;
+      height: 0;
+    }
+
+    &__counter-item-dynamic {
+      position: absolute;
+      left: 0;
+
+      &:nth-child(4) {
+        display: none;
+      }
+    }
+
+    &__rate {
+      @include fixText($rateFontSize, 0.125rem);
+      @include fixOperaMiniLabelText();
+
+      font-weight: $fontWeightBold;
+      color: $rateCounterColor;
+
+      & span[aria-hidden] {
+        margin: 0 gutter(math.div(1, 4)) 0 0;
+      }
+    }
+
+    &--s {
+      .sg-rate-box__star {
+        height: $rateSIconSize;
+        width: $rateSIconSize;
+      }
+
+      .sg-rate-box__counter,
+      .sg-rate-box__rate {
+        @include fixText($rateSFontSize, 0.125rem);
+        @include fixOperaMiniLabelText();
+      }
+    }
+  }
+}

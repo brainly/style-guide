@@ -1,0 +1,18 @@
+$includeHtml: false !default;
+
+@if ($includeHtml) {
+  .sg-overlayed-box {
+    @include component();
+    display: inline-flex;
+
+    overflow: visible;
+    vertical-align: inherit;
+
+    &__overlay {
+      @include componentsContainer();
+      position: absolute;
+      right: -#{gutter(0.2)};
+      top: -#{gutter(0.2)};
+    }
+  }
+}

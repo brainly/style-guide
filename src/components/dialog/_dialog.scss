@@ -1,0 +1,278 @@
+$dialogSmallPadding: spacing(m);
+$dialogMediumPadding: spacing(l);
+$dialogOffsetForCloseButton: 48px;
+$dialogBoxShadow: $shadowLarge;
+$dialogOverlayBackgroundColor: rgba(0, 0, 0, 0.3);
+
+$dialogSlideWindowDistance: 32px;
+$dialogSlideFullscreenSmallDistance: 88px;
+$dialogSlideFullscreenMediumDistance: 132px;
+
+$dialogMaxWidthMap: (
+  's': 392px,
+  'm': 600px,
+  'l': 808px,
+  'xl': 1016px,
+);
+
+.sg-dialog {
+  &__overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: transparent;
+
+    @include sgResponsive(md) {
+      display: grid;
+      grid-template-areas:
+        'top-left top-middle top-right'
+        'middle-left middle middle-right'
+        'bottom-left bottom-middle bottom-right';
+      grid-template-rows: 1fr [dialog-row-start] auto [dialog-row-end] 1fr;
+      padding: spacing(m);
+    }
+
+    &--open {
+      background-color: $dialogOverlayBackgroundColor;
+    }
+
+    &--scroll {
+      overflow: auto;
+    }
+
+    &--space-top {
+      @include sgResponsive(md) {
+        grid-template-areas:
+          'middle-left middle middle-right'
+          'bottom-left bottom-middle bottom-right';
+        grid-template-rows: [dialog-row-start] auto [dialog-row-end] 1fr;
+
+        .sg-dialog-overlay-slot--top,
+        .sg-dialog-overlay-slot--top-middle,
+        .sg-dialog-overlay-slot--top-left,
+        .sg-dialog-overlay-slot--top-right {
+          display: none;
+        }
+      }
+    }
+
+    &--fullscreen {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      .sg-dialog-left,
+      .sg-dialog-right,
+      .sg-dialog-top,
+      .sg-dialog-bottom {
+        display: none;
+      }
+    }
+
+    @each $sizeName, $maxWidth in $dialogMaxWidthMap {
+      &--size-#{$sizeName} {
+        grid-template-columns:
+          1fr [dialog-column-start] minmax(0, $maxWidth)
+          [dialog-column-end] 1fr;
+      }
+    }
+
+    &--motion-default {
+      transition-property: background-color;
+      transition-duration: $durationQuick2;
+      transition-timing-function: $easingLinear;
+    }
+
+    &--motion-none {
+      transition-duration: 0s;
+    }
+  }
+
+  &-overlay-slot {
+    display: none;
+    position: relative;
+
+    @include sgResponsive(md) {
+      display: block;
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__container {
+    grid-area: middle;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+
+    @include sgResponsive(md) {
+      margin-bottom: auto;
+    }
+
+    &[data-animating='true'] {
+      transform: translate3d(0, $dialogSlideWindowDistance, 0);
+    }
+
+    &--fullscreen {
+      max-width: 100%;
+      min-height: 100%;
+
+      &[data-animating='true'] {
+        transform: translate3d(0, $dialogSlideFullscreenSmallDistance, 0);
+
+        @include sgResponsive(md) {
+          transform: translate3d(0, $dialogSlideFullscreenMediumDistance, 0);
+        }
+      }
+
+      &--motion-default {
+        transition-duration: $durationGentle2, $durationQuick2;
+      }
+
+      &--motion-none {
+        transition-duration: 0s, 0s;
+      }
+    }
+
+    &--scroll {
+      overflow: auto;
+      max-height: 100%;
+    }
+
+    &--exiting,
+    &--reduce-motion {
+      &[data-animating='true'] {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &[data-animating='true'] {
+      @media screen and (prefers-reduced-motion: reduce) {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &--open {
+      transition-timing-function: $easingEntry, $easingLinear;
+      opacity: 1;
+
+      &[data-animating='true'] {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &--appearance-dialog {
+      background-color: $white;
+      border-radius: $borderRadiusDefault $borderRadiusDefault 0 0;
+      box-shadow: $dialogBoxShadow;
+
+      @include sgResponsive(md) {
+        border-radius: $borderRadiusDefault;
+      }
+
+      &.sg-dialog__container--fullscreen {
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    &--motion-default {
+      transition-property: transform, opacity;
+      transition-duration: $durationModerate2, $durationQuick2;
+      transition-timing-function: $easingEntry, $easingLinear;
+    }
+
+    &--motion-none {
+      transition-duration: 0s;
+    }
+  }
+
+  &__header {
+    padding-top: $dialogSmallPadding;
+    padding-left: $dialogSmallPadding;
+    padding-right: $dialogOffsetForCloseButton;
+
+    @include sgResponsive(md) {
+      padding-top: $dialogMediumPadding;
+      padding-left: $dialogMediumPadding;
+      padding-right: $dialogOffsetForCloseButton;
+    }
+  }
+
+  &__body {
+    overflow: auto;
+    padding: $dialogSmallPadding;
+    position: relative;
+
+    @include sgResponsive(md) {
+      padding: $dialogMediumPadding;
+    }
+  }
+
+  &__header + &__body {
+    padding-top: 0;
+  }
+
+  &__close-button {
+    margin: spacing(xs);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.sg-dialog-overlay-slot--backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+@each $slot
+  in (
+    top-left,
+    top-middle,
+    top-right,
+    middle-left,
+    middle,
+    middle-right,
+    bottom-left,
+    bottom-middle,
+    bottom-right
+  )
+{
+  .sg-dialog-overlay-slot--#{$slot} {
+    grid-area: $slot;
+  }
+}
+
+.sg-dialog-overlay-slot--top {
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+.sg-dialog-overlay-slot--bottom {
+  grid-area: 3 / 1 / 4 / 4;
+}
+
+.sg-dialog-overlay-slot--left {
+  grid-area: 1 / 1 / 4 / 2;
+}
+
+.sg-dialog-overlay-slot--right {
+  grid-area: 1 / 3 / 4 / 4;
+}

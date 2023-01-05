@@ -1,0 +1,18 @@
+@import '../icons/icons-mixin';
+
+.sg-subject-icon {
+  height: 64px;
+  width: 64px;
+
+  &--medium {
+    height: 32px;
+    width: 32px;
+  }
+
+  &--small {
+    height: 24px;
+    width: 24px;
+  }
+
+  @include iconColor();
+}
