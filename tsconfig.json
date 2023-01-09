@@ -7,11 +7,12 @@
     "sourceMap": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
-    "jsx": "preserve",
+    "moduleResolution": "node",
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": false
   },
-  "include": [".typescript/**/*"]
+  "include": ["src/**/*"]
 }

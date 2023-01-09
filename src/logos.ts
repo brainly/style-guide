@@ -1,1 +1,1 @@
-import './logos.codegen';
+import /* codegen */ './logos.codegen.ts';
