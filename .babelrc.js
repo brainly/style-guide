@@ -19,7 +19,7 @@ module.exports = api => {
 
   return {
     presets: [
-      '@babel/preset-typescript',
+      ['@babel/preset-typescript', {isTSX: true, allExtensions: true}],
       babelEnv({modules: false}),
       '@babel/preset-react',
     ],

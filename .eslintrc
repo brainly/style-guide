@@ -12,7 +12,7 @@
   },
   "overrides": [
     {
-      "files": ["*.stories.{js,jsx}"],
+      "files": ["*.stories.{js,ts,tsx}"],
       "rules": {"react/prop-types": "off"}
     }
   ],

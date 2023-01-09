@@ -69,7 +69,7 @@
     "@typescript/vfs": "^1.4.0",
     "autoprefixer": "^10.0.4",
     "babel-eslint": "^10.0.2",
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^29.3.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-codegen": "^4.1.5",
     "babel-plugin-transform-define": "^2.0.1",
@@ -156,7 +156,7 @@
     "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon --only 'src/docs/addons/sandbox/manager.js' --only 'src/docs/addons/sandbox/preset.js' && webpack --config=sandbox-addon.webpack.config.js",
     "clean": "rimraf css dist dist-sandbox && yarn package-clean",
     "eslint": "./node_modules/.bin/eslint",
-    "js-lint": "eslint --ext .js --ext .jsx src/",
+    "js-lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
     "package-clean": "rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
     "package-esm": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
@@ -191,7 +191,7 @@
       "src/docs"
     ],
     "transform": {
-      ".jsx?$": "babel-jest"
+      "\\.[jt]sx?$": "babel-jest"
     },
     "roots": [
       "<rootDir>/src",
@@ -201,7 +201,7 @@
   },
   "sideEffects": [
     "*.scss",
-    "./src/images/*icons.js"
+    "./src/images/*icons.ts"
   ],
   "bin": {
     "sg-codemod": "./bin/codemods/cli.js",
