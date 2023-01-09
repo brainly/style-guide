@@ -27,8 +27,8 @@ const files = glob.sync(`/**/{pages,iframe-pages,__mocks__}/*.{js,jsx}`, {
 
 console.log(`Found ${files.length} source files.`);
 
-fs.removeSync(DEST_DIR);
-fs.removeSync(TYPES_DIR);
+//fs.removeSync(DEST_DIR);
+//fs.removeSync(TYPES_DIR);
 
 files.forEach(sourceFile => {
   const flowCode = fs.readFileSync(sourceFile, 'utf-8');
