@@ -66,6 +66,8 @@ export type AccordionPropsType = $ReadOnly<{
   expanded?: string | Array<string>,
   defaultExpanded?: string | Array<string>,
   onChange?: string => void,
+  'aria-label'?: string,
+  'aria-labelledby'?: string,
 }>;
 
 type ContextType = {
@@ -89,6 +91,8 @@ const Accordion = ({
   defaultExpanded,
   expanded,
   onChange,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledby,
 }: AccordionPropsType) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const isControlled = expanded !== undefined;
@@ -305,6 +309,8 @@ const Accordion = ({
           ),
           className
         )}
+        aria-label={ariaLabel}
+        aria-labelledby={ariaLabelledby}
       >
         {children}
       </div>

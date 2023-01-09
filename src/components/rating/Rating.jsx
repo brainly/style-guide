@@ -174,10 +174,13 @@ class Rating extends React.Component<RatingPropsType> {
     }
 
     return (
-      <div className={ratingClass} aria-label={label}>
+      <div className={ratingClass}>
+        <span className="sg-visually-hidden">{label}</span>
         <p className="sg-rate-box__rate">
           {!noLabel && <span aria-hidden>{rateString}</span>}
-          {rate && <span className="sg-visually-hidden">{metricString}</span>}
+          {Boolean(rate) && (
+            <span className="sg-visually-hidden">{metricString}</span>
+          )}
         </p>
         <div
           className="sg-rate-box__stars-container"
@@ -203,6 +206,7 @@ class Rating extends React.Component<RatingPropsType> {
                 key={props.value}
                 onMouseEnter={this.starsMouseEnterFunctions[props.value]}
                 {...props}
+                type="star_outlined"
               />
             ))}
           </div>
