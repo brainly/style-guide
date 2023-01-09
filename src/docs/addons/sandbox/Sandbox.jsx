@@ -6,7 +6,7 @@ import {SandpackProvider, SandpackPreview} from '@codesandbox/sandpack-react';
 import styleguideJsCode from '!!raw-loader!../../../../dist/sandbox/sandbox';
 import * as React from 'react';
 import {CodeEditor} from './CodeEditor';
-import {amethyst} from '@codesandbox/sandpack-themes';
+import {githubLight} from '@codesandbox/sandpack-themes';
 import './sandbox.scss';
 
 type SandboxPropsType = {
@@ -23,7 +23,7 @@ export const Sandbox = ({code = ''}: SandboxPropsType) => {
   return (
     <SandpackProvider
       template="react"
-      theme={amethyst}
+      theme={githubLight}
       files={{
         'App.js': {
           code: wrap(code),
