@@ -154,7 +154,7 @@
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
     "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon --only 'src/docs/addons/sandbox/manager.js' --only 'src/docs/addons/sandbox/preset.js' && webpack --config=sandbox-addon.webpack.config.js",
-    "clean": "rimraf css dist dist-sandbox",
+    "clean": "rimraf css dist dist-sandbox && yarn package-clean",
     "eslint": "./node_modules/.bin/eslint",
     "js-lint": "eslint --ext .js --ext .jsx src/",
     "js-typecheck": "flow && node ./scripts/build-types.js",
