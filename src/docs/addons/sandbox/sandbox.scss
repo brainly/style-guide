@@ -1,0 +1,11 @@
+@import '../../../sass/config';
+@import '../../../sass/mixins';
+
+.sandbox-layout {
+  display: flex;
+  flex-direction: column;
+
+  @include sgBreakpoint(medium-up) {
+    flex-direction: row;
+  }
+}

@@ -101,6 +101,10 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
 
   return (
     <SandpackCodeEditor
+      style={{
+        height: 600,
+        backgroundColor: 'var(--gray-10)',
+      }}
       extensions={extensions}
       extensionsKeymap={[completionKeymap]}
     />
