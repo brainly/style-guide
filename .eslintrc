@@ -2,7 +2,8 @@
   "env": {
     "jest": true
   },
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "extends": ["prettier"],
   "rules": {
     "max-len": ["error", {"code": 120, "ignoreComments": true}],
