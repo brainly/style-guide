@@ -91,14 +91,10 @@ function BaseDialog({
    * paint behind the actual open prop to trigger a transition.
    */
   const [deferredOpen, setDeferredOpen] = React.useState<boolean>(false);
-  const [
-    hasFinishedTransition,
-    setHasFinishedTransition,
-  ] = React.useState<boolean>(false);
-  const [
-    isDialogHigherThanOverlay,
-    setIsDialogHigherThanOverlay,
-  ] = React.useState<boolean>(false);
+  const [hasFinishedTransition, setHasFinishedTransition] =
+    React.useState<boolean>(false);
+  const [isDialogHigherThanOverlay, setIsDialogHigherThanOverlay] =
+    React.useState<boolean>(false);
   const hasAnimations = supportsTransitions() && motionPreset !== 'none';
   const cleanupBodyNoScroll = useBodyNoScroll();
   const fireTransitionEndCallbacks = React.useCallback(() => {
