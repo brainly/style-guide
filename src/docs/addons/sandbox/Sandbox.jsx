@@ -1,10 +1,13 @@
 // @flow
 
-import {Sandpack} from '@codesandbox/sandpack-react';
-import {githubLight} from '@codesandbox/sandpack-themes';
+import {SandpackProvider, SandpackPreview} from '@codesandbox/sandpack-react';
+
 // $FlowFixMe
 import styleguideJsCode from '!!raw-loader!../../../../dist/sandbox/sandbox';
 import * as React from 'react';
+import {CodeEditor} from './CodeEditor';
+import {githubLight} from '@codesandbox/sandpack-themes';
+import './sandbox.scss';
 
 type SandboxPropsType = {
   code: string,
@@ -18,7 +21,7 @@ export default function App() {
 
 export const Sandbox = ({code = ''}: SandboxPropsType) => {
   return (
-    <Sandpack
+    <SandpackProvider
       template="react"
       theme={githubLight}
       files={{
@@ -31,9 +34,14 @@ export const Sandbox = ({code = ''}: SandboxPropsType) => {
           hidden: true,
         },
       }}
-      options={{
-        editorHeight: 600,
-      }}
-    />
+    >
+      <div className="sandbox-layout">
+        <CodeEditor code={wrap(code)} />
+        <SandpackPreview
+          showRefreshButton={false}
+          showOpenInCodeSandbox={false}
+        />
+      </div>
+    </SandpackProvider>
   );
 };

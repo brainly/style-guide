@@ -10,6 +10,8 @@ VERSION="${VERSION:=$DEFAULT_VERSION}"
 
 yarn clean
 yarn gulp build-assets --version=$VERSION
+node ./scripts/build-types.js
+node ./scripts/build-sandbox-types.js
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox --mode production
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox-addon --mode production
 yarn build-newsletter-stories
