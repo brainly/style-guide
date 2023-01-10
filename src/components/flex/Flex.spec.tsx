@@ -6,6 +6,7 @@ import Flex, {
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
 } from './Flex';
+
 describe('<Flex>', () => {
   const children = <div>Text</div>;
   it('renders without error', () => {

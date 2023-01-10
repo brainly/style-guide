@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
 import {ICON_COLOR} from '../icons/Icon';
+
 export type IconTypeType =
   | 'accountancy'
   | 'administration'

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {shallow, mount} from 'enzyme';
 import {act} from 'react-dom/test-utils';
 import Dropdown from './Dropdown';
+
 const testItems = [
   {
     label: 'text-1',

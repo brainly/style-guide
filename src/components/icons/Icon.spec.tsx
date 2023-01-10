@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Icon, {TYPE, ICON_COLOR} from './Icon';
 import {shallow} from 'enzyme';
+
 test('render if type', () => {
   const icon = shallow(<Icon type={TYPE.ANSWER} />);
   expect(icon.hasClass('sg-icon')).toEqual(true);

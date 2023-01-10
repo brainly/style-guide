@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Text from '../../text/Text';
 import Transition from '../Transition';
+
 const slideFadeInEffect = {
   initial: {
     opacity: 0,

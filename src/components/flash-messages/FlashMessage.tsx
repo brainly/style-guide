@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Text from '../text/Text';
+
 export type FlashMessageTypeType = 'default' | 'success' | 'error' | 'info';
 export const TYPE = {
   DEFAULT: 'default',

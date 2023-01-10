@@ -1,4 +1,5 @@
 import {__DEV__} from './consts';
+
 export default function invariant(condition: boolean, message: string): void {
   if (__DEV__) {
     if (condition) {

@@ -1,4 +1,5 @@
 import type {TransitionEffectType} from './Transition';
+
 export type PredefinedEffectType =
   | 'fade'
   | 'scaleFade'

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import type {RadioColorType} from './Radio';
+
 type RadioContextType = {
   color?: RadioColorType;
   disabled?: boolean;

@@ -3,6 +3,7 @@ import Flex from '../../flex/Flex';
 import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
+
 const delayOffset = 240;
 const typingEffect = {
   initial: {

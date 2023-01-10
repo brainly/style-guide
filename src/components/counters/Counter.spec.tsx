@@ -3,6 +3,7 @@ import Counter from './Counter';
 import Text from 'text/Text';
 import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
+
 describe('<Counter />', () => {
   it('render itself without error', () => {
     const component = shallow(<Counter>1</Counter>);

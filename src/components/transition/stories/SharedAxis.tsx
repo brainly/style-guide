@@ -5,6 +5,7 @@ import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
+
 const colorsOrder = ['red', 'yellow', 'blue'];
 
 const createSlideInEffect = (direction: 'left' | 'right') => ({

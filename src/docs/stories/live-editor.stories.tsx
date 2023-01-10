@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Sandbox as SandboxComponent} from '../addons/sandbox/Sandbox';
+
 export default {
   title: 'Tools/Live Editor',
   parameters: {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {styled} from '@storybook/theming';
 import {Div} from '@storybook/components';
+
 const ItemLabel = styled.div(({theme}) => ({
   fontFamily: theme.typography.fonts.base,
   fontSize: theme.typography.size.s3,

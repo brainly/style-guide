@@ -4,6 +4,7 @@ import {mergeStories} from '../../chromatic/utils';
 import AccordionItem from './AccordionItem';
 import Accordion from './Accordion';
 import Bubble from '../bubble/Bubble';
+
 const copy = {
   title: 'Is this title for accordion?',
   description:

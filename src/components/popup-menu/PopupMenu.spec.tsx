@@ -1,6 +1,7 @@
 import * as React from 'react';
 import PopupMenu from './PopupMenu';
 import {shallow} from 'enzyme';
+
 const items = ['one', 'two', 'three'];
 test('render', () => {
   const popupMenu = shallow(<PopupMenu items={items} />);

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import FlashMessage from './FlashMessage';
 import {testA11y} from '../../axe';
+
 describe('FlashMessage', () => {
   it('should have "alert" role', () => {
     const flashMessage = render(<FlashMessage>message</FlashMessage>);

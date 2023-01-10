@@ -1,6 +1,7 @@
 import useReducedMotion from './useReducedMotion';
 import {act, renderHook} from '@testing-library/react-hooks';
 import MatchMedia from './__mocks__/mq';
+
 const MOTION_MQ = {
   reduced: '(prefers-reduced-motion: reduce)',
   default: '(prefers-reduced-motion: default)',

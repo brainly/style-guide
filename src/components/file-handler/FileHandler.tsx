@@ -5,6 +5,7 @@ import Link from '../text/Link';
 import Icon from '../icons/Icon';
 import Spinner from '../spinner/Spinner';
 import type {IconTypeType} from '../icons/Icon';
+
 export type FileHandlerColorType = 'gray-20' | 'white';
 export const COLORS_MAP = {
   'gray-20': 'gray-20',

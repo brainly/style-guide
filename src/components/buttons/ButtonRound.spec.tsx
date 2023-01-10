@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ButtonRound from './ButtonRound';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const button = shallow(<ButtonRound>Some text</ButtonRound>);
   expect(button.hasClass('sg-button-solid-round')).toEqual(true);

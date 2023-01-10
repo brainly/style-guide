@@ -3,6 +3,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import Link from './Link';
 import userEvent from '@testing-library/user-event';
+
 describe('Link', () => {
   describe('as anchor', () => {
     it('has a link role and an accessible label', () => {

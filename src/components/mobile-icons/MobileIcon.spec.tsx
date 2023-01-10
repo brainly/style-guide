@@ -1,6 +1,7 @@
 import * as React from 'react';
 import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
 import {shallow} from 'enzyme';
+
 test('render if type', () => {
   const icon = shallow(<MobileIcon type={TYPE.ANSWER_BUBBLE} />);
   expect(icon.hasClass('sg-mobile-icon')).toEqual(true);

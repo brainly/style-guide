@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import Icon from './Icon';
 import {testA11y} from '../../axe';
+
 describe('Icon', () => {
   it('should have an accessible title and img role', async () => {
     const type = 'search';

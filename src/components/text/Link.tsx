@@ -12,6 +12,7 @@ import {
 } from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 const anchorRelatedProps = [
   'download',
   'hreflang',

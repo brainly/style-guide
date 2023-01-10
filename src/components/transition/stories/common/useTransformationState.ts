@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 type ElementSnapshotType = Readonly<{
   left: number;
   top: number;

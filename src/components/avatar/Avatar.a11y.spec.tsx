@@ -3,6 +3,7 @@ import {render, screen} from '@testing-library/react';
 import Avatar from './Avatar';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
+
 describe('Avatar', () => {
   it('renders avatar removed from a11y tree when imgSrc and link are not provided', () => {
     const alt = 'alt';

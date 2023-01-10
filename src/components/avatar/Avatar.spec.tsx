@@ -2,6 +2,7 @@ import * as React from 'react';
 import Avatar, {SIZE} from './Avatar';
 import Icon from 'icons/Icon';
 import {shallow, mount} from 'enzyme';
+
 test('render default', () => {
   const avatar = mount(<Avatar />);
   expect(avatar.find('.sg-avatar__image')).toHaveLength(1);

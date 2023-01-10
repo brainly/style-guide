@@ -3,6 +3,7 @@ import ActionList, {DIRECTION, ALIGNMENT} from './ActionList';
 import ActionListHole from './ActionListHole';
 import {shallow} from 'enzyme';
 import Button from 'buttons/Button';
+
 describe('ActionList', () => {
   test('render', () => {
     const actionList = shallow(

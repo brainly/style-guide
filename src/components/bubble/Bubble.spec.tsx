@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Bubble, {DIRECTION, ALIGNMENT} from './Bubble';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const bubble = shallow(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
   expect(bubble.hasClass('sg-bubble')).toEqual(true);

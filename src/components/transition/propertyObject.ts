@@ -4,6 +4,7 @@ import type {
   PredefinedDurationType,
   PredefinedTranslateType,
 } from './Transition';
+
 const EASING_VALUES: Record<PredefinedEasingType, string> = {
   regular: 'cubic-bezier(0.35, 0, 0.1, 1)',
   entry: 'cubic-bezier(0.1, 0, 0, 1)',

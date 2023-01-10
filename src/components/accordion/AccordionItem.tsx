@@ -11,6 +11,7 @@ import Link from '../text/Link';
 import Text from '../text/Text';
 import {AccordionContext} from './Accordion';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 export type AccordionItemPropsType = Readonly<{
   title: React.ReactNode;

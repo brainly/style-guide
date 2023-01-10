@@ -5,6 +5,7 @@ import {
   mergeResponsiveProps,
 } from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 type ColorType =
   | 'transparent'
   | 'white'

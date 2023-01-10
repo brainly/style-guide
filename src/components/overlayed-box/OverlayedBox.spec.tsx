@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import OverlayedBox from './OverlayedBox';
+
 test('render', () => {
   const overlay = <div className="custom-overlay-element">abc</div>;
   const overlayedBox = shallow(

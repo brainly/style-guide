@@ -1,4 +1,5 @@
 import {createEffect} from './predefinedEffects';
+
 describe('createEffect()', () => {
   it('returns a predefined effect', () => {
     const effect = createEffect({

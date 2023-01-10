@@ -1,5 +1,6 @@
 import React from 'react';
 import {styled} from '@storybook/theming';
+
 const Status = styled.span`
   margin-left: 8px;
 `;

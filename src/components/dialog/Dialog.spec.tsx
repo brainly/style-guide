@@ -2,6 +2,7 @@ import * as React from 'react';
 import {mount} from 'enzyme';
 import Dialog from './Dialog';
 import DialogCloseButton from './DialogCloseButton';
+
 window.scrollTo = jest.fn();
 describe('<Dialog>', () => {
   it('renders children', () => {

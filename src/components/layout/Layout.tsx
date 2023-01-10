@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 export type LayoutAsType = 'div' | 'main' | 'section' | 'article' | 'aside';
 export type LayoutPropsType = {
   className?: string;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {MenuItemPropsType} from './subcomponents/MenuItem';
 import MenuItem from './subcomponents/MenuItem';
+
 export type SizeType = 'small' | 'normal' | 'large';
 export const SIZE: {
   SMALL: 'small';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 export type RateCounterItemPropsType = {
   text?: string;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'text'>;

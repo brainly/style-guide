@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Text from '../components/text/Text';
 import Headline from '../components/text/Headline';
+
 type StoryVariantBorderBoxPropsType = {
   children: React.ReactNode;
   height?: string;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Box from '../../../box/Box';
 import Text from '../../../text/Text';
+
 type PropsType = Readonly<{
   children: React.ReactNode;
   format?: 'portrait' | 'landscape' | 'listitem';

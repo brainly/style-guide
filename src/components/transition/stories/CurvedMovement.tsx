@@ -4,6 +4,7 @@ import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
 import {useTransformationState} from './common/useTransformationState';
+
 export const CurvedMovement = () => {
   const [expanded, setExpanded] = React.useState(false);
   const [effects, setEffects] = React.useState({

@@ -2,6 +2,7 @@ import {
   generateResponsiveClassNames,
   mergeResponsiveProps,
 } from './responsive-props';
+
 describe('mergeResponsiveProps', () => {
   it('returns object with each breakpoint being array of corresponding breakpoint values from each item', () => {
     expect(

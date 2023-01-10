@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Breadcrumb from './Breadcrumb';
 import {shallow} from 'enzyme';
+
 const elements = ['Coments (9)', 'Report', 'Follow'];
 test('render', () => {
   const breadcrumb = shallow(<Breadcrumb elements={elements} />);

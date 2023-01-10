@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
+
 export type ListItemIconPropsType = {
   children?: React.ReactNode;
   className?: string;

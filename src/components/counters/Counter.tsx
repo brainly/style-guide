@@ -4,6 +4,7 @@ import Text from '../text/Text';
 import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
+
 type CounterSizeType = 'xs' | 'xxs';
 type ColorType = 'red-60' | 'blue-60';
 export const COUNTER_COLOR = {

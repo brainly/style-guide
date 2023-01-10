@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import ListItem from './ListItem';
+
 describe('<ListItem>', () => {
   it('renders', () => {
     const listItem = shallow(<ListItem />);

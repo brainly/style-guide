@@ -4,6 +4,7 @@ import Text, {TEXT_COLOR} from '../text/Text';
 import Icon, {TYPE as ICON_TYPE, ICON_COLOR} from '../icons/Icon';
 import type {IconTypeType} from '../icons/Icon';
 import {__DEV__, invariant} from '../utils';
+
 export type LabelColorType =
   | 'blue'
   | 'green'

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 export type BreadcrumbPropsType = {
   className?: string | null | undefined;
   adaptive?: boolean | null | undefined;

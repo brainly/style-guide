@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType} from '../icons/Icon';
+
 export type IconTypeType =
   | 'arrow'
   | 'answer_bubble'

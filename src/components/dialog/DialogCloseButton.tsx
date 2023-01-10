@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import Button from '../buttons/Button';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+
 export type DialogCloseButtonPropsType = Readonly<{
   onClick: () => void;
   className?: string;

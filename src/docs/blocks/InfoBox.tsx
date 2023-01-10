@@ -3,6 +3,7 @@ import Box from '../../components/box/Box';
 import Text from '../../components/text/Text';
 import Flex from '../../components/flex/Flex';
 import Icon from '../../components/icons/Icon';
+
 type InfoBoxType = 'warning' | 'info' | 'error';
 interface InfoBoxProps {
   type?: InfoBoxType;

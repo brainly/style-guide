@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 type SizeType = 'normal' | 'small' | 'large' | 'full';
 type SeparatorVerticalColorType = 'white' | 'gray-50' | 'gray-40';
 export const SIZE: {

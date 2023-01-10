@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card, {CARD_PADDING} from './Card';
 import CardHole from './CardHole';
 import {shallow} from 'enzyme';
+
 describe('Card', () => {
   test('render', () => {
     const card = shallow(

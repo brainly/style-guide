@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import Label from './Label';
 import {testA11y} from '../../axe';
+
 describe('Label', () => {
   it('should have an accessible name provided by aria-label', async () => {
     const name = 'accessible name';

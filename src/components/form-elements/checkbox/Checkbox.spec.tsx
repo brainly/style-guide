@@ -3,6 +3,7 @@ import Checkbox from './Checkbox';
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
+
 describe('<Checkbox />', () => {
   const renderCheckbox = props =>
     render(<Checkbox onChange={() => jest.fn()} {...props} />);

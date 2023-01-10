@@ -3,6 +3,7 @@ import RadioGroup from './RadioGroup';
 import Radio from './Radio';
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 describe('<RadioGroup />', () => {
   const renderRadioGroup = props =>
     render(

@@ -10,6 +10,7 @@ import DialogCloseButton from './DialogCloseButton';
 import {testA11y} from '../../axe';
 import Dialog from './Dialog';
 import userEvent from '@testing-library/user-event';
+
 window.scrollTo = jest.fn();
 describe('Dialog a11y', () => {
   it('renders with <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {

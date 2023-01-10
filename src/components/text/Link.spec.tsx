@@ -3,6 +3,7 @@ import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
 import Text from './Text';
 import {shallow} from 'enzyme';
 import {TEXT_WEIGHT} from './textConsts';
+
 test('render', () => {
   const link = shallow(<Link href="test.com">Test</Link>);
   expect(link.hasClass('sg-text--link')).toBeTruthy();

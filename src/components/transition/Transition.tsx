@@ -7,6 +7,7 @@ import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
 import {createEffect} from './predefinedEffects';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import {getDebugOptions} from './debug';
+
 Transition.createEffect = createEffect;
 
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';

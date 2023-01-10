@@ -4,6 +4,7 @@ import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import Button from 'buttons/Button';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const search = shallow(<Search />);
   expect(search.hasClass('sg-search')).toEqual(true);

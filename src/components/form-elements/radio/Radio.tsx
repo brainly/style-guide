@@ -9,6 +9,7 @@ import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
 import useIsFirstRender from '../../utils/useIsFirstRender';
+
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<

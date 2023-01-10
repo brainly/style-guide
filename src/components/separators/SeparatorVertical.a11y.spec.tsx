@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import SeparatorVertical from './SeparatorVertical';
+
 describe('SeparatorVertical', () => {
   it('should have role="separator" and vertical orientation', () => {
     const separator = render(<SeparatorVertical />);

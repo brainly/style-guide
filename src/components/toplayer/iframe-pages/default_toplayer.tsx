@@ -6,6 +6,7 @@ import ContentBoxContent, {
 } from 'content-box/ContentBoxContent';
 import ContentBoxActions from 'content-box/ContentBoxActions';
 import Overlay from 'overlay/Overlay';
+
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>

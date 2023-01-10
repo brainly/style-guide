@@ -2,6 +2,7 @@ import * as React from 'react';
 import CodeBlock from 'components/CodeBlock';
 import DocsBlock from 'components/DocsBlock';
 import DocsActiveBlock from 'components/DocsActiveBlock';
+
 const horizontalSettings = [
   {
     name: 'className',

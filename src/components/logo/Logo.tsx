@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import {getLogoUrl} from '../../logo-url';
+
 export type LogoTypeType =
   | 'brainly'
   | 'brainly-mobile'

@@ -2,6 +2,7 @@ import * as React from 'react';
 import ContentBoxContent from './ContentBoxContent';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
 import {shallow} from 'enzyme';
+
 describe('<ContentBoxContent />', () => {
   it('renders', () => {
     const testBox = shallow(<ContentBoxContent>test</ContentBoxContent>);

@@ -2,6 +2,7 @@ import * as React from 'react';
 import RwdHelper, {TYPE} from './RwdHelper';
 import {shallow} from 'enzyme';
 import Icon, {TYPE as icoTypes} from 'icons/Icon';
+
 test('render element', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>

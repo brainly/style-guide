@@ -2,6 +2,7 @@ import React from 'react';
 import TextBit from '../../components/text/TextBit';
 import type {TextBitPropsType} from '../../components/text/TextBit';
 import Flex from '../../components/flex/Flex';
+
 type HeadlineMarginsType =
   | 'none'
   | 'xxs'

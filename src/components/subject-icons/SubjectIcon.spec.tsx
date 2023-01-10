@@ -1,6 +1,7 @@
 import * as React from 'react';
 import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from './SubjectIcon';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const icon = shallow(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
   expect(icon.hasClass('sg-subject-icon')).toEqual(true);

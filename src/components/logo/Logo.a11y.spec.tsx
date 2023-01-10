@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import Logo from './Logo';
+
 describe('Logo', () => {
   it('should have an alt', () => {
     const logo = render(<Logo />);

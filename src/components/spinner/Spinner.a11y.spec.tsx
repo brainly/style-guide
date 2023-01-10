@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import Spinner from './Spinner';
+
 describe('Spinner', () => {
   it('should have a role status', () => {
     const spinner = render(<Spinner />);

@@ -5,6 +5,7 @@ import Button from '../../buttons/Button';
 import Icon from '../../icons/Icon';
 import Transition from '../Transition';
 import Stage from './common/Stage';
+
 const fadeEffect = {
   initial: {
     opacity: 0,

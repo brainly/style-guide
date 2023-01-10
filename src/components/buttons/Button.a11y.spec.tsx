@@ -3,6 +3,7 @@ import {render, within} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import Button from './Button';
 import userEvent from '@testing-library/user-event';
+
 describe('Button', () => {
   describe('without `href`', () => {
     it('has a button role and an accessible label', () => {

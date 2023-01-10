@@ -9,6 +9,7 @@ import {
   TEXT_WHITE_SPACE,
 } from './textConsts';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const text = shallow(<Text>Test</Text>);
   expect(text.hasClass('sg-text')).toBeTruthy();

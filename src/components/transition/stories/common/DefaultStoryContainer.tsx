@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Text from '../../../text/Text';
+
 type PropsType = Readonly<{
   height: string;
   children: React.ReactNode;

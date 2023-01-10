@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 const NO_SCROLL_CLASS = 'sg-dialog-no-scroll';
 const DIALOG_SELECTOR = '.js-dialog';
 export function useBodyNoScroll() {

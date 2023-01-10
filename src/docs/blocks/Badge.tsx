@@ -1,4 +1,5 @@
 import {styled, css} from '@storybook/theming';
+
 const Badge = styled.div`
   display: inline-block;
   vertical-align: top;

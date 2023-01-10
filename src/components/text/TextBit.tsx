@@ -4,6 +4,7 @@ import type {TextColorType} from './Text';
 import {TEXT_COLOR} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 type TextBitTypeType =
   | 'h1'
   | 'h2'

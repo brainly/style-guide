@@ -5,6 +5,7 @@ import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
 import {useTransformationState} from './common/useTransformationState';
+
 const appearingEffect = {
   initial: {
     opacity: 0,

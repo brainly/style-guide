@@ -1,5 +1,6 @@
 import * as React from 'react';
 import cx from 'classnames';
+
 export type DialogBodyPropsType = Readonly<{
   children: React.ReactNode;
   className?: string;

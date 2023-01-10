@@ -4,6 +4,7 @@ import * as React from 'react';
 import {useEffect, useState, useRef} from 'react';
 import classNames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+
 type LinksType = Readonly<{
   label: string;
   url: string;

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+
 export type HeaderMiddlePropsType = {
   children?: React.ReactNode;
   className?: string;

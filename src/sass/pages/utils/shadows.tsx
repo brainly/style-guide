@@ -3,6 +3,7 @@ import CodeBlock from 'components/CodeBlock';
 import DocsBlock from 'components/DocsBlock';
 import DocsActiveBlock from 'components/DocsActiveBlock';
 import Box from '../../../components/box/Box';
+
 const responsiveSettings = [
   {
     name: 'className',

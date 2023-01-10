@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 export type TextTypeType =
   | 'span'
   | 'p'

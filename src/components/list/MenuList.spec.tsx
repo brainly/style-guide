@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import MenuList, {MenuItem, SIZE} from 'list/MenuList';
+
 const menuItem = {
   text: 'Test',
   href: '#',

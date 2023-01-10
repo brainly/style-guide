@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE} from './TextBit';
 import {shallow, mount} from 'enzyme';
+
 test('render', () => {
   const textBit = shallow(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
   expect(textBit.hasClass('sg-text-bit')).toBeTruthy();

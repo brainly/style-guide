@@ -4,6 +4,7 @@ import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import Link from '../text/Link';
 import Box from '../box/Box';
+
 describe('<Accordion>', () => {
   it('renders with items', () => {
     const accordion = mount(

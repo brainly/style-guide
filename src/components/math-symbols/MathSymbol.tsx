@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {ICON_COLOR} from '../icons/Icon';
 import type {IconColorType} from '../icons/Icon';
+
 export type MathSymbolTypeType =
   | 'squere-root'
   | 'nth-root'
@@ -108,7 +109,7 @@ const MathSymbol = ({
       <text id={titleId} hidden>
         {title || defaultTitle}
       </text>
-      <use xlinkHref={iconType} arya-hidden="true" />
+      <use xlinkHref={iconType} aria-hidden="true" />
     </svg>
   );
 };

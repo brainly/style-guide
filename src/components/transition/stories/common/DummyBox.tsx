@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '../../../box/Box';
 import Button from '../../../buttons/Button';
 import Icon from '../../../icons/Icon';
+
 const sizes = {
   listitem: {
     width: 'auto',

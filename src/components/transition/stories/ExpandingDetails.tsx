@@ -7,6 +7,7 @@ import Transition from '../Transition';
 import Stage from './common/Stage';
 import {useIsomorphicLayoutEffect} from '../../utils/useIsomorphicLayoutEffect';
 import {useTransformationState} from './common/useTransformationState';
+
 type ExampleDataType = Array<{
   color: string;
   shortContent: string;

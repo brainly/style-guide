@@ -1,4 +1,5 @@
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
+
 const classNamesRegistry = {
   register: jest.fn(),
   toString: jest.fn(),

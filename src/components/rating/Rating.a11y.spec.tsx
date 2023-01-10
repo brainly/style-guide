@@ -4,6 +4,7 @@ import Rating from './Rating';
 import Star from './subcomponents/Star';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
+
 describe('Rating', () => {
   it('has accessible description of current rate', () => {
     const rate = 3.4;

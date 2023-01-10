@@ -3,6 +3,7 @@ import type {ClassNamesRegistryType} from './classNamesRegistry';
 import type {ParsedPropertyObjectType} from './propertyObject';
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import type {PropertyObjectType} from './Transition';
+
 type CSSTransitionedPropsType = Readonly<{
   transform: boolean;
   width: boolean;

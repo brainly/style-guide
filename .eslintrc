@@ -3,13 +3,298 @@
     "jest": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": [
+    "import",
+    "react",
+    "react-hooks",
+    "prettier",
+    "@typescript-eslint"
+  ],
   "extends": ["prettier"],
   "rules": {
     "max-len": ["error", {"code": 120, "ignoreComments": true}],
-    "react/no-multi-comp": "off",
     "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+    "prefer-arrow-callback": "off",
+    // IMPORTS
+    // If a default import is requested, this rule will report if there is no default export in the imported module
+    "import/default": "error",
+    // Require a leading comment with a webpackChunkName
+    "import/dynamic-import-chunkname": "error",
+    // Reports issues with exports, like repeated exports of names or defaults
+    "import/export": "error",
+    // Enforces that all exports are declared at the bottom of the file
+    "import/exports-last": "off",
+    // Ensure consistent use of file extension within the import path
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    // This rule reports any imports that come after non-import statements
+    "import/first": "error",
+    // Reports when named exports are not grouped together in a single export declaration
+    "import/group-exports": "off",
+    // Forbid modules to have too many dependencies (import or require statements)
+    "import/max-dependencies": "off",
+    //Verifies that all named imports are part of the set of named exports in the referenced module
+    "import/named": "error",
+    // Enforces names exist at the time they are dereferenced, when imported as a full namespace
+    "import/namespace": "error",
+    // Enforces having one or more empty lines after the last top-level import statement or require call
+    "import/newline-after-import": "error",
+    // Forbid import of modules using absolute paths
+    "import/no-absolute-path": "error",
+    // Reports require([array], ...) and define([array], ...) function calls at the module scope
+    "import/no-amd": "error",
+    // Reports if a module's default export is unnamed
+    "import/no-anonymous-default-export": [
+      "error",
+      {
+        "allowArray": false,
+        "allowArrowFunction": false,
+        "allowAnonymousClass": false,
+        "allowAnonymousFunction": false,
+        "allowLiteral": false,
+        "allowObject": true
+      }
+    ],
+    // Reports require([string]) function calls
+    "import/no-commonjs": "off",
+    // Ensures that there is no resolvable path back to this module via its dependencies
+    "import/no-cycle": "off",
+    // Prohibit default exports
+    "no-default-export": "off",
+    // Reports if a resolved path is imported more than once
+    "import/no-duplicates": "error",
+    // Forbid require() calls with expressions
+    "import/no-dynamic-require": "off",
+    // Forbid the import of external modules that are not declared in the package.json
+    "import/no-extraneous-dependencies": "off",
+    // Use this rule to prevent importing the submodules of other modules
+    "import/no-internal-modules": "off",
+    // Forbids the use of mutable exports with var or let
+    "import/no-mutable-exports": "error",
+    // Reports use of an exported name as the locally imported name of a default export
+    "import/no-named-as-default": "error",
+    // Reports use of an exported name as a property on the default export
+    "import/no-named-as-default-member": "error",
+    // Reports use of a default export as a locally named import
+    "import/no-named-default": "error",
+    // Prohibit named exports
+    "import/no-named-export": "off",
+    // Reports if namespace import is used
+    "import/no-namespace": "off",
+    // Forbid the use of Node.js builtin modules
+    "import/no-nodejs-modules": "off",
+    // Use this rule to prevent imports to folders in relative parent paths
+    "import/no-relative-parent-imports": "off",
+    // Restrict which files can be imported in a given folder
+    "import/no-restricted-paths": "off",
+    // Forbid a module from importing itself
+    "import/no-self-import": "error",
+    // Forbid unassigned imports
+    "import/no-unassigned-import": "off",
+    // Ensures an imported module can be resolved to a module on the local filesystem
+    "import/no-unresolved": "off",
+    // Use this rule to prevent unnecessary path segments in import and require statements
+    "import/no-useless-path-segments": "error",
+    // Forbid Webpack loader syntax in imports
+    "import/no-webpack-loader-syntax": "off",
+    // Enforce a convention in module import order
+    "import/order": "off", //turned off coz to much effort to change files, no autofix option
+    // When there is only a single export from a module, prefer using default export over named export
+    "import/prefer-default-export": "off",
+    // Warn if a module could be mistakenly parsed as a script by a consumer
+    "import/unambiguous": "off",
+    // REACT HOOKS
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    // REACT
+    "react/jsx-filename-extension": [
+      1,
+      {"extensions": ["jsx", "js", ".tsx", ".ts"]}
+    ],
+    // Enforces consistent naming for boolean props
+    "react/boolean-prop-naming": "off",
+    // Forbid "button" element without an explicit "type" attribute
+    "react/button-has-type:": "off",
+    // Prevent extraneous defaultProps on components
+    "react/default-props-match-prop-types": "error",
+    // Rule enforces consistent usage of destructuring assignment in component
+    "react/destructuring-assignment": "off",
+    // Prevent missing displayName in a React component definition
+    "react/display-name": "off",
+    // Forbid certain props on Components
+    "react/forbid-component-props": "off",
+    // Forbid certain props on DOM Nodes
+    "react/forbid-dom-props": "off",
+    // Forbid certain elements
+    "react/forbid-elements": "off",
+    // Forbid certain propTypes
+    "react/forbid-prop-types": "off",
+    // Forbid foreign propTypes
+    "react/forbid-foreign-prop-types": "error",
+    // Prevent using this.state inside this.setState
+    "react/no-access-state-in-setstate": "error",
+    // Prevent using Array index in key props
+    "react/no-array-index-key": "off",
+    // Prevent passing children as props
+    "react/no-children-prop": "error",
+    // Prevent usage of dangerous JSX properties
+    "react/no-danger": "off",
+    // Prevent problem with children and props.dangerouslySetInnerHTML
+    "react/no-danger-with-children": "error",
+    // Prevent usage of deprecated methods
+    "react/no-deprecated": "error",
+    // Prevent usage of setState in componentDidMount
+    "react/no-did-mount-set-state": "error",
+    // Prevent usage of setState in componentDidUpdate
+    "react/no-did-update-set-state": "error",
+    // Prevent direct mutation of this.state
+    "react/no-direct-mutation-state": "error",
+    // Prevent usage of findDOMNode
+    "react/no-find-dom-node": "error",
+    // Prevent usage of isMounted
+    "react/no-is-mounted": "error",
+    // Prevent multiple component definition per file
+    "react/no-multi-comp": "off",
+    // Prevent usage of shouldComponentUpdate when extending React.PureComponent
+    "react/no-redundant-should-component-update": "error",
+    // Prevent usage of the return value of React.render
+    "react/no-render-return-value": "error",
+    // Prevent usage of setState
+    "react/no-set-state": "off",
+    // Prevent common casing typos
+    "react/no-typos": "error",
+    // Prevent using string references in ref attribute.
+    "react/no-string-refs": "error",
+    // Prevent this from being used in stateless functional components
+    "react/no-this-in-sfc": "off",
+    // Prevent invalid characters from appearing in markup
+    "react/no-unescaped-entities": "error",
+    // Prevent usage of unknown DOM property (fixable)
+    "react/no-unknown-property": "error",
+    // Prevent usage of unsafe lifecycle methods
+    "react/no-unsafe": "off",
+    // Prevent definitions of unused prop types
+    "react/no-unused-prop-types": "error",
+    // Prevent usage of setState in componentWillUpdate
+    "react/no-will-update-set-state": "error",
+    // Enforce ES5 or ES6 class for React Components
+    "react/prefer-es6-class": "error",
+    // Enforce stateless React Components to be written as a pure function
+    "react/prefer-stateless-function": "off",
+    // Prevent missing props validation in a React component definition
+    "react/prop-types": "error",
+    // Prevent missing React when using JSX
+    "react/react-in-jsx-scope": "error",
+    // Enforce a defaultProps definition for every prop that is not a required prop
+    "react/require-default-props": "off",
+    // Enforce React components to have a shouldComponentUpdate method
+    "react/require-optimization": "off",
+    // Enforce ES5 or ES6 class for returning value in render function
+    "react/require-render-return": "error",
+    // Prevent extra closing tags for components without children (fixable)
+    "react/self-closing-comp": "error",
+    // Enforce component methods order
+    "react/sort-comp": "error",
+    // Enforce propTypes declarations alphabetical sorting
+    "react/sort-prop-types": "off",
+    // Enforce state initialization style
+    "react/state-in-constructor": "off",
+    // Enforce style prop value being an object
+    "react/style-prop-object": "error",
+    // Prevent void DOM elements (e.g. <img />, <br />) from receiving children
+    "react/void-dom-elements-no-children": "error",
+
+    // JSX
+    // Enforce boolean attributes notation in JSX (fixable)
+    "react/jsx-boolean-value": "error",
+    // Enforce or disallow spaces inside of curly braces in JSX attributes and expression
+    "react/jsx-child-element-spacing": "off",
+    // Validate closing bracket location in JSX (fixable)
+    "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+    // Validate closing tag location in JSX
+    "react/jsx-closing-tag-location": "error",
+    // Enforce or disallow spaces inside of curly braces in JSX attributes (fixable)
+    "react/jsx-curly-spacing": "error",
+    // Enforce or disallow spaces around equal signs in JSX attributes (fixable)
+    "react/jsx-equals-spacing": "error",
+    // Enforce position of the first prop in JSX
+    "react/jsx-first-prop-new-line": ["error", "multiline"],
+    // Enforce event handler naming conventions in JSX
+    "react/jsx-handler-names": "off",
+    // Validate JSX indentation
+    "react/jsx-indent": ["error", 2],
+    // Validate props indentation in JSX (fixable)
+    "react/jsx-indent-props": ["error", 2],
+    // Validate JSX has key prop when in array or iterator
+    "react/jsx-key": "error",
+    // Validate JSX maximum depth
+    "react/jsx-max-depth": "off",
+    // Limit maximum of props on a single line in JSX
+    "react/jsx-max-props-per-line": [
+      "error",
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
+    // Prevent usage of .bind() and arrow functions in JSX props
+    "react/jsx-no-bind": "off",
+    // Prevent comments from being inserted as text nodes
+    "react/jsx-no-comment-textnodes": "error",
+    // Prevent duplicate props in JSX
+    "react/jsx-no-duplicate-props": "error",
+    // Prevent usage of unwrapped JSX strings
+    "react/jsx-no-literals": "off",
+    // Prevent usage of unsafe target='_blank'
+    "react/jsx-no-target-blank": "error",
+    // Disallow undeclared variables in JSX
+    "react/jsx-no-undef": "error",
+    // Limit to one expression per line in JSX
+    "react/jsx-one-expression-per-line": "off",
+    // Enforce curly braces or disallow unnecessary curly braces in JSX props and/or children
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {"props": "never", "children": "never"}
+    ],
+    // Enforce shorthand or standard form for React fragments
+    "react/jsx-fragments": ["error", "syntax"],
+    // Enforce PascalCase for user-defined JSX components
+    "react/jsx-pascal-case": "error",
+    // Disallow multiple spaces between inline JSX props
+    "react/jsx-props-no-multi-spaces": "error",
+    // Enforce defaultProps declarations alphabetical sorting
+    "react/jsx-sort-default-props": "off",
+    // Enforce props alphabetical sorting
+    "react/jsx-sort-props": "off",
+    // Validate spacing before closing bracket in JSX
+    "react/jsx-space-before-closing": ["error", "always"],
+    // Validate whitespace in and around the JSX opening and closing brackets (fixable)
+    "react/jsx-tag-spacing": "error",
+    // Prevent React to be incorrectly marked as unused
+    "react/jsx-uses-react": "error",
+    // Prevent variables used in JSX to be incorrectly marked as unused
+    "react/jsx-uses-vars": "error",
+    // Prevent missing parentheses around multilines JSX (fixable)
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": "parens-new-line",
+        "assignment": "parens-new-line",
+        "return": "parens-new-line",
+        "arrow": "parens-new-line",
+        "condition": "ignore",
+        "logical": "ignore",
+        "prop": "ignore"
+      }
+    ],
+    // This rule enforces the consistent use of either double or single quotes in JSX attributes
+    "jsx-quotes": ["error", "prefer-double"]
   },
   "overrides": [
     {

@@ -8,6 +8,7 @@ import {
 } from './FlexConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 type FlexContainerType =
   | 'a'
   | 'article'

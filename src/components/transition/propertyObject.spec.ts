@@ -1,4 +1,5 @@
 import {parsePropertyObject} from './propertyObject';
+
 describe('parsePropertyObject()', () => {
   it('parses easing and duration on parent level', () => {
     const parsed = parsePropertyObject({

@@ -1,4 +1,5 @@
 import {MEDIA_QUERY} from '../useReducedMotion';
+
 interface MediaQueryList {
   matches: boolean;
   media: string;

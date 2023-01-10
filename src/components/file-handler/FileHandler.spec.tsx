@@ -5,6 +5,7 @@ import Icon from 'icons/Icon';
 import Text from '../text/Text';
 import Link from '../text/Link';
 import Spinner from '../spinner/Spinner';
+
 const mockCallback = jest.fn();
 describe('FileHandler', () => {
   test('renders with icon', () => {

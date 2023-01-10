@@ -3,6 +3,7 @@ import {render, within} from '@testing-library/react';
 import FileHandler from './FileHandler';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
+
 describe('FileHandler', () => {
   it('has onClick, so it acts like a button: fires onClick on click, space and enter', () => {
     const handleOnClick = jest.fn();

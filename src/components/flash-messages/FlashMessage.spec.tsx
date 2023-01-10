@@ -1,6 +1,7 @@
 import * as React from 'react';
 import FlashMessage, {TYPE} from './FlashMessage';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const flashMessage = shallow(<FlashMessage text="test" />);
   expect(flashMessage.hasClass('sg-flash')).toEqual(true);

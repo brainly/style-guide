@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './styles.scss';
+
 export const mergeStories = module => {
   const stories = Object.keys(module)
     .filter(moduleExports => moduleExports !== 'default')

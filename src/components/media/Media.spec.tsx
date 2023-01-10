@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Media from './Media';
 import {shallow} from 'enzyme';
+
 const defaultProps = {
   contentArray: [
     <span key={1} className="sg-text sg-text--text-gray-70 sg-text--link">

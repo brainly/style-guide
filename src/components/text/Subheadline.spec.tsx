@@ -8,6 +8,7 @@ import {
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
 import {TEXT_COLOR} from './Text';
+
 test('render', () => {
   const subheadline = shallow(<Subheadline>Test</Subheadline>);
   expect(subheadline.hasClass('sg-subheadline')).toBeTruthy();

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import Box, {PADDING} from './Box';
+
 test('render', () => {
   const box = shallow(<Box>some text</Box>);
   expect(box.hasClass('sg-box')).toEqual(true);

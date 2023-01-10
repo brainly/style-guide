@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const component = shallow(<Spinner />);
   expect(component).toHaveLength(1);

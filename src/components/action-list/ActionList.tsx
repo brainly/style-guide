@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 type DirectionType =
   | 'to-right'
   | 'centered'

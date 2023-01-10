@@ -1,6 +1,7 @@
 import * as React from 'react';
 import HomeButton, {TYPE} from './HomeButton';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const button = shallow(<HomeButton />);
   expect(button.hasClass('sg-home-button')).toBeTruthy();

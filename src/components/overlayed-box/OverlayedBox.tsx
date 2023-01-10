@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+
 export type OverlayedBoxPropsType = {
   children?: React.ReactNode | null | undefined;
   overlay?: React.ReactNode | null | undefined;

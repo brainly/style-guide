@@ -4,6 +4,7 @@ import Icon from 'icons/Icon';
 import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
+
 describe('rating', () => {
   it('renders correctly', () => {
     const rating = shallow(<Rating />);

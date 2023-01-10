@@ -5,6 +5,7 @@ import {TEXT_COLOR} from './Text';
 import type {TextColorType} from './Text';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 export type HeadlineTypeType =
   | 'span'
   | 'h1'

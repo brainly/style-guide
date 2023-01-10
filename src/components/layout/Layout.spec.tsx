@@ -4,6 +4,7 @@ import LayoutContent from './LayoutContent';
 import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
 import {shallow} from 'enzyme';
+
 describe('Layout', () => {
   test('render', () => {
     const layout = shallow(<Layout>Content</Layout>);

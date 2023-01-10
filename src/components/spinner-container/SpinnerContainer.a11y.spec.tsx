@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, within} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import SpinnerContainer from './SpinnerContainer';
+
 describe('SpinnerContainer', () => {
   describe('loading: ', () => {
     it('should have a role status', () => {

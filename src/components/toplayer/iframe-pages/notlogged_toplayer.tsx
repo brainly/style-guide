@@ -13,6 +13,7 @@ import ListItem from 'list/ListItem';
 import ListItemIcon from 'list/ListItemIcon';
 import Icon, {ICON_COLOR, TYPE as ICON_TYPE} from 'icons/Icon';
 import Overlay from 'overlay/Overlay';
+
 const content = (
   <ContentBox>
     <ContentBoxContent spacedBottom={SPACING_SIZE.LARGE}>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import MathSymbol from './MathSymbol';
 import {testA11y} from '../../axe';
+
 describe('MathSymbol', () => {
   it('should have an accessible title and img role', async () => {
     const type = 'pi';

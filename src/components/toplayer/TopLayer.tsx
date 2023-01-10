@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+
 export type TopLayerSizeType = 'small' | 'medium' | 'large';
 export const SIZE: {
   SMALL: 'small';

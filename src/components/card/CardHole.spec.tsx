@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CardHole from './CardHole';
 import {shallow} from 'enzyme';
+
 describe('<CardHole />', () => {
   test('render', () => {
     const cardHole = shallow(<CardHole>some text</CardHole>);

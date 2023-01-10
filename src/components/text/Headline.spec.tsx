@@ -6,6 +6,7 @@ import Headline, {
   HEADLINE_ALIGN,
 } from './Headline';
 import {shallow, mount} from 'enzyme';
+
 test('render', () => {
   const headline = shallow(<Headline>Test</Headline>);
   expect(headline.hasClass('sg-headline')).toBeTruthy();

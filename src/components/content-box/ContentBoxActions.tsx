@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {SIZE, ALIGNMENT} from './ContentBoxConstants';
+
 type SizeType =
   | 'xxsmall'
   | 'xsmall'

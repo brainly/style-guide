@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+
 export const MEDIA_QUERY = '(prefers-reduced-motion: reduce)';
 export default function useReducedMotion(): boolean {
   const supportsMatchMedia =

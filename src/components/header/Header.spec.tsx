@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Header from './Header';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const header = shallow(<Header>some text</Header>);
   expect(header.hasClass('sg-header')).toEqual(true);

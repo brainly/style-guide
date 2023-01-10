@@ -3,6 +3,7 @@ import Label from './Label';
 import Icon from 'icons/Icon';
 import Text from 'text/Text';
 import {shallow} from 'enzyme';
+
 describe('Label', () => {
   test('render', () => {
     const label = shallow(

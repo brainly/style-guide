@@ -4,6 +4,7 @@ import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
+
 describe('Accordion', () => {
   it('renders with named items', () => {
     const title = 'Item_1';

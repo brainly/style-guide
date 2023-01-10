@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RateCounterItem from './RateCounterItem';
+
 export type RateCounterPropsType = {
   counterText?: string;
   activeText?: string;

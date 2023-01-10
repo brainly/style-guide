@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 type SeparatorHorizontalTypeType = 'normal' | 'spaced' | 'short-spaced';
 type SeparatorHorizontalColorType = 'white' | 'gray-50' | 'gray-40';
 export type SeparatorHorizontalPropsType = {

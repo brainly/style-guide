@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 import {__DEV__, invariant} from '../utils';
+
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 export const SIZE: {
   XS: 'xs';

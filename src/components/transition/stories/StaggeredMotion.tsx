@@ -3,6 +3,7 @@ import Button from '../../buttons/Button';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
+
 const items = [0, 1, 2, 3, 4, 5];
 const fadeEffect = {
   initial: {

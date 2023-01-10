@@ -3,6 +3,7 @@ import {styled} from '@storybook/theming';
 import Text from '../../../components/text/Text';
 import Flex from '../../../components/flex/Flex';
 import Icon from '../../../components/icons/Icon';
+
 type StatusType = 'DONE' | 'TO DO' | 'IN PROGRESS' | 'N/A';
 export type RuleType = {
   pattern: string;

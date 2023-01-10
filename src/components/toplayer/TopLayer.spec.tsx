@@ -1,6 +1,7 @@
 import * as React from 'react';
 import TopLayer, {SIZE} from './TopLayer';
 import {mount, shallow} from 'enzyme';
+
 test('render', () => {
   const topLayer = shallow(<TopLayer>some text</TopLayer>);
   expect(topLayer.hasClass('sg-toplayer')).toEqual(true);

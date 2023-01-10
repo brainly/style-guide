@@ -3,6 +3,7 @@ import {githubLight} from '@codesandbox/sandpack-themes';
 // @ts-expect-error
 import styleguideJsCode from '!!raw-loader!../../../../dist/sandbox/sandbox';
 import * as React from 'react';
+
 type SandboxPropsType = {
   code: string;
 };

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Textarea, {SIZE} from './Textarea';
 import {shallow, mount} from 'enzyme';
+
 test('render', () => {
   const component = shallow(<Textarea />);
   const textarea = component.find('textarea');

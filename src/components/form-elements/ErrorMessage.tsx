@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Text from '../text/Text';
 import cx from 'classnames';
+
 type ErrorMessageColorType = 'text-red-60' | 'text-red-40';
 export type ErrorMessagePropsType = {
   id?: string;

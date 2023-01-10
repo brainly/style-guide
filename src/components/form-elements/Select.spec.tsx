@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Select from './Select';
 import {shallow, render} from 'enzyme';
+
 const exampleOptions = [
   {
     value: 'test',

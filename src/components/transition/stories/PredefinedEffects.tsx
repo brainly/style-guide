@@ -5,6 +5,7 @@ import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 import {predefinedEffects} from '../predefinedEffects';
 import type {PredefinedEffectType} from '../predefinedEffects';
+
 const predefinedEffectTypes = Object.keys(predefinedEffects);
 export const PredefinedEffects = () => (
   <Flex

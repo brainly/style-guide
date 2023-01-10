@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType, IconTypeType} from '../icons/Icon';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+
 type IconSizeType = 'small' | 'normal';
 export const SIZE: {
   SMALL: 'small';

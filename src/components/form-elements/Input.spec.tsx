@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Input from './Input';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const component = shallow(<Input />);
   const input = component.find('input');

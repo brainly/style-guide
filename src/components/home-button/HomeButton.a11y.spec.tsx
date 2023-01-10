@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import HomeButton from './HomeButton';
+
 describe('HomeButton', () => {
   it('should have a label', () => {
     const logo = render(<HomeButton />);

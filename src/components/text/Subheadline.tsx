@@ -4,6 +4,7 @@ import {SUBHEADLINE_TYPE} from './subheadlineConsts';
 import type {TextColorType} from './Text';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
+
 export type SubheadlineTypeType =
   | 'span'
   | 'h1'

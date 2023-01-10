@@ -6,6 +6,7 @@ import Text from '../../text/Text';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
 import useIsFirstRender from '../../utils/useIsFirstRender';
+
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<

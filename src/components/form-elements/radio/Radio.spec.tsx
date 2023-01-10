@@ -3,6 +3,7 @@ import Radio from './Radio';
 import {render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {testA11y} from '../../../axe';
+
 describe('<Radio />', () => {
   const renderRadio = props =>
     render(<Radio onChange={() => jest.fn()} {...props} />);

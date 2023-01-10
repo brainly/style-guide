@@ -2,6 +2,7 @@ import * as React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR, SIZE} from './IconAsButton';
 import Icon from 'icons/Icon';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const type = TYPE.STAR;
   const iconAsButton = shallow(<IconAsButton type={type} />);

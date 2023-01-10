@@ -4,6 +4,7 @@ import {AddonPanel} from '@storybook/components';
 import {addons, types} from '@storybook/addons';
 import {useChannel} from '@storybook/api';
 import {Sandbox} from './Sandbox';
+
 addons.register('sandbox', () => {
   addons.add('sandbox/panel', {
     title: 'Live editor',

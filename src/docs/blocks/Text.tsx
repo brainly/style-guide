@@ -2,6 +2,7 @@ import React from 'react';
 import OriginalText from '../../components/text/Text';
 import type {TextPropsType as OriginalTextPropsType} from '../../components/text/Text';
 import Flex from '../../components/flex/Flex';
+
 type TextMarginsType =
   | 'none'
   | 'xxs'

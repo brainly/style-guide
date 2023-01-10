@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import SeparatorHorizontal from './SeparatorHorizontal';
+
 describe('SeparatorHorizontal', () => {
   it('should have role="separator"', () => {
     const separator = render(<SeparatorHorizontal />);

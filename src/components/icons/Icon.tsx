@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {generateId} from '../utils';
+
 export type IconTypeType =
   | 'academic_cap'
   | 'add_more'

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import SeparatorVertical, {SIZE} from './SeparatorVertical';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const separator = shallow(<SeparatorVertical />);
   expect(separator.hasClass('sg-vertical-separator')).toEqual(true);

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as IconModule from '../../icons/Icon';
 import {__DEV__, invariant} from '../../utils';
+
 const {default: Icon, ICON_COLOR} = IconModule;
 export type StarPropsType = {
   size?: IconModule.IconSizeType;

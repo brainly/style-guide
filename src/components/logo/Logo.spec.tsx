@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Logo, {TYPE} from './Logo';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const logo = shallow(<Logo />);
   expect(logo.hasClass('sg-logo')).toEqual(true);

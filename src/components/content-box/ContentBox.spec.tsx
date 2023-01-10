@@ -1,6 +1,7 @@
 import * as React from 'react';
 import ContentBox, {CONTENT_BOX_SPACING_SIZE} from './ContentBox';
 import {shallow} from 'enzyme';
+
 describe('<ContentBox />', () => {
   it('renders', () => {
     const contentBox = shallow(<ContentBox>test</ContentBox>);

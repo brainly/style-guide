@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
+
 export type LayoutSecondaryContentAsType =
   | 'div'
   | 'main'

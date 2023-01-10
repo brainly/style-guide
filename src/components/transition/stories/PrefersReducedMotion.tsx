@@ -2,6 +2,7 @@ import * as React from 'react';
 import Transition from '../Transition';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
+
 const fadeEffect = Transition.createEffect({
   type: 'fade',
 });

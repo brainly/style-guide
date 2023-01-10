@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import Star from './subcomponents/Star';
 import RateCounter from './subcomponents/RateCounter';
 import {__DEV__, invariant} from '../utils';
+
 type RatingSizeType = 's' | 'xs';
 export const RATING_SIZE = {
   XS: 'xs',

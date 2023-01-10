@@ -1,6 +1,7 @@
 import * as React from 'react';
 import MathSymbol, {MATH_SYMBOL_TYPE, SIZE, ICON_COLOR} from './MathSymbol';
 import {shallow} from 'enzyme';
+
 test('render', () => {
   const icon = shallow(<MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />);
   expect(icon.hasClass('sg-math-symbol-icon')).toEqual(true);

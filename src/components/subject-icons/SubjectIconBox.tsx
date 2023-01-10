@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconTypeType, SizeType} from './SubjectIcon';
 import SubjectIcon, {TYPE, SIZE} from './SubjectIcon';
+
 export type SubjectIconBoxPropsType = {
   className?: string;
   darker?: boolean;
