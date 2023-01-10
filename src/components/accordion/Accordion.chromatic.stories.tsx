@@ -6,8 +6,8 @@ import Accordion from './Accordion';
 import Bubble from '../bubble/Bubble';
 const copy = {
   title: 'Is this title for accordion?',
-  // eslint-disable-next-line max-len
   description:
+    // eslint-disable-next-line max-len
     "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly, we'll hook them up with that too. Create your unique family link with a click and share it with your family via email, Messenger, WhatsApp, whatever you like.",
   bubbleContent:
     "Now your family member just needs to open the link and hit 'accept'. If they aren't already on Brainly",
