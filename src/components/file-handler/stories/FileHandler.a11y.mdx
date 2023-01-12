@@ -1,0 +1,52 @@
+import rules from './rules.a11y.js';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+### Usage
+
+#### Code examples
+
+- as a link
+
+```jsx
+<FileHandler src="/cat.jpg" thumbnailSrc="/cat.jpg">
+  cat.jpg
+</FileHandler>
+```
+
+- as a button
+
+<!-- prettier-ignore -->
+```jsx
+<FileHandler onClick={handleOnClick}>
+  cat.jpg
+</FileHandler>
+```
+
+- with close button
+
+```jsx
+<FileHandler
+  src="/cat.jpg"
+  onClose={handleOnClose}
+  ariaCloseButtonLabel="Remove This file"
+>
+  cat.jpg
+</FileHandler>
+```
+
+- with custom status labels
+
+```jsx
+<FileHandler
+  src="/cat.jpg"
+  statusLabel={{
+    loading: 'loading...',
+    uploaded: 'File uploaded!',
+  }}
+>
+  cat.jpg
+</FileHandler>
+```

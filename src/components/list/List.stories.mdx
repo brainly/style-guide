@@ -1,0 +1,118 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import List from './List';
+import ListItem from './ListItem';
+import ListItemIcon from './ListItemIcon';
+import Icon from '../icons/Icon';
+import Text from '../text/Text';
+import PageHeader from 'blocks/PageHeader';
+import ListA11y from './stories/List.a11y.mdx';
+const elements = ['Element one', 'Element two', 'Element three'];
+
+<Meta
+  title="Components/List"
+  component={List}
+  subcomponents={{ListItem, ListItemIcon}}
+  argTypes={{
+    children: {control: {disable: true}},
+  }}
+/>
+
+<PageHeader>List</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <List {...args}>
+        {elements.map(e => (
+          <ListItem key={e}>{e}</ListItem>
+        ))}
+      </List>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### With ListItemIcon
+
+<Canvas>
+  <Story name="With ListItemIcon">
+    {args => (
+      <List>
+        {elements.map(e => (
+          <ListItem key={e}>
+            <ListItemIcon>
+              <Icon
+                color="icon-black"
+                type="chevron_right"
+                size={16}
+                aria-hidden
+              />
+            </ListItemIcon>
+            <Text>{e}</Text>
+          </ListItem>
+        ))}
+      </List>
+    )}
+  </Story>
+</Canvas>
+
+### With smaller icon spacing
+
+<Canvas>
+  <Story name="With smaller icon spacing">
+    {args => (
+      <List>
+        {elements.map(e => (
+          <ListItem key={e}>
+            <ListItemIcon small>
+              <Icon
+                color="icon-black"
+                type="chevron_right"
+                size={16}
+                aria-hidden
+              />
+            </ListItemIcon>
+            <Text>{e}</Text>
+          </ListItem>
+        ))}
+      </List>
+    )}
+  </Story>
+</Canvas>
+
+### With spaced items
+
+<Canvas>
+  <Story name="With spaced items">
+    {args => (
+      <List spaced>
+        {elements.map(e => (
+          <ListItem key={e}>
+            <ListItemIcon>
+              <Icon
+                color="icon-black"
+                type="chevron_right"
+                size={16}
+                aria-hidden
+              />
+            </ListItemIcon>
+            <Text>{e}</Text>
+          </ListItem>
+        ))}
+      </List>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<ListA11y />

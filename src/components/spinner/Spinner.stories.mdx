@@ -1,0 +1,80 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
+import SpinnerA11y from './stories/Spinner.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
+
+<Meta
+  title="Components/Spinner"
+  component={Spinner}
+  argTypes={{
+    size: {
+      description: 'Spinner size',
+      control: {type: 'select', options: Object.values(SPINNER_SIZE)},
+    },
+    color: {
+      description: 'Spinner color',
+      control: {type: 'select', options: SPINNER_COLOR},
+    },
+    className: {control: {type: 'text'}},
+    'aria-label': {control: {type: 'text'}},
+  }}
+/>
+
+<PageHeader>Spinner</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Spinner {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {Object.values(SPINNER_SIZE).map(size => (
+          <StoryVariant label={`type - ${size}`} key={size}>
+            <Spinner {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex>
+        {Object.values(SPINNER_COLOR).map(color => (
+          <StoryVariant label={color} width={200} key={color}>
+            {color === 'white' ? (
+              <div className="sg-story-variant-dark-box">
+                <Spinner {...args} color={color} />
+              </div>
+            ) : (
+              <Spinner {...args} color={color} />
+            )}
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SpinnerA11y />

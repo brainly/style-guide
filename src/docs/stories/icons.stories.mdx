@@ -1,0 +1,83 @@
+import {Meta, Story} from '@storybook/addon-docs';
+import {IconItem, IconGallery} from 'blocks/IconGallery';
+import PageHeader from 'blocks/PageHeader';
+import Icon, {TYPE, ICON_COLOR, SIZE} from '../../components/icons/Icon';
+import MobileIcon, {
+  TYPE as MOBILE_TYPE,
+} from '../../components/mobile-icons/MobileIcon';
+import SubjectIcon, {
+  TYPE as SUBJECT_TYPE,
+} from '../../components/subject-icons/SubjectIcon';
+import MathSymbol, {
+  MATH_SYMBOL_TYPE,
+} from '../../components/math-symbols/MathSymbol';
+
+<Meta title="Foundation ✨/Icons" />
+
+<PageHeader type="foundation">Icons</PageHeader>
+
+All rights reserved © Brainly. If you want to use our icons for other then Brainly promotion purposes, please contact us: pencil@brainly.com.
+
+## Basic Icons
+
+Comonly used icon set. Contains _editor icons_, _system icons_ and _social media icons_.
+
+<IconGallery>
+  {Object.values(TYPE).map(type => (
+    <IconItem name={type} key={type}>
+      <Icon size={40} color={ICON_COLOR['icon-black']} type={type} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Mobile Icons
+
+Icons used in © Brainly mobile application.
+
+<IconGallery>
+  {Object.values(MOBILE_TYPE).map(type => (
+    <IconItem name={type} key={type}>
+      <MobileIcon size={40} color={ICON_COLOR['icon-black']} type={type} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Subject Icons
+
+Icon set for subject related content.
+
+<IconGallery>
+  {Object.values(SUBJECT_TYPE).map(type => (
+    <IconItem name={type} key={type}>
+      <SubjectIcon type={type} size={40} />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Subject Icons - Mono
+
+Icon set for subject related content - monochromatic version.
+
+<IconGallery>
+  {Object.values(SUBJECT_TYPE).map(type => (
+    <IconItem name={type} key={type}>
+      <SubjectIcon
+        type={type}
+        size={40}
+        monoColor={ICON_COLOR['icon-gray-70']}
+      />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Math Symbol Icons
+
+Icon set used in rich text editor.
+
+<IconGallery>
+  {Object.values(MATH_SYMBOL_TYPE).map(type => (
+    <IconItem name={type} key={type}>
+      <MathSymbol type={type} color={ICON_COLOR['icon-gray-70']} size={40} />
+    </IconItem>
+  ))}
+</IconGallery>

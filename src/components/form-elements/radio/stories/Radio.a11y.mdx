@@ -1,0 +1,94 @@
+import rules from './rules.a11y.js';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+### Usage
+
+#### Code examples
+
+- with a meaningful label
+
+<!-- prettier-ignore -->
+```jsx
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Radio>
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept only the Brainly Terms of Service.
+</Radio>
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept only the Brainly Privacy Policy.
+</Radio>
+```
+
+- checked
+
+<!-- prettier-ignore -->
+```jsx
+<Radio
+  name="termsservice"
+  checked="true"
+  onChange={checkRadio}
+  required
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Radio>
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept only the Brainly Terms of Service.
+</Radio>
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept only the Brainly Privacy Policy.
+</Radio>
+```
+
+- without a label, but labelled by a custom element
+
+<!-- prettier-ignore -->
+```jsx
+<h5 id="label-for-radio">
+  I accept the Brainly Terms of Service & Privacy Policy.
+</h5>
+<Radio
+  name="termsservice"
+  aria-labelledby="label-for-radio"
+  onChange={checkRadio}
+/>
+```
+
+- invalid with description
+
+<!-- prettier-ignore -->
+```jsx
+<Radio
+  name="termsservice"
+  invalid="true"
+  required="true"
+  description="This consent is super important, more on our main page"
+  onChange={checkRadio}
+>
+  I accept the Brainly Terms of Service & Privacy Policy.
+</Radio>
+<Radio
+  name="termsservice"
+  onChange={checkRadio}
+>
+  I accept only the Brainly Privacy Policy.
+</Radio>
+```

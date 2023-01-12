@@ -1,0 +1,67 @@
+import {radioGroupRules} from './rules.a11y.js';
+
+### Rules
+
+<AccessibilityList rules={radioGroupRules} />
+
+### Usage
+
+#### Code examples
+
+- with a meaningful label
+
+<!-- prettier-ignore -->
+```jsx
+<RadioGroup name="termsservice" aria-label="User consent">
+  <Radio onChange={checkRadio}>
+    I accept the Brainly Terms of Service & Privacy Policy.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Terms of Service.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Privacy Policy.
+  </Radio>
+</RadioGroup>
+```
+
+- invalid with an error message
+
+<!-- prettier-ignore -->
+```jsx
+<RadioGroup
+  name="termsservice"
+  errorMessage="This field is required. Please select one of the options."
+  invalid
+>
+  <Radio onChange={checkRadio}>
+    I accept the Brainly Terms of Service & Privacy Policy.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Terms of Service.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Privacy Policy.
+  </Radio>
+</RadioGroup>
+```
+
+- with a meaningful description
+
+<!-- prettier-ignore -->
+```jsx
+<RadioGroup name="termsservice" aria-describedby="rg-desc">
+  <Radio onChange={checkRadio}>
+    I accept the Brainly Terms of Service & Privacy Policy.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Terms of Service.
+  </Radio>
+  <Radio onChange={checkRadio}>
+    I accept only the Brainly Privacy Policy.
+  </Radio>
+</RadioGroup>
+<p id="rg-desc">
+ This field is required. Please select one of the options.
+</p>
+```

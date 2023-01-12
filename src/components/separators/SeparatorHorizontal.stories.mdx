@@ -1,0 +1,103 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import SeparatorHorizontal, {TYPE, COLORS_MAP} from './SeparatorHorizontal';
+import {StoryVariant} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
+import Text from '../text/Text';
+import SeparatorsA11y from './stories/Separators.a11y.mdx';
+
+<Meta
+  title="Components/separators/SeparatorHorizontal"
+  component={SeparatorHorizontal}
+  argTypes={{
+    color: {
+      control: 'select',
+      table: {
+        defaultValue: {
+          summary: COLORS_MAP['gray-40'],
+        },
+      },
+    },
+    size: {
+      control: 'select',
+    },
+  }}
+/>
+
+<PageHeader>SeparatorHorizontal</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <div>
+        above
+        <SeparatorHorizontal {...args} />
+        below
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Types">
+    {args => (
+      <div>
+        {Object.values(TYPE).map(type => (
+          <StoryVariant label={`type - ${type}`} key={type}>
+            <div>
+              above
+              <SeparatorHorizontal {...args} type={type} />
+              below
+            </div>
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <div>
+        {Object.values(COLORS_MAP).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            {color === 'white' ? (
+              <div className="sg-story-variant-dark-box">
+                <Text color="text-white" size="small">
+                  above
+                </Text>
+                <SeparatorHorizontal {...args} color={color} />
+                <Text color="text-white" size="small">
+                  below
+                </Text>
+              </div>
+            ) : (
+              <div>
+                <Text size="small">above</Text>
+                <SeparatorHorizontal {...args} color={color} />
+                <Text size="small">below</Text>
+              </div>
+            )}
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<SeparatorsA11y />

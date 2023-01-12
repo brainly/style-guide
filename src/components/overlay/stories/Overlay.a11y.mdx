@@ -1,0 +1,26 @@
+import rules from './rules.a11y.js';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+<InfoBox>
+  <code>Overlay</code> can often be used as part (background) of the modal. For
+  more on modal accessibility, see{' '}
+  <a href="/docs/components-dialog--default-story#accessibility">
+    Dialog's documentation
+  </a>
+</InfoBox>
+
+### Usage
+
+#### Code examples
+
+<!-- prettier-ignore -->
+```jsx
+<Overlay>
+  <Flex fullHeight alignItems="center">
+    <Box color="white" role="dialog">Content example</Box>
+  </Flex>
+</Overlay>
+```

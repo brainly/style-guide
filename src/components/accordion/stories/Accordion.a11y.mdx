@@ -1,0 +1,40 @@
+import rules, {accordionItemRules} from './rules.a11y.js';
+
+### Rules
+
+#### Accordion
+
+<AccessibilityList rules={rules} />
+
+#### AccordionItem
+
+<AccessibilityList rules={accordionItemRules} />
+
+### Usage
+
+#### Code examples
+
+- with `<AccordionItem />`
+
+<!-- prettier-ignore -->
+```jsx
+<Accordion>
+  <AccordionItem title="Item 1">
+    Accordion Item 1 Description
+  </AccordionItem>
+  <AccordionItem title="Item 2">
+    Accordion Item 2 Description
+  </AccordionItem>
+</Accordion>
+```
+
+- with a custom heading level for item
+
+<!-- prettier-ignore -->
+```jsx
+<Accordion>
+  <AccordionItem title="Item 1" ariaHeadingLevel={4}>
+    Accordion Item 1 Description
+  </AccordionItem>
+</Accordion>
+```

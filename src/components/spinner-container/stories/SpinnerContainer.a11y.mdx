@@ -1,0 +1,36 @@
+import rules from './rules.a11y.js';
+
+### Rules
+
+<AccessibilityList rules={rules} />
+
+### Usage
+
+#### Code examples
+
+- basic
+
+<!-- prettier-ignore -->
+```jsx
+<SpinnerContainer loading={loading}>
+  <Media
+    aside={<Avatar imgSrc={user.avatar} />}
+    contentArray={[<Text weight="bold">{user.name}</Text>, {user.role}]}
+  />
+</SpinnerContainer>
+```
+
+- with a custom information
+
+<!-- prettier-ignore -->
+```jsx
+<SpinnerContainer
+  ariaLabelStatus={loading: "Searching", loaded: "Found 1 result"}
+  loading={loading}
+>
+  <Box>
+    <Headline>{results[0].question}</Headline>
+    <Text>{results[0].author.name}</Text>
+  </Box>
+</SpinnerContainer>
+```

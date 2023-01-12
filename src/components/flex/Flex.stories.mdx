@@ -1,0 +1,429 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import Flex, {FLEX_DIRECTION, FLEX_MARGINS, FLEX_JUSTIFY_VALUES} from './Flex';
+import Text, {TEXT_SIZE} from '../text/Text';
+import SeparatorHorizontal from '../separators/SeparatorHorizontal';
+import Box from '../box/Box';
+import {formatTags} from '../../docs/utils';
+import {FLEX_ALIGNMENT_VALUES} from './FlexConsts';
+import FlexA11y from './stories/Flex.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
+const blueBoxStyle = {
+  border: true,
+  borderColor: 'blue-40',
+  color: 'blue-20',
+};
+const indigoBoxStyle = {
+  border: true,
+  borderColor: 'indigo-40',
+  color: 'indigo-20',
+};
+
+<Meta
+  title="Components/Flex"
+  component={Flex}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    htmlTag: {
+      defaultValue: 'div',
+      table: {
+        defaultValue: {summary: 'div'},
+      },
+    },
+    fullWidth: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    fullHeight: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    noShrink: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    direction: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_DIRECTION)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_DIRECTION),
+      },
+    },
+    justifyContent: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_JUSTIFY_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_JUSTIFY_VALUES),
+      },
+    },
+    alignContent: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    alignItems: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    alignSelf: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_ALIGNMENT_VALUES)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_ALIGNMENT_VALUES),
+      },
+    },
+    inlineFlex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    wrap: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    wrapReverse: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    margin: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginTop: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginRight: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginBottom: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+    marginLeft: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(FLEX_MARGINS)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(FLEX_MARGINS),
+      },
+    },
+  }}
+/>
+
+<PageHeader>Flex</PageHeader>
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Box {...indigoBoxStyle}>
+        <Flex {...args}>
+          <Box {...blueBoxStyle} style={{marginRight: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Column
+
+<Canvas>
+  <Story name="Column">
+    {args => (
+      <Box {...indigoBoxStyle}>
+        <Flex {...args} direction={FLEX_DIRECTION.COLUMN} fullWidth>
+          <Box {...blueBoxStyle} style={{marginBottom: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+### Row
+
+<Canvas>
+  <Story name="Row">
+    {args => (
+      <Box {...indigoBoxStyle}>
+        <Flex {...args} direction={FLEX_DIRECTION.ROW} fullWidth>
+          <Box {...blueBoxStyle} style={{marginRight: 10}}>
+            Flex child 1
+          </Box>
+          <Box {...blueBoxStyle}>Flex child 2</Box>
+        </Flex>
+      </Box>
+    )}
+  </Story>
+</Canvas>
+
+### Justify and align
+
+<Canvas>
+  <Story name="JustifyAndAlign">
+    {args => (
+      <Flex {...args} fullWidth direction="column">
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...indigoBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_BETWEEN}>
+              <Flex>
+                <Box {...blueBoxStyle}>space between</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>space between</Box>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...indigoBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.SPACE_AROUND}>
+              <Flex>
+                <Box {...blueBoxStyle}>space around</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>space around</Box>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...indigoBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>
+              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+                <Box {...blueBoxStyle}>flex start</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>flex start</Box>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
+        <Flex marginBottom={FLEX_MARGINS.MEDIUM}>
+          <Box {...indigoBoxStyle}>
+            <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_END}>
+              <Flex marginRight={FLEX_MARGINS.MEDIUM}>
+                <Box {...blueBoxStyle}>flex end</Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle}>flex end</Box>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Margins
+
+Use margins to make space around Flex. They work in single direction `marginTop="l"` or in all directions at once `margin="l"`.
+
+<Canvas>
+  <Story name="Margins">
+    {args => {
+      const fixedWidthBox = {style: {width: '100px'}};
+      const marginTypeLabelBox = {style: {width: '100px', flexShrink: 0}};
+      return (
+        <Flex {...args} fullWidth direction="column">
+          {Object.values(FLEX_MARGINS).map(marginType => (
+            <Flex marginBottom={FLEX_MARGINS.SMALL}>
+              <Box {...marginTypeLabelBox}>
+                <Text>{marginType}</Text>
+              </Box>
+              <Flex marginRight={marginType}>
+                <Box {...indigoBoxStyle} {...fixedWidthBox}>
+                  Flex
+                </Box>
+              </Flex>
+              <Flex>
+                <Box {...blueBoxStyle} {...fixedWidthBox} />
+              </Flex>
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Box {...indigoBoxStyle}>
+    <Flex direction={['column', null, 'row']}>
+      <Flex
+        margin
+        fullWidth
+        marginBottom={{
+          sm: 'xs',
+          md: 'm',
+          lg: 'none',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 1</Box>
+      </Flex>
+      <Flex
+        margin
+        fullWidth
+        marginBottom={{
+          sm: 'xs',
+          md: 'm',
+          lg: 'none',
+        }}
+        marginLeft={{
+          lg: 's',
+          xl: 'l',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 2</Box>
+      </Flex>
+      <Flex
+        margin
+        fullWidth
+        marginLeft={{
+          lg: 's',
+          xl: 'l',
+        }}
+      >
+        <Box {...blueBoxStyle}>Flex child 3</Box>
+      </Flex>
+    </Flex>
+  </Box>
+</Canvas>
+
+## Accessibility
+
+<FlexA11y />

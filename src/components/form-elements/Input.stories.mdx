@@ -1,0 +1,256 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariantBorderBox, StoryVariantTable} from '../../docs/utils';
+import hex from '../colors/hex';
+import PageHeader from 'blocks/PageHeader';
+
+import Headline from '../text/Headline';
+import Input, {SIZE, COLOR} from './Input';
+
+<Meta
+  title="Components/form/Input"
+  component={Input}
+  argTypes={{
+    value: {
+      type: {name: 'string', required: false},
+    },
+    errorMessage: {
+      type: {name: 'string', required: false},
+    },
+  }}
+  args={{value: 'Some input value', type: 'text', placeholder: 'placeholder'}}
+/>
+
+<PageHeader>Input</PageHeader>
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Input {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          <tr>
+            <td />
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-center"
+              >
+                default
+              </Headline>
+            </td>
+          </tr>
+          {Object.values(SIZE).map(size => (
+            <tr key={size}>
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  {size}
+                </Headline>
+              </td>
+              <td>
+                <Input {...args} size={size} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### Styles and types
+
+<Canvas>
+  <Story name="Styles and types">
+    {args => (
+      <StoryVariantTable>
+        <tbody>
+          <tr>
+            <td />
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-center"
+              >
+                neutral state
+              </Headline>
+            </td>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-center"
+              >
+                filled state
+              </Headline>
+            </td>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-center"
+              >
+                disabled state
+              </Headline>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                default
+              </Headline>
+            </td>
+            <td>
+              <Input {...args} value="" />
+            </td>
+            <td>
+              <Input {...args} />
+            </td>
+            <td>
+              <Input {...args} disabled />
+            </td>
+          </tr>
+          <tr style={{backgroundColor: hex.black}}>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                white
+              </Headline>
+            </td>
+            <td>
+              <Input {...args} value="" color={COLOR.WHITE} />
+            </td>
+            <td>
+              <Input {...args} color={COLOR.WHITE} />
+            </td>
+            <td>
+              <Input {...args} disabled color={COLOR.WHITE} />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                valid
+              </Headline>
+            </td>
+            <td>
+              <Input {...args} value="" valid />
+            </td>
+            <td>
+              <Input {...args} valid />
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                invalid
+              </Headline>
+            </td>
+            <td>
+              <Input {...args} value="" invalid />
+            </td>
+            <td>
+              <Input {...args} invalid />
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
+              <Headline
+                extraBold
+                transform="uppercase"
+                type="span"
+                color="text-gray-40"
+                size="medium"
+                align="to-right"
+              >
+                invalid with message
+              </Headline>
+            </td>
+            <td>
+              <Input
+                {...args}
+                value=""
+                invalid
+                errorMessage="Something went wrong"
+              />
+            </td>
+            <td>
+              <Input {...args} invalid errorMessage="Something went wrong" />
+            </td>
+            <td />
+          </tr>
+        </tbody>
+      </StoryVariantTable>
+    )}
+  </Story>
+</Canvas>
+
+### FullWidth
+
+<Canvas>
+  <Story
+    name="FullWidth"
+    args={{value: 'Input takes full width of its container', fullWidth: true}}
+  >
+    {args => <Input {...args} />}
+  </Story>
+</Canvas>

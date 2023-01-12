@@ -1,0 +1,336 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Typeset, TypeSpecimen, Label} from 'blocks/Typeset';
+import Text from '../Text';
+import Link, {LINK_WEIGHT, LINK_SIZE, LINK_COLOR} from '../Link';
+import {
+  TEXT_TYPE,
+  TEXT_SIZE,
+  TEXT_COLOR,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from '../textConsts';
+import Headline, {
+  HEADLINE_TYPE,
+  HEADLINE_SIZE,
+  HEADLINE_TRANSFORM,
+  HEADLINE_ALIGN,
+} from '../Headline';
+import Subheadline, {SUBHEADLINE_TYPE, SUBHEADLINE_SIZE} from '../Subheadline';
+import TextBit, {TEXT_BIT_SIZE, TEXT_BIT_COLOR} from '../TextBit';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta title="Foundation ✨/Typography" />
+
+export const getValues = function (object, addUndefined = true) {
+  return addUndefined
+    ? [undefined, ...Object.values(object)]
+    : Object.values(object);
+};
+
+<PageHeader type="foundation">Typography</PageHeader>
+
+The Brainly brand typeface is Proxima Nova, a geometric sans serif that works equally well with large headlines and functional copy. Use this typeface according to the following rules for consistency across the brand.
+
+Proxima Nova combines modern proportions with a geometric appearance and has become one of the most popular web fonts, in use on thousands of websites around the world.
+
+Our typography system is a balanced hierarchy of text styles used throughout Brainly.
+This helps users quickly find information by emphasizing important parts and enhancing legibility overall.
+Our system also lets us align typography with other visual elements while keeping it all on the 8-point grid. We use hierarchy that includes:
+[Text Bits ↓](#text-bit), [Headlines ↓](#headlines), [Subheadlines ↓](#subheadlines), [Body Text ↓](#body-text).
+
+## Text Bit
+
+Text Bits should be used exceptionally to draw attention to different sections, make a bold statement or for high-level brand messaging.
+
+Text Bits has a ratio between line height and font size that is equal to 1. This format can come only in Black weight. Text Bit can be sentence case or uppercase.
+
+`Line height / Font Size = 1`
+
+export const textBitSizesMap = [
+  {
+    type: 'small',
+    fontSize: '24px',
+  },
+  {
+    type: 'medium',
+    fontSize: '40px',
+  },
+  {
+    type: 'large',
+    fontSize: '56px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '80px',
+  },
+];
+
+export const TextBitExamples = extraBold => {
+  const sizesVariants = [];
+  getValues(TEXT_BIT_SIZE, false)
+    .reverse()
+    .forEach(size => {
+      let itemSize;
+      textBitSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
+      sizesVariants.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <TextBit key="size" size={size} color="text-black">
+            Text Bit
+          </TextBit>
+        </TypeSpecimen>
+      );
+    });
+  return sizesVariants;
+};
+
+**Font**: Proxima Nova
+**Weight**: 900
+
+<Typeset>{TextBitExamples(true)}</Typeset>
+
+## Headlines
+
+Our type scale consists of six levels of headlines. They come in two weights: Bold or Black. They are used for main titles or highlight important pieces of content. Smaller headlines can be used to split off sections of the site.
+
+We assumed that a ratio between line height and font size of headlines will be always constant and close as much as possible to value of 1.125. This will provide us with the same proportions of text for each level on the scale.
+
+`Line height / Font Size = 1.125`
+
+In order to keep our typographic system on the grid, we chose the line-height values so that they always are a multiple of 4. Then we calculated the font sizes from the proportions:
+
+`Font Size = Line Height / 1.125`
+
+export const headlineSizesMap = [
+  {
+    type: 'xxsmall',
+    fontSize: '10px',
+  },
+  {
+    type: 'xsmall',
+    fontSize: '14px',
+  },
+  {
+    type: 'small',
+    fontSize: '18px',
+  },
+  {
+    type: 'medium',
+    fontSize: '21px',
+  },
+  {
+    type: 'large',
+    fontSize: '28px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '39px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '53px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '78px',
+  },
+];
+
+export const HeadlineExamples = extraBold => {
+  const sizeVariant = [];
+  getValues(HEADLINE_SIZE, false)
+    .reverse()
+    .forEach(size => {
+      let itemSize;
+      headlineSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Headline
+            key={size}
+            type={HEADLINE_TYPE.H2}
+            size={size}
+            extraBold={extraBold}
+          >
+            Headline
+          </Headline>
+        </TypeSpecimen>
+      );
+    });
+  return sizeVariant;
+};
+
+**Font**: Proxima Nova
+**Weight**: 900
+
+<Typeset>{HeadlineExamples(true)}</Typeset>
+
+**Font**: Proxima Nova
+**Weight**: 700
+
+<Typeset>{HeadlineExamples(false)}</Typeset>
+
+## Subheadlines
+
+Subheadlines is reserved for marketing use only. Do not apply it on product pages and in the mobile application.
+
+We assumed that a ratio between line height and font size of subheadlines will be always constant and close as much as possible to a value of 1.125. This will provide us with the same proportions of text for each level on the scale.
+
+`Line height / Font Size = 1.125`
+
+In order to keep our typographic system on the grid, we chose the line-height values so that they always are a multiple of 4. Then we calculated the font sizes from the proportions:
+
+`Font Size = Line Height / 1.125`
+
+export const subheadlineSizesMap = [
+  {
+    type: 'xsmall',
+    fontSize: '14px',
+  },
+  {
+    type: 'small',
+    fontSize: '18px',
+  },
+  {
+    type: 'medium',
+    fontSize: '21px',
+  },
+  {
+    type: 'large',
+    fontSize: '28px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '43px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '53px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '78px',
+  },
+];
+
+export const SubheadlineExamples = () => {
+  const sizeVariant = [];
+  getValues(SUBHEADLINE_SIZE, false)
+    .reverse()
+    .forEach(size => {
+      let itemSize;
+      subheadlineSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Subheadline key={size} type={SUBHEADLINE_TYPE.H2} size={size}>
+            Headline
+          </Subheadline>
+        </TypeSpecimen>
+      );
+    });
+  return sizeVariant;
+};
+
+**Font**: Untitled Serif
+**Weight**: 400
+
+<Typeset>{SubheadlineExamples()}</Typeset>
+
+## Body Text
+
+Body text is meant for general paragraphs, sentences, lists.
+
+The same as for headlines, the ratio between line height and font size will be always constant and its value is 1.333. As shorter in length texts such as headlines can handle less spacing than text for longer paragraphs require the bigger value of line height to increase readability.
+
+`Line height / Font Size = 1.333`
+
+Body text can also appear as a link – in this case, it has also navigational function (link can direct to a new page, move to a new position on the current page or change the view the user is on).
+
+export const textSizesMap = [
+  {
+    type: 'xxsmall',
+    fontSize: '9px',
+  },
+  {
+    type: 'xsmall',
+    fontSize: '12px',
+  },
+  {
+    type: 'small',
+    fontSize: '15px',
+  },
+  {
+    type: 'medium',
+    fontSize: '18px',
+  },
+  {
+    type: 'large',
+    fontSize: '24px',
+  },
+  {
+    type: 'xlarge',
+    fontSize: '33px',
+  },
+  {
+    type: 'xxlarge',
+    fontSize: '45px',
+  },
+  {
+    type: 'xxxlarge',
+    fontSize: '66px',
+  },
+];
+
+export const TextExamples = weight => {
+  const sizeVariant = [];
+  getValues(TEXT_SIZE, false)
+    .reverse()
+    .forEach(size => {
+      let itemSize;
+      textSizesMap.map(item =>
+        item.type === size ? (itemSize = `${item.fontSize}`) : null
+      );
+      sizeVariant.push(
+        <TypeSpecimen key={size}>
+          <Label>{size}</Label>
+          <Text
+            type={TEXT_TYPE.H2}
+            size={size}
+            color="text-gray-70"
+            weight={weight}
+            key={size + weight}
+          >
+            Body text
+          </Text>,
+        </TypeSpecimen>
+      );
+    });
+  return sizeVariant;
+};
+
+**Font**: Proxima Nova
+**Weight**: 700
+
+<Typeset>{TextExamples(TEXT_WEIGHT.BOLD)}</Typeset>
+
+**Font**: Proxima Nova
+**Weight**: 400
+
+<Typeset>{TextExamples(TEXT_WEIGHT.NORMAL)}</Typeset>
+
+## Accessibility
+
+Each component has its own accessibility documentation containing a set of rules and usage examples to help implement accessible and readable text.
+For additional reading on the topic, we recommend:
+
+- <https://benfrain.com/just-use-pixels/>
+- <https://www.24a11y.com/2019/pixels-vs-relative-units-in-css-why-its-still-a-big-deal/>
+- <https://dequeuniversity.com/checklists/web/text>

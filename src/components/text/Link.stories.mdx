@@ -1,0 +1,212 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {formatTags} from '../../docs/utils';
+import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM, LINK_WEIGHT} from './Link';
+import Text from './Text';
+import {TEXT_COLOR} from './textConsts';
+import LinkA11y from './stories/Link.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta
+  title="Components/Link"
+  component={Link}
+  argTypes={{
+    children: {control: 'text'},
+    as: {
+      table: {
+        defaultValue: {summary: 'a'},
+      },
+    },
+    size: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(LINK_SIZE)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(LINK_SIZE),
+      },
+    },
+    weight: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(LINK_WEIGHT)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(LINK_WEIGHT),
+      },
+    },
+    transform: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(LINK_TRANSFORM)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(LINK_TRANSFORM),
+      },
+    },
+    align: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: formatTags(Object.values(LINK_ALIGN)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: Object.values(LINK_ALIGN),
+      },
+    },
+    noWrap: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    breakWords: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'boolean',
+        },
+      },
+      control: {
+        type: 'boolean',
+      },
+    },
+    color: {
+      table: {
+        type: {
+          summary: formatTags(Object.values(TEXT_COLOR)),
+        },
+      },
+      control: {
+        type: 'select',
+        options: TEXT_COLOR,
+      },
+    },
+    target: {
+      control: 'select',
+    },
+    onClick: {
+      table: {
+        category: 'Event',
+      },
+    },
+    underlined: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    unstyled: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    disabled: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    inherited: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+    emphasised: {
+      table: {
+        defaultValue: {summary: true},
+      },
+    },
+    newTabLabel: {
+      table: {
+        defaultValue: {summary: '(opens in a new tab)'},
+      },
+    },
+    hideNewTabIndicator: {
+      table: {
+        defaultValue: {summary: false},
+      },
+    },
+  }}
+  args={{
+    children: 'Read more about Link component',
+    href: '#',
+  }}
+/>
+
+<PageHeader>Link</PageHeader>
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <Link {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Nested
+
+<Canvas>
+  <Story name="Nested">
+    {args => (
+      <Text type="h2" color={TEXT_COLOR['text-red-60']}>
+        Outer text-
+        <Link as="button" inherited {...args}>
+          nested Link with inherited styles
+        </Link>
+      </Text>
+    )}
+  </Story>
+</Canvas>
+
+### Opens in a new tab
+
+<Canvas>
+  <Story name="Open in a new tab">
+    {args => (
+      <Link
+        href="https://en.wikipedia.org/wiki/Red_panda"
+        target="_blank"
+        {...args}
+      >
+        Read more about red pandas
+      </Link>
+    )}
+  </Story>
+</Canvas>
+
+## Responsive props
+
+To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).
+
+Resize window to check how component is changing flex direction and item margins based on window width.
+
+<Canvas>
+  <Link
+    size={[LINK_SIZE.SMALL, LINK_SIZE.MEDIUM, null, LINK_SIZE.LARGE]}
+    weight={[LINK_WEIGHT.REGULAR, LINK_WEIGHT.BOLD]}
+  >
+    Responsive size
+  </Link>
+</Canvas>
+
+<LinkA11y />

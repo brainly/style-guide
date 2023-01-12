@@ -1,0 +1,129 @@
+import {Meta} from '@storybook/addon-docs';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta title="Foundation ✨/UX Motion" />
+
+<PageHeader type="foundation">UX Motion</PageHeader>
+
+At Brainly, we believe Motion creates a superior user experience. It brings our UI to life, while providing our users with valuable feedback.
+
+### Duration
+
+Objects that move in a small area require shorter durations than those that move in larger areas. The longer animation is, the more lag time the user will experience. To avoid this, we need to make sure that Motion is quick, subtle, and purposeful.
+
+<table style={{width: '100%', marginBottom: '30px'}}>
+  <tr>
+    <td>
+      <strong>Token</strong>
+    </td>
+    <td style={{width: '20%', minWidth: '60px'}}>
+      <strong>Time</strong>
+    </td>
+    <td>
+      <strong>Usage</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationInstant</code>
+    </td>
+    <td>0ms</td>
+    <td>Text change</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationQuick1</code>
+    </td>
+    <td>80ms</td>
+    <td>Checkboxes, Radio Buttons, Hover</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationQuick2</code>
+    </td>
+    <td>120ms</td>
+    <td>Toggles, Tabs, Color, Fade</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationModerate1</code>
+    </td>
+    <td>180ms</td>
+    <td>Dropdowns, Tooltips</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationModerate2</code>
+    </td>
+    <td>260ms</td>
+    <td>Modals, Toast, Dialog, Notification</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationGentle1</code>
+    </td>
+    <td>320ms</td>
+    <td>Bottom Sheet, Card Expand</td>
+  </tr>
+  <tr>
+    <td>
+      <code>$durationGentle2</code>
+    </td>
+    <td>400ms</td>
+    <td>Advanced Animations</td>
+  </tr>
+</table>
+
+## Easing
+
+Easing allows us to give objects speed based on the way we want them to move around. It also helps users' eyes track how and from where something is moving.
+
+<table style={{width: '100%', marginBottom: '30px'}}>
+  <tr>
+    <td style={{width: '20%', minWidth: '60px'}}>
+      <strong>Token</strong>
+    </td>
+    <td>
+      <strong>Transition timing function</strong>
+    </td>
+    <td>
+      <strong>Usage</strong>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>$easingRegular</code>
+    </td>
+    <td>cubic-bezier(0.35, 0, 0.1, 1)</td>
+    <td>
+      When an object is visible from the beginning to the end of a motion.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>$easingEntry</code>
+    </td>
+    <td>cubic-bezier(0.1, 0, 0, 1)</td>
+    <td>
+      When an object is coming into view. So, it can be used for appearing
+      modal, toast, etc.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>$easingExit</code>
+    </td>
+    <td>cubic-bezier(0.3, 0, 1, 0.8)</td>
+    <td>
+      When an object is moving out of view. For example, closing a toast, modal,
+      or dropdown.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <code>$easingLinear</code>
+    </td>
+    <td>linear</td>
+    <td>for color transformations or changing the opacity of the object.</td>
+  </tr>
+</table>

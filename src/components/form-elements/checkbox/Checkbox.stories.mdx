@@ -1,0 +1,437 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant, StoryVariantTable} from '../../../docs/utils';
+import {styled} from '@storybook/theming';
+import PageHeader from 'blocks/PageHeader';
+
+import Flex from '../../flex/Flex';
+import Headline from '../../text/Headline';
+import Text from '../../text/Text';
+import Checkbox from './Checkbox';
+import CheckboxA11y from './stories/Checkbox.a11y.mdx';
+
+<Meta
+  title="Components/form/Checkbox"
+  component={Checkbox}
+  argTypes={{
+    children: {
+      type: 'string',
+    },
+    description: {
+      type: 'string',
+    },
+    onChange: {
+      table: {
+        category: 'Events',
+      },
+    },
+  }}
+  args={{
+    color: 'dark',
+    labelSize: 'medium',
+  }}
+/>
+
+<PageHeader>Checkbox</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => <Checkbox {...args}>Checkbox label</Checkbox>}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Dark color
+
+<Canvas>
+  <Story name="Dark color">
+    {args => (
+      <div>
+        <StoryVariantTable className="sg-story-variant-table--align-items-top">
+          <thead>
+            <tr>
+              {[
+                null,
+                'standalone',
+                'with label',
+                'with label and description',
+              ].map((name, index) => (
+                <th>
+                  <Headline
+                    key={index}
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {name}
+                  </Headline>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                type: 'disabled',
+                props: {disabled: true},
+              },
+              {type: 'enabled'},
+              {
+                type: 'error',
+                props: {
+                  invalid: true,
+                  errorMessage: 'Error message',
+                },
+              },
+            ].map(checkboxType => (
+              <tr key={checkboxType.type}>
+                <td>
+                  <Headline bold color="text-gray-50" size="xsmall">
+                    State
+                  </Headline>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {checkboxType.type}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props} errorMessage={null} />
+                    <Checkbox
+                      {...checkboxType.props}
+                      defaultChecked
+                      errorMessage={null}
+                    />
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      errorMessage={null}
+                    />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
+                    <Checkbox {...checkboxType.props} defaultChecked>
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox {...checkboxType.props} indeterminate>
+                      Checkbox label
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex
+                    alignItems="center"
+                    style={{
+                      maxWidth: '300px',
+                    }}
+                    direction="column"
+                  >
+                    <Checkbox
+                      {...checkboxType.props}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      defaultChecked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Light color
+
+<Canvas>
+  <Story name="Light color">
+    {args => (
+      <div>
+        <StoryVariantTable className="sg-story-variant-table--align-items-top">
+          <thead>
+            <tr>
+              {[
+                null,
+                'standalone',
+                'with label',
+                'with label and description',
+              ].map((name, index) => (
+                <th>
+                  <Headline
+                    key={index}
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {name}
+                  </Headline>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                type: 'disabled',
+                props: {
+                  disabled: true,
+                  color: 'light',
+                },
+              },
+              {
+                type: 'enabled',
+                props: {color: 'light'},
+              },
+              {
+                type: 'error',
+                props: {
+                  invalid: true,
+                  errorMessage: 'Error message',
+                  color: 'light',
+                },
+              },
+            ].map(checkboxType => (
+              <tr
+                key={checkboxType.type}
+                style={{
+                  backgroundColor: '#000',
+                }}
+              >
+                <td
+                  style={{
+                    backgroundColor: 'white',
+                  }}
+                >
+                  <Headline bold color="text-gray-50" size="xsmall">
+                    State
+                  </Headline>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-70"
+                    size="small"
+                  >
+                    {checkboxType.type}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props} errorMessage={null} />
+                    <Checkbox
+                      {...checkboxType.props}
+                      defaultChecked
+                      errorMessage={null}
+                    />
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      errorMessage={null}
+                    />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex alignItems="center" direction="column">
+                    <Checkbox {...checkboxType.props}>Checkbox label</Checkbox>
+                    <Checkbox {...checkboxType.props} defaultChecked>
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox {...checkboxType.props} indeterminate>
+                      Checkbox label
+                    </Checkbox>
+                  </Flex>
+                </td>
+                <td>
+                  <Flex
+                    alignItems="center"
+                    style={{
+                      maxWidth: '300px',
+                    }}
+                    direction="column"
+                  >
+                    <Checkbox
+                      {...checkboxType.props}
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      defaultChecked
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                    <Checkbox
+                      {...checkboxType.props}
+                      indeterminate
+                      description="More detailed description about this element. You can
+                          use here even some formatting and links."
+                    >
+                      Checkbox label
+                    </Checkbox>
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### With small label
+
+<Canvas>
+  <Story name="With small label" args={{labelSize: 'small'}}>
+    {args => <Checkbox {...args}>Checkbox label</Checkbox>}
+  </Story>
+</Canvas>
+
+### With external label
+
+<Canvas>
+  <Story name="With external label">
+    {args => (
+      <label>
+        <Flex alignItems="center">
+          Checkbox with external label
+          <Checkbox {...args} />
+        </Flex>
+      </label>
+    )}
+  </Story>
+</Canvas>
+
+### With custom theme
+
+To use custom theme for `Checkbox`, you can override following CSS variables:
+
+| Css variable name              | Explanation                                                                                          |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| --checkboxColor                | Checkbox border color (valid, unchecked)                                                             |
+| --checkboxHoverColor           | Checkbox color on mouse hover, applied to both border and background (valid, checked or unchecked)   |
+| --checkboxIconFillColor        | Checkbox icon fill (valid, checked or indeterminate)                                                 |
+| --checkboxLabelColor           | Label color                                                                                          |
+| --checkboxCheckedColor         | Checkbox border and background color (valid, checked)                                                |
+| --checkboxInvalidColor         | Checkbox border and background color (invalid, checked or unchecked)                                 |
+| --checkboxInvalidHoverColor    | Checkbox color on mouse hover, applied to both border and background (invalid, checked or unchecked) |
+| --checkboxInvalidIconFillColor | Checkbox icon fill (invalid, checked)                                                                |
+| --focusColor                   | Focus ring color (appears on focus)                                                                  |
+| --focusInnerColor              | Color between border and focus ring (appears on focus)                                               |
+| --focusOuterColor              | Glow color of focus ring (appears on focus)                                                          |
+
+There are two ways of achieving custom theming:
+
+1. Change CSS variables for particular `Checkbox` by defining them inline in the `style` attribute. Example:
+
+```jsx
+<Checkbox checked style={{'--checkboxCheckedColor': 'green'}}>
+  Checkbox label
+</Checkbox>
+```
+
+2. Or, you can use `className` and define variables replacements in your CSS file. Example:
+
+```css
+.sg-checkbox--custom-theme {
+  --checkboxColor: #fbbe2e;
+  --checkboxHoverColor: #c98600;
+  --focusColor: #c98600;
+  --checkboxCheckedColor: #fbbe2e;
+  --checkboxInvalidColor: #cf1d00;
+  --checkboxInvalidHoverColor: #ff341a;
+}
+```
+
+In the following example, className `sg-checkbox--custom-theme` was applied to all `Checkbox` components. The last component has inline variable override:
+
+<Canvas>
+  <Story
+    name="With custom theme"
+    args={{className: 'sg-checkbox--custom-theme'}}
+  >
+    {args => {
+      const StyledCheckboxes = styled.div`
+        display: flex;
+        flex-direction: column;
+        .sg-checkbox--custom-theme {
+          --checkboxColor: #fbbe2e;
+          --checkboxHoverColor: #c98600;
+          --checkboxCheckedColor: #fbbe2e;
+          --checkboxInvalidColor: #cf1d00;
+          --checkboxInvalidHoverColor: #ff341a;
+          --focusOuterColor: rgba(201, 134, 0, 0.3);
+          --focusColor: #c98600;
+        }
+      `;
+      return (
+        <StyledCheckboxes>
+          <Checkbox {...args} defaultChecked>
+            Checked
+          </Checkbox>
+          <Checkbox {...args} invalid>
+            Invalid
+          </Checkbox>
+          <Checkbox {...args} defaultChecked invalid>
+            Invalid, checked
+          </Checkbox>
+          <Checkbox {...args} description="Some description">
+            With description
+          </Checkbox>
+          <Checkbox
+            {...args}
+            defaultChecked
+            style={{'--checkboxCheckedColor': '#163bf3'}}
+          >
+            With inline color override
+          </Checkbox>
+        </StyledCheckboxes>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<CheckboxA11y />
