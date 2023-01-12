@@ -158,7 +158,7 @@
     "clean": "rimraf css dist dist-sandbox && yarn package-clean",
     "eslint": "./node_modules/.bin/eslint",
     "js-lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
-    "js-typecheck": "flow && node ./scripts/build-types.js",
+    "js-typecheck": "node ./scripts/build-types.js",
     "package-clean": "rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
     "package-esm": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
     "package-commonjs": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
