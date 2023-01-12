@@ -82,8 +82,6 @@ module.exports = {
     'require-atomic-updates': 'error',
     // disallow comparisons with the value NaN
     'use-isnan': 'error',
-    // ensure that the results of typeof are compared against a valid string
-    'valid-typeof': 'error',
 
     // BEST PRACTIES
     // Enforces getter/setter pairs in objects
@@ -148,8 +146,6 @@ module.exports = {
     'no-implicit-globals': 'error',
     // disallow use of eval()-like methods
     'no-implied-eval': 'error',
-    // disallow this keywords outside of classes or class-like objects
-    'no-invalid-this': 'error',
     // disallow usage of __iterator__ property
     'no-iterator': 'error',
     // disallow use of labeled statements
@@ -198,8 +194,6 @@ module.exports = {
     'no-throw-literal': 'off',
     // disallow unmodified loop conditions
     'no-unmodified-loop-condition': 'error',
-    // disallow usage of expressions in statement position
-    'no-unused-expressions': 'off',
     // disallow unused labels
     'no-unused-labels': 'error',
     // disallow unnecessary .call() and .apply()
@@ -297,8 +291,6 @@ module.exports = {
     'block-spacing': ['error', 'never'],
     // enforce one true brace style
     'brace-style': ['error', '1tbs', {allowSingleLine: true}],
-    // require camel case names
-    camelcase: ['error', {properties: 'never'}],
     // enforce or disallow capitalization of the first letter of a comment
     'capitalized-comments': 'off',
     // disallow trailing commas in object literals
@@ -333,8 +325,6 @@ module.exports = {
     'implicit-arrow-linebreak': 'off',
     // this option sets a specific tab width for your code
     indent: ['error', 2, {SwitchCase: 1}],
-    // specify whether double or single quotes should be used in JSX attributes
-    'jsx-quotes': 'off',
     // enforces spacing between keys and values in object literal properties
     'key-spacing': ['error', {beforeColon: false, afterColon: true}],
     // enforce spacing before and after keywords
@@ -349,8 +339,6 @@ module.exports = {
     'lines-between-class-members': 'off',
     // specify the maximum depth that blocks can be nested
     'max-depth': 'off',
-    // specify the maximum length of a line in your program
-    'max-len': ['error', 120],
     // enforce a maximum number of lines per file
     'max-lines': 'off',
     // enforce a maximum number of line of code in a function
@@ -367,8 +355,6 @@ module.exports = {
     'multiline-comment-style': 'off',
     // enforce newlines between operands of ternary expressions
     'multiline-ternary': 'off',
-    // require a capital letter for constructors
-    'new-cap': 'error',
     // disallow the omission of parentheses when invoking a constructor with no arguments
     'new-parens': 'error',
     // require a newline after each call in a method chain
@@ -417,8 +403,6 @@ module.exports = {
     'nonblock-statement-body-position': 'error',
     // enforce consistent line breaks inside braces
     'object-curly-newline': 'off',
-    // require or disallow padding inside curly braces
-    'object-curly-spacing': ['error', 'never'],
     // enforce placing object properties on separate lines
     'object-property-newline': 'off',
     // allow just one var statement per function
@@ -449,8 +433,6 @@ module.exports = {
     'quote-props': 'off',
     // specify whether double or single quotes should be used
     quotes: ['error', 'single'],
-    // require or disallow use of semicolons instead of ASI
-    semi: 'error',
     // enforce spacing before and after semicolons
     'semi-spacing': 'error',
     // enforce location of semicolons
@@ -488,8 +470,6 @@ module.exports = {
     'wrap-regex': 'off',
 
     // ECMAScript 6
-    // require braces in arrow function body
-    'arrow-body-style': ['error', 'as-needed'],
     // require parens in arrow function arguments
     'arrow-parens': ['error', 'as-needed'],
     // require space before/after arrow function's arrow
@@ -525,8 +505,6 @@ module.exports = {
     'no-var': 'error',
     // require method and property shorthand syntax for object literals
     'object-shorthand': ['error', 'always'],
-    // suggest using arrow functions as callbacks
-    'prefer-arrow-callback': 'error',
     // suggest using of const declaration for variables that are never modified after declared
     'prefer-const': 'error',
     // require destructuring from arrays and/or objects
