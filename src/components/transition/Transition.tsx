@@ -319,7 +319,7 @@ function BaseTransition({
   );
 }
 
-export default function Transition({
+function Transition({
   active,
   delay = 0,
   fillMode = 'none',
@@ -418,3 +418,5 @@ function getTransitionRules({
     };
   }
 }
+
+export default Transition;
