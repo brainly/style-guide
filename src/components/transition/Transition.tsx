@@ -181,6 +181,7 @@ function BaseTransition({
     'sg-transition--inline': inline,
     'sg-transition--outlines': outlines,
   });
+
   useIsomorphicLayoutEffect(() => {
     /**
      * Since the transition imperatively applies the style
@@ -202,6 +203,7 @@ function BaseTransition({
    */
   const onTransitionStartRef = React.useRef();
   const onTransitionEndRef = React.useRef();
+
   useIsomorphicLayoutEffect(() => {
     onTransitionStartRef.current = onTransitionStart;
     onTransitionEndRef.current = onTransitionEnd;
@@ -291,6 +293,7 @@ function BaseTransition({
         performTransitionEffect,
         actualDelay / speed
       );
+
       return () => clearTimeout(timeoutId);
     }
 
@@ -305,6 +308,7 @@ function BaseTransition({
     },
     [animator]
   );
+
   return (
     <div
       ref={containerRef}
@@ -326,6 +330,7 @@ export default function Transition({
   const [mounted, setMounted] = React.useState<boolean>(
     canMountBaseComponent ? active : false
   );
+
   useIsomorphicLayoutEffect(() => {
     if (active) {
       const mountBaseComponent = () => setMounted(true);
@@ -335,6 +340,7 @@ export default function Transition({
       } else {
         const {speed} = getDebugOptions();
         const timeoutId = setTimeout(mountBaseComponent, delay / speed);
+
         return () => clearTimeout(timeoutId);
       }
     }
@@ -352,6 +358,7 @@ export default function Transition({
     },
     [active, onTransitionEnd]
   );
+
   return mounted ? (
     <BaseTransition
       {...otherProps}

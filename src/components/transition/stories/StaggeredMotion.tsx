@@ -24,8 +24,10 @@ const fadeEffect = {
   },
 };
 const delayOffset = 20;
+
 export const StaggeredMotion = () => {
   const [open, setOpen] = React.useState(false);
+
   return (
     <Stage className="sg-space-y-xs" format="portrait">
       <Button variant="outline" onClick={() => setOpen(b => !b)} fullWidth>

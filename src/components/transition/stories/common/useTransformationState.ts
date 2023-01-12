@@ -48,13 +48,13 @@ export function useTransformationState({
     const container = containerRef ? containerRef.current : document.body;
 
     if (element !== null && container !== null) {
-      setState(previous => {
-        return createTransformationState({
+      setState(previous =>
+        createTransformationState({
           element,
           container,
           previous,
-        });
-      });
+        })
+      );
     }
   }, [containerRef, elementRef]);
 
@@ -65,6 +65,7 @@ export function useTransformationState({
    * its deep descendant, causing the containerRef to be null.
    */
   const didTheFirstRender = React.useRef(false);
+
   React.useEffect(() => {
     if (didTheFirstRender.current === false) {
       didTheFirstRender.current = true;
@@ -100,6 +101,7 @@ function createTransformationState({
 
   const diffWidth = currentSnapshot.width - previousSnapshot.width;
   const diffHeight = currentSnapshot.height - previousSnapshot.height;
+
   return {
     previousSnapshot,
     currentSnapshot,
@@ -121,6 +123,7 @@ function createElementSnapshot({
 }): ElementSnapshotType {
   const elementRect = element.getBoundingClientRect();
   const containerRect = container.getBoundingClientRect();
+
   return {
     left: elementRect.left - containerRect.left,
     top: elementRect.top - containerRect.top,

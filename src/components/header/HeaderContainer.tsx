@@ -13,6 +13,7 @@ const HeaderContainer = ({
   ...props
 }: HeaderContainerPropsType) => {
   const headerContainerClass = classnames('sg-header__container', className);
+
   return (
     <div {...props} className={headerContainerClass}>
       {children}

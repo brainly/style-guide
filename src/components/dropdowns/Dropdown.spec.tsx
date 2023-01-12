@@ -21,28 +21,35 @@ const testProps = {
   links: testItems,
   name: 'brainly',
 };
+
 describe('<Dropdown />', () => {
   it('should render name', () => {
     const component = shallow(<Dropdown {...testProps} />);
+
     expect(component.find('p').text()).toMatch(testProps.name);
   });
   it('should render links with proper data', () => {
     const component = shallow(<Dropdown {...testProps} />);
+
     component.simulate('click');
     const link = component.find('a').at(0);
+
     expect(link.prop('href')).toBe(testItems[0].url);
   });
   it('should not be open by default', () => {
     const component = shallow(<Dropdown {...testProps} />);
+
     expect(component.find('.sg-dropdown__items')).toHaveLength(0);
   });
   it('should open dropdown on click', () => {
     const component = shallow(<Dropdown {...testProps} />);
+
     component.simulate('click');
     expect(component.find('.sg-dropdown__items')).toHaveLength(1);
   });
   it('should close dropdown when click outside', () => {
     const component = mount(<Dropdown {...testProps} />);
+
     act(() => {
       component.simulate('click');
       document.dispatchEvent(new Event('click')); // simulate bubbling
@@ -60,8 +67,10 @@ describe('<Dropdown />', () => {
     const component = shallow(
       <Dropdown {...testProps} onItemSelect={onItemSelect} />
     );
+
     component.simulate('click');
     const link = component.find('a').at(0);
+
     link.simulate('click');
     expect(onItemSelect).toHaveBeenCalledTimes(1);
     expect(onItemSelect).toHaveBeenCalledWith(undefined, {

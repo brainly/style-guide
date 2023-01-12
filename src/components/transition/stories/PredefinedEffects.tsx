@@ -7,6 +7,7 @@ import {predefinedEffects} from '../predefinedEffects';
 import type {PredefinedEffectType} from '../predefinedEffects';
 
 const predefinedEffectTypes = Object.keys(predefinedEffects);
+
 export const PredefinedEffects = () => (
   <Flex
     style={{
@@ -23,11 +24,14 @@ export const PredefinedEffects = () => (
 
 const PredefinedEffect = ({type}: {type: PredefinedEffectType}) => {
   const [active, setActive] = React.useState(false);
-  const effect = React.useMemo(() => {
-    return Transition.createEffect({
-      type,
-    });
-  }, [type]);
+  const effect = React.useMemo(
+    () =>
+      Transition.createEffect({
+        type,
+      }),
+    [type]
+  );
+
   return (
     <Stage
       format="listitem"

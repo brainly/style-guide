@@ -244,6 +244,7 @@ const Checkbox = ({
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
   let checkboxIcon = null;
+
   if (isChecked && !indeterminate) checkboxIcon = <CheckIcon ref={iconRef} />;
   if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
   React.useEffect(() => {

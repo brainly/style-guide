@@ -33,6 +33,7 @@ const MenuList = ({
     },
     className
   );
+
   return (
     <ul {...props} className={listClass}>
       {items.map(({...elementProps}, index) => (

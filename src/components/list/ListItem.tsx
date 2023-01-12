@@ -8,6 +8,7 @@ export type ListItemPropsType = {
 
 const ListItem = ({children, className, ...props}: ListItemPropsType) => {
   const listItemClass = classNames('sg-list__element', className);
+
   return (
     <li {...props} className={listItemClass}>
       {children}

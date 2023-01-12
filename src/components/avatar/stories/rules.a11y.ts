@@ -23,6 +23,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const linkRules = [
   {
     pattern: '<b>Should</b> have an accessible name.',

@@ -83,6 +83,7 @@
     "eslint": "^7.18.0",
     "eslint-config-brainly-react": "^2.7.0",
     "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.31.11",

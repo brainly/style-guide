@@ -6,6 +6,7 @@ import SeparatorHorizontal from './SeparatorHorizontal';
 describe('SeparatorHorizontal', () => {
   it('should have role="separator"', () => {
     const separator = render(<SeparatorHorizontal />);
+
     expect(separator.getByRole('separator')).toBeTruthy();
   });
 });

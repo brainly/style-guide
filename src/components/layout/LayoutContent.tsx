@@ -34,6 +34,7 @@ const LayoutContent = ({
     },
     className
   );
+
   return (
     <Type {...props} className={layoutContentClass}>
       {children}

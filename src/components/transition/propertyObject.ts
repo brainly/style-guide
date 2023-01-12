@@ -41,6 +41,7 @@ const DEFAULT_TRANSLATE_VALUE = '0px';
 const DEFAULT_SCALE_VALUE = '1';
 const DEFAULT_TRANSFORM_ORIGIN_VALUE = 'center';
 const DEFAULT_WIDTH_HEIGHT_VALUE = 'auto';
+
 type CommonFieldsType = Readonly<{
   value: string;
   duration: string;
@@ -72,6 +73,7 @@ export function parsePropertyObject({
   const translateY = getTranslateValue(transform?.translateY);
   const scaleX = getScaleValue(transform?.scaleX ?? transform?.scale);
   const scaleY = getScaleValue(transform?.scaleY ?? transform?.scale);
+
   return {
     className: className || '',
     transform: {

@@ -3,4 +3,5 @@ import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(Logo);
 const {includeStories, ...meta} = Logo.default;
+
 export default meta;

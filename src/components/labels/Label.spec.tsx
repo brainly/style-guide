@@ -11,6 +11,7 @@ describe('Label', () => {
         example label
       </Label>
     );
+
     expect(label.hasClass('sg-label')).toBe(true);
     expect(label.hasClass('sg-label--blue-20')).toBe(true);
   });
@@ -21,6 +22,7 @@ describe('Label', () => {
       </Label>
     );
     const icon = label.find(Icon);
+
     expect(label.hasClass('sg-label')).toBe(true);
     expect(icon).toHaveLength(1);
     expect(icon.props().type).toBe('star');
@@ -31,6 +33,7 @@ describe('Label', () => {
         example label
       </Label>
     );
+
     expect(label.hasClass('sg-label')).toBe(true);
     expect(label.hasClass('sg-label--green-60')).toBe(true);
   });
@@ -41,6 +44,7 @@ describe('Label', () => {
         example label
       </Label>
     );
+
     expect(label.find('.sg-label__close-button')).toHaveLength(1);
     expect(label.find('div').find(Icon)).toHaveLength(1);
     expect(label.find('div').find(Icon).prop('color')).toBe('icon-black');
@@ -53,6 +57,7 @@ describe('Label', () => {
       </Label>
     );
     const closeDivNode = label.find('.sg-label__close-button');
+
     closeDivNode.simulate('click');
     expect(mockCallback).toHaveBeenCalled();
   });
@@ -74,6 +79,7 @@ describe('Label', () => {
     const heartIcon = label
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
+
     expect(label.hasClass('sg-label--green-20')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-black');
     expect(heartIcon.prop('color')).toBe('icon-black');
@@ -92,6 +98,7 @@ describe('Label', () => {
     const heartIcon = label
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
+
     expect(label.hasClass('sg-label--green-60')).toBe(true);
     expect(closeIcon.prop('color')).toBe('icon-white');
     expect(heartIcon.prop('color')).toBe('icon-white');
@@ -115,6 +122,7 @@ describe('Label', () => {
     const heartIcon = label
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
+
     expect(label.hasClass('sg-label--green-50')).toBe(false);
     expect(label.hasClass('sg-label--green-20')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-black');
@@ -140,6 +148,7 @@ describe('Label', () => {
     const heartIcon = label
       .find('Icon')
       .findWhere(el => el.prop('type') === 'heart');
+
     expect(label.hasClass('sg-label--green-50')).toBe(false);
     expect(label.hasClass('sg-label--green-20')).toBe(false);
     expect(closeIcon.prop('color')).toBe('icon-green-50');

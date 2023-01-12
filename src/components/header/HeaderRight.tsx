@@ -9,6 +9,7 @@ export type HeaderRightPropsType = {
 // This component is deprecated
 const HeaderRight = ({children, className, ...props}: HeaderRightPropsType) => {
   const headerClass = classnames('sg-header__right', className);
+
   return (
     <div {...props} className={headerClass}>
       {children}

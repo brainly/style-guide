@@ -56,6 +56,7 @@ const SpinnerContainer = ({
       return child;
     });
   }, [children, loading]);
+
   return (
     <div
       {...props}

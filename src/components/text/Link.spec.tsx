@@ -6,11 +6,13 @@ import {TEXT_WEIGHT} from './textConsts';
 
 test('render', () => {
   const link = shallow(<Link href="test.com">Test</Link>);
+
   expect(link.hasClass('sg-text--link')).toBeTruthy();
   expect(link.props().href).toEqual('test.com');
 });
 test('render Text', () => {
   const link = shallow(<Link href="test.com">Test</Link>);
+
   expect(link.find(Text)).toBeTruthy();
 });
 test('size', () => {
@@ -22,6 +24,7 @@ test('size', () => {
   const responsiveSizeLink = shallow(
     <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
   ).dive();
+
   expect(link.hasClass('sg-text--small')).toBeTruthy();
   expect(
     responsiveSizeLink.hasClass(
@@ -36,6 +39,7 @@ it('size is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(component.prop('size')).toEqual(size);
 });
 test('color', () => {
@@ -44,6 +48,7 @@ test('color', () => {
       Test
     </Link>
   ).dive();
+
   expect(link.hasClass('sg-text--text-white')).toBeTruthy();
 });
 test('unstyled', () => {
@@ -52,6 +57,7 @@ test('unstyled', () => {
       Test
     </Link>
   );
+
   expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
   expect(link.hasClass('sg-text--link')).toBeFalsy();
 });
@@ -61,6 +67,7 @@ test('underlined', () => {
       Test
     </Link>
   );
+
   expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
   expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
   expect(link.hasClass('sg-text--link')).toBeFalsy();
@@ -74,6 +81,7 @@ it('weight is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(
     component.hasClass('sg-text--bold md:sg-text--regular xl:sg-text--bold')
   ).toEqual(true);
@@ -85,6 +93,7 @@ it('transform is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(component.prop('transform')).toEqual(transform);
 });
 it('align is responsive prop', () => {
@@ -94,6 +103,7 @@ it('align is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(component.prop('align')).toEqual(align);
 });
 it('noWrap is responsive prop', () => {
@@ -103,6 +113,7 @@ it('noWrap is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(component.prop('noWrap')).toEqual(noWrap);
 });
 it('breakWords is responsive prop', () => {
@@ -112,5 +123,6 @@ it('breakWords is responsive prop', () => {
       Test
     </Link>
   );
+
   expect(component.prop('breakWords')).toEqual(breakWords);
 });

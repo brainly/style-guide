@@ -58,6 +58,7 @@ const ContentBoxHeader = ({
     },
     className
   );
+
   return (
     <div {...props} className={contentBoxClass}>
       {children}

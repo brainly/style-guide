@@ -109,6 +109,7 @@ class Rating extends React.Component<RatingPropsType> {
     }
 
     const ratedStarIndex = index + 1;
+
     onChange(ratedStarIndex);
   };
   onStarMouseEnter = (

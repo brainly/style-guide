@@ -67,8 +67,8 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
     }
   }, [tsEnv, editorCode]);
 
-  const extensions = React.useMemo(() => {
-    return [
+  const extensions = React.useMemo(
+    () => [
       autocompletion({
         override: [
           context => {
@@ -96,8 +96,9 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
           },
         ],
       }),
-    ];
-  }, [tsEnv]);
+    ],
+    [tsEnv]
+  );
 
   return (
     <SandpackCodeEditor

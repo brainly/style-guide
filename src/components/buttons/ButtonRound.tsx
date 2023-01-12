@@ -28,6 +28,7 @@ const ButtonRound = ({
   }
 
   const buttonClass = classnames('sg-button-solid-round', className);
+
   return (
     <a {...props} href={href} className={buttonClass}>
       <div className="sg-button-solid-round__icon">{children}</div>

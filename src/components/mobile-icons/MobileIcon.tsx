@@ -127,6 +127,7 @@ const MobileIcon = ({
     className
   );
   const iconType = `#icon-mobile-${type}`;
+
   return (
     <svg {...props} className={iconClass}>
       <use xlinkHref={iconType} />

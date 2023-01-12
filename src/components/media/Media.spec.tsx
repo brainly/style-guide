@@ -11,8 +11,10 @@ const defaultProps = {
   ],
   aside: <div>aside</div>,
 };
+
 test('render', () => {
   const media = shallow(<Media {...defaultProps} />);
+
   expect(media.hasClass('sg-media')).toEqual(true);
   expect(media.find('.sg-media__content')).toHaveLength(
     defaultProps.contentArray.length
@@ -31,6 +33,7 @@ test('testing modifications - all on', () => {
       spacedBottom
     />
   );
+
   expect(media.hasClass('sg-media--clickable')).toEqual(true);
   expect(media.hasClass('sg-media--to-right')).toEqual(true);
   expect(media.hasClass('sg-media--no-padding')).toEqual(true);
@@ -47,6 +50,7 @@ test('testing modifications - all on', () => {
 });
 test('testing modifications - all off', () => {
   const media = shallow(<Media {...defaultProps} />);
+
   expect(media.hasClass('sg-media--clickable')).toEqual(false);
   expect(media.hasClass('sg-media--white')).toEqual(true);
   expect(media.hasClass('sg-media--gray-20')).toEqual(false);

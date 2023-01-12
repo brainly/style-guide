@@ -74,6 +74,7 @@ const SPINNER_COLOR_MAP = {
   [BUTTON_VARIANT.GOOGLE]: SPINNER_COLOR['black'],
   [BUTTON_VARIANT.APPLE]: SPINNER_COLOR['white'],
 };
+
 type ButtonVariantType =
   | 'solid'
   | 'solid-inverted'
@@ -100,6 +101,7 @@ const TOGGLE_BUTTON_VARIANTS = [
   'transparent',
   'transparent-light',
 ];
+
 type TargetType = '_self' | '_blank' | '_parent' | '_top';
 const anchorRelatedProps = [
   'download',
@@ -108,6 +110,7 @@ const anchorRelatedProps = [
   'referrerpolicy',
   'rel',
 ];
+
 export type ButtonPropsType = {
   /**
    * Specify type of the button that you want to use
@@ -390,6 +393,7 @@ const Button = React.forwardRef(
     };
 
     const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
+
     return (
       <TagToRender
         {...props}
@@ -423,5 +427,6 @@ const Button = React.forwardRef(
     );
   }
 );
+
 Button.displayName = 'Button';
 export default Button;

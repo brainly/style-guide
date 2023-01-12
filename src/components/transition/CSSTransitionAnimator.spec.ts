@@ -8,9 +8,11 @@ const classNamesRegistry = {
 const createMockedElement = () => {
   const element = document.createElement('div');
   const styleChanges = [];
+
   Object.defineProperty(element, 'style', {
     get: () => {
       const current = {};
+
       styleChanges.push(current);
       return current;
     },
@@ -25,6 +27,7 @@ describe('createCSSTransitionAnimator()', () => {
   it('animates based on given PropertyObjects', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
+
     animator.animate(
       element,
       {
@@ -85,6 +88,7 @@ describe('createCSSTransitionAnimator()', () => {
   it('animates progressively without "from" argument', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
+
     animator.animate(element, undefined, {
       transform: {
         translateY: 10,
@@ -139,6 +143,7 @@ describe('createCSSTransitionAnimator()', () => {
   it('applies "from" progressively without "to" argument', () => {
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const {element, styleChanges} = createMockedElement();
+
     animator.animate(element, {
       transform: {
         translateY: 10,
@@ -181,6 +186,7 @@ describe('createCSSTransitionAnimator()', () => {
       },
       opacity: 0,
     };
+
     animator.animate(element, props);
     animator.cleanup(element);
     animator.animate(element, props);
@@ -242,6 +248,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.animate(
       element,
@@ -272,6 +279,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.animate(
       element,
@@ -293,6 +301,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.animate(
       element,
@@ -337,6 +346,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.animate(
       element,
@@ -369,6 +379,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.animate(
       element,
@@ -395,6 +406,7 @@ describe('createCSSTransitionAnimator()', () => {
     const callback = jest.fn();
     const animator = createCSSTransitionAnimator(classNamesRegistry);
     const element = document.createElement('div');
+
     animator.onFinish(callback);
     animator.apply(element, {
       opacity: 0,

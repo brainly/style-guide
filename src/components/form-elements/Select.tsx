@@ -33,6 +33,7 @@ const ICON_SIZE_MAP = {
   [SIZE.M]: 24,
   [SIZE.S]: 16,
 };
+
 export type SelectPropsType = {
   /**
    * Optional specification for select value
@@ -158,6 +159,7 @@ const Select = React.forwardRef((props: SelectPropsType, ref) => {
 
     return null;
   });
+
   return (
     <div className={selectClass}>
       <div className="sg-select__icon">
@@ -179,5 +181,6 @@ const Select = React.forwardRef((props: SelectPropsType, ref) => {
     </div>
   );
 });
+
 Select.displayName = 'Select';
 export default Select;

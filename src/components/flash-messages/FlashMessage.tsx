@@ -28,6 +28,7 @@ const FlashMessage = ({
     },
     className
   );
+
   return (
     <div {...props} aria-live="assertive" className="sg-flash" role="alert">
       <div className={messageClass}>

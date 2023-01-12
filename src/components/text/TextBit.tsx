@@ -95,6 +95,7 @@ const TextBit = ({
     },
     className
   );
+
   return (
     <Type {...props} className={textClass}>
       {children}

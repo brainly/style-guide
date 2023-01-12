@@ -16,6 +16,7 @@ const ICON_SIZE: Record<string, 24> = {
   // based on current usage
   [SIZE.NORMAL]: 24,
 };
+
 export type IconAsButtonPropsType = {
   size?: IconSizeType;
   color?: IconColorType;

@@ -21,6 +21,7 @@ const Sample = styled.div({
   textOverflow: 'ellipsis',
   lineHeight: 'normal',
 });
+
 export const TypeSpecimen = styled.div({
   display: 'flex',
   flexDirection: 'row',
@@ -34,6 +35,7 @@ const Wrapper = styled(Div)(({theme}) => ({
   margin: '25px 0 40px',
   padding: '30px 20px',
 }));
+
 export interface TypesetProps {
   fontFamily?: string;
   fontSizes: Array<string>;
@@ -55,19 +57,19 @@ export const Typeset = ({
     {children !== undefined
       ? children
       : fontSizes.map((size, index) => (
-        <TypeSpecimen key={size}>
-          <Label>{size}</Label>
-          <Sample
-            style={{
+          <TypeSpecimen key={size}>
+            <Label>{size}</Label>
+            <Sample
+              style={{
                 fontFamily,
                 fontSize: size,
                 fontWeight,
                 lineHeight: lineHeights?.[index] || lineHeights?.[0] || '',
               }}
-          >
-            {sampleText || 'Was he a beast if music could move him so?'}
-          </Sample>
-        </TypeSpecimen>
+            >
+              {sampleText || 'Was he a beast if music could move him so?'}
+            </Sample>
+          </TypeSpecimen>
         ))}
   </Wrapper>
 );

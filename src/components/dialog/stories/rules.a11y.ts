@@ -74,6 +74,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const closeButtonRules = [
   {
     pattern: '<b>Should</b> have an accessible name.',

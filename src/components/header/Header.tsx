@@ -27,6 +27,7 @@ const Header = ({
     },
     className
   );
+
   return (
     <header {...props} className={headerClass}>
       {children}

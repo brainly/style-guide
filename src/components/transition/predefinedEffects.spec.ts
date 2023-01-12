@@ -5,6 +5,7 @@ describe('createEffect()', () => {
     const effect = createEffect({
       type: 'scaleFade',
     });
+
     expect(effect).toEqual({
       initial: {
         opacity: 0,
@@ -42,6 +43,7 @@ describe('createEffect()', () => {
         },
       },
     });
+
     expect(effect).toEqual({
       initial: {
         opacity: 0,

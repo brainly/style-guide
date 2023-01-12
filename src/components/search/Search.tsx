@@ -62,6 +62,7 @@ const Search = ({
     },
     className
   );
+
   return (
     <div className={searchClassName}>
       <Input

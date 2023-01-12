@@ -27,5 +27,6 @@ export default async function testA11y(node, axeOptions) {
     ? render(node, axeOptions).container
     : node;
   const results = await axe(container, axeOptions);
+
   expect(results).toHaveNoViolations();
 }

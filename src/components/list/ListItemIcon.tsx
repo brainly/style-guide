@@ -23,6 +23,7 @@ const ListItemIcon = ({
     },
     className
   );
+
   return (
     <div {...props} className={iconClass}>
       {children}

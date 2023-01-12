@@ -18,4 +18,5 @@ const rules = [
     tests: 'TO DO',
   },
 ];
+
 export default rules;

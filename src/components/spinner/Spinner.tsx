@@ -58,6 +58,7 @@ const Spinner = ({
     },
     className
   );
+
   return (
     <div
       {...props}

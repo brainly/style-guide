@@ -44,6 +44,7 @@ const instantEffect = {
     duration: 'instant',
   },
 };
+
 describe('<Transition />', () => {
   beforeEach(() => {
     jest.clearAllMocks();
@@ -56,16 +57,19 @@ describe('<Transition />', () => {
         test content
       </Transition>
     );
+
     expect(wrapper.containsMatchingElement('test content')).toBe(true);
   });
   it('does not apply any style when not support transition', () => {
     global.TransitionEvent = undefined;
     const wrapper = mount(<Transition effect={testEffect} active />);
+
     expect(wrapper.getDOMNode().style.opacity).toBe(DEFAULT_OPACITY);
   });
   it('fires onTransitionStart as a fallback when not support transition', () => {
     global.TransitionEvent = undefined;
     const onTransitionStart = jest.fn();
+
     mount(
       <Transition
         effect={testEffect}
@@ -78,6 +82,7 @@ describe('<Transition />', () => {
   it('fires onTransitionEnd as a fallback when not support transition', () => {
     global.TransitionEvent = undefined;
     const onTransitionEnd = jest.fn();
+
     mount(
       <Transition
         effect={testEffect}
@@ -124,11 +129,13 @@ describe('<Transition />', () => {
   it('accepts effect prop as a function that returns an effect', () => {
     const effectFunction = jest.fn(() => testEffect);
     const wrapper = mount(<Transition effect={effectFunction} active />);
+
     expect(wrapper.getDOMNode().style.opacity).toBe(ANIMATE_OPACITY);
     expect(effectFunction).toHaveBeenCalledWith(false);
   });
   it('fires onTransitionEnd after instant transition', () => {
     const onTransitionEnd = jest.fn();
+
     mount(
       <Transition
         effect={instantEffect}

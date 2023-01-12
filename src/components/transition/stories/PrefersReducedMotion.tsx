@@ -9,8 +9,10 @@ const fadeEffect = Transition.createEffect({
 const slideUpFadeEffect = Transition.createEffect({
   type: 'slideUpFade',
 });
+
 export const PrefersReducedMotion = () => {
   const [visible, setVisible] = React.useState(false);
+
   return (
     <Stage
       onClick={() => setVisible(b => !b)}

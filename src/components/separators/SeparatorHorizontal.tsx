@@ -37,6 +37,7 @@ const SeparatorHorizontal = ({
     },
     className
   );
+
   return <div {...props} className={separatorClass} role="separator" />;
 };
 

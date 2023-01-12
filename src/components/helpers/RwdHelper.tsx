@@ -31,6 +31,7 @@ const RwdHelper = ({hide, children}: RwdHelperPropsType) => {
   }
 
   const finalClassName = classNames(children.props.className, hideClass);
+
   return React.cloneElement(children, {
     className: finalClassName,
   });

@@ -20,6 +20,7 @@ type HeadlinePropsType = TextBitPropsType & {
 
 const Headline = (props: HeadlinePropsType) => {
   const {marginTop = 's', ...textBitProps} = props;
+
   return (
     <Flex marginTop={marginTop}>
       <TextBit color="text-black" {...textBitProps} />

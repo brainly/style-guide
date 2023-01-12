@@ -23,9 +23,11 @@ const typingEffect = {
     easing: 'exit',
   },
 };
+
 export const TypewriterEffect = () => {
   const message = 'hello world';
   const [active, setActive] = React.useState(false);
+
   return (
     <Flex className="sg-space-x-xs" alignItems="center">
       <Button

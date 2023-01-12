@@ -100,6 +100,7 @@ const Counter = ({
     className
   );
   let content;
+
   content = (
     <Text
       size={

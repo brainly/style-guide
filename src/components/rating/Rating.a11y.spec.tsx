@@ -9,22 +9,26 @@ describe('Rating', () => {
   it('has accessible description of current rate', () => {
     const rate = 3.4;
     const star = render(<Rating rate={rate} />);
+
     expect(star.getByText(`${rate}/5`)).toBeTruthy();
   });
   it('has accessible description of rate action with min & max value', () => {
     const activeText = 'Rate this answer';
     const rateLabel = `${activeText}, min: 1, max: 5`;
     const star = render(<Rating activeText={activeText} active />);
+
     expect(star.getByLabelText(rateLabel)).toBeTruthy();
   });
   it('has radiogroup role when active', () => {
     const star = render(<Rating active />);
+
     expect(star.getByRole(`radiogroup`)).toBeTruthy();
   });
   it('calls onChange for active rating value change on user click and space', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = render(<Rating rate={rate} onChange={onChange} active />);
+
     expect(onChange.mock.calls).toHaveLength(0);
     userEvent.click(rating.getByLabelText('2/5'));
     expect(onChange.mock.calls).toHaveLength(1);
@@ -37,6 +41,7 @@ describe('Rating', () => {
     const onChange = jest.fn();
     const rate = 3;
     const rating = render(<Rating rate={rate} onChange={onChange} />);
+
     expect(rating.queryByLabelText('2/5')).toBeFalsy();
   });
 });
@@ -53,11 +58,13 @@ describe('Star', () => {
         active
       />
     );
+
     expect(star.getByRole('radio', label)).toBeTruthy();
   });
   it('is not accessible when is not active ', () => {
     const label = '2/6';
     const rating = render(<Star aria-label={label} />);
+
     expect(rating.queryByLabelText(label)).toBeFalsy();
   });
   it('fires onChange on user click and space', () => {
@@ -80,6 +87,7 @@ describe('Star', () => {
         />
       </div>
     );
+
     expect(onChange.mock.calls).toHaveLength(0);
     userEvent.click(star.getByLabelText('2/6'));
     expect(onChange.mock.calls).toHaveLength(1);

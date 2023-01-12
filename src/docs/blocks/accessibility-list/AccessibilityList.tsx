@@ -8,6 +8,7 @@ const Ul = styled.ul({
   padding: '0',
   margin: '16px 0',
 });
+
 type AccessibilityListPropsType = {
   rules: Array<RuleType>;
 };
@@ -17,10 +18,12 @@ const statusValue = {
   DONE: 0,
   'N/A': 2,
 };
+
 export const AccessibilityList = ({rules}: AccessibilityListPropsType) => {
   const sortedRules = rules.sort(
     (a, b) => statusValue[a.status] - statusValue[b.status]
   );
+
   return (
     <Ul role="list">
       {sortedRules.map(item => (

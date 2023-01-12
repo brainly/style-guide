@@ -60,6 +60,7 @@ const Card = ({
     },
     className
   );
+
   return (
     <div {...props} className={cardClass}>
       {children}

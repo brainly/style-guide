@@ -12,6 +12,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     expect(
       accordion
         .find(AccordionItem)
@@ -24,6 +25,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     expect(
       accordion
         .find({
@@ -51,6 +53,7 @@ describe('<Accordion>', () => {
         role: 'button',
       })
       .hostNodes();
+
     accordionItemButton.simulate('focus');
     accordionItemButton.simulate('click');
     expect(
@@ -73,6 +76,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     accordion
       .find({
         title: 'Item 1',
@@ -111,6 +115,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     accordion
       .find({
         title: 'Item 1',
@@ -147,6 +152,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     expect(
       accordion.find(Box).at(0).hasClass('sg-accordion-item--no-gap')
     ).toBe(true);
@@ -157,6 +163,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     accordion
       .find({
         title: 'Item 1',
@@ -176,6 +183,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 3">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     // hostNodes returns html elements and skip react components
     expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
   });
@@ -190,6 +198,7 @@ describe('<Accordion>', () => {
         ))}
       </Accordion>
     );
+
     expect(
       accordion.find('[role="region"][aria-labelledby]').hostNodes()
     ).toHaveLength(accordionIds.length);
@@ -206,6 +215,7 @@ describe('<Accordion>', () => {
         ))}
       </Accordion>
     );
+
     expect(
       accordion.find('[role="region"][aria-labelledby]').hostNodes()
     ).toHaveLength(accordionIds.length);
@@ -224,6 +234,7 @@ describe('<Accordion>', () => {
       </Accordion>
     );
     const item = accordionIds[0];
+
     accordion
       .find({
         title: item,
@@ -242,6 +253,7 @@ describe('<Accordion>', () => {
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
+
     expect(accordion.find(Link).exists()).toBe(true);
   });
   it('does not render Link when title is not string', () => {
@@ -252,6 +264,7 @@ describe('<Accordion>', () => {
         </AccordionItem>
       </Accordion>
     );
+
     expect(accordion.find(Link).exists()).toBe(false);
   });
 });

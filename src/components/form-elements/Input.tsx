@@ -216,6 +216,7 @@ const Input = (props: InputPropsType) => {
   });
   const errorMessageDisplayed =
     invalid === true && errorMessage !== undefined && errorMessage !== '';
+
   return (
     <div className={wrapperClass}>
       <input

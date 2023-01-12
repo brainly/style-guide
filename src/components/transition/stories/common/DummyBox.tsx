@@ -26,6 +26,7 @@ const colors = {
   yellow: 'yellow-40',
   blue: 'blue-40',
 };
+
 type PropsType = Readonly<{
   size: 'listitem' | 'small' | 'medium' | 'large';
   color: 'red' | 'yellow' | 'blue';
@@ -52,4 +53,5 @@ const DummyBox = React.forwardRef(({size, color, onClick}: PropsType, ref) => (
     )}
   </Box>
 ));
+
 export default DummyBox;

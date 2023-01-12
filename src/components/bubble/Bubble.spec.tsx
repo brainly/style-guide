@@ -4,10 +4,12 @@ import {shallow} from 'enzyme';
 
 test('render', () => {
   const bubble = shallow(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
+
   expect(bubble.hasClass('sg-bubble')).toEqual(true);
 });
 test('render top', () => {
   const bubble = shallow(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
+
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
   // default position of bubble is center
   expect(bubble.hasClass('sg-bubble--row-start')).toEqual(false);
@@ -19,6 +21,7 @@ test('render top start', () => {
       Some text
     </Bubble>
   );
+
   expect(bubble.hasClass('sg-bubble--top')).toEqual(true);
   expect(bubble.hasClass('sg-bubble--row-start')).toEqual(true);
 });
@@ -26,6 +29,7 @@ test('render right', () => {
   const bubble = shallow(
     <Bubble direction={DIRECTION.RIGHT}>Some text</Bubble>
   );
+
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
   // default position of bubble is center (for left/right direction we use column alignment)
   expect(bubble.hasClass('sg-bubble--column-end')).toEqual(false);
@@ -37,6 +41,7 @@ test('render right end', () => {
       Some text
     </Bubble>
   );
+
   expect(bubble.hasClass('sg-bubble--right')).toEqual(true);
   expect(bubble.hasClass('sg-bubble--column-end')).toEqual(true);
   // direction right/left use column alignment, no row alignment
@@ -48,6 +53,7 @@ test('render full', () => {
       Some text
     </Bubble>
   );
+
   expect(bubble.hasClass('sg-bubble--full')).toEqual(true);
 });
 test('renders without shadow', () => {
@@ -56,5 +62,6 @@ test('renders without shadow', () => {
       Some text
     </Bubble>
   );
+
   expect(bubble.hasClass('sg-bubble--no-shadow')).toEqual(true);
 });

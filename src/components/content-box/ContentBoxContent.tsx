@@ -46,6 +46,7 @@ const ContentBoxContent = ({
     },
     className
   );
+
   return (
     <div {...props} className={contentBoxClass}>
       {children}

@@ -48,6 +48,7 @@ export const SharedAxis = () => {
   const changeView = (viewIndex: number) => {
     if (viewIndex !== currentViewIndex) {
       const direction = currentViewIndex < viewIndex ? 'left' : 'right';
+
       // hide previous view
       setEffect(createSlideOutEffect(direction));
 
@@ -91,6 +92,7 @@ const buttonIconColors = {
   yellow: 'icon-yellow-50',
   blue: 'icon-blue-50',
 };
+
 SharedAxis.parameters = {
   layout: 'centered',
 };

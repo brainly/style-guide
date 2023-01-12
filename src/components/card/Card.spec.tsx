@@ -11,6 +11,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card')).toEqual(true);
   });
   test('full', () => {
@@ -20,6 +21,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card--full')).toEqual(true);
   });
   test('vertical', () => {
@@ -29,6 +31,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card--vertical')).toEqual(true);
   });
   test('centered', () => {
@@ -38,6 +41,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card--centered')).toEqual(true);
   });
   test('small padding', () => {
@@ -48,6 +52,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card--padding-small')).toEqual(true);
   });
   test('large padding', () => {
@@ -58,6 +63,7 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
+
     expect(card.hasClass('sg-card--padding-large')).toEqual(true);
   });
 });

@@ -667,6 +667,7 @@ const Icon = ({
   const ariaLabel = type
     ? undefined
     : [title, description].filter(Boolean).join(', ');
+
   // suppressHydrationWarning is used until 'useId' hook is available
   return (
     <Tag {...props} className={iconClass} aria-label={ariaLabel}>

@@ -61,6 +61,7 @@ export default class MatchMedia {
 
     const query = this.mediaQueries[mediaQuery];
     const listenerIndex = query.indexOf(listener);
+
     if (listenerIndex !== -1) return;
     query.push(listener);
   }
@@ -69,6 +70,7 @@ export default class MatchMedia {
     if (!this.mediaQueries[mediaQuery]) return;
     const query = this.mediaQueries[mediaQuery];
     const listenerIndex = query.indexOf(listener);
+
     if (listenerIndex === -1) return;
     query.splice(listenerIndex, 1);
   }
@@ -81,6 +83,7 @@ export default class MatchMedia {
       media: MEDIA_QUERY,
       matches: this.userCurrentMediaQuery === MEDIA_QUERY,
     };
+
     this.mediaQueries[MEDIA_QUERY].forEach(listener => {
       listener // $FlowFixMe
         .call(this.mediaQueryList, mqListEvent);

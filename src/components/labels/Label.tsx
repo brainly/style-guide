@@ -80,6 +80,7 @@ const SOLID_ICON_COLOR_MAP: {
   gray: 'icon-black',
   achromatic: 'icon-white',
 };
+
 export const COLORS_DEFAULT_MAP: {
   blue: 'blue-20';
   green: 'green-20';
@@ -131,6 +132,7 @@ const TRANSPARENT_ICON_COLOR_MAP: {
   gray: 'icon-gray-50',
   achromatic: 'icon-black',
 };
+
 export const LABEL_COLORS_SET: {
   BLUE: 'blue';
   GREEN: 'green';
@@ -310,6 +312,7 @@ const Label = ({
       : type === 'solid'
       ? SOLID_ICON_COLOR_MAP[color]
       : TRANSPARENT_ICON_COLOR_MAP[color];
+
   return (
     <div {...props} className={labelClass}>
       {iconType && (

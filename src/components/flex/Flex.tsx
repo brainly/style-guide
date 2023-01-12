@@ -370,11 +370,13 @@ const Flex = React.forwardRef((props: FlexPropsType, ref) => {
     ),
     className
   );
+
   return (
     <Container {...otherProps} className={flexClass} ref={ref}>
       {children}
     </Container>
   );
 });
+
 Flex.displayName = 'Flex';
 export default Flex;

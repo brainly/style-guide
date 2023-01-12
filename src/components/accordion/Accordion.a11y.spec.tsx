@@ -18,6 +18,7 @@ describe('Accordion', () => {
     const heading = accordion.getByRole('heading', {
       name: title,
     });
+
     expect(heading.getAttribute('aria-level')).toBeTruthy();
     expect(
       accordion.getByRole('region', {
@@ -38,6 +39,7 @@ describe('Accordion', () => {
       </Accordion>
     );
     const item = accordion.getByRole('button');
+
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeNull();
     accordion.getByRole('button').click();
@@ -58,6 +60,7 @@ describe('Accordion', () => {
       </Accordion>
     );
     const item = accordion.getByRole('button');
+
     expect(item.getAttribute('aria-expanded')).toEqual('false');
     expect(accordion.queryByRole('region')).toBeNull();
     accordion.getByRole('button').focus();
@@ -72,12 +75,14 @@ describe('Accordion', () => {
   it('has an accessible name', () => {
     const label = 'Accordion name';
     const accordion = render(<Accordion aria-label={label} />);
+
     expect(accordion.getByLabelText(label)).toBeTruthy();
   });
 });
 describe('Accordion a11y', () => {
   it('should have no a11y violations when renders Accordion with expanded and collapsed items', async () => {
     const accordionIds = ['id-1', 'id-2'];
+
     await testA11y(
       <Accordion defaultExpanded={accordionIds[0]}>
         {accordionIds.map(id => (

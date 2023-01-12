@@ -7,6 +7,7 @@ describe('SpinnerContainer', () => {
   describe('loading: ', () => {
     it('should have a role status', () => {
       const spinnerContainer = render(<SpinnerContainer loading />);
+
       expect(spinnerContainer.getByRole('status')).toBeTruthy();
     });
     it('children should have aria-busy="true"', () => {
@@ -15,6 +16,7 @@ describe('SpinnerContainer', () => {
           <header>children</header>
         </SpinnerContainer>
       );
+
       expect(
         spinnerContainer.getByRole('banner').getAttribute('aria-busy')
       ).toBe('true');
@@ -22,6 +24,7 @@ describe('SpinnerContainer', () => {
     it('should announce loading information', () => {
       const spinnerContainer = render(<SpinnerContainer loading />);
       const status = spinnerContainer.getByRole('status');
+
       expect(status.getAttribute('aria-live')).toBe('assertive');
       expect(within(status).getByText('content is loading')).toBeTruthy();
     });
@@ -29,11 +32,13 @@ describe('SpinnerContainer', () => {
   describe('loaded: ', () => {
     it('should have a role status', () => {
       const spinnerContainer = render(<SpinnerContainer />);
+
       expect(spinnerContainer.getByRole('status')).toBeTruthy();
     });
     it('should announce information is loaded', () => {
       const spinnerContainer = render(<SpinnerContainer />);
       const status = spinnerContainer.getByRole('status');
+
       expect(status.getAttribute('aria-live')).toBe('assertive');
       expect(within(status).getByText('content loaded')).toBeTruthy();
     });

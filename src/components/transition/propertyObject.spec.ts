@@ -10,6 +10,7 @@ describe('parsePropertyObject()', () => {
       },
       opacity: 0.5,
     });
+
     expect(parsed).toEqual({
       className: '',
       transform: {
@@ -52,6 +53,7 @@ describe('parsePropertyObject()', () => {
         duration: 200,
       },
     });
+
     expect(parsed).toEqual({
       className: '',
       transform: {
@@ -88,6 +90,7 @@ describe('parsePropertyObject()', () => {
         scaleX: 2,
       },
     });
+
     expect(parsed).toEqual({
       className: '',
       transform: {

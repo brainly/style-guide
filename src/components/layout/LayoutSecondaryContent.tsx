@@ -20,6 +20,7 @@ const LayoutSecondaryContent = ({
   ...props
 }: LayoutSecondaryContentPropsType) => {
   const layoutClass = classnames('sg-layout__secondary-content', className);
+
   return (
     <Type {...props} className={layoutClass}>
       {children}

@@ -12,6 +12,7 @@ addons.register('sandbox', () => {
     render: api => {
       /* eslint-disable react-hooks/rules-of-hooks */
       const [code, setCode] = React.useState('');
+
       useChannel({
         'storybook/docs/snippet-rendered': (id, newSource) => {
           setCode(newSource);

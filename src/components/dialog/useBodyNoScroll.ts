@@ -2,14 +2,17 @@ import * as React from 'react';
 
 const NO_SCROLL_CLASS = 'sg-dialog-no-scroll';
 const DIALOG_SELECTOR = '.js-dialog';
+
 export function useBodyNoScroll() {
   const cleanupRef = React.useRef(null);
   const forceCleanup = React.useCallback(() => {
     if (cleanupRef.current) cleanupRef.current();
   }, []);
+
   React.useEffect(() => {
     const body = document.body;
     const scrollY = window.scrollY;
+
     if (!body) return;
     body.style.top = `-${scrollY}px`;
     body.classList.add(NO_SCROLL_CLASS);

@@ -26,6 +26,7 @@ const List = ({
     className
   );
   const Tag = ordered ? 'ol' : 'ul';
+
   return (
     <Tag {...props} className={listClass} role="list">
       {children}

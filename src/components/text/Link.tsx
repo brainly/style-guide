@@ -20,6 +20,7 @@ const anchorRelatedProps = [
   'referrerpolicy',
   'rel',
 ];
+
 type LinkSizeType =
   | 'xsmall'
   | 'small'

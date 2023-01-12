@@ -6,6 +6,7 @@ import HomeButton from './HomeButton';
 describe('HomeButton', () => {
   it('should have a label', () => {
     const logo = render(<HomeButton />);
+
     expect(logo.getByLabelText('brainly home')).toBeTruthy();
   });
 });

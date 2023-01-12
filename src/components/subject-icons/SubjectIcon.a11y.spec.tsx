@@ -7,6 +7,7 @@ describe('SubjectIcon', () => {
   it('should have an accessible title and img role', async () => {
     const type = 'art';
     const icon = render(<SubjectIcon type={type} />);
+
     expect(
       icon.getByRole('img', {
         name: type,

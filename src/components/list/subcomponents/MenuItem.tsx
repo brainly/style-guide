@@ -21,6 +21,7 @@ const MenuItem = ({
 }: MenuItemPropsType) => {
   const Type = type !== undefined ? type : 'a';
   const elementClass = classnames('sg-menu-list__link', className);
+
   return (
     <li className="sg-menu-list__element">
       <Type {...restProps} className={elementClass} href={href}>

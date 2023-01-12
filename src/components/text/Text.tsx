@@ -158,6 +158,7 @@ const Text = ({
     }, whiteSpace),
     className
   );
+
   return (
     <Type {...props} className={textClass}>
       {children}

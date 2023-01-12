@@ -66,6 +66,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const hrefRules = [
   {
     pattern: '<b>Should</b> have a role <code>link</code>.',

@@ -7,6 +7,7 @@ window.scrollTo = jest.fn();
 describe('<Dialog>', () => {
   it('renders children', () => {
     const wrapper = mount(<Dialog open>content text</Dialog>);
+
     expect(wrapper.containsMatchingElement('content text')).toBe(true);
   });
   it('renders proper size', () => {
@@ -15,6 +16,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     expect(wrapper.find('.sg-dialog__overlay--size-xl')).toHaveLength(1);
   });
   it('renders outside scroll', () => {
@@ -23,6 +25,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     expect(wrapper.find('.sg-dialog__overlay--scroll')).toHaveLength(1);
   });
   it('renders inside scroll', () => {
@@ -31,6 +34,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     expect(wrapper.find('.sg-dialog__container--scroll')).toHaveLength(1);
   });
   it('fires onDismiss callback on Escape key', () => {
@@ -40,6 +44,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     wrapper.simulate('keyUp', {
       key: 'Escape',
     });
@@ -52,11 +57,13 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     wrapper.find('.sg-dialog__overlay').simulate('click');
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
   it('fires onEntryTransitionEnd callback on entry', () => {
     const onEntryTransitionEnd = jest.fn();
+
     mount(
       <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
         content text
@@ -71,6 +78,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     wrapper.setProps({
       open: false,
     });
@@ -78,6 +86,7 @@ describe('<Dialog>', () => {
   });
   it('does not fire onEntryTransitionEnd callback before open', () => {
     const onEntryTransitionEnd = jest.fn();
+
     mount(
       <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open={false}>
         content text
@@ -87,6 +96,7 @@ describe('<Dialog>', () => {
   });
   it('does not fire onExitTransitionEnd callback before open', () => {
     const onExitTransitionEnd = jest.fn();
+
     mount(
       <Dialog onExitTransitionEnd={onExitTransitionEnd} open={false}>
         content text
@@ -96,6 +106,7 @@ describe('<Dialog>', () => {
   });
   it('returns null after exit transition', () => {
     const wrapper = mount(<Dialog open>content text</Dialog>);
+
     expect(wrapper.isEmptyRender()).toBe(false);
     wrapper.setProps({
       open: false,
@@ -110,6 +121,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
     const dialogOverlay = wrapper.find('.sg-dialog__overlay');
+
     expect(dialogOverlay.props().style.zIndex).toEqual(10);
   });
   it('sets given data-testid to dialog', () => {
@@ -119,6 +131,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
     const dialog = wrapper.find('.sg-dialog__container');
+
     expect(dialog.props()['data-testid']).toEqual('test_id');
   });
   it('sets given data-testid to dialog close button', () => {
@@ -128,6 +141,7 @@ describe('<Dialog>', () => {
       </Dialog>
     );
     const closeBtn = wrapper.find('Button.sg-dialog__close-button');
+
     expect(closeBtn.props()['data-testid']).toEqual('test_id');
   });
   it('forces no-scroll class removal before onExitTransitionEnd callback', () => {
@@ -142,6 +156,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     wrapper.setProps({
       open: false,
     });
@@ -158,6 +173,7 @@ describe('<Dialog>', () => {
         content text
       </Dialog>
     );
+
     wrapper.setProps({
       open: false,
     });

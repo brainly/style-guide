@@ -11,6 +11,7 @@ describe('FileHandler', () => {
     const fileHandler = render(
       <FileHandler onClick={handleOnClick}>{fileName}</FileHandler>
     );
+
     userEvent.click(
       fileHandler.getByRole('button', {
         name: fileName,
@@ -32,12 +33,14 @@ describe('FileHandler', () => {
         {fileName}
       </FileHandler>
     );
+
     expect(fileHandler.getByRole('link').href).toContain(src);
     expect(fileHandler.queryByRole('img')).toBeFalsy();
   });
   it('should have a noticeable status in accessibility tree', () => {
     const fileHandler = render(<FileHandler loading />);
     const status = fileHandler.getByRole('status');
+
     expect(status.getAttribute('aria-live')).toBeTruthy();
     expect(within(status).getByText('uploading')).toBeTruthy();
   });
@@ -58,12 +61,14 @@ describe('FileHandler a11y', () => {
   });
   it('should have no a11y violations when onClick is provided', async () => {
     const handleOnClick = jest.fn();
+
     await testA11y(
       <FileHandler onClick={handleOnClick}>file name</FileHandler>
     );
   });
   it('should have no a11y violations when onClose is provided', async () => {
     const handleOnClose = jest.fn();
+
     await testA11y(
       <FileHandler onClose={handleOnClose}>file name</FileHandler>
     );

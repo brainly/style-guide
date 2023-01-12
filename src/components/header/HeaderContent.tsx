@@ -24,6 +24,7 @@ const HeaderContent = ({
     },
     className
   );
+
   return (
     <div {...props} className={headerContentClass}>
       {children}

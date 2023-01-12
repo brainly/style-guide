@@ -18,6 +18,7 @@ const WithTooltip = args => {
   const handleChange = () => null;
 
   const {expanded: propsExpanded, ...props} = args;
+
   return (
     <Accordion onChange={handleChange} expanded={args.expanded} {...props}>
       <AccordionItem title={copy.title} key="1" id="accordion_item_1">
@@ -41,4 +42,5 @@ WithTooltip.args = {
 };
 export const Default = mergeStories({...AccordionStories, WithTooltip});
 const {includeStories, ...meta} = AccordionStories.default;
+
 export default meta;

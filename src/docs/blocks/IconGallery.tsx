@@ -34,6 +34,7 @@ const List = styled(Div)({
   display: 'flex',
   flexFlow: 'row wrap',
 });
+
 interface IconItemProps {
   name: string;
   size: number;

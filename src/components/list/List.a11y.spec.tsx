@@ -12,6 +12,7 @@ describe('List', () => {
         <ListItem>item</ListItem>
       </List>
     );
+
     expect(list.getByRole('list')).toBeTruthy();
     expect(list.getByRole('listitem')).toBeTruthy();
   });
@@ -21,6 +22,7 @@ describe('List', () => {
         <ListItem>item</ListItem>
       </List>
     );
+
     expect(list.getByRole('list').tagName).toBe('UL');
   });
   it('should be ordered', () => {
@@ -29,6 +31,7 @@ describe('List', () => {
         <ListItem>item</ListItem>
       </List>
     );
+
     expect(list.getByRole('list').tagName).toBe('OL');
   });
   it('should have an accessible name', () => {
@@ -38,6 +41,7 @@ describe('List', () => {
         <ListItem>item</ListItem>
       </List>
     );
+
     expect(
       list.getByRole('list', {
         name,

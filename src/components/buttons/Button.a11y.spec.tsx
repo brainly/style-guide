@@ -13,6 +13,7 @@ describe('Button', () => {
           Load more
         </Button>
       );
+
       expect(
         button.getByRole('button', {
           name: label,
@@ -21,6 +22,7 @@ describe('Button', () => {
     });
     it('is focusable', () => {
       const button = render(<Button as="button">Read more</Button>);
+
       button.getByRole('button').focus();
       expect(button.getByRole('button')).toBe(document.activeElement);
     });
@@ -32,6 +34,7 @@ describe('Button', () => {
           {label}
         </Button>
       );
+
       button.getByText(label).focus();
       expect(button.getByText(label)).not.toBe(document.activeElement);
       userEvent.click(button.getByText(label));
@@ -45,6 +48,7 @@ describe('Button', () => {
           {label}
         </Button>
       );
+
       userEvent.click(
         button.getByRole('button', {
           name: label,
@@ -70,6 +74,7 @@ describe('Button', () => {
         </Button>
       );
       const status = button.getByRole('status');
+
       expect(status.getAttribute('aria-live')).toBe('assertive');
       expect(within(status).getByText(loadingAriaLabel)).toBeTruthy();
       expect(button.getByRole('button').disabled).toBeTruthy();
@@ -83,6 +88,7 @@ describe('Button', () => {
           Read more
         </Button>
       );
+
       expect(
         button.getByRole('link', {
           name: label,
@@ -96,6 +102,7 @@ describe('Button', () => {
       const button = render(
         <Button href="https://example.com/">Read more</Button>
       );
+
       button.getByRole('link').focus();
       expect(button.getByRole('link')).toBe(document.activeElement);
     });
@@ -107,6 +114,7 @@ describe('Button', () => {
           {label}
         </Button>
       );
+
       button.getByText(label).focus();
       expect(button.getByText(label)).not.toBe(document.activeElement);
       userEvent.click(button.getByText(label));
@@ -124,6 +132,7 @@ describe('Button', () => {
           {label}
         </Button>
       );
+
       expect(button.getByText(newTabLabel)).toBeTruthy();
     });
   });
@@ -134,6 +143,7 @@ describe('Button', () => {
           Thanks
         </Button>
       );
+
       expect(button.getByRole('button').getAttribute('type')).toBe('button');
       expect(
         button.getByRole('button').getAttribute('aria-pressed')

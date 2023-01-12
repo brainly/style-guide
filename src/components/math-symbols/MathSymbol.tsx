@@ -61,6 +61,7 @@ const WIDE: Array<string> = [
   MATH_SYMBOL_TYPE.INTEGRAL,
   MATH_SYMBOL_TYPE.EQUATION_SYSTEM,
 ];
+
 export type MathSymbolSizeType = 'small' | 'medium' | 'normal';
 export const SIZE: {
   SMALL: 'small';
@@ -104,6 +105,7 @@ const MathSymbol = ({
   const iconType = `#sg-math-symbol-icon-${type}`;
   const titleId = `sg-math-symbol-icon-${type}-title`;
   const defaultTitle = type.replace(/-/g, ' ');
+
   return (
     <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
       <text id={titleId} hidden>

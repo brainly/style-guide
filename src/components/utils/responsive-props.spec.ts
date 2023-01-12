@@ -119,6 +119,7 @@ describe('generateResponsiveClassNames', () => {
       ['foo', 'md:foo', 'lg:bar', 'xl:bar'],
     ],
   ];
+
   it.each(responsivePropsCases)(
     'renders responsive classNames when prop passed as %s with %s',
     (type, testCase, prop, classNames) => {

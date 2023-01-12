@@ -24,6 +24,7 @@ const PopupMenu = ({
     },
     className
   );
+
   return (
     <div {...props} className={popupMenuClass}>
       {items.map((item, i) => (

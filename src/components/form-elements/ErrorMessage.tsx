@@ -21,6 +21,7 @@ const ErrorMessage = ({
   ...props
 }: ErrorMessagePropsType) => {
   const errorMessageClass = cx('sg-error-message', className);
+
   return (
     <Text
       {...props}

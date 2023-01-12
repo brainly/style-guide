@@ -109,6 +109,7 @@ function BaseDialog({
       onExitTransitionEnd();
     }
   }, [open, onExitTransitionEnd, onEntryTransitionEnd, cleanupBodyNoScroll]);
+
   React.useEffect(() => {
     setDeferredOpen(open);
 
@@ -129,6 +130,7 @@ function BaseDialog({
         containerRef.current.getBoundingClientRect().height;
       const overlayHeight =
         overlayRef.current && overlayRef.current.getBoundingClientRect().height;
+
       if (!dialogHeight || !overlayHeight) return;
       if (dialogHeight > overlayHeight) setIsDialogHigherThanOverlay(true);
     }
@@ -232,6 +234,7 @@ function BaseDialog({
       }, {}),
     [childrenWithSlots]
   );
+
   return (
     <div
       className={overlayClass}
@@ -304,6 +307,7 @@ function Dialog({open, onExitTransitionEnd, ...otherProps}: DialogPropsType) {
       onExitTransitionEnd();
     }
   }, [onExitTransitionEnd]);
+
   return mounted ? (
     <BaseDialog
       {...otherProps}

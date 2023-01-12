@@ -7,6 +7,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const accordionItemRules = [
   {
     pattern:

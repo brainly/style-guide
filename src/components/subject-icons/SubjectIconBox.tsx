@@ -27,6 +27,7 @@ const SubjectIconBox = ({
     },
     className
   );
+
   return (
     <div {...props} className={boxClass}>
       <SubjectIcon type={type} size={size} />

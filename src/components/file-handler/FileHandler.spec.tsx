@@ -7,9 +7,11 @@ import Link from '../text/Link';
 import Spinner from '../spinner/Spinner';
 
 const mockCallback = jest.fn();
+
 describe('FileHandler', () => {
   test('renders with icon', () => {
     const fileHandler = shallow(<FileHandler>example text</FileHandler>);
+
     expect(fileHandler.hasClass('sg-file-handler')).toEqual(true);
     expect(fileHandler.find(Text)).toHaveLength(1);
     expect(fileHandler.find(Icon).prop('type')).toBe('attachment');
@@ -18,6 +20,7 @@ describe('FileHandler', () => {
     const fileHandler = shallow(
       <FileHandler onClose={mockCallback}>example text</FileHandler>
     );
+
     expect(
       fileHandler.find('button').hasClass('sg-file-handler__close-button')
     ).toEqual(true);
@@ -27,18 +30,21 @@ describe('FileHandler', () => {
     const fileHandler = shallow(
       <FileHandler color="white">example text</FileHandler>
     );
+
     expect(fileHandler.hasClass('sg-file-handler--white')).toEqual(true);
   });
   test('renders proper icon when iconType', () => {
     const fileHandler = shallow(
       <FileHandler iconType="heart">example text</FileHandler>
     );
+
     expect(fileHandler.find(Icon).prop('type')).toBe('heart');
   });
   test('renders img when thumbnailSrc', () => {
     const fileHandler = shallow(
       <FileHandler thumbnailSrc="thumbnailSrc">example text</FileHandler>
     );
+
     expect(fileHandler.find(Icon)).toHaveLength(0);
     expect(fileHandler.find('img')).toHaveLength(1);
   });
@@ -46,6 +52,7 @@ describe('FileHandler', () => {
     const fileHandler = shallow(
       <FileHandler src="src">example text</FileHandler>
     );
+
     expect(fileHandler.find(Link)).toHaveLength(1);
     expect(fileHandler.find(Text)).toHaveLength(0);
   });
@@ -53,6 +60,7 @@ describe('FileHandler', () => {
     const fileHandler = shallow(
       <FileHandler loading>example text</FileHandler>
     );
+
     expect(fileHandler.find(Spinner)).toHaveLength(1);
     expect(fileHandler.find(Icon)).toHaveLength(0);
   });

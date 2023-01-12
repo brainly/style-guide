@@ -7,6 +7,7 @@ export default function useReducedMotion(): boolean {
   const [matches, setMatch] = useState(() =>
     supportsMatchMedia ? window.matchMedia(MEDIA_QUERY).matches : false
   );
+
   useEffect(() => {
     if (!supportsMatchMedia) return;
     const mediaQuery = window.matchMedia(MEDIA_QUERY);

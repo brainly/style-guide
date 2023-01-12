@@ -39,6 +39,7 @@ const Separator = ({
     },
     className
   );
+
   return (
     <div
       {...props}

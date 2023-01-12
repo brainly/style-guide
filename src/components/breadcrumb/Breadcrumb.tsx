@@ -29,6 +29,7 @@ const Breadcrumb = ({
     },
     className
   );
+
   return (
     <ul {...props} className={breadcrumbClass}>
       {elements.map((elem, i) => (

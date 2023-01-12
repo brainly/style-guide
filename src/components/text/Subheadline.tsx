@@ -93,6 +93,7 @@ const Subheadline = ({
     ),
     className
   );
+
   return (
     <Type {...props} className={subheadlineClass}>
       {children}

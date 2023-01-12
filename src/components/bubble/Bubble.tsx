@@ -36,6 +36,7 @@ export const DIRECTION: {
   BOTTOM: 'bottom',
 };
 const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
+
 export const BUBBLE_COLOR: {
   white: 'white';
   'gray-40': 'gray-40';
@@ -109,6 +110,7 @@ const Bubble = ({
     },
     className
   );
+
   return (
     <div {...props} className={bubbleClass}>
       {children}

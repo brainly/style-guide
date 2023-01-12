@@ -11,6 +11,7 @@ describe('<Checkbox />', () => {
   it('renders unchecked checkbox input, without label', () => {
     const checkbox = renderCheckbox({});
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(false);
     expect(checkbox.queryByLabelText('my label')).toBeNull();
   });
@@ -19,6 +20,7 @@ describe('<Checkbox />', () => {
     const checkbox = renderCheckbox({
       children: label,
     });
+
     expect(
       checkbox.getByRole('checkbox', {
         name: label,
@@ -33,6 +35,7 @@ describe('<Checkbox />', () => {
         <Checkbox />
       </label>
     );
+
     expect(
       checkbox.getByRole('checkbox', {
         name: label,
@@ -44,6 +47,7 @@ describe('<Checkbox />', () => {
       children: 'my label',
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(false);
     userEvent.click(checkbox.getByLabelText('my label'));
     expect(checkboxInput).toEqual(document.activeElement);
@@ -58,6 +62,7 @@ describe('<Checkbox />', () => {
       defaultChecked: true,
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(true);
   });
   it('it renders as initially unchecked', () => {
@@ -65,6 +70,7 @@ describe('<Checkbox />', () => {
       defaultChecked: false,
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(false);
   });
   it('it displays error message and description', () => {
@@ -78,6 +84,7 @@ describe('<Checkbox />', () => {
       children: 'Click me pls',
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.id).toEqual('myid');
     expect(checkbox.getByText(descriptionText)).toBeTruthy();
     expect(checkbox.getByText(descriptionText).id).toEqual('myid-description');
@@ -94,6 +101,7 @@ describe('<Checkbox />', () => {
       onChange,
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(true);
     userEvent.click(checkboxInput);
     expect(onChange).not.toHaveBeenCalled();
@@ -114,6 +122,7 @@ describe('<Checkbox />', () => {
       defaultChecked: false,
     });
     const checkboxInput = checkbox.getByRole('checkbox');
+
     expect(checkboxInput.checked).toBe(false);
     userEvent.click(checkbox.getByText(descriptionText));
     expect(checkboxInput.checked).toBe(false);

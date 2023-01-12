@@ -62,6 +62,7 @@ export const InTextCounter = () => {
     </Transition>
   );
   const users = count === 1 ? 'user' : 'users';
+
   return (
     <Text>
       Counters! {counter} {users} love them.

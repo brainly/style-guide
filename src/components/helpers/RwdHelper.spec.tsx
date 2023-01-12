@@ -9,6 +9,7 @@ test('render element', () => {
       <div>inside div</div>
     </RwdHelper>
   );
+
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is('div')).toEqual(true);
 });
@@ -18,6 +19,7 @@ test('render element', () => {
       <Icon type={icoTypes.HEART} />
     </RwdHelper>
   );
+
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is(Icon)).toEqual(true);
 });
@@ -25,6 +27,7 @@ test('render text', () => {
   const rwdHelper = shallow(
     <RwdHelper hide={TYPE.SMALL_ONLY}>Some text</RwdHelper>
   );
+
   expect(rwdHelper.hasClass('sg-hide-for-small-only')).toEqual(true);
   expect(rwdHelper.is('span')).toEqual(true);
 });
@@ -34,5 +37,6 @@ test('merge className', () => {
       <div className="test">inside div</div>
     </RwdHelper>
   );
+
   expect(rwdHelper.find('.test.sg-hide-for-small-only')).toHaveLength(1);
 });

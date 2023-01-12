@@ -14,24 +14,22 @@ export default function App() {
   return ${code};
 }`;
 
-export const Sandbox = ({code = ''}: SandboxPropsType) => {
-  return (
-    <Sandpack
-      template="react"
-      theme={githubLight}
-      files={{
-        'App.js': {
-          code: wrap(code),
-          active: true,
-        },
-        'style-guide.js': {
-          code: styleguideJsCode,
-          hidden: true,
-        },
-      }}
-      options={{
-        editorHeight: 600,
-      }}
-    />
-  );
-};
+export const Sandbox = ({code = ''}: SandboxPropsType) => (
+  <Sandpack
+    template="react"
+    theme={githubLight}
+    files={{
+      'App.js': {
+        code: wrap(code),
+        active: true,
+      },
+      'style-guide.js': {
+        code: styleguideJsCode,
+        hidden: true,
+      },
+    }}
+    options={{
+      editorHeight: 600,
+    }}
+  />
+);

@@ -6,6 +6,7 @@ import {testA11y} from '../../axe';
 describe('FlashMessage', () => {
   it('should have "alert" role', () => {
     const flashMessage = render(<FlashMessage>message</FlashMessage>);
+
     expect(flashMessage.getByRole('alert')).toBeTruthy();
   });
 });

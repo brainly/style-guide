@@ -7,6 +7,7 @@ const play = async ({canvasElement}) => {
   const link = canvas.getByRole('link', {
     name: /skip to main content/i,
   });
+
   link.style.animation = 'none';
   link.style.margin = '1em';
   link.focus();
@@ -15,4 +16,5 @@ const play = async ({canvasElement}) => {
 export const Default = mergeStories(SkipLink);
 Default.play = play;
 const {includeStories, ...meta} = SkipLink.default;
+
 export default meta;

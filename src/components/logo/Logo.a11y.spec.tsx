@@ -6,10 +6,12 @@ import Logo from './Logo';
 describe('Logo', () => {
   it('should have an alt', () => {
     const logo = render(<Logo />);
+
     expect(logo.getByAltText('brainly')).toBeTruthy();
   });
   it('should not have an alt', () => {
     const logo = render(<Logo alt="" />);
+
     expect(logo.queryByAltText('brainly')).toBeFalsy();
   });
 });

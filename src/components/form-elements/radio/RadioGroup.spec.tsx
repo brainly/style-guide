@@ -22,6 +22,7 @@ describe('<RadioGroup />', () => {
       name: 'option',
       value: 'option-a',
     });
+
     expect(radioGroup.getByRole('radiogroup')).toBeTruthy();
     expect(radioGroup.getByLabelText('Option A').checked).toBe(true);
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
@@ -31,6 +32,7 @@ describe('<RadioGroup />', () => {
       name: 'option',
       value: 'option-a',
     });
+
     userEvent.click(radioGroup.getByLabelText('Option B'));
     expect(radioGroup.getByLabelText('Option A').checked).toBe(false);
     expect(radioGroup.getByLabelText('Option B').checked).toBe(true);
@@ -48,6 +50,7 @@ describe('<RadioGroup />', () => {
       invalid: true,
       errorMessage: 'Error message',
     });
+
     expect(radioGroup.getByText('Error message')).toBeTruthy();
   });
   it("doesn't allow checking disabled radio", () => {
@@ -58,6 +61,7 @@ describe('<RadioGroup />', () => {
       disabled: true,
       onChange,
     });
+
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
     userEvent.click(radioGroup.getByLabelText('Option B'));
     expect(onChange).not.toHaveBeenCalled();
@@ -71,6 +75,7 @@ describe('<RadioGroup />', () => {
       'aria-label': 'RadioGroup name',
       onChange,
     });
+
     expect(
       radioGroup.getByRole('radiogroup', {
         label: 'RadioGroup name',
@@ -92,6 +97,7 @@ describe('<RadioGroup />', () => {
         <p id="rg-desc">RadioGroup description</p>
       </div>
     );
+
     expect(
       radioGroup.getByRole('radiogroup', {
         description: 'RadioGroup description',

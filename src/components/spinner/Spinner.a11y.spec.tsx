@@ -6,10 +6,12 @@ import Spinner from './Spinner';
 describe('Spinner', () => {
   it('should have a role status', () => {
     const spinner = render(<Spinner />);
+
     expect(spinner.getByRole('status')).toBeTruthy();
   });
   it('should announce loading information', () => {
     const spinner = render(<Spinner />);
+
     expect(spinner.getByRole('status').getAttribute('aria-live')).toBe(
       'assertive'
     );

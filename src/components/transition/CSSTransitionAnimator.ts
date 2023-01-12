@@ -75,6 +75,7 @@ export function createCSSTransitionAnimator(
     const willChangePropsArray = Object.keys(willChangeProps).filter(
       prop => willChangeProps[prop]
     );
+
     classNamesRegistry.register('transition', className);
     element.className = classNamesRegistry.toString();
     element.style.willChange = combine(willChangePropsArray);
@@ -145,6 +146,7 @@ export function createCSSTransitionAnimator(
    */
   function oneOrAll(values: Array<string>): Array<string> {
     const unique = [...new Set(values)];
+
     return unique.length === 1 ? unique : values;
   }
 
@@ -155,6 +157,7 @@ export function createCSSTransitionAnimator(
 
     const value = parseInt(duration, 10);
     const units = duration.slice(-2) === 'ms' ? 'ms' : 's';
+
     return value / speed + units;
   }
 
@@ -200,6 +203,7 @@ export function createCSSTransitionAnimator(
        * change after pushing them into the history.
        */
       const willChangeProps = getWillChangeProps();
+
       remainingPropsToChange = Object.keys(willChangeProps).reduce(
         (sum, prop) => sum + Number(willChangeProps[prop]),
         0
@@ -243,6 +247,7 @@ export function createCSSTransitionAnimator(
     apply(element: HTMLElement, props?: PropertyObjectType) {
       if (props !== undefined) {
         const parsedProps = parsePropertyObject(props);
+
         pushState(parsedProps);
         addElementStyles({
           element,

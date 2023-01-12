@@ -6,19 +6,17 @@ const Status = styled.span`
 `;
 
 // eslint-disable-next-line react/prop-types
-const Label = ({children, status}) => {
-  return (
-    <div
-      style={{
-        fontSize: '14px',
-        padding: '2px 0',
-        lineHeight: '14px',
-      }}
-    >
-      <span>{children}</span>
-      <Status>{status}</Status>
-    </div>
-  );
-};
+const Label = ({children, status}) => (
+  <div
+    style={{
+      fontSize: '14px',
+      padding: '2px 0',
+      lineHeight: '14px',
+    }}
+  >
+    <span>{children}</span>
+    <Status>{status}</Status>
+  </div>
+);
 
 export {Label};

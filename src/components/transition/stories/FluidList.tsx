@@ -31,6 +31,7 @@ const initialItemIds = [0, 1, 2, 3];
  * not animate the already added items at the beginning.
  */
 let lastUniqueId = initialItemIds.length;
+
 export const FluidList = () => {
   const containerRef = React.useRef(null);
   const [itemIds, setItemIds] = React.useState(initialItemIds);

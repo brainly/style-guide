@@ -4,10 +4,12 @@ import {mount, shallow} from 'enzyme';
 
 test('render', () => {
   const topLayer = shallow(<TopLayer>some text</TopLayer>);
+
   expect(topLayer.hasClass('sg-toplayer')).toEqual(true);
 });
 test('default size', () => {
   const topLayer = shallow(<TopLayer>some text</TopLayer>);
+
   Object.values(SIZE).forEach(size => {
     expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
   });
@@ -15,16 +17,19 @@ test('default size', () => {
 test('check if close button exists', () => {
   const mockCallback = jest.fn();
   const topLayer = mount(<TopLayer onClose={mockCallback} />);
+
   expect(topLayer.find('.sg-toplayer__close')).toHaveLength(1);
 });
 test('check when no close button', () => {
   const topLayer = mount(<TopLayer />);
+
   expect(topLayer.find('.sg-toplayer__close')).toHaveLength(0);
 });
 test('click action', () => {
   const mockCallback = jest.fn();
   const topLayer = mount(<TopLayer onClose={mockCallback} />);
   const button = topLayer.find('.sg-toplayer__close');
+
   button.simulate('click');
   expect(mockCallback.mock.calls).toHaveLength(1);
 });
@@ -34,12 +39,14 @@ test('key down action', () => {
     <TopLayer onClose={mockCallback} onCloseButtonKeyDown={mockCallback} />
   );
   const button = topLayer.find('.sg-toplayer__close');
+
   button.simulate('keyDown');
   expect(mockCallback.mock.calls).toHaveLength(1);
 });
 test('size', () => {
   const size = SIZE.SMALL;
   const topLayer = shallow(<TopLayer size={size}>some text</TopLayer>);
+
   expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(true);
 });
 test('testing modifications - all on', () => {
@@ -57,6 +64,7 @@ test('testing modifications - all on', () => {
       some text
     </TopLayer>
   );
+
   expect(topLayer.hasClass('sg-toplayer--lead')).toEqual(true);
   expect(topLayer.hasClass('sg-toplayer--fill')).toEqual(true);
   expect(topLayer.hasClass('sg-toplayer--modal')).toEqual(true);
@@ -68,6 +76,7 @@ test('testing modifications - all on', () => {
 });
 test('testing modifications - all off', () => {
   const topLayer = shallow(<TopLayer>some text</TopLayer>);
+
   expect(topLayer.hasClass('sg-toplayer--lead')).toEqual(false);
   expect(topLayer.hasClass('sg-toplayer--fill')).toEqual(false);
   expect(topLayer.hasClass('sg-toplayer--modal')).toEqual(false);
@@ -79,10 +88,12 @@ test('testing modifications - all off', () => {
 });
 test('testing wrapper', () => {
   const topLayer = shallow(<TopLayer>some text</TopLayer>);
+
   expect(topLayer.find('.sg-toplayer__wrapper')).toHaveLength(1);
 });
 test('testing wrapper without padding', () => {
   const topLayer = shallow(<TopLayer noPadding>some text</TopLayer>);
+
   expect(
     topLayer
       .find('.sg-toplayer__wrapper')

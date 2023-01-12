@@ -60,6 +60,7 @@ function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
   const descendantFocused = isTabbingForward
     ? focusFirstDescendant(element)
     : focusLastDescendant(element);
+
   return descendantFocused || attemptFocus(element);
 }
 

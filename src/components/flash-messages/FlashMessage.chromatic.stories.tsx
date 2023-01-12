@@ -3,4 +3,5 @@ import {mergeStories} from '../../chromatic/utils';
 
 export const Default = mergeStories(FlashMessage);
 const {includeStories, ...meta} = FlashMessage.default;
+
 export default meta;

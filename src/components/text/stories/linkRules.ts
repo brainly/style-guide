@@ -71,6 +71,7 @@ const rules = [
     tests: 'TO DO',
   },
 ];
+
 export const asButtonRules = [
   {
     pattern: '<b>Should</b> have an accessible name.',

@@ -9,6 +9,7 @@ import Flex, {
 
 describe('<Flex>', () => {
   const children = <div>Text</div>;
+
   it('renders without error', () => {
     shallow(<Flex>{children}</Flex>);
   });
@@ -16,6 +17,7 @@ describe('<Flex>', () => {
     const component = shallow(
       <Flex direction={FLEX_DIRECTION.COLUMN}>{children}</Flex>
     );
+
     expect(component.hasClass('sg-flex--column')).toEqual(true);
   });
   it('direction is responsive prop', () => {
@@ -31,6 +33,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--column md:sg-flex--column-reverse xl:sg-flex--row'
@@ -39,12 +42,14 @@ describe('<Flex>', () => {
   });
   it('renders inline flex', () => {
     const component = shallow(<Flex inlineFlex>{children}</Flex>);
+
     expect(component.hasClass('sg-flex--inline')).toEqual(true);
   });
   it('inlineFlex is responsive prop', () => {
     const component = shallow(
       <Flex inlineFlex={[true, false, null, false]}>{children}</Flex>
     );
+
     expect(
       component.hasClass('sg-flex--inline md:sg-flex--flex xl:sg-flex--flex')
     ).toEqual(true);
@@ -53,6 +58,7 @@ describe('<Flex>', () => {
     const component = shallow(
       <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>{children}</Flex>
     );
+
     expect(component.hasClass('sg-flex--justify-content-flex-start')).toEqual(
       true
     );
@@ -70,6 +76,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         // eslint-disable-next-line max-len
@@ -81,6 +88,7 @@ describe('<Flex>', () => {
     const component = shallow(
       <Flex alignItems={FLEX_ALIGNMENT_VALUES.CENTER}>{children}</Flex>
     );
+
     expect(component.hasClass('sg-flex--align-items-center')).toEqual(true);
   });
   it('alignItems is responsive prop', () => {
@@ -96,6 +104,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--align-items-center md:sg-flex--align-items-flex-end xl:sg-flex--align-items-flex-start'
@@ -106,6 +115,7 @@ describe('<Flex>', () => {
     'when margin prop is %i, class sg-flex--margin-%i should exist',
     margin => {
       const component = shallow(<Flex margin={margin}>{children}</Flex>);
+
       expect(component.hasClass(`sg-flex--margin-${margin}`)).toEqual(true);
     }
   );
@@ -122,6 +132,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--margin-xs md:sg-flex--margin-xxl xl:sg-flex--margin-xxxxl'
@@ -132,6 +143,7 @@ describe('<Flex>', () => {
     'when marginTop prop is %i, class sg-flex--margin-top-%i should exist',
     margin => {
       const component = shallow(<Flex marginTop={margin}>{children}</Flex>);
+
       expect(component.hasClass(`sg-flex--margin-top-${margin}`)).toEqual(true);
     }
   );
@@ -148,6 +160,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--margin-top-xs md:sg-flex--margin-top-xxl xl:sg-flex--margin-top-xxxxl'
@@ -158,6 +171,7 @@ describe('<Flex>', () => {
     'when marginRight prop is %i, class sg-flex--margin-right-%i should exist',
     margin => {
       const component = shallow(<Flex marginRight={margin}>{children}</Flex>);
+
       expect(component.hasClass(`sg-flex--margin-right-${margin}`)).toEqual(
         true
       );
@@ -176,6 +190,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--margin-right-xs md:sg-flex--margin-right-xxl xl:sg-flex--margin-right-xxxxl'
@@ -186,6 +201,7 @@ describe('<Flex>', () => {
     'when marginBottom prop is %i, class sg-flex--margin-bottom-%i should exist',
     margin => {
       const component = shallow(<Flex marginBottom={margin}>{children}</Flex>);
+
       expect(component.hasClass(`sg-flex--margin-bottom-${margin}`)).toEqual(
         true
       );
@@ -204,6 +220,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--margin-bottom-xs md:sg-flex--margin-bottom-xxl xl:sg-flex--margin-bottom-xxxxl'
@@ -214,6 +231,7 @@ describe('<Flex>', () => {
     'when marginLeft prop is %i, class sg-flex--margin-left-%i should exist',
     margin => {
       const component = shallow(<Flex marginLeft={margin}>{children}</Flex>);
+
       expect(component.hasClass(`sg-flex--margin-left-${margin}`)).toEqual(
         true
       );
@@ -232,6 +250,7 @@ describe('<Flex>', () => {
         {children}
       </Flex>
     );
+
     expect(
       component.hasClass(
         'sg-flex--margin-left-xs md:sg-flex--margin-left-xxl xl:sg-flex--margin-left-xxxxl'
@@ -244,6 +263,7 @@ describe('<Flex>', () => {
         <div>test</div>
       </Flex>
     );
+
     expect(component.find('div').parent().is('ul')).toEqual(true);
   });
 });

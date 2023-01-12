@@ -20,6 +20,7 @@ export const CurvedMovement = () => {
     containerRef,
     updateKey: expanded,
   });
+
   useIsomorphicLayoutEffect(() => {
     if (
       transformation.diffTop === 0 ||
@@ -40,6 +41,7 @@ export const CurvedMovement = () => {
     const xMoveDuration = expanded
       ? duration * (1 - differenceFactor)
       : duration * (1 + differenceFactor);
+
     setEffects({
       xMove: {
         initial: {

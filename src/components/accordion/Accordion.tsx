@@ -148,6 +148,7 @@ const Accordion = ({
       const newState = expandedArray.filter(
         (item, idx) => allowMultiple || idx < 1
       );
+
       return {
         expanded: newState,
         focusedElementId: null,
@@ -160,6 +161,7 @@ const Accordion = ({
     };
   });
   const hasReduceMotion = useReducedMotion() || reduceMotion;
+
   useEffect(() => {
     const wrapper = wrapperRef.current;
 
@@ -192,6 +194,7 @@ const Accordion = ({
     switch (action.type) {
       case 'accordion/TOGGLE_EXPAND': {
         const {id, expanded} = action.payload;
+
         return {
           ...state,
           expanded: getUpdatedOpenedItems(state.expanded, id, expanded),
@@ -200,11 +203,13 @@ const Accordion = ({
 
       case 'accordion/SET_EXPANDED': {
         const {expanded} = action.payload;
+
         return {...state, expanded};
       }
 
       case 'accordion/KEYBOARD_SET_EXPANDED': {
         const {expanded, focusedElementId} = state;
+
         if (focusedElementId === null) return state;
         return {
           ...state,
@@ -233,6 +238,7 @@ const Accordion = ({
     // isControlled flag is true when expanded !== undefined but this condition is not interpreted
     // correctly by flow causing type error. Replacing isControlled with expanded !== undefined would work but using isControlled is more clear
     const expandedArray = Array.isArray(expanded) ? expanded : [expanded || ''];
+
     dispatch({
       type: 'accordion/SET_EXPANDED',
       payload: {
@@ -275,6 +281,7 @@ const Accordion = ({
       state.expanded,
     ]
   );
+
   return (
     <AccordionContext.Provider value={context}>
       <div

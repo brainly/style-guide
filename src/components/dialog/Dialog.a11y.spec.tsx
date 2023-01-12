@@ -16,6 +16,7 @@ describe('Dialog a11y', () => {
   it('renders with <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {
     const headerId = 'header-id';
     const onDismiss = jest.fn();
+
     await testA11y(
       <Dialog open aria-labelledby={headerId}>
         <DialogCloseButton onClick={onDismiss} />
@@ -31,6 +32,7 @@ describe('Dialog a11y', () => {
         content text
       </Dialog>
     );
+
     expect(
       dialog
         .getByRole('dialog', {
@@ -48,6 +50,7 @@ describe('Dialog a11y', () => {
         </DialogBody>
       </Dialog>
     );
+
     await testA11y(dialog.container);
     expect(dialog.getByRole('dialog').getAttribute('aria-describedby')).toEqual(
       descId
@@ -60,6 +63,7 @@ describe('Dialog a11y', () => {
         <button id="button">{buttonText}</button>
       </Dialog>
     );
+
     expect(dialog.getByText(buttonText)).toEqual(document.activeElement);
   });
   it('has focus when it opens and there are no children', async () => {
@@ -68,10 +72,12 @@ describe('Dialog a11y', () => {
         content text
       </Dialog>
     );
+
     expect(dialog.getByRole('dialog')).toEqual(document.activeElement);
   });
   it('closes on Esc key', () => {
     const dialog = render(<Dialog open>content text</Dialog>);
+
     userEvent.keyboard('{esc}');
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
@@ -83,6 +89,7 @@ describe('Dialog a11y', () => {
         <button>{buttonText}</button>
       </div>
     );
+
     userEvent.click(dialog.getByText(buttonText));
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
@@ -91,6 +98,7 @@ describe('Dialog a11y', () => {
     // so to check modal visibility instead of onDismiss callback
     const onDismissOuter = jest.fn();
     const onDismissInner = jest.fn();
+
     render(
       <Dialog open onDismiss={onDismissOuter}>
         <Dialog open onDismiss={onDismissInner} data-testid="inner-dialog">

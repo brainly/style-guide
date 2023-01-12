@@ -7,6 +7,7 @@ describe('Icon', () => {
   it('should have an accessible title and img role', async () => {
     const type = 'search';
     const icon = render(<Icon type={type} />);
+
     expect(
       icon.getByRole('img', {
         name: type,
@@ -17,6 +18,7 @@ describe('Icon', () => {
     const type = 'search';
     const description = 'desc desc desc';
     const icon = render(<Icon type={type} description={description} />);
+
     expect(icon.getByText(description)).toBeTruthy();
   });
 });

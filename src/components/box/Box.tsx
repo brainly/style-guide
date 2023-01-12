@@ -182,6 +182,7 @@ const Box = React.forwardRef(
       ),
       className
     );
+
     return (
       <div {...props} className={classes} ref={ref}>
         {children}
@@ -189,5 +190,6 @@ const Box = React.forwardRef(
     );
   }
 );
+
 Box.displayName = 'Box';
 export default Box;

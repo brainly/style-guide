@@ -12,12 +12,14 @@ describe('<ActionListHole />', () => {
         </Button>
       </ActionListHole>
     );
+
     expect(actionListHole.hasClass('sg-actions-list__hole')).toEqual(true);
   });
   test('container', () => {
     const actionListHole = shallow(
       <ActionListHole asContainer>test</ActionListHole>
     );
+
     expect(actionListHole.hasClass('sg-actions-list__hole--container')).toEqual(
       true
     );
@@ -26,6 +28,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole noSpacing>test</ActionListHole>
     );
+
     expect(
       actionListHole.hasClass('sg-actions-list__hole--no-spacing')
     ).toEqual(true);
@@ -34,6 +37,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole spaceBellow>test</ActionListHole>
     );
+
     expect(
       actionListHole.hasClass('sg-actions-list__hole--space-bellow')
     ).toEqual(true);
@@ -42,18 +46,21 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole noShrink>test</ActionListHole>
     );
+
     expect(actionListHole.hasClass('sg-actions-list__hole--no-shrink')).toEqual(
       true
     );
   });
   test('grow', () => {
     const actionListHole = shallow(<ActionListHole grow>test</ActionListHole>);
+
     expect(actionListHole.hasClass('sg-actions-list__hole--grow')).toEqual(
       true
     );
   });
   test('to-end', () => {
     const actionListHole = shallow(<ActionListHole toEnd>test</ActionListHole>);
+
     expect(actionListHole.hasClass('sg-actions-list__hole--to-end')).toEqual(
       true
     );
@@ -62,6 +69,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole toRight>test</ActionListHole>
     );
+
     expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(
       true
     );
@@ -70,6 +78,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole toRight>test</ActionListHole>
     );
+
     expect(actionListHole.hasClass('sg-actions-list__hole--to-right')).toEqual(
       true
     );
@@ -80,6 +89,7 @@ describe('<ActionListHole />', () => {
         test
       </ActionListHole>
     );
+
     expect(
       actionListHole.hasClass('sg-actions-list__hole--spaced-small')
     ).toEqual(true);
@@ -90,6 +100,7 @@ describe('<ActionListHole />', () => {
         test
       </ActionListHole>
     );
+
     expect(
       actionListHole.hasClass('sg-actions-list__hole--spaced-xsmall')
     ).toEqual(true);
@@ -98,6 +109,7 @@ describe('<ActionListHole />', () => {
     const actionListHole = shallow(
       <ActionListHole equalWidth>test</ActionListHole>
     );
+
     expect(
       actionListHole.hasClass('sg-actions-list__hole--equal-width')
     ).toEqual(true);

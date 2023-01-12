@@ -24,6 +24,7 @@ export type ResponsivePropType<T> =
     }>;
 const breakpoints = ['sm', 'md', 'lg', 'xl'];
 const responsivePrefixes = ['', 'md', 'lg', 'xl'];
+
 export function mergeResponsiveProps(
   props: Array<ResponsivePropConjuctionType>
 ) {
@@ -55,6 +56,7 @@ export function mergeResponsiveProps(
   });
   // fill empty breakpoints when other props have values
   let lastRowValues = [];
+
   breakpoints.forEach(breakpoint => {
     const valueBreakpointExist = propObjects.some(
       propObject =>

@@ -29,6 +29,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const starRules = [
   {
     pattern: '<b>Should</b> have an accessible label.',

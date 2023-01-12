@@ -7,6 +7,7 @@ describe('MathSymbol', () => {
   it('should have an accessible title and img role', async () => {
     const type = 'pi';
     const icon = render(<MathSymbol type={type} />);
+
     expect(
       icon.getByRole('img', {
         name: type,

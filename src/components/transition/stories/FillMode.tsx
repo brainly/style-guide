@@ -24,8 +24,10 @@ const shrinkFadeEffect = {
     easing: 'exit',
   },
 };
+
 export const FillMode = () => {
   const [active, setActive] = React.useState(false);
+
   return (
     <Flex
       className="sg-space-y-s"

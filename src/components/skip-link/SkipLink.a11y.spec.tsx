@@ -16,6 +16,7 @@ describe('<SkipLink /> a11y', () => {
     const link = screen.getByRole('link', {
       name: /skip to main content/i,
     });
+
     expect(link).not.toHaveFocus();
     link.focus();
     expect(link).toHaveFocus();

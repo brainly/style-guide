@@ -11,12 +11,14 @@ describe('<Radio />', () => {
   it('renders unchecked radio input, without label', () => {
     const radio = renderRadio({});
     const radioInput = radio.getByRole('radio');
+
     expect(radioInput.checked).toBe(false);
   });
   it('it renders a label', () => {
     const radio = renderRadio({
       children: 'my label',
     });
+
     expect(radio.queryByLabelText('my label')).toBeTruthy();
   });
   it('checks when label is clicked', () => {
@@ -26,6 +28,7 @@ describe('<Radio />', () => {
     const radioInput = radio.getByRole('radio', {
       name: 'my label',
     });
+
     expect(radioInput.checked).toBe(false);
     userEvent.click(radio.getByText('my label'));
     expect(radioInput).toEqual(document.activeElement);
@@ -36,6 +39,7 @@ describe('<Radio />', () => {
       children: 'my label',
     });
     const radioInput = radio.getByRole('radio');
+
     radioInput.focus();
     expect(radioInput.checked).toBe(false);
     userEvent.keyboard('{space}');
@@ -46,6 +50,7 @@ describe('<Radio />', () => {
       children: 'my label',
     });
     const radioInput = radio.getByRole('radio');
+
     expect(radioInput.checked).toBe(false);
     userEvent.click(radioInput);
     expect(radioInput.checked).toBe(true);
@@ -55,6 +60,7 @@ describe('<Radio />', () => {
       checked: true,
     });
     const radioInput = radio.getByRole('radio');
+
     expect(radioInput.checked).toBe(true);
   });
   it('displays description', () => {
@@ -63,6 +69,7 @@ describe('<Radio />', () => {
       description: descriptionText,
       children: 'Click me pls',
     });
+
     expect(radio.getByText(descriptionText)).toBeTruthy();
     expect(
       radio.getByRole('radio', {
@@ -80,6 +87,7 @@ describe('<Radio />', () => {
       onChange,
     });
     const radioInput = radio.getByRole('radio');
+
     expect(radioInput.checked).toBe(false);
     userEvent.click(radioInput);
     expect(onChange).not.toHaveBeenCalled();

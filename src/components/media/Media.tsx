@@ -58,6 +58,7 @@ const Media = (props: MediaPropsType) => {
     'sg-media__content--small': small,
     'sg-media__content--spaced-bottom': spacedBottom,
   });
+
   return (
     <div {...restProps} className={mediaClassName}>
       <div className="sg-media__aside">{aside}</div>

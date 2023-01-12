@@ -12,4 +12,5 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export default rules;

@@ -25,6 +25,7 @@ describe('<SkipLink />', () => {
     const link = screen.getByRole('link', {
       name: linkProps.name,
     });
+
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', `#${linkProps.id}`);
   });

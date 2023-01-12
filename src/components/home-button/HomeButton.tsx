@@ -36,6 +36,7 @@ const ICONS = {
   'brainly-plus': 'brainly-plus-small',
   'brainly-tutoring': 'brainly-tutoring-small',
 };
+
 export type HomeButtonPropsType = {
   type?: HomeButtonLogoTypeType;
   href?: string;
@@ -65,6 +66,7 @@ const HomeButton = ({
   const logoPath = `${getLogoUrl(type)}`;
   const mobilePath = `${getLogoUrl(ICONS[type])}`;
   const defaultAriaLabel = `${type.replace(/-/g, ' ')} home`;
+
   return (
     <a
       {...props}

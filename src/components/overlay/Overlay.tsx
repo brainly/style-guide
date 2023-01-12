@@ -31,6 +31,7 @@ const Overlay = ({
     },
     className
   );
+
   return (
     <div {...props} className={overlayClass}>
       {children}

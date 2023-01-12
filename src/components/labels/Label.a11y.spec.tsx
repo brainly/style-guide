@@ -7,6 +7,7 @@ describe('Label', () => {
   it('should have an accessible name provided by aria-label', async () => {
     const name = 'accessible name';
     const label = render(<Label aria-label={name}>label</Label>);
+
     expect(label.getByLabelText(name)).toBeTruthy();
   });
   it('should have an accessible name for the close button', async () => {
@@ -17,6 +18,7 @@ describe('Label', () => {
         dog.jpg
       </Label>
     );
+
     expect(
       label.getByRole('button', {
         name: buttonName,
@@ -30,6 +32,7 @@ describe('Label', () => {
         dog.jpg
       </Label>
     );
+
     expect(
       label.getByRole('img', {
         name: iconTitle,
@@ -42,6 +45,7 @@ describe('Label', () => {
         dog.jpg
       </Label>
     );
+
     expect(label.queryByRole('img')).toBeFalsy();
   });
 });
@@ -65,6 +69,7 @@ describe('Label a11y', () => {
   });
   it('should have no a11y violations when onClose is provided', async () => {
     const handleOnClose = jest.fn();
+
     await testA11y(<Label onClose={handleOnClose}>dog.jpg</Label>);
   });
 });

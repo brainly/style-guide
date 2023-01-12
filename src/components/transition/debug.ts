@@ -3,6 +3,7 @@ type DebugOptionsType = {
   outlines: boolean;
 };
 let batchTimeoutId = null;
+
 export function getDebugOptions(): DebugOptionsType {
   const debug = window && window.sgTransitionDebug;
   const options = {

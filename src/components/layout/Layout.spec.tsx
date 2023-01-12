@@ -8,16 +8,19 @@ import {shallow} from 'enzyme';
 describe('Layout', () => {
   test('render', () => {
     const layout = shallow(<Layout>Content</Layout>);
+
     expect(layout.hasClass('sg-layout')).toEqual(true);
   });
   test('render with footer', () => {
     const footer = <div>Footer</div>;
     const layout = shallow(<Layout footer={footer}>Content</Layout>);
+
     expect(layout.find('.sg-layout__footer')).toHaveLength(1);
   });
   test('reserved-order', () => {
     const layout = shallow(<Layout reversedOrder>Content</Layout>);
     const layoutContainer = layout.find('.sg-layout__container');
+
     expect(
       layoutContainer.hasClass('sg-layout__container--reversed-order')
     ).toEqual(true);
@@ -25,6 +28,7 @@ describe('Layout', () => {
   test('no-max-width', () => {
     const layout = shallow(<Layout noMaxWidth>Content</Layout>);
     const layoutContainer = layout.find('.sg-layout__container');
+
     expect(
       layoutContainer.hasClass('sg-layout__container--no-max-width')
     ).toEqual(true);
@@ -32,6 +36,7 @@ describe('Layout', () => {
   test('no-margin-top', () => {
     const layout = shallow(<Layout noMarginTop>Content</Layout>);
     const layoutContainer = layout.find('.sg-layout__container');
+
     expect(
       layoutContainer.hasClass('sg-layout__container--no-margin-top')
     ).toEqual(true);
@@ -39,6 +44,7 @@ describe('Layout', () => {
   test('full-page', () => {
     const layout = shallow(<Layout fullPage>Content</Layout>);
     const layoutContainer = layout.find('.sg-layout__container');
+
     expect(layoutContainer.hasClass('sg-layout__container--full-page')).toEqual(
       true
     );
@@ -47,12 +53,14 @@ describe('Layout', () => {
 describe('LayoutContent', () => {
   test('render', () => {
     const layoutContent = shallow(<LayoutContent>Content</LayoutContent>);
+
     expect(layoutContent.hasClass('sg-layout__content')).toEqual(true);
   });
   test('no-max-width', () => {
     const layoutContent = shallow(
       <LayoutContent noMaxWidth>Content</LayoutContent>
     );
+
     expect(layoutContent.hasClass('sg-layout__content--no-max-width')).toEqual(
       true
     );
@@ -63,6 +71,7 @@ describe('LayoutAsideContent', () => {
     const layoutAsideContent = shallow(
       <LayoutAsideContent>Content</LayoutAsideContent>
     );
+
     expect(layoutAsideContent.hasClass('sg-layout__aside-content')).toEqual(
       true
     );
@@ -73,6 +82,7 @@ describe('LayoutSecondaryContent', () => {
     const component = shallow(
       <LayoutSecondaryContent>Content</LayoutSecondaryContent>
     );
+
     expect(component.hasClass('sg-layout__secondary-content')).toEqual(true);
   });
 });

@@ -183,6 +183,7 @@ const FileHandler = ({
   ) : (
     thumbnail
   );
+
   return (
     <div {...props} className={fileHandlerClass}>
       <div className="sg-file-handler__icon">

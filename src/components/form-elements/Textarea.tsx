@@ -155,6 +155,7 @@ const Textarea = (props: TextareaPropsType) => {
   });
   const errorMessageDisplayed =
     invalid === true && errorMessage !== undefined && errorMessage !== '';
+
   return (
     <div className={wrapperClass}>
       <Type

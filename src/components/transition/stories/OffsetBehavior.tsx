@@ -78,8 +78,10 @@ const contentCounterSlideEffect = {
     easing: 'exit',
   },
 };
+
 export const OffsetBehavior = () => {
   const [open, setOpen] = React.useState(false);
+
   return (
     <Stage format="portrait">
       <Transition active={open} effect={containerSlideEffect}>

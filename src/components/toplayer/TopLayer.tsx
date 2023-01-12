@@ -87,6 +87,7 @@ const TopLayer = (props: TopLayerPropsType) => {
   const toplayerWrapperClassName = classnames('sg-toplayer__wrapper', {
     'sg-toplayer__wrapper--no-padding': noPadding,
   });
+
   return (
     <div {...additionalProps} className={topLayerClassName}>
       {onClose ? (

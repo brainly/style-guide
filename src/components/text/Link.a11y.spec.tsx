@@ -13,6 +13,7 @@ describe('Link', () => {
           Read more
         </Link>
       );
+
       expect(
         link.getByRole('link', {
           name: label,
@@ -21,6 +22,7 @@ describe('Link', () => {
     });
     it('is focusable', () => {
       const link = render(<Link href="https://example.com/">Read more</Link>);
+
       link.getByRole('link').focus();
       expect(link.getByRole('link')).toBe(document.activeElement);
     });
@@ -31,6 +33,7 @@ describe('Link', () => {
           {label}
         </Link>
       );
+
       link.getByText(label).focus();
       expect(link.getByText(label)).not.toBe(document.activeElement);
     });
@@ -46,6 +49,7 @@ describe('Link', () => {
           {label}
         </Link>
       );
+
       expect(link.getByText(newTabLabel)).toBeTruthy();
     });
   });
@@ -57,6 +61,7 @@ describe('Link', () => {
           Read more
         </Link>
       );
+
       expect(
         link.getByRole('button', {
           name: label,
@@ -65,6 +70,7 @@ describe('Link', () => {
     });
     it('is focusable', () => {
       const link = render(<Link as="button">Read more</Link>);
+
       link.getByRole('button').focus();
       expect(link.getByRole('button')).toBe(document.activeElement);
     });
@@ -75,6 +81,7 @@ describe('Link', () => {
           {label}
         </Link>
       );
+
       link.getByText(label).focus();
       expect(link.getByText(label)).not.toBe(document.activeElement);
     });
@@ -86,6 +93,7 @@ describe('Link', () => {
           {label}
         </Link>
       );
+
       userEvent.click(
         link.getByRole('button', {
           name: label,

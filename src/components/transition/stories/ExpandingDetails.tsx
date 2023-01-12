@@ -16,6 +16,7 @@ type ExampleDataType = Array<{
 export const ExpandingDetails = () => {
   const containerRef = React.useRef(null);
   const [expandedIndex, setExpandedIndex] = React.useState(null);
+
   return (
     <Stage ref={containerRef} className="sg-space-y-xs" format="portrait">
       {exampleData.map((dataProps, index) => (
@@ -305,6 +306,7 @@ const getBoxStylingProps = color => {
       borderColor: 'blue-40',
     },
   };
+
   return {
     style: {
       height: '100%',

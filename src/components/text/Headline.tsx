@@ -104,6 +104,7 @@ const Headline = ({
     ),
     className
   );
+
   return (
     <Type {...props} className={headlineClass}>
       {children}

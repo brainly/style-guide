@@ -11,6 +11,7 @@ const disabledRulesForPage = {
     enabled: false,
   },
 };
+
 export default configureAxe({
   rules: disabledRulesForPage,
 });

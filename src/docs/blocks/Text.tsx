@@ -20,6 +20,7 @@ type TextPropsType = OriginalTextPropsType & {
 
 const Text = (props: TextPropsType) => {
   const {marginTop = 's', ...textProps} = props;
+
   return (
     <Flex marginTop={marginTop}>
       <OriginalText {...textProps} />

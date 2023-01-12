@@ -273,6 +273,7 @@ const SubjectIcon = ({
   const iconType = `#icon-subject-${monoColor ? 'mono-' : ''}${type}`;
   const titleId = `sg-math-symbol-icon-${type}-title`;
   const defaultTitle = type.replace(/-alt$/g, '').replace(/-/g, ' ');
+
   return (
     <svg {...props} className={iconClass} aria-labelledby={titleId} role="img">
       <text id={titleId} hidden>

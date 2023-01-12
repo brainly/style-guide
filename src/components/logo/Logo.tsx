@@ -112,6 +112,7 @@ function getDefaultAlt(type: LogoTypeType) {
       newSubstr: ' ',
     },
   ];
+
   return replacers.reduce(
     (alt, {regexp, newSubstr}) => alt.replace(regexp, newSubstr),
     type
@@ -139,6 +140,7 @@ const Logo = ({
   );
   const logoPath = `${getLogoUrl(type)}`;
   const defaultAlt = getDefaultAlt(type);
+
   return (
     <div {...props} className={logoClass} data-logotype={type}>
       <img className="sg-logo__image" src={logoPath} alt={alt ?? defaultAlt} />

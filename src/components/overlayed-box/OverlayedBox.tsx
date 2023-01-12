@@ -17,6 +17,7 @@ const OverlayedBox = ({
   ...props
 }: OverlayedBoxPropsType) => {
   const boxClass = classnames('sg-overlayed-box', className);
+
   return (
     <div {...props} className={boxClass}>
       {children}

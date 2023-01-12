@@ -22,4 +22,5 @@ const rules = [
     tests: 'N/A',
   },
 ];
+
 export default rules;

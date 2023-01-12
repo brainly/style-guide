@@ -81,4 +81,5 @@ const Stage = React.forwardRef(
     </Box>
   )
 );
+
 export default Stage;

@@ -6,12 +6,14 @@ import {shallow} from 'enzyme';
 describe('<ContentBoxActions />', () => {
   it('renders', () => {
     const testBox = shallow(<ContentBoxActions>test</ContentBoxActions>);
+
     expect(testBox.hasClass('sg-content-box__actions')).toEqual(true);
   });
   it('has class that aligns elements to center', () => {
     const testBox = shallow(
       <ContentBoxActions align={ALIGNMENT.CENTER}>test</ContentBoxActions>
     );
+
     expect(
       testBox.hasClass('sg-content-box__actions--with-centered-elements')
     ).toEqual(true);
@@ -20,6 +22,7 @@ describe('<ContentBoxActions />', () => {
     const testBox = shallow(
       <ContentBoxActions align={ALIGNMENT.RIGHT}>test</ContentBoxActions>
     );
+
     expect(
       testBox.hasClass('sg-content-box__actions--with-elements-to-right')
     ).toEqual(true);
@@ -28,6 +31,7 @@ describe('<ContentBoxActions />', () => {
     const testBox = shallow(
       <ContentBoxActions spacedTop={SIZE.XSMALL}>test</ContentBoxActions>
     );
+
     expect(
       testBox.hasClass('sg-content-box__actions--spaced-top-xsmall')
     ).toEqual(true);
@@ -36,6 +40,7 @@ describe('<ContentBoxActions />', () => {
     const testBox = shallow(
       <ContentBoxActions spacedBottom={SIZE.XSMALL}>test</ContentBoxActions>
     );
+
     expect(
       testBox.hasClass('sg-content-box__actions--spaced-bottom-xsmall')
     ).toEqual(true);

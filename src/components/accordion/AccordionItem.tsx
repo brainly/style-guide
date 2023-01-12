@@ -73,6 +73,7 @@ const AccordionItem = ({
       },
     });
   }, [dispatch]);
+
   useEffect(() => {
     const content = contentRef.current;
 
@@ -88,13 +89,14 @@ const AccordionItem = ({
         hasRenderedInitially.current = true;
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
-        requestAnimationFrame(function () {
+
+        requestAnimationFrame(() => {
           if (!contentRef.current) {
             return;
           }
 
           contentRef.current.style.height = `${sectionHeight}px`;
-          requestAnimationFrame(function () {
+          requestAnimationFrame(() => {
             if (!contentRef.current) {
               return;
             }

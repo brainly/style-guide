@@ -13,6 +13,7 @@ module.exports = {
     length: 100 - 4,
   }).map((_, _index) => {
     const index = _index + 4;
+
     return {
       [index]: `${index / 4}rem`,
     };

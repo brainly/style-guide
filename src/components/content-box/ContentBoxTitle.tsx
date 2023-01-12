@@ -55,6 +55,7 @@ const ContentBoxTitle = ({
     },
     className
   );
+
   return <div className={contentBoxClass}>{children}</div>;
 };
 

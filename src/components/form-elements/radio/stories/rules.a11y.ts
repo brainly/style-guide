@@ -100,6 +100,7 @@ const rules = [
     tests: 'DONE',
   },
 ];
+
 export const radioGroupRules = [
   {
     pattern: '<b>Should</b> have a role <code>radiogroup</code>.',

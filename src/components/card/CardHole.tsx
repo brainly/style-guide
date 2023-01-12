@@ -60,6 +60,7 @@ const CardHole = ({
     },
     className
   );
+
   return (
     <div {...props} className={cardHoleClass}>
       {children}
