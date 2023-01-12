@@ -6,7 +6,7 @@
     "declaration": true,
     "sourceMap": true,
     "declarationMap": true,
-    "moduleResolution": "node",
+
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
