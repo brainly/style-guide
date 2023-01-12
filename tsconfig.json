@@ -14,5 +14,6 @@
     "skipLibCheck": true,
     "allowJs": false
   },
+  "typeRoots": ["src/typings", "node_modules/@types"],
   "include": ["src/**/*"]
 }
