@@ -13,7 +13,7 @@ export const SIZE: {
   LARGE: 'large',
 };
 export type TopLayerPropsType = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClose?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;
   onCloseButtonKeyDown?: (
     event: React.KeyboardEvent<HTMLInputElement>
