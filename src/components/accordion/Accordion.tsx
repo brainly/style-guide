@@ -78,7 +78,7 @@ type ContextType = {
   reduceMotion: boolean;
   onItemSelect: (id: string, value: boolean) => void;
 };
-export const AccordionContext = createContext<ContextType | Object>({});
+export const AccordionContext = createContext<ContextType>({} as ContextType);
 
 const Accordion = ({
   children,
