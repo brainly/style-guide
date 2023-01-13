@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "221.0.1",
+  "version": "221.1.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -65,8 +65,8 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
-    "@typescript/vfs": "^1.4.0",
     "@types/react-dom": "^16.2.0",
+    "@typescript/vfs": "^1.4.0",
     "autoprefixer": "^10.0.4",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^20.0.3",
