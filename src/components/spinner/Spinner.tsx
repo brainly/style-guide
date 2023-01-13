@@ -18,7 +18,7 @@ export const SPINNER_SIZE = {
   SMALL: 'small',
   XSMALL: 'xsmall',
   XXSMALL: 'xxsmall',
-};
+} as const;
 export const SPINNER_COLOR = {
   black: 'black',
   white: 'white',
@@ -30,7 +30,7 @@ export const SPINNER_COLOR = {
   'yellow-40': 'yellow-40',
   'blue-40': 'blue-40',
   'blue-60': 'blue-60',
-};
+} as const;
 export type SpinnerPropsType = {
   color?: SpinnerColorType;
   size?: SpinnerSizeType;
