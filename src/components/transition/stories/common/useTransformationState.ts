@@ -48,13 +48,13 @@ export function useTransformationState({
     const container = containerRef ? containerRef.current : document.body;
 
     if (element !== null && container !== null) {
-      setState(previous =>
-        createTransformationState({
+      setState(previous => {
+        return createTransformationState({
           element,
           container,
           previous,
-        })
-      );
+        });
+      });
     }
   }, [containerRef, elementRef]);
 

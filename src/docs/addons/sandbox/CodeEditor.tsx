@@ -1,12 +1,8 @@
-// @flow
-
 import * as React from 'react';
-
 import {
   autocompletion,
   completionKeymap,
-  completeFromList,
-  // $FlowFixMe
+  completeFromList, // $FlowFixMe
 } from '@codemirror/autocomplete';
 import ts from 'typescript';
 import {
@@ -16,15 +12,13 @@ import {
 } from '@typescript/vfs';
 import lzstring from 'lz-string';
 import {useActiveCode, SandpackCodeEditor} from '@codesandbox/sandpack-react';
-// $FlowFixMe
+// @ts-expect-error
 import styleguideTypeDefinitions from '!!raw-loader!../../../../dist/sandbox-types/brainly-style-guide-sandbox.d.ts';
-// $FlowFixMe
+// @ts-expect-error
 import reactTypes from '!!raw-loader!../../../../node_modules/@types/react/index.d.ts';
-
 type CodeEditorPropsType = {
-  code: string,
+  code: string;
 };
-
 const compilerOptions = {
   jsx: 'react',
 };
@@ -32,7 +26,6 @@ const compilerOptions = {
 export const CodeEditor = ({code}: CodeEditorPropsType) => {
   const {code: editorCode} = useActiveCode();
   const [tsEnv, setTsEnv] = React.useState();
-
   React.useEffect(() => {
     const setup = async () => {
       const fsMap = await createDefaultMapFromCDN(
@@ -42,11 +35,9 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         ts,
         lzstring
       );
-
       fsMap.set('/brainly-style-guide-sandbox.d.ts', styleguideTypeDefinitions);
       fsMap.set('/react.d.ts', reactTypes);
       fsMap.set('index.tsx', code);
-
       const system = createSystem(fsMap);
       const env = createVirtualTypeScriptEnvironment(
         system,
@@ -54,19 +45,16 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         ts,
         compilerOptions
       );
-
       setTsEnv(env);
     };
 
     setup();
   }, [code]);
-
   React.useEffect(() => {
     if (tsEnv && editorCode) {
       tsEnv.updateFile('index.tsx', `${editorCode}`);
     }
   }, [tsEnv, editorCode]);
-
   const extensions = React.useMemo(
     () => [
       autocompletion({
@@ -99,7 +87,6 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
     ],
     [tsEnv]
   );
-
   return (
     <SandpackCodeEditor
       style={{

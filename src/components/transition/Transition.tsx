@@ -419,4 +419,7 @@ function getTransitionRules({
   }
 }
 
+// Export default when there is an assignement to the static property results in the followig bug:
+// https://github.com/storybookjs/storybook/discussions/13935
+// Separating function declaration from export statement solves the issue until it's fixed
 export default Transition;

@@ -90,13 +90,13 @@ const AccordionItem = ({
       } else {
         const sectionHeight = contentRef.current.scrollHeight;
 
-        requestAnimationFrame(() => {
+        requestAnimationFrame(function () {
           if (!contentRef.current) {
             return;
           }
 
           contentRef.current.style.height = `${sectionHeight}px`;
-          requestAnimationFrame(() => {
+          requestAnimationFrame(function () {
             if (!contentRef.current) {
               return;
             }

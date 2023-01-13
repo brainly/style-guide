@@ -16,6 +16,8 @@ type RadioContextType = {
 };
 export const RadioContext = React.createContext<RadioContextType>({});
 
-const useRadioContext = (): RadioContextType => React.useContext(RadioContext);
+const useRadioContext = (): RadioContextType => {
+  return React.useContext(RadioContext);
+};
 
 export default useRadioContext;

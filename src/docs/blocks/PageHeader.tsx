@@ -18,21 +18,23 @@ const typeToImage = {
   accesibility: accesibilityTopImage,
 };
 
-const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => (
-  <Flex marginBottom="l">
-    <Box
-      style={{
-        backgroundImage: `url(${typeToImage[type]})`,
-        backgroundPosition: 'right center',
-        backgroundSize: 'cover',
-      }}
-      padding="xl"
-    >
-      <Headline size="xxlarge" color="text-white" extraBold>
-        {children}
-      </Headline>
-    </Box>
-  </Flex>
-);
+const PageHeader = ({children, type = 'component'}: PageHeaderPropsType) => {
+  return (
+    <Flex marginBottom="l">
+      <Box
+        style={{
+          backgroundImage: `url(${typeToImage[type]})`,
+          backgroundPosition: 'right center',
+          backgroundSize: 'cover',
+        }}
+        padding="xl"
+      >
+        <Headline size="xxlarge" color="text-white" extraBold>
+          {children}
+        </Headline>
+      </Box>
+    </Flex>
+  );
+};
 
 export default PageHeader;

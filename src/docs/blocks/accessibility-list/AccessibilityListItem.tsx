@@ -64,31 +64,33 @@ const StatusIcon = ({status}: {status: StatusType}) => {
   return ToDoIcon;
 };
 
-export const AccessibilityListItem = ({pattern, comment, status}: RuleType) => (
-  <Li>
-    <Flex>
-      <StatusIcon status={status} />
-      <Flex direction="column">
-        <Pattern size="medium" color={status === 'N/A' && 'text-gray-60'}>
-          <span
-            dangerouslySetInnerHTML={{
-              __html: pattern,
-            }}
-          />
-        </Pattern>
-        {comment && (
-          <Text
-            size="xsmall"
-            color={status === 'N/A' ? 'text-gray-60' : 'text-gray-70'}
-          >
+export const AccessibilityListItem = ({pattern, comment, status}: RuleType) => {
+  return (
+    <Li>
+      <Flex>
+        <StatusIcon status={status} />
+        <Flex direction="column">
+          <Pattern size="medium" color={status === 'N/A' && 'text-gray-60'}>
             <span
               dangerouslySetInnerHTML={{
-                __html: comment,
+                __html: pattern,
               }}
             />
-          </Text>
-        )}
+          </Pattern>
+          {comment && (
+            <Text
+              size="xsmall"
+              color={status === 'N/A' ? 'text-gray-60' : 'text-gray-70'}
+            >
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: comment,
+                }}
+              />
+            </Text>
+          )}
+        </Flex>
       </Flex>
-    </Flex>
-  </Li>
-);
+    </Li>
+  );
+};

@@ -7,10 +7,16 @@ export type SkipLinkPropsType = {
   id: string;
 };
 
-const SkipLink = ({children, className, id, ...rest}: SkipLinkPropsType) => (
-  <Link className={`sg-skip-link ${className ?? ''}`} href={`#${id}`} {...rest}>
-    {children}
-  </Link>
-);
+const SkipLink = ({children, className, id, ...rest}: SkipLinkPropsType) => {
+  return (
+    <Link
+      className={`sg-skip-link ${className ?? ''}`}
+      href={`#${id}`}
+      {...rest}
+    >
+      {children}
+    </Link>
+  );
+};
 
 export default SkipLink;

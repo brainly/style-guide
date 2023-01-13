@@ -24,13 +24,11 @@ export const PredefinedEffects = () => (
 
 const PredefinedEffect = ({type}: {type: PredefinedEffectType}) => {
   const [active, setActive] = React.useState(false);
-  const effect = React.useMemo(
-    () =>
-      Transition.createEffect({
-        type,
-      }),
-    [type]
-  );
+  const effect = React.useMemo(() => {
+    return Transition.createEffect({
+      type,
+    });
+  }, [type]);
 
   return (
     <Stage

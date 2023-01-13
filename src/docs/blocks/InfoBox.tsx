@@ -37,20 +37,22 @@ const ICONS_MAP: {
   error: 'clear',
 };
 
-export const InfoBox = ({children, type = 'info'}: InfoBoxProps) => (
-  <Flex marginBottom="l">
-    <Box padding="s" color={COLORS_MAP[type]} role="alert">
-      <Flex>
-        <Icon
-          size={16}
-          type={ICONS_MAP[type]}
-          color={ICON_COLORS_MAP[type]}
-          className="sbdocs-info-box-icon"
-        />
-        <Text size="small" color="text-black">
-          {children}
-        </Text>
-      </Flex>
-    </Box>
-  </Flex>
-);
+export const InfoBox = ({children, type = 'info'}: InfoBoxProps) => {
+  return (
+    <Flex marginBottom="l">
+      <Box padding="s" color={COLORS_MAP[type]} role="alert">
+        <Flex>
+          <Icon
+            size={16}
+            type={ICONS_MAP[type]}
+            color={ICON_COLORS_MAP[type]}
+            className="sbdocs-info-box-icon"
+          />
+          <Text size="small" color="text-black">
+            {children}
+          </Text>
+        </Flex>
+      </Box>
+    </Flex>
+  );
+};

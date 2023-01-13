@@ -4,10 +4,12 @@ import './styles.scss';
 export const mergeStories = module => {
   const stories = Object.keys(module)
     .filter(moduleExports => moduleExports !== 'default')
-    .map(moduleExportName => ({
-      name: moduleExportName,
-      fn: module[moduleExportName],
-    }));
+    .map(moduleExportName => {
+      return {
+        name: moduleExportName,
+        fn: module[moduleExportName],
+      };
+    });
 
   return () =>
     stories.map(story => {

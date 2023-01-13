@@ -34,21 +34,23 @@ const CustomRadioComponent = ({
   const descriptionId = `description-${value}`;
   const {title, items} = benefits;
 
-  const Benefit = ({item}: {item: string}) => (
-    <Flex marginBottom="m" htmlTag="li">
-      <Flex alignItems="center" justifyContent="center">
-        <Icon
-          type="check"
-          color="icon-gray-70"
-          size={16}
-          style={{
-            marginRight: '8px',
-          }}
-        />
-        <Text size="medium">{item}</Text>
+  const Benefit = ({item}: {item: string}) => {
+    return (
+      <Flex marginBottom="m" htmlTag="li">
+        <Flex alignItems="center" justifyContent="center">
+          <Icon
+            type="check"
+            color="icon-gray-70"
+            size={16}
+            style={{
+              marginRight: '8px',
+            }}
+          />
+          <Text size="medium">{item}</Text>
+        </Flex>
       </Flex>
-    </Flex>
-  );
+    );
+  };
 
   const borderColor =
     lastFocusedValue === value
