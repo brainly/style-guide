@@ -60,7 +60,7 @@ type SpacingType =
   | 'none';
 export type AccordionPropsType = Readonly<{
   allowMultiple?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   spacing?: ResponsivePropType<SpacingType>;
   reduceMotion?: boolean;
@@ -78,7 +78,7 @@ type ContextType = {
   reduceMotion: boolean;
   onItemSelect: (id: string, value: boolean) => void;
 };
-export const AccordionContext = createContext<ContextType>({});
+export const AccordionContext = createContext<ContextType | Object>({});
 
 const Accordion = ({
   children,
