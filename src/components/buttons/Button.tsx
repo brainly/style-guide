@@ -134,7 +134,7 @@ export type ButtonPropsType = {
    * @see variant="apple" https://styleguide.brainly.com/latest/docs/interactive.html?variant="apple"#buttons
    *
    */
-  variant: ButtonVariantType;
+  variant?: ButtonVariantType;
 
   /**
    * Set toggle state of the button.
