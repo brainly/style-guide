@@ -20,7 +20,7 @@ const DEST_DIR = path.join(ROOT_DIR, 'src');
 const TYPES_DIR = path.join(ROOT_DIR, 'types');
 const TYPES_OUT_FILE = 'brainly-style-guide.d.ts';
 
-const files = glob.sync(`/**/{pages,iframe-pages,__mocks__}/*.{js,jsx}`, {
+const files = glob.sync(`/**/*.{js,jsx}`, {
   //ignore: [`/**/{pages,iframe-pages,__mocks__}/*`],
   root: SOURCE_DIR,
 });
@@ -102,7 +102,12 @@ files.forEach(sourceFile => {
 
 const tsFiles = glob.sync(`${DEST_DIR}/**/*.{ts,tsx}`);
 
-const options = {...tsConfig.compilerOptions, declarationDir: '.typescript'};
+const {options: compilerOptions} = ts.convertCompilerOptionsFromJson(
+  tsConfig.compilerOptions,
+  ''
+);
+
+const options = {...compilerOptions, declarationDir: '.typescript'};
 
 console.log('Generating declaration files...');
 
