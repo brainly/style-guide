@@ -154,7 +154,8 @@ const Checkbox = ({
   const inputRef = React.useRef(null);
   const iconRef = React.useRef<Element | null>(null);
   const isFirstRender = useIsFirstRender();
-  const shouldAnimate = !isFirstRender; // Apply checkbox animation when it's already after first render
+  const [isPristine, setIsPristine] = React.useState(true);
+  const shouldAnimate = !isFirstRender && !isPristine; // Apply checkbox animation when it's already after first render
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
@@ -166,11 +167,15 @@ const Checkbox = ({
 
   const onInputChange = React.useCallback(
     e => {
+      if (isPristine) {
+        setIsPristine(false);
+      }
+
       if (!isControlled) setIsChecked(val => !val);
 
       if (onChange) onChange(e);
     },
-    [onChange, isControlled]
+    [onChange, isControlled, isPristine]
   );
 
   if (__DEV__) {
