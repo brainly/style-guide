@@ -16,6 +16,7 @@ import {useActiveCode, SandpackCodeEditor} from '@codesandbox/sandpack-react';
 import styleguideTypeDefinitions from '!!raw-loader!../../../../dist/sandbox-types/brainly-style-guide-sandbox.d.ts';
 // @ts-expect-error
 import reactTypes from '!!raw-loader!../../../../node_modules/@types/react/index.d.ts';
+
 type CodeEditorPropsType = {
   code: string;
 };
@@ -26,6 +27,7 @@ const compilerOptions = {
 export const CodeEditor = ({code}: CodeEditorPropsType) => {
   const {code: editorCode} = useActiveCode();
   const [tsEnv, setTsEnv] = React.useState();
+
   React.useEffect(() => {
     const setup = async () => {
       const fsMap = await createDefaultMapFromCDN(
@@ -35,6 +37,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         ts,
         lzstring
       );
+
       fsMap.set('/brainly-style-guide-sandbox.d.ts', styleguideTypeDefinitions);
       fsMap.set('/react.d.ts', reactTypes);
       fsMap.set('index.tsx', code);
@@ -45,6 +48,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         ts,
         compilerOptions
       );
+
       setTsEnv(env);
     };
 
@@ -87,6 +91,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
     ],
     [tsEnv]
   );
+
   return (
     <SandpackCodeEditor
       style={{
