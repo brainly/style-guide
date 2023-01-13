@@ -27,6 +27,7 @@ type ColorType =
   | 'red-20'
   | 'yellow-40'
   | 'yellow-20';
+
 export const COLOR = {
   transparent: 'transparent',
   white: 'white',
@@ -48,7 +49,8 @@ export const COLOR = {
   'red-20': 'red-20',
   'yellow-40': 'yellow-40',
   'yellow-20': 'yellow-20',
-};
+} as const;
+
 type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 export const PADDING = {
   none: 'none',
@@ -58,7 +60,8 @@ export const PADDING = {
   m: 'm',
   l: 'l',
   xl: 'xl',
-};
+} as const;
+
 export type BoxPropsType = {
   /**
    * Children to be rendered inside of the Box
