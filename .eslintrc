@@ -29,6 +29,7 @@
     }
   ],
   "globals": {
+    "JSX": "readonly",
     "hljs": "readonly",
     "html_beautify": "readonly",
     "STORYBOOK_ENV": "readonly"

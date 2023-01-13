@@ -24,7 +24,7 @@ export type FileHandlerPropsType = Readonly<
      *          </FileHandler>
      * @default 'gray-20'
      */
-    color: FileHandlerColorType;
+    color?: FileHandlerColorType;
 
     /**
      * Specify iconType to display SG icon as the image inside FileHandler
@@ -174,7 +174,7 @@ const FileHandler = ({
     <a
       {...clickProps}
       role={role}
-      tabIndex="0"
+      tabIndex={0}
       aria-hidden
       className="sg-file-handler__link"
     >
