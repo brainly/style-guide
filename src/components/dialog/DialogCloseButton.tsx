@@ -4,7 +4,7 @@ import Button from '../buttons/Button';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 
 export type DialogCloseButtonPropsType = Readonly<{
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   label?: string;
   'data-testid'?: string;
