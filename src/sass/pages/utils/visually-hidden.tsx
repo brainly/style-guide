@@ -1,3 +1,4 @@
+// @ts-nocheck
 import * as React from 'react';
 import CodeBlock from 'components/CodeBlock';
 import DocsBlock from 'components/DocsBlock';

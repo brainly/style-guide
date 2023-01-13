@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*eslint-disable */
 var copyHelper = document.querySelector('.copy-helper');
 var copyHelperCode = copyHelper.querySelector('.copy-helper__code');

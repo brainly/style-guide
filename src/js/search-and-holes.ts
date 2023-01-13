@@ -1,3 +1,4 @@
+// @ts-nocheck
 /*eslint-disable */
 // highlighting holes
 var showHolesCheckbox = document.getElementById('js-highlight-holes');
