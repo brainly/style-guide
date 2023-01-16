@@ -474,11 +474,7 @@ function generateIdSuffix(type: string) {
 const Icon = ({
   color = ICON_COLOR['icon-white'],
   size = 24,
-  // @ts-expect-error
-  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   type,
-  // @ts-expect-error
-  // $FlowFixMe flow doesn't support refinements for non-exact types, but we can't make it exact for legacy reasons
   children,
   tagType = 'div',
   className,
@@ -514,8 +510,10 @@ const Icon = ({
           role="img"
           aria-labelledby={labelledBy}
           focusable="false"
+          // @ts-expect-error
           suppressHydrationWarning
         >
+          {/* @ts-expect-error */}
           <text id={titleId} hidden suppressHydrationWarning>
             {title || defaultTitle}
           </text>
