@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "allowJs": false,
     "downlevelIteration": true,
-    "lib": ["dom", "es5", "es2015.collection", "es2015.iterable"]
+    "lib": ["dom", "es5", "es2015.collection", "es2015.iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*", "./src/components/*", "./src/docs/*"]
+    }
   },
   "typeRoots": ["src/typings", "node_modules/@types"],
   "include": ["src/**/*"]
