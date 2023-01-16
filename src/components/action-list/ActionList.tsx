@@ -7,20 +7,24 @@ type DirectionType =
   | 'space-between'
   | 'space-around'
   | 'space-evenly';
+
 type AligmentType = 'align-baseline' | 'stretch';
+
 export const DIRECTION = {
   TO_RIGHT: 'to-right',
   CENTERED: 'centered',
   SPACE_BETWEEN: 'space-between',
   SPACE_AROUND: 'space-around',
   SPACE_EVENLY: 'space-evenly',
-};
+} as const;
+
 export const ALIGNMENT = {
   BASELINE: 'align-baseline',
   STRETCH: 'stretch',
-};
+} as const;
+
 export type ActionListPropsType = {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   toTop?: boolean | null | undefined;
   className?: string | null | undefined;
   noWrap?: boolean | null | undefined;
