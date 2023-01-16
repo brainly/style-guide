@@ -6,7 +6,7 @@ export type BreadcrumbPropsType = {
   adaptive?: boolean | null | undefined;
   short?: boolean | null | undefined;
   inlineItems?: boolean | null | undefined;
-  elements: ReadonlyArray<React.ReactNode>;
+  elements?: ReadonlyArray<React.ReactNode>;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   'className' | 'adaptive' | 'short' | 'inlineItems' | 'elements'
