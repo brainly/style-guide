@@ -162,16 +162,19 @@ const Checkbox = ({
   }, [inputRef, indeterminate]);
 
   React.useEffect(() => {
-    if (isControlled) setIsChecked(checked);
-  }, [checked, isControlled]);
+    if (isControlled && checked !== isChecked) {
+      setIsChecked(checked);
+
+      if (isPristine) setIsPristine(false);
+    }
+  }, [checked, isControlled, isChecked, isPristine]);
 
   const onInputChange = React.useCallback(
     e => {
-      if (isPristine) {
-        setIsPristine(false);
+      if (!isControlled) {
+        setIsChecked(val => !val);
+        if (isPristine) setIsPristine(false);
       }
-
-      if (!isControlled) setIsChecked(val => !val);
 
       if (onChange) onChange(e);
     },
