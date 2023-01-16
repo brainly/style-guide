@@ -10,7 +10,7 @@ describe('<Radio />', () => {
 
   it('renders unchecked radio input, without label', () => {
     const radio = renderRadio({});
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
 
     expect(radioInput.checked).toBe(false);
   });
@@ -27,7 +27,7 @@ describe('<Radio />', () => {
     });
     const radioInput = radio.getByRole('radio', {
       name: 'my label',
-    });
+    }) as HTMLInputElement;
 
     expect(radioInput.checked).toBe(false);
     userEvent.click(radio.getByText('my label'));
@@ -38,7 +38,7 @@ describe('<Radio />', () => {
     const radio = renderRadio({
       children: 'my label',
     });
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
 
     radioInput.focus();
     expect(radioInput.checked).toBe(false);
@@ -49,7 +49,7 @@ describe('<Radio />', () => {
     const radio = renderRadio({
       children: 'my label',
     });
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
 
     expect(radioInput.checked).toBe(false);
     userEvent.click(radioInput);
@@ -59,7 +59,7 @@ describe('<Radio />', () => {
     const radio = renderRadio({
       checked: true,
     });
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
 
     expect(radioInput.checked).toBe(true);
   });
@@ -86,7 +86,7 @@ describe('<Radio />', () => {
       disabled: true,
       onChange,
     });
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
 
     expect(radioInput.checked).toBe(false);
     userEvent.click(radioInput);
@@ -119,10 +119,10 @@ describe('<Radio/> a11y', () => {
   it('should have no a11y violations when is checked and required', async () => {
     await testA11y(
       <div>
-        <Radio onChange={() => jest.fn()} name="test" checked="true">
+        <Radio onChange={() => jest.fn()} name="test" checked>
           Radio
         </Radio>
-        <Radio onChange={() => jest.fn()} name="test" required="true">
+        <Radio onChange={() => jest.fn()} name="test" required>
           Radio
         </Radio>
       </div>
