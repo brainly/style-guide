@@ -70,7 +70,10 @@ export const AccessibilityListItem = ({pattern, comment, status}: RuleType) => {
       <Flex>
         <StatusIcon status={status} />
         <Flex direction="column">
-          <Pattern size="medium" color={status === 'N/A' && 'text-gray-60'}>
+          <Pattern
+            size="medium"
+            color={status === 'N/A' ? 'text-gray-60' : null}
+          >
             <span
               dangerouslySetInnerHTML={{
                 __html: pattern,
