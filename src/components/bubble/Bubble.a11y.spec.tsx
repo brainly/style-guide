@@ -4,6 +4,6 @@ import Bubble from './Bubble';
 
 describe('Bubble a11y', () => {
   it('should have no a11y violations', async () => {
-    await testA11y(<Bubble>item</Bubble>);
+    await testA11y(<Bubble direction="top">item</Bubble>);
   });
 });

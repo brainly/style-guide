@@ -30,7 +30,10 @@ export const DIRECTION = {
   BOTTOM: 'bottom',
 } as const;
 
-const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
+const HORIZONTAL_DIRECTIONS: DirectionType[] = [
+  DIRECTION.LEFT,
+  DIRECTION.RIGHT,
+];
 
 export const BUBBLE_COLOR = {
   white: 'white',
