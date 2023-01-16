@@ -5,7 +5,8 @@ type ActionListHoleSpacingType = 'xsmall' | 'small';
 export const ACTION_LIST_HOLE_SPACING = {
   XSMALL: 'xsmall',
   SMALL: 'small',
-};
+} as const;
+
 export type ActionListHolePropsType = {
   children: React.ReactNode;
   asContainer?: boolean | null | undefined;
