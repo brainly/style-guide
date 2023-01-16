@@ -12,7 +12,7 @@ describe('ActionList', () => {
           <Button variant="solid">accept</Button>
         </ActionListHole>
         <ActionListHole>
-          <Button variant="solid-inverse">accept</Button>
+          <Button variant="solid-inverted">accept</Button>
         </ActionListHole>
       </ActionList>
     );
