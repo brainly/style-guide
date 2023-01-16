@@ -4,21 +4,15 @@ import Icon, {ICON_COLOR} from '../icons/Icon';
 import {__DEV__, invariant} from '../utils';
 
 export type AvatarSizeType = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
-export const SIZE: {
-  XS: 'xs';
-  S: 's';
-  M: 'm';
-  L: 'l';
-  XL: 'xl';
-  XXL: 'xxl';
-} = {
+export const SIZE = {
   XS: 'xs',
   S: 's',
   M: 'm',
   L: 'l',
   XL: 'xl',
   XXL: 'xxl',
-};
+} as const;
+
 export const ICON_SIZE = {
   [SIZE.XS]: 24,
   [SIZE.S]: 32,
@@ -26,7 +20,8 @@ export const ICON_SIZE = {
   [SIZE.L]: 56,
   [SIZE.XL]: 80,
   [SIZE.XXL]: 104,
-};
+} as const;
+
 export type AvatarPropsType = {
   size?: AvatarSizeType;
   border?: boolean;
