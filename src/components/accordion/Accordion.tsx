@@ -230,7 +230,7 @@ const Accordion = ({
     }
   }
 
-  const [prevExpanded, setPrevExpanded] = useState();
+  const [prevExpanded, setPrevExpanded] = useState<string | string[]>('');
 
   if (isControlled && expanded !== prevExpanded) {
     setPrevExpanded(expanded);
