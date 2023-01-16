@@ -7,7 +7,7 @@ describe('<ActionListHole />', () => {
   test('render', () => {
     const actionListHole = shallow(
       <ActionListHole>
-        <Button variant="solid" size="small">
+        <Button variant="solid" size="s">
           accept
         </Button>
       </ActionListHole>
