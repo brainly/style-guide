@@ -8,7 +8,8 @@ export const TYPE = {
   SUCCESS: 'success',
   ERROR: 'error',
   INFO: 'info',
-};
+} as const;
+
 export type FlashMessagePropsType = {
   text: string;
   type?: FlashMessageTypeType;
