@@ -8,20 +8,18 @@ export type SeparatorHorizontalPropsType = {
   color?: SeparatorHorizontalColorType;
   className?: string;
 } & Omit<React.AllHTMLAttributes<HTMLElement>, 'type' | 'color' | 'className'>;
+
 export const COLORS_MAP = {
   white: 'white',
   'gray-50': 'gray-50',
   'gray-40': 'gray-40',
-};
-export const TYPE: {
-  NORMAL: 'normal';
-  SPACED: 'spaced';
-  SHORT_SPACED: 'short-spaced';
-} = {
+} as const;
+
+export const TYPE = {
   NORMAL: 'normal',
   SPACED: 'spaced',
   SHORT_SPACED: 'short-spaced',
-};
+} as const;
 
 const SeparatorHorizontal = ({
   type = TYPE.NORMAL,

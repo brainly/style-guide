@@ -3,15 +3,12 @@ import classnames from 'classnames';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 
 export type TopLayerSizeType = 'small' | 'medium' | 'large';
-export const SIZE: {
-  SMALL: 'small';
-  MEDIUM: 'medium';
-  LARGE: 'large';
-} = {
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
-};
+} as const;
+
 export type TopLayerPropsType = {
   children?: React.ReactNode;
   onClose?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;

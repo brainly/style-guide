@@ -12,22 +12,17 @@ type GroupedOptionsPropsType = {
 };
 type SelectSizeType = 's' | 'm' | 'l';
 type SelectColorType = 'default' | 'white';
-export const COLOR: {
-  DEAFAULT: 'default';
-  WHITE: 'white';
-} = {
+export const COLOR = {
   DEAFAULT: 'default',
   WHITE: 'white',
-};
-export const SIZE: {
-  S: 's';
-  M: 'm';
-  L: 'l';
-} = {
+} as const;
+
+export const SIZE = {
   S: 's',
   M: 'm',
   L: 'l',
-};
+} as const;
+
 const ICON_SIZE_MAP = {
   [SIZE.L]: 32,
   [SIZE.M]: 24,

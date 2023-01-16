@@ -14,6 +14,7 @@ export type SlotType =
   | 'bottom-left'
   | 'bottom-middle'
   | 'bottom-right';
+
 export const SLOTS = [
   'backdrop',
   'top',
@@ -28,7 +29,8 @@ export const SLOTS = [
   'bottom-left',
   'bottom-middle',
   'bottom-right',
-];
+] as const;
+
 export type DialogOverlayPropsType = {
   children: React.ReactNode;
   // eslint-disable-next-line react/no-unused-prop-types

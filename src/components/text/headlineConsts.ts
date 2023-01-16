@@ -27,16 +27,8 @@ export const HEADLINE_TYPE: {
   DEL: 'del',
   INS: 'ins',
 };
-export const HEADLINE_SIZE: {
-  XXSMALL: 'xxsmall';
-  XSMALL: 'xsmall';
-  SMALL: 'small';
-  MEDIUM: 'medium';
-  LARGE: 'large';
-  XLARGE: 'xlarge';
-  XXLARGE: 'xxlarge';
-  XXXLARGE: 'xxxlarge';
-} = {
+
+export const HEADLINE_SIZE = {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -45,24 +37,17 @@ export const HEADLINE_SIZE: {
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
   XXXLARGE: 'xxxlarge',
-};
-export const HEADLINE_TRANSFORM: {
-  UPPERCASE: 'uppercase';
-  LOWERCASE: 'lowercase';
-  CAPITALIZE: 'capitalize';
-} = {
+} as const;
+
+export const HEADLINE_TRANSFORM = {
   UPPERCASE: 'uppercase',
   LOWERCASE: 'lowercase',
   CAPITALIZE: 'capitalize',
-};
-export const HEADLINE_ALIGN: {
-  LEFT: 'to-left';
-  CENTER: 'to-center';
-  RIGHT: 'to-right';
-  JUSTIFY: 'justify';
-} = {
+} as const;
+
+export const HEADLINE_ALIGN = {
   LEFT: 'to-left',
   CENTER: 'to-center',
   RIGHT: 'to-right',
   JUSTIFY: 'justify',
-};
+} as const;

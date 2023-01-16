@@ -20,24 +20,8 @@ export type MathSymbolTypeType =
   | 'matrix'
   | 'integral'
   | 'equation-system';
-export const MATH_SYMBOL_TYPE: {
-  SQUERE_ROOT: 'squere-root';
-  NTH_ROOT: 'nth-root';
-  POWER: 'power';
-  SUBSCRIPT: 'subscript';
-  LESSEQUAL: 'less-then-or-equal';
-  GREATEREQUAL: 'greater-then-or-equal';
-  INEQUALITY: 'inequality';
-  DIVISION: 'division';
-  PI: 'pi';
-  ALPHA: 'alpha';
-  BETA: 'beta';
-  LINE: 'line';
-  LIMIT: 'limit';
-  MATRIX: 'matrix';
-  INTEGRAL: 'integral';
-  EQUATION_SYSTEM: 'equation-system';
-} = {
+
+export const MATH_SYMBOL_TYPE = {
   SQUERE_ROOT: 'squere-root',
   NTH_ROOT: 'nth-root',
   POWER: 'power',
@@ -54,7 +38,8 @@ export const MATH_SYMBOL_TYPE: {
   MATRIX: 'matrix',
   INTEGRAL: 'integral',
   EQUATION_SYSTEM: 'equation-system',
-};
+} as const;
+
 const WIDE: Array<string> = [
   MATH_SYMBOL_TYPE.LIMIT,
   MATH_SYMBOL_TYPE.MATRIX,
@@ -63,15 +48,13 @@ const WIDE: Array<string> = [
 ];
 
 export type MathSymbolSizeType = 'small' | 'medium' | 'normal';
-export const SIZE: {
-  SMALL: 'small';
-  MEDIUM: 'medium';
-  NORMAL: 'normal';
-} = {
+
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal',
-};
+} as const;
+
 export type MathSymbolPropsType = {
   type: MathSymbolTypeType;
   size?: MathSymbolSizeType;

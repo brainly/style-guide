@@ -13,43 +13,26 @@ type BubbleColorType =
   | 'green-30'
   | 'green-20'
   | 'red-40';
+
 type AligmentType = 'start' | 'center' | 'end';
 type DirectionType = 'left' | 'right' | 'top' | 'bottom';
-export const ALIGNMENT: {
-  START: 'start';
-  CENTER: 'center';
-  END: 'end';
-} = {
+
+export const ALIGNMENT = {
   START: 'start',
   CENTER: 'center',
   END: 'end',
-};
-export const DIRECTION: {
-  LEFT: 'left';
-  RIGHT: 'right';
-  TOP: 'top';
-  BOTTOM: 'bottom';
-} = {
+} as const;
+
+export const DIRECTION = {
   LEFT: 'left',
   RIGHT: 'right',
   TOP: 'top',
   BOTTOM: 'bottom',
-};
+} as const;
+
 const HORIZONTAL_DIRECTIONS: Array<string> = [DIRECTION.LEFT, DIRECTION.RIGHT];
 
-export const BUBBLE_COLOR: {
-  white: 'white';
-  'gray-40': 'gray-40';
-  'gray-20': 'gray-20';
-  'blue-40': 'blue-40';
-  'blue-30': 'blue-30';
-  'blue-20': 'blue-20';
-  'indigo-40': 'indigo-40';
-  'green-40': 'green-40';
-  'green-30': 'green-30';
-  'green-20': 'green-20';
-  'red-40': 'red-40';
-} = {
+export const BUBBLE_COLOR = {
   white: 'white',
   'gray-40': 'gray-40',
   'gray-20': 'gray-20',
@@ -61,7 +44,8 @@ export const BUBBLE_COLOR: {
   'green-30': 'green-30',
   'green-20': 'green-20',
   'red-40': 'red-40',
-};
+} as const;
+
 export type BubblePropsType = {
   children: React.ReactNode;
   className?: string | null | undefined;

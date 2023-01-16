@@ -6,7 +6,8 @@ export const COLORS_MAP = {
   transparent: 'transparent',
   'blue-20': 'blue-20',
   'gray-20': 'gray-20',
-};
+} as const;
+
 type ColorType = 'white' | 'transparent' | 'blue-20' | 'gray-20';
 export type MediaPropsType = {
   aside: React.ReactNode;

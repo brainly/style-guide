@@ -3,22 +3,20 @@ import classNames from 'classnames';
 
 type SizeType = 'normal' | 'small' | 'large' | 'full';
 type SeparatorVerticalColorType = 'white' | 'gray-50' | 'gray-40';
-export const SIZE: {
-  NORMAL: 'normal';
-  SMALL: 'small';
-  LARGE: 'large';
-  FULL: 'full';
-} = {
+
+export const SIZE = {
   NORMAL: 'normal',
   SMALL: 'small',
   LARGE: 'large',
   FULL: 'full',
-};
+} as const;
+
 export const COLORS_MAP = {
   white: 'white',
   'gray-50': 'gray-50',
   'gray-40': 'gray-40',
-};
+} as const;
+
 export type SeparatorVerticalPropsType = {
   size?: SizeType;
   color?: SeparatorVerticalColorType;

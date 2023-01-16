@@ -168,159 +168,8 @@ export type IconColorType =
   | 'icon-gray-40';
 export type IconTagType = 'div' | 'span';
 export type IconSizeType = 16 | 24 | 32 | 40 | 56 | 80 | 104;
-export const TYPE: {
-  ACADEMIC_CAP: 'academic_cap';
-  ADD_MORE: 'add_more';
-  ALL_QUESTIONS: 'all_questions';
-  ANSWER_BUBBLE: 'answer_bubble';
-  ANSWER: 'answer';
-  ANSWERS: 'answers';
-  APPLE: 'apple';
-  ARCHIVE: 'archive';
-  ARROW_DOUBLE_RIGHT: 'arrow_double_right';
-  ARROW_DOWN: 'arrow_down';
-  ARROW_LEFT: 'arrow_left';
-  ARROW_RIGHT: 'arrow_right';
-  ARROW_TOP_RIGHT: 'arrow_top_right';
-  ARROW_UP: 'arrow_up';
-  ASK_BUBBLE: 'ask_bubble';
-  ASK_PARENT_TO_PAY: 'ask_parent_to_pay';
-  ATTACHMENT: 'attachment';
-  BELL_CHECKED: 'bell_checked';
-  BELL_OUTLINED: 'bell_outlined';
-  BLOCK: 'block';
-  BOLD: 'bold';
-  BULB_CHECKED: 'bulb_checked';
-  BULB: 'bulb';
-  BULLETED_LIST: 'bulleted_list';
-  CALENDAR: 'calendar';
-  CAMERA: 'camera';
-  CARET_DOWN: 'caret_down';
-  CARET_UP: 'caret_up';
-  CHAPTER: 'chapter';
-  CHECK: 'check';
-  CHECK_CIRCLE: 'check_circle';
-  CHEVRON_DOUBLE_DOWN: 'chevron_double_down';
-  CHEVRON_DOUBLE_RIGHT: 'chevron_double_right';
-  CHEVRON_DOWN: 'chevron_down';
-  CHEVRON_LEFT: 'chevron_left';
-  CHEVRON_RIGHT: 'chevron_right';
-  CHEVRON_UP: 'chevron_up';
-  CIRCLE: 'circle';
-  CLEAR: 'clear';
-  CLIPBOARD: 'clipboard';
-  CLOSE: 'close';
-  COLLAPSE: 'collapse';
-  COMMENT_OUTLINED: 'comment_outlined';
-  COMMENT: 'comment';
-  COUNTER: 'counter';
-  CREDIT_CARD: 'credit_card';
-  CROP: 'crop';
-  CROWN_OUTLINED: 'crown_outlined';
-  CROWN: 'crown';
-  CUP: 'cup';
-  CURSOR_SELECT: 'cursor_select';
-  CYRILLIC: 'cyrillic';
-  DOT: 'dot';
-  DRAW: 'draw';
-  DRAWING_MODE: 'drawing_mode';
-  ENVELOPE: 'envelope';
-  EQUATION: 'equation';
-  ERASER: 'eraser';
-  EUROPEAN: 'european';
-  EXCLAMATION_MARK: 'exclamation_mark';
-  FACEBOOK: 'facebook';
-  FILTERS: 'filters';
-  FRIEND_ADD: 'friend_add';
-  FRIEND_CHECKED: 'friend_checked';
-  FRIEND_PENDING: 'friend_pending';
-  FRIEND_REMOVE: 'friend_remove';
-  FRIENDS: 'friends';
-  FULLSCREEN: 'fullscreen';
-  FUNNEL: 'funnel';
-  GLOBE: 'globe';
-  GOOGLE: 'google';
-  GREEK: 'greek';
-  HEADING: 'heading';
-  HEART_OUTLINED: 'heart_outlined';
-  HEART: 'heart';
-  HIGHLIGHT: 'highlight';
-  IMAGE: 'image';
-  INFLUENCE: 'influence';
-  INFO: 'info';
-  INSTRAGRAM: 'instagram';
-  ITALIC: 'italic';
-  KEYBOARD: 'keyboard';
-  LESS: 'less';
-  LINE: 'line';
-  LINKEDIN: 'linkedin';
-  LOCK_WITH_PLAY: 'lock_with_play';
-  LOGOUT: 'logout';
-  MEDIUM: 'medium';
-  MEGAPHONE: 'megaphone';
-  MENU: 'menu';
-  MESSAGES: 'messages';
-  MIC: 'mic';
-  MIC_MUTED: 'mic_muted';
-  MONEY_TRANSFER: 'money_transfer';
-  MORE: 'more';
-  MULTISELECT_CHECKED: 'multiselect_checked';
-  MULTISELECT_UNCHECKED: 'multiselect_unchecked';
-  NOTIFICATIONS: 'notifications';
-  NUMBERED_LIST: 'numbered_list';
-  OPEN_IN_NEW_TAB: 'open_in_new_tab';
-  PADLOCK: 'padlock';
-  PAUSE: 'pause';
-  PENCIL: 'pencil';
-  PI: 'pi';
-  PLAY: 'play';
-  PLUS: 'plus';
-  POINTS: 'points';
-  PROFILE_SETTINGS: 'profile_settings';
-  PROFILE_VIEW: 'profile_view';
-  PROFILE: 'profile';
-  QUESTION: 'question';
-  QUOTE: 'quote';
-  RECENT_QUESTIONS: 'recent_questions';
-  RECTANGLE: 'rectangle';
-  RELOAD: 'reload';
-  REPORT_FLAG_OUTLINED: 'report_flag_outlined';
-  REPORT_FLAG: 'report_flag';
-  ROTATE_90: 'rotate_90';
-  ROTATE: 'rotate';
-  SEARCH: 'search';
-  SEEN: 'seen';
-  SEND: 'send';
-  SETTINGS: 'settings';
-  SHARE: 'share';
-  SHIELD: 'shield';
-  SMS: 'sms';
-  SPARK: 'spark';
-  STAR_HALF_OUTLINED: 'star_half_outlined';
-  STAR_HALF: 'star_half';
-  STAR_OUTLINED: 'star_outlined';
-  STAR: 'star';
-  SUBTITLE: 'subtitle';
-  SUP_SUB: 'sup_sub';
-  SYMBOLS: 'symbols';
-  TEXTBOOK: 'textbook';
-  THUMB_DOWN_OUTLINED: 'thumb_down_outlined';
-  THUMB_DOWN: 'thumb_down';
-  THUMB_UP_OUTLINED: 'thumb_up_outlined';
-  THUMB_UP: 'thumb_up';
-  TITLE: 'title';
-  TOUGHEST_QUESTIONS: 'toughest_questions';
-  TRASH: 'trash';
-  TRIANGLE: 'triangle';
-  TWITTER: 'twitter';
-  UNDERLINED: 'underlined';
-  UNSEEN: 'unseen';
-  USER_BLOCK: 'user_block';
-  VERIFIED: 'verified';
-  WARNING: 'warning';
-  YOUTUBE: 'youtube';
-  GIFT: 'gift';
-} = {
+
+export const TYPE = {
   ACADEMIC_CAP: 'academic_cap',
   ADD_MORE: 'add_more',
   ALL_QUESTIONS: 'all_questions',
@@ -472,20 +321,9 @@ export const TYPE: {
   WARNING: 'warning',
   YOUTUBE: 'youtube',
   GIFT: 'gift',
-};
-export const ICON_COLOR: {
-  ADAPTIVE: 'adaptive';
-  'icon-black': 'icon-black';
-  'icon-white': 'icon-white';
-  'icon-blue-50': 'icon-blue-50';
-  'icon-indigo-50': 'icon-indigo-50';
-  'icon-green-50': 'icon-green-50';
-  'icon-yellow-50': 'icon-yellow-50';
-  'icon-red-50': 'icon-red-50';
-  'icon-gray-70': 'icon-gray-70';
-  'icon-gray-50': 'icon-gray-50';
-  'icon-gray-40': 'icon-gray-40';
-} = {
+} as const;
+
+export const ICON_COLOR = {
   ADAPTIVE: 'adaptive',
   'icon-black': 'icon-black',
   'icon-white': 'icon-white',
@@ -497,14 +335,13 @@ export const ICON_COLOR: {
   'icon-gray-70': 'icon-gray-70',
   'icon-gray-50': 'icon-gray-50',
   'icon-gray-40': 'icon-gray-40',
-};
-export const ICON_TAG_TYPE: {
-  DIV: 'div';
-  SPAN: 'span';
-} = {
+} as const;
+
+export const ICON_TAG_TYPE = {
   DIV: 'div',
   SPAN: 'span',
-};
+} as const;
+
 export const SIZE = [16, 24, 32, 40, 56, 80, 104];
 export type IconPropsType =
   | ({

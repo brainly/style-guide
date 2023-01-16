@@ -5,10 +5,11 @@ import RateCounter from './subcomponents/RateCounter';
 import {__DEV__, invariant} from '../utils';
 
 type RatingSizeType = 's' | 'xs';
+
 export const RATING_SIZE = {
   XS: 'xs',
   S: 's',
-};
+} as const;
 
 const generateArrayRange = function (range: number): Array<number> {
   const array = Array(range);

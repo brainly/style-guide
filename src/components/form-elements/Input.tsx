@@ -26,28 +26,8 @@ type InputType =
   | 'time'
   | 'url'
   | 'week';
-export const TYPE: {
-  BUTTON: 'button';
-  COLOR: 'color';
-  DATE: 'date';
-  DATETIME_LOCAL: 'datetime-local';
-  EMAIL: 'email';
-  FILE: 'file';
-  HIDDEN: 'hidden';
-  IMAGE: 'image';
-  MONTH: 'month';
-  NUMBER: 'number';
-  PASSWORD: 'password';
-  RANGE: 'range';
-  RESET: 'reset';
-  SEARCH: 'search';
-  SUBMIT: 'submit';
-  TEL: 'tel';
-  TEXT: 'text';
-  TIME: 'time';
-  URL: 'url';
-  WEEK: 'week';
-} = {
+
+export const TYPE = {
   BUTTON: 'button',
   COLOR: 'color',
   DATE: 'date',
@@ -68,23 +48,19 @@ export const TYPE: {
   TIME: 'time',
   URL: 'url',
   WEEK: 'week',
-};
-export const SIZE: {
-  L: 'l';
-  M: 'm';
-  S: 's';
-} = {
+} as const;
+
+export const SIZE = {
   L: 'l',
   M: 'm',
   S: 's',
-};
-export const COLOR: {
-  DEFAULT: 'default';
-  WHITE: 'white';
-} = {
+} as const;
+
+export const COLOR = {
   DEFAULT: 'default',
   WHITE: 'white',
-};
+} as const;
+
 export type InputPropsType = {
   /**
    * Optional specification for input type

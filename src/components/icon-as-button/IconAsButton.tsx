@@ -4,13 +4,11 @@ import type {IconColorType, IconTypeType} from '../icons/Icon';
 import Icon, {ICON_COLOR} from '../icons/Icon';
 
 type IconSizeType = 'small' | 'normal';
-export const SIZE: {
-  SMALL: 'small';
-  NORMAL: 'normal';
-} = {
+export const SIZE = {
   SMALL: 'small',
   NORMAL: 'normal',
-};
+} as const;
+
 const ICON_SIZE: Record<string, 24> = {
   [SIZE.SMALL]: 24,
   // based on current usage

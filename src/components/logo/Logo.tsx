@@ -29,34 +29,8 @@ export type LogoTypeType =
   | 'brainly-logotype-math-solver'
   | 'brainly-logotype-community-qa'
   | 'brainly-logotype-textbook-detective';
-export const TYPE: {
-  BRAINLY: 'brainly';
-  BRAINLY_MOBILE: 'brainly-mobile';
-  EODEV: 'eodev';
-  EODEV_MOBILE: 'eodev-mobile';
-  NOSDEVOIRS: 'nosdevoirs';
-  NOSDEVOIRS_MOBILE: 'nosdevoirs-mobile';
-  ZNANIJA: 'znanija';
-  ZNANIJA_MOBILE: 'znanija-mobile';
-  ZNANIJA_PLUS: 'znanija-plus';
-  ZNANIJA_PLUS_INVERSE: 'znanija-plus-inverse';
-  ZNANIJA_PLUS_SMALL: 'znanija-plus-small';
-  BRAINLY_PLUS: 'brainly-plus';
-  BRAINLY_PLUS_VAR_A: 'brainly-plus-var-a';
-  BRAINLY_PLUS_VAR_B: 'brainly-plus-var-b';
-  BRAINLY_PLUS_INVERSE: 'brainly-plus-inverse';
-  BRAINLY_PLUS_SMALL: 'brainly-plus-small';
-  BRAINLY_TUTORING: 'brainly-tutoring';
-  BRAINLY_TUTORING_SMALL: 'brainly-tutoring-small';
-  LOGO_TUTOR: 'logo-tutor';
-  LOGO_MATH_SOLVER: 'logo-math-solver';
-  LOGO_COMMUNITY_QA: 'logo-community-qa';
-  LOGO_TEXTBOOK_DETECTIVE: 'logo-textbook-detective';
-  BRAINLY_LOGOTYPE_TUTOR: 'brainly-logotype-tutor';
-  BRAINLY_LOGOTYPE_MATH_SOLVER: 'brainly-logotype-math-solver';
-  BRAINLY_LOGOTYPE_COMMUNITY_QA: 'brainly-logotype-community-qa';
-  BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective';
-} = {
+
+export const TYPE = {
   BRAINLY: 'brainly',
   BRAINLY_MOBILE: 'brainly-mobile',
   EODEV: 'eodev',
@@ -83,7 +57,7 @@ export const TYPE: {
   BRAINLY_LOGOTYPE_MATH_SOLVER: 'brainly-logotype-math-solver',
   BRAINLY_LOGOTYPE_COMMUNITY_QA: 'brainly-logotype-community-qa',
   BRAINLY_LOGOTYPE_TEXTBOOK_DETECTIVE: 'brainly-logotype-textbook-detective',
-};
+} as const;
 
 function getDefaultAlt(type: LogoTypeType) {
   const replacers = [

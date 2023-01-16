@@ -10,10 +10,12 @@ export type OverlayPropsType = {
   React.AllHTMLAttributes<HTMLElement>,
   'children' | 'partial' | 'className' | 'color'
 >;
+
 export const COLOR = {
   BLUE: 'blue',
   BLACK: 'black',
-};
+} as const;
+
 type ColorType = typeof COLOR[keyof typeof COLOR];
 
 const Overlay = ({

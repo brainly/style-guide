@@ -18,7 +18,8 @@ import type {ResponsivePropType} from '../utils/responsive-props';
 export const KEY_CODES = {
   '32': 'space',
   '13': 'enter',
-};
+} as const;
+
 type ExpandedItemsType = Array<string>;
 type StateType = Readonly<{
   expanded: ExpandedItemsType;

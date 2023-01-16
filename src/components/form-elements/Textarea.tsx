@@ -10,11 +10,13 @@ export const SIZE = {
   NORMAL: 'normal',
   TALL: 'tall',
   XTALL: 'xtall',
-};
+} as const;
+
 export const TEXTAREA_COLOR = {
   DEFAULT: 'default',
   WHITE: 'white',
-};
+} as const;
+
 export type TextareaPropsType = {
   // $FlowFixMe any generic prop types here broke autocomplete, so let's leave it as is for now
   type?: string | ((arg0: any) => React.ReactNode);

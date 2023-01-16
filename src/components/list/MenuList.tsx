@@ -4,15 +4,13 @@ import type {MenuItemPropsType} from './subcomponents/MenuItem';
 import MenuItem from './subcomponents/MenuItem';
 
 export type SizeType = 'small' | 'normal' | 'large';
-export const SIZE: {
-  SMALL: 'small';
-  NORMAL: 'normal';
-  LARGE: 'large';
-} = {
+
+export const SIZE = {
   SMALL: 'small',
   NORMAL: 'normal',
   LARGE: 'large',
-};
+} as const;
+
 export type MenuListPropsType = {
   size?: SizeType;
   className?: string;

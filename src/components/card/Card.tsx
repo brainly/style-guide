@@ -6,12 +6,14 @@ export type CardPaddingType =
   | 'padding-normal'
   | 'padding-large'
   | 'padding-xlarge';
+
 export const CARD_PADDING = {
   SMALL: 'padding-small',
   NORMAL: 'padding-normal',
   LARGE: 'padding-large',
   XLARGE: 'padding-xlarge',
-};
+} as const;
+
 export type CardPropsType = {
   children?: React.ReactNode;
   className?: string;

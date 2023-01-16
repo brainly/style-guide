@@ -14,11 +14,13 @@ export type SpinnerColorType =
   | 'blue-60'
   | 'indigo-50';
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
+
 export const SPINNER_SIZE = {
   SMALL: 'small',
   XSMALL: 'xsmall',
   XXSMALL: 'xxsmall',
 } as const;
+
 export const SPINNER_COLOR = {
   black: 'black',
   white: 'white',
@@ -31,6 +33,7 @@ export const SPINNER_COLOR = {
   'blue-40': 'blue-40',
   'blue-60': 'blue-60',
 } as const;
+
 export type SpinnerPropsType = {
   color?: SpinnerColorType;
   size?: SpinnerSizeType;

@@ -19,6 +19,7 @@ export type ColorType =
   | 'yellow-40'
   | 'yellow-30'
   | 'yellow-20';
+
 export const CARD_HOLE_COLOR = {
   'gray-70': 'gray-70',
   'gray-50': 'gray-50',
@@ -37,7 +38,8 @@ export const CARD_HOLE_COLOR = {
   'yellow-40': 'yellow-40',
   'yellow-30': 'yellow-30',
   'yellow-20': 'yellow-20',
-};
+} as const;
+
 export type CardHolePropsType = {
   children: React.ReactNode;
   className?: string;

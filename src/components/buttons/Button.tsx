@@ -12,23 +12,7 @@ export const BUTTON_SIZE: {
   M: 'm',
   S: 's',
 };
-export const BUTTON_VARIANT: {
-  SOLID: 'solid';
-  SOLID_INVERTED: 'solid-inverted';
-  SOLID_INDIGO: 'solid-indigo';
-  SOLID_INDIGO_INVERTED: 'solid-indigo-inverted';
-  SOLID_LIGHT: 'solid-light';
-  OUTLINE: 'outline';
-  OUTLINE_INDIGO: 'outline-indigo';
-  OUTLINE_INVERTED: 'outline-inverted';
-  TRANSPARENT: 'transparent';
-  TRANSPARENT_LIGHT: 'transparent-light';
-  TRANSPARENT_RED: 'transparent-red';
-  TRANSPARENT_INVERTED: 'transparent-inverted';
-  FACEBOOK: 'facebook';
-  GOOGLE: 'google';
-  APPLE: 'apple';
-} = {
+export const BUTTON_VARIANT = {
   SOLID: 'solid',
   SOLID_INVERTED: 'solid-inverted',
   SOLID_INDIGO: 'solid-indigo',
@@ -44,19 +28,19 @@ export const BUTTON_VARIANT: {
   FACEBOOK: 'facebook',
   GOOGLE: 'google',
   APPLE: 'apple',
-};
-export const BUTTON_TOGGLE: {
-  RED: 'red';
-  YELLOW: 'yellow';
-} = {
+} as const;
+
+export const BUTTON_TOGGLE = {
   RED: 'red',
   YELLOW: 'yellow',
-};
+} as const;
+
 const SPINNER_SIZE_MAP = {
   [BUTTON_SIZE.L]: SPINNER_SIZE.SMALL,
   [BUTTON_SIZE.M]: SPINNER_SIZE.XSMALL,
   [BUTTON_SIZE.S]: SPINNER_SIZE.XXSMALL,
 };
+
 const SPINNER_COLOR_MAP = {
   [BUTTON_VARIANT.SOLID]: SPINNER_COLOR['white'],
   [BUTTON_VARIANT.SOLID_INVERTED]: SPINNER_COLOR['black'],

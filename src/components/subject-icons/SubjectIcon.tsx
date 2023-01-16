@@ -80,83 +80,8 @@ export type IconTypeType =
   | 'uzbek'
   | 'wos';
 export type SizeType = 'small' | 'medium' | 'normal';
-export const TYPE: {
-  ACCOUNTANCY: 'accountancy';
-  ADMINISTRATION: 'administration';
-  ALGEBRA: 'algebra';
-  ALL: 'all';
-  ARABIC: 'arabic';
-  ART: 'art';
-  ARTMUSIC: 'artmusic';
-  ASTRONOMY: 'astronomy';
-  BELARUS: 'belarus';
-  BELARUS_ALT: 'belarus-alt';
-  BIOLOGY: 'biology';
-  BUSINESS: 'business';
-  CATALA: 'catala';
-  CHEMISTRY: 'chemistry';
-  CHINESE: 'chinese';
-  ECONOMICS: 'economics';
-  EGZAM: 'egzam';
-  EXAM: 'exam';
-  ENGLISH: 'english';
-  ENVIRONMENT: 'environment';
-  ETHICS: 'ethics';
-  EUSKARA: 'euskara';
-  FIRST_AID: 'first-aid';
-  FRENCH: 'french';
-  GALEGO: 'galego';
-  GEOGRAPHY: 'geography';
-  GEOLOGY: 'geology';
-  GEOMETRY: 'geometry';
-  GERMAN: 'german';
-  GRAMMAR: 'grammar';
-  HEALTH: 'health';
-  HISTORY: 'history';
-  INDIA_LANG: 'india-lang';
-  INDONESIAN_LANG: 'indonesian-lang';
-  INFORMATICS: 'informatics';
-  ITALIAN: 'italian';
-  JAPANESE: 'japanese';
-  KAZACH: 'kazach';
-  KAZACH_ALT: 'kazach-alt';
-  KYRGYZ: 'kyrgyz';
-  LANGUAGE: 'language';
-  LATIN: 'latin';
-  LAW: 'law';
-  LIFE_SCIENCE: 'life-science';
-  LITERATURE: 'literature';
-  LOGIC: 'logic';
-  MATHEMATICS: 'mathematics';
-  MUSIC: 'music';
-  OTHERLANGUAGES: 'otherlanguages';
-  OTHERS: 'others';
-  PEDAGOGICS: 'pedagogics';
-  PHILOSOPHY: 'philosophy';
-  PHYSICAL_EDUCATION: 'physical-education';
-  PHYSICS: 'physics';
-  POLITICS: 'politics';
-  PSYCHOLOGY: 'psychology';
-  RELIGION: 'religion';
-  RUSSIAN: 'russian';
-  RUSSIAN_ALT: 'russian-alt';
-  SCIENCE: 'science';
-  SECURITY: 'security';
-  SKILLS: 'skills';
-  SOCIAL_SCIENCE: 'social-science';
-  SOCIOLOGY: 'sociology';
-  SPANISH: 'spanish';
-  STATISTICS: 'statistics';
-  TECHNOLOGY: 'technology';
-  TOURISM: 'tourism';
-  TRAFFIC: 'traffic';
-  TURKISH: 'turkish';
-  UKRAINIAN: 'ukrainian';
-  UKRAINIAN_ALT: 'ukrainian-alt';
-  UKRAINIAN_LITERATURE: 'ukrainian-literature';
-  UZBEK: 'uzbek';
-  WOS: 'wos';
-} = {
+
+export const TYPE = {
   ACCOUNTANCY: 'accountancy',
   ADMINISTRATION: 'administration',
   ALGEBRA: 'algebra',
@@ -232,16 +157,14 @@ export const TYPE: {
   UKRAINIAN_LITERATURE: 'ukrainian-literature',
   UZBEK: 'uzbek',
   WOS: 'wos',
-};
-export const SIZE: {
-  SMALL: 'small';
-  MEDIUM: 'medium';
-  NORMAL: 'normal';
-} = {
+} as const;
+
+export const SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   NORMAL: 'normal',
-};
+} as const;
+
 export type SubjectIconPropsType = {
   className?: string;
   type: IconTypeType;

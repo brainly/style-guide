@@ -59,6 +59,7 @@ export type SizeType =
   | 16
   | 14
   | 10;
+
 export const TYPE: Record<string, IconTypeType> = {
   ANSWER_BUBBLE: 'answer_bubble',
   ARROW: 'arrow',
@@ -99,6 +100,7 @@ export const TYPE: Record<string, IconTypeType> = {
   TIME_SPEED: 'time_speed',
   UNBOOKMARK: 'unbookmark',
 };
+
 export type MobileIconPropsType = Readonly<
   {
     type: IconTypeType;

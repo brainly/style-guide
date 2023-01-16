@@ -10,14 +10,13 @@ type ColorType = 'red-60' | 'blue-60';
 export const COUNTER_COLOR = {
   'red-60': 'red-60',
   'blue-60': 'blue-60',
-};
-export const COUNTER_SIZE: {
-  XS: 'xs';
-  XXS: 'xxs';
-} = {
+} as const;
+
+export const COUNTER_SIZE = {
   XS: 'xs',
   XXS: 'xxs',
-};
+} as const;
+
 export type CounterPropsType = {
   /**
    * Children to be rendered inside Counter

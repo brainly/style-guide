@@ -7,13 +7,15 @@ type RwdHelperTypeType =
   | 'medium-down'
   | 'medium-up'
   | 'large-only';
+
 export const TYPE = {
   SMALL_ONLY: 'small-only',
   MEDIUM_ONLY: 'medium-only',
   MEDIUM_DOWN: 'medium-down',
   MEDIUM_UP: 'medium-up',
   LARGE_ONLY: 'large-only',
-};
+} as const;
+
 export type RwdHelperPropsType = {
   hide: RwdHelperTypeType;
   children: React.ReactElement<any> | string;

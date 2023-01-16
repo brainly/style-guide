@@ -21,22 +21,8 @@ type TextBitTypeType =
   | 'del'
   | 'ins';
 type TextBitSizeType = 'small' | 'medium' | 'large' | 'xlarge';
-export const TEXT_BIT_TYPE: {
-  H1: 'h1';
-  H2: 'h2';
-  H3: 'h3';
-  H4: 'h4';
-  H5: 'h5';
-  H6: 'h6';
-  DIV: 'div';
-  SPAN: 'span';
-  BLOCKQUOTE: 'blockquote';
-  Q: 'q';
-  STRONG: 'strong';
-  EM: 'em';
-  DEL: 'del';
-  INS: 'ins';
-} = {
+
+export const TEXT_BIT_TYPE = {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -51,18 +37,15 @@ export const TEXT_BIT_TYPE: {
   EM: 'em',
   DEL: 'del',
   INS: 'ins',
-};
-export const TEXT_BIT_SIZE: {
-  SMALL: 'small';
-  MEDIUM: 'medium';
-  LARGE: 'large';
-  XLARGE: 'xlarge';
-} = {
+} as const;
+
+export const TEXT_BIT_SIZE = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
   XLARGE: 'xlarge',
-};
+} as const;
+
 export {TEXT_COLOR};
 export type TextBitPropsType = {
   children: React.ReactNode;

@@ -1,12 +1,4 @@
-export const SIZE: {
-  XXSMALL: 'xxsmall';
-  XSMALL: 'xsmall';
-  SMALL: 'small';
-  NORMAL: 'normal';
-  LARGE: 'large';
-  XLARGE: 'xlarge';
-  XXLARGE: 'xxlarge';
-} = {
+export const SIZE = {
   XXSMALL: 'xxsmall',
   XSMALL: 'xsmall',
   SMALL: 'small',
@@ -14,13 +6,10 @@ export const SIZE: {
   LARGE: 'large',
   XLARGE: 'xlarge',
   XXLARGE: 'xxlarge',
-};
-export const ALIGNMENT: {
-  LEFT: 'left';
-  CENTER: 'center';
-  RIGHT: 'right';
-} = {
+} as const;
+
+export const ALIGNMENT = {
   LEFT: 'left',
   CENTER: 'center',
   RIGHT: 'right',
-};
+} as const;

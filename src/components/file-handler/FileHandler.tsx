@@ -10,7 +10,8 @@ export type FileHandlerColorType = 'gray-20' | 'white';
 export const COLORS_MAP = {
   'gray-20': 'gray-20',
   white: 'white',
-};
+} as const;
+
 type AriaStatusLabelType = {
   loading?: string;
   uploaded?: string;

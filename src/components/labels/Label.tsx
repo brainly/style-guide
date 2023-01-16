@@ -18,26 +18,15 @@ export type LabelType =
   | 'solid'
   | 'transparent'
   | 'transparent-color';
-export const LABEL_TYPE: {
-  DEFAULT: 'default';
-  SOLID: 'solid';
-  TRANSPARENT: 'transparent';
-  TRANSPARENT_COLOR: 'transparent-color';
-} = {
+
+export const LABEL_TYPE = {
   DEFAULT: 'default',
   SOLID: 'solid',
   TRANSPARENT: 'transparent',
   TRANSPARENT_COLOR: 'transparent-color',
-};
-export const COLORS_SOLID_MAP: {
-  blue: 'blue-60';
-  green: 'green-60';
-  indigo: 'indigo-60';
-  red: 'red-60';
-  yellow: 'yellow-40';
-  gray: 'gray-40';
-  achromatic: 'black';
-} = {
+} as const;
+
+export const COLORS_SOLID_MAP = {
   blue: 'blue-60',
   green: 'green-60',
   indigo: 'indigo-60',
@@ -45,16 +34,9 @@ export const COLORS_SOLID_MAP: {
   yellow: 'yellow-40',
   gray: 'gray-40',
   achromatic: 'black',
-};
-const SOLID_COLOR_TEXT_MAP: {
-  blue: 'text-white';
-  green: 'text-white';
-  indigo: 'text-white';
-  red: 'text-white';
-  yellow: 'text-black';
-  gray: 'text-black';
-  achromatic: 'text-white';
-} = {
+} as const;
+
+const SOLID_COLOR_TEXT_MAP = {
   blue: 'text-white',
   green: 'text-white',
   indigo: 'text-white',
@@ -62,16 +44,9 @@ const SOLID_COLOR_TEXT_MAP: {
   yellow: 'text-black',
   gray: 'text-black',
   achromatic: 'text-white',
-};
-const SOLID_ICON_COLOR_MAP: {
-  blue: 'icon-white';
-  green: 'icon-white';
-  indigo: 'icon-white';
-  red: 'icon-white';
-  yellow: 'icon-black';
-  gray: 'icon-black';
-  achromatic: 'icon-white';
-} = {
+} as const;
+
+const SOLID_ICON_COLOR_MAP = {
   blue: 'icon-white',
   green: 'icon-white',
   indigo: 'icon-white',
@@ -79,17 +54,9 @@ const SOLID_ICON_COLOR_MAP: {
   yellow: 'icon-black',
   gray: 'icon-black',
   achromatic: 'icon-white',
-};
+} as const;
 
-export const COLORS_DEFAULT_MAP: {
-  blue: 'blue-20';
-  green: 'green-20';
-  indigo: 'indigo-20';
-  red: 'red-20';
-  yellow: 'yellow-20';
-  gray: 'gray-20';
-  achromatic: 'white';
-} = {
+export const COLORS_DEFAULT_MAP = {
   blue: 'blue-20',
   green: 'green-20',
   indigo: 'indigo-20',
@@ -97,16 +64,9 @@ export const COLORS_DEFAULT_MAP: {
   yellow: 'yellow-20',
   gray: 'gray-20',
   achromatic: 'white',
-};
-const TRANSPARENT_COLOR_TEXT_MAP: {
-  blue: 'text-blue-60';
-  green: 'text-green-60';
-  indigo: 'text-indigo-60';
-  red: 'text-red-60';
-  yellow: 'text-yellow-60';
-  gray: 'text-gray-60';
-  achromatic: 'text-black';
-} = {
+} as const;
+
+const TRANSPARENT_COLOR_TEXT_MAP = {
   blue: 'text-blue-60',
   green: 'text-green-60',
   indigo: 'text-indigo-60',
@@ -114,16 +74,9 @@ const TRANSPARENT_COLOR_TEXT_MAP: {
   yellow: 'text-yellow-60',
   gray: 'text-gray-60',
   achromatic: 'text-black',
-};
-const TRANSPARENT_ICON_COLOR_MAP: {
-  blue: 'icon-blue-50';
-  green: 'icon-green-50';
-  indigo: 'icon-indigo-50';
-  red: 'icon-red-50';
-  yellow: 'icon-yellow-50';
-  gray: 'icon-gray-50';
-  achromatic: 'icon-black';
-} = {
+} as const;
+
+const TRANSPARENT_ICON_COLOR_MAP = {
   blue: 'icon-blue-50',
   green: 'icon-green-50',
   indigo: 'icon-indigo-50',
@@ -131,17 +84,9 @@ const TRANSPARENT_ICON_COLOR_MAP: {
   yellow: 'icon-yellow-50',
   gray: 'icon-gray-50',
   achromatic: 'icon-black',
-};
+} as const;
 
-export const LABEL_COLORS_SET: {
-  BLUE: 'blue';
-  GREEN: 'green';
-  INDIGO: 'indigo';
-  RED: 'red';
-  YELLOW: 'yellow';
-  GRAY: 'gray';
-  ACHROMATIC: 'achromatic';
-} = {
+export const LABEL_COLORS_SET = {
   BLUE: 'blue',
   GREEN: 'green',
   INDIGO: 'indigo',
@@ -149,7 +94,8 @@ export const LABEL_COLORS_SET: {
   YELLOW: 'yellow',
   GRAY: 'gray',
   ACHROMATIC: 'achromatic',
-};
+} as const;
+
 export type LabelPropsType = Readonly<
   {
     /**
