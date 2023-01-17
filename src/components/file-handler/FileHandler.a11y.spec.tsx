@@ -34,7 +34,7 @@ describe('FileHandler', () => {
       </FileHandler>
     );
 
-    expect(fileHandler.getByRole('link').href).toContain(src);
+    expect(fileHandler.getByRole('link')).toHaveProperty('href', src);
     expect(fileHandler.queryByRole('img')).toBeFalsy();
   });
   it('should have a noticeable status in accessibility tree', () => {

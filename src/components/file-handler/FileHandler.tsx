@@ -100,7 +100,7 @@ export type FileHandlerPropsType = Readonly<
      *            text
      *          </FileHandler>
      */
-    children: React.ReactNode;
+    children?: React.ReactNode;
 
     /**
      * An accessible, short-text description of `onClose` action,
@@ -158,11 +158,11 @@ const FileHandler = ({
     ? {
         onClick,
       }
-    : {
+    : ({
         href: src,
         target: '_blank',
         rel: 'noopener noreferrer',
-      };
+      } as const);
   const role = clickProps.onClick && 'button';
   const asLink = clickProps.onClick ? 'button' : 'a';
   const thumbnail =
