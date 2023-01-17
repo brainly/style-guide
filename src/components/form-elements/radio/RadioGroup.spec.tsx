@@ -24,8 +24,8 @@ describe('<RadioGroup />', () => {
     });
 
     expect(radioGroup.getByRole('radiogroup')).toBeTruthy();
-    expect(radioGroup.getByLabelText('Option A').checked).toBe(true);
-    expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
+    expect(radioGroup.getByLabelText('Option A')).toBeChecked();
+    expect(radioGroup.getByLabelText('Option B')).not.toBeChecked();
   });
   it('changes selected element when Radio is clicked and has only one checked Radio at a time', () => {
     const radioGroup = renderRadioGroup({
@@ -34,14 +34,14 @@ describe('<RadioGroup />', () => {
     });
 
     userEvent.click(radioGroup.getByLabelText('Option B'));
-    expect(radioGroup.getByLabelText('Option A').checked).toBe(false);
-    expect(radioGroup.getByLabelText('Option B').checked).toBe(true);
+    expect(radioGroup.getByLabelText('Option A')).not.toBeChecked();
+    expect(radioGroup.getByLabelText('Option B')).toBeChecked();
     userEvent.click(radioGroup.getByLabelText('Option A'));
     expect(radioGroup.getByLabelText('Option A')).toEqual(
       document.activeElement
     );
-    expect(radioGroup.getByLabelText('Option A').checked).toBe(true);
-    expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
+    expect(radioGroup.getByLabelText('Option A')).toBeChecked();
+    expect(radioGroup.getByLabelText('Option B')).not.toBeChecked();
   });
   it('renders radio group with error message', () => {
     const radioGroup = renderRadioGroup({
@@ -62,10 +62,10 @@ describe('<RadioGroup />', () => {
       onChange,
     });
 
-    expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
+    expect(radioGroup.getByLabelText('Option B')).not.toBeChecked();
     userEvent.click(radioGroup.getByLabelText('Option B'));
     expect(onChange).not.toHaveBeenCalled();
-    expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
+    expect(radioGroup.getByLabelText('Option B')).not.toBeChecked();
   });
   it('has an accessible name', () => {
     const onChange = jest.fn();
@@ -78,7 +78,7 @@ describe('<RadioGroup />', () => {
 
     expect(
       radioGroup.getByRole('radiogroup', {
-        label: 'RadioGroup name',
+        name: 'RadioGroup name',
       })
     ).toBeTruthy();
   });

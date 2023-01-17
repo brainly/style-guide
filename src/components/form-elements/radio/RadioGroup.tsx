@@ -147,6 +147,7 @@ const RadioGroup = ({
       {...props}
       className={radioGroupClass}
       role="radiogroup"
+      // @ts-ignore this property exists if role is properly defined
       disabled={disabled}
       onBlur={() => setLastFocusedValue(null)}
       aria-required={required}

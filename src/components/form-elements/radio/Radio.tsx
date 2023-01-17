@@ -13,7 +13,7 @@ import useIsFirstRender from '../../utils/useIsFirstRender';
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
-  CSSStyleDeclaration & {
+  React.CSSProperties & {
     '--radioColor'?: string;
     '--radioHoverColor'?: string;
     '--radioInvalidColor'?: string;
@@ -24,6 +24,7 @@ type StyleType = Partial<
     '--radioRingColor'?: string;
   }
 >;
+
 export type RadioPropsType = {
   /**
    * Sets whether the radio is checked or unchecked.
