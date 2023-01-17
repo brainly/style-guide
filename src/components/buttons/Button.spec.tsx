@@ -77,7 +77,7 @@ test('with icon - reversed order', () => {
 });
 test('in loading state button shows spinner while hiding label and icon', () => {
   const button = shallow(
-    <Button loading icon={<Icon type="heart" size="24" color="adaptive" />}>
+    <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
       Some text
     </Button>
   );

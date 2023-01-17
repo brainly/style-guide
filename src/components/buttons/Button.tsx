@@ -384,6 +384,7 @@ const Button = React.forwardRef(
         className={btnClass}
         href={href}
         disabled={isDisabled}
+        // @ts-expect-error generics while using React.forwardRef
         ref={ref}
         target={target}
         aria-label={ariaLabel}
