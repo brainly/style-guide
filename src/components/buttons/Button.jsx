@@ -106,6 +106,8 @@ export type AriaLiveType = 'off' | 'polite' | 'assertive';
 
 export type ButtonTypeType = 'button' | 'submit' | 'reset';
 
+export type ButtonOnPressEffectType = 'scale-down';
+
 const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
   'outline',
@@ -260,6 +262,10 @@ export type ButtonPropsType = {
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
+  /**
+   * Type of effect when button is pressed
+   */
+  onPressEffect?: ButtonOnPressEffectType,
   ...
 };
 
@@ -285,6 +291,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
+      onPressEffect,
       ...props
     }: ButtonPropsType,
     ref
@@ -356,6 +363,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'sg-button--icon-only': Boolean(icon) && iconOnly,
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
+        [`sg-button--press-${onPressEffect}`]: onPressEffect,
       },
       className
     );

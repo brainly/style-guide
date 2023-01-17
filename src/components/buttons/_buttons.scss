@@ -348,6 +348,14 @@ $largeButtonSize: componentSize(l);
     }
   }
 
+  &--press-scale-down {
+    transition: transform 0.1s ease-in-out;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
   @media (forced-colors: active) {
     border: 2px solid ButtonText;
   }
