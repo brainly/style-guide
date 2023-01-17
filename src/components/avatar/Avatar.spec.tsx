@@ -23,9 +23,8 @@ test('render with image', () => {
 test('no error when render without image', () => {
   const spy = jest.spyOn(console, 'error');
 
-  console.error = jest.fn();
   mount(<Avatar />);
-  expect(console.error.mock.calls).toHaveLength(0);
+  expect(spy).not.toHaveBeenCalled();
   spy.mockRestore();
 });
 test('default icon profile', () => {
