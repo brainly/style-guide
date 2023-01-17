@@ -25,7 +25,7 @@ const colors = {
   red: 'red-40',
   yellow: 'yellow-40',
   blue: 'blue-40',
-};
+} as const;
 
 type PropsType = Readonly<{
   size: 'listitem' | 'small' | 'medium' | 'large';

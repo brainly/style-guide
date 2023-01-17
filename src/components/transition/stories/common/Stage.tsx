@@ -20,7 +20,7 @@ const formats = {
   landscape: [640, 400],
   listitem: [250, 200],
 };
-const Stage = React.forwardRef(
+const Stage = React.forwardRef<HTMLDivElement, PropsType>(
   (
     {
       children,

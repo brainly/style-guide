@@ -22,7 +22,8 @@ const fadeEffect = {
     duration: 'quick1',
     easing: 'exit',
   },
-};
+} as const;
+
 const delayOffset = 20;
 
 export const StaggeredMotion = () => {

@@ -149,7 +149,7 @@ export type TransitionPropsType = Readonly<{
    */
   inline?: boolean;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onTransitionStart?: (effect: TransitionEffectType) => void;
   onTransitionEnd?: (effect: TransitionEffectType) => void;
 }>;

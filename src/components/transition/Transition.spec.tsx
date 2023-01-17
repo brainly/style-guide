@@ -19,9 +19,10 @@ class TransitionEvent extends Event {
 
 const DEFAULT_OPACITY = ''; // unassigned
 
-const INITIAL_OPACITY = '0.1';
-const ANIMATE_OPACITY = '0.2';
-const EXIT_OPACITY = '0.3';
+const INITIAL_OPACITY = 0.1;
+const ANIMATE_OPACITY = 0.2;
+const EXIT_OPACITY = 0.3;
+
 const testEffect = {
   initial: {
     opacity: INITIAL_OPACITY,
@@ -34,7 +35,8 @@ const testEffect = {
     opacity: EXIT_OPACITY,
     duration: 'quick2',
   },
-};
+} as const;
+
 const instantEffect = {
   initial: {
     opacity: INITIAL_OPACITY,
@@ -47,7 +49,7 @@ const instantEffect = {
     opacity: EXIT_OPACITY,
     duration: 'instant',
   },
-};
+} as const;
 
 describe('<Transition />', () => {
   beforeEach(() => {

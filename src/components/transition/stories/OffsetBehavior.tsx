@@ -20,7 +20,8 @@ const fadeEffect = {
     duration: 'quick2',
     easing: 'exit',
   },
-};
+} as const;
+
 const containerSlideEffect = {
   initial: {
     opacity: 0,
@@ -49,7 +50,7 @@ const containerSlideEffect = {
     duration: 'quick2',
     easing: 'exit',
   },
-};
+} as const;
 
 /**
  * A content transformation opposite to the container
@@ -77,7 +78,7 @@ const contentCounterSlideEffect = {
     duration: 'quick2',
     easing: 'exit',
   },
-};
+} as const;
 
 export const OffsetBehavior = () => {
   const [open, setOpen] = React.useState(false);

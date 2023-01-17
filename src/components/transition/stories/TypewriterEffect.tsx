@@ -22,7 +22,7 @@ const typingEffect = {
     duration: 'quick2',
     easing: 'exit',
   },
-};
+} as const;
 
 export const TypewriterEffect = () => {
   const message = 'hello world';
