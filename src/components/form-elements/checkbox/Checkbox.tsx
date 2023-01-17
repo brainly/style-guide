@@ -10,7 +10,7 @@ import useIsFirstRender from '../../utils/useIsFirstRender';
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
 type StyleType = Partial<
-  CSSStyleDeclaration & {
+  React.CSSProperties & {
     '--checkboxColor'?: string;
     '--checkboxHoverColor'?: string;
     '--checkboxIconFillColor'?: string;
@@ -184,7 +184,7 @@ const Checkbox = ({
     isControlled ? checked : defaultChecked
   );
   const inputRef = React.useRef(null);
-  const iconRef = React.useRef<Element | null>(null);
+  const iconRef = React.useRef<SVGSVGElement | null>(null);
   const isFirstRender = useIsFirstRender();
   const shouldAnimate = !isFirstRender; // Apply checkbox animation when it's already after first render
 
