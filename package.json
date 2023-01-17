@@ -184,6 +184,7 @@
       "./scripts/testsSetup.js"
     ],
     "setupFilesAfterEnv": [
+      "@testing-library/jest-dom",
       "jest-axe/extend-expect"
     ],
     "moduleDirectories": [

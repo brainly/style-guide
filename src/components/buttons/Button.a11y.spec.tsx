@@ -77,7 +77,7 @@ describe('Button', () => {
 
       expect(status.getAttribute('aria-live')).toBe('assertive');
       expect(within(status).getByText(loadingAriaLabel)).toBeTruthy();
-      expect(button.getByRole('button').disabled).toBeTruthy();
+      expect(button.getByRole('button')).toHaveProperty('disabled', true);
     });
   });
   describe('with `href`', () => {
