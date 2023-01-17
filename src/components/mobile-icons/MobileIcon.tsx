@@ -131,7 +131,7 @@ const MobileIcon = ({
   const iconType = `#icon-mobile-${type}`;
 
   return (
-    // @ts-expect-error fix after migration
+    // @ts-expect-error ts migration
     <svg {...props} className={iconClass}>
       <use xlinkHref={iconType} />
     </svg>
