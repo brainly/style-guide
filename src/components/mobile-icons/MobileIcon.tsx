@@ -116,7 +116,7 @@ export type MobileIconPropsType = Readonly<
 const MobileIcon = ({
   type,
   size = 24,
-  color = 'light',
+  color = 'icon-white',
   className,
   ...props
 }: MobileIconPropsType) => {
@@ -124,13 +124,14 @@ const MobileIcon = ({
     'sg-mobile-icon',
     {
       [`sg-mobile-icon--x${size}`]: size,
-      [`sg-mobile-icon--${String(color)}`]: color !== 'light',
+      [`sg-mobile-icon--${String(color)}`]: color,
     },
     className
   );
   const iconType = `#icon-mobile-${type}`;
 
   return (
+    // @ts-expect-error fix after migration
     <svg {...props} className={iconClass}>
       <use xlinkHref={iconType} />
     </svg>

@@ -47,7 +47,7 @@ test('colors', () => {
   expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
 });
 test('size', () => {
-  const size = 10;
+  const size = 16;
   const type = TYPE.ANSWER;
   const icon = shallow(<Icon type={type} size={size} />);
 
@@ -55,7 +55,7 @@ test('size', () => {
 });
 test('tag type', () => {
   const component = shallow(
-    <Icon type={TYPE.ANSWER} size="10" tagType="span" />
+    <Icon type={TYPE.ANSWER} size={16} tagType="span" />
   );
 
   expect(component.find('span')).toHaveLength(1);

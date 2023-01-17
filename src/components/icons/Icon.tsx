@@ -154,6 +154,7 @@ export type IconTypeType =
   | 'warning'
   | 'youtube'
   | 'gift';
+
 export type IconColorType =
   | 'adaptive'
   | 'icon-black'
@@ -166,6 +167,7 @@ export type IconColorType =
   | 'icon-gray-70'
   | 'icon-gray-50'
   | 'icon-gray-40';
+
 export type IconTagType = 'div' | 'span';
 export type IconSizeType = 16 | 24 | 32 | 40 | 56 | 80 | 104;
 
