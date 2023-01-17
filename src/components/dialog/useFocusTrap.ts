@@ -12,7 +12,7 @@ export function useFocusTrap({
   };
 }) {
   React.useEffect(() => {
-    const originalActiveElement = document.activeElement;
+    const originalActiveElement = document.activeElement as HTMLElement;
     const overlayElement = overlayRef.current;
     const dialogElement = dialogRef.current;
 
@@ -67,7 +67,7 @@ function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
 // https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/js/dialog.js
 function focusFirstDescendant(element: HTMLElement) {
   for (let i = 0; i < element.children.length; i++) {
-    const child = element.children[i];
+    const child = element.children[i] as HTMLElement;
 
     if (attemptFocus(child) || focusFirstDescendant(child)) {
       return true;
@@ -79,7 +79,7 @@ function focusFirstDescendant(element: HTMLElement) {
 
 function focusLastDescendant(element: HTMLElement) {
   for (let i = element.children.length - 1; i >= 0; i--) {
-    const child = element.children[i];
+    const child = element.children[i] as HTMLElement;
 
     if (attemptFocus(child) || focusLastDescendant(child)) {
       return true;
