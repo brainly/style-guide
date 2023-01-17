@@ -5,7 +5,7 @@ import Text from '../../text/Text';
 import Button from '../../buttons/Button';
 import Transition from '../Transition';
 
-const fillModes = ['none', 'forwards', 'backwards', 'both'];
+const fillModes = ['none', 'forwards', 'backwards', 'both'] as const;
 const shrinkFadeEffect = {
   initial: {
     opacity: 0,
@@ -23,7 +23,7 @@ const shrinkFadeEffect = {
     duration: 1000,
     easing: 'exit',
   },
-};
+} as const;
 
 export const FillMode = () => {
   const [active, setActive] = React.useState(false);

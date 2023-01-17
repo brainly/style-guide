@@ -14,7 +14,8 @@ const slideFadeInEffect = {
     duration: 'gentle2',
     easing: 'entry',
   },
-};
+} as const;
+
 const slideFadeOutEffect = {
   animate: {
     opacity: 0,
@@ -24,7 +25,8 @@ const slideFadeOutEffect = {
     duration: 'gentle2',
     easing: 'exit',
   },
-};
+} as const;
+
 const cycle = [slideFadeInEffect, slideFadeOutEffect];
 
 const increment = (n: number) => n + 1;
