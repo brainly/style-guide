@@ -45,6 +45,7 @@ describe('Dialog a11y', () => {
     const descId = 'desc-id';
     const dialog = render(
       <Dialog open aria-describedby={descId} aria-label="Dialog label">
+        {/*@ts-expect-error to be fixed, dialog body doesn't expose id*/}
         <DialogBody id={descId}>
           Information you provide to us directly.
         </DialogBody>

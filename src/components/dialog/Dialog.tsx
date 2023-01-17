@@ -140,7 +140,7 @@ function BaseDialog({
     overlayRef,
   });
   const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
+    (event: React.TransitionEvent<HTMLDivElement>) => {
       if (
         event.target === event.currentTarget &&
         event.propertyName === lastTransitionName
@@ -207,20 +207,26 @@ function BaseDialog({
   const childrenWithoutSlots = React.useMemo(
     () =>
       React.Children.toArray(children).filter(
-        reactNode => reactNode.type !== DialogOverlay
+        reactNode =>
+          (React.isValidElement(reactNode) &&
+            reactNode.type !== DialogOverlay) ||
+          !React.isValidElement(reactNode)
       ),
     [children]
   );
   const childrenWithSlots = React.useMemo(
     () =>
       React.Children.toArray(children).filter(
-        reactNode => reactNode.type === DialogOverlay
+        reactNode =>
+          React.isValidElement(reactNode) && reactNode.type === DialogOverlay
       ),
     [children]
   );
+
+  type ReduceReturnType = Record<typeof SLOTS[number], [React.ReactNode?]>;
   const childrenBySlot = React.useMemo(
     () =>
-      SLOTS.reduce((acc, next) => {
+      SLOTS.reduce<ReduceReturnType>((acc, next) => {
         childrenWithSlots
           .filter(child => child.props.slot === next)
           .forEach(child => {
@@ -231,7 +237,7 @@ function BaseDialog({
             acc[next].push(child);
           });
         return acc;
-      }, {}),
+      }, {} as ReduceReturnType),
     [childrenWithSlots]
   );
 
@@ -269,7 +275,7 @@ function BaseDialog({
       node is a descendants of the container. In order to detect
       the focus event when the dialog is the first or last node,
       bracket the dialog with two invisible, focusable nodes. */}
-      <div tabIndex="0" />
+      <div tabIndex={0} />
       <div
         role="dialog"
         ref={containerRef}
@@ -281,13 +287,13 @@ function BaseDialog({
         aria-label={ariaLabel}
         aria-describedby={ariaDescribedBy}
         aria-description={ariaDescription}
-        tabIndex="-1"
+        tabIndex={-1}
         data-testid={dataTestId}
         data-animating={!hasFinishedTransition}
       >
         {childrenWithoutSlots}
       </div>
-      <div tabIndex="0" />
+      <div tabIndex={0} />
     </div>
   );
 }

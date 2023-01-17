@@ -4,8 +4,12 @@ import {act} from 'react-dom/test-utils';
 import Transition from './Transition'; // https://github.com/jsdom/jsdom/issues/1781
 // https://github.com/testing-library/dom-testing-library/pull/865
 
-class TransitionEvent extends global.Event {
-  constructor(type, init = {}) {
+class TransitionEvent extends Event {
+  elapsedTime: number;
+  propertyName: string;
+  pseudoElement: string;
+
+  constructor(type, init: {[key: string]: any} = {}) {
     super(type, init);
     this.elapsedTime = init.elapsedTime || 0.0;
     this.propertyName = init.propertyName || '';

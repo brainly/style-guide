@@ -115,13 +115,16 @@ export type TransitionEffectType = Readonly<{
   animate?: PropertyObjectType;
   exit?: PropertyObjectType;
 }>;
+
 type TransitionEffectFnType = (
   prefersReducedMotion: boolean
 ) => TransitionEffectType | null;
+
 type TransitionTriggerPropsType = Readonly<{
   active: boolean;
   effect: TransitionEffectType | null;
 }>;
+
 export type TransitionPropsType = Readonly<{
   active: boolean;
   effect: TransitionEffectType | TransitionEffectFnType | null;
@@ -201,8 +204,10 @@ function BaseTransition({
   /**
    * Changing callbacks should not trigger transition.
    */
-  const onTransitionStartRef = React.useRef();
-  const onTransitionEndRef = React.useRef();
+  const onTransitionStartRef =
+    React.useRef<(effect: TransitionEffectType) => void>();
+  const onTransitionEndRef =
+    React.useRef<(effect: TransitionEffectType) => void>();
 
   useIsomorphicLayoutEffect(() => {
     onTransitionStartRef.current = onTransitionStart;
