@@ -55,6 +55,7 @@ test('func throw testing 2part - defined bad type', () => {
   console['error'] = jest.fn();
   const notFunctionObject = 'there should be func not string';
   const button = shallow(
+    // @ts-expect-error
     <ButtonRound onClick={notFunctionObject}>Some text</ButtonRound>
   );
 
