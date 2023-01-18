@@ -1,7 +1,8 @@
 import * as React from 'react';
 import './styles.scss';
 
-export const mergeStories = module => {
+// This any type might be improved by looking at storybook types
+export const mergeStories: any = module => {
   const stories = Object.keys(module)
     .filter(moduleExports => moduleExports !== 'default')
     .map(moduleExportName => {
