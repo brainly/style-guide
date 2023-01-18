@@ -12,6 +12,7 @@ type RadioContextType = {
   setSelectedValue: (SyntheticInputEvent<HTMLInputElement>, ?string) => void,
   lastFocusedValue: ?string,
   setLastFocusedValue: (?string) => void,
+  isPristine?: boolean,
   ...
 };
 
