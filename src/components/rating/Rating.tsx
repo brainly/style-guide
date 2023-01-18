@@ -150,13 +150,14 @@ class Rating extends React.Component<RatingPropsType> {
       className
     );
     const starsProps = generateArrayRange(metricSize).map(rangeIndex => ({
-      size: size === 's' ? 32 : 24,
+      size: size === 's' ? (32 as const) : (24 as const),
       onChange: this.starsOnChangeFunctions[rangeIndex],
       active,
       name: this.name,
       'aria-label': `${rangeIndex + 1}/${metricSize}`,
       value: rangeIndex + 1,
     }));
+
     const rateString = rate.toLocaleString(undefined, {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1,

@@ -14,9 +14,8 @@ describe('rating', () => {
   it("doesn't throw error when no onChange", () => {
     const spy = jest.spyOn(console, 'error');
 
-    console.error = jest.fn();
     shallow(<Rating />);
-    expect(console.error.mock.calls).toHaveLength(0);
+    expect(spy).not.toHaveBeenCalled();
     spy.mockRestore();
   });
   it('active', () => {
@@ -49,7 +48,6 @@ describe('rating', () => {
   it("doesn't throw error when onChange isn't defined", () => {
     const spy = jest.spyOn(console, 'error');
 
-    console.error = jest.fn();
     const rate = 3;
     const rating = mount(<Rating rate={rate} />);
     const stars = rating.find(Star);
@@ -59,7 +57,7 @@ describe('rating', () => {
     const lastRatedStarIndex = rate - 1;
 
     stars.at(lastRatedStarIndex).simulate('click');
-    expect(console.error.mock.calls).toHaveLength(0);
+    expect(spy).not.toHaveBeenCalled();
     spy.mockRestore();
   });
   it('has small size', () => {

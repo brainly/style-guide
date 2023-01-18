@@ -59,7 +59,7 @@ describe('Star', () => {
       />
     );
 
-    expect(star.getByRole('radio', label)).toBeTruthy();
+    expect(star.getByRole('radio', {name: 'label'})).toBeTruthy();
   });
   it('is not accessible when is not active ', () => {
     const label = '2/6';
