@@ -85,7 +85,7 @@ const IconAsButton = ({
     content = children;
   }
 
-  let RenderType = 'button';
+  let RenderType: 'button' | 'a' = 'button';
 
   if (props.href !== undefined && props.href !== null && props.href !== '') {
     RenderType = 'a';

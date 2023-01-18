@@ -28,6 +28,7 @@ const List = ({
   const Tag = ordered ? 'ol' : 'ul';
 
   return (
+    // @ts-expect-error ts migration
     <Tag {...props} className={listClass} role="list">
       {children}
     </Tag>
