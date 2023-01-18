@@ -121,7 +121,7 @@ describe('<Transition />', () => {
       );
 
       if (before !== null) {
-        expect(wrapper.getDOMNode().style.opacity).toBe(before);
+        expect(wrapper.getDOMNode().style.opacity).toBe(`${before}`);
       }
 
       act(() => {
@@ -129,14 +129,14 @@ describe('<Transition />', () => {
         wrapper.update();
         wrapper.simulate('transitionEnd');
       });
-      expect(wrapper.getDOMNode().style.opacity).toBe(after);
+      expect(wrapper.getDOMNode().style.opacity).toBe(`${after}`);
     }
   );
   it('accepts effect prop as a function that returns an effect', () => {
     const effectFunction = jest.fn(() => testEffect);
     const wrapper = mount(<Transition effect={effectFunction} active />);
 
-    expect(wrapper.getDOMNode().style.opacity).toBe(ANIMATE_OPACITY);
+    expect(wrapper.getDOMNode().style.opacity).toBe(`${ANIMATE_OPACITY}`);
     expect(effectFunction).toHaveBeenCalledWith(false);
   });
   it('fires onTransitionEnd after instant transition', () => {

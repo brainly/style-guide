@@ -26,7 +26,7 @@ describe('FileHandler', () => {
     expect(fileHandler.getByRole('button')).toBeTruthy();
   });
   it('has src, so it acts like a link: passes src to link href', () => {
-    const src = '#src';
+    const src = 'http://styleguide.com';
     const fileName = 'file name';
     const fileHandler = render(
       <FileHandler src={src} thumbnailSrc={src}>
