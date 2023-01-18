@@ -14,7 +14,9 @@ type RadioContextType = {
   lastFocusedValue: string | null | undefined;
   setLastFocusedValue: (arg0: string | null | undefined) => void;
 };
-export const RadioContext = React.createContext<RadioContextType>({});
+export const RadioContext = React.createContext<RadioContextType>(
+  {} as RadioContextType
+);
 
 const useRadioContext = (): RadioContextType => {
   return React.useContext(RadioContext);
