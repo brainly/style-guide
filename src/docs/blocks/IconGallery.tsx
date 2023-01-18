@@ -11,7 +11,8 @@ const ItemLabel = styled.div(({theme}) => ({
   lineHeight: 1.2,
   width: 127,
 }));
-const ItemSpecimen = styled.div(({size = 127}) => ({
+
+const ItemSpecimen = styled.div(({size = 127}: {size: number}) => ({
   borderRadius: '4px',
   backgroundColor: '#f5f8fa',
   overflow: 'hidden',

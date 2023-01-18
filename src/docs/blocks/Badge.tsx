@@ -23,7 +23,7 @@ const Badge = styled.div`
       background: rgb(255, 245, 207);
       box-shadow: rgb(161 92 32 / 10%) 0px 0px 0px 1px;
     `};
-  ${props =>
+  ${(props: {status: string; color: string}) =>
     (props.color === 'neutral' || props.status === undefined) &&
     css`
       color: rgb(50 60 69);
