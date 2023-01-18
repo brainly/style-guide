@@ -32,26 +32,28 @@ type PropsType = Readonly<{
   color: 'red' | 'yellow' | 'blue';
   onClick?: () => void;
 }>;
-const DummyBox = React.forwardRef(({size, color, onClick}: PropsType, ref) => (
-  <Box
-    ref={ref}
-    color={colors[color]}
-    padding="xs"
-    onClick={onClick}
-    style={{
-      ...sizes[size],
-      cursor: onClick === undefined ? 'default' : 'pointer',
-    }}
-  >
-    {onClick !== undefined && size === 'listitem' && (
-      <Button
-        size="s"
-        icon={<Icon type="close" size={24} />}
-        variant="transparent-inverted"
-        iconOnly
-      />
-    )}
-  </Box>
-));
+const DummyBox = React.forwardRef<HTMLDivElement, PropsType>(
+  ({size, color, onClick}: PropsType, ref) => (
+    <Box
+      ref={ref}
+      color={colors[color]}
+      padding="xs"
+      onClick={onClick}
+      style={{
+        ...sizes[size],
+        cursor: onClick === undefined ? 'default' : 'pointer',
+      }}
+    >
+      {onClick !== undefined && size === 'listitem' && (
+        <Button
+          size="s"
+          icon={<Icon type="close" size={24} />}
+          variant="transparent-inverted"
+          iconOnly
+        />
+      )}
+    </Box>
+  )
+);
 
 export default DummyBox;
