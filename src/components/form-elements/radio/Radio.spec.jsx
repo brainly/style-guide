@@ -91,6 +91,24 @@ describe('<Radio />', () => {
     expect(onChange).not.toHaveBeenCalled();
     expect(radioInput.checked).toBe(false);
   });
+
+  it('it does not apply animation unless initial state has changed', () => {
+    const radio = renderRadio({
+      checked: false,
+      children: 'my label',
+    });
+    const radioInput = radio.getByRole('radio');
+    const iconWithAnimation = radio.container.getElementsByClassName(
+      'sg-radio__circle--with-animation'
+    );
+
+    expect(radioInput.checked).toBe(false);
+    expect(iconWithAnimation.length).toBe(0);
+    userEvent.click(radio.getByLabelText('my label'));
+    expect(radioInput).toEqual(document.activeElement);
+    expect(radioInput.checked).toBe(true);
+    expect(iconWithAnimation.length).toBe(1);
+  });
 });
 
 describe('<Radio/> a11y', () => {
