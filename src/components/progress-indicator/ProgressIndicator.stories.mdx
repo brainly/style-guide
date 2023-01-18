@@ -1,0 +1,32 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import ProgressIndicator from './ProgressIndicator';
+
+<Meta
+  title="Components/ProgressIndicator"
+  component={ProgressIndicator}
+  args={{
+    maxValue: 10,
+    value: 4,
+  }}
+/>
+
+<PageHeader>ProgressIndicator</PageHeader>
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <ProgressIndicator {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Colors
+
+## Accessibility

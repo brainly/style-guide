@@ -1,0 +1,37 @@
+.sg-progress-indicator {
+
+  &__track {
+    width: 100%;
+    min-width: 120px;
+    border-radius: 8px;
+    background: $gray-30;
+    position: relative;
+    overflow: hidden;
+
+    &--s {
+      height: 8px
+    }
+
+    &--xs {
+      height: 4px;
+    }
+
+    &--no-border-radius {
+      border-radius: 0;
+    }
+
+    &--invisible-track {
+      background: none;
+    }
+  }
+
+  &__bar {
+    background: $indigo-50;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 8px;
+    transition: $durationGentle2 $easingRegular width;
+  }
+}
