@@ -94,7 +94,6 @@ describe('<Radio />', () => {
 
   it('it does not apply animation unless initial state has changed', () => {
     const radio = renderRadio({
-      checked: false,
       children: 'my label',
     });
     const radioInput = radio.getByRole('radio');
