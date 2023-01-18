@@ -228,7 +228,11 @@ function BaseDialog({
     () =>
       SLOTS.reduce<ReduceReturnType>((acc, next) => {
         childrenWithSlots
-          .filter(child => child.props.slot === next)
+          .filter(
+            child =>
+              React.isValidElement<{slot: typeof next}>(child) &&
+              child.props.slot === next
+          )
           .forEach(child => {
             if (!acc[next]) {
               acc[next] = [];

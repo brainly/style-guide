@@ -10,7 +10,7 @@ export type SearchPropsType = {
   withRoundButton?: boolean;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  'inputClassName' | 'withRoundButton'
+  'inputClassName' | 'withRoundButton' | 'size'
 > &
   InputPropsType;
 

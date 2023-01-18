@@ -86,20 +86,20 @@ const Headline = ({
       'sg-headline--extra-bold': type === 'strong',
     },
     ...generateResponsiveClassNames(
-      (propValue: string) => `sg-headline--${propValue}`,
+      propValue => `sg-headline--${propValue}`,
       size
     ),
     ...generateResponsiveClassNames(
-      (propValue: string) => `sg-headline--${propValue}`,
+      propValue => `sg-headline--${propValue}`,
       transform
     ),
     ...generateResponsiveClassNames(
-      (propValue: string) =>
+      propValue =>
         propValue ? `sg-headline--extra-bold` : 'sg-headline--no-bold',
       extraBold
     ),
     ...generateResponsiveClassNames(
-      (propValue: string) => `sg-headline--${propValue}`,
+      propValue => `sg-headline--${propValue}`,
       align
     ),
     className
