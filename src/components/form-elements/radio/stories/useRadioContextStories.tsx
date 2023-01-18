@@ -61,7 +61,7 @@ const CustomRadioComponent = ({
 
   return (
     <div
-      onClick={e => {
+      onClick={(e: any) => {
         setSelectedValue(e, value);
       }}
       style={{
@@ -76,8 +76,8 @@ const CustomRadioComponent = ({
     >
       <Radio
         value={value}
-        ariaLabelledBy={labelId}
-        ariaDescribedBy={descriptionId}
+        aria-labelledby={labelId}
+        aria-describedby={descriptionId}
         style={{
           position: 'absolute',
           top: '0',
