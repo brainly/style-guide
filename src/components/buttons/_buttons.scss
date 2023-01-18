@@ -39,6 +39,7 @@ $largeButtonSize: componentSize(l);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   box-sizing: border-box;
+  overflow: hidden;
 
   &__text {
     position: relative;
@@ -204,7 +205,10 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent {
-    @include buttonHover($gray-50, $transparent, 12%);
+    // @include buttonHover($gray-50, $transparent, 12%);
+    .sg-button__hover-overlay {
+      background-color: mix($gray-50, $transparent, 12%);
+    }
     background-color: $transparent;
     color: $black;
 
@@ -219,36 +223,94 @@ $largeButtonSize: componentSize(l);
     }
   }
 
+  &__hover-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(0.00001);
+    transition: transform 0.1s ease-in-out;
+
+    // &--transparent {
+    //   background-color: mix($gray-50, $transparent, 12%);
+    // }
+
+    // &--transparent-light {
+    //   background-color: mix($gray-50, $transparent, 12%);
+
+    //   &-toggle-red {
+    //     background-color: mix($red-40, $transparent, 12%);
+    //   }
+
+    //   &-toggle-yellow {
+    //     background-color: mix($yellow-40, $transparent, 12%);
+    //   }
+
+    //   &-red {
+    //     background-color: mix($red-40, $transparent, 12%);
+    //   }
+    // }
+  }
+
+  &:hover:not([disabled]),
+  &:active:not([disabled]) {
+    .sg-button__hover-overlay {
+      transform: scale(1);
+      top: 0;
+      left: 0;
+    }
+  }
+
   &--transparent-light {
-    @include buttonHover($gray-50, $transparent, 12%);
+    // @include buttonHover($gray-50, $transparent, 12%);
+    .sg-button__hover-overlay {
+      background-color: mix($gray-50, $transparent, 12%);
+    }
+
     background-color: $transparent;
     color: $gray-50;
 
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
+      // @include buttonHover($red-40, $transparent, 12%);
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
       @include buttonIconColor($red-50);
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-40, $transparent, 12%);
+      // @include buttonHover($yellow-40, $transparent, 12%);
+      .sg-button__hover-overlay {
+        background-color: mix($yellow-40, $transparent, 12%);
+      }
       @include buttonIconColor($yellow-50);
     }
   }
 
   &--transparent-inverted {
-    @include buttonHover($white, $transparent, 12%);
+    // @include buttonHover($white, $transparent, 12%);
+    .sg-button__hover-overlay {
+      background-color: mix($white, $transparent, 12%);
+    }
     background-color: $transparent;
     color: $white;
   }
 
   &--transparent-red {
-    @include buttonHover($red-40, $transparent, 12%);
+    // @include buttonHover($red-40, $transparent, 12%);
+    .sg-button__hover-overlay {
+      background-color: mix($red-40, $transparent, 12%);
+    }
     @include buttonIconColor($red-50);
     background-color: $transparent;
     color: $red-60;
 
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
+      // @include buttonHover($red-40, $transparent, 12%);
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
     }
   }
 
