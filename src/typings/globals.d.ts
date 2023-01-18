@@ -8,3 +8,5 @@ interface Window {
       }
     | undefined;
 }
+
+declare const STORYBOOK_ENV: string;

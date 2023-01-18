@@ -2,13 +2,15 @@ import * as React from 'react';
 import {
   autocompletion,
   completionKeymap,
-  completeFromList, // $FlowFixMe
+  completeFromList,
 } from '@codemirror/autocomplete';
+import type {KeyBinding} from '@codemirror/view';
 import ts from 'typescript';
 import {
   createDefaultMapFromCDN,
   createSystem,
   createVirtualTypeScriptEnvironment,
+  VirtualTypeScriptEnvironment,
 } from '@typescript/vfs';
 import lzstring from 'lz-string';
 import {useActiveCode, SandpackCodeEditor} from '@codesandbox/sandpack-react';
@@ -20,13 +22,15 @@ import reactTypes from '!!raw-loader!../../../../node_modules/@types/react/index
 type CodeEditorPropsType = {
   code: string;
 };
-const compilerOptions = {
-  jsx: 'react',
-};
+
+const {options: compilerOptions} = ts.convertCompilerOptionsFromJson(
+  {jsx: 'rect'},
+  ''
+);
 
 export const CodeEditor = ({code}: CodeEditorPropsType) => {
   const {code: editorCode} = useActiveCode();
-  const [tsEnv, setTsEnv] = React.useState();
+  const [tsEnv, setTsEnv] = React.useState<VirtualTypeScriptEnvironment>();
 
   React.useEffect(() => {
     const setup = async () => {
@@ -99,7 +103,7 @@ export const CodeEditor = ({code}: CodeEditorPropsType) => {
         backgroundColor: 'var(--gray-10)',
       }}
       extensions={extensions}
-      extensionsKeymap={[completionKeymap]}
+      extensionsKeymap={completionKeymap as KeyBinding[]}
     />
   );
 };
