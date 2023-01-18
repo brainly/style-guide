@@ -363,7 +363,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         'sg-button--icon-only': Boolean(icon) && iconOnly,
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
-        [onPressEffect ? `sg-button--press-${onPressEffect}` : '']:
+        [((onPressEffect ? `sg-button--press-${onPressEffect}` : ''): string)]:
           onPressEffect,
       },
       className
