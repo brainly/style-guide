@@ -6,7 +6,7 @@ import Icon from '../../icons/Icon';
 import DummyBox from './common/DummyBox';
 import Stage from './common/Stage';
 
-const colorsOrder = ['red', 'yellow', 'blue'];
+const colorsOrder = ['red', 'yellow', 'blue'] as const;
 
 const createSlideInEffect = (direction: 'left' | 'right') => ({
   initial: {
@@ -43,7 +43,7 @@ const createSlideOutEffect = (direction: 'left' | 'right') => ({
 export const SharedAxis = () => {
   const [effect, setEffect] = React.useState(null);
   const [currentViewIndex, setCurrentViewIndex] = React.useState(0);
-  const nextTransitionCallback = React.useRef();
+  const nextTransitionCallback = React.useRef<() => void>();
 
   const changeView = (viewIndex: number) => {
     if (viewIndex !== currentViewIndex) {
@@ -91,8 +91,8 @@ const buttonIconColors = {
   red: 'icon-red-50',
   yellow: 'icon-yellow-50',
   blue: 'icon-blue-50',
-};
+} as const;
 
 SharedAxis.parameters = {
   layout: 'centered',
-};
+} as const;

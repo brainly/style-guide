@@ -62,7 +62,7 @@ const ExpandableBox = ({
     containerRef,
     updateKey: expanded,
   });
-  const wrapperFixedHeight = React.useRef();
+  const wrapperFixedHeight = React.useRef<number | string>();
 
   const handleExpand = () => {
     onExpand();
@@ -275,7 +275,7 @@ const getElementStyle = (expanded, animating) => {
       left: 16,
       right: 16,
       bottom: 16,
-    };
+    } as const;
   }
 
   if (animating) {
@@ -283,12 +283,12 @@ const getElementStyle = (expanded, animating) => {
       height: '100%',
       position: 'relative',
       zIndex: 1,
-    };
+    } as const;
   }
 
   return {
     cursor: 'pointer',
-  };
+  } as const;
 };
 
 const getBoxStylingProps = color => {
@@ -305,7 +305,7 @@ const getBoxStylingProps = color => {
       backgroundColor: 'blue-30',
       borderColor: 'blue-40',
     },
-  };
+  } as const;
 
   return {
     style: {
@@ -316,7 +316,7 @@ const getBoxStylingProps = color => {
     color: colorsMap[color].backgroundColor,
     borderColor: colorsMap[color].borderColor,
     border: true,
-  };
+  } as const;
 };
 
 ExpandingDetails.parameters = {

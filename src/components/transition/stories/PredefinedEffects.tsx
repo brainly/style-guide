@@ -6,7 +6,9 @@ import Stage from './common/Stage';
 import {predefinedEffects} from '../predefinedEffects';
 import type {PredefinedEffectType} from '../predefinedEffects';
 
-const predefinedEffectTypes = Object.keys(predefinedEffects);
+const predefinedEffectTypes = Object.keys(
+  predefinedEffects
+) as PredefinedEffectType[];
 
 export const PredefinedEffects = () => (
   <Flex

@@ -1,7 +1,10 @@
 declare module '*.png';
 
-declare global {
-  interface Window {
-    sgTransitionDebug: boolean;
-  }
+interface Window {
+  sgTransitionDebug:
+    | {
+        speed: number;
+        outlines: boolean;
+      }
+    | undefined;
 }

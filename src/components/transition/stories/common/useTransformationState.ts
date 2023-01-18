@@ -6,6 +6,7 @@ type ElementSnapshotType = Readonly<{
   width: number;
   height: number;
 }>;
+
 type TransformationStateType = Readonly<{
   previousSnapshot: ElementSnapshotType | null;
   currentSnapshot: ElementSnapshotType | null;
@@ -16,6 +17,7 @@ type TransformationStateType = Readonly<{
   diffScaleX: number;
   diffScaleY: number;
 }>;
+
 export function useTransformationState({
   elementRef,
   containerRef,

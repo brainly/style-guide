@@ -167,7 +167,7 @@ export function createCSSTransitionAnimator(
    * a native transitionEnd event.
    */
   function isInstantTransition(
-    parsedProps?: ParsedPropertyObjectType,
+    parsedProps: ParsedPropertyObjectType | undefined,
     willChangeProps: CSSTransitionedPropsType
   ) {
     if (parsedProps !== undefined) {

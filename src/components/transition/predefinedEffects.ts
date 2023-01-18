@@ -7,8 +7,10 @@ export type PredefinedEffectType =
   | 'slideDownFade'
   | 'slideLeftFade'
   | 'slideRightFade';
-export const predefinedEffects: Readonly<
-  Record<PredefinedEffectType, () => TransitionEffectType>
+
+export const predefinedEffects: Record<
+  PredefinedEffectType,
+  () => TransitionEffectType
 > = {
   fade: () => ({
     initial: {
@@ -146,6 +148,7 @@ export const predefinedEffects: Readonly<
     },
   }),
 };
+
 export function createEffect({
   type,
   ...customEffectProps

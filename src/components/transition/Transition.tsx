@@ -252,7 +252,7 @@ function BaseTransition({
     });
 
     // no rules that trigger the transition found
-    if (!container || rules === undefined) {
+    if (!container || typeof rules === 'undefined') {
       return;
     }
 
@@ -305,7 +305,7 @@ function BaseTransition({
     performTransitionEffect();
   }, [animator, active, currentEffect, delay, fillMode]);
   const handleTransitionEnd = React.useCallback(
-    (event: TransitionEvent) => {
+    (event: React.TransitionEvent<HTMLDivElement>) => {
       // ignores bubbling events of its own descendants
       if (event.target === event.currentTarget) {
         animator.propertyTransitionEnd();
@@ -375,8 +375,8 @@ function Transition({
   ) : null;
 }
 type TransitionRulesType = Readonly<{
-  from: PropertyObjectType | void;
-  to: PropertyObjectType | void;
+  from: PropertyObjectType | undefined;
+  to: PropertyObjectType | undefined;
   canSkipDelay: boolean;
 }>;
 

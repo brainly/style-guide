@@ -14,12 +14,12 @@ export const CurvedMovement = () => {
   });
   const elementRef = React.useRef(null);
   const containerRef = React.useRef(null);
-  const prevTransformation = React.useRef();
   const transformation = useTransformationState({
     elementRef,
     containerRef,
     updateKey: expanded,
   });
+  const prevTransformation = React.useRef<typeof transformation>();
 
   useIsomorphicLayoutEffect(() => {
     if (
@@ -113,7 +113,7 @@ const getBoxStyle = expanded => {
       position: 'absolute',
       right: 16,
       bottom: 16,
-    };
+    } as const;
   }
 };
 

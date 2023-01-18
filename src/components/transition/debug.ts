@@ -2,6 +2,7 @@ type DebugOptionsType = {
   speed: number;
   outlines: boolean;
 };
+
 let batchTimeoutId = null;
 
 export function getDebugOptions(): DebugOptionsType {
