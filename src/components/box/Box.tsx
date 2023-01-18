@@ -133,7 +133,7 @@ export type BoxPropsType = {
  * @example <Box>Text inside Box</Box>
  * @returns {JSX.Element} Box component
  */
-const Box = React.forwardRef(
+const Box = React.forwardRef<HTMLDivElement, BoxPropsType>(
   (
     {
       children,
@@ -172,12 +172,12 @@ const Box = React.forwardRef(
         padding
       ),
       ...generateResponsiveClassNames(
-        ([padding, border]) =>
+        ([padding, border]: [PaddingType, boolean]) =>
           padding && border ? `sg-box--padding-${padding}-border` : '',
         mergeResponsiveProps([padding, border])
       ),
       ...generateResponsiveClassNames(
-        ([border, borderColor]) =>
+        ([border, borderColor]: [boolean, ColorType]) =>
           border && borderColor
             ? `sg-box--border-color-${String(borderColor)}`
             : '',
