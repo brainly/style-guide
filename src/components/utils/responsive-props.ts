@@ -15,7 +15,7 @@ export type ResponsivePropConjuctionType =
     };
 export type ResponsivePropType<T> =
   | T
-  | ReadonlyArray<T | null | undefined>
+  | Array<T | null | undefined>
   | Readonly<{
       sm?: T;
       md?: T;
