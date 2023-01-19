@@ -5,7 +5,6 @@ import {__DEV__, invariant} from '../../utils';
 import Text from '../../text/Text';
 import {CheckIcon, IndeterminateIcon} from './CheckboxIcon';
 import ErrorMessage from '../ErrorMessage';
-import useIsFirstRender from '../../utils/useIsFirstRender';
 
 type CheckboxColorType = 'dark' | 'light';
 type CheckboxLabelSizeType = 'medium' | 'small';
@@ -185,21 +184,27 @@ const Checkbox = ({
   );
   const inputRef = React.useRef(null);
   const iconRef = React.useRef<SVGSVGElement | null>(null);
-  const isFirstRender = useIsFirstRender();
-  const shouldAnimate = !isFirstRender; // Apply checkbox animation when it's already after first render
+  const [isPristine, setIsPristine] = React.useState(true);
 
   React.useEffect(() => {
     if (inputRef.current) inputRef.current.indeterminate = indeterminate;
   }, [inputRef, indeterminate]);
   React.useEffect(() => {
-    if (isControlled) setIsChecked(checked);
-  }, [checked, isControlled]);
+    if (isControlled && checked !== isChecked) {
+      setIsChecked(checked);
+      if (isPristine) setIsPristine(false);
+    }
+  }, [checked, isControlled, isChecked, isPristine]);
   const onInputChange = React.useCallback(
     e => {
-      if (!isControlled) setIsChecked(val => !val);
+      if (!isControlled) {
+        setIsChecked(val => !val);
+        if (isPristine) setIsPristine(false);
+      }
+
       if (onChange) onChange(e);
     },
-    [onChange, isControlled]
+    [onChange, isControlled, isPristine]
   );
 
   if (__DEV__) {
@@ -226,7 +231,7 @@ const Checkbox = ({
     [`sg-checkbox__label--${String(labelSize)}`]: labelSize,
   });
   const iconClass = classNames('sg-checkbox__icon', {
-    'sg-checkbox__icon--with-animation': shouldAnimate,
+    'sg-checkbox__icon--with-animation': !isPristine, // Apply animation only when checkbox is not pristine
   });
   const errorTextId = `${checkboxId}-errorText`;
   const descriptionId = `${checkboxId}-description`;
