@@ -67,6 +67,48 @@ describe('<RadioGroup />', () => {
     expect(radioGroup.getByLabelText('Option B').checked).toBe(false);
   });
 
+  it('checked radio can be changed on controlled radio group', () => {
+    const {container, getByLabelText, rerender} = renderRadioGroup({
+      name: 'option',
+      value: 'option-a',
+    });
+    const iconsWithAnimation = container.getElementsByClassName(
+      'sg-radio__circle--with-animation'
+    );
+
+    expect(iconsWithAnimation.length).toBe(0);
+    expect(getByLabelText('Option A').checked).toBe(true);
+    expect(getByLabelText('Option B').checked).toBe(false);
+
+    // re-render the same component with option-b checked
+    rerender(
+      <RadioGroup {...{name: 'option', value: 'option-b'}}>
+        <Radio onChange={() => jest.fn()} value="option-a">
+          Option A
+        </Radio>
+        <Radio onChange={() => jest.fn()} value="option-b">
+          Option B
+        </Radio>
+      </RadioGroup>
+    );
+
+    expect(iconsWithAnimation.length).toBe(2);
+    expect(getByLabelText('Option A').checked).toBe(false);
+    expect(getByLabelText('Option B').checked).toBe(true);
+  });
+
+  it('it does not apply animation unless initial state has changed', () => {
+    const radioGroup = renderRadioGroup({name: 'option', value: 'option-a'});
+
+    const iconsWithAnimation = radioGroup.container.getElementsByClassName(
+      'sg-radio__circle--with-animation'
+    );
+
+    expect(iconsWithAnimation.length).toBe(0);
+    userEvent.click(radioGroup.getByLabelText('Option B'));
+    expect(iconsWithAnimation.length).toBe(2);
+  });
+
   it('has an accessible name', () => {
     const onChange = jest.fn();
 

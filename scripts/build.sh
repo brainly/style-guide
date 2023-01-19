@@ -15,7 +15,7 @@ node ./scripts/build-sandbox-types.js
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox --mode production
 PUBLIC_PATH=$HOST/$VERSION/docs/ yarn build-sandbox-addon --mode production
 yarn build-newsletter-stories
-VERSION=$VERSION yarn build-storybook --quiet -o dist/storybook/$VERSION/docs
+PUBLIC_PATH=$HOST/ VERSION=$VERSION yarn build-storybook --quiet -o dist/storybook/$VERSION/docs
 
 optstring="d"
 
