@@ -70,6 +70,30 @@ const iconSize = {
 
 ## Stories
 
+### Glow
+
+<Canvas>
+  <Story name="Glow">
+    {args => {
+      return (
+        <Button
+          {...args}
+          glow
+          icon={
+            args.icon ? (
+              <Icon
+                size={iconSize[args.size]}
+                type={args.icon}
+                color="adaptive"
+              />
+            ) : null
+          }
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
 ### Variants
 
 <Canvas>

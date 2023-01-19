@@ -260,6 +260,10 @@ export type ButtonPropsType = {
   onClick?: (
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
+  /**
+   * glowing effect
+   */
+  glow: boolean,
   ...
 };
 
@@ -285,6 +289,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
+      glow,
       ...props
     }: ButtonPropsType,
     ref
@@ -408,6 +413,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
+        {glow ? <span className="sg-button__glow" /> : null}
       </TagToRender>
     );
   }
