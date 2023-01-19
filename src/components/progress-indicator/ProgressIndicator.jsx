@@ -40,6 +40,13 @@ export type ProgressIndicatorPropsType = {
    * @default 100
    */
   maxValue: number,
+
+  /**
+   * Min value
+   * @example <ProgressIndicator minValue={2}/>
+   * @default 0
+   */
+  minValue: number,
 };
 
 const ProgressIndicator = ({
@@ -47,26 +54,38 @@ const ProgressIndicator = ({
   noBorderRadius,
   invisibleTrack,
   value,
+  minValue = 0,
   maxValue = 100,
+  ...props
 }: ProgressIndicatorPropsType) => {
   const trackClass = classNames(
-    'sg-progress-indicator__track',
-    `sg-progress-indicator__track--${String(size)}`,
+    'sg-progress-indicator',
+    `sg-progress-indicator--${String(size)}`,
     {
-      'sg-progress-indicator__track--no-border-radius': noBorderRadius,
-      'sg-progress-indicator__track--invisible-track': invisibleTrack,
+      'sg-progress-indicator--no-border-radius': noBorderRadius,
+      'sg-progress-indicator--invisible-track': invisibleTrack,
     }
   );
 
-  const barWidth = `${Math.round((value / maxValue) * 100)}%`;
-  const barBorderRadius = barWidth === '100%' ? '0' : '0 8px 8px 0';
+  const barWidth = Math.round(
+    ((value - minValue) / (maxValue - minValue)) * 100
+  );
+  const barBorderRadius = barWidth === 100 ? '0' : '0 8px 8px 0';
   const barStyle = {
-    width: barWidth,
+    width: `${barWidth}%`,
     borderRadius: barBorderRadius,
   };
 
   return (
-    <div className={trackClass}>
+    <div
+      {...props}
+      className={trackClass}
+      role="progressbar"
+      aria-valuemin={minValue}
+      aria-valuemax={maxValue}
+      aria-valuenow={value}
+      aria-valuetext={value}
+    >
       <div
         className={classNames('sg-progress-indicator__bar')}
         style={barStyle}

@@ -1,29 +1,27 @@
 .sg-progress-indicator {
+  width: 100%;
+  min-width: 120px;
+  border-radius: 8px;
+  background: $gray-30;
+  position: relative;
+  overflow: hidden;
 
-  &__track {
-    width: 100%;
-    min-width: 120px;
-    border-radius: 8px;
-    background: $gray-30;
-    position: relative;
-    overflow: hidden;
-
-    &--s {
-      height: 8px
-    }
-
-    &--xs {
-      height: 4px;
-    }
-
-    &--no-border-radius {
-      border-radius: 0;
-    }
-
-    &--invisible-track {
-      background: none;
-    }
+  &--s {
+    height: 8px
   }
+
+  &--xs {
+    height: 4px;
+  }
+
+  &--no-border-radius {
+    border-radius: 0;
+  }
+
+  &--invisible-track {
+    background: none;
+  }
+
 
   &__bar {
     background: $indigo-50;
