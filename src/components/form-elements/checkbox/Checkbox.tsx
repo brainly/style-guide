@@ -183,7 +183,7 @@ const Checkbox = ({
     isControlled ? checked : defaultChecked
   );
   const inputRef = React.useRef(null);
-  const iconRef = React.useRef<Element | null>(null);
+  const iconRef = React.useRef<SVGSVGElement | null>(null);
   const [isPristine, setIsPristine] = React.useState(true);
 
   React.useEffect(() => {

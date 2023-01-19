@@ -82,6 +82,7 @@ describe('<RadioGroup />', () => {
     // re-render the same component with option-b checked
     rerender(
       <RadioGroup
+        onChange={() => jest.fn()}
         {...{
           name: 'option',
           value: 'option-b',

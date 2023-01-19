@@ -100,7 +100,7 @@ describe('<Radio />', () => {
     const radio = renderRadio({
       children: 'my label',
     });
-    const radioInput = radio.getByRole('radio');
+    const radioInput = radio.getByRole('radio') as HTMLInputElement;
     const iconWithAnimation = radio.container.getElementsByClassName(
       'sg-radio__circle--with-animation'
     );
