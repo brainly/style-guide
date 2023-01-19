@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant, StoryVariantTable} from '../../../docs/utils';
 import {styled} from '@storybook/theming';
@@ -7,7 +6,6 @@ import PageHeader from 'blocks/PageHeader';
 import Flex from '../../flex/Flex';
 import Headline from '../../text/Headline';
 import Text from '../../text/Text';
-import Button from '../../buttons/Button';
 import Checkbox from './Checkbox';
 import CheckboxA11y from './stories/Checkbox.a11y.mdx';
 
@@ -429,69 +427,6 @@ In the following example, className `sg-checkbox--custom-theme` was applied to a
             With inline color override
           </Checkbox>
         </StyledCheckboxes>
-      );
-    }}
-  </Story>
-</Canvas>
-
-<Canvas>
-  <Story name="With controlled checkboxes">
-    {args => {
-      const dataObject = {
-        101: {
-          id: 101,
-          value: true,
-          name: 'I receive a new answer to my question',
-        },
-        102: {
-          id: 102,
-          value: true,
-          name: 'My answer is chosen as the best',
-        },
-        103: {
-          id: 103,
-          value: true,
-          name: 'I receive a friend request',
-        },
-        104: {
-          id: 104,
-          value: true,
-          name: 'Somebody thanks me for my help',
-        },
-        105: {
-          id: 105,
-          value: true,
-          name: 'There are new comments to my questions',
-        },
-        106: {
-          id: 106,
-          value: true,
-          name: 'There are new comments to my answers',
-        },
-      };
-      const [data, setData] = useState(dataObject);
-      const onChange = id => {
-        const newData = {...data};
-        newData[id] = {...data[id], value: !data[id].value};
-        setData(newData);
-      };
-      return (
-        <Flex direction="column">
-          <div>
-            <Button onClick={() => onChange(101)} size="s">
-              click to toggle first checkbox
-            </Button>
-          </div>
-          {Object.values(data).map((option, index) => (
-            <Checkbox
-              id={option.name}
-              checked={option.value}
-              onChange={() => onChange(option.id)}
-            >
-              {option.name}
-            </Checkbox>
-          ))}
-        </Flex>
       );
     }}
   </Story>

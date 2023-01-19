@@ -13,7 +13,6 @@ type RadioContextType = {
   ) => void;
   lastFocusedValue: string | null | undefined;
   setLastFocusedValue: (arg0: string | null | undefined) => void;
-  isPristine?: boolean;
 };
 export const RadioContext = React.createContext<RadioContextType>(
   {} as RadioContextType

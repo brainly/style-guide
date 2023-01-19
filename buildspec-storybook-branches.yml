@@ -13,4 +13,4 @@ artifacts:
   name: 'branch/$GIT_BRANCH'
   files:
     - '**/*'
-  base-directory: 'dist/storybook/branch/$GIT_BRANCH'
+  base-directory: 'dist/storybook/branch/$GIT_BRANCH/docs'

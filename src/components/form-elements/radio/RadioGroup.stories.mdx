@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../../docs/utils';
 import {styled} from '@storybook/theming';
@@ -9,7 +8,6 @@ import Text from '../../text/Text';
 import Headline from '../../text/Headline';
 import Flex from '../../flex/Flex';
 import Logo from '../../logo/Logo';
-import Button from '../../buttons/Button';
 import SeparatorHorizontal from '../../separators/SeparatorHorizontal';
 
 import Radio from './Radio';
@@ -287,74 +285,6 @@ const CustomRadioComponent = ({
   );
 };
 ```
-
-### With switch between radio groups
-
-<Canvas>
-  <Story
-    name="With switch between radio groups"
-    height="120px"
-    args={{name: 'rg1', value: 'option-a'}}
-  >
-    {args => {
-      const [displayPage1, setDisplayPage1] = useState(true);
-      return (
-        <div>
-          <div>
-            <Button onClick={() => setDisplayPage1(!displayPage1)} size="s">
-              click to toggle page
-            </Button>
-          </div>
-          {displayPage1 ? (
-            <RadioGroup key="rg1" {...args}>
-              <Radio value="option-a">Option A</Radio>
-              <Radio value="option-b">Option B</Radio>
-              <Radio value="option-c">Option C</Radio>
-            </RadioGroup>
-          ) : (
-            <RadioGroup key="rg2" name="rg2" value="option-2">
-              <Radio value="option-1">Option 1</Radio>
-              <Radio value="option-2">Option 2</Radio>
-            </RadioGroup>
-          )}
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
-
-### With controlled RadioGroup
-
-<Canvas>
-  <Story
-    name="With controlled RadioGroup"
-    height="120px"
-    args={{name: 'optionA', value: 'option-a'}}
-  >
-    {args => {
-      const [value, setValue] = useState(null);
-      return (
-        <div>
-          <div>
-            <Button
-              onClick={() =>
-                setValue(value === 'option-a' ? 'option-b' : 'option-a')
-              }
-              size="s"
-            >
-              click to toggle active radio
-            </Button>
-          </div>
-          <RadioGroup {...args} value={value}>
-            <Radio value="option-a">Option A</Radio>
-            <Radio value="option-b">Option B</Radio>
-            <Radio value="option-c">Option B</Radio>
-          </RadioGroup>
-        </div>
-      );
-    }}
-  </Story>
-</Canvas>
 
 ## Accessibility
 

@@ -124,24 +124,6 @@ describe('<Checkbox />', () => {
     userEvent.click(checkbox.getByText(errorMessageText));
     expect(checkboxInput.checked).toBe(false);
   });
-
-  it('it does not apply animation unless initial state has changed', () => {
-    const checkbox = renderCheckbox({
-      defaultChecked: false,
-      children: 'my label',
-    });
-    const checkboxInput = checkbox.getByRole('checkbox');
-    const iconWithAnimation = checkbox.container.getElementsByClassName(
-      'sg-checkbox__icon--with-animation'
-    );
-
-    expect(checkboxInput.checked).toBe(false);
-    expect(iconWithAnimation.length).toBe(0);
-    userEvent.click(checkbox.getByLabelText('my label'));
-    expect(checkboxInput).toEqual(document.activeElement);
-    expect(checkboxInput.checked).toBe(true);
-    expect(iconWithAnimation.length).toBe(1);
-  });
 });
 
 describe('<Checkbox/> accessibility', () => {
