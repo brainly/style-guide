@@ -2,85 +2,151 @@
 
 Combined update notes, summarising changes in the style guide since the last newsletter (since the StyleGuide v219.1.0). Some of the key highlights include:
 
-- remove redundant code for applying class (#2534)
+- [StyleGuide Live Editor](<#-styleguide-live-editor-(beta-version)>)
+- [Newsletter in storybook](#-newsletter-in-storybook)
+- [Focus style](#-focus-style)
+- [Dialog for ads](#-dialog-for-ads)
+- [StyleGuide Metrics](#-styleguide-metrics)
+- [Components updates](#-components-updates)
+- [Engineering](#-engineering)
 
-- Add new Brainly Plus logos, add data-logotype to Logo (#2554)
-- change HomeButton type to accept only brainly market logos (#2538)
-- fix invalid subheadline font weight (#2565)
-- Fix Input size S error message styling (#2523)
-- Fix Input losing focus after error message is displayed (#2550)
-- Fix textarea losing focus after error message is displayed
+## ⌨️ StyleGuide Live Editor (beta version)
 
-Accordion:
+We've created a [live editor inside the storybook](https://styleguide.brainly.com/docs/?path=/story/tools-live-editor--live-editor), so you don't have to run StyleGuide on your local environment to be able to test out StyleGuide components! This tool is in beta version and is to be improved in the future.
 
-- Accordion responsive props (#2535)
-- dont play Accordion animations on default expanded items (#2544)
-- Increase performance of item Accordion expand & focus (#2542)
-- add 'aria-label' and 'aria-labelledby' to Accordion
+![live editor](./newsletter-assets/2023-january/live-editor.png)
 
-Documentation:
+## 📰 Newsletter in storybook
 
-- incorrect styleguide address (#2546)
-- Add link to the pencil design system in the docs (#2556)
-- Update contributing documentation (#2552)
-- List a11y improvements (#2543)
-- fix spacing doc (#2549)
-- Overlay a11y improvements (#2536)
-- Layout a11y improvements (#2532)
-- Update contributing with beta release description
+You can now access our newsletter editions in the storybook. These pages are dynamically created upon the build process, so we have one source of truth for our newsletter, that can be easily accessed in github, but at the same time exist in the storybook!
 
-Button:
+![newsletter](./newsletter-assets/2023-january/newsletter.png)
 
-- Rename Button type to variant (#2533)
-- add high contrast mode for Button (#2540)
+## 👆 Focus style
 
-Dialog:
+We've added two types of focus - default one, called `focusStyle` and one used for inline, wrapped elements called `focusTextStyle`.
 
-- fix DialogOverlay typescript types (#2527)
-- new design for Dialog ads story (#2531)
-- fix dialog not closing when user clicks on overlay (#2539)
-- dialog bugfixing (#2561)
-- Add Appearance Prop (#2583) (fix dialog fullscreen container appearance, add appearance prop)
-- Dialog motion styles depending on motion preset (#2586)
-- Fix Dialog and Transition not to break SSR (#2612)
+Components using `focusStyle`: `Accordion`, `Avatar`, `Button`, `Dialog`, `FileHandler`, `HomeButton`, `IconAsButton`, `Label`, `Rating`, `Search`, `SkipLink`, native interactive elements besides `<a>`.
 
-Newsletter in SB:
+<p float="left">
+  <img
+    src="./newsletter-assets/2023-january/focus-style-button.png"
+    width="200px"
+  />
+</p>
 
-- Newsletter in storybook #2577
+Components using `focusTextStyle`: `Link`, `Checkbox`, `Radio`, `Select`, `Dropdown`, `Search`, `Textarea`, native `<a>`.
 
-Radio and checkbox:
+<p float="left">
+  <img
+    src="./newsletter-assets/2023-january/focus-style-link.png"
+    width="300px"
+  />
+</p>
 
-- Change Checkbox label display to inline (#2547)
-- Radio and Checkbox - documentation and improvements #2569
-- Export useRadioContext from the StyleGuide (#2525)
+There are also new mixins available:
 
-Focus:
+- `applyFocusStyle` & `applyFocusTextStyle` - only with focus style
+- `applyFocus` & `applyFocusText` - with rules when focus should be visible
 
-- Focus style in styleguide (#2562)
-- Focus documentation (#2572)
+Focus colors can be changed by overwriting following css variables: `--focusColorOuter`, `--focusColor`, `--focusColorInner`.
 
-Icons:
+## 🖼 Dialog for ads
 
-- add block icon (#2564)
-- add icons archive and check circle (#2581)
-- Adding answer-bubble to web icons and optically alignining ask_bubble… (#2529)
-- feat(TUTOAND-1057): add mic muted icon (#2567)
-- replace user_moderation icon with user_block icon (#2560)
-- user moderation icon added (#2559)
-- Add new gift icon (#2541)
+We have reworked Dialog layout so it holds slots for ads.
 
-Select:
+![dialog for ads](./newsletter-assets/2023-january/dialog-ads.png)
 
-- Add forwardRef
+## 📈 StyleGuide Metrics
 
-Rating:
+We've created a tool that visualizes StyleGuide components usage.
 
-- Change Rating component - change icon type, spacings and UI of active state (#2626)
+TODO: screenshot here
 
-Engineering:
+## 📦 Components updates
 
-- DS-4028 Update storybook to v6.5 (#2568)
-- Do not remove fill from subject icons during build (#2576)
-- Remove "title" node from svg icons during build (#2578)
-- SG Metrics?
-- Styleguide code sandbox
+### Icons:
+
+Added new desktop icons: `block`, `archive`, `check_circle`, `mic_muted`, `user_block`, `gift` and `answer_bubble`.
+
+![new icons](./newsletter-assets/2023-january/new-icons.png)
+
+### Accordion
+
+- added responsive props
+- animations no longer play on items expanded by default
+- increased performance of expanding and focusing Accordion items
+- added `aria-label` and `aria-labelledby` to Accordion
+
+### Button
+
+- `type` prop renamed to `variant` and `nativeType` renamed to `type`. This change allows the developer to use the `type` attribute of the native button element.
+- added high contrast mode for Button (#2540)
+
+### Dialog
+
+- added `appearance` attribute which allows disabling Dialog container style
+- added `motionPreset` attribute, which allows disabling motion styles, so there is no animation on the Dialog enter
+- fixed DialogOverlay typescript types
+- fixed Dialog not closing when user clicks on the overlay
+- fixed focus trap
+- fixed Dialog and Transition not to break SSR
+
+### Radio, RadioGroup
+
+- added `useRadioContext` hook documentation and the hook export
+- improved RadioGroup documentation
+- extended `style` attribute type, so it supports css variables overrides
+- made possible to use RadioGroup as a controlled component
+- do not apply Radio animation until either Radio checked state or RadioGroup value is changed
+
+### Checkbox
+
+- changed Checkbox label display to inline
+- fixed Checkbox tick animation on Safari and Firefox
+- extended `style` attribute type, so it supports css variables overrides
+- Checkbox animation does not play until either checked state is changed
+
+### Rating
+
+- changed icon type, spacings and UI of active state
+
+### List
+
+- added a11y docs, tests and improvements
+- list now can be ordered or unordered
+
+### Overlay
+
+- added a11y docs and tests
+
+### Layout
+
+- added `as` atrribute to enable adding semantics
+- accessibility documentation and basic test
+
+### Select
+
+- added `forwardRef` support
+
+### Input
+
+- fixed Input size S error message styling
+- fixed Input losing focus after error message is displayed
+
+### HomeButton
+
+- changed HomeButton `type` to accept only Brainly's market logos
+
+### Subheadline
+
+- fixed invalid font weight
+
+### Textarea
+
+- fixed Textarea losing focus after error message is displayed
+
+## 🛠 Engineering
+
+- updated Storybook to v6.5
+- updated CONTRIBUTING.MD documentation with beta release description
