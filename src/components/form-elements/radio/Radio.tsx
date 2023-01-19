@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import Text from '../../text/Text';
 import generateRandomString from '../../../js/generateRandomString';
 import useRadioContext from './useRadioContext';
-import useIsFirstRender from '../../utils/useIsFirstRender';
 
 export type RadioColorType = 'light' | 'dark';
 type RadioLabelSizeType = 'medium' | 'small';
@@ -167,10 +166,10 @@ const Radio = ({
   const isWithinRadioGroup = Boolean(
     radioGroupContext && Object.keys(radioGroupContext).length
   );
+  const [isPristine, setIsPristine] = React.useState(true);
+  const shouldAnimate =
+    (isWithinRadioGroup && !radioGroupContext.isPristine) || !isPristine;
   const isControlled = checked !== undefined || isWithinRadioGroup;
-  const isFirstRender = useIsFirstRender();
-  const shouldAnimate = !isControlled || !isFirstRender; // Apply radio animation only when component is uncontrolled (it means it's unchecked) or it's already after first render
-
   let isChecked = undefined;
 
   if (isControlled) {
@@ -213,6 +212,8 @@ const Radio = ({
     if (isWithinRadioGroup) {
       radioGroupContext.setLastFocusedValue(value);
       radioGroupContext.setSelectedValue(e, value);
+    } else {
+      setIsPristine(false);
     }
 
     if (onChange) {
