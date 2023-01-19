@@ -261,9 +261,9 @@ export type ButtonPropsType = {
     SyntheticMouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => mixed,
   /**
-   * glowing effect
+   * shimmering effect
    */
-  glow: boolean,
+  shimmer: boolean,
   ...
 };
 
@@ -289,7 +289,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
-      glow,
+      shimmer,
       ...props
     }: ButtonPropsType,
     ref
@@ -396,6 +396,7 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
         onClick={onButtonClick}
         type={type}
       >
+        {shimmer ? <span className="sg-button__shimmer" /> : null}
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
@@ -413,7 +414,6 @@ const Button = React.forwardRef<ButtonPropsType, HTMLElement>(
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
-        {glow ? <span className="sg-button__glow" /> : null}
       </TagToRender>
     );
   }
