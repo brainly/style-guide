@@ -1,3 +1,4 @@
 /src/images
 /src/svg-polyfill.js
 flow-typed
+*.d.ts
