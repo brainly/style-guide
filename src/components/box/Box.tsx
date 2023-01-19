@@ -67,7 +67,7 @@ export type BoxPropsType = {
    * Children to be rendered inside of the Box
    * @example <Box>Text inside Box</Box>
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
 
   /**
    * Additional class names
