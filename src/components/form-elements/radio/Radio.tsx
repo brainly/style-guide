@@ -170,7 +170,7 @@ const Radio = ({
   const shouldAnimate =
     (isWithinRadioGroup && !radioGroupContext.isPristine) || !isPristine;
   const isControlled = checked !== undefined || isWithinRadioGroup;
-  let isChecked = undefined;
+  let isChecked: boolean | undefined = undefined;
 
   if (isControlled) {
     // Radio can either be directly set as checked, or be controlled by a RadioGroup

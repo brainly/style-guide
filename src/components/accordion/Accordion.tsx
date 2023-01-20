@@ -250,7 +250,7 @@ const Accordion = ({
 
   const noGapBetweenElements = spacing === 'none';
   const onItemSelect = useCallback(
-    (id, value) => {
+    (id: string, value: boolean) => {
       onChange && onChange(id);
 
       if (!isControlled) {
