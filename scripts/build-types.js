@@ -127,20 +127,3 @@ fs.writeFileSync(
   path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'),
   finalTypes
 );
-
-function mapExtension(extension = '') {
-  const map = {
-    '.js': '.ts',
-    '.jsx': '.tsx',
-  };
-
-  const ext = map[extension];
-
-  if (!ext) {
-    throw new Error(
-      `Extension '${extension}' doesn't have matching element in map.`
-    );
-  }
-
-  return ext;
-}
