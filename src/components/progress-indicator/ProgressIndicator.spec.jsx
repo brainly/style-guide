@@ -49,7 +49,7 @@ describe('<ProgressIndicator />', () => {
     ).toBe(String(values.value));
     expect(
       progressIndicator.getByRole('progressbar').getAttribute('aria-valuetext')
-    ).toBe(String(values.value));
+    ).toBe(values.textValue);
     expect(
       progressIndicator.getByRole('progressbar').getAttribute('aria-valuemin')
     ).toBe(String(values.minValue));
