@@ -14,9 +14,7 @@ describe('<Accordion>', () => {
     );
 
     expect(
-      accordion
-        .find(AccordionItem)
-        .containsMatchingElement('Accordion Item Description')
+      accordion.find(AccordionItem).contains('Accordion Item Description')
     ).toBe(true);
   });
   it('has collapsed items by default', () => {

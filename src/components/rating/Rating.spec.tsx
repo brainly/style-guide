@@ -85,19 +85,19 @@ describe('rating', () => {
       const rating = shallow(<Rating />);
       const rateCounter = rating.find(RateCounter);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
     });
     it('displays counter text when have been rated and no active', () => {
       const rating = shallow(<Rating rate={3} />);
       const rateCounter = rating.find(RateCounter);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
     });
     it('displays counter text when have been rated and active', () => {
       const rating = shallow(<Rating rate={3} active />);
       const rateCounter = rating.find(RateCounter);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
     });
     // should be near same as above, so if we let delete above we need delete it here
     it("doesn't display active text when no active and mouse over stars", () => {
@@ -105,13 +105,13 @@ describe('rating', () => {
       const stars = rating.find('.sg-rate-box__stars-container');
       let rateCounter = rating.find(RateCounter);
 
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
       stars.simulate('mouseEnter');
       rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
       stars.simulate('mouseLeave');
       rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().showActiveText).toBeFalsy();
+      expect(rateCounter.props().activeText).toBeFalsy();
     });
   });
 });

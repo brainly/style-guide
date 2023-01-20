@@ -8,7 +8,7 @@ describe('<Dialog>', () => {
   it('renders children', () => {
     const wrapper = mount(<Dialog open>content text</Dialog>);
 
-    expect(wrapper.containsMatchingElement('content text')).toBe(true);
+    expect(wrapper.contains('content text')).toBe(true);
   });
   it('renders proper size', () => {
     const wrapper = mount(

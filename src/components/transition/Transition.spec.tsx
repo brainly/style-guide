@@ -64,13 +64,15 @@ describe('<Transition />', () => {
       </Transition>
     );
 
-    expect(wrapper.containsMatchingElement('test content')).toBe(true);
+    expect(wrapper.contains('test content')).toBe(true);
   });
   it('does not apply any style when not support transition', () => {
     global.TransitionEvent = undefined;
     const wrapper = mount(<Transition effect={testEffect} active />);
 
-    expect(wrapper.getDOMNode().style.opacity).toBe(DEFAULT_OPACITY);
+    expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
+      DEFAULT_OPACITY
+    );
   });
   it('fires onTransitionStart as a fallback when not support transition', () => {
     global.TransitionEvent = undefined;
@@ -121,7 +123,9 @@ describe('<Transition />', () => {
       );
 
       if (before !== null) {
-        expect(wrapper.getDOMNode().style.opacity).toBe(`${before}`);
+        expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
+          `${before}`
+        );
       }
 
       act(() => {
@@ -129,14 +133,16 @@ describe('<Transition />', () => {
         wrapper.update();
         wrapper.simulate('transitionEnd');
       });
-      expect(wrapper.getDOMNode().style.opacity).toBe(`${after}`);
+      expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(`${after}`);
     }
   );
   it('accepts effect prop as a function that returns an effect', () => {
     const effectFunction = jest.fn(() => testEffect);
     const wrapper = mount(<Transition effect={effectFunction} active />);
 
-    expect(wrapper.getDOMNode().style.opacity).toBe(`${ANIMATE_OPACITY}`);
+    expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
+      `${ANIMATE_OPACITY}`
+    );
     expect(effectFunction).toHaveBeenCalledWith(false);
   });
   it('fires onTransitionEnd after instant transition', () => {
