@@ -8,16 +8,16 @@ module.exports = {
   2.5: '0.625rem',
   3: '0.75rem',
   3.5: '0.875rem',
-
   // generating spacing values from 4-100
-  ...Array.from({length: 100 - 4}).map((_, _index) => {
+  ...Array.from({
+    length: 100 - 4,
+  }).map((_, _index) => {
     const index = _index + 4;
 
     return {
       [index]: `${index / 4}rem`,
     };
   }),
-
   xxs: '4px',
   xs: '8px',
   s: '16px',

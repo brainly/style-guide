@@ -5,9 +5,6 @@
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs-extra');
-const jsc = require('jscodeshift');
-const flowParser = require('jscodeshift/parser/flow');
-const {convert} = require('@khanacademy/flow-to-ts/dist/convert.bundle');
 const ts = require('typescript');
 const apiExtractor = require('@microsoft/api-extractor');
 const tsConfig = require('../tsconfig.json');
@@ -18,7 +15,7 @@ const DEST_DIR = path.join(ROOT_DIR, '.typescript');
 const TYPES_DIR = path.join(ROOT_DIR, 'types');
 
 const files = glob.sync(
-  `{/components/**/*.{js,jsx},/js/generateRandomString.js,/index.js}`,
+  `{/components/**/*.{ts,tsx},/js/generateRandomString.ts,/index.ts}`,
   {
     ignore: [`/**/{pages,iframe-pages,__mocks__}/*`, '/**/*{stories,spec}.*'],
     root: SOURCE_DIR,
@@ -31,80 +28,27 @@ fs.removeSync(DEST_DIR);
 fs.removeSync(TYPES_DIR);
 
 files.forEach(sourceFile => {
-  const flowCode = fs.readFileSync(sourceFile, 'utf-8');
-
-  const ast = jsc(flowCode, {
-    parser: flowParser(),
-  });
-
-  let transformedCode = ast.toSource();
-
-  // Code transformations before converting to typescript
-  // to remove incompatibilities weren't caught by flow-to-ts
-
-  // Remove generic parameters from forwardRef as Flow uses opposite order
-  // forwardRef<Prop, Element> -> forwardRef
-  if (ast.find(jsc.Identifier, {name: 'forwardRef'}).length) {
-    transformedCode = transformedCode.replace(/forwardRef<.*>/g, 'forwardRef');
-  }
-
-  // For all inexact prop types make sure that all pass through props are declared as
-  // intersection with AllHTMLAttributes<HTMLElement>
-  ast
-    .find(jsc.TypeAlias)
-    .filter(path => path.node.id.name.match(/.*PropsType/))
-    .filter(
-      path => jsc(path).find(jsc.ObjectTypeAnnotation, {inexact: true}).length
-    )
-    .forEach(typeAliasPath => {
-      const typeAnnotations = jsc(typeAliasPath).find(
-        jsc.ObjectTypeAnnotation,
-        {inexact: true}
-      );
-
-      // Handling union types with multiple type annotations
-      typeAnnotations.forEach(path => {
-        const code = jsc(path).toSource();
-        const originalPropKeys = path.value.properties.map(prop => {
-          return prop.key.name;
-        });
-
-        const newCode = `${code} & Omit<React.AllHTMLAttributes<HTMLElement>, ${originalPropKeys
-          .map(orgPropKey => `'${orgPropKey}'`)
-          .join(' | ')}>`;
-
-        transformedCode = transformedCode.replace(code, newCode);
-      });
-    });
+  const typescriptCode = fs.readFileSync(sourceFile, 'utf-8');
 
   try {
-    const typescriptCode = convert(transformedCode, {
-      printWidth: 80,
-      singleQuote: true,
-      semi: false,
-      prettier: true,
-      inlineUtilityTypes: true,
-    });
-
-    const sourceExtension = path.extname(sourceFile);
-    const destinationExtension = mapExtension(sourceExtension);
-
     const relativeSourceFile = path.relative(SOURCE_DIR, sourceFile);
-    const outputFile = path.join(
-      DEST_DIR,
-      relativeSourceFile.replace(sourceExtension, destinationExtension)
-    );
+    const outputFile = path.join(DEST_DIR, relativeSourceFile);
 
     fs.outputFileSync(outputFile, typescriptCode, noop => noop);
   } catch (e) {
-    console.error(`Error converting ${sourceFile}`);
+    console.error(`Error copying ${sourceFile}`);
     throw e;
   }
 });
 
 const tsFiles = glob.sync('.typescript/**/*.{ts,tsx}');
 
-const options = {...tsConfig.compilerOptions, declarationDir: '.typescript'};
+const {options: compilerOptions} = ts.convertCompilerOptionsFromJson(
+  tsConfig.compilerOptions,
+  ''
+);
+
+const options = {...compilerOptions, declarationDir: '.typescript'};
 
 console.log('Generating declaration files...');
 
@@ -177,26 +121,9 @@ let finalTypes = fs
   .readFileSync(path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'))
   .toString();
 
-finalTypes = finalTypes.replace(/React_\d\./g, 'React.');
+finalTypes = finalTypes.replace(/React_\d/g, 'React');
 
 fs.writeFileSync(
   path.resolve(TYPES_DIR, 'brainly-style-guide.d.ts'),
   finalTypes
 );
-
-function mapExtension(extension = '') {
-  const map = {
-    '.js': '.ts',
-    '.jsx': '.tsx',
-  };
-
-  const ext = map[extension];
-
-  if (!ext) {
-    throw new Error(
-      `Extension '${extension}' doesn't have matching element in map.`
-    );
-  }
-
-  return ext;
-}

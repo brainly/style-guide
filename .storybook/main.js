@@ -22,14 +22,14 @@ const babelEnv = params => [
 
 async function findStories() {
   return glob
-    .sync('@(src|dist)/**/*.stories.@(jsx|mdx)')
+    .sync('@(src|dist)/**/*.stories.@(tsx|mdx)')
     .filter(storiesPath => !storiesPath.includes('.chromatic.stories.'))
     .map(storiesPath => path.relative(__dirname, storiesPath));
 }
 module.exports = {
   stories:
     process.env.STORYBOOK_ENV === 'chromatic'
-      ? ['../src/**/*.chromatic.stories.@(jsx|mdx)']
+      ? ['../src/**/*.chromatic.stories.@(tsx|mdx)']
       : findStories(),
   addons: [
     '@storybook/addon-essentials',
@@ -157,7 +157,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$|jsx?$/,
+        test: /\.js$|tsx?$/,
         loader: 'babel-loader',
         options: {
           presets: [babelEnv({modules: false}), '@babel/preset-react'],

@@ -1,7 +1,4 @@
-// @flow strict
-
 /* This file is used to generate scss and css colors variables during build process. */
-
 const color = {
   fullColorPalette: [
     {
