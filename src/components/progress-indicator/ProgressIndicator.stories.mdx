@@ -27,6 +27,36 @@ import ProgressIndicator from './ProgressIndicator';
 
 ## Stories
 
-### Colors
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {['xs', 's'].map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <ProgressIndicator {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Without border radius
+
+<Canvas>
+  <Story name="Without border radius" args={{noBorderRadius: true}}>
+    {args => <ProgressIndicator {...args} />}
+  </Story>
+</Canvas>
+
+### With invisible track
+
+<Canvas>
+  <Story name="With invisible track" args={{invisibleTrack: true}}>
+    {args => <ProgressIndicator {...args} />}
+  </Story>
+</Canvas>
 
 ## Accessibility
