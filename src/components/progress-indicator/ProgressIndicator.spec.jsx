@@ -40,6 +40,7 @@ describe('<ProgressIndicator />', () => {
       value: 4,
       minValue: 2,
       maxValue: 8,
+      textValue: 'step 4 of 8',
     };
     const progressIndicator = render(<ProgressIndicator {...values} />);
 

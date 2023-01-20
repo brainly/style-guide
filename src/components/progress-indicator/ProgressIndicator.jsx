@@ -35,6 +35,12 @@ export type ProgressIndicatorPropsType = {
   value: number,
 
   /**
+   * The human-readable text alternative of value
+   * @example <ProgressIndicator value={4} textValue="step 4 of 10"/>
+   */
+  textValue?: string,
+
+  /**
    * Max value
    * @example <ProgressIndicator maxValue={20}/>
    * @default 100
@@ -56,6 +62,7 @@ const ProgressIndicator = ({
   value,
   minValue = 0,
   maxValue = 100,
+  textValue,
   ...props
 }: ProgressIndicatorPropsType) => {
   const trackClass = classNames(
@@ -84,7 +91,7 @@ const ProgressIndicator = ({
       aria-valuemin={minValue}
       aria-valuemax={maxValue}
       aria-valuenow={value}
-      aria-valuetext={value}
+      aria-valuetext={textValue || value}
     >
       <div
         className={classNames('sg-progress-indicator__bar')}
