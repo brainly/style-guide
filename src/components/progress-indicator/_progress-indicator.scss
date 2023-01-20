@@ -7,7 +7,7 @@
   overflow: hidden;
 
   &--s {
-    height: 8px
+    height: 8px;
   }
 
   &--xs {
@@ -21,7 +21,6 @@
   &--invisible-track {
     background: none;
   }
-
 
   &__bar {
     background: $indigo-50;
