@@ -39,14 +39,14 @@ export type ProgressIndicatorPropsType = {
    * @example <ProgressIndicator maxValue={20}/>
    * @default 100
    */
-  maxValue: number,
+  maxValue?: number,
 
   /**
    * Min value
    * @example <ProgressIndicator minValue={2}/>
    * @default 0
    */
-  minValue: number,
+  minValue?: number,
 };
 
 const ProgressIndicator = ({
