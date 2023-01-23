@@ -150,6 +150,28 @@ import {formatTags} from '../../docs/utils';
   </Story>
 </Canvas>
 
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex wrap>
+        {Object.values(ICON_COLOR).map(color => (
+          <div
+            key={color}
+            className={classnames('sg-icon-story-variant', {
+              'sg-story-variant-dark-box': color === ICON_COLOR['icon-white'],
+            })}
+            style={{padding: 10}}
+          >
+            <IconAsButton {...args} color={color} />
+          </div>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <IconAsButtonA11y />
