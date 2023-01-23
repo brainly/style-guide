@@ -1,22 +1,35 @@
 {
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
   },
-  "parser": "babel-eslint",
-  "extends": ["brainly-react", "prettier"],
-  "rules": {
-    "max-len": ["error", {"code": 120, "ignoreComments": true}],
-    "react/no-multi-comp": "off",
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off"
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "babel",
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
+  "extends": ["./.eslintrc.rules.js", "prettier", "prettier/react"],
+  "rules": {},
   "overrides": [
     {
-      "files": ["*.stories.{js,jsx}"],
+      "files": ["*.stories.{js,ts,tsx}"],
       "rules": {"react/prop-types": "off"}
     }
   ],
   "globals": {
+    "JSX": "readonly",
     "hljs": "readonly",
     "html_beautify": "readonly",
     "STORYBOOK_ENV": "readonly"

@@ -1,5 +1,4 @@
 import {Meta, Story} from '@storybook/addon-docs';
-import Box from '../../components/box/Box';
 import Text from '../../components/text/Text';
 import PageHeader from 'blocks/PageHeader';
 
@@ -42,7 +41,7 @@ Components that are higher to draw a little more attention to themselves, but no
   <Text size="small">
     <Text weight="bold">CSS:</Text>0 2px 8px 0 rgba($gray-70, 0.2);
   </Text>
-  <Box className="sg-shadow" padding="xl" style={{width: 'auto'}} />
+  <div className="sg-shadow" style={{width: 150, height: 150}} />
 </Row>
 
 ### Medium
@@ -57,7 +56,7 @@ Components that are intended to be engaged themselves. They are slightly higher 
   <Text size="small">
     <Text weight="bold">CSS:</Text>0 4px 16px 0 rgba($gray-70, 0.2);
   </Text>
-  <Box className="sg-shadow-medium" padding="xl" style={{width: 'auto'}} />
+  <div className="sg-shadow-medium" style={{width: 150, height: 150}} />
 </Row>
 
 ### Large
@@ -72,5 +71,5 @@ Components that are highest to draw the most attention to themselves. They usual
   <Text size="small">
     <Text weight="bold">CSS:</Text>0 8px 32px 0 rgba($gray-70, 0.2);
   </Text>
-  <Box className="sg-shadow-large" padding="xl" style={{width: 'auto'}} />
+  <div className="sg-shadow-large" style={{width: 150, height: 150}} />
 </Row>

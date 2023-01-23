@@ -1,9 +1,15 @@
 const colors = require('./colors');
+
 const spacing = require('./spacing');
+
 const screens = require('./screens');
+
 const fontFamily = require('./fontFamily');
+
 const fontSize = require('./fontSize');
+
 const fontWeight = require('./fontWeight');
+
 const zIndex = require('./zIndex');
 
 module.exports = {
@@ -105,7 +111,9 @@ module.exports = {
     divideColor: theme => theme('borderColor'),
     divideOpacity: theme => theme('borderOpacity'),
     divideWidth: theme => theme('borderWidth'),
-    fill: {current: 'currentColor'},
+    fill: {
+      current: 'currentColor',
+    },
     flex: {
       1: '1 1 0%',
       auto: '1 1 auto',
@@ -352,11 +360,7 @@ module.exports = {
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),
-    maxHeight: theme => ({
-      ...theme('spacing'),
-      full: '100%',
-      screen: '100vh',
-    }),
+    maxHeight: theme => ({...theme('spacing'), full: '100%', screen: '100vh'}),
     maxWidth: (theme, {breakpoints}) => ({
       none: 'none',
       0: '0rem',

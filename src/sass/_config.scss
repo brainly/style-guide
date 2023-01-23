@@ -91,14 +91,14 @@ $breakpointsMap: (
   'medium-up': '(min-width: #{$breakpointMedium})',
   'large-only': '(min-width: #{$breakpointLarge})',
   'large-up': '(min-width: #{$breakpointLarge})',
-  'xlarge-up': '(min-width: #{$breakpointXLarge})',
+  'xlarge-up': '(min-width: #{$breakpointXLarge})'
 );
 
 // Breakpoints map for mobile first approach usage
 $responsiveBreakpointsMap: (
   'md': '(min-width: #{$breakpointMedium})',
   'lg': '(min-width: #{$breakpointLarge})',
-  'xl': '(min-width: #{$breakpointXLarge})',
+  'xl': '(min-width: #{$breakpointXLarge})'
 );
 
 // Breakpoints variants for generating responsive utility classes
