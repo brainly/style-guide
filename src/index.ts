@@ -167,3 +167,5 @@ export type {TransitionEffectType} from './components/transition/Transition';
 export {default as useReducedMotion} from './components/utils/useReducedMotion';
 export type {SkipLinkPropsType} from './components/skip-link/SkipLink';
 export {default as SkipLink} from './components/skip-link/SkipLink';
+export {default as SelectNew} from './components/select/Select';
+export type {SelectPropsType as SelectNewPropsType} from './components/select/Select';
