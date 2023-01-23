@@ -160,12 +160,18 @@ export type IconColorType =
   | 'icon-black'
   | 'icon-white'
   | 'icon-blue-50'
+  | 'icon-blue-60'
   | 'icon-indigo-50'
+  | 'icon-indigo-60'
   | 'icon-green-50'
+  | 'icon-green-60'
   | 'icon-yellow-50'
+  | 'icon-yellow-60'
   | 'icon-red-50'
+  | 'icon-red-60'
   | 'icon-gray-70'
   | 'icon-gray-50'
+  | 'icon-gray-60'
   | 'icon-gray-40';
 
 export type IconTagType = 'div' | 'span';
@@ -330,12 +336,18 @@ export const ICON_COLOR = {
   'icon-black': 'icon-black',
   'icon-white': 'icon-white',
   'icon-blue-50': 'icon-blue-50',
+  'icon-blue-60': 'icon-blue-60',
   'icon-indigo-50': 'icon-indigo-50',
+  'icon-indigo-60': 'icon-indigo-60',
   'icon-green-50': 'icon-green-50',
+  'icon-green-60': 'icon-green-60',
   'icon-yellow-50': 'icon-yellow-50',
+  'icon-yellow-60': 'icon-yellow-60',
   'icon-red-50': 'icon-red-50',
+  'icon-red-60': 'icon-red-60',
   'icon-gray-70': 'icon-gray-70',
   'icon-gray-50': 'icon-gray-50',
+  'icon-gray-60': 'icon-gray-60',
   'icon-gray-40': 'icon-gray-40',
 } as const;
 
