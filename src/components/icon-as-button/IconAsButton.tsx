@@ -59,7 +59,7 @@ const IconAsButton = ({
 }: IconAsButtonPropsType) => {
   if (__DEV__) {
     invariant(
-      !color.includes('60'),
+      !color?.includes('60'),
       'Shade 60 is not supported on this deprecated component. Please use <Button iconOnly...></Button> instead.'
     );
   }
