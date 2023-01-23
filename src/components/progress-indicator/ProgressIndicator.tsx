@@ -1,5 +1,3 @@
-// @flow strict
-
 import * as React from 'react';
 import classNames from 'classnames';
 
@@ -11,48 +9,48 @@ export type ProgressIndicatorPropsType = {
    * @example <ProgressIndicator size="xs"/>
    * @default s
    */
-  size?: SizeType,
+  size?: SizeType;
 
   /**
    * Disable border radius
    * @example <ProgressIndicator noBorderRadius/>
    * @default false
    */
-  noBorderRadius?: boolean,
+  noBorderRadius?: boolean;
 
   /**
    * Enable invisible track
    * @example <ProgressIndicator noTrack/>
    * @default false
    */
-  invisibleTrack?: boolean,
+  invisibleTrack?: boolean;
 
   /**
    * Current value, represents current progress of the process
    * By default represents the current percentage of progress
    * @example <ProgressIndicator value={4}/>
    */
-  value: number,
+  value: number;
 
   /**
    * The human-readable text alternative of value
    * @example <ProgressIndicator value={4} textValue="step 4 of 10"/>
    */
-  textValue?: string,
+  textValue?: string;
 
   /**
    * Max value
    * @example <ProgressIndicator maxValue={20}/>
    * @default 100
    */
-  maxValue?: number,
+  maxValue?: number;
 
   /**
    * Min value
    * @example <ProgressIndicator minValue={2}/>
    * @default 0
    */
-  minValue?: number,
+  minValue?: number;
 };
 
 const ProgressIndicator = ({
@@ -91,7 +89,7 @@ const ProgressIndicator = ({
       aria-valuemin={minValue}
       aria-valuemax={maxValue}
       aria-valuenow={value}
-      aria-valuetext={textValue || value}
+      aria-valuetext={textValue || String(value)}
     >
       <div
         className={classNames('sg-progress-indicator__bar')}

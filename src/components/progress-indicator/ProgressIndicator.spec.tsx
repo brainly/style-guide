@@ -7,13 +7,15 @@ import '@testing-library/jest-dom';
 
 describe('<ProgressIndicator />', () => {
   it('renders correctly with progressbar role', () => {
-    const progressIndicator = render(<ProgressIndicator />);
+    const progressIndicator = render(<ProgressIndicator value={4} />);
 
     expect(progressIndicator.getByRole('progressbar')).toBeTruthy();
   });
 
   it('renders correctly without border radius', () => {
-    const progressIndicator = render(<ProgressIndicator noBorderRadius />);
+    const progressIndicator = render(
+      <ProgressIndicator value={4} noBorderRadius />
+    );
 
     expect(
       progressIndicator.getByRole('progressbar').getAttribute('class')
@@ -21,7 +23,9 @@ describe('<ProgressIndicator />', () => {
   });
 
   it('renders correctly with invisible track', () => {
-    const progressIndicator = render(<ProgressIndicator invisibleTrack />);
+    const progressIndicator = render(
+      <ProgressIndicator value={4} invisibleTrack />
+    );
 
     expect(
       progressIndicator.getByRole('progressbar').getAttribute('class')
@@ -30,7 +34,9 @@ describe('<ProgressIndicator />', () => {
 
   it('has an accessible name', () => {
     const name = 'registration form';
-    const progressIndicator = render(<ProgressIndicator aria-label={name} />);
+    const progressIndicator = render(
+      <ProgressIndicator value={4} aria-label={name} />
+    );
 
     expect(progressIndicator.getByRole('progressbar', {name})).toBeTruthy();
   });
@@ -63,7 +69,7 @@ describe('<ProgressIndicator/> accessibility', () => {
   it('should have no a11y violations when aria-label is provided', async () => {
     const name = 'registration form';
 
-    await testA11y(<ProgressIndicator aria-label={name} />);
+    await testA11y(<ProgressIndicator value={4} aria-label={name} />);
   });
 
   it('should have no a11y violations when values are provided', async () => {
