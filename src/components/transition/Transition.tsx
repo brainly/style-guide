@@ -4,11 +4,13 @@ import useReducedMotion from '../utils/useReducedMotion';
 import {useIsomorphicLayoutEffect} from '../utils/useIsomorphicLayoutEffect';
 import {createClassNamesRegistry} from './classNamesRegistry';
 import {createCSSTransitionAnimator} from './CSSTransitionAnimator';
-import {createEffect} from './predefinedEffects';
+// This is to satisfy api extractor requirement. See https://github.com/brainly/style-guide/issues/2650
+import * as predefinedEffects from './predefinedEffects';
+
 import type {PropertyObjectAnimatorType} from './propertyObjectAnimator';
 import {getDebugOptions} from './debug';
 
-Transition.createEffect = createEffect;
+Transition.createEffect = predefinedEffects.createEffect;
 
 const isFillModeBackwards = mode => mode === 'backwards' || mode === 'both';
 
