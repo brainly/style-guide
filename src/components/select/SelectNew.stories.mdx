@@ -31,7 +31,18 @@ import PageHeader from 'blocks/PageHeader';
 ### With options
 
 <Canvas>
-  <Story name="With options">
-    {args => <Select {...args} onChange={value => console.log(value)} />}
+  <Story name="With value select">
+    {args => {
+      const [value, setValue] = React.useState(null);
+      return (
+        <Select
+          {...args}
+          value={value}
+          onOptionChange={val => {
+            setValue(val);
+          }}
+        />
+      );
+    }}
   </Story>
 </Canvas>

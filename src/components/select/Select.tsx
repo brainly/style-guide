@@ -1,6 +1,13 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import Icon from '../icons/Icon';
+import {generateId} from '../utils';
+
+type SelectOptionElementPropsType = {
+  option: SelectOptionType;
+  isSelected?: boolean;
+  onClick: (string) => unknown;
+};
 
 type SelectOptionType = {
   value: string;
@@ -37,6 +44,8 @@ export type SelectPropsType = {
    */
   options?: ReadonlyArray<SelectOptionsGroupType | SelectOptionType>;
 
+  onOptionChange: (string) => unknown;
+
   /**
    * Additional class names
    */
@@ -46,13 +55,31 @@ export type SelectPropsType = {
   'value' | 'valid' | 'invalid' | 'options' | 'className'
 >;
 
-const getOptionElement = ({value, label}: SelectOptionType) => (
-  <option key={value} value={value}>
-    {label}
-  </option>
-);
+const getOptionElement = ({
+  option,
+  isSelected,
+  onClick,
+}: SelectOptionElementPropsType) => {
+  const {value, label} = option;
 
-const Select = React.forwardRef<HTMLSelectElement, SelectPropsType>(
+  const optionElement = classnames('sg-select__option', {
+    'sg-select__option--selected': isSelected,
+  });
+
+  return (
+    <div
+      key={value}
+      className={optionElement}
+      onClick={() => onClick(value)}
+      role="option"
+      aria-selected={isSelected}
+    >
+      {label}
+    </div>
+  );
+};
+
+const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
   (props: SelectPropsType, ref) => {
     const {
       valid,
@@ -60,8 +87,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectPropsType>(
       value,
       className,
       options = [],
+      onOptionChange,
       ...additionalProps
     } = props;
+
+    const {current: id} = React.useRef<string>(`select-${generateId()}`);
 
     if (valid === true && invalid === true) {
       throw {
@@ -83,13 +113,23 @@ const Select = React.forwardRef<HTMLSelectElement, SelectPropsType>(
       if ('options' in item) {
         return (
           <optgroup key={item.label + index} label={item.label}>
-            {item.options.map(getOptionElement)}
+            {item.options.map(option =>
+              getOptionElement({
+                option,
+                isSelected: option.value === value,
+                onClick: onOptionChange,
+              })
+            )}
           </optgroup>
         );
       }
 
       if (item.label || item.value) {
-        return getOptionElement(item);
+        return getOptionElement({
+          option: item,
+          isSelected: item.value === value,
+          onClick: onOptionChange,
+        });
       }
 
       return null;
@@ -97,18 +137,25 @@ const Select = React.forwardRef<HTMLSelectElement, SelectPropsType>(
 
     return (
       <div className={selectClass}>
-        <div className="sg-select__icon">
-          <Icon type="caret_down" color="icon-gray-50" />
-        </div>
-
-        <select
-          {...additionalProps}
-          className="sg-select__element"
-          value={value}
+        <div
           ref={ref}
+          id={id}
+          className="sg-select__element"
+          role="combobox"
+          tabIndex={0}
+          aria-controls={`${id}-listbox`}
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          {...additionalProps}
         >
+          {value}
+          <div className="sg-select__icon">
+            <Icon type="caret_down" color="icon-gray-50" />
+          </div>
+        </div>
+        <div role="listbox" id={`${id}-listbox`} tabIndex={-1}>
           {optionsElements}
-        </select>
+        </div>
       </div>
     );
   }
