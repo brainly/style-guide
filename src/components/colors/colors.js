@@ -316,9 +316,19 @@ const color = {
       hex: 'ffffff',
     },
     {
+      name: 'icon-blue-60',
+      variable: '$icon-blue-60',
+      hex: '014a82',
+    },
+    {
       name: 'icon-blue-50',
       variable: '$icon-blue-50',
       hex: '0089e3',
+    },
+    {
+      name: 'icon-green-60',
+      variable: '$icon-green-60',
+      hex: '00672e',
     },
     {
       name: 'icon-green-50',
@@ -326,14 +336,29 @@ const color = {
       hex: '24a865',
     },
     {
+      name: 'icon-indigo-60',
+      variable: '$icon-indigo-60',
+      hex: '133191',
+    },
+    {
       name: 'icon-indigo-50',
       variable: '$icon-indigo-50',
       hex: '163bf3',
     },
     {
+      name: 'icon-red-60',
+      variable: '$icon-red-60',
+      hex: 'cf1d00',
+    },
+    {
       name: 'icon-red-50',
       variable: '$icon-red-50',
       hex: 'ff341a',
+    },
+    {
+      name: 'icon-yellow-60',
+      variable: '$icon-yellow-60',
+      hex: '935000',
     },
     {
       name: 'icon-yellow-50',
@@ -344,6 +369,11 @@ const color = {
       name: 'icon-gray-70',
       variable: '$icon-gray-70',
       hex: '323C45',
+    },
+    {
+      name: 'icon-gray-60',
+      variable: '$icon-gray-60',
+      hex: '46535f',
     },
     {
       name: 'icon-gray-50',
