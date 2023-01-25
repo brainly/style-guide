@@ -6,7 +6,6 @@ import PageHeader from 'blocks/PageHeader';
 import {StoryVariantTable} from '../../utils';
 const startAnimation = id => {
   const element = document.getElementById(id);
-  console.log(id, element);
   if (element) {
     element.classList.remove(`sg-animation-fade-in-${id}`);
     setTimeout(() => element.classList.add(`sg-animation-fade-in-${id}`), 0);
