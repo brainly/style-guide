@@ -367,7 +367,7 @@ $largeButtonSize: componentSize(l);
     top: 0;
     height: 100%;
     width: 100%;
-    animation: shimmerMove 10s;
+    animation: shimmerMove 9s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     filter: blur(15px);
@@ -378,13 +378,13 @@ $largeButtonSize: componentSize(l);
   0% {
     left: 100%;
   }
-  30% {
+  33% {
     left: -100%;
   }
-  40% {
+  44% {
     left: -100%;
   }
-  60% {
+  77% {
     left: 100%;
   }
   100% {
