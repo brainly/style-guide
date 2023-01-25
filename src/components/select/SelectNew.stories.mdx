@@ -34,10 +34,13 @@ import PageHeader from 'blocks/PageHeader';
   <Story name="With value select">
     {args => {
       const [value, setValue] = React.useState(null);
+      const [expanded, setExpanded] = React.useState(false);
       return (
         <Select
           {...args}
           value={value}
+          expanded={expanded}
+          onClick={() => setExpanded(!expanded)}
           onOptionChange={val => {
             setValue(val);
           }}

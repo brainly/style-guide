@@ -44,7 +44,11 @@ export type SelectPropsType = {
    */
   options?: ReadonlyArray<SelectOptionsGroupType | SelectOptionType>;
 
+  onClick?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;
+
   onOptionChange: (string) => unknown;
+
+  expanded?: boolean;
 
   /**
    * Additional class names
@@ -87,6 +91,8 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       value,
       className,
       options = [],
+      expanded = false,
+      onClick,
       onOptionChange,
       ...additionalProps
     } = props;
@@ -141,10 +147,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           ref={ref}
           id={id}
           className="sg-select__element"
+          onClick={onClick}
           role="combobox"
           tabIndex={0}
           aria-controls={`${id}-listbox`}
-          aria-expanded="false"
+          aria-expanded={expanded}
           aria-haspopup="listbox"
           {...additionalProps}
         >
@@ -153,9 +160,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             <Icon type="caret_down" color="icon-gray-50" />
           </div>
         </div>
-        <div role="listbox" id={`${id}-listbox`} tabIndex={-1}>
-          {optionsElements}
-        </div>
+        {expanded && (
+          <div role="listbox" id={`${id}-listbox`} tabIndex={-1}>
+            {optionsElements}
+          </div>
+        )}
       </div>
     );
   }
