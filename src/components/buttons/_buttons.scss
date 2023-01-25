@@ -213,20 +213,27 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent {
-    .sg-button__hover-overlay {
-      background-color: mix($gray-50, $transparent, 12%);
-    }
     background-color: $transparent;
     color: $black;
 
+    .sg-button__hover-overlay {
+      background-color: mix($gray-50, $transparent, 12%);
+    }
+
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($yellow-40, $transparent, 12%);
+      }
     }
   }
 
@@ -253,43 +260,47 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-light {
+    background-color: $transparent;
+    color: $gray-50;
+
     .sg-button__hover-overlay {
       background-color: mix($gray-50, $transparent, 12%);
     }
 
-    background-color: $transparent;
-    color: $gray-50;
-
     &-toggle-red {
+      @include buttonIconColor($red-50);
+
       .sg-button__hover-overlay {
         background-color: mix($red-40, $transparent, 12%);
       }
-      @include buttonIconColor($red-50);
     }
 
     &-toggle-yellow {
+      @include buttonIconColor($yellow-50);
+
       .sg-button__hover-overlay {
         background-color: mix($yellow-40, $transparent, 12%);
       }
-      @include buttonIconColor($yellow-50);
     }
   }
 
   &--transparent-inverted {
+    background-color: $transparent;
+    color: $white;
+
     .sg-button__hover-overlay {
       background-color: mix($white, $transparent, 12%);
     }
-    background-color: $transparent;
-    color: $white;
   }
 
   &--transparent-red {
-    .sg-button__hover-overlay {
-      background-color: mix($red-40, $transparent, 12%);
-    }
     @include buttonIconColor($red-50);
     background-color: $transparent;
     color: $red-60;
+
+    .sg-button__hover-overlay {
+      background-color: mix($red-40, $transparent, 12%);
+    }
 
     &-toggle-red {
       .sg-button__hover-overlay {
