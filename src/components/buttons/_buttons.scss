@@ -363,7 +363,7 @@ $largeButtonSize: componentSize(l);
 
   &__shimmer {
     position: absolute;
-    left: 100%;
+    left: -100%;
     top: 0;
     height: 100%;
     width: 100%;
@@ -376,18 +376,18 @@ $largeButtonSize: componentSize(l);
 
 @keyframes shimmerMove {
   0% {
-    left: 100%;
+    left: -100%;
   }
   33% {
-    left: -100%;
+    left: 100%;
   }
   44% {
-    left: -100%;
+    left: 100%;
   }
   77% {
-    left: 100%;
+    left: -100%;
   }
   100% {
-    left: 100%;
+    left: -100%;
   }
 }
