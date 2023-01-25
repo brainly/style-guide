@@ -41,7 +41,7 @@ describe('rating', () => {
     const percentageRate = `${(100 * rate) / metric}%`;
     const rating = shallow(<Rating rate={rate} metricSize={metric} />);
     const filledStarsBox = rating.find('.sg-rate-box__filled-stars');
-    const filledWidth = filledStarsBox.props().style.width;
+    const filledWidth = filledStarsBox.props().style?.width;
 
     expect(filledWidth).toEqual(percentageRate);
   });
