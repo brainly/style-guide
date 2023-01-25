@@ -6,7 +6,10 @@ const src = fs.readFileSync(
   'utf-8'
 );
 
-const dist = src.replace(/export/g, '');
+let dist = src.replace(/export /g, '');
+
+// Importing react breaks autocompletion in current sandpack configuration
+dist = dist.replace(/import \* as React from 'react';\r\n/gm, '');
 
 if (!fs.existsSync(path.join(__dirname, '../dist/sandbox-types'))) {
   fs.mkdirSync(path.join(__dirname, '../dist/sandbox-types'));

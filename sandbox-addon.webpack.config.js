@@ -22,7 +22,7 @@ const babelEnv = params => [
 
 module.exports = {
   entry: {
-    sandbox: './src/docs/addons/sandbox/Sandbox.jsx',
+    sandbox: './src/docs/addons/sandbox/Sandbox.tsx',
   },
   output: {
     path: path.resolve(__dirname, `dist/sandbox-addon`),
@@ -131,7 +131,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$|jsx?$/,
+        test: /\.js$|tsx?$/,
         loader: 'babel-loader',
         options: {
           presets: [babelEnv({modules: false}), '@babel/preset-react'],
@@ -201,7 +201,7 @@ module.exports = {
       path.join(SOURCE_DIR, 'images'),
       path.join('node_modules'),
     ],
-    extensions: ['.jsx', '.js'],
+    extensions: ['.js', '.tsx', '.ts'],
   },
   externals: ['react'],
 };
