@@ -156,17 +156,20 @@ import {formatTags} from '../../docs/utils';
   <Story name="Colors">
     {args => (
       <Flex wrap>
-        {Object.values(ICON_COLOR).map(color => (
-          <div
-            key={color}
-            className={classnames('sg-icon-story-variant', {
-              'sg-story-variant-dark-box': color === ICON_COLOR['icon-white'],
-            })}
-            style={{padding: 10}}
-          >
-            <IconAsButton {...args} color={color} />
-          </div>
-        ))}
+        {Object.values(ICON_COLOR)
+          // Since this component is deprecated and active states for shade 60 is not provided we're not presenting examples for that color
+          .filter(color => !color.includes('60'))
+          .map(color => (
+            <div
+              key={color}
+              className={classnames('sg-icon-story-variant', {
+                'sg-story-variant-dark-box': color === ICON_COLOR['icon-white'],
+              })}
+              style={{padding: 10}}
+            >
+              <IconAsButton {...args} color={color} />
+            </div>
+          ))}
       </Flex>
     )}
   </Story>

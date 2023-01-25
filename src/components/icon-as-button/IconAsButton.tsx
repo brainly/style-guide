@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type {IconColorType, IconTypeType} from '../icons/Icon';
 import Icon, {ICON_COLOR} from '../icons/Icon';
+import {__DEV__, invariant} from '../utils';
 
 type IconSizeType = 'small' | 'normal';
 export const SIZE = {
@@ -56,6 +57,13 @@ const IconAsButton = ({
   title,
   ...props
 }: IconAsButtonPropsType) => {
+  if (__DEV__) {
+    invariant(
+      !color?.includes('60'),
+      'Shade 60 is not supported on this deprecated component. Please use <Button iconOnly...></Button> instead.'
+    );
+  }
+
   const buttonClass = classNames(
     'sg-icon-as-button',
     {
