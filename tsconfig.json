@@ -7,11 +7,19 @@
     "sourceMap": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
-    "jsx": "preserve",
+    "moduleResolution": "node",
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "allowJs": false
+    "allowJs": false,
+    "downlevelIteration": true,
+    "lib": ["dom", "es5", "es2015.collection", "es2015.iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*", "./src/components/*", "./src/docs/*"]
+    }
   },
-  "include": [".typescript/**/*"]
+  "typeRoots": ["src/typings", "node_modules/@types"],
+  "include": ["src/**/*"]
 }

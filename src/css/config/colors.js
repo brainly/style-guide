@@ -7,5 +7,4 @@ Object.keys(colorMap).forEach(groupName => {
     colors[color.name.toLocaleLowerCase().replace(/ /g, '-')] = `#${color.hex}`;
   });
 });
-
 module.exports = colors;
