@@ -72,8 +72,8 @@ function BaseDialog({
   position = 'center',
   appearance = 'dialog',
 }: DialogPropsType) {
-  const overlayRef = React.useRef(null);
-  const containerRef = React.useRef(null);
+  const overlayRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   const [exiting, setExiting] = React.useState<boolean>(false);
 
   if (exiting === open) {

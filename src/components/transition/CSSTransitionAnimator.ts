@@ -53,7 +53,7 @@ export function createCSSTransitionAnimator(
    * ```
    */
   let remainingPropsToChange: number = 0;
-  let finishCallbackRef = null;
+  let finishCallbackRef: () => void;
 
   function addElementStyles({
     element,
@@ -81,8 +81,8 @@ export function createCSSTransitionAnimator(
     element.style.willChange = combine(willChangePropsArray);
 
     if (transitioned) {
-      const transitionProperty = [];
-      const transitionDuration = [];
+      const transitionProperty: string[] = [];
+      const transitionDuration: string[] = [];
       const transitionTimingFunction = [];
 
       /**
