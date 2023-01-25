@@ -205,7 +205,6 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent {
-    // @include buttonHover($gray-50, $transparent, 12%);
     .sg-button__hover-overlay {
       background-color: mix($gray-50, $transparent, 12%);
     }
@@ -229,41 +228,21 @@ $largeButtonSize: componentSize(l);
     position: absolute;
     left: 0;
     top: 0;
-    transform: scale(0.00001);
-    transition: transform 0.1s ease-in-out;
-
-    // &--transparent {
-    //   background-color: mix($gray-50, $transparent, 12%);
-    // }
-
-    // &--transparent-light {
-    //   background-color: mix($gray-50, $transparent, 12%);
-
-    //   &-toggle-red {
-    //     background-color: mix($red-40, $transparent, 12%);
-    //   }
-
-    //   &-toggle-yellow {
-    //     background-color: mix($yellow-40, $transparent, 12%);
-    //   }
-
-    //   &-red {
-    //     background-color: mix($red-40, $transparent, 12%);
-    //   }
-    // }
+    transform: scale(0.5);
+    transition: transform 0.26s cubic-bezier(0.1, 0, 0, 1), opacity 0.18s linear;
+    opacity: 0;
+    border-radius: 20px;
   }
 
   &:hover:not([disabled]),
   &:active:not([disabled]) {
     .sg-button__hover-overlay {
       transform: scale(1);
-      top: 0;
-      left: 0;
+      opacity: 1;
     }
   }
 
   &--transparent-light {
-    // @include buttonHover($gray-50, $transparent, 12%);
     .sg-button__hover-overlay {
       background-color: mix($gray-50, $transparent, 12%);
     }
@@ -272,7 +251,6 @@ $largeButtonSize: componentSize(l);
     color: $gray-50;
 
     &-toggle-red {
-      // @include buttonHover($red-40, $transparent, 12%);
       .sg-button__hover-overlay {
         background-color: mix($red-40, $transparent, 12%);
       }
@@ -280,7 +258,6 @@ $largeButtonSize: componentSize(l);
     }
 
     &-toggle-yellow {
-      // @include buttonHover($yellow-40, $transparent, 12%);
       .sg-button__hover-overlay {
         background-color: mix($yellow-40, $transparent, 12%);
       }
@@ -289,7 +266,6 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-inverted {
-    // @include buttonHover($white, $transparent, 12%);
     .sg-button__hover-overlay {
       background-color: mix($white, $transparent, 12%);
     }
@@ -298,7 +274,6 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent-red {
-    // @include buttonHover($red-40, $transparent, 12%);
     .sg-button__hover-overlay {
       background-color: mix($red-40, $transparent, 12%);
     }
@@ -307,7 +282,6 @@ $largeButtonSize: componentSize(l);
     color: $red-60;
 
     &-toggle-red {
-      // @include buttonHover($red-40, $transparent, 12%);
       .sg-button__hover-overlay {
         background-color: mix($red-40, $transparent, 12%);
       }
