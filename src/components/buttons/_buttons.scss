@@ -92,6 +92,10 @@ $largeButtonSize: componentSize(l);
     padding: 0 28px;
     font-size: 21px;
     line-height: 21px;
+
+    .sg-button__hover-overlay {
+      border-radius: 28px;
+    }
   }
 
   &--s {
@@ -100,6 +104,10 @@ $largeButtonSize: componentSize(l);
     padding: 0 spacing(s);
     font-size: 12px;
     line-height: 12px;
+
+    .sg-button__hover-overlay {
+      border-radius: 16px;
+    }
 
     // Proxima is broken
     // Added to align text in the center for this font-size
