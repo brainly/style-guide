@@ -117,7 +117,9 @@ const RadioGroup = ({
 }: RadioGroupPropsType) => {
   const {current: initialValue} = React.useRef(value);
   const [selectedValue, setSelectedValue] = React.useState(value || null);
-  const [lastFocusedValue, setLastFocusedValue] = React.useState(null);
+  const [lastFocusedValue, setLastFocusedValue] = React.useState<
+    string | null | undefined
+  >(null);
   const radioGroupClass = classNames('sg-radio-group', className);
   const radioGroupItemsClass = classNames('sg-radio-group__items', {
     [`sg-radio-group__items--direction-${String(direction)}`]: direction,
@@ -127,7 +129,7 @@ const RadioGroup = ({
 
   // If value passed to RadioGroup changes, update the selectedValue
   React.useEffect(() => {
-    setSelectedValue(value);
+    setSelectedValue(value ?? null);
   }, [value]);
   // If selectedValue changes set isPristine to false
   React.useEffect(() => {
@@ -140,7 +142,7 @@ const RadioGroup = ({
   };
 
   const describedbyIds = React.useMemo(() => {
-    const ids = [];
+    const ids: Array<string | undefined> = [];
 
     if (invalid && errorMessage) {
       ids.push(errorTextId);

@@ -182,7 +182,7 @@ const Checkbox = ({
   const [isChecked, setIsChecked] = React.useState(
     isControlled ? checked : defaultChecked
   );
-  const inputRef = React.useRef(null);
+  const inputRef = React.useRef<HTMLInputElement>(null);
   const iconRef = React.useRef<SVGSVGElement | null>(null);
   const [isPristine, setIsPristine] = React.useState(true);
 
@@ -236,7 +236,7 @@ const Checkbox = ({
   const errorTextId = `${checkboxId}-errorText`;
   const descriptionId = `${checkboxId}-description`;
   const describedbyIds = React.useMemo(() => {
-    const ids = [];
+    const ids: string[] = [];
 
     if (invalid && errorMessage) {
       ids.push(errorTextId);
@@ -248,7 +248,7 @@ const Checkbox = ({
 
     return ids.join(' ');
   }, [errorTextId, descriptionId, invalid, errorMessage, description]);
-  let checkboxIcon = null;
+  let checkboxIcon: React.ReactNode = null;
 
   if (isChecked && !indeterminate) checkboxIcon = <CheckIcon ref={iconRef} />;
   if (indeterminate) checkboxIcon = <IndeterminateIcon ref={iconRef} />;
