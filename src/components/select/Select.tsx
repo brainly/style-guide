@@ -1,7 +1,9 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import {useFloating} from '@floating-ui/react';
+
 import Icon from '../icons/Icon';
-import {generateId} from '../utils';
+import {generateId, mergeRefs} from '../utils';
 
 type SelectOptionElementPropsType = {
   option: SelectOptionType;
@@ -96,8 +98,8 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
       ...additionalProps
     } = props;
-
     const {current: id} = React.useRef<string>(`select-${generateId()}`);
+    const {x, y, strategy, refs} = useFloating();
 
     if (valid === true && invalid === true) {
       throw {
@@ -144,7 +146,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     return (
       <div className={selectClass}>
         <div
-          ref={ref}
+          ref={mergeRefs(ref, refs.setReference)}
           id={id}
           className="sg-select__element"
           onClick={onClick}
@@ -161,7 +163,18 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           </div>
         </div>
         {expanded && (
-          <div role="listbox" id={`${id}-listbox`} tabIndex={-1}>
+          <div
+            ref={refs.setFloating}
+            style={{
+              position: strategy,
+              top: y ?? 0,
+              left: x ?? 0,
+              width: 'max-content',
+            }}
+            role="listbox"
+            id={`${id}-listbox`}
+            tabIndex={-1}
+          >
             {optionsElements}
           </div>
         )}
