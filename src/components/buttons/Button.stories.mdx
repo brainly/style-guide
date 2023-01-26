@@ -70,31 +70,6 @@ const iconSize = {
 
 ## Stories
 
-### Shimmer
-
-<Canvas>
-  <Story name="Shimmer">
-    {args => {
-      return (
-        <Button
-          {...args}
-          variant="solid-indigo"
-          shimmer
-          icon={
-            args.icon ? (
-              <Icon
-                size={iconSize[args.size]}
-                type={args.icon}
-                color="adaptive"
-              />
-            ) : null
-          }
-        />
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Variants
 
 <Canvas>
@@ -538,6 +513,31 @@ const iconSize = {
         </tbody>
       </StoryVariantTable>
     )}
+  </Story>
+</Canvas>
+
+### Shimmering
+
+<Canvas>
+  <Story name="Shimmering">
+    {args => {
+      return (
+        <Button
+          {...args}
+          variant="solid-indigo"
+          shimmer
+          icon={
+            args.icon ? (
+              <Icon
+                size={iconSize[args.size]}
+                type={args.icon}
+                color="adaptive"
+              />
+            ) : null
+          }
+        />
+      );
+    }}
   </Story>
 </Canvas>
 
