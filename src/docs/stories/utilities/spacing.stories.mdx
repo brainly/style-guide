@@ -1,0 +1,114 @@
+import {Meta} from '@storybook/addon-docs';
+import {version} from '../../../../package.json';
+import Box from '../../../components/box/Box';
+import Flex from '../../../components/flex/Flex';
+import Headline from '../../../components/text/Headline';
+import PageHeader from 'blocks/PageHeader';
+import {StoryVariant, StoryVariantTable} from '../../utils';
+const sizes = ['xxs', 'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'];
+
+export const BlueBox = ({children, ...props}) => (
+  <Box color="blue-40" style={{width: '40px', height: '40px'}} {...props}>
+    {children}
+  </Box>
+);
+
+<Meta title="Utilities/Spacing" />
+
+<PageHeader type="utility">Spacing</PageHeader>
+
+You can control the space between child elements by using single purpose flexible classes <code>.sg-space-{x, y}-{xxs, xs, s, m, l, xl, xxl, xxxl, xxxxl}</code>.
+
+## Horizontal
+
+Control the horizontal space between children.
+
+<StoryVariantTable>
+  {sizes.map(size => (
+    <tr key={size}>
+      <td>
+        <Headline
+          extraBold
+          transform="uppercase"
+          type="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          sg-space-x-{size}
+        </Headline>
+      </td>
+      <td>
+        <Flex className={`sg-space-x-${size}`}>
+          <BlueBox />
+          <BlueBox />
+        </Flex>
+      </td>
+    </tr>
+  ))}
+</StoryVariantTable>
+
+## Vertical
+
+Control the vertical space between children.
+
+<div style={{overflowX: 'scroll', maxWidth: '100%'}}>
+  <StoryVariantTable>
+    <tr>
+      {sizes.map(size => (
+        <td
+          key={size}
+          style={{
+            'writing-mode': 'vertical-lr',
+            transform: 'scale(-1)',
+          }}
+        >
+          <Headline
+            extraBold
+            transform="uppercase"
+            type="span"
+            color="text-gray-60"
+            size="xsmall"
+          >
+            sg-space-y-{size}
+          </Headline>
+        </td>
+      ))}
+    </tr>
+    <tr>
+      {sizes.map(size => (
+        <td key={size} style={{verticalAlign: 'top'}}>
+          <div className={`sg-space-y-${size}`}>
+            <BlueBox />
+            <BlueBox />
+          </div>
+        </td>
+      ))}
+    </tr>
+  </StoryVariantTable>
+</div>
+
+## Ignore empty
+
+Applying <code>empty</code> variant results in ignoring empty nodes from layout modification. The same result you can achieve by using <code>.sg-space-ignore</code> class on particular child elements.
+
+Inbelow example parent element has <code>.empty:sg-space-x-m</code> class applied, child 3 is empty, and child 4 has <code>.sg-space-ignore</code> class applied.
+
+<Flex className="empty:sg-space-x-m">
+  <BlueBox>1</BlueBox>
+  <BlueBox>2</BlueBox>
+  <BlueBox></BlueBox>
+  <BlueBox className="sg-space-ignore">4</BlueBox>
+  <BlueBox>5</BlueBox>
+</Flex>
+
+## Responsive
+
+Control the space between children depending on screen size.
+
+Change browser window to see effect of selected classes.
+
+<Flex className="sg-space-x-s md:sg-space-x-xl lg:sg-space-x-xxxl">
+  <BlueBox />
+  <BlueBox />
+  <BlueBox />
+</Flex>

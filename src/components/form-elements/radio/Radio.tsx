@@ -177,7 +177,7 @@ const Radio = ({
     isChecked =
       checked !== undefined
         ? checked
-        : radioGroupContext.selectedValue &&
+        : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
   }
 
