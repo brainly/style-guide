@@ -78,16 +78,6 @@ const iconSize = {
 
 ## Stories
 
-### Button press efect
-
-<Canvas>
-  <Story name="Press Efects">
-    {args => {
-      return <Button onPressEffect="scale-down">scale down</Button>;
-    }}
-  </Story>
-</Canvas>
-
 ### Variants
 
 <Canvas>
@@ -531,6 +521,16 @@ const iconSize = {
         </tbody>
       </StoryVariantTable>
     )}
+  </Story>
+</Canvas>
+
+### Press effects
+
+<Canvas>
+  <Story name="Press Efects">
+    {args => {
+      return <Button onPressEffect="scale-down">scale down</Button>;
+    }}
   </Story>
 </Canvas>
 
