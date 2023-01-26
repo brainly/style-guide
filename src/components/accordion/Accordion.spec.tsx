@@ -1,9 +1,6 @@
 import * as React from 'react';
-// import {mount} from 'enzyme';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import Link from '../text/Link';
-import Box from '../box/Box';
 import {render, fireEvent} from '@testing-library/react';
 
 describe('<Accordion>', () => {
