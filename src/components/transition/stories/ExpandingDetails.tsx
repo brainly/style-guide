@@ -15,7 +15,7 @@ type ExampleDataType = Array<{
 }>;
 export const ExpandingDetails = () => {
   const containerRef = React.useRef(null);
-  const [expandedIndex, setExpandedIndex] = React.useState(null);
+  const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
 
   return (
     <Stage ref={containerRef} className="sg-space-y-xs" format="portrait">
@@ -56,7 +56,7 @@ const ExpandableBox = ({
     expandingBox: null,
     appearingContent: null,
   });
-  const elementRef = React.useRef(null);
+  const elementRef = React.useRef<HTMLDivElement>(null);
   const transformation = useTransformationState({
     elementRef,
     containerRef,

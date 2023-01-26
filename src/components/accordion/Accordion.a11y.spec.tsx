@@ -47,7 +47,7 @@ describe('Accordion', () => {
     await waitFor(() => expect(accordion.getByRole('region')).toBeTruthy());
     accordion.getByRole('button').click();
     expect(item.getAttribute('aria-expanded')).toEqual('false');
-    fireEvent(accordion.queryByRole('region'), new Event('transitionend'));
+    fireEvent(accordion.getByRole('region'), new Event('transitionend'));
     await waitFor(() => expect(accordion.queryByRole('region')).toBeNull());
   });
   it('expands and collapses item on Enter/Space keydown when motion is reduced', async () => {
