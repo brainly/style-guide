@@ -1,6 +1,6 @@
 {
   "name": "brainly-style-guide",
-  "version": "221.1.0",
+  "version": "222.1.0",
   "description": "Brainly Front-End Style Guide",
   "repository": "https://github.com/brainly/style-guide.git",
   "author": "Brainly Team",
@@ -29,7 +29,7 @@
     "@codesandbox/sandpack-themes": "^1.17.0",
     "@types/react": "^16.2.0",
     "chalk": "4.1.2",
-    "classnames": "^2.2.5",
+    "classnames": "^2.3.2",
     "glob": "^7.2.0",
     "inquirer": "^8.2.0",
     "jscodeshift": "^0.13.1",
@@ -44,13 +44,13 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-flow": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.12.1",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@brainly/s3": "^4.4.0",
     "@emotion/babel-plugin": "^11.10.2",
     "@hot-loader/react-dom": "^16.8.6",
     "@khanacademy/flow-to-ts": "^0.5.2",
-    "@microsoft/api-extractor": "^7.23.0",
+    "@microsoft/api-extractor": "^7.33.8",
     "@storybook/addon-a11y": "^6.5.13",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",
@@ -65,11 +65,13 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/react-hooks": "^8.0.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/enzyme": "^3.10.12",
     "@types/react-dom": "^16.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "@typescript/vfs": "^1.4.0",
     "autoprefixer": "^10.0.4",
-    "babel-eslint": "^10.0.2",
-    "babel-jest": "^20.0.3",
+    "babel-jest": "^29.3.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-codegen": "^4.1.5",
     "babel-plugin-transform-define": "^2.0.1",
@@ -81,12 +83,11 @@
     "eslint": "^7.18.0",
     "eslint-config-brainly-react": "^2.7.0",
     "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-flowtype": "^4.2.0",
+    "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^4.1.0",
     "flow-bin": "^0.112.0",
     "fs-extra": "^9.0.1",
@@ -115,7 +116,7 @@
     "polished": "^4.0.3",
     "postcss": "^8.4.5",
     "postcss-loader": "^4.1.0",
-    "prettier": "^2.5.1",
+    "prettier": "^2.8.1",
     "progress-estimator": "^0.3.0",
     "query-string": "^6.5.0",
     "raw-loader": "^4.0.2",
@@ -153,14 +154,15 @@
     "build-chromatic": "NODE_ENV=production PUBLIC_PATH=/ STORYBOOK_ENV=chromatic yarn build-storybook",
     "build-newsletter-stories": "node ./scripts/build-newsletter-stories.js",
     "build-sandbox": "webpack --config=sandbox.webpack.config.js",
-    "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon --only 'src/docs/addons/sandbox/manager.js' --only 'src/docs/addons/sandbox/preset.js' && webpack --config=sandbox-addon.webpack.config.js",
-    "clean": "rimraf css dist dist-sandbox",
+    "build-sandbox-addon": "BABEL_ENV=commonjs babel src/docs/addons/sandbox --out-dir dist/sandbox-addon --only 'src/docs/addons/sandbox/manager.tsx' --only 'src/docs/addons/sandbox/preset.ts' --extensions '.js,.ts,.tsx,.jsx' && webpack --config=sandbox-addon.webpack.config.js",
+    "clean": "rimraf css dist dist-sandbox && yarn package-clean",
     "eslint": "./node_modules/.bin/eslint",
-    "js-lint": "eslint --ext .js --ext .jsx src/",
-    "js-typecheck": "flow && node ./scripts/build-types.js",
+    "ts-lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
+    "ts-buildtypes": "node ./scripts/build-types.js",
+    "ts-check": "tsc --noEmit --emitDeclarationOnly false",
     "package-clean": "rimraf esm/ commonjs/ css/ types/ assets/ deprecated.yaml",
-    "package-esm": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.js' --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/logo-url.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
-    "package-commonjs": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.js' --only 'src/components' --only 'src/js' --only 'src/index.js' --only 'src/logo-url.js' --ignore '**/*.spec.jsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**'",
+    "package-esm": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=esm babel src --out-dir esm --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
+    "package-commonjs": "PUBLIC_PATH=https://styleguide.brainly.com/ BABEL_ENV=commonjs babel src --out-dir commonjs --only 'src/logos.ts' --only 'src/components' --only 'src/js' --only 'src/index.ts' --only 'src/logo-url.ts' --ignore '**/*.spec.tsx' --ignore '**/pages/**' --ignore '**/iframe-pages/**' --ignore '**/__mocks__/**' --extensions '.js,.ts,.tsx,.jsx'",
     "package-css": "node ./scripts/build-css.js",
     "package-deprecated": "node ./scripts/build-deprecated-list.js",
     "package-assets": "gulp build-package-assets",
@@ -176,13 +178,14 @@
     "scss-unused-variables": "./scripts/find_scss_unused_variables.sh src/",
     "storybook": "./scripts/storybook.sh",
     "storybook-chromatic": "STORYBOOK_ENV=chromatic ./scripts/storybook.sh",
-    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run js-typecheck && yarn run js-lint && yarn prettier-check && jest"
+    "test": "yarn run scss-lint && yarn run scss-unused-variables && yarn run ts-lint && yarn run ts-check && yarn run ts-buildtypes && yarn prettier-check && jest"
   },
   "jest": {
     "setupFiles": [
       "./scripts/testsSetup.js"
     ],
     "setupFilesAfterEnv": [
+      "@testing-library/jest-dom",
       "jest-axe/extend-expect"
     ],
     "moduleDirectories": [
@@ -191,7 +194,7 @@
       "src/docs"
     ],
     "transform": {
-      ".jsx?$": "babel-jest"
+      "\\.[jt]sx?$": "babel-jest"
     },
     "roots": [
       "<rootDir>/src",
@@ -201,7 +204,7 @@
   },
   "sideEffects": [
     "*.scss",
-    "./src/images/*icons.js"
+    "./src/images/*icons.ts"
   ],
   "bin": {
     "sg-codemod": "./bin/codemods/cli.js",
