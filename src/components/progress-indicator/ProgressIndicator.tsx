@@ -51,6 +51,8 @@ export type ProgressIndicatorPropsType = {
    * @default 0
    */
   minValue?: number;
+
+  className?: string;
 };
 
 const ProgressIndicator = ({
@@ -61,6 +63,7 @@ const ProgressIndicator = ({
   minValue = 0,
   maxValue = 100,
   textValue,
+  className,
   ...props
 }: ProgressIndicatorPropsType) => {
   const trackClass = classNames(
@@ -84,7 +87,7 @@ const ProgressIndicator = ({
   return (
     <div
       {...props}
-      className={trackClass}
+      className={classNames(trackClass, className)}
       role="progressbar"
       aria-valuemin={minValue}
       aria-valuemax={maxValue}

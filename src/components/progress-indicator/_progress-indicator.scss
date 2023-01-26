@@ -1,8 +1,11 @@
 .sg-progress-indicator {
+  --barColor: #{$indigo-50};
+  --trackColor: #{$gray-30};
+
   width: 100%;
   min-width: 120px;
   border-radius: 8px;
-  background: $gray-30;
+  background: var(--trackColor);
   position: relative;
   overflow: hidden;
 
@@ -19,11 +22,11 @@
   }
 
   &--invisible-track {
-    background: none;
+    --trackColor: transparent;
   }
 
   &__bar {
-    background: $indigo-50;
+    background: var(--barColor);
     position: absolute;
     top: 0;
     left: 0;
