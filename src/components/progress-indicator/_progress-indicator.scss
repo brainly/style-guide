@@ -32,6 +32,7 @@
     left: 0;
     bottom: 0;
     min-width: 8px;
-    transition: $durationGentle2 $easingRegular width;
+    transition-property: width;
+    transition-timing-function: $easingRegular;
   }
 }
