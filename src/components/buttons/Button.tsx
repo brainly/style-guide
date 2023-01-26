@@ -251,7 +251,7 @@ export type ButtonPropsType = {
   /**
    * shimmering effect
    */
-  shimmer: boolean;
+  shimmer?: boolean;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'variant'
