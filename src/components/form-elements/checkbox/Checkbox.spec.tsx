@@ -106,7 +106,7 @@ describe('<Checkbox />', () => {
     userEvent.click(checkboxInput);
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
-    userEvent.click(checkbox.queryByLabelText(labelText));
+    userEvent.click(checkbox.getByLabelText(labelText));
     expect(onChange).not.toHaveBeenCalled();
     expect(checkboxInput.checked).toBe(true);
   });

@@ -122,7 +122,7 @@ describe('<Dialog>', () => {
     );
     const dialogOverlay = wrapper.find('.sg-dialog__overlay');
 
-    expect(dialogOverlay.props().style.zIndex).toEqual(10);
+    expect(dialogOverlay.props().style?.zIndex).toEqual(10);
   });
   it('sets given data-testid to dialog', () => {
     const wrapper = mount(
