@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Spinner, Icon} from '../..';
+import {Icon} from '../..';
 import Button, {BUTTON_VARIANT} from './Button';
 import {render} from '@testing-library/react';
 
