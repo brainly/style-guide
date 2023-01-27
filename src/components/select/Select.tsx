@@ -30,6 +30,12 @@ export type SelectPropsType = {
   value?: string;
 
   /**
+   * Optional specification for select placeholder
+   * @example <Select value="Option1" placeholder="Select an option" options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
+   */
+  placeholder?: string;
+
+  /**
    * Optional boolean to specified if it's valid
    * @example <Select valid options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
    */
@@ -70,6 +76,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       valid,
       invalid,
       value,
+      placeholder = 'Select...',
       className,
       options = [],
       expanded = undefined,
@@ -197,7 +204,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           })}
           {...additionalProps}
         >
-          {value || 'Select...'}
+          {value || placeholder}
           <div className="sg-select__icon">
             <Icon type="caret_down" color="icon-gray-50" />
           </div>
