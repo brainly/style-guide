@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import {useFloating} from '@floating-ui/react';
+import {useFloating, useInteractions, useClick} from '@floating-ui/react';
 
 import Icon from '../icons/Icon';
 import {generateId, mergeRefs} from '../utils';
@@ -50,6 +50,8 @@ export type SelectPropsType = {
 
   onOptionChange: (string) => unknown;
 
+  onToggle: (boolean) => unknown;
+
   expanded?: boolean;
 
   /**
@@ -61,30 +63,6 @@ export type SelectPropsType = {
   'value' | 'valid' | 'invalid' | 'options' | 'className'
 >;
 
-const getOptionElement = ({
-  option,
-  isSelected,
-  onClick,
-}: SelectOptionElementPropsType) => {
-  const {value, label} = option;
-
-  const optionElement = classnames('sg-select__option', {
-    'sg-select__option--selected': isSelected,
-  });
-
-  return (
-    <div
-      key={value}
-      className={optionElement}
-      onClick={() => onClick(value)}
-      role="option"
-      aria-selected={isSelected}
-    >
-      {label}
-    </div>
-  );
-};
-
 const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
   (props: SelectPropsType, ref) => {
     const {
@@ -93,13 +71,20 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       value,
       className,
       options = [],
-      expanded = false,
+      expanded = undefined,
       onClick,
+      onToggle,
       onOptionChange,
       ...additionalProps
     } = props;
     const {current: id} = React.useRef<string>(`select-${generateId()}`);
-    const {x, y, strategy, refs} = useFloating();
+    const [isExpanded, setIsExpanded] = React.useState(expanded || false);
+    const isControlled = expanded !== undefined;
+
+    // Handle expanded change when controlled
+    React.useEffect(() => {
+      if (isControlled) setIsExpanded(expanded);
+    }, [isControlled, expanded]);
 
     if (valid === true && invalid === true) {
       throw {
@@ -117,6 +102,66 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       },
       className
     );
+
+    const handleSelect = (value: string) => {
+      onOptionChange(value);
+      onOpenChange(false);
+    };
+
+    const onOpenChange = isOpen => {
+      if (isControlled) onToggle(isOpen);
+      else setIsExpanded(isOpen);
+    };
+
+    const {x, y, strategy, refs, context} = useFloating({
+      open: isExpanded,
+      onOpenChange,
+    });
+    const click = useClick(context, {event: 'mousedown'});
+    const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions(
+      [click]
+    );
+
+    const getOptionElement = ({
+      option,
+      isSelected,
+    }: SelectOptionElementPropsType) => {
+      const {value, label} = option;
+
+      const optionElement = classnames('sg-select__option', {
+        'sg-select__option--selected': isSelected,
+      });
+
+      return (
+        <div
+          key={value}
+          className={optionElement}
+          role="option"
+          aria-selected={isSelected}
+          {...getItemProps({
+            // Handle pointer select.
+            onClick() {
+              handleSelect(value);
+            },
+            // Handle keyboard select.
+            onKeyDown(event) {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+                handleSelect(value);
+              }
+
+              // Only if not using typeahead.
+              if (event.key === ' ' && !context.dataRef.current.typing) {
+                event.preventDefault();
+                handleSelect(value);
+              }
+            },
+          })}
+        >
+          {label}
+        </div>
+      );
+    };
     const optionsElements = options.map((item, index) => {
       if ('options' in item) {
         return (
@@ -149,31 +194,43 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           ref={mergeRefs(ref, refs.setReference)}
           id={id}
           className="sg-select__element"
-          onClick={onClick}
           role="combobox"
           tabIndex={0}
           aria-controls={`${id}-listbox`}
-          aria-expanded={expanded}
+          aria-expanded={isExpanded}
           aria-haspopup="listbox"
+          {...getReferenceProps({
+            // Handle pointer
+            onClick() {
+              onOpenChange(isExpanded);
+            },
+            // Handle keyboard
+            onKeyDown(event) {
+              if (event.key === 'Enter') {
+                event.preventDefault();
+                onOpenChange(isExpanded);
+              }
+            },
+          })}
           {...additionalProps}
         >
-          {value}
+          {value || 'Select...'}
           <div className="sg-select__icon">
             <Icon type="caret_down" color="icon-gray-50" />
           </div>
         </div>
-        {expanded && (
+        {isExpanded && (
           <div
             ref={refs.setFloating}
             style={{
               position: strategy,
               top: y ?? 0,
               left: x ?? 0,
-              width: 'max-content',
             }}
             role="listbox"
             id={`${id}-listbox`}
             tabIndex={-1}
+            {...getFloatingProps()}
           >
             {optionsElements}
           </div>

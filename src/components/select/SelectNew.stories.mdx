@@ -1,6 +1,7 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import Select from './Select';
 import PageHeader from 'blocks/PageHeader';
+import Button from '../buttons/Button';
 
 <Meta
   title="Components/SelectNew"
@@ -28,23 +29,47 @@ import PageHeader from 'blocks/PageHeader';
 
 ## Stories
 
-### With options
+### With option select
 
 <Canvas>
-  <Story name="With value select">
+  <Story name="With option select">
     {args => {
       const [value, setValue] = React.useState(null);
-      const [expanded, setExpanded] = React.useState(false);
       return (
         <Select
           {...args}
           value={value}
-          expanded={expanded}
-          onClick={() => setExpanded(!expanded)}
           onOptionChange={val => {
             setValue(val);
           }}
         />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Controlled
+
+<Canvas>
+  <Story name="Controlled">
+    {args => {
+      const [value, setValue] = React.useState(null);
+      const [expanded, setExpanded] = React.useState(false);
+      return (
+        <>
+          <Button onClick={() => setExpanded(!expanded)} size="s">
+            {expanded ? 'close' : 'open'}
+          </Button>
+          <Select
+            {...args}
+            value={value}
+            expanded={expanded}
+            onToggle={val => setExpanded(val)}
+            onOptionChange={val => {
+              setValue(val);
+            }}
+          />
+        </>
       );
     }}
   </Story>
