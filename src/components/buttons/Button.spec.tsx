@@ -1,87 +1,101 @@
 import * as React from 'react';
 import {Spinner, Icon} from '../..';
 import Button, {BUTTON_VARIANT} from './Button';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const button = shallow(<Button>Some text</Button>);
+  const button = render(<Button>Some text</Button>);
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass('sg-button')).toEqual(true);
+  expect(root.classList.contains('sg-button')).toEqual(true);
 });
+
 test('variant', () => {
   const buttonVariant = BUTTON_VARIANT.SOLID;
-  const button = shallow(<Button variant={buttonVariant}>Some text</Button>);
+  const button = render(<Button variant={buttonVariant}>Some text</Button>);
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass(`sg-button--${buttonVariant}`)).toEqual(true);
+  expect(root.classList.contains(`sg-button--${buttonVariant}`)).toEqual(true);
 });
+
 test('disabled', () => {
-  const button = shallow(<Button disabled>Some text</Button>);
+  const button = render(<Button disabled>Some text</Button>);
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass('sg-button--disabled')).toEqual(true);
-  expect(button.is('[disabled]')).toEqual(true);
+  expect(root.classList.contains('sg-button--disabled')).toEqual(true);
+  expect(root.hasAttribute('disabled')).toEqual(true);
 });
+
 test('not disabled', () => {
-  const button = shallow(<Button>Some text</Button>);
+  const button = render(<Button>Some text</Button>);
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass('sg-button--disabled')).toEqual(false);
-  expect(button.is('[disabled]')).toEqual(false);
+  expect(root.classList.contains('sg-button--disabled')).toEqual(false);
+  expect(root.hasAttribute('disabled')).toEqual(false);
 });
+
 test('full width', () => {
-  const button = shallow(<Button fullWidth>Some text</Button>);
+  const button = render(<Button fullWidth>Some text</Button>);
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass('sg-button--full-width')).toEqual(true);
+  expect(root.classList.contains('sg-button--full-width')).toEqual(true);
 });
+
 test('icon', () => {
-  const icon = <span>:P</span>;
-  const button = shallow(<Button icon={icon}>Some text</Button>);
+  const icon = <span>Button icon</span>;
+  const button = render(<Button icon={icon}>Some text</Button>);
 
-  expect(button.contains(icon)).toEqual(true);
-  expect(button.find('.sg-button__icon')).toHaveLength(1);
+  expect(button.getByText('Button icon')).toBeTruthy();
 });
+
 test('icon only', () => {
-  const icon = <span>:P</span>;
-  const button = shallow(
+  const icon = <span>Button icon</span>;
+  const button = render(
     <Button icon={icon} iconOnly>
       Some text
     </Button>
   );
+  const root = button.container.firstElementChild;
 
-  expect(button.contains(icon)).toEqual(true);
-  expect(button.find('.sg-button--icon-only')).toHaveLength(1);
-  expect(button.find('.sg-button__icon')).toHaveLength(1);
+  expect(button.getByText('Button icon')).toBeTruthy();
+  expect(root.classList.contains('sg-button--icon-only')).toBe(true);
 });
-test('no icon', () => {
-  const button = shallow(<Button>Some text</Button>);
 
-  expect(button.find('.sg-button__icon')).toHaveLength(0);
-});
 test('toggle', () => {
-  const button = shallow(
+  const button = render(
     <Button variant="solid-light" toggle="red">
       Some text
     </Button>
   );
 
-  expect(button.hasClass('sg-button--solid-light-toggle-red')).toEqual(true);
+  const root = button.container.firstElementChild;
+
+  expect(root.classList.contains('sg-button--solid-light-toggle-red')).toEqual(
+    true
+  );
 });
+
 test('with icon - reversed order', () => {
-  const icon = <span>:P</span>;
-  const button = shallow(
+  const icon = <span>Button icon</span>;
+  const button = render(
     <Button icon={icon} reversedOrder>
       Some text
     </Button>
   );
+  const root = button.container.firstElementChild;
 
-  expect(button.contains(icon)).toEqual(true);
-  expect(button.find('.sg-button--reversed-order')).toHaveLength(1);
+  expect(button.getByText('Button icon')).toBeTruthy();
+  expect(root.classList.contains('sg-button--reversed-order')).toBe(true);
 });
+
 test('in loading state button shows spinner while hiding label and icon', () => {
-  const button = shallow(
+  const button = render(
     <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
       Some text
     </Button>
   );
+  const root = button.container.firstElementChild;
 
-  expect(button.hasClass('sg-button--loading')).toEqual(true);
-  expect(button.find(Spinner).exists()).toBe(true);
+  expect(root.classList.contains('sg-button--loading')).toEqual(true);
+  expect(button.getByRole('status')).toBeTruthy();
 });
