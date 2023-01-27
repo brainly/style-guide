@@ -1,7 +1,7 @@
 import {Meta} from '@storybook/addon-docs';
 import Box from '../../../components/box/Box';
 import Button from '../../../components/buttons/Button';
-import Text from '../../../components/text/Text';
+import Headline from '../../../components/text/Headline';
 import PageHeader from 'blocks/PageHeader';
 import {StoryVariantTable} from '../../utils';
 const startAnimation = id => {
@@ -28,10 +28,26 @@ Use fade-in effect in 3 variants: normal, fast and slow.
   <thead>
     <tr>
       <td>
-        <Text weight="bold">Utility class</Text>
+        <Headline
+          extraBold
+          transform="uppercase"
+          type="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Utility class
+        </Headline>
       </td>
       <td>
-        <Text weight="bold">Preview</Text>
+        <Headline
+          extraBold
+          transform="uppercase"
+          type="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Preview
+        </Headline>
       </td>
     </tr>
   </thead>
