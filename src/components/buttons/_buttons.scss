@@ -49,6 +49,7 @@ $largeButtonSize: componentSize(l);
 
   &__icon {
     display: inline-flex;
+    position: relative;
     margin-right: spacing(xs);
     margin-left: -4px;
 
