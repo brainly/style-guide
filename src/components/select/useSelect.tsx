@@ -5,14 +5,22 @@ import type {SelectPropsType} from './Select';
 
 type UseSelectPropsType = Pick<
   SelectPropsType,
-  'valid' | 'invalid' | 'expanded' | 'onToggle' | 'onOptionChange'
+  | 'valid'
+  | 'invalid'
+  | 'expanded'
+  | 'defaultExpanded'
+  | 'onToggle'
+  | 'onOptionChange'
 >;
 
 const useSelect = (props: UseSelectPropsType) => {
-  const {valid, invalid, expanded, onToggle, onOptionChange} = props;
+  const {valid, invalid, expanded, defaultExpanded, onToggle, onOptionChange} =
+    props;
 
   const {current: id} = React.useRef<string>(`select-${generateId()}`);
-  const [isExpanded, setIsExpanded] = React.useState(expanded || false);
+  const [isExpanded, setIsExpanded] = React.useState(
+    expanded || defaultExpanded || false
+  );
   const isControlled = expanded !== undefined;
 
   // Handle expanded change when controlled

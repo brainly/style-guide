@@ -60,6 +60,7 @@ export type SelectPropsType = {
   onToggle: (boolean) => unknown;
 
   expanded?: boolean;
+  defaultExpanded?: boolean;
 
   /**
    * Additional class names
@@ -80,6 +81,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       className,
       options = [],
       expanded = undefined,
+      defaultExpanded = undefined,
       onClick,
       onToggle,
       onOptionChange,
@@ -89,6 +91,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       valid,
       invalid,
       expanded,
+      defaultExpanded,
       onToggle,
       onOptionChange,
     });
