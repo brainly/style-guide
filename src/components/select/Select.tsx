@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import {useFloating, useInteractions, useClick} from '@floating-ui/react';
 
 import Icon from '../icons/Icon';
-import {generateId, mergeRefs} from '../utils';
+import {mergeRefs} from '../utils';
+import useSelect from './useSelect';
 
 type SelectOptionElementPropsType = {
   option: SelectOptionType;
@@ -77,41 +78,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
       ...additionalProps
     } = props;
-    const {current: id} = React.useRef<string>(`select-${generateId()}`);
-    const [isExpanded, setIsExpanded] = React.useState(expanded || false);
-    const isControlled = expanded !== undefined;
-
-    // Handle expanded change when controlled
-    React.useEffect(() => {
-      if (isControlled) setIsExpanded(expanded);
-    }, [isControlled, expanded]);
-
-    if (valid === true && invalid === true) {
-      throw {
-        name: 'WrongValidation',
-        message: 'Select can be either valid or invalid!',
-      };
-    }
-
-    const selectClass = classnames(
-      'sg-select',
-      {
-        'sg-select--selected': value,
-        'sg-select--valid': valid,
-        'sg-select--invalid': invalid,
-      },
-      className
-    );
-
-    const handleSelect = (value: string) => {
-      onOptionChange(value);
-      onOpenChange(false);
-    };
-
-    const onOpenChange = isOpen => {
-      if (isControlled) onToggle(isOpen);
-      else setIsExpanded(isOpen);
-    };
+    const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
+      valid,
+      invalid,
+      expanded,
+      onToggle,
+      onOptionChange,
+    });
 
     const {x, y, strategy, refs, context} = useFloating({
       open: isExpanded,
@@ -141,19 +114,19 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...getItemProps({
             // Handle pointer select.
             onClick() {
-              handleSelect(value);
+              handleOptionSelect(value);
             },
             // Handle keyboard select.
             onKeyDown(event) {
               if (event.key === 'Enter') {
                 event.preventDefault();
-                handleSelect(value);
+                handleOptionSelect(value);
               }
 
               // Only if not using typeahead.
               if (event.key === ' ' && !context.dataRef.current.typing) {
                 event.preventDefault();
-                handleSelect(value);
+                handleOptionSelect(value);
               }
             },
           })}
@@ -187,6 +160,16 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
 
       return null;
     });
+
+    const selectClass = classnames(
+      'sg-select',
+      {
+        'sg-select--selected': value,
+        'sg-select--valid': valid,
+        'sg-select--invalid': invalid,
+      },
+      className
+    );
 
     return (
       <div className={selectClass}>
