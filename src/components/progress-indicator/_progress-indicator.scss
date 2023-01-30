@@ -34,5 +34,6 @@
     min-width: 8px;
     transition-property: width;
     transition-timing-function: $easingRegular;
+    transition-duration: $durationGentle1;
   }
 }

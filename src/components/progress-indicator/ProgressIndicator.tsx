@@ -8,13 +8,10 @@ const getTransitionDuration = (
   maxValue: number,
   trackRef: React.MutableRefObject<HTMLDivElement>
 ) => {
-  const stepWidth =
-    trackRef.current?.clientWidth &&
-    trackRef.current.clientWidth / (maxValue - minValue);
-
-  if (!stepWidth) {
-    return '600ms';
+  if (!trackRef.current || trackRef.current.clientWidth) {
+    return;
   }
+  const stepWidth = trackRef.current.clientWidth / (maxValue - minValue);
 
   if (stepWidth >= 600) {
     return '1000ms';
