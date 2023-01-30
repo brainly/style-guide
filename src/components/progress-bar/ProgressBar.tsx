@@ -111,7 +111,6 @@ const ProgressBar = ({
     width: `${barWidth}%`,
     borderRadius: barBorderRadius,
     transitionDuration,
-    transitionDelay: `0ms, ${transitionDuration}`,
   };
 
   return (
