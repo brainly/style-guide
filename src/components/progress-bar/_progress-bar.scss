@@ -32,7 +32,7 @@
     left: 0;
     bottom: 0;
     min-width: 8px;
-    transition-property: width;
+    transition-property: width, border-radius;
     transition-timing-function: $easingRegular;
     transition-duration: $durationGentle1;
   }
