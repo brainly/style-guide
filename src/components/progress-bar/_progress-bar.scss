@@ -1,11 +1,11 @@
 .sg-progress-bar {
-  --barColor: #{$indigo-50};
-  --trackColor: #{$gray-30};
+  --bar-color: #{$indigo-50};
+  --track-color: #{$gray-30};
 
   width: 100%;
   min-width: 120px;
   border-radius: 8px;
-  background: var(--trackColor);
+  background: var(--track-color);
   position: relative;
   overflow: hidden;
 
@@ -22,11 +22,11 @@
   }
 
   &--invisible-track {
-    --trackColor: transparent;
+    --track-color: transparent;
   }
 
   &__bar {
-    background: var(--barColor);
+    background: var(--bar-color);
     position: absolute;
     top: 0;
     left: 0;

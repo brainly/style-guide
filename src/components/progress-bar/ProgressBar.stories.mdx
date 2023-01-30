@@ -86,23 +86,23 @@ To use custom theme for `ProgressBar`, you can override following CSS variables:
 
 | Css variable name | Explanation |
 | ----------------- | ----------- |
-| --barColor        | Bar color   |
-| --trackColor      | Track color |
+| --bar-color       | Bar color   |
+| --track-color     | Track color |
 
 There are two ways of achieving custom theming:
 
 1. Change CSS variables for particular `ProgressBar` by defining them inline in the `style` attribute. Example:
 
 ```jsx
-<ProgressBar style={{'--trackColor': 'green'}} />
+<ProgressBar style={{'--track-color': 'green'}} />
 ```
 
 2. Or, you can use `className` and define variables replacements in your CSS file. Example:
 
 ```css
 .sg-progress-bar--custom-theme {
-  --trackColor: #fbbe2e;
-  --barColor: #24a865;
+  --track-color: #fbbe2e;
+  --bar-color: #24a865;
 }
 ```
 
@@ -116,8 +116,8 @@ In the following example, className `sg-progress-bar--custom-theme` was applied 
     {args => {
       const StyledProgressBar = styled.div`
         .sg-progress-bar--custom-theme {
-          --trackColor: #fbbe2e;
-          --barColor: #24a865;
+          --track-color: #fbbe2e;
+          --bar-color: #24a865;
         }
       `;
       return (
