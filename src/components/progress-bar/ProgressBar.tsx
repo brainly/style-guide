@@ -20,24 +20,24 @@ const getTransitionDuration = (
   return `${Math.floor(stepWidth / 100) * 100 + 400}ms`;
 };
 
-export type ProgressIndicatorPropsType = {
+export type ProgressBarPropsType = {
   /**
-   * ProgressIndicator size
-   * @example <ProgressIndicator size="xs"/>
+   * ProgressBar size
+   * @example <ProgressBar size="xs"/>
    * @default s
    */
   size?: SizeType;
 
   /**
    * Disable border radius
-   * @example <ProgressIndicator value={4} noBorderRadius/>
+   * @example <ProgressBar value={4} noBorderRadius/>
    * @default false
    */
   noBorderRadius?: boolean;
 
   /**
    * Enable invisible track
-   * @example <ProgressIndicator value={4} invisibleTrack/>
+   * @example <ProgressBar value={4} invisibleTrack/>
    * @default false
    */
   invisibleTrack?: boolean;
@@ -45,26 +45,26 @@ export type ProgressIndicatorPropsType = {
   /**
    * Current value, represents current progress of the process
    * By default represents the current percentage of progress
-   * @example <ProgressIndicator value={4}/>
+   * @example <ProgressBar value={4}/>
    */
   value: number;
 
   /**
    * The human-readable text alternative of value
-   * @example <ProgressIndicator value={4} textValue="step 4 of 10"/>
+   * @example <ProgressBar value={4} textValue="step 4 of 10"/>
    */
   textValue?: string;
 
   /**
    * Max value
-   * @example <ProgressIndicator value={4} maxValue={20}/>
+   * @example <ProgressBar value={4} maxValue={20}/>
    * @default 100
    */
   maxValue?: number;
 
   /**
    * Min value
-   * @example <ProgressIndicator value={4} minValue={2}/>
+   * @example <ProgressBar value={4} minValue={2}/>
    * @default 0
    */
   minValue?: number;
@@ -72,7 +72,7 @@ export type ProgressIndicatorPropsType = {
   className?: string;
 };
 
-const ProgressIndicator = ({
+const ProgressBar = ({
   size = 's',
   noBorderRadius,
   invisibleTrack,
@@ -82,7 +82,7 @@ const ProgressIndicator = ({
   textValue,
   className,
   ...props
-}: ProgressIndicatorPropsType) => {
+}: ProgressBarPropsType) => {
   const trackRef = React.useRef<HTMLDivElement>(null);
   const [transitionDuration, setTransitionDuration] = React.useState(() => {
     return getTransitionDuration(minValue, maxValue, trackRef);
@@ -93,11 +93,11 @@ const ProgressIndicator = ({
   }, [minValue, maxValue]);
 
   const trackClass = classNames(
-    'sg-progress-indicator',
-    `sg-progress-indicator--${String(size)}`,
+    'sg-progress-bar',
+    `sg-progress-bar--${String(size)}`,
     {
-      'sg-progress-indicator--no-border-radius': noBorderRadius,
-      'sg-progress-indicator--invisible-track': invisibleTrack,
+      'sg-progress-bar--no-border-radius': noBorderRadius,
+      'sg-progress-bar--invisible-track': invisibleTrack,
     }
   );
 
@@ -122,12 +122,9 @@ const ProgressIndicator = ({
       aria-valuetext={textValue || String(value)}
       ref={trackRef}
     >
-      <div
-        className={classNames('sg-progress-indicator__bar')}
-        style={barStyle}
-      />
+      <div className={classNames('sg-progress-bar__bar')} style={barStyle} />
     </div>
   );
 };
 
-export default ProgressIndicator;
+export default ProgressBar;

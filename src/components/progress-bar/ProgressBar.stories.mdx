@@ -1,14 +1,14 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
-import ProgressIndicator from './ProgressIndicator';
+import ProgressBar from './ProgressBar';
 import Button from '../buttons/Button';
 import {styled} from '@storybook/theming';
-import ProgressIndicatorA11y from './stories/ProgressIndicator.a11y.mdx';
+import ProgressBarA11y from './stories/ProgressBar.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
 
 <Meta
-  title="Components/ProgressIndicator"
-  component={ProgressIndicator}
+  title="Components/ProgressBar"
+  component={ProgressBar}
   args={{
     maxValue: 10,
     value: 4,
@@ -16,7 +16,7 @@ import PageHeader from 'blocks/PageHeader';
   }}
 />
 
-<PageHeader>ProgressIndicator</PageHeader>
+<PageHeader>ProgressBar</PageHeader>
 
 - [Stories](#stories)
 - [Responsive props](#responsive-props)
@@ -25,7 +25,7 @@ import PageHeader from 'blocks/PageHeader';
 ## Overview
 
 <Canvas>
-  <Story name="Default">{args => <ProgressIndicator {...args} />}</Story>
+  <Story name="Default">{args => <ProgressBar {...args} />}</Story>
 </Canvas>
 
 <ArgsTable story="Default" />
@@ -40,7 +40,7 @@ import PageHeader from 'blocks/PageHeader';
       <div>
         {['xs', 's'].map(size => (
           <StoryVariant label={`size - ${size}`} key={size}>
-            <ProgressIndicator {...args} size={size} />
+            <ProgressBar {...args} size={size} />
           </StoryVariant>
         ))}
       </div>
@@ -52,7 +52,7 @@ import PageHeader from 'blocks/PageHeader';
 
 <Canvas>
   <Story name="Without border radius" args={{noBorderRadius: true}}>
-    {args => <ProgressIndicator {...args} />}
+    {args => <ProgressBar {...args} />}
   </Story>
 </Canvas>
 
@@ -60,7 +60,7 @@ import PageHeader from 'blocks/PageHeader';
 
 <Canvas>
   <Story name="With invisible track" args={{invisibleTrack: true}}>
-    {args => <ProgressIndicator {...args} />}
+    {args => <ProgressBar {...args} />}
   </Story>
 </Canvas>
 
@@ -72,7 +72,7 @@ import PageHeader from 'blocks/PageHeader';
       const [value, setValue] = React.useState(2);
       return (
         <div className="sg-space-y-l">
-          <ProgressIndicator {...args} value={value} />
+          <ProgressBar {...args} value={value} />
           <Button onClick={() => setValue(value + 1)}>next step</Button>
         </div>
       );
@@ -82,7 +82,7 @@ import PageHeader from 'blocks/PageHeader';
 
 ### With custom theme
 
-To use custom theme for `ProgressIndicator`, you can override following CSS variables:
+To use custom theme for `ProgressBar`, you can override following CSS variables:
 
 | Css variable name | Explanation |
 | ----------------- | ----------- |
@@ -91,39 +91,39 @@ To use custom theme for `ProgressIndicator`, you can override following CSS vari
 
 There are two ways of achieving custom theming:
 
-1. Change CSS variables for particular `ProgressIndicator` by defining them inline in the `style` attribute. Example:
+1. Change CSS variables for particular `ProgressBar` by defining them inline in the `style` attribute. Example:
 
 ```jsx
-<ProgressIndicator style={{'--trackColor': 'green'}} />
+<ProgressBar style={{'--trackColor': 'green'}} />
 ```
 
 2. Or, you can use `className` and define variables replacements in your CSS file. Example:
 
 ```css
-.sg-progress-indicator--custom-theme {
+.sg-progress-bar--custom-theme {
   --trackColor: #fbbe2e;
   --barColor: #24a865;
 }
 ```
 
-In the following example, className `sg-progress-indicator--custom-theme` was applied to all `ProgressIndicator` components. The last component has inline variable override:
+In the following example, className `sg-progress-bar--custom-theme` was applied to all `ProgressBar` components. The last component has inline variable override:
 
 <Canvas>
   <Story
     name="With custom theme"
-    args={{className: 'sg-progress-indicator--custom-theme'}}
+    args={{className: 'sg-progress-bar--custom-theme'}}
   >
     {args => {
-      const StyledProgressIndicator = styled.div`
-        .sg-progress-indicator--custom-theme {
+      const StyledProgressBar = styled.div`
+        .sg-progress-bar--custom-theme {
           --trackColor: #fbbe2e;
           --barColor: #24a865;
         }
       `;
       return (
-        <StyledProgressIndicator>
-          <ProgressIndicator {...args} />
-        </StyledProgressIndicator>
+        <StyledProgressBar>
+          <ProgressBar {...args} />
+        </StyledProgressBar>
       );
     }}
   </Story>
@@ -131,4 +131,4 @@ In the following example, className `sg-progress-indicator--custom-theme` was ap
 
 ## Accessibility
 
-<ProgressIndicatorA11y />
+<ProgressBarA11y />
