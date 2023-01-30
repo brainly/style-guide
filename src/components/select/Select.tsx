@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import {useFloating, useInteractions, useClick} from '@floating-ui/react';
 
 import Icon from '../icons/Icon';
 import {mergeRefs} from '../utils';
 import useSelect from './useSelect';
+import useFloatingSelect from './useFloatingSelect';
 
 type SelectOptionElementPropsType = {
   option: SelectOptionType;
@@ -87,6 +87,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
       ...additionalProps
     } = props;
+
     const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
       valid,
       invalid,
@@ -96,14 +97,10 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
     });
 
-    const {x, y, strategy, refs, context} = useFloating({
-      open: isExpanded,
+    const floating = useFloatingSelect({
+      isExpanded,
       onOpenChange,
     });
-    const click = useClick(context, {event: 'mousedown'});
-    const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions(
-      [click]
-    );
 
     const getOptionElement = ({
       option,
@@ -121,7 +118,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           className={optionElement}
           role="option"
           aria-selected={isSelected}
-          {...getItemProps({
+          {...floating.interactions.getItemProps({
             // Handle pointer select.
             onClick() {
               handleOptionSelect(value);
@@ -134,7 +131,10 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
               }
 
               // Only if not using typeahead.
-              if (event.key === ' ' && !context.dataRef.current.typing) {
+              if (
+                event.key === ' ' &&
+                !floating.context.dataRef.current.typing
+              ) {
                 event.preventDefault();
                 handleOptionSelect(value);
               }
@@ -184,7 +184,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     return (
       <div className={selectClass}>
         <div
-          ref={mergeRefs(ref, refs.setReference)}
+          ref={mergeRefs(ref, floating.refs.setReference)}
           id={id}
           className="sg-select__element"
           role="combobox"
@@ -192,7 +192,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           aria-controls={`${id}-listbox`}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
-          {...getReferenceProps({
+          {...floating.interactions.getReferenceProps({
             // Handle pointer
             onClick() {
               onOpenChange(isExpanded);
@@ -214,16 +214,16 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         </div>
         {isExpanded && (
           <div
-            ref={refs.setFloating}
+            ref={floating.refs.setFloating}
             style={{
-              position: strategy,
-              top: y ?? 0,
-              left: x ?? 0,
+              position: floating.props.strategy,
+              top: floating.props.y ?? 0,
+              left: floating.props.x ?? 0,
             }}
             role="listbox"
             id={`${id}-listbox`}
             tabIndex={-1}
-            {...getFloatingProps()}
+            {...floating.interactions.getFloatingProps()}
           >
             {optionsElements}
           </div>
