@@ -34,13 +34,13 @@ import Button from '../buttons/Button';
 <Canvas>
   <Story name="With option select">
     {args => {
-      const [value, setValue] = React.useState(null);
+      const [selectedOption, setSelectedOption] = React.useState(null);
       return (
         <Select
           {...args}
-          value={value}
-          onOptionChange={val => {
-            setValue(val);
+          selectedOption={selectedOption}
+          onOptionChange={option => {
+            setSelectedOption(option);
           }}
         />
       );
@@ -53,7 +53,7 @@ import Button from '../buttons/Button';
 <Canvas>
   <Story name="Controlled">
     {args => {
-      const [value, setValue] = React.useState(null);
+      const [selectedOption, setSelectedOption] = React.useState(null);
       const [expanded, setExpanded] = React.useState(false);
       return (
         <>
@@ -62,11 +62,11 @@ import Button from '../buttons/Button';
           </Button>
           <Select
             {...args}
-            value={value}
+            selectedOption={selectedOption}
             expanded={expanded}
             onToggle={val => setExpanded(val)}
-            onOptionChange={val => {
-              setValue(val);
+            onOptionChange={option => {
+              setSelectedOption(option);
             }}
           />
         </>
@@ -81,6 +81,35 @@ import Button from '../buttons/Button';
   <Story name="Default expanded">
     {args => {
       return <Select {...args} defaultExpanded />;
+    }}
+  </Story>
+</Canvas>
+
+### With icons
+
+<Canvas>
+  <Story
+    name="With icons"
+    args={{
+      withIcons: true,
+      options: [
+        {value: 'physics', label: 'Physics', iconName: 'physics'},
+        {value: 'history', label: 'History', iconName: 'history'},
+        {value: 'science', label: 'Science', iconName: 'science'},
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOption, setSelectedOption] = React.useState(null);
+      return (
+        <Select
+          {...args}
+          selectedOption={selectedOption}
+          onOptionChange={option => {
+            setSelectedOption(option);
+          }}
+        />
+      );
     }}
   </Story>
 </Canvas>

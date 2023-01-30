@@ -2,6 +2,8 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 import Icon from '../icons/Icon';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import {mergeRefs} from '../utils';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
@@ -10,11 +12,13 @@ type SelectOptionElementPropsType = {
   option: SelectOptionType;
   isSelected?: boolean;
   onClick: (string) => unknown;
+  withIcon?: boolean;
 };
 
-type SelectOptionType = {
+export type SelectOptionType = {
   value: string;
   label: string;
+  iconName?: IconTypeType;
 };
 
 type SelectOptionsGroupType = {
@@ -23,12 +27,6 @@ type SelectOptionsGroupType = {
 };
 
 export type SelectPropsType = {
-  /**
-   * Optional specification for select value
-   * @example <Select value="Option1" options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
-   */
-  value?: string;
-
   /**
    * Optional specification for select placeholder
    * @example <Select value="Option1" placeholder="Select an option" options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
@@ -52,15 +50,17 @@ export type SelectPropsType = {
    * @example <Select options={[{value:"option1",label:"Option1"},{label:"Label title",options:[{value:"option1",label:"Option1"},{value:"option2",label:"Select selector"}]},{value:"option2",label:"Select selector"}]} />
    */
   options?: ReadonlyArray<SelectOptionsGroupType | SelectOptionType>;
+  selectedOption?: SelectOptionType;
 
   onClick?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;
 
-  onOptionChange: (string) => unknown;
+  onOptionChange: (SelectOptionType) => unknown;
 
   onToggle: (boolean) => unknown;
 
   expanded?: boolean;
   defaultExpanded?: boolean;
+  withIcons?: boolean;
 
   /**
    * Additional class names
@@ -68,7 +68,7 @@ export type SelectPropsType = {
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  'value' | 'valid' | 'invalid' | 'options' | 'className'
+  'valid' | 'invalid' | 'options' | 'className'
 >;
 
 const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
@@ -76,12 +76,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const {
       valid,
       invalid,
-      value,
+      selectedOption,
       placeholder = 'Select...',
       className,
       options = [],
       expanded = undefined,
       defaultExpanded = undefined,
+      withIcons = false,
       onClick,
       onToggle,
       onOptionChange,
@@ -105,11 +106,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const getOptionElement = ({
       option,
       isSelected,
+      withIcon = false,
     }: SelectOptionElementPropsType) => {
-      const {value, label} = option;
+      const {value, label, iconName} = option;
 
       const optionElement = classnames('sg-select__option', {
         'sg-select__option--selected': isSelected,
+        'sg-select__option--with-icon': withIcon,
       });
 
       return (
@@ -121,13 +124,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...floating.interactions.getItemProps({
             // Handle pointer select.
             onClick() {
-              handleOptionSelect(value);
+              handleOptionSelect(option);
             },
             // Handle keyboard select.
             onKeyDown(event) {
               if (event.key === 'Enter') {
                 event.preventDefault();
-                handleOptionSelect(value);
+                handleOptionSelect(option);
               }
 
               // Only if not using typeahead.
@@ -136,11 +139,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                 !floating.context.dataRef.current.typing
               ) {
                 event.preventDefault();
-                handleOptionSelect(value);
+                handleOptionSelect(option);
               }
             },
           })}
         >
+          {withIcon && <SubjectIcon size="small" type={iconName} />}
           {label}
         </div>
       );
@@ -152,8 +156,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             {item.options.map(option =>
               getOptionElement({
                 option,
-                isSelected: option.value === value,
+                isSelected: option.value === selectedOption?.value,
                 onClick: onOptionChange,
+                withIcon: withIcons,
               })
             )}
           </optgroup>
@@ -163,8 +168,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       if (item.label || item.value) {
         return getOptionElement({
           option: item,
-          isSelected: item.value === value,
+          isSelected: item.value === selectedOption?.value,
           onClick: onOptionChange,
+          withIcon: withIcons,
         });
       }
 
@@ -174,12 +180,31 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const selectClass = classnames(
       'sg-select',
       {
-        'sg-select--selected': value,
+        'sg-select--selected': selectedOption?.value,
         'sg-select--valid': valid,
         'sg-select--invalid': invalid,
       },
       className
     );
+
+    const selectDisplayValue = React.useMemo(() => {
+      const {value, iconName} = selectedOption || {};
+
+      if (value) {
+        if (withIcons) {
+          return (
+            <>
+              <SubjectIcon size="small" type={iconName} />
+              {value}
+            </>
+          );
+        }
+
+        return value;
+      }
+
+      return placeholder;
+    }, [placeholder, withIcons, selectedOption]);
 
     return (
       <div className={selectClass}>
@@ -207,7 +232,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           })}
           {...additionalProps}
         >
-          {value || placeholder}
+          {selectDisplayValue}
           <div className="sg-select__icon">
             <Icon type="caret_down" color="icon-gray-50" />
           </div>

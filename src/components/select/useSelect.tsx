@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {generateId} from '../utils';
-import type {SelectPropsType} from './Select';
+import type {SelectPropsType, SelectOptionType} from './Select';
 
 type UseSelectPropsType = Pick<
   SelectPropsType,
@@ -35,8 +35,8 @@ const useSelect = (props: UseSelectPropsType) => {
     };
   }
 
-  const handleOptionSelect = (value: string) => {
-    onOptionChange(value);
+  const handleOptionSelect = (option: SelectOptionType) => {
+    onOptionChange(option);
     onOpenChange(false);
   };
 
