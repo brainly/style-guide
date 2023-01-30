@@ -1,4 +1,9 @@
-import {useFloating, useInteractions, useClick} from '@floating-ui/react';
+import {
+  useFloating,
+  useInteractions,
+  useClick,
+  useDismiss,
+} from '@floating-ui/react';
 
 type UseFloatingSelectPropsType = {
   isExpanded: boolean;
@@ -13,8 +18,12 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     onOpenChange,
   });
   const click = useClick(context, {event: 'mousedown'});
+  const dismiss = useDismiss(context, {
+    ancestorScroll: true,
+  });
   const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions([
     click,
+    dismiss,
   ]);
 
   return {
