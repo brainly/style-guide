@@ -8,7 +8,7 @@ const getTransitionDuration = (
   maxValue: number,
   trackRef: React.MutableRefObject<HTMLDivElement>
 ) => {
-  if (!trackRef.current || trackRef.current.clientWidth) {
+  if (!trackRef.current || !trackRef.current.clientWidth) {
     return;
   }
   const stepWidth = trackRef.current.clientWidth / (maxValue - minValue);
@@ -104,11 +104,14 @@ const ProgressBar = ({
   const barWidth = Math.round(
     ((value - minValue) / (maxValue - minValue)) * 100
   );
-  const barBorderRadius = barWidth === 100 ? '0' : '0 8px 8px 0';
+  const barBorderRadius =
+    barWidth === 100 && noBorderRadius ? '0' : '0 8px 8px 0';
+
   const barStyle = {
     width: `${barWidth}%`,
     borderRadius: barBorderRadius,
     transitionDuration,
+    transitionDelay: `0ms, ${transitionDuration}`,
   };
 
   return (
