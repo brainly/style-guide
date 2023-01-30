@@ -6,18 +6,21 @@ type SizeType = 'xs' | 's';
 const getTransitionDuration = (
   minValue: number,
   maxValue: number,
-  trackRef
+  trackRef: React.MutableRefObject<HTMLDivElement>
 ) => {
-  const valocity = 0.25;
   const stepWidth =
     trackRef.current?.clientWidth &&
     trackRef.current.clientWidth / (maxValue - minValue);
 
-  if (stepWidth) {
-    return `${stepWidth / valocity}ms`;
+  if (!stepWidth) {
+    return '600ms';
   }
 
-  return '300ms';
+  if (stepWidth >= 600) {
+    return '1000ms';
+  }
+
+  return `${Math.floor(stepWidth / 100) * 100 + 400}ms`;
 };
 
 export type ProgressIndicatorPropsType = {
@@ -83,11 +86,14 @@ const ProgressIndicator = ({
   className,
   ...props
 }: ProgressIndicatorPropsType) => {
-  const trackRef = React.useRef<HTMLDivElement | null>(null);
-  const transitionDuration = React.useMemo(
-    () => getTransitionDuration(minValue, maxValue, trackRef),
-    [minValue, maxValue, trackRef]
-  );
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  const [transitionDuration, setTransitionDuration] = React.useState(() => {
+    return getTransitionDuration(minValue, maxValue, trackRef);
+  });
+
+  React.useEffect(() => {
+    setTransitionDuration(getTransitionDuration(minValue, maxValue, trackRef));
+  }, [minValue, maxValue]);
 
   const trackClass = classNames(
     'sg-progress-indicator',
