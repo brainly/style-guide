@@ -298,7 +298,7 @@ const Button = React.forwardRef(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
-      onPressEffect,
+      onPressEffect = 'scale-down',
       ...props
     }: ButtonPropsType,
     ref
