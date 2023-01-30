@@ -1,0 +1,29 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import Sparks from './Sparks';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta title="Components/Sparks" component={Sparks} />
+
+<PageHeader>Sparks</PageHeader>
+
+- [Stories](#stories)
+- [Responsive props](#responsive-props)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <div style={{width: 300}}>
+        <Sparks {...args}>Sparks</Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### 1
