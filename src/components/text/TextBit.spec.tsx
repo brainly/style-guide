@@ -1,9 +1,9 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE} from './TextBit';
+import TextBit, {TEXT_BIT_AS, TEXT_BIT_SIZE} from './TextBit';
 import {shallow, mount} from 'enzyme';
 
 test('render', () => {
-  const textBit = shallow(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
+  const textBit = shallow(<TextBit as={TEXT_BIT_AS.H1}>Test</TextBit>);
 
   expect(textBit.hasClass('sg-text-bit')).toBeTruthy();
 });
@@ -22,9 +22,9 @@ test('size is responsive prop', () => {
   ).toEqual(true);
 });
 test('type', () => {
-  const textBit = mount(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
+  const textBit = mount(<TextBit as={TEXT_BIT_AS.H3}>Test</TextBit>);
 
-  expect(textBit.props().type).toEqual(TEXT_BIT_TYPE.H3);
+  expect(textBit.props().type).toEqual(TEXT_BIT_AS.H3);
 });
 test('color', () => {
   const textBit = shallow(<TextBit color="text-blue-40">Test</TextBit>);

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Headline, {
   HEADLINE_SIZE,
-  HEADLINE_TYPE,
+  HEADLINE_AS,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './Headline';
@@ -40,9 +40,9 @@ it('size is responsive prop', () => {
   ).toEqual(true);
 });
 test('type', () => {
-  const headline = mount(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
+  const headline = mount(<Headline as={HEADLINE_AS.H3}>Test</Headline>);
 
-  expect(headline.props().type).toEqual(HEADLINE_TYPE.H3);
+  expect(headline.props().type).toEqual(HEADLINE_AS.H3);
 });
 test('text-white', () => {
   const text = shallow(<Headline color="text-white">Test</Headline>);

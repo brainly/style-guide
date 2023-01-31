@@ -104,7 +104,7 @@ import PageHeader from 'blocks/PageHeader';
     {args => (
       <Headline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
         Outer headline{' '}
-        <Headline inherited type="span">
+        <Headline inherited as="span">
           nested Headline with inherited styles
         </Headline>
       </Headline>
