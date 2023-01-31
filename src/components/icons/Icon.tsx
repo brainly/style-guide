@@ -174,7 +174,7 @@ export type IconColorType =
   | 'icon-gray-50'
   | 'icon-gray-40';
 
-export type IconTagType = 'div' | 'span';
+export type IconAsType = 'div' | 'span';
 export type IconSizeType = 16 | 24 | 32 | 40 | 56 | 80 | 104;
 
 export const TYPE = {
@@ -395,11 +395,11 @@ export type IconPropsType =
                   type={iconTypes.POINTS}
                   color="dark"
                   size={16}
-                  tagType="span"
+                  as="span"
                 />
               </Button>
   */
-      tagType?: IconTagType;
+      as?: IconAsType;
 
       /**
        * An accessible, short-text description; defaults to `type`
@@ -412,13 +412,7 @@ export type IconPropsType =
       description?: string;
     } & Omit<
       React.AllHTMLAttributes<HTMLElement>,
-      | 'className'
-      | 'color'
-      | 'size'
-      | 'type'
-      | 'tagType'
-      | 'title'
-      | 'description'
+      'className' | 'color' | 'size' | 'type' | 'as' | 'title' | 'description'
     >)
   | ({
       /**
@@ -455,11 +449,11 @@ export type IconPropsType =
                   type={iconTypes.POINTS}
                   color="dark"
                   size={16}
-                  tagType="span"
+                  as="span"
                 />
               </Button>
   */
-      tagType?: IconTagType;
+      as?: IconAsType;
 
       /**
        * An accessible, short-text description; defaults to `type`
@@ -476,7 +470,7 @@ export type IconPropsType =
       | 'className'
       | 'color'
       | 'size'
-      | 'tagType'
+      | 'as'
       | 'title'
       | 'description'
     >);
@@ -490,7 +484,7 @@ const Icon = ({
   size = 24,
   type,
   children,
-  tagType = 'div',
+  as = 'div',
   className,
   title,
   description,
@@ -505,7 +499,7 @@ const Icon = ({
     className
   );
   const iconType = `#icon-${type}`;
-  const Tag = tagType;
+  const Tag = as;
   const idSuffix = generateIdSuffix(type);
   const titleId = `title-${idSuffix}`;
   const defaultTitle = String(type).replace(/_/g, ' ');
