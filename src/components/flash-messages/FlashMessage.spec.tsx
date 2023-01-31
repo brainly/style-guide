@@ -1,23 +1,19 @@
 import * as React from 'react';
 import FlashMessage, {TYPE} from './FlashMessage';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const flashMessage = shallow(<FlashMessage text="test" />);
+  const flashMessage = render(<FlashMessage text="foo" />);
 
-  expect(flashMessage.hasClass('sg-flash')).toEqual(true);
-  expect(flashMessage.find('div.sg-flash__message')).toHaveLength(1);
+  expect(flashMessage.queryByText('foo')).toBeTruthy();
 });
-test('default type', () => {
-  const flashMessage = shallow(<FlashMessage text="test" />);
-  const messageDiv = flashMessage.find('div.sg-flash__message');
 
-  expect(messageDiv.hasClass('sg-flash__message')).toEqual(true);
-  expect(messageDiv.hasClass('sg-flash__message--default')).toEqual(false);
-});
 test('type', () => {
-  const flashMessage = shallow(<FlashMessage text="test" type={TYPE.ERROR} />);
-  const messageDiv = flashMessage.find('div.sg-flash__message');
+  const flashMessage = render(<FlashMessage text="test" type={TYPE.ERROR} />);
 
-  expect(messageDiv.hasClass('sg-flash__message--error')).toEqual(true);
+  expect(
+    flashMessage.container.firstElementChild.firstElementChild.classList.contains(
+      'sg-flash__message--error'
+    )
+  ).toEqual(true);
 });

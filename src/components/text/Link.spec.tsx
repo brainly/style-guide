@@ -1,27 +1,27 @@
 import * as React from 'react';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
 import Text from './Text';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 import {TEXT_WEIGHT} from './textConsts';
 
 test('render', () => {
-  const link = shallow(<Link href="test.com">Test</Link>);
+  const link = render(<Link href="test.com">Test</Link>);
 
   expect(link.hasClass('sg-text--link')).toBeTruthy();
   expect(link.props().href).toEqual('test.com');
 });
 test('render Text', () => {
-  const link = shallow(<Link href="test.com">Test</Link>);
+  const link = render(<Link href="test.com">Test</Link>);
 
   expect(link.find(Text)).toBeTruthy();
 });
 test('size', () => {
-  const link = shallow(
+  const link = render(
     <Link href="#" size={LINK_SIZE.SMALL}>
       Test
     </Link>
   ).dive();
-  const responsiveSizeLink = shallow(
+  const responsiveSizeLink = render(
     <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
   ).dive();
 
@@ -34,7 +34,7 @@ test('size', () => {
 });
 it('size is responsive prop', () => {
   const size = [LINK_SIZE.SMALL, LINK_SIZE.XXLARGE, null, LINK_SIZE.XXXLARGE];
-  const component = shallow(
+  const component = render(
     <Link href="#" size={size}>
       Test
     </Link>
@@ -43,7 +43,7 @@ it('size is responsive prop', () => {
   expect(component.prop('size')).toEqual(size);
 });
 test('color', () => {
-  const link = shallow(
+  const link = render(
     <Link href="#" color="text-white">
       Test
     </Link>
@@ -52,7 +52,7 @@ test('color', () => {
   expect(link.hasClass('sg-text--text-white')).toBeTruthy();
 });
 test('unstyled', () => {
-  const link = shallow(
+  const link = render(
     <Link href="#" unstyled>
       Test
     </Link>
@@ -62,7 +62,7 @@ test('unstyled', () => {
   expect(link.hasClass('sg-text--link')).toBeFalsy();
 });
 test('underlined', () => {
-  const link = shallow(
+  const link = render(
     <Link href="#" underlined>
       Test
     </Link>
@@ -73,7 +73,7 @@ test('underlined', () => {
   expect(link.hasClass('sg-text--link')).toBeFalsy();
 });
 it('weight is responsive prop', () => {
-  const component = shallow(
+  const component = render(
     <Link
       weight={[TEXT_WEIGHT.BOLD, TEXT_WEIGHT.REGULAR, null, TEXT_WEIGHT.BOLD]}
       href="#"
@@ -88,7 +88,7 @@ it('weight is responsive prop', () => {
 });
 it('transform is responsive prop', () => {
   const transform = [LINK_TRANSFORM.CAPITALIZE, LINK_TRANSFORM.LOWERCASE];
-  const component = shallow(
+  const component = render(
     <Link href="#" transform={transform}>
       Test
     </Link>
@@ -98,7 +98,7 @@ it('transform is responsive prop', () => {
 });
 it('align is responsive prop', () => {
   const align = [LINK_ALIGN.CENTER, LINK_ALIGN.CENTER];
-  const component = shallow(
+  const component = render(
     <Link href="#" align={align}>
       Test
     </Link>
@@ -108,7 +108,7 @@ it('align is responsive prop', () => {
 });
 it('noWrap is responsive prop', () => {
   const noWrap = [true];
-  const component = shallow(
+  const component = render(
     <Link href="#" noWrap={noWrap}>
       Test
     </Link>
@@ -118,7 +118,7 @@ it('noWrap is responsive prop', () => {
 });
 it('breakWords is responsive prop', () => {
   const breakWords = [true];
-  const component = shallow(
+  const component = render(
     <Link href="#" breakWords={breakWords}>
       Test
     </Link>

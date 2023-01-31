@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Media from './Media';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 const defaultProps = {
   contentArray: [
@@ -13,7 +13,7 @@ const defaultProps = {
 };
 
 test('render', () => {
-  const media = shallow(<Media {...defaultProps} />);
+  const media = render(<Media {...defaultProps} />);
 
   expect(media.hasClass('sg-media')).toEqual(true);
   expect(media.find('.sg-media__content')).toHaveLength(
@@ -22,7 +22,7 @@ test('render', () => {
   expect(media.hasClass('sg-media--white')).toEqual(true);
 });
 test('testing modifications - all on', () => {
-  const media = shallow(
+  const media = render(
     <Media
       {...defaultProps}
       color="gray-20"
@@ -49,7 +49,7 @@ test('testing modifications - all on', () => {
   );
 });
 test('testing modifications - all off', () => {
-  const media = shallow(<Media {...defaultProps} />);
+  const media = render(<Media {...defaultProps} />);
 
   expect(media.hasClass('sg-media--clickable')).toEqual(false);
   expect(media.hasClass('sg-media--white')).toEqual(true);

@@ -3,16 +3,16 @@ import Search, {SIZE, COLOR} from './Search';
 import Input from 'form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import Button from 'buttons/Button';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const search = shallow(<Search />);
+  const search = render(<Search />);
 
   expect(search.hasClass('sg-search')).toEqual(true);
   expect(search.find(Input)).toHaveLength(1);
 });
 test('set Search specific properties to Input', () => {
-  const search = shallow(<Search />);
+  const search = render(<Search />);
   const input = search.find(Input);
 
   expect(input.props().type).toEqual('search');
@@ -23,7 +23,7 @@ test('pass properties to Input, without Search specific', () => {
   const color = COLOR.WHITE;
   const type = 'text';
   const withRoundButton = false;
-  const search = shallow(
+  const search = render(
     <Search
       color={color}
       size={size}
@@ -41,7 +41,7 @@ test('pass properties to Input, without Search specific', () => {
   expect(input.props().withIcon).toEqual(true);
 });
 test('render icon', () => {
-  const search = shallow(<Search />);
+  const search = render(<Search />);
   const icon = search.find(Icon);
 
   expect(icon).toHaveLength(1);
@@ -51,7 +51,7 @@ test('render icon', () => {
   expect(icon.props().size).toEqual(16);
 });
 test('adaptive Button with icon', () => {
-  const search = shallow(<Search withRoundButton />);
+  const search = render(<Search withRoundButton />);
   const icon = search.find(Button);
 
   expect(icon).toHaveLength(1);

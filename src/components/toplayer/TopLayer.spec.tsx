@@ -1,14 +1,14 @@
 import * as React from 'react';
 import TopLayer, {SIZE} from './TopLayer';
-import {mount, shallow} from 'enzyme';
+import {mount, render} from 'enzyme';
 
 test('render', () => {
-  const topLayer = shallow(<TopLayer>some text</TopLayer>);
+  const topLayer = render(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.hasClass('sg-toplayer')).toEqual(true);
 });
 test('default size', () => {
-  const topLayer = shallow(<TopLayer>some text</TopLayer>);
+  const topLayer = render(<TopLayer>some text</TopLayer>);
 
   Object.values(SIZE).forEach(size => {
     expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(false);
@@ -45,12 +45,12 @@ test('key down action', () => {
 });
 test('size', () => {
   const size = SIZE.SMALL;
-  const topLayer = shallow(<TopLayer size={size}>some text</TopLayer>);
+  const topLayer = render(<TopLayer size={size}>some text</TopLayer>);
 
   expect(topLayer.hasClass(`sg-toplayer--${size}`)).toEqual(true);
 });
 test('testing modifications - all on', () => {
-  const topLayer = shallow(
+  const topLayer = render(
     <TopLayer
       fill
       lead
@@ -75,7 +75,7 @@ test('testing modifications - all on', () => {
   expect(topLayer.hasClass('sg-toplayer--row')).toEqual(true);
 });
 test('testing modifications - all off', () => {
-  const topLayer = shallow(<TopLayer>some text</TopLayer>);
+  const topLayer = render(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.hasClass('sg-toplayer--lead')).toEqual(false);
   expect(topLayer.hasClass('sg-toplayer--fill')).toEqual(false);
@@ -87,12 +87,12 @@ test('testing modifications - all off', () => {
   expect(topLayer.hasClass('sg-toplayer--row')).toEqual(false);
 });
 test('testing wrapper', () => {
-  const topLayer = shallow(<TopLayer>some text</TopLayer>);
+  const topLayer = render(<TopLayer>some text</TopLayer>);
 
   expect(topLayer.find('.sg-toplayer__wrapper')).toHaveLength(1);
 });
 test('testing wrapper without padding', () => {
-  const topLayer = shallow(<TopLayer noPadding>some text</TopLayer>);
+  const topLayer = render(<TopLayer noPadding>some text</TopLayer>);
 
   expect(
     topLayer

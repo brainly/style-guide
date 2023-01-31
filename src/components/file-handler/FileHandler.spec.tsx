@@ -1,67 +1,72 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
 import FileHandler from './FileHandler';
-import Icon from 'icons/Icon';
-import Text from '../text/Text';
-import Link from '../text/Link';
-import Spinner from '../spinner/Spinner';
+import {render} from '@testing-library/react';
 
 const mockCallback = jest.fn();
 
 describe('FileHandler', () => {
   test('renders with icon', () => {
-    const fileHandler = shallow(<FileHandler>example text</FileHandler>);
+    const fileHandler = render(<FileHandler>example text</FileHandler>);
 
-    expect(fileHandler.hasClass('sg-file-handler')).toEqual(true);
-    expect(fileHandler.find(Text)).toHaveLength(1);
-    expect(fileHandler.find(Icon).prop('type')).toBe('attachment');
+    expect(fileHandler.queryByText('example text')).toBeTruthy();
+    expect(fileHandler.queryByRole('img')).toBeTruthy();
   });
+
   test('renders close button when onClose', () => {
-    const fileHandler = shallow(
+    const fileHandler = render(
       <FileHandler onClose={mockCallback}>example text</FileHandler>
     );
 
-    expect(
-      fileHandler.find('button').hasClass('sg-file-handler__close-button')
-    ).toEqual(true);
-    expect(fileHandler.find('button').find(Icon)).toHaveLength(1);
+    expect(fileHandler.queryByRole('button', {name: 'Close'})).toBeTruthy();
   });
+
   test('renders color white', () => {
-    const fileHandler = shallow(
+    const fileHandler = render(
       <FileHandler color="white">example text</FileHandler>
     );
 
-    expect(fileHandler.hasClass('sg-file-handler--white')).toEqual(true);
+    expect(
+      fileHandler.container.firstElementChild.classList.contains(
+        'sg-file-handler--white'
+      )
+    ).toEqual(true);
   });
+
   test('renders proper icon when iconType', () => {
-    const fileHandler = shallow(
+    const fileHandler = render(
       <FileHandler iconType="heart">example text</FileHandler>
     );
 
-    expect(fileHandler.find(Icon).prop('type')).toBe('heart');
+    expect(fileHandler.queryByRole('img', {name: /heart/})).toBeTruthy();
   });
+
   test('renders img when thumbnailSrc', () => {
-    const fileHandler = shallow(
-      <FileHandler thumbnailSrc="thumbnailSrc">example text</FileHandler>
+    const fileHandler = render(
+      <FileHandler thumbnailSrc="http://brainly.com/thumbnail">
+        example text
+      </FileHandler>
     );
 
-    expect(fileHandler.find(Icon)).toHaveLength(0);
-    expect(fileHandler.find('img')).toHaveLength(1);
+    expect(fileHandler.queryByRole('img', {name: /attachment/})).toBeFalsy();
+    const thumbnail = fileHandler.getByRole('img');
+
+    expect(thumbnail.getAttribute('src')).toEqual(
+      'http://brainly.com/thumbnail'
+    );
   });
+
   test('renders Link when src', () => {
-    const fileHandler = shallow(
+    const fileHandler = render(
       <FileHandler src="src">example text</FileHandler>
     );
 
-    expect(fileHandler.find(Link)).toHaveLength(1);
-    expect(fileHandler.find(Text)).toHaveLength(0);
+    expect(fileHandler.queryByRole('link')).toBeTruthy();
   });
-  test('renders Spinner when loading', () => {
-    const fileHandler = shallow(
-      <FileHandler loading>example text</FileHandler>
-    );
 
-    expect(fileHandler.find(Spinner)).toHaveLength(1);
-    expect(fileHandler.find(Icon)).toHaveLength(0);
+  test('renders Spinner when loading', () => {
+    const fileHandler = render(<FileHandler loading>example text</FileHandler>);
+
+    expect(fileHandler.queryByRole('status')).toBeTruthy();
+    expect(fileHandler.queryByRole('img')).toBeFalsy();
   });
 });

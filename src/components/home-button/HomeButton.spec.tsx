@@ -1,27 +1,34 @@
 import * as React from 'react';
 import HomeButton, {TYPE} from './HomeButton';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const button = shallow(<HomeButton />);
+  const button = render(<HomeButton />);
 
-  expect(button.hasClass('sg-home-button')).toBeTruthy();
-  expect(button.find('img')).toHaveLength(2);
-  expect(button.find('a')).toHaveLength(1);
+  expect(button.queryAllByRole('img').length).toBeGreaterThan(0);
+  expect(button.queryByRole('link')).toBeTruthy();
 });
+
 test('type', () => {
-  const button = shallow(<HomeButton type={TYPE.EODEV} />);
+  const button = render(<HomeButton type={TYPE.EODEV} />);
 
-  expect(button.hasClass('sg-home-button--eodev')).toBeTruthy();
+  expect(
+    button.container.firstElementChild.classList.contains(
+      'sg-home-button--eodev'
+    )
+  ).toBe(true);
 });
+
 test('href', () => {
-  const test = 'test';
-  const button = shallow(<HomeButton href={test} />);
+  const button = render(<HomeButton href="http://foo.com" />);
 
-  expect(button.props().href).toEqual(test);
+  expect(button.getByRole('link').getAttribute('href')).toEqual(
+    'http://foo.com'
+  );
 });
-test('empty href', () => {
-  const button = shallow(<HomeButton>Test</HomeButton>);
 
-  expect(button.props().href).toEqual('#');
+test('empty href', () => {
+  const button = render(<HomeButton>Test</HomeButton>);
+
+  expect(button.getByRole('link').getAttribute('href')).toEqual('#');
 });

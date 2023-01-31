@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {shallow, mount} from 'enzyme';
+import {render, mount} from 'enzyme';
 import Icon from 'icons/Icon';
 import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
@@ -7,31 +7,31 @@ import Star from './subcomponents/Star';
 
 describe('rating', () => {
   it('renders correctly', () => {
-    const rating = shallow(<Rating />);
+    const rating = render(<Rating />);
 
     expect(rating.hasClass('sg-rate-box')).toEqual(true);
   });
   it("doesn't throw error when no onChange", () => {
     const spy = jest.spyOn(console, 'error');
 
-    shallow(<Rating />);
+    render(<Rating />);
     expect(spy).not.toHaveBeenCalled();
     spy.mockRestore();
   });
   it('active', () => {
-    const rating = shallow(<Rating active />);
+    const rating = render(<Rating active />);
 
     expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
   });
   it('renders stars - defined metricSize', () => {
     const metricSize = 8;
-    const rating = shallow(<Rating active metricSize={metricSize} />);
+    const rating = render(<Rating active metricSize={metricSize} />);
 
     expect(rating.find(Star)).toHaveLength(2 * metricSize);
   });
   it('renders stars - default number of stars', () => {
     const defaultMetricSize = 5;
-    const rating = shallow(<Rating />);
+    const rating = render(<Rating />);
 
     expect(rating.find(Star)).toHaveLength(2 * defaultMetricSize);
   });
@@ -39,7 +39,7 @@ describe('rating', () => {
     const rate = 3;
     const metric = 10;
     const percentageRate = `${(100 * rate) / metric}%`;
-    const rating = shallow(<Rating rate={rate} metricSize={metric} />);
+    const rating = render(<Rating rate={rate} metricSize={metric} />);
     const filledStarsBox = rating.find('.sg-rate-box__filled-stars');
     const filledWidth = filledStarsBox.props().style?.width;
 
@@ -61,7 +61,7 @@ describe('rating', () => {
     spy.mockRestore();
   });
   it('has small size', () => {
-    const rating = shallow(<Rating size={RATING_SIZE.S} />);
+    const rating = render(<Rating size={RATING_SIZE.S} />);
     const stars = rating.find(Star);
 
     expect(rating.hasClass('sg-rate-box--s')).toEqual(true);
@@ -70,31 +70,31 @@ describe('rating', () => {
     });
   });
   it('renders without label', () => {
-    const rating = shallow(<Rating noLabel />);
+    const rating = render(<Rating noLabel />);
 
     expect(rating.hasClass('sg-rate-box__rate')).toEqual(false);
   });
   describe('counter text', () => {
     it('exists', () => {
-      const rating = shallow(<Rating />);
+      const rating = render(<Rating />);
       const rateCounter = rating.find(RateCounter);
 
       expect(rateCounter).toHaveLength(1);
     });
     it("displays counter text when no active and haven't been rated", () => {
-      const rating = shallow(<Rating />);
+      const rating = render(<Rating />);
       const rateCounter = rating.find(RateCounter);
 
       expect(rateCounter.props().activeText).toBeFalsy();
     });
     it('displays counter text when have been rated and no active', () => {
-      const rating = shallow(<Rating rate={3} />);
+      const rating = render(<Rating rate={3} />);
       const rateCounter = rating.find(RateCounter);
 
       expect(rateCounter.props().activeText).toBeFalsy();
     });
     it('displays counter text when have been rated and active', () => {
-      const rating = shallow(<Rating rate={3} active />);
+      const rating = render(<Rating rate={3} active />);
       const rateCounter = rating.find(RateCounter);
 
       expect(rateCounter.props().activeText).toBeFalsy();
@@ -117,19 +117,19 @@ describe('rating', () => {
 });
 describe('star', () => {
   it('renders', () => {
-    const star = shallow(<Star />);
+    const star = render(<Star />);
 
     expect(star.hasClass('sg-rate-box__star')).toEqual(true);
   });
   it('uses Icon component', () => {
     const size = 16;
-    const star = shallow(<Star size={size} />);
+    const star = render(<Star size={size} />);
 
     expect(star.find(Icon)).toHaveLength(1);
   });
   it('passes size to icon', () => {
     const size = 16;
-    const star = shallow(<Star size={size} />);
+    const star = render(<Star size={size} />);
     const icon = star.find(Icon);
 
     expect(icon.props().size).toEqual(size);

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Overlay from './Overlay';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const overlay = shallow(<Overlay />);
+  const overlay = render(<Overlay />);
 
   expect(overlay.hasClass('sg-overlay')).toEqual(true);
 });
 test('children', () => {
-  const overlay = shallow(
+  const overlay = render(
     <Overlay>
       <div className="test" />
     </Overlay>
@@ -17,12 +17,12 @@ test('children', () => {
   expect(overlay.find('.test')).toHaveLength(1);
 });
 test('partial', () => {
-  const overlay = shallow(<Overlay partial />);
+  const overlay = render(<Overlay partial />);
 
   expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
 });
 test('colors', () => {
-  const overlay = shallow(<Overlay color="black" />);
+  const overlay = render(<Overlay color="black" />);
 
   expect(overlay.hasClass('sg-overlay--black')).toBeTruthy();
 });

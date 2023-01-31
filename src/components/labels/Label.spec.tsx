@@ -2,11 +2,11 @@ import * as React from 'react';
 import Label from './Label';
 import Icon from 'icons/Icon';
 import Text from 'text/Text';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 describe('Label', () => {
   test('render', () => {
-    const label = shallow(
+    const label = render(
       <Label type="default" color="blue">
         example label
       </Label>
@@ -16,7 +16,7 @@ describe('Label', () => {
     expect(label.hasClass('sg-label--blue-20')).toBe(true);
   });
   test('render with icon', () => {
-    const label = shallow(
+    const label = render(
       <Label type="default" iconType="star">
         example label
       </Label>
@@ -28,7 +28,7 @@ describe('Label', () => {
     expect(icon.props().type).toBe('star');
   });
   test('render type solid', () => {
-    const label = shallow(
+    const label = render(
       <Label type="solid" color="green">
         example label
       </Label>
@@ -39,7 +39,7 @@ describe('Label', () => {
   });
   test('icon-black color close button is default', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label type="default" color="green" onClose={mockCallback}>
         example label
       </Label>
@@ -51,7 +51,7 @@ describe('Label', () => {
   });
   test('clicking on close button calls onClose', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label type="solid" color="green" onClose={mockCallback}>
         example label
       </Label>
@@ -63,7 +63,7 @@ describe('Label', () => {
   });
   test('has proper styles if default', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label
         type="default"
         color="green"
@@ -87,7 +87,7 @@ describe('Label', () => {
   });
   test('has proper styles if solid', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label type="solid" color="green" iconType="heart" onClose={mockCallback}>
         default label
       </Label>
@@ -106,7 +106,7 @@ describe('Label', () => {
   });
   test('has proper styles if transparent', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label
         type="transparent"
         color="green"
@@ -132,7 +132,7 @@ describe('Label', () => {
   });
   test('has proper styles if transparent-color', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label
         type="transparent-color"
         color="green"

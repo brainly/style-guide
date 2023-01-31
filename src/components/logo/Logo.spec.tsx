@@ -1,15 +1,15 @@
 import * as React from 'react';
 import Logo, {TYPE} from './Logo';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
 test('render', () => {
-  const logo = shallow(<Logo />);
+  const logo = render(<Logo />);
 
   expect(logo.hasClass('sg-logo')).toEqual(true);
   expect(logo.find('img')).toHaveLength(1);
 });
 test('type', () => {
-  const logo = shallow(<Logo type={TYPE.ZNANIJA} />);
+  const logo = render(<Logo type={TYPE.ZNANIJA} />);
 
   expect(logo.hasClass('sg-logo--znanija')).toEqual(true);
 });

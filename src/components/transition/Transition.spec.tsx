@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
+import {render} from '@testing-library/react';
 import {act} from 'react-dom/test-utils';
 import Transition from './Transition'; // https://github.com/jsdom/jsdom/issues/1781
 // https://github.com/testing-library/dom-testing-library/pull/865

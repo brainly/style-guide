@@ -1,11 +1,11 @@
 import * as React from 'react';
 import ActionListHole, {ACTION_LIST_HOLE_SPACING} from './ActionListHole';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 import Button from 'buttons/Button';
 
 describe('<ActionListHole />', () => {
   test('render', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole>
         <Button variant="solid" size="s">
           accept
@@ -16,7 +16,7 @@ describe('<ActionListHole />', () => {
     expect(actionListHole.hasClass('sg-actions-list__hole')).toEqual(true);
   });
   test('container', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole asContainer>test</ActionListHole>
     );
 
@@ -25,7 +25,7 @@ describe('<ActionListHole />', () => {
     );
   });
   test('no-spacing', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole noSpacing>test</ActionListHole>
     );
 
@@ -34,7 +34,7 @@ describe('<ActionListHole />', () => {
     ).toEqual(true);
   });
   test('space-bellow', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole spaceBellow>test</ActionListHole>
     );
 
@@ -43,7 +43,7 @@ describe('<ActionListHole />', () => {
     ).toEqual(true);
   });
   test('no-shrink', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole noShrink>test</ActionListHole>
     );
 
@@ -52,21 +52,21 @@ describe('<ActionListHole />', () => {
     );
   });
   test('grow', () => {
-    const actionListHole = shallow(<ActionListHole grow>test</ActionListHole>);
+    const actionListHole = render(<ActionListHole grow>test</ActionListHole>);
 
     expect(actionListHole.hasClass('sg-actions-list__hole--grow')).toEqual(
       true
     );
   });
   test('to-end', () => {
-    const actionListHole = shallow(<ActionListHole toEnd>test</ActionListHole>);
+    const actionListHole = render(<ActionListHole toEnd>test</ActionListHole>);
 
     expect(actionListHole.hasClass('sg-actions-list__hole--to-end')).toEqual(
       true
     );
   });
   test('to-right', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole toRight>test</ActionListHole>
     );
 
@@ -75,7 +75,7 @@ describe('<ActionListHole />', () => {
     );
   });
   test('to-right', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole toRight>test</ActionListHole>
     );
 
@@ -84,7 +84,7 @@ describe('<ActionListHole />', () => {
     );
   });
   test('spaced-small', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
         test
       </ActionListHole>
@@ -95,7 +95,7 @@ describe('<ActionListHole />', () => {
     ).toEqual(true);
   });
   test('spaced-xsmall', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
         test
       </ActionListHole>
@@ -106,7 +106,7 @@ describe('<ActionListHole />', () => {
     ).toEqual(true);
   });
   test('equal-width', () => {
-    const actionListHole = shallow(
+    const actionListHole = render(
       <ActionListHole equalWidth>test</ActionListHole>
     );
 

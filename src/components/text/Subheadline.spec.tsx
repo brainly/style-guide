@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Subheadline from './Subheadline';
-import {mount, shallow} from 'enzyme';
+import {mount, render} from 'enzyme';
 import {
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TYPE,
@@ -10,19 +10,19 @@ import {
 import {TEXT_COLOR} from './Text';
 
 test('render', () => {
-  const subheadline = shallow(<Subheadline>Test</Subheadline>);
+  const subheadline = render(<Subheadline>Test</Subheadline>);
 
   expect(subheadline.hasClass('sg-subheadline')).toBeTruthy();
 });
 test('size', () => {
-  const headline = shallow(
+  const headline = render(
     <Subheadline size={SUBHEADLINE_SIZE.SMALL}>Test</Subheadline>
   );
 
   expect(headline.hasClass('sg-subheadline--small')).toBeTruthy();
 });
 it('size is responsive prop', () => {
-  const component = shallow(
+  const component = render(
     <Subheadline
       size={[
         SUBHEADLINE_SIZE.SMALL,
@@ -49,21 +49,21 @@ test('type', () => {
   expect(headline.props().type).toEqual(SUBHEADLINE_TYPE.H3);
 });
 test('color', () => {
-  const text = shallow(
+  const text = render(
     <Subheadline color={TEXT_COLOR['text-white']}>Test</Subheadline>
   );
 
   expect(text.hasClass('sg-subheadline--text-white')).toBeTruthy();
 });
 test('transform uppercase', () => {
-  const headline = shallow(
+  const headline = render(
     <Subheadline transform={SUBHEADLINE_TRANSFORM.UPPERCASE}>Test</Subheadline>
   );
 
   expect(headline.hasClass('sg-subheadline--uppercase')).toBeTruthy();
 });
 it('transform is responsive prop', () => {
-  const component = shallow(
+  const component = render(
     <Subheadline
       transform={[
         SUBHEADLINE_TRANSFORM.UPPERCASE,
@@ -83,14 +83,14 @@ it('transform is responsive prop', () => {
   ).toEqual(true);
 });
 test('extra align left', () => {
-  const headline = shallow(
+  const headline = render(
     <Subheadline align={SUBHEADLINE_ALIGN.LEFT}>Test</Subheadline>
   );
 
   expect(headline.hasClass('sg-subheadline--to-left')).toBeTruthy();
 });
 it('align is responsive prop', () => {
-  const component = shallow(
+  const component = render(
     <Subheadline
       align={[
         SUBHEADLINE_ALIGN.LEFT,
