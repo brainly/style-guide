@@ -39,6 +39,7 @@ $largeButtonSize: componentSize(l);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   box-sizing: border-box;
+  overflow: hidden;
 
   &__text {
     position: relative;
@@ -91,6 +92,10 @@ $largeButtonSize: componentSize(l);
     padding: 0 28px;
     font-size: 21px;
     line-height: 21px;
+
+    .sg-button__hover-overlay {
+      border-radius: 28px;
+    }
   }
 
   &--s {
@@ -99,6 +104,10 @@ $largeButtonSize: componentSize(l);
     padding: 0 spacing(s);
     font-size: 12px;
     line-height: 12px;
+
+    .sg-button__hover-overlay {
+      border-radius: 16px;
+    }
 
     // Proxima is broken
     // Added to align text in the center for this font-size
@@ -204,51 +213,99 @@ $largeButtonSize: componentSize(l);
   }
 
   &--transparent {
-    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     color: $black;
 
+    .sg-button__hover-overlay {
+      background-color: mix($gray-50, $transparent, 12%);
+    }
+
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($yellow-40, $transparent, 12%);
+      }
+    }
+  }
+
+  &__hover-overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: scale(0.5);
+    transition: transform $durationModerate2 cubic-bezier(0.3, 0, 1, 0.8),
+      opacity $durationModerate1 linear;
+    opacity: 0;
+    border-radius: 20px;
+  }
+
+  &:hover:not([disabled]),
+  &:active:not([disabled]) {
+    .sg-button__hover-overlay {
+      transform: scale(1);
+      transition: transform $durationModerate2 cubic-bezier(0.1, 0, 0, 1);
+      opacity: 1;
     }
   }
 
   &--transparent-light {
-    @include buttonHover($gray-50, $transparent, 12%);
     background-color: $transparent;
     color: $gray-50;
 
+    .sg-button__hover-overlay {
+      background-color: mix($gray-50, $transparent, 12%);
+    }
+
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
       @include buttonIconColor($red-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
     }
 
     &-toggle-yellow {
-      @include buttonHover($yellow-40, $transparent, 12%);
       @include buttonIconColor($yellow-50);
+
+      .sg-button__hover-overlay {
+        background-color: mix($yellow-40, $transparent, 12%);
+      }
     }
   }
 
   &--transparent-inverted {
-    @include buttonHover($white, $transparent, 12%);
     background-color: $transparent;
     color: $white;
+
+    .sg-button__hover-overlay {
+      background-color: mix($white, $transparent, 12%);
+    }
   }
 
   &--transparent-red {
-    @include buttonHover($red-40, $transparent, 12%);
     @include buttonIconColor($red-50);
     background-color: $transparent;
     color: $red-60;
 
+    .sg-button__hover-overlay {
+      background-color: mix($red-40, $transparent, 12%);
+    }
+
     &-toggle-red {
-      @include buttonHover($red-40, $transparent, 12%);
+      .sg-button__hover-overlay {
+        background-color: mix($red-40, $transparent, 12%);
+      }
     }
   }
 

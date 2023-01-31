@@ -408,6 +408,9 @@ const Button = React.forwardRef(
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
+        {variant.includes('transparent') ? (
+          <span className="sg-button__hover-overlay" />
+        ) : null}
       </TagToRender>
     );
   }
