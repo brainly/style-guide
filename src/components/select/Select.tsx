@@ -7,6 +7,7 @@ import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import {mergeRefs} from '../utils';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
+import Checkbox from '../form-elements/checkbox/Checkbox';
 
 type SelectOptionElementPropsType = {
   option: SelectOptionType;
@@ -50,7 +51,7 @@ export type SelectPropsType = {
    * @example <Select options={[{value:"option1",label:"Option1"},{label:"Label title",options:[{value:"option1",label:"Option1"},{value:"option2",label:"Select selector"}]},{value:"option2",label:"Select selector"}]} />
    */
   options?: ReadonlyArray<SelectOptionsGroupType | SelectOptionType>;
-  selectedOption?: SelectOptionType;
+  selectedOptions?: ReadonlyArray<SelectOptionType>;
 
   onClick?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;
 
@@ -58,6 +59,7 @@ export type SelectPropsType = {
 
   onToggle: (boolean) => unknown;
 
+  multiSelect?: boolean;
   expanded?: boolean;
   defaultExpanded?: boolean;
   withIcons?: boolean;
@@ -76,24 +78,35 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const {
       valid,
       invalid,
-      selectedOption,
+      selectedOptions = [],
       placeholder = 'Select...',
       className,
       options = [],
       expanded = undefined,
       defaultExpanded = undefined,
       withIcons = false,
+      multiSelect = false,
       onClick,
       onToggle,
       onOptionChange,
       ...additionalProps
     } = props;
 
-    const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
+    const {
+      id,
+      isExpanded,
+      onOpenChange,
+      handleOptionSelect,
+      selectDisplayValue,
+    } = useSelect({
       valid,
       invalid,
       expanded,
       defaultExpanded,
+      multiSelect,
+      placeholder,
+      withIcons,
+      selectedOptions,
       onToggle,
       onOptionChange,
     });
@@ -146,6 +159,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         >
           {withIcon && <SubjectIcon size="small" type={iconName} />}
           {label}
+          {multiSelect && <Checkbox id={option.value} checked={isSelected} />}
         </div>
       );
     };
@@ -156,7 +170,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             {item.options.map(option =>
               getOptionElement({
                 option,
-                isSelected: option.value === selectedOption?.value,
+                isSelected:
+                  selectedOptions.length &&
+                  !!selectedOptions.find(
+                    selectedOption => option.value === selectedOption.value
+                  ),
                 onClick: onOptionChange,
                 withIcon: withIcons,
               })
@@ -168,7 +186,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       if (item.label || item.value) {
         return getOptionElement({
           option: item,
-          isSelected: item.value === selectedOption?.value,
+          isSelected:
+            selectedOptions.length &&
+            !!selectedOptions.find(option => option.value === item.value),
           onClick: onOptionChange,
           withIcon: withIcons,
         });
@@ -180,31 +200,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const selectClass = classnames(
       'sg-select',
       {
-        'sg-select--selected': selectedOption?.value,
+        'sg-select--selected': selectedOptions.length,
         'sg-select--valid': valid,
         'sg-select--invalid': invalid,
       },
       className
     );
-
-    const selectDisplayValue = React.useMemo(() => {
-      const {value, iconName} = selectedOption || {};
-
-      if (value) {
-        if (withIcons) {
-          return (
-            <>
-              <SubjectIcon size="small" type={iconName} />
-              {value}
-            </>
-          );
-        }
-
-        return value;
-      }
-
-      return placeholder;
-    }, [placeholder, withIcons, selectedOption]);
 
     return (
       <div className={selectClass}>

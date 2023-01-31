@@ -2,6 +2,8 @@ import * as React from 'react';
 
 import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import type {IconTypeType} from '../subject-icons/SubjectIcon';
 
 type UseSelectPropsType = Pick<
   SelectPropsType,
@@ -9,13 +11,27 @@ type UseSelectPropsType = Pick<
   | 'invalid'
   | 'expanded'
   | 'defaultExpanded'
+  | 'multiSelect'
+  | 'placeholder'
+  | 'withIcons'
+  | 'selectedOptions'
   | 'onToggle'
   | 'onOptionChange'
 >;
 
 const useSelect = (props: UseSelectPropsType) => {
-  const {valid, invalid, expanded, defaultExpanded, onToggle, onOptionChange} =
-    props;
+  const {
+    valid,
+    invalid,
+    expanded,
+    defaultExpanded,
+    multiSelect,
+    placeholder,
+    withIcons,
+    selectedOptions,
+    onToggle,
+    onOptionChange,
+  } = props;
 
   const {current: id} = React.useRef<string>(`select-${generateId()}`);
   const [isExpanded, setIsExpanded] = React.useState(
@@ -37,7 +53,7 @@ const useSelect = (props: UseSelectPropsType) => {
 
   const handleOptionSelect = (option: SelectOptionType) => {
     onOptionChange(option);
-    onOpenChange(false);
+    if (!multiSelect) onOpenChange(false);
   };
 
   const onOpenChange = (isOpen: boolean) => {
@@ -45,11 +61,38 @@ const useSelect = (props: UseSelectPropsType) => {
     else setIsExpanded(isOpen);
   };
 
+  const selectDisplayValue = React.useMemo(() => {
+    if (!selectedOptions.length) return placeholder;
+
+    if (selectedOptions.length === 1) {
+      const {label, iconName} = selectedOptions[0] || {};
+
+      if (label) {
+        if (withIcons) {
+          return (
+            <>
+              <SubjectIcon size="small" type={iconName} />
+              {label}
+            </>
+          );
+        }
+
+        return label;
+      }
+    } else {
+      const label = [];
+
+      selectedOptions.map(option => label.push(option.label));
+      return label.join(', ');
+    }
+  }, [placeholder, withIcons, selectedOptions]);
+
   return {
     id,
     isExpanded,
     handleOptionSelect,
     onOpenChange,
+    selectDisplayValue,
   };
 };
 
