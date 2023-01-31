@@ -403,13 +403,21 @@ $largeButtonSize: componentSize(l);
       clip: rect(0, 0, 0, 0);
       border: none;
     }
+
+    &.sg-button--press-scale-down {
+      transition: transform $durationModerate2 cubic-bezier(0.35, 0, 0.1, 1);
+
+      &:active:not([disabled]) {
+        transform: scale(0.86);
+      }
+    }
   }
 
   &--press-scale-down {
     transition: transform $durationModerate2 cubic-bezier(0.35, 0, 0.1, 1);
 
-    &:active {
-      transform: scale(0.86);
+    &:active:not([disabled]) {
+      transform: scale(0.92);
     }
   }
 
