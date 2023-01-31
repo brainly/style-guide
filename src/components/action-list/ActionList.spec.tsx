@@ -1,12 +1,12 @@
 import * as React from 'react';
 import ActionList, {DIRECTION, ALIGNMENT} from './ActionList';
 import ActionListHole from './ActionListHole';
-import {shallow} from 'enzyme';
 import Button from 'buttons/Button';
+import {render} from '@testing-library/react';
 
 describe('ActionList', () => {
   test('render', () => {
-    const actionList = shallow(
+    const actionList = render(
       <ActionList>
         <ActionListHole>
           <Button variant="solid">accept</Button>
@@ -16,55 +16,78 @@ describe('ActionList', () => {
         </ActionListHole>
       </ActionList>
     );
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list')).toEqual(true);
   });
+
   test('to-right', () => {
-    const actionList = shallow(<ActionList direction={DIRECTION.TO_RIGHT} />);
+    const actionList = render(<ActionList direction={DIRECTION.TO_RIGHT} />);
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list--to-right')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list--to-right')).toEqual(true);
   });
+
   test('to-top', () => {
-    const actionList = shallow(<ActionList toTop />);
+    const actionList = render(<ActionList toTop />);
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list--to-top')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list--to-top')).toEqual(true);
   });
-  test('baseline', () => {
-    const actionList = shallow(<ActionList align={ALIGNMENT.BASELINE} />);
 
-    expect(actionList.hasClass('sg-actions-list--align-baseline')).toEqual(
+  test('baseline', () => {
+    const actionList = render(<ActionList align={ALIGNMENT.BASELINE} />);
+    const root = actionList.container.firstElementChild;
+
+    expect(root.classList.contains('sg-actions-list--align-baseline')).toEqual(
       true
     );
   });
-  test('centered', () => {
-    const actionList = shallow(<ActionList direction={DIRECTION.CENTERED} />);
 
-    expect(actionList.hasClass('sg-actions-list--centered')).toEqual(true);
+  test('centered', () => {
+    const actionList = render(<ActionList direction={DIRECTION.CENTERED} />);
+    const root = actionList.container.firstElementChild;
+
+    expect(root.classList.contains('sg-actions-list--centered')).toEqual(true);
   });
+
   test('space-between', () => {
-    const actionList = shallow(
+    const actionList = render(
       <ActionList direction={DIRECTION.SPACE_BETWEEN} />
     );
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list--space-between')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list--space-between')).toEqual(
+      true
+    );
   });
+
   test('space-around', () => {
-    const actionList = shallow(
+    const actionList = render(
       <ActionList direction={DIRECTION.SPACE_AROUND} />
     );
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list--space-around')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list--space-around')).toEqual(
+      true
+    );
   });
+
   test('space-evenly', () => {
-    const actionList = shallow(
+    const actionList = render(
       <ActionList direction={DIRECTION.SPACE_EVENLY} />
     );
+    const root = actionList.container.firstElementChild;
 
-    expect(actionList.hasClass('sg-actions-list--space-evenly')).toEqual(true);
+    expect(root.classList.contains('sg-actions-list--space-evenly')).toEqual(
+      true
+    );
   });
-  test('no-wrap', () => {
-    const actionList = shallow(<ActionList noWrap />);
 
-    expect(actionList.hasClass('sg-actions-list--no-wrap')).toEqual(true);
+  test('no-wrap', () => {
+    const actionList = render(<ActionList noWrap />);
+    const root = actionList.container.firstElementChild;
+
+    expect(root.classList.contains('sg-actions-list--no-wrap')).toEqual(true);
   });
 });

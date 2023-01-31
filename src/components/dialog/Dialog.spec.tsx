@@ -1,149 +1,169 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
 import Dialog from './Dialog';
 import DialogCloseButton from './DialogCloseButton';
+import {render, fireEvent} from '@testing-library/react';
+import {waitFor} from '@storybook/testing-library';
 
 window.scrollTo = jest.fn();
 describe('<Dialog>', () => {
   it('renders children', () => {
-    const wrapper = mount(<Dialog open>content text</Dialog>);
+    const wrapper = render(<Dialog open>content text</Dialog>);
 
-    expect(wrapper.contains('content text')).toBe(true);
+    expect(wrapper.getByText('content text')).toBeTruthy();
   });
+
   it('renders proper size', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Dialog size="xl" open>
         content text
       </Dialog>
     );
+    const root = wrapper.container.firstElementChild;
 
-    expect(wrapper.find('.sg-dialog__overlay--size-xl')).toHaveLength(1);
+    expect(root.classList.contains('sg-dialog__overlay--size-xl')).toBe(true);
   });
+
   it('renders outside scroll', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Dialog scroll="outside" open>
         content text
       </Dialog>
     );
+    const root = wrapper.container.firstElementChild;
 
-    expect(wrapper.find('.sg-dialog__overlay--scroll')).toHaveLength(1);
+    expect(root.classList.contains('sg-dialog__overlay--scroll')).toBe(true);
   });
+
   it('renders inside scroll', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Dialog scroll="inside" open>
         content text
       </Dialog>
     );
+    const dialog = wrapper.getByRole('dialog');
 
-    expect(wrapper.find('.sg-dialog__container--scroll')).toHaveLength(1);
+    expect(dialog.classList.contains('sg-dialog__container--scroll')).toBe(
+      true
+    );
   });
+
   it('fires onDismiss callback on Escape key', () => {
     const onDismiss = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <Dialog onDismiss={onDismiss} open>
         content text
       </Dialog>
     );
 
-    wrapper.simulate('keyUp', {
+    fireEvent.keyUp(wrapper.container.firstChild, {
       key: 'Escape',
     });
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
+
   it('fires onDismiss callback on Overlay click', () => {
     const onDismiss = jest.fn();
-    const wrapper = mount(
+    const wrapper = render(
       <Dialog onDismiss={onDismiss} open>
         content text
       </Dialog>
     );
 
-    wrapper.find('.sg-dialog__overlay').simulate('click');
+    fireEvent.click(wrapper.container.firstChild);
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
+
   it('fires onEntryTransitionEnd callback on entry', () => {
     const onEntryTransitionEnd = jest.fn();
 
-    mount(
+    render(
       <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
         content text
       </Dialog>
     );
     expect(onEntryTransitionEnd).toHaveBeenCalledTimes(1);
   });
+
   it('fires onExitTransitionEnd callback on exit', () => {
     const onExitTransitionEnd = jest.fn();
-    const wrapper = mount(
+    const {rerender} = render(
       <Dialog onExitTransitionEnd={onExitTransitionEnd} open>
         content text
       </Dialog>
     );
 
-    wrapper.setProps({
-      open: false,
-    });
-    expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
-  });
-  it('does not fire onEntryTransitionEnd callback before open', () => {
-    const onEntryTransitionEnd = jest.fn();
-
-    mount(
-      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open={false}>
-        content text
-      </Dialog>
-    );
-    expect(onEntryTransitionEnd).toHaveBeenCalledTimes(0);
-  });
-  it('does not fire onExitTransitionEnd callback before open', () => {
-    const onExitTransitionEnd = jest.fn();
-
-    mount(
+    rerender(
       <Dialog onExitTransitionEnd={onExitTransitionEnd} open={false}>
         content text
       </Dialog>
     );
+    expect(onExitTransitionEnd).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not fire onEntryTransitionEnd callback before open', () => {
+    const onEntryTransitionEnd = jest.fn();
+
+    render(
+      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
+
+    expect(onEntryTransitionEnd).toHaveBeenCalledTimes(0);
+  });
+
+  it('does not fire onExitTransitionEnd callback before open', () => {
+    const onExitTransitionEnd = jest.fn();
+
+    render(
+      <Dialog onExitTransitionEnd={onExitTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
+
     expect(onExitTransitionEnd).toHaveBeenCalledTimes(0);
   });
-  it('returns null after exit transition', () => {
-    const wrapper = mount(<Dialog open>content text</Dialog>);
 
-    expect(wrapper.isEmptyRender()).toBe(false);
-    wrapper.setProps({
-      open: false,
-    });
-    wrapper.update();
-    expect(wrapper.isEmptyRender()).toBe(true);
+  it('returns null after exit transition', async () => {
+    const dialog = render(<Dialog open>content text</Dialog>);
+
+    expect(dialog.container.firstElementChild).not.toBe(null);
+    dialog.rerender(<Dialog open={false}>content text</Dialog>);
+    await waitFor(() => expect(dialog.container.firstElementChild).toBe(null));
   });
+
   it('sets given zIndex', () => {
-    const wrapper = mount(
+    const dialog = render(
       <Dialog open zIndex={10}>
         content text
       </Dialog>
     );
-    const dialogOverlay = wrapper.find('.sg-dialog__overlay');
 
-    expect(dialogOverlay.props().style?.zIndex).toEqual(10);
+    expect(
+      (dialog.container.firstElementChild as HTMLElement).style.zIndex
+    ).toEqual('10');
   });
+
   it('sets given data-testid to dialog', () => {
-    const wrapper = mount(
+    const dialog = render(
       <Dialog open data-testid="test_id">
         content text
       </Dialog>
     );
-    const dialog = wrapper.find('.sg-dialog__container');
 
-    expect(dialog.props()['data-testid']).toEqual('test_id');
+    expect(dialog.getByTestId('test_id')).toBeTruthy();
   });
+
   it('sets given data-testid to dialog close button', () => {
-    const wrapper = mount(
+    const dialog = render(
       <Dialog open>
         <DialogCloseButton data-testid="test_id" />
       </Dialog>
     );
-    const closeBtn = wrapper.find('Button.sg-dialog__close-button');
 
-    expect(closeBtn.props()['data-testid']).toEqual('test_id');
+    expect(dialog.getByTestId('test_id')).toBeTruthy();
   });
+
   it('forces no-scroll class removal before onExitTransitionEnd callback', () => {
     const onExitTransitionEnd = () => {
       expect(
@@ -151,16 +171,19 @@ describe('<Dialog>', () => {
       ).toBeFalsy();
     };
 
-    const wrapper = mount(
+    const dialog = render(
       <Dialog onExitTransitionEnd={onExitTransitionEnd} open>
         content text
       </Dialog>
     );
 
-    wrapper.setProps({
-      open: false,
-    });
+    dialog.rerender(
+      <Dialog onExitTransitionEnd={onExitTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
   });
+
   it('does not force no-scroll class removal before onEntryTransitionEnd callback', () => {
     const onEntryTransitionEnd = () => {
       expect(
@@ -168,14 +191,16 @@ describe('<Dialog>', () => {
       ).toBeTruthy();
     };
 
-    const wrapper = mount(
+    const dialog = render(
       <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open>
         content text
       </Dialog>
     );
 
-    wrapper.setProps({
-      open: false,
-    });
+    dialog.rerender(
+      <Dialog onEntryTransitionEnd={onEntryTransitionEnd} open={false}>
+        content text
+      </Dialog>
+    );
   });
 });
