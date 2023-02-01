@@ -39,6 +39,10 @@ $largeButtonSize: componentSize(l);
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   box-sizing: border-box;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
 
   &__text {
     position: relative;
@@ -350,8 +354,8 @@ $largeButtonSize: componentSize(l);
 
   &--press-scale-down {
     transition: transform $durationModerate2 cubic-bezier(0.35, 0, 0.1, 1);
-
-    &:active {
+    &:active,
+    &-active {
       transform: scale(0.86);
     }
   }

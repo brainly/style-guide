@@ -2,6 +2,7 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
+import {useState} from '@storybook/addons';
 
 export const BUTTON_SIZE: {
   L: 'l';
@@ -306,6 +307,8 @@ const Button = React.forwardRef(
     const isDisabled = disabled || loading;
     const isLink = !!href;
 
+    const [pressEffectActive, setPressEffectActive] = React.useState(false);
+
     if (__DEV__) {
       invariant(
         !(
@@ -365,6 +368,7 @@ const Button = React.forwardRef(
         'sg-button--reversed-order': reversedOrder,
         [onPressEffect ? `sg-button--press-${onPressEffect}` : '']:
           onPressEffect,
+        [`sg-button--press-${onPressEffect}-active`]: pressEffectActive,
       },
       className
     );
@@ -385,6 +389,18 @@ const Button = React.forwardRef(
       return onClick && onClick(e);
     };
 
+    const handleTouchStart = () => {
+      if (onPressEffect) {
+        setPressEffectActive(true);
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (onPressEffect) {
+        setPressEffectActive(false);
+      }
+    };
+
     const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
 
     return (
@@ -398,6 +414,8 @@ const Button = React.forwardRef(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         type={type}
       >
         {loading && (
