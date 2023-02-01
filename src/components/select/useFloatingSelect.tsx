@@ -1,8 +1,10 @@
+import * as React from 'react';
 import {
   useFloating,
   useInteractions,
   useClick,
   useDismiss,
+  useListNavigation,
 } from '@floating-ui/react';
 
 type UseFloatingSelectPropsType = {
@@ -12,6 +14,8 @@ type UseFloatingSelectPropsType = {
 
 const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
   const {isExpanded, onOpenChange} = props;
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
+  const listRef = React.useRef<Array<HTMLElement | null>>([]);
 
   const {x, y, strategy, refs, context} = useFloating({
     open: isExpanded,
@@ -21,9 +25,18 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
   const dismiss = useDismiss(context, {
     ancestorScroll: true,
   });
+
+  const listNav = useListNavigation(context, {
+    listRef,
+    activeIndex,
+    // selectedIndex,
+    onNavigate: setActiveIndex,
+  });
+
   const {getReferenceProps, getFloatingProps, getItemProps} = useInteractions([
     click,
     dismiss,
+    listNav,
   ]);
 
   return {
@@ -38,6 +51,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       strategy,
     },
     refs,
+    listRef,
     context,
   };
 };

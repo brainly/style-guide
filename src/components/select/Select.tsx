@@ -2,19 +2,11 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 import Icon from '../icons/Icon';
-import SubjectIcon from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import {mergeRefs} from '../utils';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
-import Checkbox from '../form-elements/checkbox/Checkbox';
-
-type SelectOptionElementPropsType = {
-  option: SelectOptionType;
-  isSelected?: boolean;
-  onClick: (string) => unknown;
-  withIcon?: boolean;
-};
+import SelectOption from './SelectOption';
 
 export type SelectOptionType = {
   value: string;
@@ -111,67 +103,48 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOpenChange,
     });
 
-    const getOptionElement = ({
-      option,
-      isSelected,
-      withIcon = false,
-    }: SelectOptionElementPropsType) => {
-      const {value, label, iconName} = option;
-
-      const optionElement = classnames('sg-select__option', {
-        'sg-select__option--selected': isSelected,
-        'sg-select__option--with-icon': withIcon,
-      });
-
-      return (
-        <div
-          key={value}
-          className={optionElement}
-          role="option"
-          aria-selected={isSelected}
-          {...floating.interactions.getItemProps({
-            // Handle pointer select.
-            onClick() {
-              handleOptionSelect(option);
-            },
-            // Handle keyboard select.
-            onKeyDown(event) {
-              if (event.key === 'Enter') {
-                event.preventDefault();
-                handleOptionSelect(option);
-              }
-
-              // Only if not using typeahead.
-              if (
-                event.key === ' ' &&
-                !floating.context.dataRef.current.typing
-              ) {
-                event.preventDefault();
-                handleOptionSelect(option);
-              }
-            },
-          })}
-        >
-          {withIcon && <SubjectIcon size="small" type={iconName} />}
-          {label}
-          {multiSelect && <Checkbox id={option.value} checked={isSelected} />}
-        </div>
-      );
-    };
-    const optionsElements = options.map(option => {
+    const optionsElements = options.map((option, index) => {
       if (option.label || option.value) {
-        return getOptionElement({
-          option,
-          isSelected:
-            selectedOptions.length &&
-            !!selectedOptions.find(
-              selectedOption => selectedOption.value === option.value
-            ),
-          onClick: onOptionChange,
-          withIcon: withIcons,
-        });
-      }
+        const isSelected =
+          selectedOptions.length &&
+          !!selectedOptions.find(
+            selectedOption => selectedOption.value === option.value
+          );
 
+        const optionInteractions = floating.interactions.getItemProps({
+          // Handle pointer select.
+          onClick() {
+            handleOptionSelect(option);
+          },
+          // Handle keyboard select.
+          onKeyDown(event) {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              handleOptionSelect(option);
+            }
+
+            // Only if not using typeahead.
+            if (event.key === ' ' && !floating.context.dataRef.current.typing) {
+              event.preventDefault();
+              handleOptionSelect(option);
+            }
+          },
+        });
+
+        return (
+          <SelectOption
+            key={option.value}
+            ref={node => {
+              floating.listRef.current[index] = node;
+            }}
+            option={option}
+            isSelected={isSelected}
+            multiSelect={multiSelect}
+            withIcon={withIcons}
+            interactions={optionInteractions}
+          />
+        );
+      }
       return null;
     });
 
