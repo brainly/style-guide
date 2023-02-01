@@ -42,7 +42,7 @@ it('size is responsive prop', () => {
 test('type', () => {
   const headline = mount(<Headline as={HEADLINE_AS.H3}>Test</Headline>);
 
-  expect(headline.props().type).toEqual(HEADLINE_AS.H3);
+  expect(headline.props().as).toEqual(HEADLINE_AS.H3);
 });
 test('text-white', () => {
   const text = shallow(<Headline color="text-white">Test</Headline>);

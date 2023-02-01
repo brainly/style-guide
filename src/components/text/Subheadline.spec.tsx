@@ -46,7 +46,7 @@ test('type', () => {
     <Subheadline as={SUBHEADLINE_AS.H3}>Test</Subheadline>
   );
 
-  expect(headline.props().type).toEqual(SUBHEADLINE_AS.H3);
+  expect(headline.props().as).toEqual(SUBHEADLINE_AS.H3);
 });
 test('color', () => {
   const text = shallow(

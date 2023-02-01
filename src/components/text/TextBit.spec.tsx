@@ -24,7 +24,7 @@ test('size is responsive prop', () => {
 test('type', () => {
   const textBit = mount(<TextBit as={TEXT_BIT_AS.H3}>Test</TextBit>);
 
-  expect(textBit.props().type).toEqual(TEXT_BIT_AS.H3);
+  expect(textBit.props().as).toEqual(TEXT_BIT_AS.H3);
 });
 test('color', () => {
   const textBit = shallow(<TextBit color="text-blue-40">Test</TextBit>);
