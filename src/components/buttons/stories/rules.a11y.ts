@@ -100,7 +100,7 @@ export const hrefRules = [
 export const toggleRules = [
   {
     pattern: '<b>Should</b> have type <code>button</code>.',
-    comment: 'Use <code>type` to set the type.',
+    comment: 'Use <code>type</code> to set the type.',
     status: 'DONE',
     tests: 'TO DO',
   },

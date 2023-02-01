@@ -102,7 +102,7 @@ import PageHeader from 'blocks/PageHeader';
 <Canvas>
   <Story name="Nested">
     {args => (
-      <Headline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
+      <Headline {...args} as="h2" color={TEXT_COLOR['text-red-60']}>
         Outer headline{' '}
         <Headline inherited as="span">
           nested Headline with inherited styles
