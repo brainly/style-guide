@@ -34,12 +34,12 @@ describe('<MenuItem />', () => {
     expect(menuItem.find('.sg-menu-list__link')).toHaveLength(1);
   });
   test('renders different type of html element', () => {
-    const menuItem = shallow(<MenuItem type="span" text="test" />);
+    const menuItem = shallow(<MenuItem as="span" text="test" />);
 
     expect(menuItem.find('span')).toHaveLength(1);
   });
   test('passes props to link element', () => {
-    const menuItem = shallow(<MenuItem type="span" text="test" id="m4l" />);
+    const menuItem = shallow(<MenuItem as="span" text="test" id="m4l" />);
 
     expect(menuItem.find('.sg-menu-list__link').props().id).toEqual('m4l');
   });
