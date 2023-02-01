@@ -2,7 +2,6 @@ import * as React from 'react';
 import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from '../spinner/Spinner';
 import cx from 'classnames';
 import {__DEV__, invariant} from '../utils';
-import {useState} from '@storybook/addons';
 
 export const BUTTON_SIZE: {
   L: 'l';
