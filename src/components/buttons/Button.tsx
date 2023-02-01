@@ -306,8 +306,6 @@ const Button = React.forwardRef(
     const isDisabled = disabled || loading;
     const isLink = !!href;
 
-    const [pressEffectActive, setPressEffectActive] = React.useState(false);
-
     if (__DEV__) {
       invariant(
         !(
@@ -367,7 +365,6 @@ const Button = React.forwardRef(
         'sg-button--reversed-order': reversedOrder,
         [onPressEffect ? `sg-button--press-${onPressEffect}` : '']:
           onPressEffect,
-        [`sg-button--press-${onPressEffect}-active`]: pressEffectActive,
       },
       className
     );
@@ -388,18 +385,6 @@ const Button = React.forwardRef(
       return onClick && onClick(e);
     };
 
-    const handleTouchStart = () => {
-      if (onPressEffect) {
-        setPressEffectActive(true);
-      }
-    };
-
-    const handleTouchEnd = () => {
-      if (onPressEffect) {
-        setPressEffectActive(false);
-      }
-    };
-
     const TagToRender = isLink ? (isDisabled ? 'span' : 'a') : 'button';
 
     return (
@@ -413,8 +398,9 @@ const Button = React.forwardRef(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+        // and we use active pseudo class to provide haptic feedback.
+        onTouchStart={() => null}
         type={type}
       >
         {loading && (
