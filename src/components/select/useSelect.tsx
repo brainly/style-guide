@@ -37,12 +37,12 @@ const useSelect = (props: UseSelectPropsType) => {
   const [isExpanded, setIsExpanded] = React.useState(
     expanded || defaultExpanded || false
   );
-  const isControlled = expanded !== undefined;
+  const isExpandedControlled = expanded !== undefined;
 
   // Handle expanded change when controlled
   React.useEffect(() => {
-    if (isControlled) setIsExpanded(expanded);
-  }, [isControlled, expanded]);
+    if (isExpandedControlled) setIsExpanded(expanded);
+  }, [isExpandedControlled, expanded]);
 
   if (valid === true && invalid === true) {
     throw {
@@ -57,7 +57,7 @@ const useSelect = (props: UseSelectPropsType) => {
   };
 
   const onOpenChange = (isOpen: boolean) => {
-    if (isControlled) onToggle(isOpen);
+    if (isExpandedControlled) onToggle(isOpen);
     else setIsExpanded(isOpen);
   };
 

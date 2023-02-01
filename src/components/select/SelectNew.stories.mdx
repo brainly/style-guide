@@ -48,33 +48,6 @@ import Button from '../buttons/Button';
   </Story>
 </Canvas>
 
-### Controlled
-
-<Canvas>
-  <Story name="Controlled">
-    {args => {
-      const [selectedOptions, setSelectedOptions] = React.useState([]);
-      const [expanded, setExpanded] = React.useState(false);
-      return (
-        <>
-          <Button onClick={() => setExpanded(!expanded)} size="s">
-            {expanded ? 'close' : 'open'}
-          </Button>
-          <Select
-            {...args}
-            selectedOptions={selectedOptions}
-            expanded={expanded}
-            onToggle={val => setExpanded(val)}
-            onOptionChange={option => {
-              setSelectedOptions([option]);
-            }}
-          />
-        </>
-      );
-    }}
-  </Story>
-</Canvas>
-
 ### Default expanded
 
 <Canvas>
