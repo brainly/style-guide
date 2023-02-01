@@ -22,11 +22,6 @@ export type SelectOptionType = {
   iconName?: IconTypeType;
 };
 
-type SelectOptionsGroupType = {
-  label: string;
-  options: ReadonlyArray<SelectOptionType>;
-};
-
 export type SelectPropsType = {
   /**
    * Optional specification for select placeholder
@@ -48,9 +43,9 @@ export type SelectPropsType = {
 
   /**
    * Optional array of options of the select
-   * @example <Select options={[{value:"option1",label:"Option1"},{label:"Label title",options:[{value:"option1",label:"Option1"},{value:"option2",label:"Select selector"}]},{value:"option2",label:"Select selector"}]} />
+   * @example <Select options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
    */
-  options?: ReadonlyArray<SelectOptionsGroupType | SelectOptionType>;
+  options?: ReadonlyArray<SelectOptionType>;
   selectedOptions?: ReadonlyArray<SelectOptionType>;
 
   onClick?: (arg0: React.MouseEvent<HTMLDivElement>) => unknown;
@@ -163,32 +158,15 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         </div>
       );
     };
-    const optionsElements = options.map((item, index) => {
-      if ('options' in item) {
-        return (
-          <optgroup key={item.label + index} label={item.label}>
-            {item.options.map(option =>
-              getOptionElement({
-                option,
-                isSelected:
-                  selectedOptions.length &&
-                  !!selectedOptions.find(
-                    selectedOption => option.value === selectedOption.value
-                  ),
-                onClick: onOptionChange,
-                withIcon: withIcons,
-              })
-            )}
-          </optgroup>
-        );
-      }
-
-      if (item.label || item.value) {
+    const optionsElements = options.map(option => {
+      if (option.label || option.value) {
         return getOptionElement({
-          option: item,
+          option,
           isSelected:
             selectedOptions.length &&
-            !!selectedOptions.find(option => option.value === item.value),
+            !!selectedOptions.find(
+              selectedOption => selectedOption.value === option.value
+            ),
           onClick: onOptionChange,
           withIcon: withIcons,
         });
