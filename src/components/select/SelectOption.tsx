@@ -3,7 +3,9 @@ import classnames from 'classnames';
 
 import {SelectOptionType} from './Select';
 import SubjectIcon from '../subject-icons/SubjectIcon';
+import Icon from '../icons/Icon';
 import Checkbox from '../form-elements/checkbox/Checkbox';
+import Text from '../text/Text';
 
 export type SelectOptionElementPropsType = {
   option: SelectOptionType;
@@ -27,12 +29,37 @@ const SelectOption = React.forwardRef<
     }: SelectOptionElementPropsType,
     ref
   ) => {
+    const [isHovered, setIsHovered] = React.useState(false);
     const {value, label, iconName} = option;
 
     const classNames = classnames('sg-select__option', {
       'sg-select__option--selected': isSelected,
       'sg-select__option--with-icon': withIcon,
     });
+
+    const icon = React.useMemo(() => {
+      if (!withIcon || !iconName) return null;
+
+      if (isSelected || isHovered)
+        return <SubjectIcon size="small" type={iconName} />;
+      else
+        return (
+          <SubjectIcon size="small" monoColor="icon-gray-50" type={iconName} />
+        );
+    }, [isSelected, isHovered, withIcon, iconName]);
+
+    const optionState = React.useMemo(() => {
+      if (!(multiSelect || isSelected)) return null;
+      let optionState;
+
+      if (multiSelect) {
+        optionState = <Checkbox id={option.value} checked={isSelected} />;
+      } else if (isSelected) {
+        optionState = <Icon type="check" size={24} color="icon-black" />;
+      }
+
+      return <div className="sg-select__option-state">{optionState}</div>;
+    }, [isSelected, multiSelect, option.value]);
 
     return (
       <div
@@ -42,10 +69,16 @@ const SelectOption = React.forwardRef<
         role="option"
         aria-selected={isSelected}
         {...interactions}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
-        {withIcon && <SubjectIcon size="small" type={iconName} />}
-        {label}
-        {multiSelect && <Checkbox id={option.value} checked={isSelected} />}
+        <div className="sg-select__option-label">
+          {icon}
+          <Text size="small" weight="bold">
+            {label}
+          </Text>
+        </div>
+        {optionState}
       </div>
     );
   }

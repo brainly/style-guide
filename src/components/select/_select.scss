@@ -1,0 +1,49 @@
+@if ($includeHtml) {
+  .sg-select {
+    &__options-wrapper {
+      padding: 16px;
+      border-radius: 16px;
+      background-color: $white;
+      box-shadow: $shadowLarge !important;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    &__option {
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $borderRadiusDefault;
+      cursor: default;
+
+      &:hover {
+        background-color: $gray-10;
+      }
+
+      &--selected {
+        background-color: $gray-20;
+      }
+
+      .sg-text {
+        padding: 1px 0;
+      }
+
+      .sg-subject-icon {
+        margin-right: 12px;
+      }
+    }
+
+    &__option-label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &__option-state {
+      margin-left: 12px;
+    }
+  }
+}

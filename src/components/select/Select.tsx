@@ -192,6 +192,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         {isExpanded && (
           <div
             ref={floating.refs.setFloating}
+            className="sg-select__options-wrapper"
             style={{
               position: floating.props.strategy,
               top: floating.props.y ?? 0,
