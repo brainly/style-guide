@@ -1,6 +1,35 @@
-$includeHtml: false !default;
+.sg-sparks {
+  position: relative;
+  display: inline-block;
+}
 
-@if ($includeHtml) {
-  .sg-sparks {
+/* Animations */
+@keyframes sparks-spin {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sparks-scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.sparks__star--entry {
+  animation: spin 1s ease-in-out, scale 1s ease-in-out;
+}
+
+.sparks__star--loop {
+  animation: spin 1s ease-in-out infinite, scale 1s ease-in-out infinite;
+}
+
+.sparks__star--exit {
+  animation: spin 1s ease-in-out reverse, scale 1s ease-in-out reverse;
 }
