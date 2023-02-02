@@ -1,6 +1,16 @@
 .sg-sparks {
   position: relative;
   display: inline-block;
+
+  &__container {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__particle {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Animations */
