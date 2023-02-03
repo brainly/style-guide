@@ -1,6 +1,58 @@
 @if ($includeHtml) {
-  .sg-select {
+  .sg-select-new {
+    display: inline-block;
+    position: relative;
+    min-width: 120px;
+    max-width: 320px;
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &__element {
+      @include applyFocus();
+
+      display: flex;
+      align-items: center;
+      padding: 0 42px 0 spacing(s);
+      width: 100%;
+      text-overflow: ellipsis;
+      border: 2px solid $gray-20;
+      border-radius: $formElementStandardBorderRadius;
+      height: $formElementSizeM;
+      font-size: $formElementDefaultFontSize;
+      color: $formElementPlacholderTextColor;
+      background-color: $formElementDefaultBackgroundColor;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:focus-visible {
+        border-color: mix($gray-50, $gray-20, 12%);
+        background-color: mix($gray-50, $gray-20, 12%);
+      }
+
+      &[aria-expanded='true'] {
+        border-color: mix($gray-50, $gray-20, 12%);
+        background-color: white;
+      }
+    }
+
+    &__element-icon {
+      position: absolute;
+      right: 8px;
+    }
+
+    &__element-label {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
     &__options-wrapper {
+      min-width: 120px;
+      max-width: 320px;
+      width: max-content;
       padding: 16px;
       border-radius: 16px;
       background-color: $white;
@@ -12,6 +64,7 @@
 
     &__option {
       padding: 8px 12px;
+      width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;

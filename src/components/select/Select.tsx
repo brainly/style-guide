@@ -50,6 +50,7 @@ export type SelectPropsType = {
   expanded?: boolean;
   defaultExpanded?: boolean;
   withIcons?: boolean;
+  fullWidth?: boolean;
 
   /**
    * Additional class names
@@ -73,6 +74,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       defaultExpanded = undefined,
       withIcons = false,
       multiSelect = false,
+      fullWidth = false,
       onClick,
       onToggle,
       onOptionChange,
@@ -149,11 +151,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     });
 
     const selectClass = classnames(
-      'sg-select',
+      'sg-select-new',
       {
-        'sg-select--selected': selectedOptions.length,
-        'sg-select--valid': valid,
-        'sg-select--invalid': invalid,
+        'sg-select-new--selected': selectedOptions.length,
+        'sg-select-new--valid': valid,
+        'sg-select-new--invalid': invalid,
+        'sg-select-new--full-width': fullWidth,
       },
       className
     );
@@ -163,7 +166,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         <div
           ref={mergeRefs(ref, floating.refs.setReference)}
           id={id}
-          className="sg-select__element"
+          className="sg-select-new__element"
           role="combobox"
           tabIndex={0}
           aria-controls={`${id}-listbox`}
@@ -185,7 +188,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {...additionalProps}
         >
           {selectDisplayValue}
-          <div className="sg-select__icon">
+          <div className="sg-select-new__element-icon">
             <Icon
               type={isExpanded ? 'caret_up' : 'caret_down'}
               color="icon-gray-50"
@@ -195,7 +198,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         {isExpanded && (
           <div
             ref={floating.refs.setFloating}
-            className="sg-select__options-wrapper"
+            className="sg-select-new__options-wrapper"
             style={{
               position: floating.props.strategy,
               top: floating.props.y ?? 0,

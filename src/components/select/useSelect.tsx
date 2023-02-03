@@ -4,7 +4,7 @@ import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
-
+import Text from '../text/Text';
 type UseSelectPropsType = Pick<
   SelectPropsType,
   | 'valid'
@@ -68,16 +68,22 @@ const useSelect = (props: UseSelectPropsType) => {
       const {label, iconName} = selectedOptions[0] || {};
 
       if (label) {
+        const displayLabel = (
+          <Text size="small" className="sg-select-new__element-label">
+            {label}
+          </Text>
+        );
+
         if (withIcons) {
           return (
             <>
               <SubjectIcon size="small" type={iconName} />
-              {label}
+              {displayLabel}
             </>
           );
         }
 
-        return label;
+        return displayLabel;
       }
     } else {
       const label = [];

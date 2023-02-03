@@ -32,9 +32,9 @@ const SelectOption = React.forwardRef<
     const [isHovered, setIsHovered] = React.useState(false);
     const {value, label, iconName} = option;
 
-    const classNames = classnames('sg-select__option', {
-      'sg-select__option--selected': isSelected,
-      'sg-select__option--with-icon': withIcon,
+    const classNames = classnames('sg-select-new__option', {
+      'sg-select-new__option--selected': isSelected,
+      'sg-select-new__option--with-icon': withIcon,
     });
 
     const icon = React.useMemo(() => {
@@ -58,7 +58,7 @@ const SelectOption = React.forwardRef<
         optionState = <Icon type="check" size={24} color="icon-black" />;
       }
 
-      return <div className="sg-select__option-state">{optionState}</div>;
+      return <div className="sg-select-new__option-state">{optionState}</div>;
     }, [isSelected, multiSelect, option.value]);
 
     return (
@@ -72,9 +72,9 @@ const SelectOption = React.forwardRef<
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="sg-select__option-label">
+        <div className="sg-select-new__option-label">
           {icon}
-          <Text size="small" weight="bold">
+          <Text size="small" weight="bold" breakWords>
             {label}
           </Text>
         </div>

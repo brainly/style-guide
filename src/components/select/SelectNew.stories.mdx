@@ -8,7 +8,10 @@ import Button from '../buttons/Button';
   component={Select}
   args={{
     options: [
-      {value: 'physics', label: 'Physics'},
+      {
+        value: 'physics',
+        label: 'Physics',
+      },
       {value: 'history', label: 'History'},
       {value: 'science', label: 'Science'},
     ],
@@ -69,6 +72,43 @@ import Button from '../buttons/Button';
         {value: 'physics', label: 'Physics', iconName: 'physics'},
         {value: 'history', label: 'History', iconName: 'history'},
         {value: 'science', label: 'Science', iconName: 'science'},
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      return (
+        <Select
+          {...args}
+          selectedOptions={selectedOptions}
+          onOptionChange={option => {
+            setSelectedOptions([option]);
+          }}
+        />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With long option label
+
+<Canvas>
+  <Story
+    name="With long option label"
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'tv',
+          label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
+          iconName: 'physics',
+        },
+        {value: 'fb', label: 'Media społecznościowe', iconName: 'history'},
+        {
+          value: 'search',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
       ],
     }}
   >
