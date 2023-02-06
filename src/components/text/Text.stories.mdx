@@ -6,7 +6,7 @@ import {
   TEXT_TRANSFORM,
   TEXT_WEIGHT,
   TEXT_WHITE_SPACE,
-  TEXT_TYPE,
+  TEXT_AS,
 } from './textConsts';
 import TextA11y from './stories/text.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -22,7 +22,7 @@ import PageHeader from 'blocks/PageHeader';
     children: {
       control: 'text',
     },
-    type: {table: {defaultValue: {summary: TEXT_TYPE.DIV}}},
+    type: {table: {defaultValue: {summary: TEXT_AS.DIV}}},
     size: {
       description: '(Responsive)',
       table: {

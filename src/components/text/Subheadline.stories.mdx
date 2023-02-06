@@ -7,7 +7,7 @@ import {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TRANSFORM,
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
 } from './subheadlineConsts';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
@@ -24,7 +24,7 @@ import PageHeader from 'blocks/PageHeader';
     children: {
       control: 'text',
     },
-    type: {table: {defaultValue: {summary: SUBHEADLINE_TYPE.H2}}},
+    type: {table: {defaultValue: {summary: SUBHEADLINE_AS.H2}}},
     size: {
       description: '(Responsive)',
       table: {
