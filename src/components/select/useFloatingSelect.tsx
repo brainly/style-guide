@@ -5,6 +5,8 @@ import {
   useClick,
   useDismiss,
   useListNavigation,
+  flip,
+  shift,
 } from '@floating-ui/react';
 
 type UseFloatingSelectPropsType = {
@@ -20,6 +22,14 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
   const {x, y, strategy, refs, context} = useFloating({
     open: isExpanded,
     onOpenChange,
+    middleware: [
+      flip({
+        padding: 10,
+        fallbackAxisSideDirection: 'start',
+        crossAxis: false,
+      }),
+      shift(),
+    ],
   });
   const click = useClick(context, {event: 'mousedown'});
   const dismiss = useDismiss(context, {

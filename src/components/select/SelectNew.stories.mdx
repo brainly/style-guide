@@ -2,6 +2,8 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import Select from './Select';
 import PageHeader from 'blocks/PageHeader';
 import Button from '../buttons/Button';
+import Text from '../text/Text';
+import Flex from '../flex/Flex';
 
 <Meta
   title="Components/SelectNew"
@@ -187,6 +189,73 @@ import Button from '../buttons/Button';
           }}
           multiSelect
         />
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With space constraints
+
+<Canvas>
+  <Story
+    name="With space constraints"
+    height="100%"
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'tv',
+          label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
+          iconName: 'physics',
+        },
+        {value: 'fb', label: 'Media społecznościowe', iconName: 'history'},
+        {
+          value: 'search',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      React.useEffect(() => {
+        document.getElementById('selectId').scrollIntoView();
+      }, []);
+      return (
+        <div>
+          <Text>
+            Scroll the layout vertically and horizontally and see how the Select
+            position affects the popup position
+          </Text>
+          <div
+            style={{
+              border: '1px solid gray',
+              height: '500px',
+              width: '800px',
+              overflow: 'scroll',
+            }}
+          >
+            <Flex
+              style={{
+                height: '1000px',
+                width: '2000px',
+              }}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Select
+                {...args}
+                id="selectId"
+                selectedOptions={selectedOptions}
+                onOptionChange={option => {
+                  setSelectedOptions([option]);
+                }}
+              />
+            </Flex>
+          </div>
+        </div>
       );
     }}
   </Story>
