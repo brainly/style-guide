@@ -27,6 +27,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
         padding: 10,
         fallbackAxisSideDirection: 'start',
         crossAxis: false,
+        fallbackPlacements: ['top', 'right', 'left'],
       }),
       shift(),
     ],
