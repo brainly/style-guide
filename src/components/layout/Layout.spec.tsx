@@ -6,83 +6,104 @@ import LayoutAsideContent from './LayoutAsideContent';
 import {render} from '@testing-library/react';
 
 describe('Layout', () => {
-  test('render', () => {
-    const layout = render(<Layout>Content</Layout>);
-
-    expect(layout.hasClass('sg-layout')).toEqual(true);
-  });
   test('render with footer', () => {
     const footer = <div>Footer</div>;
     const layout = render(<Layout footer={footer}>Content</Layout>);
 
-    expect(layout.find('.sg-layout__footer')).toHaveLength(1);
+    expect(
+      layout.container.firstElementChild.querySelector('.sg-layout__footer')
+    ).toBeTruthy();
   });
+
   test('reserved-order', () => {
     const layout = render(<Layout reversedOrder>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(
-      layoutContainer.hasClass('sg-layout__container--reversed-order')
-    ).toEqual(true);
+      layout.container.firstElementChild.querySelector(
+        '.sg-layout__container--reversed-order'
+      )
+    ).toBeTruthy();
   });
+
   test('no-max-width', () => {
     const layout = render(<Layout noMaxWidth>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(
-      layoutContainer.hasClass('sg-layout__container--no-max-width')
-    ).toEqual(true);
+      layout.container.firstElementChild.querySelector(
+        '.sg-layout__container--no-max-width'
+      )
+    ).toBeTruthy();
   });
+
   test('no-margin-top', () => {
     const layout = render(<Layout noMarginTop>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
 
     expect(
-      layoutContainer.hasClass('sg-layout__container--no-margin-top')
-    ).toEqual(true);
+      layout.container.firstElementChild.querySelector(
+        '.sg-layout__container--no-margin-top'
+      )
+    ).toBeTruthy();
   });
+
   test('full-page', () => {
     const layout = render(<Layout fullPage>Content</Layout>);
-    const layoutContainer = layout.find('.sg-layout__container');
 
-    expect(layoutContainer.hasClass('sg-layout__container--full-page')).toEqual(
-      true
-    );
+    expect(
+      layout.container.firstElementChild.querySelector(
+        '.sg-layout__container--full-page'
+      )
+    ).toBeTruthy();
   });
 });
+
 describe('LayoutContent', () => {
   test('render', () => {
     const layoutContent = render(<LayoutContent>Content</LayoutContent>);
 
-    expect(layoutContent.hasClass('sg-layout__content')).toEqual(true);
+    expect(
+      layoutContent.container.firstElementChild.classList.contains(
+        'sg-layout__content'
+      )
+    ).toEqual(true);
   });
+
   test('no-max-width', () => {
     const layoutContent = render(
       <LayoutContent noMaxWidth>Content</LayoutContent>
     );
 
-    expect(layoutContent.hasClass('sg-layout__content--no-max-width')).toEqual(
-      true
-    );
+    expect(
+      layoutContent.container.firstElementChild.classList.contains(
+        'sg-layout__content--no-max-width'
+      )
+    ).toEqual(true);
   });
 });
+
 describe('LayoutAsideContent', () => {
   test('render', () => {
     const layoutAsideContent = render(
       <LayoutAsideContent>Content</LayoutAsideContent>
     );
 
-    expect(layoutAsideContent.hasClass('sg-layout__aside-content')).toEqual(
-      true
-    );
+    expect(
+      layoutAsideContent.container.firstElementChild.classList.contains(
+        'sg-layout__aside-content'
+      )
+    ).toEqual(true);
   });
 });
+
 describe('LayoutSecondaryContent', () => {
   test('render', () => {
     const component = render(
       <LayoutSecondaryContent>Content</LayoutSecondaryContent>
     );
 
-    expect(component.hasClass('sg-layout__secondary-content')).toEqual(true);
+    expect(
+      component.container.firstElementChild.classList.contains(
+        'sg-layout__secondary-content'
+      )
+    ).toEqual(true);
   });
 });

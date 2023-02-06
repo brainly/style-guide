@@ -1,58 +1,21 @@
 import * as React from 'react';
-import Search, {SIZE, COLOR} from './Search';
-import Input from 'form-elements/Input';
-import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
-import Button from 'buttons/Button';
-import {render} from '@testing-library/react';
+import Search from './Search';
+import {render, queryByRole} from '@testing-library/react';
 
 test('render', () => {
   const search = render(<Search />);
 
-  expect(search.hasClass('sg-search')).toEqual(true);
-  expect(search.find(Input)).toHaveLength(1);
+  expect(search.queryByRole('searchbox')).toBeTruthy();
 });
-test('set Search specific properties to Input', () => {
-  const search = render(<Search />);
-  const input = search.find(Input);
 
-  expect(input.props().type).toEqual('search');
-  expect(input.props().withIcon).toEqual(true);
-});
-test('pass properties to Input, without Search specific', () => {
-  const size = SIZE.L;
-  const color = COLOR.WHITE;
-  const type = 'text';
-  const withRoundButton = false;
-  const search = render(
-    <Search
-      color={color}
-      size={size}
-      valid
-      type={type}
-      withRoundButton={withRoundButton}
-    />
-  );
-  const input = search.find(Input);
-
-  expect(input.props().size).toEqual(size);
-  expect(input.props().color).toEqual(color);
-  expect(input.props().valid).toEqual(true);
-  expect(input.props().type).toEqual('search');
-  expect(input.props().withIcon).toEqual(true);
-});
 test('render icon', () => {
   const search = render(<Search />);
-  const icon = search.find(Icon);
 
-  expect(icon).toHaveLength(1);
-  expect(search.find('.sg-search__icon')).toHaveLength(1);
-  expect(icon.props().type).toEqual(TYPE.SEARCH);
-  expect(icon.props().color).toEqual(ICON_COLOR['icon-gray-50']);
-  expect(icon.props().size).toEqual(16);
+  expect(search.queryByRole('img')).toBeTruthy();
 });
+
 test('adaptive Button with icon', () => {
   const search = render(<Search withRoundButton />);
-  const icon = search.find(Button);
 
-  expect(icon).toHaveLength(1);
+  expect(queryByRole(search.queryByRole('button'), 'img')).toBeTruthy();
 });

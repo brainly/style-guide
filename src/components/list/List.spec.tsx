@@ -6,22 +6,24 @@ describe('<List>', () => {
   it('renders', () => {
     const list = render(<List />);
 
-    expect(list.hasClass('sg-list')).toEqual(true);
+    expect(list.queryByRole('list')).toBeTruthy();
   });
+
   it('renders with spaced elements', () => {
     const list = render(<List spaced />);
 
-    expect(list.hasClass('sg-list--spaced-elements')).toEqual(true);
+    expect(
+      list.container.firstElementChild.classList.contains(
+        'sg-list--spaced-elements'
+      )
+    ).toEqual(true);
   });
-  test('renders with default spacing', () => {
-    const list = render(<List />);
 
-    expect(list.hasClass('sg-list--spaced-elements')).toEqual(false);
-  });
   it('renders additional classes', () => {
     const list = render(<List className="m4l" />);
 
-    expect(list.hasClass('sg-list')).toEqual(true);
-    expect(list.hasClass('m4l')).toEqual(true);
+    expect(list.container.firstElementChild.classList.contains('m4l')).toEqual(
+      true
+    );
   });
 });

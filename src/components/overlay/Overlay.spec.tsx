@@ -5,24 +5,35 @@ import {render} from '@testing-library/react';
 test('render', () => {
   const overlay = render(<Overlay />);
 
-  expect(overlay.hasClass('sg-overlay')).toEqual(true);
+  expect(
+    overlay.container.firstElementChild.classList.contains('sg-overlay')
+  ).toBeTruthy();
 });
+
 test('children', () => {
   const overlay = render(
     <Overlay>
-      <div className="test" />
+      <div>foo</div>
     </Overlay>
   );
 
-  expect(overlay.find('.test')).toHaveLength(1);
+  expect(overlay.queryByText('foo')).toBeTruthy();
 });
+
 test('partial', () => {
   const overlay = render(<Overlay partial />);
 
-  expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
+  expect(
+    overlay.container.firstElementChild.classList.contains(
+      'sg-overlay--partial'
+    )
+  ).toBe(true);
 });
+
 test('colors', () => {
   const overlay = render(<Overlay color="black" />);
 
-  expect(overlay.hasClass('sg-overlay--black')).toBeTruthy();
+  expect(
+    overlay.container.firstElementChild.classList.contains('sg-overlay--black')
+  ).toBe(true);
 });

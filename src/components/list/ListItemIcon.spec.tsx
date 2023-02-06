@@ -6,25 +6,37 @@ describe('<ListItemIcon>', () => {
   it('renders', () => {
     const listItemIcon = render(<ListItemIcon />);
 
-    expect(listItemIcon.hasClass('sg-list__icon')).toEqual(true);
+    expect(
+      listItemIcon.container.firstElementChild.classList.contains(
+        'sg-list__icon'
+      )
+    ).toEqual(true);
   });
+
   it('renders with small right spcing', () => {
     const listItemIcon = render(<ListItemIcon small />);
 
-    expect(listItemIcon.hasClass('sg-list__icon--spacing-right-small')).toEqual(
-      true
-    );
+    expect(
+      listItemIcon.container.firstElementChild.classList.contains(
+        'sg-list__icon--spacing-right-small'
+      )
+    ).toEqual(true);
   });
+
   it('renders children', () => {
-    const children = <div>Text</div>;
+    const children = <div>foo</div>;
     const listItemIcon = render(<ListItemIcon>{children}</ListItemIcon>);
 
-    expect(listItemIcon.contains(children)).toEqual(true);
+    expect(listItemIcon.queryByText('foo')).toBeTruthy();
   });
-  it('renders additional classes', () => {
-    const list = render(<ListItemIcon className="m4l">42</ListItemIcon>);
 
-    expect(list.hasClass('sg-list__icon')).toEqual(true);
-    expect(list.hasClass('m4l')).toEqual(true);
+  it('renders additional classes', () => {
+    const listItemIcon = render(
+      <ListItemIcon className="m4l">42</ListItemIcon>
+    );
+
+    expect(
+      listItemIcon.container.firstElementChild.classList.contains('m4l')
+    ).toEqual(true);
   });
 });

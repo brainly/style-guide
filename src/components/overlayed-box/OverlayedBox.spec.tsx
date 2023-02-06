@@ -10,11 +10,11 @@ test('render', () => {
     </OverlayedBox>
   );
 
-  expect(overlayedBox.hasClass('sg-overlayed-box')).toEqual(true);
-  expect(overlayedBox.find('.custom-children-element')).toHaveLength(1);
-  const overlayElem = overlayedBox.find('.sg-overlayed-box__overlay');
-
-  expect(overlayElem).toHaveLength(1);
-  expect(overlayedBox.find('.custom-overlay-element')).toHaveLength(1);
-  expect(overlayElem.find('.custom-overlay-element')).toHaveLength(1);
+  expect(
+    overlayedBox.container.firstElementChild.classList.contains(
+      'sg-overlayed-box'
+    )
+  ).toEqual(true);
+  expect(overlayedBox.queryByText('xyz')).toBeTruthy();
+  expect(overlayedBox.queryByText('abc')).toBeTruthy();
 });

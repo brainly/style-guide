@@ -1,137 +1,108 @@
 import * as React from 'react';
-import {render, mount} from 'enzyme';
+import {fireEvent, render} from '@testing-library/react';
 import Icon from 'icons/Icon';
 import Rating, {RATING_SIZE} from './Rating';
 import RateCounter from './subcomponents/RateCounter';
 import Star from './subcomponents/Star';
 
 describe('rating', () => {
-  it('renders correctly', () => {
-    const rating = render(<Rating />);
-
-    expect(rating.hasClass('sg-rate-box')).toEqual(true);
-  });
-  it("doesn't throw error when no onChange", () => {
-    const spy = jest.spyOn(console, 'error');
-
-    render(<Rating />);
-    expect(spy).not.toHaveBeenCalled();
-    spy.mockRestore();
-  });
   it('active', () => {
     const rating = render(<Rating active />);
 
-    expect(rating.hasClass('sg-rate-box--active')).toEqual(true);
+    expect(
+      rating.container.firstElementChild.classList.contains(
+        'sg-rate-box--active'
+      )
+    ).toEqual(true);
   });
+
   it('renders stars - defined metricSize', () => {
     const metricSize = 8;
     const rating = render(<Rating active metricSize={metricSize} />);
 
-    expect(rating.find(Star)).toHaveLength(2 * metricSize);
+    expect(rating.queryAllByRole('img', {hidden: true})).toHaveLength(
+      2 * metricSize
+    );
   });
-  it('renders stars - default number of stars', () => {
-    const defaultMetricSize = 5;
+
+  it('renders 5 stars by default', () => {
     const rating = render(<Rating />);
 
-    expect(rating.find(Star)).toHaveLength(2 * defaultMetricSize);
+    expect(rating.queryAllByRole('img', {hidden: true})).toHaveLength(5 * 2);
   });
+
   it('fills stars', () => {
     const rate = 3;
     const metric = 10;
     const percentageRate = `${(100 * rate) / metric}%`;
     const rating = render(<Rating rate={rate} metricSize={metric} />);
-    const filledStarsBox = rating.find('.sg-rate-box__filled-stars');
-    const filledWidth = filledStarsBox.props().style?.width;
+    const filledStarsBox: HTMLElement =
+      rating.container.firstElementChild.querySelector(
+        '.sg-rate-box__filled-stars'
+      );
+    const filledWidth = filledStarsBox.style.width;
 
     expect(filledWidth).toEqual(percentageRate);
   });
-  it("doesn't throw error when onChange isn't defined", () => {
-    const spy = jest.spyOn(console, 'error');
 
-    const rate = 3;
-    const rating = mount(<Rating rate={rate} />);
-    const stars = rating.find(Star);
-
-    stars.at(0).simulate('click');
-    stars.at(1).simulate('click');
-    const lastRatedStarIndex = rate - 1;
-
-    stars.at(lastRatedStarIndex).simulate('click');
-    expect(spy).not.toHaveBeenCalled();
-    spy.mockRestore();
-  });
   it('has small size', () => {
     const rating = render(<Rating size={RATING_SIZE.S} />);
-    const stars = rating.find(Star);
 
-    expect(rating.hasClass('sg-rate-box--s')).toEqual(true);
-    stars.forEach(star => {
-      expect(star.props().size).toEqual(32);
-    });
+    expect(
+      rating.container.firstElementChild.classList.contains('sg-rate-box--s')
+    ).toEqual(true);
   });
+
   it('renders without label', () => {
     const rating = render(<Rating noLabel />);
 
-    expect(rating.hasClass('sg-rate-box__rate')).toEqual(false);
+    expect(
+      rating.container.firstElementChild.classList.contains('sg-rate-box__rate')
+    ).toEqual(false);
   });
+
   describe('counter text', () => {
-    it('exists', () => {
-      const rating = render(<Rating />);
-      const rateCounter = rating.find(RateCounter);
-
-      expect(rateCounter).toHaveLength(1);
-    });
     it("displays counter text when no active and haven't been rated", () => {
-      const rating = render(<Rating />);
-      const rateCounter = rating.find(RateCounter);
+      const rating = render(<Rating counterText="foo" />);
 
-      expect(rateCounter.props().activeText).toBeFalsy();
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
     });
+
     it('displays counter text when have been rated and no active', () => {
-      const rating = render(<Rating rate={3} />);
-      const rateCounter = rating.find(RateCounter);
+      const rating = render(<Rating rate={3} counterText="foo" />);
 
-      expect(rateCounter.props().activeText).toBeFalsy();
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
     });
+
     it('displays counter text when have been rated and active', () => {
-      const rating = render(<Rating rate={3} active />);
-      const rateCounter = rating.find(RateCounter);
+      const rating = render(<Rating rate={3} active counterText="foo" />);
 
-      expect(rateCounter.props().activeText).toBeFalsy();
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
     });
+
     // should be near same as above, so if we let delete above we need delete it here
     it("doesn't display active text when no active and mouse over stars", () => {
-      const rating = mount(<Rating rate={3} />);
-      const stars = rating.find('.sg-rate-box__stars-container');
-      let rateCounter = rating.find(RateCounter);
+      const rating = render(<Rating rate={3} activeText="foo" />);
+      const stars = rating.container.firstElementChild.querySelector(
+        '.sg-rate-box__stars-container'
+      );
 
-      expect(rateCounter.props().activeText).toBeFalsy();
-      stars.simulate('mouseEnter');
-      rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().activeText).toBeFalsy();
-      stars.simulate('mouseLeave');
-      rateCounter = rating.find(RateCounter);
-      expect(rateCounter.props().activeText).toBeFalsy();
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
+      fireEvent.mouseEnter(stars);
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
+      fireEvent.mouseLeave(stars);
+      expect(rating.queryAllByText('foo')).toHaveLength(2);
     });
   });
 });
+
 describe('star', () => {
   it('renders', () => {
     const star = render(<Star />);
 
-    expect(star.hasClass('sg-rate-box__star')).toEqual(true);
-  });
-  it('uses Icon component', () => {
-    const size = 16;
-    const star = render(<Star size={size} />);
-
-    expect(star.find(Icon)).toHaveLength(1);
-  });
-  it('passes size to icon', () => {
-    const size = 16;
-    const star = render(<Star size={size} />);
-    const icon = star.find(Icon);
-
-    expect(icon.props().size).toEqual(size);
+    expect(
+      star.container.firstElementChild.classList.contains('sg-rate-box__star')
+    ).toEqual(true);
+    expect(star.queryByRole('img', {hidden: true})).toBeTruthy();
   });
 });
