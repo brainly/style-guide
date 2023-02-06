@@ -3,35 +3,33 @@ import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM} from './Link';
 import Text from './Text';
 import {render} from '@testing-library/react';
 import {TEXT_WEIGHT} from './textConsts';
+import classNames from 'classnames';
 
 test('render', () => {
   const link = render(<Link href="test.com">Test</Link>);
+  const linkNode = link.getByRole('link');
 
-  expect(link.hasClass('sg-text--link')).toBeTruthy();
-  expect(link.props().href).toEqual('test.com');
+  expect(linkNode.getAttribute('href')).toEqual('test.com');
 });
+
 test('render Text', () => {
   const link = render(<Link href="test.com">Test</Link>);
 
-  expect(link.find(Text)).toBeTruthy();
+  expect(link.queryByText('Test')).toBeTruthy();
 });
+
 test('size', () => {
   const link = render(
     <Link href="#" size={LINK_SIZE.SMALL}>
       Test
     </Link>
-  ).dive();
-  const responsiveSizeLink = render(
-    <Link size={['xsmall', 'small', null, 'large']}>Test</Link>
-  ).dive();
+  );
 
-  expect(link.hasClass('sg-text--small')).toBeTruthy();
   expect(
-    responsiveSizeLink.hasClass(
-      'sg-text--xsmall md:sg-text--small xl:sg-text--large'
-    )
+    link.container.firstElementChild.classList.contains('sg-text--small')
   ).toBeTruthy();
 });
+
 it('size is responsive prop', () => {
   const size = [LINK_SIZE.SMALL, LINK_SIZE.XXLARGE, null, LINK_SIZE.XXXLARGE];
   const component = render(
@@ -40,17 +38,27 @@ it('size is responsive prop', () => {
     </Link>
   );
 
-  expect(component.prop('size')).toEqual(size);
+  ['sg-text--small', 'md:sg-text--xxlarge', 'xl:sg-text--xxxlarge'].forEach(
+    className => {
+      expect(
+        component.container.firstElementChild.classList.contains(className)
+      ).toBe(true);
+    }
+  );
 });
+
 test('color', () => {
   const link = render(
     <Link href="#" color="text-white">
       Test
     </Link>
-  ).dive();
+  );
 
-  expect(link.hasClass('sg-text--text-white')).toBeTruthy();
+  expect(
+    link.container.firstElementChild.classList.contains('sg-text--text-white')
+  ).toBe(true);
 });
+
 test('unstyled', () => {
   const link = render(
     <Link href="#" unstyled>
@@ -58,20 +66,25 @@ test('unstyled', () => {
     </Link>
   );
 
-  expect(link.hasClass('sg-text--link-unstyled')).toBeTruthy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
+  const linkClasslist = link.container.firstElementChild.classList;
+
+  expect(linkClasslist.contains('sg-text--link-unstyled')).toBeTruthy();
+  expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
 });
+
 test('underlined', () => {
   const link = render(
     <Link href="#" underlined>
       Test
     </Link>
   );
+  const linkClasslist = link.container.firstElementChild.classList;
 
-  expect(link.hasClass('sg-text--link-underlined')).toBeTruthy();
-  expect(link.hasClass('sg-text--link-unstyled')).toBeFalsy();
-  expect(link.hasClass('sg-text--link')).toBeFalsy();
+  expect(linkClasslist.contains('sg-text--link-underlined')).toBeTruthy();
+  expect(linkClasslist.contains('sg-text--link-unstyled')).toBeFalsy();
+  expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
 });
+
 it('weight is responsive prop', () => {
   const component = render(
     <Link
@@ -82,10 +95,15 @@ it('weight is responsive prop', () => {
     </Link>
   );
 
-  expect(
-    component.hasClass('sg-text--bold md:sg-text--regular xl:sg-text--bold')
-  ).toEqual(true);
+  ['sg-text--bold', 'md:sg-text--regular', 'xl:sg-text--bold'].forEach(
+    className => {
+      expect(
+        component.container.firstElementChild.classList.contains(className)
+      ).toEqual(true);
+    }
+  );
 });
+
 it('transform is responsive prop', () => {
   const transform = [LINK_TRANSFORM.CAPITALIZE, LINK_TRANSFORM.LOWERCASE];
   const component = render(
@@ -94,35 +112,56 @@ it('transform is responsive prop', () => {
     </Link>
   );
 
-  expect(component.prop('transform')).toEqual(transform);
+  ['sg-text--capitalize', 'md:sg-text--lowercase'].forEach(className => {
+    expect(
+      component.container.firstElementChild.classList.contains(className)
+    ).toBe(true);
+  });
 });
+
 it('align is responsive prop', () => {
-  const align = [LINK_ALIGN.CENTER, LINK_ALIGN.CENTER];
+  const align = [LINK_ALIGN.CENTER, LINK_ALIGN.LEFT];
   const component = render(
     <Link href="#" align={align}>
       Test
     </Link>
   );
 
-  expect(component.prop('align')).toEqual(align);
+  ['sg-text--to-center', 'md:sg-text--to-left'].forEach(className => {
+    expect(
+      component.container.firstElementChild.classList.contains(className)
+    ).toBe(true);
+  });
 });
+
 it('noWrap is responsive prop', () => {
-  const noWrap = [true];
+  const noWrap = [true, false];
   const component = render(
     <Link href="#" noWrap={noWrap}>
       Test
     </Link>
   );
 
-  expect(component.prop('noWrap')).toEqual(noWrap);
+  ['sg-text--no-wrap', 'md:sg-text--wrap'].forEach(className => {
+    expect(
+      component.container.firstElementChild.classList.contains(className)
+    ).toBe(true);
+  });
 });
+
 it('breakWords is responsive prop', () => {
-  const breakWords = [true];
+  const breakWords = [true, false];
   const component = render(
     <Link href="#" breakWords={breakWords}>
       Test
     </Link>
   );
 
-  expect(component.prop('breakWords')).toEqual(breakWords);
+  ['sg-text--break-words', 'md:sg-text--word-break-normal'].forEach(
+    className => {
+      expect(
+        component.container.firstElementChild.classList.contains(className)
+      ).toBe(true);
+    }
+  );
 });

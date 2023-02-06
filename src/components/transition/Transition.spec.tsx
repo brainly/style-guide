@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import {fireEvent, render} from '@testing-library/react';
 import {act} from 'react-dom/test-utils';
 import Transition from './Transition'; // https://github.com/jsdom/jsdom/issues/1781
 // https://github.com/testing-library/dom-testing-library/pull/865
@@ -57,28 +57,31 @@ describe('<Transition />', () => {
     jest.useFakeTimers();
     global.TransitionEvent = TransitionEvent;
   });
+
   it('renders children', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Transition effect={testEffect} active>
         test content
       </Transition>
     );
 
-    expect(wrapper.contains('test content')).toBe(true);
+    expect(wrapper.queryByText('test content')).toBeTruthy();
   });
+
   it('does not apply any style when not support transition', () => {
     global.TransitionEvent = undefined;
-    const wrapper = mount(<Transition effect={testEffect} active />);
+    const wrapper = render(<Transition effect={testEffect} active />);
 
-    expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
-      DEFAULT_OPACITY
-    );
+    expect(
+      (wrapper.container.firstElementChild as HTMLElement).style.opacity
+    ).toBe(DEFAULT_OPACITY);
   });
+
   it('fires onTransitionStart as a fallback when not support transition', () => {
     global.TransitionEvent = undefined;
     const onTransitionStart = jest.fn();
 
-    mount(
+    render(
       <Transition
         effect={testEffect}
         onTransitionStart={onTransitionStart}
@@ -87,11 +90,12 @@ describe('<Transition />', () => {
     );
     expect(onTransitionStart).toHaveBeenCalledTimes(1);
   });
+
   it('fires onTransitionEnd as a fallback when not support transition', () => {
     global.TransitionEvent = undefined;
     const onTransitionEnd = jest.fn();
 
-    mount(
+    render(
       <Transition
         effect={testEffect}
         onTransitionEnd={onTransitionEnd}
@@ -100,6 +104,7 @@ describe('<Transition />', () => {
     );
     expect(onTransitionEnd).toHaveBeenCalledTimes(1);
   });
+
   it.each`
     delay  | fillMode       | before             | after
     ${0}   | ${'none'}      | ${ANIMATE_OPACITY} | ${DEFAULT_OPACITY}
@@ -113,7 +118,7 @@ describe('<Transition />', () => {
   `(
     'fills $delay ms delayed transition with "$fillMode" mode',
     ({delay, fillMode, before, after}) => {
-      const wrapper = mount(
+      const wrapper = render(
         <Transition
           effect={testEffect}
           delay={delay}
@@ -123,32 +128,43 @@ describe('<Transition />', () => {
       );
 
       if (before !== null) {
-        expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
-          `${before}`
-        );
+        expect(
+          (wrapper.container.firstElementChild as HTMLElement).style.opacity
+        ).toBe(`${before}`);
       }
 
       act(() => {
         jest.runAllTimers();
-        wrapper.update();
-        wrapper.simulate('transitionEnd');
+        wrapper.rerender(
+          <Transition
+            effect={testEffect}
+            delay={delay}
+            fillMode={fillMode}
+            active
+          />
+        );
+        fireEvent.transitionEnd(wrapper.container.firstElementChild);
       });
-      expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(`${after}`);
+      expect(
+        (wrapper.container.firstElementChild as HTMLElement).style.opacity
+      ).toBe(`${after}`);
     }
   );
+
   it('accepts effect prop as a function that returns an effect', () => {
     const effectFunction = jest.fn(() => testEffect);
-    const wrapper = mount(<Transition effect={effectFunction} active />);
+    const wrapper = render(<Transition effect={effectFunction} active />);
 
-    expect(wrapper.getDOMNode<HTMLElement>().style.opacity).toBe(
-      `${ANIMATE_OPACITY}`
-    );
+    expect(
+      (wrapper.container.firstElementChild as HTMLElement).style.opacity
+    ).toBe(`${ANIMATE_OPACITY}`);
     expect(effectFunction).toHaveBeenCalledWith(false);
   });
+
   it('fires onTransitionEnd after instant transition', () => {
     const onTransitionEnd = jest.fn();
 
-    mount(
+    render(
       <Transition
         effect={instantEffect}
         onTransitionEnd={onTransitionEnd}

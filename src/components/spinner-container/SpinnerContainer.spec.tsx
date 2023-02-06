@@ -3,12 +3,19 @@ import SpinnerContainer from './SpinnerContainer';
 import {render} from '@testing-library/react';
 
 test('render', () => {
-  const container = render(<SpinnerContainer>children</SpinnerContainer>);
+  const spinnerContainer = render(
+    <SpinnerContainer>children</SpinnerContainer>
+  );
 
-  expect(container.hasClass('sg-spinner-container')).toEqual(true);
+  expect(
+    spinnerContainer.container.firstElementChild.classList.contains(
+      'sg-spinner-container'
+    )
+  ).toEqual(true);
 });
+
 test('loading', () => {
   const container = render(<SpinnerContainer loading />);
 
-  expect(container.find('.sg-spinner-container__overlay')).toHaveLength(1);
+  expect(container.queryByRole('status')).toBeTruthy();
 });
