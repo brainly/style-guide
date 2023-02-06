@@ -9,14 +9,6 @@
   position: relative;
   overflow: hidden;
 
-  &--s {
-    height: 8px;
-  }
-
-  &--xs {
-    height: 4px;
-  }
-
   &--no-border-radius {
     border-radius: 0;
   }
@@ -35,5 +27,17 @@
     transition-property: width, border-radius;
     transition-timing-function: $easingRegular;
     transition-duration: $durationGentle1;
+  }
+
+  &--s {
+    height: 8px;
+  }
+
+  &--xs {
+    height: 4px;
+
+    & .sg-progress-bar__bar {
+      min-width: 4px;
+    }
   }
 }
