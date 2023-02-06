@@ -7,6 +7,7 @@ import {
   useListNavigation,
   flip,
   shift,
+  offset,
 } from '@floating-ui/react';
 
 type UseFloatingSelectPropsType = {
@@ -23,8 +24,8 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     open: isExpanded,
     onOpenChange,
     middleware: [
+      offset(8),
       flip({
-        padding: 10,
         fallbackAxisSideDirection: 'start',
         crossAxis: false,
         fallbackPlacements: ['top', 'right', 'left'],
