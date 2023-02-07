@@ -1,16 +1,16 @@
 import * as React from 'react';
-import cx from 'classnames';
 
 interface SparksProps {
   children?: React.ReactNode;
 }
 
-const Particle = () => {
+const Particle = React.forwardRef<SVGSVGElement>((props, ref) => {
   return (
     <svg
+      ref={ref}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      className="sg-sparks__particle sparks__star--loop"
+      className="sg-sparks__particle"
     >
       <title>spark</title>
       <path
@@ -20,19 +20,27 @@ const Particle = () => {
       />
     </svg>
   );
-};
+});
 
 const Sparks = ({children}: SparksProps) => {
-  const elements = (
-    <div className="sg-sparks__container">
-      <Particle />
-    </div>
-  );
+  const ref = React.useRef<SVGSVGElement>(null);
+
+  React.useEffect(() => {
+    if (ref) {
+      ref.current.animate([{transform: 'rotate(90deg)'}], {
+        easing: 'linear',
+        duration: 1400,
+        iterations: Infinity,
+      });
+    }
+  }, []);
 
   return (
     <div className="sg-sparks">
       {children}
-      {elements}
+      <div className="sg-sparks__container">
+        <Particle ref={ref} />
+      </div>
     </div>
   );
 };

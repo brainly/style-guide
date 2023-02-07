@@ -13,36 +13,3 @@
     height: 20px;
   }
 }
-
-/* Animations */
-@keyframes sparks-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes sparks-scale {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.sparks__star--entry {
-  animation: sparks-spin 1s ease-in-out, sparks-scale 1s ease-in-out;
-}
-
-.sparks__star--loop {
-  animation: sparks-spin 1s ease-in-out infinite,
-    sparks-scale 1s ease-in-out infinite;
-}
-
-.sparks__star--exit {
-  animation: sparks-spin 1s ease-in-out reverse,
-    sparks-scale 1s ease-in-out reverse;
-}
