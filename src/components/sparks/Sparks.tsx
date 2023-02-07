@@ -24,46 +24,112 @@ const Particle = React.forwardRef<SVGSVGElement>((props, ref) => {
 
 const Sparks = ({children}: SparksProps) => {
   const ref = React.useRef<SVGSVGElement>(null);
+  const animations = React.useRef<any>([]);
+  const [phase, setPhase] = React.useState('entry');
 
   React.useEffect(() => {
-    if (ref) {
-      ref.current.animate(
-        [{transform: 'translateY(-24px)'}, {transform: 'translateY(0)'}],
-        {
-          easing: 'cubic-bezier(0.1, 0, 0, 1)',
-          duration: 1280,
-          delay: 120,
+    if (!ref) {
+      return;
+    }
+
+    // eslint-disable-next-line no-console
+    console.log(
+      `Play animation %c${phase}`,
+      'background: #ee5533; color: #fff'
+    );
+
+    switch (phase) {
+      case 'entry': {
+        animations.current.forEach(animation => animation.cancel());
+        animations.current = [];
+
+        const translate = ref.current.animate(
+          [{transform: 'translateY(-24px)'}, {transform: 'translateY(0)'}],
+          {
+            easing: 'cubic-bezier(0.1, 0, 0, 1)',
+            duration: 1280,
+            delay: 120,
+            composite: 'add',
+            fill: 'both',
+          }
+        );
+
+        animations.current.push(translate);
+
+        const scale = ref.current.animate(
+          [{transform: 'scale(0)'}, {transform: 'scale(1)'}],
+          {
+            easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
+            duration: 700,
+            delay: 0,
+            composite: 'add',
+            fill: 'both',
+          }
+        );
+
+        animations.current.push(scale);
+
+        const opacity = ref.current.animate([{opacity: 0}, {opacity: 1}], {
+          easing: 'linear',
+          duration: 260,
+          delay: 0,
+          fill: 'both',
+        });
+
+        animations.current.push(opacity);
+
+        const rotation = ref.current.animate([{transform: 'rotate(90deg)'}], {
+          easing: 'linear',
+          duration: 1400,
+          iterations: Infinity,
+          composite: 'add',
+        });
+
+        animations.current.push(rotation);
+        break;
+      }
+
+      case 'exit': {
+        const scale = ref.current.animate([{transform: 'scale(0)'}], {
+          easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
+          duration: 700,
+          delay: 0,
           composite: 'add',
           fill: 'both',
-        }
-      );
+        });
 
-      ref.current.animate([{transform: 'scale(0)'}, {transform: 'scale(1)'}], {
-        easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
-        duration: 700,
-        delay: 0,
-        composite: 'add',
-        fill: 'forwards',
-      });
+        animations.current.push(scale);
 
-      ref.current.animate([{opacity: 0}, {opacity: 1}], {
-        easing: 'linear',
-        duration: 260,
-        delay: 0,
-        fill: 'both',
-      });
+        const opacity = ref.current.animate([{opacity: 0}], {
+          easing: 'linear',
+          duration: 260,
+          delay: 0,
+          fill: 'forwards',
+        });
 
-      ref.current.animate([{transform: 'rotate(90deg)'}], {
-        easing: 'linear',
-        duration: 1400,
-        iterations: Infinity,
-        composite: 'add',
-      });
+        animations.current.push(opacity);
+
+        break;
+      }
+
+      default:
+        break;
     }
-  }, []);
+  }, [phase]);
+
+  const handlMouseEnter = () => {
+    setPhase('entry');
+  };
+  const handlMouseLeave = () => {
+    setPhase('exit');
+  };
 
   return (
-    <div className="sg-sparks">
+    <div
+      className="sg-sparks"
+      onMouseEnter={handlMouseEnter}
+      onMouseLeave={handlMouseLeave}
+    >
       {children}
       <div className="sg-sparks__container">
         <Particle ref={ref} />
