@@ -5,6 +5,7 @@
   &__container {
     position: absolute;
     inset: 0;
+    pointer-events: none;
   }
 
   &__particle {
@@ -19,7 +20,7 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(90deg);
   }
 }
 
@@ -33,13 +34,15 @@
 }
 
 .sparks__star--entry {
-  animation: spin 1s ease-in-out, scale 1s ease-in-out;
+  animation: sparks-spin 1s ease-in-out, sparks-scale 1s ease-in-out;
 }
 
 .sparks__star--loop {
-  animation: spin 1s ease-in-out infinite, scale 1s ease-in-out infinite;
+  animation: sparks-spin 1s ease-in-out infinite,
+    sparks-scale 1s ease-in-out infinite;
 }
 
 .sparks__star--exit {
-  animation: spin 1s ease-in-out reverse, scale 1s ease-in-out reverse;
+  animation: sparks-spin 1s ease-in-out reverse,
+    sparks-scale 1s ease-in-out reverse;
 }
