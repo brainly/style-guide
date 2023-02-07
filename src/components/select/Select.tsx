@@ -204,6 +204,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
               top: floating.props.y ?? 0,
               left: floating.props.x ?? 0,
               overflowY: 'auto',
+              borderRadius: '16px',
             }}
             role="listbox"
             id={`${id}-listbox`}
