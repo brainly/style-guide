@@ -8,9 +8,9 @@ const Particle = React.forwardRef<SVGSVGElement>((props, ref) => {
   return (
     <svg
       ref={ref}
+      className="sg-sparks__particle"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      className="sg-sparks__particle"
     >
       <title>spark</title>
       <path
@@ -27,10 +27,37 @@ const Sparks = ({children}: SparksProps) => {
 
   React.useEffect(() => {
     if (ref) {
+      ref.current.animate(
+        [{transform: 'translateY(-24px)'}, {transform: 'translateY(0)'}],
+        {
+          easing: 'cubic-bezier(0.1, 0, 0, 1)',
+          duration: 1280,
+          delay: 120,
+          composite: 'add',
+          fill: 'both',
+        }
+      );
+
+      ref.current.animate([{transform: 'scale(0)'}, {transform: 'scale(1)'}], {
+        easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
+        duration: 700,
+        delay: 0,
+        composite: 'add',
+        fill: 'forwards',
+      });
+
+      ref.current.animate([{opacity: 0}, {opacity: 1}], {
+        easing: 'linear',
+        duration: 260,
+        delay: 0,
+        fill: 'both',
+      });
+
       ref.current.animate([{transform: 'rotate(90deg)'}], {
         easing: 'linear',
         duration: 1400,
         iterations: Infinity,
+        composite: 'add',
       });
     }
   }, []);
