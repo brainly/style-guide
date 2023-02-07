@@ -398,6 +398,9 @@ const Button = React.forwardRef(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
+        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+        // and we use active pseudo class to provide haptic feedback.
+        onTouchStart={() => null}
         type={type}
       >
         {loading && (
