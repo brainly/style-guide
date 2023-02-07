@@ -33,10 +33,7 @@ const Sparks = ({children}: SparksProps) => {
     }
 
     // eslint-disable-next-line no-console
-    console.log(
-      `Play animation %c${phase}`,
-      'background: #ee5533; color: #fff'
-    );
+    console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
     switch (phase) {
       case 'entry': {
