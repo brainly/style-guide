@@ -6,12 +6,18 @@ describe('<CardHole />', () => {
   test('render', () => {
     const cardHole = render(<CardHole>some text</CardHole>);
 
-    expect(cardHole.hasClass('sg-card__hole')).toEqual(true);
+    expect(
+      cardHole.container.firstElementChild.classList.contains('sg-card__hole')
+    ).toEqual(true);
   });
   test('colors', () => {
     const color = 'gray-50';
     const cardHole = render(<CardHole color={color}>some text</CardHole>);
 
-    expect(cardHole.hasClass(`sg-card__hole--${color}`)).toEqual(true);
+    expect(
+      cardHole.container.firstElementChild.classList.contains(
+        `sg-card__hole--${color}`
+      )
+    ).toEqual(true);
   });
 });

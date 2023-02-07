@@ -6,8 +6,9 @@ import Flex, {
   FLEX_ALIGNMENT_VALUES,
   FLEX_MARGINS,
 } from './Flex';
+import {testA11y} from '../../axe';
 
-describe('<Flex>', () => {
+describe('Flex', () => {
   const children = <div>Text</div>;
 
   it('renders without error', () => {
@@ -347,5 +348,13 @@ describe('<Flex>', () => {
     );
 
     expect(component.queryByRole('list')).toBeTruthy();
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(
+      <Flex>
+        <div>item</div>
+      </Flex>
+    );
   });
 });

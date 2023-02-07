@@ -2,6 +2,7 @@ import * as React from 'react';
 import Card, {CARD_PADDING} from './Card';
 import CardHole from './CardHole';
 import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Card', () => {
   test('render', () => {
@@ -76,5 +77,9 @@ describe('Card', () => {
     const root = card.container.firstElementChild;
 
     expect(root.classList.contains('sg-card--padding-large')).toEqual(true);
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(<Card>item</Card>);
   });
 });

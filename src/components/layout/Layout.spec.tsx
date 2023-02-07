@@ -4,6 +4,7 @@ import LayoutContent from './LayoutContent';
 import LayoutSecondaryContent from './LayoutSecondaryContent';
 import LayoutAsideContent from './LayoutAsideContent';
 import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Layout', () => {
   test('render with footer', () => {
@@ -53,6 +54,10 @@ describe('Layout', () => {
         '.sg-layout__container--full-page'
       )
     ).toBeTruthy();
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(<Layout>item</Layout>);
   });
 });
 

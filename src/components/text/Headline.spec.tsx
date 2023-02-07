@@ -6,6 +6,7 @@ import Headline, {
   HEADLINE_ALIGN,
 } from './Headline';
 import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Headline', () => {
   test('render', () => {
@@ -165,5 +166,9 @@ describe('Headline', () => {
         component.container.firstElementChild.classList.contains(className)
       ).toEqual(true);
     });
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(<Headline>Read more</Headline>);
   });
 });

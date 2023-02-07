@@ -1,19 +1,28 @@
 import * as React from 'react';
 import SeparatorVertical, {SIZE} from './SeparatorVertical';
 import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const separator = render(<SeparatorVertical />);
+describe('SeparatorVertical', () => {
+  test('size', () => {
+    const separator = render(<SeparatorVertical size={SIZE.SMALL} />);
 
-  expect(separator.queryByRole('separator')).toBeTruthy();
-});
+    expect(
+      separator.container.firstElementChild.classList.contains(
+        'sg-vertical-separator--small'
+      )
+    ).toEqual(true);
+  });
 
-test('size', () => {
-  const separator = render(<SeparatorVertical size={SIZE.SMALL} />);
+  it('should have role="separator" and vertical orientation', () => {
+    const separator = render(<SeparatorVertical />);
 
-  expect(
-    separator.container.firstElementChild.classList.contains(
-      'sg-vertical-separator--small'
-    )
-  ).toEqual(true);
+    expect(
+      separator.getByRole('separator').getAttribute('aria-orientation')
+    ).toBe('vertical');
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(<SeparatorVertical />);
+  });
 });

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {act} from 'react-dom/test-utils';
 import Dropdown from './Dropdown';
 import {fireEvent, render} from '@testing-library/react';
 

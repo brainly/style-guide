@@ -1,34 +1,47 @@
 import * as React from 'react';
 import HomeButton, {TYPE} from './HomeButton';
 import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const button = render(<HomeButton />);
+describe('HomeButton', () => {
+  test('render', () => {
+    const button = render(<HomeButton />);
 
-  expect(button.queryAllByRole('img').length).toBeGreaterThan(0);
-  expect(button.queryByRole('link')).toBeTruthy();
-});
+    expect(button.queryAllByRole('img').length).toBeGreaterThan(0);
+    expect(button.queryByRole('link')).toBeTruthy();
+  });
 
-test('type', () => {
-  const button = render(<HomeButton type={TYPE.EODEV} />);
+  test('type', () => {
+    const button = render(<HomeButton type={TYPE.EODEV} />);
 
-  expect(
-    button.container.firstElementChild.classList.contains(
-      'sg-home-button--eodev'
-    )
-  ).toBe(true);
-});
+    expect(
+      button.container.firstElementChild.classList.contains(
+        'sg-home-button--eodev'
+      )
+    ).toBe(true);
+  });
 
-test('href', () => {
-  const button = render(<HomeButton href="http://foo.com" />);
+  test('href', () => {
+    const button = render(<HomeButton href="http://foo.com" />);
 
-  expect(button.getByRole('link').getAttribute('href')).toEqual(
-    'http://foo.com'
-  );
-});
+    expect(button.getByRole('link').getAttribute('href')).toEqual(
+      'http://foo.com'
+    );
+  });
 
-test('empty href', () => {
-  const button = render(<HomeButton>Test</HomeButton>);
+  test('empty href', () => {
+    const button = render(<HomeButton>Test</HomeButton>);
 
-  expect(button.getByRole('link').getAttribute('href')).toEqual('#');
+    expect(button.getByRole('link').getAttribute('href')).toEqual('#');
+  });
+
+  it('should have a label', () => {
+    const logo = render(<HomeButton />);
+
+    expect(logo.getByLabelText('brainly home')).toBeTruthy();
+  });
+
+  it('should have no a11y violations', async () => {
+    await testA11y(<HomeButton />);
+  });
 });

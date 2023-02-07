@@ -1,101 +1,306 @@
 import * as React from 'react';
 import {Icon} from '../..';
 import Button, {BUTTON_VARIANT} from './Button';
-import {render} from '@testing-library/react';
+import {render, within} from '@testing-library/react';
+import {testA11y} from '../../axe';
+import userEvent from '@testing-library/user-event';
 
-test('render', () => {
-  const button = render(<Button>Some text</Button>);
-  const root = button.container.firstElementChild;
+describe('Button', () => {
+  test('render', () => {
+    const button = render(<Button>Some text</Button>);
+    const root = button.container.firstElementChild;
 
-  expect(root.classList.contains('sg-button')).toEqual(true);
+    expect(root.classList.contains('sg-button')).toEqual(true);
+  });
+
+  test('variant', () => {
+    const buttonVariant = BUTTON_VARIANT.SOLID;
+    const button = render(<Button variant={buttonVariant}>Some text</Button>);
+    const root = button.container.firstElementChild;
+
+    expect(root.classList.contains(`sg-button--${buttonVariant}`)).toEqual(
+      true
+    );
+  });
+
+  test('disabled', () => {
+    const button = render(<Button disabled>Some text</Button>);
+    const root = button.container.firstElementChild;
+
+    expect(root.classList.contains('sg-button--disabled')).toEqual(true);
+    expect(root.hasAttribute('disabled')).toEqual(true);
+  });
+
+  test('not disabled', () => {
+    const button = render(<Button>Some text</Button>);
+    const root = button.container.firstElementChild;
+
+    expect(root.classList.contains('sg-button--disabled')).toEqual(false);
+    expect(root.hasAttribute('disabled')).toEqual(false);
+  });
+
+  test('full width', () => {
+    const button = render(<Button fullWidth>Some text</Button>);
+    const root = button.container.firstElementChild;
+
+    expect(root.classList.contains('sg-button--full-width')).toEqual(true);
+  });
+
+  test('icon', () => {
+    const icon = <span>Button icon</span>;
+    const button = render(<Button icon={icon}>Some text</Button>);
+
+    expect(button.getByText('Button icon')).toBeTruthy();
+  });
+
+  test('icon only', () => {
+    const icon = <span>Button icon</span>;
+    const button = render(
+      <Button icon={icon} iconOnly>
+        Some text
+      </Button>
+    );
+    const root = button.container.firstElementChild;
+
+    expect(button.getByText('Button icon')).toBeTruthy();
+    expect(root.classList.contains('sg-button--icon-only')).toBe(true);
+  });
+
+  test('toggle', () => {
+    const button = render(
+      <Button variant="solid-light" toggle="red">
+        Some text
+      </Button>
+    );
+
+    const root = button.container.firstElementChild;
+
+    expect(
+      root.classList.contains('sg-button--solid-light-toggle-red')
+    ).toEqual(true);
+  });
+
+  test('with icon - reversed order', () => {
+    const icon = <span>Button icon</span>;
+    const button = render(
+      <Button icon={icon} reversedOrder>
+        Some text
+      </Button>
+    );
+    const root = button.container.firstElementChild;
+
+    expect(button.getByText('Button icon')).toBeTruthy();
+    expect(root.classList.contains('sg-button--reversed-order')).toBe(true);
+  });
+
+  test('in loading state button shows spinner while hiding label and icon', () => {
+    const button = render(
+      <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
+        Some text
+      </Button>
+    );
+    const root = button.container.firstElementChild;
+
+    expect(root.classList.contains('sg-button--loading')).toEqual(true);
+    expect(button.getByRole('status')).toBeTruthy();
+  });
+
+  describe('without `href`', () => {
+    it('has a button role and an accessible label', () => {
+      const label = 'Load more Mathematic questions';
+      const button = render(
+        <Button as="button" aria-label={label}>
+          Load more
+        </Button>
+      );
+
+      expect(
+        button.getByRole('button', {
+          name: label,
+        })
+      ).toBeTruthy();
+    });
+    it('is focusable', () => {
+      const button = render(<Button as="button">Read more</Button>);
+
+      button.getByRole('button').focus();
+      expect(button.getByRole('button')).toBe(document.activeElement);
+    });
+    it('is not focusable and clickable when disabled', () => {
+      const handleOnClick = jest.fn();
+      const label = 'Load more';
+      const button = render(
+        <Button as="button" disabled onClick={handleOnClick}>
+          {label}
+        </Button>
+      );
+
+      button.getByText(label).focus();
+      expect(button.getByText(label)).not.toBe(document.activeElement);
+      userEvent.click(button.getByText(label));
+      expect(handleOnClick).not.toHaveBeenCalled();
+    });
+    it('fires onClick on click, space and enter', () => {
+      const handleOnClick = jest.fn();
+      const label = 'Load more';
+      const button = render(
+        <Button as="button" onClick={handleOnClick}>
+          {label}
+        </Button>
+      );
+
+      userEvent.click(
+        button.getByRole('button', {
+          name: label,
+        })
+      );
+      expect(handleOnClick).toHaveBeenCalledTimes(1);
+      button.getByText(label).focus();
+      userEvent.keyboard('{space}');
+      expect(handleOnClick).toHaveBeenCalledTimes(2);
+      userEvent.keyboard('{enter}');
+      expect(handleOnClick).toHaveBeenCalledTimes(3);
+    });
+    it('informs about the loading state and is then disabled', () => {
+      const label = 'Load more';
+      const loadingAriaLabel = 'loading more';
+      const button = render(
+        <Button
+          loadingAriaLabel={loadingAriaLabel}
+          loadingAriaLive="assertive"
+          loading
+        >
+          {label}
+        </Button>
+      );
+      const status = button.getByRole('status');
+
+      expect(status.getAttribute('aria-live')).toBe('assertive');
+      expect(within(status).getByText(loadingAriaLabel)).toBeTruthy();
+      expect(button.getByRole('button')).toHaveProperty('disabled', true);
+    });
+  });
+  describe('with `href`', () => {
+    it('has a link role and an accessible label', () => {
+      const label = 'read more about products';
+      const button = render(
+        <Button href="https://example.com/" aria-label={label}>
+          Read more
+        </Button>
+      );
+
+      expect(
+        button.getByRole('link', {
+          name: label,
+        })
+      ).toBeTruthy();
+      expect(button.getByRole('link').getAttribute('href')).toBe(
+        'https://example.com/'
+      );
+    });
+    it('is focusable', () => {
+      const button = render(
+        <Button href="https://example.com/">Read more</Button>
+      );
+
+      button.getByRole('link').focus();
+      expect(button.getByRole('link')).toBe(document.activeElement);
+    });
+    it('is not focusable and clickable when disabled', () => {
+      const label = 'read more';
+      const onClick = jest.fn();
+      const button = render(
+        <Button href="https://example.com/" disabled onClick={onClick}>
+          {label}
+        </Button>
+      );
+
+      button.getByText(label).focus();
+      expect(button.getByText(label)).not.toBe(document.activeElement);
+      userEvent.click(button.getByText(label));
+      expect(onClick).not.toHaveBeenCalled();
+    });
+    it('informs about the opening in a new tab', () => {
+      const label = 'read more';
+      const newTabLabel = 'in new tab';
+      const button = render(
+        <Button
+          href="https://example.com/"
+          target="_blank"
+          newTabLabel={newTabLabel}
+        >
+          {label}
+        </Button>
+      );
+
+      expect(button.getByText(newTabLabel)).toBeTruthy();
+    });
+  });
+  describe('with `toggle`', () => {
+    it('has a button role and an accessible label', () => {
+      const button = render(
+        <Button toggle="red" type="button" aria-pressed="true">
+          Thanks
+        </Button>
+      );
+
+      expect(button.getByRole('button').getAttribute('type')).toBe('button');
+      expect(
+        button.getByRole('button').getAttribute('aria-pressed')
+      ).toBeTruthy();
+    });
+  });
 });
-
-test('variant', () => {
-  const buttonVariant = BUTTON_VARIANT.SOLID;
-  const button = render(<Button variant={buttonVariant}>Some text</Button>);
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains(`sg-button--${buttonVariant}`)).toEqual(true);
-});
-
-test('disabled', () => {
-  const button = render(<Button disabled>Some text</Button>);
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains('sg-button--disabled')).toEqual(true);
-  expect(root.hasAttribute('disabled')).toEqual(true);
-});
-
-test('not disabled', () => {
-  const button = render(<Button>Some text</Button>);
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains('sg-button--disabled')).toEqual(false);
-  expect(root.hasAttribute('disabled')).toEqual(false);
-});
-
-test('full width', () => {
-  const button = render(<Button fullWidth>Some text</Button>);
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains('sg-button--full-width')).toEqual(true);
-});
-
-test('icon', () => {
-  const icon = <span>Button icon</span>;
-  const button = render(<Button icon={icon}>Some text</Button>);
-
-  expect(button.getByText('Button icon')).toBeTruthy();
-});
-
-test('icon only', () => {
-  const icon = <span>Button icon</span>;
-  const button = render(
-    <Button icon={icon} iconOnly>
-      Some text
-    </Button>
-  );
-  const root = button.container.firstElementChild;
-
-  expect(button.getByText('Button icon')).toBeTruthy();
-  expect(root.classList.contains('sg-button--icon-only')).toBe(true);
-});
-
-test('toggle', () => {
-  const button = render(
-    <Button variant="solid-light" toggle="red">
-      Some text
-    </Button>
-  );
-
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains('sg-button--solid-light-toggle-red')).toEqual(
-    true
-  );
-});
-
-test('with icon - reversed order', () => {
-  const icon = <span>Button icon</span>;
-  const button = render(
-    <Button icon={icon} reversedOrder>
-      Some text
-    </Button>
-  );
-  const root = button.container.firstElementChild;
-
-  expect(button.getByText('Button icon')).toBeTruthy();
-  expect(root.classList.contains('sg-button--reversed-order')).toBe(true);
-});
-
-test('in loading state button shows spinner while hiding label and icon', () => {
-  const button = render(
-    <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
-      Some text
-    </Button>
-  );
-  const root = button.container.firstElementChild;
-
-  expect(root.classList.contains('sg-button--loading')).toEqual(true);
-  expect(button.getByRole('status')).toBeTruthy();
+describe('Button a11y', () => {
+  describe('without `href`', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Button>Read more</Button>);
+    });
+    it('should have no a11y violations when aria-label is provided', async () => {
+      await testA11y(
+        <Button aria-label="read more about us">Read more</Button>
+      );
+    });
+    it('should have no a11y violations when disabled', async () => {
+      await testA11y(<Button disabled>Read more</Button>);
+    });
+    it('should have no a11y violations in loading state', async () => {
+      await testA11y(<Button loading>Read more</Button>);
+    });
+  });
+  describe('with `href`', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Button href="https://example.com/">Read more</Button>);
+    });
+    it('should have no a11y violations when aria-label is provided', async () => {
+      await testA11y(
+        <Button href="https://example.com/" aria-label="read more about us">
+          Read more
+        </Button>
+      );
+    });
+    it('should have no a11y violations when disabled', async () => {
+      await testA11y(
+        <Button href="https://example.com/" disabled>
+          Read more
+        </Button>
+      );
+    });
+    it('should have no a11y violations when opens in a new tab', async () => {
+      await testA11y(
+        <Button href="https://example.com/" target="_blank">
+          Read more
+        </Button>
+      );
+    });
+  });
+  describe('with `toggle`', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(
+        <Button toggle="red" type="button" aria-pressed="true">
+          Thanks
+        </Button>
+      );
+    });
+  });
 });
