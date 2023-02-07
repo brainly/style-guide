@@ -52,14 +52,20 @@
 
 .sg-animation-fade-in-slow {
   animation-name: sgAnimationFadeIn;
-  animation-duration: 600ms;
-  animation-timing-function: ease-in;
+  animation-duration: $durationModerate2;
+  animation-timing-function: $easingLinear;
+}
+
+.sg-animation-fade-in {
+  animation-name: sgAnimationFadeIn;
+  animation-duration: $durationModerate1;
+  animation-timing-function: $easingLinear;
 }
 
 .sg-animation-fade-in-fast {
   animation-name: sgAnimationFadeIn;
-  animation-duration: 400ms;
-  animation-timing-function: ease-in;
+  animation-duration: $durationQuick2;
+  animation-timing-function: $easingLinear;
 }
 
 .sg-cursor-pointer {
