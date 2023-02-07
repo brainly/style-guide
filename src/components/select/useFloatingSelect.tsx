@@ -8,6 +8,7 @@ import {
   flip,
   shift,
   offset,
+  size,
 } from '@floating-ui/react';
 
 type UseFloatingSelectPropsType = {
@@ -28,9 +29,16 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       flip({
         fallbackAxisSideDirection: 'start',
         crossAxis: false,
-        fallbackPlacements: ['top', 'right', 'left'],
+        fallbackPlacements: ['top'],
       }),
       shift(),
+      size({
+        apply({elements, availableHeight}) {
+          Object.assign(elements.floating.style, {
+            maxHeight: `${availableHeight}px`,
+          });
+        },
+      }),
     ],
   });
   const click = useClick(context, {event: 'mousedown'});

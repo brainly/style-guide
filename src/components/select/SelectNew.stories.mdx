@@ -214,6 +214,31 @@ import Flex from '../flex/Flex';
           label: 'Wyszukiwarka internetowa',
           iconName: 'science',
         },
+        {
+          value: 'search1',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
+        {
+          value: 'search2',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
+        {
+          value: 'search3',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
+        {
+          value: 'search4',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
+        {
+          value: 'search5',
+          label: 'Wyszukiwarka internetowa',
+          iconName: 'science',
+        },
       ],
     }}
   >
@@ -234,6 +259,7 @@ import Flex from '../flex/Flex';
               height: '400px',
               width: '800px',
               overflow: 'scroll',
+              resize: 'auto',
             }}
           >
             <Flex
@@ -256,6 +282,47 @@ import Flex from '../flex/Flex';
             </Flex>
           </div>
         </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With long list
+
+<Canvas>
+  <Story
+    name="With long list"
+    height="100%"
+    args={{
+      options: [
+        {value: 'physics', label: 'Physics'},
+        {value: 'history', label: 'History'},
+        {value: 'science', label: 'Science'},
+        {value: 'physics2', label: 'Physics'},
+        {value: 'history2', label: 'History'},
+        {value: 'science2', label: 'Science'},
+        {value: 'physics3', label: 'Physics'},
+        {value: 'history3', label: 'History'},
+        {value: 'science3', label: 'Science'},
+        {value: 'physics4', label: 'Physics'},
+        {value: 'history4', label: 'History'},
+        {value: 'science4', label: 'Science'},
+        {value: 'physics5', label: 'Physics'},
+        {value: 'history5', label: 'History'},
+        {value: 'science5', label: 'Science'},
+      ],
+    }}
+  >
+    {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      return (
+        <Select
+          {...args}
+          selectedOptions={selectedOptions}
+          onOptionChange={option => {
+            setSelectedOptions([option]);
+          }}
+        />
       );
     }}
   </Story>
