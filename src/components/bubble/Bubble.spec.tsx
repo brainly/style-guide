@@ -3,7 +3,7 @@ import Bubble, {DIRECTION, ALIGNMENT} from './Bubble';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
-describe('Bubble a11y', () => {
+describe('Bubble', () => {
   test('render', () => {
     const bubble = render(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
     const root = bubble.container.firstElementChild;
