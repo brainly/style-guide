@@ -46,7 +46,7 @@ export const StoryVariant = ({
     <Headline
       extraBold
       transform="uppercase"
-      type="span"
+      as="span"
       color={whiteText ? 'text-white' : 'text-gray-60'}
       size="xsmall"
       className="sg-story-variant__name"

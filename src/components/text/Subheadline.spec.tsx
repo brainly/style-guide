@@ -3,7 +3,7 @@ import Subheadline from './Subheadline';
 import {mount, shallow} from 'enzyme';
 import {
   SUBHEADLINE_SIZE,
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
@@ -43,10 +43,10 @@ it('size is responsive prop', () => {
 });
 test('type', () => {
   const headline = mount(
-    <Subheadline type={SUBHEADLINE_TYPE.H3}>Test</Subheadline>
+    <Subheadline as={SUBHEADLINE_AS.H3}>Test</Subheadline>
   );
 
-  expect(headline.props().type).toEqual(SUBHEADLINE_TYPE.H3);
+  expect(headline.props().as).toEqual(SUBHEADLINE_AS.H3);
 });
 test('color', () => {
   const text = shallow(

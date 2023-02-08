@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {SUBHEADLINE_TYPE} from './subheadlineConsts';
+import {SUBHEADLINE_AS} from './subheadlineConsts';
 import type {TextColorType} from './Text';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-export type SubheadlineTypeType =
+export type SubheadlineAsType =
   | 'span'
   | 'h1'
   | 'h2'
@@ -34,7 +34,7 @@ export type SubheadlineAlignType =
   | 'to-right'
   | 'justify';
 export {
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TRANSFORM,
   SUBHEADLINE_ALIGN,
@@ -43,7 +43,7 @@ export {TEXT_COLOR} from './Text';
 export type SubheadlinePropsType = {
   children?: React.ReactNode;
   size?: ResponsivePropType<SubheadlineSizeType>;
-  type?: SubheadlineTypeType;
+  as?: SubheadlineAsType;
   color?: TextColorType | null | undefined;
   transform?: ResponsivePropType<SubheadlineTransformType | null | undefined>;
   align?: ResponsivePropType<SubheadlineAlignType | null | undefined>;
@@ -63,7 +63,7 @@ export type SubheadlinePropsType = {
 
 const Subheadline = ({
   children,
-  type = SUBHEADLINE_TYPE.H2,
+  as = SUBHEADLINE_AS.H2,
   size,
   transform,
   align,
@@ -72,7 +72,7 @@ const Subheadline = ({
   inherited = false,
   ...props
 }: SubheadlinePropsType) => {
-  const Type = type;
+  const Type = as;
   const subheadlineClass = classNames(
     'sg-subheadline',
     {
