@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
-import SubjectIcon from '../subject-icons/SubjectIcon';
-import Text from '../text/Text';
+import {SIZE} from './Select';
 
 type UseSelectPropsType = Pick<
   SelectPropsType,
@@ -12,9 +11,6 @@ type UseSelectPropsType = Pick<
   | 'expanded'
   | 'defaultExpanded'
   | 'multiSelect'
-  | 'placeholder'
-  | 'withIcons'
-  | 'selectedOptions'
   | 'onToggle'
   | 'onOptionChange'
 >;
@@ -26,9 +22,6 @@ const useSelect = (props: UseSelectPropsType) => {
     expanded,
     defaultExpanded,
     multiSelect,
-    placeholder,
-    withIcons,
-    selectedOptions,
     onToggle,
     onOptionChange,
   } = props;
@@ -61,44 +54,11 @@ const useSelect = (props: UseSelectPropsType) => {
     else setIsExpanded(isOpen);
   };
 
-  const selectDisplayValue = React.useMemo(() => {
-    if (!selectedOptions.length) return placeholder;
-
-    if (selectedOptions.length === 1) {
-      const {label, iconName} = selectedOptions[0] || {};
-
-      if (label) {
-        const displayLabel = (
-          <Text size="small" className="sg-select-new__element-label">
-            {label}
-          </Text>
-        );
-
-        if (withIcons) {
-          return (
-            <>
-              <SubjectIcon size="small" type={iconName} />
-              {displayLabel}
-            </>
-          );
-        }
-
-        return displayLabel;
-      }
-    } else {
-      const label = [];
-
-      selectedOptions.map(option => label.push(option.label));
-      return label.join(', ');
-    }
-  }, [placeholder, withIcons, selectedOptions]);
-
   return {
     id,
     isExpanded,
     handleOptionSelect,
     onOpenChange,
-    selectDisplayValue,
   };
 };
 

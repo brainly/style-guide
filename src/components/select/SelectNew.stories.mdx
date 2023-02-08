@@ -330,3 +330,41 @@ import Flex from '../flex/Flex';
     }}
   </Story>
 </Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story
+    name="Sizes"
+    height="100%"
+    args={{
+      withIcons: true,
+      options: [
+        {
+          value: 'art',
+          label: 'Art',
+          iconName: 'art',
+        },
+        {value: 'math', label: 'Math', iconName: 'mathematics'},
+        {
+          value: 'biology',
+          label: 'Biology',
+          iconName: 'biology',
+        },
+      ],
+    }}
+  >
+    {args => {
+      return (
+        <Flex direction="row">
+          {['s', 'm', 'l'].map(size => (
+            <Flex direction="column" style={{width: '200px', padding: '10px'}}>
+              <Text>{size}</Text>
+              <Select {...args} defaultExpanded size={size} />
+            </Flex>
+          ))}
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>

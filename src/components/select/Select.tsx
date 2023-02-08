@@ -7,12 +7,36 @@ import {mergeRefs} from '../utils';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
 import SelectOption from './SelectOption';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import Text from '../text/Text';
 
 export type SelectOptionType = {
   value: string;
   label: string;
   iconName?: IconTypeType;
 };
+
+export type SelectSizeType = 's' | 'm' | 'l';
+
+export const SIZE = {
+  S: 's',
+  M: 'm',
+  L: 'l',
+} as const;
+
+const DEFAULT_SIZE = SIZE.M;
+
+const ICON_SIZE_MAP = {
+  [SIZE.L]: 32,
+  [SIZE.M]: 24,
+  [SIZE.S]: 16,
+} as const;
+
+const TEXT_SIZE_MAP = {
+  [SIZE.L]: 'medium',
+  [SIZE.M]: 'small',
+  [SIZE.S]: 'small',
+} as const;
 
 export type SelectPropsType = {
   /**
@@ -53,6 +77,14 @@ export type SelectPropsType = {
   fullWidth?: boolean;
 
   /**
+   * There are two sizes options for most of the form elements
+   * @example <Select size="m" options={[{value: 'option1', text: 'Option1'},{value: 'option2', text: 'Select selector'}]} />
+   * @see size="m" https://styleguide.brainly.com/latest/docs/interactive.html?size="m"#select
+   * @see size="l" https://styleguide.brainly.com/latest/docs/interactive.html?size="l"#select
+   */
+  size?: SelectSizeType;
+
+  /**
    * Additional class names
    */
   className?: string;
@@ -75,27 +107,19 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       withIcons = false,
       multiSelect = false,
       fullWidth = false,
+      size = DEFAULT_SIZE,
       onClick,
       onToggle,
       onOptionChange,
       ...additionalProps
     } = props;
 
-    const {
-      id,
-      isExpanded,
-      onOpenChange,
-      handleOptionSelect,
-      selectDisplayValue,
-    } = useSelect({
+    const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
       valid,
       invalid,
       expanded,
       defaultExpanded,
       multiSelect,
-      placeholder,
-      withIcons,
-      selectedOptions,
       onToggle,
       onOptionChange,
     });
@@ -144,11 +168,52 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             multiSelect={multiSelect}
             withIcon={withIcons}
             interactions={optionInteractions}
+            size={size}
           />
         );
       }
       return null;
     });
+
+    const selectDisplayValue = React.useMemo(() => {
+      if (!selectedOptions.length)
+        return (
+          <Text size={TEXT_SIZE_MAP[size]} color="text-gray-50">
+            {placeholder}
+          </Text>
+        );
+
+      if (selectedOptions.length === 1) {
+        const {label, iconName} = selectedOptions[0] || {};
+
+        if (label) {
+          const displayLabel = (
+            <Text
+              size={TEXT_SIZE_MAP[size]}
+              className="sg-select-new__element-label"
+            >
+              {label}
+            </Text>
+          );
+
+          if (withIcons) {
+            return (
+              <>
+                <SubjectIcon size="small" type={iconName} />
+                {displayLabel}
+              </>
+            );
+          }
+
+          return displayLabel;
+        }
+      } else {
+        const label = [];
+
+        selectedOptions.map(option => label.push(option.label));
+        return label.join(', ');
+      }
+    }, [placeholder, withIcons, selectedOptions, size]);
 
     const selectClass = classnames(
       'sg-select-new',
@@ -157,6 +222,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         'sg-select-new--valid': valid,
         'sg-select-new--invalid': invalid,
         'sg-select-new--full-width': fullWidth,
+        [`sg-select-new--${String(size)}`]: size && size !== DEFAULT_SIZE,
       },
       className
     );
@@ -191,6 +257,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           <div className="sg-select-new__element-icon">
             <Icon
               type={isExpanded ? 'caret_up' : 'caret_down'}
+              size={ICON_SIZE_MAP[size]}
               color="icon-gray-50"
             />
           </div>
