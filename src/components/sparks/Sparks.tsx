@@ -25,7 +25,7 @@ const Particle = React.forwardRef<SVGSVGElement>((props, ref) => {
 const Sparks = ({children}: SparksProps) => {
   const ref = React.useRef<SVGSVGElement>(null);
   const animations = React.useRef<any>([]);
-  const [phase, setPhase] = React.useState('entry');
+  const [phase, setPhase] = React.useState<'entry' | 'exit'>('entry');
 
   React.useEffect(() => {
     if (!ref) {
