@@ -1,0 +1,94 @@
+import {Form, FormStep} from './Form';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
+
+<Meta title="Components/Form2" component={Form} />
+
+<PageHeader>Form</PageHeader>
+
+- [Stories](#stories)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <div style={{height: 500}}>
+        <Form {...args} />
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Types
+
+<Canvas>
+  <Story name="Graphite Dust">
+    {args => (
+      <div style={{height: 600}}>
+        <Form>
+          <FormStep>
+            <Flex>
+              Consequat id eiusmod enim labore aliquip reprehenderit. Elit
+              ullamco mollit veniam amet quis labore labore magna aute anim ad
+              do ex est. Excepteur reprehenderit ipsum in anim elit magna
+              voluptate Lorem eu anim excepteur proident dolore. Nostrud
+              excepteur et nostrud nisi amet voluptate dolor duis laborum
+              proident et. Veniam aliqua pariatur cupidatat officia deserunt
+              occaecat cillum ex proident cupidatat quis nostrud irure quis.
+              Occaecat voluptate cillum excepteur ex irure ut ea exercitation
+              consequat et commodo exercitation velit. Consectetur reprehenderit
+              aute dolor ullamco consectetur nostrud laboris dolore irure
+              pariatur pariatur incididunt mollit exercitation. In nulla ipsum
+              laboris culpa tempor eu ea est ad. Velit dolor labore voluptate
+              ullamco incididunt reprehenderit consequat quis id laborum aliqua.
+            </Flex>
+          </FormStep>
+          <FormStep>
+            <Flex marginTop="xxxxl">
+              Eu sunt ad sunt labore culpa minim officia pariatur elit
+              exercitation Lorem. Sunt commodo pariatur aliquip ad dolore culpa
+              nostrud veniam occaecat quis ad. Ea ea do dolor labore. Pariatur
+              eiusmod in do et. Commodo ex cillum dolor nulla aliquip enim qui
+              ea veniam exercitation aute non officia. Deserunt amet commodo
+              Lorem aliqua commodo esse dolore id enim amet dolor Lorem mollit
+              dolor. Id anim enim proident laborum et ipsum laboris veniam sint.
+              Ad aliquip laboris in consequat id. Excepteur adipisicing labore
+              anim eiusmod veniam reprehenderit aute. Cillum culpa quis sint et
+              minim esse sit quis esse proident proident. Ad Lorem officia amet
+              elit proident ad deserunt ullamco ullamco id aute. Lorem irure
+              fugiat sint deserunt est pariatur anim. Non mollit dolor enim
+              occaecat. Ullamco ullamco mollit irure esse commodo aliqua aliquip
+              dolor minim. Cillum ex ea nostrud nulla eu consectetur voluptate.
+              Ea laboris incididunt elit commodo minim sit qui aliquip id.
+            </Flex>
+          </FormStep>
+          <FormStep>
+            <Flex marginTop="xxxxl">
+              Id aute aute cupidatat laboris occaecat officia commodo veniam.
+              Lorem laborum excepteur aliquip nisi nulla enim amet ullamco. Eu
+              eiusmod Lorem eiusmod irure. Proident aliquip eu non magna. Eu qui
+              in cupidatat cillum anim commodo adipisicing mollit mollit cillum
+              quis ullamco cillum. Non enim tempor fugiat laboris qui mollit.
+              Amet consequat ea minim sint ut ea ut cupidatat eiusmod veniam.
+              Proident ut ipsum eiusmod deserunt ipsum Lorem dolore labore duis.
+              Duis commodo ullamco ut tempor magna culpa sunt culpa exercitation
+              consequat labore esse id ipsum. Culpa eiusmod Lorem non elit
+              mollit voluptate officia ad consequat culpa dolore aliqua mollit.
+              Ullamco laboris aute qui adipisicing occaecat tempor enim.
+            </Flex>
+          </FormStep>
+        </Form>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<HomeButtonA11y />

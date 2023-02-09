@@ -1,0 +1,33 @@
+.sg-form {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &-content {
+    transition: transform 200ms linear;
+  }
+
+  &-navigation {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+  }
+
+  &-step-area {
+    position: relative;
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: $white;
+      opacity: 0.5;
+    }
+  }
+}
+
+.sg-form-step {
+  position: relative;
+}
