@@ -9,12 +9,39 @@
       width: 100%;
     }
 
+    &--s {
+      .sg-select-new__element {
+        padding: 0 44px 0 spacing(s);
+        height: $formElementSizeS;
+
+        &::-ms-expand {
+          display: none;
+        }
+      }
+    }
+
+    &--l {
+      .sg-select-new__icon {
+        right: 12px;
+      }
+
+      .sg-select-new__element {
+        border-radius: $formElementLargeBorderRadius;
+        padding: 0 60px 0 (spacing(m));
+        height: $formElementSizeL;
+
+        &::-ms-expand {
+          display: none;
+        }
+      }
+    }
+
     &__element {
       @include applyFocus();
 
       display: flex;
       align-items: center;
-      padding: 0 42px 0 spacing(s);
+      padding: 0 44px 0 spacing(s);
       width: 100%;
       text-overflow: ellipsis;
       border: 2px solid $gray-20;

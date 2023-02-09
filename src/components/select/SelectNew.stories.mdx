@@ -1,5 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Select from './Select';
+import Select, {SIZE} from './Select';
 import PageHeader from 'blocks/PageHeader';
 import Button from '../buttons/Button';
 import Text from '../text/Text';
@@ -8,6 +8,19 @@ import Flex from '../flex/Flex';
 <Meta
   title="Components/SelectNew"
   component={Select}
+  argTypes={{
+    defaultExpanded: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: SIZE,
+      },
+    },
+  }}
   args={{
     options: [
       {
