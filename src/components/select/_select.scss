@@ -13,10 +13,12 @@
       .sg-select-new__element {
         padding: 0 44px 0 spacing(s);
         height: $formElementSizeS;
+      }
 
-        &::-ms-expand {
-          display: none;
-        }
+      .sg-select-new__option-label .sg-text,
+      .sg-select-new__element-label,
+      .sg-select-new__placeholder {
+        font-size: $formElementSmallFontSize;
       }
     }
 
@@ -29,10 +31,12 @@
         border-radius: $formElementLargeBorderRadius;
         padding: 0 60px 0 (spacing(m));
         height: $formElementSizeL;
+      }
 
-        &::-ms-expand {
-          display: none;
-        }
+      .sg-select-new__option-label .sg-text,
+      .sg-select-new__element-label,
+      .sg-select-new__placeholder {
+        font-size: $formElementLargeFontSize;
       }
     }
 
@@ -111,7 +115,8 @@
       }
 
       .sg-text {
-        padding: 1px 0;
+        padding: 2px 0;
+        font-size: 16px;
       }
 
       .sg-subject-icon {

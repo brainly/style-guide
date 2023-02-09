@@ -32,12 +32,6 @@ const ICON_SIZE_MAP = {
   [SIZE.S]: 16,
 } as const;
 
-const TEXT_SIZE_MAP = {
-  [SIZE.L]: 'medium',
-  [SIZE.M]: 'small',
-  [SIZE.S]: 'small',
-} as const;
-
 export type SelectPropsType = {
   /**
    * Optional specification for select placeholder
@@ -168,7 +162,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             multiSelect={multiSelect}
             withIcon={withIcons}
             interactions={optionInteractions}
-            size={size}
           />
         );
       }
@@ -178,7 +171,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const selectDisplayValue = React.useMemo(() => {
       if (!selectedOptions.length)
         return (
-          <Text size={TEXT_SIZE_MAP[size]} color="text-gray-50">
+          <Text
+            className="sg-select-new__placeholder"
+            size="small"
+            color="text-gray-50"
+          >
             {placeholder}
           </Text>
         );
@@ -188,10 +185,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
 
         if (label) {
           const displayLabel = (
-            <Text
-              size={TEXT_SIZE_MAP[size]}
-              className="sg-select-new__element-label"
-            >
+            <Text size="small" className="sg-select-new__element-label">
               {label}
             </Text>
           );
@@ -213,7 +207,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         selectedOptions.map(option => label.push(option.label));
         return label.join(', ');
       }
-    }, [placeholder, withIcons, selectedOptions, size]);
+    }, [placeholder, withIcons, selectedOptions]);
 
     const selectClass = classnames(
       'sg-select-new',

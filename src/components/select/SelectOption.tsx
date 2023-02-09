@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
 
-import {SelectOptionType, SelectSizeType, SIZE} from './Select';
+import {SelectOptionType} from './Select';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import Icon from '../icons/Icon';
 import Checkbox from '../form-elements/checkbox/Checkbox';
@@ -13,7 +13,6 @@ export type SelectOptionElementPropsType = {
   withIcon?: boolean;
   multiSelect?: boolean;
   interactions: Record<string, unknown>;
-  size?: SelectSizeType;
 };
 
 const SelectOption = React.forwardRef<
@@ -27,7 +26,6 @@ const SelectOption = React.forwardRef<
       withIcon = false,
       multiSelect = false,
       interactions,
-      size,
     }: SelectOptionElementPropsType,
     ref
   ) => {
@@ -62,7 +60,7 @@ const SelectOption = React.forwardRef<
 
       return <div className="sg-select-new__option-state">{optionState}</div>;
     }, [isSelected, multiSelect, option.value]);
-    console.log('option size', size);
+
     return (
       <div
         key={value}
@@ -76,11 +74,7 @@ const SelectOption = React.forwardRef<
       >
         <div className="sg-select-new__option-label">
           {icon}
-          <Text
-            size={size === SIZE.L ? 'medium' : 'small'}
-            weight="bold"
-            breakWords
-          >
+          <Text size="small" weight="bold" breakWords>
             {label}
           </Text>
         </div>
