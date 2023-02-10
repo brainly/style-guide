@@ -28,6 +28,7 @@ function useAnimation() {
     return {
       ref: (el: HTMLDivElement | null) => {
         if (el) {
+          // eslint-disable-next-line no-console
           console.log('register');
           refs.current.add(el);
         }
