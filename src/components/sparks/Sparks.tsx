@@ -159,16 +159,38 @@ const Sparks = ({children}: SparksProps) => {
     >
       {children}
       <div className="sg-sparks__container">
-        <Particle style={{gridColumn: '1 / span 1'}} {...register()} />
-        <Particle style={{gridColumn: '4 / span 1'}} {...register()} />
-        <Particle style={{gridColumn: '7 / span 1'}} {...register()} />
-
         <Particle
-          style={{gridColumn: '2 / span 1', gridRow: '2'}}
+          style={{gridColumn: '1 / span 1'}}
+          size={16}
           {...register()}
         />
         <Particle
-          style={{gridColumn: '6 / span 1', gridRow: '2'}}
+          style={{gridColumn: '6 / span 1'}}
+          size={28}
+          {...register()}
+        />
+        <Particle
+          style={{gridColumn: '-2 / span 1'}}
+          size={12}
+          {...register()}
+        />
+
+        <Particle
+          style={{
+            gridColumn: '2 / span 1',
+            gridRow: '3',
+            alignSelf: 'self-end',
+          }}
+          size={40}
+          {...register()}
+        />
+        <Particle
+          style={{
+            gridColumn: '-3 / span 1',
+            gridRow: '3',
+            alignSelf: 'self-end',
+          }}
+          size={28}
           {...register()}
         />
       </div>
