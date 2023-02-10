@@ -6,10 +6,17 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
   }
 
   &__particle {
-    width: 20px;
-    height: 20px;
+    position: absolute;
+
+    & > svg {
+      display: block;
+    }
   }
 }

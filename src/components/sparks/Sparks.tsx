@@ -4,20 +4,32 @@ interface SparksProps {
   children?: React.ReactNode;
 }
 
-const Particle = React.forwardRef<HTMLDivElement>((props, ref) => {
-  return (
-    <div ref={ref} className="sg-sparks__particle">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <title>spark</title>
-        <path
-          fill="var(--yellow-40)"
-          fillRule="evenodd"
-          d="M256 64c11.782075 0 21.333333 9.5512587 21.333333 21.3333333 0 81.6497777 65.528321 147.9945957 146.863834 149.3133267l2.4695.020007C438.448741 234.666667 448 244.217925 448 256c0 11.782075-9.551259 21.333333-21.333333 21.333333-81.649778 0-147.994596 65.528321-149.313327 146.863834l-.020007 2.4695C277.333333 438.448741 267.782075 448 256 448c-11.782075 0-21.333333-9.551259-21.333333-21.333333 0-82.474523-66.858811-149.333334-149.3333337-149.333334l-.3527856-.002858C73.3611886 277.142085 64 267.664254 64 256c0-11.782075 9.5512587-21.333333 21.3333333-21.333333 82.4745227 0 149.3333337-66.858811 149.3333337-149.3333337l.002858-.3527856C234.857915 73.3611886 244.335746 64 256 64z"
-        />
-      </svg>
-    </div>
-  );
-});
+interface ParticleProps {
+  style?: React.CSSProperties;
+  size?: number;
+}
+
+const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
+  (props, ref) => {
+    return (
+      <div ref={ref} className="sg-sparks__particle" style={props.style}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={props.size ?? '20'}
+          height={props.size ?? '20'}
+          viewBox="0 0 512 512"
+        >
+          <title>spark</title>
+          <path
+            fill="var(--yellow-40)"
+            fillRule="evenodd"
+            d="M256 64c11.782075 0 21.333333 9.5512587 21.333333 21.3333333 0 81.6497777 65.528321 147.9945957 146.863834 149.3133267l2.4695.020007C438.448741 234.666667 448 244.217925 448 256c0 11.782075-9.551259 21.333333-21.333333 21.333333-81.649778 0-147.994596 65.528321-149.313327 146.863834l-.020007 2.4695C277.333333 438.448741 267.782075 448 256 448c-11.782075 0-21.333333-9.551259-21.333333-21.333333 0-82.474523-66.858811-149.333334-149.3333337-149.333334l-.3527856-.002858C73.3611886 277.142085 64 267.664254 64 256c0-11.782075 9.5512587-21.333333 21.3333333-21.333333 82.4745227 0 149.3333337-66.858811 149.3333337-149.3333337l.002858-.3527856C234.857915 73.3611886 244.335746 64 256 64z"
+          />
+        </svg>
+      </div>
+    );
+  }
+);
 
 function useAnimation() {
   const refs = React.useRef(new Set<any>());
@@ -136,7 +148,7 @@ const Sparks = ({children}: SparksProps) => {
     setPhase('entry');
   };
   const handlMouseLeave = () => {
-    setPhase('exit');
+    //setPhase('exit');
   };
 
   return (
@@ -147,8 +159,18 @@ const Sparks = ({children}: SparksProps) => {
     >
       {children}
       <div className="sg-sparks__container">
-        <Particle {...register()} />
-        <Particle {...register()} />
+        <Particle style={{gridColumn: '1 / span 1'}} {...register()} />
+        <Particle style={{gridColumn: '4 / span 1'}} {...register()} />
+        <Particle style={{gridColumn: '7 / span 1'}} {...register()} />
+
+        <Particle
+          style={{gridColumn: '2 / span 1', gridRow: '2'}}
+          {...register()}
+        />
+        <Particle
+          style={{gridColumn: '6 / span 1', gridRow: '2'}}
+          {...register()}
+        />
       </div>
     </div>
   );
