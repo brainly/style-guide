@@ -4,8 +4,12 @@ interface SparksProps {
   children?: React.ReactNode;
 }
 
+interface ParticleCSSProperties extends React.CSSProperties {
+  '--particle-dir'?: number;
+}
+
 interface ParticleProps {
-  style?: React.CSSProperties;
+  style?: ParticleCSSProperties;
   size?: number;
 }
 
@@ -61,7 +65,10 @@ function useAnimation() {
           anims = [];
 
           const translate = ref.animate(
-            [{transform: 'translateY(-24px)'}, {transform: 'translateY(0)'}],
+            [
+              {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
+              {transform: 'translateY(0)'},
+            ],
             {
               easing: 'cubic-bezier(0.1, 0, 0, 1)',
               duration: 1280,
@@ -180,6 +187,7 @@ const Sparks = ({children}: SparksProps) => {
             gridColumn: '2 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
+            '--particle-dir': 1,
           }}
           size={40}
           {...register()}
@@ -189,6 +197,7 @@ const Sparks = ({children}: SparksProps) => {
             gridColumn: '-3 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
+            '--particle-dir': 1,
           }}
           size={28}
           {...register()}
