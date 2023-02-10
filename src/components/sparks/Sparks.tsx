@@ -25,7 +25,7 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
         >
           <title>spark</title>
           <path
-            fill="var(--yellow-40)"
+            fill="currentColor"
             fillRule="evenodd"
             d="M256 64c11.782075 0 21.333333 9.5512587 21.333333 21.3333333 0 81.6497777 65.528321 147.9945957 146.863834 149.3133267l2.4695.020007C438.448741 234.666667 448 244.217925 448 256c0 11.782075-9.551259 21.333333-21.333333 21.333333-81.649778 0-147.994596 65.528321-149.313327 146.863834l-.020007 2.4695C277.333333 438.448741 267.782075 448 256 448c-11.782075 0-21.333333-9.551259-21.333333-21.333333 0-82.474523-66.858811-149.333334-149.3333337-149.333334l-.3527856-.002858C73.3611886 277.142085 64 267.664254 64 256c0-11.782075 9.5512587-21.333333 21.3333333-21.333333 82.4745227 0 149.3333337-66.858811 149.3333337-149.3333337l.002858-.3527856C234.857915 73.3611886 244.335746 64 256 64z"
           />
@@ -102,9 +102,9 @@ function useAnimation() {
 
           anims.push(opacity);
 
-          const rotation = ref.animate([{transform: 'rotate(90deg)'}], {
+          const rotation = ref.animate([{transform: 'rotate(360deg)'}], {
             easing: 'linear',
-            duration: 1400,
+            duration: 5600,
             iterations: Infinity,
             composite: 'add',
           });
@@ -155,7 +155,7 @@ const Sparks = ({children}: SparksProps) => {
     setPhase('entry');
   };
   const handlMouseLeave = () => {
-    //setPhase('exit');
+    setPhase('exit');
   };
 
   return (
@@ -167,17 +167,29 @@ const Sparks = ({children}: SparksProps) => {
       {children}
       <div className="sg-sparks__container">
         <Particle
-          style={{gridColumn: '1 / span 1'}}
+          style={{
+            gridColumn: '1 / span 1',
+            color: 'var(--yellow-20)',
+            top: '12px',
+          }}
           size={16}
           {...register()}
         />
         <Particle
-          style={{gridColumn: '6 / span 1'}}
+          style={{
+            gridColumn: '6 / span 1',
+            color: 'var(--yellow-40)',
+            top: '4px',
+          }}
           size={28}
           {...register()}
         />
         <Particle
-          style={{gridColumn: '-2 / span 1'}}
+          style={{
+            gridColumn: '-2 / span 1',
+            color: 'var(--yellow-50)',
+            top: '12px',
+          }}
           size={12}
           {...register()}
         />
@@ -188,6 +200,7 @@ const Sparks = ({children}: SparksProps) => {
             gridRow: '3',
             alignSelf: 'self-end',
             '--particle-dir': 1,
+            color: 'var(--yellow-50)',
           }}
           size={40}
           {...register()}
@@ -198,6 +211,8 @@ const Sparks = ({children}: SparksProps) => {
             gridRow: '3',
             alignSelf: 'self-end',
             '--particle-dir': 1,
+            color: 'var(--yellow-30)',
+            bottom: '4px',
           }}
           size={28}
           {...register()}

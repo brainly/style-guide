@@ -14,6 +14,7 @@
 
   &__particle {
     position: absolute;
+    transform-origin: center;
 
     & > svg {
       display: block;
