@@ -40,7 +40,7 @@ function useAnimation() {
   const animations = React.useRef(new WeakMap());
   const [phase, setPhase] = React.useState<'entry' | 'exit'>('entry');
 
-  const register = () => {
+  const register = React.useCallback(() => {
     return {
       ref: (el: HTMLDivElement | null) => {
         if (el) {
@@ -50,13 +50,18 @@ function useAnimation() {
         }
       },
     };
-  };
+  }, []);
 
   React.useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
+    let index = refs.current.size;
+
     refs.current.forEach(ref => {
+      index--;
+      const baseDelay = index * 80;
+
       switch (phase) {
         case 'entry': {
           let anims = animations.current.get(ref);
@@ -71,8 +76,8 @@ function useAnimation() {
             ],
             {
               easing: 'cubic-bezier(0.1, 0, 0, 1)',
-              duration: 1280,
-              delay: 120,
+              duration: 1280 - baseDelay,
+              delay: 120 + baseDelay,
               composite: 'add',
               fill: 'both',
             }
@@ -85,7 +90,7 @@ function useAnimation() {
             {
               easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
               duration: 700,
-              delay: 0,
+              delay: baseDelay,
               composite: 'add',
               fill: 'both',
             }
@@ -96,7 +101,7 @@ function useAnimation() {
           const opacity = ref.animate([{opacity: 0}, {opacity: 1}], {
             easing: 'linear',
             duration: 260,
-            delay: 0,
+            delay: baseDelay,
             fill: 'both',
           });
 
@@ -118,8 +123,8 @@ function useAnimation() {
         case 'exit': {
           const anims = animations.current.get(ref);
           const scale = ref.animate([{transform: 'scale(0)'}], {
-            easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
-            duration: 700,
+            easing: 'cubic-bezier(0.3, 0, 1, 0.8)',
+            duration: 400,
             delay: 0,
             composite: 'add',
             fill: 'both',
