@@ -65,9 +65,9 @@ function useAnimation() {
         if (el) {
           // eslint-disable-next-line no-console
           console.log('register');
-          refs.current.add(el);
           options ??= {index: refs.current.size};
           parameters.current.set(el, options);
+          refs.current.add(el);
         }
       },
     };
@@ -89,6 +89,7 @@ function useAnimation() {
     refs.current.forEach(ref => {
       const {index} = parameters.current.get(ref);
       const baseDelay = index * 80;
+      const secondDelay = index * 60;
 
       switch (phase) {
         case 'entry': {
@@ -118,7 +119,7 @@ function useAnimation() {
             {
               easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
               duration: 700,
-              delay: baseDelay,
+              delay: secondDelay,
               composite: 'add',
               fill: 'both',
             }
@@ -129,7 +130,7 @@ function useAnimation() {
           const opacity = ref.animate([{opacity: 0}, {opacity: 1}], {
             easing: 'linear',
             duration: 260,
-            delay: baseDelay,
+            delay: secondDelay,
             fill: 'both',
           });
 
