@@ -49,20 +49,36 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
+interface RegisterOptions {
+  index?: number;
+}
+
 function useAnimation() {
   const refs = React.useRef(new Set<any>());
+  const parameters = React.useRef(new WeakMap());
   const animations = React.useRef(new WeakMap());
   const [phase, setPhase] = React.useState<'entry' | 'exit'>('entry');
 
-  const register = React.useCallback(() => {
+  const register = React.useCallback((options?: RegisterOptions) => {
     return {
       ref: (el: HTMLDivElement | null) => {
         if (el) {
           // eslint-disable-next-line no-console
           console.log('register');
           refs.current.add(el);
+          options ??= {index: refs.current.size};
+          parameters.current.set(el, options);
         }
       },
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const elements = refs.current;
+
+    return () => {
+      // TODO(coderitual): do proper cleanup and check for memory leaks
+      elements.clear();
     };
   }, []);
 
@@ -70,10 +86,8 @@ function useAnimation() {
     // eslint-disable-next-line no-console
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
-    let index = 0;
-
     refs.current.forEach(ref => {
-      index++;
+      const {index} = parameters.current.get(ref);
       const baseDelay = index * 80;
 
       switch (phase) {
@@ -193,7 +207,7 @@ const Sparks = ({children}: SparksProps) => {
             top: '12px',
           }}
           size={16}
-          {...register()}
+          {...register({index: 3})}
         />
         <Particle
           style={{
@@ -203,7 +217,7 @@ const Sparks = ({children}: SparksProps) => {
             top: '4px',
           }}
           size={28}
-          {...register()}
+          {...register({index: 1})}
         />
         <Particle
           style={{
@@ -213,7 +227,7 @@ const Sparks = ({children}: SparksProps) => {
             top: '12px',
           }}
           size={12}
-          {...register()}
+          {...register({index: 5})}
         />
 
         <Particle
@@ -226,7 +240,7 @@ const Sparks = ({children}: SparksProps) => {
             color: 'var(--yellow-50)',
           }}
           size={40}
-          {...register()}
+          {...register({index: 4})}
         />
         <Particle
           style={{
@@ -239,7 +253,7 @@ const Sparks = ({children}: SparksProps) => {
             bottom: '4px',
           }}
           size={24}
-          {...register()}
+          {...register({index: 2})}
         />
       </div>
     </div>
