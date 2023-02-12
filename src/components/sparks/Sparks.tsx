@@ -6,6 +6,7 @@ interface SparksProps {
 
 interface ParticleCSSProperties extends React.CSSProperties {
   '--particle-dir'?: number;
+  '--index'?: number;
 }
 
 const shapes = {
@@ -32,7 +33,7 @@ interface ParticleProps {
 }
 
 const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
-  ({size, shape = 'heart', style}, ref) => {
+  ({size, shape = 'spark', style}, ref) => {
     return (
       <div ref={ref} className="sg-sparks__particle" style={style}>
         <svg
@@ -186,6 +187,7 @@ const Sparks = ({children}: SparksProps) => {
       <div className="sg-sparks__container">
         <Particle
           style={{
+            '--index': 3,
             gridColumn: '1 / span 1',
             color: 'var(--yellow-20)',
             top: '12px',
@@ -195,6 +197,7 @@ const Sparks = ({children}: SparksProps) => {
         />
         <Particle
           style={{
+            '--index': 1,
             gridColumn: '6 / span 1',
             color: 'var(--yellow-40)',
             top: '4px',
@@ -204,6 +207,7 @@ const Sparks = ({children}: SparksProps) => {
         />
         <Particle
           style={{
+            '--index': 5,
             gridColumn: '-2 / span 1',
             color: 'var(--yellow-50)',
             top: '12px',
@@ -214,10 +218,11 @@ const Sparks = ({children}: SparksProps) => {
 
         <Particle
           style={{
+            '--index': 4,
+            '--particle-dir': 1,
             gridColumn: '2 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
-            '--particle-dir': 1,
             color: 'var(--yellow-50)',
           }}
           size={40}
@@ -225,10 +230,11 @@ const Sparks = ({children}: SparksProps) => {
         />
         <Particle
           style={{
+            '--index': 2,
+            '--particle-dir': 1,
             gridColumn: '-3 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
-            '--particle-dir': 1,
             color: 'var(--yellow-30)',
             bottom: '4px',
           }}
