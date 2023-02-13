@@ -5,21 +5,19 @@ export type MenuItemPropsType = {
   className?: string;
   href?: string;
   text: string;
-  // $FlowFixMe
-  type?: string | ((arg0: any) => React.ReactNode);
+  as?: string | ((arg0: any) => React.ReactNode);
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  'className' | 'href' | 'text' | 'type'
+  'className' | 'href' | 'text' | 'as'
 >;
 
 const MenuItem = ({
   text,
   href,
-  type,
+  as: Type = 'a',
   className,
   ...restProps
 }: MenuItemPropsType) => {
-  const Type = type !== undefined ? type : 'a';
   const elementClass = classnames('sg-menu-list__link', className);
 
   return (

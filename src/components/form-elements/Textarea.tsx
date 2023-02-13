@@ -18,8 +18,7 @@ export const TEXTAREA_COLOR = {
 } as const;
 
 export type TextareaPropsType = {
-  // $FlowFixMe any generic prop types here broke autocomplete, so let's leave it as is for now
-  type?: string | ((arg0: any) => React.ReactNode);
+  as?: string | ((arg0: any) => React.ReactNode);
 
   /**
    * Additional function to set ref for textarea
@@ -98,7 +97,7 @@ export type TextareaPropsType = {
   className?: string;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
-  | 'type'
+  | 'as'
   | 'textareaRef'
   | 'value'
   | 'color'
@@ -127,7 +126,7 @@ const Textarea = (props: TextareaPropsType) => {
     className,
     textareaRef,
     errorMessage,
-    type: Type = 'textarea',
+    as: Type = 'textarea',
     ...additionalProps
   } = props;
 

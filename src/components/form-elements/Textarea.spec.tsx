@@ -72,7 +72,7 @@ test('Type', () => {
 
   const textarea = mount(
     // eslint-disable-next-line react/jsx-no-bind
-    <Textarea type={CustomTextarea} />
+    <Textarea as={CustomTextarea} />
   );
 
   expect(textarea.find('[data-super-custom="superCustom"]')).toHaveLength(1);

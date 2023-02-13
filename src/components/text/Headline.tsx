@@ -1,12 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {HEADLINE_TYPE} from './headlineConsts';
+import {HEADLINE_AS} from './headlineConsts';
 import {TEXT_COLOR} from './Text';
 import type {TextColorType} from './Text';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-export type HeadlineTypeType =
+export type HeadlineAsType =
   | 'span'
   | 'h1'
   | 'h2'
@@ -36,7 +36,7 @@ export type HeadlineAlignType =
   | 'to-right'
   | 'justify';
 export {
-  HEADLINE_TYPE,
+  HEADLINE_AS,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
@@ -45,7 +45,7 @@ export {TEXT_COLOR};
 export type HeadlinePropsType = {
   children?: React.ReactNode;
   size?: ResponsivePropType<HeadlineSizeType>;
-  type?: HeadlineTypeType;
+  as?: HeadlineAsType;
   color?: TextColorType | null | undefined;
   transform?: ResponsivePropType<HeadlineTransformType | null | undefined>;
   align?: ResponsivePropType<HeadlineAlignType | null | undefined>;
@@ -67,7 +67,7 @@ export type HeadlinePropsType = {
 
 const Headline = ({
   children,
-  type = HEADLINE_TYPE.H1,
+  as = HEADLINE_AS.H1,
   size,
   extraBold,
   transform,
@@ -77,13 +77,13 @@ const Headline = ({
   inherited = false,
   ...props
 }: HeadlinePropsType) => {
-  const Type = type;
+  const Type = as;
   const headlineClass = classNames(
     'sg-headline',
     {
       'sg-headline--inherited': inherited,
       [`sg-headline--${String(color)}`]: color,
-      'sg-headline--extra-bold': type === 'strong',
+      'sg-headline--extra-bold': as === 'strong',
     },
     ...generateResponsiveClassNames(
       propValue => `sg-headline--${propValue}`,

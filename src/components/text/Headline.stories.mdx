@@ -6,7 +6,7 @@ import {
   HEADLINE_ALIGN,
   HEADLINE_SIZE,
   HEADLINE_TRANSFORM,
-  HEADLINE_TYPE,
+  HEADLINE_AS,
 } from './headlineConsts';
 import HeadlineA11y from './stories/Headline.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -19,7 +19,7 @@ import PageHeader from 'blocks/PageHeader';
   }}
   argTypes={{
     children: {control: 'text'},
-    type: {table: {defaultValue: {summary: HEADLINE_TYPE.H1}}},
+    type: {table: {defaultValue: {summary: HEADLINE_AS.H1}}},
     size: {
       description: '(Responsive)',
       table: {
@@ -102,9 +102,9 @@ import PageHeader from 'blocks/PageHeader';
 <Canvas>
   <Story name="Nested">
     {args => (
-      <Headline {...args} type="h2" color={TEXT_COLOR['text-red-60']}>
+      <Headline {...args} as="h2" color={TEXT_COLOR['text-red-60']}>
         Outer headline{' '}
-        <Headline inherited type="span">
+        <Headline inherited as="span">
           nested Headline with inherited styles
         </Headline>
       </Headline>

@@ -36,7 +36,7 @@ const CustomRadioComponent = ({
 
   const Benefit = ({item}: {item: string}) => {
     return (
-      <Flex marginBottom="m" htmlTag="li">
+      <Flex marginBottom="m" as="li">
         <Flex alignItems="center" justifyContent="center">
           <Icon
             type="check"
@@ -96,7 +96,7 @@ const CustomRadioComponent = ({
         />
         <Text
           id={labelId}
-          type="label"
+          as="label"
           weight="bold"
           transform="capitalize"
           style={{
@@ -107,7 +107,7 @@ const CustomRadioComponent = ({
         </Text>
       </Flex>
       <Flex
-        htmlTag="ul"
+        as="ul"
         direction="column"
         alignItems="flex-start"
         style={{

@@ -29,7 +29,7 @@ const ErrorMessage = ({
       id={id}
       color={color}
       size="small"
-      type="span"
+      as="span"
       weight="bold"
     >
       {children}

@@ -1,4 +1,4 @@
-export const HEADLINE_TYPE: {
+export const HEADLINE_AS: {
   H1: 'h1';
   H2: 'h2';
   H3: 'h3';
