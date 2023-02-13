@@ -49,11 +49,22 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
+interface AnimationWithOptions {
+  keyframes: PropertyIndexedKeyframes | Keyframe[];
+  options?: KeyframeAnimationOptions;
+}
+
+interface AnimationConfig {
+  entry: AnimationWithOptions[];
+  always: AnimationWithOptions[];
+  exit: AnimationWithOptions[];
+}
+
 interface RegisterOptions {
   index?: number;
 }
 
-function useAnimation() {
+function useAnimation(config: AnimationOptions) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
   const animations = React.useRef(new WeakMap());
@@ -88,8 +99,6 @@ function useAnimation() {
 
     refs.current.forEach(ref => {
       const {index} = parameters.current.get(ref);
-      const baseDelay = index * 80;
-      const secondDelay = index * 60;
 
       switch (phase) {
         case 'entry': {
@@ -98,52 +107,26 @@ function useAnimation() {
           anims?.forEach(animation => animation.cancel());
           anims = [];
 
-          const translate = ref.animate(
-            [
-              {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
-              {transform: 'translateY(0)'},
-            ],
-            {
-              easing: 'cubic-bezier(0.1, 0, 0, 1)',
-              duration: 1280 - baseDelay,
-              delay: 120 + baseDelay,
-              composite: 'add',
-              fill: 'both',
-            }
-          );
+          config.entry?.forEach(keyframesConfig => {
+            const {keyframes, options = {}} = keyframesConfig;
 
-          anims.push(translate);
+            const animationOptions = {
+              ...options,
+              delay:
+                typeof options.delay === 'function'
+                  ? options.delay(index)
+                  : options.delay,
+              duration:
+                typeof options.duration === 'function'
+                  ? options.duration(index)
+                  : options.duration,
+            };
 
-          const scale = ref.animate(
-            [{transform: 'scale(0)'}, {transform: 'scale(1)'}],
-            {
-              easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
-              duration: 700,
-              delay: secondDelay,
-              composite: 'add',
-              fill: 'both',
-            }
-          );
+            const anim = ref.animate(keyframes, animationOptions);
 
-          anims.push(scale);
-
-          const opacity = ref.animate([{opacity: 0}, {opacity: 1}], {
-            easing: 'linear',
-            duration: 260,
-            delay: secondDelay,
-            fill: 'both',
+            anims.push(anim);
           });
 
-          anims.push(opacity);
-
-          const rotation = ref.animate([{transform: 'rotate(360deg)'}], {
-            easing: 'linear',
-            duration: 5600,
-            iterations: Infinity,
-            composite: 'add',
-          });
-
-          anims.push(rotation);
           animations.current.set(ref, anims);
 
           break;
@@ -151,24 +134,26 @@ function useAnimation() {
 
         case 'exit': {
           const anims = animations.current.get(ref);
-          const scale = ref.animate([{transform: 'scale(0)'}], {
-            easing: 'cubic-bezier(0.3, 0, 1, 0.8)',
-            duration: 400,
-            delay: 0,
-            composite: 'add',
-            fill: 'both',
+
+          config.exit?.forEach(keyframesConfig => {
+            const {keyframes, options = {}} = keyframesConfig;
+
+            const animationOptions = {
+              ...options,
+              delay:
+                typeof options.delay === 'function'
+                  ? options.delay(index)
+                  : options.delay,
+              duration:
+                typeof options.duration === 'function'
+                  ? options.duration(index)
+                  : options.duration,
+            };
+
+            const anim = ref.animate(keyframes, animationOptions);
+
+            anims.push(anim);
           });
-
-          anims.push(scale);
-
-          const opacity = ref.animate([{opacity: 0}], {
-            easing: 'linear',
-            duration: 260,
-            delay: 0,
-            fill: 'forwards',
-          });
-
-          anims.push(opacity);
 
           break;
         }
@@ -182,8 +167,75 @@ function useAnimation() {
   return {register, phase, setPhase};
 }
 
+const animationConfig = {
+  entry: [
+    {
+      keyframes: [
+        {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
+        {transform: 'translateY(0)'},
+      ],
+      options: {
+        easing: 'cubic-bezier(0.1, 0, 0, 1)',
+        duration: index => 1280 - index * 80,
+        delay: index => 120 + index * 80,
+        composite: 'add',
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{transform: 'scale(0)'}, {transform: 'scale(1)'}],
+      options: {
+        easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
+        duration: 700,
+        delay: index => index * 60,
+        composite: 'add',
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{opacity: 0}, {opacity: 1}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: index => index * 60,
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{transform: 'rotate(360deg)'}],
+      options: {
+        easing: 'linear',
+        duration: 5600,
+        iterations: Infinity,
+        composite: 'add',
+      },
+    },
+  ],
+  exit: [
+    {
+      keyframes: [{transform: 'scale(0)'}],
+      options: {
+        easing: 'cubic-bezier(0.3, 0, 1, 0.8)',
+        duration: 400,
+        delay: 0,
+        composite: 'add',
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{opacity: 0}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: 0,
+        fill: 'forwards',
+      },
+    },
+  ],
+};
+
 const Sparks = ({children}: SparksProps) => {
-  const {register, setPhase} = useAnimation();
+  const {register, setPhase} = useAnimation(animationConfig);
 
   const handlMouseEnter = () => {
     setPhase('entry');
