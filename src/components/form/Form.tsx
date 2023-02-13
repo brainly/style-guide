@@ -75,6 +75,12 @@ export const Form: React.FunctionComponent = ({children}) => {
   const stepContentElementsRef = React.useRef<Array<HTMLDivElement>>([]);
   const steps = React.Children.toArray(children);
 
+  React.useEffect(() => {
+    if (stepContainersRef.current[currentStepIndex]) {
+      focusFirstDescendant(stepContainersRef.current[currentStepIndex]);
+    }
+  });
+
   // navigation
   const changeStep = React.useCallback(
     index => {
