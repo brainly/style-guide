@@ -507,7 +507,7 @@ module.exports = {
     // require method and property shorthand syntax for object literals
     'object-shorthand': ['error', 'always'],
     // suggest using of const declaration for variables that are never modified after declared
-    'prefer-const': 'error',
+    //'prefer-const': 'error',
     // require destructuring from arrays and/or objects
     'prefer-destructuring': 'off',
     // disallow parseInt() in favor of binary, octal, and hexadecimal literals
