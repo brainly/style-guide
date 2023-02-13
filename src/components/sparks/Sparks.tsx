@@ -52,6 +52,7 @@ interface KeyframeAnimationOptionsEx
 }
 
 interface AnimationWithOptions {
+  id?: string;
   keyframes: PropertyIndexedKeyframes | Keyframe[];
   options?: KeyframeAnimationOptionsEx;
 }
@@ -63,6 +64,7 @@ interface AnimationConfig {
 
 interface RegisterOptions {
   index?: number;
+  animation?: Record<string, Partial<AnimationWithOptions>>;
 }
 
 function useAnimation(config: AnimationConfig) {
@@ -103,7 +105,7 @@ function useAnimation(config: AnimationConfig) {
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
     refs.current.forEach(ref => {
-      const {index} = parameters.current.get(ref);
+      const {index, animation = {}} = parameters.current.get(ref);
 
       switch (phase) {
         case 'entry': {
@@ -113,7 +115,14 @@ function useAnimation(config: AnimationConfig) {
           anims = [];
 
           configRef.current.entry?.forEach(keyframesConfig => {
-            const {keyframes, options = {}} = keyframesConfig;
+            let {id, keyframes, options = {}} = keyframesConfig;
+
+            const override = animation[id];
+
+            if (override) {
+              keyframes = override?.keyframes || keyframes;
+              options = {...options, ...override?.options};
+            }
 
             const animationOptions = {
               ...options,
@@ -141,7 +150,14 @@ function useAnimation(config: AnimationConfig) {
           const anims = animations.current.get(ref);
 
           configRef.current.exit?.forEach(keyframesConfig => {
-            const {keyframes, options = {}} = keyframesConfig;
+            let {id, keyframes, options = {}} = keyframesConfig;
+
+            const override = animation[id];
+
+            if (override) {
+              keyframes = override?.keyframes || keyframes;
+              options = {...options, ...override?.options};
+            }
 
             const animationOptions = {
               ...options,
@@ -181,8 +197,8 @@ const sparkAnimationConfig: AnimationConfig = {
       ],
       options: {
         easing: 'cubic-bezier(0.1, 0, 0, 1)',
-        duration: index => 1280 - (index % 4) * 80,
-        delay: index => 120 + (index % 4) * 80,
+        duration: index => 1280 - (index % 4) * 70,
+        delay: index => 120 + (index % 4) * 70,
         composite: 'add',
         fill: 'both',
       },
@@ -225,7 +241,7 @@ const sparkAnimationConfig: AnimationConfig = {
         delay: 0,
         composite: 'add',
         fill: 'both',
-      } as const,
+      },
     },
     {
       keyframes: [{opacity: 0}],
@@ -248,8 +264,8 @@ const heartAnimationConfig: AnimationConfig = {
       ],
       options: {
         easing: 'cubic-bezier(0.1, 0, 0, 1)',
-        duration: index => 1280 - (index % 4) * 80,
-        delay: index => 120 + (index % 4) * 80,
+        duration: index => 1280 - (index % 4) * 70,
+        delay: index => 120 + (index % 4) * 70,
         composite: 'add',
         fill: 'both',
       },
@@ -258,7 +274,7 @@ const heartAnimationConfig: AnimationConfig = {
       keyframes: [{transform: 'scale(0)'}, {transform: 'scale(1)'}],
       options: {
         easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
-        duration: 700,
+        duration: 900,
         delay: index => index * 60,
         composite: 'add',
         fill: 'both',
@@ -274,10 +290,13 @@ const heartAnimationConfig: AnimationConfig = {
       },
     },
     {
-      keyframes: [{transform: 'rotate(360deg)'}],
+      id: 'heart-loop',
+      keyframes: [{transform: 'scale(0.75)'}],
       options: {
         easing: 'linear',
         duration: 700,
+        delay: index => 700 + index * 100,
+        direction: 'alternate',
         iterations: Infinity,
         composite: 'add',
       },
@@ -326,7 +345,7 @@ interface SparksProps {
   shape?: 'spark' | 'heart';
 }
 
-const Sparks = ({children, shape = 'spark'}: SparksProps) => {
+const Sparks = ({children, shape = 'heart'}: SparksProps) => {
   const animationConfig = shapeAnimationMap[shape];
   const {register, setPhase} = useAnimation(animationConfig);
 
@@ -349,18 +368,23 @@ const Sparks = ({children, shape = 'spark'}: SparksProps) => {
       <div className="sg-sparks__container">
         <Particle
           style={{
-            '--index': 3,
             gridColumn: '1 / span 1',
             color: shapeColor[0],
             top: '12px',
           }}
           size={16}
           shape={shape}
-          {...register({index: 2})}
+          {...register({
+            index: 2,
+            animation: {
+              'heart-loop': {
+                keyframes: [{transform: 'scale(1.25)'}],
+              },
+            },
+          })}
         />
         <Particle
           style={{
-            '--index': 1,
             gridColumn: '6 / span 1',
             color: shapeColor[2],
             top: '4px',
@@ -371,19 +395,24 @@ const Sparks = ({children, shape = 'spark'}: SparksProps) => {
         />
         <Particle
           style={{
-            '--index': 5,
             gridColumn: '-2 / span 1',
             color: shapeColor[3],
             top: '12px',
           }}
           size={12}
           shape={shape}
-          {...register({index: 4})}
+          {...register({
+            index: 4,
+            animation: {
+              'heart-loop': {
+                keyframes: [{transform: 'scale(1.25)'}],
+              },
+            },
+          })}
         />
 
         <Particle
           style={{
-            '--index': 4,
             '--particle-dir': 1,
             gridColumn: '2 / span 1',
             gridRow: '3',
@@ -396,7 +425,6 @@ const Sparks = ({children, shape = 'spark'}: SparksProps) => {
         />
         <Particle
           style={{
-            '--index': 2,
             '--particle-dir': 1,
             gridColumn: '-3 / span 1',
             gridRow: '3',
@@ -405,7 +433,15 @@ const Sparks = ({children, shape = 'spark'}: SparksProps) => {
             bottom: '4px',
           }}
           size={24}
-          {...register({index: 1})}
+          shape={shape}
+          {...register({
+            index: 1,
+            animation: {
+              'heart-loop': {
+                keyframes: [{transform: 'scale(1.25)'}],
+              },
+            },
+          })}
         />
       </div>
     </div>
