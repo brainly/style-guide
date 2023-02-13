@@ -1,9 +1,5 @@
 import * as React from 'react';
 
-interface SparksProps {
-  children?: React.ReactNode;
-}
-
 interface ParticleCSSProperties extends React.CSSProperties {
   '--particle-dir'?: number;
   '--index'?: number;
@@ -49,14 +45,19 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
+interface KeyframeAnimationOptionsEx
+  extends Omit<KeyframeAnimationOptions, 'delay' | 'duration'> {
+  delay?: number | ((index: number) => number);
+  duration?: number | string | ((index: number) => number | string);
+}
+
 interface AnimationWithOptions {
   keyframes: PropertyIndexedKeyframes | Keyframe[];
-  options?: KeyframeAnimationOptions;
+  options?: KeyframeAnimationOptionsEx;
 }
 
 interface AnimationConfig {
   entry: AnimationWithOptions[];
-  always: AnimationWithOptions[];
   exit: AnimationWithOptions[];
 }
 
@@ -64,11 +65,15 @@ interface RegisterOptions {
   index?: number;
 }
 
-function useAnimation(config: AnimationOptions) {
+function useAnimation(config: AnimationConfig) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
   const animations = React.useRef(new WeakMap());
   const [phase, setPhase] = React.useState<'entry' | 'exit'>('entry');
+  const configRef = React.useRef(config);
+
+  // we only need the most updated value. Equivalent of using useEffectEvent
+  configRef.current = config;
 
   const register = React.useCallback((options?: RegisterOptions) => {
     return {
@@ -107,7 +112,7 @@ function useAnimation(config: AnimationOptions) {
           anims?.forEach(animation => animation.cancel());
           anims = [];
 
-          config.entry?.forEach(keyframesConfig => {
+          configRef.current.entry?.forEach(keyframesConfig => {
             const {keyframes, options = {}} = keyframesConfig;
 
             const animationOptions = {
@@ -135,7 +140,7 @@ function useAnimation(config: AnimationOptions) {
         case 'exit': {
           const anims = animations.current.get(ref);
 
-          config.exit?.forEach(keyframesConfig => {
+          configRef.current.exit?.forEach(keyframesConfig => {
             const {keyframes, options = {}} = keyframesConfig;
 
             const animationOptions = {
@@ -167,7 +172,7 @@ function useAnimation(config: AnimationOptions) {
   return {register, phase, setPhase};
 }
 
-const animationConfig = {
+const sparkAnimationConfig: AnimationConfig = {
   entry: [
     {
       keyframes: [
@@ -176,8 +181,8 @@ const animationConfig = {
       ],
       options: {
         easing: 'cubic-bezier(0.1, 0, 0, 1)',
-        duration: index => 1280 - index * 80,
-        delay: index => 120 + index * 80,
+        duration: index => 1280 - (index % 4) * 80,
+        delay: index => 120 + (index % 4) * 80,
         composite: 'add',
         fill: 'both',
       },
@@ -220,6 +225,73 @@ const animationConfig = {
         delay: 0,
         composite: 'add',
         fill: 'both',
+      } as const,
+    },
+    {
+      keyframes: [{opacity: 0}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: 0,
+        fill: 'forwards',
+      },
+    },
+  ],
+};
+
+const heartAnimationConfig: AnimationConfig = {
+  entry: [
+    {
+      keyframes: [
+        {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
+        {transform: 'translateY(0)'},
+      ],
+      options: {
+        easing: 'cubic-bezier(0.1, 0, 0, 1)',
+        duration: index => 1280 - (index % 4) * 80,
+        delay: index => 120 + (index % 4) * 80,
+        composite: 'add',
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{transform: 'scale(0)'}, {transform: 'scale(1)'}],
+      options: {
+        easing: 'cubic-bezier(0.35, 0, 0.1, 1)',
+        duration: 700,
+        delay: index => index * 60,
+        composite: 'add',
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{opacity: 0}, {opacity: 1}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: index => index * 60,
+        fill: 'both',
+      },
+    },
+    {
+      keyframes: [{transform: 'rotate(360deg)'}],
+      options: {
+        easing: 'linear',
+        duration: 700,
+        iterations: Infinity,
+        composite: 'add',
+      },
+    },
+  ],
+  exit: [
+    {
+      keyframes: [{transform: 'scale(0)'}],
+      options: {
+        easing: 'cubic-bezier(0.3, 0, 1, 0.8)',
+        duration: 400,
+        delay: 0,
+        composite: 'add',
+        fill: 'both',
       },
     },
     {
@@ -234,8 +306,31 @@ const animationConfig = {
   ],
 };
 
-const Sparks = ({children}: SparksProps) => {
+const shapeAnimationMap: Record<SparksProps['shape'], AnimationConfig> = {
+  spark: sparkAnimationConfig,
+  heart: heartAnimationConfig,
+};
+
+const shapeColorMap: Record<SparksProps['shape'], string[]> = {
+  spark: [
+    'var(--yellow-20)',
+    'var(--yellow-30)',
+    'var(--yellow-40)',
+    'var(--yellow-50)',
+  ],
+  heart: ['var(--red-20)', 'var(--red-30)', 'var(--red-40)', 'var(--red-50)'],
+};
+
+interface SparksProps {
+  children?: React.ReactNode;
+  shape?: 'spark' | 'heart';
+}
+
+const Sparks = ({children, shape = 'spark'}: SparksProps) => {
+  const animationConfig = shapeAnimationMap[shape];
   const {register, setPhase} = useAnimation(animationConfig);
+
+  const shapeColor = shapeColorMap[shape];
 
   const handlMouseEnter = () => {
     setPhase('entry');
@@ -256,31 +351,34 @@ const Sparks = ({children}: SparksProps) => {
           style={{
             '--index': 3,
             gridColumn: '1 / span 1',
-            color: 'var(--yellow-20)',
+            color: shapeColor[0],
             top: '12px',
           }}
           size={16}
-          {...register({index: 3})}
+          shape={shape}
+          {...register({index: 2})}
         />
         <Particle
           style={{
             '--index': 1,
             gridColumn: '6 / span 1',
-            color: 'var(--yellow-40)',
+            color: shapeColor[2],
             top: '4px',
           }}
           size={28}
-          {...register({index: 1})}
+          shape={shape}
+          {...register({index: 0})}
         />
         <Particle
           style={{
             '--index': 5,
             gridColumn: '-2 / span 1',
-            color: 'var(--yellow-50)',
+            color: shapeColor[3],
             top: '12px',
           }}
           size={12}
-          {...register({index: 5})}
+          shape={shape}
+          {...register({index: 4})}
         />
 
         <Particle
@@ -290,10 +388,11 @@ const Sparks = ({children}: SparksProps) => {
             gridColumn: '2 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
-            color: 'var(--yellow-50)',
+            color: shapeColor[3],
           }}
           size={40}
-          {...register({index: 4})}
+          shape={shape}
+          {...register({index: 3})}
         />
         <Particle
           style={{
@@ -302,11 +401,11 @@ const Sparks = ({children}: SparksProps) => {
             gridColumn: '-3 / span 1',
             gridRow: '3',
             alignSelf: 'self-end',
-            color: 'var(--yellow-30)',
+            color: shapeColor[1],
             bottom: '4px',
           }}
           size={24}
-          {...register({index: 2})}
+          {...register({index: 1})}
         />
       </div>
     </div>
