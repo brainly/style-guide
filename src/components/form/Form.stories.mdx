@@ -1,7 +1,13 @@
-import {Form, FormStep} from './Form';
-import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import PageHeader from 'blocks/PageHeader';
+import {Form, FormStep, FormContext} from './Form';
 import Flex from '../flex/Flex';
+import Button from '../buttons/Button';
+import Headline from '../text/Headline';
+import Text from '../text/Text';
+import Icon from '../icons/Icon';
+import Checkbox from '../form-elements/checkbox/Checkbox';
+import Input from '../form-elements/Input';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import './form.stories.scss';
 
 <Meta title="Components/Form2" component={Form} />
 
@@ -29,63 +35,294 @@ import Flex from '../flex/Flex';
 
 <Canvas>
   <Story name="Graphite Dust">
-    {args => (
-      <div style={{height: 600}}>
-        <Form>
-          <FormStep>
-            <Flex>
-              Consequat id eiusmod enim labore aliquip reprehenderit. Elit
-              ullamco mollit veniam amet quis labore labore magna aute anim ad
-              do ex est. Excepteur reprehenderit ipsum in anim elit magna
-              voluptate Lorem eu anim excepteur proident dolore. Nostrud
-              excepteur et nostrud nisi amet voluptate dolor duis laborum
-              proident et. Veniam aliqua pariatur cupidatat officia deserunt
-              occaecat cillum ex proident cupidatat quis nostrud irure quis.
-              Occaecat voluptate cillum excepteur ex irure ut ea exercitation
-              consequat et commodo exercitation velit. Consectetur reprehenderit
-              aute dolor ullamco consectetur nostrud laboris dolore irure
-              pariatur pariatur incididunt mollit exercitation. In nulla ipsum
-              laboris culpa tempor eu ea est ad. Velit dolor labore voluptate
-              ullamco incididunt reprehenderit consequat quis id laborum aliqua.
-            </Flex>
-          </FormStep>
-          <FormStep>
-            <Flex marginTop="xxxxl">
-              Eu sunt ad sunt labore culpa minim officia pariatur elit
-              exercitation Lorem. Sunt commodo pariatur aliquip ad dolore culpa
-              nostrud veniam occaecat quis ad. Ea ea do dolor labore. Pariatur
-              eiusmod in do et. Commodo ex cillum dolor nulla aliquip enim qui
-              ea veniam exercitation aute non officia. Deserunt amet commodo
-              Lorem aliqua commodo esse dolore id enim amet dolor Lorem mollit
-              dolor. Id anim enim proident laborum et ipsum laboris veniam sint.
-              Ad aliquip laboris in consequat id. Excepteur adipisicing labore
-              anim eiusmod veniam reprehenderit aute. Cillum culpa quis sint et
-              minim esse sit quis esse proident proident. Ad Lorem officia amet
-              elit proident ad deserunt ullamco ullamco id aute. Lorem irure
-              fugiat sint deserunt est pariatur anim. Non mollit dolor enim
-              occaecat. Ullamco ullamco mollit irure esse commodo aliqua aliquip
-              dolor minim. Cillum ex ea nostrud nulla eu consectetur voluptate.
-              Ea laboris incididunt elit commodo minim sit qui aliquip id.
-            </Flex>
-          </FormStep>
-          <FormStep>
-            <Flex marginTop="xxxxl">
-              Id aute aute cupidatat laboris occaecat officia commodo veniam.
-              Lorem laborum excepteur aliquip nisi nulla enim amet ullamco. Eu
-              eiusmod Lorem eiusmod irure. Proident aliquip eu non magna. Eu qui
-              in cupidatat cillum anim commodo adipisicing mollit mollit cillum
-              quis ullamco cillum. Non enim tempor fugiat laboris qui mollit.
-              Amet consequat ea minim sint ut ea ut cupidatat eiusmod veniam.
-              Proident ut ipsum eiusmod deserunt ipsum Lorem dolore labore duis.
-              Duis commodo ullamco ut tempor magna culpa sunt culpa exercitation
-              consequat labore esse id ipsum. Culpa eiusmod Lorem non elit
-              mollit voluptate officia ad consequat culpa dolore aliqua mollit.
-              Ullamco laboris aute qui adipisicing occaecat tempor enim.
-            </Flex>
-          </FormStep>
-        </Form>
-      </div>
-    )}
+    {args => {
+      const nextButtonRef = React.useRef(null);
+      return (
+        <div
+          style={{
+            height: '100%',
+            width: '100%',
+            position: 'absolute',
+            left: 0,
+            top: 0,
+          }}
+        >
+          <Form>
+            <FormStep>
+              {({changeStep, currentStepIndex}) => {
+                return (
+                  <Flex
+                    justifyContent="center"
+                    fullWidth
+                    onKeyDown={event => {
+                      if (event.key === 'Enter') {
+                        if (event.target !== nextButtonRef.current) {
+                          changeStep(currentStepIndex + 1);
+                        }
+                      }
+                    }}
+                  >
+                    <div className="form-stories__step-wide">
+                      <Flex direction="column">
+                        <Headline size="xlarge">Almost there.</Headline>
+                        <Text weight="bold" size="medium">
+                          Let us know you better
+                        </Text>
+                        <Flex direction="column" marginTop="xl">
+                          <Flex alignItems="center">
+                            <div className="form-stories-counter">
+                              <Text
+                                weight="bold"
+                                size="small"
+                                color="text-white"
+                              >
+                                1
+                              </Text>
+                            </div>
+                            <Headline>Who are you?</Headline>
+                          </Flex>
+                          <img src="/form_stories__clickable-area.png" />
+                          <Flex alignItems="center" marginTop="l">
+                            <Button
+                              variant="solid-indigo"
+                              onClick={() => changeStep(currentStepIndex + 1)}
+                              ref={nextButtonRef}
+                            >
+                              next
+                            </Button>
+                            <Flex
+                              className="form-stories-press-enter"
+                              alignItems="center"
+                            >
+                              <Text
+                                weight="bold"
+                                size="small"
+                                color="text-gray-50"
+                              >
+                                or press
+                              </Text>
+                              <Icon
+                                className="form-stories-press-enter__icon"
+                                type="keyboard"
+                                color="icon-gray-50"
+                              />
+                            </Flex>
+                          </Flex>
+                        </Flex>
+                      </Flex>
+                    </div>
+                  </Flex>
+                );
+              }}
+            </FormStep>
+            <FormStep>
+              {({changeStep, currentStepIndex}) => (
+                <Flex justifyContent="center" fullWidth>
+                  <div className="form-stories__step-wide">
+                    <Flex direction="column">
+                      <Flex alignItems="center">
+                        <div className="form-stories-counter">
+                          <Text weight="bold" size="small" color="text-white">
+                            2
+                          </Text>
+                        </div>
+                        <Headline>
+                          What email adress can we reach you at?
+                        </Headline>
+                      </Flex>
+                      <Text
+                        color="text-gray-60"
+                        size="small"
+                        className="form-stories__step-subheadline"
+                      >
+                        This is only to get in touch, not to send spam. We love
+                        GDPR and GDPR loves us.
+                      </Text>
+                      <Input placeholder="youremail@example.com" fullWidth />
+                      <Flex alignItems="center" marginTop="l">
+                        <Button
+                          variant="solid-indigo"
+                          onClick={() => changeStep(currentStepIndex + 1)}
+                        >
+                          next
+                        </Button>
+                        <Flex
+                          className="form-stories-press-enter"
+                          alignItems="center"
+                        >
+                          <Text weight="bold" size="small" color="text-gray-50">
+                            or press
+                          </Text>
+                          <Icon
+                            className="form-stories-press-enter__icon"
+                            type="keyboard"
+                            color="icon-gray-50"
+                          />
+                        </Flex>
+                      </Flex>
+                    </Flex>
+                  </div>
+                </Flex>
+              )}
+            </FormStep>
+            <FormStep>
+              {({changeStep, currentStepIndex}) => (
+                <Flex justifyContent="center" fullWidth>
+                  <div className="form-stories__step-wide">
+                    <Flex direction="column">
+                      <Flex alignItems="center">
+                        <div className="form-stories-counter">
+                          <Text weight="bold" size="small" color="text-white">
+                            3
+                          </Text>
+                        </div>
+                        <Headline>Tell us a little bit more</Headline>
+                      </Flex>
+                      <Text
+                        color="text-gray-60"
+                        size="small"
+                        className="form-stories__step-subheadline"
+                      >
+                        We want to keep Brainly safe space for everybody
+                      </Text>
+                      <Text weight="bold" size="small">
+                        Username
+                      </Text>
+                      <Input placeholder="Username" fullWidth />
+                      <Text weight="bold" size="small">
+                        Password
+                      </Text>
+                      <Input placeholder="Password" fullWidth />
+                      <Text weight="bold" size="small">
+                        Your age
+                      </Text>
+                      <Input placeholder="Select your age" fullWidth />
+                      <Text weight="bold" size="small">
+                        Your country
+                      </Text>
+                      <Input placeholder="Select your country" fullWidth />
+                      <Flex alignItems="center" marginTop="l">
+                        <Button
+                          variant="solid-indigo"
+                          onClick={() => changeStep(currentStepIndex + 1)}
+                        >
+                          next
+                        </Button>
+                        <Flex
+                          className="form-stories-press-enter"
+                          alignItems="center"
+                        >
+                          <Text weight="bold" size="small" color="text-gray-50">
+                            or press
+                          </Text>
+                          <Icon
+                            className="form-stories-press-enter__icon"
+                            type="keyboard"
+                            color="icon-gray-50"
+                          />
+                        </Flex>
+                      </Flex>
+                    </Flex>
+                  </div>
+                </Flex>
+              )}
+            </FormStep>
+            <FormStep>
+              {({changeStep, currentStepIndex}) => (
+                <Flex justifyContent="center" fullWidth>
+                  <div className="form-stories__step-wide">
+                    <Flex direction="column">
+                      <Flex alignItems="center">
+                        <div className="form-stories-counter">
+                          <Text weight="bold" size="small" color="text-white">
+                            4
+                          </Text>
+                        </div>
+                        <Headline>Tell us a little bit more</Headline>
+                      </Flex>
+                      <Text
+                        color="text-gray-60"
+                        size="small"
+                        className="form-stories__step-subheadline"
+                      >
+                        We want to keep Brainly safe space for everybody
+                      </Text>
+                      <img tabIndex={-1} src="/form_stories__avatar-mock.png" />
+                      <Flex alignItems="center" marginTop="l">
+                        <Button
+                          variant="solid-indigo"
+                          onClick={() => changeStep(currentStepIndex + 1)}
+                        >
+                          next
+                        </Button>
+                        <Flex
+                          className="form-stories-press-enter"
+                          alignItems="center"
+                        >
+                          <Text weight="bold" size="small" color="text-gray-50">
+                            or press
+                          </Text>
+                          <Icon
+                            className="form-stories-press-enter__icon"
+                            type="keyboard"
+                            color="icon-gray-50"
+                          />
+                        </Flex>
+                      </Flex>
+                    </Flex>
+                  </div>
+                </Flex>
+              )}
+            </FormStep>
+            <FormStep>
+              {({changeStep, currentStepIndex}) => (
+                <Flex justifyContent="center" fullWidth>
+                  <div className="form-stories__step-wide">
+                    <Flex direction="column">
+                      <Checkbox>
+                        By creating an account, you accept the Brainly Terms of
+                        Service & Privacy Policy
+                      </Checkbox>
+                      <Flex alignItems="center" marginTop="l">
+                        <Button variant="solid-indigo">
+                          Finish registration
+                        </Button>
+                        <Flex
+                          className="form-stories-press-enter"
+                          alignItems="center"
+                        >
+                          <Text weight="bold" size="small" color="text-gray-50">
+                            or press
+                          </Text>
+                          <Icon
+                            className="form-stories-press-enter__icon"
+                            type="keyboard"
+                            color="icon-gray-50"
+                          />
+                        </Flex>
+                      </Flex>
+                      <Flex marginTop="l" alignItems="center">
+                        <span className="form-stories__exclamation-mark">
+                          <Icon
+                            type="exclamation_mark"
+                            color="icon-white"
+                            size={16}
+                          />
+                        </span>
+                        <Text size="xsmall" color="text-gray-50">
+                          We will post your question immediately after finishing
+                          registration.
+                        </Text>
+                      </Flex>
+                    </Flex>
+                  </div>
+                </Flex>
+              )}
+            </FormStep>
+          </Form>
+        </div>
+      );
+    }}
   </Story>
 </Canvas>
 

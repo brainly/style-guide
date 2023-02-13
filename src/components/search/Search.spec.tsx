@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Search, {SIZE, COLOR} from './Search';
-import Input from 'form-elements/Input';
+import Input from 'src/components/form-elements/Input';
 import Icon, {TYPE, ICON_COLOR} from 'icons/Icon';
 import Button from 'buttons/Button';
 import {shallow} from 'enzyme';
