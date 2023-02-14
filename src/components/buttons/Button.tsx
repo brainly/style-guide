@@ -79,6 +79,8 @@ type ButtonToggleType = 'red' | 'yellow';
 type ButtonSizeType = 'l' | 'm' | 's';
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
 export type ButtonTypeType = 'button' | 'submit' | 'reset';
+export type ButtonOnPressEffectType = 'scale-down';
+
 const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
   'outline',
@@ -248,6 +250,10 @@ export type ButtonPropsType = {
   onClick?: (
     arg0: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => unknown;
+  /**
+   * Type of effect when button is pressed
+   */
+  onPressEffect?: ButtonOnPressEffectType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'variant'
@@ -292,6 +298,7 @@ const Button = React.forwardRef(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
+      onPressEffect = 'scale-down',
       ...props
     }: ButtonPropsType,
     ref
@@ -356,6 +363,8 @@ const Button = React.forwardRef(
         'sg-button--icon-only': Boolean(icon) && iconOnly,
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
+        [onPressEffect ? `sg-button--press-${onPressEffect}` : '']:
+          onPressEffect,
       },
       className
     );
@@ -389,6 +398,9 @@ const Button = React.forwardRef(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
+        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+        // and we use active pseudo class to provide haptic feedback.
+        onTouchStart={() => null}
         type={type}
       >
         {loading && (

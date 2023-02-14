@@ -32,6 +32,14 @@ const iconSize = {
         category: 'Events',
       },
     },
+    onPressEffect: {
+      control: {
+        type: 'select',
+        options: {
+          'scale-down': 'scale-down',
+        },
+      },
+    },
   }}
   args={{
     children: 'button',
@@ -513,6 +521,16 @@ const iconSize = {
         </tbody>
       </StoryVariantTable>
     )}
+  </Story>
+</Canvas>
+
+### Press effects
+
+<Canvas>
+  <Story name="Press Efects">
+    {args => {
+      return <Button onPressEffect="scale-down">scale down</Button>;
+    }}
   </Story>
 </Canvas>
 
