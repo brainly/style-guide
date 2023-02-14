@@ -6,20 +6,20 @@ import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
 describe('Link', () => {
-  test('render', () => {
+  it('render', () => {
     const link = render(<Link href="test.com">Test</Link>);
     const linkNode = link.getByRole('link');
 
     expect(linkNode.getAttribute('href')).toEqual('test.com');
   });
 
-  test('render Text', () => {
+  it('render Text', () => {
     const link = render(<Link href="test.com">Test</Link>);
 
     expect(link.queryByText('Test')).toBeTruthy();
   });
 
-  test('size', () => {
+  it('size', () => {
     const link = render(
       <Link href="#" size={LINK_SIZE.SMALL}>
         Test
@@ -48,7 +48,7 @@ describe('Link', () => {
     );
   });
 
-  test('color', () => {
+  it('color', () => {
     const link = render(
       <Link href="#" color="text-white">
         Test
@@ -60,7 +60,7 @@ describe('Link', () => {
     ).toBe(true);
   });
 
-  test('unstyled', () => {
+  it('unstyled', () => {
     const link = render(
       <Link href="#" unstyled>
         Test
@@ -73,7 +73,7 @@ describe('Link', () => {
     expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
   });
 
-  test('underlined', () => {
+  it('underlined', () => {
     const link = render(
       <Link href="#" underlined>
         Test
@@ -277,55 +277,57 @@ describe('Link', () => {
     });
   });
 
-  describe('as anchor', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(<Link href="https://example.com/">Read more</Link>);
+  describe('a11y', () => {
+    describe('as anchor', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Link href="https://example.com/">Read more</Link>);
+      });
+
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Link href="https://example.com/" aria-label="read more about us">
+            Read more
+          </Link>
+        );
+      });
+
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(
+          <Link href="https://example.com/" disabled>
+            Read more
+          </Link>
+        );
+      });
+
+      it('should have no a11y violations when opens in a new tab', async () => {
+        await testA11y(
+          <Link href="https://example.com/" target="_blank">
+            Read more
+          </Link>
+        );
+      });
     });
 
-    it('should have no a11y violations when aria-label is provided', async () => {
-      await testA11y(
-        <Link href="https://example.com/" aria-label="read more about us">
-          Read more
-        </Link>
-      );
-    });
+    describe('as button', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Link as="button">Read more about us</Link>);
+      });
 
-    it('should have no a11y violations when disabled', async () => {
-      await testA11y(
-        <Link href="https://example.com/" disabled>
-          Read more
-        </Link>
-      );
-    });
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Link as="button" aria-label="read more about us">
+            Read more
+          </Link>
+        );
+      });
 
-    it('should have no a11y violations when opens in a new tab', async () => {
-      await testA11y(
-        <Link href="https://example.com/" target="_blank">
-          Read more
-        </Link>
-      );
-    });
-  });
-
-  describe('as button', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(<Link as="button">Read more about us</Link>);
-    });
-
-    it('should have no a11y violations when aria-label is provided', async () => {
-      await testA11y(
-        <Link as="button" aria-label="read more about us">
-          Read more
-        </Link>
-      );
-    });
-
-    it('should have no a11y violations when disabled', async () => {
-      await testA11y(
-        <Link as="button" disabled>
-          Read more about us
-        </Link>
-      );
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(
+          <Link as="button" disabled>
+            Read more about us
+          </Link>
+        );
+      });
     });
   });
 });

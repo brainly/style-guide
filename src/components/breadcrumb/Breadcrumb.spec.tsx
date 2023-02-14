@@ -6,7 +6,7 @@ import {testA11y} from '../../axe';
 const elements = ['Coments (9)', 'Report', 'Follow'];
 
 describe('Breadcrumb', () => {
-  test('render', () => {
+  it('render', () => {
     const breadcrumb = render(<Breadcrumb elements={elements} />);
     const root = breadcrumb.container.firstElementChild;
 
@@ -14,14 +14,14 @@ describe('Breadcrumb', () => {
     expect(breadcrumb.getAllByRole('listitem')).toHaveLength(elements.length);
   });
 
-  test('short', () => {
+  it('short', () => {
     const breadcrumb = render(<Breadcrumb elements={elements} short />);
     const root = breadcrumb.container.firstElementChild;
 
     expect(root.classList.contains('sg-breadcrumb-list--short')).toEqual(true);
   });
 
-  test('adaptive', () => {
+  it('adaptive', () => {
     const breadcrumb = render(<Breadcrumb elements={elements} adaptive />);
     const root = breadcrumb.container.firstElementChild;
 
@@ -30,7 +30,9 @@ describe('Breadcrumb', () => {
     );
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Breadcrumb />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Breadcrumb />);
+    });
   });
 });

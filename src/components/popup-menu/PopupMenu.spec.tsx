@@ -4,7 +4,7 @@ import {render} from '@testing-library/react';
 
 const items = ['one', 'two', 'three'];
 
-test('render', () => {
+it('render', () => {
   const popupMenu = render(<PopupMenu items={items} />);
 
   expect(
@@ -12,7 +12,7 @@ test('render', () => {
   ).toEqual(true);
 });
 
-test('render items', () => {
+it('render items', () => {
   const popupMenu = render(<PopupMenu items={items} />);
 
   items.forEach(item => {
@@ -20,7 +20,7 @@ test('render items', () => {
   });
 });
 
-test('extra spacing', () => {
+it('extra spacing', () => {
   const popupMenu = render(<PopupMenu items={items} extraSpacing />);
 
   expect(

@@ -2,20 +2,20 @@ import * as React from 'react';
 import Input from './Input';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const component = render(<Input />);
 
   expect(component.queryByRole('textbox')).toBeTruthy();
 });
 
-test('full width', () => {
+it('full width', () => {
   const component = render(<Input fullWidth />);
   const input = component.queryByRole('textbox');
 
   expect(input.classList.contains('sg-input--full-width')).toEqual(true);
 });
 
-test('default validation', () => {
+it('default validation', () => {
   const component = render(<Input />);
   const input = component.queryByRole('textbox');
 
@@ -23,7 +23,7 @@ test('default validation', () => {
   expect(input.classList.contains('sg-input--invalid')).toEqual(false);
 });
 
-test('valid', () => {
+it('valid', () => {
   const component = render(<Input valid />);
   const input = component.queryByRole('textbox');
 
@@ -31,7 +31,7 @@ test('valid', () => {
   expect(input.classList.contains('sg-input--invalid')).toEqual(false);
 });
 
-test('invalid', () => {
+it('invalid', () => {
   const component = render(<Input invalid />);
   const input = component.queryByRole('textbox');
 
@@ -39,41 +39,41 @@ test('invalid', () => {
   expect(input.classList.contains('sg-input--valid')).toEqual(false);
 });
 
-test('error when both valid and invalid', () => {
+it('error when both valid and invalid', () => {
   expect(() => {
     render(<Input valid invalid />);
   }).toThrow();
 });
 
-test('size', () => {
+it('size', () => {
   const component = render(<Input size="l" />);
   const input = component.queryByRole('textbox');
 
   expect(input.classList.contains('sg-input--l')).toEqual(true);
 });
 
-test('small size', () => {
+it('small size', () => {
   const component = render(<Input size="s" />);
   const input = component.queryByRole('textbox');
 
   expect(input.classList.contains('sg-input--s')).toEqual(true);
 });
 
-test('default size', () => {
+it('default size', () => {
   const component = render(<Input />);
   const input = component.queryByRole('textbox');
 
   expect(input.classList.contains('sg-input--l')).toEqual(false);
 });
 
-test('color', () => {
+it('color', () => {
   const component = render(<Input color="white" />);
   const input = component.queryByRole('textbox');
 
   expect(input.classList.contains('sg-input--white')).toEqual(true);
 });
 
-test('default color', () => {
+it('default color', () => {
   const component = render(<Input />);
   const input = component.queryByRole('textbox');
 

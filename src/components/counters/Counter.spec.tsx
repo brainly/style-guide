@@ -14,15 +14,17 @@ describe('Counter', () => {
     expect(counter.getByRole('img')).toBeTruthy();
   });
 
-  it('should have no a11y violations when a label is provided', async () => {
-    await testA11y(<Counter aria-label="Label">32</Counter>);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations when a label is provided', async () => {
+      await testA11y(<Counter aria-label="Label">32</Counter>);
+    });
 
-  it('should have no a11y violations when an icon is provided', async () => {
-    await testA11y(
-      <Counter aria-label="Label" icon="points">
-        32
-      </Counter>
-    );
+    it('should have no a11y violations when an icon is provided', async () => {
+      await testA11y(
+        <Counter aria-label="Label" icon="points">
+          32
+        </Counter>
+      );
+    });
   });
 });

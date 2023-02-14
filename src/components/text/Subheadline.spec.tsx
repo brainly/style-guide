@@ -11,13 +11,13 @@ import {TEXT_COLOR} from './Text';
 import {testA11y} from '../../axe';
 
 describe('Subheadline', () => {
-  test('render', () => {
+  it('render', () => {
     const subheadline = render(<Subheadline>Test</Subheadline>);
 
     expect(subheadline.queryByRole('heading')).toBeTruthy();
   });
 
-  test('size', () => {
+  it('size', () => {
     const headline = render(
       <Subheadline size={SUBHEADLINE_SIZE.SMALL}>Test</Subheadline>
     );
@@ -54,7 +54,7 @@ describe('Subheadline', () => {
     });
   });
 
-  test('type', () => {
+  it('type', () => {
     const headline = render(
       <Subheadline type={SUBHEADLINE_TYPE.H3}>Test</Subheadline>
     );
@@ -62,7 +62,7 @@ describe('Subheadline', () => {
     expect(headline.queryByRole('heading').tagName).toEqual('H3');
   });
 
-  test('color', () => {
+  it('color', () => {
     const text = render(
       <Subheadline color={TEXT_COLOR['text-white']}>Test</Subheadline>
     );
@@ -74,7 +74,7 @@ describe('Subheadline', () => {
     ).toBeTruthy();
   });
 
-  test('transform uppercase', () => {
+  it('transform uppercase', () => {
     const headline = render(
       <Subheadline transform={SUBHEADLINE_TRANSFORM.UPPERCASE}>
         Test
@@ -113,7 +113,7 @@ describe('Subheadline', () => {
     });
   });
 
-  test('extra align left', () => {
+  it('extra align left', () => {
     const headline = render(
       <Subheadline align={SUBHEADLINE_ALIGN.LEFT}>Test</Subheadline>
     );
@@ -150,7 +150,9 @@ describe('Subheadline', () => {
     });
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Subheadline>Read more</Subheadline>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Subheadline>Read more</Subheadline>);
+    });
   });
 });

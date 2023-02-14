@@ -15,14 +15,14 @@ describe('SubjectIcon', () => {
     ).toBeTruthy();
   });
 
-  test('render', () => {
+  it('render', () => {
     const icon = render(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
 
     expect(icon.queryByRole('img')).toBeTruthy();
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 
-  test('type passed to xlink:href', () => {
+  it('type passed to xlink:href', () => {
     const type = TYPE.ACCOUNTANCY;
     const icon = render(<SubjectIcon type={type} />);
 
@@ -33,7 +33,7 @@ describe('SubjectIcon', () => {
     ).toEqual(`#icon-subject-${type}`);
   });
 
-  test('size', () => {
+  it('size', () => {
     const size = SIZE.SMALL;
     const type = TYPE.OTHERLANGUAGES;
     const icon = render(<SubjectIcon type={type} size={size} />);
@@ -45,7 +45,7 @@ describe('SubjectIcon', () => {
     ).toEqual(true);
   });
 
-  test('mono', () => {
+  it('mono', () => {
     const type = TYPE.OTHERLANGUAGES;
     const icon = render(
       <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
@@ -58,7 +58,7 @@ describe('SubjectIcon', () => {
     ).toEqual(`#icon-subject-mono-${type}`);
   });
 
-  test('normal size', () => {
+  it('normal size', () => {
     const type = TYPE.OTHERLANGUAGES;
     const icon = render(<SubjectIcon type={type} />);
 
@@ -69,11 +69,13 @@ describe('SubjectIcon', () => {
     ).toEqual(false);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<SubjectIcon type="art" />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SubjectIcon type="art" />);
+    });
 
-  it('should have no a11y violations when title is provided', async () => {
-    await testA11y(<SubjectIcon type="art" title="Title" />);
+    it('should have no a11y violations when title is provided', async () => {
+      await testA11y(<SubjectIcon type="art" title="Title" />);
+    });
   });
 });

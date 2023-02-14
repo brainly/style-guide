@@ -4,7 +4,7 @@ import {render} from '@testing-library/react';
 import Button from 'buttons/Button';
 
 describe('<ActionListHole />', () => {
-  test('render', () => {
+  it('render', () => {
     const actionListHole = render(
       <ActionListHole>
         <Button variant="solid" size="s">
@@ -20,7 +20,7 @@ describe('<ActionListHole />', () => {
     ).toEqual(true);
   });
 
-  test('container', () => {
+  it('container', () => {
     const actionListHole = render(
       <ActionListHole asContainer>test</ActionListHole>
     );
@@ -31,7 +31,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('no-spacing', () => {
+  it('no-spacing', () => {
     const actionListHole = render(
       <ActionListHole noSpacing>test</ActionListHole>
     );
@@ -42,7 +42,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('space-bellow', () => {
+  it('space-bellow', () => {
     const actionListHole = render(
       <ActionListHole spaceBellow>test</ActionListHole>
     );
@@ -53,7 +53,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('no-shrink', () => {
+  it('no-shrink', () => {
     const actionListHole = render(
       <ActionListHole noShrink>test</ActionListHole>
     );
@@ -64,7 +64,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('grow', () => {
+  it('grow', () => {
     const actionListHole = render(<ActionListHole grow>test</ActionListHole>);
 
     expect(
@@ -73,7 +73,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('to-end', () => {
+  it('to-end', () => {
     const actionListHole = render(<ActionListHole toEnd>test</ActionListHole>);
 
     expect(
@@ -82,7 +82,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('to-right', () => {
+  it('to-right', () => {
     const actionListHole = render(
       <ActionListHole toRight>test</ActionListHole>
     );
@@ -93,7 +93,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('to-right', () => {
+  it('to-right', () => {
     const actionListHole = render(
       <ActionListHole toRight>test</ActionListHole>
     );
@@ -104,7 +104,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('spaced-small', () => {
+  it('spaced-small', () => {
     const actionListHole = render(
       <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.SMALL}>
         test
@@ -117,7 +117,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('spaced-xsmall', () => {
+  it('spaced-xsmall', () => {
     const actionListHole = render(
       <ActionListHole spacing={ACTION_LIST_HOLE_SPACING.XSMALL}>
         test
@@ -130,7 +130,7 @@ describe('<ActionListHole />', () => {
       )
     ).toEqual(true);
   });
-  test('equal-width', () => {
+  it('equal-width', () => {
     const actionListHole = render(
       <ActionListHole equalWidth>test</ActionListHole>
     );

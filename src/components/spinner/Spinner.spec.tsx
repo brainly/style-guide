@@ -4,13 +4,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Spinner', () => {
-  test('render', () => {
+  it('render', () => {
     const component = render(<Spinner />);
 
     expect(component.queryByRole('status')).toBeTruthy();
   });
 
-  test('SPINNER_SIZE', () => {
+  it('SPINNER_SIZE', () => {
     const size = SPINNER_SIZE.XSMALL;
     const component = render(<Spinner size={size} />);
 
@@ -21,7 +21,7 @@ describe('Spinner', () => {
     ).toEqual(true);
   });
 
-  test('colors', () => {
+  it('colors', () => {
     Object.values(SPINNER_COLOR).forEach(color => {
       const component = render(<Spinner color={color} />);
 
@@ -33,7 +33,7 @@ describe('Spinner', () => {
     });
   });
 
-  test('className', () => {
+  it('className', () => {
     const testclass = 'mati-love-4-ever';
     const component = render(<Spinner className={testclass} />);
 
@@ -56,7 +56,9 @@ describe('Spinner', () => {
     );
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Spinner />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Spinner />);
+    });
   });
 });

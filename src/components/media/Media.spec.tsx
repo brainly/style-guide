@@ -14,14 +14,14 @@ const defaultProps = {
 };
 
 describe('Media', () => {
-  test('render', () => {
+  it('render', () => {
     const media = render(<Media {...defaultProps} />);
 
     expect(media.queryByText('Master')).toBeTruthy();
     expect(media.queryByText('The Goat')).toBeTruthy();
   });
 
-  test('testing modifications - all on', () => {
+  it('testing modifications - all on', () => {
     const media = render(
       <Media
         {...defaultProps}
@@ -54,7 +54,7 @@ describe('Media', () => {
     ).toHaveLength(defaultProps.contentArray.length);
   });
 
-  test('testing modifications - all off', () => {
+  it('testing modifications - all off', () => {
     const media = render(<Media {...defaultProps} />);
     const rootClasses = media.container.firstElementChild.classList;
 
@@ -67,7 +67,9 @@ describe('Media', () => {
     expect(rootClasses.contains('sg-media--no-padding')).toEqual(false);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Media aside="Aside" contentArray={['item1', 'item2']} />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Media aside="Aside" contentArray={['item1', 'item2']} />);
+    });
   });
 });

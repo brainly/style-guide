@@ -7,7 +7,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Layout', () => {
-  test('render with footer', () => {
+  it('render with footer', () => {
     const footer = <div>Footer</div>;
     const layout = render(<Layout footer={footer}>Content</Layout>);
 
@@ -16,7 +16,7 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  test('reserved-order', () => {
+  it('reserved-order', () => {
     const layout = render(<Layout reversedOrder>Content</Layout>);
 
     expect(
@@ -26,7 +26,7 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  test('no-max-width', () => {
+  it('no-max-width', () => {
     const layout = render(<Layout noMaxWidth>Content</Layout>);
 
     expect(
@@ -36,7 +36,7 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  test('no-margin-top', () => {
+  it('no-margin-top', () => {
     const layout = render(<Layout noMarginTop>Content</Layout>);
 
     expect(
@@ -46,7 +46,7 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  test('full-page', () => {
+  it('full-page', () => {
     const layout = render(<Layout fullPage>Content</Layout>);
 
     expect(
@@ -56,13 +56,15 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Layout>item</Layout>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Layout>item</Layout>);
+    });
   });
 });
 
 describe('LayoutContent', () => {
-  test('render', () => {
+  it('render', () => {
     const layoutContent = render(<LayoutContent>Content</LayoutContent>);
 
     expect(
@@ -72,7 +74,7 @@ describe('LayoutContent', () => {
     ).toEqual(true);
   });
 
-  test('no-max-width', () => {
+  it('no-max-width', () => {
     const layoutContent = render(
       <LayoutContent noMaxWidth>Content</LayoutContent>
     );
@@ -86,7 +88,7 @@ describe('LayoutContent', () => {
 });
 
 describe('LayoutAsideContent', () => {
-  test('render', () => {
+  it('render', () => {
     const layoutAsideContent = render(
       <LayoutAsideContent>Content</LayoutAsideContent>
     );
@@ -100,7 +102,7 @@ describe('LayoutAsideContent', () => {
 });
 
 describe('LayoutSecondaryContent', () => {
-  test('render', () => {
+  it('render', () => {
     const component = render(
       <LayoutSecondaryContent>Content</LayoutSecondaryContent>
     );

@@ -3,7 +3,7 @@ import ButtonRound from './ButtonRound';
 import {render, fireEvent} from '@testing-library/react';
 
 describe('ButtonRound', () => {
-  test('render', () => {
+  it('render', () => {
     const button = render(<ButtonRound>Some text</ButtonRound>);
 
     expect(
@@ -13,7 +13,7 @@ describe('ButtonRound', () => {
     ).toEqual(true);
   });
 
-  test('href', () => {
+  it('href', () => {
     const href = '#test';
     const button = render(<ButtonRound href={href}>Some text</ButtonRound>);
 
@@ -22,14 +22,14 @@ describe('ButtonRound', () => {
     );
   });
 
-  test('label', () => {
+  it('label', () => {
     const label = 'example label';
     const button = render(<ButtonRound label={label}>Some text</ButtonRound>);
 
     expect(button.queryByText(label)).toBeTruthy();
   });
 
-  test('onClick is fired on mouse click', () => {
+  it('onClick is fired on mouse click', () => {
     const onClick = jest.fn();
 
     const button = render(

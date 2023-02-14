@@ -7,14 +7,14 @@ import userEvent from '@testing-library/user-event';
 const mockCallback = jest.fn();
 
 describe('FileHandler', () => {
-  test('renders with icon', () => {
+  it('renders with icon', () => {
     const fileHandler = render(<FileHandler>example text</FileHandler>);
 
     expect(fileHandler.queryByText('example text')).toBeTruthy();
     expect(fileHandler.queryByRole('img')).toBeTruthy();
   });
 
-  test('renders close button when onClose', () => {
+  it('renders close button when onClose', () => {
     const fileHandler = render(
       <FileHandler onClose={mockCallback}>example text</FileHandler>
     );
@@ -22,7 +22,7 @@ describe('FileHandler', () => {
     expect(fileHandler.queryByRole('button', {name: 'Close'})).toBeTruthy();
   });
 
-  test('renders color white', () => {
+  it('renders color white', () => {
     const fileHandler = render(
       <FileHandler color="white">example text</FileHandler>
     );
@@ -34,7 +34,7 @@ describe('FileHandler', () => {
     ).toEqual(true);
   });
 
-  test('renders proper icon when iconType', () => {
+  it('renders proper icon when iconType', () => {
     const fileHandler = render(
       <FileHandler iconType="heart">example text</FileHandler>
     );
@@ -42,7 +42,7 @@ describe('FileHandler', () => {
     expect(fileHandler.queryByRole('img', {name: /heart/})).toBeTruthy();
   });
 
-  test('renders img when thumbnailSrc', () => {
+  it('renders img when thumbnailSrc', () => {
     const fileHandler = render(
       <FileHandler thumbnailSrc="http://brainly.com/thumbnail">
         example text
@@ -57,7 +57,7 @@ describe('FileHandler', () => {
     );
   });
 
-  test('renders Link when src', () => {
+  it('renders Link when src', () => {
     const fileHandler = render(
       <FileHandler src="src">example text</FileHandler>
     );
@@ -65,7 +65,7 @@ describe('FileHandler', () => {
     expect(fileHandler.queryByRole('link')).toBeTruthy();
   });
 
-  test('renders Spinner when loading', () => {
+  it('renders Spinner when loading', () => {
     const fileHandler = render(<FileHandler loading>example text</FileHandler>);
 
     expect(fileHandler.queryByRole('status')).toBeTruthy();
@@ -114,35 +114,37 @@ describe('FileHandler', () => {
     expect(within(status).getByText('uploading')).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<FileHandler />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<FileHandler />);
+    });
 
-  it('should have no a11y violations when loading', async () => {
-    await testA11y(<FileHandler loading>loading</FileHandler>);
-  });
+    it('should have no a11y violations when loading', async () => {
+      await testA11y(<FileHandler loading>loading</FileHandler>);
+    });
 
-  it('should have no a11y violations when thumbanailSrc and src are provided', async () => {
-    await testA11y(
-      <FileHandler thumbnailSrc="#" src="#">
-        fileName.jpg
-      </FileHandler>
-    );
-  });
+    it('should have no a11y violations when thumbanailSrc and src are provided', async () => {
+      await testA11y(
+        <FileHandler thumbnailSrc="#" src="#">
+          fileName.jpg
+        </FileHandler>
+      );
+    });
 
-  it('should have no a11y violations when onClick is provided', async () => {
-    const handleOnClick = jest.fn();
+    it('should have no a11y violations when onClick is provided', async () => {
+      const handleOnClick = jest.fn();
 
-    await testA11y(
-      <FileHandler onClick={handleOnClick}>file name</FileHandler>
-    );
-  });
+      await testA11y(
+        <FileHandler onClick={handleOnClick}>file name</FileHandler>
+      );
+    });
 
-  it('should have no a11y violations when onClose is provided', async () => {
-    const handleOnClose = jest.fn();
+    it('should have no a11y violations when onClose is provided', async () => {
+      const handleOnClose = jest.fn();
 
-    await testA11y(
-      <FileHandler onClose={handleOnClose}>file name</FileHandler>
-    );
+      await testA11y(
+        <FileHandler onClose={handleOnClose}>file name</FileHandler>
+      );
+    });
   });
 });

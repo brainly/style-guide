@@ -9,13 +9,13 @@ const menuItem = {
 const menuItems = [menuItem];
 
 describe('<MenuList />', () => {
-  test('renders', () => {
+  it('renders', () => {
     const menu = render(<MenuList items={menuItems} />);
 
     expect(menu.queryByRole('list')).toBeTruthy();
   });
 
-  test('small size', () => {
+  it('small size', () => {
     const menu = render(<MenuList items={menuItems} size={SIZE.SMALL} />);
 
     expect(
@@ -23,7 +23,7 @@ describe('<MenuList />', () => {
     ).toEqual(true);
   });
 
-  test('large', () => {
+  it('large', () => {
     const menu = render(<MenuList items={menuItems} size={SIZE.LARGE} />);
 
     expect(
@@ -33,19 +33,19 @@ describe('<MenuList />', () => {
 });
 
 describe('<MenuItem />', () => {
-  test('renders', () => {
+  it('renders', () => {
     const menuItem = render(<MenuItem text="test" href="#" />);
 
     expect(menuItem.queryByRole('listitem')).toBeTruthy();
   });
 
-  test('renders different type of html element', () => {
+  it('renders different type of html element', () => {
     const menuItem = render(<MenuItem type="span" text="foo" />);
 
     expect(menuItem.getByText('foo').tagName).toEqual('SPAN');
   });
 
-  test('passes props to link element', () => {
+  it('passes props to link element', () => {
     const menuItem = render(
       <MenuItem text="foo" id="m4l" href="http://link.com" />
     );

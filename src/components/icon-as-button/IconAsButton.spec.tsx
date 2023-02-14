@@ -2,14 +2,14 @@ import * as React from 'react';
 import IconAsButton, {TYPE, ICON_COLOR, SIZE} from './IconAsButton';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const type = TYPE.STAR;
   const iconAsButton = render(<IconAsButton type={type} />);
 
   expect(iconAsButton.queryByRole('img')).toBeTruthy();
 });
 
-test('colors', () => {
+it('colors', () => {
   const type = TYPE.ANSWER;
   const color = ICON_COLOR['icon-black'];
   const iconAsButton = render(<IconAsButton type={type} color={color} />);
@@ -21,7 +21,7 @@ test('colors', () => {
   ).toEqual(true);
 });
 
-test('size', () => {
+it('size', () => {
   const size = SIZE.SMALL;
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} size={size} />);
@@ -33,7 +33,7 @@ test('size', () => {
   ).toEqual(true);
 });
 
-test('default size', () => {
+it('default size', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} />);
 
@@ -44,7 +44,7 @@ test('default size', () => {
   ).toEqual(true);
 });
 
-test('border', () => {
+it('border', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} border />);
 
@@ -55,7 +55,7 @@ test('border', () => {
   ).toEqual(true);
 });
 
-test('transparent', () => {
+it('transparent', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} transparent />);
 
@@ -66,7 +66,7 @@ test('transparent', () => {
   ).toEqual(true);
 });
 
-test('transparent active', () => {
+it('transparent active', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} transparent active />);
 
@@ -82,7 +82,7 @@ test('transparent active', () => {
   ).toEqual(true);
 });
 
-test('action', () => {
+it('action', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} action />);
 
@@ -93,7 +93,7 @@ test('action', () => {
   ).toEqual(true);
 });
 
-test('action active', () => {
+it('action active', () => {
   const type = TYPE.ANSWER;
   const iconAsButton = render(<IconAsButton type={type} action active />);
 
@@ -109,7 +109,7 @@ test('action active', () => {
   ).toEqual(true);
 });
 
-test('link as button', () => {
+it('link as button', () => {
   const type = TYPE.ANSWER;
   const href = 'http://brainly.test';
   const iconAsButton = render(<IconAsButton type={type} href={href} />);

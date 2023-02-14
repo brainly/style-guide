@@ -4,41 +4,41 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Box', () => {
-  test('render children', () => {
+  it('render children', () => {
     const box = render(<Box>some text</Box>);
 
     expect(box.getByText('some text')).toBeTruthy();
   });
 
-  test('colors', () => {
+  it('colors', () => {
     const box = render(<Box color="green-40">some text</Box>);
     const root = box.container.firstElementChild;
 
     expect(root.classList.contains(`sg-box--green-40`)).toEqual(true);
   });
 
-  test('shadow', () => {
+  it('shadow', () => {
     const box = render(<Box shadow>some text</Box>);
     const root = box.container.firstElementChild;
 
     expect(root.classList.contains('sg-box--shadow')).toEqual(true);
   });
 
-  test('border', () => {
+  it('border', () => {
     const box = render(<Box border>some text</Box>);
     const root = box.container.firstElementChild;
 
     expect(root.classList.contains('sg-box--border')).toEqual(true);
   });
 
-  test('border', () => {
+  it('border', () => {
     const box = render(<Box border={false}>some text</Box>);
     const root = box.container.firstElementChild;
 
     expect(root.classList.contains('sg-box--border')).toEqual(false);
   });
 
-  test('borderColor', () => {
+  it('borderColor', () => {
     const box = render(
       <Box border borderColor="green-40">
         some text
@@ -130,7 +130,9 @@ describe('Box', () => {
     );
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Box>item</Box>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Box>item</Box>);
+    });
   });
 });

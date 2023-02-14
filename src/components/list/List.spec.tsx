@@ -76,30 +76,32 @@ describe('List', () => {
     ).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(
-      <List>
-        <ListItem>item</ListItem>
-      </List>
-    );
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(
+        <List>
+          <ListItem>item</ListItem>
+        </List>
+      );
+    });
 
-  it('should have no a11y violations when aria-label is provided', async () => {
-    await testA11y(
-      <List aria-label="name">
-        <ListItem>item</ListItem>
-      </List>
-    );
-  });
+    it('should have no a11y violations when aria-label is provided', async () => {
+      await testA11y(
+        <List aria-label="name">
+          <ListItem>item</ListItem>
+        </List>
+      );
+    });
 
-  it('should have no a11y violations when ListItemIcon is used', async () => {
-    await testA11y(
-      <List>
-        <ListItem>
-          <ListItemIcon>x</ListItemIcon>
-          item
-        </ListItem>
-      </List>
-    );
+    it('should have no a11y violations when ListItemIcon is used', async () => {
+      await testA11y(
+        <List>
+          <ListItem>
+            <ListItemIcon>x</ListItemIcon>
+            item
+          </ListItem>
+        </List>
+      );
+    });
   });
 });

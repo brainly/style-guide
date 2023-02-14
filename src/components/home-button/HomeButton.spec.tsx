@@ -4,14 +4,14 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('HomeButton', () => {
-  test('render', () => {
+  it('render', () => {
     const button = render(<HomeButton />);
 
     expect(button.queryAllByRole('img').length).toBeGreaterThan(0);
     expect(button.queryByRole('link')).toBeTruthy();
   });
 
-  test('type', () => {
+  it('type', () => {
     const button = render(<HomeButton type={TYPE.EODEV} />);
 
     expect(
@@ -21,7 +21,7 @@ describe('HomeButton', () => {
     ).toBe(true);
   });
 
-  test('href', () => {
+  it('href', () => {
     const button = render(<HomeButton href="http://foo.com" />);
 
     expect(button.getByRole('link').getAttribute('href')).toEqual(
@@ -29,7 +29,7 @@ describe('HomeButton', () => {
     );
   });
 
-  test('empty href', () => {
+  it('empty href', () => {
     const button = render(<HomeButton>Test</HomeButton>);
 
     expect(button.getByRole('link').getAttribute('href')).toEqual('#');
@@ -41,7 +41,9 @@ describe('HomeButton', () => {
     expect(logo.getByLabelText('brainly home')).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<HomeButton />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<HomeButton />);
+    });
   });
 });

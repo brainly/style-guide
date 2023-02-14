@@ -4,7 +4,7 @@ import {render, within} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('SpinnerContainer', () => {
-  test('render', () => {
+  it('render', () => {
     const spinnerContainer = render(
       <SpinnerContainer>children</SpinnerContainer>
     );
@@ -16,7 +16,7 @@ describe('SpinnerContainer', () => {
     ).toEqual(true);
   });
 
-  test('loading', () => {
+  it('loading', () => {
     const container = render(<SpinnerContainer loading />);
 
     expect(container.queryByRole('status')).toBeTruthy();
@@ -66,11 +66,13 @@ describe('SpinnerContainer', () => {
     });
   });
 
-  it('should have no a11y violations when loading', async () => {
-    await testA11y(<SpinnerContainer loading />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations when loading', async () => {
+      await testA11y(<SpinnerContainer loading />);
+    });
 
-  it('should have no a11y violations when loaded', async () => {
-    await testA11y(<SpinnerContainer />);
+    it('should have no a11y violations when loaded', async () => {
+      await testA11y(<SpinnerContainer />);
+    });
   });
 });

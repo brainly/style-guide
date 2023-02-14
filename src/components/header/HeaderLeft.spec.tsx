@@ -2,7 +2,7 @@ import * as React from 'react';
 import HeaderLeft from './HeaderLeft';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const header = render(<HeaderLeft>some text</HeaderLeft>);
 
   expect(

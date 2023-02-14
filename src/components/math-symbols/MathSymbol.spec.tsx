@@ -15,14 +15,14 @@ describe('MathSymbol', () => {
     ).toBeTruthy();
   });
 
-  test('render', () => {
+  it('render', () => {
     const icon = render(<MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />);
 
     expect(icon.queryByRole('img')).toBeTruthy();
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 
-  test('type passed to xlink:href', () => {
+  it('type passed to xlink:href', () => {
     const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
     const icon = render(<MathSymbol type={type} />);
     const use = icon.container.firstElementChild.querySelector('use');
@@ -32,7 +32,7 @@ describe('MathSymbol', () => {
     );
   });
 
-  test('colors', () => {
+  it('colors', () => {
     const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
     const color = ICON_COLOR['icon-black'];
     const icon = render(<MathSymbol type={type} color={color} />);
@@ -44,7 +44,7 @@ describe('MathSymbol', () => {
     ).toEqual(true);
   });
 
-  test('size', () => {
+  it('size', () => {
     const size = SIZE.SMALL;
     const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
     const icon = render(<MathSymbol type={type} size={size} />);
@@ -56,7 +56,7 @@ describe('MathSymbol', () => {
     ).toEqual(true);
   });
 
-  test('wide', () => {
+  it('wide', () => {
     const type = MATH_SYMBOL_TYPE.LIMIT;
     const icon = render(<MathSymbol type={type} />);
 
@@ -67,7 +67,7 @@ describe('MathSymbol', () => {
     ).toEqual(true);
   });
 
-  test('wide with size', () => {
+  it('wide with size', () => {
     const type = MATH_SYMBOL_TYPE.LIMIT;
     const size = SIZE.SMALL;
     const icon = render(<MathSymbol type={type} size={size} />);
@@ -79,7 +79,7 @@ describe('MathSymbol', () => {
     ).toEqual(true);
   });
 
-  test('other props', () => {
+  it('other props', () => {
     const type = MATH_SYMBOL_TYPE.SQUERE_ROOT;
     const icon = render(<MathSymbol type={type} data-foo="bar" />);
 
@@ -88,11 +88,13 @@ describe('MathSymbol', () => {
     );
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<MathSymbol type="pi" />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<MathSymbol type="pi" />);
+    });
 
-  it('should have no a11y violations when title is provided', async () => {
-    await testA11y(<MathSymbol type="pi" title="Title" />);
+    it('should have no a11y violations when title is provided', async () => {
+      await testA11y(<MathSymbol type="pi" title="Title" />);
+    });
   });
 });

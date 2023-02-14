@@ -6,14 +6,14 @@ import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
 describe('Button', () => {
-  test('render', () => {
+  it('render', () => {
     const button = render(<Button>Some text</Button>);
     const root = button.container.firstElementChild;
 
     expect(root.classList.contains('sg-button')).toEqual(true);
   });
 
-  test('variant', () => {
+  it('variant', () => {
     const buttonVariant = BUTTON_VARIANT.SOLID;
     const button = render(<Button variant={buttonVariant}>Some text</Button>);
     const root = button.container.firstElementChild;
@@ -23,7 +23,7 @@ describe('Button', () => {
     );
   });
 
-  test('disabled', () => {
+  it('disabled', () => {
     const button = render(<Button disabled>Some text</Button>);
     const root = button.container.firstElementChild;
 
@@ -31,7 +31,7 @@ describe('Button', () => {
     expect(root.hasAttribute('disabled')).toEqual(true);
   });
 
-  test('not disabled', () => {
+  it('not disabled', () => {
     const button = render(<Button>Some text</Button>);
     const root = button.container.firstElementChild;
 
@@ -39,21 +39,21 @@ describe('Button', () => {
     expect(root.hasAttribute('disabled')).toEqual(false);
   });
 
-  test('full width', () => {
+  it('full width', () => {
     const button = render(<Button fullWidth>Some text</Button>);
     const root = button.container.firstElementChild;
 
     expect(root.classList.contains('sg-button--full-width')).toEqual(true);
   });
 
-  test('icon', () => {
+  it('icon', () => {
     const icon = <span>Button icon</span>;
     const button = render(<Button icon={icon}>Some text</Button>);
 
     expect(button.getByText('Button icon')).toBeTruthy();
   });
 
-  test('icon only', () => {
+  it('icon only', () => {
     const icon = <span>Button icon</span>;
     const button = render(
       <Button icon={icon} iconOnly>
@@ -66,7 +66,7 @@ describe('Button', () => {
     expect(root.classList.contains('sg-button--icon-only')).toBe(true);
   });
 
-  test('toggle', () => {
+  it('toggle', () => {
     const button = render(
       <Button variant="solid-light" toggle="red">
         Some text
@@ -80,7 +80,7 @@ describe('Button', () => {
     ).toEqual(true);
   });
 
-  test('with icon - reversed order', () => {
+  it('with icon - reversed order', () => {
     const icon = <span>Button icon</span>;
     const button = render(
       <Button icon={icon} reversedOrder>
@@ -93,7 +93,7 @@ describe('Button', () => {
     expect(root.classList.contains('sg-button--reversed-order')).toBe(true);
   });
 
-  test('in loading state button shows spinner while hiding label and icon', () => {
+  it('in loading state button shows spinner while hiding label and icon', () => {
     const button = render(
       <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
         Some text
@@ -120,12 +120,14 @@ describe('Button', () => {
         })
       ).toBeTruthy();
     });
+
     it('is focusable', () => {
       const button = render(<Button as="button">Read more</Button>);
 
       button.getByRole('button').focus();
       expect(button.getByRole('button')).toBe(document.activeElement);
     });
+
     it('is not focusable and clickable when disabled', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
@@ -140,6 +142,7 @@ describe('Button', () => {
       userEvent.click(button.getByText(label));
       expect(handleOnClick).not.toHaveBeenCalled();
     });
+
     it('fires onClick on click, space and enter', () => {
       const handleOnClick = jest.fn();
       const label = 'Load more';
@@ -161,6 +164,7 @@ describe('Button', () => {
       userEvent.keyboard('{enter}');
       expect(handleOnClick).toHaveBeenCalledTimes(3);
     });
+
     it('informs about the loading state and is then disabled', () => {
       const label = 'Load more';
       const loadingAriaLabel = 'loading more';
@@ -198,6 +202,7 @@ describe('Button', () => {
         'https://example.com/'
       );
     });
+
     it('is focusable', () => {
       const button = render(
         <Button href="https://example.com/">Read more</Button>
@@ -206,6 +211,7 @@ describe('Button', () => {
       button.getByRole('link').focus();
       expect(button.getByRole('link')).toBe(document.activeElement);
     });
+
     it('is not focusable and clickable when disabled', () => {
       const label = 'read more';
       const onClick = jest.fn();
@@ -220,6 +226,7 @@ describe('Button', () => {
       userEvent.click(button.getByText(label));
       expect(onClick).not.toHaveBeenCalled();
     });
+
     it('informs about the opening in a new tab', () => {
       const label = 'read more';
       const newTabLabel = 'in new tab';
@@ -236,6 +243,7 @@ describe('Button', () => {
       expect(button.getByText(newTabLabel)).toBeTruthy();
     });
   });
+
   describe('with `toggle`', () => {
     it('has a button role and an accessible label', () => {
       const button = render(
@@ -250,57 +258,59 @@ describe('Button', () => {
       ).toBeTruthy();
     });
   });
-});
-describe('Button a11y', () => {
-  describe('without `href`', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(<Button>Read more</Button>);
+
+  describe('a11y', () => {
+    describe('without `href`', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Button>Read more</Button>);
+      });
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Button aria-label="read more about us">Read more</Button>
+        );
+      });
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(<Button disabled>Read more</Button>);
+      });
+      it('should have no a11y violations in loading state', async () => {
+        await testA11y(<Button loading>Read more</Button>);
+      });
     });
-    it('should have no a11y violations when aria-label is provided', async () => {
-      await testA11y(
-        <Button aria-label="read more about us">Read more</Button>
-      );
+    describe('with `href`', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(<Button href="https://example.com/">Read more</Button>);
+      });
+      it('should have no a11y violations when aria-label is provided', async () => {
+        await testA11y(
+          <Button href="https://example.com/" aria-label="read more about us">
+            Read more
+          </Button>
+        );
+      });
+      it('should have no a11y violations when disabled', async () => {
+        await testA11y(
+          <Button href="https://example.com/" disabled>
+            Read more
+          </Button>
+        );
+      });
+      it('should have no a11y violations when opens in a new tab', async () => {
+        await testA11y(
+          <Button href="https://example.com/" target="_blank">
+            Read more
+          </Button>
+        );
+      });
     });
-    it('should have no a11y violations when disabled', async () => {
-      await testA11y(<Button disabled>Read more</Button>);
-    });
-    it('should have no a11y violations in loading state', async () => {
-      await testA11y(<Button loading>Read more</Button>);
-    });
-  });
-  describe('with `href`', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(<Button href="https://example.com/">Read more</Button>);
-    });
-    it('should have no a11y violations when aria-label is provided', async () => {
-      await testA11y(
-        <Button href="https://example.com/" aria-label="read more about us">
-          Read more
-        </Button>
-      );
-    });
-    it('should have no a11y violations when disabled', async () => {
-      await testA11y(
-        <Button href="https://example.com/" disabled>
-          Read more
-        </Button>
-      );
-    });
-    it('should have no a11y violations when opens in a new tab', async () => {
-      await testA11y(
-        <Button href="https://example.com/" target="_blank">
-          Read more
-        </Button>
-      );
-    });
-  });
-  describe('with `toggle`', () => {
-    it('should have no a11y violations', async () => {
-      await testA11y(
-        <Button toggle="red" type="button" aria-pressed="true">
-          Thanks
-        </Button>
-      );
+
+    describe('with `toggle`', () => {
+      it('should have no a11y violations', async () => {
+        await testA11y(
+          <Button toggle="red" type="button" aria-pressed="true">
+            Thanks
+          </Button>
+        );
+      });
     });
   });
 });

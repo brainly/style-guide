@@ -2,7 +2,7 @@ import * as React from 'react';
 import RwdHelper, {TYPE} from './RwdHelper';
 import {render} from '@testing-library/react';
 
-test('render element', () => {
+it('render element', () => {
   const rwdHelper = render(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
       <button>button</button>
@@ -12,7 +12,7 @@ test('render element', () => {
   expect(rwdHelper.queryByRole('button')).toBeTruthy();
 });
 
-test('custom className', () => {
+it('custom className', () => {
   const rwdHelper = render(
     <RwdHelper hide={TYPE.SMALL_ONLY}>
       <div className="test">inside div</div>

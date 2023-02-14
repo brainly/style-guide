@@ -4,21 +4,21 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Header', () => {
-  test('render', () => {
+  it('render', () => {
     const header = render(<Header>some text</Header>);
 
     expect(
       header.container.firstElementChild.classList.contains('sg-header')
     ).toEqual(true);
   });
-  test('fixed', () => {
+  it('fixed', () => {
     const header = render(<Header fixed>some text</Header>);
 
     expect(
       header.container.firstElementChild.classList.contains('sg-header--fixed')
     ).toEqual(true);
   });
-  test('withDivider', () => {
+  it('withDivider', () => {
     const header = render(<Header withDivider>some text</Header>);
 
     expect(
@@ -28,7 +28,9 @@ describe('Header', () => {
     ).toEqual(true);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Header>item</Header>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Header>item</Header>);
+    });
   });
 });

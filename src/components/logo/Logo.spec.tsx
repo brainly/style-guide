@@ -4,13 +4,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Logo', () => {
-  test('render', () => {
+  it('render', () => {
     const logo = render(<Logo />);
 
     expect(logo.queryByRole('img')).toBeTruthy();
   });
 
-  test('type', () => {
+  it('type', () => {
     const logo = render(<Logo type={TYPE.ZNANIJA} />);
 
     expect(
@@ -29,7 +29,9 @@ describe('Logo', () => {
     expect(logo.queryByAltText('brainly')).toBeFalsy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Logo />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Logo />);
+    });
   });
 });

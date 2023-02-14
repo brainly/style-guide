@@ -4,13 +4,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('FlashMessage', () => {
-  test('render', () => {
+  it('render', () => {
     const flashMessage = render(<FlashMessage text="foo" />);
 
     expect(flashMessage.queryByText('foo')).toBeTruthy();
   });
 
-  test('type', () => {
+  it('type', () => {
     const flashMessage = render(<FlashMessage text="test" type={TYPE.ERROR} />);
 
     expect(
@@ -26,7 +26,9 @@ describe('FlashMessage', () => {
     expect(flashMessage.getByRole('alert')).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<FlashMessage text="message" />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<FlashMessage text="message" />);
+    });
   });
 });

@@ -5,7 +5,7 @@ import Button from 'buttons/Button';
 import {render} from '@testing-library/react';
 
 describe('ActionList', () => {
-  test('render', () => {
+  it('render', () => {
     const actionList = render(
       <ActionList>
         <ActionListHole>
@@ -21,21 +21,21 @@ describe('ActionList', () => {
     expect(root.classList.contains('sg-actions-list')).toEqual(true);
   });
 
-  test('to-right', () => {
+  it('to-right', () => {
     const actionList = render(<ActionList direction={DIRECTION.TO_RIGHT} />);
     const root = actionList.container.firstElementChild;
 
     expect(root.classList.contains('sg-actions-list--to-right')).toEqual(true);
   });
 
-  test('to-top', () => {
+  it('to-top', () => {
     const actionList = render(<ActionList toTop />);
     const root = actionList.container.firstElementChild;
 
     expect(root.classList.contains('sg-actions-list--to-top')).toEqual(true);
   });
 
-  test('baseline', () => {
+  it('baseline', () => {
     const actionList = render(<ActionList align={ALIGNMENT.BASELINE} />);
     const root = actionList.container.firstElementChild;
 
@@ -44,14 +44,14 @@ describe('ActionList', () => {
     );
   });
 
-  test('centered', () => {
+  it('centered', () => {
     const actionList = render(<ActionList direction={DIRECTION.CENTERED} />);
     const root = actionList.container.firstElementChild;
 
     expect(root.classList.contains('sg-actions-list--centered')).toEqual(true);
   });
 
-  test('space-between', () => {
+  it('space-between', () => {
     const actionList = render(
       <ActionList direction={DIRECTION.SPACE_BETWEEN} />
     );
@@ -62,7 +62,7 @@ describe('ActionList', () => {
     );
   });
 
-  test('space-around', () => {
+  it('space-around', () => {
     const actionList = render(
       <ActionList direction={DIRECTION.SPACE_AROUND} />
     );
@@ -73,7 +73,7 @@ describe('ActionList', () => {
     );
   });
 
-  test('space-evenly', () => {
+  it('space-evenly', () => {
     const actionList = render(
       <ActionList direction={DIRECTION.SPACE_EVENLY} />
     );
@@ -84,7 +84,7 @@ describe('ActionList', () => {
     );
   });
 
-  test('no-wrap', () => {
+  it('no-wrap', () => {
     const actionList = render(<ActionList noWrap />);
     const root = actionList.container.firstElementChild;
 

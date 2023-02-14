@@ -350,11 +350,13 @@ describe('Flex', () => {
     expect(component.queryByRole('list')).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(
-      <Flex>
-        <div>item</div>
-      </Flex>
-    );
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(
+        <Flex>
+          <div>item</div>
+        </Flex>
+      );
+    });
   });
 });

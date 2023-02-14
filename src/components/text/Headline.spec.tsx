@@ -9,13 +9,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Headline', () => {
-  test('render', () => {
+  it('render', () => {
     const headline = render(<Headline>Test</Headline>);
 
     expect(headline.queryByRole('heading')).toBeTruthy();
   });
 
-  test('size', () => {
+  it('size', () => {
     const headline = render(
       <Headline size={HEADLINE_SIZE.SMALL}>Test</Headline>
     );
@@ -52,13 +52,13 @@ describe('Headline', () => {
     });
   });
 
-  test('type', () => {
+  it('type', () => {
     const headline = render(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
 
     expect(headline.queryByRole('heading').tagName).toEqual('H3');
   });
 
-  test('text-white', () => {
+  it('text-white', () => {
     const text = render(<Headline color="text-white">Test</Headline>);
 
     expect(
@@ -68,7 +68,7 @@ describe('Headline', () => {
     ).toBeTruthy();
   });
 
-  test('transform uppercase', () => {
+  it('transform uppercase', () => {
     const headline = render(
       <Headline transform={HEADLINE_TRANSFORM.UPPERCASE}>Test</Headline>
     );
@@ -105,7 +105,7 @@ describe('Headline', () => {
     });
   });
 
-  test('extra bold', () => {
+  it('extra bold', () => {
     const headline = render(<Headline extraBold>Test</Headline>);
 
     expect(
@@ -131,7 +131,7 @@ describe('Headline', () => {
     });
   });
 
-  test('extra align left', () => {
+  it('extra align left', () => {
     const headline = render(
       <Headline align={HEADLINE_ALIGN.LEFT}>Test</Headline>
     );
@@ -168,7 +168,9 @@ describe('Headline', () => {
     });
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Headline>Read more</Headline>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Headline>Read more</Headline>);
+    });
   });
 });

@@ -214,19 +214,6 @@ describe('<Dialog>', () => {
     );
   });
 
-  it('renders with <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {
-    const headerId = 'header-id';
-    const onDismiss = jest.fn();
-
-    await testA11y(
-      <Dialog open aria-labelledby={headerId}>
-        <DialogCloseButton onClick={onDismiss} />
-        <DialogHeader id={headerId}>Header</DialogHeader>
-        <DialogBody>Information you provide to us directly.</DialogBody>
-      </Dialog>
-    );
-  });
-
   it('has "dialog" role and aria-modal', async () => {
     const label = 'Dialog label';
     const dialog = render(
@@ -318,5 +305,20 @@ describe('<Dialog>', () => {
     userEvent.keyboard('{esc}');
     expect(onDismissInner).toBeCalled();
     expect(onDismissOuter).not.toBeCalled();
+  });
+
+  describe('a11y', () => {
+    it('renders with <DialogHeader/>, <DialogCloseButton/> and <DialogBody/> ', async () => {
+      const headerId = 'header-id';
+      const onDismiss = jest.fn();
+
+      await testA11y(
+        <Dialog open aria-labelledby={headerId}>
+          <DialogCloseButton onClick={onDismiss} />
+          <DialogHeader id={headerId}>Header</DialogHeader>
+          <DialogBody>Information you provide to us directly.</DialogBody>
+        </Dialog>
+      );
+    });
   });
 });

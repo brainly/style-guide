@@ -4,7 +4,7 @@ import {fireEvent, render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Label', () => {
-  test('render', () => {
+  it('render', () => {
     const label = render(
       <Label type="default" color="blue">
         example label
@@ -19,7 +19,7 @@ describe('Label', () => {
     ).toBe(true);
   });
 
-  test('render with icon', () => {
+  it('render with icon', () => {
     const label = render(
       <Label type="default" iconType="star">
         example label
@@ -29,7 +29,7 @@ describe('Label', () => {
     expect(label.queryByRole('img')).toBeTruthy();
   });
 
-  test('render type solid', () => {
+  it('render type solid', () => {
     const label = render(
       <Label type="solid" color="green">
         example label
@@ -41,7 +41,7 @@ describe('Label', () => {
     ).toBe(true);
   });
 
-  test('when onClose is defined, has close button', () => {
+  it('when onClose is defined, has close button', () => {
     const mockCallback = jest.fn();
     const label = render(
       <Label type="default" color="green" onClose={mockCallback}>
@@ -52,7 +52,7 @@ describe('Label', () => {
     expect(label.queryByRole('button', {name: 'close'})).toBeTruthy();
   });
 
-  test('clicking on close button calls onClose', () => {
+  it('clicking on close button calls onClose', () => {
     const mockCallback = jest.fn();
     const label = render(
       <Label type="solid" color="green" onClose={mockCallback}>
@@ -113,29 +113,31 @@ describe('Label', () => {
     expect(label.queryByRole('img')).toBeFalsy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Label>label</Label>);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Label>label</Label>);
+    });
 
-  it('should have no a11y violations when a named icon is provided', async () => {
-    await testA11y(
-      <Label iconType="attachment" iconTitle="your attachment">
-        dog.jpg
-      </Label>
-    );
-  });
+    it('should have no a11y violations when a named icon is provided', async () => {
+      await testA11y(
+        <Label iconType="attachment" iconTitle="your attachment">
+          dog.jpg
+        </Label>
+      );
+    });
 
-  it('should have no a11y violations when icon is hidden from accessibility tree', async () => {
-    await testA11y(
-      <Label iconType="attachment" iconAriaHidden>
-        label
-      </Label>
-    );
-  });
+    it('should have no a11y violations when icon is hidden from accessibility tree', async () => {
+      await testA11y(
+        <Label iconType="attachment" iconAriaHidden>
+          label
+        </Label>
+      );
+    });
 
-  it('should have no a11y violations when onClose is provided', async () => {
-    const handleOnClose = jest.fn();
+    it('should have no a11y violations when onClose is provided', async () => {
+      const handleOnClose = jest.fn();
 
-    await testA11y(<Label onClose={handleOnClose}>dog.jpg</Label>);
+      await testA11y(<Label onClose={handleOnClose}>dog.jpg</Label>);
+    });
   });
 });

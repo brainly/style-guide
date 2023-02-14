@@ -4,13 +4,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('SeparatorHorizontal', () => {
-  test('render', () => {
+  it('render', () => {
     const separator = render(<SeparatorHorizontal />);
 
     expect(separator.queryByRole('separator')).toBeTruthy();
   });
 
-  test('type', () => {
+  it('type', () => {
     const separator = render(<SeparatorHorizontal type={TYPE.SPACED} />);
 
     expect(
@@ -20,7 +20,9 @@ describe('SeparatorHorizontal', () => {
     ).toEqual(true);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<SeparatorHorizontal />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SeparatorHorizontal />);
+    });
   });
 });

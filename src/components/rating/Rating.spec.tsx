@@ -218,11 +218,13 @@ describe('star', () => {
     expect(onChange.mock.calls).toHaveLength(2);
   });
 
-  it('should have no a11y violations when star is active', async () => {
-    await testA11y(<Star aria-label="2/6" name="rating" active />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations when star is active', async () => {
+      await testA11y(<Star aria-label="2/6" name="rating" active />);
+    });
 
-  it('should have no a11y violations when star is not active', async () => {
-    await testA11y(<Star />);
+    it('should have no a11y violations when star is not active', async () => {
+      await testA11y(<Star />);
+    });
   });
 });

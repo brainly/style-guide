@@ -4,13 +4,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('TextBit', () => {
-  test('render', () => {
+  it('render', () => {
     const textBit = render(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
 
     expect(textBit.queryByRole('heading')).toBeTruthy();
   });
 
-  test('size', () => {
+  it('size', () => {
     const textBit = render(<TextBit size={TEXT_BIT_SIZE.XLARGE}>Test</TextBit>);
 
     expect(
@@ -20,7 +20,7 @@ describe('TextBit', () => {
     ).toBeTruthy();
   });
 
-  test('size is responsive prop', () => {
+  it('size is responsive prop', () => {
     const component = render(
       <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
     );
@@ -32,13 +32,13 @@ describe('TextBit', () => {
     });
   });
 
-  test('type', () => {
+  it('type', () => {
     const textBit = render(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
 
     expect(textBit.queryByRole('heading').tagName).toEqual('H3');
   });
 
-  test('color', () => {
+  it('color', () => {
     const textBit = render(<TextBit color="text-blue-40">Test</TextBit>);
 
     expect(
@@ -48,7 +48,9 @@ describe('TextBit', () => {
     ).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<TextBit>Read more</TextBit>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<TextBit>Read more</TextBit>);
+    });
   });
 });

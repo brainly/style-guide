@@ -4,7 +4,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('SeparatorVertical', () => {
-  test('size', () => {
+  it('size', () => {
     const separator = render(<SeparatorVertical size={SIZE.SMALL} />);
 
     expect(
@@ -22,7 +22,9 @@ describe('SeparatorVertical', () => {
     ).toBe('vertical');
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<SeparatorVertical />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SeparatorVertical />);
+    });
   });
 });

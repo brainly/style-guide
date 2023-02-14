@@ -5,13 +5,13 @@ import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
 
 describe('Avatar', () => {
-  test('render default', () => {
+  it('render default', () => {
     const avatar = render(<Avatar />);
 
     expect(avatar.getByRole('img', {hidden: true})).toBeTruthy();
   });
 
-  test('render with image', () => {
+  it('render with image', () => {
     const imgSrc = 'https://source.unsplash.com/100x100/?man';
     const avatar = render(<Avatar imgSrc={imgSrc} />);
 
@@ -22,7 +22,7 @@ describe('Avatar', () => {
     );
   });
 
-  test('link', () => {
+  it('link', () => {
     const avatar = render(<Avatar link="https://brainly.com" />);
 
     expect(avatar.getByRole('link')).toBeTruthy();
@@ -88,21 +88,23 @@ describe('Avatar', () => {
     expect(document.body).toEqual(document.activeElement);
   });
 
-  it('should have no a11y violations when imgSrc and link are not provided', async () => {
-    await testA11y(<Avatar />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations when imgSrc and link are not provided', async () => {
+      await testA11y(<Avatar />);
+    });
 
-  it('should have no a11y violations when only link and label are provided', async () => {
-    await testA11y(<Avatar link="#" ariaLinkLabel="label" />);
-  });
+    it('should have no a11y violations when only link and label are provided', async () => {
+      await testA11y(<Avatar link="#" ariaLinkLabel="label" />);
+    });
 
-  it('should have no a11y violations when imgSrc and alt are provided', async () => {
-    await testA11y(<Avatar imgSrc="#" alt="alt" />);
-  });
+    it('should have no a11y violations when imgSrc and alt are provided', async () => {
+      await testA11y(<Avatar imgSrc="#" alt="alt" />);
+    });
 
-  it('should have no a11y violations when link, label, imgSrc and alt are provided', async () => {
-    await testA11y(
-      <Avatar imgSrc="#" alt="alt" link="#" ariaLinkLabel="label" />
-    );
+    it('should have no a11y violations when link, label, imgSrc and alt are provided', async () => {
+      await testA11y(
+        <Avatar imgSrc="#" alt="alt" link="#" ariaLinkLabel="label" />
+      );
+    });
   });
 });

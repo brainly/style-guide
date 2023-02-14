@@ -3,7 +3,7 @@ import TopLayer, {SIZE} from './TopLayer';
 import {queryByText, render} from '@testing-library/react';
 import {fireEvent} from '@storybook/testing-library';
 
-test('render', () => {
+it('render', () => {
   const topLayer = render(<TopLayer>some text</TopLayer>);
 
   expect(
@@ -11,7 +11,7 @@ test('render', () => {
   ).toEqual(true);
 });
 
-test('default size', () => {
+it('default size', () => {
   const topLayer = render(<TopLayer>some text</TopLayer>);
 
   Object.values(SIZE).forEach(size => {
@@ -23,20 +23,20 @@ test('default size', () => {
   });
 });
 
-test('check if close button exists', () => {
+it('check if close button exists', () => {
   const mockCallback = jest.fn();
   const topLayer = render(<TopLayer onClose={mockCallback} />);
 
   expect(topLayer.queryByRole('button')).toBeTruthy();
 });
 
-test('check when no close button', () => {
+it('check when no close button', () => {
   const topLayer = render(<TopLayer />);
 
   expect(topLayer.queryByRole('button')).toBeFalsy();
 });
 
-test('click action', () => {
+it('click action', () => {
   const mockCallback = jest.fn();
   const topLayer = render(<TopLayer onClose={mockCallback} />);
   const button = topLayer.queryByRole('button');
@@ -46,7 +46,7 @@ test('click action', () => {
   expect(mockCallback.mock.calls).toHaveLength(1);
 });
 
-test('key down action', () => {
+it('key down action', () => {
   const mockCallback = jest.fn();
   const topLayer = render(
     <TopLayer onClose={mockCallback} onCloseButtonKeyDown={mockCallback} />
@@ -58,7 +58,7 @@ test('key down action', () => {
   expect(mockCallback.mock.calls).toHaveLength(1);
 });
 
-test('size', () => {
+it('size', () => {
   const size = SIZE.SMALL;
   const topLayer = render(<TopLayer size={size}>some text</TopLayer>);
 
@@ -69,7 +69,7 @@ test('size', () => {
   ).toEqual(true);
 });
 
-test('testing modifications - all on', () => {
+it('testing modifications - all on', () => {
   const topLayer = render(
     <TopLayer
       fill
@@ -100,7 +100,7 @@ test('testing modifications - all on', () => {
   expect(topLayerClassList.contains('sg-toplayer--row')).toEqual(true);
 });
 
-test('testing modifications - all off', () => {
+it('testing modifications - all off', () => {
   const topLayer = render(<TopLayer>some text</TopLayer>);
   const topLayerClassList = topLayer.container.firstElementChild.classList;
 
@@ -120,7 +120,7 @@ test('testing modifications - all off', () => {
   expect(topLayerClassList.contains('sg-toplayer--row')).toEqual(false);
 });
 
-test('testing wrapper', () => {
+it('testing wrapper', () => {
   const topLayer = render(<TopLayer>some text</TopLayer>);
 
   expect(
@@ -133,7 +133,7 @@ test('testing wrapper', () => {
   ).toBeTruthy();
 });
 
-test('testing wrapper without padding', () => {
+it('testing wrapper without padding', () => {
   const topLayer = render(<TopLayer noPadding>some text</TopLayer>);
 
   expect(

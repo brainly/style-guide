@@ -32,10 +32,6 @@ describe('SkipLink', () => {
     expect(link).toHaveAttribute('href', `#${linkProps.id}`);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<SkipLink id="main">skip to main content</SkipLink>);
-  });
-
   it('should be focusable', () => {
     renderSkipLink();
     const link = screen.getByRole('link', {
@@ -45,5 +41,11 @@ describe('SkipLink', () => {
     expect(link).not.toHaveFocus();
     link.focus();
     expect(link).toHaveFocus();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SkipLink id="main">skip to main content</SkipLink>);
+    });
   });
 });

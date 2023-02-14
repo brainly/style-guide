@@ -46,7 +46,7 @@ const exampleGroupedOptions = [
 
 const voidFunction = () => undefined;
 
-test('render', () => {
+it('render', () => {
   const select = render(<Select />);
 
   expect(
@@ -54,20 +54,20 @@ test('render', () => {
   ).toEqual(true);
 });
 
-test('render options', () => {
+it('render options', () => {
   const select = render(<Select options={exampleOptions} />);
 
   expect(select.queryAllByRole('option')).toHaveLength(exampleOptions.length);
 });
 
-test('render grouped options', () => {
+it('render grouped options', () => {
   const select = render(<Select options={exampleGroupedOptions} />);
 
   expect(select.queryAllByRole('option')).toHaveLength(6);
   expect(select.queryByRole('group', {name: 'Label text'})).toBeTruthy();
 });
 
-test('choose options', () => {
+it('choose options', () => {
   const select = render(
     <Select
       options={exampleOptions}
@@ -90,7 +90,7 @@ test('choose options', () => {
   ).toBeTruthy();
 });
 
-test('full width', () => {
+it('full width', () => {
   const select = render(<Select fullWidth />);
 
   expect(
@@ -100,7 +100,7 @@ test('full width', () => {
   ).toEqual(true);
 });
 
-test('default validation', () => {
+it('default validation', () => {
   const select = render(<Select />);
 
   expect(
@@ -111,7 +111,7 @@ test('default validation', () => {
   ).toEqual(false);
 });
 
-test('valid', () => {
+it('valid', () => {
   const select = render(<Select valid />);
 
   expect(
@@ -122,7 +122,7 @@ test('valid', () => {
   ).toEqual(false);
 });
 
-test('invalid', () => {
+it('invalid', () => {
   const select = render(<Select invalid />);
 
   expect(
@@ -133,7 +133,7 @@ test('invalid', () => {
   ).toEqual(true);
 });
 
-test('capitalized', () => {
+it('capitalized', () => {
   const select = render(<Select capitalized />);
 
   expect(
@@ -143,7 +143,7 @@ test('capitalized', () => {
   ).toEqual(true);
 });
 
-test('error when both valid and invalid', () => {
+it('error when both valid and invalid', () => {
   expect(() => {
     render(<Select valid invalid />);
   }).toThrow();

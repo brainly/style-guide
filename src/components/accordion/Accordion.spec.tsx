@@ -257,17 +257,19 @@ describe('<Accordion>', () => {
     expect(accordion.getByLabelText(label)).toBeTruthy();
   });
 
-  it('should have no a11y violations when renders Accordion with expanded and collapsed items', async () => {
-    const accordionIds = ['id-1', 'id-2'];
+  describe('a11y', () => {
+    it('should have no a11y violations when renders Accordion with expanded and collapsed items', async () => {
+      const accordionIds = ['id-1', 'id-2'];
 
-    await testA11y(
-      <Accordion defaultExpanded={accordionIds[0]}>
-        {accordionIds.map(id => (
-          <AccordionItem title={id} id={id} key={id}>
-            Accordion Item Description
-          </AccordionItem>
-        ))}
-      </Accordion>
-    );
+      await testA11y(
+        <Accordion defaultExpanded={accordionIds[0]}>
+          {accordionIds.map(id => (
+            <AccordionItem title={id} id={id} key={id}>
+              Accordion Item Description
+            </AccordionItem>
+          ))}
+        </Accordion>
+      );
+    });
   });
 });

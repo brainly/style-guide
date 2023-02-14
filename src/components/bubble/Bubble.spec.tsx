@@ -4,14 +4,14 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Bubble a11y', () => {
-  test('render', () => {
+  it('render', () => {
     const bubble = render(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
     const root = bubble.container.firstElementChild;
 
     expect(root.classList.contains('sg-bubble')).toEqual(true);
   });
 
-  test('render top', () => {
+  it('render top', () => {
     const bubble = render(<Bubble direction={DIRECTION.TOP}>Some text</Bubble>);
     const root = bubble.container.firstElementChild;
 
@@ -20,7 +20,7 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--row-start')).toEqual(false);
   });
 
-  test('render top start', () => {
+  it('render top start', () => {
     const bubble = render(
       <Bubble direction={DIRECTION.TOP} alignment={ALIGNMENT.START}>
         Some text
@@ -32,7 +32,7 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--row-start')).toEqual(true);
   });
 
-  test('render right', () => {
+  it('render right', () => {
     const bubble = render(
       <Bubble direction={DIRECTION.RIGHT}>Some text</Bubble>
     );
@@ -44,7 +44,7 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--column-end')).toEqual(false);
   });
 
-  test('render right end', () => {
+  it('render right end', () => {
     const bubble = render(
       <Bubble direction={DIRECTION.RIGHT} alignment={ALIGNMENT.END}>
         Some text
@@ -58,7 +58,7 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--row-end')).toEqual(false);
   });
 
-  test('render full', () => {
+  it('render full', () => {
     const bubble = render(
       <Bubble direction={DIRECTION.LEFT} full>
         Some text
@@ -69,7 +69,7 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--full')).toEqual(true);
   });
 
-  test('renders without shadow', () => {
+  it('renders without shadow', () => {
     const bubble = render(
       <Bubble direction={DIRECTION.LEFT} noShadow>
         Some text
@@ -80,7 +80,9 @@ describe('Bubble a11y', () => {
     expect(root.classList.contains('sg-bubble--no-shadow')).toEqual(true);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Bubble direction="top">item</Bubble>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Bubble direction="top">item</Bubble>);
+    });
   });
 });

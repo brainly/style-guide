@@ -4,7 +4,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Overlay a11y', () => {
-  test('render', () => {
+  it('render', () => {
     const overlay = render(<Overlay />);
 
     expect(
@@ -12,7 +12,7 @@ describe('Overlay a11y', () => {
     ).toBeTruthy();
   });
 
-  test('children', () => {
+  it('children', () => {
     const overlay = render(
       <Overlay>
         <div>foo</div>
@@ -22,7 +22,7 @@ describe('Overlay a11y', () => {
     expect(overlay.queryByText('foo')).toBeTruthy();
   });
 
-  test('partial', () => {
+  it('partial', () => {
     const overlay = render(<Overlay partial />);
 
     expect(
@@ -32,7 +32,7 @@ describe('Overlay a11y', () => {
     ).toBe(true);
   });
 
-  test('colors', () => {
+  it('colors', () => {
     const overlay = render(<Overlay color="black" />);
 
     expect(
@@ -42,7 +42,9 @@ describe('Overlay a11y', () => {
     ).toBe(true);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Overlay>item</Overlay>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Overlay>item</Overlay>);
+    });
   });
 });

@@ -2,34 +2,34 @@ import * as React from 'react';
 import Textarea, {SIZE} from './Textarea';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const component = render(<Textarea />);
 
   expect(component.queryByRole('textbox')).toBeTruthy();
 });
 
-test('full width', () => {
+it('full width', () => {
   const component = render(<Textarea fullWidth />);
   const textarea = component.queryByRole('textbox');
 
   expect(textarea.classList.contains('sg-textarea--full-width')).toEqual(true);
 });
 
-test('auto height', () => {
+it('auto height', () => {
   const component = render(<Textarea autoHeight />);
   const textarea = component.queryByRole('textbox');
 
   expect(textarea.classList.contains('sg-textarea--auto-height')).toEqual(true);
 });
 
-test('simple', () => {
+it('simple', () => {
   const component = render(<Textarea simple />);
   const textarea = component.queryByRole('textbox');
 
   expect(textarea.classList.contains('sg-textarea--simple')).toEqual(true);
 });
 
-test('default validation', () => {
+it('default validation', () => {
   const component = render(<Textarea />);
   const textarea = component.queryByRole('textbox');
 
@@ -37,7 +37,7 @@ test('default validation', () => {
   expect(textarea.classList.contains('sg-textarea--invalid')).toEqual(false);
 });
 
-test('valid', () => {
+it('valid', () => {
   const component = render(<Textarea valid />);
   const textarea = component.queryByRole('textbox');
 
@@ -45,7 +45,7 @@ test('valid', () => {
   expect(textarea.classList.contains('sg-textarea--invalid')).toEqual(false);
 });
 
-test('invalid', () => {
+it('invalid', () => {
   const component = render(<Textarea invalid />);
   const textarea = component.queryByRole('textbox');
 
@@ -53,20 +53,20 @@ test('invalid', () => {
   expect(textarea.classList.contains('sg-textarea--invalid')).toEqual(true);
 });
 
-test('error when both valid and invalid', () => {
+it('error when both valid and invalid', () => {
   expect(() => {
     render(<Textarea valid invalid />);
   }).toThrow();
 });
 
-test('size', () => {
+it('size', () => {
   const component = render(<Textarea size={SIZE.SHORT} />);
   const textarea = component.queryByRole('textbox');
 
   expect(textarea.classList.contains('sg-textarea--short')).toEqual(true);
 });
 
-test('default size', () => {
+it('default size', () => {
   const component = render(<Textarea />);
   const textarea = component.queryByRole('textbox');
 
@@ -74,7 +74,7 @@ test('default size', () => {
   expect(textarea.classList.contains('sg-textarea--short')).toEqual(false);
 });
 
-test('Type', () => {
+it('Type', () => {
   const CustomTextarea = props => (
     <label>
       superCustom

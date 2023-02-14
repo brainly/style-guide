@@ -2,7 +2,7 @@ import * as React from 'react';
 import HeaderContent from './HeaderContent';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const headerContent = render(<HeaderContent>some text</HeaderContent>);
 
   expect(
@@ -11,7 +11,7 @@ test('render', () => {
     )
   ).toEqual(true);
 });
-test('auto-height', () => {
+it('auto-height', () => {
   const headerContent = render(
     <HeaderContent autoHeight>some text</HeaderContent>
   );

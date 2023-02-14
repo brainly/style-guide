@@ -2,7 +2,7 @@ import * as React from 'react';
 import SubjectIconBox, {TYPE} from './SubjectIconBox';
 import {render} from '@testing-library/react';
 
-test('render', () => {
+it('render', () => {
   const box = render(<SubjectIconBox type={TYPE.LIFE_SCIENCE} />);
 
   expect(
@@ -11,7 +11,7 @@ test('render', () => {
   expect(box.queryByRole('img')).toBeTruthy();
 });
 
-test('darker', () => {
+it('darker', () => {
   const box = render(<SubjectIconBox type={TYPE.LIFE_SCIENCE} darker />);
 
   expect(

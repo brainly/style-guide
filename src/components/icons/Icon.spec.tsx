@@ -4,7 +4,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Icon', () => {
-  test('render if type', () => {
+  it('render if type', () => {
     const icon = render(<Icon type={TYPE.ANSWER} />);
 
     expect(
@@ -12,7 +12,7 @@ describe('Icon', () => {
     ).toEqual(true);
   });
 
-  test('render if children', () => {
+  it('render if children', () => {
     const icon = render(
       <Icon>
         <div>
@@ -31,7 +31,7 @@ describe('Icon', () => {
     expect(icon.queryByTestId('foo-icon')).toBeTruthy();
   });
 
-  test('type passed to xlink:href', () => {
+  it('type passed to xlink:href', () => {
     const type = TYPE.ANSWER;
     const icon = render(<Icon type={type} />);
     const use = icon.baseElement.querySelector('use');
@@ -39,7 +39,7 @@ describe('Icon', () => {
     expect(use.getAttribute('xlink:href')).toEqual(`#icon-${type}`);
   });
 
-  test('colors', () => {
+  it('colors', () => {
     const type = TYPE.ANSWER;
     const color = ICON_COLOR['icon-black'];
     const icon = render(<Icon type={type} color={color} />);
@@ -49,7 +49,7 @@ describe('Icon', () => {
     ).toEqual(true);
   });
 
-  test('size', () => {
+  it('size', () => {
     const size = 16;
     const type = TYPE.ANSWER;
     const icon = render(<Icon type={type} size={size} />);
@@ -59,7 +59,7 @@ describe('Icon', () => {
     ).toEqual(true);
   });
 
-  test('tag type', () => {
+  it('tag type', () => {
     const component = render(
       <Icon type={TYPE.ANSWER} size={16} tagType="span" />
     );
@@ -67,7 +67,7 @@ describe('Icon', () => {
     expect(component.container.firstElementChild.tagName).toEqual('SPAN');
   });
 
-  test('other props', () => {
+  it('other props', () => {
     const type = TYPE.ANSWER;
     const icon = render(<Icon type={type} data-testid="foo" />);
 
@@ -93,15 +93,17 @@ describe('Icon', () => {
     expect(icon.getByText(description)).toBeTruthy();
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Icon type="search" />);
-  });
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Icon type="search" />);
+    });
 
-  it('should have no a11y violations when title is provided', async () => {
-    await testA11y(<Icon type="search" title="Title" />);
-  });
+    it('should have no a11y violations when title is provided', async () => {
+      await testA11y(<Icon type="search" title="Title" />);
+    });
 
-  it('should have no a11y violations when description is provided', async () => {
-    await testA11y(<Icon type="search" description="description" />);
+    it('should have no a11y violations when description is provided', async () => {
+      await testA11y(<Icon type="search" description="description" />);
+    });
   });
 });

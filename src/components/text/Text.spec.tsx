@@ -12,13 +12,13 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Text', () => {
-  test('render', () => {
+  it('render', () => {
     const text = render(<Text>Test</Text>);
 
     expect(text.queryByText('Test')).toBeTruthy();
   });
 
-  test('size', () => {
+  it('size', () => {
     const text = render(<Text size={TEXT_SIZE.XLARGE}>Test</Text>);
 
     expect(
@@ -44,14 +44,14 @@ describe('Text', () => {
     );
   });
 
-  test('type', () => {
+  it('type', () => {
     const text = 'random text';
     const component = render(<Text type={TEXT_TYPE.SPAN}>{text}</Text>);
 
     expect(component.queryByText(text).tagName).toEqual('SPAN');
   });
 
-  test('color', () => {
+  it('color', () => {
     const text = render(<Text color="text-green-60">Test</Text>);
 
     expect(
@@ -61,7 +61,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('weight', () => {
+  it('weight', () => {
     const text = render(<Text weight={TEXT_WEIGHT.BOLD}>Test</Text>);
 
     expect(
@@ -81,7 +81,7 @@ describe('Text', () => {
     });
   });
 
-  test('transform - uppercase', () => {
+  it('transform - uppercase', () => {
     const text = render(<Text transform={TEXT_TRANSFORM.UPPERCASE}>Test</Text>);
 
     expect(
@@ -105,7 +105,7 @@ describe('Text', () => {
     });
   });
 
-  test('transform - lowercase', () => {
+  it('transform - lowercase', () => {
     const text = render(<Text transform={TEXT_TRANSFORM.LOWERCASE}>Test</Text>);
 
     expect(
@@ -113,7 +113,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('transform - capitalize', () => {
+  it('transform - capitalize', () => {
     const text = render(
       <Text transform={TEXT_TRANSFORM.CAPITALIZE}>Test</Text>
     );
@@ -123,7 +123,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('align - left', () => {
+  it('align - left', () => {
     const text = render(<Text align={TEXT_ALIGN.LEFT}>Test</Text>);
 
     expect(
@@ -131,7 +131,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('align - center', () => {
+  it('align - center', () => {
     const text = render(<Text align={TEXT_ALIGN.CENTER}>Test</Text>);
 
     expect(
@@ -139,7 +139,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('align - right', () => {
+  it('align - right', () => {
     const text = render(<Text align={TEXT_ALIGN.RIGHT}>Test</Text>);
 
     expect(
@@ -147,7 +147,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('align - justify', () => {
+  it('align - justify', () => {
     const text = render(<Text align={TEXT_ALIGN.JUSTIFY}>Test</Text>);
 
     expect(
@@ -167,7 +167,7 @@ describe('Text', () => {
     });
   });
 
-  test('full', () => {
+  it('full', () => {
     const text = render(<Text full>Test</Text>);
 
     expect(
@@ -185,7 +185,7 @@ describe('Text', () => {
     });
   });
 
-  test('asContainer', () => {
+  it('asContainer', () => {
     const text = render(<Text asContainer>Test</Text>);
 
     expect(
@@ -193,7 +193,7 @@ describe('Text', () => {
     ).toBeTruthy();
   });
 
-  test('whiteSpace', () => {
+  it('whiteSpace', () => {
     const text1 = render(<Text whiteSpace="pre-wrap">Test</Text>);
     const text2 = render(<Text whiteSpace="pre-line">Test</Text>);
 
@@ -221,7 +221,9 @@ describe('Text', () => {
     );
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Text>Read more</Text>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Text>Read more</Text>);
+    });
   });
 });

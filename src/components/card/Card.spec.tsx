@@ -5,7 +5,7 @@ import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('Card', () => {
-  test('render', () => {
+  it('render', () => {
     const card = render(
       <Card>
         <CardHole color="gray-40">This is card top</CardHole>
@@ -17,7 +17,7 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card')).toEqual(true);
   });
 
-  test('full', () => {
+  it('full', () => {
     const card = render(
       <Card full>
         <CardHole color="gray-40">This is card top</CardHole>
@@ -29,7 +29,7 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card--full')).toEqual(true);
   });
 
-  test('vertical', () => {
+  it('vertical', () => {
     const card = render(
       <Card vertical>
         <CardHole color="gray-40">This is card top</CardHole>
@@ -41,7 +41,7 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card--vertical')).toEqual(true);
   });
 
-  test('centered', () => {
+  it('centered', () => {
     const card = render(
       <Card centered>
         <CardHole color="gray-40">This is card top</CardHole>
@@ -53,7 +53,7 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card--centered')).toEqual(true);
   });
 
-  test('small padding', () => {
+  it('small padding', () => {
     const padding = CARD_PADDING.SMALL;
     const card = render(
       <Card padding={padding}>
@@ -66,7 +66,7 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card--padding-small')).toEqual(true);
   });
 
-  test('large padding', () => {
+  it('large padding', () => {
     const padding = CARD_PADDING.LARGE;
     const card = render(
       <Card padding={padding}>
@@ -79,7 +79,9 @@ describe('Card', () => {
     expect(root.classList.contains('sg-card--padding-large')).toEqual(true);
   });
 
-  it('should have no a11y violations', async () => {
-    await testA11y(<Card>item</Card>);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Card>item</Card>);
+    });
   });
 });
