@@ -1,0 +1,86 @@
+import {Meta} from '@storybook/addon-docs';
+import Box from '../../../components/box/Box';
+import Button from '../../../components/buttons/Button';
+import Headline from '../../../components/text/Headline';
+import PageHeader from 'blocks/PageHeader';
+import {StoryVariantTable} from '../../utils';
+const startAnimation = id => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.classList.remove(`sg-animation-${id}`);
+    setTimeout(() => element.classList.add(`sg-animation-${id}`), 0);
+  }
+};
+
+export const BlueBox = ({children, ...props}) => (
+  <Box color="blue-40" padding="xl" {...props}>
+    {children}
+  </Box>
+);
+
+<Meta title="Utilities/Animations" />
+
+<PageHeader type="utility">Animations</PageHeader>
+
+Use fade-in effect in 3 variants: normal, fast and slow.
+
+<StoryVariantTable>
+  <thead>
+    <tr>
+      <td>
+        <Headline
+          extraBold
+          transform="uppercase"
+          as="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Utility class
+        </Headline>
+      </td>
+      <td>
+        <Headline
+          extraBold
+          transform="uppercase"
+          as="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Preview
+        </Headline>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>.sg-animation-fade-in-fast</code>
+      </td>
+      <td>
+        <BlueBox className="sg-animation-fade-in-fast" id="fade-in-fast">
+          <Button onClick={() => startAnimation('fade-in-fast')}>Play</Button>
+        </BlueBox>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.sg-animation-fade-in</code>
+      </td>
+      <td>
+        <BlueBox className="sg-animation-fade-in" id="fade-in">
+          <Button onClick={() => startAnimation('fade-in')}>Play</Button>
+        </BlueBox>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.sg-animation-fade-in-slow</code>
+      </td>
+      <td>
+        <BlueBox className="sg-animation-fade-in-slow" id="fade-in-slow">
+          <Button onClick={() => startAnimation('fade-in-slow')}>Play</Button>
+        </BlueBox>
+      </td>
+    </tr>
+  </tbody>
+</StoryVariantTable>

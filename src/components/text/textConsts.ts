@@ -1,4 +1,4 @@
-export const TEXT_TYPE = {
+export const TEXT_AS = {
   SPAN: 'span',
   P: 'p',
   H1: 'h1',
@@ -18,7 +18,7 @@ export const TEXT_TYPE = {
   INS: 'ins',
 } as const;
 
-export const TYPE = TEXT_TYPE; // backward compatibility
+export const AS = TEXT_AS; // backward compatibility
 
 export const TEXT_SIZE = {
   XXSMALL: 'xxsmall',

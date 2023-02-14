@@ -1,34 +1,9 @@
 import {Meta} from '@storybook/addon-docs';
-import {version} from '../../../../package.json';
-import {Link} from '../../..';
-import Label from '../../../components/labels/Label';
 import Text from '../../../components/text/Text';
+import Headline from '../../../components/text/Headline';
 import PageHeader from 'blocks/PageHeader';
-
-export const Row = props => (
-  <div
-    style={{
-      display: 'flex',
-      marginBottom: '50px',
-      textAlign: 'left',
-      alignItems: 'center',
-    }}
-  >
-    {props.children}
-  </div>
-);
-
-export const ColumnTitle = props => (
-  <Text weight="bold" style={{width: '20%'}}>
-    {props.children}
-  </Text>
-);
-
-export const Cell = props => (
-  <Text size="small" style={{width: '20%'}}>
-    {props.children}
-  </Text>
-);
+import {StoryVariantTable} from '../../utils';
+const shadows = ['sg-shadow-small', 'sg-shadow-medium', 'sg-shadow-large'];
 
 <Meta title="Utilities/Shadows" />
 
@@ -36,19 +11,43 @@ export const Cell = props => (
 
 You can use following single purpose flexible classes to highlight differences in elevation between two surfaces. All classes are based on the [Design System shadow tokens](/story/foundation-✨-shadows--page).
 
-<Row>
-  <ColumnTitle>Utility class:</ColumnTitle>
-  <ColumnTitle>Preview:</ColumnTitle>
-</Row>
-<Row>
-  <Cell>.sg-shadow-small</Cell>
-  <div className="sg-shadow" style={{width: 150, height: 150}} />
-</Row>
-<Row>
-  <Cell>.sg-shadow-medium</Cell>
-  <div className="sg-shadow-medium" style={{width: 150, height: 150}} />
-</Row>
-<Row>
-  <Cell>.sg-shadow-large</Cell>
-  <div className="sg-shadow-large" style={{width: 150, height: 150}} />
-</Row>
+<StoryVariantTable>
+  <thead>
+    <tr>
+      <td>
+        <Headline
+          extraBold
+          transform="uppercase"
+          as="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Utility class
+        </Headline>
+      </td>
+      <td>
+        <Headline
+          extraBold
+          transform="uppercase"
+          as="span"
+          color="text-gray-60"
+          size="xsmall"
+        >
+          Preview
+        </Headline>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    {shadows.map(shadow => (
+      <tr key={shadow}>
+        <td>
+          <code>.{shadow}</code>
+        </td>
+        <td>
+          <div className={shadow} style={{width: 150, height: 150}} />
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</StoryVariantTable>

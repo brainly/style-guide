@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {TEXT_TYPE, TEXT_WHITE_SPACE} from './textConsts';
+import {TEXT_AS, TEXT_WHITE_SPACE} from './textConsts';
 import {generateResponsiveClassNames} from '../utils/responsive-props';
 import type {ResponsivePropType} from '../utils/responsive-props';
 
-export type TextTypeType =
+export type TextAsType =
   | 'span'
   | 'p'
   | 'h1'
@@ -53,11 +53,11 @@ export type TextTransformType = 'uppercase' | 'lowercase' | 'capitalize';
 export type TextAlignType = 'to-left' | 'to-center' | 'to-right' | 'justify';
 export type TextWhiteSpaceType = 'pre-wrap' | 'pre-line' | 'normal';
 export {
-  TYPE, // backward compatibility
+  AS, // backward compatibility
   SIZE, // backward compatibility
   COLOR, // backward compatibility
   WEIGHT, // backward compatibility
-  TEXT_TYPE,
+  TEXT_AS,
   TEXT_SIZE,
   TEXT_COLOR,
   TEXT_WEIGHT,
@@ -68,7 +68,7 @@ export {
 export type TextPropsType = {
   children?: React.ReactNode;
   size?: ResponsivePropType<TextSizeType>;
-  type?: TextTypeType;
+  as?: TextAsType;
   color?: TextColorType | null | undefined;
   weight?: ResponsivePropType<TextWeightType>;
   transform?: ResponsivePropType<TextTransformType | null | undefined>;
@@ -103,7 +103,7 @@ export type TextPropsType = {
 
 const Text = ({
   children,
-  type = TEXT_TYPE.DIV,
+  as = TEXT_AS.DIV,
   size,
   weight,
   color,
@@ -118,14 +118,14 @@ const Text = ({
   inherited = false,
   ...props
 }: TextPropsType) => {
-  const Type = type;
+  const Type = as;
   const textClass = classNames(
     'sg-text',
     {
       'sg-text--inherited': inherited,
       [`sg-text--${String(color)}`]: color,
       'sg-text--container': asContainer,
-      'sg-text--bold': type === 'strong',
+      'sg-text--bold': as === 'strong',
     },
     ...generateResponsiveClassNames(size => `sg-text--${size}`, size),
     ...generateResponsiveClassNames(weight => `sg-text--${weight}`, weight),

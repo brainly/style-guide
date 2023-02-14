@@ -112,7 +112,7 @@ const Link = (props: LinkPropsType) => {
     ...additionalProps
   } = props;
   const {current: labelId} = React.useRef(generateId());
-  let textSize: ResponsivePropType<TextSizeType>;
+  let textSize: ResponsivePropType<TextSizeType> | undefined;
 
   if (typeof size === 'object') {
     if (Array.isArray(size)) {
@@ -168,7 +168,7 @@ const Link = (props: LinkPropsType) => {
     return (
       <Text
         {...additionalProps}
-        type="label"
+        as="label"
         className={linkClass}
         size={textSize}
       >
@@ -203,7 +203,7 @@ const Link = (props: LinkPropsType) => {
   return (
     <Text
       {...additionalProps}
-      type={linkType}
+      as={linkType}
       href={href || ''}
       className={linkClass}
       size={textSize}

@@ -1,0 +1,43 @@
+.sg-progress-bar {
+  --bar-color: #{$indigo-50};
+  --track-color: #{$gray-30};
+
+  width: 100%;
+  min-width: 120px;
+  border-radius: 8px;
+  background: var(--track-color);
+  position: relative;
+  overflow: hidden;
+
+  &--no-border-radius {
+    border-radius: 0;
+  }
+
+  &--invisible-track {
+    --track-color: transparent;
+  }
+
+  &__bar {
+    background: var(--bar-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 8px;
+    transition-property: width, border-radius;
+    transition-timing-function: $easingRegular;
+    transition-duration: $durationGentle1;
+  }
+
+  &--s {
+    height: 8px;
+  }
+
+  &--xs {
+    height: 4px;
+
+    & .sg-progress-bar__bar {
+      min-width: 4px;
+    }
+  }
+}

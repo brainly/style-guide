@@ -167,3 +167,5 @@ export type {TransitionEffectType} from './components/transition/Transition';
 export {default as useReducedMotion} from './components/utils/useReducedMotion';
 export type {SkipLinkPropsType} from './components/skip-link/SkipLink';
 export {default as SkipLink} from './components/skip-link/SkipLink';
+export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
+export {default as ProgressBar} from './components/progress-bar/ProgressBar';

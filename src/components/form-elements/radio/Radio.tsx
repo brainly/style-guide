@@ -177,7 +177,7 @@ const Radio = ({
     isChecked =
       checked !== undefined
         ? checked
-        : radioGroupContext.selectedValue &&
+        : Boolean(radioGroupContext.selectedValue) &&
           radioGroupContext.selectedValue === value;
   }
 
@@ -250,7 +250,7 @@ const Radio = ({
           <Text
             id={labelId}
             htmlFor={radioId}
-            type="label"
+            as="label"
             size={labelSize}
             weight="bold"
             className={labelClass}
@@ -264,7 +264,7 @@ const Radio = ({
           id={descriptionId}
           className="sg-radio__description"
           size="small"
-          type="span"
+          as="span"
           breakWords
         >
           {description}
