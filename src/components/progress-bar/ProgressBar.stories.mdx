@@ -1,0 +1,135 @@
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
+import ProgressBar from './ProgressBar';
+import Button from '../buttons/Button';
+import {styled} from '@storybook/theming';
+import ProgressBarA11y from './stories/ProgressBar.a11y.mdx';
+import PageHeader from 'blocks/PageHeader';
+
+<Meta
+  title="Components/ProgressBar"
+  component={ProgressBar}
+  args={{
+    maxValue: 10,
+    value: 4,
+    textValue: 'step 4 of 10',
+  }}
+/>
+
+<PageHeader>ProgressBar</PageHeader>
+
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
+## Overview
+
+<Canvas>
+  <Story name="Default">{args => <ProgressBar {...args} />}</Story>
+</Canvas>
+
+<ArgsTable story="Default" />
+
+## Stories
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div>
+        {['xs', 's'].map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <ProgressBar {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Without border radius
+
+<Canvas>
+  <Story name="Without border radius" args={{noBorderRadius: true}}>
+    {args => <ProgressBar {...args} />}
+  </Story>
+</Canvas>
+
+### With invisible track
+
+<Canvas>
+  <Story name="With invisible track" args={{invisibleTrack: true}}>
+    {args => <ProgressBar {...args} />}
+  </Story>
+</Canvas>
+
+### Motion
+
+The `transition-duration` depends on the length change.
+
+<Canvas>
+  <Story name="Motion">
+    {args => {
+      const [value, setValue] = React.useState(0);
+      return (
+        <div className="sg-space-y-l">
+          <ProgressBar {...args} value={value} />
+          <Button onClick={() => setValue(value + 1)}>next step</Button>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### With custom theme
+
+To use custom theme for `ProgressBar`, you can override following CSS variables:
+
+| Css variable name | Explanation |
+| ----------------- | ----------- |
+| --bar-color       | Bar color   |
+| --track-color     | Track color |
+
+There are two ways of achieving custom theming:
+
+1. Change CSS variables for particular `ProgressBar` by defining them inline in the `style` attribute. Example:
+
+```jsx
+<ProgressBar style={{'--track-color': 'green'}} />
+```
+
+2. Or, you can use `className` and define variables replacements in your CSS file. Example:
+
+```css
+.sg-progress-bar--custom-theme {
+  --track-color: #fbbe2e;
+  --bar-color: #24a865;
+}
+```
+
+In the following example, className `sg-progress-bar--custom-theme` was applied to all `ProgressBar` components. The last component has inline variable override:
+
+<Canvas>
+  <Story
+    name="With custom theme"
+    args={{className: 'sg-progress-bar--custom-theme'}}
+  >
+    {args => {
+      const StyledProgressBar = styled.div`
+        .sg-progress-bar--custom-theme {
+          --track-color: #fbbe2e;
+          --bar-color: #24a865;
+        }
+      `;
+      return (
+        <StyledProgressBar>
+          <ProgressBar {...args} />
+        </StyledProgressBar>
+      );
+    }}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+<ProgressBarA11y />
