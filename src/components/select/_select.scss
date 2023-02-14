@@ -1,5 +1,8 @@
 @if ($includeHtml) {
   .sg-select-new {
+    --borderColor: #{$gray-20};
+    --activeBorderColor: #{mix($gray-50, $gray-20, 12%)};
+
     display: inline-block;
     position: relative;
     min-width: 120px;
@@ -12,6 +15,16 @@
     &--disabled {
       pointer-events: none;
       opacity: 42%;
+    }
+
+    &--valid {
+      --borderColor: #{$green-40};
+      --activeBorderColor: #{$green-50};
+    }
+
+    &--invalid {
+      --borderColor: #{$red-40};
+      --activeBorderColor: #{$red-50};
     }
 
     &--s {
@@ -53,7 +66,7 @@
       padding: 0 44px 0 spacing(s);
       width: 100%;
       text-overflow: ellipsis;
-      border: 2px solid $gray-20;
+      border: 2px solid var(--borderColor);
       border-radius: $formElementStandardBorderRadius;
       height: $formElementSizeM;
       font-size: $formElementDefaultFontSize;
@@ -64,12 +77,12 @@
       &:focus,
       &:active,
       &:focus-visible {
-        border-color: mix($gray-50, $gray-20, 12%);
+        border-color: var(--activeBorderColor);
         background-color: mix($gray-50, $gray-20, 12%);
       }
 
       &[aria-expanded='true'] {
-        border-color: mix($gray-50, $gray-20, 12%);
+        border-color: var(--activeBorderColor);
         background-color: white;
       }
 

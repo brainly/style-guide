@@ -419,6 +419,28 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
                   disabled
                 </Headline>
               </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  valid
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  invalid
+                </Headline>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -443,6 +465,16 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
                 <td>
                   <Flex justifyContent="center">
                     <Select key={size} {...args} size={size} disabled />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Select key={size} {...args} size={size} valid />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Select key={size} {...args} size={size} invalid />
                   </Flex>
                 </td>
               </tr>

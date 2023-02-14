@@ -92,11 +92,12 @@ export type SelectPropsType = {
 const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
   (props: SelectPropsType, ref) => {
     const {
+      className,
       valid,
       invalid,
+      disabled,
       selectedOptions = [],
       placeholder = 'Select...',
-      className,
       options = [],
       expanded = undefined,
       defaultExpanded = undefined,
@@ -104,7 +105,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       multiSelect = false,
       fullWidth = false,
       size = DEFAULT_SIZE,
-      disabled,
       onClick,
       onToggle,
       onOptionChange,
@@ -234,6 +234,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           role="combobox"
           tabIndex={0}
           aria-disabled={disabled}
+          aria-invalid={invalid ? true : undefined}
           aria-controls={`${id}-listbox`}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
