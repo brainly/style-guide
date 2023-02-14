@@ -12,9 +12,9 @@ describe('Card', () => {
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
-    const root = card.container.firstElementChild;
 
-    expect(root.classList.contains('sg-card')).toEqual(true);
+    expect(card.getByText('This is card top')).toBeTruthy();
+    expect(card.getByText('This is card bottom')).toBeTruthy();
   });
 
   it('full', () => {

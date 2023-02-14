@@ -27,7 +27,7 @@ it('check if close button exists', () => {
   const mockCallback = jest.fn();
   const topLayer = render(<TopLayer onClose={mockCallback} />);
 
-  expect(topLayer.queryByRole('button')).toBeTruthy();
+  expect(topLayer.getByRole('button')).toBeTruthy();
 });
 
 it('check when no close button', () => {
@@ -39,7 +39,7 @@ it('check when no close button', () => {
 it('click action', () => {
   const mockCallback = jest.fn();
   const topLayer = render(<TopLayer onClose={mockCallback} />);
-  const button = topLayer.queryByRole('button');
+  const button = topLayer.getByRole('button');
 
   fireEvent.click(button);
 
@@ -51,7 +51,7 @@ it('key down action', () => {
   const topLayer = render(
     <TopLayer onClose={mockCallback} onCloseButtonKeyDown={mockCallback} />
   );
-  const button = topLayer.queryByRole('button');
+  const button = topLayer.getByRole('button');
 
   fireEvent.keyDown(button);
 

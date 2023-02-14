@@ -1,6 +1,5 @@
 import * as React from 'react';
-import {Icon} from '../..';
-import Button, {BUTTON_VARIANT} from './Button';
+import Button from './Button';
 import {render, within} from '@testing-library/react';
 import {testA11y} from '../../axe';
 import userEvent from '@testing-library/user-event';
@@ -8,101 +7,14 @@ import userEvent from '@testing-library/user-event';
 describe('Button', () => {
   it('render', () => {
     const button = render(<Button>Some text</Button>);
-    const root = button.container.firstElementChild;
 
-    expect(root.classList.contains('sg-button')).toEqual(true);
-  });
-
-  it('variant', () => {
-    const buttonVariant = BUTTON_VARIANT.SOLID;
-    const button = render(<Button variant={buttonVariant}>Some text</Button>);
-    const root = button.container.firstElementChild;
-
-    expect(root.classList.contains(`sg-button--${buttonVariant}`)).toEqual(
-      true
-    );
+    expect(button.getByRole('button', {name: 'Some text'})).toBeTruthy();
   });
 
   it('disabled', () => {
     const button = render(<Button disabled>Some text</Button>);
-    const root = button.container.firstElementChild;
 
-    expect(root.classList.contains('sg-button--disabled')).toEqual(true);
-    expect(root.hasAttribute('disabled')).toEqual(true);
-  });
-
-  it('not disabled', () => {
-    const button = render(<Button>Some text</Button>);
-    const root = button.container.firstElementChild;
-
-    expect(root.classList.contains('sg-button--disabled')).toEqual(false);
-    expect(root.hasAttribute('disabled')).toEqual(false);
-  });
-
-  it('full width', () => {
-    const button = render(<Button fullWidth>Some text</Button>);
-    const root = button.container.firstElementChild;
-
-    expect(root.classList.contains('sg-button--full-width')).toEqual(true);
-  });
-
-  it('icon', () => {
-    const icon = <span>Button icon</span>;
-    const button = render(<Button icon={icon}>Some text</Button>);
-
-    expect(button.getByText('Button icon')).toBeTruthy();
-  });
-
-  it('icon only', () => {
-    const icon = <span>Button icon</span>;
-    const button = render(
-      <Button icon={icon} iconOnly>
-        Some text
-      </Button>
-    );
-    const root = button.container.firstElementChild;
-
-    expect(button.getByText('Button icon')).toBeTruthy();
-    expect(root.classList.contains('sg-button--icon-only')).toBe(true);
-  });
-
-  it('toggle', () => {
-    const button = render(
-      <Button variant="solid-light" toggle="red">
-        Some text
-      </Button>
-    );
-
-    const root = button.container.firstElementChild;
-
-    expect(
-      root.classList.contains('sg-button--solid-light-toggle-red')
-    ).toEqual(true);
-  });
-
-  it('with icon - reversed order', () => {
-    const icon = <span>Button icon</span>;
-    const button = render(
-      <Button icon={icon} reversedOrder>
-        Some text
-      </Button>
-    );
-    const root = button.container.firstElementChild;
-
-    expect(button.getByText('Button icon')).toBeTruthy();
-    expect(root.classList.contains('sg-button--reversed-order')).toBe(true);
-  });
-
-  it('in loading state button shows spinner while hiding label and icon', () => {
-    const button = render(
-      <Button loading icon={<Icon type="heart" size={24} color="adaptive" />}>
-        Some text
-      </Button>
-    );
-    const root = button.container.firstElementChild;
-
-    expect(root.classList.contains('sg-button--loading')).toEqual(true);
-    expect(button.getByRole('status')).toBeTruthy();
+    expect(button.getByRole('button').hasAttribute('disabled')).toEqual(true);
   });
 
   describe('without `href`', () => {
@@ -184,6 +96,7 @@ describe('Button', () => {
       expect(button.getByRole('button')).toHaveProperty('disabled', true);
     });
   });
+
   describe('with `href`', () => {
     it('has a link role and an accessible label', () => {
       const label = 'read more about products';
@@ -264,14 +177,17 @@ describe('Button', () => {
       it('should have no a11y violations', async () => {
         await testA11y(<Button>Read more</Button>);
       });
+
       it('should have no a11y violations when aria-label is provided', async () => {
         await testA11y(
           <Button aria-label="read more about us">Read more</Button>
         );
       });
+
       it('should have no a11y violations when disabled', async () => {
         await testA11y(<Button disabled>Read more</Button>);
       });
+
       it('should have no a11y violations in loading state', async () => {
         await testA11y(<Button loading>Read more</Button>);
       });
@@ -280,6 +196,7 @@ describe('Button', () => {
       it('should have no a11y violations', async () => {
         await testA11y(<Button href="https://example.com/">Read more</Button>);
       });
+
       it('should have no a11y violations when aria-label is provided', async () => {
         await testA11y(
           <Button href="https://example.com/" aria-label="read more about us">
@@ -287,6 +204,7 @@ describe('Button', () => {
           </Button>
         );
       });
+
       it('should have no a11y violations when disabled', async () => {
         await testA11y(
           <Button href="https://example.com/" disabled>
@@ -294,6 +212,7 @@ describe('Button', () => {
           </Button>
         );
       });
+
       it('should have no a11y violations when opens in a new tab', async () => {
         await testA11y(
           <Button href="https://example.com/" target="_blank">

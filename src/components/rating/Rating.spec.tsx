@@ -20,7 +20,7 @@ describe('Rating', () => {
     const metricSize = 8;
     const rating = render(<Rating active metricSize={metricSize} />);
 
-    expect(rating.queryAllByRole('img', {hidden: true})).toHaveLength(
+    expect(rating.getAllByRole('img', {hidden: true})).toHaveLength(
       2 * metricSize
     );
   });
@@ -28,7 +28,7 @@ describe('Rating', () => {
   it('renders 5 stars by default', () => {
     const rating = render(<Rating />);
 
-    expect(rating.queryAllByRole('img', {hidden: true})).toHaveLength(5 * 2);
+    expect(rating.getAllByRole('img', {hidden: true})).toHaveLength(5 * 2);
   });
 
   it('fills stars', () => {
@@ -162,7 +162,7 @@ describe('star', () => {
     expect(
       star.container.firstElementChild.classList.contains('sg-rate-box__star')
     ).toEqual(true);
-    expect(star.queryByRole('img', {hidden: true})).toBeTruthy();
+    expect(star.getByRole('img', {hidden: true})).toBeTruthy();
   });
 
   it('has accessible label for radio input', () => {

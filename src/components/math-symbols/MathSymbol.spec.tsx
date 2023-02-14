@@ -18,7 +18,7 @@ describe('MathSymbol', () => {
   it('render', () => {
     const icon = render(<MathSymbol type={MATH_SYMBOL_TYPE.SQUERE_ROOT} />);
 
-    expect(icon.queryByRole('img')).toBeTruthy();
+    expect(icon.getByRole('img')).toBeTruthy();
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 

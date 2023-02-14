@@ -6,7 +6,7 @@ it('render', () => {
   const type = TYPE.STAR;
   const iconAsButton = render(<IconAsButton type={type} />);
 
-  expect(iconAsButton.queryByRole('img')).toBeTruthy();
+  expect(iconAsButton.getByRole('img')).toBeTruthy();
 });
 
 it('colors', () => {
@@ -114,5 +114,5 @@ it('link as button', () => {
   const href = 'http://brainly.test';
   const iconAsButton = render(<IconAsButton type={type} href={href} />);
 
-  expect(iconAsButton.queryByRole('button')).toBeTruthy();
+  expect(iconAsButton.getByRole('button')).toBeTruthy();
 });

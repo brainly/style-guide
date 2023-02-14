@@ -26,7 +26,7 @@ describe('Label', () => {
       </Label>
     );
 
-    expect(label.queryByRole('img')).toBeTruthy();
+    expect(label.getByRole('img')).toBeTruthy();
   });
 
   it('render type solid', () => {
@@ -49,7 +49,7 @@ describe('Label', () => {
       </Label>
     );
 
-    expect(label.queryByRole('button', {name: 'close'})).toBeTruthy();
+    expect(label.getByRole('button', {name: 'close'})).toBeTruthy();
   });
 
   it('clicking on close button calls onClose', () => {
@@ -59,7 +59,7 @@ describe('Label', () => {
         example label
       </Label>
     );
-    const closeButton = label.queryByRole('button', {name: 'close'});
+    const closeButton = label.getByRole('button', {name: 'close'});
 
     fireEvent.click(closeButton);
     expect(mockCallback).toHaveBeenCalled();

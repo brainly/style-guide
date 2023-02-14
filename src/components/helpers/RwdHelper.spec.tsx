@@ -9,7 +9,7 @@ it('render element', () => {
     </RwdHelper>
   );
 
-  expect(rwdHelper.queryByRole('button')).toBeTruthy();
+  expect(rwdHelper.getByRole('button')).toBeTruthy();
 });
 
 it('custom className', () => {

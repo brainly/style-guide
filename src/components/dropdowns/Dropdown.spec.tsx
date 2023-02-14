@@ -33,7 +33,7 @@ describe('<Dropdown />', () => {
 
     fireEvent.click(component.container.firstElementChild);
 
-    expect(component.queryAllByRole('link')[0].getAttribute('href')).toEqual(
+    expect(component.getAllByRole('link')[0].getAttribute('href')).toEqual(
       testItems[0].url
     );
   });
@@ -48,14 +48,14 @@ describe('<Dropdown />', () => {
     const component = render(<Dropdown {...testProps} />);
 
     fireEvent.click(component.container.firstElementChild);
-    expect(component.queryAllByRole('link')).toHaveLength(3);
+    expect(component.getAllByRole('link')).toHaveLength(3);
   });
 
   it('should close dropdown when click outside', () => {
     const component = render(<Dropdown {...testProps} />);
 
     fireEvent.click(component.container.firstElementChild);
-    expect(component.queryAllByRole('link')).toHaveLength(3);
+    expect(component.getAllByRole('link')).toHaveLength(3);
 
     fireEvent.click(component.baseElement);
     expect(component.queryByRole('link')).toBeFalsy();
@@ -68,7 +68,7 @@ describe('<Dropdown />', () => {
     );
 
     fireEvent.click(component.container.firstElementChild);
-    const link = component.queryAllByRole('link')[0];
+    const link = component.getAllByRole('link')[0];
 
     fireEvent.click(link);
     expect(onItemSelect).toHaveBeenCalledTimes(1);

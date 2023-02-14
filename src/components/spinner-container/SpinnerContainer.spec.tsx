@@ -19,7 +19,7 @@ describe('SpinnerContainer', () => {
   it('loading', () => {
     const container = render(<SpinnerContainer loading />);
 
-    expect(container.queryByRole('status')).toBeTruthy();
+    expect(container.getByRole('status')).toBeTruthy();
   });
 
   describe('loading: ', () => {

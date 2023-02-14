@@ -14,7 +14,7 @@ describe('Subheadline', () => {
   it('render', () => {
     const subheadline = render(<Subheadline>Test</Subheadline>);
 
-    expect(subheadline.queryByRole('heading')).toBeTruthy();
+    expect(subheadline.getByRole('heading')).toBeTruthy();
   });
 
   it('size', () => {
@@ -59,7 +59,7 @@ describe('Subheadline', () => {
       <Subheadline type={SUBHEADLINE_TYPE.H3}>Test</Subheadline>
     );
 
-    expect(headline.queryByRole('heading').tagName).toEqual('H3');
+    expect(headline.getByRole('heading').tagName).toEqual('H3');
   });
 
   it('color', () => {

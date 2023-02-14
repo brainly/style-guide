@@ -18,7 +18,7 @@ describe('SubjectIcon', () => {
   it('render', () => {
     const icon = render(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
 
-    expect(icon.queryByRole('img')).toBeTruthy();
+    expect(icon.getByRole('img')).toBeTruthy();
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 

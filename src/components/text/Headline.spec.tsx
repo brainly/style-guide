@@ -12,7 +12,7 @@ describe('Headline', () => {
   it('render', () => {
     const headline = render(<Headline>Test</Headline>);
 
-    expect(headline.queryByRole('heading')).toBeTruthy();
+    expect(headline.getByRole('heading')).toBeTruthy();
   });
 
   it('size', () => {
@@ -55,7 +55,7 @@ describe('Headline', () => {
   it('type', () => {
     const headline = render(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
 
-    expect(headline.queryByRole('heading').tagName).toEqual('H3');
+    expect(headline.getByRole('heading').tagName).toEqual('H3');
   });
 
   it('text-white', () => {

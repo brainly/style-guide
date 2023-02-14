@@ -6,7 +6,7 @@ describe('<ListItem>', () => {
   it('renders', () => {
     const listItem = render(<ListItem />);
 
-    expect(listItem.queryByRole('listitem')).toBeTruthy();
+    expect(listItem.getByRole('listitem')).toBeTruthy();
   });
 
   it('renders children', () => {

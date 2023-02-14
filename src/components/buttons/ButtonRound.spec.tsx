@@ -37,7 +37,7 @@ describe('ButtonRound', () => {
       <ButtonRound onClick={onClick}>Some text</ButtonRound>
     );
 
-    fireEvent.click(button.queryByRole('link'));
+    fireEvent.click(button.getByRole('link'));
     expect(onClick).toHaveBeenCalled();
   });
 });

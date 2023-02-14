@@ -7,7 +7,7 @@ describe('TextBit', () => {
   it('render', () => {
     const textBit = render(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
 
-    expect(textBit.queryByRole('heading')).toBeTruthy();
+    expect(textBit.getByRole('heading')).toBeTruthy();
   });
 
   it('size', () => {
@@ -35,7 +35,7 @@ describe('TextBit', () => {
   it('type', () => {
     const textBit = render(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
 
-    expect(textBit.queryByRole('heading').tagName).toEqual('H3');
+    expect(textBit.getByRole('heading').tagName).toEqual('H3');
   });
 
   it('color', () => {

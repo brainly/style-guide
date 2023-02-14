@@ -12,7 +12,7 @@ describe('<MenuList />', () => {
   it('renders', () => {
     const menu = render(<MenuList items={menuItems} />);
 
-    expect(menu.queryByRole('list')).toBeTruthy();
+    expect(menu.getByRole('list')).toBeTruthy();
   });
 
   it('small size', () => {
@@ -36,7 +36,7 @@ describe('<MenuItem />', () => {
   it('renders', () => {
     const menuItem = render(<MenuItem text="test" href="#" />);
 
-    expect(menuItem.queryByRole('listitem')).toBeTruthy();
+    expect(menuItem.getByRole('listitem')).toBeTruthy();
   });
 
   it('renders different type of html element', () => {
@@ -50,6 +50,6 @@ describe('<MenuItem />', () => {
       <MenuItem text="foo" id="m4l" href="http://link.com" />
     );
 
-    expect(menuItem.queryByRole('link').getAttribute('id')).toEqual('m4l');
+    expect(menuItem.getByRole('link').getAttribute('id')).toEqual('m4l');
   });
 });

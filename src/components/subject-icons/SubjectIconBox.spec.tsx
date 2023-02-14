@@ -8,7 +8,7 @@ it('render', () => {
   expect(
     box.container.firstElementChild.classList.contains('sg-subject-icon-box')
   ).toEqual(true);
-  expect(box.queryByRole('img')).toBeTruthy();
+  expect(box.getByRole('img')).toBeTruthy();
 });
 
 it('darker', () => {

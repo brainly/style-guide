@@ -11,7 +11,7 @@ describe('FileHandler', () => {
     const fileHandler = render(<FileHandler>example text</FileHandler>);
 
     expect(fileHandler.queryByText('example text')).toBeTruthy();
-    expect(fileHandler.queryByRole('img')).toBeTruthy();
+    expect(fileHandler.getByRole('img')).toBeTruthy();
   });
 
   it('renders close button when onClose', () => {
@@ -19,7 +19,7 @@ describe('FileHandler', () => {
       <FileHandler onClose={mockCallback}>example text</FileHandler>
     );
 
-    expect(fileHandler.queryByRole('button', {name: 'Close'})).toBeTruthy();
+    expect(fileHandler.getByRole('button', {name: 'Close'})).toBeTruthy();
   });
 
   it('renders color white', () => {
@@ -39,7 +39,7 @@ describe('FileHandler', () => {
       <FileHandler iconType="heart">example text</FileHandler>
     );
 
-    expect(fileHandler.queryByRole('img', {name: /heart/})).toBeTruthy();
+    expect(fileHandler.getByRole('img', {name: /heart/})).toBeTruthy();
   });
 
   it('renders img when thumbnailSrc', () => {
@@ -62,13 +62,13 @@ describe('FileHandler', () => {
       <FileHandler src="src">example text</FileHandler>
     );
 
-    expect(fileHandler.queryByRole('link')).toBeTruthy();
+    expect(fileHandler.getByRole('link')).toBeTruthy();
   });
 
   it('renders Spinner when loading', () => {
     const fileHandler = render(<FileHandler loading>example text</FileHandler>);
 
-    expect(fileHandler.queryByRole('status')).toBeTruthy();
+    expect(fileHandler.getByRole('status')).toBeTruthy();
     expect(fileHandler.queryByRole('img')).toBeFalsy();
   });
 

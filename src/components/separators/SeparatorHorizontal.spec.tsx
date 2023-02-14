@@ -7,7 +7,7 @@ describe('SeparatorHorizontal', () => {
   it('render', () => {
     const separator = render(<SeparatorHorizontal />);
 
-    expect(separator.queryByRole('separator')).toBeTruthy();
+    expect(separator.getByRole('separator')).toBeTruthy();
   });
 
   it('type', () => {

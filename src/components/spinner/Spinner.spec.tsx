@@ -7,7 +7,7 @@ describe('Spinner', () => {
   it('render', () => {
     const component = render(<Spinner />);
 
-    expect(component.queryByRole('status')).toBeTruthy();
+    expect(component.getByRole('status')).toBeTruthy();
   });
 
   it('SPINNER_SIZE', () => {

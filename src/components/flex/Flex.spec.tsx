@@ -347,7 +347,7 @@ describe('Flex', () => {
       </Flex>
     );
 
-    expect(component.queryByRole('list')).toBeTruthy();
+    expect(component.getByRole('list')).toBeTruthy();
   });
 
   describe('a11y', () => {

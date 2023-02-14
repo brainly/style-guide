@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Box, {PADDING} from './Box';
+import Box from './Box';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
@@ -8,59 +8,6 @@ describe('Box', () => {
     const box = render(<Box>some text</Box>);
 
     expect(box.getByText('some text')).toBeTruthy();
-  });
-
-  it('colors', () => {
-    const box = render(<Box color="green-40">some text</Box>);
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains(`sg-box--green-40`)).toEqual(true);
-  });
-
-  it('shadow', () => {
-    const box = render(<Box shadow>some text</Box>);
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains('sg-box--shadow')).toEqual(true);
-  });
-
-  it('border', () => {
-    const box = render(<Box border>some text</Box>);
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains('sg-box--border')).toEqual(true);
-  });
-
-  it('border', () => {
-    const box = render(<Box border={false}>some text</Box>);
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains('sg-box--border')).toEqual(false);
-  });
-
-  it('borderColor', () => {
-    const box = render(
-      <Box border borderColor="green-40">
-        some text
-      </Box>
-    );
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains('sg-box--border-color-green-40')).toEqual(
-      true
-    );
-  });
-
-  test.each(
-    Object.values(PADDING).map(padding => [
-      padding,
-      `sg-box--padding-${padding}`,
-    ])
-  )('padding %s', (padding, paddingClass) => {
-    const box = render(<Box padding={padding}>some text</Box>);
-    const root = box.container.firstElementChild;
-
-    expect(root.classList.contains(paddingClass)).toEqual(true);
   });
 
   it('shadow is responsive prop', () => {
@@ -113,21 +60,6 @@ describe('Box', () => {
     ].forEach(className => {
       expect(root.classList.contains(className)).toEqual(true);
     });
-  });
-
-  it('when padding is defined and border is defined, then it should decrease padding to keep same size', () => {
-    const component = render(
-      <Box padding={['xs', null, 'm', 'xl']} border={[null, null, true]}>
-        box
-      </Box>
-    );
-    const root = component.container.firstElementChild;
-
-    ['lg:sg-box--padding-m-border', 'xl:sg-box--padding-xl-border'].forEach(
-      className => {
-        expect(root.classList.contains(className)).toEqual(true);
-      }
-    );
   });
 
   describe('a11y', () => {

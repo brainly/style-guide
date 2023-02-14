@@ -9,7 +9,7 @@ describe('List', () => {
   it('renders', () => {
     const list = render(<List />);
 
-    expect(list.queryByRole('list')).toBeTruthy();
+    expect(list.getByRole('list')).toBeTruthy();
   });
 
   it('renders with spaced elements', () => {

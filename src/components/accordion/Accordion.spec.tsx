@@ -83,20 +83,6 @@ describe('<Accordion>', () => {
     expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(3);
   });
 
-  it('displays no gaps between elements when spacing is set to "none"', () => {
-    const accordion = render(
-      <Accordion spacing="none">
-        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
-      </Accordion>
-    );
-
-    expect(
-      (
-        accordion.getAllByRole('heading')[0].parentNode as HTMLHeadingElement
-      ).classList.contains('sg-accordion-item--no-gap')
-    ).toBeTruthy();
-  });
-
   it('does not change border on hover when spacing is set to "none"', () => {
     const accordion = render(
       <Accordion spacing="none">

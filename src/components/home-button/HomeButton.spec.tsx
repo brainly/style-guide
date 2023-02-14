@@ -7,8 +7,8 @@ describe('HomeButton', () => {
   it('render', () => {
     const button = render(<HomeButton />);
 
-    expect(button.queryAllByRole('img').length).toBeGreaterThan(0);
-    expect(button.queryByRole('link')).toBeTruthy();
+    expect(button.getAllByRole('img').length).toBeGreaterThan(0);
+    expect(button.getByRole('link')).toBeTruthy();
   });
 
   it('type', () => {

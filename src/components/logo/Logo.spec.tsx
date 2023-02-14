@@ -7,7 +7,7 @@ describe('Logo', () => {
   it('render', () => {
     const logo = render(<Logo />);
 
-    expect(logo.queryByRole('img')).toBeTruthy();
+    expect(logo.getByRole('img')).toBeTruthy();
   });
 
   it('type', () => {

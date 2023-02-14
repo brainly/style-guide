@@ -57,14 +57,14 @@ it('render', () => {
 it('render options', () => {
   const select = render(<Select options={exampleOptions} />);
 
-  expect(select.queryAllByRole('option')).toHaveLength(exampleOptions.length);
+  expect(select.getAllByRole('option')).toHaveLength(exampleOptions.length);
 });
 
 it('render grouped options', () => {
   const select = render(<Select options={exampleGroupedOptions} />);
 
-  expect(select.queryAllByRole('option')).toHaveLength(6);
-  expect(select.queryByRole('group', {name: 'Label text'})).toBeTruthy();
+  expect(select.getAllByRole('option')).toHaveLength(6);
+  expect(select.getByRole('group', {name: 'Label text'})).toBeTruthy();
 });
 
 it('choose options', () => {
@@ -77,13 +77,13 @@ it('choose options', () => {
   );
 
   expect(
-    select.queryAllByRole('option', {
+    select.getAllByRole('option', {
       selected: false,
-      name: 'test1',
+      name: 'test',
     })
   ).toBeTruthy();
   expect(
-    select.queryAllByRole('option', {
+    select.getAllByRole('option', {
       selected: true,
       name: 'test2',
     })
