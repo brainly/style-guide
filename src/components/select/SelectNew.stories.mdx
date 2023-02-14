@@ -1,9 +1,12 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Select, {SIZE} from './Select';
+import Select, {SIZE as SELECT_SIZE} from './Select';
 import PageHeader from 'blocks/PageHeader';
 import Button from '../buttons/Button';
 import Text from '../text/Text';
 import Flex from '../flex/Flex';
+
+import Headline from '../text/Headline';
+import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 
 <Meta
   title="Components/SelectNew"
@@ -17,7 +20,7 @@ import Flex from '../flex/Flex';
     size: {
       control: {
         type: 'select',
-        options: SIZE,
+        options: SELECT_SIZE,
       },
     },
   }}
@@ -30,7 +33,8 @@ import Flex from '../flex/Flex';
       {value: 'history', label: 'History'},
       {value: 'science', label: 'Science'},
     ],
-    size: SIZE.M,
+    disabled: false,
+    size: SELECT_SIZE.M,
   }}
 />
 
@@ -371,7 +375,7 @@ import Flex from '../flex/Flex';
     {args => {
       return (
         <Flex direction="row">
-          {['s', 'm', 'l'].map(size => (
+          {Object.values(SELECT_SIZE).map(size => (
             <Flex direction="column" style={{width: '200px', padding: '10px'}}>
               <Text>{size}</Text>
               <Select {...args} defaultExpanded size={size} />
@@ -380,5 +384,72 @@ import Flex from '../flex/Flex';
         </Flex>
       );
     }}
+  </Story>
+</Canvas>
+
+### Variants
+
+<Canvas>
+  <Story name="Variants">
+    {args => (
+      <div>
+        <StoryVariantTable>
+          <thead>
+            <tr>
+              <th />
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  default
+                </Headline>
+              </th>
+              <th>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  disabled
+                </Headline>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.values(SELECT_SIZE).map(size => (
+              <tr key={size}>
+                <td>
+                  <Headline
+                    extraBold
+                    transform="uppercase"
+                    type="span"
+                    color="text-gray-40"
+                    size="medium"
+                  >
+                    {size}
+                  </Headline>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Select key={size} {...args} size={size} />
+                  </Flex>
+                </td>
+                <td>
+                  <Flex justifyContent="center">
+                    <Select key={size} {...args} size={size} disabled />
+                  </Flex>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </StoryVariantTable>
+      </div>
+    )}
   </Story>
 </Canvas>
