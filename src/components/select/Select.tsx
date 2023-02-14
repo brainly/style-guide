@@ -233,6 +233,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           className="sg-select-new__element"
           role="combobox"
           tabIndex={0}
+          aria-disabled={disabled}
           aria-controls={`${id}-listbox`}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
