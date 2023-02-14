@@ -19,12 +19,12 @@
 
     &--valid {
       --borderColor: #{$green-40};
-      --activeBorderColor: #{$green-50};
+      --activeBorderColor: #{$green-40};
     }
 
     &--invalid {
       --borderColor: #{$red-40};
-      --activeBorderColor: #{$red-50};
+      --activeBorderColor: #{$red-40};
     }
 
     &--s {
