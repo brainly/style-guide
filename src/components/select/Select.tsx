@@ -1,15 +1,15 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import {FloatingFocusManager, FloatingOverlay} from '@floating-ui/react';
 
+import {mergeRefs, isTouchScreen, __DEV__, invariant} from '../utils';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
-import {mergeRefs, isTouchScreen} from '../utils';
+import SubjectIcon from '../subject-icons/SubjectIcon';
+import Text from '../text/Text';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
 import SelectOption from './SelectOption';
-import SubjectIcon from '../subject-icons/SubjectIcon';
-import Text from '../text/Text';
-import {FloatingFocusManager, FloatingOverlay} from '@floating-ui/react';
 
 export type SelectOptionType = {
   value: string;
@@ -110,6 +110,13 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       onOptionChange,
       ...additionalProps
     } = props;
+
+    if (__DEV__) {
+      invariant(
+        valid && invalid,
+        `Select cannot be valid and invalid at the same time.`
+      );
+    }
 
     const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
       valid,
