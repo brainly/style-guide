@@ -4,7 +4,7 @@
   overflow: hidden;
 
   &-content {
-    transition: transform $durationGentle2 $easingRegular;
+    transition: transform 0.7s $easingRegular;
   }
 
   &-navigation {

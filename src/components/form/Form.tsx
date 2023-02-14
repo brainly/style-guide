@@ -3,8 +3,8 @@ import Button from '../buttons/Button';
 import Flex from '../flex/Flex';
 import Icon, {TYPE} from '../icons/Icon';
 import cc from 'classnames';
-import {useFocusTrap} from './useFocusTrap';
 import {useFollowFocus} from './useFollowFocus';
+import {useFocusTrap} from './useFocusTrap';
 
 // https://w3c.github.io/aria-practices/examples/js/utils.js
 function isFocusable(element: HTMLElement) {
@@ -75,13 +75,6 @@ export const Form: React.FunctionComponent = ({children}) => {
   const stepContentElementsRef = React.useRef<Array<HTMLDivElement>>([]);
   const steps = React.Children.toArray(children);
 
-  React.useEffect(() => {
-    if (stepContainersRef.current[currentStepIndex]) {
-      focusFirstDescendant(stepContainersRef.current[currentStepIndex]);
-    }
-  });
-
-  // navigation
   const changeStep = React.useCallback(
     index => {
       const stepNode: HTMLElement = stepContainersRef.current[index];
@@ -96,15 +89,16 @@ export const Form: React.FunctionComponent = ({children}) => {
         contentRef.current.style.transform = `translateY(-${
           index === 0 ? stepNode.offsetTop : stepNode.offsetTop - 100
         }px)`;
-
-        focusFirstDescendant(stepNode);
       }
     },
     [steps]
   );
+
+  // handle arrow buttons navigation
   const handleUp = React.useCallback(() => {
     changeStep(currentStepIndex - 1);
   }, [currentStepIndex, changeStep]);
+
   const handleDown = React.useCallback(() => {
     changeStep(currentStepIndex + 1);
   }, [currentStepIndex, changeStep]);
@@ -120,30 +114,18 @@ export const Form: React.FunctionComponent = ({children}) => {
       currentStepIndex === steps.length - 1,
   });
 
-  // step focus trap
-  // useFocusTrap({
-  //   stepContainersRef,
-  //   currentStepIndex,
-  //   stepContentElementsRef,
-  // });
-
-  // change step when focus is outside current step
-  useFollowFocus({
-    changeStep,
-    currentStepIndex,
-    stepContainersRef,
-  });
-
+  // handle arrow keys navigation
   const handleArrowNavigation = React.useCallback(
     event => {
       switch (event.key) {
         case 'ArrowUp': {
           changeStep(currentStepIndex - 1);
+          focusFirstDescendant(stepContainersRef.current[currentStepIndex - 1]);
           break;
         }
         case 'ArrowDown': {
-          // Down pressed
           changeStep(currentStepIndex + 1);
+          focusFirstDescendant(stepContainersRef.current[currentStepIndex + 1]);
           break;
         }
         default: {
@@ -154,6 +136,29 @@ export const Form: React.FunctionComponent = ({children}) => {
     [changeStep, currentStepIndex]
   );
 
+  React.useEffect(() => {
+    window.addEventListener('keydown', handleArrowNavigation);
+
+    return () => {
+      window.removeEventListener('keydown', handleArrowNavigation);
+    };
+  });
+
+  // change step when focus went outside current step
+  useFollowFocus({
+    contentRef,
+    changeStep,
+    currentStepIndex,
+    stepContainersRef,
+  });
+
+  // useFocusTrap({
+  //   stepContainersRef,
+  //   stepContentElementsRef,
+  //   currentStepIndex,
+  //   contentRef,
+  // });
+
   return (
     <FormContext.Provider
       value={{
@@ -162,7 +167,7 @@ export const Form: React.FunctionComponent = ({children}) => {
         isLastStep: currentStepIndex === steps.length - 1,
       }}
     >
-      <div className="sg-form" onKeyDown={handleArrowNavigation}>
+      <div className="sg-form">
         <div className="sg-form-content" ref={contentRef}>
           {steps.map((child, index) => (
             <div
@@ -186,11 +191,7 @@ export const Form: React.FunctionComponent = ({children}) => {
             </div>
           ))}
         </div>
-        <Flex
-          role="navigation"
-          direction="column"
-          className="sg-form-navigation"
-        >
+        <Flex direction="column" className="sg-form-navigation">
           <Button
             className={buttonPrevClassNames}
             variant="solid-light"

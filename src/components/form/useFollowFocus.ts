@@ -1,36 +1,37 @@
 import * as React from 'react';
 
 export const useFollowFocus = ({
+  contentRef,
   stepContainersRef,
   currentStepIndex,
   changeStep,
 }) => {
   React.useEffect(() => {
+    const contentElement = contentRef.current;
     const stepContainersElements = stepContainersRef.current;
 
     const handleFocus = event => {
-      stepContainersElements.forEach((stepContainerElement, index) => {
+      for (let i = 0; i <= stepContainersElements.length - 1; i++) {
         if (
-          stepContainerElement.contains(event.target) &&
-          index !== currentStepIndex
+          stepContainersElements[i].contains(event.target) &&
+          i !== currentStepIndex
         ) {
-          changeStep(index);
+          changeStep(i);
+          break;
         }
-      });
-    };
-
-    if (stepContainersElements) {
-      stepContainersElements.forEach(element => {
-        element.addEventListener('focusin', handleFocus);
-      });
-    }
-
-    return () => {
-      if (stepContainersElements) {
-        stepContainersElements.forEach(element => {
-          element.removeEventListener('focusin', handleFocus);
-        });
       }
     };
-  }, [stepContainersRef, currentStepIndex, changeStep]);
+
+    // const handleTab = (event) => {
+    //   if (event.key === 'Tab') {
+
+    //   }
+    // }
+
+    contentElement.addEventListener('focusin', handleFocus);
+
+    return () => {
+      contentElement.removeEventListener('focusin', handleFocus);
+    };
+  }, [stepContainersRef, currentStepIndex, changeStep, contentRef]);
 };

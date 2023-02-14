@@ -1,10 +1,14 @@
 import * as React from 'react';
 
 export function useFocusTrap({
+  contentRef,
   stepContainersRef,
   stepContentElementsRef,
   currentStepIndex,
 }: {
+  contentRef: {
+    current: HTMLDivElement | null;
+  };
   stepContainersRef: {
     current: Array<HTMLDivElement> | null;
   };
@@ -13,6 +17,8 @@ export function useFocusTrap({
   };
   currentStepIndex: number;
 }) {
+  const trapped = React.useRef(false);
+
   React.useEffect(() => {
     const originalActiveElement = document.activeElement as HTMLElement;
 
@@ -27,9 +33,9 @@ export function useFocusTrap({
       stepContainersRef.current[currentStepIndex];
     const currentStepContentElement =
       stepContentElementsRef.current[currentStepIndex];
+    const contentElement = contentRef.current;
 
     // Initial focus
-    focusDescendant(currentStepContentElement, true);
     let isTabbingForward = true;
 
     function handleKeydown(event: KeyboardEvent) {
@@ -41,6 +47,7 @@ export function useFocusTrap({
     }
 
     function handleFocusTrap(event: FocusEvent) {
+      console.log('trapped', trapped.current);
       if (
         event.target instanceof Node &&
         currentStepContentElement.contains(event.target)
@@ -51,23 +58,24 @@ export function useFocusTrap({
 
       console.log('is not descendant');
 
-      focusDescendant(currentStepContentElement, isTabbingForward);
+      // if (!trapped.current) {
+      //   focusDescendant(currentStepContentElement, isTabbingForward);
+      //   trapped.current = true;
+      // }
     }
 
     currentStepContentElement.addEventListener('keydown', handleKeydown);
     currentStepContentElement.addEventListener('keyup', handleKeyup);
-    currentStepContainerElement.addEventListener('focusin', handleFocusTrap);
+    contentElement.addEventListener('focusin', handleFocusTrap);
     return () => {
       currentStepContentElement.removeEventListener('keydown', handleKeydown);
       currentStepContentElement.removeEventListener('keyup', handleKeyup);
-      currentStepContainerElement.removeEventListener(
-        'focusin',
-        handleFocusTrap
-      );
+
+      contentElement.removeEventListener('focusin', handleFocusTrap);
       // Should restore original focus on unmount.
       originalActiveElement?.focus();
     };
-  }, [currentStepIndex, stepContainersRef, stepContentElementsRef]);
+  }, [currentStepIndex, stepContainersRef, stepContentElementsRef, contentRef]);
 }
 
 function focusDescendant(element: HTMLElement, isTabbingForward: boolean) {
