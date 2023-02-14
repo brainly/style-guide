@@ -9,6 +9,11 @@
       width: 100%;
     }
 
+    &--disabled {
+      pointer-events: none;
+      opacity: 42%;
+    }
+
     &--s {
       .sg-select-new__element {
         padding: 0 44px 0 spacing(s);

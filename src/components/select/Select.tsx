@@ -70,6 +70,7 @@ export type SelectPropsType = {
   defaultExpanded?: boolean;
   withIcons?: boolean;
   fullWidth?: boolean;
+  disabled?: boolean;
 
   /**
    * There are two sizes options for most of the form elements
@@ -103,6 +104,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       multiSelect = false,
       fullWidth = false,
       size = DEFAULT_SIZE,
+      disabled,
       onClick,
       onToggle,
       onOptionChange,
@@ -217,6 +219,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         'sg-select-new--valid': valid,
         'sg-select-new--invalid': invalid,
         'sg-select-new--full-width': fullWidth,
+        'sg-select-new--disabled': disabled,
         [`sg-select-new--${String(size)}`]: size && size !== DEFAULT_SIZE,
       },
       className
