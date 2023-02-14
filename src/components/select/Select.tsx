@@ -3,12 +3,13 @@ import classnames from 'classnames';
 
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
-import {mergeRefs} from '../utils';
+import {mergeRefs, isTouchScreen} from '../utils';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
 import SelectOption from './SelectOption';
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import Text from '../text/Text';
+import {FloatingFocusManager, FloatingOverlay} from '@floating-ui/react';
 
 export type SelectOptionType = {
   value: string;
@@ -257,23 +258,30 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           </div>
         </div>
         {isExpanded && (
-          <div
-            ref={floating.refs.setFloating}
-            className="sg-select-new__options-wrapper"
-            style={{
-              position: floating.props.strategy,
-              top: floating.props.y ?? 0,
-              left: floating.props.x ?? 0,
-              overflowY: 'auto',
-              borderRadius: '16px',
-            }}
-            role="listbox"
-            id={`${id}-listbox`}
-            tabIndex={-1}
-            {...floating.interactions.getFloatingProps()}
-          >
-            {optionsElements}
-          </div>
+          <FloatingOverlay lockScroll={!isTouchScreen()} style={{zIndex: 1}}>
+            <FloatingFocusManager
+              context={floating?.context}
+              visuallyHiddenDismiss
+            >
+              <div
+                ref={floating.refs.setFloating}
+                className="sg-select-new__options-wrapper"
+                style={{
+                  position: floating.props.strategy,
+                  top: floating.props.y ?? 0,
+                  left: floating.props.x ?? 0,
+                  overflowY: 'auto',
+                  borderRadius: '16px',
+                }}
+                role="listbox"
+                id={`${id}-listbox`}
+                tabIndex={-1}
+                {...floating.interactions.getFloatingProps()}
+              >
+                {optionsElements}
+              </div>
+            </FloatingFocusManager>
+          </FloatingOverlay>
         )}
       </div>
     );

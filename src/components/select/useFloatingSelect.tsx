@@ -42,10 +42,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     ],
   });
   const click = useClick(context, {event: 'mousedown'});
-  const dismiss = useDismiss(context, {
-    ancestorScroll: true,
-  });
-
+  const dismiss = useDismiss(context);
   const listNav = useListNavigation(context, {
     listRef,
     activeIndex,
