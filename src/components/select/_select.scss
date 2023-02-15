@@ -102,13 +102,20 @@
       white-space: nowrap;
     }
 
+    &__options-floating-container {
+      overflow: hidden;
+      box-shadow: $shadowLarge !important;
+      display: flex;
+      box-sizing: border-box;
+      border-radius: 16px;
+    }
+
     &__options-wrapper {
       min-width: 120px;
       max-width: 320px;
       width: max-content;
       padding: 16px;
       background-color: $white;
-      box-shadow: $shadowLarge !important;
       display: flex;
       flex-direction: column;
       gap: 8px;

@@ -277,20 +277,26 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             >
               <div
                 ref={floating.refs.setFloating}
-                className="sg-select-new__options-wrapper"
+                className="sg-select-new__options-floating-container"
                 style={{
                   position: floating.props.strategy,
                   top: floating.props.y ?? 0,
                   left: floating.props.x ?? 0,
-                  overflowY: 'auto',
-                  borderRadius: '16px',
                 }}
-                role="listbox"
-                id={`${id}-listbox`}
-                tabIndex={-1}
-                {...floating.interactions.getFloatingProps()}
               >
-                {optionsElements}
+                <div
+                  className="sg-select-new__options-wrapper"
+                  style={{
+                    overflowY: 'auto',
+                    borderRadius: '16px',
+                  }}
+                  role="listbox"
+                  id={`${id}-listbox`}
+                  tabIndex={-1}
+                  {...floating.interactions.getFloatingProps()}
+                >
+                  {optionsElements}
+                </div>
               </div>
             </FloatingFocusManager>
           </FloatingOverlay>
