@@ -35,6 +35,7 @@ const SelectOption = React.forwardRef<
     const classNames = classnames('sg-select-new__option', {
       'sg-select-new__option--selected': isSelected,
       'sg-select-new__option--with-icon': withIcon,
+      'sg-select-new__option--multi-select': multiSelect,
     });
 
     const icon = React.useMemo(() => {
