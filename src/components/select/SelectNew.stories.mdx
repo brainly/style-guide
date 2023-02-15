@@ -1,5 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
-import Select, {SIZE as SELECT_SIZE} from './Select';
+import Select, {SIZE as SELECT_SIZE, COLOR as SELECT_COLOR} from './Select';
 import PageHeader from 'blocks/PageHeader';
 import Button from '../buttons/Button';
 import Text from '../text/Text';
@@ -23,6 +23,12 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         options: SELECT_SIZE,
       },
     },
+    color: {
+      control: {
+        type: 'select',
+        options: SELECT_COLOR,
+      },
+    },
   }}
   args={{
     options: [
@@ -35,6 +41,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     ],
     disabled: false,
     size: SELECT_SIZE.M,
+    color: SELECT_COLOR.DEFAULT,
   }}
 />
 
@@ -454,7 +461,7 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
                     color="text-gray-40"
                     size="medium"
                   >
-                    {size}
+                    SIZE="{size}"
                   </Headline>
                 </td>
                 <td>
@@ -479,6 +486,44 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
                 </td>
               </tr>
             ))}
+            <tr
+              key="color"
+              style={{
+                backgroundColor: '#000',
+              }}
+            >
+              <td>
+                <Headline
+                  extraBold
+                  transform="uppercase"
+                  type="span"
+                  color="text-gray-40"
+                  size="medium"
+                >
+                  color="white"
+                </Headline>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Select color="white" {...args} />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Select color="white" {...args} disabled />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Select color="white" {...args} valid />
+                </Flex>
+              </td>
+              <td>
+                <Flex justifyContent="center">
+                  <Select color="white" {...args} invalid />
+                </Flex>
+              </td>
+            </tr>
           </tbody>
         </StoryVariantTable>
       </div>

@@ -33,6 +33,13 @@ const ICON_SIZE_MAP = {
   [SIZE.S]: 16,
 } as const;
 
+type SelectColorType = 'default' | 'white';
+
+export const COLOR = {
+  DEFAULT: 'default',
+  WHITE: 'white',
+} as const;
+
 export type SelectPropsType = {
   /**
    * Optional specification for select placeholder
@@ -81,6 +88,14 @@ export type SelectPropsType = {
   size?: SelectSizeType;
 
   /**
+   * There are two color variants for form elements, default does not have to be specified
+   * @example <Select color="white" options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]} />
+   * @see color="default" https://styleguide.brainly.com/latest/docs/interactive.html?color="default"#select
+   * @see color="white" https://styleguide.brainly.com/latest/docs/interactive.html?color="white"#select
+   */
+  color?: SelectColorType | null | undefined;
+
+  /**
    * Additional class names
    */
   className?: string;
@@ -96,6 +111,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       valid,
       invalid,
       disabled,
+      color,
       selectedOptions = [],
       placeholder = 'Select...',
       options = [],
@@ -228,6 +244,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         'sg-select-new--full-width': fullWidth,
         'sg-select-new--disabled': disabled,
         [`sg-select-new--${String(size)}`]: size && size !== DEFAULT_SIZE,
+        [`sg-select-new--${String(color)}`]: color,
       },
       className
     );
@@ -265,7 +282,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             <Icon
               type={isExpanded ? 'caret_up' : 'caret_down'}
               size={ICON_SIZE_MAP[size]}
-              color="icon-gray-50"
+              color="icon-gray-70"
             />
           </div>
         </div>

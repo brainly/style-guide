@@ -1,7 +1,9 @@
 @if ($includeHtml) {
   .sg-select-new {
-    --borderColor: #{$gray-20};
-    --activeBorderColor: #{mix($gray-50, $gray-20, 12%)};
+    --select-background: #{$formElementDefaultBackgroundColor};
+    --border-color: #{$formElementDefaultBackgroundColor};
+    --active-border-color: #{mix($gray-50, $gray-20, 12%)};
+    --active-background-color: #{mix($gray-50, $gray-20, 12%)};
 
     display: inline-block;
     position: relative;
@@ -17,14 +19,21 @@
       opacity: 42%;
     }
 
+    &--white {
+      --select-background: #{$white};
+      --border-color: #{$white};
+      --active-border-color: #{$gray-40};
+      --active-background-color: #{$gray-20};
+    }
+
     &--valid {
-      --borderColor: #{$green-40};
-      --activeBorderColor: #{$green-40};
+      --border-color: #{$green-40};
+      --active-border-color: #{$green-40};
     }
 
     &--invalid {
-      --borderColor: #{$red-40};
-      --activeBorderColor: #{$red-40};
+      --border-color: #{$red-40};
+      --active-border-color: #{$red-40};
     }
 
     &--s {
@@ -66,23 +75,23 @@
       padding: 0 44px 0 spacing(s);
       width: 100%;
       text-overflow: ellipsis;
-      border: 2px solid var(--borderColor);
+      border: 2px solid var(--border-color);
       border-radius: $formElementStandardBorderRadius;
       height: $formElementSizeM;
       font-size: $formElementDefaultFontSize;
       color: $formElementPlacholderTextColor;
-      background-color: $formElementDefaultBackgroundColor;
+      background-color: var(--select-background);
 
       &:hover,
       &:focus,
       &:active,
       &:focus-visible {
-        border-color: var(--activeBorderColor);
-        background-color: mix($gray-50, $gray-20, 12%);
+        border-color: var(--active-border-color);
+        background-color: var(--active-background-color);
       }
 
       &[aria-expanded='true'] {
-        border-color: var(--activeBorderColor);
+        border-color: var(--active-border-color);
         background-color: white;
       }
 
