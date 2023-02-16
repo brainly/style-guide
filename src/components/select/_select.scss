@@ -3,7 +3,9 @@
     --select-background: #{$formElementDefaultBackgroundColor};
     --border-color: #{$formElementDefaultBackgroundColor};
     --active-border-color: #{mix($gray-50, $gray-20, 12%)};
-    --active-background-color: #{mix($gray-50, $gray-20, 12%)};
+    --active-background-color: #{$white};
+    --hover-background-color: #{mix($gray-50, $gray-20, 12%)};
+    --hover-border-color: #{mix($gray-50, $gray-20, 12%)};
 
     display: inline-block;
     position: relative;
@@ -23,16 +25,19 @@
       --select-background: #{$white};
       --border-color: #{$white};
       --active-border-color: #{$gray-40};
-      --active-background-color: #{$gray-20};
+      --hover-background-color: #{$gray-20};
+      --hover-border-color: #{$gray-20};
     }
 
     &--valid {
       --border-color: #{$green-40};
+      --hover-border-color: #{$green-40};
       --active-border-color: #{$green-40};
     }
 
     &--invalid {
       --border-color: #{$red-40};
+      --hover-border-color: #{$red-40};
       --active-border-color: #{$red-40};
     }
 
@@ -84,15 +89,15 @@
 
       &:hover,
       &:focus,
-      &:active,
       &:focus-visible {
-        border-color: var(--active-border-color);
-        background-color: var(--active-background-color);
+        border-color: var(--hover-border-color);
+        background-color: var(--hover-background-color);
       }
 
-      &[aria-expanded='true'] {
+      &[aria-expanded='true'],
+      &:active {
         border-color: var(--active-border-color);
-        background-color: white;
+        background-color: var(--active-background-color);
       }
 
       .sg-subject-icon {
