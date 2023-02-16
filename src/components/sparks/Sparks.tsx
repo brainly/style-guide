@@ -329,80 +329,140 @@ const shapes = {
   ),
 } as const;
 
+const layoutVariantL = [
+  {
+    style: {
+      gridColumn: '1 / span 1',
+      top: '12px',
+    },
+    colorIndex: 0,
+    size: 16,
+    register: {
+      index: 2,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+  {
+    style: {
+      gridColumn: '6 / span 1',
+      top: '4px',
+    },
+    colorIndex: 2,
+    size: 28,
+    register: {index: 0},
+  },
+  {
+    style: {
+      gridColumn: '-2 / span 1',
+      top: '12px',
+    },
+    colorIndex: 3,
+    size: 12,
+    register: {
+      index: 4,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+  {
+    style: {
+      '--particle-dir': 1,
+      gridColumn: '2 / span 1',
+      gridRow: '2',
+      alignSelf: 'self-end',
+    },
+    colorIndex: 3,
+    size: 40,
+    register: {index: 3},
+  },
+  {
+    style: {
+      '--particle-dir': 1,
+      gridColumn: '-3 / span 1',
+      gridRow: '2',
+      alignSelf: 'self-end',
+      bottom: '4px',
+    },
+    colorIndex: 1,
+    size: 24,
+    register: {
+      index: 1,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+];
+
+const layoutVariantM = [
+  {
+    style: {
+      left: '13px',
+      top: '7px',
+    },
+    colorIndex: 0,
+    size: 14,
+    register: {
+      index: 2,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+  {
+    style: {
+      right: '0px',
+      top: '2px',
+    },
+    colorIndex: 2,
+    size: 24,
+    register: {index: 0},
+  },
+  {
+    style: {
+      '--particle-dir': 1,
+      bottom: '0',
+      left: '0',
+      alignSelf: 'self-end',
+    },
+    colorIndex: 3,
+    size: 28,
+    register: {index: 3},
+  },
+  {
+    style: {
+      '--particle-dir': 1,
+      bottom: '4px',
+      right: '8px',
+    },
+    colorIndex: 1,
+    size: 20,
+    register: {
+      index: 1,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+];
+
 const variants = {
-  l: [
-    {
-      style: {
-        gridColumn: '1 / span 1',
-        top: '12px',
-      },
-      colorIndex: 0,
-      size: 16,
-      register: {
-        index: 2,
-        animation: {
-          'heart-loop': {
-            keyframes: [{transform: 'scale(1.25)'}],
-          },
-        },
-      },
-    },
-    {
-      style: {
-        gridColumn: '6 / span 1',
-        top: '4px',
-      },
-      colorIndex: 2,
-      size: 28,
-      register: {index: 0},
-    },
-    {
-      style: {
-        gridColumn: '-2 / span 1',
-        top: '12px',
-      },
-      colorIndex: 3,
-      size: 12,
-      register: {
-        index: 4,
-        animation: {
-          'heart-loop': {
-            keyframes: [{transform: 'scale(1.25)'}],
-          },
-        },
-      },
-    },
-    {
-      style: {
-        '--particle-dir': 1,
-        gridColumn: '2 / span 1',
-        gridRow: '3',
-        alignSelf: 'self-end',
-      },
-      colorIndex: 3,
-      size: 40,
-      register: {index: 3},
-    },
-    {
-      style: {
-        '--particle-dir': 1,
-        gridColumn: '-3 / span 1',
-        gridRow: '3',
-        alignSelf: 'self-end',
-        bottom: '4px',
-      },
-      colorIndex: 1,
-      size: 24,
-      register: {
-        index: 1,
-        animation: {
-          'heart-loop': {
-            keyframes: [{transform: 'scale(1.25)'}],
-          },
-        },
-      },
-    },
-  ],
+  l: layoutVariantL,
+  m: layoutVariantM,
+  s: layoutVariantM,
 } as const;
 
 const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
@@ -422,7 +482,7 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
-const Sparks = ({children, shape = 'heart', variant = 'l'}: SparksProps) => {
+const Sparks = ({children, shape = 'heart', variant = 'm'}: SparksProps) => {
   const animationConfig = shapeAnimationMap[shape];
   const {register, setPhase} = useAnimation(animationConfig);
 
