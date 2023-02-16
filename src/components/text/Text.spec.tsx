@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Text from './Text';
 import {
-  TEXT_TYPE,
+  TEXT_AS,
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
@@ -35,13 +35,13 @@ it('size is responsive prop', () => {
 });
 test('type', () => {
   const text = 'random text';
-  const component = shallow(<Text type={TEXT_TYPE.SPAN}>{text}</Text>);
+  const component = shallow(<Text as={TEXT_AS.SPAN}>{text}</Text>);
 
   expect(component.find('span').contains(text)).toEqual(true);
 });
 test('type - label', () => {
   const text = 'random text';
-  const component = shallow(<Text type={TEXT_TYPE.LABEL}>{text}</Text>);
+  const component = shallow(<Text as={TEXT_AS.LABEL}>{text}</Text>);
 
   expect(component.find('label').contains(text)).toEqual(true);
 });

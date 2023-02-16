@@ -14,7 +14,7 @@ const rules = [
   {
     pattern: '<b>Should</b> create a logical content structure.',
     comment:
-      'Logical content structure is created by proper html semantics. Use <code>type</code> to set tag.',
+      'Logical content structure is created by proper html semantics. Use <code>as</code> to set tag.',
     status: 'DONE',
     tests: 'N/A',
   },

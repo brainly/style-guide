@@ -80,7 +80,7 @@ export type FlexPropsType = {
   /**
    * Html tag used as container
    */
-  htmlTag?: FlexContainerType;
+  as?: FlexContainerType;
 
   /**
    * Additional class names
@@ -244,7 +244,7 @@ export type FlexPropsType = {
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'children'
-  | 'htmlTag'
+  | 'as'
   | 'className'
   | 'fullWidth'
   | 'fullHeight'
@@ -266,7 +266,7 @@ export type FlexPropsType = {
 const Flex = React.forwardRef<HTMLElement, FlexPropsType>(
   (props: FlexPropsType, ref) => {
     const {
-      htmlTag: Container = 'div',
+      as: Container = 'div',
       fullWidth,
       fullHeight,
       noShrink,

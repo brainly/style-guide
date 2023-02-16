@@ -259,7 +259,7 @@ describe('<Flex>', () => {
   });
   it('renders component with different html tag', () => {
     const component = shallow(
-      <Flex htmlTag="ul">
+      <Flex as="ul">
         <div>test</div>
       </Flex>
     );

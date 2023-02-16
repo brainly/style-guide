@@ -6,7 +6,7 @@ import {
   TEXT_TRANSFORM,
   TEXT_WEIGHT,
   TEXT_WHITE_SPACE,
-  TEXT_TYPE,
+  TEXT_AS,
 } from './textConsts';
 import TextA11y from './stories/text.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
@@ -22,7 +22,7 @@ import PageHeader from 'blocks/PageHeader';
     children: {
       control: 'text',
     },
-    type: {table: {defaultValue: {summary: TEXT_TYPE.DIV}}},
+    type: {table: {defaultValue: {summary: TEXT_AS.DIV}}},
     size: {
       description: '(Responsive)',
       table: {
@@ -142,12 +142,12 @@ Text component does not inherit any styles by default. To turn inheritance you c
 <Canvas>
   <Story name="Inherited styles">
     {args => (
-      <Text {...args} type="h2" size="large">
-        <Text inherited type="span" weight="bold">
+      <Text {...args} as="h2" size="large">
+        <Text inherited as="span" weight="bold">
           83%
         </Text>{' '}
         of students say Brainly has made them more knowledgeable,{' '}
-        <Text inherited type="span" weight="bold">
+        <Text inherited as="span" weight="bold">
           84%
         </Text>{' '}
         find it has inspired them to ask more questions.
