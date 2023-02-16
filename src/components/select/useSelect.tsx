@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
-import {SIZE} from './Select';
 
 type UseSelectPropsType = Pick<
   SelectPropsType,
