@@ -12,6 +12,12 @@
     justify-items: center;
   }
 
+  &--s {
+    .sg-sparks__container {
+      inset: -4px 0;
+    }
+  }
+
   &__particle {
     position: absolute;
     transform-origin: center;

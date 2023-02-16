@@ -1,7 +1,9 @@
 import * as React from 'react';
+import cx from 'classnames';
 
 interface ParticleCSSProperties extends React.CSSProperties {
   '--particle-dir'?: number;
+  '--particle-offset'?: number;
   '--index'?: number;
 }
 
@@ -164,7 +166,10 @@ const sparkAnimationConfig: AnimationConfig = {
   entry: [
     {
       keyframes: [
-        {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
+        {
+          transform:
+            'translateY(calc(var(--particle-dir, -1) * var(--particle-offset, 24px)))',
+        },
         {transform: 'translateY(0)'},
       ],
       options: {
@@ -231,7 +236,10 @@ const heartAnimationConfig: AnimationConfig = {
   entry: [
     {
       keyframes: [
-        {transform: 'translateY(calc(var(--particle-dir, -1) * 24px))'},
+        {
+          transform:
+            'translateY(calc(var(--particle-dir, -1) * var(--particle-offset, 24px)))',
+        },
         {transform: 'translateY(0)'},
       ],
       options: {
@@ -459,10 +467,52 @@ const layoutVariantM = [
   },
 ];
 
+const layoutVariantS = [
+  {
+    style: {
+      '--particle-offset': '12px',
+      left: '4px',
+      top: '3px',
+    },
+    colorIndex: 0,
+    size: 14,
+    register: {
+      index: 2,
+      animation: {
+        'heart-loop': {
+          keyframes: [{transform: 'scale(1.25)'}],
+        },
+      },
+    },
+  },
+  {
+    style: {
+      '--particle-offset': '12px',
+      right: '0px',
+      top: '2px',
+    },
+    colorIndex: 2,
+    size: 20,
+    register: {index: 0},
+  },
+  {
+    style: {
+      '--particle-dir': 1,
+      '--particle-offset': '12px',
+      gridColumn: '5 / span 1',
+      alignSelf: 'self-end',
+      bottom: '-4px',
+    },
+    colorIndex: 3,
+    size: 24,
+    register: {index: 1},
+  },
+];
+
 const variants = {
   l: layoutVariantL,
   m: layoutVariantM,
-  s: layoutVariantM,
+  s: layoutVariantS,
 } as const;
 
 const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
@@ -482,7 +532,7 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
-const Sparks = ({children, shape = 'heart', variant = 'm'}: SparksProps) => {
+const Sparks = ({children, shape = 'heart', variant = 's'}: SparksProps) => {
   const animationConfig = shapeAnimationMap[shape];
   const {register, setPhase} = useAnimation(animationConfig);
 
@@ -497,7 +547,7 @@ const Sparks = ({children, shape = 'heart', variant = 'm'}: SparksProps) => {
 
   return (
     <div
-      className="sg-sparks"
+      className={cx('sg-sparks', {'sg-sparks--s': variant === 's'})}
       onMouseEnter={handlMouseEnter}
       onMouseLeave={handlMouseLeave}
     >
