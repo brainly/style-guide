@@ -1,8 +1,12 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import {FloatingFocusManager, FloatingOverlay} from '@floating-ui/react';
+import {
+  FloatingFocusManager,
+  FloatingOverlay,
+  useMergeRefs,
+} from '@floating-ui/react';
 
-import {mergeRefs, isTouchScreen, __DEV__, invariant} from '../utils';
+import {isTouchScreen, __DEV__, invariant} from '../utils';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import SubjectIcon from '../subject-icons/SubjectIcon';
@@ -330,10 +334,12 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       className
     );
 
+    const selectRef = useMergeRefs([ref, floating.refs.setReference]);
+
     return (
       <div className={selectClass} onClick={onClick}>
         <div
-          ref={mergeRefs(ref, floating.refs.setReference)}
+          ref={selectRef}
           id={id}
           className="sg-select-new__element"
           role="combobox"
