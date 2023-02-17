@@ -1,4 +1,4 @@
-import type {AnimationConfig} from './animation';
+import {AnimationConfig} from './animation';
 
 const sparkAnimationConfig: AnimationConfig = {
   entry: [

@@ -13,8 +13,11 @@ export interface AnimationWithOptions {
 }
 
 export interface AnimationConfig {
-  entry: AnimationWithOptions[];
-  exit: AnimationWithOptions[];
+  entry?: AnimationWithOptions[];
+  exit?: AnimationWithOptions[];
+  active?: boolean;
+  delay?: number;
+  duration?: number;
 }
 
 export interface RegisterOptions {
