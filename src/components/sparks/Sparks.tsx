@@ -19,6 +19,10 @@ interface SparksProps {
   children?: React.ReactNode;
   shape?: 'spark' | 'heart';
   variant?: 's' | 'm' | 'l';
+  active?: boolean;
+  duration?: number;
+  delay?: number;
+  iterationCount?: number;
 }
 
 const shapes = {
@@ -55,7 +59,15 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
-const Sparks = ({children, shape = 'heart', variant = 's'}: SparksProps) => {
+const Sparks = ({
+  children,
+  shape = 'heart',
+  variant = 's',
+  active = false,
+  duration = Infinity,
+  delay = 500,
+  iterationCount = 1,
+}: SparksProps) => {
   const animationConfig = shapeAnimationMap[shape];
   const {register, setPhase} = useAnimation(animationConfig);
 
