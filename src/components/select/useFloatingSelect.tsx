@@ -11,6 +11,8 @@ import {
   size,
 } from '@floating-ui/react';
 
+const CONTAINER_MARGIN = 10;
+
 type UseFloatingSelectPropsType = {
   isExpanded: boolean;
   onOpenChange: (string) => void;
@@ -35,7 +37,9 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       size({
         apply({elements, availableHeight}) {
           Object.assign(elements.floating.style, {
-            maxHeight: `${availableHeight}px`,
+            maxHeight: `${availableHeight - CONTAINER_MARGIN}px`,
+            margin: `0 ${CONTAINER_MARGIN}px`,
+            transform: `translateX(-${CONTAINER_MARGIN}px)`,
           });
         },
       }),
