@@ -11,20 +11,8 @@ import {testA11y} from '../../axe';
 describe('Flex', () => {
   const children = <div>Text</div>;
 
-  it('renders without error', () => {
+  it('renders', () => {
     expect(() => render(<Flex>{children}</Flex>)).not.toThrow();
-  });
-
-  it('renders proper flex direction of flex', () => {
-    const component = render(
-      <Flex direction={FLEX_DIRECTION.COLUMN}>{children}</Flex>
-    );
-
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-flex--column'
-      )
-    ).toEqual(true);
   });
 
   it('direction is responsive prop', () => {
@@ -52,16 +40,6 @@ describe('Flex', () => {
     });
   });
 
-  it('renders inline flex', () => {
-    const component = render(<Flex inlineFlex>{children}</Flex>);
-
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-flex--inline'
-      )
-    ).toEqual(true);
-  });
-
   it('inlineFlex is responsive prop', () => {
     const component = render(
       <Flex inlineFlex={[true, false, null, false]}>{children}</Flex>
@@ -74,18 +52,6 @@ describe('Flex', () => {
         ).toEqual(true);
       }
     );
-  });
-
-  it('renders component with proper flex justify property', () => {
-    const component = render(
-      <Flex justifyContent={FLEX_JUSTIFY_VALUES.FLEX_START}>{children}</Flex>
-    );
-
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-flex--justify-content-flex-start'
-      )
-    ).toEqual(true);
   });
 
   it('justifyContent is responsive prop', () => {
@@ -113,18 +79,6 @@ describe('Flex', () => {
     });
   });
 
-  it('renders component with proper flex align property', () => {
-    const component = render(
-      <Flex alignItems={FLEX_ALIGNMENT_VALUES.CENTER}>{children}</Flex>
-    );
-
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-flex--align-items-center'
-      )
-    ).toEqual(true);
-  });
-
   it('alignItems is responsive prop', () => {
     const component = render(
       <Flex
@@ -149,19 +103,6 @@ describe('Flex', () => {
       ).toEqual(true);
     });
   });
-
-  test.each(Object.values(FLEX_MARGINS))(
-    'when margin prop is %i, class sg-flex--margin-%i should exist',
-    margin => {
-      const component = render(<Flex margin={margin}>{children}</Flex>);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-flex--margin-${margin}`
-        )
-      ).toEqual(true);
-    }
-  );
 
   it('margin is responsive prop', () => {
     const component = render(
@@ -188,19 +129,6 @@ describe('Flex', () => {
     });
   });
 
-  test.each(Object.values(FLEX_MARGINS))(
-    'when marginTop prop is %i, class sg-flex--margin-top-%i should exist',
-    margin => {
-      const component = render(<Flex marginTop={margin}>{children}</Flex>);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-flex--margin-top-${margin}`
-        )
-      ).toEqual(true);
-    }
-  );
-
   it('marginTop is responsive prop', () => {
     const component = render(
       <Flex
@@ -225,19 +153,6 @@ describe('Flex', () => {
       ).toEqual(true);
     });
   });
-
-  test.each(Object.values(FLEX_MARGINS))(
-    'when marginRight prop is %i, class sg-flex--margin-right-%i should exist',
-    margin => {
-      const component = render(<Flex marginRight={margin}>{children}</Flex>);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-flex--margin-right-${margin}`
-        )
-      ).toEqual(true);
-    }
-  );
 
   it('marginRight is responsive prop', () => {
     const component = render(
@@ -264,19 +179,6 @@ describe('Flex', () => {
     });
   });
 
-  test.each(Object.values(FLEX_MARGINS))(
-    'when marginBottom prop is %i, class sg-flex--margin-bottom-%i should exist',
-    margin => {
-      const component = render(<Flex marginBottom={margin}>{children}</Flex>);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-flex--margin-bottom-${margin}`
-        )
-      ).toEqual(true);
-    }
-  );
-
   it('marginBottom is responsive prop', () => {
     const component = render(
       <Flex
@@ -301,19 +203,6 @@ describe('Flex', () => {
       ).toEqual(true);
     });
   });
-
-  test.each(Object.values(FLEX_MARGINS))(
-    'when marginLeft prop is %i, class sg-flex--margin-left-%i should exist',
-    margin => {
-      const component = render(<Flex marginLeft={margin}>{children}</Flex>);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-flex--margin-left-${margin}`
-        )
-      ).toEqual(true);
-    }
-  );
 
   it('marginLeft is responsive prop', () => {
     const component = render(

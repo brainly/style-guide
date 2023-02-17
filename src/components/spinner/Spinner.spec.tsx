@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Spinner, {SPINNER_SIZE, SPINNER_COLOR} from './Spinner';
+import Spinner from './Spinner';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
@@ -8,29 +8,6 @@ describe('Spinner', () => {
     const component = render(<Spinner />);
 
     expect(component.getByRole('status')).toBeTruthy();
-  });
-
-  it('SPINNER_SIZE', () => {
-    const size = SPINNER_SIZE.XSMALL;
-    const component = render(<Spinner size={size} />);
-
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-spinner--xsmall'
-      )
-    ).toEqual(true);
-  });
-
-  it('colors', () => {
-    Object.values(SPINNER_COLOR).forEach(color => {
-      const component = render(<Spinner color={color} />);
-
-      expect(
-        component.container.firstElementChild.classList.contains(
-          `sg-spinner--${color}`
-        )
-      ).toEqual(true);
-    });
   });
 
   it('className', () => {

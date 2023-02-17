@@ -8,7 +8,7 @@ const menuItem = {
 };
 const menuItems = [menuItem];
 
-describe('<MenuList />', () => {
+describe('MenuList', () => {
   it('renders', () => {
     const menu = render(<MenuList items={menuItems} />);
 
@@ -32,7 +32,7 @@ describe('<MenuList />', () => {
   });
 });
 
-describe('<MenuItem />', () => {
+describe('MenuItem', () => {
   it('renders', () => {
     const menuItem = render(<MenuItem text="test" href="#" />);
 

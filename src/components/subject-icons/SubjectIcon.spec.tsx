@@ -22,53 +22,6 @@ describe('SubjectIcon', () => {
     expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
   });
 
-  it('type passed to xlink:href', () => {
-    const type = TYPE.ACCOUNTANCY;
-    const icon = render(<SubjectIcon type={type} />);
-
-    expect(
-      icon.container.firstElementChild
-        .querySelector('use')
-        .getAttribute('xlink:href')
-    ).toEqual(`#icon-subject-${type}`);
-  });
-
-  it('size', () => {
-    const size = SIZE.SMALL;
-    const type = TYPE.OTHERLANGUAGES;
-    const icon = render(<SubjectIcon type={type} size={size} />);
-
-    expect(
-      icon.container.firstElementChild.classList.contains(
-        `sg-subject-icon--${size}`
-      )
-    ).toEqual(true);
-  });
-
-  it('mono', () => {
-    const type = TYPE.OTHERLANGUAGES;
-    const icon = render(
-      <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
-    );
-
-    expect(
-      icon.container.firstElementChild
-        .querySelector('use')
-        .getAttribute('xlink:href')
-    ).toEqual(`#icon-subject-mono-${type}`);
-  });
-
-  it('normal size', () => {
-    const type = TYPE.OTHERLANGUAGES;
-    const icon = render(<SubjectIcon type={type} />);
-
-    expect(
-      icon.container.firstElementChild.classList.contains(
-        'sg-subject-icon--normal'
-      )
-    ).toEqual(false);
-  });
-
   describe('a11y', () => {
     it('should have no a11y violations', async () => {
       await testA11y(<SubjectIcon type="art" />);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FlashMessage, {TYPE} from './FlashMessage';
+import FlashMessage from './FlashMessage';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
@@ -8,16 +8,6 @@ describe('FlashMessage', () => {
     const flashMessage = render(<FlashMessage text="foo" />);
 
     expect(flashMessage.queryByText('foo')).toBeTruthy();
-  });
-
-  it('type', () => {
-    const flashMessage = render(<FlashMessage text="test" type={TYPE.ERROR} />);
-
-    expect(
-      flashMessage.container.firstElementChild.firstElementChild.classList.contains(
-        'sg-flash__message--error'
-      )
-    ).toEqual(true);
   });
 
   it('should have "alert" role', () => {

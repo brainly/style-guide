@@ -10,16 +10,6 @@ describe('SeparatorHorizontal', () => {
     expect(separator.getByRole('separator')).toBeTruthy();
   });
 
-  it('type', () => {
-    const separator = render(<SeparatorHorizontal type={TYPE.SPACED} />);
-
-    expect(
-      separator.container.firstElementChild.classList.contains(
-        'sg-horizontal-separator--spaced'
-      )
-    ).toEqual(true);
-  });
-
   describe('a11y', () => {
     it('should have no a11y violations', async () => {
       await testA11y(<SeparatorHorizontal />);

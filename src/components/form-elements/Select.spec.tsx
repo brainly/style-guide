@@ -49,9 +49,7 @@ const voidFunction = () => undefined;
 it('render', () => {
   const select = render(<Select />);
 
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select')
-  ).toEqual(true);
+  expect(select.getByRole('combobox')).toBeTruthy();
 });
 
 it('render options', () => {
@@ -88,59 +86,6 @@ it('choose options', () => {
       name: 'test2',
     })
   ).toBeTruthy();
-});
-
-it('full width', () => {
-  const select = render(<Select fullWidth />);
-
-  expect(
-    select.container.firstElementChild.classList.contains(
-      'sg-select--full-width'
-    )
-  ).toEqual(true);
-});
-
-it('default validation', () => {
-  const select = render(<Select />);
-
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--valid')
-  ).toEqual(false);
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--invalid')
-  ).toEqual(false);
-});
-
-it('valid', () => {
-  const select = render(<Select valid />);
-
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--valid')
-  ).toEqual(true);
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--invalid')
-  ).toEqual(false);
-});
-
-it('invalid', () => {
-  const select = render(<Select invalid />);
-
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--valid')
-  ).toEqual(false);
-  expect(
-    select.container.firstElementChild.classList.contains('sg-select--invalid')
-  ).toEqual(true);
-});
-
-it('capitalized', () => {
-  const select = render(<Select capitalized />);
-
-  expect(
-    select.container.firstElementChild.classList.contains(
-      'sg-select--capitalized'
-    )
-  ).toEqual(true);
 });
 
 it('error when both valid and invalid', () => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import HomeButton, {TYPE} from './HomeButton';
+import HomeButton from './HomeButton';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
@@ -9,16 +9,6 @@ describe('HomeButton', () => {
 
     expect(button.getAllByRole('img').length).toBeGreaterThan(0);
     expect(button.getByRole('link')).toBeTruthy();
-  });
-
-  it('type', () => {
-    const button = render(<HomeButton type={TYPE.EODEV} />);
-
-    expect(
-      button.container.firstElementChild.classList.contains(
-        'sg-home-button--eodev'
-      )
-    ).toBe(true);
   });
 
   it('href', () => {

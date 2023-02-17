@@ -1,19 +1,9 @@
 import * as React from 'react';
-import SeparatorVertical, {SIZE} from './SeparatorVertical';
+import SeparatorVertical from './SeparatorVertical';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('SeparatorVertical', () => {
-  it('size', () => {
-    const separator = render(<SeparatorVertical size={SIZE.SMALL} />);
-
-    expect(
-      separator.container.firstElementChild.classList.contains(
-        'sg-vertical-separator--small'
-      )
-    ).toEqual(true);
-  });
-
   it('should have role="separator" and vertical orientation', () => {
     const separator = render(<SeparatorVertical />);
 

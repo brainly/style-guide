@@ -16,42 +16,12 @@ describe('Layout', () => {
     ).toBeTruthy();
   });
 
-  it('reserved-order', () => {
-    const layout = render(<Layout reversedOrder>Content</Layout>);
-
-    expect(
-      layout.container.firstElementChild.querySelector(
-        '.sg-layout__container--reversed-order'
-      )
-    ).toBeTruthy();
-  });
-
   it('no-max-width', () => {
     const layout = render(<Layout noMaxWidth>Content</Layout>);
 
     expect(
       layout.container.firstElementChild.querySelector(
         '.sg-layout__container--no-max-width'
-      )
-    ).toBeTruthy();
-  });
-
-  it('no-margin-top', () => {
-    const layout = render(<Layout noMarginTop>Content</Layout>);
-
-    expect(
-      layout.container.firstElementChild.querySelector(
-        '.sg-layout__container--no-margin-top'
-      )
-    ).toBeTruthy();
-  });
-
-  it('full-page', () => {
-    const layout = render(<Layout fullPage>Content</Layout>);
-
-    expect(
-      layout.container.firstElementChild.querySelector(
-        '.sg-layout__container--full-page'
       )
     ).toBeTruthy();
   });
@@ -67,11 +37,7 @@ describe('LayoutContent', () => {
   it('render', () => {
     const layoutContent = render(<LayoutContent>Content</LayoutContent>);
 
-    expect(
-      layoutContent.container.firstElementChild.classList.contains(
-        'sg-layout__content'
-      )
-    ).toEqual(true);
+    expect(layoutContent.getByText('Content')).toBeTruthy();
   });
 
   it('no-max-width', () => {
@@ -93,11 +59,7 @@ describe('LayoutAsideContent', () => {
       <LayoutAsideContent>Content</LayoutAsideContent>
     );
 
-    expect(
-      layoutAsideContent.container.firstElementChild.classList.contains(
-        'sg-layout__aside-content'
-      )
-    ).toEqual(true);
+    expect(layoutAsideContent.getByText('Content')).toBeTruthy();
   });
 });
 
@@ -107,10 +69,6 @@ describe('LayoutSecondaryContent', () => {
       <LayoutSecondaryContent>Content</LayoutSecondaryContent>
     );
 
-    expect(
-      component.container.firstElementChild.classList.contains(
-        'sg-layout__secondary-content'
-      )
-    ).toEqual(true);
+    expect(component.getByText('Content')).toBeTruthy();
   });
 });

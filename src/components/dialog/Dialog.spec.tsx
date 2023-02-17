@@ -22,41 +22,6 @@ describe('<Dialog>', () => {
     expect(wrapper.getByText('content text')).toBeTruthy();
   });
 
-  it('renders proper size', () => {
-    const wrapper = render(
-      <Dialog size="xl" open>
-        content text
-      </Dialog>
-    );
-    const root = wrapper.container.firstElementChild;
-
-    expect(root.classList.contains('sg-dialog__overlay--size-xl')).toBe(true);
-  });
-
-  it('renders outside scroll', () => {
-    const wrapper = render(
-      <Dialog scroll="outside" open>
-        content text
-      </Dialog>
-    );
-    const root = wrapper.container.firstElementChild;
-
-    expect(root.classList.contains('sg-dialog__overlay--scroll')).toBe(true);
-  });
-
-  it('renders inside scroll', () => {
-    const wrapper = render(
-      <Dialog scroll="inside" open>
-        content text
-      </Dialog>
-    );
-    const dialog = wrapper.getByRole('dialog');
-
-    expect(dialog.classList.contains('sg-dialog__container--scroll')).toBe(
-      true
-    );
-  });
-
   it('fires onDismiss callback on Escape key', () => {
     const onDismiss = jest.fn();
     const wrapper = render(
@@ -275,6 +240,7 @@ describe('<Dialog>', () => {
     userEvent.keyboard('{esc}');
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
+
   it('blocks user interaction outside dialog and closes dialog on click outside', () => {
     const buttonText = 'label';
     const dialog = render(
@@ -288,7 +254,7 @@ describe('<Dialog>', () => {
     waitForElementToBeRemoved(dialog.queryByRole('dialog'));
   });
 
-  it('correctly handles escape key for nested Dialogs', () => {
+  it('handles escape key for nested Dialogs', () => {
     // TODO: improve this test to adhere to react-testing-library standards
     // so to check modal visibility instead of onDismiss callback
     const onDismissOuter = jest.fn();

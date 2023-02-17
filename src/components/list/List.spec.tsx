@@ -12,22 +12,10 @@ describe('List', () => {
     expect(list.getByRole('list')).toBeTruthy();
   });
 
-  it('renders with spaced elements', () => {
-    const list = render(<List spaced />);
-
-    expect(
-      list.container.firstElementChild.classList.contains(
-        'sg-list--spaced-elements'
-      )
-    ).toEqual(true);
-  });
-
   it('renders additional classes', () => {
     const list = render(<List className="m4l" />);
 
-    expect(list.container.firstElementChild.classList.contains('m4l')).toEqual(
-      true
-    );
+    expect(list.baseElement.querySelector('.m4l')).toBeTruthy();
   });
 
   it('should have role "list" and "listitem"', () => {

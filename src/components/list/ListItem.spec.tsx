@@ -19,8 +19,6 @@ describe('<ListItem>', () => {
   it('renders additional classes', () => {
     const list = render(<ListItem className="m4l">42</ListItem>);
 
-    expect(list.container.firstElementChild.classList.contains('m4l')).toEqual(
-      true
-    );
+    expect(list.baseElement.querySelector('.m4l')).toBeTruthy();
   });
 });

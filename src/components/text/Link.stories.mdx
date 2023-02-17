@@ -2,9 +2,17 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../docs/utils';
 import Link, {LINK_ALIGN, LINK_SIZE, LINK_TRANSFORM, LINK_WEIGHT} from './Link';
 import Text from './Text';
-import {TEXT_COLOR} from './textConsts';
+import {
+  TEXT_COLOR,
+  TEXT_SIZE,
+  TEXT_WEIGHT,
+  TEXT_TRANSFORM,
+  TEXT_ALIGN,
+} from './textConsts';
 import LinkA11y from './stories/Link.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
+import {StoryVariant} from '../../docs/utils';
 
 <Meta
   title="Components/Link"
@@ -190,6 +198,142 @@ import PageHeader from 'blocks/PageHeader';
       >
         Read more about red pandas
       </Link>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <Link {...args} size={size}>
+              Some text
+            </Link>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_COLOR).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            <div
+              style={{backgroundColor: color === 'text-white' ? '#c3d1dd' : ''}}
+            >
+              <Link {...args} color={color}>
+                Some text
+              </Link>
+            </div>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Underlined
+
+<Canvas>
+  <Story name="Underlined">
+    {args => (
+      <Link {...args} underlined>
+        Some text
+      </Link>
+    )}
+  </Story>
+</Canvas>
+
+### Weight
+
+<Canvas>
+  <Story name="Weight">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_WEIGHT).map(weight => (
+          <StoryVariant label={`weight - ${weight}`} key={weight}>
+            <Link {...args} weight={weight}>
+              Some text
+            </Link>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Transform
+
+<Canvas>
+  <Story name="Transform">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_TRANSFORM).map(transform => (
+          <StoryVariant label={`transform - ${transform}`} key={transform}>
+            <Link {...args} transform={transform}>
+              Some text
+            </Link>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Align
+
+<Canvas>
+  <Story name="Align">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_ALIGN).map(align => (
+          <StoryVariant label={`align - ${align}`} key={align} width={400}>
+            <Link {...args} align={align} style={{display: 'block'}}>
+              Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi
+              eiusmod minim deserunt ut cupidatat dolore velit deserunt nisi.
+              Enim in anim aute non.
+            </Link>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### No wrap on white space
+
+<Canvas>
+  <Story name="White space no wrap">
+    {args => (
+      <div style={{border: '1px solid gray', width: '400px'}}>
+        <Link {...args} noWrap>
+          Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi eiusmod.
+        </Link>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Break words
+
+<Canvas>
+  <Story name="Break words">
+    {args => (
+      <div style={{border: '1px solid gray', width: '400px'}}>
+        <Link {...args} breakWords>
+          very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-word
+        </Link>
+      </div>
     )}
   </Story>
 </Canvas>

@@ -22,18 +22,6 @@ describe('FileHandler', () => {
     expect(fileHandler.getByRole('button', {name: 'Close'})).toBeTruthy();
   });
 
-  it('renders color white', () => {
-    const fileHandler = render(
-      <FileHandler color="white">example text</FileHandler>
-    );
-
-    expect(
-      fileHandler.container.firstElementChild.classList.contains(
-        'sg-file-handler--white'
-      )
-    ).toEqual(true);
-  });
-
   it('renders proper icon when iconType', () => {
     const fileHandler = render(
       <FileHandler iconType="heart">example text</FileHandler>

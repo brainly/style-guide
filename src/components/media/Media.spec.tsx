@@ -36,12 +36,7 @@ describe('Media', () => {
     const rootClasses = media.container.firstElementChild.classList;
 
     expect(rootClasses.contains('sg-media--clickable')).toEqual(true);
-    expect(rootClasses.contains('sg-media--to-right')).toEqual(true);
     expect(rootClasses.contains('sg-media--no-padding')).toEqual(true);
-    expect(rootClasses.contains('sg-media--gray-20')).toEqual(true);
-    expect(rootClasses.contains('sg-media--blue-20')).toEqual(false);
-    expect(rootClasses.contains('sg-media--transparent')).toEqual(false);
-    expect(rootClasses.contains('sg-media--white')).toEqual(false);
     expect(
       media.container.firstElementChild.querySelectorAll(
         '.sg-media__content--spaced-bottom'
@@ -59,11 +54,6 @@ describe('Media', () => {
     const rootClasses = media.container.firstElementChild.classList;
 
     expect(rootClasses.contains('sg-media--clickable')).toEqual(false);
-    expect(rootClasses.contains('sg-media--white')).toEqual(true);
-    expect(rootClasses.contains('sg-media--gray-20')).toEqual(false);
-    expect(rootClasses.contains('sg-media--blue-20')).toEqual(false);
-    expect(rootClasses.contains('sg-media--transparent')).toEqual(false);
-    expect(rootClasses.contains('sg-media--to-right')).toEqual(false);
     expect(rootClasses.contains('sg-media--no-padding')).toEqual(false);
   });
 

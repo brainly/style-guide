@@ -5,15 +5,9 @@ import {testA11y} from '../../axe';
 
 describe('SpinnerContainer', () => {
   it('render', () => {
-    const spinnerContainer = render(
-      <SpinnerContainer>children</SpinnerContainer>
-    );
+    const spinnerContainer = render(<SpinnerContainer>foo</SpinnerContainer>);
 
-    expect(
-      spinnerContainer.container.firstElementChild.classList.contains(
-        'sg-spinner-container'
-      )
-    ).toEqual(true);
+    expect(spinnerContainer.getByText('foo')).toBeTruthy();
   });
 
   it('loading', () => {

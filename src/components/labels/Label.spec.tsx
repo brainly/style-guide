@@ -11,12 +11,7 @@ describe('Label', () => {
       </Label>
     );
 
-    expect(
-      label.container.firstElementChild.classList.contains('sg-label')
-    ).toBe(true);
-    expect(
-      label.container.firstElementChild.classList.contains('sg-label--blue-20')
-    ).toBe(true);
+    expect(label.getByText('example label')).toBeTruthy();
   });
 
   it('render with icon', () => {
@@ -27,18 +22,6 @@ describe('Label', () => {
     );
 
     expect(label.getByRole('img')).toBeTruthy();
-  });
-
-  it('render type solid', () => {
-    const label = render(
-      <Label type="solid" color="green">
-        example label
-      </Label>
-    );
-
-    expect(
-      label.container.firstElementChild.classList.contains('sg-label--green-60')
-    ).toBe(true);
   });
 
   it('when onClose is defined, has close button', () => {

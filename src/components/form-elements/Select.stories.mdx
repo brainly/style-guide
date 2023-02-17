@@ -16,7 +16,6 @@ import Headline from '../text/Headline';
     },
   }}
   args={{
-    fullWidth: true,
     options: [
       {
         value: '1',
@@ -232,4 +231,16 @@ import Headline from '../text/Headline';
       </StoryVariantTable>
     )}
   </Story>
+</Canvas>
+
+### Full width
+
+<Canvas>
+  <Story name="Full width">{args => <Select {...args} fullWidth />}</Story>
+</Canvas>
+
+### Capitalized
+
+<Canvas>
+  <Story name="Capitalized">{args => <Select {...args} capitalized />}</Story>
 </Canvas>

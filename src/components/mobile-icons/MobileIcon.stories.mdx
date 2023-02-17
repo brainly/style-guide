@@ -53,3 +53,37 @@ import {formatTags} from '../../docs/utils';
     )}
   </Story>
 </Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <Flex wrap>
+        {[
+          104, 102, 80, 78, 56, 54, 40, 32, 30, 26, 24, 22, 20, 18, 16, 14, 10,
+        ].map(size => (
+          <StoryVariant label={`size - ${size}`} width={200} key={size}>
+            <MobileIcon {...args} size={size} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex wrap>
+        {Object.values(ICON_COLOR).map(color => (
+          <StoryVariant label={`color - ${color}`} width={200} key={color}>
+            <MobileIcon {...args} color={color} />
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>

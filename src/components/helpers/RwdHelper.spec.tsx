@@ -19,7 +19,5 @@ it('custom className', () => {
     </RwdHelper>
   );
 
-  expect(rwdHelper.container.firstElementChild.classList.contains('test')).toBe(
-    true
-  );
+  expect(rwdHelper.getByText('inside div')).toBeTruthy();
 });

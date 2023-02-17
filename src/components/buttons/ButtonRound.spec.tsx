@@ -6,20 +6,14 @@ describe('ButtonRound', () => {
   it('render', () => {
     const button = render(<ButtonRound>Some text</ButtonRound>);
 
-    expect(
-      button.container.firstElementChild.classList.contains(
-        'sg-button-solid-round'
-      )
-    ).toEqual(true);
+    expect(button.getByText('Some text')).toBeTruthy();
   });
 
   it('href', () => {
     const href = '#test';
     const button = render(<ButtonRound href={href}>Some text</ButtonRound>);
 
-    expect(button.container.firstElementChild.getAttribute('href')).toEqual(
-      href
-    );
+    expect(button.getByRole('link').getAttribute('href')).toEqual(href);
   });
 
   it('label', () => {

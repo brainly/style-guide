@@ -15,18 +15,6 @@ describe('Headline', () => {
     expect(headline.getByRole('heading')).toBeTruthy();
   });
 
-  it('size', () => {
-    const headline = render(
-      <Headline size={HEADLINE_SIZE.SMALL}>Test</Headline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-headline--small'
-      )
-    ).toBeTruthy();
-  });
-
   it('size is responsive prop', () => {
     const component = render(
       <Headline
@@ -58,28 +46,6 @@ describe('Headline', () => {
     expect(headline.getByRole('heading').tagName).toEqual('H3');
   });
 
-  it('text-white', () => {
-    const text = render(<Headline color="text-white">Test</Headline>);
-
-    expect(
-      text.container.firstElementChild.classList.contains(
-        'sg-headline--text-white'
-      )
-    ).toBeTruthy();
-  });
-
-  it('transform uppercase', () => {
-    const headline = render(
-      <Headline transform={HEADLINE_TRANSFORM.UPPERCASE}>Test</Headline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-headline--uppercase'
-      )
-    ).toBeTruthy();
-  });
-
   it('transform is responsive prop', () => {
     const component = render(
       <Headline
@@ -105,16 +71,6 @@ describe('Headline', () => {
     });
   });
 
-  it('extra bold', () => {
-    const headline = render(<Headline extraBold>Test</Headline>);
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-headline--extra-bold'
-      )
-    ).toBeTruthy();
-  });
-
   it('extraBold is responsive prop', () => {
     const component = render(
       <Headline extraBold={[true, false, null, true]}>Test</Headline>
@@ -129,18 +85,6 @@ describe('Headline', () => {
         component.container.firstElementChild.classList.contains(className)
       ).toEqual(true);
     });
-  });
-
-  it('extra align left', () => {
-    const headline = render(
-      <Headline align={HEADLINE_ALIGN.LEFT}>Test</Headline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-headline--to-left'
-      )
-    ).toBeTruthy();
   });
 
   it('align is responsive prop', () => {

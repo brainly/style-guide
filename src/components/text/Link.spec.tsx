@@ -16,19 +16,7 @@ describe('Link', () => {
   it('render Text', () => {
     const link = render(<Link href="test.com">Test</Link>);
 
-    expect(link.queryByText('Test')).toBeTruthy();
-  });
-
-  it('size', () => {
-    const link = render(
-      <Link href="#" size={LINK_SIZE.SMALL}>
-        Test
-      </Link>
-    );
-
-    expect(
-      link.container.firstElementChild.classList.contains('sg-text--small')
-    ).toBeTruthy();
+    expect(link.getByText('Test')).toBeTruthy();
   });
 
   it('size is responsive prop', () => {
@@ -41,23 +29,11 @@ describe('Link', () => {
 
     ['sg-text--small', 'md:sg-text--xxlarge', 'xl:sg-text--xxxlarge'].forEach(
       className => {
-        expect(
-          component.container.firstElementChild.classList.contains(className)
-        ).toBe(true);
+        expect(component.getByRole('link').classList.contains(className)).toBe(
+          true
+        );
       }
     );
-  });
-
-  it('color', () => {
-    const link = render(
-      <Link href="#" color="text-white">
-        Test
-      </Link>
-    );
-
-    expect(
-      link.container.firstElementChild.classList.contains('sg-text--text-white')
-    ).toBe(true);
   });
 
   it('unstyled', () => {
@@ -67,22 +43,9 @@ describe('Link', () => {
       </Link>
     );
 
-    const linkClasslist = link.container.firstElementChild.classList;
+    const linkClasslist = link.getByRole('link').classList;
 
     expect(linkClasslist.contains('sg-text--link-unstyled')).toBeTruthy();
-    expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
-  });
-
-  it('underlined', () => {
-    const link = render(
-      <Link href="#" underlined>
-        Test
-      </Link>
-    );
-    const linkClasslist = link.container.firstElementChild.classList;
-
-    expect(linkClasslist.contains('sg-text--link-underlined')).toBeTruthy();
-    expect(linkClasslist.contains('sg-text--link-unstyled')).toBeFalsy();
     expect(linkClasslist.contains('sg-text--link')).toBeFalsy();
   });
 
@@ -99,7 +62,7 @@ describe('Link', () => {
     ['sg-text--bold', 'md:sg-text--regular', 'xl:sg-text--bold'].forEach(
       className => {
         expect(
-          component.container.firstElementChild.classList.contains(className)
+          component.getByRole('link').classList.contains(className)
         ).toEqual(true);
       }
     );
@@ -114,9 +77,9 @@ describe('Link', () => {
     );
 
     ['sg-text--capitalize', 'md:sg-text--lowercase'].forEach(className => {
-      expect(
-        component.container.firstElementChild.classList.contains(className)
-      ).toBe(true);
+      expect(component.getByRole('link').classList.contains(className)).toBe(
+        true
+      );
     });
   });
 
@@ -129,9 +92,9 @@ describe('Link', () => {
     );
 
     ['sg-text--to-center', 'md:sg-text--to-left'].forEach(className => {
-      expect(
-        component.container.firstElementChild.classList.contains(className)
-      ).toBe(true);
+      expect(component.getByRole('link').classList.contains(className)).toBe(
+        true
+      );
     });
   });
 
@@ -144,9 +107,9 @@ describe('Link', () => {
     );
 
     ['sg-text--no-wrap', 'md:sg-text--wrap'].forEach(className => {
-      expect(
-        component.container.firstElementChild.classList.contains(className)
-      ).toBe(true);
+      expect(component.getByRole('link').classList.contains(className)).toBe(
+        true
+      );
     });
   });
 
@@ -160,9 +123,9 @@ describe('Link', () => {
 
     ['sg-text--break-words', 'md:sg-text--word-break-normal'].forEach(
       className => {
-        expect(
-          component.container.firstElementChild.classList.contains(className)
-        ).toBe(true);
+        expect(component.getByRole('link').classList.contains(className)).toBe(
+          true
+        );
       }
     );
   });
