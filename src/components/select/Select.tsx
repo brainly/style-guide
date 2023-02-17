@@ -167,7 +167,7 @@ export type SelectPropsType = {
    *           options={[{value: 'option1', label: 'Option1'},{value: 'option2', label: 'Select selector'}]}
    *          />
    */
-  onToggle: (boolean) => unknown;
+  onToggle?: (boolean) => unknown;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'className'

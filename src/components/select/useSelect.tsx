@@ -49,7 +49,7 @@ const useSelect = (props: UseSelectPropsType) => {
   };
 
   const onOpenChange = (isOpen: boolean) => {
-    if (isExpandedControlled) onToggle(isOpen);
+    if (isExpandedControlled && onToggle) onToggle(isOpen);
     else setIsExpanded(isOpen);
   };
 
