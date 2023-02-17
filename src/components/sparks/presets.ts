@@ -1,4 +1,3 @@
-import * as React from 'react';
 import type {AnimationConfig} from './animation';
 
 const sparkAnimationConfig: AnimationConfig = {
