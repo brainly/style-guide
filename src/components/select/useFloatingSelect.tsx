@@ -5,10 +5,10 @@ import {
   useClick,
   useDismiss,
   useListNavigation,
-  flip,
   shift,
   offset,
   size,
+  autoPlacement,
 } from '@floating-ui/react';
 
 const CONTAINER_MARGIN = 10;
@@ -28,18 +28,21 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
     onOpenChange,
     middleware: [
       offset(8),
-      flip({
-        fallbackAxisSideDirection: 'start',
-        crossAxis: false,
-        fallbackPlacements: ['top'],
+      autoPlacement({
+        alignment: 'start',
+        autoAlignment: true,
+        allowedPlacements: [
+          'bottom-start',
+          'bottom-end',
+          'top-start',
+          'top-end',
+        ],
       }),
       shift(),
       size({
         apply({elements, availableHeight}) {
           Object.assign(elements.floating.style, {
             maxHeight: `${availableHeight - CONTAINER_MARGIN}px`,
-            margin: `0 ${CONTAINER_MARGIN}px`,
-            transform: `translateX(-${CONTAINER_MARGIN}px)`,
           });
         },
       }),

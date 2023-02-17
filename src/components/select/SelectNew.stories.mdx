@@ -530,3 +530,76 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     )}
   </Story>
 </Canvas>
+
+### Positioning
+
+<Canvas>
+  <Story
+    name="Positioning"
+    height="100%"
+    args={{
+      withIcons,
+      defaultExpanded,
+      options: [
+        {value: 'art', label: 'Astronomy is great', iconName: 'art'},
+        {
+          value: 'math',
+          label: 'Mathematics is my fav',
+          iconName: 'mathematics',
+        },
+      ],
+    }}
+  >
+    {args => {
+      return (
+        <Flex direction="column">
+          <Flex
+            direction="row"
+            justifyContent="space-between"
+            style={{height: '200px'}}
+          >
+            {[...Array(3)].map(number => (
+              <div style={{width: '320px'}}>
+                <Select
+                  key={`long-${number}`}
+                  {...args}
+                  fullWidth={number % 2 ? false : true}
+                />
+              </div>
+            ))}
+          </Flex>
+          <Flex
+            direction="row"
+            justifyContent="space-between"
+            style={{height: '200px'}}
+          >
+            {[...Array(3)].map(number => (
+              <div style={{width: '120px'}}>
+                <Select
+                  key={`short-${number}`}
+                  {...args}
+                  fullWidth={number % 2 ? false : true}
+                />
+              </div>
+            ))}
+          </Flex>
+          <Flex
+            direction="row"
+            justifyContent="space-between"
+            style={{padding: '0 30px', height: '300px'}}
+          >
+            {[...Array(3)].map(number => (
+              <div style={{width: '120px'}}>
+                <Select
+                  key={`with-padding-${number}`}
+                  {...args}
+                  fullWidth={number % 2 ? false : true}
+                />
+              </div>
+            ))}
+          </Flex>
+        </Flex>
+      );
+    }}
+  </Story>
+</Canvas>
