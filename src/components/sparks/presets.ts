@@ -1,4 +1,5 @@
 import {AnimationConfig} from './animation';
+import {ParticleProps} from './Particle';
 
 const sparkAnimationConfig: AnimationConfig = {
   entry: [
@@ -143,13 +144,15 @@ const heartAnimationConfig: AnimationConfig = {
   ],
 };
 
-export const shapeAnimationMap: Record<SparksProps['shape'], AnimationConfig> =
-  {
-    spark: sparkAnimationConfig,
-    heart: heartAnimationConfig,
-  };
+export const shapeAnimationMap: Record<
+  ParticleProps['shape'],
+  AnimationConfig
+> = {
+  spark: sparkAnimationConfig,
+  heart: heartAnimationConfig,
+};
 
-export const shapeColorMap: Record<SparksProps['shape'], string[]> = {
+export const shapeColorMap: Record<ParticleProps['shape'], string[]> = {
   spark: [
     'var(--yellow-20)',
     'var(--yellow-30)',
