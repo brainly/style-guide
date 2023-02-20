@@ -40,10 +40,13 @@ const Sparks = ({
   delay = 500,
   iterationCount = 1,
 }: SparksProps) => {
+  const iteration = React.useRef(1);
   const animationConfig = shapeAnimationMap[shape];
-  const {register, setPhase} = useAnimation(animationConfig);
+  const {register, phase, setPhase} = useAnimation(animationConfig);
 
   const shapeColor = shapeColorMap[shape];
+
+  useTimeout(() => {}, delay);
 
   const handlMouseEnter = () => {
     setPhase('entry');
@@ -60,15 +63,17 @@ const Sparks = ({
     >
       {children}
       <div className="sg-sparks__container">
-        {variants[variant].map(({style, ...particle}, index) => (
-          <Particle
-            key={index}
-            shape={shape}
-            style={{...particle.style, color: shapeColor[particle.colorIndex]}}
-            {...particle}
-            {...register(particle.register)}
-          />
-        ))}
+        {variants[variant].map(
+          ({style, colorIndex, animation, ...particle}, index) => (
+            <Particle
+              key={index}
+              shape={shape}
+              style={{...style, color: shapeColor[colorIndex]}}
+              {...particle}
+              {...register(animation)}
+            />
+          )
+        )}
       </div>
     </div>
   );

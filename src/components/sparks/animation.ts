@@ -29,7 +29,7 @@ export function useAnimation(config: AnimationConfig) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
   const animations = React.useRef(new WeakMap());
-  const [phase, setPhase] = React.useState<'entry' | 'exit'>('entry');
+  const [phase, setPhase] = React.useState<null | 'entry' | 'exit'>(null);
   const configRef = React.useRef(config);
 
   // we only need the most updated value. Equivalent of using useEffectEvent
@@ -66,7 +66,7 @@ export function useAnimation(config: AnimationConfig) {
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
     refs.current.forEach(ref => {
-      const {index, animation = {}} = parameters.current.get(ref);
+      const {index, overrides = {}} = parameters.current.get(ref);
 
       switch (phase) {
         case 'entry': {
@@ -78,7 +78,7 @@ export function useAnimation(config: AnimationConfig) {
           configRef.current.entry?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
-            const override = animation[id];
+            const override = overrides[id];
 
             if (override) {
               keyframes = override?.keyframes || keyframes;
@@ -113,7 +113,7 @@ export function useAnimation(config: AnimationConfig) {
           configRef.current.exit?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
-            const override = animation[id];
+            const override = overrides[id];
 
             if (override) {
               keyframes = override?.keyframes || keyframes;
@@ -134,7 +134,7 @@ export function useAnimation(config: AnimationConfig) {
 
             const anim = ref.animate(keyframes, animationOptions);
 
-            anims.push(anim);
+            anims?.push(anim);
           });
 
           break;

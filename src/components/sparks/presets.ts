@@ -170,9 +170,9 @@ const layoutVariantL = [
     },
     colorIndex: 0,
     size: 16,
-    register: {
+    animation: {
       index: 2,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -186,7 +186,7 @@ const layoutVariantL = [
     },
     colorIndex: 2,
     size: 28,
-    register: {index: 0},
+    animation: {index: 0},
   },
   {
     style: {
@@ -195,9 +195,9 @@ const layoutVariantL = [
     },
     colorIndex: 3,
     size: 12,
-    register: {
+    animation: {
       index: 4,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -213,7 +213,7 @@ const layoutVariantL = [
     },
     colorIndex: 3,
     size: 40,
-    register: {index: 3},
+    animation: {index: 3},
   },
   {
     style: {
@@ -225,9 +225,9 @@ const layoutVariantL = [
     },
     colorIndex: 1,
     size: 24,
-    register: {
+    animation: {
       index: 1,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -244,9 +244,9 @@ const layoutVariantM = [
     },
     colorIndex: 0,
     size: 14,
-    register: {
+    animation: {
       index: 2,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -260,7 +260,7 @@ const layoutVariantM = [
     },
     colorIndex: 2,
     size: 24,
-    register: {index: 0},
+    animation: {index: 0},
   },
   {
     style: {
@@ -271,7 +271,7 @@ const layoutVariantM = [
     },
     colorIndex: 3,
     size: 28,
-    register: {index: 3},
+    animation: {index: 3},
   },
   {
     style: {
@@ -281,9 +281,9 @@ const layoutVariantM = [
     },
     colorIndex: 1,
     size: 20,
-    register: {
+    animation: {
       index: 1,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -301,9 +301,9 @@ const layoutVariantS = [
     },
     colorIndex: 0,
     size: 14,
-    register: {
+    animation: {
       index: 2,
-      animation: {
+      overrides: {
         'heart-loop': {
           keyframes: [{transform: 'scale(1.25)'}],
         },
@@ -318,7 +318,7 @@ const layoutVariantS = [
     },
     colorIndex: 2,
     size: 20,
-    register: {index: 0},
+    animation: {index: 0},
   },
   {
     style: {
@@ -330,7 +330,7 @@ const layoutVariantS = [
     },
     colorIndex: 3,
     size: 24,
-    register: {index: 1},
+    animation: {index: 1},
   },
 ];
 
