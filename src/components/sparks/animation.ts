@@ -33,7 +33,10 @@ export function useAnimation(config: AnimationConfig) {
   const configRef = React.useRef(config);
 
   // we only need the most updated value. Equivalent of using useEffectEvent
-  configRef.current = config;
+
+  React.useEffect(() => {
+    configRef.current = config;
+  }, [config]);
 
   const register = React.useCallback((options?: RegisterOptions) => {
     return {
@@ -105,7 +108,10 @@ export function useAnimation(config: AnimationConfig) {
         }
 
         case 'exit': {
-          const anims = animations.current.get(ref);
+          let anims = animations.current.get(ref);
+
+          anims?.forEach(animation => animation.cancel());
+          anims = [];
 
           configRef.current.exit?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
