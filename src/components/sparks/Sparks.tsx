@@ -46,7 +46,9 @@ const Sparks = ({
 
   const shapeColor = shapeColorMap[shape];
 
-  useTimeout(() => {}, delay);
+  useTimeout(() => {
+    setPhase('entry');
+  }, delay);
 
   const handlMouseEnter = () => {
     setPhase('entry');
