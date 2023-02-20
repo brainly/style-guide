@@ -13,6 +13,23 @@ interface SparksProps {
   delay?: number;
   iterationCount?: number;
 }
+function useTimeout(callback, delay) {
+  const timeoutRef = React.useRef(null);
+  const savedCallback = React.useRef(callback);
+
+  React.useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+  React.useEffect(() => {
+    const tick = () => savedCallback.current();
+
+    if (typeof delay === 'number') {
+      timeoutRef.current = window.setTimeout(tick, delay);
+      return () => window.clearTimeout(timeoutRef.current);
+    }
+  }, [delay]);
+  return timeoutRef;
+}
 
 const Sparks = ({
   children,
@@ -43,12 +60,12 @@ const Sparks = ({
     >
       {children}
       <div className="sg-sparks__container">
-        {variants[variant].map((particle, index) => (
+        {variants[variant].map(({style, ...particle}, index) => (
           <Particle
             key={index}
             shape={shape}
-            {...particle}
             style={{...particle.style, color: shapeColor[particle.colorIndex]}}
+            {...particle}
             {...register(particle.register)}
           />
         ))}
