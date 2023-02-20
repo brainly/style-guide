@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 
 interface KeyframeAnimationOptionsEx
@@ -77,7 +78,7 @@ export function useAnimation(config: AnimationConfig) {
           entry = [];
           exit = [];
 
-          configRef.current.entry?.forEach(keyframesConfig => {
+          configRef.current.entry?.forEach((keyframesConfig, i) => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
             const override = overrides[id];
@@ -100,6 +101,12 @@ export function useAnimation(config: AnimationConfig) {
             };
 
             const anim = ref.animate(keyframes, animationOptions);
+
+            a.anim.id = `entry ${i}`;
+
+            console.count('created');
+
+            anim.onremove = () => console.count('removed');
 
             entry.push(anim);
           });
@@ -109,7 +116,7 @@ export function useAnimation(config: AnimationConfig) {
         }
 
         case 'exit': {
-          configRef.current.exit?.forEach(keyframesConfig => {
+          configRef.current.exit?.forEach((keyframesConfig, i) => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
             const override = overrides[id];
@@ -132,6 +139,13 @@ export function useAnimation(config: AnimationConfig) {
             };
 
             const anim = ref.animate(keyframes, animationOptions);
+
+            anim.id = `exit ${i}`;
+
+            console.count('created');
+
+            anim.onremove = () => console.count('removed');
+            anim.onfinish = () => anim.cancel();
 
             exit.push(anim);
           });
