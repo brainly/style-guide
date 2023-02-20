@@ -54,6 +54,7 @@ $largeButtonSize: componentSize(l);
     display: inline-flex;
     margin-right: spacing(xs);
     margin-left: -4px;
+    position: relative;
 
     .sg-button--reversed-order & {
       margin-right: -4px;

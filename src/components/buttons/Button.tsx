@@ -403,6 +403,9 @@ const Button = React.forwardRef(
         onTouchStart={() => null}
         type={type}
       >
+        {variant.includes('transparent') ? (
+          <span className="sg-button__hover-overlay" />
+        ) : null}
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
@@ -420,9 +423,6 @@ const Button = React.forwardRef(
             <span className="sg-visually-hidden">{newTabLabel}</span>
           )}
         </span>
-        {variant.includes('transparent') ? (
-          <span className="sg-button__hover-overlay" />
-        ) : null}
       </TagToRender>
     );
   }
