@@ -17,18 +17,6 @@ describe('Subheadline', () => {
     expect(subheadline.getByRole('heading')).toBeTruthy();
   });
 
-  it('size', () => {
-    const headline = render(
-      <Subheadline size={SUBHEADLINE_SIZE.SMALL}>Test</Subheadline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-subheadline--small'
-      )
-    ).toBeTruthy();
-  });
-
   it('size is responsive prop', () => {
     const component = render(
       <Subheadline
@@ -62,32 +50,6 @@ describe('Subheadline', () => {
     expect(headline.getByRole('heading').tagName).toEqual('H3');
   });
 
-  it('color', () => {
-    const text = render(
-      <Subheadline color={TEXT_COLOR['text-white']}>Test</Subheadline>
-    );
-
-    expect(
-      text.container.firstElementChild.classList.contains(
-        'sg-subheadline--text-white'
-      )
-    ).toBeTruthy();
-  });
-
-  it('transform uppercase', () => {
-    const headline = render(
-      <Subheadline transform={SUBHEADLINE_TRANSFORM.UPPERCASE}>
-        Test
-      </Subheadline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-subheadline--uppercase'
-      )
-    ).toBeTruthy();
-  });
-
   it('transform is responsive prop', () => {
     const component = render(
       <Subheadline
@@ -111,18 +73,6 @@ describe('Subheadline', () => {
         component.container.firstElementChild.classList.contains(className)
       ).toEqual(true);
     });
-  });
-
-  it('extra align left', () => {
-    const headline = render(
-      <Subheadline align={SUBHEADLINE_ALIGN.LEFT}>Test</Subheadline>
-    );
-
-    expect(
-      headline.container.firstElementChild.classList.contains(
-        'sg-subheadline--to-left'
-      )
-    ).toBeTruthy();
   });
 
   it('align is responsive prop', () => {

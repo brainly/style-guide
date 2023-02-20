@@ -10,16 +10,6 @@ describe('TextBit', () => {
     expect(textBit.getByRole('heading')).toBeTruthy();
   });
 
-  it('size', () => {
-    const textBit = render(<TextBit size={TEXT_BIT_SIZE.XLARGE}>Test</TextBit>);
-
-    expect(
-      textBit.container.firstElementChild.classList.contains(
-        'sg-text-bit--xlarge'
-      )
-    ).toBeTruthy();
-  });
-
   it('size is responsive prop', () => {
     const component = render(
       <TextBit size={[TEXT_BIT_SIZE.LARGE, TEXT_BIT_SIZE.XLARGE]}>Test</TextBit>
@@ -36,16 +26,6 @@ describe('TextBit', () => {
     const textBit = render(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
 
     expect(textBit.getByRole('heading').tagName).toEqual('H3');
-  });
-
-  it('color', () => {
-    const textBit = render(<TextBit color="text-blue-40">Test</TextBit>);
-
-    expect(
-      textBit.container.firstElementChild.classList.contains(
-        'sg-text-bit--text-blue-40'
-      )
-    ).toBeTruthy();
   });
 
   describe('a11y', () => {

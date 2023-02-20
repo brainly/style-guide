@@ -1,7 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {formatTags} from '../../docs/utils';
 import {TEXT_COLOR} from './textConsts';
-import classnames from 'classnames';
 import Subheadline from './Subheadline';
 import {
   SUBHEADLINE_ALIGN,
@@ -13,6 +12,7 @@ import Box from '../box/Box';
 import Flex from '../flex/Flex';
 import SubheadlineA11y from './stories/Subheadline.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {StoryVariant} from '../../docs/utils';
 
 <Meta
   title="Components/Subheadline"
@@ -151,6 +151,24 @@ import PageHeader from 'blocks/PageHeader';
           </Flex>
         ))}
       </div>
+    )}
+  </Story>
+</Canvas>
+
+### Transforms
+
+<Canvas>
+  <Story name="Transforms">
+    {args => (
+      <Flex direction="column">
+        {Object.values(SUBHEADLINE_TRANSFORM).map(transform => (
+          <StoryVariant label={`transform - ${transform}`} key={transform}>
+            <Subheadline {...args} color={transform}>
+              Some text
+            </Subheadline>
+          </StoryVariant>
+        ))}
+      </Flex>
     )}
   </Story>
 </Canvas>
