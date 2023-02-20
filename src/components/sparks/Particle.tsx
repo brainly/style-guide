@@ -30,13 +30,13 @@ const shapes = {
 } as const;
 
 const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
-  ({size, shape = 'spark', style}, ref) => {
+  ({size = 20, shape = 'spark', style}, ref) => {
     return (
       <div ref={ref} className="sg-sparks__particle" style={style}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width={size ?? '20'}
-          height={size ?? '20'}
+          width={size}
+          height={size}
           viewBox="0 0 512 512"
         >
           {shapes[shape]}
