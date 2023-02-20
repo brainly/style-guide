@@ -102,7 +102,7 @@ export function useAnimation(config: AnimationConfig) {
 
             const anim = ref.animate(keyframes, animationOptions);
 
-            a.anim.id = `entry ${i}`;
+            anim.id = `entry ${i}`;
 
             console.count('created');
 
