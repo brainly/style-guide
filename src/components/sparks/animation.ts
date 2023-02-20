@@ -110,9 +110,6 @@ export function useAnimation(config: AnimationConfig) {
         case 'exit': {
           let anims = animations.current.get(ref);
 
-          anims?.forEach(animation => animation.cancel());
-          anims = [];
-
           configRef.current.exit?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
