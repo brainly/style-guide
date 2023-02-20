@@ -15,9 +15,6 @@ export interface AnimationWithOptions {
 export interface AnimationConfig {
   entry?: AnimationWithOptions[];
   exit?: AnimationWithOptions[];
-  active?: boolean;
-  delay?: number;
-  duration?: number;
 }
 
 export interface RegisterOptions {
@@ -28,8 +25,11 @@ export interface RegisterOptions {
 export function useAnimation(config: AnimationConfig) {
   const refs = React.useRef(new Set<any>());
   const parameters = React.useRef(new WeakMap());
-  const animations = React.useRef(new WeakMap());
-  const [phase, setPhase] = React.useState<null | 'entry' | 'exit'>(null);
+  const entryAnimations = React.useRef(new WeakMap());
+  const exitAnimations = React.useRef(new WeakMap());
+  const [phase, setPhase] = React.useState<
+    'initial' | 'entry' | 'paused' | 'exit' | 'finish'
+  >('initial');
   const configRef = React.useRef(config);
 
   // we only need the most updated value. Equivalent of using useEffectEvent
@@ -67,13 +67,15 @@ export function useAnimation(config: AnimationConfig) {
 
     refs.current.forEach(ref => {
       const {index, overrides = {}} = parameters.current.get(ref);
+      let entry = entryAnimations.current.get(ref) ?? [];
+      let exit = exitAnimations.current.get(ref) ?? [];
 
       switch (phase) {
         case 'entry': {
-          let anims = animations.current.get(ref);
-
-          anims?.forEach(animation => animation.cancel());
-          anims = [];
+          entry?.forEach(animation => animation.cancel());
+          exit?.forEach(animation => animation.cancel());
+          entry = [];
+          exit = [];
 
           configRef.current.entry?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
@@ -99,17 +101,14 @@ export function useAnimation(config: AnimationConfig) {
 
             const anim = ref.animate(keyframes, animationOptions);
 
-            anims.push(anim);
+            entry.push(anim);
           });
 
-          animations.current.set(ref, anims);
-
+          entryAnimations.current.set(ref, entry);
           break;
         }
 
         case 'exit': {
-          let anims = animations.current.get(ref);
-
           configRef.current.exit?.forEach(keyframesConfig => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
@@ -134,9 +133,10 @@ export function useAnimation(config: AnimationConfig) {
 
             const anim = ref.animate(keyframes, animationOptions);
 
-            anims?.push(anim);
+            exit.push(anim);
           });
 
+          exitAnimations.current.set(ref, exit);
           break;
         }
 
