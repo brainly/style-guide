@@ -9,9 +9,18 @@ import {List} from './List';
 import {ActiveIndicator} from './ActiveIndicator';
 import {Panel} from './Panel';
 
+type StyleType = {
+  style?: Partial<
+    React.CSSProperties & {
+      '--inactive-text-color': string;
+      '--active-text-color': string;
+    }
+  >;
+};
+
 export type WithChildren = {children: React.ReactNode};
 export type TabElement = HTMLLIElement | undefined;
-export type TabProps = WithChildren & FlexPropsType;
+export type TabProps = WithChildren & FlexPropsType & StyleType;
 
 export const Tab = ({children, className, disabled, ...rest}: TabProps) => {
   const {activeTab, registerTab, setActiveIndex, a11yHelpers} =
