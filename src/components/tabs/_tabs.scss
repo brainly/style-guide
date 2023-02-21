@@ -2,9 +2,9 @@
 
 .sg-tabs {
   &__header {
-    --tabHeaderBorderColor: var(--gray-20);
+    --border-color: var(--gray-20);
     height: var(--list-height);
-    border-bottom: 2px solid var(--tabHeaderBorderColor);
+    border-bottom: 2px solid var(--border-color);
   }
 
   &__list {
@@ -14,8 +14,8 @@
   }
 
   &__tab {
-    --tabTextColor: var(--text-gray-50);
-    --tabActiveTextColor: var(--text-black);
+    --inactive-text-color: var(--text-gray-50);
+    --active-text-color: var(--text-black);
 
     padding: 0 map.get($sizesSetup, 's');
     height: 100%;
@@ -41,10 +41,10 @@
 
     &-text {
       transition: color $durationModerate1 $easingRegular;
-      color: var(--tabTextColor);
+      color: var(--inactive-text-color);
 
       &--active {
-        color: var(--tabActiveTextColor);
+        color: var(--active-text-color);
       }
     }
   }
@@ -60,10 +60,10 @@
    * [1] - We want indicator to cover header bottom border
    * so we need manually to reposition it
    */
-    --tabActiveIndicatorColor: var(--black);
+    --color: var(--black);
     position: absolute;
     height: 2px;
-    background-color: var(--tabActiveIndicatorColor);
+    background-color: var(--color);
     left: 0;
     width: 100px;
 
