@@ -1,0 +1,83 @@
+@use 'sass:map';
+
+.sg-tabs {
+  &__header {
+    --tabHeaderBorderColor: var(--gray-20);
+    height: var(--list-height);
+    border-bottom: 2px solid var(--tabHeaderBorderColor);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  &__tab {
+    --tabTextColor: var(--text-gray-50);
+    --tabActiveTextColor: var(--text-black);
+
+    padding: 0 map.get($sizesSetup, 's');
+    height: 100%;
+    border-radius: 1px;
+
+    &:hover {
+      cursor: pointer;
+      .tabText {
+        opacity: 0.7;
+      }
+    }
+
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 2px var(--white),
+        0px 0px 0px 4px var(--focusColor),
+        0px 0px 0px 6px rgba(109, 131, 243, 0.3);
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    &-text {
+      transition: color $durationModerate1 $easingRegular;
+      color: var(--tabTextColor);
+
+      &--active {
+        color: var(--tabActiveTextColor);
+      }
+    }
+  }
+
+  &__panel {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__active-indicator {
+    /**
+   * [1] - We want indicator to cover header bottom border
+   * so we need manually to reposition it
+   */
+    --tabActiveIndicatorColor: var(--black);
+    position: absolute;
+    height: 2px;
+    background-color: var(--tabActiveIndicatorColor);
+    left: 0;
+    width: 100px;
+
+    &--bottom {
+      bottom: -2px; // [1]
+    }
+
+    &--top {
+      top: -2px; // [1]
+    }
+
+    &--inner {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
