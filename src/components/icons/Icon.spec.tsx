@@ -27,9 +27,7 @@ describe('Icon', () => {
   });
 
   it('tag type', () => {
-    const component = render(
-      <Icon type={TYPE.ANSWER} size={16} tagType="span" />
-    );
+    const component = render(<Icon type={TYPE.ANSWER} size={16} as="span" />);
 
     expect(component.container.firstElementChild.tagName).toEqual('SPAN');
   });

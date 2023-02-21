@@ -27,6 +27,7 @@ const DialogCloseButton = ({
     iconOnly
     data-testid={dataTestId}
     disabled={disabled}
+    type="button"
   />
 );
 

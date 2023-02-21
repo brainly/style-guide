@@ -40,7 +40,7 @@ describe('MenuItem', () => {
   });
 
   it('renders different type of html element', () => {
-    const menuItem = render(<MenuItem type="span" text="foo" />);
+    const menuItem = render(<MenuItem as="span" text="foo" />);
 
     expect(menuItem.getByText('foo').tagName).toEqual('SPAN');
   });

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import TextBit, {TEXT_BIT_TYPE, TEXT_BIT_SIZE} from './TextBit';
+import TextBit, {TEXT_BIT_AS, TEXT_BIT_SIZE} from './TextBit';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 
 describe('TextBit', () => {
   it('render', () => {
-    const textBit = render(<TextBit type={TEXT_BIT_TYPE.H1}>Test</TextBit>);
+    const textBit = render(<TextBit as={TEXT_BIT_AS.H1}>Test</TextBit>);
 
     expect(textBit.getByRole('heading')).toBeTruthy();
   });
@@ -23,7 +23,7 @@ describe('TextBit', () => {
   });
 
   it('type', () => {
-    const textBit = render(<TextBit type={TEXT_BIT_TYPE.H3}>Test</TextBit>);
+    const textBit = render(<TextBit as={TEXT_BIT_AS.H3}>Test</TextBit>);
 
     expect(textBit.getByRole('heading').tagName).toEqual('H3');
   });

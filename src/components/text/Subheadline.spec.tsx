@@ -3,7 +3,7 @@ import Subheadline from './Subheadline';
 import {render} from '@testing-library/react';
 import {
   SUBHEADLINE_SIZE,
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
@@ -43,7 +43,7 @@ describe('Subheadline', () => {
 
   it('type', () => {
     const headline = render(
-      <Subheadline type={SUBHEADLINE_TYPE.H3}>Test</Subheadline>
+      <Subheadline as={SUBHEADLINE_AS.H3}>Test</Subheadline>
     );
 
     expect(headline.getByRole('heading').tagName).toEqual('H3');

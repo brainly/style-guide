@@ -6,7 +6,7 @@ import {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_SIZE,
   SUBHEADLINE_TRANSFORM,
-  SUBHEADLINE_TYPE,
+  SUBHEADLINE_AS,
 } from './subheadlineConsts';
 import Box from '../box/Box';
 import Flex from '../flex/Flex';
@@ -24,7 +24,7 @@ import {StoryVariant} from '../../docs/utils';
     children: {
       control: 'text',
     },
-    type: {table: {defaultValue: {summary: SUBHEADLINE_TYPE.H2}}},
+    type: {table: {defaultValue: {summary: SUBHEADLINE_AS.H2}}},
     size: {
       description: '(Responsive)',
       table: {
@@ -180,9 +180,9 @@ Using prop `inherited` makes Subheadline inherits styles from parent e.g. size. 
 <Canvas>
   <Story name="Inherited Styles">
     {args => (
-      <Subheadline {...args} type="h2" size="large">
+      <Subheadline {...args} as="h2" size="large">
         The Brainly community is constantly{' '}
-        <Subheadline inherited type="span" color={TEXT_COLOR['text-indigo-60']}>
+        <Subheadline inherited as="span" color={TEXT_COLOR['text-indigo-60']}>
           buzzing
         </Subheadline>{' '}
         with the excitement of endless collaboration.

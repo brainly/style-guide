@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Headline, {
   HEADLINE_SIZE,
-  HEADLINE_TYPE,
+  HEADLINE_AS,
   HEADLINE_TRANSFORM,
   HEADLINE_ALIGN,
 } from './Headline';
@@ -41,7 +41,7 @@ describe('Headline', () => {
   });
 
   it('type', () => {
-    const headline = render(<Headline type={HEADLINE_TYPE.H3}>Test</Headline>);
+    const headline = render(<Headline as={HEADLINE_AS.H3}>Test</Headline>);
 
     expect(headline.getByRole('heading').tagName).toEqual('H3');
   });

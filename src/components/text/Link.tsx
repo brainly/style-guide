@@ -168,7 +168,7 @@ const Link = (props: LinkPropsType) => {
     return (
       <Text
         {...additionalProps}
-        type="label"
+        as="label"
         className={linkClass}
         size={textSize}
       >
@@ -203,7 +203,7 @@ const Link = (props: LinkPropsType) => {
   return (
     <Text
       {...additionalProps}
-      type={linkType}
+      as={linkType}
       href={href || ''}
       className={linkClass}
       size={textSize}

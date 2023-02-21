@@ -24,7 +24,7 @@ it('Type', () => {
 
   const textarea = render(
     // eslint-disable-next-line react/jsx-no-bind
-    <Textarea type={CustomTextarea} />
+    <Textarea as={CustomTextarea} />
   );
 
   expect(

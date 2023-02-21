@@ -231,7 +231,7 @@ describe('Flex', () => {
 
   it('renders component with different html tag', () => {
     const component = render(
-      <Flex htmlTag="ul">
+      <Flex as="ul">
         <div>test</div>
       </Flex>
     );

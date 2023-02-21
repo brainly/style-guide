@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Text from './Text';
 import {
-  TEXT_TYPE,
+  TEXT_AS,
   TEXT_SIZE,
   TEXT_WEIGHT,
   TEXT_TRANSFORM,
@@ -38,7 +38,7 @@ describe('Text', () => {
 
   it('type', () => {
     const text = 'random text';
-    const component = render(<Text type={TEXT_TYPE.SPAN}>{text}</Text>);
+    const component = render(<Text as={TEXT_AS.SPAN}>{text}</Text>);
 
     expect(component.queryByText(text).tagName).toEqual('SPAN');
   });
