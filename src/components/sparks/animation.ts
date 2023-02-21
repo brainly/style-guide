@@ -66,13 +66,13 @@ export function useAnimation(config: AnimationConfig) {
     // eslint-disable-next-line no-console
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
-    refs.current.forEach(ref => {
-      const {index, overrides = {}} = parameters.current.get(ref);
-      let entry = entryAnimations.current.get(ref) ?? [];
-      let exit = exitAnimations.current.get(ref) ?? [];
+    switch (phase) {
+      case 'entry': {
+        refs.current.forEach(ref => {
+          const {index, overrides = {}} = parameters.current.get(ref);
+          let entry = entryAnimations.current.get(ref) ?? [];
+          let exit = exitAnimations.current.get(ref) ?? [];
 
-      switch (phase) {
-        case 'entry': {
           entry?.forEach(animation => animation.cancel());
           exit?.forEach(animation => animation.cancel());
           ref.getAnimations().forEach(animation => animation.cancel());
@@ -113,10 +113,16 @@ export function useAnimation(config: AnimationConfig) {
           });
 
           entryAnimations.current.set(ref, entry);
-          break;
-        }
+        });
 
-        case 'exit': {
+        break;
+      }
+
+      case 'exit': {
+        refs.current.forEach(ref => {
+          const {index, overrides = {}} = parameters.current.get(ref);
+          let exit = exitAnimations.current.get(ref) ?? [];
+
           configRef.current.exit?.forEach((keyframesConfig, i) => {
             let {id, keyframes, options = {}} = keyframesConfig;
 
@@ -156,13 +162,13 @@ export function useAnimation(config: AnimationConfig) {
           });
 
           exitAnimations.current.set(ref, exit);
-          break;
-        }
-
-        default:
-          break;
+        });
+        break;
       }
-    });
+
+      default:
+        break;
+    }
   }, [phase]);
 
   return {register, phase, setPhase};
