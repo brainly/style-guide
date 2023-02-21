@@ -75,6 +75,7 @@ export function useAnimation(config: AnimationConfig) {
         case 'entry': {
           entry?.forEach(animation => animation.cancel());
           exit?.forEach(animation => animation.cancel());
+          ref.getAnimations().forEach(animation => animation.cancel());
           entry = [];
           exit = [];
 
@@ -148,6 +149,10 @@ export function useAnimation(config: AnimationConfig) {
             anim.onfinish = () => anim.cancel();
 
             exit.push(anim);
+          });
+
+          Promise.all(exit.map(item => item.finished)).then(() => {
+            ref.getAnimations().forEach(anim => anim.cancel());
           });
 
           exitAnimations.current.set(ref, exit);
