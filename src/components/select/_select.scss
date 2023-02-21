@@ -122,6 +122,10 @@
       display: flex;
       box-sizing: border-box;
       border-radius: 16px;
+
+      &.animate-on-transforms {
+        transition: height 0.32s Cubic-Bezier(0.35, 0, 0.1, 1);
+      }
     }
 
     &__options-wrapper {
