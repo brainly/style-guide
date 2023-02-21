@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Card, {CARD_PADDING} from './Card';
+import Card from './Card';
 import CardHole from './CardHole';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';

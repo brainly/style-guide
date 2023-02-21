@@ -7,7 +7,6 @@ import {
   SUBHEADLINE_ALIGN,
   SUBHEADLINE_TRANSFORM,
 } from './subheadlineConsts';
-import {TEXT_COLOR} from './Text';
 import {testA11y} from '../../axe';
 
 describe('Subheadline', () => {

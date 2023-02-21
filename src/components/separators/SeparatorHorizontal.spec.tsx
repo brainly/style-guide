@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SeparatorHorizontal, {TYPE} from './SeparatorHorizontal';
+import SeparatorHorizontal from './SeparatorHorizontal';
 import {render} from '@testing-library/react';
 import {testA11y} from '../../axe';
 

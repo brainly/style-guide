@@ -6,7 +6,7 @@ import {fireEvent} from '@storybook/testing-library';
 it('render', () => {
   const topLayer = render(<TopLayer>some text</TopLayer>);
 
-  expect(topLayer.getByText('some text')).toEqual(true);
+  expect(topLayer.getByText('some text')).toBeTruthy();
 });
 
 it('check if close button exists', () => {
