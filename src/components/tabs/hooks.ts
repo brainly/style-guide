@@ -1,5 +1,5 @@
-import { createContext, useContext } from 'react';
-import type { Context } from './Tabs';
+import {createContext, useContext} from 'react';
+import type {Context} from './Tabs';
 
 export const TabContext = createContext<Context>({} as Context);
 
