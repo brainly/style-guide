@@ -29,7 +29,7 @@ export function useAnimation(config: AnimationConfig) {
   const entryAnimations = React.useRef(new WeakMap());
   const exitAnimations = React.useRef(new WeakMap());
   const [phase, setPhase] = React.useState<
-    'initial' | 'entry' | 'paused' | 'exit' | 'finish'
+    'initial' | 'entry' | 'paused' | 'exit' | 'finished'
   >('initial');
   const configRef = React.useRef(config);
 
@@ -76,8 +76,6 @@ export function useAnimation(config: AnimationConfig) {
           entry?.forEach(animation => animation.cancel());
           exit?.forEach(animation => animation.cancel());
           ref.getAnimations().forEach(animation => animation.cancel());
-          entry = [];
-          exit = [];
 
           configRef.current.entry?.forEach((keyframesConfig, i) => {
             let {id, keyframes, options = {}} = keyframesConfig;
@@ -105,9 +103,10 @@ export function useAnimation(config: AnimationConfig) {
 
             anim.id = `entry ${i}`;
 
-            console.count('created');
+            console.count(`created ${anim.id}`);
+            console.log(`replace state ${anim.id}`, anim.replaceState);
 
-            anim.onremove = () => console.count('removed');
+            anim.onremove = () => console.count(`removed ${anim.id}`);
 
             entry.push(anim);
           });
@@ -149,20 +148,41 @@ export function useAnimation(config: AnimationConfig) {
 
             anim.id = `exit ${i}`;
 
-            console.count('created');
+            console.count(`created ${anim.id}`);
 
-            anim.onremove = () => console.count('removed');
-            anim.onfinish = () => anim.cancel();
+            anim.onremove = () => console.count(`removed ${anim.id}`);
+            // anim.onfinish = () => {
+            //   anim.cancel();
+            // };
 
             exit.push(anim);
           });
 
-          Promise.all(exit.map(item => item.finished)).then(() => {
-            ref.getAnimations().forEach(anim => anim.cancel());
-          });
+          // Promise.all(exit.map(item => item.finished)).then(() => {
+          //   ref.getAnimations().forEach(anim => anim.cancel());
+          // });
 
           exitAnimations.current.set(ref, exit);
         });
+
+        // detect when all exit animations on all elements finish
+        const allExit = [...refs.current].flatMap(
+          ref => exitAnimations.current.get(ref) ?? []
+        );
+
+        Promise.allSettled(allExit.map(animation => animation.finished)).then(
+          () => {
+            refs.current.forEach(ref => {
+              ref.getAnimations().forEach(animation => animation.cancel());
+              entryAnimations.current.set(ref, []);
+              exitAnimations.current.set(ref, []);
+            });
+            setPhase('finished');
+          }
+        );
+
+        console.log(allExit);
+
         break;
       }
 
