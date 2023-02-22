@@ -117,11 +117,11 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
   </Story>
 </Canvas>
 
-### With long option label
+### With different select and popup lengths
 
 <Canvas>
   <Story
-    name="With long option label"
+    name="With different select and popup lengths"
     args={{
       withIcons: true,
       options: [
@@ -140,15 +140,59 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     }}
   >
     {args => {
-      const [selectedOptions, setSelectedOptions] = React.useState([]);
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            setSelectedOptions([option]);
-          }}
-        />
+        <>
+          <Select {...args} />
+          <Select
+            {...args}
+            options={[
+              {
+                value: 'tv',
+                label: 'Usłyszałem',
+                iconName: 'physics',
+              },
+              {value: 'fb', label: 'Media', iconName: 'history'},
+              {
+                value: 'search',
+                label: 'Wyszukiwarka',
+                iconName: 'science',
+              },
+            ]}
+            placeholder="Select something from the list"
+          />
+          <Select
+            {...args}
+            withIcons={false}
+            options={[
+              {
+                value: 'tv',
+                label: '1',
+              },
+              {value: 'fb', label: '2'},
+              {
+                value: 'search',
+                label: '3',
+              },
+            ]}
+            placeholder="Select something from the list"
+          />
+          <Select
+            {...args}
+            withIcons={false}
+            options={[
+              {
+                value: 'tv',
+                label: '1',
+              },
+              {value: 'fb', label: '2'},
+              {
+                value: 'search',
+                label: '3',
+              },
+            ]}
+            placeholder="Age"
+          />
+        </>
       );
     }}
   </Story>
