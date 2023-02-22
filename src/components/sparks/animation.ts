@@ -156,7 +156,7 @@ export function useAnimation(config: AnimationConfig) {
           ref.getAnimations()
         );
 
-        // Detect when all exit animations on all elements finish
+        // Detect when all exit animations on all registered elements finish
         const exitSnapshot = [...refs.current].flatMap(ref =>
           exitAnimations.current.get(ref)
         );
