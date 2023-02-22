@@ -3,16 +3,17 @@ import * as React from 'react';
 import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
 
-type UseSelectPropsType = Pick<
-  SelectPropsType,
-  | 'valid'
-  | 'invalid'
-  | 'expanded'
-  | 'defaultExpanded'
-  | 'multiSelect'
-  | 'onToggle'
-  | 'onOptionChange'
->;
+type UseSelectPropsType =
+  | Pick<
+      SelectPropsType,
+      | 'valid'
+      | 'invalid'
+      | 'expanded'
+      | 'defaultExpanded'
+      | 'multiSelect'
+      | 'onToggle'
+      | 'onOptionChange'
+    > & {popupClassName: string; floatingContainerClassName: string};
 
 const useSelect = (props: UseSelectPropsType) => {
   const {
@@ -21,6 +22,8 @@ const useSelect = (props: UseSelectPropsType) => {
     expanded,
     defaultExpanded,
     multiSelect,
+    popupClassName,
+    floatingContainerClassName,
     onToggle,
     onOptionChange,
   } = props;
@@ -49,46 +52,54 @@ const useSelect = (props: UseSelectPropsType) => {
     if (!multiSelect) onOpenChange(false);
   };
 
-  const animateEntry = () => {
-    const floatingContainer = document.querySelector(
-      '.sg-select-new__options-floating-container'
-    ) as HTMLDivElement;
-
-    // Desired position
-    lastRef.current = floatingContainer.getBoundingClientRect();
-
-    // Reset the popup to pre-appear position
-    floatingContainer.style.height = `0px`;
-
-    // Wait for the next frame so we
-    // know all the style changes have
-    // taken hold.
-    requestAnimationFrame(function () {
-      // Switch on animations.
-      floatingContainer.classList.add('animate-on-transforms');
-      // Now apply the height change
-      floatingContainer.style.height = `${lastRef.current?.height}px`;
-    });
-  };
-
   const animateExit = ({callback}) => {
-    const floatingContainer = document.querySelector(
-      '.sg-select-new__options-floating-container'
+    const popup = document.querySelector(
+      `.${popupClassName}`
     ) as HTMLDivElement;
 
-    floatingContainer.style.height = `0px`;
+    popup.style.height = `0px`;
 
     // Capture the end with transitionend and call expanded change
-    floatingContainer?.addEventListener('transitionend', () => {
+    popup?.addEventListener('transitionend', () => {
       callback();
     });
   };
 
   React.useEffect(() => {
+    const animateEntry = () => {
+      // Wait for the next frame
+      // so we allow the floating container to apply all flip styles
+      requestAnimationFrame(() => {
+        const floatingContainer = document.querySelector(
+          `.${floatingContainerClassName}`
+        ) as HTMLDivElement;
+        const popupContainer = document.querySelector(
+          `.${popupClassName}`
+        ) as HTMLDivElement;
+
+        // Register desired position
+        lastRef.current = floatingContainer.getBoundingClientRect();
+
+        // Reset the popup to the pre-appear position
+        popupContainer.classList.add('animate-on-transforms');
+
+        // Wait for the next frame so we
+        // know all the style changes have
+        // taken hold.
+        requestAnimationFrame(() => {
+          popupContainer.style.height = `${lastRef.current?.height}px`;
+
+          // Ensure manipulating popup height doesn't affect the floating container
+          floatingContainer.style.height = `${lastRef.current?.height}px`;
+          floatingContainer.style.width = `${lastRef.current?.width}px`;
+        });
+      });
+    };
+
     if (isExpanded) {
       animateEntry();
     }
-  }, [isExpanded]);
+  }, [isExpanded, popupClassName, floatingContainerClassName]);
 
   const onOpenChange = (isOpen: boolean) => {
     const handleOpenChange = isOpen => {
@@ -99,7 +110,11 @@ const useSelect = (props: UseSelectPropsType) => {
     // If the component will close
     // we first have to animate its exit before destroying it
     if (!isOpen) {
-      animateExit({callback: () => handleOpenChange(isOpen)});
+      animateExit({
+        callback: () => {
+          handleOpenChange(isOpen);
+        },
+      });
     } else {
       handleOpenChange(isOpen);
     }

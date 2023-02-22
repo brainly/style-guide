@@ -218,21 +218,26 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         `Select cannot be valid and invalid at the same time.`
       );
     }
-
+    const popupClassName = 'sg-select-new__popup';
+    const floatingContainerClassName =
+      'sg-select-new__options-floating-container';
     const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
       valid,
       invalid,
       expanded,
       defaultExpanded,
       multiSelect,
+      floatingContainerClassName,
+      popupClassName,
       onToggle,
       onOptionChange,
     });
 
-    const floating = useFloatingSelect({
-      isExpanded,
-      onOpenChange,
-    });
+    const {interactions, floatingProps, refs, listRef, context, isMounted} =
+      useFloatingSelect({
+        isExpanded,
+        onOpenChange,
+      });
 
     const optionsElements = options.map((option, index) => {
       if (option.label || option.value) {
@@ -242,7 +247,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             selectedOption => selectedOption.value === option.value
           );
 
-        const optionInteractions = floating.interactions.getItemProps({
+        const optionInteractions = interactions.getItemProps({
           // Handle pointer select.
           onClick() {
             handleOptionSelect(option);
@@ -255,7 +260,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             }
 
             // Only if not using typeahead.
-            if (event.key === ' ' && !floating.context.dataRef.current.typing) {
+            if (event.key === ' ' && !context.dataRef.current.typing) {
               event.preventDefault();
               handleOptionSelect(option);
             }
@@ -266,7 +271,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           <SelectOption
             key={option.value}
             ref={node => {
-              floating.listRef.current[index] = node;
+              listRef.current[index] = node;
             }}
             option={option}
             isSelected={isSelected}
@@ -334,7 +339,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       className
     );
 
-    const selectRef = useMergeRefs([ref, floating.refs.setReference]);
+    const selectRef = useMergeRefs([ref, refs.setReference]);
 
     return (
       <div className={selectClass} onClick={onClick}>
@@ -349,7 +354,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           aria-controls={`${id}-listbox`}
           aria-expanded={isExpanded}
           aria-haspopup="listbox"
-          {...floating.interactions.getReferenceProps({
+          {...interactions.getReferenceProps({
             // Handle pointer
             onClick() {
               onOpenChange(isExpanded);
@@ -373,33 +378,36 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
             />
           </div>
         </div>
-        {isExpanded && (
+        {isMounted && (
           <FloatingOverlay lockScroll={!isTouchScreen()} style={{zIndex: 1}}>
-            <FloatingFocusManager
-              context={floating?.context}
-              visuallyHiddenDismiss
-            >
+            <FloatingFocusManager context={context} visuallyHiddenDismiss>
               <div
-                ref={floating.refs.setFloating}
-                className="sg-select-new__options-floating-container"
+                ref={refs.setFloating}
+                className={floatingContainerClassName}
                 style={{
-                  position: floating.props.strategy,
-                  top: floating.props.y ?? 0,
-                  left: floating.props.x ?? 0,
+                  position: floatingProps.strategy,
+                  top: floatingProps.y ?? 0,
+                  left: floatingProps.x ?? 0,
                 }}
               >
                 <div
-                  className="sg-select-new__options-wrapper"
-                  style={{
-                    overflowY: 'auto',
-                    borderRadius: '16px',
-                  }}
-                  role="listbox"
-                  id={`${id}-listbox`}
-                  tabIndex={-1}
-                  {...floating.interactions.getFloatingProps()}
+                  className="sg-select-new__popup"
+                  data-placement={floatingProps.placement}
+                  tabIndex={0}
                 >
-                  {optionsElements}
+                  <div
+                    className="sg-select-new__options-wrapper"
+                    style={{
+                      overflowY: 'auto',
+                      borderRadius: '16px',
+                    }}
+                    role="listbox"
+                    id={`${id}-listbox`}
+                    tabIndex={-1}
+                    {...interactions.getFloatingProps()}
+                  >
+                    {optionsElements}
+                  </div>
                 </div>
               </div>
             </FloatingFocusManager>

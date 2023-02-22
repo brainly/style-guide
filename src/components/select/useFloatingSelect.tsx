@@ -9,6 +9,7 @@ import {
   offset,
   size,
   autoPlacement,
+  useTransitionStatus,
 } from '@floating-ui/react';
 
 const CONTAINER_MARGIN = 10;
@@ -23,7 +24,7 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
   const listRef = React.useRef<Array<HTMLElement | null>>([]);
 
-  const {x, y, strategy, refs, context} = useFloating({
+  const {x, y, strategy, refs, context, placement} = useFloating({
     open: isExpanded,
     onOpenChange,
     middleware: [
@@ -48,6 +49,8 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       }),
     ],
   });
+  const {isMounted, status} = useTransitionStatus(context);
+
   const click = useClick(context, {event: 'mousedown'});
   const dismiss = useDismiss(context);
   const listNav = useListNavigation(context, {
@@ -69,14 +72,17 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       getFloatingProps,
       getItemProps,
     },
-    props: {
+    floatingProps: {
       x,
       y,
       strategy,
+      placement,
     },
     refs,
     listRef,
     context,
+    isMounted,
+    status,
   };
 };
 

@@ -116,15 +116,22 @@
       white-space: nowrap;
     }
 
-    &__options-floating-container {
-      overflow: hidden;
-      box-shadow: $shadowLarge !important;
-      display: flex;
-      box-sizing: border-box;
+    &__popup {
       border-radius: 16px;
+      box-shadow: $shadowLarge !important;
+      opacity: 0;
+      overflow: hidden;
+    }
 
-      &.animate-on-transforms {
-        transition: height 0.32s Cubic-Bezier(0.35, 0, 0.1, 1);
+    &__popup.animate-on-transforms {
+      height: 1px;
+      opacity: 1;
+      transition: height 0.32s Cubic-Bezier(0.35, 0, 0.1, 1);
+
+      &[data-placement^='top'] {
+        position: absolute;
+        bottom: 0;
+        transform-origin: bottom left;
       }
     }
 
