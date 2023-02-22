@@ -39,19 +39,21 @@ export function useAnimation(config: AnimationConfig) {
     configRef.current = config;
   }, [config]);
 
-  const register = React.useCallback((options?: RegisterOptions) => {
-    return {
-      ref: (el: HTMLDivElement | null) => {
-        if (el) {
-          // eslint-disable-next-line no-console
-          console.log('register');
-          options ??= {index: refs.current.size};
-          parameters.current.set(el, options);
-          refs.current.add(el);
-        }
-      },
-    };
-  }, []);
+  const register = React.useCallback(
+    (options: RegisterOptions = {index: refs.current.size}) => {
+      return {
+        ref: (el: HTMLDivElement | null) => {
+          if (el) {
+            // eslint-disable-next-line no-console
+            console.log('register');
+            parameters.current.set(el, options);
+            refs.current.add(el);
+          }
+        },
+      };
+    },
+    []
+  );
 
   React.useEffect(() => {
     const elements = refs.current;
