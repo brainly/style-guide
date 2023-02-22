@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 import MenuList, {MenuItem, SIZE} from 'list/MenuList';
 
 const menuItem = {
@@ -8,39 +8,48 @@ const menuItem = {
 };
 const menuItems = [menuItem];
 
-describe('<MenuList />', () => {
-  test('renders', () => {
-    const menu = shallow(<MenuList items={menuItems} />);
+describe('MenuList', () => {
+  it('renders', () => {
+    const menu = render(<MenuList items={menuItems} />);
 
-    expect(menu.hasClass('sg-menu-list')).toEqual(true);
-    expect(menu.hasClass('sg-menu-list--normal')).toEqual(false);
+    expect(menu.getByRole('list')).toBeTruthy();
   });
-  test('small size', () => {
-    const menu = shallow(<MenuList items={menuItems} size={SIZE.SMALL} />);
 
-    expect(menu.hasClass('sg-menu-list--small')).toEqual(true);
+  it('small size', () => {
+    const menu = render(<MenuList items={menuItems} size={SIZE.SMALL} />);
+
+    expect(
+      menu.container.firstElementChild.classList.contains('sg-menu-list--small')
+    ).toEqual(true);
   });
-  test('large', () => {
-    const menu = shallow(<MenuList items={menuItems} size={SIZE.LARGE} />);
 
-    expect(menu.hasClass('sg-menu-list--large')).toEqual(true);
+  it('large', () => {
+    const menu = render(<MenuList items={menuItems} size={SIZE.LARGE} />);
+
+    expect(
+      menu.container.firstElementChild.classList.contains('sg-menu-list--large')
+    ).toEqual(true);
   });
 });
-describe('<MenuItem />', () => {
-  test('renders', () => {
-    const menuItem = shallow(<MenuItem text="test" href="#" />);
 
-    expect(menuItem.hasClass('sg-menu-list__element')).toEqual(true);
-    expect(menuItem.find('.sg-menu-list__link')).toHaveLength(1);
+describe('MenuItem', () => {
+  it('renders', () => {
+    const menuItem = render(<MenuItem text="test" href="#" />);
+
+    expect(menuItem.getByRole('listitem')).toBeTruthy();
   });
-  test('renders different type of html element', () => {
-    const menuItem = shallow(<MenuItem as="span" text="test" />);
 
-    expect(menuItem.find('span')).toHaveLength(1);
+  it('renders different type of html element', () => {
+    const menuItem = render(<MenuItem as="span" text="foo" />);
+
+    expect(menuItem.getByText('foo').tagName).toEqual('SPAN');
   });
-  test('passes props to link element', () => {
-    const menuItem = shallow(<MenuItem as="span" text="test" id="m4l" />);
 
-    expect(menuItem.find('.sg-menu-list__link').props().id).toEqual('m4l');
+  it('passes props to link element', () => {
+    const menuItem = render(
+      <MenuItem text="foo" id="m4l" href="http://link.com" />
+    );
+
+    expect(menuItem.getByRole('link').getAttribute('id')).toEqual('m4l');
   });
 });

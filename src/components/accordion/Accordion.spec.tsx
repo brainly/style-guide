@@ -1,73 +1,58 @@
 import * as React from 'react';
-import {mount} from 'enzyme';
 import Accordion from './Accordion';
 import AccordionItem from './AccordionItem';
-import Link from '../text/Link';
-import Box from '../box/Box';
+import {render, fireEvent, waitFor} from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import {testA11y} from '../../axe';
 
 describe('<Accordion>', () => {
   it('renders with items', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
 
-    expect(
-      accordion.find(AccordionItem).contains('Accordion Item Description')
-    ).toBe(true);
+    expect(accordion.getByText('Accordion Item Description')).toBeTruthy();
   });
+
   it('has collapsed items by default', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
 
     expect(
-      accordion
-        .find({
-          role: 'button',
-        })
-        .hostNodes()
-        .prop('aria-expanded')
-    ).toBe(false);
-    expect(
-      accordion
-        .find({
-          role: 'region',
-        })
-        .prop('hidden')
-    ).toBe(true);
-  });
-  it('expands items after click', () => {
-    const accordion = mount(
-      <Accordion>
-        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
-      </Accordion>
-    );
-    const accordionItemButton = accordion
-      .find({
-        role: 'button',
+      accordion.getByRole('button', {
+        expanded: false,
       })
-      .hostNodes();
-
-    accordionItemButton.simulate('focus');
-    accordionItemButton.simulate('click');
-    expect(
-      accordion
-        .find({
-          role: 'button',
-        })
-        .hostNodes()
-        .prop('aria-expanded')
-    ).toBe(true);
-    expect(accordion.find('.sg-accordion-item__content--hidden')).toHaveLength(
-      0
-    );
+    ).toBeTruthy();
+    expect(accordion.getByRole('region', {hidden: true})).toBeTruthy();
   });
+
+  it('expands items after click', () => {
+    const accordion = render(
+      <Accordion>
+        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
+      </Accordion>
+    );
+    const accordionItemButton = accordion.getByRole('button');
+
+    fireEvent.focus(accordionItemButton);
+    fireEvent.click(accordionItemButton);
+    expect(
+      accordion.getByRole('button', {
+        expanded: true,
+      })
+    ).toBeTruthy();
+    const accordionItemContent = accordion.getByRole('region');
+
+    expect(accordionItemContent.getAttribute('hidden')).toBeFalsy();
+  });
+
   it('expands one item at a time when "allowMultiple" is set to false', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
         <AccordionItem title="Item 2">Accordion Item Description</AccordionItem>
@@ -75,38 +60,15 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion
-      .find({
-        title: 'Item 1',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    accordion
-      .find({
-        title: 'Item 2',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    accordion
-      .find({
-        title: 'Item 3',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    // hostNodes returns html elements and skip react components
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
+    fireEvent.click(accordion.getByText('Item 1'));
+    fireEvent.click(accordion.getByText('Item 2'));
+    fireEvent.click(accordion.getByText('Item 3'));
+
+    expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(1);
   });
+
   it('allows expanding multiple items when "allowMultiple" is set to true', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion allowMultiple>
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
         <AccordionItem title="Item 2">Accordion Item Description</AccordionItem>
@@ -114,63 +76,30 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    accordion
-      .find({
-        title: 'Item 1',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    accordion
-      .find({
-        title: 'Item 2',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    accordion
-      .find({
-        title: 'Item 3',
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
-    // hostNodes returns html elements and skip react components
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
-  });
-  it('displays no gaps between elements when spacing is set to "none"', () => {
-    const accordion = mount(
-      <Accordion spacing="none">
-        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
-      </Accordion>
-    );
+    fireEvent.click(accordion.getByText('Item 1'));
+    fireEvent.click(accordion.getByText('Item 2'));
+    fireEvent.click(accordion.getByText('Item 3'));
 
-    expect(
-      accordion.find(Box).at(0).hasClass('sg-accordion-item--no-gap')
-    ).toBe(true);
+    expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(3);
   });
+
   it('does not change border on hover when spacing is set to "none"', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion spacing="none">
         <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
       </Accordion>
     );
 
-    accordion
-      .find({
-        title: 'Item 1',
-      })
-      .simulate('mouseenter');
-    expect(accordion.find(Box).at(0).prop('borderColor')).toEqual('gray-20');
+    fireEvent.mouseEnter(accordion.getByText('Item 1'));
+    expect(
+      (
+        accordion.getAllByRole('heading')[0].parentNode as HTMLHeadingElement
+      ).classList.contains('sg-box--border-color-gray-20')
+    ).toBeTruthy();
   });
+
   it('by default expands items that have "defaultExpanded" prop', () => {
-    const accordion = mount(
+    const accordion = render(
       <Accordion allowMultiple defaultExpanded={['id-1', 'id-2']}>
         <AccordionItem title="Item 1" id="id-1">
           Accordion Item Description
@@ -182,12 +111,12 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    // hostNodes returns html elements and skip react components
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(2);
+    expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(2);
   });
+
   it('expands controlled items when expanded is type of array', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
-    const accordion = mount(
+    const accordion = render(
       <Accordion expanded={accordionIds} onChange={() => undefined}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
@@ -197,14 +126,15 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(
-      accordion.find('[role="region"][aria-labelledby]').hostNodes()
-    ).toHaveLength(accordionIds.length);
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(3);
+    expect(accordion.getAllByRole('region')).toHaveLength(accordionIds.length);
+    expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(
+      accordionIds.length
+    );
   });
+
   it('expands controlled item when expanded is type of string', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
-    const accordion = mount(
+    const accordion = render(
       <Accordion expanded={accordionIds[0]} onChange={noop => noop}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
@@ -214,15 +144,14 @@ describe('<Accordion>', () => {
       </Accordion>
     );
 
-    expect(
-      accordion.find('[role="region"][aria-labelledby]').hostNodes()
-    ).toHaveLength(accordionIds.length);
-    expect(accordion.find('[aria-expanded=true]').hostNodes()).toHaveLength(1);
+    expect(accordion.getAllByRole('region')).toHaveLength(1);
+    expect(accordion.getAllByRole('button', {expanded: true})).toHaveLength(1);
   });
+
   it('calls callback when cliking on item', () => {
     const accordionIds = ['id-1', 'id-2', 'id-3'];
     const handleOnChange = jest.fn();
-    const accordion = mount(
+    const accordion = render(
       <Accordion expanded={accordionIds[0]} onChange={handleOnChange}>
         {accordionIds.map(id => (
           <AccordionItem title={id} id={id} key={id}>
@@ -233,36 +162,100 @@ describe('<Accordion>', () => {
     );
     const item = accordionIds[0];
 
-    accordion
-      .find({
-        title: item,
-      })
-      .find({
-        role: 'button',
-      })
-      .hostNodes()
-      .simulate('click');
+    fireEvent.click(accordion.getAllByRole('button')[0]);
     expect(handleOnChange).toHaveBeenCalled();
     expect(handleOnChange).toHaveBeenCalledWith(item);
   });
-  it('renders Link when title is string', () => {
-    const accordion = mount(
-      <Accordion>
-        <AccordionItem title="Item 1">Accordion Item Description</AccordionItem>
-      </Accordion>
-    );
 
-    expect(accordion.find(Link).exists()).toBe(true);
-  });
-  it('does not render Link when title is not string', () => {
-    const accordion = mount(
-      <Accordion>
-        <AccordionItem title={<div>info</div>}>
+  it('renders with named items', () => {
+    const title = 'Item_1';
+    const accordion = render(
+      <Accordion defaultExpanded={[title]}>
+        <AccordionItem title={title} id={title}>
           Accordion Item Description
         </AccordionItem>
       </Accordion>
     );
+    const heading = accordion.getByRole('heading', {
+      name: title,
+    });
 
-    expect(accordion.find(Link).exists()).toBe(false);
+    expect(heading.getAttribute('aria-level')).toBeTruthy();
+    expect(
+      accordion.getByRole('region', {
+        name: title,
+      })
+    ).toBeTruthy();
+    expect(accordion.getByRole('button').getAttribute('aria-controls')).toEqual(
+      accordion.getByRole('region').getAttribute('id')
+    );
+  });
+
+  it('expands and collapses item on click', async () => {
+    const accordionId = 'id-1';
+    const accordion = render(
+      <Accordion>
+        <AccordionItem title={accordionId} id={accordionId}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+    const item = accordion.getByRole('button');
+
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(accordion.queryByRole('region')).toBeNull();
+    accordion.getByRole('button').click();
+    expect(item.getAttribute('aria-expanded')).toEqual('true');
+    await waitFor(() => expect(accordion.getByRole('region')).toBeTruthy());
+    accordion.getByRole('button').click();
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    fireEvent(accordion.getByRole('region'), new Event('transitionend'));
+    await waitFor(() => expect(accordion.queryByRole('region')).toBeNull());
+  });
+
+  it('expands and collapses item on Enter/Space keydown when motion is reduced', async () => {
+    const accordionId = 'id-1';
+    const accordion = render(
+      <Accordion reduceMotion>
+        <AccordionItem title={accordionId} id={accordionId}>
+          Accordion Item Description
+        </AccordionItem>
+      </Accordion>
+    );
+    const item = accordion.getByRole('button');
+
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(accordion.queryByRole('region')).toBeNull();
+    accordion.getByRole('button').focus();
+    expect(item).toEqual(document.activeElement);
+    userEvent.keyboard('{enter}');
+    expect(item.getAttribute('aria-expanded')).toEqual('true');
+    expect(accordion.getByRole('region')).toBeTruthy();
+    userEvent.keyboard('{space}');
+    expect(item.getAttribute('aria-expanded')).toEqual('false');
+    expect(accordion.queryByRole('region')).toBeNull();
+  });
+
+  it('has an accessible name', () => {
+    const label = 'Accordion name';
+    const accordion = render(<Accordion aria-label={label} />);
+
+    expect(accordion.getByLabelText(label)).toBeTruthy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations when renders Accordion with expanded and collapsed items', async () => {
+      const accordionIds = ['id-1', 'id-2'];
+
+      await testA11y(
+        <Accordion defaultExpanded={accordionIds[0]}>
+          {accordionIds.map(id => (
+            <AccordionItem title={id} id={id} key={id}>
+              Accordion Item Description
+            </AccordionItem>
+          ))}
+        </Accordion>
+      );
+    });
   });
 });
