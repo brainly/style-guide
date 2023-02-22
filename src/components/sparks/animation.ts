@@ -169,9 +169,7 @@ export function useAnimation(config: AnimationConfig) {
             exitAnimations.current.set(ref, []);
           });
 
-          if (phase === 'exit') {
-            setPhase('finished');
-          }
+          setPhase(phase => (phase === 'exit' ? 'finished' : phase));
         });
 
         break;
