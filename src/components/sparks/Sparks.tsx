@@ -2,6 +2,7 @@
 import * as React from 'react';
 import cx from 'classnames';
 import {useAnimation} from './animation';
+import {useTimeout} from './timeout';
 import {shapeAnimationMap, shapeColorMap, variants} from './presets';
 import Particle from './Particle';
 
@@ -13,24 +14,6 @@ interface SparksProps {
   duration?: number;
   delay?: number;
   iterationCount?: number;
-}
-
-function useTimeout(callback, delay) {
-  const timeoutRef = React.useRef(null);
-  const savedCallback = React.useRef(callback);
-
-  React.useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-  React.useEffect(() => {
-    const tick = () => savedCallback.current();
-
-    if (typeof delay === 'number') {
-      timeoutRef.current = window.setTimeout(tick, delay);
-      return () => window.clearTimeout(timeoutRef.current);
-    }
-  }, [delay]);
-  return timeoutRef;
 }
 
 const Sparks = ({
