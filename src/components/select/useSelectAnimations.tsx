@@ -32,6 +32,11 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
 
       // Register desired position
       lastRef.current = floatingContainer.getBoundingClientRect();
+      const desiredHeight = lastRef.current.height;
+
+      if (popupContainer.getBoundingClientRect().height > desiredHeight) {
+        popupContainer.classList.add('with-scroll');
+      }
 
       // Reset the popup to the pre-appear position
       popupContainer.classList.add('animate-on-transforms');

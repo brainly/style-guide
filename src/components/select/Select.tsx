@@ -404,10 +404,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                 >
                   <div
                     className="sg-select-new__options-wrapper"
-                    style={{
-                      overflowY: 'auto',
-                      borderRadius: '16px',
-                    }}
                     role="listbox"
                     id={`${id}-listbox`}
                     tabIndex={-1}

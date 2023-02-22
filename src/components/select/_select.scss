@@ -121,6 +121,11 @@
       box-shadow: $shadowLarge !important;
       opacity: 0;
       overflow: hidden;
+      display: inline-flex;
+
+      &.with-scroll .sg-select-new__options-wrapper {
+        overflow-y: auto;
+      }
     }
 
     &__popup.animate-on-transforms {
@@ -138,6 +143,7 @@
       min-width: 120px;
       max-width: 320px;
       width: max-content;
+      max-height: 100%;
       padding: 16px;
       background-color: $white;
       display: flex;
