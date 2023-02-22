@@ -59,10 +59,7 @@ const useSelect = (props: UseSelectPropsType) => {
 
     popup.style.height = `0px`;
 
-    // Capture the end with transitionend and call expanded change
-    popup?.addEventListener('transitionend', () => {
-      callback();
-    });
+    callback();
   };
 
   React.useEffect(() => {
