@@ -27,15 +27,21 @@ export const ActiveIndicator = ({
     return null;
   }
 
-  const {x, width} = activeTab.getBoundingClientRect();
-  const offsetParentBoundClientRect =
-    activeTab.offsetParent?.getBoundingClientRect();
-  const offsetX = Number(offsetParentBoundClientRect?.x);
+  const {x: activeTabX, width: activeTabWidth} =
+    activeTab.getBoundingClientRect();
+  const {x: offsetX, width: containerWidth} =
+    activeTab.offsetParent.getBoundingClientRect();
 
-  const activeIndicatorEffect: {animate: TransitionEffectType['animate']} = {
+  const activeTabToContainerRatio =
+    containerWidth > 0 ? activeTabWidth / containerWidth : 0;
+
+  const activeIndicatorEffect: TransitionEffectType = {
     animate: {
-      width,
-      transform: {translateX: x - offsetX, origin: 'left top'},
+      transform: {
+        translateX: activeTabX - offsetX,
+        origin: 'left top',
+        scaleX: activeTabToContainerRatio,
+      },
       duration: 'moderate2',
       easing: 'entry',
     },
