@@ -57,7 +57,11 @@ export function useAnimation(config: AnimationConfig) {
     const elements = refs.current;
 
     return () => {
-      // TODO(coderitual): do proper cleanup and check for memory leaks
+      // Remove all outstanding animations and cleanup refs
+      const allSnapshot = [...elements].flatMap(ref => ref.getAnimations());
+
+      allSnapshot.forEach(animation => animation.cancel());
+
       elements.clear();
     };
   }, []);
@@ -100,11 +104,6 @@ export function useAnimation(config: AnimationConfig) {
 
             anim.id = `entry ${i}`;
 
-            console.count(`created ${anim.id}`);
-            console.log(`replace state ${anim.id}`, anim.replaceState);
-
-            anim.onremove = () => console.count(`removed ${anim.id}`);
-
             entry.push(anim);
           });
 
@@ -145,33 +144,35 @@ export function useAnimation(config: AnimationConfig) {
 
             anim.id = `exit ${i}`;
 
-            console.count(`created ${anim.id}`);
-
-            anim.onremove = () => console.count(`removed ${anim.id}`);
-
             exit.push(anim);
           });
 
           exitAnimations.current.set(ref, exit);
         });
 
-        // detect when all exit animations on all elements finish
-        const allExit = [...refs.current].flatMap(
-          ref => exitAnimations.current.get(ref) ?? []
+        // Snapshot all animations  from the whole run that need to be removed.
+        const allSnapshot = [...refs.current].flatMap(ref =>
+          ref.getAnimations()
         );
 
-        Promise.allSettled(allExit.map(animation => animation.finished)).then(
-          () => {
-            refs.current.forEach(ref => {
-              ref.getAnimations().forEach(animation => animation.cancel());
-              entryAnimations.current.set(ref, []);
-              exitAnimations.current.set(ref, []);
-            });
+        // Detect when all exit animations on all elements finish
+        const exitSnapshot = [...refs.current].flatMap(ref =>
+          exitAnimations.current.get(ref)
+        );
+
+        Promise.allSettled(
+          exitSnapshot.map(animation => animation.finished)
+        ).then(() => {
+          allSnapshot.forEach(animation => animation.cancel());
+          refs.current.forEach(ref => {
+            entryAnimations.current.set(ref, []);
+            exitAnimations.current.set(ref, []);
+          });
+
+          if (phase === 'exit') {
             setPhase('finished');
           }
-        );
-
-        console.log(allExit);
+        });
 
         break;
       }
