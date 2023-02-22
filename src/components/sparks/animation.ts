@@ -34,7 +34,6 @@ export function useAnimation(config: AnimationConfig) {
   const configRef = React.useRef(config);
 
   // we only need the most updated value. Equivalent of using useEffectEvent
-
   React.useEffect(() => {
     configRef.current = config;
   }, [config]);
