@@ -14,6 +14,7 @@ export type ActiveIndicatorProps = React.DetailedHTMLProps<
 > & {
   position?: 'top' | 'bottom';
   style?: StyleType;
+  className?: string;
 };
 
 export const ActiveIndicator = ({

@@ -5,6 +5,7 @@ export const TabContext = createContext<Context>({} as Context);
 
 export const useTabsContext = () => {
   const tabsContext = useContext(TabContext);
+
   if (!tabsContext) {
     throw new Error('useTabContext must be used within TabContextProvider');
   }

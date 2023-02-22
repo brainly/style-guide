@@ -102,9 +102,14 @@ function Tabs({
     activeTab,
     activePanel,
     setActiveIndex,
-    registerTab: tab => setTabs(previousTabs => [...previousTabs, tab]),
-    registerPanel: panel =>
-      setPanels(previousPanels => [...previousPanels, panel]),
+    registerTab: React.useCallback(
+      tab => setTabs(previousTabs => [...previousTabs, tab]),
+      []
+    ),
+    registerPanel: React.useCallback(
+      panel => setPanels(previousPanels => [...previousPanels, panel]),
+      []
+    ),
     a11yHelpers,
   };
 

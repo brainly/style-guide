@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Text from '../../text/Text';
 import Flex, {FlexPropsType} from '../../flex/Flex';
-import {useCallback, useRef} from 'react';
 import classnames from 'classnames';
 import {useTabsContext} from '../hooks';
 import {Header} from './Header';
@@ -25,13 +24,16 @@ export type TabProps = WithChildren & FlexPropsType & StyleType;
 export const Tab = ({children, className, disabled, ...rest}: TabProps) => {
   const {activeTab, registerTab, setActiveIndex, a11yHelpers} =
     useTabsContext();
-  const tabRef = useRef<TabElement>();
-  const callbackRef = useCallback((tab: TabElement | null) => {
-    if (tab) {
-      tabRef.current = tab;
-      registerTab(tab);
-    }
-  }, []);
+  const tabRef = React.useRef<TabElement>();
+  const callbackRef = React.useCallback(
+    (tab: TabElement | null) => {
+      if (tab) {
+        tabRef.current = tab;
+        registerTab(tab);
+      }
+    },
+    [registerTab]
+  );
 
   const {id, controls} = a11yHelpers.getTabHelpers(tabRef.current);
   const isActive = activeTab !== undefined && tabRef.current === activeTab;

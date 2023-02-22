@@ -11,12 +11,15 @@ export const Panel = ({children, ...rest}: TabPanelProps) => {
   const {activePanel, registerPanel, a11yHelpers} = useTabsContext();
   const panelRef = React.useRef<PanelElement>();
   const {id, labelledBy} = a11yHelpers.getPanelHelpers(panelRef.current);
-  const callbackRef = React.useCallback((panel: PanelElement | null) => {
-    if (panel) {
-      panelRef.current = panel;
-      registerPanel(panel);
-    }
-  }, []);
+  const callbackRef = React.useCallback(
+    (panel: PanelElement | null) => {
+      if (panel) {
+        panelRef.current = panel;
+        registerPanel(panel);
+      }
+    },
+    [registerPanel]
+  );
   const isActive = panelRef.current === activePanel;
 
   return (
