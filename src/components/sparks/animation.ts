@@ -151,16 +151,9 @@ export function useAnimation(config: AnimationConfig) {
             console.count(`created ${anim.id}`);
 
             anim.onremove = () => console.count(`removed ${anim.id}`);
-            // anim.onfinish = () => {
-            //   anim.cancel();
-            // };
 
             exit.push(anim);
           });
-
-          // Promise.all(exit.map(item => item.finished)).then(() => {
-          //   ref.getAnimations().forEach(anim => anim.cancel());
-          // });
 
           exitAnimations.current.set(ref, exit);
         });
