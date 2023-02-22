@@ -59,7 +59,6 @@ const Sparks = ({
     console.log(phase);
 
     if (!active) {
-      iteration.current = 1;
       setPhase('initial');
       setTimeoutDelay(null);
       return;
