@@ -130,7 +130,8 @@
 
     &__popup.animate-on-transforms {
       opacity: 1;
-      transition: height $durationGentle1 $easingRegular;
+      transition: height $durationGentle1 $easingRegular,
+        width $durationGentle1 $easingRegular;
 
       &[data-placement^='top'] {
         position: absolute;
@@ -149,6 +150,7 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      flex: 0 0 auto;
     }
 
     &__option {

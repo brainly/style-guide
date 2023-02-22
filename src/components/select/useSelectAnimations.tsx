@@ -1,13 +1,23 @@
 import * as React from 'react';
 
 type UseSelectAnimationsPropsType = {
+  selectId: string;
   popupClassName: string;
   floatingContainerClassName: string;
+  selectElementClassName: string;
 };
 
+const MIN_POPUP_WIDTH = 120;
+
 const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
-  const {popupClassName, floatingContainerClassName} = props;
+  const {
+    selectId,
+    popupClassName,
+    floatingContainerClassName,
+    selectElementClassName,
+  } = props;
   const lastRef = React.useRef<DOMRect>();
+  const selectRef = React.useRef<DOMRect>();
 
   const animateExit = ({callback}) => {
     const popup = document.querySelector(
@@ -15,6 +25,7 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     ) as HTMLDivElement;
 
     popup.style.height = `0px`;
+    popup.style.width = `${selectRef.current.width}px`;
 
     callback();
   };
@@ -23,18 +34,28 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     // Wait for the next frame
     // so we allow the floating container to apply all flip styles
     requestAnimationFrame(() => {
-      const floatingContainer = document.querySelector(
-        `.${floatingContainerClassName}`
-      ) as HTMLDivElement;
-      const popupContainer = document.querySelector(
-        `.${popupClassName}`
-      ) as HTMLDivElement;
+      const select = document.getElementById(selectId);
+
+      const floatingContainer = select.getElementsByClassName(
+        floatingContainerClassName
+      )[0] as HTMLDivElement;
+      const popupContainer = select.getElementsByClassName(
+        popupClassName
+      )[0] as HTMLDivElement;
+      const selectElement = select.getElementsByClassName(
+        selectElementClassName
+      )[0] as HTMLDivElement;
 
       // Register desired position
       lastRef.current = floatingContainer.getBoundingClientRect();
-      const desiredHeight = lastRef.current.height;
+      selectRef.current = selectElement.getBoundingClientRect();
+      const initialContainerSize = lastRef.current;
+      const popupSize = popupContainer.getBoundingClientRect();
+      const selectElementSize = selectRef.current;
 
-      if (popupContainer.getBoundingClientRect().height > desiredHeight) {
+      // If popup is higher than the floating container,
+      // allow it to scroll
+      if (popupSize.height > initialContainerSize.height) {
         popupContainer.classList.add('with-scroll');
       }
 
@@ -42,15 +63,24 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       popupContainer.classList.add('animate-on-transforms');
       popupContainer.style.height = `1px`;
 
+      // Popup width at the start of animation
+      // should be the same as element select width
+      popupContainer.style.width = `${selectElementSize.width}px`;
+
       // Wait for the next frame so we
       // know all the style changes have
       // taken hold.
       requestAnimationFrame(() => {
-        popupContainer.style.height = `${lastRef.current?.height}px`;
+        popupContainer.style.height = `${initialContainerSize.height}px`;
+        popupContainer.style.width = `${Math.max(
+          initialContainerSize.width,
+          selectElementSize.width * 0.7,
+          MIN_POPUP_WIDTH
+        )}px`;
 
         // Ensure manipulating popup height doesn't affect the floating container
-        floatingContainer.style.height = `${lastRef.current?.height}px`;
-        floatingContainer.style.width = `${lastRef.current?.width}px`;
+        floatingContainer.style.height = `${initialContainerSize.height}px`;
+        floatingContainer.style.width = `${initialContainerSize.width}px`;
       });
     });
   };

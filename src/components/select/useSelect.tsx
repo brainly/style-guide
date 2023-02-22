@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import {generateId} from '../utils';
 import type {SelectPropsType, SelectOptionType} from './Select';
 
 type UseSelectPropsType =
@@ -14,12 +13,14 @@ type UseSelectPropsType =
       | 'onToggle'
       | 'onOptionChange'
     > & {
+      id: string;
       onEntry: () => unknown;
       onExit: ({callback}: {callback?: () => unknown}) => unknown;
     };
 
 const useSelect = (props: UseSelectPropsType) => {
   const {
+    id,
     valid,
     invalid,
     expanded,
@@ -31,7 +32,6 @@ const useSelect = (props: UseSelectPropsType) => {
     onOptionChange,
   } = props;
 
-  const {current: id} = React.useRef<string>(`select-${generateId()}`);
   const [isExpanded, setIsExpanded] = React.useState(
     expanded || defaultExpanded || false
   );

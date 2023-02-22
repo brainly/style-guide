@@ -6,7 +6,7 @@ import {
   useMergeRefs,
 } from '@floating-ui/react';
 
-import {isTouchScreen, __DEV__, invariant} from '../utils';
+import {isTouchScreen, __DEV__, invariant, generateId} from '../utils';
 import Icon from '../icons/Icon';
 import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import SubjectIcon from '../subject-icons/SubjectIcon';
@@ -213,22 +213,29 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       ...additionalProps
     } = props;
 
+    const {current: id} = React.useRef<string>(`select-${generateId()}`);
+
     if (__DEV__) {
       invariant(
         valid && invalid,
         `Select cannot be valid and invalid at the same time.`
       );
     }
+    const wrapperId = `${id}-wrapper`;
     const popupClassName = 'sg-select-new__popup';
+    const selectElementClassName = 'sg-select-new__element';
     const floatingContainerClassName =
       'sg-select-new__options-floating-container';
 
     const {animateEntry, animateExit} = useSelectAnimations({
+      selectId: wrapperId,
       floatingContainerClassName,
       popupClassName,
+      selectElementClassName,
     });
 
-    const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
+    const {isExpanded, onOpenChange, handleOptionSelect} = useSelect({
+      id,
       valid,
       invalid,
       expanded,
@@ -349,11 +356,11 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const selectRef = useMergeRefs([ref, refs.setReference]);
 
     return (
-      <div className={selectClass} onClick={onClick}>
+      <div id={wrapperId} className={selectClass} onClick={onClick}>
         <div
           ref={selectRef}
           id={id}
-          className="sg-select-new__element"
+          className={selectElementClassName}
           role="combobox"
           tabIndex={disabled ? -1 : 0}
           aria-disabled={disabled}
