@@ -50,6 +50,7 @@ export const Tab = ({children, className, disabled, ...rest}: TabProps) => {
       role="tab"
       aria-selected={isActive}
       aria-controls={controls}
+      suppressHydrationWarning
     >
       <Text
         className={classnames('sg-tabs__tab-text', {

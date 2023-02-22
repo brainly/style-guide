@@ -29,6 +29,7 @@ export const Panel = ({children, ...rest}: TabPanelProps) => {
       ref={callbackRef}
       role="tabpanel"
       aria-labelledby={labelledBy}
+      suppressHydrationWarning
     >
       {children}
     </Flex>
