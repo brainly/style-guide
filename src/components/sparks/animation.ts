@@ -71,10 +71,7 @@ export function useAnimation(config: AnimationConfig) {
         refs.current.forEach(ref => {
           const {index, overrides = {}} = parameters.current.get(ref);
           let entry = entryAnimations.current.get(ref) ?? [];
-          let exit = exitAnimations.current.get(ref) ?? [];
 
-          entry?.forEach(animation => animation.cancel());
-          exit?.forEach(animation => animation.cancel());
           ref.getAnimations().forEach(animation => animation.cancel());
 
           configRef.current.entry?.forEach((keyframesConfig, i) => {
