@@ -13,6 +13,7 @@ import SubjectIcon from '../subject-icons/SubjectIcon';
 import Text from '../text/Text';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
+import useSelectAnimations from './useSelectAnimations';
 import SelectOption from './SelectOption';
 
 export type SelectOptionType = {
@@ -221,14 +222,20 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     const popupClassName = 'sg-select-new__popup';
     const floatingContainerClassName =
       'sg-select-new__options-floating-container';
+
+    const {animateEntry, animateExit} = useSelectAnimations({
+      floatingContainerClassName,
+      popupClassName,
+    });
+
     const {id, isExpanded, onOpenChange, handleOptionSelect} = useSelect({
       valid,
       invalid,
       expanded,
       defaultExpanded,
       multiSelect,
-      floatingContainerClassName,
-      popupClassName,
+      onEntry: animateEntry,
+      onExit: animateExit,
       onToggle,
       onOptionChange,
     });

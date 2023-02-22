@@ -124,7 +124,6 @@
     }
 
     &__popup.animate-on-transforms {
-      height: 1px;
       opacity: 1;
       transition: height 0.32s Cubic-Bezier(0.35, 0, 0.1, 1);
 

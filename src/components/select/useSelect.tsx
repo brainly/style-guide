@@ -13,7 +13,10 @@ type UseSelectPropsType =
       | 'multiSelect'
       | 'onToggle'
       | 'onOptionChange'
-    > & {popupClassName: string; floatingContainerClassName: string};
+    > & {
+      onEntry: () => unknown;
+      onExit: ({callback}: {callback?: () => unknown}) => unknown;
+    };
 
 const useSelect = (props: UseSelectPropsType) => {
   const {
@@ -22,8 +25,8 @@ const useSelect = (props: UseSelectPropsType) => {
     expanded,
     defaultExpanded,
     multiSelect,
-    popupClassName,
-    floatingContainerClassName,
+    onEntry,
+    onExit,
     onToggle,
     onOptionChange,
   } = props;
@@ -33,12 +36,24 @@ const useSelect = (props: UseSelectPropsType) => {
     expanded || defaultExpanded || false
   );
   const isExpandedControlled = expanded !== undefined;
-  const lastRef = React.useRef<DOMRect>();
+  const prevExpanded = React.useRef<Boolean>();
 
   // Handle expanded change when controlled
   React.useEffect(() => {
     if (isExpandedControlled) setIsExpanded(expanded);
   }, [isExpandedControlled, expanded]);
+
+  React.useEffect(() => {
+    // Ensure animation fires only
+    // when expanded change was detected
+    if (!prevExpanded.current || isExpanded !== prevExpanded.current) {
+      prevExpanded.current = isExpanded;
+
+      if (isExpanded) {
+        onEntry();
+      }
+    }
+  }, [isExpanded, onEntry]);
 
   if (valid === true && invalid === true) {
     throw {
@@ -52,52 +67,6 @@ const useSelect = (props: UseSelectPropsType) => {
     if (!multiSelect) onOpenChange(false);
   };
 
-  const animateExit = ({callback}) => {
-    const popup = document.querySelector(
-      `.${popupClassName}`
-    ) as HTMLDivElement;
-
-    popup.style.height = `0px`;
-
-    callback();
-  };
-
-  React.useEffect(() => {
-    const animateEntry = () => {
-      // Wait for the next frame
-      // so we allow the floating container to apply all flip styles
-      requestAnimationFrame(() => {
-        const floatingContainer = document.querySelector(
-          `.${floatingContainerClassName}`
-        ) as HTMLDivElement;
-        const popupContainer = document.querySelector(
-          `.${popupClassName}`
-        ) as HTMLDivElement;
-
-        // Register desired position
-        lastRef.current = floatingContainer.getBoundingClientRect();
-
-        // Reset the popup to the pre-appear position
-        popupContainer.classList.add('animate-on-transforms');
-
-        // Wait for the next frame so we
-        // know all the style changes have
-        // taken hold.
-        requestAnimationFrame(() => {
-          popupContainer.style.height = `${lastRef.current?.height}px`;
-
-          // Ensure manipulating popup height doesn't affect the floating container
-          floatingContainer.style.height = `${lastRef.current?.height}px`;
-          floatingContainer.style.width = `${lastRef.current?.width}px`;
-        });
-      });
-    };
-
-    if (isExpanded) {
-      animateEntry();
-    }
-  }, [isExpanded, popupClassName, floatingContainerClassName]);
-
   const onOpenChange = (isOpen: boolean) => {
     const handleOpenChange = isOpen => {
       if (isExpandedControlled && onToggle) onToggle(isOpen);
@@ -106,8 +75,8 @@ const useSelect = (props: UseSelectPropsType) => {
 
     // If the component will close
     // we first have to animate its exit before destroying it
-    if (!isOpen) {
-      animateExit({
+    if (!isOpen && onExit) {
+      onExit({
         callback: () => {
           handleOpenChange(isOpen);
         },
