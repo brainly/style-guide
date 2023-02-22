@@ -138,6 +138,18 @@
         bottom: 0;
         transform-origin: bottom left;
       }
+
+      &[data-placement^='top-end'] {
+        position: absolute;
+        right: 0;
+        transform-origin: bottom right;
+      }
+
+      &[data-placement^='bottom-end'] {
+        position: absolute;
+        right: 0;
+        transform-origin: top right;
+      }
     }
 
     &__options-wrapper {
