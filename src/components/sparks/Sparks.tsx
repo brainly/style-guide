@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 import cx from 'classnames';
 import {useAnimation} from './animation';
@@ -56,6 +57,10 @@ const Sparks = ({
   const handlMouseLeave = () => {
     setPhase('exit');
   };
+
+  React.useEffect(() => {
+    console.log(phase);
+  }, [phase]);
 
   return (
     <div
