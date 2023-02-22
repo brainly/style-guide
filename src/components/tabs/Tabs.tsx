@@ -1,3 +1,8 @@
+/* eslint-disable no-redeclare */
+/**
+ * We need to disable no-redeclare as redeclaration allows us to use
+ * TS overloading to type different usages scenarios
+ */
 import * as React from 'react';
 import type {PanelElement, TabElement, WithChildren} from './components';
 import {TabContext} from './hooks';
@@ -53,7 +58,7 @@ function Tabs({
 
 function Tabs({
   children,
-  onTabChange = () => {},
+  onTabChange = () => undefined,
   startIndex = 0,
   activeIndex,
   ...rest
@@ -77,6 +82,7 @@ function Tabs({
   const a11yHelpers = {
     getTabHelpers: (tab: TabElement) => {
       const currentTabIndex = tabs.indexOf(tab);
+
       return {
         id: `tab-${currentTabIndex}`,
         controls: `panel-${currentTabIndex}`,
@@ -84,6 +90,7 @@ function Tabs({
     },
     getPanelHelpers: (panel: PanelElement) => {
       const currentPanelIndex = panels.indexOf(panel);
+
       return {
         id: `panel-${currentPanelIndex}`,
         labelledBy: `tab-${currentPanelIndex}`,

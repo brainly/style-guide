@@ -41,6 +41,7 @@ describe('<Tabs />', () => {
 
   it('correctly handles tab change', () => {
     const mockOnChange = jest.fn();
+
     render(
       <Tabs onTabChange={mockOnChange}>
         <Tab.Header>
@@ -56,6 +57,7 @@ describe('<Tabs />', () => {
     expect(screen.getByText('Content 1')).not.toHaveClass('panel--hidden');
     expect(screen.getByText('Content 2')).toHaveClass('panel--hidden');
     const secondTab = screen.getByText('Second tab');
+
     fireEvent.click(secondTab);
     expect(screen.getByText('Content 1')).toHaveClass('panel--hidden');
     expect(screen.getByText('Content 2')).not.toHaveClass('panel--hidden');
@@ -81,11 +83,13 @@ describe('<Tabs />', () => {
         <Tab.Panel>Content 3</Tab.Panel>
       </Tabs>
     );
+
     expect(screen.getByText('Content 1')).toHaveClass('panel--hidden');
     expect(screen.getByText('Content 2')).toHaveClass('panel--hidden');
     expect(screen.getByText('Content 3')).not.toHaveClass('panel--hidden');
 
     const secondTab = screen.getByText('Second tab');
+
     fireEvent.click(secondTab);
 
     expect(mockOnChange).not.toHaveBeenCalled();
