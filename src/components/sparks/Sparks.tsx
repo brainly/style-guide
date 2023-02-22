@@ -14,6 +14,7 @@ interface SparksProps {
   delay?: number;
   iterationCount?: number;
 }
+
 function useTimeout(callback, delay) {
   const timeoutRef = React.useRef(null);
   const savedCallback = React.useRef(callback);
@@ -38,18 +39,51 @@ const Sparks = ({
   variant = 's',
   active = false,
   duration = 6000,
-  delay = 500,
-  iterationCount = 1,
+  delay = 1000,
+  iterationCount = 3,
 }: SparksProps) => {
   const iteration = React.useRef(1);
   const animationConfig = shapeAnimationMap[shape];
   const {register, phase, setPhase} = useAnimation(animationConfig);
-
-  const shapeColor = shapeColorMap[shape];
+  const [timeoutDelay, setTimeoutDelay] = React.useState(null);
 
   useTimeout(() => {
-    setPhase('entry');
-  }, delay);
+    if (phase !== 'entry') {
+      setPhase('entry');
+    } else {
+      setPhase('exit');
+    }
+  }, timeoutDelay);
+
+  React.useEffect(() => {
+    console.log(phase);
+
+    if (!active) {
+      iteration.current = 1;
+      setTimeoutDelay(null);
+      return;
+    }
+
+    if (phase === 'initial') {
+      if (iteration.current < iterationCount) {
+        iteration.current++;
+        setTimeoutDelay(null);
+        setTimeoutDelay(delay);
+      }
+    }
+
+    if (phase === 'entry') {
+      iteration.current = 1;
+      setTimeoutDelay(null);
+      setTimeoutDelay(duration);
+    }
+
+    if (phase === 'finished') {
+      iteration.current++;
+      setTimeoutDelay(null);
+      setTimeoutDelay(delay);
+    }
+  }, [phase, delay, duration, active, iterationCount]);
 
   const handlMouseEnter = () => {
     setPhase('entry');
@@ -58,9 +92,7 @@ const Sparks = ({
     setPhase('exit');
   };
 
-  React.useEffect(() => {
-    console.log(phase);
-  }, [phase]);
+  const shapeColor = shapeColorMap[shape];
 
   return (
     <div
