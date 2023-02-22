@@ -60,30 +60,30 @@ const Sparks = ({
 
     if (!active) {
       iteration.current = 1;
+      setPhase('initial');
       setTimeoutDelay(null);
       return;
     }
 
     if (phase === 'initial') {
+      iteration.current = 1;
+      setTimeoutDelay(null);
+      setTimeoutDelay(delay);
+    }
+
+    if (phase === 'entry') {
+      setTimeoutDelay(null);
+      setTimeoutDelay(duration);
+    }
+
+    if (phase === 'finished') {
       if (iteration.current < iterationCount) {
         iteration.current++;
         setTimeoutDelay(null);
         setTimeoutDelay(delay);
       }
     }
-
-    if (phase === 'entry') {
-      iteration.current = 1;
-      setTimeoutDelay(null);
-      setTimeoutDelay(duration);
-    }
-
-    if (phase === 'finished') {
-      iteration.current++;
-      setTimeoutDelay(null);
-      setTimeoutDelay(delay);
-    }
-  }, [phase, delay, duration, active, iterationCount]);
+  }, [phase, delay, duration, active, iterationCount, setPhase]);
 
   const handlMouseEnter = () => {
     setPhase('entry');
