@@ -5,7 +5,9 @@ $largeButtonSize: componentSize(l);
 @mixin buttonHover($color1, $color2, $percent) {
   &:hover:not([disabled]),
   &:active:not([disabled]) {
-    @include sgButtonHoverMix($color1, $color2, $percent);
+    @media (hover: hover) and (pointer: fine) {
+      @include sgButtonHoverMix($color1, $color2, $percent);
+    }
   }
 }
 
@@ -256,10 +258,12 @@ $largeButtonSize: componentSize(l);
 
   &:hover:not([disabled]),
   &:active:not([disabled]) {
-    .sg-button__hover-overlay {
-      transform: scale(1);
-      transition: transform $durationModerate2 cubic-bezier(0.1, 0, 0, 1);
-      opacity: 1;
+    @media (hover: hover) and (pointer: fine) {
+      .sg-button__hover-overlay {
+        transform: scale(1);
+        transition: transform $durationModerate2 cubic-bezier(0.1, 0, 0, 1);
+        opacity: 1;
+      }
     }
   }
 
@@ -359,8 +363,10 @@ $largeButtonSize: componentSize(l);
 
     &:hover:not([disabled]),
     &:active:not([disabled]) {
-      background-color: $buttonPrimaryFbHoverColor;
-      border-color: $buttonPrimaryFbHoverColor;
+      @media (hover: hover) and (pointer: fine) {
+        background-color: $buttonPrimaryFbHoverColor;
+        border-color: $buttonPrimaryFbHoverColor;
+      }
     }
   }
 
