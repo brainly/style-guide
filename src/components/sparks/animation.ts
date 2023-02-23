@@ -33,10 +33,17 @@ export function useAnimation(config: AnimationConfig) {
   >('initial');
   const configRef = React.useRef(config);
 
-  // we only need the most updated value. Equivalent of using useEffectEvent
+  // We only need the most updated value. Equivalent of using useEffectEvent.
   React.useEffect(() => {
     configRef.current = config;
   }, [config]);
+
+  // Check if animation is supported on dom elements in the browser.
+  const isAnimationSupported = React.useMemo(() => {
+    const animation = false || document.createElement('div').style.animation;
+
+    return animation !== undefined;
+  }, []);
 
   const register = React.useCallback(
     (options: RegisterOptions = {index: refs.current.size}) => {
@@ -56,10 +63,12 @@ export function useAnimation(config: AnimationConfig) {
     const elements = refs.current;
 
     return () => {
-      // Remove all outstanding animations and cleanup refs
-      const allSnapshot = [...elements].flatMap(ref => ref.getAnimations());
+      if (isAnimationSupported) {
+        // Remove all outstanding animations and cleanup refs
+        const allSnapshot = [...elements].flatMap(ref => ref.getAnimations());
 
-      allSnapshot.forEach(animation => animation.cancel());
+        allSnapshot.forEach(animation => animation.cancel());
+      }
 
       elements.clear();
     };
@@ -68,6 +77,11 @@ export function useAnimation(config: AnimationConfig) {
   React.useEffect(() => {
     // eslint-disable-next-line no-console
     console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
+
+    if (!isAnimationSupported) {
+      console.warn('Web Animation API is not supported on this browser');
+      return;
+    }
 
     switch (phase) {
       case 'entry': {
