@@ -24,24 +24,24 @@ export interface SparksPropsType {
   /**
    * Optional string. Size of the sparks.
    * @default 'l'
-   * @example <Sparks variant="l" />
    * @example <Sparks variant="m" />
-   * @example <Sparks variant="s" />
    **/
   variant?: 's' | 'm' | 'l';
   /**
    * Optional boolean. Whether the sparks are active.
    * @default false
-   * @example <Sparks active/>
-   * @example <Sparks active={false}/>
+   * @example
+   * <Sparks active/>
+   * <Sparks active={false}/>
    **/
   active?: boolean;
   /**
    * Optional number. Duration of the animation.
    * @default 6000
-   * @example <Sparks duration={6000}/>
-   * @example <Sparks duration={Infinity}/>
-   * @example <Sparks duration={0}/>
+   * @example
+   * <Sparks duration={6000}/>
+   * <Sparks duration={Infinity}/>
+   * <Sparks duration={0}/>
    **/
   duration?: number;
   /**
@@ -54,8 +54,9 @@ export interface SparksPropsType {
   /**
    * Optional number. Number of iterations to play the full sequence: entry, exit, delay.
    * @default 3
-   * @example <Sparks iterationCount={3}/>
-   * @example <Sparks iterationCount={Infinity}/>
+   * @example
+   * <Sparks iterationCount={3}/>
+   * <Sparks iterationCount={Infinity}/>
    **/
   iterationCount?: number;
 }
