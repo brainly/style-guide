@@ -12,7 +12,7 @@ export interface SparksPropsType {
    */
   className?: string;
   /**
-   * Optional string. Component to be warped by sparks.
+   * Optional string. Component to be warped with sparks.
    */
   children?: React.ReactNode;
   /**
