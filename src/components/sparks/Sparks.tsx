@@ -6,7 +6,7 @@ import {useTimeout} from './timeout';
 import {shapeAnimationMap, shapeColorMap, variants} from './presets';
 import Particle from './Particle';
 
-export interface SparksProps {
+export interface SparksPropsType {
   /**
    * Optional string. Additional class names.
    */
@@ -60,7 +60,7 @@ export interface SparksProps {
   iterationCount?: number;
 }
 
-const Sparks = React.forwardRef<HTMLDivElement, SparksProps>(
+const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
   ({
     children,
     className,
@@ -70,7 +70,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksProps>(
     duration = 6000,
     delay = 0,
     iterationCount = 3,
-  }: SparksProps) => {
+  }) => {
     const iteration = React.useRef(0);
     const animationConfig = shapeAnimationMap[shape];
     const {register, phase, setPhase} = useAnimation(animationConfig);
