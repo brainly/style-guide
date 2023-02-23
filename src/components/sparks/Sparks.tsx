@@ -18,54 +18,62 @@ interface SparksProps {
 
 const Sparks = ({
   children,
-  shape = 'heart',
-  variant = 's',
+  shape = 'spark',
+  variant = 'l',
   active = false,
   duration = 6000,
-  delay = 1000,
+  delay = 0,
   iterationCount = 3,
 }: SparksProps) => {
-  const iteration = React.useRef(1);
+  const iteration = React.useRef(0);
   const animationConfig = shapeAnimationMap[shape];
   const {register, phase, setPhase} = useAnimation(animationConfig);
-  const [timeoutDelay, setTimeoutDelay] = React.useState(null);
+  const [timeoutDelay, setTimeoutDelay] = React.useState<number | null>(null);
 
-  useTimeout(() => {
-    if (phase !== 'entry') {
-      setPhase('entry');
-    } else {
+  const restartTimeout = useTimeout(() => {
+    console.log('timeout', phase, iteration.current, iterationCount, active);
+    if (!active) {
+      return;
+    }
+
+    if (phase === 'entry') {
       setPhase('exit');
+    } else if (iteration.current < iterationCount) {
+      setPhase('entry');
     }
   }, timeoutDelay);
 
   React.useEffect(() => {
+    if (active) {
+      setPhase('initial');
+    } else {
+      setPhase('exit');
+    }
+  }, [active, setPhase]);
+
+  React.useEffect(() => {
     console.log(phase);
 
-    if (!active) {
-      setPhase('initial');
-      setTimeoutDelay(null);
-      return;
-    }
-
-    if (phase === 'initial') {
-      iteration.current = 1;
-      setTimeoutDelay(null);
+    if (phase === 'initial' && active) {
+      iteration.current = 0;
+      restartTimeout();
       setTimeoutDelay(delay);
     }
 
-    if (phase === 'entry') {
-      setTimeoutDelay(null);
-      setTimeoutDelay(duration);
+    if (phase === 'entry' && active) {
+      iteration.current++;
+
+      restartTimeout();
+      if (duration !== Infinity) {
+        setTimeoutDelay(duration);
+      }
     }
 
     if (phase === 'finished') {
-      if (iteration.current < iterationCount) {
-        iteration.current++;
-        setTimeoutDelay(null);
-        setTimeoutDelay(delay);
-      }
+      restartTimeout();
+      setTimeoutDelay(delay);
     }
-  }, [phase, delay, duration, active, iterationCount, setPhase]);
+  }, [phase, delay, active, duration, iterationCount, restartTimeout]);
 
   const shapeColor = shapeColorMap[shape];
 

@@ -39,7 +39,15 @@ import Button from '../buttons/Button';
       const [active, setActive] = React.useState(false);
       return (
         <div style={{width: 300}}>
-          <Sparks {...args} variant="l" active={active}>
+          <Sparks
+            {...args}
+            variant="l"
+            shape="spark"
+            duration={2000}
+            delay={600}
+            iterationCount={5}
+            active={active}
+          >
             <Button
               variant="solid-indigo"
               size="l"

@@ -43,8 +43,6 @@ export function useAnimation(config: AnimationConfig) {
       return {
         ref: (el: HTMLDivElement | null) => {
           if (el) {
-            // eslint-disable-next-line no-console
-            console.log('register');
             parameters.current.set(el, options);
             refs.current.add(el);
           }
