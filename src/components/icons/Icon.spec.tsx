@@ -1,66 +1,74 @@
 import * as React from 'react';
-import Icon, {TYPE, ICON_COLOR} from './Icon';
-import {shallow} from 'enzyme';
+import Icon, {TYPE} from './Icon';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render if type', () => {
-  const icon = shallow(<Icon type={TYPE.ANSWER} />);
+describe('Icon', () => {
+  it('render if type', () => {
+    const icon = render(<Icon type={TYPE.ANSWER} />);
 
-  expect(icon.hasClass('sg-icon')).toEqual(true);
-  expect(icon.find('use')).toHaveLength(1);
-});
-test('render if children', () => {
-  const icon = shallow(
-    <Icon>
-      <div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path
-            fillRule="nonzero"
-            d="M8.45 1v4.84h3.57L6.5 18.74H2v4.85h12.9v-4.84h-3.56l5.52-12.9h4.5V1z"
+    expect(icon.getByRole('img')).toBeTruthy();
+  });
+
+  it('render if children', () => {
+    const icon = render(
+      <Icon>
+        <div>
+          <svg
+            data-testid="foo-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
           />
-        </svg>
-      </div>
-    </Icon>
-  );
+        </div>
+      </Icon>
+    );
 
-  expect(icon.hasClass('sg-icon')).toEqual(true);
-  expect(icon.find('svg')).toHaveLength(1);
-});
-test('type passed to xlink:href', () => {
-  const type = TYPE.ANSWER;
-  const icon = shallow(<Icon type={type} />);
-  const use = icon.find('use');
+    expect(icon.getByTestId('foo-icon')).toBeTruthy();
+  });
 
-  expect(use.props().xlinkHref).toEqual(`#icon-${type}`);
-});
-test('new type passed to xlink:href', () => {
-  const type = 'answer';
-  const icon = shallow(<Icon type={type} />);
-  const use = icon.find('use');
+  it('tag type', () => {
+    const component = render(<Icon type={TYPE.ANSWER} size={16} as="span" />);
 
-  expect(use.props().xlinkHref).toEqual(`#icon-${type}`);
-});
-test('colors', () => {
-  const type = TYPE.ANSWER;
-  const color = ICON_COLOR['icon-black'];
-  const icon = shallow(<Icon type={type} color={color} />);
+    expect(component.container.firstElementChild.tagName).toEqual('SPAN');
+  });
 
-  expect(icon.hasClass(`sg-icon--${color}`)).toEqual(true);
-});
-test('size', () => {
-  const size = 16;
-  const type = TYPE.ANSWER;
-  const icon = shallow(<Icon type={type} size={size} />);
+  it('other props', () => {
+    const type = TYPE.ANSWER;
+    const icon = render(<Icon type={type} data-testid="foo" />);
 
-  expect(icon.hasClass(`sg-icon--x${size}`)).toEqual(true);
-});
-test('tag type', () => {
-  const component = shallow(<Icon type={TYPE.ANSWER} size={16} as="span" />);
+    expect(icon.queryByTestId('foo')).toBeTruthy();
+  });
 
-  expect(component.find('span')).toHaveLength(1);
-});
-test('other props', () => {
-  const type = TYPE.ANSWER;
-  const icon = shallow(<Icon type={type} data-something="else" />);
+  it('should have an accessible title and img role', async () => {
+    const type = 'search';
+    const icon = render(<Icon type={type} />);
 
-  expect(icon.find('[data-something="else"]')).toHaveLength(1);
+    expect(
+      icon.getByRole('img', {
+        name: type,
+      })
+    ).toBeTruthy();
+  });
+
+  it('should have an accessible description', async () => {
+    const type = 'search';
+    const description = 'desc desc desc';
+    const icon = render(<Icon type={type} description={description} />);
+
+    expect(icon.getByText(description)).toBeTruthy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Icon type="search" />);
+    });
+
+    it('should have no a11y violations when title is provided', async () => {
+      await testA11y(<Icon type="search" title="Title" />);
+    });
+
+    it('should have no a11y violations when description is provided', async () => {
+      await testA11y(<Icon type="search" description="description" />);
+    });
+  });
 });

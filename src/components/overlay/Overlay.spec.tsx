@@ -1,28 +1,18 @@
 import * as React from 'react';
 import Overlay from './Overlay';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const overlay = shallow(<Overlay />);
+describe('Overlay', () => {
+  it('render', () => {
+    const overlay = render(<Overlay>foo</Overlay>);
 
-  expect(overlay.hasClass('sg-overlay')).toEqual(true);
-});
-test('children', () => {
-  const overlay = shallow(
-    <Overlay>
-      <div className="test" />
-    </Overlay>
-  );
+    expect(overlay.getByText('foo')).toBeTruthy();
+  });
 
-  expect(overlay.find('.test')).toHaveLength(1);
-});
-test('partial', () => {
-  const overlay = shallow(<Overlay partial />);
-
-  expect(overlay.hasClass('sg-overlay--partial')).toBeTruthy();
-});
-test('colors', () => {
-  const overlay = shallow(<Overlay color="black" />);
-
-  expect(overlay.hasClass('sg-overlay--black')).toBeTruthy();
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Overlay>item</Overlay>);
+    });
+  });
 });

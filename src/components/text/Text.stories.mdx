@@ -10,6 +10,8 @@ import {
 } from './textConsts';
 import TextA11y from './stories/text.a11y.mdx';
 import PageHeader from 'blocks/PageHeader';
+import {StoryVariant} from '../../docs/utils';
+import hex from '../colors/hex';
 
 <Meta
   title="Components/Text"
@@ -152,6 +154,197 @@ Text component does not inherit any styles by default. To turn inheritance you c
         </Text>{' '}
         find it has inspired them to ask more questions.
       </Text>
+    )}
+  </Story>
+</Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_SIZE).map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <Text {...args} size={size}>
+              Some text
+            </Text>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_COLOR).map(color => (
+          <StoryVariant label={`color - ${color}`} key={color}>
+            <div
+              style={{backgroundColor: color === 'text-white' ? '#c3d1dd' : ''}}
+            >
+              <Text {...args} color={color}>
+                Some text
+              </Text>
+            </div>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Underlined
+
+<Canvas>
+  <Story name="Underlined">
+    {args => (
+      <Link {...args} underlined>
+        Some text
+      </Link>
+    )}
+  </Story>
+</Canvas>
+
+### Weight
+
+<Canvas>
+  <Story name="Weight">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_WEIGHT).map(weight => (
+          <StoryVariant label={`weight - ${weight}`} key={weight}>
+            <Text {...args} weight={weight}>
+              Some text
+            </Text>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Transform
+
+<Canvas>
+  <Story name="Transform">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_TRANSFORM).map(transform => (
+          <StoryVariant label={`transform - ${transform}`} key={transform}>
+            <Text {...args} transform={transform}>
+              Some text
+            </Text>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### Align
+
+<Canvas>
+  <Story name="Align">
+    {args => (
+      <Flex direction="column">
+        {Object.values(TEXT_ALIGN).map(align => (
+          <StoryVariant label={`align - ${align}`} key={align} width={400}>
+            <Text {...args} align={align} style={{display: 'block'}}>
+              Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi
+              eiusmod minim deserunt ut cupidatat dolore velit deserunt nisi.
+              Enim in anim aute non.
+            </Text>
+          </StoryVariant>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
+
+### No wrap on white space
+
+<Canvas>
+  <Story name="White space no wrap">
+    {args => (
+      <div style={{border: '1px solid gray', width: '400px'}}>
+        <Text {...args} noWrap>
+          Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi eiusmod.
+        </Text>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Break words
+
+<Canvas>
+  <Story name="Break words">
+    {args => (
+      <div style={{border: '1px solid gray', width: '400px'}}>
+        <Text {...args} breakWords>
+          very-very-very-very-very-very-very-very-very-very-very-very-very-very-long-word
+        </Text>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### As Container
+
+<Canvas>
+  <Story name="As Container">
+    {args => (
+      <div
+        style={{
+          position: 'relative',
+          paddingTop: 30,
+          border: '1px solid black',
+        }}
+      >
+        <Text {...args} asContainer>
+          The red box should be in the top-left corner of text, not above the
+          text.The red box should be in the top-left corner of text, not above
+          the text.The red box should be in the top-left corner of text, not
+          above the text.
+          <span
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              height: 20,
+              width: 20,
+              backgroundColor: hex['red-40'],
+            }}
+          />
+        </Text>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Full
+
+<Canvas>
+  <Story name="Full">
+    {args => (
+      <div
+        style={{
+          display: 'flex',
+          backgroundColor: hex['gray-40'],
+          padding: '10px 0',
+        }}
+      >
+        <Text {...args} full style={{backgroundColor: hex['gray-20']}}>
+          Aliquip sit pariatur laboris in aliqua. Enim esse eu est nisi eiusmod
+          minim deserunt ut cupidatat dolore velit deserunt nisi. Enim in anim
+          aute non.
+        </Text>
+      </div>
     )}
   </Story>
 </Canvas>

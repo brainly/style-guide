@@ -1,15 +1,18 @@
 import * as React from 'react';
-import SeparatorHorizontal, {TYPE} from './SeparatorHorizontal';
-import {shallow} from 'enzyme';
+import SeparatorHorizontal from './SeparatorHorizontal';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const separator = shallow(<SeparatorHorizontal />);
+describe('SeparatorHorizontal', () => {
+  it('render', () => {
+    const separator = render(<SeparatorHorizontal />);
 
-  expect(separator.hasClass('sg-horizontal-separator')).toEqual(true);
-  expect(separator.hasClass('sg-horizontal-separator--normal')).toEqual(false);
-});
-test('type', () => {
-  const separator = shallow(<SeparatorHorizontal type={TYPE.SPACED} />);
+    expect(separator.getByRole('separator')).toBeTruthy();
+  });
 
-  expect(separator.hasClass('sg-horizontal-separator--spaced')).toEqual(true);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SeparatorHorizontal />);
+    });
+  });
 });

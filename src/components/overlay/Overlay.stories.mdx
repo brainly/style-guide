@@ -8,8 +8,7 @@ import Flex from '../flex/Flex';
 import PageHeader from 'blocks/PageHeader';
 import {within} from '@storybook/testing-library';
 import {formatTags} from '../../docs/utils';
-
-export const play = async ({canvasElement}) => {
+const play = async ({canvasElement}) => {
   const canvas = within(canvasElement);
   const button = canvas.getAllByRole('button', {name: 'open Overlay'})[0];
   if (button) {
@@ -78,7 +77,7 @@ export const play = async ({canvasElement}) => {
 ### Black
 
 <Canvas>
-  <Story name="Black" args={{color: 'black'}}>
+  <Story name="Black" play={play} args={{color: 'black'}}>
     {args => {
       const [open, setOpen] = React.useState(false);
       const handleDismiss = () => setOpen(false);
@@ -88,6 +87,25 @@ export const play = async ({canvasElement}) => {
             open Overlay
           </Button>
           {open && <Overlay {...args} onClick={handleDismiss} />}
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Partial
+
+<Canvas>
+  <Story name="Partial" play={play}>
+    {args => {
+      const [open, setOpen] = React.useState(false);
+      const handleDismiss = () => setOpen(false);
+      return (
+        <div style={{height: 400, width: 400, position: 'relative'}}>
+          <Button type="solid-indigo" onClick={() => setOpen(true)}>
+            open Overlay
+          </Button>
+          {open && <Overlay {...args} onClick={handleDismiss} partial />}
         </div>
       );
     }}

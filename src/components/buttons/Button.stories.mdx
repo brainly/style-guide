@@ -6,11 +6,6 @@ import {StoryVariantTable} from '../../docs/utils';
 import Headline from '../text/Headline';
 import PageHeader from 'blocks/PageHeader';
 import ButtonA11y from './stories/Button.a11y.mdx';
-const iconSize = {
-  [BUTTON_SIZE.S]: 16,
-  [BUTTON_SIZE.M]: 24,
-  [BUTTON_SIZE.L]: 32,
-};
 
 <Meta
   title="Components/Button"
@@ -524,12 +519,18 @@ const iconSize = {
   </Story>
 </Canvas>
 
-### Press effects
+### Full width
 
 <Canvas>
-  <Story name="Press Efects">
+  <Story name="Full width">
     {args => {
-      return <Button onPressEffect="scale-down">scale down</Button>;
+      return (
+        <div style={{width: 400, border: '1px solid black', padding: 3}}>
+          <Button {...args} fullWidth>
+            full width of the box
+          </Button>
+        </div>
+      );
     }}
   </Story>
 </Canvas>

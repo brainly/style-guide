@@ -1,9 +1,9 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 
 import Card from './Card';
-import CardHole from './CardHole';
+import CardHole, {CARD_HOLE_COLOR} from './CardHole';
 import CardA11y from './stories/Card.a11y.mdx';
-import PageHeader from 'blocks/PageHeader';
+import Flex from '../flex/Flex';
 
 <Meta
   title="Components/Card"
@@ -41,6 +41,91 @@ import PageHeader from 'blocks/PageHeader';
 </Canvas>
 
 <ArgsTable story="Default" />
+
+## Stories
+
+### Full
+
+<Canvas>
+  <Story name="Full">
+    {args => (
+      <Card {...args} full>
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+### Vertical
+
+<Canvas>
+  <Story name="Vertical">
+    {args => (
+      <Card {...args} vertical>
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+### Centered
+
+<Canvas>
+  <Story name="Centered">
+    {args => (
+      <Card {...args} centered>
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+### Small padding
+
+<Canvas>
+  <Story name="Small padding">
+    {args => (
+      <Card {...args} padding="padding-small">
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+### Large padding
+
+<Canvas>
+  <Story name="Large padding">
+    {args => (
+      <Card {...args} padding="padding-large">
+        <CardHole>This is card content top</CardHole>
+        <CardHole>This is card content bottom</CardHole>
+      </Card>
+    )}
+  </Story>
+</Canvas>
+
+### Colors
+
+<Canvas>
+  <Story name="Colors">
+    {args => (
+      <Flex wrap>
+        {Object.values(CARD_HOLE_COLOR).map(color => (
+          <Flex marginRight="xs" marginBottom="xs">
+            <Card {...args} padding="padding-large">
+              <CardHole color={color}>{color}</CardHole>
+            </Card>
+          </Flex>
+        ))}
+      </Flex>
+    )}
+  </Story>
+</Canvas>
 
 ## Accessibility
 
