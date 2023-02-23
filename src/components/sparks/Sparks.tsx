@@ -110,8 +110,9 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
       if (phase === 'entry' && active) {
         iteration.current++;
 
-        restartTimeout();
+        setTimeoutDelay(null);
         if (duration !== Infinity) {
+          restartTimeout();
           setTimeoutDelay(duration);
         }
       }
