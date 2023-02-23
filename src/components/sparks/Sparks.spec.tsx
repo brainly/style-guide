@@ -41,7 +41,7 @@ describe('<Sparks />', () => {
 
     userEvent.click(button);
 
-    expect(onClick).not.toHaveBeenCalled();
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('has no a11y violations', async () => {
