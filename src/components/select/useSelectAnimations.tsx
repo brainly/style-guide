@@ -49,10 +49,15 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
 
     popup.style.height = `0px`;
     popup.style.width = `${selectRef.current.width}px`;
+    popup.style.opacity = `0`;
 
-    resetFloatingContainerTopPosition(floatingContainer, lastRef);
+    requestAnimationFrame(() => {
+      popup.classList.add('animate-on-transforms');
+      floatingContainer.classList.add('animate-on-transforms');
+      resetFloatingContainerTopPosition(floatingContainer, lastRef);
 
-    if (callback) callback();
+      if (callback) callback();
+    });
   };
 
   const animateEntry = () => {

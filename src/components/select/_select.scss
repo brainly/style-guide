@@ -142,7 +142,8 @@
     &__popup.animate-on-transforms {
       opacity: 1;
       transition: height $durationGentle1 $easingRegular,
-        width $durationGentle1 $easingRegular;
+        width $durationGentle1 $easingRegular,
+        opacity $durationQuick1 $easingLinear;
 
       &[data-placement^='top'] {
         position: absolute;
