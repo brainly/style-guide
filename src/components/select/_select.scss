@@ -100,6 +100,10 @@
         background-color: var(--active-background-color);
       }
 
+      &[aria-expanded='true'] .sg-select-new__element-icon {
+        transform: rotate(180deg);
+      }
+
       .sg-subject-icon {
         margin-right: 12px;
       }
@@ -108,6 +112,7 @@
     &__element-icon {
       position: absolute;
       right: 8px;
+      transition: transform $durationGentle1 $easingRegular;
     }
 
     &__element-label {

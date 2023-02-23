@@ -386,7 +386,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
           {selectDisplayValue}
           <div className="sg-select-new__element-icon">
             <Icon
-              type={isExpanded ? 'caret_up' : 'caret_down'}
+              type="caret_up"
               size={ICON_SIZE_MAP[size]}
               color="icon-gray-70"
             />
