@@ -169,5 +169,5 @@ export type {SkipLinkPropsType} from './components/skip-link/SkipLink';
 export {default as SkipLink} from './components/skip-link/SkipLink';
 export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
 export {default as ProgressBar} from './components/progress-bar/ProgressBar';
-export type {SparksProps} from './components/sparks/Sparks';
+export type {SparksPropsType} from './components/sparks/Sparks';
 export {default as Sparks} from './components/sparks/Sparks';
