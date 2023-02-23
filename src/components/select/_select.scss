@@ -188,6 +188,7 @@
       justify-content: space-between;
       border-radius: $borderRadiusDefault;
       cursor: default;
+      transition: background-color $durationModerate1 $easingLinear;
 
       &:hover {
         background-color: $gray-10;
