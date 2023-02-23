@@ -72,7 +72,7 @@ export function useAnimation(config: AnimationConfig) {
 
       elements.clear();
     };
-  }, []);
+  }, [isAnimationSupported]);
 
   React.useEffect(() => {
     if (!isAnimationSupported) {
@@ -188,7 +188,7 @@ export function useAnimation(config: AnimationConfig) {
       default:
         break;
     }
-  }, [phase]);
+  }, [phase, isAnimationSupported]);
 
   return {register, phase, setPhase};
 }
