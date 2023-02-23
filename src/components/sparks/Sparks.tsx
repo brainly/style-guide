@@ -67,21 +67,10 @@ const Sparks = ({
     }
   }, [phase, delay, duration, active, iterationCount, setPhase]);
 
-  const handlMouseEnter = () => {
-    setPhase('entry');
-  };
-  const handlMouseLeave = () => {
-    setPhase('exit');
-  };
-
   const shapeColor = shapeColorMap[shape];
 
   return (
-    <div
-      className={cx('sg-sparks', {'sg-sparks--s': variant === 's'})}
-      onMouseEnter={handlMouseEnter}
-      onMouseLeave={handlMouseLeave}
-    >
+    <div className={cx('sg-sparks', {'sg-sparks--s': variant === 's'})}>
       {children}
       <div className="sg-sparks__container">
         {variants[variant].map(

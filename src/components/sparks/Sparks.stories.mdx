@@ -30,4 +30,27 @@ import Button from '../buttons/Button';
 
 ## Stories
 
-### 1
+### Animation on Hover
+
+<Canvas>
+  <Story name="Hover">
+    {args => {
+      // active animation on button hover
+      const [active, setActive] = React.useState(false);
+      return (
+        <div style={{width: 300}}>
+          <Sparks {...args} variant="l" active={active}>
+            <Button
+              variant="solid-indigo"
+              size="l"
+              onMouseEnter={() => setActive(true)}
+              onMouseLeave={() => setActive(false)}
+            >
+              Button
+            </Button>
+          </Sparks>
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
