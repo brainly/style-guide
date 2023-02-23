@@ -45,6 +45,11 @@ $largeButtonSize: componentSize(l);
   -webkit-user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   user-select: none;
+  transition: transform $durationModerate2 $easingRegular;
+
+  &:active:not([disabled]) {
+    transform: scale(0.96);
+  }
 
   &__text {
     position: relative;
@@ -414,18 +419,8 @@ $largeButtonSize: componentSize(l);
       border: none;
     }
 
-    &.sg-button--press-scale-down {
-      &:active:not([disabled]) {
-        transform: scale(0.92);
-      }
-    }
-  }
-
-  &--press-scale-down {
-    transition: transform $durationModerate2 $easingRegular;
-
     &:active:not([disabled]) {
-      transform: scale(0.96);
+      transform: scale(0.92);
     }
   }
 

@@ -250,10 +250,6 @@ export type ButtonPropsType = {
   onClick?: (
     arg0: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>
   ) => unknown;
-  /**
-   * Type of effect when button is pressed
-   */
-  onPressEffect?: ButtonOnPressEffectType;
 } & Omit<
   React.AllHTMLAttributes<HTMLElement>,
   | 'variant'
@@ -298,7 +294,6 @@ const Button = React.forwardRef(
       loadingAriaLive = 'off',
       loadingAriaLabel,
       type,
-      onPressEffect = 'scale-down',
       ...props
     }: ButtonPropsType,
     ref
@@ -363,8 +358,6 @@ const Button = React.forwardRef(
         'sg-button--icon-only': Boolean(icon) && iconOnly,
         [`sg-button--${String(variant)}-toggle-${String(toggle)}`]: toggle,
         'sg-button--reversed-order': reversedOrder,
-        [onPressEffect ? `sg-button--press-${onPressEffect}` : '']:
-          onPressEffect,
       },
       className
     );
