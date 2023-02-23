@@ -16,6 +16,11 @@ export interface SparksPropsType {
    */
   children?: React.ReactNode;
   /**
+   * Optional object. Style object to be applied to the component.
+   * @example <Sparks style={{color: 'red'}} />
+   **/
+  style?: React.CSSProperties;
+  /**
    * Optional string. Shape of the sparks.
    * @default 'spark'
    * @example <Sparks shape="spark" />
@@ -66,6 +71,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
     {
       children,
       className,
+      style,
       shape = 'spark',
       variant = 'l',
       active = false,
@@ -134,6 +140,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
         className={cx('sg-sparks', className, {
           'sg-sparks--s': variant === 's',
         })}
+        style={style}
       >
         {children}
         <div className="sg-sparks__container" aria-hidden ref={ref}>
