@@ -103,7 +103,7 @@
       }
 
       &[aria-expanded='true'] .sg-select-new__element-icon {
-        transform: rotate(180deg);
+        transform: rotate(-180deg);
       }
 
       .sg-subject-icon {
