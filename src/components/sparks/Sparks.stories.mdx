@@ -19,7 +19,7 @@ import Button from '../buttons/Button';
   <Story name="Default" args={{active: true}}>
     {args => (
       <div style={{width: 300}}>
-        <Sparks {...args}>
+        <Sparks {...args} active>
           <Button variant="solid-indigo" size={args.size || 'l'}>
             Button
           </Button>
