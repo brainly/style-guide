@@ -86,6 +86,8 @@
       font-size: $formElementDefaultFontSize;
       color: $formElementPlacholderTextColor;
       background-color: var(--select-background);
+      transition: background-color $durationModerate1 $easingLinear,
+        border-color $durationModerate1 $easingLinear;
 
       &:hover,
       &:focus,
