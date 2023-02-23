@@ -1,5 +1,6 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 import {StoryVariant} from '../../docs/utils';
+import PageHeader from 'blocks/PageHeader';
 import Sparks from './Sparks';
 import Button from '../buttons/Button';
 
@@ -14,11 +15,11 @@ import Button from '../buttons/Button';
 ## Overview
 
 <Canvas>
-  <Story name="Default">
+  <Story name="Default" args={{active: true}}>
     {args => (
       <div style={{width: 300}}>
         <Sparks {...args}>
-          <Button variant="solid-indigo" size="l">
+          <Button variant="solid-indigo" size={args.size || 'l'}>
             Button
           </Button>
         </Sparks>
