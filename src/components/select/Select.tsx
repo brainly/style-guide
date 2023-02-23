@@ -403,6 +403,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                   top: floatingProps.y ?? 0,
                   left: floatingProps.x ?? 0,
                 }}
+                data-placement={floatingProps.placement}
               >
                 <div
                   className="sg-select-new__popup"

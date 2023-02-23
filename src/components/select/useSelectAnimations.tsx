@@ -9,6 +9,25 @@ type UseSelectAnimationsPropsType = {
 
 const MIN_POPUP_WIDTH = 120;
 
+/**
+ * Move floating container by 8px from the initial top position.
+ */
+const resetFloatingContainerTopPosition = (
+  floatingContainerElement,
+  originalElementRef
+) => {
+  let transformTopAmount = -8;
+  const placement = floatingContainerElement.getAttribute('data-placement');
+
+  if (placement.includes('top')) {
+    transformTopAmount = 8;
+  }
+
+  floatingContainerElement.style.top = `${
+    originalElementRef.current.top + transformTopAmount
+  }px`;
+};
+
 const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
   const {
     selectId,
@@ -20,14 +39,20 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
   const selectRef = React.useRef<DOMRect>();
 
   const animateExit = ({callback}) => {
-    const popup = document.querySelector(
-      `.${popupClassName}`
-    ) as HTMLDivElement;
+    const select = document.getElementById(selectId);
+    const popup = select.getElementsByClassName(
+      popupClassName
+    )[0] as HTMLDivElement;
+    const floatingContainer = select.getElementsByClassName(
+      floatingContainerClassName
+    )[0] as HTMLDivElement;
 
     popup.style.height = `0px`;
     popup.style.width = `${selectRef.current.width}px`;
 
-    callback();
+    resetFloatingContainerTopPosition(floatingContainer, lastRef);
+
+    if (callback) callback();
   };
 
   const animateEntry = () => {
@@ -59,18 +84,22 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
         popupContainer.classList.add('with-scroll');
       }
 
-      // Reset the popup to the pre-appear position
-      popupContainer.classList.add('animate-on-transforms');
+      // Reset the popup height to the pre-appear position
       popupContainer.style.height = `1px`;
 
       // Popup width at the start of animation
       // should be the same as element select width
       popupContainer.style.width = `${selectElementSize.width}px`;
 
+      resetFloatingContainerTopPosition(floatingContainer, lastRef);
+
       // Wait for the next frame so we
       // know all the style changes have
       // taken hold.
       requestAnimationFrame(() => {
+        popupContainer.classList.add('animate-on-transforms');
+        floatingContainer.classList.add('animate-on-transforms');
+
         popupContainer.style.height = `${initialContainerSize.height}px`;
         popupContainer.style.width = `${Math.max(
           initialContainerSize.width,
@@ -78,6 +107,8 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
           MIN_POPUP_WIDTH
         )}px`;
 
+        // Animate the floating container position back to it's initial state
+        floatingContainer.style.top = `${initialContainerSize.top}px`;
         // Ensure manipulating popup height doesn't affect the floating container
         floatingContainer.style.height = `${initialContainerSize.height}px`;
         floatingContainer.style.width = `${initialContainerSize.width}px`;

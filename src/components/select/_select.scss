@@ -116,6 +116,12 @@
       white-space: nowrap;
     }
 
+    &__options-floating-container {
+      &.animate-on-transforms {
+        transition: top $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
+      }
+    }
+
     &__popup {
       border-radius: 16px;
       box-shadow: $shadowLarge !important;
