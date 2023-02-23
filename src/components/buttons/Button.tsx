@@ -79,7 +79,6 @@ type ButtonToggleType = 'red' | 'yellow';
 type ButtonSizeType = 'l' | 'm' | 's';
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
 export type ButtonTypeType = 'button' | 'submit' | 'reset';
-export type ButtonOnPressEffectType = 'scale-down';
 
 const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
