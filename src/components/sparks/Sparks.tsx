@@ -62,16 +62,19 @@ export interface SparksPropsType {
 }
 
 const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
-  ({
-    children,
-    className,
-    shape = 'spark',
-    variant = 'l',
-    active = false,
-    duration = 6000,
-    delay = 0,
-    iterationCount = 3,
-  }) => {
+  (
+    {
+      children,
+      className,
+      shape = 'spark',
+      variant = 'l',
+      active = false,
+      duration = 6000,
+      delay = 0,
+      iterationCount = 3,
+    }: SparksPropsType,
+    ref
+  ) => {
     const iteration = React.useRef(0);
     const animationConfig = shapeAnimationMap[shape];
     const {register, phase, setPhase} = useAnimation(animationConfig);
@@ -133,7 +136,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
         })}
       >
         {children}
-        <div className="sg-sparks__container" aria-hidden>
+        <div className="sg-sparks__container" aria-hidden ref={ref}>
           {variants[variant].map(
             ({style, colorIndex, animation, ...particle}, index) => (
               <Particle
