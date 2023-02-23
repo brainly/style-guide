@@ -62,3 +62,50 @@ import Button from '../buttons/Button';
     }}
   </Story>
 </Canvas>
+
+### Sizes
+
+<Canvas>
+  <Story name="Sizes">
+    {args => (
+      <div style={{width: 300}}>
+        <Sparks {...args} variant="s" shape="spark">
+          <Button variant="solid-indigo" size="s">
+            Button
+          </Button>
+        </Sparks>
+        <Sparks {...args} variant="m" shape="spark">
+          <Button variant="solid-indigo" size="m">
+            Button
+          </Button>
+        </Sparks>
+        <Sparks {...args} variant="l" shape="spark">
+          <Button variant="solid-indigo" size="l">
+            Button
+          </Button>
+        </Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
+### Shapes
+
+<Canvas>
+  <Story name="Shapes">
+    {args => (
+      <div>
+        <Sparks {...args} variant="l" shape="spark">
+          <Button variant="solid-indigo" size="l">
+            Spark
+          </Button>
+        </Sparks>
+        <Sparks {...args} variant="l" shape="heart">
+          <Button variant="solid-indigo" size="l">
+            Heart
+          </Button>
+        </Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
