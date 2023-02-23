@@ -1,4 +1,5 @@
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import {StoryVariant} from '../../docs/utils';
 import Sparks from './Sparks';
 import Button from '../buttons/Button';
 
@@ -33,7 +34,7 @@ import Button from '../buttons/Button';
 ### Animation on Hover
 
 <Canvas>
-  <Story name="Hover">
+  <Story name="Hover" parameters={{backgrounds: {default: 'facebook'}}}>
     {args => {
       // active animation on button hover
       const [active, setActive] = React.useState(false);
@@ -43,13 +44,13 @@ import Button from '../buttons/Button';
             {...args}
             variant="l"
             shape="spark"
-            duration={2000}
-            delay={600}
+            duration={99999}
+            delay={0}
             iterationCount={5}
             active={active}
           >
             <Button
-              variant="solid-indigo"
+              variant="solid-inverted"
               size="l"
               onMouseEnter={() => setActive(true)}
               onMouseLeave={() => setActive(false)}
@@ -69,21 +70,22 @@ import Button from '../buttons/Button';
   <Story name="Sizes">
     {args => (
       <div style={{width: 300}}>
-        <Sparks {...args} variant="s" shape="spark">
-          <Button variant="solid-indigo" size="s">
-            Button
-          </Button>
-        </Sparks>
-        <Sparks {...args} variant="m" shape="spark">
-          <Button variant="solid-indigo" size="m">
-            Button
-          </Button>
-        </Sparks>
-        <Sparks {...args} variant="l" shape="spark">
-          <Button variant="solid-indigo" size="l">
-            Button
-          </Button>
-        </Sparks>
+        {['l', 'm', 's'].map(size => (
+          <StoryVariant label={`size - ${size}`} key={size}>
+            <Sparks
+              {...args}
+              variant={size}
+              shape="spark"
+              active
+              iterationCount={Infinity}
+              delay={500}
+            >
+              <Button variant="solid-indigo" size={size}>
+                Button
+              </Button>
+            </Sparks>
+          </StoryVariant>
+        ))}
       </div>
     )}
   </Story>
@@ -95,16 +97,22 @@ import Button from '../buttons/Button';
   <Story name="Shapes">
     {args => (
       <div>
-        <Sparks {...args} variant="l" shape="spark">
-          <Button variant="solid-indigo" size="l">
-            Spark
-          </Button>
-        </Sparks>
-        <Sparks {...args} variant="l" shape="heart">
-          <Button variant="solid-indigo" size="l">
-            Heart
-          </Button>
-        </Sparks>
+        {['spark', 'heart'].map(shape => (
+          <StoryVariant label={`shape - ${shape}`} key={shape}>
+            <Sparks
+              {...args}
+              variant="l"
+              shape={shape}
+              active
+              iterationCount={Infinity}
+              delay={500}
+            >
+              <Button variant="solid-light" size="l">
+                {shape}
+              </Button>
+            </Sparks>
+          </StoryVariant>
+        ))}
       </div>
     )}
   </Story>

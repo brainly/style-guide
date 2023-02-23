@@ -75,9 +75,6 @@ export function useAnimation(config: AnimationConfig) {
   }, []);
 
   React.useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
-
     if (!isAnimationSupported) {
       console.warn('Web Animation API is not supported on this browser');
       return;

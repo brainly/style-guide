@@ -31,7 +31,6 @@ const Sparks = ({
   const [timeoutDelay, setTimeoutDelay] = React.useState<number | null>(null);
 
   const restartTimeout = useTimeout(() => {
-    console.log('timeout', phase, iteration.current, iterationCount, active);
     if (!active) {
       return;
     }
@@ -52,7 +51,8 @@ const Sparks = ({
   }, [active, setPhase]);
 
   React.useEffect(() => {
-    console.log(phase);
+    // eslint-disable-next-line no-console
+    //console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
 
     if (phase === 'initial' && active) {
       iteration.current = 0;
@@ -71,7 +71,9 @@ const Sparks = ({
 
     if (phase === 'finished') {
       restartTimeout();
-      setTimeoutDelay(delay);
+      if (delay !== Infinity) {
+        setTimeoutDelay(delay);
+      }
     }
   }, [phase, delay, active, duration, iterationCount, restartTimeout]);
 
