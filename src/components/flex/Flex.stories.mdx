@@ -375,6 +375,31 @@ Use margins to make space around Flex. They work in single direction `marginTop=
   </Story>
 </Canvas>
 
+### Inline
+
+<Canvas>
+  <Story name="Inline">
+    {args => {
+      const fixedWidthBox = {style: {width: '100px'}};
+      const marginTypeLabelBox = {style: {width: '100px', flexShrink: 0}};
+      return (
+        <div>
+          Labore sint do officia labore sit in magna pariatur mollit duis
+          aliquip exercitation. Tempor veniam reprehenderit ea nulla in sunt do
+          ea nostrud.{' '}
+          <Flex inlineFlex>
+            <Box {...indigoBoxStyle}>
+              <Text>inline</Text>
+            </Box>
+          </Flex>
+          Officia aute proident laboris nostrud dolor nostrud id aliquip anim magna
+          ullamco cupidatat consectetur.
+        </div>
+      );
+    }}
+  </Story>
+</Canvas>
+
 ## Responsive props
 
 To control styles that differ across screen sizes you can use responsive props. All props marked as Responsive support [object and array syntax](/story/foundation-✨-responsive-props--page).

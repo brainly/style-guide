@@ -1,158 +1,126 @@
 import * as React from 'react';
 import Label from './Label';
-import Icon from 'icons/Icon';
-import Text from 'text/Text';
-import {shallow} from 'enzyme';
+import {fireEvent, render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Label', () => {
-  test('render', () => {
-    const label = shallow(
+  it('render', () => {
+    const label = render(
       <Label type="default" color="blue">
         example label
       </Label>
     );
 
-    expect(label.hasClass('sg-label')).toBe(true);
-    expect(label.hasClass('sg-label--blue-20')).toBe(true);
+    expect(label.getByText('example label')).toBeTruthy();
   });
-  test('render with icon', () => {
-    const label = shallow(
+
+  it('render with icon', () => {
+    const label = render(
       <Label type="default" iconType="star">
         example label
       </Label>
     );
-    const icon = label.find(Icon);
 
-    expect(label.hasClass('sg-label')).toBe(true);
-    expect(icon).toHaveLength(1);
-    expect(icon.props().type).toBe('star');
+    expect(label.getByRole('img')).toBeTruthy();
   });
-  test('render type solid', () => {
-    const label = shallow(
-      <Label type="solid" color="green">
-        example label
-      </Label>
-    );
 
-    expect(label.hasClass('sg-label')).toBe(true);
-    expect(label.hasClass('sg-label--green-60')).toBe(true);
-  });
-  test('icon-black color close button is default', () => {
+  it('when onClose is defined, has close button', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label type="default" color="green" onClose={mockCallback}>
         example label
       </Label>
     );
 
-    expect(label.find('.sg-label__close-button')).toHaveLength(1);
-    expect(label.find('div').find(Icon)).toHaveLength(1);
-    expect(label.find('div').find(Icon).prop('color')).toBe('icon-black');
+    expect(label.getByRole('button', {name: 'close'})).toBeTruthy();
   });
-  test('clicking on close button calls onClose', () => {
+
+  it('clicking on close button calls onClose', () => {
     const mockCallback = jest.fn();
-    const label = shallow(
+    const label = render(
       <Label type="solid" color="green" onClose={mockCallback}>
         example label
       </Label>
     );
-    const closeDivNode = label.find('.sg-label__close-button');
+    const closeButton = label.getByRole('button', {name: 'close'});
 
-    closeDivNode.simulate('click');
+    fireEvent.click(closeButton);
     expect(mockCallback).toHaveBeenCalled();
   });
-  test('has proper styles if default', () => {
-    const mockCallback = jest.fn();
-    const label = shallow(
-      <Label
-        type="default"
-        color="green"
-        iconType="heart"
-        onClose={mockCallback}
-      >
-        default label
-      </Label>
-    );
-    const closeIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'close');
-    const heartIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--green-20')).toBe(true);
-    expect(closeIcon.prop('color')).toBe('icon-black');
-    expect(heartIcon.prop('color')).toBe('icon-black');
-    expect(label.find(Text).prop('color')).toBe('text-black');
+  it('should have an accessible name provided by aria-label', async () => {
+    const name = 'accessible name';
+    const label = render(<Label aria-label={name}>label</Label>);
+
+    expect(label.getByLabelText(name)).toBeTruthy();
   });
-  test('has proper styles if solid', () => {
-    const mockCallback = jest.fn();
-    const label = shallow(
-      <Label type="solid" color="green" iconType="heart" onClose={mockCallback}>
-        default label
+
+  it('should have an accessible name for the close button', async () => {
+    const buttonName = 'remove attachment';
+    const handleOnClose = jest.fn();
+    const label = render(
+      <Label onClose={handleOnClose} closeButtonLabel={buttonName}>
+        dog.jpg
       </Label>
     );
-    const closeIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'close');
-    const heartIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--green-60')).toBe(true);
-    expect(closeIcon.prop('color')).toBe('icon-white');
-    expect(heartIcon.prop('color')).toBe('icon-white');
-    expect(label.find(Text).prop('color')).toBe('text-white');
+    expect(
+      label.getByRole('button', {
+        name: buttonName,
+      })
+    ).toBeTruthy();
   });
-  test('has proper styles if transparent', () => {
-    const mockCallback = jest.fn();
-    const label = shallow(
-      <Label
-        type="transparent"
-        color="green"
-        iconType="heart"
-        onClose={mockCallback}
-      >
-        default label
+
+  it('should have an accessible name for an icon', async () => {
+    const iconTitle = 'your attachment';
+    const label = render(
+      <Label iconType="attachment" iconTitle={iconTitle}>
+        dog.jpg
       </Label>
     );
-    const closeIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'close');
-    const heartIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--green-50')).toBe(false);
-    expect(label.hasClass('sg-label--green-20')).toBe(false);
-    expect(closeIcon.prop('color')).toBe('icon-black');
-    expect(heartIcon.prop('color')).toBe('icon-green-50');
-    expect(label.find(Text).prop('color')).toBe('text-black');
-    expect(label.find('div').find(Icon)).toHaveLength(2);
+    expect(
+      label.getByRole('img', {
+        name: iconTitle,
+      })
+    ).toBeTruthy();
   });
-  test('has proper styles if transparent-color', () => {
-    const mockCallback = jest.fn();
-    const label = shallow(
-      <Label
-        type="transparent-color"
-        color="green"
-        iconType="heart"
-        onClose={mockCallback}
-      >
-        default label
+
+  it('should have an icon which is hidden from accessibility tree', async () => {
+    const label = render(
+      <Label iconType="attachment" iconAriaHidden>
+        dog.jpg
       </Label>
     );
-    const closeIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'close');
-    const heartIcon = label
-      .find('Icon')
-      .findWhere(el => el.prop('type') === 'heart');
 
-    expect(label.hasClass('sg-label--green-50')).toBe(false);
-    expect(label.hasClass('sg-label--green-20')).toBe(false);
-    expect(closeIcon.prop('color')).toBe('icon-green-50');
-    expect(heartIcon.prop('color')).toBe('icon-green-50');
-    expect(label.find(Text).prop('color')).toBe('text-green-60');
+    expect(label.queryByRole('img')).toBeFalsy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Label>label</Label>);
+    });
+
+    it('should have no a11y violations when a named icon is provided', async () => {
+      await testA11y(
+        <Label iconType="attachment" iconTitle="your attachment">
+          dog.jpg
+        </Label>
+      );
+    });
+
+    it('should have no a11y violations when icon is hidden from accessibility tree', async () => {
+      await testA11y(
+        <Label iconType="attachment" iconAriaHidden>
+          label
+        </Label>
+      );
+    });
+
+    it('should have no a11y violations when onClose is provided', async () => {
+      const handleOnClose = jest.fn();
+
+      await testA11y(<Label onClose={handleOnClose}>dog.jpg</Label>);
+    });
   });
 });

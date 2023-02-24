@@ -51,7 +51,7 @@ export const COLOR = {
   'yellow-20': 'yellow-20',
 } as const;
 
-type PaddingType = 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
+type PaddingType = 'none' | 'xxs' | 'xs' | 's' | 'm' | 'l' | 'xl';
 export const PADDING = {
   none: 'none',
   xxs: 'xxs',

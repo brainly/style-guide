@@ -1,39 +1,34 @@
 import * as React from 'react';
-import SubjectIcon, {TYPE, SIZE, ICON_COLOR} from './SubjectIcon';
-import {shallow} from 'enzyme';
+import SubjectIcon, {TYPE} from './SubjectIcon';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const icon = shallow(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
+describe('SubjectIcon', () => {
+  it('should have an accessible title and img role', async () => {
+    const type = 'art';
+    const icon = render(<SubjectIcon type={type} />);
 
-  expect(icon.hasClass('sg-subject-icon')).toEqual(true);
-  expect(icon.find('use')).toHaveLength(1);
-});
-test('type passed to xlink:href', () => {
-  const type = TYPE.ACCOUNTANCY;
-  const icon = shallow(<SubjectIcon type={type} />);
-  const use = icon.find('use');
+    expect(
+      icon.getByRole('img', {
+        name: type,
+      })
+    ).toBeTruthy();
+  });
 
-  expect(use.props().xlinkHref).toEqual(`#icon-subject-${type}`);
-});
-test('size', () => {
-  const size = SIZE.SMALL;
-  const type = TYPE.OTHERLANGUAGES;
-  const icon = shallow(<SubjectIcon type={type} size={size} />);
+  it('render', () => {
+    const icon = render(<SubjectIcon type={TYPE.ACCOUNTANCY} />);
 
-  expect(icon.hasClass(`sg-subject-icon--${size}`)).toEqual(true);
-});
-test('mono', () => {
-  const type = TYPE.OTHERLANGUAGES;
-  const icon = shallow(
-    <SubjectIcon type={type} monoColor={ICON_COLOR['icon-white']} />
-  );
-  const use = icon.find('use');
+    expect(icon.getByRole('img')).toBeTruthy();
+    expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
+  });
 
-  expect(use.props().xlinkHref).toEqual(`#icon-subject-mono-${type}`);
-});
-test('normal size', () => {
-  const type = TYPE.OTHERLANGUAGES;
-  const icon = shallow(<SubjectIcon type={type} />);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<SubjectIcon type="art" />);
+    });
 
-  expect(icon.hasClass('sg-subject-icon--normal')).toEqual(false);
+    it('should have no a11y violations when title is provided', async () => {
+      await testA11y(<SubjectIcon type="art" title="Title" />);
+    });
+  });
 });

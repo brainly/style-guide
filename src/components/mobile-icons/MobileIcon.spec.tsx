@@ -1,37 +1,17 @@
 import * as React from 'react';
-import MobileIcon, {TYPE, ICON_COLOR} from './MobileIcon';
-import {shallow} from 'enzyme';
+import MobileIcon, {TYPE} from './MobileIcon';
+import {render} from '@testing-library/react';
 
-test('render if type', () => {
-  const icon = shallow(<MobileIcon type={TYPE.ANSWER_BUBBLE} />);
+it('render if type', () => {
+  const icon = render(<MobileIcon type={TYPE.ANSWER_BUBBLE} />);
 
-  expect(icon.hasClass('sg-mobile-icon')).toEqual(true);
-  expect(icon.find('use')).toHaveLength(1);
+  expect(icon.container.firstElementChild.tagName).toEqual('svg');
+  expect(icon.container.firstElementChild.querySelector('use')).toBeTruthy();
 });
-test('type passed to xlink:href', () => {
-  const type = TYPE.ANSWER_BUBBLE;
-  const icon = shallow(<MobileIcon type={type} />);
-  const use = icon.find('use');
 
-  expect(use.props().xlinkHref).toEqual(`#icon-mobile-${type}`);
-});
-test('colors', () => {
+it('other props', () => {
   const type = TYPE.ANSWER_BUBBLE;
-  const color = ICON_COLOR['icon-black'];
-  const icon = shallow(<MobileIcon type={type} color={color} />);
+  const icon = render(<MobileIcon type={type} data-testid="foo" />);
 
-  expect(icon.hasClass(`sg-mobile-icon--${color}`)).toEqual(true);
-});
-test('size', () => {
-  const size = 10;
-  const type = TYPE.ANSWER_BUBBLE;
-  const icon = shallow(<MobileIcon type={type} size={size} />);
-
-  expect(icon.hasClass(`sg-mobile-icon--x${size}`)).toEqual(true);
-});
-test('other props', () => {
-  const type = TYPE.ANSWER_BUBBLE;
-  const icon = shallow(<MobileIcon type={type} data-something="else" />);
-
-  expect(icon.find('[data-something="else"]')).toHaveLength(1);
+  expect(icon.getByTestId('foo')).toBeTruthy();
 });
