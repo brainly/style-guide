@@ -11,27 +11,32 @@ export interface SparksPropsType {
    * Optional string. Additional class names.
    */
   className?: string;
-  /**
-   * Optional string. Component to be warped with sparks.
-   */
-  children?: React.ReactNode;
+
   /**
    * Optional object. Style object to be applied to the component.
    * @example <Sparks style={{color: 'red'}} />
    **/
   style?: React.CSSProperties;
+
+  /**
+   * Optional ReacNode. Component to be warped with sparks.
+   */
+  children?: React.ReactNode;
+
   /**
    * Optional string. Shape of the sparks.
    * @default 'spark'
    * @example <Sparks shape="spark" />
    **/
   shape?: 'spark' | 'heart';
+
   /**
    * Optional string. Size of the sparks.
    * @default 'l'
    * @example <Sparks variant="m" />
    **/
   variant?: 's' | 'm' | 'l';
+
   /**
    * Optional boolean. Whether the sparks are active.
    * @default false
@@ -40,6 +45,7 @@ export interface SparksPropsType {
    * <Sparks active={false}/>
    **/
   active?: boolean;
+
   /**
    * Optional number. Duration of the animation.
    * @default 6000
@@ -49,6 +55,7 @@ export interface SparksPropsType {
    * <Sparks duration={0}/>
    **/
   duration?: number;
+
   /**
    * Optional number. Delay of the animation.
    * This value is used at the beginning of each iteration.
@@ -56,6 +63,7 @@ export interface SparksPropsType {
    * @example <Sparks delay={0}/>
    **/
   delay?: number;
+
   /**
    * Optional number. Number of iterations to play the full sequence: entry, exit, delay.
    * @default 3
