@@ -57,9 +57,10 @@ export function useAnimation(config: AnimationConfig) {
     const elements = refs.current;
 
     // Check if animation is supported on dom elements in the browser.
-    const animation = false || document.createElement('div').style.animation;
-
-    isAnimationSupported.current = animation !== undefined;
+    isAnimationSupported.current = Object.hasOwnProperty.call(
+      Element.prototype,
+      'animate'
+    );
 
     return () => {
       if (isAnimationSupported) {
