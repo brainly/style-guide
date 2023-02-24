@@ -79,6 +79,7 @@ type ButtonToggleType = 'red' | 'yellow';
 type ButtonSizeType = 'l' | 'm' | 's';
 export type AriaLiveType = 'off' | 'polite' | 'assertive';
 export type ButtonTypeType = 'button' | 'submit' | 'reset';
+
 const TOGGLE_BUTTON_VARIANTS = [
   'solid-light',
   'outline',
@@ -389,8 +390,14 @@ const Button = React.forwardRef(
         target={target}
         aria-label={ariaLabel}
         onClick={onButtonClick}
+        // On iOS the :active pseudo state is triggered only when there is a touch event set on the HTML element
+        // and we use active pseudo class to provide haptic feedback.
+        onTouchStart={() => null}
         type={type}
       >
+        {variant.includes('transparent') ? (
+          <span className="sg-button__hover-overlay" />
+        ) : null}
         {loading && (
           <Spinner
             size={SPINNER_SIZE_MAP[size]}
