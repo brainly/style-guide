@@ -147,6 +147,12 @@
         width $durationGentle1 $easingRegular,
         opacity $durationQuick1 $easingLinear;
 
+      &.exit-animation {
+        transition-delay: 0, 0, 0.07s;
+        transition-duration: $durationGentle1, $durationGentle1,
+          $durationModerate1;
+      }
+
       &[data-placement^='top'] {
         position: absolute;
         bottom: 0;

@@ -41,20 +41,21 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
 
   const animateExit = ({callback}) => {
     const select = document.getElementById(selectId);
-    const popup = select.getElementsByClassName(
+    const popupContainer = select.getElementsByClassName(
       popupClassName
     )[0] as HTMLDivElement;
     const floatingContainer = select.getElementsByClassName(
       floatingContainerClassName
     )[0] as HTMLDivElement;
 
-    popup.classList.add('hide-scroll');
-    popup.style.height = `0px`;
-    popup.style.width = `${selectRef.current.width}px`;
-    popup.style.opacity = `0`;
+    popupContainer.classList.add('hide-scroll');
+    popupContainer.classList.add('exit-animation');
+    popupContainer.style.height = `0px`;
+    popupContainer.style.width = `${selectRef.current.width}px`;
+    popupContainer.style.opacity = `0`;
 
     requestAnimationFrame(() => {
-      popup.classList.add('animate-on-transforms');
+      popupContainer.classList.add('animate-on-transforms');
       floatingContainer.classList.add('animate-on-transforms');
       resetFloatingContainerTopPosition(floatingContainer, lastRef);
 
