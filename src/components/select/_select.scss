@@ -114,7 +114,10 @@
     &__element-icon {
       position: absolute;
       right: 8px;
-      transition: transform $durationGentle1 $easingRegular;
+
+      &.animate-on-transforms {
+        transition: transform $durationGentle1 $easingRegular;
+      }
     }
 
     &__element-label {
@@ -132,7 +135,6 @@
     &__popup {
       border-radius: 16px;
       box-shadow: $shadowLarge !important;
-      opacity: 0;
       overflow: hidden;
       display: inline-flex;
 

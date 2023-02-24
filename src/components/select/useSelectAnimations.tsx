@@ -1,14 +1,17 @@
 import * as React from 'react';
+import useReducedMotion from '../utils/useReducedMotion';
 
 type UseSelectAnimationsPropsType = {
   selectId: string;
   popupClassName: string;
   floatingContainerClassName: string;
   selectElementClassName: string;
+  selectElementIconClassName: string;
 };
 
 const MIN_POPUP_WIDTH = 120;
 const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
+const ANIMATE_CLASSNAME = 'animate-on-transforms';
 
 /**
  * Move floating container by 8px from the initial top position.
@@ -35,9 +38,11 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
     popupClassName,
     floatingContainerClassName,
     selectElementClassName,
+    selectElementIconClassName,
   } = props;
   const lastRef = React.useRef<DOMRect>();
   const selectRef = React.useRef<DOMRect>();
+  const hasReduceMotion = useReducedMotion();
 
   const animateExit = ({callback}) => {
     const select = document.getElementById(selectId);
@@ -78,6 +83,9 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       const selectElement = select.getElementsByClassName(
         selectElementClassName
       )[0] as HTMLDivElement;
+      const selectElementIcon = select.getElementsByClassName(
+        selectElementIconClassName
+      )[0] as HTMLDivElement;
 
       // Register desired position
       lastRef.current = floatingContainer.getBoundingClientRect();
@@ -85,24 +93,31 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       const initialContainerSize = lastRef.current;
       const selectElementSize = selectRef.current;
 
-      // Disable vertical scrolling when component is animating
-      popupContainer.classList.add(SCROLL_HIDE_CLASSNAME);
+      if (!hasReduceMotion) {
+        // Disable vertical scrolling when component is animating
+        popupContainer.classList.add(SCROLL_HIDE_CLASSNAME);
 
-      // Reset the popup height to the pre-appear position
-      popupContainer.style.height = `1px`;
+        // Reset the popup height to the pre-appear position
+        popupContainer.style.height = `1px`;
+        popupContainer.style.opacity = `0`;
 
-      // Popup width at the start of animation
-      // should be the same as element select width
-      popupContainer.style.width = `${selectElementSize.width}px`;
+        // Popup width at the start of animation
+        // should be the same as element select width
+        popupContainer.style.width = `${selectElementSize.width}px`;
 
-      resetFloatingContainerTopPosition(floatingContainer, lastRef);
+        resetFloatingContainerTopPosition(floatingContainer, lastRef);
+      }
 
       // Wait for the next frame so we
       // know all the style changes have
       // taken hold.
       requestAnimationFrame(() => {
-        popupContainer.classList.add('animate-on-transforms');
-        floatingContainer.classList.add('animate-on-transforms');
+        if (!hasReduceMotion) {
+          popupContainer.classList.add(ANIMATE_CLASSNAME);
+          selectElementIcon.classList.add(ANIMATE_CLASSNAME);
+          floatingContainer.classList.add(ANIMATE_CLASSNAME);
+          popupContainer.style.opacity = `1`;
+        }
 
         popupContainer.style.height = `${initialContainerSize.height}px`;
         popupContainer.style.width = `${Math.max(
