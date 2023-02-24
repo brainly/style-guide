@@ -28,6 +28,7 @@ export function useAnimation(config: AnimationConfig) {
   const parameters = React.useRef(new WeakMap());
   const entryAnimations = React.useRef(new WeakMap());
   const exitAnimations = React.useRef(new WeakMap());
+  const isAnimationSupported = React.useRef(true);
   const [phase, setPhase] = React.useState<
     'initial' | 'entry' | 'paused' | 'exit' | 'finished'
   >('initial');
@@ -37,13 +38,6 @@ export function useAnimation(config: AnimationConfig) {
   React.useEffect(() => {
     configRef.current = config;
   }, [config]);
-
-  // Check if animation is supported on dom elements in the browser.
-  const isAnimationSupported = React.useMemo(() => {
-    const animation = false || document.createElement('div').style.animation;
-
-    return animation !== undefined;
-  }, []);
 
   const register = React.useCallback(
     (options: RegisterOptions = {index: refs.current.size}) => {
@@ -62,6 +56,11 @@ export function useAnimation(config: AnimationConfig) {
   React.useEffect(() => {
     const elements = refs.current;
 
+    // Check if animation is supported on dom elements in the browser.
+    const animation = false || document.createElement('div').style.animation;
+
+    isAnimationSupported.current = animation !== undefined;
+
     return () => {
       if (isAnimationSupported) {
         // Remove all outstanding animations and cleanup refs
@@ -72,7 +71,7 @@ export function useAnimation(config: AnimationConfig) {
 
       elements.clear();
     };
-  }, [isAnimationSupported]);
+  }, []);
 
   React.useEffect(() => {
     if (!isAnimationSupported) {
@@ -188,7 +187,7 @@ export function useAnimation(config: AnimationConfig) {
       default:
         break;
     }
-  }, [phase, isAnimationSupported]);
+  }, [phase]);
 
   return {register, phase, setPhase};
 }
