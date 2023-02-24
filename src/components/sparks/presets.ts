@@ -74,11 +74,18 @@ const sparkAnimation: AnimationConfig = {
 const sparkAnimationReduced: AnimationConfig = {
   entry: [
     {
-      keyframes: [{opacity: 0}, {opacity: 1}],
+      keyframes: [
+        {opacity: 0, offset: 0},
+        {opacity: 1, offset: 0.2},
+        {opacity: 1, offset: 0.8},
+        {opacity: 0, offset: 1},
+      ],
       options: {
         easing: 'linear',
-        duration: 260,
-        delay: index => index * 60,
+        iterations: Infinity,
+        duration: 2500,
+        delay: index => index * 250,
+        direction: 'normal',
         fill: 'both',
       },
     },
@@ -88,7 +95,7 @@ const sparkAnimationReduced: AnimationConfig = {
       keyframes: [{opacity: 0}],
       options: {
         easing: 'linear',
-        duration: 260,
+        duration: 360,
         delay: 0,
         fill: 'forwards',
       },

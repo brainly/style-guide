@@ -59,11 +59,19 @@ export interface SparksPropsType {
 
   /**
    * Optional number. Delay of the animation.
-   * This value is used at the beginning of each iteration.
+   * This value is used at the beginning of the whole animation
    * @default 0
    * @example <Sparks delay={0}/>
    **/
   delay?: number;
+
+  /**
+   * Optional number. Delay of the animation.
+   * This value is used between each iteration of the animation
+   * @default 500
+   * @example <Sparks iterationDelay={500}/>
+   **/
+  iterationDelay?: number;
 
   /**
    * Optional number. Number of iterations to play the full sequence: entry, exit, delay.
@@ -86,6 +94,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
       active = false,
       duration = 6000,
       delay = 0,
+      iterationDelay = 500,
       iterationCount = 3,
     }: SparksPropsType,
     ref
