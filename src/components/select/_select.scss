@@ -136,8 +136,8 @@
       overflow: hidden;
       display: inline-flex;
 
-      &.with-scroll .sg-select-new__options-wrapper {
-        overflow-y: auto;
+      &.hide-scroll .sg-select-new__options-wrapper {
+        overflow-y: hidden;
       }
     }
 
@@ -177,6 +177,7 @@
       flex-direction: column;
       gap: 8px;
       flex: 1 0 auto;
+      overflow-y: auto;
     }
 
     &__option {

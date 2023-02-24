@@ -406,7 +406,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                 data-placement={floatingProps.placement}
               >
                 <div
-                  className="sg-select-new__popup"
+                  className={popupClassName}
                   data-placement={floatingProps.placement}
                   tabIndex={0}
                 >

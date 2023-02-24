@@ -8,6 +8,7 @@ type UseSelectAnimationsPropsType = {
 };
 
 const MIN_POPUP_WIDTH = 120;
+const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 
 /**
  * Move floating container by 8px from the initial top position.
@@ -47,6 +48,7 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       floatingContainerClassName
     )[0] as HTMLDivElement;
 
+    popup.classList.add('hide-scroll');
     popup.style.height = `0px`;
     popup.style.width = `${selectRef.current.width}px`;
     popup.style.opacity = `0`;
@@ -80,14 +82,10 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       lastRef.current = floatingContainer.getBoundingClientRect();
       selectRef.current = selectElement.getBoundingClientRect();
       const initialContainerSize = lastRef.current;
-      const popupSize = popupContainer.getBoundingClientRect();
       const selectElementSize = selectRef.current;
 
-      // If popup is higher than the floating container,
-      // allow it to scroll
-      if (popupSize.height > initialContainerSize.height) {
-        popupContainer.classList.add('with-scroll');
-      }
+      // Disable vertical scrolling when component is animating
+      popupContainer.classList.add(SCROLL_HIDE_CLASSNAME);
 
       // Reset the popup height to the pre-appear position
       popupContainer.style.height = `1px`;
@@ -117,6 +115,21 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
         // Ensure manipulating popup height doesn't affect the floating container
         floatingContainer.style.height = `${initialContainerSize.height}px`;
         floatingContainer.style.width = `${initialContainerSize.width}px`;
+
+        function handleTransitionEnd(e) {
+          // Once height finishes transition
+          // we are sure the component is fully visible
+          if (e.propertyName === 'height') {
+            popupContainer.classList.remove(SCROLL_HIDE_CLASSNAME);
+
+            popupContainer.removeEventListener(
+              'transitionend',
+              handleTransitionEnd
+            );
+          }
+        }
+
+        popupContainer?.addEventListener('transitionend', handleTransitionEnd);
       });
     });
   };
