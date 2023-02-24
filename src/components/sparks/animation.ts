@@ -63,7 +63,7 @@ export function useAnimation(config: AnimationConfig) {
     );
 
     return () => {
-      if (isAnimationSupported) {
+      if (isAnimationSupported.current) {
         // Remove all outstanding animations and cleanup refs
         const allSnapshot = [...elements].flatMap(ref => ref.getAnimations());
 
@@ -75,7 +75,7 @@ export function useAnimation(config: AnimationConfig) {
   }, []);
 
   React.useEffect(() => {
-    if (!isAnimationSupported) {
+    if (!isAnimationSupported.current) {
       console.warn('Web Animation API is not supported on this browser');
       return;
     }
