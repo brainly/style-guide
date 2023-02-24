@@ -76,14 +76,15 @@ const sparkAnimationReduced: AnimationConfig = {
     {
       keyframes: [
         {opacity: 0, offset: 0},
-        {opacity: 1, offset: 0.2},
-        {opacity: 1, offset: 0.8},
+        {opacity: 1, offset: 0.125},
+        {opacity: 1, offset: 0.5},
+        {opacity: 0, offset: 0.625},
         {opacity: 0, offset: 1},
       ],
       options: {
         easing: 'linear',
         iterations: Infinity,
-        duration: 2500,
+        duration: 4000,
         delay: index => index * 250,
         direction: 'normal',
         fill: 'both',
@@ -179,11 +180,19 @@ const heartAnimation: AnimationConfig = {
 const heartAnimationReduced: AnimationConfig = {
   entry: [
     {
-      keyframes: [{opacity: 0}, {opacity: 1}],
+      keyframes: [
+        {opacity: 0, offset: 0},
+        {opacity: 1, offset: 0.125},
+        {opacity: 1, offset: 0.5},
+        {opacity: 0, offset: 0.625},
+        {opacity: 0, offset: 1},
+      ],
       options: {
         easing: 'linear',
-        duration: 260,
-        delay: index => index * 60,
+        iterations: Infinity,
+        duration: 4000,
+        delay: index => index * 250,
+        direction: 'normal',
         fill: 'both',
       },
     },
