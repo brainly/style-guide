@@ -1,7 +1,7 @@
 import {AnimationConfig} from './animation';
 import {ParticleProps} from './Particle';
 
-const sparkAnimationConfig: AnimationConfig = {
+const sparkAnimation: AnimationConfig = {
   entry: [
     {
       keyframes: [
@@ -71,7 +71,32 @@ const sparkAnimationConfig: AnimationConfig = {
   ],
 };
 
-const heartAnimationConfig: AnimationConfig = {
+const sparkAnimationReduced: AnimationConfig = {
+  entry: [
+    {
+      keyframes: [{opacity: 0}, {opacity: 1}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: index => index * 60,
+        fill: 'both',
+      },
+    },
+  ],
+  exit: [
+    {
+      keyframes: [{opacity: 0}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: 0,
+        fill: 'forwards',
+      },
+    },
+  ],
+};
+
+const heartAnimation: AnimationConfig = {
   entry: [
     {
       keyframes: [
@@ -144,12 +169,43 @@ const heartAnimationConfig: AnimationConfig = {
   ],
 };
 
+const heartAnimationReduced: AnimationConfig = {
+  entry: [
+    {
+      keyframes: [{opacity: 0}, {opacity: 1}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: index => index * 60,
+        fill: 'both',
+      },
+    },
+  ],
+  exit: [
+    {
+      keyframes: [{opacity: 0}],
+      options: {
+        easing: 'linear',
+        duration: 260,
+        delay: 0,
+        fill: 'forwards',
+      },
+    },
+  ],
+};
+
 export const shapeAnimationMap: Record<
   ParticleProps['shape'],
-  AnimationConfig
+  {default: AnimationConfig; reduced: AnimationConfig}
 > = {
-  spark: sparkAnimationConfig,
-  heart: heartAnimationConfig,
+  spark: {
+    default: sparkAnimation,
+    reduced: sparkAnimationReduced,
+  },
+  heart: {
+    default: heartAnimation,
+    reduced: heartAnimationReduced,
+  },
 };
 
 export const shapeColorMap: Record<ParticleProps['shape'], string[]> = {

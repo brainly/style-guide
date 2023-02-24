@@ -4,6 +4,7 @@ import cx from 'classnames';
 import {useAnimation} from './animation';
 import {useTimeout} from './timeout';
 import {shapeAnimationMap, shapeColorMap, variants} from './presets';
+import useReducedMotion from '../utils/useReducedMotion';
 import Particle from './Particle';
 
 export interface SparksPropsType {
@@ -90,7 +91,9 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
     ref
   ) => {
     const iteration = React.useRef(0);
-    const animationConfig = shapeAnimationMap[shape];
+    const hasReduceMotion = useReducedMotion();
+    const animationConfig =
+      shapeAnimationMap[shape][hasReduceMotion ? 'reduced' : 'default'];
     const {register, phase, setPhase} = useAnimation(animationConfig);
     const [timeoutDelay, setTimeoutDelay] = React.useState<number | null>(null);
 
