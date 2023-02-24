@@ -49,7 +49,12 @@ const useFloatingSelect = (props: UseFloatingSelectPropsType) => {
       }),
     ],
   });
-  const {isMounted, status} = useTransitionStatus(context);
+  const {isMounted, status} = useTransitionStatus(context, {
+    duration: {
+      open: 320,
+      close: 250,
+    },
+  });
 
   const click = useClick(context, {event: 'mousedown'});
   const dismiss = useDismiss(context);
