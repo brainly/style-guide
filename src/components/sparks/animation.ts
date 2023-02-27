@@ -84,12 +84,13 @@ export function useAnimation(config: AnimationConfig) {
       case 'entry': {
         refs.current.forEach(ref => {
           const {index, overrides = {}} = parameters.current.get(ref);
-          let entry = entryAnimations.current.get(ref) ?? [];
+          const entry = entryAnimations.current.get(ref) ?? [];
 
           ref.getAnimations().forEach(animation => animation.cancel());
 
           configRef.current.entry?.forEach((keyframesConfig, i) => {
-            let {id, keyframes, options = {}} = keyframesConfig;
+            const id = keyframesConfig.id;
+            let {keyframes, options = {}} = keyframesConfig;
 
             const override = overrides[id];
 
@@ -126,10 +127,11 @@ export function useAnimation(config: AnimationConfig) {
       case 'exit': {
         refs.current.forEach(ref => {
           const {index, overrides = {}} = parameters.current.get(ref);
-          let exit = exitAnimations.current.get(ref) ?? [];
+          const exit = exitAnimations.current.get(ref) ?? [];
 
           configRef.current.exit?.forEach((keyframesConfig, i) => {
-            let {id, keyframes, options = {}} = keyframesConfig;
+            const id = keyframesConfig.id;
+            let {keyframes, options = {}} = keyframesConfig;
 
             const override = overrides[id];
 
