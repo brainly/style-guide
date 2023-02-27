@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import * as React from 'react';
 import cx from 'classnames';
 import {useAnimation} from './animation';
@@ -127,9 +126,6 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
     }, [active, setPhase]);
 
     React.useEffect(() => {
-      // eslint-disable-next-line no-console
-      //console.log(`Play animation %c${phase}`, 'background: #000; color: #fff');
-
       if (phase === 'initial' && active) {
         iteration.current = 0;
         restartTimeout();
