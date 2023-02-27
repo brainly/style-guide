@@ -45,5 +45,4 @@ const Particle = React.forwardRef<HTMLDivElement, ParticleProps>(
   }
 );
 
-Particle.displayName = 'Particle';
 export default Particle;
