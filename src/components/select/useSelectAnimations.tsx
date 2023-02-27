@@ -4,13 +4,13 @@ import useReducedMotion from '../utils/useReducedMotion';
 type UseSelectAnimationsPropsType = {
   selectId: string;
   popupClassName: string;
+  popupContentClassName: string;
   floatingContainerClassName: string;
   selectElementClassName: string;
   selectElementIconClassName: string;
 };
 
 const MIN_POPUP_WIDTH = 120;
-const SCROLL_HIDE_CLASSNAME = 'hide-scroll';
 const ANIMATE_CLASSNAME = 'animate-on-transforms';
 
 /**
@@ -36,6 +36,7 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
   const {
     selectId,
     popupClassName,
+    popupContentClassName,
     floatingContainerClassName,
     selectElementClassName,
     selectElementIconClassName,
@@ -53,7 +54,6 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       floatingContainerClassName
     )[0] as HTMLDivElement;
 
-    popupContainer.classList.add('hide-scroll');
     popupContainer.classList.add('exit-animation');
     popupContainer.style.height = `0px`;
     popupContainer.style.width = `${selectRef.current.width}px`;
@@ -80,6 +80,9 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       const popupContainer = select.getElementsByClassName(
         popupClassName
       )[0] as HTMLDivElement;
+      const popupContent = select.getElementsByClassName(
+        popupContentClassName
+      )[0] as HTMLDivElement;
       const selectElement = select.getElementsByClassName(
         selectElementClassName
       )[0] as HTMLDivElement;
@@ -93,10 +96,10 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
       const initialContainerSize = lastRef.current;
       const selectElementSize = selectRef.current;
 
-      if (!hasReduceMotion) {
-        // Disable vertical scrolling when component is animating
-        popupContainer.classList.add(SCROLL_HIDE_CLASSNAME);
+      popupContent.style.width = `${initialContainerSize.width}px`;
+      popupContent.style.height = `${initialContainerSize.height}px`;
 
+      if (!hasReduceMotion) {
         // Reset the popup height to the pre-appear position
         popupContainer.style.height = `1px`;
         popupContainer.style.opacity = `0`;
@@ -120,32 +123,23 @@ const useSelectAnimations = (props: UseSelectAnimationsPropsType) => {
         }
 
         popupContainer.style.height = `${initialContainerSize.height}px`;
-        popupContainer.style.width = `${Math.max(
+        const popupWidth: number = Math.max(
           initialContainerSize.width,
           selectElementSize.width * 0.7,
           MIN_POPUP_WIDTH
-        )}px`;
+        );
+
+        popupContainer.style.width = `${popupWidth}px`;
+        popupContent.style.width = `${popupWidth}px`;
 
         // Animate the floating container position back to it's initial state
         floatingContainer.style.top = `${initialContainerSize.top}px`;
         // Ensure manipulating popup height doesn't affect the floating container
         floatingContainer.style.height = `${initialContainerSize.height}px`;
-        floatingContainer.style.width = `${initialContainerSize.width}px`;
-
-        function handleTransitionEnd(e) {
-          // Once height finishes transition
-          // we are sure the component is fully visible
-          if (e.propertyName === 'height') {
-            popupContainer.classList.remove(SCROLL_HIDE_CLASSNAME);
-
-            popupContainer.removeEventListener(
-              'transitionend',
-              handleTransitionEnd
-            );
-          }
-        }
-
-        popupContainer?.addEventListener('transitionend', handleTransitionEnd);
+        floatingContainer.style.width = `${Math.max(
+          initialContainerSize.width,
+          popupWidth
+        )}px`;
       });
     });
   };

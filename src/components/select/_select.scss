@@ -130,6 +130,18 @@
       &.animate-on-transforms {
         transition: top $durationGentle1 Cubic-Bezier(0.35, 0, 0.2, 1);
       }
+
+      &[data-placement^='top'] {
+        transform-origin: bottom left;
+      }
+
+      &[data-placement^='top-end'] {
+        transform-origin: bottom right;
+      }
+
+      &[data-placement^='bottom-end'] {
+        transform-origin: top right;
+      }
     }
 
     &__popup {
@@ -137,10 +149,14 @@
       box-shadow: $shadowLarge !important;
       overflow: hidden;
       display: inline-flex;
-
-      &.hide-scroll .sg-select-new__options-wrapper {
-        overflow-y: hidden;
-      }
+      min-width: 120px;
+      max-width: 320px;
+      width: max-content;
+      max-height: 100%;
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      flex: 1 0 auto;
     }
 
     &__popup.animate-on-transforms {
@@ -148,6 +164,9 @@
       transition: height $durationGentle1 $easingRegular,
         width $durationGentle1 $easingRegular,
         opacity $durationQuick1 $easingLinear;
+      position: absolute;
+
+      transform-origin: top left;
 
       &.exit-animation {
         transition-delay: 0, 0, 0.07s;
@@ -156,36 +175,32 @@
       }
 
       &[data-placement^='top'] {
-        position: absolute;
         bottom: 0;
         transform-origin: bottom left;
+        justify-content: flex-end;
       }
 
       &[data-placement^='top-end'] {
-        position: absolute;
         right: 0;
+        justify-content: flex-end;
+        align-items: flex-end;
         transform-origin: bottom right;
       }
 
       &[data-placement^='bottom-end'] {
-        position: absolute;
         right: 0;
+        align-items: flex-end;
         transform-origin: top right;
       }
     }
 
     &__options-wrapper {
-      min-width: 120px;
-      max-width: 320px;
-      width: max-content;
-      max-height: 100%;
       padding: 16px;
-      background-color: $white;
       display: flex;
       flex-direction: column;
-      gap: 8px;
       flex: 1 0 auto;
-      overflow-y: auto;
+      gap: 8px;
+      overflow-y: overlay;
     }
 
     &__option {

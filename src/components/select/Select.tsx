@@ -223,6 +223,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
     }
     const wrapperId = `${id}-wrapper`;
     const popupClassName = 'sg-select-new__popup';
+    const popupContentClassName = 'sg-select-new__options-wrapper';
     const selectElementClassName = 'sg-select-new__element';
     const selectElementIconClassName = 'sg-select-new__element-icon';
     const floatingContainerClassName =
@@ -232,6 +233,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       selectId: wrapperId,
       floatingContainerClassName,
       popupClassName,
+      popupContentClassName,
       selectElementClassName,
       selectElementIconClassName,
     });
@@ -408,19 +410,14 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
                 data-placement={floatingProps.placement}
               >
                 <div
+                  role="listbox"
                   className={popupClassName}
                   data-placement={floatingProps.placement}
-                  tabIndex={0}
+                  id={`${id}-listbox`}
+                  tabIndex={-1}
+                  {...interactions.getFloatingProps()}
                 >
-                  <div
-                    className="sg-select-new__options-wrapper"
-                    role="listbox"
-                    id={`${id}-listbox`}
-                    tabIndex={-1}
-                    {...interactions.getFloatingProps()}
-                  >
-                    {optionsElements}
-                  </div>
+                  <div className={popupContentClassName}>{optionsElements}</div>
                 </div>
               </div>
             </FloatingFocusManager>
