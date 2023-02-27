@@ -3,7 +3,6 @@ import * as React from 'react';
 export interface ParticleCSSProperties extends React.CSSProperties {
   '--particle-dir'?: number;
   '--particle-offset'?: number;
-  '--index'?: number;
 }
 
 export interface ParticleProps {
