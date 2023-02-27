@@ -27,7 +27,7 @@ describe('<Sparks />', () => {
     expect(sparks.getByRole('button', {name: /click me/i})).toBeTruthy();
   });
 
-  it('renders around interactive element and this element still captures all the events', () => {
+  it('allows the component around which it is rendered to remain interactive and respond to clicks', () => {
     const onClick = jest.fn();
     const sparks = render(
       <Sparks>
