@@ -181,5 +181,4 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
   }
 );
 
-Sparks.displayName = 'Sparks';
 export default Sparks;
