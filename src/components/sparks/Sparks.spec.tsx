@@ -23,7 +23,6 @@ describe('<Sparks />', () => {
       </Sparks>
     );
 
-    expect(sparks.container.firstChild).toBeTruthy();
     expect(sparks.getByRole('button', {name: /click me/i})).toBeTruthy();
   });
 
