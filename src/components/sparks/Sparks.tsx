@@ -69,12 +69,12 @@ export interface SparksPropsType {
    * Optional number. Delay of the animation.
    * This value is used between each iteration of the animation
    * @default 500
-   * @example <Sparks iterationDelay={500}/>
+   * @example <Sparks iterationDelay={1000}/>
    **/
   iterationDelay?: number;
 
   /**
-   * Optional number. Number of iterations to play the full sequence: entry, exit, delay.
+   * Optional number. Number of iterations to play the full sequence: entry, exit, iterationDelay.
    * @default 3
    * @example
    * <Sparks iterationCount={3}/>
@@ -147,11 +147,19 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
 
       if (phase === 'finished') {
         restartTimeout();
-        if (delay !== Infinity) {
-          setTimeoutDelay(delay);
+        if (iterationDelay !== Infinity) {
+          setTimeoutDelay(iterationDelay);
         }
       }
-    }, [phase, delay, active, duration, iterationCount, restartTimeout]);
+    }, [
+      phase,
+      delay,
+      iterationDelay,
+      active,
+      duration,
+      iterationCount,
+      restartTimeout,
+    ]);
 
     const shapeColor = shapeColorMap[shape];
 
