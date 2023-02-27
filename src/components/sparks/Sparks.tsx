@@ -32,7 +32,7 @@ export interface SparksPropsType {
   shape?: 'spark' | 'heart';
 
   /**
-   * Optional string. Size of the sparks.
+   * Optional string. Variant of the sparks which determines the size and the number of sparks.
    * @default 'l'
    * @example <Sparks variant="m" />
    **/
