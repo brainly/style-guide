@@ -169,3 +169,5 @@ export type {SkipLinkPropsType} from './components/skip-link/SkipLink';
 export {default as SkipLink} from './components/skip-link/SkipLink';
 export type {ProgressBarPropsType} from './components/progress-bar/ProgressBar';
 export {default as ProgressBar} from './components/progress-bar/ProgressBar';
+export type {TabsProps} from './components/tabs/Tabs';
+export {default as Tabs, Tab} from './components/tabs/Tabs';

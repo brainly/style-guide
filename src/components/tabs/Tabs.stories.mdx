@@ -1,0 +1,191 @@
+import Button from '../buttons/Button';
+import Flex from '../flex/Flex';
+import Icon from '../icons/Icon';
+import Text from '../text/Text';
+import Checkbox from '../form-elements/checkbox/Checkbox';
+import {useState} from 'react';
+import classnames from 'classnames';
+import {TabHeaderProps} from './components';
+import Tabs, {Tab, TabsProps} from './Tabs.tsx';
+import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+
+<Meta
+  title="Components/Tabs"
+  component={Tabs}
+  argTypes={{
+    children: {
+      control: {
+        disable: true,
+      },
+    },
+    onTabChange: {
+      table: {
+        type: {
+          summary: 'function',
+        },
+      },
+      control: {
+        type: 'function',
+      },
+    },
+    startIndex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'number',
+        },
+      },
+      control: {
+        type: 'number',
+      },
+    },
+    activeIndex: {
+      description: '(Responsive)',
+      table: {
+        type: {
+          summary: 'number',
+        },
+      },
+      control: {
+        type: 'number',
+      },
+    },
+  }}
+/>
+
+<PageHeader>Tabs</PageHeader>
+
+## Overview
+
+<Canvas>
+  <Story name="Default">
+    {args => (
+      <Tabs {...args}>
+        <Tab.Header>
+          <Tab.List>
+            <Tab>Tab name</Tab>
+            <Tab>Tab name 2</Tab>
+            <Tab>Tab name with a very very very long name</Tab>
+            <Tab>Tab</Tab>
+            <Tab.ActiveIndicator />
+          </Tab.List>
+        </Tab.Header>
+        <Tab.Panel>
+          <Flex marginTop="xs">Content 1</Flex>
+        </Tab.Panel>
+        <Tab.Panel>
+          <Flex marginTop="xs">Content 2</Flex>
+        </Tab.Panel>
+        <Tab.Panel>
+          <Flex marginTop="xs">Content 3</Flex>
+        </Tab.Panel>
+        <Tab.Panel>
+          <Flex marginTop="xs">Content 4</Flex>
+        </Tab.Panel>
+      </Tabs>
+    )}
+  </Story>
+</Canvas>
+
+## Stories
+
+### External Control
+
+<Canvas>
+  <Story name="External control">
+    {args => {
+      const [activeIndex, setActiveIndex] = useState(0);
+      return (
+        <>
+          <Flex style={{gap: 8}}>
+            <Button
+              variant="solid-inverted"
+              iconOnly
+              icon={<Icon size={16} color="adaptive" type="arrow_left" />}
+              onClick={() => {
+                setActiveIndex(activeIndex - 1);
+              }}
+            />
+            <Button
+              variant="solid-inverted"
+              iconOnly
+              icon={<Icon size={16} color="adaptive" type="arrow_right" />}
+              onClick={() => {
+                setActiveIndex(activeIndex + 1);
+              }}
+            />
+          </Flex>
+          <Tabs activeIndex={activeIndex}>
+            <Tab.Header>
+              <Tab.List>
+                <Tab disabled>Tab name</Tab>
+                <Tab disabled>Tab name 2</Tab>
+                <Tab disabled>Tab name with a very very very long name</Tab>
+                <Tab disabled>Tab</Tab>
+                <Tab.ActiveIndicator />
+              </Tab.List>
+            </Tab.Header>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 1</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 2</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 3</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 4</Flex>
+            </Tab.Panel>
+          </Tabs>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
+
+### Custom header
+
+<Canvas>
+  <Story name="Custom header">
+    {args => {
+      const [activeIndex, setActiveIndex] = useState(0);
+      return (
+        <>
+          <Tabs startIndex={1}>
+            <Tab.Header>
+              <Flex fullHeight fullWidth alignItems="center">
+                <Tab.List style={{marginRight: 'auto'}} fullHeight>
+                  <Tab>Tab name</Tab>
+                  <Tab>Tab name 2</Tab>
+                  <Tab>Tab name with a very very very long name</Tab>
+                  <Tab>Tab</Tab>
+                  <Tab.ActiveIndicator />
+                </Tab.List>
+                <Button
+                  size="s"
+                  variant="solid-inverted"
+                  icon={<Icon size={16} color="adaptive" type="trash" />}
+                >
+                  Delete all
+                </Button>
+              </Flex>
+            </Tab.Header>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 1</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 2</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 3</Flex>
+            </Tab.Panel>
+            <Tab.Panel>
+              <Flex marginTop="xs">Content 4</Flex>
+            </Tab.Panel>
+          </Tabs>
+        </>
+      );
+    }}
+  </Story>
+</Canvas>
