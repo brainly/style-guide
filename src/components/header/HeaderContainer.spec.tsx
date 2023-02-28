@@ -1,9 +1,13 @@
 import * as React from 'react';
 import HeaderContainer from './HeaderContainer';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
 
-test('render', () => {
-  const headerContainer = shallow(<HeaderContainer>some text</HeaderContainer>);
+it('render', () => {
+  const headerContainer = render(<HeaderContainer>some text</HeaderContainer>);
 
-  expect(headerContainer.hasClass('sg-header__container')).toEqual(true);
+  expect(
+    headerContainer.container.firstElementChild.classList.contains(
+      'sg-header__container'
+    )
+  ).toEqual(true);
 });

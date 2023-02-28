@@ -1,14 +1,72 @@
 import * as React from 'react';
 import SpinnerContainer from './SpinnerContainer';
-import {shallow} from 'enzyme';
+import {render, within} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const container = shallow(<SpinnerContainer>children</SpinnerContainer>);
+describe('SpinnerContainer', () => {
+  it('render', () => {
+    const spinnerContainer = render(<SpinnerContainer>foo</SpinnerContainer>);
 
-  expect(container.hasClass('sg-spinner-container')).toEqual(true);
-});
-test('loading', () => {
-  const container = shallow(<SpinnerContainer loading />);
+    expect(spinnerContainer.getByText('foo')).toBeTruthy();
+  });
 
-  expect(container.find('.sg-spinner-container__overlay')).toHaveLength(1);
+  it('loading', () => {
+    const container = render(<SpinnerContainer loading />);
+
+    expect(container.getByRole('status')).toBeTruthy();
+  });
+
+  describe('loading: ', () => {
+    it('should have a role status', () => {
+      const spinnerContainer = render(<SpinnerContainer loading />);
+
+      expect(spinnerContainer.getByRole('status')).toBeTruthy();
+    });
+
+    it('children should have aria-busy="true"', () => {
+      const spinnerContainer = render(
+        <SpinnerContainer loading>
+          <header>children</header>
+        </SpinnerContainer>
+      );
+
+      expect(
+        spinnerContainer.getByRole('banner').getAttribute('aria-busy')
+      ).toBe('true');
+    });
+
+    it('should announce loading information', () => {
+      const spinnerContainer = render(<SpinnerContainer loading />);
+      const status = spinnerContainer.getByRole('status');
+
+      expect(status.getAttribute('aria-live')).toBe('assertive');
+      expect(within(status).getByText('content is loading')).toBeTruthy();
+    });
+  });
+
+  describe('loaded: ', () => {
+    it('should have a role status', () => {
+      const spinnerContainer = render(<SpinnerContainer />);
+
+      expect(spinnerContainer.getByRole('status')).toBeTruthy();
+    });
+
+    it('should announce information is loaded', () => {
+      const spinnerContainer = render(<SpinnerContainer />);
+      const status = spinnerContainer.getByRole('status');
+
+      expect(status.getAttribute('aria-live')).toBe('assertive');
+      expect(within(status).getByText('content loaded')).toBeTruthy();
+    });
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations when loading', async () => {
+      await testA11y(<SpinnerContainer loading />);
+    });
+
+    it('should have no a11y violations when loaded', async () => {
+      await testA11y(<SpinnerContainer />);
+    });
+  });
 });

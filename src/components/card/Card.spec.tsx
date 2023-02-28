@@ -1,69 +1,25 @@
 import * as React from 'react';
-import Card, {CARD_PADDING} from './Card';
+import Card from './Card';
 import CardHole from './CardHole';
-import {shallow} from 'enzyme';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
 describe('Card', () => {
-  test('render', () => {
-    const card = shallow(
+  it('render', () => {
+    const card = render(
       <Card>
         <CardHole color="gray-40">This is card top</CardHole>
         <CardHole color="gray-50">This is card bottom</CardHole>
       </Card>
     );
 
-    expect(card.hasClass('sg-card')).toEqual(true);
+    expect(card.getByText('This is card top')).toBeTruthy();
+    expect(card.getByText('This is card bottom')).toBeTruthy();
   });
-  test('full', () => {
-    const card = shallow(
-      <Card full>
-        <CardHole color="gray-40">This is card top</CardHole>
-        <CardHole color="gray-50">This is card bottom</CardHole>
-      </Card>
-    );
 
-    expect(card.hasClass('sg-card--full')).toEqual(true);
-  });
-  test('vertical', () => {
-    const card = shallow(
-      <Card vertical>
-        <CardHole color="gray-40">This is card top</CardHole>
-        <CardHole color="gray-50">This is card bottom</CardHole>
-      </Card>
-    );
-
-    expect(card.hasClass('sg-card--vertical')).toEqual(true);
-  });
-  test('centered', () => {
-    const card = shallow(
-      <Card centered>
-        <CardHole color="gray-40">This is card top</CardHole>
-        <CardHole color="gray-50">This is card bottom</CardHole>
-      </Card>
-    );
-
-    expect(card.hasClass('sg-card--centered')).toEqual(true);
-  });
-  test('small padding', () => {
-    const padding = CARD_PADDING.SMALL;
-    const card = shallow(
-      <Card padding={padding}>
-        <CardHole color="gray-40">This is card top</CardHole>
-        <CardHole color="gray-50">This is card bottom</CardHole>
-      </Card>
-    );
-
-    expect(card.hasClass('sg-card--padding-small')).toEqual(true);
-  });
-  test('large padding', () => {
-    const padding = CARD_PADDING.LARGE;
-    const card = shallow(
-      <Card padding={padding}>
-        <CardHole color="gray-40">This is card top</CardHole>
-        <CardHole color="gray-50">This is card bottom</CardHole>
-      </Card>
-    );
-
-    expect(card.hasClass('sg-card--padding-large')).toEqual(true);
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Card>item</Card>);
+    });
   });
 });

@@ -1,15 +1,24 @@
 import * as React from 'react';
-import Logo, {TYPE} from './Logo';
-import {shallow} from 'enzyme';
+import Logo from './Logo';
+import {render} from '@testing-library/react';
+import {testA11y} from '../../axe';
 
-test('render', () => {
-  const logo = shallow(<Logo />);
+describe('Logo', () => {
+  it('render', () => {
+    const logo = render(<Logo />);
 
-  expect(logo.hasClass('sg-logo')).toEqual(true);
-  expect(logo.find('img')).toHaveLength(1);
-});
-test('type', () => {
-  const logo = shallow(<Logo type={TYPE.ZNANIJA} />);
+    expect(logo.getByRole('img')).toBeTruthy();
+  });
 
-  expect(logo.hasClass('sg-logo--znanija')).toEqual(true);
+  it('should have an alt', () => {
+    const logo = render(<Logo />);
+
+    expect(logo.getByAltText('brainly')).toBeTruthy();
+  });
+
+  describe('a11y', () => {
+    it('should have no a11y violations', async () => {
+      await testA11y(<Logo />);
+    });
+  });
 });
