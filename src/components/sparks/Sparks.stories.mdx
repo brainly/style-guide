@@ -5,6 +5,8 @@ import SparksA11y from './stories/Sparks.a11y.mdx';
 
 import Sparks from './Sparks';
 import Button from '../buttons/Button';
+import Counter from '../counters/Counter';
+import Text from '../text/Text';
 
 <Meta title="Components/Sparks" component={Sparks} />
 
@@ -119,6 +121,53 @@ import Button from '../buttons/Button';
   </Story>
 </Canvas>
 
+### Placement
+
+<Canvas>
+  <Story name="Placement">
+    {args => (
+      <div
+        style={{
+          background: 'var(--blue-30)',
+          borderRadius: '24px',
+          padding: '4px',
+          width: '300px',
+        }}
+      >
+        <Sparks
+          {...args}
+          variant="l"
+          shape="spark"
+          style={{width: '100%'}}
+          active
+          iterationCount={Infinity}
+          delay={500}
+        >
+          <Button variant="solid-indigo" size="m" fullWidth>
+            Join for free
+          </Button>
+        </Sparks>
+        <Text
+          size="xsmall"
+          weight="bold"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            width: '100%',
+            justifyContent: 'center',
+            padding: '2px',
+          }}
+        >
+          and claim your reward &nbsp;
+          <Counter icon="points" size="xs">
+            +10
+          </Counter>
+        </Text>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
 ### Colors
 
 You can change the color of the sparks by changing the `colors` prop.
@@ -146,7 +195,7 @@ You can change the color of the sparks by changing the `colors` prop.
           delay={500}
         >
           <Button variant="transparent" size="l">
-            SHOW MORE
+            show more
           </Button>
         </Sparks>
       </div>
