@@ -11,10 +11,7 @@
     position: relative;
     min-width: 120px;
     max-width: 320px;
-
-    &--full-width {
-      width: 100%;
-    }
+    width: 100%;
 
     &--disabled {
       pointer-events: none;

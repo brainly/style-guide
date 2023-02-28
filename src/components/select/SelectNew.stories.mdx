@@ -66,13 +66,15 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([]);
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            setSelectedOptions([option]);
-          }}
-        />
+        <div style={{width: '200px'}}>
+          <Select
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
       );
     }}
   </Story>
@@ -83,7 +85,11 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
 <Canvas>
   <Story name="Default expanded">
     {args => {
-      return <Select {...args} defaultExpanded />;
+      return (
+        <div style={{width: '200px'}}>
+          <Select {...args} defaultExpanded />
+        </div>
+      );
     }}
   </Story>
 </Canvas>
@@ -105,13 +111,15 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([]);
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            setSelectedOptions([option]);
-          }}
-        />
+        <div style={{width: '200px'}}>
+          <Select
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
       );
     }}
   </Story>
@@ -140,59 +148,92 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     }}
   >
     {args => {
+      const [selectedOptions, setSelectedOptions] = React.useState({});
       return (
-        <>
-          <Select {...args} />
-          <Select
-            {...args}
-            options={[
-              {
-                value: 'tv',
-                label: 'Usłyszałem',
-                iconName: 'physics',
-              },
-              {value: 'fb', label: 'Media', iconName: 'history'},
-              {
-                value: 'search',
-                label: 'Wyszukiwarka',
-                iconName: 'science',
-              },
-            ]}
-            placeholder="Select something from the list"
-          />
-          <Select
-            {...args}
-            withIcons={false}
-            options={[
-              {
-                value: 'tv',
-                label: '1',
-              },
-              {value: 'fb', label: '2'},
-              {
-                value: 'search',
-                label: '3',
-              },
-            ]}
-            placeholder="Select something from the list"
-          />
-          <Select
-            {...args}
-            withIcons={false}
-            options={[
-              {
-                value: 'tv',
-                label: '1',
-              },
-              {value: 'fb', label: '2'},
-              {
-                value: 'search',
-                label: '3',
-              },
-            ]}
-            placeholder="Age"
-          />
-        </>
+        <Flex direction="column" style={{gap: '20px'}}>
+          <div style={{width: '200px'}}>
+            <Text>With wide popup</Text>
+            <Select
+              {...args}
+              selectedOptions={selectedOptions[0]}
+              onOptionChange={option => {
+                setSelectedOptions({...selectedOptions, 0: [option]});
+              }}
+            />
+          </div>
+          <div style={{width: '400px'}}>
+            <Text>With wide input</Text>
+            <Select
+              {...args}
+              options={[
+                {
+                  value: 'tv',
+                  label: 'Usłyszałem',
+                  iconName: 'physics',
+                },
+                {value: 'fb', label: 'Media', iconName: 'history'},
+                {
+                  value: 'search',
+                  label: 'Wyszukiwarka',
+                  iconName: 'science',
+                },
+              ]}
+              placeholder="Select something from the list"
+              selectedOptions={selectedOptions[1]}
+              onOptionChange={option => {
+                setSelectedOptions({...selectedOptions, 1: [option]});
+              }}
+            />
+          </div>
+          <div style={{width: '600px'}}>
+            <Text>With short popup that stretches to 70% of the input</Text>
+            <Select
+              {...args}
+              withIcons={false}
+              options={[
+                {
+                  value: 'tv',
+                  label: '1',
+                },
+                {value: 'fb', label: '2'},
+                {
+                  value: 'search',
+                  label: '3',
+                },
+              ]}
+              placeholder="Select something from the list"
+              selectedOptions={selectedOptions[2]}
+              onOptionChange={option => {
+                setSelectedOptions({...selectedOptions, 2: [option]});
+              }}
+            />
+          </div>
+          <div>
+            <Text>With short popup</Text>
+            <div style={{width: '120px'}}>
+              <Select
+                {...args}
+                withIcons={false}
+                options={[
+                  {
+                    value: 'tv',
+                    label: '1',
+                  },
+                  {value: 'fb', label: '2'},
+                  {
+                    value: 'search',
+                    label: '3',
+                  },
+                ]}
+                placeholder="Age"
+                selectedOptions={selectedOptions[3]}
+                onOptionChange={option => {
+                  setSelectedOptions({...selectedOptions, 3: [option]});
+                }}
+              />
+            </div>
+          </div>
+        </Flex>
       );
     }}
   </Story>
@@ -216,14 +257,16 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         }
       };
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            handleOptionChange(option);
-          }}
-          multiSelect
-        />
+        <div style={{width: '200px'}}>
+          <Select
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              handleOptionChange(option);
+            }}
+            multiSelect
+          />
+        </div>
       );
     }}
   </Story>
@@ -250,14 +293,16 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         }
       };
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            handleOptionChange(option);
-          }}
-          multiSelect
-        />
+        <div style={{width: '200px'}}>
+          <Select
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              handleOptionChange(option);
+            }}
+            multiSelect
+          />
+        </div>
       );
     }}
   </Story>
@@ -298,16 +343,6 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
           label: 'Wyszukiwarka internetowa',
           iconName: 'science',
         },
-        {
-          value: 'search4',
-          label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
-        },
-        {
-          value: 'search5',
-          label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
-        },
       ],
     }}
   >
@@ -340,14 +375,16 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
               alignItems="center"
               justifyContent="center"
             >
-              <Select
-                {...args}
-                id="selectId"
-                selectedOptions={selectedOptions}
-                onOptionChange={option => {
-                  setSelectedOptions([option]);
-                }}
-              />
+              <div style={{width: '200px'}}>
+                <Select
+                  {...args}
+                  id="selectId"
+                  selectedOptions={selectedOptions}
+                  onOptionChange={option => {
+                    setSelectedOptions([option]);
+                  }}
+                />
+              </div>
             </Flex>
           </div>
         </div>
@@ -388,13 +425,15 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     {args => {
       const [selectedOptions, setSelectedOptions] = React.useState([]);
       return (
-        <Select
-          {...args}
-          selectedOptions={selectedOptions}
-          onOptionChange={option => {
-            setSelectedOptions([option]);
-          }}
-        />
+        <div style={{width: '200px'}}>
+          <Select
+            {...args}
+            selectedOptions={selectedOptions}
+            onOptionChange={option => {
+              setSelectedOptions([option]);
+            }}
+          />
+        </div>
       );
     }}
   </Story>

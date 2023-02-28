@@ -114,13 +114,6 @@ export type SelectPropsType = {
   withIcons?: boolean;
 
   /**
-   * Optional boolean. Set to `true` you want the select to stretch out to the parent full width.
-   * @example <Select fullWidth />
-   * @default false
-   */
-  fullWidth?: boolean;
-
-  /**
    * Optional boolean. Set to `true` if you want to disable select.
    * @example <Select disabled />
    */
@@ -181,7 +174,6 @@ export type SelectPropsType = {
   | 'expanded'
   | 'defaultExpanded'
   | 'withIcons'
-  | 'fullWidth'
   | 'disabled'
   | 'size'
   | 'color'
@@ -205,7 +197,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
       defaultExpanded = undefined,
       withIcons = false,
       multiSelect = false,
-      fullWidth = false,
       size = DEFAULT_SIZE,
       onClick,
       onToggle,
@@ -349,7 +340,6 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         'sg-select-new--selected': selectedOptions.length,
         'sg-select-new--valid': valid,
         'sg-select-new--invalid': invalid,
-        'sg-select-new--full-width': fullWidth,
         'sg-select-new--disabled': disabled,
         [`sg-select-new--${String(size)}`]: size && size !== DEFAULT_SIZE,
         [`sg-select-new--${String(color)}`]: color,
