@@ -119,6 +119,41 @@ import Button from '../buttons/Button';
   </Story>
 </Canvas>
 
+### Colors
+
+You can change the color of the sparks by changing the `colors` prop.
+
+<Canvas>
+  <Story
+    name="Colors"
+    args={{
+      colors: [
+        'var(--indigo-20)',
+        'var(--indigo-30)',
+        'var(--indigo-40)',
+        'var(--indigo-50)',
+      ],
+    }}
+  >
+    {args => (
+      <div>
+        <Sparks
+          {...args}
+          variant="l"
+          shape="spark"
+          active
+          iterationCount={Infinity}
+          delay={500}
+        >
+          <Button variant="transparent" size="l">
+            SHOW MORE
+          </Button>
+        </Sparks>
+      </div>
+    )}
+  </Story>
+</Canvas>
+
 ## Accessibility
 
 <SparksA11y />

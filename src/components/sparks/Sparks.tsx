@@ -80,6 +80,12 @@ export interface SparksPropsType {
    * <Sparks iterationCount={Infinity}/>
    **/
   iterationCount?: number;
+
+  /**
+   * Optional array of strings. Colors of the particles. If not provided, the colors will be chosen based on the shape.
+   * @example <Sparks colors={['var(--indigo-20)', 'var(--indigo-30)', 'var(--indigo-40)', 'var(--indigo-50)']} />
+   **/
+  colors?: [string, string, string, string];
 }
 
 const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
@@ -95,6 +101,7 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
       delay = 0,
       iterationDelay = 500,
       iterationCount = 3,
+      colors,
     }: SparksPropsType,
     ref
   ) => {
@@ -173,7 +180,10 @@ const Sparks = React.forwardRef<HTMLDivElement, SparksPropsType>(
               <Particle
                 key={index}
                 shape={shape}
-                style={{...style, color: shapeColor[colorIndex]}}
+                style={{
+                  ...style,
+                  color: colors?.[colorIndex] || shapeColor[colorIndex],
+                }}
                 {...particle}
                 {...register(animation)}
               />
