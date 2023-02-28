@@ -3,15 +3,23 @@ import Flex from '../flex/Flex';
 import Icon from '../icons/Icon';
 import Text from '../text/Text';
 import Checkbox from '../form-elements/checkbox/Checkbox';
+import PageHeader from 'blocks/PageHeader';
 import {useState} from 'react';
 import classnames from 'classnames';
 import {TabHeaderProps} from './components';
 import Tabs, {Tab, TabsProps} from './Tabs.tsx';
 import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
+import TabsA11y from './stories/Tabs.a11y.mdx';
 
 <Meta
   title="Components/Tabs"
   component={Tabs}
+  subcomponents={{
+    'Tab.Panel': Tab.Panel,
+    'Tab.Header': Tab.Header,
+    'Tab.List': Tab.List,
+    'Tab.ActiveIndicator': Tab.ActiveIndicator,
+  }}
   argTypes={{
     children: {
       control: {
@@ -55,6 +63,9 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
 
 <PageHeader>Tabs</PageHeader>
 
+- [Stories](#stories)
+- [Accessibility](#accessibility)
+
 ## Overview
 
 <Canvas>
@@ -86,6 +97,8 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
     )}
   </Story>
 </Canvas>
+
+<ArgsTable story="Default" />
 
 ## Stories
 
@@ -189,3 +202,7 @@ import {ArgsTable, Meta, Story, Canvas} from '@storybook/addon-docs';
     }}
   </Story>
 </Canvas>
+
+## Accessibility
+
+<TabsA11y />
