@@ -50,7 +50,6 @@ const SelectOption = React.forwardRef<
     }, [isSelected, isHovered, withIcon, iconName]);
 
     const optionState = React.useMemo(() => {
-      if (!(multiSelect || isSelected)) return null;
       let optionState;
 
       if (multiSelect) {

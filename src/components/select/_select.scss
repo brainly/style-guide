@@ -223,7 +223,11 @@
       }
 
       &--multi-select {
-        padding: 8px 4px 8px 12px;
+        padding-right: 4px;
+
+        .sg-select-new__option-state {
+          width: 32px;
+        }
       }
 
       .sg-text {
@@ -244,6 +248,7 @@
 
     &__option-state {
       margin-left: 12px;
+      width: 24px;
     }
   }
 }
