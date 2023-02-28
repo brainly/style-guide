@@ -217,7 +217,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
 
     if (__DEV__) {
       invariant(
-        valid && invalid,
+        !(valid && invalid),
         `Select cannot be valid and invalid at the same time.`
       );
     }
