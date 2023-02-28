@@ -39,7 +39,9 @@ const sparkAnimation: AnimationConfig = {
       },
     },
     {
-      keyframes: [{transform: 'rotate(360deg)'}],
+      keyframes: [
+        {transform: 'rotate(calc(var(--rotation-dir, -1) * 360deg))'},
+      ],
       options: {
         easing: 'linear',
         duration: 5600,
@@ -47,6 +49,25 @@ const sparkAnimation: AnimationConfig = {
         composite: 'add',
       },
     },
+    // keeping here for reference and desiger review
+    // {
+    //   keyframes: [
+    //     {transform: `scale(0)`, offset: 0},
+    //     {transform: `scale(1)`, offset: 0.125},
+    //     {transform: `scale(1)`, offset: 0.5},
+    //     {transform: `scale(0)`, offset: 0.625},
+    //     {transform: `scale(0)`, offset: 1},
+    //   ],
+    //   options: {
+    //     easing: 'linear',
+    //     duration: 4000,
+    //     delay: index => index * 1000,
+    //     direction: 'normal',
+    //     iterations: Infinity,
+    //     composite: 'add',
+    //     fill: 'both',
+    //   },
+    // },
   ],
   exit: [
     {
@@ -229,7 +250,7 @@ export const shapeColorMap: Record<ParticleProps['shape'], string[]> = {
     'var(--yellow-20)',
     'var(--yellow-30)',
     'var(--yellow-40)',
-    'var(--yellow-50)',
+    'var(--yellow-40)',
   ],
   heart: ['var(--red-20)', 'var(--red-30)', 'var(--red-40)', 'var(--red-50)'],
 };
@@ -258,7 +279,9 @@ const layoutVariantL = [
     },
     colorIndex: 2,
     size: 28,
-    animation: {index: 0},
+    animation: {
+      index: 0,
+    },
   },
   {
     style: {
@@ -279,17 +302,21 @@ const layoutVariantL = [
   {
     style: {
       '--particle-dir': 1,
+      '--rotation-dir': 1,
       gridColumn: '2 / span 1',
       gridRow: '2',
       alignSelf: 'self-end',
     },
     colorIndex: 3,
     size: 40,
-    animation: {index: 3},
+    animation: {
+      index: 3,
+    },
   },
   {
     style: {
       '--particle-dir': 1,
+      '--rotation-dir': 1,
       gridColumn: '-3 / span 1',
       gridRow: '2',
       alignSelf: 'self-end',
@@ -327,23 +354,29 @@ const layoutVariantM = [
   },
   {
     style: {
+      '--rotation-dir': 1,
       right: '0px',
       top: '2px',
     },
     colorIndex: 2,
     size: 24,
-    animation: {index: 0},
+    animation: {
+      index: 0,
+    },
   },
   {
     style: {
       '--particle-dir': 1,
+      '--rotation-dir': 1,
       bottom: '0',
       left: '0',
       alignSelf: 'self-end',
     },
     colorIndex: 3,
     size: 28,
-    animation: {index: 3},
+    animation: {
+      index: 3,
+    },
   },
   {
     style: {
@@ -390,19 +423,24 @@ const layoutVariantS = [
     },
     colorIndex: 2,
     size: 20,
-    animation: {index: 0},
+    animation: {
+      index: 0,
+    },
   },
   {
     style: {
       '--particle-dir': 1,
       '--particle-offset': '12px',
+      '--rotation-dir': 1,
       gridColumn: '5 / span 1',
       alignSelf: 'self-end',
       bottom: '-4px',
     },
     colorIndex: 3,
     size: 24,
-    animation: {index: 1},
+    animation: {
+      index: 1,
+    },
   },
 ];
 
