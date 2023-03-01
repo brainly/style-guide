@@ -8,8 +8,9 @@ import {
 
 import {isTouchScreen, __DEV__, invariant, generateId} from '../utils';
 import Icon from '../icons/Icon';
-import type {IconTypeType} from '../subject-icons/SubjectIcon';
 import SubjectIcon from '../subject-icons/SubjectIcon';
+import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
+import type {IconTypeType} from '../icons/Icon';
 import Text from '../text/Text';
 import useSelect from './useSelect';
 import useFloatingSelect from './useFloatingSelect';
@@ -19,7 +20,10 @@ import SelectOption from './SelectOption';
 export type SelectOptionType = {
   value: string;
   label: string;
-  iconName?: IconTypeType;
+  icon?: {
+    name: IconTypeType | SubjectIconTypeType;
+    isSubjectIcon?: boolean;
+  };
 };
 
 export type SelectSizeType = 's' | 'm' | 'l';
@@ -306,26 +310,39 @@ const Select = React.forwardRef<HTMLDivElement, SelectPropsType>(
         );
 
       if (selectedOptions.length === 1) {
-        const {label, iconName} = selectedOptions[0] || {};
+        const {label, icon} = selectedOptions[0] || {};
 
-        if (label) {
-          const displayLabel = (
-            <Text size="small" className="sg-select-new__element-label">
-              {label}
-            </Text>
-          );
+        const displayLabel = (
+          <Text size="small" className="sg-select-new__element-label">
+            {label}
+          </Text>
+        );
 
-          if (withIcons) {
-            return (
-              <>
-                <SubjectIcon size="small" type={iconName} />
-                {displayLabel}
-              </>
+        if (withIcons && icon?.name) {
+          const {name, isSubjectIcon = false} = icon || {};
+
+          let displayedIcon;
+
+          if (isSubjectIcon) {
+            const iconName = name as SubjectIconTypeType;
+
+            displayedIcon = <SubjectIcon size="small" type={iconName} />;
+          } else {
+            const iconName = name as IconTypeType;
+
+            displayedIcon = (
+              <Icon size={24} color="icon-black" type={iconName} />
             );
           }
-
-          return displayLabel;
+          return (
+            <>
+              {displayedIcon}
+              {displayLabel}
+            </>
+          );
         }
+
+        return displayLabel;
       } else {
         const label = [];
 

@@ -102,24 +102,77 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     args={{
       withIcons: true,
       options: [
-        {value: 'physics', label: 'Physics', iconName: 'physics'},
-        {value: 'history', label: 'History', iconName: 'history'},
-        {value: 'science', label: 'Science', iconName: 'science'},
+        {
+          value: 'physics',
+          label: 'Physics',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'history',
+          label: 'History',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
+        {
+          value: 'science',
+          label: 'Science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
+        },
       ],
     }}
   >
     {args => {
-      const [selectedOptions, setSelectedOptions] = React.useState([]);
+      const [selectedOptions, setSelectedOptions] = React.useState({});
       return (
-        <div style={{width: '200px'}}>
+        <Flex direction="column" style={{gap: '20px', width: '200px'}}>
+          With subject icons
           <Select
             {...args}
-            selectedOptions={selectedOptions}
+            selectedOptions={selectedOptions[0]}
             onOptionChange={option => {
-              setSelectedOptions([option]);
+              setSelectedOptions({...selectedOptions, 0: [option]});
             }}
           />
-        </div>
+          With icons
+          <Select
+            {...args}
+            options={[
+              {
+                value: 'physics',
+                label: 'Physics',
+                icon: {
+                  name: 'points',
+                },
+              },
+              {
+                value: 'history',
+                label: 'History',
+                icon: {
+                  name: 'points',
+                },
+              },
+              {
+                value: 'science',
+                label: 'Science',
+                icon: {
+                  name: 'points',
+                },
+              },
+            ]}
+            selectedOptions={selectedOptions[1]}
+            onOptionChange={option => {
+              setSelectedOptions({...selectedOptions, 1: [option]});
+            }}
+          />
+        </Flex>
       );
     }}
   </Story>
@@ -136,13 +189,26 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         {
           value: 'tv',
           label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
-          iconName: 'physics',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
         },
-        {value: 'fb', label: 'Media społecznościowe', iconName: 'history'},
+        {
+          value: 'fb',
+          label: 'Media społecznościowe',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
         {
           value: 'search',
           label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
         },
       ],
     }}
@@ -169,13 +235,26 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
                 {
                   value: 'tv',
                   label: 'Usłyszałem',
-                  iconName: 'physics',
+                  icon: {
+                    name: 'physics',
+                    isSubjectIcon: true,
+                  },
                 },
-                {value: 'fb', label: 'Media', iconName: 'history'},
+                {
+                  value: 'fb',
+                  label: 'Media',
+                  icon: {
+                    name: 'history',
+                    isSubjectIcon: true,
+                  },
+                },
                 {
                   value: 'search',
                   label: 'Wyszukiwarka',
-                  iconName: 'science',
+                  icon: {
+                    name: 'science',
+                    isSubjectIcon: true,
+                  },
                 },
               ]}
               placeholder="Select something from the list"
@@ -320,28 +399,50 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         {
           value: 'tv',
           label: 'Usłyszałem o Brainly w reklamie telewizyjnej w telewizji',
-          iconName: 'physics',
+          icon: {
+            name: 'physics',
+            isSubjectIcon: true,
+          },
         },
-        {value: 'fb', label: 'Media społecznościowe', iconName: 'history'},
+        {
+          value: 'fb',
+          label: 'Media społecznościowe',
+          icon: {
+            name: 'history',
+            isSubjectIcon: true,
+          },
+        },
         {
           value: 'search',
           label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
         },
         {
           value: 'search1',
           label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
         },
         {
           value: 'search2',
           label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
         },
         {
           value: 'search3',
           label: 'Wyszukiwarka internetowa',
-          iconName: 'science',
+          icon: {
+            name: 'science',
+            isSubjectIcon: true,
+          },
         },
       ],
     }}
@@ -451,13 +552,26 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
         {
           value: 'art',
           label: 'Art',
-          iconName: 'art',
+          icon: {
+            name: 'art',
+            isSubjectIcon: true,
+          },
         },
-        {value: 'math', label: 'Math', iconName: 'mathematics'},
+        {
+          value: 'math',
+          label: 'Math',
+          icon: {
+            name: 'mathematics',
+            isSubjectIcon: true,
+          },
+        },
         {
           value: 'biology',
           label: 'Biology',
-          iconName: 'biology',
+          icon: {
+            name: 'biology',
+            isSubjectIcon: true,
+          },
         },
       ],
     }}
@@ -626,11 +740,21 @@ import {StoryVariant, StoryVariantTable} from '../../docs/utils';
     args={{
       withIcons,
       options: [
-        {value: 'art', label: 'Astronomy is great', iconName: 'art'},
+        {
+          value: 'art',
+          label: 'Astronomy is great',
+          icon: {
+            name: 'art',
+            isSubjectIcon: true,
+          },
+        },
         {
           value: 'math',
           label: 'Mathematics is my fav',
-          iconName: 'mathematics',
+          icon: {
+            name: 'mathematics',
+            isSubjectIcon: true,
+          },
         },
       ],
     }}

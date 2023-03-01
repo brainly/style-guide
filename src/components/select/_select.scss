@@ -52,7 +52,7 @@
     }
 
     &--l {
-      .sg-select-new__icon {
+      .sg-select-new__element-icon {
         right: 12px;
       }
 
@@ -103,7 +103,8 @@
         transform: rotate(-180deg);
       }
 
-      .sg-subject-icon {
+      .sg-subject-icon,
+      .sg-icon {
         margin-right: 12px;
       }
     }
@@ -111,6 +112,10 @@
     &__element-icon {
       position: absolute;
       right: 8px;
+
+      .sg-icon {
+        margin-right: 0;
+      }
 
       &.animate-on-transforms {
         transition: transform $durationGentle1 $easingRegular;
@@ -232,7 +237,8 @@
         font-size: 16px;
       }
 
-      .sg-subject-icon {
+      .sg-subject-icon,
+      .sg-icon {
         margin-right: 12px;
       }
     }

@@ -2,6 +2,9 @@ import * as React from 'react';
 import classnames from 'classnames';
 
 import {SelectOptionType} from './Select';
+import type {IconTypeType as SubjectIconTypeType} from '../subject-icons/SubjectIcon';
+import type {IconTypeType} from '../icons/Icon';
+
 import SubjectIcon from '../subject-icons/SubjectIcon';
 import Icon from '../icons/Icon';
 import Checkbox from '../form-elements/checkbox/Checkbox';
@@ -30,7 +33,7 @@ const SelectOption = React.forwardRef<
     ref
   ) => {
     const [isHovered, setIsHovered] = React.useState(false);
-    const {value, label, iconName} = option;
+    const {value, label, icon} = option;
 
     const classNames = classnames('sg-select-new__option', {
       'sg-select-new__option--selected': isSelected,
@@ -38,16 +41,32 @@ const SelectOption = React.forwardRef<
       'sg-select-new__option--multi-select': multiSelect,
     });
 
-    const icon = React.useMemo(() => {
-      if (!withIcon || !iconName) return null;
+    const displayedIcon = React.useMemo(() => {
+      const {name, isSubjectIcon = false} = icon || {};
 
-      if (isSelected || isHovered)
-        return <SubjectIcon size="small" type={iconName} />;
-      else
+      if (!withIcon || (withIcon && !name)) return null;
+      if (isSubjectIcon) {
+        const subjectIconName = name as SubjectIconTypeType;
+
         return (
-          <SubjectIcon size="small" monoColor="icon-gray-50" type={iconName} />
+          <SubjectIcon
+            size="small"
+            monoColor={isSelected || isHovered ? null : 'icon-gray-50'}
+            type={subjectIconName}
+          />
         );
-    }, [isSelected, isHovered, withIcon, iconName]);
+      } else {
+        const regularIconName = name as IconTypeType;
+
+        return (
+          <Icon
+            size={24}
+            color={isSelected || isHovered ? 'icon-black' : 'icon-gray-50'}
+            type={regularIconName}
+          />
+        );
+      }
+    }, [isSelected, isHovered, withIcon, icon]);
 
     const optionState = React.useMemo(() => {
       let optionState;
@@ -73,7 +92,7 @@ const SelectOption = React.forwardRef<
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="sg-select-new__option-label">
-          {icon}
+          {displayedIcon}
           <Text size="small" weight="bold" breakWords>
             {label}
           </Text>
