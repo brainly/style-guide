@@ -214,7 +214,12 @@
       justify-content: space-between;
       border-radius: $borderRadiusDefault;
       cursor: default;
-      transition: background-color $durationModerate1 $easingLinear;
+      transition: background-color $durationModerate1 $easingLinear,
+        transform $durationModerate2 $easingRegular;
+
+      &:active:not([disabled]) {
+        transform: scale(0.96);
+      }
 
       &:hover {
         background-color: $gray-10;
